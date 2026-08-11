@@ -1,7 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
+import {
+  buildPageMetadata,
+  blogJsonLd,
+  breadcrumbJsonLd,
+  faqPageJsonLd,
+  compactMetaTitle,
+} from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
@@ -9,19 +15,15 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
-import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { AFFILIATE_TAGS } from '@/config/affiliate'
-
-// ─── Article metadata ─────────────────────────────────────────────────────────
 
 const SLUG = 'natural-anxiety-relief'
-const TITLE = 'Natural Anxiety Relief: Evidence-Ranked Herbs and Supplements'
+const TITLE = 'Natural Anxiety Relief: What the Evidence Supports in 2026'
 const DESCRIPTION =
-  'A practical evidence-ranked guide to natural anxiety relief, including ashwagandha, L-theanine, magnesium, CBD, passionflower, valerian, kava, saffron, and safety considerations.'
-const DATE = '2026-06-09'
+  'An evidence-first guide to natural anxiety and stress supplements, including ashwagandha, L-theanine, magnesium, passionflower, and kava — with current evidence limits, safety context, and decision guidance.'
+const DATE = '2026-08-11'
 const AUTHOR = 'Will'
-const READING_TIME = '16 min read'
-const TAGS = ['anxiety', 'herbs', 'supplements', 'natural anxiety relief', 'adaptogens']
+const READING_TIME = '13 min read'
+const TAGS = ['anxiety', 'stress', 'supplements', 'herbs', 'evidence']
 const CATEGORY = 'anxiety'
 
 export const metadata = buildPageMetadata({
@@ -31,42 +33,91 @@ export const metadata = buildPageMetadata({
   openGraphType: 'article',
 })
 
-// ─── FAQ data (also used for JSON-LD) ────────────────────────────────────────
-
 const FAQS = [
   {
     question: 'What is the best natural supplement for anxiety?',
     answer:
-      'There is no single best option for everyone. Ashwagandha has the strongest human clinical evidence for reducing perceived stress and anxiety symptoms in adults with elevated stress. L-theanine is a well-tolerated option for mild, situational anxiety and racing thoughts. Magnesium glycinate is a reasonable baseline for most people given its role in nervous system regulation. The right choice depends on your specific anxiety pattern, severity, and any medications you take.',
+      'There is no evidence-based universal winner. Ashwagandha has repeated-dose human trials in stressed adults, but formulations, populations, and outcomes vary. L-theanine has short-term cognitive and stress data, while a 2026 meta-analysis found anxiety effects inconsistent overall. Magnesium evidence is suggestive but heterogeneous. Match the evidence to the outcome you care about and review safety and medication interactions before using a supplement.',
   },
   {
-    question: 'What herb works fastest for anxiety?',
+    question: 'What natural supplement works fastest for anxiety?',
     answer:
-      'L-theanine may produce noticeable calming effects within an hour at doses of 100–200 mg, making it the fastest-acting option on this list. Passionflower tea may also produce mild relaxation relatively quickly. Ashwagandha and saffron require weeks of consistent use to show meaningful effect — they are not suitable for acute anxiety relief.',
-  },
-  {
-    question: 'Can I take anxiety supplements with antidepressants?',
-    answer:
-      'This requires individual medical guidance. Kava is contraindicated with many psychiatric and hepatotoxic medications. Saffron has serotonergic activity and should not be combined with SSRIs or MAOIs without clinician oversight due to serotonin syndrome risk. Ashwagandha, L-theanine, and magnesium have lower known interaction risk, but any supplement use alongside psychiatric medications should be disclosed to your prescribing clinician. Do not stop prescribed medications to try natural alternatives.',
-  },
-  {
-    question: 'Is ashwagandha good for anxiety?',
-    answer:
-      'Yes — ashwagandha has some of the best clinical evidence among natural supplements for reducing perceived stress and anxiety in adults. Multiple randomized controlled trials show significant reductions in anxiety scale scores and cortisol levels after 6–8 weeks at 300–600 mg/day (KSM-66 or Sensoril extract). It is most useful for chronic, stress-driven anxiety rather than acute episodes. Effects take weeks to build.',
+      'Current evidence does not establish a reliable fastest natural anxiolytic. Some supplements have been studied after single doses or over short windows, but an acute attention or stress response is not the same as demonstrated relief of anxiety. If you need rapid help for severe or escalating anxiety, supplements are not a dependable substitute for professional care.',
   },
   {
     question: 'Is L-theanine good for anxiety?',
     answer:
-      'L-theanine, an amino acid found in green tea, promotes relaxed alertness and may reduce the subjective experience of stress and anxious arousal without causing sedation. Small trials suggest benefit for mild anxiety and stress; it is well-tolerated, interacts minimally with other supplements, and may produce noticeable effects on the same day at 100–200 mg. Evidence quality is limited compared to ashwagandha, but the safety profile is very favorable.',
+      'The evidence is mixed. A 2026 meta-analysis of 31 randomized trials found a short-term attention signal and a modest acute-stress effect, but anxiety effects were inconsistent and generally non-significant. That does not support calling L-theanine a reliable fast-acting anxiety treatment.',
   },
   {
-    question: 'When should anxiety be treated medically?',
+    question: 'Is ashwagandha good for anxiety?',
     answer:
-      'Seek professional care if your anxiety is significantly impairing your daily function, relationships, or work; if you experience panic attacks; if anxiety is accompanied by suicidal thoughts or self-harm urges; if symptoms persist for more than a few weeks despite self-management attempts; or if you are already taking psychiatric medications. Natural supplements are not appropriate as the sole treatment for anxiety disorders, panic disorder, PTSD, or OCD. Cognitive behavioral therapy (CBT) has the strongest evidence base for anxiety disorders.',
+      'Recent meta-analyses report reductions in stress and anxiety measures across repeated-dose trials, but the studies vary in extract, dose, duration, population, and risk of bias. Ashwagandha is better treated as an option with a human evidence signal than as a guaranteed treatment, and its liver, thyroid, autoimmune, and pregnancy cautions matter.',
+  },
+  {
+    question: 'Can I take anxiety supplements with antidepressants or other medications?',
+    answer:
+      'Do not assume a supplement is interaction-free. Interaction risk depends on the specific supplement, medication, dose, liver and kidney function, and other health factors. Kava has important liver and sedative cautions; magnesium can interfere with absorption of some medicines; and many herbs have incompletely characterized interaction data. Review the combination with a clinician or pharmacist before adding a supplement to psychiatric medication.',
+  },
+  {
+    question: 'When should anxiety be treated professionally?',
+    answer:
+      'Seek professional evaluation when anxiety is persistent, worsening, causing panic, interfering with work or relationships, or significantly limiting daily life. Complementary approaches have not been proven to treat anxiety disorders and should not replace established care for a diagnosed or severe condition.',
   },
 ]
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
+const SOURCES = [
+  {
+    label: 'Ashwagandha stress and anxiety systematic review and meta-analysis (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/39348746/',
+    note: 'Nine randomized trials and 558 participants; pooled signal with important differences in products, populations, and outcomes.',
+  },
+  {
+    label: 'Ashwagandha extract randomized stress trial (2020)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/32021735/',
+    note: '60 otherwise healthy adults with elevated perceived stress; 125 mg or 300 mg root extract twice daily versus placebo for 8 weeks.',
+  },
+  {
+    label: 'L-theanine randomized-trial systematic review and meta-analysis (2026)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/42410082/',
+    note: '31 randomized trials and 1,168 participants across healthy and clinical populations; task-specific cognitive findings, modest acute-stress signal, inconsistent anxiety findings.',
+  },
+  {
+    label: 'Magnesium anxiety and sleep systematic review (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/38817505/',
+    note: '15 interventional studies; conclusions limited by small samples, heterogeneous populations, formulations, doses, and durations.',
+  },
+  {
+    label: 'Magnesium randomized crossover trial in premenstrual symptoms (1998)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/9861593/',
+    note: '38 women; 200 mg magnesium as magnesium oxide versus placebo across two menstrual cycles; no improvement in the anxiety symptom category.',
+  },
+  {
+    label: 'NCCIH: Passionflower usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/passionflower',
+    note: 'Small amount of human research; conclusions about anxiety are not definite; pregnancy and sedation cautions.',
+  },
+  {
+    label: 'Passionflower preoperative-anxiety randomized trial (2008)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/18499602/',
+    note: '60 ambulatory-surgery patients; 500 mg oral Passiflora incarnata versus placebo 90 minutes before surgery.',
+  },
+  {
+    label: 'NCCIH: Kava usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/kava',
+    note: 'Possible anxiety benefit in some contexts, substantial uncertainty, and rare but potentially severe liver injury.',
+  },
+  {
+    label: 'Kava for generalized anxiety disorder randomized trial (2020)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/31813230/',
+    note: '171 currently non-medicated adults with generalized anxiety disorder; standardized aqueous dried-root extract delivering 120 mg kavalactones twice daily versus placebo for 16 weeks.',
+  },
+  {
+    label: 'NIH Office of Dietary Supplements: Magnesium fact sheet',
+    href: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/',
+    note: 'Supplement safety, upper limits, kidney-risk context, and medication interactions.',
+  },
+]
 
 export default function NaturalAnxietyReliefPage() {
   const pageBreadcrumb = breadcrumbJsonLd([
@@ -80,44 +131,43 @@ export default function NaturalAnxietyReliefPage() {
   )
 
   const faqLd = faqPageJsonLd({ pagePath: `/guides/anxiety/${SLUG}/`, questions: FAQS })
+  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')?.products ?? []
+  const theanineProducts = getRevenueProductSet('l-theanine')?.products ?? []
 
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      {/* JSON-LD */}
       <JsonLd schema={articleLd} />
       <JsonLd schema={pageBreadcrumb} />
-      {faqLd && (
-        <JsonLd schema={faqLd} />
-      )}
+      {faqLd && <JsonLd schema={faqLd} />}
 
-      {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
         <Link href="/guides/" className="transition hover:text-ink">
           Guides
         </Link>
         <span>/</span>
-        <span className="text-ink line-clamp-1">{TITLE}</span>
+        <Link href="/guides/anxiety/" className="transition hover:text-ink">
+          Anxiety
+        </Link>
+        <span>/</span>
+        <span className="line-clamp-1 text-ink">Natural Anxiety Relief</span>
       </nav>
 
-      {/* Hero */}
       <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2 text-xs">
           <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
-            Hub Guide
+            Evidence-first guide
           </span>
-          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize">
+          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold capitalize text-muted">
             {CATEGORY}
           </span>
-          {TAGS.slice(0, 2).map((tag) => (
+          {TAGS.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize"
+              className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold capitalize text-muted"
             >
               {tag}
             </span>
           ))}
-          <span className="text-muted">June 9, 2026</span>
-          <span className="text-muted">·</span>
           <span className="text-muted">{READING_TIME}</span>
         </div>
 
@@ -133,1202 +183,354 @@ export default function NaturalAnxietyReliefPage() {
         </p>
 
         <div className="mt-3">
-          <LastUpdatedBadge date={DATE} label="Last updated" />
+          <LastUpdatedBadge date={DATE} label="Last evidence review" />
         </div>
 
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
 
         <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <Image
               src="/images/guides/natural-anxiety-relief.jpg"
-              alt="Calming herbs including lavender, chamomile, and passionflower with supplements for natural anxiety relief"
+              alt="Calming herbs including lavender, chamomile, and passionflower with supplements used for stress and anxiety support"
               width={1536}
               height={1024}
               priority
-              className="w-full h-auto"
+              className="h-auto w-full"
             />
           </div>
           <figcaption className="mt-3 text-center text-sm text-muted">
-            Common natural options for anxiety relief — each works differently.
+            Human evidence differs sharply by ingredient, outcome, preparation, and study population.
           </figcaption>
         </figure>
       </section>
 
-      {/* Affiliate disclosure */}
       <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 px-5 py-3 text-xs leading-6 text-muted">
         <strong className="text-ink">Affiliate disclosure:</strong> This article contains affiliate
-        links. If you purchase through these links, we may earn a commission at no additional cost to
-        you. We only link to products consistent with the evidence reviewed on this page.
+        links. Product links are sourcing examples, not evidence that a product will treat anxiety.
+        If you purchase through an affiliate link, we may earn a commission at no additional cost to you.
       </div>
 
-      {/* Body + sidebar */}
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
-        {/* Main content */}
         <div className="space-y-6">
-
-          {/* Fastest useful choice */}
-          <section className="rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm sm:p-8">
-            <p className="eyebrow-label">Fastest useful choice</p>
+          <section
+            id="bottom-line"
+            className="rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm sm:p-8"
+          >
+            <p className="eyebrow-label">Evidence bottom line</p>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-              If you only try one thing: L-theanine
-            </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-              <strong>L-theanine (100–200 mg) is the fastest useful choice for situational or
-              racing-thought anxiety.</strong> Effects typically within 30–60 minutes, no sedation,
-              no dependency. It is a calming amino acid, not a sedative, and it stacks cleanly with
-              magnesium or ashwagandha. For chronic stress-driven anxiety that builds over weeks,
-              add{' '}
-              <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
-                ashwagandha
-              </Link>{' '}
-              (KSM-66 or Sensoril, 300–600&nbsp;mg/day). See the{' '}
-              <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:underline">
-                full L-theanine guide
-              </Link>
-              , the{' '}
-              <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
-                ashwagandha guide
-              </Link>
-              , and the{' '}
-              <Link href="/guides/anxiety/anxiety-stack-guide/" className="font-semibold text-brand-700 hover:underline">
-                anxiety stack guide
-              </Link>
-              .
-            </p>
-          </section>
-
-          {/* Quick Verdict */}
-          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
-            <p className="eyebrow-label">Quick Verdict</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-              Which Anxiety Supplement Should You Start With?
+              There is no evidence-based “fastest” or universally best anxiety supplement
             </h2>
             <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
               <p>
-                <strong>Best for stress-driven anxiety: Ashwagandha.</strong> The strongest
-                clinical evidence among natural supplements for chronic, stress-related anxiety.
-                Requires 6–8 weeks of consistent use to show meaningful benefit.
+                The biggest mistake in this category is treating <strong>stress, acute stress,
+                racing thoughts, and an anxiety disorder as the same outcome.</strong> They are not.
+                A supplement can change a laboratory stress measure or attention task without proving
+                that it reliably relieves anxiety.
               </p>
               <p>
-                <strong>Best for racing thoughts and calm focus: L-theanine.</strong> Promotes
-                relaxed alertness without sedation. Well-tolerated, fast-acting, and suitable for
-                daytime use or situational anxiety.
-              </p>
-              <p>
-                <strong>Best baseline mineral support: Magnesium.</strong> Broadly applicable,
-                low risk, and plausibly relevant to nervous system regulation. A reasonable
-                first-line supplement for most people.
-              </p>
-              <p>
-                <strong>Best gentle herbal option: Passionflower.</strong> Modest evidence for
-                mild anxiety and anxiety-related sleep difficulty. Well-tolerated and available
-                as a tea.
-              </p>
-              <p>
-                <strong>Strongest traditional anxiolytic herb, but higher caution: Kava.</strong>{' '}
-                Meaningful clinical evidence for anxiety reduction, but liver toxicity risk and
-                sedative drug interactions require serious consideration.
-              </p>
-              <p className="rounded-[0.75rem] border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
-                <strong>Important:</strong> Natural supplements are not appropriate as the sole
-                treatment for severe anxiety, panic disorder, suicidal thoughts, or significant
-                functional impairment. These conditions require professional care.
+                Recent evidence gives <strong>ashwagandha a repeated-dose stress/anxiety signal</strong>,
+                but trials vary substantially. The July 2026 L-theanine meta-analysis found a
+                task-specific short-term cognitive signal and modest acute-stress effect while anxiety
+                findings remained inconsistent. Magnesium evidence is suggestive but heterogeneous;
+                passionflower evidence is small and uncertain; and kava carries enough liver and
+                sedative risk that it should not be treated as a casual first-line option.
               </p>
             </div>
           </section>
 
-          {/* Main article body */}
-          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-8">
-
-            {/* Ranking table */}
-            <div id="ranking-table">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Anxiety Supplements Ranked by Evidence
-              </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
-                The table below ranks the most commonly used herbs and supplements for anxiety by
-                quality of human clinical evidence, anxiety-specific outcomes, safety profile, and
-                practical usefulness. Rankings are based on available evidence as of the date of
-                this article — not traditional reputation or popularity.
-              </p>
-
-              <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <ResponsiveTable label="Evidence-ranked anxiety herbs and supplements">
-                  <table className="min-w-[700px] w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-brand-900/10">
-                        <th className="pb-2 pr-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Rank
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Herb / Supplement
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Evidence Level
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Best For
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Main Caution
-                        </th>
-                        <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Full Guide
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-brand-900/5">
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">1</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                        <td className="py-3 pr-4 text-muted">Moderate</td>
-                        <td className="py-3 pr-4 text-muted">Chronic stress-driven anxiety, cortisol reduction</td>
-                        <td className="py-3 pr-4 text-muted">Rare hepatotoxicity; avoid in pregnancy</td>
-                        <td className="py-3">
-                          <Link
-                            href="/guides/herbs/ashwagandha/"
-                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                          >
-                            Full guide →
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">2</td>
-                        <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
-                        <td className="py-3 pr-4 text-muted">Limited–Moderate</td>
-                        <td className="py-3 pr-4 text-muted">Mild anxiety, racing thoughts, situational stress</td>
-                        <td className="py-3 pr-4 text-muted">Minimal; very well-tolerated</td>
-                        <td className="py-3">
-                          <Link
-                            href="/guides/herbs/l-theanine/"
-                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                          >
-                            Full guide →
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">3</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Magnesium</td>
-                        <td className="py-3 pr-4 text-muted">Limited</td>
-                        <td className="py-3 pr-4 text-muted">Nervous system baseline support, muscle tension</td>
-                        <td className="py-3 pr-4 text-muted">Kidney disease; GI upset at high doses</td>
-                        <td className="py-3">
-                          <Link
-                            href="/guides/sleep/magnesium-for-sleep/"
-                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                          >
-                            Sleep guide →
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">4</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Passionflower</td>
-                        <td className="py-3 pr-4 text-muted">Limited</td>
-                        <td className="py-3 pr-4 text-muted">Mild anxiety, anxiety-adjacent sleep difficulty</td>
-                        <td className="py-3 pr-4 text-muted">Avoid with sedatives; caution in pregnancy</td>
-                        <td className="py-3">
-                          <Link
-                            href="/guides/passionflower/"
-                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                          >
-                            Full guide →
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">5</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Saffron</td>
-                        <td className="py-3 pr-4 text-muted">Limited–Moderate</td>
-                        <td className="py-3 pr-4 text-muted">Mood/anxiety overlap, mild depression</td>
-                        <td className="py-3 pr-4 text-muted">Serotonergic activity; caution with SSRIs</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">6</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Kava</td>
-                        <td className="py-3 pr-4 text-muted">Moderate</td>
-                        <td className="py-3 pr-4 text-muted">Generalized anxiety, acute anxiolytic effect</td>
-                        <td className="py-3 pr-4 text-muted">Hepatotoxicity risk; avoid with alcohol/sedatives</td>
-                        <td className="py-3">
-                          <Link
-                            href="/guides/kava/"
-                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                          >
-                            Full guide →
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-muted">7</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Valerian</td>
-                        <td className="py-3 pr-4 text-muted">Mixed / weak</td>
-                        <td className="py-3 pr-4 text-muted">Anxiety-adjacent insomnia, mild sedation</td>
-                        <td className="py-3 pr-4 text-muted">Sedation; avoid with CNS depressants</td>
-                        <td className="py-3">
-                          <Link
-                            href="/guides/sleep/best-herbs-for-sleep/"
-                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                          >
-                            Sleep hub →
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-muted">8</td>
-                        <td className="py-3 pr-4 font-medium text-ink">CBD</td>
-                        <td className="py-3 pr-4 text-muted">Limited (preliminary)</td>
-                        <td className="py-3 pr-4 text-muted">Stress, social anxiety (small trials)</td>
-                        <td className="py-3 pr-4 text-muted">Drug interactions; quality variation</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </ResponsiveTable>
+          <section id="choose" className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">Start with the question</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              Match the evidence to what you are actually trying to change
+            </h2>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+                <h3 className="font-semibold text-ink">Ongoing stress with anxiety symptoms</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  Ashwagandha has repeated-dose trial data, but the evidence is not a guarantee and
+                  does not make every extract interchangeable.
+                </p>
+                <Link href="/guides/anxiety/ashwagandha-for-anxiety/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
+                  Review ashwagandha evidence →
+                </Link>
               </div>
+              <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+                <h3 className="font-semibold text-ink">Situational stress or racing thoughts</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  L-theanine is studied in short-term cognitive and stress paradigms, but current
+                  pooled evidence does not establish reliable acute anxiety relief.
+                </p>
+                <Link href="/guides/anxiety/l-theanine-for-anxiety/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
+                  Review L-theanine evidence →
+                </Link>
+              </div>
+              <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+                <h3 className="font-semibold text-ink">Possible low magnesium status</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  Magnesium is biologically important and some trials report anxiety improvements,
+                  but formulation, baseline status, and study quality make a universal anxiety claim
+                  inappropriate.
+                </p>
+                <Link href="/guides/other/magnesium-types-guide/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
+                  Compare magnesium forms →
+                </Link>
+              </div>
+              <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+                <h3 className="font-semibold text-ink">You prefer an herbal option</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  Passionflower has only a small amount of human research. Kava has more anxiety
+                  research but substantially more safety baggage, including rare serious liver injury.
+                </p>
+                <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
+                  Compare anxiety herbs →
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          <section id="evidence" className="space-y-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <div>
+              <p className="eyebrow-label">Human evidence</p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+                What the main options actually have behind them
+              </h2>
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
+                These summaries intentionally separate an evidence signal from a treatment claim.
+                Study populations, preparations, durations, and outcome scales determine how far a
+                result can reasonably be generalized.
+              </p>
+            </div>
+
+            <div id="ashwagandha">
+              <EvidenceSummaryCard
+                title="Ashwagandha — repeated-dose stress/anxiety signal"
+                evidenceLevel="Moderate"
+                humanEvidence="The 2024 meta-analysis included nine randomized trials and 558 participants. A representative 8-week placebo-controlled trial enrolled 60 otherwise healthy adults with elevated perceived stress and compared 125 mg or 300 mg ashwagandha root extract twice daily with placebo. Those extract-specific stress and anxiety results should not be generalized to every ashwagandha product or to diagnosed anxiety disorders."
+                mechanisticEvidence="Cortisol and HPA-axis findings are biologically interesting, but biomarker changes are not interchangeable with a clinically meaningful anxiety response."
+                safetyProfile="Short-term trials often report tolerability, but rare liver injury has been reported. Pregnancy, thyroid disease or thyroid medication, autoimmune disease, and sedating medications deserve extra caution."
+              />
+              <p className="mt-3 text-sm leading-7 text-muted">
+                <strong>Useful interpretation:</strong> ashwagandha is one of the more directly
+                studied supplements for repeated stress/anxiety symptoms, but “strongest” or “best”
+                labels hide the uncertainty between products and populations. Read the{' '}
+                <Link href="/guides/anxiety/ashwagandha-for-anxiety/" className="font-semibold text-brand-700 hover:underline">
+                  dedicated anxiety guide
+                </Link>{' '}
+                before treating a trial dose as a personal recommendation.
+              </p>
             </div>
 
             <hr className="border-brand-900/10" />
 
-            {/* How We Ranked */}
-            <div id="how-we-ranked">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                How We Ranked These Options
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Rankings are not based on popularity, traditional reputation, or marketing claims.
-                The criteria used, in rough order of weight:
+            <div id="l-theanine">
+              <EvidenceSummaryCard
+                title="L-Theanine — task-specific short-term evidence"
+                evidenceLevel="Limited"
+                humanEvidence="The 2026 meta-analysis included 31 randomized trials and 1,168 participants comparing oral L-theanine with placebo across healthy and clinical populations. Its primary acute-stress analysis focused on single doses in healthy adults; 200 mg given 30–60 minutes before cognitive testing improved choice reaction time, while the acute-stress effect was modest and sensitive to study bias. Anxiety findings were inconsistent overall; the clinical anxiety signal highlighted in the review used 400 mg/day for 8 weeks in people with psychotic disorders."
+                mechanisticEvidence="Neurophysiology and neurotransmitter findings can support plausibility, but they do not establish a predictable onset or clinically meaningful anxiety benefit."
+                safetyProfile="Trials generally report good short-term tolerability, but interaction and long-term data are less complete than marketing often implies."
+              />
+              <p className="mt-3 text-sm leading-7 text-muted">
+                <strong>Useful interpretation:</strong> the evidence does not justify calling
+                L-theanine the fastest natural anxiolytic, promising a 30–60 minute anxiety response,
+                or treating combinations with other calming products as automatically low-risk. See the{' '}
+                <Link href="/guides/anxiety/l-theanine-for-anxiety/" className="font-semibold text-brand-700 hover:underline">
+                  current L-theanine anxiety review
+                </Link>{' '}
+                for the population and outcome details.
               </p>
-              <ul className="mt-3 ml-5 space-y-2 list-disc text-[1.01rem] leading-[1.85] text-muted">
+            </div>
+
+            <hr className="border-brand-900/10" />
+
+            <div id="magnesium">
+              <EvidenceSummaryCard
+                title="Magnesium — suggestive, heterogeneous evidence"
+                evidenceLevel="Limited"
+                humanEvidence="The 2024 review included 15 interventional studies: seven measured anxiety and one measured both anxiety and sleep. Populations, formulations, doses, comparators, and durations varied, and some products contained additional active ingredients. A representative randomized double-blind crossover trial in 38 women compared 200 mg magnesium as magnesium oxide with placebo across two menstrual cycles and did not improve the anxiety symptom category."
+                mechanisticEvidence="Magnesium is essential for normal nerve and muscle function. Biological necessity does not mean supplementation will improve anxiety in a person who is already magnesium-replete."
+                safetyProfile="Supplemental magnesium can cause gastrointestinal effects and interacts with some medicines. Toxicity risk rises when kidney function is impaired."
+              />
+              <p className="mt-3 text-sm leading-7 text-muted">
+                <strong>Useful interpretation:</strong> magnesium is not a universal “first-line”
+                anxiety supplement. Baseline intake, medical conditions, medication timing, and the
+                amount of <em>elemental</em> magnesium matter more than a trendy form name.
+              </p>
+            </div>
+
+            <hr className="border-brand-900/10" />
+
+            <div id="passionflower">
+              <EvidenceSummaryCard
+                title="Passionflower — small and uncertain evidence base"
+                evidenceLevel="Limited"
+                humanEvidence="NCCIH characterizes the evidence as small and inconclusive. In one randomized double-blind trial, 60 ambulatory-surgery patients received 500 mg oral Passiflora incarnata or placebo 90 minutes before surgery; preoperative anxiety scores were lower with passionflower, but that procedural setting does not establish ongoing treatment of an anxiety disorder."
+                mechanisticEvidence="Preclinical GABA-related hypotheses are not a substitute for adequately powered human trials."
+                safetyProfile="Possible drowsiness, dizziness, and confusion. NCCIH advises against use during pregnancy and notes potential concerns around anesthesia and other medicines."
+              />
+              <p className="mt-3 text-sm leading-7 text-muted">
+                <strong>Useful interpretation:</strong> passionflower is better described as an
+                uncertain herbal option than a proven gentle anxiolytic. Product standardization and
+                preparation also vary.
+              </p>
+            </div>
+
+            <hr className="border-brand-900/10" />
+
+            <div id="kava">
+              <EvidenceSummaryCard
+                title="Kava — mixed efficacy with meaningful safety concerns"
+                evidenceLevel="Limited"
+                humanEvidence="A 2020 phase III trial enrolled 171 currently non-medicated adults with diagnosed generalized anxiety disorder and compared a standardized aqueous dried-root kava extract delivering 120 mg kavalactones twice daily with placebo for 16 weeks. Kava was not significantly better than placebo on the primary anxiety outcome, and liver-test abnormalities were more frequent in the kava group."
+                mechanisticEvidence="Kavalactones have pharmacologic activity, but mechanism does not resolve the conflicting efficacy findings or safety concerns."
+                safetyProfile="Kava products have been linked to rare cases of serious and sometimes fatal liver injury. Kava should not be combined with alcohol or other sedating substances."
+              />
+              <p className="mt-3 text-sm leading-7 text-muted">
+                <strong>Useful interpretation:</strong> calling kava the “strongest acute herbal
+                anxiolytic” overstates the current clinical picture. The benefit signal is mixed and
+                the safety downside is large enough to change the decision.
+              </p>
+            </div>
+          </section>
+
+          <section id="what-not-to-conclude" className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">Evidence traps</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              What not to conclude from supplement research
+            </h2>
+            <ul className="mt-4 ml-5 list-disc space-y-3 text-[1.01rem] leading-[1.8] text-muted">
+              <li>
+                <strong>A cortisol change is not automatically anxiety relief.</strong> Biomarkers
+                can move without a meaningful change in how a person feels or functions.
+              </li>
+              <li>
+                <strong>An acute lab stress task is not an anxiety disorder.</strong> Evidence from
+                healthy volunteers under short-term stress has limited directness for clinical anxiety.
+              </li>
+              <li>
+                <strong>A branded extract is not interchangeable with every product bearing the same
+                ingredient name.</strong> Extraction, standardization, dose, and contaminants matter.
+              </li>
+              <li>
+                <strong>“Natural” does not mean interaction-free.</strong> Liver, kidney, sedation,
+                pregnancy, and medication context can completely change the risk-benefit balance.
+              </li>
+              <li>
+                <strong>More supplements are not automatically better.</strong> Combining several
+                calming products makes side effects and attribution harder to interpret.
+              </li>
+            </ul>
+          </section>
+
+          <section id="care" className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">When supplements are the wrong tool</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              Persistent or impairing anxiety deserves established care
+            </h2>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
+              Complementary approaches can be discussed alongside conventional care, but they have
+              not been proven to treat anxiety disorders. If anxiety is persistent, worsening,
+              triggering panic, disrupting sleep for long periods, or interfering with work,
+              relationships, or normal daily function, professional evaluation has much higher value
+              than cycling through supplements.
+            </p>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
+              Do not stop or replace prescribed psychiatric medication with a supplement without the
+              clinician who manages that medication. Withdrawal, relapse, and drug-supplement
+              interactions can create risks that are larger than the supplement question itself.
+            </p>
+          </section>
+
+          <section id="safety" className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Safety overview</h2>
+            <SafetyNotice title="Before adding an anxiety or stress supplement">
+              <ul className="ml-5 list-disc space-y-2">
                 <li>
-                  <strong>Human clinical evidence</strong> — randomized controlled trials using
-                  validated anxiety outcome measures (GAD-7, HAM-A, STAI, PSS). Animal and in
-                  vitro data support mechanistic plausibility but do not count toward the evidence
-                  grade.
+                  Review supplements with a clinician or pharmacist when you take psychiatric,
+                  sedating, blood-pressure, thyroid, immune, liver-active, or other prescription medicines.
                 </li>
                 <li>
-                  <strong>Anxiety-specific outcomes</strong> — evidence for improvements in
-                  anxiety symptoms specifically, not only general stress or mood. Sleep improvement
-                  alone does not constitute anxiety evidence.
+                  Kava has rare serious liver-injury reports and should not be combined with alcohol
+                  or other sedating substances.
                 </li>
                 <li>
-                  <strong>Safety profile</strong> — tolerability, known contraindications, and
-                  known drug interactions. A supplement with strong anxiety evidence but serious
-                  safety concerns (kava) ranks lower than it would by evidence alone.
+                  Passionflower can cause drowsiness and should not be used during pregnancy; discuss
+                  it before surgery because of possible interactions with anesthesia-related medicines.
                 </li>
                 <li>
-                  <strong>Medication interaction risk</strong> — particularly relevant for
-                  serotonergic herbs (saffron), hepatotoxic herbs (kava, ashwagandha), and
-                  sedative-potentiating herbs (valerian, passionflower, kava).
+                  Supplemental magnesium can cause gastrointestinal effects and can interfere with
+                  absorption of some medicines. Impaired kidney function increases toxicity risk.
                 </li>
                 <li>
-                  <strong>Practicality and cost</strong> — widely available, affordable options
-                  with accessible dosing rank higher than equivalent options that are expensive
-                  or difficult to source responsibly.
-                </li>
-                <li>
-                  <strong>Fit for mild-to-moderate anxiety support</strong> — this guide targets
-                  the population most likely to benefit from supplements: people with mild to
-                  moderate anxiety symptoms, not anxiety disorders requiring primary medical
-                  treatment.
+                  Ashwagandha deserves extra caution with pregnancy, liver disease, thyroid conditions
+                  or thyroid medication, autoimmune disease, and sedating medicines.
                 </li>
               </ul>
-            </div>
+            </SafetyNotice>
+          </section>
 
-            <hr className="border-brand-900/10" />
-
-            {/* Deep dives */}
-            <div id="deep-dives">
-              <h2 className="mb-6 text-2xl font-semibold tracking-tight text-ink">
-                Deep Dives: Top Anxiety Supplements
-              </h2>
-
-              {/* Ashwagandha */}
-              <div id="ashwagandha" className="mb-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  1. Ashwagandha
-                </h3>
-                <EvidenceSummaryCard
-                  title="Ashwagandha &amp; Anxiety"
-                  evidenceLevel="Moderate"
-                  humanEvidence="Multiple RCTs show significant reductions in anxiety scale scores (GAD-7, HAM-A, STAI) and cortisol levels in adults with elevated stress. Effects are most consistent over 6–8 weeks in chronically stressed populations."
-                  mechanisticEvidence="HPA axis modulation with cortisol reduction well-documented in human trials. Sympathetic nervous system downregulation. GABA-A receptor binding activity in vitro. Reduces physiological markers of stress arousal."
-                  safetyProfile="Generally well-tolerated at 300–600 mg/day for up to 12 weeks. Rare hepatotoxicity cases reported. Contraindicated in pregnancy. Potential thyroid and autoimmune interactions."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help anxiety:</strong> Ashwagandha reduces cortisol via
-                    HPA axis modulation and dampens sympathetic nervous system activation. It
-                    does not act as a direct anxiolytic in the way benzodiazepines do — it works
-                    by reducing the physiological stress response that amplifies anxiety symptoms
-                    over time. Most benefit is seen in people with chronic, stress-linked anxiety
-                    rather than acute or situational anxiety.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> Adults with chronic stress-driven anxiety,
-                    particularly when accompanied by fatigue, poor sleep, or elevated perceived
-                    stress. Less useful for acute or situational anxiety.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Onset is slow — meaningful improvement
-                    typically requires 6–8 weeks of consistent use. Not useful for acute anxiety
-                    episodes.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> Rare hepatotoxicity cases have been reported;
-                    avoid with liver disease or hepatotoxic medications. Avoid in pregnancy.
-                    Potential thyroid hormone interactions — disclose to your physician if on
-                    thyroid medication.
-                  </p>
-                  <p>
-                    <Link
-                      href="/guides/sleep/ashwagandha-for-sleep/"
-                      className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                    >
-                      Related: Ashwagandha for Sleep →
-                    </Link>
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-brand-900/10" />
-
-              {/* L-Theanine */}
-              <div id="l-theanine" className="mt-8 mb-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  2. L-Theanine
-                </h3>
-                <EvidenceSummaryCard
-                  title="L-Theanine &amp; Anxiety"
-                  evidenceLevel="Limited"
-                  humanEvidence="Small trials suggest L-theanine reduces subjective anxiety and stress responses, particularly in the context of acute stress tasks. Evidence for ongoing anxiety disorder management is limited. Most reliable effect is relaxation without sedation."
-                  mechanisticEvidence="Promotes alpha-wave brain activity associated with calm wakefulness. Modulates glutamate and GABA signaling. May blunt cortisol response to acute stressors. Does not produce sedation at standard doses."
-                  safetyProfile="Very well-tolerated. No significant drug interactions reported at standard doses (100–200 mg). Long-term safety data limited but no serious adverse events identified."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help anxiety:</strong> L-theanine, an amino acid found
-                    in green tea, increases alpha-wave brain activity associated with calm,
-                    focused wakefulness. It reduces anxious arousal and may blunt acute stress
-                    responses without causing drowsiness — making it useful for people who need
-                    to remain alert while managing anxiety or racing thoughts.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> People with mild, situational anxiety;
-                    racing thoughts; or caffeine-exacerbated anxiety. A practical daytime
-                    supplement that does not impair cognitive function. Works relatively quickly
-                    (within an hour at 100–200 mg).
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Evidence for sustained, clinically
-                    meaningful anxiety reduction is limited. Most effect is acute and related
-                    to relaxation rather than treating underlying anxiety patterns.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> One of the safest options on this list. No
-                    significant drug interactions at standard doses. Can be combined with
-                    magnesium or ashwagandha without known interaction risk.
-                  </p>
-                  <p>
-                    <Link
-                      href="/guides/sleep/l-theanine-for-sleep/"
-                      className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                    >
-                      Related: L-Theanine for Sleep →
-                    </Link>
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-brand-900/10" />
-
-              {/* Magnesium */}
-              <div id="magnesium" className="mt-8 mb-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  3. Magnesium
-                </h3>
-                <EvidenceSummaryCard
-                  title="Magnesium &amp; Anxiety"
-                  evidenceLevel="Limited"
-                  humanEvidence="Some trials suggest magnesium supplementation may modestly reduce anxiety symptoms, particularly in people with low magnesium status. Anxiety-specific trial evidence is weaker than the sleep evidence base. Most reliable benefit is for muscle tension and baseline nervous system support."
-                  mechanisticEvidence="NMDA receptor antagonism reduces excitatory glutamatergic tone. GABA-A potentiation supports inhibitory signaling. Involved in HPA axis stress regulation. Magnesium deficiency is associated with increased neuronal excitability."
-                  safetyProfile="Generally well-tolerated at 200–400 mg elemental/day. GI upset at higher doses. Kidney disease requires caution. Magnesium glycinate is best-tolerated form."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help anxiety:</strong> Magnesium is involved in nervous
-                    system regulation through NMDA receptor antagonism and GABA-A potentiation.
-                    Deficiency is associated with heightened stress reactivity and neuronal
-                    hyperexcitability. Supplementation may reduce anxiety symptoms particularly
-                    in those with suboptimal dietary magnesium, though anxiety-specific evidence
-                    is modest compared to sleep evidence.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> Most people — particularly those with muscle
-                    tension, poor sleep alongside anxiety, or suspected suboptimal dietary
-                    magnesium. A reasonable low-risk baseline supplement.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Anxiety-specific clinical evidence is
-                    limited. Direct comparison to placebo in anxiety trials is less robust than
-                    for sleep outcomes.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> Avoid high doses with kidney disease.
-                    Magnesium glycinate is generally better tolerated than citrate or oxide.
-                  </p>
-                  <p>
-                    <Link
-                      href="/guides/sleep/magnesium-for-sleep/"
-                      className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                    >
-                      Related: Magnesium for Sleep →
-                    </Link>
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-brand-900/10" />
-
-              {/* Passionflower */}
-              <div id="passionflower" className="mt-8 mb-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  4. Passionflower
-                </h3>
-                <EvidenceSummaryCard
-                  title="Passionflower &amp; Anxiety"
-                  evidenceLevel="Limited"
-                  humanEvidence="A small number of RCTs suggest passionflower extract or tea comparably reduces pre-procedural anxiety and modestly improves generalized anxiety symptoms versus placebo. Most studies are small and short-term. Evidence is promising but not definitive."
-                  mechanisticEvidence="Chrysin and related flavonoids may bind GABA-A receptors. Preclinical evidence for anxiolytic and mild sedative effects. Human mechanistic data is sparse."
-                  safetyProfile="Generally well-tolerated at standard doses. Sedation at higher doses. Avoid with prescription sedatives. Not recommended in pregnancy."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help anxiety:</strong> Passionflower contains flavonoids
-                    including chrysin that may modulate GABA-A receptors, producing mild
-                    anxiolytic effects. Several small trials show comparable anxiety reduction
-                    to low-dose benzodiazepines for pre-procedural anxiety, though effect sizes
-                    are modest and evidence quality is limited.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> People seeking a gentle herbal option for
-                    mild, situational anxiety. Also useful when anxiety overlaps with sleep
-                    difficulty. Available as a pleasant-tasting tea.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Evidence base is thin and studies are
-                    small. Commercial product standardization varies considerably. Not
-                    appropriate for significant or ongoing anxiety disorders.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> Do not combine with prescription sedatives or
-                    benzodiazepines. Avoid in pregnancy (uterotonic activity in animal models).
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-brand-900/10" />
-
-              {/* Kava */}
-              <div id="kava" className="mt-8 mb-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  5. Kava
-                </h3>
-                <EvidenceSummaryCard
-                  title="Kava &amp; Anxiety"
-                  evidenceLevel="Moderate"
-                  humanEvidence="Meta-analyses of kava RCTs show significant reductions in anxiety scores (HAM-A) versus placebo in generalized anxiety. Evidence quality is moderate but the effect is consistent across trials. Liver toxicity risk substantially limits use."
-                  mechanisticEvidence="Kavalactones modulate GABA-A receptors, dopamine signaling, and sodium channel activity. Mechanism is distinct from benzodiazepines despite functional overlap. Well-characterized pharmacology."
-                  safetyProfile="Meaningful hepatotoxicity risk — multiple case reports of serious liver injury, including cases requiring transplant. Absolutely contraindicated with alcohol and sedatives. Banned in several countries. Requires responsible, time-limited use."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help anxiety:</strong> Kava has among the strongest
-                    evidence of any herbal anxiolytic. Kavalactones produce meaningful anxiolytic
-                    effects via GABA-A modulation and other pathways. Effects are noticeable
-                    acutely (within an hour), which distinguishes kava from adaptogens that
-                    require weeks to build.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> Adults who want a traditional herbal
-                    anxiolytic with real clinical backing and who understand the liver toxicity
-                    risks. Requires time-limited use, medical disclosure, and abstinence from
-                    alcohol and sedatives.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Liver toxicity is a real and documented
-                    risk — not theoretical. Several countries have restricted or banned kava
-                    supplements due to hepatotoxicity cases.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> Never combine with alcohol, benzodiazepines,
-                    opioids, or other sedatives. Avoid with pre-existing liver disease.
-                    Avoid with hepatotoxic medications. Use short-term only. Disclose to your
-                    physician. Do not use if pregnant or breastfeeding.
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-brand-900/10" />
-
-              {/* Saffron */}
-              <div id="saffron" className="mt-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  6. Saffron
-                </h3>
-                <EvidenceSummaryCard
-                  title="Saffron &amp; Anxiety / Mood"
-                  evidenceLevel="Limited"
-                  humanEvidence="Growing number of RCTs suggest saffron (30 mg/day standardized extract) has antidepressant effects comparable to low-dose SSRIs in mild-to-moderate depression, with secondary anxiolytic effects. Most trials are short-term and small. Anxiety-specific evidence is weaker than mood evidence."
-                  mechanisticEvidence="Crocin and safranal modulate serotonin reuptake and receptor activity. Antioxidant and neuroprotective properties. BDNF-modulating effects in preclinical models."
-                  safetyProfile="Generally well-tolerated at 30 mg/day. Serotonergic activity — do not combine with SSRIs or MAOIs without clinician guidance (serotonin syndrome risk). Not recommended in pregnancy at high doses."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help anxiety:</strong> Saffron&apos;s active constituents
-                    (crocin, safranal) modulate serotonin signaling, which may secondarily
-                    reduce anxiety alongside mood improvement. Most trials focus on depression,
-                    but anxiety symptoms often co-occur and respond in the same trial data.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> People with anxiety that overlaps with
-                    low mood or mild depression — the mood-anxiety spectrum where serotonergic
-                    interventions are most likely to help. Less suited for anxiety without
-                    mood overlap.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Anxiety-specific evidence is weaker than
-                    mood evidence. Serotonergic activity is a meaningful drug interaction
-                    concern for anyone on antidepressants.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> Do not combine with SSRIs, SNRIs, or MAOIs
-                    without clinician guidance. Avoid high doses in pregnancy.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Which should you try first */}
-            <div id="decision-framework">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Which Should You Try First?
-              </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
-                The most useful framework is to match the supplement to your anxiety pattern and
-                primary symptoms:
-              </p>
-              <div className="space-y-3 rounded-[1rem] border border-brand-900/10 bg-brand-50/40 p-5">
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>Chronic stress + poor sleep:</strong> Start with{' '}
-                    <Link href="/guides/sleep/ashwagandha-for-sleep/" className="font-semibold text-brand-700 hover:underline">
-                      ashwagandha
-                    </Link>{' '}
-                    (KSM-66 or Sensoril, 300–600 mg/day). Allow 6–8 weeks. Consider adding{' '}
-                    <Link href="/guides/sleep/magnesium-for-sleep/" className="font-semibold text-brand-700 hover:underline">
-                      magnesium glycinate
-                    </Link>{' '}
-                    for sleep overlap.
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>Racing thoughts + caffeine sensitivity:</strong> Try L-theanine
-                    (100–200 mg). Works within an hour. Can be taken during the day without
-                    impairing focus.
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>Muscle tension + sleep overlap:</strong>{' '}
-                    <Link href="/guides/sleep/magnesium-for-sleep/" className="font-semibold text-brand-700 hover:underline">
-                      Magnesium glycinate
-                    </Link>{' '}
-                    (200–400 mg elemental, evening) is a well-tolerated, broadly applicable
-                    starting point.
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>Gentle herbal option preferred:</strong> Passionflower (250–500 mg
-                    extract or tea) is one of the gentler options with some supporting evidence
-                    and good tolerability.
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>Stronger traditional anxiolytic, informed about risks:</strong>{' '}
-                    Kava has the strongest acute anxiolytic effect among herbal options, but the
-                    liver toxicity risk is real and should be taken seriously. Requires informed,
-                    time-limited use with medical disclosure.
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>Mood and anxiety overlap:</strong> Saffron (30 mg/day standardized)
-                    may be relevant if low mood is alongside anxiety — but requires caution with
-                    serotonergic medications.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* What not to do */}
-            <div id="what-not-to-do">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                What Not To Do
-              </h2>
-              <ul className="ml-5 space-y-3 list-disc text-[1.01rem] leading-[1.85] text-muted">
-                <li>
-                  <strong>Do not combine multiple calming supplements at once.</strong> You will
-                  not know what is helping or causing side effects. Introduce one at a time over
-                  2–4 weeks before adding the next.
-                </li>
-                <li>
-                  <strong>Never mix kava with alcohol or sedatives.</strong> This combination
-                  dramatically increases liver toxicity and CNS depression risk. This is not a
-                  theoretical caution.
-                </li>
-                <li>
-                  <strong>Do not use supplements instead of professional care for severe
-                  anxiety.</strong> If anxiety is significantly impairing your daily life,
-                  relationships, or work, seek professional evaluation. Supplements are not
-                  treatments for anxiety disorders.
-                </li>
-                <li>
-                  <strong>Do not ignore panic attacks, suicidal thoughts, or severe
-                  impairment.</strong> These require immediate professional attention. Supplements
-                  are not appropriate first-line treatment and cannot replace professional care
-                  in these situations.
-                </li>
-                <li>
-                  <strong>Do not stop prescribed psychiatric medications without clinician
-                  guidance.</strong> Stopping antidepressants, benzodiazepines, or other
-                  psychiatric medications without medical supervision can be dangerous. Never
-                  replace prescribed medications with supplements without consulting your
-                  prescriber.
-                </li>
-                <li>
-                  <strong>Do not assume &ldquo;natural&rdquo; means risk-free.</strong> Kava has
-                  caused liver transplants. Ashwagandha has caused liver injury. Saffron can
-                  interact with antidepressants. Every supplement carries risks that vary by
-                  individual, dose, and drug interactions.
-                </li>
-              </ul>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Anxiety + Sleep Overlap */}
-            <div id="sleep-overlap">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Anxiety and Sleep: The Overlap
-              </h2>
-              <p className="mb-3 text-[1.01rem] leading-[1.85] text-muted">
-                Anxiety and poor sleep reinforce each other. Anxiety activates the sympathetic
-                nervous system, raises cortisol, and produces hyperarousal that directly impairs
-                sleep. Poor sleep, in turn, increases reactivity to stress and makes anxiety
-                symptoms worse the following day. This bidirectional relationship means that
-                improving one often improves the other.
-              </p>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
-                Several supplements covered in this guide — ashwagandha, L-theanine, magnesium,
-                and passionflower — have evidence for both anxiety and sleep benefits, often
-                through overlapping mechanisms. If your anxiety is closely linked to poor sleep,
-                the sleep cluster guides cover these supplements in more depth:
-              </p>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <Link
-                  href="/guides/sleep/best-herbs-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
-                >
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Best Herbs for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence-ranked hub guide to sleep herbs and supplements.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/ashwagandha-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
-                >
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Ashwagandha for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Detailed guide to ashwagandha evidence, dosage, and timing for sleep.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/l-theanine-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
-                >
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    L-Theanine for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    How L-theanine promotes relaxation without sedation for better sleep.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/magnesium-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
-                >
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Magnesium for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence, forms, and dosage for magnesium as a sleep supplement.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/sleep-stack-guide/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
-                >
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Sleep Stack Guide
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    How to combine magnesium, ashwagandha, and L-theanine safely.
-                  </p>
-                </Link>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Safety */}
-            <div id="safety">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Safety Overview
-              </h2>
-              <SafetyNotice title="General Safety — Anxiety Herbs and Supplements">
-                <ul className="ml-5 space-y-1.5 list-disc">
-                  <li>
-                    <strong>Pregnancy and breastfeeding:</strong> Avoid most herbs on this list
-                    during pregnancy — including ashwagandha, passionflower, valerian, kava, and
-                    saffron at high doses — due to limited safety data and preclinical concerns.
-                    Magnesium is generally considered safe at dietary intake levels; high
-                    supplemental doses should be discussed with a healthcare provider.
-                  </li>
-                  <li>
-                    <strong>Sedative medications:</strong> Kava, valerian, and passionflower can
-                    potentiate the CNS depressant effects of benzodiazepines, z-drugs, opioids,
-                    and alcohol. This is a meaningful safety risk — do not combine without
-                    medical supervision.
-                  </li>
-                  <li>
-                    <strong>Psychiatric medications:</strong> Saffron has serotonergic activity
-                    and should not be combined with SSRIs, SNRIs, or MAOIs without clinician
-                    guidance due to serotonin syndrome risk. Ashwagandha may interact with
-                    thyroid medications and immunosuppressants.
-                  </li>
-                  <li>
-                    <strong>Liver caution — kava and ashwagandha:</strong> Both have documented
-                    hepatotoxicity cases in post-market surveillance. Avoid with existing liver
-                    disease or hepatotoxic medications. Monitor for jaundice, dark urine, or
-                    right upper quadrant pain.
-                  </li>
-                  <li>
-                    <strong>Kidney disease — magnesium:</strong> The kidneys regulate magnesium
-                    excretion. Supplementation in people with moderate to severe kidney disease
-                    (CKD stage 3+) can cause hypermagnesemia. Consult a physician before
-                    supplementing.
-                  </li>
-                  <li>
-                    <strong>Panic disorder and severe anxiety:</strong> Supplements should not
-                    be the primary treatment for panic disorder, PTSD, OCD, or severe
-                    generalized anxiety disorder. Cognitive behavioral therapy (CBT) has the
-                    strongest evidence for anxiety disorders. Professional evaluation is
-                    appropriate for persistent, impairing anxiety.
-                  </li>
-                  <li>
-                    <strong>Emergency situations:</strong> If you are experiencing suicidal
-                    thoughts, self-harm urges, or a mental health crisis, contact emergency
-                    services or a crisis line immediately. Supplements cannot address a mental
-                    health emergency.
-                  </li>
-                </ul>
-              </SafetyNotice>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Buyer Guide */}
-            <div id="buyer-guide">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Where to Buy
-              </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
-                The affiliate links below search for products consistent with the extract forms
-                and dose ranges discussed in this guide. We earn a small commission at no
-                additional cost to you.
-              </p>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Stress-Driven Anxiety
-                  </p>
-                  <p className="font-semibold text-ink">KSM-66 Ashwagandha</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Patented full-spectrum root extract. Most-studied form for anxiety and stress.
-                    Look for ≥300 mg per capsule, standardized to ≥5% withanolides.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=KSM-66+ashwagandha&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Racing Thoughts / Situational Stress
-                  </p>
-                  <p className="font-semibold text-ink">L-Theanine</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Pure L-theanine, 100–200 mg per capsule. Look for third-party tested products.
-                    Suntheanine is a well-studied branded form.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=l-theanine+suntheanine&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Baseline Nervous System Support
-                  </p>
-                  <p className="font-semibold text-ink">Magnesium Glycinate</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Best-tolerated magnesium form for anxiety and sleep. Look for products
-                    listing elemental magnesium content (aim for 200–400 mg elemental/day).
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=magnesium+glycinate&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Gentle Herbal Option
-                  </p>
-                  <p className="font-semibold text-ink">Passionflower</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Available as tea or standardized extract. Look for passionflower extract
-                    products with clear standardization, or loose-leaf tea.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=passionflower+extract&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Mood / Anxiety Overlap
-                  </p>
-                  <p className="font-semibold text-ink">Saffron Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Look for 30 mg/day standardized saffron extract (e.g., Safr&apos;Inside or
-                    affron). Do not combine with antidepressants without medical guidance.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=saffron+extract+supplement&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Traditional Anxiolytic (Informed Use)
-                  </p>
-                  <p className="font-semibold text-ink">Kava Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Noble kava varieties only. Avoid tudei kava. Never combine with alcohol or
-                    sedatives. Use short-term only with physician disclosure.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=noble+kava+extract&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* FAQ */}
-            <div id="faq">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-4">
-                {FAQS.map((faq, i) => (
-                  <div
-                    key={i}
-                    className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
-                  >
-                    <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+          <section id="sources" className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">Primary evidence trail</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Sources used for this update</h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              These are the current reviews, randomized-trial records, and U.S. government safety
+              resources that drive the claims above. They replace the old “references being compiled” placeholder.
+            </p>
+            <ol className="mt-5 space-y-4">
+              {SOURCES.map((source, index) => (
+                <li key={source.href} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+                  <div className="flex gap-3">
+                    <span className="font-bold text-brand-700">{index + 1}.</span>
+                    <div>
+                      <a
+                        href={source.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-brand-800 hover:underline"
+                      >
+                        {source.label} ↗
+                      </a>
+                      <p className="mt-1 text-sm leading-6 text-muted">{source.note}</p>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Related Articles */}
-            <div id="related-articles">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Related Articles
-              </h2>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <Link
-                  href="/guides/sleep/best-herbs-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Best Herbs for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence-ranked guide to magnesium, ashwagandha, L-theanine, and other
-                    sleep supplements.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/ashwagandha-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Ashwagandha for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence, dosage, and mechanisms for ashwagandha as a sleep supplement.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/l-theanine-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    L-Theanine for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    How L-theanine promotes calm without sedation and helps with sleep.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/magnesium-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Magnesium for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence, forms, and dosage for magnesium as a sleep supplement.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/sleep-stack-guide/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Sleep Stack Guide
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    How to combine magnesium, ashwagandha, and L-theanine safely.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/anxiety/ashwagandha-for-anxiety/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Anxiety Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">Ashwagandha for Anxiety</p>
-                  <p className="mt-1 text-xs text-muted">Benefits, dosage, safety, and research review.</p>
-                </Link>
-                <Link
-                  href="/guides/anxiety/l-theanine-for-anxiety/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Anxiety Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">L-Theanine for Anxiety</p>
-                  <p className="mt-1 text-xs text-muted">Calm focus and racing thoughts without sedation.</p>
-                </Link>
-                <Link
-                  href="/guides/anxiety/anxiety-stack-guide/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Anxiety Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">Anxiety Stack Guide</p>
-                  <p className="mt-1 text-xs text-muted">How to combine ashwagandha, L-theanine, and magnesium.</p>
-                </Link>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Sources */}
-            <div id="sources">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
-              <p className="mb-4 text-sm text-muted">
-                The references below include the key trials and reviews for each herb covered in this guide.
-              </p>
-              <ResponsiveTable label="Article references">
-                <table className="min-w-[600px] w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-brand-900/10">
-                      <th className="pb-2 pr-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Topic
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Evidence area
-                      </th>
-                      <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-brand-900/5">
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">Ashwagandha anxiety evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Chandrasekhar et al. 2012; Pratte et al. 2014; anxiety scale RCTs
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">L-theanine anxiety / stress evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Alpha-wave promotion trials; acute stress response studies
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">Magnesium anxiety evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Boyle et al. 2017 meta-analysis; magnesium deficiency and neuronal excitability studies
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">Passionflower anxiety evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Pre-procedural anxiety RCTs; GAD comparison trials
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">Kava anxiety evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Pittler &amp; Ernst meta-analysis; HAM-A outcome RCTs
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">Saffron anxiety evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Lopresti &amp; Drummond 2014; mood/anxiety overlap RCTs
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">CBD anxiety evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Blessing et al. 2015 review; social anxiety fMRI studies
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">Safety / interactions evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Kava hepatotoxicity case series; ashwagandha DILI reports; saffron-SSRI interaction data
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </ResponsiveTable>
-            </div>
-
+                </li>
+              ))}
+            </ol>
           </section>
 
-          <RecommendationSection products={getRevenueProductSet('ashwagandha')?.products ?? []} />
+          <section id="faq" className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+            <div className="mt-5 space-y-4">
+              {FAQS.map((faq) => (
+                <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+                  <h3 className="font-semibold text-ink">{faq.question}</h3>
+                  <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-          {/* Email capture */}
+          {ashwagandhaProducts.length > 0 && (
+            <RecommendationSection
+              title="Ashwagandha sourcing examples"
+              description="Optional product-format examples for readers who have already reviewed the evidence and safety context above. These are not treatment recommendations."
+              products={ashwagandhaProducts}
+              trackingProductSlug="ashwagandha"
+              trackingLocation="natural-anxiety-relief-ashwagandha-sourcing"
+            />
+          )}
+
+          {theanineProducts.length > 0 && (
+            <RecommendationSection
+              title="L-theanine sourcing examples"
+              description="Optional sourcing examples only. The 2026 pooled evidence does not establish L-theanine as a reliable anxiety treatment."
+              products={theanineProducts}
+              trackingProductSlug="l-theanine"
+              trackingLocation="natural-anxiety-relief-theanine-sourcing"
+            />
+          )}
+
           <EmailCapture
             headline="Get future research notes by email"
             description="Evidence-first supplement updates, safety context, and new guide announcements. No diagnosis, treatment, or personal medical advice."
@@ -1342,31 +544,24 @@ export default function NaturalAnxietyReliefPage() {
           />
         </div>
 
-        {/* Sidebar */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          {/* Table of contents */}
           <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              In this article
-            </p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">In this article</p>
             <nav className="mt-3 space-y-1.5" aria-label="Article sections">
               {[
-                ['#ranking-table', 'Evidence Rankings'],
-                ['#how-we-ranked', 'How We Ranked'],
-                ['#deep-dives', 'Deep Dives'],
+                ['#bottom-line', 'Evidence bottom line'],
+                ['#choose', 'Choose by question'],
+                ['#evidence', 'Human evidence'],
                 ['#ashwagandha', 'Ashwagandha'],
                 ['#l-theanine', 'L-Theanine'],
                 ['#magnesium', 'Magnesium'],
                 ['#passionflower', 'Passionflower'],
                 ['#kava', 'Kava'],
-                ['#saffron', 'Saffron'],
-                ['#decision-framework', 'Which to Try First'],
-                ['#what-not-to-do', 'What Not To Do'],
-                ['#sleep-overlap', 'Anxiety + Sleep'],
+                ['#what-not-to-conclude', 'Evidence traps'],
+                ['#care', 'When to seek care'],
                 ['#safety', 'Safety'],
-                ['#buyer-guide', 'Where to Buy'],
-                ['#faq', 'FAQ'],
                 ['#sources', 'Sources'],
+                ['#faq', 'FAQ'],
               ].map(([href, label]) => (
                 <a
                   key={href}
@@ -1379,121 +574,32 @@ export default function NaturalAnxietyReliefPage() {
             </nav>
           </div>
 
-          {/* Anxiety cluster */}
           <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              Anxiety cluster
-            </p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Anxiety cluster</p>
             <div className="mt-3 space-y-2">
-              <Link
-                href="/guides/anxiety/ashwagandha-for-anxiety/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
+              <Link href="/guides/anxiety/" className="block text-sm font-medium text-brand-700 hover:underline">
+                Anxiety & stress hub →
+              </Link>
+              <Link href="/guides/anxiety/ashwagandha-for-anxiety/" className="block text-sm font-medium text-brand-700 hover:underline">
                 Ashwagandha for anxiety →
               </Link>
-              <Link
-                href="/guides/anxiety/l-theanine-for-anxiety/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
+              <Link href="/guides/anxiety/l-theanine-for-anxiety/" className="block text-sm font-medium text-brand-700 hover:underline">
                 L-theanine for anxiety →
               </Link>
-              <Link
-                href="/guides/anxiety/anxiety-stack-guide/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
+              <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="block text-sm font-medium text-brand-700 hover:underline">
+                Compare anxiety herbs →
+              </Link>
+              <Link href="/guides/anxiety/anxiety-stack-guide/" className="block text-sm font-medium text-brand-700 hover:underline">
                 Anxiety stack guide →
               </Link>
             </div>
           </div>
 
-          {/* Sleep cluster cross-link */}
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              Sleep cluster
+          <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 shadow-sm">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Editorial rule</p>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              We do not turn an acute stress result, biomarker change, or mechanistic theory into an anxiety-treatment claim.
             </p>
-            <div className="mt-3 space-y-2">
-              <Link
-                href="/guides/sleep/best-herbs-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Best herbs for sleep →
-              </Link>
-              <Link
-                href="/guides/sleep/ashwagandha-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Ashwagandha for sleep →
-              </Link>
-              <Link
-                href="/guides/sleep/magnesium-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Magnesium for sleep →
-              </Link>
-              <Link
-                href="/guides/sleep/sleep-stack-guide/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Sleep stack guide →
-              </Link>
-            </div>
-          </div>
-
-          {/* Affiliate quick links */}
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              Shop — top picks
-            </p>
-            <div className="mt-3 space-y-2">
-              <a
-                href={`https://www.amazon.com/s?k=KSM-66+ashwagandha&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                KSM-66 ashwagandha →
-              </a>
-              <a
-                href={`https://www.amazon.com/s?k=l-theanine+suntheanine&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                L-theanine →
-              </a>
-              <a
-                href={`https://www.amazon.com/s?k=magnesium+glycinate&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Magnesium glycinate →
-              </a>
-              <a
-                href={`https://www.amazon.com/s?k=passionflower+extract&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Passionflower →
-              </a>
-              <a
-                href={`https://www.amazon.com/s?k=saffron+extract+supplement&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Saffron extract →
-              </a>
-              <a
-                href={`https://www.amazon.com/s?k=noble+kava+extract&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Kava →
-              </a>
-            </div>
           </div>
         </aside>
       </div>
