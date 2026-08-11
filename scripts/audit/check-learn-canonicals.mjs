@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Source-level audit: every static App Router page under app/learn/**/page.tsx
+ * Source-level audit: every static App Router page under app/learn/<segments>/page.tsx
  * must declare a canonical that resolves to its own /learn route.
  *
  * Dynamic routes are skipped because they typically use generateMetadata.
