@@ -15,9 +15,9 @@
  *
  * This script recursively finds every static (non-dynamic-segment) route
  * under app/, filters out routes with an explicit noindex signal in their
- * own metadata (mirroring the same textual check app/sitemap.ts already
- * uses) or in the curated EXCLUDED_ROUTES allowlist below, and fails if any
- * remaining route is missing from the built sitemap.xml.
+ * own source metadata or in their rendered robots metadata, plus the curated
+ * EXCLUDED_ROUTES allowlist below, and fails if any remaining route is
+ * missing from the built sitemap.xml.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -27,19 +27,13 @@ const APP_DIR = path.join(ROOT, 'app')
 const OUT_DIR = path.join(ROOT, 'out')
 const REQUIRE_BUILT = process.argv.includes('--require-built')
 
-// Directories that are never page routes (Next.js internals, tests, API-ish
-// utility pages that are intentionally excluded from search indexing).
 const SKIP_DIR_NAMES = new Set(['__tests__', 'api'])
 
-// Route paths (relative to app/, route groups already stripped) that are
-// real, working pages but are deliberately excluded from the sitemap. Keep
-// this list short and documented — anything added here should have a real
-// reason, not just "the checker complained so I silenced it."
 const EXCLUDED_ROUTES = new Set([
-  'build', // app/(public)/build — internal dev-only stack builder, already noindex
-  'guides/anxiety/natural-alternatives-to-anxiety-medication', // canonicalizes to guides/anxiety/best-herbs-for-anxiety (deliberate duplicate-content consolidation)
-  'guides/anxiety/natural-anxiolytics-beyond-ashwagandha', // canonicalizes to guides/anxiety/best-herbs-for-anxiety (deliberate duplicate-content consolidation)
-  'guides/focus/best-supplements-for-focus', // compatibility wrapper redirects/canonicalizes to guides/focus/best-nootropics-for-focus
+  'build',
+  'guides/anxiety/natural-alternatives-to-anxiety-medication',
+  'guides/anxiety/natural-anxiolytics-beyond-ashwagandha',
+  'guides/focus/best-supplements-for-focus',
 ])
 
 const SPECIAL_FILE_ROUTES = new Set([
@@ -53,7 +47,6 @@ const SPECIAL_FILE_ROUTES = new Set([
 ])
 
 function stripRouteGroups(routeSegments) {
-  // Route groups like (public) are stripped from the URL by Next.js.
   return routeSegments.filter((segment) => !/^\(.*\)$/.test(segment))
 }
 
@@ -73,6 +66,29 @@ function hasNoindexSignal(pageFilePath) {
       /robots\s*:\s*["'][^"']*noindex/i.test(content) ||
       /dynamic\s*=\s*['"]force-dynamic['"]/.test(content)
     )
+  } catch {
+    return false
+  }
+}
+
+function builtRouteHasNoindex(routePath) {
+  if (!fs.existsSync(OUT_DIR)) return false
+
+  const relativeRoute = routePath === '/' ? '' : routePath.replace(/^\/+|\/+$/g, '')
+  const htmlPath = relativeRoute
+    ? path.join(OUT_DIR, relativeRoute, 'index.html')
+    : path.join(OUT_DIR, 'index.html')
+
+  if (!fs.existsSync(htmlPath)) return false
+
+  try {
+    const html = fs.readFileSync(htmlPath, 'utf8')
+    const metaTags = html.match(/<meta\b[^>]*>/gi) || []
+    return metaTags.some((tag) => {
+      const isRobots = /\bname\s*=\s*["']robots["']/i.test(tag)
+      const isNoindex = /\bcontent\s*=\s*["'][^"']*\bnoindex\b[^"']*["']/i.test(tag)
+      return isRobots && isNoindex
+    })
   } catch {
     return false
   }
@@ -99,7 +115,7 @@ function collectStaticRoutes(dirPath, routeSegments) {
   for (const entry of entries) {
     if (!entry.isDirectory()) continue
     if (SKIP_DIR_NAMES.has(entry.name)) continue
-    if (/^\[/.test(entry.name)) continue // dynamic segments are data-driven, validated separately
+    if (/^\[/.test(entry.name)) continue
     results.push(...collectStaticRoutes(path.join(dirPath, entry.name), [...routeSegments, entry.name]))
   }
 
@@ -110,9 +126,7 @@ function parseXmlUrls(xmlContent) {
   const urls = []
   const locRegex = /<loc>(.*?)<\/loc>/g
   let match
-  while ((match = locRegex.exec(xmlContent)) !== null) {
-    urls.push(match[1])
-  }
+  while ((match = locRegex.exec(xmlContent)) !== null) urls.push(match[1])
   return urls
 }
 
@@ -152,26 +166,27 @@ function main() {
     process.exit(1)
   }
 
+  // Runtime/profile governance can generate robots metadata in a static wrapper,
+  // so source inspection alone is not authoritative after a successful build.
+  // The rendered HTML is the final page-level indexing signal.
+  const indexableStaticRoutes = staticRoutes.filter((route) => !builtRouteHasNoindex(route))
   const sitemapUrls = new Set(parseXmlUrls(fs.readFileSync(sitemapPath, 'utf8')).map(normalizePath))
+  const missing = indexableStaticRoutes.filter((route) => !sitemapUrls.has(route)).sort()
 
-  const missing = staticRoutes.filter((route) => !sitemapUrls.has(route)).sort()
-
-  console.log(`[validate-sitemap-completeness] Found ${staticRoutes.length} static app/ routes without an explicit noindex signal; ${sitemapUrls.size} URLs in sitemap.xml.`)
+  console.log(`[validate-sitemap-completeness] Found ${indexableStaticRoutes.length} static app/ routes after source/rendered noindex filtering; ${sitemapUrls.size} URLs in sitemap.xml.`)
 
   if (missing.length > 0) {
     console.error(`[validate-sitemap-completeness] FAIL: ${missing.length} real, indexable route(s) are missing from sitemap.xml:`)
-    for (const route of missing) {
-      console.error(`  - ${route}`)
-    }
+    for (const route of missing) console.error(`  - ${route}`)
     console.error('')
-    console.error('If a route is intentionally excluded, add it to EXCLUDED_ROUTES in this script with a comment explaining why.')
+    console.error('If a route is intentionally excluded, verify that its rendered robots metadata is noindex or add it to EXCLUDED_ROUTES with a comment explaining why.')
     console.error('If not, the sitemap generator in app/sitemap.ts is silently dropping real content — check')
     console.error('readAppGuidePageSlugs()-style directory scanners for a depth limit, and shouldIndexRoute() in')
     console.error('src/lib/seo.ts for a regex that only matches a subset of the route\'s path depth.')
     process.exit(1)
   }
 
-  console.log('[validate-sitemap-completeness] PASS: every static app/ route is covered by sitemap.xml.')
+  console.log('[validate-sitemap-completeness] PASS: every indexable static app/ route is covered by sitemap.xml.')
 }
 
 main()
