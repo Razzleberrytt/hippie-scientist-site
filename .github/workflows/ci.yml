@@ -3,6 +3,9 @@ name: CI
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -12,9 +15,10 @@ permissions:
   contents: read
 
 jobs:
-  output-diagnostics:
-    if: github.event.pull_request.draft == false
+  quality-gate:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -25,64 +29,127 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - name: Cache Next.js build cache
+        uses: actions/cache@v6
+        with:
+          path: |
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
+            ${{ runner.os }}-nextjs-
+
+      - name: Show Node version
+        run: node --version
+
+      - name: Show npm version
+        run: npm --version
+
       - name: Install dependencies
         run: npm ci
+
+      - name: Verify package metadata is unchanged after install
+        run: git diff --exit-code package-lock.json package.json
+
+      - name: Verify Node engine
+        run: npm run check:node
+
+      - name: Validate workbook source
+        run: npm run validate:workbook-source
+
+      - name: Validate static export compatibility
+        run: npm run validate:static-export
+
+      - name: Generate route inventory
+        run: npm run routes:inventory
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run typecheck
+        run: npm run typecheck
+
+      - name: Run tests (vitest + a11y gate)
+        run: npm run test
+
+      - name: Validate canonical data system (schema, SQLite, graph, freshness)
+        run: npm run data:ci
+
+      - name: Generate Related Botanicals quality audit
+        run: npx tsx scripts/audit-related-botanicals.ts
+
+      - name: Add Related Botanicals audit summary
+        if: always() && hashFiles('reports/related-botanicals/related-botanicals-audit.md') != ''
+        run: cat reports/related-botanicals/related-botanicals-audit.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Related Botanicals audit
+        if: always() && hashFiles('reports/related-botanicals/*') != ''
+        uses: actions/upload-artifact@v7
+        with:
+          name: related-botanicals-audit-${{ github.sha }}
+          path: reports/related-botanicals/
+          retention-days: 30
+
+      - name: Guard workbook source of truth
+        run: npm run guard:source-of-truth
+
+      - name: Audit cluster-member runtime trust
+        run: npm run audit:cluster-member-trust:strict
 
       - name: Build application
         env:
           COMMIT_HASH: ${{ github.sha }}
         run: npm run build:deploy
 
-      - name: Verify prebuild gates
-        run: npm run verify:prebuild
+      - name: Verify build output
+        run: npm run verify:output
 
-      - name: Verify core routes
-        run: node scripts/verify-core-routes.mjs
+      - name: Generate SEO audit reports
+        if: always()
+        run: npm run audit:seo-reports
 
-      - name: Verify redirects
-        run: node scripts/verify-redirects.mjs
+      - name: Generate indexability candidate report
+        if: always()
+        run: npm run indexability:report
 
-      - name: Audit profile robots
-        run: node scripts/ci/audit-profile-robots.mjs
+      - name: Audit internal links through redirects
+        if: always()
+        run: node scripts/ci/audit-internal-redirect-links.mjs
 
-      - name: Validate deploy readiness
-        run: node scripts/ci/validate-deploy-readiness.mjs
+      - name: Upload SEO audit reports
+        if: always() && (hashFiles('public/data/reports/*.json') != '' || hashFiles('ops/reports/*.json') != '' || hashFiles('ops/indexability-review/*.json') != '')
+        uses: actions/upload-artifact@v7
+        with:
+          name: seo-audit-reports
+          path: |
+            public/data/reports/*.json
+            ops/reports/*.json
+            ops/indexability-review/*.json
+          if-no-files-found: ignore
 
-      - name: Validate build SEO metadata
-        run: node scripts/ci/validate-build-seo-metadata.mjs
+      - name: Validate route SEO coverage
+        run: npm run validate:route-seo
 
-      - name: Audit metadata duplicates
-        run: node scripts/ci/audit-metadata-duplicates.mjs
+      - name: Run security audit gate
+        run: npm run audit:high
 
-      - name: Audit internal links
-        run: node scripts/ci/audit-internal-links.mjs
+      - name: Generate raw npm audit JSON
+        if: always()
+        run: npm audit --json > npm-audit.after.json || true
 
-      - name: Audit structured data
-        run: node scripts/ci/audit-structured-data.mjs
+      - name: Upload audit artifact
+        if: always() && hashFiles('npm-audit.after.json') != ''
+        uses: actions/upload-artifact@v7
+        with:
+          name: npm-audit-after
+          path: npm-audit.after.json
 
-      - name: Audit SEO routes
-        run: node scripts/ci/audit-seo-routes.mjs
-
-      - name: Validate guide FAQs
-        run: node scripts/ci/validate-guide-faqs.mjs
-
-      - name: Validate sitemap
-        run: node scripts/ci/validate-sitemap.mjs --require-built
-
-      - name: Validate sitemap completeness
-        run: node scripts/ci/validate-sitemap-completeness.mjs --require-built
-
-      - name: Validate robots
-        run: node scripts/ci/validate-robots.mjs --require-built
-
-      - name: Audit sitemap affiliate policy
-        run: npm run audit:sitemap-affiliate
-
-      - name: Validate Pagefind body
-        run: npm run validate:pagefind-body
-
-      - name: Validate cluster-member export
-        run: npm run validate:cluster-member-export
-
-      - name: Report performance budget
-        run: node scripts/report-performance-budget.mjs
+      - name: Add workflow summary
+        if: always()
+        run: |
+          echo "## CI quality gate" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Purpose: enforce lint, typecheck, workbook/data correctness, recommendation-quality auditing, build verification, and security audit" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Branch/ref: $GITHUB_REF" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run data:ci; npx tsx scripts/audit-related-botanicals.ts; npm run guard:source-of-truth; npm run build:deploy; npm run verify:output; npm run audit:seo-reports; npm run indexability:report; node scripts/ci/audit-internal-redirect-links.mjs; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Artifacts: related-botanicals audit; seo-audit-reports (including indexability candidates); npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
