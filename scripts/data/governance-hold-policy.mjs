@@ -22,6 +22,48 @@ const RUNTIME_MAP_FILES = [
   'authority-hubs.json',
 ]
 
+// The flat workbook-derived runtime records are the authority for profile visibility.
+// Per-slug detail files can carry richer editorial prose, but they must not override
+// canonical route/indexability state when runtime-data.ts merges detail last.
+const CANONICAL_DETAIL_AUTHORITY_FIELDS = [
+  'profile_status',
+  'runtime_export_decision',
+  'robots',
+  'sitemap_included',
+  'indexability_status',
+  'indexability_score',
+  'indexability_reasons',
+  'governance',
+]
+
+function cloneAuthorityValue(value) {
+  if (Array.isArray(value)) return value.map((entry) => cloneAuthorityValue(entry))
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, entry]) => [key, cloneAuthorityValue(entry)]),
+    )
+  }
+  return value
+}
+
+export function mirrorCanonicalGovernanceAuthority(detail, canonicalRecord) {
+  if (!detail || typeof detail !== 'object' || !canonicalRecord || typeof canonicalRecord !== 'object') {
+    return false
+  }
+
+  let changed = false
+  for (const field of CANONICAL_DETAIL_AUTHORITY_FIELDS) {
+    if (!(field in canonicalRecord)) continue
+
+    const nextValue = cloneAuthorityValue(canonicalRecord[field])
+    if (JSON.stringify(detail[field]) === JSON.stringify(nextValue)) continue
+
+    detail[field] = nextValue
+    changed = true
+  }
+  return changed
+}
+
 export function isDeliberateGovernanceHold(record) {
   if (!record || typeof record !== 'object') return false
 
@@ -100,30 +142,36 @@ async function writeDeterministicJson(filePath, value) {
 async function reconcileCollection(dataDir, listFile, detailDirName) {
   const listPath = path.join(dataDir, listFile)
   const records = await readJson(listPath, [])
-  if (!Array.isArray(records)) return { corrected: [] }
+  if (!Array.isArray(records)) return { corrected: [], synchronizedDetails: [] }
 
   const corrected = []
+  const synchronizedDetails = []
   for (const record of records) {
-    if (!applyDeliberateGovernanceHold(record)) continue
-    const slug = String(record.slug || '').trim()
+    const slug = String(record?.slug || '').trim()
     if (!slug) continue
-    corrected.push(slug)
+
+    // Deliberate-hold detection is based on the canonical runtime record, never on a
+    // stale legacy detail payload. This prevents an old detail-only status from
+    // overriding a later editorial promotion such as cluster_member_runtime.
+    const held = applyDeliberateGovernanceHold(record)
+    if (held) corrected.push(slug)
 
     const detailPath = path.join(dataDir, detailDirName, `${slug}.json`)
     const detail = await readJson(detailPath, null)
     if (detail && typeof detail === 'object') {
-      applyDeliberateGovernanceHold(detail)
-      detail.indexability_status = record.indexability_status
-      detail.robots = record.robots
-      detail.sitemap_included = record.sitemap_included
-      detail.indexability_reasons = [...record.indexability_reasons]
-      detail.governance = { ...record.governance }
-      await writeJson(detailPath, detail)
+      const changed = mirrorCanonicalGovernanceAuthority(detail, record)
+      if (changed) {
+        await writeJson(detailPath, detail)
+        synchronizedDetails.push(slug)
+      }
     }
   }
 
   if (corrected.length > 0) await writeJson(listPath, records)
-  return { corrected: corrected.sort() }
+  return {
+    corrected: corrected.sort(),
+    synchronizedDetails: synchronizedDetails.sort(),
+  }
 }
 
 function recordReferencesHeldSlug(value, heldSlugs) {
@@ -184,6 +232,10 @@ export async function reconcileDeliberateGovernanceHolds({ dataDir = 'public/dat
   return {
     herbs: herbs.corrected,
     compounds: compounds.corrected,
+    synchronizedDetails: {
+      herbs: herbs.synchronizedDetails,
+      compounds: compounds.synchronizedDetails,
+    },
     runtimeMaps,
     total: herbs.corrected.length + compounds.corrected.length,
   }
