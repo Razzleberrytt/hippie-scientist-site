@@ -21,13 +21,13 @@ type RecommendationSectionProps = {
 }
 
 const slotLabels: Record<RecommendationSlot, string> = {
-  budget: 'Budget pick',
-  overall: 'Best overall',
-  premium: 'Premium pick',
+  budget: 'Budget example',
+  overall: 'Featured example',
+  premium: 'Premium example',
 }
 
 export default function RecommendationSection({
-  title = 'Product recommendations',
+  title = 'Product sourcing examples',
   description = 'Use these as sourcing starting points, not medical recommendations. Product quality, dose, and fit still need review.',
   products,
   preferredRegion = null,

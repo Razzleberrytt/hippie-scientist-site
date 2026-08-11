@@ -50,14 +50,14 @@ export default function AffiliateBlock({ compound, intentLabel, compact = false 
   }
 
   const products = [entry.products?.[0], entry.products?.[1]].filter(Boolean)
-  const labels = ['Best overall', 'Best budget']
+  const labels = ['Featured example', 'Budget example']
 
   return (
     <div className={`grid gap-3 ${compact ? '' : 'mt-2'}`}>
       {intentLabel ? <p className='text-xs font-black uppercase tracking-[0.16em] text-emerald-100'>{intentLabel}</p> : null}
       {products.map((p: Record<string, unknown>, i: number) => (
         <div key={i} className='rounded-2xl border border-white/10 bg-white/[0.03] p-2'>
-          <p className='mb-2 px-1 text-[0.7rem] font-black uppercase tracking-[0.16em] text-white/45'>{labels[i] ?? 'Top pick'}</p>
+          <p className='mb-2 px-1 text-[0.7rem] font-black uppercase tracking-[0.16em] text-white/45'>{labels[i] ?? 'Product example'}</p>
           <AffiliateProductCard product={p} />
         </div>
       ))}

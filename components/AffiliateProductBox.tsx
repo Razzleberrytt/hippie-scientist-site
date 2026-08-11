@@ -1,6 +1,7 @@
 'use client'
 
 import RevenueImpressionTracker from './RevenueImpressionTracker'
+import { affiliateRationaleForDisplay } from '../src/lib/affiliate-copy'
 import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 
 export interface AffiliateEntry {
@@ -20,12 +21,12 @@ interface Props {
 }
 
 const SLOT_LABELS: Record<string, string> = {
-  budget: 'Best Value',
-  overall: 'Best Overall',
-  premium: 'Premium Pick',
+  budget: 'Budget example',
+  overall: 'Featured example',
+  premium: 'Premium example',
 }
 
-export default function AffiliateProductBox({ slug, products, heading = 'Recommended Products' }: Props) {
+export default function AffiliateProductBox({ slug, products, heading = 'Product sourcing examples' }: Props) {
   const visible = products.filter((p) => p.affiliateUrl && p.affiliateUrl.startsWith('http'))
   if (visible.length === 0) return null
 
@@ -35,6 +36,7 @@ export default function AffiliateProductBox({ slug, products, heading = 'Recomme
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((product) => {
           const displayTitle = product.title || product.name || 'Supplement option'
+          const displayRationale = affiliateRationaleForDisplay(displayTitle, product.rationale)
           const url = product.affiliateUrl!
           return (
             <RevenueImpressionTracker
@@ -54,9 +56,7 @@ export default function AffiliateProductBox({ slug, products, heading = 'Recomme
                   <p className="mt-0.5 text-xs font-semibold text-muted">{product.brand}</p>
                 )}
                 <h3 className="mt-2 text-sm font-semibold text-ink leading-5">{displayTitle}</h3>
-                {product.rationale && (
-                  <p className="mt-2 text-xs leading-5 text-muted flex-1">{product.rationale}</p>
-                )}
+                <p className="mt-2 text-xs leading-5 text-muted flex-1">{displayRationale}</p>
                 <a
                   href={url}
                   target="_blank"

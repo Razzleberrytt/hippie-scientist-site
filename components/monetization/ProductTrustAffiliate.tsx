@@ -35,7 +35,7 @@ export default function ProductTrustAffiliate({
     return (
       <div className='mt-4 space-y-3 border-t border-brand-900/10 pt-4 dark:border-white/10'>
         <p className='text-[10px] font-bold uppercase tracking-wider text-emerald-800 dark:text-brand-200'>
-          Why we link this {slotLabel ? `(${slotLabel})` : ''}
+          Sourcing note {slotLabel ? `(${slotLabel})` : ''}
         </p>
         <p className='text-xs leading-relaxed text-muted'>{displayRationale}</p>
         <p className='text-[10px] leading-relaxed text-muted'>
@@ -63,7 +63,7 @@ export default function ProductTrustAffiliate({
       ) : null}
       <h3 className='mt-1 text-base font-semibold text-ink'>{displayTitle}</h3>
       <p className='mt-2 text-sm leading-6 text-muted'>
-        <strong className='font-semibold text-ink'>Why we recommend it:</strong> {displayRationale}
+        <strong className='font-semibold text-ink'>Sourcing note:</strong> {displayRationale}
       </p>
       <ul className='mt-3 space-y-1.5 text-xs leading-relaxed text-muted'>
         <li>• Prefer third-party tested brands (USP, NSF, ConsumerLab, or published COA)</li>

@@ -50,12 +50,47 @@ describe('affiliateRationaleForDisplay', () => {
     expect(result).not.toMatch(/well-reviewed/i)
   })
 
-  it('preserves ordinary sourcing rationale', () => {
+  it('turns live unsourced commercial ranking prefixes into neutral product examples', () => {
     expect(
       affiliateRationaleForDisplay(
         'Jarrow Theanine 200 mg',
         'Best overall pick for a simple 200 mg L-theanine capsule format.',
       ),
-    ).toBe('Best overall pick for a simple 200 mg L-theanine capsule format.')
+    ).toBe('Product example for a simple 200 mg L-theanine capsule format.')
+
+    expect(
+      affiliateRationaleForDisplay(
+        'Gaia Herbs Kava Kava',
+        'Best overall for phyto-caps with standardized kavalactone content and sourcing transparency.',
+      ),
+    ).toBe('Product example for phyto-caps with standardized kavalactone content and sourcing transparency.')
+
+    expect(
+      affiliateRationaleForDisplay(
+        'Example Fast Dissolve',
+        'Best overall fast-dissolve tablet format.',
+      ),
+    ).toBe('Product example: fast-dissolve tablet format.')
+
+    expect(
+      affiliateRationaleForDisplay('Example Budget', 'Budget pick for a basic capsule format.'),
+    ).toBe('Budget product example for a basic capsule format.')
+
+    expect(
+      affiliateRationaleForDisplay('Example Capsule', 'Budget capsule pick for a basic entry point.'),
+    ).toBe('Budget capsule example for a basic entry point.')
+
+    expect(
+      affiliateRationaleForDisplay('Example Premium', 'Premium pick for a liquid extract format.'),
+    ).toBe('Premium product example for a liquid extract format.')
+  })
+
+  it('preserves ordinary non-ranking sourcing rationale', () => {
+    expect(
+      affiliateRationaleForDisplay(
+        'Example Product',
+        'Capsule format with a clearly labeled serving size.',
+      ),
+    ).toBe('Capsule format with a clearly labeled serving size.')
   })
 })
