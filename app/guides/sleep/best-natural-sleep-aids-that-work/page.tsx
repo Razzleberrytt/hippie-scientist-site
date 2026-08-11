@@ -5,9 +5,6 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
 
@@ -42,7 +39,7 @@ const FAQS = [
   {
     question: 'Are natural sleep aids safe to take every night?',
     answer:
-      'Nightly safety is not equally established for every supplement, dose or duration. Short-term trials can support tolerability without proving indefinite use is risk-free. Medication use, pregnancy or breastfeeding, kidney disease and other health conditions can change the risk. Persistent insomnia is a reason to evaluate the cause rather than simply extending supplement use.',
+      'Nightly safety is not equally established for every supplement, dose or duration. Short-term trials can support tolerability without proving indefinite use is risk-free. Medication use, pregnancy or breastfeeding, kidney disease and other health conditions can change the risk. Passionflower should not be used during pregnancy because it may induce uterine contractions. Persistent insomnia is a reason to evaluate the cause rather than simply extending supplement use.',
   },
   {
     question: 'Can I combine natural sleep aids?',
@@ -69,11 +66,12 @@ const BEST_NATURAL_SLEEP_AIDS_THAT_WORK_REFS = [
   { n: 4, text: 'Bulman A, et al. (2025). The effects of L-theanine consumption on sleep outcomes: a systematic review and meta-analysis. Sleep Med Rev, 81:102076.', url: 'https://pubmed.ncbi.nlm.nih.gov/40056718/' },
   { n: 5, text: 'Cotter J, et al. (2026). Examining the effect of L-theanine on sleep: a systematic review of dietary supplementation trials. Nutr Neurosci, 29(2):224-238.', url: 'https://pubmed.ncbi.nlm.nih.gov/41176609/' },
   { n: 6, text: 'Lee J, et al. (2020). Effects of Passiflora incarnata on polysomnographic sleep parameters in subjects with insomnia disorder: randomized placebo-controlled study. Int Clin Psychopharmacol, 35(1):29-35.', url: 'https://pubmed.ncbi.nlm.nih.gov/31714321/' },
+  { n: 7, text: 'National Center for Complementary and Integrative Health. Passionflower: Usefulness and Safety. Pregnancy warning reviewed on the current NCCIH fact sheet.', url: 'https://www.nccih.nih.gov/health/passionflower' },
 ]
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
-  const valerianProducts = getRevenueProductSet('valerian')
+
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
@@ -91,8 +89,6 @@ export default function Page() {
       />
 
       <div className="space-y-12">
-        <AffiliateDisclosure variant="compact" className="mb-6" />
-        {/* Hero */}
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
           <p className="eyebrow-label">Evidence-based sleep guide</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
@@ -112,14 +108,14 @@ export default function Page() {
           </p>
 
           <figure className="mt-6">
-            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
               <Image
                 src="/images/guides/best-natural-sleep-aids-that-work.jpg"
                 alt="Natural sleep aids including magnesium, melatonin, valerian root, and lavender"
                 width={1536}
                 height={1024}
                 priority
-                className="w-full h-auto"
+                className="h-auto w-full"
               />
             </div>
             <figcaption className="mt-3 text-center text-sm text-muted">
@@ -128,7 +124,6 @@ export default function Page() {
           </figure>
         </section>
 
-        {/* Quick Answer */}
         <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
           <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
           <p className="text-muted">
@@ -143,7 +138,6 @@ export default function Page() {
           </p>
         </section>
 
-        {/* Key Takeaways */}
         <section id="takeaways" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Key takeaways</h2>
           <ul className="space-y-2 text-muted">
@@ -155,7 +149,6 @@ export default function Page() {
           </ul>
         </section>
 
-        {/* Match to cause */}
         <section id="match" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Start here</p>
           <h2 className="text-2xl font-semibold text-ink">Match the sleep aid to your problem</h2>
@@ -182,7 +175,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Evidence overview */}
         <section id="research" className="scroll-mt-20 space-y-5">
           <p className="eyebrow-label">Evidence overview</p>
           <h2 className="text-2xl font-semibold text-ink">What the research actually supports</h2>
@@ -213,15 +205,19 @@ export default function Page() {
             <article className="card-premium p-6">
               <h3 className="text-xl font-semibold text-brand-800">
                 <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>{' '}
-                <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Promising · Uncertain protocol</span>
+                <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Promising · Heterogeneous evidence</span>
               </h3>
               <p className="mt-3 text-sm text-muted">
-                A 2025 systematic review and meta-analysis of randomized trials found small improvements
-                in subjective sleep-onset latency, daytime dysfunction and overall subjective sleep
-                quality. The authors also emphasized the shortage of studies using pure L-theanine and
-                the need to establish an adequate dose and duration. That supports a promising sleep
-                signal, not a guarantee that L-theanine works within 30–60 minutes or a validated bedtime
-                treatment dose.
+                The 2025 meta-analysis pooled randomized trials across participants of different ages and
+                health states: 19 articles included 897 people and 18 entered the meta-analysis. It found
+                small improvements in subjective sleep-onset latency, daytime dysfunction and overall
+                subjective sleep quality, but the authors specifically flagged the shortage of studies on
+                pure L-theanine and said dose and duration still need to be established. A separate 2026
+                review narrowed the question to 13 standalone L-theanine trials (550 participants), using
+                50–900 mg/day for periods ranging from a single dose to eight weeks; it found the evidence
+                more consistent for sleep-quality measures than total sleep time and noted limited, mixed
+                results in people meeting criteria for clinical insomnia. That supports a possible sleep
+                signal, not a guaranteed 30–60 minute onset or a validated insomnia protocol.
               </p>
             </article>
 
@@ -266,7 +262,8 @@ export default function Page() {
                 randomized placebo-controlled insomnia trial, total sleep time increased by about 23
                 minutes relative to placebo, while between-group differences for sleep efficiency and
                 wake-after-sleep-onset were not significant. That is a signal worth studying, not proof of
-                a reliable herbal insomnia treatment. Read the full{' '}
+                a reliable herbal insomnia treatment. <strong className="text-ink">Do not use passionflower during pregnancy:</strong>{' '}
+                NCCIH warns that it may induce uterine contractions. Read the full{' '}
                 <Link href="/guides/passionflower/" className="font-medium text-brand-700 hover:underline">passionflower guide</Link>{' '}
                 for preparation and safety context.
               </p>
@@ -291,7 +288,7 @@ export default function Page() {
             </Link>
             <Link href="/herbs/passionflower/" className="card-premium block p-5 text-sm hover:border-brand-700/40">
               <span className="block font-semibold text-ink">Passionflower</span>
-              <span className="mt-2 block text-muted">Preliminary randomized evidence suggests possible sleep benefits, but replication and stronger trials are needed.</span>
+              <span className="mt-2 block text-muted">Preliminary randomized evidence suggests possible sleep benefits, but replication and stronger trials are needed. Avoid during pregnancy.</span>
             </Link>
             <Link href="/herbs/melissa-officinalis/" className="card-premium block p-5 text-sm hover:border-brand-700/40">
               <span className="block font-semibold text-ink">Lemon balm</span>
@@ -300,18 +297,16 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Risks & safety */}
         <section id="risks" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
           <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
           <ul className="space-y-2 text-sm text-amber-900">
             <li>• Do not assume “natural” means interaction-free. Sedating supplements can add to the effects of alcohol, prescription sedatives or other products that impair alertness.</li>
-            <li>• Pregnancy, breastfeeding, childhood use and prescription-medication use deserve product-specific guidance rather than blanket nightly-safety claims.</li>
+            <li>• <strong>Pregnancy:</strong> do not use passionflower; NCCIH warns that it may induce uterine contractions. Pregnancy and breastfeeding also change the safety calculation for other supplements, so review them individually.</li>
             <li>• Supplemental magnesium can cause gastrointestinal effects, and impaired kidney function changes magnesium safety.</li>
             <li>• Persistent insomnia, loud snoring with pauses, restless legs, significant mood symptoms or daytime exhaustion can point to a condition a supplement will not address.</li>
           </ul>
         </section>
 
-        {/* Common mistakes */}
         <section id="mistakes" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-red-100 bg-red-50/60 p-6">
           <h2 className="text-xl font-semibold text-red-900">Common mistakes to avoid</h2>
           <ul className="space-y-2 text-sm text-red-800">
@@ -322,18 +317,8 @@ export default function Page() {
           </ul>
         </section>
 
-        {valerianProducts && (
-        <>
-          <References refs={BEST_NATURAL_SLEEP_AIDS_THAT_WORK_REFS} />
-          <p className="text-xs text-muted">
-            Product links are a commercial handoff for readers who choose valerian despite the uncertain
-            insomnia evidence above; they are not an efficacy endorsement.
-          </p>
-          <RecommendationSection products={valerianProducts.products} />
-        </>
-        )}
+        <References refs={BEST_NATURAL_SLEEP_AIDS_THAT_WORK_REFS} />
 
-        {/* FAQs */}
         <section id="faq" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2>
           <div className="space-y-3">
@@ -348,7 +333,6 @@ export default function Page() {
 
         <EmailCapture location="guides-best-natural-sleep-aids-that-work" className="mt-6" />
 
-        {/* Related */}
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
