@@ -145,7 +145,6 @@ const COMPARISONS: GuideCard[] = [
 const ALL_GUIDES = [
   { slug: 'best-supplements-for-sleep', title: 'Best Supplements for Sleep' },
   { slug: 'best-natural-sleep-aids-that-work', title: 'Best Natural Sleep Aids That Work' },
-  { slug: 'sleep-best-supplements', title: 'Best Sleep Supplements (Quick Reference)' },
   { slug: 'magnesium-for-sleep', title: 'Magnesium for Sleep' },
   { slug: 'best-magnesium-for-sleep', title: 'Best Magnesium for Sleep' },
   { slug: 'magnesium-types-for-sleep', title: 'Magnesium Types for Sleep' },
