@@ -8,6 +8,7 @@ import {
 } from '../ci/report-build-stage-timings.mjs'
 import { exportCanonicalCitationsToRuntime } from './canonical/citation-export.mjs'
 import { buildAiEntityArtifacts } from './ai-entity-artifacts.mjs'
+import { reconcileDeliberateGovernanceHolds } from './governance-hold-policy.mjs'
 
 const DATA_DIR_ARG = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = DATA_DIR_ARG
@@ -201,6 +202,32 @@ function buildAlphaEntityShards(records) {
 
 async function main() {
   const totalTimer = createStageTimer('summary-index-build')
+
+  // This builder is the production boundary immediately before route/sitemap/static
+  // metadata generation. Normalize and govern the freshly generated runtime payloads
+  // here so every downstream artifact consumes the same authority state.
+  const postprocessTimer = createStageTimer('workbook-payload-postprocess')
+  await import('./postprocess-workbook-payloads.mjs')
+  postprocessTimer.finish()
+
+  const governanceTimer = createStageTimer('governance-overlay')
+  await import('./apply-governance-overlay.mjs')
+  governanceTimer.finish()
+
+  // Curated allowlists express editorial priority, but an explicit content hold
+  // (hidden_until_grounded/research_only) outranks that priority until grounded.
+  const holdTimer = createStageTimer('deliberate-governance-hold-reconciliation')
+  const holdReport = await reconcileDeliberateGovernanceHolds({ dataDir: DATA_DIR })
+  holdTimer.finish({ corrected: holdReport.total })
+  if (holdReport.total > 0) {
+    console.log(
+      `[summary-indexes] preserved deliberate governance holds: ${[
+        ...holdReport.herbs.map((slug) => `herb:${slug}`),
+        ...holdReport.compounds.map((slug) => `compound:${slug}`),
+      ].join(', ')}`,
+    )
+  }
+
   const citationTimer = createStageTimer('canonical-citation-export')
   const citationReport = exportCanonicalCitationsToRuntime({ dataDir: DATA_DIR })
   citationTimer.finish({
