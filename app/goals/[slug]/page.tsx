@@ -10,6 +10,7 @@ import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePic
 import GoalContentDepth from '@/src/components/goals/GoalContentDepth'
 import GoalHubSections from '@/src/components/goals/GoalHubSections'
 import { getGoalHubLinks } from '@/src/lib/goal-hub-links'
+import { getPublicGoalContentExtension } from '@/src/lib/goal-public-copy'
 import SchemaOrg from '@/components/SchemaOrg'
 import Disclaimer from '@/src/components/Disclaimer'
 import { breadcrumbJsonLd, faqPageJsonLd, SITE_URL } from '@/src/lib/seo'
@@ -55,7 +56,10 @@ export default async function GoalPage({ params }: PageProps) {
   if (!goal) notFound()
 
   const goalPath = `/goals/${goal.slug}/`
-  const extension = getGoalContentExtension(goal.slug)
+  const rawExtension = getGoalContentExtension(goal.slug)
+  const extension = rawExtension
+    ? getPublicGoalContentExtension(goal.slug, rawExtension)
+    : null
   const startHereLinks = getGoalStartHereLinks(goal.slug)
   const { stack, compares, seoEntry } = getGoalHubLinks(goal.slug)
 
