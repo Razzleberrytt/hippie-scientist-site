@@ -12,6 +12,7 @@ const MECHANISM_LABELS: Record<string, string> = {
 }
 
 const SEVERITY_ORDER: InteractionSeverity[] = ['severe', 'moderate', 'caution']
+const MAX_VISIBLE_PARTNERS_PER_MECHANISM = 12
 
 const SEVERITY_CONFIG: Record<InteractionSeverity, { label: string; accent: string; badge: string }> = {
   severe: {
@@ -84,51 +85,65 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
 
               <div className='border-t border-[#123c2f]/10 px-4 pb-5 pt-4 sm:px-5'>
                 <p className='mb-4 text-xs font-semibold text-[#647168] dark:text-[var(--text-muted)]'>
-                  Browse the grouped cautions below. The list scrolls inside this card when long.
+                  Representative pairings are shown below. Large mechanism groups are intentionally summarized to keep profiles focused and crawl-efficient.
                 </p>
                 <div className='interaction-chip-scroll space-y-5 pr-1'>
-                  {byMechanism.map(({ mechanism, edges: mechanismEdges }) => (
-                    <div key={mechanism} className='space-y-3'>
-                      <span className={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-extrabold uppercase tracking-[0.12em] ${config.badge}`}>
-                        {MECHANISM_LABELS[mechanism] ?? mechanism}
-                      </span>
-                      <ul className='flex flex-wrap gap-2'>
-                        {mechanismEdges.map((edge) => {
-                          const partnerType = slugTypeMap[edge.partner_slug]
-                          // interaction_edges.json carries raw workbook slugs, so a
-                          // partner can be a slug that only exists to be 301'd. Resolve
-                          // to the canonical URL rather than linking into a redirect.
-                          const partnerHref = partnerType
-                            ? canonicalProfileHref(
-                                partnerType === 'compound' ? 'compounds' : 'herbs',
-                                edge.partner_slug,
-                              )
-                            : null
+                  {byMechanism.map(({ mechanism, edges: mechanismEdges }) => {
+                    const visibleEdges = mechanismEdges.slice(0, MAX_VISIBLE_PARTNERS_PER_MECHANISM)
+                    const hiddenCount = mechanismEdges.length - visibleEdges.length
 
-                          const content = (
-                            <>
-                              <Leaf className='h-3.5 w-3.5 shrink-0 text-[#315f50]' aria-hidden='true' strokeWidth={1.8} />
-                              <span>{edge.partner_name}</span>
-                            </>
-                          )
+                    return (
+                      <div key={mechanism} className='space-y-3'>
+                        <span className={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-extrabold uppercase tracking-[0.12em] ${config.badge}`}>
+                          {MECHANISM_LABELS[mechanism] ?? mechanism}
+                        </span>
+                        <ul className='flex flex-wrap gap-2'>
+                          {visibleEdges.map((edge) => {
+                            const partnerType = slugTypeMap[edge.partner_slug]
+                            // interaction_edges.json carries raw workbook slugs, so a
+                            // partner can be a slug that only exists to be 301'd. Resolve
+                            // to the canonical URL rather than linking into a redirect.
+                            const partnerHref = partnerType
+                              ? canonicalProfileHref(
+                                  partnerType === 'compound' ? 'compounds' : 'herbs',
+                                  edge.partner_slug,
+                                )
+                              : null
 
-                          return (
-                            <li key={`${edge.partner_slug}-${edge.risk_mechanism}`} title={edge.claim_language}>
-                              {partnerHref ? (
-                                <Link href={partnerHref} className='interaction-chip inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-bold transition'>
-                                  {content}
-                                </Link>
-                              ) : (
-                                <span className='interaction-chip inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-bold'>
-                                  {content}
-                                </span>
-                              )}
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    </div>
-                  ))}
+                            const content = (
+                              <>
+                                <Leaf className='h-3.5 w-3.5 shrink-0 text-[#315f50]' aria-hidden='true' strokeWidth={1.8} />
+                                <span>{edge.partner_name}</span>
+                              </>
+                            )
+
+                            return (
+                              <li key={`${edge.partner_slug}-${edge.risk_mechanism}`} title={edge.claim_language}>
+                                {partnerHref ? (
+                                  <Link href={partnerHref} className='interaction-chip inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-bold transition'>
+                                    {content}
+                                  </Link>
+                                ) : (
+                                  <span className='interaction-chip inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-bold'>
+                                    {content}
+                                  </span>
+                                )}
+                              </li>
+                            )
+                          })}
+                        </ul>
+                        {hiddenCount > 0 && (
+                          <p className='text-xs leading-5 text-[#647168] dark:text-[var(--text-muted)]'>
+                            +{hiddenCount} more pairing{hiddenCount === 1 ? '' : 's'} share this mechanism.{' '}
+                            <Link href='/safety-checker' className='font-bold text-[#315f50] underline decoration-[#315f50]/30 underline-offset-2 hover:decoration-[#315f50]'>
+                              Use the Safety Checker
+                            </Link>{' '}
+                            to review a specific combination.
+                          </p>
+                        )}
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </details>
