@@ -157,9 +157,13 @@ export function getDecisionSafetyTone(
 }
 
 export function publicSafetyLabel(labelOrValue?: unknown): StandardSafetyLabel {
-  // Always return the label (including "Safety review pending") so that pending safety status is visible
-  // and not hidden. Callers / metrics decide display; never imply reviewed safety when data is pending.
-  return normalizeDecisionSafety(labelOrValue)
+  const normalized = normalizeDecisionSafety(labelOrValue)
+  // Keep workflow state visible to internal audit/editorial tools via
+  // normalizeDecisionSafety, but do not expose implementation queue language to
+  // readers. Public cards should communicate the epistemic state: safety data are
+  // limited and the full profile should be reviewed.
+  if (normalized === 'Safety review pending') return 'Safety data limited'
+  return normalized
 }
 
 export function evidenceToneClasses(tone: DecisionEvidenceTone) {
