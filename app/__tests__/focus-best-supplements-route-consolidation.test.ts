@@ -6,6 +6,7 @@ const COMPAT_PAGE = 'app/guides/focus/best-supplements-for-focus/page.tsx'
 const HUB = 'app/guides/focus/page.tsx'
 const CANONICAL_ROUTES = 'src/lib/canonical-routes.ts'
 const GOAL_SEO = 'src/lib/goal-seo.ts'
+const SITEMAP_COMPLETENESS = 'scripts/ci/validate-sitemap-completeness.mjs'
 const OVERRIDE = 'public/redirect-overrides/004-focus-best-supplements-consolidation.txt'
 
 function read(relativePath: string) {
@@ -20,6 +21,7 @@ describe('focus best-supplements route consolidation', () => {
 
     const compatibilitySource = read(COMPAT_PAGE)
     expect(compatibilitySource).toContain("const CANONICAL_PATH = '/guides/focus/best-nootropics-for-focus/'")
+    expect(read(SITEMAP_COMPLETENESS)).toContain("'guides/focus/best-supplements-for-focus'")
   })
 
   it('uses the evidence-first guide for focus discovery and shared canonical registries', () => {
