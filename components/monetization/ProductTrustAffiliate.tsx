@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { getPublicProductRationale } from '@/src/lib/commercial-copy'
 
 type ProductTrustAffiliateProps = {
   productName: string
@@ -28,6 +29,11 @@ export default function ProductTrustAffiliate({
   if (suppressMonetization) return null
 
   const displayTitle = brand ? `${brand} — ${productName}` : productName
+  const publicRationale = getPublicProductRationale({
+    title: productName,
+    brand,
+    rationale,
+  })
 
   if (compact) {
     return (
@@ -35,7 +41,7 @@ export default function ProductTrustAffiliate({
         <p className='text-[10px] font-bold uppercase tracking-wider text-emerald-800 dark:text-brand-200'>
           Why we link this {slotLabel ? `(${slotLabel})` : ''}
         </p>
-        <p className='text-xs leading-relaxed text-muted'>{rationale}</p>
+        <p className='text-xs leading-relaxed text-muted'>{publicRationale}</p>
         <p className='text-[10px] leading-relaxed text-muted'>
           Third-party testing, labeled standardization, and clear serving size weighed more than lowest price.
         </p>
@@ -61,7 +67,7 @@ export default function ProductTrustAffiliate({
       ) : null}
       <h3 className='mt-1 text-base font-semibold text-ink'>{displayTitle}</h3>
       <p className='mt-2 text-sm leading-6 text-muted'>
-        <strong className='font-semibold text-ink'>Why we recommend it:</strong> {rationale}
+        <strong className='font-semibold text-ink'>Why we recommend it:</strong> {publicRationale}
       </p>
       <ul className='mt-3 space-y-1.5 text-xs leading-relaxed text-muted'>
         <li>• Prefer third-party tested brands (USP, NSF, ConsumerLab, or published COA)</li>
