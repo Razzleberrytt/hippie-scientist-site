@@ -215,15 +215,10 @@ function normalizeIndexRoutePath(path: string): string {
 
 function hasNoindexSignal(record: Record<string, unknown> | null | undefined): string | null {
   if (!record) return null
-  const sitemapIncluded = record.sitemap_included
-  if (sitemapIncluded === false || String(sitemapIncluded).toLowerCase() === 'false') return 'sitemap_included=false'
 
-  const robots = String(record.robots || '').toLowerCase()
-  if (robots.includes('noindex')) return 'robots=noindex'
-
-  const indexabilityStatus = String(record.indexability_status || '').toUpperCase()
-  if (['NOINDEX', 'NEEDS_REVIEW', 'BLOCKED'].includes(indexabilityStatus)) return `indexability_status=${indexabilityStatus}`
-
+  // Strong source/runtime holds must be evaluated before derived indexability
+  // fields. Curated priority can intentionally override an ordinary review state,
+  // but it must never erase an explicit hidden/research-only content hold.
   const decision = String(record.runtime_export_decision || '').toLowerCase()
   if (['hide', 'hidden', 'blocked', 'block', 'alias_redirect_only', 'hidden_until_grounded', 'research_archive_runtime'].includes(decision)) {
     return `runtime_export_decision=${decision}`
@@ -231,6 +226,15 @@ function hasNoindexSignal(record: Record<string, unknown> | null | undefined): s
 
   const profileStatus = String(record.profile_status || '').toLowerCase()
   if (['draft', 'archived', 'minimal', 'research_only'].includes(profileStatus)) return `profile_status=${profileStatus}`
+
+  const robots = String(record.robots || '').toLowerCase()
+  if (robots.includes('noindex')) return 'robots=noindex'
+
+  const indexabilityStatus = String(record.indexability_status || '').toUpperCase()
+  if (['NOINDEX', 'NEEDS_REVIEW', 'BLOCKED'].includes(indexabilityStatus)) return `indexability_status=${indexabilityStatus}`
+
+  const sitemapIncluded = record.sitemap_included
+  if (sitemapIncluded === false || String(sitemapIncluded).toLowerCase() === 'false') return 'sitemap_included=false'
 
   const summaryQuality = String(record.summary_quality || '').toLowerCase()
   if (['weak', 'minimal', 'thin', 'stub', 'research_needed', 'none'].includes(summaryQuality)) return `summary_quality=${summaryQuality}`
