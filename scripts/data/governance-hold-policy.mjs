@@ -80,6 +80,23 @@ async function writeJson(filePath, value) {
   await fs.writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
 }
 
+function stableClone(value) {
+  if (Array.isArray(value)) return value.map(stableClone)
+  if (value && typeof value === 'object') {
+    return Object.keys(value)
+      .sort((a, b) => a.localeCompare(b))
+      .reduce((output, key) => {
+        output[key] = stableClone(value[key])
+        return output
+      }, {})
+  }
+  return value
+}
+
+async function writeDeterministicJson(filePath, value) {
+  await fs.writeFile(filePath, `${JSON.stringify(stableClone(value))}\n`, 'utf8')
+}
+
 async function reconcileCollection(dataDir, listFile, detailDirName) {
   const listPath = path.join(dataDir, listFile)
   const records = await readJson(listPath, [])
@@ -150,7 +167,7 @@ async function reconcileRuntimeMaps(dataDir, heldSlugs) {
     const sanitized = sanitizeRuntimeMap(current, heldSlugs)
     if (JSON.stringify(sanitized) === JSON.stringify(current)) continue
 
-    await writeJson(filePath, sanitized)
+    await writeDeterministicJson(filePath, sanitized)
     corrected.push(fileName)
   }
 
