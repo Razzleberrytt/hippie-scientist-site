@@ -214,7 +214,7 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">What We Know About Combining Them</h2>
               <EvidenceSummaryCard
                 title="Magnesium + L-Theanine + Ashwagandha"
-                evidenceLevel="Insufficient combination evidence"
+                evidenceLevel="Limited"
                 humanEvidence="No direct magnesium + L-theanine + ashwagandha sleep trial was identified for this review. Studies of individual ingredients or other multi-ingredient products cannot establish the benefit of this exact combination."
                 mechanisticEvidence="The ingredients affect different biological systems, but mechanistic differences are hypothesis-generating. They do not demonstrate synergy, a preferred sequence, or superior sleep outcomes."
                 safetyProfile="Combination-specific safety is not established. Individual risks can overlap with medication use and health conditions, and adding products increases exposure to excipients and other active ingredients."
