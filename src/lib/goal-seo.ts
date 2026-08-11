@@ -32,7 +32,7 @@ const GOAL_SEO_DESCRIPTIONS: Record<string, string> = {
 const GOAL_SEO_ENTRY_ROUTES: Record<string, string> = {
   sleep: '/guides/sleep/best-supplements-for-sleep',
   stress: '/guides/best/supplements-for-stress',
-  focus: '/guides/focus/best-supplements-for-focus',
+  focus: '/guides/focus/best-nootropics-for-focus/',
   anxiety: '/guides/anxiety/best-herbs-for-anxiety',
 }
 
