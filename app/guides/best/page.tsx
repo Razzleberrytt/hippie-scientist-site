@@ -7,7 +7,7 @@ import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Best Supplement Guides by Goal',
   description:
-    'Browse evidence-informed best supplement guides for sleep, focus, ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
+    'Browse evidence-informed best supplement guides for sleep, anxiety, focus, ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
   path: '/guides/best/',
 })
 
@@ -41,6 +41,16 @@ const bestGuides = [
       'Readers who want to separate same-day alertness from longer-term memory support and avoid treating every cognitive supplement as an interchangeable focus booster.',
     caution:
       'Caffeine can worsen sleep, anxiety, palpitations, and blood pressure, while persistent concentration problems may need assessment rather than a larger supplement stack.',
+  },
+  {
+    title: 'Best Herbs for Anxiety',
+    href: '/guides/anxiety/best-herbs-for-anxiety/',
+    description:
+      'Compare calming herbs by the anxiety, stress, tension, or sleep-adjacent outcomes actually studied instead of treating every calming ingredient as interchangeable.',
+    bestFor:
+      'Readers comparing herbal options for anxiety-related goals who want evidence boundaries and safety context before choosing a product or stack.',
+    caution:
+      'Sedatives, antidepressants, pregnancy, liver disease, alcohol use, and persistent or severe anxiety can materially change the safety and next-step decision.',
   },
   {
     title: 'Best Supplements for Stress',
@@ -106,7 +116,7 @@ export default function BestSupplementGuidesHub() {
     path: '/guides/best/',
     title: 'Best Supplement Guides by Goal',
     description:
-      'Browse evidence-informed best supplement guides for sleep, focus, ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
+      'Browse evidence-informed best supplement guides for sleep, anxiety, focus, ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
       { name: 'Guides', url: `${SITE_URL}/guides/` },
