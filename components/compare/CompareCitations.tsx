@@ -102,9 +102,11 @@ export default function CompareCitations({ item1, item2 }: CompareCitationsProps
               <ItemSources item={item2} />
             </>
           ) : (
-            <p className="text-sm text-muted">
-              Sources forthcoming. Data derived from herb and compound profiles.
-            </p>
+            <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-subtle)] p-4">
+              <p className="text-sm leading-6 text-muted">
+                No source-level citations are surfaced in this comparison record. The comparison is assembled from the structured herb and compound profile data; open the full profiles below to inspect any source context available there.
+              </p>
+            </div>
           )}
 
           <div className="rounded-2xl border border-brand-900/10 bg-brand-50/70 p-4">
@@ -129,10 +131,6 @@ export default function CompareCitations({ item1, item2 }: CompareCitationsProps
               </Link>
             </div>
           </div>
-
-          <p className="border-t border-brand-900/10 pt-4 text-xs text-muted">
-            Last reviewed: 2026
-          </p>
         </div>
       </details>
     </section>
