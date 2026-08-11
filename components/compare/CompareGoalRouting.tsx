@@ -41,34 +41,18 @@ function buildExplanation(
   match2: boolean,
 ): string {
   if (match1 && match2) {
-    const b1 = item1.primaryBenefits[0] || item1.mechanisms[0]
-    const b2 = item2.primaryBenefits[0] || item2.mechanisms[0]
-    if (b1 && b2 && b1 !== b2) {
-      return `Both support ${goal.label.toLowerCase()} but through different pathways — ${item1.name} via ${b1.toLowerCase()} and ${item2.name} via ${b2.toLowerCase()}.`
-    }
-    return `Both ${item1.name} and ${item2.name} have data relevant to ${goal.label.toLowerCase()} support.`
+    return `Both profiles contain fields or descriptive text relevant to ${goal.label.toLowerCase()}. This keyword-level signal does not establish equal efficacy, a head-to-head tie, or a reason to combine them.`
   }
   if (match1) {
-    const benefit = item1.primaryBenefits.find((b) =>
-      goal.keywords.some((kw) => b.toLowerCase().includes(kw)),
-    ) || item1.primaryBenefits[0]
-    return benefit
-      ? `${item1.name} directly targets ${benefit.toLowerCase()}, while ${item2.name} lacks documented effects in this area.`
-      : `${item1.name} has documented relevance to ${goal.label.toLowerCase()} support; ${item2.name} does not.`
+    return `${item1.name}'s profile contains fields or descriptive text relevant to ${goal.label.toLowerCase()}; ${item2.name}'s current comparison record does not surface the same keyword signal. That is a data-coverage difference, not proof that ${item1.name} works better for this goal.`
   }
-  // match2 only
-  const benefit = item2.primaryBenefits.find((b) =>
-    goal.keywords.some((kw) => b.toLowerCase().includes(kw)),
-  ) || item2.primaryBenefits[0]
-  return benefit
-    ? `${item2.name} directly targets ${benefit.toLowerCase()}, while ${item1.name} lacks documented effects in this area.`
-    : `${item2.name} has documented relevance to ${goal.label.toLowerCase()} support; ${item1.name} does not.`
+  return `${item2.name}'s profile contains fields or descriptive text relevant to ${goal.label.toLowerCase()}; ${item1.name}'s current comparison record does not surface the same keyword signal. That is a data-coverage difference, not proof that ${item2.name} works better for this goal.`
 }
 
 export default function CompareGoalRouting({ item1, item2 }: CompareGoalRoutingProps) {
   type GoalCard = {
     label: string
-    winner: 'item1' | 'item2' | 'tie'
+    signal: 'both' | 'item1' | 'item2'
     explanation: string
   }
 
@@ -82,7 +66,7 @@ export default function CompareGoalRouting({ item1, item2 }: CompareGoalRoutingP
 
     cards.push({
       label: goal.label,
-      winner: m1 && m2 ? 'tie' : m1 ? 'item1' : 'item2',
+      signal: m1 && m2 ? 'both' : m1 ? 'item1' : 'item2',
       explanation: buildExplanation(goal, item1, item2, m1, m2),
     })
   }
@@ -92,10 +76,13 @@ export default function CompareGoalRouting({ item1, item2 }: CompareGoalRoutingP
   return (
     <section className="space-y-6 max-w-5xl">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Goal Matcher</p>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Goal relevance scan</p>
         <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
-          Goal-by-Goal Breakdown
+          Where the Profile Data Mention Each Goal
         </h2>
+        <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">
+          This scan is based on keywords in profile fields and descriptions. Use it to find sections worth reading, not to rank efficacy or declare a winner.
+        </p>
       </div>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
@@ -105,15 +92,11 @@ export default function CompareGoalRouting({ item1, item2 }: CompareGoalRoutingP
               {card.label}
             </h3>
 
-            {card.winner === 'tie' ? (
-              <span className="inline-flex items-center gap-1 rounded-full bg-brand-50/50 border border-brand-900/10 px-2.5 py-1 text-xs font-semibold text-brand-700 w-fit">
-                TIE
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-1 rounded-full bg-brand-50/50 border border-brand-900/10 px-2.5 py-1 text-xs font-semibold text-evidence-strong w-fit">
-                {card.winner === 'item1' ? item1.name : item2.name} wins
-              </span>
-            )}
+            <span className="inline-flex w-fit items-center gap-1 rounded-full border border-brand-900/10 bg-brand-50/50 px-2.5 py-1 text-xs font-semibold text-brand-700">
+              {card.signal === 'both'
+                ? 'Both profiles mention this goal'
+                : `${card.signal === 'item1' ? item1.name : item2.name} profile signal`}
+            </span>
 
             <p className="text-xs leading-relaxed text-muted">{card.explanation}</p>
           </div>
