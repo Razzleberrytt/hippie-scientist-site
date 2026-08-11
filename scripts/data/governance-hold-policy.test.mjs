@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   applyDeliberateGovernanceHold,
   isDeliberateGovernanceHold,
+  mirrorCanonicalGovernanceAuthority,
 } from './governance-hold-policy.mjs'
 
 describe('deliberate governance hold precedence', () => {
@@ -60,5 +61,46 @@ describe('deliberate governance hold precedence', () => {
     expect(isDeliberateGovernanceHold(record)).toBe(false)
     expect(applyDeliberateGovernanceHold(record)).toBe(false)
     expect(record.indexability_status).toBe('PUBLISH')
+  })
+
+  it('keeps late detail payloads from overriding canonical publish authority', () => {
+    const canonical = {
+      slug: 'green-tea-egcg-isolated',
+      profile_status: 'commercial_ready',
+      runtime_export_decision: 'cluster_member_runtime',
+      indexability_status: 'PUBLISH',
+      robots: 'index,follow',
+      sitemap_included: true,
+      indexability_score: 95,
+      indexability_reasons: ['export-decision:cluster_member_runtime'],
+      governance: {
+        indexingAllowed: true,
+        recommendationAllowed: true,
+        requiresHumanReview: false,
+        reviewStatus: 'approved',
+      },
+    }
+    const detail = {
+      slug: 'green-tea-egcg-isolated',
+      summary: 'Keep richer detail prose intact.',
+      indexability_status: 'NEEDS_REVIEW',
+      robots: 'noindex,follow',
+      sitemap_included: false,
+      governance: {
+        indexingAllowed: false,
+        recommendationAllowed: true,
+        requiresHumanReview: true,
+        reviewStatus: 'needs_review',
+      },
+    }
+
+    expect(mirrorCanonicalGovernanceAuthority(detail, canonical)).toBe(true)
+    expect(detail.summary).toBe('Keep richer detail prose intact.')
+    expect(detail.profile_status).toBe('commercial_ready')
+    expect(detail.runtime_export_decision).toBe('cluster_member_runtime')
+    expect(detail.indexability_status).toBe('PUBLISH')
+    expect(detail.robots).toBe('index,follow')
+    expect(detail.sitemap_included).toBe(true)
+    expect(detail.governance).toEqual(canonical.governance)
   })
 })
