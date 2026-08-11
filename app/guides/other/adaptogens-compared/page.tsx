@@ -7,8 +7,6 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
-import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Adaptogens Compared: Ashwagandha, Rhodiola, Holy Basil & More (2026)',
@@ -70,14 +68,6 @@ export default function AdaptogensComparedPage() {
       </section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Adaptogens are not interchangeable. Match the herb to your stress pattern: <strong>ashwagandha for the anxious-overactivated</strong> [2,5], <strong>rhodiola for the fatigued-depleted</strong> [4,6], and <strong>holy basil for general maintenance</strong>. Start one at a time for 2-4 weeks before assessing. Most people benefit from ashwagandha first — it has the strongest evidence base and addresses the most common stress pattern. The adaptogen category is real, clinically relevant, and underutilized.</p></section>
-
-      <div className="max-w-4xl">
-        <RecommendationSection
-          title="Ashwagandha product picks"
-          description="Ashwagandha has the strongest evidence of the adaptogens compared here and fits the most common stress pattern. These are sourcing starting points — confirm dose, standardization, and fit for your situation, and review the safety notes above before buying."
-          products={getRevenueProductSet('ashwagandha')?.products ?? []}
-        />
-      </div>
 
       <References refs={ADAPTOGENS_REFS} />
       <EmailCapture headline="Get evidence reviews like this" description="Adaptogens, stacking safety, evidence — not marketing." ctaLabel="Get the evidence" location="guide-adaptogens" />
