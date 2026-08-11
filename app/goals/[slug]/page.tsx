@@ -6,6 +6,7 @@ import { goals, type Goal } from '@/data/goals'
 import { getGoalContentExtension } from '@/data/goal-content'
 import { getGoalStartHereLinks } from '@/lib/goal-start-here-links'
 import GoalStartHereLinks from '@/components/goals/GoalStartHereLinks'
+import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
 import GoalContentDepth from '@/src/components/goals/GoalContentDepth'
 import GoalHubSections from '@/src/components/goals/GoalHubSections'
 import { getGoalHubLinks } from '@/src/lib/goal-hub-links'
@@ -204,6 +205,8 @@ export default async function GoalPage({ params }: PageProps) {
         compares={compares}
         seoEntry={seoEntry}
       />
+
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={3} />
 
       {relatedGoals.length > 0 ? (
         <section className="card-premium p-5 sm:p-8">
