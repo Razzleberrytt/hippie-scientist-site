@@ -7,6 +7,8 @@ const read = (p) => fs.readFileSync(path.join(root, p), 'utf8')
 const exists = (p) => fs.existsSync(path.join(root, p))
 
 const pageFilePattern = /^page\.(tsx|ts|jsx|js)$/
+const testFilePattern = /\.(test|spec)\.(tsx|ts|jsx|js)$/
+const testOnlyDirectories = new Set(['__tests__', '__mocks__', '__fixtures__'])
 
 function collectFiles(dir, matcher = null) {
   const absDir = path.join(root, dir)
@@ -21,12 +23,13 @@ function collectFiles(dir, matcher = null) {
       const fullPath = path.join(currentDir, entry.name)
 
       if (entry.isDirectory()) {
+        if (testOnlyDirectories.has(entry.name)) continue
         walk(fullPath)
         continue
       }
 
       if (!entry.isFile()) continue
-
+      if (testFilePattern.test(entry.name)) continue
       if (matcher && !matcher(entry.name)) continue
 
       files.push(path.relative(root, fullPath).split(path.sep).join('/'))
