@@ -176,7 +176,7 @@ export default function Page() {
             For most readers, apigenin should come after the cleaner decision pages. Start with the actual sleep problem, then decide whether a low-confidence trend supplement is even needed.
           </p>
           <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold">
-            <Link href="/guides/sleep/sleep-best-supplements/" className="text-brand-800 hover:underline dark:text-[var(--text-primary)]">Best sleep supplements →</Link>
+            <Link href="/guides/sleep/best-supplements-for-sleep/" className="text-brand-800 hover:underline dark:text-[var(--text-primary)]">Best sleep supplements →</Link>
             <Link href="/guides/sleep/l-theanine-for-sleep/" className="text-brand-800 hover:underline dark:text-[var(--text-primary)]">L-theanine for sleep →</Link>
             <Link href="/guides/sleep/magnesium-for-sleep/" className="text-brand-800 hover:underline dark:text-[var(--text-primary)]">Magnesium for sleep →</Link>
           </div>
