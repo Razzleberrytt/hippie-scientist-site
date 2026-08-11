@@ -70,6 +70,11 @@ const START_HERE: IntentRoute[] = [
 
 const BEST_FIRST: GuideCard[] = [
   {
+    href: '/guides/anxiety/best-herbs-for-anxiety/',
+    title: 'Best Herbs for Anxiety',
+    desc: 'Compare calming herbs by the outcomes actually studied, with medication and safety boundaries kept visible.',
+  },
+  {
     href: '/guides/anxiety/natural-anxiety-relief/',
     title: 'Natural Anxiety Relief',
     desc: 'The evidence-informed overview — start here if you are not sure what you need.',
