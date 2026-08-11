@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { isOptimizableRemoteImage } from '../src/lib/image-hosts'
 import { getOutboundLinkRel, resolveRegionalUrl, type RegionalUrlMap } from '../src/lib/platforms'
 import { trackRevenueEvent } from '../src/lib/revenue-tracking'
+import { affiliateRationaleForDisplay } from '../src/lib/affiliate-copy'
 
 export type AffiliateProduct = {
   asin?: string
@@ -35,7 +36,7 @@ type AffiliateProductCardProps = {
 export default function AffiliateProductCard({ product, compact = false }: AffiliateProductCardProps) {
   const title = product.title || product.name || 'Supplement option'
   const imageUrl = product.imageUrl || product.image
-  const rationale = product.rationale || product.notes || 'Review the label, dose, third-party testing, and safety context before buying.'
+  const rationale = affiliateRationaleForDisplay(title, product.rationale || product.notes)
   const rawUrl = product.affiliateUrl || product.url || product.link
   const resolvedUrl = rawUrl
     ? resolveRegionalUrl({
