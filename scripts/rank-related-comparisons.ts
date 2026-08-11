@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { buildRelatedBotanicalPerformance, type AtlasAnalyticsEvent } from '../src/lib/atlasAnalyticsReport'
 import { getBotanicalAtlasRecords } from '../src/lib/botanical-atlas-data'
+import { buildComparisonAgentWorkPacket } from '../src/lib/comparison-agent-work-queue'
 import { classifyObservedDemand, observedDemandRank, recommendEditorialAction } from '../src/lib/comparison-demand-tier'
 import { buildComparisonShortlist } from '../src/lib/comparison-shortlist'
 
@@ -41,6 +42,10 @@ const observedDemandQueue = rows
     || b.row.observedBehaviorScore - a.row.observedBehaviorScore
     || b.row.priorityScore - a.row.priorityScore)
 
+const agentWorkPackets = observedDemandQueue
+  .map(({ row, demandTier, recommendedAction }) => buildComparisonAgentWorkPacket(row, demandTier, recommendedAction))
+  .filter((packet) => packet.recommendedAction !== 'no-action')
+
 const markdown = [
   '# Curated Botanical Comparison Shortlist',
   '',
@@ -66,6 +71,23 @@ const markdown = [
       ]
     : ['No candidates currently clear the observed-demand sample thresholds.']),
   '',
+  '## Agent execution queue',
+  '',
+  agentWorkPackets.length
+    ? 'Each packet below is also emitted to `comparison-agent-work-queue.json` with explicit research gaps and completion criteria. Agents should execute the recommended task, not infer a more aggressive action from demand alone.'
+    : 'No active agent packets are available yet.',
+  '',
+  ...agentWorkPackets.slice(0, 15).flatMap((packet, index) => [
+    `### ${index + 1}. ${packet.title}`,
+    '',
+    `- Action: **${packet.recommendedAction}**`,
+    `- Proposed slug: \`${packet.proposedSlug}\``,
+    `- Why: ${packet.actionReason}`,
+    `- Next task: ${packet.nextTask}`,
+    `- Research gaps: ${packet.researchGaps.length ? packet.researchGaps.join(' | ') : 'none identified'}`,
+    `- Done when: ${packet.completionCriteria.join(' | ')}`,
+    '',
+  ]),
   '## Full scientific + editorial shortlist',
   '',
   '| Rank | Pair | Combined | Scientific | Intent proxy | Observed behavior | Relationship | Chemistry | Evidence | Shared specific effects |',
@@ -111,15 +133,17 @@ const editorialQueue = observedDemandQueue.map(({ row, demandTier, recommendedAc
 
 await mkdir(outputDir, { recursive: true })
 await Promise.all([
-  writeFile(path.join(outputDir, 'comparison-shortlist.json'), JSON.stringify({ generatedAt: new Date().toISOString(), analyticsEventsPath: analyticsEventsPath ?? null, editorialQueue, rows }, null, 2) + '\n'),
+  writeFile(path.join(outputDir, 'comparison-shortlist.json'), JSON.stringify({ generatedAt: new Date().toISOString(), analyticsEventsPath: analyticsEventsPath ?? null, editorialQueue, agentWorkPackets, rows }, null, 2) + '\n'),
   writeFile(path.join(outputDir, 'comparison-shortlist.md'), markdown + '\n'),
   writeFile(path.join(outputDir, 'observed-demand-editorial-queue.json'), JSON.stringify({ generatedAt: new Date().toISOString(), analyticsEventsPath: analyticsEventsPath ?? null, candidates: editorialQueue }, null, 2) + '\n'),
+  writeFile(path.join(outputDir, 'comparison-agent-work-queue.json'), JSON.stringify({ generatedAt: new Date().toISOString(), analyticsEventsPath: analyticsEventsPath ?? null, packets: agentWorkPackets }, null, 2) + '\n'),
 ])
 
 console.log(JSON.stringify({
   candidates: rows.length,
   behaviorRows: behaviorRows.length,
   observedDemandCandidates: editorialQueue.length,
+  agentWorkPackets: agentWorkPackets.length,
   buildNextCandidates: editorialQueue.filter((candidate) => candidate.recommendedAction === 'build-next').length,
   researchFirstCandidates: editorialQueue.filter((candidate) => candidate.recommendedAction === 'research-first').length,
   top: rows.slice(0, 5).map((row) => ({
