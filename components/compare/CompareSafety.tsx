@@ -15,15 +15,17 @@ function firstNSentences(text: string, n: number): string {
 function SafetyList({
   items,
   limit,
-  fallback,
 }: {
   items: string[] | undefined
   limit: number
-  fallback: string
 }) {
   const visible = items?.slice(0, limit)
   if (!visible || visible.length === 0) {
-    return <p className="text-sm text-muted italic">{fallback}</p>
+    return (
+      <p className="text-sm italic leading-relaxed text-muted">
+        Not reported in the comparison source data. Missing data do not mean that no risk or interaction exists.
+      </p>
+    )
   }
   return (
     <ul className="list-disc pl-5 space-y-1 mt-1">
@@ -46,41 +48,32 @@ function ItemSafetyCard({ item }: { item: CompareItem }) {
       </h3>
 
       <div className="space-y-4 text-sm">
-        {/* Side effects */}
         <div>
           <p className="font-semibold text-ink">Potential Side Effects</p>
-          <SafetyList
-            items={item.sideEffects}
-            limit={4}
-            fallback="None commonly reported."
-          />
+          <SafetyList items={item.sideEffects} limit={4} />
         </div>
 
-        {/* Who should avoid */}
         <div>
-          <p className="font-semibold text-ink">Who Should Avoid</p>
-          <SafetyList
-            items={item.contraindications}
-            limit={4}
-            fallback="No major contraindications documented."
-          />
+          <p className="font-semibold text-ink">Contraindications / Cautions</p>
+          <SafetyList items={item.contraindications} limit={4} />
         </div>
 
-        {/* Key interactions */}
         <div>
-          <p className="font-semibold text-ink">Key Drug / Supplement Interactions</p>
-          <SafetyList
-            items={item.keyInteractions}
-            limit={3}
-            fallback="No major interactions documented."
-          />
+          <p className="font-semibold text-ink">Drug / Supplement Interactions</p>
+          <SafetyList items={item.keyInteractions} limit={3} />
         </div>
 
-        {/* Safety summary */}
-        {safetyText && (
+        {safetyText ? (
           <div>
             <p className="font-semibold text-ink">Safety Notes</p>
             <p className="text-muted leading-relaxed mt-1">{safetyText}</p>
+          </div>
+        ) : (
+          <div>
+            <p className="font-semibold text-ink">Safety Notes</p>
+            <p className="mt-1 text-sm italic leading-relaxed text-muted">
+              No separate safety summary is available in this comparison source record. Review the full ingredient profile and external clinical guidance where appropriate.
+            </p>
           </div>
         )}
       </div>
@@ -94,10 +87,10 @@ export default function CompareSafety({ item1, item2 }: CompareSafetyProps) {
       <div>
         <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Safety profile</p>
         <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
-          Cautions &amp; Contraindications
+          Cautions, Contraindications &amp; Data Gaps
         </h2>
         <p className="text-sm text-safety-info mt-2">
-          Always consult a healthcare provider before use, especially if pregnant, nursing, or taking medications.
+          Treat blank safety fields as unknown in this dataset, not as evidence of safety. Review medications, health conditions, pregnancy or breastfeeding status, and other supplements before use.
         </p>
       </div>
 
@@ -106,13 +99,12 @@ export default function CompareSafety({ item1, item2 }: CompareSafetyProps) {
         <ItemSafetyCard item={item2} />
       </div>
 
-      {/* Disclaimer banner */}
       <div className="rounded-xl border border-yellow-200 bg-amber-50/60 p-4">
         <p className="text-xs font-semibold text-safety-caution uppercase tracking-wider">
           Medical Disclaimer
         </p>
         <p className="mt-1 text-xs leading-relaxed text-muted">
-          This comparison is for informational and educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Supplements can have active physiological effects. Consult a qualified healthcare professional before starting any new supplement, particularly if you are pregnant, nursing, taking prescription medications, or have an active medical condition.
+          This comparison is for informational and educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Supplements can have active physiological effects and can interact with other supplements or medicines. Consult a qualified healthcare professional before starting a new supplement when your medical context makes interaction risk important.
         </p>
       </div>
     </section>
