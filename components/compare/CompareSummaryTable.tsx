@@ -23,7 +23,7 @@ type RowDef = {
   label: string
   v1: string
   v2: string
-  winRule: 'higher' | 'evidence' | 'none'
+  winRule: 'evidence' | 'none'
 }
 
 export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTableProps) {
@@ -33,46 +33,46 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
 
   const rows: RowDef[] = [
     {
-      label: 'Best for',
-      v1: item1.primaryBenefits[0] ?? '—',
-      v2: item2.primaryBenefits[0] ?? '—',
-      winRule: 'higher',
-    },
-    {
-      label: 'How it works',
-      v1: item1.canonicalMechanisms[0] ?? '—',
-      v2: item2.canonicalMechanisms[0] ?? '—',
-      winRule: 'higher',
-    },
-    {
-      label: 'Onset',
-      v1: item1.onsetTime ?? 'Varies',
-      v2: item2.onsetTime ?? 'Varies',
+      label: 'Primary profile focus',
+      v1: item1.primaryBenefits[0] ?? 'Not reported',
+      v2: item2.primaryBenefits[0] ?? 'Not reported',
       winRule: 'none',
     },
     {
-      label: 'Effective dose',
-      v1: item1.typicalDose ?? '—',
-      v2: item2.typicalDose ?? '—',
-      winRule: 'higher',
+      label: 'Mechanism signal',
+      v1: item1.canonicalMechanisms[0] ?? item1.mechanisms[0] ?? 'Not reported',
+      v2: item2.canonicalMechanisms[0] ?? item2.mechanisms[0] ?? 'Not reported',
+      winRule: 'none',
     },
     {
-      label: 'Evidence',
+      label: 'Onset in source data',
+      v1: item1.onsetTime ?? 'Not reported',
+      v2: item2.onsetTime ?? 'Not reported',
+      winRule: 'none',
+    },
+    {
+      label: 'Dose / form in source data',
+      v1: item1.typicalDose ?? 'Not reported',
+      v2: item2.typicalDose ?? 'Not reported',
+      winRule: 'none',
+    },
+    {
+      label: 'Evidence signal',
       v1: evidenceLabelText(item1.evidenceLevel),
       v2: evidenceLabelText(item2.evidenceLevel),
       winRule: 'evidence',
     },
     {
-      label: 'Stimulation',
+      label: 'Stimulation profile',
       v1: capitalize(stimulationProfile(item1)),
       v2: capitalize(stimulationProfile(item2)),
       winRule: 'none',
     },
     {
       label: 'Evidence grade',
-      v1: item1.evidenceGrade ?? '—',
-      v2: item2.evidenceGrade ?? '—',
-      winRule: 'higher',
+      v1: item1.evidenceGrade ?? 'Not reported',
+      v2: item2.evidenceGrade ?? 'Not reported',
+      winRule: 'none',
     },
     {
       label: 'Type',
@@ -83,16 +83,9 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
   ]
 
   function winner(row: RowDef): 0 | 1 | 2 {
-    if (row.winRule === 'none') return 0
-    if (row.winRule === 'evidence') {
-      if (ev1 > ev2) return 1
-      if (ev2 > ev1) return 2
-      return 0
-    }
-    const has1 = row.v1 !== '—'
-    const has2 = row.v2 !== '—'
-    if (has1 && !has2) return 1
-    if (has2 && !has1) return 2
+    if (row.winRule !== 'evidence') return 0
+    if (ev1 > ev2) return 1
+    if (ev2 > ev1) return 2
     return 0
   }
 
@@ -108,7 +101,7 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
           Scan the core tradeoffs first
         </h2>
         <p className="text-sm leading-6 text-muted">
-          Use this table for a quick read on fit, timing, evidence, and safety-adjacent factors before digging into the full details below.
+          Use this table to see what the source data actually report before digging into the full evidence and safety sections. A stronger evidence signal does not automatically mean a better fit for every outcome.
         </p>
       </div>
 
@@ -120,7 +113,7 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
       >
         <table className="w-full min-w-[720px] border-collapse text-sm">
           <caption className="sr-only">
-            Core tradeoffs between {item1.name} and {item2.name}, including fit, timing, evidence, dose, and type.
+            Core tradeoffs between {item1.name} and {item2.name}, including profile focus, mechanism, timing, evidence, dose or form data, and type.
           </caption>
           <thead>
             <tr className="border-b border-brand-900/10 bg-paper-50">
