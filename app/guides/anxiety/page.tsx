@@ -107,11 +107,6 @@ const COMPARISONS: GuideCard[] = [
     title: 'Best Adaptogens for Stress',
     desc: 'Ashwagandha, rhodiola, eleuthero, schisandra — when to use which.',
   },
-  {
-    href: '/guides/anxiety/natural-alternatives-to-anxiety-medication/',
-    title: 'Alternatives to Anxiety Medication',
-    desc: 'An educational overview — not a replacement for prescribed treatment.',
-  },
 ]
 
 const DEPTH_LINKS = [
@@ -146,7 +141,6 @@ const ALL_GUIDES = [
   { slug: 'best-herbs-for-stress-and-anxiety-at-night', title: 'Best Herbs for Nighttime Anxiety' },
   { slug: 'how-to-lower-cortisol-naturally', title: 'How to Lower Cortisol Naturally' },
   { slug: 'natural-anxiolytics-beyond-ashwagandha', title: 'Natural Anxiolytics Beyond Ashwagandha' },
-  { slug: 'natural-alternatives-to-anxiety-medication', title: 'Alternatives to Anxiety Medication' },
   { slug: 'ashwagandha-for-anxiety', title: 'Ashwagandha for Anxiety' },
   { slug: 'l-theanine-for-anxiety', title: 'L-Theanine for Anxiety' },
   { slug: 'l-theanine-for-calm', title: 'L-Theanine for Calm' },
