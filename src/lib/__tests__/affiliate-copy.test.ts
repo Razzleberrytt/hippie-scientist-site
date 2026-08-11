@@ -15,6 +15,41 @@ describe('affiliateRationaleForDisplay', () => {
     expect(result).not.toMatch(/well-reviewed/i)
   })
 
+  it('removes sweeping researcher-preference claims from unsourced retail rationale', () => {
+    const result = affiliateRationaleForDisplay(
+      'NOW Melatonin 3 mg',
+      'Budget pick for a common 3 mg melatonin capsule — lower dose preferred by most sleep researchers.',
+    )
+
+    expect(result).toContain('3 mg serving')
+    expect(result).not.toMatch(/preferred by most sleep researchers/i)
+  })
+
+  it('removes unsourced absorption or bioavailability superiority from retail rationale', () => {
+    const faster = affiliateRationaleForDisplay(
+      'Example Liquid Extract',
+      'Premium liquid extract for faster absorption and flexible dosing.',
+    )
+    const superior = affiliateRationaleForDisplay(
+      'Example Phytosome',
+      'Premium form with superior bioavailability over the standard extract.',
+    )
+
+    expect(faster).not.toMatch(/faster absorption/i)
+    expect(superior).not.toMatch(/superior bioavailability/i)
+    expect(faster).toMatch(/product-format example/i)
+    expect(superior).toMatch(/product-format example/i)
+  })
+
+  it('removes dynamic popularity claims when no live source is attached to the card', () => {
+    const result = affiliateRationaleForDisplay(
+      'Example Product',
+      'Simple format and well-reviewed by shoppers.',
+    )
+
+    expect(result).not.toMatch(/well-reviewed/i)
+  })
+
   it('preserves ordinary sourcing rationale', () => {
     expect(
       affiliateRationaleForDisplay(
