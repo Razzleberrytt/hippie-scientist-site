@@ -15,7 +15,8 @@
  *
  * This script recursively finds every static (non-dynamic-segment) route
  * under app/, filters out routes with an explicit noindex signal in their
- * own source metadata or in their rendered robots metadata, plus the curated
+ * own source metadata or in their rendered robots metadata, routes whose
+ * rendered canonical points at a different URL, plus the curated
  * EXCLUDED_ROUTES allowlist below, and fails if any remaining route is
  * missing from the built sitemap.xml.
  */
@@ -71,14 +72,17 @@ function hasNoindexSignal(pageFilePath) {
   }
 }
 
+function builtRouteHtmlPath(routePath) {
+  const relativeRoute = routePath === '/' ? '' : routePath.replace(/^\/+|\/+$/g, '')
+  return relativeRoute
+    ? path.join(OUT_DIR, relativeRoute, 'index.html')
+    : path.join(OUT_DIR, 'index.html')
+}
+
 function builtRouteHasNoindex(routePath) {
   if (!fs.existsSync(OUT_DIR)) return false
 
-  const relativeRoute = routePath === '/' ? '' : routePath.replace(/^\/+|\/+$/g, '')
-  const htmlPath = relativeRoute
-    ? path.join(OUT_DIR, relativeRoute, 'index.html')
-    : path.join(OUT_DIR, 'index.html')
-
+  const htmlPath = builtRouteHtmlPath(routePath)
   if (!fs.existsSync(htmlPath)) return false
 
   try {
@@ -89,6 +93,27 @@ function builtRouteHasNoindex(routePath) {
       const isNoindex = /\bcontent\s*=\s*["'][^"']*\bnoindex\b[^"']*["']/i.test(tag)
       return isRobots && isNoindex
     })
+  } catch {
+    return false
+  }
+}
+
+function builtRouteCanonicalizesElsewhere(routePath) {
+  if (!fs.existsSync(OUT_DIR)) return false
+
+  const htmlPath = builtRouteHtmlPath(routePath)
+  if (!fs.existsSync(htmlPath)) return false
+
+  try {
+    const html = fs.readFileSync(htmlPath, 'utf8')
+    const linkTags = html.match(/<link\b[^>]*>/gi) || []
+    const canonicalTag = linkTags.find((tag) => /\brel\s*=\s*["']canonical["']/i.test(tag))
+    if (!canonicalTag) return false
+
+    const hrefMatch = canonicalTag.match(/\bhref\s*=\s*["']([^"']+)["']/i)
+    if (!hrefMatch?.[1]) return false
+
+    return normalizePath(hrefMatch[1]) !== normalizePath(routePath)
   } catch {
     return false
   }
@@ -136,7 +161,9 @@ function normalizePath(url) {
     const p = u.pathname.replace(/\/+$/, '')
     return p === '' ? '/' : p
   } catch {
-    return url
+    const p = String(url || '').split(/[?#]/)[0].replace(/\/+$/, '')
+    if (!p || p === '') return '/'
+    return p.startsWith('/') ? p : `/${p}`
   }
 }
 
@@ -166,27 +193,31 @@ function main() {
     process.exit(1)
   }
 
-  // Runtime/profile governance can generate robots metadata in a static wrapper,
-  // so source inspection alone is not authoritative after a successful build.
-  // The rendered HTML is the final page-level indexing signal.
-  const indexableStaticRoutes = staticRoutes.filter((route) => !builtRouteHasNoindex(route))
+  // Runtime/profile governance can generate robots and canonical metadata in a
+  // static wrapper, so source inspection alone is not authoritative after a
+  // successful build. The rendered HTML is the final page-level indexing and
+  // canonicalization signal. A static compatibility alias whose canonical
+  // points elsewhere must not be required in the sitemap.
+  const indexableStaticRoutes = staticRoutes.filter(
+    (route) => !builtRouteHasNoindex(route) && !builtRouteCanonicalizesElsewhere(route),
+  )
   const sitemapUrls = new Set(parseXmlUrls(fs.readFileSync(sitemapPath, 'utf8')).map(normalizePath))
   const missing = indexableStaticRoutes.filter((route) => !sitemapUrls.has(route)).sort()
 
-  console.log(`[validate-sitemap-completeness] Found ${indexableStaticRoutes.length} static app/ routes after source/rendered noindex filtering; ${sitemapUrls.size} URLs in sitemap.xml.`)
+  console.log(`[validate-sitemap-completeness] Found ${indexableStaticRoutes.length} canonical, indexable static app/ routes after rendered metadata filtering; ${sitemapUrls.size} URLs in sitemap.xml.`)
 
   if (missing.length > 0) {
-    console.error(`[validate-sitemap-completeness] FAIL: ${missing.length} real, indexable route(s) are missing from sitemap.xml:`)
+    console.error(`[validate-sitemap-completeness] FAIL: ${missing.length} real, canonical, indexable route(s) are missing from sitemap.xml:`)
     for (const route of missing) console.error(`  - ${route}`)
     console.error('')
-    console.error('If a route is intentionally excluded, verify that its rendered robots metadata is noindex or add it to EXCLUDED_ROUTES with a comment explaining why.')
+    console.error('If a route is intentionally excluded, verify that its rendered robots metadata is noindex, its rendered canonical points elsewhere, or add it to EXCLUDED_ROUTES with a comment explaining why.')
     console.error('If not, the sitemap generator in app/sitemap.ts is silently dropping real content — check')
     console.error('readAppGuidePageSlugs()-style directory scanners for a depth limit, and shouldIndexRoute() in')
     console.error('src/lib/seo.ts for a regex that only matches a subset of the route\'s path depth.')
     process.exit(1)
   }
 
-  console.log('[validate-sitemap-completeness] PASS: every indexable static app/ route is covered by sitemap.xml.')
+  console.log('[validate-sitemap-completeness] PASS: every canonical, indexable static app/ route is covered by sitemap.xml.')
 }
 
 main()

@@ -37,6 +37,10 @@ const STATIC_ROUTE_METADATA = {
     title: 'Supplement Stacks & Combination Guides',
     description: 'Review supplement combinations with evidence limits, interaction cautions, timing context, and safer decision paths kept visible.',
   },
+  '/tools': {
+    title: 'Research Tools | The Hippie Scientist',
+    description: 'Interactive research tools for comparing botanicals, evidence, activity, compounds, and safety context.',
+  },
   '/tools/botanical-activity-atlas': {
     title: 'Botanical Activity Atlas',
     description: 'Explore botanical activity and mechanism relationships across herbs and compounds with conservative evidence and safety context.',

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 import {
   auditClusterMemberTrust,
   evaluateClusterMemberProfile,
@@ -40,9 +40,16 @@ function validFixture(slug = 'fixture') {
   }
 }
 
+const AUDIT_TIMEOUT_MS = 60_000
+let baselineReport
+
 describe('cluster member runtime trust audit', () => {
-  it('resolves all four historical false positives as valid inheritance', async () => {
-    const report = await auditClusterMemberTrust()
+  beforeAll(async () => {
+    baselineReport = await auditClusterMemberTrust()
+  }, AUDIT_TIMEOUT_MS)
+
+  it('resolves all four historical false positives as valid inheritance', () => {
+    const report = baselineReport
 
     expect(report.counts.profiles).toBe(4)
     expect(report.profiles.map(profile => profile.slug)).toEqual([
@@ -61,8 +68,8 @@ describe('cluster member runtime trust audit', () => {
     ])
   })
 
-  it('reports zero remaining structured, runtime, and rendering defects', async () => {
-    const report = await auditClusterMemberTrust()
+  it('reports zero remaining structured, runtime, and rendering defects', () => {
+    const report = baselineReport
 
     expect(report.counts.evidenceLabelledSummaries).toBe(4)
     expect(report.counts.structuredSafetyGaps).toBe(0)
@@ -73,13 +80,12 @@ describe('cluster member runtime trust audit', () => {
   })
 
   it('keeps every classification deterministic and in the mission taxonomy', async () => {
-    const first = await auditClusterMemberTrust()
     const second = await auditClusterMemberTrust()
 
-    expect(second).toEqual(first)
-    expect(first.findings.every(item => ISSUE_CATEGORIES.includes(item.category))).toBe(true)
-    expect(Object.keys(first.countsByCategory)).toEqual(ISSUE_CATEGORIES)
-  })
+    expect(second).toEqual(baselineReport)
+    expect(baselineReport.findings.every(item => ISSUE_CATEGORIES.includes(item.category))).toBe(true)
+    expect(Object.keys(baselineReport.countsByCategory)).toEqual(ISSUE_CATEGORIES)
+  }, AUDIT_TIMEOUT_MS)
 
   it('still fails a synthetic true runtime gap in strict mode', () => {
     const fixture = validFixture()

@@ -111,11 +111,15 @@ export default function ContactPage() {
           <p className='eyebrow-label'>Primary contact</p>
           <h2 className='mt-3 text-3xl font-semibold tracking-tight text-ink'>Reach The Hippie Scientist</h2>
           <div className='mt-5 space-y-4 text-sm leading-7 text-muted sm:text-base'>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: 'Email: <!--email_off-->randolphwillie77@gmail.com<!--/email_off-->',
-              }}
-            />
+            <p>
+              Email:{' '}
+              <a
+                href='mailto:randolphwillie77@gmail.com'
+                className='font-medium text-brand-700 underline-offset-4 hover:underline'
+              >
+                randolphwillie77@gmail.com
+              </a>
+            </p>
             <p>
               The project focuses on evidence-informed summaries of herbs, compounds, pathways, mechanisms,
               product-quality checks, and related wellness research topics.

@@ -39,9 +39,13 @@ export function handleLegacyCompareRequest(request: Request, legacyPrefix: strin
     return Response.redirect(url.toString(), 301)
   }
 
-  // Old comparison URLs are still present in historical/internal content. Sending
-  // them to the live comparison hub avoids dead-end 410 responses while keeping
-  // retired thin pages out of the index.
-  url.pathname = '/guides/compare/'
-  return Response.redirect(url.toString(), 301)
+  // Redirect only legacy URLs with a verified destination. Unknown comparison
+  // slugs should not inherit a generic 301 to the hub because that hides retired
+  // or phantom URLs behind an unrelated canonical destination.
+  return new Response(null, {
+    status: 410,
+    headers: {
+      'X-Robots-Tag': 'noindex, nofollow',
+    },
+  })
 }
