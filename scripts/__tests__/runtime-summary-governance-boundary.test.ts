@@ -11,7 +11,7 @@ describe('runtime summary governance boundary', () => {
 
     const postprocess = source.indexOf("import('./postprocess-workbook-payloads.mjs')")
     const governance = source.indexOf("import('./apply-governance-overlay.mjs')")
-    const holds = source.indexOf('reconcileDeliberateGovernanceHolds')
+    const holds = source.indexOf('const holdReport = await reconcileDeliberateGovernanceHolds')
     const readHerbs = source.indexOf("readJson(path.join(DATA_DIR, 'herbs.json'))")
 
     expect(postprocess).toBeGreaterThan(-1)
