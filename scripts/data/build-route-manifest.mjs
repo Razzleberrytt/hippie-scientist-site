@@ -12,6 +12,37 @@ const OUT_DIR = path.join(DATA_DIR, 'runtime-manifests')
 const MAX_ROUTES_PER_GROUP = 5000
 const SITE_URL = 'https://thehippiescientist.net'
 
+const STATIC_ROUTE_METADATA = {
+  '/': {
+    title: 'The Hippie Scientist – Evidence-Based Herb & Supplement Research',
+    description: 'Evidence-first reference for herbs, supplements, and compounds with mechanisms, safety, interactions, and practical context in plain language.',
+  },
+  '/herbs': {
+    title: 'Herb Profiles & Research Library',
+    description: 'Browse herb profiles with mechanisms, safety notes, active compounds, and research context in plain language.',
+  },
+  '/compounds': {
+    title: 'Compound Library',
+    description: 'Browse published compound profiles with mechanisms, evidence levels, safety status, and practical context. Evidence-first, no hype.',
+  },
+  '/compare': {
+    title: 'Compare Herbs & Supplements',
+    description: 'Compare herbs and supplements by evidence, mechanisms, source-reported dosing context, safety, and practical tradeoffs.',
+  },
+  '/goals': {
+    title: 'Supplement Goals: Compare Options by What You Want to Fix',
+    description: 'Start from the outcome, not the ingredient. Compare common options by fit, onset, evidence quality, risk, and why people stop taking them.',
+  },
+  '/stacks': {
+    title: 'Supplement Stacks & Combination Guides',
+    description: 'Review supplement combinations with evidence limits, interaction cautions, timing context, and safer decision paths kept visible.',
+  },
+  '/tools/botanical-activity-atlas': {
+    title: 'Botanical Activity Atlas',
+    description: 'Explore botanical activity and mechanism relationships across herbs and compounds with conservative evidence and safety context.',
+  },
+}
+
 function text(value) {
   return String(value ?? '').trim()
 }
@@ -64,6 +95,23 @@ function normalizeRoutePath(value) {
   const pathOnly = pathName.split(/[?#]/)[0] || '/'
   const withSlash = pathOnly.startsWith('/') ? pathOnly : `/${pathOnly}`
   return withSlash.length > 1 ? withSlash.replace(/\/+$/, '') : '/'
+}
+
+function profileDisplayName(record) {
+  const raw = text(record?.displayName || record?.name || record?.slug)
+  return raw.replace(/\s*\([^)]*\)\s*$/, '').trim() || raw
+}
+
+function profileDescription(record, displayName, type) {
+  const override = text(record?.meta_description || record?.metaDescription)
+  if (override) return override
+
+  const existing = text(record?.description || record?.generated_description || record?.summary)
+  if (existing) return existing
+
+  return type === 'herb'
+    ? `${displayName} effects, dosage, drug interactions, and harm-reduction safety guide.`
+    : `${displayName} dosage, effects, onset, and safety graded against research evidence.`
 }
 
 async function readRedirectSources(relativePath = 'public/_redirects') {
@@ -166,29 +214,22 @@ async function main() {
   const compounds = await readJson('summary-indexes/compounds-summary.json')
   const redirectSources = await readRedirectSources()
 
-  const staticRoutes = [
-    routeEntry('/', 'static'),
-    routeEntry('/herbs', 'static'),
-    routeEntry('/compounds', 'static'),
-    routeEntry('/compare', 'static'),
-    routeEntry('/goals', 'static'),
-    routeEntry('/stacks', 'static'),
-    routeEntry('/tools/botanical-activity-atlas', 'static'),
-  ].map(entry => ({
-    ...entry,
-    meta_title: entry.route === '/' ? 'The Hippie Scientist' : '',
-    meta_description: '',
-    canonical_url: `${SITE_URL}${entry.route === '/' ? '' : entry.route}/`,
-  }))
+  const staticRoutes = Object.entries(STATIC_ROUTE_METADATA)
+    .map(([route, metadata]) => ({
+      ...routeEntry(route, 'static'),
+      meta_title: metadata.title,
+      meta_description: metadata.description,
+      canonical_url: `${SITE_URL}${route === '/' ? '' : route}/`,
+    }))
     .filter((entry) => !redirectSources.has(normalizeRoutePath(entry.route)))
 
   const herbRoutes = herbs
     .filter(isPublishableRecord)
     .map((record) => {
       const slug = normalizeSlug(record.slug)
-      const name = record.name || slug
-      const title = record.meta_title || `${name} Herb Profile: Benefits, Effects & Safety`
-      const desc = record.meta_description || record.generated_description || record.summary || ''
+      const name = profileDisplayName(record)
+      const title = text(record.meta_title || record.metaTitle) || `${name} Benefits, Dosage & Safety`
+      const desc = profileDescription(record, name, 'herb')
       return {
         ...routeEntry(`/herbs/${slug}`, 'herb'),
         meta_title: title,
@@ -202,9 +243,9 @@ async function main() {
     .filter(isPublishableRecord)
     .map((record) => {
       const slug = normalizeSlug(record.slug)
-      const name = record.name || slug
-      const title = record.meta_title || `${name} Benefits, Effects & Safety Guide`
-      const desc = record.meta_description || record.summary || ''
+      const name = profileDisplayName(record)
+      const title = text(record.meta_title || record.metaTitle) || `${name}: Effects, Dose and Safety`
+      const desc = profileDescription(record, name, 'compound')
       return {
         ...routeEntry(`/compounds/${slug}`, 'compound'),
         meta_title: title,
