@@ -36,4 +36,16 @@ describe('CompareHero', () => {
     expect(screen.queryByText(/typically chosen/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/tends to be favored/i)).not.toBeInTheDocument()
   })
+
+  it('uses the central evidence scale instead of a hero-specific inflated score', () => {
+    render(
+      <CompareHero
+        item1={item({ name: 'Unknown Example', evidenceLevel: 'unknown' })}
+        item2={item({ name: 'Preliminary Example', evidenceLevel: 'preliminary' })}
+      />,
+    )
+
+    expect(screen.getByLabelText('Evidence Unknown (0 of 5)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Preliminary Evidence (2 of 5)')).toBeInTheDocument()
+  })
 })

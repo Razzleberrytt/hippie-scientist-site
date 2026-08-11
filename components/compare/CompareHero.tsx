@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { CompareItem, EvidenceLevel } from '@/lib/compare'
+import { evidenceDots, evidenceLabelText } from '@/lib/compare'
 
 interface CompareHeroProps {
   item1: CompareItem
@@ -7,26 +8,6 @@ interface CompareHeroProps {
 }
 
 const EVIDENCE_DOTS = 5
-
-function evidenceLevelToScore(level: EvidenceLevel): number {
-  switch (level) {
-    case 'strong':      return 5
-    case 'moderate':    return 4
-    case 'preliminary': return 3
-    case 'anecdotal':   return 2
-    case 'unknown':     return 1
-  }
-}
-
-function evidenceLevelLabel(level: EvidenceLevel): string {
-  switch (level) {
-    case 'strong':      return 'Strong Evidence'
-    case 'moderate':    return 'Moderate Evidence'
-    case 'preliminary': return 'Preliminary Evidence'
-    case 'anecdotal':   return 'Anecdotal / Traditional'
-    case 'unknown':     return 'Evidence Unknown'
-  }
-}
 
 function evidenceDotColorClass(level: EvidenceLevel): string {
   switch (level) {
@@ -39,21 +20,21 @@ function evidenceDotColorClass(level: EvidenceLevel): string {
 }
 
 function EvidenceDots({ level }: { level: EvidenceLevel }) {
-  const score = evidenceLevelToScore(level)
+  const { filled } = evidenceDots(level)
   const colorClass = evidenceDotColorClass(level)
-  const label = evidenceLevelLabel(level)
+  const label = evidenceLabelText(level)
 
   return (
     <span
       className={`inline-flex items-center gap-0.5 ${colorClass}`}
-      aria-label={label}
+      aria-label={`${label} (${filled} of ${EVIDENCE_DOTS})`}
       title={label}
     >
       {Array.from({ length: EVIDENCE_DOTS }, (_, i) => (
         <span
           key={i}
           aria-hidden="true"
-          className={i < score ? 'opacity-100' : 'opacity-20'}
+          className={i < filled ? 'opacity-100' : 'opacity-20'}
         >
           ●
         </span>
