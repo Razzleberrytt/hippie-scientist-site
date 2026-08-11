@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
@@ -19,5 +21,16 @@ describe('article EmailCapture', () => {
       '/lead-magnets/adhd-supplement-starter-checklist',
     )
     expect(screen.getByRole('button', { name: /send me the checklist/i })).toBeEnabled()
+  })
+
+  it('passes production security verification through the subscribe request', () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), 'components/articles/EmailCapture.tsx'),
+      'utf8',
+    )
+
+    expect(source).toContain('<TurnstileWidget')
+    expect(source).toContain('turnstileToken: turnstileEnabled ? turnstileToken : undefined')
+    expect(source).toContain('disabled={isLoading || (turnstileEnabled && !turnstileToken)}')
   })
 })
