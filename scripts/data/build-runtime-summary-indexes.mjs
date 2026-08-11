@@ -8,6 +8,7 @@ import {
 } from '../ci/report-build-stage-timings.mjs'
 import { exportCanonicalCitationsToRuntime } from './canonical/citation-export.mjs'
 import { buildAiEntityArtifacts } from './ai-entity-enrichment-lib.mjs'
+import { reconcileDeliberateGovernanceHolds } from './governance-hold-policy.mjs'
 
 const DATA_DIR_ARG = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = DATA_DIR_ARG
@@ -201,6 +202,24 @@ function buildAlphaEntityShards(records) {
 
 async function main() {
   const totalTimer = createStageTimer('summary-index-build')
+
+  // Curated allowlists express editorial priority, but they must never outrank an
+  // explicit runtime/profile hold such as hidden_until_grounded or research_only.
+  // The governance overlay runs before this builder in production; reconcile that
+  // precedence here before summary records become the metadata source consumed by
+  // Next static generation, route manifests, and sitemap logic.
+  const holdTimer = createStageTimer('deliberate-governance-hold-reconciliation')
+  const holdReport = await reconcileDeliberateGovernanceHolds({ dataDir: DATA_DIR })
+  holdTimer.finish({ corrected: holdReport.total })
+  if (holdReport.total > 0) {
+    console.log(
+      `[summary-indexes] preserved deliberate governance holds: ${[
+        ...holdReport.herbs.map((slug) => `herb:${slug}`),
+        ...holdReport.compounds.map((slug) => `compound:${slug}`),
+      ].join(', ')}`,
+    )
+  }
+
   const citationTimer = createStageTimer('canonical-citation-export')
   const citationReport = exportCanonicalCitationsToRuntime({ dataDir: DATA_DIR })
   citationTimer.finish({
