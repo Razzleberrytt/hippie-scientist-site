@@ -15,27 +15,31 @@
  * 2. build-blog (blog post generation)
  * 3. build-articles (long-form article generation)
  * 4. build-runtime-from-workbook (data extraction)
- * 5. build-related-runtime-maps (relationship maps)
- * 6. build-runtime-summary-indexes (search indexes)
- * 7. build-route-manifest (route discovery)
- * 8. build-internal-link-engine (semantic internal links)
- * 9. build-sitemap-manifest (SEO sitemap source manifest)
- * 10. build-export-batches (batch optimization)
- * 11. build-semantic-snapshots (snapshot generation)
- * 12. build-production (next build)
- * 13. repair-broken-canonicals (replace deprecated canonical aliases in exported HTML)
- * 14. inject-content-depth-support (add route-aware supporting copy for low text/HTML pages)
- * 15. validate-structured-data-regressions (report known Semrush schema failures)
- * 16. apply-redirect-overrides (prepend exact audit-cleanup redirects)
- * 17. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
- * 18. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
- * 19. repair-static-blog-h1s (legacy static blog heading repair)
- * 20. build-pagefind (static search index)
+ * 5. postprocess-workbook-payloads (normalize workbook-derived runtime fields)
+ * 6. apply-governance-overlay (enforce evidence/indexability/monetization authority)
+ * 7. build-related-runtime-maps (relationship maps)
+ * 8. build-runtime-summary-indexes (search indexes)
+ * 9. build-route-manifest (route discovery)
+ * 10. build-internal-link-engine (semantic internal links)
+ * 11. build-sitemap-manifest (SEO sitemap source manifest)
+ * 12. build-export-batches (batch optimization)
+ * 13. build-semantic-snapshots (snapshot generation)
+ * 14. build-production (next build)
+ * 15. repair-broken-canonicals (replace deprecated canonical aliases in exported HTML)
+ * 16. inject-content-depth-support (add route-aware supporting copy for low text/HTML pages)
+ * 17. validate-structured-data-regressions (report known Semrush schema failures)
+ * 18. apply-redirect-overrides (prepend exact audit-cleanup redirects)
+ * 19. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
+ * 20. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
+ * 21. repair-static-blog-h1s (legacy static blog heading repair)
+ * 22. build-pagefind (static search index)
  *
  * Time estimate: cold builds are dominated by Next static export and Pagefind;
  * warm builds skip cacheable generation steps when inputs and outputs match.
  * Savings come from deferring non-critical checks to npm run build:qa and
- * reusing unchanged generated artifacts.
+ * reusing unchanged generated artifacts. Governance/postprocessing intentionally
+ * run every deploy because stale policy metadata is more expensive than the small
+ * deterministic normalization pass.
  */
 
 import { execSync } from 'child_process'
@@ -84,6 +88,45 @@ const steps = [
     cmd: 'node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out public/data',
     inputs: ['data/**/*.xlsx', 'data/**/*.json', 'data-sources/**/*.xlsx', 'scripts/data/**/*.mjs'],
     outputs: ['public/data/**/*'],
+  },
+  {
+    name: 'postprocess-workbook-payloads',
+    cmd: 'node scripts/data/postprocess-workbook-payloads.mjs',
+    inputs: [
+      'public/data/herbs.json',
+      'public/data/compounds.json',
+      'public/data/herbs-detail/**/*.json',
+      'public/data/compounds-detail/**/*.json',
+      'scripts/data/postprocess-workbook-payloads.mjs',
+    ],
+    outputs: [
+      'public/data/herbs.json',
+      'public/data/compounds.json',
+      'public/data/herbs-detail/**/*',
+      'public/data/compounds-detail/**/*',
+    ],
+    cacheable: false,
+  },
+  {
+    name: 'apply-governance-overlay',
+    cmd: 'node scripts/data/apply-governance-overlay.mjs --data-dir=public/data',
+    inputs: [
+      'public/data/herbs.json',
+      'public/data/compounds.json',
+      'public/data/herbs-detail/**/*.json',
+      'public/data/compounds-detail/**/*.json',
+      'public/data/claims.json',
+      'src/lib/index-allowlist.ts',
+      'scripts/data/apply-governance-overlay.mjs',
+    ],
+    outputs: [
+      'public/data/herbs.json',
+      'public/data/compounds.json',
+      'public/data/herbs-detail/**/*',
+      'public/data/compounds-detail/**/*',
+      'ops/audit/governance-overlay-report.json',
+    ],
+    cacheable: false,
   },
   {
     name: 'build-related-runtime-maps',
