@@ -70,6 +70,11 @@ const START_HERE: IntentRoute[] = [
 
 const BEST_FIRST: GuideCard[] = [
   {
+    href: '/guides/anxiety/best-herbs-for-anxiety/',
+    title: 'Best Herbs for Anxiety',
+    desc: 'Compare calming herbs by the outcomes actually studied, with medication and safety boundaries kept visible.',
+  },
+  {
     href: '/guides/anxiety/natural-anxiety-relief/',
     title: 'Natural Anxiety Relief',
     desc: 'The evidence-informed overview — start here if you are not sure what you need.',
@@ -107,11 +112,6 @@ const COMPARISONS: GuideCard[] = [
     title: 'Best Adaptogens for Stress',
     desc: 'Ashwagandha, rhodiola, eleuthero, schisandra — when to use which.',
   },
-  {
-    href: '/guides/anxiety/natural-alternatives-to-anxiety-medication/',
-    title: 'Alternatives to Anxiety Medication',
-    desc: 'An educational overview — not a replacement for prescribed treatment.',
-  },
 ]
 
 const DEPTH_LINKS = [
@@ -146,7 +146,6 @@ const ALL_GUIDES = [
   { slug: 'best-herbs-for-stress-and-anxiety-at-night', title: 'Best Herbs for Nighttime Anxiety' },
   { slug: 'how-to-lower-cortisol-naturally', title: 'How to Lower Cortisol Naturally' },
   { slug: 'natural-anxiolytics-beyond-ashwagandha', title: 'Natural Anxiolytics Beyond Ashwagandha' },
-  { slug: 'natural-alternatives-to-anxiety-medication', title: 'Alternatives to Anxiety Medication' },
   { slug: 'ashwagandha-for-anxiety', title: 'Ashwagandha for Anxiety' },
   { slug: 'l-theanine-for-anxiety', title: 'L-Theanine for Anxiety' },
   { slug: 'l-theanine-for-calm', title: 'L-Theanine for Calm' },
