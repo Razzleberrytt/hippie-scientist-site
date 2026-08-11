@@ -1,7 +1,19 @@
+const DEFAULT_FALLBACK =
+  'Review the label, dose, third-party testing, and safety context before buying.'
+
+const DYNAMIC_OR_UNSOURCED_SUPERIORITY =
+  /\b(well[- ]reviewed|preferred by most sleep researchers|faster absorption|superior bioavailability)\b/i
+
+function formatFirstPassFallback(productName: string): string {
+  const doseMatch = productName.match(/\b\d+(?:\.\d+)?\s*(?:mg|mcg|µg)\b/i)?.[0]
+  const doseContext = doseMatch ? ` with a clearly labeled ${doseMatch} dose` : ''
+  return `${productName} uses a fast-dissolve format${doseContext}. Treat the dosage form as a convenience feature, not evidence of superior absorption or better clinical outcomes.`
+}
+
 export function affiliateRationaleForDisplay(
   productName: string,
   rationale?: string,
-  fallback = 'Review the label, dose, third-party testing, and safety context before buying.',
+  fallback = DEFAULT_FALLBACK,
 ): string {
   const text = rationale?.trim() || fallback
 
@@ -10,9 +22,17 @@ export function affiliateRationaleForDisplay(
   // different administration system. In particular, "fast dissolve" tablets are
   // not automatically equivalent to validated oral-transmucosal delivery systems.
   if (/\b(?:avoid|avoids|bypass|bypasses|skip|skips)(?:ing)?\s+(?:hepatic\s+)?first[- ]pass\s+metabolism\b/i.test(text)) {
+    return formatFirstPassFallback(productName)
+  }
+
+  // Retail rationale is rendered on decision/commercial surfaces without a source
+  // attached to the product card. Dynamic popularity claims and pharmacokinetic
+  // superiority therefore should not survive into public copy unless they are moved
+  // into a source-backed editorial section instead.
+  if (DYNAMIC_OR_UNSOURCED_SUPERIORITY.test(text)) {
     const doseMatch = productName.match(/\b\d+(?:\.\d+)?\s*(?:mg|mcg|µg)\b/i)?.[0]
-    const doseContext = doseMatch ? ` with a clearly labeled ${doseMatch} dose` : ''
-    return `${productName} uses a fast-dissolve format${doseContext}. Treat the dosage form as a convenience feature, not evidence of superior absorption or better clinical outcomes.`
+    const doseContext = doseMatch ? ` The product label identifies a ${doseMatch} serving.` : ''
+    return `Use ${productName} as a product-format example.${doseContext} Verify formulation, serving size, third-party testing, and safety context before buying.`
   }
 
   return text
