@@ -38,8 +38,8 @@ const STATIC_ROUTE_METADATA = {
     description: 'Review supplement combinations with evidence limits, interaction cautions, timing context, and safer decision paths kept visible.',
   },
   '/tools': {
-    title: 'Evidence & Supplement Tools',
-    description: 'Explore evidence-first tools for comparing supplements, checking safety context, and navigating botanical and compound research.',
+    title: 'Research Tools | The Hippie Scientist',
+    description: 'Interactive research tools for comparing botanicals, evidence, activity, compounds, and safety context.',
   },
   '/tools/botanical-activity-atlas': {
     title: 'Botanical Activity Atlas',
