@@ -1,0 +1,2 @@
+# Consolidate overlapping anxiety decision intent into the canonical evidence-first guide.
+/guides/anxiety/natural-alternatives-to-anxiety-medication/ /guides/anxiety/best-herbs-for-anxiety/ 301
