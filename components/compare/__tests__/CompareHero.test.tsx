@@ -45,7 +45,7 @@ describe('CompareHero', () => {
       />,
     )
 
-    expect(screen.getByLabelText('Evidence unknown (0 of 5)')).toBeInTheDocument()
-    expect(screen.getByLabelText('Preliminary evidence (2 of 5)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Evidence Unknown (0 of 5)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Preliminary Evidence (2 of 5)')).toBeInTheDocument()
   })
 })
