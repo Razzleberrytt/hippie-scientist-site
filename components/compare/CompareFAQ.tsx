@@ -51,10 +51,10 @@ export default function CompareFAQ({ faqs }: CompareFAQProps) {
       <div className="rounded-2xl border border-brand-900/10 bg-brand-50/80 p-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
         <div className="space-y-1">
           <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
-            Need a faster decision?
+            Need a clearer next step?
           </p>
           <p className="text-sm leading-6 text-muted">
-            Use the preference quiz above, or browse the full compare hub for nearby tradeoffs.
+            Review the decision guide above, or browse the full compare hub for nearby tradeoffs.
           </p>
         </div>
         <div className="mt-3 flex flex-col gap-2 sm:mt-0 sm:flex-row">
@@ -62,7 +62,7 @@ export default function CompareFAQ({ faqs }: CompareFAQProps) {
             href="#compare-decision"
             className="rounded-full bg-brand-700 px-4 py-2 text-center text-xs font-bold text-white transition-colors hover:bg-brand-600"
           >
-            Get a personal pick ↑
+            Review decision guide ↑
           </a>
           <Link
             href="/guides/compare/"
