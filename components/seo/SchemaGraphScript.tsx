@@ -45,6 +45,52 @@ export function getEntityArtifact(graph: Record<string, unknown>): EntityArtifac
   return null
 }
 
+export function normalizeProfileEntitySemantics(
+  graph: Record<string, unknown>,
+  artifact: EntityArtifact | null,
+): Record<string, unknown> {
+  if (!artifact || !artifact.href.includes('/herb/') || !Array.isArray(graph['@graph'])) return graph
+
+  const nodes = graph['@graph'].map((node) => {
+    if (!node || typeof node !== 'object') return node
+    const record = node as Record<string, unknown>
+
+    if (record['@id'] === artifact.entityId) {
+      return {
+        ...record,
+        // Schema.org `Substance` covers matter of biological origin. Avoid the
+        // non-canonical `MedicalSubstance` label previously emitted for herbs.
+        '@type': 'Substance',
+      }
+    }
+
+    const mainEntity = record.mainEntity
+    const mainEntityId =
+      mainEntity && typeof mainEntity === 'object'
+        ? (mainEntity as Record<string, unknown>)['@id']
+        : null
+    const about = record.about
+    const aboutType =
+      about && typeof about === 'object'
+        ? (about as Record<string, unknown>)['@type']
+        : null
+
+    if (mainEntityId === artifact.entityId && aboutType === 'MedicalTherapy') {
+      return {
+        ...record,
+        // The profile page is about the canonical herb entity, not a treatment
+        // intervention. Point `about` to the same Substance node used by
+        // `mainEntity` so the graph has one consistent identity.
+        about: { '@id': artifact.entityId },
+      }
+    }
+
+    return node
+  })
+
+  return { ...graph, '@graph': nodes }
+}
+
 export function attachEntityDataset(
   graph: Record<string, unknown>,
   artifact: EntityArtifact | null,
@@ -87,7 +133,8 @@ export function attachEntityDataset(
 
 export default function SchemaGraphScript({ graph }: SchemaGraphScriptProps) {
   const artifact = getEntityArtifact(graph)
-  const enrichedGraph = attachEntityDataset(graph, artifact)
+  const normalizedGraph = normalizeProfileEntitySemantics(graph, artifact)
+  const enrichedGraph = attachEntityDataset(normalizedGraph, artifact)
 
   return (
     <>

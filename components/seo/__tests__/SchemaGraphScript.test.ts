@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest'
-import { attachEntityDataset, getEntityArtifact } from '../SchemaGraphScript'
+import {
+  attachEntityDataset,
+  getEntityArtifact,
+  normalizeProfileEntitySemantics,
+} from '../SchemaGraphScript'
 
 describe('SchemaGraphScript AI entity data discovery', () => {
   const graph = {
@@ -40,6 +44,43 @@ describe('SchemaGraphScript AI entity data discovery', () => {
     })
     expect(dataset?.url).toBe('https://thehippiescientist.net/data/ai-entities/compound/magnesium.json')
     expect(dataset?.encodingFormat).toBe('application/ld+json')
+  })
+
+  it('normalizes herb entities to Substance and removes duplicate MedicalTherapy about nodes', () => {
+    const herbGraph = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': ['MedicalWebPage', 'WebPage'],
+          '@id': 'https://thehippiescientist.net/herbs/ashwagandha/#webpage',
+          url: 'https://thehippiescientist.net/herbs/ashwagandha/',
+          mainEntity: { '@id': 'https://thehippiescientist.net/herbs/ashwagandha/#entity' },
+          about: { '@type': 'MedicalTherapy', name: 'Ashwagandha' },
+        },
+        {
+          '@type': ['MedicalSubstance', 'Thing'],
+          '@id': 'https://thehippiescientist.net/herbs/ashwagandha/#entity',
+          name: 'Ashwagandha',
+          url: 'https://thehippiescientist.net/herbs/ashwagandha/',
+        },
+      ],
+    }
+
+    const artifact = getEntityArtifact(herbGraph)
+    const normalized = normalizeProfileEntitySemantics(herbGraph, artifact)
+    const nodes = normalized['@graph'] as Record<string, unknown>[]
+    const webpage = nodes.find((node) => node['@id'] === 'https://thehippiescientist.net/herbs/ashwagandha/#webpage')
+    const entity = nodes.find((node) => node['@id'] === artifact?.entityId)
+
+    expect(entity?.['@type']).toBe('Substance')
+    expect(webpage?.about).toEqual({ '@id': artifact?.entityId })
+    expect(JSON.stringify(normalized)).not.toContain('MedicalSubstance')
+    expect(JSON.stringify(normalized)).not.toContain('MedicalTherapy')
+  })
+
+  it('does not rewrite compound entity semantics', () => {
+    const artifact = getEntityArtifact(graph)
+    expect(normalizeProfileEntitySemantics(graph, artifact)).toEqual(graph)
   })
 
   it('ignores non-profile schema graphs', () => {
