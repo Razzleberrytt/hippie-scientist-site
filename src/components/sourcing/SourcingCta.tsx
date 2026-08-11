@@ -1,4 +1,5 @@
 import { AFFILIATE_TAGS } from '@/config/affiliate'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import { canRenderAffiliateLinks, extractUrlString, ensureAmazonAffiliateTag } from '../../lib/affiliate'
 import { text } from '@/lib/display-utils'
 import { isRestrictedIngredient } from '../../lib/restricted-ingredients'
@@ -11,6 +12,13 @@ type SourcingCtaProps = {
 export function SourcingCta({ record, displayName }: SourcingCtaProps) {
   // Compliance gate: never render affiliate CTAs for records flagged doNotMonetize/doNotPromote in source data.
   if (!canRenderAffiliateLinks(record) || isRestrictedIngredient(displayName)) return null
+
+  // Profiles with a governed product set render RecommendationSection immediately
+  // below this component. Prefer that curated endpoint instead of showing a generic
+  // Amazon search first and making the two CTAs compete with each other.
+  const profileSlug = text(record?.slug)
+  const curatedSet = getRevenueProductSet(profileSlug || displayName)
+  if (curatedSet?.products.some((product) => Boolean(product.affiliateUrl))) return null
 
   // 1. Affiliate-ready detection
   const rawUrl = extractUrlString(record?.amazon_affiliate_url || record?.affiliate_url)
