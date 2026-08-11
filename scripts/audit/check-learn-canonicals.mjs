@@ -46,7 +46,7 @@ export function normalizeCanonical(value) {
 function resolveCanonicalIdentifier(src, identifier, expectedCanonical) {
   const escaped = identifier.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
-  const literal = src.match(new RegExp(`(?:const|let)\\s+${escaped}\\s*=\\s*['\"]([^'\"]+)['\"]`))
+  const literal = src.match(new RegExp(`(?:const|let)\\s+${escaped}\\s*=\\s*['"]([^'"]+)['"]`))
   if (literal) return normalizeCanonical(literal[1])
 
   const siteUrlTemplate = src.match(
@@ -62,7 +62,7 @@ function resolveCanonicalIdentifier(src, identifier, expectedCanonical) {
     const escapedPageVar = pageVar.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
     const slugMatch = src.match(
       new RegExp(
-        `(?:const|let)\\s+${escapedPageVar}\\s*=[\\s\\S]*?\\.find\\([\\s\\S]*?slug\\s*===\\s*['\"]([^'\"]+)['\"]`,
+        `(?:const|let)\\s+${escapedPageVar}\\s*=[\\s\\S]*?\\.find\\([\\s\\S]*?slug\\s*===\\s*['"]([^'"]+)['"]`,
       ),
     )
     if (slugMatch) {
