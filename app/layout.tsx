@@ -79,6 +79,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={DEFAULT_LOCALE} dir={LOCALE_TEXT_DIRECTION} suppressHydrationWarning>
       <head>
+        <meta
+          name='ahrefs-site-verification'
+          content='069cb85d929c4ec13de83c17a0c8605ab293a078d6cbf79673cad4bac683b289'
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var d=document.documentElement;var s=localStorage.getItem('theme');var dark=s==='dark';d.classList.toggle('dark',dark);d.dataset.theme=dark?'dark':'light';d.style.colorScheme=dark?'dark':'light';d.classList.add('theme-ready')}catch(e){}})();`,
