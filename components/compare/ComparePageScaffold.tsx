@@ -5,7 +5,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import CompareHero from '@/components/compare/CompareHero'
-import CompareDecisionWidget from '@/components/compare/CompareDecisionWidget'
+import CompareDecisionGuide from '@/components/compare/CompareDecisionGuide'
 import CompareSummaryTable from '@/components/compare/CompareSummaryTable'
 import CompareRelated from '@/components/compare/CompareRelated'
 import CompareFAQ from '@/components/compare/CompareFAQ'
@@ -138,7 +138,7 @@ export default function ComparePageScaffold({
       <CompareHero item1={item1} item2={item2} />
 
       <section id="compare-decision" className="scroll-mt-24">
-        <CompareDecisionWidget item1={item1} item2={item2} isHarmReduction={isHarmReduction} />
+        <CompareDecisionGuide item1={item1} item2={item2} isHarmReduction={isHarmReduction} />
       </section>
 
       <CompareSummaryTable item1={item1} item2={item2} />
