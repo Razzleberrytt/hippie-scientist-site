@@ -6,46 +6,49 @@ export type GoalHubLink = {
   note?: string
 }
 
-const GOAL_STACK_SLUGS: Record<string, string> = {
-  sleep: 'sleep',
-  stress: 'stress',
-  focus: 'cognition',
-  anxiety: 'stress',
-  cognition: 'cognition',
-  pain: 'sleep',
-  inflammation: 'sleep',
-  energy: 'cognition',
+const GOAL_STACK_ROUTES: Record<string, string> = {
+  sleep: '/guides/sleep/',
+  stress: '/guides/anxiety/',
+  focus: '/guides/focus/',
+  anxiety: '/guides/anxiety/',
+  cognition: '/guides/focus/',
+  pain: '/guides/best/supplements-for-joint-support/',
+  inflammation: '/guides/best/supplements-for-joint-support/',
+  energy: '/guides/focus/',
 }
 
 const GOAL_COMPARE_SLUGS: Record<string, string[]> = {
   sleep: [
-    'melatonin-vs-l-theanine',
-    'magnesium-vs-melatonin',
+    'melatonin-vs-magnesium',
     'magnesium-glycinate-vs-l-threonate-for-sleep',
     'melatonin-vs-valerian-vs-magnesium-for-sleep',
   ],
   stress: [
     'rhodiola-vs-ashwagandha',
-    'ashwagandha-vs-rhodiola-for-stress',
-    'ashwagandha-vs-magnesium',
     'ashwagandha-vs-l-theanine-vs-magnesium',
+    'kava-vs-alcohol',
   ],
   anxiety: [
     'rhodiola-vs-ashwagandha',
-    'melatonin-vs-l-theanine',
     'ashwagandha-vs-l-theanine-vs-magnesium',
+    'kanna-vs-ssris',
   ],
   focus: [
-    'caffeine-vs-theanine',
+    'caffeine-vs-l-theanine',
     'caffeine-vs-l-theanine-vs-bacopa-for-focus',
   ],
-  pain: ['curcumin-vs-boswellia-vs-omega-3', 'glucosamine-vs-chondroitin'],
-  inflammation: ['curcumin-vs-boswellia-vs-omega-3', 'glucosamine-vs-chondroitin'],
+  pain: ['curcumin-vs-boswellia-vs-omega-3'],
+  inflammation: ['curcumin-vs-boswellia-vs-omega-3'],
   cognition: [
-    'caffeine-vs-theanine',
+    'caffeine-vs-l-theanine',
     'caffeine-vs-l-theanine-vs-bacopa-for-focus',
   ],
-  energy: ['caffeine-vs-theanine', 'rhodiola-vs-ashwagandha'],
+  energy: ['caffeine-vs-l-theanine', 'rhodiola-vs-ashwagandha'],
+}
+
+const SPECIAL_COMPARE_ROUTES: Record<string, string> = {
+  'magnesium-glycinate-vs-l-threonate-for-sleep':
+    '/guides/sleep/magnesium-glycinate-vs-l-threonate-for-sleep/',
 }
 
 const GOAL_SEO_ENTRIES: Record<string, GoalHubLink> = {
@@ -79,17 +82,17 @@ const GOAL_GUIDE_ROUTES: Record<string, string> = {
 }
 
 const FLAGSHIP_COMPARE_ROUTES = new Set([
-  'ashwagandha-vs-rhodiola-for-stress',
   'rhodiola-vs-ashwagandha',
   'kava-vs-alcohol',
   'kanna-vs-ssris',
-  'l-theanine-vs-magnesium',
   'magnesium-glycinate-vs-l-threonate-for-sleep',
   'sleep-herbs-vs-melatonin',
   'ashwagandha-vs-l-theanine-vs-magnesium',
   'melatonin-vs-valerian-vs-magnesium-for-sleep',
   'caffeine-vs-l-theanine-vs-bacopa-for-focus',
   'curcumin-vs-boswellia-vs-omega-3',
+  'melatonin-vs-magnesium',
+  'caffeine-vs-l-theanine',
 ])
 
 export function isFlagshipCompareSlug(slug: string): boolean {
@@ -98,12 +101,12 @@ export function isFlagshipCompareSlug(slug: string): boolean {
 }
 
 export function getGoalStackLink(goalSlug: string): GoalHubLink | null {
-  const stackSlug = GOAL_STACK_SLUGS[goalSlug]
-  if (!stackSlug) return null
+  const href = GOAL_STACK_ROUTES[goalSlug]
+  if (!href) return null
   return {
-    label: `${stackSlug.charAt(0).toUpperCase()}${stackSlug.slice(1)} stack guide`,
-    href: `/stacks/${stackSlug}/`,
-    note: 'Pre-built stack context with ingredient interactions.',
+    label: `${goalSlug.charAt(0).toUpperCase()}${goalSlug.slice(1)} guide`,
+    href,
+    note: 'Evidence-first guide context for this goal.',
   }
 }
 
@@ -118,7 +121,7 @@ export function getGoalCompareLinks(goalSlug: string, limit = 4): GoalHubLink[] 
     const config = supplementComparisons.find((item) => item.slug === slug)
     links.push({
       label: config?.title ?? slug.replace(/-/g, ' '),
-      href: `/guides/compare/${slug}/`,
+      href: SPECIAL_COMPARE_ROUTES[slug] ?? `/guides/compare/${slug}/`,
       note: config?.summary?.slice(0, 120),
     })
     if (links.length >= limit) break
