@@ -63,20 +63,20 @@ function EvidenceDots({ level }: { level: EvidenceLevel }) {
   )
 }
 
-function buildVerdict(item1: CompareItem, item2: CompareItem): string {
+function buildSnapshot(item1: CompareItem, item2: CompareItem): string {
   const benefits1 = item1.primaryBenefits.slice(0, 2).join(' and ')
   const benefits2 = item2.primaryBenefits.slice(0, 2).join(' and ')
 
   if (benefits1 && benefits2) {
-    return `Quick verdict: ${item1.name} is typically chosen for ${benefits1}, while ${item2.name} tends to be favored for ${benefits2} — individual responses vary based on biology and goals.`
+    return `At a glance: the ${item1.name} profile emphasizes ${benefits1}, while the ${item2.name} profile emphasizes ${benefits2}. Treat these as profile-level signals to investigate, not proof that either option is better for your specific goal.`
   }
   if (benefits1) {
-    return `Quick verdict: ${item1.name} is primarily associated with ${benefits1}; ${item2.name} offers a distinct mechanism profile — choose based on your specific goals.`
+    return `At a glance: the ${item1.name} profile emphasizes ${benefits1}. The ${item2.name} profile has less structured outcome data in this comparison, so review the evidence sections rather than treating the gap as a win for either side.`
   }
   if (benefits2) {
-    return `Quick verdict: ${item2.name} is primarily associated with ${benefits2}; ${item1.name} offers a distinct mechanism profile — choose based on your specific goals.`
+    return `At a glance: the ${item2.name} profile emphasizes ${benefits2}. The ${item1.name} profile has less structured outcome data in this comparison, so review the evidence sections rather than treating the gap as a win for either side.`
   }
-  return `Quick verdict: both ${item1.name} and ${item2.name} have distinct mechanisms and use cases — review the evidence and dosing sections below to find the right fit for your goals.`
+  return `At a glance: ${item1.name} and ${item2.name} have different profile data, mechanisms, and safety considerations. Use the evidence and safety sections below to compare the exact outcome you care about.`
 }
 
 function TypeBadge({ type }: { type: 'herb' | 'compound' }) {
@@ -144,7 +144,7 @@ function ItemCard({ item }: { item: CompareItem }) {
 }
 
 export default function CompareHero({ item1, item2 }: CompareHeroProps) {
-  const verdict = buildVerdict(item1, item2)
+  const snapshot = buildSnapshot(item1, item2)
 
   return (
     <section className="space-y-8 max-w-5xl">
@@ -156,17 +156,17 @@ export default function CompareHero({ item1, item2 }: CompareHeroProps) {
           {item1.name} vs {item2.name}
         </h1>
         <p className="text-base leading-relaxed text-muted">
-          Compare evidence quality, mechanisms, dosing, and safety to identify the better fit for your goals.
+          Compare evidence quality, mechanisms, source-reported dosing context, and safety without turning profile differences into a one-size-fits-all winner.
         </p>
         <div className="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center">
           <a
             href="#compare-decision"
             className="button-primary w-full px-5 py-2.5 text-center text-sm sm:w-auto"
           >
-            Get a personal pick ↓
+            Open decision guide ↓
           </a>
           <p className="text-xs leading-5 text-muted sm:max-w-xs">
-            Takes about 20 seconds and keeps the recommendation evidence-first.
+            Use it to identify which evidence and safety tradeoffs deserve a closer look.
           </p>
         </div>
       </div>
@@ -188,10 +188,10 @@ export default function CompareHero({ item1, item2 }: CompareHeroProps) {
 
       <div className="rounded-2xl border border-brand-200 bg-brand-50 px-5 py-4 shadow-sm">
         <p className="text-sm font-semibold text-brand-900 leading-relaxed">
-          {verdict}
+          {snapshot}
         </p>
         <p className="mt-1.5 text-xs text-muted">
-          These statements have not been evaluated by the FDA. Not intended to diagnose, treat, cure, or prevent any disease.
+          Educational only. Evidence strength and mechanism differences do not establish personal suitability, safety, or compatibility.
         </p>
       </div>
     </section>
