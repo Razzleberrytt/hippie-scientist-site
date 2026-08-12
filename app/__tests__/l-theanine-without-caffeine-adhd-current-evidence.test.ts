@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest'
 const FOCUS_PAGE = path.join(process.cwd(), 'app/guides/focus/l-theanine-without-caffeine/page.tsx')
 const ADHD_SOURCE = path.join(process.cwd(), 'docs/content/focus-cluster/l-theanine-for-adhd-content-v1.md')
 const RENDERER = path.join(process.cwd(), 'components/articles/FocusAdhdArticlePage.tsx')
+const WIDGETS = path.join(process.cwd(), 'components/articles/AdhdMonetizationWidgets.tsx')
 
 const read = (file: string) =>
   fs.readFileSync(file, 'utf8').replace(/\s+/g, ' ').replace(/\*\*/g, '')
@@ -123,7 +124,11 @@ describe('L-theanine ADHD route evidence calibration', () => {
   it('keeps both L-theanine ADHD routes commercially neutral', () => {
     const focus = read(FOCUS_PAGE)
     const renderer = read(RENDERER)
+    const widgets = read(WIDGETS)
     const products = renderer.match(/const ADHD_ARTICLE_PRODUCTS:[\s\S]*?\}\s*\/\/ Per-slug hero images/)?.[0] ?? ''
+    const magnesiumTheanineCard = widgets.match(
+      /if \(slug === 'best-supplements-for-adhd'[\s\S]*?else if \(slug === 'sleep-and-adhd'/,
+    )?.[0] ?? ''
 
     expect(focus).not.toContain('AFFILIATE_TAGS')
     expect(focus).not.toContain('RecommendationSection')
@@ -131,6 +136,7 @@ describe('L-theanine ADHD route evidence calibration', () => {
     expect(focus).not.toMatch(/amazon\.com/i)
     expect(focus).toMatch(/intentionally does not rank affiliate products/i)
     expect(products).not.toContain("'l-theanine-for-adhd': 'l-theanine'")
+    expect(magnesiumTheanineCard).not.toContain("slug === 'l-theanine-for-adhd'")
   })
 
   it('keeps visible FAQ content and discovery/conversion on the caffeine-free page', () => {
