@@ -10,6 +10,7 @@ export type FocusAdhdArticle = {
   category: string
   tags: string[]
   date: string
+  updatedAt?: string
   readingTime: string
   fallbackBody?: string
 }
@@ -230,6 +231,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-10',
+    updatedAt: '2026-08-12',
     readingTime: '9 min read',
   },
   // Phase 3a standalone pages — registered here for cross-linking; content lives in dedicated page.tsx files
@@ -280,7 +282,7 @@ export const focusAdhdArticleSummaries = focusAdhdArticles.map((article) => ({
   title: article.title,
   description: article.description,
   date: article.date,
-  updatedAt: article.date,
+  updatedAt: article.updatedAt ?? article.date,
   tags: article.tags,
   category: article.category,
   readingTime: article.readingTime,
