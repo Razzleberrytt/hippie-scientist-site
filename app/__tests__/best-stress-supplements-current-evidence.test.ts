@@ -72,16 +72,14 @@ describe('best stress supplements evidence calibration', () => {
   it('keeps monetization symmetric across the compared ingredients', () => {
     const text = read(SOURCE)
 
-    expect(text).toContain("getRevenueProductSet('ashwagandha')")
-    expect(text).toContain("'rhodiola'")
-    expect(text).toContain("'magnesium'")
-    expect(text).toContain("'l-theanine'")
+    expect(text).toContain("['ashwagandha', 'rhodiola', 'magnesium', 'l-theanine']")
+    expect(text).toContain('getRevenueProductSet(slug)')
     expect(text).toContain('<RecommendationSection products={comparisonProducts} />')
     expect(text).toMatch(/covers all four ingredients compared above/i)
     expect(text).toMatch(/affiliate links do not imply treatment efficacy/i)
   })
 
-  it('preserves the indexed canonical wrapper and noindex content source', () => {
+  it('preserves the indexed canonical wrapper and aligns its metadata with the evidence-first page', () => {
     const source = read(SOURCE)
     const canonical = read(CANONICAL)
 
@@ -90,5 +88,11 @@ describe('best stress supplements evidence calibration', () => {
     expect(canonical).toContain("const CANONICAL_PATH = '/guides/best/supplements-for-stress/'")
     expect(canonical).toContain('robots: { index: true, follow: true }')
     expect(canonical).toContain("BestSupplementsForStressPage from '../../anxiety/best-supplements-for-stress/page'")
+    expect(canonical).toContain('Best Supplements for Stress: What the Evidence Supports in 2026')
+    expect(canonical).toContain('Evidence-first comparison of ashwagandha, rhodiola, magnesium, and L-theanine')
+    expect(canonical).not.toContain('phosphatidylserine')
+    expect(canonical).not.toContain('Includes dosing')
+    expect(canonical).not.toContain('poor sleep')
+    expect(canonical).not.toContain('acute tension')
   })
 })
