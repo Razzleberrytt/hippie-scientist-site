@@ -110,8 +110,8 @@ references:
   - title: "No benefit adding eleutherococcus senticosus to stress management training in stress-related fatigue/weakness"
     authors: "Schmidt M et al."
     year: "2013"
-    pmid: "23853112"
-    url: "https://pubmed.ncbi.nlm.nih.gov/23853112/"
+    pmid: "23740477"
+    url: "https://pubmed.ncbi.nlm.nih.gov/23740477/"
   - title: "Effects of Siberian ginseng (Eleutherococcus senticosus) on elderly quality of life: a randomized clinical trial"
     authors: "Cicero AF et al."
     year: "2004"
@@ -359,7 +359,7 @@ To navigate the adaptogen market safely, consumers must choose standardized, ful
 | 15 | Gonzales GF et al. | Effect of Lepidium meyenii (MACA) on sexual desire and testosterone in healthy men | Andrologia | 2002 | [PMID 12472620](https://pubmed.ncbi.nlm.nih.gov/12472620/) |
 | 16 | Lopresti AL, Smith SJ | Randomized, double-blind study of an adaptogenic formula (Schisandra, Rhodiola, holy basil) | Phytomedicine | 2026 | [PMID 41656269](https://pubmed.ncbi.nlm.nih.gov/41656269/) |
 | 17 | Yan T et al. | Schisandra chinensis extract restores spatial memory in CUMS | J Ethnopharmacol | 2017 | [PMID 28762589](https://pubmed.ncbi.nlm.nih.gov/28762589/) |
-| 18 | Schmidt M et al. | No benefit adding eleutherococcus senticosus to stress management training | Phytother Res | 2013 | [PMID 23853112](https://pubmed.ncbi.nlm.nih.gov/23853112/) |
+| 18 | Schmidt M et al. | No benefit adding eleutherococcus senticosus to stress management training | Phytother Res | 2013 | [PMID 23740477](https://pubmed.ncbi.nlm.nih.gov/23740477/) |
 | 19 | Cicero AF et al. | Effects of Siberian ginseng on elderly quality of life: randomized clinical trial | Arch Gerontol Geriatr | 2004 | [PMID 15207399](https://pubmed.ncbi.nlm.nih.gov/15207399/) |
 | 20 | Olsson EM et al. | Standardised extract SHR-5 of Rhodiola rosea in stress-related fatigue | Planta Med | 2009 | [PMID 19016404](https://pubmed.ncbi.nlm.nih.gov/19016404/) |
 | 21 | Brooks NA et al. | Beneficial effects of Lepidium meyenii (Maca) on psychological symptoms in menopause | Menopause | 2008 | [PMID 18784609](https://pubmed.ncbi.nlm.nih.gov/18784609/) |
