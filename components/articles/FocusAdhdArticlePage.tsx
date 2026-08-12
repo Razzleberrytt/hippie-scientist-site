@@ -32,7 +32,6 @@ const ADHD_ARTICLE_PRODUCTS: Record<string, string> = {
   'ashwagandha-for-adhd': 'ashwagandha',
   'best-supplements-for-adhd': 'magnesium',
   'citicoline-vs-alpha-gpc': 'lions-mane',
-  'l-theanine-for-adhd': 'l-theanine',
   'l-theanine-vs-caffeine-for-focus': 'l-theanine',
   'magnesium-for-adhd': 'magnesium',
   'melatonin-for-adhd-sleep': 'magnesium',
