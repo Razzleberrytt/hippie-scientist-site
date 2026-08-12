@@ -419,12 +419,13 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
   if (!article) notFound()
   const related = getRelatedFocusAdhdLinks(slug)
   const articlePath = `${basePath}/${article.slug}`
+  const lastUpdated = article.updatedAt ?? article.date
 
   const articleLd = blogJsonLd({
     title: article.title,
     slug: article.slug,
     date: article.date,
-    updated: article.date,
+    updated: lastUpdated,
     excerpt: article.description,
   }, articlePath)
   const breadcrumbLd = breadcrumbJsonLd([
@@ -453,7 +454,7 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
           <span className="text-muted">{article.readingTime}</span>
         </div>
         <h1 className="mt-4 max-w-[22ch] font-display text-2xl font-bold leading-[1.08] text-ink sm:text-4xl lg:text-5xl">{article.title}</h1>
-        <div className="mt-3"><LastUpdatedBadge date={article.date} label="Last updated" /></div>
+        <div className="mt-3"><LastUpdatedBadge date={lastUpdated} label="Last updated" /></div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{article.description}</p>
 
         {ADHD_ARTICLE_IMAGES[slug] && (
