@@ -10,7 +10,7 @@ import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePic
 import GoalContentDepth from '@/src/components/goals/GoalContentDepth'
 import GoalHubSections from '@/src/components/goals/GoalHubSections'
 import { getGoalHubLinks } from '@/src/lib/goal-hub-links'
-import { getPublicGoalContentExtension } from '@/src/lib/goal-public-copy'
+import { getPublicGoal, getPublicGoalContentExtension } from '@/src/lib/goal-public-copy'
 import SchemaOrg from '@/components/SchemaOrg'
 import Disclaimer from '@/src/components/Disclaimer'
 import { breadcrumbJsonLd, faqPageJsonLd, SITE_URL } from '@/src/lib/seo'
@@ -52,8 +52,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function GoalPage({ params }: PageProps) {
   const { slug } = await params
-  const goal = getGoal(slug)
-  if (!goal) notFound()
+  const rawGoal = getGoal(slug)
+  if (!rawGoal) notFound()
+  const goal = getPublicGoal(rawGoal)
 
   const goalPath = `/goals/${goal.slug}/`
   const rawExtension = getGoalContentExtension(goal.slug)
