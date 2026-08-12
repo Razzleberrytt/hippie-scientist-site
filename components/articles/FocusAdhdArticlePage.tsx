@@ -32,7 +32,6 @@ const ADHD_ARTICLE_PRODUCTS: Record<string, string> = {
   'ashwagandha-for-adhd': 'ashwagandha',
   'best-supplements-for-adhd': 'magnesium',
   'citicoline-vs-alpha-gpc': 'lions-mane',
-  'l-theanine-vs-caffeine-for-focus': 'l-theanine',
   'magnesium-for-adhd': 'magnesium',
   'melatonin-for-adhd-sleep': 'magnesium',
   'sleep-and-adhd': 'magnesium',
@@ -184,7 +183,6 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('zinc-and-adhd', 'Zinc and ADHD', 'Mineral guide'),
       articleLink('magnesium-for-adhd', 'Magnesium for ADHD', 'Mineral guide'),
       articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Fatty acids'),
-      // Phase 3a: magnesium form guidance
       articleLink('magnesium-glycinate-vs-citrate-for-adhd', 'Glycinate vs Citrate for ADHD', 'Form guide'),
       articleLink('best-magnesium-supplement-for-adhd', 'Best Magnesium for ADHD', 'Buying guide'),
     )
@@ -195,7 +193,6 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('melatonin-for-adhd-sleep', 'Melatonin for ADHD Sleep', 'Sleep timing'),
       articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
       articleLink('magnesium-for-adhd', 'Magnesium for ADHD', 'Calm support'),
-      // Phase 3a: new stack + form pages
       articleLink('l-theanine-magnesium-adhd-stack', 'L-Theanine + Magnesium Stack', 'Stack guide'),
       articleLink('l-theanine-without-caffeine', 'L-Theanine Without Caffeine', 'Caffeine-free focus'),
       routeLink('/guides/sleep/l-theanine-for-sleep/', 'L-Theanine for Sleep', 'Sleep guide'),
@@ -214,7 +211,6 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine for Focus', 'Focus comparison'),
       articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
       articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Fatty acids'),
-      // Phase 3a: caffeine-free focus option
       articleLink('l-theanine-without-caffeine', 'L-Theanine Without Caffeine', 'Caffeine-free focus'),
     )
   }
@@ -309,16 +305,10 @@ function MarkdownBody({ body, slug }: { body: string; slug: string }) {
   const blocks = parseBlocks(body)
   const ctaTypes = getAdhdCtasForSlug(slug)
 
-  // Find insertion points
-  // 1. Top insertion point: right before the first h2 block, or index 3 if no h2
   const firstH2Index = blocks.findIndex((b) => b.type === 'h2')
   const topCtaIndex = firstH2Index !== -1 ? firstH2Index : 3
-
-  // 2. Bottom insertion point: right before the first h2 block containing "FAQ" or "Frequently Asked Questions", or blocks.length - 2
   const faqIndex = blocks.findIndex((b) => b.type === 'h2' && (b.text.toLowerCase().includes('faq') || b.text.toLowerCase().includes('frequently asked questions')))
   const bottomCtaIndex = faqIndex !== -1 ? faqIndex : Math.max(0, blocks.length - 2)
-
-  // 3. Mid insertion point: midpoint between top and bottom CTAs, after a paragraph block
   const midPoint = Math.floor((topCtaIndex + bottomCtaIndex) / 2)
   let midCtaIndex = midPoint
   for (let idx = midPoint; idx < bottomCtaIndex; idx++) {
@@ -335,25 +325,19 @@ function MarkdownBody({ body, slug }: { body: string; slug: string }) {
       {blocks.map((block, index) => {
         const elements: React.ReactNode[] = []
 
-        // Render top CTA
         if (index === topCtaIndex && !renderedCtas.has('top')) {
           elements.push(<AdhdInlineCta key="top-cta" type={ctaTypes.top} />)
           renderedCtas.add('top')
         }
-
-        // Render mid CTA
         if (index === midCtaIndex && !renderedCtas.has('mid') && midCtaIndex > topCtaIndex + 2 && midCtaIndex < bottomCtaIndex - 2) {
           elements.push(<AdhdInlineCta key="mid-cta" type={ctaTypes.mid} />)
           renderedCtas.add('mid')
         }
-
-        // Render bottom CTA
         if (index === bottomCtaIndex && !renderedCtas.has('bottom') && bottomCtaIndex > topCtaIndex + 2) {
           elements.push(<AdhdInlineCta key="bottom-cta" type={ctaTypes.bottom} />)
           renderedCtas.add('bottom')
         }
 
-        // Render the block itself
         let blockEl: React.ReactNode = null
         if (block.type === 'h2') {
           blockEl = <h2 key={index} id={headingId(block.text)} className="mt-10 scroll-mt-24 text-2xl font-semibold tracking-tight text-ink first:mt-0" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
@@ -393,10 +377,7 @@ function MarkdownBody({ body, slug }: { body: string; slug: string }) {
           blockEl = <p key={index} className="text-[1.01rem] leading-[1.85] text-muted" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
         }
 
-        if (blockEl) {
-          elements.push(blockEl)
-        }
-
+        if (blockEl) elements.push(blockEl)
         return <React.Fragment key={index}>{elements}</React.Fragment>
       })}
     </div>
@@ -419,12 +400,13 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
   if (!article) notFound()
   const related = getRelatedFocusAdhdLinks(slug)
   const articlePath = `${basePath}/${article.slug}`
+  const lastUpdated = article.updatedAt ?? article.date
 
   const articleLd = blogJsonLd({
     title: article.title,
     slug: article.slug,
     date: article.date,
-    updated: article.date,
+    updated: lastUpdated,
     excerpt: article.description,
   }, articlePath)
   const breadcrumbLd = breadcrumbJsonLd([
@@ -453,7 +435,7 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
           <span className="text-muted">{article.readingTime}</span>
         </div>
         <h1 className="mt-4 max-w-[22ch] font-display text-2xl font-bold leading-[1.08] text-ink sm:text-4xl lg:text-5xl">{article.title}</h1>
-        <div className="mt-3"><LastUpdatedBadge date={article.date} label="Last updated" /></div>
+        <div className="mt-3"><LastUpdatedBadge date={lastUpdated} label="Last updated" /></div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{article.description}</p>
 
         {ADHD_ARTICLE_IMAGES[slug] && (
@@ -483,7 +465,7 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
 
         <MarkdownBody body={article.body} slug={slug} />
 
-        <AdhdComparisonCard slug={slug} />
+        {slug !== 'l-theanine-vs-caffeine-for-focus' && <AdhdComparisonCard slug={slug} />}
 
         <AdhdCtaDashboard currentSlug={slug} />
 
@@ -513,15 +495,9 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
           <h2 className="text-lg font-semibold tracking-tight text-ink">Related Sleep &amp; Calm Guides</h2>
           <p className="text-xs text-muted mt-1">For general sleep research and comparative guides on these ingredients:</p>
           <div className="mt-3 grid gap-2 sm:grid-cols-3">
-            <Link href="/guides/sleep/l-theanine-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
-              L-Theanine for Sleep →
-            </Link>
-            <Link href="/guides/sleep/magnesium-types-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
-              Magnesium Types for Sleep →
-            </Link>
-            <Link href="/guides/sleep/best-herbs-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
-              Best Herbs for Sleep →
-            </Link>
+            <Link href="/guides/sleep/l-theanine-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">L-Theanine for Sleep →</Link>
+            <Link href="/guides/sleep/magnesium-types-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">Magnesium Types for Sleep →</Link>
+            <Link href="/guides/sleep/best-herbs-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">Best Herbs for Sleep →</Link>
           </div>
         </section>
       )}
