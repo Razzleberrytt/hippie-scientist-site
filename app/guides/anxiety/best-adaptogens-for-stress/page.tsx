@@ -5,285 +5,324 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
-import References from '@/components/References'
+import EmailCapture from '@/components/EmailCapture'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-adaptogens-for-stress`
+const DATE = '2026-08-11'
 
 export const metadata: Metadata = {
-  title: 'Best Adaptogens for Stress — Evidence-Based Guide',
+  title: 'Best Adaptogens for Stress: What Human Evidence Supports in 2026',
   description:
-    'Evidence-graded guide to the best adaptogens for stress: ashwagandha, rhodiola, eleuthero, schisandra, and holy basil. How adaptogens work, key differences, dosing, and safety.',
+    'Evidence-first comparison of ashwagandha, Rhodiola, holy basil, and weaker adaptogen claims, with trial populations, preparations, funding, and safety limits.',
   alternates: { canonical: '/guides/anxiety/best-adaptogens-for-stress/' },
   openGraph: {
-    title: 'Best Adaptogens for Stress — Evidence-Based Guide',
+    title: 'Best Adaptogens for Stress: What Human Evidence Supports in 2026',
     description:
-      'Which adaptogens actually work for stress? Ashwagandha, rhodiola, eleuthero, schisandra — evidence-graded with honest assessments of mechanisms, dosing, and safety.',
+      'Compare adaptogens by direct randomized human evidence instead of mechanism claims, fixed stack recipes, or universal HPA-axis promises.',
     url: '/guides/anxiety/best-adaptogens-for-stress/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
 }
 
-const ADAPTOGENS = [
+const SOURCES = [
   {
-    name: 'Ashwagandha (Withania somnifera)',
-    origin: 'Ayurvedic medicine',
-    primaryAction: 'HPA axis regulator — reduces cortisol and stress reactivity',
-    mechanism: 'Withanolides modulate cortisol synthesis; GABAergic activity; NF-κB anti-inflammatory; thyroid-stimulating effects in some models',
-    evidence: 'B–A — strongest clinical evidence of any adaptogen; KSM-66 shows significant cortisol reduction and PSS score improvements in multiple double-blind RCTs',
-    dose: '300–600 mg/day (KSM-66 or Sensoril standardized extract); best taken evening for sleep benefit or morning for cortisol regulation',
-    timeline: '4–8 weeks for full benefit',
-    safety: 'Generally safe; rare hepatotoxicity at very high doses; caution with thyroid disease, immunosuppressants',
-    bestFor: 'Chronic stress, burnout, HPA dysregulation, "wired but tired" pattern',
-    href: '/herbs/ashwagandha',
-    badge: 'Moderate–Strong',
+    label: 'Clinical evidence for Withania somnifera and Rhodiola rosea adaptogenic effects (2026)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/41906501/',
+    note: 'Systematic review of randomized human trials; the review identified a substantially larger randomized literature for ashwagandha than Rhodiola and emphasized variation across preparations, populations, doses, and durations.',
   },
   {
-    name: 'Rhodiola Rosea',
-    origin: 'Scandinavian and Russian traditional medicine',
-    primaryAction: 'Stress performance enhancer — boosts resilience and reduces fatigue',
-    mechanism: 'Salidroside and rosavins activate AMPK; modulate serotonin, norepinephrine, dopamine; upregulate heat shock proteins and anti-fatigue enzymes',
-    evidence: 'B — RCTs show reduced mental fatigue, improved cognitive performance under stress, and mood improvements; strongest effects in high-stress/demanding conditions',
-    dose: '200–400 mg (≥3% rosavins, ≥1% salidroside) in the morning or before demanding tasks',
-    timeline: 'Some benefit acute; sustained benefit after 2–4 weeks',
-    safety: 'Well-tolerated; activating — can disrupt sleep if taken late; rare GI effects',
-    bestFor: 'Stress-driven fatigue, performance under pressure, cognitive stress resilience',
-    href: '/herbs/rhodiola',
-    badge: 'Moderate',
+    label: 'Ashwagandha stress and anxiety systematic review and meta-analysis (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/39348746/',
+    note: 'Nine randomized controlled trials / 558 participants using specific ashwagandha formulations versus placebo; pooled stress, anxiety, and cortisol effects with unresolved long-term safety.',
   },
   {
-    name: 'Eleuthero (Eleutherococcus senticosus)',
-    origin: 'Russian and Chinese traditional medicine; "Siberian ginseng"',
-    primaryAction: 'Non-specific stress resistance enhancer',
-    mechanism: 'Eleutherosides modulate stress hormones; adaptogenic via HPA and sympathetic nervous system; mild immunomodulatory',
-    evidence: 'C–B — earlier Soviet military research (methodologically weak); some modern RCTs show anti-fatigue effects; less studied than ashwagandha or rhodiola',
-    dose: '300–1200 mg root extract; often cycled (6 weeks on, 2 weeks off)',
-    timeline: '2–4 weeks',
-    safety: 'Generally safe; may interact with digoxin and some medications; avoid with high blood pressure',
-    bestFor: 'General stress resistance; physical endurance support; as part of adaptogen rotation',
-    href: '/herbs/eleuthero',
-    badge: 'Emerging–Moderate',
+    label: 'Standardized Rhodiola SHR-5 for stress-related fatigue (2009)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/19016404/',
+    note: 'Randomized double-blind placebo-controlled study in 60 adults ages 20–55 with stress-related fatigue; standardized SHR-5 extract was studied for 28 days.',
   },
   {
-    name: 'Schisandra Berry (Schisandra chinensis)',
-    origin: 'Traditional Chinese medicine',
-    primaryAction: 'Hepatoprotective adaptogen with stress and fatigue modulation',
-    mechanism: 'Schisandrins modulate cortisol, liver enzymes, and mitochondrial function; antioxidant; adaptogenic via HPA axis regulation',
-    evidence: 'C — limited high-quality human RCTs; animal studies positive; some human data on physical performance and cortisol; used clinically in TCM',
-    dose: '500–2000 mg dried fruit extract; often as part of formula',
-    timeline: '4–8 weeks',
-    safety: 'Generally safe; may interact with CYP3A4-metabolized drugs (weak inhibitor); avoid in epilepsy',
-    bestFor: 'Liver support + stress overlap; TCM-oriented protocols; as part of formula',
-    href: '/herbs/schisandra',
-    badge: 'Emerging',
+    label: 'NCCIH: Rhodiola usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/rhodiola',
+    note: 'NCCIH says reliable evidence is insufficient for health uses; possible side effects include dizziness, headache, insomnia, and dry mouth or excess saliva, and a losartan interaction has been reported.',
   },
   {
-    name: 'Holy Basil (Ocimum sanctum / Tulsi)',
-    origin: 'Ayurvedic medicine',
-    primaryAction: 'Adaptogen with anxiety-reducing and anti-inflammatory profile',
-    mechanism: 'Eugenol and ursolic acid modulate COX-2; adaptogenic via cortisol modulation; anxiolytic via GABAergic and serotonergic pathways; blood sugar modulation',
-    evidence: 'C–B — small RCTs show reduced anxiety and cognitive stress; anti-inflammatory markers; well-tolerated; limited high-powered trials',
-    dose: '300–600 mg leaf extract (2.5% ursolic acid) twice daily with food; also consumed as tea',
-    timeline: '4–6 weeks',
-    safety: 'Very well-tolerated; may modulate blood sugar (monitor if diabetic); mild anticoagulant effect',
-    bestFor: 'Mild anxiety + stress; Ayurvedic contexts; blood sugar-stress overlap',
-    href: '/herbs/holy-basil',
-    badge: 'Emerging–Moderate',
+    label: 'Rhodiola and paroxetine interaction case report (2015)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/25413939/',
+    note: 'A single case described restlessness and trembling after Rhodiola was added to paroxetine; it is a signal for medication review, not proof of a predictable interaction in all users.',
+  },
+  {
+    label: 'Holy basil Holixer randomized placebo-controlled stress trial (2022)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/36185698/',
+    note: 'One hundred adults ages 18–65 with stress received standardized Holixer extract 125 mg twice daily or placebo for 8 weeks. The study was funded by Natural Remedies, which supplied the product; investigators disclosed nutraceutical-industry ties.',
+  },
+  {
+    label: 'Holy basil leaves in type 2 diabetes randomized crossover trial (1996)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/8880292/',
+    note: 'An older small human trial reported lower fasting and post-meal glucose during holy-basil treatment, which supports caution rather than a treatment claim when glucose-lowering medication is involved.',
+  },
+  {
+    label: 'Eleuthero plus stress-management training randomized trial (2013)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/23740477/',
+    note: 'In 144 participants with stress-related fatigue/weakness, adding Eleutherococcus senticosus to stress-management training was not superior to stress-management training alone at week 8; authors described any added effect as negligible.',
+  },
+  {
+    label: 'NCBI LactMed: Eleuthero',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/30000865/',
+    note: 'The NCBI record notes limited human evidence and reports that eleuthero may increase blood pressure, bleeding, and blood sugar; pregnancy/lactation safety data are limited.',
+  },
+  {
+    label: 'Siberian ginseng and digoxin immunoassay interference (2003)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/12580002/',
+    note: 'Laboratory work found that some Siberian-ginseng products can falsely alter readings in certain digoxin immunoassays. This is an assay-interference concern, not proof that eleuthero raises digoxin pharmacologically.',
   },
 ]
 
 const HEADINGS: Heading[] = [
-  { id: 'glance', text: 'Adaptogen at a glance', level: 2 },
-  { id: 'profiles', text: 'Adaptogen profiles', level: 2 },
-  { id: 'stacking', text: 'Stacking adaptogens', level: 2 },
-]
-
-const BEST_ADAPTOGENS_FOR_STRESS_REFS = [
-  { n: 1, text: 'Panossian A, Wikman G. (2010). Adaptogens and CNS. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
-  { n: 2, text: 'Chandrasekhar K, et al. (2012). Ashwagandha for stress. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
+  { id: 'bottom-line', text: 'Bottom line', level: 2 },
+  { id: 'comparison', text: 'Evidence comparison', level: 2 },
+  { id: 'ashwagandha', text: 'Ashwagandha', level: 2 },
+  { id: 'rhodiola', text: 'Rhodiola', level: 2 },
+  { id: 'holy-basil', text: 'Holy basil', level: 2 },
+  { id: 'not-ranked', text: 'Why some adaptogens are not ranked', level: 2 },
+  { id: 'stacking', text: 'Why adaptogen stacks overreach', level: 2 },
+  { id: 'safety', text: 'Ingredient-specific safety boundaries', level: 2 },
+  { id: 'sources', text: 'Sources', level: 2 },
 ]
 
 export default function BestAdaptogensForStressPage() {
-  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
   const toc = <TableOfContents headings={HEADINGS} />
+
   return (
-    <>
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Adaptogens for Stress — Evidence-Based Guide"
-        description="Evidence-graded guide to the best adaptogens for stress including ashwagandha, rhodiola, eleuthero, schisandra, and holy basil. Covers mechanisms, evidence quality, dosing, timelines, and safety."
+        headline="Best Adaptogens for Stress: What Human Evidence Supports in 2026"
+        description="Evidence-first comparison of ashwagandha, Rhodiola, holy basil, and weaker adaptogen claims for stress-related outcomes."
         datePublished="2026-06-16"
-        dateModified="2026-06-16"
+        dateModified={DATE}
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Guides', href: '/guides' },
-          { label: 'Best Adaptogens for Stress', href: '/guides/anxiety/best-adaptogens-for-stress' },
+          { label: 'Guides', href: '/guides/' },
+          { label: 'Anxiety & Stress', href: '/guides/anxiety/' },
+          { label: 'Adaptogens for Stress', href: '/guides/anxiety/best-adaptogens-for-stress/' },
         ]}
       />
 
-      <ArticleLayout toc={toc} zone="supplement">
-      <div className="space-y-14">
-
-        {/* Hero */}
+      <div className="space-y-10">
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-          <p className="eyebrow-label">Adaptogen guide</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Best Adaptogens for Stress
-          </h1>
-          <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-            Adaptogens are a pharmacological category of plant compounds that increase non-specific
-            resistance to stress — physical, chemical, and biological. They don't eliminate stress;
-            they modulate how the body responds to it. The evidence quality across the category varies
-            enormously. This guide covers the five best-supported options with honest evidence grades.
+          <p className="eyebrow-label">Adaptogen evidence guide</p>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Adaptogens for Stress</h1>
+          <p className="mt-2 text-xs text-muted">Last evidence review August 11, 2026</p>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
+            “Adaptogen” is a broad botanical label, not proof that every herb in the category improves stress.
+            Clinical evidence has to be judged ingredient by ingredient, preparation by preparation, and outcome
+            by outcome. This guide therefore ranks direct human evidence—not traditional use, mechanism diagrams,
+            or claims that a plant automatically “normalizes the HPA axis.”
           </p>
-          <div className="mt-5 rounded-xl border border-brand-100 bg-brand-50/60 p-4 text-sm text-brand-900">
-            <strong>Defining "adaptogen":</strong> Adaptogens must be non-toxic at normal doses,
-            have a non-specific stress response, and normalize physiological function regardless of
-            the direction of deviation. Not all herbs marketed as adaptogens meet this classical
-            definition rigorously.
-          </div>
 
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/best-adaptogens-for-stress.jpg"
-              alt="Adaptogens for stress including ashwagandha, rhodiola, and holy basil"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            The best-studied adaptogens for stress resilience.
-          </figcaption>
-        </figure>
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+              <Image
+                src="/images/guides/best-adaptogens-for-stress.jpg"
+                alt="Ashwagandha, Rhodiola, and holy basil arranged for an adaptogen evidence comparison"
+                width={1536}
+                height={1024}
+                priority
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              Evidence for one standardized extract does not automatically transfer to every product made from the same plant.
+            </figcaption>
+          </figure>
         </section>
 
-        {/* Fastest useful choice */}
-        <section className="rounded-[1.65rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm">
-          <p className="eyebrow-label">Fastest useful choice</p>
-          <h2 className="mt-2 text-xl font-semibold tracking-tight text-ink">If you only try one thing: ashwagandha</h2>
-          <p className="mt-3 text-sm leading-7 text-muted sm:text-base">
-            <strong>Ashwagandha (KSM-66 or Sensoril, 300–600&nbsp;mg/day) is the fastest useful choice among adaptogens for chronic stress</strong>{' '}
-            — meaning fastest in the sense of "lowest time-to-meaningful-benefit," not acute effect.
-            Allow 4–8 weeks of consistent daily use. It will not lower cortisol in an hour; that is
-            not how adaptogens work. If you need something for an acute stress spike, see{' '}
-            <Link href="/compounds/l-theanine/" className="font-semibold text-brand-700 hover:underline">
-              L-theanine
-            </Link>
-            . For the deep dive, see the{' '}
-            <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
-              ashwagandha article
-            </Link>
-            .
-          </p>
+        <section id="bottom-line" className="scroll-mt-20 rounded-[1.65rem] border border-brand-700/25 bg-brand-50/60 p-6 shadow-sm">
+          <p className="eyebrow-label">Bottom line</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">Ashwagandha has the broadest randomized stress evidence here; the rest need narrower claims</h2>
+          <div className="mt-4 space-y-3 text-sm leading-7 text-muted sm:text-base">
+            <p>
+              <strong>Ashwagandha</strong> has the largest randomized evidence base among the options compared here,
+              with a 2024 meta-analysis pooling nine trials / 558 participants. That signal is repeated-dose and
+              formulation-specific, not proof of an immediate effect or a class effect for every product.
+            </p>
+            <p>
+              <strong>Rhodiola</strong> has direct randomized evidence in stress-related fatigue, but fewer trials
+              and more variation. <strong>Holy basil</strong> has a promising 100-person placebo-controlled trial,
+              but that signal is tied to a specific branded extract and an industry-funded study. Eleuthero and
+              schisandra should not be promoted as co-equal “best adaptogens” without equally auditable human evidence.
+            </p>
+          </div>
         </section>
 
-        {/* Quick comparison */}
-        <section id="glance" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Quick comparison</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Adaptogen at a glance</h2>
+        <section id="comparison" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Directness before ranking</p>
+          <h2 className="text-2xl font-semibold text-ink">What was actually studied?</h2>
           <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
-            <table className="min-w-[700px] w-full text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-brand-900/10 bg-brand-50/50">
-                  <th className="text-left p-4 font-semibold text-ink">Adaptogen</th>
-                  <th className="text-left p-4 font-semibold text-ink">Primary action</th>
-                  <th className="text-left p-4 font-semibold text-ink">Evidence</th>
-                  <th className="text-left p-4 font-semibold text-ink">Timeline</th>
+            <table className="min-w-[840px] w-full text-sm">
+              <thead className="border-b border-brand-900/10 bg-brand-50/50">
+                <tr>
+                  <th className="p-4 text-left font-semibold text-ink">Option</th>
+                  <th className="p-4 text-left font-semibold text-ink">Direct human evidence</th>
+                  <th className="p-4 text-left font-semibold text-ink">Main limit</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-900/10">
-                {ADAPTOGENS.map((a) => (
-                  <tr key={a.name}>
-                    <td className="p-4 font-medium text-ink">{a.name.split(' (')[0]}</td>
-                    <td className="p-4 text-muted">{a.primaryAction}</td>
-                    <td className="p-4">
-                      <span className="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-semibold text-brand-800">{a.badge}</span>
-                    </td>
-                    <td className="p-4 text-muted">{a.timeline}</td>
-                  </tr>
-                ))}
+                <tr className="align-top">
+                  <td className="p-4 font-semibold text-ink">Ashwagandha</td>
+                  <td className="p-4 text-muted">Nine randomized controlled trials / 558 participants in the 2024 meta-analysis, using specific formulations versus placebo over repeated dosing.</td>
+                  <td className="p-4 text-muted">Heterogeneous extracts, populations, and outcomes; long-term safety remains less certain than short-trial safety.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="p-4 font-semibold text-ink">Rhodiola rosea</td>
+                  <td className="p-4 text-muted">A direct placebo-controlled SHR-5 trial enrolled 60 adults ages 20–55 with stress-related fatigue for 28 days; the 2026 review found a smaller randomized literature than for ashwagandha.</td>
+                  <td className="p-4 text-muted">Stress-related fatigue evidence is not a universal acute-performance or “resilience” claim for every Rhodiola preparation.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="p-4 font-semibold text-ink">Holy basil</td>
+                  <td className="p-4 text-muted">One 8-week double-blind placebo-controlled trial randomized 100 stressed adults ages 18–65 to Holixer 125 mg twice daily or placebo.</td>
+                  <td className="p-4 text-muted">Specific branded extract; study funded by Natural Remedies, which supplied the intervention, with disclosed nutraceutical-industry ties among investigators.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="p-4 font-semibold text-ink">Eleuthero</td>
+                  <td className="p-4 text-muted">A randomized study in 144 people with stress-related fatigue compared eleuthero, stress-management training, and their combination.</td>
+                  <td className="p-4 text-muted">Adding eleuthero was not superior to stress-management training alone at week 8; the authors described any added effect as negligible.</td>
+                </tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        {/* Detailed profiles */}
-        <section id="profiles" className="scroll-mt-20 space-y-6">
-          <div>
-            <p className="eyebrow-label">Evidence profiles</p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Adaptogen profiles</h2>
+        <section id="ashwagandha" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Ashwagandha: the broadest signal, still not a universal winner</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            The 2024 meta-analysis pooled nine randomized trials involving 558 participants and reported pooled
+            improvements in perceived stress, anxiety measures, and serum cortisol versus placebo. The studies used
+            specific formulations and multi-week exposure; four trials reported mild-to-moderate adverse events,
+            and long-term safety remains insufficiently defined. That is stronger evidence than a mechanism claim,
+            but it still does not justify a fixed “best adaptogen” dose or promise.
+          </p>
+          <Link href="/guides/herbs/ashwagandha/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Ashwagandha evidence guide →</Link>
+        </section>
+
+        <section id="rhodiola" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Rhodiola: direct fatigue evidence, narrower stress claim</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            A randomized double-blind placebo-controlled trial studied standardized SHR-5 in 60 adults ages 20–55
+            with stress-related fatigue for 28 days. The 2026 systematic review of randomized adaptogen trials found
+            far fewer Rhodiola studies than ashwagandha studies and substantial variation across interventions and
+            populations. That supports a narrower stress-related-fatigue discussion—not “take before demanding tasks”
+            or an acute cognitive-resilience guarantee.
+          </p>
+          <Link href="/herbs/rhodiola/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Rhodiola evidence guide →</Link>
+        </section>
+
+        <section id="holy-basil" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Holy basil: promising, but one branded industry-funded signal should stay preliminary</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            The 2022 trial randomized 100 adults ages 18–65 experiencing stress to Holixer 125 mg twice daily or
+            placebo for 8 weeks. Perceived-stress and some sleep/cortisol outcomes favored the extract, while some
+            other self-report and wearable outcomes did not differ significantly. The study was funded by Natural
+            Remedies, which supplied the capsules; the lead researcher disclosed nutraceutical-industry funding and
+            honoraria, and another author was employed by the contract research organization. This is a useful signal,
+            but it should not be generalized to holy-basil tea, every extract, or the whole “adaptogen” category.
+          </p>
+          <Link href="/herbs/holy-basil/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Holy basil profile →</Link>
+        </section>
+
+        <section id="not-ranked" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-amber-950">Why eleuthero and schisandra are not co-equal recommendations here</h2>
+          <div className="mt-3 space-y-3 text-sm leading-7 text-amber-950">
+            <p>
+              <strong>Eleuthero:</strong> the randomized 2013 study in 144 participants found that adding the root
+              extract to stress-management training was not superior to stress-management training alone at week 8.
+              That does not prove eleuthero has no biological effects, but it argues against presenting it as a
+              well-established stress choice on the same tier as better-supported options.
+            </p>
+            <p>
+              <strong>Schisandra:</strong> the prior page leaned mostly on traditional use, mechanisms, animal work,
+              and broad performance/cortisol language rather than a clearly auditable randomized human stress trial.
+              It is therefore omitted from the ranked comparison until stronger direct evidence justifies inclusion.
+            </p>
           </div>
-          <div className="space-y-5">
-            {ADAPTOGENS.map((a) => (
-              <div key={a.name} className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-                <div className="flex flex-wrap items-start justify-between gap-2">
-                  <div>
-                    <Link href={a.href} className="text-xl font-semibold text-brand-800 hover:underline">{a.name}</Link>
-                    <p className="mt-0.5 text-xs text-muted">{a.origin}</p>
-                  </div>
-                  <span className="rounded-full bg-brand-50 px-3 py-0.5 text-xs font-semibold text-brand-800">{a.badge}</span>
-                </div>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2 text-sm">
-                  <div><p className="font-semibold text-ink">Mechanism</p><p className="mt-0.5 text-muted">{a.mechanism}</p></div>
-                  <div><p className="font-semibold text-ink">Best for</p><p className="mt-0.5 text-muted">{a.bestFor}</p></div>
-                  <div><p className="font-semibold text-ink">Evidence</p><p className="mt-0.5 text-muted">{a.evidence}</p></div>
-                  <div><p className="font-semibold text-ink">Typical dose</p><p className="mt-0.5 text-muted">{a.dose}</p></div>
-                  <div className="sm:col-span-2"><p className="font-semibold text-ink">Safety</p><p className="mt-0.5 text-muted">{a.safety}</p></div>
-                </div>
-                <Link href={a.href} className="mt-4 inline-block text-xs font-semibold text-brand-700 hover:underline">Full profile →</Link>
-              </div>
+        </section>
+
+        <section id="stacking" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Why adaptogen stacks overreach the evidence</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Separate trials of ashwagandha, Rhodiola, or holy basil do not prove that combining them creates synergy,
+            works faster, or is safer. A multi-herb formula is a new intervention with a new interaction and
+            attribution problem. If a person chooses to use a supplement, changing one variable at a time is easier
+            to interpret than copying an “adaptogen rotation” or stack recipe built from unrelated trials.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Study regimens describe research context; they are not personal dosing instructions.
+          </p>
+        </section>
+
+        <section id="safety" className="scroll-mt-20 rounded-[1.65rem] border border-red-200 bg-red-50/70 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-red-950">Ingredient-specific safety boundaries still matter</h2>
+          <ul className="mt-4 space-y-3 text-sm leading-7 text-red-900">
+            <li>
+              • <strong>Ashwagandha:</strong> pregnancy, thyroid disease or thyroid medication, autoimmune disease,
+              liver concerns, and sedating or immunomodulating medicines can materially change the safety decision.
+            </li>
+            <li>
+              • <strong>Rhodiola:</strong> NCCIH lists dizziness, headache, insomnia, and dry mouth or excess saliva
+              as possible effects and notes a reported interaction with losartan. A published case described
+              restlessness and trembling after Rhodiola was added to paroxetine, so antidepressant or other
+              psychiatric medication use deserves clinician/pharmacist review rather than casual stacking.
+            </li>
+            <li>
+              • <strong>Holy basil:</strong> the 8-week Holixer stress trial reported no major adverse effects, but
+              an older randomized human diabetes trial found lower fasting and post-meal glucose during holy-basil
+              treatment. That supports extra caution when glucose-lowering medication or hypoglycemia risk is relevant.
+            </li>
+            <li>
+              • <strong>Eleuthero:</strong> human safety evidence is limited; NCBI notes possible blood-pressure,
+              bleeding, and blood-sugar effects. Some Siberian-ginseng preparations can also interfere with certain
+              digoxin laboratory assays, so a person taking digoxin should tell the prescribing clinician and lab
+              about supplement use rather than assuming an abnormal level reflects a true pharmacologic interaction.
+            </li>
+            <li>
+              • Pregnancy and breastfeeding safety data are limited for several of these botanicals. When medication,
+              cardiovascular, endocrine, liver, pregnancy, or mood-history concerns are present, individual review
+              matters more than an “adaptogen” category label.
+            </li>
+          </ul>
+        </section>
+
+        <section id="sources" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Sources and directness notes</h2>
+          <ol className="mt-4 space-y-4">
+            {SOURCES.map((source, index) => (
+              <li key={source.href} className="text-sm leading-7 text-muted">
+                <span className="font-semibold text-ink">{index + 1}. </span>
+                <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">{source.label}</a>
+                <span> — {source.note}</span>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
 
-        {/* Combination guidance */}
-        <section id="stacking" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm space-y-4">
-          <h2 className="text-xl font-semibold text-ink">Stacking adaptogens: principles</h2>
-          <ul className="space-y-2 text-sm text-muted">
-            <li>• <strong>Don't stack without a reason:</strong> Ashwagandha alone is often sufficient for chronic stress; adding rhodiola is only additive if there's also acute fatigue or performance stress.</li>
-            <li>• <strong>Ashwagandha + Rhodiola</strong> is the most commonly used combination and is mechanistically complementary (HPA axis regulation + anti-fatigue). Well-tolerated.</li>
-            <li>• <strong>Cycling:</strong> Some practitioners cycle adaptogens (6 weeks on, 1–2 weeks off) but evidence for this is largely traditional, not clinical.</li>
-            <li>• <strong>Standardization:</strong> Two "ashwagandha" products can be 5–10× different in withanolide content. Always check the standardized extract label.</li>
-          </ul>
-        </section>
+        <div className="rounded-[1.65rem] border border-brand-900/10 bg-brand-50/50 p-6">
+          <p className="text-sm leading-7 text-muted">
+            <strong className="text-ink">Product sourcing:</strong> this broad adaptogen comparison intentionally
+            does not rank affiliate products. Ingredient-specific pages are the better place to evaluate whether a
+            commercial product actually matches the preparation studied in a trial.
+          </p>
+        </div>
 
-        {/* Safety */}
-        <section className="rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm">
-          <p className="eyebrow-label">Safety &amp; medication notes</p>
-          <h2 className="mt-2 text-xl font-semibold text-amber-900">Before you start an adaptogen</h2>
-          <ul className="mt-3 space-y-2 text-sm text-amber-900">
-            <li>• <strong>Pregnancy &amp; breastfeeding:</strong> avoid ashwagandha, and treat most adaptogens as not established as safe without clinician guidance.</li>
-            <li>• <strong>Ashwagandha:</strong> rare hepatotoxicity reported; caution with thyroid disease, autoimmune conditions, and immunosuppressants.</li>
-            <li>• <strong>Rhodiola:</strong> activating — may worsen insomnia or agitation, caution in bipolar disorder, and possible interaction with antidepressants.</li>
-            <li>• <strong>Eleuthero</strong> may raise blood pressure and interact with digoxin; <strong>schisandra</strong> can affect CYP3A4-metabolized drugs; <strong>holy basil</strong> may lower blood sugar.</li>
-            <li>• If you take medication for blood pressure, mood, thyroid, or blood sugar, confirm compatibility before starting.</li>
-          </ul>
-        </section>
+        <EmailCapture location="guides-best-adaptogens-for-stress" />
 
-        {ashwagandhaProducts && (
-        <>
-          <References refs={BEST_ADAPTOGENS_FOR_STRESS_REFS} />
-            <RecommendationSection products={ashwagandhaProducts.products} />
-        </>
-        )}
-
-        {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
-          <Link href="/guides/anxiety/" className="hover:text-brand-800">Stress goal hub →</Link>
-          <Link href="/guides/herbs/ashwagandha/" className="hover:text-brand-800">Ashwagandha Article →</Link>
-          <Link href="/guides/best/supplements-for-stress/" className="hover:text-brand-800">Best Supplements for Stress →</Link>
-          <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
-          <Link href="/guides/compare/rhodiola-vs-ashwagandha/" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>
-          <Link href="/guides/rhodiola-complete-guide/" className="hover:text-brand-800">Complete Rhodiola Guide →</Link>
-          <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
+          <Link href="/guides/best/supplements-for-stress/" className="hover:text-brand-800">Stress supplement evidence →</Link>
+          <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="hover:text-brand-800">Cortisol & stress guide →</Link>
+          <Link href="/guides/anxiety/" className="hover:text-brand-800">Stress & anxiety hub →</Link>
+          <Link href="/guides/" className="hover:text-brand-800">All guides →</Link>
         </nav>
       </div>
-      </ArticleLayout>
-    </>
+    </ArticleLayout>
   )
 }
