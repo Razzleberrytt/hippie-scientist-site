@@ -6,7 +6,8 @@ const FOCUS_PAGE = path.join(process.cwd(), 'app/guides/focus/l-theanine-without
 const ADHD_SOURCE = path.join(process.cwd(), 'docs/content/focus-cluster/l-theanine-for-adhd-content-v1.md')
 const RENDERER = path.join(process.cwd(), 'components/articles/FocusAdhdArticlePage.tsx')
 
-const read = (file: string) => fs.readFileSync(file, 'utf8').replace(/\s+/g, ' ')
+const read = (file: string) =>
+  fs.readFileSync(file, 'utf8').replace(/\s+/g, ' ').replace(/\*\*/g, '')
 
 describe('L-theanine ADHD route evidence calibration', () => {
   it('preserves publication history and anchors the caffeine-free page to current evidence', () => {
@@ -101,10 +102,10 @@ describe('L-theanine ADHD route evidence calibration', () => {
     expect(text).not.toMatch(/start at the lower end of studied ranges/i)
     expect(text).not.toMatch(/30[–-]60 minutes before/i)
     expect(text).not.toMatch(/use L-theanine during stimulant off-periods or on weekends/i)
-    expect(text).not.toMatch(/medication wears off/i)
     expect(text).toMatch(/does not recommend:/i)
     expect(text).toMatch(/a universal ADHD dose/i)
     expect(text).toMatch(/taking L-theanine a fixed number of minutes before a focus task/i)
+    expect(text).toMatch(/using it as medication wears off/i)
     expect(text).toMatch(/using it on stimulant off-days or weekends/i)
     expect(text).toMatch(/unsupervised pediatric dosing/i)
   })
