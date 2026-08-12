@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../src/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
@@ -10,74 +10,104 @@ import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { AFFILIATE_TAGS } from '@/config/affiliate'
-import References from '@/components/References'
-
-// ─── Article metadata ─────────────────────────────────────────────────────────
 
 const SLUG = 'ashwagandha-for-sleep'
-const TITLE = 'Ashwagandha for Sleep: Evidence, Dosage, and What to Expect'
+const TITLE = 'Ashwagandha for Sleep: What the Evidence Supports in 2026'
 const DESCRIPTION =
-  'Does ashwagandha improve sleep? A review of clinical evidence, proposed mechanisms, dosage protocols, and how it compares to melatonin and other sleep supplements.'
+  'Evidence-first review of ashwagandha for sleep, including the five-trial meta-analysis, insomnia and non-restorative-sleep trials, preparation differences, safety limits, and why trial regimens are not universal bedtime instructions.'
 const DATE = '2026-06-09'
+const UPDATED_DATE = '2026-08-12'
 const AUTHOR = 'Will'
 const READING_TIME = '10 min read'
-const TAGS = ['ashwagandha', 'sleep', 'adaptogens', 'stress', 'withania somnifera']
-const CATEGORY = 'adaptogens'
+const TAGS = ['ashwagandha', 'sleep', 'insomnia', 'adaptogens']
 
 export const metadata = buildPageMetadata({
-  title: TITLE,
+  title: compactMetaTitle(TITLE),
   description: DESCRIPTION,
   path: `/guides/sleep/${SLUG}`,
   openGraphType: 'article',
 })
 
-// ─── FAQ data (also used for JSON-LD) ────────────────────────────────────────
+const SOURCES = [
+  {
+    label: 'Ashwagandha sleep systematic review and meta-analysis (2021)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/34559859/',
+    note: 'Five randomized controlled trials / 400 adults. The pooled sleep effect was small and statistically significant, with moderate heterogeneity. Subgroup findings favored insomnia populations, higher study doses, and longer study durations, but the authors called for more long-term safety data.',
+  },
+  {
+    label: 'Ashwagandha root extract in insomnia and anxiety (2019)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/31728244/',
+    note: 'Sixty participants with insomnia/anxiety were randomized 2:1 to a specific full-spectrum root extract 300 mg twice daily or placebo for 10 weeks. Actigraphy and questionnaire outcomes were assessed; the authors called for larger studies.',
+  },
+  {
+    label: 'Ashwagandha root extract in healthy adults and insomnia patients (2021)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/32818573/',
+    note: 'Eighty participants—40 healthy and 40 with insomnia—were studied for 8 weeks. Sleep outcomes improved in both groups, with larger changes in the insomnia subgroup; the authors said additional trials were needed to generalize the findings.',
+  },
+  {
+    label: 'Standardized ashwagandha extract in non-restorative sleep (2020)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/32540634/',
+    note: 'One hundred fifty healthy adults with non-restorative sleep received a standardized Shoden extract 120 mg once daily or placebo for 6 weeks; 144 completed. This different preparation and regimen illustrate why results should not be generalized to one universal product or dose.',
+  },
+  {
+    label: 'NCCIH: Ashwagandha usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/ashwagandha',
+    note: 'NCCIH says some ashwagandha preparations may be effective for insomnia and stress, while long-term safety is not established. It also lists liver, pregnancy, thyroid, autoimmune, surgery, and medication-interaction cautions.',
+  },
+  {
+    label: 'NCCIH: Sleep disorders and complementary health approaches',
+    href: 'https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches',
+    note: 'NCCIH describes CBT-I as the most strongly recommended treatment for insomnia and notes that evidence for many complementary sleep approaches is limited or inconsistent.',
+  },
+  {
+    label: 'AASM: cognitive behavioral therapy for insomnia',
+    href: 'https://aasm.org/coding-quarterly-cognitive-behavioral-therapy-for-insomnia/',
+    note: 'The American Academy of Sleep Medicine describes CBT-I as the first-line, evidence-based treatment for chronic insomnia.',
+  },
+]
 
 const FAQS = [
   {
+    question: 'Does ashwagandha help sleep?',
+    answer:
+      'A five-trial meta-analysis in 400 adults found a small overall sleep benefit, and NCCIH says some preparations may help insomnia. The evidence is promising but preparation-specific and not strong enough to support a universal product, dose, or timing rule.',
+  },
+  {
     question: 'How long does ashwagandha take to work for sleep?',
     answer:
-      'Most clinical trials report meaningful sleep improvements after 6–8 weeks of consistent use at 300–600 mg/day. Some people notice lighter effects within 2–4 weeks.',
+      'Trials generally studied repeated use over several weeks, but study duration is not the same as a guaranteed personal onset. The evidence does not establish that everyone needs a fixed six- or eight-week course or that benefits begin on a predictable day.',
   },
   {
-    question: 'Should I take ashwagandha in the morning or at night for sleep?',
+    question: 'Should ashwagandha be taken at night for sleep?',
     answer:
-      'Evening or nighttime dosing (1–2 hours before bed) is most common for sleep purposes. Some protocols use split dosing (morning and evening). Follow the timing used in the specific trial that supports your intended benefit.',
+      'There is no universal evidence-based bedtime timing rule. Studies used different schedules and preparations. A trial schedule describes how that study was run; it is not proof that evening dosing is superior for every product or person.',
   },
   {
-    question: 'Is ashwagandha safe to take every night?',
+    question: 'What is the best ashwagandha extract for sleep?',
     answer:
-      'Current evidence supports daily use for 8–12 weeks without serious adverse events in healthy adults. Long-term safety data beyond 3 months is limited. Rare hepatotoxicity cases have been reported; consult a healthcare provider if you have liver conditions.',
+      'No extract has been established as a universal winner. Positive sleep trials used different preparations and regimens, including a full-spectrum root extract and a lower-milligram standardized Shoden extract. Results belong to the studied preparation and population.',
   },
   {
-    question: 'Can ashwagandha replace melatonin for sleep?',
+    question: 'Can ashwagandha replace CBT-I for chronic insomnia?',
     answer:
-      'Ashwagandha works differently from melatonin. Melatonin directly signals the circadian system; ashwagandha may improve sleep quality by reducing stress and cortisol. They can be complementary, but ashwagandha is not a direct melatonin substitute.',
+      'No. CBT-I is the first-line evidence-based treatment for chronic insomnia. A supplement trial should not delay evaluation of persistent insomnia, sleep apnea symptoms, restless legs, medication effects, mood disorders, substance-related sleep problems, or other causes of poor sleep.',
   },
   {
-    question: 'What is the best form of ashwagandha for sleep?',
+    question: 'Can ashwagandha be combined with melatonin or L-theanine?',
     answer:
-      'KSM-66 and Sensoril are the two root-extract forms with the strongest clinical research on sleep outcomes. Full-spectrum root powder is the traditional form but has less standardization. Look for products standardized to withanolide content (≥5%).',
+      'Separate ingredient studies do not prove that a combination is more effective or safer. Combining products also makes benefit and side effects harder to attribute. Medication use and sedative effects can materially change the safety picture.',
   },
-]
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
-
-const ASHWAGANDHA_FOR_SLEEP_REFS = [
-  { n: 1, text: 'Chandrasekhar K, et al. (2012). Ashwagandha root extract for stress. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
-  { n: 2, text: 'Langade D, et al. (2019). Ashwagandha on sleep: a randomized trial. Cureus, 11(9): e5797.', url: 'https://pubmed.ncbi.nlm.nih.gov/31728244/' },
-  { n: 3, text: 'Salve J, et al. (2019). Ashwagandha and sleep quality. Cureus, 11(12): e6466.', url: 'https://pubmed.ncbi.nlm.nih.gov/32021735/' },
 ]
 
 export default function AshwagandhaForSleepPage() {
-  const pageBreadcrumb = breadcrumbJsonLd([
+  const breadcrumb = breadcrumbJsonLd([
     { name: 'Guides', url: 'https://thehippiescientist.net/guides/' },
+    { name: 'Sleep', url: 'https://thehippiescientist.net/guides/sleep/' },
     { name: TITLE, url: `https://thehippiescientist.net/guides/sleep/${SLUG}/` },
   ])
 
   const articleLd = blogJsonLd(
-    { title: TITLE, slug: SLUG, date: DATE, description: DESCRIPTION },
+    { title: TITLE, slug: SLUG, date: DATE, updated: UPDATED_DATE, description: DESCRIPTION },
     `/guides/sleep/${SLUG}/`,
   )
 
@@ -85,843 +115,202 @@ export default function AshwagandhaForSleepPage() {
 
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      {/* JSON-LD */}
       <JsonLd schema={articleLd} />
-      <JsonLd schema={pageBreadcrumb} />
-      {faqLd && (
-        <>
-          <References refs={ASHWAGANDHA_FOR_SLEEP_REFS} />
-          <JsonLd schema={faqLd} />
-        </>
-      )}
+      <JsonLd schema={breadcrumb} />
+      {faqLd ? <JsonLd schema={faqLd} /> : null}
 
-      {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/guides/" className="transition hover:text-ink">
-          Guides
-        </Link>
+      <nav className="mb-6 flex items-center gap-2 text-sm text-muted" aria-label="Breadcrumb">
+        <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
         <span>/</span>
-        <span className="text-ink line-clamp-1">{TITLE}</span>
+        <Link href="/guides/sleep/" className="transition hover:text-ink">Sleep</Link>
+        <span>/</span>
+        <span className="line-clamp-1 text-ink">Ashwagandha</span>
       </nav>
 
-      {/* Hero */}
       <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
-            Deep Dive
-          </span>
-          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize">
-            {CATEGORY}
-          </span>
-          {TAGS.slice(0, 2).map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize"
-            >
-              {tag}
-            </span>
+          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">Sleep evidence guide</span>
+          {TAGS.slice(0, 3).map((tag) => (
+            <span key={tag} className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold capitalize text-muted">{tag}</span>
           ))}
-          <span className="text-muted">June 9, 2026</span>
-          <span className="text-muted">·</span>
           <span className="text-muted">{READING_TIME}</span>
         </div>
 
-        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
-          {TITLE}
-        </h1>
-
-        <p className="mt-2 text-sm text-muted">
-          By{' '}
-          <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">
-            {AUTHOR}
-          </Link>
-        </p>
-
-        <div className="mt-3">
-          <LastUpdatedBadge date={DATE} label="Last updated" />
-        </div>
-
+        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">{TITLE}</h1>
+        <p className="mt-2 text-sm text-muted">By <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">{AUTHOR}</Link></p>
+        <div className="mt-3"><LastUpdatedBadge date={UPDATED_DATE} label="Last evidence review" /></div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
 
         <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <Image
               src="/images/guides/ashwagandha-for-sleep.jpg"
-              alt="Dried ashwagandha (Withania somnifera) roots, leaves, and golden ashwagandha powder used as a natural sleep and stress supplement"
+              alt="Ashwagandha root and powder beside a nighttime sleep setting"
               width={1536}
               height={1024}
               priority
-              className="w-full h-auto"
+              className="h-auto w-full"
             />
           </div>
           <figcaption className="mt-3 text-center text-sm text-muted">
-            Ashwagandha (Withania somnifera) — a stress-reducing adaptogen studied for improving sleep quality.
+            Sleep trials used different ashwagandha preparations, populations, schedules, and durations; one positive regimen is not a universal bedtime protocol.
           </figcaption>
         </figure>
       </section>
 
-      {/* Affiliate disclosure */}
       <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 px-5 py-3 text-xs leading-6 text-muted">
-        <strong className="text-ink">Affiliate disclosure:</strong> This article contains affiliate
-        links. If you purchase through these links, we may earn a commission at no additional cost to
-        you. We only link to products from extract forms validated in the clinical trials reviewed on
-        this page.
+        <strong className="text-ink">Affiliate disclosure:</strong> This page contains optional product-sourcing links. They are not evidence that a commercial product will reproduce a sleep trial. We may earn a commission at no added cost to you.
       </div>
 
-      {/* Body + sidebar */}
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
-        {/* Main content */}
         <div className="space-y-6">
-
-          {/* Fastest useful choice */}
           <section className="rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm sm:p-8">
-            <p className="eyebrow-label">Fastest useful choice</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-              If you only try one thing: melatonin or L-theanine (not ashwagandha)
-            </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-              <strong>Ashwagandha is not the fastest useful choice for sleep &mdash; it requires 6&ndash;8 weeks of consistent use to build an effect.</strong>{' '}
-              If you want faster sleep onset tonight, the more useful options are{' '}
-              <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:underline">L-theanine</Link>{' '}
-              (100&ndash;200&nbsp;mg, 30&ndash;60 minutes before bed) or melatonin (0.3&ndash;1&nbsp;mg,
-              30&ndash;60 minutes before bed for circadian shift). Ashwagandha's strength is for
-              stress-driven sleep problems where you can commit to a multi-week course &mdash; not as
-              an acute sleep aid. See the{' '}
-              <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">full ashwagandha article</Link>{' '}
-              and the{' '}
-              <Link href="/guides/sleep/best-herbs-for-sleep/" className="font-semibold text-brand-700 hover:underline">best herbs for sleep hub</Link>.
-            </p>
+            <p className="eyebrow-label">Bottom line</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">A small sleep signal is real; a universal bedtime recipe is not</h2>
+            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
+              <p>
+                The 2021 systematic review pooled <strong>five randomized trials / 400 adults</strong> and found a small overall improvement in sleep with ashwagandha extract versus placebo. The studies were heterogeneous, and NCCIH’s current summary is appropriately cautious: <strong>some preparations may help insomnia</strong>.
+              </p>
+              <p>
+                That evidence does not justify saying that everyone should take a specific branded extract, a fixed milligram amount, or an evening dose for six to eight weeks. It also does not make ashwagandha a same-night rescue treatment.
+              </p>
+            </div>
           </section>
 
-          {/* Quick Verdict */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence directness</h2>
+            <EvidenceSummaryCard
+              title="Ashwagandha for sleep"
+              evidenceLevel="Limited"
+              humanEvidence="The 2021 meta-analysis included five randomized placebo-controlled trials / 400 adults and found a small significant overall sleep effect with moderate heterogeneity. Subgroup signals were stronger in people with insomnia and in certain study-dose and duration categories, but those subgroup findings do not establish a universal regimen."
+              mechanisticEvidence="Cortisol, GABA-related, autonomic, and preclinical sleep mechanisms are hypotheses that may help explain results. They do not prove that stress-driven insomnia is caused by a cortisol problem or that a particular mechanism determines who will respond."
+              safetyProfile="No serious adverse events were reported in the pooled sleep trials, but the review said serious-adverse-event data were limited and more long-term safety data were needed. NCCIH also lists rare liver injury and several condition/medication cautions."
+            />
+          </section>
+
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
-            <p className="eyebrow-label">Quick Verdict</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-              Does Ashwagandha Help With Sleep?
-            </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-              <strong>Probably yes, especially for stress-driven poor sleep.</strong> Multiple
-              randomized controlled trials show ashwagandha root extract (300–600&nbsp;mg/day,
-              standardized KSM-66 or Sensoril) improves sleep quality scores, sleep onset latency,
-              and morning alertness versus placebo over 6–10 weeks. The effect is most consistent in
-              adults with elevated perceived stress — the populations studied most often.
-            </p>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-              It does not act as a direct sedative. Ashwagandha works indirectly — primarily by
-              blunting the cortisol and adrenergic stress response that keeps the nervous system
-              activated at night — rather than by inducing sedation. That makes it useful for
-              winding down, less so as a sleep-onset agent for people without stress-related arousal.
-            </p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">What was actually studied?</h2>
+            <ResponsiveTable label="Ashwagandha sleep trial directness table">
+              <table className="mt-5 min-w-[760px] w-full text-sm">
+                <thead>
+                  <tr className="border-b border-brand-900/10">
+                    <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Population</th>
+                    <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Study intervention</th>
+                    <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">What it tells us</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-900/5">
+                  <tr className="align-top">
+                    <td className="py-3 pr-4 font-medium text-ink">60 people with insomnia and anxiety</td>
+                    <td className="py-3 pr-4 text-muted">Specific full-spectrum root extract, 300 mg twice daily vs placebo for 10 weeks.</td>
+                    <td className="py-3 text-muted">Direct insomnia trial with actigraphy and questionnaires; useful evidence for that preparation and context, not a universal personal dose.</td>
+                  </tr>
+                  <tr className="align-top">
+                    <td className="py-3 pr-4 font-medium text-ink">80 healthy adults and adults with insomnia</td>
+                    <td className="py-3 pr-4 text-muted">Root extract vs placebo for 8 weeks.</td>
+                    <td className="py-3 text-muted">Sleep improvements were larger in the insomnia subgroup, while the authors said more trials were needed before generalizing the findings.</td>
+                  </tr>
+                  <tr className="align-top">
+                    <td className="py-3 pr-4 font-medium text-ink">150 healthy adults with non-restorative sleep</td>
+                    <td className="py-3 pr-4 text-muted">Standardized Shoden extract, 120 mg once daily vs placebo for 6 weeks; 144 completed.</td>
+                    <td className="py-3 text-muted">A different preparation and much lower milligram regimen also produced a sleep signal—evidence against treating one brand or dose range as universally validated.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ResponsiveTable>
           </section>
 
-          {/* Main article body */}
-          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-8">
-
-            {/* Introduction */}
-            <div id="introduction">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">Introduction</h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Ashwagandha (<em>Withania somnifera</em>) is one of the most studied adaptogens in
-                evidence-based supplement research. While it is best known for stress and anxiety
-                reduction, a growing body of clinical research specifically examines its effects on
-                sleep — and the results are consistently positive across several independent trials.
+          <section className="rounded-[1rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm sm:p-8">
+            <h2 className="text-xl font-semibold text-amber-950">Why the meta-analysis subgroup is not a dosage protocol</h2>
+            <div className="mt-3 space-y-3 text-sm leading-7 text-amber-950">
+              <p>
+                The pooled review found larger sleep effects in the subgroup of insomnia participants, studies using at least 600 mg/day, and studies lasting at least eight weeks. Those are <strong>between-study subgroup observations</strong>, not randomized head-to-head proof that 600 mg is better than lower doses or that eight weeks is an optimal course.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                This article reviews the current clinical evidence, proposes mechanisms, outlines
-                dosing protocols used in trials, compares ashwagandha to competing sleep
-                supplements, and flags the safety considerations that matter most for long-term use.
-                All claims are referenced to primary studies or the{' '}
-                <Link
-                  href="/herbs/ashwagandha/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  Ashwagandha herb profile
-                </Link>
-                .
+              <p>
+                The 120 mg/day Shoden trial is a useful reminder that milligrams are not interchangeable across extracts. Extraction ratio, plant part, standardization, and formulation can change what a milligram represents.
               </p>
             </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* What Is Ashwagandha */}
-            <div id="what-is-ashwagandha">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                What Is Ashwagandha?
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                <em>Withania somnifera</em> is a small shrub in the Solanaceae (nightshade) family,
-                native to India, North Africa, and the Mediterranean. In Ayurvedic medicine it is
-                classified as a <em>rasayana</em> — a rejuvenating herb used to promote longevity,
-                vitality, and resistance to disease.
-              </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                The species name <em>somnifera</em> means &ldquo;sleep-inducing&rdquo; in Latin —
-                the plant was historically used as a sedative tonic. Modern research confirms a
-                genuine sleep benefit, though the mechanism is more nuanced than simple sedation.
-              </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                Key active constituents include withanolides (steroidal lactones), withaferin A, and
-                alkaloids. Commercial extracts are typically standardized to withanolide content
-                (≥5%) and come in two clinically dominant patented forms:{' '}
-                <strong>KSM-66</strong> (full-spectrum root extract, Ixoreal Biomed) and{' '}
-                <strong>Sensoril</strong> (root and leaf extract, Natreon).
-              </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                For a complete breakdown of chemistry, evidence, and uses beyond sleep, see the{' '}
-                <Link
-                  href="/herbs/ashwagandha/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  full Ashwagandha herb profile
-                </Link>
-                .
-              </p>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* How Ashwagandha May Affect Sleep */}
-            <div id="mechanisms">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                How Ashwagandha May Affect Sleep
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Several convergent mechanisms have been proposed, based on preclinical data and
-                plausible inference from human trial outcomes:
-              </p>
-
-              <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
-                1. HPA Axis Modulation (Cortisol Reduction)
-              </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Ashwagandha consistently reduces morning serum cortisol in stressed adults across
-                multiple RCTs. Elevated cortisol at night is a primary driver of hyperarousal-type
-                insomnia. By blunting the HPA axis stress response, ashwagandha may reduce the
-                physiological barrier to sleep onset and maintenance.
-              </p>
-
-              <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
-                2. GABA-A Receptor Activity
-              </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Withaferin A and related withanolides have demonstrated GABA-A receptor binding
-                activity in vitro and in animal models. GABA-A agonism is the mechanism of
-                benzodiazepines and many common sleep aids. The magnitude of this effect in humans
-                at standard doses is uncertain and likely modest.
-              </p>
-
-              <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
-                3. Triethylene Glycol (TEG) Content
-              </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                A 2017 study (Kaushik et al.) isolated triethylene glycol from ashwagandha leaves
-                and found it induced significant non-REM sleep in mice. TEG content varies by plant
-                part (leaves vs. root) and extraction method, which may partially explain
-                differential sleep effects across extract types.
-              </p>
-
-              <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
-                4. Sympathetic Nervous System Downregulation
-              </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Ashwagandha is associated with reduced markers of sympathetic activation (improved
-                heart rate variability, lower serum adrenaline in some studies). Nighttime
-                sympathetic activation is a core feature of stress-related insomnia; reducing it
-                may facilitate transitions into deeper sleep stages.
-              </p>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Evidence Summary */}
-            <div id="evidence-summary">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Evidence Summary
-              </h2>
-
-              <EvidenceSummaryCard
-                title="Ashwagandha &amp; Sleep Quality"
-                evidenceLevel="Moderate"
-                humanEvidence="Multiple RCTs (n=50–150) show significant improvements in sleep quality (PSQI, ISI scores), sleep onset latency, and total sleep time vs placebo over 6–10 weeks in adults with elevated stress. Effect sizes are moderate (Cohen's d ≈ 0.5–0.8)."
-                mechanisticEvidence="Cortisol reduction via HPA axis modulation is well-documented in human trials. GABA-A binding activity demonstrated in vitro. TEG-mediated non-REM induction in animal models. Human mechanistic evidence is still developing."
-                safetyProfile="Generally well-tolerated at 300–600 mg/day for 8–12 weeks. Rare hepatotoxicity cases reported in post-market surveillance. Contraindicated in pregnancy. Potential thyroid interactions at therapeutic doses."
-              />
-
-              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
-                <p className="font-semibold text-ink">Key trials reviewed:</p>
-                <ul className="mt-2 ml-5 space-y-1 list-disc">
-                  <li>
-                    Langade et al. (2019) — KSM-66, 300 mg twice daily, 10 weeks, n=58 (stressed
-                    adults with insomnia symptoms)
-                  </li>
-                  <li>
-                    Langade et al. (2021) — KSM-66, 600 mg/day, 8 weeks, n=150 (primary insomnia
-                    disorder)
-                  </li>
-                  <li>
-                    Deshpande et al. (2020) — KSM-66, 300 mg/day, 8 weeks, n=80 (healthy adults)
-                  </li>
-                  <li>
-                    Cheah et al. (2021) — Sensoril 240 mg/day, 8 weeks, n=80 (healthy adults with
-                    poor sleep quality)
-                  </li>
-                </ul>
-                <p className="mt-2 text-xs text-muted">
-                  Full reference table in Sources section below.
-                </p>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Dosage */}
-            <div id="dosage">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Dosage and Usage
-              </h2>
-
-              <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-wider text-muted">
-                  Dosage Reference — Sleep Protocols
-                </p>
-                <ResponsiveTable label="Ashwagandha dosage reference table">
-                  <table className="min-w-[560px] w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-brand-900/10">
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Extract
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Daily Dose
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Timing
-                        </th>
-                        <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Duration
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-brand-900/5">
-                      <tr className="align-top">
-                        <td className="py-3 pr-4 font-medium text-ink">KSM-66</td>
-                        <td className="py-3 pr-4 text-muted">300–600 mg</td>
-                        <td className="py-3 pr-4 text-muted">Evening or split (AM/PM)</td>
-                        <td className="py-3 text-muted">6–12 weeks</td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-4 font-medium text-ink">Sensoril</td>
-                        <td className="py-3 pr-4 text-muted">125–250 mg</td>
-                        <td className="py-3 pr-4 text-muted">Evening</td>
-                        <td className="py-3 text-muted">8–12 weeks</td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-4 font-medium text-ink">Root powder</td>
-                        <td className="py-3 pr-4 text-muted">3–6 g</td>
-                        <td className="py-3 pr-4 text-muted">Evening (milk or water)</td>
-                        <td className="py-3 text-muted">Traditional — variable</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </ResponsiveTable>
-                <p className="mt-3 text-xs text-muted">
-                  Doses shown are based on clinical trial protocols reviewed in the Evidence Summary
-                  above. Start at the lower end and assess tolerance before increasing. Take with
-                  food to reduce GI sensitivity.
-                </p>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Affiliate Product Recommendations */}
-            <div id="product-recommendations">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                Affiliate Product Recommendations
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                These products use the extract forms and dose ranges studied in the clinical trials
-                reviewed above. Affiliate links support this site at no additional cost to you.
-              </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Best for: Stress-Driven Sleep Issues
-                  </p>
-                  <p className="font-semibold text-ink">KSM-66 Ashwagandha Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Patented full-spectrum root extract. Most-studied form for sleep quality. Look
-                    for ≥300 mg per capsule, standardized to ≥5% withanolides.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=KSM-66+ashwagandha&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Best for: Lower Dose / Sensitive Users
-                  </p>
-                  <p className="font-semibold text-ink">Sensoril Ashwagandha Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Root and leaf extract with strong clinical backing at lower mg doses. Well-suited
-                    for sensitive individuals or stacking protocols.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=Sensoril+ashwagandha&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Safety */}
-            <div id="safety">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Safety and Side Effects
-              </h2>
-              <SafetyNotice title="Safety Summary — Ashwagandha for Sleep">
-                <ul className="ml-5 space-y-1.5 list-disc">
-                  <li>
-                    <strong>Generally well-tolerated</strong> at 300–600 mg/day for up to 12 weeks
-                    in healthy adults across clinical trials.
-                  </li>
-                  <li>
-                    <strong>GI discomfort</strong> (loose stools, nausea) reported in a minority of
-                    users, particularly at higher doses. Taking with food reduces incidence.
-                  </li>
-                  <li>
-                    <strong>Thyroid interactions:</strong> Ashwagandha may increase T3/T4 levels.
-                    Use with caution if you have hyperthyroidism or take thyroid medication.
-                  </li>
-                  <li>
-                    <strong>Hepatotoxicity (rare):</strong> Multiple case reports of liver injury
-                    have been published, most resolving on discontinuation. Avoid if you have liver
-                    disease or take hepatotoxic medications.
-                  </li>
-                  <li>
-                    <strong>Autoimmune conditions:</strong> Ashwagandha may stimulate immune
-                    function; use with caution in autoimmune disease or on immunosuppressants.
-                  </li>
-                  <li>
-                    <strong>Pregnancy/lactation:</strong> Avoid. Animal studies show uterotonic effects; human safety data is insufficient.
-                  </li>
-                  <li>
-                    <strong>Drug interactions:</strong> May potentiate sedatives, thyroid hormones,
-                    and immunosuppressants. Limited data with SSRIs/SNRIs/MAOIs &mdash; consult a
-                    clinician before combining with psychiatric medications.
-                  </li>
-                </ul>
-              </SafetyNotice>
-              <p className="mt-3 text-sm text-muted">
-                See the{' '}
-                <Link
-                  href="/herbs/ashwagandha/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  full Ashwagandha safety profile
-                </Link>{' '}
-                for a complete breakdown of adverse events, drug interactions, and
-                contraindications.
-              </p>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Comparison table */}
-            <div id="comparison">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Ashwagandha vs Other Sleep Supplements
-              </h2>
-              <ResponsiveTable label="Sleep supplement comparison table">
-                <table className="min-w-[600px] w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-brand-900/10">
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Supplement
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Mechanism
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Best for
-                      </th>
-                      <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Evidence
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-brand-900/5">
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                      <td className="py-3 pr-4 text-muted">HPA axis, cortisol, GABA-A</td>
-                      <td className="py-3 pr-4 text-muted">Stress-driven poor sleep</td>
-                      <td className="py-3 text-muted">Moderate (multiple RCTs)</td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Melatonin</td>
-                      <td className="py-3 pr-4 text-muted">MT1/MT2 receptor agonist</td>
-                      <td className="py-3 pr-4 text-muted">Circadian disruption, jet lag</td>
-                      <td className="py-3 text-muted">Strong (extensive RCTs)</td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate</td>
-                      <td className="py-3 pr-4 text-muted">NMDA antagonism, GABA support</td>
-                      <td className="py-3 pr-4 text-muted">Muscle tension, deficiency</td>
-                      <td className="py-3 text-muted">Moderate</td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Valerian</td>
-                      <td className="py-3 pr-4 text-muted">GABA-A agonism</td>
-                      <td className="py-3 pr-4 text-muted">Sleep onset latency</td>
-                      <td className="py-3 text-muted">Mixed / weak</td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">L-theanine</td>
-                      <td className="py-3 pr-4 text-muted">Alpha-wave promotion, relaxation</td>
-                      <td className="py-3 pr-4 text-muted">Anxiety-driven arousal</td>
-                      <td className="py-3 text-muted">Limited–moderate</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </ResponsiveTable>
-              <p className="mt-3 text-sm text-muted">
-                See the full{' '}
-                <Link
-                  href="/guides/sleep/sleep-herbs-vs-melatonin/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  sleep herbs vs melatonin comparison
-                </Link>{' '}
-                for a deeper analysis of each option.
-              </p>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* FAQ */}
-            <div id="faq">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-4">
-                {FAQS.map((faq, i) => (
-                  <div
-                    key={i}
-                    className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
-                  >
-                    <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Related Articles */}
-            <div id="related-articles">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Related Articles
-              </h2>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <Link
-                  href="/guides/sleep/best-herbs-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster Hub
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Best Herbs for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence-ranked guide to magnesium, ashwagandha, L-theanine, valerian,
-                    passionflower, and more — with decision framework and combination guidance.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/sleep-herbs-vs-melatonin/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Sleep Herbs vs Melatonin
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Comparing evidence for valerian, ashwagandha, passionflower, and other herbs
-                    against melatonin for sleep quality.
-                  </p>
-                </Link>
-                <Link
-                  href="/herbs/ashwagandha/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Herb Profile
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Ashwagandha Full Profile
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Complete herb monograph: chemistry, evidence, dosage, and safety across all
-                    uses beyond sleep.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Discovery
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Natural Anxiolytics Beyond Ashwagandha
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Herbs and compounds for anxiety reduction when ashwagandha is not appropriate or
-                    not enough.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Ashwagandha vs Magnesium for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Side-by-side comparison of mechanisms, evidence, timing, safety, and cost
-                    to help you choose between the two or use both.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/l-theanine-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    L-Theanine for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    How L-theanine promotes relaxation without sedation — and how it compares
-                    to ashwagandha.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    All Articles
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Browse All Articles
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence-based research notes on herbs, adaptogens, and supplements.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/herbs/ashwagandha/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Umbrella Article
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Ashwagandha: Full Article
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence review across sleep, anxiety, stress, and focus.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/herbs/l-theanine/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Umbrella Article
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    L-Theanine: Full Article
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Calm without sedation &mdash; useful as a faster sleep aid.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Goal Hub
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Sleep Goal Hub
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Compare all sleep supplements by evidence and use case.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/anxiety/natural-anxiety-relief/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Anxiety Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Natural Anxiety Relief
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence-ranked guide to natural supplements for anxiety — ashwagandha,
-                    L-theanine, kava, passionflower, saffron, and more.
-                  </p>
-                </Link>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Sources */}
-            <div id="sources">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
-              <ResponsiveTable label="Article references">
-                <table className="min-w-[600px] w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-brand-900/10">
-                      <th className="pb-2 pr-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        #
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Study
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Authors
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Year
-                      </th>
-                      <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Link
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-brand-900/5">
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">1</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        Efficacy and Safety of Ashwagandha (Withania somnifera) Root Extract in
-                        Insomnia and Anxiety: A Double-blind, Randomized, Placebo-controlled Study
-                      </td>
-                      <td className="py-3 pr-4 text-muted">
-                        Langade D, Kanchi S, Salve J, Debnath K, Ambegaokar D
-                      </td>
-                      <td className="py-3 pr-4 text-muted">2019</td>
-                      <td className="py-3">
-                        <a
-                          href="https://pubmed.ncbi.nlm.nih.gov/31564735/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                        >
-                          PMID 31564735
-                        </a>
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">2</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        A Prospective, Randomized Double-Blind,
-                        Placebo-Controlled Study of Safety and Efficacy of a High-Concentration
-                        Full-Spectrum Extract of Ashwagandha Root in Reducing Stress and Anxiety
-                      </td>
-                      <td className="py-3 pr-4 text-muted">
-                        Chandrasekhar K, Kapoor J, Anishetty S
-                      </td>
-                      <td className="py-3 pr-4 text-muted">2012</td>
-                      <td className="py-3">
-                        <a
-                          href="https://pubmed.ncbi.nlm.nih.gov/23120875/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                        >
-                          PMID 23120875
-                        </a>
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">3</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        A Randomized, Double Blind, Placebo Controlled, Cross-over Study to Evaluate
-                        the Efficacy and Safety of Ashwagandha (Withania somnifera) Extract on
-                        Sleep Quality in Healthy Adults
-                      </td>
-                      <td className="py-3 pr-4 text-muted">
-                        Cheah KL, Norhayati MN, Husniati Yaacob L, Abdul Rahman R
-                      </td>
-                      <td className="py-3 pr-4 text-muted">2021</td>
-                      <td className="py-3">
-                        <a
-                          href="https://pubmed.ncbi.nlm.nih.gov/34559859/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                        >
-                          PMID 34559859
-                        </a>
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">4</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        Triethylene glycol, an active component of Ashwagandha (Withania somnifera)
-                        leaves, is responsible for sleep induction
-                      </td>
-                      <td className="py-3 pr-4 text-muted">
-                        Kaushik MK, Kaul SC, Wadhwa R, Yanagisawa M, Urade Y
-                      </td>
-                      <td className="py-3 pr-4 text-muted">2017</td>
-                      <td className="py-3">
-                        <a
-                          href="https://pubmed.ncbi.nlm.nih.gov/28827682/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                        >
-                          PMID 28827682
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </ResponsiveTable>
-            </div>
-
           </section>
 
-          <RecommendationSection products={getRevenueProductSet('ashwagandha')?.products ?? []} />
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">No established “best time” or “best extract”</h2>
+            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
+              <p>
+                Sleep trials used different extracts, schedules, and durations. The literature does not establish that evening dosing is universally superior to morning or split dosing, and it does not establish KSM-66, Sensoril, Shoden, raw powder, or another preparation as the universal best sleep form.
+              </p>
+              <p>
+                Study schedules are research context. They should not be converted into “take this much 30–60 minutes before bed” instructions unless direct evidence actually tests and supports that timing question.
+              </p>
+            </div>
+          </section>
 
-          {/* Email capture */}
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Chronic insomnia has a stronger first-line treatment</h2>
+            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
+              <p>
+                The American Academy of Sleep Medicine describes <strong>cognitive behavioral therapy for insomnia (CBT-I)</strong> as the first-line, evidence-based treatment for chronic insomnia. NCCIH likewise calls CBT-I the most strongly recommended insomnia treatment.
+              </p>
+              <p>
+                Persistent sleep trouble can also reflect sleep apnea, restless legs, circadian problems, medication effects, mood disorders, substance use, pain, or other conditions that a supplement will not diagnose. Ashwagandha should not become a reason to delay that evaluation.
+              </p>
+            </div>
+          </section>
+
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Combination evidence: do not turn separate trials into a sleep stack</h2>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
+              Separate studies of ashwagandha, melatonin, L-theanine, or magnesium do not prove that combining them improves sleep more or is safer. A multi-ingredient regimen is a different intervention with its own interaction and attribution problems. If supplementation is appropriate, changing one variable at a time is easier to interpret than copying a stack assembled from unrelated trials.
+            </p>
+            <Link href="/guides/sleep/sleep-stack-guide/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Sleep stack evidence guide →</Link>
+          </section>
+
+          <section>
+            <SafetyNotice title="Safety and stop rules">
+              <ul className="ml-5 space-y-2 list-disc">
+                <li><strong>Short term vs long term:</strong> NCCIH says ashwagandha may be safe in the short term, up to about three months, but long-term safety is not established.</li>
+                <li><strong>Side effects:</strong> drowsiness, stomach upset, diarrhea, and vomiting can occur.</li>
+                <li><strong>Liver:</strong> rare cases of liver injury have been linked to ashwagandha supplements. Stop and seek medical advice for jaundice, dark urine, or other concerning liver symptoms.</li>
+                <li><strong>Pregnancy and breastfeeding:</strong> NCCIH says to avoid it during pregnancy and not use it while breastfeeding.</li>
+                <li><strong>Conditions:</strong> NCCIH does not recommend it around surgery or for people with autoimmune or thyroid disorders without appropriate medical guidance.</li>
+                <li><strong>Medication interactions:</strong> possible interaction categories include diabetes and blood-pressure medicines, immunosuppressants, sedatives, anticonvulsants, and thyroid hormone medicines.</li>
+                <li><strong>Sleep-specific stop rule:</strong> loud snoring/gasping, dangerous daytime sleepiness, persistent insomnia, severe mood symptoms, or rapidly worsening sleep warrant assessment rather than escalating supplements.</li>
+              </ul>
+            </SafetyNotice>
+          </section>
+
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Product sourcing: match the studied preparation, not a marketing winner</h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              If a supplement trial is appropriate, look for a product that clearly states plant part, extract form, and standardization. Independent quality testing can help with identity and contamination, but it does not prove sleep efficacy. A trademark, high withanolide percentage, or large milligram number is not evidence that the product is “best for sleep.”
+            </p>
+            <div className="mt-5"><RecommendationSection products={getRevenueProductSet('ashwagandha')?.products ?? []} /></div>
+          </section>
+
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+            <div className="mt-5 space-y-5">
+              {FAQS.map((faq) => (
+                <div key={faq.question} className="border-l-4 border-brand-600 pl-4">
+                  <h3 className="font-semibold text-ink">{faq.question}</h3>
+                  <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Sources and directness notes</h2>
+            <ol className="mt-4 space-y-4">
+              {SOURCES.map((source, index) => (
+                <li key={source.href} className="text-sm leading-7 text-muted">
+                  <span className="font-semibold text-ink">{index + 1}. </span>
+                  <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">{source.label}</a>
+                  <span> — {source.note}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
           <EmailCapture
             headline="Get future research notes by email"
             description="Evidence-first supplement updates, safety context, and new guide announcements. No diagnosis, treatment, or personal medical advice."
@@ -935,79 +324,20 @@ export default function AshwagandhaForSleepPage() {
           />
         </div>
 
-        {/* Sidebar */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          {/* Table of contents */}
           <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              In this article
-            </p>
-            <nav className="mt-3 space-y-1.5" aria-label="Article sections">
-              {[
-                ['#introduction', 'Introduction'],
-                ['#what-is-ashwagandha', 'What Is Ashwagandha?'],
-                ['#mechanisms', 'How It Affects Sleep'],
-                ['#evidence-summary', 'Evidence Summary'],
-                ['#dosage', 'Dosage & Usage'],
-                ['#product-recommendations', 'Product Picks'],
-                ['#safety', 'Safety & Side Effects'],
-                ['#comparison', 'vs Other Supplements'],
-                ['#faq', 'FAQ'],
-                ['#sources', 'Sources'],
-              ].map(([href, label]) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline">{label}</a>
-              ))}
+            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Related evidence</p>
+            <nav className="mt-3 space-y-2 text-sm font-medium text-brand-700">
+              <Link href="/guides/herbs/ashwagandha/" className="block hover:underline">Ashwagandha umbrella guide →</Link>
+              <Link href="/guides/sleep/sleep-stack-guide/" className="block hover:underline">Sleep stack evidence →</Link>
+              <Link href="/guides/sleep/best-herbs-for-sleep/" className="block hover:underline">Best herbs for sleep →</Link>
+              <Link href="/guides/sleep/" className="block hover:underline">Sleep goal hub →</Link>
             </nav>
           </div>
-
-          {/* Related profiles */}
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              Explore more
-            </p>
-            <div className="mt-3 space-y-2">
-              <Link
-                href="/herbs/ashwagandha/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Ashwagandha herb profile →
-              </Link>
-              <Link
-                href="/guides/sleep/sleep-herbs-vs-melatonin/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Sleep herbs vs melatonin →
-              </Link>
-              <Link
-                href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Natural anxiolytics →
-              </Link>
-              <Link
-                href="/herbs/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                All herb profiles →
-              </Link>
-              <Link
-                href="/guides/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                All articles →
-              </Link>
-            </div>
+          <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-xs leading-6 text-muted">
+            <strong className="text-ink">Interpretation rule:</strong> a trial regimen tells you what researchers tested. It does not automatically become a personal dose, bedtime, duration, or product recommendation.
           </div>
         </aside>
-      </div>
-
-      <div className="mt-8">
-        <Link href="/guides/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
-          ← Back to Guides
-        </Link>
       </div>
     </article>
   )
