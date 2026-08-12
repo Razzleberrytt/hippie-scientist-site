@@ -224,9 +224,9 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
   {
     slug: 'l-theanine-vs-caffeine-for-focus',
     source: 'docs/content/focus-cluster/l-theanine-vs-caffeine-for-focus-content-v1.md',
-    title: 'L-Theanine vs Caffeine for Focus: Which Works Better for Attention and Calm Energy?',
-    seoTitle: 'L-Theanine vs Caffeine for Focus: Calm Energy',
-    description: 'Direct comparison of L-Theanine and caffeine for focus, attention, and calm energy. Reviews mechanisms, evidence in ADHD and healthy adults, dosing ratios, safety, sleep impact, and a practical decision framework.',
+    title: 'L-Theanine vs Caffeine for Focus: What the Evidence Supports in 2026',
+    seoTitle: 'L-Theanine vs Caffeine for Focus: Evidence',
+    description: 'Evidence-first comparison of caffeine, L-theanine, and their combination for attention: healthy-adult data, ADHD directness limits, jitter and sleep tradeoffs, safety, and why no universal dosing ratio is established.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-10',
