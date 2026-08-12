@@ -9,7 +9,8 @@ const SOURCE = path.join(
 const REGISTRY = path.join(process.cwd(), 'lib/focus-adhd-articles.ts')
 const RENDERER = path.join(process.cwd(), 'components/articles/FocusAdhdArticlePage.tsx')
 
-const read = (file: string) => fs.readFileSync(file, 'utf8').replace(/\s+/g, ' ')
+const read = (file: string) =>
+  fs.readFileSync(file, 'utf8').replace(/\s+/g, ' ').replace(/\*\*/g, '')
 
 describe('L-theanine vs caffeine focus evidence calibration', () => {
   it('anchors caffeine, L-theanine, combination, and ADHD claims to auditable human evidence', () => {
@@ -93,13 +94,14 @@ describe('L-theanine vs caffeine focus evidence calibration', () => {
     expect(registry).toContain('updatedAt: article.updatedAt ?? article.date')
   })
 
-  it('uses the evidence-review date in rendering and removes one-sided product ranking', () => {
+  it('uses the evidence-review date in rendering and removes one-sided L-theanine product ranking', () => {
     const renderer = read(RENDERER)
-    const products = renderer.match(/const ADHD_ARTICLE_PRODUCTS:[\s\S]*?\}\s*const ADHD_ARTICLE_IMAGES/)?.[0] ?? ''
+    const products = renderer.match(/const ADHD_ARTICLE_PRODUCTS:[\s\S]*?\}\s*\/\/ Per-slug hero images/)?.[0] ?? ''
 
     expect(renderer).toContain('const lastUpdated = article.updatedAt ?? article.date')
     expect(renderer).toContain('updated: lastUpdated')
     expect(renderer).toContain('<LastUpdatedBadge date={lastUpdated} label="Last updated" />')
+    expect(products).not.toContain("'l-theanine-for-adhd': 'l-theanine'")
     expect(products).not.toContain("'l-theanine-vs-caffeine-for-focus': 'l-theanine'")
     expect(renderer).toContain("'l-theanine-vs-caffeine-for-focus': { src: '/images/guides/adhd/adhd-l-theanine-caffeine.jpg'")
   })
