@@ -5,18 +5,16 @@ import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compact
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { AFFILIATE_TAGS } from '@/config/affiliate'
 
 const SLUG = 'cbd-vs-ashwagandha-for-anxiety'
-const TITLE = 'CBD vs Ashwagandha for Anxiety: Evidence, Differences, and How to Choose'
+const TITLE = 'CBD vs Ashwagandha for Anxiety: What the Evidence Supports in 2026'
 const DESCRIPTION =
-  'An evidence-based comparison of CBD and ashwagandha for anxiety, covering mechanisms, research quality, safety, legal status, cost, and practical decision guidance.'
+  'Evidence-first comparison of CBD and ashwagandha for anxiety and stress, with trial directness, FDA regulatory context, medication interactions, and safety limits.'
 const DATE = '2026-06-10'
+const UPDATED_DATE = '2026-08-12'
 
 export const metadata = buildPageMetadata({
   title: compactMetaTitle(TITLE),
@@ -25,48 +23,76 @@ export const metadata = buildPageMetadata({
   openGraphType: 'article',
 })
 
+const SOURCES = [
+  {
+    label: 'CBD anxiety systematic review and meta-analysis (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/38924898/',
+    note: 'Eight eligible studies / 316 participants were pooled. The meta-analysis found an anxiety signal but explicitly cautioned that the clinical sample was small.',
+  },
+  {
+    label: 'CBD randomized-trial systematic review (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/39598172/',
+    note: 'Review of randomized clinical trials across anxiety disorders; study designs, populations, doses, and CBD interventions were heterogeneous.',
+  },
+  {
+    label: 'FDA: products containing cannabis or cannabis-derived compounds',
+    href: 'https://www.fda.gov/consumers/consumer-updates/what-you-need-know-and-what-were-working-find-out-about-products-containing-cannabis-or-cannabis',
+    note: 'FDA warns that CBD can cause liver injury, interact with medications, and increase sedation with alcohol or other CNS depressants. FDA has not approved consumer CBD products for anxiety.',
+  },
+  {
+    label: 'NCCIH: cannabis, cannabinoids, and CBD',
+    href: 'https://www.nccih.nih.gov/health/cannabis-marijuana-and-cannabinoids-what-you-need-to-know',
+    note: 'NCCIH describes only a small amount of human evidence for anxiety and notes product-label variability, contamination risk, liver injury, sedation, and drug interactions.',
+  },
+  {
+    label: 'Ashwagandha stress and anxiety meta-analysis (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/39348746/',
+    note: 'Nine randomized controlled trials / 558 participants using specific ashwagandha formulations versus placebo; pooled stress, anxiety, and cortisol outcomes favored ashwagandha, with long-term safety still uncertain.',
+  },
+  {
+    label: 'NCCIH: Ashwagandha usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/ashwagandha',
+    note: 'NCCIH says some preparations may help stress, while evidence for anxiety remains unclear; it also lists thyroid, autoimmune, pregnancy, medication-interaction, and rare liver-injury cautions.',
+  },
+]
+
 const FAQS = [
   {
     question: 'Is CBD or ashwagandha better for anxiety?',
     answer:
-      'There is no clear winner based on current evidence. Ashwagandha has more published human trial data for stress-related anxiety, while CBD research for anxiety is growing but more limited and heterogeneous. Individual responses vary significantly. The better option depends on your specific anxiety type, health history, medications, and legal situation.',
+      'Current evidence does not establish a universal winner. CBD has a small, heterogeneous anxiety-trial literature, while ashwagandha has a broader repeated-dose stress/anxiety trial base using specific preparations. Neither should be presented as a replacement for evidence-based care for an anxiety disorder.',
   },
   {
-    question: 'Can I take CBD and ashwagandha together?',
+    question: 'Does CBD work quickly for anxiety?',
     answer:
-      'Limited published research exists on combining the two. Both may have mild sedative-adjacent effects, and combining supplements always increases the risk of additive effects or interactions. If you are on any medications — particularly ones metabolized by CYP enzymes, which CBD can affect — consult a clinician before combining.',
+      'Product absorption can begin at different speeds depending on formulation, but pharmacokinetic onset is not the same thing as proven anxiety relief. The clinical literature does not justify a universal same-hour promise for consumer CBD products.',
   },
   {
-    question: 'How long does it take for CBD to work for anxiety?',
+    question: 'Can CBD and ashwagandha be taken together?',
     answer:
-      'Onset varies by form. Sublingual or inhaled CBD may produce effects within minutes to an hour. Oral capsules can take 1–2 hours. Research on anxiety typically evaluates either acute doses or consistent use over weeks. Individual responses differ widely.',
+      'The combination has not been established as more effective or safer than either ingredient alone. CBD can alter medication exposure and can add sedation with alcohol or other CNS depressants; ashwagandha also has medication and condition-specific cautions. Combining them should not be treated as an evidence-based anxiety stack.',
   },
   {
-    question: 'How long does it take for ashwagandha to work for anxiety?',
+    question: 'Is over-the-counter CBD FDA approved for anxiety?',
     answer:
-      'Ashwagandha is generally not fast-acting. Most studies evaluate outcomes over 4–8 weeks of daily use. It is better positioned as an ongoing support supplement than an acute intervention.',
+      'No. FDA has approved one prescription CBD drug for certain seizure disorders, not consumer CBD products for anxiety. FDA also states that CBD cannot currently be lawfully marketed as a dietary supplement under federal law.',
   },
   {
-    question: 'Is CBD legal?',
+    question: 'Can CBD affect a drug test?',
     answer:
-      'Legal status depends on your location and the source of CBD (hemp-derived vs cannabis-derived). In many jurisdictions, hemp-derived CBD with low THC content is legal, but regulations vary considerably. Check your local laws before purchasing or using CBD.',
-  },
-  {
-    question: 'Does CBD show up on a drug test?',
-    answer:
-      'Full-spectrum CBD products contain trace amounts of THC, which can potentially trigger a positive result on drug tests. Broad-spectrum or isolate products have lower risk, but contamination in the supplement industry means risk is not zero. This is a practical consideration ashwagandha does not share.',
+      'Yes. Consumer cannabinoid products may contain THC or be mislabeled, and full-spectrum products intentionally contain other cannabis constituents. Anyone subject to drug testing should treat THC exposure as a practical risk rather than assuming a CBD label guarantees a negative test.',
   },
 ]
 
 export default function CbdVsAshwagandhaForAnxietyPage() {
   const pageBreadcrumb = breadcrumbJsonLd([
     { name: 'Home', url: 'https://thehippiescientist.net' },
-    { name: 'Anxiety', url: 'https://thehippiescientist.net/guides/anxiety/natural-anxiety-relief/' },
+    { name: 'Anxiety', url: 'https://thehippiescientist.net/guides/anxiety/' },
     { name: TITLE, url: `https://thehippiescientist.net/guides/anxiety/${SLUG}/` },
   ])
 
   const articleLd = blogJsonLd(
-    { title: TITLE, slug: SLUG, date: DATE, description: DESCRIPTION },
+    { title: TITLE, slug: SLUG, date: DATE, updated: UPDATED_DATE, description: DESCRIPTION },
     `/guides/anxiety/${SLUG}/`,
   )
 
@@ -76,129 +102,82 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
     <>
       <JsonLd schema={articleLd} />
       <JsonLd schema={pageBreadcrumb} />
-      {faqLd && (
-        <JsonLd schema={faqLd} />
-      )}
+      {faqLd && <JsonLd schema={faqLd} />}
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <LastUpdatedBadge date={DATE} />
+          <LastUpdatedBadge date={UPDATED_DATE} />
           <h1 className="text-4xl font-bold tracking-tight mt-4 mb-4">{TITLE}</h1>
           <p className="text-xl text-muted-foreground">{DESCRIPTION}</p>
 
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/cbd-vs-ashwagandha-for-anxiety.jpg"
-              alt="A CBD oil tincture beside ashwagandha root and powder, compared for anxiety"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            CBD vs ashwagandha — two popular but very different options for anxiety.
-          </figcaption>
-        </figure>
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+              <Image
+                src="/images/guides/cbd-vs-ashwagandha-for-anxiety.jpg"
+                alt="CBD oil beside ashwagandha root and powder for an evidence comparison"
+                width={1536}
+                height={1024}
+                priority
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              A product category and a botanical extract should be compared by what was actually studied—not by marketing claims about calm or speed.
+            </figcaption>
+          </figure>
         </div>
 
-        <div className="prose prose-sm mb-8 p-4 bg-muted/50 rounded-lg">
-          <p className="text-sm">
-            <strong>Affiliate Disclosure:</strong> This article contains affiliate links.
-            If you make a purchase through these links, we may earn a small commission at no extra
-            cost to you. This helps support our research and content.
-          </p>
-        </div>
-
-        <div className="mb-10 p-6 border rounded-xl bg-card">
-          <h2 className="text-2xl font-semibold mb-4">Quick Verdict</h2>
-          <ul className="space-y-2 text-muted-foreground">
-            <li>• <strong>Ashwagandha</strong> has more published human trial data specifically for stress-related anxiety.</li>
-            <li>• <strong>CBD</strong> has a different legal and regulatory landscape; research is growing but less consistent.</li>
-            <li>• Neither is a proven treatment for clinical anxiety disorders.</li>
-            <li>• CBD carries drug-test and drug-interaction risks that ashwagandha does not.</li>
-            <li>• The better choice depends on your anxiety type, medications, and legal situation.</li>
-          </ul>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Evidence quality and effect sizes vary across all studies. Individual results differ significantly.
-          </p>
-        </div>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">What Are We Comparing?</h2>
-          <div className="prose prose-lg max-w-none">
+        <section className="mb-10 rounded-xl border border-brand-900/10 bg-brand-50/50 p-6">
+          <h2 className="text-2xl font-semibold mb-4">Bottom line</h2>
+          <div className="space-y-3 text-muted-foreground">
             <p>
-              <strong>CBD (cannabidiol)</strong> is a non-intoxicating compound derived from cannabis
-              or hemp plants. It has gained significant popular interest as a potential anxiety support
-              supplement, despite a still-developing body of human clinical evidence.
+              <strong>CBD:</strong> human anxiety research is promising enough to study further, but the direct clinical base is still small and heterogeneous. A 2024 meta-analysis pooled only eight studies / 316 participants. Consumer CBD products are not FDA-approved anxiety treatments.
             </p>
             <p>
-              <strong>Ashwagandha</strong> (<em>Withania somnifera</em>) is an Ayurvedic adaptogen
-              with a longer history of traditional use and a growing base of human clinical trials
-              specifically for stress and anxiety outcomes.
+              <strong>Ashwagandha:</strong> the 2024 meta-analysis pooled nine randomized trials / 558 participants and found stress/anxiety signals with specific formulations. NCCIH still describes the evidence for anxiety as unclear, and the result should not be generalized to every powder, tea, gummy, or extract.
             </p>
             <p>
-              These two supplements are frequently compared by people looking for natural anxiety
-              support because both are widely marketed for stress and calm — but they differ
-              substantially in their mechanisms, legal status, research base, and practical
-              considerations.
+              The most important difference is not “which works faster.” CBD carries a distinct regulatory, liver, sedation, medication-interaction, THC-exposure, and product-quality burden that has to be weighed alongside efficacy evidence.
             </p>
           </div>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Side-by-Side Comparison</h2>
-
-          <ResponsiveTable label="CBD vs ashwagandha comparison across key factors">
-            <table className="min-w-[600px] w-full text-sm">
+          <h2 className="text-3xl font-semibold mb-6">What the comparison can—and cannot—tell you</h2>
+          <ResponsiveTable label="CBD vs ashwagandha evidence and safety comparison">
+            <table className="min-w-[700px] w-full text-sm">
               <thead>
                 <tr className="border-b border-brand-900/10">
-                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Factor</th>
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Question</th>
                   <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">CBD</th>
                   <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">Ashwagandha</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-900/5">
                 <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Primary mechanism</td>
-                  <td className="py-3 pr-4 text-muted">Endocannabinoid system; possible serotonin receptor interaction</td>
-                  <td className="py-3 text-muted">HPA axis modulation; possible GABA-A interaction; adaptogenic</td>
+                  <td className="py-3 pr-4 font-medium text-ink">Direct anxiety/stress evidence</td>
+                  <td className="py-3 pr-4 text-muted">Small, heterogeneous clinical literature; 2024 meta-analysis pooled 8 studies / 316 participants.</td>
+                  <td className="py-3 text-muted">Broader repeated-dose stress/anxiety literature; 2024 meta-analysis pooled 9 RCTs / 558 participants using specific formulations.</td>
                 </tr>
                 <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Onset speed</td>
-                  <td className="py-3 pr-4 text-muted">Minutes to hours (form-dependent)</td>
-                  <td className="py-3 text-muted">Weeks of daily use</td>
+                  <td className="py-3 pr-4 font-medium text-ink">Same-hour relief?</td>
+                  <td className="py-3 pr-4 text-muted">Not established as a universal clinical anxiety effect. Absorption speed is not efficacy.</td>
+                  <td className="py-3 text-muted">Not established. Most relevant trials used repeated dosing over weeks.</td>
                 </tr>
                 <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Human trial evidence for anxiety</td>
-                  <td className="py-3 pr-4 text-muted">Limited; growing; inconsistent study designs</td>
-                  <td className="py-3 text-muted">Moderate; more trials in stressed populations</td>
+                  <td className="py-3 pr-4 font-medium text-ink">FDA status in the U.S.</td>
+                  <td className="py-3 pr-4 text-muted">One prescription CBD drug is FDA-approved for certain seizure disorders; consumer CBD is not FDA-approved for anxiety and cannot currently be lawfully marketed as a dietary supplement under federal law.</td>
+                  <td className="py-3 text-muted">Sold under the dietary-supplement framework; supplements are not FDA-approved for efficacy before sale.</td>
                 </tr>
                 <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Legal status</td>
-                  <td className="py-3 pr-4 text-muted">Varies by jurisdiction and source</td>
-                  <td className="py-3 text-muted">Legal dietary supplement in most jurisdictions</td>
+                  <td className="py-3 pr-4 font-medium text-ink">Medication risk</td>
+                  <td className="py-3 pr-4 text-muted">Meaningful interaction potential; FDA warns CBD can alter how other medicines work and can add sedation with alcohol or CNS depressants.</td>
+                  <td className="py-3 text-muted">NCCIH lists possible interactions with diabetes, blood-pressure, immunosuppressant, sedative, anticonvulsant, and thyroid medicines.</td>
                 </tr>
                 <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Drug test risk</td>
-                  <td className="py-3 pr-4 text-muted">Yes, especially full-spectrum products</td>
-                  <td className="py-3 text-muted">No</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Drug interactions</td>
-                  <td className="py-3 pr-4 text-muted">CYP enzyme inhibition — significant risk with many medications</td>
-                  <td className="py-3 text-muted">Lower risk; caution with sedatives, thyroid meds</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Cost (typical monthly)</td>
-                  <td className="py-3 pr-4 text-muted">Often higher, especially quality products</td>
-                  <td className="py-3 text-muted">Generally lower for standardized extracts</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Regulation quality control</td>
-                  <td className="py-3 pr-4 text-muted">Inconsistent; significant mislabeling documented</td>
-                  <td className="py-3 text-muted">Supplement-grade; third-party testing advisable</td>
+                  <td className="py-3 pr-4 font-medium text-ink">Product-transfer problem</td>
+                  <td className="py-3 pr-4 text-muted">Trial CBD does not validate every oil, gummy, vape, or mixed-cannabinoid product; labeling and THC contamination can vary.</td>
+                  <td className="py-3 text-muted">Trial results belong to the studied preparations and exposure periods, not every root powder or branded extract.</td>
                 </tr>
               </tbody>
             </table>
@@ -206,235 +185,83 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">How Each Works</h2>
-
-          <div className="prose prose-lg max-w-none">
-            <h3>CBD</h3>
-            <p>
-              CBD is thought to interact with the endocannabinoid system (ECS), which plays a role in
-              regulating stress responses, mood, and sleep. It may also interact with serotonin
-              receptors (5-HT1A), which are implicated in anxiety regulation.
-            </p>
-            <p>
-              Unlike THC, CBD does not produce intoxication. However, the precise mechanisms by which
-              it might reduce anxiety in humans are still being studied, and translating animal or
-              mechanistic findings to clinical human outcomes has proven inconsistent.
-            </p>
-
-            <h3>Ashwagandha</h3>
-            <p>
-              Ashwagandha is classified as an adaptogen — an herb thought to help the body adapt to
-              stressors over time. Research has focused on its potential effects on the
-              HPA (hypothalamic-pituitary-adrenal) axis and cortisol levels in stressed individuals.
-            </p>
-            <p>
-              Some studies have also explored possible interactions with GABA-A receptors, which may
-              contribute to its calming effects. Withanolides — the primary bioactive compounds — are
-              thought to drive much of the adaptogenic activity.
-            </p>
-          </div>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Evidence Summary</h2>
-
+          <h2 className="text-3xl font-semibold mb-6">Evidence directness</h2>
           <div className="space-y-6">
             <EvidenceSummaryCard
-              title="CBD for Anxiety"
+              title="CBD for anxiety"
               evidenceLevel="Limited"
-              humanEvidence="Several RCTs and open-label studies have examined CBD for anxiety disorders and stress, with generally positive but inconsistent results. Study quality, doses, and CBD formulations vary considerably across trials, limiting direct comparison. Common trial doses range from 150–600 mg/day."
-              mechanisticEvidence="Proposed mechanisms include endocannabinoid system (ECS) modulation, 5-HT1A serotonin receptor interaction, and TRPV1 receptor activity. Animal evidence for these pathways is substantially stronger than human evidence."
-              safetyProfile="Key concerns include CYP3A4/2C19 enzyme inhibition (risk of drug interactions), variable product labeling accuracy in commercial supplements, positive drug tests with full-spectrum CBD, and regulatory uncertainty in many jurisdictions."
+              humanEvidence="A 2024 systematic review/meta-analysis pooled eight eligible studies with 316 participants and reported an anxiety signal, while explicitly cautioning that the clinical sample was small. Another 2024 randomized-trial review found a heterogeneous literature across anxiety diagnoses, interventions, and study designs."
+              mechanisticEvidence="CBD has plausible central nervous system and endocannabinoid-related mechanisms, but mechanism plausibility does not establish that a consumer CBD product treats an anxiety disorder."
+              safetyProfile="FDA and NCCIH flag liver injury, medication interactions, sedation/alertness effects, THC or contaminant exposure in consumer products, and substantial uncertainty outside the approved prescription-CBD setting."
             />
 
             <EvidenceSummaryCard
-              title="Ashwagandha for Anxiety &amp; Stress"
-              evidenceLevel="Moderate"
-              humanEvidence="Multiple RCTs using standardized extracts (KSM-66, Sensoril) report positive stress and anxiety outcomes in stressed populations. Evidence is stronger for perceived stress reduction than for diagnosed anxiety disorders."
-              mechanisticEvidence="HPA-axis modulation and cortisol reduction are the most studied mechanisms; possible GABA-A receptor interaction via withanolides. Most mechanistic data are from animal studies."
-              safetyProfile="Key cautions include potential thyroid modulation, autoimmune activation risk, contraindication in pregnancy and breastfeeding, and rare case reports of liver injury."
+              title="Ashwagandha for stress and anxiety"
+              evidenceLevel="Limited"
+              humanEvidence="The 2024 meta-analysis included nine randomized controlled trials / 558 participants using specific ashwagandha formulations versus placebo and reported pooled improvements in perceived stress, Hamilton anxiety scores, and serum cortisol. For an anxiety-specific comparison, directness remains limited because populations, preparations, durations, and outcomes vary and NCCIH considers anxiety evidence unclear."
+              mechanisticEvidence="Cortisol and stress-pathway findings can help explain research hypotheses, but they do not make 'lower cortisol' a treatment target or prove a class effect for every ashwagandha product."
+              safetyProfile="NCCIH notes short-term tolerability in many users but limited long-term safety data, rare liver injury, pregnancy/breastfeeding avoidance, thyroid and autoimmune cautions, and several medication-interaction categories."
             />
           </div>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Legal Status and Practical Considerations</h2>
-          <div className="prose prose-lg max-w-none">
+        <section className="mb-12 rounded-xl border border-amber-200 bg-amber-50/70 p-6">
+          <h2 className="text-2xl font-semibold text-amber-950 mb-4">Why CBD product form does not answer the anxiety question</h2>
+          <div className="space-y-3 text-amber-950">
             <p>
-              <strong>Ashwagandha</strong> is sold as a dietary supplement in most countries and faces
-              no significant legal barriers in the United States, Canada, the EU, or Australia.
+              Sublingual, oral, inhaled, and other CBD products can differ in absorption. That pharmacokinetic fact does not show that one format delivers reliable anxiety relief within a specific number of minutes.
             </p>
             <p>
-              <strong>CBD</strong> has a more complex legal landscape. Hemp-derived CBD with low THC
-              content is legal in many jurisdictions, but cannabis-derived CBD may require medical
-              authorization or be outright prohibited. Laws are evolving rapidly. Always verify your
-              local regulations before purchasing.
-            </p>
-            <p>
-              A practical concern unique to CBD: <strong>drug testing</strong>. Full-spectrum CBD
-              products contain trace amounts of THC. Multiple studies have documented that some
-              full-spectrum products can cause positive THC results on urine drug screens. Even
-              broad-spectrum or isolate products carry low but non-zero risk due to industry
-              mislabeling, which has been documented in multiple independent analyses.
+              Likewise, a milligram amount used in a clinical study describes that study. It is not a universal consumer dose, especially when trials differ in diagnosis, formulation, purity, route, exposure, and concomitant medication use.
             </p>
           </div>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Drug Interactions</h2>
+          <h2 className="text-3xl font-semibold mb-6">CBD regulation and product quality</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              <strong>CBD</strong> inhibits several cytochrome P450 (CYP) liver enzymes, particularly
-              CYP3A4 and CYP2C19. These enzymes metabolize a large proportion of common medications,
-              including many psychiatric drugs (SSRIs, benzodiazepines, antipsychotics), blood
-              thinners, and cardiovascular medications. CBD-drug interactions can cause medications to
-              reach higher-than-intended blood levels, potentially causing toxicity.
+              In the United States, the FDA has approved one prescription CBD drug for specified seizure disorders. That approval does not extend to over-the-counter CBD oils, gummies, beverages, vapes, or products marketed for anxiety.
             </p>
             <p>
-              <strong>Ashwagandha</strong> has a lower overall interaction profile. The main concerns
-              are additive sedative effects with sedating drugs and possible effects on thyroid hormone
-              levels. Consult a clinician if you take any prescription medications.
+              FDA states that CBD cannot currently be lawfully marketed as a dietary supplement under federal law. State rules for cannabis- and hemp-derived products can differ, so a broad statement that “CBD is legal” is not precise enough for a health guide.
             </p>
             <p>
-              If you are on psychiatric medications, CBD interactions are a significant safety concern
-              that warrants professional guidance before use.
+              NCCIH also notes that nonprescription CBD products may contain more or less CBD than the label states and may contain THC or other contaminants. A certificate of analysis can provide useful product information, but it does not convert an unapproved consumer product into an FDA-evaluated anxiety treatment.
             </p>
           </div>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Product Quality and Regulation</h2>
-          <div className="prose prose-lg max-w-none">
-            <p>
-              The CBD market has documented quality control issues. Independent testing has found that
-              a substantial proportion of commercial CBD products are mislabeled — containing either
-              more or less CBD than stated, or detectable THC in products marketed as THC-free.
-            </p>
-            <p>
-              The ashwagandha supplement market has its own quality concerns, but standardized extracts
-              (KSM-66, Sensoril) from established brands with third-party testing provide a more
-              reliable starting point.
-            </p>
-            <p>
-              For both supplements, third-party certificates of analysis (COAs) from accredited labs
-              are the most important quality signal. For CBD specifically, check that the COA is
-              batch-specific, not generic.
-            </p>
-          </div>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Who Should Consider Each?</h2>
-
-          <ResponsiveTable label="Decision guide: CBD vs ashwagandha by situation">
-            <table className="min-w-[500px] w-full text-sm">
-              <thead>
-                <tr className="border-b border-brand-900/10">
-                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Situation</th>
-                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Consider</th>
-                  <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">Notes</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-brand-900/5">
-                <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Chronic stress-driven anxiety</td>
-                  <td className="py-3 pr-4 text-muted">Ashwagandha</td>
-                  <td className="py-3 text-muted">More evidence in this specific population</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">On multiple medications</td>
-                  <td className="py-3 pr-4 text-muted">Consult clinician before either; CBD has higher interaction risk</td>
-                  <td className="py-3 text-muted">CYP interaction risk with CBD is significant</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Subject to drug testing</td>
-                  <td className="py-3 pr-4 text-muted">Ashwagandha</td>
-                  <td className="py-3 text-muted">CBD carries real drug-test risk</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Thyroid or autoimmune condition</td>
-                  <td className="py-3 pr-4 text-muted">Consult clinician before ashwagandha</td>
-                  <td className="py-3 text-muted">Ashwagandha has thyroid/immune cautions</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Pregnancy or breastfeeding</td>
-                  <td className="py-3 pr-4 text-muted">Avoid both; consult a healthcare provider</td>
-                  <td className="py-3 text-muted">Insufficient safety data for either</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="py-3 pr-4 font-medium text-ink">Budget-conscious</td>
-                  <td className="py-3 pr-4 text-muted">Ashwagandha</td>
-                  <td className="py-3 text-muted">Quality standardized extracts are generally less expensive</td>
-                </tr>
-              </tbody>
-            </table>
-          </ResponsiveTable>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Safety and Side Effects</h2>
-
-          <SafetyNotice title="Important Safety Considerations">
-            <ul className="ml-5 space-y-1.5 list-disc">
-              <li>
-                Consult your healthcare provider if anxiety is severe, persistent, or linked to
-                sleep quality problems. Supplements are not intended to diagnose, treat, cure, or
-                prevent anxiety disorders.
-              </li>
-              <li>
-                <strong>CBD — drug interactions:</strong> Inhibits CYP3A4 and CYP2C19. Risk of
-                elevated blood levels of medications metabolized by these enzymes. Consult a clinician
-                if you take any prescription drugs.
-              </li>
-              <li>
-                <strong>CBD — drug testing:</strong> Full-spectrum products can trigger positive THC
-                tests. Risk is non-zero even with isolate products due to mislabeling.
-              </li>
-              <li>
-                <strong>CBD — regulatory uncertainty:</strong> Quality varies significantly across
-                products. Always request a batch-specific COA.
-              </li>
-              <li>
-                <strong>Ashwagandha — thyroid:</strong> Some evidence suggests possible effects on
-                thyroid hormone levels. Monitoring advised for people with thyroid conditions.
-              </li>
-              <li>
-                <strong>Ashwagandha — cortisol framing:</strong> Some trials report reducing cortisol
-                levels in stressed adults, but that does not prove it treats clinical anxiety or
-                replaces psychiatric care.
-              </li>
-              <li>
-                <strong>Ashwagandha — autoimmune:</strong> May stimulate immune activity. Caution in
-                autoimmune conditions.
-              </li>
-              <li>
-                <strong>Both:</strong> Insufficient safety data in pregnancy and breastfeeding. Avoid
-                unless directed by a healthcare provider.
-              </li>
-              <li>
-                Severe anxiety, panic attacks, or suicidal ideation require professional mental health
-                support — not supplements.
-              </li>
+          <h2 className="text-3xl font-semibold mb-6">Safety differences that matter more than a ranking</h2>
+          <SafetyNotice title="Medication, liver, pregnancy, sedation, and stop-rule boundaries">
+            <ul className="ml-5 space-y-2 list-disc">
+              <li><strong>CBD:</strong> FDA warns about potential liver injury and clinically meaningful drug interactions. Medication review matters before use, especially when a person already takes prescription medicines.</li>
+              <li><strong>CBD + sedatives/alcohol:</strong> FDA warns that combining CBD with alcohol or other drugs that slow brain activity can increase sedation and drowsiness.</li>
+              <li><strong>Driving/alertness:</strong> CBD can cause sleepiness or changes in alertness; do not treat a “non-intoxicating” label as proof that driving performance is unaffected.</li>
+              <li><strong>Pregnancy/breastfeeding:</strong> FDA advises against CBD use because of unresolved fetal/infant and contamination concerns. NCCIH says ashwagandha should be avoided during pregnancy and not used while breastfeeding.</li>
+              <li><strong>Ashwagandha:</strong> NCCIH lists thyroid and autoimmune conditions, surgery, several medication categories, and rare liver injury as important cautions.</li>
+              <li><strong>Severe or worsening anxiety:</strong> supplements should not delay evaluation when symptoms are persistent, disabling, associated with panic, major sleep disruption, substance-related problems, or thoughts of self-harm.</li>
             </ul>
           </SafetyNotice>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">What Not To Do</h2>
+          <h2 className="text-3xl font-semibold mb-6">What this page does not recommend</h2>
           <ul className="space-y-3 text-muted-foreground">
-            <li>• Do not combine CBD with psychiatric medications without medical supervision.</li>
-            <li>• Do not assume CBD labeling is accurate — always verify with a COA.</li>
-            <li>• Do not use either supplement as a replacement for prescribed psychiatric treatment.</li>
-            <li>• Do not ignore severe or worsening anxiety symptoms — seek professional help.</li>
-            <li>• Do not start both supplements simultaneously; introduce one at a time if trialling either.</li>
+            <li>• It does not rank CBD or ashwagandha as a replacement for psychotherapy or prescribed treatment.</li>
+            <li>• It does not convert CBD absorption speed into a promise of rapid anxiety relief.</li>
+            <li>• It does not provide a universal CBD milligram range or tell readers to titrate consumer CBD on their own.</li>
+            <li>• It does not recommend a CBD + ashwagandha stack; separate ingredient studies do not validate the combination.</li>
+            <li>• It does not treat one branded ashwagandha extract as interchangeable with every ashwagandha product.</li>
           </ul>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-semibold mb-6">Frequently asked questions</h2>
           <div className="space-y-6">
-            {FAQS.map((faq, index) => (
-              <div key={index} className="border-l-4 border-primary pl-4">
+            {FAQS.map((faq) => (
+              <div key={faq.question} className="border-l-4 border-primary pl-4">
                 <h3 className="font-semibold text-lg mb-2">{faq.question}</h3>
                 <p className="text-muted-foreground">{faq.answer}</p>
               </div>
@@ -443,137 +270,44 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Related Articles</h2>
+          <h2 className="text-3xl font-semibold mb-6">Sources and directness notes</h2>
+          <ol className="space-y-4">
+            {SOURCES.map((source, index) => (
+              <li key={source.href} className="text-sm leading-7 text-muted-foreground">
+                <span className="font-semibold text-foreground">{index + 1}. </span>
+                <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline">
+                  {source.label}
+                </a>
+                <span> — {source.note}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="mb-12 rounded-xl border border-brand-900/10 bg-muted/40 p-6">
+          <h2 className="text-xl font-semibold mb-3">Product sourcing note</h2>
+          <p className="text-sm leading-7 text-muted-foreground">
+            This broad comparison intentionally does not rank or affiliate-link CBD or ashwagandha products. The evidence is preparation-specific, CBD has additional regulatory and contamination concerns, and a comparison page should not make one monetized product category look clinically preferred.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-semibold mb-6">Related evidence guides</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link
-              href="/guides/anxiety/natural-anxiety-relief/"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Natural Anxiety Relief: Evidence-Based Approaches
+            <Link href="/guides/anxiety/natural-anxiety-relief/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              Natural anxiety relief: evidence and safety
             </Link>
-            <Link
-              href="/guides/herbs/ashwagandha/"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Ashwagandha for Anxiety
+            <Link href="/guides/herbs/ashwagandha/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              Ashwagandha evidence guide
             </Link>
-            <Link
-              href="/guides/herbs/l-theanine/"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              L-Theanine for Anxiety
+            <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              Anxiety herbs by evidence directness
             </Link>
-            <Link
-              href="/guides/anxiety/anxiety-stack-guide/"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Anxiety Stack Guide
-            </Link>
-            <Link
-              href="/guides/sleep/ashwagandha-for-sleep/"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Ashwagandha for Sleep
-            </Link>
-            <Link
-              href="/guides/sleep/sleep-stack-guide/"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Sleep Stack Guide
+            <Link href="/guides/anxiety/anxiety-stack-guide/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              Why anxiety stacks need combination evidence
             </Link>
           </div>
         </section>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Buyer Guide</h2>
-          <div className="prose prose-lg max-w-none">
-            <p>
-              For both CBD and ashwagandha, third-party testing is the single most important quality
-              signal. For CBD, always request a batch-specific certificate of analysis.
-            </p>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="border rounded-xl p-5">
-              <h3 className="font-semibold mb-2">KSM-66 Ashwagandha</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                Full-spectrum root extract used in multiple clinical studies. Standardized to 5%
-                withanolides.
-              </p>
-              <a
-                href={`https://www.amazon.com/s?k=KSM-66+ashwagandha+third+party+tested&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="text-primary underline text-sm"
-              >
-                Search KSM-66 Ashwagandha →
-              </a>
-            </div>
-            <div className="border rounded-xl p-5">
-              <h3 className="font-semibold mb-2">Sensoril Ashwagandha</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                Root and leaf extract with clinical study history and a different withanolide profile
-                to KSM-66.
-              </p>
-              <a
-                href={`https://www.amazon.com/s?k=Sensoril+ashwagandha&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="text-primary underline text-sm"
-              >
-                Search Sensoril Ashwagandha →
-              </a>
-            </div>
-            <div className="border rounded-xl p-5">
-              <h3 className="font-semibold mb-2">CBD Oil (Broad Spectrum)</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                Broad-spectrum reduces (but does not eliminate) drug-test risk versus full-spectrum.
-                Always verify with a COA.
-              </p>
-              <a
-                href={`https://www.amazon.com/s?k=broad+spectrum+CBD+oil+third+party+tested&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="text-primary underline text-sm"
-              >
-                Search Broad Spectrum CBD →
-              </a>
-            </div>
-            <div className="border rounded-xl p-5">
-              <h3 className="font-semibold mb-2">Stress Support Supplements</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                Broader category search for stress and anxiety support products.
-              </p>
-              <a
-                href={`https://www.amazon.com/s?k=stress+support+supplements&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="text-primary underline text-sm"
-              >
-                Browse options →
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Sources &amp; References</h2>
-          <div className="p-6 bg-muted/50 rounded-xl text-sm">
-            <p className="mb-4 font-medium">
-              Key sources include:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-              <li>CBD anxiety clinical trials (PMIDs, n-sizes, outcomes)</li>
-              <li>Ashwagandha stress and anxiety trials (PMIDs, n-sizes, outcomes)</li>
-              <li>CBD product mislabeling and quality studies</li>
-              <li>CBD drug interaction data (CYP enzyme studies)</li>
-              <li>Drug-test risk data for full-spectrum CBD</li>
-              <li>Systematic reviews and meta-analyses for both</li>
-            </ul>
-          </div>
-        </section>
-
-        <RecommendationSection products={getRevenueProductSet('ashwagandha')?.products ?? []} />
 
         <div className="my-12">
           <NewsletterCtaBlock />
