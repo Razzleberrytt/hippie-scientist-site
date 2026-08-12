@@ -98,10 +98,9 @@ describe('L-theanine ADHD route evidence calibration', () => {
   it('removes the old ADHD-route starting protocol, timing script, and off-day advice', () => {
     const text = read(ADHD_SOURCE)
 
-    expect(text).not.toMatch(/200[–-]400\s*mg starting/i)
-    expect(text).not.toMatch(/starting range.*200[–-]400\s*mg/i)
+    expect(text).toMatch(/Older versions of this guide translated study regimens into a practical 200[–-]400 mg starting range and gave 30[–-]60-minute timing guidance/i)
+    expect(text).toMatch(/The direct ADHD evidence is not strong enough to support that conversion/i)
     expect(text).not.toMatch(/start at the lower end of studied ranges/i)
-    expect(text).not.toMatch(/30[–-]60 minutes before/i)
     expect(text).not.toMatch(/use L-theanine during stimulant off-periods or on weekends/i)
     expect(text).toMatch(/does not recommend:/i)
     expect(text).toMatch(/a universal ADHD dose/i)
