@@ -10,6 +10,7 @@ export type FocusAdhdArticle = {
   category: string
   tags: string[]
   date: string
+  updatedAt?: string
   readingTime: string
   fallbackBody?: string
 }
@@ -100,12 +101,13 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
   {
     slug: 'l-theanine-for-adhd',
     source: 'docs/content/focus-cluster/l-theanine-for-adhd-content-v1.md',
-    title: 'L-Theanine for ADHD: Evidence on Attention, Sleep, and Emotional Regulation',
-    seoTitle: 'L-Theanine for ADHD: Attention, Sleep and Calm',
-    description: 'Evidence-based review of L-theanine for ADHD-related symptoms. Covers attention, sleep quality, emotional regulation, caffeine synergy, pediatric and adult evidence, dosing, safety, and practical use.',
+    title: 'L-Theanine for ADHD: What the Evidence Supports in 2026',
+    seoTitle: 'L-Theanine for ADHD: Evidence, Attention and Sleep',
+    description: 'Evidence-first review of L-theanine and ADHD, separating general attention research from the N=5 ADHD cognition crossover and 98-boy sleep trial, with no universal ADHD dose and clear medication-safety limits.',
     category: 'Focus',
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-10',
+    updatedAt: '2026-08-12',
     readingTime: '14 min read',
   },
   {
@@ -224,12 +226,13 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
   {
     slug: 'l-theanine-vs-caffeine-for-focus',
     source: 'docs/content/focus-cluster/l-theanine-vs-caffeine-for-focus-content-v1.md',
-    title: 'L-Theanine vs Caffeine for Focus: Which Works Better for Attention and Calm Energy?',
-    seoTitle: 'L-Theanine vs Caffeine for Focus: Calm Energy',
-    description: 'Direct comparison of L-Theanine and caffeine for focus, attention, and calm energy. Reviews mechanisms, evidence in ADHD and healthy adults, dosing ratios, safety, sleep impact, and a practical decision framework.',
+    title: 'L-Theanine vs Caffeine for Focus: What the Evidence Supports in 2026',
+    seoTitle: 'L-Theanine vs Caffeine for Focus: Evidence',
+    description: 'Evidence-first comparison of caffeine, L-theanine, and their combination for attention: healthy-adult data, ADHD directness limits, jitter and sleep tradeoffs, safety, and why no universal dosing ratio is established.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-10',
+    updatedAt: '2026-08-12',
     readingTime: '9 min read',
   },
   // Phase 3a standalone pages — registered here for cross-linking; content lives in dedicated page.tsx files
@@ -280,7 +283,7 @@ export const focusAdhdArticleSummaries = focusAdhdArticles.map((article) => ({
   title: article.title,
   description: article.description,
   date: article.date,
-  updatedAt: article.date,
+  updatedAt: article.updatedAt ?? article.date,
   tags: article.tags,
   category: article.category,
   readingTime: article.readingTime,
