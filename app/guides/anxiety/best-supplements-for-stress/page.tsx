@@ -9,239 +9,282 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
-import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/best/supplements-for-stress`
+const DATE = '2026-08-11'
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More',
+  title: 'Best Supplements for Stress: What the Evidence Supports in 2026',
   description:
-    'Evidence-graded review of the best stress supplements: ashwagandha, rhodiola, phosphatidylserine, magnesium, and L-theanine. Mechanisms, dosing, safety, and when each works.',
+    'Evidence-first comparison of ashwagandha, rhodiola, magnesium, and L-theanine for stress-related outcomes, with directness, safety, and combination limits.',
   alternates: { canonical: '/guides/best/supplements-for-stress/' },
   robots: { index: false, follow: true },
   openGraph: {
-    title: 'Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More',
+    title: 'Best Supplements for Stress: What the Evidence Supports in 2026',
     description:
-      'Which supplements actually reduce stress? Ashwagandha, rhodiola, magnesium, phosphatidylserine — evidence-graded with dosing, safety, and stacking notes.',
+      'Compare stress supplements by the outcomes, populations, formulations, and durations actually studied instead of copying a stack recipe.',
     url: '/guides/best/supplements-for-stress/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
 }
 
-const STRESS_SUPPLEMENTS = [
+const SOURCES = [
   {
-    name: 'Ashwagandha (KSM-66 / Sensoril)',
-    mechanism: 'Withanolides regulate the HPA axis; reduce cortisol (measured) and DHEA-S ratios; GABAergic activity promotes relaxation; anti-inflammatory via NF-κB pathway',
-    evidence: 'B–A — multiple double-blind RCTs; KSM-66 specifically shows significant reductions in serum cortisol and PSS scores in stressed adults',
-    dose: '300–600 mg standardized extract (KSM-66 ≥5% withanolides or Sensoril ≥10%) — morning or evening; allow 4–8 weeks',
-    safety: 'Generally well-tolerated; rare liver injury has been reported; use caution with thyroid medications, immunosuppressants, pregnancy, or autoimmune conditions',
-    bestFor: 'Chronic psychological stress; HPA dysregulation; cortisol-driven sleep disruption; sustained adaptogen strategy',
-    href: '/guides/herbs/ashwagandha/',
-    badge: 'Moderate–Strong',
+    label: 'Ashwagandha stress and anxiety systematic review and meta-analysis (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/39348746/',
+    note: 'Nine randomized controlled trials / 558 participants; specific ashwagandha formulations versus placebo improved pooled stress/anxiety measures and cortisol, with unresolved long-term safety.',
   },
   {
-    name: 'Rhodiola Rosea',
-    mechanism: 'Salidroside and rosavins activate AMPK; modulate serotonin, norepinephrine, and dopamine; reduce cortisol and stress-induced fatigue; upregulate heat shock proteins',
-    evidence: 'B — RCTs show improved stress resilience, reduced mental fatigue, and improved mood under demanding conditions',
-    dose: '200–400 mg (≥3% rosavins, ≥1% salidroside) in the morning, before stressful events or before training',
-    safety: 'Well-tolerated; stimulating — may disrupt sleep if taken late; rare GI effects',
-    bestFor: 'Acute stress performance; mental fatigue from sustained demands; cognitive performance under stress',
-    href: '/herbs/rhodiola',
-    badge: 'Moderate',
+    label: 'Clinical evidence for Withania somnifera and Rhodiola rosea adaptogenic effects (2026)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/41906501/',
+    note: 'Systematic review of randomized trials identified 19 ashwagandha studies and five Rhodiola studies; Rhodiola interventions and populations varied, so the evidence is not a universal class effect.',
   },
   {
-    name: 'Phosphatidylserine (PS)',
-    mechanism: 'Structural phospholipid supporting neuronal membrane function; blunts cortisol response to exercise and psychological stress; modulates HPA signaling',
-    evidence: 'B — RCTs show cortisol blunting and mood improvements under exercise/psychological stress; well-documented in exercise performance literature',
-    dose: '100–400 mg/day (sunflower-derived preferred); effects build over 4–6 weeks',
-    safety: 'Generally well-tolerated; choose sunflower-derived over bovine-derived; use normal caution with medications or health conditions',
-    bestFor: 'Exercise-induced stress; cortisol-sensitive individuals; cognitive stress response',
-    href: '/compounds/phosphatidylserine',
-    badge: 'Moderate',
+    label: 'Standardized Rhodiola SHR-5 for stress-related fatigue (2009)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/19016404/',
+    note: 'Randomized double-blind placebo-controlled study in 60 adults ages 20–55 with stress-related fatigue; SHR-5 extract was studied for 28 days.',
   },
   {
-    name: 'Magnesium Glycinate',
-    mechanism: 'NMDA receptor antagonism reduces CNS excitability; supports GABAergic inhibition; cofactor for 300+ enzymatic reactions including cortisol synthesis and HPA regulation',
-    evidence: 'B — magnesium deficiency (common in stressed populations) amplifies stress responses; supplementation in deficient individuals consistently reduces stress markers',
-    dose: '200–400 mg elemental magnesium (glycinate form) in the evening; builds over weeks',
-    safety: 'Generally well-tolerated; GI loose stools at high doses; avoid high-dose magnesium in severe kidney disease unless supervised',
-    bestFor: 'Stress + sleep overlap; muscle tension from stress; magnesium-insufficient individuals',
-    href: '/compounds/magnesium-glycinate',
-    badge: 'Moderate',
+    label: 'Magnesium for self-reported anxiety and sleep: systematic review (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/38817505/',
+    note: 'Fifteen interventional studies met inclusion criteria; seven measured anxiety-related outcomes. Forms, doses, durations, populations, and co-ingredients varied, limiting firm conclusions.',
   },
   {
-    name: 'L-Theanine',
-    mechanism: 'Increases alpha brain wave activity; modulates GABA, glutamate, and glycine; reduces physiological stress arousal without causing sedation at typical doses',
-    evidence: 'B — multiple RCTs showing reduced salivary cortisol, heart rate, and self-reported stress; acute and sustained effects',
-    dose: '100–200 mg as needed or daily; can be combined with caffeine (2:1 theanine:caffeine ratio)',
-    safety: 'Generally well-tolerated; use extra caution with sedatives, blood pressure medication, pregnancy/breastfeeding, or psychiatric medication',
-    bestFor: 'Acute situational stress; stress-related cognitive impairment; daily background stress reduction',
-    href: '/guides/herbs/l-theanine/',
-    badge: 'Moderate',
+    label: 'L-theanine cognitive and affective systematic review and meta-analysis (2026)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/42410082/',
+    note: 'Thirty-one randomized placebo-controlled trials / 1,168 participants. The acute stress effect was modest and largely influenced by higher-risk-of-bias studies; the robust short-term signal was attention, not broad stress relief.',
   },
 ]
 
 const HEADINGS: Heading[] = [
-  { id: 'stress-pattern', text: 'Choose by stress pattern', level: 2 },
-  { id: 'profiles', text: 'Supplement profiles', level: 2 },
-  { id: 'stacks', text: 'Recommended stacks', level: 2 },
-]
-
-const BEST_SUPPLEMENTS_FOR_STRESS_REFS = [
-  { n: 1, text: 'Boyle NB, et al. (2017). Magnesium and anxiety. Nutrients, 9(5): 429.', url: 'https://pubmed.ncbi.nlm.nih.gov/28445426/' },
-  { n: 2, text: 'Panossian A, Wikman G. (2010). Adaptogens. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
+  { id: 'bottom-line', text: 'Bottom line', level: 2 },
+  { id: 'directness', text: 'Compare by direct evidence', level: 2 },
+  { id: 'profiles', text: 'Ingredient evidence profiles', level: 2 },
+  { id: 'combinations', text: 'Why stack recipes overreach', level: 2 },
+  { id: 'safety', text: 'Safety and stop rules', level: 2 },
+  { id: 'sources', text: 'Sources', level: 2 },
 ]
 
 export default function BestSupplementsForStressPage() {
   const toc = <TableOfContents headings={HEADINGS} />
-  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
+  const comparisonProducts = ['ashwagandha', 'rhodiola', 'magnesium', 'l-theanine'].flatMap(
+    (slug) => getRevenueProductSet(slug)?.products ?? [],
+  )
+
   return (
-    <>
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More"
-        description="Evidence-graded guide to the best supplements for stress including ashwagandha, rhodiola, phosphatidylserine, magnesium, and L-theanine. Mechanisms, dosing, safety, and stacking."
+        headline="Best Supplements for Stress: What the Evidence Supports in 2026"
+        description="Evidence-first comparison of ashwagandha, rhodiola, magnesium, and L-theanine for stress-related outcomes."
         datePublished="2026-06-16"
-        dateModified="2026-06-26"
+        dateModified={DATE}
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Guides', href: '/guides' },
-          { label: 'Best Supplements for Stress', href: '/guides/anxiety/best-supplements-for-stress' },
+          { label: 'Guides', href: '/guides/' },
+          { label: 'Best Guides', href: '/guides/best/' },
+          { label: 'Supplements for Stress', href: '/guides/best/supplements-for-stress/' },
         ]}
       />
 
-      <ArticleLayout toc={toc} zone="supplement">
-      <div className="space-y-14">
-        <AffiliateDisclosure variant="compact" className="mb-6" />
+      <div className="space-y-10">
+        <AffiliateDisclosure variant="compact" />
 
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-          <p className="eyebrow-label">Stress supplements guide</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Best Supplements for Stress
-          </h1>
-          <p className="mt-2 text-xs text-muted">Last updated June 26, 2026</p>
-          <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-            Stress supplements are only useful when matched to the type of stress and the mechanism
-            driving it. Chronic HPA dysregulation requires a different intervention than acute
-            situational stress or exercise-induced cortisol spikes. This guide covers five
-            evidence-backed options with honest assessments of what each actually does — and when
-            each is the better choice.
+          <p className="eyebrow-label">Stress supplement evidence guide</p>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Supplements for Stress</h1>
+          <p className="mt-2 text-xs text-muted">Last evidence review August 11, 2026</p>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
+            “Stress” covers different outcomes: perceived stress, anxiety symptoms, fatigue, sleep disruption,
+            cortisol, and performance under load. A supplement can have evidence for one of those outcomes without
+            being a proven general-purpose stress treatment. This guide compares the better human evidence without
+            turning study doses into personal protocols or individual-ingredient findings into a stack recipe.
           </p>
-          <div className="mt-6 rounded-xl border border-brand-900/10 bg-brand-50 p-4 text-sm text-brand-950">
-            <strong>Fastest useful choice:</strong> for chronic daily stress, start with{' '}
-            <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-800 hover:underline">ashwagandha</Link>;
-            for pressure and fatigue, compare{' '}
-            <Link href="/herbs/rhodiola/" className="font-semibold text-brand-800 hover:underline">rhodiola</Link>;
-            for acute stress without sedation, start with{' '}
-            <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>.
-          </div>
 
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/best-supplements-for-stress.jpg"
-              alt="Ashwagandha, magnesium, and L-theanine supplements for stress"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            The best-supported supplements for everyday stress.
-          </figcaption>
-        </figure>
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+              <Image
+                src="/images/guides/best-supplements-for-stress.jpg"
+                alt="Ashwagandha, magnesium, Rhodiola, and L-theanine products arranged for a stress evidence comparison"
+                width={1536}
+                height={1024}
+                priority
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              The important question is not which ingredient is “best,” but which outcome and preparation were actually studied.
+            </figcaption>
+          </figure>
         </section>
 
-        {/* Type of stress framework */}
-        <section id="stress-pattern" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Match to stress type</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Choose by stress pattern</h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              { type: 'Chronic daily stress / burnout', best: 'Ashwagandha (HPA regulation)', href: '/guides/herbs/ashwagandha/' },
-              { type: 'Stress-impaired performance', best: 'Rhodiola (acute stress resilience)', href: '/herbs/rhodiola' },
-              { type: 'Exercise-induced cortisol spike', best: 'Phosphatidylserine (blunts cortisol response)', href: '/compounds/phosphatidylserine' },
-              { type: 'Stress + poor sleep', best: 'Magnesium Glycinate (evening)', href: '/compounds/magnesium-glycinate' },
-              { type: 'Acute situational anxiety/stress', best: 'L-Theanine (fast-acting, no sedation)', href: '/guides/herbs/l-theanine/' },
-              { type: '"Wired but tired" pattern', best: 'Ashwagandha + Magnesium stack', href: '/guides/rhodiola-sleep-stack' },
-            ].map((row) => (
-              <div key={row.type} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted">Stress pattern</p>
-                <p className="mt-1 text-sm font-semibold text-ink">{row.type}</p>
-                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-brand-700">Best choice</p>
-                <Link href={row.href} className="mt-1 block text-sm font-medium text-brand-800 hover:underline">{row.best}</Link>
-              </div>
+        <section id="bottom-line" className="scroll-mt-20 rounded-[1.65rem] border border-brand-700/25 bg-brand-50/60 p-6 shadow-sm">
+          <p className="eyebrow-label">Bottom line</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">There is no evidence-based universal stress stack</h2>
+          <div className="mt-4 space-y-3 text-sm leading-7 text-muted sm:text-base">
+            <p>
+              <strong>Ashwagandha</strong> has the clearest repeated-dose stress/anxiety signal among these options,
+              but the evidence is formulation-specific and mostly multi-week. <strong>Rhodiola</strong> has direct
+              trials in stress-related fatigue, but a smaller and more heterogeneous randomized evidence base.
+            </p>
+            <p>
+              <strong>Magnesium</strong> has heterogeneous anxiety/sleep-adjacent intervention evidence rather than
+              a clean general-stress effect, while <strong>L-theanine</strong> should not be sold as a reliably fast
+              stress reliever: the 2026 meta-analysis found only a modest, bias-sensitive acute stress signal.
+            </p>
+          </div>
+        </section>
+
+        <section id="directness" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Directness before ranking</p>
+          <h2 className="text-2xl font-semibold text-ink">What did the human studies actually measure?</h2>
+          <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
+            <table className="min-w-[840px] w-full text-sm">
+              <thead className="border-b border-brand-900/10 bg-brand-50/50">
+                <tr>
+                  <th className="p-4 text-left font-semibold text-ink">Option</th>
+                  <th className="p-4 text-left font-semibold text-ink">Direct evidence context</th>
+                  <th className="p-4 text-left font-semibold text-ink">What not to infer</th>
+                  <th className="p-4 text-left font-semibold text-ink">Main safety boundary</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10">
+                <tr className="align-top">
+                  <td className="p-4 font-semibold text-ink">Ashwagandha</td>
+                  <td className="p-4 text-muted">Nine RCTs / 558 participants in the 2024 stress/anxiety meta-analysis; specific formulations versus placebo over repeated dosing.</td>
+                  <td className="p-4 text-muted">Not proof that every powder, extract, or brand has the same effect; not a same-day rescue claim.</td>
+                  <td className="p-4 text-muted">Pregnancy, thyroid, autoimmune, medication, and rare liver-injury concerns require individual review.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="p-4 font-semibold text-ink">Rhodiola rosea</td>
+                  <td className="p-4 text-muted">A placebo-controlled SHR-5 trial enrolled 60 adults with stress-related fatigue for 28 days; a 2026 review identified five Rhodiola randomized trials overall.</td>
+                  <td className="p-4 text-muted">Stress-related fatigue evidence does not establish a universal “acute resilience” effect or validate every Rhodiola preparation.</td>
+                  <td className="p-4 text-muted">Product identity matters; stimulating effects and medication/condition context can change fit.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="p-4 font-semibold text-ink">Magnesium</td>
+                  <td className="p-4 text-muted">The 2024 review included 15 intervention studies, seven with anxiety-related outcomes; interventions and populations varied substantially.</td>
+                  <td className="p-4 text-muted">No strong basis for claiming magnesium glycinate is the proven stress form or that typical users are magnesium-deficient.</td>
+                  <td className="p-4 text-muted">Kidney disease and medication interactions deserve specific review; supplemental magnesium can cause gastrointestinal effects.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="p-4 font-semibold text-ink">L-theanine</td>
+                  <td className="p-4 text-muted">Thirty-one placebo-controlled trials / 1,168 participants across cognitive and affective outcomes; acute stress was the primary pooled stress outcome.</td>
+                  <td className="p-4 text-muted">The modest acute-stress signal was bias-sensitive; a 30–60-minute study window is not a guaranteed stress-relief onset.</td>
+                  <td className="p-4 text-muted">Short trials were generally reassuring, but long-term and medication-specific safety are less established.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="profiles" className="scroll-mt-20 space-y-5">
+          <p className="eyebrow-label">Ingredient evidence profiles</p>
+          <h2 className="text-2xl font-semibold text-ink">How to interpret each option</h2>
+
+          <article className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <h3 className="text-xl font-semibold text-ink">Ashwagandha: repeated-dose stress signal</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              The 2024 meta-analysis pooled nine randomized trials involving 558 participants and reported pooled
+              improvements in perceived stress, anxiety measures, and serum cortisol versus placebo. Four included
+              trials reported mild-to-moderate adverse events, and the authors noted that long-term safety remains
+              insufficiently defined. That supports a repeated-dose formulation signal—not a universal product claim.
+            </p>
+            <Link href="/guides/herbs/ashwagandha/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Ashwagandha evidence guide →</Link>
+          </article>
+
+          <article className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <h3 className="text-xl font-semibold text-ink">Rhodiola: narrower stress-related fatigue evidence</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              One direct randomized double-blind placebo-controlled trial studied standardized SHR-5 extract in
+              60 adults ages 20–55 with stress-related fatigue over 28 days. A 2026 systematic review identified
+              only five Rhodiola randomized trials compared with 19 ashwagandha trials and noted wide variation in
+              preparations, doses, populations, and durations. Treat that as a narrower evidence base, not a license
+              to promise acute performance or stress resilience from any Rhodiola capsule.
+            </p>
+            <Link href="/herbs/rhodiola/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Rhodiola evidence guide →</Link>
+          </article>
+
+          <article className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <h3 className="text-xl font-semibold text-ink">Magnesium: heterogeneous and baseline-dependent</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              The 2024 systematic review found 15 eligible intervention studies, seven with anxiety-related
+              outcomes. Five of those seven reported improvement in at least one anxiety outcome, but forms, doses,
+              durations, populations, baseline status, and co-ingredients varied. That makes a magnesium-only,
+              form-specific “stress supplement” claim substantially less direct than marketing often implies.
+            </p>
+            <Link href="/guides/other/magnesium-types-guide/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Magnesium forms guide →</Link>
+          </article>
+
+          <article className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <h3 className="text-xl font-semibold text-ink">L-theanine: attention is the robust acute signal</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              The July 2026 meta-analysis included 31 randomized placebo-controlled trials and 1,168 participants.
+              A 200 mg single dose studied 30–60 minutes before cognitive testing improved choice reaction time,
+              while the pooled acute-stress reduction was modest and largely driven by higher-risk-of-bias studies.
+              The study timing and attention result should not be converted into a reliable rapid-stress promise.
+            </p>
+            <Link href="/guides/herbs/l-theanine/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">L-theanine evidence guide →</Link>
+          </article>
+        </section>
+
+        <section id="combinations" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6 shadow-sm">
+          <p className="eyebrow-label">Combination boundary</p>
+          <h2 className="mt-2 text-xl font-semibold text-ink">Individual evidence does not validate a “stress stack”</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            A trial of ashwagandha and a separate trial of magnesium do not prove that combining them works better,
+            works faster, or is safer. Adding Rhodiola, L-theanine, citicoline, or other ingredients creates a new
+            intervention with its own interaction and attribution problems. If someone chooses to use a supplement,
+            changing one variable at a time makes benefits and adverse effects easier to interpret than copying a
+            multi-ingredient recipe.
+          </p>
+        </section>
+
+        <section id="safety" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm">
+          <p className="eyebrow-label text-amber-900">Safety and stop rules</p>
+          <h2 className="mt-2 text-xl font-semibold text-amber-950">Stress symptoms can be a signal to assess the cause, not escalate supplements</h2>
+          <ul className="mt-4 space-y-2 text-sm leading-7 text-amber-950">
+            <li>• Review medications, pregnancy, kidney/liver disease, thyroid conditions, and other relevant health history before regular supplement use.</li>
+            <li>• Do not use supplements to compensate for severe sleep restriction, stimulant overuse, or a worsening mental-health condition without addressing the driver.</li>
+            <li>• Persistent panic, severe anxiety, major functional decline, suicidal thoughts, thoughts of self-harm, or inability to stay safe require professional or immediate crisis care rather than a stronger supplement stack.</li>
+            <li>• Study doses and durations describe the research; they are not individualized dosing instructions.</li>
+          </ul>
+        </section>
+
+        <section id="sources" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Sources and directness notes</h2>
+          <ol className="mt-4 space-y-4">
+            {SOURCES.map((source, index) => (
+              <li key={source.href} className="text-sm leading-7 text-muted">
+                <span className="font-semibold text-ink">{index + 1}. </span>
+                <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">{source.label}</a>
+                <span> — {source.note}</span>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
 
-        {/* Profiles */}
-        <section id="profiles" className="scroll-mt-20 space-y-6">
-          <div>
-            <p className="eyebrow-label">Evidence profiles</p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Supplement profiles</h2>
-          </div>
-          <div className="space-y-5">
-            {STRESS_SUPPLEMENTS.map((s) => (
-              <div key={s.name} className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-                <div className="flex flex-wrap items-start justify-between gap-2">
-                  <Link href={s.href} className="text-xl font-semibold text-brand-800 hover:underline">{s.name}</Link>
-                  <span className="rounded-full bg-brand-50 px-3 py-0.5 text-xs font-semibold text-brand-800">{s.badge}</span>
-                </div>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2 text-sm">
-                  <div><p className="font-semibold text-ink">Mechanism</p><p className="mt-0.5 text-muted">{s.mechanism}</p></div>
-                  <div><p className="font-semibold text-ink">Best for</p><p className="mt-0.5 text-muted">{s.bestFor}</p></div>
-                  <div><p className="font-semibold text-ink">Evidence</p><p className="mt-0.5 text-muted">{s.evidence}</p></div>
-                  <div><p className="font-semibold text-ink">Typical dose</p><p className="mt-0.5 text-muted">{s.dose}</p></div>
-                  <div className="sm:col-span-2"><p className="font-semibold text-ink">Safety</p><p className="mt-0.5 text-muted">{s.safety}</p></div>
-                </div>
-                <Link href={s.href} className="mt-4 inline-block text-xs font-semibold text-brand-700 hover:underline">Full profile →</Link>
-              </div>
-            ))}
-          </div>
-        </section>
+        {comparisonProducts.length > 0 ? (
+          <section className="space-y-3">
+            <p className="text-sm leading-7 text-muted">
+              <strong className="text-ink">Neutral sourcing examples:</strong> this module covers all four
+              ingredients compared above—ashwagandha, Rhodiola, magnesium, and L-theanine. Product placement does
+              not change the evidence ranking, and affiliate links do not imply treatment efficacy.
+            </p>
+            <RecommendationSection products={comparisonProducts} />
+          </section>
+        ) : null}
 
-        {/* Key stacks */}
-        <section id="stacks" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Combinations</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Recommended stacks</h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              { goal: 'Chronic stress foundation', combo: 'Ashwagandha 600 mg + Magnesium Glycinate 300 mg', note: 'HPA axis + downstream relaxation. Most comprehensive chronic stress stack. 8+ weeks.' },
-              { goal: 'High-performance under pressure', combo: 'Rhodiola 200 mg (AM) + L-Theanine 200 mg (as needed)', note: 'Rhodiola for acute stress resilience; theanine for real-time stress buffering without sedation.' },
-              { goal: 'Stress + cognitive impairment', combo: 'Ashwagandha 300 mg + Phosphatidylserine 200 mg + Citicoline 250 mg', note: 'Addresses both HPA dysregulation and cognitive stress response. Long-term strategy.' },
-              { goal: 'Stress + sleep disruption', combo: 'Ashwagandha 300 mg (PM) + Magnesium Glycinate 400 mg (PM)', note: 'Evening dosing targets the nighttime cortisol elevation pattern. Allow 4–8 weeks.' },
-            ].map((s) => (
-              <div key={s.goal} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-wider text-brand-700">{s.goal}</p>
-                <p className="mt-2 text-sm font-semibold text-ink">{s.combo}</p>
-                <p className="mt-2 text-xs leading-relaxed text-muted">{s.note}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {ashwagandhaProducts && (
-        <>
-          <References refs={BEST_SUPPLEMENTS_FOR_STRESS_REFS} />
-            <RecommendationSection products={ashwagandhaProducts.products} />
-        </>
-        )}
-
-        <EmailCapture location="guides-best-supplements-for-stress" className="mt-6" />
+        <EmailCapture location="guides-best-supplements-for-stress" />
 
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
-          <Link href="/guides/herbs/ashwagandha/" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
-          <Link href="/guides/herbs/l-theanine/" className="hover:text-brand-800">L-Theanine for Acute Stress →</Link>
-          <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
-          <Link href="/guides/compare/rhodiola-vs-ashwagandha/" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>
-          <Link href="/guides/rhodiola-complete-guide/" className="hover:text-brand-800">Complete Rhodiola Guide →</Link>
-          <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
+          <Link href="/guides/anxiety/" className="hover:text-brand-800">Stress & anxiety hub →</Link>
+          <Link href="/guides/anxiety/anxiety-stack-guide/" className="hover:text-brand-800">Combination evidence guide →</Link>
+          <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="hover:text-brand-800">Anxiety herb evidence →</Link>
+          <Link href="/guides/" className="hover:text-brand-800">All guides →</Link>
         </nav>
       </div>
-      </ArticleLayout>
-    </>
+    </ArticleLayout>
   )
 }

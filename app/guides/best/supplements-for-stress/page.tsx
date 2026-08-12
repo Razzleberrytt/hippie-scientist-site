@@ -4,15 +4,15 @@ import BestSupplementsForStressPage from '../../anxiety/best-supplements-for-str
 const CANONICAL_PATH = '/guides/best/supplements-for-stress/'
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More',
+  title: 'Best Supplements for Stress: What the Evidence Supports in 2026',
   description:
-    'Compare evidence-backed supplements for chronic stress, stress-related fatigue, poor sleep, and acute tension. Includes dosing, safety, and product-selection guidance.',
+    'Evidence-first comparison of ashwagandha, rhodiola, magnesium, and L-theanine for stress-related outcomes, with directness, safety, and combination limits.',
   alternates: { canonical: CANONICAL_PATH },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Best Supplements for Stress: Evidence-Based Guide',
+    title: 'Best Supplements for Stress: What the Evidence Supports in 2026',
     description:
-      'Choose among ashwagandha, rhodiola, magnesium, L-theanine, and phosphatidylserine based on your stress pattern, timeline, and safety needs.',
+      'Compare stress supplements by the outcomes, populations, formulations, and durations actually studied instead of copying a stack recipe.',
     url: CANONICAL_PATH,
     type: 'article',
     images: ['/og-default.jpg'],
