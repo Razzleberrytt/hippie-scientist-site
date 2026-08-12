@@ -5,23 +5,20 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
-import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/how-to-lower-cortisol-naturally`
+const DATE = '2026-08-11'
 
 export const metadata: Metadata = {
-  title: 'How to Lower Cortisol Naturally — Evidence-Based Guide',
+  title: 'How to Lower Cortisol Naturally: What to Know Before You Try',
   description:
-    'A practical, evidence-based guide to lowering cortisol naturally: how the stress hormone works, the lifestyle levers that move it most, and the herbs — ashwagandha, rhodiola, holy basil, magnesium — with the best support.',
+    'Evidence-first guide to cortisol, stress, testing, sleep, stress management, and supplements—without treating generic symptoms as proof of high cortisol.',
   alternates: { canonical: '/guides/anxiety/how-to-lower-cortisol-naturally/' },
   openGraph: {
-    title: 'How to Lower Cortisol Naturally — Evidence-Based Guide',
+    title: 'How to Lower Cortisol Naturally: What to Know Before You Try',
     description:
-      'How to lower cortisol naturally — the lifestyle levers that matter most plus the best-supported adaptogenic herbs, with dosing context and safety.',
+      'Separate everyday stress management from medical hypercortisolism, learn which cortisol tests are appropriate, and avoid chasing a hormone number without a diagnosis.',
     url: '/guides/anxiety/how-to-lower-cortisol-naturally/',
     type: 'article',
     images: ['/og-default.jpg'],
@@ -30,285 +27,300 @@ export const metadata: Metadata = {
 
 const FAQS = [
   {
-    question: 'What lowers cortisol the fastest?',
+    question: 'Can symptoms tell me that my cortisol is high?',
     answer:
-      'Acutely, the fastest levers are behavioral: slow breathing (a longer exhale than inhale), a short walk, sunlight, and physical or social comfort all reduce cortisol within minutes. Supplements work more slowly. Among them, L-theanine and phosphatidylserine can blunt an acute cortisol response, while ashwagandha lowers baseline cortisol over weeks of consistent use.',
+      'No. Fatigue, weight change, anxiety, poor sleep, high blood pressure, and other common symptoms have many possible causes. Endocrine Society guidance notes substantial overlap between people with and without Cushing’s syndrome and recommends against widespread testing outside selected higher-risk groups.',
   },
   {
-    question: 'Does ashwagandha really lower cortisol?',
+    question: 'What tests are used when Cushing’s syndrome is suspected?',
     answer:
-      'Yes — ashwagandha is the best-evidenced supplement for this. Multiple randomized trials of standardized extracts (such as KSM-66) show meaningful reductions in serum cortisol and perceived stress in chronically stressed adults, typically over 4–8 weeks. It is not an instant fix; it works by helping the HPA stress axis return to a more regulated baseline.',
+      'Endocrine Society guidance recommends validated initial tests such as at least two 24-hour urinary free-cortisol measurements, two late-night salivary cortisol measurements, or a low-dose dexamethasone suppression test selected for the clinical situation. Random serum cortisol is not recommended as a screening test for Cushing’s syndrome.',
   },
   {
-    question: 'Is high cortisol always bad?',
+    question: 'Should I try to lower cortisol just because I feel stressed?',
     answer:
-      'No. Cortisol is essential and follows a healthy daily rhythm — high in the morning to wake you, low at night to let you sleep. The problem is chronic elevation or a flattened rhythm from ongoing stress, poor sleep and irregular routines. The goal is not to crush cortisol but to restore its natural rhythm.',
+      'Treat the stress problem rather than assuming cortisol itself is the disease. The Endocrine Society recommends against treatment intended to reduce cortisol when Cushing’s syndrome has not been established. For everyday stress, sleep, exercise, relaxation, psychotherapy or other appropriate care can be worthwhile for wellbeing even when cortisol is not measured.',
   },
   {
-    question: 'When should I see a doctor about cortisol?',
+    question: 'Does one bad night of sleep always raise cortisol the next day?',
     answer:
-      'Lifestyle and supplements address everyday stress load, not medical disease. Symptoms like unexplained weight changes, persistent high blood pressure, easy bruising, muscle weakness or severe fatigue warrant medical evaluation, because conditions such as Cushing&rsquo;s syndrome or adrenal disorders need proper testing and treatment.',
+      'No. A 2024 meta-analysis of 24 acute sleep-deprivation studies found no significant overall cortisol difference in the pooled crossover studies or randomized trials, although some subgroups and measurement methods showed increases. Sleep still matters for health and stress, but the cortisol response is not as universal as simple wellness claims suggest.',
+  },
+  {
+    question: 'Does ashwagandha lower cortisol?',
+    answer:
+      'A 2024 meta-analysis of randomized trials found a pooled cortisol reduction alongside stress and anxiety outcomes for specific ashwagandha formulations versus placebo. That is evidence about repeated-dose stress trials, not evidence that ashwagandha treats Cushing’s syndrome or that every product has the same effect.',
   },
 ]
 
 const HEADINGS: Heading[] = [
-  { id: 'quick-answer', text: 'Quick answer', level: 2 },
-  { id: 'takeaways', text: 'Key takeaways', level: 2 },
-  { id: 'lifestyle', text: 'Lifestyle levers', level: 2 },
-  { id: 'supplements', text: 'Herbs and supplements', level: 2 },
-  { id: 'risks', text: 'Risks & safety', level: 2 },
+  { id: 'bottom-line', text: 'Bottom line', level: 2 },
+  { id: 'medical-vs-stress', text: 'Medical cortisol excess vs everyday stress', level: 2 },
+  { id: 'testing', text: 'How cortisol is actually tested', level: 2 },
+  { id: 'stress-management', text: 'What helps with everyday stress', level: 2 },
+  { id: 'supplements', text: 'Where supplements fit', level: 2 },
+  { id: 'care', text: 'When to seek medical care', level: 2 },
+  { id: 'sources', text: 'Sources', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
 ]
 
-const HOW_TO_LOWER_CORTISOL_NATURALLY_REFS = [
-  { n: 1, text: 'Chandrasekhar K, et al. (2012). Ashwagandha and cortisol reduction. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
-  { n: 2, text: 'Olsson EM, et al. (2009). Rhodiola rosea for stress fatigue. Planta Med, 75(2): 105-112.', url: 'https://pubmed.ncbi.nlm.nih.gov/19016404/' },
-  { n: 3, text: 'Panossian A, Wikman G. (2010). Adaptogens and stress response. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
+const SOURCES = [
+  {
+    label: 'Endocrine Society: Diagnosis of Cushing’s Syndrome guideline',
+    href: 'https://www.endocrine.org/clinical-practice-guidelines/diagnosis-of-cushing-syndrome',
+    note: 'Defines who should be tested, recommends validated initial tests, recommends against widespread screening, and recommends against random serum cortisol as a diagnostic screen.',
+  },
+  {
+    label: 'Endocrine Society: Treatment of Cushing’s Syndrome guideline',
+    href: 'https://www.endocrine.org/clinical-practice-guidelines/treatment-of-cushing-syndrome',
+    note: 'Recommends against treatment intended to reduce cortisol levels or cortisol action when Cushing’s syndrome has not been established.',
+  },
+  {
+    label: 'NIDDK: Cushing’s Syndrome',
+    href: 'https://www.niddk.nih.gov/health-information/endocrine-diseases/cushings-syndrome',
+    note: 'Explains that common symptoms overlap with many other conditions and that diagnosis relies on medical history, examination, and appropriate laboratory testing.',
+  },
+  {
+    label: 'Acute sleep deprivation and cortisol: systematic review and meta-analysis (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/38777757/',
+    note: 'Twenty-four studies; no significant overall cortisol difference in pooled crossover studies or randomized trials, with some method-specific subgroup effects.',
+  },
+  {
+    label: 'Stress-management interventions and cortisol: systematic review and meta-analysis (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/37879237/',
+    note: 'Fifty-eight randomized studies / 3,508 participants; psychological stress-management interventions produced a modest pooled change in cortisol, with heterogeneity by intervention and cortisol measure.',
+  },
+  {
+    label: 'Ashwagandha stress and anxiety systematic review and meta-analysis (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/39348746/',
+    note: 'Nine randomized trials / 558 participants; pooled stress, anxiety, and cortisol effects for specific formulations versus placebo, with unresolved long-term safety.',
+  },
 ]
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
-  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
+
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="How to Lower Cortisol Naturally"
-        description="Evidence-based guide to lowering cortisol naturally — the lifestyle levers that move it most and the best-supported adaptogenic herbs, with dosing context and safety."
+        headline="How to Lower Cortisol Naturally: What to Know Before You Try"
+        description="Evidence-first guide separating everyday stress management from medical cortisol excess, with appropriate testing and supplement limits."
         datePublished="2026-06-18"
-        dateModified="2026-06-18"
+        dateModified={DATE}
         faqs={FAQS}
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Guides', href: '/guides' },
-          { label: 'How to Lower Cortisol Naturally', href: '/guides/anxiety/how-to-lower-cortisol-naturally' },
+          { label: 'Guides', href: '/guides/' },
+          { label: 'Anxiety & Stress', href: '/guides/anxiety/' },
+          { label: 'Cortisol Guide', href: '/guides/anxiety/how-to-lower-cortisol-naturally/' },
         ]}
       />
 
-      <div className="space-y-12">
-        <AffiliateDisclosure variant="compact" className="mb-6" />
-        {/* Hero */}
+      <div className="space-y-10">
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
-          <p className="eyebrow-label">Stress education</p>
+          <p className="eyebrow-label">Cortisol & stress guide</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
             How to Lower Cortisol Naturally
           </h1>
           <p className="mt-2 text-xs text-muted">
             Written and edited by{' '}
-            <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">Willie B. Randolph III</Link>
-            {' '}· Last updated June 2026
+            <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">
+              Willie B. Randolph III
+            </Link>{' '}
+            · Last evidence review August 11, 2026
           </p>
-          <p className="detail-reading mt-4 text-muted">
-            Cortisol is not the enemy. It is the hormone that wakes you up, mobilizes energy and helps you
-            respond to challenge. The problem is when it stays elevated — or loses its natural daily rhythm
-            — because of chronic stress, poor sleep and constant stimulation. Lowering cortisol naturally
-            is really about restoring that rhythm. This guide covers the lifestyle levers that move it
-            most, then the herbs with the strongest evidence, in priority order.
+          <p className="detail-reading mt-4 max-w-3xl text-muted">
+            Cortisol is essential physiology, not a toxin to push as low as possible. The important first step is
+            to separate a medical question about abnormal cortisol excess from an everyday stress-management
+            question. Common symptoms cannot diagnose “high cortisol,” and chasing a hormone number without the
+            right clinical context can send you toward the wrong tests, supplements, or treatments.
           </p>
 
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/how-to-lower-cortisol-naturally.jpg"
-              alt="Ashwagandha root and calming herbal tea for lowering cortisol naturally"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+              <Image
+                src="/images/guides/how-to-lower-cortisol-naturally.jpg"
+                alt="Ashwagandha root and herbal tea beside notes about stress and cortisol evidence"
+                width={1536}
+                height={1024}
+                priority
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              Managing everyday stress and diagnosing pathological cortisol excess are different problems.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="bottom-line" className="card-premium scroll-mt-20 border-brand-700/30 bg-brand-50/60 p-6">
+          <p className="eyebrow-label">Bottom line</p>
+          <h2 className="mt-1 text-2xl font-semibold text-ink">Do not self-diagnose “high cortisol” from generic stress symptoms</h2>
+          <div className="mt-3 space-y-3 text-sm leading-7 text-muted sm:text-base">
+            <p>
+              Fatigue, poor sleep, weight change, low mood, anxiety, and blood-pressure changes are common and
+              nonspecific. Endocrine Society guidance recommends Cushing’s testing for selected higher-risk
+              situations—not widespread screening of everyone who feels stressed.
+            </p>
+            <p>
+              If the problem is everyday stress, the goal is better sleep, functioning, recovery, and mental or
+              physical health—not “crushing cortisol.” If a clinician suspects pathological cortisol excess, that
+              becomes a medical testing question using validated endocrine tests.
+            </p>
           </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            Practical, evidence-based ways to lower cortisol naturally.
-          </figcaption>
-        </figure>
         </section>
 
-        {/* Fastest useful choice */}
-        <section className="card-premium scroll-mt-20 space-y-3 border-brand-700/30 bg-brand-50/60 p-6">
-          <p className="eyebrow-label">Fastest useful choice</p>
-          <h2 className="text-xl font-semibold text-ink">If you only try one thing: protect your sleep</h2>
-          <p className="text-muted">
-            <strong>Sleep is the fastest and most powerful lever on cortisol</strong> &mdash; a single
-            poor night measurably raises next-day cortisol, while a consistent sleep-and-wake schedule
-            restores the natural morning-peak / evening-trough rhythm that supplements cannot replicate.
-            For acute stress moments,{' '}
-            <Link href="/compounds/l-theanine/" className="font-semibold text-brand-700 hover:underline">
-              L-theanine
-            </Link>{' '}
-            (100&ndash;200&nbsp;mg) blunts cortisol within an hour. For chronic baseline elevation over
-            weeks,{' '}
-            <Link href="/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
-              ashwagandha
-            </Link>{' '}
-            (300&ndash;600&nbsp;mg, KSM-66 or Sensoril) has the strongest supplement evidence.
+        <section id="medical-vs-stress" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Two different questions</p>
+          <h2 className="text-2xl font-semibold text-ink">Medical cortisol excess is not the same thing as feeling stressed</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <article className="card-premium p-5">
+              <h3 className="text-lg font-semibold text-ink">Everyday stress</h3>
+              <p className="mt-2 text-sm leading-7 text-muted">
+                Stress can affect sleep, mood, attention, appetite, and physiology, including the HPA axis. But a
+                subjective feeling of stress does not establish persistent hypercortisolism, and a consumer cortisol
+                result should not be interpreted in isolation as a diagnosis.
+              </p>
+            </article>
+            <article className="card-premium p-5">
+              <h3 className="text-lg font-semibold text-ink">Suspected Cushing’s syndrome</h3>
+              <p className="mt-2 text-sm leading-7 text-muted">
+                Endocrine evaluation is more appropriate when there are multiple progressive or unusually specific
+                clinical features, unusual findings for age, relevant adrenal findings, or other reasons a clinician
+                judges the pretest probability to be higher. Medication and glucocorticoid exposure also matter.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="testing" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <p className="eyebrow-label">Testing boundary</p>
+          <h2 className="mt-1 text-2xl font-semibold text-ink">Random serum cortisol is not the recommended screening shortcut</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Endocrine Society guidance recommends validated initial tests selected for the clinical situation,
+            including repeated 24-hour urinary free cortisol, repeated late-night salivary cortisol, or low-dose
+            dexamethasone suppression testing. It specifically recommends against random serum cortisol or plasma
+            ACTH as screening tests for Cushing’s syndrome. Abnormal or discordant results need clinical follow-up;
+            they are not a DIY diagnosis.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            NIDDK likewise emphasizes that diagnosis combines medical history, physical examination, and laboratory
+            testing because fatigue, weight gain, hypertension, mood symptoms, and other common features have many
+            possible causes.
           </p>
         </section>
 
-        {/* Quick Answer */}
-        <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
-          <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
-          <p className="text-muted">
-            The biggest natural lever on cortisol is not a supplement — it is{' '}
-            <strong className="text-ink">sleep and a consistent daily rhythm</strong>, followed by{' '}
-            <strong className="text-ink">morning light</strong>,{' '}
-            <strong className="text-ink">moderate exercise</strong> (without overtraining),{' '}
-            <strong className="text-ink">slow breathing</strong> and{' '}
-            <strong className="text-ink">limiting late caffeine and alcohol</strong>. On top of that
-            foundation, the best-supported supplements are{' '}
-            <strong className="text-ink">ashwagandha</strong> (lowers baseline cortisol over weeks),{' '}
-            <strong className="text-ink">rhodiola</strong> (stress resilience and fatigue),{' '}
-            <strong className="text-ink">magnesium</strong> and{' '}
-            <strong className="text-ink">L-theanine</strong> (acute calming).
-          </p>
+        <section id="stress-management" className="scroll-mt-20 space-y-5">
+          <p className="eyebrow-label">Everyday stress</p>
+          <h2 className="text-2xl font-semibold text-ink">Improve the stress problem; do not chase a single cortisol number</h2>
+
+          <article className="card-premium p-6">
+            <h3 className="text-xl font-semibold text-ink">Sleep matters, but the cortisol response is not universal</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              Sleep is important for health, mood, cognition, and stress tolerance. But the 2024 meta-analysis of
+              24 acute sleep-deprivation studies found no significant overall cortisol difference in pooled
+              crossover studies or randomized trials. Some serum and repeated-measurement subgroups showed higher
+              cortisol, which is exactly why “one poor night always raises cortisol” is too categorical.
+            </p>
+          </article>
+
+          <article className="card-premium p-6">
+            <h3 className="text-xl font-semibold text-ink">Stress-management interventions can change cortisol modestly</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              A 2024 meta-analysis of 58 randomized studies involving 3,508 participants found that psychological
+              stress-management interventions produced a modest pooled change in cortisol versus controls.
+              Mindfulness/meditation and relaxation categories had larger pooled effects than some other categories,
+              but effect size varied by intervention and cortisol measure. The practical reason to use stress
+              management is improved wellbeing and coping—not to optimize a home cortisol score.
+            </p>
+          </article>
+
+          <article className="card-premium p-6">
+            <h3 className="text-xl font-semibold text-ink">Address obvious stress drivers directly</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              Sleep opportunity, stimulant timing, alcohol or substance effects, overtraining, work or caregiving
+              load, pain, untreated anxiety or depression, and medication effects can all shape how stressed a
+              person feels. The highest-value next step is often identifying and addressing the driver rather than
+              adding a product intended to “block cortisol.”
+            </p>
+          </article>
         </section>
 
-        {/* Key Takeaways */}
-        <section id="takeaways" className="scroll-mt-20 space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">Key takeaways</h2>
-          <ul className="space-y-2 text-muted">
-            <li>• <strong className="text-ink">Aim for rhythm, not zero.</strong> Healthy cortisol is high in the morning and low at night; the target is a normal curve, not the lowest possible number.</li>
-            <li>• <strong className="text-ink">Sleep is the master regulator.</strong> A single poor night raises next-day cortisol; consistent sleep does more than any capsule.</li>
-            <li>• <strong className="text-ink">Ashwagandha has the best supplement evidence</strong> for lowering baseline cortisol, but it works over weeks, not overnight.</li>
-            <li>• <strong className="text-ink">Match the tool to the timeframe:</strong> breathing and L-theanine for acute spikes, adaptogens for chronic load.</li>
-            <li>• <strong className="text-ink">Persistent symptoms need testing</strong> — supplements are for everyday stress, not endocrine disease.</li>
+        <section id="supplements" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6 shadow-sm">
+          <p className="eyebrow-label">Supplement boundary</p>
+          <h2 className="mt-1 text-2xl font-semibold text-ink">Stress-trial cortisol changes are not endocrine treatment</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Ashwagandha is a good example of why the distinction matters. A 2024 meta-analysis of nine randomized
+            trials / 558 participants found pooled improvements in stress, anxiety, and serum cortisol for specific
+            formulations versus placebo. That supports a repeated-dose stress-research signal. It does not establish
+            treatment for Cushing’s syndrome, prove that a person with generic stress symptoms has pathologically
+            high cortisol, or show that every ashwagandha product is equivalent.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            The Endocrine Society recommends against treatment intended to lower cortisol or block its action when
+            Cushing’s syndrome has not been established. That is a useful guardrail for supplement marketing too:
+            do not turn a biomarker change in a stress trial into a claim that a supplement “treats high cortisol.”
+          </p>
+          <Link href="/guides/herbs/ashwagandha/" className="mt-4 inline-block text-sm font-semibold text-brand-700 hover:underline">
+            Ashwagandha evidence guide →
+          </Link>
+        </section>
+
+        <section id="care" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm">
+          <p className="eyebrow-label text-amber-900">When to escalate</p>
+          <h2 className="mt-1 text-xl font-semibold text-amber-950">Use medical evaluation when the pattern is unusual, progressive, or clinically concerning</h2>
+          <ul className="mt-4 space-y-2 text-sm leading-7 text-amber-950">
+            <li>• Review prescribed, injected, inhaled, topical, or other glucocorticoid exposure with a clinician when Cushing’s syndrome is a concern.</li>
+            <li>• Multiple progressive features, unusually early osteoporosis or hypertension, or an adrenal incidental finding are examples of situations where guideline-directed evaluation may be appropriate.</li>
+            <li>• Do not diagnose or exclude Cushing’s syndrome from a single random cortisol result, a wearable, or a symptom checklist.</li>
+            <li>• Severe mental-health symptoms, suicidal thoughts, thoughts of self-harm, or inability to stay safe require immediate crisis or emergency care rather than hormone or supplement experimentation.</li>
           </ul>
         </section>
 
-        {/* Lifestyle levers */}
-        <section id="lifestyle" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Foundations first</p>
-          <h2 className="text-2xl font-semibold text-ink">The lifestyle levers that move cortisol most</h2>
-          <p className="text-muted">
-            Before reaching for any supplement, it is worth being honest about where cortisol really comes
-            from. For the vast majority of people, chronically elevated cortisol is downstream of
-            day-to-day inputs — too little sleep, too much stimulation, irregular routines and unrelenting
-            psychological pressure — not a hormonal disease. That is good news, because these inputs are
-            the levers you actually control, and they move cortisol far more than any capsule does. The
-            six below are listed roughly in order of impact; if you only change one thing, make it your
-            sleep and the consistency of your daily schedule.
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              { lever: 'Sleep & schedule', detail: 'Regular sleep and wake times stabilize the cortisol rhythm. Sleep debt is one of the most reliable ways to push cortisol up.' },
-              { lever: 'Morning light', detail: 'Bright light early in the day sharpens the healthy morning cortisol peak and supports a lower evening level.' },
-              { lever: 'Moderate exercise', detail: 'Regular movement lowers stress reactivity — but chronic overtraining without recovery does the opposite.' },
-              { lever: 'Slow breathing', detail: 'A longer exhale than inhale shifts you toward the parasympathetic state and lowers acute cortisol within minutes.' },
-              { lever: 'Caffeine & alcohol timing', detail: 'Late caffeine raises cortisol and fragments sleep; alcohol disrupts the overnight recovery window.' },
-              { lever: 'Connection & nature', detail: 'Social comfort and time outdoors measurably reduce stress hormones — low-cost, underrated levers.' },
-            ].map((row) => (
-              <div key={row.lever} className="card-premium p-5">
-                <p className="text-sm font-semibold text-ink">{row.lever}</p>
-                <p className="mt-2 text-sm text-muted">{row.detail}</p>
+        <section id="sources" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Sources and directness notes</h2>
+          <ol className="mt-4 space-y-4">
+            {SOURCES.map((source, index) => (
+              <li key={source.href} className="text-sm leading-7 text-muted">
+                <span className="font-semibold text-ink">{index + 1}. </span>
+                <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
+                  {source.label}
+                </a>
+                <span> — {source.note}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section id="faq" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Frequently asked questions</h2>
+          <div className="mt-4 divide-y divide-brand-900/10">
+            {FAQS.map((faq) => (
+              <div key={faq.question} className="py-4 first:pt-0 last:pb-0">
+                <h3 className="font-semibold text-ink">{faq.question}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Herbs evidence */}
-        <section id="supplements" className="scroll-mt-20 space-y-5">
-          <p className="eyebrow-label">Evidence overview</p>
-          <h2 className="text-2xl font-semibold text-ink">Herbs and supplements, in priority order</h2>
+        <div className="rounded-[1.65rem] border border-brand-900/10 bg-brand-50/50 p-6">
+          <p className="text-sm leading-7 text-muted">
+            <strong className="text-ink">Product note:</strong> this endocrine-adjacent guide intentionally does
+            not place affiliate product picks next to “lower cortisol” claims. Ingredient-specific sourcing belongs
+            on the narrower evidence pages, where formulation and safety context can be evaluated separately.
+          </p>
+        </div>
 
-          <article className="card-premium p-6">
-            <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/ashwagandha/" className="hover:underline">Ashwagandha</Link>{' '}
-              <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Strongest evidence</span>
-            </h3>
-            <p className="mt-3 text-sm text-muted">
-              Standardized extracts repeatedly lower serum cortisol and perceived stress in chronically
-              stressed adults across randomized trials. Typical dose is 300–600&nbsp;mg of a standardized
-              extract, given 4–8 weeks. It is the closest thing to a direct cortisol-lowering supplement —
-              see how it stacks up in{' '}
-              <Link href="/guides/compare/rhodiola-vs-ashwagandha/" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>.
-            </p>
-          </article>
+        <EmailCapture location="guides-how-to-lower-cortisol-naturally" />
 
-          <article className="card-premium p-6">
-            <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/rhodiola/" className="hover:underline">Rhodiola rosea</Link>
-            </h3>
-            <p className="mt-3 text-sm text-muted">
-              Rhodiola targets the <em>experience</em> of stress — fatigue, mental tiredness and burnout —
-              and can blunt the stress response under demanding conditions. Best taken in the morning at
-              200–400&nbsp;mg of a standardized extract; it can disrupt sleep if taken late. Explore the
-              full{' '}
-              <Link href="/guides/rhodiola-complete-guide/" className="font-medium text-brand-700 hover:underline">rhodiola guide</Link>.
-            </p>
-          </article>
-
-          <article className="card-premium p-6">
-            <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/holy-basil/" className="hover:underline">Holy basil (tulsi)</Link>
-            </h3>
-            <p className="mt-3 text-sm text-muted">
-              A traditional adaptogen with emerging trial support for reducing stress symptoms. A gentle,
-              well-tolerated option that fits naturally into a daily routine as a tea or extract.
-            </p>
-          </article>
-
-          <article className="card-premium p-6">
-            <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium</Link> &amp;{' '}
-              <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>
-            </h3>
-            <p className="mt-3 text-sm text-muted">
-              Magnesium supports HPA-axis regulation and is often depleted in stressed people; deficiency
-              amplifies the stress response. L-theanine is the best acute tool, blunting cortisol and the
-              feeling of stress within an hour without sedation. Together they cover the moment-to-moment
-              side of stress while adaptogens work on the baseline. See{' '}
-              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="font-medium text-brand-700 hover:underline">ashwagandha vs L-theanine vs magnesium</Link>.
-            </p>
-          </article>
-        </section>
-
-        {/* Risks & safety */}
-        <section id="risks" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
-          <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
-          <ul className="space-y-2 text-sm text-amber-900">
-            <li>• Adaptogens are not a substitute for medical evaluation, especially with endocrine conditions, diabetes, or while pregnant or breastfeeding.</li>
-            <li>• <strong>Ashwagandha:</strong> avoid in pregnancy and breastfeeding; rare hepatotoxicity reported; can affect thyroid hormone levels; caution with sedatives, immunosuppressants, and autoimmune disease.</li>
-            <li>• <strong>Rhodiola:</strong> caution with bipolar disorder (may trigger mania); interaction risk with SSRIs and MAOIs; stimulating for some people and may worsen sleep or agitation if taken late or in high doses.</li>
-            <li>• <strong>Holy basil:</strong> may lower blood sugar; caution with diabetes medication and hypoglycemic agents.</li>
-            <li>• <strong>Magnesium:</strong> caution with kidney disease (kidneys regulate excretion); high doses cause loose stools &mdash; lower the dose rather than stopping.</li>
-            <li>• If you take medication for blood pressure, mood, sleep, thyroid, or a hormonal condition, confirm compatibility before adding herbs.</li>
-            <li>• Persistent symptoms &mdash; unexplained weight changes, severe fatigue, easy bruising, or persistent high blood pressure &mdash; warrant medical evaluation for conditions such as Cushing&rsquo;s syndrome or adrenal disorders.</li>
-          </ul>
-        </section>
-
-        {ashwagandhaProducts && (
-        <>
-          <References refs={HOW_TO_LOWER_CORTISOL_NATURALLY_REFS} />
-            <RecommendationSection products={ashwagandhaProducts.products} />
-        </>
-        )}
-
-        {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2>
-          <div className="space-y-3">
-            {FAQS.map((faq) => (
-              <details key={faq.question} className="card-premium p-5">
-                <summary className="cursor-pointer text-base font-semibold text-ink">{faq.question}</summary>
-                <p className="mt-2 text-sm text-muted">{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        <EmailCapture location="guides-how-to-lower-cortisol-naturally" className="mt-6" />
-
-        {/* Related */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/guides/best/supplements-for-stress/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Stress →</Link>
-            <Link href="/guides/anxiety/best-adaptogens-for-stress/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Adaptogens for Stress →</Link>
-            <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
-            <Link href="/guides/rhodiola-complete-guide/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Complete Rhodiola Guide →</Link>
-            <Link href="/guides/compare/rhodiola-vs-ashwagandha/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Rhodiola vs Ashwagandha →</Link>
-            <Link href="/guides/anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Stress Guides →</Link>
-          </div>
-        </section>
+        <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
+          <Link href="/guides/anxiety/" className="hover:text-brand-800">Stress & anxiety hub →</Link>
+          <Link href="/guides/best/supplements-for-stress/" className="hover:text-brand-800">Stress supplement evidence →</Link>
+          <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="hover:text-brand-800">Anxiety herb evidence →</Link>
+          <Link href="/info/supplement-safety-checklist/" className="hover:text-brand-800">Supplement safety checklist →</Link>
+        </nav>
       </div>
     </ArticleLayout>
   )
