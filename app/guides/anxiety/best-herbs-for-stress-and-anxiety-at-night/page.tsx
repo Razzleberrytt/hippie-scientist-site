@@ -42,7 +42,7 @@ const FAQS = [
   {
     question: 'Does ashwagandha have a proven immediate bedtime effect?',
     answer:
-      'Ashwagandha should not be framed as a same-night remedy. The better human evidence comes from repeated-dose trials and meta-analyses in adults with stress or anxiety symptoms using specific extracts over weeks. That does not establish an immediate effect or a class effect for every ashwagandha product.',
+      'No immediate bedtime effect has been established. The better human evidence comes from repeated-dose trials and meta-analyses in adults with stress or anxiety symptoms using specific extracts over weeks. That does not establish an acute effect or a class effect for every ashwagandha product.',
   },
   {
     question: 'What if anxiety keeps me awake most nights?',
@@ -75,7 +75,12 @@ const SOURCES = [
   {
     label: 'Ashwagandha stress and anxiety systematic review and meta-analysis (2024)',
     href: 'https://pubmed.ncbi.nlm.nih.gov/39348746/',
-    note: 'Nine randomized trials and 558 participants; repeated-dose evidence using specific formulations, with heterogeneity and unresolved long-term safety.',
+    note: 'Nine randomized trials and 558 participants; pooled effects versus placebo using specific formulations, with heterogeneity and unresolved long-term safety.',
+  },
+  {
+    label: 'Ashwagandha root-extract randomized trial in adults with moderate stress and anxiety (2026)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/41815853/',
+    note: '141 healthy adults ages 18–65; 8-week three-arm trial comparing 300 mg proprietary root extract twice daily, another root extract, and placebo.',
   },
   {
     label: 'NCCIH: Passionflower usefulness and safety',
@@ -248,10 +253,12 @@ export default function Page() {
               <span className="rounded-full bg-brand-50 px-3 py-0.5 text-xs font-semibold text-brand-800">Repeated-dose signal</span>
             </div>
             <p className="mt-3 text-sm leading-7 text-muted">
-              A 2024 meta-analysis pooled nine randomized trials and 558 participants and reported reductions in
-              stress/anxiety measures and cortisol. The studies used specific formulations and repeated dosing;
-              they do not establish that every root powder or extract works the same way, and they do not prove a
-              same-night bedtime effect. Long-term safety remains less certain than short-trial safety.
+              A 2024 meta-analysis pooled nine randomized placebo-controlled trials and 558 participants and
+              reported reductions in stress/anxiety measures and cortisol. A representative 2026 trial enrolled
+              141 healthy men and women ages 18–65 with moderate stress and anxiety and randomized them for
+              8 weeks to 300 mg of a proprietary ashwagandha root extract twice daily, another root extract, or
+              placebo. That is repeated-dose, formulation-specific evidence in stressed adults—not evidence of an
+              immediate bedtime effect or a class effect for every powder, extract, or product shown below.
             </p>
           </article>
 
@@ -294,6 +301,7 @@ export default function Page() {
             <li>• <strong>Ashwagandha:</strong> pregnancy, thyroid, autoimmune, medication, and rare liver-injury concerns deserve specific review.</li>
             <li>• <strong>L-theanine:</strong> short trials are generally reassuring, but that does not establish unlimited long-term safety or compatibility with every medication or condition.</li>
             <li>• If nighttime anxiety is frequent, severe, or impairing, supplements should not delay established mental-health or sleep care.</li>
+            <li>• <strong>Immediate stop rule:</strong> if anxiety comes with suicidal thoughts, thoughts of self-harm, an inability to stay safe, or imminent danger, seek immediate emergency or crisis care rather than trying another supplement.</li>
           </ul>
         </section>
 
