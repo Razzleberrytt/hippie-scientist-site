@@ -5,46 +5,102 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import CitationReadySummary from '@/components/seo/CitationReadySummary'
-import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
-import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
-import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 import FAQSchema from '@/components/seo/FAQSchema'
-import References from '@/components/References'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
+
+const UPDATED_DATE = '2026-08-12'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Sleep Herbs vs Melatonin: Evidence Comparison',
+  title: 'Sleep Herbs vs Melatonin: What the Evidence Supports in 2026',
   description:
-    'Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Understand mechanisms, onset, evidence quality, safety, and when to use each — or stack them.',
+    'Evidence-first comparison of melatonin, magnesium, L-theanine, and valerian for sleep, with directness, chronic-insomnia limits, safety context, and no universal supplement ranking.',
   path: '/guides/compare/sleep-herbs-vs-melatonin/',
   openGraphType: 'article',
 })
 
-const SLEEP_HERBS_VS_MELATONIN_REFS = [
-  { n: 1, text: 'Ferracioli-Oda E, et al. (2013). Meta-analysis: melatonin for the treatment of primary sleep disorders. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
-  { n: 2, text: 'Abbasi B, et al. (2012). The effect of magnesium supplementation on primary insomnia in elderly. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
-  { n: 3, text: 'Rondanelli M, et al. (2011). The effect of melatonin, magnesium, and zinc on primary insomnia. J Am Geriatr Soc, 59(1): 82-90.', url: 'https://pubmed.ncbi.nlm.nih.gov/21226679/' },
-  { n: 4, text: 'Bent S, et al. (2006). Valerian for sleep: a systematic review and meta-analysis. Am J Med, 119(12): 1005-1012.', url: 'https://pubmed.ncbi.nlm.nih.gov/17145239/' },
-  { n: 5, text: 'Rao TP, et al. (2015). In search of a safe natural sleep aid. J Am Coll Nutr, 34(5): 436-447.', url: 'https://pubmed.ncbi.nlm.nih.gov/25759004/' },
-  { n: 6, text: 'Hieu TH, et al. (2019). Therapeutic efficacy of L-theanine for sleep quality. Nutrients, 11(10): 2362.', url: 'https://pubmed.ncbi.nlm.nih.gov/31581621/' },
-  { n: 7, text: 'Brzezinski A, et al. (2005). Effects of exogenous melatonin on sleep: a meta-analysis. Sleep Med Rev, 9(1): 41-50.', url: 'https://pubmed.ncbi.nlm.nih.gov/15649737/' },
-  { n: 8, text: 'Wheatley D. (2001). Kava and valerian in the treatment of stress-induced insomnia. Phytother Res, 15(6): 549-551.', url: 'https://pubmed.ncbi.nlm.nih.gov/11536391/' },
+const SOURCES = [
+  {
+    label: 'NCCIH: Sleep disorders and complementary health approaches',
+    href: 'https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches',
+    note: 'Current overview of melatonin, magnesium, valerian, and other complementary sleep approaches. It distinguishes jet-lag/shift-work evidence from chronic-insomnia guidance and describes the magnesium and valerian evidence as limited or inconsistent.',
+  },
+  {
+    label: 'L-theanine sleep systematic review and meta-analysis (2025)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/40056718/',
+    note: 'Nineteen articles / 897 participants were included, with 18 studies in meta-analysis. Small improvements were reported in subjective sleep onset latency, daytime dysfunction, and overall subjective sleep quality; the authors emphasized the lack of pure L-theanine studies and the need to determine adequate dose and duration.',
+  },
+  {
+    label: 'AASM pharmacologic guideline for chronic insomnia (2017)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/27998379/',
+    note: 'Clinical practice guideline for pharmacologic treatment of chronic insomnia. NCCIH summarizes the AASM recommendation against melatonin and valerian for chronic insomnia because the evidence was insufficient.',
+  },
+  {
+    label: 'AASM: cognitive behavioral therapy for insomnia',
+    href: 'https://aasm.org/coding-quarterly-cognitive-behavioral-therapy-for-insomnia/',
+    note: 'AASM describes CBT-I as the first-line, evidence-based treatment for chronic insomnia.',
+  },
+  {
+    label: 'NIH ODS: Magnesium health professional fact sheet',
+    href: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/',
+    note: 'High supplemental intakes can cause gastrointestinal effects; magnesium toxicity risk rises with impaired kidney function. Magnesium can reduce absorption of oral bisphosphonates and tetracycline/quinolone antibiotics.',
+  },
+  {
+    label: 'NCCIH: Melatonin — what you need to know',
+    href: 'https://www.nccih.nih.gov/health/melatonin-what-you-need-to-know',
+    note: 'Short-term use appears safe for many adults, but long-term safety is uncertain. NCCIH calls for medical supervision in people with epilepsy or taking blood thinners and notes limited pregnancy/breastfeeding safety data and possible daytime drowsiness.',
+  },
+  {
+    label: 'NCCIH: Valerian usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/valerian',
+    note: 'Valerian evidence for sleep is inconsistent, long-term safety is unknown, and NCCIH advises against combining it with alcohol or sedatives. Pregnancy/breastfeeding safety is also poorly characterized.',
+  },
+  {
+    label: 'DailyMed: Levothyroxine sodium drug-interaction labeling',
+    href: 'https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?audience=consumer&setid=dd032289-acee-49fc-e053-2a95a90a5999',
+    note: 'Levothyroxine labeling warns that magnesium-containing antacids can reduce levothyroxine absorption; readers using thyroid hormone should not assume a magnesium-containing nighttime product is interaction-free.',
+  },
+]
+
+const FAQS = [
+  {
+    question: 'Is melatonin better than magnesium for sleep?',
+    answer:
+      'That comparison is too broad. Melatonin has its clearest role in circadian-timing problems such as jet lag and some shift-work situations, while magnesium insomnia research is sparse and low quality. Neither should be presented as a universal winner for chronic insomnia.',
+  },
+  {
+    question: 'What is the best natural sleep supplement?',
+    answer:
+      'Current evidence does not support one universal best supplement. Sleep-onset difficulty, circadian misalignment, sleep apnea, restless legs, medication effects, mood disorders, pain, and insufficient sleep are different problems and should not be collapsed into one supplement ranking.',
+  },
+  {
+    question: 'Does L-theanine help sleep?',
+    answer:
+      'A 2025 meta-analysis found small improvements in several subjective sleep outcomes, but the literature included many studies that were not pure L-theanine interventions. The authors specifically called for more research to determine appropriate dose and duration.',
+  },
+  {
+    question: 'Does valerian work for insomnia?',
+    answer:
+      'Human trials have been inconsistent, and NCCIH says valerian’s value for insomnia has not been demonstrated. AASM guidance recommends against valerian for chronic insomnia because the evidence is insufficient.',
+  },
+  {
+    question: 'Can melatonin, magnesium, L-theanine, and valerian be stacked?',
+    answer:
+      'Separate studies of individual ingredients do not establish that a combination is more effective or safer. Combining several products also makes benefit and side effects harder to attribute. A broad comparison page should not turn unrelated trials into a stack protocol.',
+  },
+  {
+    question: 'What should persistent insomnia be treated with first?',
+    answer:
+      'For chronic insomnia, CBT-I is the first-line evidence-based treatment. Persistent sleep problems also warrant evaluation for other causes such as sleep apnea, restless legs, circadian disorders, medication effects, mood disorders, substance use, or pain.',
+  },
 ]
 
 export default function SleepHerbsVsMelatoninComparePage() {
-  const melatoninProducts = getRevenueProductSet('melatonin')?.products ?? []
-  const magnesiumProducts = getRevenueProductSet('magnesium')?.products ?? []
-  const theanineProducts = getRevenueProductSet('l-theanine')?.products ?? []
-  const valerianProducts = getRevenueProductSet('valerian')?.products ?? []
-  const allProducts = [...melatoninProducts, ...magnesiumProducts, ...theanineProducts, ...valerianProducts]
-
   return (
-    <div className="container-page py-10 space-y-10">
+    <div className="container-page space-y-10 py-10">
       <AuthorityJsonLd
-        title="Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared"
-        description="Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Mechanisms, dosing, stacking guidance, and safety context."
+        title="Sleep Herbs vs Melatonin: What the Evidence Supports in 2026"
+        description="Evidence-first comparison of melatonin, magnesium, L-theanine, and valerian for sleep, with directness and chronic-insomnia limits."
         url="https://thehippiescientist.net/guides/compare/sleep-herbs-vs-melatonin"
         type="Article"
       />
@@ -57,664 +113,247 @@ export default function SleepHerbsVsMelatoninComparePage() {
         ]}
       />
 
-      {/* Hero */}
-      <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Educational Comparison · Sleep Cluster</p>
-        <h1 className="text-5xl font-bold tracking-tight text-ink">
-          Sleep Herbs vs Melatonin: Choosing the Right Tool for Your Sleep Problem
+      <section className="max-w-4xl space-y-5">
+        <p className="eyebrow-label">Sleep evidence comparison</p>
+        <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+          Sleep Herbs vs Melatonin: What the Evidence Supports in 2026
         </h1>
+        <p className="text-sm text-muted">Last evidence review August 12, 2026</p>
         <p className="text-lg leading-8 text-muted">
-          Melatonin signals timing — it tells your brain it is night. Magnesium, L-theanine, and valerian
-          work differently: they relax muscles, quiet mental chatter, and support GABA pathways.
-          The question is not which one is "best" — it is which matches the reason you are not sleeping.
+          Melatonin, magnesium, L-theanine, and valerian are not four versions of the same sleep treatment.
+          Their evidence comes from different populations, outcomes, and study designs. This page compares
+          what is actually supported without turning those studies into a supplement sequence, bedtime dose,
+          or multi-ingredient stack.
         </p>
 
-        <div className="flex flex-wrap gap-3 pt-1">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 border border-green-200 px-3 py-1 text-xs font-semibold text-green-800">
-            Melatonin (circadian) — Evidence Grade: A
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 border border-green-200 px-3 py-1 text-xs font-semibold text-green-800">
-            Magnesium (sleep quality) — Evidence Grade: B–C
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 border border-green-200 px-3 py-1 text-xs font-semibold text-green-800">
-            L-Theanine (sleep onset) — Evidence Grade: B
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-yellow-50 border border-yellow-200 px-3 py-1 text-xs font-semibold text-yellow-800">
-            Valerian (sedation) — Evidence Grade: C
-          </span>
-        </div>
-
         <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <Image
               src="/images/guides/compare-sleep-herbs-vs-melatonin.jpg"
-              alt="Valerian, passionflower, and chamomile herbs beside melatonin tablets"
+              alt="Sleep supplements and herbs arranged for an evidence comparison"
               width={1536}
               height={1024}
               priority
-              className="w-full h-auto"
+              className="h-auto w-full"
             />
           </div>
           <figcaption className="mt-3 text-center text-sm text-muted">
-            Sleep herbs vs melatonin — which fits your sleep problem.
+            A sleep supplement should be judged by the sleep problem and population actually studied—not by a generic “strongest” ranking.
           </figcaption>
         </figure>
       </section>
 
       <CitationReadySummary
-        answer="Melatonin, magnesium, L-theanine, and valerian address different sleep problems rather than competing for the same one. Melatonin (Grade A) is a circadian timing signal — best for jet lag, shift work, or a delayed sleep phase, most effective at low physiological doses (0.3-1 mg) rather than the 3-10 mg found in most commercial products. Magnesium (Grade B-C) supports sleep quality and depth over days to weeks via GABA and NMDA pathways, with the strongest trial evidence in magnesium-deficient or elderly populations. L-theanine (Grade B) quiets mental chatter at sleep onset via glutamate modulation and alpha-wave induction, with no sedation. Valerian (Grade C) has plausible GABAergic mechanisms but inconsistent human trial evidence. The right choice depends on which sleep problem you actually have, not which supplement is generically 'strongest.'"
+        answer="There is no universal winner among melatonin, magnesium, L-theanine, and valerian. Melatonin has its clearest support in circadian contexts such as jet lag and some shift-work problems, while guidelines recommend against using it for chronic insomnia because evidence is insufficient. Magnesium insomnia evidence is sparse and low quality. A 2025 L-theanine meta-analysis found small improvements in several subjective sleep outcomes but highlighted the lack of pure L-theanine studies and uncertainty about dose and duration. Valerian trials are inconsistent, and its value for insomnia has not been demonstrated."
         bestFor={[
-          'Melatonin: circadian-timing problems — jet lag, shift work, or a delayed sleep phase — at low doses (0.3-1 mg), not high commercial doses.',
-          'Magnesium glycinate: sleep quality and depth issues, physical tension, or frequent night waking, taken consistently over weeks rather than as an acute aid.',
-          'L-theanine: racing thoughts or mental chatter at bedtime, taken 30-60 minutes before sleep with no sedation risk.',
-          'Valerian root: situational insomnia when melatonin, magnesium, and L-theanine have not helped — evidence is mixed and effect sizes are modest.',
+          'Melatonin: evidence is most relevant to circadian-timing contexts such as jet lag and some shift-work sleep problems, not a universal chronic-insomnia treatment.',
+          'Magnesium: evidence for insomnia remains sparse and low quality; deficiency or another medical indication is a different question from using magnesium as a sleep treatment.',
+          'L-theanine: promising subjective sleep signal in a 2025 meta-analysis, but directness is limited by mixed interventions and unresolved dose/duration questions.',
+          'Valerian: inconsistent insomnia evidence; current guidance does not support presenting it as an established chronic-insomnia treatment.',
         ]}
-        evidenceLevel="Melatonin is Grade A for circadian sleep problems (a 19-trial meta-analysis, Ferracioli-Oda et al. 2013). Magnesium is Grade B-C (strongest data in deficient/elderly populations, e.g. Abbasi et al. 2012). L-theanine is Grade B (direct sleep-endpoint trials, e.g. Hidese et al. 2019). Valerian is Grade C (a 16-study systematic review found insufficient evidence to confirm efficacy, Bent et al. 2006)."
-        safetyNote="Valerian and L-theanine share a GABAergic mechanism with benzodiazepines, alcohol, and other CNS depressants and should not be combined with prescription sleep medications without medical oversight; valerian should also be discontinued 2+ weeks before elective surgery. Magnesium is contraindicated in kidney disease due to impaired excretion. High-dose melatonin (5-10 mg) may cause next-morning grogginess and is not recommended for children or during pregnancy without clinical guidance."
-        notClaiming="This page is not claiming any one of these four options is the single best natural sleep aid, or that they are interchangeable with prescription sleep medications."
-        referencesHref="#references"
+        evidenceLevel="The evidence is condition-specific rather than rankable on one A-to-C scale. Melatonin, magnesium, L-theanine, and valerian have different levels of directness for different sleep outcomes, and chronic insomnia has a stronger first-line treatment in CBT-I."
+        safetyNote="Long-term safety is not established for several of these supplement approaches, and combining products can change sedation, interaction, and attribution risk. Product labels also do not guarantee that a commercial supplement matches the preparation studied in a trial."
+        notClaiming="This page is not recommending a bedtime dose, a supplement hierarchy, or a multi-ingredient sleep stack."
+        referencesHref="#sources"
       />
 
-      {/* Overview cards — 2 rows of 2 */}
-      <section className="grid gap-6 lg:grid-cols-2">
-        <div className="card-premium p-6 space-y-4">
-          <p className="eyebrow-label">Hormone · Circadian Timing</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">Melatonin</h2>
-          <p className="text-sm leading-7 text-muted">
-            Melatonin is produced by the pineal gland in response to darkness. It signals to the body
-            that it is time to sleep — it shifts the circadian window, not the depth or quality of sleep
-            directly. It is best supported by evidence for jet lag, shift work, and delayed sleep phase
-            syndrome. At low doses (0.3–1 mg), it mimics physiological release without receptor
-            downregulation.
-          </p>
-          <Link href="/compounds/melatonin/" className="chip-readable">Explore Melatonin</Link>
-        </div>
-
-        <div className="card-premium p-6 space-y-4">
-          <p className="eyebrow-label">Essential Mineral · Systemic</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">Magnesium</h2>
-          <p className="text-sm leading-7 text-muted">
-            Magnesium is involved in GABA receptor modulation, NMDA channel blocking, melatonin
-            synthesis co-factor activity, and HPA axis regulation. It works systemically over days
-            to weeks — not as an acute sleep aid but as a foundational mineral for sleep quality and
-            depth. Most adults are below optimal intake. Magnesium glycinate is the preferred form for
-            sleep due to high bioavailability and low GI impact.
-          </p>
-          <Link href="/compounds/magnesium/" className="chip-readable">Explore Magnesium</Link>
-        </div>
-
-        <div className="card-premium p-6 space-y-4">
-          <p className="eyebrow-label">Amino Acid · Acute Acting</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">L-Theanine</h2>
-          <p className="text-sm leading-7 text-muted">
-            L-theanine is a glutamate analog found in green tea. It increases alpha-wave brain activity
-            (relaxed alertness), modulates excitatory glutamate receptors, and promotes GABA — quieting
-            a racing mind without causing sedation. Onset is 30–60 minutes. It is particularly useful
-            for sleep onset when the problem is mental chatter rather than a shifted schedule or physical
-            tension.
-          </p>
-          <Link href="/compounds/l-theanine/" className="chip-readable">Explore L-Theanine</Link>
-        </div>
-
-        <div className="card-premium p-6 space-y-4">
-          <p className="eyebrow-label">Botanical Herb · Mild Sedative</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">Valerian Root</h2>
-          <p className="text-sm leading-7 text-muted">
-            Valerian root (Valeriana officinalis) increases GABA availability by inhibiting its
-            degradation and reuptake. It has a long traditional history for situational insomnia and
-            nervous tension. Human trial evidence is inconsistent — systematic reviews show mixed results,
-            and effect sizes are often modest. It may be better tolerated in combination with hops or
-            lemon balm than as a standalone option.
-          </p>
-          <Link href="/herbs/valerian/" className="chip-readable">Explore Valerian</Link>
-        </div>
-      </section>
-
-      {/* Fast decision table */}
-      <section className="card-premium p-6 space-y-5 max-w-5xl">
-        <p className="eyebrow-label">Fast Decision</p>
-        <h2 className="text-3xl font-semibold tracking-tight text-ink">Which one fits your sleep problem?</h2>
-        <div className="rounded-xl border-l-4 border-brand-700 bg-brand-50/40 p-4">
-          <p className="text-sm font-semibold text-ink">Bottom line — the fastest useful choice</p>
-          <p className="mt-1 text-sm leading-7 text-muted">
-            Reach for <strong>melatonin (0.3&ndash;1&nbsp;mg)</strong> only if your problem is timing &mdash;
-            jet lag, shift work, or a delayed sleep phase. For everything else, the higher-value starting
-            point is{' '}
-            <Link href="/compounds/magnesium-glycinate/" className="font-semibold text-brand-700 hover:underline">magnesium glycinate</Link>{' '}
-            for sleep depth and physical tension, or{' '}
-            <Link href="/compounds/l-theanine/" className="font-semibold text-brand-700 hover:underline">L-theanine</Link>{' '}
-            (100&ndash;200&nbsp;mg) for racing thoughts at bedtime. Save valerian for when those have not helped.
-          </p>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[880px] text-sm text-left">
-            <thead className="text-ink">
-              <tr className="border-b border-black/10">
-                <th className="py-3 pr-3 font-semibold">Sleep Problem</th>
-                <th className="py-3 pr-3 font-semibold">Melatonin</th>
-                <th className="py-3 pr-3 font-semibold">Magnesium</th>
-                <th className="py-3 pr-3 font-semibold">L-Theanine</th>
-                <th className="py-3 pr-3 font-semibold">Valerian</th>
+      <section className="card-premium max-w-5xl space-y-5 p-6">
+        <p className="eyebrow-label">Directness before ranking</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-ink">What does the evidence actually say?</h2>
+        <ResponsiveTable label="Sleep supplement evidence comparison">
+          <table className="min-w-[900px] w-full text-sm">
+            <thead>
+              <tr className="border-b border-brand-900/10">
+                <th className="pb-3 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Option</th>
+                <th className="pb-3 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Most defensible evidence context</th>
+                <th className="pb-3 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Main limit</th>
+                <th className="pb-3 text-left text-xs font-bold uppercase tracking-wider text-muted">Chronic insomnia?</th>
               </tr>
             </thead>
-            <tbody className="text-muted">
-              <tr className="border-b border-black/10">
-                <td className="py-3 pr-3 font-medium text-ink">Can't fall asleep (shifted schedule / jet lag)</td>
-                <td className="py-3 pr-3">✓ Primary choice — Grade A for circadian</td>
-                <td className="py-3 pr-3">Secondary — not circadian-specific</td>
-                <td className="py-3 pr-3">Not primarily</td>
-                <td className="py-3 pr-3">Not primarily</td>
+            <tbody className="divide-y divide-brand-900/5">
+              <tr className="align-top">
+                <td className="py-4 pr-4 font-semibold text-ink">Melatonin</td>
+                <td className="py-4 pr-4 text-muted">Jet lag and some shift-work sleep problems; some insomnia reviews report sleep-onset-latency improvement.</td>
+                <td className="py-4 pr-4 text-muted">Effects do not generalize to every insomnia outcome; short-term safety is better established than long-term safety, and OTC labeling can be inaccurate.</td>
+                <td className="py-4 text-muted">AASM/VA-DoD guidelines summarized by NCCIH recommend against it because evidence is insufficient.</td>
               </tr>
-              <tr className="border-b border-black/10">
-                <td className="py-3 pr-3 font-medium text-ink">Racing thoughts / mental chatter at bedtime</td>
-                <td className="py-3 pr-3">Not primarily — timing tool, not calming</td>
-                <td className="py-3 pr-3">Supports; slower onset</td>
-                <td className="py-3 pr-3">✓ Primary — fast alpha-wave induction</td>
-                <td className="py-3 pr-3">May help; mixed evidence</td>
+              <tr className="align-top">
+                <td className="py-4 pr-4 font-semibold text-ink">Magnesium</td>
+                <td className="py-4 pr-4 text-muted">A small 2021 review suggested possible sleep-onset-latency benefit in older adults with insomnia.</td>
+                <td className="py-4 pr-4 text-muted">Only three studies / 151 participants in that review, with low-quality evidence; broader reviews have conflicting findings.</td>
+                <td className="py-4 text-muted">Evidence is too limited for a confident insomnia-treatment claim or a preferred sleep form.</td>
               </tr>
-              <tr className="border-b border-black/10">
-                <td className="py-3 pr-3 font-medium text-ink">Physical tension / muscle restlessness</td>
-                <td className="py-3 pr-3">Not helpful</td>
-                <td className="py-3 pr-3">✓ Primary — NMDA block, muscle relaxation</td>
-                <td className="py-3 pr-3">Partial</td>
-                <td className="py-3 pr-3">Mild</td>
+              <tr className="align-top">
+                <td className="py-4 pr-4 font-semibold text-ink">L-theanine</td>
+                <td className="py-4 pr-4 text-muted">A 2025 meta-analysis of 19 articles / 897 participants found small improvements in subjective sleep onset latency, daytime dysfunction, and overall subjective sleep quality.</td>
+                <td className="py-4 pr-4 text-muted">Many interventions were not pure L-theanine; the authors said adequate dose and duration still need to be determined.</td>
+                <td className="py-4 text-muted">Promising sleep-disturbance signal, not an established first-line treatment for chronic insomnia.</td>
               </tr>
-              <tr className="border-b border-black/10">
-                <td className="py-3 pr-3 font-medium text-ink">Poor sleep depth / waking during night</td>
-                <td className="py-3 pr-3">Limited evidence for architecture</td>
-                <td className="py-3 pr-3">✓ Better — melatonin co-factor, REM support</td>
-                <td className="py-3 pr-3">Limited specific evidence</td>
-                <td className="py-3 pr-3">Inconsistent</td>
-              </tr>
-              <tr className="border-b border-black/10">
-                <td className="py-3 pr-3 font-medium text-ink">Situational / occasional poor night</td>
-                <td className="py-3 pr-3">Reasonable at low dose</td>
-                <td className="py-3 pr-3">Limited acute use; effects build over days</td>
-                <td className="py-3 pr-3">✓ Good acute option — 100–200 mg</td>
-                <td className="py-3 pr-3">Reasonable traditional option</td>
-              </tr>
-              <tr>
-                <td className="py-3 pr-3 font-medium text-ink">Onset</td>
-                <td className="py-3 pr-3">30–60 min</td>
-                <td className="py-3 pr-3">Days to weeks</td>
-                <td className="py-3 pr-3">30–90 min</td>
-                <td className="py-3 pr-3">30–60 min</td>
+              <tr className="align-top">
+                <td className="py-4 pr-4 font-semibold text-ink">Valerian</td>
+                <td className="py-4 pr-4 text-muted">Long history of use and some positive individual studies.</td>
+                <td className="py-4 pr-4 text-muted">Trials are inconsistent, preparations vary, and NCCIH says its value for insomnia has not been demonstrated.</td>
+                <td className="py-4 text-muted">AASM guidance recommends against valerian for chronic insomnia because evidence is insufficient.</td>
               </tr>
             </tbody>
           </table>
+        </ResponsiveTable>
+      </section>
+
+      <section className="grid gap-6 lg:grid-cols-2">
+        <div className="card-premium space-y-4 p-6">
+          <p className="eyebrow-label">Melatonin</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Circadian context matters</h2>
+          <p className="text-sm leading-7 text-muted">
+            NCCIH reports evidence that melatonin can help jet lag and some shift-work sleep problems. A review in people with insomnia found improvement in sleep-onset latency and daytime sleepiness but not sleep quality or time awake during the night. That is a narrower claim than “melatonin is the best sleep aid.”
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            Short-term use appears relatively safe for many adults, but long-term safety is not established. NCCIH also highlights inaccurate labeling in many OTC melatonin gummies, so a milligram printed on a bottle should not be treated as laboratory-verified exposure.
+          </p>
+          <Link href="/compounds/melatonin/" className="chip-readable">Melatonin profile →</Link>
+        </div>
+
+        <div className="card-premium space-y-4 p-6">
+          <p className="eyebrow-label">Magnesium</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Insomnia evidence is much thinner than the marketing</h2>
+          <p className="text-sm leading-7 text-muted">
+            NCCIH describes very little magnesium research for insomnia. A 2021 review included only three studies / 151 older adults and judged the evidence low quality; a broader 2022 review found conflicting results. That does not justify declaring magnesium glycinate the preferred sleep form or the default starting supplement for poor sleep.
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            High supplemental magnesium intake can cause gastrointestinal effects, and very high intakes can be dangerous. A nutrient deficiency question should be separated from the claim that magnesium treats insomnia.
+          </p>
+          <Link href="/compounds/magnesium/" className="chip-readable">Magnesium profile →</Link>
+        </div>
+
+        <div className="card-premium space-y-4 p-6">
+          <p className="eyebrow-label">L-theanine</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Promising subjective outcomes, unresolved regimen</h2>
+          <p className="text-sm leading-7 text-muted">
+            The 2025 systematic review/meta-analysis included 19 articles / 897 participants and found small improvements in several subjective sleep outcomes. But the authors specifically noted the shortage of studies using pure L-theanine and called for more research to determine adequate dose and duration.
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            That evidence does not establish a 30–60-minute anxiety-to-sleep onset promise, an as-needed bedtime dose, or a universal “racing thoughts” indication.
+          </p>
+          <Link href="/guides/herbs/l-theanine/" className="chip-readable">L-theanine evidence guide →</Link>
+        </div>
+
+        <div className="card-premium space-y-4 p-6">
+          <p className="eyebrow-label">Valerian</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Inconsistent evidence stays inconsistent</h2>
+          <p className="text-sm leading-7 text-muted">
+            Valerian’s mechanism and long traditional use do not settle the clinical question. NCCIH says trials have had inconsistent results and its value for insomnia has not been demonstrated. Current guidance therefore does not support turning valerian into a “third-line natural option” after other supplements fail.
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            Long-term safety is also uncertain. Product variability makes it especially important not to transfer one extract’s result to every valerian capsule, tea, or combination formula.
+          </p>
+          <Link href="/herbs/valerian/" className="chip-readable">Valerian profile →</Link>
         </div>
       </section>
 
-      {/* Mechanism deep dive */}
-      <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Mechanism</p>
-        <h2 className="text-3xl font-semibold tracking-tight text-ink">Four different tools for four different sleep problems</h2>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="card-premium p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">Melatonin</h3>
-            <ul className="text-sm leading-7 text-muted space-y-2">
-              <li><strong className="text-ink">MT1/MT2 receptor agonism:</strong> Binds melatonin receptors in the suprachiasmatic nucleus — shifts the circadian clock signal toward sleep</li>
-              <li><strong className="text-ink">Not a sedative:</strong> Does not cause sedation or hypnotic GABA activity at physiological doses — it signals timing, not depth</li>
-              <li><strong className="text-ink">Dose matters critically:</strong> Most commercial products contain 3–10 mg, far above the physiological 0.3–1 mg range shown to be effective without causing receptor desensitization or morning grogginess</li>
-              <li><strong className="text-ink">Endogenous suppression:</strong> Exogenous melatonin can suppress pineal production if taken chronically at high doses — use the lowest effective dose</li>
-            </ul>
+      <section className="card-premium max-w-5xl space-y-5 p-6">
+        <p className="eyebrow-label">Safety is ingredient-specific</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-ink">Interaction and health-condition boundaries should not disappear in a comparison</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm leading-7 text-muted">
+            <strong className="text-ink">Melatonin:</strong> short-term use appears safe for many adults, but long-term safety is uncertain. NCCIH says people with epilepsy or taking blood thinners need medical supervision, pregnancy/breastfeeding safety data are limited, and daytime drowsiness can occur.
           </div>
-
-          <div className="card-premium p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">Magnesium</h3>
-            <ul className="text-sm leading-7 text-muted space-y-2">
-              <li><strong className="text-ink">NMDA voltage block:</strong> Mg²⁺ is an endogenous blocker of NMDA ion channels — prevents glutamate over-excitation that keeps the nervous system aroused</li>
-              <li><strong className="text-ink">GABA co-factor:</strong> Required for GABA receptor function and GABA synthesis; deficiency reduces GABAergic tone</li>
-              <li><strong className="text-ink">Melatonin co-factor:</strong> Required for pineal serotonin → melatonin conversion — magnesium deficiency can reduce endogenous melatonin output</li>
-              <li><strong className="text-ink">HPA axis:</strong> Bidirectional relationship with cortisol — depletion increases cortisol reactivity; repletion supports HPA normalization over weeks</li>
-            </ul>
+          <div className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm leading-7 text-muted">
+            <strong className="text-ink">Magnesium:</strong> high supplemental intake can cause diarrhea, nausea, and cramping, while toxicity risk rises with impaired kidney function. Magnesium can interfere with oral bisphosphonates and tetracycline/quinolone antibiotics. Levothyroxine labeling also warns that magnesium-containing antacids can reduce thyroid-hormone absorption, so medication timing should be reviewed rather than guessed.
           </div>
-
-          <div className="card-premium p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">L-Theanine</h3>
-            <ul className="text-sm leading-7 text-muted space-y-2">
-              <li><strong className="text-ink">Glutamate receptor modulation:</strong> Structurally similar to glutamate; competes at AMPA, kainate, and NMDA receptor binding sites — reduces excitatory tone acutely</li>
-              <li><strong className="text-ink">Alpha-wave induction:</strong> EEG studies consistently show significant alpha-wave increase within 45 minutes — the electrophysiological signature of calm alertness, helpful for transitioning to sleep</li>
-              <li><strong className="text-ink">GABA promotion:</strong> Increases GABA levels; mechanism not fully characterized but replicated across multiple studies</li>
-              <li><strong className="text-ink">Half-life ~1 hour:</strong> Short acting — useful for sleep onset rather than sleep maintenance; non-sedating at typical doses</li>
-            </ul>
+          <div className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm leading-7 text-muted">
+            <strong className="text-ink">L-theanine:</strong> the sleep meta-analysis does not establish comprehensive long-term or interaction safety for every pure or combination product. A lack of a highlighted interaction in a sleep trial should not be translated into “interaction-free,” especially when other sedating products or medicines are involved.
           </div>
-
-          <div className="card-premium p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">Valerian Root</h3>
-            <ul className="text-sm leading-7 text-muted space-y-2">
-              <li><strong className="text-ink">GABA reuptake inhibition:</strong> Valerenic acid inhibits GABA transaminase and GABA reuptake, increasing synaptic GABA availability</li>
-              <li><strong className="text-ink">GABA-A partial agonism:</strong> Some evidence for direct GABA-A receptor binding at low efficacy — a mild benzodiazepine-adjacent mechanism without the potency or dependency risk</li>
-              <li><strong className="text-ink">Adenosine pathway:</strong> May also interact with adenosine receptors involved in sleep pressure accumulation — less well characterized</li>
-              <li><strong className="text-ink">Inconsistent active constituent standardization:</strong> Valerenic acid content varies widely across products, contributing to inconsistent trial results</li>
-            </ul>
+          <div className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm leading-7 text-muted">
+            <strong className="text-ink">Valerian:</strong> NCCIH says long-term safety is unknown and advises against combining valerian with alcohol or sedatives because a sleep-inducing effect is possible. Pregnancy/breastfeeding safety is also poorly characterized.
           </div>
         </div>
+      </section>
 
-        <div className="rounded-2xl bg-stone-50 border border-stone-200 p-5 text-sm leading-7 text-muted">
-          <p className="font-semibold text-ink">The core distinction</p>
-          <p className="mt-2">
-            Melatonin is a timing signal. It does not relax you — it tells your brain it is night.
-            The three botanical/mineral options work through GABAergic and glutamatergic mechanisms
-            to reduce nervous system arousal. If your sleep problem is about when you sleep, melatonin
-            may help. If it is about the quality of sleep or difficulty winding down, the others are
-            more likely to address the root cause.
+      <section className="card-premium max-w-5xl space-y-5 p-6">
+        <p className="eyebrow-label">Combination evidence</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-ink">Four ingredient literatures do not create a validated sleep stack</h2>
+        <div className="space-y-3 text-sm leading-7 text-muted">
+          <p>
+            Separate trials of melatonin, magnesium, L-theanine, and valerian do not prove that a particular pair or four-ingredient combination is synergistic, more effective, or safer. A combination is a new intervention with its own interaction and attribution problems.
+          </p>
+          <p>
+            This page therefore does not recommend “melatonin + L-theanine,” “magnesium + L-theanine,” or a sequence in which readers try one product and save another for later. Direct combination evidence is required before a stack can inherit the claims of its ingredients.
+          </p>
+        </div>
+        <Link href="/guides/sleep/sleep-stack-guide/" className="chip-readable">Sleep stack evidence guide →</Link>
+      </section>
+
+      <section className="card-premium max-w-5xl space-y-5 p-6">
+        <p className="eyebrow-label">Chronic insomnia</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-ink">Supplements are not the first-line evidence standard</h2>
+        <div className="space-y-3 text-sm leading-7 text-muted">
+          <p>
+            The American Academy of Sleep Medicine describes cognitive behavioral therapy for insomnia (CBT-I) as the first-line, evidence-based treatment for chronic insomnia. A supplement comparison should not obscure that stronger evidence base.
+          </p>
+          <p>
+            Persistent insomnia can also be driven by sleep apnea, restless legs, circadian disorders, medication effects, mood disorders, substance use, pain, or insufficient sleep opportunity. Loud snoring or gasping, dangerous daytime sleepiness, persistent insomnia, or severe mood symptoms are reasons to seek assessment rather than escalating supplements.
           </p>
         </div>
       </section>
 
-      {/* Evidence section */}
-      <section className="card-premium p-6 space-y-6 max-w-4xl">
-        <p className="eyebrow-label">Evidence</p>
-        <h2 className="text-3xl font-semibold tracking-tight text-ink">What the research shows</h2>
+      <section className="card-premium max-w-5xl space-y-5 p-6">
+        <p className="eyebrow-label">Product sourcing</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Why this broad comparison does not rank products</h2>
+        <p className="text-sm leading-7 text-muted">
+          Study preparations, supplement labels, and commercial products are not automatically interchangeable. This broad comparison intentionally does not rank affiliate products or direct readers to a “best” melatonin, magnesium, L-theanine, or valerian product. Ingredient-specific pages are the better place to evaluate preparation matching and quality signals.
+        </p>
+      </section>
 
-        <div className="space-y-6 text-sm leading-7 text-muted">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-bold text-green-800">Grade A</span>
-              <span className="font-semibold text-ink">Melatonin for circadian sleep problems</span>
+      <section className="card-premium max-w-5xl space-y-5 p-6">
+        <p className="eyebrow-label">Frequently asked questions</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Sleep supplement FAQ</h2>
+        <div className="space-y-5">
+          {FAQS.map((faq) => (
+            <div key={faq.question} className="border-l-4 border-brand-600 pl-4">
+              <h3 className="font-semibold text-ink">{faq.question}</h3>
+              <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
             </div>
-            <ul className="space-y-3">
-              <li>
-                <strong className="text-ink">Ferracioli-Oda et al. 2013</strong> (PLoS ONE, PMID: 23691095):
-                Meta-analysis of 19 randomized trials. Melatonin significantly reduced sleep onset
-                latency (weighted mean difference −7.06 min), increased sleep duration, and improved
-                overall sleep quality. Effect sizes strongest for circadian-related sleep disorders
-                (jet lag, shift work, delayed sleep phase) versus primary insomnia.
-              </li>
-              <li>
-                <strong className="text-ink">Brzezinski et al. 2005</strong> (Sleep Med Rev):
-                Low physiological doses (0.3–1 mg) effectively shift circadian phase and improve sleep
-                with fewer next-day effects than pharmacological doses (3–10 mg). High commercial doses
-                saturate MT1/MT2 receptors without additional benefit.
-              </li>
-            </ul>
-          </div>
-
-          <div className="border-t border-black/10 pt-5">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-bold text-yellow-800">Grade B–C</span>
-              <span className="font-semibold text-ink">Magnesium for sleep quality</span>
-            </div>
-            <ul className="space-y-3">
-              <li>
-                <strong className="text-ink">Abbasi et al. 2012</strong> (J Res Med Sci, PMID: 23853635):
-                Magnesium 500 mg/day for 8 weeks in elderly insomnia patients. Significantly improved
-                Insomnia Severity Index, sleep efficiency, sleep time, sleep onset latency, serum
-                melatonin, and cortisol. Strong effects — but in a magnesium-deficient elderly population;
-                generalizability to healthy younger adults is limited.
-              </li>
-              <li>
-                <strong className="text-ink">Schwalfenberg &amp; Genuis 2017</strong> (Scientifica, PMID: 28748216):
-                Review of magnesium in health and disease. Confirms melatonin synthesis co-factor role
-                and GABAergic mechanisms; contextualizes widespread population insufficiency.
-              </li>
-              <li className="text-xs text-muted/70">
-                Grade B–C rationale: Mechanistically compelling and directionally consistent, but most
-                trials are in deficient or elderly populations. Evidence for non-deficient healthy adults
-                is weaker. Effects build over weeks — not an acute sleep intervention.
-              </li>
-            </ul>
-          </div>
-
-          <div className="border-t border-black/10 pt-5">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-bold text-green-800">Grade B</span>
-              <span className="font-semibold text-ink">L-Theanine for sleep onset</span>
-            </div>
-            <ul className="space-y-3">
-              <li>
-                <strong className="text-ink">Nobre et al. 2008</strong> (Asia Pac J Clin Nutr, PMID: 18296328):
-                L-theanine 250 mg produced significant alpha-wave increases within 45 minutes in healthy
-                volunteers. Alpha-wave activity correlates with the subjective experience of relaxed
-                alertness that supports sleep transition — without sedation.
-              </li>
-              <li>
-                <strong className="text-ink">Hidese et al. 2019</strong> (Nutrients, PMID: 31623400):
-                L-theanine 200 mg/day for 4 weeks in healthy adults. Improved sleep latency, sleep quality,
-                and next-day alertness scores on PSQI. Well-tolerated; no adverse events. Direct sleep
-                endpoint data rather than just mechanism proxies.
-              </li>
-            </ul>
-          </div>
-
-          <div className="border-t border-black/10 pt-5">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-bold text-red-800">Grade C</span>
-              <span className="font-semibold text-ink">Valerian for sleep</span>
-            </div>
-            <ul className="space-y-3">
-              <li>
-                <strong className="text-ink">Bent et al. 2006</strong> (Am J Med, PMID: 16427424):
-                Systematic review of 16 eligible studies. Valerian may improve sleep quality without
-                producing side effects — but evidence is insufficient to confirm efficacy. Most studies
-                had methodological limitations including poor blinding and inconsistent outcome measures.
-              </li>
-              <li>
-                <strong className="text-ink">Koetter et al. 2007</strong> (Phytother Res, PMID: 17676834):
-                Fixed valerian–hops combination improved sleep quality versus placebo at 4 weeks.
-                Combination products may perform better than valerian alone — the hops component adds
-                complementary mechanisms.
-              </li>
-              <li className="text-xs text-muted/70">
-                Grade C rationale: Mechanistically plausible, traditionally supported, but human RCT
-                evidence is inconsistent across studies, with variable standardization and small effect
-                sizes in better-designed trials.
-              </li>
-            </ul>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Dosing */}
-      <section className="grid gap-6 lg:grid-cols-2 max-w-5xl">
-        <div className="card-premium p-6 space-y-3">
-          <p className="eyebrow-label">Dosing</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Melatonin</h2>
-          <ul className="text-sm leading-7 text-muted space-y-2">
-            <li><strong className="text-ink">Physiological dose:</strong> 0.3–1 mg — this is the dose that mimics natural pineal output and has the strongest circadian evidence</li>
-            <li><strong className="text-ink">Common commercial dose:</strong> 3–10 mg — effective but often more than necessary; increases risk of next-morning grogginess and receptor desensitization</li>
-            <li><strong className="text-ink">Timing:</strong> 30–60 minutes before desired sleep time; for jet lag, match destination local sleep schedule</li>
-            <li><strong className="text-ink">Avoid:</strong> Nightly use at high doses long-term; this may suppress pineal output over time</li>
-            <li><strong className="text-ink">Not for:</strong> Underlying anxiety, physical tension, or poor sleep architecture — melatonin does not fix these</li>
-          </ul>
-        </div>
-
-        <div className="card-premium p-6 space-y-3">
-          <p className="eyebrow-label">Dosing</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Magnesium Glycinate</h2>
-          <ul className="text-sm leading-7 text-muted space-y-2">
-            <li><strong className="text-ink">Sleep/anxiety:</strong> 200–400 mg elemental magnesium (check label — elemental content is lower than total capsule weight)</li>
-            <li><strong className="text-ink">Timing:</strong> 30–60 minutes before bed for sleep use</li>
-            <li><strong className="text-ink">Start low:</strong> 100–200 mg elemental to assess GI tolerance; increase over 1–2 weeks</li>
-            <li><strong className="text-ink">Form matters:</strong> Glycinate or bisglycinate for absorption and low GI impact; avoid oxide</li>
-            <li><strong className="text-ink">Timeline:</strong> Full effects build over weeks of consistent daily use — not an acute sleep aid</li>
-            <li><strong className="text-ink">NIH tolerable upper limit:</strong> 350 mg supplemental per day (above dietary intake)</li>
-          </ul>
-        </div>
-
-        <div className="card-premium p-6 space-y-3">
-          <p className="eyebrow-label">Dosing</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">L-Theanine</h2>
-          <ul className="text-sm leading-7 text-muted space-y-2">
-            <li><strong className="text-ink">Sleep onset:</strong> 100–400 mg, 30–60 minutes before bed; lower end (100–200 mg) is often sufficient</li>
-            <li><strong className="text-ink">Hidese et al. dose:</strong> 200 mg/day was effective for sleep quality improvements</li>
-            <li><strong className="text-ink">Tolerance:</strong> No evidence of tolerance or dependency; can be used as-needed or daily</li>
-            <li><strong className="text-ink">No sedation:</strong> Does not cause drowsiness — works by quieting mental chatter, not inducing pharmacological sleep</li>
-            <li><strong className="text-ink">Safety ceiling:</strong> GRAS status; no significant adverse events at doses up to 400 mg/day in clinical literature</li>
-          </ul>
-        </div>
-
-        <div className="card-premium p-6 space-y-3">
-          <p className="eyebrow-label">Dosing</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Valerian Root</h2>
-          <ul className="text-sm leading-7 text-muted space-y-2">
-            <li><strong className="text-ink">Standard dose range:</strong> 300–600 mg of valerian root extract, 30–60 minutes before bed</li>
-            <li><strong className="text-ink">Standardization:</strong> Look for products standardized to 0.8% valerenic acid; unstandardized root powder results are highly variable</li>
-            <li><strong className="text-ink">Short-term use:</strong> Most trials ran 4–6 weeks; long-term safety data beyond this window is limited</li>
-            <li><strong className="text-ink">Morning drowsiness:</strong> May cause residual sedation at higher doses — start low and evaluate response before increasing</li>
-            <li><strong className="text-ink">Combination products:</strong> May perform better with hops (Humulus lupulus) — look for fixed-ratio combination extracts</li>
-          </ul>
-        </div>
+      <section id="sources" className="card-premium max-w-5xl space-y-5 p-6">
+        <p className="eyebrow-label">Sources</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Current evidence anchors</h2>
+        <ol className="space-y-4">
+          {SOURCES.map((source, index) => (
+            <li key={source.href} className="text-sm leading-7 text-muted">
+              <span className="font-semibold text-ink">{index + 1}. </span>
+              <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">{source.label}</a>
+              <span> — {source.note}</span>
+            </li>
+          ))}
+        </ol>
       </section>
 
-      {/* Safety */}
-      <section className="card-premium p-6 space-y-5 max-w-5xl">
-        <p className="eyebrow-label">Safety</p>
-        <h2 className="text-3xl font-semibold tracking-tight text-ink">What to know before using each</h2>
+      <FAQSchema pagePath="/guides/compare/sleep-herbs-vs-melatonin/" questions={FAQS} />
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-ink">Melatonin</h3>
-            <ul className="text-sm leading-7 text-muted space-y-2">
-              <li><strong className="text-ink">Dose is the main concern.</strong> High commercial doses (5–10 mg) cause next-morning grogginess and may suppress pineal output with chronic use. Keep to 0.3–1 mg when possible.</li>
-              <li><strong className="text-ink">Children and adolescents:</strong> Use only under clinical guidance — melatonin affects reproductive and developmental hormones and the long-term pediatric data is limited.</li>
-              <li><strong className="text-ink">Autoimmune conditions:</strong> Melatonin has immune-modulating effects; use with caution if managing an autoimmune condition or taking immunosuppressants.</li>
-              <li><strong className="text-ink">Pregnancy/nursing:</strong> Insufficient safety data; conservative avoidance is reasonable.</li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-ink">Magnesium</h3>
-            <ul className="text-sm leading-7 text-muted space-y-2">
-              <li><strong className="text-ink">Kidney disease: key contraindication.</strong> Magnesium is renally cleared; CKD patients cannot excrete excess and are at risk for hypermagnesemia. Do not supplement without clinician clearance.</li>
-              <li><strong className="text-ink">Medication spacing:</strong> Space 2+ hours from quinolone antibiotics, tetracyclines, bisphosphonates, and levothyroxine — magnesium reduces their absorption.</li>
-              <li><strong className="text-ink">GI effects:</strong> Glycinate is unlikely to cause diarrhea at typical doses. Avoid oxide and citrate in higher doses.</li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-ink">L-Theanine</h3>
-            <ul className="text-sm leading-7 text-muted space-y-2">
-              <li><strong className="text-ink">Excellent safety profile.</strong> GRAS status; no significant adverse events at clinical doses.</li>
-              <li><strong className="text-ink">Additive GABAergic effect:</strong> May mildly potentiate benzodiazepines, alcohol, or other GABAergic drugs — unlikely to be problematic at typical doses but worth noting.</li>
-              <li><strong className="text-ink">Prescription sleep medications:</strong> Avoid combining high-dose L-theanine with zolpidem, eszopiclone, or similar drugs without medical guidance.</li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-ink">Valerian Root</h3>
-            <ul className="text-sm leading-7 text-muted space-y-2">
-              <li><strong className="text-ink">Drug interactions:</strong> GABAergic mechanism means additive potential with benzodiazepines, alcohol, barbiturates, and central nervous system depressants. Do not combine with prescription sleep medications without medical oversight.</li>
-              <li><strong className="text-ink">Liver:</strong> Rare case reports of hepatotoxicity; mechanism unclear. Avoid prolonged high-dose use or if you have underlying liver disease.</li>
-              <li><strong className="text-ink">Surgery:</strong> Discontinue 2+ weeks before elective surgery due to CNS depressant interaction risk with anesthesia.</li>
-              <li><strong className="text-ink">Pregnancy:</strong> Insufficient safety data; avoid during pregnancy.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="flex flex-wrap gap-3 pt-2">
-          <Link href="/safety-checker/" className="chip-readable">Check Your Medication Interactions</Link>
-          <Link href="/info/dosing/" className="chip-readable">Dosing Guidance</Link>
+      <section className="card-premium max-w-4xl space-y-5 p-6">
+        <p className="eyebrow-label">Related evidence guides</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Link href="/guides/sleep/ashwagandha-for-sleep/" className="chip-readable">Ashwagandha for sleep →</Link>
+          <Link href="/guides/sleep/l-theanine-for-sleep/" className="chip-readable">L-theanine for sleep →</Link>
+          <Link href="/guides/sleep/best-herbs-for-sleep/" className="chip-readable">Best herbs for sleep →</Link>
+          <Link href="/guides/sleep/sleep-stack-guide/" className="chip-readable">Sleep stack evidence →</Link>
         </div>
       </section>
-
-      {/* Stacking guide */}
-      <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Stacking Guide</p>
-        <h2 className="text-3xl font-semibold tracking-tight text-ink">How to combine them safely</h2>
-
-        <div className="grid gap-5 md:grid-cols-2">
-          <div className="card-premium p-5 space-y-3">
-            <p className="eyebrow-label">Best Evidence Stack</p>
-            <h3 className="text-xl font-semibold text-ink">L-Theanine + Magnesium Glycinate</h3>
-            <p className="text-sm leading-7 text-muted">
-              The most evidence-supported natural sleep combination. L-theanine (100–200 mg) quiets
-              racing thoughts at sleep onset; magnesium glycinate (200–300 mg elemental) supports
-              sleep depth, melatonin synthesis, and physical relaxation over consistent use. They address
-              complementary phases of sleep transition. Start each individually before combining.
-            </p>
-          </div>
-
-          <div className="card-premium p-5 space-y-3">
-            <p className="eyebrow-label">Circadian Reset Stack</p>
-            <h3 className="text-xl font-semibold text-ink">Low-dose Melatonin + L-Theanine</h3>
-            <p className="text-sm leading-7 text-muted">
-              For jet lag, delayed schedule, or shift work patterns: melatonin (0.3–1 mg) shifts the
-              circadian signal; L-theanine (100–200 mg) helps quiet the mind that may still be running
-              at full alertness when the schedule says it should be sleeping. Useful when the problem
-              is both timing and mental arousal.
-            </p>
-          </div>
-
-          <div className="card-premium p-5 space-y-3">
-            <p className="eyebrow-label">Foundational Sleep Protocol</p>
-            <h3 className="text-xl font-semibold text-ink">Daily Magnesium + As-needed L-Theanine</h3>
-            <p className="text-sm leading-7 text-muted">
-              Magnesium glycinate daily (long-term sleep architecture and HPA axis support). L-theanine
-              reserved for nights when mental chatter is the specific barrier — high-stress periods,
-              before important events, or when anxiety is elevated. This uses each compound at its
-              correct timescale.
-            </p>
-          </div>
-
-          <div className="card-premium p-5 space-y-3">
-            <p className="eyebrow-label">What to Avoid</p>
-            <h3 className="text-xl font-semibold text-ink">Do not stack without clinician guidance</h3>
-            <p className="text-sm leading-7 text-muted">
-              Do not combine valerian or L-theanine with prescription benzodiazepines, zolpidem,
-              eszopiclone, or similar sleep medications without medical oversight. The additive GABAergic
-              effect may be clinically meaningful. Report all supplement use to your prescriber — supplements
-              are biologically active even when sold over the counter.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="card-premium p-6 space-y-5 max-w-4xl">
-        <p className="eyebrow-label">FAQ</p>
-        <h2 className="text-3xl font-semibold tracking-tight text-ink">Common questions</h2>
-
-        <div className="space-y-5 text-sm leading-7 text-muted">
-          <div>
-            <h3 className="text-lg font-semibold text-ink">Is melatonin better than magnesium for sleep?</h3>
-            <p>
-              They work on completely different problems. Melatonin is better when your sleep problem is
-              about timing — jet lag, shift work, or a delayed sleep phase. Magnesium is better when
-              your problem is about quality — poor sleep depth, frequent waking, or physical tension.
-              If both are issues, they can be used together.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-ink">Is 10 mg melatonin safe?</h3>
-            <p>
-              10 mg is far above the physiological dose shown to be effective. Research supports 0.3–1 mg
-              as sufficient for circadian effects. High doses increase the risk of next-day grogginess,
-              vivid dreams, and may suppress the pineal gland's natural production with chronic use.
-              Start lower than you think you need.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-ink">Can you take L-theanine and melatonin together?</h3>
-            <p>
-              Yes — they work through entirely different pathways and are not antagonistic. L-theanine
-              addresses mental arousal; melatonin addresses circadian timing. Combining them for nights
-              when both a shifted schedule and mental chatter are problems is a reasonable approach at
-              typical doses. Start each individually first to understand your response.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-ink">Does valerian root actually work?</h3>
-            <p>
-              The evidence is mixed. Mechanistically it is plausible — valerenic acid inhibits GABA
-              breakdown, which should support sleep. But clinical trials show inconsistent results,
-              partly because valerian root products vary widely in standardization. Combination products
-              with hops have somewhat better trial support. It is not a first-line recommendation,
-              but it may be worth trying if better-evidenced options have not helped.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-ink">What is the best natural sleep supplement?</h3>
-            <p>
-              There is no single best — it depends on what is causing the sleep problem. For most people
-              with non-circadian sleep issues (anxiety, tension, poor depth), starting with magnesium
-              glycinate daily and L-theanine as needed is the most evidence-supported, safest combination.
-              Melatonin at low doses is appropriate for jet lag or schedule misalignment. Valerian is
-              reasonable to try as an add-on if the first-tier options are insufficient.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <FAQSchema
-        pagePath="/guides/compare/sleep-herbs-vs-melatonin/"
-        questions={[
-          { question: 'Is melatonin better than magnesium for sleep?', answer: 'They work on different systems. Melatonin signals your circadian clock (\'it\'s time to sleep\'), while magnesium supports muscle relaxation and GABA activity (\'your body is ready to rest\'). For sleep-onset insomnia, melatonin may be more direct. For tension-driven sleep issues, magnesium is often more appropriate. Many people benefit from both.' },
-          { question: 'Is 10 mg melatonin safe?', answer: '10 mg is far above the physiological dose (~0.3 mg) and can cause next-day grogginess, vivid dreams, and hormone disruption with chronic use. Clinical trials show 0.3-1 mg is effective for sleep onset. Higher doses have not proven more effective and increase side effect risk.' },
-          { question: 'Can you take L-theanine and melatonin together?', answer: 'Yes, they have complementary mechanisms with no known negative interactions. L-theanine promotes relaxation via alpha-wave activity and glutamate modulation without sedation, while melatonin signals sleep timing. This is a common and well-tolerated stack for sleep.' },
-          { question: 'Does valerian root actually work?', answer: 'Evidence is mixed and methodologically limited. Some studies show modest improvements in sleep latency and quality, likely via GABA modulation, but many trials are small and unblinded. Valerian has a strong safety record and some people report clear benefit; others notice nothing.' },
-          { question: 'What is the best natural sleep supplement?', answer: 'There is no single best — effectiveness depends on your sleep problem. Sleep-onset issues may respond to melatonin; tension-driven issues to magnesium glycinate; racing thoughts to L-theanine. A magnesium + L-theanine combination is the most broadly applicable starting point with the strongest safety profile.' },
-        ]}
-      />
 
       <EnhancedEmailCapture
         headline="Sleep supplement research — evidence, not hype"
-        description="Get evidence-graded analysis of melatonin, magnesium, L-theanine, and valerian — including dosing context, mechanism explainers, and how to build a sleep stack that matches your actual sleep problem."
-        benefit1="Melatonin dose reality: why less is often more, and when to use it"
-        benefit2="Sleep stack protocol: L-theanine + magnesium timing, forms, and dose guidance"
-        benefit3="Mechanism explainers: GABA, NMDA, and circadian biology in plain language"
+        description="Get evidence-calibrated sleep and supplement updates without universal bedtime recipes or stack claims."
+        benefit1="What new sleep trials actually studied"
+        benefit2="Where supplement evidence ends and stronger insomnia care begins"
+        benefit3="Safety, interaction, and product-quality context"
         ctaLabel="Join the list"
         location="compare-sleep-herbs-vs-melatonin"
       />
 
-      <RelatedDiscoveryWidget
-        heading="Explore sleep and calm further"
-        subheading="Compound profiles, mechanism education, and comparison guides for the sleep cluster."
-        items={[
-          {
-            type: 'guide',
-            label: 'Comparison',
-            title: 'L-Theanine vs Magnesium',
-            description: 'Acute calm focus vs systemic mineral support — mechanisms, stacking, and dosing for anxiety and sleep.',
-            href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium',
-          },
-          {
-            type: 'guide',
-            label: 'Comparison',
-            title: 'Magnesium Glycinate vs L-Threonate for Sleep',
-            description: 'When the more expensive threonate form is worth it — sleep vs cognition positioning.',
-            href: '/guides/sleep/magnesium-types-for-sleep',
-          },
-          {
-            type: 'guide',
-            label: 'Comparison',
-            title: 'Magnesium Glycinate vs Oxide',
-            description: 'Why form matters: bioavailability explained, and why oxide is not a useful sleep supplement.',
-            href: '/guides/sleep/magnesium-types-for-sleep',
-          },
-          {
-            type: 'guide',
-            label: 'Goal Guide',
-            title: 'Sleep Goals',
-            description: 'Map your sleep issue to the right supplement — onset, depth, anxiety, or recovery.',
-            href: '/guides/sleep',
-          },
-          {
-            type: 'guide',
-            label: 'Education',
-            title: 'GABA Pathway',
-            description: 'How GABA works, why it matters for calm and sleep, and which supplements modulate it.',
-            href: '/learn/gaba',
-          },
-          {
-            type: 'guide',
-            label: 'Education',
-            title: 'How Sleep Affects Neurochemistry',
-            description: 'The biology of why sleep deprivation impairs cognition, mood, and recovery.',
-            href: '/learn/how-sleep-affects-neurochemistry',
-          },
-        ]}
-      />
-
-      <div className="space-y-3">
-        <AffiliateDisclosure />
-        <RecommendationSection
-          title="Sleep supplement product picks"
-          description="Affiliate recommendations for melatonin, magnesium, L-theanine, and valerian. Review safety, form, dose, and timing guidance on each compound page before buying."
-          products={allProducts}
-        />
-      </div>
-
-      <div className="flex flex-wrap gap-3">
-        <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="chip-readable">L-Theanine vs Magnesium</Link>
-        <Link href="/guides/sleep/magnesium-types-for-sleep/" className="chip-readable">Magnesium Glycinate vs L-Threonate</Link>
-        <Link href="/guides/sleep/magnesium-types-for-sleep/" className="chip-readable">Magnesium Glycinate vs Oxide</Link>
-        <Link href="/guides/sleep/" className="chip-readable">Sleep Goals</Link>
-        <Link href="/learn/gaba/" className="chip-readable">GABA Pathway</Link>
-        <Link href="/guides/compare/" className="chip-readable">All Comparisons</Link>
-      </div>
-      <ConversionStickyCTA
-        brand={melatoninProducts[0]?.brand}
-        name={melatoninProducts[0]?.title}
-        href={melatoninProducts[0]?.affiliateUrl || '#'}
-      />
-      <References refs={SLEEP_HERBS_VS_MELATONIN_REFS} />
+      <p className="max-w-4xl text-xs leading-6 text-muted">Last evidence review: {UPDATED_DATE}</p>
     </div>
   )
 }
