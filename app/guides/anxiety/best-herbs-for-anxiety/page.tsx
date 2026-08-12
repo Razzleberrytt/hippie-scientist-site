@@ -15,12 +15,12 @@ const DATE = '2026-08-11'
 export const metadata: Metadata = {
   title: 'Best Herbs for Anxiety: What the Evidence Supports in 2026',
   description:
-    'Evidence-first comparison of ashwagandha, oral Silexan lavender oil, passionflower, kava, lemon balm, and chamomile for anxiety, with directness and safety limits.',
+    'Evidence-first comparison of ashwagandha, oral Silexan lavender oil, passionflower, and kava for anxiety, with directness, funding, and safety limits.',
   alternates: { canonical: '/guides/anxiety/best-herbs-for-anxiety/' },
   openGraph: {
     title: 'Best Herbs for Anxiety: What the Evidence Supports in 2026',
     description:
-      'Compare anxiety herbs by direct human evidence, formulation, duration, and safety instead of same-day rankings or universal winners.',
+      'Compare anxiety herbs by direct human evidence, formulation, duration, funding context, and safety instead of same-day rankings or universal winners.',
     url: '/guides/anxiety/best-herbs-for-anxiety/',
     type: 'article',
     images: ['/og-default.jpg'],
@@ -31,7 +31,7 @@ const FAQS = [
   {
     question: 'Which herb has the strongest direct anxiety evidence?',
     answer:
-      'There is no universal best herb. Among the options on this page, the most direct anxiety-disorder trial program belongs to Silexan, a proprietary oral lavender-oil preparation studied at defined doses over 10 weeks. That evidence does not automatically apply to lavender tea, aromatherapy, raw essential oil, or every lavender supplement. Ashwagandha has a repeated-dose stress/anxiety signal, but its evidence is formulation-specific and often comes from adults with elevated stress rather than a single anxiety diagnosis.',
+      'There is no universal best herb. Among the options on this page, the most direct anxiety-disorder trial program belongs to Silexan, a proprietary oral lavender-oil preparation studied at defined doses over 10 weeks. That evidence does not automatically apply to lavender tea, aromatherapy, raw essential oil, or every lavender supplement. The 2023 meta-analysis also reports that its five included trials were completed by the Silexan manufacturer, and the research and publication were financially supported by that manufacturer, so funding and author ties are an important interpretation limit. Ashwagandha has a repeated-dose stress/anxiety signal, but its evidence is formulation-specific and often comes from adults with elevated stress rather than a single anxiety diagnosis.',
   },
   {
     question: 'Is passionflower proven to work as well as oxazepam?',
@@ -59,7 +59,7 @@ const SOURCES = [
   {
     label: 'Silexan meta-analysis of randomized placebo-controlled anxiety trials (2023)',
     href: 'https://pubmed.ncbi.nlm.nih.gov/36717399/',
-    note: 'Five double-blind placebo-controlled trials; 1,213 adult outpatients received the proprietary oral lavender-oil preparation Silexan 80 mg/day or placebo for 10 weeks.',
+    note: 'Five double-blind placebo-controlled trials; 1,213 adult outpatients received Silexan 80 mg/day or placebo for 10 weeks. The paper states the included trials were completed by the manufacturer and that the research/publication were financially supported by Dr. Willmar Schwabe GmbH & Co. KG; one author was a company employee and multiple authors disclosed Schwabe ties.',
   },
   {
     label: 'Silexan randomized trial in generalized anxiety disorder (2014)',
@@ -124,7 +124,7 @@ export default function BestHerbsForAnxietyPage() {
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Best Herbs for Anxiety: What the Evidence Supports in 2026"
-        description="Evidence-first comparison of ashwagandha, Silexan lavender oil, passionflower, kava, lemon balm, and chamomile for anxiety."
+        description="Evidence-first comparison of ashwagandha, Silexan lavender oil, passionflower, and kava for anxiety."
         datePublished="2026-06-16"
         dateModified={DATE}
         breadcrumbs={[
@@ -139,15 +139,13 @@ export default function BestHerbsForAnxietyPage() {
       <div className="space-y-10">
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
           <p className="eyebrow-label">Anxiety herb evidence guide</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Best Herbs for Anxiety
-          </h1>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Herbs for Anxiety</h1>
           <p className="mt-2 text-xs text-muted">Last evidence review August 11, 2026</p>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
             “Best” is the wrong first question for anxiety herbs. The useful comparison is what was studied
-            directly, in whom, with which preparation, for how long, and what safety limits come with it.
-            This guide keeps formulation-specific evidence separate from broad herb-category claims and does
-            not turn study timing into a same-day treatment promise.
+            directly, in whom, with which preparation, for how long, who funded the evidence, and what safety
+            limits come with it. This guide keeps formulation-specific evidence separate from broad herb-category
+            claims and does not turn study timing into a same-day treatment promise.
           </p>
 
           <div className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-950">
@@ -160,7 +158,7 @@ export default function BestHerbsForAnxietyPage() {
             <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
               <Image
                 src="/images/guides/best-herbs-for-anxiety.jpg"
-                alt="Passionflower, lavender, lemon balm, kava root, and ashwagandha arranged for an evidence comparison"
+                alt="Anxiety-related botanicals arranged for an evidence comparison"
                 width={1536}
                 height={1024}
                 priority
@@ -175,14 +173,14 @@ export default function BestHerbsForAnxietyPage() {
 
         <section id="bottom-line" className="scroll-mt-20 rounded-[1.65rem] border border-brand-700/25 bg-brand-50/60 p-6 shadow-sm">
           <p className="eyebrow-label">Bottom line</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-            The evidence hierarchy is not the same as a “best herb” ranking
-          </h2>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">The evidence hierarchy is not the same as a “best herb” ranking</h2>
           <div className="mt-4 space-y-3 text-sm leading-7 text-muted sm:text-base">
             <p>
-              <strong>Oral Silexan</strong> has the most direct anxiety-disorder trial program among the
-              options compared here, but the evidence belongs to a proprietary oral lavender-oil preparation
-              studied for 10 weeks. It should not be generalized to lavender tea, aromatherapy, or raw essential oil.
+              <strong>Oral Silexan</strong> has the most direct anxiety-disorder trial program among the options
+              compared here, but the evidence belongs to a proprietary oral lavender-oil preparation studied for
+              10 weeks. It should not be generalized to lavender tea, aromatherapy, or raw essential oil. The
+              evidence concentration also needs a funding caveat: the 2023 meta-analysis reports manufacturer-
+              completed trials, manufacturer financial support, a company-employed coauthor, and multiple Schwabe ties.
             </p>
             <p>
               <strong>Ashwagandha</strong> has a meaningful repeated-dose stress/anxiety signal across randomized
@@ -210,7 +208,7 @@ export default function BestHerbsForAnxietyPage() {
                 <tr className="align-top">
                   <td className="p-4 font-semibold text-ink">Silexan oral lavender oil</td>
                   <td className="p-4 text-muted">Five placebo-controlled anxiety trials in 1,213 adult outpatients at 80 mg/day for 10 weeks; additional GAD dose-ranging data exist.</td>
-                  <td className="p-4 text-muted">Evidence is for a proprietary oral preparation, not “lavender” as a class.</td>
+                  <td className="p-4 text-muted">Proprietary preparation; the meta-analysis reports manufacturer-completed trials and manufacturer funding/author ties.</td>
                   <td className="p-4 text-muted">Do not ingest raw essential oil as if it were the studied product.</td>
                 </tr>
                 <tr className="align-top">
@@ -231,12 +229,6 @@ export default function BestHerbsForAnxietyPage() {
                   <td className="p-4 text-muted">The trial did not significantly outperform placebo; the broader efficacy literature is mixed.</td>
                   <td className="p-4 text-muted">Rare severe or fatal liver injury has been linked to kava products; avoid combining kava with benzodiazepines or alcohol.</td>
                 </tr>
-                <tr className="align-top">
-                  <td className="p-4 font-semibold text-ink">Lemon balm / chamomile</td>
-                  <td className="p-4 text-muted">Small or preliminary anxiety studies and traditional-use context exist, but the evidence base is much thinner than the options above.</td>
-                  <td className="p-4 text-muted">Do not convert “calming” plausibility or a tea ritual into evidence for an anxiety disorder.</td>
-                  <td className="p-4 text-muted">Sedation, allergy, medication, and product-specific cautions still apply.</td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -254,9 +246,14 @@ export default function BestHerbsForAnxietyPage() {
               compared 80 mg and 160 mg Silexan with paroxetine and placebo. This is comparatively direct anxiety
               evidence, but it supports the studied oral preparation—not every lavender product.
             </p>
-            <Link href="/compounds/lavender/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
-              Lavender evidence profile →
-            </Link>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              <strong>Funding/conflict boundary:</strong> the meta-analysis states that all five included trials
+              were completed by the manufacturer of Silexan and that the research and publication were financially
+              supported by Dr. Willmar Schwabe GmbH &amp; Co. KG. One coauthor was a company employee, and several
+              authors disclosed Schwabe consulting, honoraria, or other ties. That does not nullify the trials, but
+              it is a material bias boundary when judging how confidently to elevate this program over alternatives.
+            </p>
+            <Link href="/compounds/lavender/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Lavender evidence profile →</Link>
           </article>
 
           <article className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
@@ -267,9 +264,7 @@ export default function BestHerbsForAnxietyPage() {
               trials used defined formulations over repeated dosing, often in adults with stress or anxiety symptoms.
               That supports a multi-week extract signal, not a same-day calming promise or a guarantee for every product.
             </p>
-            <Link href="/guides/anxiety/ashwagandha-for-anxiety/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
-              Ashwagandha for anxiety →
-            </Link>
+            <Link href="/guides/anxiety/ashwagandha-for-anxiety/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Ashwagandha for anxiety →</Link>
           </article>
 
           <article className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
@@ -281,9 +276,7 @@ export default function BestHerbsForAnxietyPage() {
               evidence that passionflower is equivalent to oxazepam, and NCCIH still considers the broader anxiety
               evidence too limited for definite conclusions.
             </p>
-            <Link href="/herbs/passionflower/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
-              Passionflower profile →
-            </Link>
+            <Link href="/herbs/passionflower/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Passionflower profile →</Link>
           </article>
 
           <article className="rounded-[1.65rem] border border-red-200 bg-red-50/70 p-6 shadow-sm">
@@ -295,9 +288,7 @@ export default function BestHerbsForAnxietyPage() {
               products and advises against combining kava with benzodiazepines or alcohol. That combination of
               uncertain benefit and potentially serious harm makes a rapid-use kava ranking inappropriate.
             </p>
-            <Link href="/guides/kava/" className="mt-3 inline-block text-sm font-semibold text-red-900 hover:underline">
-              Kava safety guide →
-            </Link>
+            <Link href="/guides/kava/" className="mt-3 inline-block text-sm font-semibold text-red-900 hover:underline">Kava safety guide →</Link>
           </article>
         </section>
 
@@ -331,9 +322,7 @@ export default function BestHerbsForAnxietyPage() {
             {SOURCES.map((source, index) => (
               <li key={source.href} className="text-sm leading-7 text-muted">
                 <span className="font-semibold text-ink">{index + 1}. </span>
-                <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
-                  {source.label}
-                </a>
+                <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">{source.label}</a>
                 <span> — {source.note}</span>
               </li>
             ))}
