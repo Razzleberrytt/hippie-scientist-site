@@ -98,7 +98,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
   let items: { label: string; text: string }[] = []
   let compareLink = ''
 
-  if (slug === 'best-supplements-for-adhd' || slug === 'adhd-stack-guide' || slug === 'magnesium-for-adhd' || slug === 'l-theanine-for-adhd' || slug === 'ashwagandha-for-adhd') {
+  if (slug === 'best-supplements-for-adhd' || slug === 'adhd-stack-guide' || slug === 'magnesium-for-adhd' || slug === 'ashwagandha-for-adhd') {
     cardTitle = 'Comparison: Magnesium vs. L-Theanine'
     cardDesc = 'Both support relaxation, but via entirely different mechanisms. Many adults combine them to address different aspects of cognitive fatigue.'
     items = [
