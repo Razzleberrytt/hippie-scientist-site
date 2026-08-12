@@ -8,6 +8,7 @@ const SOURCE = path.join(
 )
 const REGISTRY = path.join(process.cwd(), 'lib/focus-adhd-articles.ts')
 const RENDERER = path.join(process.cwd(), 'components/articles/FocusAdhdArticlePage.tsx')
+const WIDGETS = path.join(process.cwd(), 'components/articles/AdhdMonetizationWidgets.tsx')
 
 const read = (file: string) =>
   fs.readFileSync(file, 'utf8').replace(/\s+/g, ' ').replace(/\*\*/g, '')
@@ -94,8 +95,9 @@ describe('L-theanine vs caffeine focus evidence calibration', () => {
     expect(registry).toContain('updatedAt: article.updatedAt ?? article.date')
   })
 
-  it('uses the evidence-review date in rendering and removes one-sided L-theanine product ranking', () => {
+  it('uses the evidence-review date and removes stale product/widget recommendations', () => {
     const renderer = read(RENDERER)
+    const widgets = read(WIDGETS)
     const products = renderer.match(/const ADHD_ARTICLE_PRODUCTS:[\s\S]*?\}\s*\/\/ Per-slug hero images/)?.[0] ?? ''
 
     expect(renderer).toContain('const lastUpdated = article.updatedAt ?? article.date')
@@ -104,5 +106,7 @@ describe('L-theanine vs caffeine focus evidence calibration', () => {
     expect(products).not.toContain("'l-theanine-for-adhd': 'l-theanine'")
     expect(products).not.toContain("'l-theanine-vs-caffeine-for-focus': 'l-theanine'")
     expect(renderer).toContain("'l-theanine-vs-caffeine-for-focus': { src: '/images/guides/adhd/adhd-l-theanine-caffeine.jpg'")
+    expect(widgets).not.toMatch(/else if \(slug === 'l-theanine-vs-caffeine-for-focus'\)/)
+    expect(widgets).not.toMatch(/Synergistic Ratio.*2:1 ratio.*200mg L-Theanine to 100mg Caffeine/i)
   })
 })
