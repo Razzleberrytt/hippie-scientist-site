@@ -8,7 +8,7 @@ const PAGE = path.join(
 )
 
 function source() {
-  return fs.readFileSync(PAGE, 'utf8')
+  return fs.readFileSync(PAGE, 'utf8').replace(/\s+/g, ' ')
 }
 
 describe('nighttime stress and anxiety evidence calibration', () => {
@@ -17,10 +17,11 @@ describe('nighttime stress and anxiety evidence calibration', () => {
 
     expect(text).toContain('42410082')
     expect(text).toContain('39348746')
+    expect(text).toContain('41815853')
     expect(text).toContain('www.nccih.nih.gov/health/passionflower')
     expect(text).toContain('new-guideline-supports-behavioral-psychological-treatments-for-insomnia')
     expect(text).toContain('31 randomized trials and 1,168 participants')
-    expect(text).toContain('nine randomized trials and 558 participants')
+    expect(text).toContain('nine randomized placebo-controlled trials and 558 participants')
     expect(text).toContain("const DATE = '2026-08-11'")
   })
 
@@ -56,12 +57,31 @@ describe('nighttime stress and anxiety evidence calibration', () => {
     expect(text).toMatch(/interact with anesthesia/i)
   })
 
+  it('states the direct trial context behind the ashwagandha signal', () => {
+    const text = source()
+
+    expect(text).toMatch(/141 healthy men and women ages 18[–-]65 with moderate stress and anxiety/i)
+    expect(text).toMatch(/8 weeks to 300 mg of a proprietary ashwagandha root extract twice daily/i)
+    expect(text).toMatch(/another root extract, or placebo/i)
+    expect(text).toMatch(/formulation-specific evidence in stressed adults/i)
+  })
+
   it('places chronic insomnia in the CBT-I evidence context', () => {
     const text = source()
 
     expect(text).toMatch(/CBT-I has a strong guideline recommendation/i)
     expect(text).toMatch(/ranked herb list is not an evidence-equivalent replacement/i)
     expect(text).toMatch(/move beyond sleep-hygiene tips and consider CBT-I/i)
+  })
+
+  it('restores an explicit immediate-crisis stop rule', () => {
+    const text = source()
+
+    expect(text).toMatch(/Immediate stop rule/i)
+    expect(text).toMatch(/suicidal thoughts/i)
+    expect(text).toMatch(/thoughts of self-harm/i)
+    expect(text).toMatch(/inability to stay safe/i)
+    expect(text).toMatch(/seek immediate emergency or crisis care/i)
   })
 
   it('preserves monetization and internal evidence discovery without turning products into treatment picks', () => {
