@@ -24,12 +24,16 @@ describe('best herbs for anxiety evidence calibration', () => {
     expect(text).toContain("const DATE = '2026-08-11'")
   })
 
-  it('keeps Silexan evidence formulation-specific', () => {
+  it('keeps Silexan evidence formulation-specific and discloses manufacturer involvement', () => {
     const text = source()
 
     expect(text).toMatch(/proprietary oral lavender-oil preparation/i)
     expect(text).toMatch(/does not automatically apply to lavender tea, aromatherapy, raw essential oil/i)
     expect(text).toMatch(/supports the studied oral preparation—not every lavender product/i)
+    expect(text).toMatch(/all five included trials were completed by the manufacturer/i)
+    expect(text).toMatch(/financially supported by Dr\. Willmar Schwabe GmbH/i)
+    expect(text).toMatch(/One coauthor was a company employee/i)
+    expect(text).toMatch(/multiple authors disclosed Schwabe/i)
   })
 
   it('does not restore same-day herb rankings or overclaim tiny active-comparator data', () => {
@@ -53,6 +57,13 @@ describe('best herbs for anxiety evidence calibration', () => {
     expect(text).toMatch(/Kava did not significantly outperform placebo/i)
     expect(text).toMatch(/rare severe and sometimes fatal liver injury/i)
     expect(text).toMatch(/avoid combining kava with benzodiazepines or alcohol/i)
+  })
+
+  it('keeps the broad comparison limited to options with auditable directness', () => {
+    const text = source()
+
+    expect(text).not.toMatch(/Lemon balm \/ chamomile/i)
+    expect(text).not.toMatch(/small or preliminary anxiety studies and traditional-use context/i)
   })
 
   it('preserves an explicit crisis and medication stop rule', () => {
