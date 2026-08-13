@@ -41,7 +41,7 @@ export default function ConsentBanner() {
             </Link>
             .
             {dnt && (
-              <span className='ml-1 text-amber-300'>DNT/GPC detected: tracking stays off.</span>
+              <span className='mt-1 block text-amber-300'>DNT/GPC detected: tracking stays off.</span>
             )}
           </p>
           <div className='flex shrink-0 flex-wrap items-center justify-end gap-2'>
