@@ -33,7 +33,8 @@ export function TypeBadge({ type }: { type: SearchContentType }) {
 
 export function EvidenceBadge({ grade }: { grade: EvidenceGrade }) {
   return (
-    <span className={clsx(BADGE_BASE, EVIDENCE_STYLES[grade])} title={`Evidence: ${grade}`}>
+    <span className={clsx(BADGE_BASE, EVIDENCE_STYLES[grade])}>
+      <span className="sr-only">Evidence: </span>
       {grade}
     </span>
   )
