@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Berberine vs Metformin',
-  description: 'Berberine vs metformin for blood sugar: evidence-graded comparison of efficacy, safety, drug interactions, and clinical context for metabolic health.',
+  title: 'Berberine vs Metformin for Blood Sugar: Evidence & Safety',
+  description: 'Compare berberine and metformin for blood-sugar outcomes without treating them as equivalents: human evidence, effect size, side effects, interactions, and clinical monitoring.',
   path: '/guides/compare/berberine-vs-metformin/',
 })
 
