@@ -5,7 +5,7 @@ import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Best Supplement Guides by Goal',
+  title: 'Best Supplements by Goal: Evidence & Safety',
   description:
     'Browse evidence-informed best supplement guides for sleep, anxiety, focus, ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
   path: '/guides/best/',
@@ -114,7 +114,7 @@ const workflows = [
 export default function BestSupplementGuidesHub() {
   const schemaGraph = buildGuideHubSchemaGraph({
     path: '/guides/best/',
-    title: 'Best Supplement Guides by Goal',
+    title: 'Best Supplements by Goal: Evidence & Safety',
     description:
       'Browse evidence-informed best supplement guides for sleep, anxiety, focus, ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
     breadcrumbs: [
@@ -122,7 +122,7 @@ export default function BestSupplementGuidesHub() {
       { name: 'Guides', url: `${SITE_URL}/guides/` },
       { name: 'Best Supplement Guides', url: `${SITE_URL}/guides/best/` },
     ],
-    itemListName: 'Best Supplement Guides by Goal',
+    itemListName: 'Best Supplements by Goal: Evidence & Safety',
     items: bestGuides.map((g) => ({ name: g.title, url: g.href })),
   })
 
