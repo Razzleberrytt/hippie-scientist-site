@@ -32,13 +32,16 @@ describe('L-theanine vs caffeine focus evidence calibration', () => {
 
   it('keeps caffeine attention evidence stronger without converting a population safety limit into a focus dose', () => {
     const text = read(SOURCE)
+    const safetySentence = /The FDA notes that 400 mg\/day is an amount not generally associated with negative effects for most adults, but that is a broad population safety reference—not a recommended focus target\./i
 
     expect(text).toMatch(/Caffeine has the stronger direct evidence for an acute attention effect in rested, healthy adults/i)
     expect(text).toMatch(/attention accuracy \(Hedges g = 0\.27\).*reaction time \(g = 0\.28\)/i)
-    expect(text).toMatch(/400 mg\/day is an amount not generally associated with negative effects for most adults/i)
-    expect(text).toMatch(/broad population safety reference—not a recommended focus target/i)
-    expect(text).not.toMatch(/(?:take|use|aim for|target) 400 mg(?:\/day)?(?: of caffeine)? (?:for|to improve) focus/i)
-    expect(text).not.toMatch(/recommended focus dose:?\s*400 mg/i)
+    expect(text).toMatch(safetySentence)
+
+    const withoutSafetySentence = text.replace(safetySentence, '')
+    expect(withoutSafetySentence).not.toMatch(/400 mg(?:\/day)?(?: of caffeine)?.{0,80}(?:recommended|recommendation|target).{0,80}(?:focus|attention|performance)/i)
+    expect(withoutSafetySentence).not.toMatch(/(?:focus|attention|performance).{0,80}(?:recommended|recommendation|target).{0,80}400 mg(?:\/day)?/i)
+    expect(withoutSafetySentence).not.toMatch(/(?:take|use|aim for|target).{0,24}400 mg(?:\/day)?(?: of caffeine)?/i)
   })
 
   it('does not restore a universal L-theanine-caffeine ratio or dosing recipe', () => {
