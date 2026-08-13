@@ -118,7 +118,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
     [close],
   )
 
-  const activeOptionId = search.results.length ? `${optionPrefix}-${activeIndex}` : undefined
+  const activeOptionId = search.results[activeIndex] ? `${optionPrefix}-${activeIndex}` : undefined
 
   useEffect(() => {
     if (!activeOptionId) return
