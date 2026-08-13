@@ -201,9 +201,16 @@ export default function GlobalSearch() {
         </div>
 
         {search.ready && search.results.length === 0 ? (
-          <div className="rounded-2xl border border-brand-900/10 bg-white/85 p-6 text-sm leading-6 text-muted">
-            No matches. Try a broader term (sleep, stress, focus) or clear filters.
-          </div>
+          <ul
+            id={listboxId}
+            role="listbox"
+            aria-label="Search results"
+            className="rounded-2xl border border-brand-900/10 bg-white/85"
+          >
+            <li role="option" aria-disabled="true" aria-selected="false" className="p-6 text-sm leading-6 text-muted">
+              No matches. Try a broader term (sleep, stress, focus) or clear filters.
+            </li>
+          </ul>
         ) : (
           <ul
             ref={listRef}
