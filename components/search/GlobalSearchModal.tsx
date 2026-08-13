@@ -120,6 +120,11 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
 
   const activeOptionId = search.results.length ? `${optionPrefix}-${activeIndex}` : undefined
 
+  useEffect(() => {
+    if (!activeOptionId) return
+    document.getElementById(activeOptionId)?.scrollIntoView({ block: 'nearest' })
+  }, [activeOptionId])
+
   return (
     <>
       <button
