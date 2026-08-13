@@ -21,6 +21,27 @@ tags:
   - data
 profile_status: published
 ai_assisted: false
+references:
+  - title: "The levels of evidence and their role in evidence-based medicine"
+    authors: "Burns PB, Rohrich RJ, Chung KC"
+    year: "2011"
+    pmid: "21701348"
+    url: "https://pubmed.ncbi.nlm.nih.gov/21701348/"
+  - title: "CONSORT 2010 statement: updated guidelines for reporting parallel group randomised trials"
+    authors: "Schulz KF, Altman DG, Moher D; CONSORT Group"
+    year: "2010"
+    pmid: "20352064"
+    url: "https://pubmed.ncbi.nlm.nih.gov/20352064/"
+  - title: "Industry sponsorship and research outcome: systematic review with meta-analysis"
+    authors: "Lundh A, Lexchin J, Mintzes B, Schroll JB, Bero L"
+    year: "2018"
+    pmid: "30132025"
+    url: "https://pubmed.ncbi.nlm.nih.gov/30132025/"
+  - title: "Definitions, acceptability, limitations, and guidance in the use and reporting of surrogate end points in trials: a scoping review"
+    authors: "Manyara AM, et al."
+    year: "2023"
+    pmid: "37380118"
+    url: "https://pubmed.ncbi.nlm.nih.gov/37380118/"
 faqs:
   - question: "What does the Supplement Evidence Report measure?"
     answer: "The live report summarizes evidence-grade labels attached to herb and compound reference records that are currently renderable in the site runtime. It is a profile-level distribution, not a count or grading of individual studies."
