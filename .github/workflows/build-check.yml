@@ -55,3 +55,6 @@ jobs:
 
       - name: Build and verify
         run: npm run build:deploy
+
+      - name: Report internal route-reference integrity
+        run: node scripts/ci/audit-route-reference-integrity.mjs
