@@ -21,6 +21,11 @@ tags:
   - data
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Supplement Evidence Report"
+    url: "https://thehippiescientist.net/evidence/evidence-report/"
+  - title: "The Hippie Scientist Evidence Methodology"
+    url: "https://thehippiescientist.net/info/methodology/"
 faqs:
   - question: "What does the Supplement Evidence Report measure?"
     answer: "The live report summarizes evidence-grade labels attached to herb and compound reference records that are currently renderable in the site runtime. It is a profile-level distribution, not a count or grading of individual studies."
