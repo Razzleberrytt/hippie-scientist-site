@@ -452,7 +452,7 @@ export default function HomepageV2() {
                 eyebrow='Fresh from the library'
                 title='Latest guides & research'
                 subtitle='A short, current set of practical explainers and evidence reviews — not an endless feed.'
-                action={{ href: '/guides/', label: 'Browse the library' }}
+                action={{ href: '/articles/', label: 'Browse the library' }}
               />
 
               <div className='mt-8 grid gap-4 sm:mt-10 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3'>
