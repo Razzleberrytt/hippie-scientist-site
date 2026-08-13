@@ -126,7 +126,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/zinc-and-adhd.md',
     title: 'Zinc and ADHD: Deficiency, Hyperactivity, Attention, and Supplementation',
     seoTitle: 'Zinc and ADHD: Deficiency, Attention and Safety',
-    description: 'Evidence-based review of zinc and ADHD. Covers deficiency, hyperactivity, attention, stimulant response, dosing, safety, and copper balance.',
+    description: 'Review zinc and ADHD evidence by baseline status, studied populations, symptom outcomes, stimulant context, dose, adverse effects, and copper-depletion risk.',
     category: 'Nutrient Deficiencies',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-07-12',
