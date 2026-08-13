@@ -93,7 +93,7 @@ export default function GlobalSearch() {
             <button
               type="button"
               onClick={search.clearFilters}
-              className="text-xs font-semibold text-brand-700 hover:text-brand-900"
+              className="rounded text-xs font-semibold text-brand-700 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
             >
               Clear ({search.activeFilters})
             </button>
