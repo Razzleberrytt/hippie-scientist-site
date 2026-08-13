@@ -26,6 +26,7 @@ function injectScriptOnce(id: string, src: string, attrs: Record<string, string>
 export function loadAnalytics() {
   if (loaded) return
   if (typeof window === 'undefined') return
+  if (!GA_ID && !AHREFS_ANALYTICS_KEY) return
   if (getSystemNoTracking()) return
 
   const consent = getConsent()
