@@ -1,20 +1,17 @@
 ---
 slug: state-of-supplement-evidence-2026
-title: "State of Supplement Evidence 2026: What 816 Peer-Reviewed Studies Actually Show"
-description: "A data-driven analysis of the supplement evidence landscape — which herbs, compounds, and categories have the strongest clinical evidence, and what the research quality actually looks like when you grade every study."
+title: "State of Supplement Evidence 2026: What the Current Library Can and Can't Show"
+description: "A transparent guide to interpreting the evidence labels in The Hippie Scientist library, including what the live Evidence Report measures, what it does not measure, and why the distribution changes as profiles are reviewed."
 date: '2026-06-30'
-updatedAt: '2026-06-30'
+updatedAt: '2026-08-12'
 author: Will
 category: Research
 evidence_grade: Educational
 keywords:
   - supplement evidence 2026
   - supplement research review
-  - clinical evidence supplements
-  - supplement study analysis
   - evidence-based supplements
-  - supplement clinical trials
-  - state of supplement research
+  - evidence grading
   - supplement science review
 featured_image: ''
 tags:
@@ -25,149 +22,146 @@ tags:
 profile_status: published
 ai_assisted: false
 faqs:
-  - question: "How many supplement studies have strong evidence?"
-    answer: "Of the 816 studies catalogued in our database, approximately 15% provide strong evidence (Grade A: multiple large, independent RCTs with consistent results). Another 25% provide moderate evidence (Grade B: smaller RCTs or single large trials). The remaining 60% provide limited, preliminary, or traditional-use evidence only. This doesn't mean those supplements don't work — it means they haven't been rigorously studied yet."
-  - question: "Which supplement has the strongest evidence?"
-    answer: "Creatine monohydrate has by far the strongest evidence base — hundreds of RCTs confirming efficacy for strength, power, and muscle mass, with emerging data for brain health and depression. Among botanicals, ashwagandha has the most consistent clinical trial data for stress reduction, and berberine has the most replicated metabolic effects. But 'strongest evidence' depends on the specific outcome you're measuring."
-references:
-  - title: "DNA barcoding detects contamination and substitution in North American herbal products"
-    authors: "Newmaster SG, Grguric M, Shanmughanandhan D, Ramalingam S, Ragupathy S"
-    year: "2013"
-    pmid: "24132220"
-    url: "https://pubmed.ncbi.nlm.nih.gov/24132220/"
-  - title: "Variability in potency among commercial preparations of berberine"
-    authors: "Funk RS, Singh RK, Winefield RD, Kandel SE, Ruisinger JF, Moriarty PM, Backes JM"
-    year: "2018"
-    pmid: "28792254"
-    url: "https://pubmed.ncbi.nlm.nih.gov/28792254/"
+  - question: "What does the Supplement Evidence Report measure?"
+    answer: "The live report summarizes evidence-grade labels attached to herb and compound reference records that are currently renderable in the site runtime. It is a profile-level distribution, not a count or grading of individual studies."
+  - question: "Why can the evidence distribution change?"
+    answer: "The report is generated from the current runtime records at build time. Counts can change when profiles are added, removed, re-reviewed, or reclassified."
+  - question: "Does a higher evidence grade mean a supplement is appropriate for everyone?"
+    answer: "No. An evidence grade summarizes editorial confidence for a profile. It does not establish that every claim has the same support, that every product is equivalent, or that an ingredient is safe or appropriate for every person or goal."
 ---
 
 ## TL;DR
 
-**We catalogued 816 peer-reviewed supplement studies across 557 compounds and 200+ herbs.** Only 15% provide strong clinical evidence (multiple large, independent RCTs). Another 25% provide moderate evidence. The majority — 60% — have limited, preliminary, or traditional-use evidence only. This isn't because supplements don't work. It's because most haven't been rigorously studied. **The gap between what's marketed and what's proven is the single biggest problem in the supplement industry — and the reason we built this site.**
+The 2026 Evidence Report now measures something narrower and more defensible than the original version: **the distribution of evidence-grade labels across the herb and compound records currently rendered by the site.**
+
+It does **not** claim that every individual study in the library has been assigned one of those grades. It does not use a fixed study total, a hand-written percentage split, or a static list of “winning” supplements. The live distribution is calculated from the current runtime records and can change as the library changes.
+
+See the current numbers in the [Supplement Evidence Report](/evidence/evidence-report/).
 
 ---
 
-## Why This Report Exists
+## Why the Report Changed
 
-Walk into any supplement aisle and you'll find products claiming to boost immunity, sharpen focus, reduce stress, and optimize every biological function imaginable. The marketing is confident. The science is often not.
+An evidence dashboard should not look dynamic while its headline statistics are actually constants in a page component.
 
-We built The Hippie Scientist to answer one question: **what does the evidence actually show?** Not what traditional use suggests. Not what influencers claim. Not what the mechanism *might* do in theory. What happens when you give real humans a supplement and measure the outcome against a placebo in a properly controlled trial.
+The earlier version of this report used fixed totals and fixed percentages. That created a drift problem: the underlying herb and compound libraries could change while the report continued to display the same numbers. It also blurred two different units of analysis — **profiles** and **studies**.
 
-This report summarizes what we found after cataloguing 816 studies across 557 compounds and 200+ herbs. It's our attempt to map the evidence landscape honestly — including where the evidence is strong, where it's thin, and where it's essentially absent.
+That is now corrected.
 
----
+The live report asks a simpler question:
 
-## The Evidence Landscape: By the Numbers
+> Among the reference records the site can currently render, what evidence-grade labels are explicitly attached to those records?
 
-### Overall Distribution
-
-Of 816 peer-reviewed studies catalogued:
-
-| Evidence Grade | Description | % of Studies | Examples |
-|---------------|-------------|-------------|----------|
-| **A — Strong** | Multiple large, independent RCTs with consistent results | ~15% | Creatine for strength, caffeine for alertness, omega-3s for triglycerides |
-| **B — Moderate** | Smaller RCTs or single large trials; needs replication | ~25% | Ashwagandha for stress, berberine for glucose, lion's mane for cognition |
-| **C — Limited** | Small trials, mixed results, or primarily mechanistic data | ~30% | Rhodiola for fatigue, saffron for depression, NAC for psychiatry |
-| **D — Preliminary** | Animal studies, cell studies, or single small human trials | ~20% | Chaga for immunity, turkey tail for general wellness |
-| **Traditional** | Historical use without modern clinical trials | ~10% | Many Ayurvedic and TCM herbs with centuries of use but no RCTs |
-
-### Evidence Strength by Category
-
-| Category | Strongest Evidence | Weakest Evidence | Notable Gap |
-|----------|-------------------|------------------|-------------|
-| **Adaptogens** | Ashwagandha (stress, cortisol) | Most adaptogens | Only ashwagandha has replicated RCT data |
-| **Cognitive** | Caffeine, creatine (acute) | Lion's Mane, Bacopa | Many plausible mechanisms, few large trials |
-| **Metabolic** | Berberine (glucose, lipids) | Most "fat burners" | Berberine is the standout; most others are weak |
-| **Sleep** | Melatonin, magnesium | Valerian, passionflower | Melatonin data is robust; herbal sleep aids are thin |
-| **Mood** | St. John's Wort (depression) | Saffron, NAC | St. John's Wort is well-studied; alternatives need more data |
-| **Immune** | Vitamin D, zinc | Elderberry, echinacea | Micronutrients have better evidence than botanicals |
-| **Performance** | Creatine, caffeine, beta-alanine | Cordyceps, ashwagandha | Sports supplements have the strongest overall evidence |
+That question can be answered from the runtime data itself.
 
 ---
 
-## The Biggest Gaps in Supplement Research
+## What the Live Report Measures
 
-### 1. Most Botanicals Have Never Been Properly Studied
+The [Evidence Report](/evidence/evidence-report/) currently calculates:
 
-Of the 200+ herbs in our database, fewer than 30 have more than one independent, adequately powered RCT. The majority have either a single small trial, only animal/cell data, or no modern clinical research at all. This doesn't mean they're ineffective — it means we don't know.
+- the number of renderable herb and compound reference records;
+- how many of those records expose an explicit `evidence_grade` label;
+- how many are currently unclassified at that field; and
+- the distribution of the evidence-grade labels that are actually present.
 
-### 2. Quality Control Is Abysmal
+The calculation happens when the site is built, so the report follows the current runtime library instead of relying on manually maintained percentages.
 
-A 2013 DNA barcoding study found that 59% of tested herbal products contained plant species not listed on the label. A 2018 analysis of commercial berberine preparations found potency varied by up to 50% between brands. When the product in the bottle doesn't match the product in the study, the evidence is meaningless.
+### The unit is the profile
 
-### 3. Industry-Funded Research Dominates
+This distinction matters.
 
-The majority of clinical trials on specific branded extracts (KSM-66, Sensoril, etc.) are funded by the companies that sell them. This doesn't automatically invalidate the results — but it does mean independent replication is essential before we can consider the evidence robust.
-
-### 4. Long-Term Safety Data Is Rare
-
-Most supplement trials run 6–12 weeks. For compounds people take daily for years, we have essentially no long-term safety data. The rare but real liver injury signals with ashwagandha and green tea extract are a reminder that "natural" doesn't mean "safe at any dose forever."
-
-### 5. The "Nature's Ozempic" Problem
-
-When a prescription drug gains attention, supplements rush to position themselves as "natural alternatives." Berberine as "nature's Ozempic" is the most prominent example. The mechanisms are completely different (AMPK vs GLP-1), the effect sizes are an order of magnitude apart, and the marketing is misleading. This pattern repeats across categories.
+A profile can contain several claims, outcomes, mechanisms, preparations, populations, and citations. Those pieces may not all have the same evidence strength. A profile-level label is therefore a **summary signal**, not a substitute for reading the claim-level evidence and limitations.
 
 ---
 
-## What Actually Has Strong Evidence: The Short List
+## What the Report Does Not Measure
 
-If you want supplements where the evidence is genuinely strong — multiple large, independent, replicated RCTs — here's the honest short list:
+The report should **not** be read as:
 
-| Supplement | Outcome | Evidence Strength | Typical Dose |
-|-----------|---------|------------------|--------------|
-| Creatine monohydrate | Strength, power, muscle mass | A — Strong | 5 g/day |
-| Caffeine | Alertness, focus, exercise performance | A — Strong | 100–200 mg |
-| Melatonin | Sleep onset (jet lag, shift work) | A — Strong | 0.3–5 mg |
-| Omega-3 (EPA/DHA) | Triglyceride reduction | A — Strong | 2–4 g/day |
-| Vitamin D | Deficiency correction, bone health | A — Strong | 600–4,000 IU/day |
-| Magnesium | Sleep, anxiety (in deficient populations) | B — Moderate | 200–400 mg |
-| Ashwagandha | Stress, cortisol reduction | B — Moderate | 300–600 mg/day |
-| Berberine | Glucose metabolism, lipids | B — Moderate | 1,000–1,500 mg/day |
-| St. John's Wort | Mild-moderate depression | B — Moderate | 900 mg/day |
+- a count of all peer-reviewed studies about supplements;
+- a claim that every cited paper has been individually assigned the profile's grade;
+- a ranking of the “best” supplements;
+- proof that a higher-graded ingredient is effective for every outcome;
+- proof that commercial products are equivalent to the preparations used in research; or
+- a safety clearance for a particular person, medication list, dose, or medical condition.
 
-Everything else in the supplement aisle? The evidence is weaker, thinner, or nonexistent. It might work. It might not. We don't know — and "we don't know" is the most honest answer in most cases.
+Those are separate questions.
 
 ---
 
-## What This Means for You
+## How to Read an Evidence Grade
 
-### If You're a Consumer:
+An evidence label is most useful when it compresses a much larger appraisal without hiding the uncertainty behind it.
 
-1. Start with the Strong/M moderate evidence list above. These are the supplements where you're making an evidence-informed decision rather than gambling.
-2. If you're considering something not on this list, ask: "Would I be satisfied with 'we don't know if this works' as the answer?" If not, skip it.
-3. Verify quality: USP, NSF, or ConsumerLab certification. Without it, you don't know what you're taking.
-4. Talk to your doctor. Especially if you take prescription medications — supplement-drug interactions are real and underappreciated.
+When evaluating a specific claim, the important questions still include:
 
-### If You're a Researcher:
+1. **Directness:** Was the outcome studied in humans, in the population and context relevant to the claim?
+2. **Study design:** Was the comparison appropriate, and were important sources of bias addressed?
+3. **Consistency:** Do independent studies point in the same direction?
+4. **Precision:** Are the effect estimates precise enough to rule out clinically important alternatives?
+5. **Replication:** Has the finding been reproduced beyond one team, one branded extract, or one small trial?
+6. **Formulation:** Is the studied preparation meaningfully comparable with the ingredient or product being discussed?
+7. **Safety:** Do contraindications, interactions, population exclusions, or uncertainty change the practical conclusion?
 
-The biggest opportunities are independent replication trials for botanicals with promising but preliminary data — saffron for depression, lion's mane for cognition, ashwagandha for sleep quality. And long-term safety studies. The evidence base desperately needs both.
-
-### If You're a Journalist or Content Creator:
-
-You're welcome to cite this data. Link to `thehippiescientist.net/articles/state-of-supplement-evidence-2026`. All statistics are sourced from our public database. Attribution appreciated, not required.
-
----
-
-## Methodology
-
-This report is based on our internal database of 816 peer-reviewed studies across 557 compounds and 200+ herbs. Evidence grades are assigned using a standardized rubric:
-
-- **A (Strong):** 3+ independent, adequately powered RCTs with consistent results; or 1+ large, multi-center trial
-- **B (Moderate):** 1–2 RCTs with positive results; needs independent replication
-- **C (Limited):** Small trials, mixed results, or primarily mechanistic data
-- **D (Preliminary):** Animal studies, cell studies, single small pilot trial
-- **Traditional:** Historical use documented; no modern clinical trials identified
-
-Each study is graded on design quality (RCT > controlled > observational > case report), sample size, replication status, and funding source independence. The full methodology is documented at `/info/methodology`.
+A letter or tier is a starting point for those questions, not the final answer.
 
 ---
 
-*This report will be updated annually. Last updated: June 30, 2026. Data covers studies published through Q2 2026.*
+## The Most Important Gaps Are Often Not “Does It Work?”
 
-## Related Articles
+Supplement evidence can be weak in more than one way.
 
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)
-- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds/)
-- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha/)
-- [Berberine: AMPK Activation and Metabolic Health](/articles/berberine/)
+### Product comparability
+
+A study can be internally sound while still applying only to a specific extract, formulation, constituent profile, or dose. A different commercial product may not reproduce the same exposure.
+
+### Independent replication
+
+A promising result is more convincing when independent researchers reproduce it under comparable conditions. Repetition by the same sponsor, extract, or research group can still be informative, but it does not answer every independence question.
+
+### Long-term safety
+
+Short trials are usually designed to answer short-term questions. They generally cannot establish the frequency of uncommon harms or the safety of years of continuous use.
+
+### Outcome specificity
+
+Evidence for one outcome does not automatically transfer to another. An ingredient can have credible evidence for a narrow endpoint and little evidence for broader marketing claims built around the same mechanism.
+
+### Missing or unstructured evidence labels
+
+An unclassified profile does not mean “ineffective.” It means the current runtime record does not expose an explicit evidence-grade label at the field the report measures. That is a data-quality and review-status signal, not a clinical verdict.
+
+---
+
+## What This Means for Readers
+
+Use the report to understand the **shape of the library**, then move from the profile-level label to the underlying evidence.
+
+For a specific herb or compound:
+
+1. open the profile;
+2. identify the exact outcome being discussed;
+3. check whether the evidence is human, preclinical, traditional, or mechanistic;
+4. read the limitations and safety section;
+5. inspect the cited sources when the decision matters; and
+6. avoid treating an evidence grade as personalized medical advice or as proof that a retail product matches the studied preparation.
+
+For medication combinations or higher-risk contexts, a site-level evidence label is not enough. Use the [Safety Interaction Checker](/safety-checker/) as an educational screen for possible caution flags and review the exact combination with a clinician or pharmacist when appropriate.
+
+---
+
+## Methodology and Reproducibility
+
+The live Evidence Report is intentionally generated from the current runtime records rather than copied from this article.
+
+- [View the current Evidence Report](/evidence/evidence-report/)
+- [Read the evidence methodology](/info/methodology/)
+- [Use the Evidence Lookup](/evidence/evidence-checker/)
+- [Learn how to read scientific studies](/learn/how-to-read-scientific-studies/)
+
+The report should be treated as a snapshot of the site's current structured evidence labels. When the data changes, the distribution should change with it.
+
+---
+
+*Last reviewed: August 12, 2026.*
