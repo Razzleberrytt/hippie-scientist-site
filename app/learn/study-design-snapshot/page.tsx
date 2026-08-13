@@ -49,11 +49,7 @@ export default function StudyDesignSnapshotHubPage() {
           </h1>
         </div>
         <p className="text-lg leading-8 text-muted">
-          Every grade on this site is shorthand for the quality of the human evidence behind a
-          claim. The <strong>Study Design Snapshot</strong> keeps the practical takeaway prominent
-          and tucks the &ldquo;why&rdquo; — trial design and limitations — into an optional,
-          expandable panel. The same component is embeddable inside our structured education
-          content. For the full methodology guide, see{' '}
+          A grade on this site is shorthand for editorial confidence in the evidence behind a claim or profile. The <strong>Study Design Snapshot</strong> keeps the practical takeaway prominent and tucks the “why” — design, population, comparator, duration, precision, and limitations — into an expandable panel. A grade should make the evidence easier to inspect, not replace that inspection. For the broader framework, see{' '}
           <Link href="/learn/evidence-hierarchy/" className="font-semibold text-brand-700 hover:text-brand-800">
             Evidence Hierarchy
           </Link>
@@ -63,52 +59,53 @@ export default function StudyDesignSnapshotHubPage() {
 
       <section className="max-w-4xl space-y-6">
         <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-          What each grade looks like
+          What different confidence levels can look like
         </h2>
 
         <StudyDesignSnapshot
           grade="Strong"
-          summary="When several large, well-run human trials agree, a claim earns the strongest grade — you can act on it with reasonable confidence."
-          gradeRationale="Multiple large randomized controlled trials and meta-analyses converge on the same direction and rough size of effect."
-          studyType="Multiple RCTs + meta-analysis"
-          population="Large, varied adult samples"
-          participants="Hundreds to thousands pooled"
-          duration="Weeks to months"
-          comparator="Placebo and/or active control"
+          summary="When several well-run human studies point in a similar direction and important limitations are small enough, confidence can be comparatively high — while uncertainty and individual variation still remain."
+          gradeRationale="Multiple direct human studies, ideally including independent replication or trustworthy synthesis, show reasonably consistent and precise findings without a major unresolved risk-of-bias or applicability problem."
+          studyType="Multiple human trials and/or systematic synthesis"
+          population="Relevant human populations"
+          participants="Adequate for the effect and design studied"
+          duration="Long enough for the outcome being claimed"
+          comparator="Appropriate to the research question"
           limitations={[
-            'Even strong evidence describes averages, not individual response.',
-            'Effect sizes can still be modest in practical terms.',
+            'Higher confidence still describes evidence about populations, not a guaranteed individual response.',
+            'A statistically detectable effect can still be small or unimportant in practice.',
+            'Formulation, population, follow-up, and outcome choice can limit how broadly the result applies.',
           ]}
-          context="A strong grade means the effect is real and replicated — not that it will be large for everyone."
+          context="A strong grade means the current evidence supports more confidence in a specific claim; it does not make the effect certain, universal, large, or automatically relevant to every product."
         />
 
         <StudyDesignSnapshot
           grade="Moderate"
-          summary="A handful of small human trials point the same way, but the evidence is thinner — promising, not settled."
-          gradeRationale="A few randomized trials show a consistent signal, but small samples, short durations, or funding concerns limit confidence."
-          studyType="Several small RCTs"
-          population="Modest adult samples"
-          participants="Dozens per trial"
-          duration="4–8 weeks"
-          comparator="Placebo"
+          summary="Human evidence points in a useful direction, but replication, precision, duration, formulation, or study quality still leaves meaningful uncertainty."
+          gradeRationale="Direct human evidence exists, but the body of evidence is not yet as mature or consistent as a higher-confidence grade would require."
+          studyType="One or more relevant human studies"
+          population="Study-specific human samples"
+          participants="Variable; adequacy depends on the design and expected effect"
+          duration="Study-specific"
+          comparator="Depends on the research question"
           limitations={[
-            'Small samples widen the uncertainty around the true effect.',
-            'Short trials cannot speak to long-term use.',
-            'Some trials are industry-funded.',
+            'Imprecise estimates can leave clinically important uncertainty even when a result is statistically significant.',
+            'Short trials generally cannot establish durability or uncommon long-term harms.',
+            'Funding, preparation-specific evidence, or lack of independent replication can affect confidence.',
           ]}
         />
 
         <StudyDesignSnapshot
           grade="Preliminary"
-          summary="The rationale is mostly mechanistic or traditional. Treat it as a hypothesis worth watching, not a recommendation."
-          gradeRationale="Support comes largely from lab, animal, or traditional-use evidence with little or no controlled human data."
-          studyType="Mechanistic / animal / traditional use"
-          population="Pre-clinical or anecdotal"
+          summary="The rationale is early, indirect, mechanistic, traditional, or based on limited human evidence. Treat the claim as uncertain rather than as a recommendation."
+          gradeRationale="Support is dominated by preclinical evidence, uncontrolled observations, traditional-use context, or exploratory human findings that are not sufficient for a confident practical conclusion."
+          studyType="Preclinical, observational, traditional, or exploratory human evidence"
+          population="Depends on the evidence source"
           limitations={[
-            'Mechanistic plausibility frequently fails to translate to human benefit.',
-            'No controlled human trials means effect and safety are unestablished.',
+            'Mechanistic plausibility often does not translate into a meaningful human benefit.',
+            'Sparse or uncontrolled human evidence cannot reliably separate an intervention effect from bias, confounding, or chance.',
           ]}
-          context="A low grade is not a verdict that something does not work — it means the human evidence is not there yet."
+          context="A preliminary grade is not proof that something does not work. It means the available evidence does not yet support a confident efficacy claim."
         />
       </section>
 
@@ -117,9 +114,7 @@ export default function StudyDesignSnapshotHubPage() {
           Why design factors matter
         </h2>
         <p className="text-base leading-8 text-[#5c6b63]">
-          Blinding, a placebo comparator, sample size, and duration are what separate a persuasive
-          trial from a misleading one. The snapshot surfaces these so a grade is never a black box —
-          and so you can judge the evidence for yourself.
+          Randomization, blinding where relevant, comparators, sample-size adequacy, follow-up, missing data, outcome selection, effect estimates, and applicability can all change how much confidence a study deserves. No single checkbox separates a persuasive trial from a misleading one; the snapshot surfaces the factors so the grade is never a black box.
         </p>
       </section>
       <References refs={STUDY_DESIGN_SNAPSHOT_REFS} />
