@@ -15,7 +15,7 @@ export function getConsent(): ConsentStatus | null {
     const raw = localStorage.getItem(CONSENT_STORAGE_KEY)
     if (!raw) return null
     const parsed = JSON.parse(raw)
-    return parsed?.status === 'granted' ? 'granted' : 'denied'
+    return parsed?.status === 'granted' || parsed?.status === 'denied' ? parsed.status : null
   } catch {
     return null
   }
