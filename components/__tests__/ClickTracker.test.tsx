@@ -21,7 +21,7 @@ vi.mock('@/lib/analytics', () => ({
 }))
 
 vi.mock('@/src/lib/consent', () => ({
-  CONSENT_GRANTED_EVENT: 'consent-granted',
+  CONSENT_CHANGE_EVENT: 'consent-granted',
   getConsent: mocks.getConsent,
 }))
 
