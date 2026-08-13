@@ -13,6 +13,15 @@ import { SITE_URL } from '@/lib/navigation-config'
 import { primaryNavigation } from '@/lib/primary-navigation'
 import { serializeJsonLd } from '@/src/lib/schema-injector'
 
+function canonicalNavigationUrl(href: string): string {
+  const base = SITE_URL.replace(/\/$/, '')
+  if (!href || href === '/') return `${base}/`
+  if (href.includes('?') || href.includes('#')) return `${base}${href}`
+  if (href.split('/').pop()?.includes('.')) return `${base}${href}`
+  const path = href.startsWith('/') ? href : `/${href}`
+  return `${base}${path.endsWith('/') ? path : `${path}/`}`
+}
+
 /**
  * Generate SiteNavigationElement schema from navigation config
  * @returns Schema.org SiteNavigationElement JSON-LD object
@@ -48,7 +57,7 @@ function generateNavigationSchema() {
     hasPart.push({
       '@type': 'WebPage',
       name: item.label,
-      url: `${SITE_URL}${item.href}`,
+      url: canonicalNavigationUrl(item.href),
     })
   }
 
@@ -56,7 +65,7 @@ function generateNavigationSchema() {
     '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
     name: 'Main Navigation',
-    url: SITE_URL,
+    url: canonicalNavigationUrl('/'),
     hasPart,
   }
 }

@@ -11,6 +11,9 @@
   # - style-src 'unsafe-inline' is required for current runtime style injection (React/Tailwind stack).
   Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com https://analytics.ahrefs.com 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://*.cloudflareinsights.com https://analytics.ahrefs.com; img-src 'self' data: https://*.media-amazon.com https://*.ssl-images-amazon.com https://m.media-amazon.com https://images-na.ssl-images-amazon.com https://images.amazon.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; object-src 'none'; base-uri 'self'; frame-src 'none'; frame-ancestors 'none'
 
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -21,6 +24,10 @@
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Content-Type: application/json; charset=utf-8
   X-Content-Type-Options: nosniff
+
+/llms.txt
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Type: text/plain; charset=utf-8
 
 /robots.txt
   Cache-Control: public, max-age=86400

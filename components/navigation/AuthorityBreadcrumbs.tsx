@@ -47,7 +47,10 @@ export default function AuthorityBreadcrumbs({
                 {item.label}
               </Link>
             ) : (
-              <span className={isLast ? 'font-semibold text-ink dark:text-[var(--text-primary)]' : 'text-muted dark:text-[var(--text-muted)]'}>
+              <span
+                aria-current={isLast ? 'page' : undefined}
+                className={isLast ? 'font-semibold text-ink dark:text-[var(--text-primary)]' : 'text-muted dark:text-[var(--text-muted)]'}
+              >
                 {item.label}
               </span>
             )}
