@@ -25,6 +25,7 @@ export function GlobalSearchModal() {
   const inputRef = useRef<HTMLInputElement>(null)
   const dialogRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
+  const dialogId = useId()
   const listboxId = useId()
   const optionPrefix = useId()
 
@@ -127,6 +128,7 @@ export function GlobalSearchModal() {
         aria-label="Open search"
         aria-haspopup="dialog"
         aria-expanded={open}
+        aria-controls={open ? dialogId : undefined}
         aria-keyshortcuts="Meta+K Control+K /"
       >
         <Search className="h-4 w-4" aria-hidden="true" />
@@ -149,6 +151,7 @@ export function GlobalSearchModal() {
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- modal dialog requires onKeyDown for Escape/Tab focus trapping */}
           <div
             ref={dialogRef}
+            id={dialogId}
             role="dialog"
             aria-modal="true"
             aria-label="Site search"
