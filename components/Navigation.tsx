@@ -196,7 +196,7 @@ export function Navigation() {
           </div>
 
           <div className='flex shrink-0 items-center gap-2'>
-            <GlobalSearchModal />
+            <GlobalSearchModal enableHotkeys={!mobileOpen} />
             <div className='hidden md:block'>
               <DarkModeToggle />
             </div>
@@ -245,7 +245,7 @@ export function Navigation() {
             </div>
 
             <div className='mb-5'>
-              <GlobalSearchModal enableHotkeys={false} />
+              <GlobalSearchModal />
             </div>
 
             <nav className='flex flex-col gap-2 text-base' aria-label='Mobile primary links'>
