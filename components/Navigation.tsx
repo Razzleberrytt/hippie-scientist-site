@@ -238,7 +238,7 @@ export function Navigation() {
                 type='button'
                 onClick={closeMobile}
                 className='flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[#123c2f]/10 bg-[#f5efe2]/70 p-2 text-[#123c2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42]/50 dark:border-[var(--border-soft)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
-                aria-label='Close menu'
+                aria-label='Close mobile navigation menu'
               >
                 <X aria-hidden='true' className='h-5 w-5' />
               </button>
