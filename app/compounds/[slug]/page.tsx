@@ -403,8 +403,8 @@ function getAvoidIf(compound: Record<string, unknown>) {
 
 function getSafetySummary(compound: Record<string, unknown>, avoidIf: string[]) {
   const note = cleanText(compound.safetyNotes || compound.safety_notes || compound.safety)
-  if (avoidIf.length) return `Review before use if any apply: ${avoidIf.slice(0, 3).join(', ').replace(/[.!?]+$/, '')}.`
   if (note) return firstSentences(note, 2)
+  if (avoidIf.length) return `Review before use if any apply: ${avoidIf.slice(0, 3).join(', ').replace(/[.!?]+$/, '')}.`
   return 'Review medications, pregnancy status, chronic conditions, and clinician guidance before use.'
 }
 
