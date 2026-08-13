@@ -15,10 +15,13 @@ export default function ConsentManager({ open, onClose }: Props) {
     const consent = getConsent();
     setStatus(consent ?? "unknown");
 
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    dialogRef.current?.focus();
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
     };
   }, [open]);
 
@@ -61,6 +64,8 @@ export default function ConsentManager({ open, onClose }: Props) {
 
   return (
     <div
+      ref={dialogRef}
+      tabIndex={-1}
       aria-modal="true"
       role="dialog"
       aria-labelledby="consent-title"
@@ -73,7 +78,6 @@ export default function ConsentManager({ open, onClose }: Props) {
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
       />
       <div
-        ref={dialogRef}
         className="relative z-10 w-[min(92vw,560px)] rounded-2xl border border-white/10 bg-black/90 p-5"
       >
         <div className="flex items-start justify-between gap-3">
