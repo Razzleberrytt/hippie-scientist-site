@@ -10,19 +10,19 @@ import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
 
 export const metadata: Metadata = {
-  title: 'Natural Anxiolytics Beyond Ashwagandha',
-  description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',
+  title: 'Calming Supplements Beyond Ashwagandha',
+  description: 'Compare calming supplements beyond ashwagandha by human evidence, onset, sedation, medication interactions, and safety limits.',
   alternates: { canonical: '/guides/anxiety/best-herbs-for-anxiety/' },
   openGraph: {
-    title: 'Natural Anxiolytics Beyond Ashwagandha',
+    title: 'Calming Supplements Beyond Ashwagandha',
     description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',
     url: '/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/',
     images: ['/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Natural Anxiolytics Beyond Ashwagandha',
-    description: 'Compare calming botanicals like L-Theanine, Kava, and Kanna with evidence-first analysis.',
+    title: 'Calming Supplements Beyond Ashwagandha',
+    description: 'Compare calming supplements by evidence, onset, sedation, interactions, and safety.',
   },
 }
 
