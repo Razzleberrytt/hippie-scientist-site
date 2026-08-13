@@ -11,12 +11,12 @@ const PAGE_URL = `${SITE_URL}/guides/anxiety/best-adaptogens-for-stress`
 const DATE = '2026-08-11'
 
 export const metadata: Metadata = {
-  title: 'Best Adaptogens for Stress: What Human Evidence Supports in 2026',
+  title: 'Best Adaptogens for Stress: Human Evidence & Safety',
   description:
     'Evidence-first comparison of ashwagandha, Rhodiola, holy basil, and weaker adaptogen claims, with trial populations, preparations, funding, and safety limits.',
   alternates: { canonical: '/guides/anxiety/best-adaptogens-for-stress/' },
   openGraph: {
-    title: 'Best Adaptogens for Stress: What Human Evidence Supports in 2026',
+    title: 'Best Adaptogens for Stress: Human Evidence & Safety',
     description:
       'Compare adaptogens by direct randomized human evidence instead of mechanism claims, fixed stack recipes, or universal HPA-axis promises.',
     url: '/guides/anxiety/best-adaptogens-for-stress/',
