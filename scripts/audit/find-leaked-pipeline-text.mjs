@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-// Helper to ensure directory exists
+const strictMode = process.argv.includes('--strict');
+
 function ensureDirExists(dirPath) {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
@@ -22,26 +23,37 @@ const LEAK_PATTERNS = [
   { regex: /high.speed phytochemical/i, name: 'phytochemical ingestion template' },
   { regex: /internal cross-linking supports/i, name: 'cross-linking template' },
   { regex: /\bis tracked for\b/i, name: 'tracked-for template' },
-  { regex: /it is best framed (as|around|for)/i, name: 'best-framed template' },
+  { regex: /it\s+(?:is|should be)\s+(?:best\s+)?framed\b/i, name: 'framing-instruction template' },
   { regex: /decision-ready summary/i, name: 'decision-ready summary prefix' },
   { regex: /evidence level:/i, name: 'evidence-level template' },
   { regex: /scispace evidence pass|evidence pass/i, name: 'evidence-pass template' },
-  { regex: /enriched in bulk|bulk mode/i, name: 'bulk-enrichment template' }
+  { regex: /enriched in bulk|bulk mode/i, name: 'bulk-enrichment template' },
+  {
+    regex: /evidence-aware\s+(?:compound|botanical)\s+profile\s+with\s+mechanism,?\s+safety,?\s+and\s+practical\s+context/i,
+    name: 'generic evidence-aware profile placeholder',
+  },
+  { regex: /^conservative evidence framing applied\.?$/i, name: 'conservative-framing placeholder' },
+  { regex: /^varying compliance\.?$/i, name: 'varying-compliance placeholder' },
+  { regex: /canonical profile pending.*static route exists/i, name: 'build-system route message' },
 ];
 
-// Fields that are displayed on the frontend to users
 const USER_FACING_FIELDS = [
   'name',
   'summary',
   'description',
+  'overview',
   'safety',
+  'safety_summary',
   'dosage',
   'typical_dosage',
   'contraindications',
   'interactions',
   'side_effects',
   'effects',
-  'primary_effects'
+  'primary_effects',
+  'evidence_summary',
+  'best_for',
+  'why_people_stop',
 ];
 
 function runAudit() {
@@ -60,7 +72,6 @@ function runAudit() {
   const affectedSlugs = new Set();
 
   const scanItem = (item, type) => {
-    // Check for short description
     const desc = item.description || '';
     if (desc.trim().length > 0 && desc.trim().length < 15) {
       results.push({
@@ -70,12 +81,11 @@ function runAudit() {
         field: 'description',
         value: desc,
         issue: 'Description under 15 characters',
-        severity: 'CRITICAL'
+        severity: 'CRITICAL',
       });
       affectedSlugs.add(item.slug);
     }
 
-    // Scan all properties
     for (const [key, value] of Object.entries(item)) {
       if (!value) continue;
 
@@ -90,7 +100,7 @@ function runAudit() {
               field: fieldName,
               value: str,
               issue: `Leaked text pattern: "${pattern.name}"`,
-              severity: isUserFacing ? 'CRITICAL' : 'LOW'
+              severity: isUserFacing ? 'CRITICAL' : 'LOW',
             });
             affectedSlugs.add(item.slug);
           }
@@ -106,7 +116,6 @@ function runAudit() {
           }
         });
       } else if (typeof value === 'object') {
-        // Nested properties
         try {
           const strVal = JSON.stringify(value);
           for (const pattern of LEAK_PATTERNS) {
@@ -118,13 +127,13 @@ function runAudit() {
                 field: key,
                 value: strVal,
                 issue: `Leaked text pattern in object: "${pattern.name}"`,
-                severity: 'LOW' // nested objects are usually internal/metadata
+                severity: 'LOW',
               });
               affectedSlugs.add(item.slug);
             }
           }
-        } catch (e) {
-          // ignore cyclic or non-stringifiable
+        } catch {
+          // Ignore non-stringifiable metadata objects.
         }
       }
     }
@@ -133,31 +142,15 @@ function runAudit() {
   herbs.forEach(item => scanItem(item, 'herb'));
   compounds.forEach(item => scanItem(item, 'compound'));
 
-  // Ensure reports dir exists
   ensureDirExists('reports');
 
-  // Write reports/leaked-slugs.json
   fs.writeFileSync('reports/leaked-slugs.json', JSON.stringify(Array.from(affectedSlugs), null, 2));
   console.log(`Wrote reports/leaked-slugs.json with ${affectedSlugs.size} affected slugs.`);
 
-  // Write reports/leaked-pipeline-text.md
-  let md = `# Leaked Pipeline Text Audit Report
-
-Generated on: ${new Date().toISOString()}
-
-## Summary Statistics
-
-- **Total Issues Identified**: ${results.length}
-- **Critical (User-Facing)**: ${results.filter(r => r.severity === 'CRITICAL').length}
-- **Low (Internal/Metadata)**: ${results.filter(r => r.severity === 'LOW').length}
-- **Unique Affected Slugs**: ${affectedSlugs.size}
-
-## Details of Identified Issues
-
-`;
-
   const criticalIssues = results.filter(r => r.severity === 'CRITICAL');
   const lowIssues = results.filter(r => r.severity === 'LOW');
+
+  let md = `# Leaked Pipeline Text Audit Report\n\nGenerated on: ${new Date().toISOString()}\n\n## Summary Statistics\n\n- **Total Issues Identified**: ${results.length}\n- **Critical (User-Facing)**: ${criticalIssues.length}\n- **Low (Internal/Metadata)**: ${lowIssues.length}\n- **Unique Affected Slugs**: ${affectedSlugs.size}\n\n## Details of Identified Issues\n\n`;
 
   if (criticalIssues.length > 0) {
     md += `### CRITICAL — User-Facing Fields\n\n`;
@@ -184,7 +177,12 @@ Generated on: ${new Date().toISOString()}
   }
 
   fs.writeFileSync('reports/leaked-pipeline-text.md', md);
-  console.log(`Wrote reports/leaked-pipeline-text.md.`);
+  console.log('Wrote reports/leaked-pipeline-text.md.');
+
+  if (strictMode && criticalIssues.length > 0) {
+    console.error(`Strict audit failed: ${criticalIssues.length} critical user-facing leak(s) detected.`);
+    process.exitCode = 1;
+  }
 }
 
 runAudit();
