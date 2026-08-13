@@ -14,6 +14,14 @@ function injectScript(src: string, attrs: Record<string, string> = {}) {
   script.src = src
   script.async = true
   Object.entries(attrs).forEach(([key, value]) => script.setAttribute(key, value))
+  script.addEventListener(
+    'error',
+    () => {
+      script.remove()
+      loaded = false
+    },
+    { once: true },
+  )
   document.head.appendChild(script)
 }
 
