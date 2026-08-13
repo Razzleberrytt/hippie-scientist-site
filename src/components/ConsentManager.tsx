@@ -162,7 +162,7 @@ export default function ConsentManager({ open, onClose }: Props) {
           <button
             type="button"
             onClick={decline}
-            className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 hover:bg-white/10"
+            className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
           >
             Decline
           </button>
