@@ -30,6 +30,7 @@ export default function ConsentBanner() {
       <div
         role='region'
         aria-label='Privacy notice'
+        aria-live='polite'
         className='mx-auto max-w-3xl rounded-2xl border border-white/20 bg-[#123c2f]/95 px-4 py-3 text-sm text-white shadow-[0_10px_35px_rgba(18,60,47,0.28)] backdrop-blur-md'
       >
         <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
