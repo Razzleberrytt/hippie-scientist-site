@@ -23,42 +23,46 @@ const mockCompounds = [
     slug: 'l-theanine',
     name: 'L-Theanine',
     dosage: '100 - 200 mg',
-    cycling: 'No cycle required.',
-    administration: 'Take with caffeine to balance stimulation.',
+  },
+  {
+    slug: 'unknown-compound',
+    name: 'Unknown Compound',
   },
 ]
 
 describe('DosageCalculatorClient', () => {
-  it('renders ingredient selection and conservative default calculations', () => {
+  it('shows recorded source context without personalized weight scaling or protocol advice', () => {
     render(<DosageCalculatorClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    expect(screen.getByLabelText(/Select Ingredient/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/Select ingredient/i)).toBeInTheDocument()
+    expect(screen.getByText(/300 - 600 mg/i)).toBeInTheDocument()
     expect(screen.getByText(/300 – 600 mg/i)).toBeInTheDocument()
-    expect(screen.queryByText(/Beginner/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Intermediate/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Advanced/i)).not.toBeInTheDocument()
+    expect(screen.queryByLabelText(/Body Weight/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Customized Dosage/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Cycling Recommendations/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Take with fat-soluble meal/i)).not.toBeInTheDocument()
   })
 
-  it('calculates molecular yields based on extract slider concentration changes', () => {
+  it('calculates active-marker arithmetic only after the user supplies a label percentage', () => {
     render(<DosageCalculatorClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    // Ashwagandha default is 5% withanolides.
-    // Standard reference dose: 300 - 600 mg.
-    // 5% of 300 is 15. 5% of 600 is 30.
+    expect(screen.getByText(/Set the label percentage to calculate/i)).toBeInTheDocument()
+
+    const slider = screen.getByLabelText(/Active marker on your label/i)
+    fireEvent.change(slider, { target: { value: 5 } })
+
     expect(screen.getByText(/15 – 30 mg/i)).toBeInTheDocument()
-
-    const slider = screen.getByRole('slider')
-    fireEvent.change(slider, { target: { value: 10 } })
-
-    expect(screen.getByText(/30 – 60 mg/i)).toBeInTheDocument()
   })
 
-  it('adjusts dosage calculations based on weight scale bounds', () => {
+  it('does not fabricate a fallback range when a profile has no recorded dose', () => {
     render(<DosageCalculatorClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    const weightInput = screen.getByLabelText(/Body Weight/i)
-    fireEvent.change(weightInput, { target: { value: 100 } })
+    fireEvent.change(screen.getByLabelText(/Select ingredient/i), {
+      target: { value: 'unknown-compound' },
+    })
 
-    expect(screen.getByText(/240 – 480 mg/i)).toBeInTheDocument()
+    expect(screen.getByText(/No dose range is recorded for this profile/i)).toBeInTheDocument()
+    expect(screen.getByText(/No safe automatic conversion available/i)).toBeInTheDocument()
+    expect(screen.queryByText(/300 – 600 mg/i)).not.toBeInTheDocument()
   })
 })

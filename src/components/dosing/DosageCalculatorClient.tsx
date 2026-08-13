@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { isRestrictedRecord } from '../../lib/restricted-ingredients'
 
@@ -10,10 +10,6 @@ interface DosageItem {
   type: 'herb' | 'compound'
   dosage?: string
   dose?: string
-  activeMarker?: string
-  defaultPct?: number
-  administration?: string
-  cycling?: string
 }
 
 interface DosageCalculatorClientProps {
@@ -21,283 +17,208 @@ interface DosageCalculatorClientProps {
   compounds: any[]
 }
 
-const EXTRACT_METADATA: Record<string, { activeMarker: string; defaultPct: number }> = {
-  ashwagandha: { activeMarker: 'Withanolides', defaultPct: 5 },
-  bacopa: { activeMarker: 'Bacosides', defaultPct: 45 },
-  rhodiola: { activeMarker: 'Rosavins / Salidroside', defaultPct: 3 },
-  lion: { activeMarker: 'Hericenones / Erinacines', defaultPct: 10 },
-  ginseng: { activeMarker: 'Ginsenosides', defaultPct: 15 },
-  kanna: { activeMarker: 'Mesembrine alkaloids', defaultPct: 0.5 },
-  curcumin: { activeMarker: 'Curcuminoids', defaultPct: 95 },
-  ginkgo: { activeMarker: 'Flavone Glycosides', defaultPct: 24 },
-  green: { activeMarker: 'EGCG', defaultPct: 50 },
-  cordyceps: { activeMarker: 'Cordycepin', defaultPct: 1 },
+type ParsedDose = {
+  minMg: number
+  maxMg: number
+  isRange: boolean
+}
+
+function parseRecordedDose(value?: string): ParsedDose | null {
+  const source = String(value || '').trim()
+  if (!source) return null
+
+  const lower = source.toLowerCase()
+  const hasMg = /\bmg\b/.test(lower)
+  const hasGram = /\bg\b|grams?/.test(lower)
+
+  // Mixed-unit strings need source-specific interpretation. Do not guess.
+  if (hasMg && hasGram) return null
+  if (!hasMg && !hasGram) return null
+
+  const matches = source.match(/\d+(?:\.\d+)?/g)
+  if (!matches?.length) return null
+
+  const values = matches.slice(0, 2).map(Number)
+  if (values.some(value => !Number.isFinite(value) || value < 0)) return null
+
+  const multiplier = hasGram ? 1000 : 1
+  const first = values[0] * multiplier
+  const second = (values[1] ?? values[0]) * multiplier
+
+  return {
+    minMg: Math.min(first, second),
+    maxMg: Math.max(first, second),
+    isRange: values.length > 1,
+  }
+}
+
+function formatMg(value: number) {
+  return Number.isInteger(value) ? String(value) : value.toFixed(1).replace(/\.0$/, '')
 }
 
 export default function DosageCalculatorClient({ herbs, compounds }: DosageCalculatorClientProps) {
-  // Combine items
   const allItems = useMemo(() => {
-    const combined = [
+    return [
       ...herbs.map(item => ({ ...item, type: 'herb' as const })),
       ...compounds.map(item => ({ ...item, type: 'compound' as const })),
-    ].filter(item => !isRestrictedRecord(item))
-
-    return combined.map(item => {
-      // Check if we have pre-defined extract markers
-      let activeMarker = 'Active molecules'
-      let defaultPct = 10
-      const matchedKey = Object.keys(EXTRACT_METADATA).find(key => item.slug.toLowerCase().includes(key))
-      if (matchedKey) {
-        activeMarker = EXTRACT_METADATA[matchedKey].activeMarker
-        defaultPct = EXTRACT_METADATA[matchedKey].defaultPct
-      }
-
-      return {
+    ]
+      .filter(item => !isRestrictedRecord(item))
+      .map(item => ({
         slug: item.slug,
         name: item.displayName || item.name || item.slug,
         type: item.type,
-        dosage: item.dosage || item.dose || '300 - 600 mg',
-        activeMarker,
-        defaultPct,
-        administration: item.administration || item.time_of_day || 'Take with food/water',
-        cycling: item.cycling || item.cycling_notes || 'No cycle required, but periodic breaks are healthy.'
-      } as DosageItem
-    })
+        dosage: item.dosage || item.dose,
+      }) as DosageItem)
   }, [herbs, compounds])
 
   const [selectedSlug, setSelectedSlug] = useState<string>(allItems[0]?.slug || '')
-  const [weight, setWeight] = useState<number>(150)
-  const [weightUnit, setWeightUnit] = useState<'lbs' | 'kg'>('lbs')
   const [extractPct, setExtractPct] = useState<number>(0)
 
-  // Find selected item details
   const selectedItem = useMemo(() => {
-    return allItems.find(i => i.slug === selectedSlug) || allItems[0]
+    return allItems.find(item => item.slug === selectedSlug) || allItems[0]
   }, [selectedSlug, allItems])
 
-  // Sync extract percentage when item changes
   useEffect(() => {
-    if (selectedItem) {
-      setExtractPct(selectedItem.defaultPct || 10)
-    }
-  }, [selectedItem])
+    setExtractPct(0)
+  }, [selectedSlug])
 
-  // Set default extract percent when item changes
-  const handleItemChange = (slug: string) => {
-    setSelectedSlug(slug)
-    const item = allItems.find(i => i.slug === slug)
-    if (item) {
-      setExtractPct(item.defaultPct || 10)
-    }
-  }
+  const parsedDose = useMemo(
+    () => parseRecordedDose(selectedItem?.dosage || selectedItem?.dose),
+    [selectedItem],
+  )
 
-  // Parse dosage string to extract base bounds
-  const baseRange = useMemo(() => {
-    if (!selectedItem) return { min: 100, max: 500 }
-
-    const doseStr = selectedItem.dosage || selectedItem.dose || ''
-    // Regex to match numbers in strings (e.g. "300 - 600", "500mg", "1.5g")
-    const matches = doseStr.match(/(\d+(?:\.\d+)?)/g)
-
-    if (matches && matches.length >= 2) {
-      let min = parseFloat(matches[0])
-      let max = parseFloat(matches[1])
-      // Handle gram scaling
-      if (doseStr.toLowerCase().includes('g') && !doseStr.toLowerCase().includes('mg') && min < 10) {
-        min *= 1000
-        max *= 1000
-      }
-      return { min, max }
-    } else if (matches && matches.length === 1) {
-      let val = parseFloat(matches[0])
-      if (doseStr.toLowerCase().includes('g') && !doseStr.toLowerCase().includes('mg') && val < 10) {
-        val *= 1000
-      }
-      return { min: val * 0.8, max: val * 1.2 }
-    }
-
-    return { min: 300, max: 600 }
-  }, [selectedItem])
-
-  // Calculate customized dosage
-  const calculatedDosage = useMemo(() => {
-    // Weight factor (standardized around 150 lbs / 68 kg)
-    const weightInLbs = weightUnit === 'lbs' ? weight : weight * 2.20462
-    let weightFactor = 1.0
-
-    if (weightInLbs < 120) {
-      weightFactor = 0.8
-    } else if (weightInLbs > 190) {
-      weightFactor = 1.2
-    }
-
-    const minDose = Math.round(baseRange.min * weightFactor)
-    const maxDose = Math.round(baseRange.max * weightFactor)
-
-    // active yield based on extract percentage
-    const minYield = Math.round(minDose * (extractPct / 100))
-    const maxYield = Math.round(maxDose * (extractPct / 100))
-
+  const activeYield = useMemo(() => {
+    if (!parsedDose || extractPct <= 0) return null
     return {
-      minDose,
-      maxDose,
-      minYield,
-      maxYield
+      min: parsedDose.minMg * (extractPct / 100),
+      max: parsedDose.maxMg * (extractPct / 100),
     }
-  }, [baseRange, weight, weightUnit, extractPct])
+  }, [parsedDose, extractPct])
+
+  if (!selectedItem) {
+    return (
+      <div className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 text-sm text-muted'>
+        No published ingredient records are available for this tool yet.
+      </div>
+    )
+  }
 
   return (
     <div className='grid gap-8 lg:grid-cols-3'>
-      {/* Parameter Settings Card */}
-      <div className='lg:col-span-1 space-y-6'>
-        <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4'>
-          <h2 className='text-lg font-bold text-slate-800'>Dosing Parameters</h2>
+      <div className='space-y-6 lg:col-span-1'>
+        <div className='space-y-4 rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm'>
+          <h2 className='text-lg font-bold text-slate-800'>Dose-math inputs</h2>
 
-          {/* Ingredient Selector */}
           <div className='space-y-1.5'>
-            <label htmlFor="ingredient-select" className='text-xs font-bold uppercase tracking-wider text-slate-400'>
-              Select Ingredient
+            <label htmlFor='ingredient-select' className='text-xs font-bold uppercase tracking-wider text-slate-400'>
+              Select ingredient
             </label>
             <select
-              id="ingredient-select"
+              id='ingredient-select'
               value={selectedSlug}
-              onChange={e => handleItemChange(e.target.value)}
-              className='w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-sm focus:border-emerald-500 focus:outline-none bg-white'
+              onChange={event => setSelectedSlug(event.target.value)}
+              className='w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm focus:border-emerald-500 focus:outline-none'
             >
               {allItems.map(item => (
-                <option key={item.slug} value={item.slug}>
+                <option key={`${item.type}:${item.slug}`} value={item.slug}>
                   {item.name} ({item.type})
                 </option>
               ))}
             </select>
           </div>
 
-          {/* Weight Input */}
           <div className='space-y-1.5'>
-            <div className='flex items-center justify-between'>
-              <label htmlFor="body-weight-input" className='text-xs font-bold uppercase tracking-wider text-slate-400'>
-                Body Weight
-              </label>
-              <div className='flex rounded-lg overflow-hidden border border-slate-200 text-xs'>
-                <button
-                  onClick={() => setWeightUnit('lbs')}
-                  type='button'
-                  className={`px-2 py-0.5 font-bold ${weightUnit === 'lbs' ? 'bg-slate-200 text-slate-700' : 'text-slate-400'}`}
-                >
-                  LBS
-                </button>
-                <button
-                  onClick={() => setWeightUnit('kg')}
-                  type='button'
-                  className={`px-2 py-0.5 font-bold ${weightUnit === 'kg' ? 'bg-slate-200 text-slate-700' : 'text-slate-400'}`}
-                >
-                  KG
-                </button>
-              </div>
-            </div>
-            <input
-              id="body-weight-input"
-              type='number'
-              value={weight}
-              onChange={e => setWeight(Math.max(1, parseInt(e.target.value) || 0))}
-              className='w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-sm focus:border-emerald-500 focus:outline-none'
-            />
-          </div>
-
-          {/* Extract Percentage */}
-          <div className='space-y-1.5'>
-            <div className='flex items-center justify-between'>
-              <label className='text-xs font-bold uppercase tracking-wider text-slate-400'>
-                Extract Active Concentration (%)
+            <div className='flex items-center justify-between gap-3'>
+              <label htmlFor='active-marker-percent' className='text-xs font-bold uppercase tracking-wider text-slate-400'>
+                Active marker on your label (%)
               </label>
               <span className='text-xs font-bold text-slate-500'>{extractPct}%</span>
             </div>
             <input
+              id='active-marker-percent'
               type='range'
-              min='0.1'
-              max='98'
+              min='0'
+              max='100'
               step='0.1'
               value={extractPct}
-              onChange={e => setExtractPct(parseFloat(e.target.value))}
+              onChange={event => setExtractPct(Number(event.target.value))}
               className='w-full accent-emerald-600'
             />
+            <p className='text-xs leading-5 text-slate-500'>
+              Enter the percentage printed on the specific product label. The tool does not assume a standardization for you.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Calculated Output Card */}
-      <div className='lg:col-span-2 space-y-6'>
-        <div className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-6'>
-          {/* Header */}
+      <div className='space-y-6 lg:col-span-2'>
+        <div className='space-y-6 rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
           <div className='border-b border-slate-100 pb-5'>
-            <span className='rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-800'>
-              Customized Dosage Guide
+            <span className='rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-slate-700'>
+              Study / monograph context only
             </span>
-            <h2 className='mt-2 text-2xl font-bold text-slate-800 sm:text-3xl'>{selectedItem.name} Guide</h2>
-            <p className='text-xs text-slate-400 mt-1'>
-              Standard reference dose: <span className='font-semibold'>{selectedItem.dosage}</span>
+            <h2 className='mt-2 text-2xl font-bold text-slate-800 sm:text-3xl'>{selectedItem.name} dose math</h2>
+            <p className='mt-2 text-sm leading-6 text-slate-600'>
+              This tool does not calculate a personalized dose. It only translates a recorded amount into milligrams and, when you provide a label percentage, estimates the corresponding active-marker amount.
             </p>
           </div>
 
-          {/* Big Output Dosage Display */}
-          <div className='rounded-2xl bg-slate-50/60 border border-slate-100 p-6 flex flex-col items-center justify-center text-center space-y-2'>
-            <span className='text-[10px] font-bold uppercase tracking-wider text-slate-400'>
-              Your Customized Educational Dose Range
-            </span>
-            <p className='text-3xl font-black text-emerald-800 sm:text-4xl'>
-              {calculatedDosage.minDose} – {calculatedDosage.maxDose} mg
-            </p>
-            <p className='text-xs text-slate-500'>
-              Scale factor applied: Weight ({weight} {weightUnit})
+          <div className='rounded-2xl border border-slate-100 bg-slate-50/60 p-6'>
+            <p className='text-[10px] font-bold uppercase tracking-wider text-slate-400'>Recorded source context</p>
+            {selectedItem.dosage ? (
+              <p className='mt-2 text-xl font-bold text-slate-800'>{selectedItem.dosage}</p>
+            ) : (
+              <p className='mt-2 text-sm font-semibold text-slate-600'>No dose range is recorded for this profile.</p>
+            )}
+            <p className='mt-2 text-xs leading-5 text-slate-500'>
+              Population, formulation, extract, indication, and study design can make one published amount inappropriate to generalize to another person or product.
             </p>
           </div>
 
-          {/* Molecular Active Yield */}
           <div className='grid gap-6 sm:grid-cols-2'>
-            <div className='rounded-2xl border border-slate-100 bg-white p-5 space-y-2.5'>
-              <h3 className='text-xs font-bold uppercase tracking-wider text-slate-400'>
-                {selectedItem.activeMarker} Yield
-              </h3>
-              <p className='text-xl font-bold text-slate-800'>
-                {calculatedDosage.minYield} – {calculatedDosage.maxYield} mg
-              </p>
-              <p className='text-xs text-slate-500 leading-relaxed'>
-                Based on your {extractPct}% active chemical marker extract input, taking this range yields these actual active molecules.
+            <div className='space-y-2.5 rounded-2xl border border-slate-100 bg-white p-5'>
+              <h3 className='text-xs font-bold uppercase tracking-wider text-slate-400'>Parsed amount</h3>
+              {parsedDose ? (
+                <p className='text-xl font-bold text-slate-800'>
+                  {formatMg(parsedDose.minMg)}{parsedDose.isRange ? ` – ${formatMg(parsedDose.maxMg)}` : ''} mg
+                </p>
+              ) : (
+                <p className='text-sm font-semibold text-slate-600'>No safe automatic conversion available.</p>
+              )}
+              <p className='text-xs leading-relaxed text-slate-500'>
+                Automatic conversion is limited to simple all-mg or all-gram source strings. Mixed or ambiguous units are left uninterpreted rather than guessed.
               </p>
             </div>
 
-            {/* Cycling notes */}
-            <div className='rounded-2xl border border-slate-100 bg-white p-5 space-y-2.5'>
-              <h3 className='text-xs font-bold uppercase tracking-wider text-slate-400'>
-                Cycling Recommendations
-              </h3>
-              <p className='text-xs leading-relaxed text-slate-700 font-medium'>
-                {selectedItem.cycling}
-              </p>
-              <p className='text-[10px] text-slate-400 leading-normal'>
-                Periodic breaks prevent receptor down-regulation or adaptation.
+            <div className='space-y-2.5 rounded-2xl border border-slate-100 bg-white p-5'>
+              <h3 className='text-xs font-bold uppercase tracking-wider text-slate-400'>Active-marker arithmetic</h3>
+              {activeYield ? (
+                <p className='text-xl font-bold text-slate-800'>
+                  {formatMg(activeYield.min)}{parsedDose?.isRange ? ` – ${formatMg(activeYield.max)}` : ''} mg
+                </p>
+              ) : (
+                <p className='text-sm font-semibold text-slate-600'>Set the label percentage to calculate.</p>
+              )}
+              <p className='text-xs leading-relaxed text-slate-500'>
+                This is multiplication only: recorded amount × the percentage you entered. It is not a potency, efficacy, or safety recommendation.
               </p>
             </div>
           </div>
 
-          {/* Administration instructions */}
-          <div className='rounded-2xl bg-emerald-50/20 border border-emerald-100/50 p-5 space-y-2 text-sm text-slate-700'>
-            <h3 className='font-bold text-emerald-800 text-xs uppercase tracking-wider'>
-              Administration & Bioavailability
-            </h3>
-            <p className='text-xs leading-relaxed opacity-95'>
-              {selectedItem.administration}
+          <div className='rounded-2xl border border-amber-200 bg-amber-50/60 p-5 text-sm leading-6 text-amber-950'>
+            <p className='font-bold'>Do not scale this number by body weight.</p>
+            <p className='mt-1'>
+              Unless the underlying source explicitly studied weight-based dosing, body size alone is not a valid reason to multiply a supplement amount up or down. Check the full profile for formulation, interactions, population, and safety context.
             </p>
           </div>
 
-          {/* Internal Navigation links */}
-          <div className='pt-3 flex items-center justify-between border-t border-slate-100 text-xs'>
-            <span className='text-slate-400'>Need detailed safety warning context?</span>
+          <div className='flex items-center justify-between gap-4 border-t border-slate-100 pt-3 text-xs'>
+            <span className='text-slate-400'>Need the evidence and safety context behind the record?</span>
             <Link
               href={selectedItem.type === 'herb' ? `/herbs/${selectedItem.slug}` : `/compounds/${selectedItem.slug}`}
-              className='text-emerald-700 hover:underline font-bold'
+              className='font-bold text-emerald-700 hover:underline'
             >
-              Open Full Monograph Profile →
+              Open full profile →
             </Link>
           </div>
         </div>

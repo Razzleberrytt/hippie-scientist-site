@@ -9,8 +9,8 @@ import { toDosingToolRecord } from '../../../src/lib/tool-page-payloads'
 import type { RuntimeRecord } from '../../../src/types/content'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Dynamic Dosage & Active Molecular Yield Calculator',
-  description: 'Compute conservative educational supplement dosing ranges based on body weight and extract concentration. Calculate active chemical yields and cycle notes.',
+  title: 'Supplement Dose Math & Active-Marker Calculator',
+  description: 'Translate recorded supplement amounts and product-label standardization percentages into transparent active-marker math without personalized dose scaling.',
   path: '/info/dosing/',
 })
 
@@ -38,54 +38,54 @@ export default async function DosingPage() {
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
-        title="Dynamic Dosage & Active Molecular Yield Calculator"
-        description="Calculate personalized dosing ranges and active marker compounds for cognitive and physical supplements."
-        url="https://thehippiescientist.net/info/dosing"
-        type="MedicalWebPage"
+        title='Supplement Dose Math & Active-Marker Calculator'
+        description='Translate recorded supplement amounts and product-label percentages into active-marker arithmetic without personalized dose recommendations.'
+        url='https://thehippiescientist.net/info/dosing'
+        type='MedicalWebPage'
       />
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-4'>
-        <p className='eyebrow-label'>Dosing Auditor</p>
-        <h1 className='text-3xl font-bold tracking-tight text-ink sm:text-5xl mt-2'>
-          Supplement Dosage Calculator
+      <section className='space-y-4 rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
+        <p className='eyebrow-label'>Dose Math Tool</p>
+        <h1 className='mt-2 text-3xl font-bold tracking-tight text-ink sm:text-5xl'>
+          Supplement Dose Math &amp; Active-Marker Calculator
         </h1>
         <div className='rounded-2xl border border-rose-900/15 bg-rose-50 p-4 text-sm font-semibold leading-relaxed text-rose-950'>
-          This tool is for educational purposes only. Consult a qualified healthcare provider before using any supplement, especially if you have medical conditions or take medications.
+          This tool does not calculate a dose for you. It converts simple recorded amounts and product-label percentages into transparent arithmetic so you can inspect the numbers without inventing a personalized regimen.
         </div>
         <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>
-          Dosage requirements depend heavily on extract concentration, body weight, medical history, and concurrent medications. Use this educational tool to map published supplement ranges to conservative reference parameters.
+          Supplement records can mix raw-herb weight, extract weight, standardization percentage, serving size, and study context. Use this page to separate those quantities before deciding what evidence or safety information you still need.
         </p>
       </section>
 
-      <section className='grid gap-4 md:grid-cols-3' aria-label='How to interpret supplement dose estimates'>
+      <section className='grid gap-4 md:grid-cols-3' aria-label='How to interpret supplement dose math'>
         <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='text-base font-bold text-ink'>Separate label dose from active yield</h2>
+          <h2 className='text-base font-bold text-ink'>Source amount is not a personal dose</h2>
           <p className='mt-2 text-sm leading-6 text-muted'>
-            A capsule can list 500 mg of extract while delivering a much smaller amount of the active marker compound. Standardization, extract ratio, and marker percentage matter more than the front-label milligram number when comparing products.
+            A number recorded from a study, monograph, or product context belongs to that population, formulation, duration, and outcome. The calculator keeps the source amount visible instead of converting it into a body-weight recommendation.
           </p>
         </article>
         <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='text-base font-bold text-ink'>Treat ranges as starting context</h2>
+          <h2 className='text-base font-bold text-ink'>Separate extract weight from marker yield</h2>
           <p className='mt-2 text-sm leading-6 text-muted'>
-            Published ranges are not personal prescriptions. Individual sensitivity, medications, sleep debt, caffeine use, body size, liver metabolism, and health conditions can shift what feels too weak, useful, or too strong.
+            A label can list 500 mg of extract while the standardized marker is only a fraction of that amount. Enter the percentage printed on the specific product to see the arithmetic rather than assuming a universal standardization.
           </p>
         </article>
         <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='text-base font-bold text-ink'>Avoid stacking unknowns</h2>
+          <h2 className='text-base font-bold text-ink'>Ambiguous units stay ambiguous</h2>
           <p className='mt-2 text-sm leading-6 text-muted'>
-            When testing a new supplement, changing multiple ingredients at once makes side effects harder to trace. A conservative approach changes one variable, starts low, tracks response, and avoids combining similar mechanisms too quickly.
+            If a source mixes units or does not provide a clean numeric amount, the tool leaves it uninterpreted. A missing or messy field should not silently become a made-up default range.
           </p>
         </article>
       </section>
 
       <section className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-        <h2 className='text-xl font-bold tracking-tight text-ink'>Why supplement dose math gets confusing</h2>
+        <h2 className='text-xl font-bold tracking-tight text-ink'>What this calculator is for</h2>
         <div className='mt-4 space-y-4 text-sm leading-7 text-muted'>
           <p>
-            Supplement labels often mix several measurement systems: raw herb weight, extract weight, extract ratio, standardized marker percentage, and serving size. Two products can look similar on the front label while delivering very different amounts of the compounds most likely to drive the effect.
+            The useful part of dose math is often dimensional: converting grams to milligrams, understanding whether a number refers to total extract or an active marker, and checking what a stated percentage actually yields. Those calculations can expose label confusion without pretending to answer what a particular person should take.
           </p>
           <p>
-            The safest use of this calculator is comparison, not escalation. It helps translate a product label into a conservative reference estimate so you can compare forms, spot unusually aggressive serving sizes, and decide whether a product deserves more safety review before use.
+            For any real-world decision, use the full profile to check the studied population, formulation, evidence quality, medication interactions, contraindications, and uncertainty. A larger body size does not automatically justify a larger supplement amount unless the underlying evidence specifically establishes weight-based dosing.
           </p>
         </div>
       </section>
@@ -96,11 +96,9 @@ export default async function DosingPage() {
       />
 
       <section className='rounded-2xl border border-rose-900/15 bg-rose-50/50 p-5 text-xs leading-relaxed text-rose-950'>
-        <p className='font-bold flex items-center gap-1.5'>
-          ⚠️ Dosing Safety Warning:
-        </p>
+        <p className='font-bold'>⚠️ Safety boundary</p>
         <p className='mt-1.5'>
-          Calculations are purely educational models based on published monograph ranges. Individual biochemistry can cause varying sensitivities. Always start at the lower bound (or below) to test for idiosyncratic hypersensitivity or allergen triggers before scaling up. Never exceed recommendations without consulting a physician.
+          Do not use the arithmetic on this page as a prescription, escalation rule, cycling plan, or substitute for product-specific and person-specific medical guidance. Recorded ranges can be inappropriate outside the exact context in which they were studied or documented.
         </p>
       </section>
     </div>
