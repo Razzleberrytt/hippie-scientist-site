@@ -52,6 +52,7 @@ export default function MobileBottomNav() {
       const target = event.target as Node
       if (panelRef.current?.contains(target) || triggerRef.current?.contains(target)) return
       setOpen(false)
+      triggerRef.current?.focus()
     }
 
     document.addEventListener('keydown', onKeyDown)
