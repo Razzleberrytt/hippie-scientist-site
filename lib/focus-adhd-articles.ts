@@ -184,7 +184,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/citicoline-for-adhd.md',
     title: 'Citicoline for ADHD: Evidence, Focus Benefits, Dosing, and Safety',
     seoTitle: 'Citicoline for ADHD: Focus, Dose and Safety',
-    description: 'Evidence-based guide to citicoline for ADHD and focus. Covers CDP-choline, attention research, Alpha-GPC comparison, dosing, safety, and realistic expectations.',
+    description: 'Review citicoline for ADHD and focus, including how direct the attention evidence is, studied populations, CDP-choline context, dose, side effects, and Alpha-GPC comparison.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Supplement Evidence'],
     date: '2026-06-22',
