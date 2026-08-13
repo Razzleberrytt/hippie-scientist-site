@@ -148,7 +148,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/vitamin-d-and-adhd.md',
     title: 'Vitamin D and ADHD: Deficiency, Symptoms, Mood, Sleep, and Supplementation',
     seoTitle: 'Vitamin D and ADHD: Deficiency, Mood and Sleep',
-    description: 'Evidence-based review of vitamin D and ADHD. Covers deficiency, symptom severity, mood, sleep, testing, dosing, safety, and realistic expectations.',
+    description: 'Review vitamin D and ADHD associations by baseline status, studied populations, symptom outcomes, mood and sleep context, testing, dose, and safety limits.',
     category: 'Nutrient Deficiencies',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-11',
