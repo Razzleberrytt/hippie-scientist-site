@@ -99,7 +99,7 @@ export default function ConsentManager({ open, onClose }: Props) {
       role="dialog"
       aria-labelledby="consent-title"
       aria-describedby="consent-description"
-      className="fixed inset-0 z-50 flex items-center justify-center"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3"
     >
       <button
         type="button"
