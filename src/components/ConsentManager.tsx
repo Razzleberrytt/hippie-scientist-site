@@ -9,6 +9,7 @@ type ConsentState = "granted" | "denied" | "unknown";
 export default function ConsentManager({ open, onClose }: Props) {
   const [status, setStatus] = useState<ConsentState>("unknown");
   const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -16,7 +17,7 @@ export default function ConsentManager({ open, onClose }: Props) {
     setStatus(consent ?? "unknown");
 
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    dialogRef.current?.focus();
+    closeButtonRef.current?.focus();
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
@@ -115,6 +116,7 @@ export default function ConsentManager({ open, onClose }: Props) {
             Privacy settings
           </h2>
           <button
+            ref={closeButtonRef}
             type="button"
             aria-label="Close privacy settings"
             onClick={onClose}
