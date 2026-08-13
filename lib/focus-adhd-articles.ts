@@ -48,7 +48,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/sleep-and-adhd-content-v1.md',
     title: 'Sleep and ADHD: Evidence-Based Strategies for Better Focus, Behavior, and Daily Functioning',
     seoTitle: 'Sleep and ADHD: Better Focus and Daily Function',
-    description: 'Evidence-based guide to sleep problems in ADHD. Explores why sleep issues are common, how poor sleep worsens symptoms, and practical strategies including sleep hygiene, circadian support, and supplements like melatonin, magnesium, and L-theanine — with clear guidance on when to seek professional care.',
+    description: 'Review how sleep problems and ADHD overlap, including circadian delay, symptom mimicry, sleep hygiene, melatonin evidence, and when clinical evaluation matters.',
     category: 'Sleep',
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-10',
