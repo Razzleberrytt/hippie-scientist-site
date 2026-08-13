@@ -70,7 +70,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/adhd-blood-tests.md',
     title: 'ADHD Blood Tests Guide: Ferritin, Vitamin D, Zinc, Magnesium, Thyroid, and B12',
     seoTitle: 'ADHD Blood Tests: Ferritin, Vitamin D and More',
-    description: 'Learn which blood tests may reveal nutrient, thyroid, or anemia issues that can worsen focus, sleep, fatigue, mood, or ADHD-like symptoms.',
+    description: 'Review blood tests that may identify ferritin, vitamin D, thyroid, B12, zinc, or magnesium issues related to focus, fatigue, sleep, or ADHD-like symptoms.',
     category: 'Nutrient Deficiencies',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-11',
