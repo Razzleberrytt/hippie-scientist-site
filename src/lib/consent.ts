@@ -29,10 +29,10 @@ export function setConsent(status: ConsentStatus) {
   } catch {
     // Continue with session consent when browser storage is unavailable.
   }
+  applyGaConsent(status)
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent(CONSENT_CHANGE_EVENT, { detail: { status } }))
   }
-  applyGaConsent(status)
 }
 
 export function initConsentDefault() {
