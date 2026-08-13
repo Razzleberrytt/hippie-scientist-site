@@ -153,6 +153,10 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/trans-resveratrol/ /herbs/resveratrol/ 301
 /herbs/ashwagandha-withania-somnifera /herbs/ashwagandha/ 301
 /herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301
+/herbs/withania-somnifera /herbs/ashwagandha/ 301
+/herbs/withania-somnifera/ /herbs/ashwagandha/ 301
+/herbs/silybum-marianum /herbs/milk-thistle/ 301
+/herbs/silybum-marianum/ /herbs/milk-thistle/ 301
 
 # Saw palmetto = Serenoa repens. The common-name record was promoted through
 # scripts/data/promote-profile.mjs and now carries the grounded profile, so the
