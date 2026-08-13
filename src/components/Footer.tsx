@@ -112,7 +112,7 @@ export default function Footer() {
               <a href='https://www.instagram.com/thehippiesci' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on Instagram (opens in a new tab)' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
                 Instagram
               </a>
-              <a href='https://www.youtube.com/@TheHippieSci' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
+              <a href='https://www.youtube.com/@TheHippieSci' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on YouTube (opens in a new tab)' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
                 YouTube
               </a>
             </div>
