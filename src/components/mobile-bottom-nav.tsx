@@ -35,6 +35,9 @@ export default function MobileBottomNav() {
   // Close on route change so the panel never survives a navigation.
   useEffect(() => {
     setOpen(false)
+    if (panelRef.current?.contains(document.activeElement)) {
+      triggerRef.current?.focus()
+    }
   }, [pathname])
 
   useEffect(() => {
