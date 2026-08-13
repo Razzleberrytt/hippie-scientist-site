@@ -1,23 +1,20 @@
 import fs from 'node:fs'
 const manifestPath = 'public/data/runtime-manifests/route-manifest.json'
 const routes = JSON.parse(fs.readFileSync(manifestPath,'utf8'))
-const deprecatedSlugs = new Set([
-  'coq10', 'coenzyme-q10-ubiquinol', 'theanine', 'l-theanine-sleep', 'methyleugenol', 'bcaas',
-  'probiotic-multistrain', 'probiotic-strain-bifidobacterium',
-  'probiotic-strain-lactobacillus', 'probiotics-bifidobacterium', 'probiotics-lactobacillus', 'taurine-blend',
-  'taurine-sleep', 'glycine-sleep', 'inositol-sleep', 'ashwagandha-extract-ksm-66', 'ashwagandha-root-extract',
-  'garlic', 'garlic-extract', 'garlic-aged-extract', 'aged-garlic-extract', 'ginger', 'gingerol', 'gingerols',
-  'valerian', 'valerian-extract-standardized', 'valerian-root-extract', 'lions-mane', 'passionflower',
-  'passionflower-extract', 'passionflower-extract-standardized', 'kava', 'kavalactones', 'reishi', 'maca',
-  'maca-root-extract', 'elderberry', 'resveratrol', 'trans-resveratrol',
-  'allium-sativum', 'valeriana-officinalis', 'hericium-erinaceus', 'passiflora-incarnata', 'piper-methysticum', 'ganoderma-lucidum',
-  'nr', 'berberine-hcl'
-])
+const redirectSources = new Set(
+  fs.readFileSync('public/_redirects', 'utf8')
+    .split(/\r?\n/)
+    .map(line => line.trim())
+    .filter(line => line && !line.startsWith('#'))
+    .map(line => line.split(/\s+/)[0])
+    .filter(source => source.startsWith('/') && !source.includes('*'))
+    .map(source => source.length > 1 ? source.replace(/\/+$/, '') : source),
+)
 const byTitle = new Map(), byDesc = new Map(), byCanonical = new Map()
 for (const r of routes) {
   const routePath = r.route || r.path || ''
-  const slug = routePath.split('/').pop()
-  if (deprecatedSlugs.has(slug)) continue
+  const normalizedRoute = routePath.length > 1 ? routePath.replace(/\/+$/, '') : routePath
+  if (redirectSources.has(normalizedRoute)) continue
 
   const title = (r.meta_title||'').trim(); const desc=(r.meta_description||'').trim(); const canonical=(r.canonical_url||r.url||'').trim()
   if (title) byTitle.set(title, [...(byTitle.get(title)||[]), routePath])
