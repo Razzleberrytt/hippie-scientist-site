@@ -1,81 +1,121 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../src/lib/seo'
+import {
+  buildPageMetadata,
+  blogJsonLd,
+  breadcrumbJsonLd,
+  faqPageJsonLd,
+  compactMetaTitle,
+} from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { AFFILIATE_TAGS } from '@/config/affiliate'
-
-// ─── Article metadata ─────────────────────────────────────────────────────────
 
 const SLUG = 'best-herbs-for-sleep'
-const TITLE = 'Best Herbs for Sleep: Evidence-Ranked Guide'
+const TITLE = 'Best Herbs for Sleep: What Human Evidence Supports in 2026'
 const DESCRIPTION =
-  'A practical evidence-ranked guide to the best herbs and natural supplements for sleep, including magnesium, ashwagandha, l-theanine, valerian, passionflower, chamomile, lavender, and hops.'
+  'Evidence-first guide to ashwagandha, passionflower, valerian, chamomile, and lavender-related sleep evidence, with directness, safety limits, and chronic-insomnia guidance.'
 const DATE = '2026-06-09'
+const UPDATED_DATE = '2026-08-12'
 const AUTHOR = 'Will'
-const READING_TIME = '14 min read'
-const TAGS = ['sleep', 'herbs', 'supplements', 'insomnia', 'natural sleep']
-const CATEGORY = 'sleep'
+const READING_TIME = '11 min read'
 
 export const metadata = buildPageMetadata({
-  title: TITLE,
+  title: compactMetaTitle(TITLE),
   description: DESCRIPTION,
   path: `/guides/sleep/${SLUG}`,
   openGraphType: 'article',
 })
 
-// ─── FAQ data (also used for JSON-LD) ────────────────────────────────────────
+const SOURCES = [
+  {
+    label: 'NCCIH: Sleep disorders and complementary health approaches',
+    href: 'https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches',
+    note: 'Current overview of complementary sleep approaches. NCCIH says chamomile evidence is not conclusive, valerian trials are inconsistent and its insomnia value has not been demonstrated, and CBT-I remains the most strongly recommended treatment for insomnia.',
+  },
+  {
+    label: 'Ashwagandha sleep systematic review and meta-analysis (2021)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/34559859/',
+    note: 'Five placebo-controlled randomized trials / 400 adults. The pooled sleep effect was small with moderate heterogeneity. Trials used specific standardized extracts, populations, and multi-week regimens rather than a generic as-needed herb protocol.',
+  },
+  {
+    label: 'Valerian insomnia umbrella review (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/38359657/',
+    note: 'Eight systematic reviews were included. The review found no evidence of efficacy for treating insomnia, although some subjective sleep-quality signals appeared; the underlying evidence was heterogeneous and low quality.',
+  },
+  {
+    label: 'Passionflower insomnia randomized placebo-controlled trial (2020)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/31714321/',
+    note: 'One hundred ten adults with DSM-5 insomnia disorder received passionflower extract or placebo for two weeks. Total sleep time improved versus placebo, while sleep efficiency and wake-after-sleep-onset did not differ significantly between groups.',
+  },
+  {
+    label: 'NCCIH: Passionflower usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/passionflower',
+    note: 'NCCIH describes the sleep research as small and mixed. Possible adverse effects include drowsiness, dizziness, and confusion; pregnancy and perioperative cautions apply.',
+  },
+  {
+    label: 'Chamomile systematic review and meta-analysis (2019)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/31006899/',
+    note: 'Review of randomized and quasi-randomized trials across anxiety, sleep quality, and insomnia outcomes. NCCIH still concludes that clinical evidence is not conclusive for insomnia.',
+  },
+  {
+    label: 'NCCIH: Ashwagandha usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/ashwagandha',
+    note: 'Some preparations may help insomnia or stress, but long-term safety is not established. Pregnancy/breastfeeding, thyroid, autoimmune, liver, surgery, and medication-interaction cautions apply.',
+  },
+  {
+    label: 'AASM: cognitive behavioral therapy for insomnia',
+    href: 'https://aasm.org/coding-quarterly-cognitive-behavioral-therapy-for-insomnia/',
+    note: 'The American Academy of Sleep Medicine describes CBT-I as the first-line, evidence-based treatment for chronic insomnia.',
+  },
+]
 
 const FAQS = [
   {
     question: 'What is the best herb for sleep?',
     answer:
-      'There is no single "best" herb for everyone — the right choice depends on the cause of your sleep difficulties. Magnesium glycinate is a reasonable first choice for most people due to its safety profile and broad support for sleep quality. For stress-driven poor sleep, ashwagandha has the strongest clinical evidence among adaptogens. For racing thoughts, L-theanine may help. For those who prefer traditional sedative herbs, valerian root is the most studied option.',
+      'Current evidence does not support one universal winner. Ashwagandha has a small multi-trial sleep signal from specific standardized extracts. Passionflower has a preliminary two-week insomnia trial. Valerian and chamomile should not be presented as established insomnia treatments, and lavender aromatherapy evidence does not establish that oral lavender products treat insomnia.',
   },
   {
-    question: 'Which natural sleep supplement works fastest?',
+    question: 'Which sleep herb works fastest?',
     answer:
-      'L-theanine may produce relaxation effects within the same evening at doses of 100–200 mg. Magnesium glycinate can also produce noticeable effects within days to a week for some people. Ashwagandha typically requires 6–8 weeks of consistent use before meaningful sleep improvements are reported in trials. Valerian has mixed evidence on onset timing.',
+      'The evidence reviewed here does not establish a reliable same-night winner. Ashwagandha trials generally used repeated dosing over weeks, the passionflower insomnia trial lasted two weeks, and valerian/chamomile evidence is too inconsistent to support a dependable onset promise.',
   },
   {
-    question: 'Can you combine sleep herbs?',
+    question: 'Does valerian work for insomnia?',
     answer:
-      'Some combinations are reasonable and commonly used — for example, magnesium glycinate with ashwagandha or L-theanine. These pairs work via different mechanisms and are not known to interact adversely. However, combining multiple sedative herbs (valerian, passionflower, hops, lavender) simultaneously increases CNS depression risk. Start with one supplement at a time, especially if you take prescription medications.',
+      'A 2024 umbrella review found no evidence of efficacy for treating insomnia, despite some subjective sleep-quality signals. The underlying studies were heterogeneous and generally low quality.',
   },
   {
-    question: 'Are sleep herbs safe long term?',
+    question: 'Does passionflower help insomnia?',
     answer:
-      'Safety varies by herb. Magnesium glycinate at moderate doses is generally safe for long-term daily use in people with normal kidney function. Ashwagandha has been studied for up to 8–12 weeks; data beyond that is limited, and rare hepatotoxicity cases have been reported. Valerian, passionflower, chamomile, and lavender have long traditional use histories, but rigorous long-term safety trials are sparse. Consult a healthcare provider for any supplement use beyond a few months.',
+      'One 110-person randomized placebo-controlled trial in adults with DSM-5 insomnia found a greater increase in total sleep time after two weeks, while several other sleep outcomes did not differ between groups. That is a preliminary signal, not proof of broad insomnia efficacy.',
   },
   {
-    question: 'What should I try first?',
+    question: 'Can sleep herbs be combined?',
     answer:
-      'Start with magnesium glycinate (200–400 mg elemental, taken 30–60 minutes before bed). It is the most broadly applicable, lowest-risk first option with a plausible mechanism and reasonable clinical support. If your main sleep problem is clearly stress- or anxiety-driven, adding ashwagandha (KSM-66 or Sensoril, 300–600 mg/day) after assessing magnesium alone is a reasonable second step.',
+      'Separate ingredient studies do not prove that a combination is more effective or safer. Combining sedating products can also make side effects and interactions harder to predict and makes it difficult to identify which ingredient caused benefit or harm.',
   },
   {
-    question: 'When should I see a doctor for sleep problems?',
+    question: 'What should I do if insomnia is chronic?',
     answer:
-      'See a doctor if your sleep problems have persisted for more than three months, significantly impair your daytime functioning, or are accompanied by symptoms like loud snoring, gasping for air, excessive daytime sleepiness, or restless legs. Herbs and supplements do not treat sleep apnea, periodic limb movement disorder, narcolepsy, or other medical sleep disorders. Cognitive behavioral therapy for insomnia (CBT-I) is the first-line treatment for chronic insomnia disorder.',
+      'CBT-I is the first-line evidence-based treatment for chronic insomnia. Persistent sleep problems also warrant evaluation for causes such as sleep apnea, restless legs, circadian disorders, medication effects, mood disorders, substance use, pain, or insufficient sleep opportunity.',
   },
 ]
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function BestHerbsForSleepPage() {
   const pageBreadcrumb = breadcrumbJsonLd([
     { name: 'Guides', url: 'https://thehippiescientist.net/guides/' },
+    { name: 'Sleep', url: 'https://thehippiescientist.net/guides/sleep/' },
     { name: TITLE, url: `https://thehippiescientist.net/guides/sleep/${SLUG}/` },
   ])
 
   const articleLd = blogJsonLd(
-    { title: TITLE, slug: SLUG, date: DATE, description: DESCRIPTION },
+    { title: TITLE, slug: SLUG, date: DATE, updated: UPDATED_DATE, description: DESCRIPTION },
     `/guides/sleep/${SLUG}/`,
   )
 
@@ -83,1103 +123,227 @@ export default function BestHerbsForSleepPage() {
 
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      {/* JSON-LD */}
       <JsonLd schema={articleLd} />
       <JsonLd schema={pageBreadcrumb} />
-      {faqLd && (
-        <JsonLd schema={faqLd} />
-      )}
+      {faqLd ? <JsonLd schema={faqLd} /> : null}
 
-      {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/guides/" className="transition hover:text-ink">
-          Guides
-        </Link>
+      <nav className="mb-6 flex items-center gap-2 text-sm text-muted" aria-label="Breadcrumb">
+        <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
         <span>/</span>
-        <span className="text-ink line-clamp-1">{TITLE}</span>
+        <Link href="/guides/sleep/" className="transition hover:text-ink">Sleep</Link>
+        <span>/</span>
+        <span className="line-clamp-1 text-ink">Best herbs for sleep</span>
       </nav>
 
-      {/* Hero */}
       <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
-            Hub Guide
-          </span>
-          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize">
-            {CATEGORY}
-          </span>
-          {TAGS.slice(0, 2).map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize"
-            >
-              {tag}
-            </span>
-          ))}
-          <span className="text-muted">June 9, 2026</span>
-          <span className="text-muted">·</span>
+          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">Sleep evidence guide</span>
           <span className="text-muted">{READING_TIME}</span>
         </div>
 
-        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
-          {TITLE}
-        </h1>
-
-        <p className="mt-2 text-sm text-muted">
-          By{' '}
-          <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">
-            {AUTHOR}
-          </Link>
-        </p>
-
-        <div className="mt-3">
-          <LastUpdatedBadge date={DATE} label="Last updated" />
-        </div>
-
+        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">{TITLE}</h1>
+        <p className="mt-2 text-sm text-muted">By <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">{AUTHOR}</Link></p>
+        <div className="mt-3"><LastUpdatedBadge date={UPDATED_DATE} label="Last evidence review" /></div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
 
         <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <Image
               src="/images/guides/best-herbs-for-sleep.jpg"
-              alt="Natural sleep herbs and supplements including valerian root, lavender, chamomile, ashwagandha, passionflower, and magnesium glycinate"
+              alt="Herbs commonly marketed for sleep arranged for an evidence comparison"
               width={1536}
               height={1024}
               priority
-              className="w-full h-auto"
+              className="h-auto w-full"
             />
           </div>
           <figcaption className="mt-3 text-center text-sm text-muted">
-            Evidence-ranked herbs and supplements commonly used for sleep — from magnesium and ashwagandha to valerian, passionflower, and lavender.
+            Traditional use, plausible mechanisms, and retail popularity are not substitutes for direct insomnia evidence.
           </figcaption>
         </figure>
       </section>
 
-      {/* Affiliate disclosure */}
-      <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 px-5 py-3 text-xs leading-6 text-muted">
-        <strong className="text-ink">Affiliate disclosure:</strong> This article contains affiliate
-        links. If you purchase through these links, we may earn a commission at no additional cost to
-        you. We only link to products consistent with the evidence reviewed on this page.
-      </div>
+      <div className="mt-6 space-y-6">
+        <section className="rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm sm:p-8">
+          <p className="eyebrow-label">Bottom line</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">There is no evidence-based “first herb” for every sleep problem</h2>
+          <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
+            <p>
+              <strong>Ashwagandha</strong> has a small pooled sleep signal from five placebo-controlled trials, but the evidence is preparation-specific and multi-week. <strong>Passionflower</strong> has one useful but preliminary insomnia trial. Those findings are more direct than tradition alone, but neither supports a same-night winner rule.
+            </p>
+            <p>
+              <strong>Valerian</strong> and <strong>chamomile</strong> remain weaker than their popularity suggests. A 2024 valerian umbrella review found no evidence of efficacy for treating insomnia, and NCCIH says chamomile evidence is not conclusive. Lavender-related aromatherapy research is a different intervention from taking an oral lavender supplement.
+            </p>
+          </div>
+        </section>
 
-      {/* Body + sidebar */}
-      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
-        {/* Main content */}
-        <div className="space-y-6">
+        <section>
+          <ResponsiveTable label="Sleep herb evidence comparison">
+            <table className="min-w-[900px] w-full text-sm">
+              <thead>
+                <tr className="border-b border-brand-900/10">
+                  <th className="pb-3 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Option</th>
+                  <th className="pb-3 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Direct human sleep evidence</th>
+                  <th className="pb-3 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Main limit</th>
+                  <th className="pb-3 text-left text-xs font-bold uppercase tracking-wider text-muted">Interpretation</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/5">
+                <tr className="align-top">
+                  <td className="py-4 pr-4 font-semibold text-ink">Ashwagandha</td>
+                  <td className="py-4 pr-4 text-muted">2021 meta-analysis: 5 placebo-controlled RCTs / 400 adults using specific standardized extracts over repeated multi-week regimens.</td>
+                  <td className="py-4 pr-4 text-muted">Small pooled effect, moderate heterogeneity, preparation-specific evidence, and limited long-term safety data.</td>
+                  <td className="py-4 text-muted">Limited sleep signal.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-4 pr-4 font-semibold text-ink">Passionflower</td>
+                  <td className="py-4 pr-4 text-muted">110 adults with DSM-5 insomnia, passionflower extract vs placebo for 2 weeks; total sleep time improved between groups.</td>
+                  <td className="py-4 pr-4 text-muted">Several other sleep outcomes did not differ between groups; one short trial cannot establish broad efficacy.</td>
+                  <td className="py-4 text-muted">Preliminary.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-4 pr-4 font-semibold text-ink">Valerian</td>
+                  <td className="py-4 pr-4 text-muted">2024 umbrella review included 8 systematic reviews and found some subjective sleep-quality signals.</td>
+                  <td className="py-4 pr-4 text-muted">No evidence of efficacy for treating insomnia; primary studies were heterogeneous and generally low quality.</td>
+                  <td className="py-4 text-muted">Not established for insomnia.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-4 pr-4 font-semibold text-ink">Chamomile</td>
+                  <td className="py-4 pr-4 text-muted">Human trials and reviews exist across sleep quality and insomnia-related outcomes.</td>
+                  <td className="py-4 pr-4 text-muted">NCCIH says there is no conclusive clinical-trial evidence that chamomile helps insomnia.</td>
+                  <td className="py-4 text-muted">Inconclusive.</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-4 pr-4 font-semibold text-ink">Lavender / aromatherapy</td>
+                  <td className="py-4 pr-4 text-muted">Aromatherapy reviews report possible sleep-quality improvements across heterogeneous essential-oil studies.</td>
+                  <td className="py-4 pr-4 text-muted">Aromatherapy evidence does not establish that oral lavender products treat insomnia; interventions and populations vary.</td>
+                  <td className="py-4 text-muted">Indirect for an oral-herb claim.</td>
+                </tr>
+              </tbody>
+            </table>
+          </ResponsiveTable>
+        </section>
 
-          {/* Quick Verdict */}
-          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
-            <p className="eyebrow-label">Quick Verdict</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-              Which Sleep Herb Should You Start With?
-            </h2>
-            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
-              <p>
-                <strong>Best first choice overall: Magnesium glycinate.</strong> Broadly applicable,
-                low risk, plausible mechanism, and reasonable clinical support — the default starting
-                point for most people.
-              </p>
-              <p>
-                <strong>Best for stress-driven poor sleep: Ashwagandha.</strong> The strongest
-                clinical evidence among adaptogens for sleep, particularly when elevated stress or
-                cortisol is the main driver.
-              </p>
-              <p>
-                <strong>Best for relaxation without sedation: L-theanine.</strong> Promotes calm
-                focus and reduces anxious arousal without causing drowsiness — useful for racing
-                thoughts at bedtime.
-              </p>
-              <p>
-                <strong>Best traditional herbal option: Valerian root.</strong> The most studied
-                botanical sedative with centuries of traditional use, though clinical evidence is
-                mixed.
-              </p>
-              <p>
-                <strong>Best gentle anxiety/sleep support: Passionflower.</strong> Modest evidence
-                for reducing anxiety overlapping with sleep difficulty; well-tolerated and gentle.
-              </p>
-            </div>
-          </section>
-
-          {/* Main article body */}
-          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-8">
-
-            {/* Ranking table */}
-            <div id="ranking-table">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Evidence-Ranked Overview
-              </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
-                The table below ranks the most commonly used herbs and supplements for sleep by
-                quality of human clinical evidence, practical usefulness, and safety profile.
-                Rankings are based on available evidence as of the date of this article — not
-                traditional reputation or marketing claims.
-              </p>
-
-              <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <ResponsiveTable label="Evidence-ranked sleep herbs and supplements">
-                  <table className="min-w-[700px] w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-brand-900/10">
-                        <th className="pb-2 pr-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Rank
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Herb / Supplement
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Evidence Level
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Best For
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Typical Use Case
-                        </th>
-                        <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Full Guide
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-brand-900/5">
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">1</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate</td>
-                        <td className="py-3 pr-4 text-muted">Limited–Moderate</td>
-                        <td className="py-3 pr-4 text-muted">General sleep quality, muscle tension, deficiency</td>
-                        <td className="py-3 pr-4 text-muted">200–400 mg elemental, 30–60 min before bed</td>
-                        <td className="py-3">
-                          <Link
-                            href="/guides/sleep/magnesium-for-sleep/"
-                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                          >
-                            Full guide →
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">2</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                        <td className="py-3 pr-4 text-muted">Moderate</td>
-                        <td className="py-3 pr-4 text-muted">Stress-driven poor sleep, cortisol, anxiety</td>
-                        <td className="py-3 pr-4 text-muted">300–600 mg/day (KSM-66 or Sensoril), evening</td>
-                        <td className="py-3">
-                          <Link
-                            href="/guides/sleep/ashwagandha-for-sleep/"
-                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                          >
-                            Full guide →
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">3</td>
-                        <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
-                        <td className="py-3 pr-4 text-muted">Limited–Moderate</td>
-                        <td className="py-3 pr-4 text-muted">Racing thoughts, anxious arousal at bedtime</td>
-                        <td className="py-3 pr-4 text-muted">100–200 mg, 30–60 min before bed</td>
-                        <td className="py-3 text-xs">
-                          <Link
-                            href="/guides/sleep/l-theanine-for-sleep/"
-                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                          >
-                            Full guide →
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">4</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Valerian root</td>
-                        <td className="py-3 pr-4 text-muted">Mixed / weak</td>
-                        <td className="py-3 pr-4 text-muted">Sleep onset latency, traditional sedation</td>
-                        <td className="py-3 pr-4 text-muted">300–600 mg, 30–60 min before bed</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-brand-700">5</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Passionflower</td>
-                        <td className="py-3 pr-4 text-muted">Limited</td>
-                        <td className="py-3 pr-4 text-muted">Anxiety-adjacent sleep difficulty</td>
-                        <td className="py-3 pr-4 text-muted">250–500 mg extract or 1 cup tea, evening</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-muted">6</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Chamomile</td>
-                        <td className="py-3 pr-4 text-muted">Limited</td>
-                        <td className="py-3 pr-4 text-muted">Mild relaxation, gentle sleep aid</td>
-                        <td className="py-3 pr-4 text-muted">Tea or 200–400 mg extract, evening</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-muted">7</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Lavender</td>
-                        <td className="py-3 pr-4 text-muted">Limited (mostly aromatherapy)</td>
-                        <td className="py-3 pr-4 text-muted">Relaxation, sleep environment</td>
-                        <td className="py-3 pr-4 text-muted">Oral: Silexan 80 mg; aromatherapy: diffuser</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-muted">8</td>
-                        <td className="py-3 pr-4 font-medium text-ink">Hops</td>
-                        <td className="py-3 pr-4 text-muted">Limited (often combined)</td>
-                        <td className="py-3 pr-4 text-muted">Often used with valerian in formulas</td>
-                        <td className="py-3 pr-4 text-muted">Typically in combination products</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </ResponsiveTable>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* How We Ranked */}
-            <div id="how-we-ranked">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                How We Ranked These Herbs
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Rankings are not based on popularity, traditional reputation, or marketing
-                prominence. The criteria used, in rough order of weight:
-              </p>
-              <ul className="mt-3 ml-5 space-y-2 list-disc text-[1.01rem] leading-[1.85] text-muted">
-                <li>
-                  <strong>Human clinical evidence</strong> — randomized controlled trials in humans
-                  using validated sleep outcome measures (PSQI, ISI, actigraphy, PSG). Animal and
-                  in vitro data support mechanistic plausibility but do not count toward the
-                  evidence grade.
-                </li>
-                <li>
-                  <strong>Practical usefulness</strong> — evidence for meaningful improvements in
-                  outcomes people actually care about: time to fall asleep, total sleep time, sleep
-                  quality scores, morning alertness.
-                </li>
-                <li>
-                  <strong>Safety profile</strong> — tolerability, known contraindications, and
-                  known drug interactions. A well-evidenced supplement with serious safety concerns
-                  ranks lower than a modestly evidenced option with an excellent safety profile.
-                </li>
-                <li>
-                  <strong>Cost and accessibility</strong> — widely available, affordable options
-                  rank higher than equivalent options that are expensive or difficult to source.
-                </li>
-                <li>
-                  <strong>Mechanistic plausibility</strong> — a coherent biological mechanism
-                  increases confidence that observed effects are real, even when trial evidence is
-                  limited.
-                </li>
-                <li>
-                  <strong>Sleep-specific fit</strong> — some adaptogens and anxiolytics have broad
-                  evidence but limited sleep-specific trial data. Ranking reflects sleep outcome
-                  evidence specifically.
-                </li>
-              </ul>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Deep dives */}
-            <div id="deep-dives">
-              <h2 className="mb-6 text-2xl font-semibold tracking-tight text-ink">
-                Deep Dives: Top 5
-              </h2>
-
-              {/* Magnesium */}
-              <div id="magnesium" className="mb-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  1. Magnesium Glycinate
-                </h3>
-                <EvidenceSummaryCard
-                  title="Magnesium &amp; Sleep Quality"
-                  evidenceLevel="Limited"
-                  humanEvidence="Some RCTs suggest magnesium improves sleep quality, sleep efficiency, and early morning awakening, particularly in older adults and those with low magnesium status. Evidence in healthy, magnesium-replete younger adults is more limited."
-                  mechanisticEvidence="NMDA antagonism reduces excitatory glutamatergic tone; GABA-A potentiation supports inhibitory signaling; melatonin synthesis pathway support. Glycine co-carrier has independent calming effects studied separately."
-                  safetyProfile="Generally well-tolerated at 200–400 mg elemental/day. GI upset at higher doses or with lower-quality forms. Kidney disease requires caution."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help sleep:</strong> Magnesium blunts excitatory
-                    neurotransmission (NMDA antagonism) and supports inhibitory signaling (GABA-A),
-                    which may facilitate the physiological transition from wakefulness to sleep.
-                    The glycinate form adds glycine, an inhibitory amino acid with its own modest
-                    sleep-promoting evidence.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> Most people — particularly those who suspect
-                    suboptimal dietary magnesium intake, experience muscle tension at night, or
-                    want a low-risk starting point.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Effect size is modest and most consistent in
-                    deficient populations. If you are well-nourished with adequate magnesium
-                    intake, benefit may be smaller.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> Avoid high doses with kidney disease. GI
-                    discomfort is possible, especially with citrate or oxide forms at higher doses —
-                    glycinate is generally better tolerated.
-                  </p>
-                  <p>
-                    <Link
-                      href="/guides/sleep/magnesium-for-sleep/"
-                      className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                    >
-                      Full guide: Magnesium for Sleep →
-                    </Link>
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-brand-900/10" />
-
-              {/* Ashwagandha */}
-              <div id="ashwagandha" className="mt-8 mb-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  2. Ashwagandha
-                </h3>
-                <EvidenceSummaryCard
-                  title="Ashwagandha &amp; Sleep Quality"
-                  evidenceLevel="Moderate"
-                  humanEvidence="Multiple RCTs (n=50–150) show significant improvements in sleep quality scores, sleep onset latency, and total sleep time vs placebo over 6–10 weeks in adults with elevated stress. Effect sizes are moderate."
-                  mechanisticEvidence="HPA axis modulation and cortisol reduction are well-documented in human trials. GABA-A binding activity demonstrated in vitro. TEG-mediated non-REM induction in animal models."
-                  safetyProfile="Generally well-tolerated at 300–600 mg/day for up to 12 weeks. Rare hepatotoxicity cases reported. Contraindicated in pregnancy. Potential thyroid interactions."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help sleep:</strong> Ashwagandha reduces cortisol via HPA
-                    axis modulation, dampens sympathetic nervous system activation, and may have
-                    modest GABA-A receptor activity. It does not act as a direct sedative — it
-                    works by reducing the stress response that keeps the nervous system alert at
-                    night.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> Adults whose poor sleep is clearly linked to
-                    elevated stress, anxiety, or difficulty winding down mentally. Less useful for
-                    sleep problems unrelated to stress.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Onset is slow — most trials show meaningful
-                    improvement only after 6–8 weeks. Not a fast-acting sleep aid.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> Rare hepatotoxicity cases have been reported;
-                    avoid if you have liver disease or take hepatotoxic medications. Avoid in
-                    pregnancy.
-                  </p>
-                  <p>
-                    <Link
-                      href="/guides/sleep/ashwagandha-for-sleep/"
-                      className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                    >
-                      Full guide: Ashwagandha for Sleep →
-                    </Link>
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-brand-900/10" />
-
-              {/* L-Theanine */}
-              <div id="l-theanine" className="mt-8 mb-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  3. L-Theanine
-                </h3>
-                <EvidenceSummaryCard
-                  title="L-Theanine &amp; Sleep"
-                  evidenceLevel="Limited"
-                  humanEvidence="Small trials suggest L-theanine improves subjective sleep quality and reduces anxious arousal without causing sedation. Most studies are small and short-term. Evidence is more consistent for relaxation than for direct sleep onset improvement."
-                  mechanisticEvidence="Promotes alpha-wave brain activity, modulates glutamate and GABA signaling, and may reduce cortisol response to stress. Does not bind GABA-A receptors directly — promotes calm rather than sedation."
-                  safetyProfile="Very well-tolerated. No significant drug interactions reported at standard doses. Long-term safety data limited but no serious adverse events identified."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help sleep:</strong> L-theanine, an amino acid found in
-                    green tea, promotes relaxed alertness by increasing alpha-wave brain activity.
-                    It reduces anxious rumination and physiological stress markers without causing
-                    drowsiness, which may help people who lie awake with racing thoughts rather
-                    than people who simply cannot stay asleep.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> People whose primary sleep difficulty is mental
-                    hyperarousal or anxious thoughts at bedtime. Also useful as a daytime anxiolytic
-                    that does not impair cognitive function.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Evidence for direct sleep improvement (as
-                    measured by PSG or actigraphy) is limited. Most benefit is subjective and
-                    related to relaxation rather than sleep architecture changes.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> One of the safest options on this list. No
-                    significant drug interactions at standard doses (100–200 mg). Can be combined
-                    with magnesium or ashwagandha without known interaction risk.
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-brand-900/10" />
-
-              {/* Valerian */}
-              <div id="valerian" className="mt-8 mb-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  4. Valerian Root
-                </h3>
-                <EvidenceSummaryCard
-                  title="Valerian &amp; Sleep"
-                  evidenceLevel="Limited"
-                  humanEvidence="Meta-analyses of valerian RCTs show mixed results. Some trials report improvements in sleep onset latency and subjective sleep quality; others show no significant effect versus placebo. Heterogeneity of preparations and dosing makes synthesis difficult."
-                  mechanisticEvidence="Proposed GABA-A receptor agonism via valerenic acid; adenosine receptor activity; possible serotonin interaction. Mechanisms are plausible but not firmly established in human pharmacokinetic studies."
-                  safetyProfile="Generally safe at standard doses for short-term use. Sedation and grogginess reported at higher doses. Rarely associated with hepatotoxicity in case reports. Not recommended in pregnancy."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help sleep:</strong> Valerian root may act as a mild
-                    sedative via GABA-A agonism (similar in mechanism to benzodiazepines, but far
-                    weaker). Valerenic acid is considered the primary active constituent in most
-                    preparations.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> People who want a traditional botanical sedative
-                    with a long history of use. More likely to produce noticeable effects than
-                    magnesium or L-theanine in people who want something with a more sedative character.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Clinical evidence is inconsistent. Preparation
-                    quality varies significantly between products. The smell and taste of valerian
-                    root products is notably unpleasant.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> Avoid combining with prescription sedatives,
-                    benzodiazepines, or alcohol. Do not use in pregnancy. Isolated hepatotoxicity
-                    cases have been reported, though causality is uncertain.
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-brand-900/10" />
-
-              {/* Passionflower */}
-              <div id="passionflower" className="mt-8">
-                <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
-                  5. Passionflower
-                </h3>
-                <EvidenceSummaryCard
-                  title="Passionflower &amp; Sleep"
-                  evidenceLevel="Limited"
-                  humanEvidence="A small number of RCTs suggest passionflower tea or extract modestly improves subjective sleep quality and reduces anxiety. Most studies are small (n&lt;60), short-term, and primarily self-report based."
-                  mechanisticEvidence="Chrysin and other flavonoids may bind GABA-A receptors. Preclinical evidence for anxiolytic and sedative effects. Human mechanistic data is sparse."
-                  safetyProfile="Generally well-tolerated at standard doses. Sedation at higher doses. Avoid with prescription sedatives. Not recommended in pregnancy."
-                />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <p>
-                    <strong>How it may help sleep:</strong> Passionflower contains flavonoids
-                    (including chrysin) that may modulate GABA-A receptors, producing mild
-                    sedative and anxiolytic effects. The most consistent evidence is for anxiety
-                    reduction, which secondarily benefits sleep quality.
-                  </p>
-                  <p>
-                    <strong>Best-fit user:</strong> People with anxiety that overlaps with sleep
-                    difficulty, or those who want a gentle herbal option with a tea-based
-                    preparation. A good choice for those who want something milder than valerian.
-                  </p>
-                  <p>
-                    <strong>Main limitation:</strong> Evidence base is thin. Most benefit is
-                    reported subjectively. Standardization of commercial passionflower products
-                    varies considerably.
-                  </p>
-                  <p>
-                    <strong>Safety note:</strong> Do not combine with prescription sedatives or
-                    benzodiazepines. Avoid in pregnancy (uterotonic activity reported in animal
-                    models).
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Which should you choose */}
-            <div id="decision-framework">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Which Should You Choose?
-              </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
-                The most useful framework is to match the supplement to the primary driver of your
-                sleep difficulty:
-              </p>
-              <div className="space-y-3 rounded-[1rem] border border-brand-900/10 bg-brand-50/40 p-5">
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>If you want the simplest starting point with the broadest
-                    applicability:</strong> try{' '}
-                    <Link href="/guides/sleep/magnesium-for-sleep/" className="font-semibold text-brand-700 hover:underline">
-                      magnesium glycinate
-                    </Link>{' '}
-                    (200–400 mg elemental, 30–60 min before bed).
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>If stress is clearly the main sleep blocker</strong> — you find it hard
-                    to wind down, your mind is active, or you notice elevated stress throughout the
-                    day: try{' '}
-                    <Link href="/guides/sleep/ashwagandha-for-sleep/" className="font-semibold text-brand-700 hover:underline">
-                      ashwagandha
-                    </Link>{' '}
-                    (KSM-66 or Sensoril, 300–600 mg/day). Allow 6–8 weeks.
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>If racing thoughts are the specific issue at bedtime:</strong> try
-                    L-theanine (100–200 mg, 30–60 min before bed). It promotes calm without
-                    sedation and works relatively quickly.
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>If you prefer a traditional sedative botanical:</strong> try valerian
-                    root. Expect variable results — the evidence is mixed, but some people find it
-                    reliably helpful.
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-muted">
-                    <strong>If anxiety overlaps with your sleep difficulty and you want a
-                    gentle option:</strong> passionflower is worth considering, particularly as a
-                    tea before bed.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Combinations */}
-            <div id="combinations">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Combinations That Make Sense
-              </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
-                These are reasonable combinations based on different mechanisms and common
-                supplement stacking practice. Direct combination trials may be limited or absent —
-                the rationale is mechanistic complementarity and absence of known adverse
-                interactions, not clinical combination evidence.
-              </p>
-              <div className="space-y-4">
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="font-semibold text-ink">Magnesium + Ashwagandha</p>
-                  <p className="mt-1 text-sm leading-6 text-muted">
-                    The most popular sleep stack. Magnesium addresses cellular relaxation
-                    (NMDA, GABA), ashwagandha addresses the cortisol/stress axis. Complementary
-                    mechanisms with no known adverse interaction. Well-suited for people with
-                    both physical tension and stress-related arousal.
-                  </p>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="font-semibold text-ink">Magnesium + L-Theanine</p>
-                  <p className="mt-1 text-sm leading-6 text-muted">
-                    A gentle relaxation stack. Magnesium supports sleep architecture; L-theanine
-                    reduces anxious arousal. Both are among the lowest-risk options and work via
-                    different pathways. A reasonable choice for people who want to address both
-                    physical and mental tension.
-                  </p>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="font-semibold text-ink">Ashwagandha + L-Theanine</p>
-                  <p className="mt-1 text-sm leading-6 text-muted">
-                    Both target anxiety and stress pathways via different mechanisms (HPA axis
-                    vs alpha-wave promotion). Potentially additive for people with significant
-                    stress-driven sleep disruption. L-theanine may provide faster relief while
-                    ashwagandha builds over weeks.
-                  </p>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="font-semibold text-ink">Magnesium + Ashwagandha + L-Theanine</p>
-                  <p className="mt-1 text-sm leading-6 text-muted">
-                    A comprehensive but still conservative sleep stack. Three different
-                    mechanisms: cellular relaxation (Mg), HPA axis modulation (ashwagandha),
-                    and anxious arousal reduction (L-theanine). No known adverse interactions
-                    between these three. Start each supplement individually before combining to
-                    identify individual tolerability.
-                  </p>
-                </div>
-              </div>
-              <p className="mt-3 text-sm text-muted">
-                Note: Do not combine herbal sedatives (valerian, passionflower, hops, chamomile)
-                with each other or with prescription sedatives without medical guidance.
-              </p>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* What not to do */}
-            <div id="what-not-to-do">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                What Not To Do
-              </h2>
-              <ul className="ml-5 space-y-3 list-disc text-[1.01rem] leading-[1.85] text-muted">
-                <li>
-                  <strong>Do not start 5 supplements at once.</strong> You will not know which one
-                  is helping (or causing side effects). Introduce one at a time, assess for 2–4
-                  weeks, then add the next if desired.
-                </li>
-                <li>
-                  <strong>Do not megadose.</strong> More is not better for most sleep supplements.
-                  Higher magnesium doses increase GI risk; higher ashwagandha doses do not appear
-                  to produce proportionally greater sleep benefits and increase the risk of side
-                  effects.
-                </li>
-                <li>
-                  <strong>Do not combine herbs with prescription sedatives without medical
-                  guidance.</strong> Valerian, passionflower, kava, and other sedative botanicals
-                  can potentiate benzodiazepines, Z-drugs (zolpidem, zaleplon), and opioids.
-                  This is a meaningful safety risk.
-                </li>
-                <li>
-                  <strong>Do not assume herbs fix medical sleep disorders.</strong> Supplements
-                  do not treat obstructive sleep apnea, periodic limb movement disorder,
-                  narcolepsy, or circadian rhythm disorders. If you snore loudly, gasp during
-                  sleep, or feel unrefreshed regardless of sleep duration, see a physician.
-                </li>
-                <li>
-                  <strong>Do not default to magnesium citrate if you have GI issues.</strong>{' '}
-                  Magnesium citrate at higher doses is likely to cause loose stools. For sleep
-                  purposes, magnesium glycinate is better tolerated and more appropriate.
-                </li>
-              </ul>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Safety */}
-            <div id="safety">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Safety Overview
-              </h2>
-              <SafetyNotice title="General Safety — Sleep Herbs and Supplements">
-                <ul className="ml-5 space-y-1.5 list-disc">
-                  <li>
-                    <strong>Pregnancy and breastfeeding:</strong> Most herbs on this list —
-                    including ashwagandha, valerian, passionflower, hops, and lavender — should
-                    be avoided during pregnancy due to limited safety data and/or preclinical
-                    signals of uterotonic or fetal risk. Magnesium is generally considered safe
-                    at dietary intake levels during pregnancy; high supplemental doses should be
-                    discussed with a healthcare provider.
-                  </li>
-                  <li>
-                    <strong>Sedative medications:</strong> Sedative botanicals (valerian,
-                    passionflower, hops, kava, chamomile in high doses) can potentiate the CNS
-                    depressant effects of benzodiazepines, Z-drugs, barbiturates, and opioids.
-                    Do not combine without medical supervision.
-                  </li>
-                  <li>
-                    <strong>Liver caution — ashwagandha:</strong> Multiple post-market case
-                    reports of drug-induced liver injury associated with ashwagandha. Avoid if
-                    you have liver disease or take other hepatotoxic medications. Monitor for
-                    symptoms of liver injury (jaundice, dark urine, RUQ pain).
-                  </li>
-                  <li>
-                    <strong>Kidney disease — magnesium:</strong> The kidneys regulate magnesium
-                    excretion. Supplementation in people with moderate to severe kidney disease
-                    (CKD stage 3+) can cause hypermagnesemia. Consult a physician before
-                    supplementing with magnesium if you have kidney disease.
-                  </li>
-                  <li>
-                    <strong>Medical sleep disorders require medical evaluation.</strong> Chronic
-                    insomnia disorder, sleep apnea, narcolepsy, restless legs syndrome, and
-                    circadian rhythm disorders are medical conditions. Herbs and supplements are
-                    not appropriate primary treatments. CBT-I (cognitive behavioral therapy for
-                    insomnia) is the evidence-based first-line treatment for chronic insomnia.
-                  </li>
-                </ul>
-              </SafetyNotice>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Related Articles */}
-            <div id="related-articles">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Related Articles
-              </h2>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <Link
-                  href="/guides/sleep/ashwagandha-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Ashwagandha for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence, dosage, mechanisms, and what to expect from ashwagandha as a
-                    sleep supplement.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/magnesium-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Magnesium for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence, types (glycinate vs threonate vs citrate), dosage, and what to
-                    expect from magnesium as a sleep supplement.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/l-theanine-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    L-Theanine for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    How L-theanine promotes relaxation without sedation and when it is most useful
-                    for sleep.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/magnesium-types-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Magnesium Types for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Deep dive into glycinate vs threonate vs citrate vs oxide vs malate — which
-                    form is right for you.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Ashwagandha vs Magnesium for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    A direct comparison of mechanisms, evidence, timing, cost, and use cases
-                    for choosing between the two most popular sleep supplements.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/sleep-stack-guide/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Sleep Stack Guide
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    How to combine magnesium, ashwagandha, and L-theanine in a practical
-                    sleep supplement stack.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/anxiety/natural-anxiety-relief/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Anxiety Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Natural Anxiety Relief
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence-ranked guide to ashwagandha, L-theanine, magnesium, kava, saffron,
-                    and other anxiety supplements.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/adhd/sleep-and-adhd/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Focus / ADHD Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Sleep and ADHD
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence-based overview of how sleep problems overlap with ADHD and practical management strategies.
-                  </p>
-                </Link>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* FAQ */}
-            <div id="faq">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-4">
-                {FAQS.map((faq, i) => (
-                  <div
-                    key={i}
-                    className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
-                  >
-                    <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Sources */}
-            <div id="sources">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
-              <p className="mb-4 text-sm text-muted">
-                The references below cover key trials for each herb in this guide. Evidence grades reflect current editorial assessments and are updated as new trials are published.
-              </p>
-              <ResponsiveTable label="Article references">
-                <table className="min-w-[600px] w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-brand-900/10">
-                      <th className="pb-2 pr-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Topic
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Evidence area
-                      </th>
-                      <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-brand-900/5">
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">Magnesium sleep evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Abbasi et al.; Nielsen et al.; Held et al.; Yamadera et al. (glycine)
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">Ashwagandha sleep evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Langade et al. 2019, 2021; Cheah et al. 2021; Deshpande et al. 2020
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">L-theanine sleep evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Alpha-wave promotion trials; anxiety/sleep overlap studies
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">Valerian sleep evidence</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Meta-analyses of valerian RCTs; valerenic acid mechanism studies
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">
-                        Passionflower sleep evidence
-                      </td>
-                      <td className="py-3 pr-4 text-muted">
-                        Passionflower anxiety/sleep RCTs; chrysin GABA-A binding studies
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 font-medium text-ink">
-                        General sleep safety guidance
-                      </td>
-                      <td className="py-3 pr-4 text-muted">
-                        AASM guidelines; CBT-I evidence base; drug interaction references
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        References being compiled
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </ResponsiveTable>
-            </div>
-
-          </section>
-
-          <RecommendationSection products={getRevenueProductSet('valerian')?.products ?? []} />
-
-          {/* Email capture */}
-          <EmailCapture
-            headline="Get future research notes by email"
-            description="Evidence-first supplement updates, safety context, and new guide announcements. No diagnosis, treatment, or personal medical advice."
-            location={`article-${SLUG}`}
+        <section className="space-y-5">
+          <EvidenceSummaryCard
+            title="Ashwagandha"
+            evidenceLevel="Limited"
+            humanEvidence="Five placebo-controlled randomized trials / 400 adults were pooled in the 2021 sleep meta-analysis. Trials used defined standardized extracts and repeated dosing over weeks rather than an as-needed bedtime rescue strategy."
+            mechanisticEvidence="Stress and neuroendocrine hypotheses may help explain research questions, but symptoms do not diagnose a cortisol problem or identify who should use ashwagandha."
+            safetyProfile="NCCIH notes uncertain long-term safety, rare liver injury, pregnancy/breastfeeding avoidance, thyroid and autoimmune cautions, surgery concerns, and medication interactions."
           />
-
-          <NewsletterCtaBlock
-            title="Continue with the newsletter archive"
-            description="Short notes built for cautious supplement decisions."
-            location={`article-${SLUG}-newsletter`}
+          <EvidenceSummaryCard
+            title="Passionflower"
+            evidenceLevel="Limited"
+            humanEvidence="A 110-person randomized placebo-controlled trial in adults with DSM-5 insomnia studied passionflower extract for two weeks. Total sleep time improved versus placebo, while several other sleep outcomes did not differ between groups."
+            mechanisticEvidence="Sedative or GABA-related mechanisms are hypotheses; they do not establish clinical insomnia efficacy or justify combining passionflower with other sedating products."
+            safetyProfile="NCCIH lists drowsiness, dizziness, and confusion; pregnancy and perioperative cautions apply because of uterine and nervous-system concerns."
           />
-        </div>
+          <EvidenceSummaryCard
+            title="Valerian"
+            evidenceLevel="Limited"
+            humanEvidence="The 2024 umbrella review found no evidence of efficacy for treating insomnia, despite some subjective sleep-quality signals across prior reviews."
+            mechanisticEvidence="Traditional sedative use and proposed GABA-related effects do not overcome heterogeneous, low-quality clinical evidence."
+            safetyProfile="Long-term safety remains uncertain. Adding valerian to alcohol, sedatives, or multiple calming products can increase complexity and potential sedation risk."
+          />
+          <EvidenceSummaryCard
+            title="Chamomile"
+            evidenceLevel="Limited"
+            humanEvidence="Trials and pooled reviews exist, but NCCIH still describes the clinical evidence for insomnia as inconclusive."
+            mechanisticEvidence="Apigenin-related receptor hypotheses are not equivalent to demonstrated insomnia treatment efficacy."
+            safetyProfile="Chamomile can trigger allergic reactions, especially in people sensitive to ragweed or related plants. Product form and dose also vary substantially."
+          />
+        </section>
 
-        {/* Sidebar */}
-        <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          {/* Table of contents */}
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              In this article
+        <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Why magnesium and L-theanine are not ranked as “herbs” here</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Magnesium is a mineral and L-theanine is an amino acid. Both belong in the broader sleep-supplement comparison, where their evidence can be judged without making a botanical ranking look stronger by mixing unlike categories.
+          </p>
+          <Link href="/guides/sleep/best-supplements-for-sleep/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Best sleep supplements evidence guide →</Link>
+        </section>
+
+        <section className="rounded-[1rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm sm:p-8">
+          <h2 className="text-xl font-semibold text-amber-950">Separate herb studies do not validate a sleep stack</h2>
+          <p className="mt-3 text-sm leading-7 text-amber-950">
+            Evidence for individual ingredients does not prove that valerian + passionflower, magnesium + ashwagandha, or any other combination is synergistic, faster, or safer. Combining several sedating products also makes benefit, side effects, and interactions harder to attribute.
+          </p>
+          <Link href="/guides/sleep/sleep-stack-guide/" className="mt-3 inline-block text-sm font-semibold text-amber-950 hover:underline">Sleep stack evidence guide →</Link>
+        </section>
+
+        <section>
+          <SafetyNotice title="Safety and stop rules">
+            <ul className="ml-5 list-disc space-y-2">
+              <li><strong>Ashwagandha:</strong> avoid during pregnancy/breastfeeding and review thyroid, autoimmune, liver, surgery, and medication issues before use.</li>
+              <li><strong>Passionflower:</strong> may cause drowsiness, dizziness, or confusion; avoid during pregnancy and discuss perioperative use because of anesthesia interactions.</li>
+              <li><strong>Chamomile:</strong> allergy risk is higher in people sensitive to ragweed or related plants.</li>
+              <li><strong>Valerian and other sedating herbs:</strong> long-term safety is uncertain; stacking sedating products increases complexity and may increase impairment.</li>
+              <li><strong>Persistent symptoms:</strong> loud snoring/gasping, dangerous daytime sleepiness, restless-legs symptoms, severe mood symptoms, or chronic insomnia warrant evaluation rather than escalating herbs.</li>
+            </ul>
+          </SafetyNotice>
+        </section>
+
+        <section className="rounded-[1rem] border border-red-100 bg-red-50/70 p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-red-950">Chronic insomnia has a stronger first-line treatment</h2>
+          <div className="mt-3 space-y-3 text-sm leading-7 text-red-900">
+            <p>
+              AASM describes cognitive behavioral therapy for insomnia (CBT-I) as the first-line, evidence-based treatment for chronic insomnia. A botanical comparison should not make supplements look equivalent to that evidence base.
             </p>
-            <nav className="mt-3 space-y-1.5" aria-label="Article sections">
-              {[
-                ['#ranking-table', 'Evidence Rankings'],
-                ['#how-we-ranked', 'How We Ranked'],
-                ['#deep-dives', 'Deep Dives: Top 5'],
-                ['#magnesium', 'Magnesium'],
-                ['#ashwagandha', 'Ashwagandha'],
-                ['#l-theanine', 'L-Theanine'],
-                ['#valerian', 'Valerian'],
-                ['#passionflower', 'Passionflower'],
-                ['#decision-framework', 'Which to Choose'],
-                ['#combinations', 'Combinations'],
-                ['#what-not-to-do', 'What Not To Do'],
-                ['#safety', 'Safety'],
-                ['#related-articles', 'Related Articles'],
-                ['#faq', 'FAQ'],
-                ['#sources', 'Sources'],
-              ].map(([href, label]) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          {/* Related profiles */}
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              Sleep cluster
+            <p>
+              Persistent poor sleep can also reflect sleep apnea, restless legs, circadian disorders, medication effects, mood disorders, substance use, pain, or insufficient sleep opportunity.
             </p>
-            <div className="mt-3 space-y-2">
-              <Link
-                href="/guides/sleep/magnesium-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Magnesium for sleep →
-              </Link>
-              <Link
-                href="/guides/sleep/ashwagandha-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Ashwagandha for sleep →
-              </Link>
-              <Link
-                href="/guides/sleep/sleep-herbs-vs-melatonin/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Sleep herbs vs melatonin →
-              </Link>
-              <Link
-                href="/herbs/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                All herb profiles →
-              </Link>
-              <Link
-                href="/guides/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                All articles →
-              </Link>
-            </div>
           </div>
+        </section>
 
-          {/* Affiliate quick links */}
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              Shop — top picks
-            </p>
-            <div className="mt-3 space-y-2">
-              <a
-                href={`https://www.amazon.com/s?k=magnesium+glycinate+sleep&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Magnesium glycinate →
-              </a>
-              <a
-                href={`https://www.amazon.com/s?k=KSM-66+ashwagandha&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                KSM-66 ashwagandha →
-              </a>
-              <a
-                href={`https://www.amazon.com/s?k=l-theanine+sleep&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                L-theanine →
-              </a>
-              <a
-                href={`https://www.amazon.com/s?k=valerian+root+sleep&tag=${AFFILIATE_TAGS.amazon}`}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Valerian root →
-              </a>
-            </div>
+        <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Product sourcing note</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            This broad guide intentionally does not rank affiliate products. Study extracts, teas, essential oils, and retail capsules are not automatically interchangeable. Ingredient-specific evidence pages are the better place to evaluate plant part, extract, preparation, standardization, and independent quality testing.
+          </p>
+        </section>
+
+        <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+          <div className="mt-5 space-y-5">
+            {FAQS.map((faq) => (
+              <div key={faq.question} className="border-l-4 border-brand-600 pl-4">
+                <h3 className="font-semibold text-ink">{faq.question}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+              </div>
+            ))}
           </div>
-        </aside>
-      </div>
+        </section>
 
-      <div className="mt-8">
-        <Link href="/guides/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
-          ← Back to Guides
-        </Link>
+        <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Sources and directness notes</h2>
+          <ol className="mt-4 space-y-4">
+            {SOURCES.map((source, index) => (
+              <li key={source.href} className="text-sm leading-7 text-muted">
+                <span className="font-semibold text-ink">{index + 1}. </span>
+                <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">{source.label}</a>
+                <span> — {source.note}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="grid gap-3 sm:grid-cols-2">
+          <Link href="/guides/sleep/ashwagandha-for-sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Ashwagandha for sleep →</Link>
+          <Link href="/guides/compare/sleep-herbs-vs-melatonin/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Sleep herbs vs melatonin →</Link>
+          <Link href="/guides/sleep/best-supplements-for-sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Best sleep supplements →</Link>
+          <Link href="/guides/sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Sleep goal hub →</Link>
+        </section>
+
+        <EmailCapture
+          headline="Get future sleep research notes by email"
+          description="Evidence-first supplement updates, safety context, and new guide announcements. No universal herb rankings or bedtime protocols."
+          location={`article-${SLUG}`}
+        />
+        <NewsletterCtaBlock
+          title="Continue with the newsletter archive"
+          description="Short notes built for cautious supplement decisions."
+          location={`article-${SLUG}-newsletter`}
+        />
       </div>
     </article>
   )
