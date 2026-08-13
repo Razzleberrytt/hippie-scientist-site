@@ -14,11 +14,13 @@ const NON_CREATIVE_ENTITY_TYPES = new Set([
   'MedicalSubstance',
   'MedicalTherapy',
   'MolecularEntity',
+  'Substance',
   'Thing',
 ])
 
 const ARTICLE_TYPES = new Set(['Article', 'BlogPosting', 'NewsArticle'])
 const PRODUCT_SNIPPET_TYPES = new Set(['Product', 'DietarySupplement'])
+const WEBPAGE_TYPES = new Set(['WebPage', 'MedicalWebPage'])
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
@@ -44,6 +46,15 @@ function isArticleLike(types: string[]): boolean {
 
 function isPureEntityNode(types: string[]): boolean {
   return types.length > 0 && types.every((type) => NON_CREATIVE_ENTITY_TYPES.has(type))
+}
+
+function isWebPageNode(types: string[]): boolean {
+  return types.some((type) => WEBPAGE_TYPES.has(type))
+}
+
+function isProfileEntityNode(node: Record<string, unknown>): boolean {
+  const id = typeof node['@id'] === 'string' ? node['@id'] : ''
+  return id.endsWith('#entity') && /\/(?:herbs|compounds)\//.test(id)
 }
 
 function hasProductRichResultSupport(node: Record<string, unknown>): boolean {
@@ -79,6 +90,28 @@ function sanitizeObject(input: Record<string, unknown>): JsonLdObject {
   }
 
   const nextTypes = typeList(output['@type'])
+
+  // Profile entity artifacts carry richer editorial fields than Schema.org's
+  // ChemicalSubstance/MolecularEntity/Substance property domains permit. Keep
+  // those details in the site's machine-readable entity artifact instead of
+  // emitting validator-invalid properties in the public Schema.org graph.
+  if (isProfileEntityNode(output)) {
+    delete output.additionalProperty
+    delete output.category
+    if (!nextTypes.includes('Drug') && !nextTypes.includes('DietarySupplement')) {
+      delete output.mechanismOfAction
+    }
+  }
+
+  // Schema.org exposes `lastReviewed` on WebPage. Some legacy builders still
+  // emit `dateReviewed`; normalize that field at the common serialization edge.
+  if (isWebPageNode(nextTypes)) {
+    const reviewed = output.dateReviewed
+    delete output.dateReviewed
+    if (typeof reviewed === 'string' && reviewed.trim() && !output.lastReviewed) {
+      output.lastReviewed = reviewed
+    }
+  }
 
   // Google reports `breadcrumb` as invalid on Article rich-result nodes. Keep the
   // standalone BreadcrumbList node in the @graph; do not attach it directly to Article.
