@@ -174,6 +174,7 @@ export default function GlobalSearch() {
               aria-activedescendant={activeOptionId}
               aria-autocomplete="list"
               autoComplete="off"
+              spellCheck={false}
               value={search.query}
               onChange={(e) => search.setQuery(e.target.value)}
               onKeyDown={onKeyDown}
