@@ -143,6 +143,7 @@ export default function ConsentManager({ open, onClose }: Props) {
           <div className="text-white/70">
             Current status:
             <strong
+              aria-live="polite"
               className={`ml-2 ${
                 dnt
                   ? "text-amber-300"
