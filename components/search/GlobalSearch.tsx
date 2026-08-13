@@ -173,6 +173,7 @@ export default function GlobalSearch() {
               aria-controls={listboxId}
               aria-activedescendant={activeOptionId}
               aria-autocomplete="list"
+              aria-keyshortcuts="ArrowDown ArrowUp Enter"
               autoComplete="off"
               spellCheck={false}
               value={search.query}
