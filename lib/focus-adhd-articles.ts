@@ -250,7 +250,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     slug: 'l-theanine-magnesium-adhd-stack',
     title: 'L-Theanine and Magnesium for ADHD: How to Stack Them Safely',
     seoTitle: 'L-Theanine and Magnesium for ADHD Stack',
-    description: 'Evidence-based guide to combining L-theanine and magnesium for ADHD. Covers mechanisms, synergy, safety, dosing order, timing, and drug interactions.',
+    description: 'Review an L-theanine and magnesium ADHD stack, including whether combination evidence exists, sleep and focus context, timing, side effects, and medication interactions.',
     category: 'Focus',
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-12',
