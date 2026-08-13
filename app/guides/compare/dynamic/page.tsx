@@ -6,8 +6,8 @@ import DynamicComparerClient from '../../../../src/components/compare/DynamicCom
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Dynamic Ingredient Comparison Matrix',
-  description: 'Select and compare any two herbs, compounds, or adaptogens side-by-side on evidence strength, mechanisms, safety profiles, and dosages.',
+  title: 'Compare Supplements Side by Side: Evidence & Safety',
+  description: 'Compare two herbs or supplements side by side by human evidence, mechanisms, dose context, side effects, and interaction risks.',
   path: '/guides/compare/dynamic/',
   robots: { index: false, follow: true },
 })
