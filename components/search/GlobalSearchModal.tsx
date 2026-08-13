@@ -251,7 +251,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
             <div className="flex items-center justify-between border-t border-brand-900/10 bg-[var(--surface-subtle)] px-4 py-2 text-[11px] text-muted">
               <span aria-live="polite" aria-atomic="true">
                 {search.ready
-                  ? `${search.results.length} result${search.results.length === 1 ? '' : 's'}`
+                  ? `${search.results.length} result${search.results.length === 1 ? '' : 's'} shown`
                   : ''}
               </span>
               <span className="hidden items-center gap-3 sm:flex">
