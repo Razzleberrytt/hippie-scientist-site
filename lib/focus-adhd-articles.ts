@@ -195,7 +195,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/alpha-gpc-and-adhd.md',
     title: 'Alpha-GPC for ADHD: Evidence, Focus Benefits, Dosing, and Safety',
     seoTitle: 'Alpha-GPC for ADHD: Focus, Dose and Safety',
-    description: 'Evidence-based guide to Alpha-GPC for ADHD and focus. Covers choline, acetylcholine, attention research, citicoline comparison, dosing, safety, and realistic expectations.',
+    description: 'Review Alpha-GPC for ADHD and focus, including how direct the attention evidence is, studied populations, choline context, dose, side effects, and citicoline comparison.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Supplement Evidence'],
     date: '2026-06-22',
