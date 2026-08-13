@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Search } from 'lucide-react'
+import { Search, X } from 'lucide-react'
 import { useGlobalSearch, useListKeyboardNav } from './useGlobalSearch'
 import { FilterChip, ResultRow } from './search-ui'
 import type { SearchContentType } from '@/lib/search/types'
@@ -175,6 +175,14 @@ export function GlobalSearchModal() {
               <kbd className="hidden shrink-0 rounded border border-brand-900/15 bg-brand-50/60 px-1.5 py-0.5 text-[10px] font-semibold text-ink/75 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] sm:inline">
                 Esc
               </kbd>
+              <button
+                type="button"
+                onClick={close}
+                aria-label="Close site search"
+                className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full text-muted transition hover:bg-brand-50 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]"
+              >
+                <X className="h-4 w-4" aria-hidden="true" />
+              </button>
             </div>
 
             {/* Quick type filters */}
