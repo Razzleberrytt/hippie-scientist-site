@@ -1,195 +1,97 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
+
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
-import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 
 export const metadata: Metadata = {
-  title: 'Latest Human Evidence Updates | Evidence Digest',
+  title: 'Evidence Digest — Source Verification in Progress',
   description:
-    'Weekly summaries of new human clinical trials on adaptogens, biological compounds, and minerals, graded for evidence strength.',
+    'The Evidence Digest is being rebuilt around source-verified human research. Previous study cards have been withdrawn while citations, interventions, outcomes, and evidence labels are re-audited.',
   alternates: { canonical: '/evidence/evidence-digest/' },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
-type StudyUpdate = {
-  title: string
-  ingredient: { name: string; href: string }
-  goal: { name: string; href: string }
-  grade: 'Strong' | 'Moderate' | 'Limited' | 'Mixed'
-  gradeColor: string
-  pmid?: string
-  summary: string
-  limitations: string
-}
-
-type DigestWeek = {
-  week: string
-  dateLabel: string
-  studies: StudyUpdate[]
-}
+const VERIFIED_ROUTES = [
+  {
+    title: 'Evidence Report',
+    href: '/evidence/evidence-report/',
+    description: 'A broader evidence review with methodology and research context.',
+  },
+  {
+    title: 'Evidence Lookup',
+    href: '/evidence/evidence-checker/',
+    description: 'Browse compounds by the evidence labels currently used in the structured library.',
+  },
+  {
+    title: 'Sleep Guides',
+    href: '/guides/sleep/',
+    description: 'Current sleep evidence pages with source-specific limitations kept visible.',
+  },
+  {
+    title: 'Methodology',
+    href: '/info/methodology/',
+    description: 'How evidence strength, safety language, and editorial conclusions are evaluated.',
+  },
+]
 
 export default function EvidenceDigestPage() {
-  const digests: DigestWeek[] = [
-    {
-      week: 'Week of June 8, 2026',
-      dateLabel: '2026-06-08',
-      studies: [
-        {
-          title: 'Efficacy of Ashwagandha Root Extract (KSM-66) on Sleep Quality parameters in Healthy Adults',
-          ingredient: { name: 'Ashwagandha', href: '/herbs/ashwagandha' },
-          goal: { name: 'Sleep Support', href: '/guides/sleep' },
-          grade: 'Strong',
-          gradeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-          pmid: '32540634',
-          summary: 'A randomized, double-blind, placebo-controlled trial demonstrating significant improvements in sleep latency, sleep efficiency, and overall sleep quality using 600mg daily of standardized Ashwagandha extract (KSM-66) over 8 weeks.',
-          limitations: 'Exclusively relied on subjective actigraphy metrics and self-reported sleep diaries; long-term safety data (>12 weeks) not evaluated in this study cohort.',
-        },
-        {
-          title: 'L-Theanine on Brain Alpha-Wave Activity and Cognitive Performance Under Stress',
-          ingredient: { name: 'L-Theanine', href: '/compounds/l-theanine' },
-          goal: { name: 'Focus & Alertness', href: '/guides/focus' },
-          grade: 'Moderate',
-          gradeColor: 'bg-blue-100 text-blue-800 border-blue-200',
-          pmid: '31443482',
-          summary: 'Clinical trial observing that a single dose of 200mg L-Theanine significantly increased alpha-band EEG activity (associated with relaxed focus) and mitigated salivary alpha-amylase response to acute stress tasks.',
-          limitations: 'Cognitive testing was conducted in a laboratory environment; results may not translate directly to real-world workplace or high-distraction environments.',
-        },
-        {
-          title: 'Magnesium Glycinate on Bedtime Muscle Relaxation and Subjective Sleep Disturbances',
-          ingredient: { name: 'Magnesium Glycinate', href: '/compounds/magnesium-glycinate' },
-          goal: { name: 'Sleep Support', href: '/guides/sleep' },
-          grade: 'Moderate',
-          gradeColor: 'bg-blue-100 text-blue-800 border-blue-200',
-          pmid: '33842104',
-          summary: 'Clinical evaluation showing that supplementation with bioavailable magnesium glycinate supported nocturnal muscle relaxation and subjective comfort parameters in older adults prone to sleep disturbances.',
-          limitations: 'Small sample size (n=46); lacks objective polysomnography data to verify sleep stage changes.',
-        },
-      ],
-    },
-    {
-      week: 'Week of June 1, 2026',
-      dateLabel: '2026-06-01',
-      studies: [
-        {
-          title: 'Rhodiola Rosea Extract on Mental Burnout and Salivary Cortisol Responses',
-          ingredient: { name: 'Rhodiola', href: '/herbs/rhodiola' },
-          goal: { name: 'Stress & Fatigue', href: '/guides/anxiety' },
-          grade: 'Moderate',
-          gradeColor: 'bg-blue-100 text-blue-800 border-blue-200',
-          pmid: '29324881',
-          summary: 'Double-blind cohort showing that 400mg standardized Rhodiola rosea extract daily over 4 weeks modulated cortisol awakening response (CAR) and improved mental burnout scores.',
-          limitations: 'No standardization of pre-trial sleep routines or environmental stressors; lacks comparison with stimulant controls.',
-        },
-        {
-          title: 'Melatonin on Circadian Phase Shift Adjustment in Shift-Work Sleep Populations',
-          ingredient: { name: 'Melatonin', href: '/compounds/melatonin' },
-          goal: { name: 'Sleep Support', href: '/guides/sleep' },
-          grade: 'Strong',
-          gradeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-          pmid: '31048821',
-          summary: 'Dose-response trial indicating that low-dose melatonin (0.5mg to 3mg) taken 2 hours before planned sleep window significantly accelerated circadian phase adjustments and sleep onset latency in shift workers.',
-          limitations: 'Does not resolve mid-night waking issues; high dosage configurations (5mg+) reported increased morning grogginess.',
-        },
-        {
-          title: 'Curcumin-Phospholipid Complex on Knee Mobility and Osteoarthritis Joint Pain Markers',
-          ingredient: { name: 'Turmeric', href: '/herbs/turmeric' },
-          goal: { name: 'Pain Support', href: '/guides/best/supplements-for-joint-support' },
-          grade: 'Moderate',
-          gradeColor: 'bg-blue-100 text-blue-800 border-blue-200',
-          pmid: '32009843',
-          summary: 'Clinical trial showing that a highly bioavailable curcumin-phospholipid formulation (Meriva, 1000mg/day) significantly reduced inflammatory joint markers and improved walking distance in moderate osteoarthritis patients.',
-          limitations: 'High dependency on specific delivery systems (lecithin complex) for bioavailability; raw turmeric powder fails to replicate these efficacy profiles.',
-        },
-      ],
-    },
-  ]
-
   return (
-    <div className='container-page py-10 space-y-8 max-w-4xl mx-auto'>
-      {/* Hero */}
-      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 bg-white/95'>
-        <p className='eyebrow-label'>Clinical Trial Tracker</p>
-        <h1 className='mt-2 font-display text-3xl font-bold text-ink sm:text-4xl leading-tight'>
-          Latest Human Evidence Updates
+    <div className='container-page mx-auto max-w-4xl space-y-8 py-10'>
+      <header className='hero-shell rounded-[2rem] border border-brand-900/10 bg-white/95 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Evidence integrity review</p>
+        <h1 className='mt-2 font-display text-3xl font-bold leading-tight text-ink sm:text-4xl'>
+          Evidence Digest
         </h1>
-        <p className='mt-4 text-sm leading-relaxed text-muted sm:text-base'>
-          Our research team reviews peer-reviewed literature weekly to extract new human clinical trials. We evaluate study designs, catalog raw limitations, and grade evidence strength so you can adapt your stacks based on real data.
+        <p className='mt-4 max-w-3xl text-base leading-7 text-muted'>
+          The previous digest feed has been withdrawn while its study identifiers, intervention details, outcome summaries, and evidence labels are re-audited against the underlying publications.
         </p>
-        <div className='mt-6 overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm'>
-          <Image
-            src='/images/evidence-digest.jpg'
-            alt='Clinical research papers and a microscope representing the evidence digest'
-            width={1536}
-            height={700}
-            priority
-            className='h-auto w-full'
-          />
-        </div>
+        <p className='mt-3 max-w-3xl text-sm leading-6 text-muted'>
+          We would rather temporarily show fewer research updates than leave a citation attached to the wrong paper or present a study design more confidently than the source supports.
+        </p>
+        <p className='mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-700'>
+          Review status: source verification in progress · Updated August 12, 2026
+        </p>
+      </header>
+
+      <section className='rounded-2xl border border-amber-900/15 bg-amber-50/55 p-5 sm:p-6'>
+        <h2 className='text-xl font-bold text-ink'>What is being checked</h2>
+        <ul className='mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-muted'>
+          <li>Every PMID or DOI must resolve to the study described on the card.</li>
+          <li>Ingredient form, dose, duration, population, comparator, and sample size must match the publication.</li>
+          <li>Outcome language must distinguish statistical findings from clinically meaningful effects.</li>
+          <li>Limitations and conflicts of interest must stay visible when they affect interpretation.</li>
+          <li>Evidence labels must reflect the broader body of evidence, not the existence of one positive trial.</li>
+        </ul>
       </section>
 
-      {/* Digests Feed */}
-      <div className='space-y-10'>
-        {digests.map((digest) => (
-          <section key={digest.week} className='space-y-4'>
-            <div className='flex items-center gap-3 border-b border-brand-900/10 pb-2'>
-              <h2 className='font-display text-xl font-bold text-ink sm:text-2xl'>{digest.week}</h2>
-              <span className='text-xs text-muted/60'>•</span>
-              <time dateTime={digest.dateLabel} className='text-xs font-semibold text-muted/70 uppercase tracking-wider'>
-                {digest.week.replace('Week of ', '')}
-              </time>
-            </div>
+      <section className='space-y-5' aria-labelledby='verified-research-routes'>
+        <div>
+          <p className='eyebrow-label'>Continue researching</p>
+          <h2 id='verified-research-routes' className='mt-2 text-2xl font-bold tracking-tight text-ink'>
+            Use the currently maintained evidence routes
+          </h2>
+          <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>
+            These sections remain available while the digest is rebuilt. Individual pages can still change as new research is reviewed, so check their citations and last-reviewed context rather than treating any label as permanent.
+          </p>
+        </div>
 
-            <div className='grid gap-6'>
-              {digest.studies.map((study) => (
-                <article
-                  key={study.pmid || study.title}
-                  className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4 transition hover:shadow-md'
-                >
-                  <div className='flex flex-wrap items-center justify-between gap-3'>
-                    <div className='flex flex-wrap gap-2'>
-                      <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${study.gradeColor}`}>
-                        {study.grade} Evidence
-                      </span>
-                      {study.pmid && (
-                        <a
-                          href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='rounded-full border border-brand-900/10 bg-brand-50/50 px-2.5 py-0.5 text-xs font-medium text-brand-800 transition hover:bg-brand-100'
-                        >
-                          PMID {study.pmid} ↗
-                        </a>
-                      )}
-                    </div>
-                    <div className='flex items-center gap-3 text-xs text-muted'>
-                      <Link href={study.ingredient.href} className='font-semibold text-brand-700 hover:underline'>
-                        {study.ingredient.name}
-                      </Link>
-                      <span>•</span>
-                      <Link href={study.goal.href} className='font-semibold text-brand-700 hover:underline'>
-                        {study.goal.name}
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className='space-y-2'>
-                    <h3 className='font-semibold text-ink text-base sm:text-lg leading-snug'>{study.title}</h3>
-                    <p className='text-sm leading-relaxed text-muted'>{study.summary}</p>
-                  </div>
-
-                  <div className='rounded-xl bg-amber-50/30 border border-amber-900/5 p-4 space-y-1.5'>
-                    <h4 className='text-xs font-bold uppercase tracking-wider text-amber-900/90'>Study Limitations</h4>
-                    <p className='text-xs leading-relaxed text-amber-950/80'>{study.limitations}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-        ))}
-      </div>
-
-      {/* Safety Checklist Promo */}
-      <SafetyChecklistPromo goal='default' variant='hero' />
+        <div className='grid gap-4 sm:grid-cols-2'>
+          {VERIFIED_ROUTES.map((route) => (
+            <Link
+              key={route.href}
+              href={route.href}
+              className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm transition hover:border-brand-700/25 hover:bg-brand-50/30'
+            >
+              <h3 className='font-bold text-ink'>{route.title}</h3>
+              <p className='mt-2 text-sm leading-6 text-muted'>{route.description}</p>
+              <span className='mt-4 inline-flex text-sm font-semibold text-brand-800'>Open →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <SafetyDisclaimerBox />
     </div>
