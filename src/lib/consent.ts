@@ -47,8 +47,7 @@ export function initConsentDefault() {
     applyGaConsent(existing)
     return
   }
-  const status: ConsentStatus = getSystemNoTracking() ? 'denied' : 'denied'
-  applyGaConsent(status)
+  applyGaConsent('denied')
 }
 
 export function applyGaConsent(status: ConsentStatus, command: 'default' | 'update' = 'default') {
