@@ -240,7 +240,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     slug: 'magnesium-glycinate-vs-citrate-for-adhd',
     title: 'Magnesium Glycinate vs Citrate for ADHD: Which Form Works Better?',
     seoTitle: 'Magnesium Glycinate vs Citrate for ADHD',
-    description: 'Evidence-based comparison of magnesium glycinate and citrate for ADHD. Covers absorption, sleep support, calming effects, GI tolerability, dosage, and practical product guidance.',
+    description: 'Compare magnesium glycinate vs citrate for ADHD by evidence, elemental magnesium, sleep context, absorption claims, GI effects, dose, and practical safety considerations.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-12',
