@@ -4,6 +4,8 @@ export const CONSENT_STORAGE_KEY = 'consent.v1'
 export const CONSENT_GRANTED_EVENT = 'hs:consent-granted'
 
 export function getSystemNoTracking(): boolean {
+  if (typeof navigator === 'undefined' || typeof window === 'undefined') return false
+
   const dnt =
     (navigator as any).doNotTrack || (window as any).doNotTrack || (navigator as any).msDoNotTrack
   const gpc = (navigator as any).globalPrivacyControl
