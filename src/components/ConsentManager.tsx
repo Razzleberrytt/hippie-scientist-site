@@ -110,7 +110,7 @@ export default function ConsentManager({ open, onClose }: Props) {
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
       />
       <div
-        className="relative z-10 w-[min(92vw,560px)] rounded-2xl border border-white/10 bg-black/90 p-5"
+        className="relative z-10 max-h-[calc(100dvh-1.5rem)] w-[min(92vw,560px)] overflow-y-auto rounded-2xl border border-white/10 bg-black/90 p-5"
       >
         <div className="flex items-start justify-between gap-3">
           <h2
