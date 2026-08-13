@@ -1,4 +1,4 @@
-import { getConsent } from './consent'
+import { getConsent, getSystemNoTracking } from './consent'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID?.trim() ?? ''
 const AHREFS_ANALYTICS_KEY = process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_KEY?.trim() ?? ''
@@ -26,6 +26,7 @@ function injectScriptOnce(id: string, src: string, attrs: Record<string, string>
 export function loadAnalytics() {
   if (loaded) return
   if (typeof window === 'undefined') return
+  if (getSystemNoTracking()) return
 
   const consent = getConsent()
   if (consent !== 'granted') return
