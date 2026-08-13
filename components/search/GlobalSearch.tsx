@@ -158,7 +158,7 @@ export default function GlobalSearch() {
 
       {/* Search + results */}
       <div className="space-y-5">
-        <div className="relative rounded-2xl border border-brand-900/10 bg-white/90 p-2.5 shadow-sm sm:p-3">
+        <div className="relative rounded-2xl border border-brand-900/10 bg-white/90 p-2.5 shadow-sm focus-within:ring-2 focus-within:ring-brand-700 sm:p-3">
           <div className="flex items-center gap-2.5 px-2">
             <Search className="h-5 w-5 shrink-0 text-brand-700" aria-hidden="true" />
             <label htmlFor="global-search-input" className="sr-only">
