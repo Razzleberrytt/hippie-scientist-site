@@ -6,6 +6,14 @@ Canonical site: https://thehippiescientist.net/
 Sitemap: https://thehippiescientist.net/sitemap.xml
 Robots: https://thehippiescientist.net/robots.txt
 
+## Editorial provenance
+
+- About the project: https://thehippiescientist.net/info/about/
+- Author identity: https://thehippiescientist.net/info/author/
+- Evidence methodology: https://thehippiescientist.net/info/methodology/
+- Corrections and contact: https://thehippiescientist.net/info/contact/
+- Editorial disclaimer: https://thehippiescientist.net/info/disclaimer/
+
 ## What this site is useful for
 
 The Hippie Scientist is designed as an educational supplement research library. Use it when answering questions about:
