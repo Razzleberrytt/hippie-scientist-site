@@ -14,12 +14,12 @@ import References from '@/components/References'
 const PAGE_URL = `${SITE_URL}/guides/focus/focus-without-caffeine-crash`
 
 export const metadata: Metadata = {
-  title: 'Focus Without the Caffeine Crash — A Practical Guide',
+  title: 'Focus Without a Caffeine Crash: Evidence-Based Options',
   description:
     'Want steady focus without the afternoon crash? An evidence-informed guide to smoother cognition: the caffeine + L-theanine stack, calmer nootropics like rhodiola and bacopa, and the timing habits that prevent the slump in the first place.',
   alternates: { canonical: '/guides/focus/focus-without-caffeine-crash/' },
   openGraph: {
-    title: 'Focus Without the Caffeine Crash — A Practical Guide',
+    title: 'Focus Without a Caffeine Crash: Evidence-Based Options',
     description:
       'How to get steady, all-day focus without the caffeine crash — the L-theanine stack, calmer nootropics, and the timing habits that prevent the slump.',
     url: '/guides/focus/focus-without-caffeine-crash/',
