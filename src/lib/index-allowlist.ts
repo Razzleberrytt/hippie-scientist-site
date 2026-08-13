@@ -5,7 +5,6 @@ export const CORE_INDEXABLE_ROUTES = [
   '/compounds',
   '/info/contact',
   '/info/dosing',
-  '/evidence/evidence-digest',
   '/info/faq',
   '/goals',
   '/guides',
