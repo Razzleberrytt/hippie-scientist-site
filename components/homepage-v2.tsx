@@ -240,7 +240,7 @@ export default function HomepageV2() {
                 <dt className='sr-only'>{stat.label}</dt>
                 <dd className='sm:flex sm:items-baseline sm:gap-2'>
                   <span className='hs-stat-num block text-[1.6rem] sm:inline sm:text-[1.75rem]'>{stat.value}</span>
-                  <span className='mt-0.5 block text-[0.78rem] leading-[1.3] text-[color:var(--hs-body)] sm:mt-0 sm:inline sm:text-sm'>
+                  <span aria-hidden='true' className='mt-0.5 block text-[0.78rem] leading-[1.3] text-[color:var(--hs-body)] sm:mt-0 sm:inline sm:text-sm'>
                     {stat.label}
                   </span>
                 </dd>
