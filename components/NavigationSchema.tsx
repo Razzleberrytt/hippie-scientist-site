@@ -13,6 +13,9 @@ import { SITE_URL } from '@/lib/navigation-config'
 import { primaryNavigation } from '@/lib/primary-navigation'
 import { serializeJsonLd } from '@/src/lib/schema-injector'
 
+const WEBSITE_ID = `${SITE_URL}/#website`
+const NAVIGATION_ID = `${SITE_URL}/#navigation`
+
 function canonicalNavigationUrl(href: string): string {
   const base = SITE_URL.replace(/\/$/, '')
   if (!href || href === '/') return `${base}/`
@@ -64,8 +67,15 @@ function generateNavigationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
+    '@id': NAVIGATION_ID,
     name: 'Main Navigation',
     url: canonicalNavigationUrl('/'),
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': WEBSITE_ID,
+      name: 'The Hippie Scientist',
+      url: canonicalNavigationUrl('/'),
+    },
     hasPart,
   }
 }
