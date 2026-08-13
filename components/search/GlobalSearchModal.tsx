@@ -187,7 +187,7 @@ export function GlobalSearchModal() {
             </div>
 
             {/* Quick type filters */}
-            <div className="flex flex-wrap items-center gap-1.5 border-b border-brand-900/10 px-4 py-2">
+            <div role="group" aria-label="Filter by content type" className="flex flex-wrap items-center gap-1.5 border-b border-brand-900/10 px-4 py-2">
               {TYPE_FILTERS.map((type) => (
                 <FilterChip
                   key={type}
