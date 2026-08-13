@@ -36,7 +36,7 @@ export default function ConsentManager({ open, onClose }: Props) {
 
       const focusable = Array.from(
         dialogRef.current.querySelectorAll<HTMLElement>(
-          'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+          'button:not([disabled]):not([tabindex="-1"]), a[href], [tabindex]:not([tabindex="-1"])'
         )
       );
       if (focusable.length === 0) return;
@@ -98,6 +98,7 @@ export default function ConsentManager({ open, onClose }: Props) {
     >
       <button
         type="button"
+        tabIndex={-1}
         aria-label="Close privacy settings"
         onClick={onClose}
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
