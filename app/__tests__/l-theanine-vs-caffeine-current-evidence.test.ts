@@ -37,7 +37,8 @@ describe('L-theanine vs caffeine focus evidence calibration', () => {
     expect(text).toMatch(/attention accuracy \(Hedges g = 0\.27\).*reaction time \(g = 0\.28\)/i)
     expect(text).toMatch(/400 mg\/day is an amount not generally associated with negative effects for most adults/i)
     expect(text).toMatch(/broad population safety reference—not a recommended focus target/i)
-    expect(text).not.toMatch(/400 mg.*recommended.*focus/i)
+    expect(text).not.toMatch(/(?:take|use|aim for|target) 400 mg(?:\/day)?(?: of caffeine)? (?:for|to improve) focus/i)
+    expect(text).not.toMatch(/recommended focus dose:?\s*400 mg/i)
   })
 
   it('does not restore a universal L-theanine-caffeine ratio or dosing recipe', () => {
