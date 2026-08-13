@@ -43,7 +43,8 @@ export function EvidenceBadge({ grade }: { grade: EvidenceGrade }) {
 export function SafetyBadge({ safety }: { safety: SafetySignal }) {
   if (safety === 'Educational') return null
   return (
-    <span className={clsx(BADGE_BASE, SAFETY_STYLES[safety])} title={`Safety: ${safety}`}>
+    <span className={clsx(BADGE_BASE, SAFETY_STYLES[safety])}>
+      <span className="sr-only">Safety: </span>
       {safety}
     </span>
   )
