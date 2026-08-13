@@ -78,7 +78,7 @@ export default function GlobalSearch() {
     [],
   )
 
-  const activeOptionId = search.results.length ? `${optionPrefix}-${activeIndex}` : undefined
+  const activeOptionId = search.results[activeIndex] ? `${optionPrefix}-${activeIndex}` : undefined
 
   return (
     <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
