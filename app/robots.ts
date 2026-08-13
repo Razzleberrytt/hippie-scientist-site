@@ -10,9 +10,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      // Prefix-based rules: '/dashboard' also covers '/dashboard/revenue',
-      // so specific internal sub-paths are not enumerated here (avoids
-      // disclosing the existence of internal tooling endpoints).
       disallow: [
         '/api/',
         '/analytics',
@@ -30,5 +27,6 @@ export default function robots(): MetadataRoute.Robots {
       ],
     },
     sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   }
 }
