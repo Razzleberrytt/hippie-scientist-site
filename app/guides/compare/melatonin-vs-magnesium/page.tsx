@@ -8,7 +8,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 // up front instead of listing the sections, which is what the snippet has to do
 // to earn a click from position 40+.
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Melatonin vs Magnesium for Sleep: Which Should You Take?',
+  title: 'Melatonin vs Magnesium for Sleep: Evidence & Safety',
   description:
     'Melatonin shifts sleep timing; magnesium glycinate targets sleep quality and muscle tension. Which fits your sleep problem, what the evidence shows, and how to dose each.',
   path: '/guides/compare/melatonin-vs-magnesium/',
