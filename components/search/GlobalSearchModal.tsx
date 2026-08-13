@@ -58,7 +58,8 @@ export function GlobalSearchModal() {
       const mod = event.metaKey || event.ctrlKey
       if (mod && event.key.toLowerCase() === 'k') {
         event.preventDefault()
-        setOpen((v) => !v)
+        if (open) close()
+        else setOpen(true)
         return
       }
       const target = event.target as HTMLElement | null
@@ -74,7 +75,7 @@ export function GlobalSearchModal() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [open])
+  }, [open, close])
 
   // Scroll lock + focus input on open.
   useEffect(() => {
