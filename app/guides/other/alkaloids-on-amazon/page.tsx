@@ -210,7 +210,10 @@ export default function AlkaloidsOnAmazonPage() {
 
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
             <span><strong className="text-ink">Reviewed:</strong> {REVIEWED_ON}</span>
-            <span><strong className="text-ink">By:</strong> The Hippie Scientist editorial team</span>
+            <span>
+              <strong className="text-ink">By:</strong>{' '}
+              <Link href="/info/about/" className="font-semibold text-brand-800 hover:underline">Willie B. Randolph III</Link>
+            </span>
             <Link href="/info/methodology/" className="font-semibold text-brand-800 hover:underline">Review methodology →</Link>
           </div>
 

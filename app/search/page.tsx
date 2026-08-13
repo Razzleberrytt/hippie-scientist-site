@@ -12,7 +12,7 @@ const GlobalSearch = dynamic(() => import('@/components/search/GlobalSearch'), {
 
 export const metadata: Metadata = {
   title: 'Search Herbs & Supplements',
-  description: `Search ${HERB_COUNT} herb profiles and ${COMPOUND_COUNT} compound profiles by name, goal, mechanism, or safety context. Evidence-weighted results with conservative safety labels.`,
+  description: `Search the herb and compound research index by name, goal, mechanism, or safety context. Evidence-weighted results with conservative safety labels.`,
   alternates: {
     canonical: '/search/',
   },
@@ -84,7 +84,7 @@ export default function SearchPage() {
           offers enhanced filtering and discovery. */}
       <div className="mb-8 space-y-6 rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
         <p className="text-sm leading-6 text-muted">
-          Our search database indexes {HERB_COUNT} herb profiles and {COMPOUND_COUNT} compound profiles. Compare primary active constituents, traditional uses, clinical human evidence levels, safety warnings, and drug interactions across popular adaptogens, amino acids, and minerals.
+          The structured search index currently contains {HERB_COUNT} herb records and {COMPOUND_COUNT} compound records. Publication and browse eligibility are stricter than raw index coverage, so the herb and compound libraries may show smaller public totals. Compare active constituents, traditional-use context, human evidence, safety warnings, and drug-interaction notes across the index.
         </p>
         
         <div className="space-y-2">
@@ -116,12 +116,12 @@ export default function SearchPage() {
             <ul className="space-y-1">
               <li>
                 <Link href="/herbs/" className="text-sm font-semibold text-brand-800 hover:underline">
-                  Herb & Botanical Library ({HERB_COUNT} Profiles)
+                  Herb & Botanical Library
                 </Link>
               </li>
               <li>
                 <Link href="/compounds/" className="text-sm font-semibold text-brand-800 hover:underline">
-                  Compound & Nootropic Library ({COMPOUND_COUNT} Profiles)
+                  Compound & Nootropic Library
                 </Link>
               </li>
             </ul>
