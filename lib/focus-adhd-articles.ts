@@ -59,7 +59,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/nutrient-deficiencies-and-adhd-content-v1.md',
     title: 'Nutrient Deficiencies and ADHD: Iron, Zinc, Vitamin D, Magnesium, and Omega-3',
     seoTitle: 'Nutrient Deficiencies and ADHD: Key Labs',
-    description: 'Evidence-based guide to nutrient deficiencies linked with ADHD symptoms, including ferritin, zinc, vitamin D, magnesium, omega-3, and testing.',
+    description: 'Review associations between ADHD and ferritin, zinc, vitamin D, magnesium, and omega-3 status, including evidence limits, testing context, and supplementation safety.',
     category: 'Nutrient Deficiencies',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-10',
