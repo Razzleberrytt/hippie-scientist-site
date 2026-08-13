@@ -119,6 +119,12 @@ export async function getBatchedRuntimeRecords(
   candidateRecords: RuntimeRecord[],
   limit = MAX_RELATED_PROFILES,
 ): Promise<Record<string, RuntimeRecord[]>> {
+  // The only current batched stack callers are profile-page preload slots whose
+  // results are intentionally discarded; visible stack recommendations come from
+  // the separate recommendation engine. Avoid map I/O, record indexing, hydration,
+  // and sorting for those dead preloads while leaving non-batched stack lookups intact.
+  if (kind === 'stack') return {}
+
   const requestedLimit = clampLimit(limit, MAX_RELATED_PROFILES, MAX_RELATED_PROFILES)
 
   if (requestedLimit === 0) return {}
