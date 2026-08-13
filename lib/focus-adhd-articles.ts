@@ -115,7 +115,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/omega-3-and-adhd.md',
     title: 'Omega-3 and ADHD: Fish Oil Supplements, EPA vs DHA, Dosage, and Quality',
     seoTitle: 'Fish Oil Supplements for ADHD: EPA vs DHA and Dosage',
-    description: 'Evidence-based review of fish oil supplements for ADHD. Covers EPA vs DHA, omega-3 dosage, symptom research, quality, safety, and realistic expectations.',
+    description: 'Review omega-3 and ADHD trials by EPA/DHA composition, symptom outcome, effect size, product quality, dose context, side effects, and limits of the evidence.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-11',
