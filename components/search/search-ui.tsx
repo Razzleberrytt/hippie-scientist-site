@@ -101,6 +101,12 @@ export function ResultRow({ doc, active, id, onHover, onSelect }: ResultRowProps
       tabIndex={-1}
       onMouseEnter={onHover}
       onClick={onSelect}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault()
+          onSelect()
+        }
+      }}
       className={clsx(
         'flex w-full cursor-pointer flex-col gap-1 rounded-xl border px-3 py-2.5 text-left transition',
         active
