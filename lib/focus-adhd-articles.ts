@@ -206,7 +206,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/l-tyrosine-and-adhd.md',
     title: 'L-Tyrosine for ADHD: Evidence, Focus Benefits, Stress Support, and Safety',
     seoTitle: 'L-Tyrosine for ADHD: Focus, Stress and Safety',
-    description: 'Evidence-based guide to L-tyrosine for ADHD, focus, and stress support. Covers dopamine and norepinephrine pathways, attention research, dosing, safety, medication cautions, and realistic expectations.',
+    description: 'Review L-tyrosine for ADHD and focus, separating stress-performance findings from direct ADHD evidence, with dose context, side effects, and medication cautions.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Supplement Evidence'],
     date: '2026-06-22',
