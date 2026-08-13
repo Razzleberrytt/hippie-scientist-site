@@ -102,7 +102,7 @@ That chain does not hold.
 
 For a human treatment claim, the relevant questions are still ordinary evidence questions: **what exact molecule, formulation, route, population, comparator, outcome, duration, and safety monitoring were studied?**
 
-Regulatory status also has to be stated precisely. “Not FDA-approved for off-label use” is not a useful category. *Off-label* use generally refers to use of an **approved drug** outside its approved labeling. A compounded or otherwise unapproved drug does not become FDA-approved because a clinician prescribes it.
+Regulatory status also has to be stated precisely. FDA approval and off-label prescribing are separate concepts. *Off-label* use generally refers to use of an **approved drug** outside its approved labeling. A compounded or otherwise unapproved drug does not become FDA-approved because a clinician prescribes it.
 
 ---
 
