@@ -235,10 +235,12 @@ async function run() {
     console.log(`[internal-links] top non-canonical source: ${topNonCanonicalSource.value} (${topNonCanonicalSource.count})`)
   }
   if (nonCanonicalInternalLinks.length) {
-    console.error(`[internal-links] found ${nonCanonicalInternalLinks.length} non-canonical internal hrefs`)\n    if (process.env.CI === 'true') process.exitCode = 1
+    console.error(`[internal-links] found ${nonCanonicalInternalLinks.length} non-canonical internal hrefs`)
+    if (process.env.CI === 'true') process.exitCode = 1
   }
   if (blockingOrphans.length) {
-    console.error(`[internal-links] found ${blockingOrphans.length} orphaned crawlable routes`)\n    if (process.env.CI === 'true') process.exitCode = 1
+    console.error(`[internal-links] found ${blockingOrphans.length} orphaned crawlable routes`)
+    if (process.env.CI === 'true') process.exitCode = 1
   }
 }
 

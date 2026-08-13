@@ -37,9 +37,18 @@ import '@/styles/premium-surfaces.css'
 import '@/styles/premium-typography.css'
 
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
+const WEBSITE_ID = `${SITE_URL}/#website`
+const ORGANIZATION_ID = `${SITE_URL}/#organization`
 
-const siteWebsiteLd = websiteJsonLd()
-const siteOrgLd = organizationJsonLd()
+const siteWebsiteLd = {
+  ...websiteJsonLd(),
+  '@id': WEBSITE_ID,
+  publisher: { '@id': ORGANIZATION_ID },
+}
+const siteOrgLd = {
+  ...organizationJsonLd(),
+  '@id': ORGANIZATION_ID,
+}
 
 const rootMetadata = buildPageMetadata({
   title: HOME_TITLE,
@@ -68,6 +77,12 @@ export const metadata: Metadata = {
     ],
   },
   ...rootMetadata,
+  alternates: {
+    ...rootMetadata.alternates,
+    types: {
+      'application/rss+xml': `${SITE_URL}/rss.xml`,
+    },
+  },
   openGraph: rootMetadata.openGraph
     ? {
         ...rootMetadata.openGraph,
