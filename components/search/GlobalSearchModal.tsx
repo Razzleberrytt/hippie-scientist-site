@@ -212,7 +212,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
                 <button
                   type="button"
                   onClick={search.clearFilters}
-                  className="ml-auto text-xs font-semibold text-brand-700 hover:text-brand-900"
+                  className="ml-auto rounded text-xs font-semibold text-brand-700 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
                 >
                   Clear filters
                 </button>
