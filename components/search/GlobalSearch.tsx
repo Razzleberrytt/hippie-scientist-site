@@ -216,6 +216,7 @@ export default function GlobalSearch() {
                 <Link
                   href={doc.href}
                   onMouseEnter={() => setActiveIndex(index)}
+                  onFocus={() => setActiveIndex(index)}
                   className={`flex h-full flex-col gap-2 rounded-2xl border bg-white/90 p-4 shadow-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 ${
                     index === activeIndex
                       ? 'border-brand-700/40 ring-2 ring-brand-700/20'
