@@ -133,7 +133,7 @@ export default function ConsentManager({ open, onClose }: Props) {
         <p id="consent-description" className="mt-2 text-sm text-white/75">
           Control whether anonymous analytics are collected. We don’t collect personal data unless you opt in.
           {dnt && (
-            <span className="ml-1 text-amber-300">
+            <span className="mt-2 block text-amber-300">
               Detected Do Not Track / GPC — defaulting to no tracking.
             </span>
           )}
