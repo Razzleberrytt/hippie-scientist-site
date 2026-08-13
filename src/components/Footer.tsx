@@ -22,7 +22,7 @@ const priorityGoalLinks = [
   { href: '/guides/mental-health/', label: 'Mental Health' },
   { href: '/guides/sleep/', label: 'Sleep' },
   { href: '/guides/adhd/', label: 'ADHD' },
-  { href: '/guides/anxiety/', label: 'Anxiety & Stress' },
+  { href: '/guides/anxiety/', label: 'Anxiety' },
   { href: '/guides/focus/', label: 'Focus & Cognition' },
   { href: '/guides/other/', label: 'More topics' },
 ]
