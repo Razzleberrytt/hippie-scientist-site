@@ -113,6 +113,7 @@ export default function ConsentManager({ open, onClose }: Props) {
             Privacy settings
           </h2>
           <button
+            type="button"
             aria-label="Close"
             onClick={onClose}
             className="rounded border border-white/10 px-2 py-1 hover:bg-white/10"
@@ -149,12 +150,14 @@ export default function ConsentManager({ open, onClose }: Props) {
 
         <div className="mt-4 flex items-center gap-2">
           <button
+            type="button"
             onClick={decline}
             className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 hover:bg-white/10"
           >
             Decline
           </button>
           <button
+            type="button"
             onClick={accept}
             className="rounded-lg border border-lime-300/20 bg-gradient-to-r from-lime-400/30 to-cyan-400/20 px-3 py-1.5 text-sm font-medium text-lime-200 hover:from-lime-400/40 hover:to-cyan-400/30"
           >
