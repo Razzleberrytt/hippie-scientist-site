@@ -159,7 +159,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/ashwagandha-for-adhd.md',
     title: 'Ashwagandha and ADHD: What the Research Shows About Stress, Focus, Sleep, and Emotional Regulation',
     seoTitle: 'Ashwagandha and ADHD: Stress, Focus and Sleep',
-    description: 'Evidence-based review of ashwagandha and ADHD. Covers stress response, cortisol, attention, sleep, emotional regulation, pediatric and adult evidence, dosing, safety, and realistic expectations.',
+    description: 'Review ashwagandha and ADHD evidence, separating stress and sleep findings from direct attention claims, with population limits, extract context, side effects, and interactions.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-11',
