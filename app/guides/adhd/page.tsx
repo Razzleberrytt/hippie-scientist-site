@@ -9,12 +9,12 @@ import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid
 import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = {
-  title: 'ADHD Supplement Guides & Research',
-  description: 'Evidence-based guides on ADHD supplements, nutrient deficiencies, and medication context. Magnesium, omega-3, L-theanine, iron, zinc, and more.',
+  title: 'ADHD Supplements: Evidence, Deficiencies & Safety',
+  description: 'Review human evidence for ADHD supplements, nutrient deficiencies, sleep support, and medication safety. Learn what may help, what remains uncertain, and when testing matters.',
   alternates: { canonical: `${SITE_URL}/guides/adhd/` },
   openGraph: {
     title: 'ADHD Supplement Guides & Research',
-    description: 'Evidence-based guides on ADHD supplements, nutrient deficiencies, and medication context.',
+    description: 'Human evidence for ADHD supplements, nutrient deficiencies, sleep support, and medication safety.',
     url: `${SITE_URL}/guides/adhd/`,
     type: 'website',
     images: ['/og-default.jpg'],
