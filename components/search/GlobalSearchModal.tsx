@@ -19,7 +19,7 @@ const TYPE_FILTERS: SearchContentType[] = ['Herb', 'Compound', 'Education']
  *   scroll lock, and focus restoration.
  * - Loads the search engine lazily on first open (code-split index + Fuse).
  */
-export function GlobalSearchModal() {
+export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: boolean } = {}) {
   const [open, setOpen] = useState(false)
   const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
@@ -55,6 +55,8 @@ export function GlobalSearchModal() {
 
   // Global hotkeys: Cmd/Ctrl+K, and "/" when not focused in an input.
   useEffect(() => {
+    if (!enableHotkeys) return
+
     const onKey = (event: KeyboardEvent) => {
       const mod = event.metaKey || event.ctrlKey
       if (mod && event.key.toLowerCase() === 'k') {
@@ -76,7 +78,7 @@ export function GlobalSearchModal() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [open, close])
+  }, [open, close, enableHotkeys])
 
   // Scroll lock + focus input on open.
   useEffect(() => {
