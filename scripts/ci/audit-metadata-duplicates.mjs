@@ -25,6 +25,6 @@ const dup = (m)=>[...m.entries()].filter(([,v])=>v.length>1).map(([k,v])=>({valu
 const report={generatedAt:new Date().toISOString(), duplicateTitles:dup(byTitle), duplicateDescriptions:dup(byDesc), duplicateCanonicals:dup(byCanonical)}
 fs.mkdirSync('public/data/reports',{recursive:true})
 fs.writeFileSync('public/data/reports/metadata-audit-report.json', JSON.stringify(report,null,2))
-if (report.duplicateCanonicals.length || report.duplicateTitles.length>10 || report.duplicateDescriptions.length > 0) { console.error('[metadata-audit] severe collisions found: unique descriptions assert failed'); process.exit(1)}
+if (report.duplicateCanonicals.length || report.duplicateTitles.length > 0 || report.duplicateDescriptions.length > 0) { console.error('[metadata-audit] severe collisions found: unique descriptions assert failed'); process.exit(1)}
 if (report.duplicateTitles.length) console.warn('[metadata-audit] warnings found')
 console.log('[metadata-audit] completed')
