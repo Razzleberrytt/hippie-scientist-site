@@ -36,7 +36,7 @@ export default function ConsentBanner() {
         <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
           <p className='min-w-0 leading-snug text-white/90'>
             We use privacy-friendly analytics.{' '}
-            <Link className='font-semibold text-white underline underline-offset-2 hover:text-white' to='/info/privacy'>
+            <Link className='rounded font-semibold text-white underline underline-offset-2 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white' to='/info/privacy'>
               Read our privacy policy
             </Link>
             .
