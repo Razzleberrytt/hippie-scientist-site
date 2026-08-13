@@ -1,7 +1,7 @@
 export type ConsentStatus = 'granted' | 'denied'
 
 export const CONSENT_STORAGE_KEY = 'consent.v1'
-export const CONSENT_GRANTED_EVENT = 'hs:consent-granted'
+export const CONSENT_CHANGE_EVENT = 'hs:consent-changed'
 
 export function getSystemNoTracking(): boolean {
   if (typeof navigator === 'undefined' || typeof window === 'undefined') return false
@@ -30,7 +30,7 @@ export function setConsent(status: ConsentStatus) {
     // Continue with session consent when browser storage is unavailable.
   }
   if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent(CONSENT_GRANTED_EVENT, { detail: { status } }))
+    window.dispatchEvent(new CustomEvent(CONSENT_CHANGE_EVENT, { detail: { status } }))
   }
   applyGaConsent(status)
 }

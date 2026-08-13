@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, type ReactNode } from 'react'
-import { CONSENT_GRANTED_EVENT, getConsent } from '../src/lib/consent'
+import { CONSENT_CHANGE_EVENT, getConsent } from '../src/lib/consent'
 import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 
 export const RECOMMENDATION_IMPRESSION_THRESHOLD = 0.5
@@ -82,12 +82,12 @@ export default function RevenueImpressionTracker({
     }
 
     observer.observe(element)
-    window.addEventListener(CONSENT_GRANTED_EVENT, handleConsentChange)
+    window.addEventListener(CONSENT_CHANGE_EVENT, handleConsentChange)
 
     return () => {
       clearPending()
       observer.disconnect()
-      window.removeEventListener(CONSENT_GRANTED_EVENT, handleConsentChange)
+      window.removeEventListener(CONSENT_CHANGE_EVENT, handleConsentChange)
     }
   }, [label, location, productAsin, productSlot, productSlug])
 

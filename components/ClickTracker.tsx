@@ -7,7 +7,7 @@ import {
   trackGuideView,
   trackLeadMagnetClick,
 } from '@/lib/analytics'
-import { CONSENT_GRANTED_EVENT, getConsent } from '../src/lib/consent'
+import { CONSENT_CHANGE_EVENT, getConsent } from '../src/lib/consent'
 import { loadAnalytics } from '../src/lib/loadAnalytics'
 import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 
@@ -30,8 +30,8 @@ export default function ClickTracker() {
     }
 
     trackCurrentGuide()
-    window.addEventListener(CONSENT_GRANTED_EVENT, trackCurrentGuide)
-    return () => window.removeEventListener(CONSENT_GRANTED_EVENT, trackCurrentGuide)
+    window.addEventListener(CONSENT_CHANGE_EVENT, trackCurrentGuide)
+    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, trackCurrentGuide)
   }, [pathname])
 
   useEffect(() => {
