@@ -70,13 +70,16 @@ export default function ConsentManager({ open, onClose }: Props) {
   const dnt = typeof window !== "undefined" ? getSystemNoTracking() : false;
 
   async function accept() {
-    setConsent("granted");
-    setStatus("granted");
+    const nextStatus = dnt ? "denied" : "granted";
+    setConsent(nextStatus);
+    setStatus(nextStatus);
 
-    try {
-      (await import("../lib/loadAnalytics")).loadAnalytics();
-    } catch {
-      // Ignore analytics load failures.
+    if (!dnt) {
+      try {
+        (await import("../lib/loadAnalytics")).loadAnalytics();
+      } catch {
+        // Ignore analytics load failures.
+      }
     }
 
     onClose();
@@ -168,7 +171,7 @@ export default function ConsentManager({ open, onClose }: Props) {
             onClick={accept}
             className="rounded-lg border border-lime-300/20 bg-gradient-to-r from-lime-400/30 to-cyan-400/20 px-3 py-1.5 text-sm font-medium text-lime-200 hover:from-lime-400/40 hover:to-cyan-400/30"
           >
-            Accept
+            {dnt ? "Continue without tracking" : "Accept"}
           </button>
           <Link to="/info/privacy" className="ml-auto underline text-white/70 hover:text-cyan-300">
             Privacy Policy
