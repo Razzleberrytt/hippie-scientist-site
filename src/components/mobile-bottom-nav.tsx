@@ -77,7 +77,7 @@ export default function MobileBottomNav() {
         hidden={!open}
         className='pointer-events-auto w-[13.5rem] origin-bottom-left overflow-hidden rounded-[1.25rem] border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] p-1.5 shadow-[var(--hs-lift-hover)] motion-safe:animate-[hs-widget-in_160ms_cubic-bezier(0.22,1,0.36,1)]'
       >
-        <nav aria-label='Primary mobile navigation'>
+        <nav aria-label='Quick navigation'>
           <ul className='flex flex-col gap-0.5'>
             {mobileBottomNavItems.map((item) => {
               const active = pathname === item.href || pathname.startsWith(`${item.href}/`)
@@ -111,7 +111,7 @@ export default function MobileBottomNav() {
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
         aria-controls={panelId}
-        aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-label={open ? 'Close quick navigation menu' : 'Open quick navigation menu'}
         className='pointer-events-auto inline-flex h-13 w-13 min-h-12 min-w-12 items-center justify-center rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] shadow-[var(--hs-lift)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 motion-safe:active:scale-95'
       >
         {open ? (
