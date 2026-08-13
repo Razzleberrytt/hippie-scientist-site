@@ -173,7 +173,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     // old seoTitle ran 65 chars so Google truncated the payoff clause. Lead with
     // the bare comparison and keep the whole title inside the 60-char budget.
     seoTitle: 'Citicoline vs Alpha-GPC: Which Is Better for Focus?',
-    description: 'Citicoline and Alpha-GPC deliver choline differently, and it changes the dose, the cost, and who should avoid each. Evidence, side effects, and how to pick.',
+    description: 'Compare citicoline vs Alpha-GPC for focus by human evidence, choline delivery, dose, cost, side effects, and who should avoid each supplement.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Supplement Evidence'],
     date: '2026-06-10',
