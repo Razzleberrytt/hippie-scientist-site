@@ -11,7 +11,7 @@ export function getSystemNoTracking(): boolean {
   const dnt =
     (navigator as any).doNotTrack || (window as any).doNotTrack || (navigator as any).msDoNotTrack
   const gpc = (navigator as any).globalPrivacyControl
-  return dnt == '1' || dnt === 1 || gpc === true
+  return dnt == '1' || dnt === 1 || dnt === 'yes' || gpc === true
 }
 
 export function getConsent(): ConsentStatus | null {
