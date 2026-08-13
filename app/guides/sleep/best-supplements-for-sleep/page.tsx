@@ -5,122 +5,108 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
+import EmailCapture from '@/components/EmailCapture'
+import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-supplements-for-sleep`
+const UPDATED_DATE = '2026-08-12'
 
 export const metadata: Metadata = {
-  title: 'Best Sleep Supplements by Problem: Evidence, Doses & Safety',
+  title: 'Best Sleep Supplements: What the Evidence Supports in 2026',
   description:
-    'Compare magnesium glycinate, melatonin, L-theanine, ashwagandha, valerian, and passionflower by sleep problem, evidence strength, dose, and safety.',
+    'Evidence-first comparison of melatonin, ashwagandha, L-theanine, magnesium, valerian, and passionflower for sleep, with directness, safety limits, and chronic-insomnia guidance.',
   alternates: { canonical: '/guides/sleep/best-supplements-for-sleep/' },
   openGraph: {
-    title: 'Best Sleep Supplements by Problem: Evidence, Doses & Safety',
+    title: 'Best Sleep Supplements: What the Evidence Supports in 2026',
     description:
-      'A practical, evidence-graded guide to choosing a sleep supplement based on the actual bottleneck: timing, racing thoughts, tension, or stress.',
+      'Compare common sleep supplements by what human studies actually support, where evidence is limited, and when chronic insomnia needs stronger first-line care.',
     url: '/guides/sleep/best-supplements-for-sleep/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
 }
 
-const SLEEP_SUPPLEMENTS = [
+const SOURCES = [
   {
-    name: 'Melatonin',
-    bestFor: 'Jet lag, delayed sleep timing, shift-work schedule changes, and some sleep-onset problems',
-    evidence: 'Strongest for circadian-timing problems; more modest for general insomnia',
-    dose: 'Often 0.5–1 mg for circadian use; some people use up to 3 mg for sleep onset',
-    safety: 'Can cause next-day sleepiness, vivid dreams, headache, or dizziness. Timing matters as much as dose.',
-    href: '/compounds/melatonin/',
-    badge: 'Best for timing',
+    label: 'NCCIH: Sleep disorders and complementary health approaches',
+    href: 'https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches',
+    note: 'Current overview of melatonin, magnesium, valerian, and complementary sleep approaches; it distinguishes circadian uses from chronic-insomnia evidence and identifies CBT-I as the most strongly recommended insomnia treatment.',
   },
   {
-    name: 'Magnesium Glycinate',
-    bestFor: 'Low magnesium intake, muscle tension, restlessness, or sleep problems that overlap with deficiency risk',
-    evidence: 'Mixed overall; the clearest signal is in older adults or people with low magnesium status',
-    dose: 'Use the elemental-magnesium amount on the label; common supplemental totals are 100–300 mg in the evening',
-    safety: 'May cause diarrhea or stomach upset. People with significant kidney disease should get clinical guidance first.',
-    href: '/compounds/magnesium-glycinate/',
-    badge: 'Conditional fit',
+    label: 'Ashwagandha sleep systematic review and meta-analysis (2021)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/34559859/',
+    note: 'Five placebo-controlled randomized trials / 400 adults: two trials enrolled 210 healthy adults, one enrolled 50 healthy adults older than 60, one enrolled 60 adults with DSM-IV insomnia, and one enrolled 40 healthy adults plus 40 adults with DSM-IV insomnia. Four trials used KSM-66 root extract and one used Shoden root-and-leaf extract; treatment lasted 6 to 12 weeks. The pooled sleep effect was small with moderate heterogeneity, and one included trial was partially sponsored by the manufacturer.',
   },
   {
-    name: 'L-Theanine',
-    bestFor: 'Racing thoughts, stress-related arousal, and people who want relaxation without a heavy sedative effect',
-    evidence: 'Better supported for relaxation and stress physiology than for treating insomnia by itself',
-    dose: 'Common study and product doses are 100–200 mg, usually 30–60 minutes before bed',
-    safety: 'Usually well tolerated in short studies, but pregnancy, breastfeeding, medication use, and long-term use remain less certain.',
-    href: '/guides/herbs/l-theanine/',
-    badge: 'Best for arousal',
+    label: 'L-theanine sleep systematic review and meta-analysis (2025)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/40056718/',
+    note: 'Nineteen articles / 897 participants. Small improvements appeared in several subjective sleep outcomes, but many interventions were not pure L-theanine and the authors said adequate dose and duration still need study.',
   },
   {
-    name: 'Ashwagandha',
-    bestFor: 'Stress-linked sleep problems when daytime stress and poor sleep reinforce each other',
-    evidence: 'Moderate evidence for some standardized extracts in stressed adults; results do not apply equally to every product',
-    dose: 'Often 300–600 mg daily for standardized extracts, depending on the formulation',
-    safety: 'Can cause GI effects or drowsiness. Rare liver injury has been reported; thyroid, pregnancy, and medication concerns deserve caution.',
-    href: '/herbs/ashwagandha/',
-    badge: 'Best for stress',
+    label: 'Magnesium for insomnia systematic review and meta-analysis (2021)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/33865376/',
+    note: 'Three randomized trials / 151 older adults. Possible sleep-onset-latency benefit, but all trials had moderate-to-high risk of bias and certainty was low to very low.',
   },
   {
-    name: 'Valerian Root',
-    bestFor: 'People seeking a traditional sedating herb who understand the evidence is inconsistent',
-    evidence: 'Mixed trial and review results; preparation, dose, and product chemistry vary substantially',
-    dose: 'Common extract doses are 300–600 mg before bed, but product standardization differs',
-    safety: 'May impair alertness or add to alcohol and sedative effects. Avoid driving until you know your response.',
-    href: '/herbs/valerian/',
-    badge: 'Mixed evidence',
+    label: 'Magnesium bisglycinate randomized placebo-controlled trial (2025)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/40918053/',
+    note: 'One hundred fifty-five adults ages 18–65 with self-reported poor sleep received 250 mg elemental magnesium as bisglycinate or placebo daily for four weeks. The insomnia-severity difference was statistically significant but small (Cohen d=0.2); a separate sleep-quality measure was not significantly different and objective sleep was not measured. One coauthor is managing director of a contract research organization that receives nutraceutical-company research funding and has received nutraceutical presentation honoraria; the study supplement was manufactured by Biogena.',
   },
   {
-    name: 'Passionflower',
-    bestFor: 'Mild anxiety-related sleep disruption or a gentler herbal option',
-    evidence: 'Preliminary human evidence; not as well established as melatonin for circadian use',
-    dose: 'Product-specific extracts vary; follow the studied or labeled preparation rather than assuming equivalence',
-    safety: 'May cause drowsiness and could add to other sedating substances. Pregnancy safety is uncertain.',
-    href: '/guides/passionflower/',
-    badge: 'Preliminary',
+    label: 'Valerian insomnia umbrella review (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/38359657/',
+    note: 'Eight systematic reviews were included. The authors found no evidence of efficacy for treating insomnia, despite some subjective sleep-quality signals, and described the underlying evidence as heterogeneous and low quality.',
   },
-] as const
-
-const BUYING_CHECKLIST = [
-  ['Match the problem', 'Do not buy a “strong sleep” product before deciding whether your issue is timing, mental arousal, tension, or persistent insomnia.'],
-  ['Check the active dose', 'Compare the actual active amount, not just capsule count, blend weight, or front-label marketing.'],
-  ['Prefer simpler formulas', 'Single-ingredient products make it easier to judge benefit, side effects, and value before trying a stack.'],
-  ['Look for verification', 'Independent identity, potency, and contamination testing is more useful than vague “premium” language.'],
-  ['Avoid automatic megadosing', 'Higher doses can increase side effects without improving the problem you are trying to solve.'],
-] as const
+  {
+    label: 'Passionflower insomnia randomized placebo-controlled trial (2020)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/31714321/',
+    note: 'One hundred ten adults with DSM-5 insomnia disorder received passionflower extract or placebo for two weeks. Total sleep time improved versus placebo, while several other sleep outcomes did not differ between groups; the authors called for further study.',
+  },
+  {
+    label: 'NCCIH: Ashwagandha usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/ashwagandha',
+    note: 'Some preparations may help insomnia or stress; long-term safety is not established and pregnancy, thyroid, autoimmune, liver, surgery, and medication-interaction cautions apply.',
+  },
+  {
+    label: 'NIH ODS: Magnesium health professional fact sheet',
+    href: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/',
+    note: 'High supplemental magnesium can cause gastrointestinal effects; toxicity risk rises with impaired kidney function and magnesium can affect absorption of some medicines.',
+  },
+  {
+    label: 'NCCIH: Passionflower usefulness and safety',
+    href: 'https://www.nccih.nih.gov/health/passionflower',
+    note: 'Passionflower may cause drowsiness, dizziness, or confusion; pregnancy use is not recommended because it may induce uterine contractions.',
+  },
+  {
+    label: 'AASM: cognitive behavioral therapy for insomnia',
+    href: 'https://aasm.org/coding-quarterly-cognitive-behavioral-therapy-for-insomnia/',
+    note: 'The American Academy of Sleep Medicine describes CBT-I as the first-line, evidence-based treatment for chronic insomnia.',
+  },
+]
 
 const HEADINGS: Heading[] = [
   { id: 'quick-answer', text: 'Quick answer', level: 2 },
-  { id: 'match', text: 'Match the supplement to the sleep problem', level: 2 },
-  { id: 'profiles', text: 'Evidence profiles', level: 2 },
-  { id: 'buying', text: 'How to choose a product', level: 2 },
-  { id: 'stacking', text: 'Should you combine supplements?', level: 2 },
-  { id: 'red-flags', text: 'When supplements are the wrong next step', level: 2 },
-  { id: 'references', text: 'References', level: 2 },
+  { id: 'comparison', text: 'Evidence comparison', level: 2 },
+  { id: 'directness', text: 'What the studies actually support', level: 2 },
+  { id: 'safety', text: 'Safety boundaries', level: 2 },
+  { id: 'stacking', text: 'Why stacks overreach', level: 2 },
+  { id: 'insomnia', text: 'Chronic insomnia', level: 2 },
+  { id: 'sourcing', text: 'Product sourcing', level: 2 },
+  { id: 'references', text: 'Sources', level: 2 },
 ]
 
-const REFERENCES = [
-  ['AASM guideline for pharmacologic treatment of chronic insomnia', 'https://pubmed.ncbi.nlm.nih.gov/27998379/'],
-  ['AASM circadian rhythm sleep-wake disorder guideline', 'https://pubmed.ncbi.nlm.nih.gov/26414986/'],
-  ['Melatonin for preventing and treating jet lag', 'https://pubmed.ncbi.nlm.nih.gov/12076414/'],
-  ['Magnesium supplementation trial in older adults with insomnia', 'https://pubmed.ncbi.nlm.nih.gov/23853635/'],
-  ['L-theanine and stress-related symptoms in healthy adults', 'https://pubmed.ncbi.nlm.nih.gov/31623400/'],
-  ['Valerian for sleep: systematic review and meta-analysis', 'https://pubmed.ncbi.nlm.nih.gov/17145239/'],
-] as const
-
 export default function BestSupplementsForSleepPage() {
-  const magnesiumProducts = getRevenueProductSet('magnesium')
   const toc = <TableOfContents headings={HEADINGS} />
 
   return (
     <>
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Sleep Supplements by Problem: Evidence, Doses & Safety"
-        description="Compare common sleep supplements by the problem they fit best, evidence strength, typical dose, safety limits, and product-selection criteria."
+        headline="Best Sleep Supplements: What the Evidence Supports in 2026"
+        description="Evidence-first comparison of common sleep supplements, including direct human evidence, uncertainty, safety, and chronic-insomnia limits."
         datePublished="2026-06-16"
-        dateModified="2026-07-15"
+        dateModified={UPDATED_DATE}
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
@@ -129,168 +115,209 @@ export default function BestSupplementsForSleepPage() {
       />
 
       <ArticleLayout toc={toc} zone="supplement">
-        <div className="space-y-14">
+        <div className="space-y-12">
           <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-            <p className="eyebrow-label">Evidence-based sleep guide</p>
+            <p className="eyebrow-label">Sleep evidence guide</p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Best Sleep Supplements by Problem
+              Best Sleep Supplements: What the Evidence Supports in 2026
             </h1>
             <p className="mt-2 text-xs text-muted">
               Written and edited by{' '}
               <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">
                 Willie B. Randolph III
               </Link>{' '}
-              · Last updated July 15, 2026
+              · Last evidence review August 12, 2026
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-              The best sleep supplement is not the strongest one. It is the one that matches the reason you are not sleeping.
-              Melatonin fits circadian timing. L-theanine fits mental arousal. Magnesium is more plausible when low intake,
-              tension, or deficiency risk is part of the picture. Persistent insomnia needs a different conversation entirely.
+              “Best” is a search term, not a scientific ranking. Melatonin, ashwagandha, L-theanine, magnesium,
+              valerian, and passionflower have different evidence bases, studied populations, preparations, and
+              safety limits. This guide compares what is actually supported without turning those studies into a
+              symptom-to-supplement selector or a universal bedtime dose chart.
             </p>
 
             <figure className="mt-6">
               <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
                 <Image
                   src="/images/guides/best-supplements-for-sleep.jpg"
-                  alt="An assortment of sleep supplements and calming herbs on a bedside surface"
+                  alt="An assortment of common sleep supplements and calming herbs arranged for an evidence comparison"
                   width={1536}
                   height={1024}
                   priority
                   className="h-auto w-full"
                 />
               </div>
+              <figcaption className="mt-3 text-center text-sm text-muted">
+                Evidence for one ingredient, formulation, population, or sleep outcome should not be transferred automatically to another.
+              </figcaption>
             </figure>
           </section>
 
-          <section id="quick-answer" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/45 p-6">
+          <section id="quick-answer" className="scroll-mt-20 rounded-[1.65rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm">
             <p className="eyebrow-label">Quick answer</p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">What should you choose first?</h2>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                ['Shifted schedule or jet lag', 'Melatonin', '/compounds/melatonin/'],
-                ['Racing thoughts at bedtime', 'L-theanine', '/guides/herbs/l-theanine/'],
-                ['Tension plus low-magnesium risk', 'Magnesium glycinate', '/compounds/magnesium-glycinate/'],
-                ['Stress-linked poor sleep', 'Ashwagandha', '/herbs/ashwagandha/'],
-                ['Traditional sedating herb', 'Valerian, with caution', '/herbs/valerian/'],
-                ['Insomnia lasting months', 'Clinical evaluation', '/education/insomnia/'],
-              ].map(([problem, answer, href]) => (
-                <div key={problem} className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted">Best fit</p>
-                  <p className="mt-1 text-sm font-semibold text-ink">{problem}</p>
-                  <Link href={href} className="mt-2 block text-sm font-semibold text-brand-800 hover:underline">
-                    {answer} →
-                  </Link>
-                </div>
-              ))}
+            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">There is no universal first supplement for poor sleep</h2>
+            <div className="mt-4 space-y-3 text-sm leading-7 text-muted sm:text-base">
+              <p>
+                <strong>Melatonin</strong> has its clearest role in circadian-timing situations such as jet lag and some shift-work problems—not as a universal chronic-insomnia treatment. <strong>Ashwagandha</strong> and <strong>L-theanine</strong> have limited sleep signals, but their studies do not establish one bedtime regimen or symptom-matched indication.
+              </p>
+              <p>
+                <strong>Magnesium</strong> evidence remains limited even after a small positive 2025 bisglycinate trial. <strong>Valerian</strong> has no demonstrated insomnia efficacy in a 2024 umbrella review. <strong>Passionflower</strong> has one useful but preliminary two-week insomnia trial. None of those findings replaces diagnosis of the sleep problem itself.
+              </p>
             </div>
           </section>
 
-          <section id="match" className="scroll-mt-20 space-y-4">
-            <p className="eyebrow-label">Decision rule</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">Match the supplement to the sleep problem</h2>
-            <p className="max-w-3xl text-sm leading-7 text-muted">
-              A supplement can look ineffective when the real problem is a mismatch. A circadian signal will not necessarily fix
-              stress, sleep apnea, restless legs, medication effects, pain, or a severely inconsistent schedule.
-            </p>
+          <section id="comparison" className="scroll-mt-20 space-y-4">
+            <p className="eyebrow-label">Directness before ranking</p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">What human evidence is actually available?</h2>
+            <ResponsiveTable label="Sleep supplement evidence comparison">
+              <table className="min-w-[980px] w-full text-sm">
+                <thead>
+                  <tr className="border-b border-brand-900/10">
+                    <th className="pb-3 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Option</th>
+                    <th className="pb-3 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Most defensible evidence context</th>
+                    <th className="pb-3 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Main limit</th>
+                    <th className="pb-3 text-left text-xs font-bold uppercase tracking-wider text-muted">Evidence interpretation</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-900/5">
+                  <tr className="align-top">
+                    <td className="py-4 pr-4 font-semibold text-ink">Melatonin</td>
+                    <td className="py-4 pr-4 text-muted">Circadian timing, especially jet lag and some shift-work sleep problems; some sleep-onset effects in insomnia studies.</td>
+                    <td className="py-4 pr-4 text-muted">Effects vary by sleep problem and timing; chronic-insomnia guidelines do not support treating it as the default long-term answer.</td>
+                    <td className="py-4 text-muted">Context-specific, not “best overall.”</td>
+                  </tr>
+                  <tr className="align-top">
+                    <td className="py-4 pr-4 font-semibold text-ink">Ashwagandha</td>
+                    <td className="py-4 pr-4 text-muted">Five placebo-controlled RCTs / 400 adults: healthy adults, healthy adults over 60, adults with DSM-IV insomnia, and a mixed healthy/insomnia cohort. Four trials used KSM-66 root extract and one used Shoden root-and-leaf extract for 6–12 weeks.</td>
+                    <td className="py-4 pr-4 text-muted">Small pooled effect with moderate heterogeneity; all five trials were conducted in India, preparations and doses varied, one trial was partially manufacturer-sponsored, and long-term safety remains uncertain.</td>
+                    <td className="py-4 text-muted">Limited sleep signal.</td>
+                  </tr>
+                  <tr className="align-top">
+                    <td className="py-4 pr-4 font-semibold text-ink">L-theanine</td>
+                    <td className="py-4 pr-4 text-muted">2025 meta-analysis: 19 articles / 897 participants with small improvements in several subjective sleep outcomes.</td>
+                    <td className="py-4 pr-4 text-muted">Many interventions were not pure L-theanine; appropriate dose and duration remain unresolved.</td>
+                    <td className="py-4 text-muted">Promising but indirect/heterogeneous.</td>
+                  </tr>
+                  <tr className="align-top">
+                    <td className="py-4 pr-4 font-semibold text-ink">Magnesium</td>
+                    <td className="py-4 pr-4 text-muted">Older review: 3 RCTs / 151 older adults with low-to-very-low certainty. 2025 bisglycinate RCT: 155 adults ages 18–65 received 250 mg elemental magnesium or placebo daily for four weeks; the insomnia-severity effect was small (d=0.2).</td>
+                    <td className="py-4 pr-4 text-muted">No objective sleep measure; separate sleep-quality measure was not significantly different; form superiority is not established. One coauthor leads a CRO receiving nutraceutical-industry funding and honoraria, and the study supplement was manufactured by Biogena.</td>
+                    <td className="py-4 text-muted">Limited, with one newer small signal.</td>
+                  </tr>
+                  <tr className="align-top">
+                    <td className="py-4 pr-4 font-semibold text-ink">Valerian</td>
+                    <td className="py-4 pr-4 text-muted">2024 umbrella review of 8 systematic reviews found some subjective sleep-quality signals.</td>
+                    <td className="py-4 pr-4 text-muted">No evidence of efficacy for treating insomnia; underlying studies were heterogeneous and low quality.</td>
+                    <td className="py-4 text-muted">Do not present as established insomnia therapy.</td>
+                  </tr>
+                  <tr className="align-top">
+                    <td className="py-4 pr-4 font-semibold text-ink">Passionflower</td>
+                    <td className="py-4 pr-4 text-muted">One 110-person DSM-5 insomnia RCT over two weeks found greater total-sleep-time improvement than placebo.</td>
+                    <td className="py-4 pr-4 text-muted">Several other sleep outcomes did not differ between groups; one short trial is not enough for a broad sleep-treatment claim.</td>
+                    <td className="py-4 text-muted">Preliminary.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ResponsiveTable>
           </section>
 
-          <section id="profiles" className="scroll-mt-20 space-y-5">
-            <div>
-              <p className="eyebrow-label">Evidence profiles</p>
-              <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Common sleep supplements compared</h2>
+          <section id="directness" className="scroll-mt-20 grid gap-5 md:grid-cols-2">
+            <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+              <h2 className="text-xl font-semibold text-ink">Study schedules are not bedtime prescriptions</h2>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                A trial may use a specific dose, extract, timing schedule, and treatment duration because that is what researchers chose to test. That does not establish a universal personal dose, 30–60-minute onset, “take as needed” strategy, or fixed multi-week course for every commercial product.
+              </p>
             </div>
-            <div className="space-y-5">
-              {SLEEP_SUPPLEMENTS.map((supplement) => (
-                <article key={supplement.name} className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <Link href={supplement.href} className="text-xl font-semibold text-brand-800 hover:underline">
-                      {supplement.name}
-                    </Link>
-                    <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800">
-                      {supplement.badge}
-                    </span>
-                  </div>
-                  <dl className="mt-5 grid gap-4 text-sm sm:grid-cols-2">
-                    <div>
-                      <dt className="font-semibold text-ink">Best for</dt>
-                      <dd className="mt-1 leading-6 text-muted">{supplement.bestFor}</dd>
-                    </div>
-                    <div>
-                      <dt className="font-semibold text-ink">Evidence</dt>
-                      <dd className="mt-1 leading-6 text-muted">{supplement.evidence}</dd>
-                    </div>
-                    <div>
-                      <dt className="font-semibold text-ink">Typical dose context</dt>
-                      <dd className="mt-1 leading-6 text-muted">{supplement.dose}</dd>
-                    </div>
-                    <div>
-                      <dt className="font-semibold text-ink">Safety boundary</dt>
-                      <dd className="mt-1 leading-6 text-muted">{supplement.safety}</dd>
-                    </div>
-                  </dl>
-                  <Link href={supplement.href} className="mt-5 inline-block text-sm font-semibold text-brand-700 hover:underline">
-                    Read the full profile →
-                  </Link>
-                </article>
-              ))}
+            <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+              <h2 className="text-xl font-semibold text-ink">Symptoms do not identify a supplement</h2>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                “Racing thoughts,” tension, stress, and difficulty falling asleep overlap across insomnia, anxiety, circadian problems, medication effects, pain, sleep apnea, restless legs, and ordinary short sleep. A symptom label does not prove that L-theanine, magnesium, ashwagandha, or another supplement is the correct intervention.
+              </p>
             </div>
           </section>
 
-          <section id="buying" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-            <p className="eyebrow-label">Buying guide</p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">How to choose a sleep supplement product</h2>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              {BUYING_CHECKLIST.map(([title, detail]) => (
-                <div key={title} className="rounded-xl border border-brand-900/10 bg-brand-50/35 p-4">
-                  <h3 className="text-sm font-semibold text-ink">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted">{detail}</p>
-                </div>
-              ))}
+          <section id="safety" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <p className="eyebrow-label">Safety is ingredient-specific</p>
+            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Important boundaries that a “best” list should not hide</h2>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-brand-900/10 bg-brand-50/35 p-4 text-sm leading-7 text-muted">
+                <strong className="text-ink">Melatonin:</strong> short-term use appears relatively safe for many adults, but long-term safety is uncertain. Daytime drowsiness can occur, and people with epilepsy or taking blood thinners should use medical supervision.
+              </div>
+              <div className="rounded-xl border border-brand-900/10 bg-brand-50/35 p-4 text-sm leading-7 text-muted">
+                <strong className="text-ink">Ashwagandha:</strong> NCCIH lists rare liver injury, pregnancy/breastfeeding avoidance, thyroid and autoimmune cautions, surgery concerns, and several medication-interaction categories.
+              </div>
+              <div className="rounded-xl border border-brand-900/10 bg-brand-50/35 p-4 text-sm leading-7 text-muted">
+                <strong className="text-ink">Magnesium:</strong> supplemental magnesium can cause diarrhea, nausea, and cramping; toxicity risk rises with impaired kidney function and it can interfere with absorption of some medicines.
+              </div>
+              <div className="rounded-xl border border-brand-900/10 bg-brand-50/35 p-4 text-sm leading-7 text-muted">
+                <strong className="text-ink">Valerian / passionflower:</strong> both can cause sedation-related effects. Valerian should not be combined casually with alcohol or sedatives; passionflower is not recommended during pregnancy because it may induce uterine contractions.
+              </div>
+              <div className="rounded-xl border border-brand-900/10 bg-brand-50/35 p-4 text-sm leading-7 text-muted md:col-span-2">
+                <strong className="text-ink">L-theanine:</strong> the sleep evidence base does not establish comprehensive long-term or interaction safety for every pure or combination product. “Generally tolerated in trials” should not be translated into “interaction-free.”
+              </div>
             </div>
           </section>
 
           <section id="stacking" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/60 p-6">
-            <h2 className="text-2xl font-semibold tracking-tight text-amber-950">Should you combine sleep supplements?</h2>
+            <h2 className="text-2xl font-semibold tracking-tight text-amber-950">Why sleep stacks overreach the evidence</h2>
             <p className="mt-3 text-sm leading-7 text-amber-900">
-              Start with one ingredient. That is the only clean way to learn whether it helps and whether it causes side effects.
-              Combining sedating products, alcohol, antihistamines, or prescription sleep medicines can increase impairment and
-              makes the result harder to interpret. A plausible mechanism is not the same thing as a proven or universally safe stack.
+              Separate trials of melatonin, magnesium, L-theanine, ashwagandha, valerian, or passionflower do not prove that combining them creates synergy, works faster, or is safer. A multi-ingredient stack is a new intervention with its own interaction and attribution problem. If supplementation is appropriate, changing one variable at a time is easier to interpret than copying a stack assembled from unrelated studies.
+            </p>
+            <Link href="/guides/sleep/sleep-stack-guide/" className="mt-3 inline-block text-sm font-semibold text-amber-950 hover:underline">Sleep stack evidence guide →</Link>
+          </section>
+
+          <section id="insomnia" className="scroll-mt-20 rounded-[1.65rem] border border-red-100 bg-red-50/60 p-6">
+            <h2 className="text-2xl font-semibold tracking-tight text-red-950">Chronic insomnia has a stronger first-line treatment</h2>
+            <div className="mt-3 space-y-3 text-sm leading-7 text-red-900">
+              <p>
+                The American Academy of Sleep Medicine describes cognitive behavioral therapy for insomnia (CBT-I) as the first-line, evidence-based treatment for chronic insomnia. A supplement ranking should not obscure that stronger evidence base.
+              </p>
+              <p>
+                Loud snoring or gasping, dangerous daytime sleepiness, an urge to move the legs, severe mood symptoms, new sleep problems after a medication change, or insomnia that persists for months are reasons to seek assessment rather than escalating supplements.
+              </p>
+            </div>
+          </section>
+
+          <section id="sourcing" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <p className="eyebrow-label">Product sourcing</p>
+            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Why this broad guide does not rank products</h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              Study preparations and retail products are not automatically interchangeable. This broad guide intentionally does not rank affiliate products or make one ingredient look commercially preferred. Ingredient-specific pages are the better place to evaluate plant part, extract, form, standardization, label accuracy, and independent quality testing.
             </p>
           </section>
 
-          <section id="red-flags" className="scroll-mt-20 rounded-[1.65rem] border border-red-100 bg-red-50/60 p-6">
-            <h2 className="text-2xl font-semibold tracking-tight text-red-950">When supplements are the wrong next step</h2>
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-red-900">
-              <li>• Loud snoring, gasping, morning headaches, or severe daytime sleepiness.</li>
-              <li>• An urge to move the legs, especially at night.</li>
-              <li>• Insomnia lasting for months or causing major daytime impairment.</li>
-              <li>• New sleep problems after starting or changing a medication.</li>
-              <li>• Pregnancy, breastfeeding, significant liver or kidney disease, or use of multiple sedating medicines.</li>
-            </ul>
-          </section>
-
-          {magnesiumProducts && <RecommendationSection products={magnesiumProducts.products} />}
-
           <section id="references" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-            <p className="eyebrow-label">References</p>
+            <p className="eyebrow-label">Sources</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Evidence sources used for this guide</h2>
-            <ul className="mt-5 grid gap-3 text-sm leading-6 sm:grid-cols-2">
-              {REFERENCES.map(([label, href]) => (
-                <li key={href} className="rounded-xl border border-brand-900/10 bg-brand-50/35 p-4">
-                  <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
-                    {label}
+            <ol className="mt-5 space-y-4">
+              {SOURCES.map((source, index) => (
+                <li key={source.href} className="text-sm leading-7 text-muted">
+                  <span className="font-semibold text-ink">{index + 1}. </span>
+                  <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
+                    {source.label}
                   </a>
+                  <span> — {source.note}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </section>
 
-          <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
-            <Link href="/guides/sleep/magnesium-vs-melatonin/" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
-            <Link href="/guides/sleep/magnesium-for-sleep/" className="hover:text-brand-800">Magnesium for Sleep →</Link>
-            <Link href="/guides/herbs/l-theanine/" className="hover:text-brand-800">L-Theanine for Sleep →</Link>
-            <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
-          </nav>
+          <section className="grid gap-3 sm:grid-cols-2">
+            <Link href="/guides/compare/sleep-herbs-vs-melatonin/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Sleep herbs vs melatonin →</Link>
+            <Link href="/guides/sleep/ashwagandha-for-sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Ashwagandha for sleep →</Link>
+            <Link href="/guides/herbs/l-theanine/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">L-theanine evidence →</Link>
+            <Link href="/guides/sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Sleep goal hub →</Link>
+          </section>
+
+          <EmailCapture
+            headline="Get future sleep research notes by email"
+            description="Evidence-first supplement updates, safety context, and new guide announcements. No universal bedtime protocols."
+            location="best-supplements-for-sleep"
+          />
+          <NewsletterCtaBlock
+            title="Continue with the newsletter archive"
+            description="Short notes built for cautious supplement decisions."
+            location="best-supplements-for-sleep-newsletter"
+          />
         </div>
       </ArticleLayout>
     </>
