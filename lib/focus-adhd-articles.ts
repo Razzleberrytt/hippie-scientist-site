@@ -92,7 +92,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/magnesium-for-adhd-content-v1.md',
     title: 'Magnesium for ADHD: Evidence, Forms, Sleep, Calm, and Practical Use',
     seoTitle: 'Magnesium for ADHD: Evidence, Forms and Safety',
-    description: 'Evidence-based guide to magnesium and ADHD. Covers forms, sleep, calm focus, deficiency, dosing, safety, and realistic expectations.',
+    description: 'Review magnesium and ADHD evidence, separating deficiency correction and sleep context from direct symptom claims, with forms, dose context, side effects, and safety.',
     category: 'Nutrient Deficiencies',
     tags: ['Focus', 'ADHD', 'Sleep', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-10',
