@@ -3,6 +3,10 @@ import JsonLd from './seo/JsonLd'
 const SITE_URL = 'https://thehippiescientist.net'
 const SITE_NAME = 'The Hippie Scientist'
 const DEFAULT_AUTHOR = 'Willie B. Randolph III'
+const WEBSITE_ID = `${SITE_URL}/#website`
+const ORGANIZATION_ID = `${SITE_URL}/#organization`
+const AUTHOR_URL = `${SITE_URL}/info/author/`
+const AUTHOR_ID = `${AUTHOR_URL}#person`
 const MIN_FAQ_SCHEMA_ITEMS = 2
 
 const FAQ_FALLBACK_ANSWER_PREFIXES = [
@@ -88,12 +92,17 @@ export default function StructuredData({
 
   const isMonetized = zone === 'monetized'
   const meaningfulFaqs = faqs?.filter(isMeaningfulFaq) ?? []
+  const hasFaqSchema = meaningfulFaqs.length >= MIN_FAQ_SCHEMA_ITEMS
+  const hasBreadcrumbs = Boolean(breadcrumbs?.length)
+  const webpageId = isMonetized ? `${canonicalPageUrl}#supplement` : `${canonicalPageUrl}#webpage`
+  const breadcrumbId = `${canonicalPageUrl}#breadcrumb`
+  const faqId = `${canonicalPageUrl}#faq`
 
   if (isMonetized) {
     schemas.push({
       '@context': 'https://schema.org',
       '@type': ['DietarySupplement', 'WebPage'],
-      '@id': `${canonicalPageUrl}#supplement`,
+      '@id': webpageId,
       name: headline,
       headline,
       description,
@@ -103,11 +112,13 @@ export default function StructuredData({
       dateModified: dateModified ?? datePublished,
       author: {
         '@type': 'Person',
+        '@id': AUTHOR_ID,
         name: authorName,
-        url: `${SITE_URL}/info/author/`,
+        url: AUTHOR_URL,
       },
       publisher: {
         '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
         name: SITE_NAME,
         url: SITE_URL,
         logo: {
@@ -115,6 +126,9 @@ export default function StructuredData({
           url: `${SITE_URL}/logo.svg`,
         },
       },
+      isPartOf: { '@id': WEBSITE_ID },
+      ...(hasBreadcrumbs ? { breadcrumb: { '@id': breadcrumbId } } : {}),
+      ...(hasFaqSchema ? { hasPart: { '@id': faqId } } : {}),
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': canonicalPageUrl,
@@ -124,7 +138,7 @@ export default function StructuredData({
     schemas.push({
       '@context': 'https://schema.org',
       '@type': ['MedicalWebPage', 'Article'],
-      '@id': `${canonicalPageUrl}#webpage`,
+      '@id': webpageId,
       name: headline,
       headline,
       description,
@@ -135,11 +149,13 @@ export default function StructuredData({
       lastReviewed: dateModified ?? datePublished,
       author: {
         '@type': 'Person',
+        '@id': AUTHOR_ID,
         name: authorName,
-        url: `${SITE_URL}/info/about/`,
+        url: AUTHOR_URL,
       },
       publisher: {
         '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
         name: SITE_NAME,
         url: SITE_URL,
         logo: {
@@ -147,13 +163,18 @@ export default function StructuredData({
           url: `${SITE_URL}/logo.svg`,
         },
       },
+      isPartOf: { '@id': WEBSITE_ID },
+      ...(hasBreadcrumbs ? { breadcrumb: { '@id': breadcrumbId } } : {}),
+      ...(hasFaqSchema ? { hasPart: { '@id': faqId } } : {}),
       medicalAudience: {
         '@type': 'MedicalAudience',
         audienceType: 'Patient',
       },
       reviewedBy: {
         '@type': 'Person',
+        '@id': AUTHOR_ID,
         name: authorName,
+        url: AUTHOR_URL,
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
@@ -165,10 +186,13 @@ export default function StructuredData({
   // FAQPage should only be emitted when there are enough meaningful Q&A pairs
   // for rich-result eligibility. A one-item FAQ block creates avoidable schema
   // noise across thin/partial pages without adding search value.
-  if (meaningfulFaqs.length >= MIN_FAQ_SCHEMA_ITEMS) {
+  if (hasFaqSchema) {
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
+      '@id': faqId,
+      url: canonicalPageUrl,
+      isPartOf: { '@id': webpageId },
       mainEntity: meaningfulFaqs.map((faq) => ({
         '@type': 'Question',
         name: faq.question,
@@ -184,6 +208,7 @@ export default function StructuredData({
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
+      '@id': breadcrumbId,
       itemListElement: breadcrumbs.map((crumb, i) => ({
         '@type': 'ListItem',
         position: i + 1,
