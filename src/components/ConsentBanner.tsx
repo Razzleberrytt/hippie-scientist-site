@@ -44,7 +44,7 @@ export default function ConsentBanner() {
               <span className='ml-1 text-amber-300'>DNT/GPC detected: tracking stays off.</span>
             )}
           </p>
-          <div className='flex shrink-0 items-center justify-end gap-2'>
+          <div className='flex shrink-0 flex-wrap items-center justify-end gap-2'>
             <button
               type='button'
               className='inline-flex min-h-11 items-center justify-center rounded-lg px-3 text-sm font-semibold text-white/85 underline underline-offset-2 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white'
