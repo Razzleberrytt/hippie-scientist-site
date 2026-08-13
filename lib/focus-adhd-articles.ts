@@ -81,7 +81,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/melatonin-for-adhd-sleep-content-v1.md',
     title: 'Melatonin for ADHD Sleep: What the Research Shows',
     seoTitle: 'Melatonin for ADHD Sleep: Research Review',
-    description: 'Evidence-based review of melatonin for ADHD-related sleep problems. Covers sleep onset insomnia, delayed sleep phase, pediatric and adult evidence, dosing considerations, safety, side effects, and realistic expectations.',
+    description: 'Review melatonin for sleep-onset problems in people with ADHD, including pediatric and adult evidence, circadian timing, dose context, side effects, and limits.',
     category: 'Sleep',
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-10',
