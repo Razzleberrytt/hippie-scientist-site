@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { TOTAL_PROFILE_COUNT } from '@/lib/profile-counts'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import JsonLd from '@/components/seo/JsonLd'
 
@@ -59,7 +58,7 @@ export default function AboutClient() {
         <div className="mt-5 grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div>
             <p className="max-w-3xl text-base leading-7 text-muted sm:text-lg">
-              The Hippie Scientist is an evidence-first reference for herbs, supplements, and compounds. We publish mechanism, safety, and practical context for {TOTAL_PROFILE_COUNT}+ profiles - plain-English, conservative on claims, and grounded in the strength of available research.
+              The Hippie Scientist is an evidence-first reference for herbs, supplements, and compounds. We publish mechanism, safety, and practical context across a growing research library — plain English, conservative on claims, and grounded in the strength of available evidence.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -120,7 +119,7 @@ export default function AboutClient() {
             <span className="text-emerald-700">✓</span> Evidence-First Synthesis
           </h2>
           <p className="mt-3 text-sm leading-6 text-muted">
-            We map natural compounds back to peer-reviewed studies and human clinical trials, stating evidence levels (strong, moderate, limited) with total integrity.
+            We map natural compounds back to peer-reviewed studies and human clinical trials, stating evidence levels with the limitations and uncertainty kept visible.
           </p>
         </div>
 
@@ -129,7 +128,7 @@ export default function AboutClient() {
             <span className="text-emerald-700">✓</span> Safety-First Governance
           </h2>
           <p className="mt-3 text-sm leading-6 text-muted">
-            We list precise medication interactions, contraindications, and precautions. We programmatically suppress product links for high-caution substances.
+            We surface known and potential medication interactions, contraindications, and precautions, and keep uncertainty visible when evidence is incomplete. Product links are suppressed for high-caution substances where appropriate.
           </p>
         </div>
 
@@ -138,7 +137,7 @@ export default function AboutClient() {
             <span className="text-emerald-700">✓</span> Anti-Oversimplification
           </h2>
           <p className="mt-3 text-sm leading-6 text-muted">
-            We explain preclinical mechanisms of action to outline pathways, but differentiate them clearly from guaranteed human outcomes.
+            We explain preclinical mechanisms of action to outline pathways, but differentiate them clearly from demonstrated human outcomes.
           </p>
         </div>
       </section>
@@ -155,7 +154,7 @@ export default function AboutClient() {
           <p className="text-sm text-muted mt-2 max-w-2xl">
             We use a documented editorial process to audit monograph data, evidence language, safety cautions, and affiliate separation before publication.
           </p>
-          <p className="text-xs text-muted mt-1">Last reviewed: June 2026</p>
+          <p className="text-xs text-muted mt-1">Last reviewed: August 2026</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -227,17 +226,17 @@ export default function AboutClient() {
           <h2 className="text-2xl font-bold text-ink">How We Build Monograph Content</h2>
           <div className="space-y-4 text-sm leading-7 text-muted">
             <p>
-              Our process is rigorous, transparent, and completely decoupled from any commercial product sponsors:
+              Our process is designed to be transparent and separated from commercial product incentives:
             </p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong className="font-semibold text-ink">Source Review:</strong> All ingredient entries are sourced from our structured evidence database, ensuring uniform metrics.
+                <strong className="font-semibold text-ink">Source Review:</strong> Ingredient entries draw from our structured evidence data and cited sources so fields can be reviewed consistently.
               </li>
               <li>
-                <strong className="font-semibold text-ink">Evidence Grading:</strong> We grade evidence strictly according to study design: double-blind human RCTs and meta-analyses score highest.
+                <strong className="font-semibold text-ink">Evidence Grading:</strong> We weigh study design, directness, replication, sample size, and limitations. Human randomized trials and high-quality syntheses generally carry more weight than mechanistic or preclinical evidence.
               </li>
               <li>
-                <strong className="font-semibold text-ink">FTC Affiliate Transparency:</strong> Affiliate links (configured via config/affiliate.ts) are strictly secondary. No brand can pay to improve their evidence grade.
+                <strong className="font-semibold text-ink">Affiliate Transparency:</strong> Affiliate links are secondary to the evidence review. Commercial availability cannot improve an ingredient's evidence grade or remove safety cautions.
               </li>
             </ul>
           </div>
@@ -250,7 +249,7 @@ export default function AboutClient() {
           </p>
           <h2 className="text-xl font-bold text-ink mt-2">Send us a Message</h2>
           <p className="text-xs text-muted mt-1 leading-relaxed">
-            Have scientific feedback or found a bug? Send us a message, and our review team will respond.
+            Have scientific feedback or found a bug? Send a message and we’ll review it.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-4 space-y-3.5">

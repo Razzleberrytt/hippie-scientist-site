@@ -10,13 +10,13 @@ import { buildPageMetadata } from '../../src/lib/seo'
 import { formatDisplayLabel } from '@/lib/display-utils'
 import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
-import buildReport from '@/public/data/build-report.json'
 import HerbsIndexClient from './HerbsIndexClient'
 import Pagination from '@/components/Pagination'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Herb Profiles & Research Library',
-  description: `Browse ${buildReport.counts.herbs} herb profiles — mechanisms, safety notes, active compounds, and research context in plain language.`,
+  description:
+    'Browse published herb profiles — mechanisms, safety notes, active compounds, and research context in plain language.',
   path: '/herbs',
 })
 

@@ -107,8 +107,6 @@ const toolLinks = [
   },
 ]
 
-// Tone per article category so the cards carry colour rather than reading as a
-// row of identical dark panels.
 const CATEGORY_TONES: Record<string, string> = {
   'metabolic health': 'amber',
   'cognitive health': 'blue',
@@ -143,8 +141,8 @@ const methodSteps = [
 const counts = buildReport.counts
 
 const heroStats = [
-  { value: `${counts.herbs}`, label: 'herb profiles' },
-  { value: `${counts.compounds}`, label: 'compound profiles' },
+  { value: `${counts.herbs}`, label: 'herb records' },
+  { value: `${counts.compounds}`, label: 'compound records' },
   { value: `${counts.claims}`, label: 'sourced claims' },
 ]
 
@@ -189,7 +187,6 @@ export default function HomepageV2() {
   return (
     <div className='hs-home'>
       <div className='mx-auto max-w-6xl px-5 sm:px-8 lg:px-10'>
-        {/* ---------------- Hero ---------------- */}
         <section className='hs-hero pb-10 pt-8 sm:pb-20 sm:pt-16 lg:pt-20'>
           <div className='grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10'>
             <div>
@@ -237,9 +234,6 @@ export default function HomepageV2() {
             </div>
           </div>
 
-          {/* Real counts from the generated build report — credibility without a card. */}
-          {/* Three across on a phone with the label stacked, so the row never
-              breaks 2 + 1; inline once there is width for it. */}
           <dl className='mt-10 grid grid-cols-3 gap-x-4 sm:mt-12 sm:flex sm:flex-wrap sm:items-baseline sm:gap-x-8'>
             {heroStats.map((stat) => (
               <div key={stat.label} className='sm:flex sm:items-baseline sm:gap-2'>
@@ -274,7 +268,6 @@ export default function HomepageV2() {
           </dl>
         </section>
 
-        {/* ---------------- Goal paths — the colour anchor ---------------- */}
         <section id='choose-a-path' className='scroll-mt-24 py-11 sm:py-20'>
           <SectionHeader
             eyebrow='Start here'
@@ -318,16 +311,13 @@ export default function HomepageV2() {
 
         <hr className='hs-divider' />
 
-        {/* ---------------- Popular starting points ---------------- */}
         <section className='py-11 sm:py-20'>
           <SectionHeader
-            eyebrow='Popular starting points'
+            eyebrow='Familiar starting points'
             title='Look up a familiar name'
-            subtitle='These are the most common first searches — not endorsements. Each profile opens with evidence, mechanism, dosing context, and safety.'
+            subtitle='These widely researched ingredients are useful entry points — not endorsements. Each profile opens with evidence, mechanism, dosing context, and safety.'
           />
 
-          {/* A specimen shelf: one jewel tone per entry so the row reads as a
-              collection rather than six identical grey pills. */}
           <div className='mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6'>
             {popularProfiles.map((profile) => {
               const Icon = profile.type === 'Herb' ? Leaf : Atom
@@ -352,17 +342,16 @@ export default function HomepageV2() {
 
           <div className='mt-8 flex flex-wrap gap-x-8 gap-y-3'>
             <Link href='/herbs/' className='hs-link text-sm'>
-              Browse all {counts.herbs} herbs <ArrowRight className='h-4 w-4' aria-hidden='true' />
+              Browse herb library <ArrowRight className='h-4 w-4' aria-hidden='true' />
             </Link>
             <Link href='/compounds/' className='hs-link text-sm'>
-              Browse all {counts.compounds} compounds <ArrowRight className='h-4 w-4' aria-hidden='true' />
+              Browse compound library <ArrowRight className='h-4 w-4' aria-hidden='true' />
             </Link>
           </div>
         </section>
 
         <hr className='hs-divider' />
 
-        {/* ---------------- Decide / check — hairline lists, no nested tiles ---------------- */}
         <section className='grid gap-11 py-11 sm:gap-12 sm:py-20 lg:grid-cols-2 lg:gap-16'>
           <div>
             <p className='hs-eyebrow'>Make a decision</p>
@@ -373,46 +362,42 @@ export default function HomepageV2() {
 
             <div className='@container mt-7 space-y-3.5'>
               {comparisonLinks.map((comparison) => {
-                // A three-way comparison is too wide for one line at the card's normal
-                // type size, so it runs at a reduced scale that steps back up as the
-                // card widens (see .hs-vs--multi). Only the very narrowest phones still
-                // fall back to a stacked column.
                 const isMultiWay = comparison.parts.length > 2
                 return (
-                <Link
-                  key={comparison.href}
-                  href={comparison.href}
-                  data-tone={comparison.tone}
-                  className={`hs-vs group${isMultiWay ? ' hs-vs--multi' : ''} focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--tone)] focus-visible:ring-offset-2`}
-                >
-                  <span
-                    className={
-                      isMultiWay
-                        ? 'hs-vs-parts'
-                        : 'flex min-w-0 flex-1 flex-wrap items-center gap-x-2.5 gap-y-1.5'
-                    }
+                  <Link
+                    key={comparison.href}
+                    href={comparison.href}
+                    data-tone={comparison.tone}
+                    className={`hs-vs group${isMultiWay ? ' hs-vs--multi' : ''} focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--tone)] focus-visible:ring-offset-2`}
                   >
-                    {comparison.parts.map((part, index) => (
-                      <span
-                        key={part}
-                        className={isMultiWay ? 'hs-vs-part' : 'flex items-center gap-2.5'}
-                      >
-                        {index > 0 ? <span className='hs-vs-mark'>vs</span> : null}
+                    <span
+                      className={
+                        isMultiWay
+                          ? 'hs-vs-parts'
+                          : 'flex min-w-0 flex-1 flex-wrap items-center gap-x-2.5 gap-y-1.5'
+                      }
+                    >
+                      {comparison.parts.map((part, index) => (
                         <span
-                          className={
-                            isMultiWay ? 'hs-vs-name' : 'hs-vs-name text-[1.02rem] sm:text-[1.1rem]'
-                          }
+                          key={part}
+                          className={isMultiWay ? 'hs-vs-part' : 'flex items-center gap-2.5'}
                         >
-                          {part}
+                          {index > 0 ? <span className='hs-vs-mark'>vs</span> : null}
+                          <span
+                            className={
+                              isMultiWay ? 'hs-vs-name' : 'hs-vs-name text-[1.02rem] sm:text-[1.1rem]'
+                            }
+                          >
+                            {part}
+                          </span>
                         </span>
-                      </span>
-                    ))}
-                  </span>
-                  <ArrowRight
-                    className='h-4 w-4 shrink-0 text-[color:var(--tone-ink)] transition'
-                    aria-hidden='true'
-                  />
-                </Link>
+                      ))}
+                    </span>
+                    <ArrowRight
+                      className='h-4 w-4 shrink-0 text-[color:var(--tone-ink)] transition'
+                      aria-hidden='true'
+                    />
+                  </Link>
                 )
               })}
             </div>
@@ -459,7 +444,6 @@ export default function HomepageV2() {
           </div>
         </section>
 
-        {/* ---------------- Latest ---------------- */}
         {latestArticles.length > 0 && (
           <>
             <hr className='hs-divider' />
@@ -489,8 +473,6 @@ export default function HomepageV2() {
                         <span className='text-[0.72rem] text-[color:var(--hs-body)]'>{article.readingTime}</span>
                       ) : null}
                     </div>
-                    {/* These articles carry no excerpt, so the title has to hold the
-                        card on its own — keep it large and the gaps tight. */}
                     <h3 className='hs-article-title mt-3.5 text-[1.22rem] leading-[1.3]'>{article.title}</h3>
                     {article.excerpt ? (
                       <p className='mt-2.5 line-clamp-3 text-[0.85rem] leading-6 text-[color:var(--hs-body)]'>
@@ -508,7 +490,6 @@ export default function HomepageV2() {
         )}
       </div>
 
-      {/* ---------------- Full-bleed methodology band — the page's closing moment ---------------- */}
       <section className='hs-method py-14 sm:py-24'>
         <div className='mx-auto grid max-w-6xl gap-10 px-5 sm:gap-12 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-10'>
           <div>

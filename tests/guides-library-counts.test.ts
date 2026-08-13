@@ -6,12 +6,14 @@ function read(relativePath: string) {
   return fs.readFileSync(path.join(process.cwd(), relativePath), 'utf8')
 }
 
-describe('guides library counts', () => {
-  it('uses generated build counts instead of hardcoded totals', () => {
+describe('guides library inventory semantics', () => {
+  it('does not present raw source inventory as public library totals', () => {
     const guidesPage = read('app/guides/page.tsx')
 
-    expect(guidesPage).toContain("import buildReport from '@/public/data/build-report.json'")
-    expect(guidesPage).toContain('Explore {counts.herbs} herbs and {counts.compounds} active compounds.')
-    expect(guidesPage).not.toMatch(/Explore \d+ herbs and \d+ active compounds\./)
+    expect(guidesPage).not.toContain("import buildReport from '@/public/data/build-report.json'")
+    expect(guidesPage).not.toContain('{counts.herbs}')
+    expect(guidesPage).not.toContain('{counts.compounds}')
+    expect(guidesPage).toContain('Browse the published herb and compound libraries')
+    expect(guidesPage).toContain('keep source inventory separate from what readers can actually browse')
   })
 })
