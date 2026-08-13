@@ -28,4 +28,17 @@ describe('Evidence Report data integrity', () => {
     expect(client).toContain('A profile grade is not a study count')
     expect(client).toContain('Unclassified does not mean ineffective')
   })
+
+  it('keeps the linked annual article aligned with the generated report', () => {
+    const article = read('content/articles/state-of-supplement-evidence-2026.md')
+
+    expect(article).toContain('the distribution of evidence-grade labels across the herb and compound records currently rendered by the site')
+    expect(article).toContain('[Supplement Evidence Report](/evidence/evidence-report/)')
+    expect(article).not.toContain('816 peer-reviewed')
+    expect(article).not.toContain('Of 816')
+    expect(article).not.toContain('557 compounds')
+    expect(article).not.toContain('~15%')
+    expect(article).not.toContain('Typical Dose')
+    expect(article).not.toContain('all statistics are sourced from our public database')
+  })
 })
