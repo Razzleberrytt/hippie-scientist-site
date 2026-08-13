@@ -73,7 +73,7 @@ export default function EvidenceHierarchyPage() {
 
       <EvidenceSummaryCard
         title="Mechanistic, animal, and theoretical evidence"
-        evidenceLevel="Preliminary"
+        evidenceLevel="Limited"
         humanEvidence="Mechanistic or preclinical evidence alone does not establish a clinically meaningful human benefit, an effective oral dose, or long-term safety."
         mechanisticEvidence="Useful for understanding receptors, signaling pathways, metabolism, pharmacology, and biological plausibility."
         safetyProfile="A plausible pathway does not guarantee effectiveness or safety in humans."
