@@ -125,7 +125,7 @@ export function GlobalSearchModal() {
         onClick={() => setOpen(true)}
         className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-brand-900/20 bg-white px-3 py-2.5 text-sm text-ink transition hover:border-brand-700/25 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] dark:hover:border-[var(--border-strong)] dark:hover:bg-[var(--surface-subtle)] md:min-h-[auto] md:py-1.5"
         aria-label="Open search"
-        aria-keyshortcuts="Meta+K Control+K"
+        aria-keyshortcuts="Meta+K Control+K /"
       >
         <Search className="h-4 w-4" aria-hidden="true" />
         <span className="hidden sm:inline">Search</span>
