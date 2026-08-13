@@ -217,7 +217,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/rhodiola-rosea-and-adhd.md',
     title: 'Rhodiola Rosea for ADHD: Evidence, Stress, Fatigue, Focus, and Safety',
     seoTitle: 'Rhodiola Rosea for ADHD: Stress and Focus',
-    description: 'Evidence-based guide to Rhodiola rosea for ADHD, stress, fatigue, and focus. Covers adaptogen research, mental performance, dosing, safety, medication cautions, and realistic expectations.',
+    description: 'Review Rhodiola rosea for ADHD and focus, separating stress and fatigue findings from direct ADHD evidence, with extract, dose, side-effect, and medication context.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Supplement Evidence'],
     date: '2026-06-22',
