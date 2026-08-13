@@ -2,319 +2,210 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
-import StructuredData from '@/components/StructuredData'
-import FAQAccordion from '@/components/FAQAccordion'
-import EvidenceSummaryBox from '@/components/EvidenceSummaryBox'
-import DosageBox from '@/components/DosageBox'
-import SafetyBox from '@/components/SafetyBox'
-import MechanismBox from '@/components/MechanismBox'
-import AffiliateProductBox from '@/components/AffiliateProductBox'
-import { getRevenueProductSet, revenueProductSets } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import EmailCapture from '@/components/EmailCapture'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import References from '@/components/References'
 
 const SLUG = 'rhodiola-sleep-stack'
-const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-sleep-stack'
-const TITLE = 'Rhodiola + Magnesium for Sleep: Adaptogen Stack'
-const DESCRIPTION =
-  'The rhodiola-magnesium sleep stack explained: complementary mechanisms, dosing and timing protocols, realistic expectations, and who should avoid it.'
-const DATE_PUBLISHED = '2024-06-09'
-const DATE_MODIFIED = '2026-06-14'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: TITLE,
-  description: DESCRIPTION,
+  title: 'Rhodiola + Magnesium for Sleep: Evidence, Limits, and Safety (2026)',
+  description: 'Evidence-first review of rhodiola plus magnesium for sleep: no direct combination trial, mixed magnesium sleep evidence, indirect rhodiola evidence, and safety limits.',
   path: `/guides/sleep/${SLUG}`,
   openGraphType: 'article',
 })
 
-const FAQS = [
-  {
-    question: 'Can I take rhodiola and magnesium together?',
-    answer:
-      'Yes — but split the timing rather than taking them at the same moment. Rhodiola goes in the morning because it can cause alertness; magnesium goes 1–3 hours before bed. They target different problems (daytime stress resilience vs nighttime relaxation), which is what makes the pairing rational.',
-  },
-  {
-    question: 'Can rhodiola cause insomnia?',
-    answer:
-      'In some people, yes. Rhodiola has mild alerting properties, so taking it late in the day can interfere with sleep. Always take it in the morning. If you still notice evening alertness, lower the dose.',
-  },
-  {
-    question: 'Which magnesium is best for sleep?',
-    answer:
-      'Magnesium glycinate is the safest starting point for sleep — it is well absorbed and well tolerated. Threonate adds cognitive positioning at higher cost, citrate is fine for general use but can loosen stools at higher doses, and oxide is best avoided due to poor absorption.',
-  },
-  {
-    question: 'Can I add melatonin to this stack?',
-    answer:
-      'Possibly, but evaluate the rhodiola-magnesium stack on its own first so you know what is actually helping. Melatonin influences sleep timing rather than relaxation, so it addresses a different problem; layering everything at once makes it hard to attribute effects.',
-  },
-  {
-    question: 'Is this stack safe long term?',
-    answer:
-      'Both rhodiola and magnesium are generally well tolerated in healthy adults for long-term use. There is no strong evidence the combination is superior to either alone, and no RCT has studied the pair directly — so treat synergy claims as theoretical, not proven.',
-  },
-]
-
-const DOSAGE_ROWS = [
-  { form: 'Beginner — Rhodiola (AM)', range: '200–300 mg', notes: 'Standardized extract, morning only' },
-  { form: 'Beginner — Magnesium (PM)', range: '200 mg glycinate', notes: '1–3 hours before bed' },
-  { form: 'Standard — Rhodiola (AM)', range: '300–400 mg', notes: 'Morning only' },
-  { form: 'Standard — Magnesium (PM)', range: '300–400 mg glycinate', notes: '1–3 hours before bed' },
-]
-
-const SAFETY_NOTES = [
-  {
-    severity: 'info' as const,
-    text: 'Timing is the whole point: rhodiola in the morning (it can cause alertness), magnesium 1–3 hours before bed. Give the stack a minimum of 3–4 weeks before judging it.',
-  },
-  {
-    severity: 'caution' as const,
-    text: 'This is not a sleeping pill. Do not expect instant sedation or overnight transformation — think of it as a recovery-support system that works alongside consistent sleep habits.',
-  },
-  {
-    severity: 'caution' as const,
-    text: 'Magnesium can cause loose stools at higher doses (especially citrate/oxide). Glycinate is the gentlest. People with impaired kidney function should consult a clinician before supplementing magnesium.',
-  },
-  {
-    severity: 'warning' as const,
-    text: 'Consult a healthcare professional first if you are pregnant or nursing, have bipolar disorder or active psychosis, or take psychiatric, sleep, or mood medications.',
-  },
-]
-
-const MECHANISM_POINTS = [
-  {
-    label: 'Rhodiola → Resilience',
-    description:
-      'Rhodiola is not a sedative. It may improve resilience to the chronic stress that disrupts sleep — under chronic stress, cortisol does not drop normally through the evening, leaving people "wired but tired."',
-  },
-  {
-    label: 'Magnesium → Relaxation',
-    description:
-      'Magnesium has the stronger direct sleep evidence. It supports nerve signaling, muscle relaxation, and neurotransmitter function; low intake may contribute to tension, restlessness, and poor sleep quality.',
-  },
-  {
-    label: 'Non-Overlapping Pathways',
-    description:
-      'Most stacks fail because they target identical pathways. Here, rhodiola reduces daytime stress loading while magnesium helps the body wind down at night — complementary rather than redundant.',
-  },
-]
-
 const HEADINGS: Heading[] = [
-  { id: 'problem', text: 'The Root Problem: Wired But Tired', level: 2 },
-  { id: 'evidence', text: 'What the Evidence Supports', level: 2 },
-  { id: 'combination', text: 'Why the Combination Makes Sense', level: 2 },
-  { id: 'dosage', text: 'Dosing & Timing Protocol', level: 2 },
-  { id: 'safety', text: 'Safety & Who Should Avoid It', level: 2 },
-  { id: 'faq', text: 'Common Questions', level: 2 },
+  { id: 'answer', text: 'Does the Combination Work?', level: 2 },
+  { id: 'rhodiola', text: 'What Rhodiola Evidence Shows', level: 2 },
+  { id: 'magnesium', text: 'What Magnesium Evidence Shows', level: 2 },
+  { id: 'combination', text: 'What We Know About the Combination', level: 2 },
+  { id: 'safety', text: 'Safety and Decision Context', level: 2 },
+  { id: 'bottom-line', text: 'Bottom Line', level: 2 },
 ]
 
-const RHODIOLA_SLEEP_STACK_REFS = [
-  { n: 1, text: 'Cropley M, et al. (2015). Rhodiola rosea and self-reported stress. Phytother Res, 29(12): 1934-1939.', url: 'https://pubmed.ncbi.nlm.nih.gov/26502953/' },
-  { n: 2, text: 'Abbasi B, et al. (2012). Magnesium supplementation and insomnia. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
-  { n: 3, text: 'Hieu TH, et al. (2019). L-theanine for sleep quality. Nutrients, 11(10): 2362.', url: 'https://pubmed.ncbi.nlm.nih.gov/31581621/' },
-  { n: 4, text: 'Ferracioli-Oda E, et al. (2013). Melatonin for sleep disorders meta-analysis. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
+const REFS = [
+  {
+    n: 1,
+    text: 'Ishaque S, et al. Rhodiola rosea for physical and mental fatigue: a systematic review. BMC Complement Altern Med. 2012;12:70.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/22643043/',
+  },
+  {
+    n: 2,
+    text: 'Punja S, et al. Rhodiola rosea for mental and physical fatigue in nursing students: a randomized controlled trial. PLoS One. 2014;9:e108416.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/25268803/',
+  },
+  {
+    n: 3,
+    text: 'Mah J, et al. Oral magnesium supplementation for insomnia in older adults: a systematic review and meta-analysis. BMC Complement Med Ther. 2021;21:125.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/33865376/',
+  },
+  {
+    n: 4,
+    text: 'Abbasi B, et al. The effect of magnesium supplementation on primary insomnia in elderly: a double-blind placebo-controlled clinical trial. J Res Med Sci. 2012;17:1161-1169.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/',
+  },
+  {
+    n: 5,
+    text: 'Magnesium bisglycinate supplementation in healthy adults reporting poor sleep: a randomized, placebo-controlled trial. Nat Sci Sleep. 2025.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40918053/',
+  },
+  {
+    n: 6,
+    text: 'NIH Office of Dietary Supplements. Magnesium: Fact Sheet for Health Professionals.',
+    url: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/',
+  },
 ]
 
 export default function RhodiolaSleepStackGuidePage() {
-  const rhodiolaProducts = getRevenueProductSet('rhodiola')
-  const magnesiumProducts = revenueProductSets['magnesium']
   const toc = <TableOfContents headings={HEADINGS} />
 
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <div className="space-y-8">
-      <AffiliateDisclosure variant="compact" className="mb-6" />
-      <StructuredData
-        pageUrl={PAGE_URL}
-        headline={TITLE}
-        description={DESCRIPTION}
-        datePublished={DATE_PUBLISHED}
-        dateModified={DATE_MODIFIED}
-        faqs={FAQS}
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Guides', href: '/guides' },
-          { label: 'Rhodiola + Magnesium for Sleep', href: `/guides/${SLUG}` },
-        ]}
-      />
+        <AuthorityBreadcrumbs
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Guides', href: '/guides/' },
+            { label: 'Rhodiola + Magnesium for Sleep' },
+          ]}
+        />
 
-      {/* Hero */}
-      <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-        <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
-          Stack Guide · Rhodiola Hub
-        </p>
-        <h1 className="mt-3 text-3xl font-black leading-tight text-ink sm:text-5xl">
-          Rhodiola + Magnesium for Sleep
-        </h1>
-        <p className="mt-1 text-base font-medium text-brand-700">
-          The Adaptogen Stack for the &quot;Wired But Tired&quot; Cycle
-        </p>
-        <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-          Most sleep supplements force sedation — melatonin shifts timing, antihistamines create drowsiness,
-          prescriptions suppress wakefulness. Rhodiola and magnesium take a different approach: addressing the
-          underlying contributors to poor sleep rather than forcing unconsciousness. The goal is better sleep
-          quality, better recovery, and improved stress resilience.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/guides/rhodiola-complete-guide/" className="text-brand-700 hover:text-brand-800 hover:underline">
-            Complete Rhodiola Guide →
-          </Link>
-          <Link href="/guides/sleep/magnesium-for-sleep/" className="text-brand-700 hover:text-brand-800 hover:underline">
-            Magnesium for Sleep Guide →
-          </Link>
-        </div>
+        <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-sm sm:p-8 lg:p-10">
+          <p className="eyebrow-label">Combination Evidence Review</p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
+            Rhodiola + Magnesium for Sleep: What Is Actually Known?
+          </h1>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg">
+            There is a plausible reason someone might consider rhodiola for daytime stress or fatigue and magnesium for sleep-related symptoms, but that is not the same as evidence for a validated “sleep stack.” No randomized trial identified for this review directly tested rhodiola plus magnesium as a sleep combination.
+          </p>
 
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/rhodiola-sleep-stack.jpg"
-              alt="Golden rhodiola root with magnesium capsules for a sleep and recovery stack"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+              <Image
+                src="/images/guides/rhodiola-sleep-stack.jpg"
+                alt="Rhodiola root and magnesium capsules shown together for an evidence review"
+                width={1536}
+                height={1024}
+                priority
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              Pairing two separately studied ingredients does not create combination evidence.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section className="rounded-2xl border border-amber-200 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">
+          <p className="font-bold">Direct answer</p>
+          <p className="mt-2">
+            <strong>The combination is unproven for sleep.</strong> Rhodiola has mostly been studied for fatigue, stress, and related symptoms rather than as a primary insomnia treatment. Magnesium has some randomized sleep data, but the overall evidence has historically been low quality and newer positive results are modest. The pair should therefore be described as an untested combination, not a protocol with established timing, synergy, or expected week-by-week effects.
+          </p>
+        </section>
+
+        <section id="answer" className="card-premium scroll-mt-20 p-6 space-y-4">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Does the Combination Work?</h2>
+          <p className="text-sm leading-7 text-muted">
+            We do not have direct randomized evidence showing that taking rhodiola and magnesium together improves insomnia, sleep duration, sleep efficiency, or another validated sleep outcome more than either ingredient alone. A proposed rationale—daytime stress support from rhodiola plus a possible sleep effect from magnesium—is a hypothesis assembled from separate literatures.
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            That distinction matters. “Different mechanisms” does not prove complementary benefit, and the absence of a known pairwise interaction does not prove the combination has been established as safe for every user.
+          </p>
+        </section>
+
+        <section id="rhodiola" className="card-premium scroll-mt-20 p-6 space-y-4">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">What Rhodiola Evidence Shows</h2>
+          <div className="space-y-3 text-sm leading-7 text-muted">
+            <p>
+              Rhodiola research is mainly centered on fatigue, stress, mood, and performance rather than primary sleep treatment. A systematic review found substantial heterogeneity and methodological limitations across fatigue studies, making broad efficacy conclusions difficult [1].
+            </p>
+            <p>
+              Individual trials do not point in one direction. In a randomized placebo-controlled study of nursing students working shifts, rhodiola did not improve the primary fatigue outcome and the between-group result favored placebo [2]. Other studies have reported benefits for stress- or fatigue-related outcomes, but many are small, open-label, or use different extracts and populations.
+            </p>
+            <p>
+              Sleep should therefore be treated as <strong>indirect or exploratory context</strong> for rhodiola, not as an established indication. The literature also contains reports of insomnia or alerting effects in some users, which argues against a universal timing rule.
+            </p>
           </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            Rhodiola in a sleep-and-recovery stack — how and when it fits.
-          </figcaption>
-        </figure>
-      </section>
-
-      {/* The problem */}
-      <section id="problem" className="scroll-mt-20 space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">The Root Problem: Wired But Tired</h2>
-        <p className="text-sm leading-6 text-muted">
-          The most common complaint is &quot;I&apos;m exhausted but can&apos;t fall asleep&quot; — racing thoughts,
-          elevated stress, mental hyperactivity, physical tension. The body is fatigued but the nervous system is
-          still activated. Under chronic stress, cortisol doesn&apos;t drop normally through the evening, producing
-          difficulty winding down and restless sleep. Traditional sleep aids mask this without fixing it.
-        </p>
-      </section>
-
-      {/* Evidence */}
-      <section id="evidence" className="scroll-mt-20 space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">What the Evidence Supports</h2>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <EvidenceSummaryBox
-            level="moderate"
-            outcome="Magnesium for sleep quality"
-            takeaway="Magnesium has the stronger direct sleep evidence of the two — involved in nerve signaling, muscle relaxation, and stress regulation, with trials linking adequate intake to better subjective sleep."
-            citationCount={4}
-          />
-          <EvidenceSummaryBox
-            level="moderate"
-            outcome="Rhodiola for stress resilience"
-            takeaway="Olsson (2009) and related burnout trials show improved fatigue and stress tolerance. Better daytime resilience may translate to better nighttime recovery — an indirect, secondary sleep benefit."
-            citationCount={2}
-          />
-          <EvidenceSummaryBox
-            level="limited"
-            outcome="Rhodiola for sleep (direct)"
-            takeaway="Direct evidence that rhodiola itself improves sleep is limited. Sleep benefits should be considered secondary to its stress-resilience effects, not a primary indication."
-            citationCount={1}
-          />
-          <EvidenceSummaryBox
-            level="limited"
-            outcome="The combination specifically"
-            takeaway="No randomized controlled trial has directly studied the rhodiola + magnesium pairing. Synergy is theoretical — what we can say is that both mechanisms are real, complementary, and generally safe."
-            citationCount={0}
-          />
-        </div>
-      </section>
-
-      {/* Mechanism */}
-      <section id="combination" className="scroll-mt-20 space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">Why the Combination Makes Sense</h2>
-        <MechanismBox
-          summary="These two supplements target different problems. Rhodiola reduces the stress loading your system during the day; magnesium helps your nervous system relax at night. Because the mechanisms do not overlap, the pairing is more rational than stacks that double up on the same pathway."
-          points={MECHANISM_POINTS}
-        />
-      </section>
-
-      {/* Dosage */}
-      <section id="dosage" className="scroll-mt-20 space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">Dosing &amp; Timing Protocol</h2>
-        <DosageBox
-          rows={DOSAGE_ROWS}
-          disclaimer="Run the protocol for a minimum of 3–4 weeks. Rhodiola = morning only (can cause alertness); magnesium = 1–3 hours before bed. General ranges, not medical advice."
-        />
-        <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 px-4 py-3 text-sm text-muted">
-          <strong className="font-semibold text-ink">What to expect: </strong>
-          Week 1 usually no change (some report reduced tension); weeks 2–3 easier recovery and better evening
-          wind-down; week 4+ better sleep quality and more stable energy. This is a recovery-support system, not a
-          sleeping pill.
-        </div>
-      </section>
-
-      {/* Safety */}
-      <section id="safety" className="scroll-mt-20 space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">Safety &amp; Who Should Avoid It</h2>
-        <SafetyBox notes={SAFETY_NOTES} />
-      </section>
-
-      {/* Products */}
-      {rhodiolaProducts && (
-        <AffiliateProductBox
-          slug="rhodiola"
-          products={rhodiolaProducts.products}
-          heading="Rhodiola Product Picks"
-        />
-      )}
-      {magnesiumProducts && (
-        <AffiliateProductBox
-          slug="magnesium"
-          products={magnesiumProducts.products}
-          heading="Magnesium Product Picks"
-        />
-      )}
-
-      {rhodiolaProducts && (
-      <>
-        <References refs={RHODIOLA_SLEEP_STACK_REFS} />
-          <RecommendationSection products={rhodiolaProducts.products} />
-      </>
-      )}
-
-      {/* FAQ */}
-      <div id="faq" className="scroll-mt-20">
-        <FAQAccordion faqs={FAQS} heading="Common Questions About the Rhodiola + Magnesium Stack" />
-      </div>
-
-      <EmailCapture location="guides-rhodiola-sleep-stack" className="mt-6" />
-
-      {/* Related */}
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold text-ink">Related Reading</h2>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <Link href="/guides/rhodiola-complete-guide/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Pillar Guide</p>
-            <p className="mt-1 text-sm font-semibold text-ink">Complete Rhodiola Guide</p>
-            <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Forms, benefits, dosing, and the full evidence base in one place.</p>
+          <Link href="/guides/rhodiola-complete-guide/" className="inline-flex text-sm font-bold text-brand-800 hover:underline">
+            Read the full rhodiola evidence guide →
           </Link>
-          <Link href="/guides/sleep/magnesium-for-sleep/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
-            <p className="mt-1 text-sm font-semibold text-ink">Magnesium for Sleep</p>
-            <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Forms, dosage, and evidence for magnesium as a sleep and anxiety support.</p>
-          </Link>
-          <Link href="/guides/sleep/best-herbs-for-sleep/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Pillar</p>
-            <p className="mt-1 text-sm font-semibold text-ink">Best Herbs for Sleep</p>
-            <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Evidence-ranked guide to the most-studied natural sleep options.</p>
-          </Link>
-        </div>
-      </section>
+        </section>
 
-      {/* Bottom nav */}
-      <div className="flex flex-wrap gap-4 border-t border-brand-900/10 pt-6 text-sm">
-        <Link href="/guides/" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
-        <Link href="/herbs/" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
-      </div>
+        <section id="magnesium" className="card-premium scroll-mt-20 p-6 space-y-4">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">What Magnesium Evidence Shows</h2>
+          <div className="space-y-3 text-sm leading-7 text-muted">
+            <p>
+              Magnesium has more direct sleep research than rhodiola, but the evidence is not strong enough to turn it into a universal sleep protocol. A 2021 systematic review found only three randomized trials in 151 older adults with insomnia; sleep-onset latency improved in the pooled estimate, but the trials had moderate-to-high risk of bias and the evidence quality was rated low to very low [3].
+            </p>
+            <p>
+              One small 2012 trial in older adults reported improvements in several subjective insomnia measures [4]. More recently, a 2025 randomized trial of 155 adults with self-reported poor sleep found a statistically significant but <strong>small</strong> improvement in insomnia severity with magnesium bisglycinate over four weeks [5]. Exploratory findings suggested baseline magnesium intake might influence response, but that needs confirmation.
+            </p>
+            <p>
+              So the fairest summary is <strong>possible modest benefit in some populations, with uncertainty about who benefits most</strong>—not “magnesium glycinate is the safest or best sleep form” and not a fixed bedtime dose for everyone.
+            </p>
+          </div>
+          <Link href="/guides/sleep/magnesium-for-sleep/" className="inline-flex text-sm font-bold text-brand-800 hover:underline">
+            Read the magnesium-for-sleep evidence guide →
+          </Link>
+        </section>
+
+        <section id="combination" className="card-premium scroll-mt-20 p-6 space-y-4">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">What We Know About the Combination</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-brand-900/10 bg-white/80 p-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-700">Supported</p>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
+                <li>The ingredients have separate human research literatures.</li>
+                <li>Magnesium has some direct sleep trials.</li>
+                <li>Rhodiola has human studies in stress and fatigue contexts.</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-rose-200 bg-rose-50/60 p-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-rose-800">Not established</p>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-rose-950">
+                <li>Superior sleep benefit from combining them.</li>
+                <li>A required morning/evening timing schedule.</li>
+                <li>A universal three- or four-week trial period.</li>
+                <li>Predictable week-by-week changes in sleep or energy.</li>
+                <li>Long-term safety of the pair across populations and medication regimens.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="safety" className="rounded-2xl border border-amber-200 bg-amber-50/60 p-5 space-y-4 scroll-mt-20">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Safety and Decision Context</h2>
+          <div className="space-y-3 text-sm leading-7 text-amber-950">
+            <p>
+              Magnesium supplements can cause diarrhea, nausea, and abdominal cramping at higher supplemental intakes, and risk from excess magnesium is greater when kidney function is impaired. Magnesium can also interact with several medication classes, including certain antibiotics and bisphosphonates [6].
+            </p>
+            <p>
+              Rhodiola’s safety and interaction evidence is less complete than the certainty of many commercial claims suggests. Because products differ in extract composition and because direct rhodiola-magnesium combination trials are absent, safety should be checked at the ingredient and medication level rather than inferred from the word “adaptogen.”
+            </p>
+            <p>
+              If sleep problems are persistent, severe, or accompanied by another medical or psychiatric condition, a supplement combination is not a substitute for evaluating the cause of the sleep problem.
+            </p>
+          </div>
+          <Link href="/safety-checker/" className="inline-flex text-sm font-bold text-brand-800 hover:underline">
+            Check mapped interactions and cautions →
+          </Link>
+        </section>
+
+        <section id="bottom-line" className="card-premium scroll-mt-20 p-6 space-y-4">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom Line</h2>
+          <p className="text-sm leading-7 text-muted">
+            Rhodiola plus magnesium is better described as an <strong>untested combination of two separately studied ingredients</strong> than as an evidence-based sleep stack. Magnesium has limited direct sleep evidence with modest effects in some trials; rhodiola’s evidence is primarily about fatigue and stress. Until direct combination research exists, claims about synergy, required timing, dosing protocols, or predictable long-term benefit should stay off the page.
+          </p>
+        </section>
+
+        <References refs={REFS} />
+
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-brand-900/10 pt-4">
+          <Link href="/guides/" className="text-sm font-bold text-brand-800 hover:underline">← Back to guides</Link>
+          <Link href="/guides/other/supplement-stacking-safety/" className="text-sm font-bold text-brand-800 hover:underline">Combination safety guide →</Link>
+        </div>
       </div>
     </ArticleLayout>
   )
