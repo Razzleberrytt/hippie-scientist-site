@@ -5,6 +5,7 @@ const root = process.cwd()
 const outDir = path.join(root, 'out')
 const redirectsPath = path.join(outDir, '_redirects')
 const overridesDir = path.join(root, 'public', 'redirect-overrides')
+const comparePagesDir = path.join(root, 'app', 'guides', 'compare')
 
 if (!fs.existsSync(overridesDir)) {
   console.log('[redirect-overrides] No public/redirect-overrides directory found; skipping.')
@@ -87,6 +88,35 @@ function canonicalHref(route) {
   return `${route.replace(/\/+$/, '')}/`
 }
 
+function readBuiltCompareSlugs() {
+  if (!fs.existsSync(comparePagesDir)) return new Set()
+
+  return new Set(
+    fs.readdirSync(comparePagesDir, { withFileTypes: true })
+      .filter((entry) => {
+        if (!entry.isDirectory()) return false
+        if (/^\[/.test(entry.name) || entry.name === 'dynamic') return false
+        return fs.existsSync(path.join(comparePagesDir, entry.name, 'page.tsx'))
+      })
+      .map((entry) => entry.name),
+  )
+}
+
+const builtCompareSlugs = readBuiltCompareSlugs()
+
+function canonicalComparisonRoute(route) {
+  const match = route.match(/^\/compare\/([^/]+)$/)
+  if (!match) return null
+
+  const slug = match[1]
+  if (builtCompareSlugs.has(slug)) return `/guides/compare/${slug}`
+
+  // Configured/generated comparisons are not guaranteed to have static pages.
+  // Send those stale crawl paths to the real comparison hub rather than
+  // publishing a hard 404 from a generated related-link card.
+  return '/guides/compare'
+}
+
 function parseExactRedirects(contents) {
   const redirectMap = new Map()
 
@@ -141,6 +171,8 @@ function* walkHtmlFiles(dir) {
 function rewriteRedirectingInternalLinks(redirectMap) {
   let touchedFiles = 0
   let rewrittenLinks = 0
+  let repairedCompareLinks = 0
+  let collapsedUnbuiltCompareLinks = 0
   const hrefPattern = /href=(["'])(\/[^"']*)\1/gi
 
   for (const filePath of walkHtmlFiles(outDir)) {
@@ -151,6 +183,13 @@ function rewriteRedirectingInternalLinks(redirectMap) {
       const suffix = suffixIndex >= 0 ? href.slice(suffixIndex) : ''
       const normalizedSource = normalizeRoute(pathname)
       if (!normalizedSource) return match
+
+      const compareRoute = canonicalComparisonRoute(normalizedSource)
+      if (compareRoute) {
+        repairedCompareLinks += 1
+        if (compareRoute === '/guides/compare') collapsedUnbuiltCompareLinks += 1
+        return `href=${quote}${canonicalHref(compareRoute)}${suffix}${quote}`
+      }
 
       const finalTarget = resolveRedirectTarget(normalizedSource, redirectMap)
       if (!finalTarget) return match
@@ -165,12 +204,12 @@ function rewriteRedirectingInternalLinks(redirectMap) {
     }
   }
 
-  return { touchedFiles, rewrittenLinks }
+  return { touchedFiles, rewrittenLinks, repairedCompareLinks, collapsedUnbuiltCompareLinks }
 }
 
 const exactRedirectMap = parseExactRedirects(mergedRedirects)
 const repairResult = rewriteRedirectingInternalLinks(exactRedirectMap)
 
 console.log(
-  `[redirect-overrides] Prepended ${rules.length} redirect override rules and rewrote ${repairResult.rewrittenLinks} internal redirect links in ${repairResult.touchedFiles} HTML files.`,
+  `[redirect-overrides] Prepended ${rules.length} redirect override rules, rewrote ${repairResult.rewrittenLinks} internal redirect links, repaired ${repairResult.repairedCompareLinks} stale comparison links (${repairResult.collapsedUnbuiltCompareLinks} unbuilt pairs sent to the comparison hub), and touched ${repairResult.touchedFiles} HTML files.`,
 )
