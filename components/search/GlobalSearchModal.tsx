@@ -212,6 +212,7 @@ export function GlobalSearchModal() {
               id={listboxId}
               role="listbox"
               aria-label="Search results"
+              aria-busy={!search.ready}
               className="max-h-[50vh] space-y-0.5 overflow-y-auto overscroll-contain p-2"
             >
               {!search.ready ? (
