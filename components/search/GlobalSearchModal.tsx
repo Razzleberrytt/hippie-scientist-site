@@ -159,7 +159,7 @@ export function GlobalSearchModal() {
                 ref={inputRef}
                 type="text"
                 role="combobox"
-                aria-expanded={search.results.length > 0}
+                aria-expanded='true'
                 aria-controls={listboxId}
                 aria-activedescendant={activeOptionId}
                 aria-autocomplete="list"
