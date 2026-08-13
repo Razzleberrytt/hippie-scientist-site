@@ -40,6 +40,7 @@ export default async function HerbCompoundLinks({ herbSlug, herbName }: HerbComp
               <li key={link.slug} className="shrink-0">
                 <Link
                   href={link.href}
+                  prefetch={false}
                   className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-4 py-2 text-sm font-semibold text-brand-800 transition hover:border-brand-700/30 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
                 >
                   {link.anchor}
@@ -64,6 +65,7 @@ export default async function HerbCompoundLinks({ herbSlug, herbName }: HerbComp
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  prefetch={false}
                   className="group block h-full rounded-xl border border-emerald-900/10 bg-emerald-50/45 px-3.5 py-3 transition hover:border-emerald-700/30 hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2"
                 >
                   <span className="block text-sm font-bold text-emerald-950 group-hover:underline">{link.label} →</span>
