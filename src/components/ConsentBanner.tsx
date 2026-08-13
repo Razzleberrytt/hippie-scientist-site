@@ -47,7 +47,7 @@ export default function ConsentBanner() {
           <div className='flex shrink-0 items-center justify-end gap-2'>
             <button
               type='button'
-              className='inline-flex min-h-11 items-center justify-center rounded-lg px-3 text-sm font-semibold text-white/85 underline underline-offset-2 transition-colors hover:bg-white/10 hover:text-white'
+              className='inline-flex min-h-11 items-center justify-center rounded-lg px-3 text-sm font-semibold text-white/85 underline underline-offset-2 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white'
               onClick={() => {
                 setConsent('denied')
                 setShow(false)
