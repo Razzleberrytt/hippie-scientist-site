@@ -205,7 +205,7 @@ export function Navigation() {
               type='button'
               onClick={() => setMobileOpen(!mobileOpen)}
               className='inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/85 p-2 text-[#123c2f] shadow-sm transition hover:border-[#b88a42]/30 hover:bg-[#f5efe2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42]/50 focus-visible:ring-offset-2 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] md:hidden'
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-label={mobileOpen ? 'Close mobile navigation menu' : 'Open mobile navigation menu'}
               aria-expanded={mobileOpen}
               aria-controls='mobile-nav'
             >
