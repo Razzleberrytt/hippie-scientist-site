@@ -115,7 +115,7 @@ export default function ConsentManager({ open, onClose }: Props) {
           </h2>
           <button
             type="button"
-            aria-label="Close"
+            aria-label="Close privacy settings"
             onClick={onClose}
             className="rounded border border-white/10 px-2 py-1 hover:bg-white/10"
           >
