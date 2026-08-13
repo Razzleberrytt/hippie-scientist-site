@@ -131,7 +131,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-controls={open ? dialogId : undefined}
-        aria-keyshortcuts="Meta+K Control+K /"
+        aria-keyshortcuts={enableHotkeys ? "Meta+K Control+K /" : undefined}
       >
         <Search className="h-4 w-4" aria-hidden="true" />
         <span className="hidden sm:inline">Search</span>
