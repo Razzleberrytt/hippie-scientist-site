@@ -137,7 +137,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/iron-ferritin-and-adhd.md',
     title: 'Iron/Ferritin and ADHD: Low Ferritin, Dopamine, Sleep, and Supplementation',
     seoTitle: 'Iron, Ferritin and ADHD: Labs, Sleep and Safety',
-    description: 'Evidence-based review of iron, ferritin, and ADHD. Covers low ferritin, dopamine, restless sleep, testing, supplementation, and iron safety.',
+    description: 'Review iron, ferritin, and ADHD associations, including restless sleep, testing context, evidence limits, supplementation risks, and why iron should not be used without evaluation.',
     category: 'Nutrient Deficiencies',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-11',
