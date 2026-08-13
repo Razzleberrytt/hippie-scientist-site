@@ -9,12 +9,12 @@ import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = {
-  title: 'Focus & Cognition Supplement Guides',
+  title: 'Focus Supplements & Nootropics: Evidence & Safety',
   description:
     'Compare focus supports by the problem you are trying to solve — acute attention, caffeine tradeoffs, or slower memory support — with current evidence and safety context.',
   alternates: { canonical: `${SITE_URL}/guides/focus/` },
   openGraph: {
-    title: 'Focus & Cognition Guides',
+    title: 'Focus Supplements & Nootropics: Evidence & Safety',
     description: 'Compare focus supports by evidence, timescale, and tradeoffs.',
     url: `${SITE_URL}/guides/focus/`,
     type: 'website',
@@ -145,7 +145,7 @@ const ALL_GUIDES = [
 export default function FocusGuideIndex() {
   const schemaGraph = buildGuideHubSchemaGraph({
     path: '/guides/focus/',
-    title: 'Focus & Cognition Supplement Guides',
+    title: 'Focus Supplements & Nootropics: Evidence & Safety',
     description:
       'Compare focus supports by the problem you are trying to solve — acute attention, caffeine tradeoffs, or slower memory support.',
     breadcrumbs: [
@@ -153,7 +153,7 @@ export default function FocusGuideIndex() {
       { name: 'Guides', url: `${SITE_URL}/guides/` },
       { name: 'Focus & Cognition', url: `${SITE_URL}/guides/focus/` },
     ],
-    itemListName: 'Focus & Cognition Supplement Guides',
+    itemListName: 'Focus Supplements & Nootropics: Evidence & Safety',
     items: ALL_GUIDES.map((g) => ({ name: g.title, url: `/guides/focus/${g.slug}/` })),
   })
 
