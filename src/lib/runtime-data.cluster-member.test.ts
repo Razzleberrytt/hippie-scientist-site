@@ -7,9 +7,18 @@ import { getCompoundBySlug, getHerbBySlug } from './runtime-data'
 const herbSlugs = ['green-tea-extract', 'turmeric'] as const
 const compoundSlugs = ['green-tea-egcg-isolated', 'green-tea-extract-egcg'] as const
 
+function readPublicJson(file: string) {
+  return JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', file), 'utf8'))
+}
+
 function coreRecord(kind: 'herbs' | 'compounds', slug: string) {
-  const records = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', `${kind}.json`), 'utf8'))
+  const records = readPublicJson(`${kind}.json`)
   return records.find((record: Record<string, unknown>) => record.slug === slug)
+}
+
+function hasInteractionEdges(slug: string) {
+  const edgesBySlug = readPublicJson('interaction_edges.json')
+  return Array.isArray(edgesBySlug?.[slug]) && edgesBySlug[slug].length > 0
 }
 
 describe('cluster-member production runtime boundary', () => {
@@ -47,14 +56,18 @@ describe('cluster-member production runtime boundary', () => {
     expect(guidance.safetyDetail).not.toMatch(/generally well tolerated/i)
   })
 
-  it('keeps search safety and flags aligned for all four profiles', () => {
-    const search = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'search-index.json'), 'utf8'))
+  it('keeps search safety and graph-backed interaction flags aligned for all four profiles', () => {
+    const search = readPublicJson('search-index.json')
     const records = search.filter((record: Record<string, unknown>) => [...herbSlugs, ...compoundSlugs].includes(record.slug as never))
 
     expect(records).toHaveLength(4)
     for (const record of records) {
+      const slug = String(record.slug)
       expect(record.safety).not.toMatch(/generally well tolerated/i)
-      expect(record.safetyFlags).toMatchObject({ hasContraindications: true, hasInteractions: false })
+      expect(record.safetyFlags).toMatchObject({
+        hasContraindications: true,
+        hasInteractions: hasInteractionEdges(slug),
+      })
     }
   })
 })
