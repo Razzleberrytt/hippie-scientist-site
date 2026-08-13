@@ -13,12 +13,12 @@ const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-anxiety`
 const DATE = '2026-08-11'
 
 export const metadata: Metadata = {
-  title: 'Best Herbs for Anxiety: What the Evidence Supports in 2026',
+  title: 'Best Herbs for Anxiety: Human Evidence & Safety',
   description:
     'Evidence-first comparison of ashwagandha, oral Silexan lavender oil, passionflower, and kava for anxiety, with directness, funding, and safety limits.',
   alternates: { canonical: '/guides/anxiety/best-herbs-for-anxiety/' },
   openGraph: {
-    title: 'Best Herbs for Anxiety: What the Evidence Supports in 2026',
+    title: 'Best Herbs for Anxiety: Human Evidence & Safety',
     description:
       'Compare anxiety herbs by direct human evidence, formulation, duration, funding context, and safety instead of same-day rankings or universal winners.',
     url: '/guides/anxiety/best-herbs-for-anxiety/',
