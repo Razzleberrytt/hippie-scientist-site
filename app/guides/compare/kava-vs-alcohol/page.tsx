@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Kava vs Alcohol',
-  description: 'Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations.',
+  title: 'Kava vs Alcohol: Effects, Risks & Interactions',
+  description: 'Compare kava and alcohol by calming effects, impairment, dependence risk, liver concerns, medication interactions, and the limits of current human evidence.',
   path: '/guides/compare/kava-vs-alcohol/',
 })
 
