@@ -8,13 +8,13 @@ import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = {
-  title: 'Sleep Supplement Guides & Natural Sleep Aids',
+  title: 'Sleep Supplements: Evidence, Timing & Safety',
   description:
-    'Choose the right natural sleep support based on what is actually keeping you awake — racing thoughts, physical tension, stress, or timing. Evidence-based, decision-first guides.',
+    'Compare sleep supplements by the problem you are trying to solve, human evidence, timing, safety, and next-day effects. Covers melatonin, magnesium, herbs, and non-supplement options.',
   alternates: { canonical: `${SITE_URL}/guides/sleep/` },
   openGraph: {
-    title: 'Sleep Supplement Guides',
-    description: 'Match the right natural sleep aid to the reason you cannot sleep.',
+    title: 'Sleep Supplements: Evidence, Timing & Safety',
+    description: 'Compare sleep aids by evidence, timing, safety, and next-day effects.',
     url: `${SITE_URL}/guides/sleep/`,
     type: 'website',
     images: ['/og-default.jpg'],
