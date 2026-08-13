@@ -235,7 +235,7 @@ async function run() {
     console.log(`[internal-links] top non-canonical source: ${topNonCanonicalSource.value} (${topNonCanonicalSource.count})`)
   }
   if (nonCanonicalInternalLinks.length) {
-    console.warn(`[internal-links] non-blocking warning: found ${nonCanonicalInternalLinks.length} non-canonical internal hrefs`)
+    console.error(`[internal-links] found ${nonCanonicalInternalLinks.length} non-canonical internal hrefs`)\n    if (process.env.CI === 'true') process.exitCode = 1
   }
   if (blockingOrphans.length) {
     console.warn(`[internal-links] non-blocking warning: found ${blockingOrphans.length} potentially orphaned crawlable routes`)
