@@ -209,6 +209,7 @@ export default function GlobalSearch() {
             id={listboxId}
             role="listbox"
             aria-label="Search results"
+            aria-busy={!search.ready}
             className="grid gap-3 sm:grid-cols-2"
           >
             {search.results.map((doc, index) => (
