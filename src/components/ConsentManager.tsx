@@ -158,7 +158,7 @@ export default function ConsentManager({ open, onClose }: Props) {
           </div>
         </div>
 
-        <div className="mt-4 flex items-center gap-2">
+        <div className="mt-4 flex flex-wrap items-center gap-2">
           <button
             type="button"
             onClick={decline}
