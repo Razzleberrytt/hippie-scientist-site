@@ -19,7 +19,7 @@ export default function DarkModeToggle({ showLabel = false, className = '' }: Pr
       type="button"
       onClick={toggle}
       aria-pressed={isDark}
-      aria-label={label}
+      aria-label='Dark mode'
       title={`${label}${themePreference === 'system' ? ' (currently following system)' : ''}`}
       className={`inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-full border border-brand-900/10 bg-white/80 px-2.5 text-sm font-semibold text-muted shadow-sm transition hover:border-brand-700/20 hover:bg-brand-50 hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-1 dark:focus-visible:ring-offset-[var(--bg)] ${className}`}
     >
