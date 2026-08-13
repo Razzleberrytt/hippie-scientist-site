@@ -37,7 +37,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     source: 'docs/content/focus-cluster/adhd-stack-guide-v2-content.md',
     title: 'ADHD Stack Guide: Evidence-Based Supplement Combinations for Focus, Sleep, and Support',
     seoTitle: 'ADHD Stack Guide: Safer Supplement Combinations',
-    description: 'Learn how to build safer ADHD supplement stacks with evidence-based combinations, deficiency checks, medication cautions, and realistic expectations.',
+    description: 'Build a safer ADHD supplement stack using evidence tiers, deficiency checks, interaction screening, medication cautions, and realistic expectations for focus and sleep.',
     category: 'Focus',
     tags: ['Focus', 'ADHD', 'Supplement Evidence'],
     date: '2026-06-10',
