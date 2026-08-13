@@ -9,7 +9,7 @@ import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = {
-  title: 'Anxiety & Stress Supplement Guides',
+  title: 'Anxiety Supplements: Evidence, Safety & Interactions',
   description:
     'Compare natural anxiety and stress supports by symptom pattern, evidence, timescale, and safety — without treating short-term stress findings as proof of anxiety relief.',
   alternates: { canonical: `${SITE_URL}/guides/anxiety/` },
