@@ -57,7 +57,7 @@ export default function ConsentBanner() {
             </button>
             <button
               type='button'
-              className='inline-flex min-h-11 items-center justify-center rounded-lg border border-[#d8c08d]/50 bg-[#fffdf8] px-4 text-sm font-bold text-[#123c2f] transition-colors hover:bg-[#f5efe2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#123c2f]'
+              className='inline-flex min-h-11 flex-1 items-center justify-center rounded-lg border sm:flex-none border-[#d8c08d]/50 bg-[#fffdf8] px-4 text-sm font-bold text-[#123c2f] transition-colors hover:bg-[#f5efe2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#123c2f]'
               onClick={() => {
                 setConsent(dnt ? 'denied' : 'granted')
                 setShow(false)
