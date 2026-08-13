@@ -5,6 +5,12 @@ import type { Metadata } from 'next'
 import { blogJsonLd, breadcrumbJsonLd, buildPageMetadata, faqPageJsonLd, SITE_URL } from '../../src/lib/seo'
 import { getGoalArticle, getGoalCluster, getRelatedGoalArticles } from '@/lib/goal-clusters'
 import { getSleepArticleContent } from '@/lib/sleep-cluster-content'
+import {
+  calibrateSleepArticlePublicCopy,
+  getSleepArticlePublicMetadata,
+  isCalibratedSleepArticleSlug,
+  SLEEP_CLUSTER_EVIDENCE_REVIEW_DATE,
+} from '@/lib/sleep-cluster-public-copy'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import EvidenceMeter from '../EvidenceMeter'
 import EvidenceLegend from '../EvidenceLegend'
@@ -36,9 +42,14 @@ export function goalClusterArticleMetadata(slug: string, canonicalPath?: string)
     }
   }
 
-  return buildPageMetadata({
+  const publicMetadata = getSleepArticlePublicMetadata(slug, {
     title: article.seoTitle,
     description: article.description,
+  })
+
+  return buildPageMetadata({
+    title: publicMetadata.title,
+    description: publicMetadata.description,
     path: canonicalPath ?? `/articles/${article.slug}/`,
     openGraphType: 'article',
   })
@@ -51,7 +62,11 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
   }
 
   const cluster = getGoalCluster(article.category)
-  const content = getSleepArticleContent(slug)
+  const content = calibrateSleepArticlePublicCopy(getSleepArticleContent(slug))
+  const publicMetadata = getSleepArticlePublicMetadata(slug, {
+    title: article.title,
+    description: article.description,
+  })
   const relatedArticles = getRelatedGoalArticles(slug, 5)
   const articlePath = canonicalPath ?? `/articles/${article.slug}/`
   const canonicalUrl = `${SITE_URL}${articlePath}`
@@ -59,10 +74,10 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
   const schemas = [
     blogJsonLd(
       {
-        title: article.title,
+        title: publicMetadata.title,
         slug: article.slug,
         date: '2026-06-12',
-        description: article.description,
+        description: publicMetadata.description,
       },
       articlePath,
     ),
@@ -70,7 +85,7 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
       { name: 'Home', url: `${SITE_URL}/` },
       { name: 'Guides', url: `${SITE_URL}/guides/` },
       { name: cluster?.title ?? 'Goal Cluster', url: `${SITE_URL}${cluster?.goalHref ?? '/goals/'}` },
-      { name: article.title, url: canonicalUrl },
+      { name: publicMetadata.title, url: canonicalUrl },
     ]),
     faqSchema,
   ].filter((schema): schema is Exclude<typeof schema, null> => schema !== null)
@@ -92,12 +107,16 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
       <article className="space-y-8">
         <header className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
           <p className="eyebrow-label">{content.eyebrow}</p>
-          <h1 className="heading-premium mt-3 text-ink">{article.title}</h1>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-muted">{article.description}</p>
+          <h1 className="heading-premium mt-3 text-ink">{publicMetadata.title}</h1>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-muted">{publicMetadata.description}</p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-brand-800">
             <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1">{article.readingTime}</span>
             <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1">Educational only</span>
-            <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1">Updated June 12, 2026</span>
+            <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1">
+              {isCalibratedSleepArticleSlug(slug)
+                ? `Evidence reviewed ${SLEEP_CLUSTER_EVIDENCE_REVIEW_DATE}`
+                : 'Updated June 12, 2026'}
+            </span>
           </div>
 
           {GOAL_ARTICLE_IMAGES[slug] && (
@@ -132,7 +151,7 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
           <div className="card-premium p-6 sm:p-8">
             <h2 className="text-xl font-semibold text-ink">Evidence snapshot</h2>
             <div className="mt-5">
-              <EvidenceMeter data={content.evidence} context={article.title} defaultOpen />
+              <EvidenceMeter data={content.evidence} context={publicMetadata.title} defaultOpen />
             </div>
           </div>
           <EvidenceLegend highlightTier={content.evidence.tier} defaultOpen />
@@ -157,7 +176,7 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
                   <tr className="border-b border-brand-900/10">
                     <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Option</th>
                     <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Evidence</th>
-                    <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Typical dose</th>
+                    <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Study / use context</th>
                     <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Best fit</th>
                     <th className="py-3 text-xs font-bold uppercase tracking-wider text-ink">Caution</th>
                   </tr>
