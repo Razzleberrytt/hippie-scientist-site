@@ -39,7 +39,7 @@ const SOURCES = [
   {
     label: 'Magnesium bisglycinate randomized placebo-controlled trial (2025)',
     href: 'https://pubmed.ncbi.nlm.nih.gov/40918053/',
-    note: 'One hundred fifty-five adults with self-reported poor sleep received 250 mg elemental magnesium as bisglycinate or placebo for four weeks. The insomnia-severity difference was statistically significant but small (Cohen d=0.2); a separate sleep-quality measure was not significantly different and no objective sleep measure was used. The study was funded by the Institute of Food and One Health at Leibniz University Hannover; one coauthor disclosed nutraceutical-industry research funding and presentation honoraria.',
+    note: 'One hundred fifty-five adults with self-reported poor sleep received 250 mg elemental magnesium as bisglycinate or placebo for four weeks. The insomnia-severity difference was statistically significant but small (Cohen d=0.2); a separate sleep-quality measure was not significantly different and no objective sleep measure was used.',
   },
   {
     label: 'NCCIH: Ashwagandha usefulness and safety',
