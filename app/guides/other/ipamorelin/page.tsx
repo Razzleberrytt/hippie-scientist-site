@@ -92,7 +92,7 @@ export default function Page() {
               Ipamorelin is not FDA-approved as a finished drug product. FDA's current significant-safety-risk page lists <strong>ipamorelin acetate in category 2 under the 503B interim policy</strong> and separately describes important safety-information and peptide-characterization gaps.
             </p>
             <p className="text-muted leading-relaxed">
-              This is more reliable than predicting that ipamorelin is “moving toward Category 1” or broad compounding access. FDA's compounding categories and final bulks-list decisions are specific regulatory processes; a clinic offering or prescription does not convert an unapproved product into an FDA-approved drug.
+              This is more reliable than forecasting a future reclassification or broad compounding access. FDA's compounding categories and final bulks-list decisions are specific regulatory processes; a clinic offering or prescription does not convert an unapproved product into an FDA-approved drug.
             </p>
             <p className="text-muted leading-relaxed"><strong>Bottom line:</strong> describe the current FDA category and safety record as they are; do not forecast approval or broad access from prior announcements or marketing.</p>
           </div>
