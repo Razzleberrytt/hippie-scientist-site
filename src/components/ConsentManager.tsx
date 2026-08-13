@@ -173,7 +173,7 @@ export default function ConsentManager({ open, onClose }: Props) {
           >
             {dnt ? "Continue without tracking" : "Accept"}
           </button>
-          <Link to="/info/privacy" className="ml-auto rounded underline text-white/70 hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+          <Link to="/info/privacy" className="w-full rounded text-center underline sm:ml-auto sm:w-auto text-white/70 hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
             Privacy Policy
           </Link>
         </div>
