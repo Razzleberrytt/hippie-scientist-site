@@ -12,7 +12,7 @@ const mocks = vi.hoisted(() => ({
 }))
 
 vi.mock('../../src/lib/consent', () => ({
-  CONSENT_GRANTED_EVENT: 'hs:consent-granted',
+  CONSENT_CHANGE_EVENT: 'hs:consent-changed',
   getConsent: mocks.getConsent,
 }))
 
@@ -118,7 +118,7 @@ describe('RevenueImpressionTracker', () => {
 
     mocks.getConsent.mockReturnValue('granted')
     act(() => {
-      window.dispatchEvent(new CustomEvent('hs:consent-granted'))
+      window.dispatchEvent(new CustomEvent('hs:consent-changed'))
       vi.advanceTimersByTime(RECOMMENDATION_IMPRESSION_DELAY_MS)
     })
 
