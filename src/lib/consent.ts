@@ -3,6 +3,8 @@ export type ConsentStatus = 'granted' | 'denied'
 export const CONSENT_STORAGE_KEY = 'consent.v1'
 export const CONSENT_CHANGE_EVENT = 'hs:consent-changed'
 
+let sessionConsent: ConsentStatus | null = null
+
 export function getSystemNoTracking(): boolean {
   if (typeof navigator === 'undefined' || typeof window === 'undefined') return false
 
@@ -15,15 +17,16 @@ export function getSystemNoTracking(): boolean {
 export function getConsent(): ConsentStatus | null {
   try {
     const raw = localStorage.getItem(CONSENT_STORAGE_KEY)
-    if (!raw) return null
+    if (!raw) return sessionConsent
     const parsed = JSON.parse(raw)
     return parsed?.status === 'granted' || parsed?.status === 'denied' ? parsed.status : null
   } catch {
-    return null
+    return sessionConsent
   }
 }
 
 export function setConsent(status: ConsentStatus) {
+  sessionConsent = status
   try {
     localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify({ status, ts: Date.now() }))
   } catch {
