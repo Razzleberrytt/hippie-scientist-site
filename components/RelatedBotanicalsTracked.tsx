@@ -84,6 +84,7 @@ export default function RelatedBotanicalsTracked({ sourceSlug, matches }: Props)
             <div className="mt-4 flex flex-wrap gap-2">
               <Link
                 href={`/herbs/${match.slug}/`}
+                prefetch={false}
                 onClick={() => trackRelatedBotanicalClick(sourceSlug, trackingItems[index])}
                 className="inline-flex min-h-10 items-center rounded-full bg-brand-800 px-3.5 text-xs font-bold text-white transition hover:bg-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
               >
@@ -92,6 +93,7 @@ export default function RelatedBotanicalsTracked({ sourceSlug, matches }: Props)
               {match.compareHref ? (
                 <Link
                   href={match.compareHref}
+                  prefetch={false}
                   onClick={() => trackRelatedBotanicalCompare(sourceSlug, trackingItems[index], match.compareHref!)}
                   className="inline-flex min-h-10 items-center rounded-full border border-brand-900/15 px-3.5 text-xs font-bold text-brand-800 transition hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
                 >

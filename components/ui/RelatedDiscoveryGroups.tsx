@@ -43,6 +43,7 @@ export default function RelatedDiscoveryGroups({
                 <Link
                   key={item.href}
                   href={item.href}
+                  prefetch={false}
                   className="flex min-h-11 items-center justify-between gap-3 rounded-lg px-2 py-2 text-sm font-medium text-brand-800 transition hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
                 >
                   <span>{item.label}</span>

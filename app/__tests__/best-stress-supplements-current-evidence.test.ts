@@ -88,7 +88,7 @@ describe('best stress supplements evidence calibration', () => {
     expect(canonical).toContain("const CANONICAL_PATH = '/guides/best/supplements-for-stress/'")
     expect(canonical).toContain('robots: { index: true, follow: true }')
     expect(canonical).toContain("BestSupplementsForStressPage from '../../anxiety/best-supplements-for-stress/page'")
-    expect(canonical).toContain('Best Supplements for Stress: What the Evidence Supports in 2026')
+    expect(canonical).toContain('Best Supplements for Stress: Evidence & Safety')
     expect(canonical).toContain('Evidence-first comparison of ashwagandha, rhodiola, magnesium, and L-theanine')
     expect(canonical).not.toContain('phosphatidylserine')
     expect(canonical).not.toContain('Includes dosing')

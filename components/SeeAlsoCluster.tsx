@@ -114,7 +114,7 @@ export default async function SeeAlsoCluster({
               Also in this cluster
             </p>
             {grouped.length === 1 ? (
-              <Link href={grouped[0].clusterGoalHref} className={guideLinkClass}>
+              <Link href={grouped[0].clusterGoalHref} prefetch={false} className={guideLinkClass}>
                 {grouped[0].clusterLabel} guide →
               </Link>
             ) : null}
@@ -127,7 +127,7 @@ export default async function SeeAlsoCluster({
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted">
                     {group.clusterLabel}
                   </p>
-                  <Link href={group.clusterGoalHref} className={guideLinkClass}>
+                  <Link href={group.clusterGoalHref} prefetch={false} className={guideLinkClass}>
                     Full guide →
                   </Link>
                 </div>
@@ -137,6 +137,7 @@ export default async function SeeAlsoCluster({
                   <Link
                     key={`${entry.kind}:${entry.slug}`}
                     href={entry.href}
+                    prefetch={false}
                     title={entry.reason}
                     className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 text-sm font-semibold capitalize text-brand-800 transition hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
                   >

@@ -21,7 +21,7 @@ describe('mental health navigation discovery', () => {
     expect(schema.hasPart).toContainEqual({
       '@type': 'WebPage',
       name: 'Mental Health',
-      url: `${SITE_URL}/guides/mental-health`,
+      url: `${SITE_URL}/guides/mental-health/`,
     })
   })
 
