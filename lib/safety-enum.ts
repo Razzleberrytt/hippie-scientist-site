@@ -4,8 +4,8 @@ const SAFETY_SYNONYM_RULES: Array<{ pattern: RegExp; value: StandardSafetyLabel 
   { pattern: /\b(interaction|interacts|warfarin|ssri|maoi|anticoagul|antiplatelet|polypharmacy|cns depressant)\b/i, value: 'Interaction risk' },
   { pattern: /\b(limited safety|limited data|low data|no safety data|insufficient safety)\b/i, value: 'Limited safety data' },
   { pattern: /\b(avoid|contraindicat|caution|consult|clinician|pregnan|breastfeeding|liver|kidney|seizure|bleed|sedat|toxic|risk|do not)\b/i, value: 'Use caution' },
+  { pattern: /\b(needs? review|review needed|unknown|tbd|draft|placeholder|profile pending|safety review pending)\b/i, value: 'Safety review pending' },
   { pattern: /\b(generally|well tolerated|low concern|low risk|food use|food derived|safe|standard caution)\b/i, value: 'Generally well tolerated' },
-  { pattern: /\b(needs? review|review needed|unknown|tbd|draft|placeholder|profile pending)\b/i, value: 'Safety review pending' },
 ]
 
 export type SafetyNormalizationResult = {
