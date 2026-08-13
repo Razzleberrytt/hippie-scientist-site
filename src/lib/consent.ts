@@ -29,7 +29,7 @@ export function setConsent(status: ConsentStatus) {
   } catch {
     // Continue with session consent when browser storage is unavailable.
   }
-  applyGaConsent(status)
+  applyGaConsent(status, 'update')
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent(CONSENT_CHANGE_EVENT, { detail: { status } }))
   }
@@ -46,11 +46,11 @@ export function initConsentDefault() {
   applyGaConsent(status)
 }
 
-export function applyGaConsent(status: ConsentStatus) {
+export function applyGaConsent(status: ConsentStatus, command: 'default' | 'update' = 'default') {
   const granted = status === 'granted' && !getSystemNoTracking()
   // GA4 Consent Mode v2 (safe no-op if gtag missing)
   try {
-    ;(window as any).gtag?.('consent', 'default', {
+    ;(window as any).gtag?.('consent', command, {
       ad_user_data: granted ? 'granted' : 'denied',
       ad_personalization: granted ? 'granted' : 'denied',
       ad_storage: granted ? 'granted' : 'denied',
