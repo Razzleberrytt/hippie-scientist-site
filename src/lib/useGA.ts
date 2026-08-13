@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "./router-compat";
-import { CONSENT_GRANTED_EVENT, CONSENT_STORAGE_KEY, getConsent } from "./consent";
+import { CONSENT_CHANGE_EVENT, CONSENT_STORAGE_KEY, getConsent } from "./consent";
 import { loadAnalytics } from "./loadAnalytics";
 
 function hasGrantedConsentFromStorage(): boolean {
@@ -31,8 +31,8 @@ export function useGA() {
         loadAnalytics();
       }
     };
-    window.addEventListener(CONSENT_GRANTED_EVENT, onConsentGranted);
-    return () => window.removeEventListener(CONSENT_GRANTED_EVENT, onConsentGranted);
+    window.addEventListener(CONSENT_CHANGE_EVENT, onConsentGranted);
+    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onConsentGranted);
   }, []);
 
   useEffect(() => {
