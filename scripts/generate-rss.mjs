@@ -9,7 +9,6 @@ const ARTICLES_PATH = path.resolve('data/articles/articles.json')
 
 const posts = []
 
-// Load blog posts
 try {
   const blogData = JSON.parse(fs.readFileSync(BLOG_PATH, 'utf-8'))
   const blogPosts = Array.isArray(blogData) ? blogData : []
@@ -18,7 +17,6 @@ try {
   console.warn('No blog posts found.')
 }
 
-// Load articles
 try {
   const articleData = JSON.parse(fs.readFileSync(ARTICLES_PATH, 'utf-8'))
   const articles = Array.isArray(articleData) ? articleData : (articleData.articles || [])
@@ -32,7 +30,9 @@ if (!posts.length) {
   process.exit(0)
 }
 
-const now = new Date().toUTCString()
+function safeCdata(value) {
+  return String(value ?? '').replace(/]]>/g, ']]]]><![CDATA[>')
+}
 
 const normalizedPosts = (Array.isArray(posts) ? posts : [])
   .map(post => {
@@ -46,6 +46,7 @@ const normalizedPosts = (Array.isArray(posts) ? posts : [])
       slug,
       title: post?.title || 'Untitled',
       description: post?.description || post?.excerpt || post?.summary || '',
+      category: post?.category || '',
       date,
     }
   })
@@ -53,28 +54,32 @@ const normalizedPosts = (Array.isArray(posts) ? posts : [])
   .sort((a, b) => b.date.getTime() - a.date.getTime())
   .slice(0, 50)
 
+const lastBuildDate = (normalizedPosts[0]?.date || new Date(0)).toUTCString()
+
 const items = normalizedPosts
   .map(post => {
-    const url = `${SITE}/articles/${post.slug}`
+    const url = `${SITE}/articles/${post.slug}/`
     return `
     <item>
-      <title><![CDATA[${post.title}]]></title>
+      <title><![CDATA[${safeCdata(post.title)}]]></title>
       <link>${url}</link>
       <guid>${url}</guid>
       <pubDate>${post.date.toUTCString()}</pubDate>
-      <description><![CDATA[${post.description}]]></description>
+      ${post.category ? `<category><![CDATA[${safeCdata(post.category)}]]></category>` : ''}
+      <description><![CDATA[${safeCdata(post.description)}]]></description>
     </item>`
   })
   .join('\n')
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>The Hippie Scientist</title>
-  <link>${SITE}/articles</link>
+  <link>${SITE}/articles/</link>
+  <atom:link href="${SITE}/rss.xml" rel="self" type="application/rss+xml" />
   <description>Evidence-based herbal supplement research, safety, and practical guides</description>
   <language>en</language>
-  <lastBuildDate>${now}</lastBuildDate>
+  <lastBuildDate>${lastBuildDate}</lastBuildDate>
   ${items}
 </channel>
 </rss>`
