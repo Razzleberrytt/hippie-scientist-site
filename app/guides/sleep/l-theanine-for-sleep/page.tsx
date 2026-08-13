@@ -1,7 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
+import {
+  buildPageMetadata,
+  blogJsonLd,
+  breadcrumbJsonLd,
+  faqPageJsonLd,
+  compactMetaTitle,
+} from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
@@ -10,19 +16,16 @@ import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { AFFILIATE_TAGS } from '@/config/affiliate'
-
-// ─── Article metadata ─────────────────────────────────────────────────────────
 
 const SLUG = 'l-theanine-for-sleep'
-const TITLE = 'L-Theanine for Sleep: Benefits, Dosage, Safety, and How It Compares'
+const TITLE = 'L-Theanine for Sleep: What the Evidence Supports in 2026'
 const DESCRIPTION =
-  'A practical evidence-based guide to L-theanine for sleep, including relaxation, alpha waves, dosage, safety, timing, and how it compares with magnesium and ashwagandha.'
+  'Evidence-first review of L-theanine for sleep, including the 2025 sleep meta-analysis, direct trial context, timing and dose limits, combination uncertainty, safety, and chronic-insomnia care.'
 const DATE = '2026-06-09'
+const UPDATED_DATE = '2026-08-12'
 const AUTHOR = 'Will'
-const READING_TIME = '13 min read'
-const TAGS = ['l-theanine', 'sleep', 'amino-acids', 'relaxation', 'stress']
-const CATEGORY = 'amino-acids'
+const READING_TIME = '10 min read'
+const TAGS = ['l-theanine', 'sleep', 'sleep quality', 'amino acids']
 
 export const metadata = buildPageMetadata({
   title: compactMetaTitle(TITLE),
@@ -31,51 +34,76 @@ export const metadata = buildPageMetadata({
   openGraphType: 'article',
 })
 
-// ─── FAQ data (also used for JSON-LD) ────────────────────────────────────────
+const SOURCES = [
+  {
+    label: 'L-theanine sleep systematic review and meta-analysis (2025)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/40056718/',
+    note: 'Nineteen articles / 897 participants were included, with 18 studies in meta-analysis. Small improvements appeared in subjective sleep-onset latency, daytime dysfunction, and overall subjective sleep quality. The authors emphasized the shortage of pure L-theanine studies and said adequate dose and duration still need to be determined.',
+  },
+  {
+    label: 'L-theanine vs melatonin vs placebo in cancer-related insomnia (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/38846134/',
+    note: 'One hundred twenty cancer patients with insomnia were randomized to melatonin 3 mg, L-theanine 200 mg, or placebo for 14 consecutive days, taken two hours before bedtime. L-theanine improved insomnia scores versus placebo, while melatonin outperformed L-theanine. Seven participants dropped out. This is a specific clinical population and regimen, not a universal bedtime protocol.',
+  },
+  {
+    label: 'Lactium plus L-theanine sleep trial (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/38953043/',
+    note: 'Forty adults with sleep discomfort received a commercial Lactium + L-theanine combination (LTC-022) or placebo for 8 weeks. Because two active ingredients were combined, the trial cannot isolate an L-theanine effect; three authors were affiliated with the product company R&D center.',
+  },
+  {
+    label: 'L-theanine cognitive and affective systematic review/meta-analysis (2026)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/42410082/',
+    note: 'Thirty-one randomized trials / 1,168 participants compared oral L-theanine with placebo. A 200 mg single dose 30–60 minutes before cognitive testing improved choice reaction time; that timing result concerns attention testing, not bedtime sleep. Acute stress benefit was modest and bias-sensitive, anxiety effects were inconsistent, and no serious adverse events were reported. One author founded a supplement company.',
+  },
+  {
+    label: 'AASM: cognitive behavioral therapy for insomnia',
+    href: 'https://aasm.org/coding-quarterly-cognitive-behavioral-therapy-for-insomnia/',
+    note: 'The American Academy of Sleep Medicine describes CBT-I as the first-line, evidence-based treatment for chronic insomnia.',
+  },
+]
 
 const FAQS = [
   {
-    question: 'Does L-theanine make you sleepy?',
+    question: 'Does L-theanine help sleep?',
     answer:
-      'Not in the way a sedative does. L-theanine appears to promote a state of calm alertness by increasing alpha-wave activity in the brain, which may ease the mental transition toward sleep. It is not a direct sedative and does not reliably cause drowsiness on its own. People who find it most useful for sleep typically report that it helps quiet mental chatter rather than producing heavy tiredness.',
+      'A 2025 meta-analysis of 19 articles / 897 participants found small improvements in several subjective sleep outcomes. The signal is promising, but the review included many interventions that were not pure L-theanine and said adequate dose and duration still need study.',
   },
   {
     question: 'How long before bed should I take L-theanine?',
     answer:
-      'A commonly used timing is 30–60 minutes before bed. Some people take it earlier in the evening as part of a general wind-down routine. Avoid L-theanine products that also contain caffeine when using it for sleep purposes — these are intended for daytime focus use and the caffeine content would be counterproductive near bedtime.',
+      'Current evidence does not establish one universal bedtime timing rule. The widely cited 30–60-minute window in a 2026 meta-analysis referred to a 200 mg dose before cognitive testing for attention, not a sleep-onset protocol. A separate cancer-insomnia trial used 200 mg two hours before bed for 14 days in a specific clinical population.',
   },
   {
-    question: 'Is L-theanine better than magnesium for sleep?',
+    question: 'Does L-theanine work best for racing thoughts?',
     answer:
-      'They address different aspects of sleep difficulty. L-theanine may be better suited when racing thoughts or mental tension are the primary barrier to sleep. Magnesium may be more helpful when physical tension, restlessness, or suboptimal mineral status is the main issue. For most people without a specific stress-driven sleep problem, magnesium glycinate is a reasonable first choice. L-theanine becomes a stronger candidate when the mind-won\'t-quiet pattern is dominant.',
+      'That symptom-matching claim is not established. The 2026 meta-analysis found inconsistent anxiety effects, while the sleep meta-analysis did not establish a racing-thoughts subgroup that responds better than other people with sleep difficulty.',
   },
   {
-    question: 'Can I take L-theanine with magnesium?',
+    question: 'Is 200 mg the best L-theanine dose for sleep?',
     answer:
-      'For most healthy adults, yes. L-theanine and magnesium work through different mechanisms and no significant adverse interaction between them is established. They are commonly combined in sleep stacks. As with any new supplement, start one first and assess your response before adding a second.',
+      'No. Two hundred milligrams appears in specific trials, but the 2025 sleep review explicitly said adequate dose and duration still need to be determined. A study regimen describes what researchers tested; it does not establish a universal personal dose.',
   },
   {
-    question: 'Can I take L-theanine with ashwagandha?',
+    question: 'Can L-theanine be combined with magnesium or ashwagandha?',
     answer:
-      'Generally yes, for healthy adults without relevant contraindications. L-theanine may offer shorter-term relaxation support, while ashwagandha addresses chronic stress adaptation over weeks. They complement each other conceptually, though direct combination clinical trials are limited. Start one at a time to identify effects before combining.',
+      'Separate ingredient trials do not establish that these combinations improve sleep more, work faster, or are safer. A multi-ingredient regimen is a different intervention and makes benefits, adverse effects, and interactions harder to attribute.',
   },
   {
-    question: 'Is L-theanine safe every night?',
+    question: 'Can L-theanine replace CBT-I for chronic insomnia?',
     answer:
-      'L-theanine has a generally favorable safety profile in typical supplemental use based on available data. It has been consumed in significant quantities as a component of tea for centuries. However, formal long-term supplementation safety data beyond several months is limited. At standard doses (100–200 mg), daily use appears well-tolerated in healthy adults. Consult a healthcare provider if you take sedative medications, have psychiatric conditions, or are pregnant or breastfeeding.',
+      'No. CBT-I is the first-line evidence-based treatment for chronic insomnia. Persistent insomnia also warrants assessment for sleep apnea, restless legs, circadian problems, medication effects, mood disorders, substance use, pain, and other causes.',
   },
 ]
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
-
 export default function LTheanineForSleepPage() {
-  const pageBreadcrumb = breadcrumbJsonLd([
+  const breadcrumb = breadcrumbJsonLd([
     { name: 'Guides', url: 'https://thehippiescientist.net/guides/' },
+    { name: 'Sleep', url: 'https://thehippiescientist.net/guides/sleep/' },
     { name: TITLE, url: `https://thehippiescientist.net/guides/sleep/${SLUG}/` },
   ])
 
   const articleLd = blogJsonLd(
-    { title: TITLE, slug: SLUG, date: DATE, description: DESCRIPTION },
+    { title: TITLE, slug: SLUG, date: DATE, updated: UPDATED_DATE, description: DESCRIPTION },
     `/guides/sleep/${SLUG}/`,
   )
 
@@ -83,1201 +111,195 @@ export default function LTheanineForSleepPage() {
 
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      {/* JSON-LD */}
       <JsonLd schema={articleLd} />
-      <JsonLd schema={pageBreadcrumb} />
-      {faqLd && (
-        <JsonLd schema={faqLd} />
-      )}
+      <JsonLd schema={breadcrumb} />
+      {faqLd ? <JsonLd schema={faqLd} /> : null}
 
-      {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/guides/" className="transition hover:text-ink">
-          Guides
-        </Link>
+      <nav className="mb-6 flex items-center gap-2 text-sm text-muted" aria-label="Breadcrumb">
+        <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
         <span>/</span>
-        <span className="text-ink line-clamp-1">{TITLE}</span>
+        <Link href="/guides/sleep/" className="transition hover:text-ink">Sleep</Link>
+        <span>/</span>
+        <span className="line-clamp-1 text-ink">L-theanine</span>
       </nav>
 
-      {/* Hero */}
       <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
-            Deep Dive
-          </span>
-          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize">
-            {CATEGORY}
-          </span>
-          {TAGS.slice(0, 2).map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize"
-            >
-              {tag}
-            </span>
+          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">Sleep evidence guide</span>
+          {TAGS.slice(0, 3).map((tag) => (
+            <span key={tag} className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold capitalize text-muted">{tag}</span>
           ))}
-          <span className="text-muted">June 9, 2026</span>
-          <span className="text-muted">·</span>
           <span className="text-muted">{READING_TIME}</span>
         </div>
 
-        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
-          {TITLE}
-        </h1>
-
-        <p className="mt-2 text-sm text-muted">
-          By{' '}
-          <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">
-            {AUTHOR}
-          </Link>
-        </p>
-
-        <div className="mt-3">
-          <LastUpdatedBadge date={DATE} label="Last updated" />
-        </div>
-
+        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">{TITLE}</h1>
+        <p className="mt-2 text-sm text-muted">By <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">{AUTHOR}</Link></p>
+        <div className="mt-3"><LastUpdatedBadge date={UPDATED_DATE} label="Last evidence review" /></div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
 
         <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <Image
               src="/images/guides/l-theanine-for-sleep.jpg"
-              alt="A cup of green tea with loose tea leaves, a natural source of L-theanine used for relaxation and sleep"
+              alt="Green tea and L-theanine supplement imagery in a nighttime sleep setting"
               width={1536}
               height={1024}
               priority
-              className="w-full h-auto"
+              className="h-auto w-full"
             />
           </div>
           <figcaption className="mt-3 text-center text-sm text-muted">
-            L-theanine, an amino acid from green tea, promotes relaxation without sedation — often used to ease into sleep.
+            The sleep signal is modest and heterogeneous; study timing and milligrams should not be converted automatically into a bedtime recipe.
           </figcaption>
         </figure>
       </section>
 
-      {/* Affiliate disclosure */}
       <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 px-5 py-3 text-xs leading-6 text-muted">
-        <strong className="text-ink">Affiliate disclosure:</strong> This article contains affiliate
-        links. If you purchase through these links, we may earn a commission at no additional cost to
-        you. We only link to L-theanine forms and dose ranges consistent with the clinical protocols
-        reviewed on this page.
+        <strong className="text-ink">Affiliate disclosure:</strong> This page contains optional product-sourcing links. They are not evidence that a commercial product will reproduce a trial result. We may earn a commission at no added cost to you.
       </div>
 
-      {/* Body + sidebar */}
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
-        {/* Main content */}
         <div className="space-y-6">
+          <section className="rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">Bottom line</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">A modest subjective sleep signal is plausible; an acute bedtime protocol is not established</h2>
+            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
+              <p>
+                The 2025 sleep systematic review included <strong>19 articles / 897 participants</strong> and found small improvements in subjective sleep-onset latency, daytime dysfunction, and overall subjective sleep quality. Eighteen studies contributed to meta-analysis.
+              </p>
+              <p>
+                The authors also highlighted a central limitation: many interventions were not <strong>pure L-theanine</strong>, and adequate dose and duration still need to be determined. That makes a universal “take this amount before bed” instruction stronger than the evidence.
+              </p>
+            </div>
+          </section>
 
-          {/* Quick Verdict */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence directness</h2>
+            <EvidenceSummaryCard
+              title="L-theanine for sleep"
+              evidenceLevel="Limited"
+              humanEvidence="The 2025 systematic review included 19 articles / 897 participants and found small improvements in several subjective sleep outcomes. Many included interventions were not pure L-theanine, so the pooled signal should not be treated as proof of one formulation, dose, bedtime, or symptom-specific indication."
+              mechanisticEvidence="Alpha-wave, neurotransmitter, stress, and relaxation mechanisms are biologically interesting but do not establish that racing thoughts identify a responder or that L-theanine is an acute hypnotic."
+              safetyProfile="A separate 2026 meta-analysis of 31 randomized trials / 1,168 participants reported no serious adverse events, but that does not establish long-term nightly safety for every formulation or population. Medication use, pregnancy or breastfeeding, and persistent sleep disorders deserve individualized review."
+            />
+          </section>
+
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
-            <p className="eyebrow-label">Quick Verdict</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-              Does L-Theanine Help With Sleep?
-            </h2>
-            <ul className="mt-4 space-y-2">
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
-                <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
-                <span>
-                  <strong>L-theanine may help most</strong> when racing thoughts, stress, or mental
-                  tension are the main barrier to falling asleep — not when the problem is primarily
-                  physical fatigue or circadian disruption.
-                </span>
-              </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
-                <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
-                <span>
-                  <strong>It is not usually a strong sedative.</strong> L-theanine promotes
-                  relaxation and calms mental arousal rather than producing direct drowsiness.
-                </span>
-              </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
-                <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
-                <span>
-                  <strong>It may be better for relaxation than for severe insomnia.</strong> The
-                  evidence base for direct sleep-outcome improvement is more limited than for
-                  supplements like ashwagandha in stressed populations.
-                </span>
-              </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
-                <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
-                <span>
-                  <strong>It pairs naturally with magnesium or ashwagandha</strong> in a sleep
-                  stack — L-theanine for mental relaxation, magnesium for physical tension, and
-                  ashwagandha for chronic stress adaptation.
-                </span>
-              </li>
-            </ul>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">What was actually studied?</h2>
+            <ResponsiveTable label="L-theanine sleep evidence directness table">
+              <table className="mt-5 min-w-[820px] w-full text-sm">
+                <thead>
+                  <tr className="border-b border-brand-900/10">
+                    <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Evidence source</th>
+                    <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Population / intervention</th>
+                    <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">What it does not establish</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-900/5">
+                  <tr className="align-top">
+                    <td className="py-3 pr-4 font-semibold text-ink">2025 sleep meta-analysis</td>
+                    <td className="py-3 pr-4 text-muted">19 articles / 897 participants across healthy and clinical populations; mixed interventions, with 18 studies meta-analyzed.</td>
+                    <td className="py-3 text-muted">A universal pure-L-theanine dose, duration, bedtime, or insomnia subtype.</td>
+                  </tr>
+                  <tr className="align-top">
+                    <td className="py-3 pr-4 font-semibold text-ink">2024 cancer-insomnia RCT</td>
+                    <td className="py-3 pr-4 text-muted">120 cancer patients with insomnia randomized to melatonin 3 mg, L-theanine 200 mg, or placebo for 14 days; tablets were taken 2 hours before bedtime. Seven participants dropped out.</td>
+                    <td className="py-3 text-muted">A general-population bedtime regimen. L-theanine improved versus placebo, while melatonin outperformed L-theanine in this specific population.</td>
+                  </tr>
+                  <tr className="align-top">
+                    <td className="py-3 pr-4 font-semibold text-ink">2024 Lactium + L-theanine RCT</td>
+                    <td className="py-3 pr-4 text-muted">40 adults with sleep discomfort received the commercial combination LTC-022 or placebo for 8 weeks.</td>
+                    <td className="py-3 text-muted">An isolated L-theanine effect: Lactium and L-theanine were given together, and three authors were affiliated with the product-company R&amp;D center.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ResponsiveTable>
           </section>
 
-          {/* Main article body */}
-          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-8">
-
-            {/* What Is L-Theanine */}
-            <div id="what-is-l-theanine">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                What Is L-Theanine?
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                L-theanine is a non-protein amino acid found naturally in tea leaves
-                (<em>Camellia sinensis</em>), and in small amounts in some mushrooms. It is one of
-                the primary bioactive compounds responsible for the characteristic umami and calming
-                qualities of green and black tea, and has been consumed by humans as part of tea
-                for centuries.
+          <section className="rounded-[1rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm sm:p-8">
+            <h2 className="text-xl font-semibold text-amber-950">The 30–60-minute result is not a bedtime sleep instruction</h2>
+            <div className="mt-3 space-y-3 text-sm leading-7 text-amber-950">
+              <p>
+                The July 2026 cognitive and affective meta-analysis found that a <strong>single 200 mg dose taken 30–60 minutes before cognitive testing</strong> improved choice reaction time. That is an attention result in a cognitive-testing context—not evidence that L-theanine should be taken 30–60 minutes before bed or that it improves sleep within that window.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                As a supplement, L-theanine is most commonly used for:
-              </p>
-              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-muted">
-                <li>Relaxation and stress reduction without sedation</li>
-                <li>Daytime focus and attention, often combined with caffeine</li>
-                <li>Evening wind-down and pre-sleep relaxation</li>
-                <li>Reducing anxiety and mental tension</li>
-              </ul>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                L-theanine is <strong>not the same as melatonin, GABA, or magnesium</strong>. It
-                does not directly signal the circadian clock (melatonin), act as the primary
-                inhibitory neurotransmitter (GABA), or function as an essential mineral
-                (magnesium). Its mechanisms are more indirect and modulatory in nature.
-              </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                During the day, L-theanine is frequently paired with caffeine — a combination
-                studied for attentional benefits. For sleep use, caffeine-free standalone
-                L-theanine supplements (or caffeine-free tea forms) are appropriate. Green tea
-                itself contains both L-theanine and caffeine, making it poorly suited for evening
-                sleep support.
+              <p>
+                The same review found only a modest, bias-sensitive acute-stress signal and inconsistent anxiety effects. Those results do not validate “racing thoughts” as a sleep indication or justify converting an attention-study clock into an insomnia protocol.
               </p>
             </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* How L-Theanine May Affect Sleep */}
-            <div id="mechanisms">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                How L-Theanine May Affect Sleep
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                L-theanine&apos;s proposed effects on sleep are primarily indirect — it appears to
-                reduce the mental arousal and stress-related hyperactivation that can delay sleep
-                onset, rather than producing direct sedation.
-              </p>
-
-              <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
-                Alpha-Wave Activity
-              </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                One of the most replicated findings is that L-theanine appears to increase alpha
-                brainwave activity — the neural oscillation pattern associated with calm, wakeful
-                relaxation. This effect has been observed in EEG studies within roughly 30–60
-                minutes of ingestion. Alpha waves are prominent during relaxed wakefulness and
-                the early stages of the sleep transition, which may support a smoother onset of
-                sleep in people who are mentally overactivated at bedtime.
-              </p>
-
-              <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
-                Relaxation Without Heavy Sedation
-              </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Unlike benzodiazepines, antihistamines, or valerian at higher doses, L-theanine
-                does not typically produce strong drowsiness. The experience most often described
-                is a quieting of mental noise without impairment of cognitive function — which may
-                be why it is also used during the day for calm focus. For sleep, this means it may
-                lower the activation threshold for sleep onset without making the next morning
-                feel heavy.
-              </p>
-
-              <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
-                Glutamate / GABA Modulation
-              </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Mechanistic evidence suggests L-theanine may modulate glutamate (excitatory) and
-                GABA (inhibitory) neurotransmitter systems — though the precise mechanisms at
-                typical supplemental doses in humans are not fully characterized. It has structural
-                similarity to glutamate and may interact with glutamate receptors, potentially
-                reducing excitatory tone. Some preclinical data also suggests effects on GABA-A
-                receptor activity. These pathways remain under investigation and should be
-                described cautiously.
-              </p>
-
-              <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
-                Stress-Response Modulation
-              </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                L-theanine has been studied for its effects on physiological stress markers,
-                including heart rate, salivary cortisol, and self-reported anxiety. Some trials
-                suggest attenuation of acute stress responses. For sleep, this may be relevant
-                because elevated evening stress physiology (elevated cortisol, increased heart
-                rate, heightened sympathetic tone) is a primary driver of delayed sleep onset and
-                fragmented sleep.
-              </p>
-
-              <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
-                Reduced Mental Arousal Before Bed
-              </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                The combination of alpha-wave promotion, reduced stress reactivity, and possible
-                glutamate modulation may collectively reduce the mental arousal state that keeps
-                cognitively overactive individuals awake. This makes L-theanine most likely
-                to show benefit in people whose primary sleep complaint is an inability to quiet
-                racing thoughts — rather than difficulty maintaining sleep once asleep, or early
-                morning awakening unrelated to stress.
-              </p>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Evidence Summary */}
-            <div id="evidence-summary">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Evidence Summary
-              </h2>
-
-              <EvidenceSummaryCard
-                title="L-Theanine &amp; Sleep Quality"
-                evidenceLevel="Limited"
-                humanEvidence="Some controlled trials suggest L-theanine may improve subjective sleep quality, sleep satisfaction, and reduce sleep latency — particularly in populations with anxiety, stress, or hyperarousal at baseline. Evidence specific to sleep outcomes (distinct from general relaxation) is less robust than the relaxation literature. Direct sleep RCT evidence is limited; most well-designed trials have focused on stress and anxiety outcomes, from which sleep benefits are often inferred."
-                mechanisticEvidence="Alpha-wave induction is the most replicated finding in EEG studies. Proposed modulation of glutamate/GABA signaling is biologically plausible but incompletely characterized at typical human doses. Stress-response attenuation (cortisol, heart rate) is supported by some trials. Mechanistic data is reasonably coherent but clinical translation to sleep endpoints requires further trial-level confirmation."
-                safetyProfile="Generally well-tolerated in available trials and in long-term tea consumption. Reported adverse effects are mild (headache, dizziness, GI discomfort) and uncommon. No major drug interactions established, though caution is warranted with sedatives and blood pressure medications. Pregnancy/breastfeeding safety data is insufficient."
-              />
-
-              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
-                <p className="font-semibold text-ink">Key studies referenced:</p>
-                <ul className="mt-2 ml-5 space-y-1 list-disc">
-                  <li>
-                    L-theanine and sleep quality in boys with ADHD — naturalistic sleep improvement
-                    observed
-                  </li>
-                  <li>
-                    L-theanine and stress responses — attenuation of physiological arousal markers
-                    in multiple trials; see Hidese 2019 (PMID 31758301)
-                  </li>
-                  <li>
-                    L-theanine alpha-wave EEG studies — increased alpha activity within 30–60 min
-                    of ingestion
-                  </li>
-                </ul>
-                <p className="mt-2 text-xs text-muted">
-                  Full reference table in Sources section below.
-                </p>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Dosage and Timing */}
-            <div id="dosage">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Dosage and Timing
-              </h2>
-
-              <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-wider text-muted">
-                  Dosage Reference — Sleep Protocols
-                </p>
-                <ResponsiveTable label="L-theanine dosage reference table for sleep">
-                  <table className="min-w-[520px] w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-brand-900/10">
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Use Case
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Dose Range
-                        </th>
-                        <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Timing
-                        </th>
-                        <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Notes
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-brand-900/5">
-                      <tr className="align-top">
-                        <td className="py-3 pr-4 font-medium text-ink">Pre-sleep relaxation</td>
-                        <td className="py-3 pr-4 text-muted">100–200 mg</td>
-                        <td className="py-3 pr-4 text-muted">30–60 min before bed</td>
-                        <td className="py-3 text-muted">
-                          Caffeine-free product only; start at lower end
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-4 font-medium text-ink">Evening wind-down</td>
-                        <td className="py-3 pr-4 text-muted">100–200 mg</td>
-                        <td className="py-3 pr-4 text-muted">1–2 hours before bed</td>
-                        <td className="py-3 text-muted">
-                          Can be taken earlier as part of wind-down routine
-                        </td>
-                      </tr>
-                      <tr className="align-top">
-                        <td className="py-3 pr-4 font-medium text-ink">Stack with magnesium</td>
-                        <td className="py-3 pr-4 text-muted">100–200 mg</td>
-                        <td className="py-3 pr-4 text-muted">
-                          Both 30–60 min before bed
-                        </td>
-                        <td className="py-3 text-muted">
-                          Introduce one at a time before combining
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </ResponsiveTable>
-                <p className="mt-3 text-xs text-muted">
-                  Do not use caffeinated tea or caffeine-containing L-theanine extracts near bedtime.
-                </p>
-              </div>
-
-              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
-                <p className="font-semibold text-ink">Practical timing notes:</p>
-                <ul className="mt-2 ml-5 space-y-1 list-disc">
-                  <li>
-                    Most commercial L-theanine products offer 100 mg or 200 mg per serving —
-                    starting at the lower end is reasonable for a first trial.
-                  </li>
-                  <li>
-                    If using L-theanine earlier in the evening for general wind-down rather than
-                    as a direct pre-sleep supplement, the timing flexibility is wider.
-                  </li>
-                  <li>
-                    <strong>Avoid caffeine-containing products near bedtime.</strong> Green tea
-                    extract products and &ldquo;nootropic&rdquo; blends often combine L-theanine
-                    with caffeine — these are not appropriate for sleep use.
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* L-Theanine vs Magnesium */}
-            <div id="vs-magnesium">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                L-Theanine vs Magnesium for Sleep
-              </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
-                Both L-theanine and magnesium are commonly used for sleep support, but they suit
-                different patterns of sleep difficulty.
-              </p>
-
-              <ResponsiveTable label="L-theanine vs magnesium for sleep comparison">
-                <table className="min-w-[560px] w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-brand-900/10">
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Factor
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        L-Theanine
-                      </th>
-                      <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Magnesium
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-brand-900/5">
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Primary benefit</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Mental relaxation, quieting racing thoughts
-                      </td>
-                      <td className="py-3 text-muted">
-                        Physical relaxation, muscle tension, mineral support
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Best suited for</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Mind-racing at bedtime, stress-driven mental arousal
-                      </td>
-                      <td className="py-3 text-muted">
-                        Body tension, restlessness, general sleep quality
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Main mechanism</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Alpha-wave induction, glutamate modulation, stress attenuation
-                      </td>
-                      <td className="py-3 text-muted">
-                        NMDA antagonism, GABA support, melatonin pathway, muscle relaxation
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Evidence strength</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Limited (direct sleep); Moderate (relaxation/stress)
-                      </td>
-                      <td className="py-3 text-muted">
-                        Limited–Moderate (sleep), stronger in deficient populations
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">First-line choice?</td>
-                      <td className="py-3 pr-4 text-muted">
-                        When mental tension is the dominant issue
-                      </td>
-                      <td className="py-3 text-muted">
-                        Usually a better baseline first choice for most people
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Can combine?</td>
-                      <td className="py-3 pr-4 text-muted">Yes</td>
-                      <td className="py-3 text-muted">Yes — reasonable relaxation stack</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </ResponsiveTable>
-
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
-                Magnesium is generally the more reasonable first supplement to try because it
-                addresses a wider range of sleep barriers (mineral repletion, muscle relaxation,
-                nervous system excitability), has fewer form-selection pitfalls, and has a broader
-                safety dataset. L-theanine becomes a stronger candidate when the problem is
-                specifically mental: a busy, anxious mind that won&apos;t quieten even when the
-                body feels tired.
-              </p>
-
-              <p className="mt-3 text-sm text-muted">
-                For a detailed evidence review of magnesium for sleep, see the{' '}
-                <Link
-                  href="/guides/sleep/magnesium-for-sleep/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  Magnesium for Sleep article
-                </Link>{' '}
-                and the{' '}
-                <Link
-                  href="/guides/sleep/magnesium-types-for-sleep/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  Magnesium Types for Sleep guide
-                </Link>
-                .
-              </p>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* L-Theanine vs Ashwagandha */}
-            <div id="vs-ashwagandha">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                L-Theanine vs Ashwagandha for Sleep
-              </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
-                Both L-theanine and ashwagandha are used to address stress-related sleep
-                difficulties, but they work on different timescales and suit different patterns of
-                chronic vs acute stress.
-              </p>
-
-              <ResponsiveTable label="L-theanine vs ashwagandha for sleep comparison">
-                <table className="min-w-[560px] w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-brand-900/10">
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Factor
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        L-Theanine
-                      </th>
-                      <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Ashwagandha
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-brand-900/5">
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Effect timescale</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Shorter-term relaxation; effects may be noticeable within hours
-                      </td>
-                      <td className="py-3 text-muted">
-                        Stress adaptation over weeks; effects typically at 6–8 weeks
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Best suited for</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Situational or acute mental tension at bedtime
-                      </td>
-                      <td className="py-3 text-muted">
-                        Chronic stress as the primary driver of poor sleep
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Trial speed</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Easier to trial quickly — effects (or lack thereof) apparent within days
-                      </td>
-                      <td className="py-3 text-muted">
-                        Requires weeks to properly evaluate; do not assess on a few nights
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Evidence strength (sleep)</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Limited direct sleep RCTs
-                      </td>
-                      <td className="py-3 text-muted">
-                        Moderate — multiple RCTs in stressed adults
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Safety profile</td>
-                      <td className="py-3 pr-4 text-muted">
-                        Fewer contraindications; no pregnancy / thyroid concerns established
-                      </td>
-                      <td className="py-3 text-muted">
-                        Avoid in pregnancy; thyroid, autoimmune cautions
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </ResponsiveTable>
-
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
-                If you want to trial a relaxation supplement quickly and your main complaint is an
-                overactive mind at bedtime, L-theanine may give a faster signal (positive or null).
-                If chronic, ongoing stress is your primary sleep disruptor and you are willing to
-                commit to a 6–8 week trial, ashwagandha has more direct evidence for sleep quality
-                improvement in that population.
-              </p>
-
-              <p className="mt-3 text-sm text-muted">
-                For the full clinical review of ashwagandha for sleep, see the{' '}
-                <Link
-                  href="/guides/sleep/ashwagandha-for-sleep/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  Ashwagandha for Sleep article
-                </Link>{' '}
-                and the{' '}
-                <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  Ashwagandha vs Magnesium for Sleep comparison
-                </Link>
-                .
-              </p>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Can You Combine */}
-            <div id="combining">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                Can You Combine L-Theanine With Magnesium or Ashwagandha?
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Combining these supplements is a common approach in sleep stacks, and for most
-                healthy adults it is generally considered reasonable. However, cautious language
-                is warranted: direct combination clinical trials are limited, and the evidence base
-                for any specific multi-supplement combination is thinner than for each supplement
-                studied individually.
-              </p>
-
-              <div className="mt-4 space-y-4">
-                <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
-                  <p className="font-semibold text-ink">L-Theanine + Magnesium</p>
-                  <p className="mt-1">
-                    A reasonable relaxation stack. L-theanine targets mental calm; magnesium
-                    addresses physical tension and NMDA/GABA pathways. No known adverse
-                    interaction. Take both 30–60 minutes before bed.
-                  </p>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
-                  <p className="font-semibold text-ink">L-Theanine + Ashwagandha</p>
-                  <p className="mt-1">
-                    A stress and relaxation support combination. L-theanine may offer more
-                    immediate relaxation, while ashwagandha works on chronic HPA axis adaptation
-                    over weeks. No established adverse interaction in healthy adults.
-                  </p>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
-                  <p className="font-semibold text-ink">All Three (L-Theanine + Magnesium + Ashwagandha)</p>
-                  <p className="mt-1">
-                    A possible sleep stack. Direct combination trials for all three together are
-                    likely limited or absent — no combination trials have been identified in the source registry. Combining
-                    three supplements simultaneously makes it difficult to identify what is
-                    helping or causing side effects.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm text-sm leading-7 text-muted">
-                <p className="font-semibold text-ink">Practical approach for combining:</p>
-                <ul className="mt-2 ml-5 space-y-1 list-disc">
-                  <li>
-                    Start one supplement at a time. Assess your response over 1–2 weeks before
-                    adding a second.
-                  </li>
-                  <li>
-                    If you take prescription sedatives, benzodiazepines, z-drugs, or psychiatric
-                    medications, consult a clinician before adding any sleep supplement.
-                  </li>
-                  <li>
-                    Starting all three on the same night makes it impossible to attribute effects
-                    or side effects to any single supplement.
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Product Recommendations */}
-            <div id="product-recommendations">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                L-Theanine Product Options
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                These products represent the dose ranges and forms most consistent with L-theanine
-                sleep and relaxation use. Affiliate links support this site at no additional cost
-                to you.
-              </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    L-Theanine — Lower Dose
-                  </p>
-                  <p className="font-semibold text-ink">L-Theanine 100 mg</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    A conservative starting dose for pre-sleep relaxation. Caffeine-free standalone
-                    supplement. Good for sensitive users or first-time trial.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=l-theanine+100mg+sleep&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    L-Theanine — Standard Dose
-                  </p>
-                  <p className="font-semibold text-ink">L-Theanine 200 mg</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    The most common dose used in relaxation and sleep-support trials. Caffeine-free
-                    only. Avoid &ldquo;focus blend&rdquo; products containing caffeine for
-                    nighttime use.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=l-theanine+200mg+sleep&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    L-Theanine + Magnesium Stack
-                  </p>
-                  <p className="font-semibold text-ink">L-Theanine &amp; Magnesium Glycinate</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Combined mental and physical relaxation support. Look for products with
-                    L-theanine 100–200 mg and magnesium glycinate 200–400 mg elemental — no
-                    caffeine or melatonin added.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=l-theanine+magnesium+glycinate+sleep&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Caffeine-Free Sleep Stack
-                  </p>
-                  <p className="font-semibold text-ink">Sleep Support Stack (No Caffeine)</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Multi-ingredient sleep formulas combining L-theanine with magnesium and/or
-                    ashwagandha. Verify that the product is caffeine-free and contains clinically
-                    relevant dose amounts before purchasing.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=l-theanine+ashwagandha+magnesium+sleep+stack+caffeine+free&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Safety */}
-            <div id="safety">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Safety and Side Effects
-              </h2>
-              <SafetyNotice title="Safety Summary — L-Theanine for Sleep">
-                <ul className="ml-5 space-y-1.5 list-disc">
-                  <li>
-                    <strong>Generally well-tolerated</strong> in typical supplemental use. L-theanine
-                    has a long history of consumption as a tea component and has been studied in
-                    clinical trials without major safety signals at standard doses.
-                  </li>
-                  <li>
-                    <strong>Common mild side effects</strong> may include headache, dizziness,
-                    and GI discomfort — these are reported infrequently in trials and are not
-                    specific to sleep-dose ranges.
-                  </li>
-                  <li>
-                    <strong>Sedative medications:</strong> L-theanine may add to the CNS-depressant
-                    effects of prescription sedatives, benzodiazepines, z-drugs, or other
-                    sleep medications. Do not combine without clinician guidance.
-                  </li>
-                  <li>
-                    <strong>Blood pressure medications:</strong> Some evidence suggests L-theanine
-                    may have mild blood pressure-lowering effects. Use with caution if you take
-                    antihypertensive medications.
-                  </li>
-                  <li>
-                    <strong>Psychiatric medications:</strong> Consult a clinician before combining
-                    L-theanine with anxiolytics, antidepressants, or antipsychotics.
-                  </li>
-                  <li>
-                    <strong>Pregnancy and breastfeeding:</strong> Insufficient human safety data
-                    for supplemental L-theanine during pregnancy or breastfeeding. Consult a
-                    clinician before use.
-                  </li>
-                  <li>
-                    <strong>Do not use to cover up severe insomnia.</strong> Persistent insomnia,
-                    sleep apnea symptoms, or major daytime impairment warrant clinical evaluation.
-                    L-theanine is not a substitute for medical assessment or CBT-I.
-                  </li>
-                </ul>
-              </SafetyNotice>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Who Should Try It */}
-            <div id="decision-framework">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Who Should Try It?
-              </h2>
-              <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-5">
-                <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-muted">
-                  <li className="flex gap-3">
-                    <span className="flex-shrink-0 font-bold text-ink">
-                      Try L-theanine if:
-                    </span>
-                    <span>
-                      Racing thoughts, mental chatter, or stress-driven mental arousal keep
-                      you awake at bedtime. It is most likely to show benefit in this pattern.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="flex-shrink-0 font-bold text-ink">
-                      Try magnesium first if:
-                    </span>
-                    <span>
-                      Muscle tension, physical restlessness, or general sleep quality without
-                      a strong mental arousal component is your main issue. Magnesium glycinate
-                      is typically the better first-line sleep supplement for most people.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="flex-shrink-0 font-bold text-ink">
-                      Try ashwagandha if:
-                    </span>
-                    <span>
-                      Chronic, ongoing stress is the primary driver of your sleep problems and
-                      you are willing to commit to a 6–8 week trial. Ashwagandha has more
-                      direct sleep-outcome evidence in chronically stressed populations.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="flex-shrink-0 font-bold text-ink">
-                      Consult a sleep specialist or doctor if:
-                    </span>
-                    <span>
-                      Sleep problems are severe, chronic (more than 3 months), or include
-                      symptoms of sleep apnea (loud snoring, witnessed pauses, gasping,
-                      excessive daytime sleepiness). No supplement addresses obstructive sleep
-                      apnea, and supplements are not a substitute for clinical evaluation.
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* What Not To Do */}
-            <div id="what-not-to-do">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                What Not To Do
-              </h2>
-              <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-muted">
-                <li className="flex gap-2">
-                  <span className="mt-1 flex-shrink-0 text-brand-700">✕</span>
-                  <span>
-                    <strong>Do not take caffeinated green tea at bedtime</strong> for L-theanine
-                    content. Green tea contains caffeine alongside L-theanine; for sleep purposes,
-                    use caffeine-free standalone supplements only.
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="mt-1 flex-shrink-0 text-brand-700">✕</span>
-                  <span>
-                    <strong>Do not stack five sleep aids at once.</strong> Adding L-theanine on top
-                    of melatonin, magnesium, ashwagandha, and valerian simultaneously makes it
-                    impossible to know what is working and increases the risk of additive effects.
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="mt-1 flex-shrink-0 text-brand-700">✕</span>
-                  <span>
-                    <strong>Do not assume &ldquo;natural&rdquo; means risk-free.</strong> L-theanine
-                    has drug interaction potential (sedatives, blood pressure medications) and
-                    populations who should avoid it or use it cautiously (pregnant/breastfeeding,
-                    on sedative medication).
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="mt-1 flex-shrink-0 text-brand-700">✕</span>
-                  <span>
-                    <strong>Do not megadose.</strong> Evidence does not support dose escalation
-                    beyond studied ranges, and very high doses of any supplement increase the risk
-                    of adverse effects without established additional benefit.
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="mt-1 flex-shrink-0 text-brand-700">✕</span>
-                  <span>
-                    <strong>Do not ignore sleep apnea signs.</strong> Loud snoring, witnessed
-                    breathing pauses, gasping awake, or severe daytime sleepiness should prompt
-                    medical evaluation — not supplementation. Sleep apnea is common,
-                    underdiagnosed, and not addressable by any supplement.
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="mt-1 flex-shrink-0 text-brand-700">✕</span>
-                  <span>
-                    <strong>Do not mix with prescription sedatives</strong> (benzodiazepines,
-                    z-drugs, barbiturates) without medical advice. The combination may produce
-                    excessive CNS depression.
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* FAQ */}
-            <div id="faq">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-4">
-                {FAQS.map((faq, i) => (
-                  <div
-                    key={i}
-                    className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
-                  >
-                    <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Related Articles */}
-            <div id="related-articles">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Related Articles
-              </h2>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <Link
-                  href="/guides/sleep/best-herbs-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster Hub
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Best Herbs for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence-ranked guide to magnesium, ashwagandha, L-theanine, valerian,
-                    passionflower, and more.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/magnesium-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Magnesium for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence, magnesium types, dosage, and safety — and how magnesium compares
-                    to L-theanine and ashwagandha.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/magnesium-types-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Magnesium Types for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Deep dive: glycinate vs threonate vs citrate vs oxide — which form to
-                    choose for sleep.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/ashwagandha-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Ashwagandha for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence, dosage, and mechanisms for ashwagandha — and how it compares
-                    to L-theanine.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Ashwagandha vs Magnesium for Sleep
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Side-by-side comparison — mechanisms, evidence, safety, and whether combining
-                    them makes sense.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/sleep/sleep-stack-guide/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Sleep Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Sleep Stack Guide
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    How to combine L-theanine, magnesium, ashwagandha, and other sleep
-                    supplements safely and effectively.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/anxiety/natural-anxiety-relief/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Anxiety Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Natural Anxiety Relief
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    L-theanine ranks among the top evidence-based anxiety supplements. See the
-                    full anxiety hub guide.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/adhd/l-theanine-for-adhd/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Focus / ADHD Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    L-Theanine for ADHD
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    Evidence on attention, hyperactivity, and sleep quality specific to ADHD.
-                  </p>
-                </Link>
-                <Link
-                  href="/guides/adhd/sleep-and-adhd/"
-                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
-                >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Focus / ADHD Cluster
-                  </p>
-                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
-                    Sleep and ADHD
-                  </p>
-                  <p className="mt-1 text-xs text-muted">
-                    How sleep debt affects executive function, behavioral regulation, and ADHD symptoms.
-                  </p>
-                </Link>
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Sources */}
-            <div id="sources">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
-              <ResponsiveTable label="Article references">
-                <table className="min-w-[600px] w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-brand-900/10">
-                      <th className="pb-2 pr-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        #
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Study
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Authors
-                      </th>
-                      <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Year
-                      </th>
-                      <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Link
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-brand-900/5">
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">1</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        L-theanine sleep evidence — sleep quality outcomes in clinical populations
-                      </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 text-muted">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">2</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        L-theanine stress/anxiety evidence — stress marker attenuation, alpha-wave
-                        induction
-                      </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3">
-                        <a
-                          href="https://pubmed.ncbi.nlm.nih.gov/31758301/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                        >
-                          PMID 31758301
-                        </a>{' '}
-                        <span className="text-muted text-xs">(Hidese 2019)</span>
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">3</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        L-theanine safety evidence — adverse event profile in clinical trials and
-                        post-market surveillance
-                      </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 text-muted">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">4</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        L-theanine + caffeine evidence — combination effects on cognitive performance
-                        (daytime use; cited for contrast)
-                      </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 text-muted">
-                        References being compiled
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">5</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        L-theanine pediatric/ADHD sleep evidence
-                      </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 text-muted">
-                        Not included — evidence under review
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-3 text-muted">6</td>
-                      <td className="py-3 pr-4 leading-6 text-ink">
-                        Combination evidence — L-theanine + magnesium or L-theanine + ashwagandha
-                        co-administration
-                      </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 text-muted">
-                        No combination trial identified in source registry
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </ResponsiveTable>
-              <p className="mt-3 text-xs text-muted">
-                Magnesium evidence references are shared with
-                the{' '}
-                <Link
-                  href="/guides/sleep/magnesium-for-sleep/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  Magnesium for Sleep article
-                </Link>
-                . Ashwagandha evidence references are shared with the{' '}
-                <Link
-                  href="/guides/sleep/ashwagandha-for-sleep/"
-                  className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  Ashwagandha for Sleep article
-                </Link>
-                .
-              </p>
-            </div>
-
           </section>
 
-          <RecommendationSection products={getRevenueProductSet('l-theanine')?.products ?? []} />
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">“Racing thoughts” are not a validated supplement selector</h2>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
+              It is tempting to map mental tension to L-theanine and physical tension to magnesium, but the trials do not validate that decision tree. Sleep-onset difficulty can reflect chronic insomnia, anxiety or mood disorders, circadian mismatch, medication or substance effects, pain, sleep apnea, restless legs, insufficient sleep opportunity, or other causes. Symptom labels alone do not identify which supplement will work.
+            </p>
+          </section>
 
-          {/* Email capture */}
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Separate ingredient studies do not validate a sleep stack</h2>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
+              Trials of L-theanine, magnesium, and ashwagandha as separate interventions do not prove that an L-theanine + magnesium, L-theanine + ashwagandha, or three-ingredient combination improves sleep more, works faster, or is safer. Combining products creates a new intervention and makes benefits, side effects, and interactions harder to attribute.
+            </p>
+            <Link href="/guides/sleep/sleep-stack-guide/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Sleep stack evidence guide →</Link>
+          </section>
+
+          <section>
+            <SafetyNotice title="Safety and stop rules">
+              <ul className="ml-5 list-disc space-y-2">
+                <li><strong>Trial safety:</strong> the 2026 review of 31 randomized trials reported no serious adverse events, but trial duration and populations were limited and do not prove indefinite nightly safety.</li>
+                <li><strong>Formulation matters:</strong> tea, caffeine-containing products, pure L-theanine, and multi-ingredient sleep products are not interchangeable interventions.</li>
+                <li><strong>Medication context:</strong> avoid blanket “interaction-free” claims. If you use prescription sedatives, psychiatric medicines, blood-pressure medicines, or other medications, review the combination with a pharmacist or prescriber.</li>
+                <li><strong>Pregnancy and breastfeeding:</strong> supplementation evidence is insufficient for a broad safety claim; discuss use with an appropriate clinician.</li>
+                <li><strong>Sleep-specific stop rule:</strong> persistent insomnia, loud snoring or gasping, dangerous daytime sleepiness, restless-legs symptoms, severe mood symptoms, or rapidly worsening sleep warrant assessment rather than supplement escalation.</li>
+              </ul>
+            </SafetyNotice>
+          </section>
+
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Chronic insomnia has a stronger first-line treatment</h2>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
+              The American Academy of Sleep Medicine describes cognitive behavioral therapy for insomnia (CBT-I) as the first-line, evidence-based treatment for chronic insomnia. A supplement trial should not delay evaluation of persistent insomnia or another sleep disorder.
+            </p>
+          </section>
+
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Product sourcing: match identity, not a bedtime-dose promise</h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              If L-theanine supplementation is appropriate, look for clear ingredient identity, caffeine disclosure, and independent quality testing where available. Quality testing can improve confidence in identity and contamination control; it does not establish sleep efficacy or prove that a retail product matches a research intervention.
+            </p>
+            <div className="mt-5"><RecommendationSection products={getRevenueProductSet('l-theanine')?.products ?? []} /></div>
+          </section>
+
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+            <div className="mt-5 space-y-5">
+              {FAQS.map((faq) => (
+                <div key={faq.question} className="border-l-4 border-brand-600 pl-4">
+                  <h3 className="font-semibold text-ink">{faq.question}</h3>
+                  <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Sources and directness notes</h2>
+            <ol className="mt-4 space-y-4">
+              {SOURCES.map((source, index) => (
+                <li key={source.href} className="text-sm leading-7 text-muted">
+                  <span className="font-semibold text-ink">{index + 1}. </span>
+                  <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">{source.label}</a>
+                  <span> — {source.note}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
           <EmailCapture
             headline="Get future research notes by email"
             description="Evidence-first supplement updates, safety context, and new guide announcements. No diagnosis, treatment, or personal medical advice."
             location={`article-${SLUG}`}
           />
-
           <NewsletterCtaBlock
             title="Continue with the newsletter archive"
             description="Short notes built for cautious supplement decisions."
@@ -1285,94 +307,20 @@ export default function LTheanineForSleepPage() {
           />
         </div>
 
-        {/* Sidebar */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          {/* Table of contents */}
           <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              In this article
-            </p>
-            <nav className="mt-3 space-y-1.5" aria-label="Article sections">
-              {[
-                ['#what-is-l-theanine', 'What Is L-Theanine?'],
-                ['#mechanisms', 'How It Affects Sleep'],
-                ['#evidence-summary', 'Evidence Summary'],
-                ['#dosage', 'Dosage & Timing'],
-                ['#product-recommendations', 'Product Options'],
-                ['#vs-magnesium', 'vs Magnesium'],
-                ['#vs-ashwagandha', 'vs Ashwagandha'],
-                ['#combining', 'Combining Supplements'],
-                ['#safety', 'Safety & Side Effects'],
-                ['#decision-framework', 'Who Should Try It?'],
-                ['#what-not-to-do', 'What Not To Do'],
-                ['#faq', 'FAQ'],
-                ['#sources', 'Sources'],
-              ].map(([href, label]) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline">{label}</a>
-              ))}
+            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Related evidence</p>
+            <nav className="mt-3 space-y-2 text-sm font-medium text-brand-700">
+              <Link href="/guides/herbs/l-theanine/" className="block hover:underline">L-theanine umbrella guide →</Link>
+              <Link href="/guides/compare/sleep-herbs-vs-melatonin/" className="block hover:underline">Sleep supplements vs melatonin →</Link>
+              <Link href="/guides/sleep/sleep-stack-guide/" className="block hover:underline">Sleep stack evidence →</Link>
+              <Link href="/guides/sleep/" className="block hover:underline">Sleep goal hub →</Link>
             </nav>
           </div>
-
-          {/* Related profiles */}
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-              Explore more
-            </p>
-            <div className="mt-3 space-y-2">
-              <Link
-                href="/guides/sleep/best-herbs-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Best herbs for sleep →
-              </Link>
-              <Link
-                href="/guides/sleep/magnesium-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Magnesium for sleep →
-              </Link>
-              <Link
-                href="/guides/sleep/magnesium-types-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Magnesium types for sleep →
-              </Link>
-              <Link
-                href="/guides/sleep/ashwagandha-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Ashwagandha for sleep →
-              </Link>
-              <Link
-                href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Ashwagandha vs magnesium →
-              </Link>
-              <Link
-                href="/guides/sleep/sleep-herbs-vs-melatonin/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                Sleep herbs vs melatonin →
-              </Link>
-              <Link
-                href="/guides/"
-                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
-              >
-                All articles →
-              </Link>
-            </div>
+          <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-xs leading-6 text-muted">
+            <strong className="text-ink">Interpretation rule:</strong> a trial regimen tells you what researchers tested. It does not automatically become a personal dose, bedtime, duration, or combination recommendation.
           </div>
         </aside>
-      </div>
-
-      <div className="mt-8">
-        <Link href="/guides/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
-          ← Back to Guides
-        </Link>
       </div>
     </article>
   )
