@@ -45,7 +45,7 @@ export function initConsentDefault() {
 }
 
 export function applyGaConsent(status: ConsentStatus) {
-  const granted = status === 'granted'
+  const granted = status === 'granted' && !getSystemNoTracking()
   // GA4 Consent Mode v2 (safe no-op if gtag missing)
   try {
     ;(window as any).gtag?.('consent', 'default', {
