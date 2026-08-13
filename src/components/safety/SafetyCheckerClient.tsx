@@ -328,13 +328,31 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
       return safetyText.includes('stimulant') || safetyText.includes('insomnia') || safetyText.includes('hypertension') || mechText.includes('stimulant') || mechText.includes('caffeine') || mechText.includes('ephedrine') || mechText.includes('yohimbine') || flags.includes('stimulant')
     })
 
+    const hasDistinctMaoiSupplementOverlap = selectedItems.some((maoiItem, maoiIndex) => {
+      const maoiSafetyText = (maoiItem.safety || '').toLowerCase()
+      const maoiMechText = (maoiItem.mechanism || '').toLowerCase() + ' ' + (maoiItem.mechanisms || []).join(' ').toLowerCase()
+      const maoiFlags = maoiItem.safety_flags || []
+      const isMaoi = maoiSafetyText.includes('maoi') || maoiSafetyText.includes('monoamine oxidase') || maoiMechText.includes('mao inhibitor') || maoiMechText.includes('maoi') || maoiFlags.includes('maoi')
+      if (!isMaoi) return false
+
+      return selectedItems.some((otherItem, otherIndex) => {
+        if (otherIndex === maoiIndex) return false
+        const safetyText = (otherItem.safety || '').toLowerCase()
+        const mechText = (otherItem.mechanism || '').toLowerCase() + ' ' + (otherItem.mechanisms || []).join(' ').toLowerCase()
+        const flags = otherItem.safety_flags || []
+        const isSerotonergic = safetyText.includes('serotonin syndrome') || safetyText.includes('ssri') || safetyText.includes('maoi') || mechText.includes('serotonin reuptake') || mechText.includes('5-ht') || mechText.includes('serotonergic') || mechText.includes('kanna') || flags.includes('serotonergic')
+        const isStimulant = safetyText.includes('stimulant') || safetyText.includes('insomnia') || safetyText.includes('hypertension') || mechText.includes('stimulant') || mechText.includes('caffeine') || mechText.includes('ephedrine') || mechText.includes('yohimbine') || flags.includes('stimulant')
+        return isSerotonergic || isStimulant
+      })
+    })
+
     if (hasMaoiMed && (hasSerotonergicSupp || hasStimulantSupp)) {
       alerts.push({
         type: 'danger',
         title: 'MAOI medication overlap — pharmacist review advised',
         desc: `A selected MAOI medication class overlaps with supplement(s) carrying serotonergic or stimulant signals. MAO inhibitors can have serious medication and dietary interactions, and this ruleset cannot determine whether a specific supplement signal is clinically meaningful. Do not use this screen as clearance; review the exact medicine, supplement, and dose with a pharmacist or prescribing clinician.`
       })
-    } else if (hasMaoiSupp && (hasSerotonergicMed || hasStimulantMed || hasSerotonergicSupp || hasStimulantSupp)) {
+    } else if ((hasMaoiSupp && (hasSerotonergicMed || hasStimulantMed)) || hasDistinctMaoiSupplementOverlap) {
       alerts.push({
         type: 'warning',
         title: 'MAO-related mechanism flag',
