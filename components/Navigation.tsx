@@ -229,7 +229,7 @@ export function Navigation() {
             style={{ height: '100dvh' }}
           >
             <div className='mb-6 flex items-center justify-between gap-3'>
-              <Link href='/' onClick={closeMobile} className='flex min-w-0 items-center gap-2.5 font-display text-lg font-semibold text-[#123c2f] dark:text-[var(--text-primary)]'>
+              <Link href='/' onClick={closeMobile} aria-label='The Hippie Scientist home' className='flex min-w-0 items-center gap-2.5 font-display text-lg font-semibold text-[#123c2f] dark:text-[var(--text-primary)]'>
                 <Leaf aria-hidden='true' className='h-5 w-5 shrink-0 text-[#315f50] dark:text-[var(--accent-teal)]' strokeWidth={1.7} />
                 <span className='truncate'>The Hippie Scientist</span>
               </Link>
