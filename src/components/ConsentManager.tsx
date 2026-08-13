@@ -124,7 +124,7 @@ export default function ConsentManager({ open, onClose }: Props) {
             type="button"
             aria-label="Close privacy settings"
             onClick={onClose}
-            className="rounded border border-white/10 px-2 py-1 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded border border-white/10 px-2 py-1 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
           >
             ✕
           </button>
