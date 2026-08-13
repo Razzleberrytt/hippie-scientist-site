@@ -260,7 +260,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
                 <Link
                   href="/search/"
                   onClick={close}
-                  className="font-semibold text-brand-700 hover:text-brand-900"
+                  className="rounded font-semibold text-brand-700 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
                 >
                   Advanced search →
                 </Link>
