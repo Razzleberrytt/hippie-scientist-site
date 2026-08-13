@@ -148,72 +148,72 @@ const LEGAL_STATUS_WARNINGS: Record<string, { title: string; body: string; items
     suppressAffiliate: true,
   },
   'bpc-157': {
-    title: 'Unapproved compound: FDA compounding status pending review',
-    body: 'BPC-157 is not FDA-approved as a finished drug product. It was removed from the FDA’s Category 2 restricted 503A bulk substances list on April 22, 2026, but that is not the same as approval — it sits in a regulatory gray zone pending the FDA Pharmacy Compounding Advisory Committee’s (PCAC) scheduled July 23–24, 2026 review.',
+    title: 'Unapproved compound: FDA safety and compounding review',
+    body: 'BPC-157 is not FDA-approved as a finished drug product. FDA’s Pharmacy Compounding Advisory Committee discussed BPC-157 on July 23, 2026; an advisory-committee discussion or recommendation is not the same as FDA approval or a final 503A bulks-list rule.',
     items: [
-      'Research-use-only (RUO) product is not legally intended for human consumption.',
-      'Human clinical trial data is essentially absent; this profile is not a self-treatment guide.',
-      'Banned year-round under WADA’s S0 category for competitive athletes.',
+      'FDA continues to flag limited safety information and potential immunogenicity and peptide-impurity concerns for compounded BPC-157.',
+      'Human clinical evidence remains very limited; this profile is not a self-treatment guide.',
+      'A research-use label does not establish FDA-reviewed identity, quality, safety, or effectiveness for human use.',
     ],
     suppressAffiliate: true,
   },
   'tb-500': {
-    title: 'Unapproved compound: FDA compounding status pending review',
-    body: 'TB-500 is not FDA-approved for human use. It was removed from the FDA’s Category 2 restricted 503A bulk substances list in April 2026, but remains in a regulatory gray zone pending the FDA Pharmacy Compounding Advisory Committee’s (PCAC) scheduled July 23, 2026 review.',
+    title: 'Unapproved compound: FDA safety and compounding review',
+    body: 'TB-500 is not FDA-approved for human use. FDA’s Pharmacy Compounding Advisory Committee discussed the thymosin-beta-4 fragment on July 23, 2026; that advisory process does not itself create an approved drug or a final 503A bulks-list status.',
     items: [
-      'Research-use-only (RUO) product is not legally intended for human consumption.',
-      'No completed human clinical trials exist for the synthetic TB-500 fragment specifically.',
+      'FDA says it has not identified human exposure data for the TB-500 fragment in its current compounding safety review.',
       'This profile is not a self-treatment guide.',
+      'A research-use label does not establish FDA-reviewed identity, quality, safety, or effectiveness for human use.',
     ],
     suppressAffiliate: true,
   },
   'cjc-1295': {
-    title: 'Unapproved compound: FDA compounding status uncertain',
-    body: 'CJC-1295 is not FDA-approved for any human use. It was removed from the FDA’s Category 2 restricted 503A bulk substances list in April 2026 following withdrawal of its nomination, but was not moved to the approved Category 1 list and is not on the July 2026 FDA Pharmacy Compounding Advisory Committee (PCAC) review agenda.',
+    title: 'Unapproved compound: significant safety uncertainty',
+    body: 'CJC-1295 is not FDA-approved for human use. FDA’s current compounding safety material describes limited clinical data and reports serious adverse events, including increased heart rate and a systemic vasodilatory reaction, associated with CJC-1295.',
     items: [
-      'Research-use-only (RUO) product is not legally intended for human consumption.',
-      'No long-term human safety or efficacy data exists for any dose or protocol.',
-      'This profile is not a self-treatment guide.',
+      'Do not treat a prior Category 1/2 nomination or withdrawal as an FDA approval decision.',
+      'Long-term human safety and efficacy are not established.',
+      'A research-use label does not establish FDA-reviewed identity, quality, safety, or effectiveness for human use.',
     ],
     suppressAffiliate: true,
   },
   ipamorelin: {
-    title: 'Unapproved compound: FDA reclassification pending',
-    body: 'Ipamorelin is not FDA-approved as a finished drug product. It was named among peptides expected to move toward Category 1 (compoundable) status per the February 2026 HHS/FDA announcement, but formal Federal Register rulemaking confirming its final category had not yet published as of mid-2026.',
+    title: 'Unapproved compound: current FDA compounding safety concern',
+    body: 'Ipamorelin is not FDA-approved as a finished drug product. FDA’s current significant-safety-risk material lists ipamorelin acetate in Category 2 under the 503B interim policy and describes important safety-information and peptide-characterization gaps.',
     items: [
-      'No prescription form of Ipamorelin exists on the market; product is research-use-only (RUO) or physician-prescribed compounded where accessible.',
-      'Prohibited under WADA’s S2 category for competitive athletes.',
+      'FDA notes serious adverse events, including deaths, in an intravenous ipamorelin study for gastric-motility purposes; route and context matter, but the signal rules out blanket safety claims.',
+      'Do not forecast Category 1 or broad compounding access from older announcements; final regulatory status depends on the applicable FDA process.',
       'This profile is not a self-treatment guide.',
     ],
     suppressAffiliate: true,
   },
   'pt-141': {
-    title: 'Approved drug exists, but research-chemical product is a separate category',
-    body: 'Bremelanotide is FDA-approved as Vyleesi, prescription-only, for hypoactive sexual desire disorder (HSDD) in premenopausal women specifically. PT-141 sold as a research chemical is a different regulatory category, not FDA-approved for any use outside that narrow indication, and is not legally intended for human consumption.',
+    title: 'FDA-approved bremelanotide exists; gray-market PT-141 is not the same product',
+    body: 'Bremelanotide is FDA-approved as Vyleesi for acquired, generalized hypoactive sexual desire disorder in premenopausal women. A vial or powder sold online as PT-141, including one labeled for research use, has not thereby inherited Vyleesi’s FDA review or approved indication.',
     items: [
-      'Off-label marketing (e.g., male sexual enhancement, general libido) is not backed by the trial data that supports the approved indication.',
-      'Can transiently raise blood pressure; relevant for anyone with cardiovascular risk factors.',
-      'This profile is not a self-treatment guide.',
+      'Vyleesi is not indicated for men or to enhance sexual performance.',
+      'Current labeling contraindicates Vyleesi in uncontrolled hypertension or known cardiovascular disease.',
+      'Gray-market product quality, identity, concentration accuracy, and sterility should not be inferred from the approved drug’s evidence.',
     ],
     suppressAffiliate: true,
   },
   semaglutide: {
-    title: 'Prescription-only drug: no consumer sourcing',
-    body: 'Semaglutide is an FDA-approved prescription drug (Ozempic, Wegovy, Rybelsus), not a controlled substance, and is not sold as a research peptide. The FDA has determined semaglutide is no longer in shortage, which curtails bulk compounding — compounded access now generally requires individualized, physician-documented clinical necessity.',
+    title: 'Prescription drug: approved-product and compounding rules are separate',
+    body: 'Semaglutide is used in FDA-approved prescription products including Ozempic, Wegovy, and Rybelsus. FDA determined the semaglutide injection shortage was resolved on February 21, 2025, so shortage-based enforcement discretion for routine essentially-copy compounding has ended; 503A and 503B still operate under different statutory conditions.',
     items: [
-      'Legitimate access is prescription-only through a licensed pharmacy.',
-      'Carries a boxed warning for thyroid C-cell tumor risk; contraindicated with personal or family history of medullary thyroid carcinoma or MEN 2.',
-      'This profile is not a self-treatment guide or a substitute for a prescribing clinician.',
+      '503A patient-specific compounding is subject to conditions including restrictions on regularly or inordinate amounts making products that are essentially copies of commercially available drugs.',
+      'FDA states semaglutide is not currently on the 503B bulks list and is not on the drug-shortage list; FDA’s April 30, 2026 proposal to exclude it from the 503B bulks list is a proposal, not a final blanket rule.',
+      'Compounded semaglutide is not FDA-approved and does not automatically inherit the approved products’ quality or clinical evidence.',
     ],
     suppressAffiliate: true,
   },
   tirzepatide: {
-    title: 'Prescription-only drug: no consumer sourcing',
-    body: 'Tirzepatide is an FDA-approved prescription drug (Mounjaro, Zepbound), not a controlled substance, and is not sold as a research peptide. As with semaglutide, the FDA has determined tirzepatide is no longer in shortage, which curtails bulk compounding — compounded access now generally requires individualized, physician-documented clinical necessity.',
+    title: 'Prescription drug: approved-product and compounding rules are separate',
+    body: 'Tirzepatide is used in FDA-approved prescription products including Mounjaro and Zepbound. FDA determined the tirzepatide injection shortage was resolved in December 2024, so shortage-based enforcement discretion for routine essentially-copy compounding has ended; 503A and 503B still operate under different statutory conditions.',
     items: [
-      'Legitimate access is prescription-only through a licensed pharmacy.',
-      'Carries the same boxed warning as semaglutide for thyroid C-cell tumor risk; same contraindications apply.',
-      'This profile is not a self-treatment guide or a substitute for a prescribing clinician.',
+      '503A patient-specific compounding is subject to conditions including restrictions on regularly or inordinate amounts making products that are essentially copies of commercially available drugs.',
+      'FDA states tirzepatide is not currently on the 503B bulks list and is not on the drug-shortage list; FDA’s April 30, 2026 proposal to exclude it from the 503B bulks list is a proposal, not a final blanket rule.',
+      'Compounded tirzepatide is not FDA-approved and does not automatically inherit the approved products’ quality or clinical evidence.',
     ],
     suppressAffiliate: true,
   },
@@ -361,9 +361,11 @@ const CAUTION_PATTERN = /avoid|caution|interaction|contraindication|warning|risk
 
 
 
-function getSafetyTone(summary: string, avoidIf: string[]) {
+function getSafetyTone(summary: string, avoidIf: string[], safetyLevel: string) {
+  if (/pending|limited|review/i.test(safetyLevel)) return 'Review needed'
   if (avoidIf.length || CAUTION_PATTERN.test(summary)) return 'Use extra caution'
-  return 'Standard caution'
+  if (/generally well tolerated/i.test(safetyLevel)) return 'Generally well tolerated'
+  return 'Safety context'
 }
 
 function firstSentences(value: string, limit = 2) {
@@ -703,7 +705,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const safetySummary = getSafetySummary(compound, avoidIf)
   const trustGuidance = buildCompoundTrustGuidance(compound, avoidIf)
   const mechanismHints = getMechanismHints(compound, mechanisms)
-  const safetyTone = getSafetyTone(safetySummary, avoidIf)
+  const safetyTone = getSafetyTone(safetySummary, avoidIf, safetyLevel)
 
   const breadcrumbId = `${SITE_URL}/compounds/${compound.slug}/#breadcrumb`
 
@@ -964,7 +966,7 @@ export default async function CompoundPage({ params }: PageProps) {
             </div>
             <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
               <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety rating</p>
-              <p className="mt-1 text-sm font-semibold text-ink">{safetyTone}: {safetyLevel || 'Standard caution'}</p>
+              <p className="mt-1 text-sm font-semibold text-ink">{safetyTone}: {safetyLevel || 'Safety review pending'}</p>
             </div>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
