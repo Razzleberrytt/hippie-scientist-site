@@ -19,7 +19,7 @@ const SafetyCheckerClient = dynamic(
 export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Safety Interaction Checker – Stack Risk Tool',
   description:
-    'Check supplement and herb combinations for interaction patterns, contraindications, and stacking risks before you buy. Educational tool only.',
+    'Screen supplement and herb combinations for possible interaction patterns, contraindication signals, and stacking cautions. Educational tool only.',
   path: '/safety-checker',
 })
 
@@ -46,7 +46,7 @@ export default async function SafetyCheckerPage() {
     path: '/safety-checker',
     title: 'Multi-Item Safety Interaction Checker',
     description:
-      'Interact with the safety matrix to evaluate potential contraindications when stacking multiple dietary supplements or active compounds.',
+      'Use the safety matrix as an educational screen for possible contraindication signals and overlapping caution patterns across selected supplements or active compounds.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
       { name: 'Safety Interaction Checker', url: `${SITE_URL}/safety-checker/` },
@@ -55,17 +55,17 @@ export default async function SafetyCheckerPage() {
       {
         question: 'What does the supplement safety checker evaluate?',
         answer:
-          'The safety checker compares selected herbs and compounds against qualitative interaction patterns, contraindications, overlapping neurotransmitter or receptor effects, and stacking risks in the site reference database.',
+          'The checker compares selected herbs and compounds against qualitative safety flags, mechanism categories, contraindication language, and medication-class cautions in the site reference database. A flag identifies something to review; it does not establish that a clinical interaction will occur.',
       },
       {
         question: 'Is the safety checker medical advice?',
         answer:
-          'No. The checker is an educational screening tool and is not a substitute for individualized review by a clinician or pharmacist, especially when prescription medications, pregnancy, chronic conditions, or high-risk supplements are involved.',
+          'No. The checker is an educational screening tool and is not a substitute for individualized review by a clinician or pharmacist, especially when prescription medications, pregnancy, chronic conditions, surgery, or high-risk supplements are involved.',
       },
       {
         question: 'Why should supplement stacks be checked before buying?',
         answer:
-          'Stacking multiple supplements can increase sedation, stimulation, blood-pressure effects, serotonergic load, bleeding risk, or medication interactions. Reviewing combinations first helps identify reasons to avoid or simplify a stack.',
+          'Some supplements can interact with medications or with other supplements, and evidence is incomplete for many combinations. Screening a stack can surface reasons to simplify it or ask a clinician or pharmacist for a medication-specific review.',
       },
     ],
   })
@@ -75,32 +75,32 @@ export default async function SafetyCheckerPage() {
       <SchemaGraphScript graph={schemaGraph} />
 
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-4'>
-        <p className='eyebrow-label'>Harm Reduction Portal</p>
+        <p className='eyebrow-label'>Educational safety screen</p>
         <h1 className='text-3xl font-bold tracking-tight text-ink sm:text-5xl mt-2'>
           Safety Interaction Checker
         </h1>
         <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>
-          Polypharmacy and supplement stacking can result in dangerous receptor loading overlaps. Evaluate potential interactions, neurotransmitter excesses, and contraindications before starting your stack.
+          Screen a supplement stack for possible interaction patterns and overlapping cautions. The checker uses structured safety and mechanism signals to decide what deserves a closer look; it cannot determine whether a combination is safe for you or predict a clinical interaction.
         </p>
       </section>
 
       <section className='grid gap-4 md:grid-cols-3' aria-label='How to use the supplement safety checker'>
         <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='text-base font-bold text-ink'>Start with your full stack</h2>
+          <h2 className='text-base font-bold text-ink'>Start with your full list</h2>
           <p className='mt-2 text-sm leading-6 text-muted'>
-            Add every herb, supplement, compound, and high-impact medication context you are trying to reason about. The most useful safety review looks for the combined burden: sedation, stimulation, blood-pressure effects, serotonergic load, bleeding risk, liver stress, or overlapping receptor targets.
+            Add the herbs, supplements, compounds, and medication classes you are trying to reason about. The screen looks for repeated caution categories such as sedation, stimulation, blood-pressure effects, serotonergic signals, bleeding concerns, and other structured safety flags.
           </p>
         </article>
         <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='text-base font-bold text-ink'>Read patterns, not permissions</h2>
+          <h2 className='text-base font-bold text-ink'>Read flags, not permissions</h2>
           <p className='mt-2 text-sm leading-6 text-muted'>
-            A low-risk result does not mean a stack is guaranteed safe, and a caution flag does not diagnose an interaction. Treat the output as a screening layer that helps you decide what to simplify, research more carefully, or review with a clinician or pharmacist.
+            No flag does not mean a stack is proven safe, and a flag does not prove an interaction will occur. Use the output to decide what to simplify, research more carefully, or review with a clinician or pharmacist.
           </p>
         </article>
         <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='text-base font-bold text-ink'>Escalate high-risk contexts</h2>
+          <h2 className='text-base font-bold text-ink'>Escalate higher-risk contexts</h2>
           <p className='mt-2 text-sm leading-6 text-muted'>
-            Pregnancy, breastfeeding, surgery, bleeding disorders, liver or kidney disease, heart rhythm concerns, blood-pressure medication, anticoagulants, antidepressants, sedatives, and stimulants all deserve extra caution before experimenting with supplement combinations.
+            Prescription medications, pregnancy, breastfeeding, surgery, chronic disease, anticoagulants, antidepressants, sedatives, stimulants, and narrow-therapeutic-index medicines deserve medication-specific review rather than relying on a general supplement screen.
           </p>
         </article>
       </section>
@@ -111,13 +111,13 @@ export default async function SafetyCheckerPage() {
           <div>
             <h3 className='text-sm font-bold uppercase tracking-wide text-emerald-800'>Useful for</h3>
             <p className='mt-2 text-sm leading-6 text-muted'>
-              Spotting repeated mechanism categories, comparing caution levels before buying, finding ingredient combinations that deserve slower titration, and identifying when a stack is becoming too complex to reason about from labels alone.
+              Surfacing repeated caution categories, finding ingredient combinations that deserve a closer source check, comparing known safety notes, and identifying when a stack is becoming too complex to reason about from labels alone.
             </p>
           </div>
           <div>
-            <h3 className='text-sm font-bold uppercase tracking-wide text-rose-800'>Not useful for</h3>
+            <h3 className='text-sm font-bold uppercase tracking-wide text-rose-800'>Not a substitute for</h3>
             <p className='mt-2 text-sm leading-6 text-muted'>
-              Predicting individual side effects, replacing prescription guidance, checking exact drug metabolism for every medication, or proving that a combination is safe at a specific dose. Personal medical history can change the risk profile completely.
+              Medication-specific interaction checking, dose-specific risk assessment, individual side-effect prediction, diagnosis, or professional review of your medical history. The database can also miss interactions that are unknown, newly reported, or not captured by its rules.
             </p>
           </div>
         </div>
@@ -132,13 +132,13 @@ export default async function SafetyCheckerPage() {
 
       <section className='rounded-2xl border border-emerald-900/10 bg-emerald-50/45 p-5 shadow-sm'>
         <p className='eyebrow-label'>Continue researching</p>
-        <h2 className='mt-2 text-xl font-bold tracking-tight text-ink'>Compare active botanicals by chemistry and risk</h2>
+        <h2 className='mt-2 text-xl font-bold tracking-tight text-ink'>Trace a flag back to the evidence</h2>
         <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>
-          The Botanical Activity Atlas groups herbs by active-compound class, effect profile, evidence, noticeability, and structured safety signals. Use the focused serotonergic guide when antidepressants, MAO inhibition, or serotonin-related stacking is part of the question.
+          Use the Botanical Activity Atlas and ingredient profiles to inspect the chemistry, evidence strength, and source-specific safety notes behind a screening flag. For medication questions, use those pages as background for a clinician or pharmacist review rather than as a clearance tool.
         </p>
         <div className='mt-4 flex flex-wrap gap-3'>
           <Link href='/tools/botanical-activity-atlas/serotonergic-interaction-risk/' className='rounded-full bg-emerald-900 px-4 py-2 text-sm font-bold text-white transition hover:bg-emerald-800'>
-            View serotonergic-risk botanicals
+            Review serotonergic-signal botanicals
           </Link>
           <Link href='/tools/botanical-activity-atlas/' className='rounded-full border border-emerald-900/20 bg-white px-4 py-2 text-sm font-bold text-emerald-900 transition hover:border-emerald-900/35'>
             Open the complete atlas
@@ -148,10 +148,10 @@ export default async function SafetyCheckerPage() {
 
       <section className='rounded-2xl border border-rose-900/15 bg-rose-50/50 p-5 text-xs leading-relaxed text-rose-950'>
         <p className='font-bold flex items-center gap-1.5'>
-          ⚠️ Medical Disclaimer & Limitation of Liability:
+          ⚠️ Educational screening limitation
         </p>
         <p className='mt-1.5'>
-          This automated interaction auditor searches published biomedical mechanisms and qualitative safety profiles in our reference database. It does NOT constitute clinical advice and is NOT a substitute for professional pharmacological evaluation. Supplements can cause idiosyncratic adverse reactions or interact dangerously with prescription pharmaceuticals. Always consult your primary care clinician or pharmacist before modifying any wellness regime.
+          This tool matches selected items against qualitative safety fields and rule-based overlap categories in the site database. It can surface possible concerns but cannot verify that an interaction will occur, rule out interactions, account for your dose or medical history, or replace medication-specific review. If you take prescription or over-the-counter medicines, share your complete medication and supplement list with a clinician or pharmacist before changing your regimen.
         </p>
       </section>
     </div>
