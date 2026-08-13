@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Caffeine vs L-Theanine vs Bacopa for Focus & Attention',
-  description: 'Caffeine, L-theanine, and bacopa compared for focus, calm concentration, and memory. Evidence-informed guide with timing, safety, and stacking notes.',
+  title: 'Caffeine vs L-Theanine vs Bacopa: Focus Evidence',
+  description: 'Compare caffeine, L-theanine, and bacopa for acute attention, calm focus, and longer-term memory evidence, including timing, sleep effects, and safety.',
   path: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/',
 })
 
