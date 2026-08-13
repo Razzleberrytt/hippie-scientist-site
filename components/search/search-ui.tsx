@@ -94,28 +94,28 @@ export interface ResultRowProps {
 /** A single result rendered as an ARIA listbox option (used in the modal). */
 export function ResultRow({ doc, active, id, onHover, onSelect }: ResultRowProps) {
   return (
-    <li role="option" aria-selected={active} id={id}>
-      <button
-        type="button"
-        tabIndex={-1}
-        onMouseEnter={onHover}
-        onClick={onSelect}
-        className={clsx(
-          'flex w-full flex-col gap-1 rounded-xl border px-3 py-2.5 text-left transition',
-          active
-            ? 'border-brand-700/30 bg-brand-50/70 dark:border-brand-600/40 dark:bg-[var(--surface-subtle)]'
-            : 'border-transparent hover:bg-brand-50/40 dark:hover:bg-[var(--surface-card)]',
-        )}
-      >
-        <span className="flex items-center gap-2">
-          <TypeBadge type={doc.type} />
-          <span className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">{doc.title}</span>
-          <EvidenceBadge grade={doc.evidenceGrade} />
-        </span>
-        {doc.summary && (
-          <span className="line-clamp-1 text-xs leading-5 text-muted">{doc.summary}</span>
-        )}
-      </button>
+    <li
+      role="option"
+      aria-selected={active}
+      id={id}
+      tabIndex={-1}
+      onMouseEnter={onHover}
+      onClick={onSelect}
+      className={clsx(
+        'flex w-full cursor-pointer flex-col gap-1 rounded-xl border px-3 py-2.5 text-left transition',
+        active
+          ? 'border-brand-700/30 bg-brand-50/70 dark:border-brand-600/40 dark:bg-[var(--surface-subtle)]'
+          : 'border-transparent hover:bg-brand-50/40 dark:hover:bg-[var(--surface-card)]',
+      )}
+    >
+      <span className="flex items-center gap-2">
+        <TypeBadge type={doc.type} />
+        <span className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">{doc.title}</span>
+        <EvidenceBadge grade={doc.evidenceGrade} />
+      </span>
+      {doc.summary && (
+        <span className="line-clamp-1 text-xs leading-5 text-muted">{doc.summary}</span>
+      )}
     </li>
   )
 }
