@@ -214,9 +214,9 @@ export function GlobalSearchModal() {
               className="max-h-[50vh] space-y-0.5 overflow-y-auto overscroll-contain p-2"
             >
               {!search.ready ? (
-                <li className="px-3 py-6 text-center text-sm text-muted">Loading search…</li>
+                <li role="option" aria-disabled="true" className="px-3 py-6 text-center text-sm text-muted">Loading search…</li>
               ) : search.results.length === 0 ? (
-                <li className="px-3 py-6 text-center text-sm text-muted">
+                <li role="option" aria-disabled="true" className="px-3 py-6 text-center text-sm text-muted">
                   {search.query ? `No matches for “${search.query}”.` : 'Start typing to search.'}
                 </li>
               ) : (
