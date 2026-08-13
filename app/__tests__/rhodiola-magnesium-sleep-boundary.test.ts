@@ -6,6 +6,10 @@ const readGuide = () => fs
   .readFileSync(path.join(process.cwd(), 'app/guides/sleep/rhodiola-sleep-stack/page.tsx'), 'utf8')
   .replace(/\s+/g, ' ')
 
+const readSource = () => fs
+  .readFileSync(path.join(process.cwd(), 'content/guides/rhodiola-sleep-stack.mdx'), 'utf8')
+  .replace(/\s+/g, ' ')
+
 describe('rhodiola + magnesium sleep evidence boundary', () => {
   it('does not present the untested pair as a dosing or timing protocol', () => {
     const page = readGuide()
@@ -40,5 +44,15 @@ describe('rhodiola + magnesium sleep evidence boundary', () => {
     expect(page).toMatch(/fatigue, stress, mood, and performance rather than primary sleep treatment/i)
     expect(page).toMatch(/evidence quality was rated low to very low/i)
     expect(page).toMatch(/statistically significant but <strong>small<\/strong> improvement/i)
+  })
+
+  it('keeps the duplicate content source from restoring the old protocol', () => {
+    const source = readSource()
+
+    expect(source).toMatch(/untested combination of two separately studied ingredients/i)
+    expect(source).not.toMatch(/The Adaptogen Protocol That Works/i)
+    expect(source).not.toMatch(/## The Protocol/i)
+    expect(source).not.toMatch(/physiologically necessary/i)
+    expect(source).not.toMatch(/they're safe when combined at standard doses/i)
   })
 })
