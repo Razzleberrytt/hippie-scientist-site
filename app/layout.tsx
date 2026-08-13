@@ -13,7 +13,7 @@ import ClickTracker from '@/components/ClickTracker'
 import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
-import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
+import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
 import { serializeJsonLd } from '../src/lib/schema-injector'
 import { DEFAULT_LOCALE, DEFAULT_OG_LOCALE, LOCALE_TEXT_DIRECTION } from '../src/lib/international-seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
@@ -56,6 +56,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   title: { default: HOME_TITLE, template: '%s' },
   description: DEFAULT_DESCRIPTION,
   icons: {
