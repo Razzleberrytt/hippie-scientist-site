@@ -71,10 +71,10 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
   {
     label: 'Tools',
     href: '/safety-checker',
-    description: 'Safety checks, evidence lookup, botanical comparisons, dosing, and shareable resources',
+    description: 'Safety screening, evidence lookup, botanical comparisons, dosing, and shareable resources',
     activePrefixes: ['/safety-checker', '/tools', '/evidence/evidence-checker', '/info/dosing', '/info/supplement-safety-checklist', '/info/infographics'],
     children: [
-      { label: 'Safety checker', href: '/safety-checker', description: 'Herb-drug interaction and contraindication lookup' },
+      { label: 'Safety checker', href: '/safety-checker', description: 'Screen supplement and medication-class combinations for possible caution flags' },
       { label: 'Botanical Activity Atlas', href: '/tools/botanical-activity-atlas', description: 'Compare active botanicals by effects, chemistry, evidence, noticeability, and safety' },
       { label: 'Evidence lookup', href: '/evidence/evidence-checker', description: 'Search compounds by clinical evidence grade' },
       { label: 'Dosing guide', href: '/info/dosing', description: 'Bioavailability, timing, and stacking guidelines' },
