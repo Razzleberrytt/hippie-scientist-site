@@ -270,7 +270,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     slug: 'l-theanine-without-caffeine',
     title: 'L-Theanine Without Caffeine for ADHD: Calm Focus Without the Jitters',
     seoTitle: 'L-Theanine Without Caffeine for ADHD',
-    description: 'Evidence guide to using L-theanine alone for ADHD — without caffeine. Covers alpha-wave effects, who benefits most, dosage, safety, and comparison to the caffeine combination.',
+    description: 'Review L-theanine without caffeine for ADHD, separating direct evidence from general attention research, with sleep context, dose limits, side effects, and safety.',
     category: 'Focus',
     tags: ['Focus', 'ADHD', 'Supplement Evidence'],
     date: '2026-06-12',
