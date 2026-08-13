@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Kanna vs SSRIs',
-  description: 'Educational comparison of kanna and SSRI-related serotonergic systems, mood regulation, emotional processing, and safety considerations.',
+  title: 'Kanna vs SSRIs: Evidence, Differences & Safety',
+  description: 'Compare kanna and prescription SSRIs without treating them as equivalents: human evidence, mechanisms, onset, interaction risks, and why kanna is not a medication substitute.',
   path: '/guides/compare/kanna-vs-ssris/',
 })
 
