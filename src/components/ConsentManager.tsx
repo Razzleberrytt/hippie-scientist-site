@@ -141,14 +141,16 @@ export default function ConsentManager({ open, onClose }: Props) {
             Current status:
             <strong
               className={`ml-2 ${
-                status === "granted"
+                dnt
+                  ? "text-amber-300"
+                  : status === "granted"
                   ? "text-lime-300"
                   : status === "denied"
                   ? "text-rose-300"
                   : "text-white/60"
               }`}
             >
-              {status === "granted" ? "Accepted" : status === "denied" ? "Declined" : "Not set"}
+              {dnt ? "Blocked by DNT/GPC" : status === "granted" ? "Accepted" : status === "denied" ? "Declined" : "Not set"}
             </strong>
           </div>
         </div>
