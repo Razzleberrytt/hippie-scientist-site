@@ -245,7 +245,7 @@ export function Navigation() {
             </div>
 
             <div className='mb-5'>
-              <GlobalSearchModal />
+              <GlobalSearchModal enableHotkeys={false} />
             </div>
 
             <nav className='flex flex-col gap-2 text-base' aria-label='Mobile primary links'>
