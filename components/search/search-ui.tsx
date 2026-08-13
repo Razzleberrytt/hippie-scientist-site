@@ -28,7 +28,12 @@ const BADGE_BASE =
   'inline-flex items-center rounded-full border px-2 py-0.5 text-[0.75rem] font-semibold leading-snug'
 
 export function TypeBadge({ type }: { type: SearchContentType }) {
-  return <span className={clsx(BADGE_BASE, TYPE_STYLES[type])}>{type}</span>
+  return (
+    <span className={clsx(BADGE_BASE, TYPE_STYLES[type])}>
+      <span className="sr-only">Content type: </span>
+      {type}
+    </span>
+  )
 }
 
 export function EvidenceBadge({ grade }: { grade: EvidenceGrade }) {
