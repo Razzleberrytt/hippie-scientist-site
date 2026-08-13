@@ -101,6 +101,7 @@ export default function ConsentManager({ open, onClose }: Props) {
       <button
         type="button"
         tabIndex={-1}
+        aria-hidden="true"
         aria-label="Close privacy settings"
         onClick={onClose}
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
