@@ -206,7 +206,7 @@ export default async function ComparePage() {
 
   const schemaGraph = buildCompareHubSchemaGraph({
     path: '/guides/compare/',
-    title: `Compare Supplements Side by Side ${SEO_YEAR} – Evidence & Safety`,
+    title: 'Compare Supplements Side by Side: Evidence & Safety',
     description: 'Compare herbs and supplements by evidence strength, mechanism, stimulation profile, safety, and dosing. Free research tool.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
