@@ -94,6 +94,7 @@ export default function ConsentManager({ open, onClose }: Props) {
       aria-modal="true"
       role="dialog"
       aria-labelledby="consent-title"
+      aria-describedby="consent-description"
       className="fixed inset-0 z-50 flex items-center justify-center"
     >
       <button
@@ -123,7 +124,7 @@ export default function ConsentManager({ open, onClose }: Props) {
           </button>
         </div>
 
-        <p className="mt-2 text-sm text-white/75">
+        <p id="consent-description" className="mt-2 text-sm text-white/75">
           Control whether anonymous analytics are collected. We don’t collect personal data unless you opt in.
           {dnt && (
             <span className="ml-1 text-amber-300">
