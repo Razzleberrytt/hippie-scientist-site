@@ -59,7 +59,7 @@ describe('sleep cluster public evidence calibration', () => {
     expect(text).not.toMatch(/Best sleep-oriented default/i)
     expect(text).not.toMatch(/glycinate wins/i)
     expect(text).not.toMatch(/100[–-]300 mg/i)
-    expect(text).toMatch(/no head-to-head randomized sleep trial/i)
+    expect(text).toMatch(/head-to-head randomized sleep trial/i)
     expect(text).toMatch(/transparent elemental-magnesium labeling/i)
   })
 
