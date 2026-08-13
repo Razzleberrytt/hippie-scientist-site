@@ -2,6 +2,9 @@ import { buildSchemaGraph } from '../../src/lib/schema-graph'
 import { serializeJsonLd } from '../../src/lib/schema-injector'
 import { SITE_URL } from '../../src/lib/seo'
 
+const WEBSITE_ID = `${SITE_URL}/#website`
+const ORGANIZATION_ID = `${SITE_URL}/#organization`
+
 type FaqItem = { question: string; answer: string }
 
 type AuthorityJsonLdProps = {
@@ -69,7 +72,8 @@ export default function AuthorityJsonLd({
     headline: title,
     description,
     url: canonical,
-    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
+    isPartOf: { '@id': WEBSITE_ID },
+    publisher: { '@id': ORGANIZATION_ID },
     ...(type !== 'Article' && breadcrumbs.length ? { breadcrumb: { '@id': breadcrumbId } } : {}),
     ...(meaningfulFaqItems.length ? { hasPart: { '@id': faqId } } : {}),
     ...(citationUrls.length ? { citation: [...new Set(citationUrls)].filter(Boolean) } : {}),
@@ -91,16 +95,16 @@ export default function AuthorityJsonLd({
   const faq =
     meaningfulFaqItems.length > 0
       ? {
-          '@type': 'FAQPage',
-          '@id': faqId,
-          url: canonical,
-          isPartOf: { '@id': webpageId },
-          mainEntity: meaningfulFaqItems.map((item) => ({
-            '@type': 'Question',
-            name: item.question,
-            acceptedAnswer: { '@type': 'Answer', text: item.answer },
-          })),
-        }
+        '@type': 'FAQPage',
+        '@id': faqId,
+        url: canonical,
+        isPartOf: { '@id': webpageId },
+        mainEntity: meaningfulFaqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      }
       : null
 
   const graph = buildSchemaGraph([webpage, breadcrumb, faq])
