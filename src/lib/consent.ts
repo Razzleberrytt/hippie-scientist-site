@@ -22,7 +22,11 @@ export function getConsent(): ConsentStatus | null {
 }
 
 export function setConsent(status: ConsentStatus) {
-  localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify({ status, ts: Date.now() }))
+  try {
+    localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify({ status, ts: Date.now() }))
+  } catch {
+    // Continue with session consent when browser storage is unavailable.
+  }
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent(CONSENT_GRANTED_EVENT, { detail: { status } }))
   }
