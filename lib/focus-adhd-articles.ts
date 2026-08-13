@@ -260,7 +260,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     slug: 'best-magnesium-supplement-for-adhd',
     title: 'Best Magnesium Supplement for ADHD: Which Form, What Dose, and What to Look For',
     seoTitle: 'Best Magnesium Supplement for ADHD: Forms and Dose',
-    description: 'Practical buying guide to magnesium supplements for ADHD. Covers the best forms, what to ignore, how to read labels, dose ranges, and what to expect.',
+    description: 'Compare magnesium supplements for ADHD by form, elemental dose, evidence, sleep and deficiency context, label quality, GI effects, and realistic expectations.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-12',
