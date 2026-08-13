@@ -13,6 +13,8 @@ export const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
   'passiflora-incarnata': 'passionflower',
   'piper-methysticum': 'kava',
   'ganoderma-lucidum': 'reishi',
+  'withania-somnifera': 'ashwagandha',
+  'silybum-marianum': 'milk-thistle',
   // Duplicate / thin near-identical profiles consolidated to a single canonical.
   'berberis-vulgaris': 'berberis',
   'berberis-aristata': 'berberis',
