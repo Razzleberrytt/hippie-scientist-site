@@ -59,16 +59,18 @@ export default function ConsentBanner() {
               type='button'
               className='inline-flex min-h-11 items-center justify-center rounded-lg border border-[#d8c08d]/50 bg-[#fffdf8] px-4 text-sm font-bold text-[#123c2f] transition-colors hover:bg-[#f5efe2]'
               onClick={() => {
-                setConsent('granted')
+                setConsent(dnt ? 'denied' : 'granted')
                 setShow(false)
-                import('../lib/loadAnalytics')
-                  .then(module => module.loadAnalytics())
-                  .catch(() => {
-                    // Ignore analytics load failures.
-                  })
+                if (!dnt) {
+                  import('../lib/loadAnalytics')
+                    .then(module => module.loadAnalytics())
+                    .catch(() => {
+                      // Ignore analytics load failures.
+                    })
+                }
               }}
             >
-              Accept
+              {dnt ? 'Continue without tracking' : 'Accept'}
             </button>
           </div>
         </div>
