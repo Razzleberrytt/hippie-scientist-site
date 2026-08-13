@@ -169,7 +169,7 @@ export default function ConsentManager({ open, onClose }: Props) {
           <button
             type="button"
             onClick={accept}
-            className="rounded-lg border border-lime-300/20 bg-gradient-to-r from-lime-400/30 to-cyan-400/20 px-3 py-1.5 text-sm font-medium text-lime-200 hover:from-lime-400/40 hover:to-cyan-400/30"
+            className="rounded-lg border border-lime-300/20 bg-gradient-to-r from-lime-400/30 to-cyan-400/20 px-3 py-1.5 text-sm font-medium text-lime-200 hover:from-lime-400/40 hover:to-cyan-400/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
           >
             {dnt ? "Continue without tracking" : "Accept"}
           </button>
