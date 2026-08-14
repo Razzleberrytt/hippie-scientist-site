@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { canTrackAnalytics } from '@/lib/consent'
 import { readStorage, writeStorage } from '@/utils/storageState'
 import { useLocation } from './router-compat'
 
@@ -97,7 +98,7 @@ export function trackEvent(name: AnalyticsEvent['name'], payload: AnalyticsEvent
   const next = [{ name, at: new Date().toISOString(), payload }, ...events].slice(0, 250)
   writeJson(EVENTS_KEY, next)
 
-  if (typeof window === 'undefined') return
+  if (!canTrackAnalytics()) return
   try {
     window.dispatchEvent(
       new CustomEvent('hs:analytics', {
