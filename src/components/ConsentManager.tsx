@@ -86,8 +86,19 @@ export default function ConsentManager({ open, onClose }: Props) {
   }
 
   function decline() {
+    const hadGrantedConsent = getConsent() === "granted";
     setConsent("denied");
     setStatus("denied");
+
+    if (hadGrantedConsent) {
+      // A full reload is the only reliable way to tear down third-party analytics
+      // code that may already be resident after a previous opt-in (for example,
+      // GA4 or Ahrefs). The persisted denied state prevents those scripts from
+      // loading again after the reload.
+      window.location.reload();
+      return;
+    }
+
     onClose();
   }
 
