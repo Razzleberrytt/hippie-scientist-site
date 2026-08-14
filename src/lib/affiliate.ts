@@ -51,6 +51,12 @@ function hasResearchPendingEffect(item: any) {
 export function canRenderAffiliateLinks(item: any) {
   if (!item) return false
 
+  // Compact buying payloads carry the central runtime governance decision so
+  // renderable-but-nonmonetizable records cannot regain purchase links client-side.
+  if (item.monetization_allowed === false || /^false$/i.test(text(item.monetization_allowed))) {
+    return false
+  }
+
   // Compliance gate: never monetize or promote records flagged in the master workbook governance columns.
   return !isRestrictedRecord(item)
 }
