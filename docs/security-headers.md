@@ -22,6 +22,11 @@ Current allowed third-party origins:
 | `connect-src` | `https://www.google-analytics.com` | Google Analytics collection endpoint. |
 | `connect-src` | `https://region1.google-analytics.com` | Regional Google Analytics collection endpoint. |
 | `connect-src` | `https://analytics.ahrefs.com` | Permits the Ahrefs analytics client to report to its own origin. |
+| `script-src` | `https://challenges.cloudflare.com` | Loads the Cloudflare Turnstile widget (`turnstile/v0/api.js`) injected by `components/security/TurnstileWidget.tsx` and `components/NewsletterSignup.tsx`. |
+| `frame-src` | `https://challenges.cloudflare.com` | Turnstile renders its challenge inside an iframe served from this origin. |
+| `connect-src` | `https://challenges.cloudflare.com` | Permits the Turnstile client to exchange challenge data with its own origin. |
+
+The Turnstile origin is required whenever `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is configured. Without it the widget script is blocked, `window.turnstile` never appears, and the signup form can never produce a token — which `functions/api/subscribe.ts` then rejects with `400 Security verification failed`. Because `frame-src` must name the origin, this directive is `frame-src https://challenges.cloudflare.com` rather than `'none'`; `frame-ancestors 'none'` still prevents this site from being framed by anyone else.
 
 The Ahrefs origin is intentionally present because `src/lib/loadAnalytics.ts` can inject `https://analytics.ahrefs.com/analytics.js` after visitor consent; without this CSP allowance, the script can be blocked in production.
 
