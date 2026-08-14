@@ -15,7 +15,7 @@ export function getHomepageFreshness(): FreshnessInfo {
 export function getGoalFreshness(goalSlug: string): FreshnessInfo {
   const goal = (freshnessData.goals as Record<string, FreshnessInfo>)[goalSlug]
   return {
-    lastReviewed: goal?.lastReviewed || '2026-06-06',
+    lastReviewed: goal?.lastReviewed || '',
     citationCount: goal?.citationCount || 0,
   }
 }
@@ -23,7 +23,7 @@ export function getGoalFreshness(goalSlug: string): FreshnessInfo {
 export function getProfileFreshness(slug: string): FreshnessInfo {
   const profile = (freshnessData.profiles as Record<string, FreshnessInfo>)[slug]
   return {
-    lastReviewed: profile?.lastReviewed || '2026-06-06',
+    lastReviewed: profile?.lastReviewed || '',
     citationCount: profile?.citationCount || 0,
   }
 }
