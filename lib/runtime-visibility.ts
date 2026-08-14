@@ -1,5 +1,12 @@
 import { list, text } from '@/lib/display-utils'
 
+const HIDDEN_VISIBILITY = {
+  canRender: false,
+  canIndex: false,
+  canFeature: false,
+  canMonetize: false,
+} as const
+
 function hasResearchPending(record: Record<string, unknown>) {
   return list(record?.primary_effects).some((effect) =>
     /research-pending/i.test(effect)
@@ -39,7 +46,7 @@ function isEvidenceSupported(evidenceTier: string): boolean {
   return /\b(strong|moderate|human|clinical|commercial_ready)\b/i.test(evidenceTier)
 }
 
-export function getRuntimeVisibility(record: Record<string, unknown>) {
+function evaluateRuntimeVisibility(record: Record<string, unknown>) {
   const exportDecision = text(record?.runtime_export_decision)
   const profileStatus = text(record?.profile_status)
   const summaryQuality = text(record?.summary_quality)
@@ -92,5 +99,16 @@ export function getRuntimeVisibility(record: Record<string, unknown>) {
     canIndex: !hidden && strong,
     canFeature: !hidden && strong,
     canMonetize: !hidden && !weak,
+  }
+}
+
+export function getRuntimeVisibility(record: Record<string, unknown>) {
+  try {
+    return evaluateRuntimeVisibility(record)
+  } catch {
+    // Governance must fail closed. Interactive tools historically wrapped this
+    // helper in fail-open catches; containing evaluation errors here prevents an
+    // unreadable or malformed record from becoming visible by accident.
+    return HIDDEN_VISIBILITY
   }
 }
