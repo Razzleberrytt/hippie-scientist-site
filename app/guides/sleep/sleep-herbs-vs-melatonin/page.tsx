@@ -103,7 +103,7 @@ export default function SleepHerbsVsMelatoninPage() {
           <Link href="/guides/sleep/magnesium-vs-melatonin/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Magnesium vs Melatonin Guide →
           </Link>
-          <Link href="/best-supplements-for-sleep/" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/sleep/best-supplements-for-sleep/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Browse Sleep Supplements →
           </Link>
         </div>
