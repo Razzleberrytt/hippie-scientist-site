@@ -22,7 +22,16 @@ function textList(value: unknown): string[] | undefined {
     : typeof value === 'string'
       ? value.split(/[;,\n]+/)
       : []
-  const cleaned = list.map(text).filter((item): item is string => Boolean(item))
+  const seen = new Set<string>()
+  const cleaned = list
+    .map(text)
+    .filter((item): item is string => Boolean(item))
+    .filter((item) => {
+      const key = item.toLowerCase()
+      if (seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
   return cleaned.length ? cleaned : undefined
 }
 
@@ -58,8 +67,9 @@ export function toBuyingToolRecord(record: RuntimeRecord, type: ToolKind) {
 }
 
 export function toSafetyToolRecord(record: RuntimeRecord, type: ToolKind) {
+  const { displayName: _displayName, ...base } = baseToolRecord(record, type)
   return {
-    ...baseToolRecord(record, type),
+    ...base,
     safety: firstText(record, ['safety', 'safetyNotes', 'safety_notes']),
     safety_flags: textList(record.safety_flags ?? record.safetyFlags),
     mechanism: firstText(record, ['mechanism', 'mechanismOfAction']),
