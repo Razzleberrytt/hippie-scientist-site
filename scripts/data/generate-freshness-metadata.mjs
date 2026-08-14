@@ -15,6 +15,21 @@ function parsePmid(value) {
   return match?.[1];
 }
 
+function getRecordedReviewDate(record) {
+  if (!record || typeof record !== 'object') return '';
+  return String(
+    record.last_reviewed ||
+      record.lastReviewed ||
+      record.reviewed_at ||
+      record.reviewedAt ||
+      record.last_updated ||
+      record.lastUpdated ||
+      record.updated_at ||
+      record.updatedAt ||
+      '',
+  ).trim();
+}
+
 // Extract citations from a JSON record
 function extractCitationsFromRecord(record) {
   const results = [];
@@ -185,7 +200,7 @@ async function main() {
     const citations = [];
     const seen = new Set();
     
-    for (const [goal, engine] of Object.entries(engines)) {
+    for (const engine of Object.values(engines)) {
       const claims = engine.claims || [];
       const sourcesByClaim = engine.sourcesByClaim || {};
       
@@ -250,11 +265,8 @@ async function main() {
     // Add to global list
     combined.forEach(addUniqueStudy);
     
-    // Fallback date
-    const lastReviewed = h.last_reviewed || h.last_updated || '2026-06-06';
-    
     metadata.profiles[h.slug] = {
-      lastReviewed,
+      lastReviewed: getRecordedReviewDate(merged),
       citationCount: combined.length
     };
   }
@@ -276,7 +288,7 @@ async function main() {
     const combined = [...recordCits];
     const addList = [...engineCits, ...registryCits];
     for (const ec of addList) {
-      if (!combined.some(rc => (ec.pmid && rc.pmid === ec.pmid) || (ec.title && ec.title === ec.title))) {
+      if (!combined.some(rc => (ec.pmid && rc.pmid === ec.pmid) || (ec.title && rc.title === ec.title))) {
         combined.push(ec);
       }
     }
@@ -284,11 +296,8 @@ async function main() {
     // Add to global list
     combined.forEach(addUniqueStudy);
     
-    // Fallback date
-    const lastReviewed = c.last_reviewed || c.last_updated || '2026-06-06';
-    
     metadata.profiles[c.slug] = {
-      lastReviewed,
+      lastReviewed: getRecordedReviewDate(merged),
       citationCount: combined.length
     };
   }
@@ -351,9 +360,8 @@ async function main() {
       }
     }
     
-    const lastReviewed = goalRegistryDates[goal.slug] || '2026-06-06';
     metadata.goals[goal.slug] = {
-      lastReviewed,
+      lastReviewed: goalRegistryDates[goal.slug] || '',
       citationCount: goalCitations.length
     };
   }
