@@ -1,0 +1,30 @@
+name: SEO 101-110 branch editor v3
+
+on:
+  push:
+    branches:
+      - agent/seo-101-110-content-intent
+    paths:
+      - .github/workflows/seo-101-110-edit-v3.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/seo-101-110-content-intent
+          fetch-depth: 0
+      - name: Apply ranked SEO upgrades 101-110
+        run: python .github/scripts/seo-101-110-edit.py
+      - name: Commit branch edits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/guides scripts/ci/validate-feed-output.mjs package.json
+          git diff --cached --check
+          git commit -m "SEO 101-110: strengthen high-intent content and output validation [seo-batch-applied]"
+          git push origin HEAD:agent/seo-101-110-content-intent
