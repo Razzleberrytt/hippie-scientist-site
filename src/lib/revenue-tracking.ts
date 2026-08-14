@@ -1,4 +1,4 @@
-import { getConsent } from './consent'
+import { getConsent, getSystemNoTracking } from './consent'
 
 export type RevenueEventKind =
   | 'recommendation_impression'
@@ -56,6 +56,10 @@ export type RevenueEvent = {
   deviceType: RevenueDeviceType
   scrollDepth: RevenueScrollDepth
   occurredAt: string
+}
+
+function canSendAnalytics(): boolean {
+  return getConsent() === 'granted' && !getSystemNoTracking()
 }
 
 export function normalizeRevenueEventKind(kind: string): RevenueEventKind {
@@ -181,7 +185,7 @@ export function trackAffiliateClick(productName: string) {
 }
 
 export function trackEmailCapture(source: string) {
-  if (typeof window !== 'undefined' && window.gtag && getConsent() === 'granted') {
+  if (typeof window !== 'undefined' && window.gtag && canSendAnalytics()) {
     window.gtag('event', 'email_signup', {
       signup_source: source,
       value: 1,
@@ -190,7 +194,7 @@ export function trackEmailCapture(source: string) {
 }
 
 export function trackProfileView(profileName: string, profileType: string) {
-  if (typeof window !== 'undefined' && window.gtag && getConsent() === 'granted') {
+  if (typeof window !== 'undefined' && window.gtag && canSendAnalytics()) {
     window.gtag('event', 'profile_view', {
       profile_name: profileName,
       profile_type: profileType,
@@ -208,7 +212,7 @@ export function trackRecommendationImpression(sourceProduct: string, recommended
 }
 
 export function trackStackView(stackName: string, products: string[]) {
-  if (typeof window !== 'undefined' && window.gtag && getConsent() === 'granted') {
+  if (typeof window !== 'undefined' && window.gtag && canSendAnalytics()) {
     window.gtag('event', 'stack_view', {
       stack_name: stackName,
       product_count: products.length,
@@ -223,7 +227,7 @@ export function trackRevenueEvent(input: RevenueEventInput) {
   const event = buildRevenueEvent(input, getBrowserRevenueContext())
   window.dispatchEvent(new CustomEvent('ths:revenue-event', { detail: event }))
 
-  if (getConsent() !== 'granted') return
+  if (!canSendAnalytics()) return
 
   window.dataLayer = window.dataLayer || []
   window.dataLayer.push(event)
