@@ -3,6 +3,7 @@ import { canTrackAnalytics } from '@/lib/consent'
 type AnalyticsEvent = Record<string, unknown>
 
 const STORAGE_KEY = 'hs_analytics_events'
+const ANALYTICS_LOCAL_STORAGE_KEYS = [STORAGE_KEY, 'ths_runtime_analytics'] as const
 const ANALYTICS_SESSION_KEYS = [
   'hs_related_botanical_session',
   'hs_compare_hub_session',
@@ -36,12 +37,20 @@ export function appendAnalyticsEvent(event: AnalyticsEvent): void {
 
 export function clearAnalyticsEvents(): void {
   if (typeof window === 'undefined') return
-  try {
-    window.localStorage.removeItem(STORAGE_KEY)
-    for (const key of ANALYTICS_SESSION_KEYS) {
-      window.sessionStorage.removeItem(key)
+
+  for (const key of ANALYTICS_LOCAL_STORAGE_KEYS) {
+    try {
+      window.localStorage.removeItem(key)
+    } catch {
+      // Continue clearing the remaining analytics-owned stores.
     }
-  } catch {
-    // Ignore storage failures to avoid disrupting privacy controls.
+  }
+
+  for (const key of ANALYTICS_SESSION_KEYS) {
+    try {
+      window.sessionStorage.removeItem(key)
+    } catch {
+      // Continue clearing the remaining analytics-owned stores.
+    }
   }
 }
