@@ -56,8 +56,9 @@ function safetyContext(record: RuntimeRecord): string | undefined {
 function baseToolRecord(record: RuntimeRecord, type: ToolKind) {
   return {
     slug: firstText(record, ['slug']) || '',
+    // Resolve displayName into the canonical client-facing name once instead
+    // of serializing the same label twice across every tool payload.
     name: firstText(record, ['displayName', 'name', 'compoundName', 'canonicalCompoundName', 'slug']) || '',
-    displayName: firstText(record, ['displayName']),
     type,
   }
 }
@@ -85,9 +86,8 @@ export function toBuyingToolRecord(record: RuntimeRecord, type: ToolKind) {
 }
 
 export function toSafetyToolRecord(record: RuntimeRecord, type: ToolKind) {
-  const { displayName: _displayName, ...base } = baseToolRecord(record, type)
   return {
-    ...base,
+    ...baseToolRecord(record, type),
     safety: safetyContext(record),
     safety_flags: textList(record.safety_flags ?? record.safetyFlags),
     mechanism: firstText(record, ['mechanism', 'mechanismOfAction']),
