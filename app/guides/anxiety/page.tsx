@@ -94,6 +94,21 @@ const BEST_FIRST: GuideCard[] = [
     title: 'Anxiety Stack Guide',
     desc: 'How common combinations are discussed while keeping interactions, timing, and uncertainty visible.',
   },
+  {
+    href: '/guides/anxiety/best-adaptogens-for-stress/',
+    title: 'Best Adaptogens for Stress',
+    desc: 'Direct human stress evidence, preparation-specific limits, and safety compared without HPA-axis shortcuts.',
+  },
+  {
+    href: '/guides/anxiety/how-to-lower-cortisol-naturally/',
+    title: 'How to Lower Cortisol Naturally',
+    desc: 'Separate everyday stress management from medical cortisol excess, testing, and biomarker marketing.',
+  },
+  {
+    href: '/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/',
+    title: 'Herbs for Nighttime Stress & Anxiety',
+    desc: 'Nighttime intent with same-night claims, repeated-dose evidence, sedation, and insomnia boundaries kept distinct.',
+  },
 ]
 
 const COMPARISONS: GuideCard[] = [

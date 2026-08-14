@@ -146,6 +146,13 @@ export default function Page() {
             This guide keeps those outcomes separate so a plausible option does not get promoted into a proven treatment.
           </p>
 
+          <div className="mt-5 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
+            <strong className="text-ink">Intent check:</strong> this page is about repetitive thinking, not a cortisol test or a general insomnia ranking. For biomarker questions, see{' '}
+            <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="font-semibold text-brand-700 hover:underline">the cortisol guide</Link>;
+            for racing thoughts that mainly appear at bedtime, see{' '}
+            <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="font-semibold text-brand-700 hover:underline">nighttime anxiety and herbs</Link>.
+          </div>
+
           <figure className="mt-6">
             <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
               <Image
