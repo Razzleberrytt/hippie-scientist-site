@@ -668,11 +668,28 @@ function filterRestrictedMapRows(rows, herbs, compounds) {
   })
 }
 
+/**
+ * The claim sheets interleave real claims with roll-up rows whose text is a
+ * machine-generated counter ("study_count=3; rct_count=2; ..."). Those are
+ * pipeline bookkeeping, not claims — shipping them inflates the sourced-claim
+ * count and publishes gibberish in the public claims.json.
+ */
+const AGGREGATE_CLAIM_TEXT_RE = /\b(study_count|rct_count|meta_analysis_count|systematic_review_count)\s*=/i
+const AGGREGATE_CLAIM_ID_RE = /^aggregate[-_]row/i
+
+function isAggregateClaimRow(id, title, claim) {
+  if (AGGREGATE_CLAIM_ID_RE.test(String(id ?? ''))) return true
+  return AGGREGATE_CLAIM_TEXT_RE.test(`${title ?? ''} ${claim ?? ''}`)
+}
+
 function claimRow(row) {
   const title = clean(first(row, ['title', 'study title', 'claim', 'summary', 'supported_claim_language', 'effect_or_condition']))
   const pmid = clean(first(row, ['pmid', 'PMID']))
   const id = rowId(row, ['claim_id', 'claim id', 'record_id']) || slug(pmid || title)
   if (!id && !title && !pmid) return null
+  if (isAggregateClaimRow(id, title, first(row, ['claim', 'finding', 'summary', 'conclusion', 'supported_claim_language']))) {
+    return null
+  }
   return stripRecord({ id: id || pmid, title, claim: compact(first(row, ['claim', 'finding', 'summary', 'conclusion', 'supported_claim_language'])), pmid, doi: clean(first(row, ['doi', 'DOI'])), source_url: clean(first(row, ['source_url', 'url', 'link', 'url_or_source'])), evidence_tier: clean(first(row, ['evidence_tier', 'study_type', 'evidence_type'])), profile_slug: slug(first(row, ['profile_slug', 'slug', 'herb_slug', 'compound_slug', 'entity_slug'])) })
 }
 

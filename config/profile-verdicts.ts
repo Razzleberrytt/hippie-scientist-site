@@ -1133,6 +1133,190 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     },
     primaryGuide: { label: 'Best nootropics for focus', href: '/guides/focus/best-nootropics-for-focus/' },
   },
+
+  // ══ Batch 3 — metabolic & inflammation cluster ════════════════════════════
+  // High commercial-investigation demand ("does berberine work", "turmeric vs
+  // curcumin", "ginkgo for memory") that previously landed on profiles with no
+  // editorial conclusion at all.
+
+  berberine: {
+    recommendation: 'Situation-dependent',
+    confidence: 'Moderate–strong for metabolic markers, but interaction risk drives the decision',
+    bestFor: [
+      'Metabolic support — fasting glucose and lipid markers',
+      'Insulin-resistance patterns, including in PCOS',
+      'People who can space it away from other medications',
+    ],
+    notIdealFor: [
+      'Weight loss on its own — the "natural Ozempic" framing far outruns the evidence',
+      'Anyone taking medications cleared by CYP3A4 or P-glycoprotein',
+      'Pregnancy, breastfeeding, and infants',
+    ],
+    onset: 'Gradual — metabolic markers shift over weeks',
+    evaluationWindow: '8–12 weeks, judged on bloodwork rather than how you feel',
+    bottomLine:
+      'One of the few supplements with repeated meta-analytic support for glucose and lipid markers — but it behaves pharmacologically, interacts with common medications, and frequently upsets the gut. Treat it as a drug-like agent to discuss with a clinician, not a casual daily addition.',
+    safetyNote:
+      'Berberine inhibits CYP3A4 and P-glycoprotein, so it can raise levels of many prescription drugs. GI upset is common. Avoid in pregnancy, breastfeeding, and infants. Review it with a clinician or pharmacist before combining it with anything prescribed.',
+    evidenceNote:
+      'Multiple meta-analyses of randomized trials report improvements in fasting glucose, HbA1c, and LDL — though much of the trial base is small, short, and geographically concentrated.',
+    evidenceConfidence: {
+      grade: 'Moderate–high (metabolic markers)',
+      whyNotHigher: [
+        'Most trials are small, short, and concentrated in a few regions',
+        'Reporting quality is uneven and publication bias is plausible',
+        'Long-term outcome data — not just marker changes — is largely missing',
+      ],
+      whyNotLower: [
+        'Several independent meta-analyses of randomized trials point the same direction',
+        'The mechanism (AMPK activation and gut-microbiome effects) is well characterized',
+        'Effect sizes on glucose and lipid markers are clinically meaningful, not trivial',
+      ],
+      practicalTakeaway:
+        'If the goal is metabolic markers and a clinician has cleared the interaction picture, an 8–12 week trial judged on bloodwork is reasonable. If the goal is weight loss alone, expectations should be low.',
+    },
+    betterAlternative: {
+      label: 'Inositol',
+      href: '/compounds/inositol/',
+      reason: 'for PCOS-related insulin resistance with a far gentler interaction profile',
+    },
+    primaryGuide: { label: 'Berberine and weight loss', href: '/guides/other/berberine-weight-loss/' },
+    comparisons: [
+      {
+        label: 'Berberine vs. metformin',
+        href: '/guides/compare/berberine-vs-metformin/',
+        when: 'you want to understand how the evidence bases compare — a conversation for your prescriber, not a substitution to make on your own',
+      },
+      {
+        label: 'Berberine vs. inositol',
+        href: '/guides/compare/berberine-vs-inositol/',
+        when: 'the target is PCOS or insulin resistance and tolerability matters',
+      },
+    ],
+  },
+
+  curcumin: {
+    recommendation: 'Maybe',
+    confidence: 'Moderate — a large trial base for joint pain, weakened by bioavailability and bias problems',
+    bestFor: [
+      'Knee osteoarthritis pain and stiffness',
+      'Inflammatory markers alongside standard care',
+      'People willing to buy a genuinely absorbable formulation',
+    ],
+    notIdealFor: [
+      'Anyone relying on culinary turmeric powder to do the job',
+      'Gallstones or bile-duct obstruction',
+      'People on anticoagulants without clinician review',
+    ],
+    onset: '4–8 weeks for joint symptoms',
+    evaluationWindow: '8–12 weeks',
+    bottomLine:
+      'The joint-pain evidence is real and repeatedly replicated, but plain curcumin is barely absorbed — the formulation decides whether you get the studied effect or nothing at all. Buy a standardized, absorption-enhanced extract or skip it.',
+    safetyNote:
+      'Generally well tolerated, though rare liver-injury reports cluster around high-bioavailability formulations. It can add to the effect of anticoagulants and is best avoided with gallstones or bile-duct obstruction.',
+    evidenceNote:
+      'Many randomized trials and meta-analyses support osteoarthritis pain relief; the literature also carries well-documented risks of bias, small samples, and assay-interference artefacts.',
+    evidenceConfidence: {
+      grade: 'Moderate',
+      whyNotHigher: [
+        'Many trials are small, short, and at high risk of bias',
+        'Formulations differ so widely that trials are hard to pool honestly',
+        'Curcumin is a known assay-interference compound, so some mechanistic findings overstate it',
+      ],
+      whyNotLower: [
+        'Multiple meta-analyses converge on real osteoarthritis pain relief',
+        'Effects on inflammatory markers are reproducible across independent groups',
+        'Short-term tolerability is well established',
+      ],
+      practicalTakeaway:
+        'Worth an 8–12 week trial for knee osteoarthritis using a standardized, absorption-enhanced extract. Judge it on function and pain, and stop if nothing changes.',
+    },
+    betterAlternative: {
+      label: 'Boswellia',
+      href: '/compounds/boswellia/',
+      reason: 'for joint pain when curcumin formulations upset your stomach',
+    },
+    primaryGuide: { label: 'Curcumin absorption guide', href: '/guides/other/curcumin-absorption-guide/' },
+    comparisons: [
+      {
+        label: 'Curcumin vs. boswellia vs. omega-3',
+        href: '/guides/compare/curcumin-vs-boswellia-vs-omega-3/',
+        when: 'you are choosing one anti-inflammatory to actually commit to',
+      },
+    ],
+  },
+
+  turmeric: {
+    recommendation: 'Situation-dependent',
+    confidence: 'The spice and the studied extract are not interchangeable',
+    bestFor: [
+      'Culinary use and general dietary variety',
+      'People who prefer whole-root preparations and accept a smaller effect',
+    ],
+    notIdealFor: [
+      'Reproducing the joint-pain results from curcumin extract trials',
+      'Anyone expecting a therapeutic dose from cooking',
+    ],
+    onset: 'Not meaningfully measurable at culinary intakes',
+    evaluationWindow: 'n/a for culinary use; 8–12 weeks if using a standardized extract',
+    bottomLine:
+      'Turmeric root is roughly 2–5% curcuminoids and poorly absorbed, so a teaspoon in food is nowhere near what the clinical trials used. If you want the studied effect, the decision is really about curcumin extract — turmeric is the spice, not the intervention.',
+    safetyNote:
+      'Culinary amounts are well tolerated. Concentrated supplements carry the same cautions as curcumin: anticoagulant interaction, gallstones, and rare liver-injury reports.',
+    evidenceNote:
+      'Nearly all positive human evidence comes from standardized curcuminoid extracts, not whole turmeric at dietary intakes.',
+    betterAlternative: {
+      label: 'Curcumin',
+      href: '/herbs/curcumin/',
+      reason: 'this is the form the clinical trials actually tested',
+    },
+    primaryGuide: { label: 'Anti-inflammatory supplements', href: '/guides/other/anti-inflammatory-supplements/' },
+    comparisons: [
+      {
+        label: 'Curcumin vs. boswellia vs. omega-3',
+        href: '/guides/compare/curcumin-vs-boswellia-vs-omega-3/',
+        when: 'you have decided to move from the spice to an actual supplement',
+      },
+    ],
+  },
+
+  'ginkgo-biloba': {
+    recommendation: 'Maybe',
+    confidence: 'Moderate — a large trial base with a clearly negative result for prevention',
+    bestFor: [
+      'Existing cognitive impairment, where standardized extract shows modest benefit',
+      'Age-related memory complaints, with realistic expectations',
+    ],
+    notIdealFor: [
+      'Preventing dementia in healthy adults — the large prevention trials were negative',
+      'Anyone on anticoagulants or antiplatelets, or heading into surgery',
+      'People with seizure disorders',
+    ],
+    onset: 'Slow — 8–12 weeks',
+    evaluationWindow: '12–24 weeks',
+    bottomLine:
+      'One of the most-studied botanicals in cognition, and the results are genuinely mixed: standardized EGb 761 shows modest benefit where impairment already exists, while large prevention trials in healthy older adults found nothing. Bleeding risk makes the extract a real decision, not a casual one.',
+    safetyNote:
+      'Ginkgo raises bleeding risk, so it warrants clinician review with anticoagulants, antiplatelets, or upcoming surgery. It may lower the seizure threshold. Raw or roasted ginkgo seeds are toxic and are not the same thing as leaf extract.',
+    evidenceNote:
+      'Large randomized trials support modest benefit in existing cognitive impairment; the major dementia-prevention trials in healthy adults were negative.',
+    evidenceConfidence: {
+      grade: 'Moderate (mixed by population)',
+      whyNotHigher: [
+        'Large, well-run prevention trials in healthy adults found no benefit',
+        'Results vary substantially by population and by extract',
+        'Benefits, where present, are modest',
+      ],
+      whyNotLower: [
+        'The trial base is unusually large and long by botanical standards',
+        'Standardized EGb 761 shows reproducible benefit in cognitive impairment',
+        'Mechanisms and tolerability are well characterized',
+      ],
+      practicalTakeaway:
+        'Reasonable to trial as standardized extract when cognitive complaints already exist and bleeding risk has been cleared. Not a sensible dementia-prevention strategy for a healthy adult.',
+    },
+    primaryGuide: { label: 'Best nootropics for focus', href: '/guides/focus/best-nootropics-for-focus/' },
+  },
 }
 
 // Slug aliases — a few botanicals are indexed under a herb page with a
