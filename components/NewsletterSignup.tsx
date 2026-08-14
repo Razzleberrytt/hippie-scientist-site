@@ -6,6 +6,7 @@ import { type FormEvent, useEffect, useId, useRef, useState } from 'react'
 import { safetyChecklistLeadMagnet } from '@/lib/lead-magnet'
 import { mailchimpSignupConfig } from '@/lib/mailchimp-integration'
 import { trackEmailSignup } from '@/lib/analytics'
+import { trackRevenueEvent } from '@/src/lib/revenue-tracking'
 
 type TurnstileApi = {
   render: (element: HTMLElement, options: { sitekey: string; callback: (token: string) => void; 'expired-callback': () => void; 'error-callback': () => void }) => string
@@ -113,6 +114,13 @@ export default function NewsletterSignup({
   }, [usesTurnstile])
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    trackRevenueEvent({
+      kind: 'email_signup_attempt',
+      location: resolvedLocation,
+      label: safetyChecklistLeadMagnet.slug,
+      target: mailchimpSignupConfig.action,
+    })
+
     if (!usesClientPost) return
 
     event.preventDefault()
