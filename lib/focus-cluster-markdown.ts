@@ -71,6 +71,14 @@ function asStringArray(value: unknown): string[] {
     .filter(Boolean)
 }
 
+function sourceModifiedDate(data: Record<string, unknown>): string {
+  return (
+    asString(data.dateModified) ||
+    asString(data.lastUpdated) ||
+    asString(data.updatedAt)
+  )
+}
+
 function extractSection(raw: string, heading: string): string {
   const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const match = raw.match(new RegExp(`##\\s+${escaped}\\s*\\n+([\\s\\S]*?)(?=\\n##\\s|\\n---\\s*$|$)`, 'i'))
@@ -86,7 +94,7 @@ function stripEditorialTerminal(raw: string): string {
 
 function parseYamlSource(raw: string, sourceFile: string): FocusClusterArticle {
   const parsed = matter(raw)
-  const data = parsed.data || {}
+  const data = (parsed.data || {}) as Record<string, unknown>
   const content = (parsed.content || '').trim()
   const fullArticleContent = extractSection(content, 'Full Article Content') || extractSection(content, 'Full article content')
   const markdown = stripEditorialTerminal(fullArticleContent || content)
@@ -104,7 +112,7 @@ function parseYamlSource(raw: string, sourceFile: string): FocusClusterArticle {
     slug: asString(data.slug),
     sourceFile,
     markdown,
-    dateModified: '2026-06-12',
+    dateModified: sourceModifiedDate(data),
   }
 }
 

@@ -118,10 +118,9 @@ function sanitizeObject(input: Record<string, unknown>): JsonLdObject {
 }
 
 export function sanitizeJsonLdValue(value: unknown): JsonLdValue | undefined {
-  if (value === undefined) return undefined
-  if (value === null || typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
-    return value
-  }
+  if (value === undefined || value === null) return undefined
+  if (typeof value === 'string') return value.trim() ? value : undefined
+  if (typeof value === 'number' || typeof value === 'boolean') return value
   if (Array.isArray(value)) {
     return value
       .map((item) => sanitizeJsonLdValue(item))
