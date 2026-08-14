@@ -4,6 +4,8 @@ type SchemaGraphScriptProps = {
   graph: Record<string, unknown>
 }
 
+const LEGACY_PLACEHOLDER_PUBLICATION_DATE = '2026-01-01'
+
 export type EntityArtifact = {
   href: string
   absoluteUrl: string
@@ -118,6 +120,33 @@ export function normalizeProfileReviewSemantics(
   return { ...graph, '@graph': nodes }
 }
 
+export function normalizePlaceholderPublicationDates(
+  graph: Record<string, unknown>,
+): Record<string, unknown> {
+  if (!Array.isArray(graph['@graph'])) return graph
+
+  const nodes = graph['@graph'].map((node) => {
+    if (!node || typeof node !== 'object') return node
+    const record = node as Record<string, unknown>
+    const id = typeof record['@id'] === 'string' ? record['@id'] : ''
+    const types = Array.isArray(record['@type']) ? record['@type'] : [record['@type']]
+
+    const isEntryArticle = id.endsWith('#webpage') && types.includes('Article')
+    if (
+      isEntryArticle &&
+      record.datePublished === LEGACY_PLACEHOLDER_PUBLICATION_DATE &&
+      !record.dateModified
+    ) {
+      const { datePublished: _datePublished, ...rest } = record
+      return rest
+    }
+
+    return node
+  })
+
+  return { ...graph, '@graph': nodes }
+}
+
 export function attachEntityDataset(
   graph: Record<string, unknown>,
   artifact: EntityArtifact | null,
@@ -162,7 +191,8 @@ export default function SchemaGraphScript({ graph }: SchemaGraphScriptProps) {
   const artifact = getEntityArtifact(graph)
   const normalizedEntityGraph = normalizeProfileEntitySemantics(graph, artifact)
   const normalizedReviewGraph = normalizeProfileReviewSemantics(normalizedEntityGraph, artifact)
-  const enrichedGraph = attachEntityDataset(normalizedReviewGraph, artifact)
+  const normalizedPublicationGraph = normalizePlaceholderPublicationDates(normalizedReviewGraph)
+  const enrichedGraph = attachEntityDataset(normalizedPublicationGraph, artifact)
 
   return (
     <>
