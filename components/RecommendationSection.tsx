@@ -26,6 +26,18 @@ const slotLabels: Record<RecommendationSlot, string> = {
   premium: 'Premium example',
 }
 
+function isUsableOutboundUrl(value: unknown): value is string {
+  return typeof value === 'string' && /^https?:\/\//i.test(value.trim())
+}
+
+function hasUsableProductUrl(product: RecommendationProduct): boolean {
+  if (isUsableOutboundUrl(product.affiliateUrl) || isUsableOutboundUrl(product.url) || isUsableOutboundUrl(product.link)) {
+    return true
+  }
+
+  return Object.values(product.regionalUrls ?? {}).some(isUsableOutboundUrl)
+}
+
 export default function RecommendationSection({
   title = 'Product sourcing examples',
   description = 'Use these as sourcing starting points, not medical recommendations. Product quality, dose, and fit still need review.',
@@ -36,10 +48,12 @@ export default function RecommendationSection({
   trackingLocation = 'recommendation-section',
 }: RecommendationSectionProps) {
   if (suppressMonetization) return null
-  if (products.length === 0) return null
+
+  const availableProducts = products.filter(hasUsableProductUrl)
+  if (availableProducts.length === 0) return null
 
   const ordered = ['budget', 'overall', 'premium'].flatMap((slot) =>
-    products.filter((product) => product.slot === slot)
+    availableProducts.filter((product) => product.slot === slot)
   )
 
   return (
