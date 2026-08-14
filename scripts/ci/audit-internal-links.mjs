@@ -141,6 +141,14 @@ function summarizeNonCanonicalLinks(rows) {
   }
 }
 
+function summarizeRedirectSourceLinks(rows) {
+  return {
+    total: rows.length,
+    topHrefs: topCounts(rows, 'href'),
+    topSourceRoutes: topCounts(rows, 'source'),
+  }
+}
+
 function isNonIndexableRoute(route, noindexRoutes) {
   return (
     route === '/404' ||
@@ -159,6 +167,7 @@ async function run() {
   const batchSize = 100
   const noindexRoutes = new Set()
   const nonCanonicalInternalLinks = []
+  const redirectSourceInternalLinks = []
 
   console.log(`[internal-links] Starting audit of ${files.length} HTML files in batches of ${batchSize}...`)
 
@@ -184,6 +193,11 @@ async function run() {
         if (nonCanonical) nonCanonicalInternalLinks.push({ source: route, ...nonCanonical })
 
         const target = normalizeRoute(href)
+        if (isRedirectSourceRoute(target)) {
+          redirectSourceInternalLinks.push({ source: route, href, target })
+          continue
+        }
+
         if (graph.has(target)) {
           graph.get(route).add(target)
           if (target !== route) inboundGraph.get(target).add(route)
@@ -215,6 +229,7 @@ async function run() {
     .map(([route, outbound]) => ({ route, outbound: outbound.size }))
     .sort((a, b) => b.outbound - a.outbound)
   const nonCanonicalSummary = summarizeNonCanonicalLinks(nonCanonicalInternalLinks)
+  const redirectSourceSummary = summarizeRedirectSourceLinks(redirectSourceInternalLinks)
 
   const report = {
     generatedAt: new Date().toISOString(),
@@ -231,6 +246,8 @@ async function run() {
     internalLinkDensity: internalLinkDensity.slice(0, 100),
     nonCanonicalInternalLinks,
     nonCanonicalSummary,
+    redirectSourceInternalLinks,
+    redirectSourceSummary,
   }
 
   fs.mkdirSync(path.join(root, 'ops', 'reports'), { recursive: true })
@@ -242,12 +259,16 @@ async function run() {
   const nonIndexable = orphanRoutes.filter((route) => isNonIndexableRoute(route, noindexRoutes))
   const blockingOrphans = orphanRoutes.filter((route) => !nonIndexable.includes(route))
   const topNonCanonicalSource = nonCanonicalSummary.topSourceRoutes[0]
+  const topRedirectSource = redirectSourceSummary.topSourceRoutes[0]
 
   console.log(
-    `internal-links: routes=${routes.size}, orphan=${orphanRoutes.length}, blockingOrphan=${blockingOrphans.length}, weak=${weaklyConnected.length}, weakCrawlable=${crawlableWeaklyConnected.length}, weakNoindex=${nonIndexableWeaklyConnected.length}, nonCanonical=${nonCanonicalInternalLinks.length}`,
+    `internal-links: routes=${routes.size}, orphan=${orphanRoutes.length}, blockingOrphan=${blockingOrphans.length}, weak=${weaklyConnected.length}, weakCrawlable=${crawlableWeaklyConnected.length}, weakNoindex=${nonIndexableWeaklyConnected.length}, nonCanonical=${nonCanonicalInternalLinks.length}, redirectTargets=${redirectSourceInternalLinks.length}`,
   )
   if (topNonCanonicalSource) {
     console.log(`[internal-links] top non-canonical source: ${topNonCanonicalSource.value} (${topNonCanonicalSource.count})`)
+  }
+  if (topRedirectSource) {
+    console.log(`[internal-links] top redirect-target source: ${topRedirectSource.value} (${topRedirectSource.count})`)
   }
   // Name what failed. Without this the CI log says only how many routes broke
   // the audit, and the offenders are reachable only by downloading the report
@@ -259,6 +280,16 @@ async function run() {
     }
     if (nonCanonicalInternalLinks.length > 20) {
       console.error(`  ... and ${nonCanonicalInternalLinks.length - 20} more (see ops/reports/internal-link-report.json)`)
+    }
+    if (process.env.CI === 'true') process.exitCode = 1
+  }
+  if (redirectSourceInternalLinks.length) {
+    console.error(`[internal-links] found ${redirectSourceInternalLinks.length} internal hrefs that point at redirect sources`)
+    for (const link of redirectSourceInternalLinks.slice(0, 20)) {
+      console.error(`  - ${link.source} links to redirect source ${link.href}`)
+    }
+    if (redirectSourceInternalLinks.length > 20) {
+      console.error(`  ... and ${redirectSourceInternalLinks.length - 20} more (see ops/reports/internal-link-report.json)`)
     }
     if (process.env.CI === 'true') process.exitCode = 1
   }
