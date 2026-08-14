@@ -141,6 +141,20 @@ function summarizeNonCanonicalLinks(rows) {
   }
 }
 
+function isNonIndexableRoute(route, noindexRoutes) {
+  return (
+    route === '/404' ||
+    route === '/500' ||
+    route.startsWith('/_not-found') ||
+    route.startsWith('/sitemap.xml') ||
+    route.startsWith('/robots.txt') ||
+    route.startsWith('/opengraph-image') ||
+    route.startsWith('/twitter-image') ||
+    route.startsWith('/blogdata') ||
+    noindexRoutes.has(route)
+  )
+}
+
 async function run() {
   const batchSize = 100
   const noindexRoutes = new Set()
@@ -186,9 +200,17 @@ async function run() {
   const orphanRoutes = [...inboundGraph.entries()]
     .filter(([, incoming]) => incoming.size === 0)
     .map(([route]) => route)
+    .sort((a, b) => a.localeCompare(b))
   const weaklyConnected = [...inboundGraph.entries()]
     .filter(([, incoming]) => incoming.size > 0 && incoming.size < 3)
     .map(([route, incoming]) => ({ route, inbound: incoming.size }))
+    .sort((a, b) => a.inbound - b.inbound || a.route.localeCompare(b.route))
+  const crawlableWeaklyConnected = weaklyConnected.filter(
+    ({ route }) => !isNonIndexableRoute(route, noindexRoutes),
+  )
+  const nonIndexableWeaklyConnected = weaklyConnected.filter(
+    ({ route }) => isNonIndexableRoute(route, noindexRoutes),
+  )
   const internalLinkDensity = [...graph.entries()]
     .map(([route, outbound]) => ({ route, outbound: outbound.size }))
     .sort((a, b) => b.outbound - a.outbound)
@@ -201,8 +223,11 @@ async function run() {
       : null,
     redirectRulesChecked: redirectSourcePatterns.length,
     totalRoutes: routes.size,
+    noindexRouteCount: noindexRoutes.size,
     orphanRoutes,
     weaklyConnected,
+    crawlableWeaklyConnected,
+    nonIndexableWeaklyConnected,
     internalLinkDensity: internalLinkDensity.slice(0, 100),
     nonCanonicalInternalLinks,
     nonCanonicalSummary,
@@ -214,22 +239,12 @@ async function run() {
     JSON.stringify(report, null, 2),
   )
 
-  const nonIndexable = orphanRoutes.filter((route) =>
-    route === '/404' ||
-    route === '/500' ||
-    route.startsWith('/_not-found') ||
-    route.startsWith('/sitemap.xml') ||
-    route.startsWith('/robots.txt') ||
-    route.startsWith('/opengraph-image') ||
-    route.startsWith('/twitter-image') ||
-    route.startsWith('/blogdata') ||
-    noindexRoutes.has(route),
-  )
+  const nonIndexable = orphanRoutes.filter((route) => isNonIndexableRoute(route, noindexRoutes))
   const blockingOrphans = orphanRoutes.filter((route) => !nonIndexable.includes(route))
   const topNonCanonicalSource = nonCanonicalSummary.topSourceRoutes[0]
 
   console.log(
-    `internal-links: routes=${routes.size}, orphan=${orphanRoutes.length}, blockingOrphan=${blockingOrphans.length}, weak=${weaklyConnected.length}, nonCanonical=${nonCanonicalInternalLinks.length}`,
+    `internal-links: routes=${routes.size}, orphan=${orphanRoutes.length}, blockingOrphan=${blockingOrphans.length}, weak=${weaklyConnected.length}, weakCrawlable=${crawlableWeaklyConnected.length}, weakNoindex=${nonIndexableWeaklyConnected.length}, nonCanonical=${nonCanonicalInternalLinks.length}`,
   )
   if (topNonCanonicalSource) {
     console.log(`[internal-links] top non-canonical source: ${topNonCanonicalSource.value} (${topNonCanonicalSource.count})`)
