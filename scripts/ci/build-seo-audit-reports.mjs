@@ -27,6 +27,17 @@ function writeReport(fileName, payload) {
   fs.writeFileSync(path.join(reportDir, fileName), `${JSON.stringify(payload, null, 2)}\n`)
 }
 
+function decodeHtmlEntities(value) {
+  return String(value || '')
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, decimal) => String.fromCodePoint(Number.parseInt(decimal, 10)))
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&apos;|&#39;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+}
+
 function walkHtml(dir) {
   if (!fs.existsSync(dir)) return []
   const files = []
@@ -60,6 +71,15 @@ function normalizeRoute(href) {
   return pathOnly.replace(/\/+$/, '') || '/'
 }
 
+function getRedirectSourceRoutes() {
+  const redirects = readJson(path.join(root, 'public', '_redirects.json'), [])
+  return new Set(
+    Array.isArray(redirects)
+      ? redirects.map((row) => normalizeRoute(row?.source || row?.from)).filter(Boolean)
+      : [],
+  )
+}
+
 function nonCanonicalInternalHref(href) {
   if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return null
   if (/^https?:\/\//i.test(href)) {
@@ -78,19 +98,19 @@ function nonCanonicalInternalHref(href) {
 }
 
 function htmlMeta(html) {
-  const title = (html.match(/<title>([^<]*)<\/title>/i) || [])[1] || ''
-  const description = (html.match(/<meta\s+[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i) || [])[1] || ''
+  const title = decodeHtmlEntities((html.match(/<title>([^<]*)<\/title>/i) || [])[1] || '')
+  const description = decodeHtmlEntities((html.match(/<meta\s+[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i) || [])[1] || '')
   const canonical = (html.match(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i) || [])[1] || ''
   const robots = (html.match(/<meta\s+[^>]*name=["']robots["'][^>]*content=["']([^"']*)["']/i) || [])[1] || ''
   const structuredDataBlocks = [...html.matchAll(/<script type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/g)].map((m) => m[1])
   const h1Count = [...html.matchAll(/<h1\b[^>]*>/gi)].length
   const htmlSizeBytes = Buffer.byteLength(html, 'utf8')
-  const bodyText = html
+  const bodyText = decodeHtmlEntities(html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
-    .trim()
+    .trim())
   return {
     title,
     description,
@@ -126,8 +146,7 @@ function collectHtmlRows() {
 
 function collectLinks(rows) {
   const routes = new Set(rows.map((row) => row.route))
-  const redirects = readJson(path.join(root, 'public', '_redirects.json'), [])
-  const redirectSources = new Set(Array.isArray(redirects) ? redirects.map((row) => normalizeRoute(row?.source || row?.from)).filter(Boolean) : [])
+  const redirectSources = getRedirectSourceRoutes()
   const links = []
   const nonCanonical = []
   const inbound = new Map([...routes].map((route) => [route, new Set()]))
@@ -151,7 +170,7 @@ function collectLinks(rows) {
     broken: links.filter((link) => !link.exists),
     nonCanonical,
     orphanRoutes: [...inbound.entries()]
-      .filter(([route, sources]) => route !== '/' && sources.size === 0)
+      .filter(([route, sources]) => route !== '/' && !redirectSources.has(normalizeRoute(route)) && sources.size === 0)
       .map(([route]) => route)
       .sort(),
   }
@@ -261,16 +280,23 @@ function collectManifestRows() {
 }
 
 function collectDuplicateSlugs() {
-  const sources = ['herbs.json', 'compounds.json', 'herbs-summary.json', 'compounds-summary.json']
-  const rows = []
+  const sources = ['herbs.json', 'compounds.json']
+  const duplicates = []
+
   for (const fileName of sources) {
     const data = readJson(path.join(root, 'public', 'data', fileName), [])
+    const counts = new Map()
     for (const item of Array.isArray(data) ? data : []) {
-      if (item?.slug) rows.push({ slug: String(item.slug), source: fileName })
+      const slug = String(item?.slug || '').trim()
+      if (!slug) continue
+      counts.set(slug, (counts.get(slug) || 0) + 1)
+    }
+    for (const [slug, count] of counts.entries()) {
+      if (count > 1) duplicates.push({ slug, sources: [fileName], count })
     }
   }
-  return groupDuplicates(rows.map((row) => ({ route: row.source, title: row.slug })), 'title')
-    .map((item) => ({ slug: item.value, sources: item.routes }))
+
+  return duplicates.sort((a, b) => a.slug.localeCompare(b.slug))
 }
 
 function collectUnusedDependencies() {
@@ -297,10 +323,12 @@ function main() {
   const generatedAt = new Date().toISOString()
   const htmlRows = collectHtmlRows()
   const manifestRows = collectManifestRows()
-  const rows = htmlRows.length ? htmlRows : manifestRows
+  const redirectSourceRoutes = getRedirectSourceRoutes()
+  const contentHtmlRows = htmlRows.filter((row) => !redirectSourceRoutes.has(normalizeRoute(row.route)))
+  const rows = htmlRows.length ? contentHtmlRows : manifestRows
   const linkReport = htmlRows.length ? collectLinks(htmlRows) : { links: [], broken: [], nonCanonical: [], orphanRoutes: [] }
   const nonCanonicalSummary = summarizeNonCanonicalLinks(linkReport.nonCanonical)
-  const technicalSeoIssues = collectTechnicalSeoIssues(rows, htmlRows)
+  const technicalSeoIssues = collectTechnicalSeoIssues(rows, contentHtmlRows)
   const duplicateSlugs = collectDuplicateSlugs()
   const duplicateMetadata = {
     generatedAt,
@@ -329,6 +357,8 @@ function main() {
     generatedAt,
     source: htmlRows.length ? 'out' : 'route-manifest',
     routeCount: rows.length,
+    exportedRouteCount: htmlRows.length || manifestRows.length,
+    redirectOnlyRoutesExcluded: htmlRows.length ? htmlRows.length - contentHtmlRows.length : 0,
     checks: {
       metadata: {
         missingTitles: rows.filter((row) => !row.title).map((row) => row.route),
@@ -357,8 +387,8 @@ function main() {
         filePresent: fs.existsSync(path.join(outDir, 'robots.txt')) || fs.existsSync(path.join(root, 'app', 'robots.ts')),
       },
       structuredData: {
-        routesWithJsonLd: htmlRows.filter((row) => row.structuredDataBlocks?.length > 0).length,
-        routesWithoutJsonLd: htmlRows.filter((row) => row.structuredDataBlocks?.length === 0).map((row) => row.route),
+        routesWithJsonLd: contentHtmlRows.filter((row) => row.structuredDataBlocks?.length > 0).length,
+        routesWithoutJsonLd: contentHtmlRows.filter((row) => row.structuredDataBlocks?.length === 0).map((row) => row.route),
       },
       internalLinks: {
         totalInternalLinks: linkReport.links.length,
