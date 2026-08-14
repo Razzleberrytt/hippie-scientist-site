@@ -56,24 +56,26 @@ export default async function GuidePage({ params }: Props) {
   if (!guide) notFound();
 
   const pageUrl = `${SITE_URL}/guides/${slug}/`;
-  const publishDate = guide.publishDate || "2024-01-01";
   const contentBlocks = guide.content.split(/\n{2,}/).map((block) => block.trim()).filter(Boolean);
   const relatedGuides = RELATED_GUIDE_MAP[slug] ?? [];
   const atlasGuide = ATLAS_GUIDE_MAP[slug];
 
   return (
     <ArticleLayout zone="supplement">
-      <StructuredData
-        pageUrl={pageUrl}
-        headline={guide.title}
-        description={guide.description}
-        datePublished={publishDate}
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Guides", href: "/guides/" },
-          { label: guide.title, href: `/guides/${slug}/` },
-        ]}
-      />
+      {guide.publishDate ? (
+        <StructuredData
+          pageUrl={pageUrl}
+          headline={guide.title}
+          description={guide.description}
+          datePublished={guide.publishDate}
+          dateModified={guide.lastUpdated}
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Guides", href: "/guides/" },
+            { label: guide.title, href: `/guides/${slug}/` },
+          ]}
+        />
+      ) : null}
       {/*
         Guide views are emitted by <ClickTracker /> in app/layout.tsx, which waits for
         analytics consent. An inline gtag snippet here would fire before consent and

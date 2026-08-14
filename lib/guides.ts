@@ -9,6 +9,7 @@ export interface Guide {
   title: string;
   description: string;
   publishDate: string;
+  lastUpdated?: string;
   content: string;
 }
 
@@ -24,6 +25,7 @@ export async function getGuideBySlug(slug: string): Promise<Guide | null> {
     title: data.title ?? "",
     description: data.description ?? "",
     publishDate: data.publishDate ?? "",
+    lastUpdated: data.lastUpdated ?? undefined,
     content,
   };
 }
