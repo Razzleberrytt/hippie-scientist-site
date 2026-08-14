@@ -73,4 +73,19 @@ describe('getRuntimeVisibility', () => {
     expect(visibility.canRender).toBe(false)
     expect(visibility.canIndex).toBe(false)
   })
+
+  it('fails closed if evaluating a malformed record throws', () => {
+    const malformed = new Proxy({}, {
+      get() {
+        throw new Error('malformed runtime record')
+      },
+    }) as Record<string, unknown>
+
+    expect(getRuntimeVisibility(malformed)).toEqual({
+      canRender: false,
+      canIndex: false,
+      canFeature: false,
+      canMonetize: false,
+    })
+  })
 })
