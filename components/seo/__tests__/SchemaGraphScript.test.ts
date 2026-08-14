@@ -3,6 +3,7 @@ import {
   attachEntityDataset,
   getEntityArtifact,
   normalizeProfileEntitySemantics,
+  normalizeProfileReviewSemantics,
 } from '../SchemaGraphScript'
 
 describe('SchemaGraphScript AI entity data discovery', () => {
@@ -83,6 +84,89 @@ describe('SchemaGraphScript AI entity data discovery', () => {
     expect(normalizeProfileEntitySemantics(graph, artifact)).toEqual(graph)
   })
 
+  it('removes reviewedBy when a profile has no actual review date', () => {
+    const reviewGraph = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': ['MedicalWebPage', 'WebPage'],
+          '@id': 'https://thehippiescientist.net/compounds/magnesium/#webpage',
+          url: 'https://thehippiescientist.net/compounds/magnesium/',
+          reviewedBy: { '@type': 'Organization', name: 'The Hippie Scientist' },
+        },
+        {
+          '@type': ['ChemicalSubstance', 'Thing'],
+          '@id': 'https://thehippiescientist.net/compounds/magnesium/#entity',
+          name: 'Magnesium',
+          url: 'https://thehippiescientist.net/compounds/magnesium/',
+        },
+      ],
+    }
+
+    const artifact = getEntityArtifact(reviewGraph)
+    const normalized = normalizeProfileReviewSemantics(reviewGraph, artifact)
+    const nodes = normalized['@graph'] as Record<string, unknown>[]
+    const webpage = nodes.find((node) => node['@id'] === 'https://thehippiescientist.net/compounds/magnesium/#webpage')
+
+    expect(webpage?.reviewedBy).toBeUndefined()
+  })
+
+  it('keeps reviewedBy when a profile has an explicit review date', () => {
+    const reviewGraph = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': ['MedicalWebPage', 'WebPage'],
+          '@id': 'https://thehippiescientist.net/compounds/magnesium/#webpage',
+          url: 'https://thehippiescientist.net/compounds/magnesium/',
+          dateReviewed: '2026-08-01',
+          reviewedBy: { '@type': 'Organization', name: 'The Hippie Scientist' },
+        },
+        {
+          '@type': ['ChemicalSubstance', 'Thing'],
+          '@id': 'https://thehippiescientist.net/compounds/magnesium/#entity',
+          name: 'Magnesium',
+          url: 'https://thehippiescientist.net/compounds/magnesium/',
+        },
+      ],
+    }
+
+    const artifact = getEntityArtifact(reviewGraph)
+    const normalized = normalizeProfileReviewSemantics(reviewGraph, artifact)
+    const nodes = normalized['@graph'] as Record<string, unknown>[]
+    const webpage = nodes.find((node) => node['@id'] === 'https://thehippiescientist.net/compounds/magnesium/#webpage')
+
+    expect(webpage?.reviewedBy).toEqual({ '@type': 'Organization', name: 'The Hippie Scientist' })
+  })
+
+  it('does not mislabel a review date as an evidence article publication date', () => {
+    const reviewGraph = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': ['ChemicalSubstance', 'Thing'],
+          '@id': 'https://thehippiescientist.net/compounds/magnesium/#entity',
+          name: 'Magnesium',
+          url: 'https://thehippiescientist.net/compounds/magnesium/',
+        },
+        {
+          '@type': 'Article',
+          '@id': 'https://thehippiescientist.net/compounds/magnesium/#evidence-review',
+          datePublished: '2026-08-01',
+          dateModified: '2026-08-01',
+        },
+      ],
+    }
+
+    const artifact = getEntityArtifact(reviewGraph)
+    const normalized = normalizeProfileReviewSemantics(reviewGraph, artifact)
+    const nodes = normalized['@graph'] as Record<string, unknown>[]
+    const evidenceArticle = nodes.find((node) => node['@id'] === 'https://thehippiescientist.net/compounds/magnesium/#evidence-review')
+
+    expect(evidenceArticle?.datePublished).toBeUndefined()
+    expect(evidenceArticle?.dateModified).toBe('2026-08-01')
+  })
+
   it('ignores non-profile schema graphs', () => {
     const collectionGraph = {
       '@context': 'https://schema.org',
@@ -90,5 +174,6 @@ describe('SchemaGraphScript AI entity data discovery', () => {
     }
     expect(getEntityArtifact(collectionGraph)).toBeNull()
     expect(attachEntityDataset(collectionGraph, null)).toBe(collectionGraph)
+    expect(normalizeProfileReviewSemantics(collectionGraph, null)).toBe(collectionGraph)
   })
 })
