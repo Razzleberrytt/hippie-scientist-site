@@ -146,7 +146,7 @@ export default function StructuredData({
       url: canonicalPageUrl,
       datePublished,
       dateModified: dateModified ?? datePublished,
-      lastReviewed: dateModified ?? datePublished,
+      ...(dateModified ? { lastReviewed: dateModified } : {}),
       author: {
         '@type': 'Person',
         '@id': AUTHOR_ID,
@@ -169,12 +169,6 @@ export default function StructuredData({
       medicalAudience: {
         '@type': 'MedicalAudience',
         audienceType: 'Patient',
-      },
-      reviewedBy: {
-        '@type': 'Person',
-        '@id': AUTHOR_ID,
-        name: authorName,
-        url: AUTHOR_URL,
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
