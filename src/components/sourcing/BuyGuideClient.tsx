@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { canRenderAffiliateLinks } from '../../lib/affiliate'
+import { canRenderAffiliateLinks, ensureAmazonAffiliateTag } from '../../lib/affiliate'
 
 interface GuideItem {
   slug: string
@@ -66,15 +66,17 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
         }
       }
 
-      // Resolve affiliate URL
+      // Resolve affiliate URL. Any Amazon URL that reaches the UI is normalized
+      // through the central associate-tag helper so direct product links cannot
+      // silently bypass attribution when source data omitted or changed the tag.
       let affiliateUrl = ''
       const direct = item.amazon_affiliate_url || item.amazonAffiliateUrl
       if (direct && String(direct).includes('amazon.com/dp/')) {
-        affiliateUrl = String(direct)
+        affiliateUrl = ensureAmazonAffiliateTag(String(direct))
       } else {
         const prebuilt = item.affiliate_url || item.affiliateUrl
-        if (prebuilt && String(prebuilt).includes('amazon.com') && String(prebuilt).includes('tag=')) {
-          affiliateUrl = String(prebuilt)
+        if (prebuilt && String(prebuilt).includes('amazon.com')) {
+          affiliateUrl = ensureAmazonAffiliateTag(String(prebuilt))
         } else {
           const query = item.affiliate_query || item.affiliateQuery || item.displayName || item.name || item.slug
           const encoded = encodeURIComponent(`${query} supplement third party tested`)
