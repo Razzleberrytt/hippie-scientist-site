@@ -1,13 +1,14 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-vi.mock('@/src/lib/consent', () => ({
+vi.mock('@/lib/consent', () => ({
   getConsent: vi.fn(() => 'granted'),
   getSystemNoTracking: vi.fn(() => false),
 }))
 
-import { getConsent, getSystemNoTracking } from '@/src/lib/consent'
+import { getConsent, getSystemNoTracking } from '@/lib/consent'
 import {
   getGuideTrackingContext,
+  trackAtlasCalloutClick,
   trackEmailSignup,
   trackGuideView,
   trackLeadMagnetClick,
@@ -19,9 +20,14 @@ beforeEach(() => {
 })
 
 afterEach(() => {
+  delete (window as Window & { dataLayer?: unknown }).dataLayer
   delete (window as Window & { gtag?: unknown }).gtag
   vi.clearAllMocks()
 })
+
+function readDataLayer(): Array<Record<string, unknown>> {
+  return (window as Window & { dataLayer?: Array<Record<string, unknown>> }).dataLayer ?? []
+}
 
 describe('guide analytics', () => {
   it('extracts cluster and slug from current nested guide routes', () => {
@@ -118,6 +124,48 @@ describe('guide analytics', () => {
       pagePath: '/guides/anxiety/ashwagandha-for-anxiety',
     })
 
+    expect(gtag).not.toHaveBeenCalled()
+  })
+})
+
+describe('atlas callout analytics', () => {
+  it('records the callout click on dataLayer and gtag when consent is granted', () => {
+    const gtag = vi.fn()
+    ;(window as Window & { gtag?: unknown }).gtag = gtag
+
+    trackAtlasCalloutClick({
+      source: 'anxiety_hub',
+      target: 'primary',
+      destination: '/tools/botanical-activity-atlas/',
+    })
+
+    expect(readDataLayer()).toEqual([
+      {
+        event: 'atlas_callout_click',
+        atlas_source: 'anxiety_hub',
+        atlas_target: 'primary',
+        atlas_destination: '/tools/botanical-activity-atlas/',
+      },
+    ])
+    expect(gtag).toHaveBeenCalledWith('event', 'atlas_callout_click', {
+      source: 'anxiety_hub',
+      target: 'primary',
+      destination: '/tools/botanical-activity-atlas/',
+    })
+  })
+
+  it('leaves dataLayer untouched when consent is denied', () => {
+    const gtag = vi.fn()
+    ;(window as Window & { gtag?: unknown }).gtag = gtag
+    vi.mocked(getConsent).mockReturnValue('denied')
+
+    trackAtlasCalloutClick({
+      source: 'anxiety_hub',
+      target: 'secondary',
+      destination: '/tools/botanical-activity-atlas/',
+    })
+
+    expect(readDataLayer()).toEqual([])
     expect(gtag).not.toHaveBeenCalled()
   })
 })

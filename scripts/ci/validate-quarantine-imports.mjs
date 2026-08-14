@@ -43,6 +43,9 @@ const QUARANTINED_IMPORT_PATTERNS = [
   '@/src/lib/compound-data',
   '@/src/lib/compoundHerbRelations',
   '@/src/lib/compounds',
+  // Consent lives at lib/consent.ts, not src/lib — it is active production
+  // infrastructure that gates every analytics emitter. Anything still reaching
+  // for the old src/lib path is a stale import and should be flagged.
   '@/src/lib/consent',
   '@/src/lib/contentJourneyTracking',
   '@/src/lib/counters',

@@ -1,7 +1,6 @@
 import { getGuideBySlug } from "@/lib/guides";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import Script from "next/script";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import { buildPageMetadata, SITE_URL, compactMetaTitle } from "../../../src/lib/seo";
@@ -56,7 +55,6 @@ export default async function GuidePage({ params }: Props) {
   const guide = await getGuideBySlug(slug);
   if (!guide) notFound();
 
-  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || "";
   const pageUrl = `${SITE_URL}/guides/${slug}/`;
   const publishDate = guide.publishDate || "2024-01-01";
   const contentBlocks = guide.content.split(/\n{2,}/).map((block) => block.trim()).filter(Boolean);
@@ -76,15 +74,11 @@ export default async function GuidePage({ params }: Props) {
           { label: guide.title, href: `/guides/${slug}/` },
         ]}
       />
-      {ga4Id && (
-        <Script
-          id={`guide-page-view-${slug}`}
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('event','page_view',{page_path:'/guides/${slug}/',page_title:'${guide.title.replace(/'/g, "\\'")}',guide_slug:'${slug}',guide_type:'guide'});`,
-          }}
-        />
-      )}
+      {/*
+        Guide views are emitted by <ClickTracker /> in app/layout.tsx, which waits for
+        analytics consent. An inline gtag snippet here would fire before consent and
+        would also overwrite the consent-aware window.gtag installed by loadAnalytics().
+      */}
       <div className="space-y-8">
         <div>
           <h1>{guide.title}</h1>
