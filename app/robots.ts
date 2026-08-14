@@ -26,7 +26,9 @@ export default function robots(): MetadataRoute.Robots {
         '/dev/',
       ],
     },
+    // No `host` directive: it is a non-standard Yandex-only field that Google and
+    // Bing ignore, and scripts/ci/validate-robots.mjs rejects it outright. Canonical
+    // host is enforced by canonical URLs and the apex/www redirects in _redirects.
     sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
   }
 }
