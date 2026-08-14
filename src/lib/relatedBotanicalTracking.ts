@@ -1,6 +1,7 @@
 'use client'
 
 import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
+import { canTrackAnalytics } from '@/lib/consent'
 
 const SESSION_KEY = 'hs_related_botanical_session'
 
@@ -29,7 +30,7 @@ function readSession(): RelatedBotanicalSession {
 }
 
 function saveSession(session: RelatedBotanicalSession) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return
   try { window.sessionStorage.setItem(SESSION_KEY, JSON.stringify(session)) } catch { /* ignore */ }
 }
 
@@ -51,7 +52,7 @@ export type RelatedBotanicalTrackingItem = {
 }
 
 export function trackRelatedBotanicalsShown(sourceSlug: string, items: RelatedBotanicalTrackingItem[]) {
-  if (typeof window === 'undefined' || !items.length) return
+  if (typeof window === 'undefined' || !items.length || !canTrackAnalytics()) return
   const session = ensureSourceVisited(sourceSlug)
   appendAnalyticsEvent({
     type: 'related_botanicals_shown',
@@ -64,7 +65,7 @@ export function trackRelatedBotanicalsShown(sourceSlug: string, items: RelatedBo
 }
 
 export function trackRelatedBotanicalClick(sourceSlug: string, item: RelatedBotanicalTrackingItem) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return
   const session = ensureSourceVisited(sourceSlug)
   const visitedProfiles = session.visitedProfiles.includes(item.slug)
     ? session.visitedProfiles
@@ -83,7 +84,7 @@ export function trackRelatedBotanicalClick(sourceSlug: string, item: RelatedBota
 }
 
 export function trackRelatedBotanicalCompare(sourceSlug: string, item: RelatedBotanicalTrackingItem, compareHref: string) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return
   const session = ensureSourceVisited(sourceSlug)
   appendAnalyticsEvent({
     type: 'related_botanical_compare_click',
