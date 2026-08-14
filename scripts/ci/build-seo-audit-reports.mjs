@@ -13,6 +13,7 @@ const staticAssetExt = /\.(?:css|js|json|png|jpe?g|gif|webp|avif|svg|ico|txt|xml
 const weakTextPattern = /placeholder|research[-\s]?pending|unknown|not specified|not available|needs review|minimal/i
 const titleTooLongThreshold = 60
 const htmlSizeWarningBytes = 100 * 1024
+const ignoredAuditRoutes = new Set(['/404', '/500'])
 
 function readJson(filePath, fallback) {
   try {
@@ -170,7 +171,13 @@ function collectLinks(rows) {
     broken: links.filter((link) => !link.exists),
     nonCanonical,
     orphanRoutes: [...inbound.entries()]
-      .filter(([route, sources]) => route !== '/' && !redirectSources.has(normalizeRoute(route)) && sources.size === 0)
+      .filter(([route, sources]) => {
+        const normalized = normalizeRoute(route)
+        return route !== '/'
+          && !ignoredAuditRoutes.has(normalized)
+          && !redirectSources.has(normalized)
+          && sources.size === 0
+      })
       .map(([route]) => route)
       .sort(),
   }
@@ -324,8 +331,11 @@ function main() {
   const htmlRows = collectHtmlRows()
   const manifestRows = collectManifestRows()
   const redirectSourceRoutes = getRedirectSourceRoutes()
-  const contentHtmlRows = htmlRows.filter((row) => !redirectSourceRoutes.has(normalizeRoute(row.route)))
-  const rows = htmlRows.length ? contentHtmlRows : manifestRows
+  const contentHtmlRows = htmlRows.filter((row) => {
+    const normalized = normalizeRoute(row.route)
+    return !ignoredAuditRoutes.has(normalized) && !redirectSourceRoutes.has(normalized)
+  })
+  const rows = htmlRows.length ? contentHtmlRows : manifestRows.filter((row) => !ignoredAuditRoutes.has(normalizeRoute(row.route)))
   const linkReport = htmlRows.length ? collectLinks(htmlRows) : { links: [], broken: [], nonCanonical: [], orphanRoutes: [] }
   const nonCanonicalSummary = summarizeNonCanonicalLinks(linkReport.nonCanonical)
   const technicalSeoIssues = collectTechnicalSeoIssues(rows, contentHtmlRows)
@@ -358,7 +368,8 @@ function main() {
     source: htmlRows.length ? 'out' : 'route-manifest',
     routeCount: rows.length,
     exportedRouteCount: htmlRows.length || manifestRows.length,
-    redirectOnlyRoutesExcluded: htmlRows.length ? htmlRows.length - contentHtmlRows.length : 0,
+    redirectOnlyRoutesExcluded: htmlRows.length ? htmlRows.filter((row) => redirectSourceRoutes.has(normalizeRoute(row.route))).length : 0,
+    utilityRoutesExcluded: ignoredAuditRoutes.size,
     checks: {
       metadata: {
         missingTitles: rows.filter((row) => !row.title).map((row) => row.route),
