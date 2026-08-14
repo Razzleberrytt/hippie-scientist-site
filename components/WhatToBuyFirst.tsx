@@ -169,6 +169,8 @@ export default function WhatToBuyFirst({
                       target="_blank"
                       rel="noopener noreferrer nofollow sponsored"
                       aria-label={`${entry.affiliateLabel || 'View on Amazon'} — ${entry.name} (opens in new tab)`}
+                      data-ingredient={entry.slug}
+                      data-tracking-location="what-to-buy-first"
                       className="inline-flex items-center gap-1 rounded-full border border-brand-700/15 bg-brand-50 px-3 py-1.5 text-xs font-semibold text-brand-800 transition hover:border-brand-700/25 hover:bg-brand-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:border-white/10 dark:bg-white/5 dark:text-brand-100 dark:hover:bg-white/10"
                     >
                       {entry.affiliateLabel || 'View'}
@@ -241,6 +243,8 @@ function WhatToBuyCard({ entry }: { entry: WhatToBuyFirstEntry }) {
               target="_blank"
               rel="noopener noreferrer nofollow sponsored"
               aria-label={`${entry.affiliateLabel || 'View on Amazon'} — ${entry.name} (opens in new tab)`}
+              data-ingredient={entry.slug}
+              data-tracking-location="what-to-buy-first"
               className="inline-flex items-center gap-1 rounded-full border border-brand-700/15 bg-brand-50 px-3 py-1.5 text-xs font-semibold text-brand-800 transition hover:border-brand-700/25 hover:bg-brand-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:border-white/10 dark:bg-white/5 dark:text-brand-100 dark:hover:bg-white/10"
             >
               {entry.affiliateLabel || 'View on Amazon'}
