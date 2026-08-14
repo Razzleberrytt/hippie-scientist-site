@@ -1,10 +1,15 @@
 'use client'
 
-import { getConsent, getSystemNoTracking } from '@/src/lib/consent'
+import { getConsent, getSystemNoTracking } from '@/lib/consent'
 
 type Gtag = (
   command: 'event',
-  eventName: 'affiliate_click' | 'email_signup' | 'guide_view' | 'lead_magnet_click',
+  eventName:
+    | 'affiliate_click'
+    | 'atlas_callout_click'
+    | 'email_signup'
+    | 'guide_view'
+    | 'lead_magnet_click',
   params: Record<string, string | number | boolean | undefined>,
 ) => void
 
@@ -73,6 +78,37 @@ export function trackLeadMagnetClick(params: { slug: string; sourcePath: string 
     })
   } catch {
     // Analytics must never block resource access.
+  }
+}
+
+export type AtlasCalloutClickParams = {
+  source: string
+  target: 'primary' | 'secondary'
+  destination: string
+}
+
+export function trackAtlasCalloutClick(params: AtlasCalloutClickParams): void {
+  try {
+    if (!getGtag()) return
+
+    // dataLayer entries are consumed by tag managers, so they are only written
+    // once the same consent gate that guards gtag has passed.
+    const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, unknown>> }
+    analyticsWindow.dataLayer = analyticsWindow.dataLayer || []
+    analyticsWindow.dataLayer.push({
+      event: 'atlas_callout_click',
+      atlas_source: params.source,
+      atlas_target: params.target,
+      atlas_destination: params.destination,
+    })
+
+    getGtag()?.('event', 'atlas_callout_click', {
+      source: params.source,
+      target: params.target,
+      destination: params.destination,
+    })
+  } catch {
+    // Analytics must never block navigation.
   }
 }
 

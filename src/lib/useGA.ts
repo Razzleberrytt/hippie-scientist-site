@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "./router-compat";
-import { CONSENT_CHANGE_EVENT, CONSENT_STORAGE_KEY, getConsent } from "./consent";
+import { CONSENT_CHANGE_EVENT, CONSENT_STORAGE_KEY, getConsent } from "@/lib/consent";
 import { loadAnalytics } from "./loadAnalytics";
 
 function hasGrantedConsentFromStorage(): boolean {

@@ -11,7 +11,7 @@ const mocks = vi.hoisted(() => ({
   trackRevenueEvent: vi.fn(),
 }))
 
-vi.mock('../../src/lib/consent', () => ({
+vi.mock('@/lib/consent', () => ({
   CONSENT_CHANGE_EVENT: 'hs:consent-changed',
   getConsent: mocks.getConsent,
 }))

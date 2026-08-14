@@ -8,7 +8,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
 import { normalizeCitationMetadata, resolveRelatedArticles } from '@/src/lib/article-citation-metadata'
-import { SITE_URL, compactMetaTitle } from '../../../src/lib/seo'
+import { SITE_URL, buildPageMetadata, compactMetaTitle } from '../../../src/lib/seo'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts]
 
@@ -25,21 +25,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = articlePages.find((item) => item.slug === slug)
   if (!page) return { title: 'Page Not Found', robots: { index: false, follow: true } }
 
-  const metaTitle = compactMetaTitle(page.title)
-
-  return {
-    title: metaTitle,
+  // Build through the shared engine rather than hand-rolling the object. A page
+  // that declares openGraph but no twitter makes Next derive the twitter tags
+  // from that openGraph instead of inheriting the root layout's — which silently
+  // drops twitter:site, since openGraph has no equivalent field.
+  return buildPageMetadata({
+    title: compactMetaTitle(page.title),
     description: page.description,
+    path: `/articles/${page.slug}/`,
     keywords: page.tags,
-    alternates: { canonical: `${SITE_URL}/articles/${page.slug}/` },
-    openGraph: {
-      title: metaTitle,
-      description: page.description,
-      type: 'article',
-      url: `${SITE_URL}/articles/${page.slug}/`,
-      images: ['/og-default.jpg'],
-    },
-  }
+    openGraphType: 'article',
+  })
 }
 
 export default async function ArticleMonographPage({ params }: PageProps) {

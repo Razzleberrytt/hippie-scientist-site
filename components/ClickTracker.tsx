@@ -7,7 +7,7 @@ import {
   trackGuideView,
   trackLeadMagnetClick,
 } from '@/lib/analytics'
-import { CONSENT_CHANGE_EVENT, getConsent } from '../src/lib/consent'
+import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
 import { loadAnalytics } from '../src/lib/loadAnalytics'
 import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
@@ -16,6 +17,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Herb Deep-Dive Guides',
+    description: 'Evidence-first herb guides with safety, dosing, product quality, and practical decision context.',
+  }),
 }
 
 const GUIDES = [

@@ -14,6 +14,11 @@ const requiredSubstrings = [
   'https://analytics.ahrefs.com',
   'connect-src',
   'https://www.google-analytics.com',
+  // Turnstile gates every /api/subscribe signup. It loads a script and renders
+  // the challenge in an iframe, so losing either allowance silently breaks the
+  // newsletter forms in production.
+  'https://challenges.cloudflare.com',
+  'frame-src https://challenges.cloudflare.com',
 ]
 
 const missing = requiredSubstrings.filter(value => !headers.includes(value))

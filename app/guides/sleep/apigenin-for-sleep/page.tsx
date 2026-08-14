@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
 
 const path = '/guides/sleep/apigenin-for-sleep/'
 
@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Apigenin for Sleep',
+    description: 'A reality-check guide for the trending apigenin sleep supplement.',
+  }),
 }
 
 const quickTake = [

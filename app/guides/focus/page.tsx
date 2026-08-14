@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+
 import References from '@/components/References'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRouter'
@@ -20,6 +21,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Focus Supplements & Nootropics: Evidence & Safety',
+    description: 'Compare focus supports by evidence, timescale, and tradeoffs.',
+  }),
 }
 
 // Decision-first routing: match the reason your focus slips to the right first guide.

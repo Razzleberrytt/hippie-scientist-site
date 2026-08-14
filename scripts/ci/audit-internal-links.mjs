@@ -249,12 +249,24 @@ async function run() {
   if (topNonCanonicalSource) {
     console.log(`[internal-links] top non-canonical source: ${topNonCanonicalSource.value} (${topNonCanonicalSource.count})`)
   }
+  // Name what failed. Without this the CI log says only how many routes broke
+  // the audit, and the offenders are reachable only by downloading the report
+  // artifact.
   if (nonCanonicalInternalLinks.length) {
     console.error(`[internal-links] found ${nonCanonicalInternalLinks.length} non-canonical internal hrefs`)
+    for (const link of nonCanonicalInternalLinks.slice(0, 20)) {
+      console.error(`  - ${link.source} links to ${link.href} (should be ${link.canonicalHref})`)
+    }
+    if (nonCanonicalInternalLinks.length > 20) {
+      console.error(`  ... and ${nonCanonicalInternalLinks.length - 20} more (see ops/reports/internal-link-report.json)`)
+    }
     if (process.env.CI === 'true') process.exitCode = 1
   }
   if (blockingOrphans.length) {
     console.error(`[internal-links] found ${blockingOrphans.length} orphaned crawlable routes`)
+    for (const route of blockingOrphans) {
+      console.error(`  - ${route} (no internal page links to it; link it or mark it noindex)`)
+    }
     if (process.env.CI === 'true') process.exitCode = 1
   }
 }

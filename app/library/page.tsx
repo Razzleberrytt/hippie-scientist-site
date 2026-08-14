@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { allArticleMonographs, allBlogPosts } from '../../.content-collections/generated'
 import { SITE_URL } from '@/lib/navigation-config'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Explore Everything — Complete Site Directory',
@@ -27,6 +28,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Explore Everything — The Hippie Scientist',
+    description: 'Use one clear directory to browse every major guide, article, profile database, research resource, and safety tool.',
+  }),
 }
 
 const latestArticles = [...allArticleMonographs, ...allBlogPosts]

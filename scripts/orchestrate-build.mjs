@@ -146,6 +146,18 @@ const steps = [
     description: 'Run Next.js static export build (with temp pages handling)',
   },
   {
+    name: 'apply-redirect-overrides',
+    cmd: 'node scripts/seo/apply-redirect-overrides.mjs',
+    description:
+      'Prepend public/redirect-overrides/* into out/_redirects. build-deploy.mjs already does this; without it here, build:full emits an out/ whose consolidated routes serve a duplicate page instead of redirecting to their canonical guide.',
+  },
+  {
+    name: 'write-static-sitemap',
+    cmd: 'node scripts/seo/write-static-sitemap.mjs',
+    description:
+      'Rewrite out/sitemap.xml from the exported HTML, dropping routes that out/_redirects sends elsewhere. build-deploy.mjs already does this; without it here, build:full ships a sitemap advertising URLs that 301 away.',
+  },
+  {
     name: 'build-pagefind',
     cmd: 'npm run build:pagefind',
     description: 'Build Pagefind static search index (post-production; enables /search without server). Cross-plat script.',

@@ -13,7 +13,7 @@ import { getGoalHubLinks } from '@/src/lib/goal-hub-links'
 import { getPublicGoal, getPublicGoalContentExtension } from '@/src/lib/goal-public-copy'
 import SchemaOrg from '@/components/SchemaOrg'
 import Disclaimer from '@/src/components/Disclaimer'
-import { breadcrumbJsonLd, faqPageJsonLd, SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, breadcrumbJsonLd, buildTwitterMetadata, faqPageJsonLd } from '@/src/lib/seo'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -47,6 +47,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
       images: ['/og-default.jpg'],
     },
+    twitter: buildTwitterMetadata({
+      title: goal.title,
+      description,
+    }),
   }
 }
 

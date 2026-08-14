@@ -164,6 +164,37 @@ export type BuildPageMetadataArgs = BuildMetaArgs & {
   keywords?: string[] | string
 }
 
+/**
+ * Twitter card metadata for routes that build their `Metadata` object by hand.
+ *
+ * A route that declares `openGraph` without `twitter` does not inherit the root
+ * layout's twitter block — Next derives one from that `openGraph` instead. Since
+ * openGraph has no field corresponding to `twitter:site`, the handle silently
+ * disappears from the rendered page. Any hand-rolled metadata that sets
+ * `openGraph` must therefore set `twitter` too.
+ *
+ * Routes that go through `buildPageMetadata` already get this and should not
+ * call it directly.
+ */
+export function buildTwitterMetadata({
+  title,
+  description,
+  image = DEFAULT_OG_IMAGE,
+}: {
+  title: string
+  description: string
+  image?: string
+}): Metadata['twitter'] {
+  return {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [image],
+    site: TWITTER_HANDLE,
+    creator: TWITTER_HANDLE,
+  }
+}
+
 export function buildPageMetadata({
   title,
   description,

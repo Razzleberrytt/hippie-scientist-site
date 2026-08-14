@@ -1,4 +1,4 @@
-import { getConsent, getSystemNoTracking } from './consent'
+import { getConsent, getSystemNoTracking } from '@/lib/consent'
 
 export type RevenueEventKind =
   | 'recommendation_impression'

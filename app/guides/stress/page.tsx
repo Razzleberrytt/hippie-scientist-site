@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+
 import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRouter'
 import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
@@ -23,6 +24,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: TITLE,
+    description: 'Choose a stress-support strategy based on what your stress actually feels like, not a generic ranked list.',
+  }),
 }
 
 const START_HERE: IntentRoute[] = [

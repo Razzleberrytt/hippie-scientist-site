@@ -7,7 +7,6 @@ const ROOT = process.cwd()
 const SCAN_DIRS = ['app', 'components', 'lib', 'pages', 'src']
 const ALLOWLIST = new Set([
   'app/compounds/[slug]/page.tsx',
-  'app/guides/[slug]/page.tsx',
   'app/herbs/[slug]/page.tsx',
   'app/layout.tsx',
   'components/BreadcrumbSchema.tsx',

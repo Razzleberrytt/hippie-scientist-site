@@ -5,7 +5,7 @@ import { allNovelPsychoactiveSubstancePages } from '../../.content-collections/g
 
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
-import { SITE_URL } from '../../src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '../../src/lib/seo'
 
 const sectionPage = allNovelPsychoactiveSubstancePages.find((page) => page.slug === 'index')
 const articlePages = allNovelPsychoactiveSubstancePages.filter((page) => page.slug !== 'index')
@@ -23,6 +23,10 @@ export const metadata: Metadata = sectionPage
         url: `${SITE_URL}/novel-psychoactive-substances/`,
         images: ['/og-default.jpg'],
       },
+      twitter: buildTwitterMetadata({
+        title: sectionPage.title,
+        description: sectionPage.metaDescription,
+      }),
     }
   : {}
 

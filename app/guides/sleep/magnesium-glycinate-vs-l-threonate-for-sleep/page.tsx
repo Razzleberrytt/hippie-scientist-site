@@ -6,7 +6,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
-import { SITE_URL, faqPageJsonLd } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata, faqPageJsonLd } from '@/src/lib/seo'
 
 const path = '/guides/sleep/magnesium-glycinate-vs-l-threonate-for-sleep/'
 const UPDATED_DATE = '2026-08-12'
@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Magnesium Glycinate vs L-Threonate for Sleep: Evidence in 2026',
+    description: 'Direct sleep trials exist for both formulation families, but there is no head-to-head trial proving one form is better.',
+  }),
 }
 
 const SOURCES = [

@@ -10,6 +10,7 @@ import StructuredData from '@/components/StructuredData'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { SITE_URL } from '@/lib/navigation-config'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PATH = '/guides/adhd/best-magnesium-supplement-for-adhd'
 const PAGE_URL = `${SITE_URL}${PATH}`
@@ -28,6 +29,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/images/guides/best-magnesium-supplement-for-adhd.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: TITLE,
+    description: DESCRIPTION,
+  }),
 }
 
 const HEADINGS: Heading[] = [

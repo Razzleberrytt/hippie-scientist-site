@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRouter'
 import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid'
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Sleep Supplements: Evidence, Timing & Safety',
+    description: 'Compare sleep aids by evidence, timing, safety, and next-day effects.',
+  }),
 }
 
 // Decision-first routing: match the reason you can't sleep to the right first guide.

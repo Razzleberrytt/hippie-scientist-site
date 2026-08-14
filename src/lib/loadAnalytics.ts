@@ -1,4 +1,4 @@
-import { getConsent, getSystemNoTracking } from './consent'
+import { getConsent, getSystemNoTracking } from '@/lib/consent'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID?.trim() ?? ''
 const AHREFS_ANALYTICS_KEY = process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_KEY?.trim() ?? ''

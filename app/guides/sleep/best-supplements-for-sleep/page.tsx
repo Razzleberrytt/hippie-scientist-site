@@ -8,6 +8,7 @@ import type { Heading } from '@/components/articles'
 import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-supplements-for-sleep`
 const UPDATED_DATE = '2026-08-12'
@@ -25,6 +26,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Best Sleep Supplements: Evidence, Safety & Limits',
+    description: 'Compare common sleep supplements by what human studies actually support, where evidence is limited, and when chronic insomnia needs stronger first-line care.',
+  }),
 }
 
 const SOURCES = [

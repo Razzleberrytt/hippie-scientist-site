@@ -7,6 +7,7 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-supplements-for-overthinking`
 
@@ -23,6 +24,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Best Supplements for Overthinking & a Racing Mind',
+    description: 'Compare L-theanine, magnesium, and ashwagandha by what human studies actually measured, with evidence limits and safety context kept visible.',
+  }),
 }
 
 const FAQS = [

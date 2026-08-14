@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { trackAtlasCalloutClick } from '@/lib/analytics'
 
 type AtlasComparisonCalloutProps = {
   eyebrow?: string
@@ -11,40 +12,6 @@ type AtlasComparisonCalloutProps = {
   secondaryHref?: string
   secondaryCta?: string
   trackingSource?: string
-}
-
-type AtlasClickTarget = 'primary' | 'secondary'
-
-function trackAtlasCalloutClick({
-  source,
-  target,
-  destination,
-}: {
-  source: string
-  target: AtlasClickTarget
-  destination: string
-}) {
-  if (typeof window === 'undefined') return
-
-  const event = {
-    event: 'atlas_callout_click',
-    atlas_source: source,
-    atlas_target: target,
-    atlas_destination: destination,
-  }
-
-  const analyticsWindow = window as typeof window & {
-    dataLayer?: Array<Record<string, unknown>>
-    gtag?: (...args: unknown[]) => void
-  }
-
-  analyticsWindow.dataLayer = analyticsWindow.dataLayer || []
-  analyticsWindow.dataLayer.push(event)
-  analyticsWindow.gtag?.('event', 'atlas_callout_click', {
-    source,
-    target,
-    destination,
-  })
 }
 
 export function AtlasComparisonCallout({

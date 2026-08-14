@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/navigation-config'
 import { AtlasComparisonCallout } from '@/components/guides/AtlasComparisonCallout'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Evidence Library — Supplements, Science & Mental Health',
@@ -14,6 +15,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Evidence Library — The Hippie Scientist',
+    description: 'Browse citation-rich guides, mental health explainers, supplement comparisons, and science foundations in one organized library.',
+  }),
 }
 
 const SECTIONS = [

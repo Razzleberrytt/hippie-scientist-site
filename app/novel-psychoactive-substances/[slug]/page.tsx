@@ -6,7 +6,7 @@ import { allNovelPsychoactiveSubstancePages } from '../../../.content-collection
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
-import { SITE_URL, compactMetaTitle } from '../../../src/lib/seo'
+import { SITE_URL, buildTwitterMetadata, compactMetaTitle } from '../../../src/lib/seo'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -37,6 +37,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${SITE_URL}/novel-psychoactive-substances/${page.slug}/`,
       images: ['/og-default.jpg'],
     },
+    twitter: buildTwitterMetadata({
+      title: metaTitle,
+      description: page.metaDescription,
+    }),
   }
 }
 

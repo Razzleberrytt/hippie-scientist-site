@@ -20,7 +20,7 @@ vi.mock('@/lib/analytics', () => ({
   trackLeadMagnetClick: mocks.trackLeadMagnetClick,
 }))
 
-vi.mock('@/src/lib/consent', () => ({
+vi.mock('@/lib/consent', () => ({
   CONSENT_CHANGE_EVENT: 'consent-granted',
   getConsent: mocks.getConsent,
 }))

@@ -8,6 +8,7 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-anxiety`
 const DATE = '2026-08-11'
@@ -25,6 +26,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Best Herbs for Anxiety: Human Evidence & Safety',
+    description: 'Compare anxiety herbs by direct human evidence, formulation, duration, funding context, and safety instead of same-day rankings or universal winners.',
+  }),
 }
 
 const FAQS = [
