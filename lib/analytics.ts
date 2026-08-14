@@ -1,5 +1,7 @@
 'use client'
 
+import { getConsent, getSystemNoTracking } from '@/src/lib/consent'
+
 type Gtag = (
   command: 'event',
   eventName: 'affiliate_click' | 'email_signup' | 'guide_view' | 'lead_magnet_click',
@@ -14,6 +16,7 @@ export type GuideViewParams = {
 
 function getGtag(): Gtag | null {
   if (typeof window === 'undefined') return null
+  if (getConsent() !== 'granted' || getSystemNoTracking()) return null
 
   const candidate = (window as Window & { gtag?: unknown }).gtag
   return typeof candidate === 'function' ? (candidate as Gtag) : null
