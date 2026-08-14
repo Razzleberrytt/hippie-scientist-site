@@ -1,11 +1,9 @@
 import Link from 'next/link'
-import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { isRestrictedIngredient, isRestrictedRecord } from '../../lib/restricted-ingredients'
+import { buildAmazonSearchUrl, canRenderAffiliateLinks } from '../../lib/affiliate'
 
-function buildStackAmazonUrl(name: string) {
-  if (isRestrictedIngredient(name)) return ''
-  const encoded = encodeURIComponent(`${name} supplement third party tested`)
-  return `https://www.amazon.com/s?k=${encoded}&tag=${AFFILIATE_TAGS.amazon}`
+function buildStackAmazonUrl(record: any) {
+  if (!canRenderAffiliateLinks(record)) return ''
+  return buildAmazonSearchUrl(`${record.name} supplement third party tested`)
 }
 
 export default function StackTemplate({
@@ -35,7 +33,7 @@ export default function StackTemplate({
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {records.map((record: any) => {
-            const affiliateUrl = isRestrictedRecord(record) ? '' : buildStackAmazonUrl(record.name)
+            const affiliateUrl = buildStackAmazonUrl(record)
 
             return (
               <article
