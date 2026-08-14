@@ -92,7 +92,12 @@ export function classifyRevenueRoute(pathname: string): RevenueRouteFamily {
   if (path.startsWith('/top/')) return 'top-list'
   if (path.startsWith('/goals/')) return 'goal'
   if (path.startsWith('/stacks/')) return 'stack'
-  if (path === '/buy-guide' || path.startsWith('/buy-guide/')) return 'buy-guide'
+  if (
+    path === '/buy-guide' ||
+    path.startsWith('/buy-guide/') ||
+    path === '/learn/product-quality' ||
+    path.startsWith('/learn/product-quality/')
+  ) return 'buy-guide'
   if (path.startsWith('/guides/')) return 'guide'
   return 'other'
 }
