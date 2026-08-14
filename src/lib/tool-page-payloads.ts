@@ -1,4 +1,5 @@
 import type { RuntimeRecord } from '@/src/types/content'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 
 type ToolKind = 'herb' | 'compound'
 
@@ -75,6 +76,9 @@ export function toDosingToolRecord(record: RuntimeRecord, type: ToolKind) {
 export function toBuyingToolRecord(record: RuntimeRecord, type: ToolKind) {
   return {
     ...baseToolRecord(record, type),
+    // The product-quality client re-runs the affiliate gate after the server
+    // compacts records, so preserve the central governance decision explicitly.
+    monetization_allowed: getRuntimeVisibility(record).canMonetize,
     buying_criteria: textList(record.buying_criteria ?? record.buyingCriteria),
     amazon_affiliate_url: firstText(record, ['amazon_affiliate_url', 'amazonAffiliateUrl']),
     affiliate_url: firstText(record, ['affiliate_url', 'affiliateUrl']),
