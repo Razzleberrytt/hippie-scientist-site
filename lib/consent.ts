@@ -27,6 +27,12 @@ export function getConsent(): ConsentStatus | null {
   }
 }
 
+export function canTrackAnalytics(): boolean {
+  return (
+    typeof window !== 'undefined' && getConsent() === 'granted' && !getSystemNoTracking()
+  )
+}
+
 export function setConsent(status: ConsentStatus) {
   sessionConsent = status
   try {
@@ -51,6 +57,8 @@ export function initConsentDefault() {
 }
 
 export function applyGaConsent(status: ConsentStatus, command: 'default' | 'update' = 'default') {
+  if (typeof window === 'undefined') return
+
   const granted = status === 'granted' && !getSystemNoTracking()
   // GA4 Consent Mode v2 (safe no-op if gtag missing)
   try {
