@@ -1,4 +1,5 @@
 import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
+import { canTrackAnalytics } from '@/lib/consent'
 import type { AtlasRecoveryAction, AtlasRecoverySuggestion } from '@/lib/botanical-atlas-recovery'
 
 type AtlasFilterName = 'search' | 'effect' | 'chemistry' | 'evidence' | 'noticeability' | 'safety'
@@ -47,7 +48,7 @@ export function getAtlasLandingSource(referrer = typeof document !== 'undefined'
 }
 
 export function getAtlasEngagementState(): AtlasEngagementState {
-  if (typeof window === 'undefined') return emptyEngagement()
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return emptyEngagement()
   try {
     const parsed = JSON.parse(window.sessionStorage.getItem(ENGAGEMENT_KEY) || 'null')
     if (!parsed || !Array.isArray(parsed.distinctFilters)) {
@@ -68,7 +69,7 @@ export function getAtlasEngagementState(): AtlasEngagementState {
 }
 
 function saveAtlasEngagementState(state: AtlasEngagementState) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return
   try { window.sessionStorage.setItem(ENGAGEMENT_KEY, JSON.stringify(state)) } catch { /* analytics must never block UX */ }
 }
 
@@ -86,18 +87,18 @@ function withEngagementDepth(context: string, state = getAtlasEngagementState())
 }
 
 export function trackAtlasFilter(params: { filter: AtlasFilterName; value: string; resultCount: number }) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return
   const engagement = recordFilterDepth(params.filter)
   appendAnalyticsEvent({ type: 'botanical_atlas_filter', slug: 'botanical-activity-atlas', item: params.value || 'cleared', context: withLandingSource(withEngagementDepth(`${params.filter}:${params.resultCount}`, engagement)), sourceType: 'collection', targetType: 'collection' })
 }
 
 export function trackAtlasReset(activeFilterCount: number) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return
   appendAnalyticsEvent({ type: 'botanical_atlas_reset', slug: 'botanical-activity-atlas', item: String(activeFilterCount), context: withLandingSource(withEngagementDepth('reset-filters')), sourceType: 'collection', targetType: 'collection' })
 }
 
 export function trackAtlasRecoveryShown(suggestions: AtlasRecoverySuggestion[]) {
-  if (typeof window === 'undefined' || !suggestions.length) return
+  if (typeof window === 'undefined' || !suggestions.length || !canTrackAnalytics()) return
   const state = getAtlasEngagementState()
   appendAnalyticsEvent({
     type: 'botanical_atlas_recovery_shown',
@@ -109,7 +110,7 @@ export function trackAtlasRecoveryShown(suggestions: AtlasRecoverySuggestion[]) 
 }
 
 export function trackAtlasRecoveryAccepted(suggestion: AtlasRecoverySuggestion) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return
   const state = { ...getAtlasEngagementState(), recoveryAccepted: suggestion.action }
   saveAtlasEngagementState(state)
   appendAnalyticsEvent({
@@ -122,7 +123,7 @@ export function trackAtlasRecoveryAccepted(suggestion: AtlasRecoverySuggestion) 
 }
 
 export function trackAtlasProfileClick(params: { slug: string; position: number; activeFilterCount: number }) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return
   const engagement = { ...getAtlasEngagementState(), profileOpened: true }
   saveAtlasEngagementState(engagement)
   appendAnalyticsEvent({ type: 'botanical_atlas_profile_click', slug: 'botanical-activity-atlas', item: params.slug, context: withLandingSource(withEngagementDepth(`position:${params.position};filters:${params.activeFilterCount}`, engagement)), sourceType: 'collection', targetType: 'herb' })
