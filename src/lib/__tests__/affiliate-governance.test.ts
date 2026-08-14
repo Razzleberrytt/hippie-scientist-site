@@ -56,6 +56,28 @@ describe('affiliate governance gates', () => {
     expect(getAffiliateShopLinks(record, record.displayName, 'compound')).toEqual([])
   })
 
+  it('blocks full records that runtime governance marks nonmonetizable', () => {
+    const record = {
+      ...baseAffiliateRecord,
+      summary_quality: 'weak',
+    }
+
+    expect(isRestrictedRecord(record)).toBe(false)
+    expect(canRenderAffiliateLinks(record)).toBe(false)
+    expect(canShowAffiliateModule(record)).toBe(false)
+    expect(getAffiliateShopLinks(record, record.displayName, 'compound')).toEqual([])
+  })
+
+  it('honors an explicit compact-payload monetization denial', () => {
+    const compactRecord = {
+      slug: 'l-theanine',
+      name: 'L-Theanine',
+      monetization_allowed: false,
+    }
+
+    expect(canRenderAffiliateLinks(compactRecord)).toBe(false)
+  })
+
   it('allows affiliate links only when governance flags are clear', () => {
     expect(canRenderAffiliateLinks(baseAffiliateRecord)).toBe(true)
 
