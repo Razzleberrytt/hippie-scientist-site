@@ -73,6 +73,8 @@ export default function StackCard({
             href={affiliateUrl}
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
+            data-ingredient={compoundSlug || undefined}
+            data-tracking-location="stack-card"
             className="inline-flex w-full items-center justify-center rounded-full bg-brand-950 px-3.5 py-2 text-xs font-bold text-white transition hover:bg-brand-900"
           >
             {affiliateLabel || 'Shop sourcing options'} →
