@@ -8,11 +8,23 @@ const EXPECTED = [
   { route: '/feed.xml', file: 'feed.xml' },
 ]
 
+function resolveExportedRoute(file) {
+  const candidates = [
+    path.join(OUT, file),
+    path.join(OUT, file, 'index.html'),
+    path.join(OUT, `${file}.html`),
+  ]
+
+  return candidates.find((candidate) => fs.existsSync(candidate)) || null
+}
+
 const failures = []
 for (const expected of EXPECTED) {
-  const filePath = path.join(OUT, expected.file)
-  if (!fs.existsSync(filePath)) {
-    failures.push(`${expected.route}: missing ${path.relative(ROOT, filePath)} after static export`)
+  const filePath = resolveExportedRoute(expected.file)
+  if (!filePath) {
+    failures.push(
+      `${expected.route}: missing exported route (checked ${expected.file}, ${expected.file}/index.html, and ${expected.file}.html)`,
+    )
     continue
   }
 
