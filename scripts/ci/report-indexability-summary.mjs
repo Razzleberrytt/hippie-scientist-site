@@ -15,6 +15,7 @@ const DATASETS = [
 
 const STATUSES = ['PUBLISH', 'NOINDEX', 'NEEDS_REVIEW', 'BLOCKED', 'UNKNOWN']
 const SUMMARY_PATH = 'ops/indexability-review/indexability-summary.json'
+const REDIRECTS_PATH = 'public/_redirects'
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8'))
@@ -60,6 +61,67 @@ function candidate(record, kind) {
     reasons: Array.isArray(record?.indexability_reasons)
       ? record.indexability_reasons.slice(0, 3).map((reason) => String(reason))
       : [],
+  }
+}
+
+function normalizeRedirectPath(value) {
+  const raw = String(value || '').trim()
+  if (!raw) return ''
+
+  let pathname = raw
+  if (/^https?:\/\//i.test(raw)) {
+    try {
+      pathname = new URL(raw).pathname
+    } catch {
+      return ''
+    }
+  }
+
+  return pathname.split(/[?#]/, 1)[0].replace(/\/+$/, '') || '/'
+}
+
+function loadRedirectAliases() {
+  const aliases = {
+    herb: new Set(),
+    compound: new Set(),
+  }
+  const redirectsFile = path.join(repoRoot, REDIRECTS_PATH)
+  if (!fs.existsSync(redirectsFile)) return aliases
+
+  for (const rawLine of fs.readFileSync(redirectsFile, 'utf8').split(/\r?\n/)) {
+    const line = rawLine.trim()
+    if (!line || line.startsWith('#')) continue
+
+    const [source, target, status] = line.split(/\s+/)
+    if (!source?.startsWith('/')) continue
+    if (status !== '301' && status !== '308') continue
+
+    const sourceMatch = source.match(/^\/(herbs|compounds)\/([^/?#\s]+)\/?$/)
+    if (!sourceMatch) continue
+
+    const normalizedSource = normalizeRedirectPath(source)
+    const normalizedTarget = normalizeRedirectPath(target)
+    if (!normalizedTarget || normalizedSource === normalizedTarget) continue
+
+    const [, family, slug] = sourceMatch
+    aliases[family === 'herbs' ? 'herb' : 'compound'].add(slug)
+  }
+
+  return aliases
+}
+
+function isRedirectAlias(record, kind, redirectAliases) {
+  const slug = String(record?.slug || '').trim()
+  return Boolean(slug && redirectAliases[kind]?.has(slug))
+}
+
+function serializeRedirectAliases(redirectAliases) {
+  const herbs = [...redirectAliases.herb].sort()
+  const compounds = [...redirectAliases.compound].sort()
+  return {
+    total: herbs.length + compounds.length,
+    herbs: { count: herbs.length, slugs: herbs },
+    compounds: { count: compounds.length, slugs: compounds },
   }
 }
 
@@ -132,19 +194,21 @@ function printCandidates(title, candidates) {
   }
 }
 
-function buildCandidates(herbs, compounds) {
+function buildCandidates(herbs, compounds, redirectAliases) {
+  const canonicalHerbs = herbs.filter((record) => !isRedirectAlias(record, 'herb', redirectAliases))
+  const canonicalCompounds = compounds.filter((record) => !isRedirectAlias(record, 'compound', redirectAliases))
   const all = [
-    ...herbs.map((record) => ({ record, kind: 'herb' })),
-    ...compounds.map((record) => ({ record, kind: 'compound' })),
+    ...canonicalHerbs.map((record) => ({ record, kind: 'herb' })),
+    ...canonicalCompounds.map((record) => ({ record, kind: 'compound' })),
   ]
 
   return {
-    needsReviewHerbs: herbs
+    needsReviewHerbs: canonicalHerbs
       .filter((record) => statusOf(record) === 'NEEDS_REVIEW')
       .sort(sortByScoreDesc)
       .slice(0, 25)
       .map((record) => candidate(record, 'herb')),
-    needsReviewCompounds: compounds
+    needsReviewCompounds: canonicalCompounds
       .filter((record) => statusOf(record) === 'NEEDS_REVIEW')
       .sort(sortByScoreDesc)
       .slice(0, 25)
@@ -188,6 +252,8 @@ function main() {
   )
   const herbs = Array.isArray(loaded.herbs) ? loaded.herbs : []
   const compounds = Array.isArray(loaded.compounds) ? loaded.compounds : []
+  const redirectAliasSets = loadRedirectAliases()
+  const redirectAliases = serializeRedirectAliases(redirectAliasSets)
   const counts = {
     herbs: herbs.length,
     compounds: compounds.length,
@@ -197,12 +263,13 @@ function main() {
     herbs: summarize(herbs),
     compounds: summarize(compounds),
   }
-  const candidates = buildCandidates(herbs, compounds)
+  const candidates = buildCandidates(herbs, compounds, redirectAliasSets)
   const warnings = warningsFor(herbs, compounds)
 
   console.log('Indexability summary')
   printDistribution('Herbs', statusDistributions.herbs)
   printDistribution('Compounds', statusDistributions.compounds)
+  console.log(`Redirect aliases excluded from candidate rankings: ${redirectAliases.total} (${redirectAliases.herbs.count} herbs, ${redirectAliases.compounds.count} compounds)`)
   printCandidates('Top NEEDS_REVIEW herbs', candidates.needsReviewHerbs)
   printCandidates('Top NEEDS_REVIEW compounds', candidates.needsReviewCompounds)
   printCandidates('Top NOINDEX records closest to PUBLISH', candidates.noindexClosestToPublish)
@@ -218,6 +285,7 @@ function main() {
   const output = {
     generatedAt: new Date().toISOString(),
     counts,
+    redirectAliases,
     statusDistributions,
     candidates,
     warnings,
