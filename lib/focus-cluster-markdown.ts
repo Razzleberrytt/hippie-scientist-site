@@ -16,7 +16,7 @@ export type FocusClusterArticle = {
   slug: string
   sourceFile: string
   markdown: string
-  dateModified: string
+  dateModified?: string
 }
 
 type FocusClusterSource = {
@@ -71,6 +71,15 @@ function asStringArray(value: unknown): string[] {
     .filter(Boolean)
 }
 
+function sourceModifiedDate(data: Record<string, unknown>): string | undefined {
+  const value =
+    asString(data.dateModified) ||
+    asString(data.lastUpdated) ||
+    asString(data.updatedAt)
+
+  return value || undefined
+}
+
 function extractSection(raw: string, heading: string): string {
   const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const match = raw.match(new RegExp(`##\\s+${escaped}\\s*\\n+([\\s\\S]*?)(?=\\n##\\s|\\n---\\s*$|$)`, 'i'))
@@ -86,12 +95,13 @@ function stripEditorialTerminal(raw: string): string {
 
 function parseYamlSource(raw: string, sourceFile: string): FocusClusterArticle {
   const parsed = matter(raw)
-  const data = parsed.data || {}
+  const data = (parsed.data || {}) as Record<string, unknown>
   const content = (parsed.content || '').trim()
   const fullArticleContent = extractSection(content, 'Full Article Content') || extractSection(content, 'Full article content')
   const markdown = stripEditorialTerminal(fullArticleContent || content)
   const h1 = markdown.match(/^#\s+(.+)$/m)?.[1]?.trim()
   const title = asString(data.title) || h1 || ''
+  const dateModified = sourceModifiedDate(data)
 
   return {
     title,
@@ -104,7 +114,7 @@ function parseYamlSource(raw: string, sourceFile: string): FocusClusterArticle {
     slug: asString(data.slug),
     sourceFile,
     markdown,
-    dateModified: '2026-06-12',
+    ...(dateModified ? { dateModified } : {}),
   }
 }
 
