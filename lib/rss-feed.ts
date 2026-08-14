@@ -23,7 +23,9 @@ function parseDate(value?: string | null): Date {
   return Number.isNaN(parsed.getTime()) ? new Date(0) : parsed
 }
 
-export function buildRssFeed(): string {
+export function buildRssFeed(selfPath = '/rss.xml'): string {
+  const normalizedSelfPath = `/${String(selfPath).trim().replace(/^\/+|\/+$/g, '')}`
+  const selfUrl = `${SITE}${normalizedSelfPath}`
   const posts = [
     ...(blogPosts as FeedRecord[]),
     ...(articles as FeedRecord[]),
@@ -71,7 +73,7 @@ export function buildRssFeed(): string {
 <channel>
   <title>The Hippie Scientist</title>
   <link>${SITE}/articles/</link>
-  <atom:link href="${SITE}/rss.xml" rel="self" type="application/rss+xml" />
+  <atom:link href="${selfUrl}" rel="self" type="application/rss+xml" />
   <description>Evidence-first research updates from The Hippie Scientist.</description>
   <language>en</language>
   <lastBuildDate>${lastBuildDate}</lastBuildDate>

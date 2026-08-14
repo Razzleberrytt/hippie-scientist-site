@@ -13,12 +13,12 @@ const PAGE_URL = `${SITE_URL}/guides/sleep/best-supplements-for-sleep`
 const UPDATED_DATE = '2026-08-12'
 
 export const metadata: Metadata = {
-  title: 'Best Sleep Supplements: What the Evidence Supports in 2026',
+  title: 'Best Sleep Supplements: Evidence, Safety & Limits',
   description:
-    'Evidence-first comparison of melatonin, ashwagandha, L-theanine, magnesium, valerian, and passionflower for sleep, with directness, safety limits, and chronic-insomnia guidance.',
+    'Compare melatonin, ashwagandha, L-theanine, magnesium, valerian, and passionflower specifically as sleep supplements, with evidence strength, safety limits, and insomnia context.',
   alternates: { canonical: '/guides/sleep/best-supplements-for-sleep/' },
   openGraph: {
-    title: 'Best Sleep Supplements: What the Evidence Supports in 2026',
+    title: 'Best Sleep Supplements: Evidence, Safety & Limits',
     description:
       'Compare common sleep supplements by what human studies actually support, where evidence is limited, and when chronic insomnia needs stronger first-line care.',
     url: '/guides/sleep/best-supplements-for-sleep/',
@@ -103,7 +103,7 @@ export default function BestSupplementsForSleepPage() {
     <>
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Sleep Supplements: What the Evidence Supports in 2026"
+        headline="Best Sleep Supplements: Evidence, Safety & Limits"
         description="Evidence-first comparison of common sleep supplements, including direct human evidence, uncertainty, safety, and chronic-insomnia limits."
         datePublished="2026-06-16"
         dateModified={UPDATED_DATE}
@@ -119,7 +119,7 @@ export default function BestSupplementsForSleepPage() {
           <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
             <p className="eyebrow-label">Sleep evidence guide</p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Best Sleep Supplements: What the Evidence Supports in 2026
+              Best Sleep Supplements: Evidence, Safety & Limits
             </h1>
             <p className="mt-2 text-xs text-muted">
               Written and edited by{' '}
@@ -134,6 +134,14 @@ export default function BestSupplementsForSleepPage() {
               safety limits. This guide compares what is actually supported without turning those studies into a
               symptom-to-supplement selector or a universal bedtime dose chart.
             </p>
+
+            <div className="mt-5 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
+              <strong className="text-ink">This page is intentionally supplement-specific.</strong>{' '}
+              If you are comparing light, routines, behavioral approaches, and nonprescription options together, use the{' '}
+              <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="font-semibold text-brand-700 hover:underline">
+                natural sleep aids guide
+              </Link>{' '}instead.
+            </div>
 
             <figure className="mt-6">
               <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">

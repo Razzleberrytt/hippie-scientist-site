@@ -142,6 +142,14 @@ export default function Page() {
             insomnia and persistent anxiety in the right treatment context.
           </p>
 
+          <div className="mt-5 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
+            <strong className="text-ink">Is the main problem sleep rather than anxiety?</strong>{' '}
+            Compare the broader{' '}
+            <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="font-semibold text-brand-700 hover:underline">natural sleep aids guide</Link>{' '}
+            or the supplement-only{' '}
+            <Link href="/guides/sleep/best-supplements-for-sleep/" className="font-semibold text-brand-700 hover:underline">sleep supplement guide</Link>.
+          </div>
+
           <figure className="mt-6">
             <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
               <Image

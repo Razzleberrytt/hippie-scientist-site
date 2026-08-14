@@ -11,12 +11,12 @@ import References from '@/components/References'
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-natural-sleep-aids-that-work`
 
 export const metadata: Metadata = {
-  title: 'Best Natural Sleep Aids That Actually Work (Evidence-Based)',
+  title: 'Natural Sleep Aids That Work: Evidence-Based Guide',
   description:
-    'Which natural sleep aids have human evidence? A cautious guide to melatonin, magnesium, L-theanine, valerian and passionflower — including where evidence is useful, limited or inconclusive.',
+    'Evidence-based natural sleep guide covering sleep timing, foundational habits, melatonin, magnesium, L-theanine, valerian, and passionflower—plus where supplements fit.',
   alternates: { canonical: '/guides/sleep/best-natural-sleep-aids-that-work/' },
   openGraph: {
-    title: 'Best Natural Sleep Aids That Actually Work (Evidence-Based)',
+    title: 'Natural Sleep Aids That Work: Evidence-Based Guide',
     description:
       'An evidence-graded look at common natural sleep aids, what human trials actually show, where uncertainty remains, and when persistent insomnia deserves evaluation.',
     url: '/guides/sleep/best-natural-sleep-aids-that-work/',
@@ -76,7 +76,7 @@ export default function Page() {
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Natural Sleep Aids That Actually Work"
+        headline="Natural Sleep Aids That Work: Evidence-Based Guide"
         description="Evidence-graded guide to natural sleep aids, including what human trials support, what remains uncertain, and when persistent insomnia deserves evaluation."
         datePublished="2026-06-18"
         dateModified="2026-08-11"
@@ -92,7 +92,7 @@ export default function Page() {
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
           <p className="eyebrow-label">Evidence-based sleep guide</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Best Natural Sleep Aids That Actually Work
+            Natural Sleep Aids That Work: Evidence-Based Guide
           </h1>
           <p className="mt-2 text-xs text-muted">
             Written and edited by{' '}
@@ -106,6 +106,14 @@ export default function Page() {
             confirmation. This guide separates those signals from marketing certainty and shows where
             the evidence is useful, limited or still inconclusive.
           </p>
+
+          <div className="mt-5 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
+            <strong className="text-ink">Use this broader guide when “natural sleep aid” includes more than a capsule.</strong>{' '}
+            If you only want to compare supplement ingredients, go straight to{' '}
+            <Link href="/guides/sleep/best-supplements-for-sleep/" className="font-semibold text-brand-700 hover:underline">
+              the sleep-supplement comparison
+            </Link>.
+          </div>
 
           <figure className="mt-6">
             <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">

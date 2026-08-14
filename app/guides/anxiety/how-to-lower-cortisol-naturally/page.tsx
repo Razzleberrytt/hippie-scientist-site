@@ -137,6 +137,11 @@ export default function Page() {
             right clinical context can send you toward the wrong tests, supplements, or treatments.
           </p>
 
+          <div className="mt-5 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
+            <strong className="text-ink">Search-intent boundary:</strong> a lower cortisol result is not automatically the same thing as feeling less stressed. If your real question is which stress supplements have direct human outcome data, compare the{' '}
+            <Link href="/guides/anxiety/best-adaptogens-for-stress/" className="font-semibold text-brand-700 hover:underline">adaptogen evidence guide</Link>.
+          </div>
+
           <figure className="mt-6">
             <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
               <Image
