@@ -43,14 +43,30 @@ function readRedirectSourcePatterns() {
   const redirectsPath = candidates.find((candidate) => fs.existsSync(candidate))
   if (!redirectsPath) return { redirectsPath: null, sources: [] }
 
+  const comparablePath = (value) => {
+    if (!value || !value.startsWith('/')) return value || ''
+    const pathOnly = value.split(/[?#]/)[0]
+    if (pathOnly === '/') return '/'
+    return pathOnly.replace(/\/+$/, '') || '/'
+  }
+
   const sources = fs.readFileSync(redirectsPath, 'utf8')
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter((line) => line && !line.startsWith('#'))
     .map((line) => line.split(/\s+/))
     .filter((parts) => parts.length >= 3 && /^30[1278]$/.test(parts[2]))
-    .map(([source]) => source)
-    .filter((source) => source?.startsWith('/'))
+    .map(([source, target]) => ({ source, target }))
+    .filter(({ source }) => source?.startsWith('/'))
+    // A no-slash -> trailing-slash redirect is canonicalization of the same
+    // route, not a legacy/migrated destination. Treating it as a redirect
+    // source makes every correct canonical trailing-slash href look invalid
+    // after route normalization (for example /safety-checker ->
+    // /safety-checker/). Non-canonical no-slash hrefs are audited separately.
+    .filter(({ source, target }) => !(
+      target?.startsWith('/') && comparablePath(source) === comparablePath(target)
+    ))
+    .map(({ source }) => source)
 
   return { redirectsPath, sources }
 }
