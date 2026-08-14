@@ -1,6 +1,7 @@
 'use client'
 
 import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
+import { canTrackAnalytics } from '@/lib/consent'
 
 const SESSION_KEY = 'hs_compare_hub_session'
 const SEEN_CATEGORY_KEY = 'hs_compare_hub_seen_categories'
@@ -77,7 +78,7 @@ function consumePendingEntry(pageSlug: string): PendingEntry | undefined {
 }
 
 export function trackCompareHubCategoryShown(category: string) {
-  if (typeof window === 'undefined' || !category) return
+  if (typeof window === 'undefined' || !category || !canTrackAnalytics()) return
   const seen = readStringSet(SEEN_CATEGORY_KEY)
   if (seen.has(category)) return
   seen.add(category)
@@ -105,7 +106,7 @@ export function trackCompareHubClick({
   label: string
   category?: string
 }) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !canTrackAnalytics()) return
   const session = getSession()
   const pageSlug = comparisonSlugFromHref(href)
   if (pageSlug) {
@@ -129,7 +130,7 @@ export function trackCompareHubClick({
 export type ComparisonOutcomeType = 'herb_profile' | 'compound_profile' | 'safety_checker' | 'reference' | 'another_comparison' | 'compare_hub'
 
 export function trackComparisonPageViewed(pageSlug: string) {
-  if (typeof window === 'undefined' || !pageSlug) return
+  if (typeof window === 'undefined' || !pageSlug || !canTrackAnalytics()) return
   const session = getSession()
   const seen = readStringSet(SEEN_COMPARISON_KEY)
   const key = `${session.sessionId}|${pageSlug}`
@@ -157,7 +158,7 @@ export function trackComparisonOutcome({
   href: string
   label?: string
 }) {
-  if (typeof window === 'undefined' || !pageSlug || !href) return
+  if (typeof window === 'undefined' || !pageSlug || !href || !canTrackAnalytics()) return
   const session = getSession()
   appendAnalyticsEvent({
     type: 'comparison_outcome_click',
