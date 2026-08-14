@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 /**
- * Production-safety guard: refuses to ship if the built HTML still contains
- * dev-affiliate-00 references, which would silently lose every affiliate sale.
+ * Production-safety guard for Amazon affiliate attribution.
  *
- * The Amazon Associates tag is injected via the AMAZON_AFFILIATE_TAG env var,
- * which is set in Cloudflare Pages env vars for production builds. This script
- * does NOT require the env var locally (we only care about the built output).
+ * Refuse to ship built HTML that contains either:
+ * - the old development placeholder tag, or
+ * - an Amazon.com commerce URL with no Associates `tag` parameter at all.
  *
- * To fix the live site, set the env var in Cloudflare Pages:
- *   Production environment: AMAZON_AFFILIATE_TAG=razzleberry02-20
- * Then trigger a redeploy.
+ * The configured production tag may come from AMAZON_AFFILIATE_TAG or the
+ * repository default; this guard does not hard-code one valid production tag.
+ * It only rejects known-bad placeholder attribution and missing attribution.
  *
  * Usage: node scripts/ci/audit-affiliate-tag-production.mjs
  *        npm run audit:affiliate-tag-production
@@ -29,8 +28,36 @@ if (!fs.existsSync(OUT_DIR)) {
 }
 
 let htmlScanned = 0;
+let amazonRefs = 0;
 let badRefs = 0;
+let untaggedRefs = 0;
 const badUrls = new Set();
+const untaggedUrls = new Set();
+const amazonUrlPattern = /https?:\/\/(?:www\.)?amazon\.com\/[^"'<>\s)]*/g;
+
+function inspectAmazonUrl(rawUrl) {
+  amazonRefs++;
+  const decodedUrl = rawUrl.replace(/&amp;/gi, '&');
+
+  try {
+    const url = new URL(decodedUrl);
+    const tag = url.searchParams.get('tag');
+
+    if (!tag) {
+      untaggedRefs++;
+      if (untaggedUrls.size < 5) untaggedUrls.add(rawUrl);
+      return;
+    }
+
+    if (tag === DEV_TAG) {
+      badRefs++;
+      if (badUrls.size < 5) badUrls.add(rawUrl);
+    }
+  } catch {
+    // URL syntax is validated elsewhere; avoid turning unrelated malformed
+    // markup into an affiliate-attribution false positive here.
+  }
+}
 
 function walk(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -39,26 +66,31 @@ function walk(dir) {
     else if (entry.isFile() && entry.name.endsWith('.html')) {
       htmlScanned++;
       const content = fs.readFileSync(full, 'utf8');
-      const matches = content.match(/https?:\/\/(?:www\.)?amazon\.com\/[^"'<>\s)]*tag=dev-affiliate-00[^"'<>\s)]*/g) || [];
-      for (const m of matches) {
-        badRefs++;
-        if (badUrls.size < 5) badUrls.add(m);
-      }
+      const matches = content.match(amazonUrlPattern) || [];
+      for (const match of matches) inspectAmazonUrl(match);
     }
   }
 }
 
 walk(OUT_DIR);
-console.log(`[affiliate-tag] scanned ${htmlScanned} HTML files in out/`);
+console.log(`[affiliate-tag] scanned ${htmlScanned} HTML files and ${amazonRefs} Amazon.com URL references in out/`);
 
 if (badRefs > 0) {
   console.error(`[affiliate-tag] FAIL: ${badRefs} Amazon links still reference ${DEV_TAG}.`);
   console.error('  Sample URLs with dev tag:');
-  for (const u of badUrls) console.error(`    ${u}`);
-  console.error('  Set AMAZON_AFFILIATE_TAG in Cloudflare Pages env vars before redeploying.');
+  for (const url of badUrls) console.error(`    ${url}`);
   problems++;
 } else {
   console.log(`[affiliate-tag] no ${DEV_TAG} references in built HTML OK`);
+}
+
+if (untaggedRefs > 0) {
+  console.error(`[affiliate-tag] FAIL: ${untaggedRefs} Amazon.com links have no Associates tag parameter.`);
+  console.error('  Sample untagged URLs:');
+  for (const url of untaggedUrls) console.error(`    ${url}`);
+  problems++;
+} else {
+  console.log('[affiliate-tag] all built Amazon.com links include a tag parameter OK');
 }
 
 if (problems > 0) {
