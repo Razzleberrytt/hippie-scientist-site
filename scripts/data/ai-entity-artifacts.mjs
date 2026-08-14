@@ -43,6 +43,57 @@ async function normalizeArtifactDirectory(directory) {
     }))
 }
 
+function hasUsefulValue(value) {
+  if (value === undefined || value === null || value === '') return false
+  if (Array.isArray(value)) return value.length > 0
+  if (typeof value === 'object') return Object.keys(value).length > 0
+  return true
+}
+
+function mergeSummaryWithDetail(summary, detail) {
+  if (!detail || typeof detail !== 'object' || Array.isArray(detail)) return summary
+
+  const merged = { ...detail }
+  for (const [key, value] of Object.entries(summary || {})) {
+    // The root arrays are the governance/runtime authority. Keep every useful
+    // root value, but let the richer detail payload fill fields that were
+    // intentionally omitted or collapsed by summary generation (citations,
+    // claims, review provenance, relationships, safety detail, identifiers).
+    if (hasUsefulValue(value) || !hasUsefulValue(merged[key])) {
+      merged[key] = value
+    }
+  }
+  return merged
+}
+
+async function readDetailRecord(dataDir, detailDir, slug) {
+  if (!slug) return null
+  try {
+    const raw = await fs.readFile(path.join(dataDir, detailDir, `${slug}.json`), 'utf8')
+    const parsed = JSON.parse(raw)
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : null
+  } catch {
+    return null
+  }
+}
+
+async function hydrateRecords(records, dataDir, detailDir) {
+  const output = []
+  const batchSize = 32
+
+  for (let start = 0; start < records.length; start += batchSize) {
+    const batch = records.slice(start, start + batchSize)
+    const hydrated = await Promise.all(batch.map(async (record) => {
+      const slug = String(record?.slug || record?.id || '').trim()
+      const detail = await readDetailRecord(dataDir, detailDir, slug)
+      return mergeSummaryWithDetail(record, detail)
+    }))
+    output.push(...hydrated)
+  }
+
+  return output
+}
+
 export async function normalizeAiEntitySchemaTypes(dataDir = 'public/data') {
   const root = path.resolve(process.cwd(), dataDir, 'ai-entities')
   await Promise.all([
@@ -52,7 +103,18 @@ export async function normalizeAiEntitySchemaTypes(dataDir = 'public/data') {
 }
 
 export async function buildAiEntityArtifacts(args = {}) {
-  const report = await buildBaseAiEntityArtifacts(args)
-  await normalizeAiEntitySchemaTypes(args.dataDir || 'public/data')
+  const dataDir = path.resolve(process.cwd(), args.dataDir || 'public/data')
+  const [herbs, compounds] = await Promise.all([
+    hydrateRecords(Array.isArray(args.herbs) ? args.herbs : [], dataDir, 'herbs-detail'),
+    hydrateRecords(Array.isArray(args.compounds) ? args.compounds : [], dataDir, 'compounds-detail'),
+  ])
+
+  const report = await buildBaseAiEntityArtifacts({
+    ...args,
+    dataDir,
+    herbs,
+    compounds,
+  })
+  await normalizeAiEntitySchemaTypes(dataDir)
   return report
 }
