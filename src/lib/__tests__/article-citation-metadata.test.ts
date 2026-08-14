@@ -37,6 +37,21 @@ describe('resolveRelatedArticles', () => {
     ])
   })
 
+  it('rotates category fallbacks around the current article', () => {
+    const pages = [
+      page('one', 'Research'),
+      page('two', 'Research'),
+      page('three', 'Research'),
+      page('four', 'Research'),
+    ]
+
+    expect(resolveRelatedArticles(pages[2], pages, 3).map((article) => article.slug)).toEqual([
+      'four',
+      'one',
+      'two',
+    ])
+  })
+
   it('ignores missing and self-referential slugs', () => {
     const current = page('current', 'Harm Reduction', [
       'missing',
