@@ -1,8 +1,10 @@
 import { productPicks } from '@/data/product-picks'
+import { isRestrictedIngredient } from '@/src/lib/restricted-ingredients'
 
 type RuntimeRecord = Record<string, unknown>
 
 export function getProductPicks(slug: string) {
+  if (isRestrictedIngredient(slug)) return []
   return productPicks.filter(p => p.compound_slug === slug)
 }
 
