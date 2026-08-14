@@ -16,7 +16,7 @@ export type FocusClusterArticle = {
   slug: string
   sourceFile: string
   markdown: string
-  dateModified?: string
+  dateModified: string
 }
 
 type FocusClusterSource = {
@@ -71,13 +71,12 @@ function asStringArray(value: unknown): string[] {
     .filter(Boolean)
 }
 
-function sourceModifiedDate(data: Record<string, unknown>): string | undefined {
-  const value =
+function sourceModifiedDate(data: Record<string, unknown>): string {
+  return (
     asString(data.dateModified) ||
     asString(data.lastUpdated) ||
     asString(data.updatedAt)
-
-  return value || undefined
+  )
 }
 
 function extractSection(raw: string, heading: string): string {
@@ -101,7 +100,6 @@ function parseYamlSource(raw: string, sourceFile: string): FocusClusterArticle {
   const markdown = stripEditorialTerminal(fullArticleContent || content)
   const h1 = markdown.match(/^#\s+(.+)$/m)?.[1]?.trim()
   const title = asString(data.title) || h1 || ''
-  const dateModified = sourceModifiedDate(data)
 
   return {
     title,
@@ -114,7 +112,7 @@ function parseYamlSource(raw: string, sourceFile: string): FocusClusterArticle {
     slug: asString(data.slug),
     sourceFile,
     markdown,
-    ...(dateModified ? { dateModified } : {}),
+    dateModified: sourceModifiedDate(data),
   }
 }
 
