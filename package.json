@@ -9,7 +9,11 @@
   "scripts": {
     "create:page": "node scripts/create-content-page.mjs",
     "audit:content": "node scripts/content-audit.mjs",
+    "audit:citation-density": "node scripts/ci/audit-citation-density.mjs",
+    "audit:crawler-visible": "node scripts/ci/audit-crawler-visible-content.mjs",
     "audit:links": "node scripts/internal-linking-audit.mjs",
+    "gate:content-quality": "node scripts/ci/validate-content-quality-gate.mjs",
+    "report:thin-pages": "npm run -s gate:content-quality && npm run -s audit:citation-density && node scripts/ci/report-thin-page-actions.mjs",
     "dev": "npm run -s check:deps && next dev --turbo",
     "dev:watch": "nodemon --watch . --exec \"npm run dev\"",
     "start": "npx serve out",
