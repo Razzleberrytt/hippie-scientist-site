@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 import { canRenderAffiliateLinks, ensureAmazonAffiliateTag } from '../../lib/affiliate'
+import { trackRevenueEvent } from '../../lib/revenue-tracking'
 
 interface GuideItem {
   slug: string
@@ -197,6 +198,13 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
                   href={item.affiliateUrl}
                   target='_blank'
                   rel='nofollow sponsored noopener noreferrer'
+                  onClick={() => trackRevenueEvent({
+                    kind: 'affiliate_click',
+                    location: 'product-quality-buy-guide',
+                    label: item.name,
+                    target: item.affiliateUrl,
+                    productSlug: item.slug,
+                  })}
                   className='flex w-full items-center justify-between rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 px-4 transition-all shadow-sm'
                 >
                   <span>Sourcing Options on Amazon</span>
