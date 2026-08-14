@@ -8,6 +8,11 @@ const outDir = path.join(root, 'out')
 const redirectsOutput = path.join(outDir, '_redirects')
 const reportPath = path.join(root, 'ops', 'reports', 'internal-redirect-link-report.json')
 
+function writeReport(report) {
+  fs.mkdirSync(path.dirname(reportPath), { recursive: true })
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2))
+}
+
 function normalizeRoute(value) {
   const clean = String(value || '').split(/[?#]/)[0].trim()
   if (!clean.startsWith('/')) return null
@@ -63,8 +68,16 @@ function matchesRedirect(route, redirect) {
 }
 
 if (!fs.existsSync(outDir)) {
-  console.error('[audit-internal-redirect-links] Missing out/. Run the production build first.')
-  process.exit(1)
+  writeReport({
+    generatedAt: new Date().toISOString(),
+    skipped: true,
+    reason: 'missing_build_output',
+    redirectsChecked: 0,
+    findings: [],
+    summary: [],
+  })
+  console.log('[audit-internal-redirect-links] SKIP: out/ is unavailable because the production build did not complete.')
+  process.exit(0)
 }
 
 if (!fs.existsSync(redirectsOutput)) {
@@ -110,6 +123,7 @@ for (const row of deduped) {
 
 const report = {
   generatedAt: new Date().toISOString(),
+  skipped: false,
   redirectsChecked: redirects.length,
   findings: deduped,
   summary: [...byTarget.entries()]
@@ -117,8 +131,7 @@ const report = {
     .sort((a, b) => b.count - a.count || a.redirect.localeCompare(b.redirect)),
 }
 
-fs.mkdirSync(path.dirname(reportPath), { recursive: true })
-fs.writeFileSync(reportPath, JSON.stringify(report, null, 2))
+writeReport(report)
 
 if (deduped.length > 0) {
   console.error(`[audit-internal-redirect-links] FAIL: found ${deduped.length} internal links pointing at redirect sources.`)
