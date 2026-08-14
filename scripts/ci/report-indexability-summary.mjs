@@ -16,6 +16,7 @@ const DATASETS = [
 const STATUSES = ['PUBLISH', 'NOINDEX', 'NEEDS_REVIEW', 'BLOCKED', 'UNKNOWN']
 const SUMMARY_PATH = 'ops/indexability-review/indexability-summary.json'
 const REDIRECTS_PATH = 'public/_redirects'
+const CLAIMS_PATH = 'public/data/claims.json'
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8'))
@@ -61,6 +62,14 @@ function candidate(record, kind) {
     reasons: Array.isArray(record?.indexability_reasons)
       ? record.indexability_reasons.slice(0, 3).map((reason) => String(reason))
       : [],
+  }
+}
+
+function claimSourceCandidate(record, kind, sourceIds) {
+  return {
+    ...candidate(record, kind),
+    claim_source_count: sourceIds.length,
+    claim_source_ids: sourceIds.slice(0, 8),
   }
 }
 
@@ -123,6 +132,34 @@ function serializeRedirectAliases(redirectAliases) {
     herbs: { count: herbs.length, slugs: herbs },
     compounds: { count: compounds.length, slugs: compounds },
   }
+}
+
+function loadClaimSourceIdsBySlug() {
+  const claimsFile = path.join(repoRoot, CLAIMS_PATH)
+  const bySlug = new Map()
+  if (!fs.existsSync(claimsFile)) return bySlug
+
+  const claims = readJson(CLAIMS_PATH)
+  if (!Array.isArray(claims)) return bySlug
+
+  for (const claim of claims) {
+    const slug = String(claim?.profile_slug || '').trim()
+    if (!slug) continue
+
+    const sourceIds = [
+      claim?.pmid ? `pmid:${String(claim.pmid).trim()}` : '',
+      claim?.doi ? `doi:${String(claim.doi).trim()}` : '',
+      claim?.source_url ? String(claim.source_url).trim() : '',
+    ].filter(Boolean)
+    if (sourceIds.length === 0) continue
+
+    if (!bySlug.has(slug)) bySlug.set(slug, new Set())
+    for (const sourceId of sourceIds) bySlug.get(slug).add(sourceId)
+  }
+
+  return new Map(
+    [...bySlug.entries()].map(([slug, sourceIds]) => [slug, [...sourceIds].sort()]),
+  )
 }
 
 function summarize(records) {
@@ -190,17 +227,36 @@ function printCandidates(title, candidates) {
 
   for (const item of candidates) {
     const reasons = item.reasons.length ? item.reasons.join('; ') : 'no reasons'
-    console.log(`  ${item.kind}:${item.slug} | ${item.name} | ${item.status} | score ${item.score ?? 'n/a'} | ${item.robots || 'MISSING'} | sitemap ${String(item.sitemap_included)} | ${reasons}`)
+    const sources = typeof item.claim_source_count === 'number'
+      ? ` | claim sources ${item.claim_source_count}`
+      : ''
+    console.log(`  ${item.kind}:${item.slug} | ${item.name} | ${item.status} | score ${item.score ?? 'n/a'} | ${item.robots || 'MISSING'} | sitemap ${String(item.sitemap_included)}${sources} | ${reasons}`)
   }
 }
 
-function buildCandidates(herbs, compounds, redirectAliases) {
+function buildCandidates(herbs, compounds, redirectAliases, claimSourceIdsBySlug) {
   const canonicalHerbs = herbs.filter((record) => !isRedirectAlias(record, 'herb', redirectAliases))
   const canonicalCompounds = compounds.filter((record) => !isRedirectAlias(record, 'compound', redirectAliases))
   const all = [
     ...canonicalHerbs.map((record) => ({ record, kind: 'herb' })),
     ...canonicalCompounds.map((record) => ({ record, kind: 'compound' })),
   ]
+
+  const sourceBackedHeld = all
+    .map(({ record, kind }) => ({
+      record,
+      kind,
+      sourceIds: claimSourceIdsBySlug.get(String(record?.slug || '').trim()) || [],
+    }))
+    .filter(({ record, sourceIds }) =>
+      (statusOf(record) === 'NEEDS_REVIEW' || statusOf(record) === 'NOINDEX')
+      && sourceIds.length > 0,
+    )
+    .sort((a, b) =>
+      (scoreOf(b.record) ?? -Infinity) - (scoreOf(a.record) ?? -Infinity)
+      || b.sourceIds.length - a.sourceIds.length
+      || String(a.record?.slug || '').localeCompare(String(b.record?.slug || '')),
+    )
 
   return {
     needsReviewHerbs: canonicalHerbs
@@ -218,6 +274,9 @@ function buildCandidates(herbs, compounds, redirectAliases) {
       .sort((a, b) => sortByScoreDesc(a.record, b.record))
       .slice(0, 25)
       .map(({ record, kind }) => candidate(record, kind)),
+    claimSourcePromotionCandidates: sourceBackedHeld
+      .slice(0, 50)
+      .map(({ record, kind, sourceIds }) => claimSourceCandidate(record, kind, sourceIds)),
     suspiciousLowPublish: all
       .filter(({ record }) => statusOf(record) === 'PUBLISH')
       .sort((a, b) => sortByScoreAsc(a.record, b.record))
@@ -254,6 +313,7 @@ function main() {
   const compounds = Array.isArray(loaded.compounds) ? loaded.compounds : []
   const redirectAliasSets = loadRedirectAliases()
   const redirectAliases = serializeRedirectAliases(redirectAliasSets)
+  const claimSourceIdsBySlug = loadClaimSourceIdsBySlug()
   const counts = {
     herbs: herbs.length,
     compounds: compounds.length,
@@ -263,7 +323,7 @@ function main() {
     herbs: summarize(herbs),
     compounds: summarize(compounds),
   }
-  const candidates = buildCandidates(herbs, compounds, redirectAliasSets)
+  const candidates = buildCandidates(herbs, compounds, redirectAliasSets, claimSourceIdsBySlug)
   const warnings = warningsFor(herbs, compounds)
 
   console.log('Indexability summary')
@@ -273,6 +333,7 @@ function main() {
   printCandidates('Top NEEDS_REVIEW herbs', candidates.needsReviewHerbs)
   printCandidates('Top NEEDS_REVIEW compounds', candidates.needsReviewCompounds)
   printCandidates('Top NOINDEX records closest to PUBLISH', candidates.noindexClosestToPublish)
+  printCandidates('Canonical held profiles that already have claim-level source IDs', candidates.claimSourcePromotionCandidates)
   printCandidates('Top PUBLISH records with suspicious/low scores', candidates.suspiciousLowPublish)
 
   if (warnings.length > 0) {
