@@ -6,6 +6,7 @@ import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import EmailCapture from '@/components/EmailCapture'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/how-to-lower-cortisol-naturally`
 const DATE = '2026-08-11'
@@ -23,6 +24,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'How to Lower Cortisol Naturally: What to Know Before You Try',
+    description: 'Separate everyday stress management from medical hypercortisolism, learn which cortisol tests are appropriate, and avoid chasing a hormone number without a diagnosis.',
+  }),
 }
 
 const FAQS = [

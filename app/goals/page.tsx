@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { goals } from '@/data/goals'
-import { SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Supplement Goals: Compare Options by What You Want to Fix',
@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Supplement Goals',
+    description: 'Compare supplement options by goal — fit, onset, evidence quality, and risk profile for each.',
+  }),
 }
 
 export default function GoalsIndexPage() {

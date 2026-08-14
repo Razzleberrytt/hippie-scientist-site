@@ -9,6 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night`
 const DATE = '2026-08-11'
@@ -26,6 +27,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Best Herbs for Stress and Anxiety at Night: Evidence & Safety',
+    description: 'Separate same-night claims from repeated-dose evidence, compare safety limits, and learn when chronic insomnia or anxiety deserves a stronger approach than supplements.',
+  }),
 }
 
 const FAQS = [

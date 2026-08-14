@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Glycine for Sleep',
+    description: 'A cautious guide to glycine for sleep quality, next-day tiredness, and magnesium glycinate confusion.',
+  }),
 }
 
 const quickTake = [

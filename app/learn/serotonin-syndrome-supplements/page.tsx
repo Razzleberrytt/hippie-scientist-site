@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
 
 export const metadata: Metadata = {
   title: '18 Supplements That Can Trigger Serotonin Syndrome',
@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: '18 Supplements That Can Trigger Serotonin Syndrome',
+    description: 'A data-derived list of 18 herbs and compounds flagged for serotonergic risk.',
+  }),
 }
 
 const SEROTONERGIC_ATLAS_HREF = '/tools/botanical-activity-atlas/serotonergic-interaction-risk/?safety=Serotonergic&sort=evidence'

@@ -9,6 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/best/supplements-for-stress`
 const DATE = '2026-08-11'
@@ -27,6 +28,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Best Supplements for Stress: What the Evidence Supports in 2026',
+    description: 'Compare stress supplements by the outcomes, populations, formulations, and durations actually studied instead of copying a stack recipe.',
+  }),
 }
 
 const SOURCES = [

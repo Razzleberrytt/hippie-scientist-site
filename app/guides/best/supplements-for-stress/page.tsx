@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import BestSupplementsForStressPage from '../../anxiety/best-supplements-for-stress/page'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const CANONICAL_PATH = '/guides/best/supplements-for-stress/'
 
@@ -17,6 +18,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Best Supplements for Stress: Evidence & Safety',
+    description: 'Compare stress supplements by the outcomes, populations, formulations, and durations actually studied instead of copying a stack recipe.',
+  }),
 }
 
 export default BestSupplementsForStressPage

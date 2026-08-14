@@ -10,6 +10,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/focus/focus-without-caffeine-crash`
 
@@ -26,6 +27,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Focus Without a Caffeine Crash: Evidence-Based Options',
+    description: 'How to get steady, all-day focus without the caffeine crash — the L-theanine stack, calmer nootropics, and the timing habits that prevent the slump.',
+  }),
 }
 
 const FAQS = [

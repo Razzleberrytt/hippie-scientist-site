@@ -4,6 +4,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import StudyDesignSnapshot from '@/components/evidence/StudyDesignSnapshot'
 import References from '@/components/References'
+import { buildTwitterMetadata } from '@/src/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Study Design Snapshots: Reading an Evidence Grade',
@@ -17,6 +18,10 @@ export const metadata: Metadata = {
     url: '/learn/study-design-snapshot/',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'Study Design Snapshots: Reading an Evidence Grade',
+    description: 'How evidence grades are assigned and which clinical trial design factors matter, shown through embeddable Study Design Snapshots.',
+  }),
 }
 
 const STUDY_DESIGN_SNAPSHOT_REFS = [

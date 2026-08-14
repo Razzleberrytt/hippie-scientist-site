@@ -14,7 +14,7 @@ import {
   normalizeCitationMetadata,
   resolveRelatedArticles,
 } from '@/src/lib/article-citation-metadata'
-import { SITE_URL, compactMetaTitle } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata, compactMetaTitle } from '@/src/lib/seo'
 
 const page = allConceptPages.find((item) => item.slug === 'rhabdomyolysis')!
 const canonicalUrl = `${SITE_URL}${page.url}/`
@@ -31,6 +31,10 @@ export const metadata: Metadata = {
     url: canonicalUrl,
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: compactMetaTitle(page.title),
+    description: page.description,
+  }),
 }
 
 export default function RhabdomyolysisPage() {

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+
 import References from '@/components/References'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: ['/og-default.jpg'],
   },
+  twitter: buildTwitterMetadata({
+    title: 'ADHD Supplement Guides & Research',
+    description: 'Human evidence for ADHD supplements, nutrient deficiencies, sleep support, and medication safety.',
+  }),
 }
 
 const GUIDES = [
