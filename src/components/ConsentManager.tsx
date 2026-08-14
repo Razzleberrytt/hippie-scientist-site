@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "../lib/router-compat";
 import { getConsent, setConsent, getSystemNoTracking } from "@/lib/consent";
+import { clearAnalyticsEvents } from "@/lib/analyticsEventStorage";
 
 type Props = { open: boolean; onClose: () => void };
 
@@ -70,16 +71,25 @@ export default function ConsentManager({ open, onClose }: Props) {
   const dnt = typeof window !== "undefined" ? getSystemNoTracking() : false;
 
   async function accept() {
+    const hadGrantedConsent = getConsent() === "granted";
     const nextStatus = dnt ? "denied" : "granted";
     setConsent(nextStatus);
     setStatus(nextStatus);
 
-    if (!dnt) {
-      try {
-        (await import("../lib/loadAnalytics")).loadAnalytics();
-      } catch {
-        // Ignore analytics load failures.
+    if (nextStatus === "denied") {
+      clearAnalyticsEvents();
+      if (hadGrantedConsent) {
+        window.location.reload();
+        return;
       }
+      onClose();
+      return;
+    }
+
+    try {
+      (await import("../lib/loadAnalytics")).loadAnalytics();
+    } catch {
+      // Ignore analytics load failures.
     }
 
     onClose();
@@ -89,6 +99,7 @@ export default function ConsentManager({ open, onClose }: Props) {
     const hadGrantedConsent = getConsent() === "granted";
     setConsent("denied");
     setStatus("denied");
+    clearAnalyticsEvents();
 
     if (hadGrantedConsent) {
       // A full reload is the only reliable way to tear down third-party analytics
