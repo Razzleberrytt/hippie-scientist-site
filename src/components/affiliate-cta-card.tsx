@@ -50,6 +50,7 @@ export default function AffiliateCTACard({
   const affiliateUrl = getAffiliateUrl(record, displayName)
   const affiliateLabel = getAffiliateLabel(record)
   const criteria = getBuyingCriteria(record)
+  const recordSlug = text(record?.slug)
 
   if (!affiliateUrl) return null
 
@@ -75,6 +76,8 @@ export default function AffiliateCTACard({
           href={affiliateUrl}
           target="_blank"
           rel="nofollow sponsored noopener noreferrer"
+          data-ingredient={recordSlug || undefined}
+          data-tracking-location="affiliate-cta-sidebar"
           className="mt-4 block w-full rounded-xl bg-brand-950 px-4 py-2.5 text-center text-sm font-bold text-white shadow-sm transition motion-safe:hover:-translate-y-0.5 hover:bg-brand-900"
         >
           {affiliateLabel} →
@@ -106,6 +109,8 @@ export default function AffiliateCTACard({
           href={affiliateUrl}
           target="_blank"
           rel="nofollow sponsored noopener noreferrer"
+          data-ingredient={recordSlug || undefined}
+          data-tracking-location="affiliate-cta-inline"
           className="inline-flex shrink-0 items-center gap-2 rounded-full bg-brand-950 px-5 py-3 text-sm font-bold text-white shadow-sm transition motion-safe:hover:-translate-y-0.5 hover:bg-brand-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
         >
           {affiliateLabel}

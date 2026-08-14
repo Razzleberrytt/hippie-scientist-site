@@ -62,6 +62,10 @@ export default function RecommendedProduct({
                   href={product.affiliateUrl}
                   target='_blank'
                   rel='nofollow sponsored noopener noreferrer'
+                  data-ingredient={slug}
+                  data-product-slot={product.slot}
+                  data-product-asin={product.asin || undefined}
+                  data-tracking-location='recommended-product'
                   className='inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900'
                 >
                   Check price
