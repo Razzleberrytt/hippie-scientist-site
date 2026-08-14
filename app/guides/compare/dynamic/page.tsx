@@ -12,24 +12,52 @@ export const metadata: Metadata = buildPageMetadata({
   robots: { index: false, follow: true },
 })
 
+function comparisonPayload(record: Record<string, unknown>) {
+  const name = String(record.name || record.displayName || record.slug || '').trim()
+
+  return {
+    slug: String(record.slug || '').trim(),
+    name,
+    displayName: typeof record.displayName === 'string' ? record.displayName : undefined,
+    summary: typeof record.summary === 'string' ? record.summary : undefined,
+    description: typeof record.description === 'string' ? record.description : undefined,
+    evidence_tier: typeof record.evidence_tier === 'string' ? record.evidence_tier : undefined,
+    evidenceLevel: typeof record.evidenceLevel === 'string' ? record.evidenceLevel : undefined,
+    confidence: typeof record.confidence === 'string' ? record.confidence : undefined,
+    safety: typeof record.safety === 'string' ? record.safety : undefined,
+    safety_flags: Array.isArray(record.safety_flags) ? record.safety_flags : undefined,
+    mechanism: typeof record.mechanism === 'string' ? record.mechanism : undefined,
+    mechanisms: Array.isArray(record.mechanisms) ? record.mechanisms : undefined,
+    pathways: Array.isArray(record.pathways) ? record.pathways : undefined,
+    onset: typeof record.onset === 'string' ? record.onset : undefined,
+    time_to_effect: typeof record.time_to_effect === 'string' ? record.time_to_effect : undefined,
+    duration: typeof record.duration === 'string' ? record.duration : undefined,
+    dosage: typeof record.dosage === 'string' ? record.dosage : undefined,
+    dose: typeof record.dose === 'string' ? record.dose : undefined,
+    preparation: typeof record.preparation === 'string' ? record.preparation : undefined,
+    preparations: typeof record.preparations === 'string' ? record.preparations : undefined,
+    best_for: typeof record.best_for === 'string' || Array.isArray(record.best_for) ? record.best_for : undefined,
+    bestFor: typeof record.bestFor === 'string' || Array.isArray(record.bestFor) ? record.bestFor : undefined,
+  }
+}
+
+function renderableComparisonItems(records: Record<string, unknown>[]) {
+  return records
+    .filter((record) => {
+      try {
+        return getRuntimeVisibility(record).canRender
+      } catch {
+        return true
+      }
+    })
+    .map(comparisonPayload)
+    .filter((record) => record.slug && record.name)
+}
+
 export default async function DynamicComparePage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
-
-  const herbs = rawHerbs.filter((h: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  })
-
-  const compounds = rawCompounds.filter((c: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs = renderableComparisonItems(rawHerbs as Record<string, unknown>[])
+  const compounds = renderableComparisonItems(rawCompounds as Record<string, unknown>[])
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
