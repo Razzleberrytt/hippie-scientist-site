@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { AFFILIATE_TAGS } from '@/config/affiliate'
+import { buildAmazonSearchUrl } from '@/src/lib/affiliate'
 
 type ConversionAffiliateCardProps = {
   title?: string
@@ -56,10 +56,13 @@ export default function ConversionAffiliateCard({
   variant = 'light',
 }: ConversionAffiliateCardProps) {
   const label = clean(name) || 'this supplement'
-  const query = encodeURIComponent(productQueryFor(label, intent))
-  const amazonLink = `https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAGS.amazon}`
+  const amazonLink = buildAmazonSearchUrl(productQueryFor(label, intent))
   const compoundHref = slug ? `/compounds/${slug}` : ''
   const isDark = variant === 'dark'
+
+  // Restricted or otherwise blocked product queries return no commerce URL from
+  // the central affiliate helper. Keep education-only pages free of buying CTAs.
+  if (!amazonLink) return null
 
   return (
     <section className={isDark
