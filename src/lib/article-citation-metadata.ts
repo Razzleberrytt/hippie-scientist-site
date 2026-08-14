@@ -29,6 +29,30 @@ function getOverride(slug: string | undefined) {
   return slug ? articleCitationOverrides[slug] : undefined
 }
 
+function categoryFallbacks(
+  current: ArticleRelationshipRecord,
+  articles: ArticleRelationshipRecord[],
+  excludedSlugs: Set<string>
+): ArticleRelationshipRecord[] {
+  const categoryArticles = articles.filter((article) => article.category === current.category)
+  const currentIndex = categoryArticles.findIndex((article) => article.slug === current.slug)
+
+  if (currentIndex < 0) {
+    return categoryArticles.filter(
+      (article) => article.slug !== current.slug && !excludedSlugs.has(article.slug)
+    )
+  }
+
+  const rotated = [
+    ...categoryArticles.slice(currentIndex + 1),
+    ...categoryArticles.slice(0, currentIndex),
+  ]
+
+  return rotated.filter(
+    (article) => article.slug !== current.slug && !excludedSlugs.has(article.slug)
+  )
+}
+
 export function resolveRelatedArticles(
   current: ArticleRelationshipRecord,
   articles: ArticleRelationshipRecord[],
@@ -49,12 +73,7 @@ export function resolveRelatedArticles(
     )
 
   const seen = new Set(curated.map((article) => article.slug))
-  const fallback = articles.filter(
-    (article) =>
-      article.slug !== current.slug &&
-      article.category === current.category &&
-      !seen.has(article.slug)
-  )
+  const fallback = categoryFallbacks(current, articles, seen)
 
   return [...curated, ...fallback].slice(0, limit)
 }
