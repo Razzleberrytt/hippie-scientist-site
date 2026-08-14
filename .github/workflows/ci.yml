@@ -106,7 +106,12 @@ jobs:
 
       - name: Generate SEO audit reports
         if: always()
-        run: npm run audit:seo-reports
+        run: |
+          if ! find out -type f -name '*.html' -print -quit 2>/dev/null | grep -q .; then
+            echo "No built HTML available; refreshing route manifest for fallback SEO audit."
+            node scripts/data/build-route-manifest.mjs --data-dir=public/data
+          fi
+          npm run audit:seo-reports
 
       - name: Generate indexability candidate report
         if: always()
