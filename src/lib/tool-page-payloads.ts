@@ -35,6 +35,24 @@ function textList(value: unknown): string[] | undefined {
   return cleaned.length ? cleaned : undefined
 }
 
+function safetyContext(record: RuntimeRecord): string | undefined {
+  const values = [
+    firstText(record, ['safety', 'safetyNotes', 'safety_notes']),
+    ...(textList(record.contraindications) || []),
+    ...(textList(record.interactions ?? record.drugInteractions) || []),
+  ].filter((item): item is string => Boolean(item))
+
+  const seen = new Set<string>()
+  const unique = values.filter((item) => {
+    const key = item.toLowerCase()
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+
+  return unique.length ? unique.join('; ') : undefined
+}
+
 function baseToolRecord(record: RuntimeRecord, type: ToolKind) {
   return {
     slug: firstText(record, ['slug']) || '',
@@ -70,7 +88,7 @@ export function toSafetyToolRecord(record: RuntimeRecord, type: ToolKind) {
   const { displayName: _displayName, ...base } = baseToolRecord(record, type)
   return {
     ...base,
-    safety: firstText(record, ['safety', 'safetyNotes', 'safety_notes']),
+    safety: safetyContext(record),
     safety_flags: textList(record.safety_flags ?? record.safetyFlags),
     mechanism: firstText(record, ['mechanism', 'mechanismOfAction']),
     mechanisms: textList(record.mechanisms ?? record.primary_mechanisms ?? record.pathways),
