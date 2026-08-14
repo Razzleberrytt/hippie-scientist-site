@@ -1,4 +1,5 @@
 import { isClean, list, text } from '@/lib/display-utils'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { isRestrictedIngredient, isRestrictedRecord } from './restricted-ingredients'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 
@@ -54,6 +55,12 @@ export function canRenderAffiliateLinks(item: any) {
   // Compact buying payloads carry the central runtime governance decision so
   // renderable-but-nonmonetizable records cannot regain purchase links client-side.
   if (item.monetization_allowed === false || /^false$/i.test(text(item.monetization_allowed))) {
+    return false
+  }
+
+  // Full profile records do not carry the compact flag. Enforce the same central
+  // runtime monetization decision before profile-level sourcing CTAs are rendered.
+  if (item.monetization_allowed == null && !getRuntimeVisibility(item).canMonetize) {
     return false
   }
 
