@@ -163,9 +163,19 @@ function main() {
 
   printSummary(report)
 
+  if (!STRICT) return
+
+  const failures = []
   const totalZero = Object.values(byKind).reduce((sum, k) => sum + k.indexableWithZeroSources, 0)
-  if (STRICT && totalZero > 0) {
-    console.error(`\n[citation-density] FAILED — ${totalZero} indexable profile(s) cite nothing.`)
+  if (totalZero > 0) failures.push(`${totalZero} indexable profile(s) cite nothing`)
+  // Roll-up counter rows are filtered at the generator (claimRow in
+  // build-runtime-from-workbook.mjs); any reappearance is a regression.
+  if (claimIntegrity.leakedPipelineRows > 0) {
+    failures.push(`${claimIntegrity.leakedPipelineRows} pipeline counter row(s) leaked into claims.json`)
+  }
+
+  if (failures.length) {
+    console.error(`\n[citation-density] FAILED — ${failures.join('; ')}.`)
     process.exit(1)
   }
 }
