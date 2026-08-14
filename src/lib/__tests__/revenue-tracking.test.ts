@@ -25,6 +25,8 @@ describe('revenue tracking', () => {
     expect(classifyRevenueRoute('/compounds/magnesium-glycinate/')).toBe('compound-profile')
     expect(classifyRevenueRoute('/guides/compare/rhodiola-vs-ashwagandha/')).toBe('comparison')
     expect(classifyRevenueRoute('/guides/sleep/best-supplements-for-sleep/')).toBe('best-supplements')
+    expect(classifyRevenueRoute('/learn/product-quality/')).toBe('buy-guide')
+    expect(classifyRevenueRoute('/buy-guide/')).toBe('buy-guide')
     expect(classifyRevenueRoute('/guides/other/alkaloids-on-amazon/')).toBe('guide')
   })
 
