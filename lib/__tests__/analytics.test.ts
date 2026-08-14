@@ -1,11 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('@/lib/consent', () => ({
-  getConsent: vi.fn(() => 'granted'),
-  getSystemNoTracking: vi.fn(() => false),
+  canTrackAnalytics: vi.fn(() => true),
 }))
 
-import { getConsent, getSystemNoTracking } from '@/lib/consent'
+import { canTrackAnalytics } from '@/lib/consent'
 import {
   getGuideTrackingContext,
   trackAtlasCalloutClick,
@@ -15,8 +14,7 @@ import {
 } from '../analytics'
 
 beforeEach(() => {
-  vi.mocked(getConsent).mockReturnValue('granted')
-  vi.mocked(getSystemNoTracking).mockReturnValue(false)
+  vi.mocked(canTrackAnalytics).mockReturnValue(true)
 })
 
 afterEach(() => {
@@ -100,10 +98,10 @@ describe('guide analytics', () => {
     })
   })
 
-  it('does not emit analytics when consent is denied', () => {
+  it('does not emit analytics when centralized consent denies tracking', () => {
     const gtag = vi.fn()
     ;(window as Window & { gtag?: unknown }).gtag = gtag
-    vi.mocked(getConsent).mockReturnValue('denied')
+    vi.mocked(canTrackAnalytics).mockReturnValue(false)
 
     trackGuideView({
       slug: 'magnesium-for-sleep',
@@ -114,10 +112,10 @@ describe('guide analytics', () => {
     expect(gtag).not.toHaveBeenCalled()
   })
 
-  it('does not emit analytics when DNT or GPC is active', () => {
+  it('does not emit signup analytics when centralized consent blocks tracking', () => {
     const gtag = vi.fn()
     ;(window as Window & { gtag?: unknown }).gtag = gtag
-    vi.mocked(getSystemNoTracking).mockReturnValue(true)
+    vi.mocked(canTrackAnalytics).mockReturnValue(false)
 
     trackEmailSignup({
       source: 'article-adhd-checklist',
@@ -154,10 +152,10 @@ describe('atlas callout analytics', () => {
     })
   })
 
-  it('leaves dataLayer untouched when consent is denied', () => {
+  it('leaves dataLayer untouched when centralized consent blocks tracking', () => {
     const gtag = vi.fn()
     ;(window as Window & { gtag?: unknown }).gtag = gtag
-    vi.mocked(getConsent).mockReturnValue('denied')
+    vi.mocked(canTrackAnalytics).mockReturnValue(false)
 
     trackAtlasCalloutClick({
       source: 'anxiety_hub',
