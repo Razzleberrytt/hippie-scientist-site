@@ -1,3 +1,5 @@
+import { canTrackAnalytics } from '@/lib/consent'
+
 export type RuntimeAnalyticsEvent = {
   type:
     | 'profile_view'
@@ -21,7 +23,7 @@ function canUseStorage() {
 }
 
 export function trackRuntimeEvent(event: RuntimeAnalyticsEvent) {
-  if (!canUseStorage()) return
+  if (!canUseStorage() || !canTrackAnalytics()) return
 
   try {
     const existing = getRuntimeAnalyticsEvents()
@@ -41,7 +43,7 @@ export function trackRuntimeEvent(event: RuntimeAnalyticsEvent) {
 }
 
 export function getRuntimeAnalyticsEvents(): RuntimeAnalyticsEvent[] {
-  if (!canUseStorage()) return []
+  if (!canUseStorage() || !canTrackAnalytics()) return []
 
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
