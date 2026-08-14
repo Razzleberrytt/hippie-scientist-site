@@ -146,6 +146,12 @@ const steps = [
     description: 'Run Next.js static export build (with temp pages handling)',
   },
   {
+    name: 'apply-redirect-overrides',
+    cmd: 'node scripts/seo/apply-redirect-overrides.mjs',
+    description:
+      'Prepend public/redirect-overrides/* into out/_redirects. build-deploy.mjs already does this; without it here, build:full emits an out/ whose consolidated routes serve a duplicate page instead of redirecting to their canonical guide.',
+  },
+  {
     name: 'build-pagefind',
     cmd: 'npm run build:pagefind',
     description: 'Build Pagefind static search index (post-production; enables /search without server). Cross-plat script.',
