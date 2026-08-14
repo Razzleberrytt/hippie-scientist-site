@@ -1,4 +1,4 @@
-import { getConsent, getSystemNoTracking } from '@/lib/consent'
+import { canTrackAnalytics } from '@/lib/consent'
 
 export type RevenueEventKind =
   | 'recommendation_impression'
@@ -59,7 +59,7 @@ export type RevenueEvent = {
 }
 
 function canSendAnalytics(): boolean {
-  return getConsent() === 'granted' && !getSystemNoTracking()
+  return canTrackAnalytics()
 }
 
 export function normalizeRevenueEventKind(kind: string): RevenueEventKind {
