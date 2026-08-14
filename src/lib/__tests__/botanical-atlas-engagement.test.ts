@@ -1,7 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-const { appendAnalyticsEvent } = vi.hoisted(() => ({ appendAnalyticsEvent: vi.fn() }))
+const { appendAnalyticsEvent, canTrackAnalytics } = vi.hoisted(() => ({
+  appendAnalyticsEvent: vi.fn(),
+  canTrackAnalytics: vi.fn(() => true),
+}))
 vi.mock('@/lib/analyticsEventStorage', () => ({ appendAnalyticsEvent }))
+vi.mock('@/lib/consent', () => ({ canTrackAnalytics }))
 
 import {
   getAtlasEngagementState,
@@ -14,6 +18,8 @@ import {
 describe('botanical atlas engagement depth', () => {
   beforeEach(() => {
     appendAnalyticsEvent.mockClear()
+    canTrackAnalytics.mockReset()
+    canTrackAnalytics.mockReturnValue(true)
     window.sessionStorage.clear()
   })
 
@@ -51,6 +57,16 @@ describe('botanical atlas engagement depth', () => {
 
   it('fails safely when stored session data is malformed', () => {
     window.sessionStorage.setItem('botanical-atlas-engagement', '{bad json')
+    expect(getAtlasEngagementState()).toMatchObject({ firstFilter: null, distinctFilters: [], profileOpened: false, recoveryAccepted: null })
+  })
+
+  it('does not persist atlas engagement state without consent', () => {
+    canTrackAnalytics.mockReturnValue(false)
+    trackAtlasFilter({ filter: 'effect', value: 'Calming', resultCount: 12 })
+    trackAtlasProfileClick({ slug: 'kanna', position: 1, activeFilterCount: 1 })
+
+    expect(appendAnalyticsEvent).not.toHaveBeenCalled()
+    expect(window.sessionStorage.length).toBe(0)
     expect(getAtlasEngagementState()).toMatchObject({ firstFilter: null, distinctFilters: [], profileOpened: false, recoveryAccepted: null })
   })
 })
