@@ -73,12 +73,47 @@ function normalizeRoute(href) {
 }
 
 function getRedirectSourceRoutes() {
+  const sources = new Set()
+
+  const addRule = (source, target, status = '301') => {
+    if (!source || !target || String(source).includes('*')) return
+    if (status && !/^30[1278]$/.test(String(status))) return
+    const normalizedSource = normalizeRoute(String(source))
+    const normalizedTarget = normalizeRoute(String(target))
+    if (!normalizedSource || !normalizedTarget || normalizedSource === normalizedTarget) return
+    sources.add(normalizedSource)
+  }
+
+  // The deployed redirect contract is authoritative for post-build SEO audits.
+  // It includes generated/override rules that are not guaranteed to exist in the
+  // source JSON representation, so read the built Cloudflare-style file first.
+  for (const redirectsPath of [path.join(outDir, '_redirects'), path.join(root, 'public', '_redirects')]) {
+    try {
+      const raw = fs.readFileSync(redirectsPath, 'utf8')
+      for (const line of raw.split(/\r?\n/)) {
+        const trimmed = line.trim()
+        if (!trimmed || trimmed.startsWith('#')) continue
+        const [source, target, status] = trimmed.split(/\s+/)
+        addRule(source, target, status)
+      }
+    } catch {
+      // Try the next representation.
+    }
+  }
+
+  // Keep source JSON as a compatibility fallback for pre-build/report-only use.
   const redirects = readJson(path.join(root, 'public', '_redirects.json'), [])
-  return new Set(
-    Array.isArray(redirects)
-      ? redirects.map((row) => normalizeRoute(row?.source || row?.from)).filter(Boolean)
-      : [],
-  )
+  if (Array.isArray(redirects)) {
+    for (const row of redirects) {
+      addRule(
+        row?.source || row?.from,
+        row?.destination || row?.target || row?.to,
+        row?.statusCode || row?.status || '301',
+      )
+    }
+  }
+
+  return sources
 }
 
 function nonCanonicalInternalHref(href) {
