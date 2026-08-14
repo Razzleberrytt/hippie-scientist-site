@@ -129,6 +129,64 @@ function extractCanonicalPath(html) {
   }
 }
 
+function normalizeLastModified(value) {
+  if (typeof value !== 'string' || !value.trim()) return ''
+  const parsed = new Date(value)
+  if (!Number.isFinite(parsed.getTime())) return ''
+
+  const now = new Date()
+  if (parsed.getTime() > now.getTime() + 24 * 60 * 60 * 1000) return ''
+
+  return parsed.toISOString().slice(0, 10)
+}
+
+function collectJsonLdValues(value, output = []) {
+  if (Array.isArray(value)) {
+    for (const item of value) collectJsonLdValues(item, output)
+    return output
+  }
+
+  if (!value || typeof value !== 'object') return output
+
+  const record = value
+  for (const key of ['dateModified', 'dateReviewed', 'lastReviewedAt']) {
+    const normalized = normalizeLastModified(record[key])
+    if (normalized) output.push(normalized)
+  }
+
+  for (const nested of Object.values(record)) {
+    if (nested && typeof nested === 'object') collectJsonLdValues(nested, output)
+  }
+
+  return output
+}
+
+function extractLastModified(html) {
+  const candidates = []
+
+  for (const match of html.matchAll(/<script\s+[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const parsed = JSON.parse(match[1])
+      candidates.push(...collectJsonLdValues(parsed))
+    } catch {
+      // Ignore invalid JSON-LD here; dedicated structured-data verification owns that failure.
+    }
+  }
+
+  for (const pattern of [
+    /<meta\s+[^>]*property=["']article:modified_time["'][^>]*content=["']([^"']+)["']/gi,
+    /<meta\s+[^>]*name=["']last-modified["'][^>]*content=["']([^"']+)["']/gi,
+  ]) {
+    for (const match of html.matchAll(pattern)) {
+      const normalized = normalizeLastModified(match[1])
+      if (normalized) candidates.push(normalized)
+    }
+  }
+
+  if (!candidates.length) return ''
+  return candidates.sort().at(-1) || ''
+}
+
 async function main() {
   try {
     await fs.access(OUT_DIR)
@@ -158,9 +216,8 @@ async function main() {
     const canonicalPath = extractCanonicalPath(html)
     if (canonicalPath && canonicalPath !== routePath) continue
 
-    const stat = await fs.stat(absolutePath)
     const loc = routePath === '/' ? `${SITE_URL}/` : `${SITE_URL}${routePath}`
-    const lastmod = stat.mtime.toISOString().slice(0, 10)
+    const lastmod = extractLastModified(html)
 
     urls.set(loc, { loc, lastmod })
   }
@@ -182,9 +239,9 @@ async function main() {
     ...sortedUrls.map(({ loc, lastmod }) => [
       '  <url>',
       `    <loc>${xmlEscape(loc)}</loc>`,
-      `    <lastmod>${xmlEscape(lastmod)}</lastmod>`,
+      lastmod ? `    <lastmod>${xmlEscape(lastmod)}</lastmod>` : null,
       '  </url>',
-    ].join('\n')),
+    ].filter(Boolean).join('\n')),
     '</urlset>',
     '',
   ].join('\n')
@@ -198,7 +255,8 @@ async function main() {
     process.exit(1)
   }
 
-  console.log(`[write-static-sitemap] Wrote ${sortedUrls.length} URLs to out/sitemap.xml`)
+  const datedCount = sortedUrls.filter((entry) => entry.lastmod).length
+  console.log(`[write-static-sitemap] Wrote ${sortedUrls.length} URLs to out/sitemap.xml (${datedCount} with source-owned lastmod)`)
 }
 
 main().catch((error) => {
