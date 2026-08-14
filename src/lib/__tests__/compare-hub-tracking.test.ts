@@ -1,7 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-const { appendAnalyticsEvent } = vi.hoisted(() => ({ appendAnalyticsEvent: vi.fn() }))
+const { appendAnalyticsEvent, canTrackAnalytics } = vi.hoisted(() => ({
+  appendAnalyticsEvent: vi.fn(),
+  canTrackAnalytics: vi.fn(() => true),
+}))
 vi.mock('@/lib/analyticsEventStorage', () => ({ appendAnalyticsEvent }))
+vi.mock('@/lib/consent', () => ({ canTrackAnalytics }))
 
 import {
   trackCompareHubCategoryShown,
@@ -13,6 +17,8 @@ import {
 describe('comparison hub tracking', () => {
   beforeEach(() => {
     appendAnalyticsEvent.mockClear()
+    canTrackAnalytics.mockReset()
+    canTrackAnalytics.mockReturnValue(true)
     sessionStorage.clear()
   })
 
@@ -61,5 +67,14 @@ describe('comparison hub tracking', () => {
     expect(appendAnalyticsEvent).toHaveBeenCalledWith(expect.objectContaining({
       type: 'comparison_outcome_click', slug: 'coffee-vs-green-tea', item: '/herbs/coffea-arabica/', context: expect.stringContaining('outcome:herb_profile'),
     }))
+  })
+
+  it('does not create comparison analytics session state without consent', () => {
+    canTrackAnalytics.mockReturnValue(false)
+    trackCompareHubClick({ source: 'featured_category', href: '/guides/compare/coffee-vs-green-tea/', label: 'Coffee vs Green Tea', category: 'Energy & focus' })
+    trackComparisonPageViewed('coffee-vs-green-tea')
+
+    expect(appendAnalyticsEvent).not.toHaveBeenCalled()
+    expect(sessionStorage.length).toBe(0)
   })
 })

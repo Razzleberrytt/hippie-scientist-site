@@ -1,7 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-const { appendAnalyticsEvent } = vi.hoisted(() => ({ appendAnalyticsEvent: vi.fn() }))
+const { appendAnalyticsEvent, canTrackAnalytics } = vi.hoisted(() => ({
+  appendAnalyticsEvent: vi.fn(),
+  canTrackAnalytics: vi.fn(() => true),
+}))
 vi.mock('@/lib/analyticsEventStorage', () => ({ appendAnalyticsEvent }))
+vi.mock('@/lib/consent', () => ({ canTrackAnalytics }))
 
 import {
   trackRelatedBotanicalClick,
@@ -12,6 +16,8 @@ import {
 describe('related botanical tracking', () => {
   beforeEach(() => {
     appendAnalyticsEvent.mockClear()
+    canTrackAnalytics.mockReset()
+    canTrackAnalytics.mockReturnValue(true)
     sessionStorage.clear()
   })
 
@@ -46,5 +52,15 @@ describe('related botanical tracking', () => {
     expect(appendAnalyticsEvent).toHaveBeenLastCalledWith(expect.objectContaining({
       type: 'related_botanical_compare_click', targetType: 'comparison', context: expect.stringContaining('profile_depth:1'),
     }))
+  })
+
+  it('does not persist exploration sessions without consent', () => {
+    canTrackAnalytics.mockReturnValue(false)
+    const item = { slug: 'rhodiola', position: 1, score: 10.5, reasonTypes: ['explicit-effect'] }
+    trackRelatedBotanicalsShown('ashwagandha', [item])
+    trackRelatedBotanicalClick('ashwagandha', item)
+
+    expect(appendAnalyticsEvent).not.toHaveBeenCalled()
+    expect(sessionStorage.length).toBe(0)
   })
 })
