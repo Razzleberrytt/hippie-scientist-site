@@ -91,6 +91,33 @@ export function normalizeProfileEntitySemantics(
   return { ...graph, '@graph': nodes }
 }
 
+export function normalizeProfileReviewSemantics(
+  graph: Record<string, unknown>,
+  artifact: EntityArtifact | null,
+): Record<string, unknown> {
+  if (!artifact || !Array.isArray(graph['@graph'])) return graph
+
+  const nodes = graph['@graph'].map((node) => {
+    if (!node || typeof node !== 'object') return node
+    const record = node as Record<string, unknown>
+    const id = typeof record['@id'] === 'string' ? record['@id'] : ''
+
+    if (id === `${artifact.canonicalUrl}#webpage` && !record.dateReviewed) {
+      const { reviewedBy: _reviewedBy, ...rest } = record
+      return rest
+    }
+
+    if (id === `${artifact.canonicalUrl}#evidence-review` && 'datePublished' in record) {
+      const { datePublished: _datePublished, ...rest } = record
+      return rest
+    }
+
+    return node
+  })
+
+  return { ...graph, '@graph': nodes }
+}
+
 export function attachEntityDataset(
   graph: Record<string, unknown>,
   artifact: EntityArtifact | null,
@@ -133,8 +160,9 @@ export function attachEntityDataset(
 
 export default function SchemaGraphScript({ graph }: SchemaGraphScriptProps) {
   const artifact = getEntityArtifact(graph)
-  const normalizedGraph = normalizeProfileEntitySemantics(graph, artifact)
-  const enrichedGraph = attachEntityDataset(normalizedGraph, artifact)
+  const normalizedEntityGraph = normalizeProfileEntitySemantics(graph, artifact)
+  const normalizedReviewGraph = normalizeProfileReviewSemantics(normalizedEntityGraph, artifact)
+  const enrichedGraph = attachEntityDataset(normalizedReviewGraph, artifact)
 
   return (
     <>
