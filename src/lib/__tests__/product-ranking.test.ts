@@ -12,6 +12,12 @@ describe('getProductPicks', () => {
   it('returns an empty array for a slug with no product picks', () => {
     expect(getProductPicks('not-a-real-compound-slug')).toEqual([])
   })
+
+  it('fails closed for restricted product slugs regardless of configured picks', () => {
+    expect(getProductPicks('kava')).toEqual([])
+    expect(getProductPicks('kratom')).toEqual([])
+    expect(getProductPicks('7-oh')).toEqual([])
+  })
 })
 
 describe('groupProductPicks', () => {
