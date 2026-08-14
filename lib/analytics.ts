@@ -1,6 +1,6 @@
 'use client'
 
-import { getConsent, getSystemNoTracking } from '@/lib/consent'
+import { canTrackAnalytics } from '@/lib/consent'
 
 type Gtag = (
   command: 'event',
@@ -20,8 +20,7 @@ export type GuideViewParams = {
 }
 
 function getGtag(): Gtag | null {
-  if (typeof window === 'undefined') return null
-  if (getConsent() !== 'granted' || getSystemNoTracking()) return null
+  if (!canTrackAnalytics()) return null
 
   const candidate = (window as Window & { gtag?: unknown }).gtag
   return typeof candidate === 'function' ? (candidate as Gtag) : null

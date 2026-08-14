@@ -1,47 +1,35 @@
-import { useEffect } from "react";
-import { useLocation } from "./router-compat";
-import { CONSENT_CHANGE_EVENT, CONSENT_STORAGE_KEY, getConsent } from "@/lib/consent";
-import { loadAnalytics } from "./loadAnalytics";
-
-function hasGrantedConsentFromStorage(): boolean {
-  if (typeof window === "undefined") return false;
-  try {
-    const raw = window.localStorage.getItem(CONSENT_STORAGE_KEY);
-    if (!raw) return false;
-    const parsed = JSON.parse(raw);
-    return parsed?.status === "granted";
-  } catch {
-    return false;
-  }
-}
+import { useEffect } from 'react'
+import { canTrackAnalytics, CONSENT_CHANGE_EVENT } from '@/lib/consent'
+import { useLocation } from './router-compat'
+import { loadAnalytics } from './loadAnalytics'
 
 export function useGA() {
-  const { pathname, search } = useLocation();
+  const { pathname, search } = useLocation()
 
   useEffect(() => {
-    if (!hasGrantedConsentFromStorage()) return;
-    loadAnalytics();
-  }, []);
+    if (!canTrackAnalytics()) return
+    loadAnalytics()
+  }, [])
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const onConsentGranted = (event: Event) => {
-      const status = (event as CustomEvent<{ status?: string }>).detail?.status;
-      if (status === "granted" || getConsent() === "granted") {
-        loadAnalytics();
+    if (typeof window === 'undefined') return
+    const onConsentChanged = () => {
+      if (canTrackAnalytics()) {
+        loadAnalytics()
       }
-    };
-    window.addEventListener(CONSENT_CHANGE_EVENT, onConsentGranted);
-    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onConsentGranted);
-  }, []);
+    }
+    window.addEventListener(CONSENT_CHANGE_EVENT, onConsentChanged)
+    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onConsentChanged)
+  }, [])
 
   useEffect(() => {
-    if (typeof window !== "undefined" && typeof window.gtag === "function") {
-      window.gtag("event", "page_view", {
-        page_location: window.location.href,
-        page_path: pathname + search,
-        page_title: document.title,
-      });
-    }
-  }, [pathname, search]);
+    if (!canTrackAnalytics()) return
+    if (typeof window.gtag !== 'function') return
+
+    window.gtag('event', 'page_view', {
+      page_location: window.location.href,
+      page_path: pathname + search,
+      page_title: document.title,
+    })
+  }, [pathname, search])
 }
