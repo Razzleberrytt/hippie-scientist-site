@@ -1,4 +1,11 @@
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
+vi.mock('@/src/lib/consent', () => ({
+  getConsent: vi.fn(() => 'granted'),
+  getSystemNoTracking: vi.fn(() => false),
+}))
+
+import { getConsent, getSystemNoTracking } from '@/src/lib/consent'
 import {
   getGuideTrackingContext,
   trackEmailSignup,
@@ -6,8 +13,14 @@ import {
   trackLeadMagnetClick,
 } from '../analytics'
 
+beforeEach(() => {
+  vi.mocked(getConsent).mockReturnValue('granted')
+  vi.mocked(getSystemNoTracking).mockReturnValue(false)
+})
+
 afterEach(() => {
   delete (window as Window & { gtag?: unknown }).gtag
+  vi.clearAllMocks()
 })
 
 describe('guide analytics', () => {
@@ -32,7 +45,7 @@ describe('guide analytics', () => {
     expect(getGuideTrackingContext('/guides/')).toBeNull()
   })
 
-  it('sends the canonical route context to gtag', () => {
+  it('sends the canonical route context to gtag when analytics consent is granted', () => {
     const gtag = vi.fn()
     ;(window as Window & { gtag?: unknown }).gtag = gtag
 
@@ -49,7 +62,7 @@ describe('guide analytics', () => {
     })
   })
 
-  it('tracks a lead magnet with its source path', () => {
+  it('tracks a lead magnet with its source path when analytics consent is granted', () => {
     const gtag = vi.fn()
     ;(window as Window & { gtag?: unknown }).gtag = gtag
 
@@ -64,7 +77,7 @@ describe('guide analytics', () => {
     })
   })
 
-  it('attributes successful email signups to the supplied source route', () => {
+  it('attributes successful email signups to the supplied source route when analytics consent is granted', () => {
     const gtag = vi.fn()
     ;(window as Window & { gtag?: unknown }).gtag = gtag
 
@@ -79,5 +92,32 @@ describe('guide analytics', () => {
       page_path: '/guides/anxiety/ashwagandha-for-anxiety/',
       source_path: '/guides/anxiety/ashwagandha-for-anxiety/',
     })
+  })
+
+  it('does not emit analytics when consent is denied', () => {
+    const gtag = vi.fn()
+    ;(window as Window & { gtag?: unknown }).gtag = gtag
+    vi.mocked(getConsent).mockReturnValue('denied')
+
+    trackGuideView({
+      slug: 'magnesium-for-sleep',
+      cluster: 'sleep',
+      pagePath: '/guides/sleep/magnesium-for-sleep/',
+    })
+
+    expect(gtag).not.toHaveBeenCalled()
+  })
+
+  it('does not emit analytics when DNT or GPC is active', () => {
+    const gtag = vi.fn()
+    ;(window as Window & { gtag?: unknown }).gtag = gtag
+    vi.mocked(getSystemNoTracking).mockReturnValue(true)
+
+    trackEmailSignup({
+      source: 'article-adhd-checklist',
+      pagePath: '/guides/anxiety/ashwagandha-for-anxiety',
+    })
+
+    expect(gtag).not.toHaveBeenCalled()
   })
 })
