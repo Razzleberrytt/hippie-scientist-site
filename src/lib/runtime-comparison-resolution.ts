@@ -41,18 +41,25 @@ export function comparisonValueToText(value: unknown): string {
   return ''
 }
 
-export function firstComparisonField(
+export function optionalComparisonField(
   record: RuntimeComparisonIngredient | null,
   keys: string[],
 ): string {
-  if (!record) return 'Not available in the canonical record.'
+  if (!record) return ''
 
   for (const key of keys) {
     const value = comparisonValueToText(record[key])
     if (value) return value
   }
 
-  return 'Not available in the canonical record.'
+  return ''
+}
+
+export function firstComparisonField(
+  record: RuntimeComparisonIngredient | null,
+  keys: string[],
+): string {
+  return optionalComparisonField(record, keys) || 'Not available in the canonical record.'
 }
 
 export function resolveRuntimeComparisonSide(
