@@ -44,11 +44,11 @@ export default function TableOfContents({ headings }: Props) {
               href={`#${h.id}`}
               onClick={() => setMobileOpen(false)}
               className={[
-                'block rounded-lg px-2.5 py-1.5 leading-snug transition-colors',
+                'block border-l-2 px-3 py-2 leading-snug transition-colors',
                 h.level === 3 ? 'text-xs' : 'text-sm',
                 activeId === h.id
-                  ? 'bg-brand-50 font-semibold text-brand-800'
-                  : 'text-muted hover:bg-brand-50/60 hover:text-brand-800',
+                  ? 'border-[color:var(--hs-gold)] bg-[color:color-mix(in_srgb,var(--tone)_6%,transparent)] font-semibold text-[color:var(--hs-ink)]'
+                  : 'border-transparent text-[color:var(--hs-body)] hover:border-[color:color-mix(in_srgb,var(--tone)_28%,transparent)] hover:bg-[color:color-mix(in_srgb,var(--tone)_4%,transparent)] hover:text-[color:var(--hs-ink)]',
               ].join(' ')}
             >
               {h.text}
@@ -61,13 +61,12 @@ export default function TableOfContents({ headings }: Props) {
 
   return (
     <>
-      {/* Mobile collapsible */}
-      <div className="rounded-xl border border-brand-900/10 bg-white/90 shadow-sm lg:hidden">
+      <div className="rounded-[1.2rem] border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_90%,transparent)] lg:hidden">
         <button
           type="button"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(o => !o)}
-          className="flex w-full items-center justify-between px-4 py-3 text-sm font-semibold text-ink"
+          className="flex min-h-12 w-full items-center justify-between px-4 py-3 text-sm font-semibold text-[color:var(--hs-ink)]"
         >
           On this page
           <svg
@@ -82,15 +81,14 @@ export default function TableOfContents({ headings }: Props) {
           </svg>
         </button>
         {mobileOpen && (
-          <div className="border-t border-brand-900/10 px-4 py-3">
+          <div className="border-t border-[color:var(--hs-hairline)] px-3 py-3">
             {links}
           </div>
         )}
       </div>
 
-      {/* Desktop always-visible */}
       <div className="hidden lg:block">
-        <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
+        <p className="mb-3 font-mono text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[color:var(--hs-gold-ink)]">
           On this page
         </p>
         {links}
