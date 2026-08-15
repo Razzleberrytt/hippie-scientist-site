@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import { citationReadySentenceCount, toCitationReadySummary } from '@/src/lib/citation-ready-summary'
+
 type CitationReadySummaryProps = {
   answer: string
   bestFor?: string[]
@@ -17,15 +19,19 @@ export default function CitationReadySummary({
   notClaiming,
   referencesHref,
 }: CitationReadySummaryProps) {
+  const citationReadyAnswer = toCitationReadySummary(answer)
+  const sentenceCount = citationReadySentenceCount(answer)
+
   return (
     <section
       aria-label="Citation-ready summary"
+      data-citation-summary-sentences={sentenceCount}
       className="max-w-4xl rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-950"
     >
       <div className="space-y-4">
         <div className="space-y-2">
           <p className="eyebrow-label">Quick answer</p>
-          <p className="text-base leading-7 text-ink">{answer}</p>
+          <p className="text-base leading-7 text-ink">{citationReadyAnswer}</p>
         </div>
 
         {bestFor.length > 0 ? (
