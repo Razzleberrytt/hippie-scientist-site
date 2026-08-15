@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
-import { getRuntimeVisibility } from '../../lib/runtime-visibility'
+import { filterRenderableRuntimeRecords } from '../../lib/runtime-visibility'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { WizardSkeleton } from '@/components/skeletons'
 import { buildToolPageSchemaGraph } from '../../src/lib/schema-graph'
@@ -26,13 +26,8 @@ export const metadata: Metadata = buildPageMetadata({
 export default async function SafetyCheckerPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs: RuntimeRecord[] = rawHerbs.filter(
-    (herb: RuntimeRecord) => getRuntimeVisibility(herb).canRender,
-  )
-
-  const compounds: RuntimeRecord[] = rawCompounds.filter(
-    (compound: RuntimeRecord) => getRuntimeVisibility(compound).canRender,
-  )
+  const herbs = filterRenderableRuntimeRecords(rawHerbs as RuntimeRecord[])
+  const compounds = filterRenderableRuntimeRecords(rawCompounds as RuntimeRecord[])
 
   const schemaGraph = buildToolPageSchemaGraph({
     path: '/safety-checker',
