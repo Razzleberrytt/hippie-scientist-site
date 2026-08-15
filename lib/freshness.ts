@@ -1,29 +1,35 @@
 import freshnessData from '@/public/data/freshness-metadata.json'
 
-interface FreshnessInfo {
+export interface FreshnessInfo {
   lastReviewed: string
+  evidenceSearchDate: string
+  factualUpdatedAt: string
+  templateUpdatedAt: string
   citationCount: number
 }
 
-export function getHomepageFreshness(): FreshnessInfo {
+type PartialFreshnessInfo = Partial<FreshnessInfo>
+
+function normalizeFreshness(info: PartialFreshnessInfo | undefined): FreshnessInfo {
   return {
-    lastReviewed: freshnessData.homepage.lastReviewed,
-    citationCount: freshnessData.homepage.citationCount,
+    lastReviewed: info?.lastReviewed || '',
+    evidenceSearchDate: info?.evidenceSearchDate || '',
+    factualUpdatedAt: info?.factualUpdatedAt || '',
+    templateUpdatedAt: info?.templateUpdatedAt || '',
+    citationCount: info?.citationCount || 0,
   }
+}
+
+export function getHomepageFreshness(): FreshnessInfo {
+  return normalizeFreshness(freshnessData.homepage as PartialFreshnessInfo)
 }
 
 export function getGoalFreshness(goalSlug: string): FreshnessInfo {
-  const goal = (freshnessData.goals as Record<string, FreshnessInfo>)[goalSlug]
-  return {
-    lastReviewed: goal?.lastReviewed || '',
-    citationCount: goal?.citationCount || 0,
-  }
+  const goal = (freshnessData.goals as Record<string, PartialFreshnessInfo>)[goalSlug]
+  return normalizeFreshness(goal)
 }
 
 export function getProfileFreshness(slug: string): FreshnessInfo {
-  const profile = (freshnessData.profiles as Record<string, FreshnessInfo>)[slug]
-  return {
-    lastReviewed: profile?.lastReviewed || '',
-    citationCount: profile?.citationCount || 0,
-  }
+  const profile = (freshnessData.profiles as Record<string, PartialFreshnessInfo>)[slug]
+  return normalizeFreshness(profile)
 }
