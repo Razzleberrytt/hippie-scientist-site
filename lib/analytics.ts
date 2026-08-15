@@ -8,6 +8,8 @@ type Gtag = (
     | 'affiliate_click'
     | 'atlas_callout_click'
     | 'email_signup'
+    | 'experiment_conversion'
+    | 'experiment_impression'
     | 'guide_view'
     | 'lead_magnet_click',
   params: Record<string, string | number | boolean | undefined>,
@@ -17,6 +19,13 @@ export type GuideViewParams = {
   slug: string
   cluster?: string
   pagePath: string
+}
+
+export type ExperimentAnalyticsParams = {
+  experimentId: string
+  variant: string
+  location?: string
+  pagePath?: string
 }
 
 function getGtag(): Gtag | null {
@@ -63,6 +72,32 @@ export function trackEmailSignup(params: { source: string; pagePath?: string }):
       signup_source: params.source,
       page_path: pagePath,
       source_path: pagePath,
+    })
+  } catch {
+    // Analytics must never block signup flow.
+  }
+}
+
+export function trackExperimentImpression(params: ExperimentAnalyticsParams): void {
+  try {
+    getGtag()?.('event', 'experiment_impression', {
+      experiment_id: params.experimentId,
+      experiment_variant: params.variant,
+      experiment_location: params.location,
+      page_path: getCurrentPagePath(params.pagePath),
+    })
+  } catch {
+    // Analytics must never affect the experiment experience.
+  }
+}
+
+export function trackExperimentConversion(params: ExperimentAnalyticsParams): void {
+  try {
+    getGtag()?.('event', 'experiment_conversion', {
+      experiment_id: params.experimentId,
+      experiment_variant: params.variant,
+      experiment_location: params.location,
+      page_path: getCurrentPagePath(params.pagePath),
     })
   } catch {
     // Analytics must never block signup flow.

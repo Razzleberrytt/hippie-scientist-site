@@ -1,6 +1,6 @@
 import { MDXContent } from '@content-collections/mdx/react'
 import type { ComponentPropsWithoutRef } from 'react'
-import NewsletterSignup from '@/components/NewsletterSignup'
+import ArticleEmailCaptureExperiment from '@/components/monetization/ArticleEmailCaptureExperiment'
 import { useMDXComponents } from '@/mdx-components'
 
 type ArticleMdxProps = {
@@ -16,10 +16,11 @@ export default function ArticleMdx({ code }: ArticleMdxProps) {
 
   return (
     <>
-      <MDXContent code={code} components={components} />
-      <NewsletterSignup
-        location='article-body-end'
-        variant='editorial'
+      <div data-article-body>
+        <MDXContent code={code} components={components} />
+      </div>
+      <ArticleEmailCaptureExperiment
+        location='article-body'
         className='mt-10'
       />
     </>
