@@ -36,6 +36,17 @@ function choiceChecks(side: ResolvedSide): string[] {
   ]
 }
 
+function neitherChecks(goal?: string): string[] {
+  return [
+    goal
+      ? `Neither option has adequate human outcome evidence for the actual decision context: ${goal}.`
+      : 'Neither option has adequate human outcome evidence for the outcome you are actually researching.',
+    'The available comparison is driven mainly by mechanism, chemistry, or marketing rather than replicated human outcomes.',
+    'A contraindication, medication interaction, pregnancy concern, or other safety constraint makes unsupervised use inappropriate.',
+    'The relevant studied formulation or dose is materially different from the product or form being considered.',
+  ]
+}
+
 export default async function RuntimeEvidenceComparison({ title, summary, left, right, goal }: Props) {
   const { herbs, compounds } = await getUnifiedRuntimeRecords()
   const runtimeHerbs = herbs as RuntimeRecord[]
@@ -137,6 +148,19 @@ export default async function RuntimeEvidenceComparison({ title, summary, left, 
             </ul>
           </article>
         ))}
+      </section>
+
+      <section className="max-w-5xl rounded-2xl border border-amber-500/20 bg-amber-50/60 p-5 dark:bg-amber-950/10" aria-labelledby="neither-fit">
+        <p className="text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-200">Neither may be appropriate if…</p>
+        <h2 id="neither-fit" className="mt-1 text-xl font-semibold text-ink">The comparison itself does not clear the decision bar</h2>
+        <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
+          {neitherChecks(goal).map((reason) => (
+            <li key={reason} className="flex gap-2">
+              <span aria-hidden="true" className="font-bold text-amber-700">•</span>
+              <span>{reason}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="card-premium max-w-5xl p-4 sm:p-6">
