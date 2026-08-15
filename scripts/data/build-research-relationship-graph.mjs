@@ -4,6 +4,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildResearchRelationshipGraph } from './research-graph-lib.mjs'
+import { remapResearchGraphToStableSubstanceIds } from './research-graph-identity.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const PUBLIC_DATA = path.join(ROOT, 'public', 'data')
@@ -56,6 +57,11 @@ function renderMarkdown(graph) {
     `- Isolated entities: **${graph.summary.isolatedEntities}**`,
     `- Suspiciously over-connected entities: **${graph.summary.overConnectedEntities}**`,
     '',
+    '## Identity contract',
+    '',
+    `- Public substance IDs: **${graph.identityContract?.publicSubstanceIds || 'legacy'}**`,
+    `- Legacy claim join IDs: **${graph.identityContract?.legacyClaimJoinIds || 'n/a'}**`,
+    '',
     '## Relationship coverage',
     '',
     '| Relationship | Edges |',
@@ -89,7 +95,8 @@ const compounds = readFirstJson([
 const herbCompoundMap = readJson(path.join(PUBLIC_DATA, 'herb-compound-map.json'), [])
 const claims = readJsonl(path.join(ROOT, 'data', 'canonical', 'claims', 'claims.jsonl'))
 
-const graph = buildResearchRelationshipGraph({ herbs, compounds, herbCompoundMap, claims })
+const derivedGraph = buildResearchRelationshipGraph({ herbs, compounds, herbCompoundMap, claims })
+const graph = remapResearchGraphToStableSubstanceIds(derivedGraph, { herbs, compounds })
 mkdirSync(PUBLIC_DATA, { recursive: true })
 mkdirSync(REPORTS, { recursive: true })
 writeFileSync(OUTPUT_JSON, `${JSON.stringify(graph, null, 2)}\n`)
@@ -102,5 +109,6 @@ console.log(`Edges                  ${graph.summary.edges}`)
 console.log(`Comparison candidates  ${graph.summary.comparisonOpportunities}`)
 console.log(`Isolated               ${graph.summary.isolatedEntities}`)
 console.log(`Over-connected         ${graph.summary.overConnectedEntities}`)
+console.log('Identity               stable evidence-graph substance IDs')
 console.log('Output                 public/data/research-relationship-graph.json')
 console.log('Report                 ops/reports/research-relationship-graph.md')
