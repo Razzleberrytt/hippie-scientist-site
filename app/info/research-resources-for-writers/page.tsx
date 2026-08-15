@@ -53,7 +53,7 @@ export default function ResearchResourcesForWritersPage() {
                 {resource.title}
               </Link>
             </h3>
-            <p className="mt-3 leading-7 text-slate-650">{resource.description}</p>
+            <p className="mt-3 leading-7 text-slate-700">{resource.description}</p>
           </article>
         ))}
       </section>
