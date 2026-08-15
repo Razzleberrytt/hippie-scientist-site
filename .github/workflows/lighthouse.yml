@@ -48,29 +48,39 @@ jobs:
           COMMIT_HASH: ${{ github.sha }}
         run: npm run build:deploy
 
+      - name: Enforce bundle and data budgets
+        run: node scripts/report-performance-budget.mjs
+
+      - name: Audit third-party scripts and image stability
+        run: node scripts/ci/audit-third-party-performance.mjs
+
       - name: Run Lighthouse CI
         run: |
           npx serve@14 out -p 3000 &
           SERVER_PID=$!
-          # Wait for server to be ready
           timeout 30 bash -c 'until curl -sf http://localhost:3000 > /dev/null; do sleep 1; done'
           npx @lhci/cli@0.14 collect --config=.lighthouserc.json
           npx @lhci/cli@0.14 assert --config=.lighthouserc.json
           kill $SERVER_PID 2>/dev/null || true
 
-      - name: Upload Lighthouse results
+      - name: Upload performance results
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: lighthouse-results-${{ github.run_number }}
-          path: .lighthouseci/
+          name: performance-results-${{ github.run_number }}
+          path: |
+            .lighthouseci/
+            reports/third-party-performance.json
+            docs/performance/budgets-log.md
           retention-days: 30
 
       - name: Add workflow summary
         if: always()
         run: |
-          echo "## Lighthouse CI Results" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Thresholds: Performance ≥ 80, Accessibility ≥ 90 (hard fail), SEO ≥ 90, Best Practices ≥ 85" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Performance Governance" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Lighthouse performance target: ≥ 82" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Hard CWV gates: LCP ≤ 2.5s, CLS ≤ 0.10, TBT ≤ 300ms" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Hard accessibility gate: ≥ 90" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Bundle/data budgets and third-party script policy are enforced before Lighthouse" >> "$GITHUB_STEP_SUMMARY"
           echo "- URLs tested: /, /herbs/ashwagandha/, /compounds/l-theanine/" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Artifact: lighthouse-results-${{ github.run_number }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
