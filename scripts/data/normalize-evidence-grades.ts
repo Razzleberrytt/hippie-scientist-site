@@ -20,6 +20,11 @@ import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
 import path from 'node:path'
 
 import { reconcileEvidenceGrade, type EvidenceReconciliation } from '../../lib/evidence-grade'
+import {
+  buildEvidenceRationale,
+  gradeIsBackedByEvidence,
+  type EvidenceRationale,
+} from '../../lib/evidence-rationale'
 import { normalizeStudyClass, STUDY_CLASS_INFO } from '../../lib/study-class'
 
 const ROOT = process.cwd()
@@ -46,13 +51,25 @@ function sourceGrade(row: Row): unknown {
   return row.evidence_grade_source ?? row.evidence_grade
 }
 
-function normalizeProfiles(file: string) {
+function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>) {
   const rows = readJson(file)
-  if (!rows.length) return { file, total: 0, adjusted: 0, reasons: {} as Record<string, number>, changes: [] as Row[] }
+  if (!rows.length) {
+    return {
+      file,
+      total: 0,
+      adjusted: 0,
+      rationaleCards: 0,
+      reasons: {} as Record<string, number>,
+      changes: [] as Row[],
+      unbacked: [] as Row[],
+    }
+  }
 
   const reasons: Record<string, number> = {}
   const changes: Row[] = []
+  const unbacked: Row[] = []
   let adjusted = 0
+  let rationaleCards = 0
 
   const next = rows.map((row) => {
     const authored = sourceGrade(row)
@@ -71,6 +88,21 @@ function normalizeProfiles(file: string) {
       })
     }
 
+    const rationale: EvidenceRationale = buildEvidenceRationale(claimsBySlug.get(String(row.slug)) ?? [])
+    if (rationale.designMatch) rationaleCards += 1
+
+    const backing = gradeIsBackedByEvidence(result.grade, rationale)
+    if (!backing.backed) {
+      unbacked.push({
+        slug: row.slug,
+        indexable: String(row.indexability_status ?? '').toUpperCase() === 'PUBLISH',
+        grade: result.grade,
+        reason: backing.reason,
+        humanStudyCount: rationale.humanStudyCount,
+        claimCount: rationale.totalClaimCount,
+      })
+    }
+
     return {
       ...row,
       evidence_grade: result.grade,
@@ -79,16 +111,29 @@ function normalizeProfiles(file: string) {
       evidence_grade_reason: result.reason,
       evidence_grade_explanation: result.explanation,
       evidence_grade_adjusted: result.adjusted,
+      // Rationale card fields. Null means "not assessed" and must render as
+      // such — an absent signal is not a clean bill of health.
+      evidence_design_match: rationale.designMatch,
+      evidence_risk_of_bias: rationale.riskOfBias,
+      evidence_consistency: rationale.consistency,
+      evidence_rationale: rationale.summary,
+      evidence_human_study_count: rationale.humanStudyCount,
+      evidence_recorded_study_count: rationale.classifiedStudyCount,
+      evidence_strongest_design: rationale.strongestClass,
+      evidence_grade_backed: backing.backed,
+      evidence_grade_backing_gap: backing.reason,
     }
   })
 
   writeJson(file, next)
-  return { file, total: rows.length, adjusted, reasons, changes }
+  return { file, total: rows.length, adjusted, rationaleCards, reasons, changes, unbacked }
 }
 
 function normalizeClaims() {
   const rows = readJson('claims.json')
-  if (!rows.length) return { total: 0, classes: {} as Record<string, number> }
+  if (!rows.length) {
+    return { total: 0, classes: {} as Record<string, number>, bySlug: new Map<string, Row[]>() }
+  }
 
   const classes: Record<string, number> = {}
   const next = rows.map((row) => {
@@ -106,18 +151,37 @@ function normalizeClaims() {
   })
 
   writeJson('claims.json', next)
-  return { total: rows.length, classes }
+
+  // Profiles read the classified claims, so group them here rather than
+  // re-deriving the classification per profile.
+  const bySlug = new Map<string, Row[]>()
+  for (const row of next) {
+    const slug = String(row.profile_slug ?? '')
+    if (!slug) continue
+    const bucket = bySlug.get(slug)
+    if (bucket) bucket.push(row)
+    else bySlug.set(slug, [row])
+  }
+
+  return { total: rows.length, classes, bySlug }
 }
 
 function main() {
-  const profiles = [normalizeProfiles('herbs.json'), normalizeProfiles('compounds.json')]
+  // Claims first: their canonical study class feeds the profile rationale.
   const claims = normalizeClaims()
+  const claimsBySlug = claims.bySlug ?? new Map<string, Row[]>()
+  const profiles = [
+    normalizeProfiles('herbs.json', claimsBySlug),
+    normalizeProfiles('compounds.json', claimsBySlug),
+  ]
 
   const totals = {
     profiles: profiles.reduce((sum, p) => sum + p.total, 0),
     adjusted: profiles.reduce((sum, p) => sum + p.adjusted, 0),
+    rationaleCards: profiles.reduce((sum, p) => sum + p.rationaleCards, 0),
     claims: claims.total,
   }
+  const unbacked = profiles.flatMap((p) => p.unbacked)
   const reasons: Record<string, number> = {}
   for (const p of profiles) {
     for (const [reason, count] of Object.entries(p.reasons)) reasons[reason] = (reasons[reason] ?? 0) + count
@@ -129,6 +193,7 @@ function main() {
     gradeReasons: reasons,
     studyClasses: claims.classes,
     adjustments: profiles.flatMap((p) => p.changes),
+    unbackedStrongGrades: unbacked,
   }
 
   mkdirSync(REPORTS_DIR, { recursive: true })
@@ -141,6 +206,18 @@ function main() {
   for (const [reason, count] of Object.entries(reasons).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${String(count).padStart(5)}  ${reason}`)
   }
+  console.log(`\nRationale cards       ${totals.rationaleCards}`)
+  const unbackedIndexable = unbacked.filter((row) => row.indexable)
+  console.log(`A/B grades unbacked   ${unbacked.length} (${unbackedIndexable.length} indexable)`)
+  const gapCounts: Record<string, number> = {}
+  for (const row of unbackedIndexable) {
+    const reason = String(row.reason)
+    gapCounts[reason] = (gapCounts[reason] ?? 0) + 1
+  }
+  for (const [reason, count] of Object.entries(gapCounts).sort((a, b) => b[1] - a[1])) {
+    console.log(`  ${String(count).padStart(5)}  ${reason}`)
+  }
+
   console.log(`\nClaims classified     ${totals.claims}`)
   for (const [studyClass, count] of Object.entries(claims.classes).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${String(count).padStart(5)}  ${studyClass}`)
