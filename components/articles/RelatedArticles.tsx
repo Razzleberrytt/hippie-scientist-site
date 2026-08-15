@@ -8,15 +8,15 @@ const CATEGORY_LABEL: Record<string, string> = {
 }
 
 export interface RelatedArticle {
-  href: string;
-  title: string;
-  description: string;
-  category?: 'sleep' | 'stress' | 'anxiety' | 'focus';
+  href: string
+  title: string
+  description: string
+  category?: 'sleep' | 'stress' | 'anxiety' | 'focus'
 }
 
 interface RelatedArticlesProps {
-  articles: RelatedArticle[];
-  heading?: string;
+  articles: RelatedArticle[]
+  heading?: string
 }
 
 export default function RelatedArticles({
@@ -26,18 +26,23 @@ export default function RelatedArticles({
   if (!articles.length) return null
 
   const limited = articles.slice(0, 3)
+  const gridColumns = limited.length === 1
+    ? 'sm:grid-cols-1'
+    : limited.length === 2
+      ? 'sm:grid-cols-2'
+      : 'sm:grid-cols-3'
 
   return (
     <section>
       <h2 className="mb-4 text-xl font-semibold text-ink">{heading}</h2>
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className={`grid gap-3 ${gridColumns}`}>
         {limited.map(({ href, title, description, category }) => (
           <Link
             key={href}
             href={href}
-            className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
+            className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10 dark:focus-visible:ring-offset-[var(--surface-card)]"
           >
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200">
               {category ? CATEGORY_LABEL[category] : 'Guide'}
             </p>
             <p className="mt-1 text-sm font-semibold text-ink">{title}</p>
