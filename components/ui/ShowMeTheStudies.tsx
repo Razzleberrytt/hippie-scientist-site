@@ -1,7 +1,12 @@
+'use client'
+
+import { useMemo, useState } from 'react'
 import {
   evidenceConsistencyLabel,
   evidenceRelationshipLabel,
   evidenceSourceUrl,
+  evidenceStudyClassDefinition,
+  filterEvidenceStudiesByClass,
   formatEvidenceStudyClass,
   normalizeEvidenceStudyClass,
   summarizeEvidenceStudies,
@@ -32,6 +37,12 @@ export interface Citation {
   relationship?: EvidenceRelationship
   confidence?: EvidenceConfidence
   statisticalConsistency?: string
+  effectSize?: string
+  confidenceInterval?: string
+  statisticalSignificance?: string
+  absoluteDifference?: string
+  clinicalMagnitude?: string
+  replication?: string
   extractName?: string
   ingredients?: string[]
   conditions?: string[]
@@ -61,6 +72,8 @@ const STUDY_CLASS_ORDER: EvidenceStudyClass[] = [
 ]
 const VISIBLE_ROWS = 6
 
+type StudyClassFilter = 'all' | EvidenceStudyClass
+
 function normalizedStudy(citation: Citation): EvidenceStudyRecord {
   const evidenceClass = citation.evidenceClass || normalizeEvidenceStudyClass(citation.studyType)
   return {
@@ -84,6 +97,12 @@ function normalizedStudy(citation: Citation): EvidenceStudyRecord {
     relationship: citation.relationship || 'background',
     confidence: citation.confidence || 'unknown',
     statisticalConsistency: citation.statisticalConsistency,
+    effectSize: citation.effectSize,
+    confidenceInterval: citation.confidenceInterval,
+    statisticalSignificance: citation.statisticalSignificance,
+    absoluteDifference: citation.absoluteDifference,
+    clinicalMagnitude: citation.clinicalMagnitude,
+    replication: citation.replication,
     extractName: citation.extractName,
     ingredients: citation.ingredients,
     conditions: citation.conditions,
@@ -148,8 +167,36 @@ function previewText(study: EvidenceStudyRecord) {
     study.duration && `Duration: ${study.duration}`,
     study.outcome && `Outcome: ${study.outcome}`,
     study.result && `Result: ${study.result}`,
+    study.effectSize && `Effect size: ${study.effectSize}`,
+    study.confidenceInterval && `CI: ${study.confidenceInterval}`,
+    study.clinicalMagnitude && `Magnitude: ${study.clinicalMagnitude}`,
+    study.replication && `Replication: ${study.replication}`,
     study.limitation && `Limitation: ${study.limitation}`,
   ].filter(Boolean).join(' • ')
+}
+
+function QuantitativeContext({ study }: { study: EvidenceStudyRecord }) {
+  const rows = [
+    study.effectSize && ['Effect size', study.effectSize],
+    study.confidenceInterval && ['Confidence interval', study.confidenceInterval],
+    study.absoluteDifference && ['Absolute difference', study.absoluteDifference],
+    study.statisticalSignificance && ['Statistical significance', study.statisticalSignificance],
+    study.clinicalMagnitude && ['Magnitude', study.clinicalMagnitude],
+    study.replication && ['Replication', study.replication],
+  ].filter((row): row is [string, string] => Boolean(row))
+
+  if (!rows.length) return null
+
+  return (
+    <dl className="mt-2 space-y-1 border-t border-brand-900/10 pt-2 text-[10px] leading-4 text-muted dark:border-white/10">
+      {rows.map(([label, value]) => (
+        <div key={label} className="flex gap-1.5">
+          <dt className="font-semibold text-ink">{label}:</dt>
+          <dd>{value}</dd>
+        </div>
+      ))}
+    </dl>
+  )
 }
 
 function StudyRow({ study, index }: { study: EvidenceStudyRecord; index: number }) {
@@ -186,7 +233,12 @@ function StudyRow({ study, index }: { study: EvidenceStudyRecord; index: number 
           <p className="mt-2 text-[11px] leading-5 text-muted"><strong>Limitation:</strong> {study.limitation}</p>
         ) : null}
       </td>
-      <td className="min-w-[170px] px-3 py-3 align-top sm:px-4"><StudyTypeBadge study={study} /></td>
+      <td className="min-w-[190px] px-3 py-3 align-top sm:px-4">
+        <StudyTypeBadge study={study} />
+        <p className="mt-2 max-w-[250px] text-[10px] leading-4 text-muted">
+          {evidenceStudyClassDefinition(study.evidenceClass).plainEnglish}
+        </p>
+      </td>
       <td className="whitespace-nowrap px-3 py-3 align-top text-[12px] text-muted sm:px-4">
         {study.sampleSize ? `n=${study.sampleSize}` : '—'}
       </td>
@@ -194,9 +246,10 @@ function StudyRow({ study, index }: { study: EvidenceStudyRecord; index: number 
       <td className="min-w-[130px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">{study.duration || '—'}</td>
       <td className="min-w-[190px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">{study.population || '—'}</td>
       <td className="min-w-[180px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">{study.outcome || '—'}</td>
-      <td className="min-w-[200px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">
+      <td className="min-w-[240px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">
         {study.result || '—'}
         {study.statisticalConsistency ? <p className="mt-1 text-[10px] text-muted">{study.statisticalConsistency}</p> : null}
+        <QuantitativeContext study={study} />
       </td>
       <td className="px-3 py-3 text-right align-top sm:px-4">
         {sourceUrl ? (
@@ -221,23 +274,30 @@ export default function ShowMeTheStudies({
   confidence,
   whatWouldChangeConclusion,
 }: Props) {
+  const [activeClass, setActiveClass] = useState<StudyClassFilter>('all')
+
+  const studies = useMemo(
+    () => (citations || []).map(normalizedStudy).sort(sortByStudyType),
+    [citations],
+  )
+  const metrics = useMemo(() => summarizeEvidenceStudies(studies), [studies])
+  const classCounts = useMemo(() => {
+    const counts = new Map<EvidenceStudyClass, number>()
+    for (const study of studies) counts.set(study.evidenceClass, (counts.get(study.evidenceClass) || 0) + 1)
+    return counts
+  }, [studies])
+  const availableClasses = STUDY_CLASS_ORDER.filter((studyClass) => classCounts.has(studyClass))
+  const filteredStudies = activeClass === 'all'
+    ? studies
+    : filterEvidenceStudiesByClass(studies, [activeClass])
+  const visible = filteredStudies.slice(0, VISIBLE_ROWS)
+  const overflow = filteredStudies.slice(VISIBLE_ROWS)
+
   if (!citations || citations.length === 0) return null
 
-  const studies = citations.map(normalizedStudy).sort(sortByStudyType)
-  const metrics = summarizeEvidenceStudies(studies)
-  const visible = studies.slice(0, VISIBLE_ROWS)
-  const overflow = studies.slice(VISIBLE_ROWS)
   const participantLabel = metrics.studiesWithParticipantCounts > 0
     ? `~${metrics.approximateParticipants.toLocaleString()} participants across ${metrics.studiesWithParticipantCounts} human sources with reported N`
     : 'Participant totals not consistently reported'
-  const namedExtracts = [...new Set(studies.map(study => study.extractName).filter((value): value is string => Boolean(value)))]
-  const evidenceSnapshot = conclusion || [
-    `This evidence table contains ${metrics.totalStudies} structured source${metrics.totalStudies === 1 ? '' : 's'}, including ${metrics.humanTrials} human trial${metrics.humanTrials === 1 ? '' : 's'}.`,
-    metrics.studiesWithParticipantCounts > 0
-      ? `Across ${metrics.studiesWithParticipantCounts} human source${metrics.studiesWithParticipantCounts === 1 ? '' : 's'} with a reported sample size, the approximate participant total is ${metrics.approximateParticipants.toLocaleString()}; overlapping publications may include some of the same people.`
-      : 'A reliable total participant count cannot be calculated because sample size is not consistently structured in the cited sources.',
-    `The structured evidence direction is ${evidenceConsistencyLabel(metrics.consistency).toLowerCase()}: ${metrics.supportive} supporting, ${metrics.mixed} mixed, ${metrics.contradicting} contradicting, and ${metrics.noClearEffect} no-clear-effect source${metrics.totalStudies === 1 ? '' : 's'}.`,
-  ].join(' ')
 
   return (
     <details className="group/studies overflow-hidden rounded-2xl border-2 border-brand-900/10 bg-[var(--surface-card)] p-0 shadow-none backdrop-blur-none dark:border-white/10">
@@ -251,31 +311,61 @@ export default function ShowMeTheStudies({
         <span aria-hidden="true" className="shrink-0 text-brand-500 transition-transform group-open/studies:rotate-180">v</span>
       </summary>
 
-      <div className="grid gap-3 border-t border-brand-900/10 bg-white/80 p-4 md:grid-cols-2 dark:border-white/10 dark:bg-white/5">
-        <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
-          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">What the evidence actually shows</p>
-          <p className="mt-2 text-sm leading-6 text-ink">{evidenceSnapshot}</p>
-          {namedExtracts.length > 0 ? (
-            <p className="mt-2 text-xs leading-5 text-amber-900">
-              <strong>Form limitation:</strong> Some findings concern named preparations ({namedExtracts.slice(0, 3).join(', ')}{namedExtracts.length > 3 ? ', …' : ''}); those results should not automatically be generalized to every product sold under the ingredient name.
+      {availableClasses.length > 1 ? (
+        <div className="border-t border-brand-900/10 bg-white/70 px-4 py-3 dark:border-white/10 dark:bg-white/5">
+          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-muted">Filter by study class</p>
+          <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Filter evidence by study class">
+            <button
+              type="button"
+              aria-pressed={activeClass === 'all'}
+              onClick={() => setActiveClass('all')}
+              className="rounded-full border border-brand-900/15 px-3 py-1 text-xs font-semibold text-ink aria-pressed:bg-brand-700 aria-pressed:text-white dark:border-white/15"
+            >
+              All ({studies.length})
+            </button>
+            {availableClasses.map((studyClass) => (
+              <button
+                key={studyClass}
+                type="button"
+                aria-pressed={activeClass === studyClass}
+                onClick={() => setActiveClass(studyClass)}
+                className="rounded-full border border-brand-900/15 px-3 py-1 text-xs font-semibold text-ink aria-pressed:bg-brand-700 aria-pressed:text-white dark:border-white/15"
+              >
+                {formatEvidenceStudyClass(studyClass)} ({classCounts.get(studyClass)})
+              </button>
+            ))}
+          </div>
+          <p className="mt-2 text-[11px] text-muted" aria-live="polite">
+            Showing {filteredStudies.length} of {studies.length} studies.
+          </p>
+        </div>
+      ) : null}
+
+      {(conclusion || evidenceGrade || confidence || whatWouldChangeConclusion) ? (
+        <div className="grid gap-3 border-t border-brand-900/10 bg-white/80 p-4 md:grid-cols-2 dark:border-white/10 dark:bg-white/5">
+          <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">Why we believe this</p>
+            {conclusion ? <p className="mt-2 text-sm leading-6 text-ink">{conclusion}</p> : null}
+            <p className="mt-2 text-xs leading-5 text-muted">
+              {metrics.supportive} supporting · {metrics.mixed} mixed · {metrics.contradicting} contradicting · {metrics.noClearEffect} no-clear-effect sources.
             </p>
-          ) : null}
-          <p className="mt-2 text-xs font-semibold text-ink">
-            {evidenceGrade ? `Evidence grade: ${evidenceGrade}` : 'Evidence grade: use the profile grade shown above'}
-            {' · '}
-            {confidence ? `Confidence: ${confidence}` : 'Confidence: not separately assigned'}
-          </p>
+            {(evidenceGrade || confidence) ? (
+              <p className="mt-2 text-xs font-semibold text-ink">
+                {evidenceGrade ? `Evidence grade: ${evidenceGrade}` : ''}{evidenceGrade && confidence ? ' · ' : ''}{confidence ? `Confidence: ${confidence}` : ''}
+              </p>
+            ) : null}
+          </div>
+          <div className="rounded-xl border border-brand-900/10 bg-white p-4 dark:bg-white/5">
+            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">What would change our conclusion?</p>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              {whatWouldChangeConclusion || 'Larger, well-controlled human trials using comparable populations, doses, preparations, and clinically meaningful outcomes could materially strengthen or weaken this conclusion.'}
+            </p>
+          </div>
         </div>
-        <div className="rounded-xl border border-brand-900/10 bg-white p-4 dark:bg-white/5">
-          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">What would change our conclusion?</p>
-          <p className="mt-2 text-sm leading-6 text-muted">
-            {whatWouldChangeConclusion || 'Larger, well-controlled human trials using comparable populations, doses, preparations, and clinically meaningful outcomes could materially strengthen or weaken this conclusion. A replicated result in a different population or a high-quality synthesis resolving current disagreement would also materially change confidence.'}
-          </p>
-        </div>
-      </div>
+      ) : null}
 
       <div className="overflow-x-auto border-t border-brand-900/10 dark:border-white/10">
-        <table className="w-full min-w-[1500px] border-collapse text-left text-sm">
+        <table className="w-full min-w-[1600px] border-collapse text-left text-sm">
           <thead>
             <tr className="bg-[var(--surface-card)] text-[10px] font-bold uppercase tracking-wider text-muted">
               <th className="px-3 py-2 sm:px-4">Study</th>
@@ -285,7 +375,7 @@ export default function ShowMeTheStudies({
               <th className="px-3 py-2 sm:px-4">Duration</th>
               <th className="px-3 py-2 sm:px-4">Population</th>
               <th className="px-3 py-2 sm:px-4">Outcome</th>
-              <th className="px-3 py-2 sm:px-4">Result</th>
+              <th className="px-3 py-2 sm:px-4">Result &amp; magnitude</th>
               <th className="px-3 py-2 text-right sm:px-4">Source</th>
             </tr>
           </thead>
@@ -302,7 +392,7 @@ export default function ShowMeTheStudies({
             Show {overflow.length} more stud{overflow.length === 1 ? 'y' : 'ies'}
           </summary>
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[1500px] border-collapse text-left text-sm">
+            <table className="w-full min-w-[1600px] border-collapse text-left text-sm">
               <tbody>
                 {overflow.map((study, index) => <StudyRow key={citationKey(study, index)} study={study} index={index} />)}
               </tbody>
