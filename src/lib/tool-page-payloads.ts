@@ -17,6 +17,23 @@ function firstText(record: RuntimeRecord, keys: string[]): string | undefined {
   return undefined
 }
 
+function booleanValue(value: unknown): boolean | undefined {
+  if (typeof value === 'boolean') return value
+  if (typeof value !== 'string') return undefined
+  const normalized = value.trim().toLowerCase()
+  if (['yes', 'true', '1', 'available', 'verified', 'tested'].includes(normalized)) return true
+  if (['no', 'false', '0', 'unavailable', 'not verified', 'not tested'].includes(normalized)) return false
+  return undefined
+}
+
+function firstBoolean(record: RuntimeRecord, keys: string[]): boolean | undefined {
+  for (const key of keys) {
+    const value = booleanValue(record[key])
+    if (value !== undefined) return value
+  }
+  return undefined
+}
+
 function textList(value: unknown): string[] | undefined {
   const list = Array.isArray(value)
     ? value
@@ -77,6 +94,12 @@ export function toDosingToolRecord(record: RuntimeRecord, type: ToolKind) {
 }
 
 export function toBuyingToolRecord(record: RuntimeRecord, type: ToolKind) {
+  const standardization = firstText(record, ['standardization', 'standardized_extract', 'active_compounds'])
+  const studiedForm = firstText(record, ['studied_form', 'studiedForm', 'clinically_studied_form', 'clinicallyStudiedForm', 'extract_type', 'extractType'])
+  const activeMarker = firstText(record, ['active_marker', 'activeMarker', 'marker_compound', 'markerCompound', 'standardized_to', 'standardizedTo'])
+  const elementalAmount = firstText(record, ['elemental_amount', 'elementalAmount', 'elemental_mg', 'elementalMg'])
+  const activeDose = firstText(record, ['active_dose', 'activeDose', 'dose_per_serving', 'dosePerServing', 'serving_amount', 'servingAmount'])
+
   return {
     ...baseToolRecord(record, type),
     monetization_allowed: getRuntimeVisibility(record).canMonetize,
@@ -85,7 +108,18 @@ export function toBuyingToolRecord(record: RuntimeRecord, type: ToolKind) {
     affiliate_url: firstText(record, ['affiliate_url', 'affiliateUrl']),
     affiliate_query: firstText(record, ['affiliate_query', 'affiliateQuery']),
     affiliate_label: firstText(record, ['affiliate_label', 'affiliateLabel']),
-    standardization: firstText(record, ['standardization', 'standardized_extract', 'active_compounds']),
+    standardization,
+    studied_form: studiedForm,
+    active_marker: activeMarker,
+    elemental_amount: elementalAmount,
+    active_dose: activeDose,
+    transparent_active_dose: firstBoolean(record, ['transparent_active_dose', 'transparentActiveDose']),
+    third_party_testing: firstBoolean(record, ['third_party_testing', 'thirdPartyTesting', 'independent_testing', 'independentTesting']),
+    coa_available: firstBoolean(record, ['coa_available', 'coaAvailable', 'certificate_of_analysis', 'certificateOfAnalysis']),
+    contaminant_testing: firstBoolean(record, ['contaminant_testing', 'contaminantTesting', 'heavy_metal_testing', 'heavyMetalTesting']),
+    adulteration_controls: firstBoolean(record, ['adulteration_controls', 'adulterationControls', 'identity_testing', 'identityTesting']),
+    proprietary_blend: firstBoolean(record, ['proprietary_blend', 'proprietaryBlend']),
+    formulation_verified: firstBoolean(record, ['formulation_verified', 'formulationVerified', 'current_formulation_verified', 'currentFormulationVerified']),
     best_for: firstText(record, ['best_for', 'bestFor']) || textList(record.primary_effects)?.join('; '),
   }
 }
