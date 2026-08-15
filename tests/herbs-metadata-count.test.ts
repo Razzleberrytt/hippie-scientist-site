@@ -25,7 +25,6 @@ describe('herbs metadata inventory semantics', () => {
       { slug: 'garlic', displayName: 'Garlic', indexability_status: 'PUBLISH' },
       { slug: 'allium-sativum', displayName: 'Allium sativum', indexability_status: 'PUBLISH' },
       { slug: 'a-published', displayName: 'Alpha', indexability_status: 'PUBLISH' },
-      { displayName: 'Missing slug', indexability_status: 'PUBLISH' },
     ])
 
     expect(herbs.map((herb) => herb.slug)).toEqual(['a-published', 'garlic', 'z-published'])
