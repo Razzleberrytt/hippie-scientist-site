@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import type { GoalHubLink } from '../../lib/goal-hub-links'
+import { getGoalIngredientCandidates } from '../../lib/goal-hub-links'
+import { getSlugEntityTypeMap } from '../../lib/runtime-data'
 
 type GoalHubSectionsProps = {
   goalSlug: string
   stack: GoalHubLink | null
-  ingredients: GoalHubLink[]
   compares: GoalHubLink[]
   seoEntry: GoalHubLink | null
 }
@@ -14,13 +15,25 @@ function toCanonicalHref(href: string) {
   return href.endsWith('/') ? href : `${href}/`
 }
 
-export default function GoalHubSections({
+export default async function GoalHubSections({
   goalSlug,
   stack,
-  ingredients,
   compares,
   seoEntry,
 }: GoalHubSectionsProps) {
+  const entityTypeMap = await getSlugEntityTypeMap()
+  const ingredients = getGoalIngredientCandidates(goalSlug)
+    .map((candidate) => {
+      const entityType = entityTypeMap[candidate.slug]
+      if (!entityType) return null
+      return {
+        label: candidate.label,
+        href: `/${entityType === 'herb' ? 'herbs' : 'compounds'}/${candidate.slug}/`,
+        note: candidate.note,
+      } satisfies GoalHubLink
+    })
+    .filter((link): link is GoalHubLink => Boolean(link))
+
   const hasLinks = stack || ingredients.length > 0 || compares.length > 0 || seoEntry
   if (!hasLinks) return null
 
