@@ -6,10 +6,11 @@ import {
 } from '../src/lib/runtime-related-maps'
 import type { RuntimeRecord } from '../src/types/content'
 
-const MAX_RELATED_PROFILES = 12
+const MAX_RELATED_PROFILES = 8
 const MAX_COMPARISON_CANDIDATES = 8
 const MAX_STACK_CANDIDATES = 8
 const MAX_BATCHED_SLUGS = 100
+const MAX_STRATEGIC_BOOST = 5
 
 type RuntimeRelationshipKind = 'related' | 'comparison' | 'stack'
 
@@ -30,6 +31,8 @@ type HydratedRecord = RuntimeRecord & {
   ecosystemOverlap: number
   mechanismOverlap: number
   pathwayOverlap: number
+  strategicLinkBoost: number
+  relatedReason: string
 }
 
 function clampLimit(value: unknown, fallback: number, max: number) {
@@ -40,14 +43,42 @@ function clampLimit(value: unknown, fallback: number, max: number) {
 
 function buildRecordIndex(records: RuntimeRecord[]) {
   const bySlug = new Map<string, RuntimeRecord>()
-
   for (const record of safeArray<RuntimeRecord>(records)) {
     const slug = safeSlug(record?.slug)
     if (!slug || bySlug.has(slug)) continue
     bySlug.set(slug, record)
   }
-
   return bySlug
+}
+
+function normalizedOpportunityScore(record: RuntimeRecord): number {
+  const direct = safeScore(
+    record?.internal_link_opportunity_score ??
+      record?.seo_opportunity_score ??
+      record?.seoOpportunityScore ??
+      record?.opportunity_score,
+    0,
+  )
+  if (direct > 0) return direct > 1 ? Math.min(1, direct / 100) : Math.min(1, direct)
+
+  const impressions = safeScore(record?.impressions ?? record?.search_impressions, 0)
+  const position = safeScore(record?.position ?? record?.average_position ?? record?.averagePosition, 0)
+  const nearPageOne = position >= 4 && position <= 15 ? 1 : 0
+  const impressionSignal = impressions > 0 ? Math.min(1, Math.log10(impressions + 1) / 4) : 0
+  return impressionSignal * 0.65 + nearPageOne * 0.35
+}
+
+function strategicLinkBoost(record: RuntimeRecord): number {
+  return Math.min(MAX_STRATEGIC_BOOST, normalizedOpportunityScore(record) * MAX_STRATEGIC_BOOST)
+}
+
+function relationshipReason(entry: RuntimeRelationshipEntry): string {
+  const labels = safeArray<string>(entry?.overlapLabels).filter(Boolean).slice(0, 2)
+  if (labels.length > 0) return `Related through ${labels.join(' + ')}`
+  if (safeScore(entry?.ecosystemOverlap) > 0) return 'Related research ecosystem'
+  if (safeScore(entry?.mechanismOverlap) > 0) return 'Shared mechanism context'
+  if (safeScore(entry?.pathwayOverlap) > 0) return 'Shared pathway context'
+  return 'Semantically related research'
 }
 
 function hydrateRuntimeEntries(
@@ -60,7 +91,6 @@ function hydrateRuntimeEntries(
     .map((entry) => {
       const slug = safeSlug(entry?.slug)
       if (!slug) return null
-
       const record = recordIndex.get(slug)
       if (!record) return null
 
@@ -72,14 +102,20 @@ function hydrateRuntimeEntries(
         ecosystemOverlap: safeScore(entry?.ecosystemOverlap),
         mechanismOverlap: safeScore(entry?.mechanismOverlap),
         pathwayOverlap: safeScore(entry?.pathwayOverlap),
+        strategicLinkBoost: strategicLinkBoost(record),
+        relatedReason: relationshipReason(entry),
       }
     })
     .filter((x): x is HydratedRecord => x !== null)
 }
 
 function sortHydratedRecords(records: HydratedRecord[]) {
-  return records.sort((a: HydratedRecord, b: HydratedRecord) => {
-    const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
+  return records.sort((a, b) => {
+    // Semantic graph score remains primary. Strategic opportunity is capped so
+    // a promising URL cannot leapfrog an unrelated URL into the related set.
+    const scoreA = safeScore(a?.relatedScore) + safeScore(a?.strategicLinkBoost)
+    const scoreB = safeScore(b?.relatedScore) + safeScore(b?.strategicLinkBoost)
+    const scoreDelta = scoreB - scoreA
     if (scoreDelta !== 0) return scoreDelta
 
     const nameA = text(a?.name || a?.slug).toLowerCase()
@@ -91,14 +127,11 @@ function sortHydratedRecords(records: HydratedRecord[]) {
 async function getRuntimeRecords(kind: RuntimeRelationshipKind, record: RuntimeRecord, records: RuntimeRecord[], limit: number, fallbackLimit: number) {
   const slug = safeSlug(record?.slug)
   const requestedLimit = clampLimit(limit, fallbackLimit, fallbackLimit)
-
   if (!slug || requestedLimit === 0) return []
 
   const entries = await getRuntimeMapEntries(kind, slug)
   const recordIndex = buildRecordIndex(records)
-
-  return sortHydratedRecords(hydrateRuntimeEntries(entries, recordIndex))
-    .slice(0, requestedLimit)
+  return sortHydratedRecords(hydrateRuntimeEntries(entries, recordIndex)).slice(0, requestedLimit)
 }
 
 export async function getRelatedRuntimeRecords(record: RuntimeRecord, records: RuntimeRecord[], limit = MAX_RELATED_PROFILES) {
@@ -119,21 +152,16 @@ export async function getBatchedRuntimeRecords(
   candidateRecords: RuntimeRecord[],
   limit = MAX_RELATED_PROFILES,
 ): Promise<Record<string, RuntimeRecord[]>> {
-  // The only current batched stack callers are profile-page preload slots whose
-  // results are intentionally discarded; visible stack recommendations come from
-  // the separate recommendation engine. Avoid map I/O, record indexing, hydration,
-  // and sorting for those dead preloads while leaving non-batched stack lookups intact.
   if (kind === 'stack') return {}
 
-  const requestedLimit = clampLimit(limit, MAX_RELATED_PROFILES, MAX_RELATED_PROFILES)
-
+  const fallbackLimit = kind === 'related' ? MAX_RELATED_PROFILES : MAX_COMPARISON_CANDIDATES
+  const requestedLimit = clampLimit(limit, fallbackLimit, fallbackLimit)
   if (requestedLimit === 0) return {}
 
   const sourceSlugs = safeArray<RuntimeRecord>(sourceRecords)
     .map((record) => safeSlug(record?.slug))
     .filter(Boolean)
     .slice(0, MAX_BATCHED_SLUGS)
-
   if (sourceSlugs.length === 0) return {}
 
   const recordIndex = buildRecordIndex(candidateRecords)
@@ -142,8 +170,7 @@ export async function getBatchedRuntimeRecords(
   return Object.fromEntries(
     sourceSlugs.map((slug) => [
       slug,
-      sortHydratedRecords(hydrateRuntimeEntries(entriesBySlug[slug] || [], recordIndex))
-        .slice(0, requestedLimit),
+      sortHydratedRecords(hydrateRuntimeEntries(entriesBySlug[slug] || [], recordIndex)).slice(0, requestedLimit),
     ]),
   )
 }
