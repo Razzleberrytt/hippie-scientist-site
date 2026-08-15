@@ -11,6 +11,7 @@ import MobileBottomNav from '../src/components/mobile-bottom-nav'
 import ScrollToTopButton from '../src/components/ScrollToTopButton'
 import ClickTracker from '@/components/ClickTracker'
 import CommercialIntentBridge from '@/components/CommercialIntentBridge'
+import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
 import EmailReturnAttribution from '@/components/EmailReturnAttribution'
 import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
@@ -143,6 +144,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             >
               <GlobalTOC />
               {children}
+              <ContextualLeadMagnet />
             </main>
             <Footer />
             <MobileBottomNav />
