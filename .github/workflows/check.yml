@@ -21,14 +21,29 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Classify release impact
+        id: impact
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF" --depth=1
+          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          printf '%s\n' "$changed"
+          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
       - name: Use Node
+        if: github.event_name != 'pull_request' || steps.impact.outputs.release_sensitive == 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - name: Cache Next.js build cache
+        if: github.event_name != 'pull_request' || steps.impact.outputs.release_sensitive == 'true'
         uses: actions/cache@v6
         with:
           path: |
@@ -39,13 +54,20 @@ jobs:
             ${{ runner.os }}-nextjs-
 
       - name: Install deps
+        if: github.event_name != 'pull_request' || steps.impact.outputs.release_sensitive == 'true'
         run: npm ci
 
       - name: Verify Node engine
+        if: github.event_name != 'pull_request' || steps.impact.outputs.release_sensitive == 'true'
         run: npm run check:node
 
       - name: Run full check
+        if: github.event_name != 'pull_request' || steps.impact.outputs.release_sensitive == 'true'
         run: npm run check:full
+
+      - name: Delegate non-structural PR validation to standard CI
+        if: github.event_name == 'pull_request' && steps.impact.outputs.release_sensitive != 'true'
+        run: echo 'No release-sensitive files changed; standard CI remains authoritative for this PR.'
 
       - name: Generate Botanical Activity Atlas coverage report
         if: always()
