@@ -25,10 +25,10 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": "source-backed oral-GABA evidence review"
+    "indexingAllowed": false,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "research_only: evidence upgraded but editorial certification is still required before promotion"
   },
   "evidence": {
     "reviewStatus": "sourced",
@@ -174,9 +174,11 @@
       ]
     }
   ],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
-  "sitemap_included": true,
+  "profile_status": "research_only",
+  "runtime_export_decision": "research_archive_runtime",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
+  "sitemap_included": false,
   "sources": [
     {
       "id": "src_gaba_hepsomali_2020",
