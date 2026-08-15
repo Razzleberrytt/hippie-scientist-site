@@ -58,6 +58,8 @@ export type EvidenceEngineSource = {
   title: string
   year: number | string
   url: string
+  pubmed_id?: string
+  doi?: string
   source_note?: string
   sample_size?: number | null
   dose?: string

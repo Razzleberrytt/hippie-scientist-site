@@ -33,3 +33,20 @@ export function getHumanParticipantMetric(sources: EvidenceEngineSource[]): Huma
     complete: withSampleSize.length === humanTrials.length,
   }
 }
+
+export function getEvidenceSourceUrl(source: Pick<EvidenceEngineSource, 'pubmed_id' | 'doi' | 'url'>): string {
+  const pmid = source.pubmed_id?.trim()
+  if (pmid && /^\d+$/.test(pmid)) {
+    return `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`
+  }
+
+  const doi = source.doi
+    ?.trim()
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '')
+    .replace(/^doi:\s*/i, '')
+  if (doi) {
+    return `https://doi.org/${doi}`
+  }
+
+  return source.url
+}

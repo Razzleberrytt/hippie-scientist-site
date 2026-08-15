@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   countHumanTrials,
+  getEvidenceSourceUrl,
   getHumanParticipantMetric,
   isHumanTrialSource,
 } from '../evidence-source-metrics'
@@ -64,5 +65,13 @@ describe('evidence source metrics', () => {
       humanTrials: 2,
       complete: false,
     })
+  })
+
+  it('prefers PubMed, then DOI, then the stored URL', () => {
+    expect(getEvidenceSourceUrl({ pubmed_id: '12345678', doi: '10.1000/test', url: 'https://example.com' }))
+      .toBe('https://pubmed.ncbi.nlm.nih.gov/12345678/')
+    expect(getEvidenceSourceUrl({ doi: 'https://doi.org/10.1000/test', url: 'https://example.com' }))
+      .toBe('https://doi.org/10.1000/test')
+    expect(getEvidenceSourceUrl({ url: 'https://example.com' })).toBe('https://example.com')
   })
 })
