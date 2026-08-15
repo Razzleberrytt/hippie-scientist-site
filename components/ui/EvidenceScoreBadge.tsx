@@ -2,6 +2,7 @@ import { getEvidenceLetterGrade, type EvidenceLetterGrade } from '@/lib/evidence
 import type { RuntimeRecord } from '@/src/types/content'
 
 const GRADE_CONFIG: Record<EvidenceLetterGrade, {
+  badge: string
   label: string
   meaning: string
   bg: string
@@ -11,6 +12,7 @@ const GRADE_CONFIG: Record<EvidenceLetterGrade, {
   solid: string
 }> = {
   A: {
+    badge: 'A',
     label: 'A',
     meaning: 'Strong Evidence — Multiple RCTs, consistent direction, adequate effect size',
     bg: 'bg-[var(--color-evidence-strong)]/10',
@@ -20,6 +22,7 @@ const GRADE_CONFIG: Record<EvidenceLetterGrade, {
     solid: 'bg-[var(--color-evidence-strong)]',
   },
   B: {
+    badge: 'B',
     label: 'B',
     meaning: 'Moderate Evidence — Some RCTs or consistent observational data',
     bg: 'bg-[var(--color-evidence-moderate)]/10',
@@ -29,8 +32,9 @@ const GRADE_CONFIG: Record<EvidenceLetterGrade, {
     solid: 'bg-[var(--color-evidence-moderate)]',
   },
   C: {
+    badge: 'C',
     label: 'C',
-    meaning: 'Preliminary / Mixed — Animal/in-vitro only, or inconsistent human data',
+    meaning: 'Limited Evidence — Early or mixed human evidence; stronger confirmation is needed',
     bg: 'bg-[var(--color-evidence-limited)]/10',
     text: 'text-[var(--color-evidence-limited)]',
     border: 'border-[var(--color-evidence-limited)]/20',
@@ -38,21 +42,33 @@ const GRADE_CONFIG: Record<EvidenceLetterGrade, {
     solid: 'bg-[var(--color-evidence-limited)]',
   },
   D: {
+    badge: 'D',
     label: 'D',
-    meaning: 'Traditional / Theoretical — Traditional use only; no human trials',
+    meaning: 'Preliminary / Theoretical — Mechanistic, preclinical, or traditional evidence without adequate clinical confirmation',
     bg: 'bg-[var(--color-evidence-theoretical)]/10',
     text: 'text-[var(--color-evidence-theoretical)]',
     border: 'border-[var(--color-evidence-theoretical)]/20',
     ringColor: 'ring-[var(--color-evidence-theoretical)]/20',
     solid: 'bg-[var(--color-evidence-theoretical)]',
   },
+  'Avoid/Insufficient': {
+    badge: '!',
+    label: 'Avoid / Insufficient',
+    meaning: 'Avoid / Insufficient — Evidence is inadequate for a positive grade, or the record is explicitly flagged to avoid',
+    bg: 'bg-rose-50 dark:bg-rose-300/10',
+    text: 'text-rose-800 dark:text-rose-100',
+    border: 'border-rose-200 dark:border-rose-200/20',
+    ringColor: 'ring-rose-200/40',
+    solid: 'bg-rose-700',
+  },
 }
 
 const GRADE_MEANING_SHORT: Record<EvidenceLetterGrade, string> = {
   A: 'Strong',
   B: 'Moderate',
-  C: 'Preliminary',
-  D: 'Traditional',
+  C: 'Limited',
+  D: 'Preliminary',
+  'Avoid/Insufficient': 'Avoid / Insufficient',
 }
 
 // Dark-mode-aware text color for the circle variant's label — the static
@@ -63,6 +79,7 @@ const GRADE_TEXT_ADAPTIVE: Record<EvidenceLetterGrade, string> = {
   B: 'text-blue-800 dark:text-blue-100',
   C: 'text-amber-800 dark:text-amber-100',
   D: 'text-stone-700 dark:text-stone-200',
+  'Avoid/Insufficient': 'text-rose-800 dark:text-rose-100',
 }
 
 type EvidenceScoreBadgeProps = {
@@ -80,8 +97,8 @@ export default function EvidenceScoreBadge({
   showLabel = true,
   className = '',
 }: EvidenceScoreBadgeProps) {
-  const letterGrade = grade ?? (record ? getEvidenceLetterGrade(record as RuntimeRecord) : 'C')
-  const config = GRADE_CONFIG[letterGrade]
+  const canonicalGrade = grade ?? (record ? getEvidenceLetterGrade(record as RuntimeRecord) : 'C')
+  const config = GRADE_CONFIG[canonicalGrade]
 
   if (size === 'circle') {
     return (
@@ -93,11 +110,11 @@ export default function EvidenceScoreBadge({
           aria-hidden="true"
           className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white shadow-sm ${config.solid}`}
         >
-          {letterGrade}
+          {config.badge}
         </span>
         {showLabel && (
-          <span aria-label={`Evidence grade ${letterGrade}: ${config.meaning}`} className={`text-sm font-semibold ${GRADE_TEXT_ADAPTIVE[letterGrade]}`}>
-            {GRADE_MEANING_SHORT[letterGrade]}
+          <span aria-label={`Evidence grade ${canonicalGrade}: ${config.meaning}`} className={`text-sm font-semibold ${GRADE_TEXT_ADAPTIVE[canonicalGrade]}`}>
+            {GRADE_MEANING_SHORT[canonicalGrade]}
           </span>
         )}
       </span>
@@ -112,14 +129,14 @@ export default function EvidenceScoreBadge({
   return (
     <span
       title={config.meaning}
-      aria-label={`Evidence grade ${letterGrade}: ${config.meaning}`}
+      aria-label={`Evidence grade ${canonicalGrade}: ${config.meaning}`}
       className={`inline-flex items-center rounded-full border font-bold tracking-wide ${config.bg} ${config.text} ${config.border} ${sizeClasses} ${className}`}
     >
-      <span className={size === 'sm' ? 'text-[0.8rem]' : 'text-sm'}>{letterGrade}</span>
-      {showLabel && (
+      <span className={size === 'sm' ? 'text-[0.8rem]' : 'text-sm'}>{config.label}</span>
+      {showLabel && canonicalGrade !== 'Avoid/Insufficient' && (
         <span className="font-semibold">
           {' '}
-          {GRADE_MEANING_SHORT[letterGrade]}
+          {GRADE_MEANING_SHORT[canonicalGrade]}
         </span>
       )}
     </span>
