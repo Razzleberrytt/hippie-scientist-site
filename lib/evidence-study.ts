@@ -41,10 +41,92 @@ export type EvidenceStudyRecord = {
   relationship: EvidenceRelationship
   confidence: EvidenceConfidence
   statisticalConsistency?: string
+  effectSize?: string
+  confidenceInterval?: string
+  statisticalSignificance?: string
+  absoluteDifference?: string
+  clinicalMagnitude?: string
+  replication?: string
   extractName?: string
   ingredients?: string[]
   conditions?: string[]
   safetyOutcome?: string
+}
+
+export type EvidenceStudyClassDefinition = {
+  label: string
+  hierarchyRank: number
+  plainEnglish: string
+  humanEvidence: boolean
+}
+
+export const EVIDENCE_STUDY_CLASS_DEFINITIONS: Record<EvidenceStudyClass, EvidenceStudyClassDefinition> = {
+  meta_analysis: {
+    label: 'Meta-analysis',
+    hierarchyRank: 11,
+    plainEnglish: 'Statistically combines results from multiple eligible studies; confidence still depends on the quality, consistency, and directness of those studies.',
+    humanEvidence: true,
+  },
+  systematic_review: {
+    label: 'Systematic review',
+    hierarchyRank: 10,
+    plainEnglish: 'Uses a predefined method to find and evaluate relevant studies, but may or may not pool their results statistically.',
+    humanEvidence: true,
+  },
+  randomized_controlled_trial: {
+    label: 'Randomized controlled trial',
+    hierarchyRank: 9,
+    plainEnglish: 'Randomly assigns participants to interventions or controls, reducing many sources of bias when the trial is conducted well.',
+    humanEvidence: true,
+  },
+  controlled_trial: {
+    label: 'Controlled trial',
+    hierarchyRank: 8,
+    plainEnglish: 'Compares an intervention with a control group but may lack random assignment or other safeguards of a strong randomized trial.',
+    humanEvidence: true,
+  },
+  observational: {
+    label: 'Observational research',
+    hierarchyRank: 7,
+    plainEnglish: 'Observes real-world associations without assigning treatment, so confounding can limit causal conclusions.',
+    humanEvidence: true,
+  },
+  narrative_review: {
+    label: 'Narrative review',
+    hierarchyRank: 6,
+    plainEnglish: 'Summarizes selected literature without the full prespecified search and selection methods of a systematic review.',
+    humanEvidence: false,
+  },
+  case_report: {
+    label: 'Case report',
+    hierarchyRank: 5,
+    plainEnglish: 'Describes one person or a very small series and can identify signals, but cannot establish typical effects or causality.',
+    humanEvidence: true,
+  },
+  mechanistic: {
+    label: 'Mechanistic research',
+    hierarchyRank: 4,
+    plainEnglish: 'Studies biological pathways or mechanisms. It can explain plausibility but does not by itself establish a clinical benefit.',
+    humanEvidence: false,
+  },
+  animal: {
+    label: 'Animal research',
+    hierarchyRank: 3,
+    plainEnglish: 'Tests effects in non-human animals. Useful for hypotheses and safety signals, but results may not translate to people.',
+    humanEvidence: false,
+  },
+  in_vitro: {
+    label: 'In-vitro research',
+    hierarchyRank: 2,
+    plainEnglish: 'Studies cells, tissues, or biochemical systems outside a living person. It is preclinical evidence, not proof of a human outcome.',
+    humanEvidence: false,
+  },
+  other: {
+    label: 'Other / unclear',
+    hierarchyRank: 1,
+    plainEnglish: 'The study design is not yet classified clearly enough to infer its place in the evidence hierarchy.',
+    humanEvidence: false,
+  },
 }
 
 const HUMAN_CLASSES = new Set<EvidenceStudyClass>([
@@ -88,20 +170,25 @@ export function normalizeEvidenceStudyClass(value: unknown): EvidenceStudyClass 
 }
 
 export function formatEvidenceStudyClass(value: EvidenceStudyClass): string {
-  const labels: Record<EvidenceStudyClass, string> = {
-    meta_analysis: 'Meta-analysis',
-    systematic_review: 'Systematic review',
-    randomized_controlled_trial: 'Randomized controlled trial',
-    controlled_trial: 'Controlled trial',
-    observational: 'Observational research',
-    case_report: 'Case report',
-    animal: 'Animal research',
-    in_vitro: 'In-vitro research',
-    mechanistic: 'Mechanistic research',
-    narrative_review: 'Narrative review',
-    other: 'Other / unclear',
-  }
-  return labels[value]
+  return EVIDENCE_STUDY_CLASS_DEFINITIONS[value].label
+}
+
+export function evidenceStudyClassDefinition(value: EvidenceStudyClass): EvidenceStudyClassDefinition {
+  return EVIDENCE_STUDY_CLASS_DEFINITIONS[value]
+}
+
+export function rankEvidenceStudyClasses(classes: EvidenceStudyClass[]): EvidenceStudyClass[] {
+  return [...classes].sort(
+    (a, b) => EVIDENCE_STUDY_CLASS_DEFINITIONS[b].hierarchyRank - EVIDENCE_STUDY_CLASS_DEFINITIONS[a].hierarchyRank,
+  )
+}
+
+export function filterEvidenceStudiesByClass<T extends { evidenceClass: EvidenceStudyClass }>(
+  studies: T[],
+  allowed: EvidenceStudyClass[] | Set<EvidenceStudyClass>,
+): T[] {
+  const wanted = allowed instanceof Set ? allowed : new Set(allowed)
+  return studies.filter((study) => wanted.has(study.evidenceClass))
 }
 
 export function normalizeEvidenceRelationship(value: unknown): EvidenceRelationship {
@@ -179,6 +266,77 @@ export function evidenceRelationshipLabel(value: EvidenceRelationship): string {
     background: 'Background',
   }
   return labels[value]
+}
+
+export type EvidenceEffectContext = Pick<
+  EvidenceStudyRecord,
+  | 'effectSize'
+  | 'confidenceInterval'
+  | 'statisticalSignificance'
+  | 'absoluteDifference'
+  | 'clinicalMagnitude'
+  | 'duration'
+  | 'population'
+  | 'replication'
+>
+
+export type EvidenceEffectContextIssue = {
+  code:
+    | 'p-value-without-effect-size'
+    | 'p-value-without-magnitude-context'
+    | 'effect-size-without-uncertainty'
+    | 'missing-duration-context'
+    | 'missing-population-context'
+    | 'missing-replication-context'
+  message: string
+}
+
+export function validateEvidenceEffectContext(context: EvidenceEffectContext): EvidenceEffectContextIssue[] {
+  const issues: EvidenceEffectContextIssue[] = []
+
+  if (context.statisticalSignificance && !context.effectSize && !context.absoluteDifference) {
+    issues.push({
+      code: 'p-value-without-effect-size',
+      message: 'Statistical significance must not stand alone; include an effect size or absolute difference when the source reports one.',
+    })
+  }
+
+  if (context.statisticalSignificance && !context.clinicalMagnitude) {
+    issues.push({
+      code: 'p-value-without-magnitude-context',
+      message: 'Statistical significance should be accompanied by clinically meaningful magnitude context.',
+    })
+  }
+
+  if (context.effectSize && !context.confidenceInterval) {
+    issues.push({
+      code: 'effect-size-without-uncertainty',
+      message: 'Effect sizes should include a confidence interval when the source reports one.',
+    })
+  }
+
+  if (!context.duration) {
+    issues.push({
+      code: 'missing-duration-context',
+      message: 'Study duration is required to distinguish acute, short-term, and sustained findings.',
+    })
+  }
+
+  if (!context.population) {
+    issues.push({
+      code: 'missing-population-context',
+      message: 'Studied population is required so findings are not generalized beyond the participants actually studied.',
+    })
+  }
+
+  if (!context.replication) {
+    issues.push({
+      code: 'missing-replication-context',
+      message: 'Replication context is required to distinguish one-off findings from repeatedly observed results.',
+    })
+  }
+
+  return issues
 }
 
 export type EvidenceStudyMetrics = {
