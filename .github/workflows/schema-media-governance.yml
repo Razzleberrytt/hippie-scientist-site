@@ -1,0 +1,66 @@
+name: Schema and Media Governance
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'public/data/**'
+      - 'data/evidence/**'
+      - 'scripts/ci/audit-schema-policy.mjs'
+      - 'scripts/ci/audit-structured-data.mjs'
+      - 'scripts/media/**'
+      - '.github/workflows/schema-media-governance.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'public/data/**'
+      - 'data/evidence/**'
+      - 'scripts/ci/audit-schema-policy.mjs'
+      - 'scripts/ci/audit-structured-data.mjs'
+      - 'scripts/media/**'
+      - '.github/workflows/schema-media-governance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  schema-and-media:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Build static export
+        env:
+          COMMIT_HASH: ${{ github.sha }}
+        run: npm run build:deploy
+      - name: Existing structured-data completeness audit
+        env:
+          FULL_HTML_AUDIT: '1'
+        run: node scripts/ci/audit-structured-data.mjs
+      - name: Enforce schema safety and truthfulness policy
+        run: node scripts/ci/audit-schema-policy.mjs
+      - name: Generate review-only research graphics
+        run: node scripts/media/build-research-graphics.mjs
+      - name: Upload reports and graphics for review
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: schema-media-${{ github.run_number }}
+          path: |
+            reports/schema-policy.json
+            ops/reports/structured-data-completeness.json
+            artifacts/research-graphics/
+          retention-days: 30

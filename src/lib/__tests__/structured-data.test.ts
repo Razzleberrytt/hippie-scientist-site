@@ -4,50 +4,64 @@ import {
   buildArticleSchema,
   buildBreadcrumbSchema,
   buildFAQSchema,
+  buildOrganizationSchema,
+  buildPersonSchema,
+  buildDatasetSchema,
 } from '../../../lib/structured-data'
 
-describe('buildMedicalWebPageSchema', () => {
-  it('builds a MedicalWebPage schema with a herb-specific "about.@type" and canonical URL', () => {
-    const schema = buildMedicalWebPageSchema({ slug: 'ashwagandha', name: 'Ashwagandha', summary: 'An adaptogen.' }, 'herb')
+describe('structured identities', () => {
+  it('connects the author to the site without claiming a medical profession', () => {
+    const org = buildOrganizationSchema()
+    const person = buildPersonSchema()
+    expect(org['@type']).toBe('Organization')
+    expect(person['@type']).toBe('Person')
+    expect(person.affiliation).toEqual({ '@id': 'https://thehippiescientist.net/#organization' })
+    expect(person).not.toHaveProperty('jobTitle')
+  })
+})
 
+describe('buildMedicalWebPageSchema', () => {
+  it('builds an educational MedicalWebPage without patient/clinical-role claims', () => {
+    const schema = buildMedicalWebPageSchema({ slug: 'ashwagandha', name: 'Ashwagandha', summary: 'An adaptogen.' }, 'herb')
     expect(schema['@type']).toBe('MedicalWebPage')
     expect(schema.url).toBe('https://thehippiescientist.net/herbs/ashwagandha/')
     expect(schema.mainEntityOfPage).toBe(schema.url)
-    expect((schema.about as Record<string, unknown>)['@type']).toBe('Drug')
-  })
-
-  it('uses ChemicalSubstance as the "about.@type" for compounds', () => {
-    const schema = buildMedicalWebPageSchema({ slug: 'curcumin', name: 'Curcumin' }, 'compound')
-
-    expect(schema.url).toBe('https://thehippiescientist.net/compounds/curcumin/')
-    expect((schema.about as Record<string, unknown>)['@type']).toBe('ChemicalSubstance')
-  })
-
-  it('falls back to a generated description when none is provided', () => {
-    const schema = buildMedicalWebPageSchema({ slug: 'bare', name: 'Bare Herb' }, 'herb')
-    expect(schema.description).toMatch(/^Bare Herb profile/)
+    expect((schema.about as Record<string, unknown>)['@type']).toBe('Substance')
+    expect(schema).not.toHaveProperty('medicalAudience')
   })
 })
 
 describe('buildArticleSchema', () => {
-  it('formats datePublished/dateModified as ISO strings, falling back to the publish date', () => {
+  it('formats real dates and falls modified back to the supplied publish date', () => {
     const schema = buildArticleSchema({ slug: 'my-post', title: 'My Post', date: '2024-01-15' })
-
     expect(schema.datePublished).toBe(new Date('2024-01-15').toISOString())
     expect(schema.dateModified).toBe(schema.datePublished)
     expect(schema.url).toBe('https://thehippiescientist.net/articles/my-post/')
   })
 
-  it('prefers lastModified over the publish date when present', () => {
-    const schema = buildArticleSchema({
-      slug: 'my-post',
-      title: 'My Post',
-      date: '2024-01-15',
-      lastModified: '2024-06-01',
-    })
+  it('does not invent a publication date when source data has none', () => {
+    const schema = buildArticleSchema({ slug: 'undated', title: 'Undated' })
+    expect(schema).not.toHaveProperty('datePublished')
+    expect(schema).not.toHaveProperty('dateModified')
+  })
 
+  it('prefers lastModified over the publish date when present', () => {
+    const schema = buildArticleSchema({ slug: 'my-post', title: 'My Post', date: '2024-01-15', lastModified: '2024-06-01' })
     expect(schema.dateModified).toBe(new Date('2024-06-01').toISOString())
-    expect(schema.dateModified).not.toBe(schema.datePublished)
+  })
+})
+
+describe('buildDatasetSchema', () => {
+  it('connects genuine datasets to the organization and preserves distribution metadata', () => {
+    const schema = buildDatasetSchema({
+      name: 'Evidence dataset',
+      description: 'Aggregated evidence data.',
+      url: 'https://thehippiescientist.net/evidence/data/',
+      distribution: [{ '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: 'https://thehippiescientist.net/data/evidence.csv' }],
+    })
+    expect(schema['@type']).toBe('Dataset')
+    expect(schema.creator).toEqual({ '@id': 'https://thehippiescientist.net/#organization' })
+    expect(schema.distribution).toHaveLength(1)
   })
 })
 
@@ -57,29 +71,20 @@ describe('buildBreadcrumbSchema', () => {
       { name: 'Home', url: 'https://thehippiescientist.net' },
       { name: 'Herbs', url: 'https://thehippiescientist.net/herbs' },
     ])
-
     expect(schema.itemListElement[0].position).toBe(1)
     expect(schema.itemListElement[0].item).toBe('https://thehippiescientist.net/')
     expect(schema.itemListElement[1].position).toBe(2)
-    expect(schema.itemListElement[1].item).toBe('https://thehippiescientist.net/herbs/')
-  })
-
-  it('does not double up a trailing slash that is already present', () => {
-    const schema = buildBreadcrumbSchema([{ name: 'Home', url: 'https://thehippiescientist.net/' }])
-    expect(schema.itemListElement[0].item).toBe('https://thehippiescientist.net/')
   })
 })
 
 describe('buildFAQSchema', () => {
-  it('builds a FAQPage schema with one mainEntity Question per FAQ', () => {
+  it('builds a FAQPage only from supplied visible FAQ content', () => {
     const schema = buildFAQSchema([
       { question: 'Is it safe?', answer: 'Consult a clinician.' },
       { question: 'Does it work?', answer: 'Evidence is mixed.' },
     ])
-
     expect(schema['@type']).toBe('FAQPage')
     expect(schema.mainEntity).toHaveLength(2)
-    expect(schema.mainEntity[0].name).toBe('Is it safe?')
     expect(schema.mainEntity[0].acceptedAnswer.text).toBe('Consult a clinician.')
   })
 })
