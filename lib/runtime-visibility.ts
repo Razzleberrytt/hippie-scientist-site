@@ -1,4 +1,5 @@
 import { list, text } from '@/lib/display-utils'
+import { getHealthContentGovernance } from '@/lib/health-content-governance'
 
 const HIDDEN_VISIBILITY = {
   canRender: false,
@@ -52,8 +53,10 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
   const summaryQuality = text(record?.summary_quality)
   const evidenceTier = text(record?.evidence_tier || record?.evidenceTier || record?.evidence_grade)
   const indexabilityStatus = getIndexabilityStatus(record)
+  const healthGovernance = getHealthContentGovernance(record)
 
   const hidden = /^hide$/i.test(exportDecision)
+  const diseaseTreatment = healthGovernance.diseaseTreatment
 
   const weak =
     /^minimal$/i.test(profileStatus) ||
@@ -65,8 +68,8 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
     return {
       canRender: !hidden,
       canIndex: !hidden && publish,
-      canFeature: !hidden && publish,
-      canMonetize: !hidden && indexabilityStatus !== 'BLOCKED' && !weak,
+      canFeature: !hidden && publish && !diseaseTreatment,
+      canMonetize: !hidden && indexabilityStatus !== 'BLOCKED' && !weak && !diseaseTreatment,
     }
   }
 
@@ -79,8 +82,8 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
     return {
       canRender: !hidden,
       canIndex: !hidden && publish,
-      canFeature: !hidden && publish,
-      canMonetize: !hidden && !weak,
+      canFeature: !hidden && publish && !diseaseTreatment,
+      canMonetize: !hidden && !weak && !diseaseTreatment,
     }
   }
 
@@ -97,8 +100,8 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
   return {
     canRender: !hidden,
     canIndex: !hidden && strong,
-    canFeature: !hidden && strong,
-    canMonetize: !hidden && !weak,
+    canFeature: !hidden && strong && !diseaseTreatment,
+    canMonetize: !hidden && !weak && !diseaseTreatment,
   }
 }
 
