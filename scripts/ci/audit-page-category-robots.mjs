@@ -40,7 +40,9 @@ function normalizeRoute(value) {
   let pathname = value
   try {
     pathname = new URL(value, 'https://thehippiescientist.net').pathname
-  } catch {}
+  } catch {
+    pathname = String(value)
+  }
   pathname = pathname.replace(/\/+/g, '/')
   if (!pathname.startsWith('/')) pathname = `/${pathname}`
   if (pathname !== '/' && !pathname.endsWith('/')) pathname += '/'
