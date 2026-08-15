@@ -1,3 +1,4 @@
+import { getEvidenceSourceUrl } from '../../lib/evidence-source-metrics'
 import type { EvidenceEngineSource } from '../../lib/evidence-engine'
 
 type EvidenceSourceListProps = {
@@ -31,7 +32,7 @@ export default function EvidenceSourceList({ sources }: EvidenceSourceListProps)
               <tr key={source.source_id} className="align-top">
                 <td className="px-3 py-3">
                   <a
-                    href={source.url}
+                    href={getEvidenceSourceUrl(source)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold text-brand-800 hover:text-brand-700 hover:underline"
