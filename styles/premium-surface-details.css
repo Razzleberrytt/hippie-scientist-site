@@ -1,44 +1,126 @@
 /*
   Premium surface detail layer.
-  Extends the resonant visual language into navigation, forms, tables,
-  chips, FAQ/detail elements, and dense utility surfaces.
+  Extends the research-folio visual language into navigation, forms, tables,
+  chips, FAQ/detail elements, and dense legacy utility surfaces.
+
+  This file also acts as the compatibility bridge for older Tailwind `brand-*`
+  classes. Generic brand color is indigo/charcoal; botanical green remains
+  available through semantic emerald/evidence/safety classes only.
 */
 
 :root {
-  --surface-detail-border: rgba(49, 75, 51, 0.14);
-  --surface-detail-border-strong: rgba(49, 75, 51, 0.24);
-  --surface-detail-bg: rgba(255, 255, 255, 0.68);
-  --surface-detail-bg-strong: rgba(255, 255, 255, 0.92);
-  --surface-detail-glow: rgba(192, 138, 53, 0.16);
-  --surface-detail-focus: rgba(83, 111, 73, 0.30);
-  --surface-detail-text: #26382f;
-  --surface-detail-muted: #52645a;
+  /* Legacy Tailwind brand palette -> premium indigo. */
+  --color-brand-50: #f3f0f8;
+  --color-brand-100: #e7e1f1;
+  --color-brand-200: #d3c9e5;
+  --color-brand-300: #b8aad4;
+  --color-brand-400: #9b8bc1;
+  --color-brand-500: #7d6da9;
+  --color-brand-600: #66558f;
+  --color-brand-700: #514475;
+  --color-brand-800: #40365b;
+  --color-brand-900: #302a43;
+  --color-brand-950: #211d2f;
+  --color-brand: #40365b;
+
+  /* Legacy theme variables used by older components. */
+  --color-background: #fffaf3;
+  --color-surface: #f8f2e8;
+  --color-ink: #29272f;
+  --color-muted: #625e68;
+  --bg: #fbf7f1;
+  --surface: #f8f2e8;
+  --surface-elevated: #fffaf3;
+  --text-primary: #29272f;
+  --text-secondary: #514d59;
+  --text-muted: #625e68;
+  --border-soft: rgba(45, 42, 52, 0.11);
+  --border-strong: rgba(45, 42, 52, 0.19);
+  --border-default: var(--border-soft);
+  --surface-card: rgba(255, 250, 243, 0.90);
+  --surface-card-strong: rgba(255, 250, 243, 0.97);
+  --surface-1: var(--surface);
+  --surface-2: var(--surface-card);
+  --surface-subtle: rgba(243, 238, 246, 0.76);
+  --surface-code: #f3eff5;
+  --surface-neutral: rgba(248, 245, 249, 0.9);
+  --ring-brand: rgba(81, 68, 117, 0.28);
+  --accent-primary: #514475;
+  --accent-secondary: #6f66a8;
+  --accent-teal: #6f66a8;
+
+  --surface-detail-border: rgba(45, 42, 52, 0.13);
+  --surface-detail-border-strong: rgba(45, 42, 52, 0.23);
+  --surface-detail-bg: rgba(255, 250, 243, 0.70);
+  --surface-detail-bg-strong: rgba(255, 250, 243, 0.94);
+  --surface-detail-glow: rgba(169, 119, 47, 0.15);
+  --surface-detail-focus: rgba(111, 102, 168, 0.24);
+  --surface-detail-text: #29272f;
+  --surface-detail-muted: #625e68;
 }
 
 html.dark {
-  --surface-detail-border: rgba(235, 246, 236, 0.13);
-  --surface-detail-border-strong: rgba(235, 246, 236, 0.24);
-  --surface-detail-bg: rgba(255, 255, 255, 0.055);
-  --surface-detail-bg-strong: rgba(32, 57, 45, 0.86);
-  --surface-detail-glow: rgba(196, 125, 46, 0.14);
-  --surface-detail-focus: rgba(203, 216, 192, 0.28);
-  --surface-detail-text: #f5f0e6;
-  --surface-detail-muted: #bdd0c2;
+  --color-brand-50: #24212b;
+  --color-brand-100: #2f2a39;
+  --color-brand-200: #3d364b;
+  --color-brand-300: #50465f;
+  --color-brand-400: #6d6084;
+  --color-brand-500: #8b7ca8;
+  --color-brand-600: #a89ac4;
+  --color-brand-700: #c0b5d7;
+  --color-brand-800: #d5cce5;
+  --color-brand-900: #e8e1f0;
+  --color-brand-950: #f5f0f8;
+  --color-brand: #c0b5d7;
+
+  --color-background: #151319;
+  --color-surface: #201e25;
+  --color-ink: #f5f0e8;
+  --color-muted: #c4bec9;
+  --bg: #151319;
+  --surface: #201e25;
+  --surface-elevated: #292630;
+  --text-primary: #f5f0e8;
+  --text-secondary: #d5cedb;
+  --text-muted: #c4bec9;
+  --border-soft: rgba(225, 217, 232, 0.13);
+  --border-strong: rgba(225, 217, 232, 0.24);
+  --border-default: var(--border-soft);
+  --surface-card: rgba(32, 30, 37, 0.94);
+  --surface-card-strong: rgba(41, 38, 48, 0.98);
+  --surface-1: var(--surface);
+  --surface-2: var(--surface-card);
+  --surface-subtle: rgba(61, 54, 75, 0.52);
+  --surface-code: rgba(38, 34, 46, 0.92);
+  --surface-neutral: rgba(44, 40, 51, 0.90);
+  --ring-brand: rgba(192, 181, 215, 0.28);
+  --accent-primary: #c0b5d7;
+  --accent-secondary: #a89dcc;
+  --accent-teal: #9a90cf;
+
+  --surface-detail-border: rgba(225, 217, 232, 0.13);
+  --surface-detail-border-strong: rgba(225, 217, 232, 0.24);
+  --surface-detail-bg: rgba(255, 255, 255, 0.045);
+  --surface-detail-bg-strong: rgba(41, 38, 48, 0.88);
+  --surface-detail-glow: rgba(213, 173, 108, 0.13);
+  --surface-detail-focus: rgba(168, 157, 204, 0.24);
+  --surface-detail-text: #f5f0e8;
+  --surface-detail-muted: #c4bec9;
 }
 
-/* Top navigation: glassier, calmer, more premium without changing layout. */
+/* Top navigation: restrained ivory/charcoal glass, not botanical green. */
 header nav,
 header [role='navigation'] {
   border-color: var(--surface-detail-border) !important;
-  background: #ffffff !important;
-  box-shadow: 0 1px 3px rgba(13, 23, 18, 0.06);
+  background: color-mix(in srgb, var(--hs-surface, #fffaf3) 94%, transparent) !important;
+  box-shadow: 0 1px 3px rgba(49, 42, 52, 0.055);
 }
 
 html.dark header nav,
 html.dark header [role='navigation'] {
   background:
-    linear-gradient(180deg, rgba(20, 38, 29, 0.96), rgba(13, 23, 18, 0.94)) !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
+    linear-gradient(180deg, rgba(38, 35, 44, 0.96), rgba(27, 25, 32, 0.96)) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.26);
 }
 
 header nav a,
@@ -48,15 +130,15 @@ header [role='navigation'] a {
 
 header nav a:hover,
 header [role='navigation'] a:hover {
-  text-shadow: 0 0 18px rgba(83, 111, 73, 0.16);
+  text-shadow: 0 0 18px rgba(111, 102, 168, 0.15);
 }
 
 html.dark header nav a:hover,
 html.dark header [role='navigation'] a:hover {
-  text-shadow: 0 0 20px rgba(203, 216, 192, 0.20);
+  text-shadow: 0 0 20px rgba(192, 181, 215, 0.17);
 }
 
-/* Tables: better reading rhythm and premium row separation. */
+/* Tables: publication-like indigo signal and warm neutral rows. */
 main table {
   border-radius: 1rem;
   overflow: hidden;
@@ -64,14 +146,14 @@ main table {
 
 main thead th {
   background:
-    linear-gradient(180deg, rgba(243, 245, 238, 0.92), rgba(231, 237, 224, 0.76)) !important;
-  color: #1d3125 !important;
+    linear-gradient(180deg, rgba(243, 239, 248, 0.94), rgba(235, 229, 241, 0.78)) !important;
+  color: #302a3a !important;
 }
 
 html.dark main thead th {
   background:
-    linear-gradient(180deg, rgba(48, 76, 60, 0.86), rgba(33, 57, 44, 0.82)) !important;
-  color: #f5f0e6 !important;
+    linear-gradient(180deg, rgba(69, 61, 83, 0.88), rgba(49, 44, 59, 0.84)) !important;
+  color: #f5f0e8 !important;
 }
 
 main tbody tr {
@@ -79,21 +161,21 @@ main tbody tr {
 }
 
 main tbody tr:hover {
-  background-color: rgba(83, 111, 73, 0.055) !important;
+  background-color: rgba(111, 102, 168, 0.05) !important;
 }
 
 html.dark main tbody tr:hover {
-  background-color: rgba(203, 216, 192, 0.055) !important;
+  background-color: rgba(168, 157, 204, 0.07) !important;
 }
 
-/* Forms and search fields: make inputs feel designed, not default. */
+/* Forms and search fields: designed, neutral editorial controls. */
 main input,
 main select,
 main textarea {
   border-color: var(--surface-detail-border) !important;
   background: var(--surface-detail-bg-strong) !important;
   color: var(--surface-detail-text) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38), 0 8px 22px rgba(16, 32, 24, 0.045);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 8px 22px rgba(49, 42, 52, 0.045);
 }
 
 main input::placeholder,
@@ -108,29 +190,29 @@ main textarea:focus {
   border-color: var(--surface-detail-border-strong) !important;
   outline: 3px solid var(--surface-detail-focus) !important;
   outline-offset: 2px;
-  box-shadow: 0 0 0 1px var(--surface-detail-border-strong), 0 14px 32px rgba(16, 32, 24, 0.08);
+  box-shadow: 0 0 0 1px var(--surface-detail-border-strong), 0 14px 32px rgba(49, 42, 52, 0.07);
 }
 
 html.dark main input,
 html.dark main select,
 html.dark main textarea {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 10px 28px rgba(0, 0, 0, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 10px 28px rgba(0, 0, 0, 0.24);
 }
 
 /* Details / FAQ / accordion surfaces. */
 main details {
   border-color: var(--surface-detail-border) !important;
   background:
-    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.30), transparent 10rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 247, 242, 0.78)) !important;
-  box-shadow: 0 12px 32px rgba(16, 32, 24, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.58);
+    radial-gradient(circle at 100% 0%, rgba(111, 102, 168, 0.075), transparent 10rem),
+    linear-gradient(180deg, rgba(255, 250, 243, 0.92), rgba(248, 242, 232, 0.80)) !important;
+  box-shadow: 0 12px 32px rgba(49, 42, 52, 0.055), inset 0 1px 0 rgba(255, 255, 255, 0.58);
 }
 
 html.dark main details {
   background:
-    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05), transparent 10rem),
-    linear-gradient(180deg, rgba(36, 61, 50, 0.84), rgba(22, 42, 31, 0.78)) !important;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    radial-gradient(circle at 100% 0%, rgba(168, 157, 204, 0.09), transparent 10rem),
+    linear-gradient(180deg, rgba(45, 41, 53, 0.90), rgba(31, 29, 36, 0.86)) !important;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 main details[open] {
@@ -142,21 +224,22 @@ main summary {
   text-wrap: pretty;
 }
 
-/* Chips, pills, badges: add subtle luminosity and better contrast. */
+/* Chips, pills, badges: preserve local semantic fills while unifying borders. */
 .evidence-pill-strong,
 .evidence-pill-moderate,
 main :is([class*='rounded-full'][class*='text-']) {
   border-color: var(--surface-detail-border) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.30);
 }
 
 html.dark .evidence-pill-strong,
 html.dark .evidence-pill-moderate,
 html.dark main :is([class*='rounded-full'][class*='text-']) {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055);
 }
 
-/* Callouts: subtle left-side light rail for scannability. */
+/* Semantic callouts keep their own caution/safety fill; the shared light rail is
+   brass -> indigo instead of brass -> botanical green. */
 .safety-block,
 main :is(.bg-amber-50\/80, .bg-amber-50\/85, .bg-rose-50, .bg-red-50, .bg-emerald-50) {
   position: relative;
@@ -169,25 +252,24 @@ main :is(.bg-amber-50\/80, .bg-amber-50\/85, .bg-rose-50, .bg-red-50, .bg-emeral
   position: absolute;
   inset: 0 auto 0 0;
   width: 3px;
-  background: linear-gradient(180deg, rgba(192, 138, 53, 0.72), rgba(83, 111, 73, 0.42));
+  background: linear-gradient(180deg, rgba(169, 119, 47, 0.78), rgba(111, 102, 168, 0.48));
   pointer-events: none;
 }
 
-/* Selection color: small but powerful polish detail. */
 ::selection {
-  background: rgba(192, 138, 53, 0.28);
-  color: #111a16;
+  background: rgba(169, 119, 47, 0.26);
+  color: #29272f;
 }
 
 html.dark ::selection {
-  background: rgba(203, 216, 192, 0.24);
-  color: #f5f0e6;
+  background: rgba(168, 157, 204, 0.28);
+  color: #f5f0e8;
 }
 
 @media (max-width: 768px) {
   header nav,
   header [role='navigation'] {
-    box-shadow: 0 8px 24px rgba(16, 32, 24, 0.065);
+    box-shadow: 0 8px 24px rgba(49, 42, 52, 0.055);
   }
 
   main details,
