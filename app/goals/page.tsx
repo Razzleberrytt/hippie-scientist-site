@@ -23,6 +23,17 @@ export const metadata: Metadata = {
   }),
 }
 
+const researchGoalCards = [
+  {
+    slug: 'metabolic-health',
+    title: 'Metabolic health research',
+    eyebrow: 'Research goal hub',
+    description:
+      'Start with Berberine, then compare metabolic-health alternatives by human evidence, studied form, interaction context, and safety without crossing into disease-treatment advice.',
+    detail: 'Berberine-centered evidence path',
+  },
+]
+
 export default function GoalsIndexPage() {
   return (
     <div className="container-page space-y-10 py-10">
@@ -42,6 +53,23 @@ export default function GoalsIndexPage() {
       <section>
         <h2 className="sr-only">All goal guides</h2>
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {researchGoalCards.map((goal) => (
+            <li key={goal.slug}>
+              <Link
+                href={`/goals/${goal.slug}/`}
+                className="card-premium block h-full p-5 transition hover:border-brand-700/20 hover:shadow-sm"
+              >
+                <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-200">
+                  {goal.eyebrow}
+                </p>
+                <h3 className="mt-2 text-lg font-semibold text-ink">{goal.title}</h3>
+                <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted">{goal.description}</p>
+                <p className="mt-3 text-xs font-semibold text-brand-800 dark:text-brand-100">
+                  {goal.detail} →
+                </p>
+              </Link>
+            </li>
+          ))}
           {goals.map((goal) => (
             <li key={goal.slug}>
               <Link
