@@ -9,8 +9,7 @@ export function getHerbName(herb: RuntimeRecord) {
   return formatDisplayLabel(herb.displayName) || formatDisplayLabel(herb.name) || formatDisplayLabel(herb.slug)
 }
 
-export async function loadPublishedHerbs(): Promise<RuntimeRecord[]> {
-  const allHerbs = (await getHerbSummaryIndex()) as RuntimeRecord[]
+export function selectPublishedHerbs(allHerbs: RuntimeRecord[]): RuntimeRecord[] {
   const presentSlugs = new Set(allHerbs.map((herb) => String(herb.slug || '')))
 
   return allHerbs
@@ -21,4 +20,9 @@ export async function loadPublishedHerbs(): Promise<RuntimeRecord[]> {
         !isRedirectedDuplicate(String(herb.slug), presentSlugs),
     )
     .sort((a, b) => getHerbName(a).localeCompare(getHerbName(b)))
+}
+
+export async function loadPublishedHerbs(): Promise<RuntimeRecord[]> {
+  const allHerbs = (await getHerbSummaryIndex()) as RuntimeRecord[]
+  return selectPublishedHerbs(allHerbs)
 }
