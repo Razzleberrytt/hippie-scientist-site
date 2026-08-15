@@ -28,14 +28,14 @@ export default function RelatedDiscoveryGroups({
   if (visibleGroups.length === 0) return null
 
   return (
-    <section className={`rounded-2xl border border-brand-900/10 bg-white/90 p-4 ${className}`.trim()}>
+    <section className={`rounded-2xl border border-brand-900/10 bg-white/90 p-4 dark:border-white/10 dark:bg-white/5 ${className}`.trim()}>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <p className="eyebrow-label">{eyebrow}</p>
         <h2 className="text-lg font-semibold tracking-tight text-ink">{title}</h2>
       </div>
       <div className="mt-3 flex gap-3 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-4">
         {visibleGroups.map((group) => (
-          <article key={group.title} className="w-[15rem] shrink-0 rounded-xl border border-brand-900/10 bg-white/90 p-3 md:w-auto md:shrink">
+          <article key={group.title} className="w-[15rem] shrink-0 rounded-xl border border-brand-900/10 bg-white/90 p-3 dark:border-white/10 dark:bg-white/5 md:w-auto md:shrink">
             <h3 className="text-sm font-semibold text-ink">{group.title}</h3>
             {group.description ? <p className="mt-1 text-xs leading-5 text-muted">{group.description}</p> : null}
             <div className="mt-2 space-y-1.5">
