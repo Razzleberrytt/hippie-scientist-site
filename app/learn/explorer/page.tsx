@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
-import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
+import { filterRenderableRuntimeRecords } from '../../../lib/runtime-visibility'
 import { SearchSkeleton } from '@/components/skeletons'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -133,21 +133,12 @@ function compactExplorerPayload(records: ExplorerSourceRecord[]): ExplorerPayloa
 export default async function PathwayExplorerPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = compactExplorerPayload(rawHerbs.filter((h: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  }))
-
-  const compounds = compactExplorerPayload(rawCompounds.filter((c: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  }))
+  const herbs = compactExplorerPayload(
+    filterRenderableRuntimeRecords(rawHerbs as ExplorerSourceRecord[]),
+  )
+  const compounds = compactExplorerPayload(
+    filterRenderableRuntimeRecords(rawCompounds as ExplorerSourceRecord[]),
+  )
 
   return (
     <div className='mx-auto max-w-6xl space-y-10 px-4 py-8 sm:py-10'>
