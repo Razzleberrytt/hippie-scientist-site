@@ -14,7 +14,9 @@ type Gtag = (
     | 'experiment_impression'
     | 'guide_view'
     | 'lead_magnet_click'
-    | 'navigation_click',
+    | 'navigation_click'
+    | 'profile_feedback'
+    | 'research_suggestion',
   params: Record<string, string | number | boolean | undefined>,
 ) => void
 
@@ -36,6 +38,18 @@ export type NavigationClickParams = {
   destination: string
   sourcePath?: string
   location: 'desktop-primary' | 'mobile-primary'
+}
+
+export type ProfileFeedbackParams = {
+  question: 'evidence_clarity' | 'research_found' | 'missing_information'
+  answer: 'yes' | 'no' | 'evidence_studies' | 'dose_form' | 'safety_interactions' | 'timing_practical' | 'comparison' | 'other'
+  pagePath?: string
+}
+
+export type ResearchSuggestionParams = {
+  suggestionType: 'ingredient' | 'comparison' | 'missing_study'
+  suggestionValue: string
+  pagePath?: string
 }
 
 function getGtag(): Gtag | null {
@@ -151,6 +165,36 @@ export function trackNavigationClick(params: NavigationClickParams): void {
     })
   } catch {
     // Analytics must never block navigation.
+  }
+}
+
+export function trackProfileFeedback(params: ProfileFeedbackParams): boolean {
+  try {
+    const gtag = getGtag()
+    if (!gtag) return false
+    gtag('event', 'profile_feedback', {
+      feedback_question: params.question,
+      feedback_answer: params.answer,
+      page_path: getCurrentPagePath(params.pagePath),
+    })
+    return true
+  } catch {
+    return false
+  }
+}
+
+export function trackResearchSuggestion(params: ResearchSuggestionParams): boolean {
+  try {
+    const gtag = getGtag()
+    if (!gtag) return false
+    gtag('event', 'research_suggestion', {
+      suggestion_type: params.suggestionType,
+      suggestion_value: params.suggestionValue,
+      page_path: getCurrentPagePath(params.pagePath),
+    })
+    return true
+  } catch {
+    return false
   }
 }
 
