@@ -84,7 +84,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
         bestFor={[
           'Rhodiola: mental fatigue, burnout-adjacent exhaustion, and stress resilience without sedation.',
           'Ashwagandha: steady stress support, evening settling, and situations where calm matters more than activation.',
-          'Together: rhodiola in the morning for output, ashwagandha at night for wind-down — a common, well-tolerated pairing.',
+          'Combination evidence: the cited references evaluate these ingredients separately; this page does not establish that combining them is safer or more effective than using either alone.',
         ]}
         evidenceLevel="Human trials support rhodiola for stress-related fatigue and ashwagandha for perceived stress and anxiety, though effect sizes are modest and study quality varies."
         safetyNote="Rhodiola can feel overstimulating for some people and is best avoided late in the day. Ashwagandha may affect thyroid hormone levels and should be reviewed with a clinician during pregnancy or with thyroid or autoimmune conditions."
@@ -156,7 +156,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
 
       <section className="card-premium p-6 space-y-4 max-w-4xl mb-8">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">How to choose</h2>
-        <p className="text-sm leading-7 text-muted">Ask yourself: am I wired or tired? If you feel anxious, overstimulated, and cannot wind down at night — ashwagandha (calming). If you feel exhausted, unmotivated, and burned out — rhodiola (stimulating). If both: ashwagandha at night, rhodiola in the morning — this is a common and well-tolerated stack. Start with one for 2-4 weeks before adding the other. Do not expect acute effects — adaptogens work cumulatively. If you feel nothing after 4 weeks, the adaptogen is likely not a fit for your stress pattern.</p>
+        <p className="text-sm leading-7 text-muted">Use the ingredient-specific evidence to decide whether fatigue-oriented or calming/stress-oriented context is more relevant to the comparison. If both patterns are present, do not infer from this page that combining rhodiola and ashwagandha is appropriate: the cited references do not establish the safety or benefit of the pair as a stack. Combination decisions need separate interaction, medication, and individual-risk review rather than a morning/night rule inferred from the ingredients’ separate profiles.</p>
         <div className="flex flex-wrap gap-3">
           <Link href="/info/dosing/" className="chip-readable text-xs font-bold">Review dosing basics</Link>
           <Link href="/safety-checker/" className="chip-readable text-xs font-bold">Check safety context</Link>

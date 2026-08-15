@@ -56,6 +56,10 @@ const GUIDE_RISK_PATTERNS = [
     name: 'combination safety reassurance',
   },
   {
+    re: /\bcommon(?:ly)?\b[^.\n]{0,60}\bwell[- ]tolerated\b[^.\n]{0,30}\b(?:pair(?:ing)?|stack|combination)\b/i,
+    name: 'unsupported combination reassurance',
+  },
+  {
     re: /\bworks?\s+(?:within|in)\s+\d+(?:\s*[–-]\s*\d+)?\s*(?:minutes?|hours?|days?|weeks?)\b/i,
     name: 'efficacy timing certainty',
   },
