@@ -10,6 +10,13 @@ const PAGE_ROOTS = [
   path.join(ROOT, 'app', 'guides'),
 ]
 
+const REQUIRED_PUBLIC_RESEARCH_ALLOWS = [
+  '/data/ai-entities/',
+  '/data/ingredients/',
+  '/data/claim-knowledge-graph.json',
+  '/data/research-relationship-graph.json',
+]
+
 function walk(dir) {
   if (!existsSync(dir)) return []
   return readdirSync(dir).flatMap((name) => {
@@ -63,8 +70,14 @@ function auditDiscovery() {
   if (!/data\/ai-entities\/manifest\.json/.test(llms)) issues.push('llms.txt does not expose the public entity dataset manifest')
   if (!/content-licensing/.test(llms)) issues.push('llms.txt does not expose the attribution/licensing policy')
   if (!existsSync(licensing)) issues.push('content licensing/attribution policy page is missing')
-  if (!/allow:[\s\S]*\/data\/ai-entities\//i.test(robots)) issues.push('robots policy does not explicitly allow the public entity dataset')
   if (!/userAgent:\s*['"]\*['"]/.test(robots)) issues.push('robots policy does not intentionally allow the general public crawler class')
+  if (!/['"]\/data\/['"]/.test(robots)) issues.push('robots policy no longer protects the broad private /data/ surface')
+
+  for (const allowedPath of REQUIRED_PUBLIC_RESEARCH_ALLOWS) {
+    if (!robots.includes(`'${allowedPath}'`) && !robots.includes(`"${allowedPath}"`)) {
+      issues.push(`robots policy does not explicitly allow approved public research artifact: ${allowedPath}`)
+    }
+  }
 
   return issues
 }
