@@ -1,0 +1,12 @@
+[
+  { "entityId": "herb:ashwagandha", "slug": "ashwagandha", "displayName": "Ashwagandha", "terms": ["ashwagandha", "Withania somnifera"], "priorityWeight": 10 },
+  { "entityId": "compound:magnesium", "slug": "magnesium", "displayName": "Magnesium", "terms": ["magnesium supplementation", "magnesium supplement"], "priorityWeight": 10 },
+  { "entityId": "compound:melatonin", "slug": "melatonin", "displayName": "Melatonin", "terms": ["melatonin supplementation", "melatonin"], "priorityWeight": 10 },
+  { "entityId": "compound:l-theanine", "slug": "l-theanine", "displayName": "L-Theanine", "terms": ["L-theanine", "theanine"], "priorityWeight": 10 },
+  { "entityId": "compound:creatine", "slug": "creatine", "displayName": "Creatine", "terms": ["creatine supplementation", "creatine monohydrate"], "priorityWeight": 9 },
+  { "entityId": "compound:berberine", "slug": "berberine", "displayName": "Berberine", "terms": ["berberine"], "priorityWeight": 9 },
+  { "entityId": "herb:rhodiola-rosea", "slug": "rhodiola-rosea", "displayName": "Rhodiola rosea", "terms": ["Rhodiola rosea", "rhodiola"], "priorityWeight": 8 },
+  { "entityId": "compound:saffron", "slug": "saffron", "displayName": "Saffron", "terms": ["saffron supplementation", "Crocus sativus"], "priorityWeight": 8 },
+  { "entityId": "herb:lions-mane", "slug": "lions-mane", "displayName": "Lion's Mane", "terms": ["Hericium erinaceus", "lion's mane"], "priorityWeight": 8 },
+  { "entityId": "herb:bacopa-monnieri", "slug": "bacopa-monnieri", "displayName": "Bacopa monnieri", "terms": ["Bacopa monnieri", "bacopa"], "priorityWeight": 8 }
+]

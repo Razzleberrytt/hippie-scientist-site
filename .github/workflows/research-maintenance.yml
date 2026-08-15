@@ -1,0 +1,85 @@
+name: Research Maintenance
+
+on:
+  schedule:
+    - cron: '47 12 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Query PubMed into a review queue
+        env:
+          NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+          NCBI_TOOL: hippie_scientist_research
+          PUBMED_RELDATE_DAYS: '35'
+          PUBMED_RESULTS_PER_ENTITY: '15'
+        run: node scripts/research/pubmed-ingest.mjs
+
+      - name: Feed high-impact research signals into decay scoring
+        run: node scripts/maintenance/enrich-decay-with-research-intake.mjs
+
+      - name: Rank content decay and recovery opportunity
+        run: node scripts/maintenance/build-content-decay-report.mjs artifacts/maintenance/content-decay-signals-enriched.json
+
+      - name: Build update issue payloads
+        run: node scripts/maintenance/build-decay-issue-payloads.mjs
+
+      - name: Create missing content-decay issues
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/maintenance/create-decay-issues.mjs
+
+      - name: Upload research maintenance artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: research-maintenance-${{ github.run_number }}
+          path: |
+            reports/content-decay.json
+            reports/content-decay-issues.json
+            artifacts/maintenance/content-decay-signals-enriched.json
+            artifacts/research-intake/pubmed-review-queue.json
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Summarize
+        if: always()
+        run: |
+          echo '## Research maintenance' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/content-decay.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('reports/content-decay.json', 'utf8'))
+          console.log(`- URLs ranked for decay: ${r.pageCount}`)
+          console.log(`- Urgent updates: ${r.urgent}`)
+          console.log(`- High-priority updates: ${r.high}`)
+          NODE
+          fi
+          if [ -f artifacts/research-intake/pubmed-review-queue.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('artifacts/research-intake/pubmed-review-queue.json', 'utf8'))
+          console.log(`- PubMed intake status: ${r.status}`)
+          if (r.studyCount != null) console.log(`- New undecided study/entity matches: ${r.studyCount}`)
+          if (r.likelyGradeImpact != null) console.log(`- Likely grade-impact reviews: ${r.likelyGradeImpact}`)
+          if (r.safetyStudies != null) console.log(`- Safety-signal studies: ${r.safetyStudies}`)
+          if (r.reason) console.log(`- Note: ${r.reason}`)
+          NODE
+          fi
+          echo '- PubMed discovery never changes evidence grades or public conclusions automatically.' >> "$GITHUB_STEP_SUMMARY"
