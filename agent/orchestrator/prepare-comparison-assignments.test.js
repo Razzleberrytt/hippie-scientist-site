@@ -1,3 +1,5 @@
+import path from 'node:path'
+
 import { describe, expect, it } from 'vitest'
 
 import {
@@ -103,7 +105,10 @@ describe('parseComparisonAssignmentArgs', () => {
       action: 'research-first',
       packetId: 'comparison:a:b',
       limit: 50,
-      queuePath: '/repo/tmp/queue.json',
+      // Built with path.resolve rather than hardcoded: the source resolves the
+      // arg against the root, so a literal POSIX string asserted the separator
+      // rather than the behaviour and failed on Windows.
+      queuePath: path.resolve('/repo', 'tmp/queue.json'),
     })
   })
 

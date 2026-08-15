@@ -49,8 +49,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # These specs import `describe`/`it`/`expect` from vitest, so they must run
+      # under vitest. Executing them with `node --test` loaded vitest's runner
+      # without initializing it, which crashed on every run with
+      # "Cannot read properties of undefined (reading 'config')" — failing this
+      # job on unrelated PRs.
       - name: Run identity unit tests
-        run: node --test scripts/evidence-graph/__tests__/*.test.mjs
+        run: npx vitest run scripts/evidence-graph/__tests__/
 
       - name: Build registry from workbook
         run: |
