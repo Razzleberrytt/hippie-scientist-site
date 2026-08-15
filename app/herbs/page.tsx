@@ -3,13 +3,10 @@ import type { RuntimeRecord } from '../../src/types/content'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
-import { getHerbSummaryIndex } from '../../src/lib/runtime-summary-indexes'
-import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { HERBS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
 import { buildPageMetadata } from '../../src/lib/seo'
-import { formatDisplayLabel } from '@/lib/display-utils'
-import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
+import { getHerbName, loadPublishedHerbs } from './library-data'
 import HerbsIndexClient from './HerbsIndexClient'
 import Pagination from '@/components/Pagination'
 
@@ -21,10 +18,6 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export const dynamic = 'force-static'
-
-function getHerbName(herb: RuntimeRecord) {
-  return formatDisplayLabel(herb.displayName) || formatDisplayLabel(herb.name) || formatDisplayLabel(herb.slug)
-}
 
 function HerbsLoadingSkeleton() {
   return (
@@ -43,16 +36,7 @@ function HerbsLoadingSkeleton() {
 }
 
 export default async function HerbsPage() {
-  const allHerbs = (await getHerbSummaryIndex()) as RuntimeRecord[]
-  const presentSlugs = new Set(allHerbs.map((herb) => String(herb.slug || '')))
-  const herbs = allHerbs
-    .filter(
-      (herb) =>
-        herb.slug &&
-        getRuntimeVisibility(herb).canIndex &&
-        !isRedirectedDuplicate(String(herb.slug), presentSlugs),
-    )
-    .sort((a, b) => getHerbName(a).localeCompare(getHerbName(b)))
+  const herbs = await loadPublishedHerbs()
   const pageData = paginateItems(herbs, 1, HERBS_PAGE_SIZE)
   const leanHerbs = toLeanProfileIndexRecords(herbs)
   const leanPageItems = toLeanProfileIndexRecords(pageData.pageItems as RuntimeRecord[])
