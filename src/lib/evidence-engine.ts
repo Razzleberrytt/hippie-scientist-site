@@ -39,6 +39,7 @@ export type EvidenceEngineClaim = {
   branded_extract?: string
   extract_generalizable?: boolean | null
   conclusion_change_trigger?: string
+  evidence_search_date?: string
 }
 
 export type EvidenceEngineConfig = {
