@@ -43,13 +43,7 @@ function comparisonPayload(record: Record<string, unknown>) {
 
 function renderableComparisonItems(records: Record<string, unknown>[]) {
   return records
-    .filter((record) => {
-      try {
-        return getRuntimeVisibility(record).canRender
-      } catch {
-        return true
-      }
-    })
+    .filter((record) => getRuntimeVisibility(record).canRender)
     .map(comparisonPayload)
     .filter((record) => record.slug && record.name)
 }
