@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import {
-  getStudyClassDefinition,
-  type StudyClass,
-} from '@/src/lib/study-evidence-context'
+  evidenceStudyClassDefinition,
+  type EvidenceStudyClass,
+} from '@/lib/evidence-study'
 
 /**
  * Reusable evidence-transparency block for clinical-study context.
@@ -32,7 +32,7 @@ export interface StudyDesignSnapshotProps {
   grade?: StudyEvidenceGrade
   gradeRationale?: ReactNode
   /** Canonical source-quality class; preferred over a free-form studyType alone. */
-  studyClass?: StudyClass
+  studyClass?: EvidenceStudyClass
   /** Optional design detail such as "double-blind, placebo-controlled". */
   studyType?: string
   participants?: string
@@ -98,7 +98,7 @@ export default function StudyDesignSnapshot({
   defaultOpen = false,
   title = 'Study design snapshot',
 }: StudyDesignSnapshotProps) {
-  const classDefinition = studyClass ? getStudyClassDefinition(studyClass) : null
+  const classDefinition = studyClass ? evidenceStudyClassDefinition(studyClass) : null
   const factors: StudyDesignFactor[] = [
     classDefinition ? { label: 'Source quality', value: classDefinition.label } : null,
     studyType ? { label: 'Study design', value: studyType } : null,
