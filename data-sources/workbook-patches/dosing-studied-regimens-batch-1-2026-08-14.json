@@ -1,0 +1,154 @@
+{
+  "patch_version": 1,
+  "id": "dosing-studied-regimens-batch-1-2026-08-14",
+  "status": "proposal",
+  "notes": "The Entity_Master column `dosage_or_preferred_form` is dual-purpose: it accepts either a studied dose or a product form. Where only a form was recorded, the runtime pipeline still surfaces it as the profile's dose, so the page answers \"what form?\" when the reader asked \"how much?\". This batch replaces the form descriptor with a studied regimen for nine high-demand, currently-indexed profiles. Every value is phrased as a regimen used in research, not as a personal recommendation, per the editorial rules in README.md. All DOIs were resolved against Crossref before this file was written. Dosage edits require human review: a reviewer must set status to `approved` and pass --approve-human-review.",
+  "sources": [
+    {
+      "id": "berberine-t2dm-meta-2015",
+      "doi": "10.1016/j.jep.2014.09.049",
+      "title": "Meta-analysis of the effect and safety of berberine in the treatment of type 2 diabetes mellitus, hyperlipemia and hypertension",
+      "year": 2015
+    },
+    {
+      "id": "boswellia-oa-meta-2020",
+      "doi": "10.1186/s12906-020-02985-6",
+      "title": "Effectiveness of Boswellia and Boswellia extract for osteoarthritis patients: a systematic review and meta-analysis",
+      "year": 2020
+    },
+    {
+      "id": "coq10-qsymbio-2014",
+      "doi": "10.1016/j.jchf.2014.06.008",
+      "title": "The Effect of Coenzyme Q10 on Morbidity and Mortality in Chronic Heart Failure (Q-SYMBIO)",
+      "year": 2014
+    },
+    {
+      "id": "nac-psychiatric-review-2018",
+      "doi": "10.1155/2018/2469486",
+      "title": "N-Acetylcysteine for the Treatment of Psychiatric Disorders: A Review of Current Evidence",
+      "year": 2018
+    },
+    {
+      "id": "omega3-triglycerides-aha-2019",
+      "doi": "10.1161/CIR.0000000000000709",
+      "title": "Omega-3 Fatty Acids for the Management of Hypertriglyceridemia: A Science Advisory From the American Heart Association",
+      "year": 2019
+    },
+    {
+      "id": "chamomile-gad-rct-2016",
+      "doi": "10.1016/j.phymed.2016.10.012",
+      "title": "Long-term chamomile (Matricaria chamomilla L.) treatment for generalized anxiety disorder: A randomized clinical trial",
+      "year": 2016
+    },
+    {
+      "id": "lemon-balm-stress-2004",
+      "doi": "10.1097/01.psy.0000132877.72833.71",
+      "title": "Attenuation of Laboratory-Induced Stress in Humans After Acute Administration of Melissa officinalis (Lemon Balm)",
+      "year": 2004
+    },
+    {
+      "id": "passiflora-systematic-review-2020",
+      "doi": "10.3390/nu12123894",
+      "title": "Passiflora incarnata in Neuropsychiatric Disorders — A Systematic Review",
+      "year": 2020
+    },
+    {
+      "id": "astaxanthin-safety-review-2019",
+      "doi": "10.1002/ptr.6514",
+      "title": "Astaxanthin: How much is too much? A safety review",
+      "year": 2019
+    }
+  ],
+  "changes": [
+    {
+      "slug": "berberine",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "capsule or standardized extract",
+      "new_value": "Studied regimen: 500 mg taken two to three times daily (1,000-1,500 mg/day), split across meals, in trials of glucose and lipid outcomes pooled by this meta-analysis. Divided dosing is used because single large doses are poorly tolerated in the gut.",
+      "confidence": "high",
+      "source_ids": ["berberine-t2dm-meta-2015"],
+      "rationale": "Replaces a product-form descriptor with the divided regimen actually used across the pooled type 2 diabetes, hyperlipidemia, and hypertension trials.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "boswellia",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "capsule or standardized extract",
+      "new_value": "Studied regimens: osteoarthritis trials pooled in this systematic review ran from 4 weeks to 6 months, using standardized Boswellia serrata extracts whose dose depends heavily on AKBA standardization - enriched extracts were trialled at far lower daily amounts than non-enriched ones, so the label's standardization figure determines the comparable dose.",
+      "confidence": "moderate",
+      "source_ids": ["boswellia-oa-meta-2020"],
+      "rationale": "The pooled trials do not share a single comparable milligram figure because extract standardization varies; this states the trial durations and the standardization dependency rather than implying one universal dose.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "coenzyme-q10",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "capsule or standardized extract",
+      "new_value": "Studied regimen: 100 mg three times daily (300 mg/day) for two years in the Q-SYMBIO randomized trial of chronic heart failure. Cardiac trial doses are higher than typical general-wellness supplement labels.",
+      "confidence": "high",
+      "source_ids": ["coq10-qsymbio-2014"],
+      "rationale": "Q-SYMBIO is the landmark randomized morbidity/mortality trial and states an unambiguous divided regimen; the caveat prevents readers generalizing a cardiac dose to casual use.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "n-acetylcysteine",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "softgel or liquid oil",
+      "new_value": "Studied regimens: 2,000-2,400 mg/day was identified in this review as effective and well tolerated in psychiatric adjunct trials, with most trials falling in a 2,000-3,600 mg/day range. These are adjunctive research regimens, not a standalone treatment.",
+      "confidence": "high",
+      "source_ids": ["nac-psychiatric-review-2018"],
+      "rationale": "The existing value described a softgel/oil form, which is also wrong for NAC. The review states an explicit effective and tolerated range.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "omega-3",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "softgel or liquid oil",
+      "new_value": "Studied regimen: 4 g/day of combined EPA+DHA is the prescription-strength dose this AHA science advisory identifies for lowering triglycerides. General dietary and supplement intakes in other trials are substantially lower, and the 4 g/day figure should not be read as a routine wellness dose.",
+      "confidence": "high",
+      "source_ids": ["omega3-triglycerides-aha-2019"],
+      "rationale": "Replaces a form descriptor with the specific clinical regimen named in a major professional-body advisory, with an explicit boundary so a therapeutic dose is not mistaken for a general one.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "chamomile",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "standardized extract capsule",
+      "new_value": "Studied regimen: 1,500 mg/day of standardized Matricaria chamomilla extract, taken as 500 mg three times daily, in a long-term randomized trial for generalized anxiety disorder.",
+      "confidence": "high",
+      "source_ids": ["chamomile-gad-rct-2016"],
+      "rationale": "The trial used an explicit divided daily regimen, which is directly comparable to what a standardized capsule product provides.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "lemon-balm",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "standardized extract capsule",
+      "new_value": "Studied regimens: single acute doses of 300 mg and 600 mg standardized extract in laboratory stress testing, where the 600 mg dose produced the larger increase in self-rated calmness. This is acute, single-dose evidence rather than a sustained daily regimen.",
+      "confidence": "moderate",
+      "source_ids": ["lemon-balm-stress-2004"],
+      "rationale": "States the two doses actually compared in the crossover trial and flags that the evidence is acute rather than chronic, so readers do not infer a validated daily dose.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "passionflower",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "standardized extract capsule",
+      "new_value": "Studied regimens vary widely: the nine trials in this systematic review ran from a single day to 30 days, with representative regimens including 260 mg taken before a procedure and 45 drops/day of liquid extract. No single standardized dose is established across preparations.",
+      "confidence": "moderate",
+      "source_ids": ["passiflora-systematic-review-2020"],
+      "rationale": "The review explicitly reports heterogeneous preparations and durations; stating the spread is more honest than inventing a consensus dose.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "astaxanthin",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "capsule or standardized extract",
+      "new_value": "Studied regimens: 4-12 mg/day in the majority of human trials. This safety review of 87 human studies found no safety concerns with natural astaxanthin, including 35 studies dosed at 12 mg/day or above.",
+      "confidence": "high",
+      "source_ids": ["astaxanthin-safety-review-2019"],
+      "rationale": "Replaces a form descriptor with the trial-typical range and the safety review's explicit finding at and above the top of that range.",
+      "requires_human_review": true
+    }
+  ]
+}

@@ -82,6 +82,29 @@ function conceptKey(slug, name) {
   return [...new Set(tokens)].sort().join('-')
 }
 
+/**
+ * Slugs already routed to a canonical profile via the deprecated-canonical maps
+ * (`lib/deprecated-*-canonicals.ts`), which the templates enforce with a 301 and
+ * which are excluded from generateStaticParams.
+ *
+ * These are read rather than re-derived because the *direction* of a
+ * consolidation is an editorial call this report cannot make: the site
+ * canonicalizes `ganoderma-lucidum` → `reishi` on demand grounds, while a
+ * purely score-based ranking would propose the reverse.
+ */
+function loadExistingCanonicals() {
+  const handled = new Map()
+  for (const file of ['lib/deprecated-herb-canonicals.ts', 'lib/deprecated-compound-canonicals.ts']) {
+    const full = path.join(ROOT, file)
+    if (!existsSync(full)) continue
+    const source = readFileSync(full, 'utf8')
+    for (const match of source.matchAll(/^\s*'?([a-z0-9-]+)'?:\s*'([a-z0-9-]+)'/gm)) {
+      handled.set(match[1], match[2])
+    }
+  }
+  return handled
+}
+
 /** Group profiles that resolve to the same concept key. */
 function findDuplicateGroups(entries) {
   const groups = new Map()
@@ -109,7 +132,15 @@ function main() {
   // A profile is a consolidation candidate when a stronger sibling covers the
   // same concept. The strongest member of each group is the survivor.
   const consolidationTargets = new Map()
-  const duplicateGroups = findDuplicateGroups(entries)
+  const existingCanonicals = loadExistingCanonicals()
+  const allGroups = findDuplicateGroups(entries)
+
+  // Drop groups whose members are already consolidated; re-proposing them adds
+  // noise and risks recommending the opposite of a decision already made.
+  const duplicateGroups = allGroups.filter(
+    (group) => !group.members.some((member) => existingCanonicals.has(member.slug)),
+  )
+
   for (const group of duplicateGroups) {
     const ranked = [...group.members].sort((a, b) => {
       const scoreA = gateBySlug.get(`${a.kind}:${a.slug}`)?.score ?? 0
@@ -200,6 +231,7 @@ function main() {
       key: group.key,
       members: group.members.map((m) => m.url),
     })),
+    alreadyConsolidatedGroups: allGroups.length - duplicateGroups.length,
     decisions,
   }
 
@@ -264,7 +296,10 @@ function printSummary(report, byAction) {
   }
 
   const dupes = report.duplicateGroups.length
-  console.log(`\nDuplicate concept groups detected: ${dupes}`)
+  console.log(
+    `\nDuplicate concept groups still open: ${dupes}` +
+      ` (${report.alreadyConsolidatedGroups} already handled by the deprecated-canonical maps)`,
+  )
   for (const group of report.duplicateGroups.slice(0, 8)) {
     console.log(`  ${group.members.join('  ·  ')}`)
   }
