@@ -1,21 +1,40 @@
 #!/usr/bin/env node
 /**
- * Report Cloudflare cache status for the previous 24 hours using the current
- * httpRequestsAdaptiveGroups GraphQL dataset. Requires CF_ZONE_ID and
- * CF_API_TOKEN. Missing credentials are a non-fatal skip so local builds stay
- * deterministic; scheduled CI can provide read-only analytics credentials.
+ * Report Cloudflare cache status for the previous 24 hours using
+ * httpRequestsAdaptiveGroups. A read-only analytics token is preferred. The
+ * existing deployment token may also be used when it has Zone/Analytics Read.
+ * Missing or insufficient credentials are a non-fatal monitoring skip.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 
-const zoneTag = process.env.CF_ZONE_ID?.trim()
-const token = process.env.CF_API_TOKEN?.trim()
+let zoneTag = (process.env.CF_ZONE_ID || process.env.CLOUDFLARE_ZONE_ID || '').trim()
+const token = (process.env.CF_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN || '').trim()
 const hostname = process.env.CF_ANALYTICS_HOSTNAME?.trim() || 'thehippiescientist.net'
 const reportPath = path.resolve('reports/cloudflare-cache-report.json')
 
-if (!zoneTag || !token) {
-  console.log('[cloudflare-cache] SKIP: CF_ZONE_ID / CF_API_TOKEN not configured')
+function writeReport(report) {
+  fs.mkdirSync(path.dirname(reportPath), { recursive: true })
+  fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`)
+}
+
+function skip(reason) {
+  const report = { generatedAt: new Date().toISOString(), hostname, status: 'skipped', reason }
+  writeReport(report)
+  console.log(`[cloudflare-cache] SKIP: ${reason}`)
   process.exit(0)
+}
+
+if (!token) skip('no Cloudflare API token configured')
+
+if (!zoneTag) {
+  const zoneResponse = await fetch(`https://api.cloudflare.com/client/v4/zones?name=${encodeURIComponent(hostname)}&status=active`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+  if (!zoneResponse.ok) skip(`cannot resolve zone id (HTTP ${zoneResponse.status})`)
+  const zonePayload = await zoneResponse.json()
+  zoneTag = zonePayload?.result?.[0]?.id || ''
+  if (!zoneTag) skip('active zone could not be resolved for hostname')
 }
 
 const end = new Date()
@@ -58,14 +77,10 @@ const response = await fetch('https://api.cloudflare.com/client/v4/graphql', {
   }),
 })
 
-if (!response.ok) {
-  throw new Error(`[cloudflare-cache] HTTP ${response.status}: ${await response.text()}`)
-}
+if (!response.ok) skip(`analytics request failed (HTTP ${response.status})`)
 
 const payload = await response.json()
-if (payload.errors?.length) {
-  throw new Error(`[cloudflare-cache] GraphQL error: ${JSON.stringify(payload.errors)}`)
-}
+if (payload.errors?.length) skip(`analytics permission/query unavailable: ${payload.errors[0]?.message || 'unknown GraphQL error'}`)
 
 const groups = payload?.data?.viewer?.zones?.[0]?.httpRequestsAdaptiveGroups || []
 const byStatus = {}
@@ -83,6 +98,7 @@ for (const group of groups) {
 
 const report = {
   generatedAt: end.toISOString(),
+  status: 'ok',
   window: { start: start.toISOString(), end: end.toISOString() },
   hostname,
   totalRequests: total,
@@ -91,9 +107,7 @@ const report = {
   byStatus,
 }
 
-fs.mkdirSync(path.dirname(reportPath), { recursive: true })
-fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`)
-
+writeReport(report)
 const pct = report.cacheHitRate == null ? 'n/a' : `${(report.cacheHitRate * 100).toFixed(1)}%`
 console.log(`[cloudflare-cache] ${hostname}: ${pct} cache-served across ${total} requests (last 24h)`)
 console.log('[cloudflare-cache] report: reports/cloudflare-cache-report.json')
