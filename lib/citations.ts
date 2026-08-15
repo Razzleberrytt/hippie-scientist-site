@@ -1,4 +1,10 @@
 import type { Citation } from '@/components/ui/ShowMeTheStudies'
+import {
+  evidenceStudyId,
+  normalizeEvidenceConfidence,
+  normalizeEvidenceRelationship,
+  normalizeEvidenceStudyClass,
+} from '@/lib/evidence-study'
 
 function parsePmid(value: string): string | undefined {
   const match = value.match(/\b(\d{7,8})\b/)
@@ -12,6 +18,29 @@ function parseDoi(value: string): string | undefined {
 
 function doiUrl(doi: string | undefined): string | undefined {
   return doi ? `https://doi.org/${doi}` : undefined
+}
+
+function firstString(src: Record<string, unknown>, keys: string[]): string | undefined {
+  for (const key of keys) {
+    const value = src[key]
+    if (typeof value === 'string' && value.trim()) return value.trim()
+  }
+  return undefined
+}
+
+function stringArray(src: Record<string, unknown>, keys: string[]): string[] | undefined {
+  for (const key of keys) {
+    const value = src[key]
+    if (Array.isArray(value)) {
+      const normalized = value.map(item => String(item).trim()).filter(Boolean)
+      if (normalized.length) return normalized
+    }
+    if (typeof value === 'string' && value.trim()) {
+      const normalized = value.split(/[;,|]/).map(item => item.trim()).filter(Boolean)
+      if (normalized.length) return normalized
+    }
+  }
+  return undefined
 }
 
 function sourceObjectToCitation(src: Record<string, unknown>): Citation {
@@ -30,17 +59,38 @@ function sourceObjectToCitation(src: Record<string, unknown>): Citation {
       ? String(src.pmid)
       : parsePmid(rawUrl) || parsePmid(citationText)
   const url = rawUrl || doiUrl(doi) || (pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` : undefined)
+  const studyType = firstString(src, ['studyType', 'study_type', 'design', 'design_type', 'publication_type', 'type'])
+  const relationshipRaw = firstString(src, ['relationship', 'evidence_direction', 'direction', 'direction_of_effect'])
+  const confidenceRaw = firstString(src, ['confidence', 'evidence_confidence', 'certainty'])
 
-  return {
+  const citation: Citation = {
+    id: evidenceStudyId({ pmid, doi, url, title }),
     title,
     pmid,
     doi,
     url,
     year: src.year as number | string | undefined,
     authors: (src.authors || src.author_or_label) as string | undefined,
-    studyType: (src.studyType || src.study_type || src.type) as string | undefined,
-    sampleSize: (src.sampleSize || src.sample_size || src.n) as string | number | undefined,
+    journal: firstString(src, ['journal', 'source', 'publication', 'venue']),
+    studyType,
+    evidenceClass: normalizeEvidenceStudyClass(src.evidenceClass || src.evidence_class || studyType),
+    sampleSize: (src.sampleSize || src.sample_size || src.n || src.participants) as string | number | undefined,
+    dose: firstString(src, ['dose', 'dose_range', 'studied_dose', 'intervention_dose']),
+    duration: firstString(src, ['duration', 'study_duration', 'timeframe']),
+    population: firstString(src, ['population', 'participants_description', 'population_context']),
+    outcome: firstString(src, ['outcome', 'primary_outcome', 'endpoint']),
+    result: firstString(src, ['result', 'finding', 'result_summary', 'effect']),
+    limitation: firstString(src, ['limitation', 'limitations', 'study_limitation', 'extraction_note']),
+    relationship: normalizeEvidenceRelationship(relationshipRaw),
+    confidence: normalizeEvidenceConfidence(confidenceRaw),
+    statisticalConsistency: firstString(src, ['statistical_consistency', 'statisticalSignal', 'statistical_signal']),
+    extractName: firstString(src, ['extract', 'extract_name', 'branded_extract', 'preparation']),
+    ingredients: stringArray(src, ['ingredients', 'ingredient_slugs', 'entities']),
+    conditions: stringArray(src, ['conditions', 'outcomes', 'condition_slugs']),
+    safetyOutcome: firstString(src, ['safety_outcome', 'adverse_events', 'safety_result']),
   }
+
+  return citation
 }
 
 function stringToCitation(src: string): Citation {
@@ -48,17 +98,26 @@ function stringToCitation(src: string): Citation {
   const doi = parseDoi(src)
   const directUrl = /^https?:\/\//i.test(src.trim()) ? src.trim() : undefined
   const url = directUrl || doiUrl(doi) || (pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` : undefined)
-  return { title: src, pmid, doi, url }
+  return {
+    id: evidenceStudyId({ pmid, doi, url, title: src }),
+    title: src,
+    pmid,
+    doi,
+    url,
+    evidenceClass: 'other',
+    relationship: 'background',
+    confidence: 'unknown',
+  }
 }
 
 function citationKey(citation: Citation): string {
-  return citation.pmid
+  return citation.id || (citation.pmid
     ? `pmid:${citation.pmid}`
     : citation.doi
       ? `doi:${citation.doi.toLowerCase()}`
       : citation.url
         ? `url:${citation.url.toLowerCase()}`
-        : `title:${citation.title.trim().toLowerCase()}`
+        : `title:${citation.title.trim().toLowerCase()}`)
 }
 
 export function extractCitationsFromRecord(record: Record<string, unknown>): Citation[] {
@@ -91,9 +150,13 @@ export function extractCitationsFromRecord(record: Record<string, unknown>): Cit
       if (!pmid) continue
       const id = String(pmid)
       pushCitation({
+        id: `pmid:${id}`,
         title: `PubMed ${id}`,
         pmid: id,
         url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`,
+        evidenceClass: 'other',
+        relationship: 'background',
+        confidence: 'unknown',
       })
     }
   }
