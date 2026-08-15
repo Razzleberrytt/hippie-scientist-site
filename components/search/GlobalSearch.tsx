@@ -19,9 +19,12 @@ interface FacetGroupProps {
 function FacetGroup({ title, options, selected, onToggle, limit }: FacetGroupProps) {
   const shown = limit ? options.slice(0, limit) : options
   if (shown.length === 0) return null
+
   return (
-    <fieldset className="space-y-2">
-      <legend className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">{title}</legend>
+    <fieldset className="space-y-2.5">
+      <legend className="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[color:var(--hs-body)]">
+        {title}
+      </legend>
       <div className="flex flex-wrap gap-1.5">
         {shown.map((option) => (
           <FilterChip
@@ -61,7 +64,6 @@ export default function GlobalSearch() {
     resetKey: `${search.query}|${search.activeFilters}`,
   })
 
-  // Keep the active card in view during keyboard navigation.
   useEffect(() => {
     const node = listRef.current?.querySelector<HTMLElement>(`#${CSS.escape(`${optionPrefix}-${activeIndex}`)}`)
     node?.scrollIntoView({ block: 'nearest' })
@@ -81,27 +83,26 @@ export default function GlobalSearch() {
   const activeOptionId = search.results[activeIndex] ? `${optionPrefix}-${activeIndex}` : undefined
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
-      {/* Filters sidebar */}
+    <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10">
       <aside className="space-y-5 lg:sticky lg:top-20 lg:self-start" aria-label="Search filters">
-        <div className="flex items-center justify-between">
-          <span className="flex items-center gap-2 text-sm font-bold text-ink">
-            <SlidersHorizontal className="h-4 w-4 text-brand-700" aria-hidden="true" />
-            Filters
+        <div className="flex items-center justify-between gap-3">
+          <span className="flex items-center gap-2 text-sm font-semibold text-[color:var(--hs-ink)]">
+            <SlidersHorizontal className="h-4 w-4 text-[color:var(--tone-ink)]" aria-hidden="true" />
+            Refine index
           </span>
-          {search.activeFilters > 0 && (
+          {search.activeFilters > 0 ? (
             <button
               type="button"
               onClick={search.clearFilters}
-              className="rounded text-xs font-semibold text-brand-700 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
+              className="rounded text-xs font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)]"
             >
               Clear ({search.activeFilters})
             </button>
-          )}
+          ) : null}
         </div>
 
-        {search.facets && (
-          <div className="space-y-5 rounded-2xl border border-brand-900/10 bg-white/80 p-4">
+        {search.facets ? (
+          <div className="space-y-5 rounded-[1.4rem] border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_88%,transparent)] p-4 sm:p-5">
             <FacetGroup
               title="Content type"
               options={search.facets.types}
@@ -135,8 +136,8 @@ export default function GlobalSearch() {
               onToggle={(v) => search.toggleFilter(facetFilterMap.safety, v as never)}
             />
 
-            <fieldset className="space-y-2 border-t border-brand-900/10 pt-4">
-              <legend className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">
+            <fieldset className="space-y-2.5 border-t border-[color:var(--hs-hairline)] pt-4">
+              <legend className="text-[0.68rem] font-bold uppercase tracking-[0.13em] text-[color:var(--hs-body)]">
                 Safety considerations
               </legend>
               <div className="flex flex-wrap gap-1.5">
@@ -153,14 +154,14 @@ export default function GlobalSearch() {
               </div>
             </fieldset>
           </div>
-        )}
+        ) : null}
       </aside>
 
-      {/* Search + results */}
-      <div className="space-y-5">
-        <div className="relative rounded-2xl border border-brand-900/10 bg-white/90 p-2.5 shadow-sm focus-within:ring-2 focus-within:ring-brand-700 sm:p-3">
-          <div className="flex items-center gap-2.5 px-2">
-            <Search className="h-5 w-5 shrink-0 text-brand-700" aria-hidden="true" />
+      <div className="min-w-0 space-y-5">
+        <div className="relative overflow-hidden rounded-[1.35rem] border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] p-2.5 shadow-[0_12px_32px_-26px_rgba(49,42,52,0.36)] focus-within:border-[color:color-mix(in_srgb,var(--hs-gold)_55%,var(--hs-hairline))] focus-within:ring-2 focus-within:ring-[color:color-mix(in_srgb,var(--hs-gold)_12%,transparent)] sm:p-3">
+          <div aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-[linear-gradient(180deg,var(--hs-gold),var(--tone))]" />
+          <div className="flex items-center gap-2.5 px-2 pl-3">
+            <Search className="h-5 w-5 shrink-0 text-[color:var(--tone-ink)]" aria-hidden="true" />
             <label htmlFor="global-search-input" className="sr-only">
               Search herbs, compounds, and education
             </label>
@@ -180,34 +181,29 @@ export default function GlobalSearch() {
               onChange={(e) => search.setQuery(e.target.value)}
               onKeyDown={onKeyDown}
               placeholder="Try sleep, ashwagandha, GABA, dopamine, evidence levels…"
-              className="min-h-12 w-full bg-transparent py-2 text-base text-ink outline-none placeholder:text-muted/60 dark:placeholder:text-[var(--text-muted)]/50 sm:text-lg"
+              className="min-h-12 w-full bg-transparent py-2 text-base text-[color:var(--hs-ink)] outline-none placeholder:text-[color:color-mix(in_srgb,var(--hs-body)_62%,transparent)] sm:text-lg"
             />
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-3">
-          <p className="text-sm text-muted" aria-live="polite" aria-atomic="true">
+        <div className="flex items-center justify-between gap-3 border-b border-[color:var(--hs-hairline)] pb-3">
+          <p className="text-sm text-[color:var(--hs-body)]" aria-live="polite" aria-atomic="true">
             {!search.ready
               ? 'Loading search…'
               : `${search.results.length} result${search.results.length === 1 ? '' : 's'}` +
                 (search.query ? ` for “${search.query}”` : '') +
                 (search.activeFilters ? ` · ${search.activeFilters} filter${search.activeFilters === 1 ? '' : 's'}` : '')}
           </p>
-          {search.totalIndexed > 0 && (
-            <span className="hidden text-xs text-muted sm:inline">
-              {search.totalIndexed} entries indexed
+          {search.totalIndexed > 0 ? (
+            <span className="hidden font-mono text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-[color:var(--hs-body)] sm:inline">
+              {search.totalIndexed} indexed
             </span>
-          )}
+          ) : null}
         </div>
 
         {search.ready && search.results.length === 0 ? (
-          <ul
-            id={listboxId}
-            role="listbox"
-            aria-label="Search results"
-            className="rounded-2xl border border-brand-900/10 bg-white/85"
-          >
-            <li role="option" aria-disabled="true" aria-selected="false" className="p-6 text-sm leading-6 text-muted">
+          <ul id={listboxId} role="listbox" aria-label="Search results" className="border-b border-[color:var(--hs-hairline)]">
+            <li role="option" aria-disabled="true" aria-selected="false" className="py-7 text-sm leading-6 text-[color:var(--hs-body)]">
               No matches. Try a broader term (sleep, stress, focus) or clear filters.
             </li>
           </ul>
@@ -218,7 +214,7 @@ export default function GlobalSearch() {
             role="listbox"
             aria-label="Search results"
             aria-busy={!search.ready}
-            className="grid gap-3 sm:grid-cols-2"
+            className="divide-y divide-[color:var(--hs-hairline)] border-b border-[color:var(--hs-hairline)]"
           >
             {search.results.map((doc, index) => (
               <li role="option" aria-selected={index === activeIndex} id={`${optionPrefix}-${index}`} key={doc.id}>
@@ -226,33 +222,38 @@ export default function GlobalSearch() {
                   href={doc.href}
                   onMouseEnter={() => setActiveIndex(index)}
                   onFocus={() => setActiveIndex(index)}
-                  className={`flex h-full flex-col gap-2 rounded-2xl border bg-white/90 p-4 shadow-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 ${
+                  className={`group grid grid-cols-[2rem_minmax(0,1fr)] gap-3 px-1 py-5 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--hs-gold)] sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-4 sm:px-2 ${
                     index === activeIndex
-                      ? 'border-brand-700/40 ring-2 ring-brand-700/20'
-                      : 'border-brand-900/10 hover:border-brand-700/20 hover:shadow-md'
+                      ? 'bg-[color:color-mix(in_srgb,var(--tone)_7%,transparent)] shadow-[inset_2px_0_0_var(--hs-gold)]'
+                      : 'hover:bg-[color:color-mix(in_srgb,var(--tone)_4%,transparent)]'
                   }`}
                 >
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    <TypeBadge type={doc.type} />
-                    <EvidenceBadge grade={doc.evidenceGrade} />
-                    <SafetyBadge safety={doc.safety} />
-                  </div>
-                  <h3 className="text-lg font-semibold leading-tight text-ink">{doc.title}</h3>
-                  {doc.summary && (
-                    <p className="line-clamp-2 text-sm leading-6 text-muted">{doc.summary}</p>
-                  )}
-                  {doc.tags.length > 0 && (
-                    <div className="mt-auto flex flex-wrap gap-1 pt-1">
-                      {doc.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-brand-50 px-2 py-0.5 text-[0.72rem] font-medium text-brand-800"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  <span aria-hidden="true" className="pt-1 font-mono text-[0.64rem] font-bold tracking-[0.12em] text-[color:var(--hs-gold-ink)]">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <TypeBadge type={doc.type} />
+                      <EvidenceBadge grade={doc.evidenceGrade} />
+                      <SafetyBadge safety={doc.safety} />
                     </div>
-                  )}
+                    <h3 className="mt-2 font-display text-xl font-semibold leading-tight tracking-[-0.025em] text-[color:var(--hs-ink)] transition group-hover:text-[color:var(--tone-ink)]">
+                      {doc.title}
+                    </h3>
+                    {doc.summary ? (
+                      <p className="mt-2 line-clamp-2 max-w-3xl text-sm leading-6 text-[color:var(--hs-body)]">{doc.summary}</p>
+                    ) : null}
+                    {doc.tags.length > 0 ? (
+                      <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                        {doc.tags.slice(0, 3).map((tag) => (
+                          <span key={tag} className="text-[0.7rem] font-semibold text-[color:var(--tone-ink)]">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
                 </Link>
               </li>
             ))}
