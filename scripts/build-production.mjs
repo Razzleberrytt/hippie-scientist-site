@@ -19,6 +19,21 @@ for (const dir of [outPath, nextPath]) {
 }
 
 try {
+  // Publication invariants are deployment-critical. The workbook/runtime build
+  // may preserve weak records for internal research, but immediately before
+  // Next renders production HTML we scrub internal language and force any
+  // invariant-breaking public profile to NEEDS_REVIEW/noindex. If demotions
+  // occur, derived route/search/sitemap data is rebuilt from the governed state.
+  console.log('[build] Enforcing production content invariants...')
+  execSync('node scripts/data/enforce-production-content-invariants.mjs --data-dir=public/data --refresh-derived', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+  execSync('node scripts/ci/validate-production-content-invariants.mjs --data-dir=public/data', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
   if (fs.existsSync(pagesPath)) {
     console.log('[build] Temporarily moving src/pages to avoid Next.js routing conflicts...')
     fs.renameSync(pagesPath, tempPagesPath)
@@ -29,6 +44,15 @@ try {
   execSync('npx next build', {
     stdio: 'inherit',
     env: { ...process.env, NODE_OPTIONS: '--max-old-space-size=4096', NEXT_TELEMETRY_DISABLED: '1' },
+  })
+
+  // The source-data gate proves structured invariants. This second gate proves
+  // the user/crawler-visible HTML did not reintroduce placeholders, version
+  // labels, debug strings or other internal-development language in templates.
+  console.log('[build] Auditing production-visible language...')
+  execSync('node scripts/ci/audit-production-visible-language.mjs', {
+    stdio: 'inherit',
+    env: process.env,
   })
 } catch (error) {
   // Next.js 15 static export on Windows occasionally throws an ENOENT when it tries to
