@@ -1,0 +1,83 @@
+name: Outreach Intelligence
+
+on:
+  schedule:
+    - cron: '17 11 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  intelligence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Restore backlink state
+        uses: actions/cache@v6
+        with:
+          path: ops/outreach/backlink-state.json
+          key: outreach-backlinks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            outreach-backlinks-${{ runner.os }}-
+
+      - name: Monitor new backlinks and referring domains
+        env:
+          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+          AHREFS_TARGET: thehippiescientist.net
+        run: node scripts/outreach/fetch-ahrefs-backlinks.mjs
+
+      - name: Rank outreach candidates
+        run: node scripts/outreach/build-opportunity-report.mjs
+
+      - name: Build reporter-ready fact sheet
+        run: node scripts/outreach/build-reporter-kit.mjs
+
+      - name: Build review-only source-first pitches
+        run: node scripts/outreach/build-pitch-drafts.mjs
+
+      - name: Upload intelligence artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: outreach-intelligence-${{ github.run_number }}
+          path: |
+            reports/new-backlinks.json
+            reports/outreach-opportunities.json
+            reports/outreach-opportunities.csv
+            artifacts/reporter-kit/
+            artifacts/outreach/
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Summarize
+        if: always()
+        run: |
+          echo '## Outreach intelligence' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/new-backlinks.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('reports/new-backlinks.json', 'utf8'))
+          console.log(`- Backlink monitor: ${r.status}`)
+          if (r.snapshot) console.log(`- Live referring domains: ${r.snapshot.referringDomains}`)
+          if (r.newReferringDomains) console.log(`- New referring domains: ${r.newReferringDomains.length}`)
+          if (r.snapshot) console.log(`- Domains linking to original assets: ${r.snapshot.originalAssetReferringDomains}`)
+          if (r.reason) console.log(`- Note: ${r.reason}`)
+          NODE
+          fi
+          if [ -f reports/outreach-opportunities.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('reports/outreach-opportunities.json', 'utf8'))
+          console.log(`- Actionable outreach domains: ${r.summary.actionableDomains}`)
+          console.log(`- Suspicious domains surfaced for review: ${r.summary.suspiciousDomains}`)
+          NODE
+          fi
