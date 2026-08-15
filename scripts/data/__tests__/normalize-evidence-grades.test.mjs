@@ -20,9 +20,9 @@ describe('evidence-grade migration boundary', () => {
     expect(result.status).toBe('canonical')
   })
 
-  it('removes a misleading universal grade when the source is outcome-dependent', () => {
+  it('removes a misleading universal grade and leaves an outcome-dependent marker', () => {
     const result = migrateEvidenceGradeRecord({ slug: 'x', evidence_grade: 'B for PCOS; D for core goals' })
-    expect(result.record).toEqual({ slug: 'x' })
+    expect(result.record).toEqual({ slug: 'x', evidence_grade_status: 'outcome-dependent' })
     expect(result.status).toBe('outcome-dependent-universal-grade-removed')
   })
 
