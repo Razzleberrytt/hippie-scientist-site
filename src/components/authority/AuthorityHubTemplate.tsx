@@ -7,17 +7,42 @@ export default function AuthorityHubTemplate({
   comparisons = [],
   stacks = [],
 }: any) {
+  const heroMetrics = [
+    { value: records.length, label: 'profiles' },
+    { value: comparisons.length, label: 'comparisons' },
+    { value: stacks.length, label: 'stack systems' },
+  ]
+
   return (
-    <div className="container-page py-12 space-y-10">
-      <section className="hero-shell rounded-[2rem] p-8 shadow-card">
-        <div className="max-w-4xl space-y-5">
+    <div className="container-page space-y-10 py-6 sm:py-12">
+      <section className="hero-shell rounded-[2rem] p-6 sm:p-8 lg:p-10">
+        <div className="max-w-4xl">
           <p className="eyebrow-label">Authority Hub</p>
 
-          <h1>{title}</h1>
+          <h1 className="heading-premium mt-5">{title}</h1>
 
-          <p className="detail-reading text-lg">
+          <p className="text-reading mt-4 max-w-3xl">
             {summary}
           </p>
+
+          <dl className="mt-6 grid grid-cols-3 overflow-hidden rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_76%,transparent)] backdrop-blur-sm">
+            {heroMetrics.map((metric, index) => (
+              <div
+                key={metric.label}
+                className={`px-3 py-3.5 text-center sm:px-5 sm:py-4 ${index > 0 ? 'border-l border-[color:var(--hs-hairline)]' : ''}`}
+              >
+                <dt className="sr-only">{metric.label}</dt>
+                <dd>
+                  <span className="block font-display text-2xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)] sm:text-[1.7rem]">
+                    {metric.value}
+                  </span>
+                  <span className="mt-1 block text-[0.66rem] font-bold uppercase tracking-[0.12em] text-[color:var(--hs-body)] sm:text-[0.7rem]">
+                    {metric.label}
+                  </span>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
