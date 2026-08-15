@@ -42,7 +42,7 @@ export function EvidenceConfidence({
   const gradeStyle = GRADE_STYLE[String(grade).toLowerCase()] ?? GRADE_STYLE.moderate
   return (
     <section className="not-prose my-4 rounded-2xl border border-brand-900/12 bg-white p-4 shadow-[0_1px_2px_rgba(13,23,18,0.05)] dark:border-white/10 dark:bg-[var(--surface-card)]">
-      <details className="group">
+      <details className="group border-0 bg-transparent p-0 shadow-none backdrop-blur-none">
         <summary className="flex cursor-pointer flex-wrap items-center justify-between gap-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
           <span className="flex flex-wrap items-center gap-3">
             <span className="text-base font-bold tracking-tight text-ink">{title}</span>
