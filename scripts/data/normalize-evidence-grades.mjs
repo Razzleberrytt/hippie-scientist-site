@@ -9,6 +9,11 @@
  * grade field (and reported) rather than flattened into a misleading verdict.
  * Unknown non-empty values are never guessed; --strict makes them fatal.
  *
+ * The runtime builder emits several denormalized copies of herb/compound
+ * records in one pass. Every copy that can carry `evidence_grade` is migrated
+ * here so a profile cannot be canonical while a featured/search index still
+ * exposes the legacy value.
+ *
  * Usage:
  *   node scripts/data/normalize-evidence-grades.mjs --data-dir=public/data
  *   node scripts/data/normalize-evidence-grades.mjs --data-dir=public/data --write --strict
@@ -23,7 +28,15 @@ import {
   normalizeEvidenceGrade,
 } from '../../lib/evidence-grade-core.js'
 
-const DEFAULT_FILES = ['herbs.json', 'compounds.json', 'claims.json']
+const DEFAULT_FILES = [
+  'herbs.json',
+  'compounds.json',
+  'featured-herbs.json',
+  'featured-compounds.json',
+  'herb-index.json',
+  'compound-index.json',
+  'claims.json',
+]
 
 function parseArgs(argv) {
   const args = { dataDir: 'public/data', write: false, strict: false }
@@ -190,7 +203,7 @@ export function main(argv = process.argv) {
   console.log(`Unmappable:        ${report.totals.unmappable}`)
   console.log(`Mode:              ${args.write ? 'WRITE' : 'DRY RUN'}`)
   for (const file of report.files) {
-    console.log(`  ${file.filename.padEnd(18)} records=${String(file.records).padStart(4)} changed=${String(file.changed).padStart(4)} unmappable=${String(file.unmappable ?? 0).padStart(3)}`)
+    console.log(`  ${file.filename.padEnd(24)} records=${String(file.records).padStart(4)} changed=${String(file.changed).padStart(4)} unmappable=${String(file.unmappable ?? 0).padStart(3)}`)
   }
 
   return report
