@@ -1,311 +1,276 @@
 #!/usr/bin/env node
 
-import fs from 'node:fs';
-import path from 'node:path';
-import { readWorkbook, getSheet, sheetToRows } from './workbook-parser.mjs';
+import fs from 'node:fs'
+import path from 'node:path'
+import { readWorkbook, getSheet, sheetToRows } from './workbook-parser.mjs'
 
-const ROOT = process.cwd();
-const DATA_DIR = path.join(ROOT, 'public', 'data');
-const WORKBOOK_PATH = path.join(ROOT, 'data-sources', 'herb_monograph_master.xlsx');
-const OUTPUT_FILE = path.join(DATA_DIR, 'freshness-metadata.json');
+const ROOT = process.cwd()
+const DATA_DIR = path.join(ROOT, 'public', 'data')
+const WORKBOOK_PATH = path.join(ROOT, 'data-sources', 'herb_monograph_master.xlsx')
+const OUTPUT_FILE = path.join(DATA_DIR, 'freshness-metadata.json')
+
+const REVIEW_DATE_FIELDS = [
+  'editorial_reviewed_at',
+  'editorialReviewedAt',
+  'evidence_reviewed_at',
+  'evidenceReviewedAt',
+  'last_reviewed',
+  'lastReviewed',
+  'reviewed_at',
+  'reviewedAt',
+]
+const EVIDENCE_SEARCH_FIELDS = [
+  'last_evidence_search_date',
+  'lastEvidenceSearchDate',
+  'evidence_search_date',
+  'evidenceSearchDate',
+  'literature_search_date',
+  'literatureSearchDate',
+]
+const FACTUAL_UPDATE_FIELDS = [
+  'factual_updated_at',
+  'factualUpdatedAt',
+  'content_updated_at',
+  'contentUpdatedAt',
+  'data_updated_at',
+  'dataUpdatedAt',
+]
+const TEMPLATE_UPDATE_FIELDS = [
+  'template_updated_at',
+  'templateUpdatedAt',
+  'build_updated_at',
+  'buildUpdatedAt',
+]
 
 function parsePmid(value) {
-  if (!value) return undefined;
-  const match = String(value).match(/\b(\d{7,8})\b/);
-  return match?.[1];
+  if (!value) return undefined
+  const match = String(value).match(/\b(\d{7,8})\b/)
+  return match?.[1]
 }
 
-function getRecordedReviewDate(record) {
-  if (!record || typeof record !== 'object') return '';
-  return String(
-    record.last_reviewed ||
-      record.lastReviewed ||
-      record.reviewed_at ||
-      record.reviewedAt ||
-      record.last_updated ||
-      record.lastUpdated ||
-      record.updated_at ||
-      record.updatedAt ||
-      '',
-  ).trim();
+function validDate(value) {
+  if (!value) return ''
+  const clean = String(value).trim()
+  if (!clean || Number.isNaN(Date.parse(clean))) return ''
+  return clean
 }
 
-// Extract citations from a JSON record
+function firstDate(record, fields) {
+  if (!record || typeof record !== 'object') return ''
+  for (const field of fields) {
+    const value = validDate(record[field])
+    if (value) return value
+  }
+  return ''
+}
+
+/**
+ * Review freshness is fail-closed. Generic last_updated/updatedAt fields are
+ * intentionally excluded because deployments, migrations, and data transforms
+ * can touch them without any editorial/scientific review taking place.
+ */
+function getFreshness(record, citationCount) {
+  return {
+    lastReviewed: firstDate(record, REVIEW_DATE_FIELDS),
+    evidenceSearchDate: firstDate(record, EVIDENCE_SEARCH_FIELDS),
+    factualUpdatedAt: firstDate(record, FACTUAL_UPDATE_FIELDS),
+    templateUpdatedAt: firstDate(record, TEMPLATE_UPDATE_FIELDS),
+    citationCount,
+  }
+}
+
 function extractCitationsFromRecord(record) {
-  const results = [];
-  const parsePmidLocal = (val) => {
-    const m = String(val || '').match(/\b(\d{7,8})\b/);
-    return m?.[1];
-  };
+  const results = []
 
-  const addCit = (title, pmid, year, authors) => {
-    if (!title && !pmid) return;
-    const cleanTitle = String(title || '').trim();
-    const cleanPmid = cleanPmidField(pmid || parsePmidLocal(cleanTitle));
-    const key = cleanPmid || cleanTitle;
-    if (key && !results.some(c => (cleanPmid && c.pmid === cleanPmid) || c.title === cleanTitle)) {
-      results.push({ title: cleanTitle, pmid: cleanPmid, year, authors });
-    }
-  };
+  const addCitation = (title, pmid, year, authors) => {
+    if (!title && !pmid) return
+    const cleanTitle = String(title || '').trim()
+    const cleanPmid = parsePmid(pmid || cleanTitle)
+    const duplicate = results.some(citation =>
+      (cleanPmid && citation.pmid === cleanPmid) ||
+      (!cleanPmid && cleanTitle && citation.title === cleanTitle),
+    )
+    if (!duplicate) results.push({ title: cleanTitle, pmid: cleanPmid, year, authors })
+  }
 
-  const cleanPmidField = (val) => {
-    if (!val) return undefined;
-    const m = String(val).match(/\b(\d{7,8})\b/);
-    return m?.[1];
-  };
-
-  // Process sources
-  if (Array.isArray(record?.sources)) {
-    for (const src of record.sources) {
-      if (!src) continue;
-      if (typeof src === 'string') {
-        addCit(src, parsePmidLocal(src));
-      } else if (typeof src === 'object') {
-        addCit(src.title || src.citation || src.ref, src.pmid || src.pubmedId, src.year, src.authors);
-      }
+  for (const source of Array.isArray(record?.sources) ? record.sources : []) {
+    if (!source) continue
+    if (typeof source === 'string') addCitation(source, source)
+    else if (typeof source === 'object') {
+      addCitation(source.title || source.citation || source.ref, source.pmid || source.pubmedId, source.year, source.authors)
     }
   }
 
-  // Process references
-  if (Array.isArray(record?.references)) {
-    for (const ref of record.references) {
-      if (!ref) continue;
-      if (typeof ref === 'string') {
-        addCit(ref, parsePmidLocal(ref));
-      } else if (typeof ref === 'object') {
-        addCit(ref.title || ref.citation || ref.ref, ref.pmid || ref.pubmedId, ref.year, ref.authors);
-      }
+  for (const reference of Array.isArray(record?.references) ? record.references : []) {
+    if (!reference) continue
+    if (typeof reference === 'string') addCitation(reference, reference)
+    else if (typeof reference === 'object') {
+      addCitation(reference.title || reference.citation || reference.ref, reference.pmid || reference.pubmedId, reference.year, reference.authors)
     }
   }
 
-  // Process pmids
-  if (Array.isArray(record?.pmids)) {
-    for (const pmid of record.pmids) {
-      if (!pmid) continue;
-      const id = String(pmid).trim();
-      addCit(`PubMed ${id}`, id);
-    }
+  for (const pmid of Array.isArray(record?.pmids) ? record.pmids : []) {
+    if (pmid) addCitation(`PubMed ${String(pmid).trim()}`, pmid)
   }
 
-  return results;
+  return results
 }
 
-// Load Study Registry sheet from workbook (supports both old and new consolidated formats)
 async function loadStudyRegistryCitations() {
   if (!fs.existsSync(WORKBOOK_PATH)) {
-    console.warn('[freshness-metadata] Workbook not found at:', WORKBOOK_PATH);
-    return {};
+    console.warn('[freshness-metadata] Workbook not found at:', WORKBOOK_PATH)
+    return {}
   }
 
-  let wb;
+  let workbook
   try {
-    wb = await readWorkbook(WORKBOOK_PATH);
-  } catch (err) {
-    console.warn('[freshness-metadata] Could not read workbook:', err.message);
-    return {};
+    workbook = await readWorkbook(WORKBOOK_PATH)
+  } catch (error) {
+    console.warn('[freshness-metadata] Could not read workbook:', error.message)
+    return {}
   }
 
-  // Support both old 'Study Registry' and new 'Evidence_Register' / 'Sheet8'
-  const sheetCandidates = ['Study Registry', 'Evidence_Register', 'Sheet8'];
-  const sheetName = sheetCandidates.find((name) => getSheet(wb, name));
+  const sheetCandidates = ['Study Registry', 'Evidence_Register', 'Sheet8']
+  const sheetName = sheetCandidates.find(name => getSheet(workbook, name))
   if (!sheetName) {
-    console.warn('[freshness-metadata] No study registry sheet found');
-    return {};
+    console.warn('[freshness-metadata] No study registry sheet found')
+    return {}
   }
 
-  const rows = sheetToRows(getSheet(wb, sheetName));
-  const results = {};
+  const results = {}
+  for (const row of sheetToRows(getSheet(workbook, sheetName))) {
+    const slug = String(row.compound_slug || row.slug || row.herb_slug || row.entity_slug || '').trim().toLowerCase()
+    const source = String(row.pmid_or_source || row.pmid || row.doi || row.url_or_source || row.source || '').trim()
+    const notes = String(row.notes || row.study_title || row.title || row.supported_claim_language || '').trim()
+    const studyType = String(row.study_type || row.evidence_type || '').trim()
+    if (!slug || !source) continue
 
-  for (const row of rows) {
-    const slug = String(row.compound_slug || row.slug || row.herb_slug || row.entity_slug || '').trim().toLowerCase();
-    const pmidOrSource = String(row.pmid_or_source || row.pmid || row.doi || row.url_or_source || row.source || '').trim();
-    const notes = String(row.notes || row.study_title || row.title || row.supported_claim_language || '').trim();
-    const studyType = String(row.study_type || row.evidence_type || '').trim();
-
-    if (!slug || !pmidOrSource) continue;
-
-    const pmid = parsePmid(pmidOrSource);
-    const title = pmid ? `PubMed ${pmid}` : pmidOrSource;
-
-    if (!results[slug]) results[slug] = [];
-    const list = results[slug];
-    if (!list.some(c => (pmid && c.pmid === pmid) || c.title === title)) {
-      list.push({ title: notes || title, pmid, studyType });
+    const pmid = parsePmid(source)
+    const title = notes || (pmid ? `PubMed ${pmid}` : source)
+    if (!results[slug]) results[slug] = []
+    if (!results[slug].some(citation => (pmid && citation.pmid === pmid) || citation.title === title)) {
+      results[slug].push({ title, pmid, studyType })
     }
   }
 
-  return results;
+  return results
 }
 
-// Parse goals and option slugs from data/goals.ts
 function parseGoalsConfig() {
-  const goalsFilePath = path.join(ROOT, 'data', 'goals.ts');
-  if (!fs.existsSync(goalsFilePath)) {
-    console.warn('[freshness-metadata] goals.ts not found');
-    return [];
+  const goalsFilePath = path.join(ROOT, 'data', 'goals.ts')
+  if (!fs.existsSync(goalsFilePath)) return []
+
+  const content = fs.readFileSync(goalsFilePath, 'utf8')
+  const goals = []
+  const goalBlockRegex = /slug:\s*'([^']+)',[\s\S]*?options:\s*\[([\s\S]*?)\]/g
+  let match
+
+  while ((match = goalBlockRegex.exec(content)) !== null) {
+    const optionSlugs = []
+    const optionRegex = /slug:\s*'([^']+)'/g
+    let optionMatch
+    while ((optionMatch = optionRegex.exec(match[2])) !== null) optionSlugs.push(optionMatch[1])
+    goals.push({ slug: match[1], options: optionSlugs })
   }
 
-  const content = fs.readFileSync(goalsFilePath, 'utf8');
-  const goals = [];
-  
-  // Match each goal block
-  const goalBlockRegex = /slug:\s*'([^']+)',[\s\S]*?options:\s*\[([\s\S]*?)\]/g;
-  let match;
-  while ((match = goalBlockRegex.exec(content)) !== null) {
-    const goalSlug = match[1];
-    const optionsBlock = match[2];
-    
-    // Find options inside this block
-    const optionSlugs = [];
-    const optionRegex = /slug:\s*'([^']+)'/g;
-    let optMatch;
-    while ((optMatch = optionRegex.exec(optionsBlock)) !== null) {
-      optionSlugs.push(optMatch[1]);
+  return goals
+}
+
+function readJson(filePath, fallback) {
+  if (!fs.existsSync(filePath)) return fallback
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'))
+}
+
+function combineCitations(...lists) {
+  const combined = []
+  for (const list of lists) {
+    for (const citation of list || []) {
+      const duplicate = combined.some(existing =>
+        (citation.pmid && existing.pmid === citation.pmid) ||
+        (!citation.pmid && citation.title && existing.title === citation.title),
+      )
+      if (!duplicate) combined.push(citation)
     }
-    
-    goals.push({
-      slug: goalSlug,
-      options: optionSlugs
-    });
   }
-  
-  return goals;
+  return combined
 }
 
 async function main() {
-  console.log('[freshness-metadata] Starting metadata compilation...');
-  
-  const studyRegistry = await loadStudyRegistryCitations();
-  const goalsConfig = parseGoalsConfig();
-  
-  // Load herbs and compounds lists
-  const herbsFile = path.join(DATA_DIR, 'herbs.json');
-  const compoundsFile = path.join(DATA_DIR, 'compounds.json');
-  
-  const herbs = fs.existsSync(herbsFile) ? JSON.parse(fs.readFileSync(herbsFile, 'utf8')) : [];
-  const compounds = fs.existsSync(compoundsFile) ? JSON.parse(fs.readFileSync(compoundsFile, 'utf8')) : [];
+  console.log('[freshness-metadata] Starting truthful freshness compilation...')
 
-  // Load all evidence engines
-  const goalSlugs = ['sleep', 'stress', 'focus', 'anxiety'];
-  const engines = {};
-  for (const g of goalSlugs) {
-    const p = path.join(DATA_DIR, 'evidence-engine', `${g}.json`);
-    if (fs.existsSync(p)) {
-      engines[g] = JSON.parse(fs.readFileSync(p, 'utf8'));
-    }
+  const studyRegistry = await loadStudyRegistryCitations()
+  const goalsConfig = parseGoalsConfig()
+  const herbs = readJson(path.join(DATA_DIR, 'herbs.json'), [])
+  const compounds = readJson(path.join(DATA_DIR, 'compounds.json'), [])
+
+  const engines = {}
+  for (const goal of ['sleep', 'stress', 'focus', 'anxiety']) {
+    const enginePath = path.join(DATA_DIR, 'evidence-engine', `${goal}.json`)
+    if (fs.existsSync(enginePath)) engines[goal] = readJson(enginePath, {})
   }
 
-  // Get citations from evidence engines for a specific slug
   function getEngineCitationsForSlug(slug) {
-    const citations = [];
-    const seen = new Set();
-    
+    const citations = []
     for (const engine of Object.values(engines)) {
-      const claims = engine.claims || [];
-      const sourcesByClaim = engine.sourcesByClaim || {};
-      
-      for (const claim of claims) {
-        if (claim.ingredient_slug === slug || claim.ingredientSlug === slug) {
-          const sources = sourcesByClaim[claim.claim_id] || sourcesByClaim[claim.claimId] || [];
-          for (const s of sources) {
-            const title = s.title || s.citation || '';
-            const pmid = s.pmid || parsePmid(s.url) || parsePmid(title);
-            const key = pmid || title;
-            if (key && !seen.has(key)) {
-              seen.add(key);
-              citations.push({ title, pmid, year: s.year, authors: s.authors || s.citation_label });
-            }
-          }
+      const sourcesByClaim = engine.sourcesByClaim || {}
+      for (const claim of engine.claims || []) {
+        if (claim.ingredient_slug !== slug && claim.ingredientSlug !== slug) continue
+        const sources = sourcesByClaim[claim.claim_id] || sourcesByClaim[claim.claimId] || []
+        for (const source of sources) {
+          const title = source.title || source.citation || ''
+          citations.push({
+            title,
+            pmid: source.pmid || parsePmid(source.url) || parsePmid(title),
+            year: source.year,
+            authors: source.authors || source.citation_label,
+          })
         }
       }
     }
-    return citations;
+    return combineCitations(citations)
   }
 
   const metadata = {
     homepage: {
+      // This is an explicitly maintained editorial date, not a deployment time.
       lastReviewed: '2026-06-06',
-      citationCount: 0
+      evidenceSearchDate: '',
+      factualUpdatedAt: '',
+      templateUpdatedAt: '',
+      citationCount: 0,
     },
     goals: {},
-    profiles: {}
-  };
-
-  const allUniqueStudies = [];
-  const addUniqueStudy = (cit) => {
-    const key = cit.pmid || cit.title;
-    if (key && !allUniqueStudies.some(c => (cit.pmid && c.pmid === cit.pmid) || c.title === cit.title)) {
-      allUniqueStudies.push(cit);
-    }
-  };
-
-  // Compile Profile Freshness & Citations
-  console.log('[freshness-metadata] Processing herbs...');
-  for (const h of herbs) {
-    const detailPath = path.join(DATA_DIR, 'herbs-detail', `${h.slug}.json`);
-    let detail = {};
-    if (fs.existsSync(detailPath)) {
-      detail = JSON.parse(fs.readFileSync(detailPath, 'utf8'));
-    }
-    
-    const merged = { ...h, ...detail };
-    const recordCits = extractCitationsFromRecord(merged);
-    const engineCits = getEngineCitationsForSlug(h.slug);
-    const registryCits = studyRegistry[h.slug] || [];
-    
-    // Combine and deduplicate
-    const combined = [...recordCits];
-    const addList = [...engineCits, ...registryCits];
-    for (const ec of addList) {
-      if (!combined.some(c => (ec.pmid && c.pmid === ec.pmid) || (ec.title && c.title === ec.title))) {
-        combined.push(ec);
-      }
-    }
-    
-    // Add to global list
-    combined.forEach(addUniqueStudy);
-    
-    metadata.profiles[h.slug] = {
-      lastReviewed: getRecordedReviewDate(merged),
-      citationCount: combined.length
-    };
+    profiles: {},
   }
 
-  console.log('[freshness-metadata] Processing compounds...');
-  for (const c of compounds) {
-    const detailPath = path.join(DATA_DIR, 'compounds-detail', `${c.slug}.json`);
-    let detail = {};
-    if (fs.existsSync(detailPath)) {
-      detail = JSON.parse(fs.readFileSync(detailPath, 'utf8'));
+  const allUniqueStudies = []
+  const addUniqueStudies = citations => {
+    for (const citation of citations) {
+      const duplicate = allUniqueStudies.some(existing =>
+        (citation.pmid && existing.pmid === citation.pmid) ||
+        (!citation.pmid && citation.title && existing.title === citation.title),
+      )
+      if (!duplicate) allUniqueStudies.push(citation)
     }
-    
-    const merged = { ...c, ...detail };
-    const recordCits = extractCitationsFromRecord(merged);
-    const engineCits = getEngineCitationsForSlug(c.slug);
-    const registryCits = studyRegistry[c.slug] || [];
-    
-    // Combine and deduplicate
-    const combined = [...recordCits];
-    const addList = [...engineCits, ...registryCits];
-    for (const ec of addList) {
-      if (!combined.some(rc => (ec.pmid && rc.pmid === ec.pmid) || (ec.title && rc.title === ec.title))) {
-        combined.push(ec);
-      }
-    }
-    
-    // Add to global list
-    combined.forEach(addUniqueStudy);
-    
-    metadata.profiles[c.slug] = {
-      lastReviewed: getRecordedReviewDate(merged),
-      citationCount: combined.length
-    };
   }
 
-  // Compile Goal Pathway Freshness & Citations
-  console.log('[freshness-metadata] Processing goals...');
-  
-  // Mapping of goals to Authority Freshness Registry dates
+  for (const [kind, records] of [['herbs', herbs], ['compounds', compounds]]) {
+    console.log(`[freshness-metadata] Processing ${kind}...`)
+    for (const record of records) {
+      const detailPath = path.join(DATA_DIR, `${kind}-detail`, `${record.slug}.json`)
+      const detail = readJson(detailPath, {})
+      const merged = { ...record, ...detail }
+      const citations = combineCitations(
+        extractCitationsFromRecord(merged),
+        getEngineCitationsForSlug(record.slug),
+        studyRegistry[record.slug] || [],
+      )
+
+      addUniqueStudies(citations)
+      metadata.profiles[record.slug] = getFreshness(merged, citations.length)
+    }
+  }
+
   const goalRegistryDates = {
     sleep: '2026-05-10',
     stress: '2026-05-10',
@@ -315,67 +280,58 @@ async function main() {
     longevity: '2026-05-10',
     cognition: '2026-05-10',
     inflammation: '2026-05-10',
-    pain: '2026-05-10'
-  };
+    pain: '2026-05-10',
+  }
 
   for (const goal of goalsConfig) {
-    const goalCitations = [];
-    const addGoalCitations = (cit) => {
-      const key = cit.pmid || cit.title;
-      if (key && !goalCitations.some(c => (cit.pmid && c.pmid === cit.pmid) || c.title === cit.title)) {
-        goalCitations.push(cit);
-      }
-    };
-    
-    // 1. Add citations from the goal options
-    for (const optSlug of goal.options) {
-      // Find herb or compound detail
-      let detail = {};
-      const herbDetailPath = path.join(DATA_DIR, 'herbs-detail', `${optSlug}.json`);
-      const compDetailPath = path.join(DATA_DIR, 'compounds-detail', `${optSlug}.json`);
-      
-      if (fs.existsSync(herbDetailPath)) {
-        detail = JSON.parse(fs.readFileSync(herbDetailPath, 'utf8'));
-      } else if (fs.existsSync(compDetailPath)) {
-        detail = JSON.parse(fs.readFileSync(compDetailPath, 'utf8'));
-      }
-      
-      const recordCits = extractCitationsFromRecord(detail);
-      const registryCits = studyRegistry[optSlug] || [];
-      const engineCits = getEngineCitationsForSlug(optSlug);
-      
-      [...recordCits, ...registryCits, ...engineCits].forEach(addGoalCitations);
+    const goalCitations = []
+    for (const optionSlug of goal.options) {
+      const herbDetail = path.join(DATA_DIR, 'herbs-detail', `${optionSlug}.json`)
+      const compoundDetail = path.join(DATA_DIR, 'compounds-detail', `${optionSlug}.json`)
+      const detail = fs.existsSync(herbDetail)
+        ? readJson(herbDetail, {})
+        : readJson(compoundDetail, {})
+      goalCitations.push(
+        ...extractCitationsFromRecord(detail),
+        ...(studyRegistry[optionSlug] || []),
+        ...getEngineCitationsForSlug(optionSlug),
+      )
     }
-    
-    // 2. Add citations from the goal's specific evidence engine sources
-    const engine = engines[goal.slug];
+
+    const engine = engines[goal.slug]
     if (engine) {
-      const sourcesByClaim = engine.sourcesByClaim || {};
-      for (const sources of Object.values(sourcesByClaim)) {
-        for (const s of sources) {
-          const title = s.title || s.citation || '';
-          const pmid = s.pmid || parsePmid(s.url) || parsePmid(title);
-          addGoalCitations({ title, pmid, year: s.year, authors: s.authors });
+      for (const sources of Object.values(engine.sourcesByClaim || {})) {
+        for (const source of sources) {
+          const title = source.title || source.citation || ''
+          goalCitations.push({
+            title,
+            pmid: source.pmid || parsePmid(source.url) || parsePmid(title),
+            year: source.year,
+            authors: source.authors,
+          })
         }
       }
     }
-    
+
     metadata.goals[goal.slug] = {
       lastReviewed: goalRegistryDates[goal.slug] || '',
-      citationCount: goalCitations.length
-    };
+      evidenceSearchDate: '',
+      factualUpdatedAt: '',
+      templateUpdatedAt: '',
+      citationCount: combineCitations(goalCitations).length,
+    }
   }
 
-  // Set homepage stats
-  metadata.homepage.citationCount = allUniqueStudies.length;
-  
-  // Write result to file
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(metadata, null, 2) + '\n', 'utf8');
-  console.log(`[freshness-metadata] Successfully compiled and wrote freshness metadata to: ${OUTPUT_FILE}`);
-  console.log(`[freshness-metadata] Homepage: ${metadata.homepage.lastReviewed} • ${metadata.homepage.citationCount} human studies cited`);
+  metadata.homepage.citationCount = allUniqueStudies.length
+  fs.writeFileSync(OUTPUT_FILE, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8')
+
+  const reviewedProfiles = Object.values(metadata.profiles).filter(profile => profile.lastReviewed).length
+  console.log(`[freshness-metadata] Wrote ${OUTPUT_FILE}`)
+  console.log(`[freshness-metadata] ${reviewedProfiles}/${Object.keys(metadata.profiles).length} profiles have an explicit editorial review date`)
+  console.log(`[freshness-metadata] ${metadata.homepage.citationCount} unique cited sources in the compiled library`)
 }
 
-main().catch((error) => {
-  console.error('[freshness-metadata] Compilation failed:', error);
-  process.exit(1);
-});
+main().catch(error => {
+  console.error('[freshness-metadata] Compilation failed:', error)
+  process.exit(1)
+})
