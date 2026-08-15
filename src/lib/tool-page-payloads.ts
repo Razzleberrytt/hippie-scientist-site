@@ -98,6 +98,7 @@ export function toBuyingToolRecord(record: RuntimeRecord, type: ToolKind) {
   const studiedForm = firstText(record, ['studied_form', 'studiedForm', 'clinically_studied_form', 'clinicallyStudiedForm', 'extract_type', 'extractType'])
   const activeMarker = firstText(record, ['active_marker', 'activeMarker', 'marker_compound', 'markerCompound', 'standardized_to', 'standardizedTo'])
   const elementalAmount = firstText(record, ['elemental_amount', 'elementalAmount', 'elemental_mg', 'elementalMg'])
+  const activeDose = firstText(record, ['active_dose', 'activeDose', 'dose_per_serving', 'dosePerServing', 'serving_amount', 'servingAmount'])
 
   return {
     ...baseToolRecord(record, type),
@@ -111,6 +112,8 @@ export function toBuyingToolRecord(record: RuntimeRecord, type: ToolKind) {
     studied_form: studiedForm,
     active_marker: activeMarker,
     elemental_amount: elementalAmount,
+    active_dose: activeDose,
+    transparent_active_dose: firstBoolean(record, ['transparent_active_dose', 'transparentActiveDose']),
     third_party_testing: firstBoolean(record, ['third_party_testing', 'thirdPartyTesting', 'independent_testing', 'independentTesting']),
     coa_available: firstBoolean(record, ['coa_available', 'coaAvailable', 'certificate_of_analysis', 'certificateOfAnalysis']),
     contaminant_testing: firstBoolean(record, ['contaminant_testing', 'contaminantTesting', 'heavy_metal_testing', 'heavyMetalTesting']),
