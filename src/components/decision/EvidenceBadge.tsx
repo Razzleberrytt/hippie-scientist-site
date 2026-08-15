@@ -1,6 +1,6 @@
 'use client'
 
-
+import { canonicalGradeFromEvidenceTier, normalizeEvidenceGrade } from '../../../lib/evidence-grade'
 
 export type EvidenceTier = 'strong' | 'moderate' | 'early' | 'review' | 'unknown'
 
@@ -55,16 +55,26 @@ const TIER_CONFIG: Record<
 }
 
 /**
- * Maps raw workbook/runtime evidence strings to a normalized EvidenceTier.
- * Call this at the boundary where you receive raw data.
+ * Compatibility projection for badge styling. Scientific normalization belongs
+ * to the canonical evidence-grade contract; this function only maps that grade
+ * onto the smaller visual tier vocabulary used by this component.
  */
 export function normalizeEvidenceTier(raw?: string | null): EvidenceTier {
-  if (!raw) return 'unknown'
-  const v = raw.toLowerCase()
-  if (v.includes('tier-a') || v.includes('tier a') || v === 'a' || v === 'strong') return 'strong'
-  if (v.includes('tier-b') || v.includes('tier b') || v === 'b' || v === 'moderate') return 'moderate'
-  if (v.includes('tier-c') || v.includes('tier c') || v === 'c' || v === 'early' || v === 'preliminary') return 'early'
-  if (v.includes('review') || v.includes('mixed') || v.includes('limited')) return 'review'
+  if (!raw?.trim()) return 'unknown'
+
+  // Legacy `tier-a`/`tier b` are ingestion aliases. Strip only the tier prefix,
+  // then hand the actual grade interpretation to the canonical normalizer.
+  const legacyTierValue = raw.trim().replace(/^tier[-\s]*/i, '')
+  const normalized = normalizeEvidenceGrade(legacyTierValue)
+  const grade = normalized.grade && !normalized.outcomeDependent
+    ? normalized.grade
+    : canonicalGradeFromEvidenceTier(raw)
+
+  if (grade === 'A') return 'strong'
+  if (grade === 'B') return 'moderate'
+  if (grade === 'C' || grade === 'D') return 'early'
+  if (grade === 'Avoid/Insufficient') return 'review'
+  if (/\breview\b/i.test(raw)) return 'review'
   return 'unknown'
 }
 
