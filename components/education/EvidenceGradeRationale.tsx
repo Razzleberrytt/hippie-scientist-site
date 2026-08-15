@@ -3,7 +3,7 @@ import * as React from 'react'
 import { normalizeEvidenceGrade } from '@/lib/evidence-grade'
 
 export interface EvidenceGradeRationaleProps {
-  grade: 'A' | 'B' | 'C' | 'D' | 'F' | string
+  grade: 'A' | 'B' | 'C' | 'D' | 'Avoid/Insufficient' | string
   designMatch: string
   riskOfBias: 'Low' | 'Medium' | 'High' | string
   consistency: 'Consistent' | 'Mixed' | 'Inconsistent' | string
@@ -17,49 +17,55 @@ export default function EvidenceGradeRationale({
   consistency,
   children,
 }: EvidenceGradeRationaleProps) {
-  const gradeConfig: Record<string, { bg: string; text: string; border: string; label: string }> = {
+  const gradeConfig: Record<string, { bg: string; text: string; border: string; label: string; badge: string }> = {
     A: {
       bg: 'bg-emerald-50 dark:bg-emerald-300/10',
       text: 'text-emerald-800 dark:text-emerald-100',
       border: 'border-emerald-200 dark:border-emerald-200/20',
       label: 'Grade A: Strong Evidence',
+      badge: 'A',
     },
     B: {
       bg: 'bg-blue-50 dark:bg-blue-300/10',
       text: 'text-blue-800 dark:text-blue-100',
       border: 'border-blue-200 dark:border-blue-200/20',
       label: 'Grade B: Moderate Evidence',
+      badge: 'B',
     },
     C: {
       bg: 'bg-amber-50 dark:bg-amber-300/10',
       text: 'text-amber-800 dark:text-amber-100',
       border: 'border-amber-200 dark:border-amber-200/20',
       label: 'Grade C: Limited Evidence',
+      badge: 'C',
     },
     D: {
       bg: 'bg-slate-50 dark:bg-slate-300/10',
       text: 'text-slate-700 dark:text-slate-100',
       border: 'border-slate-200 dark:border-slate-200/20',
-      label: 'Grade D: Theoretical Evidence',
+      label: 'Grade D: Preliminary / Theoretical Evidence',
+      badge: 'D',
     },
-    F: {
+    'Avoid/Insufficient': {
       bg: 'bg-rose-50 dark:bg-rose-300/10',
       text: 'text-rose-800 dark:text-rose-100',
       border: 'border-rose-200 dark:border-rose-200/20',
-      label: 'Grade F: Insufficient or Contraindicated',
+      label: 'Avoid / Insufficient Evidence',
+      badge: '!',
     },
   }
 
-  // `evidence_grade` is free text in the workbook, so normalize before styling:
-  // a bare lowercase "c" must still read as Grade C, and a phrase like
-  // "B for PCOS; D for core goals" must never be painted inside the badge.
+  // `evidence_grade` is legacy free text at the ingestion boundary. Normalize
+  // before styling so lower-case/modifier values cannot create a second visual
+  // grade vocabulary and F migrates to Avoid/Insufficient.
   const normalized = normalizeEvidenceGrade(grade)
-  const badgeLetter = normalized.letter
-  const config = (badgeLetter && gradeConfig[badgeLetter]) || {
+  const canonicalGrade = normalized.grade
+  const config = (canonicalGrade && gradeConfig[canonicalGrade]) || {
     bg: 'bg-slate-50 dark:bg-slate-300/10',
     text: 'text-slate-700 dark:text-slate-100',
     border: 'border-slate-200 dark:border-slate-200/20',
     label: normalized.label,
+    badge: '–',
   }
 
   const biasColors: Record<string, string> = {
@@ -75,7 +81,7 @@ export default function EvidenceGradeRationale({
     Inconsistent: 'text-rose-700 font-semibold dark:text-rose-100',
   }
   const consistencyColor = consistencyColors[consistency] || 'font-semibold text-muted'
-  const headingId = `evidence-grade-${(badgeLetter ?? 'unassigned').toLowerCase()}`
+  const headingId = `evidence-grade-${(canonicalGrade ?? 'unassigned').toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
 
   return (
     <section
@@ -84,14 +90,11 @@ export default function EvidenceGradeRationale({
     >
       <div className="grid items-start gap-5 md:grid-cols-[120px_1fr] md:gap-6">
         <div className="flex flex-row items-center gap-3 text-left md:flex-col md:justify-center md:text-center">
-          {/* Only a single canonical letter belongs in the badge. When the
-              source value cannot be reduced to one, show a neutral mark and let
-              the heading carry the real wording. */}
           <div
             className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 font-display text-2xl font-bold shadow-inner md:h-20 md:w-20 md:text-3xl ${config.bg} ${config.text} ${config.border}`}
             aria-hidden="true"
           >
-            {badgeLetter ?? '–'}
+            {config.badge}
           </div>
           <span className="block text-[0.65rem] font-bold uppercase tracking-wider text-muted md:mt-2">
             Evidence Grade

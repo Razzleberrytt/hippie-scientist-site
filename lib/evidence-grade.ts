@@ -1,49 +1,37 @@
 /**
- * evidence-grade.ts
+ * Canonical evidence-grade contract.
  *
- * `evidence_grade` in the workbook is free text. Across the current corpus it
- * holds well over a hundred distinct values — `"a"`, `"C+"`, `"moderate-high"`,
- * `"Strong drug evidence"`, `"B for PCOS; D for core goals"` — because it has
- * been filled by different passes with different conventions.
+ * The workbook historically accepted free-text values such as `a`, `B+`,
+ * `moderate-high`, `Strong drug evidence`, and `F`. Those legacy values are
+ * still accepted at the ingestion boundary, but they must collapse into one
+ * canonical public/data contract:
  *
- * Templates previously passed that raw string straight into the grade badge,
- * which produced three separate defects:
+ *   A | B | C | D | Avoid/Insufficient
  *
- *   1. lowercase `"c"` never matched the `C` styling key, so most herb profiles
- *      rendered a generic "Grade c" instead of "Grade C: Limited Evidence";
- *   2. multi-word values were painted verbatim inside a 64px circular badge;
- *   3. a missing grade defaulted to `'C'`, asserting a specific evidence grade
- *      the data never supported.
- *
- * This module is the single normalization boundary. It maps any raw value to a
- * canonical letter when one is genuinely implied, and returns `null` when it is
- * not — callers must render the absence rather than invent a grade.
- *
- * `evidence_tier` ("Strong / Moderate / Limited / Mechanistic Human Evidence")
- * is already a clean taxonomy and remains the preferred signal; this exists to
- * stop the messier field from contradicting it on screen.
+ * Unknown or outcome-dependent values intentionally normalize to `null`; a
+ * caller must not invent a grade when the source does not support one.
  */
 
-export type EvidenceLetter = 'A' | 'B' | 'C' | 'D' | 'F'
+export const CANONICAL_EVIDENCE_GRADES = ['A', 'B', 'C', 'D', 'Avoid/Insufficient'] as const
 
+export type CanonicalEvidenceGrade = (typeof CANONICAL_EVIDENCE_GRADES)[number]
+export type EvidenceLetter = Exclude<CanonicalEvidenceGrade, 'Avoid/Insufficient'>
 export type EvidenceBand = 'strong' | 'moderate' | 'limited' | 'preliminary' | 'insufficient'
 
 export type NormalizedEvidenceGrade = {
-  /** Canonical letter, or null when the raw value does not imply one. */
+  /** Canonical grade, or null when no honest single grade can be assigned. */
+  grade: CanonicalEvidenceGrade | null
+  /** Single-letter badge value. Avoid/Insufficient intentionally has no letter. */
   letter: EvidenceLetter | null
-  /** Coarse band, usable even when no letter can be assigned. */
+  /** Coarse semantic band used for comparisons and presentation. */
   band: EvidenceBand | null
   /** Human-readable label for display. */
   label: string
-  /** The original value, preserved for tooltips and audit trails. */
+  /** Original source value preserved for audit/migration reporting. */
   raw: string
-  /** True when the raw value was already a clean letter grade. */
+  /** True only when the source already equals one canonical enum value. */
   canonical: boolean
-  /**
-   * True when the raw value describes different grades for different outcomes
-   * (e.g. "B for PCOS; D for core goals"). A single badge cannot represent
-   * these honestly, so callers should show the text rather than a letter.
-   */
+  /** True when the source grades different outcomes differently. */
   outcomeDependent: boolean
 }
 
@@ -55,74 +43,63 @@ const BAND_LABEL: Record<EvidenceBand, string> = {
   insufficient: 'Insufficient evidence',
 }
 
-const LETTER_FOR_BAND: Record<EvidenceBand, EvidenceLetter> = {
+export const CANONICAL_GRADE_LABEL: Record<CanonicalEvidenceGrade, string> = {
+  A: 'Grade A: Strong Evidence',
+  B: 'Grade B: Moderate Evidence',
+  C: 'Grade C: Limited Evidence',
+  D: 'Grade D: Preliminary / Theoretical Evidence',
+  'Avoid/Insufficient': 'Avoid / Insufficient Evidence',
+}
+
+/** Compatibility export for components that render only letter-grade badges. */
+export const LETTER_LABEL: Record<EvidenceLetter, string> = {
+  A: CANONICAL_GRADE_LABEL.A,
+  B: CANONICAL_GRADE_LABEL.B,
+  C: CANONICAL_GRADE_LABEL.C,
+  D: CANONICAL_GRADE_LABEL.D,
+}
+
+const GRADE_FOR_BAND: Record<EvidenceBand, CanonicalEvidenceGrade> = {
   strong: 'A',
   moderate: 'B',
   limited: 'C',
   preliminary: 'D',
-  insufficient: 'F',
+  insufficient: 'Avoid/Insufficient',
 }
 
-export const LETTER_LABEL: Record<EvidenceLetter, string> = {
-  A: 'Grade A: Strong Evidence',
-  B: 'Grade B: Moderate Evidence',
-  C: 'Grade C: Limited Evidence',
-  D: 'Grade D: Theoretical Evidence',
-  F: 'Grade F: Insufficient or Contraindicated',
+const BAND_FOR_GRADE: Record<CanonicalEvidenceGrade, EvidenceBand> = {
+  A: 'strong',
+  B: 'moderate',
+  C: 'limited',
+  D: 'preliminary',
+  'Avoid/Insufficient': 'insufficient',
 }
 
-/** A bare letter grade, optionally with a +/- modifier. */
-const BARE_LETTER_RE = /^([a-df])\s*[+-]?$/i
+/** A bare legacy letter grade, optionally with a +/- modifier. */
+const BARE_LETTER_RE = /^([a-d])\s*[+-]?$/i
+const LEGACY_FAIL_RE = /^f\s*[+-]?$/i
 
 /**
- * Values that grade different outcomes differently. Detected before anything
- * else, because picking one letter out of them would misrepresent the record.
+ * Values that grade different outcomes differently. Picking one grade from
+ * these would misrepresent the record, so they remain explicitly unassigned.
  */
 const OUTCOME_DEPENDENT_RE = /\b[a-df]\s*[+-]?\s+for\s+\w+.*;\s*[a-df]\s*[+-]?\s+for\s+/i
 
 /**
- * Phrase-level mappings, ordered most specific first.
- *
- * Hedged compounds round *down*, never up: "moderate-high" lands on `moderate`
- * and "limited-to-moderate" on `moderate` only because "moderate" is its weaker
- * ceiling. Overstating how strong the evidence is would be the costlier error
- * on health content, so ambiguity always resolves toward the weaker claim.
- *
- * Deliberately absent: "not applicable". A grade that does not apply — a blend,
- * a stack, a non-gradeable entity — is not the same as insufficient evidence,
- * so it falls through to an unassigned grade rather than being shown as "F".
+ * Legacy phrase mappings, ordered from strongest/specific to weakest. Ambiguous
+ * language resolves conservatively; explicit insufficiency/avoidance is never
+ * collapsed into D because the canonical model reserves its own state for it.
  */
 const PHRASE_BANDS: [RegExp, EvidenceBand][] = [
   [/\b(moderate[- ]to[- ]strong|strong|robust|high[- ]quality|well[- ]established)\b/i, 'strong'],
   [/\b(limited[- ]to[- ]moderate|moderate)\b/i, 'moderate'],
   [/\b(mixed|inconsistent|limited|low[- ]moderate|emerging)\b/i, 'limited'],
-  [/\b(preliminary|pilot|early|weak|mechanistic|theoretical|low)\b/i, 'preliminary'],
-  [/\b(insufficient|no human|none|avoid|blocked)\b/i, 'insufficient'],
+  [/\b(preliminary|pilot|early|weak|mechanistic|theoretical|preclinical|no human|low)\b/i, 'preliminary'],
+  [/\b(insufficient|no evidence|none|avoid|blocked|contraindicated)\b/i, 'insufficient'],
 ]
 
-function bandFromPhrase(value: string): EvidenceBand | null {
-  for (const [pattern, band] of PHRASE_BANDS) {
-    if (pattern.test(value)) return band
-  }
-  return null
-}
-
-function bandFromLetter(letter: EvidenceLetter): EvidenceBand {
-  switch (letter) {
-    case 'A':
-      return 'strong'
-    case 'B':
-      return 'moderate'
-    case 'C':
-      return 'limited'
-    case 'D':
-      return 'preliminary'
-    default:
-      return 'insufficient'
-  }
-}
-
 const EMPTY: NormalizedEvidenceGrade = {
+  grade: null,
   letter: null,
   band: null,
   label: 'Evidence grade not assigned',
@@ -131,71 +108,126 @@ const EMPTY: NormalizedEvidenceGrade = {
   outcomeDependent: false,
 }
 
+export function isCanonicalEvidenceGrade(value: unknown): value is CanonicalEvidenceGrade {
+  return CANONICAL_EVIDENCE_GRADES.includes(value as CanonicalEvidenceGrade)
+}
+
+export function bandFromCanonicalGrade(grade: CanonicalEvidenceGrade): EvidenceBand {
+  return BAND_FOR_GRADE[grade]
+}
+
+function bandFromPhrase(value: string): EvidenceBand | null {
+  for (const [pattern, band] of PHRASE_BANDS) {
+    if (pattern.test(value)) return band
+  }
+  return null
+}
+
+function normalizedFromGrade(
+  grade: CanonicalEvidenceGrade,
+  raw: string,
+  canonical: boolean,
+  sourceLabel?: string,
+): NormalizedEvidenceGrade {
+  const label = sourceLabel && sourceLabel !== grade
+    ? `${CANONICAL_GRADE_LABEL[grade]} — ${sourceLabel}`
+    : CANONICAL_GRADE_LABEL[grade]
+
+  return {
+    grade,
+    letter: grade === 'Avoid/Insufficient' ? null : grade,
+    band: BAND_FOR_GRADE[grade],
+    label,
+    raw,
+    canonical,
+    outcomeDependent: false,
+  }
+}
+
 /**
- * Normalize any raw `evidence_grade` value.
+ * Normalize any raw evidence-grade value to the canonical enum.
  *
- * Never invents a grade: an unrecognized or empty value yields `letter: null`,
- * and the caller is expected to render that absence rather than a default.
+ * Legacy values are accepted only at this boundary so migration and rendering
+ * can share one deterministic interpretation. Unrecognized values return null.
  */
 export function normalizeEvidenceGrade(raw: unknown): NormalizedEvidenceGrade {
   const value = String(raw ?? '').trim()
   if (!value) return EMPTY
 
   if (OUTCOME_DEPENDENT_RE.test(value)) {
-    return { letter: null, band: null, label: value, raw: value, canonical: false, outcomeDependent: true }
+    return {
+      grade: null,
+      letter: null,
+      band: null,
+      label: value,
+      raw: value,
+      canonical: false,
+      outcomeDependent: true,
+    }
+  }
+
+  if (isCanonicalEvidenceGrade(value)) {
+    return normalizedFromGrade(value, value, true)
+  }
+
+  if (/^avoid\s*\/\s*insufficient$/i.test(value)) {
+    return normalizedFromGrade('Avoid/Insufficient', value, false)
   }
 
   const bare = BARE_LETTER_RE.exec(value)
   if (bare) {
-    const letter = bare[1].toUpperCase() as EvidenceLetter
-    return {
-      letter,
-      band: bandFromLetter(letter),
-      label: LETTER_LABEL[letter],
-      raw: value,
-      canonical: true,
-      outcomeDependent: false,
-    }
+    const grade = bare[1].toUpperCase() as EvidenceLetter
+    return normalizedFromGrade(grade, value, false)
+  }
+
+  // F was a legacy pseudo-grade. Preserve the meaning while removing F from
+  // the canonical model entirely.
+  if (LEGACY_FAIL_RE.test(value)) {
+    return normalizedFromGrade('Avoid/Insufficient', value, false)
   }
 
   const band = bandFromPhrase(value)
   if (band) {
-    const letter = LETTER_FOR_BAND[band]
-    return {
-      letter,
-      band,
-      // Keep the source wording visible — "Strong drug evidence" says more than
-      // "Grade A", and flattening it would lose the qualifier.
-      label: `${LETTER_LABEL[letter]} — ${value}`,
-      raw: value,
-      canonical: false,
-      outcomeDependent: false,
-    }
+    const grade = GRADE_FOR_BAND[band]
+    return normalizedFromGrade(grade, value, false, value)
   }
 
   return { ...EMPTY, raw: value, label: value }
 }
 
 /**
- * Map a clean `evidence_tier` value ("Strong Human Evidence", "Mechanistic
- * Evidence", …) onto the same band scale, so the two fields can be compared.
+ * Map a legacy evidence-tier phrase onto the canonical grade contract. This is
+ * an adapter for older records; new persisted grade fields should already be
+ * canonical rather than storing these presentation labels.
  */
-export function bandFromEvidenceTier(tier: unknown): EvidenceBand | null {
-  const value = String(tier ?? '').toLowerCase()
+export function canonicalGradeFromEvidenceTier(tier: unknown): CanonicalEvidenceGrade | null {
+  const value = String(tier ?? '').toLowerCase().trim()
   if (!value) return null
-  if (value.includes('strong')) return 'strong'
-  if (value.includes('moderate')) return 'moderate'
-  if (value.includes('limited') || value.includes('early') || value.includes('contextual')) return 'limited'
-  if (value.includes('mechanistic') || value.includes('preclinical')) return 'preliminary'
+  if (/\b(insufficient|no evidence|none|avoid|blocked|contraindicat)/.test(value)) return 'Avoid/Insufficient'
+  if (value.includes('strong')) return 'A'
+  if (value.includes('moderate')) return 'B'
+  if (value.includes('limited') || value.includes('contextual') || value.includes('mixed')) return 'C'
+  if (
+    value.includes('mechanistic') ||
+    value.includes('preclinical') ||
+    value.includes('preliminary') ||
+    value.includes('traditional') ||
+    value.includes('theoretical') ||
+    value.includes('early')
+  ) {
+    return 'D'
+  }
   return null
+}
+
+export function bandFromEvidenceTier(tier: unknown): EvidenceBand | null {
+  const grade = canonicalGradeFromEvidenceTier(tier)
+  return grade ? BAND_FOR_GRADE[grade] : null
 }
 
 const BAND_ORDER: EvidenceBand[] = ['insufficient', 'preliminary', 'limited', 'moderate', 'strong']
 
-/**
- * How far apart the grade and tier fields sit, in bands. Two or more is a
- * contradiction a reader can see: the badge and the tier label disagree.
- */
+/** How far apart two evidence signals sit, in semantic bands. */
 export function gradeTierDistance(gradeBand: EvidenceBand | null, tierBand: EvidenceBand | null): number | null {
   if (!gradeBand || !tierBand) return null
   return Math.abs(BAND_ORDER.indexOf(gradeBand) - BAND_ORDER.indexOf(tierBand))
