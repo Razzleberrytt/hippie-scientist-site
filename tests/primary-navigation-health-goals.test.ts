@@ -3,9 +3,9 @@ import { primaryNavigation } from '@/lib/primary-navigation'
 
 describe('primary navigation health goals', () => {
   it('keeps stress and anxiety as distinct destinations', () => {
-    const topics = primaryNavigation.find((item) => item.label === 'Topics')
+    const goals = primaryNavigation.find((item) => item.label === 'Goals')
 
-    expect(topics?.children).toEqual(
+    expect(goals?.children).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ label: 'Stress', href: '/guides/stress' }),
         expect.objectContaining({ label: 'Anxiety', href: '/guides/anxiety' }),
