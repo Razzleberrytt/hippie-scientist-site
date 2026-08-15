@@ -1,4 +1,3 @@
-import { z } from 'zod'
 import type { RuntimeRecord } from '../types/content'
 import { getEvidenceLabel, getEvidenceLetterGrade } from '../../lib/evidence'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
@@ -10,50 +9,114 @@ export type CanonicalContentKind = 'herb' | 'compound'
 const SAFE_SLUG = /^[a-z0-9][a-z0-9-]*$/
 const ENTITY_ID = /^ent_[a-z_]+_[0-9a-f]{12}$/
 
-const stringOrStringArray = z.union([z.string(), z.array(z.string())]).optional()
-
-/**
- * Runtime-facing content contract.
- *
- * The workbook/canonical store remains the source of truth. This schema is the
- * boundary between generated JSON and application code: it validates the
- * identity/governance fields the UI depends on while deliberately passing
- * through legacy enrichment fields until their migrations are complete.
- */
-export const runtimeContentRecordSchema = z.object({
-  slug: z.string().regex(SAFE_SLUG),
-  id: z.string().regex(ENTITY_ID).optional(),
-  name: z.string().optional(),
-  displayName: z.string().optional(),
-  compoundName: z.string().optional(),
-  canonicalCompoundName: z.string().optional(),
-  entityType: z.string().optional(),
-  entity_type: z.string().optional(),
-  aliases: stringOrStringArray,
-  commonnames: stringOrStringArray,
-  commonNames: stringOrStringArray,
-  scientificname: z.string().optional(),
-  scientificName: z.string().optional(),
-  latinName: z.string().optional(),
-  evidence_grade: z.string().optional(),
-  evidence_tier: z.string().optional(),
-  evidenceTier: z.string().optional(),
-  indexability_status: z.string().optional(),
-  robots: z.string().optional(),
-  sitemap_included: z.union([z.boolean(), z.string()]).optional(),
-  runtime_export_decision: z.string().optional(),
-  profile_status: z.string().optional(),
-  summary_quality: z.string().optional(),
-  monetization_allowed: z.union([z.boolean(), z.string()]).optional(),
-}).passthrough()
-
-export type CanonicalRuntimeContentRecord = z.infer<typeof runtimeContentRecordSchema> & RuntimeRecord
+export type CanonicalRuntimeContentRecord = RuntimeRecord
 
 export type RuntimeContentIssue = {
   source: string
   index?: number
   slug?: string
   issues: string[]
+}
+
+type ContractValidationIssue = {
+  path: string[]
+  message: string
+}
+
+type ContractParseResult =
+  | { success: true; data: CanonicalRuntimeContentRecord }
+  | { success: false; error: { issues: ContractValidationIssue[] } }
+
+const STRING_FIELDS = [
+  'name',
+  'displayName',
+  'compoundName',
+  'canonicalCompoundName',
+  'entityType',
+  'entity_type',
+  'scientificname',
+  'scientificName',
+  'latinName',
+  'evidence_grade',
+  'evidence_tier',
+  'evidenceTier',
+  'indexability_status',
+  'robots',
+  'runtime_export_decision',
+  'profile_status',
+  'summary_quality',
+] as const
+
+const STRING_OR_STRING_ARRAY_FIELDS = ['aliases', 'commonnames', 'commonNames'] as const
+const BOOLEAN_OR_STRING_FIELDS = ['sitemap_included', 'monetization_allowed'] as const
+
+function isObjectRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+}
+
+function validateRuntimeContentRecord(value: unknown): ContractParseResult {
+  if (!isObjectRecord(value)) {
+    return { success: false, error: { issues: [{ path: [], message: 'expected an object record' }] } }
+  }
+
+  const issues: ContractValidationIssue[] = []
+  const slug = value.slug
+  if (typeof slug !== 'string' || !SAFE_SLUG.test(slug)) {
+    issues.push({ path: ['slug'], message: 'must be a lowercase URL-safe slug' })
+  }
+
+  // Canonical entity IDs are validated when present. Legacy non-canonical IDs
+  // are retained during migration rather than turning an otherwise valid public
+  // profile into a runtime 404.
+  if (value.id !== undefined) {
+    if (typeof value.id !== 'string') {
+      issues.push({ path: ['id'], message: 'must be a string when present' })
+    } else if (value.id.startsWith('ent_') && !ENTITY_ID.test(value.id)) {
+      issues.push({ path: ['id'], message: 'malformed canonical entity ID' })
+    }
+  }
+
+  for (const field of STRING_FIELDS) {
+    const fieldValue = value[field]
+    if (fieldValue !== undefined && fieldValue !== null && typeof fieldValue !== 'string') {
+      issues.push({ path: [field], message: 'must be a string when present' })
+    }
+  }
+
+  for (const field of STRING_OR_STRING_ARRAY_FIELDS) {
+    const fieldValue = value[field]
+    if (fieldValue === undefined || fieldValue === null) continue
+    const valid = typeof fieldValue === 'string'
+      || (Array.isArray(fieldValue) && fieldValue.every((item) => typeof item === 'string'))
+    if (!valid) issues.push({ path: [field], message: 'must be a string or string array when present' })
+  }
+
+  for (const field of BOOLEAN_OR_STRING_FIELDS) {
+    const fieldValue = value[field]
+    if (fieldValue === undefined || fieldValue === null) continue
+    if (typeof fieldValue !== 'boolean' && typeof fieldValue !== 'string') {
+      issues.push({ path: [field], message: 'must be a boolean or string when present' })
+    }
+  }
+
+  if (issues.length) return { success: false, error: { issues } }
+  return { success: true, data: value as CanonicalRuntimeContentRecord }
+}
+
+/**
+ * Runtime-facing content contract.
+ *
+ * The workbook/canonical store remains the source of truth. This dependency-free
+ * parser is the boundary between generated JSON and application code: it checks
+ * the identity/governance fields the UI relies on while deliberately passing
+ * through legacy enrichment fields until their migrations are complete.
+ *
+ * The `safeParse` shape is intentionally tiny and local. It avoids adding a
+ * runtime schema dependency solely for this boundary while keeping callers
+ * explicit about success/failure.
+ */
+export const runtimeContentRecordSchema = {
+  safeParse: validateRuntimeContentRecord,
 }
 
 function cleanString(value: unknown): string {
@@ -175,7 +238,7 @@ export function getCanonicalContentPolicy(record: RuntimeRecord, kind?: Canonica
 /**
  * Validate + normalize one generated profile before application code sees it.
  * Invalid records return null (fail closed) rather than being cast to
- * RuntimeRecord. Unknown legacy fields are preserved by the passthrough schema.
+ * RuntimeRecord. Unknown legacy fields are preserved by the parser.
  */
 export function normalizeRuntimeContentRecord(
   value: unknown,
@@ -184,7 +247,7 @@ export function normalizeRuntimeContentRecord(
   const parsed = runtimeContentRecordSchema.safeParse(value)
   if (!parsed.success) return null
 
-  const record = parsed.data as CanonicalRuntimeContentRecord
+  const record = parsed.data
   const displayName = getCanonicalDisplayName(record)
   const aliases = getCanonicalAliases(record)
   const entityType = kind || (record.entityType === 'herb' || record.entityType === 'compound' ? record.entityType : undefined)
