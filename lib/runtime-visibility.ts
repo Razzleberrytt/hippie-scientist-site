@@ -1,5 +1,8 @@
 import { list, text } from '@/lib/display-utils'
-import { getHealthContentGovernance } from '@/lib/health-content-governance'
+import {
+  getDiseaseEditorialAssessment,
+  getHealthContentGovernance,
+} from '@/lib/health-content-governance'
 
 const HIDDEN_VISIBILITY = {
   canRender: false,
@@ -54,9 +57,11 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
   const evidenceTier = text(record?.evidence_tier || record?.evidenceTier || record?.evidence_grade)
   const indexabilityStatus = getIndexabilityStatus(record)
   const healthGovernance = getHealthContentGovernance(record)
+  const diseaseEditorial = getDiseaseEditorialAssessment(record)
 
   const hidden = /^hide$/i.test(exportDecision)
   const diseaseTreatment = healthGovernance.diseaseTreatment
+  const editoriallyIndexable = diseaseEditorial.approved
 
   const weak =
     /^minimal$/i.test(profileStatus) ||
@@ -67,8 +72,8 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
     const publish = indexabilityStatus === 'PUBLISH'
     return {
       canRender: !hidden,
-      canIndex: !hidden && publish,
-      canFeature: !hidden && publish && !diseaseTreatment,
+      canIndex: !hidden && publish && editoriallyIndexable,
+      canFeature: !hidden && publish && editoriallyIndexable && !diseaseTreatment,
       canMonetize: !hidden && indexabilityStatus !== 'BLOCKED' && !weak && !diseaseTreatment,
     }
   }
@@ -81,8 +86,8 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
     const publish = sitemapIncluded && /^index/i.test(robotsField)
     return {
       canRender: !hidden,
-      canIndex: !hidden && publish,
-      canFeature: !hidden && publish && !diseaseTreatment,
+      canIndex: !hidden && publish && editoriallyIndexable,
+      canFeature: !hidden && publish && editoriallyIndexable && !diseaseTreatment,
       canMonetize: !hidden && !weak && !diseaseTreatment,
     }
   }
@@ -99,8 +104,8 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
 
   return {
     canRender: !hidden,
-    canIndex: !hidden && strong,
-    canFeature: !hidden && strong && !diseaseTreatment,
+    canIndex: !hidden && strong && editoriallyIndexable,
+    canFeature: !hidden && strong && editoriallyIndexable && !diseaseTreatment,
     canMonetize: !hidden && !weak && !diseaseTreatment,
   }
 }
