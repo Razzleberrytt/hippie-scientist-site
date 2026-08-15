@@ -7,6 +7,7 @@ const PLAUSIBLE_DOMAIN = 'thehippiescientist.net'
 void PLAUSIBLE_DOMAIN
 
 let loaded = false
+let scheduled = false
 
 function injectScript(src: string, attrs: Record<string, string> = {}) {
   if (typeof document === 'undefined') return
@@ -31,8 +32,9 @@ function injectScriptOnce(id: string, src: string, attrs: Record<string, string>
   injectScript(src, { id, ...attrs })
 }
 
-export function loadAnalytics() {
+function loadAnalyticsNow() {
   if (loaded) return
+  scheduled = false
   if (!GA_ID && !AHREFS_ANALYTICS_KEY) return
   if (!canTrackAnalytics()) return
 
@@ -53,12 +55,29 @@ export function loadAnalytics() {
     })
   }
 
-  // injectScript('https://plausible.io/js/script.js', {
-  //   'data-domain': PLAUSIBLE_DOMAIN,
-  //   defer: 'true',
-  // });
-
   loaded = true
+}
+
+function scheduleAnalyticsLoad() {
+  if (scheduled || loaded || typeof window === 'undefined') return
+  scheduled = true
+
+  const win = window as Window & {
+    requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number
+  }
+
+  if (typeof win.requestIdleCallback === 'function') {
+    win.requestIdleCallback(loadAnalyticsNow, { timeout: 2000 })
+    return
+  }
+
+  window.setTimeout(loadAnalyticsNow, 1200)
+}
+
+export function loadAnalytics() {
+  if (!GA_ID && !AHREFS_ANALYTICS_KEY) return
+  if (!canTrackAnalytics()) return
+  scheduleAnalyticsLoad()
 }
 
 export function onConsentChange() {
