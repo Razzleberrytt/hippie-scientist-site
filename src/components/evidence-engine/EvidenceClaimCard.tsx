@@ -61,6 +61,10 @@ export default function EvidenceClaimCard({
       : null,
   ].filter((signal): signal is { label: string; value: string } => signal !== null)
 
+  const showExtractWarning = Boolean(
+    claim.branded_extract && claim.extract_generalizable === false
+  )
+
   return (
     <article className="rounded-2xl border border-brand-900/12 bg-white/95 p-5 shadow-sm dark:bg-[var(--surface-card-strong)]">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -86,6 +90,12 @@ export default function EvidenceClaimCard({
             </div>
           ))}
         </dl>
+      ) : null}
+
+      {showExtractWarning ? (
+        <div className="mt-3 rounded-xl border border-amber-700/20 bg-amber-50/80 p-3 text-sm leading-6 text-amber-950">
+          <strong>Extract-specific evidence:</strong> Findings from {claim.branded_extract} should not be generalized to every product labeled {claim.ingredient_name}.
+        </div>
       ) : null}
 
       <dl className="mt-4 space-y-3 text-sm leading-6">
