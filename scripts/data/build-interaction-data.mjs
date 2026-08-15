@@ -25,6 +25,15 @@ const PLAIN = { serotonergic:'serotonergic activity', anticoagulant:'effects on 
   cns_sedation:'sedation / CNS depression', blood_glucose:'blood-sugar lowering', blood_pressure:'blood-pressure effects' };
 
 const splitFlags = v => (v == null ? [] : String(v).split(/[;,]/).map(s => s.trim()).filter(Boolean));
+const workbookSourceId = slug => `workbook:Entity_Master:${slug}:contraindications_or_flags`;
+const tagProvenance = slug => ({
+  source_ids: [workbookSourceId(slug)],
+  note: 'Derived from the canonical contraindications_or_flags source field. This provenance identifies the source data field, not an independently verified clinical interaction study.',
+});
+const edgeProvenance = (sourceSlug, targetSlug) => ({
+  source_ids: [workbookSourceId(sourceSlug), workbookSourceId(targetSlug)],
+  note: 'Pairwise flag is inferred from two source-backed contraindication fields sharing a mechanism. It is a theoretical additive-risk screen unless pair-specific evidence is reviewed separately.',
+});
 
 export function deriveInteractionData(rows) {
   const tagSet = new Set();        // dedupe on full tuple, like pandas drop_duplicates
@@ -43,8 +52,17 @@ export function deriveInteractionData(rows) {
           const key = [slug, mech, beh, phrase].join('\u0001');
           if (!tagSet.has(key)) {
             tagSet.add(key);
-            tags.push({ entity_slug: slug, entity_name: name, risk_mechanism: mech,
-                        pair_behavior: beh, matched_text: phrase, confidence: 'high' });
+            tags.push({
+              entity_slug: slug,
+              entity_name: name,
+              risk_mechanism: mech,
+              pair_behavior: beh,
+              matched_text: phrase,
+              // Pattern-match confidence is distinct from interaction certainty.
+              confidence: 'high',
+              certainty: 'theoretical',
+              provenance: tagProvenance(slug),
+            });
           }
           if (ADDITIVE.has(mech)) {
             if (!entMech.has(slug)) entMech.set(slug, new Set());
@@ -70,9 +88,24 @@ export function deriveInteractionData(rows) {
         const claim = `Both ${nameBySlug.get(s)} and ${nameBySlug.get(t)} are flagged for ${PLAIN[mech]}. `
           + `Combining them may have an additive effect. This is a mechanistic caution, not a verified `
           + `interaction — consult a clinician before stacking.`;
-        edges.push({ source_slug: s, target_slug: t, source_name: nameBySlug.get(s), target_name: nameBySlug.get(t),
-          relationship_type: 'additive_risk', risk_mechanism: mech, severity: sev,
-          weight_or_strength: wt, confidence: 'high', claim_language: claim, notes: note });
+        edges.push({
+          source_slug: s,
+          target_slug: t,
+          source_name: nameBySlug.get(s),
+          target_name: nameBySlug.get(t),
+          relationship_type: 'additive_risk',
+          risk_mechanism: mech,
+          severity: sev,
+          weight_or_strength: wt,
+          // Confidence describes deterministic keyword extraction. Certainty describes the pairwise claim.
+          confidence: 'high',
+          certainty: 'theoretical',
+          risk_class: 'general',
+          provenance: edgeProvenance(s, t),
+          unsupervised_use_inappropriate: false,
+          claim_language: claim,
+          notes: note,
+        });
       }
   }
   edges.sort((a, b) => a.source_slug.localeCompare(b.source_slug)
@@ -81,13 +114,41 @@ export function deriveInteractionData(rows) {
   // slug-keyed lookups for O(1) detail-page access (each edge indexed under both ends)
   const edgesBySlug = {}, tagsBySlug = {};
   for (const e of edges) {
-    (edgesBySlug[e.source_slug] ??= []).push({ partner_slug: e.target_slug, partner_name: e.target_name,
-      risk_mechanism: e.risk_mechanism, severity: e.severity, weight: e.weight_or_strength, claim_language: e.claim_language, notes: e.notes });
-    (edgesBySlug[e.target_slug] ??= []).push({ partner_slug: e.source_slug, partner_name: e.source_name,
-      risk_mechanism: e.risk_mechanism, severity: e.severity, weight: e.weight_or_strength, claim_language: e.claim_language, notes: e.notes });
+    (edgesBySlug[e.source_slug] ??= []).push({
+      partner_slug: e.target_slug,
+      partner_name: e.target_name,
+      risk_mechanism: e.risk_mechanism,
+      severity: e.severity,
+      weight: e.weight_or_strength,
+      certainty: e.certainty,
+      risk_class: e.risk_class,
+      provenance: e.provenance,
+      unsupervised_use_inappropriate: e.unsupervised_use_inappropriate,
+      claim_language: e.claim_language,
+      notes: e.notes,
+    });
+    (edgesBySlug[e.target_slug] ??= []).push({
+      partner_slug: e.source_slug,
+      partner_name: e.source_name,
+      risk_mechanism: e.risk_mechanism,
+      severity: e.severity,
+      weight: e.weight_or_strength,
+      certainty: e.certainty,
+      risk_class: e.risk_class,
+      provenance: e.provenance,
+      unsupervised_use_inappropriate: e.unsupervised_use_inappropriate,
+      claim_language: e.claim_language,
+      notes: e.notes,
+    });
   }
-  for (const tg of tags) (tagsBySlug[tg.entity_slug] ??= []).push({ risk_mechanism: tg.risk_mechanism,
-    pair_behavior: tg.pair_behavior, matched_text: tg.matched_text, confidence: tg.confidence });
+  for (const tg of tags) (tagsBySlug[tg.entity_slug] ??= []).push({
+    risk_mechanism: tg.risk_mechanism,
+    pair_behavior: tg.pair_behavior,
+    matched_text: tg.matched_text,
+    confidence: tg.confidence,
+    certainty: tg.certainty,
+    provenance: tg.provenance,
+  });
 
   return { edges, tags, edgesBySlug, tagsBySlug };
 }
@@ -97,10 +158,17 @@ export function validate({ edges, tags }) {
   // expected to grow as that field is enriched (see docs/LOOP_NOTES.md) — do
   // not hard-fail the data:build pipeline on count drift. Structural
   // correctness of the derivation itself is covered by
-  // build-interaction-data.test.mjs; the invariant enforced here is that
-  // every edge carries a claim, not a specific count.
+  // build-interaction-data.test.mjs.
   const errors = [];
   if (edges.some(e => !e.claim_language)) errors.push('empty claim_language present');
+  if (edges.some(e => !e.certainty)) errors.push('interaction edge missing certainty');
+  if (edges.some(e => !Array.isArray(e.provenance?.source_ids) || e.provenance.source_ids.length < 2)) {
+    errors.push('interaction edge missing pair provenance');
+  }
+  if (tags.some(t => !t.certainty)) errors.push('risk tag missing certainty');
+  if (tags.some(t => !Array.isArray(t.provenance?.source_ids) || t.provenance.source_ids.length < 1)) {
+    errors.push('risk tag missing provenance');
+  }
   const byMech = {};
   for (const e of edges) byMech[e.risk_mechanism] = (byMech[e.risk_mechanism] || 0) + 1;
   if (errors.length) { errors.forEach(e => console.error('VALIDATION FAIL:', e)); process.exit(1); }

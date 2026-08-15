@@ -2,8 +2,15 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 const edgesFixture = {
   'herb-a': [
-    { partner_slug: 'herb-b', partner_name: 'Herb B', risk_mechanism: 'serotonergic', severity: 'severe', weight: 90, claim_language: '', notes: '' },
-    { partner_slug: 'herb-c', partner_name: 'Herb C', risk_mechanism: 'serotonergic', severity: 'severe', weight: 40, claim_language: '', notes: '' },
+    {
+      partner_slug: 'herb-b', partner_name: 'Herb B', risk_mechanism: 'serotonergic', severity: 'severe', weight: 90,
+      certainty: 'theoretical', provenance: { source_ids: ['workbook:a', 'workbook:b'] }, claim_language: '', notes: '',
+    },
+    {
+      partner_slug: 'herb-c', partner_name: 'Herb C', risk_mechanism: 'serotonergic', severity: 'severe', weight: 40,
+      certainty: 'probable', provenance: { source_ids: ['PMID:123', 'PMID:456'], reviewed_at: '2026-08-15' }, claim_language: '', notes: '',
+    },
+    // Deliberately legacy-shaped to verify the truthful theoretical fallback.
     { partner_slug: 'herb-d', partner_name: 'Herb D', risk_mechanism: 'cns_sedation', severity: 'moderate', weight: 70, claim_language: '', notes: '' },
   ],
 }
@@ -57,6 +64,19 @@ describe('interaction-risk', () => {
 
     expect(serotonergic.topPartners.map(p => p.slug)).toEqual(['herb-b', 'herb-c'])
     expect(serotonergic.partnerCount).toBe(2)
+  })
+
+  it('keeps certainty separate from severity and reports provenance coverage', async () => {
+    const { getAdditiveRisks } = await import('../../../lib/interaction-risk')
+    const risks = getAdditiveRisks('herb-a')
+    const serotonergic = risks.find(r => r.mechanism === 'serotonergic')!
+    const sedation = risks.find(r => r.mechanism === 'cns_sedation')!
+
+    expect(serotonergic.severity).toBe('severe')
+    expect(serotonergic.certainties).toEqual(['theoretical', 'probable'])
+    expect(serotonergic.provenanceCoverage).toEqual({ withProvenance: 2, total: 2 })
+    expect(sedation.certainties).toEqual(['theoretical'])
+    expect(sedation.provenanceCoverage).toEqual({ withProvenance: 0, total: 1 })
   })
 
   it('returns an empty array when no additive tags exist for the slug', async () => {
