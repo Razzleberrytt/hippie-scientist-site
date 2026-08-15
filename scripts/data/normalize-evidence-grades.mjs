@@ -16,7 +16,7 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath, pathToFileURL } from 'node:url'
+import { pathToFileURL } from 'node:url'
 
 import {
   CANONICAL_EVIDENCE_GRADES,
@@ -51,15 +51,14 @@ export function migrateEvidenceGradeRecord(record) {
     return { record, status: 'not-a-record', changed: false, raw: '', canonical: null }
   }
 
-  const rawValue = record.evidence_grade
-  const normalized = normalizeEvidenceGrade(rawValue)
+  const normalized = normalizeEvidenceGrade(record.evidence_grade)
 
   if (!normalized.raw) {
     return { record, status: 'missing', changed: false, raw: '', canonical: null }
   }
 
   if (normalized.outcomeDependent) {
-    const next = { ...record }
+    const next = { ...record, evidence_grade_status: 'outcome-dependent' }
     delete next.evidence_grade
     return {
       record: next,
