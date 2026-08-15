@@ -60,7 +60,7 @@ function visibleText(html) {
 }
 
 function internalLinks(html) {
-  return Array.from(html.matchAll(/href=["']([^"'#]+)["']/gi), (match) => match[1])
+  return Array.from(html.matchAll(/<a\b[^>]*href=["']([^"'#]+)["'][^>]*>/gi), (match) => match[1])
     .map((href) => {
       if (/^(mailto:|tel:|javascript:)/i.test(href)) return null
       if (/^https?:\/\//i.test(href)) {
@@ -68,7 +68,9 @@ function internalLinks(html) {
           const url = new URL(href)
           if (url.hostname !== 'thehippiescientist.net' && url.hostname !== 'www.thehippiescientist.net') return null
           return normalizePath(url.pathname)
-        } catch { return null }
+        } catch {
+          return null
+        }
       }
       return href.startsWith('/') ? normalizePath(href) : null
     })
@@ -81,18 +83,21 @@ function parseRedirects() {
     .filter((line) => line && !line.startsWith('#'))
     .map((line) => line.split(/\s+/))
     .filter((parts) => parts.length >= 2)
-    .map(([from, to, status = '301']) => ({ from: normalizePath(from), to: normalizePath(to), rawTo: to, status }))
-    .filter((row) => row.from && row.to)
+    .map(([from, to, status = '302']) => ({ from: normalizePath(from), to: normalizePath(to), rawTo: to, status }))
+    .filter((row) => row.from && row.to && /^30[1278]$/.test(row.status))
 }
 
 function parseSitemap() {
   const file = path.join(OUT, 'sitemap.xml')
   if (!fs.existsSync(file)) return { entries: [], raw: '' }
   const raw = fs.readFileSync(file, 'utf8')
-  const entries = Array.from(raw.matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?(?:<lastmod>([^<]+)<\/lastmod>)?[\s\S]*?<\/url>/gi), (match) => ({
-    loc: match[1].trim(),
-    lastmod: (match[2] || '').trim(),
-  }))
+  const entries = Array.from(raw.matchAll(/<url>([\s\S]*?)<\/url>/gi), (match) => {
+    const block = match[1]
+    return {
+      loc: block.match(/<loc>([^<]+)<\/loc>/i)?.[1]?.trim() || '',
+      lastmod: block.match(/<lastmod>([^<]+)<\/lastmod>/i)?.[1]?.trim() || '',
+    }
+  }).filter((entry) => entry.loc)
   return { entries, raw }
 }
 
@@ -115,7 +120,9 @@ for (const page of htmlPages) {
     continue
   }
   let canonicalUrl
-  try { canonicalUrl = new URL(canonical) } catch {
+  try {
+    canonicalUrl = new URL(canonical)
+  } catch {
     errors.push({ type: 'malformed-canonical', route: page.route, canonical })
     continue
   }
@@ -154,7 +161,8 @@ for (const page of htmlPages) {
   if (page.route === '/404.html') continue
   for (const target of new Set(internalLinks(page.html))) {
     if (redirectMap.has(target)) errors.push({ type: 'internal-link-to-redirect', source: page.route, target })
-    if (!builtRoutes.has(target) && !redirectMap.has(target) && !/\.(xml|txt|json|rss|atom)\/?$/i.test(target)) {
+    const isStaticAsset = /\.[a-z0-9]{2,8}\/?$/i.test(target)
+    if (!builtRoutes.has(target) && !redirectMap.has(target) && !isStaticAsset) {
       errors.push({ type: 'broken-internal-link', source: page.route, target })
     }
   }
@@ -175,9 +183,12 @@ for (const page of htmlPages) {
 const sitemap = parseSitemap()
 const sitemapPaths = new Set()
 const lastmods = []
+const pageByRoute = new Map(htmlPages.map((page) => [page.route, page]))
 for (const entry of sitemap.entries) {
   let url
-  try { url = new URL(entry.loc) } catch {
+  try {
+    url = new URL(entry.loc)
+  } catch {
     errors.push({ type: 'malformed-sitemap-url', loc: entry.loc })
     continue
   }
@@ -186,12 +197,15 @@ for (const entry of sitemap.entries) {
   if (sitemapPaths.has(route)) errors.push({ type: 'duplicate-sitemap-url', route })
   sitemapPaths.add(route)
   if (redirectMap.has(route)) errors.push({ type: 'redirected-url-in-sitemap', route })
-  const page = htmlPages.find((candidate) => candidate.route === route)
-  if (!page) errors.push({ type: 'sitemap-url-missing-from-build', route })
-  else {
+  const page = pageByRoute.get(route)
+  if (!page) {
+    errors.push({ type: 'sitemap-url-missing-from-build', route })
+  } else {
     if (robotsNoindex(page.html)) errors.push({ type: 'noindex-url-in-sitemap', route })
     const canonical = canonicalFromHtml(page.html)
-    if (canonical && normalizePath(new URL(canonical, CANONICAL_ORIGIN).pathname) !== route) errors.push({ type: 'noncanonical-url-in-sitemap', route, canonical })
+    if (canonical && normalizePath(new URL(canonical, CANONICAL_ORIGIN).pathname) !== route) {
+      errors.push({ type: 'noncanonical-url-in-sitemap', route, canonical })
+    }
   }
   if (entry.lastmod) lastmods.push(entry.lastmod)
 }
