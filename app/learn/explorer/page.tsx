@@ -130,24 +130,15 @@ function compactExplorerPayload(records: ExplorerSourceRecord[]): ExplorerPayloa
     .filter((record): record is ExplorerPayloadRecord => Boolean(record))
 }
 
+function isRenderableExplorerRecord(record: ExplorerSourceRecord) {
+  return getRuntimeVisibility(record).canRender
+}
+
 export default async function PathwayExplorerPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = compactExplorerPayload(rawHerbs.filter((h: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  }))
-
-  const compounds = compactExplorerPayload(rawCompounds.filter((c: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  }))
+  const herbs = compactExplorerPayload(rawHerbs.filter(isRenderableExplorerRecord))
+  const compounds = compactExplorerPayload(rawCompounds.filter(isRenderableExplorerRecord))
 
   return (
     <div className='mx-auto max-w-6xl space-y-10 px-4 py-8 sm:py-10'>
