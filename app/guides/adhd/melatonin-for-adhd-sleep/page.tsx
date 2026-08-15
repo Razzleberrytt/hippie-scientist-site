@@ -6,7 +6,7 @@ const SLUG = 'melatonin-for-adhd-sleep'
 export const metadata = buildPageMetadata({
   title: 'Melatonin for ADHD Sleep: Does It Help & Is It Safe?',
   description:
-    'What ADHD sleep studies show about melatonin for sleep onset, timing, and dose context, including children, side effects, long-term uncertainty, and safety.',
+    'Research-grade review of melatonin for ADHD sleep: pediatric and adult trials, circadian timing, stimulant-treated data, long-term uncertainty, label accuracy, and child-safety risks.',
   path: `/guides/adhd/${SLUG}/`,
   openGraphType: 'article',
 })
