@@ -110,11 +110,19 @@ function renderMarkdown(report) {
 
 function createWorktree(ref, label) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), `ths-${label}-`))
-  // mkdtemp creates the directory, while git worktree add requires the target not
-  // to exist. Remove it and let Git recreate the worktree atomically.
   fs.rmSync(dir, { recursive: true, force: true })
   run('git', ['worktree', 'add', '--detach', dir, ref], ROOT, { quiet: true })
   return dir
+}
+
+function shareDependencies(worktree) {
+  const source = path.join(ROOT, 'node_modules')
+  const target = path.join(worktree, 'node_modules')
+  if (!fs.existsSync(source)) {
+    throw new Error('node_modules is missing in the root checkout; install dependencies before running the worktree comparison')
+  }
+  if (fs.existsSync(target)) fs.rmSync(target, { recursive: true, force: true })
+  fs.symlinkSync(source, target, process.platform === 'win32' ? 'junction' : 'dir')
 }
 
 function removeWorktree(dir) {
@@ -131,6 +139,8 @@ let currentWorktree = ''
 try {
   baseWorktree = createWorktree(BASE_REF, 'links-base')
   currentWorktree = createWorktree('HEAD', 'links-current')
+  shareDependencies(baseWorktree)
+  shareDependencies(currentWorktree)
 
   run(process.execPath, ['scripts/data/build-internal-link-engine.mjs'], baseWorktree, { quiet: true })
   run(process.execPath, ['scripts/data/build-internal-link-engine.mjs'], currentWorktree, { quiet: true })
