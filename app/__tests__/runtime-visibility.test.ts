@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { getHealthContentGovernance } from '../../lib/health-content-governance'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 
 // Regression coverage for the recurring string-vs-boolean sitemap_included bug:
@@ -72,6 +73,36 @@ describe('getRuntimeVisibility', () => {
     })
     expect(visibility.canRender).toBe(false)
     expect(visibility.canIndex).toBe(false)
+  })
+
+  it('keeps explicitly disease-treatment content out of feature and commerce paths', () => {
+    const visibility = getRuntimeVisibility({
+      ...publishable,
+      sitemap_included: true,
+      content_intent: 'disease-treatment',
+    })
+
+    expect(visibility.canRender).toBe(true)
+    expect(visibility.canIndex).toBe(true)
+    expect(visibility.canFeature).toBe(false)
+    expect(visibility.canMonetize).toBe(false)
+  })
+
+  it('classifies a primary disease condition without scanning secondary safety mentions', () => {
+    expect(getHealthContentGovernance({ primary_condition: 'type 2 diabetes' })).toMatchObject({
+      intent: 'disease-treatment',
+      diseaseTreatment: true,
+      source: 'primary-topic',
+    })
+
+    expect(getHealthContentGovernance({
+      primary_outcome: 'stress',
+      safety: 'Use caution in people with diabetes.',
+    })).toMatchObject({
+      intent: 'general-wellness',
+      diseaseTreatment: false,
+      source: 'primary-topic',
+    })
   })
 
   it('fails closed if evaluating a malformed record throws', () => {
