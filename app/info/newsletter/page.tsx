@@ -5,6 +5,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
 import EmailCapture from '../../../components/EmailCapture'
+import NewsletterInterestSignup from '@/components/monetization/NewsletterInterestSignup'
 
 const TITLE = 'Supplement Research Newsletter: Evidence Notes and Safety Checklists'
 const DESCRIPTION =
@@ -55,6 +56,11 @@ const faqItems = [
     question: 'What is in the newsletter?',
     answer:
       'The newsletter focuses on supplement research notes, evidence-quality reminders, safety context, product-quality checks, and updates to major site guides.',
+  },
+  {
+    question: 'Can I choose which research topics I receive?',
+    answer:
+      'Yes. The research-interest selector lets you choose Sleep, Stress, Anxiety, Focus, or General research. It stores a newsletter content preference rather than asking for symptoms or medical details.',
   },
   {
     question: 'Is the newsletter sales-focused?',
@@ -124,6 +130,8 @@ export default function NewsletterArchivePage() {
         ctaLabel='Subscribe'
         location='newsletter-archive'
       />
+
+      <NewsletterInterestSignup />
 
       <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 shadow-sm sm:p-8'>
         <p className='eyebrow-label'>Archive preview</p>

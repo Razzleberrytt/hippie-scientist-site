@@ -42,7 +42,7 @@ describe('/api/subscribe-safety segmentation', () => {
     vi.restoreAllMocks()
   })
 
-  it('uses the safety-checklist tag instead of the legacy ADHD tag', async () => {
+  it('keeps the safety-checklist tag and adds the general research segment', async () => {
     const calls: Array<{ url: string; body: string }> = []
     globalThis.fetch = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       calls.push({ url: String(input), body: String(init?.body || '') })
@@ -65,12 +65,16 @@ describe('/api/subscribe-safety segmentation', () => {
     expect(calls).toHaveLength(2)
     expect(calls[1].url).toMatch(/\/tags$/)
     expect(calls[1].body).toContain('safety-checklist')
+    expect(calls[1].body).toContain('Interest: General')
     expect(calls[1].body).not.toContain('adhd-tag')
   })
 
-  it('does not tag a generic subscriber as ADHD when no safety tag is configured', async () => {
-    const fetchSpy = vi.fn(async () => new Response(JSON.stringify({ ok: true }), { status: 200 }))
-    globalThis.fetch = fetchSpy as typeof fetch
+  it('uses only the allowlisted general interest when no safety tag is configured', async () => {
+    const calls: Array<{ url: string; body: string }> = []
+    globalThis.fetch = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      calls.push({ url: String(input), body: String(init?.body || '') })
+      return new Response(JSON.stringify({ ok: true }), { status: 200 })
+    }) as typeof fetch
 
     const response = await onRequest({
       request: request('generic@example.com'),
@@ -84,6 +88,8 @@ describe('/api/subscribe-safety segmentation', () => {
     } as Parameters<typeof onRequest>[0])
 
     expect(response.status).toBe(200)
-    expect(fetchSpy).toHaveBeenCalledTimes(1)
+    expect(calls).toHaveLength(2)
+    expect(calls[1].body).toContain('Interest: General')
+    expect(calls[1].body).not.toContain('adhd-tag')
   })
 })
