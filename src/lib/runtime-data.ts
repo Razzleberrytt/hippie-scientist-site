@@ -276,12 +276,29 @@ export const getEntityRiskTags = cache(async () => {
   return readJsonFile('entity_risk_tags.json') as Promise<RiskTagsBySlug>
 })
 
+export function buildRenderableSlugEntityTypeMap(
+  herbs: RuntimeRecord[],
+  compounds: RuntimeRecord[],
+): SlugEntityTypeMap {
+  const map: SlugEntityTypeMap = {}
+
+  for (const herb of herbs) {
+    const slug = typeof herb.slug === 'string' ? herb.slug : ''
+    if (slug && getRuntimeVisibility(herb).canRender) map[slug] = 'herb'
+  }
+
+  for (const compound of compounds) {
+    const slug = typeof compound.slug === 'string' ? compound.slug : ''
+    if (slug && getRuntimeVisibility(compound).canRender) map[slug] = 'compound'
+  }
+
+  return map
+}
+
 // Resolves which route (/herbs/[slug] vs /compounds/[slug]) a given partner
-// slug belongs to, so interaction-edge links never point at the wrong path.
+// slug belongs to. Only renderable records receive a route so interaction
+// warnings cannot link to a profile that intentionally resolves to 404.
 export const getSlugEntityTypeMap = cache(async (): Promise<SlugEntityTypeMap> => {
   const { herbs, compounds } = await getUnifiedRuntimeRecords()
-  const map: SlugEntityTypeMap = {}
-  for (const h of herbs) map[h.slug] = 'herb'
-  for (const c of compounds) map[c.slug] = 'compound'
-  return map
+  return buildRenderableSlugEntityTypeMap(herbs as RuntimeRecord[], compounds as RuntimeRecord[])
 })
