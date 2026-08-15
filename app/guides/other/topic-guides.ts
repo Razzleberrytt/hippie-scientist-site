@@ -78,6 +78,7 @@ export const TOPIC_GUIDE_GROUPS: TopicGuideGroup[] = [
       'Educational context for prescription-adjacent compounds, research peptides, withdrawal, and harm reduction—not a purchase or self-treatment list.',
     guides: [
       { href: '/guides/other/bpc-157/', title: 'BPC-157', desc: 'Review preclinical evidence, safety uncertainty, and current legal context.' },
+      { href: '/guides/other/cagrisema-cagrilintide/', title: 'CagriSema & Cagrilintide', desc: 'Track the pending FDA review, peer-reviewed REDEFINE evidence, amylin/GLP-1 mechanism, and federal cagrilintide compounding prohibition.' },
       { href: '/guides/other/cjc-1295/', title: 'CJC-1295', desc: 'Understand the mechanism, research evidence, forms, and legal status.' },
       { href: '/guides/other/ghk-cu/', title: 'GHK-Cu', desc: 'Separate topical cosmetic evidence from injectable and research-only use.' },
       { href: '/guides/other/glp1-supplements/', title: 'Nutrition and Supplements on GLP-1s', desc: 'Review protein, hydration, and nutrient issues discussed with GLP-1 medications.' },
