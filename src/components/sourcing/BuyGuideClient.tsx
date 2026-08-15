@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 import { canRenderAffiliateLinks, ensureAmazonAffiliateTag } from '../../lib/affiliate'
 import { trackRevenueEvent } from '../../lib/revenue-tracking'
+import { scoreProductQuality, type ProductQualityScore } from '@/lib/product-quality-score'
 
 interface GuideItem {
   slug: string
@@ -14,7 +15,11 @@ interface GuideItem {
   affiliateUrl: string
   affiliateLabel: string
   standardization?: string
+  studiedForm?: string
+  activeMarker?: string
+  elementalAmount?: string
   bestFor?: string
+  quality: ProductQualityScore
 }
 
 interface BuyGuideClientProps {
@@ -24,21 +29,23 @@ interface BuyGuideClientProps {
 
 const DEFAULT_VISIBLE_ITEMS = 12
 
+const bandLabel: Record<ProductQualityScore['band'], string> = {
+  'strong-label-quality': 'Strong label quality',
+  'adequate-label-quality': 'Adequate label quality',
+  'limited-quality-data': 'Limited quality data',
+  'poor-transparency': 'Poor transparency',
+}
+
 export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps) {
   const [searchQuery, setSearchQuery] = useState('')
 
-  // Map and combine datasets
   const allItems = useMemo(() => {
     const combined = [
       ...herbs.map(item => ({ ...item, type: 'herb' as const })),
       ...compounds.map(item => ({ ...item, type: 'compound' as const })),
-    ].filter(item => {
-      // Compliance gate: product-quality pages must not monetize or promote workbook-governed restricted records.
-      return canRenderAffiliateLinks(item)
-    })
+    ].filter(item => canRenderAffiliateLinks(item))
 
     return combined.map(item => {
-      // Resolve buying criteria
       let criteria: string[] = []
       if (Array.isArray(item.buying_criteria)) {
         criteria = item.buying_criteria.filter((c: any) => typeof c === 'string' && c.trim())
@@ -50,26 +57,20 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
           : String(item.buyingCriteria).split(/[;,\n]+/).map((s: string) => s.trim()).filter(Boolean)
       }
 
-      // Default criteria if empty
       if (criteria.length === 0) {
-        if (item.type === 'herb') {
-          criteria = [
-            'Third-party testing for heavy metals and solvent residues',
-            'Standardized to active marker compounds (e.g. extracts over raw root powder)',
-            'Certified organic or sustainably wildcrafted sourcing'
-          ]
-        } else {
-          criteria = [
-            'USP or pharmaceutical grade purity (98%+ minimum)',
-            'Third-party tested COA (Certificate of Analysis) available',
-            'Free from synthetic flow agents and common allergen fillers'
-          ]
-        }
+        criteria = item.type === 'herb'
+          ? [
+              'Third-party testing for heavy metals and solvent residues',
+              'Standardized extract or clearly identified botanical form',
+              'Transparent active amount and serving size',
+            ]
+          : [
+              'Third-party purity or identity testing',
+              'COA (Certificate of Analysis) when available',
+              'Transparent active amount and serving size',
+            ]
       }
 
-      // Resolve affiliate URL. Any Amazon URL that reaches the UI is normalized
-      // through the central associate-tag helper so direct product links cannot
-      // silently bypass attribution when source data omitted or changed the tag.
       let affiliateUrl = ''
       const direct = item.amazon_affiliate_url || item.amazonAffiliateUrl
       if (direct && String(direct).includes('amazon.com/dp/')) {
@@ -85,8 +86,26 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
         }
       }
 
-      const affiliateLabel = item.affiliate_label || item.affiliateLabel || `Find Verified ${item.displayName || item.name} on Amazon`
+      const affiliateLabel = item.affiliate_label || item.affiliateLabel || `Find ${item.displayName || item.name} sourcing options`
       const standardization = item.standardization || item.standardized_extract || item.active_compounds
+      const studiedForm = item.studied_form || item.studiedForm
+      const activeMarker = item.active_marker || item.activeMarker
+      const elementalAmount = item.elemental_amount || item.elementalAmount
+      const criteriaText = criteria.join(' ').toLowerCase()
+
+      const quality = scoreProductQuality({
+        transparentActiveDose: /dose|amount|serving/.test(criteriaText),
+        studiedFormDisclosed: Boolean(studiedForm || standardization),
+        standardizedExtractOrForm: Boolean(standardization),
+        activeMarkerDeclared: Boolean(activeMarker),
+        elementalAmountDeclared: elementalAmount ? true : undefined,
+        thirdPartyTesting: item.third_party_testing === true || /third[- ]party|independent test/.test(criteriaText),
+        coaAvailable: item.coa_available === true || /certificate of analysis|\bcoa\b/.test(criteriaText),
+        contaminantTesting: item.contaminant_testing === true || /heavy metal|microb|solvent|pesticide|contaminant/.test(criteriaText),
+        adulterationControls: item.adulteration_controls === true || /identity test|adulteration/.test(criteriaText),
+        proprietaryBlend: item.proprietary_blend === true,
+        currentFormulationVerified: item.formulation_verified === true,
+      })
 
       return {
         slug: item.slug,
@@ -96,135 +115,74 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
         affiliateUrl,
         affiliateLabel,
         standardization,
-        bestFor: item.best_for || item.bestFor || item.primary_effects
+        studiedForm,
+        activeMarker,
+        elementalAmount,
+        bestFor: item.best_for || item.bestFor || item.primary_effects,
+        quality,
       } as GuideItem
     })
   }, [herbs, compounds])
 
-  // Filter items by search query
   const filteredItems = useMemo(() => {
     if (!searchQuery) return allItems.slice(0, DEFAULT_VISIBLE_ITEMS)
+    const query = searchQuery.toLowerCase()
     return allItems.filter(item =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.slug.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (item.standardization && item.standardization.toLowerCase().includes(searchQuery.toLowerCase()))
+      item.name.toLowerCase().includes(query) ||
+      item.slug.toLowerCase().includes(query) ||
+      Boolean(item.standardization?.toLowerCase().includes(query))
     )
   }, [searchQuery, allItems])
 
   return (
     <div className='space-y-8'>
-      {/* Sourcing Search bar */}
       <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4'>
-        <div className='max-w-xl space-y-2'>
-          <h2 className='text-lg font-bold text-slate-800'>Search Sourcing Checklists</h2>
-          <p className='text-xs text-slate-500'>
-            Filter the guide to verify active standardized markers and quality controls before completing your purchase.
-          </p>
-          <input
-            type='text'
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-            placeholder='Search ingredient name (e.g. Ashwagandha, L-Theanine)...'
-            className='w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none'
-          />
+        <div className='max-w-3xl space-y-2'>
+          <p className='eyebrow-label'>Product-quality layer</p>
+          <h2 className='text-lg font-bold text-slate-800'>Search sourcing checklists</h2>
+          <p className='text-xs leading-5 text-slate-500'>Quality scores describe label/form/testing transparency only. They do not change an ingredient’s evidence grade, and affiliate commission is not a scoring input.</p>
+          <input type='text' value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder='Search ingredient name (e.g. Ashwagandha, L-Theanine)...' className='w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none' />
         </div>
       </div>
 
-      {/* Grid of Sourcing Cards */}
-      {!searchQuery && allItems.length > DEFAULT_VISIBLE_ITEMS ? (
-        <p className='text-xs text-slate-500'>
-          Showing {DEFAULT_VISIBLE_ITEMS} common sourcing checklists to keep the page scannable. Search by ingredient name to inspect the full library.
-        </p>
-      ) : null}
+      {!searchQuery && allItems.length > DEFAULT_VISIBLE_ITEMS ? <p className='text-xs text-slate-500'>Showing {DEFAULT_VISIBLE_ITEMS} common sourcing checklists. Search by ingredient name to inspect the full library.</p> : null}
+
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
         {filteredItems.length === 0 ? (
-          <div className='col-span-full py-16 text-center text-slate-400 text-sm border border-dashed border-slate-200 rounded-[2rem] bg-white/50'>
-            No sourcing checklists match your search.
-          </div>
-        ) : (
-          filteredItems.map(item => (
-            <div
-              key={item.slug}
-              className='flex flex-col justify-between rounded-3xl border border-brand-900/10 bg-white p-5 hover:shadow-md transition-shadow'
-            >
-              <div className='space-y-4'>
-                {/* Header */}
-                <div>
-                  <div className='flex items-start justify-between gap-2'>
-                    <Link
-                      href={item.type === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
-                      className='text-base font-bold text-slate-800 hover:text-emerald-700 hover:underline leading-snug'
-                    >
-                      {item.name}
-                    </Link>
-                    <span className='rounded-full bg-slate-100 px-2 py-0.5 text-[9px] uppercase font-bold text-slate-500 shrink-0'>
-                      {item.type}
-                    </span>
-                  </div>
-                  {item.standardization && (
-                    <p className='mt-1 text-[11px] text-emerald-800 font-semibold'>
-                      Standardized to: {item.standardization}
-                    </p>
-                  )}
+          <div className='col-span-full py-16 text-center text-slate-400 text-sm border border-dashed border-slate-200 rounded-[2rem] bg-white/50'>No sourcing checklists match your search.</div>
+        ) : filteredItems.map(item => (
+          <div key={item.slug} className='flex flex-col justify-between rounded-3xl border border-brand-900/10 bg-white p-5 hover:shadow-md transition-shadow'>
+            <div className='space-y-4'>
+              <div>
+                <div className='flex items-start justify-between gap-2'>
+                  <Link href={item.type === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`} className='text-base font-bold text-slate-800 hover:text-emerald-700 hover:underline leading-snug'>{item.name}</Link>
+                  <span className='rounded-full bg-slate-100 px-2 py-0.5 text-[9px] uppercase font-bold text-slate-500 shrink-0'>{item.type}</span>
                 </div>
-
-                {/* Checklist */}
-                <div className='border-t border-slate-100 pt-3 space-y-2.5'>
-                  <span className='text-[10px] font-bold uppercase tracking-wider text-slate-400'>
-                    Quality Checklist
-                  </span>
-                  <ul className='space-y-2'>
-                    {item.criteria.slice(0, 3).map((itemCriteria, idx) => (
-                      <li key={idx} className='flex items-start gap-2 text-xs leading-relaxed text-slate-600'>
-                        <svg
-                          className='mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth={3}
-                          stroke='currentColor'
-                        >
-                          <path strokeLinecap='round' strokeLinejoin='round' d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
-                        <span>{itemCriteria}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {item.standardization ? <p className='mt-1 text-[11px] text-emerald-800 font-semibold'>Standardization/form: {item.standardization}</p> : null}
+                {item.studiedForm ? <p className='mt-1 text-[11px] text-slate-500'>Studied form recorded: {item.studiedForm}</p> : null}
+                {item.activeMarker ? <p className='mt-1 text-[11px] text-slate-500'>Active marker: {item.activeMarker}</p> : null}
+                {item.elementalAmount ? <p className='mt-1 text-[11px] text-slate-500'>Elemental amount: {item.elementalAmount}</p> : null}
               </div>
 
-              {/* Action and Disclaimer */}
-              <div className='mt-5 pt-3 border-t border-slate-100 space-y-3'>
-                <a
-                  href={item.affiliateUrl}
-                  target='_blank'
-                  rel='nofollow sponsored noopener noreferrer'
-                  onClick={() => trackRevenueEvent({
-                    kind: 'affiliate_click',
-                    location: 'product-quality-buy-guide',
-                    label: item.name,
-                    target: item.affiliateUrl,
-                    productSlug: item.slug,
-                  })}
-                  className='flex w-full items-center justify-between rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 px-4 transition-all shadow-sm'
-                >
-                  <span>Sourcing Options on Amazon</span>
-                  <svg
-                    className='h-3.5 w-3.5 shrink-0'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    strokeWidth={2.5}
-                    stroke='currentColor'
-                  >
-                    <path strokeLinecap='round' strokeLinejoin='round' d='M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25' />
-                  </svg>
-                </a>
-                <p className='text-[9px] text-center text-slate-400 leading-normal'>
-                  Affiliate Link · Earns commission
-                </p>
+              <div className='rounded-xl border border-sky-900/10 bg-sky-50/70 p-3'>
+                <div className='flex items-center justify-between gap-3'><span className='text-[10px] font-bold uppercase tracking-wider text-sky-900'>Product-quality score</span><strong className='text-sm text-sky-950'>{item.quality.score}/100</strong></div>
+                <p className='mt-1 text-xs font-semibold text-sky-950'>{bandLabel[item.quality.band]}</p>
+                <p className='mt-1 text-[10px] leading-4 text-sky-900'>Independent of efficacy evidence and affiliate payout.</p>
+              </div>
+
+              <div className='border-t border-slate-100 pt-3 space-y-2.5'>
+                <span className='text-[10px] font-bold uppercase tracking-wider text-slate-400'>Quality checklist</span>
+                <ul className='space-y-2'>{item.criteria.slice(0, 4).map((criterion, idx) => <li key={`${criterion}-${idx}`} className='flex items-start gap-2 text-xs leading-relaxed text-slate-600'><span aria-hidden='true' className='mt-0.5 text-emerald-600'>✓</span><span>{criterion}</span></li>)}</ul>
+                {item.quality.cautions.length ? <p className='text-[10px] leading-4 text-amber-800'>Data gaps: {item.quality.cautions.slice(0, 2).join(' · ')}</p> : null}
               </div>
             </div>
-          ))
-        )}
+
+            <div className='mt-5 pt-3 border-t border-slate-100 space-y-3'>
+              <a href={item.affiliateUrl} target='_blank' rel='nofollow sponsored noopener noreferrer' onClick={() => trackRevenueEvent({ kind: 'affiliate_click', location: 'product-quality-buy-guide', label: item.name, target: item.affiliateUrl, productSlug: item.slug })} className='flex w-full items-center justify-between rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 px-4 transition-all shadow-sm'><span>Sourcing options on Amazon</span><span aria-hidden='true'>↗</span></a>
+              <p className='text-[9px] text-center text-slate-400 leading-normal'>Affiliate link · Commission never affects evidence or product-quality scoring</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
