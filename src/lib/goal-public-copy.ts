@@ -142,6 +142,14 @@ const DOSING_OVERRIDES: Record<string, Record<string, string>> = {
   },
 }
 
+const GOAL_COPY_OVERRIDES: Partial<Record<string, Pick<Goal, 'title' | 'description'>>> = {
+  longevity: {
+    title: 'Healthy aging research',
+    description:
+      'Compare supplements discussed in healthy-aging research by the human outcomes actually studied. Biomarkers, NAD+ changes, antioxidant activity, sirtuin signaling, and senolytic mechanisms are not evidence that a supplement extends human lifespan or slows aging.',
+  },
+}
+
 const QUICK_PICK_OVERRIDES: Record<string, Goal['quickPicks']> = {
   sleep: [
     { need: 'Circadian timing questions', option: 'Melatonin', slug: 'melatonin' },
@@ -162,6 +170,11 @@ const QUICK_PICK_OVERRIDES: Record<string, Goal['quickPicks']> = {
     { need: 'Task-specific attention evidence', option: 'L-Theanine', slug: 'l-theanine' },
     { need: 'Fatigue and stress-performance evidence', option: 'Rhodiola', slug: 'rhodiola' },
     { need: 'Established acute alertness', option: 'Caffeine', slug: 'caffeine' },
+  ],
+  longevity: [
+    { need: 'Review cardiovascular outcome context', option: 'CoQ10', slug: 'coq10' },
+    { need: 'Review limited human resveratrol evidence', option: 'Resveratrol', slug: 'resveratrol' },
+    { need: 'Separate quercetin mechanisms from outcomes', option: 'Quercetin', slug: 'quercetin' },
   ],
 }
 
@@ -245,6 +258,26 @@ const OPTION_OVERRIDES: Record<string, Record<string, Partial<GoalOption>>> = {
       evidence: 'Repeated-dose memory evidence; not an acute focus aid',
     },
   },
+  longevity: {
+    resveratrol: {
+      bestFor: 'Reviewing human metabolic and cardiovascular-marker studies, not lifespan extension',
+      speed: 'Study durations vary; no established anti-aging onset',
+      evidence: 'Limited and outcome-specific in humans; no established human lifespan benefit',
+      whyPeopleStop: 'No reliable subjective anti-aging effect and uncertain long-term payoff',
+    },
+    coq10: {
+      bestFor: 'Reviewing cardiovascular and mitochondrial-related human outcomes',
+      speed: 'Weeks in studied cardiovascular and fatigue contexts',
+      evidence: 'Outcome-specific human evidence; not evidence of slower aging or longer lifespan',
+      whyPeopleStop: 'Slow feedback, cost, or no clear benefit for the outcome being tracked',
+    },
+    quercetin: {
+      bestFor: 'Reviewing human evidence for specific outcomes while keeping senolytic claims preclinical',
+      speed: 'Study-dependent; no established anti-aging onset',
+      evidence: 'No established human longevity benefit; senolytic framing is not a proven clinical anti-aging effect',
+      whyPeopleStop: 'Uncertain human healthy-aging payoff and formulation/bioavailability concerns',
+    },
+  },
 }
 
 function publicFaq(slug: string, item: GoalFaqItem): GoalFaqItem {
@@ -265,9 +298,11 @@ function publicDosingNote(slug: string, note: GoalDosingNote): GoalDosingNote {
 export function getPublicGoal(goal: Goal): Goal {
   const optionOverrides = OPTION_OVERRIDES[goal.slug] ?? {}
   const quickPicks = QUICK_PICK_OVERRIDES[goal.slug]
+  const copyOverride = GOAL_COPY_OVERRIDES[goal.slug]
 
   return {
     ...goal,
+    ...(copyOverride ?? {}),
     quickPicks: (quickPicks ?? goal.quickPicks).map((pick) => ({ ...pick })),
     options: goal.options.map((option) => ({
       ...option,
