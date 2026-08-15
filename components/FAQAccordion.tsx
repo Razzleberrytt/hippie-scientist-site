@@ -16,28 +16,29 @@ export default function FAQAccordion({ faqs, heading = 'Frequently Asked Questio
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+    <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm dark:border-white/10 dark:bg-white/5 sm:p-6">
       {heading && (
-        <h2 className="text-xl font-bold text-ink mb-4">{heading}</h2>
+        <h2 className="mb-4 text-xl font-bold text-ink">{heading}</h2>
       )}
-      <div className="divide-y divide-brand-900/5">
+      <div className="divide-y divide-brand-900/5 dark:divide-white/10">
         {faqs.map((faq, i) => (
-          <div key={i} className="py-3 first:pt-0 last:pb-0">
+          <div key={i}>
             <button
+              type="button"
               onClick={() => setOpen(open === i ? null : i)}
-              className="w-full flex items-center justify-between gap-4 text-left"
+              className="flex min-h-11 w-full items-center justify-between gap-4 py-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--surface-card)]"
               aria-expanded={open === i}
             >
-              <span className="font-semibold text-ink text-sm sm:text-base">{faq.question}</span>
+              <span className="text-sm font-semibold text-ink sm:text-base">{faq.question}</span>
               <span
                 aria-hidden="true"
-                className="shrink-0 text-brand-700 text-xl font-light leading-none"
+                className="shrink-0 text-xl font-light leading-none text-brand-700 dark:text-brand-200"
               >
                 {open === i ? '−' : '+'}
               </span>
             </button>
             {open === i && (
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted pr-8">
+              <p className="pb-3 pr-8 text-xs leading-relaxed text-muted sm:text-sm">
                 {faq.answer}
               </p>
             )}
