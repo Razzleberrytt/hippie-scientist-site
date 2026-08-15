@@ -33,7 +33,7 @@ export default function ArticleLayout({
           {toc}
         </div>
       )}
-      <div className={toc ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start lg:gap-10' : undefined}>
+      <div className={toc ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start lg:gap-12' : undefined}>
         <div className="min-w-0">
           {keyDetails && (
             <div className="mb-6">
@@ -51,7 +51,7 @@ export default function ArticleLayout({
         </div>
         {toc && (
           <aside aria-label="Page navigation" className="hidden lg:block">
-            <div className="sticky top-20 rounded-xl border border-brand-800/10 bg-white/95 p-4 shadow-sm backdrop-blur dark:border-white/10 dark:bg-brand-950/60">
+            <div className="sticky top-20 border-l border-[color:var(--hs-hairline)] py-1 pl-4">
               {toc}
             </div>
           </aside>
