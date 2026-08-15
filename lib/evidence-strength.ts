@@ -4,6 +4,7 @@ import {
   getEvidenceLetterGrade,
   hasHumanEvidence,
   hasMechanismEvidence,
+  type EvidenceLetterGrade,
 } from './evidence'
 
 export type EvidenceStrengthTier =
@@ -22,7 +23,7 @@ export type EvidenceStrengthData = {
   tier: EvidenceStrengthTier
   /** Human-readable label e.g. "Strong Human Evidence" */
   label: string
-  grade: 'A' | 'B' | 'C' | 'D'
+  grade: EvidenceLetterGrade
   humanEvidence: boolean
   mechanismEvidence: boolean
   /** One-line confidence explanation shown in expanded detail */
