@@ -109,6 +109,12 @@ try {
   assert.ok(!JSON.stringify(herbArtifact).includes('MedicalSubstance'))
   assert.ok(!JSON.stringify(compoundArtifact).includes('MedicalSubstance'))
   assert.equal(manifest.entities.find((entry) => entry.slug === 'test-herb')?.dataUrl, '/data/ai-entities/herb/test-herb.json')
+  for (let index = 1; index < manifest.entities.length; index += 1) {
+    assert.ok(
+      Number(manifest.entities[index - 1]?.score || 0) >= Number(manifest.entities[index]?.score || 0),
+      'public AI entity manifest should sort strongest completeness scores first',
+    )
+  }
 
   console.log('AI entity enrichment smoke test passed.')
 } finally {
