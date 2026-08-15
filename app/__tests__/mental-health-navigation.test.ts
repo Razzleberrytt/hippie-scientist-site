@@ -6,10 +6,10 @@ import { primaryNavigation } from '@/lib/primary-navigation'
 import { SITE_URL } from '@/lib/navigation-config'
 
 describe('mental health navigation discovery', () => {
-  it('surfaces the mental health hub under Guides', () => {
-    const guides = primaryNavigation.find((item) => item.href === '/guides')
+  it('surfaces the mental health hub under Goals', () => {
+    const goals = primaryNavigation.find((item) => item.label === 'Goals')
 
-    expect(guides?.children).toContainEqual(expect.objectContaining({
+    expect(goals?.children).toContainEqual(expect.objectContaining({
       label: 'Mental Health',
       href: '/guides/mental-health',
     }))
