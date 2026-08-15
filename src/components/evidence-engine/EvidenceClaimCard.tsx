@@ -25,6 +25,17 @@ export default function EvidenceClaimCard({
   sources,
 }: EvidenceClaimCardProps) {
   const confidence = getConfidenceDisplay(claim.confidence_tier)
+  const numericSignals = [
+    claim.sample_size && claim.sample_size > 0
+      ? { label: 'Participants', value: `N=${claim.sample_size.toLocaleString()}` }
+      : null,
+    sources.length > 0
+      ? { label: 'Cited sources', value: String(sources.length) }
+      : null,
+    claim.duration
+      ? { label: 'Duration', value: claim.duration }
+      : null,
+  ].filter((signal): signal is { label: string; value: string } => signal !== null)
 
   return (
     <article className="rounded-2xl border border-brand-900/12 bg-white/95 p-5 shadow-sm dark:bg-[var(--surface-card-strong)]">
@@ -41,6 +52,18 @@ export default function EvidenceClaimCard({
       </div>
 
       <p className="mt-4 text-sm font-semibold leading-6 text-ink">{claim.claim_statement}</p>
+
+      {numericSignals.length > 0 ? (
+        <dl className="mt-3 flex flex-wrap gap-2" aria-label="Numeric evidence details">
+          {numericSignals.map((signal) => (
+            <div key={signal.label} className="rounded-lg border border-brand-900/10 bg-brand-50/60 px-3 py-2">
+              <dt className="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-muted">{signal.label}</dt>
+              <dd className="mt-0.5 text-sm font-semibold text-ink">{signal.value}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : null}
+
       <dl className="mt-4 space-y-3 text-sm leading-6">
         <div>
           <dt className="font-semibold text-ink">Evidence summary</dt>
