@@ -3,15 +3,12 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import Disclaimer from '@/src/components/Disclaimer'
-import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index'
 import { buildPageMetadata } from '@/src/lib/seo'
-
-type RuntimeIngredient = Record<string, unknown> & {
-  slug?: string
-  name?: string
-  interactions?: unknown
-  safety?: unknown
-}
+import {
+  cleanInteractionValue,
+  interactionValueToText,
+  loadIndexableInteractionIngredients,
+} from '../../interaction-data'
 
 type MedicationClass = {
   slug: string
@@ -32,42 +29,11 @@ const MEDICATION_CLASSES: MedicationClass[] = [
   { slug: 'cyp2c9-substrates', label: 'CYP2C9 substrates', pattern: /\bcyp2c9\b/i },
 ]
 
-function clean(value: unknown): string {
-  if (typeof value !== 'string') return ''
-  return value.replace(/\s+/g, ' ').trim()
-}
-
-function toText(value: unknown): string {
-  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') return clean(String(value))
-  if (Array.isArray(value)) return value.map(toText).filter(Boolean).join('; ')
-  if (value && typeof value === 'object') {
-    return Object.entries(value as Record<string, unknown>)
-      .map(([key, nested]) => {
-        const text = toText(nested)
-        return text ? `${key.replace(/[_-]+/g, ' ')}: ${text}` : ''
-      })
-      .filter(Boolean)
-      .join('; ')
-  }
-  return ''
-}
-
-async function getRecords(): Promise<RuntimeIngredient[]> {
-  const { herbs, compounds } = await getUnifiedRuntimeRecords()
-  const bySlug = new Map<string, RuntimeIngredient>()
-  for (const record of [...herbs, ...compounds] as RuntimeIngredient[]) {
-    const slug = clean(record.slug)
-    if (slug && !bySlug.has(slug)) bySlug.set(slug, record)
-  }
-  return [...bySlug.values()]
-}
-
 export async function generateStaticParams() {
-  const records = await getRecords()
+  const records = await loadIndexableInteractionIngredients()
   return records.flatMap((record) => {
-    const slug = clean(record.slug)
-    const interactions = toText(record.interactions)
-    if (!slug || !interactions) return []
+    const slug = cleanInteractionValue(record.slug)
+    const interactions = interactionValueToText(record.interactions)
     return MEDICATION_CLASSES
       .filter((medicationClass) => medicationClass.pattern.test(interactions))
       .map((medicationClass) => ({ slug, medicationClass: medicationClass.slug }))
@@ -75,12 +41,14 @@ export async function generateStaticParams() {
 }
 
 async function resolvePage(slug: string, medicationClassSlug: string) {
-  const records = await getRecords()
-  const record = records.find((item) => clean(item.slug) === slug)
+  const records = await loadIndexableInteractionIngredients()
+  const record = records.find((item) => cleanInteractionValue(item.slug) === slug)
   const medicationClass = MEDICATION_CLASSES.find((item) => item.slug === medicationClassSlug)
   if (!record || !medicationClass) return null
-  const interactions = toText(record.interactions)
+
+  const interactions = interactionValueToText(record.interactions)
   if (!medicationClass.pattern.test(interactions)) return null
+
   return { record, medicationClass, interactions }
 }
 
@@ -88,7 +56,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug, medicationClass } = await params
   const resolved = await resolvePage(slug, medicationClass)
   if (!resolved) return {}
-  const name = clean(resolved.record.name) || slug
+  const name = cleanInteractionValue(resolved.record.name) || slug
 
   return buildPageMetadata({
     title: `${name} + ${resolved.medicationClass.label}: Interaction Evidence`,
@@ -103,8 +71,8 @@ export default async function MedicationClassInteractionPage({ params }: { param
   if (!resolved) notFound()
 
   const { record, interactions, medicationClass: medicationClassConfig } = resolved
-  const name = clean(record.name) || slug
-  const safety = toText(record.safety)
+  const name = cleanInteractionValue(record.name) || slug
+  const safety = interactionValueToText(record.safety)
 
   return (
     <main className="container-page space-y-8 py-10">
