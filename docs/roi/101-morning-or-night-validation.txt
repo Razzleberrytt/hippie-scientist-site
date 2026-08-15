@@ -1,0 +1,1 @@
+Validation: route generation is gated by explicit daypart language in canonical best_taken data; no mechanism-derived timing inference is published.
