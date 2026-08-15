@@ -13,7 +13,8 @@ type Gtag = (
     | 'experiment_conversion'
     | 'experiment_impression'
     | 'guide_view'
-    | 'lead_magnet_click',
+    | 'lead_magnet_click'
+    | 'navigation_click',
   params: Record<string, string | number | boolean | undefined>,
 ) => void
 
@@ -28,6 +29,13 @@ export type ExperimentAnalyticsParams = {
   variant: string
   location?: string
   pagePath?: string
+}
+
+export type NavigationClickParams = {
+  label: string
+  destination: string
+  sourcePath?: string
+  location: 'desktop-primary' | 'mobile-primary'
 }
 
 function getGtag(): Gtag | null {
@@ -130,6 +138,19 @@ export function trackLeadMagnetClick(params: { slug: string; sourcePath: string 
     })
   } catch {
     // Analytics must never block resource access.
+  }
+}
+
+export function trackNavigationClick(params: NavigationClickParams): void {
+  try {
+    getGtag()?.('event', 'navigation_click', {
+      navigation_label: params.label,
+      navigation_destination: params.destination,
+      navigation_location: params.location,
+      source_path: getCurrentPagePath(params.sourcePath),
+    })
+  } catch {
+    // Analytics must never block navigation.
   }
 }
 
