@@ -1,167 +1,221 @@
-/* Article & content page visual polish — gradations, accents, rhythm */
+/* Article & long-form visual rhythm
+   ContentCards still groups related headings semantically, but those groups read
+   as publication chapters rather than repeated elevated cards. Keep this file
+   scoped to article-card-flow so generic sections across the site are never
+   restyled just because they contain an h2. */
 
-/* ── Page background ── */
-body {
-  background: linear-gradient(180deg, #f4f7f1 0%, #fafbf8 20%, #ffffff 60%);
-  background-attachment: fixed;
+.article-card-flow {
+  counter-reset: article-chapter;
 }
 
-/* ── Header card ── */
-article > header {
-  background: linear-gradient(135deg, #ffffff 0%, #f8faf6 50%, #eef5ef 100%) !important;
+/* ── Generated editorial chapters ── */
+.article-card-flow > .article-section-card {
   position: relative;
-  overflow: hidden;
-}
-article > header::after {
-  content: '';
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(63, 124, 74, 0.06) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  max-width: 100%;
+  margin: 0;
+  border: 0 !important;
+  border-top: 1px solid var(--hs-hairline) !important;
+  border-radius: 0 !important;
+  padding: clamp(2rem, 5vw, 3.25rem) 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: none;
 }
 
-/* ── Section cards (from ContentCards) ── */
-section:has(> h2) {
-  transition: box-shadow 0.2s ease;
-  background: white !important;
-}
-section:has(> h2):hover {
-  box-shadow: 0 4px 20px rgba(30, 60, 40, 0.06) !important;
+.article-card-flow > .article-section-card:not(.article-intro-card) {
+  counter-increment: article-chapter;
 }
 
-/* ── Section headers (h2) inside cards ── */
-section > h2 {
-  font-size: 1.45rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(30, 60, 40, 0.1);
-  color: #153a1f;
+.article-card-flow > .article-section-card:first-child {
+  border-top: 0 !important;
 }
-section > h2::after {
+
+.article-card-flow > .article-intro-card {
+  padding-top: 0;
+  padding-bottom: clamp(1.8rem, 4vw, 2.75rem);
+}
+
+.article-card-flow > .article-intro-card:not(:empty) {
+  border-left: 2px solid color-mix(in srgb, var(--hs-gold) 44%, transparent) !important;
+  padding-left: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* ── Chapter headings ── */
+.article-card-flow .article-section-card > h2 {
+  max-width: 24ch;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+  color: var(--hs-ink);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-size: clamp(1.7rem, 4.5vw, 2.25rem);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.article-card-flow .article-section-card:not(.article-intro-card) > h2::before {
+  content: counter(article-chapter, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--hs-gold-ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+.article-card-flow .article-section-card > h2::after {
   content: '';
   display: block;
-  width: 40px;
-  height: 3px;
-  margin-top: 0.5rem;
-  background: linear-gradient(90deg, #3f7c4a, #82b48b);
-  border-radius: 2px;
+  width: 2.75rem;
+  height: 1px;
+  margin-top: 0.85rem;
+  background: linear-gradient(90deg, var(--hs-gold), color-mix(in srgb, var(--tone) 42%, transparent));
 }
 
-/* ── Sub-section headers (h3) inside cards ── */
-section > h3 {
-  padding-left: 0.75rem;
-  border-left: 3px solid #82b48b;
-  color: #1f4d29;
-  font-size: 1.15rem;
-  margin-top: 1.5rem;
+.article-card-flow .article-section-card > h3 {
+  margin-top: 2rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid color-mix(in srgb, var(--tone) 42%, var(--hs-gold));
+  color: var(--hs-ink);
+  font-size: 1.12rem;
+  line-height: 1.35;
 }
 
-/* ── Blockquotes ── */
-blockquote {
+.article-card-flow .article-section-card > h2 + p {
+  max-width: 68ch;
+  color: var(--hs-body);
+  font-size: 1.04rem;
+  line-height: 1.82;
+}
+
+/* ── Quotes and evidence callouts ── */
+.article-card-flow blockquote {
   position: relative;
-  background: linear-gradient(135deg, #f4f7f1 0%, #eef5ef 100%) !important;
-  border-left: 4px solid #82b48b !important;
+  margin-block: 1.75rem;
+  border: 0 !important;
+  border-left: 2px solid color-mix(in srgb, var(--hs-gold) 60%, transparent) !important;
+  border-radius: 0 !important;
+  padding: 0.25rem 0 0.25rem 1.2rem !important;
+  background: transparent !important;
+  color: var(--hs-body);
+  font-size: 0.98rem;
   font-style: normal;
-  font-size: 0.95rem;
+  box-shadow: none !important;
 }
-blockquote::before {
+
+.article-card-flow blockquote::before {
   content: '\201C';
   position: absolute;
-  top: -10px;
-  left: 10px;
-  font-family: var(--font-display), Georgia, serif;
-  font-size: 2.5rem;
-  color: rgba(63, 124, 74, 0.10);
+  top: -0.45rem;
+  left: 0.8rem;
+  transform: translateX(-100%);
+  color: color-mix(in srgb, var(--hs-gold) 28%, transparent);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-size: 2rem;
   line-height: 1;
   pointer-events: none;
 }
 
-/* ── Bold text ── */
-strong {
-  color: #1f4d29;
-  font-weight: 650;
+.article-card-flow strong {
+  color: var(--hs-ink);
+  font-weight: 680;
 }
 
-/* ── Tables ── */
-table {
-  border-radius: 0.75rem;
+/* ── Tables: publication-like, not dashboard-like ── */
+.article-card-flow table {
   overflow: hidden;
+  border: 1px solid var(--hs-hairline);
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--hs-surface) 94%, transparent);
 }
-thead {
-  background: linear-gradient(180deg, #eef5ef 0%, #e7eee0 100%);
+
+.article-card-flow thead {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--tone) 8%, var(--hs-surface)),
+    color-mix(in srgb, var(--tone) 4%, var(--hs-surface))
+  );
 }
-tbody tr:last-child td {
+
+.article-card-flow tbody tr:last-child td {
   border-bottom: none;
 }
-tbody tr:hover td {
-  background-color: rgba(230, 240, 230, 0.3);
+
+.article-card-flow tbody tr:hover td {
+  background-color: color-mix(in srgb, var(--tone) 4%, transparent);
 }
-section > table:first-of-type td:first-child {
-  color: #1f4d29;
+
+.article-card-flow .article-section-card > table:first-of-type td:first-child {
+  width: 180px;
+  color: var(--hs-ink);
   font-weight: 650;
   white-space: nowrap;
-  width: 180px;
 }
 
-/* ── Images ── */
-img {
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+/* ── Article media ── */
+.article-card-flow img {
   max-width: 100%;
   height: auto;
+  border: 1px solid var(--hs-hairline);
+  border-radius: 1rem;
+  box-shadow: 0 12px 32px -24px rgba(49, 42, 52, 0.24);
 }
 
-/* ── Links ── */
-a {
-  transition: all 0.15s ease;
+/* Keep caution blocks distinct because their visual weight communicates risk. */
+.article-card-flow .article-caution-block {
+  margin-block: 1.5rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, #b45309 24%, var(--hs-hairline));
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, #f59e0b 5%, var(--hs-surface));
+  box-shadow: none;
 }
 
-/* ── First paragraph after h2 (lead text) ── */
-section > h2 + p {
-  font-size: 1.05rem;
-  color: #2d4032;
+html.dark .article-card-flow > .article-section-card {
+  border-top-color: var(--hs-hairline) !important;
+  background: transparent !important;
 }
 
-/* ── Dark mode ── */
-html.dark body {
-  background: linear-gradient(180deg, #0d1712 0%, #111c16 40%, #0d1712 100%);
+html.dark .article-card-flow blockquote {
+  background: transparent !important;
+  color: var(--hs-body);
 }
-html.dark article > header {
-  background: linear-gradient(135deg, #111c16 0%, #0d1712 100%) !important;
+
+html.dark .article-card-flow table {
+  background: color-mix(in srgb, var(--hs-surface) 94%, transparent);
 }
-html.dark section:has(> h2) {
-  background: #111c16 !important;
-  border-color: rgba(255,255,255,0.12) !important;
+
+html.dark .article-card-flow thead {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--tone) 15%, var(--hs-surface)),
+    color-mix(in srgb, var(--tone) 8%, var(--hs-surface))
+  );
 }
-html.dark section > h2 {
-  color: #d4e7d7;
-  border-bottom-color: rgba(255,255,255,0.1);
+
+html.dark .article-card-flow tbody tr:hover td {
+  background-color: color-mix(in srgb, var(--tone) 9%, transparent);
 }
-html.dark section > h2::after {
-  background: linear-gradient(90deg, #5c9866, #82b48b);
-}
-html.dark section > h3 {
-  border-left-color: #5c9866;
-  color: #aed0b3;
-}
-html.dark blockquote {
-  background: linear-gradient(135deg, #0d1712 0%, #111c16 100%) !important;
-  border-left-color: #5c9866 !important;
-}
-html.dark strong {
-  color: #aed0b3;
-}
-html.dark thead {
-  background: linear-gradient(180deg, #0e2917 0%, #153a1f 100%);
-}
-html.dark section > h2 + p {
-  color: #b2c7a1;
-}
-html.dark tbody tr:hover td {
-  background-color: rgba(36, 61, 50, 0.3);
+
+@media (max-width: 640px) {
+  .article-card-flow > .article-section-card {
+    padding-block: 2rem;
+  }
+
+  .article-card-flow > .article-intro-card:not(:empty) {
+    padding-left: 1rem;
+  }
+
+  .article-card-flow .article-section-card > h2 {
+    font-size: clamp(1.65rem, 7vw, 2rem);
+  }
+
+  .article-card-flow .article-section-card > table:first-of-type td:first-child {
+    width: auto;
+    white-space: normal;
+  }
 }
