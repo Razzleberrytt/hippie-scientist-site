@@ -4,8 +4,8 @@ import {
   getEvidenceTier,
   hasHumanEvidence,
   hasMechanismEvidence,
-  isPreliminaryResearch,
 } from '@/lib/evidence'
+import { policyForResearchRecord } from '@/src/lib/research-maturity'
 import type { RuntimeRecord } from '../../src/types/content'
 
 type ProfileEvidenceLensProps = {
@@ -131,14 +131,22 @@ export default function ProfileEvidenceLens({
   const effects = cleanList(record.primary_effects || record.primaryEffects || record.effects, 3)
   const humanSignal = hasHumanEvidence(runtimeRecord)
   const mechanismSignal = hasMechanismEvidence(runtimeRecord) || mechanisms.length > 0
-  const preliminarySignal = isPreliminaryResearch(runtimeRecord)
+  const maturity = policyForResearchRecord(record)
   const safety = firstReadable(safetySummary || record.safetyNotes || record.safety_notes || record.safety)
   const limitation = limitations.map(formatDisplayLabel).find(Boolean)
+  const maturityDetail =
+    maturity.maturity === 'theoretical'
+      ? 'Mechanistic or unresolved evidence is kept separate from established human outcomes.'
+      : maturity.maturity === 'preliminary'
+        ? 'Early findings are not treated as established consumer benefit.'
+        : limitation || (effects.length ? `main contexts: ${effects.join(' · ')}` : undefined)
 
   return (
     <section
       className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/5"
       aria-labelledby="profile-evidence-lens-heading"
+      data-research-maturity={maturity.maturity}
+      data-research-visual-weight={maturity.visualWeight}
     >
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
         <div>
@@ -179,9 +187,9 @@ export default function ProfileEvidenceLens({
         />
         <SignalRow
           title="Research maturity"
-          value={preliminarySignal ? 'Preliminary or mixed' : 'More interpretable'}
-          detail={limitation || (effects.length ? `main contexts: ${effects.join(' · ')}` : undefined)}
-          tone={preliminarySignal ? 'caution' : 'clinical'}
+          value={maturity.label}
+          detail={maturityDetail}
+          tone={maturity.maturity === 'established' ? 'clinical' : maturity.maturity === 'theoretical' ? 'mechanism' : 'caution'}
         />
         <SignalRow
           title="Safety boundary"

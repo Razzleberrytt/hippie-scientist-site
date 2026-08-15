@@ -1,3 +1,10 @@
+import {
+  getEvidenceTier,
+  hasHumanEvidence,
+  hasMechanismEvidence,
+} from '@/lib/evidence'
+import type { RuntimeRecord } from '../types/content'
+
 export const RESEARCH_MATURITY_LEVELS = [
   'established',
   'emerging',
@@ -51,6 +58,61 @@ export const RESEARCH_MATURITY_POLICIES: Record<ResearchMaturity, ResearchMaturi
   },
 }
 
+export function policyForResearchMaturity(level: ResearchMaturity): ResearchMaturityPolicy {
+  return RESEARCH_MATURITY_POLICIES[level]
+}
+
+/**
+ * Derives the public research-maturity indicator from the existing canonical
+ * evidence helpers rather than asking templates to invent a second grading
+ * system. Strong/moderate human evidence is established; weaker human evidence
+ * is emerging; early human/traditional evidence is preliminary; mechanism-only
+ * or unresolved evidence is theoretical.
+ */
+export function deriveResearchMaturity(
+  record: RuntimeRecord | Record<string, unknown>,
+): ResearchMaturity {
+  const runtimeRecord = record as RuntimeRecord
+  const tier = getEvidenceTier(runtimeRecord)
+  const human = hasHumanEvidence(runtimeRecord)
+  const mechanism = hasMechanismEvidence(runtimeRecord)
+
+  if ((tier === 'strong' || tier === 'moderate') && human) return 'established'
+  if ((tier === 'limited' || tier === 'mixed') && human) return 'emerging'
+  if (tier === 'preliminary' || tier === 'traditional') return 'preliminary'
+  if (!human && mechanism) return 'theoretical'
+  if (tier === 'insufficient' || tier === 'review') return 'theoretical'
+
+  return human ? 'emerging' : 'theoretical'
+}
+
+export function policyForResearchRecord(
+  record: RuntimeRecord | Record<string, unknown>,
+): ResearchMaturityPolicy & { maturity: ResearchMaturity } {
+  const maturity = deriveResearchMaturity(record)
+  return { maturity, ...policyForResearchMaturity(maturity) }
+}
+
+/**
+ * Affiliate governance should only add a maturity restriction when a record
+ * actually carries an evidence/maturity signal. This avoids turning sparse
+ * internal payloads into implicit "theoretical" judgments merely because they
+ * omit fields that exist on the canonical full record.
+ */
+export function hasExplicitResearchMaturitySignal(record: Record<string, unknown>): boolean {
+  return [
+    record.evidence_grade,
+    record.evidence_tier,
+    record.evidenceTier,
+    record.evidenceLevel,
+    record.confidenceTier,
+    record.profile_status,
+    record.review_status,
+    record.summary_quality,
+    record.source_status,
+  ].some((value) => String(value ?? '').trim().length > 0)
+}
+
 export type RelationshipKind =
   | 'outcome-supported'
   | 'exploratory-outcome'
@@ -74,10 +136,6 @@ export interface RelationshipValidationIssue {
     | 'alternative-without-outcome-evidence'
     | 'clinical-effect-without-outcome-evidence'
   message: string
-}
-
-export function policyForResearchMaturity(level: ResearchMaturity): ResearchMaturityPolicy {
-  return RESEARCH_MATURITY_POLICIES[level]
 }
 
 export function validateResearchRelationship(
