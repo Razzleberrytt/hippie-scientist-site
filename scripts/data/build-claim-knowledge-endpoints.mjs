@@ -5,6 +5,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { contentHash, stableStringify } from './canonical/ids.mjs'
 import { buildClaimKnowledgeBase } from './claim-knowledge-lib.mjs'
+import { remapClaimKnowledgeToStableSubstanceIds } from './claim-knowledge-identity.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const PUBLIC_DATA = path.join(ROOT, 'public', 'data')
@@ -70,6 +71,11 @@ function renderMarkdown(knowledge) {
     `- Orphan claims not attached to a public herb/compound profile: **${knowledge.summary.orphanClaims}**`,
     `- Integrity hash: \`${knowledge.integrityHash}\``,
     '',
+    '## Identity contract',
+    '',
+    `- Public substance IDs: **${knowledge.identityContract?.publicSubstanceIds || 'legacy'}**`,
+    `- Legacy claim join IDs: **${knowledge.identityContract?.legacyClaimJoinIds || 'n/a'}**`,
+    '',
     '## Contract',
     '',
     '- Stable claim IDs are the identity key; duplicate IDs with conflicting payloads fail generation.',
@@ -105,7 +111,8 @@ const claims = readJsonl(path.join(ROOT, 'data', 'canonical', 'claims', 'claims.
 const sources = readJsonl(path.join(ROOT, 'data', 'canonical', 'sources', 'sources.jsonl'))
 
 assertUniqueClaims(claims)
-const knowledge = buildClaimKnowledgeBase({ herbs, compounds, claims, sources })
+const derivedKnowledge = buildClaimKnowledgeBase({ herbs, compounds, claims, sources })
+const knowledge = remapClaimKnowledgeToStableSubstanceIds(derivedKnowledge, { herbs, compounds })
 
 mkdirSync(PUBLIC_DATA, { recursive: true })
 mkdirSync(REPORT_DIR, { recursive: true })
@@ -119,6 +126,7 @@ for (const endpoint of knowledge.endpoints) {
 const aggregate = {
   version: knowledge.version,
   generatedAt: knowledge.generatedAt,
+  identityContract: knowledge.identityContract,
   summary: knowledge.summary,
   claims: knowledge.claims,
   dependencies: knowledge.dependencies,
@@ -138,6 +146,7 @@ console.log(`Claims        ${knowledge.summary.claims}`)
 console.log(`Endpoints     ${knowledge.summary.endpoints}`)
 console.log(`Orphan claims ${knowledge.summary.orphanClaims}`)
 console.log(`Integrity     ${knowledge.integrityHash.slice(0, 16)}…`)
+console.log('Identity      stable evidence-graph substance IDs')
 console.log('Aggregate     public/data/claim-knowledge-graph.json')
 console.log('Dependencies  public/data/claim-page-dependencies.json')
 console.log('Endpoints     public/data/ingredients/<slug>.json')
