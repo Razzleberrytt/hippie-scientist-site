@@ -33,7 +33,15 @@ describe('release impact classification', () => {
     'app/guides/generateStaticParams.ts',
     'app/generateStaticParams.mjs',
     'lib/seo/canonical.ts',
+    'lib/semantic-schema-graph.ts',
+    'src/lib/seo.ts',
+    'src/lib/goal-seo.ts',
+    'src/lib/schema-graph.ts',
+    'src/lib/schema-injector.ts',
+    'src/lib/runtime-data.ts',
     'public/data/herbs.json',
+    'public/_redirects',
+    'public/_headers',
     'next.config.mjs',
     'package.json',
     'package-lock.json',
@@ -46,9 +54,11 @@ describe('release impact classification', () => {
     'app/guides/example/components/DecisionTable.tsx',
     'app/lib/client-state.ts',
     'components/Header.tsx',
+    'src/lib/react-cache.ts',
     'docs/build-and-verification.md',
     'styles/globals.css',
     '.github/workflows/lighthouse.yml',
+    'public/hero-illustration.jpg',
   ])('classifies %s as standard-CI-only', (file) => {
     expect(isReleaseSensitivePath(file)).toBe(false)
   })
