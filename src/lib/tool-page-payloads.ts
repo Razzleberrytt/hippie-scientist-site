@@ -36,6 +36,11 @@ function textList(value: unknown): string[] | undefined {
   return cleaned.length ? cleaned : undefined
 }
 
+function mergedTextList(record: RuntimeRecord, keys: string[]): string[] | undefined {
+  const values = keys.flatMap((key) => textList(record[key]) || [])
+  return textList(values)
+}
+
 function safetyContext(record: RuntimeRecord): string | undefined {
   const values = [
     firstText(record, ['safety', 'safetyNotes', 'safety_notes']),
@@ -57,8 +62,6 @@ function safetyContext(record: RuntimeRecord): string | undefined {
 function baseToolRecord(record: RuntimeRecord, type: ToolKind) {
   return {
     slug: firstText(record, ['slug']) || '',
-    // Resolve displayName into the canonical client-facing name once instead
-    // of serializing the same label twice across every tool payload.
     name: firstText(record, ['displayName', 'name', 'compoundName', 'canonicalCompoundName', 'slug']) || '',
     type,
   }
@@ -76,8 +79,6 @@ export function toDosingToolRecord(record: RuntimeRecord, type: ToolKind) {
 export function toBuyingToolRecord(record: RuntimeRecord, type: ToolKind) {
   return {
     ...baseToolRecord(record, type),
-    // The product-quality client re-runs the affiliate gate after the server
-    // compacts records, so preserve the central governance decision explicitly.
     monetization_allowed: getRuntimeVisibility(record).canMonetize,
     buying_criteria: textList(record.buying_criteria ?? record.buyingCriteria),
     amazon_affiliate_url: firstText(record, ['amazon_affiliate_url', 'amazonAffiliateUrl']),
@@ -90,11 +91,29 @@ export function toBuyingToolRecord(record: RuntimeRecord, type: ToolKind) {
 }
 
 export function toSafetyToolRecord(record: RuntimeRecord, type: ToolKind) {
+  const safety = safetyContext(record)
+  const safetyFlags = textList(record.safety_flags ?? record.safetyFlags)
+  const mechanisms = textList(record.mechanisms ?? record.primary_mechanisms ?? record.pathways)
+  const sources = mergedTextList(record, [
+    'safety_sources',
+    'safetySources',
+    'interaction_sources',
+    'interactionSources',
+    'references',
+    'citations',
+    'source_urls',
+    'sourceUrls',
+  ])
+
   return {
     ...baseToolRecord(record, type),
-    safety: safetyContext(record),
-    safety_flags: textList(record.safety_flags ?? record.safetyFlags),
+    safety,
+    safety_flags: safetyFlags,
     mechanism: firstText(record, ['mechanism', 'mechanismOfAction']),
-    mechanisms: textList(record.mechanisms ?? record.primary_mechanisms ?? record.pathways),
+    mechanisms,
+    interaction_evidence: firstText(record, ['interaction_evidence', 'interactionEvidence', 'interaction_confidence', 'interactionConfidence']),
+    interaction_type: firstText(record, ['interaction_type', 'interactionType', 'interaction_mechanism', 'interactionMechanism']),
+    sources,
+    incomplete_safety_data: !safety && !safetyFlags?.length && !mechanisms?.length,
   }
 }

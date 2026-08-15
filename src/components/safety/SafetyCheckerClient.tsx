@@ -1,696 +1,173 @@
 'use client'
 
-import { useState, useEffect, useRef, useMemo, useId, type KeyboardEvent } from 'react'
 import Link from 'next/link'
-
-interface SafetyItem {
-  slug: string
-  name: string
-  type: 'herb' | 'compound'
-  safety?: string
-  safety_flags?: string[]
-  mechanism?: string
-  mechanisms?: string[]
-}
-
-interface PharmaceuticalMedication {
-  id: string
-  name: string
-  class: string
-  safety_triggers: string[]
-  description: string
-}
-
-const PHARMACEUTICAL_CLASSES: PharmaceuticalMedication[] = [
-  {
-    id: 'ssri',
-    name: 'SSRI / SNRI Antidepressants',
-    class: 'Antidepressants',
-    safety_triggers: ['serotonergic'],
-    description: 'Selective Serotonin/Norepinephrine Reuptake Inhibitors (e.g. Escitalopram, Sertraline, Fluoxetine, Duloxetine).',
-  },
-  {
-    id: 'maoi',
-    name: 'MAO Inhibitors (MAOIs)',
-    class: 'Antidepressants',
-    safety_triggers: ['maoi'],
-    description: 'Monoamine Oxidase Inhibitors (e.g. Phenelzine, Tranylcypromine, Selegiline). Carry severe dietary and drug interaction restrictions.',
-  },
-  {
-    id: 'anticoagulant',
-    name: 'Blood Thinners / Anticoagulants',
-    class: 'Cardiovascular',
-    safety_triggers: ['anticoagulant'],
-    description: 'Blood thinners and antiplatelet drugs (e.g. Warfarin, Eliquis, Xarelto, Clopidogrel, high-dose Aspirin).',
-  },
-  {
-    id: 'sedative-med',
-    name: 'GABA / CNS Sedatives / Sleep Meds',
-    class: 'Sleep & Anxiety',
-    safety_triggers: ['sedative'],
-    description: 'CNS depressants, benzos, and Z-drugs (e.g. Alprazolam, Diazepam, Clonazepam, Zolpidem, Gabapentin).',
-  },
-  {
-    id: 'stimulant-med',
-    name: 'CNS Stimulants (ADHD Meds)',
-    class: 'ADHD / Stimulants',
-    safety_triggers: ['stimulant'],
-    description: 'CNS stimulants (e.g. Amphetamine/Adderall, Methylphenidate/Ritalin, Vyvanse).',
-  },
-  {
-    id: 'bp-med',
-    name: 'Blood Pressure / Beta-Blockers',
-    class: 'Cardiovascular',
-    safety_triggers: ['bp-lowering'],
-    description: 'Beta-blockers, ACE inhibitors, and calcium channel blockers (e.g. Metoprolol, Lisinopril, Amlodipine).',
-  },
-  {
-    id: 'thyroid-med',
-    name: 'Thyroid Medications',
-    class: 'Endocrine',
-    safety_triggers: ['thyroid'],
-    description: 'Thyroid hormone replacement or antithyroid drugs (e.g. Levothyroxine, Liothyronine, Methimazole).',
-  },
-  {
-    id: 'statin',
-    name: 'Statins / Cholesterol Meds',
-    class: 'Cardiovascular',
-    safety_triggers: ['cyp-interaction', 'liver'],
-    description: 'Lipid-lowering drugs with interaction or liver-enzyme considerations (e.g. Atorvastatin, Simvastatin, Rosuvastatin).',
-  },
-  {
-    id: 'diabetes-med',
-    name: 'Metformin / Diabetes Meds',
-    class: 'Metabolic',
-    safety_triggers: ['glucose-lowering'],
-    description: 'Blood-sugar-lowering therapies including metformin, insulin, GLP-1 drugs, and sulfonylureas.',
-  },
-  {
-    id: 'hormonal-contraceptive',
-    name: 'Hormonal Contraceptives',
-    class: 'Hormonal',
-    safety_triggers: ['cyp-interaction', 'hormonal'],
-    description: 'Oral, patch, ring, implant, or injectable contraceptives that may be affected by enzyme-inducing botanicals.',
-  },
-  {
-    id: 'immunosuppressant',
-    name: 'Immunosuppressants',
-    class: 'Immune',
-    safety_triggers: ['immune-modulating'],
-    description: 'Transplant, autoimmune, or biologic immune-suppressing therapies (e.g. Tacrolimus, Cyclosporine, Methotrexate, biologics).',
-  },
-]
+import { useEffect, useMemo, useState } from 'react'
+import { trackEvent } from '@/lib/growth'
+import {
+  MEDICATION_CLASSES,
+  buildSafetyShareSearch,
+  combinationAnalyticsKey,
+  parseSafetyShareSearch,
+  screenSafetySelection,
+  type MedicationClass,
+  type SafetyToolItem,
+} from '@/lib/safety-checker-engine'
 
 interface SafetyCheckerClientProps {
-  herbs: any[]
-  compounds: any[]
+  herbs: SafetyToolItem[]
+  compounds: SafetyToolItem[]
 }
 
+const evidenceLabels = {
+  documented: 'Documented interaction evidence',
+  'structured-signal': 'Structured safety signal',
+  'theoretical-additive': 'Theoretical additive concern',
+  unknown: 'Evidence not classified',
+} as const
+
+const mechanismLabels = {
+  pharmacokinetic: 'Pharmacokinetic',
+  pharmacodynamic: 'Pharmacodynamic',
+  mixed: 'Mixed PK / PD',
+  unclear: 'Mechanism unclear',
+} as const
+
 export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerClientProps) {
-  const searchInputId = useId()
-  const searchHelpId = useId()
-  const listboxId = useId()
-  const selectionStatusId = useId()
-  const riskStatusId = useId()
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectedItems, setSelectedItems] = useState<SafetyItem[]>([])
-  const [selectedMeds, setSelectedMeds] = useState<PharmaceuticalMedication[]>([])
-  const [isOpen, setIsOpen] = useState(false)
-  const [focusedIndex, setFocusedIndex] = useState(-1)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-
-  const allItems = useMemo(() => [
-    ...herbs.map(item => ({ ...item, type: 'herb' as const })),
-    ...compounds.map(item => ({ ...item, type: 'compound' as const })),
-  ] as SafetyItem[], [herbs, compounds])
-
-  const filteredItems = searchQuery
-    ? allItems.filter(item => {
-        const matchesName = item.name.toLowerCase().includes(searchQuery.toLowerCase())
-        const notSelected = !selectedItems.some(selected => selected.slug === item.slug)
-        return matchesName && notSelected
-      }).slice(0, 8)
-    : []
-  const activeOptionId = focusedIndex >= 0 && filteredItems[focusedIndex]
-    ? `${listboxId}-${filteredItems[focusedIndex].slug}`
-    : undefined
-  const selectionCount = selectedItems.length + selectedMeds.length
+  const allItems = useMemo(() => [...herbs, ...compounds], [herbs, compounds])
+  const [query, setQuery] = useState('')
+  const [selectedItems, setSelectedItems] = useState<SafetyToolItem[]>([])
+  const [selectedMeds, setSelectedMeds] = useState<MedicationClass[]>([])
+  const [shareStatus, setShareStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
+  const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+    const parsed = parseSafetyShareSearch(window.location.search)
+    const itemByToken = new Map(allItems.map((item) => [`${item.type}:${item.slug}`, item]))
+    setSelectedItems(parsed.items.flatMap((token) => itemByToken.get(token) ? [itemByToken.get(token)!] : []))
+    setSelectedMeds(parsed.meds.flatMap((id) => {
+      const medication = MEDICATION_CLASSES.find((item) => item.id === id)
+      return medication ? [medication] : []
+    }))
+    setHydrated(true)
+  }, [allItems])
 
-  const handleAddItem = (item: SafetyItem) => {
-    if (!selectedItems.some(i => i.slug === item.slug)) {
-      setSelectedItems([...selectedItems, item])
-    }
-    setSearchQuery('')
-    setIsOpen(false)
-    setFocusedIndex(-1)
+  const searchResults = useMemo(() => {
+    const needle = query.trim().toLowerCase()
+    if (!needle) return []
+    return allItems
+      .filter((item) => !selectedItems.some((selected) => selected.type === item.type && selected.slug === item.slug))
+      .filter((item) => `${item.name} ${item.slug}`.toLowerCase().includes(needle))
+      .slice(0, 10)
+  }, [allItems, selectedItems, query])
+
+  const alerts = useMemo(() => screenSafetySelection(selectedItems, selectedMeds), [selectedItems, selectedMeds])
+  const incompleteItems = selectedItems.filter((item) => item.incomplete_safety_data)
+  const selectionCount = selectedItems.length + selectedMeds.length
+  const shareSearch = useMemo(() => buildSafetyShareSearch(selectedItems, selectedMeds), [selectedItems, selectedMeds])
+  const analyticsKey = useMemo(() => combinationAnalyticsKey(selectedItems, selectedMeds), [selectedItems, selectedMeds])
+
+  useEffect(() => {
+    if (!hydrated || selectionCount < 2 || !analyticsKey) return
+    const timer = window.setTimeout(() => {
+      trackEvent('search_used', {
+        kind: 'safety-checker',
+        query: analyticsKey,
+        selected_count: selectionCount,
+        alert_count: alerts.length,
+      })
+    }, 700)
+    return () => window.clearTimeout(timer)
+  }, [hydrated, analyticsKey, selectionCount, alerts.length])
+
+  const addItem = (item: SafetyToolItem) => {
+    setSelectedItems((current) => [...current, item].slice(0, 8))
+    setQuery('')
   }
 
-  const handleRemoveItem = (slug: string) => {
-    setSelectedItems(selectedItems.filter(item => item.slug !== slug))
+  const toggleMedication = (medication: MedicationClass) => {
+    setSelectedMeds((current) => current.some((item) => item.id === medication.id)
+      ? current.filter((item) => item.id !== medication.id)
+      : [...current, medication].slice(0, 6))
   }
 
-  const handleClearAll = () => {
+  const clear = () => {
     setSelectedItems([])
     setSelectedMeds([])
+    setQuery('')
+    if (typeof window !== 'undefined') window.history.replaceState(null, '', window.location.pathname)
   }
 
-  // High-sensitivity screening rules. These flags intentionally do not diagnose
-  // a clinical interaction or estimate dose-specific risk.
-  const analysis = useMemo(() => {
-    const alerts: { type: 'danger' | 'warning' | 'info'; title: string; desc: string }[] = []
-
-    if (selectedItems.length === 0 && selectedMeds.length === 0) {
-      return { alerts, riskLevel: 'low' as const }
+  const copyShareUrl = async () => {
+    const url = `${window.location.origin}${window.location.pathname}${shareSearch}`
+    try {
+      await navigator.clipboard.writeText(url)
+      window.history.replaceState(null, '', `${window.location.pathname}${shareSearch}`)
+      setShareStatus('copied')
+    } catch {
+      setShareStatus('failed')
     }
-
-    let sedativeCount = 0
-    let stimulantCount = 0
-    let serotonergicCount = 0
-    let bleedingCount = 0
-    let bpLoweringCount = 0
-
-    const sedativeList: string[] = []
-    const stimulantList: string[] = []
-    const serotonergicList: string[] = []
-    const maoiList: string[] = []
-    const bleedingList: string[] = []
-    const bpLoweringList: string[] = []
-
-    selectedItems.forEach(item => {
-      const safetyText = (item.safety || '').toLowerCase()
-      const mechText = (item.mechanism || '').toLowerCase() + ' ' + (item.mechanisms || []).join(' ').toLowerCase()
-      const flags = item.safety_flags || []
-
-      const isSedative = safetyText.includes('sedative') || safetyText.includes('depressant') || safetyText.includes('drowsiness') ||
-                        mechText.includes('gaba-a') || mechText.includes('gabaergic') || mechText.includes('valerian') || mechText.includes('kava') ||
-                        flags.includes('sedative')
-
-      if (isSedative) {
-        sedativeCount++
-        sedativeList.push(item.name)
-      }
-
-      const isStimulant = safetyText.includes('stimulant') || safetyText.includes('insomnia') || safetyText.includes('hypertension') ||
-                          mechText.includes('stimulant') || mechText.includes('caffeine') || mechText.includes('ephedrine') || mechText.includes('yohimbine') ||
-                          flags.includes('stimulant')
-
-      if (isStimulant) {
-        stimulantCount++
-        stimulantList.push(item.name)
-      }
-
-      const isSerotonergic = safetyText.includes('serotonin syndrome') || safetyText.includes('ssri') || safetyText.includes('maoi') ||
-                             mechText.includes('serotonin reuptake') || mechText.includes('5-ht') || mechText.includes('serotonergic') || mechText.includes('kanna') ||
-                             flags.includes('serotonergic')
-
-      if (isSerotonergic) {
-        serotonergicCount++
-        serotonergicList.push(item.name)
-      }
-
-      const isMaoi = safetyText.includes('maoi') || safetyText.includes('monoamine oxidase') ||
-                     mechText.includes('mao inhibitor') || mechText.includes('maoi') ||
-                     flags.includes('maoi')
-
-      if (isMaoi) {
-        maoiList.push(item.name)
-      }
-
-      const isAnticoagulant = safetyText.includes('bleeding') || safetyText.includes('anticoagulant') || safetyText.includes('blood thinner') || safetyText.includes('surgery') ||
-                              mechText.includes('antiplatelet') || mechText.includes('antithrombotic') ||
-                              flags.includes('bleeding') || flags.includes('anticoagulant')
-
-      if (isAnticoagulant) {
-        bleedingCount++
-        bleedingList.push(item.name)
-      }
-
-      const isBpLowering = safetyText.includes('hypotension') || safetyText.includes('blood pressure') || safetyText.includes('cardiovascular') ||
-                           mechText.includes('vasodilation') || mechText.includes('blood pressure')
-
-      if (isBpLowering) {
-        bpLoweringCount++
-        bpLoweringList.push(item.name)
-      }
-    })
-
-    selectedMeds.forEach(med => {
-      if (med.safety_triggers.includes('serotonergic')) {
-        serotonergicCount++
-        serotonergicList.push(`${med.name} (Medication)`)
-      }
-      if (med.safety_triggers.includes('maoi')) {
-        maoiList.push(`${med.name} (Medication)`)
-      }
-      if (med.safety_triggers.includes('sedative')) {
-        sedativeCount++
-        sedativeList.push(`${med.name} (Medication)`)
-      }
-      if (med.safety_triggers.includes('stimulant')) {
-        stimulantCount++
-        stimulantList.push(`${med.name} (Medication)`)
-      }
-      if (med.safety_triggers.includes('anticoagulant')) {
-        bleedingCount++
-        bleedingList.push(`${med.name} (Medication)`)
-      }
-      if (med.safety_triggers.includes('bp-lowering')) {
-        bpLoweringCount++
-        bpLoweringList.push(`${med.name} (Medication)`)
-      }
-    })
-
-    if (sedativeCount >= 2) {
-      const hasMed = selectedMeds.some(m => m.safety_triggers.includes('sedative'))
-      alerts.push({
-        type: 'warning',
-        title: hasMed ? 'Sedation overlap — medication review advised' : 'Sedation-related overlap',
-        desc: hasMed
-          ? `This screen found a sedative medication class plus ingredient(s) with sedative or GABA-related signals (${sedativeList.join(', ')}). Additive drowsiness or impairment may be possible, but this tool cannot determine severity or dose-specific risk. Review the exact combination with a clinician or pharmacist.`
-          : `Multiple selected ingredients carry sedative or GABA-related signals (${sedativeList.join(', ')}). Additive drowsiness or impairment may be possible. Check the individual safety sources before combining them.`
-      })
-    }
-
-    if (serotonergicCount >= 2) {
-      const hasMed = selectedMeds.some(m => m.safety_triggers.includes('serotonergic'))
-      alerts.push({
-        type: hasMed ? 'danger' : 'warning',
-        title: hasMed ? 'Serotonergic overlap — medication review advised' : 'Serotonergic mechanism overlap',
-        desc: hasMed
-          ? `This screen found a serotonergic medication class plus ingredient(s) with serotonin-related signals (${serotonergicList.join(', ')}). Some medication-supplement combinations can cause serious serotonin-related adverse effects, but a mechanism flag alone cannot quantify that risk. Check the exact combination with a clinician or pharmacist.`
-          : `Multiple selected ingredients have serotonin-related mechanism or safety signals (${serotonergicList.join(', ')}). This flag does not mean serotonin toxicity will occur; it means the combination deserves a closer evidence and safety review.`
-      })
-    }
-
-    if (stimulantCount >= 2) {
-      const hasMed = selectedMeds.some(m => m.safety_triggers.includes('stimulant'))
-      alerts.push({
-        type: 'warning',
-        title: hasMed ? 'Stimulant overlap — medication review advised' : 'Stimulant-related overlap',
-        desc: hasMed
-          ? `This screen found a stimulant medication class plus ingredient(s) with stimulant signals (${stimulantList.join(', ')}). Additive heart-rate, blood-pressure, sleep, or anxiety effects may be possible. Check the exact combination and doses with a clinician or pharmacist.`
-          : `Multiple selected ingredients have stimulant-related signals (${stimulantList.join(', ')}). Their effects may be additive, but this screen cannot estimate the magnitude for an individual user.`
-      })
-    }
-
-    const hasMaoiMed = selectedMeds.some(m => m.safety_triggers.includes('maoi'))
-    const hasSerotonergicMed = selectedMeds.some(m => m.safety_triggers.includes('serotonergic'))
-    const hasStimulantMed = selectedMeds.some(m => m.safety_triggers.includes('stimulant'))
-
-    const hasMaoiSupp = selectedItems.some(item => {
-      const safetyText = (item.safety || '').toLowerCase()
-      const mechText = (item.mechanism || '').toLowerCase() + ' ' + (item.mechanisms || []).join(' ').toLowerCase()
-      const flags = item.safety_flags || []
-      return safetyText.includes('maoi') || safetyText.includes('monoamine oxidase') || mechText.includes('mao inhibitor') || mechText.includes('maoi') || flags.includes('maoi')
-    })
-
-    const hasSerotonergicSupp = selectedItems.some(item => {
-      const safetyText = (item.safety || '').toLowerCase()
-      const mechText = (item.mechanism || '').toLowerCase() + ' ' + (item.mechanisms || []).join(' ').toLowerCase()
-      const flags = item.safety_flags || []
-      return safetyText.includes('serotonin syndrome') || safetyText.includes('ssri') || safetyText.includes('maoi') || mechText.includes('serotonin reuptake') || mechText.includes('5-ht') || mechText.includes('serotonergic') || mechText.includes('kanna') || flags.includes('serotonergic')
-    })
-
-    const hasStimulantSupp = selectedItems.some(item => {
-      const safetyText = (item.safety || '').toLowerCase()
-      const mechText = (item.mechanism || '').toLowerCase() + ' ' + (item.mechanisms || []).join(' ').toLowerCase()
-      const flags = item.safety_flags || []
-      return safetyText.includes('stimulant') || safetyText.includes('insomnia') || safetyText.includes('hypertension') || mechText.includes('stimulant') || mechText.includes('caffeine') || mechText.includes('ephedrine') || mechText.includes('yohimbine') || flags.includes('stimulant')
-    })
-
-    const hasDistinctMaoiSupplementOverlap = selectedItems.some((maoiItem, maoiIndex) => {
-      const maoiSafetyText = (maoiItem.safety || '').toLowerCase()
-      const maoiMechText = (maoiItem.mechanism || '').toLowerCase() + ' ' + (maoiItem.mechanisms || []).join(' ').toLowerCase()
-      const maoiFlags = maoiItem.safety_flags || []
-      const isMaoi = maoiSafetyText.includes('maoi') || maoiSafetyText.includes('monoamine oxidase') || maoiMechText.includes('mao inhibitor') || maoiMechText.includes('maoi') || maoiFlags.includes('maoi')
-      if (!isMaoi) return false
-
-      return selectedItems.some((otherItem, otherIndex) => {
-        if (otherIndex === maoiIndex) return false
-        const safetyText = (otherItem.safety || '').toLowerCase()
-        const mechText = (otherItem.mechanism || '').toLowerCase() + ' ' + (otherItem.mechanisms || []).join(' ').toLowerCase()
-        const flags = otherItem.safety_flags || []
-        const isSerotonergic = safetyText.includes('serotonin syndrome') || safetyText.includes('ssri') || safetyText.includes('maoi') || mechText.includes('serotonin reuptake') || mechText.includes('5-ht') || mechText.includes('serotonergic') || mechText.includes('kanna') || flags.includes('serotonergic')
-        const isStimulant = safetyText.includes('stimulant') || safetyText.includes('insomnia') || safetyText.includes('hypertension') || mechText.includes('stimulant') || mechText.includes('caffeine') || mechText.includes('ephedrine') || mechText.includes('yohimbine') || flags.includes('stimulant')
-        return isSerotonergic || isStimulant
-      })
-    })
-
-    if (hasMaoiMed && (hasSerotonergicSupp || hasStimulantSupp)) {
-      alerts.push({
-        type: 'danger',
-        title: 'MAOI medication overlap — pharmacist review advised',
-        desc: `A selected MAOI medication class overlaps with supplement(s) carrying serotonergic or stimulant signals. MAO inhibitors can have serious medication and dietary interactions, and this ruleset cannot determine whether a specific supplement signal is clinically meaningful. Do not use this screen as clearance; review the exact medicine, supplement, and dose with a pharmacist or prescribing clinician.`
-      })
-    } else if ((hasMaoiSupp && (hasSerotonergicMed || hasStimulantMed)) || hasDistinctMaoiSupplementOverlap) {
-      alerts.push({
-        type: 'warning',
-        title: 'MAO-related mechanism flag',
-        desc: `At least one selected supplement is tagged with an MAO-related signal (${maoiList.filter(x => !x.includes('Medication')).join(', ')}), alongside another serotonergic or stimulant signal. Mechanistic or text-matched MAO activity is not equivalent to a prescription MAOI contraindication, so treat this as a prompt for source review rather than a diagnosis of interaction risk.`
-      })
-    }
-
-    if (bleedingCount >= 2) {
-      const hasMed = selectedMeds.some(m => m.safety_triggers.includes('anticoagulant'))
-      alerts.push({
-        type: 'warning',
-        title: hasMed ? 'Bleeding-related overlap — medication review advised' : 'Bleeding-related overlap',
-        desc: hasMed
-          ? `This screen found a blood-thinner or antiplatelet medication class plus ingredient(s) with bleeding-related signals (${bleedingList.join(', ')}). Some supplement-medication combinations can increase bleeding risk, but this tool cannot estimate the effect for a specific drug, dose, or person. Review the exact combination with a clinician or pharmacist.`
-          : `Multiple selected ingredients carry bleeding or antiplatelet-related signals (${bleedingList.join(', ')}). The clinical importance varies by ingredient, dose, and context, especially around surgery or when medications are involved.`
-      })
-    }
-
-    if (bpLoweringCount >= 2 || (bpLoweringCount >= 1 && selectedMeds.some(m => m.safety_triggers.includes('bp-lowering')))) {
-      const hasMed = selectedMeds.some(m => m.safety_triggers.includes('bp-lowering'))
-      alerts.push({
-        type: 'warning',
-        title: hasMed ? 'Blood-pressure overlap — medication review advised' : 'Blood-pressure-related overlap',
-        desc: hasMed
-          ? `This screen found a blood-pressure medication class plus ingredient(s) with blood-pressure or vasoactive signals (${bpLoweringList.join(', ')}). Additive effects may be possible, but the checker cannot predict direction, magnitude, or dose-specific risk. Review the exact combination with a clinician or pharmacist.`
-          : `Multiple selected ingredients carry blood-pressure or vasoactive signals (${bpLoweringList.join(', ')}). Their combined clinical effect is uncertain and may depend on dose, preparation, and individual response.`
-      })
-    }
-
-    let riskLevel: 'low' | 'medium' | 'high' = 'low'
-    if (alerts.some(a => a.type === 'danger')) {
-      riskLevel = 'high'
-    } else if (alerts.some(a => a.type === 'warning')) {
-      riskLevel = 'medium'
-    }
-
-    return { alerts, riskLevel }
-  }, [selectedItems, selectedMeds])
-
-  const screeningLabel = analysis.riskLevel === 'high'
-    ? 'High-priority flags'
-    : analysis.riskLevel === 'medium'
-      ? 'Caution flags'
-      : 'No rule flags'
-
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'ArrowDown') {
-      e.preventDefault()
-      setIsOpen(true)
-      setFocusedIndex(prev => (prev < filteredItems.length - 1 ? prev + 1 : prev))
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault()
-      setFocusedIndex(prev => (prev > 0 ? prev - 1 : 0))
-    } else if (e.key === 'Enter') {
-      e.preventDefault()
-      if (focusedIndex >= 0 && filteredItems[focusedIndex]) {
-        handleAddItem(filteredItems[focusedIndex])
-      } else if (filteredItems.length === 1) {
-        handleAddItem(filteredItems[0])
-      }
-    } else if (e.key === 'Escape') {
-      setIsOpen(false)
-      setFocusedIndex(-1)
-    }
+    window.setTimeout(() => setShareStatus('idle'), 1800)
   }
 
   return (
-    <div className='space-y-6'>
-      <div className='rounded-2xl border border-amber-700/20 bg-amber-50/50 p-4 text-xs leading-relaxed text-amber-950 shadow-sm'>
-        <p className='font-semibold'>Educational safety screen only</p>
-        <p className='mt-1'>
-          This checker highlights possible overlap patterns from broad rules and structured safety fields. A flag is a reason to review the sources; no flag is not proof that a combination is safe.
-        </p>
-      </div>
+    <section className='space-y-6' aria-label='Safety interaction checker'>
+      <div className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm'>
+        <div className='grid gap-5 lg:grid-cols-[1.1fr_0.9fr]'>
+          <div>
+            <label htmlFor='safety-checker-search' className='text-sm font-bold text-ink'>Add an herb, supplement, or compound</label>
+            <p className='mt-1 text-xs leading-5 text-muted'>Search uses public ingredient names only. The checker does not ask for a diagnosis, dose, age, pregnancy status, or other personal health information.</p>
+            <input id='safety-checker-search' value={query} onChange={(event) => setQuery(event.target.value)} placeholder='Try ashwagandha, melatonin, caffeine…' className='mt-3 w-full rounded-xl border border-brand-900/15 bg-white px-4 py-3 text-sm text-ink' autoComplete='off' />
+            {searchResults.length ? (
+              <div className='mt-2 overflow-hidden rounded-xl border border-brand-900/10 bg-white shadow-sm' role='listbox' aria-label='Ingredient search results'>
+                {searchResults.map((item) => <button key={`${item.type}:${item.slug}`} type='button' onClick={() => addItem(item)} className='flex w-full items-center justify-between border-b border-brand-900/5 px-4 py-3 text-left last:border-b-0 hover:bg-brand-50'><span><strong className='text-ink'>{item.name}</strong><span className='ml-2 text-xs uppercase tracking-wide text-muted'>{item.type}</span></span><span aria-hidden='true' className='text-indigo-800'>Add +</span></button>)}
+              </div>
+            ) : null}
+          </div>
 
-      <p id={selectionStatusId} className="sr-only" aria-live="polite">
-        {selectionCount === 0 ? 'Current safety checker selection: none.' : `Current safety checker selection: ${selectionCount} item${selectionCount === 1 ? '' : 's'}.`}
-      </p>
-
-      <div className='grid grid-cols-1 gap-6 lg:gap-8 lg:grid-cols-3'>
-        <div className='lg:col-span-1 space-y-6'>
-          <section className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' ref={dropdownRef} aria-labelledby="ingredient-search-heading">
-            <h2 id="ingredient-search-heading" className='text-lg font-bold text-slate-800'>Search Ingredients</h2>
-            <p id={searchHelpId} className='text-xs text-slate-500'>
-              Add multiple herbs or compounds to screen for possible interaction and caution overlaps.
-            </p>
-
-            <div className='relative'>
-              <label htmlFor={searchInputId} className="sr-only">Search herbs or compounds</label>
-              <input
-                id={searchInputId}
-                type='text'
-                value={searchQuery}
-                onChange={e => {
-                  setSearchQuery(e.target.value)
-                  setIsOpen(true)
-                  setFocusedIndex(-1)
-                }}
-                onFocus={() => setIsOpen(true)}
-                onKeyDown={handleKeyDown}
-                placeholder='Type herb or compound...'
-                role='combobox'
-                aria-autocomplete='list'
-                aria-expanded={isOpen && filteredItems.length > 0}
-                aria-controls={listboxId}
-                aria-activedescendant={activeOptionId}
-                aria-describedby={searchHelpId}
-                className='min-h-11 w-full rounded-2xl border border-brand-900/10 bg-white px-4 py-2.5 text-base outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 disabled:bg-[var(--surface-subtle)] disabled:text-muted sm:text-sm dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
-              />
-              {isOpen && filteredItems.length > 0 && (
-                <div id={listboxId} role="listbox" aria-label="Ingredient search results" className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card-strong)] py-1.5 shadow-xl'>
-                  {filteredItems.map((item, idx) => (
-                    <button
-                      key={item.slug}
-                      id={`${listboxId}-${item.slug}`}
-                      onClick={() => handleAddItem(item)}
-                      type='button'
-                      role='option'
-                      aria-selected={idx === focusedIndex}
-                      className={`flex min-h-11 w-full items-center justify-between px-4 py-2.5 text-left text-sm transition ${
-                        idx === focusedIndex
-                          ? 'bg-brand-50/80 text-brand-900 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
-                          : 'text-ink hover:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
-                      }`}
-                    >
-                      <span>{item.name}</span>
-                      <span className='rounded bg-brand-50 px-2 py-0.5 text-[9px] uppercase font-bold text-muted dark:bg-[var(--surface-subtle)] dark:text-[var(--text-muted)]'>
-                        {item.type}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              )}
-              {isOpen && searchQuery && filteredItems.length === 0 && (
-                <p className="mt-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600" role="status">
-                  No matching herbs or compounds found. Try a shorter name or check spelling.
-                </p>
-              )}
-            </div>
-          </section>
-
-          <section className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' aria-labelledby="active-medications-heading">
-            <h2 id="active-medications-heading" className='text-sm font-bold text-slate-800'>Active Medications</h2>
-            <p className='text-xs text-slate-500'>
-              Add medication classes to surface broad caution categories. This is not a complete drug-interaction database.
-            </p>
-
-            <div className='space-y-2 max-h-60 overflow-y-auto pr-1' role="group" aria-label="Medication classes">
-              {PHARMACEUTICAL_CLASSES.map(med => {
-                const isSelected = selectedMeds.some(m => m.id === med.id)
-                return (
-                  <button
-                    key={med.id}
-                    type='button'
-                    aria-pressed={isSelected}
-                    onClick={() => {
-                      if (isSelected) {
-                        setSelectedMeds(selectedMeds.filter(m => m.id !== med.id))
-                      } else {
-                        setSelectedMeds([...selectedMeds, med])
-                      }
-                    }}
-                    className={`min-h-11 w-full text-left p-3 rounded-xl border text-xs transition flex flex-col gap-1 ${
-                      isSelected
-                        ? 'border-emerald-600 bg-emerald-50/70 text-emerald-950 font-medium font-bold'
-                        : 'border-brand-900/8 bg-white/80 text-ink hover:bg-[var(--surface-subtle)] dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)]'
-                    }`}
-                  >
-                    <div className='flex items-center justify-between w-full'>
-                      <span className='font-bold'>{med.name}</span>
-                      {isSelected && <span className='text-emerald-700 font-bold'><span aria-hidden="true">✓</span> Active</span>}
-                    </div>
-                    <span className='text-[10px] text-slate-500 leading-normal'>{med.description}</span>
-                  </button>
-                )
+          <div>
+            <p className='text-sm font-bold text-ink'>Optional medication classes</p>
+            <p className='mt-1 text-xs leading-5 text-muted'>These are broad education categories, not a medication-specific interaction database. Use the exact medicine name with a pharmacist or medication interaction resource.</p>
+            <div className='mt-3 grid gap-2 sm:grid-cols-2'>
+              {MEDICATION_CLASSES.map((medication) => {
+                const active = selectedMeds.some((item) => item.id === medication.id)
+                return <button key={medication.id} type='button' aria-pressed={active} onClick={() => toggleMedication(medication)} className={`rounded-xl border p-3 text-left text-sm ${active ? 'border-indigo-900 bg-indigo-50' : 'border-brand-900/10 bg-white hover:bg-brand-50'}`}><strong className='block text-ink'>{medication.name}</strong><span className='mt-1 block text-xs leading-5 text-muted'>{medication.description}</span></button>
               })}
             </div>
-          </section>
-
-          <section className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' aria-labelledby="selected-list-heading" aria-describedby={selectionStatusId}>
-            <div className='flex items-center justify-between'>
-              <h2 id="selected-list-heading" className='text-sm font-bold text-slate-800'>Selected List ({selectionCount})</h2>
-              {(selectedItems.length > 0 || selectedMeds.length > 0) && (
-                <button
-                  onClick={handleClearAll}
-                  className='text-xs font-semibold text-rose-600 hover:underline'
-                  type='button'
-                >
-                  Clear All
-                </button>
-              )}
-            </div>
-
-            {selectedItems.length === 0 && selectedMeds.length === 0 ? (
-              <p className='py-8 text-center text-xs text-slate-400'>
-                No items selected. Search above or select active medications to check interactions.
-              </p>
-            ) : (
-              <div className='space-y-2' role="list" aria-label="Selected ingredients and medication classes">
-                {selectedItems.map(item => (
-                  <div
-                    key={item.slug}
-                    role="listitem"
-                    className='flex items-center justify-between rounded-xl border border-brand-900/8 bg-[var(--surface-subtle)] p-3 dark:border-[var(--border-soft)]'
-                  >
-                    <div className='min-w-0'>
-                      <Link
-                        href={item.type === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
-                        className='text-xs font-bold text-slate-800 hover:underline block truncate hover:text-emerald-700'
-                      >
-                        {item.name}
-                      </Link>
-                      <span className='text-[8px] uppercase font-bold text-slate-400'>{item.type}</span>
-                    </div>
-                    <button
-                      onClick={() => handleRemoveItem(item.slug)}
-                      className='text-slate-450 hover:text-rose-600 hover:bg-slate-100 rounded-lg p-2 transition flex items-center justify-center min-h-[36px] min-w-[36px]'
-                      type='button'
-                      aria-label={`Remove ${item.name}`}
-                    >
-                      <span aria-hidden="true">✕</span>
-                    </button>
-                  </div>
-                ))}
-
-                {selectedMeds.map(med => (
-                  <div
-                    key={med.id}
-                    role="listitem"
-                    className='flex items-center justify-between rounded-xl bg-emerald-50/40 p-3 border border-emerald-100/60'
-                  >
-                    <div className='min-w-0'>
-                      <span className='text-xs font-bold text-emerald-950 block truncate'>{med.name}</span>
-                      <span className='text-[8px] uppercase font-bold text-emerald-600'>Medication</span>
-                    </div>
-                    <button
-                      onClick={() => setSelectedMeds(selectedMeds.filter(m => m.id !== med.id))}
-                      className='text-slate-450 hover:text-rose-600 hover:bg-emerald-100/60 rounded-lg p-2 transition flex items-center justify-center min-h-[36px] min-w-[36px]'
-                      type='button'
-                      aria-label={`Remove ${med.name}`}
-                    >
-                      <span aria-hidden="true">✕</span>
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
-        </div>
-
-        <div className='lg:col-span-2 space-y-6'>
-          <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-6' aria-labelledby="interactive-safety-audit-heading">
-            <div className='border-b border-slate-100 pb-4 flex items-center justify-between'>
-              <h2 id="interactive-safety-audit-heading" className='text-xl font-bold text-slate-800'>Interactive Safety Screen</h2>
-              {(selectedItems.length > 0 || selectedMeds.length > 0) && (
-                <span id={riskStatusId} role="status" aria-live="polite" className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${
-                  analysis.riskLevel === 'high'
-                    ? 'bg-rose-100 text-rose-800'
-                    : analysis.riskLevel === 'medium'
-                      ? 'bg-amber-100 text-amber-800'
-                      : 'bg-emerald-100 text-emerald-800'
-                }`}>
-                  Screening: {screeningLabel}
-                </span>
-              )}
-            </div>
-
-            {selectedItems.length === 0 && selectedMeds.length === 0 ? (
-              <div className='py-16 text-center text-slate-400 text-sm border border-dashed border-slate-200 rounded-2xl'>
-                Add items from the search bar or medication checklist to screen for broad safety overlaps.
-              </div>
-            ) : (
-              <div className='space-y-6'>
-                {analysis.alerts.length === 0 ? (
-                  <div className='rounded-2xl bg-emerald-50/50 border border-emerald-200/40 p-5 text-sm text-emerald-900 leading-relaxed' role="status">
-                    <p className='font-bold'>No rule-based overlap flags found</p>
-                    <p className='mt-1 text-xs text-emerald-800'>
-                      This only means the current rules did not match one of the patterns they check. It does not establish that the combination is safe, and it does not replace medication-specific interaction review.
-                    </p>
-                  </div>
-                ) : (
-                  <div className='space-y-4'>
-                    {analysis.alerts.map((alert: any, idx: number) => (
-                      <div
-                        key={idx}
-                        role={alert.type === 'danger' ? 'alert' : 'status'}
-                        className={`rounded-2xl p-5 border text-sm leading-relaxed ${
-                          alert.type === 'danger'
-                            ? 'bg-rose-50 border-rose-200/50 text-rose-900'
-                            : 'bg-amber-50 border-amber-200/50 text-amber-900'
-                        }`}
-                      >
-                        <h4 className='font-bold flex items-center gap-2'>
-                          <span aria-hidden="true">⚠️</span>
-                          {alert.type === 'danger' ? 'High-priority screening flag:' : 'Caution flag:'}{' '}
-                          {alert.title}
-                        </h4>
-                        <p className='mt-1.5 text-xs opacity-90'>{alert.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                <div className='space-y-3 pt-2'>
-                  <h3 className='text-xs font-bold uppercase tracking-wider text-slate-400'>
-                    Individual Safety Profiles
-                  </h3>
-                  <div className='space-y-3'>
-                    {selectedItems.map(item => (
-                      <div
-                        key={item.slug}
-                        className='rounded-xl border border-slate-100 p-4 bg-slate-50/30'
-                      >
-                        <h4 className='text-xs font-bold text-slate-800'>{item.name}</h4>
-                        <p className='mt-1 text-xs text-slate-600 leading-relaxed'>
-                          {item.safety || 'No structured safety summary is available for this item. Absence of a summary does not establish safety; review the full profile and source material before use.'}
-                        </p>
-                      </div>
-                    ))}
-
-                    {selectedMeds.map(med => (
-                      <div
-                        key={med.id}
-                        className='rounded-xl border border-slate-100 p-4 bg-emerald-50/10'
-                      >
-                        <h4 className='text-xs font-bold text-emerald-950'>{med.name}</h4>
-                        <p className='mt-1 text-xs text-slate-600 leading-relaxed'>
-                          {med.description} This broad medication class is included as screening context only. Check the exact medicine, dose, and supplement combination with a clinician or pharmacist before making changes.
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </section>
+          </div>
         </div>
       </div>
-    </div>
+
+      {selectionCount ? (
+        <div className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm'>
+          <div className='flex flex-wrap items-center justify-between gap-3'>
+            <div><p className='eyebrow-label'>Current screen</p><h2 className='mt-1 text-xl font-bold text-ink'>{selectionCount} selected item{selectionCount === 1 ? '' : 's'}</h2></div>
+            <div className='flex flex-wrap gap-3 text-sm'><button type='button' onClick={copyShareUrl} className='font-bold text-indigo-800 hover:underline'>{shareStatus === 'copied' ? 'Share link copied ✓' : shareStatus === 'failed' ? 'Could not copy link' : 'Copy shareable result link'}</button><button type='button' onClick={clear} className='font-bold text-muted hover:text-ink'>Clear all</button></div>
+          </div>
+          <div className='mt-4 flex flex-wrap gap-2'>
+            {selectedItems.map((item) => <button key={`${item.type}:${item.slug}`} type='button' onClick={() => setSelectedItems((current) => current.filter((selected) => !(selected.type === item.type && selected.slug === item.slug)))} className='rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1.5 text-sm font-semibold text-ink' aria-label={`Remove ${item.name}`}>{item.name} ×</button>)}
+            {selectedMeds.map((medication) => <button key={medication.id} type='button' onClick={() => toggleMedication(medication)} className='rounded-full border border-indigo-900/15 bg-indigo-50 px-3 py-1.5 text-sm font-semibold text-indigo-950' aria-label={`Remove ${medication.name}`}>{medication.name} ×</button>)}
+          </div>
+          <p className='mt-3 text-xs leading-5 text-muted'>The share URL contains only public ingredient slugs and medication-class IDs. It does not encode free text or personal health details.</p>
+        </div>
+      ) : null}
+
+      {incompleteItems.length ? <div className='rounded-2xl border border-amber-900/20 bg-amber-50 p-5 text-sm leading-6 text-amber-950'><strong>Incomplete safety data:</strong> {incompleteItems.map((item) => item.name).join(', ')} {incompleteItems.length === 1 ? 'has' : 'have'} limited structured safety metadata in this dataset. That is not evidence of safety and lowers what this checker can conclude.</div> : null}
+
+      {selectionCount >= 2 ? (
+        <section className='space-y-4' aria-live='polite'>
+          <div><p className='eyebrow-label'>Screening result</p><h2 className='mt-1 text-2xl font-bold text-ink'>{alerts.length ? `${alerts.length} overlap${alerts.length === 1 ? '' : 's'} to review` : 'No documented overlap found in our dataset'}</h2><p className='mt-2 max-w-4xl text-sm leading-6 text-muted'>{alerts.length ? 'Each card explains why it was flagged, how the interaction is classified, how certain the data is, and what remains unknown.' : 'This does not mean “no interaction.” It means this rule set did not find a qualifying overlap in the structured fields available for the selected items.'}</p></div>
+          {!alerts.length ? <div className='rounded-2xl border border-sky-900/15 bg-sky-50 p-5 text-sm leading-6 text-sky-950'><strong>No documented interaction in our dataset.</strong> Evidence may be absent, incomplete, newly published, dose-specific, product-specific, or outside the categories this checker models. Do not interpret this result as clearance to combine the selected items.</div> : null}
+          <div className='grid gap-4'>
+            {alerts.map((alert) => <article key={alert.id} className={`rounded-2xl border p-5 shadow-sm ${alert.severity === 'higher-review' ? 'border-rose-900/20 bg-rose-50/70' : 'border-amber-900/15 bg-amber-50/60'}`}>
+              <div className='flex flex-wrap items-start justify-between gap-3'><div><p className='text-xs font-bold uppercase tracking-wide text-muted'>{alert.signal}</p><h3 className='mt-1 text-lg font-bold text-ink'>{alert.title}</h3></div><span className='rounded-full border border-brand-900/10 bg-white px-2.5 py-1 text-xs font-bold text-ink'>{evidenceLabels[alert.evidenceClass]}</span></div>
+              <div className='mt-4 grid gap-4 md:grid-cols-3'><div><p className='text-xs font-bold uppercase tracking-wide text-muted'>Why this was flagged</p><p className='mt-1 text-sm leading-6 text-ink'>{alert.whyFlagged}</p></div><div><p className='text-xs font-bold uppercase tracking-wide text-muted'>Interaction mechanism</p><p className='mt-1 text-sm font-semibold text-ink'>{mechanismLabels[alert.mechanismClass]}</p><p className='mt-1 text-xs text-muted'>Confidence: {alert.confidence}</p></div><div><p className='text-xs font-bold uppercase tracking-wide text-muted'>Uncertainty</p><p className='mt-1 text-sm leading-6 text-muted'>{alert.uncertainty}</p></div></div>
+              {alert.sources.length ? <div className='mt-4'><p className='text-xs font-bold uppercase tracking-wide text-muted'>Source identifiers / links carried by the record</p><ul className='mt-2 space-y-1 text-xs text-muted'>{alert.sources.map((source) => <li key={source} className='break-all'>{/^https?:\/\//i.test(source) ? <a href={source} target='_blank' rel='noreferrer' className='font-semibold text-indigo-800 underline'>Open source</a> : source}</li>)}</ul></div> : <p className='mt-4 rounded-lg bg-white/70 px-3 py-2 text-xs text-muted'>No interaction-specific source link is attached to this structured warning yet. Treat the evidence classification conservatively and open the ingredient profiles for their full references.</p>}
+            </article>)}
+          </div>
+        </section>
+      ) : <div className='rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5 text-sm leading-6 text-muted'>Add at least two ingredients/classes to screen for overlapping signals. You can also open a single ingredient’s profile below to inspect its complete safety section.</div>}
+
+      {selectedItems.length ? <section className='space-y-3'><div><p className='eyebrow-label'>Full safety profiles</p><h2 className='mt-1 text-xl font-bold text-ink'>Trace each flag to the ingredient record</h2></div><div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>{selectedItems.map((item) => <Link key={`${item.type}:${item.slug}`} href={item.type === 'herb' ? `/herbs/${item.slug}/` : `/compounds/${item.slug}/`} className='rounded-xl border border-brand-900/10 bg-white p-4 shadow-sm hover:border-indigo-900/20'><strong className='text-ink'>{item.name}</strong><span className='mt-1 block text-sm font-semibold text-indigo-800'>Open full safety profile →</span></Link>)}</div></section> : null}
+    </section>
   )
 }
