@@ -3,6 +3,7 @@ import AffiliateProductCard, { type AffiliateProduct } from './AffiliateProductC
 import RevenueImpressionTracker from './RevenueImpressionTracker'
 import WhyWeRecommend from '../src/components/monetization/WhyWeRecommend'
 import HorizontalCardRail from './ui/HorizontalCardRail'
+import { shouldSuppressProductRecommendation } from '../src/lib/product-lifecycle'
 
 export type RecommendationSlot = 'budget' | 'overall' | 'premium'
 
@@ -31,11 +32,10 @@ function isUsableOutboundUrl(value: unknown): value is string {
 }
 
 function hasUsableProductUrl(product: RecommendationProduct): boolean {
-  if (isUsableOutboundUrl(product.affiliateUrl) || isUsableOutboundUrl(product.url) || isUsableOutboundUrl(product.link)) {
-    return true
-  }
-
-  return Object.values(product.regionalUrls ?? {}).some(isUsableOutboundUrl)
+  if (product.lifecycle && shouldSuppressProductRecommendation(product.lifecycle)) return false
+  if (isUsableOutboundUrl(product.affiliateUrl) || isUsableOutboundUrl(product.url) || isUsableOutboundUrl(product.link)) return true
+  if (Object.values(product.regionalUrls ?? {}).some(isUsableOutboundUrl)) return true
+  return product.retailerLinks?.some((retailer) => isUsableOutboundUrl(retailer.url) || Object.values(retailer.regionalUrls ?? {}).some(isUsableOutboundUrl)) ?? false
 }
 
 export default function RecommendationSection({
@@ -52,9 +52,7 @@ export default function RecommendationSection({
   const availableProducts = products.filter(hasUsableProductUrl)
   if (availableProducts.length === 0) return null
 
-  const ordered = ['budget', 'overall', 'premium'].flatMap((slot) =>
-    availableProducts.filter((product) => product.slot === slot)
-  )
+  const ordered = ['budget', 'overall', 'premium'].flatMap((slot) => availableProducts.filter((product) => product.slot === slot))
 
   return (
     <section className='card-premium p-4 sm:p-5'>
@@ -70,6 +68,11 @@ export default function RecommendationSection({
           const productTitle = product.title || product.name || `${slotLabels[product.slot]} option`
           const productSlug = product.trackingProductSlug ?? trackingProductSlug
           const productLocation = product.trackingLocation ?? trackingLocation
+          const selectionCriteria = product.selectionCriteria?.length
+            ? product.selectionCriteria
+            : product.rationale || product.notes
+              ? [product.rationale || product.notes || '']
+              : []
 
           return (
             <RevenueImpressionTracker
@@ -85,6 +88,7 @@ export default function RecommendationSection({
               <AffiliateProductCard
                 product={{
                   ...product,
+                  selectionCriteria,
                   preferredRegion: product.preferredRegion ?? preferredRegion,
                   trackingLocation: productLocation,
                   trackingProductSlug: productSlug,

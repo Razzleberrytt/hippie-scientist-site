@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 import { canRenderAffiliateLinks, ensureAmazonAffiliateTag } from '../../lib/affiliate'
 import { trackRevenueEvent } from '../../lib/revenue-tracking'
 import { scoreProductQuality, type ProductQualityScore } from '@/lib/product-quality-score'
+import { commerceCtaLabel, getCommerceExperimentAssignments, type CommerceExperimentAssignments } from '@/lib/commerce-experiments'
 
 interface GuideItem {
   slug: string
@@ -28,7 +29,12 @@ interface BuyGuideClientProps {
   compounds: any[]
 }
 
-const DEFAULT_VISIBLE_ITEMS = 12
+const DEFAULT_EXPERIMENTS: CommerceExperimentAssignments = {
+  moduleDensity: 'multiple',
+  placement: 'post-evidence',
+  ctaVariant: 'view-details',
+  experimentVariant: 'density:multiple|placement:post-evidence|cta:view-details',
+}
 
 const bandLabel: Record<ProductQualityScore['band'], string> = {
   'strong-label-quality': 'Strong label quality',
@@ -39,6 +45,11 @@ const bandLabel: Record<ProductQualityScore['band'], string> = {
 
 export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps) {
   const [searchQuery, setSearchQuery] = useState('')
+  const [experiments, setExperiments] = useState<CommerceExperimentAssignments>(DEFAULT_EXPERIMENTS)
+
+  useEffect(() => {
+    setExperiments(getCommerceExperimentAssignments())
+  }, [])
 
   const allItems = useMemo(() => {
     const combined = [
@@ -127,17 +138,19 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
   }, [herbs, compounds])
 
   const filteredItems = useMemo(() => {
-    if (!searchQuery) return allItems.slice(0, DEFAULT_VISIBLE_ITEMS)
+    if (!searchQuery) return allItems.slice(0, experiments.moduleDensity === 'single' ? 1 : 3)
     const query = searchQuery.toLowerCase()
     return allItems.filter(item =>
       item.name.toLowerCase().includes(query) ||
       item.slug.toLowerCase().includes(query) ||
       Boolean(item.standardization && String(item.standardization).toLowerCase().includes(query))
     )
-  }, [searchQuery, allItems])
+  }, [searchQuery, allItems, experiments.moduleDensity])
+
+  const ctaLabel = commerceCtaLabel(experiments.ctaVariant)
 
   return (
-    <div className='space-y-8'>
+    <div className='space-y-8' data-module-position={experiments.placement}>
       <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4'>
         <div className='max-w-3xl space-y-2'>
           <p className='eyebrow-label'>Product-quality layer</p>
@@ -147,7 +160,7 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
         </div>
       </div>
 
-      {!searchQuery && allItems.length > DEFAULT_VISIBLE_ITEMS ? <p className='text-xs text-slate-500'>Showing {DEFAULT_VISIBLE_ITEMS} common sourcing checklists. Search by ingredient name to inspect the full library.</p> : null}
+      {!searchQuery && allItems.length > filteredItems.length ? <p className='text-xs text-slate-500'>Showing {filteredItems.length} sourcing option{filteredItems.length === 1 ? '' : 's'} in this session. Search by ingredient name to inspect the full library.</p> : null}
 
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
         {filteredItems.length === 0 ? (
@@ -181,7 +194,30 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
             </div>
 
             <div className='mt-5 pt-3 border-t border-slate-100 space-y-3'>
-              <a href={item.affiliateUrl} target='_blank' rel='nofollow sponsored noopener noreferrer' onClick={() => trackRevenueEvent({ kind: 'affiliate_click', location: 'product-quality-buy-guide', label: item.name, target: item.affiliateUrl, productSlug: item.slug })} className='flex w-full items-center justify-between rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 px-4 transition-all shadow-sm'><span>Sourcing options on Amazon</span><span aria-hidden='true'>↗</span></a>
+              <a
+                href={item.affiliateUrl}
+                target='_blank'
+                rel='nofollow sponsored noopener noreferrer'
+                data-revenue-tracked='true'
+                data-ingredient={item.slug}
+                data-module-position={experiments.placement}
+                data-cta-variant={experiments.ctaVariant}
+                data-experiment-variant={experiments.experimentVariant}
+                data-tracking-location='product-quality-buy-guide'
+                onClick={() => trackRevenueEvent({
+                  kind: 'affiliate_click',
+                  location: 'product-quality-buy-guide',
+                  label: item.name,
+                  target: item.affiliateUrl,
+                  productSlug: item.slug,
+                  modulePosition: experiments.placement,
+                  ctaVariant: experiments.ctaVariant,
+                  experimentVariant: experiments.experimentVariant,
+                })}
+                className='flex w-full items-center justify-between rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 px-4 transition-all shadow-sm'
+              >
+                <span>{ctaLabel}</span><span aria-hidden='true'>↗</span>
+              </a>
               <p className='text-[9px] text-center text-slate-400 leading-normal'>Affiliate link · Commission never affects evidence or product-quality scoring</p>
             </div>
           </div>
