@@ -1,0 +1,28 @@
+{
+  "principle": "Lead with a genuinely useful original research asset or correction, never a generic backlink request.",
+  "priorityAudiences": [
+    { "id": "health-science-journalists", "asset": "/evidence/evidence-report/", "angle": "new aggregate evidence findings or material evidence changes" },
+    { "id": "university-library-resources", "asset": "/info/research-resources-for-writers/", "angle": "transparent evidence-literacy and research reference resources" },
+    { "id": "evidence-literacy-educators", "asset": "/info/methodology/", "angle": "plain-language evidence hierarchy and limitations" },
+    { "id": "supplement-safety-educators", "asset": "/safety-checker/", "angle": "source-backed safety research and uncertainty framing" },
+    { "id": "science-communicators", "asset": "/evidence/evidence-report/", "angle": "reusable data and charts with explicit caveats" },
+    { "id": "pharmacists-and-safety-writers", "asset": "/safety-checker/", "angle": "interaction evidence, provenance and uncertainty" },
+    { "id": "research-newsletters", "asset": "/evidence/evidence-digest/", "angle": "meaningful evidence changes rather than generic site promotion" },
+    { "id": "health-data-visualization", "asset": "/info/infographics/", "angle": "attributed, reproducible evidence visualizations" }
+  ],
+  "opportunityTypes": [
+    "original-data-pitch",
+    "evidence-change-pitch",
+    "outdated-statistic",
+    "broken-link-replacement",
+    "unlinked-brand-mention"
+  ],
+  "guardrails": [
+    "Do not pay for editorial backlinks.",
+    "Do not claim authority or credentials the site does not possess.",
+    "Do not auto-disavow suspicious links; surface them for review.",
+    "Do not pitch a statistic unless its source object and date are available.",
+    "Deduplicate outreach by referring domain before contact.",
+    "Prefer corrections and useful replacement data over reciprocal-link asks."
+  ]
+}
