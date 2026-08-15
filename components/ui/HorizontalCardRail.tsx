@@ -16,6 +16,16 @@ export default function HorizontalCardRail({
 
   if (items.length === 0) return null
 
+  const desktopGridColumns =
+    items.length === 1
+      ? 'md:grid-cols-1'
+      : items.length === 2
+        ? 'md:grid-cols-2'
+        : 'md:grid-cols-3'
+  const mobileItemWidth = items.length === 1
+    ? 'w-full max-w-none'
+    : 'w-[calc(100%-1rem)] max-w-[17rem]'
+
   return (
     <div className={`mt-4 ${className}`}>
       {items.length > 1 ? (
@@ -30,12 +40,12 @@ export default function HorizontalCardRail({
       <ul
         aria-label={label}
         tabIndex={0}
-        className="flex list-none snap-x snap-mandatory scroll-px-1 gap-3 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:thin] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:pb-0 md:focus-visible:ring-0"
+        className={`flex list-none snap-x snap-mandatory scroll-px-1 gap-3 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:thin] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 md:grid ${desktopGridColumns} md:gap-4 md:overflow-visible md:pb-0 md:focus-visible:ring-0`}
       >
         {items.map((item, index) => (
           <li
             key={index}
-            className="flex w-[calc(100%-1rem)] min-w-0 max-w-[17rem] shrink-0 snap-start flex-col md:w-auto md:max-w-none"
+            className={`flex ${mobileItemWidth} min-w-0 shrink-0 snap-start flex-col md:w-auto md:max-w-none`}
           >
             {item}
           </li>
