@@ -18,6 +18,7 @@ export default function EvidenceMeter({
   defaultOpen = false,
 }: Props) {
   const ariaLabel = `Evidence strength: ${data.label}${context ? ` ${context}` : ''}. Score ${data.score} out of 100.`
+  const gradeLabel = data.grade ? `Grade ${data.grade}` : 'No universal grade'
 
   if (compact) {
     return (
@@ -51,9 +52,9 @@ export default function EvidenceMeter({
 
         <span
           className={`inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-semibold ${data.bgColorClass} ${data.textColorClass} ${data.borderColorClass}`}
-          aria-label={`Evidence grade: ${data.grade} — ${data.label}`}
+          aria-label={`${gradeLabel} — ${data.label}`}
         >
-          {data.grade} · {data.label}
+          {gradeLabel} · {data.label}
         </span>
       </div>
 

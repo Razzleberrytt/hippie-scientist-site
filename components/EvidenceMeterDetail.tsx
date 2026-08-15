@@ -6,6 +6,8 @@ type Props = {
 }
 
 export default function EvidenceMeterDetail({ data }: Props) {
+  const gradeLabel = data.grade ? `Grade ${data.grade}` : 'No universal grade'
+
   return (
     <div className="mt-3 space-y-3 text-sm">
       <p className="leading-6 text-muted">{data.explanation}</p>
@@ -37,9 +39,9 @@ export default function EvidenceMeterDetail({ data }: Props) {
 
         <span
           className="inline-flex items-center rounded-full border border-brand-900/10 bg-white/80 px-2.5 py-1 text-xs font-semibold text-muted dark:border-white/10 dark:bg-white/5"
-          aria-label={`Evidence grade: ${data.grade}`}
+          aria-label={`Evidence grade: ${data.grade ?? 'not universally assigned'}`}
         >
-          Grade {data.grade}
+          {gradeLabel}
         </span>
       </div>
 
