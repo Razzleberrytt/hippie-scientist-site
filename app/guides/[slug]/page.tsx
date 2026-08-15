@@ -76,36 +76,52 @@ export default async function GuidePage({ params }: Props) {
           ]}
         />
       ) : null}
-      {/*
-        Guide views are emitted by <ClickTracker /> in app/layout.tsx, which waits for
-        analytics consent. An inline gtag snippet here would fire before consent and
-        would also overwrite the consent-aware window.gtag installed by loadAnalytics().
-      */}
-      <div className="space-y-8">
-        <div>
-          <h1>{guide.title}</h1>
-          <p className="mt-2 text-muted">{guide.description}</p>
-          <div className="mt-6 space-y-4">
-            {contentBlocks.map((block) => <p key={block} className="text-muted">{block}</p>)}
-          </div>
-        </div>
 
-        {atlasGuide && (
-          <aside className="rounded-2xl border border-emerald-900/10 bg-emerald-50/60 p-5">
-            <p className="text-xs font-bold uppercase tracking-wider text-emerald-800">Botanical Activity Atlas</p>
-            <h2 className="mt-2 text-xl font-bold text-ink">{atlasGuide.title}</h2>
-            <p className="mt-2 text-sm leading-6 text-muted">{atlasGuide.description}</p>
-            <Link href={atlasGuide.href} className="mt-4 inline-flex min-h-[44px] items-center rounded-full bg-emerald-800 px-5 text-sm font-semibold text-white hover:bg-emerald-900">
-              Open evidence-sorted comparison →
-            </Link>
+      <div className="space-y-9 sm:space-y-10">
+        <header className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
+          <p className="eyebrow-label">Evidence guide</p>
+          <h1 className="heading-premium mt-5 max-w-4xl">{guide.title}</h1>
+          <p className="text-reading mt-4 max-w-3xl">{guide.description}</p>
+          {(guide.publishDate || guide.lastUpdated) ? (
+            <div className="mt-5 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.11em] text-[color:var(--hs-body)]">
+              {guide.publishDate ? <span>Published {guide.publishDate}</span> : null}
+              {guide.publishDate && guide.lastUpdated ? <span aria-hidden="true">·</span> : null}
+              {guide.lastUpdated ? <span>Updated {guide.lastUpdated}</span> : null}
+            </div>
+          ) : null}
+        </header>
+
+        {contentBlocks.length > 0 ? (
+          <section className="max-w-3xl border-y border-[color:var(--hs-hairline)] py-7 sm:py-9" aria-label="Guide overview">
+            <p className="section-label">Overview</p>
+            <div className="mt-4 space-y-4">
+              {contentBlocks.map((block) => (
+                <p key={block} className="text-[1rem] leading-8 text-[color:var(--hs-body)]">{block}</p>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {atlasGuide ? (
+          <aside className="relative overflow-hidden rounded-[1.6rem] border border-[color:color-mix(in_srgb,var(--tone)_22%,var(--hs-hairline))] bg-[color:color-mix(in_srgb,var(--tone)_6%,var(--hs-surface))] p-5 sm:p-6">
+            <div aria-hidden="true" className="absolute -right-12 -top-12 h-32 w-32 rounded-full border border-[color:color-mix(in_srgb,var(--hs-gold)_20%,transparent)]" />
+            <div className="relative max-w-2xl">
+              <p className="section-label">Botanical Activity Atlas</p>
+              <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]">{atlasGuide.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-[color:var(--hs-body)]">{atlasGuide.description}</p>
+              <Link href={atlasGuide.href} className="button-primary mt-5 inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold">
+                Open evidence-sorted comparison →
+              </Link>
+            </div>
           </aside>
-        )}
+        ) : null}
 
-        {relatedGuides.length > 0 && <RelatedArticles articles={relatedGuides} />}
-        <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700" aria-label="Guide support links">
-          <Link href="/guides/" className="hover:text-brand-800">All guides</Link>
-          <Link href="/tools/botanical-activity-atlas/" className="hover:text-brand-800">Botanical Activity Atlas</Link>
-          <Link href="/safety-checker/" className="hover:text-brand-800">Safety checker</Link>
+        {relatedGuides.length > 0 ? <RelatedArticles articles={relatedGuides} /> : null}
+
+        <nav className="flex flex-wrap gap-x-5 gap-y-2 border-t border-[color:var(--hs-hairline)] pt-5 text-sm font-semibold text-[color:var(--tone-ink)]" aria-label="Guide support links">
+          <Link href="/guides/" className="hover:text-[color:var(--hs-ink)] hover:underline">All guides</Link>
+          <Link href="/tools/botanical-activity-atlas/" className="hover:text-[color:var(--hs-ink)] hover:underline">Botanical Activity Atlas</Link>
+          <Link href="/safety-checker/" className="hover:text-[color:var(--hs-ink)] hover:underline">Safety checker</Link>
         </nav>
       </div>
     </ArticleLayout>
