@@ -20,10 +20,11 @@ describe('competitor gap reporting', () => {
     ])
 
     expect(topics[0]).toMatchObject({
-      topic: 'compare magnesium glycinate vs citrate',
+      topic: 'magnesium glycinate vs citrate',
       intent: 'comparison',
     })
     expect(topics[0].capabilities).toContain('comparison')
+    expect(topics[1]).toMatchObject({ topic: 'botanical activity atlas', intent: 'interactive-tool' })
     expect(topics[1].capabilities).toContain('interactive-tool')
   })
 
