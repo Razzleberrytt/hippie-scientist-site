@@ -66,11 +66,25 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
             className='flex min-h-11 w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm font-semibold text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2'
           >
             On this page
-            <span aria-hidden='true' className={`text-muted transition-transform ${mobileOpen ? 'rotate-180' : ''}`}>
-              v
-            </span>
+            <svg
+              aria-hidden='true'
+              viewBox='0 0 16 16'
+              fill='none'
+              stroke='currentColor'
+              strokeWidth='2'
+              className={`size-4 shrink-0 text-muted transition-transform ${mobileOpen ? 'rotate-180' : ''}`}
+            >
+              <path d='M4 6l4 4 4-4' strokeLinecap='round' strokeLinejoin='round' />
+            </svg>
           </button>
-          {mobileOpen ? <div className='mt-3 border-t border-brand-900/10 pt-3 dark:border-white/10'>{links}</div> : null}
+          {mobileOpen ? (
+            <div
+              className='mt-3 overflow-y-auto overscroll-contain border-t border-brand-900/10 pt-3 pr-1 [scrollbar-width:thin] dark:border-white/10'
+              style={{ maxHeight: 'min(55dvh, 28rem)' }}
+            >
+              {links}
+            </div>
+          ) : null}
         </nav>
       ) : null}
 
