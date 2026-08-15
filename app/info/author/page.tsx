@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
 import { buildPageMetadata } from '../../../src/lib/seo'
 
@@ -78,7 +77,7 @@ export default function AuthorPage() {
   }
 
   return (
-    <div className='container-page py-10 space-y-10'>
+    <div className='container-page space-y-10 py-8 sm:space-y-12 sm:py-10'>
       <JsonLd schema={personJsonLd} />
       <AuthorityJsonLd
         title={TITLE}
@@ -93,84 +92,93 @@ export default function AuthorPage() {
       />
       <FaqJsonLd items={faqItems} />
 
-      <AuthorityBreadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Info', href: '/info' },
-          { label: 'Author' },
-        ]}
-      />
-
-      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10'>
+      <section className='hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Author</p>
-        <h1 className='mt-3 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
+        <h1 className='heading-premium mt-5 max-w-4xl'>
           Willie B. Randolph III, independent author of The Hippie Scientist.
         </h1>
-        <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
+        <p className='text-reading mt-4 max-w-3xl'>
           Willie builds The Hippie Scientist as an independent evidence-literacy project for readers who want herb,
           supplement, and compound pages that feel calmer, clearer, and less like marketing copy.
         </p>
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/info/about/' className='rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900'>
+          <Link href='/info/about/' className='button-primary inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold'>
             About the project
           </Link>
-          <Link href='/info/methodology/' className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'>
+          <Link href='/info/methodology/' className='button-secondary inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold'>
             Editorial standards
           </Link>
-          <Link href='/info/contact/' className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'>
+          <Link href='/info/contact/' className='button-secondary inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold'>
             Send a correction
           </Link>
         </div>
       </section>
 
-      <section className='grid gap-5 md:grid-cols-3'>
-        {productionSteps.map((step) => (
-          <article key={step.title} className='card-premium p-6'>
-            <p className='eyebrow-label'>Editorial workflow</p>
-            <h2 className='mt-2 text-xl font-semibold tracking-tight text-ink'>{step.title}</h2>
-            <p className='mt-3 text-sm leading-7 text-muted'>{step.body}</p>
-          </article>
-        ))}
+      <section aria-labelledby='workflow-title'>
+        <p className='section-label'>Editorial workflow</p>
+        <h2 id='workflow-title' className='mt-3 max-w-2xl font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
+          How a page moves from source material to publication
+        </h2>
+        <div className='mt-7 grid gap-7 md:grid-cols-3'>
+          {productionSteps.map((step, index) => (
+            <article key={step.title} className='border-t border-[color:var(--hs-hairline)] pt-4'>
+              <p aria-hidden='true' className='font-mono text-[0.64rem] font-bold tracking-[0.12em] text-[color:var(--hs-gold-ink)]'>
+                {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 className='mt-3 font-display text-xl font-semibold tracking-[-0.025em] text-[color:var(--hs-ink)]'>{step.title}</h3>
+              <p className='mt-3 text-sm leading-7 text-[color:var(--hs-body)]'>{step.body}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 shadow-sm sm:p-8'>
-        <div className='grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start'>
+      <section className='border-y border-[color:var(--hs-hairline)] py-8 sm:py-10'>
+        <div className='grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:gap-12'>
           <div>
-            <p className='eyebrow-label'>Author philosophy</p>
-            <h2 className='mt-2 text-3xl font-semibold tracking-tight text-ink'>Make supplement research readable without making it sound more certain than it is.</h2>
-            <p className='mt-4 text-sm leading-7 text-muted'>
+            <p className='section-label'>Author philosophy</p>
+            <h2 className='mt-3 max-w-2xl font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
+              Make supplement research readable without making it sound more certain than it is.
+            </h2>
+            <p className='mt-4 max-w-2xl text-sm leading-7 text-[color:var(--hs-body)]'>
               The site is built around a simple editorial tension: readers need clear summaries, but supplement science is often mixed,
               dose-dependent, product-form-dependent, and sensitive to personal context. The author page exists so readers can quickly
               understand who is behind the project and how corrections are handled.
             </p>
           </div>
-          <aside className='rounded-2xl border border-brand-900/10 bg-white/85 p-5'>
-            <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700'>Snapshot</p>
-            <h3 className='mt-2 text-xl font-semibold text-ink'>Willie B. Randolph III</h3>
-            <p className='mt-2 text-sm leading-7 text-muted'>
+          <aside className='border-l-2 border-[color:color-mix(in_srgb,var(--hs-gold)_45%,transparent)] pl-5 lg:self-end'>
+            <p className='font-mono text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[color:var(--hs-gold-ink)]'>Snapshot</p>
+            <h3 className='mt-3 font-display text-xl font-semibold text-[color:var(--hs-ink)]'>Willie B. Randolph III</h3>
+            <p className='mt-2 text-sm leading-7 text-[color:var(--hs-body)]'>
               Independent author, father of two little girls, based in Oak Ridge, Tennessee, focused on building practical research systems and clear supplement education.
             </p>
           </aside>
         </div>
       </section>
 
-      <section className='grid gap-4 md:grid-cols-3'>
-        {trustLinks.map((item) => (
-          <Link key={item.href} href={item.href} className='card-premium p-6 transition motion-safe:hover:-translate-y-0.5'>
-            <p className='eyebrow-label'>Trust page</p>
-            <h2 className='mt-2 text-xl font-semibold tracking-tight text-ink'>{item.title}</h2>
-            <p className='mt-3 text-sm leading-7 text-muted'>{item.body}</p>
-          </Link>
-        ))}
+      <section aria-labelledby='trust-pages-title'>
+        <p className='section-label'>Verify the process</p>
+        <h2 id='trust-pages-title' className='mt-3 font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
+          Trust pages
+        </h2>
+        <div className='mt-6 grid gap-4 md:grid-cols-3'>
+          {trustLinks.map((item) => (
+            <Link key={item.href} href={item.href} className='card-premium p-6 transition motion-safe:hover:-translate-y-0.5'>
+              <h3 className='text-xl font-semibold tracking-tight text-ink'>{item.title}</h3>
+              <p className='mt-3 text-sm leading-7 text-muted'>{item.body}</p>
+              <span className='mt-5 inline-flex text-sm font-semibold text-[color:var(--tone-ink)]'>Open →</span>
+            </Link>
+          ))}
+        </div>
       </section>
 
-      <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm'>
-        <h2 className='text-2xl font-semibold tracking-tight text-ink'>FAQ</h2>
-        <div className='mt-4 grid gap-4'>
+      <section className='border-t border-[color:var(--hs-hairline)] pt-8 sm:pt-10' aria-labelledby='author-faq-title'>
+        <p className='section-label'>Reader questions</p>
+        <h2 id='author-faq-title' className='mt-3 font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>FAQ</h2>
+        <div className='mt-5 divide-y divide-[color:var(--hs-hairline)]'>
           {faqItems.map((item) => (
-            <article key={item.question} className='rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4'>
-              <h3 className='font-bold text-ink'>{item.question}</h3>
-              <p className='mt-2 text-sm leading-7 text-muted'>{item.answer}</p>
+            <article key={item.question} className='py-5 first:pt-0 last:pb-0'>
+              <h3 className='font-display text-lg font-semibold text-[color:var(--hs-ink)]'>{item.question}</h3>
+              <p className='mt-2 max-w-3xl text-sm leading-7 text-[color:var(--hs-body)]'>{item.answer}</p>
             </article>
           ))}
         </div>
