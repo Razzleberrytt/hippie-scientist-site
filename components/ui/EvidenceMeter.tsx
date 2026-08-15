@@ -44,24 +44,24 @@ export default function EvidenceMeter({ level = 'moderate' }: { level?: string }
     : (level.charAt(0).toUpperCase() + level.slice(1))
 
   return (
-    <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm space-y-3">
-      <div className="flex items-start justify-between gap-4 text-xs">
+    <div className="space-y-3 rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm dark:border-white/10 dark:bg-white/5">
+      <div className="flex flex-col items-start gap-3 text-xs sm:flex-row sm:justify-between sm:gap-4">
         <div className="space-y-1.5">
-          <div className="text-[10px] font-bold uppercase tracking-wider text-muted font-semibold">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-muted">
             Evidence Strength
           </div>
           <p className="max-w-md text-xs leading-relaxed text-muted">
             Confidence estimate based on the design quality and consistency of published clinical trials.
           </p>
         </div>
-        <span className="rounded-full bg-brand-50 px-2.5 py-1 font-semibold text-brand-800 text-[11px] whitespace-nowrap">
+        <span className="shrink-0 whitespace-nowrap rounded-full bg-brand-50 px-2.5 py-1 text-[11px] font-semibold text-brand-800 dark:bg-white/10 dark:text-brand-100">
           {displayLevel}
         </span>
       </div>
 
-      <div className="h-2 overflow-hidden rounded-full bg-neutral-100">
-        <div 
-          className={`h-full rounded-full transition-all duration-700 ${tones[normalized] || tones.moderate} ${widths[normalized] || widths.moderate}`} 
+      <div className="h-2 overflow-hidden rounded-full bg-neutral-100 dark:bg-white/10">
+        <div
+          className={`h-full rounded-full transition-all duration-700 ${tones[normalized] || tones.moderate} ${widths[normalized] || widths.moderate}`}
         />
       </div>
     </div>
