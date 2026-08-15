@@ -6,6 +6,7 @@ import {
   getGuideTrackingContext,
   trackGuideView,
   trackLeadMagnetClick,
+  trackNavigationClick,
 } from '@/lib/analytics'
 import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
 import { loadAnalytics } from '../src/lib/loadAnalytics'
@@ -41,9 +42,21 @@ export default function ClickTracker() {
       if (!link) return
 
       const href = link.getAttribute('href') || ''
+      const consentGranted = getConsent() === 'granted'
+      const nav = link.closest('nav[aria-label="Primary"], nav[aria-label="Mobile primary links"]')
+
+      if (nav && href.startsWith('/') && consentGranted) {
+        trackNavigationClick({
+          label: link.textContent?.trim().replace(/\s+/g, ' ') || 'Navigation link',
+          destination: href,
+          sourcePath: window.location.pathname,
+          location: nav.getAttribute('aria-label') === 'Primary' ? 'desktop-primary' : 'mobile-primary',
+        })
+      }
+
       const leadMagnetMatch = href.match(/^\/lead-magnets\/([^/?#]+)/)
 
-      if (leadMagnetMatch && getConsent() === 'granted') {
+      if (leadMagnetMatch && consentGranted) {
         trackLeadMagnetClick({
           slug: leadMagnetMatch[1],
           sourcePath: window.location.pathname,
@@ -57,7 +70,7 @@ export default function ClickTracker() {
 
       // Recommendation components emit their own richer event after this capture phase.
       // Skip them here so a single click never becomes two analytics conversions.
-      if (!isAffiliate || link.dataset.revenueTracked === 'true' || getConsent() !== 'granted') return
+      if (!isAffiliate || link.dataset.revenueTracked === 'true' || !consentGranted) return
 
       const cta = link.innerText.trim() || 'CTA'
       const currentPath = window.location.pathname
