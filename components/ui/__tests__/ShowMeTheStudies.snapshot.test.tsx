@@ -43,4 +43,12 @@ describe('ShowMeTheStudies default evidence snapshot', () => {
     expect(screen.getByText('What would change our conclusion?')).toBeTruthy()
     expect(screen.getByText(/larger, well-controlled human trials/i)).toBeTruthy()
   })
+
+  it('surfaces disagreement explicitly instead of averaging it away', () => {
+    render(<ShowMeTheStudies citations={citations} />)
+    expect(screen.getByText('Where studies disagree')).toBeTruthy()
+    expect(screen.getByText(/1 source relationship supports the conclusion/i)).toBeTruthy()
+    expect(screen.getByText(/1 contradict it/i)).toBeTruthy()
+    expect(screen.getByText(/rather than treating the studies as one averaged vote/i)).toBeTruthy()
+  })
 })
