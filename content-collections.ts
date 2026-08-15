@@ -29,6 +29,8 @@ const citationPageSchema = z.object({
   date: z.string().regex(isoDatePattern).optional(),
   lastUpdated: z.string().regex(isoDatePattern).optional(),
   updatedAt: z.string().regex(isoDatePattern).optional(),
+  factualUpdated: z.string().regex(isoDatePattern).optional(),
+  templateUpdated: z.string().regex(isoDatePattern).optional(),
   category: z.string().min(1),
   tags: z.array(z.string()).default([]),
   readingTime: z.union([z.string().min(1), z.number().int().positive()]).optional(),
@@ -64,13 +66,16 @@ const articleMonographs = defineCollection({
       typeof document.readingTime === 'number'
         ? `${document.readingTime} min read`
         : document.readingTime || `${estimatedMinutes} min read`
-    const lastUpdated = document.lastUpdated ?? document.updatedAt ?? document.date ?? ''
+    const factualUpdated = document.factualUpdated ?? document.lastUpdated ?? document.updatedAt ?? document.date ?? ''
+    const templateUpdated = document.templateUpdated ?? ''
     const evidenceGrade = document.evidenceGrade ?? document.evidence_grade ?? ''
 
     return {
       ...document,
       readingTime,
-      lastUpdated,
+      lastUpdated: factualUpdated,
+      factualUpdated,
+      templateUpdated,
       evidenceGrade,
       body,
       url: `/articles/${document.slug}`,
@@ -95,13 +100,16 @@ const conceptPages = defineCollection({
       typeof document.readingTime === 'number'
         ? `${document.readingTime} min read`
         : document.readingTime || `${estimatedMinutes} min read`
-    const lastUpdated = document.lastUpdated ?? document.updatedAt ?? document.date ?? ''
+    const factualUpdated = document.factualUpdated ?? document.lastUpdated ?? document.updatedAt ?? document.date ?? ''
+    const templateUpdated = document.templateUpdated ?? ''
     const evidenceGrade = document.evidenceGrade ?? document.evidence_grade ?? ''
 
     return {
       ...document,
       readingTime,
-      lastUpdated,
+      lastUpdated: factualUpdated,
+      factualUpdated,
+      templateUpdated,
       evidenceGrade,
       body,
       url: `/learn/${document.slug}`,
@@ -135,6 +143,8 @@ const blogPosts = defineCollection({
       ...document,
       description: document.excerpt,
       lastUpdated: document.date ?? '',
+      factualUpdated: document.date ?? '',
+      templateUpdated: '',
       category: 'Field Notes',
       readingTime: `${estimatedMinutes} min read`,
       evidenceGrade: '',
@@ -159,6 +169,8 @@ const compoundMdxPages = defineCollection({
     metaDescription: z.string().min(1),
     keywords: z.array(z.string()).default([]),
     lastUpdated: z.string().regex(isoDatePattern),
+    factualUpdated: z.string().regex(isoDatePattern).optional(),
+    templateUpdated: z.string().regex(isoDatePattern).optional(),
     evidenceGrade: z.string().min(1),
     readingTime: z.union([z.string().min(1), z.number().int().positive()]).default(6),
     references: z.array(articleReferenceSchema).default([]),
@@ -170,11 +182,15 @@ const compoundMdxPages = defineCollection({
       typeof document.readingTime === 'number'
         ? `${document.readingTime} min read`
         : document.readingTime
+    const factualUpdated = document.factualUpdated ?? document.lastUpdated
 
     return {
       ...document,
       description: document.metaDescription,
       readingTime,
+      lastUpdated: factualUpdated,
+      factualUpdated,
+      templateUpdated: document.templateUpdated ?? '',
       body,
       url: `/compounds/${document.slug}`,
     }

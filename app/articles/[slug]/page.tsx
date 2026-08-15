@@ -57,6 +57,8 @@ export default async function ArticleMonographPage({ params }: PageProps) {
   const reviewerCredential =
     'reviewerCredential' in page && page.reviewerCredential ? page.reviewerCredential : undefined
   const lastReviewed = 'lastReviewed' in page && page.lastReviewed ? page.lastReviewed : undefined
+  const factualUpdated = page.factualUpdated || page.lastUpdated
+  const templateUpdated = page.templateUpdated || undefined
   const reviewerLabel = reviewedBy
     ? `${reviewedBy}${reviewerCredential ? `, ${reviewerCredential}` : ''}`
     : undefined
@@ -67,8 +69,8 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     headline: page.title,
     description: page.description,
     abstract: citationReadySummary,
-    dateModified: page.lastUpdated,
-    datePublished: page.date ?? page.lastUpdated,
+    dateModified: factualUpdated,
+    datePublished: page.date ?? factualUpdated,
     mainEntityOfPage: `${SITE_URL}/articles/${page.slug}/`,
     image: `${SITE_URL}/og-default.jpg`,
     keywords: page.tags,
@@ -135,9 +137,19 @@ export default async function ArticleMonographPage({ params }: PageProps) {
           {page.evidenceGrade ? (
             <span className="identity-kicker">Evidence {page.evidenceGrade}</span>
           ) : null}
-          <time dateTime={page.lastUpdated} className="identity-meta">
-            Updated {page.lastUpdated}
-          </time>
+          {factualUpdated ? (
+            <time dateTime={factualUpdated} className="identity-meta">
+              Factual update {factualUpdated}
+            </time>
+          ) : null}
+          {templateUpdated ? (
+            <>
+              <span aria-hidden="true" className="identity-meta">·</span>
+              <time dateTime={templateUpdated} className="identity-meta">
+                Template revision {templateUpdated}
+              </time>
+            </>
+          ) : null}
           <span aria-hidden="true" className="identity-meta">·</span>
           <span className="identity-meta">
             {typeof page.readingTime === 'number' ? `${page.readingTime} min read` : page.readingTime}
