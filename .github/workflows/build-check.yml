@@ -5,6 +5,27 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - main
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'src/**'
+      - 'lib/**'
+      - 'public/**'
+      - 'data/**'
+      - 'content/**'
+      - 'scripts/**'
+      - 'styles/**'
+      - 'types/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.nvmrc'
+      - 'next.config.*'
+      - 'next-env.d.ts'
+      - 'tsconfig*.json'
+      - 'tailwind.config.*'
+      - 'postcss.config.*'
+      - '**/*.xlsx'
+      - '.github/workflows/build-check.yml'
   workflow_dispatch:
 
 concurrency:
