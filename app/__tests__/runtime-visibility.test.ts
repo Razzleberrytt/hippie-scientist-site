@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getRuntimeVisibility } from '../../lib/runtime-visibility'
+import { filterRenderableRuntimeRecords, getRuntimeVisibility } from '../../lib/runtime-visibility'
 
 // Regression coverage for the recurring string-vs-boolean sitemap_included bug:
 // generated data must gate identically whether booleans survive the pipeline
@@ -87,5 +87,17 @@ describe('getRuntimeVisibility', () => {
       canFeature: false,
       canMonetize: false,
     })
+  })
+
+  it('excludes malformed and hidden records from the canonical renderable filter', () => {
+    const visible = { slug: 'visible', indexability_status: 'NOINDEX' }
+    const hidden = { slug: 'hidden', indexability_status: 'PUBLISH', runtime_export_decision: 'hide' }
+    const malformed = new Proxy({ slug: 'malformed' }, {
+      get() {
+        throw new Error('malformed runtime record')
+      },
+    }) as Record<string, unknown>
+
+    expect(filterRenderableRuntimeRecords([visible, hidden, malformed])).toEqual([visible])
   })
 })
