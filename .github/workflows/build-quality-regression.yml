@@ -18,10 +18,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch base branch
+      - name: Fetch base branch without losing merge history
         env:
           BASE_REF: ${{ github.base_ref }}
-        run: git fetch origin "$BASE_REF" --depth=1
+        run: |
+          git fetch origin "$BASE_REF"
+          git merge-base "origin/$BASE_REF" HEAD >/dev/null
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies once
+        run: npm ci
 
       - name: Extract major automated change explanation
         id: explanation
