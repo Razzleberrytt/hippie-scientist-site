@@ -28,7 +28,7 @@ export default function AuthorityBreadcrumbs({
   return (
     <nav
       aria-label="Breadcrumb"
-      className="flex flex-wrap items-center gap-1.5 text-sm"
+      className="flex flex-nowrap items-center gap-1.5 overflow-x-auto whitespace-nowrap text-sm"
     >
       {items.map((item, index) => {
         const isLast = index === items.length - 1
@@ -37,7 +37,7 @@ export default function AuthorityBreadcrumbs({
         return (
           <div
             key={href ?? item.label}
-            className="flex items-center gap-1.5"
+            className="flex shrink-0 items-center gap-1.5"
           >
             {href && !isLast ? (
               <Link
