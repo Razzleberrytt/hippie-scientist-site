@@ -9,64 +9,288 @@ import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'GLP-1 Medications & Supplements: Nutrient Depletion Guide (2026)',
-  description: 'Semaglutide and tirzepatide can deplete key nutrients. Evidence-based guide to iron, B12, protein, electrolytes, and which supplements to take on GLP-1s.',
+  title: 'GLP-1 Nutrition: 2026 Protein, Lean Mass & Deficiency Evidence',
+  description:
+    '2026 evidence review for nutrition on semaglutide, tirzepatide and other incretin therapies: lean mass vs muscle, protein evidence, micronutrient-deficiency signals, monitoring, GI tolerance, and which supplement rules are not established.',
   path: '/guides/other/glp1-supplements/',
   openGraphType: 'article',
 })
 
 const FAQS = [
-  { question: 'Do GLP-1 medications cause nutrient deficiencies?', answer: 'Yes, indirectly. Semaglutide and tirzepatide cause significant calorie reduction and delayed gastric emptying, which can reduce intake and absorption of iron, B12, calcium, and protein [1,2]. Direct drug-induced malabsorption is not well-documented, but the reduced food intake alone is enough to create deficiencies in restrictive eaters. Regular blood work is recommended.' },
-  { question: 'What supplements should I take on semaglutide/tirzepatide?', answer: 'The evidence supports: protein supplementation to preserve muscle mass (20-30 g/meal) [3], vitamin B12 (especially for vegetarians or long-term users) [4], iron if ferritin is low (GLP-1s can cause iron deficiency via reduced intake) [5], electrolytes (magnesium, potassium) for the ketosis-like state of very low intake, and vitamin D + calcium for bone health during rapid weight loss.' },
-  { question: 'Do I need electrolytes on GLP-1 medications?', answer: 'Possibly. Rapid weight loss and reduced food intake can cause electrolyte shifts similar to a ketogenic diet. The most common deficiencies are magnesium and potassium [6]. Symptoms: muscle cramps, fatigue, palpitations. If you are eating less than 1,200 calories/day on a GLP-1, electrolyte supplementation is reasonable. LMNT or similar products can help, but DIY salt + potassium chloride is much cheaper.' },
-  { question: 'Will supplements interfere with semaglutide?', answer: 'No direct pharmacodynamic interactions are documented. However, GLP-1s delay gastric emptying, which can affect the absorption timing of oral supplements. Take supplements at least 2 hours apart from your GLP-1 dose if you experience slow gastric emptying symptoms. The bigger concern is supplements that affect blood sugar (berberine, chromium, cinnamon) — these can theoretically amplify the glucose-lowering effect and should be used with glucose monitoring.' },
-  { question: 'How do I prevent muscle loss on GLP-1s?', answer: 'GLP-1 medications cause 25-40% of weight loss from lean mass — significantly higher than diet alone [3]. Countermeasures: protein intake of 1.2-1.6 g/kg body weight (may require supplementation), resistance training 2-3 times per week, and creatine supplementation at 3-5 g/day to support muscle energetics. Protein supplementation is the single most important intervention for muscle preservation.' },
-]
+  {
+    question: 'Do GLP-1 medications automatically cause nutrient deficiencies?',
+    answer:
+      'No. Reduced appetite, lower food intake, nausea, vomiting, baseline diet quality and other medical factors can increase deficiency risk, and observational studies report signals involving vitamin D, iron, B12 and other nutrients. But a 2026 systematic review of 16 randomized trials found that none directly reported clinically relevant nutritional deficiencies. Current evidence supports individualized assessment rather than assuming every GLP-1 user is depleted.',
+  },
+  {
+    question: 'Do GLP-1 medications cause dangerous muscle loss?',
+    answer:
+      'They reduce absolute lean mass during weight loss, but lean mass is not identical to skeletal muscle or muscle function. A 2026 meta-analysis of 20 randomized trials found lean mass accounted for about 25% to 39% of total weight loss with incretin therapies, a proportion comparable with lifestyle weight loss; lifestyle programs that included resistance training had the most favorable lean-mass profile.',
+  },
+  {
+    question: 'Should everyone on a GLP-1 take a multivitamin, iron and B12?',
+    answer:
+      'No universal supplement bundle has been validated. Iron should not be added simply because someone takes a GLP-1, and B12 deficiency is not an established direct class effect comparable to the well-known metformin association. Supplementation should follow diet history, symptoms, risk factors and laboratory findings when appropriate.',
+  },
+  {
+    question: 'How much protein is proven to prevent lean-mass loss on GLP-1 therapy?',
+    answer:
+      'No randomized GLP-1 trial has established one universal protein target that prevents lean-mass loss. Recent nutrition reviews propose higher-protein approaches such as roughly 1.2 g/kg/day or more for selected adults, but these are pragmatic or guideline-informed strategies rather than a drug-specific dose proven by definitive trials. Kidney disease, age, body size and clinical goals matter.',
+  },
+  {
+    question: 'Do GLP-1 users need electrolyte supplements if they eat under 1,200 calories?',
+    answer:
+      'There is no validated 1,200-calorie threshold that automatically triggers electrolyte supplementation. Persistent vomiting, diarrhea, dehydration, very low intake, kidney disease, diuretic use and other factors can change electrolyte risk. Symptoms or high-risk circumstances should prompt clinical assessment rather than a blanket electrolyte protocol.',
+  },
+  {
+    question: 'Should supplements be taken two hours away from a GLP-1 injection?',
+    answer:
+      'There is no general evidence-based two-hour rule for supplements around injectable semaglutide or tirzepatide. Delayed gastric emptying can matter for some oral medicines, but medication-specific labeling and pharmacist review are more appropriate than a universal separation rule. Oral incretin drugs can also have their own distinct administration instructions.',
+  },
+] as const
 
-const GLP1_REFS = [
-  { n: 1, text: 'Wilding JPH, et al. (2021). Semaglutide in adults with overweight or obesity. N Engl J Med, 384(11): 989-1002.', url: 'https://pubmed.ncbi.nlm.nih.gov/33567185/' },
-  { n: 2, text: 'Jastreboff AM, et al. (2022). Tirzepatide once weekly for obesity. N Engl J Med, 387(3): 205-216.', url: 'https://pubmed.ncbi.nlm.nih.gov/35658024/' },
-  { n: 3, text: 'Prado CM, et al. (2021). Body composition changes with weight loss pharmacotherapy. Obesity, 29(8): 1308-1317.', url: 'https://pubmed.ncbi.nlm.nih.gov/34227247/' },
-  { n: 4, text: 'DeFronzo RA, et al. (2011). Metformin-associated vitamin B12 deficiency. Diabetes Care, 34(2): 487-492.', url: 'https://pubmed.ncbi.nlm.nih.gov/21270194/' },
-  { n: 5, text: 'NutraIngredients (2026). Iron deficiency in GLP-1 users: a growing concern.', url: 'https://www.nutraingredients.com/' },
-  { n: 6, text: 'Weir MR, et al. (2022). Electrolyte balance during weight loss interventions. J Clin Hypertens, 24(5): 567-575.', url: 'https://pubmed.ncbi.nlm.nih.gov/' },
+const REFS = [
+  {
+    n: 1,
+    text: 'Lean Mass Changes With Incretin Therapy Versus Lifestyle Intervention: A Systematic Review and Meta-Analysis of Randomised Controlled Trials. 2026. Twenty RCTs / 15,782 participants. PMID 41877354.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/41877354/',
+  },
+  {
+    n: 2,
+    text: 'Dietary Strategies and Nutritional Management in Patients Receiving GLP-1 and Dual GIP/GLP-1 Receptor Agonists: A Systematic Review of Randomised Clinical Trials. 2026. Sixteen trials / 7,096 participants. PMID 42037117.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42037117/',
+  },
+  {
+    n: 3,
+    text: 'Micronutrient and Nutritional Deficiencies Associated With GLP-1 Receptor Agonist Therapy: A Narrative Review. 2026. Six eligible observational studies / 480,825 adults. PMID 41549912.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/41549912/',
+  },
+  {
+    n: 4,
+    text: 'Avoiding Malnutrition in the Era of Glucagon-Like Peptide-1 Medications: Emerging Evidence and Opportunities for Integrated Nutrition Care. J Nutr. 2026. PMID 42323133.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42323133/',
+  },
+  {
+    n: 5,
+    text: 'Lean Mass and Musculoskeletal Preservation in GLP-1-Based Obesity Treatment: Nutrition, Exercise, Supplementation, and Monitoring Strategies. 2026. PMID 42346344.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42346344/',
+  },
+  {
+    n: 6,
+    text: 'Body composition changes during weight reduction with tirzepatide in the SURMOUNT-1 study. Diabetes Obes Metab. 2025. DXA substudy n=160. PMID 39996356.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/39996356/',
+  },
+  {
+    n: 7,
+    text: 'Nutrition Strategies for Next-Generation Incretin Therapies: A Systematic Scoping Review of the Current Evidence. Obes Rev. 2026. PMID 41500509.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/41500509/',
+  },
+  {
+    n: 8,
+    text: 'Micronutrient risk with GLP-1 receptor and dual incretin agonists in obesity: Mechanistic pathways, clinical signals, and a monitoring framework. 2026. PMID 42382663.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42382663/',
+  },
 ]
 
 export default function GLP1SupplementsPage() {
   return (
-    <div className="container-page py-10 space-y-10">
-      <AuthorityJsonLd title="GLP-1 Supplements Guide" description="Nutrient depletion and supplementation on semaglutide and tirzepatide." url="https://thehippiescientist.net/guides/other/glp1-supplements" type="Article" />
-      <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'GLP-1 & Supplements' }]} />
-      <FAQSchema pagePath="/guides/other/glp1-supplements/" questions={FAQS} />
+    <div className="container-page space-y-10 py-10">
+      <AuthorityJsonLd
+        title="GLP-1 Nutrition: 2026 Protein, Lean Mass and Deficiency Evidence"
+        description="Evidence-calibrated nutrition review for GLP-1 and dual-incretin obesity therapy, separating lean mass from muscle loss and deficiency risk from automatic supplementation."
+        url="https://thehippiescientist.net/guides/other/glp1-supplements/"
+        type="MedicalWebPage"
+        faqItems={[...FAQS]}
+        citationUrls={REFS.map((reference) => reference.url)}
+      />
+      <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'GLP-1 Nutrition' }]} />
+      <FAQSchema pagePath="/guides/other/glp1-supplements/" questions={[...FAQS]} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 6 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">GLP-1 Medications &amp; Supplements: What You Need to Know</h1><p className="text-lg leading-8 text-muted">Semaglutide (Ozempic/Wegovy) and tirzepatide (Mounjaro/Zepbound) are transforming obesity treatment — and creating a new category of nutrition concerns. Rapid weight loss, calorie restriction, and delayed gastric emptying can deplete key nutrients. The supplement industry has responded with GLP-1-specific products, but most are unnecessary. Here&rsquo;s what the evidence actually supports — and what is just marketing to a desperate audience.</p>
+      <section className="max-w-4xl space-y-5">
+        <p className="eyebrow-label">Medical Nutrition Review · Updated August 15, 2026</p>
+        <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">GLP-1 Nutrition: The Real Risk Is Under-Eating, Not a Universal “Nutrient Depletion” Syndrome</h1>
+        <p className="text-lg leading-8 text-muted">
+          Semaglutide, tirzepatide and newer incretin-based obesity drugs can sharply reduce appetite and food intake. That creates legitimate nutrition questions—but the evidence does <strong>not</strong> support a one-size-fits-all “GLP-1 depletion stack.” The most defensible approach is to protect dietary quality, resistance exercise and adequate protein, then target supplements or lab monitoring to actual risk rather than marketing bundles.
+        </p>
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+            <Image src="/images/guides/glp1-supplements.jpg" alt="GLP-1 injection pen beside food, supplements, and laboratory testing" width={1536} height={1024} priority className="h-auto w-full" />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">Nutrition care should be driven by intake, symptoms, body composition, medical history and measured deficiency—not the drug name alone.</figcaption>
+        </figure>
+      </section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · GLP-1 Supplement Priority</p>
-        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Priority</th><th className="text-left py-2 pr-4 font-semibold text-ink">Supplement</th><th className="text-left py-2 pr-4 font-semibold text-ink">Why</th><th className="text-left py-2 font-semibold text-ink">Dose</th></tr></thead><tbody className="text-muted">
-          <tr className="border-b"><td className="py-2 pr-4"><span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-800">1</span></td><td className="py-2 pr-4 font-medium text-ink">Protein</td><td className="py-2 pr-4">Preserve muscle (25-40% loss)</td><td className="py-2">1.2-1.6 g/kg/day</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4"><span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-800">2</span></td><td className="py-2 pr-4 font-medium text-ink">Multivitamin</td><td className="py-2 pr-4">Baseline nutrient coverage</td><td className="py-2">1 daily</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4"><span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">3</span></td><td className="py-2 pr-4 font-medium text-ink">Iron</td><td className="py-2 pr-4">If ferritin low (especially women)</td><td className="py-2">25-50 mg/day</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4"><span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">3</span></td><td className="py-2 pr-4 font-medium text-ink">Vitamin B12</td><td className="py-2 pr-4">Reduced dietary intake</td><td className="py-2">1000 mcg/day</td></tr>
-          <tr><td className="py-2 pr-4"><span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">4</span></td><td className="py-2 pr-4 font-medium text-ink">Electrolytes</td><td className="py-2 pr-4">If &lt;1200 cal/day</td><td className="py-2">As needed</td></tr>
-        </tbody></table></div>
-        <p className="text-xs leading-5 text-muted">Priority 1-2: everyone on GLP-1s. Priority 3: check blood work first. Priority 4: only if very low calorie intake. Avoid GLP-1-branded products — multivitamin + protein is cheaper and covers the same bases.</p></section>
-        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/glp1-supplements.jpg" alt="GLP-1 injection pen beside supplements and blood test" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">GLP-1 medications — what your body needs that the prescription doesn't cover.</figcaption></figure></section>
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">2026 evidence bottom line</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Two evidence streams look contradictory until you separate trial outcomes from real-world risk</h2>
+        <p className="text-sm leading-7 text-muted">
+          A 2026 systematic review of <strong>16 randomized trials / 7,096 participants</strong> found frequent gastrointestinal symptoms but reported that <strong>none of the trials directly documented clinically relevant nutritional deficiencies</strong> [2]. Lean mass generally fell in proportion to overall weight loss, and optimal nutritional strategies were still poorly defined.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          By contrast, a 2026 narrative review of six observational datasets totaling more than 480,000 adults found signals involving vitamin D, ferritin/iron, calcium, B12 and other nutrient domains [3]. Observational data can identify real-world risk, but they cannot cleanly prove that the drug directly caused the deficiency. Reduced intake, baseline obesity-related deficiencies, vomiting, diet pattern, metformin use and other factors can contribute.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          The synthesis is not “deficiencies are fake” or “everyone is depleted.” It is: <strong>risk is plausible and patient-specific, while incidence and optimal monitoring remain incompletely defined.</strong>
+        </p>
+      </section>
 
-      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">The supplements with evidence for GLP-1 users are <strong>protein</strong> (preserve muscle mass — 25-40% of weight loss from GLP-1s is lean mass [1,3]), <strong>vitamin B12</strong> (deficiency risk from reduced intake [4]), <strong>iron</strong> (emerging concern [5]), and <strong>electrolytes</strong> for very low-calorie diets [6]. Most GLP-1-specific supplement products are overpriced multivitamins — a standard multivitamin plus protein powder covers the same bases at a fraction of the cost. Regular blood work (CBC, ferritin, B12, vitamin D) should guide supplementation, not marketing claims.</p></section>
+      <section className="card-premium max-w-4xl space-y-5 border-l-4 border-brand-700 bg-brand-50/30 p-6">
+        <p className="eyebrow-label">Lean mass reality check</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Lean mass loss is real—but “GLP-1s eat more muscle than dieting” is not supported by the best comparison</h2>
+        <p className="text-sm leading-7 text-muted">
+          A 2026 meta-analysis of <strong>20 randomized trials / 15,782 participants</strong> found lean mass represented about <strong>35.2% of weight lost with semaglutide, 25.4% with tirzepatide and 26.8% with liraglutide</strong> [1]. Lifestyle interventions averaged 26.2%, and the between-group comparison was not significant. Lifestyle programs that incorporated resistance training had the most favorable profile at about 17.5% [1].
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          This replaces the old claim that GLP-1 therapy necessarily causes “significantly more” lean loss than dietary weight loss. Weight reduction by many methods includes some lean-tissue loss. The practical target is preserving strength, function and skeletal muscle—not panicking over every kilogram of DXA-derived lean mass.
+        </p>
+      </section>
 
-      <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by concern</h2>
-        <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Muscle loss — Strong evidence for protein</h3><p className="mt-2 text-sm leading-7 text-muted">GLP-1 agonists cause 25-40% of total weight loss from lean mass — significantly more than dietary weight loss alone [3]. This is the most important nutritional concern. Countermeasures: protein intake of 1.2-1.6 g/kg body weight (often requires supplementation), resistance training 2-3×/week, and adequate total calorie intake (aggressive deficits worsen muscle loss). Whey protein or plant-based protein supplements are well-evidenced. Creatine (3-5 g/day) may provide additional muscle preservation benefit.</p></div>
-          <div className="p-4 rounded-xl bg-amber-50/60"><h3 className="font-semibold text-ink">Iron deficiency — Emerging concern</h3><p className="mt-2 text-sm leading-7 text-muted">Reduced food intake on GLP-1s can cause iron deficiency, particularly in women with heavy menstrual bleeding [5]. The NutraIngredients 2026 report highlighted this as a growing clinical concern. Symptoms: fatigue, pallor, shortness of breath. Check ferritin and hemoglobin. If low: iron bisglycinate 25-50 mg/day with vitamin C for absorption. Avoid iron oxide — poor bioavailability.</p></div>
-          <div className="p-4 rounded-xl bg-amber-50/60"><h3 className="font-semibold text-ink">Vitamin B12 — Moderate concern</h3><p className="mt-2 text-sm leading-7 text-muted">Reduced dietary intake of animal products can lower B12 levels over months [4]. This is well-documented with metformin but less studied with GLP-1s specifically. Vegetarians and vegans on GLP-1s are at highest risk. Supplement with 1,000 mcg methylcobalamin or cyanocobalamin daily if dietary intake is low. Check serum B12 annually.</p></div>
-          <div className="p-4 rounded-xl bg-red-50/60"><h3 className="font-semibold text-ink">GLP-1-specific supplement products — No evidence</h3><p className="mt-2 text-sm leading-7 text-muted">The market is flooded with products claiming to be &ldquo;formulated for GLP-1 users.&rdquo; These are typically overpriced multivitamins with added electrolytes and probiotics. No product has demonstrated superiority over a standard multivitamin in GLP-1 users. Save your money. A basic multivitamin + protein powder + blood work covers your actual needs.</p></div>
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Lean mass ≠ skeletal muscle</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Body-composition headlines can overstate what DXA actually measures</h2>
+        <p className="text-sm leading-7 text-muted">
+          DXA “lean mass” or BIA “fat-free mass” includes more than contractile skeletal muscle. Changes in body water, glycogen, organs and other non-fat tissue can contribute. A 2026 review emphasizes that lean-tissue reduction should not automatically be interpreted as loss of muscle quality, strength or physical performance [5].
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          The tirzepatide SURMOUNT-1 DXA substudy illustrates the point: about 75% of lost weight was fat mass and 25% lean mass in both tirzepatide and placebo groups [6]. That finding is much more nuanced than “one quarter of the drug&apos;s weight loss is muscle.”
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Protein</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Higher protein is a sensible strategy; one universal GLP-1 protein prescription is not proven</h2>
+        <p className="text-sm leading-7 text-muted">
+          Recent medical-nutrition reviews commonly advocate protein-rich diets during incretin therapy, especially in older adults or people at risk of sarcopenia [4,5,7]. That recommendation is grounded in broader muscle-preservation physiology and the reality of reduced food intake.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          What is still missing is a definitive randomized GLP-1 trial establishing a single optimal protein target for every patient. Targets such as approximately 1.2 g/kg/day or higher in selected adults are better described as <strong>pragmatic, guideline-informed strategies</strong> than as a proven drug-specific dose. Chronic kidney disease, older age, total energy intake, body size and clinical goals can materially change what is appropriate.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Resistance training</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">The strongest “muscle supplement” signal may be exercise, not a powder</h2>
+        <p className="text-sm leading-7 text-muted">
+          In the 2026 lean-mass meta-analysis, lifestyle interventions that included resistance training had the lowest proportion of weight loss attributable to lean mass [1]. That does not prove one resistance program is optimal during GLP-1 therapy, but it provides a stronger evidence rationale than claiming a particular supplement has been shown to prevent incretin-related muscle loss.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          Protein powders can be useful when appetite makes protein-rich meals difficult. Creatine has a broader evidence base for muscle performance, but direct randomized evidence showing that creatine specifically prevents GLP-1-related lean-mass loss remains limited. It should not be presented as a proven anti-wasting adjunct to these drugs.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 border-l-4 border-amber-500 bg-amber-50/40 p-6">
+        <p className="eyebrow-label">Micronutrient risk</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Do not turn an observational signal into an automatic iron/B12 prescription</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-[720px] w-full text-sm">
+            <thead><tr className="border-b border-brand-900/10"><th className="py-2 pr-4 text-left font-semibold text-ink">Nutrient/domain</th><th className="py-2 pr-4 text-left font-semibold text-ink">Why it may matter</th><th className="py-2 text-left font-semibold text-ink">What the evidence does not justify</th></tr></thead>
+            <tbody className="text-muted">
+              <tr className="border-b border-brand-900/5 align-top"><td className="py-3 pr-4 font-medium text-ink">Iron / ferritin</td><td className="py-3 pr-4">Lower intake and observational ferritin signals [3,8]</td><td className="py-3">Automatic daily iron without evidence of deficiency</td></tr>
+              <tr className="border-b border-brand-900/5 align-top"><td className="py-3 pr-4 font-medium text-ink">Vitamin B12</td><td className="py-3 pr-4">Low intake and some real-world deficiency signals [3,8]</td><td className="py-3">Treating GLP-1 therapy itself as a proven direct B12-depleting mechanism</td></tr>
+              <tr className="border-b border-brand-900/5 align-top"><td className="py-3 pr-4 font-medium text-ink">Vitamin D / calcium</td><td className="py-3 pr-4">Baseline inadequacy is common; reduced intake may worsen it [3]</td><td className="py-3">Assuming every user needs the same supplement dose</td></tr>
+              <tr><td className="py-3 pr-4 font-medium text-ink">Electrolytes / thiamine</td><td className="py-3 pr-4">Higher concern with prolonged vomiting, diarrhea, dehydration or severe restriction [8]</td><td className="py-3">An arbitrary calorie cutoff that automatically triggers electrolyte products</td></tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">The most important supplement on GLP-1 medications is <strong>protein</strong> — 1.2-1.6 g/kg/day to preserve muscle [3]. Add a basic multivitamin for baseline coverage, and check iron, B12, and vitamin D levels annually. Electrolytes (magnesium, potassium) are reasonable if eating less than 1,200 calories/day [6]. Avoid GLP-1-specific supplement products — they are marketing, not science. The single best investment you can make in your health on GLP-1s is resistance training, not supplements.</p></section>
-      <References refs={GLP1_REFS} />
-      <EmailCapture headline="Get evidence reviews like this" description="GLP-1s, supplements, muscle preservation — evidence, not marketing." ctaLabel="Get the evidence" location="guide-glp1" />
-      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Who deserves closer nutrition monitoring?</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Risk stratification is more defensible than a universal lab panel</h2>
+        <p className="text-sm leading-7 text-muted">
+          Recent reviews repeatedly flag higher concern in people with persistent nausea/vomiting, very low intake, poor baseline diet quality, older age, sarcopenic obesity, prior bariatric surgery, gastrointestinal disease, vegetarian/vegan diets, chronic kidney disease, heavy menstrual bleeding, or medications that independently affect nutrient status [3,5,8].
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          Those features can justify more deliberate dietary assessment and targeted laboratory evaluation. The evidence does not yet establish that every otherwise well person taking an incretin drug needs the same annual CBC, ferritin, B12, vitamin D, zinc, folate and electrolyte panel solely because of the prescription.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">GI tolerance</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Nutrition problems often start with symptoms, not “malabsorption”</h2>
+        <p className="text-sm leading-7 text-muted">
+          Across 16 randomized trials, nausea, diarrhea, constipation and vomiting were consistently more common with GLP-1 or dual-incretin therapy [2]. Those symptoms can indirectly reduce food and fluid intake and make nutrient-dense eating harder.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          This is different from claiming the drugs routinely cause a broad intestinal malabsorption syndrome. Direct drug-induced malabsorption of iron, B12, calcium or protein has not been established as the primary class mechanism behind the nutritional concerns.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Interaction/timing myth</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">There is no universal “take supplements two hours away from your GLP-1” rule</h2>
+        <p className="text-sm leading-7 text-muted">
+          Injectable semaglutide and tirzepatide are not swallowed and absorbed from the stomach like a supplement. Delayed gastric emptying can affect the timing or exposure of some <strong>oral medicines</strong>, which is why drug-specific labels and pharmacist review matter.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          Different oral incretin drugs also have different administration rules. A blanket two-hour supplement separation recommendation can therefore be both unsupported and misleading. Follow the specific medication label and review important oral medicines with the prescriber or pharmacist.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">“GLP-1 supplement” marketing</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">A supplement that mentions GLP-1 is not a substitute for GLP-1 pharmacotherapy—or automatically necessary alongside it</h2>
+        <p className="text-sm leading-7 text-muted">
+          The supplement market now includes products marketed as “GLP-1 support,” “GLP-1 companion” or “nutrient replacement” formulas. No brand category has demonstrated that a proprietary bundle is superior to individualized food-first nutrition and targeted correction of documented gaps.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          The same rule applies in the opposite direction: berberine, fiber, probiotics, chromium or botanical ingredients should not be described as “natural Ozempic” because they may influence glucose, appetite or gut signaling. Shared pathway language is not drug equivalence.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Evidence applicability</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">What we can responsibly say in 2026</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-[720px] w-full text-sm">
+            <thead><tr className="border-b border-brand-900/10"><th className="py-2 pr-4 text-left font-semibold text-ink">Claim</th><th className="py-2 text-left font-semibold text-ink">Status</th></tr></thead>
+            <tbody className="text-muted">
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">GLP-1-based therapy reduces food intake and can make nutrition adequacy harder</td><td className="py-3"><strong>Supported</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Every GLP-1 user develops nutrient deficiencies</td><td className="py-3"><strong>No</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Lean mass decreases during large pharmacologic weight loss</td><td className="py-3"><strong>Yes</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">GLP-1 drugs cause proportionally more lean loss than lifestyle weight loss</td><td className="py-3"><strong>Not supported by the 2026 RCT meta-analysis</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Resistance training is a high-value muscle-preservation strategy</td><td className="py-3"><strong>Supported by broader/lifestyle evidence and comparative meta-analysis</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">One universal protein target is proven specifically for GLP-1 therapy</td><td className="py-3"><strong>No</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Everyone needs iron, B12 and electrolyte supplements</td><td className="py-3"><strong>No</strong></td></tr>
+              <tr><td className="py-3 pr-4">GLP-1-branded supplement bundles have proven superiority</td><td className="py-3"><strong>No</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Unanswered questions</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">The nutrition science is still catching up to the drugs</h2>
+        <ol className="list-decimal space-y-2 pl-5 text-sm leading-7 text-muted">
+          <li>What protein intake best preserves muscle strength and function during different incretin therapies?</li>
+          <li>Which micronutrient deficiencies are truly drug-associated versus consequences of lower intake and baseline risk?</li>
+          <li>Which patients benefit from routine laboratory monitoring, and at what intervals?</li>
+          <li>Do dietitian-led programs reduce discontinuation, GI symptoms, deficiency or lean-tissue loss?</li>
+          <li>Does resistance training modify long-term function and weight-maintenance outcomes during therapy?</li>
+          <li>Do creatine or other supplements add meaningful preservation beyond adequate protein and resistance exercise?</li>
+          <li>How do nutritional risks differ between injectable GLP-1s, dual agonists, oral small-molecule agents and future combinations?</li>
+        </ol>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2>
+        <p className="text-sm leading-7 text-muted">
+          GLP-1 nutrition deserves more precision than “take a multivitamin and electrolytes.” The highest-value priorities are maintaining a nutrient-dense diet despite appetite suppression, protecting strength and function with resistance exercise, getting enough protein for the individual situation, and using symptoms/risk factors/labs to decide whether a specific nutrient needs correction. <strong>The drug creates a nutrition-management problem for some people; it does not create the same supplement prescription for everyone.</strong>
+        </p>
+      </section>
+
+      <References refs={REFS} />
+      <div className="max-w-4xl rounded-xl border border-brand-900/10 bg-brand-50/40 p-4 text-xs leading-6 text-muted">
+        <strong className="text-ink">Supplement boundary:</strong> this guide intentionally avoids fixed iron, B12, electrolyte or protein-supplement prescriptions. Nutrient correction depends on diet, symptoms, laboratory findings, kidney function, comorbidities and the exact medication being used.
+      </div>
+      <EmailCapture headline="Get evidence reviews like this" description="Current obesity-drug and supplement research—with nutrition risk separated from automatic supplement marketing." ctaLabel="Get the evidence" location="guide-glp1" />
+      <div className="flex items-center justify-between border-t border-brand-900/10 pt-4">
+        <Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link>
+        <div className="flex gap-4">
+          <Link href="/guides/other/orforglipron-foundayo/" className="text-sm font-bold text-brand-800 hover:underline">Foundayo →</Link>
+          <Link href="/guides/other/cagrisema-cagrilintide/" className="text-sm font-bold text-brand-800 hover:underline">CagriSema →</Link>
+        </div>
+      </div>
     </div>
   )
 }
