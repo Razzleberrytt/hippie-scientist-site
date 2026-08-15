@@ -1,5 +1,5 @@
 export type AtlasEffectSource = 'all' | 'explicit'
-export type AtlasSortOption = 'name' | 'evidence' | 'noticeability'
+export type AtlasSortOption = 'name' | 'evidence' | 'human-evidence' | 'noticeability'
 
 export type AtlasUrlState = {
   query: string
@@ -25,7 +25,7 @@ export const DEFAULT_ATLAS_URL_STATE: AtlasUrlState = {
 
 const validEffectSource = (value: string | null): AtlasEffectSource => value === 'explicit' ? 'explicit' : 'all'
 const validSort = (value: string | null): AtlasSortOption =>
-  value === 'evidence' || value === 'noticeability' ? value : 'name'
+  value === 'evidence' || value === 'human-evidence' || value === 'noticeability' ? value : 'name'
 
 export function parseAtlasUrlState(search: string): AtlasUrlState {
   const params = new URLSearchParams(search.startsWith('?') ? search.slice(1) : search)
