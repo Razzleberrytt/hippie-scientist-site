@@ -6,3 +6,13 @@
   padding-top: max(1.5rem, env(safe-area-inset-top));
   padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
 }
+
+/* The root shell renders one global breadcrumb trail on non-article routes.
+   A number of older page templates also render AuthorityBreadcrumbs inside
+   <main>, producing two visible trails and wasting first-screen space on phones.
+   Suppress only the page-local duplicate when the global trail is present.
+   Article routes intentionally omit the global trail, so their local navigation
+   remains untouched. */
+[data-global-breadcrumb] + main nav[aria-label='Breadcrumb'] {
+  display: none;
+}
