@@ -23,7 +23,15 @@ describe('release impact classification', () => {
     'app/icon.png',
     'app/guides/opengraph-image.tsx',
     'lib/seo/canonical.ts',
+    'lib/semantic-schema-graph.ts',
+    'src/lib/seo.ts',
+    'src/lib/goal-seo.ts',
+    'src/lib/schema-graph.ts',
+    'src/lib/schema-injector.ts',
+    'src/lib/runtime-data.ts',
     'public/data/herbs.json',
+    'public/_redirects',
+    'public/_headers',
     'next.config.mjs',
     'package.json',
     'package-lock.json',
@@ -34,9 +42,11 @@ describe('release impact classification', () => {
   it.each([
     'app/herbs/HerbsIndexClient.tsx',
     'components/Header.tsx',
+    'src/lib/affiliate-copy.ts',
     'docs/build-and-verification.md',
     'styles/globals.css',
     '.github/workflows/lighthouse.yml',
+    'public/hero-illustration.jpg',
   ])('classifies %s as standard-CI-only', (file) => {
     expect(isReleaseSensitivePath(file)).toBe(false)
   })
