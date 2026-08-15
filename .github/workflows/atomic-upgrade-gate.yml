@@ -50,29 +50,26 @@ jobs:
           BASE_REF: ${{ github.base_ref }}
         run: |
           git fetch origin "$BASE_REF" --depth=1
-          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
-          printf '%s\n' "$changed"
-          if printf '%s\n' "$changed" | grep -Eq '^(scripts/(data|build|pipeline|ci)/|scripts/(build|orchestrate|profile-build|generate-|create-content)|app/.+/(generateStaticParams|page\.)|lib/(content|data|seo|schema|routes|taxonomy)|public/data/|next\.config\.|package(-lock)?\.json)'; then
-            echo 'generator_changed=true' >> "$GITHUB_OUTPUT"
-          else
-            echo 'generator_changed=false' >> "$GITHUB_OUTPUT"
-          fi
+          changed_file="$RUNNER_TEMP/release-impact-files.txt"
+          git diff --name-only "origin/$BASE_REF"...HEAD > "$changed_file"
+          cat "$changed_file"
+          node scripts/ci/release-impact-classifier.mjs "$changed_file" >> "$GITHUB_OUTPUT"
 
       - name: Set up Node.js
-        if: steps.detect.outputs.generator_changed == 'true'
+        if: steps.detect.outputs.release_required == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
       - name: Install dependencies
-        if: steps.detect.outputs.generator_changed == 'true'
+        if: steps.detect.outputs.release_required == 'true'
         run: npm ci
 
       - name: Run complete release-quality suite
-        if: steps.detect.outputs.generator_changed == 'true'
+        if: steps.detect.outputs.release_required == 'true'
         run: npm run validate:release
 
       - name: No generator-level change
-        if: steps.detect.outputs.generator_changed != 'true'
+        if: steps.detect.outputs.release_required != 'true'
         run: echo 'No generator/structural files changed; standard CI remains authoritative.'
