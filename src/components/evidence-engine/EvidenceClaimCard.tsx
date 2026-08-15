@@ -60,6 +60,9 @@ export default function EvidenceClaimCard({
     claim.branded_extract
       ? { label: 'Studied extract', value: claim.branded_extract }
       : null,
+    claim.evidence_search_date
+      ? { label: 'Evidence searched', value: claim.evidence_search_date }
+      : null,
   ].filter((signal): signal is { label: string; value: string } => signal !== null)
 
   const showExtractWarning = Boolean(
