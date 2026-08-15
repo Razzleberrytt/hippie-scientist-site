@@ -6,6 +6,7 @@ import { allArticleMonographs, allBlogPosts } from '../../../.content-collection
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
+import WhatEvidenceShows from '@/src/components/evidence/WhatEvidenceShows'
 import { normalizeCitationMetadata, resolveRelatedArticles } from '@/src/lib/article-citation-metadata'
 import { SITE_URL, buildPageMetadata, compactMetaTitle } from '../../../src/lib/seo'
 
@@ -133,6 +134,17 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         </div>
 
         <h1 className="heading-premium mt-5 max-w-4xl">{page.title}</h1>
+
+        <div className="mt-5 max-w-4xl">
+          <WhatEvidenceShows
+            id={`article-evidence-${page.slug}`}
+            summary={page.description}
+            evidenceGrade={page.evidenceGrade}
+            sourceCount={page.references.length}
+            keyPoints={keyTakeaways}
+          />
+        </div>
+
         <p className="text-reading mt-4 max-w-3xl">{page.description}</p>
 
         <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-[color:var(--hs-hairline)] pt-4 text-xs text-[color:var(--hs-body)]">
