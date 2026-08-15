@@ -44,35 +44,31 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Detect generator/structural changes
-        id: detect
+      - name: Classify release impact
+        id: impact
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
           git fetch origin "$BASE_REF" --depth=1
           changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
           printf '%s\n' "$changed"
-          if printf '%s\n' "$changed" | grep -Eq '^(scripts/(data|build|pipeline|ci)/|scripts/(build|orchestrate|profile-build|generate-|create-content)|app/.+/(generateStaticParams|page\.)|lib/(content|data|seo|schema|routes|taxonomy)|public/data/|next\.config\.|package(-lock)?\.json)'; then
-            echo 'generator_changed=true' >> "$GITHUB_OUTPUT"
-          else
-            echo 'generator_changed=false' >> "$GITHUB_OUTPUT"
-          fi
+          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
       - name: Set up Node.js
-        if: steps.detect.outputs.generator_changed == 'true'
+        if: steps.impact.outputs.release_sensitive == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
       - name: Install dependencies
-        if: steps.detect.outputs.generator_changed == 'true'
+        if: steps.impact.outputs.release_sensitive == 'true'
         run: npm ci
 
       - name: Run complete release-quality suite
-        if: steps.detect.outputs.generator_changed == 'true'
+        if: steps.impact.outputs.release_sensitive == 'true'
         run: npm run validate:release
 
-      - name: No generator-level change
-        if: steps.detect.outputs.generator_changed != 'true'
-        run: echo 'No generator/structural files changed; standard CI remains authoritative.'
+      - name: No release-sensitive change
+        if: steps.impact.outputs.release_sensitive != 'true'
+        run: echo 'No release-sensitive/structural files changed; standard CI remains authoritative.'
