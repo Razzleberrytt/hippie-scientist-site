@@ -139,22 +139,30 @@ export function getEvidenceColor(record: RuntimeRecord): EvidenceColor {
   return colors[getEvidenceTier(record)]
 }
 
-/**
- * Compatibility name retained for UI callers. The value now comes from the
- * single canonical evidence-grade contract and may be Avoid/Insufficient.
- */
+/** Canonical persisted evidence grade. Null means no honest universal grade exists. */
 export type EvidenceLetterGrade = CanonicalEvidenceGrade
 
 /**
- * Resolve a record to the canonical evidence-grade enum.
+ * Resolve a record to a canonical universal evidence grade.
  *
- * Explicit grade data wins, but all legacy parsing is delegated to
- * `normalizeEvidenceGrade` so this file cannot drift into a second grading
- * system. Legacy evidence-tier text is only a fallback adapter.
+ * Explicit grade data wins. If an explicit value exists but cannot honestly be
+ * represented by one canonical grade, return null rather than silently deriving
+ * a different grade from evidence_tier. A migration marker also prevents an
+ * outcome-dependent grade that was intentionally removed from being recreated.
+ * Legacy evidence-tier text remains a fallback only when no explicit grade or
+ * no-universal-grade marker is present.
  */
-export function getEvidenceLetterGrade(record: RuntimeRecord): EvidenceLetterGrade {
+export function getEvidenceLetterGrade(record: RuntimeRecord): EvidenceLetterGrade | null {
+  const universalGradeStatus = text(readPath(record, ['evidence_grade_status'])).toLowerCase()
+  if (universalGradeStatus === 'outcome-dependent' || universalGradeStatus === 'unassigned') {
+    return null
+  }
+
   const normalized = normalizeEvidenceGrade(record?.evidence_grade)
-  if (normalized.grade && !normalized.outcomeDependent) return normalized.grade
+  if (normalized.raw) {
+    if (normalized.grade && !normalized.outcomeDependent) return normalized.grade
+    return null
+  }
 
   const evidenceTierField = record?.evidence_tier || record?.evidenceTier
   const gradeFromTier = canonicalGradeFromEvidenceTier(evidenceTierField)
