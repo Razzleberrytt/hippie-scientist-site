@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 type EducationPageLayoutProps = {
   title: string
@@ -11,27 +10,18 @@ type EducationPageLayoutProps = {
 export default function EducationPageLayout({
   title,
   description,
-  breadcrumb,
   children,
 }: EducationPageLayoutProps) {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 sm:py-12 lg:py-16">
-      <AuthorityBreadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Education', href: '/learn' },
-          { label: breadcrumb || title },
-        ]}
-      />
-      <header className="mt-6 max-w-3xl space-y-4">
-        <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
-          {title}
-        </h1>
-        {description && (
-          <p className="text-base leading-7 text-muted sm:text-lg">{description}</p>
-        )}
+    <div className="mx-auto max-w-4xl space-y-10 px-4 py-6 sm:space-y-12 sm:py-10 lg:py-12">
+      <header className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
+        <p className="eyebrow-label">Learning library</p>
+        <h1 className="heading-premium mt-5 max-w-3xl">{title}</h1>
+        {description ? (
+          <p className="text-reading mt-4 max-w-3xl">{description}</p>
+        ) : null}
       </header>
-      <div className="mt-10 space-y-12">{children}</div>
+      <div className="space-y-12">{children}</div>
     </div>
   )
 }
