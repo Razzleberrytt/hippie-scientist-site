@@ -112,3 +112,13 @@ export function getRuntimeVisibility(record: Record<string, unknown>) {
     return HIDDEN_VISIBILITY
   }
 }
+
+/**
+ * Canonical renderability filter for interactive tools and discovery surfaces.
+ * Malformed records stay excluded because getRuntimeVisibility itself fails closed.
+ */
+export function filterRenderableRuntimeRecords<T extends Record<string, unknown>>(
+  records: readonly T[],
+): T[] {
+  return records.filter((record) => getRuntimeVisibility(record).canRender)
+}
