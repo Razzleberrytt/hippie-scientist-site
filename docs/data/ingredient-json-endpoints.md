@@ -19,11 +19,14 @@ Every ingredient JSON document includes its canonical human page in `entity.cano
 
 ## Stable identifiers
 
-The data uses the repository's deterministic canonical IDs:
+Public substance identities follow the repository's evidence-graph identity foundation:
 
-- entity IDs: `ent_<type>_<hash>`
+- herb IDs: `herb:<canonical-slug>`
+- compound IDs: `compound:<canonical-slug>`
 - claim IDs: `clm_<hash>`
 - source IDs: `src_<hash>`
+
+The canonical claim store still contains deterministic legacy `ent_<type>_<hash>` subject IDs. When one is required to trace a public endpoint back to the existing claim store, it is preserved explicitly as `legacyCanonicalId` / `legacyCanonicalSubjectId`; it is not presented as a second public substance identity system.
 
 A claim also carries a `revision` hash. Ingredient endpoints carry a `claimsRevision` hash, and the aggregate graph carries an `integrityHash`. These hashes make scientific changes observable without changing stable identities.
 
