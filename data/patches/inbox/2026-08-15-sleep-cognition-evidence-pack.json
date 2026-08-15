@@ -1,0 +1,271 @@
+[
+  {
+    "patch_id": "pubmed-2026-08-15-ginkgo-cochrane-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "ginkgo-biloba", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2026 Cochrane review of 82 randomized studies found that Ginkgo biloba probably has little or no effect at six months on global status, cognition, or activities of daily living in mild cognitive impairment, while low-certainty evidence in dementia suggests small-to-moderate benefits in some global, cognitive, and daily-function outcomes.",
+        "confidence": 0.94,
+        "notes": "82 studies / 10,613 participants; 72 studies with extractable data. Only four studies were at low risk of bias in all domains. Keep MCI and dementia conclusions separate and do not generalize disease-population findings to healthy adults. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1002/14651858.CD013661.pub2",
+        "pmid": "41641880",
+        "title": "Ginkgo biloba for cognitive impairment and dementia",
+        "year": 2026
+      }
+    ],
+    "notes": "Current high-level synthesis; separates MCI from dementia.",
+    "confidence": 0.94,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-ginkgo-healthy-null-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "ginkgo-biloba", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A meta-analysis of randomized trials in healthy individuals found no ascertainable positive effect of Ginkgo biloba on memory, executive function, or attention, with effect estimates close to zero across all three domains.",
+        "confidence": 0.95,
+        "notes": "Memory data included 1,132 participants, executive function 534, and attention 910. This directly contradicts broad healthy-person 'smart drug' claims. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1002/hup.2259",
+        "pmid": "23001963",
+        "title": "Is Ginkgo biloba a cognitive enhancer in healthy individuals? A meta-analysis",
+        "year": 2012
+      }
+    ],
+    "notes": "High-directness null evidence for healthy-adult nootropic claims.",
+    "confidence": 0.95,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-ginkgo-mild-dementia-product-003",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "ginkgo-biloba", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2024-published meta-analysis of four randomized trials in 782 patients with mild dementia reported benefits from 240 mg/day of the standardized extract EGb 761 across cognition, global assessment, activities of daily living, and quality of life; this result is product- and disease-population-specific and should not be treated as evidence for generic Ginkgo supplements or healthy-user enhancement.",
+        "confidence": 0.83,
+        "notes": "The analysis pooled patient subgroups from eligible placebo-controlled trials and focused specifically on EGb 761. Preserve extract directness and disease-treatment governance. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1080/15622975.2024.2446830",
+        "pmid": "39895346",
+        "title": "Ginkgo biloba extract EGb 761 is safe and effective in the treatment of mild dementia - a meta-analysis of patient subgroups in randomised controlled trials",
+        "year": 2024
+      }
+    ],
+    "notes": "Positive but highly product/population-specific evidence.",
+    "confidence": 0.83,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-melatonin-chronic-insomnia-null-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "melatonin", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2022 systematic review of 24 randomized trials of chronic insomnia found that, in adults with non-comorbid insomnia, melatonin did not significantly improve sleep-onset latency, total sleep time, or sleep efficiency compared with placebo.",
+        "confidence": 0.91,
+        "notes": "The adult chronic-insomnia conclusion differs from pediatric and some comorbid-insomnia findings. Do not generalize circadian-shift evidence to all adult chronic insomnia. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1016/j.smrv.2022.101692",
+        "pmid": "36179487",
+        "title": "Efficacy of melatonin for chronic insomnia: Systematic reviews and meta-analyses",
+        "year": 2022
+      }
+    ],
+    "notes": "Important null/limiting evidence for generic insomnia claims.",
+    "confidence": 0.91,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-melatonin-pr-small-effect-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "melatonin", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2023 systematic review and meta-analysis found prolonged-release melatonin produced small average improvements in adult insomnia outcomes, including roughly 5 to 6 minutes shorter sleep-onset latency and about a 2-percentage-point improvement in objective sleep efficiency versus placebo.",
+        "confidence": 0.88,
+        "notes": "Most included melatonin studies evaluated prolonged-release formulations. Effect size and formulation directness should remain visible; do not translate these averages into a guarantee for immediate-release retail products. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1111/jsr.13939",
+        "pmid": "37434463",
+        "title": "Efficacy of melatonin and ramelteon for the acute and long-term management of insomnia disorder in adults: A systematic review and meta-analysis",
+        "year": 2023
+      }
+    ],
+    "notes": "Quantifies small adult-insomnia effect and formulation specificity.",
+    "confidence": 0.88,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-melatonin-dswpd-003",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "melatonin", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "In a 2018 randomized double-blind trial of delayed sleep-wake phase disorder with delayed endogenous melatonin timing, 0.5 mg fast-release melatonin taken one hour before desired bedtime together with behavioral sleep-wake scheduling advanced sleep onset by about 34 minutes versus placebo and improved several sleep-related impairment measures.",
+        "confidence": 0.91,
+        "notes": "116 participants were randomized. The intervention combined melatonin with behavioral scheduling and enrolled a circadian-phase-defined population; it is not evidence that 0.5 mg one hour before bed is universally optimal for ordinary insomnia. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1371/journal.pmed.1002587",
+        "pmid": "29912983",
+        "title": "Efficacy of melatonin with behavioural sleep-wake scheduling for delayed sleep-wake phase disorder: A double-blind, randomised clinical trial",
+        "year": 2018
+      }
+    ],
+    "notes": "High-directness circadian timing evidence with intervention context preserved.",
+    "confidence": 0.91,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-melatonin-jetlag-004",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "melatonin", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "Cochrane-reviewed randomized trials found melatonin taken near target bedtime at the destination reduced jet-lag symptoms in most trials crossing five or more time zones, supporting a travel/circadian use case that is distinct from chronic insomnia treatment.",
+        "confidence": 0.90,
+        "notes": "Ten trials were included and nine found benefit; timing relative to destination bedtime is integral to the intervention. Older evidence remains useful because the question is specific and trial-based. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1002/14651858.CD001520",
+        "pmid": "12076414",
+        "title": "Melatonin for the prevention and treatment of jet lag",
+        "year": 2002
+      }
+    ],
+    "notes": "Separates jet-lag evidence from generic insomnia claims.",
+    "confidence": 0.90,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-magnesium-insomnia-low-certainty-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "magnesium", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2021 systematic review and meta-analysis identified only three randomized trials with 151 older adults for oral magnesium and insomnia; pooled sleep-onset latency was shorter by about 17 minutes, but the trials had moderate-to-high risk of bias and the evidence was rated low to very low quality.",
+        "confidence": 0.93,
+        "notes": "Total sleep time improvement was not statistically significant. The review explicitly judged the literature substandard for confident recommendations. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1186/s12906-021-03297-z",
+        "pmid": "33865376",
+        "title": "Oral magnesium supplementation for insomnia in older adults: a Systematic Review & Meta-Analysis",
+        "year": 2021
+      }
+    ],
+    "notes": "High-value certainty calibration for magnesium sleep claims.",
+    "confidence": 0.93,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-magnesium-bisglycinate-rct-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "magnesium", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2025 randomized placebo-controlled trial in 155 adults with self-reported poor sleep found 250 mg/day elemental magnesium as magnesium bisglycinate produced a statistically greater four-week reduction in Insomnia Severity Index score than placebo, but the effect size was small (Cohen's d about 0.2).",
+        "confidence": 0.92,
+        "notes": "The study supports at most a modest product/form-specific effect; it does not establish magnesium as a strong hypnotic or prove equivalence across glycinate, citrate, oxide, or other forms. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.2147/NSS.S524348",
+        "pmid": "40918053",
+        "title": "Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: A Randomized, Placebo-Controlled Trial",
+        "year": 2025
+      }
+    ],
+    "notes": "Recent RCT with magnitude and form directness preserved.",
+    "confidence": 0.92,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-magnesium-rct-uncertainty-003",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:53:00.000Z",
+    "target": { "slug": "magnesium", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A systematic review of adult magnesium and sleep research found observational associations between magnesium status and sleep quality, but randomized trials produced contradictory or uncertain results, so low magnesium status and response to supplementation should not be treated as interchangeable concepts.",
+        "confidence": 0.86,
+        "notes": "The review covered nine studies and 7,582 participants across observational and interventional designs. It called for larger, longer randomized trials. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "pmid": "35184264",
+        "title": "The Role of Magnesium in Sleep Health: a Systematic Review of Available Literature",
+        "year": 2023
+      }
+    ],
+    "notes": "Separates status association from supplementation efficacy.",
+    "confidence": 0.86,
+    "requires_review": true
+  }
+]
