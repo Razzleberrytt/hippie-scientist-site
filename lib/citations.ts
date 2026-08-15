@@ -24,6 +24,7 @@ function firstString(src: Record<string, unknown>, keys: string[]): string | und
   for (const key of keys) {
     const value = src[key]
     if (typeof value === 'string' && value.trim()) return value.trim()
+    if (typeof value === 'number' && Number.isFinite(value)) return String(value)
   }
   return undefined
 }
@@ -83,7 +84,13 @@ function sourceObjectToCitation(src: Record<string, unknown>): Citation {
     limitation: firstString(src, ['limitation', 'limitations', 'study_limitation', 'extraction_note']),
     relationship: normalizeEvidenceRelationship(relationshipRaw),
     confidence: normalizeEvidenceConfidence(confidenceRaw),
-    statisticalConsistency: firstString(src, ['statistical_consistency', 'statisticalSignal', 'statistical_signal']),
+    statisticalConsistency: firstString(src, ['statistical_consistency', 'statisticalConsistency', 'statisticalSignal', 'statistical_signal']),
+    effectSize: firstString(src, ['effect_size', 'effectSize', 'standardized_effect', 'standardizedEffect']),
+    confidenceInterval: firstString(src, ['confidence_interval', 'confidenceInterval', 'ci', 'effect_ci']),
+    statisticalSignificance: firstString(src, ['statistical_significance', 'statisticalSignificance', 'p_value', 'pValue']),
+    absoluteDifference: firstString(src, ['absolute_difference', 'absoluteDifference', 'absolute_effect', 'absoluteEffect']),
+    clinicalMagnitude: firstString(src, ['clinical_magnitude', 'clinicalMagnitude', 'magnitude_context', 'magnitudeContext']),
+    replication: firstString(src, ['replication', 'replication_context', 'replicationContext', 'replicated']),
     extractName: firstString(src, ['extract', 'extract_name', 'branded_extract', 'preparation']),
     ingredients: stringArray(src, ['ingredients', 'ingredient_slugs', 'entities']),
     conditions: stringArray(src, ['conditions', 'outcomes', 'condition_slugs']),
