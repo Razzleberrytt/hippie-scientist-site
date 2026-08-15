@@ -3,67 +3,25 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import Disclaimer from '@/src/components/Disclaimer'
-import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index'
 import { buildPageMetadata } from '@/src/lib/seo'
-
-type RuntimeIngredient = Record<string, unknown> & {
-  slug?: string
-  name?: string
-  best_taken?: unknown
-  bioavailability_notes?: unknown
-  evidence_grade?: unknown
-  evidence_level?: unknown
-}
-
-type EligibleIngredient = {
-  record: RuntimeIngredient
-  kind: 'herb' | 'compound'
-  guidance: string
-}
-
-const FOOD_PATTERN = /\b(food|meal|meals|fasting|fasted|empty stomach|with breakfast|with dinner|with lunch|fat-containing|dietary fat)\b/i
-
-function clean(value: unknown): string {
-  if (typeof value !== 'string') return ''
-  return value.replace(/\s+/g, ' ').trim()
-}
-
-function getFoodGuidance(record: RuntimeIngredient): string {
-  const candidates = [clean(record.best_taken), clean(record.bioavailability_notes)]
-  return candidates.find((value) => FOOD_PATTERN.test(value)) || ''
-}
-
-async function getEligibleIngredients(): Promise<EligibleIngredient[]> {
-  const { herbs, compounds } = await getUnifiedRuntimeRecords()
-  const bySlug = new Map<string, EligibleIngredient>()
-
-  for (const [kind, records] of [
-    ['herb', herbs],
-    ['compound', compounds],
-  ] as const) {
-    for (const record of records as RuntimeIngredient[]) {
-      const slug = clean(record.slug)
-      const guidance = getFoodGuidance(record)
-      if (!slug || !guidance) continue
-      if (!bySlug.has(slug)) bySlug.set(slug, { record, kind, guidance })
-    }
-  }
-
-  return [...bySlug.values()]
-}
+import {
+  cleanTimingValue,
+  getFoodTimingGuidance,
+  loadFoodTimingIngredients,
+} from '../../timing-data'
 
 export async function generateStaticParams() {
-  const ingredients = await getEligibleIngredients()
-  return ingredients.map(({ record }) => ({ slug: clean(record.slug) }))
+  const ingredients = await loadFoodTimingIngredients()
+  return ingredients.map((record) => ({ slug: cleanTimingValue(record.slug) }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const ingredients = await getEligibleIngredients()
-  const entry = ingredients.find(({ record }) => clean(record.slug) === slug)
-  if (!entry) return {}
+  const ingredients = await loadFoodTimingIngredients()
+  const record = ingredients.find((item) => cleanTimingValue(item.slug) === slug)
+  if (!record) return {}
 
-  const name = clean(entry.record.name) || slug
+  const name = cleanTimingValue(record.name) || slug
   return buildPageMetadata({
     title: `${name}: With or Without Food? Evidence-Based Guidance`,
     description: `Whether to take ${name} with food, without food, or around meals, based only on explicit absorption or tolerability guidance in the structured evidence record.`,
@@ -73,14 +31,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function WithOrWithoutFoodPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const ingredients = await getEligibleIngredients()
-  const entry = ingredients.find(({ record }) => clean(record.slug) === slug)
-  if (!entry) notFound()
+  const ingredients = await loadFoodTimingIngredients()
+  const record = ingredients.find((item) => cleanTimingValue(item.slug) === slug)
+  if (!record) notFound()
 
-  const { record, kind, guidance } = entry
-  const name = clean(record.name) || slug
-  const grade = clean(record.evidence_grade) || clean(record.evidence_level)
-  const profileHref = kind === 'herb' ? `/herbs/${slug}/` : `/compounds/${slug}/`
+  const name = cleanTimingValue(record.name) || slug
+  const guidance = getFoodTimingGuidance(record)
+  const grade = cleanTimingValue(record.evidence_grade) || cleanTimingValue(record.evidence_level)
+  const profileHref = record.entityType === 'compound' ? `/compounds/${slug}/` : `/herbs/${slug}/`
 
   return (
     <main className="container-page space-y-8 py-10">
