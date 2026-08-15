@@ -31,10 +31,14 @@ jobs:
           node <<'NODE'
           const fs = require('node:fs')
           const body = process.env.PR_BODY || ''
-          const heading = 'Major automated change explanation'
-          const pattern = new RegExp(`^##\\s+${heading}\\s*$([\\s\\S]*?)(?=^##\\s+|\\Z)`, 'im')
-          const match = body.match(pattern)
-          const reason = (match?.[1] || '').trim()
+          const headingPattern = /^##\s+Major automated change explanation\s*$/im
+          const match = headingPattern.exec(body)
+          let reason = ''
+          if (match) {
+            const remainder = body.slice(match.index + match[0].length)
+            const nextHeading = remainder.search(/^##\s+/m)
+            reason = (nextHeading >= 0 ? remainder.slice(0, nextHeading) : remainder).trim()
+          }
           fs.appendFileSync(process.env.GITHUB_OUTPUT, `reason<<EOF\n${reason}\nEOF\n`)
           NODE
 
