@@ -78,8 +78,8 @@ export default function EvidenceMeter({
         <span>Strong</span>
       </div>
 
-      <details className="group mt-3" open={defaultOpen || undefined}>
-        <summary className="flex cursor-pointer select-none items-center gap-1.5 rounded-md text-xs font-semibold text-brand-700 hover:text-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-1 dark:text-brand-100 dark:hover:text-white dark:focus-visible:ring-offset-transparent list-none [&::-webkit-details-marker]:hidden">
+      <details className="group mt-3 border-0 bg-transparent p-0 shadow-none dark:bg-transparent" open={defaultOpen || undefined}>
+        <summary className="flex min-h-11 cursor-pointer select-none items-center gap-1.5 rounded-md text-xs font-semibold text-brand-700 hover:text-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-1 dark:text-brand-100 dark:hover:text-white dark:focus-visible:ring-offset-transparent list-none [&::-webkit-details-marker]:hidden">
           <span className="transition-transform duration-200 group-open:rotate-90" aria-hidden="true">
             ▶
           </span>
