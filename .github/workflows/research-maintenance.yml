@@ -22,17 +22,6 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Rank content decay and recovery opportunity
-        run: node scripts/maintenance/build-content-decay-report.mjs
-
-      - name: Build update issue payloads
-        run: node scripts/maintenance/build-decay-issue-payloads.mjs
-
-      - name: Create missing content-decay issues
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/maintenance/create-decay-issues.mjs
-
       - name: Query PubMed into a review queue
         env:
           NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
@@ -42,6 +31,20 @@ jobs:
           PUBMED_RESULTS_PER_ENTITY: '15'
         run: node scripts/research/pubmed-ingest.mjs
 
+      - name: Feed high-impact research signals into decay scoring
+        run: node scripts/maintenance/enrich-decay-with-research-intake.mjs
+
+      - name: Rank content decay and recovery opportunity
+        run: node scripts/maintenance/build-content-decay-report.mjs artifacts/maintenance/content-decay-signals-enriched.json
+
+      - name: Build update issue payloads
+        run: node scripts/maintenance/build-decay-issue-payloads.mjs
+
+      - name: Create missing content-decay issues
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/maintenance/create-decay-issues.mjs
+
       - name: Upload research maintenance artifacts
         if: always()
         uses: actions/upload-artifact@v7
@@ -50,6 +53,7 @@ jobs:
           path: |
             reports/content-decay.json
             reports/content-decay-issues.json
+            artifacts/maintenance/content-decay-signals-enriched.json
             artifacts/research-intake/pubmed-review-queue.json
           if-no-files-found: warn
           retention-days: 90
