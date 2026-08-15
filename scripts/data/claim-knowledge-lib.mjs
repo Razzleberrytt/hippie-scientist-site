@@ -23,8 +23,8 @@ function canonicalGrade(value) {
 function normalizeDirection(value) {
   const text = clean(value).toLowerCase()
   if (!text) return 'unknown'
-  if (/^(\+|positive|benefit|beneficial|supports?|improved?|increase(?:d)?|reduced?|decrease(?:d)?)\b/.test(text)) return 'supporting'
-  if (/^(\-|negative|contradict|no benefit|no effect|null|worse|harm)\b/.test(text)) return 'contradicting'
+  if (text === '+' || /^(positive|benefit|beneficial|supports?|improved?|increase(?:d)?|reduced?|decrease(?:d)?)\b/.test(text)) return 'supporting'
+  if (text === '-' || /^(negative|contradict|no benefit|no effect|null|worse|harm)\b/.test(text)) return 'contradicting'
   if (/\b(mixed|inconsistent|equivocal|heterogeneous|conflict)\b/.test(text)) return 'mixed'
   return 'unknown'
 }
