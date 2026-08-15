@@ -84,6 +84,7 @@ export const TOPIC_GUIDE_GROUPS: TopicGuideGroup[] = [
       { href: '/guides/other/healthy-dipping-tobacco-alternatives/', title: 'Dipping Tobacco Alternatives', desc: 'Compare replacement paths through a harm-reduction and cardiovascular lens.' },
       { href: '/guides/other/ipamorelin/', title: 'Ipamorelin', desc: 'Review mechanism, evidence limits, safety, and current legal context.' },
       { href: '/guides/other/kratom-7oh-withdrawal-management/', title: 'Kratom 7-OH Withdrawal', desc: 'Evidence-informed harm reduction, symptom context, and routes to medical support.' },
+      { href: '/guides/other/methylene-blue-nootropic/', title: 'Methylene Blue as a Nootropic', desc: 'Separate tiny cognition evidence from MAO-A, serotonin, G6PD, and product-grade safety risks.' },
       { href: '/guides/other/psychedelic-adjacent-herbs/', title: 'Psychedelic-Adjacent Herbs', desc: 'Traditional and ritual botanicals viewed through a harm-reduction framework.' },
       { href: '/guides/other/pt-141/', title: 'PT-141 (Bremelanotide)', desc: 'Distinguish the approved indication from off-label and research-only use.' },
       { href: '/guides/other/semaglutide/', title: 'Semaglutide', desc: 'Evidence, mechanism, side effects, and brand-versus-compounded context.' },
