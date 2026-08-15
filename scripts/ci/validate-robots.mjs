@@ -7,6 +7,7 @@ const OUT_DIR = path.join(ROOT, 'out')
 const ROBOTS_PATH = path.join(OUT_DIR, 'robots.txt')
 const REQUIRE_BUILT = process.argv.includes('--require-built')
 const CANONICAL_SITEMAP = 'https://thehippiescientist.net/sitemap.xml'
+const PUBLIC_AI_ENTITY_ALLOW = '/data/ai-entities/'
 
 const REQUIRED_DISALLOWS = [
   '/api/',
@@ -73,6 +74,10 @@ function main() {
     errors.push('Missing Allow: / rule.')
   }
 
+  if (!allows.includes(PUBLIC_AI_ENTITY_ALLOW)) {
+    errors.push(`Missing public AI entity allow: ${PUBLIC_AI_ENTITY_ALLOW}`)
+  }
+
   if (disallows.includes('/')) {
     errors.push('Robots.txt disallows the whole site.')
   }
@@ -99,7 +104,7 @@ function main() {
     process.exit(1)
   }
 
-  console.log(`[validate-robots] PASS: robots.txt allows crawl, protects internal surfaces, and advertises ${CANONICAL_SITEMAP}.`)
+  console.log(`[validate-robots] PASS: robots.txt allows crawl, exposes public AI entity data, protects internal surfaces, and advertises ${CANONICAL_SITEMAP}.`)
 }
 
 main()
