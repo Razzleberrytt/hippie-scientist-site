@@ -1,7 +1,7 @@
 import { buildPageMetadata } from '../../../src/lib/seo'
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
-import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
+import { filterRenderableRuntimeRecords } from '../../../lib/runtime-visibility'
 import DosageCalculatorClient from '../../../src/components/dosing/DosageCalculatorClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
@@ -17,23 +17,13 @@ export const metadata: Metadata = buildPageMetadata({
 export default async function DosingPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs: RuntimeRecord[] = rawHerbs.filter((h: RuntimeRecord) => {
-    if (isRestrictedRecord(h)) return false
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs = filterRenderableRuntimeRecords(
+    rawHerbs.filter((herb: RuntimeRecord) => !isRestrictedRecord(herb)) as RuntimeRecord[],
+  )
 
-  const compounds: RuntimeRecord[] = rawCompounds.filter((c: RuntimeRecord) => {
-    if (isRestrictedRecord(c)) return false
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  })
+  const compounds = filterRenderableRuntimeRecords(
+    rawCompounds.filter((compound: RuntimeRecord) => !isRestrictedRecord(compound)) as RuntimeRecord[],
+  )
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
