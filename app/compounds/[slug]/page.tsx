@@ -32,6 +32,7 @@ import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getAffiliateShopLinks } from '../../../src/lib/affiliate'
 import { SourcingCta } from '../../../src/components/sourcing/SourcingCta'
 import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-utils'
+import { getDosePresentation, hasStatedDose } from '@/lib/dose-presentation'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '../../../src/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
@@ -703,6 +704,11 @@ export default async function CompoundPage({ params }: PageProps) {
   const timeline = getTimeline(compound)
   const avoidIf = getAvoidIf(compound)
   const safetySummary = getSafetySummary(compound, avoidIf)
+  // The workbook's dose column doubles as a product-form column, so a raw value
+  // may be a regimen, a package description, or an explicit refusal to state
+  // one. Present each honestly rather than labelling all three "Dose guidance".
+  const rawDoseField = cleanText(compound.dosing || compound.dose || compound.dosage || compound.doseInfo || '')
+  const dosePresentation = getDosePresentation(rawDoseField)
   const trustGuidance = buildCompoundTrustGuidance(compound, avoidIf)
   const mechanismHints = getMechanismHints(compound, mechanisms)
   const safetyTone = getSafetyTone(safetySummary, avoidIf, safetyLevel)
@@ -766,12 +772,12 @@ export default async function CompoundPage({ params }: PageProps) {
             compound.safety,
         ) || safetySummary,
     },
-    {
-      question: `What is the dose of ${displayName}?`,
-      answer:
-        cleanText(compound.dosing || compound.dose || compound.dosage || compound.doseInfo || '') ||
-        'See dosing guidelines and product labeling.',
-    },
+    // Only claim to answer the dose question when the field actually states an
+    // amount; a product form or a placeholder would otherwise be published as
+    // an FAQ answer and reused verbatim by AI answer engines.
+    ...(hasStatedDose(rawDoseField)
+      ? [{ question: `What is the dose of ${displayName}?`, answer: rawDoseField }]
+      : []),
   ].filter((entry) => isMeaningfulFaqAnswer(entry.answer))
 
   // Suppress FAQPage schema when fewer than 2 substantive Q&As exist;
@@ -1052,9 +1058,12 @@ export default async function CompoundPage({ params }: PageProps) {
             <EvidenceSnapshotCard snapshot={snapshot} />
           </div>
 
+          {/* `grade` is passed raw and normalized inside the component. There is
+              deliberately no `|| 'C'` fallback: defaulting asserted a
+              Limited-Evidence grade the record never carried. */}
           {evidenceDesignMatch && evidenceRiskOfBias && evidenceConsistency && (
             <EvidenceGradeRationale
-              grade={text(compound.evidence_grade) || 'C'}
+              grade={text(compound.evidence_grade)}
               designMatch={evidenceDesignMatch}
               riskOfBias={evidenceRiskOfBias}
               consistency={evidenceConsistency}
@@ -1086,6 +1095,33 @@ export default async function CompoundPage({ params }: PageProps) {
             <PathwayDiagram data={pathwayDiagram} />
           </section>
         )}
+
+        {/* Section 3c: Dosing — the TOC has always advertised this anchor, but
+            the section itself was never rendered, so every compound profile
+            shipped a broken jump link and no answer to "how much?". */}
+        <section id="dosing" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-3">
+          <h2 className="text-lg font-bold text-ink">Dosing</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {dosePresentation.dose ? (
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Dose guidance</p>
+                <p className="mt-1 text-sm leading-6 text-ink">{dosePresentation.dose}</p>
+              </div>
+            ) : null}
+            {dosePresentation.form ? (
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Common form</p>
+                <p className="mt-1 text-sm leading-6 text-ink">{dosePresentation.form}</p>
+              </div>
+            ) : null}
+            {dosePresentation.note ? (
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-subtle)] p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">No standardized dose</p>
+                <p className="mt-1 text-sm leading-6 text-muted">{dosePresentation.note}</p>
+              </div>
+            ) : null}
+          </div>
+        </section>
 
         {/* Section 4: Mechanisms (Collapsible) */}
         {mechanismHints.length > 0 && (

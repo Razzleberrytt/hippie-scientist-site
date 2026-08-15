@@ -28,6 +28,7 @@ import ScrollEngagementPrompt from '../../../src/components/monetization/ScrollE
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getSafetySensitivity, getSafetyLabels, getSafetyClassifications } from '@/lib/safety-classification'
 import { getEvidenceLabel } from '@/lib/evidence'
+import { getDosePresentation, hasStatedDose } from '@/lib/dose-presentation'
 import {
   deriveEvidenceLimitations,
   deriveResearchFocusAreas,
@@ -429,6 +430,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const avoidIf = getAvoidIf(herb)
   const timeline = getTimeline(herb)
   const dosingSummary = getDosingSummary(herb)
+  // The workbook's dose column doubles as a product-form column, so a raw value
+  // may be a regimen, a package description, or an explicit refusal to state
+  // one. Present each honestly rather than labelling all three "Dose guidance".
+  const dosePresentation = getDosePresentation(dosingSummary)
   const mechanisms = getMechanisms(herb)
   const evidenceLimitations = deriveEvidenceLimitations({ profile: herb })
   const topUses = getTopUses(herb)
@@ -502,12 +507,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
             herb.safety,
         ) || safetySummary,
     },
-    {
-      question: `What is the dose of ${displayName}?`,
-      answer:
-        cleanText(herb.dosing || herb.dose || herb.dosage || herb.doseInfo || '') ||
-        'See dosing guidelines and product labeling.',
-    },
+    // Only claim to answer the dose question when the field actually states an
+    // amount; a product form or a placeholder would otherwise be published as
+    // an FAQ answer and reused verbatim by AI answer engines.
+    ...(hasStatedDose(dosingSummary)
+      ? [{ question: `What is the dose of ${displayName}?`, answer: dosingSummary }]
+      : []),
   ].filter((entry) => isMeaningfulFaqAnswer(entry.answer))
 
   // Suppress FAQPage schema when fewer than 2 substantive Q&As exist;
@@ -804,9 +809,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
               <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
             </summary>
             <div className="mt-4 space-y-4 border-t border-brand-900/10 pt-4">
+        {/* `grade` is passed raw and normalized inside the component. There is
+            deliberately no `|| 'C'` fallback: defaulting asserted a
+            Limited-Evidence grade the record never carried. */}
         {herb.evidence_design_match && herb.evidence_risk_of_bias && herb.evidence_consistency && (
           <EvidenceGradeRationale
-            grade={herb.evidence_grade || 'C'}
+            grade={(herb.evidence_grade as string) || ''}
             designMatch={herb.evidence_design_match as string}
             riskOfBias={herb.evidence_risk_of_bias as string}
             consistency={herb.evidence_consistency as string}
@@ -835,10 +843,22 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <section id="dosing" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-3">
           <h2 className="text-lg font-bold text-ink">Dosing &amp; Timing</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            {dosingSummary ? (
+            {dosePresentation.dose ? (
               <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Dose guidance</p>
-                <p className="mt-1 text-sm leading-6 text-ink">{dosingSummary}</p>
+                <p className="mt-1 text-sm leading-6 text-ink">{dosePresentation.dose}</p>
+              </div>
+            ) : null}
+            {dosePresentation.form ? (
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Common form</p>
+                <p className="mt-1 text-sm leading-6 text-ink">{dosePresentation.form}</p>
+              </div>
+            ) : null}
+            {dosePresentation.note ? (
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-subtle)] p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">No standardized dose</p>
+                <p className="mt-1 text-sm leading-6 text-muted">{dosePresentation.note}</p>
               </div>
             ) : null}
             {timeline ? (
