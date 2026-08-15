@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import BuyGuideClient from '../../../src/components/sourcing/BuyGuideClient'
+import BuyingQualityPrimer from '@/components/guides/BuyingQualityPrimer'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
 import { toBuyingToolRecord } from '../../../src/lib/tool-page-payloads'
@@ -38,23 +39,13 @@ const qualityStartingPoints = [
 export default async function ProductQualityPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs: RuntimeRecord[] = rawHerbs.filter((herb: RuntimeRecord) => {
-    if (isRestrictedRecord(herb)) return false
-    try {
-      return getRuntimeVisibility(herb).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs: RuntimeRecord[] = rawHerbs.filter((herb: RuntimeRecord) =>
+    !isRestrictedRecord(herb) && getRuntimeVisibility(herb).canRender,
+  )
 
-  const compounds: RuntimeRecord[] = rawCompounds.filter((compound: RuntimeRecord) => {
-    if (isRestrictedRecord(compound)) return false
-    try {
-      return getRuntimeVisibility(compound).canRender
-    } catch {
-      return true
-    }
-  })
+  const compounds: RuntimeRecord[] = rawCompounds.filter((compound: RuntimeRecord) =>
+    !isRestrictedRecord(compound) && getRuntimeVisibility(compound).canRender,
+  )
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
@@ -73,7 +64,7 @@ export default async function ProductQualityPage() {
         <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>
           Use this checklist after you have narrowed your goal, compared evidence, and checked safety.
           Product quality is where standardized extracts, transparent labels, heavy-metal testing,
-          certificates of analysis, and dose clarity determine whether a supplement is worth considering.
+          certificates of analysis, and dose clarity determine whether a specific product is worth considering.
         </p>
       </section>
 
@@ -81,23 +72,17 @@ export default async function ProductQualityPage() {
         <div className='space-y-2 rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm'>
           <div className='flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-sm font-bold text-emerald-800'>1</div>
           <h2 className='text-sm font-bold text-slate-800'>Verify standardization</h2>
-          <p className='text-xs leading-relaxed text-slate-500'>
-            Prefer labels that name the extract form and marker compounds, not vague root, leaf, or proprietary blend language.
-          </p>
+          <p className='text-xs leading-relaxed text-slate-500'>Prefer labels that name the extract form and marker compounds when those details matter to the cited evidence.</p>
         </div>
         <div className='space-y-2 rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm'>
           <div className='flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-sm font-bold text-emerald-800'>2</div>
           <h2 className='text-sm font-bold text-slate-800'>Look for third-party testing</h2>
-          <p className='text-xs leading-relaxed text-slate-500'>
-            Certificates of analysis and independent testing are strongest when they cover identity, heavy metals, microbes, and solvent residues.
-          </p>
+          <p className='text-xs leading-relaxed text-slate-500'>Certificates of analysis and independent testing are strongest when the scope, batch, and tested contaminants are actually documented.</p>
         </div>
         <div className='space-y-2 rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm'>
           <div className='flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-sm font-bold text-emerald-800'>3</div>
           <h2 className='text-sm font-bold text-slate-800'>Avoid hidden-dose blends</h2>
-          <p className='text-xs leading-relaxed text-slate-500'>
-            Proprietary blends can hide under-dosed or over-stacked formulas. Favor transparent products with clear ingredient amounts.
-          </p>
+          <p className='text-xs leading-relaxed text-slate-500'>Proprietary blends can obscure individual amounts and make studied-dose, interaction, and stacking comparisons harder.</p>
         </div>
       </section>
 
@@ -105,17 +90,11 @@ export default async function ProductQualityPage() {
         <div className='max-w-3xl space-y-2'>
           <p className='eyebrow-label'>Use this page after intent is clear</p>
           <h2 className='text-2xl font-bold tracking-tight text-ink'>Start with the goal, then judge product quality</h2>
-          <p className='text-sm leading-6 text-muted'>
-            A clean certificate of analysis does not make the wrong supplement useful. Pick the goal page first, then use this checklist to compare form, dose transparency, third-party testing, and safety context.
-          </p>
+          <p className='text-sm leading-6 text-muted'>A clean certificate of analysis does not make the wrong supplement useful. Pick the goal page first, then use this checklist to compare form, dose transparency, third-party testing, and safety context.</p>
         </div>
         <div className='mt-5 grid gap-3 md:grid-cols-3'>
           {qualityStartingPoints.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className='rounded-2xl border border-brand-900/10 bg-brand-50/50 p-4 transition hover:border-brand-300 hover:bg-white'
-            >
+            <Link key={item.href} href={item.href} className='rounded-2xl border border-brand-900/10 bg-brand-50/50 p-4 transition hover:border-brand-300 hover:bg-white'>
               <h3 className='text-sm font-bold text-ink'>{item.title}</h3>
               <p className='mt-2 text-xs leading-5 text-muted'>{item.body}</p>
             </Link>
@@ -123,20 +102,7 @@ export default async function ProductQualityPage() {
         </div>
       </section>
 
-      <section className='rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-7 text-amber-950'>
-        <p className='font-bold'>Tobacco replacement note:</p>
-        <p className='mt-1'>
-          Product quality is especially important when a product is used to replace a dependence-forming habit.
-          For dipping tobacco, compare regulated cessation aids, tobacco-free nicotine pouches, and non-nicotine
-          oral substitutes before assuming a pouch is healthy.
-        </p>
-        <Link
-          href='/guides/other/healthy-dipping-tobacco-alternatives/'
-          className='mt-3 inline-flex text-sm font-semibold text-amber-900 hover:underline'
-        >
-          Read the dipping tobacco alternatives guide -&gt;
-        </Link>
-      </section>
+      <BuyingQualityPrimer />
 
       <BuyGuideClient
         herbs={herbs.map((herb) => toBuyingToolRecord(herb, 'herb'))}
@@ -145,11 +111,7 @@ export default async function ProductQualityPage() {
 
       <section className='rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-xs leading-relaxed text-amber-950'>
         <p className='font-bold'>Disclosure and safety note:</p>
-        <p className='mt-1'>
-          Product-quality guidance may include affiliate links that support the site at no additional cost to you.
-          Evidence ratings, safety warnings, and editorial framing should remain independent of commission.
-          This page is educational and does not replace clinician guidance.
-        </p>
+        <p className='mt-1'>Product-quality guidance may include affiliate links that support the site at no additional cost to you. Evidence ratings, safety warnings, and product-quality scores remain independent of commission. Missing testing or formulation data is treated as unverified, not as a positive quality signal. This page is educational and does not replace clinician guidance.</p>
       </section>
     </div>
   )
