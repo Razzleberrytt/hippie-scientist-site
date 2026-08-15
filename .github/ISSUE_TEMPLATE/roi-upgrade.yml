@@ -36,6 +36,44 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: expected_impact
+    attributes:
+      label: Expected impact score
+      description: Score expected upside from 1 (minimal) to 10 (transformational). This is impact only; confidence is tracked separately beginning with later queue stages.
+      options:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "10"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Effort score
+      description: Score implementation cost from 1 (tiny, low-risk change) to 10 (large, cross-cutting change).
+      options:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "10"
+    validations:
+      required: true
+
   - type: textarea
     id: generator
     attributes:
