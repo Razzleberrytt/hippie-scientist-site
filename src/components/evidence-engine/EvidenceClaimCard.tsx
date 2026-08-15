@@ -53,6 +53,9 @@ export default function EvidenceClaimCard({
     claim.finding_consistency
       ? { label: 'Consistency', value: formatEvidenceLabel(claim.finding_consistency) }
       : null,
+    claim.consumer_dose_match
+      ? { label: 'Dose vs products', value: formatEvidenceLabel(claim.consumer_dose_match) }
+      : null,
   ].filter((signal): signal is { label: string; value: string } => signal !== null)
 
   return (
