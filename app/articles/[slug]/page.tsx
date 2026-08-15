@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation'
 import { allArticleMonographs, allBlogPosts } from '../../../.content-collections/generated'
 
 import ArticleMdx from '@/components/articles/ArticleMdx'
-import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
 import { normalizeCitationMetadata, resolveRelatedArticles } from '@/src/lib/article-citation-metadata'
@@ -115,55 +114,41 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       : null
 
   return (
-    <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+    <article className="mx-auto max-w-5xl px-4 pb-20 pt-3 sm:px-6 sm:pt-5 lg:px-8">
       <JsonLd schema={articleSchema} />
       {medicalPageSchema ? <JsonLd schema={medicalPageSchema} /> : null}
       {takeawaySchema ? <JsonLd schema={takeawaySchema} /> : null}
 
-      <Breadcrumbs
-        items={[
-          { href: '/', label: 'Home' },
-          { href: '/articles', label: 'Articles' },
-          { label: page.title },
-        ]}
-      />
-
-      <header className="mt-6 border-b border-brand-900/15 pb-8 pt-4 sm:pb-10 sm:pt-6">
-        <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="rounded-full border border-brand-700/20 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
-            {page.category}
-          </span>
+      <header className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <span className="identity-kicker">{page.category}</span>
           {page.evidenceGrade ? (
-            <span className="rounded-full border border-brand-700/20 bg-brand-50 px-2.5 py-0.5 font-semibold text-brand-700">
-              Evidence: {page.evidenceGrade}
-            </span>
+            <span className="identity-kicker">Evidence {page.evidenceGrade}</span>
           ) : null}
-          <time dateTime={page.lastUpdated} className="text-muted">
+          <time dateTime={page.lastUpdated} className="identity-meta">
             Updated {page.lastUpdated}
           </time>
-          <span className="text-muted">·</span>
-          <span className="text-muted">
+          <span aria-hidden="true" className="identity-meta">·</span>
+          <span className="identity-meta">
             {typeof page.readingTime === 'number' ? `${page.readingTime} min read` : page.readingTime}
           </span>
         </div>
 
-        <h1 className="mt-4 max-w-[22ch] font-display text-2xl font-bold leading-[1.08] text-ink sm:text-4xl lg:text-5xl">
-          {page.title}
-        </h1>
+        <h1 className="heading-premium mt-5 max-w-4xl">{page.title}</h1>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{page.description}</p>
+        <p className="text-reading mt-4 max-w-3xl">{page.description}</p>
 
-        <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-brand-900/10 pt-4 text-xs text-muted">
+        <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-[color:var(--hs-hairline)] pt-4 text-xs text-[color:var(--hs-body)]">
           {author ? (
             <span>
-              Written by <span className="font-semibold text-ink">{author}</span>
+              Written by <span className="font-semibold text-[color:var(--hs-ink)]">{author}</span>
             </span>
           ) : null}
           {reviewerLabel ? (
             <>
               <span aria-hidden="true">·</span>
               <span>
-                Reviewed by <span className="font-semibold text-ink">{reviewerLabel}</span>
+                Reviewed by <span className="font-semibold text-[color:var(--hs-ink)]">{reviewerLabel}</span>
               </span>
             </>
           ) : null}
@@ -178,13 +163,13 @@ export default async function ArticleMonographPage({ params }: PageProps) {
           {page.references.length > 0 ? (
             <>
               <span aria-hidden="true">·</span>
-              <a href="#references" className="font-semibold text-brand-800 hover:underline">
+              <a href="#references" className="font-semibold text-[color:var(--tone-ink)] hover:underline">
                 {page.references.length} cited sources
               </a>
             </>
           ) : null}
           <span aria-hidden="true">·</span>
-          <Link href="/info/methodology/" className="font-semibold text-brand-800 hover:underline">
+          <Link href="/info/methodology/" className="font-semibold text-[color:var(--tone-ink)] hover:underline">
             Evidence standards
           </Link>
         </div>
