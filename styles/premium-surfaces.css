@@ -347,3 +347,76 @@ nav[aria-label='Primary'] button[aria-controls='mobile-nav'] {
   border-color: var(--hs-hairline) !important;
   color: var(--hs-ink) !important;
 }
+
+/* ---------- Profile palette + hierarchy ---------- */
+
+/* The legacy profile polish used forest green for every major container. Keep
+   the premium depth, but make the hero the visual anchor and let secondary
+   sections recede into neutral editorial surfaces. */
+main:has(nav[aria-label='Jump to profile sections']) .hero-shell {
+  border-color: color-mix(in srgb, var(--tone) 28%, transparent) !important;
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--hs-gold) 15%, transparent), transparent 34%),
+    radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--tone) 15%, transparent), transparent 42%),
+    linear-gradient(155deg, #fffaf3 0%, #f6f1f7 100%) !important;
+  box-shadow: 0 24px 58px -34px rgba(53, 47, 65, 0.28) !important;
+}
+
+html.dark main:has(nav[aria-label='Jump to profile sections']) .hero-shell {
+  border-color: color-mix(in srgb, var(--tone) 34%, transparent) !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(213, 173, 108, 0.12), transparent 34%),
+    radial-gradient(circle at 0% 100%, rgba(125, 111, 187, 0.18), transparent 42%),
+    linear-gradient(155deg, #332f3d 0%, #232129 100%) !important;
+  box-shadow: 0 26px 64px -34px rgba(0, 0, 0, 0.72) !important;
+}
+
+main:has(nav[aria-label='Jump to profile sections']) #quick-stats,
+main:has(nav[aria-label='Jump to profile sections']) #compare,
+main:has(nav[aria-label='Jump to profile sections']) section.rounded-2xl {
+  border-color: var(--hs-hairline) !important;
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--tone) 6%, transparent), transparent 68%),
+    color-mix(in srgb, var(--hs-surface) 95%, transparent) !important;
+  box-shadow: 0 12px 30px -24px rgba(53, 47, 65, 0.22) !important;
+}
+
+html.dark main:has(nav[aria-label='Jump to profile sections']) #quick-stats,
+html.dark main:has(nav[aria-label='Jump to profile sections']) #compare,
+html.dark main:has(nav[aria-label='Jump to profile sections']) section.rounded-2xl {
+  border-color: var(--hs-hairline) !important;
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--tone) 10%, transparent), transparent 68%),
+    rgba(255, 255, 255, 0.035) !important;
+}
+
+main:has(nav[aria-label='Jump to profile sections']) p,
+main:has(nav[aria-label='Jump to profile sections']) li,
+main:has(nav[aria-label='Jump to profile sections']) dd {
+  color: var(--hs-body) !important;
+}
+
+main:has(nav[aria-label='Jump to profile sections']) h1,
+main:has(nav[aria-label='Jump to profile sections']) h2,
+main:has(nav[aria-label='Jump to profile sections']) h3 {
+  color: var(--hs-ink) !important;
+}
+
+main:has(nav[aria-label='Jump to profile sections']) table,
+main:has(nav[aria-label='Jump to profile sections']) .rounded-xl {
+  border-color: var(--hs-hairline) !important;
+}
+
+@media (max-width: 768px) {
+  main:has(nav[aria-label='Jump to profile sections']) .hero-shell {
+    border-radius: 1.5rem !important;
+    padding: 1.25rem !important;
+  }
+
+  main:has(nav[aria-label='Jump to profile sections']) #quick-stats,
+  main:has(nav[aria-label='Jump to profile sections']) #compare,
+  main:has(nav[aria-label='Jump to profile sections']) section.rounded-2xl {
+    border-radius: 1.1rem !important;
+    box-shadow: 0 8px 24px -22px rgba(53, 47, 65, 0.18) !important;
+  }
+}
