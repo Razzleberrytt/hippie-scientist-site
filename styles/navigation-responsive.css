@@ -1,0 +1,8 @@
+/* Site navigation viewport/safe-area corrections. */
+
+/* The mobile drawer already uses 100dvh. Respect device cutouts and the home
+   indicator too, while keeping the existing 1.5rem visual padding as a floor. */
+#mobile-nav [role='dialog'][aria-label='Mobile navigation menu'] {
+  padding-top: max(1.5rem, env(safe-area-inset-top));
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
