@@ -42,7 +42,9 @@ jobs:
       - name: Restore IndexNow state
         uses: actions/cache@v6
         with:
-          path: ops/indexnow-state.json
+          path: |
+            ops/indexnow-state.json
+            ops/indexnow-redirect-state.json
           key: indexnow-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             indexnow-${{ runner.os }}-
@@ -205,3 +207,7 @@ jobs:
       - name: Notify IndexNow of changed URLs
         continue-on-error: true
         run: node scripts/seo/indexnow-submit.mjs --submit --bootstrap
+
+      - name: Notify IndexNow of redirect changes
+        continue-on-error: true
+        run: node scripts/seo/indexnow-redirect-submit.mjs --submit --bootstrap
