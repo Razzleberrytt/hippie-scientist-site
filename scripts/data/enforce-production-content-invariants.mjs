@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { execSync } from 'node:child_process'
 import {
   demoteFromIndex,
   evaluateCorpus,
@@ -11,6 +12,7 @@ import {
 
 const root = process.cwd()
 const dataDir = path.resolve(root, process.argv.find((arg) => arg.startsWith('--data-dir='))?.slice(11) || 'public/data')
+const refreshDerived = process.argv.includes('--refresh-derived')
 const reportPath = path.join(root, 'reports/production-invariant-enforcement.json')
 
 function readJson(file, fallback) {
@@ -30,8 +32,12 @@ function listDetails(kind) {
   if (!fs.existsSync(dir)) return []
   return fs.readdirSync(dir).filter((name) => name.endsWith('.json')).sort().map((name) => ({ kind, name, file: path.join(dir, name), record: readJson(path.join(dir, name), {}) }))
 }
+function run(command) {
+  execSync(command, { cwd: root, stdio: 'inherit', env: process.env })
+}
 
 const entries = [...listDetails('herb'), ...listDetails('compound')]
+const originalByFile = new Map(entries.map((entry) => [entry.file, entry.record]))
 const scrubbedEntries = entries.map((entry) => ({ ...entry, record: scrubInternalLanguage(entry.record) }))
 
 // Duplicate canonical IDs are a corpus-level invariant, so calculate them once
@@ -63,7 +69,7 @@ for (const entry of scrubbedEntries) {
       details: blocking.map((finding) => finding.detail),
     })
   }
-  if (JSON.stringify(record) !== JSON.stringify(entries.find((original) => original.file === entry.file)?.record)) scrubbed.push(`${entry.kind}:${record.slug}`)
+  if (JSON.stringify(record) !== JSON.stringify(originalByFile.get(entry.file))) scrubbed.push(`${entry.kind}:${record.slug}`)
   writeJson(entry.file, record)
   finalByKindSlug.set(`${entry.kind}:${record.slug}`, record)
 }
@@ -98,8 +104,26 @@ const report = {
   scrubbedProfiles: new Set(scrubbed).size,
   demotedProfiles: demotions.length,
   demotions,
+  refreshedDerivedData: false,
   policy: 'Invariant-breaking records remain available to the research system but are forced to noindex/NEEDS_REVIEW before route, sitemap and search manifests are generated.',
 }
+
+// The deploy pipeline normally builds derived maps before Next.js. When this
+// enforcement is invoked from the final production-build step, a demotion would
+// otherwise leave those maps stale. Refresh them only when a demotion happened.
+if (refreshDerived && demotions.length) {
+  console.log(`[production-invariants] refreshing derived route/search/sitemap data after ${demotions.length} demotion(s)`)
+  run('node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data')
+  run('node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data')
+  run('node scripts/data/build-route-manifest.mjs --data-dir=public/data')
+  run('node scripts/data/build-internal-link-engine.mjs --data-dir=public/data')
+  run('node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data')
+  run('node scripts/data/build-export-batches.mjs --data-dir=public/data')
+  run('node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data')
+  run('node scripts/data/build-search-index.mjs --data-dir=public/data')
+  report.refreshedDerivedData = true
+}
+
 writeJson(reportPath, report)
 console.log(`[production-invariants] scanned ${report.scannedProfiles}; scrubbed=${report.scrubbedProfiles}; demoted=${report.demotedProfiles}`)
 if (demotions.length) console.log(`[production-invariants] first demotion: ${demotions[0].url} — ${demotions[0].codes.join(', ')}`)
