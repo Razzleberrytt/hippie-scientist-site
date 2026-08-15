@@ -1,4 +1,5 @@
 import { cache } from './react-cache'
+import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { getCompoundSummaryIndex, getHerbSummaryIndex } from './runtime-summary-indexes'
 import type { RuntimeRecord } from '../types/content'
 
@@ -58,7 +59,7 @@ function optimizeMetadataRecord(record: RuntimeRecord, type: 'herb' | 'compound'
   } as RuntimeRecord
 }
 
-function buildSlugMap(records: RuntimeRecord[], type: 'herb' | 'compound') {
+export function buildRenderableMetadataMap(records: RuntimeRecord[], type: 'herb' | 'compound') {
   const bySlug = new Map<string, RuntimeRecord>()
 
   for (const record of records) {
@@ -66,7 +67,7 @@ function buildSlugMap(records: RuntimeRecord[], type: 'herb' | 'compound') {
       ? record.slug
       : ''
 
-    if (!slug || bySlug.has(slug)) continue
+    if (!slug || bySlug.has(slug) || !getRuntimeVisibility(record).canRender) continue
 
     bySlug.set(slug, optimizeMetadataRecord(record, type))
   }
@@ -76,12 +77,12 @@ function buildSlugMap(records: RuntimeRecord[], type: 'herb' | 'compound') {
 
 export const getHerbMetadataMap = cache(async () => {
   const records = await getHerbSummaryIndex()
-  return buildSlugMap(records, 'herb')
+  return buildRenderableMetadataMap(records, 'herb')
 })
 
 export const getCompoundMetadataMap = cache(async () => {
   const records = await getCompoundSummaryIndex()
-  return buildSlugMap(records, 'compound')
+  return buildRenderableMetadataMap(records, 'compound')
 })
 
 export async function getHerbMetadataRecord(slug: string): Promise<RuntimeRecord | null> {
