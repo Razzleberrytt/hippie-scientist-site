@@ -1,7 +1,7 @@
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '../../../../src/lib/runtime-data'
-import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
+import { filterRenderableRuntimeRecords } from '../../../../lib/runtime-visibility'
 import DynamicComparerClient from '../../../../src/components/compare/DynamicComparerClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
@@ -42,14 +42,7 @@ function comparisonPayload(record: Record<string, unknown>) {
 }
 
 function renderableComparisonItems(records: Record<string, unknown>[]) {
-  return records
-    .filter((record) => {
-      try {
-        return getRuntimeVisibility(record).canRender
-      } catch {
-        return true
-      }
-    })
+  return filterRenderableRuntimeRecords(records)
     .map(comparisonPayload)
     .filter((record) => record.slug && record.name)
 }
