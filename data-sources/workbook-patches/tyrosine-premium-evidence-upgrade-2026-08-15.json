@@ -1,0 +1,145 @@
+{
+  "patch_version": 1,
+  "id": "tyrosine-premium-evidence-upgrade-2026-08-15",
+  "status": "proposal",
+  "sources": [
+    {
+      "id": "tyrosine-hase-2015",
+      "doi": "10.1016/j.pbb.2015.03.008",
+      "title": "Behavioral and cognitive effects of tyrosine intake in healthy human adults",
+      "year": 2015
+    },
+    {
+      "id": "tyrosine-attipoe-2015",
+      "doi": "10.7205/MILMED-D-14-00594",
+      "title": "Tyrosine for Mitigating Stress and Enhancing Performance in Healthy Adult Humans, a Rapid Evidence Assessment of the Literature",
+      "year": 2015
+    },
+    {
+      "id": "tyrosine-shurtleff-1994",
+      "doi": "10.1016/0091-3057(94)90299-2",
+      "title": "Tyrosine reverses a cold-induced working memory deficit in humans",
+      "year": 1994
+    },
+    {
+      "id": "tyrosine-thomas-1999",
+      "doi": "10.1016/S0091-3057(99)00094-5",
+      "title": "Tyrosine improves working memory in a multitasking environment",
+      "year": 1999
+    },
+    {
+      "id": "tyrosine-magill-2003-performance",
+      "doi": "10.1080/1028415031000120552",
+      "title": "Effects of tyrosine, phentermine, caffeine D-amphetamine, and placebo on cognitive and motor performance deficits during sleep deprivation",
+      "year": 2003
+    },
+    {
+      "id": "tyrosine-magill-2003-sleep",
+      "doi": "10.1080/1028415031000120543",
+      "title": "A comparison of tyrosine against placebo, phentermine, caffeine, and D-amphetamine during sleep deprivation",
+      "year": 2003
+    },
+    {
+      "id": "tyrosine-matsumoto-2026",
+      "doi": "10.3390/nu18122020",
+      "title": "Evaluation of the Safety and Tolerability of L-Tyrosine Supplementation in Healthy Adult Men: A Randomized Crossover Trial",
+      "year": 2026
+    },
+    {
+      "id": "tyrosine-bharani-2024",
+      "doi": "10.1038/s41430-023-01375-8",
+      "title": "Concomitant use of monoamine oxidase inhibitor and tyrosine in parenteral nutrition",
+      "year": 2024
+    },
+    {
+      "id": "tyrosine-riederer-1980",
+      "doi": "10.1159/000176359",
+      "title": "L-dopa competes with tyrosine and tryptophan for human brain uptake",
+      "year": 1980
+    }
+  ],
+  "changes": [
+    {
+      "slug": "tyrosine",
+      "column": "summary",
+      "expected_old_value": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+      "new_value": "L-tyrosine has conditional human evidence for preserving selected cognitive functions when performance is being degraded by acute stressors such as sleep loss, cold exposure, or heavy multitasking. Reviews do not support treating it as a reliable everyday cognitive enhancer or physical-performance aid. Many positive challenge studies used large acute weight-based doses, so those regimens should not be converted into routine consumer dosing advice.",
+      "confidence": "high",
+      "source_ids": [
+        "tyrosine-hase-2015",
+        "tyrosine-attipoe-2015",
+        "tyrosine-shurtleff-1994",
+        "tyrosine-thomas-1999",
+        "tyrosine-magill-2003-performance"
+      ],
+      "rationale": "Replaces generic tracking language with the evidence-supported stress-contingent cognitive pattern and explicit limits on everyday enhancement claims.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "tyrosine",
+      "column": "description",
+      "expected_old_value": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+      "new_value": "Tyrosine is a precursor used in catecholamine synthesis, but supplementation appears most relevant when demanding conditions temporarily strain dopamine/norepinephrine-dependent performance. A 2015 systematic review of 15 studies found that acute tyrosine loading tended to counter working-memory and information-processing decrements under extreme weather or cognitive load, while a separate rapid evidence assessment found insufficient evidence for confident recommendations overall and only a weak recommendation for cognitive stress. Small challenge trials have reported benefits during cold exposure, prolonged wakefulness, and multitasking, but effects are task-specific and not consistently present. In a 2003 sleep-deprivation comparison, 150 mg/kg improved several cognitive and motor measures but was less effective than d-amphetamine; a companion study found no effect on sleep-related measures. This is better framed as stress-contingent performance preservation than broad stimulation, energy enhancement, or treatment of a clinical disorder.",
+      "confidence": "high",
+      "source_ids": [
+        "tyrosine-hase-2015",
+        "tyrosine-attipoe-2015",
+        "tyrosine-shurtleff-1994",
+        "tyrosine-thomas-1999",
+        "tyrosine-magill-2003-performance",
+        "tyrosine-magill-2003-sleep"
+      ],
+      "rationale": "Adds evidence hierarchy, demanding-condition directness, null results, and a clear boundary against generic stimulant or treatment framing.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "tyrosine",
+      "column": "safety_notes",
+      "expected_old_value": "Headache, nausea",
+      "new_value": "Short-term safety evidence is limited. A 2026 randomized double-blind crossover trial in 30 healthy adult men found 1–4 g/day for four weeks was well tolerated without dose-related laboratory abnormalities or serious adverse events, but two authors were employees of Ajinomoto and the trial does not establish long-term, pregnancy, pediatric, medically complex, or rare-adverse-event safety. Medication-interaction claims need drug-specific evidence rather than assuming that all catecholamine-related drugs interact in the same way.",
+      "confidence": "high",
+      "source_ids": [
+        "tyrosine-matsumoto-2026",
+        "tyrosine-bharani-2024",
+        "tyrosine-riederer-1980"
+      ],
+      "rationale": "Replaces an uncited symptom list with current randomized safety evidence, commercial-context disclosure, and a drug-specific interaction boundary.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "tyrosine",
+      "column": "preparation",
+      "expected_old_value": "",
+      "new_value": "Human performance studies generally used free L-tyrosine as an acute oral load, often around 100–150 mg/kg, while a 2026 safety study tested fixed daily doses of 1–4 g/day. These materially different research regimens should not be treated as interchangeable with routine supplement-label dosing.",
+      "confidence": "high",
+      "source_ids": [
+        "tyrosine-shurtleff-1994",
+        "tyrosine-thomas-1999",
+        "tyrosine-magill-2003-performance",
+        "tyrosine-matsumoto-2026"
+      ],
+      "rationale": "Adds product/regimen directness and prevents high acute challenge doses from being silently converted into routine use guidance.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "tyrosine",
+      "column": "dosage",
+      "expected_old_value": "500-2000 mg acute dosing",
+      "new_value": "Study context only: many stress/cognition challenge studies used acute doses around 100–150 mg/kg, which can be far higher than common retail serving sizes; a 2026 safety trial instead tested fixed doses of 1–4 g/day for four weeks. These research exposures answer different questions and are not a universal recommended dose.",
+      "confidence": "high",
+      "source_ids": [
+        "tyrosine-shurtleff-1994",
+        "tyrosine-thomas-1999",
+        "tyrosine-magill-2003-performance",
+        "tyrosine-matsumoto-2026"
+      ],
+      "rationale": "Corrects an unsupported retail-style range and replaces it with transparent study exposure context without turning efficacy experiments into a dosing protocol.",
+      "requires_human_review": true
+    }
+  ],
+  "implementation_notes": [
+    "The live tyrosine detail previously displayed three unrelated citations plus PMID 8629725, which is a breast-cancer/neighborhood epidemiology paper; these must not be retained as efficacy support.",
+    "The Evidence_Register/Study Registry should be corrected to point to the tyrosine-specific evidence set before the next source-of-truth regeneration.",
+    "Medication-interaction language should remain evidence-specific. The current bare MAO-inhibitor and thyroid-medication strings are not adequate professional citations by themselves."
+  ]
+}
