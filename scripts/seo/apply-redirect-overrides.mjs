@@ -64,15 +64,29 @@ if (rules.length === 0) {
   process.exit(0)
 }
 
-const existing = fs.readFileSync(redirectsPath, 'utf8').trimStart()
+const BLOCK_START = '# >>> redirect-overrides (generated, do not edit)'
+const BLOCK_END = '# <<< redirect-overrides'
+
+// Incremental rebuilds can reach this script with an out/_redirects that already
+// carries a merged block (the public/ copy step is cached and does not reset the
+// file). Without stripping it first, every rebuild prepends another copy and the
+// rule count grows without bound — past Cloudflare's 2000-rule ceiling for Pages,
+// where the excess is silently dropped.
+function stripPreviousBlock(contents) {
+  const start = contents.indexOf(BLOCK_START)
+  if (start === -1) return contents
+  const end = contents.indexOf(BLOCK_END, start)
+  if (end === -1) return contents
+  return contents.slice(0, start) + contents.slice(end + BLOCK_END.length)
+}
+
+const existing = stripPreviousBlock(fs.readFileSync(redirectsPath, 'utf8')).trimStart()
 const header = [
-  '# Redirect overrides merged during build.',
+  BLOCK_START,
   '# These rules are intentionally prepended so exact audit-cleanup rules win over older wildcard or stale targets.',
   '# Exact slash and non-slash variants are generated automatically for path redirects.',
 ]
-const mergedRedirects = `${header.join('\n')}\n${rules.join('\n')}\n\n${existing}`
-
-fs.writeFileSync(redirectsPath, mergedRedirects)
+const mergedRedirects = `${header.join('\n')}\n${rules.join('\n')}\n${BLOCK_END}\n\n${existing}`
 
 function normalizeRoute(value) {
   const clean = String(value || '').split(/[?#]/)[0].trim()
@@ -157,6 +171,75 @@ function resolveRedirectTarget(source, redirectMap) {
   return current === source ? null : current
 }
 
+const CANONICAL_HOST = 'thehippiescientist.net'
+
+// `:splat`/`:param` placeholders must survive verbatim. Match a colon that
+// starts a path segment so the `https://` protocol colon in the absolute
+// www -> apex rules is not mistaken for a placeholder.
+const hasPlaceholder = (value) => value.includes('*') || /(^|\/):[a-z]/i.test(value)
+
+/**
+ * Returns the pathname a redirect target points at, but only when that target
+ * is a path or an absolute URL on our own host. Cross-host targets are left
+ * alone: their final destination is decided by the other host, not by this file.
+ */
+function targetPathname(target) {
+  if (target.startsWith('/')) return normalizeRoute(target)
+
+  try {
+    const url = new URL(target)
+    if (url.hostname.replace(/^www\./, '') !== CANONICAL_HOST) return null
+    return normalizeRoute(url.pathname)
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Collapse multi-hop rules so every source reaches its final destination in one
+ * hop.
+ *
+ * Overrides are *prepended*, so an override that retires page B silently turns
+ * every pre-existing `A -> B` rule into a two-hop chain. Cloudflare does not
+ * follow chains server-side, so each hop is a real round trip for crawlers and
+ * users. `normalize-redirects.mjs` cannot catch these: it checks
+ * `public/_redirects`, and these chains only exist after the merge that happens
+ * here, at build time.
+ */
+function flattenRedirectRules(contents, redirectMap) {
+  let flattenedCount = 0
+
+  const lines = contents.split(/\r?\n/).map((line) => {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith('#')) return line
+
+    const [source, target, status = '301'] = trimmed.split(/\s+/)
+    if (!source || !target || !/^30[1278]$/.test(status)) return line
+    // Placeholder rules carry a :splat/wildcard through to the target; the
+    // resolved path of a template is not a real route, so leave them intact.
+    if (hasPlaceholder(source) || hasPlaceholder(target)) return line
+
+    const currentPath = targetPathname(target)
+    if (!currentPath) return line
+
+    const finalPath = resolveRedirectTarget(currentPath, redirectMap)
+    if (!finalPath) return line
+
+    // A chain that loops back to its own source cannot be flattened into a
+    // single hop without creating a self-redirect. Leave it for a human.
+    if (finalPath === normalizeRoute(source)) return line
+
+    const rewrittenTarget = target.startsWith('/')
+      ? canonicalHref(finalPath)
+      : new URL(canonicalHref(finalPath), `https://${CANONICAL_HOST}`).toString()
+
+    flattenedCount += 1
+    return `${source} ${rewrittenTarget} ${status}`
+  })
+
+  return { contents: lines.join('\n'), flattenedCount }
+}
+
 function* walkHtmlFiles(dir) {
   if (!fs.existsSync(dir)) return
 
@@ -208,8 +291,12 @@ function rewriteRedirectingInternalLinks(redirectMap) {
 }
 
 const exactRedirectMap = parseExactRedirects(mergedRedirects)
+const flattenResult = flattenRedirectRules(mergedRedirects, exactRedirectMap)
+
+fs.writeFileSync(redirectsPath, flattenResult.contents)
+
 const repairResult = rewriteRedirectingInternalLinks(exactRedirectMap)
 
 console.log(
-  `[redirect-overrides] Prepended ${rules.length} redirect override rules, rewrote ${repairResult.rewrittenLinks} internal redirect links, repaired ${repairResult.repairedCompareLinks} stale comparison links (${repairResult.collapsedUnbuiltCompareLinks} unbuilt pairs sent to the comparison hub), and touched ${repairResult.touchedFiles} HTML files.`,
+  `[redirect-overrides] Prepended ${rules.length} redirect override rules, flattened ${flattenResult.flattenedCount} multi-hop redirect rules, rewrote ${repairResult.rewrittenLinks} internal redirect links, repaired ${repairResult.repairedCompareLinks} stale comparison links (${repairResult.collapsedUnbuiltCompareLinks} unbuilt pairs sent to the comparison hub), and touched ${repairResult.touchedFiles} HTML files.`,
 )
