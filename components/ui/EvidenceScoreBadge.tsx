@@ -1,7 +1,7 @@
 import { getEvidenceLetterGrade, type EvidenceLetterGrade } from '@/lib/evidence'
 import type { RuntimeRecord } from '@/src/types/content'
 
-const GRADE_CONFIG: Record<EvidenceLetterGrade, {
+type GradePresentation = {
   badge: string
   label: string
   meaning: string
@@ -10,7 +10,9 @@ const GRADE_CONFIG: Record<EvidenceLetterGrade, {
   border: string
   ringColor: string
   solid: string
-}> = {
+}
+
+const GRADE_CONFIG: Record<EvidenceLetterGrade, GradePresentation> = {
   A: {
     badge: 'A',
     label: 'A',
@@ -63,6 +65,23 @@ const GRADE_CONFIG: Record<EvidenceLetterGrade, {
   },
 }
 
+const UNASSIGNED_CONFIG: GradePresentation = {
+  badge: '–',
+  label: 'Not assigned',
+  meaning: 'No universal evidence grade is assigned. Evidence may vary by outcome or require review.',
+  bg: 'bg-slate-50 dark:bg-slate-300/10',
+  text: 'text-slate-700 dark:text-slate-100',
+  border: 'border-slate-200 dark:border-slate-200/20',
+  ringColor: 'ring-slate-200/30',
+  solid: 'bg-slate-500',
+}
+
+const OUTCOME_SPECIFIC_CONFIG: GradePresentation = {
+  ...UNASSIGNED_CONFIG,
+  label: 'Outcome-specific',
+  meaning: 'No single universal evidence grade applies because evidence strength differs by outcome.',
+}
+
 const GRADE_MEANING_SHORT: Record<EvidenceLetterGrade, string> = {
   A: 'Strong',
   B: 'Moderate',
@@ -71,9 +90,6 @@ const GRADE_MEANING_SHORT: Record<EvidenceLetterGrade, string> = {
   'Avoid/Insufficient': 'Avoid / Insufficient',
 }
 
-// Dark-mode-aware text color for the circle variant's label — the static
-// --color-evidence-* tokens don't have dark overrides and read low-contrast
-// against dark surfaces, so this uses adaptive Tailwind utilities instead.
 const GRADE_TEXT_ADAPTIVE: Record<EvidenceLetterGrade, string> = {
   A: 'text-emerald-800 dark:text-emerald-100',
   B: 'text-blue-800 dark:text-blue-100',
@@ -84,7 +100,7 @@ const GRADE_TEXT_ADAPTIVE: Record<EvidenceLetterGrade, string> = {
 
 type EvidenceScoreBadgeProps = {
   record?: Record<string, unknown>
-  grade?: EvidenceLetterGrade
+  grade?: EvidenceLetterGrade | null
   size?: 'sm' | 'md' | 'circle'
   showLabel?: boolean
   className?: string
@@ -97,8 +113,22 @@ export default function EvidenceScoreBadge({
   showLabel = true,
   className = '',
 }: EvidenceScoreBadgeProps) {
-  const canonicalGrade = grade ?? (record ? getEvidenceLetterGrade(record as RuntimeRecord) : 'C')
-  const config = GRADE_CONFIG[canonicalGrade]
+  const canonicalGrade = grade !== undefined
+    ? grade
+    : record
+      ? getEvidenceLetterGrade(record as RuntimeRecord)
+      : null
+  const outcomeSpecific = String(record?.evidence_grade_status ?? '').toLowerCase() === 'outcome-dependent'
+  const config = canonicalGrade
+    ? GRADE_CONFIG[canonicalGrade]
+    : outcomeSpecific
+      ? OUTCOME_SPECIFIC_CONFIG
+      : UNASSIGNED_CONFIG
+  const shortLabel = canonicalGrade ? GRADE_MEANING_SHORT[canonicalGrade] : config.label
+  const adaptiveText = canonicalGrade ? GRADE_TEXT_ADAPTIVE[canonicalGrade] : config.text
+  const ariaLabel = canonicalGrade
+    ? `Evidence grade ${canonicalGrade}: ${config.meaning}`
+    : `Evidence grade not assigned: ${config.meaning}`
 
   if (size === 'circle') {
     return (
@@ -113,8 +143,8 @@ export default function EvidenceScoreBadge({
           {config.badge}
         </span>
         {showLabel && (
-          <span aria-label={`Evidence grade ${canonicalGrade}: ${config.meaning}`} className={`text-sm font-semibold ${GRADE_TEXT_ADAPTIVE[canonicalGrade]}`}>
-            {GRADE_MEANING_SHORT[canonicalGrade]}
+          <span aria-label={ariaLabel} className={`text-sm font-semibold ${adaptiveText}`}>
+            {shortLabel}
           </span>
         )}
       </span>
@@ -129,14 +159,14 @@ export default function EvidenceScoreBadge({
   return (
     <span
       title={config.meaning}
-      aria-label={`Evidence grade ${canonicalGrade}: ${config.meaning}`}
+      aria-label={ariaLabel}
       className={`inline-flex items-center rounded-full border font-bold tracking-wide ${config.bg} ${config.text} ${config.border} ${sizeClasses} ${className}`}
     >
-      <span className={size === 'sm' ? 'text-[0.8rem]' : 'text-sm'}>{config.label}</span>
-      {showLabel && canonicalGrade !== 'Avoid/Insufficient' && (
+      <span className={size === 'sm' ? 'text-[0.8rem]' : 'text-sm'}>{canonicalGrade ? config.label : config.badge}</span>
+      {showLabel && (canonicalGrade !== 'Avoid/Insufficient' || !canonicalGrade) && (
         <span className="font-semibold">
           {' '}
-          {GRADE_MEANING_SHORT[canonicalGrade]}
+          {shortLabel}
         </span>
       )}
     </span>

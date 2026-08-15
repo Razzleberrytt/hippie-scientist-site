@@ -24,6 +24,15 @@ describe('hasHumanEvidence', () => {
     expect(hasHumanEvidence(record({ evidence_tier: 'Strong human clinical trial evidence' }))).toBe(true)
   })
 
+  it('does not erase human evidence merely because animal or preclinical work is also mentioned', () => {
+    expect(hasHumanEvidence(record({ evidence_tier: 'Strong human clinical evidence plus animal studies' }))).toBe(true)
+    expect(hasHumanEvidence(record({ evidence_tier: 'Human trials supported by preclinical mechanism data' }))).toBe(true)
+  })
+
+  it('still respects explicit no-human language even when positive adjectives are present', () => {
+    expect(hasHumanEvidence(record({ evidence_tier: 'Strong mechanistic evidence; no human trials' }))).toBe(false)
+  })
+
   it('falls back to source count when text is ambiguous', () => {
     expect(hasHumanEvidence(record({ summary_quality: 'reviewed', sourceCount: 6 }))).toBe(true)
     expect(hasHumanEvidence(record({ summary_quality: 'reviewed', sourceCount: 2 }))).toBe(false)
@@ -45,12 +54,16 @@ describe('hasMechanismEvidence', () => {
 })
 
 describe('isPreliminaryResearch', () => {
-  it('is true for preliminary/emerging/animal language', () => {
+  it('is true for preliminary/emerging/animal-only language', () => {
     expect(isPreliminaryResearch(record({ evidence_tier: 'Preliminary animal studies' }))).toBe(true)
   })
 
   it('is false for strong evidence language', () => {
     expect(isPreliminaryResearch(record({ evidence_tier: 'Strong evidence' }))).toBe(false)
+  })
+
+  it('does not become preliminary solely because a strong human record also mentions animal work', () => {
+    expect(isPreliminaryResearch(record({ evidence_tier: 'Strong human clinical evidence plus animal studies' }))).toBe(false)
   })
 })
 
@@ -79,6 +92,15 @@ describe('getEvidenceTier', () => {
     expect(getEvidenceTier(record({ evidence_tier: 'Traditional / historical use only' }))).toBe('traditional')
   })
 
+  it('lets the canonical explicit grade outrank contradictory legacy tier wording', () => {
+    expect(getEvidenceTier(record({ evidence_grade: 'D', evidence_tier: 'Strong mechanistic evidence; no human trials' }))).toBe('preliminary')
+    expect(getEvidenceTier(record({ evidence_grade: 'A', evidence_tier: 'Strong human clinical evidence plus animal studies' }))).toBe('strong')
+  })
+
+  it('treats an outcome-dependent universal grade as mixed instead of inventing one tier', () => {
+    expect(getEvidenceTier(record({ evidence_grade_status: 'outcome-dependent', evidence_tier: 'Strong evidence' }))).toBe('mixed')
+  })
+
   it('falls back to "limited" when nothing else is known', () => {
     expect(getEvidenceTier(record())).toBe('limited')
   })
@@ -102,12 +124,42 @@ describe('getEvidenceLetterGrade', () => {
     expect(getEvidenceLetterGrade(record({ evidence_grade: 'b+' }))).toBe('B')
   })
 
-  it('derives the grade from evidence_tier vocabulary when no letter grade is present', () => {
+  it('derives the grade from evidence_tier vocabulary when no grade is present', () => {
     expect(getEvidenceLetterGrade(record({ evidence_tier: 'Strong evidence' }))).toBe('A')
     expect(getEvidenceLetterGrade(record({ evidence_tier: 'Traditional use' }))).toBe('D')
   })
 
-  it('falls back to the tier map derived from getEvidenceTier', () => {
+  it('does not flatten an explicit outcome-dependent grade through the tier fallback', () => {
+    expect(
+      getEvidenceLetterGrade(
+        record({
+          evidence_grade: 'B for PCOS; D for core goals',
+          evidence_tier: 'Moderate evidence',
+        }),
+      ),
+    ).toBeNull()
+  })
+
+  it('honors the migration marker when an outcome-dependent universal grade was removed', () => {
+    expect(
+      getEvidenceLetterGrade(
+        record({
+          evidence_grade_status: 'outcome-dependent',
+          evidence_tier: 'Strong evidence',
+        }),
+      ),
+    ).toBeNull()
+  })
+
+  it('does not hide an explicit unmappable grade by inferring another grade', () => {
+    expect(
+      getEvidenceLetterGrade(
+        record({ evidence_grade: 'mystery-scale', evidence_tier: 'Strong evidence' }),
+      ),
+    ).toBeNull()
+  })
+
+  it('falls back to the tier map derived from getEvidenceTier when no grade signal exists', () => {
     expect(getEvidenceLetterGrade(record())).toBe('C')
   })
 })

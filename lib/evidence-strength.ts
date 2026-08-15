@@ -23,7 +23,8 @@ export type EvidenceStrengthData = {
   tier: EvidenceStrengthTier
   /** Human-readable label e.g. "Strong Human Evidence" */
   label: string
-  grade: EvidenceLetterGrade
+  /** Null when the evidence is outcome-dependent or no honest universal grade exists. */
+  grade: EvidenceLetterGrade | null
   humanEvidence: boolean
   mechanismEvidence: boolean
   /** One-line confidence explanation shown in expanded detail */
@@ -126,9 +127,11 @@ export function getEvidenceStrengthData(record: RuntimeRecord): EvidenceStrength
   if (!humanEvidence && !mechanismEvidence) {
     downgradeReasons.push('No published mechanism or clinical evidence on file.')
   }
+  if (!grade) {
+    downgradeReasons.push('No universal evidence grade is assigned; evidence may vary by outcome.')
+  }
 
   let score = TIER_SCORES[tier]
-  // Small boosts for corroborating signals without changing the tier
   if (mechanismEvidence && tier === 'limited') score = Math.min(score + 5, 55)
   if (humanEvidence && tier === 'moderate') score = Math.min(score + 5, 78)
 
