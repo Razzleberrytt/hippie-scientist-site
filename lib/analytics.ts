@@ -7,6 +7,7 @@ type Gtag = (
   eventName:
     | 'affiliate_click'
     | 'atlas_callout_click'
+    | 'email_return'
     | 'email_signup'
     | 'experiment_conversion'
     | 'experiment_impression'
@@ -78,6 +79,18 @@ export function trackEmailSignup(params: { source: string; pagePath?: string }):
   }
 }
 
+export function trackEmailReturn(params: { campaign: string; content: string; pagePath?: string }): void {
+  try {
+    getGtag()?.('event', 'email_return', {
+      email_campaign: params.campaign,
+      email_content: params.content,
+      page_path: getCurrentPagePath(params.pagePath),
+    })
+  } catch {
+    // Analytics must never block navigation.
+  }
+}
+
 export function trackExperimentImpression(params: ExperimentAnalyticsParams): void {
   try {
     getGtag()?.('event', 'experiment_impression', {
@@ -125,8 +138,6 @@ export function trackAtlasCalloutClick(params: AtlasCalloutClickParams): void {
   try {
     if (!getGtag()) return
 
-    // dataLayer entries are consumed by tag managers, so they are only written
-    // once the same consent gate that guards gtag has passed.
     const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, unknown>> }
     analyticsWindow.dataLayer = analyticsWindow.dataLayer || []
     analyticsWindow.dataLayer.push({
