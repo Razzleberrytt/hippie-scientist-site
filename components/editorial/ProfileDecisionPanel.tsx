@@ -58,7 +58,7 @@ export function ProfileDecisionPanel({
           aria-label="Where to go next"
           className="not-prose rounded-2xl border border-brand-900/12 bg-brand-50/40 p-4 dark:border-white/10 dark:bg-[var(--surface-subtle)]"
         >
-          <details className="group">
+          <details className="group border-0 bg-transparent p-0 shadow-none backdrop-blur-none">
             <summary className="flex cursor-pointer items-center justify-between gap-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
               <span className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Where to go next — guides &amp; comparisons</span>
               <span aria-hidden="true" className="shrink-0 text-brand-500 transition-transform group-open:rotate-180">v</span>
