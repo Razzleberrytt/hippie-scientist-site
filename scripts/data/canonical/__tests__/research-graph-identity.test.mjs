@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildStableEntityId } from '../../../config/evidence-graph/identity-rules.mjs'
+import { buildStableEntityId } from '../../../../config/evidence-graph/identity-rules.mjs'
 import { entityId } from '../ids.mjs'
 import { buildResearchRelationshipGraph } from '../../research-graph-lib.mjs'
 import { remapResearchGraphToStableSubstanceIds } from '../../research-graph-identity.mjs'
