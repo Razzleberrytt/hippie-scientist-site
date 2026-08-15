@@ -57,20 +57,26 @@ function evidenceText(record: RuntimeRecord): string {
     .toLowerCase()
 }
 
+function hasHumanClinicalSignal(value: string): boolean {
+  return /\b(human|clinical|trial|rct|randomi[sz]ed|meta[- ]analysis|systematic\s+review)\b/.test(value)
+}
+
+function explicitlyExcludesHumanEvidence(value: string): boolean {
+  return /\b(no\s+human(?:\s+(?:trial|trials|evidence|data|stud(?:y|ies)))?|without\s+human(?:\s+(?:trial|trials|evidence|data|stud(?:y|ies)))?|preclinical\s+only|animal(?:\s+stud(?:y|ies))?\s+only|in\s*vitro\s+only|theoretical\s+only)\b/.test(value)
+}
+
+function hasPreclinicalSignal(value: string): boolean {
+  return /\b(preclinical|animal|in\s*vitro|cell(?:ular)?|theoretical|mechanistic)\b/.test(value)
+}
+
 export function hasHumanEvidence(record: RuntimeRecord): boolean {
   const evidence = evidenceText(record)
 
-  if (/\b(no|none|theoretical|traditional|preclinical|in\s*vitro|animal)\b/.test(evidence)) {
-    return false
-  }
+  if (explicitlyExcludesHumanEvidence(evidence)) return false
+  if (hasHumanClinicalSignal(evidence)) return true
+  if (hasPreclinicalSignal(evidence) || /\b(traditional|ethnobotanical)\b/.test(evidence)) return false
 
-  if (
-    /\b(human|clinical|trial|rct|randomi[sz]ed|meta|systematic|strong|high|moderate|grade\s*[ab]|tier\s*[ab])\b/.test(
-      evidence,
-    )
-  ) {
-    return true
-  }
+  if (/\b(strong|high|moderate|grade\s*[ab]|tier\s*[ab])\b/.test(evidence)) return true
 
   const sourceCount = Number(record?.sourceCount ?? record?.source_count ?? record?.sources_count)
   return (
@@ -86,6 +92,9 @@ export function hasMechanismEvidence(record: RuntimeRecord): boolean {
 
 export function isPreliminaryResearch(record: RuntimeRecord): boolean {
   const evidence = evidenceText(record)
+  if (hasHumanClinicalSignal(evidence) && !explicitlyExcludesHumanEvidence(evidence)) {
+    return /\b(preliminary|emerging|limited|low|weak|partial|draft|grade\s*[cd]|tier\s*[cd])\b/.test(evidence)
+  }
 
   return /\b(preliminary|emerging|limited|low|weak|partial|draft|none|preclinical|animal|in\s*vitro|theoretical|grade\s*[cd]|tier\s*[cd])\b/.test(
     evidence,
@@ -93,11 +102,33 @@ export function isPreliminaryResearch(record: RuntimeRecord): boolean {
 }
 
 export function getEvidenceTier(record: RuntimeRecord): EvidenceTier {
+  const universalGradeStatus = text(readPath(record, ['evidence_grade_status'])).toLowerCase()
+  if (universalGradeStatus === 'outcome-dependent') return 'mixed'
+  if (universalGradeStatus === 'unassigned') return 'review'
+
+  const normalized = normalizeEvidenceGrade(record?.evidence_grade)
+  if (normalized.raw) {
+    if (normalized.outcomeDependent) return 'mixed'
+    if (normalized.grade) {
+      const tierByGrade: Record<CanonicalEvidenceGrade, EvidenceTier> = {
+        A: 'strong',
+        B: 'moderate',
+        C: 'limited',
+        D: 'preliminary',
+        'Avoid/Insufficient': 'insufficient',
+      }
+      return tierByGrade[normalized.grade]
+    }
+    return 'review'
+  }
+
   const evidence = evidenceText(record)
 
   if (/\b(needs? review|unknown|tbd|draft|placeholder|profile pending)\b/.test(evidence)) return 'review'
   if (/\b(none|no evidence|insufficient|minimal|not established)\b/.test(evidence)) return 'insufficient'
   if (/\b(mixed|conflict|inconsistent|equivocal)\b/.test(evidence)) return 'mixed'
+  if (explicitlyExcludesHumanEvidence(evidence)) return 'preliminary'
+  if (hasPreclinicalSignal(evidence) && !hasHumanClinicalSignal(evidence)) return 'preliminary'
   if (/\b(strong|high|robust|grade\s*a|tier\s*a)\b/.test(evidence)) return 'strong'
   if (/\b(moderate|medium|grade\s*b|tier\s*b)\b/.test(evidence)) return 'moderate'
   if (/\b(traditional|ethnobotanical|historical)\b/.test(evidence)) return 'traditional'
