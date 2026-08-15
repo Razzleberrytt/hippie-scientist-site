@@ -37,6 +37,7 @@ export type EvidenceEngineClaim = {
   population_limitations?: string
   consumer_dose_match?: string
   branded_extract?: string
+  extract_generalizable?: boolean | null
 }
 
 export type EvidenceEngineConfig = {
