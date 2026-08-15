@@ -11,6 +11,7 @@ on:
       - 'public/_redirects'
       - 'scripts/ci/audit-page-category-robots.mjs'
       - 'scripts/ci/audit-profile-robots.mjs'
+      - 'scripts/ci/audit-static-crawl-surface.mjs'
       - 'app/sitemap.ts'
       - 'app/robots.ts'
       - '.github/workflows/crawl-governance.yml'
@@ -24,6 +25,7 @@ on:
       - 'public/_redirects'
       - 'scripts/ci/audit-page-category-robots.mjs'
       - 'scripts/ci/audit-profile-robots.mjs'
+      - 'scripts/ci/audit-static-crawl-surface.mjs'
       - 'app/sitemap.ts'
       - 'app/robots.ts'
       - '.github/workflows/crawl-governance.yml'
@@ -68,10 +70,15 @@ jobs:
       - name: Verify robots by page category
         run: node scripts/ci/audit-page-category-robots.mjs
 
+      - name: Verify pagination and static crawl surface
+        run: node scripts/ci/audit-static-crawl-surface.mjs
+
       - name: Upload crawl-governance reports
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: crawl-governance-${{ github.run_number }}
-          path: reports/*robots*.json
+          path: |
+            reports/*robots*.json
+            reports/static-crawl-surface.json
           retention-days: 30
