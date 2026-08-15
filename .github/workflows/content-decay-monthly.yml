@@ -1,0 +1,84 @@
+name: Monthly Content Decay
+
+on:
+  schedule:
+    # First day of each month at 07:40 UTC.
+    - cron: '40 7 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  content-decay:
+    name: Rank content decay by recovery opportunity
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      GSC_SITE_URL: ${{ vars.GSC_SITE_URL || 'sc-domain:thehippiescientist.net' }}
+      GSC_LOOKBACK_DAYS: '28'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Require Search Console credentials
+        run: |
+          if [ -z "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::Missing repository secret GSC_SERVICE_ACCOUNT_JSON. The monthly decay report requires Search Console history."
+            exit 1
+          fi
+
+      - name: Refresh truthful freshness metadata
+        run: node scripts/data/generate-freshness-metadata.mjs
+
+      - name: Fetch current finalized 28-day window
+        env:
+          GSC_LAG_DAYS: '3'
+        run: |
+          node scripts/seo/fetch-search-console.mjs
+          mv data-sources/search-console data-sources/search-console-current
+
+      - name: Fetch previous finalized 28-day window
+        env:
+          GSC_LAG_DAYS: '31'
+        run: |
+          node scripts/seo/fetch-search-console.mjs
+          mv data-sources/search-console data-sources/search-console-previous
+
+      - name: Generate content-decay report
+        run: node scripts/seo/content-decay-report.mjs
+
+      - name: Upload decay report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: monthly-content-decay-${{ github.run_number }}
+          path: |
+            ops/reports/content-decay.json
+            ops/reports/content-decay.md
+            data-sources/search-console-current/fetch-metadata.json
+            data-sources/search-console-previous/fetch-metadata.json
+          retention-days: 120
+          if-no-files-found: ignore
+
+      - name: Publish report to workflow summary
+        if: always()
+        run: |
+          echo "## Monthly Content Decay" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f ops/reports/content-decay.md ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat ops/reports/content-decay.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Report was not generated; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
+          fi
