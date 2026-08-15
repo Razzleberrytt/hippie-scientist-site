@@ -1,18 +1,18 @@
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 import ComparisonTable from '@/components/ComparisonTable'
 import Disclaimer from '@/src/components/Disclaimer'
+import {
+  firstComparisonField,
+  resolveRuntimeComparisonSide,
+  type ResolvedRuntimeComparisonSide,
+  type RuntimeComparisonSideConfig,
+} from '@/src/lib/runtime-comparison-resolution'
 import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index'
+import type { RuntimeRecord } from '@/src/types/content'
 
-type RuntimeIngredient = Record<string, unknown> & {
-  slug?: string
-  name?: string
-}
-
-type SideConfig = {
-  label: string
-  candidates: string[]
-}
+type SideConfig = RuntimeComparisonSideConfig
 
 type Props = {
   title: string
@@ -22,53 +22,7 @@ type Props = {
   goal?: string
 }
 
-type ResolvedSide = {
-  label: string
-  record: RuntimeIngredient | null
-  href: string | null
-}
-
-function clean(value: unknown): string {
-  if (typeof value !== 'string') return ''
-  return value.replace(/\s+/g, ' ').trim()
-}
-
-function toText(value: unknown): string {
-  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') return clean(String(value))
-  if (Array.isArray(value)) return value.map(toText).filter(Boolean).join('; ')
-  if (value && typeof value === 'object') {
-    return Object.entries(value as Record<string, unknown>)
-      .map(([key, nested]) => {
-        const text = toText(nested)
-        return text ? `${key.replace(/[_-]+/g, ' ')}: ${text}` : ''
-      })
-      .filter(Boolean)
-      .join('; ')
-  }
-  return ''
-}
-
-function firstField(record: RuntimeIngredient | null, keys: string[]): string {
-  if (!record) return 'Not available in the canonical record.'
-  for (const key of keys) {
-    const value = toText(record[key])
-    if (value) return value
-  }
-  return 'Not available in the canonical record.'
-}
-
-async function resolveSide(config: SideConfig): Promise<ResolvedSide> {
-  const { herbs, compounds } = await getUnifiedRuntimeRecords()
-  const candidates = new Set(config.candidates)
-
-  const herb = (herbs as RuntimeIngredient[]).find((record) => candidates.has(clean(record.slug)))
-  if (herb) return { label: config.label, record: herb, href: `/herbs/${clean(herb.slug)}/` }
-
-  const compound = (compounds as RuntimeIngredient[]).find((record) => candidates.has(clean(record.slug)))
-  if (compound) return { label: config.label, record: compound, href: `/compounds/${clean(compound.slug)}/` }
-
-  return { label: config.label, record: null, href: null }
-}
+type ResolvedSide = ResolvedRuntimeComparisonSide
 
 function choiceChecks(side: ResolvedSide): string[] {
   if (!side.record) {
@@ -83,56 +37,62 @@ function choiceChecks(side: ResolvedSide): string[] {
 }
 
 export default async function RuntimeEvidenceComparison({ title, summary, left, right, goal }: Props) {
-  const [leftSide, rightSide] = await Promise.all([resolveSide(left), resolveSide(right)])
+  const { herbs, compounds } = await getUnifiedRuntimeRecords()
+  const runtimeHerbs = herbs as RuntimeRecord[]
+  const runtimeCompounds = compounds as RuntimeRecord[]
+  const leftSide = resolveRuntimeComparisonSide(left, runtimeHerbs, runtimeCompounds)
+  const rightSide = resolveRuntimeComparisonSide(right, runtimeHerbs, runtimeCompounds)
+
+  if (!leftSide.record || !rightSide.record) notFound()
 
   const rows = [
     {
       label: 'Evidence strength',
       values: [
-        firstField(leftSide.record, ['evidence_grade', 'evidence_level', 'evidence_summary']),
-        firstField(rightSide.record, ['evidence_grade', 'evidence_level', 'evidence_summary']),
+        firstComparisonField(leftSide.record, ['evidence_grade', 'evidence_level', 'evidence_summary']),
+        firstComparisonField(rightSide.record, ['evidence_grade', 'evidence_level', 'evidence_summary']),
       ],
     },
     {
       label: 'Human evidence',
       values: [
-        firstField(leftSide.record, ['human_evidence', 'evidence_summary']),
-        firstField(rightSide.record, ['human_evidence', 'evidence_summary']),
+        firstComparisonField(leftSide.record, ['human_evidence', 'evidence_summary']),
+        firstComparisonField(rightSide.record, ['human_evidence', 'evidence_summary']),
       ],
     },
     {
       label: 'Studied dose / dose context',
       values: [
-        firstField(leftSide.record, ['typical_dosage', 'dosage', 'dose']),
-        firstField(rightSide.record, ['typical_dosage', 'dosage', 'dose']),
+        firstComparisonField(leftSide.record, ['typical_dosage', 'dosage', 'dose']),
+        firstComparisonField(rightSide.record, ['typical_dosage', 'dosage', 'dose']),
       ],
     },
     {
       label: 'Forms / preparation',
       values: [
-        firstField(leftSide.record, ['forms', 'available_forms', 'bioavailability_notes']),
-        firstField(rightSide.record, ['forms', 'available_forms', 'bioavailability_notes']),
+        firstComparisonField(leftSide.record, ['forms', 'available_forms', 'bioavailability_notes']),
+        firstComparisonField(rightSide.record, ['forms', 'available_forms', 'bioavailability_notes']),
       ],
     },
     {
       label: 'Safety',
       values: [
-        firstField(leftSide.record, ['safety', 'contraindications', 'side_effects']),
-        firstField(rightSide.record, ['safety', 'contraindications', 'side_effects']),
+        firstComparisonField(leftSide.record, ['safety', 'contraindications', 'side_effects']),
+        firstComparisonField(rightSide.record, ['safety', 'contraindications', 'side_effects']),
       ],
     },
     {
       label: 'Interactions',
       values: [
-        firstField(leftSide.record, ['interactions']),
-        firstField(rightSide.record, ['interactions']),
+        firstComparisonField(leftSide.record, ['interactions']),
+        firstComparisonField(rightSide.record, ['interactions']),
       ],
     },
     {
       label: 'Mechanism context',
       values: [
-        firstField(leftSide.record, ['mechanism', 'mechanisms']),
-        firstField(rightSide.record, ['mechanism', 'mechanisms']),
+        firstComparisonField(leftSide.record, ['mechanism', 'mechanisms']),
+        firstComparisonField(rightSide.record, ['mechanism', 'mechanisms']),
       ],
     },
   ]
@@ -192,7 +152,7 @@ export default async function RuntimeEvidenceComparison({ title, summary, left, 
           <article key={side.label} className="card-premium space-y-3 p-5">
             <h2 className="text-xl font-semibold text-ink">{side.label}</h2>
             <p className="text-sm leading-6 text-muted">
-              {side.record ? firstField(side.record, ['summary', 'short_description', 'description']) : 'A canonical record could not be resolved for this side of the comparison.'}
+              {firstComparisonField(side.record, ['summary', 'short_description', 'description'])}
             </p>
             {side.href ? <Link href={side.href} className="font-semibold text-brand-700 hover:underline">Read the full profile →</Link> : null}
           </article>
