@@ -19,29 +19,35 @@ export default function KeyDetailsBox({
   zone,
 }: KeyDetailsBoxProps) {
   return (
-    <div
-      className="rounded-xl border border-brand-900/10 bg-white/80 p-5"
+    <section
+      className="border-y border-[color:var(--hs-hairline)] py-5 sm:py-6"
       data-zone={zone}
+      aria-label={title}
     >
-      <div className="flex items-start justify-between gap-3">
-        <h2 className="text-base font-semibold text-ink">{title}</h2>
-        {evidenceBadge && (
-          <span className="shrink-0 rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-brand-800">
-            {evidenceBadge}
-          </span>
-        )}
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="section-label">Research snapshot</p>
+          <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]">
+            {title}
+          </h2>
+        </div>
+        {evidenceBadge ? (
+          <span className="identity-kicker shrink-0">{evidenceBadge}</span>
+        ) : null}
       </div>
-      {summary && (
-        <p className="mt-2 text-sm leading-6 text-muted">{summary}</p>
-      )}
-      <dl className="mt-4 divide-y divide-brand-900/10">
+
+      {summary ? (
+        <p className="mt-4 max-w-3xl text-[0.98rem] leading-7 text-[color:var(--hs-body)]">{summary}</p>
+      ) : null}
+
+      <dl className="mt-5 divide-y divide-[color:var(--hs-hairline)]">
         {items.map(({ label, value }) => (
-          <div key={label} className="flex gap-4 py-2 text-sm">
-            <dt className="w-32 shrink-0 font-medium text-ink">{label}</dt>
-            <dd className="text-muted">{value}</dd>
+          <div key={label} className="grid gap-1 py-3 text-sm sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-5">
+            <dt className="font-semibold text-[color:var(--hs-ink)]">{label}</dt>
+            <dd className="leading-6 text-[color:var(--hs-body)]">{value}</dd>
           </div>
         ))}
       </dl>
-    </div>
+    </section>
   )
 }
