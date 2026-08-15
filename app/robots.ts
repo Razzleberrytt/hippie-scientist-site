@@ -9,7 +9,11 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: '/',
+      // Keep the generated runtime-data surface private from crawlers while
+      // explicitly exposing the public AI entity graph advertised in llms.txt.
+      // Robots matching uses the most-specific path rule, so this allow safely
+      // overrides the broader /data/ disallow only for /data/ai-entities/.
+      allow: ['/', '/data/ai-entities/'],
       disallow: [
         '/api/',
         '/analytics',
