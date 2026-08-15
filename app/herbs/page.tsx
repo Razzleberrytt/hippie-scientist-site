@@ -49,7 +49,7 @@ export default async function HerbsPage() {
     .filter(
       (herb) =>
         herb.slug &&
-        getRuntimeVisibility(herb).canRender &&
+        getRuntimeVisibility(herb).canIndex &&
         !isRedirectedDuplicate(String(herb.slug), presentSlugs),
     )
     .sort((a, b) => getHerbName(a).localeCompare(getHerbName(b)))
