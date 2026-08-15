@@ -6,10 +6,21 @@ import {
   getGuideTrackingContext,
   trackGuideView,
   trackLeadMagnetClick,
+  trackNavigationClick,
+  type NavigationClickParams,
 } from '@/lib/analytics'
 import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
 import { loadAnalytics } from '../src/lib/loadAnalytics'
 import { trackRevenueEvent } from '../src/lib/revenue-tracking'
+
+function navigationIntentForHref(href: string): NavigationClickParams['intent'] {
+  const path = href.split(/[?#]/, 1)[0]
+  if (/^\/(start|guides\/(sleep|stress|anxiety|focus|mental-health|adhd))(\/|$)/.test(path) || path === '/guides' || path === '/guides/') return 'Goals'
+  if (/^\/(herbs|compounds|evidence|articles|learn|tools\/botanical-activity-atlas|info\/methodology)(\/|$)/.test(path)) return 'Ingredients'
+  if (/^\/(guides\/compare|compare)(\/|$)/.test(path)) return 'Compare'
+  if (/^\/(safety-checker|info\/supplement-safety-checklist|info\/dosing)(\/|$)/.test(path)) return 'Safety'
+  return 'Unknown'
+}
 
 export default function ClickTracker() {
   const pathname = usePathname() || '/'
@@ -42,6 +53,20 @@ export default function ClickTracker() {
 
       const href = link.getAttribute('href') || ''
       const leadMagnetMatch = href.match(/^\/lead-magnets\/([^/?#]+)/)
+
+      if (getConsent() === 'granted') {
+        const primaryNav = link.closest('nav[aria-label="Primary"]')
+        const mobileNav = link.closest('nav[aria-label="Mobile primary links"]')
+        if ((primaryNav || mobileNav) && href.startsWith('/')) {
+          trackNavigationClick({
+            label: link.textContent?.trim().replace(/\s+/g, ' ').slice(0, 120) || 'Navigation link',
+            destination: href,
+            intent: navigationIntentForHref(href),
+            surface: mobileNav ? 'mobile' : 'desktop',
+            pagePath: window.location.pathname,
+          })
+        }
+      }
 
       if (leadMagnetMatch && getConsent() === 'granted') {
         trackLeadMagnetClick({
