@@ -53,10 +53,13 @@ for (const issue of issues) {
     skipped += 1
     continue
   }
+  const labels = Array.isArray(issue.labels)
+    ? issue.labels.map((label) => String(label).trim()).filter(Boolean)
+    : []
   const createdIssue = await request(`${api}/issues`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title: issue.title, body: issue.body }),
+    body: JSON.stringify({ title: issue.title, body: issue.body, labels }),
   })
   existing.push(createdIssue)
   created += 1
