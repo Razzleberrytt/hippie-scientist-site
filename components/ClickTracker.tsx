@@ -11,6 +11,7 @@ import {
 import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
 import { loadAnalytics } from '../src/lib/loadAnalytics'
 import { trackRevenueEvent } from '../src/lib/revenue-tracking'
+import ProfileFeedbackControls from '@/components/feedback/ProfileFeedbackControls'
 
 function isAffiliateLink(link: HTMLAnchorElement) {
   const href = link.getAttribute('href') || ''
@@ -171,5 +172,5 @@ export default function ClickTracker() {
     }
   }, [])
 
-  return null
+  return <ProfileFeedbackControls />
 }
