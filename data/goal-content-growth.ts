@@ -81,4 +81,44 @@ export const growthGoalContentBySlug: Record<string, GoalContentExtension> = {
       'Use explicit human outcomes rather than mechanism language to rank energy-oriented options.',
     ],
   },
+  longevity: {
+    faqItems: [
+      {
+        question: 'What does “healthy aging evidence” actually mean?',
+        answer:
+          'Separate direct human health outcomes from surrogate biomarkers, pathway measurements, animal findings, and cell studies. A change in a biomarker can be scientifically interesting without establishing that an intervention extends human lifespan or healthspan.',
+      },
+      {
+        question: 'Does activating an aging-related pathway prove a supplement slows aging?',
+        answer:
+          'No. NAD+, sirtuin, mitochondrial, senolytic, and similar pathway findings are mechanistic evidence unless a human study measures a relevant clinical outcome. The site should label those mechanisms as mechanisms rather than converting them into longevity claims.',
+      },
+      {
+        question: 'How should healthy-aging ingredients be compared?',
+        answer:
+          'Compare the exact human endpoint, population, study duration, formulation, safety record, and whether findings have been replicated. Do not rank ingredients by how futuristic or biologically plausible their mechanisms sound.',
+      },
+      {
+        question: 'Why are long-term conclusions especially difficult in healthy-aging research?',
+        answer:
+          'Many studies are shorter than the time horizon implied by longevity claims and therefore rely on intermediate outcomes. Keep the gap between what a study measured and what a marketing claim implies visible.',
+      },
+    ],
+    dosingNotes: [
+      { compound: 'Nicotinamide Riboside / NMN', note: 'Use only formulation- and study-specific dose context from canonical records; do not translate biomarker changes into lifespan claims.' },
+      { compound: 'Resveratrol', note: 'Keep preparation, bioavailability, population, and endpoint limitations attached to any dose discussion.' },
+      { compound: 'CoQ10', note: 'Interpret studied doses within the population and outcome actually researched rather than as a universal anti-aging dose.' },
+    ],
+    evidenceRows: [
+      { compound: 'NAD+ precursors', evidence: 'See canonical profiles', humanData: 'Human biomarker and population-specific outcomes', limitation: 'Biochemical changes do not establish longer lifespan' },
+      { compound: 'Resveratrol', evidence: 'See canonical profile', humanData: 'Human and mechanistic evidence kept separate', limitation: 'Pathway or surrogate findings are not direct longevity outcomes' },
+      { compound: 'CoQ10', evidence: 'See canonical profile', humanData: 'Population-specific human outcomes', limitation: 'Condition-specific findings should not become universal healthy-aging claims' },
+      { compound: 'Quercetin', evidence: 'See canonical profile', humanData: 'Human, preclinical, and mechanism evidence separated', limitation: 'Senolytic or preclinical rationale is not proof of human longevity benefit' },
+    ],
+    safetyBullets: [
+      'Do not present biomarker movement, pathway activation, or animal lifespan findings as demonstrated human longevity benefit.',
+      'Keep disease-treatment research distinct from general healthy-aging education and route medication-sensitive questions through the safety record.',
+      'Prefer uncertainty over a forced ranking when long-term human outcome evidence is missing.',
+    ],
+  },
 }
