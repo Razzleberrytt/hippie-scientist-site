@@ -56,5 +56,8 @@ jobs:
       - name: Build and verify
         run: npm run build:deploy
 
+      - name: Run merge-grade production content lint
+        run: node scripts/ci/production-content-lint.mjs --require-built
+
       - name: Report internal route-reference integrity
         run: node scripts/ci/audit-route-reference-integrity.mjs
