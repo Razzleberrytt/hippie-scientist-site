@@ -138,6 +138,25 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'))
 }
 
+export function interactionSlugsFromEdges(edges) {
+  if (!edges || typeof edges !== 'object' || Array.isArray(edges)) return new Set()
+  return new Set(
+    Object.entries(edges)
+      .filter(([slug, relationships]) => slug.trim() && Array.isArray(relationships) && relationships.length > 0)
+      .map(([slug]) => slug.trim()),
+  )
+}
+
+function loadInteractionSlugs() {
+  try {
+    return interactionSlugsFromEdges(readJson('interaction_edges.json'))
+  } catch {
+    return new Set()
+  }
+}
+
+const INTERACTION_SLUGS = loadInteractionSlugs()
+
 function mergeSearchRecords(summaryFile, coreFile) {
   const summaries = readJson(summaryFile)
   const coreBySlug = new Map(readJson(coreFile).map(record => [record.slug, record]))
@@ -190,7 +209,7 @@ function buildHerbDocs() {
         evidenceGrade: normalizeEvidence(item.evidenceLevel || item.confidence),
         safety: normalizeSafety({ safetyNotes: item.safetyNotes || item.safety, contraindications, interactions, isEducation: false }),
         safetyFlags: {
-          hasInteractions: interactions.length > 0,
+          hasInteractions: INTERACTION_SLUGS.has(slug) || interactions.length > 0,
           hasContraindications: contraindications.length > 0,
         },
         tags: effects.slice(0, 4),
@@ -236,7 +255,7 @@ function buildCompoundDocs() {
         evidenceGrade: normalizeEvidence(item.evidenceLevel),
         safety: normalizeSafety({ safetyNotes: item.safetyNotes || item.safety, contraindications, interactions, isEducation: false }),
         safetyFlags: {
-          hasInteractions: interactions.length > 0,
+          hasInteractions: INTERACTION_SLUGS.has(slug) || interactions.length > 0,
           hasContraindications: contraindications.length > 0,
         },
         tags: effects.slice(0, 4),

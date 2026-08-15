@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { GOAL_KEYWORDS, PATHWAY_KEYWORDS, matchFacets } from './build-search-index.mjs'
+import {
+  GOAL_KEYWORDS,
+  PATHWAY_KEYWORDS,
+  interactionSlugsFromEdges,
+  matchFacets,
+} from './build-search-index.mjs'
 
 describe('matchFacets', () => {
   it('does not match a keyword glued as a prefix inside an unrelated word', () => {
@@ -34,5 +39,22 @@ describe('matchFacets', () => {
     // frontmatter-derived goals, so it relies entirely on this facet match
     // to appear under the Inflammation search filter.
     expect(matchFacets('what is neuroinflammation', GOAL_KEYWORDS)).toContain('inflammation')
+  })
+})
+
+describe('interactionSlugsFromEdges', () => {
+  it('derives searchable interaction flags from non-empty graph adjacency lists', () => {
+    const slugs = interactionSlugsFromEdges({
+      caffeine: [{ partner_slug: 'l-theanine' }],
+      ashwagandha: [],
+      '  magnesium  ': [{ partner_slug: 'zinc' }],
+    })
+
+    expect([...slugs].sort()).toEqual(['caffeine', 'magnesium'])
+  })
+
+  it('fails closed for malformed graph payloads', () => {
+    expect([...interactionSlugsFromEdges(null)]).toEqual([])
+    expect([...interactionSlugsFromEdges([])]).toEqual([])
   })
 })
