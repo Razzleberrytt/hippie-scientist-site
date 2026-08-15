@@ -56,6 +56,7 @@ export default function ProfileFeedback() {
   const [found, setFound] = useState<YesNo | null>(null)
   const [missing, setMissing] = useState<MissingCategory | null>(null)
   const [recorded, setRecorded] = useState(false)
+  const isCanonicalProfile = /^\/(?:herbs|compounds)\/[^/]+\/?$/.test(pathname)
 
   const submit = (question: ProfileFeedbackParams['question'], answer: ProfileFeedbackParams['answer']) => {
     const didRecord = trackProfileFeedback({ question, answer, pagePath: pathname })
@@ -72,6 +73,8 @@ export default function ProfileFeedback() {
     setMissing(value)
     submit('missing_information', value)
   }
+
+  if (!isCanonicalProfile) return null
 
   return (
     <section aria-labelledby="profile-feedback-title" className="not-prose rounded-2xl border border-brand-900/10 bg-white/80 p-5 shadow-sm dark:bg-[var(--surface-card)]">
