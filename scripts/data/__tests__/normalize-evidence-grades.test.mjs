@@ -1,8 +1,13 @@
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+
 import { describe, expect, it } from 'vitest'
 
 import {
   migrateEvidenceGradeArray,
   migrateEvidenceGradeRecord,
+  normalizeEvidenceGradeFiles,
 } from '../normalize-evidence-grades.mjs'
 
 describe('evidence-grade migration boundary', () => {
@@ -46,5 +51,39 @@ describe('evidence-grade migration boundary', () => {
       { index: 0, slug: 'one', status: 'migrated', raw: 'c-', canonical: 'C' },
       { index: 1, slug: 'two', status: 'unmappable', raw: 'mystery', canonical: null },
     ])
+  })
+
+  it('normalizes every denormalized runtime surface emitted by the workbook builder', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'evidence-grade-migration-'))
+    const files = [
+      'herbs.json',
+      'compounds.json',
+      'featured-herbs.json',
+      'featured-compounds.json',
+      'herb-index.json',
+      'compound-index.json',
+      'claims.json',
+    ]
+
+    try {
+      for (const filename of files) {
+        fs.writeFileSync(
+          path.join(dir, filename),
+          `${JSON.stringify([{ slug: filename, evidence_grade: 'b+' }], null, 2)}\n`,
+          'utf8',
+        )
+      }
+
+      const report = normalizeEvidenceGradeFiles({ dataDir: dir, write: true, strict: true })
+      expect(report.files.filter((file) => file.exists)).toHaveLength(files.length)
+      expect(report.totals.unmappable).toBe(0)
+
+      for (const filename of files) {
+        const [record] = JSON.parse(fs.readFileSync(path.join(dir, filename), 'utf8'))
+        expect(record.evidence_grade, filename).toBe('B')
+      }
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true })
+    }
   })
 })
