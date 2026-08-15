@@ -7,6 +7,8 @@ import ArticleMdx from '@/components/articles/ArticleMdx'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
 import WhatEvidenceShows from '@/src/components/evidence/WhatEvidenceShows'
+import { editorialReviewEvents } from '@/data/editorial/reviews'
+import { latestReviewForPage } from '@/lib/editorial-provenance'
 import {
   buildCitationReadySummary,
   normalizeCitationMetadata,
@@ -43,6 +45,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
   const page = articlePages.find((item) => item.slug === slug)
   if (!page) notFound()
 
+  const pagePath = `/articles/${page.slug}/`
   const relatedPages = resolveRelatedArticles(page, articlePages)
   const { keyTakeaways, citationQuestions, canonicalConcepts } = normalizeCitationMetadata(page)
   const citationReadySummary = buildCitationReadySummary({
@@ -53,10 +56,10 @@ export default async function ArticleMonographPage({ params }: PageProps) {
   })
 
   const author = 'author' in page ? page.author : undefined
-  const reviewedBy = 'reviewedBy' in page && page.reviewedBy ? page.reviewedBy : undefined
-  const reviewerCredential =
-    'reviewerCredential' in page && page.reviewerCredential ? page.reviewerCredential : undefined
-  const lastReviewed = 'lastReviewed' in page && page.lastReviewed ? page.lastReviewed : undefined
+  const reviewEvent = latestReviewForPage(editorialReviewEvents, pagePath)
+  const lastReviewed = reviewEvent?.reviewedAt
+  const reviewedBy = reviewEvent?.reviewerName
+  const reviewerCredential = reviewEvent?.qualifications || reviewEvent?.reviewerRole
   const factualUpdated = page.factualUpdated || page.lastUpdated
   const templateUpdated = page.templateUpdated || undefined
   const reviewerLabel = reviewedBy
@@ -71,7 +74,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     abstract: citationReadySummary,
     dateModified: factualUpdated,
     datePublished: page.date ?? factualUpdated,
-    mainEntityOfPage: `${SITE_URL}/articles/${page.slug}/`,
+    mainEntityOfPage: `${SITE_URL}${pagePath}`,
     image: `${SITE_URL}/og-default.jpg`,
     keywords: page.tags,
     articleSection: page.category,
@@ -109,7 +112,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       ? {
           '@context': 'https://schema.org',
           '@type': 'MedicalWebPage',
-          url: `${SITE_URL}/articles/${page.slug}/`,
+          url: `${SITE_URL}${pagePath}`,
           ...(lastReviewed ? { lastReviewed } : {}),
           ...(reviewerLabel
             ? {
