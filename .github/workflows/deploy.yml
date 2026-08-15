@@ -3,7 +3,7 @@ name: Deploy to Cloudflare Pages
 on:
   workflow_run:
     workflows:
-      - CI
+      - Site Health Check
     types:
       - completed
     branches:
@@ -12,14 +12,14 @@ on:
 
 concurrency:
   group: deploy-${{ github.event.workflow_run.head_branch || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: read
 
 jobs:
   deploy:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
     environment: production
     env:
