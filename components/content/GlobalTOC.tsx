@@ -81,8 +81,8 @@ export default function GlobalTOC() {
 
   return (
     <>
-      {/* Mobile: compact dropdown at top */}
-      <div className="mb-6 rounded-xl border-2 border-brand-900/15 bg-white p-0 shadow-sm dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] lg:hidden">
+      {/* Inline TOC stays available until the fixed XL sidebar takes over. */}
+      <div className="mx-4 mb-6 mt-4 rounded-xl border-2 border-brand-900/15 bg-white p-0 shadow-sm dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] sm:mx-6 lg:mx-auto lg:w-[calc(100%-3rem)] lg:max-w-6xl xl:hidden">
         <button
           type="button"
           aria-expanded={mobileOpen}
