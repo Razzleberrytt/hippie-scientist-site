@@ -54,6 +54,7 @@ export type EvidenceEngineSource = {
   year: number | string
   url: string
   source_note?: string
+  sample_size?: number | null
   published: boolean
 }
 

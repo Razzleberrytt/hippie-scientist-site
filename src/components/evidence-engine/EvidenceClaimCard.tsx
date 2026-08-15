@@ -2,7 +2,7 @@ import Link from 'next/link'
 import EvidenceSafetyNotes from './EvidenceSafetyNotes'
 import EvidenceSourceList from './EvidenceSourceList'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
-import { countHumanTrials } from '../../lib/evidence-source-metrics'
+import { countHumanTrials, getHumanParticipantMetric } from '../../lib/evidence-source-metrics'
 import {
   formatEvidenceLabel,
   getConfidenceDisplay,
@@ -28,6 +28,7 @@ export default function EvidenceClaimCard({
 }: EvidenceClaimCardProps) {
   const confidence = getConfidenceDisplay(claim.confidence_tier)
   const humanTrialCount = countHumanTrials(sources)
+  const participantMetric = getHumanParticipantMetric(sources)
   const evidenceSignals = [
     claim.design_type
       ? { label: 'Evidence type', value: formatEvidenceLabel(claim.design_type) }
@@ -35,9 +36,14 @@ export default function EvidenceClaimCard({
     humanTrialCount > 0
       ? { label: 'Human trials', value: String(humanTrialCount) }
       : null,
-    claim.sample_size && claim.sample_size > 0
-      ? { label: 'Participants', value: `N=${claim.sample_size.toLocaleString()}` }
-      : null,
+    participantMetric
+      ? {
+          label: participantMetric.complete ? 'Approx participants' : 'Known participants',
+          value: `N≈${participantMetric.total.toLocaleString()}`,
+        }
+      : claim.sample_size && claim.sample_size > 0
+        ? { label: 'Participants', value: `N=${claim.sample_size.toLocaleString()}` }
+        : null,
     sources.length > 0
       ? { label: 'Cited sources', value: String(sources.length) }
       : null,
