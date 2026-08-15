@@ -1,30 +1,23 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import type { InteractionEdge, RiskTag } from '@/src/types/interactions'
+import type { SafetyCertainty } from '@/src/lib/safety-governance'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
-interface EdgeEntry {
-  partner_slug: string
-  partner_name: string
-  risk_mechanism: string
-  severity: string
-  weight: number
-  claim_language: string
-  notes: string
-}
-
-interface TagEntry {
-  risk_mechanism: string
-  pair_behavior: string
-  matched_text: string
-  confidence: string
-}
+type EdgeEntry = InteractionEdge
+type TagEntry = RiskTag
 
 export interface MechanismRisk {
   mechanism: string
   label: string
   severity: string
+  certainties: SafetyCertainty[]
   partnerCount: number
+  provenanceCoverage: {
+    withProvenance: number
+    total: number
+  }
   topPartners: { slug: string; name: string }[]
 }
 
@@ -61,6 +54,11 @@ function tags(): Record<string, TagEntry[]> {
   return tagCache!
 }
 
+function certainty(edge: EdgeEntry): SafetyCertainty {
+  // Legacy interaction files were generated from shared mechanisms only.
+  return edge.certainty || 'theoretical'
+}
+
 export function getAdditiveRisks(slug: string): MechanismRisk[] {
   const slugTags = tags()[slug] ?? []
   const slugEdges = edges()[slug] ?? []
@@ -75,11 +73,18 @@ export function getAdditiveRisks(slug: string): MechanismRisk[] {
     const mechEdges = slugEdges
       .filter(e => e.risk_mechanism === mech)
       .sort((a, b) => b.weight - a.weight)
+    const withProvenance = mechEdges.filter((edge) => (edge.provenance?.source_ids?.length || 0) > 0).length
+
     risks.push({
       mechanism: mech,
       label: LABELS[mech]?.label ?? mech,
       severity: LABELS[mech]?.severity ?? 'moderate',
+      certainties: [...new Set(mechEdges.map(certainty))],
       partnerCount: mechEdges.length,
+      provenanceCoverage: {
+        withProvenance,
+        total: mechEdges.length,
+      },
       topPartners: mechEdges.slice(0, 5).map(e => ({ slug: e.partner_slug, name: e.partner_name })),
     })
   }
