@@ -2,13 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
-import { getAllCompounds } from '@/lib/server/runtime-data'
-import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { buildPageMetadata } from '../../src/lib/seo'
 import { COMPOUNDS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
-import { formatDisplayLabel } from '@/lib/display-utils'
-import { isRedirectedCompoundDuplicate } from '@/lib/deprecated-compound-canonicals'
+import { loadPublishedCompounds } from './library-data'
+import { getCompoundName } from './library-selector'
 import CompoundsIndexClient from './CompoundsIndexClient'
 import type { RuntimeRecord } from '../../src/types/content'
 import Pagination from '@/components/Pagination'
@@ -22,32 +20,8 @@ export const metadata: Metadata = buildPageMetadata({
 
 export const dynamic = 'force-static'
 
-function getCompoundName(compound: RuntimeRecord) {
-  return (
-    formatDisplayLabel(compound.displayName) ||
-    formatDisplayLabel(compound.name) ||
-    formatDisplayLabel(compound.compoundName) ||
-    formatDisplayLabel(compound.canonicalCompoundName) ||
-    formatDisplayLabel(compound.slug)
-  )
-}
-
-function loadBrowseCompounds(records: RuntimeRecord[]) {
-  const presentSlugs = new Set(records.map((compound) => String(compound.slug || '')))
-
-  return records
-    .filter(
-      (compound) =>
-        compound?.slug &&
-        getRuntimeVisibility(compound).canIndex &&
-        !isRedirectedCompoundDuplicate(String(compound.slug), presentSlugs),
-    )
-    .sort((a, b) => getCompoundName(a).localeCompare(getCompoundName(b)))
-}
-
 export default async function CompoundsPage() {
-  const raw = await getAllCompounds()
-  const allCompounds = loadBrowseCompounds(raw as unknown as RuntimeRecord[])
+  const allCompounds = await loadPublishedCompounds()
 
   const pageData = paginateItems(allCompounds, 1, COMPOUNDS_PAGE_SIZE)
   const leanCompounds = toLeanProfileIndexRecords(allCompounds)

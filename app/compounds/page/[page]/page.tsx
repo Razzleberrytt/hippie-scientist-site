@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
-import { getAllCompounds } from '@/lib/server/runtime-data'
-import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
 import { COMPOUNDS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagination'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
-import { formatDisplayLabel } from '@/lib/display-utils'
-import { isRedirectedCompoundDuplicate } from '@/lib/deprecated-compound-canonicals'
 import Link from 'next/link'
+import { loadPublishedCompounds } from '../../library-data'
+import { getCompoundName } from '../../library-selector'
 import CompoundsIndexClient from '../../CompoundsIndexClient'
 import type { RuntimeRecord } from '../../../../src/types/content'
 import Pagination from '@/components/Pagination'
@@ -15,32 +13,8 @@ type P = {
   params: Promise<{ page: string }>
 }
 
-function getCompoundName(compound: RuntimeRecord) {
-  return (
-    formatDisplayLabel(compound.displayName) ||
-    formatDisplayLabel(compound.name) ||
-    formatDisplayLabel(compound.compoundName) ||
-    formatDisplayLabel(compound.canonicalCompoundName) ||
-    formatDisplayLabel(compound.slug)
-  )
-}
-
-async function loadBrowseCompounds(): Promise<RuntimeRecord[]> {
-  const compounds = (await getAllCompounds()) as unknown as RuntimeRecord[]
-  const presentSlugs = new Set(compounds.map((compound) => String(compound.slug || '')))
-
-  return compounds
-    .filter(
-      (compound) =>
-        compound?.slug &&
-        getRuntimeVisibility(compound).canIndex &&
-        !isRedirectedCompoundDuplicate(String(compound.slug), presentSlugs),
-    )
-    .sort((a, b) => getCompoundName(a).localeCompare(getCompoundName(b)))
-}
-
 export async function generateStaticParams() {
-  const compounds = await loadBrowseCompounds()
+  const compounds = await loadPublishedCompounds()
   const total = Math.max(1, Math.ceil(compounds.length / COMPOUNDS_PAGE_SIZE))
 
   return Array.from({ length: Math.max(total - 1, 0) }, (_, i) => ({
@@ -62,7 +36,7 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
 
 export default async function CompoundsPageN({ params }: P) {
   const n = clampPositiveInt((await params).page, 2)
-  const compounds = await loadBrowseCompounds()
+  const compounds = await loadPublishedCompounds()
   const p = paginateItems(compounds, n, COMPOUNDS_PAGE_SIZE)
   const leanCompounds = toLeanProfileIndexRecords(compounds)
   const leanPageItems = toLeanProfileIndexRecords(p.pageItems as RuntimeRecord[])
