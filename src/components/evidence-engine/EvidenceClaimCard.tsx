@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import EvidenceSafetyNotes from './EvidenceSafetyNotes'
 import EvidenceSourceList from './EvidenceSourceList'
+import WhyWeBelieveThis from './WhyWeBelieveThis'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import { countHumanTrials, getHumanParticipantMetric } from '../../lib/evidence-source-metrics'
 import {
@@ -98,21 +99,14 @@ export default function EvidenceClaimCard({
         </div>
       ) : null}
 
-      <dl className="mt-4 space-y-3 text-sm leading-6">
-        <div>
-          <dt className="font-semibold text-ink">Evidence summary</dt>
-          <dd className="text-[#36483e] dark:text-[var(--text-muted)]">{claim.evidence_summary}</dd>
-        </div>
-        <div>
-          <dt className="font-semibold text-ink">Limitations</dt>
-          <dd className="text-[#36483e] dark:text-[var(--text-muted)]">{claim.limitations}</dd>
-        </div>
-        {claim.population_limitations ? (
-          <div>
-            <dt className="font-semibold text-ink">Population limits</dt>
-            <dd className="text-[#36483e] dark:text-[var(--text-muted)]">{claim.population_limitations}</dd>
-          </div>
-        ) : null}
+      <WhyWeBelieveThis
+        evidenceSummary={claim.evidence_summary}
+        limitations={claim.limitations}
+        populationLimitations={claim.population_limitations}
+        sourceCount={sources.length}
+      />
+
+      <dl className="mt-4 text-sm leading-6">
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-xl bg-brand-50/80 p-3 ring-1 ring-brand-900/8 dark:bg-[var(--surface-subtle)]">
             <dt className="font-semibold text-ink">Best fit</dt>
