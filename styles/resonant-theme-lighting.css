@@ -1,56 +1,56 @@
 /*
   Resonant theme lighting layer.
-  Adds botanical warmth, emerald/violet resonance, and soft depth without changing content or data.
-  Loaded last so it can harmonize existing page shells, cards, CTAs, and dark-mode surfaces.
+  Adds restrained brass warmth, indigo resonance, and soft editorial depth
+  without changing content or data. This is intentionally not a botanical-green
+  brand layer; green remains available only where it communicates semantics.
 */
 
 :root {
-  --resonance-emerald: rgba(83, 111, 73, 0.18);
-  --resonance-emerald-strong: rgba(49, 75, 51, 0.24);
-  --resonance-gold: rgba(192, 138, 53, 0.16);
-  --resonance-violet: rgba(109, 91, 208, 0.12);
-  --resonance-rose: rgba(190, 91, 108, 0.08);
-  --resonance-sheen: rgba(255, 255, 255, 0.62);
-  --resonance-card-shadow: 0 20px 54px rgba(16, 32, 24, 0.09), 0 1px 0 rgba(255, 255, 255, 0.68) inset;
-  --resonance-card-shadow-hover: 0 26px 72px rgba(16, 32, 24, 0.13), 0 1px 0 rgba(255, 255, 255, 0.78) inset;
-  --resonance-button-glow: 0 12px 34px rgba(49, 75, 51, 0.24);
+  --resonance-indigo: rgba(111, 102, 168, 0.16);
+  --resonance-indigo-strong: rgba(81, 68, 117, 0.22);
+  --resonance-gold: rgba(169, 119, 47, 0.16);
+  --resonance-violet: rgba(125, 111, 187, 0.12);
+  --resonance-rose: rgba(190, 91, 108, 0.07);
+  --resonance-sheen: rgba(255, 255, 255, 0.58);
+  --resonance-card-shadow: 0 20px 54px rgba(49, 42, 52, 0.085), 0 1px 0 rgba(255, 255, 255, 0.64) inset;
+  --resonance-card-shadow-hover: 0 26px 72px rgba(49, 42, 52, 0.12), 0 1px 0 rgba(255, 255, 255, 0.74) inset;
+  --resonance-button-glow: 0 12px 34px rgba(64, 54, 91, 0.22);
 }
 
 html.dark {
-  --resonance-emerald: rgba(142, 186, 143, 0.14);
-  --resonance-emerald-strong: rgba(142, 186, 143, 0.20);
-  --resonance-gold: rgba(196, 125, 46, 0.16);
+  --resonance-indigo: rgba(168, 157, 204, 0.15);
+  --resonance-indigo-strong: rgba(192, 181, 215, 0.20);
+  --resonance-gold: rgba(213, 173, 108, 0.15);
   --resonance-violet: rgba(184, 174, 207, 0.14);
-  --resonance-rose: rgba(252, 165, 165, 0.07);
-  --resonance-sheen: rgba(255, 255, 255, 0.07);
-  --resonance-card-shadow: 0 22px 64px rgba(0, 0, 0, 0.28), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
-  --resonance-card-shadow-hover: 0 28px 82px rgba(0, 0, 0, 0.34), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
-  --resonance-button-glow: 0 14px 42px rgba(196, 125, 46, 0.20);
+  --resonance-rose: rgba(252, 165, 165, 0.065);
+  --resonance-sheen: rgba(255, 255, 255, 0.065);
+  --resonance-card-shadow: 0 22px 64px rgba(0, 0, 0, 0.30), 0 1px 0 rgba(255, 255, 255, 0.045) inset;
+  --resonance-card-shadow-hover: 0 28px 82px rgba(0, 0, 0, 0.36), 0 1px 0 rgba(255, 255, 255, 0.075) inset;
+  --resonance-button-glow: 0 14px 42px rgba(213, 173, 108, 0.18);
 }
 
 body {
-  background: #ffffff;
+  background: #fffaf3;
 }
 
 html.dark body {
-  background: #0d1712;
+  background: #151319;
 }
 
 .hero-shell {
   position: relative;
-  border-color: color-mix(in srgb, var(--border-soft) 72%, var(--resonance-emerald-strong));
-  box-shadow: var(--resonance-card-shadow);
-}
-
-.hero-shell {
   overflow: hidden;
+  border-color: color-mix(in srgb, var(--border-soft) 72%, var(--resonance-indigo-strong));
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 247, 242, 0.88));
+    radial-gradient(circle at 100% 0%, rgba(169, 119, 47, 0.07), transparent 18rem),
+    linear-gradient(180deg, rgba(255, 250, 243, 0.94), rgba(248, 242, 232, 0.90));
+  box-shadow: var(--resonance-card-shadow);
 }
 
 html.dark .hero-shell {
   background:
-    linear-gradient(180deg, rgba(26, 48, 40, 0.96), rgba(20, 38, 29, 0.94));
+    radial-gradient(circle at 100% 0%, rgba(168, 157, 204, 0.10), transparent 18rem),
+    linear-gradient(180deg, rgba(44, 40, 51, 0.97), rgba(30, 28, 35, 0.95));
 }
 
 .hero-shell::before {
@@ -59,13 +59,13 @@ html.dark .hero-shell {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.16) 24%, transparent 42%),
+    linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.14) 24%, transparent 42%),
     radial-gradient(circle at 45% 0%, var(--resonance-sheen), transparent 16rem);
-  opacity: 0.58;
+  opacity: 0.54;
 }
 
 html.dark .hero-shell::before {
-  opacity: 0.38;
+  opacity: 0.34;
 }
 
 .hero-shell > * {
@@ -75,7 +75,7 @@ html.dark .hero-shell::before {
 
 .goal-link-card:hover,
 .goal-mini-card:hover {
-  border-color: color-mix(in srgb, var(--border-strong) 62%, var(--resonance-gold));
+  border-color: color-mix(in srgb, var(--border-strong) 60%, var(--resonance-gold));
   box-shadow: var(--resonance-card-shadow-hover);
 }
 
@@ -83,16 +83,16 @@ html.dark .hero-shell::before {
 .section-label,
 .identity-kicker,
 .identity-meta {
-  color: #314b33;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
+  color: #655391;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.38);
 }
 
 html.dark .eyebrow-label,
 html.dark .section-label,
 html.dark .identity-kicker,
 html.dark .identity-meta {
-  color: #cbd8c0;
-  text-shadow: 0 0 18px rgba(203, 216, 192, 0.16);
+  color: #d5cce5;
+  text-shadow: 0 0 18px rgba(168, 157, 204, 0.15);
 }
 
 a.rounded-full.bg-brand-950,
@@ -107,7 +107,7 @@ a.rounded-full.bg-brand-950:hover,
 a.rounded-full.bg-brand-850:hover,
 button.rounded-full.bg-brand-950:hover,
 button.rounded-full.bg-brand-850:hover {
-  filter: saturate(1.08) brightness(1.02);
+  filter: saturate(1.04) brightness(1.02);
 }
 
 .button-secondary,
@@ -117,16 +117,15 @@ button.rounded-full.border {
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* Make dense mobile pages feel calmer: less harsh card stacking, more luminous separation. */
 @media (max-width: 768px) {
   :root {
-    --resonance-card-shadow: 0 14px 34px rgba(16, 32, 24, 0.075), 0 1px 0 rgba(255, 255, 255, 0.62) inset;
-    --resonance-card-shadow-hover: 0 18px 44px rgba(16, 32, 24, 0.10), 0 1px 0 rgba(255, 255, 255, 0.68) inset;
+    --resonance-card-shadow: 0 14px 34px rgba(49, 42, 52, 0.07), 0 1px 0 rgba(255, 255, 255, 0.58) inset;
+    --resonance-card-shadow-hover: 0 18px 44px rgba(49, 42, 52, 0.095), 0 1px 0 rgba(255, 255, 255, 0.64) inset;
   }
 
   html.dark {
-    --resonance-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.24), 0 1px 0 rgba(255, 255, 255, 0.045) inset;
-    --resonance-card-shadow-hover: 0 20px 52px rgba(0, 0, 0, 0.30), 0 1px 0 rgba(255, 255, 255, 0.065) inset;
+    --resonance-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+    --resonance-card-shadow-hover: 0 20px 52px rgba(0, 0, 0, 0.31), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
   }
 
   body {
@@ -134,13 +133,13 @@ button.rounded-full.border {
   }
 
   .hero-shell::before {
-    opacity: 0.42;
+    opacity: 0.38;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .goal-link-card:hover,
-.goal-mini-card:hover {
+  .goal-mini-card:hover {
     transform: none !important;
   }
 }
