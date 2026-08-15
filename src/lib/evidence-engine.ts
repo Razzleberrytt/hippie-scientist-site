@@ -35,6 +35,7 @@ export type EvidenceEngineClaim = {
   design_insight?: string
   finding_consistency?: string
   population_limitations?: string
+  consumer_dose_match?: string
 }
 
 export type EvidenceEngineConfig = {
