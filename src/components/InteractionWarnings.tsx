@@ -28,8 +28,8 @@ const SEVERITY_CONFIG: Record<InteractionSeverity, { label: string; accent: stri
   },
   caution: {
     label: 'Caution',
-    accent: 'text-[#6f653d] dark:text-amber-100',
-    badge: 'border-[#dfe9dc] bg-[#f1f5ed] text-[#315f50] dark:border-[var(--border-soft)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]',
+    accent: 'text-[color:var(--hs-gold-ink)] dark:text-[#e3c183]',
+    badge: 'border-[color:color-mix(in_srgb,var(--hs-gold)_28%,var(--hs-hairline))] bg-[color:color-mix(in_srgb,var(--hs-gold)_7%,var(--hs-surface))] text-[color:var(--hs-gold-ink)] dark:border-[#d5ad6c]/25 dark:bg-[#d5ad6c]/10 dark:text-[#e3c183]',
   },
 }
 
@@ -66,7 +66,7 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
       <div className='max-w-3xl'>
         <p className='editorial-eyebrow'>Evidence-based safety</p>
         <h2 className='editorial-display mt-2 text-[2rem] sm:text-[2.7rem]'>Caution when combined</h2>
-        <p className='mt-3 text-sm leading-7 text-[#526159] dark:text-[var(--text-secondary)] sm:text-base'>
+        <p className='mt-3 text-sm leading-7 text-[color:var(--hs-body)] sm:text-base'>
           Severity and certainty are shown separately. A high-priority caution can still be theoretical: these pairings are screened from shared contraindication mechanisms and are not automatically documented clinical interactions. Provenance identifies the source fields that produced each flag; it does not upgrade the certainty of the pairwise claim.
         </p>
       </div>
@@ -88,17 +88,17 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
                 <div className='min-w-0 flex-1'>
                   <div className='flex flex-wrap items-baseline gap-x-2 gap-y-1'>
                     <h3 className={`font-display text-xl font-semibold ${config.accent}`}>{config.label}</h3>
-                    <span className='text-xs font-bold text-[#647168] dark:text-[var(--text-muted)]'>{items.length} flagged pairings</span>
+                    <span className='text-xs font-bold text-[color:var(--hs-body)]'>{items.length} flagged pairings</span>
                   </div>
-                  <p className='mt-1 line-clamp-1 text-xs leading-5 text-[#647168] dark:text-[var(--text-muted)]'>
+                  <p className='mt-1 line-clamp-1 text-xs leading-5 text-[color:var(--hs-body)]'>
                     {byMechanism.map((group) => MECHANISM_LABELS[group.mechanism] ?? group.mechanism).join(' · ')}
                   </p>
                 </div>
-                <ChevronDown className='h-5 w-5 shrink-0 text-[#315f50] transition-transform group-open:rotate-180' aria-hidden='true' />
+                <ChevronDown className='h-5 w-5 shrink-0 text-[color:var(--tone-ink)] transition-transform group-open:rotate-180' aria-hidden='true' />
               </summary>
 
-              <div className='border-t border-[#123c2f]/10 px-4 pb-5 pt-4 sm:px-5'>
-                <p className='mb-4 text-xs font-semibold text-[#647168] dark:text-[var(--text-muted)]'>
+              <div className='border-t border-[color:var(--hs-hairline)] px-4 pb-5 pt-4 sm:px-5'>
+                <p className='mb-4 text-xs font-semibold text-[color:var(--hs-body)]'>
                   Representative pairings are shown below. Large mechanism groups are intentionally summarized to keep profiles focused and crawl-efficient.
                 </p>
                 <div className='interaction-chip-scroll space-y-5 pr-1'>
@@ -117,13 +117,13 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
                           {certainties.map((certainty) => (
                             <span
                               key={certainty}
-                              className='inline-flex rounded-full border border-brand-900/10 bg-white/80 px-2.5 py-1 text-[0.66rem] font-bold text-[#526159] dark:border-white/10 dark:bg-white/5 dark:text-[var(--text-secondary)]'
+                              className='inline-flex rounded-full border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_82%,transparent)] px-2.5 py-1 text-[0.66rem] font-bold text-[color:var(--hs-body)]'
                             >
                               Certainty: {CERTAINTY_LABELS[certainty]}
                             </span>
                           ))}
                         </div>
-                        <p className='text-[11px] leading-5 text-[#647168] dark:text-[var(--text-muted)]'>
+                        <p className='text-[11px] leading-5 text-[color:var(--hs-body)]'>
                           Data provenance recorded for {provenanceCount} of {mechanismEdges.length} pairing{mechanismEdges.length === 1 ? '' : 's'} in this mechanism group.
                         </p>
                         <ul className='flex flex-wrap gap-2'>
@@ -142,7 +142,7 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
 
                             const content = (
                               <>
-                                <Leaf className='h-3.5 w-3.5 shrink-0 text-[#315f50]' aria-hidden='true' strokeWidth={1.8} />
+                                <Leaf className='h-3.5 w-3.5 shrink-0 text-[color:var(--tone-ink)]' aria-hidden='true' strokeWidth={1.8} />
                                 <span>{edge.partner_name}</span>
                                 <span className='sr-only'> — {CERTAINTY_LABELS[certainty]} interaction certainty</span>
                               </>
@@ -165,9 +165,9 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
                           })}
                         </ul>
                         {hiddenCount > 0 && (
-                          <p className='text-xs leading-5 text-[#647168] dark:text-[var(--text-muted)]'>
+                          <p className='text-xs leading-5 text-[color:var(--hs-body)]'>
                             +{hiddenCount} more pairing{hiddenCount === 1 ? '' : 's'} share this mechanism.{' '}
-                            <Link href='/safety-checker' className='font-bold text-[#315f50] underline decoration-[#315f50]/30 underline-offset-2 hover:decoration-[#315f50]'>
+                            <Link href='/safety-checker' className='font-bold text-[color:var(--tone-ink)] underline decoration-[color:color-mix(in_srgb,var(--tone)_30%,transparent)] underline-offset-2 hover:text-[color:var(--hs-ink)]'>
                               Use the Safety Checker
                             </Link>{' '}
                             to review a specific combination.
