@@ -68,7 +68,9 @@ export function normalizePagePath(value) {
   let path = String(value).trim()
   try {
     if (/^https?:\/\//i.test(path)) path = new URL(path).pathname
-  } catch {}
+  } catch {
+    // Keep malformed absolute-looking values for the path cleanup below.
+  }
   path = path.split(/[?#]/)[0]
   if (!path.startsWith('/')) path = `/${path}`
   if (path !== '/' && !path.endsWith('/')) path += '/'

@@ -37,7 +37,9 @@ function normalizeUrl(value) {
   if (!value) return null;
   try {
     if (/^https?:\/\//i.test(value)) value = new URL(value).pathname;
-  } catch {}
+  } catch {
+    // Keep malformed absolute-looking values for the path cleanup below.
+  }
   const clean = String(value).split(/[?#]/)[0];
   if (!clean.startsWith('/')) return `/${clean}`;
   return clean;

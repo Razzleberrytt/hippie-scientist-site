@@ -33,7 +33,11 @@ for (const field of listFields) {
 }
 
 let destination = { schemaVersion: 1, reports: [] }
-try { destination = JSON.parse(fs.readFileSync(destinationPath, 'utf8')) } catch {}
+try {
+  destination = JSON.parse(fs.readFileSync(destinationPath, 'utf8'))
+} catch {
+  // Missing or malformed prior review state intentionally starts from an empty history.
+}
 if (!Array.isArray(destination.reports)) destination.reports = []
 
 const publicReport = {
