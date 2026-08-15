@@ -306,6 +306,7 @@ export default function ShowMeTheStudies({
       : 'A reliable participant total cannot be calculated because sample size is not consistently structured in the cited sources.',
     `The structured direction is ${evidenceConsistencyLabel(metrics.consistency).toLowerCase()}: ${metrics.supportive} supporting, ${metrics.mixed} mixed, ${metrics.contradicting} contradicting, and ${metrics.noClearEffect} no-clear-effect source relationships.`,
   ].join(' ')
+  const hasDisagreement = metrics.mixed > 0 || metrics.contradicting > 0 || metrics.noClearEffect > 0
 
   return (
     <details className="group/studies overflow-hidden rounded-2xl border-2 border-brand-900/10 bg-[var(--surface-card)] p-0 shadow-none backdrop-blur-none dark:border-white/10">
@@ -371,6 +372,15 @@ export default function ShowMeTheStudies({
           </p>
         </div>
       </div>
+
+      {hasDisagreement ? (
+        <div className="border-t border-amber-700/20 bg-amber-50 px-4 py-4 dark:bg-amber-300/10">
+          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-amber-900 dark:text-amber-100">Where studies disagree</p>
+          <p className="mt-2 text-sm leading-6 text-amber-950 dark:text-amber-50">
+            The structured evidence is not uniform: {metrics.supportive} source relationship{metrics.supportive === 1 ? '' : 's'} support the conclusion, {metrics.mixed} are mixed, {metrics.contradicting} contradict it, and {metrics.noClearEffect} report no clear effect. Differences in population, dose or preparation, duration, outcome definition, and study design can produce genuinely different results; inspect the rows below rather than treating the studies as one averaged vote.
+          </p>
+        </div>
+      ) : null}
 
       <div className="overflow-x-auto border-t border-brand-900/10 dark:border-white/10">
         <table className="w-full min-w-[1600px] border-collapse text-left text-sm">
