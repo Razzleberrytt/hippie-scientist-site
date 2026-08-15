@@ -3,63 +3,36 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import Disclaimer from '@/src/components/Disclaimer'
-import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index'
 import { buildPageMetadata } from '@/src/lib/seo'
-
-type RuntimeIngredient = Record<string, unknown> & {
-  slug?: string
-  name?: string
-  best_taken?: unknown
-  bioavailability_notes?: unknown
-  evidence_grade?: unknown
-  evidence_level?: unknown
-}
-
-function clean(value: unknown): string {
-  if (typeof value !== 'string') return ''
-  return value.replace(/\s+/g, ' ').trim()
-}
-
-function getTiming(record: RuntimeIngredient): string {
-  return clean(record.best_taken)
-}
+import {
+  cleanTimingValue,
+  getTiming,
+  loadIndexableTimingIngredients,
+  type RuntimeIngredient,
+} from '../timing-data'
 
 function hasDaypartDecision(timing: string): boolean {
   return /\b(morning|afternoon|evening|night|nighttime|bedtime|before bed|daytime|earlier in the day|later in the day)\b/i.test(timing)
 }
 
 function getFoodDecision(record: RuntimeIngredient, timing: string): string {
-  const bioavailability = clean(record.bioavailability_notes)
+  const bioavailability = cleanTimingValue(record.bioavailability_notes)
   const candidates = [bioavailability, timing].filter(Boolean)
   return candidates.find((value) => /\b(food|meal|meals|with fat|empty stomach|fasted|fasting)\b/i.test(value)) || ''
 }
 
-async function getEligibleIngredients(): Promise<RuntimeIngredient[]> {
-  const { herbs, compounds } = await getUnifiedRuntimeRecords()
-  const bySlug = new Map<string, RuntimeIngredient>()
-
-  for (const record of [...herbs, ...compounds] as RuntimeIngredient[]) {
-    const slug = clean(record.slug)
-    const timing = getTiming(record)
-    if (!slug || !timing) continue
-    if (!bySlug.has(slug)) bySlug.set(slug, record)
-  }
-
-  return [...bySlug.values()]
-}
-
 export async function generateStaticParams() {
-  const ingredients = await getEligibleIngredients()
-  return ingredients.map((record) => ({ slug: clean(record.slug) }))
+  const ingredients = await loadIndexableTimingIngredients()
+  return ingredients.map((record) => ({ slug: cleanTimingValue(record.slug) }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const ingredients = await getEligibleIngredients()
-  const record = ingredients.find((item) => clean(item.slug) === slug)
+  const ingredients = await loadIndexableTimingIngredients()
+  const record = ingredients.find((item) => cleanTimingValue(item.slug) === slug)
   if (!record) return {}
 
-  const name = clean(record.name) || slug
+  const name = cleanTimingValue(record.name) || slug
   return buildPageMetadata({
     title: `Best Time to Take ${name}: Evidence-Based Timing`,
     description: `When to take ${name}, based only on timing guidance present in The Hippie Scientist's structured evidence record.`,
@@ -69,13 +42,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function IngredientTimingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const ingredients = await getEligibleIngredients()
-  const record = ingredients.find((item) => clean(item.slug) === slug)
+  const ingredients = await loadIndexableTimingIngredients()
+  const record = ingredients.find((item) => cleanTimingValue(item.slug) === slug)
   if (!record) notFound()
 
-  const name = clean(record.name) || slug
+  const name = cleanTimingValue(record.name) || slug
   const timing = getTiming(record)
-  const grade = clean(record.evidence_grade) || clean(record.evidence_level)
+  const grade = cleanTimingValue(record.evidence_grade) || cleanTimingValue(record.evidence_level)
   const showDaypartDecision = hasDaypartDecision(timing)
   const foodDecision = getFoodDecision(record, timing)
 
