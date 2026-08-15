@@ -1,0 +1,51 @@
+name: Research suggestion or correction
+description: Suggest an ingredient, comparison, missing study, or evidence correction without sharing personal health information.
+title: "Research intake: "
+labels:
+  - enhancement
+  - evidence
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve The Hippie Scientist research database. **Do not include symptoms, diagnoses, medications, lab results, or other personal health information.** This form is for public research/data requests only.
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type
+      options:
+        - Ingredient suggestion
+        - Comparison suggestion
+        - Missing study
+        - Scientific correction
+    validations:
+      required: true
+  - type: input
+    id: subject
+    attributes:
+      label: Ingredient, comparison, claim, or page
+      description: Use public research terms only (for example, "Ashwagandha", "magnesium vs melatonin", or a site URL).
+      placeholder: Ashwagandha
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: PMID, DOI, or public source URL
+      description: Strongly encouraged for missing studies and corrections. Link the primary or authoritative source when possible.
+      placeholder: PMID 12345678 or 10.xxxx/xxxxx
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why would this improve the research resource?
+      description: Keep this about evidence, search usefulness, taxonomy, safety, or data quality. Do not describe your personal medical situation.
+      placeholder: The current profile appears to omit a 2025 randomized trial that directly studied the named ingredient and outcome.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public-information confirmation
+      options:
+        - label: I have not included personal health information, private records, or sensitive personal details.
+          required: true
