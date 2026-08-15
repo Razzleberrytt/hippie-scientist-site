@@ -70,6 +70,18 @@ async function resolveSide(config: SideConfig): Promise<ResolvedSide> {
   return { label: config.label, record: null, href: null }
 }
 
+function choiceChecks(side: ResolvedSide): string[] {
+  if (!side.record) {
+    return ['A canonical record is available and complete enough to support a real comparison.']
+  }
+
+  return [
+    'Its human-evidence summary directly addresses the outcome you are researching.',
+    'Its studied dose and formulation context match the form you are actually evaluating.',
+    'You have reviewed its documented safety and interaction constraints rather than choosing on marketing claims alone.',
+  ]
+}
+
 export default async function RuntimeEvidenceComparison({ title, summary, left, right, goal }: Props) {
   const [leftSide, rightSide] = await Promise.all([resolveSide(left), resolveSide(right)])
 
@@ -149,6 +161,22 @@ export default async function RuntimeEvidenceComparison({ title, summary, left, 
         <p className="text-sm leading-6 text-muted">
           The table below is populated from each ingredient’s canonical runtime record. Missing fields stay visibly missing rather than being filled with mechanism-derived assumptions.
         </p>
+      </section>
+
+      <section className="grid max-w-5xl gap-4 sm:grid-cols-2" aria-label="Choose by evidence fit">
+        {[leftSide, rightSide].map((side) => (
+          <article key={`choose-${side.label}`} className="card-premium p-5">
+            <p className="text-xs font-bold uppercase tracking-wider text-brand-700">Choose {side.label} if…</p>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
+              {choiceChecks(side).map((reason) => (
+                <li key={reason} className="flex gap-2">
+                  <span aria-hidden="true" className="font-bold text-brand-700">•</span>
+                  <span>{reason}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </section>
 
       <section className="card-premium max-w-5xl p-4 sm:p-6">
