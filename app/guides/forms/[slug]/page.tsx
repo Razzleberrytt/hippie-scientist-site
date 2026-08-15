@@ -3,93 +3,25 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import Disclaimer from '@/src/components/Disclaimer'
-import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index'
 import { buildPageMetadata } from '@/src/lib/seo'
-
-type RuntimeIngredient = Record<string, unknown> & {
-  slug?: string
-  name?: string
-  forms?: unknown
-  available_forms?: unknown
-  bioavailability_notes?: unknown
-  dosage?: unknown
-  typical_dosage?: unknown
-}
-
-type IngredientWithType = {
-  record: RuntimeIngredient
-  entityType: 'herb' | 'compound'
-}
-
-function clean(value: unknown): string {
-  if (typeof value !== 'string') return ''
-  return value.replace(/\s+/g, ' ').trim()
-}
-
-function toText(value: unknown): string {
-  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') return clean(String(value))
-  if (Array.isArray(value)) return value.map(toText).filter(Boolean).join('; ')
-  if (value && typeof value === 'object') {
-    return Object.entries(value as Record<string, unknown>)
-      .map(([key, nested]) => {
-        const text = toText(nested)
-        return text ? `${key.replace(/[_-]+/g, ' ')}: ${text}` : ''
-      })
-      .filter(Boolean)
-      .join('; ')
-  }
-  return ''
-}
-
-function toFormItems(value: unknown): string[] {
-  if (Array.isArray(value)) return value.map(toText).filter(Boolean)
-  if (value && typeof value === 'object') {
-    return Object.entries(value as Record<string, unknown>)
-      .map(([key, nested]) => {
-        const detail = toText(nested)
-        return detail ? `${key.replace(/[_-]+/g, ' ')}: ${detail}` : key.replace(/[_-]+/g, ' ')
-      })
-      .filter(Boolean)
-  }
-  const text = toText(value)
-  if (!text) return []
-  const split = text.split(/\s*[;|]\s*/).map((item) => item.trim()).filter(Boolean)
-  return split.length >= 2 ? split : []
-}
-
-function getForms(record: RuntimeIngredient): string[] {
-  const primary = toFormItems(record.forms)
-  const fallback = toFormItems(record.available_forms)
-  return [...new Set([...primary, ...fallback])]
-}
-
-async function getEligibleIngredients(): Promise<IngredientWithType[]> {
-  const { herbs, compounds } = await getUnifiedRuntimeRecords()
-  const bySlug = new Map<string, IngredientWithType>()
-
-  for (const record of herbs as RuntimeIngredient[]) {
-    const slug = clean(record.slug)
-    if (slug && getForms(record).length >= 2 && !bySlug.has(slug)) bySlug.set(slug, { record, entityType: 'herb' })
-  }
-  for (const record of compounds as RuntimeIngredient[]) {
-    const slug = clean(record.slug)
-    if (slug && getForms(record).length >= 2 && !bySlug.has(slug)) bySlug.set(slug, { record, entityType: 'compound' })
-  }
-
-  return [...bySlug.values()]
-}
+import {
+  cleanFormValue,
+  formValueToText,
+  getForms,
+  loadIndexableFormIngredients,
+} from '../form-data'
 
 export async function generateStaticParams() {
-  const ingredients = await getEligibleIngredients()
-  return ingredients.map(({ record }) => ({ slug: clean(record.slug) }))
+  const ingredients = await loadIndexableFormIngredients()
+  return ingredients.map((record) => ({ slug: cleanFormValue(record.slug) }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const ingredients = await getEligibleIngredients()
-  const match = ingredients.find(({ record }) => clean(record.slug) === slug)
-  if (!match) return {}
-  const name = clean(match.record.name) || slug
+  const ingredients = await loadIndexableFormIngredients()
+  const record = ingredients.find((item) => cleanFormValue(item.slug) === slug)
+  if (!record) return {}
+  const name = cleanFormValue(record.name) || slug
 
   return buildPageMetadata({
     title: `${name} Forms Compared: What Actually Differs?`,
@@ -100,16 +32,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function IngredientFormsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const ingredients = await getEligibleIngredients()
-  const match = ingredients.find(({ record }) => clean(record.slug) === slug)
-  if (!match) notFound()
+  const ingredients = await loadIndexableFormIngredients()
+  const record = ingredients.find((item) => cleanFormValue(item.slug) === slug)
+  if (!record) notFound()
 
-  const { record, entityType } = match
-  const name = clean(record.name) || slug
+  const name = cleanFormValue(record.name) || slug
   const forms = getForms(record)
-  const bioavailability = toText(record.bioavailability_notes)
-  const dose = toText(record.typical_dosage) || toText(record.dosage)
-  const profileHref = `/${entityType === 'herb' ? 'herbs' : 'compounds'}/${slug}/`
+  const bioavailability = formValueToText(record.bioavailability_notes)
+  const dose = formValueToText(record.typical_dosage) || formValueToText(record.dosage)
+  const profileHref = `/${record.entityType === 'compound' ? 'compounds' : 'herbs'}/${slug}/`
 
   return (
     <main className="container-page space-y-8 py-10">
