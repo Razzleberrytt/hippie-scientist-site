@@ -1,0 +1,13 @@
+[
+  { "id": "what-evidence-says", "name": "What the evidence actually says", "focus": "finding + evidence class + limitation" },
+  { "id": "claim-vs-evidence", "name": "Supplement claim vs evidence", "focus": "marketing claim contrasted with evidence strength" },
+  { "id": "one-study", "name": "One study does not mean what you think it means", "focus": "single-study limitations and replication" },
+  { "id": "mechanism-not-benefit", "name": "Mechanism ≠ proven benefit", "focus": "separate pathway findings from human outcomes" },
+  { "id": "grade-explainer", "name": "What an A/B/C/D evidence grade really means", "focus": "plain-language grading literacy" },
+  { "id": "popular-unpopular", "name": "Popular supplement, unpopular finding", "focus": "high-interest conclusion that conflicts with hype" },
+  { "id": "decent-evidence", "name": "This supplement actually has decent evidence", "focus": "moderate/strong human evidence with caveats" },
+  { "id": "test-tube", "name": "This one mostly has test-tube evidence", "focus": "preclinical evidence framed accurately" },
+  { "id": "form-matters", "name": "Why supplement form matters", "focus": "extract/form-specific generalizability" },
+  { "id": "dose-matters", "name": "Why dosage matters", "focus": "studied dose versus consumer dose context" },
+  { "id": "standardized-extracts", "name": "Why standardized extracts matter", "focus": "active-marker and branded-extract specificity" }
+]

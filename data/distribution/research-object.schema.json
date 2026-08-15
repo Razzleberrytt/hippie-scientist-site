@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thehippiescientist.net/schemas/research-object.json",
+  "title": "Hippie Scientist Research Distribution Object",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "finding",
+    "evidenceType",
+    "evidenceGrade",
+    "limitation",
+    "sourceUrl",
+    "lastVerified"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
+    "title": { "type": "string", "minLength": 8, "maxLength": 180 },
+    "finding": { "type": "string", "minLength": 20, "maxLength": 800 },
+    "evidenceType": {
+      "type": "string",
+      "enum": ["meta-analysis", "systematic-review", "RCT", "controlled-trial", "observational", "case-report", "preclinical", "narrative-review", "mixed"]
+    },
+    "evidenceGrade": { "type": "string", "enum": ["A", "B", "C", "D", "Avoid/Insufficient"] },
+    "limitation": { "type": "string", "minLength": 12, "maxLength": 600 },
+    "sourceUrl": { "type": "string", "pattern": "^https://thehippiescientist\\.net/.+" },
+    "primarySourceUrl": { "type": "string", "format": "uri" },
+    "trialCount": { "type": "integer", "minimum": 0 },
+    "participants": { "type": "integer", "minimum": 0 },
+    "doseContext": { "type": "string", "maxLength": 400 },
+    "populationContext": { "type": "string", "maxLength": 400 },
+    "series": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "lastVerified": { "type": "string", "format": "date" }
+  }
+}
