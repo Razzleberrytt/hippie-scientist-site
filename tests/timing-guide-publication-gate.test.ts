@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  getFoodTimingGuidance,
   getTiming,
+  selectDaypartTimingIngredients,
+  selectFoodTimingIngredients,
   selectIndexableTimingIngredients,
 } from '../app/guides/timing/timing-data'
 import type { RuntimeRecord } from '../src/types/content'
@@ -62,5 +65,56 @@ describe('timing guide publication gate', () => {
     expect(selected).toHaveLength(1)
     expect(selected[0]?.name).toBe('Published version')
     expect(getTiming(selected[0])).toBe('Night')
+  })
+
+  it('keeps morning-or-night subguides inside the same publication gate', () => {
+    const records: RuntimeRecord[] = [
+      {
+        slug: 'published-daypart',
+        best_taken: 'Take at bedtime',
+        indexability_status: 'PUBLISH',
+      },
+      {
+        slug: 'published-generic',
+        best_taken: 'Take consistently each day',
+        indexability_status: 'PUBLISH',
+      },
+      {
+        slug: 'noindex-daypart',
+        best_taken: 'Take in the morning',
+        indexability_status: 'NOINDEX',
+      },
+    ]
+
+    expect(selectDaypartTimingIngredients(records).map((record) => record.slug)).toEqual([
+      'published-daypart',
+    ])
+  })
+
+  it('keeps food subguides inside the same publication gate', () => {
+    const records: RuntimeRecord[] = [
+      {
+        slug: 'published-food',
+        best_taken: 'Take consistently',
+        bioavailability_notes: 'Take with a meal',
+        indexability_status: 'PUBLISH',
+      },
+      {
+        slug: 'published-no-food',
+        best_taken: 'Take in the morning',
+        indexability_status: 'PUBLISH',
+      },
+      {
+        slug: 'hidden-food',
+        best_taken: 'Take with food',
+        indexability_status: 'PUBLISH',
+        runtime_export_decision: 'hide',
+      },
+    ]
+
+    const selected = selectFoodTimingIngredients(records)
+
+    expect(selected.map((record) => record.slug)).toEqual(['published-food'])
+    expect(getFoodTimingGuidance(selected[0])).toBe('Take with a meal')
   })
 })
