@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import ShowMeTheStudies from '../ShowMeTheStudies'
 import type { Citation } from '../ShowMeTheStudies'
 
@@ -76,7 +76,49 @@ describe('ShowMeTheStudies', () => {
   it('omits the overflow disclosure entirely when 6 or fewer citations are given', () => {
     const citations = Array.from({ length: 6 }, (_, i) => citation({ title: `Study ${i}` }))
     render(<ShowMeTheStudies citations={citations} />)
-    // The whole module is one collapsed <details>; no nested "Show N more" disclosure.
     expect(screen.queryByText(/Show \d+ more/)).toBeNull()
+  })
+
+  it('lets visitors filter the evidence table by study class', () => {
+    render(
+      <ShowMeTheStudies
+        citations={[
+          citation({ title: 'RCT one', evidenceClass: 'randomized_controlled_trial' }),
+          citation({ title: 'Cohort one', evidenceClass: 'observational' }),
+          citation({ title: 'RCT two', evidenceClass: 'randomized_controlled_trial' }),
+        ]}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: 'Randomized controlled trial (2)' }))
+    expect(screen.getByText('Showing 2 of 3 studies.')).toBeTruthy()
+    expect(screen.getByText('RCT one')).toBeTruthy()
+    expect(screen.getByText('RCT two')).toBeTruthy()
+    expect(screen.queryByText('Cohort one')).toBeNull()
+  })
+
+  it('renders effect size, uncertainty, absolute difference and replication context together', () => {
+    render(
+      <ShowMeTheStudies
+        citations={[
+          citation({
+            title: 'Context-rich RCT',
+            evidenceClass: 'randomized_controlled_trial',
+            effectSize: 'SMD -0.35',
+            confidenceInterval: '95% CI -0.52 to -0.18',
+            absoluteDifference: '3 points',
+            statisticalSignificance: 'p < 0.01',
+            clinicalMagnitude: 'Small-to-moderate difference',
+            replication: 'Replicated in three trials',
+          }),
+        ]}
+      />,
+    )
+
+    expect(screen.getByText('SMD -0.35')).toBeTruthy()
+    expect(screen.getByText('95% CI -0.52 to -0.18')).toBeTruthy()
+    expect(screen.getByText('3 points')).toBeTruthy()
+    expect(screen.getByText('Small-to-moderate difference')).toBeTruthy()
+    expect(screen.getByText('Replicated in three trials')).toBeTruthy()
   })
 })
