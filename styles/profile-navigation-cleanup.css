@@ -1,0 +1,15 @@
+/*
+  Profile navigation cleanup.
+
+  Herb and compound profiles already render ProfileTOC, which provides the
+  complete section list as a mobile accordion and a desktop sticky sidebar.
+  The older segmented jump bar duplicates those same destinations immediately
+  beside it and adds visual/navigation noise.
+
+  Keep the legacy nav in the DOM for now because herb-profile-polish.css uses
+  its presence as the profile-page scoping hook. Hiding it removes the duplicate
+  UI without changing existing profile skin selectors or section anchors.
+*/
+main:has(nav[aria-label='Page sections']) nav[aria-label='Jump to profile sections'] {
+  display: none !important;
+}
