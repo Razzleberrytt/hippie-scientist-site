@@ -24,6 +24,11 @@ type Props = {
 
 type ResolvedSide = ResolvedRuntimeComparisonSide
 
+type EvidenceBand = {
+  label: 'A' | 'B' | 'C' | 'D' | 'Avoid/Insufficient'
+  score: number
+}
+
 function choiceChecks(side: ResolvedSide): string[] {
   if (!side.record) {
     return ['A canonical record is available and complete enough to support a real comparison.']
@@ -47,6 +52,59 @@ function neitherChecks(goal?: string): string[] {
   ]
 }
 
+function evidenceBand(record: RuntimeRecord | null): EvidenceBand | null {
+  if (!record) return null
+  const source = record as unknown as Record<string, unknown>
+  const rawValue = source.evidence_grade ?? source.evidence_level ?? source.grade
+  const raw = typeof rawValue === 'string' ? rawValue.trim().toUpperCase() : ''
+  if (!raw) return null
+
+  if (raw.includes('AVOID') || raw.includes('INSUFFICIENT')) return { label: 'Avoid/Insufficient', score: 0 }
+  if (/^A(?:\b|[+-])/.test(raw) || raw.includes('STRONG')) return { label: 'A', score: 4 }
+  if (/^B(?:\b|[+-])/.test(raw) || raw.includes('MODERATE')) return { label: 'B', score: 3 }
+  if (/^C(?:\b|[+-])/.test(raw) || raw.includes('LIMITED') || raw.includes('PRELIMINARY')) return { label: 'C', score: 2 }
+  if (/^D(?:\b|[+-])/.test(raw) || raw.includes('WEAK')) return { label: 'D', score: 1 }
+  return null
+}
+
+function quickVerdict(leftSide: ResolvedSide, rightSide: ResolvedSide): { heading: string; detail: string } {
+  const leftBand = evidenceBand(leftSide.record)
+  const rightBand = evidenceBand(rightSide.record)
+
+  if (leftBand && rightBand) {
+    if (leftBand.score > rightBand.score) {
+      return {
+        heading: `Evidence edge: ${leftSide.label}`,
+        detail: `${leftSide.label} has the stronger profile-level evidence grade in the canonical records (${leftBand.label} vs ${rightBand.label}). That is an overall evidence signal, not proof that it is better for every outcome.`,
+      }
+    }
+    if (rightBand.score > leftBand.score) {
+      return {
+        heading: `Evidence edge: ${rightSide.label}`,
+        detail: `${rightSide.label} has the stronger profile-level evidence grade in the canonical records (${rightBand.label} vs ${leftBand.label}). That is an overall evidence signal, not proof that it is better for every outcome.`,
+      }
+    }
+    return {
+      heading: 'No profile-level evidence winner',
+      detail: `Both canonical records currently carry the same profile-level evidence grade (${leftBand.label}). The useful decision therefore depends on outcome-specific human evidence, dose, formulation, and safety rather than the overall grade alone.`,
+    }
+  }
+
+  if (leftBand || rightBand) {
+    const gradedSide = leftBand ? leftSide : rightSide
+    const band = leftBand ?? rightBand
+    return {
+      heading: 'No defensible grade-to-grade winner',
+      detail: `Only ${gradedSide.label} currently exposes a canonical profile-level evidence grade (${band?.label}). The comparison should not manufacture a winner while the other side lacks a directly comparable grade.`,
+    }
+  }
+
+  return {
+    heading: 'No defensible evidence-grade winner yet',
+    detail: 'Neither canonical record exposes a comparable profile-level evidence grade, so this page keeps the verdict unresolved rather than converting mechanism or marketing language into a clinical ranking.',
+  }
+}
+
 export default async function RuntimeEvidenceComparison({ title, summary, left, right, goal }: Props) {
   const { herbs, compounds } = await getUnifiedRuntimeRecords()
   const runtimeHerbs = herbs as RuntimeRecord[]
@@ -56,6 +114,7 @@ export default async function RuntimeEvidenceComparison({ title, summary, left, 
 
   if (!leftSide.record || !rightSide.record) notFound()
 
+  const verdict = quickVerdict(leftSide, rightSide)
   const rows = [
     {
       label: 'Evidence strength',
@@ -121,13 +180,13 @@ export default async function RuntimeEvidenceComparison({ title, summary, left, 
       <header className="max-w-4xl space-y-4">
         <p className="eyebrow-label">Evidence-first comparison</p>
         <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">{title}</h1>
-        <p className="text-lg leading-8 text-muted">{summary}</p>
         {goal ? <p className="text-sm leading-6 text-muted">Primary decision context: <strong className="text-ink">{goal}</strong>.</p> : null}
       </header>
 
       <section className="card-premium max-w-5xl space-y-4 p-6 sm:p-8" aria-labelledby="quick-verdict">
         <p className="eyebrow-label">Quick verdict</p>
-        <h2 id="quick-verdict" className="text-2xl font-semibold text-ink">Start with the evidence, not the label</h2>
+        <h2 id="quick-verdict" className="text-2xl font-semibold text-ink">{verdict.heading}</h2>
+        <p className="text-base font-medium leading-7 text-ink">{verdict.detail}</p>
         <p className="leading-7 text-muted">{summary}</p>
         <p className="text-sm leading-6 text-muted">
           The table below is populated from each ingredient’s canonical runtime record. Missing fields stay visibly missing rather than being filled with mechanism-derived assumptions.
