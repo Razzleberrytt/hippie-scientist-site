@@ -2,6 +2,7 @@ type WhyWeBelieveThisProps = {
   evidenceSummary: string
   limitations?: string | null
   populationLimitations?: string | null
+  conclusionChangeTrigger?: string | null
   sourceCount?: number
 }
 
@@ -9,6 +10,7 @@ export default function WhyWeBelieveThis({
   evidenceSummary,
   limitations,
   populationLimitations,
+  conclusionChangeTrigger,
   sourceCount = 0,
 }: WhyWeBelieveThisProps) {
   return (
@@ -28,6 +30,12 @@ export default function WhyWeBelieveThis({
         ) : null}
         {populationLimitations ? (
           <p><strong className="text-ink">Population limits:</strong> {populationLimitations}</p>
+        ) : null}
+        {conclusionChangeTrigger ? (
+          <div className="border-t border-brand-900/10 pt-3">
+            <p className="font-semibold text-ink">What would change our conclusion?</p>
+            <p className="mt-1">{conclusionChangeTrigger}</p>
+          </div>
         ) : null}
       </div>
     </details>

@@ -103,6 +103,7 @@ export default function EvidenceClaimCard({
         evidenceSummary={claim.evidence_summary}
         limitations={claim.limitations}
         populationLimitations={claim.population_limitations}
+        conclusionChangeTrigger={claim.conclusion_change_trigger}
         sourceCount={sources.length}
       />
 
