@@ -8,7 +8,10 @@
  *
  * Only actual <a href> destinations are audited. Next.js can serialize source
  * data into script payloads inside HTML; those non-clickable strings must not
- * be mistaken for outbound commerce links. The configured production tag may
+ * be mistaken for outbound commerce links. HTML character references inside
+ * href attributes are decoded before URL parsing so characters such as an
+ * apostrophe (for example `&#x27;`) cannot be mistaken for a URL fragment and
+ * hide a valid tag parameter from the audit. The configured production tag may
  * come from AMAZON_AFFILIATE_TAG or the repository default; this guard does
  * not hard-code one valid production tag.
  *
@@ -36,13 +39,41 @@ let untaggedRefs = 0;
 const badUrls = new Set();
 const untaggedUrls = new Set();
 const anchorPattern = /<a\b[^>]*\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>/gi;
+const htmlEntityPattern = /&(?:#(\d+)|#x([0-9a-f]+)|(amp|quot|apos|lt|gt));/gi;
+const namedHtmlEntities = {
+  amp: '&',
+  quot: '"',
+  apos: "'",
+  lt: '<',
+  gt: '>',
+};
 
 function recordSample(target, file, rawUrl) {
   if (target.size < 5) target.add(`${path.relative(ROOT, file)} :: ${rawUrl}`);
 }
 
+function decodeHtmlAttribute(value) {
+  return value.replace(htmlEntityPattern, (entity, decimal, hexadecimal, named) => {
+    if (decimal) {
+      const codePoint = Number.parseInt(decimal, 10);
+      return Number.isSafeInteger(codePoint) && codePoint >= 0 && codePoint <= 0x10ffff
+        ? String.fromCodePoint(codePoint)
+        : entity;
+    }
+
+    if (hexadecimal) {
+      const codePoint = Number.parseInt(hexadecimal, 16);
+      return Number.isSafeInteger(codePoint) && codePoint >= 0 && codePoint <= 0x10ffff
+        ? String.fromCodePoint(codePoint)
+        : entity;
+    }
+
+    return namedHtmlEntities[String(named).toLowerCase()] ?? entity;
+  });
+}
+
 function inspectAmazonUrl(rawUrl, file) {
-  const decodedUrl = rawUrl.replace(/&amp;/gi, '&');
+  const decodedUrl = decodeHtmlAttribute(rawUrl);
 
   try {
     const url = new URL(decodedUrl);
