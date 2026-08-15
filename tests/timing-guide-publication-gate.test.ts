@@ -91,11 +91,10 @@ describe('timing guide publication gate', () => {
     ])
   })
 
-  it('keeps food subguides inside the same publication gate', () => {
+  it('keeps food subguides inside the same publication gate without requiring best_taken', () => {
     const records: RuntimeRecord[] = [
       {
         slug: 'published-food',
-        best_taken: 'Take consistently',
         bioavailability_notes: 'Take with a meal',
         indexability_status: 'PUBLISH',
       },
@@ -106,7 +105,7 @@ describe('timing guide publication gate', () => {
       },
       {
         slug: 'hidden-food',
-        best_taken: 'Take with food',
+        bioavailability_notes: 'Take with food',
         indexability_status: 'PUBLISH',
         runtime_export_decision: 'hide',
       },
