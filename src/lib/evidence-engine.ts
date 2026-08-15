@@ -38,6 +38,7 @@ export type EvidenceEngineClaim = {
   consumer_dose_match?: string
   branded_extract?: string
   extract_generalizable?: boolean | null
+  conclusion_change_trigger?: string
 }
 
 export type EvidenceEngineConfig = {
