@@ -35,7 +35,7 @@ export interface CompetitorGapReportArtifact {
   gaps: CompetitorGap[]
 }
 
-const STRIP_ROUTE_PREFIXES = new Set([
+const STRIP_ROUTE_SEGMENTS = new Set([
   'herbs',
   'compounds',
   'guides',
@@ -56,7 +56,7 @@ function humanizeSlug(value: string): string {
 
 function routeTopic(route: string, metaTitle?: string): string {
   const segments = route.split(/[?#]/)[0].split('/').filter(Boolean)
-  const useful = segments.filter((segment, index) => index !== 0 || !STRIP_ROUTE_PREFIXES.has(segment))
+  const useful = segments.filter((segment) => !STRIP_ROUTE_SEGMENTS.has(segment))
   const slugTopic = humanizeSlug(useful.join(' '))
   if (slugTopic) return slugTopic
 
