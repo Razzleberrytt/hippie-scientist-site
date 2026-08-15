@@ -13,6 +13,7 @@ concurrency:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   production-content-lint:
@@ -39,7 +40,40 @@ jobs:
       - name: Run production content lint
         run: node scripts/ci/production-content-lint.mjs
 
-      - name: Upload production content quality report
+      - name: Snapshot built production quality
+        run: node scripts/ci/build-production-quality-snapshot.mjs
+
+      - name: Download latest successful main quality baseline
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          mkdir -p .quality-baseline
+          run_id="$(gh run list --workflow 'Production Content Lint' --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId // empty')"
+          if [ -z "$run_id" ]; then
+            echo 'No successful main baseline run exists yet; this PR will bootstrap comparison coverage.'
+            exit 0
+          fi
+          if ! gh run download "$run_id" --name production-quality-baseline --dir .quality-baseline; then
+            echo 'Latest successful main run predates the baseline artifact; comparison will bootstrap after the next main run.'
+          fi
+
+      - name: Compare against latest main production snapshot
+        env:
+          PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
+          REQUIRE_QUALITY_CHANGE_EXPLANATION: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
+        run: node scripts/ci/compare-production-quality-snapshot.mjs
+
+      - name: Publish main production quality baseline
+        if: github.event_name == 'push' && success()
+        uses: actions/upload-artifact@v7
+        with:
+          name: production-quality-baseline
+          path: public/data/reports/production-quality-snapshot.json
+          retention-days: 90
+
+      - name: Upload production content quality reports
         if: always() && hashFiles('public/data/reports/production-content-lint.*') != ''
         uses: actions/upload-artifact@v7
         with:
@@ -47,4 +81,8 @@ jobs:
           path: |
             public/data/reports/production-content-lint.json
             public/data/reports/production-content-lint.md
+            public/data/reports/production-quality-snapshot.json
+            public/data/reports/production-quality-regression.json
+            public/data/reports/production-quality-regression.md
+          if-no-files-found: ignore
           retention-days: 30
