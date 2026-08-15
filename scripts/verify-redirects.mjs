@@ -207,6 +207,71 @@ if (fs.existsSync(sitemapPath)) {
   }
 }
 
+// Cloudflare does not follow redirect chains server-side: a rule whose target
+// is itself a redirect source costs crawlers and users a second round trip.
+// `normalize-redirects.mjs` flattens chains in public/_redirects, but it runs
+// before `apply-redirect-overrides.mjs` prepends the override rules — and a
+// prepended override that retires page B turns every existing `A -> B` rule
+// into a chain. Those chains only exist in the built file, so they are checked
+// here.
+// `:splat`/`:param` placeholders must not be resolved as literal routes. Match
+// a colon that starts a path segment so the `https://` protocol colon in the
+// absolute www rules is not mistaken for one.
+const hasPlaceholder = (value) => value.includes('*') || /(^|\/):[a-z]/i.test(value)
+
+/** Pathname of a redirect target, or null if it is not a route on our host. */
+const routeOfTarget = (target) => {
+  if (target.startsWith('/')) return target.replace(/\/+$/, '') || '/'
+  if (!/^https?:\/\//i.test(target)) return null
+  try {
+    const url = new URL(target)
+    if (url.hostname.replace(/^www\./, '') !== 'thehippiescientist.net') return null
+    return url.pathname.replace(/\/+$/, '') || '/'
+  } catch {
+    return null
+  }
+}
+
+const redirectSourcePaths = new Map()
+for (const line of lines) {
+  const [source, target = '', status = ''] = line.split(/\s+/)
+  if (!/^30[1278]$/.test(status)) continue
+  if (hasPlaceholder(source) || !source.startsWith('/')) continue
+
+  const normalized = source.replace(/\/+$/, '') || '/'
+  // A rule that only adds the trailing slash is the canonicalization itself
+  // (`/safety-checker -> /safety-checker/`), not a hop to a different page.
+  if (routeOfTarget(target) === normalized) continue
+  if (!redirectSourcePaths.has(normalized)) redirectSourcePaths.set(normalized, target)
+}
+
+const chained = []
+for (const line of lines) {
+  const [source, target = '', status = ''] = line.split(/\s+/)
+  if (!/^30[1278]$/.test(status)) continue
+  if (hasPlaceholder(source) || hasPlaceholder(target)) continue
+
+  const normalizedTarget = routeOfTarget(target)
+  if (!normalizedTarget) continue
+
+  const normalizedSource = source.replace(/\/+$/, '') || '/'
+  if (normalizedTarget === normalizedSource) continue
+
+  const nextHop = redirectSourcePaths.get(normalizedTarget)
+  if (nextHop) chained.push(`${line}  ->  ${normalizedTarget} then redirects to ${nextHop}`)
+}
+
+if (chained.length) {
+  console.error(
+    `[verify-redirects] ${chained.length} redirect rule(s) point at another redirect source (multi-hop chain):`,
+  )
+  for (const rule of chained.slice(0, 25)) {
+    console.error(`[verify-redirects]   ${rule}`)
+  }
+  process.exit(1)
+}
+
 console.log(`[verify-redirects] OK: ${requiredRedirects.length} required rules verified`)
 console.log(`[verify-redirects] OK: all ${lines.length} redirect targets resolve to exported pages`)
 console.log('[verify-redirects] OK: no sitemap URL is shadowed by a redirect')
+console.log('[verify-redirects] OK: no redirect rule chains through another redirect')
