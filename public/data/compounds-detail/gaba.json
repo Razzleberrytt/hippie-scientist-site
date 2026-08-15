@@ -2,81 +2,269 @@
   "id": "gaba",
   "slug": "gaba",
   "name": "GABA Oral",
-  "summary": "Limited evidence for stress reduction.",
-  "description": "Oral GABA is tracked for stress-related outcomes, with biological plausibility tied to CNS inhibitory signaling; human evidence remains limited and mixed.",
-  "compoundClass": "",
+  "summary": "Oral GABA has limited human evidence for acute stress-related outcomes and very limited, mixed evidence for sleep. Small placebo-controlled trials report signals on stress reactivity, sleep latency, sleep efficiency, and selected mood measures, but preparations, doses, populations, endpoints, and study quality vary. Oral GABA supplements should not be treated as interchangeable with prescription GABAergic drugs or with probiotic interventions that alter GABA production.",
+  "description": "A 2020 systematic review of 14 placebo-controlled human trials concluded that evidence for oral GABA was limited for stress and very limited for sleep. Individual studies include a 63-person crossover trial in which 100 mg acutely altered EEG and mood responses during a mental-stress task, and a small 2018 randomized insomnia trial in which 300 mg/day of fermented-rice-germ GABA for four weeks improved sleep latency and sleep efficiency within the GABA group. A 2024 trial in 30 sedentary women with overweight or obesity reported sleep, emotional, and heart-rate-variability improvements with 200 mg/day for 90 days alongside an exercise program, so the effect cannot be generalized cleanly to other populations or contexts. Mechanistically, whether supplemental GABA meaningfully enters the human brain remains unresolved; peripheral absorption is not the same as demonstrated central nervous system exposure.",
+  "compoundClass": "Amino acid / inhibitory neurotransmitter",
   "mechanisms": [
-    "Neurotransmitter Modulation",
-    "Neuroprotective Activity",
-    "Stress Response Modulation",
-    "Central Inhibitory Neurotransmission Modulation",
-    "Stress Response Attenuation",
-    "GABA-A Receptor Signaling Support"
+    "GABAergic signaling context",
+    "Stress response modulation",
+    "Peripheral and enteric signaling hypotheses"
   ],
-  "targets": [],
+  "targets": [
+    "GABA receptors (mechanistic context; oral supplement target engagement in the human brain is not established)"
+  ],
   "pathways": [],
   "foundIn": [],
-  "bioavailability": "",
-  "safetyNotes": "Generally safe; limited data.",
-  "evidenceLevel": "",
+  "bioavailability": "Orally administered GABA can appear in peripheral blood, but human evidence does not establish how much supplemental GABA crosses the blood-brain barrier or whether central exposure explains reported behavioral effects.",
+  "safetyNotes": "Short-term human studies are too small and heterogeneous to establish a comprehensive safety profile. In one four-week insomnia trial, adverse events occurred in 4 of 40 participants (10%) and no severe adverse events were reported. The available trials do not establish long-term safety, pregnancy or breastfeeding safety, or clinically important medication-interaction risks.",
+  "evidenceLevel": "Limited, mixed human evidence",
+  "evidence_tier": "Limited Human Evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
-    "reason": ""
+    "reason": "source-backed oral-GABA evidence review"
   },
   "evidence": {
-    "reviewStatus": "sourced_pending_review",
-    "sourceCount": 1,
+    "reviewStatus": "sourced",
+    "sourceCount": 7,
     "sourceIds": [
-      "src_1ea4b8e52a2c"
+      "src_gaba_hepsomali_2020",
+      "src_gaba_yoto_2012",
+      "src_gaba_byun_2018",
+      "src_gaba_yamatsu_2016",
+      "src_gaba_guimaraes_2024",
+      "src_gaba_boonstra_2015",
+      "src_gaba_lplantarum_2026"
     ],
-    "claimCount": 1,
+    "claimCount": 7,
     "claimIds": [
-      "clm_45e7572b4781"
+      "clm_gaba_overall_evidence",
+      "clm_gaba_acute_stress",
+      "clm_gaba_insomnia_trial",
+      "clm_gaba_recent_context_trial",
+      "clm_gaba_mechanism_uncertain",
+      "clm_gaba_safety_boundary",
+      "clm_gaba_probiotic_non_equivalence"
     ]
   },
   "claimMap": [
     {
-      "id": "clm_45e7572b4781",
-      "claim": "v9.5: Recent sleep data applies to L. plantarum Lp815 increasing urinary GABA, not generic GABA capsules; keep generic GABA blocked.",
+      "id": "clm_gaba_overall_evidence",
+      "claim": "A 2020 systematic review of 14 placebo-controlled human trials concluded that oral GABA had limited evidence for stress-related benefits and very limited evidence for sleep benefits; the literature was too small and mixed for firm efficacy conclusions.",
       "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Recent sleep data applies to L. plantarum Lp815 increasing urinary GABA, not generic GABA capsules; keep generic GABA blocked.",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "notes": "This systematic-review conclusion is the primary evidence anchor and intentionally limits stronger claims from individual small trials.",
       "qualifiers": {
-        "direction": "sleep, anxiety",
-        "dose_or_duration": "Product-specific GABA dosing varies; stronger evidence may exist for specific probiotic strains that affect GABA rather than generic GABA supplements",
-        "study_id": "ent_study_1f102f4dd916"
+        "evidence_scope": "Natural or biosynthetic oral GABA in placebo-controlled human trials",
+        "studies_reviewed": "14",
+        "certainty": "Limited for stress; very limited for sleep"
       },
       "sourceRefIds": [
-        "src_1ea4b8e52a2c"
+        "src_gaba_hepsomali_2020"
+      ]
+    },
+    {
+      "id": "clm_gaba_acute_stress",
+      "claim": "In a randomized single-blind placebo-controlled crossover study of 63 adults, a single 100 mg oral GABA dose altered EEG responses and Profile of Mood States scores during a mental-stress task in a direction interpreted as reduced stress reactivity; this acute experimental result does not establish treatment efficacy for an anxiety or stress disorder.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.8,
+      "reviewStatus": "approved",
+      "notes": "The outcome is a laboratory stress-response signal rather than a clinical disorder endpoint.",
+      "qualifiers": {
+        "population": "63 adults",
+        "dose_or_duration": "100 mg once",
+        "design": "Randomized, single-blind, placebo-controlled crossover"
+      },
+      "sourceRefIds": [
+        "src_gaba_yoto_2012"
+      ]
+    },
+    {
+      "id": "clm_gaba_insomnia_trial",
+      "claim": "In a small randomized double-blind placebo-controlled trial of 40 people with insomnia symptoms, 300 mg/day of fermented-rice-germ GABA for four weeks reduced sleep latency and increased sleep efficiency within the GABA group; the 30-to-10 allocation and small sample limit confidence and generalizability.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.76,
+      "reviewStatus": "approved",
+      "notes": "The primary paper reports objective and subjective sleep measures. This wording avoids implying that oral GABA is an established insomnia treatment.",
+      "qualifiers": {
+        "population": "40 people with insomnia symptoms; 30 GABA and 10 placebo",
+        "dose_or_duration": "300 mg/day for four weeks",
+        "preparation": "GABA extracted from unpolished/fermented rice germ"
+      },
+      "sourceRefIds": [
+        "src_gaba_byun_2018"
+      ]
+    },
+    {
+      "id": "clm_gaba_recent_context_trial",
+      "claim": "A 2024 double-blind placebo-controlled trial in 30 sedentary women with overweight or obesity reported improvements in habitual sleep efficiency, selected emotional measures, and heart-rate variability after 200 mg/day of GABA for 90 days, but both groups also participated in physical exercise, making the finding population- and context-specific.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.7,
+      "reviewStatus": "approved",
+      "notes": "The trial adds newer human evidence but does not overcome the broader literature's heterogeneity or establish efficacy in the general population.",
+      "qualifiers": {
+        "population": "30 sedentary women with overweight or obesity",
+        "dose_or_duration": "200 mg/day for 90 days",
+        "cointervention": "Both groups participated in physical exercise"
+      },
+      "sourceRefIds": [
+        "src_gaba_guimaraes_2024"
+      ]
+    },
+    {
+      "id": "clm_gaba_mechanism_uncertain",
+      "claim": "The mechanism of oral GABA supplements remains uncertain. Human work shows peripheral absorption after oral administration, but the literature does not establish that a clinically meaningful amount of supplemental GABA crosses the human blood-brain barrier; enteric or other peripheral pathways remain plausible alternatives.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.86,
+      "reviewStatus": "approved",
+      "notes": "Blood detection after oral dosing should not be presented as evidence of brain penetration or receptor engagement in the central nervous system.",
+      "qualifiers": {
+        "directness": "Mechanistic uncertainty",
+        "important_distinction": "Peripheral absorption is not proof of central nervous system exposure"
+      },
+      "sourceRefIds": [
+        "src_gaba_yamatsu_2016",
+        "src_gaba_boonstra_2015"
+      ]
+    },
+    {
+      "id": "clm_gaba_safety_boundary",
+      "claim": "The available oral-GABA trials do not establish a comprehensive long-term safety or interaction profile. In the 2018 four-week insomnia trial, adverse events occurred in 4 of 40 participants and no severe adverse events were reported; this small trial cannot exclude uncommon harms or establish pregnancy, breastfeeding, or medication-combination safety.",
+      "predicate": "has_safety_warning",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.83,
+      "reviewStatus": "approved",
+      "notes": "This claim separates observed short-term trial tolerability from unstudied safety domains.",
+      "qualifiers": {
+        "duration": "Four weeks in the cited insomnia trial",
+        "evidence_gap": "Long-term, reproductive, and clinically important interaction safety"
+      },
+      "sourceRefIds": [
+        "src_gaba_byun_2018",
+        "src_gaba_hepsomali_2020"
+      ]
+    },
+    {
+      "id": "clm_gaba_probiotic_non_equivalence",
+      "claim": "A 2026 randomized trial of Lactiplantibacillus plantarum Lp815 should not be counted as evidence that generic oral GABA supplements improve sleep: the intervention was a probiotic given at 5 billion CFU/day, and increased urinary GABA was measured only in a small subcohort.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.97,
+      "reviewStatus": "approved",
+      "notes": "This directly corrects the previous profile, whose sole evidence citation was PMID 41554764 despite that study testing a probiotic rather than oral GABA itself.",
+      "qualifiers": {
+        "intervention": "Lactiplantibacillus plantarum Lp815, not oral GABA",
+        "dose": "5 billion CFU/day",
+        "urinary_GABA_subcohort": "17 participants"
+      },
+      "sourceRefIds": [
+        "src_gaba_lplantarum_2026"
       ]
     }
   ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
+  "sitemap_included": true,
   "sources": [
     {
-      "id": "src_1ea4b8e52a2c",
-      "title": "PubMed PMID 41554764. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41554764/",
-      "pmid": "41554764",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 41554764. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "id": "src_gaba_hepsomali_2020",
+      "title": "Effects of Oral Gamma-Aminobutyric Acid (GABA) Administration on Stress and Sleep in Humans: A Systematic Review",
+      "authors": "Hepsomali P et al.",
+      "year": 2020,
+      "url": "https://doi.org/10.3389/fnins.2020.00923",
+      "doi": "10.3389/fnins.2020.00923",
+      "pmid": "33041752",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved",
+      "note": "Reviewed 14 placebo-controlled human studies and concluded limited evidence for stress and very limited evidence for sleep. First author affiliation was Unilever R&D."
+    },
+    {
+      "id": "src_gaba_yoto_2012",
+      "title": "Oral intake of γ-aminobutyric acid affects mood and activities of central nervous system during stressed condition induced by mental tasks",
+      "authors": "Yoto A et al.",
+      "year": 2012,
+      "url": "https://doi.org/10.1007/s00726-011-1206-6",
+      "doi": "10.1007/s00726-011-1206-6",
+      "pmid": "22203366",
+      "studyType": "Randomized placebo-controlled crossover trial",
       "reviewStatus": "approved"
+    },
+    {
+      "id": "src_gaba_byun_2018",
+      "title": "Safety and Efficacy of Gamma-Aminobutyric Acid from Fermented Rice Germ in Patients with Insomnia Symptoms: A Randomized, Double-Blind Trial",
+      "authors": "Byun JI et al.",
+      "year": 2018,
+      "url": "https://doi.org/10.3988/jcn.2018.14.3.291",
+      "doi": "10.3988/jcn.2018.14.3.291",
+      "pmid": "29856155",
+      "studyType": "Randomized double-blind placebo-controlled trial",
+      "reviewStatus": "approved",
+      "note": "40 participants; 300 mg/day for four weeks; adverse events occurred in four participants and no severe adverse events were reported. Authors declared no financial conflicts of interest."
+    },
+    {
+      "id": "src_gaba_yamatsu_2016",
+      "title": "Effect of oral γ-aminobutyric acid (GABA) administration on sleep and its absorption in humans",
+      "authors": "Yamatsu A et al.",
+      "year": 2016,
+      "url": "https://doi.org/10.1007/s10068-016-0076-9",
+      "doi": "10.1007/s10068-016-0076-9",
+      "pmid": "30263304",
+      "studyType": "Randomized single-blind placebo-controlled crossover trial",
+      "reviewStatus": "approved",
+      "note": "Reported sleep and peripheral blood GABA findings. Author affiliation listed as Pharma Foods International Co., Ltd.; peripheral absorption does not establish brain penetration."
+    },
+    {
+      "id": "src_gaba_guimaraes_2024",
+      "title": "GABA Supplementation, Increased Heart-Rate Variability, Emotional Response, Sleep Efficiency and Reduced Depression in Sedentary Overweight Women Undergoing Physical Exercise: Placebo-Controlled, Randomized Clinical Trial",
+      "authors": "Guimarães AP et al.",
+      "year": 2024,
+      "url": "https://doi.org/10.1080/19390211.2024.2308262",
+      "doi": "10.1080/19390211.2024.2308262",
+      "pmid": "38321713",
+      "studyType": "Randomized double-blind placebo-controlled trial",
+      "reviewStatus": "approved",
+      "note": "30 sedentary women with overweight or obesity; 200 mg/day for 90 days; both groups participated in physical exercise."
+    },
+    {
+      "id": "src_gaba_boonstra_2015",
+      "title": "Neurotransmitters as food supplements: the effects of GABA on brain and behavior",
+      "authors": "Boonstra E et al.",
+      "year": 2015,
+      "url": "https://doi.org/10.3389/fpsyg.2015.01520",
+      "doi": "10.3389/fpsyg.2015.01520",
+      "pmid": "26500584",
+      "studyType": "Review",
+      "reviewStatus": "approved",
+      "note": "Reviews contradictory blood-brain-barrier evidence and concludes the mechanism of action of oral GABA supplements remains unclear."
+    },
+    {
+      "id": "src_gaba_lplantarum_2026",
+      "title": "Lactiplantibacillus plantarum Lp815 improves sleep and increases urinary GABA in a randomized, double-blind, placebo-controlled study of sleep disturbance",
+      "authors": "Grant AD et al.",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41598-025-27861-6",
+      "doi": "10.1038/s41598-025-27861-6",
+      "pmid": "41554764",
+      "studyType": "Randomized double-blind placebo-controlled probiotic trial",
+      "reviewStatus": "approved",
+      "note": "Context/exclusion source only: intervention was 5 billion CFU/day L. plantarum Lp815, not oral GABA. Study was funded by Verb Biotics, LLC."
     }
   ],
-  "dosage": "powder or capsule",
-  "typical_dosage": "powder or capsule",
+  "dosage": "Study context only: oral-GABA trials have used materially different regimens, including 100 mg as a single acute dose, 300 mg/day for four weeks in a small insomnia trial, and 200 mg/day for 90 days in a small exercise-context trial. These are research exposures, not a universal recommended dose.",
+  "typical_dosage": "Study context only: oral-GABA trials have used materially different regimens, including 100 mg as a single acute dose, 300 mg/day for four weeks in a small insomnia trial, and 200 mg/day for 90 days in a small exercise-context trial. These are research exposures, not a universal recommended dose.",
   "contraindications": [
-    "Limited data."
+    "A source-supported universal contraindication list is not established by the reviewed oral-GABA trials; pregnancy, breastfeeding, long-term use, and clinically important medication interactions remain inadequately characterized."
   ]
 }
