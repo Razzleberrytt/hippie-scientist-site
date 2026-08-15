@@ -3,80 +3,24 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import Disclaimer from '@/src/components/Disclaimer'
-import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index'
 import { buildPageMetadata } from '@/src/lib/seo'
-
-type RuntimeIngredient = Record<string, unknown> & {
-  slug?: string
-  name?: string
-  interactions?: unknown
-  safety?: unknown
-  safety_confidence?: unknown
-  evidence_grade?: unknown
-}
-
-type IngredientWithType = {
-  record: RuntimeIngredient
-  entityType: 'herb' | 'compound'
-}
-
-function clean(value: unknown): string {
-  if (typeof value !== 'string') return ''
-  return value.replace(/\s+/g, ' ').trim()
-}
-
-function labelKey(value: string): string {
-  return value.replace(/[_-]+/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())
-}
-
-function toText(value: unknown): string {
-  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') return clean(String(value))
-  if (Array.isArray(value)) return value.map(toText).filter(Boolean).join('; ')
-  if (value && typeof value === 'object') {
-    return Object.entries(value as Record<string, unknown>)
-      .map(([key, nested]) => {
-        const text = toText(nested)
-        return text ? `${labelKey(key)}: ${text}` : ''
-      })
-      .filter(Boolean)
-      .join('; ')
-  }
-  return ''
-}
-
-function hasMeaningfulInteractions(record: RuntimeIngredient): boolean {
-  const text = toText(record.interactions)
-  if (!text) return false
-  return !/^(none|none known|unknown|n\/?a|not available|no data|no known interactions?)\.?$/i.test(text)
-}
-
-async function getEligibleIngredients(): Promise<IngredientWithType[]> {
-  const { herbs, compounds } = await getUnifiedRuntimeRecords()
-  const bySlug = new Map<string, IngredientWithType>()
-
-  for (const record of herbs as RuntimeIngredient[]) {
-    const slug = clean(record.slug)
-    if (slug && hasMeaningfulInteractions(record) && !bySlug.has(slug)) bySlug.set(slug, { record, entityType: 'herb' })
-  }
-  for (const record of compounds as RuntimeIngredient[]) {
-    const slug = clean(record.slug)
-    if (slug && hasMeaningfulInteractions(record) && !bySlug.has(slug)) bySlug.set(slug, { record, entityType: 'compound' })
-  }
-
-  return [...bySlug.values()]
-}
+import {
+  cleanInteractionValue,
+  interactionValueToText,
+  loadIndexableInteractionIngredients,
+} from '../interaction-data'
 
 export async function generateStaticParams() {
-  const ingredients = await getEligibleIngredients()
-  return ingredients.map(({ record }) => ({ slug: clean(record.slug) }))
+  const ingredients = await loadIndexableInteractionIngredients()
+  return ingredients.map((record) => ({ slug: cleanInteractionValue(record.slug) }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const ingredients = await getEligibleIngredients()
-  const match = ingredients.find(({ record }) => clean(record.slug) === slug)
-  if (!match) return {}
-  const name = clean(match.record.name) || slug
+  const ingredients = await loadIndexableInteractionIngredients()
+  const record = ingredients.find((item) => cleanInteractionValue(item.slug) === slug)
+  if (!record) return {}
+  const name = cleanInteractionValue(record.name) || slug
 
   return buildPageMetadata({
     title: `${name} Interactions: Evidence & Safety Context`,
@@ -87,17 +31,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function IngredientInteractionsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const ingredients = await getEligibleIngredients()
-  const match = ingredients.find(({ record }) => clean(record.slug) === slug)
-  if (!match) notFound()
+  const ingredients = await loadIndexableInteractionIngredients()
+  const record = ingredients.find((item) => cleanInteractionValue(item.slug) === slug)
+  if (!record) notFound()
 
-  const { record, entityType } = match
-  const name = clean(record.name) || slug
-  const interactionText = toText(record.interactions)
-  const safetyText = toText(record.safety)
-  const safetyConfidence = toText(record.safety_confidence)
-  const grade = clean(record.evidence_grade)
-  const profileHref = `/${entityType === 'herb' ? 'herbs' : 'compounds'}/${slug}/`
+  const name = cleanInteractionValue(record.name) || slug
+  const interactionText = interactionValueToText(record.interactions)
+  const safetyText = interactionValueToText(record.safety)
+  const safetyConfidence = interactionValueToText(record.safety_confidence)
+  const grade = cleanInteractionValue(record.evidence_grade)
+  const profileHref = `/${record.entityType === 'compound' ? 'compounds' : 'herbs'}/${slug}/`
 
   return (
     <main className="container-page space-y-8 py-10">
