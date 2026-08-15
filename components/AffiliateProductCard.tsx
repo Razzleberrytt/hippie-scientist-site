@@ -53,7 +53,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
   return (
     <article className={`flex h-full flex-col overflow-hidden rounded-2xl border border-brand-900/10 bg-white/80 shadow-sm dark:border-white/10 dark:bg-white/5 ${compact ? 'p-4' : 'p-5'}`}>
       {imageUrl && isOptimizableRemoteImage(imageUrl) ? (
-        <div className='mb-4 aspect-[4/3] overflow-hidden rounded-xl border border-brand-900/10 bg-brand-50 dark:border-white/10 dark:bg-white/5'>
+        <div className='mb-4 aspect-[4/3] overflow-hidden rounded-xl border border-brand-900/10 bg-brand-50 p-3 dark:border-white/10 dark:bg-white/5'>
           <Image
             src={imageUrl}
             alt={title}
@@ -62,7 +62,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
             sizes="(max-width: 767px) 272px, (max-width: 1024px) 33vw, 320px"
             quality={78}
             decoding="async"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
           />
         </div>
       ) : null}
