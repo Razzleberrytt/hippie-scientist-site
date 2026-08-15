@@ -87,14 +87,24 @@ describe('Botanical Activity Atlas runtime fallbacks', () => {
       record({ herb_slug: 'ashwagandha', compound: 'Noise', relationship: 'compared_with' }),
     ])
 
-    expect(mapped.get('ashwagandha')).toEqual(['Withanolides', 'Withaferin A'])
+    expect(mapped.get('ashwagandha')).toEqual([
+      { compound: 'Withanolides', relationship: 'contains_compound' },
+      { compound: 'Withaferin A', relationship: 'contains_compound' },
+    ])
   })
 
-  it('merges canonical mapped compounds without duplicates and infers chemistry classes', () => {
+  it('merges canonical mapped compounds without duplicates and preserves relationship provenance', () => {
     const atlasRecord = toAtlasRecord(record({ slug: 'ashwagandha', effects: ['calming'], active_constituents: ['Withaferin A'] }))
-    const enriched = enrichAtlasRecordWithMappedCompounds(atlasRecord, ['withaferin a', 'Withanolides'])
+    const enriched = enrichAtlasRecordWithMappedCompounds(atlasRecord, [
+      { compound: 'withaferin a', relationship: 'contains_compound' },
+      { compound: 'Withanolides', relationship: 'contains_compound' },
+    ])
 
     expect(enriched.compounds).toEqual(['withaferin a', 'Withanolides'])
     expect(enriched.compoundClasses).toContain('Withanolides')
+    expect(enriched.sourceRelationships).toEqual([
+      'Test Herb contains_compound withaferin a',
+      'Test Herb contains_compound Withanolides',
+    ])
   })
 })
