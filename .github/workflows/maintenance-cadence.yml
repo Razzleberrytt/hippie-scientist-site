@@ -51,6 +51,12 @@ jobs:
       - name: Search Console opportunity report
         run: npm run seo:opportunities
 
+      - name: AI citation telemetry
+        run: node scripts/seo/ai-citation-tracker.mjs --label=$(date -u +%F)
+
+      - name: AI source-gap and competitor citation audit
+        run: node scripts/seo/ai-source-gap-audit.mjs --label=$(date -u +%F)
+
       - name: Upload weekly reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -60,6 +66,7 @@ jobs:
           retention-days: 30
           path: |
             ops/reports/**
+            ops/ai-citations/**
             artifacts/**
 
   monthly-decay:
