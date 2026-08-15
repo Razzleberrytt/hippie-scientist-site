@@ -60,6 +60,11 @@ export type EvidenceEngineSource = {
   url: string
   source_note?: string
   sample_size?: number | null
+  dose?: string
+  duration?: string
+  population?: string
+  outcome?: string
+  result?: string
   published: boolean
 }
 
