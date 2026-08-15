@@ -4,41 +4,41 @@ export const growthGoalContentBySlug: Record<string, GoalContentExtension> = {
   cognition: {
     faqItems: [
       {
-        question: 'Which supplements have human evidence for memory or cognition?',
+        question: 'How should cognition supplements be compared?',
         answer:
-          'The useful distinction is outcome-specific evidence rather than a generic “brain health” label. Bacopa is usually researched over weeks for memory and learning outcomes, while citicoline or Alpha-GPC are choline-related options with different populations, endpoints, and evidence depth. Lion’s mane has substantial mechanistic interest, but mechanism should not be treated as equivalent to replicated human cognitive benefit.',
+          'Compare the exact human outcome being measured, the study population, the formulation, the study duration, and the safety record. Attention, memory, learning, and broad “brain health” language should not be treated as interchangeable outcomes.',
       },
       {
-        question: 'Bacopa vs lion’s mane — which has stronger cognition evidence?',
+        question: 'Why separate mechanism from human cognitive outcomes?',
         answer:
-          'Use the head-to-head comparison to inspect human evidence, studied dose, formulation, and safety side by side. The site keeps neurotrophic or mechanistic findings separate from clinical cognitive outcomes so a plausible mechanism does not automatically become a benefit claim.',
+          'A plausible biological mechanism can explain why an ingredient is worth studying, but it does not by itself establish a meaningful human benefit. The comparison path keeps mechanistic findings visibly separate from clinical outcome evidence.',
       },
       {
-        question: 'Do cognition supplements work immediately?',
+        question: 'Why does formulation matter in cognition research?',
         answer:
-          'Not necessarily. Some compounds are studied for acute attention-related effects, while others are evaluated over repeated use for memory or learning outcomes. Match the expected time course to the specific outcome and studied formulation rather than assuming every cognitive supplement should feel immediate.',
+          'Extracts, chemical forms, and preparation methods can differ substantially. Evidence from one studied preparation should not automatically be transferred to every product carrying the same ingredient name.',
       },
       {
-        question: 'Can I combine several nootropics for better results?',
+        question: 'What should I check before comparing a cognition stack?',
         answer:
-          'A larger stack does not automatically have stronger evidence. Combining products can also add interaction, tolerability, and attribution problems, so the safer research path is to evaluate each ingredient’s evidence and safety record before considering combinations.',
+          'Review each ingredient independently for human evidence, studied dose, duration, formulation, interactions, and safety. A larger stack should not be assumed to have stronger evidence than its individual components.',
       },
     ],
     dosingNotes: [
-      { compound: 'Bacopa', note: 'Interpret dose only in the context of the standardized extract and duration used in the supporting human trials.' },
-      { compound: 'Lion’s Mane', note: 'Do not generalize dose across fruiting-body, mycelium, or differently extracted products unless the evidence supports equivalence.' },
-      { compound: 'Citicoline / Alpha-GPC', note: 'Treat each choline source as a separate intervention; dose and outcome data should not be transferred automatically between them.' },
+      { compound: 'Bacopa', note: 'Use the canonical profile to match any dose discussion to the studied extract and study duration.' },
+      { compound: 'Lion’s Mane', note: 'Keep fruiting-body, mycelium, and extraction differences explicit instead of assuming dose equivalence.' },
+      { compound: 'Citicoline / Alpha-GPC', note: 'Treat each choline source as a separate evidence record rather than transferring dose claims between them.' },
     ],
     evidenceRows: [
-      { compound: 'Bacopa', evidence: 'Moderate, outcome-dependent', humanData: 'Repeated-use cognitive trials', limitation: 'Extract, duration, and population differences matter' },
-      { compound: 'Lion’s Mane', evidence: 'Emerging / limited', humanData: 'Smaller human cognition studies', limitation: 'Mechanistic evidence is stronger than the clinical evidence base' },
-      { compound: 'Citicoline', evidence: 'Limited to moderate by population', humanData: 'Human cognition and attention studies', limitation: 'Do not generalize across all ages or cognitive states' },
-      { compound: 'Alpha-GPC', evidence: 'Context-dependent', humanData: 'Human studies in selected populations', limitation: 'Evidence in healthy young adults is less established' },
+      { compound: 'Bacopa', evidence: 'See canonical profile', humanData: 'Outcome-specific human evidence', limitation: 'Extract, duration, and population differences matter' },
+      { compound: 'Lion’s Mane', evidence: 'See canonical profile', humanData: 'Human and mechanistic evidence kept separate', limitation: 'Mechanism does not substitute for clinical outcomes' },
+      { compound: 'Citicoline', evidence: 'See canonical profile', humanData: 'Population-specific human evidence', limitation: 'Do not generalize across all populations or outcomes' },
+      { compound: 'Alpha-GPC', evidence: 'See canonical profile', humanData: 'Population-specific human evidence', limitation: 'Keep population and endpoint limits visible' },
     ],
     safetyBullets: [
-      'Keep cognition claims outcome-specific: attention, memory, learning, and cognitive decline are not interchangeable endpoints.',
-      'Review medication interactions and cholinergic load before combining multiple cognition-oriented products.',
-      'Mechanistic findings such as neurotrophic signaling should remain visibly separate from demonstrated human benefit.',
+      'Keep cognition claims outcome-specific: attention, memory, learning, and cognitive decline are separate endpoints.',
+      'Review the canonical interaction and safety record before combining multiple cognition-oriented products.',
+      'Keep mechanistic findings separate from demonstrated human outcomes throughout the decision path.',
     ],
   },
 }
