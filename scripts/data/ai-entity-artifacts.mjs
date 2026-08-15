@@ -94,6 +94,31 @@ async function hydrateRecords(records, dataDir, detailDir) {
   return output
 }
 
+function manifestDiscoveryOrder(a, b) {
+  const scoreDifference = Number(b?.score || 0) - Number(a?.score || 0)
+  if (scoreDifference) return scoreDifference
+
+  const reviewedDifference = Number(Boolean(b?.lastReviewedAt)) - Number(Boolean(a?.lastReviewedAt))
+  if (reviewedDifference) return reviewedDifference
+
+  return String(a?.canonicalUrl || a?.dataUrl || '').localeCompare(String(b?.canonicalUrl || b?.dataUrl || ''))
+}
+
+async function prioritizePublicManifest(dataDir) {
+  const manifestPath = path.join(dataDir, 'ai-entities', 'manifest.json')
+  let manifest
+  try {
+    manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'))
+  } catch {
+    return
+  }
+
+  if (!Array.isArray(manifest?.entities) || manifest.entities.length < 2) return
+
+  manifest.entities = [...manifest.entities].sort(manifestDiscoveryOrder)
+  await fs.writeFile(manifestPath, `${JSON.stringify(manifest)}\n`, 'utf8')
+}
+
 export async function normalizeAiEntitySchemaTypes(dataDir = 'public/data') {
   const root = path.resolve(process.cwd(), dataDir, 'ai-entities')
   await Promise.all([
@@ -116,5 +141,6 @@ export async function buildAiEntityArtifacts(args = {}) {
     compounds,
   })
   await normalizeAiEntitySchemaTypes(dataDir)
+  await prioritizePublicManifest(dataDir)
   return report
 }
