@@ -1,0 +1,142 @@
+{
+  "patch_version": 1,
+  "id": "lions-mane-premium-evidence-upgrade-2026-08-15",
+  "status": "proposal",
+  "sources": [
+    {
+      "id": "lions-mane-mori-2009",
+      "doi": "10.1002/ptr.2634",
+      "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial",
+      "year": 2009
+    },
+    {
+      "id": "lions-mane-nagano-2010",
+      "doi": "10.2220/biomedres.31.231",
+      "title": "Reduction of depression and anxiety by 4 weeks Hericium erinaceus intake",
+      "year": 2010
+    },
+    {
+      "id": "lions-mane-saitsu-2019",
+      "doi": "10.2220/biomedres.40.125",
+      "title": "Improvement of cognitive functions by oral intake of Hericium erinaceus",
+      "year": 2019
+    },
+    {
+      "id": "lions-mane-grozier-2022",
+      "doi": "10.70252/XZKO8571",
+      "title": "Four Weeks of Hericium erinaceus Supplementation Does Not Impact Markers of Metabolic Flexibility or Cognition",
+      "year": 2022
+    },
+    {
+      "id": "lions-mane-docherty-2023",
+      "doi": "10.3390/nu15224842",
+      "title": "The Acute and Chronic Effects of Lion's Mane Mushroom Supplementation on Cognitive Function, Stress and Mood in Young Adults: A Double-Blind, Parallel Groups, Pilot Study",
+      "year": 2023
+    },
+    {
+      "id": "lions-mane-surendran-2025",
+      "doi": "10.3389/fnut.2025.1405796",
+      "title": "Acute effects of a standardised extract of Hericium erinaceus (Lion's Mane mushroom) on cognition and mood in healthy younger adults: a double-blind randomised placebo-controlled study",
+      "year": 2025
+    }
+  ],
+  "changes": [
+    {
+      "slug": "lions-mane",
+      "column": "summary",
+      "expected_old_value": "Lion's mane (Hericium erinaceus) is an edible mushroom studied for cognition, mood, and nerve-growth-related mechanisms. Human evidence remains early and product-specific, so fruiting-body, mycelium, and isolated-compound findings should not be treated as interchangeable or as proof of disease prevention.",
+      "new_value": "Lion's mane (Hericium erinaceus) has limited, mixed human evidence for cognition and mood. Small older trials reported improvements on selected outcomes, but a 2022 study found no cognitive benefit and a 2025 acute crossover trial found no overall cognitive or mood benefit. Results are preparation-specific, samples are small, and current evidence does not establish disease treatment or prevention.",
+      "confidence": "high",
+      "source_ids": [
+        "lions-mane-mori-2009",
+        "lions-mane-saitsu-2019",
+        "lions-mane-grozier-2022",
+        "lions-mane-docherty-2023",
+        "lions-mane-surendran-2025"
+      ],
+      "rationale": "Replaces broad promising-language with a human-evidence synthesis that includes both positive and null trials and preserves preparation-specific uncertainty.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "lions-mane",
+      "column": "description",
+      "expected_old_value": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
+      "new_value": "Human research on lion's mane is small and heterogeneous. A 2009 randomized trial in adults with mild cognitive impairment reported better HDS-R scores during 16 weeks of roughly 3 g/day dry powder, while a 2019 randomized trial found improvement on MMSE but not the other cognitive tests reported in its abstract. In younger adults, 10 g/day for four weeks did not improve cognition in a 2022 study, a 2023 pilot found one acute Stroop-speed signal with only a trend toward lower stress after 28 days, and a 2025 acute crossover trial found no significant effect on global cognition or mood. Fruiting-body powder, standardized extracts, food-delivered mushroom material, and proprietary mushroom complexes should not be treated as interchangeable.",
+      "confidence": "high",
+      "source_ids": [
+        "lions-mane-mori-2009",
+        "lions-mane-saitsu-2019",
+        "lions-mane-grozier-2022",
+        "lions-mane-docherty-2023",
+        "lions-mane-surendran-2025"
+      ],
+      "rationale": "Replaces generic therapeutic copy with outcome-specific, population-specific human trial context and explicit null evidence.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "lions-mane",
+      "column": "preparation",
+      "expected_old_value": "",
+      "new_value": "Clinical studies used materially different products: dry fruiting-body powder, fruiting-body supplements, food-delivered mushroom material, a proprietary 1.8 g/day mushroom complex, and an acute 3 g 10:1 fruiting-body extract. Do not generalize findings across fruiting body, mycelium, extract ratios, or proprietary blends without product-matched evidence.",
+      "confidence": "high",
+      "source_ids": [
+        "lions-mane-mori-2009",
+        "lions-mane-saitsu-2019",
+        "lions-mane-grozier-2022",
+        "lions-mane-docherty-2023",
+        "lions-mane-surendran-2025"
+      ],
+      "rationale": "Adds a directness boundary so readers do not treat clinically different mushroom preparations as equivalent.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "lions-mane",
+      "column": "safety_notes",
+      "expected_old_value": "Generally well tolerated when used appropriately; review interactions and contraindications.",
+      "new_value": "Short-term human trials reviewed here did not establish a major recurring safety signal, but they were small and generally lasted only weeks to a few months. These studies do not establish long-term safety, pregnancy or breastfeeding safety, or clinically important drug-interaction risks across different lion's mane preparations.",
+      "confidence": "moderate",
+      "source_ids": [
+        "lions-mane-mori-2009",
+        "lions-mane-nagano-2010",
+        "lions-mane-saitsu-2019",
+        "lions-mane-grozier-2022",
+        "lions-mane-docherty-2023",
+        "lions-mane-surendran-2025"
+      ],
+      "rationale": "Replaces unsupported generic reassurance with an explicit short-term evidence boundary and names the safety domains the trials do not establish.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "lions-mane",
+      "column": "evidence_tier",
+      "expected_old_value": "Mechanistic Evidence",
+      "new_value": "Limited Human Evidence",
+      "confidence": "high",
+      "source_ids": [
+        "lions-mane-mori-2009",
+        "lions-mane-nagano-2010",
+        "lions-mane-saitsu-2019",
+        "lions-mane-grozier-2022",
+        "lions-mane-docherty-2023",
+        "lions-mane-surendran-2025"
+      ],
+      "rationale": "The record contains multiple direct human trials, but replication is limited and results are mixed; 'Mechanistic Evidence' materially understates the evidence class while a stronger tier would overstate consistency.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "lions-mane",
+      "column": "dosage",
+      "expected_old_value": "Preparation-specific; use standardized product label and require source-backed dosage review before therapeutic claims.",
+      "new_value": "Study context only: human trials used preparation-specific exposures including approximately 3 g/day dry powder for 16 weeks, 1.8 g/day for 28 days, 10 g/day for four weeks, and an acute 3 g 10:1 fruiting-body extract. These are trial regimens, not a universal recommended dose.",
+      "confidence": "high",
+      "source_ids": [
+        "lions-mane-mori-2009",
+        "lions-mane-grozier-2022",
+        "lions-mane-docherty-2023",
+        "lions-mane-surendran-2025"
+      ],
+      "rationale": "Converts a generic dose placeholder into study-exposure context while explicitly preventing conversion into a universal protocol.",
+      "requires_human_review": true
+    }
+  ]
+}
