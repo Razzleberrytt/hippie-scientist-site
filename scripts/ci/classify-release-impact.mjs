@@ -6,7 +6,10 @@ import { pathToFileURL } from 'node:url'
 export const RELEASE_SENSITIVE_PATTERNS = [
   /^scripts\/(?:data|build|pipeline|ci)\//,
   /^scripts\/(?:build|orchestrate|profile-build|generate-|create-content)/,
-  /^app\/.+\/(?:generateStaticParams|page\.)/,
+  /^app\/(?:.*\/)?(?:page|layout|template|default|error|global-error|not-found|loading)\.[^/]+$/,
+  /^app\/(?:.*\/)?route\.[^/]+$/,
+  /^app\/(?:.*\/)?generateStaticParams(?:[./]|$)/,
+  /^app\/(?:.*\/)?(?:sitemap|robots|manifest|feed|favicon|icon|apple-icon|opengraph-image|twitter-image)(?:[./]|$)/,
   /^lib\/(?:content|data|seo|schema|routes|taxonomy)/,
   /^public\/data\//,
   /^next\.config\./,
