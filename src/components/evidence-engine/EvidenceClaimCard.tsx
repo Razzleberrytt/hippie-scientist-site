@@ -91,6 +91,12 @@ export default function EvidenceClaimCard({
           <dt className="font-semibold text-ink">Limitations</dt>
           <dd className="text-[#36483e] dark:text-[var(--text-muted)]">{claim.limitations}</dd>
         </div>
+        {claim.population_limitations ? (
+          <div>
+            <dt className="font-semibold text-ink">Population limits</dt>
+            <dd className="text-[#36483e] dark:text-[var(--text-muted)]">{claim.population_limitations}</dd>
+          </div>
+        ) : null}
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-xl bg-brand-50/80 p-3 ring-1 ring-brand-900/8 dark:bg-[var(--surface-subtle)]">
             <dt className="font-semibold text-ink">Best fit</dt>
