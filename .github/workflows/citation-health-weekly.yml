@@ -1,0 +1,60 @@
+name: Weekly Citation Health
+
+on:
+  schedule:
+    # Thursdays at 07:00 UTC.
+    - cron: '0 7 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  citation-health:
+    name: Citation registry and publication checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate canonical source registry
+        run: node scripts/validate-source-registry.mjs
+
+      - name: Enforce strict citation density and claim linkage
+        run: node scripts/ci/audit-citation-density.mjs --strict
+
+      - name: Validate editorial article citation requirements
+        run: node scripts/ci/validate-article-quality.mjs
+
+      - name: Upload citation reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: weekly-citation-health-${{ github.run_number }}
+          path: |
+            ops/reports/**/*citation*
+            reports/**/*citation*
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: Workflow summary
+        if: always()
+        run: |
+          {
+            echo "## Weekly Citation Health"
+            echo "- Source registry schema/classification: validate-source-registry.mjs"
+            echo "- Claim/source completeness: audit-citation-density.mjs --strict"
+            echo "- Editorial citation requirements: validate-article-quality.mjs"
+            echo "- Status: ${{ job.status }}"
+          } >> "$GITHUB_STEP_SUMMARY"
