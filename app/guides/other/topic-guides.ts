@@ -88,6 +88,7 @@ export const TOPIC_GUIDE_GROUPS: TopicGuideGroup[] = [
       { href: '/guides/other/orforglipron-foundayo/', title: 'Orforglipron (Foundayo)', desc: 'Track the 2026 oral small-molecule GLP-1 approval, pivotal weight-loss evidence, safety label, and maintenance data.' },
       { href: '/guides/other/psychedelic-adjacent-herbs/', title: 'Psychedelic-Adjacent Herbs', desc: 'Traditional and ritual botanicals viewed through a harm-reduction framework.' },
       { href: '/guides/other/pt-141/', title: 'PT-141 (Bremelanotide)', desc: 'Distinguish the approved indication from off-label and research-only use.' },
+      { href: '/guides/other/retatrutide/', title: 'Retatrutide', desc: 'Track the 2026 phase 3 triple-agonist results, investigational status, FDA compounding prohibition, and gray-market risk.' },
       { href: '/guides/other/semaglutide/', title: 'Semaglutide', desc: 'Evidence, mechanism, side effects, and brand-versus-compounded context.' },
       { href: '/guides/other/tb-500/', title: 'TB-500', desc: 'Review repair research, evidence limits, safety, and legal status.' },
       { href: '/guides/other/tirzepatide/', title: 'Tirzepatide', desc: 'Evidence, dual GIP/GLP-1 mechanism, side effects, and prescribing context.' },
