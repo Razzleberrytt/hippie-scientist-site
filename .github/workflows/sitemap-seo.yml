@@ -1,6 +1,9 @@
 name: Sitemap SEO Builder
 
 on:
+  schedule:
+    # Wednesdays at 06:40 UTC.
+    - cron: '40 6 * * 3'
   workflow_dispatch:
 
 permissions:
@@ -9,6 +12,7 @@ permissions:
 jobs:
   sitemap:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -19,14 +23,28 @@ jobs:
       - run: npm run check:node
       - run: npm run validate:workbook-source
       - run: npm run build:deploy
+      - name: Audit sitemap canonicals and eligibility
+        run: npm run audit:sitemap
+      - name: Upload sitemap output
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: weekly-sitemap-${{ github.run_number }}
+          path: |
+            out/sitemap*.xml
+            public/sitemap*.xml
+            ops/reports/**/*sitemap*
+          retention-days: 30
+          if-no-files-found: ignore
       - name: Workflow summary
         if: always()
         run: |
           {
             echo "## Sitemap SEO Builder"
-            echo "- Purpose: build sitemap-related SEO output"
+            echo "- Cadence: weekly Wednesday 06:40 UTC + manual dispatch"
+            echo "- Purpose: rebuild and audit canonical/indexable sitemap output"
             echo "- Branch/ref: $GITHUB_REF"
-            echo "- Commands: npm run check:node; npm run validate:workbook-source; npm run build:deploy"
+            echo "- Commands: npm run check:node; npm run validate:workbook-source; npm run build:deploy; npm run audit:sitemap"
             echo "- Status: ${{ job.status }}"
             echo "- Output path: out/"
           } >> "$GITHUB_STEP_SUMMARY"
