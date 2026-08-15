@@ -38,7 +38,7 @@ describe('StudyDesignSnapshot', () => {
     render(
       <StudyDesignSnapshot
         summary="Small average benefit with bounded uncertainty."
-        studyClass="rct"
+        studyClass="randomized_controlled_trial"
         studyType="Double-blind, placebo-controlled"
         population="Adults with elevated stress"
         duration="8 weeks"
