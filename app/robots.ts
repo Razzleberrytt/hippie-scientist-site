@@ -9,11 +9,20 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      // Keep the generated runtime-data surface private from crawlers while
-      // explicitly exposing the public AI entity graph advertised in llms.txt.
-      // Robots matching uses the most-specific path rule, so this allow safely
-      // overrides the broader /data/ disallow only for /data/ai-entities/.
-      allow: ['/', '/data/ai-entities/'],
+      // Public search and answer engines are intentionally allowed to crawl the
+      // canonical HTML site. Most runtime data stays private, but the small set
+      // of machine-readable research artifacts below is explicitly crawlable so
+      // entity/claim provenance can be resolved back to human-readable pages.
+      // Robots matching uses the most-specific path rule, so these allows safely
+      // override the broader /data/ disallow only for approved public datasets.
+      allow: [
+        '/',
+        '/llms.txt',
+        '/data/ai-entities/',
+        '/data/ingredients/',
+        '/data/claim-knowledge-graph.json',
+        '/data/research-relationship-graph.json',
+      ],
       disallow: [
         '/api/',
         '/analytics',
