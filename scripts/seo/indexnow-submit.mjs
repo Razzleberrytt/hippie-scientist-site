@@ -54,10 +54,17 @@ const LIMIT = Number(flag('limit', 0))
 
 /* -------------------------------------------------------------------- key -- */
 
+// IndexNow keys are 8-128 characters of [a-zA-Z0-9-], not just hex. `--init`
+// happens to mint a hex key, so a hex-only pattern silently fails to discover a
+// valid non-hex key that is already committed and served — and `initKey()` would
+// then mint a *second* key file alongside the live one, which IndexNow rejects
+// because the signing key must be the one served from the site root.
+// The `contents === key` check below is what actually identifies a key file, so
+// widening the filename pattern does not misclassify other public/*.txt files.
 function findExistingKeyFile() {
   if (!existsSync(PUBLIC_DIR)) return null
   for (const file of readdirSync(PUBLIC_DIR)) {
-    const match = /^([a-f0-9]{8,128})\.txt$/i.exec(file)
+    const match = /^([a-z0-9-]{8,128})\.txt$/i.exec(file)
     if (!match) continue
     const contents = readFileSync(path.join(PUBLIC_DIR, file), 'utf8').trim()
     if (contents === match[1]) return { key: match[1], file }
