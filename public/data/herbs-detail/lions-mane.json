@@ -1,8 +1,8 @@
 {
   "name": "Lion’s Mane",
   "slug": "lions-mane",
-  "summary": "Lion's mane (Hericium erinaceus) is an edible mushroom studied for cognition, mood, and nerve-growth-related mechanisms. Human evidence remains early and product-specific, so fruiting-body, mycelium, and isolated-compound findings should not be treated as interchangeable or as proof of disease prevention.",
-  "description": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
+  "summary": "Lion's mane (Hericium erinaceus) has limited, mixed human evidence for cognition and mood. Small older trials reported improvements on selected outcomes, but a 2022 study found no cognitive benefit and a 2025 acute crossover trial found no overall cognitive or mood benefit. Results are preparation-specific, samples are small, and current evidence does not establish disease treatment or prevention.",
+  "description": "Human research on lion's mane is still small and heterogeneous. A 2009 randomized trial in 30 adults with mild cognitive impairment reported better HDS-R scores during 16 weeks of roughly 3 g/day dry powder, while a 2019 randomized trial found improvement on MMSE but not the other cognitive tests reported in its abstract. In younger adults, 10 g/day for four weeks did not improve cognition in a 2022 study, a 2023 pilot found one acute Stroop-speed signal with only a trend toward lower stress after 28 days, and a 2025 acute crossover trial found no significant effect on global cognition or mood. Fruiting-body powder, standardized extracts, food-delivered mushroom material, and proprietary mushroom complexes should not be treated as interchangeable.",
   "primaryActions": [
     "cognitive",
     "neuroprotective",
@@ -13,51 +13,90 @@
     "neuroprotective"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated when used appropriately; review interactions and contraindications.",
+  "safetyNotes": "Short-term human trials reviewed here did not establish a major recurring safety signal, but they were small and generally lasted only weeks to a few months. These studies do not establish long-term safety, pregnancy or breastfeeding safety, or clinically important drug-interaction risks across different lion's mane preparations.",
   "contraindications": [
-    "Not source-complete in workbook",
-    "screen pregnancy",
-    "lactation",
-    "medical conditions",
-    "and medications before use."
+    "No source-supported preparation-wide contraindication was established in the reviewed human trials; pregnancy, breastfeeding, and medication-interaction safety remain inadequately studied."
   ],
-  "interactions": [],
-  "preparation": "",
+  "interactions": [
+    "No clinically validated drug interaction was established in the reviewed human trials; this is an evidence gap, not proof that interactions do not occur."
+  ],
+  "preparation": "Clinical studies used materially different products: dry fruiting-body powder, fruiting-body supplements, food-delivered mushroom material, a proprietary 1.8 g/day mushroom complex, and an acute 3 g 10:1 fruiting-body extract. Do not generalize findings across fruiting body, mycelium, extract ratios, or proprietary blends without product-matched evidence.",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited, mixed human evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
     {
-      "pubmedId": "37958943",
-      "title": "Neurotrophic and Neuroprotective Effects of Hericium erinaceus",
-      "authors": "Szućko-Kociuba I et al.",
-      "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37958943/"
-    },
-    {
-      "pubmedId": "40284172",
-      "title": "Lion's Mane Mushroom (Hericium erinaceus): A Neuroprotective Fungus with Antioxidant, Anti-Inflammatory, and Antimicrobial Potential-A Narrative Review",
-      "authors": "Contato AG et al.",
-      "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40284172/"
-    },
-    {
-      "pubmedId": "33917843",
-      "title": "Neuroprotective Herbs for the Management of Alzheimer's Disease",
-      "authors": "Gregory J et al.",
-      "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/"
-    },
-    {
-      "id": "src_79eae7626c5c",
-      "title": "PubMed PMID 18844328. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/18844328/",
+      "id": "src_ac9d0130edd6",
+      "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial",
+      "authors": "Mori K et al.",
+      "year": 2009,
+      "url": "https://doi.org/10.1002/ptr.2634",
+      "doi": "10.1002/ptr.2634",
       "pmid": "18844328",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 18844328. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "approved",
+      "note": "30 adults with mild cognitive impairment; approximately 3 g/day dry powder for 16 weeks. Lead author affiliation listed as Mushroom Laboratory, Hokuto Corporation."
+    },
+    {
+      "id": "src_ad12738daa15",
+      "title": "Reduction of depression and anxiety by 4 weeks Hericium erinaceus intake",
+      "authors": "Nagano M et al.",
+      "year": 2010,
+      "url": "https://doi.org/10.2220/biomedres.31.231",
+      "doi": "10.2220/biomedres.31.231",
+      "pmid": "20834180",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "approved",
+      "note": "30 women assigned to lion's mane or placebo cookies for four weeks; small exploratory mood study."
+    },
+    {
+      "id": "src_e4998491d920",
+      "title": "Improvement of cognitive functions by oral intake of Hericium erinaceus",
+      "authors": "Saitsu Y et al.",
+      "year": 2019,
+      "url": "https://doi.org/10.2220/biomedres.40.125",
+      "doi": "10.2220/biomedres.40.125",
+      "pmid": "31413233",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "approved",
+      "note": "12-week fruiting-body supplement trial; MMSE improved, while Benton visual retention and verbal paired-associate learning did not show the same reported benefit."
+    },
+    {
+      "id": "src_2177ea41e114",
+      "title": "Four Weeks of Hericium erinaceus Supplementation Does Not Impact Markers of Metabolic Flexibility or Cognition",
+      "authors": "Grozier CD et al.",
+      "year": 2022,
+      "url": "https://doi.org/10.70252/XZKO8571",
+      "doi": "10.70252/XZKO8571",
+      "pmid": "36582308",
+      "studyType": "Single-blind placebo-controlled trial",
+      "reviewStatus": "approved",
+      "note": "24 college-age participants; 10 g/day for four weeks; no significant cognition or metabolic-flexibility effects."
+    },
+    {
+      "id": "src_235c414260c9",
+      "title": "The Acute and Chronic Effects of Lion's Mane Mushroom Supplementation on Cognitive Function, Stress and Mood in Young Adults: A Double-Blind, Parallel Groups, Pilot Study",
+      "authors": "Docherty S et al.",
+      "year": 2023,
+      "url": "https://doi.org/10.3390/nu15224842",
+      "doi": "10.3390/nu15224842",
+      "pmid": "38004235",
+      "studyType": "Randomized double-blind placebo-controlled pilot trial",
+      "reviewStatus": "approved",
+      "note": "41 healthy adults completed the chronic arm at 1.8 g/day for 28 days. Investigational product supplied by Sempera Organics; authors reported no sponsor role in study conduct or publication decision."
+    },
+    {
+      "id": "src_7867f68af31a",
+      "title": "Acute effects of a standardised extract of Hericium erinaceus (Lion's Mane mushroom) on cognition and mood in healthy younger adults: a double-blind randomised placebo-controlled study",
+      "authors": "Surendran G et al.",
+      "year": 2025,
+      "url": "https://doi.org/10.3389/fnut.2025.1405796",
+      "doi": "10.3389/fnut.2025.1405796",
+      "pmid": "40276537",
+      "studyType": "Randomized double-blind placebo-controlled crossover trial",
+      "reviewStatus": "approved",
+      "note": "18 healthy adults received an acute 3 g 10:1 fruiting-body extract; no significant global cognition or mood effect, with a pegboard signal on an individual test."
     }
   ],
   "governance": {
@@ -65,38 +104,160 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
-    "reason": ""
+    "reason": "source-backed mixed-human-evidence review"
   },
   "evidence": {
-    "reviewStatus": "sourced_pending_review",
-    "sourceCount": 1,
+    "reviewStatus": "sourced",
+    "sourceCount": 6,
     "sourceIds": [
-      "src_79eae7626c5c"
+      "src_ac9d0130edd6",
+      "src_ad12738daa15",
+      "src_e4998491d920",
+      "src_2177ea41e114",
+      "src_235c414260c9",
+      "src_7867f68af31a"
     ],
-    "claimCount": 1,
+    "claimCount": 7,
     "claimIds": [
-      "clm_2bf6f53036e4"
+      "clm_ea6e25db5d5a",
+      "clm_1bcb50c7e549",
+      "clm_0e575c9c4d43",
+      "clm_d52603bfd2ca",
+      "clm_065287f1914f",
+      "clm_ce568fdf486e",
+      "clm_f4b2933ada46"
     ]
   },
   "claimMap": [
     {
-      "id": "clm_2bf6f53036e4",
-      "claim": "v9.8: Lion's mane is promising but evidence is still small/emerging; keep below bacopa/citicoline for cognition.",
+      "id": "clm_ea6e25db5d5a",
+      "claim": "Human cognition evidence for lion's mane is limited and mixed: small older randomized trials reported improvements on selected cognitive outcomes, while more recent studies in younger adults found no overall cognitive benefit or only isolated task-specific signals.",
       "predicate": "supports_outcome",
       "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.8: Lion's mane is promising but evidence is still small/emerging; keep below bacopa/citicoline for cognition.",
+      "confidence": 0.82,
+      "reviewStatus": "approved",
+      "notes": "This synthesis deliberately includes null evidence and avoids treating a positive result on one test as proof of broad cognitive enhancement.",
       "qualifiers": {
-        "direction": "focus, cognition",
-        "dose_or_duration": "1–3 g/day fruiting-body powder or extract-equivalent in small human trials; product-specific dosing matters",
-        "study_id": "ent_study_f435022566a3"
+        "population": "Adults ranging from mild cognitive impairment cohorts to healthy young adults",
+        "directness": "Direct human evidence, but small studies with heterogeneous preparations and endpoints"
       },
       "sourceRefIds": [
-        "src_79eae7626c5c"
+        "src_ac9d0130edd6",
+        "src_e4998491d920",
+        "src_2177ea41e114",
+        "src_235c414260c9",
+        "src_7867f68af31a"
+      ]
+    },
+    {
+      "id": "clm_1bcb50c7e549",
+      "claim": "In a 2009 randomized placebo-controlled trial of 30 adults aged 50 to 80 with mild cognitive impairment, approximately 3 g/day of dry lion's mane powder for 16 weeks improved HDS-R cognitive scores versus placebo at weeks 8, 12, and 16, but scores declined after supplementation stopped.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "notes": "The trial is small, population-specific, and the lead author affiliation was the Mushroom Laboratory of Hokuto Corporation, which should temper generalization.",
+      "qualifiers": {
+        "population": "30 Japanese adults aged 50-80 with mild cognitive impairment",
+        "dose_or_duration": "Four 250 mg tablets containing 96% dry powder three times daily for 16 weeks",
+        "washout": "Four-week post-treatment observation"
+      },
+      "sourceRefIds": [
+        "src_ac9d0130edd6"
+      ]
+    },
+    {
+      "id": "clm_0e575c9c4d43",
+      "claim": "Recent studies in younger adults do not support a broad cognitive-enhancement claim: 10 g/day for four weeks had no significant cognitive effect in a 2022 study, and an acute 3 g 10:1 fruiting-body extract produced no significant global cognition or mood effect in a 2025 crossover trial, despite improvement on an individual pegboard task.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "notes": "Negative overall outcomes are retained to prevent cherry-picking of isolated positive tests.",
+      "qualifiers": {
+        "population": "College-age and healthy 18-35-year-old adults",
+        "direction": "Null overall cognitive findings with isolated task-specific signals"
+      },
+      "sourceRefIds": [
+        "src_2177ea41e114",
+        "src_7867f68af31a"
+      ]
+    },
+    {
+      "id": "clm_d52603bfd2ca",
+      "claim": "Mood and stress findings are preliminary: a four-week randomized study in 30 women reported lower CES-D and indefinite-complaint scores, while a 2023 pilot in healthy young adults found faster acute Stroop performance and only a statistical trend toward lower subjective stress after 28 days, alongside null and limited negative findings.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.74,
+      "reviewStatus": "approved",
+      "notes": "These small studies do not establish lion's mane as a treatment for depression, anxiety, or stress disorders.",
+      "qualifiers": {
+        "population": "Small female cohort and healthy young adults",
+        "duration": "Four weeks / 28 days"
+      },
+      "sourceRefIds": [
+        "src_ad12738daa15",
+        "src_235c414260c9"
+      ]
+    },
+    {
+      "id": "clm_065287f1914f",
+      "claim": "Lion's mane clinical findings are preparation-specific. Trials have used dry fruiting-body powder, fruiting-body supplements, food-delivered mushroom material, proprietary mushroom complexes, and concentrated fruiting-body extract, so efficacy or dose findings from one preparation should not be generalized to all products.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.93,
+      "reviewStatus": "approved",
+      "notes": "This is a product-directness limitation derived from the materially different interventions used across the human trials.",
+      "qualifiers": {
+        "directness": "Preparation-specific",
+        "generalizability": "Low across non-equivalent products"
+      },
+      "sourceRefIds": [
+        "src_ac9d0130edd6",
+        "src_e4998491d920",
+        "src_2177ea41e114",
+        "src_235c414260c9",
+        "src_7867f68af31a"
+      ]
+    },
+    {
+      "id": "clm_ce568fdf486e",
+      "claim": "Short-term human safety data are reassuring only in a limited sense: the reviewed trials did not identify a consistent major safety signal, but their small samples, short durations, and heterogeneous products do not establish long-term safety, pregnancy or breastfeeding safety, or clinically important drug-interaction risks.",
+      "predicate": "has_safety_warning",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.8,
+      "reviewStatus": "approved",
+      "notes": "This is an evidence-boundary statement, not a claim that long-term use or medication combinations are unsafe.",
+      "qualifiers": {
+        "duration": "Weeks to a few months",
+        "evidence_gap": "Long-term, reproductive, and drug-interaction safety"
+      },
+      "sourceRefIds": [
+        "src_ac9d0130edd6",
+        "src_ad12738daa15",
+        "src_e4998491d920",
+        "src_2177ea41e114",
+        "src_235c414260c9",
+        "src_7867f68af31a"
+      ]
+    },
+    {
+      "id": "clm_f4b2933ada46",
+      "claim": "Potential commercial-context bias should be visible: the lead author of the 2009 mild-cognitive-impairment trial was affiliated with Hokuto Corporation's Mushroom Laboratory, and Sempera Organics supplied the investigational product for the 2023 pilot, although that study reports no sponsor role in design, analysis, interpretation, writing, or publication decisions.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "notes": "Commercial involvement does not invalidate a study, but it is relevant context when evidence is sparse and sample sizes are small.",
+      "qualifiers": {
+        "bias_context": "Industry affiliation/product supply disclosed"
+      },
+      "sourceRefIds": [
+        "src_ac9d0130edd6",
+        "src_235c414260c9"
       ]
     }
   ],
@@ -128,8 +289,8 @@
   "unmapped_mechanisms": [
     "neuroprotective"
   ],
-  "evidence_tier": "Mechanistic Evidence",
-  "profile_status": "partial",
+  "evidence_tier": "Limited Human Evidence",
+  "profile_status": "full",
   "runtime_export_decision": "full_public_runtime",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -141,12 +302,11 @@
     "export-decision:full_public_runtime",
     "identity-present",
     "mechanism-context",
-    "profile-status:partial",
+    "profile-status:full",
     "safety-context",
-    "summary-depth",
-    "summary-quality-missing"
+    "summary-depth"
   ],
-  "safety": "Generally well tolerated for most users.",
-  "dosage": "Preparation-specific; use standardized product label and require source-backed dosage review before therapeutic claims.",
-  "typical_dosage": "Preparation-specific; use standardized product label and require source-backed dosage review before therapeutic claims."
+  "safety": "Short-term trial data are limited; long-term, reproductive, and medication-interaction safety are not established across preparations.",
+  "dosage": "Study context only: human trials used preparation-specific exposures including approximately 3 g/day dry powder for 16 weeks, 1.8 g/day for 28 days, 10 g/day for four weeks, and an acute 3 g 10:1 fruiting-body extract. These are trial regimens, not a universal recommended dose.",
+  "typical_dosage": "Study context only: human trials used preparation-specific exposures including approximately 3 g/day dry powder for 16 weeks, 1.8 g/day for 28 days, 10 g/day for four weeks, and an acute 3 g 10:1 fruiting-body extract. These are trial regimens, not a universal recommended dose."
 }
