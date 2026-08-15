@@ -100,7 +100,11 @@ for (const link of backlinks) {
 }
 
 let previous = { domains: {} }
-try { previous = JSON.parse(fs.readFileSync(statePath, 'utf8')) } catch {}
+try {
+  previous = JSON.parse(fs.readFileSync(statePath, 'utf8'))
+} catch {
+  // Missing or malformed prior snapshot intentionally behaves like no previous domains.
+}
 const previousDomains = new Set(Object.keys(previous?.domains || {}))
 const newReferringDomains = [...current.values()]
   .filter((row) => !previousDomains.has(row.domain))
