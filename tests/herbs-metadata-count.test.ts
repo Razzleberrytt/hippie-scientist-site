@@ -16,13 +16,14 @@ describe('herbs metadata inventory semantics', () => {
     expect(page).not.toContain('buildReport.counts.herbs')
   })
 
-  it('lists only published/indexable herbs on every library page', () => {
+  it('uses one published/indexable herb selector across every library page', () => {
+    const libraryData = read('app/herbs/library-data.ts')
     const firstPage = read('app/herbs/page.tsx')
     const paginatedPage = read('app/herbs/page/[page]/page.tsx')
 
-    expect(firstPage).toContain('getRuntimeVisibility(herb).canIndex')
-    expect(firstPage).not.toContain('getRuntimeVisibility(herb).canRender')
-    expect(paginatedPage).toContain('getRuntimeVisibility(h).canIndex')
-    expect(paginatedPage).not.toContain('getRuntimeVisibility(h).canRender')
+    expect(libraryData).toContain('getRuntimeVisibility(herb).canIndex')
+    expect(libraryData).not.toContain('getRuntimeVisibility(herb).canRender')
+    expect(firstPage).toContain('loadPublishedHerbs')
+    expect(paginatedPage).toContain('loadPublishedHerbs')
   })
 })
