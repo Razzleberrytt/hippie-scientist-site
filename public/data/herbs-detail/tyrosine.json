@@ -1,62 +1,153 @@
 {
   "name": "L-Tyrosine",
   "slug": "tyrosine",
-  "summary": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-  "description": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "summary": "L-tyrosine has conditional human evidence for preserving selected cognitive functions when performance is being degraded by acute stressors such as sleep loss, cold exposure, or heavy multitasking. Reviews do not support treating it as a reliable everyday cognitive enhancer or physical-performance aid. Many positive challenge studies used large acute weight-based doses, so those regimens should not be converted into routine consumer dosing advice.",
+  "description": "Tyrosine is a precursor used in catecholamine synthesis, but supplementation appears most relevant when demanding conditions temporarily strain dopamine/norepinephrine-dependent performance. A 2015 systematic review of 15 studies found that acute tyrosine loading tended to counter working-memory and information-processing decrements under extreme weather or cognitive load, while a separate rapid evidence assessment found insufficient evidence for confident recommendations overall and only a weak recommendation for cognitive stress. Small challenge trials have reported benefits during cold exposure, prolonged wakefulness, and multitasking, but effects are task-specific and not consistently present. In a 2003 sleep-deprivation comparison, 150 mg/kg improved several cognitive and motor measures but was less effective than d-amphetamine; a companion study found no effect on sleep-related measures. This is better framed as stress-contingent performance preservation than broad stimulation, energy enhancement, or treatment of a clinical disorder.",
   "primaryActions": [
-    "stress"
+    "stress-contingent cognition",
+    "working memory",
+    "vigilance"
   ],
   "mechanisms": [
-    "Neurotransmitter Modulation",
-    "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Catecholamine precursor availability",
+    "Dopamine and norepinephrine synthesis support under high demand",
+    "Stress-contingent neurotransmitter substrate availability"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Headache, nausea",
+  "safetyNotes": "Short-term safety evidence is limited. A 2026 randomized double-blind crossover trial in 30 healthy adult men found 1–4 g/day for four weeks was well tolerated without dose-related laboratory abnormalities or serious adverse events, but two authors were employees of Ajinomoto and the trial does not establish long-term, pregnancy, pediatric, medically complex, or rare-adverse-event safety. Medication-interaction claims need drug-specific evidence rather than assuming that all catecholamine-related drugs interact in the same way.",
   "contraindications": [
-    "MAO inhibitors",
-    "thyroid meds"
+    "Medication-specific precautions require individualized review. Phenelzine labeling has warned against L-tyrosine, although a published literature review found no reported hypertensive-crisis cases from the combination; this uncertainty supports caution rather than a claim of a proven universal MAOI interaction.",
+    "Pregnancy, breastfeeding, long-term use, and use in medically complex populations are not established by the reviewed performance trials."
   ],
   "interactions": [
-    "MAO inhibitors",
-    "thyroid meds"
+    "Levodopa and other large neutral amino acids can compete for transport; human evidence shows levodopa can reduce brain uptake of tyrosine and tryptophan, so people using levodopa should not infer that tyrosine supplementation is interaction-free.",
+    "MAOI interaction concern is drug-specific and incompletely characterized; phenelzine product information has warned against L-tyrosine, while published reviews note limited direct clinical evidence."
   ],
-  "preparation": "",
+  "preparation": "Human performance studies generally used free L-tyrosine as an acute oral load, often around 100–150 mg/kg, while a 2026 safety study tested fixed daily doses of 1–4 g/day. These materially different research regimens should not be treated as interchangeable with routine supplement-label dosing.",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited, conditional human evidence",
+  "evidence_tier": "Limited Human Evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
     {
-      "pubmedId": "22554242",
-      "title": "The shikimate pathway and aromatic amino Acid biosynthesis in plants",
-      "authors": "Maeda H et al.",
-      "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22554242/"
+      "id": "src_tyr_hase_2015",
+      "title": "Behavioral and cognitive effects of tyrosine intake in healthy human adults",
+      "authors": "Hase A et al.",
+      "year": 2015,
+      "url": "https://doi.org/10.1016/j.pbb.2015.03.008",
+      "doi": "10.1016/j.pbb.2015.03.008",
+      "pmid": "25797188",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved",
+      "note": "Reviewed 15 studies; benefits were concentrated in demanding conditions such as extreme weather or cognitive load, while exercise-performance effects were generally absent."
     },
     {
-      "pubmedId": "30000526",
-      "title": "Interferon Alfacon-1",
-      "authors": "PubMed indexed authors",
-      "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000526/"
+      "id": "src_tyr_attipoe_2015",
+      "title": "Tyrosine for Mitigating Stress and Enhancing Performance in Healthy Adult Humans, a Rapid Evidence Assessment of the Literature",
+      "authors": "Attipoe S et al.",
+      "year": 2015,
+      "url": "https://doi.org/10.7205/MILMED-D-14-00594",
+      "doi": "10.7205/MILMED-D-14-00594",
+      "pmid": "26126245",
+      "studyType": "Rapid evidence assessment",
+      "reviewStatus": "approved",
+      "note": "Included 10 randomized and 4 controlled clinical trials; evidence was insufficient for confident recommendations, with only a weak recommendation in favor of cognitive-stress performance."
     },
     {
-      "pubmedId": "12482446",
-      "title": "Rosmarinic acid",
-      "authors": "Petersen M et al.",
+      "id": "src_tyr_shurtleff_1994",
+      "title": "Tyrosine reverses a cold-induced working memory deficit in humans",
+      "authors": "Shurtleff D et al.",
+      "year": 1994,
+      "url": "https://doi.org/10.1016/0091-3057(94)90299-2",
+      "doi": "10.1016/0091-3057(94)90299-2",
+      "pmid": "8029265",
+      "studyType": "Placebo-controlled human challenge trial",
+      "reviewStatus": "approved",
+      "note": "Eight men; 150 mg/kg L-tyrosine; benefit was concentrated on working-memory performance impaired by 4 °C cold exposure."
+    },
+    {
+      "id": "src_tyr_thomas_1999",
+      "title": "Tyrosine improves working memory in a multitasking environment",
+      "authors": "Thomas JR et al.",
+      "year": 1999,
+      "url": "https://doi.org/10.1016/S0091-3057(99)00094-5",
+      "doi": "10.1016/S0091-3057(99)00094-5",
+      "pmid": "10548261",
+      "studyType": "Placebo-controlled crossover performance trial",
+      "reviewStatus": "approved",
+      "note": "20 adults; 150 mg/kg; working-memory benefit appeared during multitasking but not during the simpler task battery, supporting a demand-dependent effect."
+    },
+    {
+      "id": "src_tyr_magill_2003_performance",
+      "title": "Effects of tyrosine, phentermine, caffeine D-amphetamine, and placebo on cognitive and motor performance deficits during sleep deprivation",
+      "authors": "Magill RA et al.",
       "year": 2003,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12482446/"
+      "url": "https://doi.org/10.1080/1028415031000120552",
+      "doi": "10.1080/1028415031000120552",
+      "pmid": "12887140",
+      "studyType": "Randomized controlled sleep-deprivation trial",
+      "reviewStatus": "approved",
+      "note": "Tyrosine 150 mg/kg improved several cognitive/motor measures after sleep deprivation but was less effective than d-amphetamine."
     },
     {
-      "id": "src_a3adb67a41f3",
-      "title": "PubMed PMID 8629725. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/8629725/",
-      "pmid": "8629725",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 8629725. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "id": "src_tyr_magill_2003_sleep",
+      "title": "A comparison of tyrosine against placebo, phentermine, caffeine, and D-amphetamine during sleep deprivation",
+      "authors": "Magill RA et al.",
+      "year": 2003,
+      "url": "https://doi.org/10.1080/1028415031000120543",
+      "doi": "10.1080/1028415031000120543",
+      "pmid": "12887139",
+      "studyType": "Randomized double-blind sleep-deprivation trial",
+      "reviewStatus": "approved",
+      "note": "76 healthy men; 150 mg/kg after prolonged wakefulness; tyrosine did not affect sleep-drive or recovery-sleep measures, providing useful null evidence."
+    },
+    {
+      "id": "src_tyr_matsumoto_2026",
+      "title": "Evaluation of the Safety and Tolerability of L-Tyrosine Supplementation in Healthy Adult Men: A Randomized Crossover Trial",
+      "authors": "Matsumoto H et al.",
+      "year": 2026,
+      "url": "https://doi.org/10.3390/nu18122020",
+      "doi": "10.3390/nu18122020",
+      "pmid": "42356406",
+      "studyType": "Randomized double-blind placebo-controlled crossover safety trial",
+      "reviewStatus": "approved",
+      "note": "30 healthy adult men; 0–4 g/day across four-week intervention periods; no dose-related laboratory abnormalities or serious adverse events. Two authors were Ajinomoto employees."
+    },
+    {
+      "id": "src_tyr_bharani_2024",
+      "title": "Concomitant use of monoamine oxidase inhibitor and tyrosine in parenteral nutrition",
+      "authors": "Bharani T et al.",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s41430-023-01375-8",
+      "doi": "10.1038/s41430-023-01375-8",
+      "pmid": "38057413",
+      "studyType": "Case report and clinical literature discussion",
+      "reviewStatus": "approved",
+      "note": "Shows that tyrosine-MAOI pressor risk is biologically plausible but clinically under-studied; a monitored patient tolerated tyrosine-containing parenteral nutrition with transdermal selegiline."
+    },
+    {
+      "id": "src_tyr_randler_2014",
+      "title": "Administration of supplemental L-tyrosine with phenelzine: a clinical literature review",
+      "authors": "Randler E et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25092999/",
+      "pmid": "25092999",
+      "studyType": "Clinical literature review",
+      "reviewStatus": "approved",
+      "note": "Reports that phenelzine prescribing information warns against L-tyrosine while finding no published hypertensive-crisis cases attributable to the combination; supports cautious uncertainty rather than overstatement."
+    },
+    {
+      "id": "src_tyr_riederer_1980",
+      "title": "L-dopa competes with tyrosine and tryptophan for human brain uptake",
+      "authors": "Riederer P",
+      "year": 1980,
+      "url": "https://doi.org/10.1159/000176359",
+      "doi": "10.1159/000176359",
+      "pmid": "7219901",
+      "studyType": "Human pharmacology study",
+      "reviewStatus": "approved",
+      "note": "Supports a large-neutral-amino-acid transport interaction context with levodopa; it does not establish a consumer dosing protocol."
     }
   ],
   "governance": {
@@ -67,38 +158,161 @@
     "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
-    "reason": ""
+    "reason": "source-backed conditional human-evidence review"
   },
   "evidence": {
-    "reviewStatus": "sourced_pending_review",
-    "sourceCount": 1,
+    "reviewStatus": "sourced",
+    "sourceCount": 10,
     "sourceIds": [
-      "src_a3adb67a41f3"
+      "src_tyr_hase_2015",
+      "src_tyr_attipoe_2015",
+      "src_tyr_shurtleff_1994",
+      "src_tyr_thomas_1999",
+      "src_tyr_magill_2003_performance",
+      "src_tyr_magill_2003_sleep",
+      "src_tyr_matsumoto_2026",
+      "src_tyr_bharani_2024",
+      "src_tyr_randler_2014",
+      "src_tyr_riederer_1980"
     ],
-    "claimCount": 1,
+    "claimCount": 7,
     "claimIds": [
-      "clm_d098d900f4e3"
+      "clm_tyr_overall",
+      "clm_tyr_cold",
+      "clm_tyr_multitask",
+      "clm_tyr_sleep_deprivation",
+      "clm_tyr_not_general_stimulant",
+      "clm_tyr_safety",
+      "clm_tyr_interaction_context"
     ]
   },
   "claimMap": [
     {
-      "id": "clm_d098d900f4e3",
-      "claim": "v9.8: Tyrosine evidence is strongest under stress/sleep-deprivation challenge, not everyday cognition.",
+      "id": "clm_tyr_overall",
+      "claim": "Human evidence supports a conditional rather than general cognitive effect: reviews find that acute L-tyrosine can help preserve working memory or information processing when acute stressors or heavy cognitive demands are degrading performance, while evidence is insufficient for confident broad recommendations.",
       "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.8: Tyrosine evidence is strongest under stress/sleep-deprivation challenge, not everyday cognition.",
+      "evidenceLevel": "systematic_review",
+      "confidence": 0.88,
+      "reviewStatus": "approved",
+      "notes": "The two 2015 evidence syntheses are used as the top-level anchor so isolated positive challenge studies do not become an everyday nootropic claim.",
       "qualifiers": {
-        "direction": "focus, energy",
-        "dose_or_duration": "500–2000 mg acute common in supplements; several stress studies used higher mg/kg protocols",
-        "study_id": "ent_study_bf30d1dcdb19"
+        "population": "Mostly healthy adults",
+        "context": "Acute stress, extreme environmental conditions, sleep loss, or high cognitive load",
+        "generalizability": "Limited outside performance-decrement contexts"
       },
       "sourceRefIds": [
-        "src_a3adb67a41f3"
+        "src_tyr_hase_2015",
+        "src_tyr_attipoe_2015"
+      ]
+    },
+    {
+      "id": "clm_tyr_cold",
+      "claim": "In a small human cold-exposure experiment, 150 mg/kg of L-tyrosine restored performance on the longest-delay working-memory condition that had been impaired at 4 °C, but the study involved only eight men and does not establish benefit under ordinary conditions.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.8,
+      "reviewStatus": "approved",
+      "notes": "Strong directness for the experimental stressor, weak generalizability to everyday supplement use.",
+      "qualifiers": {
+        "population": "Eight male volunteers",
+        "dose_or_duration": "150 mg/kg acute dose",
+        "stressor": "4 °C exposure"
+      },
+      "sourceRefIds": [
+        "src_tyr_shurtleff_1994"
+      ]
+    },
+    {
+      "id": "clm_tyr_multitask",
+      "claim": "In a 20-person placebo-controlled study, 150 mg/kg of L-tyrosine improved working-memory performance during a multitasking battery but did not improve the simple-task battery or several other task measures, supporting a demand-dependent rather than universal performance effect.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.82,
+      "reviewStatus": "approved",
+      "notes": "Null task outcomes are retained to avoid cherry-picking the positive working-memory result.",
+      "qualifiers": {
+        "population": "20 healthy adults",
+        "dose_or_duration": "150 mg/kg acute dose",
+        "direction": "Selective working-memory benefit during multitasking"
+      },
+      "sourceRefIds": [
+        "src_tyr_thomas_1999"
+      ]
+    },
+    {
+      "id": "clm_tyr_sleep_deprivation",
+      "claim": "During sleep deprivation, 150 mg/kg of tyrosine improved several cognitive and motor measures in one randomized comparison but was less effective than d-amphetamine; a companion trial found no effect on sleep-drive or recovery-sleep measures, so tyrosine should not be described as replacing sleep or as a sleep-modifying agent.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.84,
+      "reviewStatus": "approved",
+      "notes": "Combines positive performance and null sleep outcomes from the same research context.",
+      "qualifiers": {
+        "population": "Healthy young men under prolonged wakefulness",
+        "dose_or_duration": "150 mg/kg acute dose",
+        "boundary": "Performance countermeasure, not sleep replacement"
+      },
+      "sourceRefIds": [
+        "src_tyr_magill_2003_performance",
+        "src_tyr_magill_2003_sleep"
+      ]
+    },
+    {
+      "id": "clm_tyr_not_general_stimulant",
+      "claim": "The literature does not support framing L-tyrosine as a reliable general stimulant, everyday energy enhancer, or physical-performance aid: evidence syntheses find the clearest signal when acute demand is already impairing cognition, and physical-performance findings are inconsistent or insufficient.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "systematic_review",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "notes": "This directly narrows common marketing-style interpretations of tyrosine.",
+      "qualifiers": {
+        "direction": "Context-dependent",
+        "not_established": "Routine energy enhancement or consistent exercise-performance benefit"
+      },
+      "sourceRefIds": [
+        "src_tyr_hase_2015",
+        "src_tyr_attipoe_2015"
+      ]
+    },
+    {
+      "id": "clm_tyr_safety",
+      "claim": "A 2026 randomized double-blind crossover safety trial in 30 healthy adult men found fixed L-tyrosine doses up to 4 g/day for four weeks were well tolerated without dose-related laboratory abnormalities or serious adverse events; the small, male-only, short-duration study and Ajinomoto employee authorship limit how broadly that reassurance can be generalized.",
+      "predicate": "has_safety_warning",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.88,
+      "reviewStatus": "approved",
+      "notes": "Observed tolerability is separated from long-term safety and commercial-context limitations.",
+      "qualifiers": {
+        "population": "30 healthy adult men",
+        "dose_or_duration": "1–4 g/day for four weeks",
+        "bias_context": "Two authors were employees of Ajinomoto Co., Inc."
+      },
+      "sourceRefIds": [
+        "src_tyr_matsumoto_2026"
+      ]
+    },
+    {
+      "id": "clm_tyr_interaction_context",
+      "claim": "Medication-interaction claims should be specific rather than categorical. Human pharmacology supports competition between levodopa and aromatic amino acids for brain uptake. For MAO inhibitors, phenelzine labeling has warned against L-tyrosine, but published clinical reviews describe sparse direct evidence and no reported hypertensive-crisis cases attributable to the combination, so uncertainty and clinician review are more defensible than claiming a universally proven interaction.",
+      "predicate": "has_safety_warning",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.78,
+      "reviewStatus": "approved",
+      "notes": "This replaces the previous bare 'MAO inhibitors' and 'thyroid meds' contraindication strings with sourced, drug-specific evidence boundaries.",
+      "qualifiers": {
+        "interaction_scope": "Levodopa transport competition; MAOI concern is drug-specific and incompletely characterized"
+      },
+      "sourceRefIds": [
+        "src_tyr_riederer_1980",
+        "src_tyr_bharani_2024",
+        "src_tyr_randler_2014"
       ]
     }
   ],
-  "dosage": "500-2000 mg acute dosing",
-  "typical_dosage": "500-2000 mg acute dosing"
+  "profile_status": "full",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "dosage": "Study context only: many stress/cognition challenge studies used acute doses around 100–150 mg/kg, which can be far higher than common retail serving sizes; a 2026 safety trial instead tested fixed doses of 1–4 g/day for four weeks. These research exposures answer different questions and are not a universal recommended dose.",
+  "typical_dosage": "Study context only: many stress/cognition challenge studies used acute doses around 100–150 mg/kg, which can be far higher than common retail serving sizes; a 2026 safety trial instead tested fixed doses of 1–4 g/day for four weeks. These research exposures answer different questions and are not a universal recommended dose."
 }
