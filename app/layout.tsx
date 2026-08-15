@@ -6,6 +6,7 @@ import { Navigation } from '@/components/Navigation'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { NavigationSchema } from '@/components/NavigationSchema'
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema'
+import NavigationClickTracker from '@/components/NavigationClickTracker'
 import Footer from '../src/components/Footer'
 import MobileBottomNav from '../src/components/mobile-bottom-nav'
 import ScrollToTopButton from '../src/components/ScrollToTopButton'
@@ -132,6 +133,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <header>
               <Navigation />
             </header>
+            <NavigationClickTracker />
             <Breadcrumbs />
             <main
               id='main-content'
