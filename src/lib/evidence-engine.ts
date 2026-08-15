@@ -33,6 +33,7 @@ export type EvidenceEngineClaim = {
   blinding?: string
   control?: string
   design_insight?: string
+  finding_consistency?: string
 }
 
 export type EvidenceEngineConfig = {
