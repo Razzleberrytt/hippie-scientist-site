@@ -9,7 +9,7 @@ import { trackEmailSignup } from '@/lib/analytics'
 import { trackRevenueEvent } from '@/src/lib/revenue-tracking'
 
 type TurnstileApi = {
-  render: (element: HTMLElement, options: { sitekey: string; callback: (token: string) => void; 'expired-callback': () => void; 'error-callback': () => void }) => string
+  render: (element: HTMLElement, options: { sitekey: string; size?: 'normal' | 'flexible' | 'compact'; callback: (token: string) => void; 'expired-callback': () => void; 'error-callback': () => void }) => string
   reset: (widgetId?: string) => void
 }
 
@@ -94,8 +94,12 @@ export default function NewsletterSignup({
       if (cancelled || !turnstileContainerRef.current || turnstileWidgetIdRef.current) return
 
       if (window.turnstile) {
+        const containerWidth = turnstileContainerRef.current.getBoundingClientRect().width
+        const size = containerWidth > 0 && containerWidth < 300 ? 'compact' : 'flexible'
+
         turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
           sitekey: turnstileSiteKey,
+          size,
           callback: setTurnstileToken,
           'expired-callback': () => setTurnstileToken(''),
           'error-callback': () => setTurnstileToken(''),
@@ -200,7 +204,7 @@ export default function NewsletterSignup({
               onChange={(event) => setConfirmEmail(event.target.value)}
             />
           </div>
-          {usesTurnstile ? <div ref={turnstileContainerRef} className='min-h-[65px]' /> : null}
+          {usesTurnstile ? <div ref={turnstileContainerRef} className='min-h-[65px] w-full max-w-full' /> : null}
           <div className='flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row'>
             <label className='sr-only' htmlFor={emailId}>
               Email address
