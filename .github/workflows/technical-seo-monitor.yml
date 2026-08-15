@@ -12,7 +12,7 @@ on:
       - 'app/sitemap.ts'
       - 'app/robots.ts'
       - 'scripts/ci/audit-technical-seo-contract.mjs'
-      - 'scripts/monitor/production-seo-health.mjs'
+      - 'scripts/monitor/production-seo-health*.mjs'
       - '.github/workflows/technical-seo-monitor.yml'
   push:
     branches: [main]
@@ -23,7 +23,7 @@ on:
       - 'src/lib/seo.ts'
       - 'src/lib/site.ts'
       - 'scripts/ci/audit-technical-seo-contract.mjs'
-      - 'scripts/monitor/production-seo-health.mjs'
+      - 'scripts/monitor/production-seo-health*.mjs'
       - '.github/workflows/technical-seo-monitor.yml'
   schedule:
     - cron: '17 11 * * 1'
