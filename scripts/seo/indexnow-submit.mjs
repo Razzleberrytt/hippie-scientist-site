@@ -35,6 +35,7 @@ const PUBLIC_DIR = path.join(ROOT, 'public')
 const ENDPOINT = String(flag('endpoint', process.env.INDEXNOW_ENDPOINT || 'https://api.indexnow.org/indexnow'))
 const MAX_URLS_PER_REQUEST = 10_000
 const KEY_RE = /^[a-z0-9-]{8,128}$/i
+const FINGERPRINT_VERSION = 2
 
 const DO_SUBMIT = flag('submit', false) === true
 const DO_INIT = flag('init', false) === true
@@ -127,17 +128,109 @@ async function verifyRemoteKey(key, keyLocation) {
 
 const SCRIPT_RE = /<script\b[^>]*>[\s\S]*?<\/script>/gi
 const STYLE_RE = /<style\b[^>]*>[\s\S]*?<\/style>/gi
+const JSON_LD_RE = /<script\b(?=[^>]*\btype=["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi
 const BUILD_NOISE_RE = /(__BUILD_DATE__|__BUILD_TIME__|__COMMIT_HASH__|data-build-[a-z-]+="[^"]*"|content="\d{4}-\d{2}-\d{2}T[^"]*")/g
 
+function attr(tag, name) {
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  return tag.match(new RegExp(`\\b${escaped}\\s*=\\s*["']([^"']*)["']`, 'i'))?.[1]?.trim() || ''
+}
+
+function stableClone(value) {
+  if (Array.isArray(value)) return value.map(stableClone)
+  if (value && typeof value === 'object') {
+    return Object.keys(value)
+      .sort((a, b) => a.localeCompare(b))
+      .reduce((result, key) => {
+        result[key] = stableClone(value[key])
+        return result
+      }, {})
+  }
+  return value
+}
+
+function normalizeJsonLd(raw) {
+  const cleaned = raw.replace(BUILD_NOISE_RE, '').trim()
+  if (!cleaned) return ''
+  try {
+    return JSON.stringify(stableClone(JSON.parse(cleaned)))
+  } catch {
+    return cleaned.replace(/\s+/g, ' ')
+  }
+}
+
+function collectSeoSignals(html) {
+  const cleaned = html.replace(BUILD_NOISE_RE, '')
+  const signals = []
+
+  const title = cleaned.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1]
+    ?.replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (title) signals.push(`title:${title}`)
+
+  for (const match of cleaned.matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = match[0]
+    const name = attr(tag, 'name').toLowerCase()
+    const property = attr(tag, 'property').toLowerCase()
+    const content = attr(tag, 'content')
+    if (!content) continue
+
+    if (['description', 'robots', 'googlebot'].includes(name)) {
+      signals.push(`meta:${name}:${content}`)
+    } else if (name.startsWith('twitter:')) {
+      signals.push(`meta:${name}:${content}`)
+    } else if (property.startsWith('og:')) {
+      signals.push(`meta:${property}:${content}`)
+    }
+  }
+
+  for (const match of cleaned.matchAll(/<link\b[^>]*>/gi)) {
+    const tag = match[0]
+    const rel = attr(tag, 'rel').toLowerCase()
+    if (!rel) continue
+    if (!rel.split(/\s+/).some((value) => ['canonical', 'alternate'].includes(value))) continue
+
+    const href = attr(tag, 'href')
+    if (!href) continue
+    const hreflang = attr(tag, 'hreflang')
+    const type = attr(tag, 'type')
+    signals.push(`link:${rel}:${hreflang}:${type}:${href}`)
+  }
+
+  const internalLinks = new Set()
+  for (const match of cleaned.matchAll(/<a\b[^>]*>/gi)) {
+    const href = attr(match[0], 'href')
+    if (!href || href.startsWith('#')) continue
+    if (href.startsWith('/') || href.startsWith(`${SITE_URL}/`) || href === SITE_URL) {
+      internalLinks.add(href)
+    }
+  }
+  for (const href of [...internalLinks].sort((a, b) => a.localeCompare(b))) {
+    signals.push(`a:${href}`)
+  }
+
+  for (const match of cleaned.matchAll(JSON_LD_RE)) {
+    const normalized = normalizeJsonLd(match[1])
+    if (normalized) signals.push(`jsonld:${normalized}`)
+  }
+
+  return [...new Set(signals)].sort((a, b) => a.localeCompare(b))
+}
+
 function fingerprint(html) {
-  const body = html
+  const cleaned = html.replace(BUILD_NOISE_RE, '')
+  const body = cleaned
     .replace(SCRIPT_RE, '')
     .replace(STYLE_RE, '')
-    .replace(BUILD_NOISE_RE, '')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
-  return createHash('sha1').update(body).digest('hex').slice(0, 16)
+  const seoSignals = collectSeoSignals(cleaned)
+  return createHash('sha1')
+    .update(`${body}\n${seoSignals.join('\n')}`)
+    .digest('hex')
+    .slice(0, 16)
 }
 
 function isNoindex(html) {
@@ -174,20 +267,28 @@ function collectPages(dir) {
 /* ------------------------------------------------------------------ state -- */
 
 function loadState() {
-  if (!existsSync(STATE_PATH)) return { lastSubmittedAt: null, fingerprints: {} }
+  if (!existsSync(STATE_PATH)) return { lastSubmittedAt: null, fingerprintVersion: null, fingerprints: {} }
   try {
     const state = JSON.parse(readFileSync(STATE_PATH, 'utf8'))
     if (!state || typeof state !== 'object' || typeof state.fingerprints !== 'object') throw new Error('invalid schema')
     return state
   } catch (error) {
     console.warn(`[indexnow] Ignoring invalid state file ${path.relative(ROOT, STATE_PATH)}: ${error.message}`)
-    return { lastSubmittedAt: null, fingerprints: {} }
+    return { lastSubmittedAt: null, fingerprintVersion: null, fingerprints: {} }
   }
 }
 
 function saveState(state) {
   mkdirSync(path.dirname(STATE_PATH), { recursive: true })
   writeFileSync(STATE_PATH, `${JSON.stringify(state, null, 2)}\n`)
+}
+
+function currentFingerprintState(pages, extra = {}) {
+  return {
+    ...extra,
+    fingerprintVersion: FINGERPRINT_VERSION,
+    fingerprints: Object.fromEntries(pages),
+  }
 }
 
 /* --------------------------------------------------------------- payload -- */
@@ -362,6 +463,7 @@ async function main() {
   const state = loadState()
   const previous = state.fingerprints ?? {}
   const isFirstRun = Object.keys(previous).length === 0
+  const stateFingerprintVersion = Number(state.fingerprintVersion || 1)
 
   const added = []
   const changed = []
@@ -380,6 +482,7 @@ async function main() {
   console.log('='.repeat(60))
   console.log(`Host           ${SITE_HOST}`)
   console.log(`Key            ${key.slice(0, 8)}…`)
+  console.log(`Fingerprint v  ${FINGERPRINT_VERSION} (state: ${isFirstRun ? 'none' : stateFingerprintVersion})`)
   console.log(`Indexable      ${pages.size} pages in ${path.relative(ROOT, OUT_DIR)}/`)
   console.log(`Last submitted ${state.lastSubmittedAt ?? 'never'}`)
   console.log(`New            ${added.length}`)
@@ -389,12 +492,27 @@ async function main() {
   printUrls(urls)
 
   if (DO_BASELINE || (DO_BOOTSTRAP && isFirstRun)) {
-    saveState({
+    saveState(currentFingerprintState(pages, {
       lastSubmittedAt: state.lastSubmittedAt,
       baselinedAt: new Date().toISOString(),
-      fingerprints: Object.fromEntries(pages),
-    })
+    }))
     console.log(`\n[indexnow] Baseline recorded in ${path.relative(ROOT, STATE_PATH)}. Nothing was submitted.`)
+    return
+  }
+
+  if (!isFirstRun && stateFingerprintVersion !== FINGERPRINT_VERSION) {
+    console.log(`\n[indexnow] Fingerprint algorithm changed from v${stateFingerprintVersion} to v${FINGERPRINT_VERSION}.`)
+    if (!DO_SUBMIT && !DO_BOOTSTRAP) {
+      console.log('[indexnow] Dry run — state was not migrated. Re-run the production submission to establish the new baseline safely.')
+      return
+    }
+
+    saveState(currentFingerprintState(pages, {
+      lastSubmittedAt: state.lastSubmittedAt,
+      baselinedAt: new Date().toISOString(),
+      migratedFromFingerprintVersion: stateFingerprintVersion,
+    }))
+    console.log('[indexnow] New fingerprint baseline recorded without submitting every page as falsely changed.')
     return
   }
 
@@ -418,7 +536,7 @@ async function main() {
   }
 
   await submitUrls(urls, key, keyLocation)
-  saveState({ lastSubmittedAt: new Date().toISOString(), fingerprints: Object.fromEntries(pages) })
+  saveState(currentFingerprintState(pages, { lastSubmittedAt: new Date().toISOString() }))
   console.log(`\n[indexnow] Submitted ${urls.length} URL(s); state saved to ${path.relative(ROOT, STATE_PATH)}`)
 }
 
