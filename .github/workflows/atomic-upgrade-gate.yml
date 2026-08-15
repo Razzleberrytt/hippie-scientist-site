@@ -1,0 +1,74 @@
+name: Atomic upgrade gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  atomic-contract:
+    name: Atomic issue and measurement contract
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR contract
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          node <<'NODE'
+          const body = process.env.PR_BODY || '';
+          const failures = [];
+          if (!/(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\s+#\d+/i.test(body)) failures.push('link one atomic GitHub issue with Closes/Fixes/Resolves #N');
+          for (const heading of ['Relevant URLs', 'Acceptance criteria', 'Validation commands', 'Before → after metrics', 'Generator/source-of-truth decision', 'Regression contract']) {
+            if (!body.toLowerCase().includes(heading.toLowerCase())) failures.push(`include the “${heading}” section from the PR template`);
+          }
+          if (failures.length) {
+            console.error('Atomic upgrade contract failed:\n- ' + failures.join('\n- '));
+            process.exit(1);
+          }
+          console.log('Atomic upgrade contract present.');
+          NODE
+
+  generator-release-quality:
+    name: Full release suite for generator changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect generator/structural changes
+        id: detect
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF" --depth=1
+          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          printf '%s\n' "$changed"
+          if printf '%s\n' "$changed" | grep -Eq '^(scripts/(data|build|pipeline|ci)/|scripts/(build|orchestrate|profile-build|generate-|create-content)|app/.+/(generateStaticParams|page\.)|lib/(content|data|seo|schema|routes|taxonomy)|public/data/|next\.config\.|package(-lock)?\.json)'; then
+            echo 'generator_changed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'generator_changed=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Node.js
+        if: steps.detect.outputs.generator_changed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.detect.outputs.generator_changed == 'true'
+        run: npm ci
+
+      - name: Run complete release-quality suite
+        if: steps.detect.outputs.generator_changed == 'true'
+        run: npm run validate:release
+
+      - name: No generator-level change
+        if: steps.detect.outputs.generator_changed != 'true'
+        run: echo 'No generator/structural files changed; standard CI remains authoritative.'

@@ -1,0 +1,97 @@
+name: Atomic ROI upgrade
+description: One independently mergeable improvement selected from the Content Command Center queue.
+title: "[ROI] "
+labels: ["roi-upgrade"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep this issue atomic. Prefer a generator/source-of-truth fix when many generated pages share the same defect. The change is done only when the acceptance criteria pass and before/after evidence shows no regression.
+
+  - type: input
+    id: queue_task
+    attributes:
+      label: Queue task ID
+      description: Stable backlog/queue identifier selected by the Next Highest ROI Task generator.
+      placeholder: "821"
+    validations:
+      required: true
+
+  - type: textarea
+    id: urls
+    attributes:
+      label: Relevant URLs
+      description: One URL per line. Use N/A only for repository-wide infrastructure with no user-facing URL.
+      placeholder: |
+        /herbs/ashwagandha/
+        /compare/ashwagandha-vs-l-theanine/
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and expected impact
+      description: State the measurable defect/opportunity and why fixing it is worth doing now.
+    validations:
+      required: true
+
+  - type: textarea
+    id: generator
+    attributes:
+      label: Generator/source-of-truth approach
+      description: Identify the upstream generator, canonical data field, reusable component, or shared rule to change. Explain why page-by-page patching is unnecessary; if it truly is necessary, explain why.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Use objective, testable completion criteria.
+      placeholder: |
+        - [ ] All affected canonical records render the corrected field.
+        - [ ] No indexability or citation regressions are introduced.
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation commands
+      description: Exact commands that must pass before merge. Structural/generator changes should include the full release suite.
+      placeholder: |
+        npm run validate:code
+        npm run validate:release
+    validations:
+      required: true
+
+  - type: textarea
+    id: before_metrics
+    attributes:
+      label: Before metrics / baseline
+      description: Record the relevant pre-change state, counts, scores, screenshots, or regression snapshot reference.
+    validations:
+      required: true
+
+  - type: textarea
+    id: after_metrics
+    attributes:
+      label: Expected after metrics
+      description: Define what must improve or remain unchanged after the implementation.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: atomicity
+    attributes:
+      label: Merge contract
+      options:
+        - label: This issue represents one independently useful, independently mergeable improvement.
+          required: true
+        - label: I will prefer a generator/source-of-truth fix over patching generated pages individually.
+          required: true
+        - label: I will rerun the complete release-quality suite after a generator/structural change.
+          required: true
+        - label: I will not merge if regression checks are worse than baseline without an explicit, justified tradeoff.
+          required: true
