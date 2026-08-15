@@ -39,6 +39,14 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - name: Restore IndexNow state
+        uses: actions/cache@v6
+        with:
+          path: ops/indexnow-state.json
+          key: indexnow-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            indexnow-${{ runner.os }}-
+
       - name: Cache Next.js build cache
         uses: actions/cache@v6
         with:
@@ -193,3 +201,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
         run: npx --no-install wrangler pages deploy out --project-name "$CLOUDFLARE_PAGES_PROJECT" --branch "${DEPLOY_BRANCH:-main}" --commit-hash "${DEPLOY_SHA:-$GITHUB_SHA}"
+
+      - name: Notify IndexNow of changed URLs
+        continue-on-error: true
+        run: node scripts/seo/indexnow-submit.mjs --submit --bootstrap
