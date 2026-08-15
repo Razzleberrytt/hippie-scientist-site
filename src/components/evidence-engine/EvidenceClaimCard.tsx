@@ -75,8 +75,11 @@ export default function EvidenceClaimCard({
             {problemLabel}
           </p>
         </div>
-        <span className={`inline-flex w-fit rounded-full px-2.5 py-1 text-xs font-bold ring-1 ${confidence.tone}`}>
-          {confidence.label}
+        <span
+          aria-label={`Confidence: ${confidence.label}`}
+          className={`inline-flex w-fit rounded-full px-2.5 py-1 text-xs font-bold ring-1 ${confidence.tone}`}
+        >
+          Confidence: {confidence.label}
         </span>
       </div>
 
@@ -134,7 +137,7 @@ export default function EvidenceClaimCard({
       )}
 
       <div className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-5 text-slate-800 ring-1 ring-slate-200 dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] dark:ring-[var(--border-soft)]">
-        <strong>{confidence.label}:</strong> {confidence.description}
+        <strong>Confidence — {confidence.label}:</strong> {confidence.description}
       </div>
 
       <EvidenceSafetyNotes notes={safetyNotes} />
