@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "privacy": {
+    "aggregationOnly": true,
+    "containsUserIds": false,
+    "containsRawHealthQueries": false
+  },
+  "rows": []
+}
