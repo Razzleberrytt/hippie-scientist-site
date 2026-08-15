@@ -21,6 +21,10 @@ on:
       - 'scripts/audit-related-botanicals.ts'
       - 'scripts/rank-related-comparisons.ts'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   audit:
     runs-on: ubuntu-latest
