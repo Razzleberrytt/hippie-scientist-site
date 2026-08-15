@@ -23,9 +23,24 @@ jobs:
           BASE_REF: ${{ github.base_ref }}
         run: git fetch origin "$BASE_REF" --depth=1
 
+      - name: Extract major automated change explanation
+        id: explanation
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const body = process.env.PR_BODY || ''
+          const heading = 'Major automated change explanation'
+          const pattern = new RegExp(`^##\\s+${heading}\\s*$([\\s\\S]*?)(?=^##\\s+|\\Z)`, 'im')
+          const match = body.match(pattern)
+          const reason = (match?.[1] || '').trim()
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `reason<<EOF\n${reason}\nEOF\n`)
+          NODE
+
       - name: Compare build-quality signals
         env:
-          QUALITY_CHANGE_REASON: ${{ github.event.pull_request.body }}
+          QUALITY_CHANGE_REASON: ${{ steps.explanation.outputs.reason }}
         run: node scripts/ci/compare-build-quality.mjs --base="origin/${{ github.base_ref }}" --require-base
 
       - name: Upload human-readable quality diff
