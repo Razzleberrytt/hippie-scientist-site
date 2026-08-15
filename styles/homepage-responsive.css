@@ -186,13 +186,120 @@
   .hs-home .hs-hero .hs-rail > * + * {
     border-top: 1px solid var(--hs-hairline);
   }
+
+  /* Give non-hero sections a clearer editorial hierarchy on phones. */
+  .hs-home section:not(.hs-hero) .hs-display {
+    font-size: clamp(2rem, 9.6vw, 2.5rem);
+    line-height: 1.01;
+    letter-spacing: -0.04em;
+  }
+
+  .hs-home section:not(.hs-hero) .hs-lede {
+    font-size: 0.93rem;
+    line-height: 1.65;
+  }
+
+  .hs-home section:not(.hs-hero) .hs-link {
+    min-height: 2.75rem;
+    width: fit-content;
+    border: 1px solid var(--hs-hairline);
+    border-radius: 999px;
+    padding: 0.65rem 0.9rem;
+    background: color-mix(in srgb, var(--hs-surface) 72%, transparent);
+    text-decoration: none;
+  }
+
+  /* The first decision block becomes the homepage's strong mid-page color beat. */
+  .hs-home #choose-a-path {
+    position: relative;
+    isolation: isolate;
+    margin-top: 1rem;
+    margin-inline: -0.25rem;
+    overflow: hidden;
+    border: 1px solid rgba(230, 208, 166, 0.2);
+    border-radius: 2rem;
+    padding: 1.45rem 1rem 1.2rem;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(219, 181, 113, 0.18), transparent 35%),
+      radial-gradient(circle at 0% 100%, rgba(81, 146, 108, 0.2), transparent 38%),
+      linear-gradient(155deg, #174638 0%, #0f3228 52%, #0b281f 100%);
+    box-shadow: 0 26px 58px -38px rgba(8, 40, 29, 0.9);
+  }
+
+  .hs-home #choose-a-path::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    right: -5rem;
+    bottom: -5rem;
+    width: 14rem;
+    height: 14rem;
+    border: 1px solid rgba(230, 208, 166, 0.14);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 1.4rem rgba(230, 208, 166, 0.025),
+      0 0 0 2.8rem rgba(230, 208, 166, 0.02);
+  }
+
+  .hs-home #choose-a-path .hs-display {
+    color: #fffdf8;
+  }
+
+  .hs-home #choose-a-path .hs-accent,
+  .hs-home #choose-a-path .hs-eyebrow,
+  .hs-home #choose-a-path .hs-link {
+    color: #ebcf9c;
+  }
+
+  .hs-home #choose-a-path .hs-lede {
+    color: rgba(239, 247, 242, 0.74);
+  }
+
+  .hs-home #choose-a-path .hs-link {
+    border-color: rgba(235, 207, 156, 0.22);
+    background: rgba(255, 255, 255, 0.055);
+  }
+
+  .hs-home #choose-a-path > .grid {
+    gap: 0.75rem;
+  }
+
+  .hs-home #choose-a-path .hs-goal {
+    min-height: 11rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 16px 32px -25px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Dividers should support pacing, not dominate it. */
+  .hs-home .hs-divider {
+    opacity: 0.48;
+  }
 }
 
-/* The goal-card copy becomes cramped when four cards stay two-up on narrow
-   phones. Give each card the full reading width there, then let the existing
-   Tailwind grid resume its two-column layout above this breakpoint. */
+/* On the narrowest phones, the goal chooser becomes a compact 2x2 dashboard.
+   The card title/icon carry the decision; hiding the supporting sentence avoids
+   the cramped copy that originally forced these cards into a long single column. */
 @media (max-width: 429px) {
   .hs-home #choose-a-path > .grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hs-home #choose-a-path .hs-goal {
+    min-height: 9.4rem;
+    padding: 0.9rem;
+  }
+
+  .hs-home #choose-a-path .hs-goal p {
+    display: none;
+  }
+
+  .hs-home #choose-a-path .hs-goal-title {
+    margin-top: 0.8rem;
+    font-size: 1.25rem;
+    line-height: 1.05;
+  }
+
+  .hs-home #choose-a-path .hs-goal-go {
+    margin-top: 0.9rem;
   }
 }
