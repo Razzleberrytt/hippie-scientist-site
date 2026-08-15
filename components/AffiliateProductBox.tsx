@@ -48,8 +48,8 @@ export default function AffiliateProductBox({ slug, products, heading = 'Product
               productSlot={product.slot}
               productAsin={product.asin}
             >
-              <article className="flex h-full flex-col rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
+              <article className="flex h-full flex-col rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm dark:border-white/10 dark:bg-white/5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200">
                   {SLOT_LABELS[product.slot] ?? product.slot}
                 </p>
                 {product.brand && (
@@ -75,7 +75,7 @@ export default function AffiliateProductBox({ slug, products, heading = 'Product
                     productSlot: product.slot,
                     productAsin: product.asin,
                   })}
-                  className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2 text-xs font-bold text-white transition hover:bg-brand-900"
+                  className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2 text-xs font-bold text-white transition hover:bg-brand-900 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100"
                 >
                   View on Amazon →
                 </a>
