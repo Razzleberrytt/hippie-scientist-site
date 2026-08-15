@@ -35,7 +35,13 @@ export default function WhatEvidenceShows({
       <h2 id={`${id}-title`} className="mt-3 text-xl font-semibold tracking-tight text-ink">
         Direct answer
       </h2>
-      <p className="mt-2 text-base leading-7 text-[color:var(--hs-body)]">{summary}</p>
+      <p
+        className="mt-2 text-base leading-7 text-[color:var(--hs-body)]"
+        data-citation-ready-summary="true"
+        itemProp="abstract"
+      >
+        {summary}
+      </p>
 
       {visiblePoints.length > 0 ? (
         <ul className="mt-4 space-y-2 text-sm leading-6 text-[color:var(--hs-body)]">
