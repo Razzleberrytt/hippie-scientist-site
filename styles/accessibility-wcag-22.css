@@ -181,4 +181,11 @@ main th[scope='row'] {
   .skip-link {
     transition: none;
   }
+
+  /* Preserve the homepage evidence dial's composition without the continuous
+     spin/float motion for visitors who explicitly request less animation. */
+  .hs-home .hs-dial-ring--outer,
+  .hs-home .hs-dial-chip {
+    animation: none;
+  }
 }
