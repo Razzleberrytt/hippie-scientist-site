@@ -18,27 +18,63 @@ function sourceLabel(url: string): string {
 
 export default function References({ refs }: { refs: Ref[] }) {
   return (
-    <section id="references" aria-label="References" className="card-premium p-6 space-y-3 max-w-4xl">
-      <h2 className="text-xl font-semibold text-ink">References</h2>
-      <ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
+    <section
+      id="references"
+      aria-label="References"
+      className="max-w-4xl border-y border-[color:var(--hs-hairline)] py-7 sm:py-9"
+    >
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <p className="section-label">Source ledger</p>
+          <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]">
+            References
+          </h2>
+        </div>
+        <p className="font-mono text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-[color:var(--hs-body)]">
+          {refs.length} {refs.length === 1 ? 'source' : 'sources'}
+        </p>
+      </div>
+
+      <ol className="mt-5 divide-y divide-[color:var(--hs-hairline)]">
         {refs.map((ref) => (
-          <li key={ref.n} id={`ref-${ref.n}`} itemScope itemType="https://schema.org/CreativeWork">
-            <span className="font-semibold text-ink">[{ref.n}]</span>{' '}
-            <span itemProp="name">{ref.title || ref.text}</span>
-            {ref.title ? <span> {ref.text}</span> : null}
-            {ref.authors ? <meta itemProp="author" content={ref.authors} /> : null}
-            {ref.journal ? <meta itemProp="isPartOf" content={ref.journal} /> : null}
-            {ref.year ? <meta itemProp="datePublished" content={String(ref.year)} /> : null}
-            {ref.pmid ? <meta itemProp="identifier" content={`PMID:${ref.pmid}`} /> : null}
-            {ref.doi ? <meta itemProp="identifier" content={`DOI:${ref.doi}`} /> : null}
-            {ref.url ? (
-              <>
-                {' '}
-                <a href={ref.url} target="_blank" rel="noopener noreferrer" itemProp="url" className="text-brand-700 underline hover:text-brand-800">
-                  {sourceLabel(ref.url)}
-                </a>
-              </>
-            ) : null}
+          <li
+            key={ref.n}
+            id={`ref-${ref.n}`}
+            itemScope
+            itemType="https://schema.org/CreativeWork"
+            className="grid gap-2 py-4 first:pt-0 last:pb-0 sm:grid-cols-[2.4rem_minmax(0,1fr)] sm:gap-4"
+          >
+            <span
+              aria-hidden="true"
+              className="font-mono text-[0.66rem] font-bold tracking-[0.12em] text-[color:var(--hs-gold-ink)] sm:pt-0.5"
+            >
+              {String(ref.n).padStart(2, '0')}
+            </span>
+            <div className="text-xs leading-5 text-[color:var(--hs-body)]">
+              <span itemProp="name" className="font-semibold text-[color:var(--hs-ink)]">
+                {ref.title || ref.text}
+              </span>
+              {ref.title ? <span> {ref.text}</span> : null}
+              {ref.authors ? <meta itemProp="author" content={ref.authors} /> : null}
+              {ref.journal ? <meta itemProp="isPartOf" content={ref.journal} /> : null}
+              {ref.year ? <meta itemProp="datePublished" content={String(ref.year)} /> : null}
+              {ref.pmid ? <meta itemProp="identifier" content={`PMID:${ref.pmid}`} /> : null}
+              {ref.doi ? <meta itemProp="identifier" content={`DOI:${ref.doi}`} /> : null}
+              {ref.url ? (
+                <>
+                  {' '}
+                  <a
+                    href={ref.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    itemProp="url"
+                    className="font-semibold text-[color:var(--tone-ink)] underline decoration-[color:var(--hs-hairline-strong)] underline-offset-4 transition hover:text-[color:var(--hs-ink)]"
+                  >
+                    {sourceLabel(ref.url)}
+                  </a>
+                </>
+              ) : null}
+            </div>
           </li>
         ))}
       </ol>
