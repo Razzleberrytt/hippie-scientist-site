@@ -103,7 +103,7 @@ export default async function SeeAlsoCluster({
 
       {grouped.length > 0 ? (
         <section
-          className="space-y-4 rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5"
+          className="space-y-4 rounded-2xl border border-brand-900/10 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5 sm:p-5"
           aria-labelledby="see-also-cluster-heading"
         >
           <div className="flex flex-wrap items-center justify-between gap-2">
