@@ -249,3 +249,63 @@ html main hr {
     transform: translateY(0) scale(1);
   }
 }
+
+/* ---------- Mobile homepage palette correction ---------- */
+
+@media (max-width: 639px) {
+  /* The responsive homepage layer intentionally creates stronger focal
+     surfaces. Override its original forest-green colors with the new editorial
+     palette so the hierarchy survives without looking like a wellness template. */
+  .hs-home .hs-hero {
+    background:
+      radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--hs-gold) 16%, transparent), transparent 34%),
+      radial-gradient(circle at 8% 18%, rgba(111, 102, 168, 0.14), transparent 36%),
+      linear-gradient(155deg, color-mix(in srgb, var(--hs-surface) 95%, transparent), var(--hs-surface-2));
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.6) inset,
+      0 24px 60px -36px rgba(62, 55, 73, 0.34);
+  }
+
+  .dark .hs-home .hs-hero {
+    background:
+      radial-gradient(circle at 92% 8%, rgba(213, 173, 108, 0.13), transparent 34%),
+      radial-gradient(circle at 8% 18%, rgba(123, 109, 186, 0.18), transparent 38%),
+      linear-gradient(155deg, rgba(47, 43, 58, 0.98), rgba(29, 27, 35, 0.99));
+  }
+
+  .hs-home .hs-hero .hs-btn-primary {
+    border-color: rgba(49, 44, 59, 0.92);
+    background: linear-gradient(140deg, #4a4458 0%, #332f3d 55%, #292530 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.14) inset,
+      0 14px 30px -12px rgba(49, 44, 59, 0.55);
+  }
+
+  .dark .hs-home .hs-hero .hs-btn-primary {
+    border-color: rgba(213, 173, 108, 0.38);
+    background: linear-gradient(140deg, #665c8c 0%, #493f61 55%, #332c43 100%);
+  }
+
+  .hs-home .hs-hero .hs-btn-primary,
+  .hs-home .hs-hero .hs-btn-ghost,
+  .hs-home .hs-hero .hs-rail > * {
+    box-shadow: 0 12px 28px -20px rgba(55, 49, 65, 0.38);
+  }
+
+  .hs-home #choose-a-path {
+    border-color: rgba(218, 189, 139, 0.2);
+    background:
+      radial-gradient(circle at 100% 0%, rgba(213, 173, 108, 0.18), transparent 35%),
+      radial-gradient(circle at 0% 100%, rgba(119, 103, 181, 0.22), transparent 40%),
+      linear-gradient(155deg, #463f53 0%, #332e3d 52%, #292530 100%);
+    box-shadow: 0 26px 58px -38px rgba(28, 24, 34, 0.9);
+  }
+
+  .hs-home #choose-a-path .hs-lede {
+    color: rgba(245, 240, 248, 0.76);
+  }
+
+  .hs-home section:has(.hs-vs):has(.hs-tool) > div {
+    box-shadow: 0 18px 42px -34px rgba(55, 49, 65, 0.42);
+  }
+}
