@@ -42,7 +42,7 @@ export default async function Page({ params }: LearnRouteProps) {
 
   return (
     <div className="container-page py-6 sm:py-10">
-      <article className="space-y-8">
+      <article className="space-y-10 sm:space-y-12">
         <section className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="eyebrow-label">{post.category}</span>
@@ -52,24 +52,41 @@ export default async function Page({ params }: LearnRouteProps) {
           <p className="text-reading mt-4 max-w-3xl">{post.hero}</p>
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-[1.8fr_1fr]">
-          <div className="space-y-6">
-            {post.sections.map((section) => (
-              <section key={section.heading} className="card-premium p-6">
-                <h2 className="text-2xl font-semibold text-ink">{section.heading}</h2>
-                <p className="detail-reading mt-3 text-muted">{section.body}</p>
-                {section.bullets && section.bullets.length > 0 ? (
-                  <ul className="mt-4 space-y-2 pl-5 text-muted list-disc">
-                    {section.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-                ) : null}
+        <section className="grid gap-9 lg:grid-cols-[minmax(0,1.8fr)_minmax(15rem,0.72fr)] lg:gap-12">
+          <div className="min-w-0">
+            {post.sections.map((section, index) => (
+              <section
+                key={section.heading}
+                className="relative border-t border-[color:var(--hs-hairline)] py-8 first:border-t-0 first:pt-0 sm:py-10"
+              >
+                <div className="grid gap-3 sm:grid-cols-[3.25rem_minmax(0,1fr)] sm:gap-5">
+                  <p
+                    aria-hidden="true"
+                    className="font-mono text-[0.66rem] font-semibold tracking-[0.16em] text-[color:var(--hs-gold-ink)] sm:pt-1.5"
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <div>
+                    <h2 className="max-w-2xl font-display text-[1.7rem] font-semibold leading-[1.08] tracking-[-0.035em] text-ink sm:text-[2rem]">
+                      {section.heading}
+                    </h2>
+                    <p className="detail-reading mt-4 max-w-[68ch] text-muted">{section.body}</p>
+                    {section.bullets && section.bullets.length > 0 ? (
+                      <ul className="mt-5 max-w-[68ch] space-y-2.5 border-l border-[color:var(--hs-hairline-strong)] pl-5 text-muted">
+                        {section.bullets.map((bullet) => (
+                          <li key={bullet} className="relative pl-3 before:absolute before:left-0 before:top-[0.72em] before:h-1 before:w-1 before:rounded-full before:bg-[color:var(--hs-gold)]">
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                </div>
               </section>
             ))}
           </div>
 
-          <aside className="space-y-5">
+          <aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
             <section className="card-premium p-5">
               <p className="eyebrow-label">Best fit goals</p>
               <ul className="mt-3 space-y-2 text-sm text-muted">
