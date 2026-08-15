@@ -1,0 +1,119 @@
+name: Production Content Invariants
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'data/**'
+      - 'data-sources/**'
+      - 'public/data/**'
+      - 'content/**'
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'src/**'
+      - 'scripts/data/**'
+      - 'scripts/lib/production-content-invariants.mjs'
+      - 'scripts/ci/*production*'
+      - '.github/workflows/production-content-invariants.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'data-sources/**'
+      - 'public/data/**'
+      - 'content/**'
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'src/**'
+      - 'scripts/data/**'
+      - 'scripts/lib/production-content-invariants.mjs'
+      - 'scripts/ci/*production*'
+      - '.github/workflows/production-content-invariants.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: production-content-invariants-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  invariants:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Exercise every invariant with deterministic fixtures
+        run: node scripts/ci/test-production-content-invariants.mjs
+
+      - name: Build canonical runtime data
+        run: node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out public/data
+
+      - name: Scrub internal language and demote unsafe profiles
+        run: node scripts/data/enforce-production-content-invariants.mjs --data-dir=public/data
+
+      - name: Validate the post-enforcement profile corpus
+        run: node scripts/ci/validate-production-content-invariants.mjs --data-dir=public/data
+
+      - name: Build downstream runtime maps
+        run: |
+          node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data
+          node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data
+          node scripts/data/build-route-manifest.mjs --data-dir=public/data
+          node scripts/data/build-internal-link-engine.mjs --data-dir=public/data
+          node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data
+          node scripts/data/build-export-batches.mjs --data-dir=public/data
+          node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data
+          node scripts/data/build-search-index.mjs --data-dir=public/data
+
+      - name: Build production static HTML from governed data
+        run: node scripts/build-production.mjs
+
+      - name: Prove placeholders and dev language are absent from visible HTML
+        run: node scripts/ci/audit-production-visible-language.mjs
+
+      - name: Verify profile robots after invariant demotions
+        run: node scripts/ci/audit-profile-robots.mjs
+
+      - name: Upload invariant reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: production-content-invariants-${{ github.run_number }}
+          path: |
+            reports/production-invariant-enforcement.json
+            reports/production-content-invariants.json
+            reports/production-visible-language.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Summary
+        if: always()
+        run: |
+          echo '## Production content invariants' >> "$GITHUB_STEP_SUMMARY"
+          echo '- A-grade criteria, human-source, safety-source, dose-source, citation resolution, placeholders, canonical duplicates, scientific names and internal-development language are covered.' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/production-invariant-enforcement.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('reports/production-invariant-enforcement.json', 'utf8'))
+          console.log(`- Profiles scanned: ${r.scannedProfiles}`)
+          console.log(`- Profiles scrubbed: ${r.scrubbedProfiles}`)
+          console.log(`- Profiles demoted to NEEDS_REVIEW/noindex: ${r.demotedProfiles}`)
+          NODE
+          fi
+          echo '- Invalid profiles remain research-accessible but cannot stay indexable.' >> "$GITHUB_STEP_SUMMARY"
