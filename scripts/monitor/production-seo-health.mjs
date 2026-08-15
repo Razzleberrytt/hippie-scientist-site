@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const CANONICAL_ORIGIN = 'https://thehippiescientist.net'
+import { CANONICAL_ORIGIN, evaluateHostNormalization } from './production-seo-health-lib.mjs'
+
 const MAX_REDIRECTS = 6
 const SAMPLE_LIMIT = Number(process.argv.find((arg) => arg.startsWith('--sample='))?.split('=')[1] || 40)
 const errors = []
@@ -31,19 +32,13 @@ function soft404(html) {
 
 async function verifyHostNormalization(url, label) {
   const result = await fetchWithChain(url, { method: 'GET' })
-  if (!result.response) {
-    errors.push({ type: 'redirect-overflow', label, chain: result.chain })
-    return
-  }
-  const final = new URL(result.finalUrl)
-  if (final.origin !== CANONICAL_ORIGIN) errors.push({ type: 'wrong-final-origin', label, finalUrl: result.finalUrl, chain: result.chain })
-  if (result.chain.length > 3) errors.push({ type: 'host-redirect-chain-too-long', label, chain: result.chain })
-  if (result.response.status >= 400) errors.push({ type: 'host-normalization-error-status', label, status: result.response.status })
+  errors.push(...evaluateHostNormalization({ inputUrl: url, result, label }))
 }
 
-await verifyHostNormalization('http://thehippiescientist.net/', 'http-apex')
-await verifyHostNormalization('http://www.thehippiescientist.net/', 'http-www')
-await verifyHostNormalization('https://www.thehippiescientist.net/', 'https-www')
+const hostNormalizationPath = '/goals/'
+await verifyHostNormalization(`http://thehippiescientist.net${hostNormalizationPath}`, 'http-apex')
+await verifyHostNormalization(`http://www.thehippiescientist.net${hostNormalizationPath}`, 'http-www')
+await verifyHostNormalization(`https://www.thehippiescientist.net${hostNormalizationPath}`, 'https-www')
 
 const missingPath = `/__seo-monitor-definitely-gone-${Date.now()}/`
 const missing = await fetch(`${CANONICAL_ORIGIN}${missingPath}`, { redirect: 'manual', headers: { 'user-agent': 'TheHippieScientist-SEO-Monitor/1.0' } })
