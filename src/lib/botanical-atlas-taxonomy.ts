@@ -1,3 +1,5 @@
+export { normalizeSafetySignal, normalizeSafetySignals } from './safety-taxonomy'
+
 const clean = (value: string) => value.trim().toLowerCase().replace(/[–—]/g, '-').replace(/\s+/g, ' ')
 
 const EFFECT_RULES: Array<[string, RegExp]> = [
@@ -42,21 +44,6 @@ const CLASS_RULES: Array<[string, RegExp]> = [
   ['Alkaloids', /\b(?:alkaloids?|isoquinolines?|aporphines?|tropanes?|indole alkaloids?|berberine|palmatine|mitragynine|mesembrine|yohimbine|harmine|harmaline|hordenine|synephrine|nicotine|lobeline|huperzine a|tetrahydropalmatine)\b/],
 ]
 
-const SAFETY_RULES: Array<[string, RegExp]> = [
-  ['Sedation', /sedat|drows|cns depress|sleepiness/],
-  ['Stimulation', /stimul|insomnia|agitat|jitter|anxiety/],
-  ['Serotonergic', /seroton|ssri|snri|maoi|monoamine oxidase/],
-  ['Cardiovascular', /blood pressure|hypertension|hypotension|heart|arrhythm|qt|tachy|brady/],
-  ['Bleeding', /bleed|anticoagul|antiplatelet/],
-  ['Liver', /liver|hepato/],
-  ['Kidney', /kidney|renal/],
-  ['Seizure', /seizure|convuls/],
-  ['Dependence / withdrawal', /depend|withdraw|addict|habit-forming|abuse/],
-  ['Pregnancy / breastfeeding', /pregnan|breastfeed|lactation/],
-  ['Drug metabolism', /cyp|drug metabolism|enzyme inhibit|enzyme induc/],
-  ['Toxicity concern', /toxic|poison|narrow therapeutic|fatal/],
-]
-
 const firstMatch = (value: string, rules: Array<[string, RegExp]>) => {
   const normalized = clean(value)
   return rules.find(([, pattern]) => pattern.test(normalized))?.[0]
@@ -64,12 +51,6 @@ const firstMatch = (value: string, rules: Array<[string, RegExp]>) => {
 
 export const normalizeEffect = (value: string) => firstMatch(value, EFFECT_RULES) ?? value.trim()
 export const normalizeCompoundClass = (value: string) => firstMatch(value, CLASS_RULES) ?? value.trim()
-export const normalizeSafetySignal = (value: string) => firstMatch(value, SAFETY_RULES) ?? value.trim()
-export const normalizeSafetySignals = (value: string): string[] => {
-  const normalized = clean(value)
-  const matches = SAFETY_RULES.filter(([, pattern]) => pattern.test(normalized)).map(([label]) => label)
-  return matches.length ? matches : (value.trim() ? [value.trim()] : [])
-}
 
 export const inferAtlasEffectsFromMechanisms = (values: string[]): string[] => {
   const effects = values.flatMap((value) => {
