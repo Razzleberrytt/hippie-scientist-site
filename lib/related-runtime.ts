@@ -1,4 +1,5 @@
 import { text } from '@/lib/display-utils'
+import { buildRenderableRuntimeRecordIndex } from '@/lib/runtime-link-candidates'
 import { safeArray, safeScore, safeSlug } from '@/lib/search-safe'
 import {
   getRuntimeMapEntries,
@@ -39,16 +40,6 @@ function clampLimit(value: unknown, fallback: number, max: number) {
   const parsed = safeScore(value, fallback)
   if (!Number.isFinite(parsed)) return fallback
   return Math.min(max, Math.max(0, Math.floor(parsed)))
-}
-
-function buildRecordIndex(records: RuntimeRecord[]) {
-  const bySlug = new Map<string, RuntimeRecord>()
-  for (const record of safeArray<RuntimeRecord>(records)) {
-    const slug = safeSlug(record?.slug)
-    if (!slug || bySlug.has(slug)) continue
-    bySlug.set(slug, record)
-  }
-  return bySlug
 }
 
 function normalizedOpportunityScore(record: RuntimeRecord): number {
@@ -130,7 +121,7 @@ async function getRuntimeRecords(kind: RuntimeRelationshipKind, record: RuntimeR
   if (!slug || requestedLimit === 0) return []
 
   const entries = await getRuntimeMapEntries(kind, slug)
-  const recordIndex = buildRecordIndex(records)
+  const recordIndex = buildRenderableRuntimeRecordIndex(records)
   return sortHydratedRecords(hydrateRuntimeEntries(entries, recordIndex)).slice(0, requestedLimit)
 }
 
@@ -164,7 +155,7 @@ export async function getBatchedRuntimeRecords(
     .slice(0, MAX_BATCHED_SLUGS)
   if (sourceSlugs.length === 0) return {}
 
-  const recordIndex = buildRecordIndex(candidateRecords)
+  const recordIndex = buildRenderableRuntimeRecordIndex(candidateRecords)
   const entriesBySlug = await getRuntimeMapEntriesForSlugs(kind, sourceSlugs)
 
   return Object.fromEntries(
