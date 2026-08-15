@@ -62,31 +62,53 @@ export default function SearchPage() {
     { name: 'Stack Builder', href: '/guides/' },
   ]
 
+  const searchMetrics = [
+    { value: HERB_COUNT, label: 'herb records' },
+    { value: COMPOUND_COUNT, label: 'compound records' },
+    { value: 4, label: 'search lenses' },
+  ]
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
+    <div className="mx-auto max-w-6xl px-4 py-4 sm:py-6">
       <Script
         src='/pagefind/pagefind-ui.js'
         strategy='afterInteractive'
       />
-      <div className="mb-6 space-y-2">
-        <p className="eyebrow-label">Evidence discovery</p>
-        <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-5xl">
-          Search herbs and compounds
-        </h1>
-        <p className="text-sm text-muted">
-          Scan by name, goal, mechanism, or safety context. Evidence-weighted, conservative labels.
-        </p>
-      </div>
 
-      {/* Static search directory for SEO indexing, no-JS users, and quick navigation.
-          Intentionally visible for all users (JS + no-JS) to provide accessible entry points
-          and crawlable links without relying on client hydration. The interactive search UI below
-          offers enhanced filtering and discovery. */}
+      <section className="hero-shell mb-6 rounded-[2rem] border px-5 py-6 sm:p-8 lg:p-10">
+        <p className="eyebrow-label">Evidence Discovery</p>
+        <h1 className="heading-premium mt-5 max-w-4xl">Search herbs and compounds</h1>
+        <p className="text-reading mt-4 max-w-3xl">
+          Scan by name, goal, mechanism, or safety context. Evidence-weighted results, conservative labels, and direct paths into the research library.
+        </p>
+
+        <dl className="mt-6 grid grid-cols-3 overflow-hidden rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_76%,transparent)] backdrop-blur-sm">
+          {searchMetrics.map((metric, index) => (
+            <div
+              key={metric.label}
+              className={`px-3 py-3.5 text-center sm:px-5 sm:py-4 ${index > 0 ? 'border-l border-[color:var(--hs-hairline)]' : ''}`}
+            >
+              <dt className="sr-only">{metric.label}</dt>
+              <dd>
+                <span className="block font-display text-2xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)] sm:text-[1.7rem]">
+                  {metric.value}
+                </span>
+                <span className="mt-1 block text-[0.6rem] font-bold uppercase tracking-[0.08em] text-[color:var(--hs-body)] sm:text-[0.7rem] sm:tracking-[0.12em]">
+                  {metric.label}
+                </span>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* Static search directory for no-JS users and quick navigation. The
+          interactive search UI below provides the richer filtering experience. */}
       <div className="mb-8 space-y-6 rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
         <p className="text-sm leading-6 text-muted">
-          The structured search index currently contains {HERB_COUNT} herb records and {COMPOUND_COUNT} compound records. Publication and browse eligibility are stricter than raw index coverage, so the herb and compound libraries may show smaller public totals. Compare active constituents, traditional-use context, human evidence, safety warnings, and drug-interaction notes across the index.
+          Use the curated shortcuts below to jump directly into popular profiles, goal-based decision guides, research collections, and safety tools before or alongside the interactive search.
         </p>
-        
+
         <div className="space-y-2">
           <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Popular Searches</h2>
           <div className="flex flex-wrap gap-2">
