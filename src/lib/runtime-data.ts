@@ -13,6 +13,12 @@ import type { RuntimeRecord } from '../types/content'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { getUnifiedRuntimeRecords } from './runtime-record-index'
 import { resolveRuntimeRecordLayers } from '../../lib/runtime-record-resolver.mjs'
+import {
+  isSafeContentSlug,
+  normalizeRuntimeContentRecord,
+  normalizeRuntimeContentRecords,
+  type CanonicalContentKind,
+} from './content-contract'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
@@ -76,11 +82,15 @@ async function readJsonFile(fileName: string): Promise<unknown> {
   }
 }
 
-function isSafeSlug(slug: string) {
-  return /^[a-z0-9][a-z0-9-]*$/.test(slug)
+function validatedProfileRows(value: unknown, kind: CanonicalContentKind, source: string): RuntimeRecord[] {
+  const { records, issues } = normalizeRuntimeContentRecords(value, kind, source)
+  if (issues.length && process.env.NODE_ENV !== 'production') {
+    console.warn(`[runtime-data] dropped ${issues.length} malformed ${kind} record(s) from ${source}`)
+  }
+  return records
 }
 
-function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[]) {
+function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[], kind: CanonicalContentKind) {
   const bySlug = new Map<string, RuntimeRecord>()
 
   for (const row of enrichmentRows) {
@@ -89,18 +99,20 @@ function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[])
     }
   }
 
-  const merged = baseRows.map(row => {
+  const merged = baseRows.flatMap(row => {
     const slug = typeof row?.slug === 'string' ? row.slug : ''
     const enrichment = bySlug.get(slug)
-
-    return enrichment ? resolveRuntimeRecordLayers(row, [enrichment]) as RuntimeRecord : row
+    const candidate = enrichment ? resolveRuntimeRecordLayers(row, [enrichment]) : row
+    const normalized = normalizeRuntimeContentRecord(candidate, kind)
+    return normalized ? [normalized as RuntimeRecord] : []
   })
 
   const knownSlugs = new Set(merged.map(row => row?.slug).filter(Boolean))
 
   for (const row of enrichmentRows) {
     if (typeof row?.slug === 'string' && !knownSlugs.has(row.slug)) {
-      merged.push(row)
+      const normalized = normalizeRuntimeContentRecord(row, kind)
+      if (normalized) merged.push(normalized as RuntimeRecord)
     }
   }
 
@@ -108,11 +120,11 @@ function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[])
 }
 
 async function readDetailRecord(kind: 'herbs' | 'compounds', slug: string): Promise<RuntimeRecord | null> {
-  if (!isSafeSlug(slug)) return null
+  if (!isSafeContentSlug(slug)) return null
 
   const detail = await readJsonFile(`${kind}-detail/${slug}.json`)
-
-  return detail && !Array.isArray(detail) && typeof detail === 'object' ? detail as RuntimeRecord : null
+  const normalized = normalizeRuntimeContentRecord(detail, kind === 'herbs' ? 'herb' : 'compound')
+  return normalized as RuntimeRecord | null
 }
 
 export const getHerbs = cache(async (): Promise<RuntimeRecord[]> => {
@@ -122,12 +134,12 @@ export const getHerbs = cache(async (): Promise<RuntimeRecord[]> => {
     readJsonFile('summary-indexes/herbs-summary.json'),
   ])
 
-  const baseRows = Array.isArray(herbs) ? herbs : []
-  const enrichmentRows = Array.isArray(summary) ? summary : []
-  const indexedRows = Array.isArray(summaryIndexed) ? summaryIndexed : []
+  const baseRows = validatedProfileRows(herbs, 'herb', 'herbs.json')
+  const enrichmentRows = validatedProfileRows(summary, 'herb', 'herbs-summary.json')
+  const indexedRows = validatedProfileRows(summaryIndexed, 'herb', 'summary-indexes/herbs-summary.json')
 
-  const firstPass = mergeBySlug(baseRows, enrichmentRows)
-  return mergeBySlug(firstPass, indexedRows)
+  const firstPass = mergeBySlug(baseRows, enrichmentRows, 'herb')
+  return mergeBySlug(firstPass, indexedRows, 'herb')
 })
 
 export const getCompounds = cache(async (): Promise<RuntimeRecord[]> => {
@@ -137,20 +149,12 @@ export const getCompounds = cache(async (): Promise<RuntimeRecord[]> => {
     readJsonFile('summary-indexes/compounds-summary.json'),
   ])
 
-  const baseRows = Array.isArray(compounds) ? compounds : []
-  const enrichmentRows = Array.isArray(summary) ? summary : []
-  const indexedRows = Array.isArray(summaryIndexed) ? summaryIndexed : []
+  const baseRows = validatedProfileRows(compounds, 'compound', 'compounds.json')
+  const enrichmentRows = validatedProfileRows(summary, 'compound', 'compounds-summary.json')
+  const indexedRows = validatedProfileRows(summaryIndexed, 'compound', 'summary-indexes/compounds-summary.json')
 
-  const firstPass = mergeBySlug(baseRows, enrichmentRows)
-
-  return mergeBySlug(firstPass, indexedRows).map(row => ({
-    name:
-      cleanString(row?.name) ||
-      cleanString(row?.compoundName) ||
-      cleanString(row?.canonicalCompoundName) ||
-      cleanString(row?.slug),
-    ...row,
-  }))
+  const firstPass = mergeBySlug(baseRows, enrichmentRows, 'compound')
+  return mergeBySlug(firstPass, indexedRows, 'compound')
 })
 
 export const getHerbCompoundMap = cache(async (): Promise<RuntimeRecord[]> => {
@@ -169,7 +173,7 @@ export const getClaims = cache(async (): Promise<RuntimeRecord[]> => {
 })
 
 export const getGoalEvidenceEngine = cache(async (goalSlug: string): Promise<EvidenceEnginePayload | null> => {
-  if (!isSafeSlug(goalSlug)) return null
+  if (!isSafeContentSlug(goalSlug)) return null
 
   const payload = await readJsonFile(`evidence-engine/${goalSlug}.json`)
   if (!isRecord(payload)) {
@@ -219,10 +223,12 @@ export const getRouteBuildManifest = cache(async (): Promise<RuntimeRecord[]> =>
 
 export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null> {
   const herbs = await getHerbs()
-  const herb = herbs.find((herb: any) => herb.slug === slug)
+  const herb = herbs.find((herb: RuntimeRecord) => herb.slug === slug)
   if (!herb) return null
   const detail = await readDetailRecord('herbs', slug)
-  const mergedHerb = detail ? resolveRuntimeRecordLayers(herb, [detail]) as RuntimeRecord : herb
+  const mergedHerb = detail
+    ? normalizeRuntimeContentRecord(resolveRuntimeRecordLayers(herb, [detail]), 'herb') as RuntimeRecord | null
+    : herb
 
   if (!mergedHerb || !getRuntimeVisibility(mergedHerb).canRender) return null
 
@@ -231,10 +237,12 @@ export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null>
 
 export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | null> {
   const compounds = await getCompounds()
-  const compound = compounds.find((compound: any) => compound.slug === slug)
+  const compound = compounds.find((compound: RuntimeRecord) => compound.slug === slug)
   if (!compound) return null
   const detail = await readDetailRecord('compounds', slug)
-  const mergedCompound = detail ? resolveRuntimeRecordLayers(compound, [detail]) as RuntimeRecord : compound
+  const mergedCompound = detail
+    ? normalizeRuntimeContentRecord(resolveRuntimeRecordLayers(compound, [detail]), 'compound') as RuntimeRecord | null
+    : compound
 
   if (!mergedCompound || !getRuntimeVisibility(mergedCompound).canRender) return null
 
@@ -245,7 +253,7 @@ export const getFeaturedHerbs = cache(async (): Promise<RuntimeRecord[]> => {
   try {
     const raw = await fs.readFile(path.join(dataDir, 'featured-herbs.json'), 'utf8')
     const parsed = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed : []
+    return validatedProfileRows(parsed, 'herb', 'featured-herbs.json')
   } catch {
     return []
   }
@@ -255,7 +263,7 @@ export const getFeaturedCompounds = cache(async (): Promise<RuntimeRecord[]> => 
   try {
     const raw = await fs.readFile(path.join(dataDir, 'featured-compounds.json'), 'utf8')
     const parsed = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed : []
+    return validatedProfileRows(parsed, 'compound', 'featured-compounds.json')
   } catch {
     return []
   }
