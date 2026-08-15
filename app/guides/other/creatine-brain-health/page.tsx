@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -11,70 +11,334 @@ import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Creatine for Brain Health: What Human Evidence Shows',
-  description: 'Human evidence on creatine for memory, sleep deprivation, menopause, and depression—what looks promising, what remains uncertain, and where claims overreach.',
+  title: 'Creatine for Brain Health: 2026 Cognition, Depression & Sleep Evidence',
+  description:
+    '2026 evidence review of creatine for memory, cognition, depression, and sleep deprivation, including effect-size limits, bipolar caution, kidney markers, and why sports evidence does not automatically prove brain benefits.',
   path: '/guides/other/creatine-brain-health/',
   openGraphType: 'article',
 })
 
 const FAQS = [
-  { question: 'Does creatine improve brain function?', answer: 'A 2024 meta-analysis of 16 randomized trials (492 adults) found modest benefits for memory, attention time, and processing speed, but not for overall cognition or executive function. Certainty was moderate for memory and low for several other outcomes, so the evidence is promising rather than universal.' },
-  { question: 'What does the menopause trial show?', answer: 'A small randomized trial in 36 perimenopausal or postmenopausal women found that 1,500 mg/day creatine hydrochloride for 8 weeks improved reaction time and increased frontal brain creatine versus placebo. Mood-swing improvement was only a trend, and the trial does not establish a general treatment for menopause-related brain fog.' },
-  { question: 'How much creatine has been studied for cognition?', answer: 'Study protocols vary. Most longer-term cognition research uses creatine monohydrate, while acute sleep-deprivation experiments have used unusually high single doses such as 0.35 g/kg and, in a 2026 follow-up, 0.2 g/kg. Those experimental doses should not be treated as a universal brain-health protocol.' },
-  { question: 'Is creatine proven to protect the brain?', answer: 'No. Creatine is involved in cellular energy metabolism and has a substantial sports-nutrition safety literature, but current cognitive trials do not prove that it prevents dementia, protects every healthy brain, or produces noticeable benefits in every population.' },
-  { question: 'Does creatine help with depression?', answer: 'Evidence is preliminary and mainly concerns creatine used alongside standard treatment. A 2012 randomized trial in women with major depression found faster improvement when creatine was added to an SSRI. That does not establish creatine as a standalone depression treatment.' },
-]
+  {
+    question: 'Does creatine improve cognition?',
+    answer:
+      'A 2024 meta-analysis of 16 randomized trials and 492 adults found modest improvements in memory, attention time, and processing speed, but not overall cognition or executive function. The result is domain-specific rather than evidence that creatine universally makes healthy people smarter.',
+  },
+  {
+    question: 'Does creatine help during sleep deprivation?',
+    answer:
+      'Possibly, but the evidence is still small. A 2026 systematic review found only five eligible studies and described a favorable early trend with effects varying by cognitive domain. A separate 2026 crossover study in 29 healthy participants found mitigation of several cognitive deficits during 21 hours of sleep deprivation. That is promising, not a validated shift-work or sleep-loss treatment protocol.',
+  },
+  {
+    question: 'Does creatine treat depression?',
+    answer:
+      'Not on current evidence. A 2025 depression meta-analysis of 11 trials and 1,093 participants found a small-to-moderate pooled signal, but the equivalent average change was below the prespecified minimal important difference and certainty was very low. A 2026 psychiatric RCT review found only five trials across major depression and bipolar depression, mostly as treatment augmentation.',
+  },
+  {
+    question: 'Is creatine safe for people with bipolar disorder?',
+    answer:
+      'There is not enough evidence to call psychiatric use universally safe. In the small bipolar-depression trial summarized in a 2026 systematic review, two of 17 creatine-treated participants experienced hypomania or mania. People with bipolar-spectrum illness should not use creatine as a mood-treatment experiment without psychiatric review.',
+  },
+  {
+    question: 'Does creatine damage the kidneys?',
+    answer:
+      'Recent meta-analyses found that creatine can raise serum creatinine modestly without a statistically significant reduction in eGFR. Because serum creatinine is itself used to estimate kidney function, supplementation can complicate interpretation. Existing kidney disease or abnormal labs deserve clinician review rather than assuming either safety or harm from the creatinine number alone.',
+  },
+  {
+    question: 'What dose should someone take for brain health?',
+    answer:
+      'There is no single validated brain-health dose. Cognition, depression, menopause, and sleep-deprivation studies use different forms, regimens, durations, and populations. High single doses used in acute sleep-deprivation experiments should not be copied into a general cognitive protocol.',
+  },
+] as const
 
 const CREATINE_BRAIN_REFS = [
-  { n: 1, text: 'Xu C, et al. (2024). The effects of creatine supplementation on cognitive function in adults: systematic review and meta-analysis. Front Nutr, 11:1424972. Sixteen RCTs / 492 participants.', url: 'https://pubmed.ncbi.nlm.nih.gov/39070254/' },
-  { n: 2, text: 'Gordji-Nejad A, et al. (2026). Single-Dose Creatine Reduces Sleep Deprivation-Induced Deterioration in Cognitive Performance. Nutrients. Twenty-nine healthy participants; 0.2 g/kg single-dose crossover study.', url: 'https://pubmed.ncbi.nlm.nih.gov/42075005/' },
-  { n: 3, text: 'Candow DG, et al. (2023). Creatine supplementation and brain health. Sports Med, 53(Suppl 1): 69-83.', url: 'https://pubmed.ncbi.nlm.nih.gov/37814108/' },
-  { n: 4, text: 'Korovljev D, et al. (2025). CONCRET-MENOPA randomized controlled trial in perimenopausal and menopausal women. J Am Nutr Assoc. Epub 2025 Aug 25.', url: 'https://pubmed.ncbi.nlm.nih.gov/40854087/' },
-  { n: 5, text: 'Rae C, et al. (2003). Oral creatine monohydrate improves brain performance: a double-blind trial. Proc Biol Sci, 270(1529): 2147-2150.', url: 'https://pubmed.ncbi.nlm.nih.gov/14561278/' },
-  { n: 6, text: 'Lyoo IK, et al. (2012). Creatine augmentation enhances antidepressant response in women with major depression. Am J Psychiatry, 169(9): 937-945.', url: 'https://pubmed.ncbi.nlm.nih.gov/22864465/' },
-  { n: 7, text: 'McMorris T, et al. (2007). Creatine supplementation and cognitive performance in elderly. Neuropsychol Dev Cogn B Aging Neuropsychol Cogn, 14(5): 517-528.', url: 'https://pubmed.ncbi.nlm.nih.gov/17828626/' },
-  { n: 8, text: 'Forbes SC, et al. (2022). Meta-analysis of creatine and cognitive processing. Nutr Rev, 80(5): 1100-1117.', url: 'https://pubmed.ncbi.nlm.nih.gov/34791473/' },
+  {
+    n: 1,
+    text: 'Xu C, et al. The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis. Front Nutr. 2024. Sixteen RCTs / 492 participants. PMID 39070254.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/39070254/',
+  },
+  {
+    n: 2,
+    text: 'Williams NB, et al. Creatine Supplementation and Acute Sleep Deprivation: A Systematic Review of Cognitive, Psychomotor, and Mood Outcomes. 2026. Five eligible studies. PMID 42261581.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42261581/',
+  },
+  {
+    n: 3,
+    text: 'Gordji-Nejad A, et al. Single-Dose Creatine Reduces Sleep Deprivation-Induced Deterioration in Cognitive Performance. Nutrients. 2026. Twenty-nine healthy participants. PMID 42075005.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42075005/',
+  },
+  {
+    n: 4,
+    text: 'Eckert I, et al. Creatine supplementation for treating symptoms of depression: a systematic review and meta-analysis. Br J Nutr. 2025. Eleven trials / 1,093 participants. PMID 41189312.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/41189312/',
+  },
+  {
+    n: 5,
+    text: 'Fares BJF, et al. The Effect of Creatine Monohydrate on Mental Disorders: A Systematic Review of Randomized Controlled Trials. Can J Psychiatry. 2026. Five RCTs. PMID 41558805.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/41558805/',
+  },
+  {
+    n: 6,
+    text: 'Tsiaras A, et al. The effect of creatine supplementation on kidney function: a systematic review and meta-analysis of randomized controlled trials. J Ren Nutr. 2026. PMID 42035842.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42035842/',
+  },
+  {
+    n: 7,
+    text: 'Naeini EK, et al. Effect of creatine supplementation on kidney function: a systematic review and meta-analysis. BMC Nephrol. 2025. PMID 41199218.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/41199218/',
+  },
+  {
+    n: 8,
+    text: 'Korovljev D, et al. CONCRET-MENOPA randomized trial in perimenopausal and postmenopausal women. 2025. PMID 40854087.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40854087/',
+  },
 ]
 
 export default function CreatineBrainPage() {
   return (
-    <div className="container-page py-10 space-y-10">
-      <AuthorityJsonLd title="Creatine for Brain Health" description="Creatine beyond muscle — evidence for brain fog, menopause, sleep deprivation." url="https://thehippiescientist.net/guides/other/creatine-brain-health" type="Article" />
-      <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Creatine & Brain Health' }]} />
-      <FAQSchema pagePath="/guides/other/creatine-brain-health/" questions={FAQS} />
+    <div className="container-page space-y-10 py-10">
+      <AuthorityJsonLd
+        title="Creatine for Brain Health: 2026 Cognition, Depression and Sleep Evidence"
+        description="Evidence-calibrated review of creatine for cognitive outcomes, acute sleep deprivation, depressive symptoms, psychiatric augmentation, and kidney-marker interpretation."
+        url="https://thehippiescientist.net/guides/other/creatine-brain-health/"
+        type="MedicalWebPage"
+        faqItems={[...FAQS]}
+        citationUrls={CREATINE_BRAIN_REFS.map((reference) => reference.url)}
+      />
+      <AuthorityBreadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Guides', href: '/guides/' },
+          { label: 'Creatine & Brain Health' },
+        ]}
+      />
+      <FAQSchema pagePath="/guides/other/creatine-brain-health/" questions={[...FAQS]} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Creatine for Brain Health: Not Just for Muscle Anymore</h1><p className="text-lg leading-8 text-muted">Creatine has been a gym staple for 30 years. But in 2026, the conversation has shifted — BBC headlines, menopause specialists, and cognitive researchers are all asking the same question: can this white powder help your brain? The answer is emerging, nuanced, and — for once in the supplement world — actually supported by decent evidence.</p>
-        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/creatine-brain-health.jpg" alt="Creatine powder beside a brain model" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Creatine — beyond muscle, into the brain.</figcaption></figure></section>
+      <section className="max-w-4xl space-y-5">
+        <p className="eyebrow-label">2026 Evidence Review · Updated August 15, 2026</p>
+        <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+          Creatine for Brain Health: Where the Evidence Is Real—and Where the Hype Runs Ahead
+        </h1>
+        <p className="text-lg leading-8 text-muted">
+          Creatine has a mature evidence base for high-intensity exercise. Brain-health claims are a different question. Human studies now cover memory, processing speed, acute sleep deprivation, depression augmentation, and menopause-related outcomes—but the strength of evidence varies dramatically by use case.
+        </p>
 
-      <section className="card-premium p-6 space-y-4"><p className="eyebrow-label">Evidence verdict</p><h2 className="text-2xl font-semibold">Creatine may help some cognitive outcomes, but the effect is not universal</h2><p className="text-sm leading-7 text-muted">The strongest broad synthesis here is a 2024 meta-analysis of 16 randomized trials / 492 adults. It found modest improvements in memory, attention time, and processing speed, but not overall cognition or executive function [1]. Sleep-deprivation studies provide a separate acute-stress signal [2], while the menopause trial is small and formulation-specific [4]. The useful conclusion is narrower than “creatine boosts the brain”: benefits appear outcome- and population-dependent, and several domains remain low-certainty.</p></section>
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+            <Image
+              src="/images/guides/creatine-brain-health.jpg"
+              alt="Creatine powder beside a brain model"
+              width={1536}
+              height={1024}
+              priority
+              className="h-auto w-full"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Strong sports evidence does not automatically transfer to depression, cognition, dementia prevention, or sleep-loss treatment.
+          </figcaption>
+        </figure>
+      </section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Creatine Brain Evidence</p>
-        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Use Case</th><th className="text-left py-2 pr-4 font-semibold text-ink">Evidence</th><th className="text-left py-2 pr-4 font-semibold text-ink">Effect</th><th className="text-left py-2 pr-4 font-semibold text-ink">Dose</th><th className="text-left py-2 font-semibold text-ink">Strength</th></tr></thead><tbody className="text-muted">
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Sleep Deprivation</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">Strong</span></td><td className="py-2 pr-4">Preserves cognition</td><td className="py-2 pr-4">0.2 g/kg single dose</td><td className="py-2">⭐⭐⭐</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Menopause Brain Fog</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Emerging</span></td><td className="py-2 pr-4">Reaction time ↑, mood ↑</td><td className="py-2 pr-4">1.5-5 g/day</td><td className="py-2">⭐⭐</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Depression (adjunct)</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Emerging</span></td><td className="py-2 pr-4">Faster SSRI response</td><td className="py-2 pr-4">5 g/day + SSRI</td><td className="py-2">⭐⭐</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Vegetarians/Vegans</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">Stronger</span></td><td className="py-2 pr-4">Memory ↑, reasoning ↑</td><td className="py-2 pr-4">3-5 g/day</td><td className="py-2">⭐⭐⭐</td></tr>
-          <tr><td className="py-2 pr-4 font-medium text-ink">Healthy Young Adults</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-800">Minimal</span></td><td className="py-2 pr-4">Negligible</td><td className="py-2 pr-4">N/A</td><td className="py-2">⭐</td></tr>
-        </tbody></table></div>
-        <div className="mt-3 p-3 rounded-lg bg-white border border-brand-200"><p className="text-xs font-semibold text-ink">The rule:</p><p className="mt-1 text-xs leading-5 text-muted">Creatine helps when your brain is under metabolic stress — sleep deprivation, menopause, aging, or low dietary intake. If you're young, well-rested, and eat meat regularly, you likely won't notice a cognitive difference. At $0.10/day with decades of safety data, it's a low-risk experiment worth trying.</p></div></section>
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Evidence bottom line</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">The brain evidence is promising, domain-specific, and easy to overstate</h2>
+        <p className="text-sm leading-7 text-muted">
+          The 2024 cognitive meta-analysis included <strong>16 randomized trials / 492 adults</strong>. It found modest benefits for memory, attention time, and processing-speed time, but <strong>not overall cognition or executive function</strong> [1]. That is useful evidence, but it is not the same as a universal nootropic effect.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          In depression, the newest broad meta-analysis included <strong>11 trials / 1,093 participants</strong>. The pooled standardized effect favored creatine, but certainty was <strong>very low</strong>, heterogeneity was substantial, and the average effect translated to about 2.2 points on the 17-item Hamilton Depression Rating Scale—below the review&apos;s 3-point minimal important difference [4].
+        </p>
+      </section>
 
-      <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by use case</h2>
-        <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Sleep deprivation — Strong evidence</h3><p className="mt-2 text-sm leading-7 text-muted">The best-studied cognitive use case. McMorris et al. (2007) found creatine reduced mental fatigue and preserved performance during sleep deprivation [7]. A 2024 study found single-dose creatine (0.2 g/kg) improved cognitive performance and altered brain energy metabolism during sleep loss [2]. A 2026 follow-up confirmed reduced cognitive deterioration with single-dose creatine [2]. The mechanism: sleep deprivation depletes brain phosphocreatine; supplementation restores ATP regeneration capacity. Effect sizes are moderate but clinically meaningful for shift workers, new parents, and anyone facing acute sleep loss.</p></div>
-          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Menopause brain fog — Emerging evidence</h3><p className="mt-2 text-sm leading-7 text-muted">The 2025 CONCRET-MENOPA trial (Korovljev et al., n=36) found 1,500 mg/day creatine hydrochloride for 8 weeks improved reaction time, reduced mood swing severity, increased frontal brain creatine concentrations, and improved concentration-related symptoms [4]. This is the first creatine RCT specifically in menopausal women. Estrogen supports creatine synthesis in the brain; declining estrogen during menopause may reduce brain creatine stores [3]. Creatine supplementation may partially compensate for this deficit. More research is needed, but the biological rationale is strong and the safety profile is excellent.</p></div>
-          <div className="p-4 rounded-xl bg-amber-50/60"><h3 className="font-semibold text-ink">Depression augmentation — Emerging</h3><p className="mt-2 text-sm leading-7 text-muted">Lyoo et al. (2012, n=52) found 5 g/day creatine augmented SSRI response in women with major depression — faster improvement in mood scores and higher remission rates vs SSRI alone [6]. A 2024 meta-analysis confirmed creatine improves mood outcomes as an adjunctive therapy. The mechanism: brain energy metabolism dysfunction is implicated in depression; creatine supports mitochondrial ATP production in neurons. Not a standalone treatment; use only under psychiatric guidance.</p></div>
+      <section className="card-premium max-w-4xl space-y-5 border-l-4 border-brand-700 bg-brand-50/30 p-6">
+        <p className="eyebrow-label">Outcome-by-outcome ledger</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Do not collapse every “brain” result into one grade</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-[760px] w-full text-sm">
+            <thead>
+              <tr className="border-b border-brand-900/10">
+                <th className="py-2 pr-4 text-left font-semibold text-ink">Use case</th>
+                <th className="py-2 pr-4 text-left font-semibold text-ink">Best current evidence</th>
+                <th className="py-2 pr-4 text-left font-semibold text-ink">Signal</th>
+                <th className="py-2 text-left font-semibold text-ink">Main limit</th>
+              </tr>
+            </thead>
+            <tbody className="text-muted">
+              <tr className="border-b border-brand-900/5 align-top">
+                <td className="py-3 pr-4 font-medium text-ink">General adult cognition</td>
+                <td className="py-3 pr-4">16-RCT meta-analysis / 492 adults [1]</td>
+                <td className="py-3 pr-4">Memory, attention time, processing speed</td>
+                <td className="py-3">No significant overall-cognition or executive-function effect</td>
+              </tr>
+              <tr className="border-b border-brand-900/5 align-top">
+                <td className="py-3 pr-4 font-medium text-ink">Acute sleep deprivation</td>
+                <td className="py-3 pr-4">2026 systematic review: only 5 studies [2]</td>
+                <td className="py-3 pr-4">Favorable early trend; domain-dependent</td>
+                <td className="py-3">Sparse evidence; unusual experimental conditions and doses</td>
+              </tr>
+              <tr className="border-b border-brand-900/5 align-top">
+                <td className="py-3 pr-4 font-medium text-ink">Depressive symptoms</td>
+                <td className="py-3 pr-4">11-trial meta-analysis / 1,093 participants [4]</td>
+                <td className="py-3 pr-4">Small-to-moderate pooled effect</td>
+                <td className="py-3">Very-low certainty; average effect below minimal important difference</td>
+              </tr>
+              <tr className="border-b border-brand-900/5 align-top">
+                <td className="py-3 pr-4 font-medium text-ink">Diagnosed mental disorders</td>
+                <td className="py-3 pr-4">2026 review: 5 RCTs total [5]</td>
+                <td className="py-3 pr-4">Some adult MDD augmentation signals</td>
+                <td className="py-3">Only MDD and bipolar depression studied; no broad psychiatric evidence</td>
+              </tr>
+              <tr className="align-top">
+                <td className="py-3 pr-4 font-medium text-ink">Menopause-related cognition</td>
+                <td className="py-3 pr-4">Small 36-person RCT [8]</td>
+                <td className="py-3 pr-4">Some reaction-time / brain-creatine findings</td>
+                <td className="py-3">Small, formulation-specific, not a general “brain fog” treatment trial</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Who benefits and who doesn&rsquo;t</h2><p className="text-sm leading-7 text-muted">Creatine for brain health is <strong>not</strong> a universal cognitive enhancer. The evidence suggests benefit primarily when the brain is under metabolic stress: sleep-deprived individuals, older adults, women in menopause, vegetarians/vegans (lower baseline stores) [5], and during demanding cognitive tasks. Healthy, well-rested young adults with adequate dietary creatine intake show minimal cognitive improvement. This is different from traditional nootropics (caffeine, modafinil) which produce immediate, noticeable effects. Creatine works slowly and subtly — think &ldquo;brain energy support,&rdquo; not &ldquo;smart drug.&rdquo; Dosing: 3-5 g/day creatine monohydrate. Consistent daily intake — effects accumulate over weeks. No cycling needed. Creatine monohydrate is the preferred form (most studied, best value).</p></section>
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Sleep-loss research</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Interesting acute findings do not equal “strong evidence”</h2>
+        <p className="text-sm leading-7 text-muted">
+          The 2026 sleep-deprivation systematic review searched six databases and found only <strong>five eligible studies</strong>. Its conclusion was cautiously positive: early work trends toward benefit, but effects may differ by cognitive domain and higher-quality trials are still needed [2].
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          A 2026 randomized crossover experiment in 29 healthy participants found that a single creatine exposure mitigated deterioration in logical/numerical tasks, language-related processing speed, and psychomotor vigilance during 21 hours of sleep deprivation [3]. That is a compelling laboratory signal. It does not validate routine high-dose self-treatment for shift work, all-nighters, new-parent sleep loss, or chronic insomnia.
+        </p>
+      </section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Creatine for brain health is one of the more promising — and surprisingly underdiscussed — supplement applications. The evidence is strongest for sleep deprivation [1,2,7], emerging for menopause [4] and depression augmentation [6], and weak for healthy young adults. At $0.10-0.20/day with decades of safety data, creatine is a low-risk, evidence-informed cognitive support — particularly for women in perimenopause, older adults, and anyone facing sleep loss. It will not make you smarter. It may help your brain function when the energy demands are high.</p></section>
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Depression evidence</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Statistical significance is not the same as clinically important benefit</h2>
+        <p className="text-sm leading-7 text-muted">
+          The 2025 depression meta-analysis found a standardized mean difference of -0.34 across 11 trials. When translated to the 17-item Hamilton scale, the average difference was about <strong>2.2 points</strong>—below the review&apos;s <strong>3.0-point minimal important difference</strong>. The confidence interval included effects that would not be clinically important, heterogeneity was high, and GRADE certainty was very low [4].
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          This is exactly where supplement summaries often go wrong: “meta-analysis was statistically significant” becomes “creatine treats depression.” The more accurate conclusion is that an adjunctive signal exists and deserves larger, better trials.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 border-l-4 border-amber-500 bg-amber-50/40 p-6">
+        <p className="eyebrow-label">Psychiatric safety boundary</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Bipolar-spectrum risk should not be buried</h2>
+        <p className="text-sm leading-7 text-muted">
+          The 2026 systematic review of creatine monohydrate in mental disorders found only five randomized trials: four in major depressive disorder and one in bipolar depression. In the bipolar-depression trial, <strong>two of 17 creatine-treated participants experienced hypomania or mania</strong> [5].
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          That is far too small to quantify risk precisely, but it is important enough that creatine should not be marketed as a casual mood supplement for people with bipolar-spectrum illness. Psychiatric augmentation is a clinician-managed research context, not a do-it-yourself stack.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Formulation matters</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Creatine monohydrate dominates the cognition literature</h2>
+        <p className="text-sm leading-7 text-muted">
+          All studies included in the 2024 adult-cognition meta-analysis used <strong>creatine monohydrate</strong> [1]. That matters when a commercial product claims a different form is “better for the brain.” A solubility, taste, or absorption claim is not evidence of superior cognitive outcomes.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          The small menopause trial used creatine hydrochloride [8], so its findings should stay attached to that specific intervention and population rather than being generalized into a monohydrate-versus-HCl winner.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Kidney-marker nuance</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Creatinine can rise without proving kidney damage</h2>
+        <p className="text-sm leading-7 text-muted">
+          Two recent kidney-function meta-analyses found that creatine supplementation can produce a modest increase in serum creatinine while showing no statistically significant deterioration in eGFR across the pooled studies [6,7]. A 2026 RCT-only meta-analysis likewise found higher serum creatinine without significant differences in urea or eGFR [6].
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          This creates a useful clinical interpretation issue: serum creatinine is both a breakdown product related to creatine metabolism and a laboratory input used to estimate kidney function. Someone taking creatine who has abnormal kidney labs should tell the clinician interpreting them. Existing kidney disease, dehydration, other medications, or a changing eGFR should not be dismissed as “just creatine” without evaluation.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Study dose ≠ daily brain protocol</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Different questions used very different regimens</h2>
+        <p className="text-sm leading-7 text-muted">
+          Acute sleep-deprivation experiments used unusually large single body-weight-based exposures, while psychiatric and longer-term cognition trials used repeated daily regimens. Pooling those into one “best brain dose” is not evidence-based.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          This guide therefore reports dose only when it is necessary to interpret a specific trial. It does not convert the sleep-deprivation experiments into a home protocol, prescribe a depression-augmentation dose, or claim that a sports-nutrition maintenance regimen is automatically the optimal cognitive regimen.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Evidence applicability</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Claims we can and cannot make in 2026</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-[700px] w-full text-sm">
+            <thead>
+              <tr className="border-b border-brand-900/10">
+                <th className="py-2 pr-4 text-left font-semibold text-ink">Claim</th>
+                <th className="py-2 text-left font-semibold text-ink">Current status</th>
+              </tr>
+            </thead>
+            <tbody className="text-muted">
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine improves some cognitive domains on average</td><td className="py-3"><strong>Supported, modestly</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine improves overall cognition/executive function</td><td className="py-3"><strong>Not established</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine reliably prevents cognitive decline from sleep loss</td><td className="py-3"><strong>Promising but sparse</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine is a proven antidepressant</td><td className="py-3"><strong>No</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine has been tested broadly across psychiatric disorders</td><td className="py-3"><strong>No</strong> — RCT review found MDD and bipolar depression only</td></tr>
+              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine necessarily damages healthy kidneys because creatinine rises</td><td className="py-3"><strong>No</strong></td></tr>
+              <tr><td className="py-3 pr-4">One universal “brain dose” is established</td><td className="py-3"><strong>No</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Unanswered questions</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">What would actually move the evidence forward?</h2>
+        <ol className="list-decimal space-y-2 pl-5 text-sm leading-7 text-muted">
+          <li>Which baseline brain-energy or dietary characteristics predict cognitive response?</li>
+          <li>Do memory and processing-speed signals replicate in large preregistered trials?</li>
+          <li>Does creatine meaningfully improve real-world function rather than only laboratory test scores?</li>
+          <li>Can acute sleep-deprivation findings be reproduced without extreme experimental dosing?</li>
+          <li>Does depression augmentation provide a clinically important benefit when bias is minimized?</li>
+          <li>What is the true mood-switch risk in bipolar-spectrum populations?</li>
+          <li>Are any non-monohydrate forms superior for a defined brain outcome?</li>
+          <li>What do multi-year randomized data show for renal safety in older and medically complex populations?</li>
+        </ol>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2>
+        <p className="text-sm leading-7 text-muted">
+          Creatine is more scientifically interesting for brain health than a typical “nootropic” trend—but its strongest claim is not “everyone should take it for cognition.” The defensible 2026 position is narrower: modest benefits appear in some cognitive domains; sleep-deprivation findings are promising but sparse; depression evidence is uncertain and below the review&apos;s clinical-importance threshold on average; and psychiatric use carries context-specific cautions that sports-nutrition summaries often omit.
+        </p>
+      </section>
+
       <References refs={CREATINE_BRAIN_REFS} />
+
+      <div className="max-w-4xl rounded-xl border border-brand-900/10 bg-brand-50/40 p-4 text-xs leading-6 text-muted">
+        <strong className="text-ink">Commercial-links boundary:</strong> product availability below does not establish that a retail creatine product reproduces any cognitive, psychiatric, menopause, or sleep-deprivation trial. Brain claims should stay attached to the specific formulation, population, dose, and outcome studied.
+      </div>
       <div className="max-w-4xl">
         <RecommendationSection products={getRevenueProductSet('creatine')?.products ?? []} />
       </div>
-      <EmailCapture headline="Get evidence reviews like this" description="Creatine, menopause, brain health — we track the evidence." ctaLabel="Get the evidence" location="guide-creatine-brain" />
-      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
+
+      <EmailCapture
+        headline="Get evidence reviews like this"
+        description="Current supplement and drug research, with effect sizes, uncertainty, and safety boundaries left intact."
+        ctaLabel="Get the evidence"
+        location="guide-creatine-brain"
+      />
+
+      <div className="flex items-center justify-between border-t border-brand-900/10 pt-4">
+        <Link
+          href="/guides/"
+          className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50"
+        >
+          ← Back to guides
+        </Link>
+        <Link href="/compounds/creatine/" className="text-sm font-bold text-brand-800 hover:underline">
+          Creatine compound profile →
+        </Link>
+      </div>
     </div>
   )
 }
