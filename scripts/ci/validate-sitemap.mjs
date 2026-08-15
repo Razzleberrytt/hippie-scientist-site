@@ -23,6 +23,28 @@ function hasSupportedSitemapRoot(content) {
   return /<urlset\b|<sitemapindex\b/i.test(content)
 }
 
+function getRobotsMeta(html) {
+  const tags = html.match(/<meta\b[^>]*>/gi) || []
+  return tags
+    .filter((tag) => /\bname\s*=\s*["'](?:robots|googlebot)["']/i.test(tag))
+    .map((tag) => tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i)?.[1]?.toLowerCase() || '')
+    .filter(Boolean)
+}
+
+function getCanonicalUrl(html) {
+  const tags = html.match(/<link\b[^>]*>/gi) || []
+  const canonicalTag = tags.find((tag) => /\brel\s*=\s*["']canonical["']/i.test(tag))
+  return canonicalTag?.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1]?.trim() || null
+}
+
+function normalizeAbsoluteUrl(value) {
+  try {
+    return new URL(value).href
+  } catch {
+    return null
+  }
+}
+
 function main() {
   const outDir = path.join(ROOT, 'out')
   const sitemapPath = path.join(outDir, 'sitemap.xml')
@@ -64,6 +86,7 @@ function main() {
 
   let failed = false
   const errors = []
+  const seenUrls = new Set()
 
   let herbCount = 0
   let compoundCount = 0
@@ -94,7 +117,21 @@ function main() {
       failed = true
       continue
     }
+
+    const normalizedSitemapUrl = urlObj.href
+    if (seenUrls.has(normalizedSitemapUrl)) {
+      errors.push(`Duplicate URL in sitemap: "${url}"`)
+      failed = true
+    } else {
+      seenUrls.add(normalizedSitemapUrl)
+    }
+
     const pathname = urlObj.pathname
+
+    if (urlObj.protocol !== 'https:') {
+      errors.push(`URL protocol is not HTTPS: "${url}"`)
+      failed = true
+    }
 
     const expectedHost = CANONICAL_HOST
     if (urlObj.hostname !== expectedHost) {
@@ -108,18 +145,38 @@ function main() {
       }
     }
 
-    // Verify built file exists on disk
-    if (fs.existsSync(outDir)) {
-      let localPath
-      if (pathname === '/') {
-        localPath = path.join(outDir, 'index.html')
-      } else {
-        const cleanPath = pathname.replace(/^\/|\/$/g, '')
-        localPath = path.join(outDir, cleanPath, 'index.html')
-      }
-      if (!fs.existsSync(localPath)) {
-        errors.push(`Sitemap URL path "${pathname}" has no corresponding built file "${localPath}"`)
+    // Verify built file exists on disk and that rendered page-level SEO agrees
+    // with sitemap inclusion. This turns canonical/noindex drift into a hard
+    // deployment failure instead of relying on an optional post-hoc audit.
+    let localPath
+    if (pathname === '/') {
+      localPath = path.join(outDir, 'index.html')
+    } else {
+      const cleanPath = pathname.replace(/^\/|\/$/g, '')
+      localPath = path.join(outDir, cleanPath, 'index.html')
+    }
+
+    if (!fs.existsSync(localPath)) {
+      errors.push(`Sitemap URL path "${pathname}" has no corresponding built file "${localPath}"`)
+      failed = true
+    } else {
+      const html = fs.readFileSync(localPath, 'utf8')
+      const robotsMeta = getRobotsMeta(html)
+      if (robotsMeta.some((value) => /\bnoindex\b/i.test(value))) {
+        errors.push(`Sitemap URL renders noindex robots metadata: "${url}"`)
         failed = true
+      }
+
+      const canonical = getCanonicalUrl(html)
+      if (!canonical) {
+        errors.push(`Sitemap URL is missing a rendered canonical link: "${url}"`)
+        failed = true
+      } else {
+        const normalizedCanonical = normalizeAbsoluteUrl(canonical)
+        if (!normalizedCanonical || normalizedCanonical !== normalizedSitemapUrl) {
+          errors.push(`Sitemap URL canonical mismatch: sitemap="${url}" canonical="${canonical}"`)
+          failed = true
+        }
       }
     }
 
@@ -181,7 +238,7 @@ function main() {
     process.exit(1)
   }
 
-  console.log('[validate-sitemap] PASS: Sitemap is fully valid XML with trailing slashes, route counts, built static files, and core pages.')
+  console.log('[validate-sitemap] PASS: Sitemap URLs are HTTPS, canonical, unique, indexable, backed by static files, and include required route coverage.')
 }
 
 main()
