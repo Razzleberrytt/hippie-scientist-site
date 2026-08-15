@@ -133,6 +133,18 @@ export function validateReviewRecord(record: EditorialReviewRecord): string[] {
   return errors
 }
 
+export function validateReviewLedger(reviews: EditorialReviewRecord[]): string[] {
+  const errors = reviews.flatMap(validateReviewRecord)
+  const ids = new Set<string>()
+
+  for (const review of reviews) {
+    if (ids.has(review.id)) errors.push(`${review.id}: duplicate review event id.`)
+    ids.add(review.id)
+  }
+
+  return errors
+}
+
 export function validateCorrectionRecord(record: PublicCorrectionRecord): string[] {
   const errors: string[] = []
   if (!record.id.trim()) errors.push('Correction record is missing id.')
@@ -143,13 +155,20 @@ export function validateCorrectionRecord(record: PublicCorrectionRecord): string
   return errors
 }
 
+export function reviewsForPage(
+  reviews: EditorialReviewRecord[],
+  pagePath: string,
+): EditorialReviewRecord[] {
+  return reviews
+    .filter(review => review.pagePath === pagePath)
+    .sort((a, b) => Date.parse(b.reviewedAt) - Date.parse(a.reviewedAt))
+}
+
 export function latestReviewForPage(
   reviews: EditorialReviewRecord[],
   pagePath: string,
 ): EditorialReviewRecord | undefined {
-  return reviews
-    .filter(review => review.pagePath === pagePath)
-    .sort((a, b) => Date.parse(b.reviewedAt) - Date.parse(a.reviewedAt))[0]
+  return reviewsForPage(reviews, pagePath)[0]
 }
 
 export function correctionsForPage(
