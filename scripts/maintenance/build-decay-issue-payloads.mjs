@@ -75,7 +75,7 @@ ${queries}
       url: page.url,
       title: `[Content decay] Update ${page.url} (priority ${page.updatePriority})`,
       body,
-      labels: ['content-decay', 'seo', 'research-update'],
+      labels: ['maintenance', 'seo', 'evidence'],
       priority: page.updatePriority,
     }
   })
