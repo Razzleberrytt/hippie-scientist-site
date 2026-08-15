@@ -133,21 +133,13 @@ function compactExplorerPayload(records: ExplorerSourceRecord[]): ExplorerPayloa
 export default async function PathwayExplorerPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = compactExplorerPayload(rawHerbs.filter((h: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  }))
+  const herbs = compactExplorerPayload(
+    rawHerbs.filter((h: Record<string, unknown>) => getRuntimeVisibility(h).canRender),
+  )
 
-  const compounds = compactExplorerPayload(rawCompounds.filter((c: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  }))
+  const compounds = compactExplorerPayload(
+    rawCompounds.filter((c: Record<string, unknown>) => getRuntimeVisibility(c).canRender),
+  )
 
   return (
     <div className='mx-auto max-w-6xl space-y-10 px-4 py-8 sm:py-10'>
