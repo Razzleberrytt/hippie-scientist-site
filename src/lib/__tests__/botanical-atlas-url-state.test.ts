@@ -20,7 +20,7 @@ describe('Botanical Activity Atlas URL state', () => {
       intensity: 'Pronounced',
       compoundClass: 'Methylxanthines',
       safety: 'Cardiovascular',
-      sort: 'evidence' as const,
+      sort: 'human-evidence' as const,
     }
 
     expect(parseAtlasUrlState(serializeAtlasUrlState(state))).toEqual(state)
