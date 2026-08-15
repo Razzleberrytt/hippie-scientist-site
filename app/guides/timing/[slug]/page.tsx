@@ -10,6 +10,7 @@ type RuntimeIngredient = Record<string, unknown> & {
   slug?: string
   name?: string
   best_taken?: unknown
+  bioavailability_notes?: unknown
   evidence_grade?: unknown
   evidence_level?: unknown
 }
@@ -25,6 +26,12 @@ function getTiming(record: RuntimeIngredient): string {
 
 function hasDaypartDecision(timing: string): boolean {
   return /\b(morning|afternoon|evening|night|nighttime|bedtime|before bed|daytime|earlier in the day|later in the day)\b/i.test(timing)
+}
+
+function getFoodDecision(record: RuntimeIngredient, timing: string): string {
+  const bioavailability = clean(record.bioavailability_notes)
+  const candidates = [bioavailability, timing].filter(Boolean)
+  return candidates.find((value) => /\b(food|meal|meals|with fat|empty stomach|fasted|fasting)\b/i.test(value)) || ''
 }
 
 async function getEligibleIngredients(): Promise<RuntimeIngredient[]> {
@@ -70,6 +77,7 @@ export default async function IngredientTimingPage({ params }: { params: Promise
   const timing = getTiming(record)
   const grade = clean(record.evidence_grade) || clean(record.evidence_level)
   const showDaypartDecision = hasDaypartDecision(timing)
+  const foodDecision = getFoodDecision(record, timing)
 
   return (
     <main className="container-page space-y-8 py-10">
@@ -103,6 +111,17 @@ export default async function IngredientTimingPage({ params }: { params: Promise
           <p className="leading-7 text-muted">{timing}</p>
           <p className="text-sm leading-6 text-muted">
             The answer above is intentionally the canonical timing statement rather than a separate rule generated from pharmacology. If the source record does not support a morning-versus-night distinction, this section is omitted.
+          </p>
+        </section>
+      ) : null}
+
+      {foodDecision ? (
+        <section className="card-premium max-w-3xl space-y-3 p-6 sm:p-8" aria-labelledby="with-food">
+          <p className="eyebrow-label">Food and absorption</p>
+          <h2 id="with-food" className="text-2xl font-semibold text-ink">Should you take {name} with or without food?</h2>
+          <p className="leading-7 text-muted">{foodDecision}</p>
+          <p className="text-sm leading-6 text-muted">
+            This section appears only when the canonical timing or bioavailability record explicitly mentions food, meals, fasting, or an empty stomach. No food rule is generated from chemical properties alone.
           </p>
         </section>
       ) : null}
