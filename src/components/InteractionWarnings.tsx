@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ChevronDown, Leaf, ShieldAlert } from 'lucide-react'
 import type { InteractionEdge, SlugEntityTypeMap, InteractionSeverity } from '@/src/types/interactions'
+import type { SafetyCertainty } from '@/src/lib/safety-governance'
 import { canonicalProfileHref } from '@/lib/canonical-profile-href'
 
 const MECHANISM_LABELS: Record<string, string> = {
@@ -32,9 +33,22 @@ const SEVERITY_CONFIG: Record<InteractionSeverity, { label: string; accent: stri
   },
 }
 
+const CERTAINTY_LABELS: Record<SafetyCertainty, string> = {
+  known: 'Known',
+  probable: 'Probable',
+  theoretical: 'Theoretical',
+  unknown: 'Unknown',
+}
+
 interface InteractionWarningsProps {
   edges: InteractionEdge[]
   slugTypeMap: SlugEntityTypeMap
+}
+
+function edgeCertainty(edge: InteractionEdge): SafetyCertainty {
+  // Legacy generated files predate the explicit field. Their pairings were
+  // mechanism-derived, so theoretical is the truthful backward-compatible default.
+  return edge.certainty || 'theoretical'
 }
 
 export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsProps) {
@@ -53,7 +67,7 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
         <p className='editorial-eyebrow'>Evidence-based safety</p>
         <h2 className='editorial-display mt-2 text-[2rem] sm:text-[2.7rem]'>Caution when combined</h2>
         <p className='mt-3 text-sm leading-7 text-[#526159] dark:text-[var(--text-secondary)] sm:text-base'>
-          These pairings share a flagged risk mechanism. They are additive-effect cautions derived from contraindication data, not confirmed clinical interactions. Consult a clinician before combining.
+          Severity and certainty are shown separately. A high-priority caution can still be theoretical: these pairings are screened from shared contraindication mechanisms and are not automatically documented clinical interactions. Provenance identifies the source fields that produced each flag; it does not upgrade the certainty of the pairwise claim.
         </p>
       </div>
 
@@ -91,15 +105,31 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
                   {byMechanism.map(({ mechanism, edges: mechanismEdges }) => {
                     const visibleEdges = mechanismEdges.slice(0, MAX_VISIBLE_PARTNERS_PER_MECHANISM)
                     const hiddenCount = mechanismEdges.length - visibleEdges.length
+                    const certainties = [...new Set(mechanismEdges.map(edgeCertainty))]
+                    const provenanceCount = mechanismEdges.filter((edge) => (edge.provenance?.source_ids?.length || 0) > 0).length
 
                     return (
                       <div key={mechanism} className='space-y-3'>
-                        <span className={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-extrabold uppercase tracking-[0.12em] ${config.badge}`}>
-                          {MECHANISM_LABELS[mechanism] ?? mechanism}
-                        </span>
+                        <div className='flex flex-wrap items-center gap-2'>
+                          <span className={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-extrabold uppercase tracking-[0.12em] ${config.badge}`}>
+                            {MECHANISM_LABELS[mechanism] ?? mechanism}
+                          </span>
+                          {certainties.map((certainty) => (
+                            <span
+                              key={certainty}
+                              className='inline-flex rounded-full border border-brand-900/10 bg-white/80 px-2.5 py-1 text-[0.66rem] font-bold text-[#526159] dark:border-white/10 dark:bg-white/5 dark:text-[var(--text-secondary)]'
+                            >
+                              Certainty: {CERTAINTY_LABELS[certainty]}
+                            </span>
+                          ))}
+                        </div>
+                        <p className='text-[11px] leading-5 text-[#647168] dark:text-[var(--text-muted)]'>
+                          Data provenance recorded for {provenanceCount} of {mechanismEdges.length} pairing{mechanismEdges.length === 1 ? '' : 's'} in this mechanism group.
+                        </p>
                         <ul className='flex flex-wrap gap-2'>
                           {visibleEdges.map((edge) => {
                             const partnerType = slugTypeMap[edge.partner_slug]
+                            const certainty = edgeCertainty(edge)
                             // interaction_edges.json carries raw workbook slugs, so a
                             // partner can be a slug that only exists to be 301'd. Resolve
                             // to the canonical URL rather than linking into a redirect.
@@ -114,11 +144,13 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
                               <>
                                 <Leaf className='h-3.5 w-3.5 shrink-0 text-[#315f50]' aria-hidden='true' strokeWidth={1.8} />
                                 <span>{edge.partner_name}</span>
+                                <span className='sr-only'> — {CERTAINTY_LABELS[certainty]} interaction certainty</span>
                               </>
                             )
+                            const title = `${edge.claim_language} Certainty: ${CERTAINTY_LABELS[certainty]}.`
 
                             return (
-                              <li key={`${edge.partner_slug}-${edge.risk_mechanism}`} title={edge.claim_language}>
+                              <li key={`${edge.partner_slug}-${edge.risk_mechanism}`} title={title}>
                                 {partnerHref ? (
                                   <Link href={partnerHref} className='interaction-chip inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-bold transition'>
                                     {content}
