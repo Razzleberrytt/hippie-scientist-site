@@ -1,4 +1,9 @@
 import type { RuntimeRecord } from '../src/types/content'
+import {
+  canonicalGradeFromEvidenceTier,
+  normalizeEvidenceGrade,
+  type CanonicalEvidenceGrade,
+} from './evidence-grade'
 
 type EvidenceTier = 'strong' | 'moderate' | 'limited' | 'preliminary' | 'traditional' | 'mixed' | 'insufficient' | 'review'
 
@@ -134,64 +139,39 @@ export function getEvidenceColor(record: RuntimeRecord): EvidenceColor {
   return colors[getEvidenceTier(record)]
 }
 
-export type EvidenceLetterGrade = 'A' | 'B' | 'C' | 'D'
+/**
+ * Compatibility name retained for UI callers. The value now comes from the
+ * single canonical evidence-grade contract and may be Avoid/Insufficient.
+ */
+export type EvidenceLetterGrade = CanonicalEvidenceGrade
 
-function rawGradeToLetter(raw: string): EvidenceLetterGrade | null {
-  const n = raw.toLowerCase().trim()
-  if (/^a[+-]?$/.test(n)) return 'A'
-  if (/^b[+-]?$/.test(n)) return 'B'
-  if (/^c[+-]?$/.test(n)) return 'C'
-  if (/^d[+-]?$|insufficient/.test(n)) return 'D'
-  // Handle text labels like "high", "moderate-high", "moderate", "low-moderate", "low"
-  if (/^(high|strong|robust)$/.test(n)) return 'A'
-  if (/^(moderate-high|moderate high)$/.test(n)) return 'B'
-  if (/^(moderate)$/.test(n)) return 'B'
-  if (/^(low-moderate|low moderate|limited)$/.test(n)) return 'C'
-  if (/^(low|minimal|none|preliminary)$/.test(n)) return 'C'
-  return null
-}
-
-function tierTextToLetter(tier: string): EvidenceLetterGrade | null {
-  const n = tier.toLowerCase()
-  if (/strong/.test(n)) return 'A'
-  if (/moderate/.test(n)) return 'B'
-  if (/limited|mechanistic|preliminary|mixed/.test(n)) return 'C'
-  if (/traditional|insufficient|theoretical/.test(n)) return 'D'
-  return null
-}
-
+/**
+ * Resolve a record to the canonical evidence-grade enum.
+ *
+ * Explicit grade data wins, but all legacy parsing is delegated to
+ * `normalizeEvidenceGrade` so this file cannot drift into a second grading
+ * system. Legacy evidence-tier text is only a fallback adapter.
+ */
 export function getEvidenceLetterGrade(record: RuntimeRecord): EvidenceLetterGrade {
-  // Letter grades are unambiguous — prefer them first
-  const rawGrade = record?.evidence_grade
-  if (rawGrade && typeof rawGrade === 'string') {
-    const n = rawGrade.toLowerCase().trim()
-    if (/^[abcd][+-]?$/.test(n)) return rawGradeToLetter(rawGrade) ?? 'C'
-  }
+  const normalized = normalizeEvidenceGrade(record?.evidence_grade)
+  if (normalized.grade && !normalized.outcomeDependent) return normalized.grade
 
-  // evidence_tier uses a consistent vocabulary across all records
   const evidenceTierField = record?.evidence_tier || record?.evidenceTier
-  if (evidenceTierField && typeof evidenceTierField === 'string') {
-    const letter = tierTextToLetter(evidenceTierField)
-    if (letter) return letter
-  }
-
-  // Fall back to text-label grade (e.g. "high", "moderate-high")
-  if (rawGrade && typeof rawGrade === 'string') {
-    const letter = rawGradeToLetter(rawGrade)
-    if (letter) return letter
-  }
+  const gradeFromTier = canonicalGradeFromEvidenceTier(evidenceTierField)
+  if (gradeFromTier) return gradeFromTier
 
   const tierMap: Record<EvidenceTier, EvidenceLetterGrade> = {
     strong: 'A',
     moderate: 'B',
     limited: 'C',
-    preliminary: 'C',
     mixed: 'C',
+    preliminary: 'D',
     traditional: 'D',
-    insufficient: 'D',
-    review: 'D',
+    insufficient: 'Avoid/Insufficient',
+    review: 'Avoid/Insufficient',
   }
-  return tierMap[getEvidenceTier(record)] ?? 'C'
+
+  return tierMap[getEvidenceTier(record)]
 }
 
 export function hasStrongSafetyProfile(record: RuntimeRecord): boolean {
