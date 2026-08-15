@@ -25,6 +25,8 @@ export type CitationReadySummaryInput = {
   evidenceGrade?: string | null
 }
 
+const CAVEAT_PATTERN = /\b(?:limit(?:ation|ed|s)?|uncertain(?:ty)?|mixed|inconsistent|small|short[- ]term|preliminary|exploratory|not established|not proven|does not establish|cannot establish|unknown|unclear|lack(?:s|ing)?|sparse|indirect|heterogeneous|specific extract|specific population)\b/i
+
 function isRelatedArticle(
   article: ArticleRelationshipRecord | undefined,
   currentSlug: string
@@ -92,10 +94,21 @@ function uniqueSentences(values: string[]): string[] {
   return unique
 }
 
+function preserveAuthoredCaveat(selected: string[], authoredSentences: string[]): string[] {
+  const caveat = authoredSentences.find((sentence) => CAVEAT_PATTERN.test(sentence))
+  if (!caveat || selected.includes(caveat)) return selected
+
+  if (selected.length < 4) return [...selected, caveat]
+  return [...selected.slice(0, 3), caveat]
+}
+
 /**
  * Build a 2–4 sentence extractive summary from authored article metadata.
  * Scientific claims come only from the authored description/takeaways; any
  * fallback sentence describes verifiable page metadata rather than efficacy.
+ * When authored metadata contains a recognizable limitation/caveat sentence,
+ * keep one in the extract so answer engines cannot lift a conclusion while
+ * silently dropping its qualification.
  */
 export function buildCitationReadySummary({
   description,
@@ -108,7 +121,7 @@ export function buildCitationReadySummary({
     ...keyTakeaways.map(cleanSentence),
   ])
 
-  const selected = authoredSentences.slice(0, 4)
+  let selected = preserveAuthoredCaveat(authoredSentences.slice(0, 4), authoredSentences)
 
   if (selected.length < 2) {
     if (sourceCount > 0 && evidenceGrade) {
