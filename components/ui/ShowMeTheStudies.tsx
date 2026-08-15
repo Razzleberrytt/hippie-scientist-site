@@ -137,7 +137,7 @@ export default function ShowMeTheStudies({ citations }: Props) {
   const overflow = sorted.slice(VISIBLE_ROWS)
 
   return (
-    <details className="group/studies overflow-hidden rounded-2xl border-2 border-brand-900/10 dark:border-white/10">
+    <details className="group/studies overflow-hidden rounded-2xl border-2 border-brand-900/10 bg-[var(--surface-card)] p-0 shadow-none backdrop-blur-none dark:border-white/10">
       <summary className="flex cursor-pointer items-center justify-between gap-3 bg-brand-50/70 px-4 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:bg-[var(--surface-subtle)]">
         <span>
           <span className="block text-sm font-bold text-ink">Clinical Study Summaries ({citations.length})</span>
@@ -165,7 +165,7 @@ export default function ShowMeTheStudies({ citations }: Props) {
         </table>
       </div>
       {overflow.length > 0 && (
-        <details className="group border-t border-brand-900/10 dark:border-white/10">
+        <details className="group border-x-0 border-b-0 border-t border-brand-900/10 bg-transparent p-0 shadow-none backdrop-blur-none dark:border-white/10">
           <summary className="flex cursor-pointer select-none items-center gap-1.5 px-4 py-2.5 text-xs font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-100 dark:hover:text-white">
             <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">▶</span>
             Show {overflow.length} more stud{overflow.length === 1 ? 'y' : 'ies'}
