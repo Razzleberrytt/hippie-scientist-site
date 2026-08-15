@@ -40,7 +40,7 @@ export default function EvidenceGradeExplainer() {
         <span aria-hidden="true" className="inline-block text-brand-500 transition-transform group-open:rotate-90">▶</span>
         How evidence grades work
       </summary>
-      <div className="mt-3 rounded-xl border border-brand-900/10 bg-white/70 p-3 space-y-2">
+      <div className="mt-3 rounded-xl border border-brand-900/10 bg-white/70 p-3 space-y-2 dark:border-white/10 dark:bg-white/5">
         <p className="text-[11px] leading-5 text-muted">
           Each grade reflects the strength and consistency of published human evidence — not marketing claims.
           Grades are based on study count, design quality, effect size, consistency, and recency.
