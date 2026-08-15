@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { type FormEvent, useEffect, useId, useRef, useState } from 'react'
 import { safetyChecklistLeadMagnet } from '@/lib/lead-magnet'
 import { mailchimpSignupConfig } from '@/lib/mailchimp-integration'
-import { trackEmailSignup } from '@/lib/analytics'
+import { trackEmailSignup, trackExperimentConversion } from '@/lib/analytics'
 import { trackRevenueEvent } from '@/src/lib/revenue-tracking'
 
 type TurnstileApi = {
@@ -19,6 +19,12 @@ declare global {
   }
 }
 
+type NewsletterExperiment = {
+  id: string
+  variant: string
+  location?: string
+}
+
 type NewsletterSignupProps = {
   title?: string
   description?: string
@@ -26,6 +32,7 @@ type NewsletterSignupProps = {
   location?: string
   variant?: 'card' | 'inline' | 'footer' | 'compact' | 'editorial'
   className?: string
+  experiment?: NewsletterExperiment
 }
 
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() || ''
@@ -58,6 +65,7 @@ export default function NewsletterSignup({
   location = 'newsletter-signup',
   variant = 'card',
   className = '',
+  experiment,
 }: NewsletterSignupProps) {
   const pathname = usePathname()
   const resolvedLocation =
@@ -157,6 +165,13 @@ export default function NewsletterSignup({
       }
       setMessage('You are subscribed. Open the safety checklist while the next evidence note is prepared.')
       trackEmailSignup({ source: resolvedLocation })
+      if (experiment) {
+        trackExperimentConversion({
+          experimentId: experiment.id,
+          variant: experiment.variant,
+          location: experiment.location ?? resolvedLocation,
+        })
+      }
     } catch (error) {
       if (usesTurnstile) {
         window.turnstile?.reset(turnstileWidgetIdRef.current)
