@@ -33,15 +33,14 @@ export function getFoodTimingGuidance(record: RuntimeIngredient): string {
   return candidates.find((value) => FOOD_PATTERN.test(value)) || ''
 }
 
-export function selectIndexableTimingIngredients(records: RuntimeRecord[]): RuntimeIngredient[] {
+export function selectIndexableGuideIngredients(records: RuntimeRecord[]): RuntimeIngredient[] {
   const bySlug = new Map<string, RuntimeIngredient>()
 
   for (const record of records as RuntimeIngredient[]) {
     if (!getRuntimeVisibility(record).canIndex) continue
 
     const slug = cleanTimingValue(record.slug)
-    const timing = getTiming(record)
-    if (!slug || !timing) continue
+    if (!slug) continue
 
     if (!bySlug.has(slug)) bySlug.set(slug, record)
   }
@@ -49,23 +48,31 @@ export function selectIndexableTimingIngredients(records: RuntimeRecord[]): Runt
   return [...bySlug.values()]
 }
 
+export function selectIndexableTimingIngredients(records: RuntimeRecord[]): RuntimeIngredient[] {
+  return selectIndexableGuideIngredients(records).filter((record) => Boolean(getTiming(record)))
+}
+
 export function selectDaypartTimingIngredients(records: RuntimeRecord[]): RuntimeIngredient[] {
   return selectIndexableTimingIngredients(records).filter(hasDaypartTiming)
 }
 
 export function selectFoodTimingIngredients(records: RuntimeRecord[]): RuntimeIngredient[] {
-  return selectIndexableTimingIngredients(records).filter((record) => Boolean(getFoodTimingGuidance(record)))
+  return selectIndexableGuideIngredients(records).filter((record) => Boolean(getFoodTimingGuidance(record)))
+}
+
+async function loadUnifiedIngredients(): Promise<RuntimeRecord[]> {
+  const { allRecords } = await getUnifiedRuntimeRecords()
+  return allRecords as RuntimeRecord[]
 }
 
 export async function loadIndexableTimingIngredients(): Promise<RuntimeIngredient[]> {
-  const { allRecords } = await getUnifiedRuntimeRecords()
-  return selectIndexableTimingIngredients(allRecords as RuntimeRecord[])
+  return selectIndexableTimingIngredients(await loadUnifiedIngredients())
 }
 
 export async function loadDaypartTimingIngredients(): Promise<RuntimeIngredient[]> {
-  return (await loadIndexableTimingIngredients()).filter(hasDaypartTiming)
+  return selectDaypartTimingIngredients(await loadUnifiedIngredients())
 }
 
 export async function loadFoodTimingIngredients(): Promise<RuntimeIngredient[]> {
-  return (await loadIndexableTimingIngredients()).filter((record) => Boolean(getFoodTimingGuidance(record)))
+  return selectFoodTimingIngredients(await loadUnifiedIngredients())
 }
