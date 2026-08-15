@@ -1,0 +1,95 @@
+name: Maintenance cadence
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * 1' # Weekly: Monday 09:17 UTC
+    - cron: '37 10 1 * *' # Monthly: first day 10:37 UTC
+
+permissions:
+  contents: read
+
+concurrency:
+  group: maintenance-cadence
+  cancel-in-progress: false
+
+jobs:
+  weekly-quality:
+    name: Weekly quality and opportunity checks
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 9 * * 1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Broken-link check
+        run: npm run audit:links
+
+      - name: Content-integrity check
+        run: |
+          npm run audit:content
+          npm run gate:content-quality
+
+      - name: Sitemap checks
+        run: |
+          npm run audit:sitemap
+          npm run seo:audit-sitemap
+
+      - name: Citation-health check
+        run: npm run evidence:check
+
+      - name: Search Console opportunity report
+        run: npm run seo:opportunities
+
+      - name: Upload weekly reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-maintenance-${{ github.run_id }}
+          if-no-files-found: ignore
+          retention-days: 30
+          path: |
+            ops/reports/**
+            artifacts/**
+
+  monthly-decay:
+    name: Monthly content-decay report
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '37 10 1 * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh Search Console opportunity inputs
+        run: npm run seo:opportunities
+
+      - name: Generate content-decay report
+        run: node scripts/ops/content-decay-report.mjs
+
+      - name: Upload content-decay report
+        uses: actions/upload-artifact@v4
+        with:
+          name: monthly-content-decay-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 90
+          path: ops/reports/content-decay.json
