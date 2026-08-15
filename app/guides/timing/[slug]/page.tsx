@@ -23,6 +23,10 @@ function getTiming(record: RuntimeIngredient): string {
   return clean(record.best_taken)
 }
 
+function hasDaypartDecision(timing: string): boolean {
+  return /\b(morning|afternoon|evening|night|nighttime|bedtime|before bed|daytime|earlier in the day|later in the day)\b/i.test(timing)
+}
+
 async function getEligibleIngredients(): Promise<RuntimeIngredient[]> {
   const { herbs, compounds } = await getUnifiedRuntimeRecords()
   const bySlug = new Map<string, RuntimeIngredient>()
@@ -65,6 +69,7 @@ export default async function IngredientTimingPage({ params }: { params: Promise
   const name = clean(record.name) || slug
   const timing = getTiming(record)
   const grade = clean(record.evidence_grade) || clean(record.evidence_level)
+  const showDaypartDecision = hasDaypartDecision(timing)
 
   return (
     <main className="container-page space-y-8 py-10">
@@ -90,6 +95,17 @@ export default async function IngredientTimingPage({ params }: { params: Promise
           This page is published only when the canonical ingredient record contains explicit timing guidance. It does not infer a schedule from mechanism alone.
         </p>
       </section>
+
+      {showDaypartDecision ? (
+        <section className="card-premium max-w-3xl space-y-3 p-6 sm:p-8" aria-labelledby="morning-or-night">
+          <p className="eyebrow-label">Morning or night?</p>
+          <h2 id="morning-or-night" className="text-2xl font-semibold text-ink">Should you take {name} in the morning or at night?</h2>
+          <p className="leading-7 text-muted">{timing}</p>
+          <p className="text-sm leading-6 text-muted">
+            The answer above is intentionally the canonical timing statement rather than a separate rule generated from pharmacology. If the source record does not support a morning-versus-night distinction, this section is omitted.
+          </p>
+        </section>
+      ) : null}
 
       <section className="max-w-3xl rounded-2xl border border-brand-900/10 bg-white/70 p-5 text-sm leading-6 text-muted dark:bg-white/5">
         Timing can depend on the studied formulation, dose, goal, tolerability, and other medicines. Treat the statement above as evidence context rather than a universal dosing instruction.
