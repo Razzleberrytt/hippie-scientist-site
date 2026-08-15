@@ -1,0 +1,87 @@
+name: Technical SEO Monitor
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'src/lib/**'
+      - 'public/_redirects'
+      - 'app/sitemap.ts'
+      - 'app/robots.ts'
+      - 'scripts/ci/audit-technical-seo-contract.mjs'
+      - 'scripts/monitor/production-seo-health.mjs'
+      - '.github/workflows/technical-seo-monitor.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'public/_redirects'
+      - 'app/sitemap.ts'
+      - 'app/robots.ts'
+      - 'src/lib/seo.ts'
+      - 'src/lib/site.ts'
+      - 'scripts/ci/audit-technical-seo-contract.mjs'
+      - 'scripts/monitor/production-seo-health.mjs'
+      - '.github/workflows/technical-seo-monitor.yml'
+  schedule:
+    - cron: '17 11 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: technical-seo-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  static-contract:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        env:
+          COMMIT_HASH: ${{ github.sha }}
+        run: npm run build:deploy
+
+      - name: Audit canonical, redirect, 404, and sitemap contract
+        run: node scripts/ci/audit-technical-seo-contract.mjs
+
+      - name: Upload technical SEO report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: technical-seo-contract-${{ github.run_number }}
+          path: reports/technical-seo-contract.json
+          retention-days: 30
+
+  live-production:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Verify production hostname, protocol, slash, status, and sitemap health
+        run: node scripts/monitor/production-seo-health.mjs --sample=50
