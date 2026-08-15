@@ -1,6 +1,8 @@
-/* Editorial content pass two
-   Extends the botanical system from the homepage into profiles, comparisons,
-   evidence surfaces, accordions, tables, search, and tool controls. */
+/* Editorial content surfaces
+   Shared reading, profile, comparison, table, accordion, and tool treatments.
+   This layer now follows the premium ivory / charcoal / indigo / brass system;
+   botanical green is reserved for semantic success states rather than acting as
+   the default visual identity. */
 
 html:not(.dark) :where(
   .library-card-premium,
@@ -11,7 +13,7 @@ html:not(.dark) :where(
   .section-frame,
   .glass-card
 ) :where(h2, h3) {
-  color: var(--editorial-evergreen);
+  color: var(--hs-ink);
 }
 
 html:not(.dark) :where(
@@ -23,20 +25,25 @@ html:not(.dark) :where(
   .section-frame,
   .glass-card
 ) p {
-  color: #526159;
+  color: var(--hs-body);
 }
 
 html:not(.dark) :where(.identity-kicker, .evidence-pill-strong, .evidence-pill-moderate) {
-  border-color: rgba(18, 60, 47, 0.10);
-  background: linear-gradient(145deg, rgba(223, 233, 220, 0.78), rgba(255, 253, 248, 0.92));
-  color: var(--editorial-evergreen);
+  border-color: color-mix(in srgb, var(--tone) 18%, transparent);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--tone) 8%, var(--hs-surface)),
+    color-mix(in srgb, var(--hs-surface) 96%, transparent)
+  );
+  color: var(--tone-ink);
 }
 
-/* Herb and compound profile shells */
+/* Herb and compound profile shells: keep a subtle page signal without creating
+   a second competing brand canvas underneath the global shell. */
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) {
   background:
-    radial-gradient(circle at 96% 3%, rgba(203, 220, 200, 0.34), transparent 23rem),
-    linear-gradient(180deg, #fbf8f1, #f8f2e7 46%, #fbf8f1);
+    radial-gradient(circle at 96% 3%, color-mix(in srgb, var(--tone) 8%, transparent), transparent 23rem),
+    radial-gradient(circle at 4% 24%, color-mix(in srgb, var(--hs-gold) 7%, transparent), transparent 22rem);
 }
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) > div.mx-auto {
@@ -44,76 +51,76 @@ html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) > div.mx-au
 }
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell {
-  border-color: rgba(184, 138, 66, 0.20);
+  border-color: color-mix(in srgb, var(--hs-gold) 22%, var(--hs-hairline));
   background:
-    radial-gradient(circle at 88% 10%, rgba(255, 255, 255, 0.92), transparent 17rem),
-    radial-gradient(circle at 100% 100%, rgba(203, 220, 200, 0.42), transparent 19rem),
-    linear-gradient(145deg, #fffdf8, #f5efe2);
-  box-shadow: var(--editorial-shadow);
+    radial-gradient(circle at 88% 10%, rgba(255, 255, 255, 0.72), transparent 17rem),
+    radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--tone) 10%, transparent), transparent 19rem),
+    linear-gradient(145deg, var(--hs-surface), color-mix(in srgb, var(--tone) 5%, var(--hs-surface)));
+  box-shadow: var(--hs-lift);
 }
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell h1 {
-  color: var(--editorial-evergreen);
+  color: var(--hs-ink);
   font-family: var(--font-fraunces), Fraunces, Georgia, serif;
   font-weight: 650;
   letter-spacing: -0.045em;
 }
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell .rounded-xl {
-  border-color: rgba(18, 60, 47, 0.10);
-  background: rgba(255, 253, 248, 0.78);
-  box-shadow: 0 7px 22px rgba(58, 45, 24, 0.055);
+  border-color: var(--hs-hairline);
+  background: color-mix(in srgb, var(--hs-surface) 82%, transparent);
+  box-shadow: 0 7px 22px rgba(53, 47, 65, 0.045);
 }
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] {
   top: 5.25rem;
-  border-color: rgba(18, 60, 47, 0.12) !important;
-  background: rgba(255, 253, 248, 0.94) !important;
-  box-shadow: 0 12px 34px rgba(58, 45, 24, 0.10);
+  border-color: var(--hs-hairline) !important;
+  background: color-mix(in srgb, var(--hs-surface) 92%, transparent) !important;
+  box-shadow: 0 12px 34px rgba(53, 47, 65, 0.08);
   backdrop-filter: blur(18px);
 }
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] a {
-  color: #526159 !important;
+  color: var(--hs-body) !important;
 }
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] a:first-child {
-  background: linear-gradient(135deg, #123c2f, #245846) !important;
-  color: #fffdf8 !important;
-  box-shadow: 0 7px 18px rgba(18, 60, 47, 0.18);
+  background: linear-gradient(135deg, #4b4558, #332f3d) !important;
+  color: #fffaf3 !important;
+  box-shadow: 0 7px 18px rgba(53, 47, 65, 0.18);
 }
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] a:not(:first-child):hover {
-  background: #f5efe2 !important;
-  color: var(--editorial-evergreen) !important;
+  background: color-mix(in srgb, var(--tone) 7%, var(--hs-surface)) !important;
+  color: var(--hs-ink) !important;
 }
 
 /* Shared profile TOC */
 html:not(.dark) nav[aria-label="Page sections"] {
-  border-color: rgba(18, 60, 47, 0.11) !important;
-  background: rgba(255, 253, 248, 0.92) !important;
-  box-shadow: 0 12px 34px rgba(58, 45, 24, 0.08) !important;
+  border-color: var(--hs-hairline) !important;
+  background: color-mix(in srgb, var(--hs-surface) 92%, transparent) !important;
+  box-shadow: 0 12px 34px rgba(53, 47, 65, 0.07) !important;
 }
 
 html:not(.dark) nav[aria-label="Page sections"] a {
-  color: #526159;
+  color: var(--hs-body);
 }
 
 html:not(.dark) nav[aria-label="Page sections"] a[aria-current="true"],
 html:not(.dark) nav[aria-label="Page sections"] a:hover {
-  background: #f5efe2;
-  color: var(--editorial-evergreen);
+  background: color-mix(in srgb, var(--tone) 7%, var(--hs-surface));
+  color: var(--hs-ink);
 }
 
 /* Accordions and editorial disclosures */
 html:not(.dark) :where(.card-premium, .surface-depth, .scientific-card) > details > summary,
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) details > summary {
-  color: var(--editorial-evergreen);
+  color: var(--hs-ink);
 }
 
 html:not(.dark) :where(.card-premium, .surface-depth, .scientific-card) > details > summary:hover,
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) details > summary:hover {
-  color: var(--editorial-evergreen-soft);
+  color: var(--tone-ink);
 }
 
 html:not(.dark) details[open] > summary {
@@ -121,80 +128,85 @@ html:not(.dark) details[open] > summary {
 }
 
 html:not(.dark) details > summary + div {
-  border-top-color: rgba(18, 60, 47, 0.10) !important;
+  border-top-color: var(--hs-hairline) !important;
 }
 
-/* Evidence tables */
+/* Evidence tables read like publication tables rather than green dashboard UI. */
 html:not(.dark) main table {
-  border-color: rgba(18, 60, 47, 0.10);
-  background: rgba(255, 253, 248, 0.90);
+  border-color: var(--hs-hairline);
+  background: color-mix(in srgb, var(--hs-surface) 94%, transparent);
 }
 
 html:not(.dark) main table thead {
-  background: linear-gradient(180deg, #edf3ea, #e6eee3) !important;
-  color: var(--editorial-evergreen);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--tone) 9%, var(--hs-surface)),
+    color-mix(in srgb, var(--tone) 5%, var(--hs-surface))
+  ) !important;
+  color: var(--hs-ink);
 }
 
 html:not(.dark) main table tbody tr:nth-child(even) {
-  background: rgba(245, 239, 226, 0.50);
+  background: color-mix(in srgb, var(--tone) 3%, var(--hs-surface));
 }
 
 html:not(.dark) main table :where(th, td) {
-  border-color: rgba(18, 60, 47, 0.085) !important;
+  border-color: var(--hs-hairline) !important;
 }
 
-/* Compare pages */
+/* Compare pages: neutral editorial ground with a restrained indigo signal. */
 html:not(.dark) main:has(#compare-decision) {
   background:
-    radial-gradient(circle at 95% 4%, rgba(203, 220, 200, 0.32), transparent 23rem),
-    linear-gradient(180deg, #fbf8f1, #f7f1e6 48%, #fbf8f1);
+    radial-gradient(circle at 95% 4%, color-mix(in srgb, var(--tone) 8%, transparent), transparent 23rem),
+    radial-gradient(circle at 5% 24%, color-mix(in srgb, var(--hs-gold) 6%, transparent), transparent 22rem);
 }
 
 html:not(.dark) main:has(#compare-decision) h1,
 html:not(.dark) main:has(#compare-decision) h2 {
-  color: var(--editorial-evergreen);
+  color: var(--hs-ink);
   font-family: var(--font-fraunces), Fraunces, Georgia, serif;
 }
 
 html:not(.dark) main:has(#compare-decision) :where(.rounded-2xl, .rounded-3xl) {
-  border-color: rgba(18, 60, 47, 0.10);
+  border-color: var(--hs-hairline);
 }
 
 /* Inputs, search, filters, and tools */
 html:not(.dark) main :where(input, select, textarea) {
-  border-color: rgba(18, 60, 47, 0.14);
-  background: rgba(255, 253, 248, 0.94);
-  color: var(--editorial-evergreen);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  border-color: var(--hs-hairline-strong);
+  background: color-mix(in srgb, var(--hs-surface) 94%, transparent);
+  color: var(--hs-ink);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
 }
 
 html:not(.dark) main :where(input, select, textarea)::placeholder {
-  color: #7a867f;
+  color: color-mix(in srgb, var(--hs-body) 80%, transparent);
 }
 
 html:not(.dark) main :where(input, select, textarea):focus {
-  border-color: rgba(184, 138, 66, 0.56);
+  border-color: color-mix(in srgb, var(--hs-gold) 58%, var(--hs-hairline));
   outline: none;
-  box-shadow: 0 0 0 3px rgba(184, 138, 66, 0.14);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hs-gold) 14%, transparent);
 }
 
 html:not(.dark) main button:not([class*="bg-red"]):not([class*="bg-amber"]):not([class*="bg-emerald"]) {
   text-underline-offset: 0.18em;
 }
 
-/* Safety and status blocks retain semantic color but lose the harsh flat fill. */
+/* Safety/status blocks keep their semantic meaning without becoming the site's
+   overall palette. Amber remains caution; emerald remains explicit positive/safe. */
 html:not(.dark) main :where([class*="bg-amber-50"], [class*="bg-yellow-50"]) {
-  border-color: rgba(184, 138, 66, 0.22) !important;
+  border-color: color-mix(in srgb, var(--hs-gold) 28%, transparent) !important;
   background:
-    radial-gradient(circle at 100% 0%, rgba(222, 198, 155, 0.24), transparent 32%),
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--hs-gold) 12%, transparent), transparent 32%),
     linear-gradient(145deg, rgba(255, 252, 241, 0.96), rgba(248, 240, 223, 0.88)) !important;
 }
 
 html:not(.dark) main [class*="bg-emerald-50"] {
   border-color: rgba(49, 95, 80, 0.18) !important;
   background:
-    radial-gradient(circle at 100% 0%, rgba(203, 220, 200, 0.34), transparent 32%),
-    linear-gradient(145deg, rgba(247, 251, 246, 0.96), rgba(231, 240, 228, 0.86)) !important;
+    radial-gradient(circle at 100% 0%, rgba(203, 220, 200, 0.24), transparent 32%),
+    linear-gradient(145deg, rgba(247, 251, 246, 0.96), rgba(236, 243, 233, 0.86)) !important;
 }
 
 /* Library/index cards and discovery rails */
@@ -206,8 +218,8 @@ html:not(.dark) main :where(article, section) > a.rounded-2xl {
 html:not(.dark) main :where(article, section) > a.rounded-xl:hover,
 html:not(.dark) main :where(article, section) > a.rounded-2xl:hover {
   transform: translateY(-2px);
-  border-color: rgba(184, 138, 66, 0.28);
-  box-shadow: 0 12px 30px rgba(58, 45, 24, 0.08);
+  border-color: color-mix(in srgb, var(--hs-gold) 30%, var(--hs-hairline));
+  box-shadow: 0 12px 30px rgba(53, 47, 65, 0.07);
 }
 
 @media (max-width: 768px) {
