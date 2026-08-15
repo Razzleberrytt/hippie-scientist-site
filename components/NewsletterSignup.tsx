@@ -43,10 +43,10 @@ function loadTurnstileScript() {
 }
 
 const variantClasses: Record<NonNullable<NewsletterSignupProps['variant']>, string> = {
-  card: 'border-y border-brand-900/10 bg-white/60 px-4 py-6 sm:rounded-[1.5rem] sm:border sm:p-8',
-  inline: 'border-y border-brand-900/10 bg-white/60 px-4 py-5 sm:rounded-[1.25rem] sm:border sm:p-5',
+  card: 'border-y border-brand-900/10 bg-white/60 px-4 py-6 sm:rounded-[1.5rem] sm:border sm:p-8 dark:border-white/10 dark:bg-white/5',
+  inline: 'border-y border-brand-900/10 bg-white/60 px-4 py-5 sm:rounded-[1.25rem] sm:border sm:p-5 dark:border-white/10 dark:bg-white/5',
   footer: 'rounded-xl border border-white/10 bg-white/5 p-4',
-  compact: 'rounded-2xl border border-emerald-800/15 bg-emerald-50/80 p-4',
+  compact: 'rounded-2xl border border-emerald-800/15 bg-emerald-50/80 p-4 dark:border-emerald-200/15 dark:bg-emerald-300/10',
   editorial:
     'rounded-[1.75rem] border border-[#123c2f]/10 bg-[#fffdf8]/80 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-white/5',
 }
@@ -67,7 +67,7 @@ export default function NewsletterSignup({
   const mutedColor = isFooter ? 'text-white/65' : 'text-muted'
   const inputClass = isFooter
     ? 'min-h-11 flex-1 rounded-full border border-white/15 bg-white/10 px-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-white/40 focus:ring-2 focus:ring-white/15'
-    : 'min-h-11 flex-1 rounded-full border border-brand-900/15 bg-white px-4 text-sm text-ink outline-none transition placeholder:text-muted/70 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15'
+    : 'min-h-11 flex-1 rounded-full border border-brand-900/15 bg-white px-4 text-sm text-ink outline-none transition placeholder:text-muted/70 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15 dark:border-white/15 dark:bg-white/10 dark:text-white dark:placeholder:text-white/45 dark:focus:border-emerald-300/40 dark:focus:ring-emerald-300/15'
   const buttonClass = isFooter
     ? 'min-h-11 rounded-full bg-white/15 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/25 border border-white/20'
     : 'button-primary min-h-11 px-5 py-2.5 text-sm'
@@ -229,7 +229,7 @@ export default function NewsletterSignup({
           {message ? (
             <p
               id={statusId}
-              className={`text-xs leading-5 ${status === 'error' ? 'text-red-700' : mutedColor}`}
+              className={`text-xs leading-5 ${status === 'error' ? 'text-red-700 dark:text-red-300' : mutedColor}`}
               role={status === 'error' ? 'alert' : 'status'}
               aria-live='polite'
             >
