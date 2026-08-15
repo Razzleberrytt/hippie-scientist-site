@@ -50,6 +50,9 @@ export default function EvidenceClaimCard({
     claim.duration
       ? { label: 'Duration', value: claim.duration }
       : null,
+    claim.finding_consistency
+      ? { label: 'Consistency', value: formatEvidenceLabel(claim.finding_consistency) }
+      : null,
   ].filter((signal): signal is { label: string; value: string } => signal !== null)
 
   return (
