@@ -41,6 +41,24 @@ describe('canonical evidence grade contract', () => {
     expect(normalizeEvidenceGrade('Insufficient evidence').grade).toBe('Avoid/Insufficient')
   })
 
+  it('caps positive adjectives when the same phrase says evidence is preclinical-only or lacks humans', () => {
+    expect(normalizeEvidenceGrade('Strong mechanistic evidence; no human trials').grade).toBe('D')
+    expect(normalizeEvidenceGrade('Robust preclinical evidence in animals').grade).toBe('D')
+    expect(canonicalGradeFromEvidenceTier('Strong mechanistic evidence; no human trials')).toBe('D')
+  })
+
+  it('does not downgrade explicit human clinical evidence merely because preclinical work is also mentioned', () => {
+    expect(normalizeEvidenceGrade('Strong human clinical evidence').grade).toBe('A')
+    expect(normalizeEvidenceGrade('Strong mechanistic and human clinical evidence').grade).toBe('A')
+    expect(normalizeEvidenceGrade('Strong human clinical and animal studies').grade).toBe('A')
+    expect(canonicalGradeFromEvidenceTier('Strong clinical evidence plus preclinical studies')).toBe('A')
+  })
+
+  it('treats inconsistent or conflicting wording conservatively', () => {
+    expect(normalizeEvidenceGrade('Strong but inconsistent evidence').grade).toBe('C')
+    expect(canonicalGradeFromEvidenceTier('Moderate evidence with conflicting findings')).toBe('C')
+  })
+
   it('does not flatten outcome-dependent grades into one verdict', () => {
     const normalized = normalizeEvidenceGrade('B for PCOS; D for core goals')
     expect(normalized.grade).toBeNull()
