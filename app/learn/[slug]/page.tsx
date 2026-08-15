@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getLearnPost, learnPosts } from '../data'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
-import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { compactMetaTitle } from '../../../src/lib/seo'
 
 type LearnRouteParams = Promise<{ slug: string }>
@@ -42,19 +41,15 @@ export default async function Page({ params }: LearnRouteProps) {
   const relatedArticles = learnPosts.filter((item) => item.slug !== post.slug).slice(0, 3).map((item) => ({ href: `/learn/${item.slug}`, label: item.title }))
 
   return (
-    <div className="container-page py-10 sm:py-14">
+    <div className="container-page py-6 sm:py-10">
       <article className="space-y-8">
-        <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Guides', href: '/guides' },
-            { label: post.title },
-          ]}
-        />
-        <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
-          <p className="eyebrow-label">{post.category} · {post.readingTime}</p>
-          <h1 className="mt-3 text-3xl font-semibold text-ink sm:text-4xl">{post.title}</h1>
-          <p className="detail-reading mt-4 text-muted">{post.hero}</p>
+        <section className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="eyebrow-label">{post.category}</span>
+            <span className="identity-meta">{post.readingTime}</span>
+          </div>
+          <h1 className="heading-premium mt-5 max-w-4xl">{post.title}</h1>
+          <p className="text-reading mt-4 max-w-3xl">{post.hero}</p>
         </section>
 
         <section className="grid gap-6 lg:grid-cols-[1.8fr_1fr]">
