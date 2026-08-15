@@ -15,7 +15,7 @@ async function loadBrowseHerbs(): Promise<RuntimeRecord[]> {
   const all = (await getHerbSummaryIndex()) as RuntimeRecord[]
   const present = new Set(all.map((h) => String(h.slug || '')))
   return all
-    .filter((h) => h.slug && getRuntimeVisibility(h).canRender && !isRedirectedDuplicate(String(h.slug), present))
+    .filter((h) => h.slug && getRuntimeVisibility(h).canIndex && !isRedirectedDuplicate(String(h.slug), present))
     .sort((a, b) => {
       const aName = formatDisplayLabel(a.displayName) || formatDisplayLabel(a.name) || formatDisplayLabel(a.slug)
       const bName = formatDisplayLabel(b.displayName) || formatDisplayLabel(b.name) || formatDisplayLabel(b.slug)
