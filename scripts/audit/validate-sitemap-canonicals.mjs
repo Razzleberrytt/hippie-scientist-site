@@ -2,6 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 
+const CANONICAL_ORIGIN = 'https://thehippiescientist.net';
+const LEGACY_WWW_ORIGIN = 'https://www.thehippiescientist.net';
+
 // Helper to ensure directory exists
 function ensureDirExists(dirPath) {
   if (!fs.existsSync(dirPath)) {
@@ -21,7 +24,7 @@ function fetchSitemap(url) {
       res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => { resolve(data); });
     });
-    
+
     request.on('error', (err) => { reject(err); });
     request.on('timeout', () => {
       request.destroy();
@@ -36,11 +39,11 @@ function checkUrlStatus(url) {
     const request = https.get(url, { timeout: 3000 }, (res) => {
       resolve({ url, status: res.statusCode, error: null });
     });
-    
+
     request.on('error', (err) => {
       resolve({ url, status: null, error: err.message });
     });
-    
+
     request.on('timeout', () => {
       request.destroy();
       resolve({ url, status: null, error: 'Timed out' });
@@ -49,7 +52,7 @@ function checkUrlStatus(url) {
 }
 
 async function runSitemapAudit() {
-  const liveSitemapUrl = 'https://thehippiescientist.net/sitemap.xml';
+  const liveSitemapUrl = `${CANONICAL_ORIGIN}/sitemap.xml`;
   const localSitemapPath = 'out/sitemap.xml';
   const herbsPath = 'public/data/herbs.json';
   const compoundsPath = 'public/data/compounds.json';
@@ -88,15 +91,15 @@ async function runSitemapAudit() {
     process.exit(1);
   }
 
-  // Check canonical domains (www vs non-www)
+  // Check canonical domains (legacy www vs canonical apex)
   let wwwCount = 0;
   let nonWwwCount = 0;
   let otherDomainsCount = 0;
 
   urls.forEach(u => {
-    if (u.startsWith('https://www.thehippiescientist.net')) {
+    if (u.startsWith(LEGACY_WWW_ORIGIN)) {
       wwwCount++;
-    } else if (u.startsWith('https://thehippiescientist.net')) {
+    } else if (u.startsWith(CANONICAL_ORIGIN)) {
       nonWwwCount++;
     } else {
       otherDomainsCount++;
@@ -153,8 +156,6 @@ async function runSitemapAudit() {
   const orphanedCompounds = [...sitemapCompounds].filter(slug => !compoundSlugs.has(slug));
 
   // Identify missing sitemap entries (in data but not in sitemap)
-  // Wait, does sitemap_included control if it should be in sitemap?
-  // Yes, the JSON data has a field `sitemap_included`. Let's check against both all database entries and sitemap_included eligible ones.
   // sitemap_included may arrive as boolean or legacy "true"/"false" strings.
   const sitemapEligible = (value) =>
     !(value === false || String(value).toLowerCase() === 'false');
@@ -182,11 +183,11 @@ Sitemap Source: ${source === 'live' ? `Live URL (${liveSitemapUrl})` : `Local Fa
 ## Canonical Domain Analysis
 
 - **Total URLs Analyzed**: ${urls.length}
-- **WWW Canonical (\`https://thehippiescientist.net\`)**: ${wwwCount} URLs (${wwwPct}%)
-- **Non-WWW Canonical (\`https://thehippiescientist.net\`)**: ${nonWwwCount} URLs (${nonWwwPct}%)
+- **Legacy WWW Variant (\`${LEGACY_WWW_ORIGIN}\`)**: ${wwwCount} URLs (${wwwPct}%)
+- **Canonical Apex (\`${CANONICAL_ORIGIN}\`)**: ${nonWwwCount} URLs (${nonWwwPct}%)
 - **Other/Mixed Domains**: ${otherDomainsCount} URLs (${otherPct}%)
 
-*Recommendation: Standardize on WWW canonicals across the entire sitemap (100% split).*
+*Recommendation: Keep 100% of sitemap URLs on the canonical apex origin (\`${CANONICAL_ORIGIN}\`).*
 
 ## URL Accessibility Sampling (Sample Size: ${sampleSize})
 
@@ -226,6 +227,13 @@ These are active slugs found in \`herbs.json\` or \`compounds.json\` (where site
   ensureDirExists('reports');
   fs.writeFileSync('reports/sitemap-audit.md', md);
   console.log('Wrote reports/sitemap-audit.md.');
+
+  if (wwwCount > 0 || otherDomainsCount > 0) {
+    console.error(
+      `Error: Sitemap canonical-host validation failed: ${wwwCount} legacy-www URL(s), ${otherDomainsCount} other-domain URL(s).`,
+    );
+    process.exitCode = 1;
+  }
 }
 
 runSitemapAudit();
