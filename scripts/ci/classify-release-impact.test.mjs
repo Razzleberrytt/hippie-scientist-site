@@ -8,7 +8,20 @@ describe('release impact classification', () => {
     'scripts/data/build-runtime-from-workbook.mjs',
     'scripts/ci/validate-route-seo.mjs',
     'scripts/build-deploy.mjs',
+    'app/page.tsx',
+    'app/layout.tsx',
     'app/guides/example/page.tsx',
+    'app/guides/example/layout.tsx',
+    'app/guides/example/loading.tsx',
+    'app/guides/example/error.tsx',
+    'app/guides/example/not-found.tsx',
+    'app/api/revalidate/route.ts',
+    'app/guides/example/generateStaticParams.ts',
+    'app/sitemap.ts',
+    'app/robots.ts',
+    'app/manifest.ts',
+    'app/icon.png',
+    'app/guides/opengraph-image.tsx',
     'lib/seo/canonical.ts',
     'public/data/herbs.json',
     'next.config.mjs',
@@ -19,6 +32,7 @@ describe('release impact classification', () => {
   })
 
   it.each([
+    'app/herbs/HerbsIndexClient.tsx',
     'components/Header.tsx',
     'docs/build-and-verification.md',
     'styles/globals.css',
