@@ -63,11 +63,11 @@ export const supplementComparisons: ComparisonConfig[] = [
     b: { label: 'Melatonin', candidates: ['melatonin'] },
   },
   {
-    slug: 'ashwagandha-vs-rhodiola',
-    title: 'Ashwagandha vs Rhodiola',
-    summary: 'Ashwagandha is usually positioned around stress and sleep-adjacent support, while rhodiola is more often compared for fatigue, stress resilience, and energy under pressure.',
-    a: { label: 'Ashwagandha', candidates: ['ashwagandha', 'ashwagandha-extract', 'ashwagandha-k66', 'ksm-66-ashwagandha'] },
-    b: { label: 'Rhodiola', candidates: ['rhodiola', 'rhodiola-rosea', 'rhodiola-rosea-extract'] },
+    slug: 'rhodiola-vs-ashwagandha',
+    title: 'Rhodiola vs Ashwagandha',
+    summary: 'Rhodiola is more often compared for fatigue, stress resilience, and energy under pressure, while ashwagandha is usually positioned around stress and sleep-adjacent support.',
+    a: { label: 'Rhodiola', candidates: ['rhodiola', 'rhodiola-rosea', 'rhodiola-rosea-extract'] },
+    b: { label: 'Ashwagandha', candidates: ['ashwagandha', 'ashwagandha-extract', 'ashwagandha-k66', 'ksm-66-ashwagandha'] },
   },
   {
     slug: 'ashwagandha-vs-magnesium',
