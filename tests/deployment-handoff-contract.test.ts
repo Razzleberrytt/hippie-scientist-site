@@ -7,32 +7,49 @@ function read(relativePath: string) {
 }
 
 describe('production deployment handoff contract', () => {
-  it('cancels stale Site Health PR heads but preserves the active main validation', () => {
-    const workflow = read('.github/workflows/check.yml')
-
-    expect(workflow).toContain("cancel-in-progress: ${{ github.event_name == 'pull_request' }}")
-    expect(workflow).toContain('push:')
-    expect(workflow).toContain('branches: [ main ]')
-    expect(workflow).toContain('run: npm run check:full')
-  })
-
-  it('deploys only after successful push-triggered Site Health validation', () => {
+  it('deploys directly from main pushes without depending on another workflow finishing', () => {
     const workflow = read('.github/workflows/deploy.yml')
 
-    expect(workflow).toContain('- Site Health Check')
-    expect(workflow).not.toMatch(/workflows:\s*[\s\S]{0,80}?- CI\b/)
-    expect(workflow).toContain("github.event.workflow_run.conclusion == 'success'")
-    expect(workflow).toContain("github.event.workflow_run.event == 'push'")
+    expect(workflow).toContain('push:')
     expect(workflow).toContain('branches:')
     expect(workflow).toContain('- main')
+    expect(workflow).toContain('workflow_dispatch:')
+    expect(workflow).not.toContain('workflow_run:')
+    expect(workflow).not.toContain('github.event.workflow_run')
   })
 
-  it('lets the active production deploy finish instead of canceling it for a newer head', () => {
+  it('pins production deployment to the triggering push SHA and branch', () => {
+    const workflow = read('.github/workflows/deploy.yml')
+
+    expect(workflow).toContain('DEPLOY_BRANCH: ${{ github.ref_name }}')
+    expect(workflow).toContain('DEPLOY_SHA: ${{ github.sha }}')
+    expect(workflow).toContain('ref: ${{ github.sha }}')
+  })
+
+  it('lets an active production deploy finish instead of canceling it for a newer head', () => {
     const workflow = read('.github/workflows/deploy.yml')
 
     expect(workflow).toContain('concurrency:')
-    expect(workflow).toContain('group: deploy-${{ github.event.workflow_run.head_branch || github.ref }}')
+    expect(workflow).toContain('group: deploy-${{ github.ref }}')
     expect(workflow).toContain('cancel-in-progress: false')
-    expect(workflow).toContain('workflow_dispatch:')
+  })
+
+  it('validates tests, canonical data, source-of-truth, types, lint, build, and output before publishing', () => {
+    const workflow = read('.github/workflows/deploy.yml')
+
+    for (const command of [
+      'npm run test',
+      'npm run data:ci',
+      'npm run validate:workbook-source',
+      'npm run validate:static-export',
+      'npm run lint',
+      'npm run typecheck',
+      'npm run guard:source-of-truth',
+      'npm run build:deploy',
+      'npm run verify:output',
+      'npm run audit:affiliate-tag-production',
+    ]) {
+      expect(workflow).toContain(command)
+    }
   })
 })
