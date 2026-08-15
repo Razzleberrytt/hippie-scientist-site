@@ -2,6 +2,7 @@ import Link from 'next/link'
 import EvidenceSafetyNotes from './EvidenceSafetyNotes'
 import EvidenceSourceList from './EvidenceSourceList'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
+import { countHumanTrials } from '../../lib/evidence-source-metrics'
 import {
   formatEvidenceLabel,
   getConfidenceDisplay,
@@ -26,9 +27,13 @@ export default function EvidenceClaimCard({
   sources,
 }: EvidenceClaimCardProps) {
   const confidence = getConfidenceDisplay(claim.confidence_tier)
+  const humanTrialCount = countHumanTrials(sources)
   const evidenceSignals = [
     claim.design_type
       ? { label: 'Evidence type', value: formatEvidenceLabel(claim.design_type) }
+      : null,
+    humanTrialCount > 0
+      ? { label: 'Human trials', value: String(humanTrialCount) }
       : null,
     claim.sample_size && claim.sample_size > 0
       ? { label: 'Participants', value: `N=${claim.sample_size.toLocaleString()}` }
