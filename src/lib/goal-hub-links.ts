@@ -6,6 +6,12 @@ export type GoalHubLink = {
   note?: string
 }
 
+export type GoalIngredientCandidate = {
+  slug: string
+  label: string
+  note: string
+}
+
 const GOAL_STACK_ROUTES: Record<string, string> = {
   sleep: '/guides/sleep/',
   stress: '/guides/anxiety/',
@@ -15,6 +21,51 @@ const GOAL_STACK_ROUTES: Record<string, string> = {
   pain: '/guides/best/supplements-for-joint-support/',
   inflammation: '/guides/best/supplements-for-joint-support/',
   energy: '/guides/focus/',
+}
+
+const GOAL_INGREDIENT_CANDIDATES: Record<string, GoalIngredientCandidate[]> = {
+  sleep: [
+    { slug: 'melatonin', label: 'Melatonin', note: 'Circadian timing and sleep-onset evidence.' },
+    { slug: 'magnesium', label: 'Magnesium', note: 'Mineral status, relaxation, and sleep-quality context.' },
+    { slug: 'l-theanine', label: 'L-Theanine', note: 'Calm-focus and pre-sleep relaxation evidence.' },
+    { slug: 'valerian', label: 'Valerian', note: 'Traditional sleep aid with mixed human evidence.' },
+  ],
+  stress: [
+    { slug: 'ashwagandha', label: 'Ashwagandha', note: 'Stress and cortisol-related human trial evidence.' },
+    { slug: 'rhodiola', label: 'Rhodiola', note: 'Stress-related fatigue and resilience context.' },
+    { slug: 'l-theanine', label: 'L-Theanine', note: 'Acute stress and calm-focus context.' },
+  ],
+  anxiety: [
+    { slug: 'l-theanine', label: 'L-Theanine', note: 'Acute stress and anxious-tension research context.' },
+    { slug: 'ashwagandha', label: 'Ashwagandha', note: 'Longer-duration stress and anxiety-scale evidence.' },
+    { slug: 'kava', label: 'Kava', note: 'Anxiety evidence with materially higher safety scrutiny.' },
+  ],
+  focus: [
+    { slug: 'caffeine', label: 'Caffeine', note: 'Fast alertness and vigilance evidence.' },
+    { slug: 'l-theanine', label: 'L-Theanine', note: 'Calmer attention, often researched with caffeine.' },
+    { slug: 'bacopa', label: 'Bacopa', note: 'Longer-term memory and learning context.' },
+    { slug: 'rhodiola', label: 'Rhodiola', note: 'Fatigue-sensitive cognitive performance context.' },
+  ],
+  cognition: [
+    { slug: 'bacopa', label: 'Bacopa', note: 'Memory and learning evidence over longer durations.' },
+    { slug: 'lions-mane', label: 'Lion’s Mane', note: 'Emerging cognition and nerve-signaling research.' },
+    { slug: 'citicoline', label: 'Citicoline', note: 'Choline-related cognition and attention context.' },
+  ],
+  energy: [
+    { slug: 'caffeine', label: 'Caffeine', note: 'Immediate wakefulness and performance evidence.' },
+    { slug: 'rhodiola', label: 'Rhodiola', note: 'Fatigue and stress-resilience research.' },
+    { slug: 'coq10', label: 'CoQ10', note: 'Mitochondrial and fatigue-related evidence context.' },
+  ],
+  pain: [
+    { slug: 'curcumin', label: 'Curcumin', note: 'Joint-discomfort and inflammatory outcome evidence.' },
+    { slug: 'boswellia', label: 'Boswellia', note: 'Joint pain and function evidence.' },
+    { slug: 'magnesium', label: 'Magnesium', note: 'Context-dependent evidence for specific pain patterns.' },
+  ],
+  inflammation: [
+    { slug: 'curcumin', label: 'Curcumin', note: 'Human inflammatory-marker and joint evidence.' },
+    { slug: 'boswellia', label: 'Boswellia', note: 'Inflammation-adjacent joint outcome evidence.' },
+    { slug: 'omega-3', label: 'Omega-3', note: 'EPA/DHA evidence across inflammatory contexts.' },
+  ],
 }
 
 const GOAL_COMPARE_SLUGS: Record<string, string[]> = {
@@ -108,6 +159,10 @@ export function getGoalStackLink(goalSlug: string): GoalHubLink | null {
     href,
     note: 'Evidence-first guide context for this goal.',
   }
+}
+
+export function getGoalIngredientCandidates(goalSlug: string, limit = 4): GoalIngredientCandidate[] {
+  return (GOAL_INGREDIENT_CANDIDATES[goalSlug] ?? []).slice(0, limit)
 }
 
 export function getGoalCompareLinks(goalSlug: string, limit = 4): GoalHubLink[] {
