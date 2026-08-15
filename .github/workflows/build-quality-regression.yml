@@ -1,0 +1,40 @@
+name: Build quality regression
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  compare-generated-quality:
+    name: Compare generated quality with base
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository with history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch base branch
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: git fetch origin "$BASE_REF" --depth=1
+
+      - name: Compare build-quality signals
+        env:
+          QUALITY_CHANGE_REASON: ${{ github.event.pull_request.body }}
+        run: node scripts/ci/compare-build-quality.mjs --base="origin/${{ github.base_ref }}" --require-base
+
+      - name: Upload human-readable quality diff
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-quality-diff-${{ github.run_id }}
+          if-no-files-found: ignore
+          retention-days: 30
+          path: |
+            public/data/reports/build-quality-diff.md
+            public/data/reports/build-quality-diff.json
