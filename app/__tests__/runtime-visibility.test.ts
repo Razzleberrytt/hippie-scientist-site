@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { getHealthContentGovernance } from '../../lib/health-content-governance'
+import {
+  getDiseaseEditorialAssessment,
+  getHealthContentGovernance,
+} from '../../lib/health-content-governance'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 
 // Regression coverage for the recurring string-vs-boolean sitemap_included bug:
@@ -38,7 +41,7 @@ describe('getRuntimeVisibility', () => {
     expect(visibility.canIndex).toBe(false)
   })
 
-  it('PUBLISH indexability_status takes priority', () => {
+  it('PUBLISH indexability_status takes priority for non-disease content', () => {
     const visibility = getRuntimeVisibility({
       slug: 'test-herb',
       indexability_status: 'PUBLISH',
@@ -75,7 +78,7 @@ describe('getRuntimeVisibility', () => {
     expect(visibility.canIndex).toBe(false)
   })
 
-  it('keeps explicitly disease-treatment content out of feature and commerce paths', () => {
+  it('keeps disease-treatment content out of index, feature, and commerce paths until enhanced review passes', () => {
     const visibility = getRuntimeVisibility({
       ...publishable,
       sitemap_included: true,
@@ -83,9 +86,43 @@ describe('getRuntimeVisibility', () => {
     })
 
     expect(visibility.canRender).toBe(true)
-    expect(visibility.canIndex).toBe(true)
+    expect(visibility.canIndex).toBe(false)
     expect(visibility.canFeature).toBe(false)
     expect(visibility.canMonetize).toBe(false)
+  })
+
+  it('allows indexing after disease content clears review, human-evidence, and safety gates', () => {
+    const record = {
+      ...publishable,
+      sitemap_included: true,
+      content_intent: 'disease-treatment',
+      ymyl_review_status: 'approved',
+      evidence_grade: 'B',
+      safety: 'Source-backed safety summary.',
+      contraindications: 'Source-backed contraindication context.',
+      interactions: 'Source-backed interaction context.',
+    }
+
+    expect(getDiseaseEditorialAssessment(record)).toMatchObject({
+      required: true,
+      approved: true,
+      reviewApproved: true,
+      humanEvidenceAdequate: true,
+      safetyCoverageAdequate: true,
+    })
+    expect(getRuntimeVisibility(record).canIndex).toBe(true)
+    expect(getRuntimeVisibility(record).canMonetize).toBe(false)
+  })
+
+  it('does not let a generic PUBLISH flag bypass the disease-treatment review gate', () => {
+    const visibility = getRuntimeVisibility({
+      indexability_status: 'PUBLISH',
+      content_intent: 'disease-treatment',
+      evidence_grade: 'A',
+      safety: 'Safety context.',
+      contraindications: 'Contraindication context.',
+    })
+    expect(visibility.canIndex).toBe(false)
   })
 
   it('classifies a primary disease condition without scanning secondary safety mentions', () => {
