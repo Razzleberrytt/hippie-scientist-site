@@ -147,7 +147,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
 
       {open && (
         <div
-          className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[12vh] sm:pt-[15vh]"
+          className="fixed inset-0 z-[100] flex items-start justify-center px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-4 sm:pb-4 sm:pt-[12vh] lg:pt-[15vh]"
           role="presentation"
         >
           <div
@@ -163,10 +163,10 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
             aria-modal="true"
             aria-label="Site search"
             onKeyDown={onDialogKeyDown}
-            className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-2xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)]"
+            className="relative flex max-h-[calc(100dvh-1.5rem-env(safe-area-inset-top)-env(safe-area-inset-bottom))] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-2xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] sm:max-h-[76vh]"
           >
             {/* Search input (combobox) */}
-            <div className="flex items-center gap-2.5 border-b border-brand-900/10 px-4">
+            <div className="flex shrink-0 items-center gap-2.5 border-b border-brand-900/10 px-4">
               <Search className="h-5 w-5 shrink-0 text-brand-700" aria-hidden="true" />
               <input
                 ref={inputRef}
@@ -199,7 +199,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
             </div>
 
             {/* Quick type filters */}
-            <div role="group" aria-label="Filter by content type" className="flex flex-wrap items-center gap-1.5 border-b border-brand-900/10 px-4 py-2">
+            <div role="group" aria-label="Filter by content type" className="flex shrink-0 flex-wrap items-center gap-1.5 border-b border-brand-900/10 px-4 py-2">
               {TYPE_FILTERS.map((type) => (
                 <FilterChip
                   key={type}
@@ -225,7 +225,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
               role="listbox"
               aria-label="Search results"
               aria-busy={!search.ready}
-              className="max-h-[50vh] space-y-0.5 overflow-y-auto overscroll-contain p-2"
+              className="min-h-0 flex-1 space-y-0.5 overflow-y-auto overscroll-contain p-2 sm:max-h-[50vh]"
             >
               {!search.ready ? (
                 <li role="option" aria-disabled="true" aria-selected="false" className="px-3 py-6 text-center text-sm text-muted">Loading search…</li>
@@ -248,7 +248,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
             </ul>
 
             {/* Footer / live region */}
-            <div className="flex items-center justify-between border-t border-brand-900/10 bg-[var(--surface-subtle)] px-4 py-2 text-[11px] text-muted">
+            <div className="flex shrink-0 items-center justify-between border-t border-brand-900/10 bg-[var(--surface-subtle)] px-4 py-2 text-[11px] text-muted">
               <span aria-live="polite" aria-atomic="true">
                 {search.ready
                   ? `${search.results.length} result${search.results.length === 1 ? '' : 's'} shown`
