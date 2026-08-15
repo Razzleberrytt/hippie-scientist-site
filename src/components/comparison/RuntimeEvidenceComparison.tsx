@@ -5,6 +5,7 @@ import ComparisonTable from '@/components/ComparisonTable'
 import Disclaimer from '@/src/components/Disclaimer'
 import {
   firstComparisonField,
+  optionalComparisonField,
   resolveRuntimeComparisonSide,
   type ResolvedRuntimeComparisonSide,
   type RuntimeComparisonSideConfig,
@@ -115,6 +116,17 @@ export default async function RuntimeEvidenceComparison({ title, summary, left, 
   if (!leftSide.record || !rightSide.record) notFound()
 
   const verdict = quickVerdict(leftSide, rightSide)
+  const leftStudiedDoseCost = optionalComparisonField(leftSide.record, [
+    'cost_per_studied_dose',
+    'cost_per_effective_dose',
+    'studied_dose_cost',
+  ])
+  const rightStudiedDoseCost = optionalComparisonField(rightSide.record, [
+    'cost_per_studied_dose',
+    'cost_per_effective_dose',
+    'studied_dose_cost',
+  ])
+
   const rows = [
     {
       label: 'Evidence strength',
@@ -166,6 +178,16 @@ export default async function RuntimeEvidenceComparison({ title, summary, left, 
       ],
     },
   ]
+
+  if (leftStudiedDoseCost || rightStudiedDoseCost) {
+    rows.splice(4, 0, {
+      label: 'Cost per studied dose',
+      values: [
+        leftStudiedDoseCost || 'Not available in the canonical record.',
+        rightStudiedDoseCost || 'Not available in the canonical record.',
+      ],
+    })
+  }
 
   return (
     <main className="container-page space-y-8 py-10">
@@ -228,6 +250,11 @@ export default async function RuntimeEvidenceComparison({ title, summary, left, 
           headers={['Dimension', leftSide.label, rightSide.label]}
           rows={rows}
         />
+        {(leftStudiedDoseCost || rightStudiedDoseCost) ? (
+          <p className="mt-3 text-xs leading-5 text-muted">
+            Cost-per-studied-dose is shown only when an explicit canonical cost field is present. It is intentionally omitted when reliable maintained product-cost data is unavailable.
+          </p>
+        ) : null}
       </section>
 
       <section className="grid max-w-5xl gap-4 sm:grid-cols-2">
