@@ -10,8 +10,9 @@ export const RELEASE_SENSITIVE_PATTERNS = [
   /^app\/(?:.*\/)?route\.[^/]+$/,
   /^app\/(?:.*\/)?generateStaticParams(?:[./]|$)/,
   /^app\/(?:.*\/)?(?:sitemap|robots|manifest|feed|favicon|icon|apple-icon|opengraph-image|twitter-image)(?:[./]|$)/,
-  /^lib\/(?:content|data|seo|schema|routes|taxonomy)/,
+  /^(?:src\/)?lib\/(?:[^/]*-)?(?:content|data|seo|schema|routes?|taxonomy)(?:[-./]|$)/,
   /^public\/data\//,
+  /^public\/(?:_redirects|_headers)$/,
   /^next\.config\./,
   /^package(?:-lock)?\.json$/,
 ]
