@@ -5,6 +5,7 @@ import {
   CANONICAL_EVIDENCE_GRADES,
   bandFromEvidenceTier,
   gradeTierDistance,
+  isCanonicalEvidenceGrade,
   normalizeEvidenceGrade,
   type CanonicalEvidenceGrade,
   type EvidenceBand,
@@ -62,18 +63,29 @@ function main() {
       const slug = String(record.slug ?? '')
       if (!slug) continue
 
-      const normalized = normalizeEvidenceGrade(record.evidence_grade)
+      const published = record.evidence_grade
+      const normalized = normalizeEvidenceGrade(published)
       const tierBand = bandFromEvidenceTier(record.evidence_tier)
       const distance = gradeTierDistance(normalized.band, tierBand)
       const indexable = String(record.indexability_status ?? '').toUpperCase() === 'PUBLISH'
       const issues: string[] = []
 
+      // Hard invariant (build-blocking): the published field must hold a
+      // canonical enum value or an explicit null. Anything else means an
+      // un-normalized value reached the dataset.
+      const publishedIsValid =
+        published === null || published === undefined || isCanonicalEvidenceGrade(published)
+      if (!publishedIsValid) issues.push('invalid-published-grade')
+
+      // Editorial findings: the two authored columns disagree. The published
+      // grade already resolves this conservatively, so these are review work
+      // rather than build failures.
       if (distance !== null && distance >= 2) issues.push('contradicts-evidence-tier')
       else if (distance === 1) issues.push('minor-disagreement')
       if (normalized.outcomeDependent) issues.push('outcome-dependent-grade')
-      if (normalized.raw && !normalized.grade && !normalized.outcomeDependent) issues.push('unmappable-grade')
-      if (!normalized.raw) issues.push('missing-grade')
-      if (normalized.raw && normalized.grade && !normalized.canonical) issues.push('non-canonical-wording')
+      if (published === null && String(record.evidence_grade_reason ?? '') === 'unresolved') {
+        issues.push('missing-grade')
+      }
       if (!issues.length) continue
 
       findings.push({
@@ -138,6 +150,16 @@ function main() {
     console.log(`  ${String(count).padStart(5)}  ${issue}`)
   }
   console.log(`\nReport: ${path.relative(ROOT, REPORT_PATH)}`)
+
+  const invalid = findings.filter((finding) => finding.issues.includes('invalid-published-grade'))
+  if (invalid.length > 0) {
+    console.error(`\n[evidence-grade] FAILED — ${invalid.length} record(s) publish a non-canonical grade.`)
+    for (const finding of invalid.slice(0, 20)) {
+      console.error(`  ${finding.url}  evidence_grade=${JSON.stringify(finding.rawGrade)}`)
+    }
+    console.error('\nRun `npm run data:normalize-evidence` to migrate, or fix the workbook value.')
+    process.exit(1)
+  }
 
   if (STRICT && contradictions.length > 0) {
     console.error(`\n[evidence-grade] FAILED — ${contradictions.length} indexable contradiction(s).`)

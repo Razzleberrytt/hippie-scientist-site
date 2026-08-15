@@ -4,6 +4,7 @@ import {
   bandFromEvidenceTier,
   gradeTierDistance,
   normalizeEvidenceGrade,
+  reconcileEvidenceGrade,
 } from '@/lib/evidence-grade'
 
 /**
@@ -65,6 +66,77 @@ describe('normalizeEvidenceGrade', () => {
     expect(notApplicable.letter).toBeNull()
     expect(notApplicable.band).toBeNull()
     expect(notApplicable.raw).toBe('not_applicable_stack')
+    expect(notApplicable.notApplicable).toBe(true)
+  })
+
+  it('maps bare strength words used as whole grade values', () => {
+    // 25 records grade evidence as "high"; before this they were unmappable and
+    // rendered with no badge at all.
+    expect(normalizeEvidenceGrade('high')).toMatchObject({ letter: 'A', band: 'strong' })
+    expect(normalizeEvidenceGrade('low')).toMatchObject({ letter: 'D', band: 'preliminary' })
+  })
+
+  it('does not read a risk word as an evidence-strength word', () => {
+    // "high" here describes safety caution, not evidence strength; the record's
+    // efficacy claim is moderate.
+    expect(normalizeEvidenceGrade('Moderate efficacy / high safety caution').band).toBe('moderate')
+  })
+})
+
+describe('reconcileEvidenceGrade', () => {
+  it('publishes the agreed grade when both signals match', () => {
+    const result = reconcileEvidenceGrade('B', 'Moderate Human Evidence')
+    expect(result.grade).toBe('B')
+    expect(result.reason).toBe('agree')
+    expect(result.adjusted).toBe(false)
+  })
+
+  it('resolves a two-band contradiction downward', () => {
+    // The real `calcium` record: graded "strong" against a mechanistic tier.
+    const result = reconcileEvidenceGrade('strong', 'Mechanistic Evidence')
+    expect(result.grade).toBe('D')
+    expect(result.reason).toBe('contradiction-resolved-conservatively')
+    expect(result.adjusted).toBe(true)
+    expect(result.explanation).toContain('conflict')
+  })
+
+  it('never publishes Grade A unless the evidence tier also says strong', () => {
+    // One band apart, so the generic rule would let A stand. Grade A is the
+    // strongest public claim on the site and needs both signals.
+    const result = reconcileEvidenceGrade('a', 'Moderate Human Evidence')
+    expect(result.grade).toBe('B')
+    expect(result.reason).toBe('capped-by-weaker-tier')
+    expect(reconcileEvidenceGrade('a', 'Strong Human Evidence').grade).toBe('A')
+  })
+
+  it('tolerates a one-band disagreement below Grade A', () => {
+    const result = reconcileEvidenceGrade('c', 'Moderate Human Evidence')
+    expect(result.grade).toBe('C')
+    expect(result.reason).toBe('minor-disagreement')
+    expect(result.adjusted).toBe(false)
+  })
+
+  it('falls back to whichever signal exists', () => {
+    expect(reconcileEvidenceGrade('', 'Strong Human Evidence')).toMatchObject({ grade: 'A', reason: 'tier-only' })
+    expect(reconcileEvidenceGrade('c', '')).toMatchObject({ grade: 'C', reason: 'grade-only' })
+  })
+
+  it('withholds a grade where one cannot honestly be published', () => {
+    expect(reconcileEvidenceGrade('not_applicable_stack', 'Mechanistic Evidence')).toMatchObject({
+      grade: null,
+      reason: 'not-applicable',
+    })
+    expect(reconcileEvidenceGrade('B for PCOS; D for core goals', 'Limited Human Evidence')).toMatchObject({
+      grade: null,
+      reason: 'unresolved',
+    })
+    expect(reconcileEvidenceGrade('', '')).toMatchObject({ grade: null, reason: 'unresolved' })
+  })
+
+  it('explains every published grade', () => {
+    for (const [grade, tier] of [['a', 'Strong Human Evidence'], ['strong', 'Mechanistic Evidence'], ['c', '']]) {
+      expect(reconcileEvidenceGrade(grade, tier).explanation.length).toBeGreaterThan(0)
+    }
   })
 })
 
