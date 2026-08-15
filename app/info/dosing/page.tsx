@@ -17,23 +17,13 @@ export const metadata: Metadata = buildPageMetadata({
 export default async function DosingPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs: RuntimeRecord[] = rawHerbs.filter((h: RuntimeRecord) => {
-    if (isRestrictedRecord(h)) return false
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs: RuntimeRecord[] = rawHerbs.filter((h: RuntimeRecord) =>
+    !isRestrictedRecord(h) && getRuntimeVisibility(h).canRender,
+  )
 
-  const compounds: RuntimeRecord[] = rawCompounds.filter((c: RuntimeRecord) => {
-    if (isRestrictedRecord(c)) return false
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  })
+  const compounds: RuntimeRecord[] = rawCompounds.filter((c: RuntimeRecord) =>
+    !isRestrictedRecord(c) && getRuntimeVisibility(c).canRender,
+  )
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
@@ -46,7 +36,7 @@ export default async function DosingPage() {
 
       <section className='space-y-4 rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
         <p className='eyebrow-label'>Dose Math Tool</p>
-        <h1 className='mt-2 text-3xl font-bold tracking-tight text-ink sm:text-5xl'>
+        <h1 className='text-3xl font-bold tracking-tight text-ink sm:text-5xl mt-2'>
           Supplement Dose Math &amp; Active-Marker Calculator
         </h1>
         <div className='rounded-2xl border border-rose-900/15 bg-rose-50 p-4 text-sm font-semibold leading-relaxed text-rose-950'>
