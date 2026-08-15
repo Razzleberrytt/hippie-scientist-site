@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import { trackExperimentImpression } from '@/lib/analytics'
 import { assignExperimentVariant } from '@/lib/experiment-assignment'
@@ -16,12 +17,19 @@ const VARIANTS = [
 ] as const
 
 type ArticleCaptureVariant = (typeof VARIANTS)[number]['id']
-type ArticleCaptureSlot = 'inline' | 'end'
+type ArticleCapturePlacement = 'inline' | 'end'
 
 type ArticleEmailCaptureExperimentProps = {
-  slot: ArticleCaptureSlot
   location: string
   className?: string
+}
+
+let volatileSubject: string | null = null
+
+function makeAnonymousSubject(): string {
+  return typeof window.crypto?.randomUUID === 'function'
+    ? window.crypto.randomUUID()
+    : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`
 }
 
 function getAnonymousExperimentSubject(): string {
@@ -29,21 +37,19 @@ function getAnonymousExperimentSubject(): string {
     const existing = window.localStorage.getItem(SUBJECT_STORAGE_KEY)
     if (existing) return existing
 
-    const generated =
-      typeof window.crypto?.randomUUID === 'function'
-        ? window.crypto.randomUUID()
-        : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`
-
+    const generated = makeAnonymousSubject()
     window.localStorage.setItem(SUBJECT_STORAGE_KEY, generated)
     return generated
   } catch {
-    // Storage can be unavailable in strict privacy modes. A session-stable
-    // fallback avoids collecting identity while keeping the experience usable.
-    return 'storage-unavailable'
+    // Storage can be unavailable in strict privacy modes. Keep a volatile,
+    // page-session identifier rather than collapsing those readers into one
+    // shared experiment bucket.
+    volatileSubject ??= makeAnonymousSubject()
+    return volatileSubject
   }
 }
 
-function placementFor(variant: ArticleCaptureVariant): ArticleCaptureSlot {
+function placementFor(variant: ArticleCaptureVariant): ArticleCapturePlacement {
   return variant.startsWith('inline-') ? 'inline' : 'end'
 }
 
@@ -53,12 +59,38 @@ function titleFor(variant: ArticleCaptureVariant): string {
     : 'Get weekly supplement evidence updates'
 }
 
+function createInlineMount(): HTMLElement | null {
+  const articleBody = document.querySelector<HTMLElement>('[data-article-body]')
+  if (!articleBody) return null
+
+  const mount = document.createElement('div')
+  mount.dataset.articleEmailCapture = 'inline'
+  mount.className = 'my-10'
+
+  const headings = Array.from(articleBody.querySelectorAll<HTMLElement>('h2'))
+  const insertionHeading = headings[1] ?? headings[0]
+  if (insertionHeading?.parentElement) {
+    insertionHeading.parentElement.insertBefore(mount, insertionHeading)
+    return mount
+  }
+
+  const children = Array.from(articleBody.children)
+  if (!children.length) {
+    articleBody.appendChild(mount)
+    return mount
+  }
+
+  const insertionIndex = Math.min(children.length - 1, Math.max(0, Math.floor(children.length * 0.4)))
+  children[insertionIndex].insertAdjacentElement('afterend', mount)
+  return mount
+}
+
 export default function ArticleEmailCaptureExperiment({
-  slot,
   location,
   className = '',
 }: ArticleEmailCaptureExperimentProps) {
   const [variant, setVariant] = useState<ArticleCaptureVariant | null>(null)
+  const [inlineMount, setInlineMount] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
     const subject = getAnonymousExperimentSubject()
@@ -66,25 +98,43 @@ export default function ArticleEmailCaptureExperiment({
   }, [])
 
   useEffect(() => {
-    if (!variant || placementFor(variant) !== slot) return
+    if (!variant || placementFor(variant) !== 'inline') return
+
+    const mount = createInlineMount()
+    setInlineMount(mount)
+
+    return () => {
+      mount?.remove()
+      setInlineMount(null)
+    }
+  }, [variant])
+
+  const placement = variant ? placementFor(variant) : null
+  const isRenderable = placement === 'end' || (placement === 'inline' && Boolean(inlineMount))
+
+  useEffect(() => {
+    if (!variant || !isRenderable) return
     trackExperimentImpression({
       experimentId: EXPERIMENT_ID,
       variant,
       location,
     })
-  }, [location, slot, variant])
+  }, [isRenderable, location, variant])
 
-  if (!variant || placementFor(variant) !== slot) return null
+  if (!variant || !isRenderable) return null
 
-  return (
+  const signup = (
     <NewsletterSignup
       title={titleFor(variant)}
       description='One practical email on evidence quality, safety flags, and better supplement decisions. Includes the free safety checklist.'
       ctaLabel='Get the checklist'
       location={location}
-      variant={slot === 'inline' ? 'editorial' : 'card'}
+      variant={placement === 'inline' ? 'editorial' : 'card'}
       className={className}
       experiment={{ id: EXPERIMENT_ID, variant, location }}
     />
   )
+
+  if (placement === 'inline' && inlineMount) return createPortal(signup, inlineMount)
+  return signup
 }
