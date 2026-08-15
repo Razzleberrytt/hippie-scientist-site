@@ -18,6 +18,7 @@ describe('high-frequency workflow concurrency contract', () => {
 
     expect(source).toContain('concurrency:')
     expect(source).toContain('group: ${{ github.workflow }}-${{ github.ref }}')
-    expect(source).toContain('cancel-in-progress: true')
+    expect(source.match(/cancel-in-progress:\s*true/g)).toHaveLength(1)
+    expect(source).not.toContain('cancel-in-progress: false')
   })
 })
