@@ -1,30 +1,17 @@
 #!/usr/bin/env node
 /**
- * indexnow-submit.mjs
+ * Submit changed site URLs to IndexNow.
  *
- * Pushes new and updated URLs to IndexNow (Bing, Yandex, Seznam, Naver) so
- * content changes reach search and AI-grounding systems in minutes instead of
- * waiting for a recrawl. Bing explicitly recommends it for keeping AI answers
- * current.
+ * Normal mode fingerprints the static export and compares it with the last
+ * successful submission state. Explicit payload mode submits exactly the URLs
+ * from a standard IndexNow JSON payload, which is useful for migrations,
+ * redirects, and consolidation recrawls.
  *
- * Only *changed* URLs are submitted. The script fingerprints each page in the
- * built export and diffs against the last submission, because blasting the full
- * sitemap on every deploy trains the endpoint to ignore you.
- *
- * ── Setup (once) ────────────────────────────────────────────────────────────
- *   node scripts/seo/indexnow-submit.mjs --init
- *
- * That writes `public/<key>.txt` containing the key, which is how IndexNow
- * verifies ownership. Commit it — the file must be served from the site root.
- * In CI, set INDEXNOW_KEY so the same key is reused across builds.
- *
- * ── Normal use ──────────────────────────────────────────────────────────────
- *   node scripts/seo/indexnow-submit.mjs            # dry run: show what would go
- *   node scripts/seo/indexnow-submit.mjs --submit   # actually notify IndexNow
- *
- * Dry run is the default on purpose: submitting is an outward-facing action.
- *
- * State: ops/indexnow-state.json (fingerprints of the last submitted build)
+ * Examples:
+ *   node scripts/seo/indexnow-submit.mjs --baseline
+ *   node scripts/seo/indexnow-submit.mjs --submit
+ *   node scripts/seo/indexnow-submit.mjs --payload=payload.json
+ *   node scripts/seo/indexnow-submit.mjs --payload=payload.json --submit
  */
 
 import { createHash, randomUUID } from 'node:crypto'
@@ -34,33 +21,34 @@ import { ROOT } from '../lib/profile-corpus.mjs'
 
 const argv = process.argv.slice(2)
 const flag = (name, fallback) => {
-  const hit = argv.find((a) => a === `--${name}` || a.startsWith(`--${name}=`))
+  const hit = argv.find((arg) => arg === `--${name}` || arg.startsWith(`--${name}=`))
   if (!hit) return fallback
   const [, value] = hit.split('=')
   return value === undefined ? true : value
 }
 
-const SITE_HOST = String(flag('host', process.env.INDEXNOW_HOST || 'thehippiescientist.net'))
+const SITE_HOST = String(flag('host', process.env.INDEXNOW_HOST || 'thehippiescientist.net')).trim()
 const SITE_URL = `https://${SITE_HOST}`
 const OUT_DIR = path.join(ROOT, String(flag('dir', 'out')))
-const STATE_PATH = path.join(ROOT, 'ops', 'indexnow-state.json')
+const STATE_PATH = path.join(ROOT, String(flag('state', 'ops/indexnow-state.json')))
 const PUBLIC_DIR = path.join(ROOT, 'public')
-const ENDPOINT = 'https://api.indexnow.org/IndexNow'
-const MAX_URLS_PER_REQUEST = 10000
+const ENDPOINT = String(flag('endpoint', process.env.INDEXNOW_ENDPOINT || 'https://api.indexnow.org/indexnow'))
+const MAX_URLS_PER_REQUEST = 10_000
+const KEY_RE = /^[a-z0-9-]{8,128}$/i
 
 const DO_SUBMIT = flag('submit', false) === true
 const DO_INIT = flag('init', false) === true
+const DO_BASELINE = flag('baseline', false) === true
+const DO_BOOTSTRAP = flag('bootstrap', false) === true
+const ALLOW_FIRST_RUN = flag('allow-first-run', false) === true
+const SKIP_KEY_CHECK = flag('skip-key-check', false) === true
+const PAYLOAD_PATH = flag('payload', null)
 const LIMIT = Number(flag('limit', 0))
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 /* -------------------------------------------------------------------- key -- */
 
-// IndexNow keys are 8-128 characters of [a-zA-Z0-9-], not just hex. `--init`
-// happens to mint a hex key, so a hex-only pattern silently fails to discover a
-// valid non-hex key that is already committed and served — and `initKey()` would
-// then mint a *second* key file alongside the live one, which IndexNow rejects
-// because the signing key must be the one served from the site root.
-// The `contents === key` check below is what actually identifies a key file, so
-// widening the filename pattern does not misclassify other public/*.txt files.
 function findExistingKeyFile() {
   if (!existsSync(PUBLIC_DIR)) return null
   for (const file of readdirSync(PUBLIC_DIR)) {
@@ -72,19 +60,27 @@ function findExistingKeyFile() {
   return null
 }
 
-function resolveKey() {
+function resolveKey(preferredKey = null) {
   const envKey = process.env.INDEXNOW_KEY?.trim()
   const existing = findExistingKeyFile()
+  const keys = [
+    ['payload', preferredKey?.trim()],
+    ['INDEXNOW_KEY', envKey],
+    ['public key file', existing?.key],
+  ].filter(([, key]) => key)
 
-  if (envKey && existing && envKey !== existing.key) {
-    console.warn(
-      `[indexnow] WARNING: INDEXNOW_KEY (${envKey.slice(0, 8)}…) does not match ` +
-        `public/${existing.file}. IndexNow will reject submissions signed with a key ` +
-        'that is not served from the site root.',
+  for (const [source, key] of keys) {
+    if (!KEY_RE.test(key)) throw new Error(`Invalid IndexNow key from ${source}.`)
+  }
+
+  const distinct = new Set(keys.map(([, key]) => key))
+  if (distinct.size > 1) {
+    throw new Error(
+      `IndexNow key mismatch: ${keys.map(([source, key]) => `${source}=${key.slice(0, 8)}…`).join(', ')}`,
     )
   }
 
-  return envKey || existing?.key || null
+  return keys[0]?.[1] || null
 }
 
 function initKey() {
@@ -95,11 +91,36 @@ function initKey() {
   }
   const key = randomUUID().replace(/-/g, '')
   mkdirSync(PUBLIC_DIR, { recursive: true })
-  writeFileSync(path.join(PUBLIC_DIR, `${key}.txt`), key)
+  writeFileSync(path.join(PUBLIC_DIR, `${key}.txt`), `${key}\n`)
   console.log(`[indexnow] Created public/${key}.txt`)
-  console.log('[indexnow] Commit this file — IndexNow fetches it to verify ownership.')
-  console.log(`[indexnow] Set INDEXNOW_KEY=${key} in CI to reuse it across builds.`)
+  console.log('[indexnow] Commit and deploy this file before submitting URLs.')
   return key
+}
+
+async function verifyRemoteKey(key, keyLocation) {
+  if (SKIP_KEY_CHECK || !DO_SUBMIT) return
+
+  let lastError = null
+  for (let attempt = 1; attempt <= 5; attempt += 1) {
+    try {
+      const response = await fetch(keyLocation, {
+        headers: { 'user-agent': 'thehippiescientist-indexnow/1.0' },
+        redirect: 'follow',
+      })
+      const body = (await response.text()).trim()
+      if (response.ok && body === key) {
+        console.log(`[indexnow] Verified key at ${keyLocation}`)
+        return
+      }
+      lastError = new Error(`HTTP ${response.status}; body did not match the configured key`)
+    } catch (error) {
+      lastError = error
+    }
+
+    if (attempt < 5) await sleep(attempt * 1500)
+  }
+
+  throw new Error(`Could not verify IndexNow key at ${keyLocation}: ${lastError?.message || 'unknown error'}`)
 }
 
 /* ------------------------------------------------------------ fingerprint -- */
@@ -108,11 +129,6 @@ const SCRIPT_RE = /<script\b[^>]*>[\s\S]*?<\/script>/gi
 const STYLE_RE = /<style\b[^>]*>[\s\S]*?<\/style>/gi
 const BUILD_NOISE_RE = /(__BUILD_DATE__|__BUILD_TIME__|__COMMIT_HASH__|data-build-[a-z-]+="[^"]*"|content="\d{4}-\d{2}-\d{2}T[^"]*")/g
 
-/**
- * Hash the *rendered* content only. Scripts, styles, and build stamps change on
- * every deploy without the page meaning anything different — including them
- * would make every URL look updated every time.
- */
 function fingerprint(html) {
   const body = html
     .replace(SCRIPT_RE, '')
@@ -122,6 +138,15 @@ function fingerprint(html) {
     .replace(/\s+/g, ' ')
     .trim()
   return createHash('sha1').update(body).digest('hex').slice(0, 16)
+}
+
+function isNoindex(html) {
+  for (const match of html.matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = match[0]
+    if (!/\bname\s*=\s*["']robots["']/i.test(tag)) continue
+    if (/\bcontent\s*=\s*["'][^"']*\bnoindex\b[^"']*["']/i.test(tag)) return true
+  }
+  return false
 }
 
 function collectPages(dir) {
@@ -137,8 +162,7 @@ function collectPages(dir) {
       }
       if (entry.name !== 'index.html') continue
       const html = readFileSync(path.join(current, entry.name), 'utf8')
-      // Never ask a search engine to index a page we tell it not to index.
-      if (/<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) continue
+      if (isNoindex(html)) continue
       pages.set(prefix || '/', fingerprint(html))
     }
   }
@@ -152,8 +176,11 @@ function collectPages(dir) {
 function loadState() {
   if (!existsSync(STATE_PATH)) return { lastSubmittedAt: null, fingerprints: {} }
   try {
-    return JSON.parse(readFileSync(STATE_PATH, 'utf8'))
-  } catch {
+    const state = JSON.parse(readFileSync(STATE_PATH, 'utf8'))
+    if (!state || typeof state !== 'object' || typeof state.fingerprints !== 'object') throw new Error('invalid schema')
+    return state
+  } catch (error) {
+    console.warn(`[indexnow] Ignoring invalid state file ${path.relative(ROOT, STATE_PATH)}: ${error.message}`)
     return { lastSubmittedAt: null, fingerprints: {} }
   }
 }
@@ -161,6 +188,127 @@ function loadState() {
 function saveState(state) {
   mkdirSync(path.dirname(STATE_PATH), { recursive: true })
   writeFileSync(STATE_PATH, `${JSON.stringify(state, null, 2)}\n`)
+}
+
+/* --------------------------------------------------------------- payload -- */
+
+function validateUrlList(values, host) {
+  if (!Array.isArray(values)) throw new Error('IndexNow payload urlList must be an array.')
+
+  const output = []
+  const seen = new Set()
+  for (const value of values) {
+    let parsed
+    try {
+      parsed = new URL(String(value))
+    } catch {
+      throw new Error(`Invalid URL in IndexNow payload: ${value}`)
+    }
+    if (!['http:', 'https:'].includes(parsed.protocol)) throw new Error(`Unsupported URL protocol: ${parsed.href}`)
+    if (parsed.host !== host) throw new Error(`URL does not belong to ${host}: ${parsed.href}`)
+    if (!seen.has(parsed.href)) {
+      seen.add(parsed.href)
+      output.push(parsed.href)
+    }
+  }
+  return output
+}
+
+function loadPayload(filePath) {
+  const absolute = path.isAbsolute(filePath) ? filePath : path.join(ROOT, filePath)
+  let payload
+  try {
+    payload = JSON.parse(readFileSync(absolute, 'utf8'))
+  } catch (error) {
+    throw new Error(`Could not read IndexNow payload ${filePath}: ${error.message}`)
+  }
+
+  if (!payload || typeof payload !== 'object') throw new Error('IndexNow payload must be a JSON object.')
+  const host = String(payload.host || SITE_HOST).trim()
+  if (host !== SITE_HOST) throw new Error(`Payload host ${host} does not match configured host ${SITE_HOST}.`)
+
+  const key = resolveKey(payload.key ? String(payload.key) : null)
+  if (!key) throw new Error('No IndexNow key found for payload submission.')
+
+  const keyLocation = String(payload.keyLocation || `${SITE_URL}/${key}.txt`)
+  const parsedKeyLocation = new URL(keyLocation)
+  if (parsedKeyLocation.host !== SITE_HOST) {
+    throw new Error(`Payload keyLocation must be hosted on ${SITE_HOST}.`)
+  }
+
+  let urls = validateUrlList(payload.urlList, SITE_HOST)
+  if (LIMIT > 0) urls = urls.slice(0, LIMIT)
+  return { key, keyLocation, urls, source: path.relative(ROOT, absolute) || absolute }
+}
+
+/* --------------------------------------------------------------- submit -- */
+
+async function submitBatch({ batch, key, keyLocation, index, total }) {
+  let lastError = null
+
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const response = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json; charset=utf-8' },
+        body: JSON.stringify({ host: SITE_HOST, key, keyLocation, urlList: batch }),
+      })
+
+      if (response.status === 200 || response.status === 202) {
+        console.log(`[indexnow] Batch ${index}/${total}: HTTP ${response.status} (${batch.length} URLs)`)
+        return
+      }
+
+      const body = await response.text().catch(() => '')
+      const error = new Error(`HTTP ${response.status} ${response.statusText}${body ? ` — ${body.slice(0, 300)}` : ''}`)
+
+      if (response.status === 429) {
+        const retryAfter = Number(response.headers.get('retry-after'))
+        if (attempt < 3 && Number.isFinite(retryAfter) && retryAfter > 0 && retryAfter <= 60) {
+          await sleep(retryAfter * 1000)
+          lastError = error
+          continue
+        }
+        throw error
+      }
+
+      if (response.status >= 500 && attempt < 3) {
+        lastError = error
+        await sleep(attempt * 1500)
+        continue
+      }
+
+      throw error
+    } catch (error) {
+      lastError = error
+      if (attempt < 3 && !/^HTTP 4\d\d/.test(error.message)) {
+        await sleep(attempt * 1500)
+        continue
+      }
+      break
+    }
+  }
+
+  throw new Error(`Batch ${index}/${total} failed after retries: ${lastError?.message || 'unknown error'}`)
+}
+
+async function submitUrls(urls, key, keyLocation) {
+  if (!urls.length) return
+  await verifyRemoteKey(key, keyLocation)
+
+  const batches = []
+  for (let i = 0; i < urls.length; i += MAX_URLS_PER_REQUEST) {
+    batches.push(urls.slice(i, i + MAX_URLS_PER_REQUEST))
+  }
+
+  for (const [index, batch] of batches.entries()) {
+    await submitBatch({ batch, key, keyLocation, index: index + 1, total: batches.length })
+  }
+}
+
+function printUrls(urls) {
+  for (const url of urls.slice(0, 20)) console.log(`  ${url}`)
+  if (urls.length > 20) console.log(`  … and ${urls.length - 20} more`)
 }
 
 /* ------------------------------------------------------------------- main -- */
@@ -171,11 +319,37 @@ async function main() {
     return
   }
 
+  if (PAYLOAD_PATH) {
+    const { key, keyLocation, urls, source } = loadPayload(String(PAYLOAD_PATH))
+    console.log('\nIndexNow explicit payload')
+    console.log('='.repeat(60))
+    console.log(`Source       ${source}`)
+    console.log(`Host         ${SITE_HOST}`)
+    console.log(`Key          ${key.slice(0, 8)}…`)
+    console.log(`Key location ${keyLocation}`)
+    console.log(`URLs         ${urls.length}`)
+    printUrls(urls)
+
+    if (!urls.length) {
+      console.log('\n[indexnow] Payload contains no URLs after validation.')
+      return
+    }
+    if (!DO_SUBMIT) {
+      console.log('\n[indexnow] Dry run — payload validated; nothing was sent.')
+      console.log('  Re-run with --submit to notify IndexNow.')
+      return
+    }
+
+    await submitUrls(urls, key, keyLocation)
+    console.log(`\n[indexnow] Submitted ${urls.length} explicit URL(s). Fingerprint state was not changed.`)
+    return
+  }
+
   const key = resolveKey()
   if (!key) {
     console.error('[indexnow] No key found.')
     console.error('  Run: node scripts/seo/indexnow-submit.mjs --init')
-    console.error('  Or set INDEXNOW_KEY and commit the matching public/<key>.txt')
+    console.error('  Or set INDEXNOW_KEY and commit/deploy the matching public/<key>.txt')
     process.exit(1)
   }
 
@@ -197,8 +371,10 @@ async function main() {
   }
   const removed = Object.keys(previous).filter((route) => !pages.has(route))
 
-  let urls = [...added, ...changed].map((route) => `${SITE_URL}${route}`)
-  if (LIMIT > 0) urls = urls.slice(0, LIMIT)
+  let routes = [...added, ...changed, ...removed]
+  if (LIMIT > 0) routes = routes.slice(0, LIMIT)
+  const urls = routes.map((route) => `${SITE_URL}${route}`)
+  const keyLocation = `${SITE_URL}/${key}.txt`
 
   console.log('\nIndexNow submission')
   console.log('='.repeat(60))
@@ -208,22 +384,26 @@ async function main() {
   console.log(`Last submitted ${state.lastSubmittedAt ?? 'never'}`)
   console.log(`New            ${added.length}`)
   console.log(`Updated        ${changed.length}`)
-  console.log(`Gone           ${removed.length} (not submitted; IndexNow is for live URLs)`)
+  console.log(`Removed        ${removed.length}`)
   console.log(`To submit      ${urls.length}`)
+  printUrls(urls)
 
-  if (isFirstRun) {
-    console.log('\nFirst run: every page looks new because there is no baseline yet.')
-    console.log('Record the baseline without notifying anyone:')
-    console.log('  node scripts/seo/indexnow-submit.mjs --baseline')
-  }
-
-  for (const url of urls.slice(0, 15)) console.log(`  ${url}`)
-  if (urls.length > 15) console.log(`  … and ${urls.length - 15} more`)
-
-  if (flag('baseline', false) === true) {
-    saveState({ lastSubmittedAt: state.lastSubmittedAt, baselinedAt: new Date().toISOString(), fingerprints: Object.fromEntries(pages) })
+  if (DO_BASELINE || (DO_BOOTSTRAP && isFirstRun)) {
+    saveState({
+      lastSubmittedAt: state.lastSubmittedAt,
+      baselinedAt: new Date().toISOString(),
+      fingerprints: Object.fromEntries(pages),
+    })
     console.log(`\n[indexnow] Baseline recorded in ${path.relative(ROOT, STATE_PATH)}. Nothing was submitted.`)
     return
+  }
+
+  if (isFirstRun && DO_SUBMIT && !ALLOW_FIRST_RUN) {
+    console.error('\n[indexnow] Refusing a first-run full-site submission without an explicit override.')
+    console.error('  Recommended: use --baseline once, then submit only future changes.')
+    console.error('  CI: use --submit --bootstrap so the first run safely creates the baseline.')
+    console.error('  Override only when intentional: --submit --allow-first-run')
+    process.exit(1)
   }
 
   if (!urls.length) {
@@ -237,28 +417,7 @@ async function main() {
     return
   }
 
-  const batches = []
-  for (let i = 0; i < urls.length; i += MAX_URLS_PER_REQUEST) {
-    batches.push(urls.slice(i, i + MAX_URLS_PER_REQUEST))
-  }
-
-  for (const [i, batch] of batches.entries()) {
-    const response = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
-      body: JSON.stringify({ host: SITE_HOST, key, keyLocation: `${SITE_URL}/${key}.txt`, urlList: batch }),
-    })
-
-    // 200 accepted · 202 accepted, key pending validation.
-    if (!response.ok && response.status !== 202) {
-      const body = await response.text().catch(() => '')
-      console.error(`[indexnow] Batch ${i + 1}/${batches.length} failed: ${response.status} ${response.statusText}`)
-      if (body) console.error(`  ${body.slice(0, 300)}`)
-      process.exit(1)
-    }
-    console.log(`[indexnow] Batch ${i + 1}/${batches.length}: ${response.status} (${batch.length} URLs)`)
-  }
-
+  await submitUrls(urls, key, keyLocation)
   saveState({ lastSubmittedAt: new Date().toISOString(), fingerprints: Object.fromEntries(pages) })
   console.log(`\n[indexnow] Submitted ${urls.length} URL(s); state saved to ${path.relative(ROOT, STATE_PATH)}`)
 }
