@@ -65,6 +65,7 @@ export type EvidenceEngineSource = {
   population?: string
   outcome?: string
   result?: string
+  limitation?: string
   published: boolean
 }
 
