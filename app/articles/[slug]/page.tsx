@@ -145,8 +145,6 @@ export default async function ArticleMonographPage({ params }: PageProps) {
           />
         </div>
 
-        <p className="text-reading mt-4 max-w-3xl">{page.description}</p>
-
         <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-[color:var(--hs-hairline)] pt-4 text-xs text-[color:var(--hs-body)]">
           {author ? (
             <span>
