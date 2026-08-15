@@ -18,6 +18,7 @@ interface GuideItem {
   studiedForm?: string
   activeMarker?: string
   elementalAmount?: string
+  activeDose?: string
   bestFor?: string
   quality: ProductQualityScore
 }
@@ -60,14 +61,14 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
       if (criteria.length === 0) {
         criteria = item.type === 'herb'
           ? [
-              'Third-party testing for heavy metals and solvent residues',
-              'Standardized extract or clearly identified botanical form',
-              'Transparent active amount and serving size',
+              'Look for third-party testing for heavy metals and solvent residues',
+              'Prefer a standardized extract or clearly identified botanical form when relevant',
+              'Confirm the active amount and serving size on the current label',
             ]
           : [
-              'Third-party purity or identity testing',
-              'COA (Certificate of Analysis) when available',
-              'Transparent active amount and serving size',
+              'Look for third-party purity or identity testing',
+              'Check whether a COA (Certificate of Analysis) is available',
+              'Confirm the active amount and serving size on the current label',
             ]
       }
 
@@ -91,18 +92,18 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
       const studiedForm = item.studied_form || item.studiedForm
       const activeMarker = item.active_marker || item.activeMarker
       const elementalAmount = item.elemental_amount || item.elementalAmount
-      const criteriaText = criteria.join(' ').toLowerCase()
+      const activeDose = item.active_dose || item.activeDose
 
       const quality = scoreProductQuality({
-        transparentActiveDose: /dose|amount|serving/.test(criteriaText),
-        studiedFormDisclosed: Boolean(studiedForm || standardization),
+        transparentActiveDose: item.transparent_active_dose === true || Boolean(activeDose),
+        studiedFormDisclosed: Boolean(studiedForm),
         standardizedExtractOrForm: Boolean(standardization),
         activeMarkerDeclared: Boolean(activeMarker),
         elementalAmountDeclared: elementalAmount ? true : undefined,
-        thirdPartyTesting: item.third_party_testing === true || /third[- ]party|independent test/.test(criteriaText),
-        coaAvailable: item.coa_available === true || /certificate of analysis|\bcoa\b/.test(criteriaText),
-        contaminantTesting: item.contaminant_testing === true || /heavy metal|microb|solvent|pesticide|contaminant/.test(criteriaText),
-        adulterationControls: item.adulteration_controls === true || /identity test|adulteration/.test(criteriaText),
+        thirdPartyTesting: item.third_party_testing === true,
+        coaAvailable: item.coa_available === true,
+        contaminantTesting: item.contaminant_testing === true,
+        adulterationControls: item.adulteration_controls === true,
         proprietaryBlend: item.proprietary_blend === true,
         currentFormulationVerified: item.formulation_verified === true,
       })
@@ -118,6 +119,7 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
         studiedForm,
         activeMarker,
         elementalAmount,
+        activeDose,
         bestFor: item.best_for || item.bestFor || item.primary_effects,
         quality,
       } as GuideItem
@@ -130,7 +132,7 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
     return allItems.filter(item =>
       item.name.toLowerCase().includes(query) ||
       item.slug.toLowerCase().includes(query) ||
-      Boolean(item.standardization?.toLowerCase().includes(query))
+      Boolean(item.standardization && String(item.standardization).toLowerCase().includes(query))
     )
   }, [searchQuery, allItems])
 
@@ -140,7 +142,7 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
         <div className='max-w-3xl space-y-2'>
           <p className='eyebrow-label'>Product-quality layer</p>
           <h2 className='text-lg font-bold text-slate-800'>Search sourcing checklists</h2>
-          <p className='text-xs leading-5 text-slate-500'>Quality scores describe label/form/testing transparency only. They do not change an ingredient’s evidence grade, and affiliate commission is not a scoring input.</p>
+          <p className='text-xs leading-5 text-slate-500'>Quality scores reward only structured product/form/testing facts actually recorded in the dataset. Checklist advice is guidance, not proof. Scores do not change an ingredient’s evidence grade, and affiliate commission is not a scoring input.</p>
           <input type='text' value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder='Search ingredient name (e.g. Ashwagandha, L-Theanine)...' className='w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none' />
         </div>
       </div>
@@ -162,18 +164,19 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
                 {item.studiedForm ? <p className='mt-1 text-[11px] text-slate-500'>Studied form recorded: {item.studiedForm}</p> : null}
                 {item.activeMarker ? <p className='mt-1 text-[11px] text-slate-500'>Active marker: {item.activeMarker}</p> : null}
                 {item.elementalAmount ? <p className='mt-1 text-[11px] text-slate-500'>Elemental amount: {item.elementalAmount}</p> : null}
+                {item.activeDose ? <p className='mt-1 text-[11px] text-slate-500'>Active dose/serving: {item.activeDose}</p> : null}
               </div>
 
               <div className='rounded-xl border border-sky-900/10 bg-sky-50/70 p-3'>
-                <div className='flex items-center justify-between gap-3'><span className='text-[10px] font-bold uppercase tracking-wider text-sky-900'>Product-quality score</span><strong className='text-sm text-sky-950'>{item.quality.score}/100</strong></div>
+                <div className='flex items-center justify-between gap-3'><span className='text-[10px] font-bold uppercase tracking-wider text-sky-900'>Product-quality data score</span><strong className='text-sm text-sky-950'>{item.quality.score}/100</strong></div>
                 <p className='mt-1 text-xs font-semibold text-sky-950'>{bandLabel[item.quality.band]}</p>
-                <p className='mt-1 text-[10px] leading-4 text-sky-900'>Independent of efficacy evidence and affiliate payout.</p>
+                <p className='mt-1 text-[10px] leading-4 text-sky-900'>Measures recorded label/form/testing transparency only. It is not an efficacy score.</p>
               </div>
 
               <div className='border-t border-slate-100 pt-3 space-y-2.5'>
-                <span className='text-[10px] font-bold uppercase tracking-wider text-slate-400'>Quality checklist</span>
+                <span className='text-[10px] font-bold uppercase tracking-wider text-slate-400'>What to verify before buying</span>
                 <ul className='space-y-2'>{item.criteria.slice(0, 4).map((criterion, idx) => <li key={`${criterion}-${idx}`} className='flex items-start gap-2 text-xs leading-relaxed text-slate-600'><span aria-hidden='true' className='mt-0.5 text-emerald-600'>✓</span><span>{criterion}</span></li>)}</ul>
-                {item.quality.cautions.length ? <p className='text-[10px] leading-4 text-amber-800'>Data gaps: {item.quality.cautions.slice(0, 2).join(' · ')}</p> : null}
+                {item.quality.cautions.length ? <p className='text-[10px] leading-4 text-amber-800'>Unverified / missing structured data: {item.quality.cautions.slice(0, 3).join(' · ')}</p> : null}
               </div>
             </div>
 
