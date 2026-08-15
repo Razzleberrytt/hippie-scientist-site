@@ -1,38 +1,23 @@
 /* Premium surfaces — phase 2 of promoting the homepage design language.
  *
- * Phase 0/1 (styles/premium-foundation.css) gave every route the homepage's
- * tokens and canvas. This file moves the shared component surfaces onto the
- * same vocabulary: the elevation model from .hs-goal, the eyebrow with its
- * rule, the pill chip, and the two button treatments.
- *
- * This file owns those surfaces outright. The competing definitions that used
- * to live in premium-cards, resonant-theme-lighting, editorial-content-surfaces,
- * foundation-readability, premium-library-polish, and globals were removed in
- * phase 4, so plain single-class selectors are enough here — no doubled classes
- * and no specificity arms race. Keep it that way: style a card surface here,
- * not in one of the older layers.
+ * Phase 0/1 (styles/premium-foundation.css) gave every route the shared tokens
+ * and canvas. This file moves shared component surfaces onto the same vocabulary.
  */
 
 :root {
-  /* Tone drives the per-surface wash. Routes override it; this is the default. */
-  --tone: #3f7c4a;
-  --tone-ink: #1f4d29;
-
-  /* --hs-gold is a decoration colour: it clears 3:1 against the canvas as a
-     rule or border, but only ~2.9:1 as text, which fails WCAG AA. Text that
-     wants to read as gold uses this darker cut (~5:1) instead. */
-  --hs-gold-ink: #7a5620;
+  /* Default surfaces use muted indigo. Green is reserved for semantic/local
+     botanical accents instead of acting as the site's universal brand color. */
+  --tone: #6f66a8;
+  --tone-ink: #514a87;
+  --hs-gold-ink: #76511c;
 }
 
 html.dark {
-  --tone: #78a380;
-  --tone-ink: #a9c9b5;
+  --tone: #9a90cf;
+  --tone-ink: #c4bce8;
   --hs-gold-ink: #d9b271;
 }
 
-/* Per-family tone, applied through the wrappers that already exist. Anything
-   without a hook keeps the default green. A route-family attribute on the
-   shell would let this cover every template; that is a follow-up. */
 .library-index-page {
   --tone: #5c4db8;
   --tone-ink: #4a3da3;
@@ -76,8 +61,6 @@ html .mobile-reading-card {
     border-color 260ms ease;
 }
 
-/* Dark surfaces swallow a 9% wash, so the tint is pushed harder there — the
-   same correction the homepage goal cards make. */
 html.dark .card-premium,
 html.dark .scientific-card,
 html.dark .library-card-premium,
@@ -93,8 +76,6 @@ html.dark .mobile-reading-card {
     var(--hs-surface);
 }
 
-/* Only lift cards that are actually interactive; a static content panel that
-   rises on hover reads as broken. */
 html a.card-premium:hover,
 html a .card-premium:hover,
 html button.card-premium:hover,
@@ -141,7 +122,6 @@ html .section-label {
   text-transform: uppercase;
 }
 
-/* The short rule that opens every homepage section label. */
 html .eyebrow-label::before,
 html .section-label::before {
   content: '';
@@ -203,24 +183,24 @@ html button.chip-readable:hover {
 html .button-primary {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(18, 60, 47, 0.9);
-  background: linear-gradient(140deg, #1c5241 0%, #123c2f 55%, #0f3227 100%);
-  color: #fffdf8;
+  border: 1px solid rgba(48, 43, 58, 0.92);
+  background: linear-gradient(140deg, #454052 0%, #302c39 55%, #28242f 100%);
+  color: #fffaf3;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.14) inset,
-    0 14px 30px -12px rgba(18, 60, 47, 0.7);
+    0 1px 0 rgba(255, 255, 255, 0.13) inset,
+    0 14px 30px -12px rgba(48, 43, 58, 0.58);
 }
 
 html.dark .button-primary {
-  border-color: rgba(217, 178, 113, 0.42);
-  background: linear-gradient(140deg, #256a52 0%, #17493a 55%, #123c2f 100%);
+  border-color: rgba(213, 173, 108, 0.38);
+  background: linear-gradient(140deg, #625985 0%, #433d59 55%, #302b3d 100%);
 }
 
 html .button-primary:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.18) inset,
-    0 20px 40px -12px rgba(18, 60, 47, 0.6);
+    0 1px 0 rgba(255, 255, 255, 0.17) inset,
+    0 20px 40px -12px rgba(48, 43, 58, 0.48);
 }
 
 html .button-secondary {
@@ -259,8 +239,6 @@ html main hr {
 
 /* ---------- Mobile navigation widget ---------- */
 
-/* The corner widget grows from its trigger rather than sliding in from an
-   edge, so the button reads as the thing that opened it. */
 @keyframes hs-widget-in {
   from {
     opacity: 0;
