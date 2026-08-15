@@ -51,6 +51,10 @@ function routeToHtmlPath(outDir, pathname) {
   return path.join(outDir, normalized.replace(/^\/+|\/+$/g, ''), 'index.html')
 }
 
+function machineResourcePath(outDir, pathname) {
+  return path.join(outDir, pathname.replace(/^\/+/, ''))
+}
+
 function renderedRobotsNoindex(html) {
   const tags = html.match(/<meta\b[^>]*>/gi) || []
   return tags.some((tag) =>
@@ -83,6 +87,31 @@ function exactRedirectSources(outDir) {
   return sources
 }
 
+function validateMachineResource(outDir, url, failures) {
+  const filePath = machineResourcePath(outDir, url.pathname)
+  if (!fs.existsSync(filePath)) {
+    failures.push(`missing machine-readable target: ${url.href}`)
+    return false
+  }
+
+  const body = fs.readFileSync(filePath, 'utf8').trim()
+  if (!body) {
+    failures.push(`empty machine-readable target: ${url.href}`)
+    return false
+  }
+
+  if (url.pathname.endsWith('.json')) {
+    try {
+      JSON.parse(body)
+    } catch {
+      failures.push(`invalid JSON machine-readable target: ${url.href}`)
+      return false
+    }
+  }
+
+  return true
+}
+
 function validateLlmsCitationTargets() {
   const outDir = path.join(ROOT, 'out')
   if (!fs.existsSync(outDir)) return
@@ -98,6 +127,7 @@ function validateLlmsCitationTargets() {
   const redirectSources = exactRedirectSources(outDir)
   const failures = []
   let checkedHtmlTargets = 0
+  let checkedMachineTargets = 0
 
   for (const rawUrl of urls) {
     let url
@@ -114,9 +144,13 @@ function validateLlmsCitationTargets() {
     }
 
     // llms.txt also advertises machine resources such as sitemap.xml,
-    // robots.txt, and JSON-LD artifacts. The checks below are specifically for
-    // user-facing citation targets that should resolve to canonical HTML pages.
-    if (/\.(?:xml|txt|json)$/i.test(url.pathname)) continue
+    // robots.txt, and JSON-LD artifacts. They do not need HTML canonical/robots
+    // checks, but they must exist in the exact static export being deployed.
+    if (/\.(?:xml|txt|json)$/i.test(url.pathname)) {
+      checkedMachineTargets++
+      validateMachineResource(outDir, url, failures)
+      continue
+    }
 
     checkedHtmlTargets++
     const routePath = normalizeRoutePath(url.pathname)
@@ -163,7 +197,7 @@ function validateLlmsCitationTargets() {
     process.exit(1)
   }
 
-  console.log(`[deploy-readiness] llms.txt citation targets valid (${checkedHtmlTargets} canonical HTML targets checked)`)
+  console.log(`[deploy-readiness] llms.txt targets valid (${checkedHtmlTargets} canonical HTML targets, ${checkedMachineTargets} machine resources checked)`)
 }
 
 function main() {
