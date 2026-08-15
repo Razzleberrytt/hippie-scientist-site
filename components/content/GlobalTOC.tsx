@@ -82,12 +82,12 @@ export default function GlobalTOC() {
   return (
     <>
       {/* Mobile: compact dropdown at top */}
-      <div className="mb-6 rounded-xl border-2 border-brand-900/15 bg-white p-0 shadow-sm lg:hidden">
+      <div className="mb-6 rounded-xl border-2 border-brand-900/15 bg-white p-0 shadow-sm dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] lg:hidden">
         <button
           type="button"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(o => !o)}
-          className="flex w-full items-center justify-between px-4 py-3 text-sm font-semibold text-ink"
+          className="flex w-full items-center justify-between px-4 py-3 text-sm font-semibold text-ink dark:text-[var(--text-primary)]"
         >
           On this page ({headings.length} sections)
           <svg
@@ -98,7 +98,7 @@ export default function GlobalTOC() {
           </svg>
         </button>
         {mobileOpen && (
-          <nav aria-label="Table of contents" className="border-t border-brand-900/10 px-4 py-3">
+          <nav aria-label="Table of contents" className="border-t border-brand-900/10 px-4 py-3 dark:border-[var(--border-soft)]">
             <TOCLinks headings={headings} activeId={activeId} onClick={() => setMobileOpen(false)} />
           </nav>
         )}
@@ -109,8 +109,8 @@ export default function GlobalTOC() {
         aria-label="Page contents"
         className="fixed right-4 top-24 z-30 hidden w-[200px] xl:block"
       >
-        <div className="rounded-xl border-2 border-brand-900/15 bg-white p-3 shadow-md ring-1 ring-brand-900/5">
-          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-700">
+        <div className="rounded-xl border-2 border-brand-900/15 bg-white p-3 shadow-md ring-1 ring-brand-900/5 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] dark:ring-white/5">
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-700 dark:text-[var(--accent-teal)]">
             On this page
           </p>
           <TOCLinks headings={headings} activeId={activeId} compact />
@@ -142,8 +142,8 @@ function TOCLinks({
               'block rounded-lg px-2 py-1 leading-snug transition-colors',
               compact ? 'text-[11px]' : h.level === 3 ? 'text-xs' : 'text-sm',
               activeId === h.id
-                ? 'bg-brand-50 font-semibold text-brand-800'
-                : 'text-muted hover:bg-brand-50/60 hover:text-brand-800',
+                ? 'bg-brand-50 font-semibold text-brand-800 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
+                : 'text-muted hover:bg-brand-50/60 hover:text-brand-800 dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]',
             ].join(' ')}
           >
             {h.text}
