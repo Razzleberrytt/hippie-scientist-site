@@ -64,7 +64,7 @@ export default async function CompoundsPage() {
         <p className="eyebrow-label">Compound Research Library</p>
         <h1 className="heading-premium mt-5 max-w-4xl">Compound Library</h1>
         <p className="text-reading mt-4 max-w-3xl">
-          Mechanism, evidence strength, and safety context for bioactive molecules and supplement constituents — evidence first, no hype.
+          Mechanism, evidence strength, and safety context for published compounds and supplement constituents — evidence first, no hype.
         </p>
 
         <dl className="mt-6 grid grid-cols-3 overflow-hidden rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_76%,transparent)] backdrop-blur-sm">
