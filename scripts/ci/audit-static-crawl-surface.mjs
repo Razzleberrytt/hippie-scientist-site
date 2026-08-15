@@ -20,7 +20,11 @@ if (!fs.existsSync(outDir)) {
 
 function normalizeRoute(input) {
   let value = input || '/'
-  try { value = new URL(value, 'https://thehippiescientist.net').pathname } catch {}
+  try {
+    value = new URL(value, 'https://thehippiescientist.net').pathname
+  } catch {
+    // Keep the original route-like value when URL parsing fails.
+  }
   value = value.replace(/\/+/g, '/')
   if (!value.startsWith('/')) value = `/${value}`
   if (value !== '/' && !value.endsWith('/')) value += '/'
@@ -58,7 +62,9 @@ function links(html) {
       const url = new URL(href, 'https://thehippiescientist.net')
       if (url.hostname !== 'thehippiescientist.net') continue
       values.push(normalizeRoute(url.pathname))
-    } catch {}
+    } catch {
+      // Ignore malformed hrefs; only valid internal links are crawl-audit candidates.
+    }
   }
   return [...new Set(values)]
 }
