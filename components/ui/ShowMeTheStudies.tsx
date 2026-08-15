@@ -230,6 +230,14 @@ export default function ShowMeTheStudies({
   const participantLabel = metrics.studiesWithParticipantCounts > 0
     ? `~${metrics.approximateParticipants.toLocaleString()} participants across ${metrics.studiesWithParticipantCounts} human sources with reported N`
     : 'Participant totals not consistently reported'
+  const namedExtracts = [...new Set(studies.map(study => study.extractName).filter((value): value is string => Boolean(value)))]
+  const evidenceSnapshot = conclusion || [
+    `This evidence table contains ${metrics.totalStudies} structured source${metrics.totalStudies === 1 ? '' : 's'}, including ${metrics.humanTrials} human trial${metrics.humanTrials === 1 ? '' : 's'}.`,
+    metrics.studiesWithParticipantCounts > 0
+      ? `Across ${metrics.studiesWithParticipantCounts} human source${metrics.studiesWithParticipantCounts === 1 ? '' : 's'} with a reported sample size, the approximate participant total is ${metrics.approximateParticipants.toLocaleString()}; overlapping publications may include some of the same people.`
+      : 'A reliable total participant count cannot be calculated because sample size is not consistently structured in the cited sources.',
+    `The structured evidence direction is ${evidenceConsistencyLabel(metrics.consistency).toLowerCase()}: ${metrics.supportive} supporting, ${metrics.mixed} mixed, ${metrics.contradicting} contradicting, and ${metrics.noClearEffect} no-clear-effect source${metrics.totalStudies === 1 ? '' : 's'}.`,
+  ].join(' ')
 
   return (
     <details className="group/studies overflow-hidden rounded-2xl border-2 border-brand-900/10 bg-[var(--surface-card)] p-0 shadow-none backdrop-blur-none dark:border-white/10">
@@ -243,28 +251,28 @@ export default function ShowMeTheStudies({
         <span aria-hidden="true" className="shrink-0 text-brand-500 transition-transform group-open/studies:rotate-180">v</span>
       </summary>
 
-      {(conclusion || evidenceGrade || confidence || whatWouldChangeConclusion) ? (
-        <div className="grid gap-3 border-t border-brand-900/10 bg-white/80 p-4 md:grid-cols-2 dark:border-white/10 dark:bg-white/5">
-          <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
-            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">Why we believe this</p>
-            {conclusion ? <p className="mt-2 text-sm leading-6 text-ink">{conclusion}</p> : null}
-            <p className="mt-2 text-xs leading-5 text-muted">
-              {metrics.supportive} supporting · {metrics.mixed} mixed · {metrics.contradicting} contradicting · {metrics.noClearEffect} no-clear-effect sources.
+      <div className="grid gap-3 border-t border-brand-900/10 bg-white/80 p-4 md:grid-cols-2 dark:border-white/10 dark:bg-white/5">
+        <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">What the evidence actually shows</p>
+          <p className="mt-2 text-sm leading-6 text-ink">{evidenceSnapshot}</p>
+          {namedExtracts.length > 0 ? (
+            <p className="mt-2 text-xs leading-5 text-amber-900">
+              <strong>Form limitation:</strong> Some findings concern named preparations ({namedExtracts.slice(0, 3).join(', ')}{namedExtracts.length > 3 ? ', …' : ''}); those results should not automatically be generalized to every product sold under the ingredient name.
             </p>
-            {(evidenceGrade || confidence) ? (
-              <p className="mt-2 text-xs font-semibold text-ink">
-                {evidenceGrade ? `Evidence grade: ${evidenceGrade}` : ''}{evidenceGrade && confidence ? ' · ' : ''}{confidence ? `Confidence: ${confidence}` : ''}
-              </p>
-            ) : null}
-          </div>
-          <div className="rounded-xl border border-brand-900/10 bg-white p-4 dark:bg-white/5">
-            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">What would change our conclusion?</p>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              {whatWouldChangeConclusion || 'Larger, well-controlled human trials using comparable populations, doses, preparations, and clinically meaningful outcomes could materially strengthen or weaken this conclusion.'}
-            </p>
-          </div>
+          ) : null}
+          <p className="mt-2 text-xs font-semibold text-ink">
+            {evidenceGrade ? `Evidence grade: ${evidenceGrade}` : 'Evidence grade: use the profile grade shown above'}
+            {' · '}
+            {confidence ? `Confidence: ${confidence}` : 'Confidence: not separately assigned'}
+          </p>
         </div>
-      ) : null}
+        <div className="rounded-xl border border-brand-900/10 bg-white p-4 dark:bg-white/5">
+          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">What would change our conclusion?</p>
+          <p className="mt-2 text-sm leading-6 text-muted">
+            {whatWouldChangeConclusion || 'Larger, well-controlled human trials using comparable populations, doses, preparations, and clinically meaningful outcomes could materially strengthen or weaken this conclusion. A replicated result in a different population or a high-quality synthesis resolving current disagreement would also materially change confidence.'}
+          </p>
+        </div>
+      </div>
 
       <div className="overflow-x-auto border-t border-brand-900/10 dark:border-white/10">
         <table className="w-full min-w-[1500px] border-collapse text-left text-sm">
