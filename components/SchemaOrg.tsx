@@ -1,5 +1,6 @@
 import type { SchemaNode } from '@/lib/schema'
 import { serializeJsonLd } from '@/src/lib/schema-injector'
+import { sanitizeProfileSchemaPayload } from '@/src/lib/profile-schema-sanitize'
 
 type SchemaOrgProps = {
   graph?: Record<string, unknown> | null
@@ -38,11 +39,12 @@ function toPayload({
 export default function SchemaOrg(props: SchemaOrgProps) {
   const payload = toPayload(props)
   if (!payload) return null
+  const sanitizedPayload = sanitizeProfileSchemaPayload(payload)
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: serializeJsonLd(payload) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(sanitizedPayload) }}
     />
   )
 }
