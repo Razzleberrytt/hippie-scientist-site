@@ -1,6 +1,7 @@
 'use client'
 
 import { canTrackAnalytics } from '@/lib/consent'
+import { markNewsletterSignup } from '@/lib/email-attribution'
 
 type Gtag = (
   command: 'event',
@@ -67,8 +68,12 @@ export function trackAffiliateClick(params: { itemName: string; program: string;
 
 export function trackEmailSignup(params: { source: string; pagePath?: string }): void {
   try {
+    const gtag = getGtag()
+    if (!gtag) return
+
+    markNewsletterSignup()
     const pagePath = getCurrentPagePath(params.pagePath)
-    getGtag()?.('event', 'email_signup', {
+    gtag('event', 'email_signup', {
       source: params.source,
       signup_source: params.source,
       page_path: pagePath,
