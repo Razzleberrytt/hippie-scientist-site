@@ -1,0 +1,81 @@
+/* Final homepage palette harmonization.
+   Loaded after the legacy homepage layers so desktop and edge states cannot
+   fall back to the old forest/sage identity. The evidence dial remains the
+   signature scientific focal point, now rendered as ivory + indigo + brass. */
+
+.hs-home::before {
+  background-image: radial-gradient(circle at 1px 1px, rgba(81, 68, 117, 0.11) 1px, transparent 0);
+}
+
+.dark .hs-home::before {
+  background-image: radial-gradient(circle at 1px 1px, rgba(192, 181, 215, 0.13) 1px, transparent 0);
+}
+
+.hs-home .hs-hero::before {
+  background: radial-gradient(circle at 40% 40%, rgba(125, 111, 187, 0.28), transparent 65%);
+}
+
+.dark .hs-home .hs-hero::before {
+  background: radial-gradient(circle at 40% 40%, rgba(125, 111, 187, 0.32), transparent 65%);
+}
+
+.hs-home .hs-dial::before {
+  background: radial-gradient(circle at 45% 40%, rgba(168, 157, 204, 0.38), transparent 68%);
+}
+
+.dark .hs-home .hs-dial::before {
+  background: radial-gradient(circle at 45% 40%, rgba(125, 111, 187, 0.42), transparent 68%);
+}
+
+.dark .hs-home .hs-dial-ring--inner {
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(192, 181, 215, 0.48) 0deg 0.5deg,
+    transparent 0.5deg 15deg
+  );
+}
+
+.hs-home .hs-dial-core {
+  background:
+    radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.98), rgba(238, 233, 245, 0.93) 55%, rgba(216, 207, 231, 0.92)),
+    var(--hs-surface);
+  box-shadow:
+    0 18px 44px -14px rgba(49, 42, 52, 0.34),
+    0 0 0 10px color-mix(in srgb, var(--hs-surface) 55%, transparent),
+    0 0 0 11px var(--hs-hairline);
+}
+
+.dark .hs-home .hs-dial-core {
+  background:
+    radial-gradient(circle at 34% 26%, rgba(116, 103, 159, 0.95), rgba(69, 60, 84, 0.97) 58%, rgba(36, 32, 44, 0.99));
+  box-shadow:
+    0 18px 44px -12px rgba(0, 0, 0, 0.75),
+    0 0 34px -6px rgba(213, 173, 108, 0.20),
+    0 0 0 10px rgba(25, 22, 30, 0.76),
+    0 0 0 11px var(--hs-hairline);
+}
+
+.hs-home .hs-btn-primary {
+  border-color: rgba(49, 44, 59, 0.92);
+  background: linear-gradient(140deg, #4b4558 0%, #332f3d 55%, #292530 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    0 14px 30px -12px rgba(49, 44, 59, 0.52);
+}
+
+.dark .hs-home .hs-btn-primary {
+  border-color: rgba(213, 173, 108, 0.38);
+  background: linear-gradient(140deg, #665c8c 0%, #493f61 55%, #332c43 100%);
+}
+
+.hs-home .hs-btn-primary:hover {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 20px 40px -12px rgba(49, 44, 59, 0.46);
+}
+
+@media (min-width: 640px) {
+  .hs-home .hs-hero {
+    border-color: color-mix(in srgb, var(--hs-gold) 18%, var(--hs-hairline));
+  }
+}
