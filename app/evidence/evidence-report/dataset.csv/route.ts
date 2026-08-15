@@ -3,6 +3,8 @@ import {
   publicEvidenceDatasetToCsv,
 } from '@/lib/public-evidence-dataset'
 
+export const dynamic = 'force-static'
+
 export async function GET() {
   const dataset = await getPublicEvidenceDataset()
   return new Response(publicEvidenceDatasetToCsv(dataset), {
