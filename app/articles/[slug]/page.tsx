@@ -7,7 +7,11 @@ import ArticleMdx from '@/components/articles/ArticleMdx'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
 import WhatEvidenceShows from '@/src/components/evidence/WhatEvidenceShows'
-import { normalizeCitationMetadata, resolveRelatedArticles } from '@/src/lib/article-citation-metadata'
+import {
+  buildCitationReadySummary,
+  normalizeCitationMetadata,
+  resolveRelatedArticles,
+} from '@/src/lib/article-citation-metadata'
 import { SITE_URL, buildPageMetadata, compactMetaTitle } from '../../../src/lib/seo'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts]
@@ -41,6 +45,12 @@ export default async function ArticleMonographPage({ params }: PageProps) {
 
   const relatedPages = resolveRelatedArticles(page, articlePages)
   const { keyTakeaways, citationQuestions, canonicalConcepts } = normalizeCitationMetadata(page)
+  const citationReadySummary = buildCitationReadySummary({
+    description: page.description,
+    keyTakeaways,
+    sourceCount: page.references.length,
+    evidenceGrade: page.evidenceGrade,
+  })
 
   const author = 'author' in page ? page.author : undefined
   const reviewedBy = 'reviewedBy' in page && page.reviewedBy ? page.reviewedBy : undefined
@@ -56,6 +66,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     '@type': 'Article',
     headline: page.title,
     description: page.description,
+    abstract: citationReadySummary,
     dateModified: page.lastUpdated,
     datePublished: page.date ?? page.lastUpdated,
     mainEntityOfPage: `${SITE_URL}/articles/${page.slug}/`,
@@ -138,10 +149,9 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         <div className="mt-5 max-w-4xl">
           <WhatEvidenceShows
             id={`article-evidence-${page.slug}`}
-            summary={page.description}
+            summary={citationReadySummary}
             evidenceGrade={page.evidenceGrade}
             sourceCount={page.references.length}
-            keyPoints={keyTakeaways}
           />
         </div>
 
