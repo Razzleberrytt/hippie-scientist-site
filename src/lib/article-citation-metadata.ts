@@ -18,6 +18,13 @@ export type ArticleCitationMetadata = {
   canonicalConcepts?: string[]
 }
 
+export type CitationReadySummaryInput = {
+  description: string
+  keyTakeaways?: string[]
+  sourceCount?: number
+  evidenceGrade?: string | null
+}
+
 function isRelatedArticle(
   article: ArticleRelationshipRecord | undefined,
   currentSlug: string
@@ -51,6 +58,79 @@ function categoryFallbacks(
   return rotated.filter(
     (article) => article.slug !== current.slug && !excludedSlugs.has(article.slug)
   )
+}
+
+function cleanSentence(value: string): string {
+  const cleaned = value.replace(/\s+/g, ' ').trim()
+  if (!cleaned) return ''
+  return /[.!?]$/.test(cleaned) ? cleaned : `${cleaned}.`
+}
+
+function splitSentences(value: string): string[] {
+  const cleaned = value.replace(/\s+/g, ' ').trim()
+  if (!cleaned) return []
+
+  return cleaned
+    .split(/(?<=[.!?])\s+(?=[A-Z0-9“"'])/)
+    .map(cleanSentence)
+    .filter(Boolean)
+}
+
+function uniqueSentences(values: string[]): string[] {
+  const seen = new Set<string>()
+  const unique: string[] = []
+
+  for (const value of values) {
+    const sentence = cleanSentence(value)
+    if (!sentence) continue
+    const key = sentence.toLowerCase()
+    if (seen.has(key)) continue
+    seen.add(key)
+    unique.push(sentence)
+  }
+
+  return unique
+}
+
+/**
+ * Build a 2–4 sentence extractive summary from authored article metadata.
+ * Scientific claims come only from the authored description/takeaways; any
+ * fallback sentence describes verifiable page metadata rather than efficacy.
+ */
+export function buildCitationReadySummary({
+  description,
+  keyTakeaways = [],
+  sourceCount = 0,
+  evidenceGrade,
+}: CitationReadySummaryInput): string {
+  const authoredSentences = uniqueSentences([
+    ...splitSentences(description),
+    ...keyTakeaways.map(cleanSentence),
+  ])
+
+  const selected = authoredSentences.slice(0, 4)
+
+  if (selected.length < 2) {
+    if (sourceCount > 0 && evidenceGrade) {
+      selected.push(
+        `The page labels the overall evidence as ${evidenceGrade} and links ${sourceCount} cited source${sourceCount === 1 ? '' : 's'} for verification.`
+      )
+    } else if (sourceCount > 0) {
+      selected.push(
+        `The page links ${sourceCount} cited source${sourceCount === 1 ? '' : 's'} for verification.`
+      )
+    } else if (evidenceGrade) {
+      selected.push(`The page labels the overall evidence as ${evidenceGrade} and presents the detailed evidence below.`)
+    } else {
+      selected.push('The detailed evidence and limitations are presented below.')
+    }
+  }
+
+  if (selected.length < 2) {
+    selected.push('The full article provides the supporting context and source details.')
+  }
+
+  return selected.slice(0, 4).join(' ')
 }
 
 export function resolveRelatedArticles(

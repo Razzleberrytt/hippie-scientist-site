@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  buildCitationReadySummary,
   normalizeCitationMetadata,
   resolveRelatedArticles,
 } from '../article-citation-metadata'
@@ -18,6 +19,55 @@ function page(
     relatedSlugs,
   }
 }
+
+function sentenceCount(value: string) {
+  return value
+    .split(/(?<=[.!?])\s+(?=[A-Z0-9“"'])/)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean).length
+}
+
+describe('buildCitationReadySummary', () => {
+  it('keeps authored summaries between two and four sentences', () => {
+    const summary = buildCitationReadySummary({
+      description: 'The first authored sentence states the direct conclusion.',
+      keyTakeaways: [
+        'The second authored sentence preserves an important qualification.',
+        'The third authored sentence adds population context.',
+        'The fourth authored sentence adds formulation context.',
+        'A fifth sentence should not appear in the concise summary.',
+      ],
+      sourceCount: 12,
+      evidenceGrade: 'B',
+    })
+
+    expect(sentenceCount(summary)).toBe(4)
+    expect(summary).not.toContain('A fifth sentence')
+  })
+
+  it('adds only verifiable page metadata when one authored sentence is available', () => {
+    const summary = buildCitationReadySummary({
+      description: 'The authored description supplies the scientific conclusion.',
+      sourceCount: 7,
+      evidenceGrade: 'B',
+    })
+
+    expect(sentenceCount(summary)).toBe(2)
+    expect(summary).toContain('7 cited sources')
+    expect(summary).toContain('overall evidence as B')
+  })
+
+  it('deduplicates identical authored sentences', () => {
+    const summary = buildCitationReadySummary({
+      description: 'Keep this conclusion.',
+      keyTakeaways: ['Keep this conclusion.', 'Preserve this limitation.'],
+      sourceCount: 3,
+    })
+
+    expect(summary.match(/Keep this conclusion\./g)).toHaveLength(1)
+    expect(sentenceCount(summary)).toBe(2)
+  })
+})
 
 describe('resolveRelatedArticles', () => {
   const articles = [
