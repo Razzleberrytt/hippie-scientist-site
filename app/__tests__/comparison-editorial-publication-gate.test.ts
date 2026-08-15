@@ -11,8 +11,8 @@ describe('comparison editorial publication gate', () => {
   })
 
   it('keeps candidate combinations unpublished until a real editorial route exists', () => {
-    const built = new Set(BUILT_COMPARE_SLUGS)
-    const candidatesOnly = COMPARE_COMBINATIONS.filter((slug) => !built.has(slug as never))
+    const built = new Set<string>(BUILT_COMPARE_SLUGS)
+    const candidatesOnly = COMPARE_COMBINATIONS.filter((slug) => !built.has(slug))
 
     expect(candidatesOnly.length).toBeGreaterThan(0)
     for (const slug of candidatesOnly) {
