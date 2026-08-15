@@ -24,10 +24,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = articlePages.find((item) => item.slug === slug)
   if (!page) return { title: 'Page Not Found', robots: { index: false, follow: true } }
 
-  // Build through the shared engine rather than hand-rolling the object. A page
-  // that declares openGraph but no twitter makes Next derive the twitter tags
-  // from that openGraph instead of inheriting the root layout's — which silently
-  // drops twitter:site, since openGraph has no equivalent field.
   return buildPageMetadata({
     title: compactMetaTitle(page.title),
     description: page.description,
@@ -113,6 +109,8 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         }
       : null
 
+  const hasResearchBrief = citationQuestions.length > 0 || keyTakeaways.length > 0
+
   return (
     <article className="mx-auto max-w-5xl px-4 pb-20 pt-3 sm:px-6 sm:pt-5 lg:px-8">
       <JsonLd schema={articleSchema} />
@@ -135,7 +133,6 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         </div>
 
         <h1 className="heading-premium mt-5 max-w-4xl">{page.title}</h1>
-
         <p className="text-reading mt-4 max-w-3xl">{page.description}</p>
 
         <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-[color:var(--hs-hairline)] pt-4 text-xs text-[color:var(--hs-body)]">
@@ -175,45 +172,55 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         </div>
       </header>
 
-      {citationQuestions.length > 0 ? (
-        <section aria-labelledby="citation-questions-title" className="mt-6 rounded-2xl border border-brand-900/10 bg-white p-5">
-          <h2 id="citation-questions-title" className="text-lg font-bold text-ink">
-            Questions this page answers
-          </h2>
-          <ul className="mt-3 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
-            {citationQuestions.map((question) => (
-              <li key={question} className="border-l-2 border-brand-700/30 pl-3">
-                {question}
-              </li>
-            ))}
-          </ul>
+      {hasResearchBrief ? (
+        <section className="mt-8 border-y border-[color:var(--hs-hairline)] py-7 sm:py-9" aria-label="Research brief">
+          <div className={`grid gap-8 ${citationQuestions.length > 0 && keyTakeaways.length > 0 ? 'lg:grid-cols-[0.88fr_1.12fr] lg:gap-12' : ''}`}>
+            {citationQuestions.length > 0 ? (
+              <div aria-labelledby="citation-questions-title">
+                <p className="section-label">Research brief</p>
+                <h2 id="citation-questions-title" className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]">
+                  Questions this page answers
+                </h2>
+                <ul className="mt-5 divide-y divide-[color:var(--hs-hairline)] text-sm leading-6 text-[color:var(--hs-body)]">
+                  {citationQuestions.map((question) => (
+                    <li key={question} className="py-3 first:pt-0 last:pb-0">
+                      {question}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
+            {keyTakeaways.length > 0 ? (
+              <div aria-labelledby="metadata-takeaways-title" className={citationQuestions.length > 0 ? 'lg:border-l lg:border-[color:var(--hs-hairline)] lg:pl-10' : ''}>
+                <p className="section-label">Signal</p>
+                <h2 id="metadata-takeaways-title" className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]">
+                  Scientific takeaways
+                </h2>
+                <ol className="mt-5 space-y-4">
+                  {keyTakeaways.map((takeaway, index) => (
+                    <li key={takeaway} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-3 text-sm leading-6 text-[color:var(--hs-body)]">
+                      <span aria-hidden="true" className="pt-0.5 font-mono text-[0.65rem] font-bold tracking-[0.12em] text-[color:var(--hs-gold-ink)]">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <span>{takeaway}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
+          </div>
         </section>
       ) : null}
 
-      {keyTakeaways.length > 0 ? (
-        <section aria-labelledby="metadata-takeaways-title" className="mt-6 rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5">
-          <h2 id="metadata-takeaways-title" className="text-lg font-bold text-ink">
-            Scientific takeaways
-          </h2>
-          <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
-            {keyTakeaways.map((takeaway) => (
-              <li key={takeaway} className="flex gap-3">
-                <span aria-hidden="true" className="font-bold text-brand-700">•</span>
-                <span>{takeaway}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      <div className="mt-6">
+      <div className="mt-8">
         <ContentCards>
           <ArticleMdx code={page.body} />
         </ContentCards>
       </div>
 
       {page.references.length > 0 ? (
-        <section id="references" className="mt-8 scroll-mt-24 border-t border-brand-900/15 py-8">
+        <section id="references" className="mt-8 scroll-mt-24 border-t border-[color:var(--hs-hairline)] py-8">
           <h2 className="text-lg font-bold text-ink">References</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-muted marker:font-semibold marker:text-brand-800">
             {page.references.map((ref, index) => (
@@ -236,14 +243,14 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       ) : null}
 
       {relatedPages.length > 0 ? (
-        <section className="mt-8 border-t border-brand-900/15 py-8">
+        <section className="mt-8 border-t border-[color:var(--hs-hairline)] py-8">
           <h2 className="text-lg font-bold text-ink">Related Articles</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {relatedPages.map((relatedPage) => (
               <Link
                 key={relatedPage.slug}
                 href={relatedPage.url}
-                className="border-b border-brand-900/10 py-3 text-sm font-semibold leading-6 text-brand-800 transition hover:border-brand-700/30 hover:text-brand-700"
+                className="border-b border-[color:var(--hs-hairline)] py-3 text-sm font-semibold leading-6 text-[color:var(--tone-ink)] transition hover:border-[color:var(--hs-gold)] hover:text-[color:var(--hs-ink)]"
               >
                 {relatedPage.title}
               </Link>
@@ -254,7 +261,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
 
       <footer className="mt-8 border-l-2 border-amber-600/50 bg-amber-50/50 px-4 py-3 text-sm leading-6 text-[#5b4a2c]">
         Educational disclaimer: this article is for evidence review and educational context only. It is not medical advice, legal advice, or a recommendation to use any substance discussed.
-        <div className="mt-3 flex flex-wrap gap-4 font-semibold text-brand-800">
+        <div className="mt-3 flex flex-wrap gap-4 font-semibold text-[color:var(--tone-ink)]">
           <Link href="/articles/" className="hover:underline">All articles</Link>
           <Link href="/safety-checker/" className="hover:underline">Safety checker</Link>
         </div>
