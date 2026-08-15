@@ -39,6 +39,11 @@ export default function EvidenceSourceList({ sources }: EvidenceSourceListProps)
                     {source.title || source.citation_label}
                   </a>
                   <span className="mt-1 block text-xs text-muted">{source.year || 'Year not recorded'}</span>
+                  {source.limitation ? (
+                    <span className="mt-2 block text-xs leading-5 text-amber-900">
+                      <strong>Limitation:</strong> {source.limitation}
+                    </span>
+                  ) : null}
                   {source.source_note ? (
                     <span className="mt-1 block text-xs leading-5 text-muted">{source.source_note}</span>
                   ) : null}
