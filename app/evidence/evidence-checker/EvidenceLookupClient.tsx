@@ -23,6 +23,17 @@ const TIER_SHORT: Record<string, string> = {
   'Mechanistic Evidence': 'Mechanism',
 }
 
+const TIER_QUERY: Record<string, string> = {
+  strong: 'Strong Human Evidence',
+  a: 'Strong Human Evidence',
+  moderate: 'Moderate Human Evidence',
+  b: 'Moderate Human Evidence',
+  limited: 'Limited Human Evidence',
+  c: 'Limited Human Evidence',
+  mechanism: 'Mechanistic Evidence',
+  d: 'Mechanistic Evidence',
+}
+
 /* Tier badges follow the site evidence palette (strong=green, moderate=blue,
    limited=amber, mechanism-only=slate) using color families the dark-mode
    overrides in globals.css already remap. */
@@ -81,8 +92,15 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
     return counts
   }, [compounds])
 
-  // Deep links (#letter-X) should land on an expanded section.
+  // Shareable examples may prefill a query and/or evidence tier. Existing
+  // letter hash deep links continue to land on an expanded section.
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const initialQuery = params.get('q')?.trim()
+    const initialTier = TIER_QUERY[(params.get('tier') ?? '').trim().toLowerCase()]
+    if (initialQuery) setQuery(initialQuery)
+    if (initialTier) setTier(initialTier)
+
     const match = window.location.hash.match(/^#letter-(.)$/)
     if (match) {
       setOpenLetters((prev) => new Set(prev).add(match[1].toUpperCase()))
@@ -116,7 +134,6 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
 
   return (
     <div className="max-w-3xl space-y-6">
-      {/* Search + tier filter */}
       <div className="space-y-3">
         <label htmlFor="evidence-lookup-search" className="sr-only">
           Search compounds by name
@@ -181,7 +198,6 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
         </section>
       ) : (
         <>
-          {/* Alphabet nav */}
           <nav aria-label="Jump to letter" className="flex flex-wrap gap-1.5">
             {letters.map((letter) => (
               <a
@@ -195,8 +211,6 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
             ))}
           </nav>
 
-          {/* Collapsible letter sections. All rows are server-rendered inside
-              (closed) details, so every compound link stays in the static HTML. */}
           <div className="space-y-3">
             {letters.map((letter) => {
               const group = byLetter[letter]
