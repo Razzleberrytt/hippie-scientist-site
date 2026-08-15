@@ -233,6 +233,21 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /articles/l-theanine /guides/herbs/l-theanine/ 301
 /articles/l-theanine/ /guides/herbs/l-theanine/ 301
 
+# Missed by the taxonomy consolidation above: these five /articles/ URLs kept
+# ranking in Bing (positions 1.0-6.6, some earning clicks) while serving a hard
+# 404 — no page is exported for them and no rule covered them. Each maps to an
+# exact-slug guide that is live today.
+/articles/l-theanine-magnesium-adhd-stack /guides/adhd/l-theanine-magnesium-adhd-stack/ 301
+/articles/l-theanine-magnesium-adhd-stack/ /guides/adhd/l-theanine-magnesium-adhd-stack/ 301
+/articles/best-magnesium-supplement-for-adhd /guides/adhd/best-magnesium-supplement-for-adhd/ 301
+/articles/best-magnesium-supplement-for-adhd/ /guides/adhd/best-magnesium-supplement-for-adhd/ 301
+/articles/magnesium-glycinate-vs-citrate-for-adhd /guides/adhd/magnesium-glycinate-vs-citrate-for-adhd/ 301
+/articles/magnesium-glycinate-vs-citrate-for-adhd/ /guides/adhd/magnesium-glycinate-vs-citrate-for-adhd/ 301
+/articles/l-theanine-without-caffeine /guides/focus/l-theanine-without-caffeine/ 301
+/articles/l-theanine-without-caffeine/ /guides/focus/l-theanine-without-caffeine/ 301
+/articles/ashwagandha-vs-magnesium-for-sleep /guides/sleep/ashwagandha-vs-magnesium-for-sleep/ 301
+/articles/ashwagandha-vs-magnesium-for-sleep/ /guides/sleep/ashwagandha-vs-magnesium-for-sleep/ 301
+
 # Legacy best-of entry points consolidated under guide taxonomy.
 /best-supplements-for-stress /guides/best/supplements-for-stress/ 301
 /best-supplements-for-stress/ /guides/best/supplements-for-stress/ 301
