@@ -45,7 +45,7 @@ export default function SafetyGaugeMeter({ score, label, className = '' }: Safet
         <circle cx="50" cy="50" r="3.5" className="fill-ink dark:fill-white" />
       </svg>
       <p className="-mt-2 text-2xl font-bold text-ink">{clamped}%</p>
-      <p className="text-xs font-semibold uppercase tracking-wide text-muted">{label}</p>
+      <p className="max-w-full text-center text-xs font-semibold uppercase leading-5 tracking-wide text-muted">{label}</p>
     </div>
   )
 }
