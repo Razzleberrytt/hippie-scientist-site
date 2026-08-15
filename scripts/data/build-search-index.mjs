@@ -61,22 +61,8 @@ export const PATHWAY_KEYWORDS = {
   endocannabinoid: ['endocannabinoid', 'cb1', 'cb2', 'cannabinoid'],
 }
 
-// Prefixes that legitimately glue onto a keyword with no separator (e.g.
-// "autoimmune" -> "immune", "neuroinflammation" -> "inflammation"). Extend
-// this list (not the matcher) when a new legitimate compound term is found —
-// do not weaken the boundary check.
 const ALLOWED_FACET_PREFIXES = ['auto', 'neuro']
 
-// A keyword match preceded by a letter that doesn't form an allowed prefix is
-// a coincidental substring collision, not a real hit — e.g. "tension" inside
-// "hypotension"/"hypertension" (neither is anxiety-related), "panic" inside
-// "paniculata"/"agrestis"/"terrestris" (plant species names), "cox" inside
-// "fucoxanthin", "atp" inside "oatp", "ngf" inside "meaningful", "pain"
-// inside "papain", "aging" inside "imaging". A trailing letter (plural/
-// adjectival suffixes like "sedative(s)", "adaptogen(ic)", "gaba(ergic)") is
-// left unrestricted since those are the normal inflected forms of a real hit.
-// See docs/LOOP_NOTES.md for the production case (dendrobium's "hypotension"
-// clause falsely tripping the anxiety facet) this was found from.
 function hasBoundedMatch(lower, kw) {
   let from = 0
   let idx
@@ -101,10 +87,6 @@ export function matchFacets(haystack, taxonomy) {
   return matched
 }
 
-// ---------------------------------------------------------------------------
-// Normalization helpers
-// ---------------------------------------------------------------------------
-
 function toList(value) {
   if (Array.isArray(value)) return value.map((v) => String(v).trim()).filter(Boolean)
   if (typeof value === 'string' && value.trim()) return [value.trim()]
@@ -125,7 +107,7 @@ function normalizeSafety({ safetyNotes, contraindications, interactions, isEduca
   if (isEducation) return 'Educational'
   const notes = String(safetyNotes || '').toLowerCase()
   const hasContra = toList(contraindications).length > 0
-  const hasInteractions = toList(interactions).length > 0
+  const hasInteractions = Array.isArray(interactions) && interactions.length > 0
   if (/(avoid|danger|toxic|severe|do not|serious|contraindicated)/.test(notes)) return 'Notable considerations'
   if (hasContra || hasInteractions || /(caution|may cause|consult|pregnan|monitor)/.test(notes)) {
     return hasContra && hasInteractions ? 'Notable considerations' : 'Use with caution'
@@ -138,6 +120,19 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'))
 }
 
+export function hasInteractionEdges(slug, edgesBySlug) {
+  return Array.isArray(edgesBySlug?.[slug]) && edgesBySlug[slug].length > 0
+}
+
+function readInteractionEdges() {
+  try {
+    const value = readJson('interaction_edges.json')
+    return value && typeof value === 'object' && !Array.isArray(value) ? value : {}
+  } catch {
+    return {}
+  }
+}
+
 function mergeSearchRecords(summaryFile, coreFile) {
   const summaries = readJson(summaryFile)
   const coreBySlug = new Map(readJson(coreFile).map(record => [record.slug, record]))
@@ -148,11 +143,7 @@ function mergeSearchRecords(summaryFile, coreFile) {
   })
 }
 
-// ---------------------------------------------------------------------------
-// Source readers
-// ---------------------------------------------------------------------------
-
-function buildHerbDocs() {
+function buildHerbDocs(edgesBySlug = {}) {
   let records = []
   try {
     records = mergeSearchRecords('summary-indexes/herbs-summary.json', 'herbs.json')
@@ -177,7 +168,9 @@ function buildHerbDocs() {
         .filter(Boolean)
         .join(' ')
       const contraindications = toList(item.contraindications)
-      const interactions = toList(item.interactions)
+      const flatInteractions = toList(item.interactions)
+      const graphInteractions = hasInteractionEdges(slug, edgesBySlug) ? edgesBySlug[slug] : []
+      const interactions = flatInteractions.length ? flatInteractions : graphInteractions
       return {
         id: `Herb:${slug}`,
         slug,
@@ -190,7 +183,7 @@ function buildHerbDocs() {
         evidenceGrade: normalizeEvidence(item.evidenceLevel || item.confidence),
         safety: normalizeSafety({ safetyNotes: item.safetyNotes || item.safety, contraindications, interactions, isEducation: false }),
         safetyFlags: {
-          hasInteractions: interactions.length > 0,
+          hasInteractions: flatInteractions.length > 0 || graphInteractions.length > 0,
           hasContraindications: contraindications.length > 0,
         },
         tags: effects.slice(0, 4),
@@ -200,7 +193,7 @@ function buildHerbDocs() {
     .filter(Boolean)
 }
 
-function buildCompoundDocs() {
+function buildCompoundDocs(edgesBySlug = {}) {
   let records = []
   try {
     records = mergeSearchRecords('summary-indexes/compounds-summary.json', 'compounds.json')
@@ -214,7 +207,9 @@ function buildCompoundDocs() {
       if (!slug || !name) return null
       const effects = [...toList(item.mechanisms), ...toList(item.targets), ...toList(item.pathways)]
       const contraindications = toList(item.contraindications)
-      const interactions = toList(item.interactions)
+      const flatInteractions = toList(item.interactions)
+      const graphInteractions = hasInteractionEdges(slug, edgesBySlug) ? edgesBySlug[slug] : []
+      const interactions = flatInteractions.length ? flatInteractions : graphInteractions
       const haystack = [
         name,
         item.compoundClass,
@@ -236,7 +231,7 @@ function buildCompoundDocs() {
         evidenceGrade: normalizeEvidence(item.evidenceLevel),
         safety: normalizeSafety({ safetyNotes: item.safetyNotes || item.safety, contraindications, interactions, isEducation: false }),
         safetyFlags: {
-          hasInteractions: interactions.length > 0,
+          hasInteractions: flatInteractions.length > 0 || graphInteractions.length > 0,
           hasContraindications: contraindications.length > 0,
         },
         tags: effects.slice(0, 4),
@@ -328,19 +323,17 @@ function buildEducationDocs() {
     })
 }
 
-// ---------------------------------------------------------------------------
-// Main
-// ---------------------------------------------------------------------------
-
 function main() {
-  const docs = [...buildHerbDocs(), ...buildCompoundDocs(), ...buildEducationDocs()]
+  const interactionEdges = readInteractionEdges()
+  const docs = [...buildHerbDocs(interactionEdges), ...buildCompoundDocs(interactionEdges), ...buildEducationDocs()]
   fs.mkdirSync(DATA_DIR, { recursive: true })
   fs.writeFileSync(OUT_FILE, JSON.stringify(docs))
 
   const byType = docs.reduce((acc, d) => ({ ...acc, [d.type]: (acc[d.type] || 0) + 1 }), {})
+  const withInteractions = docs.filter(doc => doc.safetyFlags?.hasInteractions).length
   console.log(
     `[build-search-index] wrote ${docs.length} docs → ${path.relative(ROOT, OUT_FILE)} ` +
-      `(${Object.entries(byType).map(([k, v]) => `${k}: ${v}`).join(', ')})`
+      `(${Object.entries(byType).map(([k, v]) => `${k}: ${v}`).join(', ')}; interactions: ${withInteractions})`
   )
 }
 
