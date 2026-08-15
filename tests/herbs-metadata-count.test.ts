@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { selectPublishedHerbs } from '../app/herbs/library-data'
 
 function read(relativePath: string) {
   return fs.readFileSync(path.join(process.cwd(), relativePath), 'utf8')
@@ -16,13 +17,24 @@ describe('herbs metadata inventory semantics', () => {
     expect(page).not.toContain('buildReport.counts.herbs')
   })
 
-  it('uses one published/indexable herb selector across every library page', () => {
-    const libraryData = read('app/herbs/library-data.ts')
+  it('selects only canonical published herbs and sorts them for the library', () => {
+    const herbs = selectPublishedHerbs([
+      { slug: 'z-published', displayName: 'Zed', indexability_status: 'PUBLISH' },
+      { slug: 'noindex', displayName: 'Noindex', indexability_status: 'NOINDEX' },
+      { slug: 'hidden', displayName: 'Hidden', indexability_status: 'PUBLISH', runtime_export_decision: 'hide' },
+      { slug: 'garlic', displayName: 'Garlic', indexability_status: 'PUBLISH' },
+      { slug: 'allium-sativum', displayName: 'Allium sativum', indexability_status: 'PUBLISH' },
+      { slug: 'a-published', displayName: 'Alpha', indexability_status: 'PUBLISH' },
+      { displayName: 'Missing slug', indexability_status: 'PUBLISH' },
+    ])
+
+    expect(herbs.map((herb) => herb.slug)).toEqual(['a-published', 'garlic', 'z-published'])
+  })
+
+  it('uses the canonical published-herb loader on every library page', () => {
     const firstPage = read('app/herbs/page.tsx')
     const paginatedPage = read('app/herbs/page/[page]/page.tsx')
 
-    expect(libraryData).toContain('getRuntimeVisibility(herb).canIndex')
-    expect(libraryData).not.toContain('getRuntimeVisibility(herb).canRender')
     expect(firstPage).toContain('loadPublishedHerbs')
     expect(paginatedPage).toContain('loadPublishedHerbs')
   })
