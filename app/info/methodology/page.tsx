@@ -54,6 +54,21 @@ export default function MethodologyPage() {
     },
   ]
 
+  const framingPrinciples = [
+    {
+      title: 'Human outcomes before mechanisms',
+      body: 'Receptor, animal, and cell findings can explain plausibility but do not establish an effective human dose or clinically meaningful benefit. Human outcome evidence is required before mechanism is presented as efficacy.',
+    },
+    {
+      title: 'Effect size, precision, and limitations',
+      body: 'We look beyond whether a result crosses a statistical-significance threshold. Effect estimates, confidence intervals, missing data, duration, pre-specified outcomes, replication, and risk-of-bias concerns shape the conclusion. CONSORT reporting standards make many of those checks possible. [1]',
+    },
+    {
+      title: 'Preparation and formulation',
+      body: 'Botanical studies may use a specific extract, plant part, standardization target, or formulation. We report those details when they affect applicability, but no retail product is described as guaranteed to reproduce a trial result simply because it uses a similar ingredient name.',
+    },
+  ]
+
   const schemaGraph = buildToolPageSchemaGraph({
     path: '/info/methodology',
     title: 'How We Grade Evidence & Methodology',
@@ -83,116 +98,130 @@ export default function MethodologyPage() {
   })
 
   return (
-    <div className='container-page py-10 space-y-8 max-w-4xl mx-auto'>
+    <div className='container-page mx-auto max-w-4xl space-y-10 py-8 sm:space-y-12 sm:py-10'>
       <SchemaGraphScript graph={schemaGraph} />
 
-      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 bg-white/95'>
+      <section className='hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Editorial evidence standard</p>
-        <h1 className='mt-2 font-display text-3xl font-bold text-ink sm:text-4xl leading-tight'>
-          Evidence Grading &amp; Research Methodology
-        </h1>
-        <p className='mt-4 text-sm leading-relaxed text-muted sm:text-base'>
+        <h1 className='heading-premium mt-5 max-w-3xl'>Evidence Grading &amp; Research Methodology</h1>
+        <p className='text-reading mt-4 max-w-3xl'>
           Supplement science is easy to oversimplify. At <strong>The Hippie Scientist</strong>, clinical outcomes, mechanisms, traditional use, safety data, and product comparability are treated as different evidence questions rather than blended into one confidence claim.
         </p>
       </section>
 
       <TrustMethodologyCallout />
 
-      <section className='card-premium p-6 sm:p-8 space-y-6'>
-        <div className='space-y-2'>
-          <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>How We Grade Evidence</h2>
-          <p className='text-sm text-muted'>
+      <section className='border-y border-[color:var(--hs-hairline)] py-8 sm:py-10' aria-labelledby='evidence-grades-title'>
+        <p className='section-label'>Confidence framework</p>
+        <div className='mt-3 max-w-2xl'>
+          <h2 id='evidence-grades-title' className='font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
+            How we grade evidence
+          </h2>
+          <p className='mt-3 text-sm leading-7 text-[color:var(--hs-body)]'>
             Evidence labels are editorial summaries of confidence for a profile or practical claim. They are not mathematical scores, and they do not imply that every statement or cited study on a page has the same certainty.
           </p>
         </div>
 
-        <div className='grid gap-4 md:grid-cols-2'>
-          {grades.map((item) => (
-            <article key={item.level} className='rounded-2xl border border-brand-900/5 bg-white p-5 space-y-3 shadow-sm'>
-              <div className='flex items-center gap-2'>
-                <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${item.badgeColor}`}>
-                  {item.level}
+        <div className='mt-7 grid gap-x-8 md:grid-cols-2'>
+          {grades.map((item, index) => (
+            <article key={item.level} className='border-t border-[color:var(--hs-hairline)] py-5'>
+              <div className='grid grid-cols-[2rem_minmax(0,1fr)] gap-3'>
+                <span aria-hidden='true' className='pt-1 font-mono text-[0.64rem] font-bold tracking-[0.12em] text-[color:var(--hs-gold-ink)]'>
+                  {String(index + 1).padStart(2, '0')}
                 </span>
+                <div>
+                  <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${item.badgeColor}`}>
+                    {item.level}
+                  </span>
+                  <p className='mt-3 text-xs leading-6 text-[color:var(--hs-body)] sm:text-sm'>{item.description}</p>
+                </div>
               </div>
-              <p className='text-xs sm:text-sm leading-relaxed text-muted'>{item.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className='card-premium p-6 sm:p-8 space-y-6'>
-        <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Conservative Framing Guidelines</h2>
-        <div className='grid gap-6 sm:grid-cols-3 text-sm text-muted'>
-          <div className='space-y-2'>
-            <h3 className='font-bold text-ink'>Human outcomes before mechanisms</h3>
-            <p className='text-xs leading-relaxed'>
-              Receptor, animal, and cell findings can explain plausibility but do not establish an effective human dose or clinically meaningful benefit. Human outcome evidence is required before mechanism is presented as efficacy.
+      <section aria-labelledby='framing-title'>
+        <p className='section-label'>Interpretation</p>
+        <h2 id='framing-title' className='mt-3 font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
+          Conservative framing guidelines
+        </h2>
+        <div className='mt-7 grid gap-7 sm:grid-cols-3'>
+          {framingPrinciples.map((principle, index) => (
+            <div key={principle.title} className='border-t border-[color:var(--hs-hairline)] pt-4'>
+              <p aria-hidden='true' className='font-mono text-[0.64rem] font-bold tracking-[0.12em] text-[color:var(--hs-gold-ink)]'>
+                {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 className='mt-3 font-display text-lg font-semibold leading-tight text-[color:var(--hs-ink)]'>{principle.title}</h3>
+              <p className='mt-3 text-xs leading-6 text-[color:var(--hs-body)]'>{principle.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className='border-t border-[color:var(--hs-hairline)] pt-8 sm:pt-10' aria-labelledby='other-rules-title'>
+        <p className='section-label'>Calibration</p>
+        <h2 id='other-rules-title' className='mt-3 font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
+          Other interpretation rules
+        </h2>
+        <div className='mt-6 divide-y divide-[color:var(--hs-hairline)] text-sm leading-7 text-[color:var(--hs-body)]'>
+          <p className='py-4 first:pt-0'><strong className='text-[color:var(--hs-ink)]'>Surrogate endpoints:</strong> A biomarker or intermediate outcome is not automatically equivalent to a patient-important benefit. Surrogates need evidence that they reliably predict the clinical outcome being inferred. [3]</p>
+          <p className='py-4'><strong className='text-[color:var(--hs-ink)]'>Funding and conflicts:</strong> Industry funding does not automatically invalidate a study, and non-industry funding does not guarantee quality. Sponsor role, author conflicts, protocol transparency, and independent replication are considered as context. Reviews of drug and device research have found industry-sponsored studies more often report favorable efficacy results and conclusions than non-industry-sponsored studies. [2]</p>
+          <p className='py-4 last:pb-0'><strong className='text-[color:var(--hs-ink)]'>Safety is separate from efficacy:</strong> A profile can have comparatively strong efficacy evidence and still require substantial safety caution. Medication interactions, contraindications, pregnancy or breastfeeding considerations, surgery risk, organ-function concerns, and dose uncertainty are reviewed independently of benefit claims.</p>
+        </div>
+      </section>
+
+      <section className='relative overflow-hidden rounded-[1.75rem] border border-[color:color-mix(in_srgb,var(--hs-gold)_28%,transparent)] bg-[linear-gradient(145deg,#443e50_0%,#302c39_55%,#27232e_100%)] p-6 text-[#fffaf3] shadow-[0_26px_60px_-38px_rgba(34,29,41,0.9)] sm:p-8' aria-labelledby='independence-title'>
+        <div aria-hidden='true' className='absolute -right-16 -top-20 h-52 w-52 rounded-full border border-[#d5ad6c]/15 shadow-[0_0_0_2rem_rgba(213,173,108,0.025),0_0_0_4rem_rgba(124,110,188,0.025)]' />
+        <div className='relative'>
+          <p className='text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#e4c58e]'>Editorial independence</p>
+          <h2 id='independence-title' className='mt-3 max-w-2xl font-display text-3xl font-semibold tracking-[-0.035em]'>
+            Conflict of interest &amp; independence statement
+          </h2>
+          <div className='mt-5 max-w-3xl space-y-4 text-sm leading-7 text-[#e7e0eb]'>
+            <p>
+              <strong className='text-white'>The Hippie Scientist</strong> is independently operated and editorially independent. We do not accept brand sponsorships, paid reviews, or direct compensation from supplement companies. Disclosed affiliate commissions may help support operating costs.
+            </p>
+            <p>
+              Affiliate availability cannot raise an evidence grade, erase a safety warning, or convert limited evidence into a recommendation. Product modules are downstream of the evidence and safety review rather than inputs to it.
             </p>
           </div>
-          <div className='space-y-2'>
-            <h3 className='font-bold text-ink'>Effect size, precision, and limitations</h3>
-            <p className='text-xs leading-relaxed'>
-              We look beyond whether a result crosses a statistical-significance threshold. Effect estimates, confidence intervals, missing data, duration, pre-specified outcomes, replication, and risk-of-bias concerns shape the conclusion. CONSORT reporting standards make many of those checks possible. [1]
-            </p>
-          </div>
-          <div className='space-y-2'>
-            <h3 className='font-bold text-ink'>Preparation and formulation</h3>
-            <p className='text-xs leading-relaxed'>
-              Botanical studies may use a specific extract, plant part, standardization target, or formulation. We report those details when they affect applicability, but no retail product is described as guaranteed to reproduce a trial result simply because it uses a similar ingredient name.
-            </p>
+          <div className='mt-6 flex flex-wrap gap-4'>
+            <Link href='/info/affiliate-disclosure/' className='text-sm font-semibold text-[#e4c58e] hover:text-white hover:underline'>
+              Affiliate Disclosure →
+            </Link>
+            <Link href='/info/disclaimer/' className='text-sm font-semibold text-[#e4c58e] hover:text-white hover:underline'>
+              Medical Disclaimer →
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className='card-premium p-6 sm:p-8 space-y-5'>
-        <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Other interpretation rules</h2>
-        <div className='space-y-4 text-sm leading-7 text-muted'>
-          <p><strong className='text-ink'>Surrogate endpoints:</strong> A biomarker or intermediate outcome is not automatically equivalent to a patient-important benefit. Surrogates need evidence that they reliably predict the clinical outcome being inferred. [3]</p>
-          <p><strong className='text-ink'>Funding and conflicts:</strong> Industry funding does not automatically invalidate a study, and non-industry funding does not guarantee quality. Sponsor role, author conflicts, protocol transparency, and independent replication are considered as context. Reviews of drug and device research have found industry-sponsored studies more often report favorable efficacy results and conclusions than non-industry-sponsored studies. [2]</p>
-          <p><strong className='text-ink'>Safety is separate from efficacy:</strong> A profile can have comparatively strong efficacy evidence and still require substantial safety caution. Medication interactions, contraindications, pregnancy or breastfeeding considerations, surgery risk, organ-function concerns, and dose uncertainty are reviewed independently of benefit claims.</p>
-        </div>
-      </section>
-
-      <section className='card-premium p-6 sm:p-8 space-y-4 border-l-4 border-emerald-600 bg-emerald-50/10'>
-        <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Conflict of Interest &amp; Independence Statement</h2>
-        <p className='text-sm leading-relaxed text-muted'>
-          <strong>The Hippie Scientist</strong> is independently operated and editorially independent. We do not accept brand sponsorships, paid reviews, or direct compensation from supplement companies. Disclosed affiliate commissions may help support operating costs.
+      <section className='border-t border-[color:var(--hs-hairline)] pt-8 sm:pt-10' aria-labelledby='workflow-title'>
+        <p className='section-label'>Accountability</p>
+        <h2 id='workflow-title' className='mt-3 font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
+          Author &amp; editorial workflow
+        </h2>
+        <p className='mt-4 max-w-3xl text-sm leading-7 text-[color:var(--hs-body)]'>
+          The Hippie Scientist is an independent project written and maintained by <strong className='text-[color:var(--hs-ink)]'>Willie B. Randolph III</strong>. Automated validation supports source, safety, data-integrity, and publishing checks; it does not substitute for clinician judgment or independent medical review.
         </p>
-        <p className='text-sm leading-relaxed text-muted'>
-          Affiliate availability cannot raise an evidence grade, erase a safety warning, or convert limited evidence into a recommendation. Product modules are downstream of the evidence and safety review rather than inputs to it.
-        </p>
-        <div className='pt-2 flex flex-wrap gap-4'>
-          <Link href='/info/affiliate-disclosure/' className='text-sm font-semibold text-emerald-800 hover:underline'>
-            Affiliate Disclosure →
-          </Link>
-          <Link href='/info/disclaimer/' className='text-sm font-semibold text-emerald-800 hover:underline'>
-            Medical Disclaimer →
-          </Link>
-        </div>
-      </section>
-
-      <section className='card-premium p-6 sm:p-8 space-y-4 bg-white/95'>
-        <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Author &amp; Editorial Workflow</h2>
-        <p className='text-sm leading-relaxed text-muted'>
-          The Hippie Scientist is an independent project written and maintained by <strong>Willie B. Randolph III</strong>. Automated validation supports source, safety, data-integrity, and publishing checks; it does not substitute for clinician judgment or independent medical review.
-        </p>
-        <div className='grid gap-4 sm:grid-cols-2 text-xs text-muted leading-relaxed'>
-          <div className='rounded-xl border border-brand-900/5 bg-brand-50/20 p-4'>
-            <h3 className='font-bold text-ink text-sm'>Willie B. Randolph III</h3>
-            <p className='text-brand-700 font-medium mb-1'>Founder and independent author</p>
-            <p>Builds the content system, evaluates source quality, documents uncertainty, and maintains the site’s evidence and safety standards.</p>
+        <div className='mt-6 grid gap-6 sm:grid-cols-2'>
+          <div className='border-t border-[color:var(--hs-hairline)] pt-4 text-xs leading-6 text-[color:var(--hs-body)]'>
+            <h3 className='font-display text-lg font-semibold text-[color:var(--hs-ink)]'>Willie B. Randolph III</h3>
+            <p className='mt-1 font-semibold text-[color:var(--tone-ink)]'>Founder and independent author</p>
+            <p className='mt-2'>Builds the content system, evaluates source quality, documents uncertainty, and maintains the site’s evidence and safety standards.</p>
           </div>
-          <div className='rounded-xl border border-brand-900/5 bg-brand-50/20 p-4'>
-            <h3 className='font-bold text-ink text-sm'>Documented validation workflow</h3>
-            <p className='text-brand-700 font-medium mb-1'>Evidence, safety, and publishing checks</p>
-            <p>Build-time checks test citation integrity, evidence language, safety visibility, route stability, structured data, and generated-data consistency.</p>
+          <div className='border-t border-[color:var(--hs-hairline)] pt-4 text-xs leading-6 text-[color:var(--hs-body)]'>
+            <h3 className='font-display text-lg font-semibold text-[color:var(--hs-ink)]'>Documented validation workflow</h3>
+            <p className='mt-1 font-semibold text-[color:var(--tone-ink)]'>Evidence, safety, and publishing checks</p>
+            <p className='mt-2'>Build-time checks test citation integrity, evidence language, safety visibility, route stability, structured data, and generated-data consistency.</p>
           </div>
         </div>
-        <div className='flex flex-wrap gap-4 pt-1'>
-          <Link href='/info/author/' rel='author' className='text-sm font-semibold text-emerald-800 hover:underline'>
+        <div className='mt-6 flex flex-wrap gap-4'>
+          <Link href='/info/author/' rel='author' className='text-sm font-semibold text-[color:var(--tone-ink)] hover:text-[color:var(--hs-ink)] hover:underline'>
             About the author →
           </Link>
-          <Link href='/info/contact/' className='text-sm font-semibold text-emerald-800 hover:underline'>
+          <Link href='/info/contact/' className='text-sm font-semibold text-[color:var(--tone-ink)] hover:text-[color:var(--hs-ink)] hover:underline'>
             Send a correction →
           </Link>
         </div>
