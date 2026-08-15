@@ -1,28 +1,14 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
-import { getHerbSummaryIndex } from '../../../../src/lib/runtime-summary-indexes'
-import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
 import { HERBS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagination'
-import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
+import { loadPublishedHerbs } from '../../library-data'
 import HerbsIndexClient from '../../HerbsIndexClient'
 import type { RuntimeRecord } from '../../../../src/types/content'
-import { formatDisplayLabel } from '@/lib/display-utils'
 import Pagination from '@/components/Pagination'
 
 type P={params:Promise<{page:string}>}
-async function loadBrowseHerbs(): Promise<RuntimeRecord[]> {
-  const all = (await getHerbSummaryIndex()) as RuntimeRecord[]
-  const present = new Set(all.map((h) => String(h.slug || '')))
-  return all
-    .filter((h) => h.slug && getRuntimeVisibility(h).canRender && !isRedirectedDuplicate(String(h.slug), present))
-    .sort((a, b) => {
-      const aName = formatDisplayLabel(a.displayName) || formatDisplayLabel(a.name) || formatDisplayLabel(a.slug)
-      const bName = formatDisplayLabel(b.displayName) || formatDisplayLabel(b.name) || formatDisplayLabel(b.slug)
-      return aName.localeCompare(bName)
-    })
-}
-export async function generateStaticParams(){ const herbs=await loadBrowseHerbs(); const total=Math.max(1,Math.ceil(herbs.length/HERBS_PAGE_SIZE)); return Array.from({length:Math.max(total-1,0)},(_,i)=>({page:String(i+2)})) }
+export async function generateStaticParams(){ const herbs=await loadPublishedHerbs(); const total=Math.max(1,Math.ceil(herbs.length/HERBS_PAGE_SIZE)); return Array.from({length:Math.max(total-1,0)},(_,i)=>({page:String(i+2)})) }
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const n = clampPositiveInt((await params).page, 2)
 
@@ -45,7 +31,7 @@ function HerbsPageSkeleton() {
 
 export default async function HerbsPageN({params}:P){
   const n=clampPositiveInt((await params).page,2);
-  const herbs=await loadBrowseHerbs();
+  const herbs=await loadPublishedHerbs();
   const p=paginateItems(herbs,n,HERBS_PAGE_SIZE);
   const leanHerbs = toLeanProfileIndexRecords(herbs)
   const leanPageItems = toLeanProfileIndexRecords(p.pageItems as RuntimeRecord[])
