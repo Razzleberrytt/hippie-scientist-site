@@ -11,7 +11,7 @@ jobs:
   compare-generated-quality:
     name: Compare generated quality with base
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Check out repository with history
         uses: actions/checkout@v4
@@ -47,7 +47,10 @@ jobs:
           QUALITY_CHANGE_REASON: ${{ steps.explanation.outputs.reason }}
         run: node scripts/ci/compare-build-quality.mjs --base="origin/${{ github.base_ref }}" --require-base
 
-      - name: Upload human-readable quality diff
+      - name: Regenerate and compare internal-link graphs
+        run: node scripts/ci/compare-internal-link-quality.mjs --base="origin/${{ github.base_ref }}" --strict
+
+      - name: Upload human-readable quality diffs
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -57,3 +60,5 @@ jobs:
           path: |
             public/data/reports/build-quality-diff.md
             public/data/reports/build-quality-diff.json
+            public/data/reports/internal-link-quality-diff.md
+            public/data/reports/internal-link-quality-diff.json
