@@ -18,13 +18,6 @@ function toCanonicalHref(href: string) {
   return href.endsWith('/') ? href : `${href}/`
 }
 
-/**
- * Mobile navigation as a corner widget rather than a docked bar.
- *
- * The bar version held a strip of the viewport on every page and every scroll
- * position. This collapses to a single button in the bottom-left corner and
- * opens the same destinations on demand, so reading space stays with the page.
- */
 export default function MobileBottomNav() {
   const pathname = usePathname() || '/'
   const [open, setOpen] = useState(false)
@@ -32,7 +25,6 @@ export default function MobileBottomNav() {
   const triggerRef = useRef<HTMLButtonElement | null>(null)
   const panelRef = useRef<HTMLDivElement | null>(null)
 
-  // Close on route change so the panel never survives a navigation.
   useEffect(() => {
     setOpen(false)
     if (panelRef.current?.contains(document.activeElement)) {
@@ -60,7 +52,6 @@ export default function MobileBottomNav() {
 
     document.addEventListener('keydown', onKeyDown)
     document.addEventListener('pointerdown', onPointerDown)
-    // Move focus into the panel so keyboard and screen-reader users land there.
     panelRef.current?.querySelector<HTMLAnchorElement>('a')?.focus()
 
     return () => {
@@ -105,21 +96,33 @@ export default function MobileBottomNav() {
         </nav>
       </div>
 
-      <button
-        ref={triggerRef}
-        type='button'
-        onClick={() => setOpen((value) => !value)}
-        aria-expanded={open}
-        aria-controls={panelId}
-        aria-label={open ? 'Close quick navigation menu' : 'Open quick navigation menu'}
-        className='pointer-events-auto inline-flex h-13 w-13 min-h-12 min-w-12 items-center justify-center rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] shadow-[var(--hs-lift)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 motion-safe:active:scale-95'
-      >
-        {open ? (
-          <X aria-hidden='true' className='h-5 w-5' strokeWidth={2} />
-        ) : (
-          <Compass aria-hidden='true' className='h-5 w-5' strokeWidth={1.9} />
-        )}
-      </button>
+      <div className='flex items-center gap-2'>
+        {pathname !== '/search' && !pathname.startsWith('/search/') ? (
+          <Link
+            href='/search/'
+            aria-label='Search herbs and compounds'
+            className='pointer-events-auto inline-flex h-13 w-13 min-h-12 min-w-12 items-center justify-center rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] shadow-[var(--hs-lift)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 motion-safe:active:scale-95'
+          >
+            <Search aria-hidden='true' className='h-5 w-5' strokeWidth={1.9} />
+          </Link>
+        ) : null}
+
+        <button
+          ref={triggerRef}
+          type='button'
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
+          aria-controls={panelId}
+          aria-label={open ? 'Close quick navigation menu' : 'Open quick navigation menu'}
+          className='pointer-events-auto inline-flex h-13 w-13 min-h-12 min-w-12 items-center justify-center rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] shadow-[var(--hs-lift)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 motion-safe:active:scale-95'
+        >
+          {open ? (
+            <X aria-hidden='true' className='h-5 w-5' strokeWidth={2} />
+          ) : (
+            <Compass aria-hidden='true' className='h-5 w-5' strokeWidth={1.9} />
+          )}
+        </button>
+      </div>
     </div>
   )
 }

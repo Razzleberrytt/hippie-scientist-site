@@ -12,8 +12,9 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Explore',
     href: '/library',
     description: 'The complete site directory — every major content collection in one place',
-    activePrefixes: ['/library', '/search'],
+    activePrefixes: ['/library', '/search', '/start'],
     children: [
+      { label: 'Start here', href: '/start', description: 'Choose Sleep, Stress, Anxiety, Focus, ingredient lookup, or Safety' },
       { label: 'Explore everything', href: '/library', description: 'Use the master directory to see every major section of the site' },
       { label: 'All articles', href: '/articles', description: 'Research notes, evidence reviews, updates, and editorial deep dives' },
       { label: 'All guides', href: '/guides', description: 'Goal-based supplement and mental health guides' },
