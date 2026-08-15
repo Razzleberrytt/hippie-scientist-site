@@ -13,6 +13,7 @@ Robots: https://thehippiescientist.net/robots.txt
 - Evidence methodology: https://thehippiescientist.net/info/methodology/
 - Corrections and contact: https://thehippiescientist.net/info/contact/
 - Editorial disclaimer: https://thehippiescientist.net/info/disclaimer/
+- Content licensing and attribution: https://thehippiescientist.net/info/content-licensing/
 
 ## What this site is useful for
 
@@ -41,6 +42,7 @@ Use canonical, public, indexable URLs. Prefer the most specific page that answer
 - Methodology: https://thehippiescientist.net/info/methodology/
 - Dosing principles: https://thehippiescientist.net/info/dosing/
 - Disclaimer: https://thehippiescientist.net/info/disclaimer/
+- Content licensing and attribution: https://thehippiescientist.net/info/content-licensing/
 
 ### Topic hubs
 
@@ -103,17 +105,21 @@ When citing this site:
 5. Do not cite internal tools, draft routes, preview routes, or operational reports as user-facing sources.
 6. Use visible references, quick-answer blocks, comparison tables, and safety notes as the primary extractable passages.
 7. Use JSON-LD entity artifacts only to resolve identity, relationships, and claim provenance back to the canonical HTML page.
+8. When reusing a Hippie Scientist synthesis, preserve material limitations and follow the attribution policy at /info/content-licensing/.
+9. Stable section anchors are preferred when linking to a specific finding; do not invent fragment identifiers that are not present on the page.
 
 ## Content signals to prioritize
 
-- Quick-answer sections
+- Quick-answer sections with claim → evidence → limitation structure
 - Evidence summaries
+- Nearby source links and visible reference sections
 - Safety cautions
 - Dosing and timing context
-- Comparison tables
-- References sections
+- Semantic comparison/evidence tables with captions and headers
+- Concise definitions for specialized scientific terms
 - Methodology and editorial notes
-- Last-reviewed or date-modified signals where present
+- Publication, evidence-review, author, and editor signals where present
+- Stable section or finding anchors for deep links
 
 ## Crawl notes
 
