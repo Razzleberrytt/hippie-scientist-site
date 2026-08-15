@@ -1,8 +1,10 @@
 'use client'
 
-import { FormEvent, useId, useState } from 'react'
+import { FormEvent, useEffect, useId, useRef, useState } from 'react'
 import Link from 'next/link'
 import { trackEmailSignup } from '@/lib/analytics'
+import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
+import { trackLeadMagnetFunnelEvent } from '@/lib/lead-magnet-analytics'
 import TurnstileWidget, { turnstileEnabled } from '@/components/security/TurnstileWidget'
 
 type EmailCaptureProps = {
@@ -10,16 +12,32 @@ type EmailCaptureProps = {
   description: string
   ctaLabel: string
   magnet: string
+  resourceUrl?: string
+  resourceLabel?: string
+  eyebrow?: string
+  placement?: string
+  disclaimer?: string
 }
 
 type SubmitState = 'idle' | 'loading' | 'success' | 'error'
 
-const CHECKLIST_URL = '/lead-magnets/adhd-supplement-starter-checklist/'
+const DEFAULT_RESOURCE_URL = '/lead-magnets/adhd-supplement-starter-checklist/'
 
-export default function EmailCapture({ title, description, ctaLabel, magnet }: EmailCaptureProps) {
+export default function EmailCapture({
+  title,
+  description,
+  ctaLabel,
+  magnet,
+  resourceUrl = DEFAULT_RESOURCE_URL,
+  resourceLabel = 'Open your resource',
+  eyebrow = 'Free research resource',
+  placement = 'article-inline',
+  disclaimer = 'Educational content only. This resource does not replace individualized medical or medication guidance.',
+}: EmailCaptureProps) {
   const titleId = useId()
   const emailId = useId()
   const firstNameId = useId()
+  const impressionTracked = useRef(false)
   const [email, setEmail] = useState('')
   const [firstName, setFirstName] = useState('')
   const [confirmEmail, setConfirmEmail] = useState('')
@@ -27,6 +45,22 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
   const [turnstileResetKey, setTurnstileResetKey] = useState(0)
   const [state, setState] = useState<SubmitState>('idle')
   const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    const trackImpression = () => {
+      if (impressionTracked.current || getConsent() !== 'granted') return
+      impressionTracked.current = true
+      trackLeadMagnetFunnelEvent('lead_magnet_impression', {
+        slug: magnet,
+        sourcePath: window.location.pathname,
+        placement,
+      })
+    }
+
+    trackImpression()
+    window.addEventListener(CONSENT_CHANGE_EVENT, trackImpression)
+    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, trackImpression)
+  }, [magnet, placement])
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -39,6 +73,11 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
 
     setState('loading')
     setMessage('')
+    trackLeadMagnetFunnelEvent('lead_magnet_signup_attempt', {
+      slug: magnet,
+      sourcePath: window.location.pathname,
+      placement,
+    })
 
     try {
       const response = await fetch('/api/subscribe', {
@@ -59,9 +98,14 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
       }
 
       setState('success')
-      setMessage('You are subscribed. Open the checklist below.')
+      setMessage('You are subscribed. Your resource is ready below.')
       setTurnstileResetKey((value) => value + 1)
-      trackEmailSignup({ source: `article-${magnet}` })
+      trackEmailSignup({ source: `lead-magnet-${magnet}` })
+      trackLeadMagnetFunnelEvent('lead_magnet_signup_success', {
+        slug: magnet,
+        sourcePath: window.location.pathname,
+        placement,
+      })
     } catch (error) {
       setState('error')
       setMessage(error instanceof Error ? error.message : 'Could not subscribe this email right now.')
@@ -73,17 +117,17 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
   const statusClassName = state === 'error' ? 'text-sm leading-6 text-red-700' : 'text-sm leading-6 text-muted'
 
   return (
-    <aside className="my-10 rounded-3xl border border-brand-900/10 bg-brand-50/70 p-5 shadow-sm sm:p-7" aria-labelledby={titleId}>
+    <aside className="my-10 rounded-3xl border border-brand-900/10 bg-brand-50/70 p-5 shadow-sm sm:p-7" aria-labelledby={titleId} data-lead-magnet={magnet}>
       <div className="space-y-3">
-        <p className="eyebrow-label">Free printable checklist</p>
+        <p className="eyebrow-label">{eyebrow}</p>
         <h2 id={titleId} className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
           {title}
         </h2>
         <p className="max-w-2xl text-base leading-7 text-muted">{description}</p>
         <p className="text-sm leading-6 text-muted">
           Want to review it first?{' '}
-          <Link className="font-semibold text-brand-800 underline decoration-brand-700/35 underline-offset-4 hover:text-brand-900" href={CHECKLIST_URL}>
-            Preview and print the checklist
+          <Link className="font-semibold text-brand-800 underline decoration-brand-700/35 underline-offset-4 hover:text-brand-900" href={resourceUrl}>
+            Preview the resource
           </Link>
           .
         </p>
@@ -92,8 +136,8 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
       {state === 'success' ? (
         <div className="mt-6 rounded-2xl border border-brand-900/10 bg-white p-4 text-sm leading-6 text-muted">
           <p className="font-semibold text-ink">{message}</p>
-          <a className="mt-3 inline-flex rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800" href={CHECKLIST_URL}>
-            Open the ADHD checklist
+          <a className="mt-3 inline-flex rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800" href={resourceUrl}>
+            {resourceLabel}
           </a>
         </div>
       ) : (
@@ -127,7 +171,6 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
             />
           </div>
 
-          {/* Honeypot field to catch spam bots */}
           <div style={{ display: 'none' }} aria-hidden="true">
             <label htmlFor="confirmEmail">Do not fill this field if you are a human</label>
             <input
@@ -151,15 +194,8 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
             {isLoading ? 'Sending…' : ctaLabel}
           </button>
 
-          {message ? (
-            <p className={statusClassName} role="status">
-              {message}
-            </p>
-          ) : null}
-
-          <p className="text-xs leading-5 text-muted">
-            Educational content only. No supplement checklist replaces medical care or prescribed ADHD treatment.
-          </p>
+          {message ? <p className={statusClassName} role="status">{message}</p> : null}
+          <p className="text-xs leading-5 text-muted">{disclaimer}</p>
         </form>
       )}
     </aside>
