@@ -31,12 +31,12 @@ export default function ConsentBanner() {
         role='region'
         aria-label='Privacy notice'
         aria-live='polite'
-        className='mx-auto max-w-3xl rounded-2xl border border-white/20 bg-[#123c2f]/95 px-4 py-3 text-sm text-white shadow-[0_10px_35px_rgba(18,60,47,0.28)] backdrop-blur-md'
+        className='mx-auto max-w-3xl rounded-2xl border border-[#d5ad6c]/25 bg-[linear-gradient(145deg,rgba(70,63,83,0.97),rgba(42,38,49,0.98))] px-4 py-3 text-sm text-[#fffaf3] shadow-[0_16px_42px_rgba(34,29,41,0.30)] backdrop-blur-md'
       >
         <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-          <p className='min-w-0 leading-snug text-white/90'>
+          <p className='min-w-0 leading-snug text-[#f2ecf4]'>
             We use privacy-friendly analytics.{' '}
-            <Link className='rounded font-semibold text-white underline underline-offset-2 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white' to='/info/privacy'>
+            <Link className='rounded font-semibold text-[#fffaf3] underline underline-offset-2 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5ad6c]' to='/info/privacy'>
               Read our privacy policy
             </Link>
             .
@@ -47,7 +47,7 @@ export default function ConsentBanner() {
           <div className='flex shrink-0 flex-wrap items-center justify-end gap-2'>
             <button
               type='button'
-              className='inline-flex min-h-11 flex-1 items-center sm:flex-none justify-center rounded-lg px-3 text-sm font-semibold text-white/85 underline underline-offset-2 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white'
+              className='inline-flex min-h-11 flex-1 items-center justify-center rounded-lg px-3 text-sm font-semibold text-white/85 underline underline-offset-2 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5ad6c] sm:flex-none'
               onClick={() => {
                 setConsent('denied')
                 setShow(false)
@@ -57,7 +57,7 @@ export default function ConsentBanner() {
             </button>
             <button
               type='button'
-              className='inline-flex min-h-11 flex-1 items-center justify-center rounded-lg border sm:flex-none border-[#d8c08d]/50 bg-[#fffdf8] px-4 text-sm font-bold text-[#123c2f] transition-colors hover:bg-[#f5efe2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#123c2f]'
+              className='inline-flex min-h-11 flex-1 items-center justify-center rounded-lg border border-[#d5ad6c]/50 bg-[#fffaf3] px-4 text-sm font-bold text-[#302c39] transition-colors hover:bg-[#f2e9dd] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5ad6c] focus-visible:ring-offset-2 focus-visible:ring-offset-[#302c39] sm:flex-none'
               onClick={() => {
                 setConsent(dnt ? 'denied' : 'granted')
                 setShow(false)
