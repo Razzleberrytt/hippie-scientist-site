@@ -50,12 +50,12 @@ function loadTurnstileScript() {
 }
 
 const variantClasses: Record<NonNullable<NewsletterSignupProps['variant']>, string> = {
-  card: 'border-y border-brand-900/10 bg-white/60 px-4 py-6 sm:rounded-[1.5rem] sm:border sm:p-8 dark:border-white/10 dark:bg-white/5',
-  inline: 'border-y border-brand-900/10 bg-white/60 px-4 py-5 sm:rounded-[1.25rem] sm:border sm:p-5 dark:border-white/10 dark:bg-white/5',
+  card: 'border-y border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_66%,transparent)] px-4 py-6 sm:rounded-[1.5rem] sm:border sm:p-8',
+  inline: 'border-y border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_66%,transparent)] px-4 py-5 sm:rounded-[1.25rem] sm:border sm:p-5',
   footer: 'rounded-xl border border-white/10 bg-white/5 p-4',
-  compact: 'rounded-2xl border border-emerald-800/15 bg-emerald-50/80 p-4 dark:border-emerald-200/15 dark:bg-emerald-300/10',
+  compact: 'rounded-2xl border border-[color:color-mix(in_srgb,var(--tone)_22%,var(--hs-hairline))] bg-[color:color-mix(in_srgb,var(--tone)_6%,var(--hs-surface))] p-4',
   editorial:
-    'rounded-[1.75rem] border border-[#123c2f]/10 bg-[#fffdf8]/80 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-white/5',
+    'rounded-[1.75rem] border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_84%,transparent)] p-5 shadow-[0_12px_32px_-26px_rgba(49,42,52,0.28)] sm:p-7',
 }
 
 export default function NewsletterSignup({
@@ -71,13 +71,13 @@ export default function NewsletterSignup({
   const resolvedLocation =
     location === 'global-footer' && pathname === '/' ? 'homepage-safety-checklist' : location
   const isFooter = variant === 'footer'
-  const textColor = isFooter ? 'text-white' : 'text-ink'
-  const mutedColor = isFooter ? 'text-white/65' : 'text-muted'
+  const textColor = isFooter ? 'text-white' : 'text-[color:var(--hs-ink)]'
+  const mutedColor = isFooter ? 'text-white/65' : 'text-[color:var(--hs-body)]'
   const inputClass = isFooter
     ? 'min-h-11 flex-1 rounded-full border border-white/15 bg-white/10 px-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-white/40 focus:ring-2 focus:ring-white/15'
-    : 'min-h-11 flex-1 rounded-full border border-brand-900/15 bg-white px-4 text-sm text-ink outline-none transition placeholder:text-muted/70 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15 dark:border-white/15 dark:bg-white/10 dark:text-white dark:placeholder:text-white/45 dark:focus:border-emerald-300/40 dark:focus:ring-emerald-300/15'
+    : 'min-h-11 flex-1 rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] px-4 text-sm text-[color:var(--hs-ink)] outline-none transition placeholder:text-[color:color-mix(in_srgb,var(--hs-body)_68%,transparent)] focus:border-[color:color-mix(in_srgb,var(--hs-gold)_60%,var(--hs-hairline))] focus:ring-2 focus:ring-[color:color-mix(in_srgb,var(--hs-gold)_14%,transparent)]'
   const buttonClass = isFooter
-    ? 'min-h-11 rounded-full bg-white/15 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/25 border border-white/20'
+    ? 'min-h-11 rounded-full border border-white/20 bg-white/15 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/25'
     : 'button-primary min-h-11 px-5 py-2.5 text-sm'
   const emailId = useId()
   const honeypotId = useId()
@@ -182,18 +182,23 @@ export default function NewsletterSignup({
     }
   }
 
+  const accentTextClass = isFooter ? 'text-[#e3c183]' : 'text-[color:var(--hs-gold-ink)]'
+  const linkClass = isFooter
+    ? 'text-[#e3c183] hover:text-white hover:underline'
+    : 'text-[color:var(--tone-ink)] hover:text-[color:var(--hs-ink)] hover:underline'
+
   return (
     <section className={`${variantClasses[variant]} ${className}`} data-signup-location={resolvedLocation}>
       <div className='grid gap-5 lg:grid-cols-[1fr_0.9fr] lg:items-center'>
         <div>
-          <p className={`text-xs font-bold uppercase tracking-[0.18em] ${isFooter ? 'text-emerald-300' : 'text-brand-700'}`}>
+          <p className={`text-xs font-bold uppercase tracking-[0.18em] ${accentTextClass}`}>
             Free safety checklist
           </p>
           <h2 className={`mt-2 text-lg font-semibold leading-tight ${textColor} sm:text-2xl`}>{title}</h2>
           <p className={`mt-3 text-sm leading-7 ${mutedColor}`}>{description}</p>
           <p className={`mt-2 text-xs leading-5 ${mutedColor}`}>
             {safetyChecklistLeadMagnet.privacyNote}{' '}
-            <Link href='/info/privacy/' className={isFooter ? 'text-emerald-300 hover:underline' : 'text-brand-800 hover:underline'}>
+            <Link href='/info/privacy/' className={linkClass}>
               Privacy policy
             </Link>
             .
@@ -250,7 +255,7 @@ export default function NewsletterSignup({
             >
               {message}{' '}
               {status === 'success' ? (
-                <Link href='/info/supplement-safety-checklist/' className={isFooter ? 'text-emerald-300 hover:underline' : 'text-brand-800 hover:underline'}>
+                <Link href='/info/supplement-safety-checklist/' className={linkClass}>
                   Open checklist
                 </Link>
               ) : null}
