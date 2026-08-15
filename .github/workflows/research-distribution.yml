@@ -1,0 +1,71 @@
+name: Research Distribution
+
+on:
+  schedule:
+    - cron: '41 12 1 * *'
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'data/distribution/**'
+      - 'data/analytics/research-activity.json'
+      - 'scripts/distribution/**'
+      - 'app/evidence/research-trends/**'
+      - '.github/workflows/research-distribution.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Generate channel packages from canonical research objects
+        run: node scripts/distribution/build-research-distribution.mjs
+
+      - name: Generate privacy-safe monthly first-party trends
+        run: node scripts/distribution/build-first-party-trends.mjs
+
+      - name: Upload review artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: research-distribution-${{ github.run_number }}
+          path: |
+            artifacts/distribution/
+            artifacts/research-trends/
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Summarize
+        if: always()
+        run: |
+          echo '## Research distribution' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f artifacts/distribution/manifest.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('artifacts/distribution/manifest.json', 'utf8'))
+          console.log(`- Canonical research objects packaged: ${r.count}`)
+          NODE
+          fi
+          PERIOD=$(date -u +%Y-%m)
+          if [ -f "artifacts/research-trends/$PERIOD.json" ]; then
+            node - "$PERIOD" <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const period = process.argv[2]
+          const r = JSON.parse(fs.readFileSync(`artifacts/research-trends/${period}.json`, 'utf8'))
+          console.log(`- Monthly trends status: ${r.status}`)
+          console.log(`- Privacy minimum: ${r.privacy.minimumPublishedCount} events per public row`)
+          NODE
+          fi
+          echo '- Publication remains review-gated; this workflow never posts to social media or publishes aggregate trends automatically.' >> "$GITHUB_STEP_SUMMARY"
