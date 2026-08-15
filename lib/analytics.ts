@@ -1,12 +1,14 @@
 'use client'
 
 import { canTrackAnalytics } from '@/lib/consent'
+import { markNewsletterSignup } from '@/lib/email-attribution'
 
 type Gtag = (
   command: 'event',
   eventName:
     | 'affiliate_click'
     | 'atlas_callout_click'
+    | 'email_return'
     | 'email_signup'
     | 'experiment_conversion'
     | 'experiment_impression'
@@ -66,8 +68,12 @@ export function trackAffiliateClick(params: { itemName: string; program: string;
 
 export function trackEmailSignup(params: { source: string; pagePath?: string }): void {
   try {
+    const gtag = getGtag()
+    if (!gtag) return
+
+    markNewsletterSignup()
     const pagePath = getCurrentPagePath(params.pagePath)
-    getGtag()?.('event', 'email_signup', {
+    gtag('event', 'email_signup', {
       source: params.source,
       signup_source: params.source,
       page_path: pagePath,
@@ -75,6 +81,18 @@ export function trackEmailSignup(params: { source: string; pagePath?: string }):
     })
   } catch {
     // Analytics must never block signup flow.
+  }
+}
+
+export function trackEmailReturn(params: { campaign: string; content: string; pagePath?: string }): void {
+  try {
+    getGtag()?.('event', 'email_return', {
+      email_campaign: params.campaign,
+      email_content: params.content,
+      page_path: getCurrentPagePath(params.pagePath),
+    })
+  } catch {
+    // Analytics must never block navigation.
   }
 }
 
@@ -125,8 +143,6 @@ export function trackAtlasCalloutClick(params: AtlasCalloutClickParams): void {
   try {
     if (!getGtag()) return
 
-    // dataLayer entries are consumed by tag managers, so they are only written
-    // once the same consent gate that guards gtag has passed.
     const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, unknown>> }
     analyticsWindow.dataLayer = analyticsWindow.dataLayer || []
     analyticsWindow.dataLayer.push({

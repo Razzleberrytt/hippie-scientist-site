@@ -1,4 +1,5 @@
 import { canTrackAnalytics } from '@/lib/consent'
+import { getNewsletterAttribution } from '@/lib/email-attribution'
 
 export type RevenueEventKind =
   | 'recommendation_impression'
@@ -234,8 +235,16 @@ export function trackRevenueEvent(input: RevenueEventInput) {
 
   if (!canSendAnalytics()) return
 
+  const newsletter = getNewsletterAttribution()
   window.dataLayer = window.dataLayer || []
-  window.dataLayer.push(event)
+  window.dataLayer.push({
+    ...event,
+    newsletterAttributed: newsletter.newsletterAttributed,
+    newsletterCampaign: newsletter.campaign,
+    newsletterContent: newsletter.content,
+    subscriberAgeDays: newsletter.subscriberAgeDays,
+    firstEmailReturnAgeDays: newsletter.firstEmailReturnAgeDays,
+  })
 
   if (window.gtag) {
     window.gtag('event', event.kind, {
@@ -250,6 +259,11 @@ export function trackRevenueEvent(input: RevenueEventInput) {
       product_asin: event.productAsin || undefined,
       device_type: event.deviceType,
       scroll_depth: event.scrollDepth,
+      newsletter_attributed: newsletter.newsletterAttributed,
+      newsletter_campaign: newsletter.campaign || undefined,
+      newsletter_content: newsletter.content || undefined,
+      subscriber_age_days: newsletter.subscriberAgeDays ?? undefined,
+      first_email_return_age_days: newsletter.firstEmailReturnAgeDays ?? undefined,
     })
   }
 }

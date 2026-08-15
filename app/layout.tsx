@@ -10,6 +10,7 @@ import Footer from '../src/components/Footer'
 import MobileBottomNav from '../src/components/mobile-bottom-nav'
 import ScrollToTopButton from '../src/components/ScrollToTopButton'
 import ClickTracker from '@/components/ClickTracker'
+import EmailReturnAttribution from '@/components/EmailReturnAttribution'
 import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
@@ -145,6 +146,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <ScrollToTopButton />
             <CitationDrawerLazy />
             <ClickTracker />
+            <EmailReturnAttribution />
             <ConsentBanner />
           </div>
         </DarkModeProvider>
