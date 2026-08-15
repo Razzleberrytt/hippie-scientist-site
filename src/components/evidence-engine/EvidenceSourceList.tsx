@@ -5,6 +5,21 @@ type EvidenceSourceListProps = {
   sources: EvidenceEngineSource[]
 }
 
+function buildCitationPreview(source: EvidenceEngineSource): string {
+  const parts = [
+    source.source_type ? `Design: ${source.source_type}` : '',
+    typeof source.sample_size === 'number' && source.sample_size > 0
+      ? `N=${source.sample_size.toLocaleString()}`
+      : '',
+    source.dose ? `Dose: ${source.dose}` : '',
+    source.duration ? `Duration: ${source.duration}` : '',
+    source.result ? `Result: ${source.result}` : '',
+    source.limitation ? `Limitation: ${source.limitation}` : '',
+  ].filter(Boolean)
+
+  return parts.join(' · ')
+}
+
 export default function EvidenceSourceList({ sources }: EvidenceSourceListProps) {
   if (sources.length === 0) return null
 
@@ -28,40 +43,49 @@ export default function EvidenceSourceList({ sources }: EvidenceSourceListProps)
             </tr>
           </thead>
           <tbody className="divide-y divide-brand-900/10 bg-white/70 dark:bg-white/5">
-            {sources.map((source) => (
-              <tr key={source.source_id} className="align-top">
-                <td className="px-3 py-3">
-                  <a
-                    href={getEvidenceSourceUrl(source)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-brand-800 hover:text-brand-700 hover:underline"
-                  >
-                    {source.title || source.citation_label}
-                  </a>
-                  <span className="mt-1 block text-xs text-muted">{source.year || 'Year not recorded'}</span>
-                  {source.limitation ? (
-                    <span className="mt-2 block text-xs leading-5 text-amber-900">
-                      <strong>Limitation:</strong> {source.limitation}
-                    </span>
-                  ) : null}
-                  {source.source_note ? (
-                    <span className="mt-1 block text-xs leading-5 text-muted">{source.source_note}</span>
-                  ) : null}
-                </td>
-                <td className="px-3 py-3 text-muted">{source.source_type || '—'}</td>
-                <td className="px-3 py-3 text-muted">
-                  {typeof source.sample_size === 'number' && source.sample_size > 0
-                    ? source.sample_size.toLocaleString()
-                    : '—'}
-                </td>
-                <td className="px-3 py-3 text-muted">{source.dose || '—'}</td>
-                <td className="px-3 py-3 text-muted">{source.duration || '—'}</td>
-                <td className="px-3 py-3 text-muted">{source.population || '—'}</td>
-                <td className="px-3 py-3 text-muted">{source.outcome || '—'}</td>
-                <td className="px-3 py-3 text-muted">{source.result || '—'}</td>
-              </tr>
-            ))}
+            {sources.map((source) => {
+              const preview = buildCitationPreview(source)
+              const previewId = `citation-preview-${source.source_id}`
+
+              return (
+                <tr key={source.source_id} className="align-top">
+                  <td className="px-3 py-3">
+                    <a
+                      href={getEvidenceSourceUrl(source)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={preview || undefined}
+                      aria-describedby={preview ? previewId : undefined}
+                      data-citation-preview={preview || undefined}
+                      className="font-semibold text-brand-800 hover:text-brand-700 hover:underline"
+                    >
+                      {source.title || source.citation_label}
+                    </a>
+                    {preview ? <span id={previewId} className="sr-only">{preview}</span> : null}
+                    <span className="mt-1 block text-xs text-muted">{source.year || 'Year not recorded'}</span>
+                    {source.limitation ? (
+                      <span className="mt-2 block text-xs leading-5 text-amber-900">
+                        <strong>Limitation:</strong> {source.limitation}
+                      </span>
+                    ) : null}
+                    {source.source_note ? (
+                      <span className="mt-1 block text-xs leading-5 text-muted">{source.source_note}</span>
+                    ) : null}
+                  </td>
+                  <td className="px-3 py-3 text-muted">{source.source_type || '—'}</td>
+                  <td className="px-3 py-3 text-muted">
+                    {typeof source.sample_size === 'number' && source.sample_size > 0
+                      ? source.sample_size.toLocaleString()
+                      : '—'}
+                  </td>
+                  <td className="px-3 py-3 text-muted">{source.dose || '—'}</td>
+                  <td className="px-3 py-3 text-muted">{source.duration || '—'}</td>
+                  <td className="px-3 py-3 text-muted">{source.population || '—'}</td>
+                  <td className="px-3 py-3 text-muted">{source.outcome || '—'}</td>
+                  <td className="px-3 py-3 text-muted">{source.result || '—'}</td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>
