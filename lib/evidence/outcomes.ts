@@ -5,6 +5,11 @@ export type CanonicalOutcomeId =
   | 'anxiety-severity'
   | 'stress-severity'
   | 'cognition-memory'
+  | 'cognition-attention'
+  | 'cognition-processing-speed'
+  | 'cognition-executive-function'
+  | 'cognition-working-memory'
+  | 'cognition-subjective'
   | 'cognition-other'
 
 export type OutcomeInstrumentId =
@@ -14,6 +19,11 @@ export type OutcomeInstrumentId =
   | 'PSS'
   | 'MEMORY-OBJECTIVE'
   | 'MEMORY-SUBJECTIVE'
+  | 'ATTENTION-OBJECTIVE'
+  | 'PROCESSING-SPEED-OBJECTIVE'
+  | 'EXECUTIVE-FUNCTION-OBJECTIVE'
+  | 'WORKING-MEMORY-OBJECTIVE'
+  | 'COGNITION-SUBJECTIVE'
   | 'OTHER'
 
 export type OutcomeOntologyNode = {
@@ -21,6 +31,7 @@ export type OutcomeOntologyNode = {
   label: string
   parentId?: OutcomeDomain
   aliases?: string[]
+  objective?: boolean
 }
 
 export const OUTCOME_ONTOLOGY: OutcomeOntologyNode[] = [
@@ -51,6 +62,42 @@ export const OUTCOME_ONTOLOGY: OutcomeOntologyNode[] = [
     label: 'Memory',
     parentId: 'cognition',
     aliases: ['memory', 'recall', 'recognition memory', 'memory performance'],
+    objective: true,
+  },
+  {
+    id: 'cognition-attention',
+    label: 'Attention',
+    parentId: 'cognition',
+    aliases: ['attention', 'sustained attention', 'selective attention', 'vigilance'],
+    objective: true,
+  },
+  {
+    id: 'cognition-processing-speed',
+    label: 'Processing speed',
+    parentId: 'cognition',
+    aliases: ['processing speed', 'psychomotor speed', 'reaction time'],
+    objective: true,
+  },
+  {
+    id: 'cognition-executive-function',
+    label: 'Executive function',
+    parentId: 'cognition',
+    aliases: ['executive function', 'executive functioning', 'cognitive flexibility', 'inhibitory control'],
+    objective: true,
+  },
+  {
+    id: 'cognition-working-memory',
+    label: 'Working memory',
+    parentId: 'cognition',
+    aliases: ['working memory', 'n-back', 'digit span'],
+    objective: true,
+  },
+  {
+    id: 'cognition-subjective',
+    label: 'Subjective cognition',
+    parentId: 'cognition',
+    aliases: ['subjective cognition', 'subjective cognitive function', 'perceived cognitive function', 'brain fog'],
+    objective: false,
   },
   {
     id: 'cognition-other',
@@ -74,6 +121,11 @@ export const OUTCOME_INSTRUMENTS: InstrumentDefinition[] = [
   { id: 'PSS', label: 'Perceived Stress Scale', canonicalOutcomeId: 'stress-severity', subjective: true },
   { id: 'MEMORY-OBJECTIVE', label: 'Objective memory test', canonicalOutcomeId: 'cognition-memory', subjective: false },
   { id: 'MEMORY-SUBJECTIVE', label: 'Subjective memory symptoms', canonicalOutcomeId: 'cognition-memory', subjective: true },
+  { id: 'ATTENTION-OBJECTIVE', label: 'Objective attention test', canonicalOutcomeId: 'cognition-attention', subjective: false },
+  { id: 'PROCESSING-SPEED-OBJECTIVE', label: 'Objective processing speed test', canonicalOutcomeId: 'cognition-processing-speed', subjective: false },
+  { id: 'EXECUTIVE-FUNCTION-OBJECTIVE', label: 'Objective executive function test', canonicalOutcomeId: 'cognition-executive-function', subjective: false },
+  { id: 'WORKING-MEMORY-OBJECTIVE', label: 'Objective working memory test', canonicalOutcomeId: 'cognition-working-memory', subjective: false },
+  { id: 'COGNITION-SUBJECTIVE', label: 'Subjective cognitive function', canonicalOutcomeId: 'cognition-subjective', subjective: true },
   { id: 'OTHER', label: 'Other or unclassified instrument', canonicalOutcomeId: 'cognition-other', subjective: false },
 ]
 
@@ -102,6 +154,25 @@ function ontologyNodeForAlias(value: string) {
   return OUTCOME_ONTOLOGY.find((node) => node.aliases?.some((alias) => alias === normalized))
 }
 
+function cognitionInstrumentForOutcome(outcomeId: CanonicalOutcomeId, rawOutcome: string): OutcomeInstrumentId | null {
+  switch (outcomeId) {
+    case 'cognition-memory':
+      return /\bsubjective|self[- ]report|perceived\b/i.test(rawOutcome) ? 'MEMORY-SUBJECTIVE' : 'MEMORY-OBJECTIVE'
+    case 'cognition-attention':
+      return 'ATTENTION-OBJECTIVE'
+    case 'cognition-processing-speed':
+      return 'PROCESSING-SPEED-OBJECTIVE'
+    case 'cognition-executive-function':
+      return 'EXECUTIVE-FUNCTION-OBJECTIVE'
+    case 'cognition-working-memory':
+      return 'WORKING-MEMORY-OBJECTIVE'
+    case 'cognition-subjective':
+      return 'COGNITION-SUBJECTIVE'
+    default:
+      return null
+  }
+}
+
 export function normalizeOutcome(rawOutcome: string, instrumentHint?: string): NormalizedOutcome {
   const instrumentText = `${rawOutcome} ${instrumentHint ?? ''}`
   const matchedInstrument = INSTRUMENT_PATTERNS.find(({ re }) => re.test(instrumentText))?.id ?? null
@@ -121,13 +192,27 @@ export function normalizeOutcome(rawOutcome: string, instrumentHint?: string): N
 
   const aliasNode = ontologyNodeForAlias(rawOutcome)
   if (aliasNode?.parentId) {
+    const canonicalOutcomeId = aliasNode.id as CanonicalOutcomeId
+    const ambiguousSubjectiveSleep = rawOutcome.trim().toLowerCase() === 'subjective sleep quality'
+    const cognitionInstrument = aliasNode.parentId === 'cognition' ? cognitionInstrumentForOutcome(canonicalOutcomeId, rawOutcome) : null
     return {
       rawOutcome,
-      canonicalOutcomeId: aliasNode.id as CanonicalOutcomeId,
+      canonicalOutcomeId,
       domain: aliasNode.parentId,
-      instrumentId: null,
-      normalizationConfidence: rawOutcome.trim().toLowerCase() === 'subjective sleep quality' ? 'moderate' : 'high',
-      requiresManualReview: rawOutcome.trim().toLowerCase() === 'subjective sleep quality',
+      instrumentId: cognitionInstrument,
+      normalizationConfidence: ambiguousSubjectiveSleep ? 'moderate' : 'high',
+      requiresManualReview: ambiguousSubjectiveSleep,
+    }
+  }
+
+  if (/\bworking memory\b|\bn[- ]?back\b|\bdigit span\b/i.test(rawOutcome)) {
+    return {
+      rawOutcome,
+      canonicalOutcomeId: 'cognition-working-memory',
+      domain: 'cognition',
+      instrumentId: 'WORKING-MEMORY-OBJECTIVE',
+      normalizationConfidence: 'moderate',
+      requiresManualReview: true,
     }
   }
 
@@ -138,6 +223,50 @@ export function normalizeOutcome(rawOutcome: string, instrumentHint?: string): N
       canonicalOutcomeId: 'cognition-memory',
       domain: 'cognition',
       instrumentId: subjective ? 'MEMORY-SUBJECTIVE' : 'MEMORY-OBJECTIVE',
+      normalizationConfidence: 'moderate',
+      requiresManualReview: true,
+    }
+  }
+
+  if (/\battention\b|\bvigilance\b/i.test(rawOutcome)) {
+    return {
+      rawOutcome,
+      canonicalOutcomeId: 'cognition-attention',
+      domain: 'cognition',
+      instrumentId: 'ATTENTION-OBJECTIVE',
+      normalizationConfidence: 'moderate',
+      requiresManualReview: true,
+    }
+  }
+
+  if (/\bprocessing speed\b|\bpsychomotor speed\b|\breaction time\b/i.test(rawOutcome)) {
+    return {
+      rawOutcome,
+      canonicalOutcomeId: 'cognition-processing-speed',
+      domain: 'cognition',
+      instrumentId: 'PROCESSING-SPEED-OBJECTIVE',
+      normalizationConfidence: 'moderate',
+      requiresManualReview: true,
+    }
+  }
+
+  if (/\bexecutive function(?:ing)?\b|\bcognitive flexibility\b|\binhibitory control\b/i.test(rawOutcome)) {
+    return {
+      rawOutcome,
+      canonicalOutcomeId: 'cognition-executive-function',
+      domain: 'cognition',
+      instrumentId: 'EXECUTIVE-FUNCTION-OBJECTIVE',
+      normalizationConfidence: 'moderate',
+      requiresManualReview: true,
+    }
+  }
+
+  if (/\bbrain fog\b|\bsubjective cognit(?:ion|ive)\b|\bperceived cognitive\b/i.test(rawOutcome)) {
+    return {
+      rawOutcome,
+      canonicalOutcomeId: 'cognition-subjective',
+      domain: 'cognition',
+      instrumentId: 'COGNITION-SUBJECTIVE',
       normalizationConfidence: 'moderate',
       requiresManualReview: true,
     }
@@ -192,9 +321,6 @@ export function buildOutcomeSynthesis(observations: OutcomeObservation[]): Outco
     const normalized = normalizeOutcome(observation.rawOutcome, observation.instrument)
     if (!normalized.canonicalOutcomeId) continue
 
-    // Preserve instrument identity when it is known. This lets PSQI, HAM-A,
-    // GAD-7, PSS, and memory measures share a parent outcome without being
-    // merged into one undifferentiated score.
     const key = `${normalized.canonicalOutcomeId}:${normalized.instrumentId ?? 'unspecified'}`
     const existing = groups.get(key) ?? {
       canonicalOutcomeId: normalized.canonicalOutcomeId,
@@ -232,4 +358,13 @@ export function outcomeParent(outcomeId: CanonicalOutcomeId): OutcomeDomain {
 
 export function listOutcomeChildren(domain: OutcomeDomain) {
   return OUTCOME_ONTOLOGY.filter((node) => node.parentId === domain)
+}
+
+export function isSubjectiveCognitionOutcome(outcomeId: CanonicalOutcomeId) {
+  return outcomeId === 'cognition-subjective'
+}
+
+export function isObjectiveCognitionOutcome(outcomeId: CanonicalOutcomeId) {
+  const node = OUTCOME_ONTOLOGY.find((candidate) => candidate.id === outcomeId)
+  return node?.parentId === 'cognition' && node.objective === true
 }
