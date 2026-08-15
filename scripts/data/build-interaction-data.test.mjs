@@ -14,7 +14,7 @@ describe('deriveInteractionData', () => {
     expect(data.tagsBySlug).toEqual({})
   })
 
-  it('tags an additive mechanism (e.g. serotonergic) from matching keyword text', () => {
+  it('tags an additive mechanism with separate extraction confidence, interaction certainty, and provenance', () => {
     const data = deriveInteractionData([
       { slug: 'herb-a', name: 'Herb A', contraindications_or_flags: 'May interact with SSRIs' },
     ])
@@ -25,7 +25,11 @@ describe('deriveInteractionData', () => {
       risk_mechanism: 'serotonergic',
       pair_behavior: 'additive',
       confidence: 'high',
+      certainty: 'theoretical',
     })
+    expect(data.tags[0].provenance.source_ids).toEqual([
+      'workbook:Entity_Master:herb-a:contraindications_or_flags',
+    ])
   })
 
   it('tags a non-additive mechanism (e.g. renal) as single_only and excludes it from edge generation', () => {
@@ -56,7 +60,7 @@ describe('deriveInteractionData', () => {
     expect(data.tags.map((t) => t.risk_mechanism).sort()).toEqual(['renal', 'serotonergic'])
   })
 
-  it('creates a bidirectional additive-risk edge between two entities sharing the same mechanism', () => {
+  it('creates a bidirectional additive-risk edge with severity, certainty, and pair provenance', () => {
     const data = deriveInteractionData([
       { slug: 'herb-a', name: 'Herb A', contraindications_or_flags: 'interacts with SSRIs' },
       { slug: 'herb-b', name: 'Herb B', contraindications_or_flags: 'serotonin syndrome risk' },
@@ -69,11 +73,20 @@ describe('deriveInteractionData', () => {
     expect(edge.risk_mechanism).toBe('serotonergic')
     expect(edge.severity).toBe('severe')
     expect(edge.weight_or_strength).toBe(90)
+    expect(edge.certainty).toBe('theoretical')
+    expect(edge.risk_class).toBe('general')
+    expect(edge.provenance.source_ids).toEqual([
+      'workbook:Entity_Master:herb-a:contraindications_or_flags',
+      'workbook:Entity_Master:herb-b:contraindications_or_flags',
+    ])
     expect(edge.claim_language).toContain('Herb A')
     expect(edge.claim_language).toContain('Herb B')
 
     expect(data.edgesBySlug['herb-a']).toHaveLength(1)
-    expect(data.edgesBySlug['herb-a'][0].partner_slug).toBe('herb-b')
+    expect(data.edgesBySlug['herb-a'][0]).toMatchObject({
+      partner_slug: 'herb-b',
+      certainty: 'theoretical',
+    })
     expect(data.edgesBySlug['herb-b']).toHaveLength(1)
     expect(data.edgesBySlug['herb-b'][0].partner_slug).toBe('herb-a')
   })
