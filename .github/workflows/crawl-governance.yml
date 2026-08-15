@@ -1,0 +1,77 @@
+name: Crawl Governance
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'src/lib/**'
+      - 'public/_redirects'
+      - 'scripts/ci/audit-page-category-robots.mjs'
+      - 'scripts/ci/audit-profile-robots.mjs'
+      - 'app/sitemap.ts'
+      - 'app/robots.ts'
+      - '.github/workflows/crawl-governance.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'src/lib/**'
+      - 'public/_redirects'
+      - 'scripts/ci/audit-page-category-robots.mjs'
+      - 'scripts/ci/audit-profile-robots.mjs'
+      - 'app/sitemap.ts'
+      - 'app/robots.ts'
+      - '.github/workflows/crawl-governance.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: crawl-governance-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        env:
+          COMMIT_HASH: ${{ github.sha }}
+        run: npm run build:deploy
+
+      - name: Verify robots.txt
+        run: node scripts/ci/validate-robots.mjs --require-built
+
+      - name: Verify profile robots governance
+        run: node scripts/ci/audit-profile-robots.mjs
+
+      - name: Verify robots by page category
+        run: node scripts/ci/audit-page-category-robots.mjs
+
+      - name: Upload crawl-governance reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crawl-governance-${{ github.run_number }}
+          path: reports/*robots*.json
+          retention-days: 30
