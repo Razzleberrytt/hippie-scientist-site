@@ -19,10 +19,10 @@ export default function NewsletterCtaBlock({
   location = 'newsletter-cta',
 }: NewsletterCtaBlockProps) {
   return (
-    <section className='rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
+    <section className='rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm dark:border-white/10 dark:bg-white/5 sm:p-8'>
       <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
         <div>
-          <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Newsletter</p>
+          <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700 dark:text-brand-200'>Newsletter</p>
           <h2 className='mt-2 text-2xl font-semibold text-ink'>{title}</h2>
           <p className='mt-2 max-w-2xl text-sm leading-7 text-muted'>{description}</p>
         </div>
@@ -34,7 +34,7 @@ export default function NewsletterCtaBlock({
             label: ctaLabel,
             target: href,
           })}
-          className='inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900'
+          className='inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100 dark:focus-visible:ring-offset-[var(--surface-card)]'
         >
           {ctaLabel}
         </Link>
