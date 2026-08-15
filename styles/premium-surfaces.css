@@ -253,9 +253,6 @@ html main hr {
 /* ---------- Mobile homepage palette correction ---------- */
 
 @media (max-width: 639px) {
-  /* The responsive homepage layer intentionally creates stronger focal
-     surfaces. Override its original forest-green colors with the new editorial
-     palette so the hierarchy survives without looking like a wellness template. */
   .hs-home .hs-hero {
     background:
       radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--hs-gold) 16%, transparent), transparent 34%),
@@ -308,4 +305,45 @@ html main hr {
   .hs-home section:has(.hs-vs):has(.hs-tool) > div {
     box-shadow: 0 18px 42px -34px rgba(55, 49, 65, 0.42);
   }
+}
+
+/* ---------- Site navigation palette ---------- */
+
+nav[aria-label='Primary'] {
+  border-color: var(--hs-hairline) !important;
+  background: color-mix(in srgb, var(--hs-surface) 93%, transparent) !important;
+}
+
+nav[aria-label='Primary'] a {
+  color: var(--hs-body) !important;
+}
+
+nav[aria-label='Primary'] a:hover,
+nav[aria-label='Primary'] a[aria-current='page'],
+nav[aria-label='Primary'] a[aria-label='The Hippie Scientist home'] {
+  color: var(--hs-ink) !important;
+}
+
+nav[aria-label='Primary'] a[aria-label='The Hippie Scientist home'] svg {
+  color: var(--tone-ink) !important;
+}
+
+nav[aria-label='Primary'] button[aria-controls='mobile-nav'] {
+  border-color: var(--hs-hairline) !important;
+  background: color-mix(in srgb, var(--hs-surface) 88%, transparent) !important;
+  color: var(--hs-ink) !important;
+}
+
+#mobile-nav > div[aria-hidden='true'] {
+  background: rgba(42, 38, 49, 0.24) !important;
+}
+
+#mobile-nav [role='dialog'] {
+  border-color: var(--hs-hairline) !important;
+  background: var(--hs-surface) !important;
+}
+
+#mobile-nav [role='dialog'] button {
+  border-color: var(--hs-hairline) !important;
+  color: var(--hs-ink) !important;
 }
