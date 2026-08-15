@@ -5,6 +5,30 @@ on:
     branches: [main]
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'src/**'
+      - 'lib/**'
+      - 'public/**'
+      - 'data/**'
+      - 'content/**'
+      - 'scripts/**'
+      - 'styles/**'
+      - 'types/**'
+      - 'tests/**'
+      - '**/__tests__/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.nvmrc'
+      - 'next.config.*'
+      - 'next-env.d.ts'
+      - 'tsconfig*.json'
+      - 'tailwind.config.*'
+      - 'postcss.config.*'
+      - '.lighthouserc*.json'
+      - '**/*.xlsx'
+      - '.github/workflows/lighthouse.yml'
   workflow_dispatch:
 
 concurrency:
