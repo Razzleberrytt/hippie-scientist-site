@@ -1,3 +1,5 @@
+import { newsletterTagsForSignup } from '../_shared/newsletter-segmentation'
+
 interface KVNamespace {
   get(key: string): Promise<string | null>
   put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>
@@ -141,7 +143,6 @@ function maskEmail(email: string): string {
   return `${local.slice(0, 2)}***@${domain}`
 }
 
-
 function isProduction(env?: Env): boolean {
   const value = env?.ENVIRONMENT || ''
   return value === 'production' || value === 'prod' || value === 'true'
@@ -204,7 +205,7 @@ async function checkRateLimit(ip: string, env: Env): Promise<boolean> {
 
   const now = Date.now()
   if (!data || now > data.reset) {
-    data = { count: 1, reset: now + 600000 } // 10 minutes reset window
+    data = { count: 1, reset: now + 600000 }
   } else {
     data.count += 1
   }
@@ -225,18 +226,15 @@ async function checkRateLimit(ip: string, env: Env): Promise<boolean> {
 }
 
 export const onRequest = async ({ request, env }: PagesFunctionContext): Promise<Response> => {
-  // 1. Method Validation
   if (request.method !== 'POST') {
     return jsonResponse({ ok: false, error: 'Method not allowed.' }, 405)
   }
 
-  // 2. Content-Type Validation
   const contentType = request.headers.get('Content-Type') || ''
   if (!contentType.includes('application/json')) {
     return jsonResponse({ ok: false, error: 'Unsupported Content-Type. Expected application/json.' }, 415)
   }
 
-  // 3. Body Size Limit
   const contentLengthHeader = request.headers.get('Content-Length')
   if (contentLengthHeader && parseInt(contentLengthHeader, 10) > 10240) {
     return jsonResponse({ ok: false, error: 'Request body too large.' }, 413)
@@ -247,7 +245,6 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
     return jsonResponse({ ok: false, error: 'Request body too large.' }, 413)
   }
 
-  // 4. JSON parsing and structured fields check
   let body: { email?: unknown; firstName?: unknown; magnet?: unknown; confirmEmail?: unknown; turnstileToken?: unknown }
   try {
     body = JSON.parse(text)
@@ -255,13 +252,11 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
     return jsonResponse({ ok: false, error: 'Invalid JSON body.' }, 400)
   }
 
-  // 5. Honeypot check
   if (body.confirmEmail) {
     console.warn('Honeypot triggered by bot submission.')
     return jsonResponse({ ok: true, message: 'Subscribed successfully.' }, 200)
   }
 
-  // 6. Origin / Referer Validation
   const origin = request.headers.get('Origin')
   const referer = request.headers.get('Referer')
   const isLocalDev = request.url.includes('localhost') || request.url.includes('127.0.0.1')
@@ -290,14 +285,12 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
     }
   }
 
-  // 7. Rate Limiting
   const clientIp = request.headers.get('CF-Connecting-IP') || '127.0.0.1'
   const rateLimitOk = await checkRateLimit(clientIp, env)
   if (!rateLimitOk) {
     return jsonResponse({ ok: false, error: 'Too many requests. Please try again later.' }, 429)
   }
 
-  // 8. Turnstile Token verification (optional, when secret key is defined)
   const turnstileSecret = env.TURNSTILE_SECRET_KEY?.trim()
   if (!turnstileSecret && isProduction(env)) {
     return jsonResponse({ ok: false, error: 'Security verification is not configured.' }, 503)
@@ -314,7 +307,7 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
   const apiKey = env.MAILCHIMP_API_KEY?.trim()
   const serverPrefix = (env.MAILCHIMP_API_SERVER || env.MAILCHIMP_SERVER_PREFIX)?.trim()
   const audienceId = (env.MAILCHIMP_LIST_ID || env.MAILCHIMP_AUDIENCE_ID)?.trim()
-  const adhdTag = env.MAILCHIMP_ADHD_TAG?.trim()
+  const configuredTag = env.MAILCHIMP_ADHD_TAG?.trim()
 
   if (!apiKey || !serverPrefix || !audienceId) {
     console.error('Mailchimp subscription is missing required environment variables:', {
@@ -325,7 +318,6 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
     return jsonResponse({ ok: false, error: 'Email subscription is not configured.' }, 500)
   }
 
-  // 9. Input normalization
   const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : ''
   const firstName = typeof body.firstName === 'string' ? body.firstName.trim() : ''
   const magnet = typeof body.magnet === 'string' ? body.magnet.trim() : ''
@@ -334,7 +326,6 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
     return jsonResponse({ ok: false, error: 'Enter a valid email address.' }, 400)
   }
 
-  // 10. Mailchimp Integration
   const subscriberHash = md5Hex(email)
   const baseUrl = `https://${serverPrefix}.api.mailchimp.com/3.0/lists/${audienceId}/members/${subscriberHash}`
   const headers = {
@@ -361,17 +352,17 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
     if (!memberResponse.ok) {
       const detail = await memberResponse.json().catch(() => null) as { detail?: string; title?: string } | null
       console.error('Mailchimp API Error:', detail?.detail || detail?.title || 'Unknown Error')
-      // Sanitize upstream errors
       return jsonResponse({ ok: false, error: 'Could not subscribe this email right now. Please try again.' }, 500)
     }
 
-    if (adhdTag) {
+    const subscriberTags = newsletterTagsForSignup(magnet, configuredTag)
+    if (subscriberTags.length > 0) {
       try {
         const tagResponse = await fetch(`${baseUrl}/tags`, {
           method: 'POST',
           headers,
           body: JSON.stringify({
-            tags: [{ name: adhdTag, status: 'active' }],
+            tags: subscriberTags.map((name) => ({ name, status: 'active' })),
           }),
         })
 
