@@ -4,8 +4,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const ROOT = process.cwd()
-const SITE_URL = 'https://www.thehippiescientist.net'
-const SITEMAP_CAP = 450
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://thehippiescientist.net')
+  .replace(/\/$/, '')
+  .replace('https://www.thehippiescientist.net', 'https://thehippiescientist.net')
+const SITEMAP_CAP = 50_000
 
 function readJson(relativePath, fallback) {
   const filePath = path.join(ROOT, relativePath)
@@ -142,9 +144,9 @@ function main() {
     excludedGeneratedPages: generatedDecisions.filter((item) => !item.index).length,
     sitemapCap: SITEMAP_CAP,
     warnings: [
-      ...(urls.length > SITEMAP_CAP ? [`sitemap URL count ${urls.length} exceeds intended cap ${SITEMAP_CAP}`] : []),
+      ...(urls.length > SITEMAP_CAP ? [`sitemap URL count ${urls.length} exceeds protocol limit ${SITEMAP_CAP}`] : []),
       ...(noindexInSitemap.length ? [`sitemap includes ${noindexInSitemap.length} noindex generated URLs`] : []),
-      ...(sitemapNonCanonical.length ? [`sitemap includes ${sitemapNonCanonical.length} non-www/non-canonical URLs`] : []),
+      ...(sitemapNonCanonical.length ? [`sitemap includes ${sitemapNonCanonical.length} non-canonical-host URLs`] : []),
     ],
   }
 
