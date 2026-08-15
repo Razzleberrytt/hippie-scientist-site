@@ -1,7 +1,8 @@
 /*
   Compact hero typography guardrails.
-  Purpose: keep public-page hero titles from behaving like oversized posters on mobile.
-  Loaded after readability/polish styles so it can override older heading scales safely.
+  Purpose: keep public-page hero titles controlled without making mobile landing
+  pages feel visually timid. The headline should still read as the page's primary
+  visual anchor on a phone.
 */
 
 .hero-shell h1,
@@ -24,20 +25,21 @@
 @media (max-width: 768px) {
   .hero-shell h1,
   .hero-shell .heading-premium {
-    max-width: min(100%, 12.5ch) !important;
-    font-size: clamp(1.85rem, 8vw, 2.35rem) !important;
-    line-height: 1.06 !important;
-    letter-spacing: -0.035em !important;
+    max-width: min(100%, 13ch) !important;
+    font-size: clamp(2.15rem, 9.4vw, 2.8rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.042em !important;
+    text-wrap: balance;
   }
 
   .hero-shell {
-    padding: 1.15rem !important;
-    border-radius: 1.25rem !important;
+    padding: 1.25rem !important;
+    border-radius: 1.35rem !important;
   }
 
   .hero-shell .eyebrow-label,
   .hero-shell .section-label {
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -45,12 +47,13 @@
   .hero-shell h1,
   .hero-shell .heading-premium {
     max-width: min(100%, 12ch) !important;
-    font-size: clamp(1.72rem, 7.4vw, 2.12rem) !important;
-    line-height: 1.08 !important;
+    font-size: clamp(2.08rem, 10vw, 2.58rem) !important;
+    line-height: 1.015 !important;
+    letter-spacing: -0.044em !important;
   }
 
   .hero-shell h1 + p,
   .hero-shell .heading-premium + p {
-    margin-top: 0.75rem;
+    margin-top: 0.85rem;
   }
 }
