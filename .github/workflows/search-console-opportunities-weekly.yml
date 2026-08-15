@@ -1,0 +1,72 @@
+name: Weekly Search Console Opportunities
+
+on:
+  schedule:
+    # Fridays at 07:20 UTC.
+    - cron: '20 7 * * 5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  search-opportunities:
+    name: Pull Search Console data and rank opportunities
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      GSC_SITE_URL: ${{ vars.GSC_SITE_URL || 'sc-domain:thehippiescientist.net' }}
+      GSC_LOOKBACK_DAYS: '28'
+      GSC_LAG_DAYS: '3'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Require Search Console credentials
+        run: |
+          if [ -z "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::Missing repository secret GSC_SERVICE_ACCOUNT_JSON. Add a Search Console service-account JSON key whose client email has read access to the property."
+            exit 1
+          fi
+
+      - name: Fetch finalized Search Console performance
+        run: node scripts/seo/fetch-search-console.mjs
+
+      - name: Rank search opportunities
+        run: npm run seo:opportunities
+
+      - name: Upload opportunity report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: weekly-search-opportunities-${{ github.run_number }}
+          path: |
+            ops/reports/search-opportunities.json
+            ops/reports/search-opportunities.md
+            data-sources/search-console/fetch-metadata.json
+          retention-days: 60
+          if-no-files-found: ignore
+
+      - name: Publish report to workflow summary
+        if: always()
+        run: |
+          echo "## Weekly Search Console Opportunities" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Property: $GSC_SITE_URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Window: 28 finalized days, ending 3 days before the run" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f ops/reports/search-opportunities.md ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat ops/reports/search-opportunities.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Report was not generated; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
+          fi
