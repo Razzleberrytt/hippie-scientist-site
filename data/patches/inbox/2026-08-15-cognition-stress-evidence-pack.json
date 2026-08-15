@@ -1,0 +1,299 @@
+[
+  {
+    "patch_id": "pubmed-2026-08-15-bacopa-memory-nma-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "bacopa", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2026 network meta-analysis of randomized trials in healthy adults found Bacopa monnieri extracts were associated with improvements in working, short-term, and delayed memory in some dose networks, while sustained attention, selective attention, and processing speed were not significantly improved.",
+        "confidence": 0.78,
+        "notes": "Twenty-nine RCTs (n=2,107) were included. High-dose Brahmi ranked highly for working and short-term memory, but the authors cautioned that the lack of direct comparisons limits the strength of network estimates. Do not convert the dose strata into a universal personal dose. Human review required before application."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1016/j.phymed.2026.157915",
+        "pmid": "41678913",
+        "title": "Comparative effects of Bacopa monnieri and Ginkgo biloba on cognitive functions: A systematic review and network meta-analysis",
+        "year": 2026
+      }
+    ],
+    "notes": "Balanced cognition claim; claim-only patch; no overwrite.",
+    "confidence": 0.78,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-bacopa-null-primary-rct-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "bacopa", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2025 randomized double-blind trial of a branded Bacopa extract in adults with self-reported memory and attention problems found no significant between-group improvement in the primary verbal-learning, attention, or working-memory outcomes after 12 weeks, although secondary stress and fatigue measures favored Bacopa.",
+        "confidence": 0.88,
+        "notes": "101 adults age 40-70 were randomized to Bacumen 300 mg/day or placebo; 87 completed. Primary cognitive outcomes were null. More self-reported adverse reactions occurred with Bacopa, mainly digestive complaints and headaches. Branded-extract result should not be generalized to all Bacopa products. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1007/s40261-025-01492-1",
+        "pmid": "41091332",
+        "title": "The Effects of a Bacopa monnieri Extract (Bacumen) on Cognition, Stress, and Fatigue in Healthy Adults: A Randomized, Double-Blind, Placebo-Controlled Trial",
+        "year": 2025
+      }
+    ],
+    "notes": "Null-primary-outcome claim included to prevent one-sided evidence summaries.",
+    "confidence": 0.88,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-bacopa-mci-mixed-003",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "bacopa", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "In a 2024 triple-blind randomized trial in mild cognitive impairment, Bacopa produced some favorable attention and verbal-fluency findings and a later overall cognitive-score difference, but no significant sleep-quality benefit and no consistent between-group advantage across all cognitive measures.",
+        "confidence": 0.78,
+        "notes": "62 participants with MCI received 160 mg extract or placebo for two months. This disease-adjacent population should not be generalized to healthy adults, and mixed domain results should remain visible. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1016/j.explore.2024.02.008",
+        "pmid": "38538390",
+        "title": "Evaluating the effects of Bacopa monnieri on cognitive performance and sleep quality of patients with mild cognitive impairment: A triple-blinded, randomized, placebo-controlled trial",
+        "year": 2024
+      }
+    ],
+    "notes": "Population-limited mixed-evidence claim.",
+    "confidence": 0.78,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-rhodiola-adaptogen-review-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "rhodiola", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2026 systematic review found only five Rhodiola rosea randomized studies within the included adaptogen literature and described potentially favorable stress-related outcomes alongside substantial methodological heterogeneity, short interventions, and small samples.",
+        "confidence": 0.80,
+        "notes": "Review included 24 RCTs total, 19 ashwagandha and only 5 Rhodiola. Avoid presenting the review's broad adaptogen conclusion as high-certainty Rhodiola-specific efficacy. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.26444/aaem/213417",
+        "pmid": "41906501",
+        "title": "Clinical evidence for the adaptogenic effects of Withania somnifera and Rhodiola rosea - A systematic review with molecular interpretation of psychometric outcomes",
+        "year": 2026
+      }
+    ],
+    "notes": "Evidence-quantity and quality-limit claim.",
+    "confidence": 0.80,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-rhodiola-endurance-meta-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "rhodiola", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2025 meta-analysis of 26 randomized trials in mostly young healthy participants found small favorable effects of Rhodiola on VO2max, time to exhaustion, and time-trial performance, but heterogeneity across studies limits direct translation to general fatigue or stress claims.",
+        "confidence": 0.82,
+        "notes": "668 healthy participants; mean age about 22. Exercise-performance evidence is a distinct domain from occupational fatigue, burnout, mood, or chronic fatigue. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.3389/fnut.2025.1645346",
+        "pmid": "41080184",
+        "title": "The effect of Rhodiola rosea supplementation on endurance performance and related biomarkers: a systematic review and meta-analysis",
+        "year": 2025
+      }
+    ],
+    "notes": "Outcome-domain-specific benefit claim.",
+    "confidence": 0.82,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-rhodiola-negative-fatigue-003",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "rhodiola", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 42-day randomized double-blind trial in nursing students on shift work found fatigue outcomes favored placebo rather than Rhodiola, demonstrating that the fatigue literature is not uniformly positive.",
+        "confidence": 0.94,
+        "notes": "48 participants were randomized; vitality and visual-analogue fatigue outcomes favored placebo at day 42. Authors advised cautious interpretation. Include as contradicting/null evidence rather than suppressing it. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1371/journal.pone.0108416",
+        "pmid": "25268730",
+        "title": "Rhodiola rosea for mental and physical fatigue in nursing students: a randomized controlled trial",
+        "year": 2014
+      }
+    ],
+    "notes": "Contradicting trial claim.",
+    "confidence": 0.94,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-ltheanine-attention-meta-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "l-theanine", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2026 meta-analysis of 31 randomized trials found the clearest L-theanine signal in acute attention: a single 200 mg dose 30-60 minutes before testing improved choice reaction time, while acute stress effects were modest and heavily influenced by high-risk-of-bias studies and anxiety findings were inconsistent.",
+        "confidence": 0.90,
+        "notes": "31 RCTs, n=1,168. Do not generalize a reaction-time result into ADHD treatment, broad productivity enhancement, or a universal dosing recommendation. The paper reports one author founded a supplement company. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1038/s41380-026-03727-9",
+        "pmid": "42410082",
+        "title": "Cognitive and affective effects of L-Theanine: a systematic review and meta-analysis of 31 randomized trials",
+        "year": 2026
+      }
+    ],
+    "notes": "High-value current synthesis with bias and conflict context preserved.",
+    "confidence": 0.90,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-ltheanine-sleep-meta-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "l-theanine", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2025 sleep meta-analysis found small improvements in subjective sleep-onset latency, daytime dysfunction, and overall subjective sleep quality, but the evidence included too few pure L-theanine studies to establish an optimal dose, duration, or a strong standalone sleep effect.",
+        "confidence": 0.86,
+        "notes": "19 articles, 897 participants; 18 included in meta-analysis. Combination products limit attribution. Human review required before profile application."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1016/j.smrv.2025.102076",
+        "pmid": "40056718",
+        "title": "The effects of L-theanine consumption on sleep outcomes: A systematic review and meta-analysis",
+        "year": 2025
+      }
+    ],
+    "notes": "Sleep claim preserves attribution and dose uncertainty.",
+    "confidence": 0.86,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-lions-mane-healthy-null-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "lions-mane", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2025 double-blind randomized crossover study in 18 healthy adults found no significant overall improvement in global cognition or mood 90 minutes after a 3 g dose of a 10:1 Lion's Mane fruiting-body extract, although one pegboard task improved.",
+        "confidence": 0.94,
+        "notes": "This is a small acute trial, but its null global result is important for preventing broad healthy-adult nootropic claims. Two authors were employed by a company using Lion's Mane in products; conflict context should remain visible. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.3389/fnut.2025.1405796",
+        "pmid": "40276537",
+        "title": "Acute effects of a standardised extract of Hericium erinaceus on cognition and mood in healthy younger adults: a double-blind randomised placebo-controlled study",
+        "year": 2025
+      }
+    ],
+    "notes": "Null global cognition/mood claim; product-specific.",
+    "confidence": 0.94,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-lions-mane-human-evidence-map-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "lions-mane", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2025 systematic review found the Lion's Mane literature contains a small clinical evidence base alongside a much larger preclinical literature, so laboratory neuroprotective and neurotrophic findings should not be counted as equivalent to replicated human efficacy evidence.",
+        "confidence": 0.90,
+        "notes": "Review included 5 RCTs, 3 pilot clinical trials, 1 cohort, 1 case report, 15 laboratory studies, and 1 computer analysis. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.3389/fnut.2025.1641246",
+        "pmid": "40959699",
+        "title": "Benefits, side effects, and uses of Hericium erinaceus as a supplement: a systematic review",
+        "year": 2025
+      }
+    ],
+    "notes": "Evidence-composition claim to prevent citation-volume inflation.",
+    "confidence": 0.90,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-lions-mane-preclinical-boundary-003",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-15T23:46:00.000Z",
+    "target": { "slug": "lions-mane", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "mechanisms",
+        "value": "A 2025 systematic review of erinacines reported antioxidant, anti-inflammatory, neurogenesis, cell-survival, and behavioral signals in cellular and rodent models; these findings support mechanistic plausibility but do not establish a human NGF response, clinical dose, or onset timeline.",
+        "confidence": 0.93,
+        "notes": "The systematic review is explicitly preclinical. Preserve the species boundary in profile language and do not translate rodent/cellular dose-response findings into consumer dosing. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.3389/fphar.2025.1582081",
+        "pmid": "40626304",
+        "title": "Unveiling the role of erinacines in the neuroprotective effects of Hericium erinaceus: a systematic review in preclinical models",
+        "year": 2025
+      }
+    ],
+    "notes": "Mechanism-boundary claim; no efficacy upgrade implied.",
+    "confidence": 0.93,
+    "requires_review": true
+  }
+]
