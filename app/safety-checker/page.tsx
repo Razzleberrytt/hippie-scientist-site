@@ -26,21 +26,13 @@ export const metadata: Metadata = buildPageMetadata({
 export default async function SafetyCheckerPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs: RuntimeRecord[] = rawHerbs.filter((h: RuntimeRecord) => {
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs: RuntimeRecord[] = rawHerbs.filter(
+    (herb: RuntimeRecord) => getRuntimeVisibility(herb).canRender,
+  )
 
-  const compounds: RuntimeRecord[] = rawCompounds.filter((c: RuntimeRecord) => {
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  })
+  const compounds: RuntimeRecord[] = rawCompounds.filter(
+    (compound: RuntimeRecord) => getRuntimeVisibility(compound).canRender,
+  )
 
   const schemaGraph = buildToolPageSchemaGraph({
     path: '/safety-checker',
