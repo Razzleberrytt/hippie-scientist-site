@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url'
 import { resolveWorkbookPath } from './workbook-source.mjs'
 import { readWorkbook, getSheet, sheetToRows } from './data/workbook-parser.mjs'
 import { classifyContraindicationValue } from './audit-severity-token-contraindications.mjs'
+import { hasInteractionData, interactionSlugsFromEdges } from './data/interaction-flags.mjs'
 import {
   CLUSTER_MEMBER_INHERITANCE_MODE,
   CLUSTER_MEMBER_RUNTIME_DECISION,
@@ -39,6 +40,14 @@ function readJson(filePath, fallback = []) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
 }
 
+function readInteractionSlugs(filePath) {
+  try {
+    return interactionSlugsFromEdges(readJson(filePath, {}))
+  } catch {
+    return new Set()
+  }
+}
+
 function bySlug(rows) {
   return new Map(rows.map(row => [String(row?.slug || row?.id || '').trim(), row]))
 }
@@ -66,7 +75,7 @@ function percent(value, total) {
   return total ? Math.round((value / total) * 100) : 0
 }
 
-export function evaluateClusterMemberProfile({ base, workbookRow, layers = [], searchRecord = {}, trustRecord }) {
+export function evaluateClusterMemberProfile({ base, workbookRow, layers = [], searchRecord = {}, trustRecord, interactionSlugs = new Set() }) {
   const slug = text(base?.slug)
   const findings = []
 
@@ -143,12 +152,12 @@ export function evaluateClusterMemberProfile({ base, workbookRow, layers = [], s
 
   const searchSafety = text(searchRecord.safety)
   const expectedContraFlag = Array.isArray(resolved.contraindications) && resolved.contraindications.length > 0
-  const expectedInteractionFlag = Array.isArray(resolved.interactions) && resolved.interactions.length > 0
+  const expectedInteractionFlag = hasInteractionData(slug, interactionSlugs, resolved.interactions)
   if (!searchSafety || GENERIC_SAFETY.test(searchSafety) || searchRecord?.safetyFlags?.hasContraindications !== expectedContraFlag || searchRecord?.safetyFlags?.hasInteractions !== expectedInteractionFlag) {
     findings.push(finding(
       'search-index-safety-contradiction',
       'Runtime defect',
-      'Search safety or flags disagree with the resolved runtime safety contract.',
+      'Search safety or flags disagree with the canonical interaction graph and resolved runtime safety contract.',
       slug,
     ))
   }
@@ -192,6 +201,7 @@ export async function auditClusterMemberTrust(repoRoot = process.cwd()) {
   const publicData = path.join(repoRoot, 'public', 'data')
   const herbs = readJson(path.join(publicData, 'herbs.json'))
   const compounds = readJson(path.join(publicData, 'compounds.json'))
+  const interactionSlugs = readInteractionSlugs(path.join(publicData, 'interaction_edges.json'))
   const baseTargets = [
     ...herbs.map(record => ({ ...record, entityType: 'herb' })),
     ...compounds.map(record => ({ ...record, entityType: 'compound' })),
@@ -228,6 +238,7 @@ export async function auditClusterMemberTrust(repoRoot = process.cwd()) {
       layers,
       searchRecord: search.get(slug) || {},
       trustRecord: getClusterMemberRuntimeTrustRecord(slug),
+      interactionSlugs,
     })
     const hasDeprecatedRouteContract = routeContractText.includes(`'${slug}'`)
       || routeContractText.includes(`/compounds/${slug} `)
