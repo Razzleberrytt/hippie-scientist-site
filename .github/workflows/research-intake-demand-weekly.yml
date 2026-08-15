@@ -1,0 +1,41 @@
+name: Weekly Research Intake Demand
+
+on:
+  schedule:
+    - cron: '10 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  rank-demand:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Rank public research requests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ops/rank-research-intake.mjs
+
+      - name: Upload ranked backlog
+        uses: actions/upload-artifact@v7
+        with:
+          name: research-intake-demand-${{ github.run_number }}
+          path: |
+            ops/reports/research-intake-demand.json
+            ops/reports/research-intake-demand.md
+          retention-days: 90
+
+      - name: Publish summary
+        run: cat ops/reports/research-intake-demand.md >> "$GITHUB_STEP_SUMMARY"
