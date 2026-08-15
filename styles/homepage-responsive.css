@@ -270,6 +270,86 @@
     box-shadow: 0 16px 32px -25px rgba(0, 0, 0, 0.5);
   }
 
+  /* Popular ingredients work better as a specimen rail on a phone: the next
+     card peeks into view, creating an obvious gesture and reducing page length. */
+  .hs-home section:has(.hs-specimen) > .grid {
+    display: flex;
+    gap: 0.85rem;
+    margin-right: -1.25rem;
+    overflow-x: auto;
+    scroll-padding-left: 0.1rem;
+    scroll-snap-type: x mandatory;
+    padding-right: 1.25rem;
+    scrollbar-width: none;
+  }
+
+  .hs-home section:has(.hs-specimen) > .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hs-home .hs-specimen {
+    flex: 0 0 min(68vw, 14.75rem);
+    min-height: 8.8rem;
+    scroll-snap-align: start;
+    border-radius: 1.3rem;
+    padding: 1.05rem;
+  }
+
+  .hs-home .hs-specimen-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.95rem;
+  }
+
+  .hs-home .hs-specimen-name {
+    font-size: 1.15rem;
+  }
+
+  /* Comparison and safety become two editorial modules rather than one long
+     stream of same-weight rows. The inner links remain individually tappable. */
+  .hs-home section:has(.hs-vs):has(.hs-tool) {
+    gap: 1rem;
+    padding-block: 1.5rem;
+  }
+
+  .hs-home section:has(.hs-vs):has(.hs-tool) > div {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--hs-hairline);
+    border-radius: 1.65rem;
+    padding: 1.15rem;
+    box-shadow: 0 18px 42px -34px rgba(18, 60, 47, 0.55);
+  }
+
+  .hs-home section:has(.hs-vs):has(.hs-tool) > div:first-child {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(124, 115, 214, 0.14), transparent 36%),
+      color-mix(in srgb, var(--hs-surface) 90%, transparent);
+  }
+
+  .hs-home section:has(.hs-vs):has(.hs-tool) > div:last-child {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(63, 151, 168, 0.14), transparent 36%),
+      color-mix(in srgb, var(--hs-surface) 90%, transparent);
+  }
+
+  .dark .hs-home section:has(.hs-vs):has(.hs-tool) > div:first-child {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(139, 130, 230, 0.16), transparent 36%),
+      rgba(255, 255, 255, 0.035);
+  }
+
+  .dark .hs-home section:has(.hs-vs):has(.hs-tool) > div:last-child {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(73, 170, 189, 0.15), transparent 36%),
+      rgba(255, 255, 255, 0.035);
+  }
+
+  .hs-home section:has(.hs-vs):has(.hs-tool) .hs-vs,
+  .hs-home section:has(.hs-vs):has(.hs-tool) .hs-tool {
+    box-shadow: none;
+  }
+
   /* Dividers should support pacing, not dominate it. */
   .hs-home .hs-divider {
     opacity: 0.48;
