@@ -1,0 +1,45 @@
+name: Reporter / supporting data request
+description: Request a source trail, aggregate statistic, methodology detail, or reusable research asset.
+title: "Reporter data request: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for time-sensitive supporting-data questions. Do not include private health information.
+  - type: input
+    id: publication
+    attributes:
+      label: Publication / outlet
+      placeholder: Example Newsroom
+  - type: input
+    id: deadline
+    attributes:
+      label: Deadline and timezone
+      description: Give the actual editorial deadline so the request can be prioritized accurately.
+      placeholder: 2026-08-20 3:00 PM ET
+    validations:
+      required: true
+  - type: input
+    id: article
+    attributes:
+      label: Article or research topic
+      placeholder: Supplement evidence grading / safety interactions / ingredient evidence
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Exact statistic, claim, or source trail needed
+      description: Quote or describe the specific item you need verified; avoid a broad “tell me about supplements” request.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Hippie Scientist URL, if known
+      placeholder: https://thehippiescientist.net/evidence/evidence-report/
+  - type: textarea
+    id: context
+    attributes:
+      label: Context or wording you plan to use
+      description: Optional, but helpful for spotting scope errors or missing caveats before publication.
