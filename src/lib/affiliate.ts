@@ -1,6 +1,10 @@
 import { isClean, list, text } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { isRestrictedIngredient, isRestrictedRecord } from './restricted-ingredients'
+import {
+  hasExplicitResearchMaturitySignal,
+  policyForResearchRecord,
+} from './research-maturity'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 
 export const AMAZON_ASSOCIATE_ID = AFFILIATE_TAGS.amazon
@@ -61,6 +65,17 @@ export function canRenderAffiliateLinks(item: any) {
   // Full profile records do not carry the compact flag. Enforce the same central
   // runtime monetization decision before profile-level sourcing CTAs are rendered.
   if (item.monetization_allowed == null && !getRuntimeVisibility(item).canMonetize) {
+    return false
+  }
+
+  // Research maturity is independent from safety. When a canonical record
+  // explicitly identifies itself as preliminary or mechanism-only, remove
+  // purchase intent even if no separate safety restriction applies.
+  if (
+    item.monetization_allowed == null &&
+    hasExplicitResearchMaturitySignal(item as Record<string, unknown>) &&
+    !policyForResearchRecord(item).purchaseIntentAllowed
+  ) {
     return false
   }
 
