@@ -69,23 +69,25 @@ export function FilterChip({ label, count, active, onClick }: FilterChipProps) {
       onClick={onClick}
       aria-pressed={active}
       className={clsx(
-        'inline-flex min-h-10 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[0.8rem] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40',
+        'inline-flex min-h-10 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[0.8rem] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:color-mix(in_srgb,var(--hs-gold)_45%,transparent)]',
         active
-          ? 'border-brand-800 bg-brand-800 text-white shadow-sm dark:border-brand-600 dark:bg-brand-600 dark:text-[#07150c]'
-          : 'border-brand-900/10 bg-white text-[#33443a] hover:border-brand-700/25 hover:text-brand-800 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)] dark:hover:border-[var(--border-strong)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]',
+          ? 'border-[color:color-mix(in_srgb,var(--tone)_48%,var(--hs-hairline))] bg-[linear-gradient(140deg,#4b4558_0%,#332f3d_100%)] text-[#fffaf3] shadow-sm dark:border-[color:color-mix(in_srgb,var(--hs-gold)_30%,transparent)] dark:bg-[linear-gradient(140deg,#665c8c_0%,#40384f_100%)]'
+          : 'border-[color:var(--hs-hairline)] bg-[color:var(--hs-surface)] text-[color:var(--hs-body)] hover:border-[color:color-mix(in_srgb,var(--tone)_36%,var(--hs-hairline))] hover:text-[color:var(--hs-ink)]',
       )}
     >
       <span>{label}</span>
-      {typeof count === 'number' && (
+      {typeof count === 'number' ? (
         <span
           className={clsx(
             'rounded-full px-1.5 text-[0.7rem] font-semibold tabular-nums',
-            active ? 'bg-white/20 text-white dark:text-[#07150c]' : 'bg-brand-50 text-brand-700 dark:bg-[var(--surface-subtle)] dark:text-brand-700',
+            active
+              ? 'bg-white/15 text-[#fffaf3]'
+              : 'bg-[color:color-mix(in_srgb,var(--tone)_8%,var(--hs-surface-2))] text-[color:var(--tone-ink)]',
           )}
         >
           {count}
         </span>
-      )}
+      ) : null}
     </button>
   )
 }
@@ -117,18 +119,18 @@ export function ResultRow({ doc, active, id, onHover, onSelect }: ResultRowProps
       className={clsx(
         'flex w-full cursor-pointer flex-col gap-1 rounded-xl border px-3 py-2.5 text-left transition',
         active
-          ? 'border-brand-700/30 bg-brand-50/70 dark:border-brand-600/40 dark:bg-[var(--surface-subtle)]'
-          : 'border-transparent hover:bg-brand-50/40 dark:hover:bg-[var(--surface-card)]',
+          ? 'border-[color:color-mix(in_srgb,var(--tone)_30%,var(--hs-hairline))] bg-[color:color-mix(in_srgb,var(--tone)_7%,var(--hs-surface))] shadow-[inset_2px_0_0_var(--hs-gold)]'
+          : 'border-transparent hover:bg-[color:color-mix(in_srgb,var(--tone)_4%,var(--hs-surface))]',
       )}
     >
       <span className="flex items-center gap-2">
         <TypeBadge type={doc.type} />
-        <span className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">{doc.title}</span>
+        <span className="min-w-0 flex-1 truncate text-sm font-semibold text-[color:var(--hs-ink)]">{doc.title}</span>
         <EvidenceBadge grade={doc.evidenceGrade} />
       </span>
-      {doc.summary && (
-        <span className="line-clamp-1 text-xs leading-5 text-muted">{doc.summary}</span>
-      )}
+      {doc.summary ? (
+        <span className="line-clamp-1 text-xs leading-5 text-[color:var(--hs-body)]">{doc.summary}</span>
+      ) : null}
     </li>
   )
 }
