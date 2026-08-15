@@ -14,26 +14,15 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/info/dosing/',
 })
 
+function isRenderableDosingRecord(record: RuntimeRecord) {
+  return !isRestrictedRecord(record) && getRuntimeVisibility(record).canRender
+}
+
 export default async function DosingPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs: RuntimeRecord[] = rawHerbs.filter((h: RuntimeRecord) => {
-    if (isRestrictedRecord(h)) return false
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  })
-
-  const compounds: RuntimeRecord[] = rawCompounds.filter((c: RuntimeRecord) => {
-    if (isRestrictedRecord(c)) return false
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs: RuntimeRecord[] = rawHerbs.filter(isRenderableDosingRecord)
+  const compounds: RuntimeRecord[] = rawCompounds.filter(isRenderableDosingRecord)
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
