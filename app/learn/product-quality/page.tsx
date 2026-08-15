@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
-import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
+import { filterRenderableRuntimeRecords } from '../../../lib/runtime-visibility'
 import BuyGuideClient from '../../../src/components/sourcing/BuyGuideClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
@@ -38,23 +38,13 @@ const qualityStartingPoints = [
 export default async function ProductQualityPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs: RuntimeRecord[] = rawHerbs.filter((herb: RuntimeRecord) => {
-    if (isRestrictedRecord(herb)) return false
-    try {
-      return getRuntimeVisibility(herb).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs = filterRenderableRuntimeRecords(
+    rawHerbs.filter((herb: RuntimeRecord) => !isRestrictedRecord(herb)) as RuntimeRecord[],
+  )
 
-  const compounds: RuntimeRecord[] = rawCompounds.filter((compound: RuntimeRecord) => {
-    if (isRestrictedRecord(compound)) return false
-    try {
-      return getRuntimeVisibility(compound).canRender
-    } catch {
-      return true
-    }
-  })
+  const compounds = filterRenderableRuntimeRecords(
+    rawCompounds.filter((compound: RuntimeRecord) => !isRestrictedRecord(compound)) as RuntimeRecord[],
+  )
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
