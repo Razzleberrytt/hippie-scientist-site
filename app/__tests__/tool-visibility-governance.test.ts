@@ -2,6 +2,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
+// These interactive surfaces must consume the central fail-closed visibility
+// boundary rather than inventing page-local fallbacks when runtime data is malformed.
 const TOOL_PAGES = [
   'app/guides/compare/dynamic/page.tsx',
   'app/info/dosing/page.tsx',
