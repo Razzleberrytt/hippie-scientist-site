@@ -1,3 +1,5 @@
+import { growthGoalContentBySlug } from './goal-content-growth'
+
 export type GoalFaqItem = {
   question: string
   answer: string
@@ -179,14 +181,14 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
 }
 
 export function getGoalContentExtension(slug: string): GoalContentExtension | null {
-  return goalContentBySlug[slug] ?? null
+  return goalContentBySlug[slug] ?? growthGoalContentBySlug[slug] ?? null
 }
 
 export function getGoalFaqItems(
   slug: string,
   fallback: GoalFaqItem[],
 ): GoalFaqItem[] {
-  const extension = goalContentBySlug[slug]
+  const extension = goalContentBySlug[slug] ?? growthGoalContentBySlug[slug]
   if (extension?.faqItems.length) return extension.faqItems
   return fallback
 }
