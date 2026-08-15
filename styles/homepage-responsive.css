@@ -1,0 +1,11 @@
+/* Homepage responsive corrections that are easier to reason about outside the
+   larger editorial skin. Keep these rules narrow and viewport-specific. */
+
+/* The goal-card copy becomes cramped when four cards stay two-up on narrow
+   phones. Give each card the full reading width there, then let the existing
+   Tailwind grid resume its two-column layout above this breakpoint. */
+@media (max-width: 429px) {
+  .hs-home #choose-a-path > .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
