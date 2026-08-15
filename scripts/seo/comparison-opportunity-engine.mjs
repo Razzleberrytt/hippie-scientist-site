@@ -18,13 +18,24 @@ const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const INPUT_PATH = path.join(REPORTS_DIR, 'search-opportunities.json')
 const JSON_PATH = path.join(REPORTS_DIR, 'comparison-opportunities.json')
 const MD_PATH = path.join(REPORTS_DIR, 'comparison-opportunities.md')
+const REVENUE_PRODUCTS_PATH = path.join(ROOT, 'config', 'revenue-products.ts')
 const ENTITY_FILES = [
   { path: path.join(ROOT, 'public', 'data', 'herbs.json'), type: 'herb' },
   { path: path.join(ROOT, 'public', 'data', 'compounds.json'), type: 'compound' },
 ]
 
 const COMPARATOR_RE = /\s+(?:vs\.?|versus|or|compared\s+(?:with|to))\s+/i
+const DECISION_MODIFIER_RE = /\b(best|better|which|difference|differences|for|benefits|side effects|dose|dosage|sleep|stress|anxiety|focus)\b/i
 const GENERIC_ALIASES = new Set(['extract', 'root', 'powder', 'supplement', 'herb', 'compound'])
+const EVIDENCE_SCORES = new Map([
+  ['A', 100],
+  ['B', 75],
+  ['C', 45],
+  ['D', 20],
+  ['AVOID/INSUFFICIENT', 10],
+  ['AVOID', 10],
+  ['INSUFFICIENT', 10],
+])
 
 function clean(value) {
   return typeof value === 'string' ? value.replace(/\s+/g, ' ').trim() : ''
@@ -56,6 +67,43 @@ function loadJson(filePath, fallback) {
   }
 }
 
+function clampScore(value) {
+  return Math.max(0, Math.min(100, Math.round(Number(value) || 0)))
+}
+
+function canonicalEvidenceGrade(record) {
+  const raw = clean(record?.evidence_grade || record?.evidence_level || record?.grade).toUpperCase()
+  if (!raw) return ''
+  if (/^A(?:\b|[+-])/.test(raw) || raw.includes('STRONG')) return 'A'
+  if (/^B(?:\b|[+-])/.test(raw) || raw.includes('MODERATE')) return 'B'
+  if (/^C(?:\b|[+-])/.test(raw) || raw.includes('LIMITED') || raw.includes('PRELIMINARY')) return 'C'
+  if (/^D(?:\b|[+-])/.test(raw) || raw.includes('WEAK')) return 'D'
+  if (raw.includes('AVOID') || raw.includes('INSUFFICIENT')) return 'AVOID/INSUFFICIENT'
+  return ''
+}
+
+function evidenceAvailabilityScore(record) {
+  const grade = canonicalEvidenceGrade(record)
+  if (grade) return EVIDENCE_SCORES.get(grade) ?? 0
+
+  const humanEvidence = clean(record?.human_evidence || record?.evidence_summary)
+  const studies = Number(record?.study_count || record?.human_study_count || record?.human_trials || 0)
+  if (studies >= 5) return 65
+  if (studies >= 2) return 45
+  if (studies === 1) return 30
+  return humanEvidence ? 25 : 0
+}
+
+export function loadRevenueProductSlugs(filePath = REVENUE_PRODUCTS_PATH) {
+  if (!existsSync(filePath)) return new Set()
+  const source = readFileSync(filePath, 'utf8')
+  return new Set(
+    [...source.matchAll(/\bslug:\s*['"]([^'"]+)['"]/g)]
+      .map((match) => slugify(match[1]))
+      .filter(Boolean),
+  )
+}
+
 export function buildAliasIndex(entityFiles = ENTITY_FILES) {
   const aliases = []
   const seen = new Set()
@@ -68,6 +116,7 @@ export function buildAliasIndex(entityFiles = ENTITY_FILES) {
       const slug = clean(record?.slug)
       if (!slug) continue
       const name = clean(record?.name || record?.canonical_name || record?.compoundName || slug)
+      const evidenceScore = evidenceAvailabilityScore(record)
       const candidates = [
         name,
         slug.replace(/-/g, ' '),
@@ -83,7 +132,7 @@ export function buildAliasIndex(entityFiles = ENTITY_FILES) {
         const key = `${source.type}:${slug}:${alias}`
         if (seen.has(key)) continue
         seen.add(key)
-        aliases.push({ alias, slug, name: name || slug, type: source.type })
+        aliases.push({ alias, slug, name: name || slug, type: source.type, evidenceScore })
       }
     }
   }
@@ -126,7 +175,34 @@ function candidateRoute(leftSlug, rightSlug) {
   return { slug: direct, status: 'missing' }
 }
 
-export function buildComparisonOpportunities(queries, aliasIndex) {
+function scoreSearchIntent(entry, position) {
+  const demand = Math.min(25, Math.log10(Math.max(0, entry.impressions) + 1) * 8)
+  const modifierImpressions = entry.sourceQueries.reduce(
+    (total, row) => total + (DECISION_MODIFIER_RE.test(row.query) ? row.impressions : 0),
+    0,
+  )
+  const modifierShare = entry.impressions ? modifierImpressions / entry.impressions : 0
+  const decisionSignal = Math.min(15, modifierShare * 15)
+  const rankSignal = position >= 4 && position <= 20 ? 10 : position > 20 && position <= 40 ? 5 : position > 0 && position < 4 ? 7 : 0
+  return clampScore(50 + demand + decisionSignal + rankSignal)
+}
+
+function scoreMonetization(leftSlug, rightSlug, revenueProductSlugs) {
+  const coverage = [leftSlug, rightSlug].filter((slug) => revenueProductSlugs.has(slug)).length
+  if (coverage === 2) return 100
+  if (coverage === 1) return 55
+  return 0
+}
+
+function scoreEvidence(left, right) {
+  return clampScore((Number(left?.evidenceScore || 0) + Number(right?.evidenceScore || 0)) / 2)
+}
+
+function scoreOpportunity({ searchIntentScore, monetizationScore, evidenceScore }) {
+  return clampScore(searchIntentScore * 0.45 + monetizationScore * 0.25 + evidenceScore * 0.3)
+}
+
+export function buildComparisonOpportunities(queries, aliasIndex, revenueProductSlugs = loadRevenueProductSlugs()) {
   const byPair = new Map()
 
   for (const queryRow of Array.isArray(queries) ? queries : []) {
@@ -167,6 +243,12 @@ export function buildComparisonOpportunities(queries, aliasIndex) {
       const primary = entry.sourceQueries[0]
       const primaryPair = extractEntityPair(primary.query, aliasIndex) || { left: entry.left, right: entry.right }
       const route = candidateRoute(primaryPair.left.slug, primaryPair.right.slug)
+      const position = entry.impressions ? Number((entry.weightedPosition / entry.impressions).toFixed(1)) : 0
+      const searchIntentScore = scoreSearchIntent(entry, position)
+      const monetizationScore = scoreMonetization(primaryPair.left.slug, primaryPair.right.slug, revenueProductSlugs)
+      const evidenceScore = scoreEvidence(primaryPair.left, primaryPair.right)
+      const opportunityScore = scoreOpportunity({ searchIntentScore, monetizationScore, evidenceScore })
+
       return {
         pair: [primaryPair.left.slug, primaryPair.right.slug],
         labels: [primaryPair.left.name, primaryPair.right.name],
@@ -176,16 +258,22 @@ export function buildComparisonOpportunities(queries, aliasIndex) {
         impressions: entry.impressions,
         clicks: entry.clicks,
         ctr: entry.impressions ? Number(((entry.clicks / entry.impressions) * 100).toFixed(2)) : 0,
-        position: entry.impressions ? Number((entry.weightedPosition / entry.impressions).toFixed(1)) : 0,
+        position,
+        opportunityScore,
+        scoreBreakdown: {
+          searchIntent: searchIntentScore,
+          monetization: monetizationScore,
+          evidenceAvailability: evidenceScore,
+        },
         sourceQueries: entry.sourceQueries.slice(0, 10),
       }
     })
-    .sort((a, b) => b.impressions - a.impressions || a.position - b.position)
+    .sort((a, b) => b.opportunityScore - a.opportunityScore || b.impressions - a.impressions || a.position - b.position)
 }
 
 function renderMarkdown(report) {
   const rows = report.opportunities.map((item) =>
-    `| ${item.labels.join(' vs ')} | ${item.impressions} | ${item.clicks} | ${item.position} | ${item.routeStatus} | \`${item.candidateSlug}\` |`
+    `| ${item.labels.join(' vs ')} | ${item.opportunityScore} | ${item.scoreBreakdown.searchIntent} | ${item.scoreBreakdown.monetization} | ${item.scoreBreakdown.evidenceAvailability} | ${item.impressions} | ${item.position} | ${item.routeStatus} | \`${item.candidateSlug}\` |`
   )
   return [
     '# Search Console comparison opportunities',
@@ -194,8 +282,10 @@ function renderMarkdown(report) {
     '',
     '> Discovery only: this report does not auto-publish comparison pages.',
     '',
-    '| Pair | Impressions | Clicks | Position | Route | Candidate slug |',
-    '| --- | ---: | ---: | ---: | --- | --- |',
+    'Opportunity score = 45% search intent + 25% monetization coverage + 30% evidence availability.',
+    '',
+    '| Pair | Score | Intent | Monetization | Evidence | Impressions | Position | Route | Candidate slug |',
+    '| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |',
     ...rows,
     '',
   ].join('\n')
@@ -210,12 +300,19 @@ function main() {
   }
 
   const aliasIndex = buildAliasIndex()
-  const opportunities = buildComparisonOpportunities(source.queries, aliasIndex)
+  const revenueProductSlugs = loadRevenueProductSlugs()
+  const opportunities = buildComparisonOpportunities(source.queries, aliasIndex, revenueProductSlugs)
   const report = {
     generatedAt: new Date().toISOString(),
     sourceReport: path.relative(ROOT, INPUT_PATH),
     queriesInspected: source.queries.length,
     aliasesIndexed: aliasIndex.length,
+    revenueProductSetsIndexed: revenueProductSlugs.size,
+    scoring: {
+      searchIntentWeight: 0.45,
+      monetizationWeight: 0.25,
+      evidenceAvailabilityWeight: 0.3,
+    },
     opportunities,
   }
 
