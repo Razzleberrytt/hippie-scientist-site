@@ -2,7 +2,7 @@
 /**
  * Minimum-usefulness gate for comparison-page candidates.
  *
- * Input: ops/reports/comparison-opportunities-scored.json
+ * Input: ops/reports/comparison-opportunities.json
  * Output: ops/reports/comparison-editorial-queue.json + .md
  *
  * Passing this gate means "worth editorial review", never "auto-publish".
@@ -14,13 +14,13 @@ import { fileURLToPath } from 'node:url'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
-const INPUT_PATH = path.join(REPORTS_DIR, 'comparison-opportunities-scored.json')
+const INPUT_PATH = path.join(REPORTS_DIR, 'comparison-opportunities.json')
 const JSON_PATH = path.join(REPORTS_DIR, 'comparison-editorial-queue.json')
 const MD_PATH = path.join(REPORTS_DIR, 'comparison-editorial-queue.md')
 
 export const COMPARISON_USEFULNESS_THRESHOLD = Object.freeze({
   minimumOpportunityScore: 55,
-  minimumIntentScore: 65,
+  minimumIntentScore: 60,
   minimumEvidenceScore: 30,
   minimumObservedImpressions: 10,
 })
@@ -39,8 +39,8 @@ export function evaluateComparisonUsefulness(item, threshold = COMPARISON_USEFUL
   const pair = Array.isArray(item?.pair) ? item.pair.filter(Boolean) : []
   const sourceQueries = Array.isArray(item?.sourceQueries) ? item.sourceQueries : []
   const score = Number(item?.opportunityScore || 0)
-  const intent = Number(item?.scoreComponents?.intent || 0)
-  const evidence = Number(item?.scoreComponents?.evidence || 0)
+  const intent = Number(item?.scoreBreakdown?.searchIntent || 0)
+  const evidence = Number(item?.scoreBreakdown?.evidenceAvailability || 0)
   const impressions = Number(item?.impressions || 0)
 
   if (pair.length !== 2 || pair[0] === pair[1]) reasons.push('invalid-or-duplicate-pair')
@@ -63,7 +63,12 @@ export function buildEditorialQueue(opportunities, threshold = COMPARISON_USEFUL
 
   for (const item of Array.isArray(opportunities) ? opportunities : []) {
     const evaluation = evaluateComparisonUsefulness(item, threshold)
-    const result = { ...item, usefulness: evaluation }
+    const result = {
+      ...item,
+      usefulness: evaluation,
+      publicationPolicy: 'editorial-review-only',
+      autoPublishEligible: false,
+    }
     if (evaluation.useful) eligible.push(result)
     else rejected.push(result)
   }
@@ -86,7 +91,7 @@ function renderMarkdown(report) {
     '',
     '| Pair | Score | Evidence | Intent | Impressions | Existing route |',
     '| --- | ---: | ---: | ---: | ---: | --- |',
-    ...report.eligible.map((item) => `| ${pairLabel(item)} | ${item.opportunityScore} | ${item.scoreComponents?.evidence || 0} | ${item.scoreComponents?.intent || 0} | ${item.impressions || 0} | ${item.routeStatus || 'unknown'} |`),
+    ...report.eligible.map((item) => `| ${pairLabel(item)} | ${item.opportunityScore} | ${item.scoreBreakdown?.evidenceAvailability || 0} | ${item.scoreBreakdown?.searchIntent || 0} | ${item.impressions || 0} | ${item.routeStatus || 'unknown'} |`),
     '',
     '## Rejected / hold',
     '',
@@ -100,7 +105,7 @@ function renderMarkdown(report) {
 function main() {
   const source = loadJson(INPUT_PATH, null)
   if (!source?.opportunities) {
-    console.error('Missing ops/reports/comparison-opportunities-scored.json. Run comparison-opportunity-scoring.mjs first.')
+    console.error('Missing ops/reports/comparison-opportunities.json. Run comparison-opportunity-engine.mjs first.')
     process.exitCode = 1
     return
   }
@@ -110,6 +115,8 @@ function main() {
     generatedAt: new Date().toISOString(),
     sourceReport: path.relative(ROOT, INPUT_PATH),
     threshold: COMPARISON_USEFULNESS_THRESHOLD,
+    publicationPolicy: 'editorial-review-only',
+    autoPublishEnabled: false,
     eligible: queue.eligible,
     rejected: queue.rejected,
   }
