@@ -69,7 +69,7 @@ export default async function HerbsPage() {
         <p className="eyebrow-label">Botanical Research Library</p>
         <h1 className="heading-premium mt-5 max-w-4xl">Herb Profiles</h1>
         <p className="text-reading mt-4 max-w-3xl">
-          Mechanisms, safety notes, active compounds, and research context for published herbs — plain language, conservative claims.
+          Mechanisms, safety notes, active compounds, and research context for {herbs.length} herbs — plain language, conservative claims.
         </p>
 
         <dl className="mt-6 grid grid-cols-3 overflow-hidden rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_76%,transparent)] backdrop-blur-sm">
