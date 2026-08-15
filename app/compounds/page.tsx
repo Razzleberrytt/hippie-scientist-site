@@ -52,24 +52,43 @@ export default async function CompoundsPage() {
   const pageData = paginateItems(allCompounds, 1, COMPOUNDS_PAGE_SIZE)
   const leanCompounds = toLeanProfileIndexRecords(allCompounds)
   const leanPageItems = toLeanProfileIndexRecords(pageData.pageItems as RuntimeRecord[])
+  const heroMetrics = [
+    { value: allCompounds.length, label: 'profiles' },
+    { value: pageData.totalPages, label: 'index pages' },
+    { value: 'A–Z', label: 'searchable' },
+  ]
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:py-8">
-      {/* Hero */}
-      <section className="hero-shell rounded-[0.95rem] border border-brand-900/10 px-4 py-5 shadow-sm sm:px-6 sm:py-6">
-        <p className="eyebrow-label">Compound research library</p>
-        <h1 className="mt-2 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
-          Compound Library
-        </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
-          Mechanism, evidence strength, and safety context for bioactive molecules and supplement constituents.
+    <div className="mx-auto max-w-6xl space-y-6 px-4 py-4 sm:py-6">
+      <section className="hero-shell rounded-[2rem] border px-5 py-6 sm:p-8">
+        <p className="eyebrow-label">Compound Research Library</p>
+        <h1 className="heading-premium mt-5 max-w-4xl">Compound Library</h1>
+        <p className="text-reading mt-4 max-w-3xl">
+          Mechanism, evidence strength, and safety context for bioactive molecules and supplement constituents — evidence first, no hype.
         </p>
-        <p className="mt-2 text-sm font-semibold text-muted">Browsing {allCompounds.length} published compounds</p>
+
+        <dl className="mt-6 grid grid-cols-3 overflow-hidden rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_76%,transparent)] backdrop-blur-sm">
+          {heroMetrics.map((metric, index) => (
+            <div
+              key={metric.label}
+              className={`px-3 py-3.5 text-center sm:px-5 sm:py-4 ${index > 0 ? 'border-l border-[color:var(--hs-hairline)]' : ''}`}
+            >
+              <dt className="sr-only">{metric.label}</dt>
+              <dd>
+                <span className="block font-display text-2xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)] sm:text-[1.7rem]">
+                  {metric.value}
+                </span>
+                <span className="mt-1 block text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[color:var(--hs-body)] sm:text-[0.7rem] sm:tracking-[0.12em]">
+                  {metric.label}
+                </span>
+              </dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
       <Pagination basePath="/compounds" currentPage={1} totalPages={pageData.totalPages} itemLabel="Compound profiles" />
 
-      {/* SEO-crawlable index (hidden from visual users, served to Googlebot) */}
       <nav aria-label="Published compound profiles index" className="sr-only">
         <ul>
           {allCompounds.map((c) => (
@@ -80,7 +99,6 @@ export default async function CompoundsPage() {
         </ul>
       </nav>
 
-      {/* Client-side filtered + searchable compound grid */}
       <Suspense
         fallback={
           <div className="py-12 text-center text-sm text-muted">Loading compounds…</div>
