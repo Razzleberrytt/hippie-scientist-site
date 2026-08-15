@@ -16,6 +16,13 @@ const TIERS = [
   'Mechanistic Evidence',
 ] as const
 
+const GRADE_TO_TIER: Record<string, string> = {
+  A: 'Strong Human Evidence',
+  B: 'Moderate Human Evidence',
+  C: 'Limited Human Evidence',
+  D: 'Mechanistic Evidence',
+}
+
 const TIER_SHORT: Record<string, string> = {
   'Strong Human Evidence': 'Strong',
   'Moderate Human Evidence': 'Moderate',
@@ -23,9 +30,6 @@ const TIER_SHORT: Record<string, string> = {
   'Mechanistic Evidence': 'Mechanism',
 }
 
-/* Tier badges follow the site evidence palette (strong=green, moderate=blue,
-   limited=amber, mechanism-only=slate) using color families the dark-mode
-   overrides in globals.css already remap. */
 const TIER_BADGE: Record<string, string> = {
   'Strong Human Evidence': 'bg-emerald-50 border-emerald-200 text-emerald-800',
   'Moderate Human Evidence': 'bg-blue-50 border-blue-200 text-blue-800',
@@ -44,14 +48,10 @@ function CompoundRow({ compound }: { compound: LookupCompound }) {
   return (
     <Link
       href={`/compounds/${compound.slug}/`}
-      className="flex min-h-11 items-center justify-between gap-4 rounded-xl border border-brand-900/10 bg-white/70 px-4 py-2.5 transition hover:border-brand-700/30 hover:bg-white"
+      className='flex min-h-11 items-center justify-between gap-4 rounded-xl border border-brand-900/10 bg-white/70 px-4 py-2.5 transition hover:border-brand-700/30 hover:bg-white'
     >
-      <span className="truncate text-sm font-medium text-ink">{compound.name}</span>
-      <span
-        className={`shrink-0 rounded-full border px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.06em] ${
-          TIER_BADGE[compound.evidence_tier] || 'bg-slate-50 border-slate-200 text-slate-700'
-        }`}
-      >
+      <span className='truncate text-sm font-medium text-ink'>{compound.name}</span>
+      <span className={`shrink-0 rounded-full border px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.06em] ${TIER_BADGE[compound.evidence_tier] || 'bg-slate-50 border-slate-200 text-slate-700'}`}>
         {TIER_SHORT[compound.evidence_tier] || compound.evidence_tier}
       </span>
     </Link>
@@ -65,46 +65,56 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
 
   const byLetter = useMemo(() => {
     const groups: Record<string, LookupCompound[]> = {}
-    for (const c of compounds) {
-      const letter = c.name.charAt(0).toUpperCase()
+    for (const compound of compounds) {
+      const letter = compound.name.charAt(0).toUpperCase()
       if (!groups[letter]) groups[letter] = []
-      groups[letter].push(c)
+      groups[letter].push(compound)
     }
     return groups
   }, [compounds])
 
   const letters = useMemo(() => Object.keys(byLetter).sort(), [byLetter])
-
   const tierCounts = useMemo(() => {
     const counts: Record<string, number> = {}
-    for (const c of compounds) counts[c.evidence_tier] = (counts[c.evidence_tier] || 0) + 1
+    for (const compound of compounds) counts[compound.evidence_tier] = (counts[compound.evidence_tier] || 0) + 1
     return counts
   }, [compounds])
 
-  // Deep links (#letter-X) should land on an expanded section.
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const requestedGrade = params.get('grade')?.trim().toUpperCase() || ''
+    const requestedTier = params.get('tier')?.trim() || ''
+    const initialTier = GRADE_TO_TIER[requestedGrade]
+      || TIERS.find((candidate) => candidate.toLowerCase() === requestedTier.toLowerCase())
+      || null
+    const initialQuery = params.get('q')?.trim() || ''
+    if (initialTier) setTier(initialTier)
+    if (initialQuery) setQuery(initialQuery)
+
     const match = window.location.hash.match(/^#letter-(.)$/)
-    if (match) {
-      setOpenLetters((prev) => new Set(prev).add(match[1].toUpperCase()))
-    }
+    if (match) setOpenLetters((prev) => new Set(prev).add(match[1].toUpperCase()))
   }, [])
 
   const normalizedQuery = query.trim().toLowerCase()
   const filtering = normalizedQuery.length > 0 || tier !== null
-
   const matches = useMemo(() => {
     if (!filtering) return []
-    return compounds.filter(
-      (c) =>
-        (!normalizedQuery || c.name.toLowerCase().includes(normalizedQuery)) &&
-        (!tier || c.evidence_tier === tier),
-    )
+    return compounds.filter((compound) =>
+      (!normalizedQuery || compound.name.toLowerCase().includes(normalizedQuery))
+      && (!tier || compound.evidence_tier === tier))
   }, [compounds, filtering, normalizedQuery, tier])
 
-  const openLetter = (letter: string) => {
-    setOpenLetters((prev) => new Set(prev).add(letter))
+  const setFilterTier = (nextTier: string | null) => {
+    setTier(nextTier)
+    const params = new URLSearchParams(window.location.search)
+    params.delete('grade')
+    params.delete('tier')
+    if (nextTier) params.set('tier', nextTier)
+    const search = params.toString()
+    window.history.replaceState(null, '', `${window.location.pathname}${search ? `?${search}` : ''}${window.location.hash}`)
   }
 
+  const openLetter = (letter: string) => setOpenLetters((prev) => new Set(prev).add(letter))
   const toggleLetter = (letter: string, open: boolean) => {
     setOpenLetters((prev) => {
       const next = new Set(prev)
@@ -115,116 +125,62 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
   }
 
   return (
-    <div className="max-w-3xl space-y-6">
-      {/* Search + tier filter */}
-      <div className="space-y-3">
-        <label htmlFor="evidence-lookup-search" className="sr-only">
-          Search compounds by name
-        </label>
+    <div className='max-w-3xl space-y-6'>
+      <div className='space-y-3'>
+        <label htmlFor='evidence-lookup-search' className='sr-only'>Search compounds by name</label>
         <input
-          id="evidence-lookup-search"
-          type="search"
+          id='evidence-lookup-search'
+          type='search'
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search compounds by name…"
-          className="w-full rounded-xl border border-brand-900/15 bg-white px-4 py-3 text-sm text-ink shadow-sm placeholder:text-muted"
+          placeholder='Search compounds by name…'
+          className='w-full rounded-xl border border-brand-900/15 bg-white px-4 py-3 text-sm text-ink shadow-sm placeholder:text-muted'
         />
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by evidence tier">
-          <button
-            type="button"
-            onClick={() => setTier(null)}
-            aria-pressed={tier === null}
-            className={`min-h-9 rounded-full border px-3.5 py-1 text-xs font-semibold transition ${
-              tier === null
-                ? 'border-brand-700/40 bg-brand-50 text-brand-800'
-                : 'border-brand-900/10 bg-white/70 text-muted hover:border-brand-700/25 hover:text-ink'
-            }`}
-          >
+        <div className='flex flex-wrap gap-2' role='group' aria-label='Filter by evidence tier'>
+          <button type='button' onClick={() => setFilterTier(null)} aria-pressed={tier === null} className={`min-h-9 rounded-full border px-3.5 py-1 text-xs font-semibold transition ${tier === null ? 'border-brand-700/40 bg-brand-50 text-brand-800' : 'border-brand-900/10 bg-white/70 text-muted hover:border-brand-700/25 hover:text-ink'}`}>
             All ({compounds.length})
           </button>
-          {TIERS.map((t) => (
-            <button
-              key={t}
-              type="button"
-              onClick={() => setTier((current) => (current === t ? null : t))}
-              aria-pressed={tier === t}
-              className={`min-h-9 rounded-full border px-3.5 py-1 text-xs font-semibold transition ${
-                tier === t
-                  ? TIER_CHIP_ACTIVE[t]
-                  : 'border-brand-900/10 bg-white/70 text-muted hover:border-brand-700/25 hover:text-ink'
-              }`}
-            >
-              {TIER_SHORT[t]} ({tierCounts[t] || 0})
+          {TIERS.map((candidate) => (
+            <button key={candidate} type='button' onClick={() => setFilterTier(tier === candidate ? null : candidate)} aria-pressed={tier === candidate} className={`min-h-9 rounded-full border px-3.5 py-1 text-xs font-semibold transition ${tier === candidate ? TIER_CHIP_ACTIVE[candidate] : 'border-brand-900/10 bg-white/70 text-muted hover:border-brand-700/25 hover:text-ink'}`}>
+              {TIER_SHORT[candidate]} ({tierCounts[candidate] || 0})
             </button>
           ))}
         </div>
       </div>
 
       {filtering ? (
-        <section aria-label="Search results" className="space-y-3">
-          <p className="text-sm text-muted" role="status">
+        <section aria-label='Search results' className='space-y-3'>
+          <p className='text-sm text-muted' role='status'>
             {matches.length} of {compounds.length} compounds
             {normalizedQuery ? ` matching “${query.trim()}”` : ''}
             {tier ? ` with ${TIER_SHORT[tier].toLowerCase()} evidence` : ''}.
           </p>
-          {matches.length > 0 ? (
-            <div className="space-y-2">
-              {matches.map((compound) => (
-                <CompoundRow key={compound.slug} compound={compound} />
-              ))}
-            </div>
+          {matches.length ? (
+            <div className='space-y-2'>{matches.map((compound) => <CompoundRow key={compound.slug} compound={compound} />)}</div>
           ) : (
-            <div className="rounded-xl border border-brand-900/10 bg-white/70 px-4 py-6 text-sm text-muted">
-              No compounds match. Try a shorter name fragment or clear the tier filter.
-            </div>
+            <div className='rounded-xl border border-brand-900/10 bg-white/70 px-4 py-6 text-sm text-muted'>No compounds match. Try a shorter name fragment or clear the tier filter.</div>
           )}
         </section>
       ) : (
         <>
-          {/* Alphabet nav */}
-          <nav aria-label="Jump to letter" className="flex flex-wrap gap-1.5">
+          <nav aria-label='Jump to letter' className='flex flex-wrap gap-1.5'>
             {letters.map((letter) => (
-              <a
-                key={letter}
-                href={`#letter-${letter}`}
-                onClick={() => openLetter(letter)}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-brand-900/10 bg-white text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-brand-50"
-              >
+              <a key={letter} href={`#letter-${letter}`} onClick={() => openLetter(letter)} className='flex h-9 w-9 items-center justify-center rounded-lg border border-brand-900/10 bg-white text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-brand-50'>
                 {letter}
               </a>
             ))}
           </nav>
-
-          {/* Collapsible letter sections. All rows are server-rendered inside
-              (closed) details, so every compound link stays in the static HTML. */}
-          <div className="space-y-3">
+          <div className='space-y-3'>
             {letters.map((letter) => {
               const group = byLetter[letter]
               const isOpen = openLetters.has(letter)
               return (
-                <details
-                  key={letter}
-                  id={`letter-${letter}`}
-                  open={isOpen}
-                  onToggle={(event) => toggleLetter(letter, (event.target as HTMLDetailsElement).open)}
-                  className="scroll-mt-24"
-                >
-                  <summary className="flex items-center justify-between gap-4">
-                    <span>
-                      {letter}
-                      <span className="ml-2 text-sm font-normal text-muted">
-                        ({group.length} compound{group.length !== 1 ? 's' : ''})
-                      </span>
-                    </span>
-                    <span aria-hidden="true" className={`text-muted transition-transform ${isOpen ? 'rotate-180' : ''}`}>
-                      v
-                    </span>
+                <details key={letter} id={`letter-${letter}`} open={isOpen} onToggle={(event) => toggleLetter(letter, (event.target as HTMLDetailsElement).open)} className='scroll-mt-24'>
+                  <summary className='flex items-center justify-between gap-4'>
+                    <span>{letter}<span className='ml-2 text-sm font-normal text-muted'>({group.length} compound{group.length !== 1 ? 's' : ''})</span></span>
+                    <span aria-hidden='true' className={`text-muted transition-transform ${isOpen ? 'rotate-180' : ''}`}>v</span>
                   </summary>
-                  <div className="space-y-2">
-                    {group.map((compound) => (
-                      <CompoundRow key={compound.slug} compound={compound} />
-                    ))}
-                  </div>
+                  <div className='space-y-2'>{group.map((compound) => <CompoundRow key={compound.slug} compound={compound} />)}</div>
                 </details>
               )
             })}
