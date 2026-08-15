@@ -1,0 +1,55 @@
+name: Performance Monitor
+
+on:
+  schedule:
+    - cron: '23 10 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cloudflare-cache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Measure Cloudflare cache hit rate
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CF_ANALYTICS_HOSTNAME: thehippiescientist.net
+        run: node scripts/performance/cloudflare-cache-report.mjs
+
+      - name: Upload cache report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: cloudflare-cache-${{ github.run_number }}
+          path: reports/cloudflare-cache-report.json
+          if-no-files-found: ignore
+          retention-days: 90
+
+      - name: Add summary
+        if: always()
+        run: |
+          echo '## Cloudflare cache monitoring' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/cloudflare-cache-report.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('reports/cloudflare-cache-report.json', 'utf8'))
+          console.log(`- Status: ${r.status}`)
+          if (r.cacheHitRate != null) console.log(`- Cache-served request ratio: ${(r.cacheHitRate * 100).toFixed(1)}%`)
+          if (r.totalRequests != null) console.log(`- Requests sampled: ${r.totalRequests}`)
+          if (r.reason) console.log(`- Note: ${r.reason}`)
+          NODE
+          else
+            echo '- No report generated' >> "$GITHUB_STEP_SUMMARY"
+          fi
