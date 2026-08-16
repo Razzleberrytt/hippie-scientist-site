@@ -82,7 +82,7 @@ describe('public evidence dataset', () => {
     expect(dataset.metrics.ingredientsWithSafetyCautions).toBe(1)
   })
 
-  it('does not fabricate independence metrics or coverage in the pure record builder', () => {
+  it('does not fabricate independence metrics or topology coverage in the pure record builder', () => {
     const dataset = buildPublicEvidenceDatasetFromRecords([
       { type: 'herb', record: record({ slug: 'alpha' }) },
     ])
@@ -90,6 +90,10 @@ describe('public evidence dataset', () => {
     expect(PUBLIC_EVIDENCE_DATASET_VERSION).toBe('2026.08.16')
     expect(dataset.metrics).toMatchObject({
       underlyingStudyMetricsSource: null,
+      researchTopologyRequestedProfiles: null,
+      researchTopologyMatchedProfiles: null,
+      researchTopologyMissingProfiles: null,
+      researchTopologyProfileCoverage: null,
       globalInventoryPublicationCount: null,
       globalInventoryUnderlyingStudyCount: null,
       globalCollapsedInventoryPublicationCount: null,
