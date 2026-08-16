@@ -42,6 +42,7 @@ import '@/styles/premium-foundation.css'
 import '@/styles/premium-surfaces.css'
 import '@/styles/premium-typography.css'
 import '@/styles/homepage-premium-final.css'
+import '@/styles/visual-system-consolidation.css'
 
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 const WEBSITE_ID = `${SITE_URL}/#website`
