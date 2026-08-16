@@ -9,6 +9,7 @@ on:
       - 'lib/**'
       - 'public/data/**'
       - 'data/evidence/**'
+      - 'data/media/**'
       - 'scripts/ci/audit-schema-policy.mjs'
       - 'scripts/ci/audit-structured-data.mjs'
       - 'scripts/media/**'
@@ -21,6 +22,7 @@ on:
       - 'lib/**'
       - 'public/data/**'
       - 'data/evidence/**'
+      - 'data/media/**'
       - 'scripts/ci/audit-schema-policy.mjs'
       - 'scripts/ci/audit-structured-data.mjs'
       - 'scripts/media/**'
@@ -58,6 +60,8 @@ jobs:
         run: node scripts/ci/audit-schema-policy.mjs
       - name: Generate review-only research graphics
         run: node scripts/media/build-research-graphics.mjs
+      - name: Validate graphic promotion registry
+        run: node scripts/media/promote-reviewed-research-graphics.mjs --check
       - name: Upload reports and graphics for review
         if: always()
         uses: actions/upload-artifact@v7
