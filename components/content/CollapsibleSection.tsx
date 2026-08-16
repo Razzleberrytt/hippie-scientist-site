@@ -21,15 +21,15 @@ export default function CollapsibleSection({
   const [open, setOpen] = useState(defaultOpen)
 
   const variants = {
-    warning: 'border-2 border-amber-500/40 bg-amber-50 shadow-sm ring-1 ring-amber-500/10 dark:border-amber-500/25 dark:bg-amber-950/30',
-    info: 'border-2 border-brand-600/30 bg-brand-50 shadow-sm ring-1 ring-brand-600/10 dark:border-brand-500/25 dark:bg-brand-950/30',
-    section: 'border-2 border-brand-900/15 bg-white shadow-sm ring-1 ring-brand-900/5 dark:border-white/15 dark:bg-white/5',
+    warning: 'rounded-xl border border-amber-500/35 bg-amber-50/80 shadow-sm dark:border-amber-500/25 dark:bg-amber-950/25',
+    info: 'border-y border-[color:color-mix(in_srgb,var(--tone)_26%,transparent)] bg-[color:color-mix(in_srgb,var(--tone)_7%,transparent)]',
+    section: 'border-y border-[color:var(--hs-hairline-strong)] bg-transparent',
   }
 
   const headerVariants = {
-    warning: 'text-amber-900 dark:text-amber-200 hover:bg-amber-100/60 dark:hover:bg-amber-900/30',
-    info: 'text-brand-900 dark:text-brand-200 hover:bg-brand-100/40 dark:hover:bg-brand-900/30',
-    section: 'text-ink hover:bg-brand-50/40 dark:hover:bg-white/10',
+    warning: 'text-amber-900 dark:text-amber-200 hover:bg-amber-100/45 dark:hover:bg-amber-900/20',
+    info: 'text-[color:var(--hs-ink)] hover:text-[color:var(--tone-ink)]',
+    section: 'text-[color:var(--hs-ink)] hover:text-[color:var(--tone-ink)]',
   }
 
   const iconMap = {
@@ -38,22 +38,24 @@ export default function CollapsibleSection({
     section: '',
   }
 
+  const contentBorder = variant === 'warning'
+    ? 'border-amber-500/20'
+    : 'border-[color:var(--hs-hairline)]'
+
   return (
-    <div className={`my-5 overflow-hidden rounded-xl border ${variants[variant]} ${className}`}>
+    <div className={`my-5 overflow-hidden ${variants[variant]} ${className}`}>
       <button
         type="button"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
-        className={`flex w-full items-center justify-between gap-3 px-5 py-3.5 text-left font-semibold transition-colors ${
-          headerVariants[variant]
-        } ${open ? 'rounded-none' : 'rounded-xl'}`}
+        className={`flex min-h-12 w-full items-center justify-between gap-3 px-4 py-3.5 text-left font-semibold transition-colors sm:px-5 ${headerVariants[variant]}`}
       >
         <span className="flex items-center gap-2">
           {iconMap[variant] && <span aria-hidden="true">{iconMap[variant]}</span>}
           {title}
         </span>
         <svg
-          className={`size-4 flex-shrink-0 text-muted transition-transform ${open ? 'rotate-180' : ''}`}
+          className={`size-4 shrink-0 text-[color:var(--hs-body)] transition-transform ${open ? 'rotate-180' : ''}`}
           viewBox="0 0 16 16"
           fill="none"
           stroke="currentColor"
@@ -64,7 +66,7 @@ export default function CollapsibleSection({
         </svg>
       </button>
       {open && (
-        <div className="border-t border-brand-900/10 px-5 pb-4 pt-3 text-sm leading-7 text-muted dark:border-white/10">
+        <div className={`border-t ${contentBorder} px-4 pb-5 pt-4 text-sm leading-7 text-[color:var(--hs-body)] sm:px-5`}>
           {children}
         </div>
       )}
@@ -72,7 +74,7 @@ export default function CollapsibleSection({
   )
 }
 
-/** Pre-configured safety warning — collapsed by default, amber styling */
+/** Pre-configured safety warning — collapsed by default, amber styling. */
 export function CollapsibleWarning({ title = 'Important Safety Information', children }: Omit<Props, 'variant' | 'defaultOpen'>) {
   return (
     <CollapsibleSection title={title} variant="warning" defaultOpen={false}>
@@ -81,7 +83,7 @@ export function CollapsibleWarning({ title = 'Important Safety Information', chi
   )
 }
 
-/** Pre-configured for collapsible content sections — open by default */
+/** Pre-configured for collapsible content sections — collapsed by default. */
 export function CollapsibleDetails({ title = 'Details', children, defaultOpen = false }: Omit<Props, 'variant'>) {
   return (
     <CollapsibleSection title={title} variant="section" defaultOpen={defaultOpen}>
