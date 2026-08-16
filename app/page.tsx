@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import HomepageV2 from '@/components/homepage-v2'
-import HomepageDecisionShortcuts from '@/components/HomepageDecisionShortcuts'
-import NewsletterSignup from '@/components/NewsletterSignup'
 import { buildPageMetadata } from '../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -25,13 +23,5 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default function Page() {
-  return (
-    <>
-      <HomepageV2 />
-      <div className='mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-16 lg:px-10'>
-        <NewsletterSignup location='homepage-editorial' variant='editorial' />
-      </div>
-      <HomepageDecisionShortcuts />
-    </>
-  )
+  return <HomepageV2 />
 }
