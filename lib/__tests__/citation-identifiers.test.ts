@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  buildCitationIdentifierIdentityMap,
+  canonicalCitationIdentifier,
   citationCompleteness,
   citationIdentifiers,
   citationUrl,
@@ -73,8 +75,45 @@ describe('citationIdentifiers', () => {
     ])
   })
 
-  it('keeps every valid PMID alias from a packed source cell', () => {
+  it('keeps every valid PMID from a packed source cell without calling them one study', () => {
     expect(citationIdentifiers({ pmid: '15070181; 22167571' })).toEqual(['pmid:15070181', 'pmid:22167571'])
+  })
+})
+
+describe('canonical citation identifier aliases', () => {
+  it('uses one DOI+PMID bridge to collapse DOI-only and PMID-only representations', () => {
+    const sources = [
+      { doi: '10.1000/XYZ123' },
+      { doi: 'https://doi.org/10.1000/xyz123', pmid: '34559859' },
+      { pmid: '34559859' },
+    ]
+    const identities = buildCitationIdentifierIdentityMap(sources)
+
+    expect(identities.get('doi:10.1000/xyz123')).toBe('doi:10.1000/xyz123')
+    expect(identities.get('pmid:34559859')).toBe('doi:10.1000/xyz123')
+    expect(sources.map((source) => canonicalCitationIdentifier(source, identities))).toEqual([
+      'doi:10.1000/xyz123',
+      'doi:10.1000/xyz123',
+      'doi:10.1000/xyz123',
+    ])
+  })
+
+  it('never unions multiple PMIDs merely because they appeared in one packed row', () => {
+    const identities = buildCitationIdentifierIdentityMap([{ pmid: '15070181; 22167571' }])
+
+    expect(identities.get('pmid:15070181')).toBe('pmid:15070181')
+    expect(identities.get('pmid:22167571')).toBe('pmid:22167571')
+  })
+
+  it('does not guess which packed PMID an ambiguous DOI belongs to', () => {
+    const identities = buildCitationIdentifierIdentityMap([{
+      doi: '10.1000/ambiguous',
+      pmid: '15070181; 22167571',
+    }])
+
+    expect(identities.get('doi:10.1000/ambiguous')).toBe('doi:10.1000/ambiguous')
+    expect(identities.get('pmid:15070181')).toBe('pmid:15070181')
+    expect(identities.get('pmid:22167571')).toBe('pmid:22167571')
   })
 })
 
