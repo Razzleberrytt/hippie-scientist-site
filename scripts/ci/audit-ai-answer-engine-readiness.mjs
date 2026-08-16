@@ -95,7 +95,7 @@ function auditMachineReadable() {
       const parsed = JSON.parse(text(MANIFEST))
       const serialized = JSON.stringify(parsed)
       if (!serialized.includes('herb') || !serialized.includes('compound')) add('warn', 'entity-data', 'entity manifest may not expose both herb and compound collections')
-      if (statSync(MANIFEST).size < 100) add('error', 'entity-data', 'entity manifest is unexpectedly small')
+      if (statSync(MANIFEST).size < 100) add('error', 'entity-data', 'AI entity manifest is unexpectedly small')
     } catch {
       add('error', 'entity-data', 'AI entity manifest is not valid JSON')
     }
@@ -286,6 +286,8 @@ function auditLegacyGuideFaqPrimitives() {
     ['id="frequently-asked-questions"', 'stable visible FAQ anchor'],
     ['data-visible-faq="true"', 'visible FAQ marker'],
     ['questions.map((faq)', 'shared visible FAQ rendering'],
+    ['href="#references"', 'FAQ source-ledger verification target'],
+    ['data-citation-sources="true"', 'FAQ source-verification marker'],
     ['href="#frequently-asked-questions"', 'durable FAQ self-link'],
   ])
 
