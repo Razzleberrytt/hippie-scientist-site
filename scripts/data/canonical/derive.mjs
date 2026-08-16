@@ -42,31 +42,11 @@ export function normalizeAlias(value) {
     .trim()
 }
 
-// ---- user-facing text hygiene (mirrors build-runtime-from-workbook.mjs) ----
-
-const USER_FACING_LEAK_PATTERNS = [
-  /is linked here to/i,
-  /lean herb row|lean monograph row/i,
-  /high.speed phytochemical/i,
-  /internal cross-linking supports/i,
-  /\bis tracked for\b/i,
-  /it is best framed (as|around|for)/i,
-  /decision-ready summary/i,
-  /evidence level:/i,
-  /scispace evidence pass|evidence pass/i,
-  /enriched in bulk|bulk mode/i,
-]
-
-export function isLeakedUserFacingText(value) {
-  const text = clean(value)
-  return Boolean(text && USER_FACING_LEAK_PATTERNS.some((pattern) => pattern.test(text)))
-}
-
-export function cleanUserFacingText(value, fallback) {
-  const text = clean(value)
-  if (!text || isLeakedUserFacingText(text)) return fallback
-  return text
-}
+// ---- user-facing text hygiene ----
+// Patterns and behaviour live in lib/editorial-leak.mjs so this pipeline and
+// build-runtime-from-workbook.mjs cannot drift apart; this file previously
+// carried a duplicate literal list marked "mirrors build-runtime-from-workbook".
+export { isLeakedUserFacingText, cleanUserFacingText } from '../../../lib/editorial-leak.mjs'
 
 // ---- mechanism taxonomy + normalization ----
 

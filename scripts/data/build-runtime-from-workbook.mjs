@@ -15,6 +15,7 @@ import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
 import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
 import { getClusterMemberRuntimeTrustRecord } from '../../config/cluster-member-runtime-trust.mjs'
 import { scoreIndexability } from './indexability-policy.mjs'
+import { cleanUserFacingText } from '../../lib/editorial-leak.mjs'
 import { validateEvidenceEnginePayload } from './evidence-engine-validation.mjs'
 import { getEvidenceEngineGoalConfigs, normalizeEvidenceProblemKey } from './evidence-engine-goals.mjs'
 import { deriveInteractionData, validate as validateInteractionData } from './build-interaction-data.mjs'
@@ -226,30 +227,6 @@ function num(v) {
 
 function compact(v) {
   return clean(v).replace(/\s+/g, ' ').trim()
-}
-
-const USER_FACING_LEAK_PATTERNS = [
-  /is linked here to/i,
-  /lean herb row|lean monograph row/i,
-  /high.speed phytochemical/i,
-  /internal cross-linking supports/i,
-  /\bis tracked for\b/i,
-  /it is best framed (as|around|for)/i,
-  /decision-ready summary/i,
-  /evidence level:/i,
-  /scispace evidence pass|evidence pass/i,
-  /enriched in bulk|bulk mode/i,
-]
-
-function isLeakedUserFacingText(value) {
-  const text = compact(value)
-  return Boolean(text && USER_FACING_LEAK_PATTERNS.some((pattern) => pattern.test(text)))
-}
-
-function cleanUserFacingText(value, fallback) {
-  const text = compact(value)
-  if (!text || isLeakedUserFacingText(text)) return fallback
-  return text
 }
 
 function profileTextFallback(name, type) {

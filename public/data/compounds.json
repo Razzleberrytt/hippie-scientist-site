@@ -126,8 +126,8 @@
   {
     "slug": "23-epi-26-deoxyactein",
     "name": "23-epi-26-deoxyactein",
-    "summary": "23-epi-26-deoxyactein compound profile with evidence, safety, and practical fit.",
-    "description": "23-epi-26-deoxyactein compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [],
     "primary_effects": [],
     "mechanisms": [
@@ -332,8 +332,8 @@
   {
     "slug": "acarbose",
     "name": "Acarbose",
-    "summary": "Acarbose compound profile with evidence, safety, and practical fit.",
-    "description": "Acarbose compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "Metabolic Health",
       "Inflammation",
@@ -431,7 +431,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -440,7 +440,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -579,8 +579,8 @@
   {
     "slug": "acetate",
     "name": "acetate",
-    "summary": "acetate compound profile with evidence, safety, and practical fit.",
-    "description": "acetate compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
     "effects": [
       "glucose_AMPK"
     ],
@@ -1204,8 +1204,8 @@
   {
     "slug": "actein",
     "name": "Actein",
-    "summary": "Actein compound profile with evidence, safety, and practical fit.",
-    "description": "Actein compound profile with evidence, safety, and practical fit.",
+    "summary": "Actein is a triterpene glycoside associated with black cohosh.",
+    "description": "Actein is a triterpene glycoside associated with black cohosh.",
     "effects": [],
     "primary_effects": [],
     "mechanisms": [
@@ -2292,8 +2292,8 @@
   {
     "slug": "alkylamides",
     "name": "Alkylamides",
-    "summary": "Alkylamides compound profile with evidence, safety, and practical fit.",
-    "description": "Alkylamides compound profile with evidence, safety, and practical fit.",
+    "summary": "Alkylamides is a fatty acid amides associated with echinacea-purpurea.",
+    "description": "Alkylamides is a fatty acid amides associated with echinacea-purpurea.",
     "effects": [
       "CB2 receptor"
     ],
@@ -2400,8 +2400,8 @@
   {
     "slug": "allicin",
     "name": "Allicin",
-    "summary": "Allicin compound profile with evidence, safety, and practical fit.",
-    "description": "Allicin compound profile with evidence, safety, and practical fit.",
+    "summary": "Allicin is a organosulfur compound associated with garlic.",
+    "description": "Allicin is a organosulfur compound associated with garlic.",
     "effects": [
       "oxidative pathways"
     ],
@@ -7174,8 +7174,8 @@
   {
     "slug": "banaba-leaf-extract",
     "name": "Banaba Leaf Extract",
-    "summary": "Banaba Leaf Extract compound profile with evidence, safety, and practical fit.",
-    "description": "Banaba Leaf Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed.",
     "effects": [
       "Metabolic Health",
       "Oxidative Stress",
@@ -8253,8 +8253,8 @@
   {
     "slug": "bhb",
     "name": "beta- hydroxybutyrate",
-    "summary": "beta- hydroxybutyrate compound profile with evidence, safety, and practical fit.",
-    "description": "beta- hydroxybutyrate compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "HDAC AMPK"
     ],
@@ -8596,8 +8596,8 @@
   {
     "slug": "beta-ecdysterone",
     "name": "beta-ecdysterone",
-    "summary": "beta-ecdysterone compound profile with evidence, safety, and practical fit.",
-    "description": "beta-ecdysterone compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "PI3K Akt"
     ],
@@ -10624,8 +10624,8 @@
   {
     "slug": "black-seed-oil",
     "name": "Black Seed Oil",
-    "summary": "Black Seed Oil compound profile with evidence, safety, and practical fit.",
-    "description": "Black Seed Oil compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "Oxidative Stress",
       "Metabolic Health",
@@ -10724,7 +10724,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -10733,7 +10733,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -11208,8 +11208,8 @@
   {
     "slug": "boswellic-acids",
     "name": "boswellic acids",
-    "summary": "boswellic acids compound profile with evidence, safety, and practical fit.",
-    "description": "boswellic acids compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "5- LOX"
     ],
@@ -11789,8 +11789,8 @@
   {
     "slug": "butyrate",
     "name": "butyrate",
-    "summary": "butyrate compound profile with evidence, safety, and practical fit.",
-    "description": "butyrate compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "HDAC inhibition"
     ],
@@ -12669,8 +12669,8 @@
   {
     "slug": "calcium-d-glucarate",
     "name": "calcium d-glucarate",
-    "summary": "calcium d-glucarate compound profile with evidence, safety, and practical fit.",
-    "description": "calcium d-glucarate compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "beta-glucuronidase"
     ],
@@ -13029,8 +13029,8 @@
   {
     "slug": "capsaicin",
     "name": "Capsaicin",
-    "summary": "Capsaicin compound profile with evidence, safety, and practical fit.",
-    "description": "Capsaicin compound profile with evidence, safety, and practical fit.",
+    "summary": "Capsaicin is a capsaicinoid associated with chili peppers.",
+    "description": "Capsaicin is a capsaicinoid associated with chili peppers.",
     "effects": [
       "TRPV1 receptor"
     ],
@@ -15590,8 +15590,8 @@
   {
     "slug": "chromium-picolinate",
     "name": "chromium picolinate",
-    "summary": "chromium picolinate compound profile with evidence, safety, and practical fit.",
-    "description": "chromium picolinate compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "insulin receptor"
     ],
@@ -15698,8 +15698,8 @@
   {
     "slug": "cimifugoside",
     "name": "Cimifugoside",
-    "summary": "Cimifugoside compound profile with evidence, safety, and practical fit.",
-    "description": "Cimifugoside compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [],
     "primary_effects": [],
     "mechanisms": [
@@ -16516,8 +16516,8 @@
   {
     "slug": "coconut-oil",
     "name": "Coconut Oil",
-    "summary": "Coconut Oil compound profile with evidence, safety, and practical fit.",
-    "description": "Coconut Oil compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human.",
     "effects": [
       "Metabolic Health",
       "Cardiovascular Health",
@@ -17819,8 +17819,8 @@
   {
     "slug": "cordycepin",
     "name": "cordycepin",
-    "summary": "cordycepin compound profile with evidence, safety, and practical fit.",
-    "description": "cordycepin compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "AMPK"
     ],
@@ -18053,8 +18053,8 @@
   {
     "slug": "cordyceps-militaris",
     "name": "cordyceps militaris",
-    "summary": "cordyceps militaris compound profile with evidence, safety, and practical fit.",
-    "description": "cordyceps militaris compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "ATP synthesis"
     ],
@@ -18142,7 +18142,7 @@
       "non-publishable-profile-status",
       "profile-status:research_only",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -21937,8 +21937,8 @@
   {
     "slug": "dim",
     "name": "diindolylmethane",
-    "summary": "diindolylmethane compound profile with evidence, safety, and practical fit.",
-    "description": "diindolylmethane compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "CYP1A1 CYP1B1"
     ],
@@ -22927,8 +22927,8 @@
   {
     "slug": "egcg-caffeine",
     "name": "EGCG + Caffeine",
-    "summary": "EGCG + Caffeine compound profile with evidence, safety, and practical fit.",
-    "description": "EGCG + Caffeine compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "stimulant_CNS",
       "glucose_AMPK"
@@ -23026,7 +23026,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23035,7 +23035,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -25271,8 +25271,8 @@
   {
     "slug": "exogenous-ketones",
     "name": "exogenous ketones",
-    "summary": "exogenous ketones compound profile with evidence, safety, and practical fit.",
-    "description": "exogenous ketones compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "BHB energy metabolism"
     ],
@@ -25950,8 +25950,8 @@
   {
     "slug": "fenugreek-extract",
     "name": "Fenugreek Extract",
-    "summary": "Fenugreek Extract compound profile with evidence, safety, and practical fit.",
-    "description": "Fenugreek Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "Metabolic Health",
       "Hormonal Health",
@@ -26048,7 +26048,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -26057,7 +26057,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -26930,8 +26930,8 @@
   {
     "slug": "fos",
     "name": "Fructooligosaccharides",
-    "summary": "Fructooligosaccharides compound profile with evidence, safety, and practical fit.",
-    "description": "Fructooligosaccharides compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "Digestive Health"
     ],
@@ -27037,8 +27037,8 @@
   {
     "slug": "fucoxanthin",
     "name": "Fucoxanthin",
-    "summary": "Fucoxanthin compound profile with evidence, safety, and practical fit.",
-    "description": "Fucoxanthin compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "UCP1",
       "fat oxidation"
@@ -27128,7 +27128,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -27137,7 +27137,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -27158,8 +27158,8 @@
   {
     "slug": "fukinolic-acid",
     "name": "Fukinolic acid",
-    "summary": "Fukinolic acid compound profile with evidence, safety, and practical fit.",
-    "description": "Fukinolic acid compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [],
     "primary_effects": [],
     "mechanisms": [
@@ -27910,8 +27910,8 @@
   {
     "slug": "garcinia-cambogia-extract",
     "name": "Garcinia Cambogia Extract",
-    "summary": "Garcinia Cambogia Extract compound profile with evidence, safety, and practical fit.",
-    "description": "Garcinia Cambogia Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "ATP citrate lyase"
     ],
@@ -28786,8 +28786,8 @@
   {
     "slug": "gingerol",
     "name": "gingerol",
-    "summary": "gingerol compound profile with evidence, safety, and practical fit.",
-    "description": "gingerol compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "COX-2 PGE2"
     ],
@@ -28868,7 +28868,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -28877,7 +28877,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -29905,8 +29905,8 @@
   {
     "slug": "ginsenosides",
     "name": "Ginsenosides",
-    "summary": "Ginsenosides compound profile with evidence, safety, and practical fit.",
-    "description": "Ginsenosides compound profile with evidence, safety, and practical fit.",
+    "summary": "Ginsenosides is a triterpenoid saponins associated with ginseng.",
+    "description": "Ginsenosides is a triterpenoid saponins associated with ginseng.",
     "effects": [
       "NO pathways",
       "HPA axis"
@@ -34429,8 +34429,8 @@
   {
     "slug": "icariin",
     "name": "icariin",
-    "summary": "icariin compound profile with evidence, safety, and practical fit.",
-    "description": "icariin compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "PDE5 NO"
     ],
@@ -34764,8 +34764,8 @@
   {
     "slug": "indole-3-carbinol",
     "name": "Indole-3-carbinol",
-    "summary": "Indole-3-carbinol compound profile with evidence, safety, and practical fit.",
-    "description": "Indole-3-carbinol compound profile with evidence, safety, and practical fit.",
+    "summary": "Indole-3-carbinol is a indole compound associated with cruciferous vegetables.",
+    "description": "Indole-3-carbinol is a indole compound associated with cruciferous vegetables.",
     "effects": [
       "estrogen receptors",
       "CYP enzymes",
@@ -39205,8 +39205,8 @@
   {
     "slug": "lithium-orotate",
     "name": "Lithium Orotate",
-    "summary": "Lithium orotate provides lithium ions, but robust human evidence for this salt form is lacking. Safety concerns should be framed from lithium's narrow therapeutic window and kidney/thyroid risk.",
-    "description": "Lithium orotate provides lithium ions, but robust human evidence for this salt form is lacking. Safety concerns should be framed from lithium's narrow therapeutic window and kidney/thyroid risk.",
+    "summary": "Lithium orotate provides lithium ions, but robust human evidence for this salt form is lacking.",
+    "description": "Lithium orotate provides lithium ions, but robust human evidence for this salt form is lacking.",
     "effects": [
       "inositol signaling",
       "GSK-3",
@@ -40029,8 +40029,8 @@
   {
     "slug": "macamides",
     "name": "Macamides",
-    "summary": "Macamides compound profile with evidence, safety, and practical fit.",
-    "description": "Macamides compound profile with evidence, safety, and practical fit.",
+    "summary": "Macamides is a fatty acid amides associated with maca.",
+    "description": "Macamides is a fatty acid amides associated with maca.",
     "effects": [
       "endocannabinoid-related pathways"
     ],
@@ -42319,8 +42319,8 @@
   {
     "slug": "menthol",
     "name": "Menthol",
-    "summary": "Menthol compound profile with evidence, safety, and practical fit.",
-    "description": "Menthol compound profile with evidence, safety, and practical fit.",
+    "summary": "Menthol is a monoterpene associated with peppermint.",
+    "description": "Menthol is a monoterpene associated with peppermint.",
     "effects": [
       "TRPM8",
       "calcium channels"
@@ -45827,8 +45827,8 @@
   {
     "slug": "nicotinamide-riboside",
     "name": "Nicotinamide riboside",
-    "summary": "Nicotinamide riboside compound profile with evidence, safety, and practical fit.",
-    "description": "Nicotinamide riboside compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "Mitochondrial Health",
       "Longevity",
@@ -48045,8 +48045,8 @@
   {
     "slug": "ornithine",
     "name": "ornithine",
-    "summary": "ornithine compound profile with evidence, safety, and practical fit.",
-    "description": "ornithine compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "sleep_GABA"
     ],
@@ -49532,8 +49532,8 @@
   {
     "slug": "pantethine",
     "name": "Pantethine",
-    "summary": "Pantethine is a coenzyme A precursor studied for modest lipid improvements. Evidence is limited to small human trials and should be framed conservatively.",
-    "description": "Pantethine is a coenzyme A precursor studied for modest lipid improvements. Evidence is limited to small human trials and should be framed conservatively.",
+    "summary": "Pantethine is a coenzyme A precursor studied for modest lipid improvements.",
+    "description": "Pantethine is a coenzyme A precursor studied for modest lipid improvements.",
     "effects": [
       "CoA metabolism",
       "lipid metabolism"
@@ -50526,8 +50526,8 @@
   {
     "slug": "phosphatidic-acid",
     "name": "phosphatidic acid",
-    "summary": "phosphatidic acid compound profile with evidence, safety, and practical fit.",
-    "description": "phosphatidic acid compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "mTOR"
     ],
@@ -51822,8 +51822,8 @@
   {
     "slug": "pregnenolone",
     "name": "Pregnenolone",
-    "summary": "Pregnenolone is a neurosteroid precursor with limited human trial evidence in mood, substance-use, and psychiatric contexts; it should be framed as experimental rather than a general cognition or hormone-optimization supplement.",
-    "description": "Pregnenolone is a neurosteroid precursor with limited human trial evidence in mood, substance-use, and psychiatric contexts; it should be framed as experimental rather than a general cognition or hormone-optimization supplement.",
+    "summary": "Pregnenolone compound profile with evidence, safety, and practical fit.",
+    "description": "Pregnenolone compound profile with evidence, safety, and practical fit.",
     "effects": [
       "mood",
       "research_only"
@@ -51930,8 +51930,8 @@
   {
     "slug": "proanthocyanidins",
     "name": "Proanthocyanidins",
-    "summary": "Proanthocyanidins compound profile with evidence, safety, and practical fit.",
-    "description": "Proanthocyanidins compound profile with evidence, safety, and practical fit.",
+    "summary": "Proanthocyanidins is a polyphenols associated with cranberry.",
+    "description": "Proanthocyanidins is a polyphenols associated with cranberry.",
     "effects": [
       "E. coli adhesion pathways"
     ],
@@ -52028,8 +52028,8 @@
   {
     "slug": "probiotic-multistrain",
     "name": "Probiotic Multistrain",
-    "summary": "Probiotic Multistrain compound profile with evidence, safety, and practical fit.",
-    "description": "Probiotic Multistrain compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed.",
     "effects": [
       "Digestive Health",
       "Immune Function"
@@ -52113,7 +52113,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -52122,7 +52122,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -52517,8 +52517,8 @@
   {
     "slug": "proline",
     "name": "proline",
-    "summary": "proline compound profile with evidence, safety, and practical fit.",
-    "description": "proline compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
     "effects": [
       "involved in collagen synthesis and connective tissue repair"
     ],
@@ -52620,8 +52620,8 @@
   {
     "slug": "propionate",
     "name": "propionate",
-    "summary": "propionate compound profile with evidence, safety, and practical fit.",
-    "description": "propionate compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
     "effects": [
       "glucose_AMPK"
     ],
@@ -52729,8 +52729,8 @@
   {
     "slug": "protodioscin",
     "name": "Protodioscin",
-    "summary": "Protodioscin compound profile with evidence, safety, and practical fit.",
-    "description": "Protodioscin compound profile with evidence, safety, and practical fit.",
+    "summary": "Protodioscin is a steroidal saponin associated with tribulus.",
+    "description": "Protodioscin is a steroidal saponin associated with tribulus.",
     "effects": [
       "androgen pathways"
     ],
@@ -53702,8 +53702,8 @@
   {
     "slug": "putrescine",
     "name": "putrescine",
-    "summary": "putrescine compound profile with evidence, safety, and practical fit.",
-    "description": "putrescine compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
     "effects": [
       "Cardiovascular Health",
       "Digestive Health",
@@ -55656,8 +55656,8 @@
   {
     "slug": "saffron-extract",
     "name": "Saffron Extract",
-    "summary": "Saffron Extract compound profile with evidence, safety, and practical fit.",
-    "description": "Saffron Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "Oxidative Stress",
       "Inflammation",
@@ -55757,7 +55757,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -55766,7 +55766,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -57004,8 +57004,8 @@
   {
     "slug": "schisandrins",
     "name": "Schisandrins",
-    "summary": "Schisandrins compound profile with evidence, safety, and practical fit.",
-    "description": "Schisandrins compound profile with evidence, safety, and practical fit.",
+    "summary": "Schisandrins is a lignans associated with schisandra.",
+    "description": "Schisandrins is a lignans associated with schisandra.",
     "effects": [
       "liver enzymes",
       "antioxidant pathways"
@@ -57611,8 +57611,8 @@
   {
     "slug": "serine",
     "name": "serine",
-    "summary": "serine compound profile with evidence, safety, and practical fit.",
-    "description": "serine compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "supports phosphatidylserine synthesis and neuronal membrane function"
     ],
@@ -58172,8 +58172,8 @@
   {
     "slug": "shogaol",
     "name": "shogaol",
-    "summary": "shogaol compound profile with evidence, safety, and practical fit.",
-    "description": "shogaol compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "NF-kB"
     ],
@@ -59523,8 +59523,8 @@
   {
     "slug": "spermidine",
     "name": "spermidine",
-    "summary": "spermidine compound profile with evidence, safety, and practical fit.",
-    "description": "spermidine compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "mTOR autophagy"
     ],
@@ -59638,8 +59638,8 @@
   {
     "slug": "spirulina",
     "name": "Spirulina",
-    "summary": "Spirulina compound profile with evidence, safety, and practical fit.",
-    "description": "Spirulina compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "Oxidative Stress",
       "Metabolic Health",
@@ -59739,7 +59739,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -59748,7 +59748,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -60358,8 +60358,8 @@
   {
     "slug": "taurine-blend",
     "name": "Taurine Blend",
-    "summary": "Taurine blend entries should be treated as formulation/context rows, not separate proof beyond taurine evidence.",
-    "description": "Taurine blend entries should be treated as formulation/context rows, not separate proof beyond taurine evidence.",
+    "summary": "Taurine Blend compound profile with evidence, safety, and practical fit.",
+    "description": "Taurine Blend compound profile with evidence, safety, and practical fit.",
     "effects": [
       "calcium signaling",
       "osmotic regulation"
@@ -60439,7 +60439,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -60448,7 +60448,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -62703,8 +62703,8 @@
   {
     "slug": "turkesterone",
     "name": "turkesterone",
-    "summary": "turkesterone compound profile with evidence, safety, and practical fit.",
-    "description": "turkesterone compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "Hormonal Health",
       "Exercise Performance"
@@ -63204,8 +63204,8 @@
   {
     "slug": "uc-ii-collagen",
     "name": "Uc Ii Collagen",
-    "summary": "Uc Ii Collagen compound profile with evidence, safety, and practical fit.",
-    "description": "Uc Ii Collagen compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "Inflammation",
       "Immune Function"
@@ -63287,7 +63287,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -63296,7 +63296,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -64449,8 +64449,8 @@
   {
     "slug": "valerian-root-extract",
     "name": "Valerian Root Extract",
-    "summary": "Valerian Root Extract compound profile with evidence, safety, and practical fit.",
-    "description": "Valerian Root Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "GABA signaling"
     ],
@@ -66355,8 +66355,8 @@
   {
     "slug": "willow-bark-extract",
     "name": "Willow Bark Extract",
-    "summary": "Willow Bark Extract compound profile with evidence, safety, and practical fit.",
-    "description": "Willow Bark Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
     "effects": [
       "Inflammation",
       "Oxidative Stress",
@@ -67455,8 +67455,8 @@
   {
     "slug": "yohimbine",
     "name": "Yohimbine",
-    "summary": "Yohimbine compound profile with evidence, safety, and practical fit.",
-    "description": "Yohimbine compound profile with evidence, safety, and practical fit.",
+    "summary": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "description": "Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
     "effects": [
       "alpha-2 adrenergic receptor"
     ],
@@ -67548,7 +67548,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -67557,7 +67557,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
