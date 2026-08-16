@@ -11,6 +11,17 @@ const FORBIDDEN_ASSEMBLY_CALLS = [
   'analyzeResearchSourceIntegrity(',
 ] as const
 
+const OWNED_ANALYSIS_CALLS = [
+  {
+    call: 'analyzeCitationIntegrity(',
+    allowedFiles: new Set(['scripts/ci/validate-citation-identifiers.mjs']),
+  },
+  {
+    call: 'analyzeEvidenceGradeConsistency(',
+    allowedFiles: new Set(['scripts/ci/validate-evidence-grade-consistency.ts']),
+  },
+] as const
+
 function listCodeFiles(dir: string): string[] {
   if (!fs.existsSync(dir)) return []
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -28,15 +39,22 @@ describe('research-quality CI boundary', () => {
 
     for (const file of listCodeFiles(ciDir)) {
       const source = fs.readFileSync(file, 'utf8')
+      const relative = path.relative(root, file).replaceAll(path.sep, '/')
+
       for (const call of FORBIDDEN_ASSEMBLY_CALLS) {
         if (!source.includes(call)) continue
-        violations.push(`${path.relative(root, file)} -> ${call}`)
+        violations.push(`${relative} -> ${call}`)
+      }
+
+      for (const rule of OWNED_ANALYSIS_CALLS) {
+        if (!source.includes(rule.call) || rule.allowedFiles.has(relative)) continue
+        violations.push(`${relative} -> ${rule.call}`)
       }
     }
 
     expect(
       violations,
-      `CI/report scripts must consume buildResearchQualitySnapshot() instead of reconstructing canonical research state:\n${violations.join('\n')}`,
+      `CI/report scripts must consume buildResearchQualitySnapshot() instead of reconstructing canonical research state; direct specialized analyzers are reserved for their lightweight standalone validators:\n${violations.join('\n')}`,
     ).toEqual([])
   })
 })
