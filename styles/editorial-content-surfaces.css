@@ -1,6 +1,6 @@
 /* Editorial content surfaces
    Shared reading, profile, comparison, table, accordion, and tool treatments.
-   This layer now follows the premium ivory / charcoal / indigo / brass system;
+   This layer follows the canonical graphite / warm-paper / brass system;
    botanical green is reserved for semantic success states rather than acting as
    the default visual identity. */
 
@@ -72,29 +72,6 @@ html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell
   box-shadow: 0 7px 22px rgba(53, 47, 65, 0.045);
 }
 
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] {
-  top: 5.25rem;
-  border-color: var(--hs-hairline) !important;
-  background: color-mix(in srgb, var(--hs-surface) 92%, transparent) !important;
-  box-shadow: 0 12px 34px rgba(53, 47, 65, 0.08);
-  backdrop-filter: blur(18px);
-}
-
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] a {
-  color: var(--hs-body) !important;
-}
-
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] a:first-child {
-  background: linear-gradient(135deg, #4b4558, #332f3d) !important;
-  color: #fffaf3 !important;
-  box-shadow: 0 7px 18px rgba(53, 47, 65, 0.18);
-}
-
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] a:not(:first-child):hover {
-  background: color-mix(in srgb, var(--tone) 7%, var(--hs-surface)) !important;
-  color: var(--hs-ink) !important;
-}
-
 /* Shared profile TOC */
 html:not(.dark) nav[aria-label="Page sections"] {
   border-color: var(--hs-hairline) !important;
@@ -131,7 +108,7 @@ html:not(.dark) details > summary + div {
   border-top-color: var(--hs-hairline) !important;
 }
 
-/* Evidence tables read like publication tables rather than green dashboard UI. */
+/* Evidence tables read like publication tables rather than dashboard UI. */
 html:not(.dark) main table {
   border-color: var(--hs-hairline);
   background: color-mix(in srgb, var(--hs-surface) 94%, transparent);
@@ -154,7 +131,7 @@ html:not(.dark) main table :where(th, td) {
   border-color: var(--hs-hairline) !important;
 }
 
-/* Compare pages: neutral editorial ground with a restrained indigo signal. */
+/* Compare pages: neutral editorial ground with a restrained accent signal. */
 html:not(.dark) main:has(#compare-decision) {
   background:
     radial-gradient(circle at 95% 4%, color-mix(in srgb, var(--tone) 8%, transparent), transparent 23rem),
@@ -223,10 +200,6 @@ html:not(.dark) main :where(article, section) > a.rounded-2xl:hover {
 }
 
 @media (max-width: 768px) {
-  html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] {
-    border-radius: 1.25rem !important;
-  }
-
   html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell {
     border-radius: 1.45rem !important;
     padding: 1.1rem !important;
