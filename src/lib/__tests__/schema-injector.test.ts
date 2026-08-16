@@ -48,7 +48,7 @@ describe('serializeJsonLd', () => {
     expect(parsed.safetyWarnings).toBeUndefined()
   })
 
-  it('canonicalizes the first-party organization identity without touching its role', () => {
+  it('canonicalizes the first-party organization identity without touching publisher role', () => {
     const parsed = JSON.parse(serializeJsonLd({
       '@type': 'Article',
       publisher: {
@@ -58,8 +58,25 @@ describe('serializeJsonLd', () => {
       },
     }))
 
+    expect(parsed.publisher['@type']).toBe('Organization')
     expect(parsed.publisher['@id']).toBe(ORGANIZATION_SCHEMA_ID)
     expect(parsed.publisher.url).toBe('https://thehippiescientist.net')
+  })
+
+  it('converts a legacy first-party Organization author into the canonical Person', () => {
+    const parsed = JSON.parse(serializeJsonLd({
+      '@type': 'Article',
+      author: {
+        '@type': 'Organization',
+        name: 'The Hippie Scientist',
+        url: 'https://thehippiescientist.net',
+      },
+    }))
+
+    expect(parsed.author['@type']).toBe('Person')
+    expect(parsed.author['@id']).toBe(AUTHOR_SCHEMA_ID)
+    expect(parsed.author.url).toBe(AUTHOR_URL)
+    expect(parsed.author.affiliation['@id']).toBe(ORGANIZATION_SCHEMA_ID)
   })
 
   it('canonicalizes the first-party author identity recursively', () => {
