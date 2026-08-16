@@ -126,7 +126,7 @@
   {
     "slug": "23-epi-26-deoxyactein",
     "name": "23-epi-26-deoxyactein",
-    "summary": "23-epi-26-deoxyactein compound profile with evidence, safety, and practical fit.",
+    "summary": "23-epi-26-deoxyactein carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on added as site-safe referenced entity during workbook readiness pass and limited, which describes mechanism rather than demonstrated benefit. Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "description": "23-epi-26-deoxyactein compound profile with evidence, safety, and practical fit.",
     "effects": [],
     "primary_effects": [],
@@ -215,7 +215,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "5-htp",
@@ -332,7 +333,7 @@
   {
     "slug": "acarbose",
     "name": "Acarbose",
-    "summary": "Acarbose compound profile with evidence, safety, and practical fit.",
+    "summary": "Acarbose carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include type 1 diabetes or diabetic ketoacidosis and cirrhosis or significant hepatic impairment.",
     "description": "Acarbose compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Metabolic Health",
@@ -456,7 +457,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "acemannan",
@@ -579,7 +581,7 @@
   {
     "slug": "acetate",
     "name": "acetate",
-    "summary": "acetate compound profile with evidence, safety, and practical fit.",
+    "summary": "acetate carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, glucose metabolism support and lipid metabolism support, which describes mechanism rather than demonstrated benefit. generally safe; excessive intake may cause GI irritation or enamel erosion.",
     "description": "acetate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "glucose_AMPK"
@@ -685,7 +687,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "acetyl-11-keto-beta-boswellic-acid",
@@ -932,7 +935,7 @@
   {
     "slug": "acetyl-l-carnitine",
     "name": "Acetyl-L-Carnitine",
-    "summary": "Acetyl-L-Carnitine compound profile with evidence, safety, and practical fit.",
+    "summary": "Acetyl-L-Carnitine carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation, mitochondrial support and metabolic regulation, which describes mechanism rather than demonstrated benefit. Noted cautions include caution in seizure disorders.",
     "description": "Acetyl-L-Carnitine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "mitochondrial metabolism",
@@ -1068,7 +1071,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "acetylshikonin",
@@ -1933,7 +1937,7 @@
   {
     "slug": "agmatine-sulfate",
     "name": "Agmatine sulfate",
-    "summary": "Agmatine sulfate compound profile with evidence, safety, and practical fit.",
+    "summary": "Agmatine sulfate carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation, neurotransmitter modulation and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician guidance.",
     "description": "Agmatine sulfate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "NO synthase imidazoline receptors"
@@ -2045,7 +2049,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "ajoene",
@@ -2637,7 +2642,7 @@
   {
     "slug": "alpha-gpc",
     "name": "Alpha-GPC",
-    "summary": "Alpha-GPC compound profile with evidence, safety, and practical fit.",
+    "summary": "Alpha-GPC carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a uncontrolled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, neurotransmitter modulation and cellular protection, which describes mechanism rather than demonstrated benefit. Noted cautions include known hypersensitivity to alpha-GPC or its excipients.",
     "description": "Alpha-GPC compound profile with evidence, safety, and practical fit.",
     "effects": [
       "cholinergic system",
@@ -2764,12 +2769,13 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "uncontrolled-trial",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "alpha-lipoic-acid",
     "name": "Alpha-Lipoic Acid",
-    "summary": "Alpha-Lipoic Acid compound profile with evidence, safety, and practical fit.",
+    "summary": "Alpha-Lipoic Acid carries a Grade A rating — strong evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on oxidative stress modulation, mitochondrial support and metabolic regulation, which describes mechanism rather than demonstrated benefit. Noted cautions include caution with hypoglycemic agents.",
     "description": "Alpha-Lipoic Acid compound profile with evidence, safety, and practical fit.",
     "effects": [
       "oxidative stress",
@@ -2893,7 +2899,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "single-human-study-for-grade-a"
+    "evidence_grade_backing_gap": "single-human-study-for-grade-a",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "alpha-mangostin",
@@ -3153,7 +3160,7 @@
   {
     "slug": "anandamide",
     "name": "Anandamide",
-    "summary": "Anandamide compound profile with evidence, safety, and practical fit.",
+    "summary": "Anandamide carries a Grade C rating — limited evidence. Recorded activity centres on endogenous CB1 agonism, FAAH degradation and endocannabinoid, which describes mechanism rather than demonstrated benefit. not applicable as direct supplement context; unstable compound.",
     "description": "Anandamide compound profile with evidence, safety, and practical fit.",
     "effects": [
       "CB1 receptor",
@@ -3256,7 +3263,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "andrographis",
@@ -3389,7 +3397,7 @@
   {
     "slug": "andrographolide",
     "name": "Andrographolide",
-    "summary": "Andrographolide compound profile with evidence, safety, and practical fit.",
+    "summary": "Andrographolide carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a systematic review, drawn from 2 recorded studies, 1 in people. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and mitochondrial support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy.",
     "description": "Andrographolide compound profile with evidence, safety, and practical fit.",
     "effects": [
       "NF-κB",
@@ -3520,7 +3528,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "anethole",
@@ -3908,7 +3917,7 @@
   {
     "slug": "arabinoxylan",
     "name": "Arabinoxylan",
-    "summary": "Arabinoxylan compound profile with evidence, safety, and practical fit.",
+    "summary": "Arabinoxylan carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on metabolic regulation, vascular function support and glucose metabolism support, which describes mechanism rather than demonstrated benefit. May worsen bloating in sensitive users; titrate fiber gradually.",
     "description": "Arabinoxylan compound profile with evidence, safety, and practical fit.",
     "effects": [
       "fiber_LDL"
@@ -4012,7 +4021,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "l-arginine",
@@ -4590,7 +4600,7 @@
   {
     "slug": "artichoke-extract",
     "name": "Artichoke Extract",
-    "summary": "Artichoke Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Artichoke Extract carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on oxidative stress modulation, metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include avoid artichoke leaf extract with bile-duct obstruction or other obstructive biliary disease.",
     "description": "Artichoke Extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "bile flow",
@@ -4720,7 +4730,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "ashitaba-extract",
@@ -4849,7 +4860,7 @@
   {
     "slug": "ashwagandha-extract-ksm-66",
     "name": "Ashwagandha KSM-66 extract",
-    "summary": "Ashwagandha KSM-66 extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Ashwagandha KSM-66 extract carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation, neurotransmitter modulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy and previous ashwagandha-associated liver injury.",
     "description": "Ashwagandha KSM-66 extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "HPA axis",
@@ -4977,7 +4988,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "ashwagandha-root-extract",
@@ -5471,7 +5483,7 @@
   {
     "slug": "astaxanthin",
     "name": "Astaxanthin",
-    "summary": "Astaxanthin compound profile with evidence, safety, and practical fit.",
+    "summary": "Astaxanthin carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and mitochondrial support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy or breastfeeding due to insufficient safety data.",
     "description": "Astaxanthin compound profile with evidence, safety, and practical fit.",
     "effects": [
       "oxidative stress pathways",
@@ -5603,7 +5615,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "astragalin",
@@ -6374,7 +6387,7 @@
   {
     "slug": "bacopa-extract-bacoside-standardized",
     "name": "Bacopa extract standardized",
-    "summary": "Bacopa extract standardized compound profile with evidence, safety, and practical fit.",
+    "summary": "Bacopa extract standardized carries a Grade B rating — moderate evidence. Recorded activity centres on oxidative stress modulation, neurotransmitter modulation and hormonal signaling context, which describes mechanism rather than demonstrated benefit. Safety evidence: short-term human trials of Bacopa extracts most often report gastrointestinal adverse effects, but preparations and reporting vary. Pregnancy, breastfeeding, surgery, long-term use, organ impairment, and clinically significant medication interactions remain insufficiently characterized.",
     "description": "Bacopa extract standardized compound profile with evidence, safety, and practical fit.",
     "effects": [
       "cholinergic system",
@@ -6490,7 +6503,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "bacopaside-ii",
@@ -7174,7 +7188,7 @@
   {
     "slug": "banaba-leaf-extract",
     "name": "Banaba Leaf Extract",
-    "summary": "Banaba Leaf Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Banaba Leaf Extract carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Hypoglycemia risk possible; caution antidiabetic drugs.",
     "description": "Banaba Leaf Extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Metabolic Health",
@@ -7281,7 +7295,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "bcaa",
@@ -7500,7 +7515,7 @@
   {
     "slug": "beetroot-extract",
     "name": "Beetroot extract",
-    "summary": "Beetroot extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Beetroot extract carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on oxidative stress modulation, vascular function support and endothelial function support, which describes mechanism rather than demonstrated benefit. Noted cautions include caution with hypotension or blood pressure medication use due to additive blood-pressure-lowering effects that can cause dizziness or fainting.",
     "description": "Beetroot extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "nitric oxide pathway",
@@ -7621,12 +7636,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "beetroot-nitrate",
     "name": "Beetroot nitrate",
-    "summary": "Beetroot nitrate compound profile with evidence, safety, and practical fit.",
+    "summary": "Beetroot nitrate carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on mitochondrial support, vascular function support and endothelial function support, which describes mechanism rather than demonstrated benefit. Safety evidence: systematic-review evidence, with limited negative-effect and interaction reporting. Nitrate-rich beetroot can lower blood pressure, but a clinically significant nitrate-drug or PDE-5 interaction magnitude should not be inferred from that effect alone.",
     "description": "Beetroot nitrate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "NO pathway"
@@ -7740,7 +7756,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "berbamine",
@@ -7858,7 +7875,7 @@
   {
     "slug": "berberine",
     "name": "Berberine",
-    "summary": "Berberine compound profile with evidence, safety, and practical fit.",
+    "summary": "Berberine carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 6 recorded studies, 6 in people. No disagreement is recorded across them. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and AMPK signaling, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy and breastfeeding.",
     "description": "Berberine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "AMPK",
@@ -7987,12 +8004,13 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "berberine-hcl",
     "name": "Berberine",
-    "summary": "Berberine compound profile with evidence, safety, and practical fit.",
+    "summary": "Berberine carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on mitochondrial support, metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy and breastfeeding.",
     "description": "Berberine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "AMPK",
@@ -8128,7 +8146,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "bergapten",
@@ -8253,7 +8272,7 @@
   {
     "slug": "bhb",
     "name": "beta- hydroxybutyrate",
-    "summary": "beta- hydroxybutyrate compound profile with evidence, safety, and practical fit.",
+    "summary": "beta- hydroxybutyrate carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, stress response modulation and AMPK signaling, which describes mechanism rather than demonstrated benefit. May cause GI distress and electrolyte imbalance.",
     "description": "beta- hydroxybutyrate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "HDAC AMPK"
@@ -8359,12 +8378,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "beta-alanine",
     "name": "Beta-Alanine",
-    "summary": "Beta-Alanine compound profile with evidence, safety, and practical fit.",
+    "summary": "Beta-Alanine carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on increases muscle carnosine and buffering intracellular pH., which describes mechanism rather than demonstrated benefit. Noted cautions include generally safe and dose-splitting reduces side effects.",
     "description": "Beta-Alanine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "muscle carnosine system",
@@ -8472,7 +8492,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "beta-caryophyllene",
@@ -8596,7 +8617,7 @@
   {
     "slug": "beta-ecdysterone",
     "name": "beta-ecdysterone",
-    "summary": "beta-ecdysterone compound profile with evidence, safety, and practical fit.",
+    "summary": "beta-ecdysterone carries a Grade B rating — moderate evidence. Recorded activity centres on activates protein synthesis via PI3K/Akt pathway, which describes mechanism rather than demonstrated benefit. Limited safety data but generally well tolerated.",
     "description": "beta-ecdysterone compound profile with evidence, safety, and practical fit.",
     "effects": [
       "PI3K Akt"
@@ -8686,7 +8707,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "beta-elemene",
@@ -8805,7 +8827,7 @@
   {
     "slug": "beta-glucans",
     "name": "Beta-glucans",
-    "summary": "Beta-glucans compound profile with evidence, safety, and practical fit.",
+    "summary": "Beta-glucans carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. May cause GI symptoms; immune-modulation claims need cautious framing with immunosuppressant use.",
     "description": "Beta-glucans compound profile with evidence, safety, and practical fit.",
     "effects": [
       "immune cells",
@@ -8923,12 +8945,13 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "beta-sitosterol",
     "name": "Beta-sitosterol",
-    "summary": "Beta-sitosterol compound profile with evidence, safety, and practical fit.",
+    "summary": "Beta-sitosterol carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and metabolic regulation, which describes mechanism rather than demonstrated benefit. Avoid with sitosterolemia; long-term high intake may affect sterol handling.",
     "description": "Beta-sitosterol compound profile with evidence, safety, and practical fit.",
     "effects": [
       "intestinal cholesterol transport"
@@ -9038,7 +9061,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "betaine",
@@ -9157,7 +9181,7 @@
   {
     "slug": "betaine-anhydrous",
     "name": "Betaine anhydrous",
-    "summary": "Betaine anhydrous compound profile with evidence, safety, and practical fit.",
+    "summary": "Betaine anhydrous carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on vascular function support and lipid metabolism, which describes mechanism rather than demonstrated benefit. Safety evidence: regulatory review with limited human intervention data. Safety was not established for the proposed 2.5 g/day novel-food use; long-term, pregnancy, lactation, kidney-disease, and medication-interaction evidence remains insufficient.",
     "description": "Betaine anhydrous compound profile with evidence, safety, and practical fit.",
     "effects": [
       "methylation cycle",
@@ -9265,7 +9289,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "betaine-hcl",
@@ -9757,7 +9782,7 @@
   {
     "slug": "probiotic-strain-bifidobacterium",
     "name": "Bifidobacterium Probiotic",
-    "summary": "Bifidobacterium Probiotic compound profile with evidence, safety, and practical fit.",
+    "summary": "Bifidobacterium Probiotic carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation, immune signaling modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Noted cautions include use only with clinician oversight in severe immunocompromise and critical illness.",
     "description": "Bifidobacterium Probiotic compound profile with evidence, safety, and practical fit.",
     "effects": [
       "gut health",
@@ -9877,7 +9902,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "bilberry-extract",
@@ -10624,7 +10650,7 @@
   {
     "slug": "black-seed-oil",
     "name": "Black Seed Oil",
-    "summary": "Black Seed Oil compound profile with evidence, safety, and practical fit.",
+    "summary": "Black Seed Oil carries a Avoid / Insufficient Evidence rating. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and metabolic regulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy due to insufficient safety data and discontinue before scheduled surgery due to bleeding risk.",
     "description": "Black Seed Oil compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Oxidative Stress",
@@ -10749,12 +10775,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "boron",
     "name": "Boron",
-    "summary": "Boron compound profile with evidence, safety, and practical fit.",
+    "summary": "Boron carries a Grade C rating — limited evidence. Strongest recorded design is a uncontrolled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on metabolic regulation, hormonal signaling context and endocrine, which describes mechanism rather than demonstrated benefit. low doses generally tolerated; high doses may cause GI/neurologic toxicity.",
     "description": "Boron compound profile with evidence, safety, and practical fit.",
     "effects": [
       "bone metabolism",
@@ -10857,12 +10884,13 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "uncontrolled-trial",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "boswellia",
     "name": "Boswellia",
-    "summary": "Boswellia compound profile with evidence, safety, and practical fit.",
+    "summary": "Boswellia carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 3 recorded studies, 3 in people. No disagreement is recorded across them. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Noted cautions include known allergy to boswellia or other Burseraceae-family plants.",
     "description": "Boswellia compound profile with evidence, safety, and practical fit.",
     "effects": [
       "5-LOX",
@@ -10974,12 +11002,13 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "boswellia-akba-standardized",
     "name": "Boswellia AKBA standardized",
-    "summary": "Boswellia AKBA standardized compound profile with evidence, safety, and practical fit.",
+    "summary": "Boswellia AKBA standardized carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Safety evidence: limited short-term human evidence for specific Boswellia extracts. Osteoarthritis trials did not show a clear excess of adverse events, but formulations and reporting varied; pregnancy, breastfeeding, surgery, bleeding, liver, kidney, long-term use, and medication-specific interaction safety remain insufficient.",
     "description": "Boswellia AKBA standardized compound profile with evidence, safety, and practical fit.",
     "effects": [
       "5-lipoxygenase",
@@ -11085,7 +11114,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "boswellic-acid",
@@ -11208,7 +11238,7 @@
   {
     "slug": "boswellic-acids",
     "name": "boswellic acids",
-    "summary": "boswellic acids compound profile with evidence, safety, and practical fit.",
+    "summary": "boswellic acids carries a Grade B rating — moderate evidence. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Well tolerated with mild GI symptoms.",
     "description": "boswellic acids compound profile with evidence, safety, and practical fit.",
     "effects": [
       "5- LOX"
@@ -11304,7 +11334,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "bpc-157",
@@ -11447,7 +11478,7 @@
   {
     "slug": "bromelain",
     "name": "Bromelain",
-    "summary": "Bromelain compound profile with evidence, safety, and practical fit.",
+    "summary": "Bromelain carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Bleeding/allergy considerations matter; avoid around surgery unless clinician-directed.",
     "description": "Bromelain compound profile with evidence, safety, and practical fit.",
     "effects": [
       "inflammatory mediators",
@@ -11545,7 +11576,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "burdock-root",
@@ -11789,7 +11821,7 @@
   {
     "slug": "butyrate",
     "name": "butyrate",
-    "summary": "butyrate compound profile with evidence, safety, and practical fit.",
+    "summary": "butyrate carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, glucose metabolism support and lipid metabolism support, which describes mechanism rather than demonstrated benefit. Generally well tolerated with mild GI symptoms.",
     "description": "butyrate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "HDAC inhibition"
@@ -11893,12 +11925,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "cacao",
     "name": "Cacao",
-    "summary": "Cacao compound profile with evidence, safety, and practical fit.",
+    "summary": "Cacao carries a Grade B rating — moderate evidence. Recorded activity centres on vascular function support, endothelial function support and endothelial function, which describes mechanism rather than demonstrated benefit. generally safe; chocolate forms add sugar/calories.",
     "description": "Cacao compound profile with evidence, safety, and practical fit.",
     "effects": [
       "nitric oxide",
@@ -12001,7 +12034,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "cafestol",
@@ -12283,7 +12317,7 @@
   {
     "slug": "caffeine",
     "name": "Caffeine",
-    "summary": "Caffeine compound profile with evidence, safety, and practical fit.",
+    "summary": "Caffeine carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 2 in people. Recorded activity centres on neurotransmitter modulation, vascular function support and hormonal signaling context, which describes mechanism rather than demonstrated benefit. Noted cautions include cardiac arrhythmia or a recent heart attack warrants clinician guidance due to increased risk of palpitations and abnormal heart rhythm.",
     "description": "Caffeine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "adenosine A1 receptor",
@@ -12424,7 +12458,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "caffeine-l-theanine",
@@ -12669,7 +12704,7 @@
   {
     "slug": "calcium-d-glucarate",
     "name": "calcium d-glucarate",
-    "summary": "calcium d-glucarate compound profile with evidence, safety, and practical fit.",
+    "summary": "calcium d-glucarate carries a Grade C rating — limited evidence. Recorded activity centres on metabolic regulation, hormonal signaling context and metabolic, which describes mechanism rather than demonstrated benefit. Generally well tolerated with limited human data.",
     "description": "calcium d-glucarate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "beta-glucuronidase"
@@ -12768,7 +12803,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "calycosin",
@@ -12909,7 +12945,7 @@
   {
     "slug": "cannabidiol",
     "name": "Cannabidiol",
-    "summary": "Cannabidiol compound profile with evidence, safety, and practical fit.",
+    "summary": "Cannabidiol carries a Grade B rating — moderate evidence. Recorded activity centres on endocannabinoid modulation, 5-HT1A activity and TRPV1 activation, which describes mechanism rather than demonstrated benefit. Noted cautions include liver.",
     "description": "Cannabidiol compound profile with evidence, safety, and practical fit.",
     "effects": [
       "5-HT1A",
@@ -13024,7 +13060,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "capsaicin",
@@ -14142,7 +14179,7 @@
   {
     "slug": "cbg",
     "name": "CBG",
-    "summary": "CBG compound profile with evidence, safety, and practical fit.",
+    "summary": "CBG carries a Grade C rating — limited evidence. Recorded activity centres on weak CB1/CB2 interaction, alpha-2 adrenergic and TRP channel activity preclinical and endocannabinoid, which describes mechanism rather than demonstrated benefit. insufficient human safety data.",
     "description": "CBG compound profile with evidence, safety, and practical fit.",
     "effects": [
       "CB1/CB2",
@@ -14247,7 +14284,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "celastrol",
@@ -15378,7 +15416,7 @@
   {
     "slug": "chondroitin",
     "name": "Chondroitin",
-    "summary": "Chondroitin compound profile with evidence, safety, and practical fit.",
+    "summary": "Chondroitin carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Findings across those studies disagree. Recorded activity centres on inflammatory signaling modulation, which describes mechanism rather than demonstrated benefit. Use caution with anticoagulants or bleeding-risk contexts.",
     "description": "Chondroitin compound profile with evidence, safety, and practical fit.",
     "effects": [
       "cartilage extracellular matrix",
@@ -15474,12 +15512,13 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "chromium",
     "name": "Chromium",
-    "summary": "Chromium compound profile with evidence, safety, and practical fit.",
+    "summary": "Chromium carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 4 recorded studies, 2 in people. Findings across those studies disagree. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include liver and kidney.",
     "description": "Chromium compound profile with evidence, safety, and practical fit.",
     "effects": [
       "insulin signaling",
@@ -15585,12 +15624,13 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "chromium-picolinate",
     "name": "chromium picolinate",
-    "summary": "chromium picolinate compound profile with evidence, safety, and practical fit.",
+    "summary": "chromium picolinate carries a Grade B rating — moderate evidence. Strongest recorded design is a regulatory or official guidance, drawn from 2 recorded studies, none of which measured an outcome in people. Findings across those studies disagree. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include kidney.",
     "description": "chromium picolinate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "insulin receptor"
@@ -15693,12 +15733,13 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "regulatory-guidance",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "cimifugoside",
     "name": "Cimifugoside",
-    "summary": "Cimifugoside compound profile with evidence, safety, and practical fit.",
+    "summary": "Cimifugoside carries a Grade C rating — limited evidence. Recorded activity centres on added as site-safe referenced entity during workbook readiness pass and limited, which describes mechanism rather than demonstrated benefit. Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "description": "Cimifugoside compound profile with evidence, safety, and practical fit.",
     "effects": [],
     "primary_effects": [],
@@ -15787,7 +15828,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "cinnamaldehyde",
@@ -15907,7 +15949,7 @@
   {
     "slug": "cinnamon-extract",
     "name": "Cinnamon extract",
-    "summary": "Cinnamon extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Cinnamon extract carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include existing liver disease or elevated liver enzymes due to cassia-type cinnamon's coumarin content which can exceed established safety intake limits with regular use and has been linked to liver-enzyme elevation or liver injury case reports.",
     "description": "Cinnamon extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "GLUT4"
@@ -16021,7 +16063,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "cdp-choline",
@@ -16268,7 +16311,7 @@
   {
     "slug": "citrulline-malate",
     "name": "Citrulline Malate",
-    "summary": "Citrulline Malate compound profile with evidence, safety, and practical fit.",
+    "summary": "Citrulline Malate carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on mitochondrial support, vascular function support and endothelial function support, which describes mechanism rather than demonstrated benefit. Noted cautions include limited data.",
     "description": "Citrulline Malate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "nitric oxide pathways",
@@ -16378,7 +16421,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "cjc-1295",
@@ -16516,7 +16560,7 @@
   {
     "slug": "coconut-oil",
     "name": "Coconut Oil",
-    "summary": "Coconut Oil compound profile with evidence, safety, and practical fit.",
+    "summary": "Coconut Oil carries a Grade B rating — moderate evidence. Recorded activity centres on vascular function support, lipid metabolism support and lipid metabolism, which describes mechanism rather than demonstrated benefit. High saturated fat intake may raise LDL cholesterol in some users.",
     "description": "Coconut Oil compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Metabolic Health",
@@ -16619,7 +16663,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "coconut-water-powder",
@@ -16981,7 +17026,7 @@
   {
     "slug": "coq10",
     "name": "Coenzyme Q10",
-    "summary": "Coenzyme Q10 compound profile with evidence, safety, and practical fit.",
+    "summary": "Coenzyme Q10 carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 3 in people. No disagreement is recorded across them. Recorded activity centres on oxidative stress modulation, mitochondrial support and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include warfarin or another vitamin-K antagonist without clinician monitoring.",
     "description": "Coenzyme Q10 compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Oxidative Stress",
@@ -17103,12 +17148,13 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "collagen-peptides",
     "name": "Collagen Peptides",
-    "summary": "Collagen Peptides compound profile with evidence, safety, and practical fit.",
+    "summary": "Collagen Peptides carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include known allergy to the source protein.",
     "description": "Collagen Peptides compound profile with evidence, safety, and practical fit.",
     "effects": [
       "connective tissue",
@@ -17218,7 +17264,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "columbamine",
@@ -17588,7 +17635,7 @@
   {
     "slug": "copper",
     "name": "Copper",
-    "summary": "Copper compound profile with evidence, safety, and practical fit.",
+    "summary": "Copper carries a Grade B rating — moderate evidence. Recorded activity centres on oxidative stress modulation, metabolic regulation and oxidative stress, which describes mechanism rather than demonstrated benefit. Noted cautions include liver.",
     "description": "Copper compound profile with evidence, safety, and practical fit.",
     "effects": [
       "cytochrome c oxidase",
@@ -17693,7 +17740,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "coptisine",
@@ -17819,7 +17867,7 @@
   {
     "slug": "cordycepin",
     "name": "cordycepin",
-    "summary": "cordycepin compound profile with evidence, safety, and practical fit.",
+    "summary": "cordycepin carries a Grade C rating — limited evidence. Recorded activity centres on mitochondrial support, metabolic regulation and AMPK signaling, which describes mechanism rather than demonstrated benefit. Limited human safety data.",
     "description": "cordycepin compound profile with evidence, safety, and practical fit.",
     "effects": [
       "AMPK"
@@ -17925,12 +17973,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "cordyceps",
     "name": "Cordyceps",
-    "summary": "Cordyceps compound profile with evidence, safety, and practical fit.",
+    "summary": "Cordyceps carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on mitochondrial support, immune signaling modulation and mitochondrial, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy or breastfeeding due to insufficient safety data.",
     "description": "Cordyceps compound profile with evidence, safety, and practical fit.",
     "effects": [
       "cellular energy pathways",
@@ -18048,12 +18097,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "cordyceps-militaris",
     "name": "cordyceps militaris",
-    "summary": "cordyceps militaris compound profile with evidence, safety, and practical fit.",
+    "summary": "cordyceps militaris carries a Grade B rating — moderate evidence. Recorded activity centres on mitochondrial support and mitochondrial, which describes mechanism rather than demonstrated benefit. Safety evidence: limited product-specific human trials. Two small studies found no group differences in measured safety indices or adverse-event incidence, but long-term, pregnancy, breastfeeding, autoimmune, transplant, and broader medication-interaction safety remain insufficient.",
     "description": "cordyceps militaris compound profile with evidence, safety, and practical fit.",
     "effects": [
       "ATP synthesis"
@@ -18158,7 +18208,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "corosolic-acid",
@@ -18644,7 +18695,7 @@
   {
     "slug": "creatine-monohydrate",
     "name": "Creatine monohydrate",
-    "summary": "Creatine monohydrate compound profile with evidence, safety, and practical fit.",
+    "summary": "Creatine monohydrate carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on mitochondrial support, metabolic regulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Safety evidence: systematic review evidence shows a small serum-creatinine increase without a significant decline in glomerular filtration in studied users. Evidence in pre-existing kidney disease, pregnancy, breastfeeding, and use beyond studied durations remains limited.",
     "description": "Creatine monohydrate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "cellular energy metabolism",
@@ -18760,7 +18811,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "crocetin",
@@ -19189,7 +19241,7 @@
   {
     "slug": "curcumin-piperine",
     "name": "Curcumin + piperine",
-    "summary": "Curcumin + piperine compound profile with evidence, safety, and practical fit.",
+    "summary": "Curcumin + piperine carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Noted cautions include previous turmeric- or curcumin-associated liver injury.",
     "description": "Curcumin + piperine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "anti_inflammatory_COX"
@@ -19295,12 +19347,13 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "curcumin-phytosome",
     "name": "Curcumin phytosome",
-    "summary": "Curcumin phytosome compound profile with evidence, safety, and practical fit.",
+    "summary": "Curcumin phytosome carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include previous turmeric- or curcumin-associated liver injury.",
     "description": "Curcumin phytosome compound profile with evidence, safety, and practical fit.",
     "effects": [
       "NF-κB",
@@ -19425,7 +19478,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "curcumol",
@@ -19921,7 +19975,7 @@
   {
     "slug": "d-mannose",
     "name": "D-Mannose",
-    "summary": "D-Mannose compound profile with evidence, safety, and practical fit.",
+    "summary": "D-Mannose carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on prevents bacterial adhesion (E. coli) to urinary tract epithelium., which describes mechanism rather than demonstrated benefit. Noted cautions include caution in diabetes.",
     "description": "D-Mannose compound profile with evidence, safety, and practical fit.",
     "effects": [
       "urothelium",
@@ -20015,7 +20069,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "d-ribose",
@@ -21572,7 +21627,7 @@
   {
     "slug": "digestive-enzymes",
     "name": "Digestive enzymes",
-    "summary": "Digestive enzymes compound profile with evidence, safety, and practical fit.",
+    "summary": "Digestive enzymes carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on macronutrient breakdown via proteases, lipases and and amylases, which describes mechanism rather than demonstrated benefit. Use clinician guidance for true pancreatic insufficiency or active pancreatic disease.",
     "description": "Digestive enzymes compound profile with evidence, safety, and practical fit.",
     "effects": [
       "protein digestion",
@@ -21683,7 +21738,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "dihydrokavain",
@@ -21937,7 +21993,7 @@
   {
     "slug": "dim",
     "name": "diindolylmethane",
-    "summary": "diindolylmethane compound profile with evidence, safety, and practical fit.",
+    "summary": "diindolylmethane carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, hormonal signaling context and endocrine, which describes mechanism rather than demonstrated benefit. Generally safe with limited long-term data.",
     "description": "diindolylmethane compound profile with evidence, safety, and practical fit.",
     "effects": [
       "CYP1A1 CYP1B1"
@@ -22038,7 +22094,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "diosgenin",
@@ -22502,7 +22559,7 @@
   {
     "slug": "echinacea",
     "name": "Echinacea",
-    "summary": "Echinacea compound profile with evidence, safety, and practical fit.",
+    "summary": "Echinacea carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Findings across those studies disagree. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include long-term use beyond eight weeks is not well studied.",
     "description": "Echinacea compound profile with evidence, safety, and practical fit.",
     "effects": [
       "immune signaling"
@@ -22618,7 +22675,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "echinacoside",
@@ -22927,7 +22985,7 @@
   {
     "slug": "egcg-caffeine",
     "name": "EGCG + Caffeine",
-    "summary": "EGCG + Caffeine compound profile with evidence, safety, and practical fit.",
+    "summary": "EGCG + Caffeine carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, vascular function support and AMPK signaling, which describes mechanism rather than demonstrated benefit. Noted cautions include previous green-tea-extract-associated liver injury and high-dose EGCG extract use without clinical supervision.",
     "description": "EGCG + Caffeine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "stimulant_CNS",
@@ -23051,7 +23109,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "electrolyte-blend",
@@ -25271,7 +25330,7 @@
   {
     "slug": "exogenous-ketones",
     "name": "exogenous ketones",
-    "summary": "exogenous ketones compound profile with evidence, safety, and practical fit.",
+    "summary": "exogenous ketones carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, stress response modulation and metabolic, which describes mechanism rather than demonstrated benefit. Common GI distress and poor palatability.",
     "description": "exogenous ketones compound profile with evidence, safety, and practical fit.",
     "effects": [
       "BHB energy metabolism"
@@ -25372,12 +25431,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "melatonin-extended-release",
     "name": "Extended-release melatonin",
-    "summary": "Extended-release melatonin compound profile with evidence, safety, and practical fit.",
+    "summary": "Extended-release melatonin carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on hormonal signaling context, serotonergic and endocrine, which describes mechanism rather than demonstrated benefit. Safety evidence: extended release may prolong exposure and next-day drowsiness, but formulation-specific comparative safety evidence is limited. Headache and dizziness occur in melatonin trials; driving, concurrent sedatives, pregnancy, breastfeeding, pediatric use, and chronic use require individualized review.",
     "description": "Extended-release melatonin compound profile with evidence, safety, and practical fit.",
     "effects": [
       "melatonin receptors",
@@ -25488,7 +25548,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "fadogia-agrestis",
@@ -25826,7 +25887,7 @@
   {
     "slug": "fenugreek",
     "name": "Fenugreek",
-    "summary": "Fenugreek compound profile with evidence, safety, and practical fit.",
+    "summary": "Fenugreek carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 1 in people. Recorded activity centres on metabolic regulation, hormonal signaling context and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy due to documented uterine-stimulant effects and birth-defect risk at supplemental doses.",
     "description": "Fenugreek compound profile with evidence, safety, and practical fit.",
     "effects": [
       "insulin signaling",
@@ -25945,12 +26006,13 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "fenugreek-extract",
     "name": "Fenugreek Extract",
-    "summary": "Fenugreek Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Fenugreek Extract carries a Avoid / Insufficient Evidence rating. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, hormonal signaling context and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy due to traditional uterine-stimulant use and reported association with birth defects at supplement doses.",
     "description": "Fenugreek Extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Metabolic Health",
@@ -26073,7 +26135,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "ferulic-acid",
@@ -26930,7 +26993,7 @@
   {
     "slug": "fos",
     "name": "Fructooligosaccharides",
-    "summary": "Fructooligosaccharides compound profile with evidence, safety, and practical fit.",
+    "summary": "Fructooligosaccharides carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people. Recorded activity centres on fermentable oligosaccharides selectively increase beneficial gut bacteria and SCFA production., which describes mechanism rather than demonstrated benefit. Noted cautions include contraindicated with known hypersensitivity or mechanical bowel obstruction.",
     "description": "Fructooligosaccharides compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Digestive Health"
@@ -27032,12 +27095,13 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "fucoxanthin",
     "name": "Fucoxanthin",
-    "summary": "Fucoxanthin compound profile with evidence, safety, and practical fit.",
+    "summary": "Fucoxanthin carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include seaweed-derived extracts can carry meaningful iodine content so people with hyperthyroidism or hypothyroidism or Hashimoto thyroiditis should consult a clinician before use.",
     "description": "Fucoxanthin compound profile with evidence, safety, and practical fit.",
     "effects": [
       "UCP1",
@@ -27153,12 +27217,13 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "fukinolic-acid",
     "name": "Fukinolic acid",
-    "summary": "Fukinolic acid compound profile with evidence, safety, and practical fit.",
+    "summary": "Fukinolic acid carries a Grade C rating — limited evidence. Recorded activity centres on added as site-safe referenced entity during workbook readiness pass and limited, which describes mechanism rather than demonstrated benefit. Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "description": "Fukinolic acid compound profile with evidence, safety, and practical fit.",
     "effects": [],
     "primary_effects": [],
@@ -27247,7 +27312,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "gaba",
@@ -27910,7 +27976,7 @@
   {
     "slug": "garcinia-cambogia-extract",
     "name": "Garcinia Cambogia Extract",
-    "summary": "Garcinia Cambogia Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Garcinia Cambogia Extract carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on mitochondrial support, metabolic regulation and metabolic, which describes mechanism rather than demonstrated benefit. Noted cautions include documented case reports of drug-induced liver injury including acute hepatitis or fulminant liver failure requiring transplant usually after two to seven months of continuous use.",
     "description": "Garcinia Cambogia Extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "ATP citrate lyase"
@@ -28025,7 +28091,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "garcinol",
@@ -28292,7 +28359,7 @@
   {
     "slug": "garlic-extract",
     "name": "Garlic Extract",
-    "summary": "Garlic Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Garlic Extract carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, vascular function support and lipid metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include antidiabetic medications due to additive hypoglycemia risk.",
     "description": "Garlic Extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "NO HMG-CoA reductase"
@@ -28415,7 +28482,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "gelatin",
@@ -28786,7 +28854,7 @@
   {
     "slug": "gingerol",
     "name": "gingerol",
-    "summary": "gingerol compound profile with evidence, safety, and practical fit.",
+    "summary": "gingerol carries a Grade B rating — moderate evidence. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and oxidative stress, which describes mechanism rather than demonstrated benefit. Safety evidence: human review evidence for oral ginger preparations, not isolated gingerol. Isolated-gingerol dose-response, pregnancy, breastfeeding, bleeding, surgery, liver, kidney, and medication-interaction safety remains insufficient.",
     "description": "gingerol compound profile with evidence, safety, and practical fit.",
     "effects": [
       "COX-2 PGE2"
@@ -28893,7 +28961,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "gingerols",
@@ -30016,7 +30085,7 @@
   {
     "slug": "glucomannan",
     "name": "Glucomannan",
-    "summary": "Glucomannan compound profile with evidence, safety, and practical fit.",
+    "summary": "Glucomannan carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 4 in people. Findings across those studies disagree. Recorded activity centres on metabolic regulation, vascular function support and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Must be taken with adequate water; separate from medications if absorption timing matters.",
     "description": "Glucomannan compound profile with evidence, safety, and practical fit.",
     "effects": [
       "fiber_LDL",
@@ -30127,7 +30196,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "glucomoringin",
@@ -30256,7 +30326,7 @@
   {
     "slug": "glucosamine",
     "name": "Glucosamine",
-    "summary": "Glucosamine compound profile with evidence, safety, and practical fit.",
+    "summary": "Glucosamine carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Findings across those studies disagree. Recorded activity centres on inflammatory signaling modulation, AMPK and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include shellfish allergy unless a vegetarian or corn-fermented source is confirmed.",
     "description": "Glucosamine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "cartilage matrix",
@@ -30373,7 +30443,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "glutamine",
@@ -31774,7 +31845,7 @@
   {
     "slug": "green-tea-extract-egcg",
     "name": "Green tea extract / EGCG",
-    "summary": "Green tea extract / EGCG compound profile with evidence, safety, and practical fit.",
+    "summary": "Green tea extract / EGCG carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 1 in people. Recorded activity centres on oxidative stress modulation, metabolic regulation and oxidative stress, which describes mechanism rather than demonstrated benefit. Noted cautions include verify caffeine content if stimulant-sensitive.",
     "description": "Green tea extract / EGCG compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Oxidative Stress",
@@ -31894,7 +31965,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "guggulsterone",
@@ -33099,7 +33171,7 @@
   {
     "slug": "hmb",
     "name": "HMB",
-    "summary": "HMB compound profile with evidence, safety, and practical fit.",
+    "summary": "HMB carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 1 in people. Recorded activity centres on stress response modulation, mTOR signaling and mTOR, which describes mechanism rather than demonstrated benefit. Noted cautions include limited data.",
     "description": "HMB compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Exercise Performance",
@@ -33219,7 +33291,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "holy-basil-extract",
@@ -33847,7 +33920,7 @@
   {
     "slug": "hyaluronic-acid",
     "name": "Hyaluronic Acid",
-    "summary": "Hyaluronic Acid compound profile with evidence, safety, and practical fit.",
+    "summary": "Hyaluronic Acid carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a uncontrolled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on inflammatory signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include limited data.",
     "description": "Hyaluronic Acid compound profile with evidence, safety, and practical fit.",
     "effects": [
       "synovial fluid",
@@ -33945,7 +34018,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "uncontrolled-trial",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "hydroxytyrosol",
@@ -34429,7 +34503,7 @@
   {
     "slug": "icariin",
     "name": "icariin",
-    "summary": "icariin compound profile with evidence, safety, and practical fit.",
+    "summary": "icariin carries a Grade C rating — limited evidence. Recorded activity centres on vascular function support, endothelial function support and endothelial function, which describes mechanism rather than demonstrated benefit. Limited human safety data available.",
     "description": "icariin compound profile with evidence, safety, and practical fit.",
     "effects": [
       "PDE5 NO"
@@ -34530,7 +34604,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "imperatorin",
@@ -35249,7 +35324,7 @@
   {
     "slug": "inulin",
     "name": "Inulin",
-    "summary": "Inulin compound profile with evidence, safety, and practical fit.",
+    "summary": "Inulin carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on metabolic regulation, lipid metabolism support and metabolic, which describes mechanism rather than demonstrated benefit. Can cause gas/bloating; start low, especially with IBS or FODMAP sensitivity.",
     "description": "Inulin compound profile with evidence, safety, and practical fit.",
     "effects": [
       "SCFA"
@@ -35348,7 +35423,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "iodine",
@@ -36361,7 +36437,7 @@
   {
     "slug": "kava",
     "name": "Kava",
-    "summary": "Kava compound profile with evidence, safety, and practical fit.",
+    "summary": "Kava carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Findings across those studies disagree. Recorded activity centres on oxidative stress modulation, neurotransmitter modulation and stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include liver.",
     "description": "Kava compound profile with evidence, safety, and practical fit.",
     "effects": [
       "GABA-A",
@@ -36475,7 +36551,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "kavain",
@@ -37036,7 +37113,7 @@
   {
     "slug": "l-carnitine",
     "name": "L-Carnitine",
-    "summary": "L-Carnitine compound profile with evidence, safety, and practical fit.",
+    "summary": "L-Carnitine carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on mitochondrial support, metabolic regulation and lipid metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include seizure disorder without clinician review and fishy body odor and dose-dependent GI upset are common.",
     "description": "L-Carnitine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "CPT1"
@@ -37156,7 +37233,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "l-citrulline",
@@ -37271,7 +37349,7 @@
   {
     "slug": "l-theanine",
     "name": "L-theanine",
-    "summary": "L-theanine compound profile with evidence, safety, and practical fit.",
+    "summary": "L-theanine carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 4 recorded studies, 4 in people. No disagreement is recorded across them. Recorded activity centres on neurotransmitter modulation, vascular function support and stress response modulation, which describes mechanism rather than demonstrated benefit. Safety evidence: a systematic review of short-term trials reported no serious adverse events, but study populations and dosing varied. Long-term use, pregnancy, breastfeeding, surgery, organ impairment, and clinically significant medication interactions remain insufficiently characterized.",
     "description": "A 2025 systematic review identified 13 human trials of standalone L-theanine for sleep-related outcomes and reported possible benefits across subjective and objective measures. Trial designs, doses, and populations varied, and better studies in people with clinical insomnia are still needed; this supports cautious sleep-support language, not an insomnia-treatment claim.",
     "effects": [
       "GABA",
@@ -37389,7 +37467,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "l-theanine-sleep",
@@ -37645,7 +37724,7 @@
   {
     "slug": "probiotic-strain-lactobacillus",
     "name": "Lactobacillus Probiotic",
-    "summary": "Lactobacillus Probiotic compound profile with evidence, safety, and practical fit.",
+    "summary": "Lactobacillus Probiotic carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include use only with clinician oversight in severe immunocompromise and critical illness.",
     "description": "Lactobacillus Probiotic compound profile with evidence, safety, and practical fit.",
     "effects": [
       "gut health",
@@ -37758,7 +37837,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "lagerstroemin",
@@ -38845,7 +38925,7 @@
   {
     "slug": "licorice-root",
     "name": "Licorice Root",
-    "summary": "Licorice Root compound profile with evidence, safety, and practical fit.",
+    "summary": "Licorice Root carries a Grade C rating — limited evidence. Recorded activity centres on inflammatory signaling modulation, neurotransmitter modulation and hormonal signaling context, which describes mechanism rather than demonstrated benefit. hypertension, hypokalemia, edema/pseudoaldosteronism; chronic use risk.",
     "description": "Licorice Root compound profile with evidence, safety, and practical fit.",
     "effects": [
       "11β-HSD2",
@@ -38957,7 +39037,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "ligustilide",
@@ -39546,7 +39627,7 @@
   {
     "slug": "lutein",
     "name": "Lutein",
-    "summary": "Lutein compound profile with evidence, safety, and practical fit.",
+    "summary": "Lutein carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on oxidative stress modulation, stress response modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy or breastfeeding due to insufficient safety data for supplemental doses beyond dietary intake.",
     "description": "Lutein compound profile with evidence, safety, and practical fit.",
     "effects": [
       "macula",
@@ -39663,7 +39744,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "luteolin",
@@ -41230,7 +41312,7 @@
   {
     "slug": "manganese",
     "name": "Manganese",
-    "summary": "Manganese compound profile with evidence, safety, and practical fit.",
+    "summary": "Manganese carries a Grade B rating — moderate evidence. Recorded activity centres on oxidative stress modulation, metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. excess exposure may cause neurotoxicity/manganism; risk higher with chronic high exposure.",
     "description": "Manganese compound profile with evidence, safety, and practical fit.",
     "effects": [
       "MnSOD",
@@ -41339,7 +41421,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "mangiferin",
@@ -43976,7 +44059,7 @@
   {
     "slug": "mucuna-pruriens",
     "name": "Mucuna pruriens",
-    "summary": "Mucuna pruriens compound profile with evidence, safety, and practical fit.",
+    "summary": "Mucuna pruriens carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on neurotransmitter modulation and dopaminergic, which describes mechanism rather than demonstrated benefit. Noted cautions include concurrent MAOI antidepressants due to a documented risk of a severe pressor crisis from combined dopamine and monoamine surge.",
     "description": "Mucuna pruriens compound profile with evidence, safety, and practical fit.",
     "effects": [
       "dopaminergic pathways"
@@ -44089,7 +44172,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "mulberroside-a",
@@ -45827,7 +45911,7 @@
   {
     "slug": "nicotinamide-riboside",
     "name": "Nicotinamide riboside",
-    "summary": "Nicotinamide riboside compound profile with evidence, safety, and practical fit.",
+    "summary": "Nicotinamide riboside carries a Grade B rating — moderate evidence. Recorded activity centres on SIRT1 signaling and SIRT1, which describes mechanism rather than demonstrated benefit. Mild GI upset, headache, or flushing possible; long-term clinical outcome safety is still limited.",
     "description": "Nicotinamide riboside compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Mitochondrial Health",
@@ -45924,12 +46008,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "nr",
     "name": "Nicotinamide riboside",
-    "summary": "Nicotinamide riboside compound profile with evidence, safety, and practical fit.",
+    "summary": "Nicotinamide riboside carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on mitochondrial support, metabolic regulation and stress response modulation, which describes mechanism rather than demonstrated benefit. Long-term outcome evidence is still emerging; avoid disease-treatment claims.",
     "description": "Nicotinamide riboside compound profile with evidence, safety, and practical fit.",
     "effects": [
       "NAD+ metabolism",
@@ -46042,7 +46127,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "nicotine",
@@ -46529,7 +46615,7 @@
   {
     "slug": "oleamide",
     "name": "Oleamide",
-    "summary": "Oleamide compound profile with evidence, safety, and practical fit.",
+    "summary": "Oleamide carries a Grade C rating — limited evidence. Recorded activity centres on metabolic regulation, neurotransmitter modulation and lipid metabolism support, which describes mechanism rather than demonstrated benefit. insufficient human safety data.",
     "description": "Oleamide compound profile with evidence, safety, and practical fit.",
     "effects": [
       "GABAergic pathways",
@@ -46639,7 +46725,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "oleanolic-acid",
@@ -47566,7 +47653,7 @@
   {
     "slug": "omega-3",
     "name": "Omega-3 fatty acids",
-    "summary": "Omega-3 fatty acids compound profile with evidence, safety, and practical fit.",
+    "summary": "Omega-3 fatty acids carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 6 recorded studies, 6 in people. No disagreement is recorded across them. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and metabolic regulation, which describes mechanism rather than demonstrated benefit. Safety evidence: mild gastrointestinal adverse effects occur, while clinically significant bleeding is not established at common studied doses. Higher-dose, long-term marine omega-3 trials show an atrial-fibrillation signal; anticoagulant use and fish-source allergy warrant product-specific review.",
     "description": "Omega-3 fatty acids compound profile with evidence, safety, and practical fit.",
     "effects": [
       "lipid metabolism",
@@ -47694,7 +47781,8 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "ononin",
@@ -47827,7 +47915,7 @@
   {
     "slug": "oral-rehydration-salts",
     "name": "Oral rehydration salts",
-    "summary": "Oral rehydration salts compound profile with evidence, safety, and practical fit.",
+    "summary": "Oral rehydration salts carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on oxidative stress modulation, metabolic regulation and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Use medical care for severe dehydration, infants, confusion, or persistent vomiting.",
     "description": "Oral rehydration salts compound profile with evidence, safety, and practical fit.",
     "effects": [
       "intestinal sodium-glucose transport",
@@ -47935,7 +48023,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "oregon-grape-root",
@@ -48045,7 +48134,7 @@
   {
     "slug": "ornithine",
     "name": "ornithine",
-    "summary": "ornithine compound profile with evidence, safety, and practical fit.",
+    "summary": "ornithine carries a Grade B rating — moderate evidence. Recorded activity centres on neurotransmitter modulation, hormonal signaling context and stress response modulation, which describes mechanism rather than demonstrated benefit. generally safe; mild GI effects reported.",
     "description": "ornithine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "sleep_GABA"
@@ -48150,7 +48239,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "orotic-acid",
@@ -49006,7 +49096,7 @@
   {
     "slug": "palmitoylethanolamide",
     "name": "Palmitoylethanolamide",
-    "summary": "Palmitoylethanolamide compound profile with evidence, safety, and practical fit.",
+    "summary": "Palmitoylethanolamide carries a Grade B rating — moderate evidence. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. well tolerated with minimal reported adverse effects.",
     "description": "Palmitoylethanolamide compound profile with evidence, safety, and practical fit.",
     "effects": [
       "PPAR-alpha",
@@ -49119,7 +49209,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "panax-ginseng-extract",
@@ -50190,7 +50281,7 @@
   {
     "slug": "peppermint-oil",
     "name": "Peppermint Oil",
-    "summary": "Peppermint Oil compound profile with evidence, safety, and practical fit.",
+    "summary": "Peppermint Oil carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 4 in people. No disagreement is recorded across them. Recorded activity centres on antispasmodic effect on GI smooth muscle., which describes mechanism rather than demonstrated benefit. Noted cautions include hiatal hernia due to worsened reflux symptoms.",
     "description": "Peppermint Oil compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Digestive Health",
@@ -50300,12 +50391,13 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "phenylalanine",
     "name": "Phenylalanine",
-    "summary": "Phenylalanine compound profile with evidence, safety, and practical fit.",
+    "summary": "Phenylalanine carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on neurotransmitter modulation and catecholaminergic, which describes mechanism rather than demonstrated benefit. Noted cautions include ssri.",
     "description": "Phenylalanine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "dopamine",
@@ -50402,7 +50494,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "phloretin",
@@ -50526,7 +50619,7 @@
   {
     "slug": "phosphatidic-acid",
     "name": "phosphatidic acid",
-    "summary": "phosphatidic acid compound profile with evidence, safety, and practical fit.",
+    "summary": "phosphatidic acid carries a Grade B rating — moderate evidence. Recorded activity centres on mitochondrial support, mTOR signaling and mTOR, which describes mechanism rather than demonstrated benefit. Well tolerated with minimal adverse effects.",
     "description": "phosphatidic acid compound profile with evidence, safety, and practical fit.",
     "effects": [
       "mTOR"
@@ -50627,7 +50720,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "phosphatidylcholine",
@@ -50985,7 +51079,7 @@
   {
     "slug": "plant-sterols",
     "name": "Plant Sterols",
-    "summary": "Plant Sterols compound profile with evidence, safety, and practical fit.",
+    "summary": "Plant Sterols carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, vascular function support and lipid metabolism support, which describes mechanism rather than demonstrated benefit. Avoid with sitosterolemia; consider overall dietary context.",
     "description": "Plant Sterols compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Metabolic Health",
@@ -51093,7 +51187,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "plumbagin",
@@ -51469,7 +51564,7 @@
   {
     "slug": "potassium",
     "name": "Potassium",
-    "summary": "Potassium compound profile with evidence, safety, and practical fit.",
+    "summary": "Potassium carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people. Recorded activity centres on cellular protection, vascular function support and cardiovascular, which describes mechanism rather than demonstrated benefit. Noted cautions include caution with ACE inhibitors/renal disease.",
     "description": "Potassium compound profile with evidence, safety, and practical fit.",
     "effects": [
       "membrane potential",
@@ -51572,12 +51667,13 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "single-human-study-for-grade-a"
+    "evidence_grade_backing_gap": "single-human-study-for-grade-a",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "electrolytes-potassium",
     "name": "Potassium electrolytes",
-    "summary": "Potassium electrolytes compound profile with evidence, safety, and practical fit.",
+    "summary": "Potassium electrolytes carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on cellular protection, vascular function support and cardiovascular, which describes mechanism rather than demonstrated benefit. Noted cautions include baseline serum potassium above the normal range.",
     "description": "Potassium electrolytes compound profile with evidence, safety, and practical fit.",
     "effects": [
       "cardiovascular function",
@@ -51696,12 +51792,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "pqq",
     "name": "PQQ",
-    "summary": "PQQ compound profile with evidence, safety, and practical fit.",
+    "summary": "PQQ carries a Avoid / Insufficient Evidence rating. Recorded activity centres on oxidative stress modulation, mitochondrial support and oxidative stress, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy or breastfeeding was excluded from EFSA's novel food safety evaluation and should be avoided without clinician guidance.",
     "description": "PQQ compound profile with evidence, safety, and practical fit.",
     "effects": [
       "PGC-1α",
@@ -51817,12 +51914,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "pregnenolone",
     "name": "Pregnenolone",
-    "summary": "Pregnenolone compound profile with evidence, safety, and practical fit.",
+    "summary": "Pregnenolone carries a Grade C rating — limited evidence. Recorded activity centres on neurotransmitter modulation, hormonal signaling context and neurotransmitter signaling, which describes mechanism rather than demonstrated benefit. small trials report tolerability, but evidence is limited and endocrine, mood, and drug-interaction risks require clinician review.",
     "description": "Pregnenolone compound profile with evidence, safety, and practical fit.",
     "effects": [
       "mood",
@@ -51925,7 +52023,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "proanthocyanidins",
@@ -52028,7 +52127,7 @@
   {
     "slug": "probiotic-multistrain",
     "name": "Probiotic Multistrain",
-    "summary": "Probiotic Multistrain compound profile with evidence, safety, and practical fit.",
+    "summary": "Probiotic Multistrain carries a Grade A rating — strong evidence. Recorded activity centres on immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include severely immunocompromised and recently postoperative.",
     "description": "Probiotic Multistrain compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Digestive Health",
@@ -52138,7 +52237,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "probiotics",
@@ -52517,7 +52617,7 @@
   {
     "slug": "proline",
     "name": "proline",
-    "summary": "proline compound profile with evidence, safety, and practical fit.",
+    "summary": "proline carries a Grade B rating — moderate evidence. Recorded activity centres on inflammatory signaling modulation and liver_detoxification, which describes mechanism rather than demonstrated benefit. generally safe; excessive intake may cause GI discomfort; well tolerated; excessive intake may cause GI upset.",
     "description": "proline compound profile with evidence, safety, and practical fit.",
     "effects": [
       "involved in collagen synthesis and connective tissue repair"
@@ -52615,12 +52715,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "propionate",
     "name": "propionate",
-    "summary": "propionate compound profile with evidence, safety, and practical fit.",
+    "summary": "propionate carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, glucose metabolism support and lipid metabolism support, which describes mechanism rather than demonstrated benefit. generally safe; mild GI discomfort possible; generally well tolerated; mild gastrointestinal discomfort possible.",
     "description": "propionate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "glucose_AMPK"
@@ -52724,7 +52825,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "protodioscin",
@@ -52948,7 +53050,7 @@
   {
     "slug": "psyllium-husk",
     "name": "Psyllium husk",
-    "summary": "Psyllium husk compound profile with evidence, safety, and practical fit.",
+    "summary": "Psyllium husk carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, vascular function support and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include difficulty swallowing or known esophageal narrowing or dysfunction.",
     "description": "Psyllium husk compound profile with evidence, safety, and practical fit.",
     "effects": [
       "bile acid binding"
@@ -53067,7 +53169,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "pt-141",
@@ -53470,7 +53573,7 @@
   {
     "slug": "pumpkin-seed-oil",
     "name": "Pumpkin seed oil",
-    "summary": "Pumpkin seed oil compound profile with evidence, safety, and practical fit.",
+    "summary": "Pumpkin seed oil carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and metabolic regulation, which describes mechanism rather than demonstrated benefit. Use caution with seed allergy or anticoagulant medication plans.",
     "description": "Pumpkin seed oil compound profile with evidence, safety, and practical fit.",
     "effects": [
       "prostate symptoms",
@@ -53582,7 +53685,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "punicalagin",
@@ -53702,7 +53806,7 @@
   {
     "slug": "putrescine",
     "name": "putrescine",
-    "summary": "putrescine compound profile with evidence, safety, and practical fit.",
+    "summary": "putrescine carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, vascular function support and endothelial function support, which describes mechanism rather than demonstrated benefit. generally safe at dietary levels; excessive intake may cause GI discomfort; safe at dietary levels; excessive intake may cause gastrointestinal discomfort.",
     "description": "putrescine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Cardiovascular Health",
@@ -53814,7 +53918,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "pycnogenol",
@@ -54070,7 +54175,7 @@
   {
     "slug": "pyridoxal-5-phosphate",
     "name": "Pyridoxal-5-phosphate",
-    "summary": "Pyridoxal-5-phosphate compound profile with evidence, safety, and practical fit.",
+    "summary": "Pyridoxal-5-phosphate carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, neurotransmitter modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Active B6 forms still carry dose-related neuropathy concerns.",
     "description": "Pyridoxal-5-phosphate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "serotonin synthesis",
@@ -54184,7 +54289,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "quercetin-phytosome",
@@ -54434,7 +54540,7 @@
   {
     "slug": "red-yeast-rice",
     "name": "Red Yeast Rice",
-    "summary": "Red Yeast Rice compound profile with evidence, safety, and practical fit.",
+    "summary": "Red Yeast Rice carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a regulatory or official guidance, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on metabolic regulation, vascular function support and lipid metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include liver.",
     "description": "Red Yeast Rice compound profile with evidence, safety, and practical fit.",
     "effects": [
       "HMG-CoA reductase"
@@ -54538,12 +54644,13 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "regulatory-guidance",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "resistant-starch",
     "name": "Resistant Starch",
-    "summary": "Resistant Starch compound profile with evidence, safety, and practical fit.",
+    "summary": "Resistant Starch carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Titrate gradually to reduce gas and bloating.",
     "description": "Resistant Starch compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Metabolic Health",
@@ -54646,7 +54753,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "rhein",
@@ -55544,7 +55652,7 @@
   {
     "slug": "saccharomyces-boulardii",
     "name": "Saccharomyces boulardii",
-    "summary": "Saccharomyces boulardii compound profile with evidence, safety, and practical fit.",
+    "summary": "Saccharomyces boulardii carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 3 in people. No disagreement is recorded across them. Recorded activity centres on immune signaling modulation, gut_microbiome and liver_detoxification, which describes mechanism rather than demonstrated benefit. Fungemia risk is rare but important in central-line or severe immunocompromise contexts.",
     "description": "Saccharomyces boulardii compound profile with evidence, safety, and practical fit.",
     "effects": [
       "intestinal pathogens",
@@ -55651,12 +55759,13 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "saffron-extract",
     "name": "Saffron Extract",
-    "summary": "Saffron Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Saffron Extract carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include caution with blood pressure medications.",
     "description": "Saffron Extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Oxidative Stress",
@@ -55782,7 +55891,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "safranal",
@@ -56389,7 +56499,7 @@
   {
     "slug": "sam-e",
     "name": "SAM-e",
-    "summary": "SAM-e compound profile with evidence, safety, and practical fit.",
+    "summary": "SAM-e carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation, neurotransmitter modulation and vascular function support, which describes mechanism rather than demonstrated benefit. Can precipitate mania in bipolar disorder; review with psychiatric medications.",
     "description": "SAM-e compound profile with evidence, safety, and practical fit.",
     "effects": [
       "methylation pathways",
@@ -56494,7 +56604,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "saw-palmetto-extract",
@@ -57611,7 +57722,7 @@
   {
     "slug": "serine",
     "name": "serine",
-    "summary": "serine compound profile with evidence, safety, and practical fit.",
+    "summary": "serine carries a Grade B rating — moderate evidence. Recorded activity centres on cellular protection, neuroprotective activity and neuroprotective, which describes mechanism rather than demonstrated benefit. well tolerated; high doses may cause mild GI upset; generally safe; high doses may cause mild GI discomfort.",
     "description": "serine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "supports phosphatidylserine synthesis and neuronal membrane function"
@@ -57710,7 +57821,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "serrapeptase",
@@ -57952,7 +58064,7 @@
   {
     "slug": "shilajit",
     "name": "Shilajit",
-    "summary": "Shilajit compound profile with evidence, safety, and practical fit.",
+    "summary": "Shilajit carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on mitochondrial support, endocrine and mitochondrial, which describes mechanism rather than demonstrated benefit. heavy metal contamination risk; limited safety data.",
     "description": "Shilajit compound profile with evidence, safety, and practical fit.",
     "effects": [
       "mitochondrial pathways proposed"
@@ -58053,7 +58165,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "shilajit-extract",
@@ -58172,7 +58285,7 @@
   {
     "slug": "shogaol",
     "name": "shogaol",
-    "summary": "shogaol compound profile with evidence, safety, and practical fit.",
+    "summary": "shogaol carries a Grade C rating — limited evidence. Recorded activity centres on inflammatory signaling modulation, NF-kB modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Limited human safety data available.",
     "description": "shogaol compound profile with evidence, safety, and practical fit.",
     "effects": [
       "NF-kB"
@@ -58273,7 +58386,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "silibinin",
@@ -58872,7 +58986,7 @@
   {
     "slug": "silymarin",
     "name": "Silymarin",
-    "summary": "Silymarin compound profile with evidence, safety, and practical fit.",
+    "summary": "Silymarin carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and cellular protection, which describes mechanism rather than demonstrated benefit. Same safety family as milk thistle; keep liver claims conservative.",
     "description": "Silymarin compound profile with evidence, safety, and practical fit.",
     "effects": [
       "hepatocytes",
@@ -58987,12 +59101,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "skullcap",
     "name": "Skullcap",
-    "summary": "Skullcap compound profile with evidence, safety, and practical fit.",
+    "summary": "Skullcap carries a Avoid / Insufficient Evidence rating. Recorded activity centres on inflammatory signaling modulation, neurotransmitter modulation and stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include liver.",
     "description": "Skullcap compound profile with evidence, safety, and practical fit.",
     "effects": [
       "GABA-A receptor",
@@ -59104,7 +59219,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "slippery-elm",
@@ -59404,7 +59520,7 @@
   {
     "slug": "electrolytes-sodium",
     "name": "Sodium electrolytes",
-    "summary": "Sodium electrolytes compound profile with evidence, safety, and practical fit.",
+    "summary": "Sodium electrolytes carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on oxidative stress modulation and oxidative stress, which describes mechanism rather than demonstrated benefit. Noted cautions include hypertension or sodium-sensitive blood pressure without clinician guidance.",
     "description": "Sodium electrolytes compound profile with evidence, safety, and practical fit.",
     "effects": [
       "fluid balance",
@@ -59518,12 +59634,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "spermidine",
     "name": "spermidine",
-    "summary": "spermidine compound profile with evidence, safety, and practical fit.",
+    "summary": "spermidine carries a Grade C rating — limited evidence. Recorded activity centres on metabolic regulation, mTOR signaling and autophagy support, which describes mechanism rather than demonstrated benefit. Limited human safety data but generally well tolerated.",
     "description": "spermidine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "mTOR autophagy"
@@ -59633,12 +59750,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "spirulina",
     "name": "Spirulina",
-    "summary": "Spirulina compound profile with evidence, safety, and practical fit.",
+    "summary": "Spirulina carries a Avoid / Insufficient Evidence rating. Strongest recorded design is a uncontrolled trial, drawn from 2 recorded studies, 1 in people. Recorded activity centres on oxidative stress modulation, metabolic regulation and lipid metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include phenylketonuria due to phenylalanine content.",
     "description": "Spirulina compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Oxidative Stress",
@@ -59764,7 +59882,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "uncontrolled-trial",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "stigmasterol",
@@ -60358,7 +60477,7 @@
   {
     "slug": "taurine-blend",
     "name": "Taurine Blend",
-    "summary": "Taurine Blend compound profile with evidence, safety, and practical fit.",
+    "summary": "Taurine Blend carries a Grade B rating — moderate evidence. Recorded activity centres on cellular hydration regulation, calcium signaling and cardiac/muscle support, which describes mechanism rather than demonstrated benefit. Safety evidence: human taurine trials report no significant adverse-effect difference from control in studied settings, but this blend formulation is unspecified. Isolated-taurine findings cannot establish the safety of unknown co-ingredients, doses, or long-term use.",
     "description": "Taurine Blend compound profile with evidence, safety, and practical fit.",
     "effects": [
       "calcium signaling",
@@ -60464,7 +60583,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "tb-500",
@@ -62589,7 +62709,7 @@
   {
     "slug": "tudca",
     "name": "TUDCA",
-    "summary": "TUDCA compound profile with evidence, safety, and practical fit.",
+    "summary": "TUDCA carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on oxidative stress modulation, mitochondrial support and metabolic regulation, which describes mechanism rather than demonstrated benefit. Should not be framed as liver-disease treatment; medical conditions need clinician care.",
     "description": "TUDCA compound profile with evidence, safety, and practical fit.",
     "effects": [
       "ER stress bile acid signaling"
@@ -62698,12 +62818,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "turkesterone",
     "name": "turkesterone",
-    "summary": "turkesterone compound profile with evidence, safety, and practical fit.",
+    "summary": "turkesterone carries a Grade B rating — moderate evidence. Recorded activity centres on hormonal signaling context and endocrine, which describes mechanism rather than demonstrated benefit. well tolerated with no significant adverse effects reported.",
     "description": "turkesterone compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Hormonal Health",
@@ -62801,7 +62922,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "turmeric-curcumin-piperine",
@@ -63085,7 +63207,7 @@
   {
     "slug": "coenzyme-q10-ubiquinol",
     "name": "Ubiquinol CoQ10",
-    "summary": "Ubiquinol CoQ10 compound profile with evidence, safety, and practical fit.",
+    "summary": "Ubiquinol CoQ10 carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on oxidative stress modulation, mitochondrial support and vascular function support, which describes mechanism rather than demonstrated benefit. May affect anticoagulation management; coordinate use with warfarin or high-risk cardiovascular medication plans.",
     "description": "Ubiquinol CoQ10 compound profile with evidence, safety, and practical fit.",
     "effects": [
       "mitochondrial ETC",
@@ -63199,12 +63321,13 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "uc-ii-collagen",
     "name": "Uc Ii Collagen",
-    "summary": "Uc Ii Collagen compound profile with evidence, safety, and practical fit.",
+    "summary": "Uc Ii Collagen carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Safety evidence: one 180-day trial of a specific undenatured type II collagen product. Safety outcomes did not differ from placebo or glucosamine-chondroitin, but product-source allergy, pregnancy, breastfeeding, autoimmune disease, longer-term use, organ impairment, and medication-interaction safety remain insufficient.",
     "description": "Uc Ii Collagen compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Inflammation",
@@ -63312,7 +63435,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "umbelliferone",
@@ -64449,7 +64573,7 @@
   {
     "slug": "valerian-root-extract",
     "name": "Valerian Root Extract",
-    "summary": "Valerian Root Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Valerian Root Extract carries a Grade C rating — limited evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on neurotransmitter modulation, stress response modulation and gabaergic, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician guidance and children under 12 without medical supervision.",
     "description": "Valerian Root Extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "GABA signaling"
@@ -64570,7 +64694,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "valine",
@@ -65281,7 +65406,7 @@
   {
     "slug": "vitamin-b6",
     "name": "Vitamin B6",
-    "summary": "Vitamin B6 compound profile with evidence, safety, and practical fit.",
+    "summary": "Vitamin B6 carries a Grade A rating — strong evidence. Recorded activity centres on metabolic regulation, neurotransmitter modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Avoid chronic high-dose use; neuropathy risk is the key safety limiter.",
     "description": "Vitamin B6 compound profile with evidence, safety, and practical fit.",
     "effects": [
       "amino acid metabolism",
@@ -65393,7 +65518,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "vitamin-c",
@@ -65529,7 +65655,7 @@
   {
     "slug": "vitamin-d",
     "name": "Vitamin D",
-    "summary": "Vitamin D compound profile with evidence, safety, and practical fit.",
+    "summary": "Vitamin D carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 5 recorded studies, 5 in people. No disagreement is recorded across them. Recorded activity centres on metabolic regulation, immune signaling modulation and metabolic, which describes mechanism rather than demonstrated benefit. Noted cautions include hypercalcemia or vitamin D toxicity.",
     "description": "Vitamin D compound profile with evidence, safety, and practical fit.",
     "effects": [
       "vitamin D receptor",
@@ -65644,7 +65770,8 @@
     "evidence_recorded_study_count": 5,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "vitamin-d3",
@@ -66136,7 +66263,7 @@
   {
     "slug": "protein-whey-isolate",
     "name": "Whey protein isolate",
-    "summary": "Whey protein isolate compound profile with evidence, safety, and practical fit.",
+    "summary": "Whey protein isolate carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on mTOR signaling and mTOR, which describes mechanism rather than demonstrated benefit. Noted cautions include cow's-milk protein allergy.",
     "description": "Whey protein isolate compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Exercise Performance",
@@ -66244,7 +66371,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "wild-dagga",
@@ -66355,7 +66483,7 @@
   {
     "slug": "willow-bark-extract",
     "name": "Willow Bark Extract",
-    "summary": "Willow Bark Extract compound profile with evidence, safety, and practical fit.",
+    "summary": "Willow Bark Extract carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include active GI ulcer or reflux disease and asthma with known aspirin or NSAID sensitivity.",
     "description": "Willow Bark Extract compound profile with evidence, safety, and practical fit.",
     "effects": [
       "Inflammation",
@@ -66472,7 +66600,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "withaferin-a",
@@ -67455,7 +67584,7 @@
   {
     "slug": "yohimbine",
     "name": "Yohimbine",
-    "summary": "Yohimbine compound profile with evidence, safety, and practical fit.",
+    "summary": "Yohimbine carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people. Recorded activity centres on metabolic regulation, vascular function support and adrenergic, which describes mechanism rather than demonstrated benefit. Noted cautions include severe kidney or liver disease reduces clearance.",
     "description": "Yohimbine compound profile with evidence, safety, and practical fit.",
     "effects": [
       "alpha-2 adrenergic receptor"
@@ -67573,12 +67702,13 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "zeaxanthin",
     "name": "Zeaxanthin",
-    "summary": "Zeaxanthin compound profile with evidence, safety, and practical fit.",
+    "summary": "Zeaxanthin carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on oxidative stress modulation, stress response modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Generally well tolerated at common supplemental doses.",
     "description": "Zeaxanthin compound profile with evidence, safety, and practical fit.",
     "effects": [
       "macula",
@@ -67684,12 +67814,13 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "zinc",
     "name": "Zinc",
-    "summary": "Zinc compound profile with evidence, safety, and practical fit.",
+    "summary": "Zinc carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, immune signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Noted cautions include avoid high-dose long-term use.",
     "description": "Zinc compound profile with evidence, safety, and practical fit.",
     "effects": [
       "immune function",
@@ -67795,7 +67926,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "summary_source": "composed-from-record"
   },
   {
     "slug": "zinc-carnosine",
