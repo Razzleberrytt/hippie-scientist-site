@@ -30,7 +30,7 @@ export function ProfileDecisionPanel({
           evidenceNote={verdict.evidenceNote}
           betterAlternative={verdict.betterAlternative}
           bottomLine={verdict.bottomLine}
-          className="my-0"
+          className="!my-0"
         />
       ) : null}
 
@@ -40,7 +40,7 @@ export function ProfileDecisionPanel({
           whyNotHigher={verdict.evidenceConfidence.whyNotHigher}
           whyNotLower={verdict.evidenceConfidence.whyNotLower}
           practicalTakeaway={verdict.evidenceConfidence.practicalTakeaway}
-          className="my-0"
+          className="!my-0"
         />
       ) : null}
 
