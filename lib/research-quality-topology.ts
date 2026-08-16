@@ -1,3 +1,4 @@
+import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import { analyzeStudyIdentityCoverage } from './research-study-identity-coverage'
@@ -26,6 +27,8 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const legacyOnlyClaims = claimEvidenceAge.filter((claim) => claim.allKnownEvidenceOlderThan10Years)
   const highConfidenceLegacyOnlyClaims = claimEvidenceAge.filter((claim) => claim.highConfidenceLegacyOnlyClaim)
   const studyIdentityCoverage = analyzeStudyIdentityCoverage(analysis)
+  const edgeWeightedDesignUsage = analyzeEdgeWeightedDesignUsage(analysis)
+  const edgeWeightedNarrativeDominatedProfiles = edgeWeightedDesignUsage.filter((profile) => profile.edgeWeightedNarrativeDominated)
 
   return {
     crossProfileStudyLoad,
@@ -39,5 +42,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     legacyOnlyClaims,
     highConfidenceLegacyOnlyClaims,
     studyIdentityCoverage,
+    edgeWeightedDesignUsage,
+    edgeWeightedNarrativeDominatedProfiles,
   }
 }
