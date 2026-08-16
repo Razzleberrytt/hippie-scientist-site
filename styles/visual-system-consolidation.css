@@ -89,3 +89,42 @@ body,
 :where(.hero-shell, .premium-card, .surface-card) {
   border-color: var(--border-soft);
 }
+
+/* Final typography guardrails. Template utilities can still opt into a smaller
+   scale, but old viewport-heavy rules cannot inflate ordinary mobile headings. */
+main h1 {
+  max-width: 20ch;
+}
+
+main h2 {
+  max-width: 26ch;
+}
+
+main p,
+main li {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  main h1:not(.heading-premium) {
+    font-size: clamp(1.95rem, 7.5vw, 2.55rem);
+    line-height: 1.08;
+  }
+
+  main h2 {
+    font-size: clamp(1.45rem, 5.8vw, 2rem);
+    line-height: 1.14;
+  }
+
+  main p,
+  main li,
+  main .content-prose,
+  main .detail-reading,
+  main .text-reading {
+    line-height: 1.68;
+  }
+
+  .container-page {
+    padding-inline: 1rem;
+  }
+}
