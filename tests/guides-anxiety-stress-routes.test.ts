@@ -12,7 +12,7 @@ describe('Guides hub anxiety and stress routes', () => {
 
     expect(guides).toContain("title: 'Anxiety'")
     expect(guides).toContain("href: '/guides/anxiety/'")
-    expect(guides).toContain("title: 'Stress Decision Hub'")
+    expect(guides).toContain("title: 'Stress'")
     expect(guides).toContain("href: '/guides/stress/'")
     expect(guides).not.toContain("title: 'Anxiety & Stress'")
   })
