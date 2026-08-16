@@ -141,6 +141,18 @@ export function validateResearchQualitySnapshotInvariants(
       `summary=${topology.claimBreadth.summary.overbroadClaims}; rows=${topology.claimBreadth.findings.length}`,
     )
   }
+  if (topology.effectCertainty.summary.findings !== topology.effectCertainty.findings.length) {
+    add(
+      'effect-certainty-finding-count-mismatch',
+      `summary=${topology.effectCertainty.summary.findings}; rows=${topology.effectCertainty.findings.length}`,
+    )
+  }
+  if (topology.effectCertainty.summary.highConfidenceFindings !== topology.effectCertainty.highConfidenceFindings.length) {
+    add(
+      'effect-certainty-high-confidence-count-mismatch',
+      `summary=${topology.effectCertainty.summary.highConfidenceFindings}; rows=${topology.effectCertainty.highConfidenceFindings.length}`,
+    )
+  }
   if (topology.edgeCardinality.summary.claims !== analysis.structuredClaimAnalyses.length) {
     add(
       'edge-cardinality-claim-count-mismatch',
@@ -189,6 +201,10 @@ export function validateResearchQualitySnapshotInvariants(
   for (const claim of topology.claimBreadth.claims) {
     requireProfile('claim-breadth-unknown-profile', claim.url, claim.claimId)
     requireApprovedClaim('claim-breadth-unknown-claim', claim.url, claim.claimId)
+  }
+  for (const claim of topology.effectCertainty.claims) {
+    requireProfile('effect-certainty-unknown-profile', claim.url, claim.claimId)
+    requireApprovedClaim('effect-certainty-unknown-claim', claim.url, claim.claimId)
   }
   for (const finding of topology.claimLanguageCalibration.directEvidenceFindings) {
     requireApprovedClaim('language-calibration-unknown-claim', finding.url, finding.claimId)
