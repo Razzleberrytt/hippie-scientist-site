@@ -1,0 +1,110 @@
+/* Final token hardening.
+   Loaded last so legacy Tailwind/theme variables cannot leak the former
+   green/purple identity back into shared components. Semantic evidence and
+   safety colors remain untouched because they carry information. */
+
+:root {
+  --color-background: #f3f0e9;
+  --color-surface: #ebe7de;
+  --color-ink: #1d1d1f;
+  --color-muted: #6c6862;
+
+  --bg: #f3f0e9;
+  --surface: #ebe7de;
+  --surface-elevated: #fffdf8;
+  --text-primary: #1d1d1f;
+  --text-secondary: #5f5b56;
+  --text-muted: #77716a;
+  --border-soft: rgba(46, 44, 40, 0.11);
+  --border-strong: rgba(46, 44, 40, 0.20);
+  --border-default: var(--border-soft);
+  --surface-card: rgba(255, 253, 248, 0.96);
+  --surface-card-strong: #fffdf8;
+  --surface-1: var(--surface);
+  --surface-2: var(--surface-card);
+  --surface-subtle: rgba(235, 231, 222, 0.84);
+  --surface-code: #ece9e2;
+  --surface-neutral: rgba(246, 243, 237, 0.96);
+  --ring-brand: rgba(176, 132, 73, 0.34);
+
+  --accent-primary: #2f4037;
+  --accent-secondary: #b18449;
+  --accent-teal: #66766c;
+
+  /* Keep Tailwind brand utilities compatible with the editorial identity. */
+  --color-brand-50: #f1f2ef;
+  --color-brand-100: #e1e5df;
+  --color-brand-200: #c6cec8;
+  --color-brand-300: #a7b4ab;
+  --color-brand-400: #84958a;
+  --color-brand-500: #66766c;
+  --color-brand-600: #4d5e54;
+  --color-brand-700: #394940;
+  --color-brand-800: #2f4037;
+  --color-brand-900: #25332c;
+  --color-brand-950: #17201b;
+  --color-brand: #2f4037;
+}
+
+html.dark {
+  --color-background: #0e1011;
+  --color-surface: #15181a;
+  --color-ink: #f3eee4;
+  --color-muted: #aaa49a;
+
+  --bg: #0e1011;
+  --surface: #15181a;
+  --surface-elevated: #1c1f21;
+  --text-primary: #f3eee4;
+  --text-secondary: #c7c0b5;
+  --text-muted: #9d978e;
+  --border-soft: rgba(227, 211, 181, 0.11);
+  --border-strong: rgba(227, 211, 181, 0.22);
+  --border-default: var(--border-soft);
+  --surface-card: rgba(27, 30, 32, 0.97);
+  --surface-card-strong: #202326;
+  --surface-1: var(--surface);
+  --surface-2: var(--surface-card);
+  --surface-subtle: rgba(23, 26, 28, 0.82);
+  --surface-code: #171a1c;
+  --surface-neutral: rgba(18, 21, 23, 0.96);
+  --ring-brand: rgba(207, 164, 91, 0.36);
+
+  --accent-primary: #d0a35b;
+  --accent-secondary: #8d9b91;
+  --accent-teal: #829188;
+
+  --color-brand-50: #181b1c;
+  --color-brand-100: #202426;
+  --color-brand-200: #2a302d;
+  --color-brand-300: #3c4741;
+  --color-brand-400: #5d6a62;
+  --color-brand-500: #7f8d84;
+  --color-brand-600: #a0aaa3;
+  --color-brand-700: #c0c7c2;
+  --color-brand-800: #d8ddd9;
+  --color-brand-900: #e9ebe8;
+  --color-brand-950: #f5f3ed;
+  --color-brand: #d0a35b;
+}
+
+/* The body itself must agree with the shell; this prevents a green flash or
+   exposed strip during overscroll, navigation transitions, and short pages. */
+body {
+  background: var(--bg) !important;
+  color: var(--text-primary);
+}
+
+html.dark body {
+  background: #0e1011 !important;
+}
+
+/* Generic focus and link affordances use brass rather than inherited green. */
+:where(a, button, summary, input, textarea, select):focus-visible {
+  outline-color: var(--hs-gold, #b18449) !important;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--hs-gold, #b18449) 34%, transparent);
+  color: var(--text-primary);
+}
