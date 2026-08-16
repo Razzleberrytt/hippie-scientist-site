@@ -1,6 +1,6 @@
 import { analyzeClaimEvidenceAge } from './research-evidence-age'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
-import { analyzeClaimEvidenceOverlap, analyzeEvidenceBundleReuse } from './research-study-load'
+import { analyzeClaimEvidenceOverlap, analyzeCrossProfileStudyLoad, analyzeEvidenceBundleReuse } from './research-study-load'
 
 export type ResearchGapReason = {
   kind: string
@@ -36,10 +36,13 @@ export const RESEARCH_GAP_WEIGHTS = {
   poorStudyMetadataCoverage: 12,
   narrowRepeatedEvidenceBundle: 15,
   nearDuplicateEvidenceSupport: 10,
+  systemicLoadBearingStudyDependency: 8,
   legacyOnlyOutcomeClaim: 8,
   highConfidenceLegacyOnlyBonus: 4,
   unknownEvidenceYearMetadata: 4,
   singleStudyApprovedClaim: 5,
+  highConfidenceSingleStudyBonus: 10,
+  veryHighConfidenceSingleStudyBonus: 10,
   unsupportedUnapprovedStructuredClaim: 4,
   weakUnapprovedStructuredClaim: 3,
 } as const
@@ -81,7 +84,14 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
       )
     }
     if (claim.singleStudy) {
-      add(claim.url, 'single-study-approved-claim', RESEARCH_GAP_WEIGHTS.singleStudyApprovedClaim, claim.claimId)
+      const highConfidenceBonus = claim.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSingleStudyBonus : 0
+      const veryHighConfidenceBonus = claim.confidence >= 0.9 ? RESEARCH_GAP_WEIGHTS.veryHighConfidenceSingleStudyBonus : 0
+      add(
+        claim.url,
+        'single-study-approved-claim',
+        RESEARCH_GAP_WEIGHTS.singleStudyApprovedClaim + highConfidenceBonus + veryHighConfidenceBonus,
+        `${claim.claimId} · confidence ${claim.confidence}${veryHighConfidenceBonus ? ' · very high confidence' : highConfidenceBonus ? ' · high confidence' : ''}`,
+      )
     }
     if (claim.outcomeClaim && claim.primaryHuman === 0 && claim.synthesis > 0) {
       add(
@@ -218,6 +228,26 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
       'near-duplicate-claim-evidence-support',
       RESEARCH_GAP_WEIGHTS.nearDuplicateEvidenceSupport + overlapBonus,
       `${overlaps.length} claim pair(s) share near-duplicate evidence; ${crossPredicateCount} cross-predicate; max containment ${Math.round(maxContainment * 100)}%`,
+    )
+  }
+
+  const systemicByProfile = new Map<string, { studies: number; claims: number }>()
+  for (const study of analyzeCrossProfileStudyLoad(analysis)) {
+    if (!study.systemicLoadBearing) continue
+    for (const url of study.profiles) {
+      const item = systemicByProfile.get(url) ?? { studies: 0, claims: 0 }
+      item.studies += 1
+      item.claims += study.claims.filter((claim) => claim.url === url).length
+      systemicByProfile.set(url, item)
+    }
+  }
+  for (const [url, systemic] of systemicByProfile) {
+    const studyBonus = Math.min(12, Math.max(0, systemic.studies - 1) * 2)
+    add(
+      url,
+      'systemic-load-bearing-study-dependency',
+      RESEARCH_GAP_WEIGHTS.systemicLoadBearingStudyDependency + studyBonus,
+      `${systemic.studies} site-wide load-bearing stud${systemic.studies === 1 ? 'y' : 'ies'} support ${systemic.claims} approved claim${systemic.claims === 1 ? '' : 's'} on this profile`,
     )
   }
 
