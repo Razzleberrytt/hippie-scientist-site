@@ -44,6 +44,13 @@ const SECTIONS = [
     articles: ['Best supplements for sleep', 'Magnesium for sleep', 'Magnesium vs melatonin', 'Sleep stack guide', 'Herbs for sleep'],
   },
   {
+    title: 'Stress',
+    href: '/guides/stress/',
+    desc: 'Evidence-aware guides for acute tension, chronic overload, burnout, adaptogens, and stress-support decisions.',
+    color: 'border-l-orange-500',
+    articles: ['Stress support', 'Adaptogens', 'Ashwagandha', 'Rhodiola', 'L-theanine'],
+  },
+  {
     title: 'Anxiety',
     href: '/guides/anxiety/',
     desc: 'Evidence-graded guides for anxious thoughts, physical tension, and calm — with safety warnings kept visible.',
