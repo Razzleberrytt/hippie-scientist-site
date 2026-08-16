@@ -62,7 +62,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const evidenceIndependenceCoverage = analyzeEvidenceIndependenceCoverage({
     trialRegistrationIndependence,
     evidenceLineage,
-  } as ResearchQualityTopology)
+  })
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
