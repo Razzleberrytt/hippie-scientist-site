@@ -124,7 +124,13 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
         <div className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Reported participants</p>
           <p className="mt-2 text-3xl font-bold text-ink">~{metrics.approximateParticipants.toLocaleString()}</p>
-          <p className="mt-1 text-xs text-muted">Only sources with a structured, parseable N are included; overlapping publications may count some participants more than once.</p>
+          <p className="mt-1 text-xs text-muted">
+            Only deduplicated human-evidence records with one unambiguous structured N are included.
+            {metrics.participantCountAmbiguityStudyCount > 0
+              ? ` ${metrics.participantCountAmbiguityStudyCount} study record${metrics.participantCountAmbiguityStudyCount === 1 ? '' : 's'} with conflicting N values ${metrics.participantCountAmbiguityStudyCount === 1 ? 'is' : 'are'} excluded from this total.`
+              : ''}{' '}
+            Overlapping publications may still count some participants more than once.
+          </p>
         </div>
         <div className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Disagreement surfaced</p>
