@@ -107,10 +107,8 @@ export function uniqueSourceRefs(claim: ResearchClaim): string[] {
   return [...new Set(Array.isArray(claim.sourceRefIds) ? claim.sourceRefIds.map(String).filter(Boolean) : [])]
 }
 
-export function canonicalStudyIdentityMap(record: ResearchProfile): Map<string, string> {
-  const sources = Array.isArray(record.sources) ? record.sources : []
+function createIdentityUnion() {
   const parent = new Map<string, string>()
-
   const find = (value: string): string => {
     const current = parent.get(value) ?? value
     if (current === value) {
@@ -121,7 +119,6 @@ export function canonicalStudyIdentityMap(record: ResearchProfile): Map<string, 
     parent.set(value, root)
     return root
   }
-
   const union = (a: string, b: string) => {
     const rootA = find(a)
     const rootB = find(b)
@@ -129,6 +126,12 @@ export function canonicalStudyIdentityMap(record: ResearchProfile): Map<string, 
     const [keep, merge] = [rootA, rootB].sort()
     parent.set(merge, keep)
   }
+  return { find, union }
+}
+
+export function canonicalStudyIdentityMap(record: ResearchProfile): Map<string, string> {
+  const sources = Array.isArray(record.sources) ? record.sources : []
+  const { find, union } = createIdentityUnion()
 
   for (const source of sources) {
     const aliases = citationIdentifiers(source)
@@ -159,6 +162,45 @@ export function canonicalStudyGroups(record: ResearchProfile): Map<string, Resea
     groups.set(identity, group)
   }
   return groups
+}
+
+/**
+ * Resolve profile-local canonical study IDs onto one site-wide stable identity.
+ * DOI/PMID aliases are unioned across every profile, so a study represented as
+ * DOI+PMID on one page and PMID-only on another still collapses to one study.
+ * Identifier-less rows remain profile-local to prevent coincidental source IDs
+ * from different pages from being treated as the same publication.
+ */
+export function crossProfileStudyIdentityMap(
+  profiles: readonly ResearchProfileEntry[],
+): Map<string, string> {
+  const { find, union } = createIdentityUnion()
+
+  for (const { record } of profiles) {
+    for (const source of Array.isArray(record.sources) ? record.sources : []) {
+      const aliases = citationIdentifiers(source)
+      for (const alias of aliases) find(alias)
+      for (let i = 1; i < aliases.length; i += 1) union(aliases[0], aliases[i])
+    }
+  }
+
+  const identities = new Map<string, string>()
+  for (const { url, record } of profiles) {
+    for (const [localStudyId, group] of canonicalStudyGroups(record)) {
+      const aliases = [...new Set(group.flatMap((source) => citationIdentifiers(source)))]
+      const globalStudyId = aliases.length ? find(aliases[0]) : `${url}::${localStudyId}`
+      identities.set(`${url}::${localStudyId}`, globalStudyId)
+    }
+  }
+  return identities
+}
+
+export function crossProfileStudyIdentity(
+  url: string,
+  localStudyId: string,
+  identities: Map<string, string>,
+): string {
+  return identities.get(`${url}::${localStudyId}`) ?? `${url}::${localStudyId}`
 }
 
 export function canonicalStudyClass(group: ResearchSource[], cache: PubmedCache): StudyClass {
