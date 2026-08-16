@@ -4,14 +4,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { buildResearchGapQueue, RESEARCH_GAP_DIMENSION_CAPS, RESEARCH_GAP_WEIGHTS } from '../../lib/research-quality-policy'
+import { RESEARCH_GAP_DIMENSION_CAPS, RESEARCH_GAP_WEIGHTS } from '../../lib/research-quality-policy'
 import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
 const OUTPUT = path.join(REPORT_DIR, 'research-gaps.json')
-const { analysis, topology } = buildResearchQualitySnapshot(ROOT)
-const ranked = buildResearchGapQueue(analysis, topology)
+const { researchGapQueue: ranked } = buildResearchQualitySnapshot(ROOT)
 
 const report = {
   schemaVersion: 3,
