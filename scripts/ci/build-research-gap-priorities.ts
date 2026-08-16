@@ -21,7 +21,7 @@ function add(url: string, kind: string, weight: number, detail?: string) {
 }
 
 for (const claim of claimAnalyses) {
-  if (claim.supportTier === 'unsupported') {
+  if (claim.structuredSupportTier === 'unsupported') {
     add(claim.url, 'unsupported-approved-claim', 100, claim.claimId)
   }
   for (const sourceRefId of claim.danglingSourceRefs) {
@@ -31,16 +31,29 @@ for (const claim of claimAnalyses) {
     add(claim.url, 'single-study-approved-claim', 5, claim.claimId)
   }
 
-  const tier = claim.supportTier
-  if (tier === 'unsupported' || tier === 'human-supported' || tier === 'non-outcome') continue
-  const baseWeight = tier === 'narrative-only' ? 25 : 20
-  const confidenceBonus = claim.highConfidenceWeakOutcome ? 15 : 0
-  add(
-    claim.url,
-    `claim-support-${tier}`,
-    baseWeight + confidenceBonus,
-    `${claim.claimId}${confidenceBonus ? ' · high confidence' : ''}`,
-  )
+  if (claim.structuredSupportTier === 'unclassified') {
+    add(
+      claim.url,
+      'claim-support-unclassified',
+      20 + (claim.highConfidenceWeakStructured ? 15 : 0),
+      `${claim.claimId} · ${claim.predicate}${claim.highConfidenceWeakStructured ? ' · high confidence' : ''}`,
+    )
+  } else if (claim.structuredSupportTier === 'narrative-only') {
+    const baseWeight = claim.outcomeClaim ? 25 : 15
+    add(
+      claim.url,
+      'claim-support-narrative-only',
+      baseWeight + (claim.highConfidenceWeakStructured ? 15 : 0),
+      `${claim.claimId} · ${claim.predicate}${claim.highConfidenceWeakStructured ? ' · high confidence' : ''}`,
+    )
+  } else if (claim.supportTier === 'indirect-only') {
+    add(
+      claim.url,
+      'claim-support-indirect-only',
+      20 + (claim.highConfidenceWeakOutcome ? 15 : 0),
+      `${claim.claimId}${claim.highConfidenceWeakOutcome ? ' · high confidence' : ''}`,
+    )
+  }
 }
 
 for (const profile of profileAnalyses) {
@@ -80,13 +93,15 @@ const report = {
   generatedAt: new Date().toISOString(),
   source: 'lib/research-quality-analysis.ts',
   scoring: {
-    note: 'Scores prioritize structural invalidity first, then claim-support weakness, effective-study concentration, and evidence-mix imbalance. They are triage weights, not evidence grades.',
+    note: 'Scores prioritize structural invalidity first, then canonical structured-claim weakness, effective-study concentration, and evidence-mix imbalance. They are triage weights, not evidence grades.',
     weights: {
       unsupportedApprovedClaim: 100,
       danglingClaimSourceEdge: 100,
       highStudyDependency: '25 + dominant supported-claim share × 30 + concentration bonus (max 15)',
-      narrativeOnlyClaimSupport: 25,
-      indirectOrUnclassifiedClaimSupport: 20,
+      narrativeOnlyOutcomeSupport: 25,
+      narrativeOnlyOtherStructuredSupport: 15,
+      indirectOutcomeSupport: 20,
+      unclassifiedStructuredSupport: 20,
       highConfidenceWeakClaimBonus: 15,
       noPrimaryHumanStudy: 20,
       narrativeReviewDominatedProfile: 20,
@@ -95,6 +110,8 @@ const report = {
   },
   summary: {
     profilesWithResearchGaps: ranked.length,
+    weakStructuredClaims: claimAnalyses.filter((claim) => claim.weakStructuredClaim).length,
+    highConfidenceWeakStructuredClaims: claimAnalyses.filter((claim) => claim.highConfidenceWeakStructured).length,
     critical: ranked.filter((item) => item.score >= 100).length,
     high: ranked.filter((item) => item.score >= 60 && item.score < 100).length,
     medium: ranked.filter((item) => item.score >= 25 && item.score < 60).length,
@@ -108,11 +125,13 @@ fs.writeFileSync(OUTPUT, `${JSON.stringify(report, null, 2)}\n`)
 
 console.log('\nPrioritized research-gap queue')
 console.log('='.repeat(72))
-console.log(`Profiles with gaps  ${report.summary.profilesWithResearchGaps}`)
-console.log(`Critical            ${report.summary.critical}`)
-console.log(`High                ${report.summary.high}`)
-console.log(`Medium              ${report.summary.medium}`)
-console.log(`Low                 ${report.summary.low}`)
+console.log(`Profiles with gaps                ${report.summary.profilesWithResearchGaps}`)
+console.log(`Weak structured claims            ${report.summary.weakStructuredClaims}`)
+console.log(`High-confidence weak structured   ${report.summary.highConfidenceWeakStructuredClaims}`)
+console.log(`Critical                          ${report.summary.critical}`)
+console.log(`High                              ${report.summary.high}`)
+console.log(`Medium                            ${report.summary.medium}`)
+console.log(`Low                               ${report.summary.low}`)
 for (const item of ranked.slice(0, 10)) {
   console.log(`  ${String(item.score).padStart(3)} · ${item.url} · ${item.reasons.length} finding(s)`)
 }
