@@ -51,17 +51,25 @@ export type ProfileQualityAnalysis = {
   canonicalStudyCount: number
   claimCount: number
   approvedClaimCount: number
+  supportedApprovedClaimCount: number
   designMix: Record<string, number>
   primaryHuman: number
   synthesis: number
   narrativeReview: number
+  narrativeToPrimaryHumanRatio: number | null
+  narrativeDominatedVsPrimaryHuman: boolean
   unsupportedApprovedClaims: string[]
   singleStudyApprovedClaims: string[]
   aliasCollapsedClaims: string[]
   danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }>
+  claimStudyEdges: number
   mostUsedStudyIdentity: string | null
   mostUsedStudyClaimCount: number
   studyDependencyShare: number
+  dominantStudySupportedClaimShare: number
+  studyConcentrationIndex: number
+  effectiveStudyCount: number
+  overDependentOnSingleStudy: boolean
   reviewDominated: boolean
   noPrimaryHuman: boolean
 }
@@ -71,6 +79,11 @@ export type ResearchQualityAnalysis = {
   profiles: ReturnType<typeof listResearchProfiles>
   profileAnalyses: ProfileQualityAnalysis[]
   claimAnalyses: ClaimQualityAnalysis[]
+}
+
+function round(value: number, digits = 3): number {
+  const scale = 10 ** digits
+  return Math.round(value * scale) / scale
 }
 
 function analyzeClaim(
@@ -161,6 +174,8 @@ function analyzeProfile(
   const danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }> = []
   const studyUse = new Map<string, number>()
   const identities = canonicalStudyIdentityMap(record)
+  let claimStudyEdges = 0
+  let supportedApprovedClaimCount = 0
 
   for (const claim of approved) {
     const claimId = String(claim.id ?? 'unknown-claim')
@@ -171,15 +186,30 @@ function analyzeProfile(
     if (analysis.singleStudy) singleStudyApprovedClaims.push(claimId)
     if (analysis.aliasCollapsed) aliasCollapsedClaims.push(claimId)
     for (const sourceRefId of analysis.danglingSourceRefs) danglingSourceRefs.push({ claimId, sourceRefId })
-    for (const study of uniqueClaimStudyIdentities(claim, identities)) {
-      studyUse.set(study, (studyUse.get(study) ?? 0) + 1)
-    }
+
+    const studies = uniqueClaimStudyIdentities(claim, identities)
+    if (studies.length > 0) supportedApprovedClaimCount += 1
+    claimStudyEdges += studies.length
+    for (const study of studies) studyUse.set(study, (studyUse.get(study) ?? 0) + 1)
   }
 
-  const mostUsed = [...studyUse.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0] ?? null
+  const rankedStudyUse = [...studyUse.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  const mostUsed = rankedStudyUse[0] ?? null
   const mostUsedStudyClaimCount = mostUsed?.[1] ?? 0
   const studyDependencyShare = approved.length ? mostUsedStudyClaimCount / approved.length : 0
-  const classified = primaryHuman + synthesis + narrativeReview
+  const dominantStudySupportedClaimShare = supportedApprovedClaimCount
+    ? mostUsedStudyClaimCount / supportedApprovedClaimCount
+    : 0
+  const edgeShares = claimStudyEdges ? rankedStudyUse.map(([, count]) => count / claimStudyEdges) : []
+  const studyConcentrationIndex = edgeShares.reduce((sum, share) => sum + share * share, 0)
+  const effectiveStudyCount = studyConcentrationIndex > 0 ? 1 / studyConcentrationIndex : 0
+  const narrativeToPrimaryHumanRatio = primaryHuman > 0 ? narrativeReview / primaryHuman : narrativeReview > 0 ? null : 0
+  const narrativeDominatedVsPrimaryHuman =
+    narrativeReview >= 2 && (primaryHuman === 0 || narrativeReview >= primaryHuman * 2)
+  const overDependentOnSingleStudy =
+    supportedApprovedClaimCount >= 3 &&
+    dominantStudySupportedClaimShare >= 0.5 &&
+    effectiveStudyCount < 2.5
 
   return {
     url,
@@ -187,18 +217,26 @@ function analyzeProfile(
     canonicalStudyCount: studyGroups.size,
     claimCount: allClaims.length,
     approvedClaimCount: approved.length,
+    supportedApprovedClaimCount,
     designMix,
     primaryHuman,
     synthesis,
     narrativeReview,
+    narrativeToPrimaryHumanRatio: narrativeToPrimaryHumanRatio === null ? null : round(narrativeToPrimaryHumanRatio),
+    narrativeDominatedVsPrimaryHuman,
     unsupportedApprovedClaims,
     singleStudyApprovedClaims,
     aliasCollapsedClaims,
     danglingSourceRefs,
+    claimStudyEdges,
     mostUsedStudyIdentity: mostUsed?.[0] ?? null,
     mostUsedStudyClaimCount,
-    studyDependencyShare: Number(studyDependencyShare.toFixed(3)),
-    reviewDominated: classified >= 3 && narrativeReview / classified >= 0.6,
+    studyDependencyShare: round(studyDependencyShare),
+    dominantStudySupportedClaimShare: round(dominantStudySupportedClaimShare),
+    studyConcentrationIndex: round(studyConcentrationIndex),
+    effectiveStudyCount: round(effectiveStudyCount),
+    overDependentOnSingleStudy,
+    reviewDominated: narrativeDominatedVsPrimaryHuman,
     noPrimaryHuman: approved.length > 0 && primaryHuman === 0,
   }
 }
