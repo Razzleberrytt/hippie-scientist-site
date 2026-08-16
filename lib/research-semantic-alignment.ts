@@ -5,6 +5,7 @@ import {
   approvedClaims,
   sourceMap,
   uniqueSourceRefs,
+  type PubmedCache,
   type ResearchClaim,
   type ResearchProfileEntry,
 } from './research-coverage'
@@ -123,8 +124,34 @@ function intersects(a: string[], b: string[]): boolean {
   return a.some((value) => right.has(value))
 }
 
-function sourceText(source: Record<string, unknown>): string {
-  return [source.title, source.studyType, source.studyClass].map(text).filter(Boolean).join(' · ')
+function cachedSource(source: Record<string, unknown>, cache: PubmedCache): Record<string, unknown> {
+  const pmid = text(source.pmid ?? source.pubmedId)
+  return pmid ? (cache[pmid] ?? {}) : {}
+}
+
+/**
+ * Keep role classification anchored to concise bibliographic descriptors. Full
+ * abstracts often mention adverse events or mechanisms incidentally and should
+ * not turn an efficacy trial into a safety/mechanism source.
+ */
+function sourceRoleText(source: Record<string, unknown>, cache: PubmedCache): string {
+  const cached = cachedSource(source, cache)
+  return [source.title, cached.title, source.studyType, source.studyClass]
+    .map(text)
+    .filter(Boolean)
+    .join(' · ')
+}
+
+/**
+ * Domain/population comparability benefits from the richer canonical PubMed
+ * context. Abstracts are descriptive context only; they do not determine role.
+ */
+function sourceSemanticText(source: Record<string, unknown>, cache: PubmedCache): string {
+  const cached = cachedSource(source, cache)
+  return [source.title, cached.title, cached.abstract, source.studyType, source.studyClass]
+    .map(text)
+    .filter(Boolean)
+    .join(' · ')
 }
 
 function detectRole(value: string): EvidenceRole {
@@ -201,7 +228,12 @@ function classifySourceAlignment(
   return 'uncertain'
 }
 
-function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfileEntry['record']): SemanticAlignmentFinding | null {
+function analyzeClaim(
+  url: string,
+  claim: ResearchClaim,
+  record: ResearchProfileEntry['record'],
+  cache: PubmedCache,
+): SemanticAlignmentFinding | null {
   const sourcesById = sourceMap(record)
   const refs = uniqueSourceRefs(claim)
   const sources = refs.map((ref) => sourcesById.get(ref)).filter(Boolean) as Array<Record<string, unknown>>
@@ -209,12 +241,13 @@ function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfile
 
   const claimText = text(claim.claim)
   const role = claimRole(claim)
-  const sourceTexts = sources.map(sourceText)
-  const sourceRoles = sourceTexts.map(detectRole)
+  const sourceRoleTexts = sources.map((source) => sourceRoleText(source, cache))
+  const sourceSemanticTexts = sources.map((source) => sourceSemanticText(source, cache))
+  const sourceRoles = sourceRoleTexts.map(detectRole)
   const claimDomains = detectTags(claimText, DOMAIN_PATTERNS)
-  const sourceDomains = sourceTexts.map((value) => detectTags(value, DOMAIN_PATTERNS))
+  const sourceDomains = sourceSemanticTexts.map((value) => detectTags(value, DOMAIN_PATTERNS))
   const claimPopulations = detectTags(claimText, POPULATION_PATTERNS)
-  const sourcePopulations = sourceTexts.map((value) => detectTags(value, POPULATION_PATTERNS))
+  const sourcePopulations = sourceSemanticTexts.map((value) => detectTags(value, POPULATION_PATTERNS))
 
   const roleMismatch =
     role !== 'unknown' &&
@@ -289,7 +322,7 @@ export function analyzeResearchSemanticAlignment(analysis: ResearchQualityAnalys
     const claims = approvedClaims(record)
     approvedClaimCount += claims.length
     for (const claim of claims) {
-      const finding = analyzeClaim(url, claim, record)
+      const finding = analyzeClaim(url, claim, record, analysis.cache)
       if (!finding) continue
       analyzedFindings.push(finding)
       if (finding.roleMismatch || finding.domainMismatch || finding.populationMismatch) findings.push(finding)
