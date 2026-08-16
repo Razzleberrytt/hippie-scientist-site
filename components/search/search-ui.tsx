@@ -69,7 +69,7 @@ export function FilterChip({ label, count, active, onClick }: FilterChipProps) {
       onClick={onClick}
       aria-pressed={active}
       className={clsx(
-        'inline-flex min-h-10 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[0.8rem] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:color-mix(in_srgb,var(--hs-gold)_45%,transparent)]',
+        'inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[0.8rem] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:color-mix(in_srgb,var(--hs-gold)_45%,transparent)]',
         active
           ? 'border-[color:color-mix(in_srgb,var(--tone)_48%,var(--hs-hairline))] bg-[linear-gradient(140deg,#4b4558_0%,#332f3d_100%)] text-[#fffaf3] shadow-sm dark:border-[color:color-mix(in_srgb,var(--hs-gold)_30%,transparent)] dark:bg-[linear-gradient(140deg,#665c8c_0%,#40384f_100%)]'
           : 'border-[color:var(--hs-hairline)] bg-[color:var(--hs-surface)] text-[color:var(--hs-body)] hover:border-[color:color-mix(in_srgb,var(--tone)_36%,var(--hs-hairline))] hover:text-[color:var(--hs-ink)]',
