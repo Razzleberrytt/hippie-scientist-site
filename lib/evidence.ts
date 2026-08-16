@@ -1,8 +1,10 @@
 import type { RuntimeRecord } from '../src/types/content'
+import { extractCitationsFromRecord } from './citations'
 import {
   reconcileEvidenceGrade,
   type CanonicalEvidenceGrade,
 } from './evidence-grade'
+import { isHumanEvidenceClass } from './evidence-study'
 
 type EvidenceTier = 'strong' | 'moderate' | 'limited' | 'preliminary' | 'traditional' | 'mixed' | 'insufficient' | 'review'
 
@@ -62,25 +64,33 @@ function authoredEvidenceSignals(record: RuntimeRecord) {
   return { rawGrade, rawTier, present: Boolean(text(rawGrade) || text(rawTier)) }
 }
 
-export function hasHumanEvidence(record: RuntimeRecord): boolean {
-  const evidence = evidenceText(record)
+/**
+ * Resolve direct human-evidence presence from normalized structured citations.
+ * `null` means the record has no classifiable structured citation evidence and
+ * may use the conservative legacy text fallback. Once at least one citation is
+ * explicitly classified, non-human classes are authoritative rather than being
+ * overridden by grade adjectives or raw source cardinality.
+ */
+function structuredHumanEvidence(record: RuntimeRecord): boolean | null {
+  const citations = extractCitationsFromRecord(record as Record<string, unknown>)
+  const classified = citations.filter(citation => citation.evidenceClass !== 'other')
+  if (!classified.length) return null
+  return classified.some(citation => isHumanEvidenceClass(citation.evidenceClass))
+}
 
+export function hasHumanEvidence(record: RuntimeRecord): boolean {
+  const structured = structuredHumanEvidence(record)
+  if (structured !== null) return structured
+
+  const evidence = evidenceText(record)
   if (/\b(no|none|theoretical|traditional|preclinical|in\s*vitro|animal)\b/.test(evidence)) {
     return false
   }
 
-  if (
-    /\b(human|clinical|trial|rct|randomi[sz]ed|meta|systematic|strong|high|moderate|grade\s*[ab]|tier\s*[ab])\b/.test(
-      evidence,
-    )
-  ) {
-    return true
-  }
-
-  const sourceCount = Number(record?.sourceCount ?? record?.source_count ?? record?.sources_count)
-  return (
-    Number.isFinite(sourceCount) && sourceCount >= 5 && !/\b(low|limited|partial)\b/.test(evidence)
-  )
+  // Legacy fallback is deliberately explicit about human research. Generic
+  // strength words ("strong", "moderate") and source counts are not evidence
+  // that any cited research actually involved humans.
+  return /\b(human|clinical|trial|rct|randomi[sz]ed|meta-analysis|meta analysis|systematic review)\b/.test(evidence)
 }
 
 export function hasMechanismEvidence(record: RuntimeRecord): boolean {
