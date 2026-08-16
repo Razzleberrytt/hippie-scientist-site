@@ -26,7 +26,7 @@ type SourceGapItem = {
   priorityLabel: PriorityLabel
   topicType: TopicType
   sourceGapType: SourceGapType
-  currentSourceClasses: SourceClass[]
+  currentSourceClasses: Array<SourceClass | 'none_registered_or_active'>
   recommendedSourceClasses: SourceClass[]
   safetyCritical: boolean
   publishBlocking: boolean
