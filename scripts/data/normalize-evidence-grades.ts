@@ -25,6 +25,7 @@ import {
   gradeIsBackedByEvidence,
   type EvidenceRationale,
 } from '../../lib/evidence-rationale'
+import { buildProfileSummary, isPlaceholderSummary } from '../../lib/profile-summary'
 import { normalizeStudyClass, strongestStudyClass, STUDY_CLASS_INFO } from '../../lib/study-class'
 
 const ROOT = process.cwd()
@@ -112,6 +113,7 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       total: 0,
       adjusted: 0,
       rationaleCards: 0,
+      summariesWritten: 0,
       reasons: {} as Record<string, number>,
       changes: [] as Row[],
       unbacked: [] as Row[],
@@ -123,6 +125,7 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
   const unbacked: Row[] = []
   let adjusted = 0
   let rationaleCards = 0
+  let summariesWritten = 0
 
   const next = rows.map((row) => {
     const authored = sourceGrade(row)
@@ -162,7 +165,9 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       })
     }
 
-    return {
+    // The summary is composed last so it can draw on the grade and rationale
+    // decided above. Only generated filler is replaced; authored prose stands.
+    const enriched = {
       ...row,
       evidence_grade: result.grade,
       evidence_grade_source: String(authored ?? ''),
@@ -182,10 +187,20 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       evidence_grade_backed: backing.backed,
       evidence_grade_backing_gap: backing.reason,
     }
+
+    if (isPlaceholderSummary(enriched.summary)) {
+      const composed = buildProfileSummary(enriched)
+      if (composed) {
+        summariesWritten += 1
+        return { ...enriched, summary: composed, summary_source: 'composed-from-record' }
+      }
+    }
+
+    return enriched
   })
 
   writeJson(file, next)
-  return { file, total: rows.length, adjusted, rationaleCards, reasons, changes, unbacked }
+  return { file, total: rows.length, adjusted, rationaleCards, summariesWritten, reasons, changes, unbacked }
 }
 
 function normalizeClaims() {
@@ -239,6 +254,7 @@ function main() {
     profiles: profiles.reduce((sum, p) => sum + p.total, 0),
     adjusted: profiles.reduce((sum, p) => sum + p.adjusted, 0),
     rationaleCards: profiles.reduce((sum, p) => sum + p.rationaleCards, 0),
+    summariesWritten: profiles.reduce((sum, p) => sum + p.summariesWritten, 0),
     claims: claims.total,
   }
   const unbacked = profiles.flatMap((p) => p.unbacked)
@@ -267,6 +283,7 @@ function main() {
     console.log(`  ${String(count).padStart(5)}  ${reason}`)
   }
   console.log(`\nRationale cards       ${totals.rationaleCards}`)
+  console.log(`Summaries composed    ${totals.summariesWritten}`)
   const unbackedIndexable = unbacked.filter((row) => row.indexable)
   console.log(`A/B grades unbacked   ${unbacked.length} (${unbackedIndexable.length} indexable)`)
   const gapCounts: Record<string, number> = {}
