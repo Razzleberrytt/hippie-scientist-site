@@ -1,6 +1,7 @@
 type SafetyGaugeMeterProps = {
-  /** 0-100 safety score; higher is safer */
+  /** 0-100 visual safety gauge; higher renders toward lower caution. */
   score: number
+  /** Human-readable qualitative interpretation derived by the profile safety policy. */
   label: string
   className?: string
 }
@@ -25,7 +26,6 @@ export default function SafetyGaugeMeter({ score, label, className = '' }: Safet
   return (
     <div
       data-safety-context="true"
-      data-safety-score={clamped}
       data-safety-label={label}
       className={`flex flex-col items-center ${className}`}
     >
@@ -33,7 +33,7 @@ export default function SafetyGaugeMeter({ score, label, className = '' }: Safet
         viewBox="0 0 100 58"
         className="w-full max-w-[200px]"
         role="img"
-        aria-label={`Safety meter: ${clamped} out of 100 — ${label}`}
+        aria-label={`Safety context: ${label}. Visual gauge position ${clamped} out of 100.`}
       >
         <path d={describeArc(50, 50, 40, 180, 120)} stroke="#dc4c3c" strokeWidth="9" fill="none" strokeLinecap="round" />
         <path d={describeArc(50, 50, 40, 120, 60)} stroke="#e8a13c" strokeWidth="9" fill="none" strokeLinecap="round" />
@@ -49,7 +49,7 @@ export default function SafetyGaugeMeter({ score, label, className = '' }: Safet
         />
         <circle cx="50" cy="50" r="3.5" className="fill-ink dark:fill-white" />
       </svg>
-      <p className="-mt-2 text-2xl font-bold text-ink">{clamped}%</p>
+      <p className="-mt-2 text-2xl font-bold text-ink" aria-hidden="true">{clamped}%</p>
       <p className="max-w-full text-center text-xs font-semibold uppercase leading-5 tracking-wide text-muted">{label}</p>
     </div>
   )
