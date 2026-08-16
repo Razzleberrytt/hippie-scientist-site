@@ -69,12 +69,25 @@ describe('directional consistency and endpoint multiplicity', () => {
     })
   })
 
+  it('keeps explicitly directional positive evidence assessable without manufacturing a finding', () => {
+    const report = analyzeDirectionalConsistency(analysis(
+      'Improves symptoms',
+      ['Symptoms significantly improved compared with placebo.'],
+    ))
+
+    expect(report.summary.assessableClaims).toBe(1)
+    expect(report.summary.findings).toBe(0)
+    expect(report.claims).toHaveLength(1)
+    expect(report.findings).toHaveLength(0)
+  })
+
   it('does not invent directionality when source text is not explicit', () => {
     const report = analyzeDirectionalConsistency(analysis(
       'Supports symptom improvement',
       ['Participants completed a randomized trial and outcomes were measured after eight weeks.'],
     ))
 
+    expect(report.summary.assessableClaims).toBe(0)
     expect(report.summary.findings).toBe(0)
     expect(report.claims).toHaveLength(0)
   })
