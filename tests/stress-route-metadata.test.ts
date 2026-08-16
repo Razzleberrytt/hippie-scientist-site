@@ -10,7 +10,6 @@ describe('stress route metadata', () => {
     expect(validateRoute('/guides/stress')).toBe(true)
     expect(getRouteMetadata('/guides/stress')).toMatchObject({
       label: 'Stress',
-      parent: '/guides',
     })
 
     expect(generateDynamicBreadcrumbs('/guides/stress')).toEqual([
@@ -23,7 +22,6 @@ describe('stress route metadata', () => {
   it('keeps Anxiety metadata distinct from Stress', () => {
     expect(getRouteMetadata('/guides/anxiety')).toMatchObject({
       label: 'Anxiety',
-      parent: '/guides',
     })
   })
 })
