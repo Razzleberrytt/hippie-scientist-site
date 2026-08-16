@@ -18,6 +18,8 @@ export type AggregatedTopologyGapWeights = {
   provenanceNarrowMultiStudySupport: number
   highConfidenceProvenanceNarrowBonus: number
   pseudoMultiSourceSupport: number
+  sharedUnderlyingStudyReuse: number
+  highConfidenceUnderlyingStudyReuseBonus: number
   severeStudyClassConflict: number
   studyClassAmbiguity: number
 }
@@ -156,6 +158,51 @@ export function buildAggregatedTopologyGapSignals(
       kind: 'pseudo-multi-source-support',
       weight: weights.pseudoMultiSourceSupport + Math.min(8, Math.max(0, items.length - 1) * 2 + collapsedRows),
       detail: `${items.length} approved claim(s) look multi-source but collapse to one canonical study; ${collapsedRows} redundant source row(s); widest nominal support ${maxNominalSources} source rows`,
+    })
+  }
+
+  // Registration and non-registry lineage are two ways to prove the same root
+  // problem: multiple publications are not independent underlying evidence.
+  const underlyingReuse = new Map<string, {
+    claimKeys: Set<string>
+    highConfidenceClaimKeys: Set<string>
+    registeredTrialClaims: number
+    nonRegistryLineageClaims: number
+    duplicatePublications: number
+  }>()
+  for (const claim of topology.trialRegistrationIndependence.sameTrialReuseClaims) {
+    const item = underlyingReuse.get(claim.url) ?? {
+      claimKeys: new Set<string>(), highConfidenceClaimKeys: new Set<string>(), registeredTrialClaims: 0,
+      nonRegistryLineageClaims: 0, duplicatePublications: 0,
+    }
+    const key = `${claim.url}::${claim.claimId}`
+    item.claimKeys.add(key)
+    if (claim.highConfidenceSameTrialReuse) item.highConfidenceClaimKeys.add(key)
+    item.registeredTrialClaims += 1
+    item.duplicatePublications += claim.duplicatePublicationCount
+    underlyingReuse.set(claim.url, item)
+  }
+  for (const claim of topology.evidenceLineage.sharedNonRegistryLineageClaims) {
+    const item = underlyingReuse.get(claim.url) ?? {
+      claimKeys: new Set<string>(), highConfidenceClaimKeys: new Set<string>(), registeredTrialClaims: 0,
+      nonRegistryLineageClaims: 0, duplicatePublications: 0,
+    }
+    const key = `${claim.url}::${claim.claimId}`
+    item.claimKeys.add(key)
+    if (claim.highConfidenceSharedNonRegistryLineage) item.highConfidenceClaimKeys.add(key)
+    item.nonRegistryLineageClaims += 1
+    underlyingReuse.set(claim.url, item)
+  }
+  for (const [url, item] of underlyingReuse) {
+    const affectedClaims = item.claimKeys.size
+    const highConfidence = item.highConfidenceClaimKeys.size
+    signals.push({
+      url,
+      kind: 'shared-underlying-study-publication-reuse',
+      weight: weights.sharedUnderlyingStudyReuse
+        + Math.min(8, Math.max(0, affectedClaims - 1) * 2 + item.duplicatePublications)
+        + (highConfidence ? weights.highConfidenceUnderlyingStudyReuseBonus : 0),
+      detail: `${affectedClaims} approved multi-publication claim(s) reuse underlying evidence; ${item.registeredTrialClaims} same registered trial, ${item.nonRegistryLineageClaims} shared cohort/dataset/parent-study lineage; ${highConfidence} high-confidence`,
     })
   }
 
