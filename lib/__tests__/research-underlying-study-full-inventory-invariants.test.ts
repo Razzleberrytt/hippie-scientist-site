@@ -23,9 +23,15 @@ function fixture() {
     inventoryPublicationStudyCount: 2,
     inventoryUnderlyingStudyCount: 1,
     inventoryCollapsedPublicationCount: 1,
+    inventoryPublicationsWithIndependenceMetadata: 2,
+    inventoryPublicationsWithoutIndependenceMetadata: 0,
+    inventoryIndependenceMetadataCoverage: 1,
     primaryHumanPublicationCount: 2,
     primaryHumanUnderlyingStudyCount: 1,
     collapsedPrimaryHumanPublicationCount: 1,
+    primaryHumanPublicationsWithIndependenceMetadata: 2,
+    primaryHumanPublicationsWithoutIndependenceMetadata: 0,
+    primaryHumanIndependenceMetadataCoverage: 1,
     mostUsedUnderlyingStudyId: null,
     mostUsedUnderlyingStudyClaimCount: 0,
     dominantUnderlyingStudySupportedClaimShare: 0,
@@ -55,6 +61,7 @@ function fixture() {
         profilesWithSupportedClaims: 0,
         profilesWithReducedStudyCount: 1,
         profilesWithReducedHumanStudyCount: 1,
+        profilesWithIncompletePrimaryHumanIndependenceMetadata: 0,
         primaryHumanPublicationCount: 2,
         primaryHumanUnderlyingStudyCount: 1,
         collapsedPrimaryHumanPublicationCount: 1,
@@ -97,5 +104,13 @@ describe('underlying-study full-inventory snapshot invariants', () => {
     topology.underlyingStudyIndependence.profiles[0].collapsedPrimaryHumanPublicationCount = 0
     const failures = validateUnderlyingStudySnapshotInvariants(analysis, topology)
     expect(failures.map((failure) => failure.kind)).toContain('underlying-study-primary-human-collapse-mismatch')
+  })
+
+  it('detects profile independence metadata coverage drift', () => {
+    const { analysis, topology } = fixture()
+    topology.underlyingStudyIndependence.profiles[0].primaryHumanPublicationsWithIndependenceMetadata = 1
+    const kinds = validateUnderlyingStudySnapshotInvariants(analysis, topology).map((failure) => failure.kind)
+    expect(kinds).toContain('underlying-study-profile-primary-human-metadata-gap-mismatch')
+    expect(kinds).toContain('underlying-study-profile-primary-human-metadata-coverage-mismatch')
   })
 })

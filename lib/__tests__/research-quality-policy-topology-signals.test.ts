@@ -36,6 +36,8 @@ function topology(overrides: Record<string, unknown> = {}): ResearchQualityTopol
     narrowCrossProfileEvidenceBundles: [],
     semanticAlignment: { findings: [], concentrationFindings: [], coverageGapFindings: [] },
     claimBreadth: { findings: [] },
+    effectCertainty: { findings: [] },
+    directionalConsistency: { findings: [] },
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { lowCoverageClaims: [] },
     metadataIntegrity: { profiles: [] },
@@ -43,7 +45,7 @@ function topology(overrides: Record<string, unknown> = {}): ResearchQualityTopol
     edgeCardinality: { pseudoMultiSourceClaims: [] },
     trialRegistrationIndependence: { sameTrialReuseClaims: [] },
     evidenceLineage: { sharedNonRegistryLineageClaims: [] },
-    underlyingStudyIndependence: { reducedClaims: [] },
+    underlyingStudyIndependence: { reducedClaims: [], profiles: [], newlyOverDependentProfiles: [] },
     evidenceIndependenceCoverage: { unresolvedClaims: [] },
     studyClassConflicts: { conflicts: [], severeConflicts: [] },
     ...overrides,
@@ -121,6 +123,8 @@ describe('aggregated topology gap signals', () => {
             highConfidencePseudoMultiStudySupport: true,
           },
         ],
+        profiles: [],
+        newlyOverDependentProfiles: [],
       },
     }), weights)
 
@@ -132,6 +136,73 @@ describe('aggregated topology gap signals', () => {
     expect(reuse[0].detail).toContain('1 claim(s) reduce to one underlying study')
     expect(reuse[0].detail).toContain('1 high-confidence pseudo-multi-study')
     expect(reuse[0].detail).toContain('minimum adjusted count 1')
+  })
+
+  it('prioritizes low primary-human inventory independence coverage without approved multi-study claims', () => {
+    const signals = buildAggregatedTopologyGapSignals(topology({
+      underlyingStudyIndependence: {
+        reducedClaims: [],
+        newlyOverDependentProfiles: [],
+        profiles: [{
+          url: '/herbs/a/',
+          primaryHumanPublicationCount: 2,
+          primaryHumanPublicationsWithoutIndependenceMetadata: 1,
+          primaryHumanIndependenceMetadataCoverage: 0.5,
+        }],
+      },
+    }), weights)
+
+    const independence = signals.filter((signal) => signal.kind === 'evidence-independence-metadata-gap')
+    expect(independence).toHaveLength(1)
+    expect(independence[0]).toMatchObject({ url: '/herbs/a/', weight: 9 })
+    expect(independence[0].detail).toContain('1 of 2 primary-human inventory publication(s) lack explicit')
+    expect(independence[0].detail).toContain('profile coverage 50%')
+  })
+
+  it('combines claim-level and inventory-level independence gaps into one profile signal', () => {
+    const signals = buildAggregatedTopologyGapSignals(topology({
+      underlyingStudyIndependence: {
+        reducedClaims: [],
+        newlyOverDependentProfiles: [],
+        profiles: [{
+          url: '/herbs/a/',
+          primaryHumanPublicationCount: 3,
+          primaryHumanPublicationsWithoutIndependenceMetadata: 2,
+          primaryHumanIndependenceMetadataCoverage: 0.333,
+        }],
+      },
+      evidenceIndependenceCoverage: {
+        unresolvedClaims: [{
+          url: '/herbs/a/',
+          highConfidenceIndependenceUnresolved: true,
+          unresolvedStudyCount: 1,
+          combinedCoverage: 0.5,
+        }],
+      },
+    }), weights)
+
+    const independence = signals.filter((signal) => signal.kind === 'evidence-independence-metadata-gap')
+    expect(independence).toHaveLength(1)
+    expect(independence[0]).toMatchObject({ url: '/herbs/a/', weight: 17 })
+    expect(independence[0].detail).toContain('1 approved multi-study claim(s) have unresolved independence')
+    expect(independence[0].detail).toContain('2 of 3 primary-human inventory publication(s) lack explicit')
+  })
+
+  it('does not create an inventory independence gap for a single primary-human publication', () => {
+    const signals = buildAggregatedTopologyGapSignals(topology({
+      underlyingStudyIndependence: {
+        reducedClaims: [],
+        newlyOverDependentProfiles: [],
+        profiles: [{
+          url: '/herbs/a/',
+          primaryHumanPublicationCount: 1,
+          primaryHumanPublicationsWithoutIndependenceMetadata: 1,
+          primaryHumanIndependenceMetadataCoverage: 0,
+        }],
+      },
+    }), weights)
+
+    expect(signals.some((signal) => signal.kind === 'evidence-independence-metadata-gap')).toBe(false)
   })
 
   it('aggregates advisory metadata once while leaving severe class conflicts structural', () => {

@@ -73,11 +73,6 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  // Explicit alignment mismatch, claim-breadth overreach, exaggerated effect/
-  // certainty wording, and endpoint/directional inconsistency are four views of
-  // the same editorial root cause: the claim says more than its linked evidence
-  // directly supports. Aggregate them once per profile instead of double-scoring
-  // parallel semantic analyzers.
   const semanticByUrl = new Map<string, {
     explicit: typeof topology.semanticAlignment.findings
     breadth: typeof topology.claimBreadth.findings
@@ -249,17 +244,37 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  for (const [url, items] of groupByUrl(topology.evidenceIndependenceCoverage.unresolvedClaims)) {
+  const unresolvedByUrl = groupByUrl(topology.evidenceIndependenceCoverage.unresolvedClaims)
+  const profileCoverageByUrl = new Map(
+    topology.underlyingStudyIndependence.profiles
+      .filter((profile) => profile.primaryHumanPublicationCount >= 2 && profile.primaryHumanIndependenceMetadataCoverage < 0.75)
+      .map((profile) => [profile.url, profile] as const),
+  )
+  const independenceGapUrls = new Set([...unresolvedByUrl.keys(), ...profileCoverageByUrl.keys()])
+  for (const url of independenceGapUrls) {
+    const items = unresolvedByUrl.get(url) ?? []
+    const profile = profileCoverageByUrl.get(url)
     const highConfidence = items.filter((item) => item.highConfidenceIndependenceUnresolved).length
     const unresolvedStudies = items.reduce((sum, item) => sum + item.unresolvedStudyCount, 0)
-    const minimumCoverage = Math.min(...items.map((item) => item.combinedCoverage))
+    const missingHumanMetadata = profile?.primaryHumanPublicationsWithoutIndependenceMetadata ?? 0
+    const minimumClaimCoverage = items.length ? Math.min(...items.map((item) => item.combinedCoverage)) : null
+    const profileCoverage = profile?.primaryHumanIndependenceMetadataCoverage ?? null
+    const issueUnits = unresolvedStudies + missingHumanMetadata
+    const details = [
+      items.length
+        ? `${items.length} approved multi-study claim(s) have unresolved independence; ${unresolvedStudies} claim-linked study slot(s) lack explicit lineage; ${highConfidence} high-confidence${minimumClaimCoverage === null ? '' : `; minimum claim coverage ${Math.round(minimumClaimCoverage * 100)}%`}`
+        : '',
+      profile
+        ? `${missingHumanMetadata} of ${profile.primaryHumanPublicationCount} primary-human inventory publication(s) lack explicit registry/cohort/dataset/parent-study metadata; profile coverage ${Math.round((profileCoverage ?? 0) * 100)}%`
+        : '',
+    ].filter(Boolean)
     signals.push({
       url,
       kind: 'evidence-independence-metadata-gap',
       weight: weights.independenceMetadataGap
-        + Math.min(8, Math.max(0, items.length - 1) * 2 + unresolvedStudies)
+        + Math.min(12, Math.max(0, items.length - 1) * 2 + issueUnits)
         + (highConfidence ? weights.highConfidenceIndependenceMetadataBonus : 0),
-      detail: `${items.length} approved multi-study claim(s) have unresolved independence; ${unresolvedStudies} study slot(s) lack explicit registry/cohort/dataset/parent-study lineage; ${highConfidence} high-confidence; minimum explicit coverage ${Math.round(minimumCoverage * 100)}%`,
+      detail: details.join('; '),
     })
   }
 
