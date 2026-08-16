@@ -1,21 +1,21 @@
 #!/usr/bin/env npx tsx
-/** Canonical research-quality pipeline and unified roll-up. */
+/** Canonical one-pass research-quality pipeline and unified roll-up. */
 
 import { spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
+
+import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
+import { buildResearchGapQueue, structuralCoverageFailures } from '../../lib/research-quality-policy'
 
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORT_DIR, 'research-quality.json')
 const NPX = process.platform === 'win32' ? 'npx.cmd' : 'npx'
 
-const checks = [
+const externalChecks = [
   { id: 'citation-identities', label: 'Citation identity integrity', command: process.execPath, args: ['scripts/ci/validate-citation-identifiers.mjs'] },
-  { id: 'coverage-topology', label: 'Research coverage topology', command: NPX, args: ['tsx', 'scripts/ci/audit-source-integrity.ts'] },
-  { id: 'coverage-structure', label: 'Approved claim evidence edges', command: NPX, args: ['tsx', 'scripts/ci/validate-research-coverage.ts'] },
-  { id: 'claim-strength', label: 'Claim-level evidence strength', command: NPX, args: ['tsx', 'scripts/ci/audit-claim-evidence-strength.ts'] },
-  { id: 'gap-priority', label: 'Prioritized research-gap queue', command: NPX, args: ['tsx', 'scripts/ci/build-research-gap-priorities.ts'] },
+  { id: 'coverage-topology', label: 'Research source integrity / topology metadata', command: NPX, args: ['tsx', 'scripts/ci/audit-source-integrity.ts'] },
   { id: 'evidence-grades', label: 'Evidence grade consistency', command: NPX, args: ['tsx', 'scripts/ci/validate-evidence-grade-consistency.ts'] },
   { id: 'content-integrity', label: 'Structured content integrity', command: process.execPath, args: ['scripts/ci/audit-content-integrity.mjs'] },
 ] as const
@@ -42,7 +42,38 @@ let failed = false
 console.log('\nCanonical research-quality pipeline')
 console.log('='.repeat(76))
 
-for (const check of checks) {
+const coreStarted = Date.now()
+const analysis = analyzeResearchQuality(ROOT)
+const structuralFailures = structuralCoverageFailures(analysis)
+const researchGapQueue = buildResearchGapQueue(analysis)
+const weakApprovedOutcomes = analysis.claimAnalyses.filter((claim) =>
+  claim.outcomeClaim && ['unsupported', 'unclassified', 'narrative-only', 'indirect-only'].includes(claim.supportTier),
+)
+const unsupportedUnapprovedClaims = analysis.structuredClaimAnalyses.filter(
+  (claim) => !claim.approved && claim.supportTier === 'unsupported',
+)
+const weakUnapprovedOutcomes = analysis.structuredClaimAnalyses.filter(
+  (claim) => !claim.approved && claim.outcomeClaim && ['unsupported', 'unclassified', 'narrative-only', 'indirect-only'].includes(claim.supportTier),
+)
+const overDependentProfiles = analysis.profileAnalyses.filter((profile) => profile.overDependentOnSingleStudy)
+const narrativeDominatedProfiles = analysis.profileAnalyses.filter((profile) => profile.narrativeDominatedVsPrimaryHuman)
+const noPrimaryHumanProfiles = analysis.profileAnalyses.filter((profile) => profile.noPrimaryHuman)
+const corePassed = structuralFailures.length === 0
+const coreDurationMs = Date.now() - coreStarted
+
+results.push({
+  id: 'canonical-core',
+  label: 'Canonical claim/profile research-quality analysis',
+  passed: corePassed,
+  exitCode: corePassed ? 0 : 1,
+  durationMs: coreDurationMs,
+  stdoutTail: `profiles=${analysis.profileAnalyses.length}; structuredClaims=${analysis.structuredClaimAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; gaps=${researchGapQueue.length}`,
+  stderrTail: structuralFailures.length ? `${structuralFailures.length} structurally invalid approved-claim evidence edge(s)` : '',
+})
+console.log(`${corePassed ? 'PASS' : 'FAIL'}  Canonical claim/profile research-quality analysis  (${coreDurationMs}ms)`)
+if (!corePassed) failed = true
+
+for (const check of externalChecks) {
   const started = Date.now()
   const run = spawnSync(check.command, check.args, { cwd: ROOT, encoding: 'utf8', env: process.env })
   const exitCode = run.status ?? 1
@@ -61,19 +92,43 @@ for (const check of checks) {
   }
 }
 
+const coreSummary = {
+  profiles: analysis.profileAnalyses.length,
+  structuredClaims: analysis.structuredClaimAnalyses.length,
+  approvedClaims: analysis.claimAnalyses.length,
+  structuralFailures: structuralFailures.length,
+  weakApprovedOutcomeClaims: weakApprovedOutcomes.length,
+  unsupportedUnapprovedStructuredClaims: unsupportedUnapprovedClaims.length,
+  weakUnapprovedOutcomeClaims: weakUnapprovedOutcomes.length,
+  overDependentProfiles: overDependentProfiles.length,
+  narrativeDominatedProfiles: narrativeDominatedProfiles.length,
+  profilesWithApprovedClaimsButNoPrimaryHumanStudy: noPrimaryHumanProfiles.length,
+  profilesWithResearchGaps: researchGapQueue.length,
+}
+
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
+  schemaVersion: 2,
   generatedAt: new Date().toISOString(),
   passed: !failed,
+  source: {
+    analysis: 'lib/research-quality-analysis.ts',
+    policy: 'lib/research-quality-policy.ts',
+  },
+  coreSummary,
+  structuralFailures,
+  topResearchGaps: researchGapQueue.slice(0, 50),
   checks: results,
-  topologySummary: readSummary('source-integrity.json'),
-  claimStrengthSummary: readSummary('claim-evidence-strength.json'),
-  researchGapSummary: readSummary('research-gaps.json'),
+  sourceIntegritySummary: readSummary('source-integrity.json'),
+  evidenceGradeSummary: readSummary('evidence-grade-consistency.json'),
+  contentIntegritySummary: readSummary('content-integrity.json'),
 }, null, 2)}\n`)
 
-console.log(`\nRoll-up report: ${path.relative(ROOT, REPORT_PATH)}`)
+console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structuredClaims} structured claims · ${coreSummary.approvedClaims} approved`)
+console.log(`Structural failures ${coreSummary.structuralFailures} · weak approved outcomes ${coreSummary.weakApprovedOutcomeClaims} · research-gap profiles ${coreSummary.profilesWithResearchGaps}`)
+console.log(`Roll-up report: ${path.relative(ROOT, REPORT_PATH)}`)
 if (failed) {
   console.error('\n[research-quality] FAILED — one or more authoritative research checks failed.')
   process.exit(1)
 }
-console.log('\n[research-quality] PASS — identity, topology, claim strength, gap priority, evidence edges, grades, and structured integrity agree.')
+console.log('\n[research-quality] PASS — canonical analysis/policy, source integrity, evidence grades, and structured integrity agree.')
