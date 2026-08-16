@@ -4,56 +4,52 @@ export interface BreadcrumbItem {
   current: boolean
 }
 
-export interface RouteMetadata {
-  label: string
-}
-
 export const SITE_URL = 'https://thehippiescientist.net'
 
-export const routeLabels: Record<string, RouteMetadata> = {
-  '/': { label: 'Home' },
-  '/start': { label: 'Start Here' },
-  '/library': { label: 'Explore Everything' },
-  '/articles': { label: 'Articles' },
-  '/articles/[slug]': { label: 'Article' },
-  '/herbs': { label: 'Herbs' },
-  '/herbs/[slug]': { label: 'Herb Profile' },
-  '/compounds': { label: 'Compounds' },
-  '/compounds/[slug]': { label: 'Compound Profile' },
-  '/search': { label: 'Search' },
-  '/goals': { label: 'Supplement Goals' },
-  '/goals/[slug]': { label: 'Goal Guide' },
-  '/guides': { label: 'Topics & Guides' },
-  '/guides/mental-health': { label: 'Mental Health' },
-  '/guides/adhd': { label: 'ADHD' },
-  '/guides/sleep': { label: 'Sleep' },
-  '/guides/stress': { label: 'Stress' },
-  '/guides/anxiety': { label: 'Anxiety' },
-  '/guides/focus': { label: 'Focus & Cognition' },
-  '/guides/metabolic-health': { label: 'Metabolic Health' },
-  '/guides/herbs': { label: 'Herb Guides' },
-  '/guides/best': { label: 'Best Supplements' },
-  '/guides/compare': { label: 'Comparisons' },
-  '/guides/other': { label: 'Supplement Topic Guides' },
-  '/guides/[slug]': { label: 'Guide' },
-  '/guides/[section]/[slug]': { label: 'Guide' },
-  '/lead-magnets/adhd-supplement-starter-checklist': { label: 'ADHD Supplement Starter Checklist' },
-  '/learn': { label: 'Learning Library' },
-  '/learn/[slug]': { label: 'Learning Resource' },
-  '/novel-psychoactive-substances': { label: 'Novel Psychoactive Substances' },
-  '/safety': { label: 'Safety' },
-  '/safety-checker': { label: 'Safety Checker' },
-  '/evidence/evidence-checker': { label: 'Evidence Lookup' },
-  '/evidence/evidence-report': { label: 'Evidence Report' },
-  '/evidence/evidence-digest': { label: 'Evidence Digest' },
-  '/info/methodology': { label: 'Methodology' },
-  '/info/dosing': { label: 'Dosing Guide' },
-  '/info/supplement-safety-checklist': { label: 'Supplement Checklist' },
-  '/info/infographics': { label: 'Infographics' },
-  '/info/about': { label: 'About' },
-  '/info/author': { label: 'Author' },
-  '/info/faq': { label: 'FAQ' },
-  '/info/contact': { label: 'Contact' },
+const routeLabels: Record<string, string> = {
+  '/': 'Home',
+  '/start': 'Start Here',
+  '/library': 'Explore Everything',
+  '/articles': 'Articles',
+  '/articles/[slug]': 'Article',
+  '/herbs': 'Herbs',
+  '/herbs/[slug]': 'Herb Profile',
+  '/compounds': 'Compounds',
+  '/compounds/[slug]': 'Compound Profile',
+  '/search': 'Search',
+  '/goals': 'Supplement Goals',
+  '/goals/[slug]': 'Goal Guide',
+  '/guides': 'Topics & Guides',
+  '/guides/mental-health': 'Mental Health',
+  '/guides/adhd': 'ADHD',
+  '/guides/sleep': 'Sleep',
+  '/guides/stress': 'Stress',
+  '/guides/anxiety': 'Anxiety',
+  '/guides/focus': 'Focus & Cognition',
+  '/guides/metabolic-health': 'Metabolic Health',
+  '/guides/herbs': 'Herb Guides',
+  '/guides/best': 'Best Supplements',
+  '/guides/compare': 'Comparisons',
+  '/guides/other': 'Supplement Topic Guides',
+  '/guides/[slug]': 'Guide',
+  '/guides/[section]/[slug]': 'Guide',
+  '/lead-magnets/adhd-supplement-starter-checklist': 'ADHD Supplement Starter Checklist',
+  '/learn': 'Learning Library',
+  '/learn/[slug]': 'Learning Resource',
+  '/novel-psychoactive-substances': 'Novel Psychoactive Substances',
+  '/safety': 'Safety',
+  '/safety-checker': 'Safety Checker',
+  '/evidence/evidence-checker': 'Evidence Lookup',
+  '/evidence/evidence-report': 'Evidence Report',
+  '/evidence/evidence-digest': 'Evidence Digest',
+  '/info/methodology': 'Methodology',
+  '/info/dosing': 'Dosing Guide',
+  '/info/supplement-safety-checklist': 'Supplement Checklist',
+  '/info/infographics': 'Infographics',
+  '/info/about': 'About',
+  '/info/author': 'Author',
+  '/info/faq': 'FAQ',
+  '/info/contact': 'Contact',
 }
 
 const SEGMENT_LABEL_OVERRIDES: Record<string, string> = {
@@ -118,10 +114,9 @@ export function generateDynamicBreadcrumbs(
 
     if (!isLast && isStructuralSegment) continue
 
-    const metadata = routeLabels[currentPath]
-    const patternKey = metadata ? null : findDynamicRoutePattern(currentPath)
-    const displayLabel = metadata?.label
-      || (patternKey ? segmentToLabel(segments[i]) : segmentToLabel(segments[i]))
+    const exactLabel = routeLabels[currentPath]
+    const patternKey = exactLabel ? null : findDynamicRoutePattern(currentPath)
+    const displayLabel = exactLabel || (patternKey ? segmentToLabel(segments[i]) : segmentToLabel(segments[i]))
 
     breadcrumbs.push({
       label: segments[i - 1] === 'page' ? `Page ${segments[i]}` : displayLabel,
@@ -135,17 +130,4 @@ export function generateDynamicBreadcrumbs(
   }
 
   return breadcrumbs
-}
-
-export function validateRoute(pathname: string): boolean {
-  const normalizedPath = pathname.toLowerCase().trim()
-  return normalizedPath in routeLabels || findDynamicRoutePattern(normalizedPath) !== null
-}
-
-export function getRouteMetadata(pathname: string): RouteMetadata | null {
-  const normalizedPath = pathname.toLowerCase().trim()
-  if (normalizedPath in routeLabels) return routeLabels[normalizedPath]
-
-  const patternKey = findDynamicRoutePattern(normalizedPath)
-  return patternKey ? routeLabels[patternKey] : null
 }
