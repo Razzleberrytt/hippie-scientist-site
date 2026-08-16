@@ -1,20 +1,20 @@
 const LEVEL_STYLES = {
   strong: {
-    badge: 'bg-emerald-100 text-emerald-800 border border-emerald-200/60',
-    bg: 'bg-emerald-50/60',
-    border: 'border-emerald-200/50',
+    badge: 'bg-emerald-100 text-emerald-800 border border-emerald-200/60 dark:bg-emerald-300/10 dark:text-emerald-100 dark:border-emerald-200/20',
+    bg: 'bg-emerald-50/60 dark:bg-emerald-300/10',
+    border: 'border-emerald-200/50 dark:border-emerald-200/20',
     label: 'Strong Evidence',
   },
   moderate: {
-    badge: 'bg-blue-100 text-blue-800 border border-blue-200/60',
-    bg: 'bg-blue-50/60',
-    border: 'border-blue-200/50',
+    badge: 'bg-blue-100 text-blue-800 border border-blue-200/60 dark:bg-blue-300/10 dark:text-blue-100 dark:border-blue-200/20',
+    bg: 'bg-blue-50/60 dark:bg-blue-300/10',
+    border: 'border-blue-200/50 dark:border-blue-200/20',
     label: 'Moderate Evidence',
   },
   limited: {
-    badge: 'bg-amber-100 text-amber-800 border border-amber-200/60',
-    bg: 'bg-amber-50/60',
-    border: 'border-amber-200/50',
+    badge: 'bg-amber-100 text-amber-800 border border-amber-200/60 dark:bg-amber-300/10 dark:text-amber-100 dark:border-amber-200/20',
+    bg: 'bg-amber-50/60 dark:bg-amber-300/10',
+    border: 'border-amber-200/50 dark:border-amber-200/20',
     label: 'Limited Evidence',
   },
 } as const
