@@ -7,6 +7,8 @@ const root = process.cwd()
 const removedLegacyFiles = [
   'src/lib/curatedProducts.ts',
   'src/lib/herbProducts.ts',
+  'src/lib/herbRecommendations.ts',
+  'src/lib/herbs.ts',
   'scripts/verify-curated-affiliates.ts',
   'scripts/verify-herb-affiliate-links.ts',
   'scripts/report-affiliate-inventory.ts',
@@ -31,6 +33,8 @@ describe('curated product legacy removal contract', () => {
 
     expect(tsconfig).not.toContain('"src/lib/curatedProducts.ts"')
     expect(tsconfig).not.toContain('"src/lib/herbProducts.ts"')
+    expect(tsconfig).not.toContain('"src/lib/herbRecommendations.ts"')
+    expect(tsconfig).not.toContain('"src/lib/herbs.ts"')
     expect(affiliateValidator).not.toContain("'src/lib/curatedProducts.ts'")
   })
 
@@ -42,5 +46,7 @@ describe('curated product legacy removal contract', () => {
 
     expect(quarantineValidator).toContain("'@/src/lib/curatedProducts'")
     expect(quarantineValidator).toContain("'@/src/lib/herbProducts'")
+    expect(quarantineValidator).toContain("'@/src/lib/herbRecommendations'")
+    expect(quarantineValidator).toContain("'@/src/lib/herbs'")
   })
 })
