@@ -31,7 +31,14 @@ export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQual
   const topology = buildResearchQualityTopology(analysis)
   const gate = buildResearchQualityGate(analysis, topology)
   const researchGapQueue = buildResearchGapQueue(analysis, topology)
-  const invariants = validateResearchQualitySnapshotInvariants(analysis, topology, gate, researchGapQueue)
+  const sourceIntegrity = analyzeResearchSourceIntegrity(analysis)
+  const invariants = validateResearchQualitySnapshotInvariants(
+    analysis,
+    topology,
+    gate,
+    researchGapQueue,
+    sourceIntegrity,
+  )
 
   if (!invariants.passed) {
     const details = invariants.failures.slice(0, 10).map((failure) => `${failure.kind}: ${failure.detail}`).join('; ')
@@ -45,7 +52,7 @@ export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQual
     topology,
     gate,
     researchGapQueue,
-    sourceIntegrity: analyzeResearchSourceIntegrity(analysis),
+    sourceIntegrity,
     invariants,
   }
 }
