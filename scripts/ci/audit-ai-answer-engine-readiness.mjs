@@ -7,6 +7,9 @@ const LLMS = path.join(ROOT, 'public', 'llms.txt')
 const ROBOTS = path.join(ROOT, 'app', 'robots.ts')
 const MANIFEST = path.join(ROOT, 'public', 'data', 'ai-entities', 'manifest.json')
 const SCHEMA = path.join(ROOT, 'components', 'seo', 'SchemaGraphScript.tsx')
+const CITATION_SUMMARY = path.join(ROOT, 'components', 'seo', 'CitationReadySummary.tsx')
+const ANSWER_TABLE = path.join(ROOT, 'components', 'seo', 'AnswerEngineTable.tsx')
+const LICENSING_PAGE = path.join(ROOT, 'app', 'info', 'content-licensing', 'page.tsx')
 const APP = path.join(ROOT, 'app')
 const strict = process.argv.includes('--strict')
 
@@ -33,6 +36,7 @@ function auditDiscovery() {
     }
     if (!llms.includes('/data/ai-entities/manifest.json')) add('error', 'discovery', 'llms.txt does not advertise the AI entity manifest')
     if (!llms.includes('/info/methodology/')) add('error', 'discovery', 'llms.txt does not advertise methodology')
+    if (!llms.includes('/info/content-licensing/')) add('warn', 'attribution', 'llms.txt does not advertise content attribution/reuse guidance')
   }
 
   const robots = text(ROBOTS)
@@ -63,6 +67,40 @@ function auditMachineReadable() {
       add('error', 'entity-data', 'AI entity manifest is not valid JSON')
     }
   }
+}
+
+function auditSharedExtractionPrimitives() {
+  const summary = text(CITATION_SUMMARY)
+  if (!summary) {
+    add('error', 'extractability', 'CitationReadySummary.tsx is missing')
+  } else {
+    const required = [
+      ['data-answer-engine-summary', 'answer-engine summary marker'],
+      ['data-claim', 'claim marker'],
+      ['data-evidence', 'evidence marker'],
+      ['data-limitation', 'limitation marker'],
+      ['data-citation-sources', 'claim-adjacent source marker'],
+      ['aria-labelledby', 'accessible stable heading relationship'],
+      ['href={`#${id}`}', 'stable permanent answer link'],
+    ]
+    for (const [signal, label] of required) {
+      if (!summary.includes(signal)) add('error', 'extractability', `CitationReadySummary missing ${label}`)
+    }
+    if (!summary.includes('toCitationReadySummary(answer)')) {
+      add('error', 'extractability', 'CitationReadySummary bypasses the canonical citation-ready text normalizer')
+    }
+  }
+
+  const table = text(ANSWER_TABLE)
+  if (!table) {
+    add('warn', 'extractability', 'AnswerEngineTable semantic research-table primitive is missing')
+  } else {
+    for (const signal of ['data-answer-engine-table', '<caption', 'scope="col"', 'scope="row"', 'id={id}']) {
+      if (!table.includes(signal)) add('error', 'extractability', `AnswerEngineTable missing semantic signal: ${signal}`)
+    }
+  }
+
+  if (!existsSync(LICENSING_PAGE)) add('warn', 'attribution', 'public content licensing/attribution policy page is missing')
 }
 
 function auditExtractability() {
@@ -111,6 +149,7 @@ function auditAntiPatterns() {
 
 auditDiscovery()
 auditMachineReadable()
+auditSharedExtractionPrimitives()
 auditExtractability()
 auditAntiPatterns()
 
