@@ -78,9 +78,9 @@ export function buildAggregatedTopologyGapSignals(
     breadth: typeof topology.claimBreadth.findings
     effect: typeof topology.effectCertainty.findings
     directional: typeof topology.directionalConsistency.findings
-    selective: typeof topology.selectiveOutcomeReporting.findings
+    outcomeIntegrity: typeof topology.outcomeReportingIntegrity.claims
   }>()
-  const emptySemanticGroup = () => ({ explicit: [], breadth: [], effect: [], directional: [], selective: [] })
+  const emptySemanticGroup = () => ({ explicit: [], breadth: [], effect: [], directional: [], outcomeIntegrity: [] })
   for (const item of topology.semanticAlignment.findings) {
     const group = semanticByUrl.get(item.url) ?? emptySemanticGroup()
     group.explicit.push(item)
@@ -101,9 +101,9 @@ export function buildAggregatedTopologyGapSignals(
     group.directional.push(item)
     semanticByUrl.set(item.url, group)
   }
-  for (const item of topology.selectiveOutcomeReporting.findings) {
+  for (const item of topology.outcomeReportingIntegrity.claims) {
     const group = semanticByUrl.get(item.url) ?? emptySemanticGroup()
-    group.selective.push(item)
+    group.outcomeIntegrity.push(item)
     semanticByUrl.set(item.url, group)
   }
   for (const [url, group] of semanticByUrl) {
@@ -112,9 +112,9 @@ export function buildAggregatedTopologyGapSignals(
       ...group.breadth.filter((item) => item.confidence >= 0.75),
       ...group.effect.filter((item) => item.confidence >= 0.75),
       ...group.directional.filter((item) => item.confidence >= 0.75),
-      ...group.selective.filter((item) => item.confidence >= 0.75),
+      ...group.outcomeIntegrity.filter((item) => item.confidence >= 0.75),
     ].length
-    const issueCount = group.explicit.length + group.breadth.length + group.effect.length + group.directional.length + group.selective.length
+    const issueCount = group.explicit.length + group.breadth.length + group.effect.length + group.directional.length + group.outcomeIntegrity.length
     const breadthDimensions = {
       population: group.breadth.filter((item) => item.populationOverbroad).length,
       dose: group.breadth.filter((item) => item.doseOverbroad).length,
@@ -132,15 +132,18 @@ export function buildAggregatedTopologyGapSignals(
       heterogeneous: group.directional.filter((item) => item.directionalHeterogeneity).length,
       uniformlyPositive: group.directional.filter((item) => item.uniformlyPositiveOverstatement).length,
     }
-    const selectiveDimensions = {
-      selectiveOutcome: group.selective.filter((item) => item.selectiveOutcomeRisk).length,
-      outcomeSwitch: group.selective.filter((item) => item.explicitOutcomeSwitchRisk).length,
+    const outcomeIntegrityDimensions = {
+      selectiveOutcome: group.outcomeIntegrity.filter((item) => item.risks.includes('null-primary-with-favorable-secondary')).length,
+      primaryMismatch: group.outcomeIntegrity.filter((item) => item.risks.includes('registered-reported-primary-mismatch')).length,
+      partialPrimaryMismatch: group.outcomeIntegrity.filter((item) => item.risks.includes('registered-reported-primary-partial-mismatch')).length,
+      outcomeSwitch: group.outcomeIntegrity.filter((item) => item.risks.includes('explicit-outcome-switch')).length,
+      registeredNonreporting: group.outcomeIntegrity.filter((item) => item.risks.includes('explicit-registered-outcome-nonreporting')).length,
     }
     signals.push({
       url,
       kind: 'semantic-claim-source-mismatch',
       weight: weights.semanticMismatch + Math.min(10, Math.max(0, issueCount - 1) * 2) + (highConfidence ? weights.highConfidenceSemanticMismatchBonus : 0),
-      detail: `${group.explicit.length} explicit alignment mismatch(es), ${group.breadth.length} claim-breadth overreach finding(s), ${group.effect.length} effect/certainty overstatement finding(s), ${group.directional.length} endpoint/directional consistency finding(s), and ${group.selective.length} selective-outcome/reporting finding(s); ${highConfidence} high-confidence; role ${group.explicit.filter((item) => item.roleMismatch).length}, domain ${group.explicit.filter((item) => item.domainMismatch).length}, population mismatch ${group.explicit.filter((item) => item.populationMismatch).length}; breadth population ${breadthDimensions.population}, dose ${breadthDimensions.dose}, duration ${breadthDimensions.duration}, formulation ${breadthDimensions.formulation}, endpoint ${breadthDimensions.endpoint}; effect magnitude ${effectDimensions.magnitude}, clinical importance ${effectDimensions.clinicalImportance}, certainty ${effectDimensions.certainty}; endpoint cherry-pick ${directionalDimensions.cherryPick}, directional heterogeneity ${directionalDimensions.heterogeneous}, uniformly-positive overstatement ${directionalDimensions.uniformlyPositive}; selective outcome ${selectiveDimensions.selectiveOutcome}, explicit outcome switch/non-reporting ${selectiveDimensions.outcomeSwitch}`,
+      detail: `${group.explicit.length} explicit alignment mismatch(es), ${group.breadth.length} claim-breadth overreach finding(s), ${group.effect.length} effect/certainty overstatement finding(s), ${group.directional.length} endpoint/directional consistency finding(s), and ${group.outcomeIntegrity.length} outcome-reporting integrity finding(s); ${highConfidence} high-confidence; role ${group.explicit.filter((item) => item.roleMismatch).length}, domain ${group.explicit.filter((item) => item.domainMismatch).length}, population mismatch ${group.explicit.filter((item) => item.populationMismatch).length}; breadth population ${breadthDimensions.population}, dose ${breadthDimensions.dose}, duration ${breadthDimensions.duration}, formulation ${breadthDimensions.formulation}, endpoint ${breadthDimensions.endpoint}; effect magnitude ${effectDimensions.magnitude}, clinical importance ${effectDimensions.clinicalImportance}, certainty ${effectDimensions.certainty}; endpoint cherry-pick ${directionalDimensions.cherryPick}, directional heterogeneity ${directionalDimensions.heterogeneous}, uniformly-positive overstatement ${directionalDimensions.uniformlyPositive}; selective outcome ${outcomeIntegrityDimensions.selectiveOutcome}, registered/reported primary mismatch ${outcomeIntegrityDimensions.primaryMismatch}, partial primary mismatch ${outcomeIntegrityDimensions.partialPrimaryMismatch}, explicit outcome switch ${outcomeIntegrityDimensions.outcomeSwitch}, registered outcome non-reporting ${outcomeIntegrityDimensions.registeredNonreporting}`,
     })
   }
 
