@@ -7,7 +7,7 @@
 :root {
   --a11y-focus-ring: #7a4d00;
   --a11y-focus-ring-outer: rgba(255, 210, 92, 0.72);
-  --a11y-focus-bg: rgba(255, 244, 204, 0.92);
+  --a11y-focus-bg: var(--surface-card-strong);
   --a11y-target-size: 44px;
   --a11y-scroll-top: 7rem;
   --a11y-scroll-bottom: calc(env(safe-area-inset-bottom) + 11rem);
@@ -16,7 +16,6 @@
 html.dark {
   --a11y-focus-ring: #f7d36b;
   --a11y-focus-ring-outer: rgba(247, 211, 107, 0.36);
-  --a11y-focus-bg: rgba(45, 66, 49, 0.96);
 }
 
 html {
@@ -37,17 +36,13 @@ html {
   border: 2px solid var(--a11y-focus-ring);
   border-radius: 999px;
   background: var(--a11y-focus-bg);
-  color: #111a16;
+  color: var(--text-primary);
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
   font-weight: 800;
   line-height: 1;
   box-shadow: 0 0 0 5px var(--a11y-focus-ring-outer), 0 12px 34px rgba(0, 0, 0, 0.22);
   transition: transform 160ms ease;
-}
-
-html.dark .skip-link {
-  color: #fffdf7;
 }
 
 .skip-link:focus,
