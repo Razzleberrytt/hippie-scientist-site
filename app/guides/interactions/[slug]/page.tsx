@@ -10,9 +10,12 @@ import {
   loadIndexableInteractionIngredients,
 } from '../interaction-data'
 
+const EMPTY_STATIC_EXPORT_SLUG = '__static-export-empty__'
+
 export async function generateStaticParams() {
   const ingredients = await loadIndexableInteractionIngredients()
-  return ingredients.map((record) => ({ slug: cleanInteractionValue(record.slug) }))
+  const realParams = ingredients.map((record) => ({ slug: cleanInteractionValue(record.slug) }))
+  return realParams.length ? realParams : [{ slug: EMPTY_STATIC_EXPORT_SLUG }]
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
