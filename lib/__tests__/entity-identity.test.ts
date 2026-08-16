@@ -5,13 +5,15 @@ import {
   extractParentheticalNames,
   levenshteinDistance,
   normalizeEntityName,
+  normalizeRouteSlug,
   slugifyEntityName,
   stripBracketedIdentityNotes,
   stripParentheticalName,
 } from '@/lib/entity-identity.mjs'
 
 describe('entity identity primitives', () => {
-  it('normalizes names and slugs consistently', () => {
+  it('keeps route and entity slug semantics explicit', () => {
+    expect(normalizeRouteSlug('St. John’s Wort')).toBe('st-john-s-wort')
     expect(slugifyEntityName('St. John’s Wort')).toBe('st-johns-wort')
     expect(normalizeEntityName('  Lion’s   Mane ')).toBe('lions mane')
   })

@@ -2,16 +2,11 @@
 // Generated entity pages now render prerendered SEO content as sr-only to avoid duplicate visible content.
 import fs from 'node:fs'
 import path from 'node:path'
+import { normalizeRouteSlug } from '../lib/entity-identity.mjs'
 
 const ROOT = process.cwd()
 const herbs = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/data/herbs.json'), 'utf8'))
 const compounds = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/data/compounds.json'), 'utf8'))
-
-const slugify = value =>
-  String(value || '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
 
 const ensure = dir => fs.mkdirSync(dir, { recursive: true })
 const fmtDate = value => {
@@ -62,7 +57,7 @@ function renderPage(kind, item) {
 function writeKind(kind, items) {
   for (const item of items) {
     const slug =
-      item.slug || slugify(item.commonName || item.common || item.name || item.latinName || item.id)
+      item.slug || normalizeRouteSlug(item.commonName || item.common || item.name || item.latinName || item.id)
     if (!slug) continue
     const outDir = path.join(ROOT, 'public', kind, slug)
     ensure(outDir)

@@ -1,6 +1,7 @@
 // Generates one MDX blog post and saves to src/content/blog/YYYY-MM-DD-slug.mdx
 import fs from "fs";
 import path from "path";
+import { normalizeRouteSlug } from "../lib/entity-identity.mjs";
 import { haveAiSecrets, promptLLM } from "./ai-client.mjs";
 
 if (process.env.SKIP_AI_GENERATE === "true") {
@@ -18,7 +19,6 @@ const OUT_DIR = "src/content/blog";
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
-function slugify(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,""); }
 function today(){ return new Date().toISOString().slice(0,10); }
 
 function pickTopic(){
@@ -43,7 +43,7 @@ if (picked.postQueue) {
 
 const topic = picked.topic;
 const date  = today();
-const baseSlug = slugify(topic);
+const baseSlug = normalizeRouteSlug(topic);
 const slug  = `${date}-${baseSlug}`;
 const outPath = path.join(OUT_DIR, `${slug}.mdx`);
 
