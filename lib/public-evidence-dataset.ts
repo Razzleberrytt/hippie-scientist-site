@@ -715,7 +715,8 @@ export function publicEvidenceDatasetToCsv(dataset: PublicEvidenceDataset): stri
     'study_class', 'study_class_candidates', 'study_class_ambiguous',
     'sample_size', 'participant_count_candidates', 'participant_count_ambiguous',
     'dose', 'duration', 'population', 'outcome', 'result', 'limitation',
-    'relationship_summary', 'conditions', 'safety_outcome', 'ingredient_slugs', 'ingredient_names', 'ingredient_grades',
+    'relationship_summary', 'conditions', 'safety_outcome',
+    'ingredient_slugs', 'ingredient_types', 'ingredient_paths', 'ingredient_names', 'ingredient_grades',
     'relationships_json',
   ]
 
@@ -745,6 +746,8 @@ export function publicEvidenceDatasetToCsv(dataset: PublicEvidenceDataset): stri
     study.conditions.join('|'),
     study.safetyOutcome,
     study.relationships.map(item => item.ingredientSlug).join('|'),
+    study.relationships.map(item => item.ingredientType).join('|'),
+    study.relationships.map(item => item.ingredientPath).join('|'),
     study.relationships.map(item => item.ingredientName).join('|'),
     study.relationships.map(item => item.evidenceGrade).join('|'),
     JSON.stringify(study.relationships),
