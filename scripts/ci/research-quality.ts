@@ -77,6 +77,7 @@ const {
   trialRegistrationIndependence,
   evidenceLineage,
   evidenceIndependenceCoverage,
+  underlyingStudyIndependence,
   studyClassConflicts,
   crossProfileEvidenceBundles,
   narrowCrossProfileEvidenceBundles,
@@ -122,6 +123,8 @@ results.push({
     `sameTrialReuse=${trialRegistrationIndependence.summary.sameTrialReuseClaims}`,
     `sharedLineage=${evidenceLineage.summary.sharedNonRegistryLineageClaims}`,
     `independenceUnresolved=${evidenceIndependenceCoverage.summary.unresolvedClaims}`,
+    `underlyingStudyReduced=${underlyingStudyIndependence.summary.independenceReducedClaims}`,
+    `newlyOverDependent=${underlyingStudyIndependence.summary.newlyOverDependentProfiles}`,
   ].join('; '),
   stderrTail: [
     gate.summary.structuralFailures ? `${gate.summary.structuralFailures} invalid evidence edge(s)` : '',
@@ -189,6 +192,7 @@ const coreSummary = {
   trialRegistrationIndependence: trialRegistrationIndependence.summary,
   evidenceLineage: evidenceLineage.summary,
   evidenceIndependenceCoverage: evidenceIndependenceCoverage.summary,
+  underlyingStudyIndependence: underlyingStudyIndependence.summary,
   weakApprovedOutcomeClaims: weakApprovedOutcomes.length,
   unsupportedUnapprovedStructuredClaims: unsupportedUnapprovedClaims.length,
   weakUnapprovedOutcomeClaims: weakUnapprovedOutcomes.length,
@@ -223,7 +227,7 @@ const coreSummary = {
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 26,
+  schemaVersion: 27,
   generatedAt: new Date().toISOString(),
   passed: !failed,
   source: {
@@ -236,6 +240,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
     trialRegistrationIndependence: 'lib/research-trial-registration-independence.ts',
     evidenceLineage: 'lib/research-evidence-lineage.ts',
     evidenceIndependenceCoverage: 'lib/research-evidence-independence-coverage.ts',
+    underlyingStudyIndependence: 'lib/research-underlying-study-independence.ts',
     claimBreadth: 'lib/research-claim-breadth.ts',
     effectCertainty: 'lib/research-effect-certainty.ts',
   },
@@ -296,6 +301,15 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
     unresolvedClaims: evidenceIndependenceCoverage.unresolvedClaims.slice(0, 150),
     highConfidenceUnresolvedClaims: evidenceIndependenceCoverage.highConfidenceUnresolvedClaims.slice(0, 100),
   },
+  underlyingStudyIndependence: {
+    summary: underlyingStudyIndependence.summary,
+    reducedClaims: underlyingStudyIndependence.reducedClaims.slice(0, 150),
+    pseudoMultiStudyClaims: underlyingStudyIndependence.pseudoMultiStudyClaims.slice(0, 150),
+    highConfidencePseudoMultiStudyClaims: underlyingStudyIndependence.highConfidencePseudoMultiStudyClaims.slice(0, 100),
+    supportTierDowngrades: underlyingStudyIndependence.supportTierDowngrades.slice(0, 150),
+    newlyOverDependentProfiles: underlyingStudyIndependence.newlyOverDependentProfiles.slice(0, 100),
+    profiles: underlyingStudyIndependence.profiles.slice(0, 150),
+  },
   withdrawnCitedStudies: sourceIntegrity.withdrawn,
   evidenceGradeInvalid: evidenceGradeConsistency.invalid,
   evidenceGradeContradictions: evidenceGradeConsistency.contradictions.slice(0, 100),
@@ -330,6 +344,7 @@ console.log(`Effect/certainty: ${effectCertainty.summary.findings} overstatement
 console.log(`Language calibration: ${languageCalibration.summary.causalWithoutControlledSupport} unsupported direct-causal claim(s)`)
 console.log(`Edge cardinality: ${edgeCardinality.summary.pseudoMultiSourceClaims} pseudo-multi-source · ${edgeCardinality.summary.aliasCollapsedClaims} alias-collapsed · ${edgeCardinality.summary.duplicateEdges} duplicate edge(s)`)
 console.log(`Underlying-study reuse: ${trialRegistrationIndependence.summary.sameTrialReuseClaims} same-trial claim(s) · ${evidenceLineage.summary.sharedNonRegistryLineageClaims} shared lineage claim(s)`)
+console.log(`Underlying-study independence: ${underlyingStudyIndependence.summary.independenceReducedClaims} reduced claim(s) · ${underlyingStudyIndependence.summary.pseudoMultiStudyClaims} pseudo-multi-study · ${underlyingStudyIndependence.summary.supportTierDowngrades} support-tier downgrade(s) · ${underlyingStudyIndependence.summary.newlyOverDependentProfiles} newly overdependent profile(s)`)
 console.log(`Independence coverage: ${evidenceIndependenceCoverage.summary.unresolvedClaims} unresolved multi-study claim(s) · ${evidenceIndependenceCoverage.summary.highConfidenceUnresolvedClaims} high-confidence · ${Math.round(evidenceIndependenceCoverage.summary.meanCombinedCoverage * 100)}% mean explicit coverage`)
 console.log(`Gap queue: ${researchGapQueue.length} profile(s) prioritized`)
 console.log(`Semantic report: ${path.relative(ROOT, semanticReportPath)}`)
