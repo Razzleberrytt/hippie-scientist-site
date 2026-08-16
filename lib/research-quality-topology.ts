@@ -14,6 +14,7 @@ import { analyzeClaimEvidenceAge, analyzeStudyYearConflicts, summarizeEvidenceAg
 import { buildResearchMetadataIntegrity } from './research-metadata-integrity'
 import { analyzeOutcomeMetadata } from './research-outcome-metadata'
 import { analyzeOutcomeRegistrationAlignment } from './research-outcome-registration-alignment'
+import { analyzeOutcomeReportingIntegrity } from './research-outcome-reporting-integrity'
 import { analyzeProvenanceConcentration, analyzeStudyProvenanceConflicts } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import { analyzeResearchSemanticAlignment } from './research-semantic-alignment'
@@ -86,6 +87,12 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const effectCertainty = analyzeEffectCertainty(analysis)
   const directionalConsistency = analyzeDirectionalConsistency(analysis)
   const selectiveOutcomeReporting = analyzeSelectiveOutcomeReporting({ analysis, outcomeMetadata })
+  const outcomeReportingIntegrity = analyzeOutcomeReportingIntegrity({
+    analysis,
+    outcomeMetadata,
+    outcomeRegistrationAlignment,
+    selectiveOutcomeReporting,
+  })
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
   const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
   const metadataIntegrity = buildResearchMetadataIntegrity({
@@ -134,6 +141,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     effectCertainty,
     directionalConsistency,
     selectiveOutcomeReporting,
+    outcomeReportingIntegrity,
     claimLanguageCalibration,
     claimCitationMetadata,
     metadataIntegrity,
