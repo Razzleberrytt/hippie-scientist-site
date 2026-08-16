@@ -23,7 +23,12 @@ export default function SafetyGaugeMeter({ score, label, className = '' }: Safet
   const needleTip = polarToCartesian(50, 50, 34, needleAngle)
 
   return (
-    <div className={`flex flex-col items-center ${className}`}>
+    <div
+      data-safety-context="true"
+      data-safety-score={clamped}
+      data-safety-label={label}
+      className={`flex flex-col items-center ${className}`}
+    >
       <svg
         viewBox="0 0 100 58"
         className="w-full max-w-[200px]"
