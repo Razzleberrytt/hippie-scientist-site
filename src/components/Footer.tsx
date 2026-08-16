@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { BookOpen, Brain, Leaf, Newspaper, Search, Shapes } from 'lucide-react'
+import { Brain, Leaf, Newspaper, Search, Shapes } from 'lucide-react'
 import { Link } from '../lib/router-compat'
 import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
@@ -10,7 +10,6 @@ import { PUBLIC_ROUTES } from '../lib/public-routes'
 import NewsletterSignup from '../../components/NewsletterSignup'
 
 const exploreLinks = [
-  { href: PUBLIC_ROUTES.library, label: 'Explore Everything', Icon: BookOpen },
   { href: PUBLIC_ROUTES.guides, label: 'Topics & Guides', Icon: Brain },
   { href: PUBLIC_ROUTES.articles, label: 'Articles', Icon: Newspaper },
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database', Icon: Leaf },
@@ -28,7 +27,6 @@ const priorityGoalLinks = [
 ]
 
 const researchLinks = [
-  { href: '/articles/', label: 'All articles' },
   { href: '/learn/', label: 'Learning library' },
   { href: '/evidence/evidence-report/', label: 'Evidence report' },
   { href: '/evidence/evidence-digest/', label: 'Evidence digest' },
@@ -38,7 +36,6 @@ const researchLinks = [
 
 const safetyLinks = [
   { href: '/safety-checker/', label: 'Safety checker' },
-  { href: '/evidence/evidence-checker/', label: 'Evidence lookup' },
   { href: '/info/dosing/', label: 'Dosing guide' },
   { href: '/info/supplement-safety-checklist/', label: 'Supplement checklist' },
   { href: '/learn/interactions/', label: 'Interactions' },
