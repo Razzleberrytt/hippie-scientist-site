@@ -5,6 +5,7 @@ import path from 'node:path'
 
 import {
   approvedClaims,
+  canonicalStudyIdentityMap,
   designFromPublicationTypes,
   listResearchProfiles,
   loadPubmedCache,
@@ -13,6 +14,7 @@ import {
   sourceMap,
   sourceStudyClass,
   SYNTHESIS_STUDY_CLASSES,
+  uniqueClaimStudyIdentities,
   uniqueSourceRefs,
   type PubmedCache,
   type ResearchProfile,
@@ -28,6 +30,7 @@ const CURRENT_YEAR = Number(process.env.SOURCE_AUDIT_YEAR) || new Date().getFull
 type ProfileAnalysis = {
   url: string
   sourceCount: number
+  canonicalStudyCount: number
   claimCount: number
   approvedClaimCount: number
   designMix: Record<string, number>
@@ -35,11 +38,12 @@ type ProfileAnalysis = {
   synthesis: number
   narrativeReview: number
   unsupportedApprovedClaims: string[]
-  singleSourceApprovedClaims: string[]
+  singleStudyApprovedClaims: string[]
+  aliasCollapsedClaims: string[]
   danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }>
-  mostUsedSourceRef: string | null
-  mostUsedSourceClaimCount: number
-  sourceDependencyShare: number
+  mostUsedStudyIdentity: string | null
+  mostUsedStudyClaimCount: number
+  studyDependencyShare: number
   reviewDominated: boolean
   noPrimaryHuman: boolean
 }
@@ -62,6 +66,7 @@ function analyzeProfile(url: string, record: ResearchProfile, cache: PubmedCache
   const allClaims = Array.isArray(record.claimMap) ? record.claimMap : []
   const approved = approvedClaims(record)
   const sourcesById = sourceMap(record)
+  const studyIdentities = canonicalStudyIdentityMap(record)
   const designMix: Record<string, number> = {}
   let primaryHuman = 0
   let synthesis = 0
@@ -76,29 +81,36 @@ function analyzeProfile(url: string, record: ResearchProfile, cache: PubmedCache
   }
 
   const unsupportedApprovedClaims: string[] = []
-  const singleSourceApprovedClaims: string[] = []
+  const singleStudyApprovedClaims: string[] = []
+  const aliasCollapsedClaims: string[] = []
   const danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }> = []
-  const sourceUse = new Map<string, number>()
+  const studyUse = new Map<string, number>()
 
   for (const claim of approved) {
     const claimId = String(claim.id ?? 'unknown-claim')
     const refs = uniqueSourceRefs(claim)
+    const validRefs = refs.filter((ref) => sourcesById.has(ref))
+    const studies = uniqueClaimStudyIdentities(claim, studyIdentities)
+
     if (refs.length === 0) unsupportedApprovedClaims.push(claimId)
-    if (refs.length === 1) singleSourceApprovedClaims.push(claimId)
+    if (studies.length === 1) singleStudyApprovedClaims.push(claimId)
+    if (validRefs.length > studies.length && studies.length > 0) aliasCollapsedClaims.push(claimId)
+
     for (const ref of refs) {
       if (!sourcesById.has(ref)) danglingSourceRefs.push({ claimId, sourceRefId: ref })
-      else sourceUse.set(ref, (sourceUse.get(ref) ?? 0) + 1)
     }
+    for (const study of studies) studyUse.set(study, (studyUse.get(study) ?? 0) + 1)
   }
 
-  const mostUsed = [...sourceUse.entries()].sort((a, b) => b[1] - a[1])[0] ?? null
-  const mostUsedSourceClaimCount = mostUsed?.[1] ?? 0
-  const sourceDependencyShare = approved.length ? mostUsedSourceClaimCount / approved.length : 0
+  const mostUsed = [...studyUse.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0] ?? null
+  const mostUsedStudyClaimCount = mostUsed?.[1] ?? 0
+  const studyDependencyShare = approved.length ? mostUsedStudyClaimCount / approved.length : 0
   const classified = primaryHuman + synthesis + narrativeReview
 
   return {
     url,
     sourceCount: sources.length,
+    canonicalStudyCount: new Set(studyIdentities.values()).size,
     claimCount: allClaims.length,
     approvedClaimCount: approved.length,
     designMix,
@@ -106,11 +118,12 @@ function analyzeProfile(url: string, record: ResearchProfile, cache: PubmedCache
     synthesis,
     narrativeReview,
     unsupportedApprovedClaims,
-    singleSourceApprovedClaims,
+    singleStudyApprovedClaims,
+    aliasCollapsedClaims,
     danglingSourceRefs,
-    mostUsedSourceRef: mostUsed?.[0] ?? null,
-    mostUsedSourceClaimCount,
-    sourceDependencyShare: Number(sourceDependencyShare.toFixed(3)),
+    mostUsedStudyIdentity: mostUsed?.[0] ?? null,
+    mostUsedStudyClaimCount,
+    studyDependencyShare: Number(studyDependencyShare.toFixed(3)),
     reviewDominated: classified >= 3 && narrativeReview / classified >= 0.6,
     noPrimaryHuman: approved.length > 0 && primaryHuman === 0,
   }
@@ -158,10 +171,11 @@ function main() {
   const profileTopology = profiles.map(({ url, record }) => analyzeProfile(url, record, cache))
   const unsupportedClaims = profileTopology.flatMap((p) => p.unsupportedApprovedClaims.map((claimId) => ({ url: p.url, claimId })))
   const danglingRefs = profileTopology.flatMap((p) => p.danglingSourceRefs.map((item) => ({ url: p.url, ...item })))
-  const singleSourceClaims = profileTopology.flatMap((p) => p.singleSourceApprovedClaims.map((claimId) => ({ url: p.url, claimId })))
+  const singleStudyClaims = profileTopology.flatMap((p) => p.singleStudyApprovedClaims.map((claimId) => ({ url: p.url, claimId })))
+  const aliasCollapsedClaims = profileTopology.flatMap((p) => p.aliasCollapsedClaims.map((claimId) => ({ url: p.url, claimId })))
   const concentratedProfiles = profileTopology
-    .filter((p) => p.approvedClaimCount >= 3 && p.sourceDependencyShare >= 0.5)
-    .sort((a, b) => b.sourceDependencyShare - a.sourceDependencyShare || b.approvedClaimCount - a.approvedClaimCount)
+    .filter((p) => p.approvedClaimCount >= 3 && p.studyDependencyShare >= 0.5)
+    .sort((a, b) => b.studyDependencyShare - a.studyDependencyShare || b.approvedClaimCount - a.approvedClaimCount)
   const reviewDominatedProfiles = profileTopology.filter((p) => p.reviewDominated)
   const noPrimaryHumanProfiles = profileTopology.filter((p) => p.noPrimaryHuman)
 
@@ -180,7 +194,8 @@ function main() {
     profiles: profileTopology.length,
     approvedClaims: profileTopology.reduce((sum, profile) => sum + profile.approvedClaimCount, 0),
     unsupportedApprovedClaims: unsupportedClaims.length,
-    singleSourceApprovedClaims: singleSourceClaims.length,
+    singleStudyApprovedClaims: singleStudyClaims.length,
+    aliasCollapsedClaims: aliasCollapsedClaims.length,
     danglingClaimSourceRefs: danglingRefs.length,
     concentratedProfiles: concentratedProfiles.length,
     reviewDominatedProfiles: reviewDominatedProfiles.length,
@@ -194,7 +209,8 @@ function main() {
     summary,
     claimTopology: {
       unsupportedClaims,
-      singleSourceClaims,
+      singleStudyClaims,
+      aliasCollapsedClaims,
       danglingRefs,
       concentratedProfiles,
       reviewDominatedProfiles,
@@ -211,7 +227,8 @@ function main() {
   console.log(`Profiles analyzed           ${summary.profiles}`)
   console.log(`Approved structured claims  ${summary.approvedClaims}`)
   console.log(`Unsupported approved claims ${summary.unsupportedApprovedClaims}`)
-  console.log(`Single-source claims        ${summary.singleSourceApprovedClaims}`)
+  console.log(`Single-study claims         ${summary.singleStudyApprovedClaims}`)
+  console.log(`Alias-collapsed claims      ${summary.aliasCollapsedClaims}`)
   console.log(`Dangling claim source refs  ${summary.danglingClaimSourceRefs}`)
   console.log(`Concentrated profiles       ${summary.concentratedProfiles}`)
   console.log(`Review-dominated profiles   ${summary.reviewDominatedProfiles}`)
@@ -225,9 +242,9 @@ function main() {
     console.log(`  ${String(count).padStart(4)}  ${STUDY_CLASS_INFO[design as StudyClass]?.label ?? design}`)
   }
   if (concentratedProfiles.length) {
-    console.log('\nHighest claim-source concentration:')
+    console.log('\nHighest claim-study concentration:')
     for (const profile of concentratedProfiles.slice(0, 10)) {
-      console.log(`  ${(profile.sourceDependencyShare * 100).toFixed(0).padStart(3)}% · ${profile.approvedClaimCount} claims · ${profile.url}`)
+      console.log(`  ${(profile.studyDependencyShare * 100).toFixed(0).padStart(3)}% · ${profile.approvedClaimCount} claims · ${profile.url}`)
     }
   }
   console.log(`\nReport: ${path.relative(ROOT, REPORT_PATH)}`)

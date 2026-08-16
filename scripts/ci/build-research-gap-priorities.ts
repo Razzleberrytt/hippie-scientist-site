@@ -36,12 +36,13 @@ for (const item of topology.claimTopology?.unsupportedClaims ?? []) {
 for (const item of topology.claimTopology?.danglingRefs ?? []) {
   add(item.url, 'dangling-claim-source-edge', 100, `${item.claimId} -> ${item.sourceRefId}`)
 }
-for (const item of topology.claimTopology?.singleSourceClaims ?? []) {
-  add(item.url, 'single-source-approved-claim', 5, item.claimId)
+for (const item of topology.claimTopology?.singleStudyClaims ?? []) {
+  add(item.url, 'single-study-approved-claim', 5, item.claimId)
 }
 for (const profile of topology.claimTopology?.concentratedProfiles ?? []) {
-  const weight = Math.round(20 + Number(profile.sourceDependencyShare ?? 0) * 30)
-  add(profile.url, 'high-source-dependency', weight, `${Math.round(Number(profile.sourceDependencyShare ?? 0) * 100)}% of approved claims depend on one source`)
+  const share = Number(profile.studyDependencyShare ?? 0)
+  const weight = Math.round(20 + share * 30)
+  add(profile.url, 'high-study-dependency', weight, `${Math.round(share * 100)}% of approved claims depend on one canonical study`)
 }
 for (const profile of topology.claimTopology?.reviewDominatedProfiles ?? []) {
   add(profile.url, 'narrative-review-dominated-profile', 15)
@@ -73,17 +74,17 @@ const ranked = [...queue.values()]
 const report = {
   generatedAt: new Date().toISOString(),
   scoring: {
-    note: 'Scores prioritize structural invalidity first, then claim-strength and concentration weaknesses. They are triage weights, not evidence grades.',
+    note: 'Scores prioritize structural invalidity first, then claim-strength and canonical-study concentration weaknesses. They are triage weights, not evidence grades.',
     weights: {
       unsupportedApprovedClaim: 100,
       danglingClaimSourceEdge: 100,
       highConfidenceWeakOutcome: 40,
-      highSourceDependency: '20 + dependency share × 30',
+      highStudyDependency: '20 + dependency share × 30',
       narrativeOnlyOutcome: 25,
       noPrimaryHumanStudy: 20,
       unclassifiedLinkedEvidence: 20,
       narrativeReviewDominatedProfile: 15,
-      singleSourceApprovedClaim: 5,
+      singleStudyApprovedClaim: 5,
     },
   },
   summary: {
