@@ -21,6 +21,7 @@ import {
   analyzeEvidenceBundleReuse,
 } from './research-study-load'
 import { analyzeTrialRegistrationIndependence } from './research-trial-registration-independence'
+import { analyzeUnderlyingStudyIndependence } from './research-underlying-study-independence'
 
 export type ResearchQualityTopology = ReturnType<typeof buildResearchQualityTopology>
 
@@ -67,6 +68,11 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     trialRegistrationIndependence,
     evidenceLineage,
   })
+  const underlyingStudyIndependence = analyzeUnderlyingStudyIndependence({
+    analysis,
+    trialRegistrationIndependence,
+    evidenceLineage,
+  })
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
   const claimBreadth = analyzeClaimBreadth(analysis)
@@ -109,6 +115,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     trialRegistrationIndependence,
     evidenceLineage,
     evidenceIndependenceCoverage,
+    underlyingStudyIndependence,
     studyClassConflicts,
     semanticAlignment,
     claimBreadth,
