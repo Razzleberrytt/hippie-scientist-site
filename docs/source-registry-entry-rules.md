@@ -8,10 +8,9 @@ Validate it with:
 
 - `node scripts/validate-source-registry.mjs`
 
-Generate inventory summary with:
+Review candidate sources and promotion previews with:
 
-- `node scripts/report-source-registry.mjs`
-- `npm run report:source-candidate-review` (candidate review + promotion preview)
+- `npx tsx scripts/report-source-candidate-review.ts`
 
 ## Governed intake-to-registry promotion flow
 
