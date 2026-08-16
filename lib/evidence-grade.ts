@@ -33,6 +33,12 @@ export type NormalizedEvidenceGrade = {
   canonical: boolean
   /** True when the source grades different outcomes differently. */
   outcomeDependent: boolean
+  /**
+   * True when the source explicitly declares that no grade applies (stacks,
+   * blends). This is a different claim from "insufficient evidence" and must
+   * never render as a letter grade.
+   */
+  notApplicable: boolean
 }
 
 const BAND_LABEL: Record<EvidenceBand, string> = {
@@ -78,6 +84,20 @@ const BAND_FOR_GRADE: Record<CanonicalEvidenceGrade, EvidenceBand> = {
 /** A bare legacy letter grade, optionally with a +/- modifier. */
 const BARE_LETTER_RE = /^([a-d])\s*[+-]?$/i
 const LEGACY_FAIL_RE = /^f\s*[+-]?$/i
+/** Grade explicitly withheld — stacks and proprietary blends are not one entity. */
+const NOT_APPLICABLE_RE = /^n\/?a$|^not[_ -]applicable/i
+
+/**
+ * Bare strength words used as whole grade values. These are matched on the
+ * exact value rather than added to PHRASE_BANDS because the same words appear
+ * inside longer phrases that mean something else — "high safety caution"
+ * describes risk, not evidence strength.
+ */
+const EXACT_BAND_VALUES: Record<string, EvidenceBand> = {
+  high: 'strong',
+  medium: 'moderate',
+  low: 'preliminary',
+}
 
 /**
  * Values that grade different outcomes differently. Picking one grade from
@@ -106,6 +126,7 @@ const EMPTY: NormalizedEvidenceGrade = {
   raw: '',
   canonical: false,
   outcomeDependent: false,
+  notApplicable: false,
 }
 
 export function isCanonicalEvidenceGrade(value: unknown): value is CanonicalEvidenceGrade {
@@ -141,6 +162,7 @@ function normalizedFromGrade(
     raw,
     canonical,
     outcomeDependent: false,
+    notApplicable: false,
   }
 }
 
@@ -163,7 +185,12 @@ export function normalizeEvidenceGrade(raw: unknown): NormalizedEvidenceGrade {
       raw: value,
       canonical: false,
       outcomeDependent: true,
+      notApplicable: false,
     }
+  }
+
+  if (NOT_APPLICABLE_RE.test(value)) {
+    return { ...EMPTY, raw: value, label: 'Evidence grade not applicable', notApplicable: true }
   }
 
   if (isCanonicalEvidenceGrade(value)) {
@@ -171,13 +198,22 @@ export function normalizeEvidenceGrade(raw: unknown): NormalizedEvidenceGrade {
   }
 
   if (/^avoid\s*\/\s*insufficient$/i.test(value)) {
-    return normalizedFromGrade('Avoid/Insufficient', value, false)
+    return normalizedFromGrade('Avoid/Insufficient', value, true)
   }
 
   const bare = BARE_LETTER_RE.exec(value)
   if (bare) {
     const grade = bare[1].toUpperCase() as EvidenceLetter
-    return normalizedFromGrade(grade, value, false)
+    // A bare letter IS the canonical grade — only its casing differs. Treating
+    // `c` as non-canonical would report 463 records as migration work that a
+    // case fold already resolves.
+    const canonical = /^[a-d]$/i.test(value)
+    return normalizedFromGrade(grade, value, canonical)
+  }
+
+  const exactBand = EXACT_BAND_VALUES[value.toLowerCase()]
+  if (exactBand) {
+    return normalizedFromGrade(GRADE_FOR_BAND[exactBand], value, false, value)
   }
 
   // F was a legacy pseudo-grade. Preserve the meaning while removing F from
@@ -207,6 +243,10 @@ export function canonicalGradeFromEvidenceTier(tier: unknown): CanonicalEvidence
   if (value.includes('strong')) return 'A'
   if (value.includes('moderate')) return 'B'
   if (value.includes('limited') || value.includes('contextual') || value.includes('mixed')) return 'C'
+  // "Early Human Evidence" is still human evidence. Without this floor it fell
+  // through to the preclinical bucket below and rendered at the same strength
+  // as mechanism-only records, understating every early-stage human trial.
+  if (/\bhumans?\b|\bclinical\b/.test(value)) return 'C'
   if (
     value.includes('mechanistic') ||
     value.includes('preclinical') ||
@@ -226,6 +266,122 @@ export function bandFromEvidenceTier(tier: unknown): EvidenceBand | null {
 }
 
 const BAND_ORDER: EvidenceBand[] = ['insufficient', 'preliminary', 'limited', 'moderate', 'strong']
+
+export type EvidenceReconciliation = {
+  /** Grade safe to publish after reconciling both authored signals. */
+  grade: CanonicalEvidenceGrade | null
+  band: EvidenceBand | null
+  /** Band implied by the authored `evidence_grade` column. */
+  gradeBand: EvidenceBand | null
+  /** Band implied by the authored `evidence_tier` column. */
+  tierBand: EvidenceBand | null
+  distance: number | null
+  /** True when the published grade is weaker than the authored grade. */
+  adjusted: boolean
+  /** Machine-readable reason, suitable for an audit trail. */
+  reason:
+    | 'agree'
+    | 'grade-only'
+    | 'tier-only'
+    | 'minor-disagreement'
+    | 'capped-by-weaker-tier'
+    | 'contradiction-resolved-conservatively'
+    | 'not-applicable'
+    | 'unresolved'
+  /** Reader-facing explanation of why this grade was published. */
+  explanation: string
+}
+
+function weakerBand(a: EvidenceBand, b: EvidenceBand): EvidenceBand {
+  return BAND_ORDER.indexOf(a) <= BAND_ORDER.indexOf(b) ? a : b
+}
+
+/**
+ * Reconcile the two independently authored evidence signals into the one grade
+ * a page may publish.
+ *
+ * `evidence_grade` and `evidence_tier` are separate workbook columns filled in
+ * by hand, so they disagree on real records — 98 indexable profiles carry a
+ * two-band-or-worse conflict, including `calcium` graded "strong" against a
+ * tier of "Mechanistic Evidence". Publishing the stronger of two conflicting
+ * signals would state a level of confidence the record cannot support, so
+ * every rule here resolves downward and records why.
+ */
+export function reconcileEvidenceGrade(rawGrade: unknown, rawTier: unknown): EvidenceReconciliation {
+  const normalized = normalizeEvidenceGrade(rawGrade)
+  const tierBand = bandFromEvidenceTier(rawTier)
+  const gradeBand = normalized.band
+  const distance = gradeTierDistance(gradeBand, tierBand)
+
+  const settle = (
+    band: EvidenceBand | null,
+    reason: EvidenceReconciliation['reason'],
+    explanation: string,
+  ): EvidenceReconciliation => ({
+    grade: band ? GRADE_FOR_BAND[band] : null,
+    band,
+    gradeBand,
+    tierBand,
+    distance,
+    adjusted: Boolean(band && gradeBand && band !== gradeBand),
+    reason,
+    explanation,
+  })
+
+  if (normalized.notApplicable) {
+    return settle(null, 'not-applicable', 'This record is a stack or blend, so a single evidence grade does not apply.')
+  }
+
+  if (normalized.outcomeDependent) {
+    return settle(null, 'unresolved', 'Evidence differs by outcome, so no single grade is published.')
+  }
+
+  if (!gradeBand && !tierBand) {
+    return settle(null, 'unresolved', 'No evidence grade has been assigned to this record.')
+  }
+
+  if (!gradeBand && tierBand) {
+    return settle(tierBand, 'tier-only', `Graded from the evidence tier (${BAND_LABEL[tierBand]}); no separate grade was recorded.`)
+  }
+
+  if (gradeBand && !tierBand) {
+    return settle(gradeBand, 'grade-only', `Graded from the recorded evidence grade (${BAND_LABEL[gradeBand]}).`)
+  }
+
+  const resolvedGradeBand = gradeBand as EvidenceBand
+  const resolvedTierBand = tierBand as EvidenceBand
+
+  if (distance === 0) {
+    return settle(resolvedGradeBand, 'agree', `Both evidence signals agree on ${BAND_LABEL[resolvedGradeBand].toLowerCase()}.`)
+  }
+
+  const weaker = weakerBand(resolvedGradeBand, resolvedTierBand)
+
+  if ((distance ?? 0) >= 2) {
+    return settle(
+      weaker,
+      'contradiction-resolved-conservatively',
+      `The recorded grade (${BAND_LABEL[resolvedGradeBand].toLowerCase()}) and evidence tier (${BAND_LABEL[resolvedTierBand].toLowerCase()}) conflict, so the weaker signal is published pending review.`,
+    )
+  }
+
+  // Grade A makes the strongest public claim on the site, so it additionally
+  // requires the tier to agree. Every weaker grade tolerates a one-band
+  // authoring disagreement without being pulled down.
+  if (resolvedGradeBand === 'strong' && resolvedTierBand !== 'strong') {
+    return settle(
+      resolvedTierBand,
+      'capped-by-weaker-tier',
+      `Grade A requires strong human evidence; the evidence tier records ${BAND_LABEL[resolvedTierBand].toLowerCase()}, so the grade is capped.`,
+    )
+  }
+
+  return settle(
+    resolvedGradeBand,
+    'minor-disagreement',
+    `The evidence tier records ${BAND_LABEL[resolvedTierBand].toLowerCase()}, one band from the recorded grade.`,
+  )
+}
 
 /** How far apart two evidence signals sit, in semantic bands. */
 export function gradeTierDistance(gradeBand: EvidenceBand | null, tierBand: EvidenceBand | null): number | null {
