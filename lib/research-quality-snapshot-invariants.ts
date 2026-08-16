@@ -1,3 +1,8 @@
+import {
+  canonicalStudyGroups,
+  crossProfileStudyIdentity,
+  crossProfileStudyIdentityMap,
+} from './research-coverage'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import type { ResearchQualityGate } from './research-quality-gate'
 import type { ResearchGapItem } from './research-quality-policy'
@@ -54,7 +59,8 @@ export function validateResearchQualitySnapshotInvariants(
   const failures: ResearchSnapshotInvariantFailure[] = []
   const profileUrls = new Set(analysis.profileAnalyses.map((profile) => profile.url))
   const approvedClaimKeys = new Set(analysis.claimAnalyses.map((claim) => claimKey(claim.url, claim.claimId)))
-  const citationPages = new Map<string, Set<string>>()
+  const canonicalStudyPages = new Map<string, Set<string>>()
+  const globalStudyIdentities = crossProfileStudyIdentityMap(analysis.profiles)
 
   const add = (kind: string, detail: string) => failures.push({ kind, detail })
   const requireProfile = (kind: string, url: string, detail: string) => {
@@ -82,8 +88,7 @@ export function validateResearchQualitySnapshotInvariants(
     const sources = Array.isArray(profile.record.sources) ? profile.record.sources : []
     const seenSources = new Set<string>()
     for (let index = 0; index < sources.length; index += 1) {
-      const source = sources[index]
-      const id = text(source?.id)
+      const id = text(sources[index]?.id)
       if (!id) {
         add('missing-source-id', `${profile.url} · sources[${index}]`)
       } else if (seenSources.has(id)) {
@@ -91,12 +96,13 @@ export function validateResearchQualitySnapshotInvariants(
       } else {
         seenSources.add(id)
       }
+    }
 
-      const pmid = text(source?.pmid ?? source?.pubmedId)
-      if (!pmid) continue
-      const pages = citationPages.get(pmid) ?? new Set<string>()
+    for (const [localStudyId] of canonicalStudyGroups(profile.record)) {
+      const studyId = crossProfileStudyIdentity(profile.url, localStudyId, globalStudyIdentities)
+      const pages = canonicalStudyPages.get(studyId) ?? new Set<string>()
       pages.add(profile.url)
-      citationPages.set(pmid, pages)
+      canonicalStudyPages.set(studyId, pages)
     }
   }
 
@@ -172,30 +178,30 @@ export function validateResearchQualitySnapshotInvariants(
       add('source-withdrawn-count-mismatch', `summary=${sourceIntegrity.summary.withdrawn}; rows=${sourceIntegrity.withdrawn.length}`)
     }
 
-    const seenPmids = new Set<string>()
+    const seenStudyIds = new Set<string>()
     for (const study of sourceIntegrity.studies) {
-      if (seenPmids.has(study.pmid)) add('source-duplicate-pmid', study.pmid)
-      else seenPmids.add(study.pmid)
+      if (seenStudyIds.has(study.studyId)) add('source-duplicate-study-id', study.studyId)
+      else seenStudyIds.add(study.studyId)
 
       const uniquePages = new Set(study.pages)
       if (study.pageCount !== uniquePages.size) {
-        add('source-page-count-mismatch', `${study.pmid}: pageCount=${study.pageCount}; pages=${uniquePages.size}`)
+        add('source-page-count-mismatch', `${study.studyId}: pageCount=${study.pageCount}; pages=${uniquePages.size}`)
       }
-      for (const url of uniquePages) requireProfile('source-unknown-profile', url, `PMID ${study.pmid}`)
+      for (const url of uniquePages) requireProfile('source-unknown-profile', url, study.studyId)
 
-      const expectedPages = citationPages.get(study.pmid)
+      const expectedPages = canonicalStudyPages.get(study.studyId)
       if (!expectedPages) {
-        add('source-unexpected-pmid', `PMID ${study.pmid} does not exist in canonical profile sources`)
+        add('source-unexpected-study-id', `${study.studyId} does not exist in canonical profile sources`)
       } else if (!sameStrings(uniquePages, expectedPages)) {
         add(
           'source-profile-ownership-mismatch',
-          `PMID ${study.pmid}: sourceIntegrity=${[...uniquePages].sort().join(',')}; analysis=${[...expectedPages].sort().join(',')}`,
+          `${study.studyId}: sourceIntegrity=${[...uniquePages].sort().join(',')}; analysis=${[...expectedPages].sort().join(',')}`,
         )
       }
     }
 
-    for (const pmid of citationPages.keys()) {
-      if (!seenPmids.has(pmid)) add('source-missing-pmid', `PMID ${pmid} missing from source integrity`)
+    for (const studyId of canonicalStudyPages.keys()) {
+      if (!seenStudyIds.has(studyId)) add('source-missing-study-id', `${studyId} missing from source integrity`)
     }
   }
 
