@@ -30,21 +30,34 @@
       "title": "Chemical Constituents and Pharmacological Activities of Stellera chamaejasme",
       "authors": "Li XQ et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30179119/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30179119/",
+      "journal": "Curr Pharm Des",
+      "doi": "10.2174/1381612824666180903110802",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32360044",
       "title": "Ethnopharmacology, phytochemistry, pharmacology, clinical applications and toxicology of the genus Stellera Linn.: A review",
       "authors": "Zhang N et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32360044/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32360044/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2020.112915",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39597571",
       "title": "Ingesting Stellera chamaejasme Significantly Impacts the Gastrointestinal Tract Bacterial Community and Diversity in Plateau Zokors (Eospalax baileyi)",
       "authors": "Guo J et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39597571/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39597571/",
+      "journal": "Microorganisms",
+      "doi": "10.3390/microorganisms12112182",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

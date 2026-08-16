@@ -66,13 +66,17 @@
   "sources": [
     {
       "id": "src_6563b3b488ec",
-      "title": "PubMed PMID 16332936. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Testosterone, dehydroepiandrosterone, and physical performance in older men: results from the Massachusetts Male Aging Study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/16332936/",
       "pmid": "16332936",
       "authors": "PubMed",
       "citation": "PubMed PMID 16332936. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Clin Endocrinol Metab",
+      "year": 2006,
+      "doi": "10.1210/jc.2005-1227",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

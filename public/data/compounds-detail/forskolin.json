@@ -100,13 +100,19 @@
   "sources": [
     {
       "id": "src_786acb726fa1",
-      "title": "PubMed PMID 16129715. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Body composition and hormonal adaptations associated with forskolin consumption in overweight and obese men",
       "url": "https://pubmed.ncbi.nlm.nih.gov/16129715/",
       "pmid": "16129715",
       "authors": "PubMed",
       "citation": "PubMed PMID 16129715. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Obes Res",
+      "year": 2005,
+      "doi": "10.1038/oby.2005.162",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",

@@ -111,13 +111,19 @@
   "sources": [
     {
       "id": "src_0071dad30187",
-      "title": "PubMed PMID 18326600. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Weight-loss diet that includes consumption of medium-chain triacylglycerol oil leads to a greater rate of weight and fat mass loss than does olive oil",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18326600/",
       "pmid": "18326600",
       "authors": "PubMed",
       "citation": "PubMed PMID 18326600. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Am J Clin Nutr",
+      "year": 2008,
+      "doi": "10.1093/ajcn/87.3.621",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

@@ -35,21 +35,34 @@
       "title": "Esculin inhibits hepatic stellate cell activation and CCl(4)-induced liver fibrosis by activating the Nrf2/GPX4 signaling pathway",
       "authors": "Xu S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38471319/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38471319/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2024.155465",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31578592",
       "title": "Cytotoxicity of Cichorium intybus L. metabolites (Review)",
       "authors": "Imam KMSU et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31578592/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31578592/",
+      "journal": "Oncol Rep",
+      "doi": "10.3892/or.2019.7336",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32768902",
       "title": "Chicory (Cichorium intybus L.) as a food ingredient - Nutritional composition, bioactivity, safety, and health claims: A review",
       "authors": "Perović J et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32768902/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32768902/",
+      "journal": "Food Chem",
+      "doi": "10.1016/j.foodchem.2020.127676",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -30,21 +30,31 @@
       "title": "Schisandra chinensis and its phytotherapeutical applications",
       "authors": "Rybnikář M et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31431019/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31431019/",
+      "journal": "Ceska Slov Farm",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30731931",
       "title": "First Report of Botrytis Leaf Blight and Fruit Rot on Schisandra chinensis Caused by Botrytis cinerea in China",
       "authors": "Yu RH et al.",
       "year": 2011,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30731931/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30731931/",
+      "journal": "Plant Dis",
+      "doi": "10.1094/PDIS-02-11-0086",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30722342",
       "title": "First Report of Fruit Rot on Schisandra chinensis Caused by Penicillium glabrum and P. adametzii in China",
       "authors": "Chen CQ et al.",
       "year": 2013,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30722342/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30722342/",
+      "journal": "Plant Dis",
+      "doi": "10.1094/PDIS-08-12-0799-PDN",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_660c3852670e",

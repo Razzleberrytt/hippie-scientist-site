@@ -30,21 +30,36 @@
       "title": "A clinical trial about effects of prebiotic and probiotic supplementation on weight loss, psychological profile and metabolic parameters in obese subjects",
       "authors": "Ben Othman R et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36606510/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36606510/",
+      "journal": "Endocrinol Diabetes Metab",
+      "doi": "10.1002/edm2.402",
+      "studyType": "Uncontrolled trial",
+      "studyClass": "uncontrolled-trial",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37457186",
       "title": "Nutritional, biochemical, and clinical applications of carob: A review",
       "authors": "Ikram A et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37457186/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37457186/",
+      "journal": "Food Sci Nutr",
+      "doi": "10.1002/fsn3.3367",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31583011",
       "title": "Functional polysaccharides of carob fruit: a review",
       "authors": "Zhu BJ et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31583011/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31583011/",
+      "journal": "Chin Med",
+      "doi": "10.1186/s13020-019-0261-x",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

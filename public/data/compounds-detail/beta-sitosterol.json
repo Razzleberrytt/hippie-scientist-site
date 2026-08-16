@@ -64,13 +64,18 @@
   "sources": [
     {
       "id": "src_ad26988bf771",
-      "title": "PubMed PMID 9313662. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A multicentric, placebo-controlled, double-blind clinical trial of beta-sitosterol (phytosterol) for the treatment of benign prostatic hyperplasia. German BPH-Phyto Study group",
       "url": "https://pubmed.ncbi.nlm.nih.gov/9313662/",
       "pmid": "9313662",
       "authors": "PubMed",
       "citation": "PubMed PMID 9313662. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Br J Urol",
+      "year": 1997,
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

@@ -32,21 +32,36 @@
       "title": "Herbal medicine for sports: a review",
       "authors": "Sellami M et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29568244/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29568244/",
+      "journal": "J Int Soc Sports Nutr",
+      "doi": "10.1186/s12970-018-0218-y",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37373268",
       "title": "Anti-Cancer Potential of Edible/Medicinal Mushrooms in Breast Cancer",
       "authors": "Gariboldi MB et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37373268/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37373268/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms241210120",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31030757",
       "title": "The structures and biological functions of polysaccharides from traditional Chinese herbs",
       "authors": "Zeng P et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31030757/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31030757/",
+      "journal": "Prog Mol Biol Transl Sci",
+      "doi": "10.1016/bs.pmbts.2019.03.003",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

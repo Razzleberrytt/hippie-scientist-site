@@ -33,21 +33,36 @@
       "title": "Warfarin and food, herbal or dietary supplement interactions: A systematic review",
       "authors": "Tan CSS et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32478963/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32478963/",
+      "journal": "Br J Clin Pharmacol",
+      "doi": "10.1111/bcp.14404",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34978226",
       "title": "Plant-derived nootropics and human cognition: A systematic review",
       "authors": "Lorca C et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34978226/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34978226/",
+      "journal": "Crit Rev Food Sci Nutr",
+      "doi": "10.1080/10408398.2021.2021137",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31376068",
       "title": "Neuroprotective and Antioxidant Effect of Ginkgo biloba Extract Against AD and Other Neurological Disorders",
       "authors": "Singh SK et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31376068/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31376068/",
+      "journal": "Neurotherapeutics",
+      "doi": "10.1007/s13311-019-00767-8",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

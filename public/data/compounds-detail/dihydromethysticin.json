@@ -139,7 +139,9 @@
       "journal": "Toxicol Sci",
       "citation": "Author not retrieved (2011). Toxicol Sci. PMID: 21908763. DOI: 10.1093/toxsci/kfr235.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Li Y et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

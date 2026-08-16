@@ -64,13 +64,19 @@
   "sources": [
     {
       "id": "src_8fc841bf5035",
-      "title": "PubMed PMID 28266134. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A small plant with big benefits: Fenugreek (Trigonella foenum-graecum Linn.) for disease prevention and health promotion",
       "url": "https://pubmed.ncbi.nlm.nih.gov/28266134/",
       "pmid": "28266134",
       "authors": "PubMed",
       "citation": "PubMed PMID 28266134. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Mol Nutr Food Res",
+      "year": 2017,
+      "doi": "10.1002/mnfr.201600950",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized botanical extract capsule",

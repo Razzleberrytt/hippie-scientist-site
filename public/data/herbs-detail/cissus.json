@@ -32,21 +32,36 @@
       "title": "Seed Geometry in the Vitaceae",
       "authors": "Cervantes E et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34451740/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34451740/",
+      "journal": "Plants (Basel)",
+      "doi": "10.3390/plants10081695",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "22976133",
       "title": "A review and evaluation of the efficacy and safety of Cissus quadrangularis extracts",
       "authors": "Stohs SJ et al.",
       "year": 2013,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22976133/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22976133/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.4846",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34503406",
       "title": "Review of the Phytochemistry and Biological Activity of Cissus incisa Leaves",
       "authors": "Nocedo-Mena D et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34503406/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34503406/",
+      "journal": "Curr Top Med Chem",
+      "doi": "10.2174/1568026621666210909163612",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

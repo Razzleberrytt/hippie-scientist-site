@@ -34,21 +34,36 @@
       "title": "Phytochemistry, Traditional Uses and Pharmacological Profile of Rose Hip: A Review",
       "authors": "Ayati Z et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30317989/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30317989/",
+      "journal": "Curr Pharm Des",
+      "doi": "10.2174/1381612824666181010151849",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "28587101",
       "title": "Therapeutic Applications of Rose Hips from Different Rosa Species",
       "authors": "Mármol I et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28587101/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28587101/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms18061137",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37937578",
       "title": "A Comprehensive Review on Phytochemistry and Pharmacology of Rosa Species (Rosaceae)",
       "authors": "Fayaz F et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37937578/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37937578/",
+      "journal": "Curr Top Med Chem",
+      "doi": "10.2174/0115680266274385231023075011",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

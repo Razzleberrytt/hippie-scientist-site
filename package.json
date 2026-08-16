@@ -15,6 +15,8 @@
     "gate:content-quality": "node scripts/ci/validate-content-quality-gate.mjs",
     "validate:dose-fields": "tsx scripts/ci/validate-dose-fields.ts",
     "validate:citation-identifiers": "node scripts/ci/validate-citation-identifiers.mjs",
+    "citations:fetch-pubmed": "node scripts/data/fetch-pubmed-metadata.mjs",
+    "citations:apply-pubmed": "tsx scripts/data/apply-pubmed-metadata.ts",
     "data:repair-packed-citations": "node scripts/data/repair-packed-citations.mjs",
     "validate:evidence-grades": "tsx scripts/ci/validate-evidence-grade-consistency.ts",
     "data:normalize-evidence": "tsx scripts/data/normalize-evidence-grades.ts --data-dir=public/data",

@@ -33,21 +33,32 @@
       "title": "Eleuthero",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000865/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000865/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "25005060",
       "title": "Biotechnological production of eleutherosides: current state and perspectives",
       "authors": "Murthy HN et al.",
       "year": 2014,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25005060/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25005060/",
+      "journal": "Appl Microbiol Biotechnol",
+      "doi": "10.1007/s00253-014-5899-9",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32061978",
       "title": "Selective in vivo molecular and cellular biocompatibility of black peppercorns by piperine-protein intrinsic atomic interaction with elicited oxidative stress and apoptosis in zebrafish eleuthero embryos",
       "authors": "Patel P et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32061978/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32061978/",
+      "journal": "Ecotoxicol Environ Saf",
+      "doi": "10.1016/j.ecoenv.2020.110321",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

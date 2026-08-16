@@ -34,21 +34,30 @@
       "title": "Capsicum",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000884/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000884/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29083760",
       "title": "Capsaicin",
       "authors": "Chang A et al.",
       "year": 2026,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29083760/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29083760/",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37493973",
       "title": "Peppers and their constituents against obesity",
       "authors": "Sirotkin AV et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37493973/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37493973/",
+      "journal": "Biol Futur",
+      "doi": "10.1007/s42977-023-00174-3",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_78113367eaf6",

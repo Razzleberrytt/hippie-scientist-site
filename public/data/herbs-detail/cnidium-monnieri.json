@@ -33,21 +33,34 @@
       "title": "Cnidium monnieri: A Review of Traditional Uses, Phytochemical and Ethnopharmacological Properties",
       "authors": "Li YM et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26243582/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26243582/",
+      "journal": "Am J Chin Med",
+      "doi": "10.1142/S0192415X15500500",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32028721",
       "title": "Phytochemistry, Ethnopharmacology, Pharmacokinetics and Toxicology of Cnidium monnieri (L.) Cusson",
       "authors": "Sun Y et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32028721/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32028721/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms21031006",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40256714",
       "title": "Osthole ameliorates chronic pruritus in 2,4-dichloronitrobenzene-induced atopic dermatitis by inhibiting IL-31 production",
       "authors": "He S et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40256714/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40256714/",
+      "journal": "Chin Herb Med",
+      "doi": "10.1016/j.chmed.2024.01.003",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

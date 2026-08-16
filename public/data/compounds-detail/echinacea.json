@@ -64,13 +64,19 @@
   "sources": [
     {
       "id": "src_4dd8f9af54c4",
-      "title": "PubMed PMID 24554461. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Echinacea for preventing and treating the common cold",
       "url": "https://pubmed.ncbi.nlm.nih.gov/24554461/",
       "pmid": "24554461",
       "authors": "PubMed",
       "citation": "PubMed PMID 24554461. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Cochrane Database Syst Rev",
+      "year": 2014,
+      "doi": "10.1002/14651858.CD000530.pub3",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

@@ -35,21 +35,36 @@
       "title": "Chaga mushroom: a super-fungus with countless facets and untapped potential",
       "authors": "Fordjour E et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38116085/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38116085/",
+      "journal": "Front Pharmacol",
+      "doi": "10.3389/fphar.2023.1273786",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37513265",
       "title": "Medicinal Mushrooms: Their Bioactive Components, Nutritional Value and Application in Functional Food Production-A Review",
       "authors": "Łysakowska P et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37513265/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37513265/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules28145393",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38813471",
       "title": "Therapeutic properties of Inonotus obliquus (Chaga mushroom): A review",
       "authors": "Ern PTY et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38813471/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38813471/",
+      "journal": "Mycology",
+      "doi": "10.1080/21501203.2023.2260408",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

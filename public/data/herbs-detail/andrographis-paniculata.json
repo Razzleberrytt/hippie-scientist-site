@@ -32,21 +32,34 @@
       "title": "Overview of pharmacological activities of Andrographis paniculata and its major compound andrographolide",
       "authors": "Dai Y et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30040451/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30040451/",
+      "journal": "Crit Rev Food Sci Nutr",
+      "doi": "10.1080/10408398.2018.1501657",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34818697",
       "title": "Andrographolide: A review of its pharmacology, pharmacokinetics, toxicity and clinical trials and pharmaceutical researches",
       "authors": "Zeng B et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34818697/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34818697/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.7324",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37821383",
       "title": "Efficacy of Andrographis paniculata spray in acute pharyngitis: A randomized controlled trial",
       "authors": "Okonogi R et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37821383/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37821383/",
+      "journal": "Drug Discov Ther",
+      "doi": "10.5582/ddt.2023.01053",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

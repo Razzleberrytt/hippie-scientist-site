@@ -40,21 +40,36 @@
       "title": "Effects of the consumption of guarana on human health: A narrative review",
       "authors": "Torres EAFS et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34755935/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34755935/",
+      "journal": "Compr Rev Food Sci Food Saf",
+      "doi": "10.1111/1541-4337.12862",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33802176",
       "title": "The Use and Impact of Cognitive Enhancers among University Students: A Systematic Review",
       "authors": "Sharif S et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33802176/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33802176/",
+      "journal": "Brain Sci",
+      "doi": "10.3390/brainsci11030355",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36862943",
       "title": "International society of sports nutrition position stand: energy drinks and energy shots",
       "authors": "Jagim AR et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36862943/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36862943/",
+      "journal": "J Int Soc Sports Nutr",
+      "doi": "10.1080/15502783.2023.2171314",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -105,13 +105,19 @@
   "sources": [
     {
       "id": "src_29540e3aa4cd",
-      "title": "PubMed PMID 10881250. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Galantamine in AD: A 6-month randomized, placebo-controlled trial with a 6-month extension. The Galantamine USA-1 Study Group",
       "url": "https://pubmed.ncbi.nlm.nih.gov/10881250/",
       "pmid": "10881250",
       "authors": "PubMed",
       "citation": "PubMed PMID 10881250. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Neurology",
+      "year": 2000,
+      "doi": "10.1212/wnl.54.12.2261",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "prescription tablet",

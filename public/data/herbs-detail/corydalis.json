@@ -37,21 +37,34 @@
       "title": "The Analgesic Properties of Corydalis yanhusuo",
       "authors": "Alhassen L et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34946576/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34946576/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules26247498",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35003289",
       "title": "Processing and Compatibility of Corydalis yanhusuo: Phytochemistry, Pharmacology, Pharmacokinetics, and Safety",
       "authors": "Wu L et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35003289/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35003289/",
+      "journal": "Evid Based Complement Alternat Med",
+      "doi": "10.1155/2021/1271953",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38551844",
       "title": "Corynoline Suppresses Osteoclastogenesis and Attenuates ROS Activities by Regulating NF-κB/MAPKs and Nrf2 Signaling Pathways",
       "authors": "Jin C et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38551844/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38551844/",
+      "journal": "J Agric Food Chem",
+      "doi": "10.1021/acs.jafc.3c07088",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

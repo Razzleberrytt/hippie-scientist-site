@@ -34,21 +34,30 @@
       "title": "Anise Hyssop Agastache foeniculum Increases Lifespan, Stress Resistance, and Metabolism by Affecting Free Radical Processes in Drosophila",
       "authors": "Strilbytska OM et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33391017/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33391017/",
+      "journal": "Front Physiol",
+      "doi": "10.3389/fphys.2020.596729",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34439010",
       "title": "Biologically Active Extracts from Different Medicinal Plants Tested as Potential Additives against Bee Pathogens",
       "authors": "Pașca C et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34439010/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34439010/",
+      "journal": "Antibiotics (Basel)",
+      "doi": "10.3390/antibiotics10080960",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "22561883",
       "title": "Estragole: a weak direct-acting food-borne genotoxin and potential carcinogen",
       "authors": "Martins C et al.",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22561883/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22561883/",
+      "journal": "Mutat Res",
+      "doi": "10.1016/j.mrgentox.2012.04.009",
+      "metadataSource": "pubmed"
     },
     {
       "title": "Bridging the Chemical Profile and Biological Activities of a New Variety of Agastache foeniculum (Pursh) Kuntze Extracts and Essential Oil",

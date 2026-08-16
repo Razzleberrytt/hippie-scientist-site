@@ -36,21 +36,30 @@
       "title": "Oral administration of Sophora Flavescens-derived exosomes-like nanovesicles carrying CX5461 ameliorates DSS-induced colitis in mice",
       "authors": "Zhang M et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39379937/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39379937/",
+      "journal": "J Nanobiotechnology",
+      "doi": "10.1186/s12951-024-02856-z",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38797379",
       "title": "Beneficial effects of oxymatrine from Sophora flavescens on alleviating Ulcerative colitis by improving inflammation and ferroptosis",
       "authors": "Gao BB et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38797379/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38797379/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2024.118385",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34368883",
       "title": "Oxymatrine attenuates oxidized low‑density lipoprotein‑induced HUVEC injury by inhibiting NLRP3 inflammasome‑mediated pyroptosis via the activation of the SIRT1/Nrf2 signaling pathway",
       "authors": "Jin X et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34368883/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34368883/",
+      "journal": "Int J Mol Med",
+      "doi": "10.3892/ijmm.2021.5020",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

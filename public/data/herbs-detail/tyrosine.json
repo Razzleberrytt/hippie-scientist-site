@@ -32,31 +32,48 @@
       "title": "The shikimate pathway and aromatic amino Acid biosynthesis in plants",
       "authors": "Maeda H et al.",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22554242/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22554242/",
+      "journal": "Annu Rev Plant Biol",
+      "doi": "10.1146/annurev-arplant-042811-105439",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30000526",
       "title": "Interferon Alfacon-1",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000526/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000526/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "12482446",
       "title": "Rosmarinic acid",
       "authors": "Petersen M et al.",
       "year": 2003,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12482446/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12482446/",
+      "journal": "Phytochemistry",
+      "doi": "10.1016/s0031-9422(02)00513-7",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_a3adb67a41f3",
-      "title": "PubMed PMID 8629725. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Tracking community sentinel events: breast cancer mortality and neighborhood risk for advanced-stage tumors in Denver",
       "url": "https://pubmed.ncbi.nlm.nih.gov/8629725/",
       "pmid": "8629725",
       "authors": "PubMed",
       "citation": "PubMed PMID 8629725. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Am J Public Health",
+      "year": 1996,
+      "doi": "10.2105/ajph.86.5.717",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

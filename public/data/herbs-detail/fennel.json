@@ -32,21 +32,36 @@
       "title": "Dietary supplements for dysmenorrhoea",
       "authors": "Pattanittum P et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27000311/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27000311/",
+      "journal": "Cochrane Database Syst Rev",
+      "doi": "10.1002/14651858.CD002124.pub2",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40317096",
       "title": "Nutritional and herbal interventions for polycystic ovary syndrome (PCOS): a comprehensive review of dietary approaches, macronutrient impact, and herbal medicine in management",
       "authors": "Muhammed Saeed AA et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40317096/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40317096/",
+      "journal": "J Health Popul Nutr",
+      "doi": "10.1186/s41043-025-00899-y",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29403626",
       "title": "A review of effective herbal medicines in controlling menopausal symptoms",
       "authors": "Kargozar R et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29403626/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29403626/",
+      "journal": "Electron Physician",
+      "doi": "10.19082/5826",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

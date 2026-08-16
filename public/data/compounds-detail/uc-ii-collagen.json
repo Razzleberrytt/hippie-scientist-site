@@ -86,23 +86,31 @@
   "sources": [
     {
       "id": "src_91b6fafc762c",
-      "title": "PubMed PMID 27551171. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effects of Native Type II Collagen Treatment on Knee Osteoarthritis: A Randomized Controlled Trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/27551171/",
       "pmid": "27551171",
       "authors": "PubMed",
       "citation": "PubMed PMID 27551171. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Eurasian J Med",
+      "year": 2016,
+      "doi": "10.5152/eurasianjmed.2015.15030",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_d7b833562a9a",
-      "title": "PubMed PMID 24153020. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Undenatured type II collagen (UC-II®) for joint support: a randomized, double-blind, placebo-controlled study in healthy volunteers",
       "url": "https://pubmed.ncbi.nlm.nih.gov/24153020/",
       "pmid": "24153020",
       "authors": "PubMed",
       "citation": "PubMed PMID 24153020. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Int Soc Sports Nutr",
+      "year": 2013,
+      "doi": "10.1186/1550-2783-10-48",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "long",

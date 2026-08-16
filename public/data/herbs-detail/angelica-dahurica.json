@@ -35,21 +35,34 @@
       "title": "Proteomics and transcriptomics explore the effect of mixture of herbal extract on diabetic wound healing process",
       "authors": "Liu Y et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37267693/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37267693/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2023.154892",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34451622",
       "title": "Oxypeucedanin: Chemotaxonomy, Isolation, and Bioactivities",
       "authors": "Mottaghipisheh J et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34451622/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34451622/",
+      "journal": "Plants (Basel)",
+      "doi": "10.3390/plants10081577",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35847034",
       "title": "The Angelica dahurica: A Review of Traditional Uses, Phytochemistry and Pharmacology",
       "authors": "Zhao H et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35847034/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35847034/",
+      "journal": "Front Pharmacol",
+      "doi": "10.3389/fphar.2022.896637",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

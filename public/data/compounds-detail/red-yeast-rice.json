@@ -62,13 +62,17 @@
   "sources": [
     {
       "id": "src_3aa4c686d649",
-      "title": "PubMed PMID 27282571. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Molecular characterization of six new cases of red blood cell hexokinase deficiency yields four novel mutations in HK1",
       "url": "https://pubmed.ncbi.nlm.nih.gov/27282571/",
       "pmid": "27282571",
       "authors": "PubMed",
       "citation": "PubMed PMID 27282571. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Blood Cells Mol Dis",
+      "year": 2016,
+      "doi": "10.1016/j.bcmd.2016.04.002",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "tested extract",

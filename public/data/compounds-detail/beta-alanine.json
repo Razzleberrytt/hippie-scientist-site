@@ -66,13 +66,19 @@
   "sources": [
     {
       "id": "src_5fb27681f298",
-      "title": "PubMed PMID 17194255. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effects of twenty-eight days of beta-alanine and creatine monohydrate supplementation on the physical working capacity at neuromuscular fatigue threshold",
       "url": "https://pubmed.ncbi.nlm.nih.gov/17194255/",
       "pmid": "17194255",
       "authors": "PubMed",
       "citation": "PubMed PMID 17194255. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Strength Cond Res",
+      "year": 2006,
+      "doi": "10.1519/R-19655.1",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "powder or capsule",

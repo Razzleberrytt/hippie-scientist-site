@@ -35,21 +35,32 @@
       "title": "Noni",
       "authors": "PubMed indexed authors",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31643695/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31643695/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37313239",
       "title": "Resmetirom: An Orally Administered, Smallmolecule, Liver-directed, β-selective THR Agonist for the Treatment of Non-alcoholic Fatty Liver Disease and Non-alcoholic Steatohepatitis",
       "authors": "Karim G et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37313239/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37313239/",
+      "journal": "touchREV Endocrinol",
+      "doi": "10.17925/EE.2023.19.1.60",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "41875856",
       "title": "Noni Franklin-Tong",
       "authors": "Franklin-Tong N et al.",
       "year": 2026,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41875856/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41875856/",
+      "journal": "Curr Biol",
+      "doi": "10.1016/j.cub.2026.01.057",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

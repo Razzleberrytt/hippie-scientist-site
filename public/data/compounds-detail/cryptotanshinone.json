@@ -138,7 +138,9 @@
       "journal": "Biomed Pharmacother",
       "citation": "Author not retrieved (2024). Biomed Pharmacother. PMID: 38039759. DOI: 10.1016/j.biopha.2023.115956.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Wang T et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

@@ -110,13 +110,19 @@
   "sources": [
     {
       "id": "src_0101f16f4835",
-      "title": "PubMed PMID 21708034. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Efficacy of methylsulfonylmethane supplementation on osteoarthritis of the knee: a randomized controlled study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/21708034/",
       "pmid": "21708034",
       "authors": "PubMed",
       "citation": "PubMed PMID 21708034. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "BMC Complement Altern Med",
+      "year": 2011,
+      "doi": "10.1186/1472-6882-11-50",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

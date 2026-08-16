@@ -32,21 +32,34 @@
       "title": "Insights into the anticancer effects of galangal and galangin: A comprehensive review",
       "authors": "Wu Y et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39353308/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39353308/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2024.156085",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40527613",
       "title": "Galangin alleviates vitiligo by targeting ANXA2 degradation in macrophages",
       "authors": "Wei W et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40527613/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40527613/",
+      "journal": "Br J Pharmacol",
+      "doi": "10.1111/bph.70103",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39408345",
       "title": "Potential Neuroprotective Effects of Alpinia officinarum Hance (Galangal): A Review",
       "authors": "Abd Rahman IZ et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39408345/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39408345/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu16193378",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

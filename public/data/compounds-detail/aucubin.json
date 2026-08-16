@@ -145,7 +145,9 @@
       "journal": "Pharm Res",
       "citation": "Author not retrieved (1991). Pharm Res. PMID: 1924160. DOI: 10.1023/a:1015821527621.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Suh NJ et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized botanical extract capsule",

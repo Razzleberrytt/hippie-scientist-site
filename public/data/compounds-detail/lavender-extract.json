@@ -133,23 +133,35 @@
   "sources": [
     {
       "id": "src_724799cfc414",
-      "title": "PubMed PMID 24456909. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Lavender oil preparation Silexan is effective in generalized anxiety disorder--a randomized, double-blind comparison to placebo and paroxetine",
       "url": "https://pubmed.ncbi.nlm.nih.gov/24456909/",
       "pmid": "24456909",
       "authors": "PubMed",
       "citation": "PubMed PMID 24456909. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Int J Neuropsychopharmacol",
+      "year": 2014,
+      "doi": "10.1017/S1461145714000017",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_d0f31504cef6",
-      "title": "PubMed PMID 21170695. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Efficacy and safety of silexan, a new, orally administered lavender oil preparation, in subthreshold anxiety disorder - evidence from clinical trials",
       "url": "https://pubmed.ncbi.nlm.nih.gov/21170695/",
       "pmid": "21170695",
       "authors": "PubMed",
       "citation": "PubMed PMID 21170695. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Wien Med Wochenschr",
+      "year": 2010,
+      "doi": "10.1007/s10354-010-0845-7",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "oral lavender oil",

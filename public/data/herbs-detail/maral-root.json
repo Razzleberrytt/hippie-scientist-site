@@ -33,21 +33,32 @@
       "title": "Chromatographic separation, determination and identification of ecdysteroids: Focus on Maral root (Rhaponticum carthamoides, Leuzea carthamoides)",
       "authors": "Głazowska J et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30303602/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30303602/",
+      "journal": "J Sep Sci",
+      "doi": "10.1002/jssc.201800506",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40332350",
       "title": "Maral Root Extract and Its Main Constituent 20-Hydroxyecdysone Enhance Stress Resilience in Caenorhabditis elegans",
       "authors": "Todorova V et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40332350/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40332350/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms26083739",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36364156",
       "title": "Chemical Profiling and Biological Activity of Extracts from Nine Norwegian Medicinal and Aromatic Plants",
       "authors": "Slimestad R et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36364156/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36364156/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules27217335",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

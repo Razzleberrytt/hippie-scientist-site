@@ -32,21 +32,32 @@
       "title": "Neuroprotective Mushrooms",
       "authors": "Abdelmoaty MM et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40370689/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40370689/",
+      "journal": "NeuroImmune Pharm Ther",
+      "doi": "10.1515/nipt-2024-0004",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34102992",
       "title": "Anti-oxidant and Anticancerous Effect of Fomitopsis officinalis (Vill. ex Fr. Bond. et Sing) Mushroom on Hepatocellular Carcinoma Cells In Vitro through NF-kB Pathway",
       "authors": "Altannavch N et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34102992/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34102992/",
+      "journal": "Anticancer Agents Med Chem",
+      "doi": "10.2174/1871520621666210608101152",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35002589",
       "title": "Old growth forests and large old trees as critical organisms connecting ecosystems and human health. A review",
       "authors": "Gilhen-Baker M et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35002589/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35002589/",
+      "journal": "Environ Chem Lett",
+      "doi": "10.1007/s10311-021-01372-y",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

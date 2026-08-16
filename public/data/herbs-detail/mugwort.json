@@ -34,21 +34,32 @@
       "title": "The skin prick test - European standards",
       "authors": "Heinzerling L et al.",
       "year": 2013,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/23369181/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23369181/",
+      "journal": "Clin Transl Allergy",
+      "doi": "10.1186/2045-7022-3-3",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "21875536",
       "title": "Spice allergy",
       "authors": "Chen JL et al.",
       "year": 2011,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/21875536/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21875536/",
+      "journal": "Ann Allergy Asthma Immunol",
+      "doi": "10.1016/j.anai.2011.06.020",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27222528",
       "title": "Sunflower seed allergy",
       "authors": "Ukleja-Sokołowska N et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27222528/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27222528/",
+      "journal": "Int J Immunopathol Pharmacol",
+      "doi": "10.1177/0394632016651648",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

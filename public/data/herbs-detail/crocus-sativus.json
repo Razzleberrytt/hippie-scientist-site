@@ -35,21 +35,36 @@
       "title": "The Effects of Crocus sativus (Saffron) on ADHD: A Systematic Review",
       "authors": "Seyedi-Sahebari S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37864351/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37864351/",
+      "journal": "J Atten Disord",
+      "doi": "10.1177/10870547231203176",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30036891",
       "title": "The Efficacy of Saffron in the Treatment of Mild to Moderate Depression: A Meta-analysis",
       "authors": "Tóth B et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30036891/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30036891/",
+      "journal": "Planta Med",
+      "doi": "10.1055/a-0660-9565",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35276955",
       "title": "Saffron (Crocus sativus L.): A Source of Nutrients for Health and for the Treatment of Neuropsychiatric and Age-Related Diseases",
       "authors": "El Midaoui A et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35276955/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35276955/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu14030597",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_dc98fa665a32",

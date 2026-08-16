@@ -85,13 +85,17 @@
   "sources": [
     {
       "id": "src_27246dab02a6",
-      "title": "PubMed PMID 14767959. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Disclosing new inhibitors by finding similarities in three-dimensional active-site architectures of polynuclear zinc phospholipases and aminopeptidases",
       "url": "https://pubmed.ncbi.nlm.nih.gov/14767959/",
       "pmid": "14767959",
       "authors": "PubMed",
       "citation": "PubMed PMID 14767959. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Angew Chem Int Ed Engl",
+      "year": 2004,
+      "doi": "10.1002/anie.200352241",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

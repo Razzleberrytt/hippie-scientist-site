@@ -29,31 +29,48 @@
       "title": "Gymnema",
       "authors": "PubMed indexed authors",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39666848/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39666848/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "23472485",
       "title": "Adverse effects of herbal medicines: an overview of systematic reviews",
       "authors": "Posadzki P et al.",
       "year": 2013,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/23472485/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23472485/",
+      "journal": "Clin Med (Lond)",
+      "doi": "10.7861/clinmedicine.13-1-7",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34467577",
       "title": "The effect of Gymnema sylvestre supplementation on glycemic control in type 2 diabetes patients: A systematic review and meta-analysis",
       "authors": "Devangan S et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34467577/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34467577/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.7265",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_5f132d994c7e",
-      "title": "PubMed PMID 22592140. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Police custody following drink-driving: a prospective study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/22592140/",
       "pmid": "22592140",
       "authors": "PubMed",
       "citation": "PubMed PMID 22592140. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Drug Alcohol Depend",
+      "year": 2012,
+      "doi": "10.1016/j.drugalcdep.2012.04.013",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

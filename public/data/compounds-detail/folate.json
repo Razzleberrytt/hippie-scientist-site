@@ -64,13 +64,19 @@
   "sources": [
     {
       "id": "src_6833b35c98eb",
-      "title": "PubMed PMID 15671130. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Treatment of depression: time to consider folic acid and vitamin B12",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15671130/",
       "pmid": "15671130",
       "authors": "PubMed",
       "citation": "PubMed PMID 15671130. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Psychopharmacol",
+      "year": 2005,
+      "doi": "10.1177/0269881105048899",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "softgel or liquid oil",

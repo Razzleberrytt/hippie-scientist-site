@@ -85,13 +85,19 @@
   "sources": [
     {
       "id": "src_e2df05e4dcb4",
-      "title": "PubMed PMID 18681988. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The combined effects of L-theanine and caffeine on cognitive performance and mood",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18681988/",
       "pmid": "18681988",
       "authors": "PubMed",
       "citation": "PubMed PMID 18681988. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Nutr Neurosci",
+      "year": 2008,
+      "doi": "10.1179/147683008X301513",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_a051bced3154",

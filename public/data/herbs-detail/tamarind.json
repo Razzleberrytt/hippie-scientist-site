@@ -32,21 +32,34 @@
       "title": "Oxidative stress, hormones, and effects of natural antioxidants on intestinal inflammation in inflammatory bowel disease",
       "authors": "Sahoo DK et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37701897/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37701897/",
+      "journal": "Front Endocrinol (Lausanne)",
+      "doi": "10.3389/fendo.2023.1217165",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33840996",
       "title": "Tamarind (Tamarindus indica L.) Seed a Candidate Protein Source with Potential for Combating SARS-CoV-2 Infection in Obesity",
       "authors": "Morais AHA et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33840996/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33840996/",
+      "journal": "Drug Target Insights",
+      "doi": "10.33393/dti.2021.2192",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31643417",
       "title": "Garcinia Cambogia",
       "authors": "PubMed indexed authors",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31643417/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31643417/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

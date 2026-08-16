@@ -85,23 +85,33 @@
   "sources": [
     {
       "id": "src_131a3ccd6bf5",
-      "title": "PubMed PMID 25282031. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The effect of coenzyme Q10 on morbidity and mortality in chronic heart failure: results from Q-SYMBIO: a randomized double-blind trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25282031/",
       "pmid": "25282031",
       "authors": "PubMed",
       "citation": "PubMed PMID 25282031. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "JACC Heart Fail",
+      "year": 2014,
+      "doi": "10.1016/j.jchf.2014.06.008",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_ad46e361d8f8",
-      "title": "PubMed PMID 25174896. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "New insights into the development of infantile intraocular medulloepithelioma",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25174896/",
       "pmid": "25174896",
       "authors": "PubMed",
       "citation": "PubMed PMID 25174896. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Am J Ophthalmol",
+      "year": 2014,
+      "doi": "10.1016/j.ajo.2014.08.036",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

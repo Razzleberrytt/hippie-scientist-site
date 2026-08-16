@@ -63,13 +63,19 @@
   "sources": [
     {
       "id": "src_f88a60c3992b",
-      "title": "PubMed PMID 26395129. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Clinical evaluation of purified Shilajit on testosterone levels in healthy volunteers",
       "url": "https://pubmed.ncbi.nlm.nih.gov/26395129/",
       "pmid": "26395129",
       "authors": "PubMed",
       "citation": "PubMed PMID 26395129. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Andrologia",
+      "year": 2016,
+      "doi": "10.1111/and.12482",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "chelated mineral capsule or powder",

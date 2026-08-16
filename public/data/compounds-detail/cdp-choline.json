@@ -84,13 +84,19 @@
   "sources": [
     {
       "id": "src_ad8ff3b198d3",
-      "title": "PubMed PMID 33978188. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Citicoline and Memory Function in Healthy Older Adults: A Randomized, Double-Blind, Placebo-Controlled Clinical Trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/33978188/",
       "pmid": "33978188",
       "authors": "PubMed",
       "citation": "PubMed PMID 33978188. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Nutr",
+      "year": 2021,
+      "doi": "10.1093/jn/nxab119",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

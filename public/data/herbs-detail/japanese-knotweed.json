@@ -37,21 +37,32 @@
       "title": "Control and Disposal of Invasive Japanese Knotweed Reynoutria japonica Houtt. Using Microwave Treatment",
       "authors": "Słowiński K et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39620580/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39620580/",
+      "journal": "J Vis Exp",
+      "doi": "10.3791/67660",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35009007",
       "title": "Allelopathy of Knotweeds as Invasive Plants",
       "authors": "Kato-Noguchi H et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35009007/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35009007/",
+      "journal": "Plants (Basel)",
+      "doi": "10.3390/plants11010003",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36134975",
       "title": "Japanese Knotweed Rhizome Bark Extract Inhibits Live SARS-CoV-2 In Vitro",
       "authors": "Jug U et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36134975/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36134975/",
+      "journal": "Bioengineering (Basel)",
+      "doi": "10.3390/bioengineering9090429",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -67,13 +67,17 @@
   "sources": [
     {
       "id": "src_96a391c482c6",
-      "title": "PubMed PMID 34376917. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effects of anthocyanin, astaxanthin, and lutein on eye functions: a randomized, double-blind, placebo-controlled study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/34376917/",
       "pmid": "34376917",
       "authors": "PubMed",
       "citation": "PubMed PMID 34376917. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Clin Biochem Nutr",
+      "year": 2021,
+      "doi": "10.3164/jcbn.20-149",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

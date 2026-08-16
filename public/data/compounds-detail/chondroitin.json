@@ -62,13 +62,17 @@
   "sources": [
     {
       "id": "src_36895c5bc0d1",
-      "title": "PubMed PMID 17470980. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Esophageal temperature monitoring during radiofrequency catheter ablation: experimental study based on an agar phantom model",
       "url": "https://pubmed.ncbi.nlm.nih.gov/17470980/",
       "pmid": "17470980",
       "authors": "PubMed",
       "citation": "PubMed PMID 17470980. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Physiol Meas",
+      "year": 2007,
+      "doi": "10.1088/0967-3334/28/5/001",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

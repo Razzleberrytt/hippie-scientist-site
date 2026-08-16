@@ -32,31 +32,52 @@
       "title": "Valerian Root in Treating Sleep Problems and Associated Disorders-A Systematic Review and Meta-Analysis",
       "authors": "Shinjyo N et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33086877/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33086877/",
+      "journal": "J Evid Based Integr Med",
+      "doi": "10.1177/2515690X20967323",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34946512",
       "title": "Herbal Products Used in Menopause and for Gynecological Disorders",
       "authors": "Kenda M et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules26247421",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33480339",
       "title": "Anti-anxiety Properties of Selected Medicinal Plants",
       "authors": "Khan A et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33480339/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33480339/",
+      "journal": "Curr Pharm Biotechnol",
+      "doi": "10.2174/1389201022666210122125131",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_63fe90f947a8",
-      "title": "PubMed PMID 17145239. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Valerian for sleep: a systematic review and meta-analysis",
       "url": "https://pubmed.ncbi.nlm.nih.gov/17145239/",
       "pmid": "17145239",
       "authors": "PubMed",
       "citation": "PubMed PMID 17145239. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Am J Med",
+      "year": 2006,
+      "doi": "10.1016/j.amjmed.2006.02.026",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_911a7102c58d",

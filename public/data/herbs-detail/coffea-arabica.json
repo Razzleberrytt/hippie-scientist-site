@@ -32,21 +32,36 @@
       "title": "The anti-obesity and health-promoting effects of tea and coffee",
       "authors": "Sirotkin AV et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33992045/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33992045/",
+      "journal": "Physiol Res",
+      "doi": "10.33549/physiolres.934674",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33374338",
       "title": "Neuroprotective Effects of Coffee Bioactive Compounds: A Review",
       "authors": "Socała K et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33374338/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33374338/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms22010107",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36769029",
       "title": "Health Benefits of Coffee Consumption for Cancer and Other Diseases and Mechanisms of Action",
       "authors": "Safe S et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36769029/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36769029/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms24032706",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

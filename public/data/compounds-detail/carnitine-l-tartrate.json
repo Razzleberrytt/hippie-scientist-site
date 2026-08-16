@@ -113,13 +113,19 @@
   "sources": [
     {
       "id": "src_9b85ebb8daf4",
-      "title": "PubMed PMID 12930169. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The effects of L-carnitine L-tartrate supplementation on hormonal responses to resistance exercise and recovery",
       "url": "https://pubmed.ncbi.nlm.nih.gov/12930169/",
       "pmid": "12930169",
       "authors": "PubMed",
       "citation": "PubMed PMID 12930169. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Strength Cond Res",
+      "year": 2003,
+      "doi": "10.1519/1533-4287(2003)017<0455:teolls>2.0.co;2",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

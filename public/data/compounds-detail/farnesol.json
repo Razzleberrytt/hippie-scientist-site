@@ -143,7 +143,11 @@
       "journal": "Expert Opin Ther Pat",
       "citation": "Author not retrieved (2020). Expert Opin Ther Pat. PMID: 31958255. DOI: 10.1080/13543776.2020.1718653.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Delmondes GA et al.",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "softgel or liquid oil",

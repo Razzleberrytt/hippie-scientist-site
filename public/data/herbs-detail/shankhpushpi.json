@@ -31,21 +31,36 @@
       "title": "Neuroprotective Herbs for the Management of Alzheimer's Disease",
       "authors": "Gregory J et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/",
+      "journal": "Biomolecules",
+      "doi": "10.3390/biom11040543",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35878793",
       "title": "Role of Shankhpushpi (Convolvulus pluricaulis) in neurological disorders: An umbrella review covering evidence from ethnopharmacology to clinical studies",
       "authors": "Sharma R et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35878793/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35878793/",
+      "journal": "Neurosci Biobehav Rev",
+      "doi": "10.1016/j.neubiorev.2022.104795",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "19912732",
       "title": "An update on Shankhpushpi, a cognition-boosting Ayurvedic medicine",
       "authors": "Sethiya NK et al.",
       "year": 2009,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/19912732/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19912732/",
+      "journal": "Zhong Xi Yi Jie He Xue Bao",
+      "doi": "10.3736/jcim20091101",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -32,21 +32,30 @@
       "title": "Protective effect of Cyclea peltata Lam on cisplatin-induced nephrotoxicity and oxidative damage",
       "authors": "Vijayan FP et al.",
       "year": 2007,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/17715566/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17715566/",
+      "journal": "J Basic Clin Physiol Pharmacol",
+      "doi": "10.1515/jbcpp.2007.18.2.101",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "19397987",
       "title": "Gastric antisecretory and antiulcer activities of Cyclea peltata (Lam.) Hook. f. & Thoms. in rats",
       "authors": "Shine VJ et al.",
       "year": 2009,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/19397987/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19397987/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2009.04.039",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35349772",
       "title": "Development of EPS-rich herbal shampoo base fermented using Cyclea peltata leaf powder and Lactobacillus plantarum",
       "authors": "Cheni Cheri D et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35349772/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35349772/",
+      "journal": "J Cosmet Dermatol",
+      "doi": "10.1111/jocd.14949",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

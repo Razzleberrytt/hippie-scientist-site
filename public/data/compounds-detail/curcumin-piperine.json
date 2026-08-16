@@ -89,7 +89,9 @@
       "citation": "Author not retrieved (2025). Curr Med Chem. PMID: 38561618. DOI: 10.2174/0109298673260515240322074849.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Hosseini H et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

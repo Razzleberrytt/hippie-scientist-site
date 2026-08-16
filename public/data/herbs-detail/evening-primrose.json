@@ -29,21 +29,34 @@
       "title": "Herbal Products Used in Menopause and for Gynecological Disorders",
       "authors": "Kenda M et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules26247421",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30000954",
       "title": "Evening Primrose",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000954/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000954/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29403626",
       "title": "A review of effective herbal medicines in controlling menopausal symptoms",
       "authors": "Kargozar R et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29403626/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29403626/",
+      "journal": "Electron Physician",
+      "doi": "10.19082/5826",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -112,13 +112,19 @@
   "sources": [
     {
       "id": "src_037925910c28",
-      "title": "PubMed PMID 31714321. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effects of Passiflora incarnata Linnaeus on polysomnographic sleep parameters in subjects with insomnia disorder: a double-blind randomized placebo-controlled study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31714321/",
       "pmid": "31714321",
       "authors": "PubMed",
       "citation": "PubMed PMID 31714321. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Int Clin Psychopharmacol",
+      "year": 2020,
+      "doi": "10.1097/YIC.0000000000000291",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "extract",

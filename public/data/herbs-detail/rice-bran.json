@@ -37,21 +37,33 @@
       "title": "Dermatological uses of rice products: Trend or true?",
       "authors": "Zamil DH et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35587098/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35587098/",
+      "journal": "J Cosmet Dermatol",
+      "doi": "10.1111/jocd.15099",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33138751",
       "title": "Biological and Pharmacological Effects of Gamma-oryzanol: An Updated Review of the Molecular Mechanisms",
       "authors": "Ramazani E et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33138751/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33138751/",
+      "journal": "Curr Pharm Des",
+      "doi": "10.2174/1381612826666201102101428",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34239993",
       "title": "The effects of twenty-four nutrients and phytonutrients on immune system function and inflammation: A narrative review",
       "authors": "Poles J et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34239993/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34239993/",
+      "journal": "J Clin Transl Res",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

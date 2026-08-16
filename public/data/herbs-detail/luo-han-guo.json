@@ -33,21 +33,30 @@
       "title": "Research progress of pharmacological effects of Siraitia grosvenorii extract",
       "authors": "Li H et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34718674/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34718674/",
+      "journal": "J Pharm Pharmacol",
+      "doi": "10.1093/jpp/rgab150",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "41272020",
       "title": "Exploring the potential mechanisms of anti-pulmonary fibrosis effects of Luo Han Guo via network pharmacology, molecular docking, and experimental validation",
       "authors": "Cui Q et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41272020/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41272020/",
+      "journal": "Sci Rep",
+      "doi": "10.1038/s41598-025-25270-3",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "41841386",
       "title": "Divergent Synthesis of Mogrosides",
       "authors": "Petrović G et al.",
       "year": 2026,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41841386/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41841386/",
+      "journal": "J Org Chem",
+      "doi": "10.1021/acs.joc.6c00056",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -87,7 +87,9 @@
       "citation": "Author not retrieved (2002). Planta Med. PMID: 12494336. DOI: 10.1055/s-2002-36338.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "studyType": "Animal",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Yuan CS et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

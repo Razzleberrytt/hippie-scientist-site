@@ -31,21 +31,32 @@
       "title": "Antiviral activity of Stephania japonica extract against porcine epidemic diarrhea virus infection",
       "authors": "Zhao Y et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40706130/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40706130/",
+      "journal": "Vet Microbiol",
+      "doi": "10.1016/j.vetmic.2025.110647",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38381605",
       "title": "The genome of Stephania japonica provides insights into the biosynthesis of cepharanthine",
       "authors": "Liu Z et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38381605/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38381605/",
+      "journal": "Cell Rep",
+      "doi": "10.1016/j.celrep.2024.113832",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33057963",
       "title": "Traditional Herbal Medicines Against CNS Disorders from Bangladesh",
       "authors": "Uddin MJ et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33057963/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33057963/",
+      "journal": "Nat Prod Bioprospect",
+      "doi": "10.1007/s13659-020-00269-7",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

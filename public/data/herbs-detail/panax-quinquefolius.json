@@ -29,21 +29,35 @@
       "title": "Management of Fatigue in Adult Survivors of Cancer: ASCO-Society for Integrative Oncology Guideline Update",
       "authors": "Bower JE et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38754041/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38754041/",
+      "journal": "J Clin Oncol",
+      "doi": "10.1200/JCO.24.00541",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "28762712",
       "title": "Common Herbal Dietary Supplement-Drug Interactions",
       "authors": "Asher GN et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/",
+      "journal": "Am Fam Physician",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37385964",
       "title": "Pharmacological Effects of Ginseng: Multiple Constituents and Multiple Actions on Humans",
       "authors": "Zhou G et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37385964/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37385964/",
+      "journal": "Am J Chin Med",
+      "doi": "10.1142/S0192415X23500507",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

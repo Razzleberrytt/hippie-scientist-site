@@ -64,13 +64,19 @@
   "sources": [
     {
       "id": "src_681b9bde8e6f",
-      "title": "PubMed PMID 34726501. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effect of Banaba (Lagerstroemia speciosa) on Metabolic Syndrome, Insulin Sensitivity, and Insulin Secretion",
       "url": "https://pubmed.ncbi.nlm.nih.gov/34726501/",
       "pmid": "34726501",
       "authors": "PubMed",
       "citation": "PubMed PMID 34726501. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Med Food",
+      "year": 2022,
+      "doi": "10.1089/jmf.2021.0039",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "medium",

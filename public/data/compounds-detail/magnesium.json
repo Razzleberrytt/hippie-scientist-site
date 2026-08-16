@@ -184,43 +184,60 @@
   "sources": [
     {
       "id": "src_1db911595120",
-      "title": "PubMed PMID 23853635. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The effect of magnesium supplementation on primary insomnia in elderly: A double-blind placebo-controlled clinical trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23853635/",
       "pmid": "23853635",
       "authors": "PubMed",
       "citation": "PubMed PMID 23853635. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Res Med Sci",
+      "year": 2012,
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_46b64396df5a",
-      "title": "PubMed PMID 28471760. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Magnesium Supplementation in Vitamin D Deficiency",
       "url": "https://pubmed.ncbi.nlm.nih.gov/28471760/",
       "pmid": "28471760",
       "authors": "PubMed",
       "citation": "PubMed PMID 28471760. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Am J Ther",
+      "year": 2019,
+      "doi": "10.1097/MJT.0000000000000538",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_972d09376205",
-      "title": "PubMed PMID 29679349. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Timeline (Bioavailability) of Magnesium Compounds in Hours: Which Magnesium Compound Works Best?",
       "url": "https://pubmed.ncbi.nlm.nih.gov/29679349/",
       "pmid": "29679349",
       "authors": "PubMed",
       "citation": "PubMed PMID 29679349. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Biol Trace Elem Res",
+      "year": 2019,
+      "doi": "10.1007/s12011-018-1351-9",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_a8cddfb5c4db",
-      "title": "PubMed PMID 31654344. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Trends in Drain Utilization in Bariatric Surgery: an Analysis of the MBSAQIP Database 2015-2017",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31654344/",
       "pmid": "31654344",
       "authors": "PubMed",
       "citation": "PubMed PMID 31654344. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Obes Surg",
+      "year": 2020,
+      "doi": "10.1007/s11695-019-04215-6",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_7e4a317262c5",

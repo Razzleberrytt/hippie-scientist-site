@@ -72,13 +72,19 @@
   "sources": [
     {
       "id": "src_cab5f6b21f4c",
-      "title": "PubMed PMID 20386132. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Citrulline malate enhances athletic anaerobic performance and relieves muscle soreness",
       "url": "https://pubmed.ncbi.nlm.nih.gov/20386132/",
       "pmid": "20386132",
       "authors": "PubMed",
       "citation": "PubMed PMID 20386132. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Strength Cond Res",
+      "year": 2010,
+      "doi": "10.1519/JSC.0b013e3181cb28e0",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "powder or capsule",

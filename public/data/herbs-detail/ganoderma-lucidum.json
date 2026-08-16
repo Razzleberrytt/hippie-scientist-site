@@ -32,21 +32,36 @@
       "title": "A Review of Ganoderma Triterpenoids and Their Bioactivities",
       "authors": "Galappaththi MCA et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36671409/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36671409/",
+      "journal": "Biomolecules",
+      "doi": "10.3390/biom13010024",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29141563",
       "title": "Ganoderma lucidum Polysaccharides as An Anti-cancer Agent",
       "authors": "Sohretoglu D et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29141563/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29141563/",
+      "journal": "Anticancer Agents Med Chem",
+      "doi": "10.2174/1871520617666171113121246",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34411377",
       "title": "Ganoderma lucidum (Reishi) an edible mushroom; a comprehensive and critical review of its nutritional, cosmeceutical, mycochemical, pharmacological, clinical, and toxicological properties",
       "authors": "Ahmad R et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34411377/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34411377/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.7215",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

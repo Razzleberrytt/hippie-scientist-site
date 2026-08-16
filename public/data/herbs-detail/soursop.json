@@ -33,21 +33,34 @@
       "title": "Pharmacological Activities of Soursop (Annona muricata Lin.)",
       "authors": "Mutakin M et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35208993/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35208993/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules27041201",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37048268",
       "title": "Soursop (Annona muricata) Properties and Perspectives for Integral Valorization",
       "authors": "Santos IL et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37048268/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37048268/",
+      "journal": "Foods",
+      "doi": "10.3390/foods12071448",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39171117",
       "title": "Soursop leaf extract and fractions protects against L-NAME-induced hypertension and hyperlipidemia",
       "authors": "Nsor OO et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39171117/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39171117/",
+      "journal": "Front Nutr",
+      "doi": "10.3389/fnut.2024.1437101",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

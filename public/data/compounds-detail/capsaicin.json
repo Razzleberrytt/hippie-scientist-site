@@ -67,13 +67,19 @@
   "sources": [
     {
       "id": "src_ac7187de89a0",
-      "title": "PubMed PMID 24941673. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Capsaicin for osteoarthritis pain",
       "url": "https://pubmed.ncbi.nlm.nih.gov/24941673/",
       "pmid": "24941673",
       "authors": "PubMed",
       "citation": "PubMed PMID 24941673. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Prog Drug Res",
+      "year": 2014,
+      "doi": "10.1007/978-3-0348-0828-6_11",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

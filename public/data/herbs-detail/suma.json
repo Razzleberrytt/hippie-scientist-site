@@ -33,21 +33,34 @@
       "title": "SUMA",
       "authors": "Saad ZS et al.",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/21945692/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21945692/",
+      "journal": "Neuroimage",
+      "doi": "10.1016/j.neuroimage.2011.09.016",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37337697",
       "title": "Antiproliferative assay of suma or Brazilian ginseng (Hebanthe eriantha) methanolic extract on HCT116 and 4T1 cancer cell lines, in vitro toxicity on Artemia salina larvae, and antibacterial activity",
       "authors": "Rahamouz-Haghighi S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37337697/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37337697/",
+      "journal": "Nat Prod Res",
+      "doi": "10.1080/14786419.2023.2225688",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "10919969",
       "title": "Selected herbals and human exercise performance",
       "authors": "Bucci LR et al.",
       "year": 2000,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/10919969/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10919969/",
+      "journal": "Am J Clin Nutr",
+      "doi": "10.1093/ajcn/72.2.624S",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

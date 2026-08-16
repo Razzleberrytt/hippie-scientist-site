@@ -32,21 +32,34 @@
       "title": "Review of Pharmacological Properties and Chemical Constituents of Pastinaca sativa",
       "authors": "Kenari HM et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33833896/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33833896/",
+      "journal": "J Pharmacopuncture",
+      "doi": "10.3831/KPI.2021.24.1.14",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31173794",
       "title": "Wild parsnip (Pastinaca sativa)-induced photosensitization",
       "authors": "Stegelmeier BL et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31173794/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31173794/",
+      "journal": "Toxicon",
+      "doi": "10.1016/j.toxicon.2019.06.007",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39202761",
       "title": "New Insights Concerning Phytophotodermatitis Induced by Phototoxic Plants",
       "authors": "Grosu Dumitrescu C et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39202761/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39202761/",
+      "journal": "Life (Basel)",
+      "doi": "10.3390/life14081019",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

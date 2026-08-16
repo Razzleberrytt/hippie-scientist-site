@@ -124,23 +124,33 @@
   "sources": [
     {
       "id": "src_8b0e655d4aa1",
-      "title": "PubMed PMID 11406863. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Mutagenicity and antioxidant assessment of Stachitarpheta jamaicensis (L.) Vahl",
       "url": "https://pubmed.ncbi.nlm.nih.gov/11406863/",
       "pmid": "11406863",
       "authors": "PubMed",
       "citation": "PubMed PMID 11406863. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Phytother Res",
+      "year": 2001,
+      "doi": "10.1002/ptr.708",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_d9d362d72071",
-      "title": "PubMed PMID 17212570. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Devil's Claw (Harpagophytum procumbens) as a treatment for osteoarthritis: a review of efficacy and safety",
       "url": "https://pubmed.ncbi.nlm.nih.gov/17212570/",
       "pmid": "17212570",
       "authors": "PubMed",
       "citation": "PubMed PMID 17212570. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Altern Complement Med",
+      "year": 2006,
+      "doi": "10.1089/acm.2006.12.981",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "medium",

@@ -29,21 +29,36 @@
       "title": "Salacia spp.: recent insights on biotechnological interventions and future perspectives",
       "authors": "Chavan J et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38326604/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38326604/",
+      "journal": "Appl Microbiol Biotechnol",
+      "doi": "10.1007/s00253-023-12998-z",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "26031882",
       "title": "Anti-diabetic and Anti-hyperlipidemic Effects and Safety of Salacia reticulata and Related Species",
       "authors": "Stohs SJ et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26031882/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26031882/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.5382",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "25889885",
       "title": "Salacia reticulata (Kothala himbutu) revisited; a missed opportunity to treat diabetes and obesity?",
       "authors": "Medagama AB et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25889885/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25889885/",
+      "journal": "Nutr J",
+      "doi": "10.1186/s12937-015-0013-4",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

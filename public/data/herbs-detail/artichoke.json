@@ -35,21 +35,36 @@
       "title": "Inulin: properties and health benefits",
       "authors": "Qin YQ et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36876591/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36876591/",
+      "journal": "Food Funct",
+      "doi": "10.1039/d2fo01096h",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "26310198",
       "title": "Pharmacological Studies of Artichoke Leaf Extract and Their Health Benefits",
       "authors": "Ben Salem M et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26310198/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26310198/",
+      "journal": "Plant Foods Hum Nutr",
+      "doi": "10.1007/s11130-015-0503-8",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38542782",
       "title": "Functional and Therapeutic Potential of Cynara scolymus in Health Benefits",
       "authors": "Porro C et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38542782/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38542782/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu16060872",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

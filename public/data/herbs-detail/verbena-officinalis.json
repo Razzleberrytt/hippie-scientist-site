@@ -32,21 +32,34 @@
       "title": "Plant Extracts as Skin Care and Therapeutic Agents",
       "authors": "Michalak M et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37895122/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37895122/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms242015444",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30000912",
       "title": "Vervain",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000912/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000912/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32937665",
       "title": "Verbena officinalis (Common Vervain) - A Review on the Investigations of This Medicinally Important Plant Species",
       "authors": "Kubica P et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32937665/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32937665/",
+      "journal": "Planta Med",
+      "doi": "10.1055/a-1232-5758",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

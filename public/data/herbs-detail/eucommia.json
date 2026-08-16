@@ -31,21 +31,30 @@
       "title": "Somatostatin and Mannooligosaccharide Modified Selenium Nanoparticles with Dual-Targeting for Ulcerative Colitis Treatment",
       "authors": "Ye R et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40214514/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40214514/",
+      "journal": "ACS Nano",
+      "doi": "10.1021/acsnano.5c00355",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38518640",
       "title": "Aqueous extract of fermented Eucommia ulmoides leaves alleviates hyperlipidemia by maintaining gut homeostasis and modulating metabolism in high-fat diet fed rats",
       "authors": "Duan Y et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38518640/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38518640/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2023.155291",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "41288788",
       "title": "Eucommia ulmoides Oliver (Duzhong) extract ameliorates cerebral ischemic stroke in mice by remodeling intestinal microbiota and metabolites",
       "authors": "Qi X et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41288788/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41288788/",
+      "journal": "Metab Brain Dis",
+      "doi": "10.1007/s11011-025-01750-3",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

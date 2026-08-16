@@ -40,21 +40,34 @@
       "title": "Nutraceutical treatment and prevention of benign prostatic hyperplasia and prostate cancer",
       "authors": "Cicero AFG et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31577095/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31577095/",
+      "journal": "Arch Ital Urol Androl",
+      "doi": "10.4081/aiua.2019.3.139",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34029903",
       "title": "Inhibition of α-glucosidases by tea polyphenols in rat intestinal extract and Caco-2 cells grown on Transwell",
       "authors": "Kan L et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34029903/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34029903/",
+      "journal": "Food Chem",
+      "doi": "10.1016/j.foodchem.2021.130047",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "24915350",
       "title": "Tea and its consumption: benefits and risks",
       "authors": "Hayat K et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/24915350/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24915350/",
+      "journal": "Crit Rev Food Sci Nutr",
+      "doi": "10.1080/10408398.2012.678949",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

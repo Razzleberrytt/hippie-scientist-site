@@ -66,13 +66,19 @@
   "sources": [
     {
       "id": "src_b88cf6d3636d",
-      "title": "PubMed PMID 30239559. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effect of psyllium (Plantago ovata) fiber on LDL cholesterol and alternative lipid targets, non-HDL cholesterol and apolipoprotein B: a systematic review and meta-analysis of randomized controlled trials",
       "url": "https://pubmed.ncbi.nlm.nih.gov/30239559/",
       "pmid": "30239559",
       "authors": "PubMed",
       "citation": "PubMed PMID 30239559. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Am J Clin Nutr",
+      "year": 2018,
+      "doi": "10.1093/ajcn/nqy115",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "powder or capsule",

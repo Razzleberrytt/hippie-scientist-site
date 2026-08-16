@@ -33,21 +33,30 @@
       "title": "Ethanol extract of Bupleurum falcatum and saikosaponins inhibit neuroinflammation via inhibition of NF-κB",
       "authors": "Park WH et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26231448/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26231448/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2015.07.039",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "22450800",
       "title": "Bupleurum falcatum prevents depression and anxiety-like behaviors in rats exposed to repeated restraint stress",
       "authors": "Lee B et al.",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22450800/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22450800/",
+      "journal": "J Microbiol Biotechnol",
+      "doi": "10.4014/jmb.1110.10077",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34652253",
       "title": "Suppressing effect of a saikosaponin-enriched extract of Bupleurum falcatum on alcohol and chocolate self-administration in rats",
       "authors": "Maccioni P et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34652253/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34652253/",
+      "journal": "Nat Prod Res",
+      "doi": "10.1080/14786419.2021.1986816",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

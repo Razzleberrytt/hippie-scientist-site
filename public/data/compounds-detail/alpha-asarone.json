@@ -140,7 +140,11 @@
       "journal": "Phytomedicine",
       "citation": "Author not retrieved (2017). Phytomedicine. PMID: 28732807. DOI: 10.1016/j.phymed.2017.04.003.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Chellian R et al.",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

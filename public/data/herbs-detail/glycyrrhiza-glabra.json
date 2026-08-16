@@ -38,21 +38,36 @@
       "title": "Toxicological Effects of Glycyrrhiza glabra (Licorice): A Review",
       "authors": "Nazari S et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28833680/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28833680/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.5893",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30117204",
       "title": "Liquorice (Glycyrrhiza glabra): A phytochemical and pharmacological review",
       "authors": "Pastorino G et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30117204/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30117204/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.6178",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "10675182",
       "title": "Herb-drug interactions",
       "authors": "Fugh-Berman A et al.",
       "year": 2000,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/",
+      "journal": "Lancet",
+      "doi": "10.1016/S0140-6736(99)06457-0",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

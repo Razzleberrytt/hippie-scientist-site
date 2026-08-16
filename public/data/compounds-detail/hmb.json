@@ -65,13 +65,19 @@
   "sources": [
     {
       "id": "src_0b430227bf79",
-      "title": "PubMed PMID 10410847. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Creatine supplementation. Its role in human performance",
       "url": "https://pubmed.ncbi.nlm.nih.gov/10410847/",
       "pmid": "10410847",
       "authors": "PubMed",
       "citation": "PubMed PMID 10410847. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Clin Sports Med",
+      "year": 1999,
+      "doi": "10.1016/s0278-5919(05)70174-5",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

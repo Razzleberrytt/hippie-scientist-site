@@ -64,13 +64,19 @@
   "sources": [
     {
       "id": "src_1897dff526db",
-      "title": "PubMed PMID 17121765. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Bromelain as an adjunctive treatment for moderate-to-severe osteoarthritis of the knee: a randomized placebo-controlled pilot study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/17121765/",
       "pmid": "17121765",
       "authors": "PubMed",
       "citation": "PubMed PMID 17121765. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "QJM",
+      "year": 2006,
+      "doi": "10.1093/qjmed/hcl118",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

@@ -38,21 +38,36 @@
       "title": "A review on therapeutic potential of Nigella sativa: A miracle herb",
       "authors": "Ahmad A et al.",
       "year": 2013,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/23646296/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23646296/",
+      "journal": "Asian Pac J Trop Biomed",
+      "doi": "10.1016/S2221-1691(13)60075-1",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34073784",
       "title": "Black Cumin (Nigella sativa L.): A Comprehensive Review on Phytochemistry, Health Benefits, Molecular Pharmacology, and Safety",
       "authors": "Hannan MA et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34073784/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34073784/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu13061784",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39769174",
       "title": "Nigella sativa: A Comprehensive Review of Its Therapeutic Potential, Pharmacological Properties, and Clinical Applications",
       "authors": "Alberts A et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39769174/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39769174/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms252413410",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

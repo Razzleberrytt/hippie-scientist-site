@@ -112,13 +112,19 @@
   "sources": [
     {
       "id": "src_785db79c7b8b",
-      "title": "PubMed PMID 10372249. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A randomized double-blind trial of acarbose in type 2 diabetes shows improved glycemic control over 3 years (U.K. Prospective Diabetes Study 44)",
       "url": "https://pubmed.ncbi.nlm.nih.gov/10372249/",
       "pmid": "10372249",
       "authors": "PubMed",
       "citation": "PubMed PMID 10372249. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Diabetes Care",
+      "year": 1999,
+      "doi": "10.2337/diacare.22.6.960",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "long",

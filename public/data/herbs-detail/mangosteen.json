@@ -32,21 +32,32 @@
       "title": "A Canadian Consensus on Androgenetic Alopecia: Approach and Management",
       "authors": "Landells I et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40986632/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40986632/",
+      "journal": "J Cutan Med Surg",
+      "doi": "10.1177/12034754251368849",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39312451",
       "title": "Discovery of Natural Products for Cancer Prevention",
       "authors": "Blanco Carcache PJ et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39312451/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39312451/",
+      "journal": "Cancer J",
+      "doi": "10.1097/PPO.0000000000000745",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39170416",
       "title": "Mangosteen extract reduces the bacterial load of eggshell and improves egg quality",
       "authors": "Zhu J et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39170416/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39170416/",
+      "journal": "Heliyon",
+      "doi": "10.1016/j.heliyon.2024.e35857",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

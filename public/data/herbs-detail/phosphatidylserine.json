@@ -31,31 +31,47 @@
       "title": "Phosphatidylserine and the human brain",
       "authors": "Glade MJ et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25933483/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25933483/",
+      "journal": "Nutrition",
+      "doi": "10.1016/j.nut.2014.10.014",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31051106",
       "title": "Deficient Endoplasmic Reticulum-Mitochondrial Phosphatidylserine Transfer Causes Liver Disease",
       "authors": "Hernández-Alvarez MI et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31051106/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31051106/",
+      "journal": "Cell",
+      "doi": "10.1016/j.cell.2019.04.010",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "26811286",
       "title": "Phosphatidylethanolamine Metabolism in Health and Disease",
       "authors": "Calzada E et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26811286/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26811286/",
+      "journal": "Int Rev Cell Mol Biol",
+      "doi": "10.1016/bs.ircmb.2015.10.001",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_48f7980a9212",
-      "title": "PubMed PMID 12140984. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "[Identification of fragmented bodies of the killed from group burials]",
       "url": "https://pubmed.ncbi.nlm.nih.gov/12140984/",
       "pmid": "12140984",
       "authors": "PubMed",
       "citation": "PubMed PMID 12140984. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Voen Med Zh",
+      "year": 2002,
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

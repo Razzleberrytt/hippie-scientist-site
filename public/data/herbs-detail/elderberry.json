@@ -34,31 +34,52 @@
       "title": "Elderberry for prevention and treatment of viral respiratory illnesses: a systematic review",
       "authors": "Wieland LS et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33827515/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33827515/",
+      "journal": "BMC Complement Med Ther",
+      "doi": "10.1186/s12906-021-03283-5",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35348337",
       "title": "Elderberry (Sambucus nigra L.): Bioactive Compounds, Health Functions, and Applications",
       "authors": "Liu D et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35348337/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35348337/",
+      "journal": "J Agric Food Chem",
+      "doi": "10.1021/acs.jafc.2c00010",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30670267",
       "title": "Black elderberry (Sambucus nigra) supplementation effectively treats upper respiratory symptoms: A meta-analysis of randomized, controlled clinical trials",
       "authors": "Hawkins J et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30670267/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30670267/",
+      "journal": "Complement Ther Med",
+      "doi": "10.1016/j.ctim.2018.12.004",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_28c26c941797",
-      "title": "PubMed PMID 30670267. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Black elderberry (Sambucus nigra) supplementation effectively treats upper respiratory symptoms: A meta-analysis of randomized, controlled clinical trials",
       "url": "https://pubmed.ncbi.nlm.nih.gov/30670267/",
       "pmid": "30670267",
       "authors": "PubMed",
       "citation": "PubMed PMID 30670267. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Complement Ther Med",
+      "year": 2019,
+      "doi": "10.1016/j.ctim.2018.12.004",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -37,21 +37,36 @@
       "title": "Astragalus polysaccharide: a review of its immunomodulatory effect",
       "authors": "Li CX et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35713852/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35713852/",
+      "journal": "Arch Pharm Res",
+      "doi": "10.1007/s12272-022-01393-3",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37895122",
       "title": "Plant Extracts as Skin Care and Therapeutic Agents",
       "authors": "Michalak M et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37895122/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37895122/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms242015444",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "26916911",
       "title": "Astragalus membranaceus: A Review of its Protection Against Inflammation and Gastrointestinal Cancers",
       "authors": "Auyeung KK et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26916911/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26916911/",
+      "journal": "Am J Chin Med",
+      "doi": "10.1142/S0192415X16500014",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

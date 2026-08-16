@@ -86,13 +86,19 @@
   "sources": [
     {
       "id": "src_5de80572b86c",
-      "title": "PubMed PMID 20182035. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Is caffeine a cognitive enhancer?",
       "url": "https://pubmed.ncbi.nlm.nih.gov/20182035/",
       "pmid": "20182035",
       "authors": "PubMed",
       "citation": "PubMed PMID 20182035. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Alzheimers Dis",
+      "year": 2010,
+      "doi": "10.3233/JAD-2010-091315",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

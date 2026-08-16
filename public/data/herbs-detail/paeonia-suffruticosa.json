@@ -37,21 +37,32 @@
       "title": "Peony",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000962/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000962/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40115263",
       "title": "Paeonia suffruticosa Andrews root extract ameliorates photoaging via regulating IRS1/PI3K/FOXO pathway",
       "authors": "Liu J et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40115263/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40115263/",
+      "journal": "Front Pharmacol",
+      "doi": "10.3389/fphar.2025.1520392",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31030097",
       "title": "Paeonol: pharmacological effects and mechanisms of action",
       "authors": "Zhang L et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31030097/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31030097/",
+      "journal": "Int Immunopharmacol",
+      "doi": "10.1016/j.intimp.2019.04.033",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

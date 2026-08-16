@@ -33,21 +33,34 @@
       "title": "Aegle marmelos (L.) Correa (Bael) and its phytochemicals in the treatment and prevention of cancer",
       "authors": "Baliga MS et al.",
       "year": 2013,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/23089553/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23089553/",
+      "journal": "Integr Cancer Ther",
+      "doi": "10.1177/1534735412451320",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37026028",
       "title": "Phytochemical and biological review of Aegle marmelos Linn",
       "authors": "Monika S et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37026028/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37026028/",
+      "journal": "Future Sci OA",
+      "doi": "10.2144/fsoa-2022-0068",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29615046",
       "title": "Phytochemical composition, antilipidemic and antihypercholestrolemic perspectives of Bael leaf extracts",
       "authors": "Asghar N et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29615046/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29615046/",
+      "journal": "Lipids Health Dis",
+      "doi": "10.1186/s12944-018-0713-9",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

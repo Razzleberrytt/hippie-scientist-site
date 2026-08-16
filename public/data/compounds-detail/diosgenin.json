@@ -140,7 +140,11 @@
       "journal": "Oxid Med Cell Longev",
       "citation": "Author not retrieved (2022). Oxid Med Cell Longev. PMID: 35677108. DOI: 10.1155/2022/1035441.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Semwal P et al.",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

@@ -32,21 +32,36 @@
       "title": "Phytomedicine in Joint Disorders",
       "authors": "Dragos D et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28275210/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28275210/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu9010070",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "23472485",
       "title": "Adverse effects of herbal medicines: an overview of systematic reviews",
       "authors": "Posadzki P et al.",
       "year": 2013,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/23472485/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23472485/",
+      "journal": "Clin Med (Lond)",
+      "doi": "10.7861/clinmedicine.13-1-7",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "17128436",
       "title": "A review of the biological and potential therapeutic actions of Harpagophytum procumbens",
       "authors": "Grant L et al.",
       "year": 2007,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/17128436/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17128436/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.2029",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -46,7 +46,12 @@
       "title": "Black cohosh extracts in women with menopausal symptoms",
       "authors": "Meherishi S et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37192826/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37192826/",
+      "journal": "Menopause",
+      "doi": "10.1097/GME.0000000000002196",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

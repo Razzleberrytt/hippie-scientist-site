@@ -41,21 +41,32 @@
       "title": "Basil",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000886/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000886/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38257301",
       "title": "Antimicrobial and Other Pharmacological Properties of Ocimum basilicum, Lamiaceae",
       "authors": "Zhakipbekov K et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38257301/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38257301/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules29020388",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38433659",
       "title": "Sweet basil (Ocimum basilicum) leaf and seed extracts alleviate neuronal dysfunction in aluminum chloride-induced neurotoxicity in Drosophila melanogaster Meigen model",
       "authors": "Oyeniran OH et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38433659/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38433659/",
+      "journal": "Drug Chem Toxicol",
+      "doi": "10.1080/01480545.2024.2317828",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

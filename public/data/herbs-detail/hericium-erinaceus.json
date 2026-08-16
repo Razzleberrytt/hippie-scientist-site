@@ -28,21 +28,34 @@
       "title": "Neurotrophic and Neuroprotective Effects of Hericium erinaceus",
       "authors": "Szućko-Kociuba I et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37958943/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37958943/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms242115960",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40284172",
       "title": "Lion's Mane Mushroom (Hericium erinaceus): A Neuroprotective Fungus with Antioxidant, Anti-Inflammatory, and Antimicrobial Potential-A Narrative Review",
       "authors": "Contato AG et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40284172/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40284172/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu17081307",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38289992",
       "title": "Lion’s Mane",
       "authors": "PubMed indexed authors",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38289992/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38289992/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_3eb0f5163a0f",

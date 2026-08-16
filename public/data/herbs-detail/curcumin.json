@@ -31,61 +31,96 @@
       "title": "Efficacy and Safety of Curcumin and Curcuma longa Extract in the Treatment of Arthritis: A Systematic Review and Meta-Analysis of Randomized Controlled Trial",
       "authors": "Zeng L et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35935936/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35935936/",
+      "journal": "Front Immunol",
+      "doi": "10.3389/fimmu.2022.891822",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27837604",
       "title": "Curcumin (Turmeric) and cancer",
       "authors": "Unlu A et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27837604/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27837604/",
+      "journal": "J BUON",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "26528921",
       "title": "Curcumin, an active component of turmeric (Curcuma longa), and its effects on health",
       "authors": "Kocaadam B et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26528921/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26528921/",
+      "journal": "Crit Rev Food Sci Nutr",
+      "doi": "10.1080/10408398.2015.1077195",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_690ac9bb5f89",
-      "title": "PubMed PMID 27403209. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Impact of the 'Artful Moments' Intervention on Persons with Dementia and Their Care Partners: a Pilot Study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/27403209/",
       "pmid": "27403209",
       "authors": "PubMed",
       "citation": "PubMed PMID 27403209. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Can Geriatr J",
+      "year": 2016,
+      "doi": "10.5770/cgj.19.220",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_7dce165a398a",
-      "title": "PubMed PMID 23832433. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Efficacy and safety of curcumin in major depressive disorder: a randomized controlled trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23832433/",
       "pmid": "23832433",
       "authors": "PubMed",
       "citation": "PubMed PMID 23832433. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Phytother Res",
+      "year": 2014,
+      "doi": "10.1002/ptr.5025",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_c3f7857d2f8d",
-      "title": "PubMed PMID 19594223. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Anti-inflammatory properties of curcumin, a major constituent of Curcuma longa: a review of preclinical and clinical research",
       "url": "https://pubmed.ncbi.nlm.nih.gov/19594223/",
       "pmid": "19594223",
       "authors": "PubMed",
       "citation": "PubMed PMID 19594223. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Altern Med Rev",
+      "year": 2009,
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_fc1b62a1b742",
-      "title": "PubMed PMID 27533649. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Efficacy of Turmeric Extracts and Curcumin for Alleviating the Symptoms of Joint Arthritis: A Systematic Review and Meta-Analysis of Randomized Clinical Trials",
       "url": "https://pubmed.ncbi.nlm.nih.gov/27533649/",
       "pmid": "27533649",
       "authors": "PubMed",
       "citation": "PubMed PMID 27533649. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Med Food",
+      "year": 2016,
+      "doi": "10.1089/jmf.2016.3705",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

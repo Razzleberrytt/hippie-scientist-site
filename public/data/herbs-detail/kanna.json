@@ -40,21 +40,34 @@
       "title": "A Chewable Cure \"Kanna\": Biological and Pharmaceutical Properties of Sceletium tortuosum",
       "authors": "Manganyi MC et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33924742/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33924742/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules26092557",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27939420",
       "title": "Mesembrine alkaloids: Review of their occurrence, chemistry, and pharmacology",
       "authors": "Krstenansky JL et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27939420/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27939420/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2016.12.004",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "25240931",
       "title": "GC-MS, LC-MS(n), LC-high resolution-MS(n), and NMR studies on the metabolism and toxicological detection of mesembrine and mesembrenone, the main alkaloids of the legal high \"Kanna\" isolated from Sceletium tortuosum",
       "authors": "Meyer GM et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25240931/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25240931/",
+      "journal": "Anal Bioanal Chem",
+      "doi": "10.1007/s00216-014-8109-9",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

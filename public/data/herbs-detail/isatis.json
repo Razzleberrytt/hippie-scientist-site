@@ -31,21 +31,36 @@
       "title": "Latin American Plants against Microorganisms",
       "authors": "Cuevas-Cianca SI et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38068631/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38068631/",
+      "journal": "Plants (Basel)",
+      "doi": "10.3390/plants12233997",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33779758",
       "title": "Isatis indigotica: a review of phytochemistry, pharmacological activities and clinical applications",
       "authors": "Chen Q et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33779758/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33779758/",
+      "journal": "J Pharm Pharmacol",
+      "doi": "10.1093/jpp/rgab014",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38301993",
       "title": "The double-edged sword effect of indigo naturalis",
       "authors": "Xu Y et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38301993/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38301993/",
+      "journal": "Food Chem Toxicol",
+      "doi": "10.1016/j.fct.2024.114476",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

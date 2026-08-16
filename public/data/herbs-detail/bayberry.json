@@ -31,21 +31,34 @@
       "title": "MYB transcription factors encoded by diversified tandem gene clusters cause varied Morella rubra fruit color",
       "authors": "Xue L et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38319742/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38319742/",
+      "journal": "Plant Physiol",
+      "doi": "10.1093/plphys/kiae063",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32114166",
       "title": "Amygdalin - A pharmacological and toxicological review",
       "authors": "He XY et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32114166/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32114166/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2020.112717",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33338751",
       "title": "Myricetin: A review of the most recent research",
       "authors": "Song X et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33338751/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33338751/",
+      "journal": "Biomed Pharmacother",
+      "doi": "10.1016/j.biopha.2020.111017",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

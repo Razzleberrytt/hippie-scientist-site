@@ -35,21 +35,36 @@
       "title": "Biological properties and clinical applications of berberine",
       "authors": "Song D et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32335802/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32335802/",
+      "journal": "Front Med",
+      "doi": "10.1007/s11684-019-0724-6",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33174095",
       "title": "Plants Used as Antihypertensive",
       "authors": "Verma T et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33174095/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33174095/",
+      "journal": "Nat Prod Bioprospect",
+      "doi": "10.1007/s13659-020-00281-x",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36650621",
       "title": "Herb-Drug Interactions and Their Impact on Pharmacokinetics: An Update",
       "authors": "Cheng W et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36650621/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36650621/",
+      "journal": "Curr Drug Metab",
+      "doi": "10.2174/1389200224666230116113240",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

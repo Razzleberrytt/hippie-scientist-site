@@ -62,13 +62,19 @@
   "sources": [
     {
       "id": "src_dc5e91c8cd2f",
-      "title": "PubMed PMID 24780090. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "LDL-cholesterol-lowering effect of plant sterols and stanols across different dose ranges: a meta-analysis of randomised controlled studies",
       "url": "https://pubmed.ncbi.nlm.nih.gov/24780090/",
       "pmid": "24780090",
       "authors": "PubMed",
       "citation": "PubMed PMID 24780090. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Br J Nutr",
+      "year": 2014,
+      "doi": "10.1017/S0007114514000750",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

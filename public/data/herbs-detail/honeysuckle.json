@@ -32,21 +32,30 @@
       "title": "Alleviation of colitis by honeysuckle MIR2911 via direct regulation of gut microbiota",
       "authors": "Li W et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39378978/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39378978/",
+      "journal": "J Control Release",
+      "doi": "10.1016/j.jconrel.2024.09.050",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38490155",
       "title": "Cynaroside improved depressive-like behavior in CUMS mice by suppressing microglial inflammation and ferroptosis",
       "authors": "Zhou Y et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38490155/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38490155/",
+      "journal": "Biomed Pharmacother",
+      "doi": "10.1016/j.biopha.2024.116425",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37226859",
       "title": "High-resolution genome mapping and functional dissection of chlorogenic acid production in Lonicera maackii",
       "authors": "Li R et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37226859/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37226859/",
+      "journal": "Plant Physiol",
+      "doi": "10.1093/plphys/kiad295",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -36,21 +36,32 @@
       "title": "Piperine promotes PI3K/AKT/mTOR-mediated gut-brain autophagy to degrade α-Synuclein in Parkinson's disease rats",
       "authors": "Yu L et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38158101/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38158101/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2023.117628",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35349239",
       "title": "Black Pepper",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35349239/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35349239/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36256521",
       "title": "Piper longum L.: A comprehensive review on traditional uses, phytochemistry, pharmacology, and health-promoting activities",
       "authors": "Biswas P et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36256521/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36256521/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.7649",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

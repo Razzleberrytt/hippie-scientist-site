@@ -39,21 +39,32 @@
       "title": "A Randomized, Double-Blind, Placebo-Controlled, Parallel Study Investigating the Efficacy of a Whole Coffee Cherry Extract and Phosphatidylserine Formulation on Cognitive Performance of Healthy Adults with Self-Perceived Memory Problems",
       "authors": "Doma KM et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36929344/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36929344/",
+      "journal": "Neurol Ther",
+      "doi": "10.1007/s40120-023-00454-z",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32825719",
       "title": "Applications of Compounds from Coffee Processing By-Products",
       "authors": "Iriondo-DeHond A et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32825719/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32825719/",
+      "journal": "Biomolecules",
+      "doi": "10.3390/biom10091219",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38572469",
       "title": "Geographic-Scale Coffee Cherry Counting with Smartphones and Deep Learning",
       "authors": "Palacio JCR et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38572469/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38572469/",
+      "journal": "Plant Phenomics",
+      "doi": "10.34133/plantphenomics.0165",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

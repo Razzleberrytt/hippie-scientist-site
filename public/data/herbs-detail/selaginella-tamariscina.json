@@ -33,21 +33,32 @@
       "title": "Selaginella tamariscina Ethanol Extract Attenuates Influenza A Virus Infection by Inhibiting Hemagglutinin and Neuraminidase",
       "authors": "Cho WK et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39064820/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39064820/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu16142377",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39258186",
       "title": "Amentoflavone from Selaginella tamariscina inhibits SARS-CoV-2 RNA-dependent RNA polymerase",
       "authors": "Youn KW et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39258186/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39258186/",
+      "journal": "Heliyon",
+      "doi": "10.1016/j.heliyon.2024.e36568",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34302944",
       "title": "The traditional and modern uses of Selaginella tamariscina (P.Beauv.) Spring, in medicine and cosmetic: Applications and bioactive ingredients",
       "authors": "Bailly C et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34302944/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34302944/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2021.114444",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "title": "Inhibitory Effect of Selaginellins from Selaginella tamariscina (Beauv.) Spring against Cytochrome P450 and Uridine 5'-Diphosphoglucuronosyltransferase Isoforms on Human Liver Microsomes",

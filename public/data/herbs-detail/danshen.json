@@ -34,21 +34,34 @@
       "title": "Herb-drug interactions",
       "authors": "Fugh-Berman A et al.",
       "year": 2000,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/",
+      "journal": "Lancet",
+      "doi": "10.1016/S0140-6736(99)06457-0",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29698387",
       "title": "Salvia miltiorrhizaBurge (Danshen): a golden herbal medicine in cardiovascular therapeutics",
       "authors": "Li ZM et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29698387/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29698387/",
+      "journal": "Acta Pharmacol Sin",
+      "doi": "10.1038/aps.2017.193",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39296670",
       "title": "Huangqi-Danshen Decoction Against Renal Fibrosis in UUO Mice via TGF-β1 Induced Downstream Signaling Pathway",
       "authors": "Huang X et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39296670/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39296670/",
+      "journal": "Drug Des Devel Ther",
+      "doi": "10.2147/DDDT.S457100",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

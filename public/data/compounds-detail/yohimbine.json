@@ -109,13 +109,17 @@
   "sources": [
     {
       "id": "src_0f44264f53df",
-      "title": "PubMed PMID 35118966. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Yohimbine as a treatment for erectile dysfunction: A systematic review and meta-analysis",
       "url": "https://pubmed.ncbi.nlm.nih.gov/35118966/",
       "pmid": "35118966",
       "authors": "PubMed",
       "citation": "PubMed PMID 35118966. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Turk J Urol",
+      "year": 2021,
+      "doi": "10.5152/tud.2021.21206",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule",

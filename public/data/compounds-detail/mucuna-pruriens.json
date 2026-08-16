@@ -62,13 +62,19 @@
   "sources": [
     {
       "id": "src_5f66f401acda",
-      "title": "PubMed PMID 15548480. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Mucuna pruriens in Parkinson's disease: a double blind clinical and pharmacological study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15548480/",
       "pmid": "15548480",
       "authors": "PubMed",
       "citation": "PubMed PMID 15548480. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Neurol Neurosurg Psychiatry",
+      "year": 2004,
+      "doi": "10.1136/jnnp.2003.028761",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

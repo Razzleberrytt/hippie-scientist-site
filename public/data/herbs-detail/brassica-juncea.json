@@ -32,21 +32,32 @@
       "title": "Phytotherapy and food applications from Brassica genus",
       "authors": "Salehi B et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33666283/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33666283/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.7048",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31504785",
       "title": "Identification and functional characterization of a novel selenocysteine methyltransferase from Brassica juncea L",
       "authors": "Chen M et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31504785/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31504785/",
+      "journal": "J Exp Bot",
+      "doi": "10.1093/jxb/erz390",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33317112",
       "title": "Brassica juncea L. (Mustard) Extract Silver NanoParticles and Knocking off Oxidative Stress, ProInflammatory Cytokine and Reverse DNA Genotoxicity",
       "authors": "Hassan SA et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33317112/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33317112/",
+      "journal": "Biomolecules",
+      "doi": "10.3390/biom10121650",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

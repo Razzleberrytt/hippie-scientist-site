@@ -29,21 +29,36 @@
       "title": "Warfarin and food, herbal or dietary supplement interactions: A systematic review",
       "authors": "Tan CSS et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32478963/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32478963/",
+      "journal": "Br J Clin Pharmacol",
+      "doi": "10.1111/bcp.14404",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29280987",
       "title": "Anti-Inflammatory and Skin Barrier Repair Effects of Topical Application of Some Plant Oils",
       "authors": "Lin TK et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29280987/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29280987/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms19010070",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36615326",
       "title": "Chamomile: A Review of Its Traditional Uses, Chemical Constituents, Pharmacological Activities and Quality Control Studies",
       "authors": "Dai YL et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36615326/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36615326/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules28010133",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_260b165ed8d2",

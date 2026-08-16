@@ -34,41 +34,64 @@
       "title": "Health Benefits of Quercetin in Age-Related Diseases",
       "authors": "Deepika et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35458696/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35458696/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules27082498",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34087741",
       "title": "The role of quercetin in plants",
       "authors": "Singh P et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34087741/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34087741/",
+      "journal": "Plant Physiol Biochem",
+      "doi": "10.1016/j.plaphy.2021.05.023",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27187333",
       "title": "Quercetin and Its Anti-Allergic Immune Response",
       "authors": "Mlcek J et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27187333/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27187333/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules21050623",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_0ee85759f520",
-      "title": "PubMed PMID 26907242. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Multicomponent Synthesis and Evaluation of New 1,2,3-Triazole Derivatives of Dihydropyrimidinones as Acidic Corrosion Inhibitors for Steel",
       "url": "https://pubmed.ncbi.nlm.nih.gov/26907242/",
       "pmid": "26907242",
       "authors": "PubMed",
       "citation": "PubMed PMID 26907242. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Molecules",
+      "year": 2016,
+      "doi": "10.3390/molecules21020250",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_8fa47d3b8cbe",
-      "title": "PubMed PMID 19589961. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Ingestion of whey hydrolysate, casein, or soy protein isolate: effects on mixed muscle protein synthesis at rest and following resistance exercise in young men",
       "url": "https://pubmed.ncbi.nlm.nih.gov/19589961/",
       "pmid": "19589961",
       "authors": "PubMed",
       "citation": "PubMed PMID 19589961. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Appl Physiol (1985)",
+      "year": 2009,
+      "doi": "10.1152/japplphysiol.00076.2009",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -64,13 +64,19 @@
   "sources": [
     {
       "id": "src_215b4cf4fb91",
-      "title": "PubMed PMID 17095909. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Reassessment of cardiovascular risk in diabetes",
       "url": "https://pubmed.ncbi.nlm.nih.gov/17095909/",
       "pmid": "17095909",
       "authors": "PubMed",
       "citation": "PubMed PMID 17095909. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Curr Opin Lipidol",
+      "year": 2006,
+      "doi": "10.1097/MOL.0b013e3280106208",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

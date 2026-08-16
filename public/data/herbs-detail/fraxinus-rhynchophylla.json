@@ -36,21 +36,32 @@
       "title": "Esculin inhibits hepatic stellate cell activation and CCl(4)-induced liver fibrosis by activating the Nrf2/GPX4 signaling pathway",
       "authors": "Xu S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38471319/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38471319/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2024.155465",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34808701",
       "title": "Esculetin: A review of its pharmacology and pharmacokinetics",
       "authors": "Zhang L et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34808701/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34808701/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.7311",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38561058",
       "title": "Esculin induces endoplasmic reticulum stress and drives apoptosis and ferroptosis in colorectal cancer via PERK regulating eIF2α/CHOP and Nrf2/HO-1 cascades",
       "authors": "Ji X et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38561058/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38561058/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2024.118139",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -37,21 +37,30 @@
       "title": "Integrated breeding strategies for blue lotus based on petal pH, anthocyanin profiling, and gene expression analysis",
       "authors": "Liu Q et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41052496/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41052496/",
+      "journal": "Plant Physiol Biochem",
+      "doi": "10.1016/j.plaphy.2025.110583",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38285776",
       "title": "The Apoptotic Property of Nymphaea Caerulea Flower Extract on Acute Myeloid Leukaemia Cell Line, THP-1",
       "authors": "Chatterjee D et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38285776/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38285776/",
+      "journal": "Asian Pac J Cancer Prev",
+      "doi": "10.31557/APJCP.2024.25.1.123",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34345890",
       "title": "Toxicity From Blue Lotus (Nymphaea caerulea) After Ingestion or Inhalation: A Case Series",
       "authors": "Schimpf M et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34345890/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34345890/",
+      "journal": "Mil Med",
+      "doi": "10.1093/milmed/usab328",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

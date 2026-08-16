@@ -38,21 +38,36 @@
       "title": "Biological Activities and Safety of Citrus spp. Essential Oils",
       "authors": "Dosoky NS et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29976894/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29976894/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms19071966",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27747942",
       "title": "Clinical Pharmacology of Citrus bergamia: A Systematic Review",
       "authors": "Mannucci C et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27747942/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27747942/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.5734",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "25784877",
       "title": "Citrus bergamia essential oil: from basic research to clinical application",
       "authors": "Navarra M et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25784877/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25784877/",
+      "journal": "Front Pharmacol",
+      "doi": "10.3389/fphar.2015.00036",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

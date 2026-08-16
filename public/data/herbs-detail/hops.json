@@ -34,21 +34,36 @@
       "title": "Herbal Products Used in Menopause and for Gynecological Disorders",
       "authors": "Kenda M et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules26247421",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36144755",
       "title": "Medicinal Plants Used for Anxiety, Depression, or Stress Treatment: An Update",
       "authors": "Kenda M et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36144755/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36144755/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules27186021",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27677719",
       "title": "Botanicals and Their Bioactive Phytochemicals for Women's Health",
       "authors": "Dietz BM et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27677719/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27677719/",
+      "journal": "Pharmacol Rev",
+      "doi": "10.1124/pr.115.010843",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_911a7102c58d",

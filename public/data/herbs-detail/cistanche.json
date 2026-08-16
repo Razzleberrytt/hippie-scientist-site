@@ -30,21 +30,34 @@
       "title": "Herba Cistanches: Anti-aging",
       "authors": "Wang N et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29344414/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29344414/",
+      "journal": "Aging Dis",
+      "doi": "10.14336/AD.2017.0720",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27659301",
       "title": "Anti-ageing active ingredients from herbs and nutraceuticals used in traditional Chinese medicine: pharmacological mechanisms and implications for drug discovery",
       "authors": "Shen CY et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27659301/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27659301/",
+      "journal": "Br J Pharmacol",
+      "doi": "10.1111/bph.13631",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "41106096",
       "title": "Cistanche deserticola extract and its active components, echinacoside, ameliorate sarcopenia by activating the IGF-1/PI3K-AKT pathway to modulate ferroptosis",
       "authors": "Wang X et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41106096/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41106096/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2025.157378",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_b5b0b0a73b41",

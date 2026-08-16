@@ -37,31 +37,52 @@
       "title": "Curcumin, an active component of turmeric (Curcuma longa), and its effects on health",
       "authors": "Kocaadam B et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26528921/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26528921/",
+      "journal": "Crit Rev Food Sci Nutr",
+      "doi": "10.1080/10408398.2015.1077195",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27213821",
       "title": "Effects of Turmeric (Curcuma longa) on Skin Health: A Systematic Review of the Clinical Evidence",
       "authors": "Vaughn AR et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27213821/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27213821/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.5640",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38558676",
       "title": "Ayurvedic Herbal Medicines: A Literature Review of Their Applications in Female Reproductive Health",
       "authors": "Patibandla S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38558676/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38558676/",
+      "journal": "Cureus",
+      "doi": "10.7759/cureus.55240",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_90b27b328f33",
-      "title": "PubMed PMID 24672232. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Efficacy and safety of Curcuma domestica extracts compared with ibuprofen in patients with knee osteoarthritis: a multicenter study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/24672232/",
       "pmid": "24672232",
       "authors": "PubMed",
       "citation": "PubMed PMID 24672232. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Clin Interv Aging",
+      "year": 2014,
+      "doi": "10.2147/CIA.S58535",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

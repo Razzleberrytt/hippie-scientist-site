@@ -83,23 +83,34 @@
   "sources": [
     {
       "id": "src_77b5365e4e0b",
-      "title": "PubMed PMID 12612144. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The consumption of processed tomato products enhances plasma lycopene concentrations in association with a reduced lipoprotein sensitivity to oxidative damage",
       "url": "https://pubmed.ncbi.nlm.nih.gov/12612144/",
       "pmid": "12612144",
       "authors": "PubMed",
       "citation": "PubMed PMID 12612144. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Nutr",
+      "year": 2003,
+      "doi": "10.1093/jn/133.3.727",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_8799e0f58983",
-      "title": "PubMed PMID 15208835. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A scientific review: the role of chromium in insulin resistance",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15208835/",
       "pmid": "15208835",
       "authors": "PubMed",
       "citation": "PubMed PMID 15208835. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Diabetes Educ",
+      "year": 2004,
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "chelated mineral capsule or powder",
