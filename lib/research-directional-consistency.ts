@@ -88,6 +88,15 @@ function uniformlyPositiveLanguage(claim: ResearchClaim): boolean {
   return /\b(consistently|reliably|clear benefit|well[- ]established|proven|robust(?: benefit| effect| evidence)?|strong(?:ly)? (?:improves?|reduces?|benefit))\b/i.test(claimText)
 }
 
+function hasExplicitDirectionalSignal(value: string): boolean {
+  return POSITIVE.test(value)
+    || NULL.test(value)
+    || NEGATIVE.test(value)
+    || MIXED.test(value)
+    || PRIMARY_NULL_OR_NEGATIVE.test(value)
+    || SECONDARY_OR_SUBGROUP_POSITIVE.test(value)
+}
+
 export function analyzeDirectionalConsistency(analysis: ResearchQualityAnalysis): DirectionalConsistencyReport {
   const claims: DirectionalConsistencyFinding[] = []
   let approvedOutcomeClaims = 0
@@ -108,6 +117,8 @@ export function analyzeDirectionalConsistency(analysis: ResearchQualityAnalysis)
 
       const sourceTexts = humanSources.map((source) => sourceEvidenceText(source, analysis.cache)).filter(Boolean)
       if (!sourceTexts.length) continue
+      const explicitDirectionalSourceCount = sourceTexts.filter(hasExplicitDirectionalSignal).length
+      if (!explicitDirectionalSourceCount) continue
 
       const positiveSourceCount = sourceTexts.filter((value) => POSITIVE.test(value)).length
       const nullSourceCount = sourceTexts.filter((value) => NULL.test(value)).length
@@ -118,10 +129,8 @@ export function analyzeDirectionalConsistency(analysis: ResearchQualityAnalysis)
 
       const endpointCherryPickRisk = sourceTexts.some((value) => PRIMARY_NULL_OR_NEGATIVE.test(value) && SECONDARY_OR_SUBGROUP_POSITIVE.test(value))
       const explicitCounterDirection = nullSourceCount + negativeSourceCount + mixedSourceCount
-      const directionalHeterogeneity = humanSources.length >= 2 && positiveSourceCount > 0 && explicitCounterDirection > 0
+      const directionalHeterogeneity = explicitDirectionalSourceCount >= 2 && positiveSourceCount > 0 && explicitCounterDirection > 0
       const uniformlyPositiveOverstatement = directionalHeterogeneity && uniformlyPositiveLanguage(claim)
-
-      if (!endpointCherryPickRisk && !directionalHeterogeneity) continue
 
       const reasons: string[] = []
       if (endpointCherryPickRisk) {
@@ -155,13 +164,14 @@ export function analyzeDirectionalConsistency(analysis: ResearchQualityAnalysis)
     }
   }
 
-  const findings = claims.sort((a, b) =>
+  claims.sort((a, b) =>
     Number(b.uniformlyPositiveOverstatement) - Number(a.uniformlyPositiveOverstatement)
     || Number(b.endpointCherryPickRisk) - Number(a.endpointCherryPickRisk)
     || b.confidence - a.confidence
     || a.url.localeCompare(b.url)
     || a.claimId.localeCompare(b.claimId),
   )
+  const findings = claims.filter((claim) => claim.endpointCherryPickRisk || claim.directionalHeterogeneity)
   const highConfidenceFindings = findings.filter((claim) => claim.confidence >= 0.75)
 
   return {
