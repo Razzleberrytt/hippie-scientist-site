@@ -96,17 +96,32 @@ function unionGroups(union: Union, groups: Iterable<string[]>) {
   }
 }
 
+function addStudy(studyIdsByUrl: Map<string, Set<string>>, url: string, studyId: string) {
+  const studies = studyIdsByUrl.get(url) ?? new Set<string>()
+  studies.add(studyId)
+  studyIdsByUrl.set(url, studies)
+}
+
 /**
  * Build one explicit dependence graph per profile. Registry, cohort, dataset,
  * and parent-study relations are resolved before claims are projected onto the
  * graph, so dependence proven by different claims can combine transitively.
+ *
+ * The graph includes canonical inventory studies even when they are not linked
+ * to approved claims. Such studies may prove a transitive identity bridge, but
+ * they never contribute claim edges or concentration weight unless an approved
+ * claim actually cites them.
  */
 function buildProfileUnions(inputs: UnderlyingStudyIndependenceInputs): Map<string, Union> {
   const studyIdsByUrl = new Map<string, Set<string>>()
   for (const claim of inputs.analysis.claimAnalyses) {
-    const studies = studyIdsByUrl.get(claim.url) ?? new Set<string>()
-    for (const studyId of claim.studyIds) studies.add(studyId)
-    studyIdsByUrl.set(claim.url, studies)
+    for (const studyId of claim.studyIds) addStudy(studyIdsByUrl, claim.url, studyId)
+  }
+  for (const study of inputs.trialRegistrationIndependence.studies ?? []) {
+    addStudy(studyIdsByUrl, study.url, study.studyId)
+  }
+  for (const study of inputs.evidenceLineage.studies) {
+    addStudy(studyIdsByUrl, study.url, study.studyId)
   }
 
   const unions = new Map<string, Union>()
