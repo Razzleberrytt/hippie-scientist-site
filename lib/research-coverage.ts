@@ -1,7 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { citationIdentifiers, normalizePmidList } from './citation-identifiers.mjs'
+import {
+  buildCitationIdentifierIdentityMap,
+  canonicalCitationIdentifier,
+  citationIdentifiers,
+  normalizePmidList,
+} from './citation-identifiers.mjs'
 import { normalizeStudyClass, strongestStudyClass, type StudyClass } from './study-class'
 
 export type ResearchSource = Record<string, unknown> & {
@@ -40,12 +45,6 @@ export const PRIMARY_HUMAN_STUDY_CLASSES = new Set<StudyClass>(['rct', 'controll
 export const SYNTHESIS_STUDY_CLASSES = new Set<StudyClass>(['meta-analysis', 'systematic-review'])
 export const NARRATIVE_STUDY_CLASSES = new Set<StudyClass>(['narrative-review'])
 
-/**
- * Load one canonical PubMed cache view. Structured metadata remains the base
- * record, while the already-fetched abstract corpus is merged onto the same PMID
- * under `abstract`. Consumers therefore do not need a second loader or a second
- * source of truth when an analysis needs both metadata and publication text.
- */
 export function loadPubmedCache(root = process.cwd()): PubmedCache {
   const cacheDir = path.join(root, 'ops', 'cache')
   const metadataPath = path.join(cacheDir, 'pubmed-metadata.json')
@@ -106,12 +105,6 @@ function normalizeResearchSourceIdentity(source: ResearchSource): ResearchSource
   return canonicalId ? { ...source, id: canonicalId } : source
 }
 
-/**
- * A legacy workbook source row can contain multiple PMIDs even though each PMID
- * names a distinct publication. Expand those rows before any canonical study or
- * claim analysis runs. Claims referencing the original row are expanded to all
- * split source IDs, preserving the intended multi-study support.
- */
 function normalizeResearchProfileSources(record: ResearchProfile): ResearchProfile {
   if (!Array.isArray(record.sources)) return record
 
@@ -140,8 +133,6 @@ function normalizeResearchProfileSources(record: ResearchProfile): ResearchProfi
         url: `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,
       }
       delete splitSource.pubmedId
-      // One DOI cannot be assigned safely to one of several distinct PMIDs.
-      // Keep publication identity conservative rather than creating a false alias.
       delete splitSource.doi
       sources.push(splitSource)
       expandedIds.push(id)
@@ -158,11 +149,7 @@ function normalizeResearchProfileSources(record: ResearchProfile): ResearchProfi
       }))
     : record.claimMap
 
-  return {
-    ...record,
-    sources,
-    claimMap,
-  }
+  return { ...record, sources, claimMap }
 }
 
 export function listResearchProfiles(root = process.cwd()): ResearchProfileEntry[] {
@@ -207,44 +194,16 @@ export function uniqueSourceRefs(claim: ResearchClaim): string[] {
   return [...new Set(Array.isArray(claim.sourceRefIds) ? claim.sourceRefIds.map(String).filter(Boolean) : [])]
 }
 
-function createIdentityUnion() {
-  const parent = new Map<string, string>()
-  const find = (value: string): string => {
-    const current = parent.get(value) ?? value
-    if (current === value) {
-      parent.set(value, value)
-      return value
-    }
-    const root = find(current)
-    parent.set(value, root)
-    return root
-  }
-  const union = (a: string, b: string) => {
-    const rootA = find(a)
-    const rootB = find(b)
-    if (rootA === rootB) return
-    const [keep, merge] = [rootA, rootB].sort()
-    parent.set(merge, keep)
-  }
-  return { find, union }
-}
-
 export function canonicalStudyIdentityMap(record: ResearchProfile): Map<string, string> {
   const sources = Array.isArray(record.sources) ? record.sources : []
-  const { find, union } = createIdentityUnion()
-
-  for (const source of sources) {
-    const aliases = citationIdentifiers(source)
-    for (const alias of aliases) find(alias)
-    for (let i = 1; i < aliases.length; i += 1) union(aliases[0], aliases[i])
-  }
-
+  const aliasIdentities = buildCitationIdentifierIdentityMap(sources)
   const identities = new Map<string, string>()
+
   for (const source of sources) {
     const sourceId = String(source.id ?? '').trim()
     if (!sourceId) continue
-    const aliases = citationIdentifiers(source)
-    identities.set(sourceId, aliases.length ? find(aliases[0]) : `source-ref:${sourceId}`)
+    const canonical = canonicalCitationIdentifier(source, aliasIdentities)
+    identities.set(sourceId, canonical || `source-ref:${sourceId}`)
   }
   return identities
 }
@@ -264,31 +223,18 @@ export function canonicalStudyGroups(record: ResearchProfile): Map<string, Resea
   return groups
 }
 
-/**
- * Resolve profile-local canonical study IDs onto one site-wide stable identity.
- * DOI/PMID aliases are unioned across every profile, so a study represented as
- * DOI+PMID on one page and PMID-only on another still collapses to one study.
- * Identifier-less rows remain profile-local to prevent coincidental source IDs
- * from different pages from being treated as the same publication.
- */
 export function crossProfileStudyIdentityMap(
   profiles: readonly ResearchProfileEntry[],
 ): Map<string, string> {
-  const { find, union } = createIdentityUnion()
-
-  for (const { record } of profiles) {
-    for (const source of Array.isArray(record.sources) ? record.sources : []) {
-      const aliases = citationIdentifiers(source)
-      for (const alias of aliases) find(alias)
-      for (let i = 1; i < aliases.length; i += 1) union(aliases[0], aliases[i])
-    }
-  }
-
+  const allSources = profiles.flatMap(({ record }) => Array.isArray(record.sources) ? record.sources : [])
+  const aliasIdentities = buildCitationIdentifierIdentityMap(allSources)
   const identities = new Map<string, string>()
+
   for (const { url, record } of profiles) {
     for (const [localStudyId, group] of canonicalStudyGroups(record)) {
-      const aliases = [...new Set(group.flatMap((source) => citationIdentifiers(source)))]
-      const globalStudyId = aliases.length ? find(aliases[0]) : `${url}::${localStudyId}`
+      const globalStudyId = group
+        .map((source) => canonicalCitationIdentifier(source, aliasIdentities))
+        .find(Boolean) || `${url}::${localStudyId}`
       identities.set(`${url}::${localStudyId}`, globalStudyId)
     }
   }
