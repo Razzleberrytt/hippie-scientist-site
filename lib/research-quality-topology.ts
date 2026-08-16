@@ -1,5 +1,6 @@
 import { analyzeClaimEvidenceDiversity } from './research-claim-evidence-diversity'
 import { analyzeClaimLanguageCalibration } from './research-claim-language-calibration'
+import { analyzeCrossProfileEvidenceBundles } from './research-cross-profile-bundles'
 import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
 import { analyzeProvenanceConcentration } from './research-provenance-concentration'
@@ -23,6 +24,8 @@ export type ResearchQualityTopology = ReturnType<typeof buildResearchQualityTopo
 export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) {
   const crossProfileStudyLoad = analyzeCrossProfileStudyLoad(analysis)
   const systemicLoadBearingStudies = crossProfileStudyLoad.filter((study) => study.systemicLoadBearing)
+  const crossProfileEvidenceBundles = analyzeCrossProfileEvidenceBundles(analysis)
+  const narrowCrossProfileEvidenceBundles = crossProfileEvidenceBundles.filter((bundle) => bundle.narrowCrossProfileBundle)
   const evidenceBundleReuse = analyzeEvidenceBundleReuse(analysis)
   const narrowRepeatedEvidenceBundles = evidenceBundleReuse.filter((bundle) => bundle.narrowRepeatedEvidenceBundle)
   const claimEvidenceOverlap = analyzeClaimEvidenceOverlap(analysis)
@@ -48,6 +51,8 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   return {
     crossProfileStudyLoad,
     systemicLoadBearingStudies,
+    crossProfileEvidenceBundles,
+    narrowCrossProfileEvidenceBundles,
     evidenceBundleReuse,
     narrowRepeatedEvidenceBundles,
     claimEvidenceOverlap,
