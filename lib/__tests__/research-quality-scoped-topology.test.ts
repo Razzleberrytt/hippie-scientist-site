@@ -67,10 +67,42 @@ describe('scoped research-quality topology', () => {
     const scoped = buildScopedResearchQualityTopology(root, ['/herbs/public/'])
 
     expect(scoped.analysis.profiles.map((profile) => profile.url)).toEqual(['/herbs/public/'])
+    expect(scoped).toMatchObject({
+      requestedProfileUrls: ['/herbs/public/'],
+      matchedProfileUrls: ['/herbs/public/'],
+      missingProfileUrls: [],
+      profileCoverage: 1,
+    })
     expect(scoped.topology.underlyingStudyIndependence.summary).toMatchObject({
       profilesAnalyzed: 1,
       globalInventoryPublicationCount: 1,
       globalPrimaryHumanPublicationCount: 1,
     })
+  })
+
+  it('reports requested public profiles that have no canonical research-detail profile', () => {
+    const root = mkdtempSync(path.join(tmpdir(), 'ths-scoped-topology-gap-'))
+    roots.push(root)
+    const detailDir = path.join(root, 'public', 'data', 'herbs-detail')
+    mkdirSync(detailDir, { recursive: true })
+
+    writeFileSync(path.join(detailDir, 'public.json'), JSON.stringify({
+      slug: 'public',
+      sources: [{ id: 'public-rct', pmid: '11111111', studyClass: 'rct', title: 'Public trial' }],
+      claimMap: [],
+    }))
+
+    const scoped = buildScopedResearchQualityTopology(
+      root,
+      ['/herbs/public/', '/herbs/missing/'],
+    )
+
+    expect(scoped).toMatchObject({
+      requestedProfileUrls: ['/herbs/missing/', '/herbs/public/'],
+      matchedProfileUrls: ['/herbs/public/'],
+      missingProfileUrls: ['/herbs/missing/'],
+      profileCoverage: 0.5,
+    })
+    expect(scoped.topology.underlyingStudyIndependence.summary.profilesAnalyzed).toBe(1)
   })
 })
