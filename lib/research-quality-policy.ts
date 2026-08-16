@@ -23,8 +23,10 @@ export type StructuralCoverageFailure = {
 export const RESEARCH_GAP_WEIGHTS = {
   unsupportedApprovedClaim: 100,
   danglingClaimSourceEdge: 100,
-  narrativeOnlyClaimSupport: 25,
-  indirectOrUnclassifiedClaimSupport: 20,
+  narrativeOnlyOutcomeSupport: 25,
+  narrativeOnlyOtherStructuredSupport: 15,
+  indirectOutcomeSupport: 20,
+  unclassifiedStructuredSupport: 20,
   highConfidenceWeakClaimBonus: 15,
   noPrimaryHumanStudy: 20,
   narrativeReviewDominatedProfile: 20,
@@ -32,13 +34,13 @@ export const RESEARCH_GAP_WEIGHTS = {
   poorStudyMetadataCoverage: 12,
   singleStudyApprovedClaim: 5,
   unsupportedUnapprovedStructuredClaim: 4,
-  weakUnapprovedOutcomeClaim: 3,
+  weakUnapprovedStructuredClaim: 3,
 } as const
 
 export function structuralCoverageFailures(analysis: ResearchQualityAnalysis): StructuralCoverageFailure[] {
   const failures: StructuralCoverageFailure[] = []
   for (const claim of analysis.claimAnalyses) {
-    if (claim.supportTier === 'unsupported') {
+    if (claim.structuredSupportTier === 'unsupported') {
       failures.push({ kind: 'unsupported-approved-claim', url: claim.url, claimId: claim.claimId })
     }
     for (const sourceRefId of claim.danglingSourceRefs) {
@@ -60,7 +62,7 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
   }
 
   for (const claim of analysis.claimAnalyses) {
-    if (claim.supportTier === 'unsupported') {
+    if (claim.structuredSupportTier === 'unsupported') {
       add(claim.url, 'unsupported-approved-claim', RESEARCH_GAP_WEIGHTS.unsupportedApprovedClaim, claim.claimId)
     }
     for (const sourceRefId of claim.danglingSourceRefs) {
@@ -83,22 +85,38 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
       )
     }
 
-    const tier = claim.supportTier
-    if (tier === 'unsupported' || tier === 'human-supported' || tier === 'non-outcome') continue
-    const baseWeight = tier === 'narrative-only'
-      ? RESEARCH_GAP_WEIGHTS.narrativeOnlyClaimSupport
-      : RESEARCH_GAP_WEIGHTS.indirectOrUnclassifiedClaimSupport
-    const confidenceBonus = claim.highConfidenceWeakOutcome ? RESEARCH_GAP_WEIGHTS.highConfidenceWeakClaimBonus : 0
-    add(
-      claim.url,
-      `claim-support-${tier}`,
-      baseWeight + confidenceBonus,
-      `${claim.claimId}${confidenceBonus ? ' · high confidence' : ''}`,
-    )
+    if (claim.structuredSupportTier === 'unclassified') {
+      const confidenceBonus = claim.highConfidenceWeakStructured ? RESEARCH_GAP_WEIGHTS.highConfidenceWeakClaimBonus : 0
+      add(
+        claim.url,
+        'claim-support-unclassified',
+        RESEARCH_GAP_WEIGHTS.unclassifiedStructuredSupport + confidenceBonus,
+        `${claim.claimId} · ${claim.predicate}${confidenceBonus ? ' · high confidence' : ''}`,
+      )
+    } else if (claim.structuredSupportTier === 'narrative-only') {
+      const baseWeight = claim.outcomeClaim
+        ? RESEARCH_GAP_WEIGHTS.narrativeOnlyOutcomeSupport
+        : RESEARCH_GAP_WEIGHTS.narrativeOnlyOtherStructuredSupport
+      const confidenceBonus = claim.highConfidenceWeakStructured ? RESEARCH_GAP_WEIGHTS.highConfidenceWeakClaimBonus : 0
+      add(
+        claim.url,
+        'claim-support-narrative-only',
+        baseWeight + confidenceBonus,
+        `${claim.claimId} · ${claim.predicate}${confidenceBonus ? ' · high confidence' : ''}`,
+      )
+    } else if (claim.supportTier === 'indirect-only') {
+      const confidenceBonus = claim.highConfidenceWeakOutcome ? RESEARCH_GAP_WEIGHTS.highConfidenceWeakClaimBonus : 0
+      add(
+        claim.url,
+        'claim-support-indirect-only',
+        RESEARCH_GAP_WEIGHTS.indirectOutcomeSupport + confidenceBonus,
+        `${claim.claimId}${confidenceBonus ? ' · high confidence' : ''}`,
+      )
+    }
   }
 
   for (const claim of analysis.structuredClaimAnalyses.filter((item) => !item.approved)) {
-    if (claim.supportTier === 'unsupported') {
+    if (claim.structuredSupportTier === 'unsupported') {
       add(
         claim.url,
         'unsupported-unapproved-structured-claim',
@@ -107,11 +125,18 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
       )
       continue
     }
-    if (claim.outcomeClaim && ['unclassified', 'narrative-only', 'indirect-only'].includes(claim.supportTier)) {
+    if (claim.structuredSupportTier === 'unclassified' || claim.structuredSupportTier === 'narrative-only') {
       add(
         claim.url,
-        `unapproved-claim-support-${claim.supportTier}`,
-        RESEARCH_GAP_WEIGHTS.weakUnapprovedOutcomeClaim,
+        `unapproved-claim-support-${claim.structuredSupportTier}`,
+        RESEARCH_GAP_WEIGHTS.weakUnapprovedStructuredClaim,
+        `${claim.claimId} · ${claim.predicate} · ${claim.reviewStatus || 'unreviewed'}`,
+      )
+    } else if (claim.supportTier === 'indirect-only') {
+      add(
+        claim.url,
+        'unapproved-claim-support-indirect-only',
+        RESEARCH_GAP_WEIGHTS.weakUnapprovedStructuredClaim,
         `${claim.claimId} · ${claim.reviewStatus || 'unreviewed'}`,
       )
     }
