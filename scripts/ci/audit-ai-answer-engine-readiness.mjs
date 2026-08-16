@@ -244,6 +244,14 @@ function auditLegacyGuideReferencePrimitives() {
     ])
 
     const source = text(file)
+    const visibleCount = source.match(/Evidence Review · (\d+) References/)?.[1]
+    const renderedCount = (source.match(/<Ref n=\{/g) || []).length
+    if (!visibleCount) {
+      add('error', 'legacy-guide-citations', `${slug} guide missing visible Evidence Review reference count`)
+    } else if (Number(visibleCount) !== renderedCount) {
+      add('error', 'legacy-guide-citations', `${slug} guide displays ${visibleCount} references but renders ${renderedCount}`)
+    }
+
     if (/^type RefProps\b/m.test(source) || /^function Ref\s*\(/m.test(source)) {
       add('error', 'legacy-guide-citations', `${slug} guide reintroduced a local legacy reference renderer`)
     }
