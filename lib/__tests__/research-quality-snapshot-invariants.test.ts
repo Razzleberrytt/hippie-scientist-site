@@ -66,14 +66,30 @@ function fixtures() {
     withdrawn: [],
     studies: [{ studyId: 'pmid:123', pmid: '123', doi: '', pageCount: 1, pages: ['/herbs/example'] }],
   } as unknown as ResearchSourceIntegrity
+  const citationIntegrity = {
+    sources: 1,
+    blockingCount: 0,
+    blocking: [],
+    duplicateProfileSources: [],
+    identifierPairConflicts: [],
+    conflicts: [],
+    passed: true,
+  }
 
-  return { analysis, topology, gate, queue, sourceIntegrity }
+  return { analysis, topology, gate, queue, sourceIntegrity, citationIntegrity }
 }
 
 describe('research quality snapshot invariants', () => {
   it('accepts a self-consistent canonical snapshot', () => {
-    const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
-    const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
+    const { analysis, topology, gate, queue, sourceIntegrity, citationIntegrity } = fixtures()
+    const report = validateResearchQualitySnapshotInvariants(
+      analysis,
+      topology,
+      gate,
+      queue,
+      sourceIntegrity,
+      citationIntegrity,
+    )
     expect(report.passed).toBe(true)
     expect(report.summary.failures).toBe(0)
   })
@@ -192,5 +208,50 @@ describe('research quality snapshot invariants', () => {
     const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
     expect(report.passed).toBe(false)
     expect(report.failures.map((failure) => failure.kind)).toContain('source-profile-ownership-mismatch')
+  })
+
+  it('detects citation source cardinality drift', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity, citationIntegrity } = fixtures()
+    citationIntegrity.sources = 2
+    const report = validateResearchQualitySnapshotInvariants(
+      analysis,
+      topology,
+      gate,
+      queue,
+      sourceIntegrity,
+      citationIntegrity,
+    )
+    expect(report.failures.map((failure) => failure.kind)).toContain('citation-source-count-mismatch')
+    expect(report.summary.citationIntegrityFailures).toBe(1)
+  })
+
+  it('detects citation blocking-count drift', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity, citationIntegrity } = fixtures()
+    citationIntegrity.blocking.push({ kind: 'invalid-pmid' } as never)
+    const report = validateResearchQualitySnapshotInvariants(
+      analysis,
+      topology,
+      gate,
+      queue,
+      sourceIntegrity,
+      citationIntegrity,
+    )
+    expect(report.failures.map((failure) => failure.kind)).toContain('citation-blocking-count-mismatch')
+  })
+
+  it('detects citation pass-state drift', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity, citationIntegrity } = fixtures()
+    citationIntegrity.blockingCount = 1
+    citationIntegrity.blocking.push({ kind: 'invalid-pmid' } as never)
+    citationIntegrity.passed = true
+    const report = validateResearchQualitySnapshotInvariants(
+      analysis,
+      topology,
+      gate,
+      queue,
+      sourceIntegrity,
+      citationIntegrity,
+    )
+    expect(report.failures.map((failure) => failure.kind)).toContain('citation-pass-state-mismatch')
   })
 })

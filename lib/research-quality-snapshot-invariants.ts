@@ -14,6 +14,16 @@ export type ResearchSnapshotInvariantFailure = {
   detail: string
 }
 
+type CitationIntegritySnapshotView = {
+  sources: number
+  blockingCount: number
+  blocking: unknown[]
+  duplicateProfileSources: unknown[]
+  identifierPairConflicts: unknown[]
+  conflicts: unknown[]
+  passed: boolean
+}
+
 export type ResearchSnapshotInvariantReport = {
   passed: boolean
   failures: ResearchSnapshotInvariantFailure[]
@@ -28,6 +38,7 @@ export type ResearchSnapshotInvariantReport = {
     missingSourceIds: number
     duplicateClaimSourceEdges: number
     sourceIntegrityFailures: number
+    citationIntegrityFailures: number
   }
 }
 
@@ -55,6 +66,7 @@ export function validateResearchQualitySnapshotInvariants(
   gate: ResearchQualityGate,
   researchGapQueue: ResearchGapItem[],
   sourceIntegrity?: ResearchSourceIntegrity,
+  citationIntegrity?: CitationIntegritySnapshotView,
 ): ResearchSnapshotInvariantReport {
   const failures: ResearchSnapshotInvariantFailure[] = []
   const profileUrls = new Set(analysis.profileAnalyses.map((profile) => profile.url))
@@ -66,6 +78,7 @@ export function validateResearchQualitySnapshotInvariants(
   )
   const canonicalStudyPages = new Map<string, Set<string>>()
   const globalStudyIdentities = crossProfileStudyIdentityMap(analysis.profiles)
+  let rawSourceCount = 0
 
   const add = (kind: string, detail: string) => failures.push({ kind, detail })
   const requireProfile = (kind: string, url: string, detail: string) => {
@@ -89,6 +102,7 @@ export function validateResearchQualitySnapshotInvariants(
     }
 
     const sources = Array.isArray(profile.record.sources) ? profile.record.sources : []
+    rawSourceCount += sources.length
     const seenSources = new Set<string>()
     for (let index = 0; index < sources.length; index += 1) {
       const id = text(sources[index]?.id)
@@ -237,6 +251,25 @@ export function validateResearchQualitySnapshotInvariants(
     }
   }
 
+  if (citationIntegrity) {
+    if (citationIntegrity.sources !== rawSourceCount) {
+      add('citation-source-count-mismatch', `citation=${citationIntegrity.sources}; analysis=${rawSourceCount}`)
+    }
+    const computedBlockingCount = citationIntegrity.blocking.length
+      + citationIntegrity.duplicateProfileSources.length
+      + citationIntegrity.identifierPairConflicts.length
+      + citationIntegrity.conflicts.length
+    if (citationIntegrity.blockingCount !== computedBlockingCount) {
+      add(
+        'citation-blocking-count-mismatch',
+        `summary=${citationIntegrity.blockingCount}; computed=${computedBlockingCount}`,
+      )
+    }
+    if (citationIntegrity.passed !== (citationIntegrity.blockingCount === 0)) {
+      add('citation-pass-state-mismatch', `passed=${citationIntegrity.passed}; blocking=${citationIntegrity.blockingCount}`)
+    }
+  }
+
   const unknownProfileReferences = failures.filter((failure) => failure.kind.includes('unknown-profile')).length
   const unknownClaimReferences = failures.filter((failure) => failure.kind.includes('unknown-claim')).length
   const countMismatches = failures.filter((failure) => failure.kind.includes('mismatch')).length
@@ -246,6 +279,7 @@ export function validateResearchQualitySnapshotInvariants(
   const missingSourceIds = failures.filter((failure) => failure.kind === 'missing-source-id').length
   const duplicateClaimSourceEdges = failures.filter((failure) => failure.kind === 'duplicate-claim-source-edge').length
   const sourceIntegrityFailures = failures.filter((failure) => failure.kind.startsWith('source-')).length
+  const citationIntegrityFailures = failures.filter((failure) => failure.kind.startsWith('citation-')).length
 
   return {
     passed: failures.length === 0,
@@ -261,6 +295,7 @@ export function validateResearchQualitySnapshotInvariants(
       missingSourceIds,
       duplicateClaimSourceEdges,
       sourceIntegrityFailures,
+      citationIntegrityFailures,
     },
   }
 }

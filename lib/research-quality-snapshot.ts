@@ -45,6 +45,7 @@ export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQual
     gate,
     researchGapQueue,
     sourceIntegrity,
+    citationIntegrity,
   )
 
   if (!invariants.passed) {
