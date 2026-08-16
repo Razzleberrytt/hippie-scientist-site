@@ -200,6 +200,21 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
+  // Publication-level and underlying-study-level concentration are the same
+  // editorial root cause. Only profiles that were *not* already flagged by the
+  // publication graph appear here, so this reuses the canonical high-study-
+  // dependency reason without double-counting existing profile findings.
+  for (const profile of topology.underlyingStudyIndependence.newlyOverDependentProfiles) {
+    const concentrationBonus = Math.round(Math.min(15, profile.underlyingStudyConcentrationIndex * 20))
+    const weight = Math.round(25 + profile.dominantUnderlyingStudySupportedClaimShare * 30 + concentrationBonus)
+    signals.push({
+      url: profile.url,
+      kind: 'high-study-dependency',
+      weight,
+      detail: `${Math.round(profile.dominantUnderlyingStudySupportedClaimShare * 100)}% of supported approved claims depend on one underlying study after explicit publication-lineage collapse; ${profile.publicationStudyCount} publications resolve to ${profile.underlyingStudyCount} underlying studies; effective underlying-study count ${profile.effectiveUnderlyingStudyCount}`,
+    })
+  }
+
   // One canonical union graph now owns registered-trial + cohort/dataset/parent
   // dependence. Policy only ranks the resulting adjusted underlying-study count.
   for (const [url, items] of groupByUrl(topology.underlyingStudyIndependence.reducedClaims)) {
