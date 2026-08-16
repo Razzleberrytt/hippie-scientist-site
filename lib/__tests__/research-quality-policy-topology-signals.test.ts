@@ -35,6 +35,7 @@ function topology(overrides: Record<string, unknown> = {}): ResearchQualityTopol
   return {
     narrowCrossProfileEvidenceBundles: [],
     semanticAlignment: { findings: [], concentrationFindings: [], coverageGapFindings: [] },
+    claimBreadth: { findings: [] },
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { lowCoverageClaims: [] },
     metadataIntegrity: { profiles: [] },
@@ -42,6 +43,7 @@ function topology(overrides: Record<string, unknown> = {}): ResearchQualityTopol
     edgeCardinality: { pseudoMultiSourceClaims: [] },
     trialRegistrationIndependence: { sameTrialReuseClaims: [] },
     evidenceLineage: { sharedNonRegistryLineageClaims: [] },
+    underlyingStudyIndependence: { reducedClaims: [] },
     evidenceIndependenceCoverage: { unresolvedClaims: [] },
     studyClassConflicts: { conflicts: [], severeConflicts: [] },
     ...overrides,
@@ -62,7 +64,7 @@ describe('aggregated topology gap signals', () => {
     const semantic = signals.filter((signal) => signal.kind === 'semantic-claim-source-mismatch')
     expect(semantic).toHaveLength(1)
     expect(semantic[0]).toMatchObject({ url: '/herbs/a/' })
-    expect(semantic[0].detail).toContain('3 approved claim(s)')
+    expect(semantic[0].detail).toContain('3 explicit alignment mismatch(es)')
     expect(semantic[0].detail).toContain('2 high-confidence')
   })
 
@@ -96,6 +98,40 @@ describe('aggregated topology gap signals', () => {
     expect(pseudo[0].detail).toContain('2 approved claim(s)')
     expect(pseudo[0].detail).toContain('3 redundant source row(s)')
     expect(pseudo[0].detail).toContain('3 source rows')
+  })
+
+  it('scores canonical underlying-study reductions once and prioritizes pseudo-multi-study support', () => {
+    const signals = buildAggregatedTopologyGapSignals(topology({
+      underlyingStudyIndependence: {
+        reducedClaims: [
+          {
+            url: '/herbs/a/',
+            apparentStudyCount: 3,
+            underlyingStudyCount: 2,
+            collapsedPublicationCount: 1,
+            pseudoMultiStudySupport: false,
+            highConfidencePseudoMultiStudySupport: false,
+          },
+          {
+            url: '/herbs/a/',
+            apparentStudyCount: 2,
+            underlyingStudyCount: 1,
+            collapsedPublicationCount: 1,
+            pseudoMultiStudySupport: true,
+            highConfidencePseudoMultiStudySupport: true,
+          },
+        ],
+      },
+    }), weights)
+
+    const reuse = signals.filter((signal) => signal.kind === 'underlying-study-publication-reuse')
+    expect(reuse).toHaveLength(1)
+    expect(reuse[0]).toMatchObject({ url: '/herbs/a/', weight: 25 })
+    expect(reuse[0].detail).toContain('2 approved claim(s)')
+    expect(reuse[0].detail).toContain('2 publication(s) collapse')
+    expect(reuse[0].detail).toContain('1 claim(s) reduce to one underlying study')
+    expect(reuse[0].detail).toContain('1 high-confidence pseudo-multi-study')
+    expect(reuse[0].detail).toContain('minimum adjusted count 1')
   })
 
   it('aggregates advisory metadata once while leaving severe class conflicts structural', () => {
