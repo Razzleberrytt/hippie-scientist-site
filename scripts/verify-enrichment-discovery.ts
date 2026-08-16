@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { slugify } from '../lib/slug-utils'
 
 type GovernedRow = {
   entityType: 'herb' | 'compound'
@@ -40,13 +41,6 @@ const EVIDENCE_LABEL_TITLES: Record<string, string> = {
 
 function readJson<T>(relativePath: string): T {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8')) as T
-}
-
-function slugify(value: string) {
-  return String(value || '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
 }
 
 function isPublishableEnrichment(enrichment: Record<string, any>) {
