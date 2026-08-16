@@ -21,6 +21,6 @@ describe('SafetyGaugeMeter', () => {
 
   it('exposes an accessible label on the SVG describing the clamped score', () => {
     render(<SafetyGaugeMeter score={45} label="Use caution" />)
-    expect(screen.getByRole('img', { name: 'Safety meter: 45 out of 100 — Use caution' })).toBeTruthy()
+    expect(screen.getByRole('img', { name: 'Safety context: Use caution. Visual gauge position 45 out of 100.' })).toBeTruthy()
   })
 })
