@@ -16,27 +16,27 @@ export default function DosageBox({ rows, disclaimer }: Props) {
     <div className="space-y-3">
       <ResponsiveTable
         label="Dosage and form reference"
-        className="!my-0 rounded-2xl border border-brand-900/10 shadow-sm"
+        className="!my-0 rounded-2xl border border-brand-900/10 shadow-sm dark:border-white/10"
       >
         <table className="w-full min-w-[640px] text-sm">
           <caption className="sr-only">Dosage and form reference</caption>
           <thead>
-            <tr className="border-b border-brand-900/10 bg-brand-50/50">
+            <tr className="border-b border-brand-900/10 bg-brand-50/50 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
               <th
                 scope="col"
-                className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700"
+                className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700 dark:text-[var(--accent-teal)]"
               >
                 Form
               </th>
               <th
                 scope="col"
-                className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700"
+                className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700 dark:text-[var(--accent-teal)]"
               >
                 Typical Range
               </th>
               <th
                 scope="col"
-                className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700"
+                className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700 dark:text-[var(--accent-teal)]"
               >
                 Notes
               </th>
@@ -44,7 +44,7 @@ export default function DosageBox({ rows, disclaimer }: Props) {
           </thead>
           <tbody>
             {rows.map((row, i) => (
-              <tr key={i} className="border-b border-brand-900/5 last:border-0 hover:bg-brand-50/30">
+              <tr key={i} className="border-b border-brand-900/5 last:border-0 hover:bg-brand-50/30 dark:border-white/10 dark:hover:bg-[var(--surface-subtle)]">
                 <th scope="row" className="px-4 py-3 text-left font-medium text-ink">
                   {row.form}
                 </th>
