@@ -1,8 +1,20 @@
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import { buildResearchQualityTopology, type ResearchQualityTopology } from './research-quality-topology'
 
+export type ResearchGapDimension =
+  | 'structural'
+  | 'claim-support'
+  | 'concentration'
+  | 'evidence-mix'
+  | 'mapping'
+  | 'identity'
+  | 'metadata'
+  | 'freshness'
+  | 'editorial-backlog'
+
 export type ResearchGapReason = {
   kind: string
+  dimension: ResearchGapDimension
   weight: number
   detail?: string
 }
@@ -10,6 +22,10 @@ export type ResearchGapReason = {
 export type ResearchGapItem = {
   url: string
   score: number
+  rawScore: number
+  dimensionScores: Partial<Record<ResearchGapDimension, number>>
+  dimensionRawScores: Partial<Record<ResearchGapDimension, number>>
+  cappedDimensions: ResearchGapDimension[]
   reasons: ResearchGapReason[]
   reasonCounts: Record<string, number>
 }
@@ -19,6 +35,23 @@ export type StructuralCoverageFailure = {
   url: string
   claimId: string
   sourceRefId?: string
+}
+
+/**
+ * Dimension caps prevent correlated diagnostics from repeatedly charging the
+ * same underlying weakness. Structural invalidity remains dominant; softer
+ * topology/metadata/freshness dimensions can corroborate but not overwhelm it.
+ */
+export const RESEARCH_GAP_DIMENSION_CAPS: Record<ResearchGapDimension, number> = {
+  structural: 200,
+  'claim-support': 160,
+  concentration: 80,
+  'evidence-mix': 60,
+  mapping: 50,
+  identity: 40,
+  metadata: 30,
+  freshness: 30,
+  'editorial-backlog': 30,
 }
 
 export const RESEARCH_GAP_WEIGHTS = {
@@ -52,6 +85,24 @@ export const RESEARCH_GAP_WEIGHTS = {
   weakUnapprovedStructuredClaim: 3,
 } as const
 
+function dimensionForReason(kind: string): ResearchGapDimension {
+  if (kind === 'unsupported-approved-claim' || kind === 'dangling-claim-source-edge') return 'structural'
+  if (kind.startsWith('claim-support-') || kind === 'synthesis-only-approved-outcome') return 'claim-support'
+  if (
+    kind === 'single-study-approved-claim'
+    || kind === 'high-study-dependency'
+    || kind === 'narrow-repeated-evidence-bundle'
+    || kind === 'near-duplicate-claim-evidence-support'
+    || kind === 'systemic-load-bearing-study-dependency'
+  ) return 'concentration'
+  if (kind === 'narrative-review-dominated-profile' || kind === 'approved-claims-without-primary-human-study') return 'evidence-mix'
+  if (kind === 'unmapped-primary-human-evidence' || kind === 'primary-human-evidence-only-on-unapproved-claims') return 'mapping'
+  if (kind === 'uncertain-study-identity-independence') return 'identity'
+  if (kind === 'poor-study-metadata-coverage' || kind === 'unknown-evidence-year-metadata') return 'metadata'
+  if (kind === 'legacy-only-outcome-evidence') return 'freshness'
+  return 'editorial-backlog'
+}
+
 export function structuralCoverageFailures(analysis: ResearchQualityAnalysis): StructuralCoverageFailure[] {
   const failures: StructuralCoverageFailure[] = []
   for (const claim of analysis.claimAnalyses) {
@@ -69,12 +120,11 @@ export function buildResearchGapQueue(
   analysis: ResearchQualityAnalysis,
   topology: ResearchQualityTopology = buildResearchQualityTopology(analysis),
 ): ResearchGapItem[] {
-  const queue = new Map<string, { url: string; score: number; reasons: ResearchGapReason[] }>()
+  const queue = new Map<string, { url: string; reasons: ResearchGapReason[] }>()
   const add = (url: string, kind: string, weight: number, detail?: string) => {
     if (!url) return
-    const item = queue.get(url) ?? { url, score: 0, reasons: [] }
-    item.score += weight
-    item.reasons.push({ kind, weight, ...(detail ? { detail } : {}) })
+    const item = queue.get(url) ?? { url, reasons: [] }
+    item.reasons.push({ kind, dimension: dimensionForReason(kind), weight, ...(detail ? { detail } : {}) })
     queue.set(url, item)
   }
 
@@ -209,13 +259,33 @@ export function buildResearchGapQueue(
   }
 
   return [...queue.values()]
-    .map((item) => ({
-      ...item,
-      score: Math.round(item.score),
-      reasonCounts: item.reasons.reduce<Record<string, number>>((counts, reason) => {
-        counts[reason.kind] = (counts[reason.kind] ?? 0) + 1
-        return counts
-      }, {}),
-    }))
-    .sort((a, b) => b.score - a.score || b.reasons.length - a.reasons.length || a.url.localeCompare(b.url))
+    .map((item): ResearchGapItem => {
+      const dimensionRawScores = item.reasons.reduce<Partial<Record<ResearchGapDimension, number>>>((scores, reason) => {
+        scores[reason.dimension] = (scores[reason.dimension] ?? 0) + reason.weight
+        return scores
+      }, {})
+      const dimensionScores = Object.fromEntries(
+        Object.entries(dimensionRawScores).map(([dimension, raw]) => [
+          dimension,
+          Math.min(Number(raw), RESEARCH_GAP_DIMENSION_CAPS[dimension as ResearchGapDimension]),
+        ]),
+      ) as Partial<Record<ResearchGapDimension, number>>
+      const rawScore = Object.values(dimensionRawScores).reduce((sum, value) => sum + Number(value ?? 0), 0)
+      const score = Object.values(dimensionScores).reduce((sum, value) => sum + Number(value ?? 0), 0)
+      const cappedDimensions = (Object.keys(dimensionRawScores) as ResearchGapDimension[])
+        .filter((dimension) => (dimensionRawScores[dimension] ?? 0) > RESEARCH_GAP_DIMENSION_CAPS[dimension])
+      return {
+        ...item,
+        score: Math.round(score),
+        rawScore: Math.round(rawScore),
+        dimensionScores,
+        dimensionRawScores,
+        cappedDimensions,
+        reasonCounts: item.reasons.reduce<Record<string, number>>((counts, reason) => {
+          counts[reason.kind] = (counts[reason.kind] ?? 0) + 1
+          return counts
+        }, {}),
+      }
+    })
+    .sort((a, b) => b.score - a.score || b.rawScore - a.rawScore || b.reasons.length - a.reasons.length || a.url.localeCompare(b.url))
 }
