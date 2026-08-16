@@ -44,6 +44,8 @@ export type ClaimQualityAnalysis = {
   narrative: number
   designs: StudyClass[]
   outcomeClaim: boolean
+  directPrimaryHumanSupport: boolean
+  synthesisOnlyOutcomeSupport: boolean
   supportTier: ClaimSupportTier
   weakStructuredClaim: boolean
   highConfidenceWeakOutcome: boolean
@@ -55,10 +57,15 @@ export type ProfileQualityAnalysis = {
   url: string
   sourceCount: number
   canonicalStudyCount: number
+  classifiedStudyCount: number
+  unclassifiedStudyCount: number
+  studyMetadataCoverage: number
   claimCount: number
   approvedClaimCount: number
   supportedApprovedClaimCount: number
   weakStructuredClaimCount: number
+  synthesisOnlyApprovedOutcomeCount: number
+  directPrimaryHumanApprovedOutcomeCount: number
   designMix: Record<string, number>
   primaryHuman: number
   synthesis: number
@@ -80,6 +87,7 @@ export type ProfileQualityAnalysis = {
   overDependentOnSingleStudy: boolean
   reviewDominated: boolean
   noPrimaryHuman: boolean
+  poorStudyMetadataCoverage: boolean
 }
 
 export type ResearchQualityAnalysis = {
@@ -135,6 +143,8 @@ function analyzeClaim(url: string, claim: ResearchClaim, context: ProfileResearc
   const reviewStatus = String(claim.reviewStatus ?? '').trim().toLowerCase()
   const approved = reviewStatus === 'approved'
   const strongHumanSupport = primaryHuman + synthesis > 0
+  const directPrimaryHumanSupport = outcomeClaim && primaryHuman > 0
+  const synthesisOnlyOutcomeSupport = outcomeClaim && primaryHuman === 0 && synthesis > 0
 
   let supportTier: ClaimSupportTier = 'non-outcome'
   if (studyIds.length === 0) supportTier = 'unsupported'
@@ -164,6 +174,8 @@ function analyzeClaim(url: string, claim: ResearchClaim, context: ProfileResearc
     narrative,
     designs,
     outcomeClaim,
+    directPrimaryHumanSupport,
+    synthesisOnlyOutcomeSupport,
     supportTier,
     weakStructuredClaim,
     highConfidenceWeakOutcome:
@@ -185,9 +197,11 @@ function analyzeProfile(
   let primaryHuman = 0
   let synthesis = 0
   let narrativeReview = 0
+  let unclassifiedStudyCount = 0
 
   for (const design of context.studyDesigns.values()) {
     designMix[design] = (designMix[design] ?? 0) + 1
+    if (design === 'unclassified') unclassifiedStudyCount += 1
     if (PRIMARY_HUMAN_STUDY_CLASSES.has(design)) primaryHuman += 1
     if (SYNTHESIS_STUDY_CLASSES.has(design)) synthesis += 1
     if (NARRATIVE_STUDY_CLASSES.has(design)) narrativeReview += 1
@@ -235,15 +249,26 @@ function analyzeProfile(
     supportedApprovedClaimCount >= 3 &&
     dominantStudySupportedClaimShare >= 0.5 &&
     effectiveStudyCount < 2.5
+  const canonicalStudyCount = context.studyGroups.size
+  const classifiedStudyCount = canonicalStudyCount - unclassifiedStudyCount
+  const studyMetadataCoverage = canonicalStudyCount ? classifiedStudyCount / canonicalStudyCount : 1
+  const poorStudyMetadataCoverage = canonicalStudyCount >= 3 && studyMetadataCoverage < 0.7
+  const synthesisOnlyApprovedOutcomeCount = approvedAnalyses.filter((claim) => claim.synthesisOnlyOutcomeSupport).length
+  const directPrimaryHumanApprovedOutcomeCount = approvedAnalyses.filter((claim) => claim.directPrimaryHumanSupport).length
 
   return {
     url,
     sourceCount: context.sources.length,
-    canonicalStudyCount: context.studyGroups.size,
+    canonicalStudyCount,
+    classifiedStudyCount,
+    unclassifiedStudyCount,
+    studyMetadataCoverage: round(studyMetadataCoverage),
     claimCount: allClaims.length,
     approvedClaimCount: approved.length,
     supportedApprovedClaimCount,
     weakStructuredClaimCount: weakStructuredClaims.length,
+    synthesisOnlyApprovedOutcomeCount,
+    directPrimaryHumanApprovedOutcomeCount,
     designMix,
     primaryHuman,
     synthesis,
@@ -265,6 +290,7 @@ function analyzeProfile(
     overDependentOnSingleStudy,
     reviewDominated: narrativeDominatedVsPrimaryHuman,
     noPrimaryHuman: approved.length > 0 && primaryHuman === 0,
+    poorStudyMetadataCoverage,
   }
 }
 
