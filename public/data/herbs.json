@@ -116,8 +116,8 @@
   {
     "slug": "agarikon",
     "name": "Agarikon",
-    "summary": "It should be framed modestly because traditional use is much stronger than modern evidence.",
-    "description": "It should be framed modestly because traditional use is much stronger than modern evidence.",
+    "summary": "Agarikon botanical profile with evidence, safety, and practical fit.",
+    "description": "Agarikon botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "immune",
       "respiratory"
@@ -197,7 +197,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -206,7 +206,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -1294,8 +1294,8 @@
   {
     "slug": "angelica-root",
     "name": "Angelica Root",
-    "summary": "It should be framed carefully because furanocoumarin context matters for some use cases.",
-    "description": "It should be framed carefully because furanocoumarin context matters for some use cases.",
+    "summary": "Angelica Root botanical profile with evidence, safety, and practical fit.",
+    "description": "Angelica Root botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "digestive"
     ],
@@ -1369,7 +1369,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1378,7 +1378,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -1399,8 +1399,8 @@
   {
     "slug": "angelica-sinensis",
     "name": "Angelica Sinensis",
-    "summary": "Angelica Sinensis botanical profile with evidence, safety, and practical fit.",
-    "description": "Angelica Sinensis botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "hormonal",
@@ -2365,8 +2365,8 @@
   {
     "slug": "ashoka",
     "name": "Ashoka",
-    "summary": "It should be framed conservatively because traditional gynecologic use is much stronger than modern evidence.",
-    "description": "It should be framed conservatively because traditional gynecologic use is much stronger than modern evidence.",
+    "summary": "Ashoka botanical profile with evidence, safety, and practical fit.",
+    "description": "Ashoka botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "hormonal",
       "reproductive",
@@ -2446,7 +2446,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2455,7 +2455,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -3704,8 +3704,8 @@
   {
     "slug": "bayberry",
     "name": "Bayberry",
-    "summary": "Bayberry botanical profile with evidence, safety, and practical fit.",
-    "description": "Bayberry botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -4548,8 +4548,8 @@
   {
     "slug": "black-tea",
     "name": "Black Tea",
-    "summary": "Black Tea botanical profile with evidence, safety, and practical fit.",
-    "description": "Black Tea botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -4681,8 +4681,8 @@
   {
     "slug": "blue-lotus",
     "name": "Blue Lotus",
-    "summary": "Blue Lotus botanical profile with evidence, safety, and practical fit.",
-    "description": "Blue Lotus botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "sleep"
     ],
@@ -4789,8 +4789,8 @@
   {
     "slug": "blueberry",
     "name": "Blueberry",
-    "summary": "Blueberry botanical profile with evidence, safety, and practical fit.",
-    "description": "Blueberry botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -5473,8 +5473,8 @@
   {
     "slug": "buckwheat",
     "name": "Buckwheat",
-    "summary": "Buckwheat botanical profile with evidence, safety, and practical fit.",
-    "description": "Buckwheat botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "cardiovascular",
@@ -5610,8 +5610,8 @@
   {
     "slug": "bupleurum",
     "name": "Bupleurum",
-    "summary": "It should be framed conservatively because traditional-system context matters more than casual wellness claims.",
-    "description": "It should be framed conservatively because traditional-system context matters more than casual wellness claims.",
+    "summary": "Bupleurum botanical profile with evidence, safety, and practical fit.",
+    "description": "Bupleurum botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "liver_support",
       "anti_inflammatory",
@@ -5701,7 +5701,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5710,7 +5710,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -6399,8 +6399,8 @@
   {
     "slug": "eschscholzia-californica",
     "name": "California Poppy",
-    "summary": "California Poppy botanical profile with evidence, safety, and practical fit.",
-    "description": "California Poppy botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "sleep"
     ],
@@ -6611,8 +6611,8 @@
   {
     "slug": "capsicum-frutescens",
     "name": "Capsicum Frutescens",
-    "summary": "May discuss capsaicin/capsaicinoids as food-derived compounds with metabolic/appetite and topical-pain contexts; cognition should be described as mostly preclinical/hypothesis-level.",
-    "description": "May discuss capsaicin/capsaicinoids as food-derived compounds with metabolic/appetite and topical-pain contexts; cognition should be described as mostly preclinical/hypothesis-level.",
+    "summary": "Capsicum Frutescens botanical profile with evidence, safety, and practical fit.",
+    "description": "Capsicum Frutescens botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "Cognition",
       "Neurobiology",
@@ -7266,8 +7266,8 @@
   {
     "slug": "catuba",
     "name": "Catuba",
-    "summary": "It should be framed conservatively because traditional aphrodisiac narratives exceed modern evidence depth.",
-    "description": "It should be framed conservatively because traditional aphrodisiac narratives exceed modern evidence depth.",
+    "summary": "Catuba botanical profile with evidence, safety, and practical fit.",
+    "description": "Catuba botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "libido",
       "nervous_system",
@@ -7350,7 +7350,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7359,7 +7359,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -8331,8 +8331,8 @@
   {
     "slug": "cissus",
     "name": "Cissus",
-    "summary": "It is best framed conservatively because evidence is mixed and product positioning often outruns the data.",
-    "description": "It is best framed conservatively because evidence is mixed and product positioning often outruns the data.",
+    "summary": "Cissus botanical profile with evidence, safety, and practical fit.",
+    "description": "Cissus botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "anti-inflammatory",
       "analgesic"
@@ -8416,7 +8416,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8425,7 +8425,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -8446,8 +8446,8 @@
   {
     "slug": "cistanche",
     "name": "Cistanche",
-    "summary": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
-    "description": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
+    "summary": "Cistanche botanical profile with evidence, safety, and practical fit.",
+    "description": "Cistanche botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "sleep"
     ],
@@ -8526,7 +8526,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -8535,7 +8535,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -9399,8 +9399,8 @@
   {
     "slug": "coffea-arabica",
     "name": "Coffee",
-    "summary": "Coffee botanical profile with evidence, safety, and practical fit.",
-    "description": "Coffee botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "energy",
       "stimulant",
@@ -11086,8 +11086,8 @@
   {
     "slug": "curcumin",
     "name": "Curcumin",
-    "summary": "Curcumin botanical profile with evidence, safety, and practical fit.",
-    "description": "Curcumin botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "analgesic"
@@ -11554,8 +11554,8 @@
   {
     "slug": "damiana",
     "name": "Damiana",
-    "summary": "Damiana botanical profile with evidence, safety, and practical fit.",
-    "description": "Damiana botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "libido",
       "mood_support",
@@ -12010,8 +12010,8 @@
   {
     "slug": "dendrobium",
     "name": "Dendrobium",
-    "summary": "It should be framed conservatively because luxury-tonic narratives often exceed evidence depth.",
-    "description": "It should be framed conservatively because luxury-tonic narratives often exceed evidence depth.",
+    "summary": "Dendrobium botanical profile with evidence, safety, and practical fit.",
+    "description": "Dendrobium botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "sleep"
     ],
@@ -12087,7 +12087,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -12096,7 +12096,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -12117,8 +12117,8 @@
   {
     "slug": "dong-quai",
     "name": "Dong Quai",
-    "summary": "Dong Quai botanical profile with evidence, safety, and practical fit.",
-    "description": "Dong Quai botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "hormonal",
@@ -13166,8 +13166,8 @@
   {
     "slug": "eucalyptus",
     "name": "Eucalyptus",
-    "summary": "Eucalyptus botanical profile with evidence, safety, and practical fit.",
-    "description": "Eucalyptus botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antimicrobial",
@@ -13276,8 +13276,8 @@
   {
     "slug": "eucommia",
     "name": "Eucommia",
-    "summary": "It is best framed conservatively because traditional tonic use is broader than modern evidence quality.",
-    "description": "It is best framed conservatively because traditional tonic use is broader than modern evidence quality.",
+    "summary": "Eucommia botanical profile with evidence, safety, and practical fit.",
+    "description": "Eucommia botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "metabolic",
       "tonic"
@@ -13355,7 +13355,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -13364,7 +13364,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -13385,8 +13385,8 @@
   {
     "slug": "evening-primrose",
     "name": "Evening Primrose (Oenothera biennis)",
-    "summary": "Evening Primrose (Oenothera biennis) botanical profile with evidence, safety, and practical fit.",
-    "description": "Evening Primrose (Oenothera biennis) botanical profile with evidence, safety, and practical fit.",
+    "summary": "Human-outcome claims should remain gated until source and dosage review are complete.",
+    "description": "Human-outcome claims should remain gated until source and dosage review are complete.",
     "effects": [
       "skin-support"
     ],
@@ -13709,8 +13709,8 @@
   {
     "slug": "feverfew",
     "name": "Feverfew",
-    "summary": "Feverfew botanical profile with evidence, safety, and practical fit.",
-    "description": "Feverfew botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "analgesic"
@@ -14789,8 +14789,8 @@
   {
     "slug": "gastrodia",
     "name": "Gastrodia",
-    "summary": "It should be framed conservatively because traditional neurologic use is broader than modern evidence.",
-    "description": "It should be framed conservatively because traditional neurologic use is broader than modern evidence.",
+    "summary": "Gastrodia botanical profile with evidence, safety, and practical fit.",
+    "description": "Gastrodia botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "neuroprotective",
       "cognitive_support",
@@ -14873,7 +14873,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -14882,7 +14882,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -15492,8 +15492,8 @@
   {
     "slug": "vitis-vinifera",
     "name": "Grape",
-    "summary": "Grape botanical profile with evidence, safety, and practical fit.",
-    "description": "Grape botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "antioxidant",
       "cardiovascular",
@@ -15621,8 +15621,8 @@
   {
     "slug": "grapefruit",
     "name": "Grapefruit",
-    "summary": "Grapefruit botanical profile with evidence, safety, and practical fit.",
-    "description": "Grapefruit botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "digestive"
     ],
@@ -15864,8 +15864,8 @@
   {
     "slug": "green-tea-extract",
     "name": "Green Tea Extract",
-    "summary": "Green Tea Extract botanical profile with evidence, safety, and practical fit.",
-    "description": "Green Tea Extract botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "metabolic"
     ],
@@ -15975,8 +15975,8 @@
   {
     "slug": "guarana",
     "name": "Guarana",
-    "summary": "Guarana botanical profile with evidence, safety, and practical fit.",
-    "description": "Guarana botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -16212,8 +16212,8 @@
   {
     "slug": "gudmar",
     "name": "Gudmar",
-    "summary": "It should be framed consistently with gymnema while preserving alternate-name discoverability.",
-    "description": "It should be framed consistently with gymnema while preserving alternate-name discoverability.",
+    "summary": "Gudmar botanical profile with evidence, safety, and practical fit.",
+    "description": "Gudmar botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "metabolic"
     ],
@@ -16300,7 +16300,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -16309,7 +16309,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -16912,8 +16912,8 @@
   {
     "slug": "holy-basil-purple",
     "name": "Holy Basil Purple",
-    "summary": "It should be framed similarly to tulsi while noting cultivar/form distinctions are secondary to constituent variability.",
-    "description": "It should be framed similarly to tulsi while noting cultivar/form distinctions are secondary to constituent variability.",
+    "summary": "Holy Basil Purple botanical profile with evidence, safety, and practical fit.",
+    "description": "Holy Basil Purple botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "adaptogen",
       "stress_reduction",
@@ -17009,7 +17009,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -17018,7 +17018,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -17039,8 +17039,8 @@
   {
     "slug": "holy-basil-seed",
     "name": "Holy Basil Seed",
-    "summary": "It should be framed distinctly from holy basil leaf because fiber and mucilage drive different use-cases.",
-    "description": "It should be framed distinctly from holy basil leaf because fiber and mucilage drive different use-cases.",
+    "summary": "Holy Basil Seed botanical profile with evidence, safety, and practical fit.",
+    "description": "Holy Basil Seed botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "digestive"
     ],
@@ -17119,7 +17119,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -17128,7 +17128,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -17489,8 +17489,8 @@
   {
     "slug": "houttuynia",
     "name": "Houttuynia",
-    "summary": "It should be framed cautiously because strong folklore claims exceed the evidence.",
-    "description": "It should be framed cautiously because strong folklore claims exceed the evidence.",
+    "summary": "Houttuynia botanical profile with evidence, safety, and practical fit.",
+    "description": "Houttuynia botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "immune",
       "respiratory"
@@ -17570,7 +17570,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -17579,7 +17579,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -17829,8 +17829,8 @@
   {
     "slug": "berberis-aristata",
     "name": "Indian Barberry",
-    "summary": "Indian Barberry botanical profile with evidence, safety, and practical fit.",
-    "description": "Indian Barberry botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "digestive",
       "liver-protective",
@@ -18197,8 +18197,8 @@
   {
     "slug": "jatamansi",
     "name": "Jatamansi",
-    "summary": "It should be framed as a traditional aromatic rhizome with modest clinical depth.",
-    "description": "It should be framed as a traditional aromatic rhizome with modest clinical depth.",
+    "summary": "Jatamansi botanical profile with evidence, safety, and practical fit.",
+    "description": "Jatamansi botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "sleep"
     ],
@@ -18277,7 +18277,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -18286,7 +18286,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -18424,8 +18424,8 @@
   {
     "slug": "juniper",
     "name": "Juniper",
-    "summary": "It should be framed as an aromatic berry botanical with traditional GI and urinary relevance.",
-    "description": "It should be framed as an aromatic berry botanical with traditional GI and urinary relevance.",
+    "summary": "Juniper botanical profile with evidence, safety, and practical fit.",
+    "description": "Juniper botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "digestive"
     ],
@@ -18503,7 +18503,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -18512,7 +18512,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -18763,8 +18763,8 @@
   {
     "slug": "kuding-tea",
     "name": "Kuding Tea",
-    "summary": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence.",
-    "description": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence.",
+    "summary": "Kuding Tea botanical profile with evidence, safety, and practical fit.",
+    "description": "Kuding Tea botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "antioxidant",
       "metabolic"
@@ -18853,7 +18853,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -18862,7 +18862,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -18883,8 +18883,8 @@
   {
     "slug": "kudzu",
     "name": "Kudzu",
-    "summary": "Kudzu botanical profile with evidence, safety, and practical fit.",
-    "description": "Kudzu botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -19007,8 +19007,8 @@
   {
     "slug": "tyrosine",
     "name": "L-Tyrosine",
-    "summary": "L-Tyrosine botanical profile with evidence, safety, and practical fit.",
-    "description": "L-Tyrosine botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "cognitive_support",
       "dopamine_precursor",
@@ -20378,8 +20378,8 @@
   {
     "slug": "longan",
     "name": "Longan",
-    "summary": "It should be framed as a food-like fruit botanical with modest modern evidence.",
-    "description": "It should be framed as a food-like fruit botanical with modest modern evidence.",
+    "summary": "Longan botanical profile with evidence, safety, and practical fit.",
+    "description": "Longan botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "sleep"
     ],
@@ -20837,8 +20837,8 @@
   {
     "slug": "maitake-d-fraction",
     "name": "Maitake D-fraction",
-    "summary": "It should be framed distinctly from whole maitake because extract-standardization claims can exceed the underlying evidence.",
-    "description": "It should be framed distinctly from whole maitake because extract-standardization claims can exceed the underlying evidence.",
+    "summary": "Maitake D-fraction botanical profile with evidence, safety, and practical fit.",
+    "description": "Maitake D-fraction botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "immune"
     ],
@@ -20923,7 +20923,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -20932,7 +20932,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -21089,8 +21089,8 @@
   {
     "slug": "mangosteen",
     "name": "Mangosteen",
-    "summary": "It should be framed conservatively because broad anti-inflammatory and disease claims outrun the evidence.",
-    "description": "It should be framed conservatively because broad anti-inflammatory and disease claims outrun the evidence.",
+    "summary": "Mangosteen botanical profile with evidence, safety, and practical fit.",
+    "description": "Mangosteen botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "anti-inflammatory",
       "antioxidant"
@@ -21171,7 +21171,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -21180,7 +21180,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -21201,8 +21201,8 @@
   {
     "slug": "maral-root",
     "name": "Maral Root",
-    "summary": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality.",
-    "description": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality.",
+    "summary": "Maral Root botanical profile with evidence, safety, and practical fit.",
+    "description": "Maral Root botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "adaptogen",
       "stamina",
@@ -21281,7 +21281,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -21290,7 +21290,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -22301,8 +22301,8 @@
   {
     "slug": "mugwort",
     "name": "Mugwort",
-    "summary": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
-    "description": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
+    "summary": "Mugwort botanical profile with evidence, safety, and practical fit.",
+    "description": "Mugwort botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "digestive"
     ],
@@ -22378,7 +22378,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -22387,7 +22387,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -22861,8 +22861,8 @@
   {
     "slug": "neem",
     "name": "Neem",
-    "summary": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance.",
-    "description": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance.",
+    "summary": "Neem botanical profile with evidence, safety, and practical fit.",
+    "description": "Neem botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "antimicrobial",
       "skin-support"
@@ -22954,7 +22954,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -22963,7 +22963,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -23116,8 +23116,8 @@
   {
     "slug": "nettle-root",
     "name": "Nettle Root",
-    "summary": "It is best framed distinctly from nettle leaf.",
-    "description": "It is best framed distinctly from nettle leaf.",
+    "summary": "Nettle Root botanical profile with evidence, safety, and practical fit.",
+    "description": "Nettle Root botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -23358,8 +23358,8 @@
   {
     "slug": "noni",
     "name": "Noni",
-    "summary": "It should be framed conservatively because broad folk claims exceed the strength of modern evidence.",
-    "description": "It should be framed conservatively because broad folk claims exceed the strength of modern evidence.",
+    "summary": "Noni botanical profile with evidence, safety, and practical fit.",
+    "description": "Noni botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "antioxidant"
     ],
@@ -23445,7 +23445,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -23454,7 +23454,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -24312,8 +24312,8 @@
   {
     "slug": "oregano",
     "name": "Oregano",
-    "summary": "Oregano botanical profile with evidence, safety, and practical fit.",
-    "description": "Oregano botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "sleep"
     ],
@@ -24797,8 +24797,8 @@
   {
     "slug": "parsley",
     "name": "Parsley",
-    "summary": "Parsley botanical profile with evidence, safety, and practical fit.",
-    "description": "Parsley botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "sleep"
     ],
@@ -25146,8 +25146,8 @@
   {
     "slug": "pau-d-arco",
     "name": "Pau D'arco",
-    "summary": "It should be framed conservatively because popular claims often exceed the evidence and preparation differences matter.",
-    "description": "It should be framed conservatively because popular claims often exceed the evidence and preparation differences matter.",
+    "summary": "Pau D'arco botanical profile with evidence, safety, and practical fit.",
+    "description": "Pau D'arco botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "immune",
       "antimicrobial"
@@ -25227,7 +25227,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -25236,7 +25236,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -25736,8 +25736,8 @@
   {
     "slug": "phosphatidylserine",
     "name": "Phosphatidylserine",
-    "summary": "Phosphatidylserine botanical profile with evidence, safety, and practical fit.",
-    "description": "Phosphatidylserine botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "cognitive_support",
       "cortisol_reduction",
@@ -27073,8 +27073,8 @@
   {
     "slug": "pueraria-mirifica",
     "name": "Pueraria Mirifica",
-    "summary": "It is best framed very cautiously due to potent estrogenic positioning.",
-    "description": "It is best framed very cautiously due to potent estrogenic positioning.",
+    "summary": "Pueraria Mirifica botanical profile with evidence, safety, and practical fit.",
+    "description": "Pueraria Mirifica botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "hormonal"
     ],
@@ -27287,8 +27287,8 @@
   {
     "slug": "quercetin",
     "name": "Quercetin",
-    "summary": "Quercetin botanical profile with evidence, safety, and practical fit.",
-    "description": "Quercetin botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "antioxidant",
       "anti_inflammatory",
@@ -27412,8 +27412,8 @@
   {
     "slug": "raspberry-leaf",
     "name": "Raspberry Leaf",
-    "summary": "Raspberry Leaf botanical profile with evidence, safety, and practical fit.",
-    "description": "Raspberry Leaf botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -27531,8 +27531,8 @@
   {
     "slug": "red-clover",
     "name": "Red Clover",
-    "summary": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts.",
-    "description": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts.",
+    "summary": "Red Clover botanical profile with evidence, safety, and practical fit.",
+    "description": "Red Clover botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "antioxidant",
       "hormonal"
@@ -27621,7 +27621,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -27630,7 +27630,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -27776,8 +27776,8 @@
   {
     "slug": "rehmannia-prepared",
     "name": "Rehmannia Prepared",
-    "summary": "It should be framed distinctly from raw rehmannia because processed-form use-cases differ materially.",
-    "description": "It should be framed distinctly from raw rehmannia because processed-form use-cases differ materially.",
+    "summary": "Rehmannia Prepared botanical profile with evidence, safety, and practical fit.",
+    "description": "Rehmannia Prepared botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "sleep"
     ],
@@ -27861,7 +27861,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -27870,7 +27870,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -27891,8 +27891,8 @@
   {
     "slug": "ganoderma-lucidum",
     "name": "Reishi",
-    "summary": "Reishi botanical profile with evidence, safety, and practical fit.",
-    "description": "Reishi botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "energy"
@@ -28116,8 +28116,8 @@
   {
     "slug": "resveratrol",
     "name": "Resveratrol",
-    "summary": "Resveratrol botanical profile with evidence, safety, and practical fit.",
-    "description": "Resveratrol botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant"
@@ -28490,8 +28490,8 @@
   {
     "slug": "rice-bran",
     "name": "Rice Bran",
-    "summary": "Rice Bran botanical profile with evidence, safety, and practical fit.",
-    "description": "Rice Bran botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -28869,8 +28869,8 @@
   {
     "slug": "roselle-seed",
     "name": "Roselle Seed",
-    "summary": "It should be framed distinctly from hibiscus calyx because seed and calyx use-cases differ.",
-    "description": "It should be framed distinctly from hibiscus calyx because seed and calyx use-cases differ.",
+    "summary": "Roselle Seed botanical profile with evidence, safety, and practical fit.",
+    "description": "Roselle Seed botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "antioxidant"
     ],
@@ -28957,7 +28957,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -28966,7 +28966,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -28987,8 +28987,8 @@
   {
     "slug": "rosemary",
     "name": "Rosemary",
-    "summary": "Rosemary botanical profile with evidence, safety, and practical fit.",
-    "description": "Rosemary botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -29247,8 +29247,8 @@
   {
     "slug": "sage",
     "name": "Sage",
-    "summary": "Sage botanical profile with evidence, safety, and practical fit.",
-    "description": "Sage botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "cognitive_support",
       "antimicrobial",
@@ -29844,8 +29844,8 @@
   {
     "slug": "schisandra-berry",
     "name": "Schisandra Berry",
-    "summary": "It is best framed specifically around berry lignans and traditional stress-support positioning.",
-    "description": "It is best framed specifically around berry lignans and traditional stress-support positioning.",
+    "summary": "Schisandra Berry botanical profile with evidence, safety, and practical fit.",
+    "description": "Schisandra Berry botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "adaptogen",
       "liver_support",
@@ -29927,7 +29927,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -29936,7 +29936,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -31131,8 +31131,8 @@
   {
     "slug": "soybean",
     "name": "Soybean",
-    "summary": "Soybean botanical profile with evidence, safety, and practical fit.",
-    "description": "Soybean botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -31828,8 +31828,8 @@
   {
     "slug": "suma",
     "name": "Suma",
-    "summary": "It should be framed conservatively because traditional-use breadth exceeds evidence depth.",
-    "description": "It should be framed conservatively because traditional-use breadth exceeds evidence depth.",
+    "summary": "Suma botanical profile with evidence, safety, and practical fit.",
+    "description": "Suma botanical profile with evidence, safety, and practical fit.",
     "effects": [
       "sleep"
     ],
@@ -31907,7 +31907,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -31916,7 +31916,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -32175,8 +32175,8 @@
   {
     "slug": "artemisia-dracunculus",
     "name": "Tarragon",
-    "summary": "Tarragon botanical profile with evidence, safety, and practical fit.",
-    "description": "Tarragon botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "metabolic"
     ],
@@ -32507,8 +32507,8 @@
   {
     "slug": "thyme",
     "name": "Thyme",
-    "summary": "Thyme botanical profile with evidence, safety, and practical fit.",
-    "description": "Thyme botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "sleep"
     ],
@@ -33918,8 +33918,8 @@
   {
     "slug": "yarrow",
     "name": "Yarrow",
-    "summary": "Yarrow botanical profile with evidence, safety, and practical fit.",
-    "description": "Yarrow botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "digestive"
@@ -34026,8 +34026,8 @@
   {
     "slug": "yerba-mate",
     "name": "Yerba Mate",
-    "summary": "Yerba Mate botanical profile with evidence, safety, and practical fit.",
-    "description": "Yerba Mate botanical profile with evidence, safety, and practical fit.",
+    "summary": "Keep claims tied to source-backed preparation and safety context.",
+    "description": "Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
