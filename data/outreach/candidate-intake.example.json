@@ -1,0 +1,35 @@
+{
+  "candidates": [
+    {
+      "type": "outdated-statistic",
+      "url": "https://example.org/article-with-old-statistic",
+      "title": "Example article",
+      "context": "Uses an older supplement evidence statistic that may have a newer transparent data source.",
+      "targetUrl": "https://thehippiescientist.net/evidence/evidence-report/",
+      "contactUrl": "https://example.org/contact",
+      "relevance": 90,
+      "referralPotential": 70,
+      "notes": "Verify the old statistic and the newer replacement before pitching."
+    },
+    {
+      "type": "broken-link-replacement",
+      "url": "https://example.edu/resource-page",
+      "title": "Example evidence literacy resource page",
+      "context": "Contains a dead link to a discontinued supplement evidence resource.",
+      "targetUrl": "https://thehippiescientist.net/info/research-resources-for-writers/",
+      "contactUrl": "https://example.edu/contact",
+      "relevance": 95,
+      "notes": "Only suggest a replacement when the Hippie Scientist resource genuinely serves the same reader need."
+    },
+    {
+      "type": "unlinked-brand-mention",
+      "url": "https://example.com/story-mentioning-the-hippie-scientist",
+      "title": "Example unlinked mention",
+      "context": "Mentions The Hippie Scientist by name but does not link the cited report.",
+      "targetUrl": "https://thehippiescientist.net/evidence/evidence-report/",
+      "contactUrl": "https://example.com/contact",
+      "relevance": 100,
+      "notes": "Ask only for the source attribution link that helps readers verify the mentioned material."
+    }
+  ]
+}
