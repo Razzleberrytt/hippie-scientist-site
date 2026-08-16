@@ -95,6 +95,7 @@ export type PublicEvidenceReportMetrics = {
   humanTrialCount: number
   approximateParticipants: number
   participantCountCoverage: number
+  participantCountAmbiguityStudyCount: number
   strongOrModerateIngredients: number
   preliminaryOrInsufficientIngredients: number
   unassignedIngredients: number
@@ -262,6 +263,7 @@ function mergeStudyField<T>(current: T | undefined, incoming: T | undefined): T 
 export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]): PublicEvidenceDataset {
   const ingredients: PublicEvidenceIngredient[] = []
   const studiesById = new Map<string, PublicStudyEntity>()
+  const participantCountsByStudyId = new Map<string, Set<number>>()
   const gradeCounts = new Map<string, number>()
   const categoryMap = new Map<string, EvidenceCategorySummary>()
   let explicitlyFlaggedClaimOverreach = 0
@@ -309,6 +311,12 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       const evidenceClass = citation.evidenceClass || normalizeEvidenceStudyClass(citation.studyType)
       const relationship = normalizeEvidenceRelationship(citation.relationship)
       const id = canonicalCitationIdentifier(citation, citationIdentities) || citation.id || evidenceStudyId(citation)
+      const parsedParticipantCount = parseSampleSize(citation.sampleSize)
+      if (parsedParticipantCount !== null) {
+        const counts = participantCountsByStudyId.get(id) ?? new Set<number>()
+        counts.add(parsedParticipantCount)
+        participantCountsByStudyId.set(id, counts)
+      }
       const conditions = [...new Set([...(citation.conditions || [])].map(item => item.trim()).filter(Boolean))]
       const relationshipRecord: PublicStudyRelationship = {
         ingredientSlug: record.slug,
@@ -386,7 +394,14 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     if (yearDiff !== 0) return yearDiff
     return a.title.localeCompare(b.title)
   })
-  const studyMetrics = summarizeEvidenceStudies(studies.map(toStudyRecord))
+  const ambiguousParticipantStudyIds = new Set(
+    [...participantCountsByStudyId.entries()]
+      .filter(([, counts]) => counts.size > 1)
+      .map(([studyId]) => studyId),
+  )
+  const studyMetrics = summarizeEvidenceStudies(studies.map((study) =>
+    toStudyRecord(ambiguousParticipantStudyIds.has(study.id) ? { ...study, sampleSize: undefined } : study),
+  ))
   const categoryBySlug = new Map(ingredients.map((ingredient) => [ingredient.slug, ingredient.category] as const))
 
   for (const study of studies) {
@@ -451,6 +466,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     humanTrialCount: studyMetrics.humanTrials,
     approximateParticipants: studyMetrics.approximateParticipants,
     participantCountCoverage: studyMetrics.studiesWithParticipantCounts,
+    participantCountAmbiguityStudyCount: ambiguousParticipantStudyIds.size,
     strongOrModerateIngredients: ingredients.filter(item => item.evidenceGrade === 'A' || item.evidenceGrade === 'B').length,
     preliminaryOrInsufficientIngredients: ingredients.filter(item => item.evidenceGrade === 'C' || item.evidenceGrade === 'D' || item.evidenceGrade === 'Avoid/Insufficient').length,
     unassignedIngredients: ingredients.filter(item => item.evidenceGrade === 'Unassigned').length,
