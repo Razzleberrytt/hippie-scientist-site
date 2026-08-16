@@ -8,12 +8,21 @@ import {
 
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import ContentCards from '@/components/content/ContentCards'
+import References from '@/components/References'
 import JsonLd from '@/components/seo/JsonLd'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import {
+  buildArticleReferenceSchema,
+  normalizeArticleReferences,
   normalizeCitationMetadata,
   resolveRelatedArticles,
 } from '@/src/lib/article-citation-metadata'
+import {
+  AUTHOR_NAME,
+  AUTHOR_SCHEMA_ID,
+  AUTHOR_URL,
+  ORGANIZATION_SCHEMA_ID,
+} from '@/src/lib/schema-identities'
 import { SITE_URL, buildTwitterMetadata, compactMetaTitle } from '@/src/lib/seo'
 
 const page = allConceptPages.find((item) => item.slug === 'rhabdomyolysis')!
@@ -46,6 +55,8 @@ export default function RhabdomyolysisPage() {
   const relatedPages = resolveRelatedArticles(page, relationshipPages)
   const { keyTakeaways, citationQuestions, canonicalConcepts } =
     normalizeCitationMetadata(page)
+  const articleReferences = normalizeArticleReferences(page.references)
+  const isCanonicalAuthor = !page.author || page.author === AUTHOR_NAME
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -59,26 +70,21 @@ export default function RhabdomyolysisPage() {
     keywords: page.tags,
     articleSection: page.category,
     ...(canonicalConcepts.length > 0 ? { about: canonicalConcepts } : {}),
-    author: page.author
-      ? { '@type': 'Person', name: page.author }
-      : { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+    author: isCanonicalAuthor
+      ? {
+          '@type': 'Person',
+          '@id': AUTHOR_SCHEMA_ID,
+          name: AUTHOR_NAME,
+          url: AUTHOR_URL,
+        }
+      : { '@type': 'Person', name: page.author },
     publisher: {
       '@type': 'Organization',
+      '@id': ORGANIZATION_SCHEMA_ID,
       name: 'The Hippie Scientist',
       url: SITE_URL,
     },
-    citation: page.references.map((reference) => ({
-      '@type': 'ScholarlyArticle',
-      headline: reference.title,
-      author: reference.authors,
-      datePublished: reference.year,
-      identifier: reference.pmid ? `PMID:${reference.pmid}` : undefined,
-      url:
-        reference.url ||
-        (reference.pmid
-          ? `https://pubmed.ncbi.nlm.nih.gov/${reference.pmid}/`
-          : undefined),
-    })),
+    citation: articleReferences.map(buildArticleReferenceSchema),
   }
 
   const takeawaySchema =
@@ -139,8 +145,8 @@ export default function RhabdomyolysisPage() {
             </span>
           ) : null}
           <span aria-hidden="true">·</span>
-          <a href="#references" className="font-semibold text-brand-800 hover:underline">
-            {page.references.length} cited sources
+          <a href="#references" className="font-semibold text-brand-800 hover:underline" data-citation-sources="true">
+            {articleReferences.length} cited sources
           </a>
           <span aria-hidden="true">·</span>
           <Link href="/info/methodology/" className="font-semibold text-brand-800 hover:underline">
@@ -165,13 +171,13 @@ export default function RhabdomyolysisPage() {
       ) : null}
 
       {keyTakeaways.length > 0 ? (
-        <section aria-labelledby="metadata-takeaways-title" className="mt-6 rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5">
+        <section aria-labelledby="metadata-takeaways-title" className="mt-6 rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5" data-answer-engine-summary="true" data-evidence="true">
           <h2 id="metadata-takeaways-title" className="text-lg font-bold text-ink">
             Scientific takeaways
           </h2>
           <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
             {keyTakeaways.map((takeaway) => (
-              <li key={takeaway} className="flex gap-3">
+              <li key={takeaway} className="flex gap-3" data-claim="true">
                 <span aria-hidden="true" className="font-bold text-brand-700">•</span>
                 <span>{takeaway}</span>
               </li>
@@ -186,26 +192,11 @@ export default function RhabdomyolysisPage() {
         </ContentCards>
       </div>
 
-      <section id="references" className="mt-8 scroll-mt-24 border-t border-brand-900/15 py-8">
-        <h2 className="text-lg font-bold text-ink">References</h2>
-        <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-muted marker:font-semibold marker:text-brand-800">
-          {page.references.map((reference, index) => (
-            <li key={`${reference.title}-${index}`}>
-              {reference.authors ? `${reference.authors} ` : ''}
-              {reference.title}
-              {reference.year ? ` (${reference.year})` : ''}
-              {reference.url ? (
-                <>
-                  {' — '}
-                  <a href={reference.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 hover:underline">
-                    Source
-                  </a>
-                </>
-              ) : null}
-            </li>
-          ))}
-        </ol>
-      </section>
+      {articleReferences.length > 0 ? (
+        <div className="mt-8">
+          <References refs={articleReferences} />
+        </div>
+      ) : null}
 
       {relatedPages.length > 0 ? (
         <section className="mt-8 border-t border-brand-900/15 py-8">
