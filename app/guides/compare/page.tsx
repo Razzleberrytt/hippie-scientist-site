@@ -243,12 +243,18 @@ export default async function ComparePage() {
         </div>
       </PremiumHero>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        {guidanceCards.map((card) => (
-          <PremiumCard key={card.title} as="article" className="p-5">
-            <h2 className="text-base font-semibold text-ink">{card.title}</h2>
-            <p className="mt-2 text-sm leading-6 text-muted">{card.body}</p>
-          </PremiumCard>
+      <section className="grid border-y border-[color:var(--hs-hairline-strong)] md:grid-cols-3">
+        {guidanceCards.map((card, index) => (
+          <article
+            key={card.title}
+            className="border-b border-[color:var(--hs-hairline)] py-5 md:border-b-0 md:border-r md:px-5 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+          >
+            <span className="font-display text-sm tabular-nums text-[color:var(--hs-gold)]" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <h2 className="mt-2 text-base font-semibold text-[color:var(--hs-ink)]">{card.title}</h2>
+            <p className="mt-2 text-sm leading-6 text-[color:var(--hs-body)]">{card.body}</p>
+          </article>
         ))}
       </section>
 
@@ -258,16 +264,19 @@ export default async function ComparePage() {
           title="Pick the decision you are actually trying to make"
           description="Use a curated comparison when one exists, or open the research matrix when you already know the two ingredients you want to inspect."
         />
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {goalStarterPaths.map((path) => (
+        <div className="border-y border-[color:var(--hs-hairline-strong)] divide-y divide-[color:var(--hs-hairline)]">
+          {goalStarterPaths.map((path, index) => (
             <Link
               key={path.href}
               href={path.href}
-              className="library-content-card rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+              className="group grid gap-2 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-4 sm:grid-cols-[3rem_8rem_minmax(0,1fr)_auto] sm:items-center sm:gap-4"
             >
-              <p className="text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-100">{path.goal}</p>
-              <h2 className="mt-2 text-base font-semibold leading-6 text-ink">{path.title}</h2>
-              <p className="mt-3 text-xs font-bold text-brand-700 dark:text-brand-100">{path.cta} →</p>
+              <span className="font-display text-sm tabular-nums text-[color:var(--hs-gold)]">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <p className="text-xs font-bold uppercase tracking-widest text-[color:var(--tone-ink)]">{path.goal}</p>
+              <h2 className="text-sm font-semibold leading-6 text-[color:var(--hs-ink)]">{path.title}</h2>
+              <p className="text-xs font-bold text-[color:var(--tone-ink)] transition group-hover:translate-x-1">{path.cta} →</p>
             </Link>
           ))}
         </div>
@@ -279,28 +288,37 @@ export default async function ComparePage() {
           title="Curated comparisons"
           description="These are published routes, grouped by the decision they help clarify. New comparison pages automatically stay off this hub until their route is actually built."
         />
-        {builtFeaturedCategories.map((cat) => (
-          <div key={cat.label} className="space-y-3">
-            <div>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-200">{cat.label}</h3>
-              <p className="mt-1 text-sm leading-6 text-muted">{cat.blurb}</p>
+        <div className="border-y border-[color:var(--hs-hairline-strong)] divide-y divide-[color:var(--hs-hairline-strong)]">
+          {builtFeaturedCategories.map((cat, categoryIndex) => (
+            <div key={cat.label} className="grid gap-4 py-5 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-6">
+              <div>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-xs tabular-nums text-[color:var(--hs-gold)]" aria-hidden="true">
+                    {String(categoryIndex + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-[color:var(--tone-ink)]">{cat.label}</h3>
+                </div>
+                <p className="mt-2 text-sm leading-6 text-[color:var(--hs-body)]">{cat.blurb}</p>
+              </div>
+              <ul className="divide-y divide-[color:var(--hs-hairline)] border-y border-[color:var(--hs-hairline)]">
+                {cat.pairs.map((pair) => (
+                  <li key={pair.slug}>
+                    <Link
+                      href={`/guides/compare/${pair.slug}/`}
+                      className="group flex min-h-12 items-start justify-between gap-4 py-3 text-sm font-semibold text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+                    >
+                      <span>
+                        <span className="block text-pretty leading-6 group-hover:text-[color:var(--tone-ink)]">{pair.label}</span>
+                        {pair.note ? <span className="mt-0.5 block text-xs font-normal leading-5 text-[color:var(--hs-body)]">{pair.note}</span> : null}
+                      </span>
+                      <span className="shrink-0 pt-1 text-[color:var(--hs-body)] transition group-hover:translate-x-1 group-hover:text-[color:var(--hs-gold)]">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {cat.pairs.map((pair) => (
-                <li key={pair.slug}>
-                  <Link
-                    href={`/guides/compare/${pair.slug}/`}
-                    className="library-content-card flex h-full flex-col justify-between rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-4 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
-                  >
-                    <span className="block text-pretty leading-6">{pair.label}</span>
-                    {pair.note ? <span className="mt-2 block text-xs font-normal leading-5 text-muted">{pair.note}</span> : null}
-                    <span className="mt-3 block text-xs font-bold text-brand-700 dark:text-brand-100">Compare →</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
 
       <PremiumCard as="section" className="p-5">
@@ -348,12 +366,29 @@ export default async function ComparePage() {
           title="How to read these comparisons"
           description="What the evidence tiers mean, and what a comparison can and cannot tell you."
         />
-        <div className="grid gap-3 sm:grid-cols-2">
-          {compareFaqs.map((item) => (
-            <PremiumCard key={item.question} as="article" className="p-5">
-              <h3 className="text-base font-semibold text-ink">{item.question}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">{item.answer}</p>
-            </PremiumCard>
+        <div className="border-y border-[color:var(--hs-hairline-strong)] divide-y divide-[color:var(--hs-hairline)]">
+          {compareFaqs.map((item, index) => (
+            <details key={item.question} className="group !border-0 !bg-transparent !p-0 !shadow-none" open={index === 0}>
+              <summary className="flex min-h-12 cursor-pointer list-none items-start justify-between gap-4 py-4 text-sm font-semibold text-[color:var(--hs-ink)] [&::-webkit-details-marker]:hidden">
+                <span className="flex items-start gap-3">
+                  <span className="font-display text-sm tabular-nums text-[color:var(--hs-gold)]" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span>{item.question}</span>
+                </span>
+                <svg
+                  className="mt-0.5 size-4 shrink-0 text-[color:var(--hs-body)] transition-transform group-open:rotate-180"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </summary>
+              <p className="max-w-3xl pb-5 pl-8 text-sm leading-7 text-[color:var(--hs-body)]">{item.answer}</p>
+            </details>
           ))}
         </div>
       </section>
