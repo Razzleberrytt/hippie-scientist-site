@@ -34,6 +34,10 @@ function text(value: unknown): string {
   return String(value ?? '').trim()
 }
 
+function sameStrings(left: Set<string>, right: Set<string>): boolean {
+  return left.size === right.size && [...left].every((value) => right.has(value))
+}
+
 /**
  * Cross-check the canonical research snapshot against itself. These are
  * implementation/data invariants, not scientific judgments: if they fail, two
@@ -50,6 +54,7 @@ export function validateResearchQualitySnapshotInvariants(
   const failures: ResearchSnapshotInvariantFailure[] = []
   const profileUrls = new Set(analysis.profileAnalyses.map((profile) => profile.url))
   const approvedClaimKeys = new Set(analysis.claimAnalyses.map((claim) => claimKey(claim.url, claim.claimId)))
+  const citationPages = new Map<string, Set<string>>()
 
   const add = (kind: string, detail: string) => failures.push({ kind, detail })
   const requireProfile = (kind: string, url: string, detail: string) => {
@@ -77,13 +82,21 @@ export function validateResearchQualitySnapshotInvariants(
     const sources = Array.isArray(profile.record.sources) ? profile.record.sources : []
     const seenSources = new Set<string>()
     for (let index = 0; index < sources.length; index += 1) {
-      const id = text(sources[index]?.id)
+      const source = sources[index]
+      const id = text(source?.id)
       if (!id) {
         add('missing-source-id', `${profile.url} · sources[${index}]`)
-        continue
+      } else if (seenSources.has(id)) {
+        add('duplicate-source-id', `${profile.url}::${id}`)
+      } else {
+        seenSources.add(id)
       }
-      if (seenSources.has(id)) add('duplicate-source-id', `${profile.url}::${id}`)
-      else seenSources.add(id)
+
+      const pmid = text(source?.pmid ?? source?.pubmedId)
+      if (!pmid) continue
+      const pages = citationPages.get(pmid) ?? new Set<string>()
+      pages.add(profile.url)
+      citationPages.set(pmid, pages)
     }
   }
 
@@ -169,6 +182,20 @@ export function validateResearchQualitySnapshotInvariants(
         add('source-page-count-mismatch', `${study.pmid}: pageCount=${study.pageCount}; pages=${uniquePages.size}`)
       }
       for (const url of uniquePages) requireProfile('source-unknown-profile', url, `PMID ${study.pmid}`)
+
+      const expectedPages = citationPages.get(study.pmid)
+      if (!expectedPages) {
+        add('source-unexpected-pmid', `PMID ${study.pmid} does not exist in canonical profile sources`)
+      } else if (!sameStrings(uniquePages, expectedPages)) {
+        add(
+          'source-profile-ownership-mismatch',
+          `PMID ${study.pmid}: sourceIntegrity=${[...uniquePages].sort().join(',')}; analysis=${[...expectedPages].sort().join(',')}`,
+        )
+      }
+    }
+
+    for (const pmid of citationPages.keys()) {
+      if (!seenPmids.has(pmid)) add('source-missing-pmid', `PMID ${pmid} missing from source integrity`)
     }
   }
 
