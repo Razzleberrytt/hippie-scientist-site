@@ -255,16 +255,16 @@ function aggregateRelationship(relationships: PublicStudyRelationship[]): Eviden
 function hasWithinIngredientDirectionalHeterogeneity(study: PublicStudyEntity): boolean {
   const byIngredient = new Map<string, PublicStudyRelationship[]>()
   for (const relationship of study.relationships) {
-    const values = byIngredient.get(relationship.ingredientSlug) ?? []
+    const values = byIngredient.get(relationship.ingredientPath) ?? []
     values.push(relationship)
-    byIngredient.set(relationship.ingredientSlug, values)
+    byIngredient.set(relationship.ingredientPath, values)
   }
   return [...byIngredient.values()].some((relationships) => aggregateRelationship(relationships) === 'mixed')
 }
 
 function relationshipContextKey(relationship: PublicStudyRelationship): string {
   return JSON.stringify([
-    relationship.ingredientSlug,
+    relationship.ingredientPath,
     relationship.relationship,
     cleanString(relationship.dose).toLowerCase(),
     cleanString(relationship.duration).toLowerCase(),
@@ -522,12 +522,12 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       return a.title.localeCompare(b.title)
     })
   const studyMetrics = summarizeEvidenceStudies(studies.map(toStudyRecord))
-  const categoryBySlug = new Map(ingredients.map((ingredient) => [ingredient.slug, ingredient.category] as const))
+  const categoryByPath = new Map(ingredients.map((ingredient) => [ingredient.path, ingredient.category] as const))
 
   for (const study of studies) {
     const studyCategories = new Set(
       study.relationships
-        .map((relationship) => categoryBySlug.get(relationship.ingredientSlug))
+        .map((relationship) => categoryByPath.get(relationship.ingredientPath))
         .filter((category): category is string => Boolean(category)),
     )
     for (const category of studyCategories) {
