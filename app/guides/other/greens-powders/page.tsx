@@ -5,6 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
@@ -48,7 +49,9 @@ export default function GreensPowdersPage() {
           </figcaption>
         </figure></section>
 
-      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">Greens powders are fundamentally <strong>powdered multivitamins with plant extracts</strong>. They can fill nutrient gaps in people with poor diets — the vitamin and mineral component produces measurable effects [1,2]. But the claims that separate them from a basic multivitamin (gut health transformation, immune supercharging, detoxification) are unsupported by independent clinical evidence [3,4]. The category is defined by proprietary blends that hide ingredient doses [5], celebrity endorsements that substitute for clinical data, and pricing ($79-99/month) that far exceeds the cost of the nutrients they contain.</p></section>
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>Greens powders are fundamentally <strong>powdered multivitamins with plant extracts</strong>. They can fill nutrient gaps in people with poor diets — the vitamin and mineral component produces measurable effects [1,2]. But the claims that separate them from a basic multivitamin (gut health transformation, immune supercharging, detoxification) are unsupported by independent clinical evidence [3,4]. The category is defined by proprietary blends that hide ingredient doses [5], celebrity endorsements that substitute for clinical data, and pricing ($79-99/month) that far exceeds the cost of the nutrients they contain.</p>
+      </LegacyGuideQuickAnswer>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Greens Powder Reality Check</p>
         <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Product</th><th className="text-left py-2 pr-4 font-semibold text-ink">Cost/mo</th><th className="text-left py-2 pr-4 font-semibold text-ink">$/serving</th><th className="text-left py-2 pr-4 font-semibold text-ink">Ingredients</th><th className="text-left py-2 font-semibold text-ink">Third-Party Tested</th></tr></thead><tbody className="text-muted">
@@ -73,7 +76,7 @@ export default function GreensPowdersPage() {
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">If your diet is genuinely poor, a greens powder is a reasonable — if expensive — nutritional insurance policy. But understand you are paying primarily for marketing and convenience, not for evidence of superior efficacy over a multivitamin [3,4]. If you eat vegetables regularly, you almost certainly do not need one. At $30-40/month with transparent labeling, it can be reasonable. At $79-99/month, you are paying for influencer marketing, not your health.</p></section>
 
-      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
+      <section id="references" className="card-premium scroll-mt-24 p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
         <Ref n={1} text="AG1 Clinical Research page. Reports 70% folate increase, 73% vitamin C increase in 12-week trial." url="https://drinkag1.com/en-eu/clinical-research" />
         <Ref n={2} text="De Spirt S, et al. (2012). Fruit/vegetable juice powder supplementation reduces oxidative stress. Br J Nutr, 108(3): 452-460." url="https://pubmed.ncbi.nlm.nih.gov/22078226/" />
         <Ref n={3} text="Kennedy DO. (2016). B vitamins and the brain: mechanisms, dose and efficacy — a review. Nutrients, 8(2): 68." url="https://pubmed.ncbi.nlm.nih.gov/26828517/" />
