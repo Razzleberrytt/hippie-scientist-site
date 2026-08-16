@@ -1,4 +1,5 @@
 import { analyzeCitationIntegrity } from './citation-integrity.mjs'
+import { analyzeEvidenceGradeConsistency } from './evidence-grade-consistency'
 import { analyzeResearchQuality, type ResearchQualityAnalysis } from './research-quality-analysis'
 import { buildResearchQualityGate, type ResearchQualityGate } from './research-quality-gate'
 import { buildResearchGapQueue } from './research-quality-policy'
@@ -16,6 +17,7 @@ export type ResearchQualitySnapshot = {
   researchGapQueue: ReturnType<typeof buildResearchGapQueue>
   sourceIntegrity: ReturnType<typeof analyzeResearchSourceIntegrity>
   citationIntegrity: ReturnType<typeof analyzeCitationIntegrity>
+  evidenceGradeConsistency: ReturnType<typeof analyzeEvidenceGradeConsistency>
   invariants: ResearchSnapshotInvariantReport
 }
 
@@ -23,11 +25,11 @@ export type ResearchQualitySnapshot = {
  * Canonical execution boundary for research-quality consumers.
  *
  * Specialized reporters may format different views, but they should consume
- * this snapshot instead of independently rebuilding analysis/topology/gate/policy
- * or citation/source-integrity state. The hard gate and softer remediation queue
- * remain separate by design. Snapshot invariants are implementation contracts:
- * contradictory derived views invalidate the snapshot itself and therefore fail
- * every canonical consumer.
+ * this snapshot instead of independently rebuilding analysis/topology/gate/policy,
+ * citation/source-integrity, or evidence-grade consistency state. The hard gate
+ * and softer remediation queue remain separate by design. Snapshot invariants
+ * are implementation contracts: contradictory derived views invalidate the
+ * snapshot itself and therefore fail every canonical consumer.
  */
 export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQualitySnapshot {
   const analysis = analyzeResearchQuality(root)
@@ -36,6 +38,7 @@ export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQual
   const researchGapQueue = buildResearchGapQueue(analysis, topology)
   const sourceIntegrity = analyzeResearchSourceIntegrity(analysis)
   const citationIntegrity = analyzeCitationIntegrity(analysis.profiles)
+  const evidenceGradeConsistency = analyzeEvidenceGradeConsistency(root)
   const invariants = validateResearchQualitySnapshotInvariants(
     analysis,
     topology,
@@ -58,6 +61,7 @@ export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQual
     researchGapQueue,
     sourceIntegrity,
     citationIntegrity,
+    evidenceGradeConsistency,
     invariants,
   }
 }
