@@ -19,7 +19,6 @@ export type AggregatedTopologyGapWeights = {
   highConfidenceProvenanceNarrowBonus: number
   pseudoMultiSourceSupport: number
   underlyingStudyPublicationReuse: number
-  highConfidenceUnderlyingStudyPublicationReuseBonus: number
   independenceMetadataGap: number
   highConfidenceIndependenceMetadataBonus: number
   severeStudyClassConflict: number
@@ -249,16 +248,13 @@ export function buildAggregatedTopologyGapSignals(
 
   for (const [url, items] of groupByUrl(topology.underlyingStudyIndependence.reducedClaims)) {
     const collapsedPublications = items.reduce((sum, item) => sum + item.collapsedPublicationCount, 0)
-    const pseudoMultiStudy = items.filter((item) => item.pseudoMultiStudySupport).length
-    const highConfidencePseudo = items.filter((item) => item.highConfidencePseudoMultiStudySupport).length
     const minimumUnderlyingStudyCount = Math.min(...items.map((item) => item.underlyingStudyCount))
     signals.push({
       url,
       kind: 'underlying-study-publication-reuse',
       weight: weights.underlyingStudyPublicationReuse
-        + Math.min(12, Math.max(0, items.length - 1) * 2 + collapsedPublications + pseudoMultiStudy * 3)
-        + (highConfidencePseudo ? weights.highConfidenceUnderlyingStudyPublicationReuseBonus : 0),
-      detail: `${items.length} approved claim(s) lose apparent study independence after explicit lineage collapse; ${collapsedPublications} publication(s) collapse; ${pseudoMultiStudy} claim(s) reduce to one underlying study; ${highConfidencePseudo} high-confidence pseudo-multi-study; minimum adjusted count ${minimumUnderlyingStudyCount}`,
+        + Math.min(12, Math.max(0, items.length - 1) * 2 + collapsedPublications),
+      detail: `${items.length} approved claim(s) retain multiple underlying studies but lose apparent publication-level independence; ${collapsedPublications} publication(s) collapse; minimum adjusted count ${minimumUnderlyingStudyCount}`,
     })
   }
 
