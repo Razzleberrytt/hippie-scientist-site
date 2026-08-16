@@ -19,7 +19,19 @@ export const LOCALIZED_PROFILE_UI: Record<ProfileTranslationLocale, LocalizedPro
     educationalDisclaimer: 'Contenido educativo. No sustituye una evaluación médica individual ni instrucciones profesionales sobre medicamentos, embarazo, enfermedades o tratamiento.',
   },
   'pt-BR': {
-    evidenceEyebrow: 'Perfil de pesquisa traduzido', evidenceHeading: 'O que as evidências mostram', evidenceIntro: 'As afirmações abaixo correspondem às afirmações aprovadas do perfil científico original.', safetyHeading: 'Segurança e precauções', dosageHeading: 'Dose estudada e contexto', sourcesHeading: 'Fontes', sourcesIntro: 'Fontes vinculadas às afirmações aprovadas.', evidenceLevelLabel: 'Nível de evidência', confidenceLabel: 'Confiança editorial', sourceLabel: 'Fonte', originalLabel: 'Perfil original em inglês', backToLibraryLabel: 'Voltar para ervas', educationalDisclaimer: 'Conteúdo educacional; não substitui avaliação médica individual.',
+    evidenceEyebrow: 'Perfil de pesquisa traduzido',
+    evidenceHeading: 'O que as evidências mostram',
+    evidenceIntro: 'As afirmações abaixo correspondem, uma a uma, às afirmações aprovadas do perfil científico original. As referências permanecem no idioma original.',
+    safetyHeading: 'Segurança e precauções',
+    dosageHeading: 'Dose estudada e contexto',
+    sourcesHeading: 'Fontes',
+    sourcesIntro: 'São mostradas as fontes ligadas às afirmações aprovadas deste perfil.',
+    evidenceLevelLabel: 'Nível de evidência',
+    confidenceLabel: 'Confiança editorial',
+    sourceLabel: 'Fonte',
+    originalLabel: 'Perfil original em inglês',
+    backToLibraryLabel: 'Voltar para ervas',
+    educationalDisclaimer: 'Conteúdo educacional. Não substitui avaliação médica individual nem orientação profissional sobre medicamentos, gravidez, doenças ou tratamento.',
   },
   fr: {
     evidenceEyebrow: 'Profil de recherche traduit', evidenceHeading: 'Ce que montrent les données', evidenceIntro: 'Les affirmations ci-dessous correspondent aux affirmations approuvées du profil scientifique original.', safetyHeading: 'Sécurité et précautions', dosageHeading: 'Dose étudiée et contexte', sourcesHeading: 'Sources', sourcesIntro: 'Sources liées aux affirmations approuvées.', evidenceLevelLabel: 'Niveau de preuve', confidenceLabel: 'Confiance éditoriale', sourceLabel: 'Source', originalLabel: 'Profil original en anglais', backToLibraryLabel: 'Retour aux plantes', educationalDisclaimer: 'Contenu éducatif; ne remplace pas une évaluation médicale individuelle.',
@@ -51,9 +63,31 @@ const SPANISH_HERBS: readonly LocalizedProfileTranslation[] = [
   },
 ]
 
+const PORTUGUESE_HERBS: readonly LocalizedProfileTranslation[] = [
+  {
+    kind: 'herb',
+    slug: 'ashwagandha',
+    path: '/pt/ervas/ashwagandha/',
+    title: 'Ashwagandha (Withania somnifera): evidências e segurança',
+    summary: 'A ashwagandha é um extrato de raiz estudado principalmente para estresse persistente, sintomas de ansiedade relacionados ao estresse e sono, e não para alívio imediato. Meta-análises sugerem possível benefício, mas os ensaios usam extratos e doses diferentes e a certeza continua limitada; padronização do produto e cuidados com tireoide, fígado, gravidez e sedativos são importantes.',
+    dosage: 'Os ensaios não sustentam uma dose universal para todos os produtos. Formulações e concentrações variam; a dose deve ser interpretada de acordo com o extrato específico estudado e o contexto de segurança.',
+    safetyNotes: 'Ensaios de curto prazo geralmente relatam boa tolerabilidade, mas podem ocorrer sintomas gastrointestinais leves e sonolência. Há também sinais raros de estimulação da tireoide e lesão hepática, portanto o contexto individual é importante.',
+    contraindications: ['Evitar durante a gravidez, salvo orientação clínica específica.', 'Ter cautela adicional com doença ou medicamentos da tireoide, sedativos, anti-hipertensivos, antidiabéticos e imunossupressores.', 'Interromper o uso e buscar avaliação médica se surgirem icterícia, urina escura, coceira intensa ou sintomas persistentes na parte superior do abdome.'],
+    claims: {
+      clm_554b74f570d4: 'A base de evidências clínicas ainda é limitada por ensaios pequenos, extratos e esquemas de dose heterogêneos, medidas de desfecho variáveis e preocupações com risco de viés; por isso, os resultados de uma preparação não devem ser generalizados para todos os produtos de ashwagandha.',
+      clm_62d80de74d95: 'Ensaios randomizados de curto prazo geralmente relatam boa tolerabilidade, mas podem ocorrer sintomas gastrointestinais leves e sonolência, e as evidências disponíveis não estabelecem a segurança de longo prazo entre diferentes produtos ou populações.',
+      clm_78af0b376bf1: 'Revisões sistemáticas de ensaios randomizados sugerem que alguns extratos de ashwagandha podem reduzir o estresse percebido e sintomas de ansiedade em adultos, mas as evidências devem ser interpretadas com cautela porque formulações, doses, populações estudadas e medidas de desfecho variam entre os ensaios.',
+      clm_9318758bf577: 'Evite ashwagandha durante a gravidez, salvo orientação específica de um profissional qualificado, e tenha cautela extra com doença ou medicamentos da tireoide, sedativos, anti-hipertensivos, antidiabéticos e imunossupressores, pois os dados humanos de segurança e interação são limitados e estimulação tireoidiana ou efeitos aditivos são plausíveis.',
+      clm_d6711d6cd0c9: 'Casos raros e séries de casos de lesão hepática clinicamente significativa foram associados a produtos de ashwagandha, muitas vezes com padrão colestático ou misto; interrompa o uso e procure avaliação médica se ocorrerem icterícia, urina escura, coceira intensa ou sintomas persistentes na parte superior do abdome.',
+      clm_ead0ae0bd2e4: 'Uma revisão sistemática e meta-análise encontrou melhora global modesta nos desfechos de sono com extrato de ashwagandha, com sinal mais forte em adultos com insônia, embora o número de ensaios tenha sido limitado e o viés de publicação não pudesse ser avaliado com confiabilidade.',
+    },
+    originalPath: '/herbs/ashwagandha/',
+  },
+]
+
 export const PROFILE_TRANSLATIONS: Readonly<Record<ProfileTranslationLocale, readonly LocalizedProfileTranslation[]>> = {
   es: SPANISH_HERBS,
-  'pt-BR': [],
+  'pt-BR': PORTUGUESE_HERBS,
   fr: [],
   de: [],
 }
