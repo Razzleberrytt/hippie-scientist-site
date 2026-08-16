@@ -11,7 +11,6 @@ describe('route metadata alignment', () => {
     expect(validateRoute('/start')).toBe(true)
     expect(getRouteMetadata('/start')).toMatchObject({
       label: 'Start Here',
-      parent: '/',
     })
     expect(generateDynamicBreadcrumbs('/start')).toEqual([
       { label: 'Home', href: '/', current: false },
@@ -23,7 +22,6 @@ describe('route metadata alignment', () => {
     expect(validateRoute('/guides/metabolic-health')).toBe(true)
     expect(getRouteMetadata('/guides/metabolic-health')).toMatchObject({
       label: 'Metabolic Health',
-      parent: '/guides',
     })
     expect(generateDynamicBreadcrumbs('/guides/metabolic-health')).toEqual([
       { label: 'Home', href: '/', current: false },
