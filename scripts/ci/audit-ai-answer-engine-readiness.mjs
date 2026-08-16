@@ -9,6 +9,10 @@ const MANIFEST = path.join(ROOT, 'public', 'data', 'ai-entities', 'manifest.json
 const SCHEMA = path.join(ROOT, 'components', 'seo', 'SchemaGraphScript.tsx')
 const CITATION_SUMMARY = path.join(ROOT, 'components', 'seo', 'CitationReadySummary.tsx')
 const ANSWER_TABLE = path.join(ROOT, 'components', 'seo', 'AnswerEngineTable.tsx')
+const ARTICLE_EVIDENCE = path.join(ROOT, 'src', 'components', 'evidence', 'WhatEvidenceShows.tsx')
+const ARTICLE_CITATIONS = path.join(ROOT, 'src', 'lib', 'article-citation-metadata.ts')
+const ARTICLE_PAGE = path.join(ROOT, 'app', 'articles', '[slug]', 'page.tsx')
+const REFERENCES = path.join(ROOT, 'components', 'References.tsx')
 const EVIDENCE_BADGE = path.join(ROOT, 'components', 'ui', 'EvidenceScoreBadge.tsx')
 const SAFETY_GAUGE = path.join(ROOT, 'components', 'ui', 'SafetyGaugeMeter.tsx')
 const VERDICT_CARD = path.join(ROOT, 'components', 'editorial', 'ScientificVerdictCard.tsx')
@@ -108,6 +112,40 @@ function auditSharedExtractionPrimitives() {
   if (!existsSync(LICENSING_PAGE)) add('warn', 'attribution', 'public content licensing/attribution policy page is missing')
 }
 
+function auditArticleExtractionPrimitives() {
+  requireSignals(ARTICLE_EVIDENCE, 'article-semantics', 'WhatEvidenceShows', [
+    ['data-answer-engine-summary="true"', 'answer-engine summary marker'],
+    ['data-claim="true"', 'claim marker'],
+    ['data-evidence="true"', 'evidence marker'],
+    ['data-citation-sources="true"', 'claim-adjacent source marker'],
+    ['referencesHref', 'reference-ledger target support'],
+  ])
+
+  requireSignals(REFERENCES, 'article-semantics', 'References', [
+    ['id={`ref-${ref.n}`}', 'stable ordinal source anchors'],
+    ['data-citation-source=', 'citation-source marker'],
+    ['itemType="https://schema.org/CreativeWork"', 'CreativeWork source semantics'],
+  ])
+
+  requireSignals(ARTICLE_CITATIONS, 'article-semantics', 'article-citation-metadata', [
+    ['evidenceSourceUrl', 'canonical evidence source URL primitive'],
+    ['evidenceStudyId', 'canonical evidence source identity primitive'],
+    ['normalizeArticleReferences', 'article reference normalizer'],
+    ['buildArticleReferenceSchema', 'conservative scholarly citation schema builder'],
+  ])
+
+  requireSignals(ARTICLE_PAGE, 'article-semantics', 'generic article page', [
+    ['<References refs={articleReferences}', 'shared durable reference ledger'],
+    ["referencesHref={articleReferences.length ? '#references' : undefined}", 'claim-adjacent references target'],
+    ['articleReferences.map(buildArticleReferenceSchema)', 'canonical article citation schema builder'],
+  ])
+
+  const articleCitations = text(ARTICLE_CITATIONS)
+  if (/author\s*:/.test(articleCitations.split('buildArticleReferenceSchema')[1]?.split('buildCitationReadySummary')[0] || '')) {
+    add('error', 'article-semantics', 'article scholarly citation builder promotes free-form reference authors into structured author nodes')
+  }
+}
+
 function auditProfilePrimitives() {
   requireSignals(EVIDENCE_BADGE, 'profile-semantics', 'EvidenceScoreBadge', [
     ['data-evidence="true"', 'evidence marker'],
@@ -149,8 +187,8 @@ function auditExtractability() {
 
   for (const file of candidates) {
     const source = text(file)
-    if (/quick answer|CitationReadySummary|TL;DR/i.test(source)) quick++
-    if (/Evidence Summary|evidence grade|EvidenceGrade|EvidenceBadge/i.test(source)) evidence++
+    if (/quick answer|CitationReadySummary|TL;DR|WhatEvidenceShows/i.test(source)) quick++
+    if (/Evidence Summary|evidence grade|EvidenceGrade|EvidenceBadge|WhatEvidenceShows/i.test(source)) evidence++
     if (/References|Citations|CompareCitations|Sources/i.test(source)) references++
     if (/SchemaGraphScript|JsonLd|JSON-LD|AuthorityJsonLd|CompareSchema/i.test(source)) schema++
     if (/Safety|contraindication|interaction/i.test(source)) safety++
@@ -184,6 +222,7 @@ function auditAntiPatterns() {
 auditDiscovery()
 auditMachineReadable()
 auditSharedExtractionPrimitives()
+auditArticleExtractionPrimitives()
 auditProfilePrimitives()
 auditExtractability()
 auditAntiPatterns()

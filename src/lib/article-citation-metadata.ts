@@ -2,6 +2,7 @@ import {
   articleCitationOverrides,
   citationRelationshipTargets,
 } from '@/src/data/article-citation-overrides'
+import { evidenceSourceUrl, evidenceStudyId } from '@/lib/evidence-study'
 
 export type ArticleRelationshipRecord = {
   slug: string
@@ -23,6 +24,29 @@ export type CitationReadySummaryInput = {
   keyTakeaways?: string[]
   sourceCount?: number
   evidenceGrade?: string | null
+}
+
+export type ArticleReferenceInput = {
+  title?: unknown
+  authors?: unknown
+  journal?: unknown
+  year?: unknown
+  pmid?: unknown
+  doi?: unknown
+  url?: unknown
+}
+
+export type NormalizedArticleReference = {
+  n: number
+  title: string
+  text: string
+  authors?: string
+  journal?: string
+  year?: string | number
+  pmid?: string
+  doi?: string
+  url?: string
+  sourceId: string
 }
 
 const CAVEAT_PATTERN = /\b(?:limit(?:ation|ed|s)?|uncertain(?:ty)?|mixed|inconsistent|small|short[- ]term|preliminary|exploratory|not established|not proven|does not establish|cannot establish|unknown|unclear|lack(?:s|ing)?|sparse|indirect|heterogeneous|specific extract|specific population)\b/i
@@ -100,6 +124,77 @@ function preserveAuthoredCaveat(selected: string[], authoredSentences: string[])
 
   if (selected.length < 4) return [...selected, caveat]
   return [...selected.slice(0, 3), caveat]
+}
+
+function cleanOptionalString(value: unknown): string | undefined {
+  const text = typeof value === 'string' ? value.trim() : ''
+  return text || undefined
+}
+
+export function normalizeDoi(value: unknown): string | undefined {
+  const raw = cleanOptionalString(value)
+  if (!raw) return undefined
+  return raw
+    .replace(/^doi:\s*/i, '')
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '')
+    .trim() || undefined
+}
+
+/**
+ * Normalize article references onto the same source identity/URL primitives used
+ * by the evidence-study system. Ordinal `n` is the durable page anchor; PMID,
+ * DOI, URL, and title feed a separate stable research-source identity.
+ */
+export function normalizeArticleReferences(
+  references: readonly ArticleReferenceInput[],
+): NormalizedArticleReference[] {
+  return references.map((ref, index) => {
+    const title = cleanOptionalString(ref.title) || `Source ${index + 1}`
+    const authors = cleanOptionalString(ref.authors)
+    const journal = cleanOptionalString(ref.journal)
+    const pmid = cleanOptionalString(ref.pmid)
+    const doi = normalizeDoi(ref.doi)
+    const year = typeof ref.year === 'number' && Number.isFinite(ref.year)
+      ? ref.year
+      : cleanOptionalString(ref.year)
+    const explicitUrl = cleanOptionalString(ref.url)
+    const url = evidenceSourceUrl({ pmid, doi, url: explicitUrl })
+    const sourceId = evidenceStudyId({ pmid, doi, url, title })
+
+    return {
+      n: index + 1,
+      title,
+      text: [authors, journal, year ? String(year) : ''].filter(Boolean).join(' · '),
+      authors,
+      journal,
+      year,
+      pmid,
+      doi,
+      url,
+      sourceId,
+    }
+  })
+}
+
+/**
+ * Build conservative citation JSON-LD from known identifiers. Free-form author
+ * strings remain visible in the source ledger but are not promoted into fake
+ * structured Person/Organization nodes.
+ */
+export function buildArticleReferenceSchema(ref: NormalizedArticleReference) {
+  const identifiers = [
+    ref.pmid ? { '@type': 'PropertyValue', propertyID: 'PMID', value: ref.pmid } : null,
+    ref.doi ? { '@type': 'PropertyValue', propertyID: 'DOI', value: ref.doi } : null,
+  ].filter((value): value is { '@type': string; propertyID: string; value: string } => Boolean(value))
+
+  return {
+    '@type': 'ScholarlyArticle',
+    ...(ref.url ? { '@id': ref.url } : {}),
+    name: ref.title,
+    ...(ref.year ? { datePublished: String(ref.year) } : {}),
+    ...(identifiers.length ? { identifier: identifiers } : {}),
+    ...(ref.url ? { url: ref.url } : {}),
+  }
 }
 
 /**
