@@ -59,8 +59,10 @@ export default function Footer() {
   const versionStampParts = [`v${appVersion}`, commitHash]
   if (buildDate) versionStampParts.push(buildDate)
 
+  const footerFocusClass =
+    'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ring-brand)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)]'
   const footerLinkClass =
-    'text-sm font-medium text-[color:var(--hs-body)] transition hover:text-[color:var(--hs-ink)]'
+    `text-sm font-medium text-[color:var(--hs-body)] transition hover:text-[color:var(--hs-ink)] ${footerFocusClass}`
 
   return (
     <footer className='editorial-footer mt-16 w-full border-t border-[color:var(--hs-hairline)] px-5 pb-10 pt-10 sm:px-8 sm:pb-12 sm:pt-12'>
@@ -91,7 +93,7 @@ export default function Footer() {
               <p className='mt-2 text-sm leading-6 text-[color:var(--hs-body)]'>
                 Choose a goal, look up an ingredient, or check safety first.
               </p>
-              <Link className='mt-2 inline-flex text-sm font-bold text-[color:var(--hs-gold)] hover:text-[color:var(--hs-ink)]' to={PUBLIC_ROUTES.start} prefetch={true}>
+              <Link className={`mt-2 inline-flex text-sm font-bold text-[color:var(--hs-gold)] hover:text-[color:var(--hs-ink)] ${footerFocusClass}`} to={PUBLIC_ROUTES.start} prefetch={true}>
                 Start here →
               </Link>
             </div>
