@@ -7,7 +7,7 @@ type MonographHeroImageProps = {
   eyebrow: string
 }
 
-export default function MonographHeroImage({ image, label, eyebrow }: MonographHeroImageProps) {
+export default function MonographHeroImage({ image }: MonographHeroImageProps) {
   return (
     <figure className="overflow-hidden rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] shadow-sm">
       <Image
@@ -17,13 +17,13 @@ export default function MonographHeroImage({ image, label, eyebrow }: MonographH
         height={600}
         priority
         sizes="(min-width: 1024px) 32rem, (min-width: 640px) 50vw, 100vw"
-        className="aspect-[4/3] w-full object-cover object-center"
+        className="aspect-[16/10] w-full object-cover object-center sm:aspect-[4/3]"
       />
-      <figcaption className="border-t border-brand-900/10 px-4 py-3">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">{eyebrow}</p>
-        <p className="mt-1 text-sm font-semibold text-ink">{label}</p>
-        {image.credit ? <p className="mt-1 text-[11px] text-muted">{image.credit}</p> : null}
-      </figcaption>
+      {image.credit ? (
+        <figcaption className="border-t border-brand-900/10 px-3 py-2 text-[11px] leading-4 text-muted">
+          {image.credit}
+        </figcaption>
+      ) : null}
     </figure>
   )
 }
