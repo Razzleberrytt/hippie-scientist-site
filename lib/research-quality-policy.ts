@@ -77,6 +77,8 @@ export const RESEARCH_GAP_WEIGHTS = {
   narrowCrossProfileEvidenceBundle: 12,
   homogeneousMultiStudySupport: 7,
   highConfidenceHomogeneousMultiStudyBonus: 5,
+  provenanceNarrowMultiStudySupport: 6,
+  highConfidenceProvenanceNarrowMultiStudyBonus: 4,
   nearDuplicateEvidenceSupport: 10,
   systemicLoadBearingStudyDependency: 8,
   provenanceConcentration: 10,
@@ -112,6 +114,7 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'narrow-repeated-evidence-bundle': 'concentration',
   'narrow-cross-profile-evidence-bundle': 'concentration',
   'homogeneous-multi-study-support': 'concentration',
+  'provenance-narrow-multi-study-support': 'concentration',
   'near-duplicate-claim-evidence-support': 'concentration',
   'systemic-load-bearing-study-dependency': 'concentration',
   'provenance-concentrated-evidence': 'concentration',
@@ -231,6 +234,22 @@ function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
     for (const url of bundle.profiles) add(url, 'narrow-cross-profile-evidence-bundle', RESEARCH_GAP_WEIGHTS.narrowCrossProfileEvidenceBundle + Math.min(8, Math.max(0, bundle.profileCount - 2) * 2), `${bundle.approvedClaimCount} claims across ${bundle.profileCount} profiles reuse the same ${bundle.studyCount}-study bundle`)
   }
   for (const claim of topology.homogeneousMultiStudyClaims) add(claim.url, 'homogeneous-multi-study-support', RESEARCH_GAP_WEIGHTS.homogeneousMultiStudySupport + (claim.highConfidenceHomogeneousMultiStudySupport ? RESEARCH_GAP_WEIGHTS.highConfidenceHomogeneousMultiStudyBonus : 0), `${claim.claimId} · ${claim.studyCount} studies but one evidence family (${claim.evidenceFamilies.join(', ')})`)
+
+  for (const claim of topology.provenanceNarrowMultiStudyClaims) {
+    const highConfidenceBonus = claim.highConfidenceProvenanceNarrowMultiStudySupport
+      ? RESEARCH_GAP_WEIGHTS.highConfidenceProvenanceNarrowMultiStudyBonus
+      : 0
+    const lineage = [
+      claim.sameFirstAuthorLineage ? 'same first-author lineage' : '',
+      claim.sameJournalLineage ? 'same journal' : '',
+    ].filter(Boolean).join(' + ')
+    add(
+      claim.url,
+      'provenance-narrow-multi-study-support',
+      RESEARCH_GAP_WEIGHTS.provenanceNarrowMultiStudySupport + highConfidenceBonus,
+      `${claim.claimId} · ${claim.studyCount} studies but ${lineage}${highConfidenceBonus ? ' · high confidence' : ''}`,
+    )
+  }
 
   const overlapByProfile = new Map<string, typeof topology.claimEvidenceOverlap>()
   for (const overlap of topology.claimEvidenceOverlap) overlapByProfile.set(overlap.url, [...(overlapByProfile.get(overlap.url) ?? []), overlap])
