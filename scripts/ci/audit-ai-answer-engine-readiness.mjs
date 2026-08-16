@@ -12,6 +12,7 @@ const ANSWER_TABLE = path.join(ROOT, 'components', 'seo', 'AnswerEngineTable.tsx
 const ARTICLE_EVIDENCE = path.join(ROOT, 'src', 'components', 'evidence', 'WhatEvidenceShows.tsx')
 const ARTICLE_CITATIONS = path.join(ROOT, 'src', 'lib', 'article-citation-metadata.ts')
 const ARTICLE_PAGE = path.join(ROOT, 'app', 'articles', '[slug]', 'page.tsx')
+const MENTAL_HEALTH_ARTICLE = path.join(ROOT, 'components', 'articles', 'MentalHealthArticlePage.tsx')
 const REFERENCES = path.join(ROOT, 'components', 'References.tsx')
 const EVIDENCE_BADGE = path.join(ROOT, 'components', 'ui', 'EvidenceScoreBadge.tsx')
 const SAFETY_GAUGE = path.join(ROOT, 'components', 'ui', 'SafetyGaugeMeter.tsx')
@@ -146,6 +147,25 @@ function auditArticleExtractionPrimitives() {
   }
 }
 
+function auditMentalHealthCitationPrimitives() {
+  requireSignals(MENTAL_HEALTH_ARTICLE, 'mental-health-citations', 'MentalHealthArticlePage', [
+    ['href={`#ref-${ref.number}`}', 'ordinal inline citation targets'],
+    ['data-source-id={ref.id}', 'internal source-id provenance on inline citations'],
+    ['data-reference-ledger="true"', 'reference-ledger marker'],
+    ['id={citationId}', 'ordinal source entry anchors'],
+    ['data-citation-source="true"', 'citation-source marker'],
+    ['data-source-id={reference.id}', 'internal source-id provenance on source entries'],
+    ['itemType="https://schema.org/CreativeWork"', 'CreativeWork source semantics'],
+    ['citation: article.references.map((reference) => reference.url)', 'Article citation URL graph'],
+    ["'@id': AUTHOR_SCHEMA_ID", 'canonical first-party author identity'],
+  ])
+
+  const source = text(MENTAL_HEALTH_ARTICLE)
+  if (/href={`#ref-\$\{ref\.id\}`}/.test(source) || /id={`ref-\$\{reference\.id\}`}/.test(source)) {
+    add('error', 'mental-health-citations', 'mental-health public citation fragments expose internal source IDs instead of ordinal anchors')
+  }
+}
+
 function auditProfilePrimitives() {
   requireSignals(EVIDENCE_BADGE, 'profile-semantics', 'EvidenceScoreBadge', [
     ['data-evidence="true"', 'evidence marker'],
@@ -223,6 +243,7 @@ auditDiscovery()
 auditMachineReadable()
 auditSharedExtractionPrimitives()
 auditArticleExtractionPrimitives()
+auditMentalHealthCitationPrimitives()
 auditProfilePrimitives()
 auditExtractability()
 auditAntiPatterns()
