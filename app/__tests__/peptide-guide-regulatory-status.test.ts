@@ -49,7 +49,8 @@ describe('peptide guide regulatory status', () => {
     const cjc = read(guidePaths[2])
     const ipamorelin = read(guidePaths[3])
 
-    expect(bpc).toMatch(/no or only limited safety information/i)
+    expect(bpc).toMatch(/no or only limited safety-related information/i)
+    expect(bpc).toMatch(/lacks sufficient information to know whether compounded use would cause harm in humans/i)
     expect(tb500).toMatch(/not identified human exposure data/i)
     expect(cjc).toMatch(/increased heart rate and a systemic vasodilatory reaction/i)
     expect(ipamorelin).toMatch(/serious adverse events, including deaths/i)
