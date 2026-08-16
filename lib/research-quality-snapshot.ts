@@ -34,11 +34,11 @@ export type ResearchQualitySnapshot = {
 export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQualitySnapshot {
   const analysis = analyzeResearchQuality(root)
   const topology = buildResearchQualityTopology(analysis)
-  const gate = buildResearchQualityGate(analysis, topology)
+  const evidenceGradeConsistency = analyzeEvidenceGradeConsistency(root, topology)
+  const gate = buildResearchQualityGate(analysis, topology, evidenceGradeConsistency)
   const researchGapQueue = buildResearchGapQueue(analysis, topology)
   const sourceIntegrity = analyzeResearchSourceIntegrity(analysis)
   const citationIntegrity = analyzeCitationIntegrity(analysis.profiles)
-  const evidenceGradeConsistency = analyzeEvidenceGradeConsistency(root, topology)
   const invariants = validateResearchQualitySnapshotInvariants(
     analysis,
     topology,
