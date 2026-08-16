@@ -4,12 +4,7 @@ import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import { normalizeEffect, normalizeSafetySignals, uniqueNormalized } from '@/lib/botanical-atlas-taxonomy'
 import type { RuntimeRecord } from '@/types/content'
-import {
-  RISK_MATRIX_DEFINITIONS,
-  rowsForRiskMatrix,
-  type ResearchMatrixRow,
-  type RiskMatrixId,
-} from './research-matrices.shared'
+import type { ResearchMatrixRow } from './research-matrices.shared'
 
 export {
   RISK_MATRIX_DEFINITIONS,
