@@ -64,14 +64,22 @@ export type ProfileQualityAnalysis = {
   url: string
   sourceCount: number
   canonicalStudyCount: number
+  claimLinkedCanonicalStudyCount: number
+  orphanedCanonicalStudyCount: number
   claimCount: number
   approvedClaimCount: number
   supportedApprovedClaimCount: number
   weakStructuredClaimCount: number
   designMix: Record<string, number>
+  claimLinkedDesignMix: Record<string, number>
   primaryHuman: number
   synthesis: number
   narrativeReview: number
+  claimLinkedPrimaryHuman: number
+  claimLinkedSynthesis: number
+  claimLinkedNarrativeReview: number
+  orphanedPrimaryHuman: number
+  inventoryNarrativeToPrimaryHumanRatio: number | null
   narrativeToPrimaryHumanRatio: number | null
   narrativeDominatedVsPrimaryHuman: boolean
   unsupportedApprovedClaims: string[]
@@ -242,6 +250,21 @@ function analyzeProfile(
     }
   }
 
+  const claimLinkedDesignMix: Record<string, number> = {}
+  let claimLinkedPrimaryHuman = 0
+  let claimLinkedSynthesis = 0
+  let claimLinkedNarrativeReview = 0
+  for (const studyId of studyUse.keys()) {
+    const design = context.studyDesigns.get(studyId) ?? 'unclassified'
+    claimLinkedDesignMix[design] = (claimLinkedDesignMix[design] ?? 0) + 1
+    if (PRIMARY_HUMAN_STUDY_CLASSES.has(design)) claimLinkedPrimaryHuman += 1
+    if (SYNTHESIS_STUDY_CLASSES.has(design)) claimLinkedSynthesis += 1
+    if (NARRATIVE_STUDY_CLASSES.has(design)) claimLinkedNarrativeReview += 1
+  }
+
+  const claimLinkedCanonicalStudyCount = studyUse.size
+  const orphanedCanonicalStudyCount = Math.max(0, context.studyGroups.size - claimLinkedCanonicalStudyCount)
+  const orphanedPrimaryHuman = Math.max(0, primaryHuman - claimLinkedPrimaryHuman)
   const rankedStudyUse = [...studyUse.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
   const mostUsed = rankedStudyUse[0] ?? null
   const mostUsedStudyClaimCount = mostUsed?.[1] ?? 0
@@ -252,9 +275,15 @@ function analyzeProfile(
   const edgeShares = claimStudyEdges ? rankedStudyUse.map(([, count]) => count / claimStudyEdges) : []
   const studyConcentrationIndex = edgeShares.reduce((sum, share) => sum + share * share, 0)
   const effectiveStudyCount = studyConcentrationIndex > 0 ? 1 / studyConcentrationIndex : 0
-  const narrativeToPrimaryHumanRatio = primaryHuman > 0 ? narrativeReview / primaryHuman : narrativeReview > 0 ? null : 0
+  const inventoryNarrativeToPrimaryHumanRatio = primaryHuman > 0 ? narrativeReview / primaryHuman : narrativeReview > 0 ? null : 0
+  const narrativeToPrimaryHumanRatio = claimLinkedPrimaryHuman > 0
+    ? claimLinkedNarrativeReview / claimLinkedPrimaryHuman
+    : claimLinkedNarrativeReview > 0
+      ? null
+      : 0
   const narrativeDominatedVsPrimaryHuman =
-    narrativeReview >= 2 && (primaryHuman === 0 || narrativeReview >= primaryHuman * 2)
+    claimLinkedNarrativeReview >= 2 &&
+    (claimLinkedPrimaryHuman === 0 || claimLinkedNarrativeReview >= claimLinkedPrimaryHuman * 2)
   const overDependentOnSingleStudy =
     supportedApprovedClaimCount >= 3 &&
     dominantStudySupportedClaimShare >= 0.5 &&
@@ -264,14 +293,23 @@ function analyzeProfile(
     url,
     sourceCount: context.sources.length,
     canonicalStudyCount: context.studyGroups.size,
+    claimLinkedCanonicalStudyCount,
+    orphanedCanonicalStudyCount,
     claimCount: allClaims.length,
     approvedClaimCount: approved.length,
     supportedApprovedClaimCount,
     weakStructuredClaimCount: weakStructuredClaims.length,
     designMix,
+    claimLinkedDesignMix,
     primaryHuman,
     synthesis,
     narrativeReview,
+    claimLinkedPrimaryHuman,
+    claimLinkedSynthesis,
+    claimLinkedNarrativeReview,
+    orphanedPrimaryHuman,
+    inventoryNarrativeToPrimaryHumanRatio:
+      inventoryNarrativeToPrimaryHumanRatio === null ? null : round(inventoryNarrativeToPrimaryHumanRatio),
     narrativeToPrimaryHumanRatio: narrativeToPrimaryHumanRatio === null ? null : round(narrativeToPrimaryHumanRatio),
     narrativeDominatedVsPrimaryHuman,
     unsupportedApprovedClaims,
@@ -288,7 +326,7 @@ function analyzeProfile(
     effectiveStudyCount: round(effectiveStudyCount),
     overDependentOnSingleStudy,
     reviewDominated: narrativeDominatedVsPrimaryHuman,
-    noPrimaryHuman: approved.length > 0 && primaryHuman === 0,
+    noPrimaryHuman: approved.length > 0 && claimLinkedPrimaryHuman === 0,
   }
 }
 
