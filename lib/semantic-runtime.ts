@@ -1,6 +1,7 @@
 import compoundsData from '../public/data/compounds.json'
 import { cleanSummary, formatDisplayLabel, isClean, list as cleanList } from './display-utils'
 import { getValidComparisonSlug } from './comparison-utils'
+import { slugify } from './slug-utils'
 
 export type RuntimeCompoundInput = {
   slug?: string
@@ -60,13 +61,6 @@ function clean(value: unknown): string {
   if (typeof value === 'string') return value.trim()
   if (typeof value === 'number' || typeof value === 'boolean') return String(value).trim()
   return ''
-}
-
-function slugify(value: unknown): string {
-  return clean(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
 }
 
 function splitList(value: unknown): string[] {
