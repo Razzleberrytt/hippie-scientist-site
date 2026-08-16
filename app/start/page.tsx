@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { coreGoals, type CoreGoalSlug } from '@/lib/core-goals'
 import { buildPageMetadata } from '@/src/lib/seo'
 
 const TITLE = 'Start Here: Choose What You Are Researching'
@@ -13,27 +14,19 @@ export const metadata: Metadata = buildPageMetadata({
   openGraphType: 'website',
 })
 
+const pathDescriptions: Record<CoreGoalSlug, string> = {
+  sleep: 'Compare sleep-support evidence, timing, forms, and next-day tradeoffs.',
+  stress: 'Explore stress-related evidence without treating every calming mechanism as a proven outcome.',
+  anxiety: 'Use stricter evidence and safety framing for anxiety-adjacent research.',
+  focus: 'Research attention, cognition, stimulant tradeoffs, and non-stimulant approaches.',
+}
+
 const paths = [
-  {
-    label: 'Sleep',
-    href: '/guides/sleep/',
-    description: 'Compare sleep-support evidence, timing, forms, and next-day tradeoffs.',
-  },
-  {
-    label: 'Stress',
-    href: '/guides/stress/',
-    description: 'Explore stress-related evidence without treating every calming mechanism as a proven outcome.',
-  },
-  {
-    label: 'Anxiety',
-    href: '/guides/anxiety/',
-    description: 'Use stricter evidence and safety framing for anxiety-adjacent research.',
-  },
-  {
-    label: 'Focus',
-    href: '/guides/focus/',
-    description: 'Research attention, cognition, stimulant tradeoffs, and non-stimulant approaches.',
-  },
+  ...coreGoals.map((goal) => ({
+    label: goal.label,
+    href: goal.href,
+    description: pathDescriptions[goal.slug],
+  })),
   {
     label: 'Ingredient lookup',
     href: '/search/',
@@ -44,7 +37,7 @@ const paths = [
     href: '/safety-checker/',
     description: 'Screen combinations for documented or theoretical caution flags and open the full safety profiles.',
   },
-] as const
+]
 
 export default function StartHerePage() {
   return (
