@@ -19,16 +19,19 @@ It flags:
 
 The audit is advisory by default. `--strict` upgrades warnings to release-blocking failures. Contradictions classified as errors fail in either mode.
 
-### Evidence concentration
+### Evidence topology and concentration
 
-Run `node scripts/ci/audit-ai-evidence-concentration.mjs` after AI entity artifacts are built.
+Run the canonical research-quality pipeline through `npx tsx scripts/ci/research-quality.ts` (or the release/CI command that owns it).
 
-It flags:
+The shared `ResearchQualitySnapshot` is the authority for:
 
-- claim nodes with no source linkage;
-- claim nodes dependent on only one source;
-- profiles dominated by narrative reviews instead of primary human research or systematic reviews;
-- profiles where one source supports at least 75% of claim nodes.
+- unsupported claims and dangling source links;
+- claims dependent on only one independent canonical study;
+- profiles dominated by narrative reviews rather than primary human research or systematic synthesis;
+- profiles where one underlying study supports a disproportionate share of claims;
+- source-integrity failures, canonical hard-gate decisions, and remediation priorities.
+
+Study dependence is evaluated using canonical study identity rather than raw citation-row IDs, so DOI/PMID aliases and duplicate source rows do not create false evidence diversity.
 
 This does not assume that one-study evidence is false. It identifies concentration risk so answer surfaces can preserve uncertainty instead of presenting apparent consensus.
 
@@ -42,7 +45,7 @@ A flagged record should be resolved in the source-of-truth data, not patched onl
 4. Downgrade evidence language when independent human replication is absent.
 5. Preserve legitimate conflicting evidence explicitly.
 6. Prefer systematic synthesis plus primary human studies over narrative-review-only support for strong clinical conclusions.
-7. Rebuild AI entity artifacts and rerun both audits.
+7. Rebuild governed/runtime artifacts and rerun the canonical claim-integrity and research-quality checks.
 
 ## AI-search rule
 
