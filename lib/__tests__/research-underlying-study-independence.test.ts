@@ -45,6 +45,7 @@ function trialAnalysis(
   sameRegisteredTrialPairs: Array<{ leftStudyId: string; rightStudyId: string; trialRegistrationId: string }> = [],
 ): TrialRegistrationIndependenceAnalysis {
   return {
+    studies: [],
     claims: [{
       url: '/herbs/example/',
       claimId: 'claim-1',
@@ -63,6 +64,9 @@ function trialAnalysis(
     sameTrialReuseClaims: [],
     highConfidenceSameTrialReuseClaims: [],
     summary: {
+      canonicalStudies: 0,
+      studiesWithRegistryCoverage: 0,
+      studiesWithAmbiguousRegistryEvidence: 0,
       multiStudyApprovedClaims: 1,
       claimsWithRegistryCoverage: 0,
       claimsWithAmbiguousRegistryEvidence: 0,
