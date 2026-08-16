@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { sourceClassesForEvidenceClasses } from './lib/source-class-governance'
+import { sourceClassesForEvidenceClasses, type EvidenceClass, type SourceClass } from './lib/source-class-governance'
 
 type ItemType = 'herb_page' | 'compound_page' | 'collection_page' | 'comparison_page' | 'discovery_surface' | 'recommendation_surface'
 type PriorityLabel = 'do_now' | 'next_wave' | 're_review_needed' | 'governance_fix_needed' | 'low_priority' | 'defer'
@@ -25,8 +25,8 @@ type GapBucket =
 
 type SourceRegistryRow = {
   sourceId: string
-  sourceClass: string
-  evidenceClass: string
+  sourceClass: SourceClass
+  evidenceClass: EvidenceClass
   sourceType: string
   active: boolean
 }
@@ -57,8 +57,8 @@ type GapItem = {
   priorityLabel: PriorityLabel
   topicType: TopicType
   sourceGapType: SourceGapType
-  currentSourceClasses: string[]
-  recommendedSourceClasses: string[]
+  currentSourceClasses: Array<SourceClass | 'none_registered_or_active'>
+  recommendedSourceClasses: SourceClass[]
   safetyCritical: boolean
   publishBlocking: boolean
   relatedWorkpackIds: string[]
@@ -99,9 +99,9 @@ const PUBLICATION_MANIFEST_PATH = path.join(ROOT, 'public', 'data', 'publication
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'source-gaps.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'source-gaps.md')
 
-const HUMAN_EVIDENCE_CLASSES = new Set(['human-clinical', 'human-observational'])
+const HUMAN_EVIDENCE_CLASSES = new Set<EvidenceClass>(['human-clinical', 'human-observational'])
 const HUMAN_SOURCE_CLASSES = sourceClassesForEvidenceClasses(HUMAN_EVIDENCE_CLASSES)
-const SAFETY_SOURCE_CLASSES = new Set([
+const SAFETY_SOURCE_CLASSES = new Set<SourceClass>([
   'regulatory-agency-monograph-guidance',
   'reference-database-authority',
   'systematic-review-meta-analysis',
@@ -124,7 +124,7 @@ function normalizeTopic(topic: string): TopicType {
   return 'surface_coverage'
 }
 
-function recommendedClassesFor(topic: TopicType, gapType: SourceGapType): string[] {
+function recommendedClassesFor(topic: TopicType, gapType: SourceGapType): SourceClass[] {
   if (topic === 'safety' || gapType === 'lack_of_safety_sources') {
     return ['regulatory-agency-monograph-guidance', 'systematic-review-meta-analysis']
   }
