@@ -5,6 +5,7 @@ on:
     paths:
       - 'components/seo/**'
       - 'components/StructuredData.tsx'
+      - 'components/compare/CompareSchema.tsx'
       - 'components/editorial/ProfileDecisionPanel.tsx'
       - 'components/editorial/ScientificVerdictCard.tsx'
       - 'components/ui/EvidenceScoreBadge.tsx'
@@ -88,6 +89,7 @@ jobs:
         run: >-
           npx eslint
           components/StructuredData.tsx
+          components/compare/CompareSchema.tsx
           components/seo/SchemaGraphScript.tsx
           components/seo/CitationReadySummary.tsx
           components/seo/AnswerEngineTable.tsx
