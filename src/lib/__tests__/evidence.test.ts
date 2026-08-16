@@ -24,9 +24,30 @@ describe('hasHumanEvidence', () => {
     expect(hasHumanEvidence(record({ evidence_tier: 'Strong human clinical trial evidence' }))).toBe(true)
   })
 
-  it('falls back to source count when text is ambiguous', () => {
-    expect(hasHumanEvidence(record({ summary_quality: 'reviewed', sourceCount: 6 }))).toBe(true)
+  it('does not manufacture human evidence from raw source count', () => {
+    expect(hasHumanEvidence(record({ summary_quality: 'reviewed', sourceCount: 20 }))).toBe(false)
     expect(hasHumanEvidence(record({ summary_quality: 'reviewed', sourceCount: 2 }))).toBe(false)
+  })
+
+  it('uses structured study classes ahead of optimistic grade language', () => {
+    expect(hasHumanEvidence(record({
+      evidence_grade: 'A',
+      evidence_tier: 'Strong Evidence',
+      sources: [
+        { id: 'animal-1', title: 'Animal study', studyType: 'animal study' },
+        { id: 'vitro-1', title: 'Cell study', studyType: 'in vitro study' },
+      ],
+    }))).toBe(false)
+  })
+
+  it('detects human evidence from structured human-study classes', () => {
+    expect(hasHumanEvidence(record({
+      evidence_tier: 'Limited Evidence',
+      sources: [
+        { id: 'rct-1', title: 'Human trial', studyType: 'randomized controlled trial' },
+        { id: 'animal-1', title: 'Animal study', studyType: 'animal study' },
+      ],
+    }))).toBe(true)
   })
 
   it('does not use source count fallback when text says evidence is limited', () => {
