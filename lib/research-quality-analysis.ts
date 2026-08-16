@@ -29,6 +29,8 @@ export type ClaimSupportTier =
 export type ClaimQualityAnalysis = {
   url: string
   claimId: string
+  reviewStatus: string
+  approved: boolean
   predicate: string
   confidence: number
   sourceRefCount: number
@@ -85,6 +87,7 @@ export type ResearchQualityAnalysis = {
   profiles: ReturnType<typeof listResearchProfiles>
   profileAnalyses: ProfileQualityAnalysis[]
   claimAnalyses: ClaimQualityAnalysis[]
+  structuredClaimAnalyses: ClaimQualityAnalysis[]
 }
 
 type ProfileResearchContext = {
@@ -129,6 +132,8 @@ function analyzeClaim(url: string, claim: ResearchClaim, context: ProfileResearc
   const predicate = String(claim.predicate ?? '')
   const outcomeClaim = predicate === 'supports_outcome'
   const confidence = Number(claim.confidence ?? 0)
+  const reviewStatus = String(claim.reviewStatus ?? '').trim().toLowerCase()
+  const approved = reviewStatus === 'approved'
   const strongHumanSupport = primaryHuman + synthesis > 0
 
   let supportTier: ClaimSupportTier = 'non-outcome'
@@ -144,6 +149,8 @@ function analyzeClaim(url: string, claim: ResearchClaim, context: ProfileResearc
   return {
     url,
     claimId: String(claim.id ?? 'unknown-claim'),
+    reviewStatus,
+    approved,
     predicate,
     confidence,
     sourceRefCount: refs.length,
@@ -173,6 +180,7 @@ function analyzeProfile(
 ): ProfileQualityAnalysis {
   const allClaims = Array.isArray(context.record.claimMap) ? context.record.claimMap : []
   const approved = approvedClaims(context.record)
+  const approvedAnalyses = claims.filter((claim) => claim.approved)
   const designMix: Record<string, number> = {}
   let primaryHuman = 0
   let synthesis = 0
@@ -194,7 +202,7 @@ function analyzeProfile(
   let claimStudyEdges = 0
   let supportedApprovedClaimCount = 0
 
-  for (const analysis of claims) {
+  for (const analysis of approvedAnalyses) {
     if (analysis.supportTier === 'unsupported') unsupportedApprovedClaims.push(analysis.claimId)
     if (analysis.weakStructuredClaim) weakStructuredClaims.push(analysis.claimId)
     if (analysis.singleStudy) singleStudyApprovedClaims.push(analysis.claimId)
@@ -264,14 +272,17 @@ export function analyzeResearchQuality(root = process.cwd()): ResearchQualityAna
   const cache = loadPubmedCache(root)
   const profiles = listResearchProfiles(root)
   const claimAnalyses: ClaimQualityAnalysis[] = []
+  const structuredClaimAnalyses: ClaimQualityAnalysis[] = []
   const profileAnalyses: ProfileQualityAnalysis[] = []
 
   for (const { url, record } of profiles) {
     const context = buildProfileContext(record, cache)
-    const claims = approvedClaims(record).map((claim) => analyzeClaim(url, claim, context))
-    claimAnalyses.push(...claims)
-    profileAnalyses.push(analyzeProfile(url, context, claims))
+    const structuredClaims = (Array.isArray(record.claimMap) ? record.claimMap : []).map((claim) => analyzeClaim(url, claim, context))
+    const approved = structuredClaims.filter((claim) => claim.approved)
+    structuredClaimAnalyses.push(...structuredClaims)
+    claimAnalyses.push(...approved)
+    profileAnalyses.push(analyzeProfile(url, context, structuredClaims))
   }
 
-  return { cache, profiles, profileAnalyses, claimAnalyses }
+  return { cache, profiles, profileAnalyses, claimAnalyses, structuredClaimAnalyses }
 }
