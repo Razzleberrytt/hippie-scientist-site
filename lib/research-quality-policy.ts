@@ -88,6 +88,7 @@ export const RESEARCH_GAP_WEIGHTS = {
   journalConcentrationBonus: 4,
   provenanceNarrowMultiStudySupport: 8,
   highConfidenceProvenanceNarrowBonus: 4,
+  pseudoMultiSourceSupport: 9,
   uncertainStudyIdentityCoverage: 10,
   highConfidenceIdentityUncertaintyBonus: 8,
   weakIdentityCoverageBonus: 6,
@@ -127,6 +128,7 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'systemic-load-bearing-study-dependency': 'concentration',
   'provenance-concentrated-evidence': 'concentration',
   'claim-provenance-narrow-multi-study-support': 'concentration',
+  'pseudo-multi-source-support': 'concentration',
   'narrative-review-dominated-profile': 'evidence-mix',
   'edge-weighted-narrative-dominance': 'evidence-mix',
   'approved-claims-without-primary-human-study': 'evidence-mix',
@@ -239,6 +241,16 @@ function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
   for (const claim of topology.homogeneousMultiStudyClaims) {
     const bonus = claim.highConfidenceHomogeneousMultiStudySupport ? RESEARCH_GAP_WEIGHTS.highConfidenceHomogeneousMultiStudyBonus : 0
     add(claim.url, 'homogeneous-multi-study-support', RESEARCH_GAP_WEIGHTS.homogeneousMultiStudySupport + bonus, `${claim.claimId} · ${claim.studyCount} studies but one evidence family (${claim.evidenceFamilies.join(', ')})`)
+  }
+  for (const claim of topology.edgeCardinality.pseudoMultiSourceClaims) {
+    if (!claim.approved) continue
+    const bonus = Math.min(6, claim.aliasCollapsedSourceCount * 2)
+    add(
+      claim.url,
+      'pseudo-multi-source-support',
+      RESEARCH_GAP_WEIGHTS.pseudoMultiSourceSupport + bonus,
+      `${claim.claimId} · ${claim.validUniqueSourceRefCount} distinct source rows collapse to ${claim.canonicalStudyCount} canonical study`,
+    )
   }
 
   const overlapByProfile = new Map<string, typeof topology.claimEvidenceOverlap>()
