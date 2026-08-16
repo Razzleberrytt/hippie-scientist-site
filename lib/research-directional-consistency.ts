@@ -6,6 +6,7 @@ import {
   uniqueSourceRefs,
   type ResearchClaim,
 } from './research-coverage'
+import { researchSourceEvidenceText } from './research-evidence-text'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 
 export type DirectionalConsistencyFinding = {
@@ -54,21 +55,6 @@ function text(value: unknown): string {
   return String(value ?? '').replace(/\s+/g, ' ').trim()
 }
 
-function sourceEvidenceText(source: Record<string, unknown>, cache: ResearchQualityAnalysis['cache']): string {
-  const pmid = text(source.pmid ?? source.pubmedId)
-  const meta = pmid ? cache[pmid] ?? {} : {}
-  return [
-    source.title,
-    source.note,
-    source.citation,
-    source.result,
-    source.results,
-    source.effect,
-    meta.title,
-    meta.abstract,
-  ].map(text).filter(Boolean).join(' · ')
-}
-
 function isOutcomeClaim(claim: ResearchClaim): boolean {
   return /supports_outcome|benefit|efficacy/i.test(text(claim.predicate))
 }
@@ -115,7 +101,7 @@ export function analyzeDirectionalConsistency(analysis: ResearchQualityAnalysis)
         .filter((source) => PRIMARY_HUMAN_STUDY_CLASSES.has(sourceStudyClass(source, analysis.cache)))
       if (!humanSources.length) continue
 
-      const sourceTexts = humanSources.map((source) => sourceEvidenceText(source, analysis.cache)).filter(Boolean)
+      const sourceTexts = humanSources.map((source) => researchSourceEvidenceText(source, analysis.cache)).filter(Boolean)
       if (!sourceTexts.length) continue
       const explicitDirectionalSourceCount = sourceTexts.filter(hasExplicitDirectionalSignal).length
       if (!explicitDirectionalSourceCount) continue
