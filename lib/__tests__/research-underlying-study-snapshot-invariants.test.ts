@@ -42,6 +42,12 @@ function fixtures() {
     publicationStudyCount: 2,
     underlyingStudyCount: 1,
     collapsedPublicationCount: 1,
+    inventoryPublicationStudyCount: 2,
+    inventoryUnderlyingStudyCount: 1,
+    inventoryCollapsedPublicationCount: 1,
+    primaryHumanPublicationCount: 2,
+    primaryHumanUnderlyingStudyCount: 1,
+    collapsedPrimaryHumanPublicationCount: 1,
     mostUsedUnderlyingStudyId: 'a',
     mostUsedUnderlyingStudyClaimCount: 1,
     dominantUnderlyingStudySupportedClaimShare: 1,
@@ -66,8 +72,19 @@ function fixtures() {
         highConfidencePseudoMultiStudyClaims: 1,
         supportTierDowngrades: 1,
         collapsedPublicationCount: 1,
+        profilesAnalyzed: 1,
         profilesWithSupportedClaims: 1,
         profilesWithReducedStudyCount: 1,
+        profilesWithReducedHumanStudyCount: 1,
+        primaryHumanPublicationCount: 2,
+        primaryHumanUnderlyingStudyCount: 1,
+        collapsedPrimaryHumanPublicationCount: 1,
+        globalInventoryPublicationCount: 2,
+        globalInventoryUnderlyingStudyCount: 1,
+        globalCollapsedInventoryPublicationCount: 1,
+        globalPrimaryHumanPublicationCount: 2,
+        globalPrimaryHumanUnderlyingStudyCount: 1,
+        globalCollapsedPrimaryHumanPublicationCount: 1,
         overDependentProfiles: 0,
         newlyOverDependentProfiles: 0,
       },
@@ -96,5 +113,21 @@ describe('underlying-study snapshot invariants', () => {
     topology.underlyingStudyIndependence.summary.pseudoMultiStudyClaims = 0
     const kinds = validateUnderlyingStudySnapshotInvariants(analysis, topology).map((failure) => failure.kind)
     expect(kinds).toContain('underlying-study-pseudo-count-mismatch')
+  })
+
+  it('rejects global underlying-study arithmetic drift', () => {
+    const { analysis, topology } = fixtures()
+    topology.underlyingStudyIndependence.summary.globalPrimaryHumanUnderlyingStudyCount = 2
+    const kinds = validateUnderlyingStudySnapshotInvariants(analysis, topology).map((failure) => failure.kind)
+    expect(kinds).toContain('underlying-study-global-primary-human-collapse-mismatch')
+    expect(kinds).toContain('underlying-study-global-primary-human-underlying-exceeds-incidences')
+  })
+
+  it('rejects impossible global counts above profile incidences', () => {
+    const { analysis, topology } = fixtures()
+    topology.underlyingStudyIndependence.summary.globalInventoryPublicationCount = 3
+    topology.underlyingStudyIndependence.summary.globalCollapsedInventoryPublicationCount = 2
+    const kinds = validateUnderlyingStudySnapshotInvariants(analysis, topology).map((failure) => failure.kind)
+    expect(kinds).toContain('underlying-study-global-publication-exceeds-incidences')
   })
 })
