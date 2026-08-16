@@ -3,19 +3,7 @@ import type { ProfileDecision } from '@/lib/profile-decision'
 import ScientificVerdictCard from '@/components/editorial/ScientificVerdictCard'
 import EvidenceConfidence from '@/components/editorial/EvidenceConfidence'
 
-/**
- * ProfileDecisionPanel — the shared decision surface for every herb and
- * compound profile. Rendered once by each profile template, so improving it
- * improves hundreds of pages at once.
- *
- * - When the slug has a curated verdict (config/profile-verdicts.ts), it opens
- *   with a full ScientificVerdictCard.
- * - Always shows an intent-based "Continue reading" nav derived from the
- *   record's own data — replacing generic related-link dumps with routing.
- *
- * Static-safe server component; theme-aware. Data comes from
- * `buildProfileDecision(record, kind)`.
- */
+/** Shared decision surface for every herb and compound profile. */
 export function ProfileDecisionPanel({
   decision,
   name,
@@ -30,6 +18,7 @@ export function ProfileDecisionPanel({
     <div className="space-y-4">
       {verdict ? (
         <ScientificVerdictCard
+          id="decision-summary"
           title={`Verdict: ${name}`}
           recommendation={verdict.recommendation}
           confidence={verdict.confidence}
@@ -76,31 +65,20 @@ export function ProfileDecisionPanel({
                   <p className="text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--hs-gold)]">Start here</p>
                   <p className="text-sm leading-6 text-[color:var(--hs-body)]">
                     New to this? Begin with{' '}
-                    <Link
-                      href={verdict.primaryGuide.href}
-                      className="font-bold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
-                    >
+                    <Link href={verdict.primaryGuide.href} className="font-bold text-[color:var(--tone-ink)] underline-offset-4 hover:underline">
                       {verdict.primaryGuide.label}
-                    </Link>
-                    .
+                    </Link>.
                   </p>
                 </div>
               ) : null}
 
               {verdict?.comparisons && verdict.comparisons.length > 0 ? (
                 <div className="border-t border-[color:var(--hs-hairline)] py-4 sm:grid sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-4">
-                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
-                    Compare first
-                  </p>
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">Compare first</p>
                   <ul className="mt-2 space-y-2 sm:mt-0">
                     {verdict.comparisons.map((comparison) => (
                       <li key={comparison.href} className="text-sm leading-6 text-[color:var(--hs-body)]">
-                        <Link
-                          href={comparison.href}
-                          className="font-bold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
-                        >
-                          {comparison.label}
-                        </Link>
+                        <Link href={comparison.href} className="font-bold text-[color:var(--tone-ink)] underline-offset-4 hover:underline">{comparison.label}</Link>
                         <span> — if {comparison.when}</span>
                       </li>
                     ))}
@@ -115,12 +93,7 @@ export function ProfileDecisionPanel({
                     {continueReading.map((path) => (
                       <li key={path.href} className="text-sm leading-6 text-[color:var(--hs-body)]">
                         <span>If you want {path.ifYouWant} → </span>
-                        <Link
-                          href={path.href}
-                          className="font-bold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
-                        >
-                          {path.goTo}
-                        </Link>
+                        <Link href={path.href} className="font-bold text-[color:var(--tone-ink)] underline-offset-4 hover:underline">{path.goTo}</Link>
                       </li>
                     ))}
                   </ul>
