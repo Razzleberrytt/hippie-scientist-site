@@ -376,9 +376,6 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
         }
         existing.relationshipSummary = aggregateRelationship(existing.relationships)
       }
-
-      if (isHumanEvidenceClass(evidenceClass)) categorySummary.humanStudies += 1
-      if (isHumanTrialClass(evidenceClass)) categorySummary.humanTrials += 1
     }
 
     categoryMap.set(category, categorySummary)
@@ -390,6 +387,21 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     return a.title.localeCompare(b.title)
   })
   const studyMetrics = summarizeEvidenceStudies(studies.map(toStudyRecord))
+  const categoryBySlug = new Map(ingredients.map((ingredient) => [ingredient.slug, ingredient.category] as const))
+
+  for (const study of studies) {
+    const studyCategories = new Set(
+      study.relationships
+        .map((relationship) => categoryBySlug.get(relationship.ingredientSlug))
+        .filter((category): category is string => Boolean(category)),
+    )
+    for (const category of studyCategories) {
+      const summary = categoryMap.get(category)
+      if (!summary) continue
+      if (isHumanEvidenceClass(study.evidenceClass)) summary.humanStudies += 1
+      if (isHumanTrialClass(study.evidenceClass)) summary.humanTrials += 1
+    }
+  }
 
   let supportingRelationships = 0
   let mixedRelationships = 0
