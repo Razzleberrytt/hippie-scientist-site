@@ -60,6 +60,11 @@ html.dark {
   --surface-card: rgba(26, 48, 40, 0.96);
   --surface-card-strong: #1e372d;
   --surface-subtle: rgba(26, 48, 40, 0.58);
+  --surface-code: #12221a;
+  --surface-warning: rgba(67, 49, 18, 0.78);
+  --surface-danger: rgba(67, 28, 28, 0.76);
+  --surface-info: rgba(24, 52, 40, 0.90);
+  --surface-neutral: rgba(18, 34, 26, 0.94);
   --border-soft: rgba(180, 210, 190, 0.16);
   --border-strong: rgba(180, 210, 190, 0.26);
   --ring-brand: rgba(149, 185, 154, 0.32);
