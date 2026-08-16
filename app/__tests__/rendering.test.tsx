@@ -19,8 +19,6 @@ vi.mock('next/link', () => {
   }
 })
 
-// Mock the CSS file import in HerbsIndexClient
-vi.mock('../../styles/premium-cards.css', () => ({}))
 
 describe('Rendering and Content Quality Tests', () => {
   const mockHerbs: RuntimeRecord[] = [

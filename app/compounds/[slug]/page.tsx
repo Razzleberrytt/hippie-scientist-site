@@ -31,6 +31,7 @@ import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getAffiliateShopLinks } from '../../../src/lib/affiliate'
 import { SourcingCta } from '../../../src/components/sourcing/SourcingCta'
+import { describeEvidenceRating } from '@/lib/decision-primitives'
 import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-utils'
 import { getDosePresentation, hasStatedDose } from '@/lib/dose-presentation'
 import AuthorCredentials from '@/components/AuthorCredentials'
@@ -1053,7 +1054,9 @@ export default async function CompoundPage({ params }: PageProps) {
           <EvidenceMeter level={evidenceLevel || 'moderate'} />
           <div className="space-y-3 text-sm leading-6 text-muted">
             <p>
-              {displayName} has a <strong>{evidenceLevel?.toLowerCase() || 'mixed or uncertain'}</strong> evidence rating.
+              {/* The label already contains the word "evidence"; appending it
+                  here rendered "a moderate evidence evidence rating". */}
+              {displayName} has <strong>{describeEvidenceRating(evidenceLevel)}</strong>.
             </p>
             <EvidenceSnapshotCard snapshot={snapshot} />
           </div>
