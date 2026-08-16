@@ -11,6 +11,8 @@ import {
   type RuntimeIngredient,
 } from '../timing-data'
 
+const EMPTY_STATIC_EXPORT_SLUG = '__static-export-empty__'
+
 function hasDaypartDecision(timing: string): boolean {
   return /\b(morning|afternoon|evening|night|nighttime|bedtime|before bed|daytime|earlier in the day|later in the day)\b/i.test(timing)
 }
@@ -23,7 +25,8 @@ function getFoodDecision(record: RuntimeIngredient, timing: string): string {
 
 export async function generateStaticParams() {
   const ingredients = await loadIndexableTimingIngredients()
-  return ingredients.map((record) => ({ slug: cleanTimingValue(record.slug) }))
+  const realParams = ingredients.map((record) => ({ slug: cleanTimingValue(record.slug) }))
+  return realParams.length ? realParams : [{ slug: EMPTY_STATIC_EXPORT_SLUG }]
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
