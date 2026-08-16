@@ -9,7 +9,8 @@ const DATASETS = [
 ]
 const strict = process.argv.includes('--strict')
 
-const STRONG = /\b(?:grade\s*)?a\b|strong human evidence|high confidence|well[- ]established|robust evidence/i
+const STRONG_LABEL = /(?:^|\b)grade\s*a\b|^a$|strong human evidence|high confidence|well[- ]established|robust evidence/i
+const STRONG_CLAIM = /strong human evidence|high confidence|well[- ]established|robust evidence/i
 const WEAK = /preliminary|mixed evidence|limited evidence|insufficient|unclear|weak evidence|theoretical|animal evidence|in[- ]vitro|mechanistic only|research pending/i
 const NEGATIVE = /not supported|unsupported|no good evidence|insufficient evidence|does not support|failed to show|no clear benefit/i
 const POSITIVE = /effective|efficacious|clinically proven|proven to|shown to improve|strong evidence for|supports the use/i
@@ -74,7 +75,7 @@ for (const [kind, file] of DATASETS) {
     const claimText = textFor(record, CLAIM_FIELDS)
     const allText = flatten(record).join(' | ')
 
-    const hasStrong = STRONG.test([...labels, claimText].join(' | '))
+    const hasStrong = labels.some((label) => STRONG_LABEL.test(label)) || STRONG_CLAIM.test(claimText)
     const hasWeak = WEAK.test(claimText)
     if (hasStrong && hasWeak) {
       totals.contradictoryStrength++
