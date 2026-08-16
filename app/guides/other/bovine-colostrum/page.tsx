@@ -5,6 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
@@ -37,7 +38,9 @@ export default function BovineColostrumGuidePage() {
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/bovine-colostrum.jpg" alt="Bovine colostrum powder supplement in a jar with a scoop and capsules" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Bovine colostrum — nutrient-rich but the dose gap between research and commercial products is substantial.</figcaption></figure>
       </section>
 
-      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold text-ink">Quick answer</h2><p className="text-sm leading-7 text-muted">Bovine colostrum is the first milk produced by cows after giving birth, containing 2-4× higher protein and immunoglobulin concentrations than mature milk [3]. The evidence is most consistent for <strong>modest respiratory infection reduction in athletes</strong> [1,2] and <strong>gut barrier support under exercise stress</strong> [2,5]. However, positive studies used 20-60 g/day — doses 10-30× higher than typical 1-2 g/day supplements [3]. Most other claims (muscle growth, fat loss, anti-aging) have weak or no human evidence. The 2024 systematic review in Sustainable Food Technology concluded bovine colostrum shows promise but &ldquo;requires more high-quality human trials&rdquo; [3].</p></section>
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>Bovine colostrum is the first milk produced by cows after giving birth, containing 2-4× higher protein and immunoglobulin concentrations than mature milk [3]. The evidence is most consistent for <strong>modest respiratory infection reduction in athletes</strong> [1,2] and <strong>gut barrier support under exercise stress</strong> [2,5]. However, positive studies used 20-60 g/day — doses 10-30× higher than typical 1-2 g/day supplements [3]. Most other claims (muscle growth, fat loss, anti-aging) have weak or no human evidence. The 2024 systematic review in Sustainable Food Technology concluded bovine colostrum shows promise but &ldquo;requires more high-quality human trials&rdquo; [3].</p>
+      </LegacyGuideQuickAnswer>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Colostrum Evidence</p>
         <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Claim</th><th className="text-left py-2 pr-4 font-semibold text-ink">Evidence</th><th className="text-left py-2 pr-4 font-semibold text-ink">Studied Dose</th><th className="text-left py-2 font-semibold text-ink">Commercial Dose</th></tr></thead><tbody className="text-muted">
@@ -82,7 +85,7 @@ export default function BovineColostrumGuidePage() {
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Bovine colostrum has a plausible mechanism and modest evidence for immune and gut barrier support — primarily in athletes, primarily at high doses (20-60 g/day), and primarily from small, short-term studies [1-3,5,8]. The dose gap between research and commercial products (10-30×) means most consumers cannot practically replicate studied protocols. For athletes seeking marginal immune support during heavy training, 20+ g/day of a quality-controlled product is a reasonable, if expensive, evidence-informed intervention. For everyone else, the evidence does not justify the cost — especially when a diverse, nutrient-dense diet provides overlapping benefits at a fraction of the price [12].</p></section>
 
-      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
+      <section id="references" className="card-premium scroll-mt-24 p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
         <Ref n={1} text="Crooks C, et al. (2010). Bovine colostrum supplementation increases salivary IgA in distance runners. Int J Sport Nutr Exerc Metab, 20(5): 431-439." url="https://pubmed.ncbi.nlm.nih.gov/20975111/" />
         <Ref n={2} text="Drugs.com. Bovine Colostrum: Uses, Benefits & Dosage. Clinical overview updated Dec 2025." url="https://www.drugs.com/npp/bovine-colostrum.html" />
         <Ref n={3} text="Sustainable Food Technology (2024). Bovine colostrum as a promising nutraceutical: a systematic review. RSC Sustain Food Technol, 2: 680-698." url="https://pubs.rsc.org/en/content/articlehtml/2024/fb/d3fb00256j" />
