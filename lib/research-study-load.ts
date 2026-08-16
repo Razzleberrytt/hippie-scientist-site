@@ -11,6 +11,19 @@ export type CrossProfileStudyLoad = {
   systemicLoadBearing: boolean
 }
 
+export type EvidenceBundleReuse = {
+  url: string
+  studyIds: string[]
+  studyCount: number
+  approvedClaimCount: number
+  outcomeClaimCount: number
+  highConfidenceClaimCount: number
+  predicates: string[]
+  claims: Array<{ claimId: string; predicate: string; confidence: number }>
+  repeatedEvidenceBundle: boolean
+  narrowRepeatedEvidenceBundle: boolean
+}
+
 /**
  * Measure how many approved claims and profiles depend on each canonical study.
  * This complements per-profile concentration: a study may look harmless on every
@@ -68,5 +81,63 @@ export function analyzeCrossProfileStudyLoad(analysis: ResearchQualityAnalysis):
       || b.approvedClaimCount - a.approvedClaimCount
       || b.profileCount - a.profileCount
       || a.studyId.localeCompare(b.studyId),
+    )
+}
+
+/**
+ * Detect multiple approved structured claims on the same profile that reuse the
+ * exact same canonical evidence bundle. Reuse is not automatically wrong, but
+ * it is a topology warning when several apparently distinct claims are all
+ * underwritten by the same narrow study set.
+ */
+export function analyzeEvidenceBundleReuse(analysis: ResearchQualityAnalysis): EvidenceBundleReuse[] {
+  const bundles = new Map<string, {
+    url: string
+    studyIds: string[]
+    claims: Array<{ claimId: string; predicate: string; confidence: number; outcomeClaim: boolean }>
+  }>()
+
+  for (const claim of analysis.claimAnalyses) {
+    if (claim.studyIds.length === 0) continue
+    const studyIds = [...claim.studyIds].sort()
+    const key = `${claim.url}::${studyIds.join('|')}`
+    const item = bundles.get(key) ?? { url: claim.url, studyIds, claims: [] }
+    item.claims.push({
+      claimId: claim.claimId,
+      predicate: claim.predicate,
+      confidence: claim.confidence,
+      outcomeClaim: claim.outcomeClaim,
+    })
+    bundles.set(key, item)
+  }
+
+  return [...bundles.values()]
+    .filter((item) => item.claims.length >= 2)
+    .map((item) => {
+      const predicates = [...new Set(item.claims.map((claim) => claim.predicate))].sort()
+      const approvedClaimCount = item.claims.length
+      const outcomeClaimCount = item.claims.filter((claim) => claim.outcomeClaim).length
+      const highConfidenceClaimCount = item.claims.filter((claim) => claim.confidence >= 0.75).length
+      const studyCount = item.studyIds.length
+      return {
+        url: item.url,
+        studyIds: item.studyIds,
+        studyCount,
+        approvedClaimCount,
+        outcomeClaimCount,
+        highConfidenceClaimCount,
+        predicates,
+        claims: item.claims
+          .map(({ claimId, predicate, confidence }) => ({ claimId, predicate, confidence }))
+          .sort((a, b) => a.claimId.localeCompare(b.claimId)),
+        repeatedEvidenceBundle: approvedClaimCount >= 2,
+        narrowRepeatedEvidenceBundle: approvedClaimCount >= 3 && studyCount <= 2,
+      }
+    })
+    .sort((a, b) =>
+      Number(b.narrowRepeatedEvidenceBundle) - Number(a.narrowRepeatedEvidenceBundle)
+      || b.approvedClaimCount - a.approvedClaimCount
+      || a.studyCount - b.studyCount
+      || a.url.localeCompare(b.url),
     )
 }

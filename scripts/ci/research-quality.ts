@@ -8,7 +8,7 @@ import path from 'node:path'
 import { buildAiCitationReadiness, writeAiCitationReadinessReport } from '../../lib/ai-citation-readiness'
 import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
 import { buildResearchGapQueue, structuralCoverageFailures } from '../../lib/research-quality-policy'
-import { analyzeCrossProfileStudyLoad } from '../../lib/research-study-load'
+import { analyzeCrossProfileStudyLoad, analyzeEvidenceBundleReuse } from '../../lib/research-study-load'
 
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
@@ -50,6 +50,8 @@ const structuralFailures = structuralCoverageFailures(analysis)
 const researchGapQueue = buildResearchGapQueue(analysis)
 const crossProfileStudyLoad = analyzeCrossProfileStudyLoad(analysis)
 const systemicLoadBearingStudies = crossProfileStudyLoad.filter((study) => study.systemicLoadBearing)
+const evidenceBundleReuse = analyzeEvidenceBundleReuse(analysis)
+const narrowRepeatedEvidenceBundles = evidenceBundleReuse.filter((bundle) => bundle.narrowRepeatedEvidenceBundle)
 const aiCitationReadiness = buildAiCitationReadiness(analysis, ROOT)
 const aiCitationReportPath = writeAiCitationReadinessReport(aiCitationReadiness, ROOT)
 const weakApprovedOutcomes = analysis.claimAnalyses.filter((claim) =>
@@ -73,7 +75,7 @@ results.push({
   passed: corePassed,
   exitCode: corePassed ? 0 : 1,
   durationMs: coreDurationMs,
-  stdoutTail: `profiles=${analysis.profileAnalyses.length}; structuredClaims=${analysis.structuredClaimAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; gaps=${researchGapQueue.length}; systemicStudies=${systemicLoadBearingStudies.length}; aiBelow70=${aiCitationReadiness.summary.below70}`,
+  stdoutTail: `profiles=${analysis.profileAnalyses.length}; structuredClaims=${analysis.structuredClaimAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; gaps=${researchGapQueue.length}; systemicStudies=${systemicLoadBearingStudies.length}; narrowEvidenceBundles=${narrowRepeatedEvidenceBundles.length}; aiBelow70=${aiCitationReadiness.summary.below70}`,
   stderrTail: structuralFailures.length ? `${structuralFailures.length} structurally invalid approved-claim evidence edge(s)` : '',
 })
 console.log(`${corePassed ? 'PASS' : 'FAIL'}  Canonical claim/profile research-quality analysis  (${coreDurationMs}ms)`)
@@ -113,24 +115,29 @@ const coreSummary = {
   profilesWithResearchGaps: researchGapQueue.length,
   canonicalStudiesSupportingApprovedClaims: crossProfileStudyLoad.length,
   systemicLoadBearingStudies: systemicLoadBearingStudies.length,
+  repeatedEvidenceBundles: evidenceBundleReuse.length,
+  narrowRepeatedEvidenceBundles: narrowRepeatedEvidenceBundles.length,
   aiCitationReadiness: aiCitationReadiness.summary,
 }
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 4,
+  schemaVersion: 5,
   generatedAt: new Date().toISOString(),
   passed: !failed,
   source: {
     analysis: 'lib/research-quality-analysis.ts',
     policy: 'lib/research-quality-policy.ts',
     crossProfileStudyLoad: 'lib/research-study-load.ts',
+    evidenceBundleReuse: 'lib/research-study-load.ts',
     aiCitationReadiness: 'lib/ai-citation-readiness.ts',
   },
   coreSummary,
   structuralFailures,
   systemicLoadBearingStudies: systemicLoadBearingStudies.slice(0, 50),
   topCrossProfileStudyLoad: crossProfileStudyLoad.slice(0, 100),
+  narrowRepeatedEvidenceBundles: narrowRepeatedEvidenceBundles.slice(0, 100),
+  topRepeatedEvidenceBundles: evidenceBundleReuse.slice(0, 100),
   topResearchGaps: researchGapQueue.slice(0, 50),
   topAiCitationRemediation: aiCitationReadiness.profiles.slice(0, 50),
   checks: results,
@@ -142,6 +149,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
 console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structuredClaims} structured claims · ${coreSummary.approvedClaims} approved`)
 console.log(`Structural failures ${coreSummary.structuralFailures} · weak approved outcomes ${coreSummary.weakApprovedOutcomeClaims} · research-gap profiles ${coreSummary.profilesWithResearchGaps}`)
 console.log(`Systemic load-bearing studies ${coreSummary.systemicLoadBearingStudies} of ${coreSummary.canonicalStudiesSupportingApprovedClaims} canonical studies supporting approved claims`)
+console.log(`Repeated evidence bundles ${coreSummary.repeatedEvidenceBundles} · narrow repeated bundles ${coreSummary.narrowRepeatedEvidenceBundles}`)
 console.log(`AI citation remediation: ${aiCitationReadiness.summary.below70} below 70 · ${aiCitationReadiness.summary.contradictions} contradiction(s)`)
 console.log(`AI report: ${path.relative(ROOT, aiCitationReportPath)}`)
 console.log(`Roll-up report: ${path.relative(ROOT, REPORT_PATH)}`)
