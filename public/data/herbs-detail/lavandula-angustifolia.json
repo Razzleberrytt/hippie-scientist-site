@@ -65,14 +65,17 @@
     {
       "id": "src_525198d2adf3",
       "title": "Efficacy of Silexan in patients with anxiety disorders: a meta-analysis of randomized, placebo-controlled trials",
-      "url": "https://consensus.app/papers/efficacy-of-silexan-in-patients-with-anxiety-disorders-a-dold-bartova/041f3cbbb2b05d4cacdc107ebb82a836/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36717399/",
       "year": "2023",
       "authors": "M. Dold; L. Bartova; H. Volz; E. Seifritz; H. Möller; S. Schläfke; S. Kasper",
       "journal": "European Archives of Psychiatry and Clinical Neuroscience",
       "citation": "Consensus result; citation_count=22; record_type=meta_analysis",
       "note": "oral lavender oil/Silexan 80 mg/day anxiety evidence and tolerability",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "36717399",
+      "metadataSource": "pubmed",
+      "doi": "10.1007/s00406-022-01547-w"
     }
   ],
   "governance": {

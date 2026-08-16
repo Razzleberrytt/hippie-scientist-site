@@ -97,25 +97,31 @@
     {
       "id": "src_6b0972925707",
       "title": "Spicy Food and Chili Peppers and Multiple Health Outcomes: Umbrella Review",
-      "url": "https://consensus.app/papers/spicy-food-and-chili-peppers-and-multiple-health-outcomes-ao-huang/3c578e8dc02759e09f8fe1f74f33f490/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36111960/",
       "year": "2022",
       "authors": "Ao, Huang, Liu",
       "journal": "Molecular Nutrition & Food Research",
       "citation": "11 systematic reviews/meta-analyses; health effects unclear; side effects confirmed; context matters",
       "note": "capsicum/capsaicin claim caution",
       "studyType": "Systematic review",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "36111960",
+      "metadataSource": "pubmed",
+      "doi": "10.1002/mnfr.202200167"
     },
     {
       "id": "src_862d85e3eb53",
       "title": "Estimation of Dietary Capsaicinoid Exposure in Korea and Assessment of Its Health Effects",
-      "url": "https://consensus.app/papers/estimation-of-dietary-capsaicinoid-exposure-in-korea-and-kwon/c060344aae1a57aa8b0a5ace9318fa73/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34371974/",
       "year": "2021",
       "authors": "Kwon",
       "journal": "Nutrients",
       "citation": "Mean capsaicinoid intake 3.25 mg/day; abdominal pain reported; 30 mg/day may be max tolerable for long-term repeated consumption",
       "note": "capsaicin exposure and GI tolerance",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "34371974",
+      "metadataSource": "pubmed",
+      "doi": "10.3390/nu13072461"
     },
     {
       "id": "src_f2f784543ec2",

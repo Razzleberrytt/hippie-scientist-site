@@ -63,14 +63,18 @@
     {
       "id": "src_260b165ed8d2",
       "title": "The Effect of Oral Chamomile on Anxiety: A Systematic Review of Clinical Trials",
-      "url": "https://consensus.app/papers/the-effect-of-oral-chamomile-on-anxiety-a-systematic-review-saadatmand-zohroudi/7de23efdbf525d5986abf12902117c10/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38784853/",
       "year": "2024",
       "authors": "Sogand Saadatmand; Foad Zohroudi; Hadith Tangestani",
       "journal": "Clinical Nutrition Research",
       "citation": "Consensus result; citation_count=15; record_type=systematic_review",
       "note": "chamomile oral anxiety evidence",
-      "studyType": "Systematic review",
-      "reviewStatus": "approved"
+      "studyType": "Narrative review",
+      "reviewStatus": "approved",
+      "pmid": "38784853",
+      "metadataSource": "pubmed",
+      "doi": "10.7762/cnr.2024.13.2.139",
+      "studyClass": "narrative-review"
     },
     {
       "id": "src_fa1aef801f0c",

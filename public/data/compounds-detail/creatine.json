@@ -212,14 +212,18 @@
     {
       "id": "src_da5119881f63",
       "title": "The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis",
-      "url": "https://consensus.app/papers/the-effects-of-creatine-supplementation-on-cognitive-xu-bi/54813b2512da51388b5b582d3efdfa9d/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39070254/",
       "year": "2024",
       "authors": "Xu et al.",
       "journal": "Frontiers in Nutrition",
       "citation": "Sixteen RCTs; creatine monohydrate; memory evidence moderate certainty; processing speed/attention lower certainty.",
       "note": "evidence;dose_form;runtime_claim_gate",
-      "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "studyType": "Systematic review",
+      "reviewStatus": "approved",
+      "pmid": "39070254",
+      "metadataSource": "pubmed",
+      "doi": "10.3389/fnut.2024.1424972",
+      "studyClass": "systematic-review"
     }
   ],
   "dosage": "Creatine monohydrate; adult RCT evidence; domain-specific cognition outcomes. Use studied-dose table; do not invent one universal cognitive dose from meta-analysis alone.",

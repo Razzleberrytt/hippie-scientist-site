@@ -60,14 +60,17 @@
     {
       "id": "src_3eb0f5163a0f",
       "title": "Improvement of cognitive functions by oral intake of Hericium erinaceus",
-      "url": "https://consensus.app/papers/improvement-of-cognitive-functions-by-oral-intake-of-saitsu-nishide/bb8bf1a9c44759b4ac8d0144f78a8db5/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31413233/",
       "year": "2019",
       "authors": "Saitsu et al.",
       "journal": "Biomedical Research",
       "citation": "12-week RCT; MMSE improved",
       "note": "cognition evidence",
       "studyType": "Randomized controlled trial",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "31413233",
+      "metadataSource": "pubmed",
+      "doi": "10.2220/biomedres.40.125"
     },
     {
       "id": "src_50fc6db1c39d",

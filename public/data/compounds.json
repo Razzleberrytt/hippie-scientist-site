@@ -18341,7 +18341,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": "Consistent",
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 9 recorded studies, 8 in people. No disagreement is recorded across them.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 10 recorded studies, 9 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "Safety evidence: systematic review evidence shows a small serum-creatinine increase without a significant decline in glomerular filtration in studied users. Evidence in pre-existing kidney disease, pregnancy, breastfeeding, and long-term use remains limited; serum creatinine should be interpreted in context.",
     "contraindications": [],
@@ -18408,8 +18408,8 @@
     "evidence_grade_reason": "contradiction-resolved-conservatively",
     "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
     "evidence_grade_adjusted": true,
-    "evidence_human_study_count": 8,
-    "evidence_recorded_study_count": 9,
+    "evidence_human_study_count": 9,
+    "evidence_recorded_study_count": 10,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -37564,7 +37564,7 @@
     "evidence_design_match": "Systematic review",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": null,
-    "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 1 recorded study, 1 in people.",
+    "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 2 recorded studies, 2 in people.",
     "trial_design_insight": "",
     "safety": "Caution for thyroid/MAOI/stimulant-medication contexts in later safety pass.",
     "contraindications": [
@@ -37636,8 +37636,8 @@
     "evidence_grade_reason": "minor-disagreement",
     "evidence_grade_explanation": "The evidence tier records preliminary evidence, one band from the recorded grade.",
     "evidence_grade_adjusted": false,
-    "evidence_human_study_count": 1,
-    "evidence_recorded_study_count": 1,
+    "evidence_human_study_count": 2,
+    "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -40429,7 +40429,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": "Consistent",
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 8 recorded studies, 7 in people. No disagreement is recorded across them.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 9 recorded studies, 7 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "Safety evidence: supplemental magnesium can cause dose-related gastrointestinal effects. Severe renal impairment increases hypermagnesemia risk, and magnesium can reduce absorption of some oral antibiotics and bisphosphonates; safety and tolerability vary by salt and dose.",
     "contraindications": [
@@ -40501,7 +40501,7 @@
     "evidence_grade_explanation": "Grade A requires strong human evidence; the evidence tier records moderate evidence, so the grade is capped.",
     "evidence_grade_adjusted": true,
     "evidence_human_study_count": 7,
-    "evidence_recorded_study_count": 8,
+    "evidence_recorded_study_count": 9,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -42234,7 +42234,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": "Consistent",
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 10 recorded studies, 9 in people. No disagreement is recorded across them.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 12 recorded studies, 11 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "Safety evidence: higher-dose adult trials found more drowsiness, headache, and dizziness without a detected serious-adverse-event increase, but reporting and long-term evidence were limited. Driving, concurrent sedatives, pregnancy, breastfeeding, pediatric use, and chronic use require individualized review.",
     "contraindications": [
@@ -42310,8 +42310,8 @@
     "evidence_grade_reason": "agree",
     "evidence_grade_explanation": "Both evidence signals agree on strong evidence.",
     "evidence_grade_adjusted": false,
-    "evidence_human_study_count": 9,
-    "evidence_recorded_study_count": 10,
+    "evidence_human_study_count": 11,
+    "evidence_recorded_study_count": 12,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -65695,7 +65695,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": null,
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
     "trial_design_insight": "",
     "safety": "Safety evidence: excessive vitamin D3 can cause persistent hypercalcemia or hypercalciuria; risk depends on dose, duration, calcium intake, disease context, and measured vitamin D and calcium status. High-dose use, kidney disease, granulomatous disease, pregnancy, and interacting medicines require clinician review.",
     "contraindications": [
@@ -65765,8 +65765,8 @@
     "evidence_grade_reason": "contradiction-resolved-conservatively",
     "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
     "evidence_grade_adjusted": true,
-    "evidence_human_study_count": 1,
-    "evidence_recorded_study_count": 1,
+    "evidence_human_study_count": 2,
+    "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null

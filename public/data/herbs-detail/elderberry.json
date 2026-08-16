@@ -54,18 +54,6 @@
       "metadataSource": "pubmed"
     },
     {
-      "pubmedId": "30670267",
-      "title": "Black elderberry (Sambucus nigra) supplementation effectively treats upper respiratory symptoms: A meta-analysis of randomized, controlled clinical trials",
-      "authors": "Hawkins J et al.",
-      "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30670267/",
-      "journal": "Complement Ther Med",
-      "doi": "10.1016/j.ctim.2018.12.004",
-      "studyType": "Meta-analysis",
-      "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
-    },
-    {
       "id": "src_28c26c941797",
       "title": "Black elderberry (Sambucus nigra) supplementation effectively treats upper respiratory symptoms: A meta-analysis of randomized, controlled clinical trials",
       "url": "https://pubmed.ncbi.nlm.nih.gov/30670267/",
@@ -79,7 +67,8 @@
       "doi": "10.1016/j.ctim.2018.12.004",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "pubmedId": "30670267"
     }
   ],
   "governance": {

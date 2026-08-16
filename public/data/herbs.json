@@ -2534,7 +2534,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": "Consistent",
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 10 recorded studies, 8 in people. No disagreement is recorded across them.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 11 recorded studies, 9 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "Generally tolerated short-term in studied standardized root-extract trials, but long-term safety is not established. Rare clinically apparent liver injury has been reported. Common mild effects can include GI upset, loose stools, nausea, and drowsiness.",
     "contraindications": [
@@ -2606,8 +2606,8 @@
     "evidence_grade_reason": "minor-disagreement",
     "evidence_grade_explanation": "The evidence tier records strong evidence, one band from the recorded grade.",
     "evidence_grade_adjusted": false,
-    "evidence_human_study_count": 8,
-    "evidence_recorded_study_count": 10,
+    "evidence_human_study_count": 9,
+    "evidence_recorded_study_count": 11,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -2673,7 +2673,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": "Consistent",
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 10 recorded studies, 10 in people. No disagreement is recorded across them.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 9 recorded studies, 9 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "GI upset, rare thyroid stimulation",
     "contraindications": [
@@ -2736,8 +2736,8 @@
     "evidence_grade_reason": "agree",
     "evidence_grade_explanation": "Both evidence signals agree on strong evidence.",
     "evidence_grade_adjusted": false,
-    "evidence_human_study_count": 10,
-    "evidence_recorded_study_count": 10,
+    "evidence_human_study_count": 9,
+    "evidence_recorded_study_count": 9,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -2791,7 +2791,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": null,
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
     "trial_design_insight": "",
     "safety": "Can potentiate MAOIs (phenelzine, tranylcypromine) causing manic-like symptoms, and combining with other stimulants may raise heart rate and blood pressure. May reduce warfarin's anticoagulant effect, altering bleeding-clot risk and requiring dose review. Avoid with uncontrolled high blood pressure, acute asthma, acute infections, or heavy nosebleeds or menstrual bleeding.",
     "contraindications": [
@@ -2854,8 +2854,8 @@
     "evidence_grade_reason": "minor-disagreement",
     "evidence_grade_explanation": "The evidence tier records moderate evidence, one band from the recorded grade.",
     "evidence_grade_adjusted": false,
-    "evidence_human_study_count": 1,
-    "evidence_recorded_study_count": 1,
+    "evidence_human_study_count": 2,
+    "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -6647,8 +6647,8 @@
     "evidence_tier": "Limited/Contextual Human Evidence",
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
-    "evidence_consistency": null,
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 2 in people.",
+    "evidence_consistency": "Consistent",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 3 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "Culinary chili exposure is different from concentrated capsaicin extracts. Safety is dose-dependent; GI irritation, reflux aggravation, abdominal pain, burning sensation, and mucosal irritation are the main practical concerns.",
     "contraindications": [
@@ -6710,8 +6710,8 @@
     "evidence_grade_reason": "agree",
     "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
     "evidence_grade_adjusted": false,
-    "evidence_human_study_count": 2,
-    "evidence_recorded_study_count": 3,
+    "evidence_human_study_count": 3,
+    "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -7778,7 +7778,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": "Consistent",
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 5 recorded studies, 3 in people. No disagreement is recorded across them.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 6 recorded studies, 3 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "May support sleep quality and calm/anxiety symptoms; evidence is supportive but not definitive. | Do not claim it treats insomnia or anxiety disorders; do not imply sleep duration/efficiency improvements are consistent. | Use as beginner-friendly sleep/anxiety page with allergy and objective-evidence caveats.",
     "contraindications": [
@@ -7843,7 +7843,7 @@
     "evidence_grade_explanation": "Both evidence signals agree on moderate evidence.",
     "evidence_grade_adjusted": false,
     "evidence_human_study_count": 3,
-    "evidence_recorded_study_count": 5,
+    "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -12387,7 +12387,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": "Consistent",
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 5 recorded studies, 4 in people. No disagreement is recorded across them.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 3 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "Use cooked/standardized berry preparations; raw/unripe parts can contain cyanogenic glycosides; caution in autoimmune/immunosuppressed contexts.",
     "contraindications": [
@@ -12452,8 +12452,8 @@
     "evidence_grade_reason": "contradiction-resolved-conservatively",
     "evidence_grade_explanation": "The recorded grade (limited evidence) and evidence tier (strong evidence) conflict, so the weaker signal is published pending review.",
     "evidence_grade_adjusted": false,
-    "evidence_human_study_count": 4,
-    "evidence_recorded_study_count": 5,
+    "evidence_human_study_count": 3,
+    "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -19162,7 +19162,7 @@
     "evidence_design_match": "Meta-analysis",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": "Consistent",
-    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 3 in people. No disagreement is recorded across them.",
+    "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 5 recorded studies, 4 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "Oral standardized lavender oil may reduce anxiety symptoms in studied adult populations. | Do not imply any lavender product has the same evidence; do not sell essential oil ingestion advice. | Make the page specifically distinguish Silexan/oral lavender oil from aromatherapy.",
     "contraindications": [
@@ -19227,8 +19227,8 @@
     "evidence_grade_reason": "agree",
     "evidence_grade_explanation": "Both evidence signals agree on strong evidence.",
     "evidence_grade_adjusted": false,
-    "evidence_human_study_count": 3,
-    "evidence_recorded_study_count": 4,
+    "evidence_human_study_count": 4,
+    "evidence_recorded_study_count": 5,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -19976,7 +19976,7 @@
     "evidence_design_match": "Systematic review",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": "Consistent",
-    "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 11 recorded studies, 7 in people. No disagreement is recorded across them.",
+    "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 12 recorded studies, 8 in people. No disagreement is recorded across them.",
     "trial_design_insight": "",
     "safety": "Generally food-like but not risk-free; reported supplement side effects include stomach discomfort, headache, allergic reactions, and occasional withdrawals in small clinical studies. Long-term safety is not well established.",
     "contraindications": [
@@ -20045,8 +20045,8 @@
     "evidence_grade_reason": "agree",
     "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
     "evidence_grade_adjusted": false,
-    "evidence_human_study_count": 7,
-    "evidence_recorded_study_count": 11,
+    "evidence_human_study_count": 8,
+    "evidence_recorded_study_count": 12,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null
@@ -28042,7 +28042,7 @@
     "evidence_design_match": "Systematic review",
     "evidence_risk_of_bias": "Low",
     "evidence_consistency": null,
-    "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 1 recorded study, 1 in people.",
+    "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 2 recorded studies, 1 in people.",
     "trial_design_insight": "",
     "safety": "May increase bleeding risk when combined with anticoagulants, antiplatelets, or aspirin, and can oppose immunosuppressant medications used post-transplant or for autoimmune disease. Existing liver disease is a caution requiring medical supervision; rare liver-enzyme elevation has been reported mainly at very high, prolonged doses. Mild dizziness, GI upset, or skin irritation are the most common side effects.",
     "contraindications": [
@@ -28108,7 +28108,7 @@
     "evidence_grade_explanation": "The recorded grade (preliminary evidence) and evidence tier (moderate evidence) conflict, so the weaker signal is published pending review.",
     "evidence_grade_adjusted": false,
     "evidence_human_study_count": 1,
-    "evidence_recorded_study_count": 1,
+    "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
     "evidence_grade_backing_gap": null

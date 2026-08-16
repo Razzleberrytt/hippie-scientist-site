@@ -66,14 +66,17 @@
     {
       "id": "src_2624fc605180",
       "title": "The effect of vitamin D supplementation on depression: a systematic review and dose-response meta-analysis of randomized controlled trials",
-      "url": "https://consensus.app/papers/the-effect-of-vitamin-d-supplementation-on-depression-a-ghaemi-zeraattalab-motlagh/27635710ab285174913487b32352b0f5/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39552387/",
       "year": "2024",
       "authors": "Ghaemi et al.",
       "journal": "Psychological Medicine",
       "citation": "31 RCTs/24,189 participants; depressive symptoms modest short-term improvement; no significant anxiety effect.",
       "note": "evidence;dose_form;runtime_claim_gate",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "39552387",
+      "metadataSource": "pubmed",
+      "doi": "10.1017/S0033291724001697"
     }
   ],
   "dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context.",

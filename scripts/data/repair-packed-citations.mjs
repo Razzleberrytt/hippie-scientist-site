@@ -17,7 +17,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { normalizePmidList } from '../../lib/citation-identifiers.mjs'
+import { normalizeDoi, normalizePmidList } from '../../lib/citation-identifiers.mjs'
 
 const ROOT = process.cwd()
 const DATA_DIR = path.join(ROOT, 'public', 'data')
@@ -79,9 +79,60 @@ function expandSource(source) {
   return out
 }
 
+/**
+ * Collapse sources on the same profile that are the same study.
+ *
+ * Recovering a missing PMID by title search surfaced these: a paper already
+ * cited under a curated title matched again under PubMed's, differing only by
+ * a hyphen against an em-dash. Counting one study as two would inflate the
+ * evidence backing a claim.
+ *
+ * Identity is the DOI or PMID, never the title — two spellings of one title
+ * are the reason this exists. The richer record wins so no metadata is lost.
+ */
+function dedupeSources(sources) {
+  const byIdentifier = new Map()
+  const out = []
+  let removed = 0
+
+  for (const source of sources) {
+    const doi = normalizeDoi(source.doi)
+    const [pmid] = normalizePmidList(source.pmid ?? source.pubmedId)
+    const identity = doi ? `doi:${doi.toLowerCase()}` : pmid ? `pmid:${pmid}` : ''
+
+    if (!identity) {
+      out.push(source)
+      continue
+    }
+
+    const seenIndex = byIdentifier.get(identity)
+    if (seenIndex === undefined) {
+      byIdentifier.set(identity, out.length)
+      out.push(source)
+      continue
+    }
+
+    // Same study twice. Keep whichever record carries more fields, then fill
+    // any gap from the other.
+    const existing = out[seenIndex]
+    const score = (row) => Object.values(row).filter((v) => text(v)).length
+    const [primary, secondary] = score(source) > score(existing) ? [source, existing] : [existing, source]
+    const merged = { ...primary }
+    for (const [key, value] of Object.entries(secondary)) {
+      if (!text(merged[key]) && text(value)) merged[key] = value
+    }
+    out[seenIndex] = merged
+    removed += 1
+  }
+
+  return { sources: out, removed }
+}
+
 function main() {
   const changed = []
+  const deduped = []
   let added = 0
+  let removed = 0
 
   for (const dir of ['herbs-detail', 'compounds-detail']) {
     const full = path.join(DATA_DIR, dir)
@@ -107,10 +158,16 @@ function main() {
         next.push(...expanded)
       }
 
-      if (!touched) continue
-      changed.push({ file: `${dir}/${file}`, before: sources.length, after: next.length })
+      const dedupeResult = dedupeSources(next)
+      if (dedupeResult.removed) {
+        removed += dedupeResult.removed
+        deduped.push({ file: `${dir}/${file}`, removed: dedupeResult.removed })
+      }
+
+      if (!touched && !dedupeResult.removed) continue
+      if (touched) changed.push({ file: `${dir}/${file}`, before: sources.length, after: dedupeResult.sources.length })
       if (!DRY_RUN) {
-        record.sources = next
+        record.sources = dedupeResult.sources
         fs.writeFileSync(filePath, `${JSON.stringify(record, null, 2)}\n`)
       }
     }
@@ -119,8 +176,10 @@ function main() {
   console.log(`\nPacked citation repair${DRY_RUN ? ' (dry run)' : ''}`)
   console.log('='.repeat(66))
   console.log(`Records changed   ${changed.length}`)
-  console.log(`Sources added     ${added}`)
-  for (const item of changed) console.log(`  ${item.file}: ${item.before} -> ${item.after}`)
+  console.log(`Sources added     ${added}  (packed rows split apart)`)
+  console.log(`Sources merged    ${removed}  (same study cited twice)`)
+  for (const item of changed) console.log(`  split  ${item.file}: ${item.before} -> ${item.after}`)
+  for (const item of deduped) console.log(`  merge  ${item.file}: -${item.removed}`)
 }
 
 main()
