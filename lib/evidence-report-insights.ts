@@ -24,12 +24,12 @@ export type CategoryEvidenceMix = {
 }
 
 export function summarizeCategoryEvidenceMix(dataset: PublicEvidenceDataset): CategoryEvidenceMix[] {
-  const categoryBySlug = new Map(dataset.ingredients.map(ingredient => [ingredient.slug, ingredient.category]))
+  const categoryByPath = new Map(dataset.ingredients.map(ingredient => [ingredient.path, ingredient.category]))
   const buckets = new Map<string, Omit<CategoryEvidenceMix, 'preclinicalShare' | 'humanShare' | 'primaryHumanShare' | 'synthesisShare'>>()
 
   for (const study of dataset.studies) {
     for (const relationship of study.relationships) {
-      const category = categoryBySlug.get(relationship.ingredientSlug) || 'Uncategorized'
+      const category = categoryByPath.get(relationship.ingredientPath) || 'Uncategorized'
       const bucket = buckets.get(category) || {
         category,
         evidenceRelationships: 0,
