@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { hasUsefulStructuredValue } from '../../lib/data-quality.mjs'
 import { buildAiEntityArtifacts as buildBaseAiEntityArtifacts } from './ai-entity-enrichment-lib.mjs'
 
 function normalizeSchemaTypes(value) {
@@ -43,13 +44,6 @@ async function normalizeArtifactDirectory(directory) {
     }))
 }
 
-function hasUsefulValue(value) {
-  if (value === undefined || value === null || value === '') return false
-  if (Array.isArray(value)) return value.length > 0
-  if (typeof value === 'object') return Object.keys(value).length > 0
-  return true
-}
-
 function mergeSummaryWithDetail(summary, detail) {
   if (!detail || typeof detail !== 'object' || Array.isArray(detail)) return summary
 
@@ -59,7 +53,7 @@ function mergeSummaryWithDetail(summary, detail) {
     // root value, but let the richer detail payload fill fields that were
     // intentionally omitted or collapsed by summary generation (citations,
     // claims, review provenance, relationships, safety detail, identifiers).
-    if (hasUsefulValue(value) || !hasUsefulValue(merged[key])) {
+    if (hasUsefulStructuredValue(value) || !hasUsefulStructuredValue(merged[key])) {
       merged[key] = value
     }
   }
