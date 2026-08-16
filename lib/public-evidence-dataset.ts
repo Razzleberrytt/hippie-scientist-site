@@ -78,6 +78,7 @@ export type EvidenceCategorySummary = {
   totalIngredients: number
   strongOrModerate: number
   preliminaryOrInsufficient: number
+  unassigned: number
   humanStudies: number
   humanTrials: number
 }
@@ -91,6 +92,7 @@ export type PublicEvidenceReportMetrics = {
   participantCountCoverage: number
   strongOrModerateIngredients: number
   preliminaryOrInsufficientIngredients: number
+  unassignedIngredients: number
   ingredientsWithSafetyCautions: number
   explicitlyFlaggedClaimOverreach: number
   supportingRelationships: number
@@ -248,6 +250,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       totalIngredients: 0,
       strongOrModerate: 0,
       preliminaryOrInsufficient: 0,
+      unassigned: 0,
       humanStudies: 0,
       humanTrials: 0,
     }
@@ -256,6 +259,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     if (evidenceGrade === 'C' || evidenceGrade === 'D' || evidenceGrade === 'Avoid/Insufficient') {
       categorySummary.preliminaryOrInsufficient += 1
     }
+    if (evidenceGrade === 'Unassigned') categorySummary.unassigned += 1
 
     const citations = extractCitationsFromRecord(record)
     for (const citation of citations) {
@@ -357,7 +361,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     }
   }
 
-  const gradeOrder = ['A', 'B', 'C', 'D', 'Avoid/Insufficient']
+  const gradeOrder = ['A', 'B', 'C', 'D', 'Avoid/Insufficient', 'Unassigned']
   const gradeDistribution = gradeOrder.map(grade => {
     const count = gradeCounts.get(grade) || 0
     return {
@@ -366,6 +370,10 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       pct: ingredients.length ? (count / ingredients.length) * 100 : 0,
     }
   })
+  const distributedIngredientCount = gradeDistribution.reduce((sum, bucket) => sum + bucket.count, 0)
+  if (distributedIngredientCount !== ingredients.length) {
+    throw new Error(`[public-evidence-dataset] grade distribution covers ${distributedIngredientCount}/${ingredients.length} ingredients`)
+  }
 
   const categories = [...categoryMap.values()]
     .sort((a, b) => {
@@ -373,6 +381,13 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       const bRate = b.totalIngredients ? b.strongOrModerate / b.totalIngredients : 0
       return bRate - aRate || b.humanTrials - a.humanTrials || a.category.localeCompare(b.category)
     })
+
+  for (const category of categories) {
+    const categorized = category.strongOrModerate + category.preliminaryOrInsufficient + category.unassigned
+    if (categorized !== category.totalIngredients) {
+      throw new Error(`[public-evidence-dataset] ${category.category} grade buckets cover ${categorized}/${category.totalIngredients} ingredients`)
+    }
+  }
 
   const metrics: PublicEvidenceReportMetrics = {
     ingredientCount: ingredients.length,
@@ -383,6 +398,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     participantCountCoverage: studyMetrics.studiesWithParticipantCounts,
     strongOrModerateIngredients: ingredients.filter(item => item.evidenceGrade === 'A' || item.evidenceGrade === 'B').length,
     preliminaryOrInsufficientIngredients: ingredients.filter(item => item.evidenceGrade === 'C' || item.evidenceGrade === 'D' || item.evidenceGrade === 'Avoid/Insufficient').length,
+    unassignedIngredients: ingredients.filter(item => item.evidenceGrade === 'Unassigned').length,
     ingredientsWithSafetyCautions: ingredients.filter(item => item.safetyCaution).length,
     explicitlyFlaggedClaimOverreach,
     supportingRelationships,
