@@ -5,8 +5,14 @@ on:
     paths:
       - 'app/articles/**'
       - 'app/learn/rhabdomyolysis/page.tsx'
+      - 'app/guides/other/prebiotics/page.tsx'
+      - 'app/guides/other/greens-powders/page.tsx'
+      - 'app/guides/other/bovine-colostrum/page.tsx'
+      - 'app/guides/other/electrolyte-supplements/page.tsx'
+      - 'app/guides/other/collagen-supplements/page.tsx'
       - 'components/articles/GoalClusterArticlePage.tsx'
       - 'components/articles/MentalHealthArticlePage.tsx'
+      - 'components/LegacyGuideReference.tsx'
       - 'components/References.tsx'
       - 'components/seo/**'
       - 'components/StructuredData.tsx'
@@ -84,6 +90,27 @@ jobs:
       - name: Install dependencies
         run: npm ci --silent
 
+      - name: Guard legacy guide reference consolidation
+        shell: bash
+        run: |
+          files=(
+            app/guides/other/prebiotics/page.tsx
+            app/guides/other/greens-powders/page.tsx
+            app/guides/other/bovine-colostrum/page.tsx
+            app/guides/other/electrolyte-supplements/page.tsx
+            app/guides/other/collagen-supplements/page.tsx
+          )
+          for file in "${files[@]}"; do
+            grep -Fq "import Ref from '@/components/LegacyGuideReference'" "$file" || {
+              echo "$file must reuse LegacyGuideReference" >&2
+              exit 1
+            }
+            if grep -Eq '^type RefProps|^function Ref\(' "$file"; then
+              echo "$file reintroduced a local legacy reference renderer" >&2
+              exit 1
+            fi
+          done
+
       - name: Run schema, article citation, discovery, and provenance tests
         run: >-
           npx vitest run
@@ -102,6 +129,7 @@ jobs:
           app/learn/rhabdomyolysis/page.tsx
           components/articles/GoalClusterArticlePage.tsx
           components/articles/MentalHealthArticlePage.tsx
+          components/LegacyGuideReference.tsx
           components/References.tsx
           components/StructuredData.tsx
           components/compare/CompareSchema.tsx
