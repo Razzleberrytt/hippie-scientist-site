@@ -3,6 +3,7 @@ import path from 'node:path'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 import { parseNormalizedInput, validateAndNormalizeEntries } from './enrichment/normalize-enrichment-lib.mjs'
+import { getSourceClassRule, type EvidenceClass, type SourceClass } from './lib/source-class-governance'
 
 type EntityType = 'herb' | 'compound' | 'surface'
 type ReviewStatus =
@@ -17,8 +18,8 @@ type ReviewStatus =
 
 type SourceRegistryRow = {
   sourceId: string
-  sourceClass: string
-  evidenceClass: string
+  sourceClass: SourceClass
+  evidenceClass: EvidenceClass
   publicationStatus: 'published' | 'preprint' | 'withdrawn' | 'superseded' | 'archived'
   active: boolean
   reviewer?: string
@@ -56,7 +57,7 @@ type Submission = {
   sourceId: string
   topicType: string
   claimType: string
-  evidenceClass: string
+  evidenceClass: EvidenceClass
   findingTextShort: string
   findingTextNormalized: string
   strengthLabel?: string
@@ -133,17 +134,6 @@ const WORKPACKS_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-workpacks.j
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'enrichment-submission-review.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'enrichment-submission-review.md')
 const CANONICAL_PROMOTED_INPUT = path.join(ROOT, 'public', 'data', 'enrichment-submissions-governed-input.jsonl')
-
-const SOURCE_CLASS_TO_EVIDENCE: Record<string, string> = {
-  'randomized-human-trial': 'human-clinical',
-  'non-randomized-human-study': 'human-clinical',
-  'observational-human-evidence': 'human-observational',
-  'systematic-review-meta-analysis': 'human-clinical',
-  'preclinical-mechanistic-study': 'preclinical-mechanistic',
-  'traditional-use-monograph': 'traditional-use',
-  'regulatory-agency-monograph-guidance': 'regulatory-monograph',
-  'reference-database-authority': 'regulatory-monograph',
-}
 
 const TOPIC_CLAIM_RULES: Record<string, Set<string>> = {
   supported_use: new Set(['efficacy_signal']),
@@ -375,7 +365,7 @@ function run() {
       if (submission.evidenceClass !== source.evidenceClass) {
         blockedReasons.push('submission_source_evidence_class_mismatch')
       }
-      const expectedEvidence = SOURCE_CLASS_TO_EVIDENCE[source.sourceClass]
+      const expectedEvidence = getSourceClassRule(source.sourceClass)?.evidenceClass
       if (expectedEvidence && expectedEvidence !== submission.evidenceClass) {
         blockedReasons.push(`source_class_evidence_mismatch_expected_${expectedEvidence}`)
       }
