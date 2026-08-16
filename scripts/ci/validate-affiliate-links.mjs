@@ -5,7 +5,6 @@ const IGNORED_FILES = [
   'config/affiliate.ts',
   'src/lib/affiliate-registry.ts',
   'src/lib/affiliate.ts',
-  'src/lib/curatedProducts.ts', // legacy quarantined file
 ]
 
 const TARGET_DIRS = [

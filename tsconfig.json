@@ -78,7 +78,6 @@
     "src/lib/compounds.ts",
     "src/lib/contentJourneyTracking.ts",
     "src/lib/counters.ts",
-    "src/lib/curatedProducts.ts",
     "src/lib/data.ts",
     "src/lib/data/herbs.ts",
     "src/lib/enrichmentDiscovery.ts",
