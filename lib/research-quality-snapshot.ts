@@ -29,6 +29,15 @@ export type ResearchQualitySnapshot = {
 export type ScopedResearchQualityTopology = {
   analysis: ResearchQualityAnalysis
   topology: ResearchQualityTopology
+  requestedProfileUrls: string[]
+  matchedProfileUrls: string[]
+  missingProfileUrls: string[]
+  profileCoverage: number
+}
+
+function round(value: number, digits = 3): number {
+  const scale = 10 ** digits
+  return Math.round(value * scale) / scale
 }
 
 /**
@@ -55,7 +64,10 @@ export function scopeResearchQualityAnalysis(
  * Canonical analysis+topology boundary for consumers whose visibility scope is
  * intentionally narrower than the full repository. The full analysis is built
  * with the same loaders/classifiers as CI, then scoped before any topology is
- * derived. This is deliberately narrower than buildResearchQualitySnapshot:
+ * derived. The result also reports requested-vs-matched coverage so a consumer
+ * cannot silently treat missing canonical detail profiles as analyzed.
+ *
+ * This is deliberately narrower than buildResearchQualitySnapshot:
  * grade/gate/remediation products are repository-wide and must not be presented
  * as scoped unless their own data loaders are scoped too.
  */
@@ -63,10 +75,22 @@ export function buildScopedResearchQualityTopology(
   root = process.cwd(),
   profileUrls: Iterable<string>,
 ): ScopedResearchQualityTopology {
-  const analysis = scopeResearchQualityAnalysis(analyzeResearchQuality(root), profileUrls)
+  const requestedProfileUrls = [...new Set(profileUrls)].sort()
+  const analysis = scopeResearchQualityAnalysis(analyzeResearchQuality(root), requestedProfileUrls)
+  const matchedProfileUrls = analysis.profiles.map((profile) => profile.url).sort()
+  const matched = new Set(matchedProfileUrls)
+  const missingProfileUrls = requestedProfileUrls.filter((url) => !matched.has(url))
+  const profileCoverage = round(
+    requestedProfileUrls.length ? matchedProfileUrls.length / requestedProfileUrls.length : 1,
+  )
+
   return {
     analysis,
     topology: buildResearchQualityTopology(analysis),
+    requestedProfileUrls,
+    matchedProfileUrls,
+    missingProfileUrls,
+    profileCoverage,
   }
 }
 
