@@ -73,28 +73,35 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  // Explicit alignment mismatches, claim-breadth overreach, and exaggerated
-  // effect/certainty language are three views of one editorial root cause: the
-  // claim says more than its linked evidence directly supports. Aggregate them
-  // once per profile instead of double-scoring parallel semantic analyzers.
+  // Explicit alignment mismatch, claim-breadth overreach, exaggerated effect/
+  // certainty wording, and endpoint/directional inconsistency are four views of
+  // the same editorial root cause: the claim says more than its linked evidence
+  // directly supports. Aggregate them once per profile instead of double-scoring
+  // parallel semantic analyzers.
   const semanticByUrl = new Map<string, {
     explicit: typeof topology.semanticAlignment.findings
     breadth: typeof topology.claimBreadth.findings
     effect: typeof topology.effectCertainty.findings
+    directional: typeof topology.directionalConsistency.findings
   }>()
   for (const item of topology.semanticAlignment.findings) {
-    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [] }
+    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [], directional: [] }
     group.explicit.push(item)
     semanticByUrl.set(item.url, group)
   }
   for (const item of topology.claimBreadth.findings) {
-    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [] }
+    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [], directional: [] }
     group.breadth.push(item)
     semanticByUrl.set(item.url, group)
   }
   for (const item of topology.effectCertainty.findings) {
-    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [] }
+    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [], directional: [] }
     group.effect.push(item)
+    semanticByUrl.set(item.url, group)
+  }
+  for (const item of topology.directionalConsistency.findings) {
+    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [], directional: [] }
+    group.directional.push(item)
     semanticByUrl.set(item.url, group)
   }
   for (const [url, group] of semanticByUrl) {
@@ -102,8 +109,9 @@ export function buildAggregatedTopologyGapSignals(
       ...group.explicit.filter((item) => item.confidence >= 0.75),
       ...group.breadth.filter((item) => item.confidence >= 0.75),
       ...group.effect.filter((item) => item.confidence >= 0.75),
+      ...group.directional.filter((item) => item.confidence >= 0.75),
     ].length
-    const issueCount = group.explicit.length + group.breadth.length + group.effect.length
+    const issueCount = group.explicit.length + group.breadth.length + group.effect.length + group.directional.length
     const breadthDimensions = {
       population: group.breadth.filter((item) => item.populationOverbroad).length,
       dose: group.breadth.filter((item) => item.doseOverbroad).length,
@@ -116,11 +124,16 @@ export function buildAggregatedTopologyGapSignals(
       clinicalImportance: group.effect.filter((item) => item.clinicalImportanceOverstatement).length,
       certainty: group.effect.filter((item) => item.certaintyOverstatement).length,
     }
+    const directionalDimensions = {
+      cherryPick: group.directional.filter((item) => item.endpointCherryPickRisk).length,
+      heterogeneous: group.directional.filter((item) => item.directionalHeterogeneity).length,
+      uniformlyPositive: group.directional.filter((item) => item.uniformlyPositiveOverstatement).length,
+    }
     signals.push({
       url,
       kind: 'semantic-claim-source-mismatch',
       weight: weights.semanticMismatch + Math.min(10, Math.max(0, issueCount - 1) * 2) + (highConfidence ? weights.highConfidenceSemanticMismatchBonus : 0),
-      detail: `${group.explicit.length} explicit alignment mismatch(es), ${group.breadth.length} claim-breadth overreach finding(s), and ${group.effect.length} effect/certainty overstatement finding(s); ${highConfidence} high-confidence; role ${group.explicit.filter((item) => item.roleMismatch).length}, domain ${group.explicit.filter((item) => item.domainMismatch).length}, population mismatch ${group.explicit.filter((item) => item.populationMismatch).length}; breadth population ${breadthDimensions.population}, dose ${breadthDimensions.dose}, duration ${breadthDimensions.duration}, formulation ${breadthDimensions.formulation}, endpoint ${breadthDimensions.endpoint}; effect magnitude ${effectDimensions.magnitude}, clinical importance ${effectDimensions.clinicalImportance}, certainty ${effectDimensions.certainty}`,
+      detail: `${group.explicit.length} explicit alignment mismatch(es), ${group.breadth.length} claim-breadth overreach finding(s), ${group.effect.length} effect/certainty overstatement finding(s), and ${group.directional.length} endpoint/directional consistency finding(s); ${highConfidence} high-confidence; role ${group.explicit.filter((item) => item.roleMismatch).length}, domain ${group.explicit.filter((item) => item.domainMismatch).length}, population mismatch ${group.explicit.filter((item) => item.populationMismatch).length}; breadth population ${breadthDimensions.population}, dose ${breadthDimensions.dose}, duration ${breadthDimensions.duration}, formulation ${breadthDimensions.formulation}, endpoint ${breadthDimensions.endpoint}; effect magnitude ${effectDimensions.magnitude}, clinical importance ${effectDimensions.clinicalImportance}, certainty ${effectDimensions.certainty}; endpoint cherry-pick ${directionalDimensions.cherryPick}, directional heterogeneity ${directionalDimensions.heterogeneous}, uniformly-positive overstatement ${directionalDimensions.uniformlyPositive}`,
     })
   }
 
@@ -169,8 +182,6 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  // Advisory metadata findings share one root remediation path. Severe
-  // cross-family study-class conflicts remain structural and are scored below.
   for (const item of topology.metadataIntegrity.profiles) {
     const advisoryStudyClassConflicts = Math.max(0, item.studyClassConflicts - item.severeStudyClassConflicts)
     const advisoryIssueCount = item.yearConflicts
@@ -212,10 +223,6 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  // Publication-level and underlying-study-level concentration are the same
-  // editorial root cause. Only profiles that were *not* already flagged by the
-  // publication graph appear here, so this reuses the canonical high-study-
-  // dependency reason without double-counting existing profile findings.
   for (const profile of topology.underlyingStudyIndependence.newlyOverDependentProfiles) {
     const concentrationBonus = Math.round(Math.min(15, profile.underlyingStudyConcentrationIndex * 20))
     const weight = Math.round(25 + profile.dominantUnderlyingStudySupportedClaimShare * 30 + concentrationBonus)
@@ -227,8 +234,6 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  // One canonical union graph now owns registered-trial + cohort/dataset/parent
-  // dependence. Policy only ranks the resulting adjusted underlying-study count.
   for (const [url, items] of groupByUrl(topology.underlyingStudyIndependence.reducedClaims)) {
     const collapsedPublications = items.reduce((sum, item) => sum + item.collapsedPublicationCount, 0)
     const pseudoMultiStudy = items.filter((item) => item.pseudoMultiStudySupport).length
