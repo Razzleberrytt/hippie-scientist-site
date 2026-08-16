@@ -3,8 +3,22 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+const repoRoot = process.cwd()
+const coreGoalsSource = fs.readFileSync(path.join(repoRoot, 'lib/core-goals.ts'), 'utf8')
+const coreGoalRoutes = [...coreGoalsSource.matchAll(/href:\s*'([^']+)'/g)]
+  .map((match) => match[1])
+  .filter((route) => route.startsWith('/goals/'))
+
+if (coreGoalRoutes.length === 0) {
+  throw new Error('[verify:core-routes] No canonical goal routes found in lib/core-goals.ts')
+}
+
 const coreRoutes = [
   '/',
+  '/start',
+  '/library',
+  '/goals',
+  ...coreGoalRoutes,
   '/herbs',
   '/compounds',
   '/guides',
@@ -17,7 +31,6 @@ const coreRoutes = [
   '/safety-checker/',
 ]
 
-const repoRoot = process.cwd()
 const staticDir = process.env.STATIC_OUTPUT_DIR || 'out'
 const staticOutputRoot = path.join(repoRoot, staticDir)
 
@@ -126,6 +139,10 @@ const SITE_HOST = rawSiteUrl === 'https://www.thehippiescientist.net'
   : (rawSiteUrl || 'https://thehippiescientist.net')
 const requiredSitemapUrls = [
   `${SITE_HOST}/`,
+  `${SITE_HOST}/start/`,
+  `${SITE_HOST}/library/`,
+  `${SITE_HOST}/goals/`,
+  ...coreGoalRoutes.map((route) => `${SITE_HOST}${route}`),
   `${SITE_HOST}/info/about/`,
   `${SITE_HOST}/info/contact/`,
   `${SITE_HOST}/info/privacy/`,
