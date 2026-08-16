@@ -6,6 +6,7 @@ const root = process.cwd()
 
 const removedLegacyFiles = [
   'src/lib/curatedProducts.ts',
+  'src/lib/herbProducts.ts',
   'scripts/verify-curated-affiliates.ts',
   'scripts/verify-herb-affiliate-links.ts',
   'scripts/report-affiliate-inventory.ts',
@@ -29,15 +30,17 @@ describe('curated product legacy removal contract', () => {
     )
 
     expect(tsconfig).not.toContain('"src/lib/curatedProducts.ts"')
+    expect(tsconfig).not.toContain('"src/lib/herbProducts.ts"')
     expect(affiliateValidator).not.toContain("'src/lib/curatedProducts.ts'")
   })
 
-  it('keeps the quarantine tombstone so active code cannot resurrect the legacy path', () => {
+  it('keeps quarantine tombstones so active code cannot resurrect legacy paths', () => {
     const quarantineValidator = fs.readFileSync(
       path.join(root, 'scripts', 'ci', 'validate-quarantine-imports.mjs'),
       'utf8',
     )
 
     expect(quarantineValidator).toContain("'@/src/lib/curatedProducts'")
+    expect(quarantineValidator).toContain("'@/src/lib/herbProducts'")
   })
 })
