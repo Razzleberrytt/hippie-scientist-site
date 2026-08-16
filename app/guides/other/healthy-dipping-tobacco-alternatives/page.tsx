@@ -1,419 +1,216 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import StructuredData from '@/components/StructuredData'
-import { SITE_URL } from '@/lib/navigation-config'
+import { buildPageMetadata } from '../../../../src/lib/seo'
+import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
+import References from '@/components/References'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 
-const PAGE_PATH = '/guides/other/healthy-dipping-tobacco-alternatives'
-const PAGE_URL = `${SITE_URL}${PAGE_PATH}`
-const TITLE = 'Healthy Alternatives to Dipping Tobacco'
-const DESCRIPTION =
-  'Evidence-informed guide to replacing dipping tobacco, including nicotine replacement therapy, oral substitutes, tobacco-free pouches, cardiovascular inflammation context, and carotid artery safety.'
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: `${PAGE_PATH}/` },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    url: `${PAGE_PATH}/`,
-    type: 'article',
-    images: ['/og-default.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: TITLE,
-    description: 'A science-first guide to replacing dip without pretending nicotine pouches are vascular health products.',
-  },
-}
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Dipping Tobacco Alternatives: Lower-Risk Options & Quitting Evidence (2026)',
+  description:
+    'Smokeless-tobacco-specific cessation evidence for counseling, varenicline, nicotine replacement, nicotine pouches, oral substitutes, and cardiovascular/oral-health risk.',
+  path: '/guides/other/healthy-dipping-tobacco-alternatives/',
+  openGraphType: 'article',
+})
 
 const FAQS = [
   {
     question: 'What is the healthiest replacement for dipping tobacco?',
     answer:
-      'For most adults trying to quit dip, the healthiest evidence-based replacement is not another consumer pouch. It is a quit plan that uses behavioral support plus FDA-approved cessation aids such as nicotine gum, lozenges, patches, varenicline, or bupropion when appropriate. Non-nicotine oral substitutes like sugar-free gum, xylitol mints, sunflower seeds, toothpicks, or tobacco-free herbal pouches can help with the mouth habit, but they do not treat nicotine dependence by themselves.',
+      'The strongest health goal is to stop smokeless tobacco and, if possible, end nicotine dependence rather than replace dip indefinitely with another pouch. Smokeless-tobacco-specific evidence supports behavioral counseling and varenicline; nicotine replacement therapy may also help, with lower certainty. Non-nicotine oral substitutes can help replace the mouth habit but do not treat nicotine dependence.',
   },
   {
     question: 'Are nicotine pouches like ZYN healthy?',
     answer:
-      'No. Tobacco-free nicotine pouches likely reduce exposure to tobacco-specific nitrosamines compared with traditional dip, but they still deliver addictive nicotine. Nicotine can acutely raise heart rate and blood pressure through sympathetic nervous system activation, and nicotine pouches are not the same thing as FDA-approved nicotine replacement therapy.',
+      'No. Removing tobacco leaf can reduce exposure to some tobacco-specific toxicants, but nicotine pouches still deliver addictive nicotine and are not cardiovascular-health products. Long-term comparative cardiovascular risk is still incompletely defined, and they are not the same as FDA-approved nicotine replacement medicines.',
   },
   {
-    question: 'Can any dip replacement reduce inflammation around the carotid artery?',
+    question: 'Does bupropion help people quit smokeless tobacco?',
     answer:
-      'No oral pouch, lozenge, gum, herb, or supplement is proven to specifically reduce inflammation around the carotid artery or reverse carotid plaque. The evidence-based move is to stop smokeless tobacco exposure, control blood pressure and lipids, address diabetes and sleep apnea if present, maintain dental care, and work with a clinician if carotid plaque, bruit, TIA symptoms, or stroke risk factors are present.',
+      'Current smokeless-tobacco-specific evidence does not show a clear benefit. A 2025 Cochrane review found low-certainty evidence that bupropion did not improve quit rates versus placebo, unlike the more favorable evidence for counseling and varenicline.',
   },
   {
-    question: 'Is nicotine replacement therapy safer for arteries than dip?',
+    question: 'Can supplements reverse carotid inflammation or plaque caused by dip?',
     answer:
-      'Nicotine replacement therapy still contains nicotine, so it is not a cardiovascular wellness product. However, regulated NRT avoids tobacco leaf, combustion products, and many tobacco-specific toxicants, and it delivers nicotine more predictably than dip. It is best used as a temporary bridge to full nicotine freedom, especially with counseling or quitline support.',
+      'No supplement has been shown to reverse carotid plaque or specifically treat carotid inflammation from smokeless-tobacco exposure. The evidence-based priorities are stopping tobacco exposure, addressing nicotine dependence, and managing established cardiovascular risk factors with appropriate clinical care.',
+  },
+] as const
+
+const REFS = [
+  {
+    n: 1,
+    text: 'Cochrane Review. Interventions for smokeless tobacco use cessation. 2025. PMID 40232040.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40232040/',
+  },
+  {
+    n: 2,
+    text: 'Moafa I. The effectiveness of nicotine replacement therapy on oral smokeless tobacco cessation and reduction rate: a systematic review. Tob Prev Cessat. 2025. PMID 41112191.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/41112191/',
+  },
+  {
+    n: 3,
+    text: 'Fagerstrom K, et al. Stopping smokeless tobacco with varenicline: randomized double-blind placebo-controlled trial. BMJ. 2010. PMID 21134997.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/21134997/',
+  },
+  {
+    n: 4,
+    text: 'American Heart Association. Impact of Smokeless Oral Nicotine Products on Cardiovascular Disease: Implications for Policy, Prevention and Treatment. 2024.',
+    url: 'https://professional.heart.org/en/science-news/impact-of-smokeless-oral-nicotine-products-on-cardiovascular-disease/top-things-to-know',
+  },
+  {
+    n: 5,
+    text: 'CDC. Health Effects of Smokeless Tobacco.',
+    url: 'https://www.cdc.gov/tobacco/other-tobacco-products/smokeless-tobacco-health-effects.html',
+  },
+  {
+    n: 6,
+    text: 'FDA. FDA-approved and FDA-cleared smoking cessation products can help people quit tobacco.',
+    url: 'https://www.fda.gov/consumers/consumer-updates/want-quit-smoking-fda-approved-and-fda-cleared-cessation-products-can-help',
   },
 ]
 
 const HEADINGS: Heading[] = [
+  { id: 'evidence-map', text: 'What Helps People Quit Smokeless Tobacco', level: 2 },
+  { id: 'pouches', text: 'Nicotine Pouches: Lower Toxicant Does Not Mean Healthy', level: 2 },
+  { id: 'carotid', text: 'Carotid and Cardiovascular Claims', level: 2 },
+  { id: 'safety', text: 'When Medical Evaluation Matters', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
-  { id: 'ranked-options', text: 'Ranked Replacement Options', level: 2 },
-  { id: 'carotid-inflammation', text: 'Carotid Artery Inflammation', level: 2 },
-  { id: 'mechanisms', text: 'Why Dip Stresses Blood Vessels', level: 2 },
-  { id: 'protocol', text: 'Practical Quit Protocol', level: 2 },
-  { id: 'supplements', text: 'Supplements and Vascular Context', level: 2 },
-  { id: 'red-flags', text: 'Red Flags', level: 2 },
-  { id: 'faq', text: 'FAQ', level: 2 },
-  { id: 'references', text: 'References', level: 2 },
 ]
-
-const replacementOptions = [
-  {
-    name: 'Behavioral support + FDA-approved cessation medication',
-    role: 'Best evidence-first path',
-    vascularRead: 'Designed to end tobacco and nicotine exposure over time',
-    details:
-      'Quitline coaching, clinician support, nicotine gum/lozenge/patch, varenicline, or bupropion address both the chemical dependence and the cue loop. This is the closest thing to a medical-grade replacement strategy.',
-  },
-  {
-    name: 'Nicotine gum or lozenges',
-    role: 'Best mouth-feel bridge when oral fixation is the problem',
-    vascularRead: 'Still nicotine, but regulated and easier to taper than dip',
-    details:
-      'Useful when the cue is putting something in the lip or cheek. Gum and lozenges deliver nicotine through the oral mucosa without tobacco leaf or tobacco-specific nitrosamines from cured tobacco.',
-  },
-  {
-    name: 'Nicotine patch + short-acting gum or lozenge',
-    role: 'Best for heavy daily users',
-    vascularRead: 'Lower peaks than repeated dip hits, but not nicotine-free',
-    details:
-      'The patch gives baseline coverage; gum or lozenge handles breakthrough cravings. This often works better than short-acting products alone for high-dependence users.',
-  },
-  {
-    name: 'Non-nicotine oral substitutes',
-    role: 'Best for replacing the ritual',
-    vascularRead: 'No nicotine; choose low-sugar, mouth-safe options',
-    details:
-      'Sugar-free gum, xylitol mints, cinnamon or mint toothpicks, sunflower seeds, cut vegetables, and plain herbal pouches can occupy the mouth without continuing nicotine dependence.',
-  },
-  {
-    name: 'Tobacco-free nicotine pouches',
-    role: 'Harm-reduction fallback, not a health product',
-    vascularRead: 'Less tobacco toxicant exposure, but ongoing nicotine stress',
-    details:
-      'These may be less toxic than dip because they remove cured tobacco leaf, but they can preserve addiction and still acutely increase heart rate and blood pressure.',
-  },
-] as const
-
-const vascularSupports = [
-  {
-    name: 'Omega-3',
-    href: '/compounds/omega-3',
-    evidence: 'Useful for triglycerides and cardiometabolic context; not a carotid plaque treatment.',
-  },
-  {
-    name: 'Psyllium husk',
-    href: '/compounds/psyllium-husk',
-    evidence: 'Soluble fiber can support LDL-C reduction, which matters more for plaque biology than chasing a single anti-inflammatory supplement.',
-  },
-  {
-    name: 'Turmeric / curcumin',
-    href: '/herbs/turmeric',
-    evidence: 'Anti-inflammatory biomarker interest, but no good evidence that it reverses carotid plaque or replaces vascular risk management.',
-  },
-  {
-    name: 'Aged garlic extract',
-    href: '/compounds/aged-garlic-extract',
-    evidence: 'Interesting blood pressure and vascular marker literature; still adjunctive and not a substitute for indicated medication.',
-  },
-  {
-    name: 'Nattokinase',
-    href: '/compounds/nattokinase',
-    evidence: 'Often marketed for circulation, but bleeding and medication-interaction questions make it a clinician-discussion supplement, not a casual dip replacement.',
-  },
-] as const
-
-const references = [
-  ['CDC: Health Effects of Smokeless Tobacco', 'https://www.cdc.gov/tobacco/other-tobacco-products/smokeless-tobacco-health-effects.html'],
-  ['CDC: How to Quit Smoking or Smokeless Tobacco', 'https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/index.html'],
-  ['FDA: FDA-approved cessation products can help', 'https://www.fda.gov/consumers/consumer-updates/want-quit-smoking-fda-approved-and-fda-cleared-cessation-products-can-help'],
-  ['Cochrane review: Nicotine replacement therapy for smoking cessation', 'https://pubmed.ncbi.nlm.nih.gov/23152200/'],
-  ['Stopping smokeless tobacco with varenicline: randomized controlled trial', 'https://pubmed.ncbi.nlm.nih.gov/21134997/'],
-  ['Smokeless tobacco cessation interventions: systematic review', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6362721/'],
-  ['AHA scientific statement: Smokeless oral nicotine products and cardiovascular disease', 'https://professional.heart.org/en/science-news/impact-of-smokeless-oral-nicotine-products-on-cardiovascular-disease/top-things-to-know'],
-  ['Noncigarette tobacco products and inflammatory/carotid markers', 'https://pubmed.ncbi.nlm.nih.gov/39866105/'],
-  ['Smokeless tobacco use and atherosclerosis', 'https://pubmed.ncbi.nlm.nih.gov/9247364/'],
-  ['Smokeless tobacco use and circulatory disease risk', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6196954/'],
-  ['NCI: Smokeless tobacco and cancer', 'https://www.cancer.gov/about-cancer/causes-prevention/risk/tobacco/smokeless-fact-sheet'],
-  ['Mayo Clinic: Ways to resist tobacco cravings', 'https://www.mayoclinic.org/diseases-conditions/nicotine-dependence/in-depth/nicotine-craving/art-20045454'],
-] as const
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
 
   return (
     <ArticleLayout toc={toc} zone="harm-reduction">
-      <StructuredData
-        pageUrl={PAGE_URL}
-        headline={TITLE}
-        description={DESCRIPTION}
-        datePublished="2026-07-01"
-        dateModified="2026-07-01"
-        faqs={FAQS}
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Guides', href: '/guides/' },
-          { label: 'Healthy Dipping Tobacco Alternatives', href: `${PAGE_PATH}/` },
-        ]}
-      />
-
       <div className="space-y-10">
+        <AuthorityJsonLd
+          title="Dipping Tobacco Alternatives: Lower-Risk Options and Quitting Evidence"
+          description="Smokeless-tobacco-specific cessation evidence for counseling, varenicline, nicotine replacement, nicotine pouches, and non-nicotine oral substitutes."
+          url="https://thehippiescientist.net/guides/other/healthy-dipping-tobacco-alternatives/"
+          type="MedicalWebPage"
+          citationUrls={REFS.map((ref) => ref.url)}
+        />
+        <AuthorityBreadcrumbs
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Guides', href: '/guides/' },
+            { label: 'Dipping Tobacco Alternatives' },
+          ]}
+        />
+
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
-          <p className="eyebrow-label">Harm reduction guide</p>
+          <p className="eyebrow-label">Harm Reduction Review · Updated August 16, 2026</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Healthy Alternatives to Dipping Tobacco
+            Dipping Tobacco Alternatives: Lower-Risk Options Are Not the Same as Healthy Products
           </h1>
-          <p className="mt-2 text-xs text-muted">
-            Written and edited by{' '}
-            <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">Willie B. Randolph III</Link>
-            {' '}· Last updated July 2026
-          </p>
           <p className="detail-reading mt-4 text-muted">
-            If the goal is a healthier replacement for dip, the target is not a cleaner-looking pouch.
-            It is removing cured tobacco toxicants, lowering nicotine dependence, protecting the mouth,
-            and reducing cardiovascular strain over time. This guide ranks the real options and explains
-            what is known, and not known, about carotid artery inflammation.
+            The best evidence for replacing dip is not a supplement stack or a “clean” nicotine pouch. It is a tobacco-cessation plan matched to smokeless-tobacco evidence: behavioral support, varenicline when appropriate, and possibly nicotine replacement therapy. Non-nicotine oral substitutes can help with ritual and habit cues. Nicotine pouches may reduce some tobacco-specific toxicant exposure compared with dip, but they can maintain addiction and are not harmless.
           </p>
-
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/healthy-dipping-tobacco-alternatives.jpg"
-              alt="Herbal non-tobacco dipping pouches with mint and herbs"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            Tobacco-free dipping alternatives — options and trade-offs.
-          </figcaption>
-        </figure>
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+              <Image src="/images/guides/healthy-dipping-tobacco-alternatives.jpg" alt="Non-tobacco oral substitutes beside a tobacco-cessation evidence review" width={1536} height={1024} priority className="h-auto w-full" />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">The goal is less exposure and less dependence—not a healthier-looking nicotine package.</figcaption>
+          </figure>
         </section>
 
-        <section className="rounded-2xl border border-rose-900/15 bg-rose-50/80 p-5 text-sm leading-6 text-rose-950">
-          <p className="font-semibold">Medical scope and carotid artery warning</p>
+        <LegacyGuideQuickAnswer referencesHref="#references">
+          <p>
+            For smokeless-tobacco cessation, counseling/brief advice and varenicline have the clearest current evidence; nicotine replacement therapy may help, but the certainty is lower [1-3]. The same Cochrane review did not find clear benefit from bupropion for smokeless-tobacco quitting [1]. Nicotine pouches remain addictive and should not be described as healthy or as cardiovascular-protective products [4]. No supplement has established evidence for reversing carotid plaque caused by dip.
+          </p>
+        </LegacyGuideQuickAnswer>
+
+        <section id="evidence-map" data-answer-engine-table="true" className="max-w-5xl space-y-4 scroll-mt-24">
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">What helps people quit smokeless tobacco?</h2>
+          <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white/90 dark:border-white/10 dark:bg-white/5">
+            <table className="min-w-[860px] w-full text-left text-sm">
+              <caption className="sr-only">Smokeless tobacco cessation options and current evidence</caption>
+              <thead>
+                <tr className="border-b border-brand-900/10 text-ink">
+                  <th scope="col" className="p-4">Approach</th>
+                  <th scope="col" className="p-4">Current evidence</th>
+                  <th scope="col" className="p-4">Practical interpretation</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10 text-muted">
+                <tr>
+                  <th scope="row" className="p-4 font-semibold text-ink">Counseling / brief advice</th>
+                  <td className="p-4">Moderate-certainty evidence of improved quit rates [1]</td>
+                  <td className="p-4">Behavioral support is a core treatment, not an optional add-on.</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="p-4 font-semibold text-ink">Varenicline</th>
+                  <td className="p-4">Moderate-certainty benefit versus placebo in smokeless-tobacco trials [1,3]</td>
+                  <td className="p-4">A clinician-managed prescription option with direct smokeless-tobacco evidence.</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="p-4 font-semibold text-ink">Nicotine replacement therapy</th>
+                  <td className="p-4">Possible quit benefit; certainty lower and results heterogeneous [1,2]</td>
+                  <td className="p-4">Regulated cessation therapy is different from a consumer nicotine pouch.</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="p-4 font-semibold text-ink">Bupropion</th>
+                  <td className="p-4">No clear smokeless-tobacco cessation benefit in current low-certainty evidence [1]</td>
+                  <td className="p-4">Do not import cigarette-cessation evidence into dip without qualification.</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="p-4 font-semibold text-ink">Non-nicotine oral substitutes</th>
+                  <td className="p-4">Habit/cue replacement rather than pharmacologic dependence treatment</td>
+                  <td className="p-4">Useful for the oral ritual; does not treat nicotine withdrawal by itself.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="pouches" className="card-premium max-w-4xl space-y-4 p-6 scroll-mt-24">
+          <h2 className="text-2xl font-semibold text-ink">Nicotine pouches: lower toxicant does not mean healthy</h2>
+          <p className="text-sm leading-7 text-muted">
+            A tobacco-free nicotine pouch can remove exposure to cured tobacco leaf and some tobacco-specific toxicants. That is a meaningful harm-reduction distinction, but it does not erase nicotine dependence or prove long-term cardiovascular safety. The American Heart Association notes that oral nicotine products can sustain substantial nicotine exposure and that long-term comparative health effects remain incompletely characterized [4].
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            Consumer nicotine pouches are also not equivalent to FDA-approved nicotine replacement products used as cessation medicines. “Tobacco-free,” “synthetic nicotine,” and “cessation therapy” are not interchangeable labels.
+          </p>
+        </section>
+
+        <section id="carotid" className="card-premium max-w-4xl space-y-4 p-6 scroll-mt-24">
+          <h2 className="text-2xl font-semibold text-ink">Carotid and cardiovascular claims</h2>
+          <p className="text-sm leading-7 text-muted">
+            Smokeless tobacco is associated with important oral and cardiovascular harms [4,5]. But the right response to concern about carotid disease is not a supplement shopping list. No omega-3, curcumin, garlic, nattokinase, or other supplement has been shown to reverse carotid plaque specifically because someone used dip.
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            If carotid stenosis, plaque, bruit, transient neurologic symptoms, or established cardiovascular disease is present, the evidence-based pathway is clinical risk assessment and treatment of the actual risk factors—not replacing tobacco with an “anti-inflammatory” supplement.
+          </p>
+        </section>
+
+        <section id="safety" className="rounded-2xl border border-rose-900/15 bg-rose-50/80 p-5 text-sm leading-7 text-rose-950 scroll-mt-24">
+          <h2 className="text-xl font-semibold">When medical evaluation matters</h2>
           <p className="mt-2">
-            This page is educational and cannot diagnose carotid artery disease, plaque, vasculitis, neck pain,
-            bruit, transient ischemic attack, or stroke risk. Seek urgent care for face drooping, arm weakness,
-            speech trouble, sudden one-sided numbness, sudden severe headache, vision loss, chest pain, fainting,
-            or new neurologic symptoms. If a clinician has mentioned carotid plaque or carotid stenosis, use this
-            guide as a conversation starter, not as a treatment plan.
+            Seek urgent medical care for face drooping, arm weakness, speech difficulty, sudden one-sided numbness, sudden vision loss, chest pain, fainting, or other acute neurologic/cardiovascular symptoms. Oral lesions that persist, bleed, ulcerate, or change should also be evaluated rather than attributed to “irritation from dip.”
           </p>
         </section>
 
-        <section id="bottom-line" className="card-premium scroll-mt-20 space-y-4 p-6">
+        <section id="bottom-line" className="card-premium max-w-4xl space-y-4 p-6 scroll-mt-24">
           <h2 className="text-2xl font-semibold text-ink">Bottom line</h2>
-          <p className="text-muted">
-            The healthiest replacement for dipping tobacco is usually a two-part plan: use an evidence-based
-            cessation aid to control nicotine withdrawal, and use a non-nicotine mouth substitute to replace
-            the ritual. Nicotine pouches can be lower-toxicant than dip, but they are not healthy, not
-            anti-inflammatory, and not proven to protect the carotid arteries.
+          <p className="text-sm leading-7 text-muted">
+            There is no healthy dipping product. The highest-value move is to stop smokeless tobacco and reduce nicotine dependence using interventions with direct cessation evidence. Counseling and varenicline have the clearest current support; NRT may help; bupropion should not be marketed as a proven smokeless-tobacco cessation aid; and nicotine pouches belong in a harm-reduction discussion, not a health-product ranking [1-4].
           </p>
-          <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border border-brand-900/10 bg-brand-50/60 p-4">
-              <p className="text-sm font-semibold text-ink">Best evidence</p>
-              <p className="mt-1 text-xs leading-6 text-muted">Counseling plus NRT, varenicline, or bupropion when appropriate.</p>
-            </div>
-            <div className="rounded-xl border border-brand-900/10 bg-brand-50/60 p-4">
-              <p className="text-sm font-semibold text-ink">Best oral habit swap</p>
-              <p className="mt-1 text-xs leading-6 text-muted">Sugar-free gum, mints, toothpicks, seeds, or non-nicotine pouches.</p>
-            </div>
-            <div className="rounded-xl border border-brand-900/10 bg-brand-50/60 p-4">
-              <p className="text-sm font-semibold text-ink">Best artery move</p>
-              <p className="mt-1 text-xs leading-6 text-muted">Quit tobacco, then taper nicotine rather than staying on high-dose pouches.</p>
-            </div>
-          </div>
         </section>
 
-        <section id="ranked-options" className="scroll-mt-20 space-y-5">
-          <h2 className="text-2xl font-semibold text-ink">Ranked replacement options</h2>
-          <div className="space-y-4">
-            {replacementOptions.map((option, index) => (
-              <article key={option.name} className="card-premium p-5">
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-700">
-                      Option {index + 1}
-                    </p>
-                    <h3 className="mt-1 text-lg font-semibold text-ink">{option.name}</h3>
-                    <p className="mt-1 text-sm font-medium text-brand-800">{option.role}</p>
-                  </div>
-                  <p className="rounded-full border border-brand-900/10 bg-white px-3 py-1 text-xs font-semibold text-muted">
-                    {option.vascularRead}
-                  </p>
-                </div>
-                <p className="mt-3 text-sm leading-7 text-muted">{option.details}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+        <LegacyGuideFAQ questions={[...FAQS]} pagePath="/guides/other/healthy-dipping-tobacco-alternatives/" referencesHref="#references" />
 
-        <section id="carotid-inflammation" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Carotid artery context</p>
-          <h2 className="text-2xl font-semibold text-ink">Can a dip replacement help carotid inflammation?</h2>
-          <p className="text-muted">
-            There is no good evidence that any commercially available dip substitute specifically reduces
-            inflammation around the carotid artery. Carotid artery disease is usually a plaque-and-risk-factor
-            problem: LDL-containing particles enter the artery wall, immune cells ingest oxidized lipids,
-            smooth muscle cells remodel the plaque, and inflammatory signaling can make plaque more active.
-            Tobacco and nicotine can worsen this environment through vascular tone, blood pressure, endothelial
-            function, platelet biology, and inflammatory biomarkers.
-          </p>
-          <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-5 text-sm leading-7 text-amber-950">
-            <p className="font-semibold">Careful interpretation</p>
-            <p className="mt-2">
-              Some studies link noncigarette tobacco products with markers such as high-sensitivity CRP,
-              interleukin-6, fibrinogen, carotid intima-media thickness, or carotid plaque. Other older
-              studies found weaker or mixed signals for certain low-nitrosamine snus products. That does not
-              make dip safe. It means product chemistry, nicotine dose, user history, and baseline risk matter.
-            </p>
-          </div>
-        </section>
-
-        <section id="mechanisms" className="scroll-mt-20 space-y-5">
-          <h2 className="text-2xl font-semibold text-ink">Why dip stresses blood vessels</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="card-premium p-5">
-              <h3 className="text-base font-semibold text-ink">Nicotine and sympathetic drive</h3>
-              <p className="mt-2 text-sm leading-7 text-muted">
-                Nicotine activates nicotinic acetylcholine receptors in autonomic ganglia and the adrenal medulla,
-                increasing catecholamine signaling. Acutely, this can raise heart rate, blood pressure, and
-                vascular tone. For a person worried about carotid disease, repeated nicotine peaks are the wrong
-                direction even when tobacco leaf is removed.
-              </p>
-            </div>
-            <div className="card-premium p-5">
-              <h3 className="text-base font-semibold text-ink">Tobacco-specific nitrosamines</h3>
-              <p className="mt-2 text-sm leading-7 text-muted">
-                Cured smokeless tobacco contains tobacco-specific nitrosamines, including NNN and NNK, formed
-                during growing, curing, fermenting, and aging. These are central reasons dip is linked to oral,
-                esophageal, and pancreatic cancer risk.
-              </p>
-            </div>
-            <div className="card-premium p-5">
-              <h3 className="text-base font-semibold text-ink">Endothelium and plaque biology</h3>
-              <p className="mt-2 text-sm leading-7 text-muted">
-                The endothelium regulates vessel dilation, clotting balance, leukocyte adhesion, and local
-                inflammation. Tobacco exposure can push this system toward vasoconstriction, oxidative stress,
-                adhesion molecule expression, and a more pro-thrombotic environment.
-              </p>
-            </div>
-            <div className="card-premium p-5">
-              <h3 className="text-base font-semibold text-ink">Mouth injury feeds the loop</h3>
-              <p className="mt-2 text-sm leading-7 text-muted">
-                Dip holds irritants against the gingiva and oral mucosa for long periods. Gum recession,
-                leukoplakia, periodontal inflammation, and tooth decay are local harms, and chronic oral
-                inflammation can add systemic inflammatory burden.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="protocol" className="scroll-mt-20 space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">A practical quit protocol for dip users</h2>
-          <ol className="space-y-3 pl-5 text-sm leading-7 text-muted">
-            <li>
-              <strong className="text-ink">Measure the pattern.</strong> Track cans or pouches per day, first use
-              after waking, strongest cue times, and whether cravings are chemical, oral, emotional, or social.
-            </li>
-            <li>
-              <strong className="text-ink">Pick the bridge.</strong> Heavy users often do better with a patch plus
-              short-acting gum or lozenge. People mainly attached to the lip ritual may prefer gum or lozenge plus
-              non-nicotine substitutes.
-            </li>
-            <li>
-              <strong className="text-ink">Separate nicotine from the ritual.</strong> Use NRT on a schedule, then
-              use sugar-free oral substitutes for the mouth cue. This prevents every cue from becoming another
-              nicotine dose.
-            </li>
-            <li>
-              <strong className="text-ink">Taper the nicotine bridge.</strong> The goal is not permanent gum,
-              lozenge, or pouch use. Step down dose, frequency, or both once cravings are stable.
-            </li>
-            <li>
-              <strong className="text-ink">Use free support.</strong> In the United States, 1-800-QUIT-NOW connects
-              people to state quitline coaching. The NCI quitline for smokeless tobacco is 1-877-44U-QUIT.
-            </li>
-            <li>
-              <strong className="text-ink">Check the mouth.</strong> Schedule dental evaluation for gum recession,
-              leukoplakia, non-healing sores, bleeding, or oral pain after long-term dip use.
-            </li>
-          </ol>
-        </section>
-
-        <section id="supplements" className="scroll-mt-20 space-y-5">
-          <h2 className="text-2xl font-semibold text-ink">Supplements and vascular context</h2>
-          <p className="text-muted">
-            Supplements should not be sold as carotid inflammation treatments. If you are using them at all, think
-            in terms of cardiovascular risk context: lipids, blood pressure, glucose control, sleep, diet quality,
-            exercise, and dental inflammation. These are adjuncts to a quit plan, not replacements for cessation
-            medication or cardiovascular care.
-          </p>
-          <div className="grid gap-4 md:grid-cols-2">
-            {vascularSupports.map((item) => (
-              <Link key={item.name} href={item.href} className="card-premium block p-5 hover:border-brand-700/40">
-                <h3 className="text-base font-semibold text-brand-800">{item.name}</h3>
-                <p className="mt-2 text-sm leading-7 text-muted">{item.evidence}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section id="red-flags" className="scroll-mt-20 rounded-2xl border border-rose-900/15 bg-rose-50/80 p-6">
-          <h2 className="text-xl font-semibold text-rose-950">Red flags that need medical care</h2>
-          <ul className="mt-3 space-y-2 text-sm leading-7 text-rose-950">
-            <li>New neurologic symptoms: one-sided weakness, numbness, facial droop, speech difficulty, confusion, vision loss, or severe sudden headache.</li>
-            <li>A clinician heard a carotid bruit or imaging showed carotid stenosis, plaque, or dissection.</li>
-            <li>Chest pain, fainting, severe shortness of breath, uncontrolled blood pressure, or heart rhythm symptoms.</li>
-            <li>Mouth sores, white or red patches, lumps, bleeding, or pain that lasts more than two weeks.</li>
-            <li>Pregnancy, breastfeeding, recent heart attack or stroke, or use of blood thinners before adding nicotine medication or circulation supplements.</li>
-          </ul>
-        </section>
-
-        <section id="faq" className="scroll-mt-20 space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">FAQ</h2>
-          <div className="space-y-3">
-            {FAQS.map((faq) => (
-              <details key={faq.question} className="card-premium p-5">
-                <summary className="cursor-pointer text-base font-semibold text-ink">{faq.question}</summary>
-                <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        <section id="references" className="scroll-mt-20 space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">References</h2>
-          <ul className="space-y-2 text-sm leading-6 text-muted">
-            {references.map(([label, href]) => (
-              <li key={href}>
-                <a href={href} className="font-medium text-brand-700 hover:underline" rel="noreferrer">
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">Related Hippie Scientist pages</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/compounds/nicotine/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Nicotine compound profile -&gt;</Link>
-            <Link href="/learn/inflammation/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Inflammation guide -&gt;</Link>
-            <Link href="/guides/best/supplements-for-blood-pressure/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Supplements for blood pressure -&gt;</Link>
-            <Link href="/guides/compare/curcumin-vs-boswellia-vs-omega-3/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Curcumin vs boswellia vs omega-3 -&gt;</Link>
-          </div>
-        </section>
+        <div className="flex flex-wrap gap-4 border-t border-brand-900/10 pt-4">
+          <Link href="/guides/" className="text-sm font-semibold text-brand-800 hover:underline">Back to guides →</Link>
+          <Link href="/safety-checker/" className="text-sm font-semibold text-brand-800 hover:underline">Safety checker →</Link>
+        </div>
+      </div>
+      <div id="references" className="scroll-mt-24">
+        <References refs={REFS} />
       </div>
     </ArticleLayout>
   )
