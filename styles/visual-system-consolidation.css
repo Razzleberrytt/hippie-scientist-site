@@ -1,108 +1,20 @@
 :root {
-  /* Premium editorial palette: parchment canvas, charcoal ink, evergreen structure, brass signal. */
-  --color-background: #f3f0e9;
-  --color-surface: #ebe7de;
-  --color-ink: #1d1d1f;
-  --color-muted: #6c6862;
-  --bg: #f3f0e9;
-  --surface: #ebe7de;
-  --surface-elevated: #fffdf8;
-  --text-primary: #1d1d1f;
-  --text-secondary: #5f5b56;
-  --text-muted: #77716a;
-  --surface-card: rgba(255, 253, 248, 0.96);
-  --surface-card-strong: #fffdf8;
-  --surface-subtle: rgba(235, 231, 222, 0.84);
-  --surface-code: #ece9e2;
+  /* Semantic surfaces stay here because the final hardening layer deliberately
+     leaves evidence/safety meaning outside the generic brand palette. */
   --surface-warning: rgba(252, 244, 224, 0.94);
   --surface-danger: rgba(253, 239, 237, 0.94);
   --surface-info: rgba(239, 241, 236, 0.94);
-  --surface-neutral: rgba(246, 243, 237, 0.96);
-  --border-soft: rgba(46, 44, 40, 0.11);
-  --border-strong: rgba(46, 44, 40, 0.20);
-  --ring-brand: rgba(176, 132, 73, 0.34);
-  --accent-primary: #2f4037;
-  --accent-secondary: #b18449;
-  --accent-teal: #66766c;
-  --tone: #66766c;
-  --tone-ink: #3c4a42;
-
-  /* Legacy hs-* variables resolve into the same visual system. */
-  --hs-gold: #b18449;
-  --hs-gold-bright: #c59759;
-  --hs-gold-soft: #e7d2b2;
-  --hs-gold-ink: #8b632f;
-  --hs-ink: #1d1d1f;
-  --hs-ink-soft: #46443f;
-  --hs-body: #6c6862;
-  --hs-hairline: rgba(46, 44, 40, 0.11);
-  --hs-hairline-strong: rgba(46, 44, 40, 0.20);
-  --hs-surface: #fffdf8;
-  --hs-surface-2: rgba(255, 253, 248, 0.90);
-  --hs-lift: 0 1px 2px rgba(30, 28, 25, 0.05), 0 12px 30px -22px rgba(30, 28, 25, 0.24);
-  --hs-lift-hover: 0 2px 4px rgba(30, 28, 25, 0.06), 0 20px 42px -24px rgba(30, 28, 25, 0.30);
-  --hs-canvas: linear-gradient(180deg, #f7f4ee 0%, #f3f0e9 46%, #efebe3 100%);
-  --hs-dot: rgba(68, 62, 54, 0.06);
-  --hs-dot-opacity: 0.10;
 }
 
 html.dark {
-  /* Graphite dominates. Green is restrained to a subtle structural undertone. */
-  --color-background: #0e1011;
-  --color-surface: #15181a;
-  --color-ink: #f3eee4;
-  --color-muted: #aaa49a;
-  --bg: #0e1011;
-  --surface: #15181a;
-  --surface-elevated: #1c1f21;
-  --text-primary: #f3eee4;
-  --text-secondary: #c7c0b5;
-  --text-muted: #9d978e;
-  --surface-card: rgba(27, 30, 32, 0.97);
-  --surface-card-strong: #202326;
-  --surface-subtle: rgba(23, 26, 28, 0.82);
-  --surface-code: #171a1c;
   --surface-warning: rgba(66, 51, 26, 0.78);
   --surface-danger: rgba(62, 31, 32, 0.78);
   --surface-info: rgba(28, 36, 34, 0.90);
-  --surface-neutral: rgba(18, 21, 23, 0.96);
-  --border-soft: rgba(227, 211, 181, 0.11);
-  --border-strong: rgba(227, 211, 181, 0.22);
-  --ring-brand: rgba(207, 164, 91, 0.36);
-  --accent-primary: #d0a35b;
-  --accent-secondary: #8d9b91;
-  --accent-teal: #829188;
-  --tone: #8d9b91;
-  --tone-ink: #d3d9d4;
-
-  --hs-gold: #d0a35b;
-  --hs-gold-bright: #e0b96f;
-  --hs-gold-soft: rgba(208, 163, 91, 0.24);
-  --hs-gold-ink: #e0b96f;
-  --hs-ink: #f3eee4;
-  --hs-ink-soft: #d7d0c5;
-  --hs-body: #aaa49a;
-  --hs-hairline: rgba(227, 211, 181, 0.11);
-  --hs-hairline-strong: rgba(227, 211, 181, 0.22);
-  --hs-surface: #1c1f21;
-  --hs-surface-2: rgba(28, 31, 33, 0.86);
-  --hs-lift: 0 1px 0 rgba(255, 255, 255, 0.025) inset, 0 16px 34px -24px rgba(0, 0, 0, 0.78);
-  --hs-lift-hover: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 24px 52px -26px rgba(0, 0, 0, 0.86);
-  --hs-canvas:
-    radial-gradient(85% 52% at 50% -12%, rgba(57, 75, 65, 0.18), transparent 58%),
-    linear-gradient(180deg, #0d0f10 0%, #101214 45%, #0e1011 100%);
-  --hs-dot: rgba(227, 211, 181, 0.045);
-  --hs-dot-opacity: 0.08;
 }
 
-body,
+/* The shell owns the site canvas. Body ownership belongs to the final hardening layer. */
 .hs-shell {
   background: var(--hs-canvas);
-  color: var(--text-primary);
-}
-
-::selection {
-  background: color-mix(in srgb, var(--hs-gold) 34%, transparent);
   color: var(--text-primary);
 }
 
@@ -139,34 +51,22 @@ a.library-content-card:hover {
   content: none !important;
 }
 
-/* Core actions: charcoal/evergreen in light mode, brass in dark mode. */
+/* Primary colors are owned by visual-token-hardening.css. This layer keeps only
+   the shared lift/press behavior that the final color owner does not define. */
 .button-primary,
 .hs-btn-primary {
-  border: 1px solid #26352e !important;
-  background: #2f4037 !important;
-  color: #fffdf8 !important;
   box-shadow: 0 2px 8px rgba(22, 24, 22, 0.16) !important;
 }
 
 .button-primary:hover,
 .hs-btn-primary:hover {
   transform: translateY(-1px) !important;
-  background: #26352e !important;
   box-shadow: 0 6px 16px rgba(22, 24, 22, 0.20) !important;
 }
 
 html.dark .button-primary,
 html.dark .hs-btn-primary {
-  border-color: #d0a35b !important;
-  background: linear-gradient(180deg, #d9ad63 0%, #bd8a43 100%) !important;
-  color: #17191a !important;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28) !important;
-}
-
-html.dark .button-primary:hover,
-html.dark .hs-btn-primary:hover {
-  border-color: #e0b96f !important;
-  background: linear-gradient(180deg, #e1b970 0%, #c7954e 100%) !important;
 }
 
 .button-secondary,
@@ -185,7 +85,7 @@ html.dark .hs-btn-primary:hover {
   background: var(--surface-card-strong) !important;
 }
 
-/* Homepage: neutralize legacy purple/green atmosphere and keep one luxury accent. */
+/* Homepage: neutralize legacy atmosphere and keep one luxury accent. */
 .hs-home .hs-display {
   color: var(--hs-ink) !important;
 }
@@ -223,19 +123,7 @@ html.dark .hs-home .hs-specimen-icon {
   border-color: rgba(208, 163, 91, 0.18) !important;
 }
 
-/* Decorative evidence dial recedes; on phones it disappears entirely. */
-.hs-home .hs-dial {
-  opacity: 0.44 !important;
-  filter: saturate(0.45) !important;
-}
-
-@media (max-width: 767px) {
-  .hs-home .hs-dial {
-    display: none !important;
-  }
-}
-
-/* Footer reads as a quiet ending, not another green content panel. */
+/* Footer reads as a quiet ending, not another content panel. */
 .editorial-footer {
   background: transparent !important;
   color: var(--text-primary) !important;
