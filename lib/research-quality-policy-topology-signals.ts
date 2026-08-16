@@ -20,6 +20,8 @@ export type AggregatedTopologyGapWeights = {
   pseudoMultiSourceSupport: number
   underlyingStudyPublicationReuse: number
   highConfidenceUnderlyingStudyPublicationReuseBonus: number
+  independenceMetadataGap: number
+  highConfidenceIndependenceMetadataBonus: number
   severeStudyClassConflict: number
   studyClassAmbiguity: number
 }
@@ -203,6 +205,20 @@ export function buildAggregatedTopologyGapSignals(
         + Math.min(8, Math.max(0, affectedClaims - 1) * 2 + item.duplicatePublications)
         + (highConfidence ? weights.highConfidenceUnderlyingStudyPublicationReuseBonus : 0),
       detail: `${affectedClaims} approved multi-publication claim(s) reuse underlying evidence; ${item.registeredTrialClaims} same registered trial, ${item.nonRegistryLineageClaims} shared cohort/dataset/parent-study lineage; ${highConfidence} high-confidence`,
+    })
+  }
+
+  for (const [url, items] of groupByUrl(topology.evidenceIndependenceCoverage.unresolvedClaims)) {
+    const highConfidence = items.filter((item) => item.highConfidenceIndependenceUnresolved).length
+    const unresolvedStudies = items.reduce((sum, item) => sum + item.unresolvedStudyCount, 0)
+    const minimumCoverage = Math.min(...items.map((item) => item.combinedCoverage))
+    signals.push({
+      url,
+      kind: 'evidence-independence-metadata-gap',
+      weight: weights.independenceMetadataGap
+        + Math.min(8, Math.max(0, items.length - 1) * 2 + unresolvedStudies)
+        + (highConfidence ? weights.highConfidenceIndependenceMetadataBonus : 0),
+      detail: `${items.length} approved multi-study claim(s) have unresolved independence; ${unresolvedStudies} study slot(s) lack explicit registry/cohort/dataset/parent-study lineage; ${highConfidence} high-confidence; minimum explicit coverage ${Math.round(minimumCoverage * 100)}%`,
     })
   }
 
