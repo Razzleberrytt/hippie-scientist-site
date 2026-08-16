@@ -74,6 +74,8 @@ const {
   claimProvenanceIndependence,
   provenanceNarrowMultiStudyClaims,
   highConfidenceProvenanceNarrowMultiStudyClaims,
+  trialRegistrationIndependence,
+  evidenceLineage,
   studyClassConflicts,
   crossProfileEvidenceBundles,
   narrowCrossProfileEvidenceBundles,
@@ -114,6 +116,8 @@ results.push({
     `semanticMismatches=${semanticAlignment.summary.anyMismatch}`,
     `causalWithoutControlled=${languageCalibration.summary.causalWithoutControlledSupport}`,
     `pseudoMultiSource=${edgeCardinality.summary.pseudoMultiSourceClaims}`,
+    `sameTrialReuse=${trialRegistrationIndependence.summary.sameTrialReuseClaims}`,
+    `sharedLineage=${evidenceLineage.summary.sharedNonRegistryLineageClaims}`,
   ].join('; '),
   stderrTail: [
     gate.summary.structuralFailures ? `${gate.summary.structuralFailures} invalid evidence edge(s)` : '',
@@ -176,6 +180,8 @@ const coreSummary = {
   claimLanguageCalibration: languageCalibration.summary,
   claimCitationMetadata: claimCitationMetadata.summary,
   edgeCardinality: edgeCardinality.summary,
+  trialRegistrationIndependence: trialRegistrationIndependence.summary,
+  evidenceLineage: evidenceLineage.summary,
   weakApprovedOutcomeClaims: weakApprovedOutcomes.length,
   unsupportedUnapprovedStructuredClaims: unsupportedUnapprovedClaims.length,
   weakUnapprovedOutcomeClaims: weakUnapprovedOutcomes.length,
@@ -210,7 +216,7 @@ const coreSummary = {
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 22,
+  schemaVersion: 23,
   generatedAt: new Date().toISOString(),
   passed: !failed,
   source: {
@@ -220,6 +226,8 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
     policy: 'lib/research-quality-policy.ts',
     gate: 'lib/research-quality-gate.ts',
     edgeCardinality: 'lib/research-edge-cardinality.ts',
+    trialRegistrationIndependence: 'lib/research-trial-registration-independence.ts',
+    evidenceLineage: 'lib/research-evidence-lineage.ts',
   },
   coreSummary,
   structuralFailures: gate.structuralFailures,
@@ -253,6 +261,16 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
     aliasCollapsedClaims: edgeCardinality.aliasCollapsedClaims.slice(0, 150),
     duplicateEdgeClaims: edgeCardinality.duplicateEdgeClaims.slice(0, 100),
   },
+  trialRegistrationIndependence: {
+    summary: trialRegistrationIndependence.summary,
+    sameTrialReuseClaims: trialRegistrationIndependence.sameTrialReuseClaims.slice(0, 150),
+    highConfidenceSameTrialReuseClaims: trialRegistrationIndependence.highConfidenceSameTrialReuseClaims.slice(0, 100),
+  },
+  evidenceLineage: {
+    summary: evidenceLineage.summary,
+    sharedNonRegistryLineageClaims: evidenceLineage.sharedNonRegistryLineageClaims.slice(0, 150),
+    highConfidenceSharedNonRegistryLineageClaims: evidenceLineage.highConfidenceSharedNonRegistryLineageClaims.slice(0, 100),
+  },
   withdrawnCitedStudies: sourceIntegrity.withdrawn,
   evidenceGradeInvalid: evidenceGradeConsistency.invalid,
   evidenceGradeContradictions: evidenceGradeConsistency.contradictions.slice(0, 100),
@@ -284,6 +302,7 @@ console.log(`Research gate: ${gate.summary.blockingFailures} blocking · ${gate.
 console.log(`Semantic alignment: ${semanticAlignment.summary.anyMismatch} explicit mismatch(es) · ${semanticAlignment.summary.highConfidenceMismatches} high-confidence`)
 console.log(`Language calibration: ${languageCalibration.summary.causalWithoutControlledSupport} unsupported direct-causal claim(s)`)
 console.log(`Edge cardinality: ${edgeCardinality.summary.pseudoMultiSourceClaims} pseudo-multi-source · ${edgeCardinality.summary.aliasCollapsedClaims} alias-collapsed · ${edgeCardinality.summary.duplicateEdges} duplicate edge(s)`)
+console.log(`Underlying-study reuse: ${trialRegistrationIndependence.summary.sameTrialReuseClaims} same-trial claim(s) · ${evidenceLineage.summary.sharedNonRegistryLineageClaims} shared lineage claim(s)`)
 console.log(`Gap queue: ${researchGapQueue.length} profile(s) prioritized`)
 console.log(`Semantic report: ${path.relative(ROOT, semanticReportPath)}`)
 console.log(`Citation report: ${path.relative(ROOT, citationReportPath)}`)
