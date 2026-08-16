@@ -31,9 +31,6 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     children: [
       { label: 'Herb database', href: '/herbs', description: 'Canonical herb profiles with evidence, dosing context, and safety summaries' },
       { label: 'Compound database', href: '/compounds', description: 'Nutrients, isolated compounds, standardized extracts, and active constituents' },
-      { label: 'Evidence database', href: '/evidence/evidence-checker', description: 'Search ingredients by the strength of their human evidence' },
-      { label: 'Herb guides', href: '/guides/herbs', description: 'Long-form practical guides for important botanicals' },
-      { label: 'Dosing guide', href: '/info/dosing', description: 'Studied doses, forms, timing, bioavailability, and dose realism basics' },
       { label: 'Search everything', href: '/search', description: 'Search common names, scientific names, compounds, guides, and research resources' },
     ],
   },
