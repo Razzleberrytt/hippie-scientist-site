@@ -7,7 +7,6 @@ export interface BreadcrumbItem {
 export interface RouteMetadata {
   label: string
   description?: string
-  parent?: string
   isDynamic?: boolean
 }
 
@@ -21,219 +20,177 @@ export const routeLabels: Record<string, RouteMetadata> = {
   '/start': {
     label: 'Start Here',
     description: 'Choose between goal research, ingredient lookup, and safety checking',
-    parent: '/',
   },
   '/library': {
     label: 'Explore Everything',
     description: 'Complete site directory',
-    parent: '/',
   },
   '/articles': {
     label: 'Articles',
     description: 'Research notes, evidence reviews, and editorial analysis',
-    parent: '/library',
   },
   '/articles/[slug]': {
     label: 'Article',
     description: 'Research article or evidence review',
-    parent: '/articles',
     isDynamic: true,
   },
   '/herbs': {
     label: 'Herbs',
     description: 'Evidence-graded herb profiles',
-    parent: '/library',
   },
   '/herbs/[slug]': {
     label: 'Herb Profile',
     description: 'Detailed herb evidence and safety profile',
-    parent: '/herbs',
     isDynamic: true,
   },
   '/compounds': {
     label: 'Compounds',
     description: 'Active compounds, nutrients, and standardized extracts',
-    parent: '/library',
   },
   '/compounds/[slug]': {
     label: 'Compound Profile',
     description: 'Detailed compound evidence and safety profile',
-    parent: '/compounds',
     isDynamic: true,
   },
   '/search': {
     label: 'Search',
     description: 'Search the complete site',
-    parent: '/library',
   },
   '/goals': {
     label: 'Supplement Goals',
     description: 'Compare supplement options by the outcome you want to improve',
-    parent: '/library',
   },
   '/goals/[slug]': {
     label: 'Goal Guide',
     description: 'Goal-based supplement comparison by fit, onset, evidence, and risk',
-    parent: '/goals',
     isDynamic: true,
   },
   '/guides': {
     label: 'Topics & Guides',
     description: 'Goal-based and practical evidence guides',
-    parent: '/library',
   },
   '/guides/mental-health': {
     label: 'Mental Health',
     description: 'Conditions, treatment evidence, safety, and stigma-aware explainers',
-    parent: '/guides',
   },
   '/guides/adhd': {
     label: 'ADHD',
     description: 'Attention, executive function, nutrients, and treatment context',
-    parent: '/guides',
   },
   '/guides/sleep': {
     label: 'Sleep',
     description: 'Sleep aids, alternatives, and sleep-hygiene evidence',
-    parent: '/guides',
   },
   '/guides/stress': {
     label: 'Stress',
     description: 'Acute tension, chronic overload, burnout, cortisol concerns, and stress-support evidence',
-    parent: '/guides',
   },
   '/guides/anxiety': {
     label: 'Anxiety',
     description: 'Anxiety patterns, calming supports, and evidence-aware safety guidance',
-    parent: '/guides',
   },
   '/guides/focus': {
     label: 'Focus & Cognition',
     description: 'Focus support, nootropics, and cognitive performance',
-    parent: '/guides',
   },
   '/guides/metabolic-health': {
     label: 'Metabolic Health',
     description: 'Metabolic-health evidence, comparisons, medication context, and practical research paths',
-    parent: '/guides',
   },
   '/guides/herbs': {
     label: 'Herb Guides',
     description: 'Long-form practical botanical guides',
-    parent: '/guides',
   },
   '/guides/best': {
     label: 'Best Supplements',
     description: 'Evidence-aware roundups organized by need',
-    parent: '/guides',
   },
   '/guides/compare': {
     label: 'Comparisons',
     description: 'Side-by-side supplement and compound tradeoffs',
-    parent: '/guides',
   },
   '/guides/other': {
     label: 'Supplement Topic Guides',
     description: 'Forms, quality, routines, advanced compounds, and harm reduction',
-    parent: '/guides',
   },
   '/guides/[slug]': {
     label: 'Guide',
     description: 'Evidence-informed supplement guide',
-    parent: '/guides',
     isDynamic: true,
   },
   '/guides/[section]/[slug]': {
     label: 'Guide',
     description: 'Evidence-informed topic guide',
-    parent: '/guides',
     isDynamic: true,
   },
   '/lead-magnets/adhd-supplement-starter-checklist': {
     label: 'ADHD Supplement Starter Checklist',
     description: 'Printable baseline, safety, and 28-day tracking worksheet',
-    parent: '/guides/adhd',
   },
   '/learn': {
     label: 'Learning Library',
     description: 'Neuroscience, evidence literacy, and safety education',
-    parent: '/library',
   },
   '/learn/[slug]': {
     label: 'Learning Resource',
     description: 'Educational research resource',
-    parent: '/learn',
     isDynamic: true,
   },
   '/novel-psychoactive-substances': {
     label: 'Novel Psychoactive Substances',
     description: 'Harm-reduction profiles for emerging substances',
-    parent: '/library',
   },
   '/safety': {
     label: 'Safety',
     description: 'Safety checker redirect',
-    parent: '/',
   },
   '/safety-checker': {
     label: 'Safety Checker',
     description: 'Interaction and contraindication lookup',
-    parent: '/library',
   },
   '/evidence/evidence-checker': {
     label: 'Evidence Lookup',
     description: 'Search compounds by clinical evidence grade',
-    parent: '/library',
   },
   '/evidence/evidence-report': {
     label: 'Evidence Report',
     description: 'Annual state of supplement evidence review',
-    parent: '/library',
   },
   '/evidence/evidence-digest': {
     label: 'Evidence Digest',
     description: 'Recent human-trial highlights and research summaries',
-    parent: '/library',
   },
   '/info/methodology': {
     label: 'Methodology',
     description: 'Evidence grading and editorial standards',
-    parent: '/library',
   },
   '/info/dosing': {
     label: 'Dosing Guide',
     description: 'Bioavailability, timing, stacking, and dose realism',
-    parent: '/library',
   },
   '/info/supplement-safety-checklist': {
     label: 'Supplement Checklist',
     description: 'What to verify before buying or stacking a supplement',
-    parent: '/library',
   },
   '/info/infographics': {
     label: 'Infographics',
     description: 'Downloadable and embeddable evidence visuals',
-    parent: '/library',
   },
   '/info/about': {
     label: 'About',
     description: 'Project mission and editorial approach',
-    parent: '/library',
   },
   '/info/author': {
     label: 'Author',
     description: 'Author identity and credentials',
-    parent: '/library',
   },
   '/info/faq': {
     label: 'FAQ',
     description: 'Common questions about the site',
-    parent: '/library',
   },
   '/info/contact': {
     label: 'Contact',
     description: 'Corrections, feedback, and contact information',
-    parent: '/library',
   },
 }
 
