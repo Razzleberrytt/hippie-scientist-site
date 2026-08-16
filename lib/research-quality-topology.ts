@@ -1,3 +1,4 @@
+import { analyzeClaimEvidenceDiversity } from './research-claim-evidence-diversity'
 import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
 import { analyzeProvenanceConcentration } from './research-provenance-concentration'
@@ -32,6 +33,11 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const edgeWeightedNarrativeDominatedProfiles = edgeWeightedDesignUsage.filter((profile) => profile.edgeWeightedNarrativeDominated)
   const provenanceConcentration = analyzeProvenanceConcentration(analysis)
   const provenanceConcentratedProfiles = provenanceConcentration.profiles.filter((profile) => profile.provenanceConcentrated)
+  const claimEvidenceDiversity = analyzeClaimEvidenceDiversity(analysis)
+  const homogeneousMultiStudyClaims = claimEvidenceDiversity.filter((claim) => claim.homogeneousMultiStudySupport)
+  const highConfidenceHomogeneousMultiStudyClaims = claimEvidenceDiversity.filter(
+    (claim) => claim.highConfidenceHomogeneousMultiStudySupport,
+  )
 
   return {
     crossProfileStudyLoad,
@@ -49,5 +55,8 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     edgeWeightedNarrativeDominatedProfiles,
     provenanceConcentration,
     provenanceConcentratedProfiles,
+    claimEvidenceDiversity,
+    homogeneousMultiStudyClaims,
+    highConfidenceHomogeneousMultiStudyClaims,
   }
 }
