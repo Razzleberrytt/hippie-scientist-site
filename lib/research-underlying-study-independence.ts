@@ -231,8 +231,9 @@ function buildProfileUnions(inputs: UnderlyingStudyIndependenceInputs): Map<stri
  * registry/cohort/dataset/parent-study identifiers establish underlying-study
  * dependence across those publications. Metadata coverage is measured on the
  * same unique-publication denominator as these global counts. A publication is
- * considered covered only when explicit study-lineage metadata exists; DOI/PMID
- * identity alone does not count as independence metadata.
+ * considered covered when explicit registry or study-lineage metadata exists;
+ * ambiguous registry evidence counts as metadata but never authorizes collapse.
+ * DOI/PMID identity alone does not count as independence metadata.
  */
 function buildGlobalInventoryIndependence(
   inputs: UnderlyingStudyIndependenceInputs,
@@ -255,10 +256,12 @@ function buildGlobalInventoryIndependence(
   const explicitMetadataPublicationIds = new Set<string>()
   const registryGroups = new Map<string, string[]>()
   for (const study of inputs.trialRegistrationIndependence.studies ?? []) {
-    if (!study.stableRegistryId) continue
     const globalStudyId = crossProfileStudyIdentity(study.url, study.studyId, identities)
     if (!publicationIds.has(globalStudyId)) continue
-    explicitMetadataPublicationIds.add(globalStudyId)
+    if (study.stableRegistryId || study.registryIds?.length) {
+      explicitMetadataPublicationIds.add(globalStudyId)
+    }
+    if (!study.stableRegistryId) continue
     const group = registryGroups.get(study.stableRegistryId) ?? []
     group.push(globalStudyId)
     registryGroups.set(study.stableRegistryId, group)
