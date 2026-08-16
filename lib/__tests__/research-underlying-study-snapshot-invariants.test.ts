@@ -45,9 +45,15 @@ function fixtures() {
     inventoryPublicationStudyCount: 2,
     inventoryUnderlyingStudyCount: 1,
     inventoryCollapsedPublicationCount: 1,
+    inventoryPublicationsWithIndependenceMetadata: 2,
+    inventoryPublicationsWithoutIndependenceMetadata: 0,
+    inventoryIndependenceMetadataCoverage: 1,
     primaryHumanPublicationCount: 2,
     primaryHumanUnderlyingStudyCount: 1,
     collapsedPrimaryHumanPublicationCount: 1,
+    primaryHumanPublicationsWithIndependenceMetadata: 2,
+    primaryHumanPublicationsWithoutIndependenceMetadata: 0,
+    primaryHumanIndependenceMetadataCoverage: 1,
     mostUsedUnderlyingStudyId: 'a',
     mostUsedUnderlyingStudyClaimCount: 1,
     dominantUnderlyingStudySupportedClaimShare: 1,
@@ -76,6 +82,7 @@ function fixtures() {
         profilesWithSupportedClaims: 1,
         profilesWithReducedStudyCount: 1,
         profilesWithReducedHumanStudyCount: 1,
+        profilesWithIncompletePrimaryHumanIndependenceMetadata: 0,
         primaryHumanPublicationCount: 2,
         primaryHumanUnderlyingStudyCount: 1,
         collapsedPrimaryHumanPublicationCount: 1,
@@ -145,5 +152,12 @@ describe('underlying-study snapshot invariants', () => {
     const kinds = validateUnderlyingStudySnapshotInvariants(analysis, topology).map((failure) => failure.kind)
     expect(kinds).toContain('underlying-study-global-primary-human-metadata-gap-mismatch')
     expect(kinds).toContain('underlying-study-global-primary-human-metadata-coverage-mismatch')
+  })
+
+  it('rejects incomplete-profile summary drift', () => {
+    const { analysis, topology } = fixtures()
+    topology.underlyingStudyIndependence.summary.profilesWithIncompletePrimaryHumanIndependenceMetadata = 1
+    const kinds = validateUnderlyingStudySnapshotInvariants(analysis, topology).map((failure) => failure.kind)
+    expect(kinds).toContain('underlying-study-incomplete-primary-human-metadata-profile-count-mismatch')
   })
 })
