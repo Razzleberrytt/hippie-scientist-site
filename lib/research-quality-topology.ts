@@ -1,11 +1,13 @@
 import { analyzeClaimCitationMetadata } from './research-claim-citation-metadata'
 import { analyzeClaimEvidenceDiversity } from './research-claim-evidence-diversity'
+import { analyzeClaimLanguageCalibration } from './research-claim-language-calibration'
 import { analyzeClaimProvenanceIndependence } from './research-claim-provenance-independence'
 import { analyzeCrossProfileEvidenceBundles } from './research-cross-profile-bundles'
 import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
 import { analyzeProvenanceConcentration } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
+import { analyzeResearchSemanticAlignment } from './research-semantic-alignment'
 import { analyzeStudyClassConflicts } from './research-study-class-conflicts'
 import { analyzeStudyIdentityCoverage } from './research-study-identity-coverage'
 import {
@@ -17,11 +19,9 @@ import {
 export type ResearchQualityTopology = ReturnType<typeof buildResearchQualityTopology>
 
 /**
- * Build derived evidence-topology products once from the canonical analysis.
- * Policy and reporting should consume this snapshot rather than independently
- * walking the same claim/study graph again. Non-topology editorial analyses
- * (semantic alignment and language calibration) stay in the canonical pipeline
- * instead of being recomputed here.
+ * Build all derived research-quality products once from the canonical analysis.
+ * Policy and reporting consume this snapshot rather than independently walking
+ * the same claim/study graph or recomputing policy-facing editorial analyses.
  */
 export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) {
   const crossProfileStudyLoad = analyzeCrossProfileStudyLoad(analysis)
@@ -54,6 +54,8 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     (claim) => claim.highConfidenceProvenanceNarrowMultiStudySupport,
   )
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
+  const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
+  const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
   const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
 
   return {
@@ -81,6 +83,8 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     provenanceNarrowMultiStudyClaims,
     highConfidenceProvenanceNarrowMultiStudyClaims,
     studyClassConflicts,
+    semanticAlignment,
+    claimLanguageCalibration,
     claimCitationMetadata,
   }
 }
