@@ -37,7 +37,7 @@ const complete = (id: string, pmid: string) => ({
 })
 
 describe('claim-linked citation metadata coverage', () => {
-  it('flags a high-confidence claim when less than 70% of its canonical studies have complete citation metadata', () => {
+  it('flags a high-confidence claim when field-level metadata coverage is below 70%', () => {
     const { root, result } = run([
       complete('s1', '11111111'),
       { id: 's2', pmid: '22222222', studyClass: 'rct' },
@@ -48,15 +48,38 @@ describe('claim-linked citation metadata coverage', () => {
         lowMetadataCoverageClaims: 1,
         highConfidenceLowMetadataCoverageClaims: 1,
         averageMetadataCoverage: 0.5,
+        averageFieldMetadataCoverage: 0.6,
       })
       expect(result.claims[0]).toMatchObject({
         studyCount: 2,
         completeStudyCount: 1,
         metadataCoverage: 0.5,
+        fieldMetadataCoverage: 0.6,
         lowMetadataCoverage: true,
         highConfidenceLowMetadataCoverage: true,
       })
       expect(result.claims[0].missingFieldCounts).toMatchObject({ title: 1, year: 1, authors: 1, journal: 1 })
+    } finally { rmSync(root, { recursive: true, force: true }) }
+  })
+
+  it('does not treat mostly-complete citations like empty citation rows', () => {
+    const almostComplete = (id: string, pmid: string) => {
+      const { authors: _authors, ...source } = complete(id, pmid)
+      return source
+    }
+    const { root, result } = run([
+      almostComplete('s1', '11111111'),
+      almostComplete('s2', '22222222'),
+    ], ['s1', 's2'])
+    try {
+      expect(result.claims[0]).toMatchObject({
+        completeStudyCount: 0,
+        metadataCoverage: 0,
+        fieldMetadataCoverage: 0.8,
+        lowMetadataCoverage: false,
+        highConfidenceLowMetadataCoverage: false,
+      })
+      expect(result.claims[0].missingFieldCounts).toEqual({ authors: 2 })
     } finally { rmSync(root, { recursive: true, force: true }) }
   })
 
@@ -71,6 +94,7 @@ describe('claim-linked citation metadata coverage', () => {
         studyCount: 2,
         completeStudyCount: 2,
         metadataCoverage: 1,
+        fieldMetadataCoverage: 1,
         lowMetadataCoverage: false,
       })
       expect(result.claims[0].missingFieldCounts).toEqual({})
