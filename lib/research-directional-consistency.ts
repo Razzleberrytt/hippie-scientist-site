@@ -44,12 +44,12 @@ export type DirectionalConsistencyReport = {
 }
 
 const POSITIVE = /\b(significantly (?:improved|reduced|increased|decreased)|significant (?:improvement|reduction|benefit|difference)|improved significantly|reduced significantly|beneficial effect|favou?r(?:ed|s) (?:the )?(?:treatment|intervention)|superior to placebo)\b/i
-const NULL = /\b(no significant (?:difference|effect|benefit|improvement|reduction)|not statistically significant|non[- ]significant|did not (?:differ|improve|reduce)|no (?:difference|effect|benefit)|failed to (?:improve|reduce)|similar to placebo|comparable to placebo)\b/i
+const NULL = /\b(no (?:statistically )?significant (?:difference|effect|benefit|improvement|reduction)|not statistically significant|non[- ]significant|did not (?:differ|improve|reduce)|no (?:difference|effect|benefit)|failed to (?:improve|reduce)|similar to placebo|comparable to placebo)\b/i
 const NEGATIVE = /\b(significantly worsened|worsened significantly|worse than placebo|inferior to placebo|significant (?:worsening|harm)|increased adverse|favou?red placebo)\b/i
 const MIXED = /\b(mixed results?|inconsistent results?|inconsistent findings?|conflicting results?|not consistent across|heterogeneous results?)\b/i
 
-const PRIMARY_NULL_OR_NEGATIVE = /\bprimary (?:outcome|endpoint)[^.]{0,180}(?:no significant|not statistically significant|non[- ]significant|did not|failed to|worsen|worse|inferior|favou?red placebo)\b/i
-const SECONDARY_OR_SUBGROUP_POSITIVE = /\b(?:secondary (?:outcome|endpoint)|subgroup|sub-group|post[- ]hoc|exploratory (?:outcome|endpoint|analysis))[^.]{0,180}(?:significant|improv|reduc|benefit|favou?r|superior)\b/i
+const PRIMARY_NULL_OR_NEGATIVE = /\bprimary (?:outcome|endpoint)[^.]{0,180}(?:no (?:statistically )?significant|not statistically significant|non[- ]significant|did not|failed to|worsen|worse|inferior|favou?red placebo)\b/i
+const SECONDARY_OR_SUBGROUP_POSITIVE = /\b(?:secondary (?:outcome|endpoint)|subgroup|sub-group|post[- ]hoc|exploratory (?:outcome|endpoint|analysis))[^.]{0,180}(?:significant(?:ly)?|improv\w*|reduc\w*|benefit\w*|favou?r\w*|superior)\b/i
 
 function text(value: unknown): string {
   return String(value ?? '').replace(/\s+/g, ' ').trim()
@@ -74,8 +74,23 @@ function uniformlyPositiveLanguage(claim: ResearchClaim): boolean {
   return /\b(consistently|reliably|clear benefit|well[- ]established|proven|robust(?: benefit| effect| evidence)?|strong(?:ly)? (?:improves?|reduces?|benefit))\b/i.test(claimText)
 }
 
+/**
+ * Classify positive direction at the sentence level so a null statement such as
+ * "no significant difference" cannot also satisfy the generic positive
+ * "significant difference" pattern. A source can still count as both null and
+ * positive when separate endpoints/sentences explicitly point in both directions.
+ */
+function hasPositiveDirectionalSignal(value: string): boolean {
+  if (SECONDARY_OR_SUBGROUP_POSITIVE.test(value)) return true
+  return value
+    .split(/[.!?]+/)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean)
+    .some((sentence) => POSITIVE.test(sentence) && !NULL.test(sentence) && !NEGATIVE.test(sentence))
+}
+
 function hasExplicitDirectionalSignal(value: string): boolean {
-  return POSITIVE.test(value)
+  return hasPositiveDirectionalSignal(value)
     || NULL.test(value)
     || NEGATIVE.test(value)
     || MIXED.test(value)
@@ -106,7 +121,7 @@ export function analyzeDirectionalConsistency(analysis: ResearchQualityAnalysis)
       const explicitDirectionalSourceCount = sourceTexts.filter(hasExplicitDirectionalSignal).length
       if (!explicitDirectionalSourceCount) continue
 
-      const positiveSourceCount = sourceTexts.filter((value) => POSITIVE.test(value)).length
+      const positiveSourceCount = sourceTexts.filter(hasPositiveDirectionalSignal).length
       const nullSourceCount = sourceTexts.filter((value) => NULL.test(value)).length
       const negativeSourceCount = sourceTexts.filter((value) => NEGATIVE.test(value)).length
       const mixedSourceCount = sourceTexts.filter((value) => MIXED.test(value)).length
