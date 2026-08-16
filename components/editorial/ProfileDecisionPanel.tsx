@@ -39,6 +39,7 @@ export function ProfileDecisionPanel({
           whyNotHigher={verdict.evidenceConfidence.whyNotHigher}
           whyNotLower={verdict.evidenceConfidence.whyNotLower}
           practicalTakeaway={verdict.evidenceConfidence.practicalTakeaway}
+          className="my-0"
         />
       ) : null}
 
