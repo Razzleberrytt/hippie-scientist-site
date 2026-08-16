@@ -65,6 +65,13 @@ const SECTIONS = [
     articles: ['Best nootropics for focus', 'Focus without caffeine crash', 'L-theanine vs caffeine', 'Best focus supplements'],
   },
   {
+    title: 'Metabolic Health',
+    href: '/guides/metabolic-health/',
+    desc: 'Blood sugar, insulin sensitivity, weight-loss claims, medication context, and metabolic supplement comparisons kept tied to human evidence.',
+    color: 'border-l-lime-600',
+    articles: ['Berberine vs inositol', 'Berberine vs cinnamon', 'Berberine for weight loss', 'Berberine vs metformin'],
+  },
+  {
     title: 'Herb Guides',
     href: '/guides/herbs/',
     desc: 'Deep-dive monographs on individual herbs — ashwagandha, kava, passionflower, rhodiola, turmeric.',
