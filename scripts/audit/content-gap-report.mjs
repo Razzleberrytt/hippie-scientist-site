@@ -1,47 +1,15 @@
 import fs from 'node:fs'
-import { collectionHasMeaningfulText, hasMeaningfulText, isMissingLike } from '../../lib/data-quality.mjs'
+import { collectionHasMeaningfulText } from '../../lib/data-quality.mjs'
+import { evaluateProfileCompleteness } from '../../lib/profile-completeness.mjs'
 
 const REPORT_DIR = 'reports'
-const PROFILE_FIELDS = ['description', 'safety', 'evidence_level', 'mechanism', 'best_for', 'dosing', 'interactions']
-const DESCRIPTION_PLACEHOLDERS = [
-  /evidence-aware botanical profile with mechanism/i,
-  /evidence-aware compound profile with mechanism/i,
-]
 
 function ensureReportDir() {
   fs.mkdirSync(REPORT_DIR, { recursive: true })
 }
 
-function checkDescription(value) {
-  return hasMeaningfulText(value, DESCRIPTION_PLACEHOLDERS)
-}
-
 export function checkSafety(value) {
   return collectionHasMeaningfulText(value)
-}
-
-function checkEvidenceLevel(item) {
-  return !isMissingLike(item.evidence_tier ?? item.evidence_grade ?? item.evidenceLevel ?? item.evidence_level)
-}
-
-function checkMechanism(item) {
-  const value = item.mechanisms ?? item.canonical_mechanisms ?? item.mechanism
-  return Array.isArray(value) ? value.length > 0 : !isMissingLike(value)
-}
-
-function checkBestFor(item) {
-  return collectionHasMeaningfulText(item.effects ?? item.primary_effects ?? item.best_for ?? item.bestFor)
-}
-
-function checkDosing(item) {
-  const value = item.dosage ?? item.typical_dosage ?? item.dosing ?? item.dosage_range
-  return Array.isArray(value) ? value.length > 0 : !isMissingLike(value)
-}
-
-function checkInteractions(item, interactionEdgesMap) {
-  if (collectionHasMeaningfulText(item.interactions)) return true
-  const edges = interactionEdgesMap?.[item.slug]
-  return Array.isArray(edges) && edges.length > 0
 }
 
 export function loadDocumentedSafetyExceptions() {
@@ -58,29 +26,11 @@ export function loadDocumentedSafetyExceptions() {
 }
 
 function analyzeProfile(item, type, interactionEdgesMap, documentedSafetyExceptions) {
-  const safetyFilled = checkSafety(item.contraindications)
-  const safetyDocumentedException = !safetyFilled && documentedSafetyExceptions.has(item.slug)
-  const state = {
-    description: checkDescription(item.description),
-    safety: safetyFilled || safetyDocumentedException,
-    evidence_level: checkEvidenceLevel(item),
-    mechanism: checkMechanism(item),
-    best_for: checkBestFor(item),
-    dosing: checkDosing(item),
-    interactions: checkInteractions(item, interactionEdgesMap),
-  }
-  const missingFields = PROFILE_FIELDS.filter((field) => !state[field])
-
   return {
     name: item.name,
     slug: item.slug,
     type,
-    completeness: (PROFILE_FIELDS.length - missingFields.length) / PROFILE_FIELDS.length,
-    missingFields,
-    details: Object.fromEntries(PROFILE_FIELDS.map((field) => [
-      field,
-      field === 'safety' && safetyDocumentedException ? 'DOCUMENTED_EXCEPTION' : state[field] ? 'FILLED' : 'EMPTY',
-    ])),
+    ...evaluateProfileCompleteness(item, { interactionEdgesMap, documentedSafetyExceptions }),
   }
 }
 
@@ -106,14 +56,12 @@ function renderMarkdown(profiles, documentedSafetyExceptions) {
   const total = profiles.length
   const filled = (field) => profiles.filter((profile) => profile.details[field] !== 'EMPTY').length
   const pct = (count) => total ? ((count / total) * 100).toFixed(1) : '0.0'
-  const priorities = priorityRows(profiles)
-
   const lines = [
     '# Content Gap Audit Report', '',
     `Generated on: ${new Date().toISOString()}`, '',
     '## Summary Statistics', '',
     `- **Total Profiles Evaluated**: ${total}`,
-    `- **Safety Data Fill/Reviewed Rate**: ${pct(filled('safety'))}% (${filled('safety')} / ${total}); documented evidence-limited exceptions are treated as reviewed rather than missing`,
+    `- **Safety Data Fill/Reviewed Rate**: ${pct(filled('safety'))}% (${filled('safety')} / ${total})`,
     `- **Description Fill Rate**: ${pct(filled('description'))}% (${filled('description')} / ${total})`,
     `- **Mechanism Fill Rate**: ${pct(filled('mechanism'))}% (${filled('mechanism')} / ${total})`,
     `- **Interactions Fill Rate**: ${pct(filled('interactions'))}% (${filled('interactions')} / ${total})`,
@@ -123,7 +71,7 @@ function renderMarkdown(profiles, documentedSafetyExceptions) {
     '| --- | --- | --- | --- | --- |',
   ]
 
-  for (const { prioritySlug, profile } of priorities) {
+  for (const { prioritySlug, profile } of priorityRows(profiles)) {
     if (!profile) {
       lines.push(`| \`${prioritySlug}\` | *No matching profile* | - | - | - |`)
       continue
