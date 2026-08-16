@@ -2,6 +2,8 @@ import {
   PRIMARY_HUMAN_STUDY_CLASSES,
   canonicalStudyClass,
   canonicalStudyGroups,
+  crossProfileStudyIdentity,
+  crossProfileStudyIdentityMap,
 } from './research-coverage'
 import type { EvidenceLineageAnalysis } from './research-evidence-lineage'
 import type { ResearchQualityAnalysis, StructuredSupportTier } from './research-quality-analysis'
@@ -67,9 +69,22 @@ export type UnderlyingStudyIndependenceAnalysis = {
     profilesWithSupportedClaims: number
     profilesWithReducedStudyCount: number
     profilesWithReducedHumanStudyCount: number
+    /** Profile-study incidences; a publication reused on two profiles counts twice. */
     primaryHumanPublicationCount: number
+    /** Profile-study incidences after profile-local independence adjustment. */
     primaryHumanUnderlyingStudyCount: number
+    /** Profile-incidence collapse delta. */
     collapsedPrimaryHumanPublicationCount: number
+    /** Site-wide unique publication identities after DOI/PMID alias collapse. */
+    globalInventoryPublicationCount: number
+    /** Site-wide underlying evidence units after cross-profile registry/lineage collapse. */
+    globalInventoryUnderlyingStudyCount: number
+    globalCollapsedInventoryPublicationCount: number
+    /** Site-wide unique primary-human publication identities. */
+    globalPrimaryHumanPublicationCount: number
+    /** Site-wide independent primary-human evidence units. */
+    globalPrimaryHumanUnderlyingStudyCount: number
+    globalCollapsedPrimaryHumanPublicationCount: number
     overDependentProfiles: number
     newlyOverDependentProfiles: number
   }
@@ -82,6 +97,15 @@ export type UnderlyingStudyIndependenceInputs = {
 }
 
 type Union = ReturnType<typeof createUnion>
+
+type GlobalInventoryIndependence = {
+  publicationCount: number
+  underlyingStudyCount: number
+  collapsedPublicationCount: number
+  primaryHumanPublicationCount: number
+  primaryHumanUnderlyingStudyCount: number
+  collapsedPrimaryHumanPublicationCount: number
+}
 
 function round(value: number, digits = 3): number {
   const scale = 10 ** digits
@@ -188,6 +212,82 @@ function buildProfileUnions(inputs: UnderlyingStudyIndependenceInputs): Map<stri
   return unions
 }
 
+/**
+ * Project the same explicit registry/lineage evidence onto site-wide publication
+ * identities. DOI/PMID aliases establish publication identity across profiles;
+ * registry/cohort/dataset/parent-study identifiers establish underlying-study
+ * dependence across those publications. No fuzzy title/author similarity is used.
+ */
+function buildGlobalInventoryIndependence(
+  inputs: UnderlyingStudyIndependenceInputs,
+): GlobalInventoryIndependence {
+  const identities = crossProfileStudyIdentityMap(inputs.analysis.profiles)
+  const publicationIds = new Set<string>()
+  const primaryHumanPublicationIds = new Set<string>()
+
+  for (const profile of inputs.analysis.profiles) {
+    for (const [localStudyId, group] of canonicalStudyGroups(profile.record)) {
+      const globalStudyId = crossProfileStudyIdentity(profile.url, localStudyId, identities)
+      publicationIds.add(globalStudyId)
+      if (PRIMARY_HUMAN_STUDY_CLASSES.has(canonicalStudyClass(group, inputs.analysis.cache))) {
+        primaryHumanPublicationIds.add(globalStudyId)
+      }
+    }
+  }
+
+  const union = createUnion([...publicationIds])
+  const registryGroups = new Map<string, string[]>()
+  for (const study of inputs.trialRegistrationIndependence.studies ?? []) {
+    if (!study.stableRegistryId) continue
+    const globalStudyId = crossProfileStudyIdentity(study.url, study.studyId, identities)
+    if (!publicationIds.has(globalStudyId)) continue
+    const group = registryGroups.get(study.stableRegistryId) ?? []
+    group.push(globalStudyId)
+    registryGroups.set(study.stableRegistryId, group)
+  }
+  unionGroups(union, registryGroups.values())
+
+  // Compatibility path for synthetic/partial callers where claim diagnostics
+  // carry same-trial pairs but the canonical study registry index is absent.
+  for (const claim of inputs.trialRegistrationIndependence.claims) {
+    for (const pair of claim.sameRegisteredTrialPairs) {
+      union.union(
+        crossProfileStudyIdentity(claim.url, pair.leftStudyId, identities),
+        crossProfileStudyIdentity(claim.url, pair.rightStudyId, identities),
+      )
+    }
+  }
+
+  const lineageGroups = new Map<string, string[]>()
+  for (const study of inputs.evidenceLineage.studies) {
+    const globalStudyId = crossProfileStudyIdentity(study.url, study.studyId, identities)
+    if (!publicationIds.has(globalStudyId)) continue
+    for (const lineageId of study.lineageIds) {
+      const group = lineageGroups.get(lineageId) ?? []
+      group.push(globalStudyId)
+      lineageGroups.set(lineageId, group)
+    }
+  }
+  unionGroups(union, lineageGroups.values())
+
+  const underlyingStudyIds = new Set([...publicationIds].map((studyId) => union.find(studyId)))
+  const primaryHumanUnderlyingStudyIds = new Set(
+    [...primaryHumanPublicationIds].map((studyId) => union.find(studyId)),
+  )
+
+  return {
+    publicationCount: publicationIds.size,
+    underlyingStudyCount: underlyingStudyIds.size,
+    collapsedPublicationCount: Math.max(0, publicationIds.size - underlyingStudyIds.size),
+    primaryHumanPublicationCount: primaryHumanPublicationIds.size,
+    primaryHumanUnderlyingStudyCount: primaryHumanUnderlyingStudyIds.size,
+    collapsedPrimaryHumanPublicationCount: Math.max(
+      0,
+      primaryHumanPublicationIds.size - primaryHumanUnderlyingStudyIds.size,
+    ),
+  }
+}
+
 function claimGroups(studyIds: string[], union: Union): Map<string, string[]> {
   const groups = new Map<string, string[]>()
   for (const studyId of studyIds) {
@@ -203,6 +303,7 @@ export function analyzeUnderlyingStudyIndependence(
   inputs: UnderlyingStudyIndependenceInputs,
 ): UnderlyingStudyIndependenceAnalysis {
   const unions = buildProfileUnions(inputs)
+  const globalInventory = buildGlobalInventoryIndependence(inputs)
   const claims: ClaimUnderlyingStudyIndependence[] = []
 
   for (const claim of inputs.analysis.claimAnalyses) {
@@ -360,6 +461,12 @@ export function analyzeUnderlyingStudyIndependence(
       primaryHumanPublicationCount: profiles.reduce((sum, profile) => sum + profile.primaryHumanPublicationCount, 0),
       primaryHumanUnderlyingStudyCount: profiles.reduce((sum, profile) => sum + profile.primaryHumanUnderlyingStudyCount, 0),
       collapsedPrimaryHumanPublicationCount: profiles.reduce((sum, profile) => sum + profile.collapsedPrimaryHumanPublicationCount, 0),
+      globalInventoryPublicationCount: globalInventory.publicationCount,
+      globalInventoryUnderlyingStudyCount: globalInventory.underlyingStudyCount,
+      globalCollapsedInventoryPublicationCount: globalInventory.collapsedPublicationCount,
+      globalPrimaryHumanPublicationCount: globalInventory.primaryHumanPublicationCount,
+      globalPrimaryHumanUnderlyingStudyCount: globalInventory.primaryHumanUnderlyingStudyCount,
+      globalCollapsedPrimaryHumanPublicationCount: globalInventory.collapsedPrimaryHumanPublicationCount,
       overDependentProfiles: profiles.filter((profile) => profile.overDependentOnSingleUnderlyingStudy).length,
       newlyOverDependentProfiles: newlyOverDependentProfiles.length,
     },
