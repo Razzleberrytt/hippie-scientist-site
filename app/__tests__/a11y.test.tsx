@@ -82,7 +82,7 @@ describe('a11y (axe-core)', () => {
 
     expect(screen.getByRole('progressbar', { name: /Evidence strength/i })).toBeInTheDocument()
     expect(screen.getByText(/Human clinical evidence/i)).toBeInTheDocument()
-    expect(screen.getByText(/Mechanistic/i)).toBeInTheDocument()
+    expect(screen.getByText(/^Mechanistic \/ preclinical:/i)).toBeInTheDocument()
     await checkA11y(container)
   })
 })
