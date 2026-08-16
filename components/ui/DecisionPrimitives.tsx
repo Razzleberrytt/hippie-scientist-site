@@ -138,7 +138,7 @@ export function DecisionProfileCard({
       className="group flex h-full flex-col rounded-[0.9rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:border-brand-700/25 hover:bg-[var(--surface-card-strong)] hover:shadow-[0_6px_18px_rgba(16,32,24,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:hover:shadow-[0_6px_18px_rgba(0,0,0,0.25)]"
     >
       <div className="flex flex-1 flex-col">
-        <div className="flex min-w-0 items-start justify-between gap-3">
+        <div className="flex min-w-0 flex-wrap items-start justify-between gap-3">
           <h3 className="min-w-0 break-words text-base font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-lg">
             {name}
           </h3>
