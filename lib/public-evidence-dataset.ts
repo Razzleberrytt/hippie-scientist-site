@@ -2,7 +2,7 @@ import {
   buildCitationIdentifierIdentityMap,
   canonicalCitationIdentifier,
 } from '@/lib/citation-identifiers.mjs'
-import { extractCitationsFromRecord } from '@/lib/citations'
+import { extractCitationContextsFromRecord } from '@/lib/citations'
 import { getEvidenceLetterGrade } from '@/lib/evidence'
 import {
   evidenceStudyId,
@@ -248,6 +248,24 @@ function aggregateRelationship(relationships: PublicStudyRelationship[]): Eviden
   return 'background'
 }
 
+function relationshipContextKey(relationship: PublicStudyRelationship): string {
+  return JSON.stringify([
+    relationship.ingredientSlug,
+    relationship.relationship,
+    cleanString(relationship.dose).toLowerCase(),
+    cleanString(relationship.duration).toLowerCase(),
+    cleanString(relationship.population).toLowerCase(),
+    cleanString(relationship.outcome).toLowerCase(),
+    cleanString(relationship.result).toLowerCase(),
+    cleanString(relationship.limitation).toLowerCase(),
+    relationship.confidence ?? 'unknown',
+    cleanString(relationship.statisticalConsistency).toLowerCase(),
+    cleanString(relationship.extractName).toLowerCase(),
+    [...(relationship.conditions ?? [])].map(item => item.trim().toLowerCase()).filter(Boolean).sort(),
+    cleanString(relationship.safetyOutcome).toLowerCase(),
+  ])
+}
+
 function consensusRelationshipString(
   relationships: PublicStudyRelationship[],
   field: 'dose' | 'duration' | 'population' | 'outcome' | 'result' | 'limitation' | 'statisticalConsistency' | 'extractName' | 'safetyOutcome',
@@ -312,12 +330,12 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
   const categoryMap = new Map<string, EvidenceCategorySummary>()
   let explicitlyFlaggedClaimOverreach = 0
   const indexableEntities = entities.filter(({ record }) => canIndexRecord(record))
-  const citationsByPath = new Map<string, ReturnType<typeof extractCitationsFromRecord>>()
-  const allCitations: ReturnType<typeof extractCitationsFromRecord> = []
+  const citationsByPath = new Map<string, ReturnType<typeof extractCitationContextsFromRecord>>()
+  const allCitations: ReturnType<typeof extractCitationContextsFromRecord> = []
 
   for (const { record, type } of indexableEntities) {
     const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}/`
-    const citations = extractCitationsFromRecord(record)
+    const citations = extractCitationContextsFromRecord(record)
     citationsByPath.set(path, citations)
     allCitations.push(...citations)
   }
@@ -431,11 +449,8 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
         existing.studyType = mergeStudyField(existing.studyType, citation.studyType)
         existing.sampleSize = mergeStudyField(existing.sampleSize, citation.sampleSize)
         existing.conditions = [...new Set([...existing.conditions, ...conditions])]
-        if (!existing.relationships.some(item =>
-          item.ingredientSlug === relationshipRecord.ingredientSlug &&
-          item.relationship === relationshipRecord.relationship &&
-          item.outcome === relationshipRecord.outcome,
-        )) {
+        const contextKey = relationshipContextKey(relationshipRecord)
+        if (!existing.relationships.some(item => relationshipContextKey(item) === contextKey)) {
           existing.relationships.push(relationshipRecord)
         }
         existing.relationshipSummary = aggregateRelationship(existing.relationships)
