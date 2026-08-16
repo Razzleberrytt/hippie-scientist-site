@@ -121,6 +121,7 @@ export type PublicEvidenceReportMetrics = {
   contradictingRelationships: number
   noClearEffectRelationships: number
   disagreementStudyCount: number
+  withinIngredientDirectionalHeterogeneityStudyCount: number
   /** Null for synthetic/pure builders that do not execute canonical topology. */
   underlyingStudyMetricsSource: 'canonical-research-topology' | null
   /** Public/indexable profiles requested from and matched by the canonical research topology. */
@@ -246,6 +247,16 @@ function aggregateRelationship(relationships: PublicStudyRelationship[]): Eviden
   if (directional.size === 0) return 'background'
   if (directional.has('mixed') || directional.size > 1) return 'mixed'
   return [...directional][0]
+}
+
+function hasWithinIngredientDirectionalHeterogeneity(study: PublicStudyEntity): boolean {
+  const byIngredient = new Map<string, PublicStudyRelationship[]>()
+  for (const relationship of study.relationships) {
+    const values = byIngredient.get(relationship.ingredientSlug) ?? []
+    values.push(relationship)
+    byIngredient.set(relationship.ingredientSlug, values)
+  }
+  return [...byIngredient.values()].some((relationships) => aggregateRelationship(relationships) === 'mixed')
 }
 
 function relationshipContextKey(relationship: PublicStudyRelationship): string {
@@ -596,6 +607,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     contradictingRelationships,
     noClearEffectRelationships,
     disagreementStudyCount: studies.filter(study => study.relationshipSummary === 'mixed').length,
+    withinIngredientDirectionalHeterogeneityStudyCount: studies.filter(hasWithinIngredientDirectionalHeterogeneity).length,
     underlyingStudyMetricsSource: null,
     researchTopologyRequestedProfiles: null,
     researchTopologyMatchedProfiles: null,
