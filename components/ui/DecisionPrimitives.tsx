@@ -165,13 +165,10 @@ export function DecisionProfileCard({
         ) : null}
 
         {visibleMechanisms.length > 0 ? (
-          <div className={`${decisionMetadataClusterClass} mt-2 border-t border-brand-900/10 pt-2`}>
-            {visibleMechanisms.map(mechanism => (
-              <span key={mechanism} className={decisionChipClass}>
-                {mechanism}
-              </span>
-            ))}
-          </div>
+          <p className="mt-2 border-t border-brand-900/10 pt-2 text-xs leading-5 text-[var(--text-secondary)]">
+            <span className={`${decisionMicroLabelClass} mr-1.5 text-[var(--text-muted)]`}>Mechanisms</span>
+            {visibleMechanisms.join(' · ')}
+          </p>
         ) : null}
       </div>
 
