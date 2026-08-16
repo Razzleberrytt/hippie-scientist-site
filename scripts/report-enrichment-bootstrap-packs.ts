@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import type { EvidenceClass, SourceClass } from './lib/source-class-governance'
 
 type Workpack = {
   workpackId: string
@@ -25,21 +26,8 @@ type WorkpackReport = {
 
 type SourceRegistryRow = {
   sourceId: string
-  sourceClass:
-    | 'randomized-human-trial'
-    | 'non-randomized-human-study'
-    | 'observational-human-evidence'
-    | 'systematic-review-meta-analysis'
-    | 'preclinical-mechanistic-study'
-    | 'traditional-use-monograph'
-    | 'regulatory-agency-monograph-guidance'
-    | 'reference-database-authority'
-  evidenceClass:
-    | 'human-clinical'
-    | 'human-observational'
-    | 'preclinical-mechanistic'
-    | 'traditional-use'
-    | 'regulatory-monograph'
+  sourceClass: SourceClass
+  evidenceClass: EvidenceClass
   publicationStatus: 'published' | 'preprint' | 'withdrawn' | 'superseded' | 'archived'
   sourceType: string
   title: string
@@ -102,8 +90,8 @@ type BootstrapPack = {
   entitySlug: string | null
   surfaceId: string | null
   sourceId: string
-  sourceClass: SourceRegistryRow['sourceClass']
-  evidenceClass: SourceRegistryRow['evidenceClass']
+  sourceClass: SourceClass
+  evidenceClass: EvidenceClass
   candidateTopicTypes: TopicType[]
   candidateClaimTypes: ClaimType[]
   sourceUseNotes: string
@@ -127,7 +115,7 @@ const SOURCE_REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'enrichment-bootstrap-packs.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'enrichment-bootstrap-packs.md')
 
-const SOURCE_CLASS_TOPIC_ALLOWLIST: Record<SourceRegistryRow['sourceClass'], TopicType[]> = {
+const SOURCE_CLASS_TOPIC_ALLOWLIST: Record<SourceClass, TopicType[]> = {
   'randomized-human-trial': ['supported_use', 'unsupported_or_unclear_use', 'population_specific_note', 'conflict_note', 'research_gap'],
   'non-randomized-human-study': ['supported_use', 'unsupported_or_unclear_use', 'population_specific_note', 'conflict_note', 'research_gap'],
   'observational-human-evidence': ['supported_use', 'unsupported_or_unclear_use', 'population_specific_note', 'conflict_note', 'research_gap'],
