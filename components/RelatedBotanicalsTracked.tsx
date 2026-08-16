@@ -93,7 +93,7 @@ export default function RelatedBotanicalsTracked({ sourceSlug, matches }: Props)
                 href={`/herbs/${match.slug}/`}
                 prefetch={false}
                 onClick={() => trackRelatedBotanicalClick(sourceSlug, trackingItems[index])}
-                className="inline-flex min-h-10 items-center text-xs font-bold text-[color:var(--tone-ink)] underline decoration-[color:var(--hs-hairline-strong)] underline-offset-4 transition hover:decoration-[color:var(--hs-gold)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+                className="inline-flex min-h-11 items-center text-xs font-bold text-[color:var(--tone-ink)] underline decoration-[color:var(--hs-hairline-strong)] underline-offset-4 transition hover:decoration-[color:var(--hs-gold)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
               >
                 Explore profile →
               </Link>
@@ -102,7 +102,7 @@ export default function RelatedBotanicalsTracked({ sourceSlug, matches }: Props)
                   href={match.compareHref}
                   prefetch={false}
                   onClick={() => trackRelatedBotanicalCompare(sourceSlug, trackingItems[index], match.compareHref!)}
-                  className="inline-flex min-h-10 items-center text-xs font-bold text-[color:var(--hs-body)] underline-offset-4 transition hover:text-[color:var(--tone-ink)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+                  className="inline-flex min-h-11 items-center text-xs font-bold text-[color:var(--hs-body)] underline-offset-4 transition hover:text-[color:var(--tone-ink)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
                 >
                   Compare ↔
                 </Link>
