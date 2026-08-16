@@ -6,9 +6,9 @@
   The older segmented jump bar duplicates those same destinations immediately
   beside it and adds visual/navigation noise.
 
-  Keep the legacy nav in the DOM for now because herb-profile-polish.css uses
-  its presence as the profile-page scoping hook. Hiding it removes the duplicate
-  UI without changing existing profile skin selectors or section anchors.
+  No stylesheet depends on the legacy nav anymore; profile styling now scopes
+  from the real Page sections TOC. Keep this temporary hide rule only until the
+  large herb/compound route templates can safely delete their legacy markup.
 */
 main:has(nav[aria-label='Page sections']) nav[aria-label='Jump to profile sections'] {
   display: none !important;
