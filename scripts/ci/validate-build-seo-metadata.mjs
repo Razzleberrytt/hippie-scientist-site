@@ -33,6 +33,30 @@ function sampleFiles(files, n) {
   return files.filter((_, i) => i % step === 0).slice(0, n)
 }
 
+function readCanonicalGoalRepresentatives() {
+  const sourcePath = path.join(rootDir, 'lib/core-goals.ts')
+  if (!fs.existsSync(sourcePath)) {
+    console.error('[seo-metadata-validation] Missing canonical goal taxonomy: lib/core-goals.ts')
+    process.exit(1)
+  }
+
+  const source = fs.readFileSync(sourcePath, 'utf8')
+  const routes = [...source.matchAll(/href:\s*['"](\/goals\/[^'"]+\/)['"]/g)]
+    .map((match) => match[1])
+    .filter(Boolean)
+
+  if (routes.length === 0) {
+    console.error('[seo-metadata-validation] Canonical goal taxonomy contains no /goals/* routes.')
+    process.exit(1)
+  }
+
+  return [...new Set(routes)].map((route) => ({
+    route,
+    file: `${route.replace(/^\/+|\/+$/g, '')}/index.html`,
+    label: `canonical goal (${route.split('/').filter(Boolean).pop()})`,
+  }))
+}
+
 console.log(`[seo-metadata-validation] scanning build directory: ${path.relative(rootDir, buildDir)}`)
 
 const allFiles = collectHtmlFiles(buildDir)
@@ -121,9 +145,15 @@ for (const filePath of filesToCheck) {
 
 console.log(`[seo-metadata-validation] sampled ${totalPages} of ${allFiles.length} static pages.`)
 
-// P0: Explicit checks on representative routes for full OG + Twitter metadata (must be present in built static HTML)
+// Explicit checks on the canonical information architecture plus representative
+// content routes, so broad sampling cannot miss metadata regressions on the
+// site's main navigation and decision surfaces.
 const requiredRepresentativeRoutes = [
   { route: '/', file: 'index.html', label: 'homepage' },
+  { route: '/start/', file: 'start/index.html', label: 'start router' },
+  { route: '/library/', file: 'library/index.html', label: 'master directory' },
+  { route: '/goals/', file: 'goals/index.html', label: 'goals index' },
+  ...readCanonicalGoalRepresentatives(),
   { route: '/guides/', file: 'guides/index.html', label: 'guides index' },
   { route: '/herbs/', file: 'herbs/index.html', label: 'herbs index' },
   { route: '/herbs/ashwagandha/', file: 'herbs/ashwagandha/index.html', label: 'herb profile (ashwagandha)' },
