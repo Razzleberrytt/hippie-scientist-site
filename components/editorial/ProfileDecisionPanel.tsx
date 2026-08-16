@@ -54,68 +54,78 @@ export function ProfileDecisionPanel({
       ) : null}
 
       {verdict?.primaryGuide || (verdict?.comparisons && verdict.comparisons.length > 0) || continueReading.length > 0 ? (
-        <section
-          aria-label="Where to go next"
-          className="not-prose rounded-2xl border border-brand-900/12 bg-brand-50/40 p-4 dark:border-white/10 dark:bg-[var(--surface-subtle)]"
-        >
-          <details className="group border-0 bg-transparent p-0 shadow-none backdrop-blur-none">
-            <summary className="flex cursor-pointer items-center justify-between gap-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
-              <span className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Where to go next — guides &amp; comparisons</span>
-              <span aria-hidden="true" className="shrink-0 text-brand-500 transition-transform group-open:rotate-180">v</span>
-            </summary>
-            <div className="mt-3 border-t border-brand-900/10 pt-3 dark:border-white/10">
-          {verdict?.primaryGuide ? (
-            <p className="text-sm leading-6">
-              <span className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700 dark:text-emerald-300">Start here</span>{' '}
-              <span className="text-muted">— new to this? Begin with </span>
-              <Link
-                href={verdict.primaryGuide.href}
-                className="font-bold text-brand-800 hover:underline dark:text-[var(--text-primary)]"
+        <section aria-label="Where to go next" className="not-prose">
+          <details className="group border-y border-[color:var(--hs-hairline-strong)] !bg-transparent !p-0 !shadow-none">
+            <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] [&::-webkit-details-marker]:hidden">
+              <span className="text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--tone-ink)]">Where to go next — guides &amp; comparisons</span>
+              <svg
+                className="size-4 shrink-0 text-[color:var(--hs-body)] transition-transform group-open:rotate-180"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden="true"
               >
-                {verdict.primaryGuide.label}
-              </Link>
-            </p>
-          ) : null}
+                <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </summary>
 
-          {verdict?.comparisons && verdict.comparisons.length > 0 ? (
-            <div className={verdict?.primaryGuide ? 'mt-3 border-t border-brand-900/10 pt-3 dark:border-white/10' : ''}>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
-                Compare before choosing
-              </p>
-              <ul className="mt-2 space-y-1.5">
-                {verdict.comparisons.map((c) => (
-                  <li key={c.href} className="text-sm leading-6">
+            <div className="border-t border-[color:var(--hs-hairline)]">
+              {verdict?.primaryGuide ? (
+                <div className="grid gap-1 py-4 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--hs-gold)]">Start here</p>
+                  <p className="text-sm leading-6 text-[color:var(--hs-body)]">
+                    New to this? Begin with{' '}
                     <Link
-                      href={c.href}
-                      className="font-bold text-brand-800 hover:underline dark:text-[var(--text-primary)]"
+                      href={verdict.primaryGuide.href}
+                      className="font-bold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
                     >
-                      {c.label}
+                      {verdict.primaryGuide.label}
                     </Link>
-                    <span className="text-muted"> — if {c.when}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
+                    .
+                  </p>
+                </div>
+              ) : null}
 
-          {continueReading.length > 0 ? (
-            <div className={verdict?.primaryGuide || (verdict?.comparisons && verdict.comparisons.length > 0) ? 'mt-3 border-t border-brand-900/10 pt-3 dark:border-white/10' : ''}>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Continue reading</p>
-              <ul className="mt-2 space-y-1.5">
-                {continueReading.map((path) => (
-                  <li key={path.href} className="text-sm leading-6">
-                    <span className="text-muted">If you want {path.ifYouWant} → </span>
-                    <Link
-                      href={path.href}
-                      className="font-bold text-brand-800 hover:underline dark:text-[var(--text-primary)]"
-                    >
-                      {path.goTo}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
+              {verdict?.comparisons && verdict.comparisons.length > 0 ? (
+                <div className="border-t border-[color:var(--hs-hairline)] py-4 sm:grid sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
+                    Compare first
+                  </p>
+                  <ul className="mt-2 space-y-2 sm:mt-0">
+                    {verdict.comparisons.map((comparison) => (
+                      <li key={comparison.href} className="text-sm leading-6 text-[color:var(--hs-body)]">
+                        <Link
+                          href={comparison.href}
+                          className="font-bold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
+                        >
+                          {comparison.label}
+                        </Link>
+                        <span> — if {comparison.when}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+
+              {continueReading.length > 0 ? (
+                <div className="border-t border-[color:var(--hs-hairline)] py-4 sm:grid sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--tone-ink)]">Continue reading</p>
+                  <ul className="mt-2 space-y-2 sm:mt-0">
+                    {continueReading.map((path) => (
+                      <li key={path.href} className="text-sm leading-6 text-[color:var(--hs-body)]">
+                        <span>If you want {path.ifYouWant} → </span>
+                        <Link
+                          href={path.href}
+                          className="font-bold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
+                        >
+                          {path.goTo}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
             </div>
           </details>
         </section>
