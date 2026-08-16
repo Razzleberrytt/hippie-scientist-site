@@ -6,7 +6,6 @@
 */
 
 :root {
-  --resonance-graphite: rgba(46, 44, 40, 0.12);
   --resonance-graphite-strong: rgba(46, 44, 40, 0.20);
   --resonance-brass: rgba(177, 132, 73, 0.16);
   --resonance-sheen: rgba(255, 255, 255, 0.58);
@@ -16,7 +15,6 @@
 }
 
 html.dark {
-  --resonance-graphite: rgba(227, 211, 181, 0.08);
   --resonance-graphite-strong: rgba(227, 211, 181, 0.14);
   --resonance-brass: rgba(208, 163, 91, 0.16);
   --resonance-sheen: rgba(255, 255, 255, 0.065);
