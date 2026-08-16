@@ -55,7 +55,9 @@ function analysis(claims: ClaimQualityAnalysis[]): ResearchQualityAnalysis {
       sourceCount: 0,
       canonicalStudyCount: 0,
       claimLinkedCanonicalStudyCount: 0,
+      structuredClaimLinkedCanonicalStudyCount: 0,
       orphanedCanonicalStudyCount: 0,
+      unmappedCanonicalStudyCount: 0,
       claimCount: claims.filter((item) => item.url === url).length,
       approvedClaimCount: claims.filter((item) => item.url === url).length,
       supportedApprovedClaimCount: claims.filter((item) => item.url === url && item.studyCount > 0).length,
@@ -66,9 +68,12 @@ function analysis(claims: ClaimQualityAnalysis[]): ResearchQualityAnalysis {
       synthesis: 0,
       narrativeReview: 0,
       claimLinkedPrimaryHuman: 1,
+      structuredClaimLinkedPrimaryHuman: 1,
       claimLinkedSynthesis: 0,
       claimLinkedNarrativeReview: 0,
       orphanedPrimaryHuman: 0,
+      unmappedPrimaryHuman: 0,
+      unapprovedOnlyPrimaryHuman: 0,
       inventoryNarrativeToPrimaryHumanRatio: 0,
       narrativeToPrimaryHumanRatio: 0,
       narrativeDominatedVsPrimaryHuman: false,
@@ -180,8 +185,11 @@ describe('research evidence topology contracts', () => {
       const profile = analyzeResearchQuality(root).profileAnalyses[0]
       expect(profile.primaryHuman).toBe(1)
       expect(profile.claimLinkedPrimaryHuman).toBe(0)
+      expect(profile.structuredClaimLinkedPrimaryHuman).toBe(0)
       expect(profile.claimLinkedNarrativeReview).toBe(2)
       expect(profile.orphanedPrimaryHuman).toBe(1)
+      expect(profile.unmappedPrimaryHuman).toBe(1)
+      expect(profile.unapprovedOnlyPrimaryHuman).toBe(0)
       expect(profile.noPrimaryHuman).toBe(true)
       expect(profile.narrativeDominatedVsPrimaryHuman).toBe(true)
     } finally {

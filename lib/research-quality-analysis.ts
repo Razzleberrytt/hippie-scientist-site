@@ -65,7 +65,9 @@ export type ProfileQualityAnalysis = {
   sourceCount: number
   canonicalStudyCount: number
   claimLinkedCanonicalStudyCount: number
+  structuredClaimLinkedCanonicalStudyCount: number
   orphanedCanonicalStudyCount: number
+  unmappedCanonicalStudyCount: number
   claimCount: number
   approvedClaimCount: number
   supportedApprovedClaimCount: number
@@ -76,9 +78,12 @@ export type ProfileQualityAnalysis = {
   synthesis: number
   narrativeReview: number
   claimLinkedPrimaryHuman: number
+  structuredClaimLinkedPrimaryHuman: number
   claimLinkedSynthesis: number
   claimLinkedNarrativeReview: number
   orphanedPrimaryHuman: number
+  unmappedPrimaryHuman: number
+  unapprovedOnlyPrimaryHuman: number
   inventoryNarrativeToPrimaryHumanRatio: number | null
   narrativeToPrimaryHumanRatio: number | null
   narrativeDominatedVsPrimaryHuman: boolean
@@ -231,6 +236,7 @@ function analyzeProfile(
   const aliasCollapsedClaims: string[] = []
   const danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }> = []
   const studyUse = new Map<string, number>()
+  const structuredStudyIds = new Set(claims.flatMap((claim) => claim.studyIds))
   let claimStudyEdges = 0
   let supportedApprovedClaimCount = 0
 
@@ -262,9 +268,19 @@ function analyzeProfile(
     if (NARRATIVE_STUDY_CLASSES.has(design)) claimLinkedNarrativeReview += 1
   }
 
+  let structuredClaimLinkedPrimaryHuman = 0
+  for (const studyId of structuredStudyIds) {
+    const design = context.studyDesigns.get(studyId) ?? 'unclassified'
+    if (PRIMARY_HUMAN_STUDY_CLASSES.has(design)) structuredClaimLinkedPrimaryHuman += 1
+  }
+
   const claimLinkedCanonicalStudyCount = studyUse.size
+  const structuredClaimLinkedCanonicalStudyCount = structuredStudyIds.size
   const orphanedCanonicalStudyCount = Math.max(0, context.studyGroups.size - claimLinkedCanonicalStudyCount)
+  const unmappedCanonicalStudyCount = Math.max(0, context.studyGroups.size - structuredClaimLinkedCanonicalStudyCount)
   const orphanedPrimaryHuman = Math.max(0, primaryHuman - claimLinkedPrimaryHuman)
+  const unmappedPrimaryHuman = Math.max(0, primaryHuman - structuredClaimLinkedPrimaryHuman)
+  const unapprovedOnlyPrimaryHuman = Math.max(0, structuredClaimLinkedPrimaryHuman - claimLinkedPrimaryHuman)
   const rankedStudyUse = [...studyUse.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
   const mostUsed = rankedStudyUse[0] ?? null
   const mostUsedStudyClaimCount = mostUsed?.[1] ?? 0
@@ -294,7 +310,9 @@ function analyzeProfile(
     sourceCount: context.sources.length,
     canonicalStudyCount: context.studyGroups.size,
     claimLinkedCanonicalStudyCount,
+    structuredClaimLinkedCanonicalStudyCount,
     orphanedCanonicalStudyCount,
+    unmappedCanonicalStudyCount,
     claimCount: allClaims.length,
     approvedClaimCount: approved.length,
     supportedApprovedClaimCount,
@@ -305,9 +323,12 @@ function analyzeProfile(
     synthesis,
     narrativeReview,
     claimLinkedPrimaryHuman,
+    structuredClaimLinkedPrimaryHuman,
     claimLinkedSynthesis,
     claimLinkedNarrativeReview,
     orphanedPrimaryHuman,
+    unmappedPrimaryHuman,
+    unapprovedOnlyPrimaryHuman,
     inventoryNarrativeToPrimaryHumanRatio:
       inventoryNarrativeToPrimaryHumanRatio === null ? null : round(inventoryNarrativeToPrimaryHumanRatio),
     narrativeToPrimaryHumanRatio: narrativeToPrimaryHumanRatio === null ? null : round(narrativeToPrimaryHumanRatio),
