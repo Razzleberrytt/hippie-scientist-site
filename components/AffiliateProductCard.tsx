@@ -139,7 +139,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
                 data-tracking-location={`${trackingLocation}-retailer-diversification`}
                 data-retailer={retailer.retailer}
                 onClick={() => trackRevenueEvent({ kind: 'affiliate_click', location: `${trackingLocation}-retailer-diversification`, label: `${title} — ${retailer.retailer}`, target: retailer.resolvedUrl, productSlug: product.trackingProductSlug, retailer: retailer.retailer })}
-                className='rounded-full border border-brand-900/10 px-3 py-1.5 text-xs font-semibold text-indigo-800 hover:bg-brand-50'
+                className='inline-flex min-h-11 items-center rounded-full border border-brand-900/10 px-3 py-2 text-xs font-semibold text-brand-800 transition hover:bg-brand-50 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:border-white/10 dark:text-brand-200 dark:hover:bg-white/5 dark:hover:text-brand-100'
               >
                 {retailer.label || retailer.retailer}
               </a>
