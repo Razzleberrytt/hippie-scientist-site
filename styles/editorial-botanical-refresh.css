@@ -150,21 +150,8 @@ html.dark {
   color: var(--text-primary);
 }
 
-.dark .editorial-display,
-.dark .editorial-footer,
-.dark .interaction-chip {
-  color: var(--text-primary);
-}
-
 .dark .editorial-footer {
   border-color: color-mix(in srgb, var(--hs-gold) 18%, var(--border-soft));
-  background: transparent;
-}
-
-.dark .interaction-chip,
-.dark .editorial-link-tile {
-  border-color: var(--border-soft);
-  background: var(--surface-card);
 }
 
 .dark .editorial-trust-strip {
@@ -173,7 +160,6 @@ html.dark {
 }
 
 .dark .editorial-trust-strip .editorial-icon-disc {
-  background: var(--surface-card);
   color: var(--hs-gold-bright);
 }
 
