@@ -1,10 +1,6 @@
 /* Premium structural foundation.
- *
- * Palette and elevation tokens now belong to the later canonical visual-system
- * layers. This file owns only the shared page canvas geometry and content measure.
- */
-
-/* ---------- Page canvas ---------- */
+ * Owns only the global canvas and page measure. Decorative texture, palette,
+ * elevation, and page-specific atmosphere belong to later canonical layers. */
 
 .hs-shell {
   position: relative;
@@ -12,43 +8,25 @@
   background: var(--hs-canvas);
 }
 
-.hs-shell::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 90rem;
-  z-index: -1;
-  pointer-events: none;
-  opacity: var(--hs-dot-opacity);
-  background-image: radial-gradient(circle at 1px 1px, var(--hs-dot) 1px, transparent 0);
-  background-size: 34px 34px;
-  mask-image: linear-gradient(to bottom, #000 0%, transparent 42%);
-}
-
-.hs-shell:has(.hs-home)::before {
-  content: none;
-}
-
 html:not(.dark) main,
 html.dark main {
   background-color: transparent;
 }
 
-/* ---------- Measure and rhythm ---------- */
-
 .container-page {
-  max-width: 72rem;
-  padding-inline: 1.25rem;
+  width: min(100%, 72rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
 
 @media (min-width: 640px) {
   .container-page {
-    padding-inline: 2rem;
+    padding-inline: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .container-page {
-    padding-inline: 2.5rem;
+    padding-inline: 2rem;
   }
 }
