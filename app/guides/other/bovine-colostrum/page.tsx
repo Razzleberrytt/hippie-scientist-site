@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
 import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
@@ -29,7 +29,6 @@ export default function BovineColostrumGuidePage() {
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd title="Bovine Colostrum: Evidence, Benefits & Safety" description="Bovine colostrum is 2026's most hyped supplement — what does the evidence show?" url="https://thehippiescientist.net/guides/other/bovine-colostrum" type="Article" />
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Bovine Colostrum' }]} />
-      <FAQSchema pagePath="/guides/other/bovine-colostrum/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl">
         <p className="eyebrow-label">Evidence Review · 12 References</p>
@@ -94,6 +93,7 @@ export default function BovineColostrumGuidePage() {
         <Ref n={12} text="Hemilä H, Chalker E. (2013). Vitamin C for preventing and treating the common cold. Cochrane Database Syst Rev, (1): CD000980." url="https://pubmed.ncbi.nlm.nih.gov/23440782/" />
       </ol></section>
 
+      <LegacyGuideFAQ pagePath="/guides/other/bovine-colostrum/" questions={FAQS} />
       <EmailCapture headline="Get evidence reviews like this" description="We track supplement claims against clinical evidence so you don't have to. No hype, no affiliate bias." ctaLabel="Get the evidence" location="guide-bovine-colostrum" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>
