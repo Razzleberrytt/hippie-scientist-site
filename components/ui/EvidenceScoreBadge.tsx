@@ -71,9 +71,6 @@ const GRADE_MEANING_SHORT: Record<EvidenceLetterGrade, string> = {
   'Avoid/Insufficient': 'Avoid / Insufficient',
 }
 
-// Dark-mode-aware text color for the circle variant's label — the static
-// --color-evidence-* tokens don't have dark overrides and read low-contrast
-// against dark surfaces, so this uses adaptive Tailwind utilities instead.
 const GRADE_TEXT_ADAPTIVE: Record<EvidenceLetterGrade, string> = {
   A: 'text-emerald-800 dark:text-emerald-100',
   B: 'text-blue-800 dark:text-blue-100',
@@ -103,6 +100,8 @@ export default function EvidenceScoreBadge({
   if (size === 'circle') {
     return (
       <span
+        data-evidence="true"
+        data-evidence-grade={canonicalGrade}
         className={`inline-flex items-center gap-2 ${className}`}
         title={config.meaning}
       >
@@ -121,23 +120,19 @@ export default function EvidenceScoreBadge({
     )
   }
 
-  const sizeClasses =
-    size === 'sm'
-      ? 'px-2 py-0.5 text-[0.7rem] gap-1'
-      : 'px-3 py-1 text-xs gap-1.5'
+  const sizeClasses = size === 'sm' ? 'px-2 py-0.5 text-[0.7rem] gap-1' : 'px-3 py-1 text-xs gap-1.5'
 
   return (
     <span
+      data-evidence="true"
+      data-evidence-grade={canonicalGrade}
       title={config.meaning}
       aria-label={`Evidence grade ${canonicalGrade}: ${config.meaning}`}
       className={`inline-flex items-center rounded-full border font-bold tracking-wide ${config.bg} ${config.text} ${config.border} ${sizeClasses} ${className}`}
     >
       <span className={size === 'sm' ? 'text-[0.8rem]' : 'text-sm'}>{config.label}</span>
       {showLabel && canonicalGrade !== 'Avoid/Insufficient' && (
-        <span className="font-semibold">
-          {' '}
-          {GRADE_MEANING_SHORT[canonicalGrade]}
-        </span>
+        <span className="font-semibold">{' '}{GRADE_MEANING_SHORT[canonicalGrade]}</span>
       )}
     </span>
   )

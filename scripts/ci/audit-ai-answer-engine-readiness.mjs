@@ -9,6 +9,11 @@ const MANIFEST = path.join(ROOT, 'public', 'data', 'ai-entities', 'manifest.json
 const SCHEMA = path.join(ROOT, 'components', 'seo', 'SchemaGraphScript.tsx')
 const CITATION_SUMMARY = path.join(ROOT, 'components', 'seo', 'CitationReadySummary.tsx')
 const ANSWER_TABLE = path.join(ROOT, 'components', 'seo', 'AnswerEngineTable.tsx')
+const EVIDENCE_BADGE = path.join(ROOT, 'components', 'ui', 'EvidenceScoreBadge.tsx')
+const SAFETY_GAUGE = path.join(ROOT, 'components', 'ui', 'SafetyGaugeMeter.tsx')
+const VERDICT_CARD = path.join(ROOT, 'components', 'editorial', 'ScientificVerdictCard.tsx')
+const PROFILE_DECISION = path.join(ROOT, 'components', 'editorial', 'ProfileDecisionPanel.tsx')
+const LAST_UPDATED = path.join(ROOT, 'src', 'components', 'editorial', 'LastUpdatedBadge.tsx')
 const LICENSING_PAGE = path.join(ROOT, 'app', 'info', 'content-licensing', 'page.tsx')
 const APP = path.join(ROOT, 'app')
 const strict = process.argv.includes('--strict')
@@ -25,6 +30,17 @@ function walk(dir, out = []) {
     else if (/\.(?:tsx|ts|mdx)$/.test(entry.name)) out.push(full)
   }
   return out
+}
+
+function requireSignals(file, area, component, signals) {
+  const source = text(file)
+  if (!source) {
+    add('error', area, `${component} is missing`)
+    return
+  }
+  for (const [signal, label] of signals) {
+    if (!source.includes(signal)) add('error', area, `${component} missing ${label}`)
+  }
 }
 
 function auditDiscovery() {
@@ -70,37 +86,52 @@ function auditMachineReadable() {
 }
 
 function auditSharedExtractionPrimitives() {
-  const summary = text(CITATION_SUMMARY)
-  if (!summary) {
-    add('error', 'extractability', 'CitationReadySummary.tsx is missing')
-  } else {
-    const required = [
-      ['data-answer-engine-summary', 'answer-engine summary marker'],
-      ['data-claim', 'claim marker'],
-      ['data-evidence', 'evidence marker'],
-      ['data-limitation', 'limitation marker'],
-      ['data-citation-sources', 'claim-adjacent source marker'],
-      ['aria-labelledby', 'accessible stable heading relationship'],
-      ['href={`#${id}`}', 'stable permanent answer link'],
-    ]
-    for (const [signal, label] of required) {
-      if (!summary.includes(signal)) add('error', 'extractability', `CitationReadySummary missing ${label}`)
-    }
-    if (!summary.includes('toCitationReadySummary(answer)')) {
-      add('error', 'extractability', 'CitationReadySummary bypasses the canonical citation-ready text normalizer')
-    }
-  }
+  requireSignals(CITATION_SUMMARY, 'extractability', 'CitationReadySummary', [
+    ['data-answer-engine-summary', 'answer-engine summary marker'],
+    ['data-claim', 'claim marker'],
+    ['data-evidence', 'evidence marker'],
+    ['data-limitation', 'limitation marker'],
+    ['data-citation-sources', 'claim-adjacent source marker'],
+    ['aria-labelledby', 'accessible stable heading relationship'],
+    ['href={`#${id}`}', 'stable permanent answer link'],
+    ['toCitationReadySummary(answer)', 'canonical citation-ready text normalizer'],
+  ])
 
   const table = text(ANSWER_TABLE)
-  if (!table) {
-    add('warn', 'extractability', 'AnswerEngineTable semantic research-table primitive is missing')
-  } else {
+  if (!table) add('warn', 'extractability', 'AnswerEngineTable semantic research-table primitive is missing')
+  else {
     for (const signal of ['data-answer-engine-table', '<caption', 'scope="col"', 'scope="row"', 'id={id}']) {
       if (!table.includes(signal)) add('error', 'extractability', `AnswerEngineTable missing semantic signal: ${signal}`)
     }
   }
 
   if (!existsSync(LICENSING_PAGE)) add('warn', 'attribution', 'public content licensing/attribution policy page is missing')
+}
+
+function auditProfilePrimitives() {
+  requireSignals(EVIDENCE_BADGE, 'profile-semantics', 'EvidenceScoreBadge', [
+    ['data-evidence="true"', 'evidence marker'],
+    ['data-evidence-grade={canonicalGrade}', 'canonical evidence-grade value'],
+  ])
+  requireSignals(SAFETY_GAUGE, 'profile-semantics', 'SafetyGaugeMeter', [
+    ['data-safety-context="true"', 'safety-context marker'],
+    ['data-safety-score={clamped}', 'safety-score value'],
+  ])
+  requireSignals(LAST_UPDATED, 'profile-semantics', 'LastUpdatedBadge', [
+    ['data-editorial-provenance="true"', 'editorial-provenance marker'],
+    ['data-last-reviewed=', 'last-reviewed value'],
+    ['itemProp="dateModified"', 'dateModified semantic'],
+  ])
+  requireSignals(VERDICT_CARD, 'profile-semantics', 'ScientificVerdictCard', [
+    ['data-answer-engine-decision="true"', 'decision marker'],
+    ['data-recommendation=', 'recommendation value'],
+    ['data-claim="true"', 'bottom-line claim marker'],
+    ['data-limitation="true"', 'limitation marker'],
+    ['data-safety-context="true"', 'safety marker'],
+    ['data-evidence="true"', 'evidence marker'],
+  ])
+  const decision = text(PROFILE_DECISION)
+  if (!decision.includes('id="decision-summary"')) add('error', 'profile-semantics', 'ProfileDecisionPanel does not give curated verdicts a stable decision-summary anchor')
 }
 
 function auditExtractability() {
@@ -150,6 +181,7 @@ function auditAntiPatterns() {
 auditDiscovery()
 auditMachineReadable()
 auditSharedExtractionPrimitives()
+auditProfilePrimitives()
 auditExtractability()
 auditAntiPatterns()
 
