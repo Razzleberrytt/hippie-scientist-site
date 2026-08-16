@@ -1,7 +1,6 @@
 import type { RuntimeRecord } from '../src/types/content'
 import {
-  canonicalGradeFromEvidenceTier,
-  normalizeEvidenceGrade,
+  reconcileEvidenceGrade,
   type CanonicalEvidenceGrade,
 } from './evidence-grade'
 
@@ -139,26 +138,26 @@ export function getEvidenceColor(record: RuntimeRecord): EvidenceColor {
   return colors[getEvidenceTier(record)]
 }
 
-/**
- * Compatibility name retained for UI callers. The value now comes from the
- * single canonical evidence-grade contract and may be Avoid/Insufficient.
- */
-export type EvidenceLetterGrade = CanonicalEvidenceGrade
+/** Compatibility name retained for UI/data callers. */
+export type EvidenceLetterGrade = CanonicalEvidenceGrade | 'Unassigned'
 
 /**
- * Resolve a record to the canonical evidence-grade enum.
+ * Resolve a record through the canonical evidence-grade reconciliation contract.
+ * Conflicting grade/tier signals resolve downward. Outcome-dependent,
+ * not-applicable, or otherwise unresolved records remain `Unassigned`; they are
+ * never converted into an invented single grade by heuristic fallback.
  *
- * Explicit grade data wins, but all legacy parsing is delegated to
- * `normalizeEvidenceGrade` so this file cannot drift into a second grading
- * system. Legacy evidence-tier text is only a fallback adapter.
+ * Records with no authored grade/tier at all retain the historical tier-derived
+ * compatibility fallback so older runtime-only content does not disappear.
  */
 export function getEvidenceLetterGrade(record: RuntimeRecord): EvidenceLetterGrade {
-  const normalized = normalizeEvidenceGrade(record?.evidence_grade)
-  if (normalized.grade && !normalized.outcomeDependent) return normalized.grade
+  const rawGrade = record?.evidence_grade ?? record?.evidenceGrade
+  const rawTier = record?.evidence_tier ?? record?.evidenceTier ?? record?.evidenceLevel
+  const reconciled = reconcileEvidenceGrade(rawGrade, rawTier)
+  if (reconciled.grade) return reconciled.grade
 
-  const evidenceTierField = record?.evidence_tier || record?.evidenceTier
-  const gradeFromTier = canonicalGradeFromEvidenceTier(evidenceTierField)
-  if (gradeFromTier) return gradeFromTier
+  const hasAuthoredSignal = text(rawGrade) || text(rawTier)
+  if (hasAuthoredSignal) return 'Unassigned'
 
   const tierMap: Record<EvidenceTier, EvidenceLetterGrade> = {
     strong: 'A',
@@ -168,7 +167,7 @@ export function getEvidenceLetterGrade(record: RuntimeRecord): EvidenceLetterGra
     preliminary: 'D',
     traditional: 'D',
     insufficient: 'Avoid/Insufficient',
-    review: 'Avoid/Insufficient',
+    review: 'Unassigned',
   }
 
   return tierMap[getEvidenceTier(record)]

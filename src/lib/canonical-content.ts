@@ -3,7 +3,7 @@ import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import type { RuntimeRecord } from '../types/content'
 
 export type CanonicalEntityType = 'herb' | 'compound'
-export type CanonicalEvidenceGrade = 'A' | 'B' | 'C' | 'D' | 'Avoid/Insufficient'
+export type CanonicalEvidenceGrade = 'A' | 'B' | 'C' | 'D' | 'Avoid/Insufficient' | 'Unassigned'
 
 export type CanonicalPublicationRecord = {
   id: string
@@ -68,9 +68,7 @@ function stringsFrom(record: RuntimeRecord, keys: string[]): string[] {
 }
 
 function canonicalGrade(record: RuntimeRecord): CanonicalEvidenceGrade {
-  const grade = getEvidenceLetterGrade(record)
-  if (grade === 'A' || grade === 'B' || grade === 'C' || grade === 'D' || grade === 'Avoid/Insufficient') return grade
-  return 'Avoid/Insufficient'
+  return getEvidenceLetterGrade(record)
 }
 
 function resolveName(record: RuntimeRecord, entityType: CanonicalEntityType): string {
