@@ -1,5 +1,8 @@
+import 'server-only'
+
 import { cache } from '@/lib/react-cache'
 import { normalizeEvidenceGrade, canonicalGradeFromEvidenceTier, type CanonicalEvidenceGrade } from '../../lib/evidence-grade'
+import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import { normalizeEffect, normalizeSafetySignals, uniqueNormalized } from '@/lib/botanical-atlas-taxonomy'
@@ -51,7 +54,16 @@ const canonicalEvidence = (record: RuntimeRecord): CanonicalEvidenceGrade | 'Una
   return canonicalGradeFromEvidenceTier(record.evidence_tier ?? record.evidenceTier ?? record.evidenceLevel) ?? 'Unassigned'
 }
 
-const toMatrixRow = (record: RuntimeRecord): ResearchMatrixRow => {
+type CanonicalHumanCount = {
+  publicationCount: number
+  underlyingStudyCount: number
+  collapsedPublicationCount: number
+}
+
+const toMatrixRow = (
+  record: RuntimeRecord,
+  canonicalHumanByUrl: ReadonlyMap<string, CanonicalHumanCount>,
+): ResearchMatrixRow => {
   const entityType = record.entityType === 'compound' ? 'compound' : 'herb'
   const outcomes = uniqueNormalized(
     collect(record.primary_effects, record.effects, record.primaryActions, record.benefits, record.conditions),
@@ -76,25 +88,31 @@ const toMatrixRow = (record: RuntimeRecord): ResearchMatrixRow => {
   const safetySignals = Array.from(new Set(safetyRaw.flatMap(normalizeSafetySignals)))
   const name = text(record.displayName, record.name, record.compoundName, record.commonName, record.slug)
   const slug = String(record.slug ?? '')
+  const href = entityType === 'compound' ? `/compounds/${slug}/` : `/herbs/${slug}/`
+  const legacyHumanCount = positiveInteger(
+    record.human_trial_count,
+    record.humanTrialCount,
+    record.human_study_count,
+    record.humanStudyCount,
+    record.clinical_study_count,
+    record.clinicalStudyCount,
+    record.human_trials,
+    record.humanTrials,
+    record.clinical_trials,
+    record.clinicalTrials,
+  )
+  const canonicalHuman = canonicalHumanByUrl.get(href)
 
   return {
     slug,
     name,
     entityType,
-    href: entityType === 'compound' ? `/compounds/${slug}/` : `/herbs/${slug}/`,
+    href,
     evidenceGrade: canonicalEvidence(record),
-    humanEvidenceCount: positiveInteger(
-      record.human_trial_count,
-      record.humanTrialCount,
-      record.human_study_count,
-      record.humanStudyCount,
-      record.clinical_study_count,
-      record.clinicalStudyCount,
-      record.human_trials,
-      record.humanTrials,
-      record.clinical_trials,
-      record.clinicalTrials,
-    ),
+    humanEvidenceCount: canonicalHuman?.underlyingStudyCount ?? legacyHumanCount,
+    humanPublicationCount: canonicalHuman?.publicationCount ?? legacyHumanCount,
+    collapsedHumanPublicationCount: canonicalHuman?.collapsedPublicationCount ?? 0,
+    humanEvidenceCountCanonical: Boolean(canonicalHuman),
     outcomes,
     mechanisms,
     safetySignals,
@@ -117,10 +135,21 @@ const evidenceRank: Record<ResearchMatrixRow['evidenceGrade'], number> = {
 
 export const getResearchMatrixRows = cache(async (): Promise<ResearchMatrixRow[]> => {
   const { allRecords } = await getUnifiedRuntimeRecords()
+  const { topology } = buildResearchQualitySnapshot(process.cwd())
+  const canonicalHumanByUrl = new Map<string, CanonicalHumanCount>(
+    topology.underlyingStudyIndependence.profiles.map((profile) => [
+      profile.url,
+      {
+        publicationCount: profile.primaryHumanPublicationCount,
+        underlyingStudyCount: profile.primaryHumanUnderlyingStudyCount,
+        collapsedPublicationCount: profile.collapsedPrimaryHumanPublicationCount,
+      },
+    ]),
+  )
 
   return (allRecords as RuntimeRecord[])
     .filter((record) => Boolean(record.slug) && getRuntimeVisibility(record).canRender)
-    .map(toMatrixRow)
+    .map((record) => toMatrixRow(record, canonicalHumanByUrl))
     .filter((row) => row.outcomes.length || row.safetySignals.length || row.humanEvidenceCount > 0)
     .sort((a, b) => {
       const priorityDelta = priorityIndex(a.slug) - priorityIndex(b.slug)
