@@ -123,10 +123,10 @@ export function ResultRow({ doc, active, id, onHover, onSelect }: ResultRowProps
           : 'border-transparent hover:bg-[color:color-mix(in_srgb,var(--tone)_4%,var(--hs-surface))]',
       )}
     >
-      <span className="flex items-center gap-2">
-        <TypeBadge type={doc.type} />
-        <span className="min-w-0 flex-1 truncate text-sm font-semibold text-[color:var(--hs-ink)]">{doc.title}</span>
-        <EvidenceBadge grade={doc.evidenceGrade} />
+      <span className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
+        <span className="order-1 w-full min-w-0 truncate text-sm font-semibold text-[color:var(--hs-ink)] sm:order-2 sm:w-auto sm:flex-1">{doc.title}</span>
+        <span className="order-2 sm:order-1"><TypeBadge type={doc.type} /></span>
+        <span className="order-3"><EvidenceBadge grade={doc.evidenceGrade} /></span>
       </span>
       {doc.summary ? (
         <span className="line-clamp-1 text-xs leading-5 text-[color:var(--hs-body)]">{doc.summary}</span>
