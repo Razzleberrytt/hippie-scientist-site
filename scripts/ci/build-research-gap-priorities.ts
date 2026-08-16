@@ -4,22 +4,21 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
 import {
-  buildResearchGapQueue,
   RESEARCH_GAP_DIMENSION_CAPS,
   RESEARCH_GAP_WEIGHTS,
 } from '../../lib/research-quality-policy'
+import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
 const OUTPUT = path.join(REPORT_DIR, 'research-gaps.json')
-const ranked = buildResearchGapQueue(analyzeResearchQuality(ROOT))
+const { researchGapQueue: ranked } = buildResearchQualitySnapshot(ROOT)
 
 const report = {
   schemaVersion: 2,
   generatedAt: new Date().toISOString(),
-  source: 'lib/research-quality-analysis.ts + lib/research-quality-topology.ts + lib/research-quality-policy.ts',
+  source: 'lib/research-quality-snapshot.ts',
   scoring: {
     note: 'Reasons are grouped into canonical dimensions. rawScore preserves the full diagnostic weight; score sums dimension-capped subtotals so correlated findings corroborate a weakness without unlimited double-counting. Scores are triage weights, not evidence grades.',
     dimensionCaps: RESEARCH_GAP_DIMENSION_CAPS,
