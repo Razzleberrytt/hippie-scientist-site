@@ -1,8 +1,10 @@
 import { analyzeClaimEvidenceDiversity } from './research-claim-evidence-diversity'
+import { analyzeClaimLanguageCalibration } from './research-claim-language-calibration'
 import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
 import { analyzeProvenanceConcentration } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
+import { analyzeResearchSemanticAlignment } from './research-semantic-alignment'
 import { analyzeStudyClassConflicts } from './research-study-class-conflicts'
 import { analyzeStudyIdentityCoverage } from './research-study-identity-coverage'
 import {
@@ -40,6 +42,8 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     (claim) => claim.highConfidenceHomogeneousMultiStudySupport,
   )
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
+  const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
+  const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
 
   return {
     crossProfileStudyLoad,
@@ -61,5 +65,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     homogeneousMultiStudyClaims,
     highConfidenceHomogeneousMultiStudyClaims,
     studyClassConflicts,
+    semanticAlignment,
+    claimLanguageCalibration,
   }
 }
