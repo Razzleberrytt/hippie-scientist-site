@@ -1,5 +1,7 @@
+import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
+import { getProfileTranslationRevision } from './profile-translation-revisions'
 
 export type LocalizedProfileKind = 'herb' | 'compound'
 
@@ -68,6 +70,13 @@ export function getApprovedCanonicalClaims(profile: CanonicalLocalizedProfile): 
   return (profile.claimMap ?? []).filter((claim) => claim.reviewStatus === 'approved')
 }
 
+export function canonicalProfileClaimRevision(profile: CanonicalLocalizedProfile): string {
+  const payload = getApprovedCanonicalClaims(profile)
+    .map((claim) => [claim.id, claim.claim] as const)
+    .sort(([a], [b]) => a.localeCompare(b))
+  return createHash('sha256').update(JSON.stringify(payload), 'utf8').digest('hex')
+}
+
 export function profileTranslationCoverage(
   profile: CanonicalLocalizedProfile,
   translation: LocalizedProfileTranslation,
@@ -77,13 +86,19 @@ export function profileTranslationCoverage(
   const translatedIds = Object.keys(translation.claims)
   const missing = approved.filter((claim) => !translation.claims[claim.id]).map((claim) => claim.id)
   const stale = translatedIds.filter((id) => !approvedIds.has(id))
+  const currentRevision = canonicalProfileClaimRevision(profile)
+  const translationRevision = getProfileTranslationRevision(translation.path)
+  const revisionCurrent = translationRevision === currentRevision
 
   return {
     approvedClaims: approved.length,
     translatedClaims: approved.length - missing.length,
     missing,
     stale,
-    complete: approved.length > 0 && missing.length === 0 && stale.length === 0,
+    currentRevision,
+    translationRevision,
+    revisionCurrent,
+    complete: approved.length > 0 && missing.length === 0 && stale.length === 0 && revisionCurrent,
   }
 }
 
@@ -98,7 +113,7 @@ export function assertCompleteProfileTranslation(
   const coverage = profileTranslationCoverage(profile, translation)
   if (!coverage.complete) {
     throw new Error(
-      `Incomplete localized profile ${translation.path}: approved=${coverage.approvedClaims} translated=${coverage.translatedClaims} missing=${coverage.missing.join(',') || 'none'} stale=${coverage.stale.join(',') || 'none'}`,
+      `Incomplete localized profile ${translation.path}: approved=${coverage.approvedClaims} translated=${coverage.translatedClaims} missing=${coverage.missing.join(',') || 'none'} stale=${coverage.stale.join(',') || 'none'} revision=${coverage.revisionCurrent ? 'current' : `stale:${coverage.translationRevision ?? 'missing'}->${coverage.currentRevision}`}`,
     )
   }
   return coverage
