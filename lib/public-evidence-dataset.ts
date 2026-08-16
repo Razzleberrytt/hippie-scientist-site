@@ -1,3 +1,7 @@
+import {
+  buildCitationIdentifierIdentityMap,
+  canonicalCitationIdentifier,
+} from '@/lib/citation-identifiers.mjs'
 import { extractCitationsFromRecord } from '@/lib/citations'
 import { getEvidenceLetterGrade } from '@/lib/evidence'
 import {
@@ -101,30 +105,23 @@ export type PublicEvidenceReportMetrics = {
   contradictingRelationships: number
   noClearEffectRelationships: number
   disagreementStudyCount: number
-  /** Null for synthetic/pure builders that do not execute canonical topology. */
   underlyingStudyMetricsSource: 'canonical-research-topology' | null
-  /** Public/indexable profiles requested from and matched by the canonical research topology. */
   researchTopologyRequestedProfiles: number | null
   researchTopologyMatchedProfiles: number | null
   researchTopologyMissingProfiles: number | null
   researchTopologyProfileCoverage: number | null
-  /** Unique publication identities within the current public/indexable dataset scope. */
   globalInventoryPublicationCount: number | null
-  /** Evidence units remaining in the current public scope after explicitly proven registry/lineage dependence is collapsed. */
   globalInventoryUnderlyingStudyCount: number | null
   globalCollapsedInventoryPublicationCount: number | null
   globalInventoryPublicationsWithIndependenceMetadata: number | null
   globalInventoryPublicationsWithoutIndependenceMetadata: number | null
   globalInventoryIndependenceMetadataCoverage: number | null
-  /** Unique primary-human publication identities within the current public/indexable dataset scope. */
   globalPrimaryHumanPublicationCount: number | null
-  /** Primary-human evidence units remaining after explicitly proven dependence collapse; unresolved lineage is not assumed independent. */
   globalPrimaryHumanUnderlyingStudyCount: number | null
   globalCollapsedPrimaryHumanPublicationCount: number | null
   globalPrimaryHumanPublicationsWithIndependenceMetadata: number | null
   globalPrimaryHumanPublicationsWithoutIndependenceMetadata: number | null
   globalPrimaryHumanIndependenceMetadataCoverage: number | null
-  /** Claim-level coverage of explicit registry or non-registry lineage used to assess publication independence. */
   independenceMultiStudyApprovedClaims: number | null
   independenceFullyResolvedClaims: number | null
   independenceUnresolvedClaims: number | null
@@ -172,13 +169,7 @@ function canIndexRecord(record: RuntimeRecord): boolean {
 }
 
 function entityName(record: RuntimeRecord): string {
-  return (
-    cleanString(record.displayName) ||
-    cleanString(record.name) ||
-    cleanString(record.common) ||
-    cleanString(record.scientific) ||
-    cleanString(record.slug)
-  )
+  return cleanString(record.displayName) || cleanString(record.name) || cleanString(record.common) || cleanString(record.scientific) || cleanString(record.slug)
 }
 
 function entityCategory(record: RuntimeRecord): string {
@@ -195,19 +186,11 @@ function hasSafetyCaution(record: RuntimeRecord): boolean {
     cleanString(record.safetyLevel),
     cleanString(record.safety_level),
   ].join(' ').toLowerCase()
-
   return /\b(avoid(?:ance)?|contraindicat(?:e|ed|es|ion|ions)?|caution(?:s|ary)?|interactions?|pregnan(?:t|cy)|breastfeed(?:ing)?|liver|kidney|bleed(?:ing)?|sedat(?:e|ed|ion|ive)?|stimul(?:ant|ation)?|risks?|toxic(?:ity)?|monitor(?:ing)?)\b/.test(text)
 }
 
 function hasExplicitClaimOverreachFlag(record: RuntimeRecord): boolean {
-  const fields = [
-    record.claim_overreach,
-    record.claimOverreach,
-    record.evidence_language_violation,
-    record.evidenceLanguageViolation,
-    record.marketing_claim_exceeds_evidence,
-    record.marketingClaimExceedsEvidence,
-  ]
+  const fields = [record.claim_overreach, record.claimOverreach, record.evidence_language_violation, record.evidenceLanguageViolation, record.marketing_claim_exceeds_evidence, record.marketingClaimExceedsEvidence]
   return fields.some(value => value === true || /^(true|yes|flagged|overreach)$/i.test(cleanString(value)))
 }
 
@@ -224,29 +207,12 @@ function aggregateRelationship(relationships: PublicStudyRelationship[]): Eviden
 
 function toStudyRecord(study: PublicStudyEntity): EvidenceStudyRecord {
   return {
-    id: study.id,
-    title: study.title,
-    authors: study.authors,
-    journal: study.journal,
-    year: study.year,
-    pmid: study.pmid,
-    doi: study.doi,
-    url: study.url,
-    studyType: study.studyType,
-    evidenceClass: study.evidenceClass,
-    sampleSize: study.sampleSize,
-    dose: study.dose,
-    duration: study.duration,
-    population: study.population,
-    outcome: study.outcome,
-    result: study.result,
-    limitation: study.limitation,
-    relationship: study.relationshipSummary,
-    confidence: study.confidence,
-    statisticalConsistency: study.statisticalConsistency,
-    extractName: study.extractName,
-    conditions: study.conditions,
-    safetyOutcome: study.safetyOutcome,
+    id: study.id, title: study.title, authors: study.authors, journal: study.journal, year: study.year,
+    pmid: study.pmid, doi: study.doi, url: study.url, studyType: study.studyType, evidenceClass: study.evidenceClass,
+    sampleSize: study.sampleSize, dose: study.dose, duration: study.duration, population: study.population,
+    outcome: study.outcome, result: study.result, limitation: study.limitation, relationship: study.relationshipSummary,
+    confidence: study.confidence, statisticalConsistency: study.statisticalConsistency, extractName: study.extractName,
+    conditions: study.conditions, safetyOutcome: study.safetyOutcome,
   }
 }
 
@@ -261,10 +227,19 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
   const gradeCounts = new Map<string, number>()
   const categoryMap = new Map<string, EvidenceCategorySummary>()
   let explicitlyFlaggedClaimOverreach = 0
+  const indexableEntities = entities.filter(({ record }) => canIndexRecord(record))
+  const citationsByPath = new Map<string, ReturnType<typeof extractCitationsFromRecord>>()
+  const allCitations: ReturnType<typeof extractCitationsFromRecord> = []
 
-  for (const { record, type } of entities) {
-    if (!canIndexRecord(record)) continue
+  for (const { record, type } of indexableEntities) {
+    const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}/`
+    const citations = extractCitationsFromRecord(record)
+    citationsByPath.set(path, citations)
+    allCitations.push(...citations)
+  }
+  const citationIdentities = buildCitationIdentifierIdentityMap(allCitations)
 
+  for (const { record, type } of indexableEntities) {
     const name = entityName(record)
     const evidenceGrade = getEvidenceLetterGrade(record)
     const category = entityCategory(record)
@@ -276,64 +251,35 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     if (hasExplicitClaimOverreachFlag(record)) explicitlyFlaggedClaimOverreach += 1
 
     const categorySummary = categoryMap.get(category) || {
-      category,
-      totalIngredients: 0,
-      strongOrModerate: 0,
-      preliminaryOrInsufficient: 0,
-      unassigned: 0,
-      humanStudies: 0,
-      humanTrials: 0,
+      category, totalIngredients: 0, strongOrModerate: 0, preliminaryOrInsufficient: 0,
+      unassigned: 0, humanStudies: 0, humanTrials: 0,
     }
     categorySummary.totalIngredients += 1
     if (evidenceGrade === 'A' || evidenceGrade === 'B') categorySummary.strongOrModerate += 1
-    if (evidenceGrade === 'C' || evidenceGrade === 'D' || evidenceGrade === 'Avoid/Insufficient') {
-      categorySummary.preliminaryOrInsufficient += 1
-    }
+    if (evidenceGrade === 'C' || evidenceGrade === 'D' || evidenceGrade === 'Avoid/Insufficient') categorySummary.preliminaryOrInsufficient += 1
     if (evidenceGrade === 'Unassigned') categorySummary.unassigned += 1
 
-    const citations = extractCitationsFromRecord(record)
+    const citations = citationsByPath.get(path) ?? []
     for (const citation of citations) {
       const evidenceClass = citation.evidenceClass || normalizeEvidenceStudyClass(citation.studyType)
       const relationship = normalizeEvidenceRelationship(citation.relationship)
-      const id = citation.id || evidenceStudyId(citation)
+      const id = canonicalCitationIdentifier(citation, citationIdentities) || citation.id || evidenceStudyId(citation)
       const conditions = [...new Set([...(citation.conditions || [])].map(item => item.trim()).filter(Boolean))]
       const relationshipRecord: PublicStudyRelationship = {
-        ingredientSlug: record.slug,
-        ingredientName: name,
-        ingredientType: type,
-        ingredientPath: path,
-        evidenceGrade,
-        relationship,
-        outcome: citation.outcome,
+        ingredientSlug: record.slug, ingredientName: name, ingredientType: type, ingredientPath: path,
+        evidenceGrade, relationship, outcome: citation.outcome,
       }
 
       const existing = studiesById.get(id)
       if (!existing) {
         studiesById.set(id, {
-          id,
-          title: citation.title || id,
-          authors: citation.authors,
-          journal: citation.journal,
-          year: citation.year,
-          pmid: citation.pmid,
-          doi: citation.doi,
-          url: citation.url,
-          studyType: citation.studyType,
-          evidenceClass,
-          sampleSize: citation.sampleSize,
-          dose: citation.dose,
-          duration: citation.duration,
-          population: citation.population,
-          outcome: citation.outcome,
-          result: citation.result,
-          limitation: citation.limitation,
-          confidence: normalizeEvidenceConfidence(citation.confidence),
-          statisticalConsistency: citation.statisticalConsistency,
-          extractName: citation.extractName,
-          conditions,
-          safetyOutcome: citation.safetyOutcome,
-          relationships: [relationshipRecord],
-          relationshipSummary: relationship,
+          id, title: citation.title || id, authors: citation.authors, journal: citation.journal, year: citation.year,
+          pmid: citation.pmid, doi: citation.doi, url: citation.url, studyType: citation.studyType, evidenceClass,
+          sampleSize: citation.sampleSize, dose: citation.dose, duration: citation.duration, population: citation.population,
+          outcome: citation.outcome, result: citation.result, limitation: citation.limitation,
+          confidence: normalizeEvidenceConfidence(citation.confidence), statisticalConsistency: citation.statisticalConsistency,
+          extractName: citation.extractName, conditions, safetyOutcome: citation.safetyOutcome,
+          relationships: [relationshipRecord], relationshipSummary: relationship,
         })
       } else {
         existing.authors = mergeStudyField(existing.authors, citation.authors)
@@ -354,11 +300,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
         existing.extractName = mergeStudyField(existing.extractName, citation.extractName)
         existing.safetyOutcome = mergeStudyField(existing.safetyOutcome, citation.safetyOutcome)
         existing.conditions = [...new Set([...existing.conditions, ...conditions])]
-        if (!existing.relationships.some(item =>
-          item.ingredientSlug === relationshipRecord.ingredientSlug &&
-          item.relationship === relationshipRecord.relationship &&
-          item.outcome === relationshipRecord.outcome,
-        )) {
+        if (!existing.relationships.some(item => item.ingredientSlug === relationshipRecord.ingredientSlug && item.relationship === relationshipRecord.relationship && item.outcome === relationshipRecord.outcome)) {
           existing.relationships.push(relationshipRecord)
         }
         existing.relationshipSummary = aggregateRelationship(existing.relationships)
@@ -367,17 +309,11 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       if (isHumanEvidenceClass(evidenceClass)) categorySummary.humanStudies += 1
       if (isHumanTrialClass(evidenceClass)) categorySummary.humanTrials += 1
     }
-
     categoryMap.set(category, categorySummary)
   }
 
-  const studies = [...studiesById.values()].sort((a, b) => {
-    const yearDiff = Number(b.year || 0) - Number(a.year || 0)
-    if (yearDiff !== 0) return yearDiff
-    return a.title.localeCompare(b.title)
-  })
+  const studies = [...studiesById.values()].sort((a, b) => Number(b.year || 0) - Number(a.year || 0) || a.title.localeCompare(b.title))
   const studyMetrics = summarizeEvidenceStudies(studies.map(toStudyRecord))
-
   let supportingRelationships = 0
   let mixedRelationships = 0
   let contradictingRelationships = 0
@@ -394,85 +330,49 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
   const gradeOrder = ['A', 'B', 'C', 'D', 'Avoid/Insufficient', 'Unassigned']
   const gradeDistribution = gradeOrder.map(grade => {
     const count = gradeCounts.get(grade) || 0
-    return {
-      grade,
-      count,
-      pct: ingredients.length ? (count / ingredients.length) * 100 : 0,
-    }
+    return { grade, count, pct: ingredients.length ? (count / ingredients.length) * 100 : 0 }
   })
   const distributedIngredientCount = gradeDistribution.reduce((sum, bucket) => sum + bucket.count, 0)
-  if (distributedIngredientCount !== ingredients.length) {
-    throw new Error(`[public-evidence-dataset] grade distribution covers ${distributedIngredientCount}/${ingredients.length} ingredients`)
-  }
+  if (distributedIngredientCount !== ingredients.length) throw new Error(`[public-evidence-dataset] grade distribution covers ${distributedIngredientCount}/${ingredients.length} ingredients`)
 
-  const categories = [...categoryMap.values()]
-    .sort((a, b) => {
-      const aRate = a.totalIngredients ? a.strongOrModerate / a.totalIngredients : 0
-      const bRate = b.totalIngredients ? b.strongOrModerate / b.totalIngredients : 0
-      return bRate - aRate || b.humanTrials - a.humanTrials || a.category.localeCompare(b.category)
-    })
-
+  const categories = [...categoryMap.values()].sort((a, b) => {
+    const aRate = a.totalIngredients ? a.strongOrModerate / a.totalIngredients : 0
+    const bRate = b.totalIngredients ? b.strongOrModerate / b.totalIngredients : 0
+    return bRate - aRate || b.humanTrials - a.humanTrials || a.category.localeCompare(b.category)
+  })
   for (const category of categories) {
     const categorized = category.strongOrModerate + category.preliminaryOrInsufficient + category.unassigned
-    if (categorized !== category.totalIngredients) {
-      throw new Error(`[public-evidence-dataset] ${category.category} grade buckets cover ${categorized}/${category.totalIngredients} ingredients`)
-    }
+    if (categorized !== category.totalIngredients) throw new Error(`[public-evidence-dataset] ${category.category} grade buckets cover ${categorized}/${category.totalIngredients} ingredients`)
   }
 
   const metrics: PublicEvidenceReportMetrics = {
-    ingredientCount: ingredients.length,
-    studyCount: studies.length,
-    humanStudyCount: studyMetrics.humanStudies,
-    humanTrialCount: studyMetrics.humanTrials,
-    approximateParticipants: studyMetrics.approximateParticipants,
+    ingredientCount: ingredients.length, studyCount: studies.length, humanStudyCount: studyMetrics.humanStudies,
+    humanTrialCount: studyMetrics.humanTrials, approximateParticipants: studyMetrics.approximateParticipants,
     participantCountCoverage: studyMetrics.studiesWithParticipantCounts,
     strongOrModerateIngredients: ingredients.filter(item => item.evidenceGrade === 'A' || item.evidenceGrade === 'B').length,
     preliminaryOrInsufficientIngredients: ingredients.filter(item => item.evidenceGrade === 'C' || item.evidenceGrade === 'D' || item.evidenceGrade === 'Avoid/Insufficient').length,
     unassignedIngredients: ingredients.filter(item => item.evidenceGrade === 'Unassigned').length,
     ingredientsWithSafetyCautions: ingredients.filter(item => item.safetyCaution).length,
-    explicitlyFlaggedClaimOverreach,
-    supportingRelationships,
-    mixedRelationships,
-    contradictingRelationships,
-    noClearEffectRelationships,
-    disagreementStudyCount: studies.filter(study => study.relationshipSummary === 'mixed').length,
-    underlyingStudyMetricsSource: null,
-    researchTopologyRequestedProfiles: null,
-    researchTopologyMatchedProfiles: null,
-    researchTopologyMissingProfiles: null,
-    researchTopologyProfileCoverage: null,
-    globalInventoryPublicationCount: null,
-    globalInventoryUnderlyingStudyCount: null,
-    globalCollapsedInventoryPublicationCount: null,
-    globalInventoryPublicationsWithIndependenceMetadata: null,
-    globalInventoryPublicationsWithoutIndependenceMetadata: null,
-    globalInventoryIndependenceMetadataCoverage: null,
-    globalPrimaryHumanPublicationCount: null,
-    globalPrimaryHumanUnderlyingStudyCount: null,
-    globalCollapsedPrimaryHumanPublicationCount: null,
-    globalPrimaryHumanPublicationsWithIndependenceMetadata: null,
-    globalPrimaryHumanPublicationsWithoutIndependenceMetadata: null,
-    globalPrimaryHumanIndependenceMetadataCoverage: null,
-    independenceMultiStudyApprovedClaims: null,
-    independenceFullyResolvedClaims: null,
-    independenceUnresolvedClaims: null,
-    highConfidenceIndependenceUnresolvedClaims: null,
-    meanIndependenceCoverage: null,
-    gradeDistribution,
-    categories,
+    explicitlyFlaggedClaimOverreach, supportingRelationships, mixedRelationships, contradictingRelationships,
+    noClearEffectRelationships, disagreementStudyCount: studies.filter(study => study.relationshipSummary === 'mixed').length,
+    underlyingStudyMetricsSource: null, researchTopologyRequestedProfiles: null, researchTopologyMatchedProfiles: null,
+    researchTopologyMissingProfiles: null, researchTopologyProfileCoverage: null, globalInventoryPublicationCount: null,
+    globalInventoryUnderlyingStudyCount: null, globalCollapsedInventoryPublicationCount: null,
+    globalInventoryPublicationsWithIndependenceMetadata: null, globalInventoryPublicationsWithoutIndependenceMetadata: null,
+    globalInventoryIndependenceMetadataCoverage: null, globalPrimaryHumanPublicationCount: null,
+    globalPrimaryHumanUnderlyingStudyCount: null, globalCollapsedPrimaryHumanPublicationCount: null,
+    globalPrimaryHumanPublicationsWithIndependenceMetadata: null, globalPrimaryHumanPublicationsWithoutIndependenceMetadata: null,
+    globalPrimaryHumanIndependenceMetadataCoverage: null, independenceMultiStudyApprovedClaims: null,
+    independenceFullyResolvedClaims: null, independenceUnresolvedClaims: null, highConfidenceIndependenceUnresolvedClaims: null,
+    meanIndependenceCoverage: null, gradeDistribution, categories,
   }
 
   return {
-    schemaVersion: 1,
-    datasetVersion: PUBLIC_EVIDENCE_DATASET_VERSION,
-    title: PUBLIC_EVIDENCE_DATASET_TITLE,
-    generatedFrom: 'current indexable runtime records',
-    methodologyPath: '/info/editorial-policy/',
+    schemaVersion: 1, datasetVersion: PUBLIC_EVIDENCE_DATASET_VERSION, title: PUBLIC_EVIDENCE_DATASET_TITLE,
+    generatedFrom: 'current indexable runtime records', methodologyPath: '/info/editorial-policy/',
     citationExplorerPath: '/learn/citation-explorer/',
     citationText: `The Hippie Scientist. ${PUBLIC_EVIDENCE_DATASET_TITLE}. Version ${PUBLIC_EVIDENCE_DATASET_VERSION}. https://thehippiescientist.net/evidence/evidence-report/`,
-    ingredients: ingredients.sort((a, b) => a.name.localeCompare(b.name)),
-    studies,
-    metrics,
+    ingredients: ingredients.sort((a, b) => a.name.localeCompare(b.name)), studies, metrics,
   }
 }
 
@@ -480,36 +380,26 @@ async function hydrateIndexableRecords(summary: RuntimeRecord[], type: 'herb' | 
   const indexable = summary.filter(canIndexRecord)
   const hydrated: EntityRecord[] = []
   const chunkSize = 32
-
   for (let index = 0; index < indexable.length; index += chunkSize) {
     const chunk = indexable.slice(index, index + chunkSize)
-    const detailed = await Promise.all(chunk.map(record =>
-      type === 'herb' ? getHerbBySlug(record.slug) : getCompoundBySlug(record.slug),
-    ))
+    const detailed = await Promise.all(chunk.map(record => type === 'herb' ? getHerbBySlug(record.slug) : getCompoundBySlug(record.slug)))
     for (let offset = 0; offset < chunk.length; offset += 1) {
       const record = detailed[offset] || chunk[offset]
       if (record && canIndexRecord(record)) hydrated.push({ record, type })
     }
   }
-
   return hydrated
 }
 
 export async function getPublicEvidenceDataset(): Promise<PublicEvidenceDataset> {
   const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
   const [herbRecords, compoundRecords] = await Promise.all([
-    hydrateIndexableRecords(herbs, 'herb'),
-    hydrateIndexableRecords(compounds, 'compound'),
+    hydrateIndexableRecords(herbs, 'herb'), hydrateIndexableRecords(compounds, 'compound'),
   ])
   const dataset = buildPublicEvidenceDatasetFromRecords([...herbRecords, ...compoundRecords])
-  const scopedTopology = buildScopedResearchQualityTopology(
-    process.cwd(),
-    dataset.ingredients.map((ingredient) => ingredient.path),
-  )
-  const topology = scopedTopology.topology
-  const independence = topology.underlyingStudyIndependence.summary
-  const coverage = topology.evidenceIndependenceCoverage.summary
-
+  const scopedTopology = buildScopedResearchQualityTopology(process.cwd(), dataset.ingredients.map((ingredient) => ingredient.path))
+  const independence = scopedTopology.topology.underlyingStudyIndependence.summary
+  const coverage = scopedTopology.topology.evidenceIndependenceCoverage.summary
   return {
     ...dataset,
     metrics: {
@@ -546,35 +436,7 @@ function csvEscape(value: unknown): string {
 }
 
 export function publicEvidenceDatasetToCsv(dataset: PublicEvidenceDataset): string {
-  const headers = [
-    'study_id', 'title', 'authors', 'journal', 'year', 'pmid', 'doi', 'study_class', 'sample_size',
-    'dose', 'duration', 'population', 'outcome', 'result', 'limitation', 'relationship_summary',
-    'conditions', 'safety_outcome', 'ingredient_slugs', 'ingredient_names', 'ingredient_grades',
-  ]
-
-  const rows = dataset.studies.map(study => [
-    study.id,
-    study.title,
-    study.authors,
-    study.journal,
-    study.year,
-    study.pmid,
-    study.doi,
-    study.evidenceClass,
-    parseSampleSize(study.sampleSize) ?? study.sampleSize,
-    study.dose,
-    study.duration,
-    study.population,
-    study.outcome,
-    study.result,
-    study.limitation,
-    study.relationshipSummary,
-    study.conditions.join('|'),
-    study.safetyOutcome,
-    study.relationships.map(item => item.ingredientSlug).join('|'),
-    study.relationships.map(item => item.ingredientName).join('|'),
-    study.relationships.map(item => item.evidenceGrade).join('|'),
-  ].map(csvEscape).join(','))
-
+  const headers = ['study_id','title','authors','journal','year','pmid','doi','study_class','sample_size','dose','duration','population','outcome','result','limitation','relationship_summary','conditions','safety_outcome','ingredient_slugs','ingredient_names','ingredient_grades']
+  const rows = dataset.studies.map(study => [study.id, study.title, study.authors, study.journal, study.year, study.pmid, study.doi, study.evidenceClass, parseSampleSize(study.sampleSize) ?? study.sampleSize, study.dose, study.duration, study.population, study.outcome, study.result, study.limitation, study.relationshipSummary, study.conditions.join('|'), study.safetyOutcome, study.relationships.map(item => item.ingredientSlug).join('|'), study.relationships.map(item => item.ingredientName).join('|'), study.relationships.map(item => item.evidenceGrade).join('|')].map(csvEscape).join(','))
   return `${headers.join(',')}\n${rows.join('\n')}\n`
 }
