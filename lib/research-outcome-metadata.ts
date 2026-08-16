@@ -53,8 +53,9 @@ const STATUS_FIELDS = ['primaryOutcomeStatus', 'outcomeStatus'] as const
 const SWITCH_FIELDS = ['outcomeSwitch', 'outcomeSwitched', 'primaryOutcomeChanged'] as const
 const NON_REPORTING_FIELDS = ['registeredOutcomeNotReported', 'prespecifiedOutcomeNotReported'] as const
 
-const PRIMARY_NOT_MET_TEXT = /\bprimary (?:outcome|endpoint)[^.]{0,180}(?:was not met|not met|failed to meet|did not meet|no significant|not statistically significant|non[- ]significant)\b/i
+const PRIMARY_NOT_MET_TEXT = /\bprimary (?:outcome|endpoint)[^.]{0,180}(?:was not met|not met|failed to meet|did not meet|no significant|not statistically significant|non[- ]significant|not superior|(?:did not|does not|not) favou?r(?:ed|s|ing)?)\b/i
 const PRIMARY_MET_TEXT = /\bprimary (?:outcome|endpoint)[^.]{0,180}(?:was met|met the|was statistically significant|was significantly (?:improved|reduced|increased|decreased)|favou?r(?:ed|s)|superior)\b/i
+const NEGATED_PRIMARY_POSITIVE_TEXT = /\b(?:not|never|did not|does not|failed to)\s+(?:statistically significant|significantly (?:improved|reduced|increased|decreased)|favou?r(?:ed|s|ing)?|superior)\b/gi
 const OUTCOME_SWITCH_TEXT = /\b(outcome switch(?:ing|ed)?|switched (?:the )?(?:primary )?(?:outcome|endpoint)|changed (?:the )?(?:primary )?(?:outcome|endpoint)|primary outcome (?:was )?changed|deviation from (?:the )?(?:registered|prespecified|protocol[- ]specified) outcome)\b/i
 const OUTCOME_NOT_REPORTED_TEXT = /\b(?:registered|prespecified|pre[- ]specified|protocol[- ]specified) (?:primary )?(?:outcome|endpoint)[^.]{0,140}(?:not reported|was not reported|unreported|omitted)\b/i
 
@@ -115,7 +116,8 @@ function normalizedStatus(group: ResearchSource[], cache: PubmedCache): PrimaryO
   if (explicitMet) return 'met'
 
   const evidenceText = group.map((source) => researchSourceEvidenceText(source, cache)).filter(Boolean).join(' · ')
-  const textMet = PRIMARY_MET_TEXT.test(evidenceText)
+  const positiveEvidenceText = evidenceText.replace(NEGATED_PRIMARY_POSITIVE_TEXT, '')
+  const textMet = PRIMARY_MET_TEXT.test(positiveEvidenceText)
   const textNotMet = PRIMARY_NOT_MET_TEXT.test(evidenceText)
   if (textMet && textNotMet) return 'mixed'
   if (textNotMet) return 'not-met'

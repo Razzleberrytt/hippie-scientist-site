@@ -134,6 +134,28 @@ describe('canonical outcome metadata', () => {
     expect(result.summary.primaryOutcomeNotMet).toBe(1)
   })
 
+  it('does not reinterpret negated superiority or favorability as a met outcome', () => {
+    for (const abstract of [
+      'The primary outcome was not superior to placebo.',
+      'The primary endpoint did not favor treatment over placebo.',
+    ]) {
+      const input = analysis(
+        [{ id: 's1', pmid: '123' }],
+        { '123': { abstract } },
+      )
+      const trialRegistrationIndependence = registration([{
+        url: '/herbs/example/',
+        studyId: 'pmid:123',
+        registryIds: [],
+        stableRegistryId: null,
+        ambiguous: false,
+      }])
+
+      const result = analyzeOutcomeMetadata({ analysis: input, trialRegistrationIndependence })
+      expect(result.studies[0].primaryOutcomeStatus).toBe('not-met')
+    }
+  })
+
   it('keeps missing outcome metadata unknown', () => {
     const input = analysis([{ id: 's1', pmid: '123', title: 'Randomized clinical trial' }])
     const trialRegistrationIndependence = registration([{
