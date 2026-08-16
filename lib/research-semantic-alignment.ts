@@ -26,6 +26,13 @@ export type SemanticAlignmentFinding = {
   predicate: string
   confidence: number
   claimRole: EvidenceRole
+  sourceCount: number
+  alignedSourceCount: number
+  uncertainSourceCount: number
+  explicitMismatchSourceCount: number
+  semanticSupportShare: number | null
+  semanticSingleSource: boolean
+  semanticSupportConcentrated: boolean
   sourceRoles: EvidenceRole[]
   claimDomains: string[]
   sourceDomains: string[][]
@@ -47,9 +54,14 @@ export type SemanticAlignmentReport = {
     populationMismatches: number
     anyMismatch: number
     highConfidenceMismatches: number
+    semanticSingleSourceClaims: number
+    semanticSupportConcentratedClaims: number
+    highConfidenceSemanticConcentration: number
   }
   findings: SemanticAlignmentFinding[]
   highConfidenceMismatches: SemanticAlignmentFinding[]
+  concentrationFindings: SemanticAlignmentFinding[]
+  highConfidenceConcentrationFindings: SemanticAlignmentFinding[]
 }
 
 const ROLE_PATTERNS: Array<[EvidenceRole, RegExp[]]> = [
@@ -95,6 +107,11 @@ function text(value: unknown): string {
 
 function unique<T>(values: T[]): T[] {
   return [...new Set(values)]
+}
+
+function intersects(a: string[], b: string[]): boolean {
+  const right = new Set(b)
+  return a.some((value) => right.has(value))
 }
 
 function sourceText(source: Record<string, unknown>): string {
@@ -150,6 +167,31 @@ function allExplicitlyDisjoint(claimTags: string[], sourceTags: string[][]): boo
   return sourceTags.every((tags) => tags.every((tag) => !claimSet.has(tag)))
 }
 
+function classifySourceAlignment(
+  role: EvidenceRole,
+  claimDomains: string[],
+  claimPopulations: string[],
+  sourceRole: EvidenceRole,
+  sourceDomains: string[],
+  sourcePopulations: string[],
+): 'aligned' | 'mismatch' | 'uncertain' {
+  const roleKnown = role !== 'unknown' && sourceRole !== 'unknown'
+  const roleMismatch = roleKnown && !compatibleRole(role, sourceRole)
+  const roleAligned = roleKnown && compatibleRole(role, sourceRole)
+
+  const domainComparable = claimDomains.length > 0 && sourceDomains.length > 0
+  const domainMismatch = domainComparable && !intersects(claimDomains, sourceDomains)
+  const domainAligned = domainComparable && intersects(claimDomains, sourceDomains)
+
+  const populationComparable = claimPopulations.length > 0 && sourcePopulations.length > 0
+  const populationMismatch = populationComparable && !intersects(claimPopulations, sourcePopulations)
+  const populationAligned = populationComparable && intersects(claimPopulations, sourcePopulations)
+
+  if (roleMismatch || domainMismatch || populationMismatch) return 'mismatch'
+  if (roleAligned || domainAligned || populationAligned) return 'aligned'
+  return 'uncertain'
+}
+
 function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfileEntry['record']): SemanticAlignmentFinding | null {
   const sourcesById = sourceMap(record)
   const refs = uniqueSourceRefs(claim)
@@ -172,10 +214,28 @@ function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfile
   const domainMismatch = allExplicitlyDisjoint(claimDomains, sourceDomains)
   const populationMismatch = allExplicitlyDisjoint(claimPopulations, sourcePopulations)
 
+  const sourceAlignment = sourceRoles.map((sourceRole, index) => classifySourceAlignment(
+    role,
+    claimDomains,
+    claimPopulations,
+    sourceRole,
+    sourceDomains[index],
+    sourcePopulations[index],
+  ))
+  const alignedSourceCount = sourceAlignment.filter((status) => status === 'aligned').length
+  const uncertainSourceCount = sourceAlignment.filter((status) => status === 'uncertain').length
+  const explicitMismatchSourceCount = sourceAlignment.filter((status) => status === 'mismatch').length
+  const fullyAssessable = uncertainSourceCount === 0
+  const semanticSupportShare = fullyAssessable && sources.length ? alignedSourceCount / sources.length : null
+  const semanticSingleSource = fullyAssessable && sources.length >= 2 && alignedSourceCount === 1
+  const semanticSupportConcentrated = fullyAssessable && sources.length >= 3 && alignedSourceCount > 0 && alignedSourceCount / sources.length <= 0.5
+
   const reasons: string[] = []
   if (roleMismatch) reasons.push(`claim role ${role} is not represented by linked source roles: ${unique(sourceRoles).join(', ')}`)
   if (domainMismatch) reasons.push(`claim domain ${claimDomains.join(', ')} is disjoint from explicit source domains`)
   if (populationMismatch) reasons.push(`claim population ${claimPopulations.join(', ')} is disjoint from explicit source populations`)
+  if (semanticSingleSource) reasons.push(`only 1 of ${sources.length} explicitly assessable linked sources is semantically aligned`)
+  else if (semanticSupportConcentrated) reasons.push(`${alignedSourceCount} of ${sources.length} explicitly assessable linked sources are semantically aligned`)
 
   return {
     url,
@@ -183,6 +243,13 @@ function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfile
     predicate: text(claim.predicate),
     confidence: Number(claim.confidence ?? 0),
     claimRole: role,
+    sourceCount: sources.length,
+    alignedSourceCount,
+    uncertainSourceCount,
+    explicitMismatchSourceCount,
+    semanticSupportShare: semanticSupportShare === null ? null : Number(semanticSupportShare.toFixed(3)),
+    semanticSingleSource,
+    semanticSupportConcentrated,
     sourceRoles,
     claimDomains,
     sourceDomains,
@@ -197,6 +264,7 @@ function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfile
 
 export function analyzeResearchSemanticAlignment(analysis: ResearchQualityAnalysis): SemanticAlignmentReport {
   const findings: SemanticAlignmentFinding[] = []
+  const concentrationFindings: SemanticAlignmentFinding[] = []
   let approvedClaimCount = 0
   let assessable = 0
 
@@ -208,16 +276,20 @@ export function analyzeResearchSemanticAlignment(analysis: ResearchQualityAnalys
       if (!finding) continue
       assessable += 1
       if (finding.roleMismatch || finding.domainMismatch || finding.populationMismatch) findings.push(finding)
+      if (finding.semanticSingleSource || finding.semanticSupportConcentrated) concentrationFindings.push(finding)
     }
   }
 
-  findings.sort((a, b) =>
+  const sorter = (a: SemanticAlignmentFinding, b: SemanticAlignmentFinding) =>
     Number(b.confidence) - Number(a.confidence) ||
+    Number(b.semanticSingleSource) - Number(a.semanticSingleSource) ||
     Number(b.roleMismatch) - Number(a.roleMismatch) ||
     a.url.localeCompare(b.url) ||
-    a.claimId.localeCompare(b.claimId),
-  )
+    a.claimId.localeCompare(b.claimId)
+  findings.sort(sorter)
+  concentrationFindings.sort(sorter)
   const highConfidenceMismatches = findings.filter((finding) => finding.confidence >= 0.75)
+  const highConfidenceConcentrationFindings = concentrationFindings.filter((finding) => finding.confidence >= 0.75)
 
   return {
     generatedAt: new Date().toISOString(),
@@ -229,9 +301,14 @@ export function analyzeResearchSemanticAlignment(analysis: ResearchQualityAnalys
       populationMismatches: findings.filter((finding) => finding.populationMismatch).length,
       anyMismatch: findings.length,
       highConfidenceMismatches: highConfidenceMismatches.length,
+      semanticSingleSourceClaims: concentrationFindings.filter((finding) => finding.semanticSingleSource).length,
+      semanticSupportConcentratedClaims: concentrationFindings.filter((finding) => finding.semanticSupportConcentrated).length,
+      highConfidenceSemanticConcentration: highConfidenceConcentrationFindings.length,
     },
     findings,
     highConfidenceMismatches,
+    concentrationFindings,
+    highConfidenceConcentrationFindings,
   }
 }
 
