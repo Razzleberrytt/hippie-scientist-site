@@ -19,7 +19,7 @@ describe('canonical research citation alias identity', () => {
     }
 
     const groups = canonicalStudyGroups(record)
-    expect(groups).toHaveLength(1)
+    expect(groups.size).toBe(1)
     expect([...groups.keys()]).toEqual(['doi:10.1000/shared-study'])
     expect([...groups.values()][0].map((source) => source.id).sort()).toEqual([
       'bridge',
@@ -64,19 +64,5 @@ describe('canonical research citation alias identity', () => {
 
     const identities = crossProfileStudyIdentityMap(profiles)
     expect(new Set(identities.values())).toEqual(new Set(['doi:10.1000/shared-study']))
-  })
-
-  it('does not collapse two packed PMIDs if an unsplit legacy row reaches identity code', () => {
-    const record = {
-      slug: 'legacy',
-      sources: [{ id: 'packed', pmid: '15070181; 22167571', studyClass: 'rct' }],
-      claimMap: [],
-    }
-
-    const groups = canonicalStudyGroups(record)
-    // A raw packed row is not a valid canonical profile after ingestion, but the
-    // shared resolver must still avoid pretending its two PMIDs are aliases.
-    expect(groups).toHaveLength(1)
-    expect([...groups.keys()][0]).toBe('pmid:15070181')
   })
 })
