@@ -15,6 +15,8 @@ export type ClaimLanguageCalibrationFinding = {
   uncontrolledHuman: number
   synthesis: number
   narrative: number
+  causalWithoutDirectControlledSupport: boolean
+  synthesisOnlyCausalSupport: boolean
   causalWithoutControlledSupport: boolean
   highConfidenceCausalWithoutControlledSupport: boolean
 }
@@ -24,11 +26,18 @@ export type ClaimLanguageCalibrationReport = {
   summary: {
     approvedOutcomeClaims: number
     directCausalOutcomeClaims: number
+    causalWithoutDirectControlledSupport: number
+    highConfidenceCausalWithoutDirectControlledSupport: number
+    synthesisOnlyCausalSupport: number
+    highConfidenceSynthesisOnlyCausalSupport: number
     causalWithoutControlledSupport: number
     highConfidenceCausalWithoutControlledSupport: number
   }
   findings: ClaimLanguageCalibrationFinding[]
   highConfidenceFindings: ClaimLanguageCalibrationFinding[]
+  directEvidenceFindings: ClaimLanguageCalibrationFinding[]
+  highConfidenceDirectEvidenceFindings: ClaimLanguageCalibrationFinding[]
+  synthesisOnlyFindings: ClaimLanguageCalibrationFinding[]
 }
 
 const CAUSAL_PATTERNS: Array<[string, RegExp]> = [
@@ -87,6 +96,7 @@ function rawClaimIndex(analysis: ResearchQualityAnalysis): Map<string, ResearchC
 export function analyzeClaimLanguageCalibration(analysis: ResearchQualityAnalysis): ClaimLanguageCalibrationReport {
   const rawClaims = rawClaimIndex(analysis)
   const findings: ClaimLanguageCalibrationFinding[] = []
+  const directEvidenceFindings: ClaimLanguageCalibrationFinding[] = []
   let approvedOutcomeClaims = 0
   let directCausalOutcomeClaims = 0
 
@@ -107,12 +117,14 @@ export function analyzeClaimLanguageCalibration(analysis: ResearchQualityAnalysi
     const uncontrolledHuman = claim.designs.filter((design) => design === 'uncontrolled-trial').length
     const synthesis = claim.synthesis
     const narrative = claim.narrative
-    const causalWithoutControlledSupport = controlledHuman === 0 && synthesis === 0
+    const causalWithoutDirectControlledSupport = controlledHuman === 0
+    const synthesisOnlyCausalSupport = causalWithoutDirectControlledSupport && synthesis > 0
+    // Compatibility: this remains the stricter legacy finding where neither
+    // direct controlled-human evidence nor synthesis is linked.
+    const causalWithoutControlledSupport = causalWithoutDirectControlledSupport && synthesis === 0
     const highConfidenceCausalWithoutControlledSupport = causalWithoutControlledSupport && claim.confidence >= 0.75
 
-    if (!causalWithoutControlledSupport) continue
-
-    findings.push({
+    const finding: ClaimLanguageCalibrationFinding = {
       url: claim.url,
       claimId: claim.claimId,
       confidence: claim.confidence,
@@ -123,23 +135,40 @@ export function analyzeClaimLanguageCalibration(analysis: ResearchQualityAnalysi
       uncontrolledHuman,
       synthesis,
       narrative,
+      causalWithoutDirectControlledSupport,
+      synthesisOnlyCausalSupport,
       causalWithoutControlledSupport,
       highConfidenceCausalWithoutControlledSupport,
-    })
+    }
+
+    if (causalWithoutDirectControlledSupport) directEvidenceFindings.push(finding)
+    if (causalWithoutControlledSupport) findings.push(finding)
   }
 
-  findings.sort((a, b) => b.confidence - a.confidence || a.url.localeCompare(b.url) || a.claimId.localeCompare(b.claimId))
+  const sorter = (a: ClaimLanguageCalibrationFinding, b: ClaimLanguageCalibrationFinding) =>
+    b.confidence - a.confidence || a.url.localeCompare(b.url) || a.claimId.localeCompare(b.claimId)
+  findings.sort(sorter)
+  directEvidenceFindings.sort(sorter)
   const highConfidenceFindings = findings.filter((finding) => finding.highConfidenceCausalWithoutControlledSupport)
+  const highConfidenceDirectEvidenceFindings = directEvidenceFindings.filter((finding) => finding.confidence >= 0.75)
+  const synthesisOnlyFindings = directEvidenceFindings.filter((finding) => finding.synthesisOnlyCausalSupport)
 
   return {
     generatedAt: new Date().toISOString(),
     summary: {
       approvedOutcomeClaims,
       directCausalOutcomeClaims,
+      causalWithoutDirectControlledSupport: directEvidenceFindings.length,
+      highConfidenceCausalWithoutDirectControlledSupport: highConfidenceDirectEvidenceFindings.length,
+      synthesisOnlyCausalSupport: synthesisOnlyFindings.length,
+      highConfidenceSynthesisOnlyCausalSupport: synthesisOnlyFindings.filter((finding) => finding.confidence >= 0.75).length,
       causalWithoutControlledSupport: findings.length,
       highConfidenceCausalWithoutControlledSupport: highConfidenceFindings.length,
     },
     findings,
     highConfidenceFindings,
+    directEvidenceFindings,
+    highConfidenceDirectEvidenceFindings,
+    synthesisOnlyFindings,
   }
 }
