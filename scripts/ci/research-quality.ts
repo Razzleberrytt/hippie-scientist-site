@@ -5,6 +5,7 @@ import { spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { buildAiCitationReadiness, writeAiCitationReadinessReport } from '../../lib/ai-citation-readiness'
 import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
 import { buildResearchGapQueue, structuralCoverageFailures } from '../../lib/research-quality-policy'
 import { analyzeCrossProfileStudyLoad } from '../../lib/research-study-load'
@@ -49,6 +50,8 @@ const structuralFailures = structuralCoverageFailures(analysis)
 const researchGapQueue = buildResearchGapQueue(analysis)
 const crossProfileStudyLoad = analyzeCrossProfileStudyLoad(analysis)
 const systemicLoadBearingStudies = crossProfileStudyLoad.filter((study) => study.systemicLoadBearing)
+const aiCitationReadiness = buildAiCitationReadiness(analysis, ROOT)
+const aiCitationReportPath = writeAiCitationReadinessReport(aiCitationReadiness, ROOT)
 const weakApprovedOutcomes = analysis.claimAnalyses.filter((claim) =>
   claim.outcomeClaim && ['unsupported', 'unclassified', 'narrative-only', 'indirect-only'].includes(claim.supportTier),
 )
@@ -70,10 +73,11 @@ results.push({
   passed: corePassed,
   exitCode: corePassed ? 0 : 1,
   durationMs: coreDurationMs,
-  stdoutTail: `profiles=${analysis.profileAnalyses.length}; structuredClaims=${analysis.structuredClaimAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; gaps=${researchGapQueue.length}; systemicStudies=${systemicLoadBearingStudies.length}`,
+  stdoutTail: `profiles=${analysis.profileAnalyses.length}; structuredClaims=${analysis.structuredClaimAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; gaps=${researchGapQueue.length}; systemicStudies=${systemicLoadBearingStudies.length}; aiBelow70=${aiCitationReadiness.summary.below70}`,
   stderrTail: structuralFailures.length ? `${structuralFailures.length} structurally invalid approved-claim evidence edge(s)` : '',
 })
 console.log(`${corePassed ? 'PASS' : 'FAIL'}  Canonical claim/profile research-quality analysis  (${coreDurationMs}ms)`)
+console.log(`INFO  AI citation readiness generated from same analysis pass: average=${aiCitationReadiness.summary.averageScore}; below70=${aiCitationReadiness.summary.below70}; contradictions=${aiCitationReadiness.summary.contradictions}`)
 if (!corePassed) failed = true
 
 for (const check of externalChecks) {
@@ -109,23 +113,26 @@ const coreSummary = {
   profilesWithResearchGaps: researchGapQueue.length,
   canonicalStudiesSupportingApprovedClaims: crossProfileStudyLoad.length,
   systemicLoadBearingStudies: systemicLoadBearingStudies.length,
+  aiCitationReadiness: aiCitationReadiness.summary,
 }
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 3,
+  schemaVersion: 4,
   generatedAt: new Date().toISOString(),
   passed: !failed,
   source: {
     analysis: 'lib/research-quality-analysis.ts',
     policy: 'lib/research-quality-policy.ts',
     crossProfileStudyLoad: 'lib/research-study-load.ts',
+    aiCitationReadiness: 'lib/ai-citation-readiness.ts',
   },
   coreSummary,
   structuralFailures,
   systemicLoadBearingStudies: systemicLoadBearingStudies.slice(0, 50),
   topCrossProfileStudyLoad: crossProfileStudyLoad.slice(0, 100),
   topResearchGaps: researchGapQueue.slice(0, 50),
+  topAiCitationRemediation: aiCitationReadiness.profiles.slice(0, 50),
   checks: results,
   sourceIntegritySummary: readSummary('source-integrity.json'),
   evidenceGradeSummary: readSummary('evidence-grade-consistency.json'),
@@ -135,9 +142,11 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
 console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structuredClaims} structured claims · ${coreSummary.approvedClaims} approved`)
 console.log(`Structural failures ${coreSummary.structuralFailures} · weak approved outcomes ${coreSummary.weakApprovedOutcomeClaims} · research-gap profiles ${coreSummary.profilesWithResearchGaps}`)
 console.log(`Systemic load-bearing studies ${coreSummary.systemicLoadBearingStudies} of ${coreSummary.canonicalStudiesSupportingApprovedClaims} canonical studies supporting approved claims`)
+console.log(`AI citation remediation: ${aiCitationReadiness.summary.below70} below 70 · ${aiCitationReadiness.summary.contradictions} contradiction(s)`)
+console.log(`AI report: ${path.relative(ROOT, aiCitationReportPath)}`)
 console.log(`Roll-up report: ${path.relative(ROOT, REPORT_PATH)}`)
 if (failed) {
   console.error('\n[research-quality] FAILED — one or more authoritative research checks failed.')
   process.exit(1)
 }
-console.log('\n[research-quality] PASS — canonical analysis/policy, source integrity, evidence grades, and structured integrity agree.')
+console.log('\n[research-quality] PASS — canonical analysis/policy, AI citation topology, source integrity, evidence grades, and structured integrity agree.')
