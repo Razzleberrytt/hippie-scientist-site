@@ -111,10 +111,14 @@ const report = {
 // The deploy pipeline normally builds derived maps before Next.js. When this
 // enforcement is invoked from the final production-build step, a demotion would
 // otherwise leave those maps stale. Refresh them only when a demotion happened.
+// Crucially, the summary refresh runs in preserve-governed-state mode: the
+// invariant gate is authoritative at this point and no downstream derived-data
+// builder may re-run mutating governance/postprocess stages that could republish
+// a record the gate just demoted.
 if (refreshDerived && demotions.length) {
   console.log(`[production-invariants] refreshing derived route/search/sitemap data after ${demotions.length} demotion(s)`)
   run('node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data')
-  run('node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data')
+  run('node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data --preserve-governed-state')
   run('node scripts/data/build-route-manifest.mjs --data-dir=public/data')
   run('node scripts/data/build-internal-link-engine.mjs --data-dir=public/data')
   run('node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data')
