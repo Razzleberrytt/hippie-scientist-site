@@ -27,6 +27,7 @@ import path from 'node:path'
 
 import {
   citationCompleteness,
+  citationIdentifiers,
   isPlaceholderCitationTitle,
   isValidDoi,
   isValidPmid,
@@ -94,6 +95,7 @@ function main() {
 
       const rawPmid = text(source.pmid ?? source.pubmedId)
       const rawDoi = normalizeDoi(source.doi)
+      const canonicalDoi = rawDoi.toLowerCase()
       const rawUrl = text(source.url)
 
       if (rawPmid && !isValidPmid(rawPmid)) {
@@ -107,8 +109,8 @@ function main() {
       }
 
       if (isValidPmid(rawPmid) && isValidDoi(rawDoi)) {
-        addMapping(pmidToDois, rawPmid, rawDoi)
-        addMapping(doiToPmids, rawDoi, rawPmid)
+        addMapping(pmidToDois, rawPmid, canonicalDoi)
+        addMapping(doiToPmids, canonicalDoi, rawPmid)
       }
 
       const completeness = citationCompleteness(source)
@@ -119,22 +121,22 @@ function main() {
         advisory.push({ url, missing: ['placeholder-title'], value: text(source.title).slice(0, 90) })
       }
 
-      if (completeness.identifier) {
-        if (profileIdentifiers.has(completeness.identifier)) {
-          duplicateProfileSources.push({
-            url,
-            identifier: completeness.identifier,
-            title: text(source.title).slice(0, 80),
-          })
-        } else {
-          profileIdentifiers.add(completeness.identifier)
-        }
+      const aliases = citationIdentifiers(source)
+      const duplicateAliases = aliases.filter((identifier) => profileIdentifiers.has(identifier))
+      if (duplicateAliases.length) {
+        duplicateProfileSources.push({
+          url,
+          identifiers: duplicateAliases,
+          title: text(source.title).slice(0, 80),
+        })
+      }
+      for (const identifier of aliases) profileIdentifiers.add(identifier)
 
-        // Same identifier, different titles — one study recorded inconsistently.
-        const titles = seenByIdentifier.get(completeness.identifier) ?? new Set()
-        const normalized = text(source.title).toLowerCase()
-        if (normalized) titles.add(normalized)
-        seenByIdentifier.set(completeness.identifier, titles)
+      const normalizedTitle = text(source.title).toLowerCase()
+      for (const identifier of aliases) {
+        const titles = seenByIdentifier.get(identifier) ?? new Set()
+        if (normalizedTitle) titles.add(normalizedTitle)
+        seenByIdentifier.set(identifier, titles)
       }
     }
   }
@@ -182,7 +184,7 @@ function main() {
   if (duplicateProfileSources.length) {
     console.error(`\n[citation-identifiers] FAILED — ${duplicateProfileSources.length} duplicate source reference(s) within profiles.`)
     for (const duplicate of duplicateProfileSources.slice(0, 20)) {
-      console.error(`  ${duplicate.url} · ${duplicate.identifier} · ${duplicate.title}`)
+      console.error(`  ${duplicate.url} · ${duplicate.identifiers.join(', ')} · ${duplicate.title}`)
     }
     process.exit(1)
   }

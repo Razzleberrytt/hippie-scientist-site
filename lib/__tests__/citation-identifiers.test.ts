@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import {
   citationCompleteness,
+  citationIdentifiers,
   citationUrl,
   isPlaceholderCitationTitle,
   isValidDoi,
@@ -18,8 +19,6 @@ import {
 
 describe('normalizePmidList', () => {
   it('splits a cell holding two studies into two identifiers', () => {
-    // Verbatim from 11-keto-beta-boswellic-acid, which shipped both PMIDs in
-    // one field and rendered a single unresolvable link.
     expect(normalizePmidList('15070181; 22167571')).toEqual(['15070181', '22167571'])
     expect(normalizePmidList('33799504; 33034447')).toEqual(['33799504', '33034447'])
   })
@@ -31,7 +30,6 @@ describe('normalizePmidList', () => {
   })
 
   it('drops malformed identifiers rather than passing them through', () => {
-    // A leading zero or a non-numeric value would render as a dead link.
     expect(normalizePmidList('0123456')).toEqual([])
     expect(normalizePmidList('not-a-pmid')).toEqual([])
     expect(normalizePmidList('')).toEqual([])
@@ -60,18 +58,28 @@ describe('normalizeDoi / isValidDoi', () => {
   })
 
   it('validates the registrant prefix', () => {
-    expect(isValidDoi('10.1016/j.jep.2021.114'
-      )).toBe(true)
+    expect(isValidDoi('10.1016/j.jep.2021.114')).toBe(true)
     expect(isValidDoi('11.1000/xyz')).toBe(false)
     expect(isValidDoi('10.1000')).toBe(false)
     expect(isValidDoi('')).toBe(false)
   })
 })
 
+describe('citationIdentifiers', () => {
+  it('returns DOI and PMID aliases for the same study', () => {
+    expect(citationIdentifiers({ doi: 'HTTPS://DOI.ORG/10.1000/XYZ123', pmid: '34559859' })).toEqual([
+      'doi:10.1000/xyz123',
+      'pmid:34559859',
+    ])
+  })
+
+  it('keeps every valid PMID alias from a packed source cell', () => {
+    expect(citationIdentifiers({ pmid: '15070181; 22167571' })).toEqual(['pmid:15070181', 'pmid:22167571'])
+  })
+})
+
 describe('citationUrl', () => {
   it('rebuilds the link when the stored URL packs two identifiers', () => {
-    // The stored value was ".../15070181/; https://.../22167571/" — one href
-    // that resolves nowhere. The first identifier wins.
     expect(
       citationUrl({
         url: 'https://pubmed.ncbi.nlm.nih.gov/15070181/; https://pubmed.ncbi.nlm.nih.gov/22167571/',
@@ -98,7 +106,6 @@ describe('citationUrl', () => {
 
 describe('isPlaceholderCitationTitle', () => {
   it('recognises a metadata note published as a study title', () => {
-    // Real value attached to PMID 37818728.
     expect(isPlaceholderCitationTitle('PubMed PMID 37818728. Minimal citation row added from existing evidence.')).toBe(true)
     expect(isPlaceholderCitationTitle('Systematic review metadata; abstract unavailable in fetch')).toBe(true)
     expect(isPlaceholderCitationTitle('')).toBe(true)
@@ -124,6 +131,12 @@ describe('citationCompleteness', () => {
     expect(result.complete).toBe(false)
     expect(result.missing).toEqual(['journal'])
     expect(result.identifier).toBe('pmid:34559859')
+  })
+
+  it('uses the DOI as the preferred identifier while preserving PMID as an alias', () => {
+    const source = { doi: '10.1000/XYZ123', pmid: '34559859' }
+    expect(citationCompleteness(source).identifier).toBe('doi:10.1000/xyz123')
+    expect(citationIdentifiers(source)).toContain('pmid:34559859')
   })
 
   it('counts a placeholder title as a missing title', () => {
