@@ -46,10 +46,6 @@ html:not(.dark) main:has(nav[aria-label="Page sections"]) {
     radial-gradient(circle at 4% 24%, color-mix(in srgb, var(--hs-gold) 7%, transparent), transparent 22rem);
 }
 
-html:not(.dark) main:has(nav[aria-label="Page sections"]) > div.mx-auto {
-  max-width: 74rem;
-}
-
 html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell {
   border-color: color-mix(in srgb, var(--hs-gold) 22%, var(--hs-hairline));
   background:
@@ -197,15 +193,4 @@ html:not(.dark) main :where(article, section) > a.rounded-2xl:hover {
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--hs-gold) 30%, var(--hs-hairline));
   box-shadow: 0 12px 30px rgba(53, 47, 65, 0.07);
-}
-
-@media (max-width: 768px) {
-  html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell {
-    border-radius: 1.45rem !important;
-    padding: 1.1rem !important;
-  }
-
-  html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell h1 {
-    font-size: clamp(2.35rem, 11vw, 3.25rem) !important;
-  }
 }
