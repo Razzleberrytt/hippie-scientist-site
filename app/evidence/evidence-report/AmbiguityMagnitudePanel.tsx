@@ -14,7 +14,7 @@ const metricCardClass = 'rounded-xl border border-[var(--border-soft)] bg-[var(-
 
 export default function AmbiguityMagnitudePanel({ studies }: Props) {
   const { summary } = analyzePublicEvidenceAmbiguity(studies)
-  if (summary.studiesWithAnyAmbiguity === 0) return null
+  if (summary.studiesWithAnyAmbiguity === 0 && summary.ambiguityFlagMismatchStudyCount === 0) return null
 
   return (
     <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8" aria-labelledby="ambiguity-magnitude-title">
@@ -46,6 +46,12 @@ export default function AmbiguityMagnitudePanel({ studies }: Props) {
             <p className="mt-1 text-xs leading-5 text-muted">Largest ratio between conflicting structured participant-count candidates; maximum absolute spread is {summary.largestParticipantCountAbsoluteSpread.toLocaleString()}.</p>
           </div>
         </div>
+        {summary.ambiguityFlagMismatchStudyCount > 0 ? (
+          <div className="mt-5 rounded-xl border border-amber-500/25 bg-[var(--surface-warning)] p-4 text-sm leading-6 text-amber-950 dark:text-amber-100">
+            <strong>{summary.ambiguityFlagMismatchStudyCount.toLocaleString()} canonical stud{summary.ambiguityFlagMismatchStudyCount === 1 ? 'y has' : 'ies have'} stored ambiguity flags that disagree with their candidate values.</strong>{' '}
+            The report treats candidate sets as authoritative and detected {summary.ambiguityFlagMismatchCount.toLocaleString()} mismatched flag{summary.ambiguityFlagMismatchCount === 1 ? '' : 's'} for source-level reconciliation.
+          </div>
+        ) : null}
       </div>
     </section>
   )
