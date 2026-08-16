@@ -148,7 +148,11 @@ export function validateResearchQualitySnapshotInvariants(
 
   if (gate.summary.structuralFailures !== gate.structuralFailures.length) add('gate-structural-count-mismatch', `summary=${gate.summary.structuralFailures}; rows=${gate.structuralFailures.length}`)
   if (gate.summary.severeStudyClassConflicts !== gate.severeStudyClassConflicts.length) add('gate-study-class-count-mismatch', `summary=${gate.summary.severeStudyClassConflicts}; rows=${gate.severeStudyClassConflicts.length}`)
-  if (gate.summary.blockingFailures !== gate.structuralFailures.length + gate.severeStudyClassConflicts.length) add('gate-blocking-count-mismatch', `summary=${gate.summary.blockingFailures}; computed=${gate.structuralFailures.length + gate.severeStudyClassConflicts.length}`)
+  if (gate.summary.evidenceGradeContradictions !== gate.evidenceGradeContradictions.length) add('gate-evidence-grade-count-mismatch', `summary=${gate.summary.evidenceGradeContradictions}; rows=${gate.evidenceGradeContradictions.length}`)
+  const computedGateBlockingFailures = gate.structuralFailures.length
+    + gate.severeStudyClassConflicts.length
+    + gate.evidenceGradeContradictions.length
+  if (gate.summary.blockingFailures !== computedGateBlockingFailures) add('gate-blocking-count-mismatch', `summary=${gate.summary.blockingFailures}; computed=${computedGateBlockingFailures}`)
   if (gate.passed !== (gate.summary.blockingFailures === 0)) add('gate-pass-state-mismatch', `passed=${gate.passed}; blocking=${gate.summary.blockingFailures}`)
 
   for (const finding of topology.semanticAlignment.findings) {
