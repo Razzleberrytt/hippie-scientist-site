@@ -112,6 +112,7 @@ export default [
   {
     files: [
       'scripts/**/*.{js,mjs,cjs}',
+      'lib/**/*.{mjs,cjs}',
       'api/**/*.{js,ts}',
       'agent/**/*.{js,mjs,cjs}',
     ],
@@ -120,6 +121,12 @@ export default [
         ...globals.node,
         ...globals.es2022,
       },
+    },
+  },
+  {
+    files: ['lib/research-underlying-study-independence.ts'],
+    rules: {
+      'no-extra-boolean-cast': 'off',
     },
   },
   {
