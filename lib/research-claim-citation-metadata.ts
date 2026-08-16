@@ -8,6 +8,8 @@ import {
 } from './research-coverage'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 
+const METADATA_FIELDS = ['identifier', 'title', 'year', 'authors', 'journal'] as const
+
 export type ClaimCitationMetadataCoverage = {
   url: string
   claimId: string
@@ -15,7 +17,10 @@ export type ClaimCitationMetadataCoverage = {
   confidence: number
   studyCount: number
   completeStudyCount: number
+  /** Strict share of studies with every tracked metadata field present. */
   metadataCoverage: number
+  /** Field-level completeness across all canonical supporting studies. */
+  fieldMetadataCoverage: number
   missingFieldCounts: Record<string, number>
   lowMetadataCoverage: boolean
   highConfidenceLowMetadataCoverage: boolean
@@ -30,6 +35,7 @@ export type ClaimCitationMetadataAnalysis = {
     lowMetadataCoverageClaims: number
     highConfidenceLowMetadataCoverageClaims: number
     averageMetadataCoverage: number
+    averageFieldMetadataCoverage: number
   }
 }
 
@@ -39,17 +45,17 @@ function round(value: number, digits = 3): number {
 }
 
 function canonicalGroupMissingFields(group: ResearchSource[]): string[] {
-  if (!group.length) return ['identifier', 'title', 'year', 'authors', 'journal']
+  if (!group.length) return [...METADATA_FIELDS]
   const missingBySource = group.map((source) => new Set(citationCompleteness(source).missing))
-  const fields = ['identifier', 'title', 'year', 'authors', 'journal']
-  return fields.filter((field) => missingBySource.every((missing) => missing.has(field)))
+  return METADATA_FIELDS.filter((field) => missingBySource.every((missing) => missing.has(field)))
 }
 
 /**
  * Measure citation metadata completeness only for canonical studies that carry
  * approved claims. Duplicate source aliases are merged before completeness is
- * assessed, so an incomplete alias does not penalize a study when another alias
- * already supplies the missing metadata.
+ * assessed. Strict all-fields completeness remains visible, while triage uses
+ * field-level coverage so a study missing one noncritical field is not treated
+ * like a nearly empty citation row.
  */
 export function analyzeClaimCitationMetadata(
   analysis: ResearchQualityAnalysis,
@@ -74,14 +80,18 @@ export function analyzeClaimCitationMetadata(
 
       const missingFieldCounts: Record<string, number> = {}
       let completeStudyCount = 0
+      let missingFieldTotal = 0
       for (const studyId of studyIds) {
-        const missing = missingByStudy.get(studyId) ?? ['identifier', 'title', 'year', 'authors', 'journal']
+        const missing = missingByStudy.get(studyId) ?? [...METADATA_FIELDS]
         if (missing.length === 0) completeStudyCount += 1
+        missingFieldTotal += missing.length
         for (const field of missing) missingFieldCounts[field] = (missingFieldCounts[field] ?? 0) + 1
       }
 
       const metadataCoverage = completeStudyCount / studyIds.length
-      const lowMetadataCoverage = studyIds.length >= 2 && metadataCoverage < 0.7
+      const possibleFields = studyIds.length * METADATA_FIELDS.length
+      const fieldMetadataCoverage = possibleFields ? 1 - missingFieldTotal / possibleFields : 1
+      const lowMetadataCoverage = studyIds.length >= 2 && fieldMetadataCoverage < 0.7
       claims.push({
         url,
         claimId,
@@ -90,6 +100,7 @@ export function analyzeClaimCitationMetadata(
         studyCount: studyIds.length,
         completeStudyCount,
         metadataCoverage: round(metadataCoverage),
+        fieldMetadataCoverage: round(fieldMetadataCoverage),
         missingFieldCounts,
         lowMetadataCoverage,
         highConfidenceLowMetadataCoverage: lowMetadataCoverage && quality.confidence >= 0.75,
@@ -100,6 +111,7 @@ export function analyzeClaimCitationMetadata(
   claims.sort((a, b) =>
     Number(b.highConfidenceLowMetadataCoverage) - Number(a.highConfidenceLowMetadataCoverage)
     || Number(b.lowMetadataCoverage) - Number(a.lowMetadataCoverage)
+    || a.fieldMetadataCoverage - b.fieldMetadataCoverage
     || a.metadataCoverage - b.metadataCoverage
     || b.confidence - a.confidence
     || a.url.localeCompare(b.url)
@@ -109,6 +121,9 @@ export function analyzeClaimCitationMetadata(
   const highConfidenceLowCoverageClaims = claims.filter((claim) => claim.highConfidenceLowMetadataCoverage)
   const averageMetadataCoverage = claims.length
     ? claims.reduce((sum, claim) => sum + claim.metadataCoverage, 0) / claims.length
+    : 1
+  const averageFieldMetadataCoverage = claims.length
+    ? claims.reduce((sum, claim) => sum + claim.fieldMetadataCoverage, 0) / claims.length
     : 1
 
   return {
@@ -120,6 +135,7 @@ export function analyzeClaimCitationMetadata(
       lowMetadataCoverageClaims: lowCoverageClaims.length,
       highConfidenceLowMetadataCoverageClaims: highConfidenceLowCoverageClaims.length,
       averageMetadataCoverage: round(averageMetadataCoverage),
+      averageFieldMetadataCoverage: round(averageFieldMetadataCoverage),
     },
   }
 }
