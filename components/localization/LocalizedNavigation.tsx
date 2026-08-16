@@ -24,6 +24,10 @@ function isSpanishPath(pathname: string) {
   return pathname === '/es' || pathname.startsWith('/es/')
 }
 
+function isSpanishNavActive(pathname: string, href: string) {
+  return pathname === href.replace(/\/$/, '') || pathname.startsWith(href)
+}
+
 export default function LocalizedNavigation() {
   const pathname = usePathname() || '/'
   const spanish = isSpanishPath(pathname)
@@ -39,11 +43,11 @@ export default function LocalizedNavigation() {
       <>
         <Navigation />
         <div className='border-b border-[#123c2f]/10 bg-[#fffdf8]/90 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card-strong)]'>
-          <div className='mx-auto flex max-w-7xl justify-end px-4 py-1.5 sm:px-6 lg:px-8'>
+          <div className='mx-auto flex max-w-7xl justify-end px-4 sm:px-6 lg:px-8'>
             <Link
               href={spanishHref}
               hrefLang='es'
-              className='inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold text-[#526159] transition hover:bg-[#f5efe2] hover:text-[#123c2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42]/50 dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
+              className='inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-xs font-semibold text-[#526159] transition hover:bg-[#f5efe2] hover:text-[#123c2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42]/50 dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
               aria-label='Ver esta sección en español'
             >
               <Languages className='h-3.5 w-3.5' aria-hidden='true' />
@@ -77,7 +81,7 @@ export default function LocalizedNavigation() {
 
           <div className='hidden items-center gap-5 text-sm md:flex'>
             {spanishLinks.map((link) => {
-              const active = pathname === link.href.replace(/\/$/, '') || pathname.startsWith(link.href)
+              const active = isSpanishNavActive(pathname, link.href)
               return (
                 <Link
                   key={link.href}
@@ -99,7 +103,7 @@ export default function LocalizedNavigation() {
             <Link
               href={englishHref}
               hrefLang='en-US'
-              className='inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[#123c2f]/10 bg-[#fffdf8] px-3 py-2 text-xs font-bold text-[#44544d] transition hover:border-[#b88a42]/30 hover:bg-[#f5efe2] dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)]'
+              className='inline-flex min-h-11 items-center gap-1.5 rounded-full border border-[#123c2f]/10 bg-[#fffdf8] px-3 py-2 text-xs font-bold text-[#44544d] transition hover:border-[#b88a42]/30 hover:bg-[#f5efe2] dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)]'
             >
               <Languages className='h-3.5 w-3.5' aria-hidden='true' />
               English
@@ -108,16 +112,27 @@ export default function LocalizedNavigation() {
           </div>
         </div>
 
-        <div className='-mx-1 flex gap-1 overflow-x-auto pb-2 md:hidden' aria-label='Secciones en español'>
-          {spanishLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className='shrink-0 rounded-full bg-[#f5efe2]/75 px-3 py-2 text-xs font-semibold text-[#33433c] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div
+          className='-mx-1 flex gap-1 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:hidden'
+          aria-label='Secciones en español'
+        >
+          {spanishLinks.map((link) => {
+            const active = isSpanishNavActive(pathname, link.href)
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? 'page' : undefined}
+                className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-3 py-2 text-xs font-semibold transition ${
+                  active
+                    ? 'bg-[#123c2f] text-[#fffdf8] dark:bg-[var(--accent-teal)] dark:text-[#0f2119]'
+                    : 'bg-[#f5efe2]/75 text-[#33433c] hover:bg-[#ece3d2] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </nav>
