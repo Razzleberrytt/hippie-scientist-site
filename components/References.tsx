@@ -42,7 +42,7 @@ export default function References({ refs }: { refs: Ref[] }) {
           return (
             <li
               key={ref.n}
-              id={citationId}
+              id={`ref-${ref.n}`}
               data-citation-source="true"
               data-citation-id={citationId}
               data-citation-authors={ref.authors || undefined}
