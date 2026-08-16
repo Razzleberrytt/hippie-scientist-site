@@ -6,50 +6,8 @@ import addFormats from 'ajv-formats'
 
 const ROOT = process.cwd()
 const SCHEMA_PATH = path.join(ROOT, 'schemas', 'source-registry.schema.json')
+const GOVERNANCE_PATH = path.join(ROOT, 'schemas', 'source-class-governance.json')
 const REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
-
-const CLASS_RULES = {
-  'randomized-human-trial': {
-    evidenceClass: 'human-clinical',
-    allowedTypes: new Set(['journal-article', 'clinical-trial-registry']),
-    pmidApplicable: true,
-  },
-  'non-randomized-human-study': {
-    evidenceClass: 'human-clinical',
-    allowedTypes: new Set(['journal-article']),
-    pmidApplicable: true,
-  },
-  'observational-human-evidence': {
-    evidenceClass: 'human-observational',
-    allowedTypes: new Set(['journal-article', 'systematic-review']),
-    pmidApplicable: true,
-  },
-  'systematic-review-meta-analysis': {
-    evidenceClass: 'human-clinical',
-    allowedTypes: new Set(['systematic-review', 'meta-analysis', 'journal-article']),
-    pmidApplicable: true,
-  },
-  'preclinical-mechanistic-study': {
-    evidenceClass: 'preclinical-mechanistic',
-    allowedTypes: new Set(['journal-article']),
-    pmidApplicable: true,
-  },
-  'traditional-use-monograph': {
-    evidenceClass: 'traditional-use',
-    allowedTypes: new Set(['monograph', 'book']),
-    pmidApplicable: false,
-  },
-  'regulatory-agency-monograph-guidance': {
-    evidenceClass: 'regulatory-monograph',
-    allowedTypes: new Set(['regulatory-guidance', 'monograph']),
-    pmidApplicable: false,
-  },
-  'reference-database-authority': {
-    evidenceClass: 'regulatory-monograph',
-    allowedTypes: new Set(['reference-database']),
-    pmidApplicable: false,
-  },
-}
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -60,6 +18,7 @@ function isNonEmptyString(value) {
 }
 
 const schema = readJson(SCHEMA_PATH)
+const classGovernance = readJson(GOVERNANCE_PATH)
 const registry = readJson(REGISTRY_PATH)
 const ajv = new Ajv2020({ allErrors: true, strict: true, strictRequired: true })
 addFormats(ajv)
@@ -70,6 +29,15 @@ if (!validate(registry)) {
   issues.push(`[schema] ${JSON.stringify(validate.errors ?? [], null, 2)}`)
 }
 
+const schemaSourceClasses = [...(schema?.items?.properties?.sourceClass?.enum ?? [])].sort()
+const governedSourceClasses = Object.keys(classGovernance).sort()
+if (JSON.stringify(schemaSourceClasses) !== JSON.stringify(governedSourceClasses)) {
+  issues.push(
+    `[governance] source-class-governance.json keys must exactly match source-registry.schema.json sourceClass enum. ` +
+      `schema=${schemaSourceClasses.join(',')} governance=${governedSourceClasses.join(',')}`,
+  )
+}
+
 const seenSourceIds = new Set()
 for (const [index, source] of registry.entries()) {
   const prefix = `[record:${index}:${source?.sourceId ?? 'missing-id'}]`
@@ -77,13 +45,13 @@ for (const [index, source] of registry.entries()) {
   if (seenSourceIds.has(sourceId)) issues.push(`${prefix} duplicate sourceId.`)
   seenSourceIds.add(sourceId)
 
-  const classRule = CLASS_RULES[source.sourceClass]
+  const classRule = classGovernance[source.sourceClass]
   if (!classRule) {
     issues.push(`${prefix} unknown sourceClass rule.`)
     continue
   }
 
-  if (!classRule.allowedTypes.has(source.sourceType)) {
+  if (!classRule.allowedSourceTypes.includes(source.sourceType)) {
     issues.push(`${prefix} sourceType=${source.sourceType} is not allowed for sourceClass=${source.sourceClass}.`)
   }
 
