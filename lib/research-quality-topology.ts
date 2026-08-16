@@ -8,6 +8,7 @@ import { analyzeResearchEdgeCardinality } from './research-edge-cardinality'
 import { analyzeEvidenceIndependenceCoverage } from './research-evidence-independence-coverage'
 import { analyzeEvidenceLineage } from './research-evidence-lineage'
 import { analyzeClaimEvidenceAge, analyzeStudyYearConflicts, summarizeEvidenceAge } from './research-evidence-age'
+import { buildResearchMetadataIntegrity } from './research-metadata-integrity'
 import { analyzeProvenanceConcentration, analyzeStudyProvenanceConflicts } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import { analyzeResearchSemanticAlignment } from './research-semantic-alignment'
@@ -69,6 +70,12 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
   const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
+  const metadataIntegrity = buildResearchMetadataIntegrity({
+    studyYearConflicts,
+    provenanceConflicts,
+    studyClassConflicts,
+    claimCitationMetadata,
+  })
   const edgeCardinality = analyzeResearchEdgeCardinality(analysis)
 
   return {
@@ -104,6 +111,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     semanticAlignment,
     claimLanguageCalibration,
     claimCitationMetadata,
+    metadataIntegrity,
     edgeCardinality,
   }
 }
