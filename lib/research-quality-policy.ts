@@ -1,4 +1,6 @@
+import { analyzeClaimEvidenceAge } from './research-evidence-age'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
+import { analyzeEvidenceBundleReuse } from './research-study-load'
 
 export type ResearchGapReason = {
   kind: string
@@ -32,6 +34,10 @@ export const RESEARCH_GAP_WEIGHTS = {
   narrativeReviewDominatedProfile: 20,
   synthesisOnlyApprovedOutcome: 8,
   poorStudyMetadataCoverage: 12,
+  narrowRepeatedEvidenceBundle: 15,
+  legacyOnlyOutcomeClaim: 8,
+  highConfidenceLegacyOnlyBonus: 4,
+  unknownEvidenceYearMetadata: 4,
   singleStudyApprovedClaim: 5,
   unsupportedUnapprovedStructuredClaim: 4,
   weakUnapprovedStructuredClaim: 3,
@@ -183,6 +189,39 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
         `${Math.round(metadataCoverage * 100)}% of canonical studies have classified study designs`,
       )
     }
+  }
+
+  for (const bundle of analyzeEvidenceBundleReuse(analysis)) {
+    if (!bundle.narrowRepeatedEvidenceBundle) continue
+    const reuseBonus = Math.min(10, Math.max(0, bundle.approvedClaimCount - 3) * 2)
+    add(
+      bundle.url,
+      'narrow-repeated-evidence-bundle',
+      RESEARCH_GAP_WEIGHTS.narrowRepeatedEvidenceBundle + reuseBonus,
+      `${bundle.approvedClaimCount} approved claims reuse the same ${bundle.studyCount}-study evidence bundle`,
+    )
+  }
+
+  for (const freshness of analyzeClaimEvidenceAge(analysis)) {
+    if (freshness.studyCount > 0 && freshness.knownYearCount === 0) {
+      add(
+        freshness.url,
+        'unknown-evidence-year-metadata',
+        RESEARCH_GAP_WEIGHTS.unknownEvidenceYearMetadata,
+        `${freshness.claimId} · publication year unknown for all ${freshness.studyCount} supporting studies`,
+      )
+      continue
+    }
+    if (!freshness.legacyOnlyOutcomeClaim) continue
+    const confidenceBonus = freshness.highConfidenceLegacyOnlyClaim
+      ? RESEARCH_GAP_WEIGHTS.highConfidenceLegacyOnlyBonus
+      : 0
+    add(
+      freshness.url,
+      'legacy-only-outcome-evidence',
+      RESEARCH_GAP_WEIGHTS.legacyOnlyOutcomeClaim + confidenceBonus,
+      `${freshness.claimId} · newest known supporting study ${freshness.newestYear ?? 'unknown'}${confidenceBonus ? ' · high confidence' : ''}`,
+    )
   }
 
   return [...queue.values()]
