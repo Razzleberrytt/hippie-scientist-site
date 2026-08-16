@@ -33,5 +33,3 @@ export const coreGoals: readonly CoreGoal[] = [
     description: 'Compare focus-support options by stimulation profile, onset, evidence, and risk',
   },
 ] as const
-
-export const coreGoalPrefixes = coreGoals.map((goal) => goal.href.replace(/\/$/, ''))
