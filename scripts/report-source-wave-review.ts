@@ -3,6 +3,7 @@ import path from 'node:path'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 import { getSourceClassRule } from './lib/source-class-governance'
+import type { SourceRegistryRecord } from './lib/source-registry-record'
 
 type ReviewStatus =
   | 'draft_candidate'
@@ -25,8 +26,8 @@ type SourceCandidate = {
   intakeTaskId: string
   title: string
   shortTitle?: string
-  sourceType: string
-  sourceClass: string
+  sourceType: SourceRegistryRecord['sourceType']
+  sourceClass: SourceRegistryRecord['sourceClass']
   organization?: string
   authors?: string[]
   publicationYear?: number
@@ -38,10 +39,10 @@ type SourceCandidate = {
   isbn?: string
   language?: string
   jurisdiction?: string
-  evidenceClass: string
-  studyDesign?: string
-  publicationStatus: string
-  proposedReliabilityTier: string
+  evidenceClass: SourceRegistryRecord['evidenceClass']
+  studyDesign?: SourceRegistryRecord['studyDesign']
+  publicationStatus: SourceRegistryRecord['publicationStatus']
+  proposedReliabilityTier: SourceRegistryRecord['reliabilityTier']
   duplicateRisk: 'low' | 'moderate' | 'high' | 'known-duplicate'
   duplicateOfSourceId?: string
   reviewer?: string
@@ -55,34 +56,6 @@ type SourceCandidate = {
 type WaveCandidate = SourceCandidate & {
   relatedEntities: Array<{ entityType: 'herb' | 'compound'; entitySlug: string }>
   relatedTopicGaps: string[]
-}
-
-type SourceRegistryRow = {
-  sourceId: string
-  title: string
-  shortTitle?: string
-  sourceType: string
-  sourceClass: string
-  organization?: string
-  authors?: string[]
-  publicationYear?: number
-  citationText?: string
-  doi?: string
-  pmid?: string
-  monographId?: string
-  isbn?: string
-  canonicalUrl?: string
-  accessDate?: string
-  language: string
-  jurisdiction?: string
-  evidenceClass: string
-  studyDesign?: string
-  publicationStatus: string
-  reliabilityTier: string
-  reviewer: string
-  reviewedAt: string
-  notes?: string
-  active: boolean
 }
 
 type IntakeTask = {
@@ -183,7 +156,7 @@ function toEntityKey(entityType: 'herb' | 'compound', entitySlug: string): strin
 function run() {
   const candidateSchema = readJson(SOURCE_CANDIDATE_SCHEMA_PATH)
   const sourceCandidates = readJson<SourceCandidate[]>(SOURCE_CANDIDATES_PATH)
-  const sourceRegistry = readJson<SourceRegistryRow[]>(SOURCE_REGISTRY_PATH)
+  const sourceRegistry = readJson<SourceRegistryRecord[]>(SOURCE_REGISTRY_PATH)
   const intake = readJson<SourceIntakeQueueReport>(INTAKE_PATH)
   const waveTargets = readJson<WaveTargetsReport>(WAVE_TARGETS_PATH)
   const waveCandidatesReport = readJson<WaveCandidatesReport>(WAVE_CANDIDATES_PATH)
@@ -206,7 +179,7 @@ function run() {
   const activeByUrl = new Map(
     activeRegistry
       .map(source => [canonicalizeUrl(source.canonicalUrl), source] as const)
-      .filter((entry): entry is [string, SourceRegistryRow] => isNonEmpty(entry[0])),
+      .filter((entry): entry is [string, SourceRegistryRecord] => isNonEmpty(entry[0])),
   )
 
   const takenSourceIds = new Set(sourceRegistry.map(row => row.sourceId))
@@ -214,7 +187,7 @@ function run() {
   const reviewDate = nowIso.slice(0, 10)
 
   const duplicateWithinWave = new Map<string, string>()
-  const promotedRows: SourceRegistryRow[] = []
+  const promotedRows: SourceRegistryRecord[] = []
   const approvedCandidateIds = new Set<string>()
   const rejectedCandidateIds = new Set<string>()
   const duplicateCandidateIds = new Set<string>()
@@ -408,7 +381,7 @@ function run() {
         notes: `Promoted via source-${SAFE_WAVE_ID} review. intakeTaskId=${candidate.intakeTaskId}; candidateSourceId=${candidate.candidateSourceId}.`,
         active: candidate.active,
       })
-      reasons.push('Approved via governed wave-1 review checks and promoted to source registry.')
+      reasons.push(`Approved via governed ${WAVE_ID} review checks and promoted to source registry.`)
     }
 
     if (reviewStatus === 'rejected') rejectedCandidateIds.add(candidate.candidateSourceId)
@@ -434,7 +407,7 @@ function run() {
     return {
       ...candidate,
       reviewStatus: decision.reviewStatus,
-      reviewer: decision.reviewStatus === 'approved_for_registry' ? 'source-review-bot' : 'source-review-bot',
+      reviewer: 'source-review-bot',
       reviewedAt: nowIso,
       duplicateOfSourceId: decision.duplicateOfSourceId,
       approvalNotes: decision.reviewStatus === 'approved_for_registry' ? decision.reasons.join(' ') : undefined,
