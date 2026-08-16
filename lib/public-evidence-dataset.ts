@@ -402,7 +402,12 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       .map(([studyId]) => studyId),
   )
   const studies = [...studiesById.values()]
-    .map((study) => ambiguousStudyClassIds.has(study.id) ? { ...study, evidenceClass: 'other' as const } : study)
+    .map((study) => {
+      const classes = evidenceClassesByStudyId.get(study.id)
+      if (!classes?.size) return study
+      if (classes.size === 1) return { ...study, evidenceClass: [...classes][0] }
+      return { ...study, evidenceClass: 'other' as const }
+    })
     .sort((a, b) => {
       const yearDiff = Number(b.year || 0) - Number(a.year || 0)
       if (yearDiff !== 0) return yearDiff
