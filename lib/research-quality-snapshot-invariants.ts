@@ -1,3 +1,4 @@
+import { citationIdentifiers } from './citation-identifiers.mjs'
 import {
   canonicalStudyGroups,
   crossProfileStudyIdentity,
@@ -108,10 +109,21 @@ export function validateResearchQualitySnapshotInvariants(
     rawSourceCount += sources.length
     const seenSources = new Set<string>()
     for (let index = 0; index < sources.length; index += 1) {
-      const id = text(sources[index]?.id)
+      const source = sources[index]
+      const id = text(source?.id)
       if (!id) {
-        add('missing-source-id', `${profile.url} · sources[${index}]`)
-      } else if (seenSources.has(id)) {
+        // listResearchProfiles() assigns a canonical source ID whenever DOI/PMID
+        // identity exists. A remaining identifier-less row is valid legacy
+        // inventory: it cannot participate in claim edges or canonical study
+        // identity, so its missing authored ID is not an internal contradiction.
+        // If a stable DOI/PMID exists but the ID is missing, normalization has
+        // drifted and the invariant should still fail.
+        if (citationIdentifiers(source).length) {
+          add('missing-source-id', `${profile.url} · sources[${index}]`)
+        }
+        continue
+      }
+      if (seenSources.has(id)) {
         add('duplicate-source-id', `${profile.url}::${id}`)
       } else {
         seenSources.add(id)
