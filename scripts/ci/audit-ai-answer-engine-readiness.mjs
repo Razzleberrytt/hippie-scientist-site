@@ -214,10 +214,11 @@ function auditRhabdoCitationPrimitives() {
 
 function auditLegacyGuideReferencePrimitives() {
   requireSignals(LEGACY_GUIDE_REFERENCE, 'legacy-guide-citations', 'LegacyGuideReference', [
-    ['id={`ref-${n}`}', 'stable ordinal source anchors'],
+    ['const citationId = `ref-${n}`', 'canonical ordinal citation ID'],
+    ['id={citationId}', 'stable ordinal source anchor'],
     ['data-citation-source="true"', 'citation-source marker'],
     ['itemType="https://schema.org/CreativeWork"', 'conservative CreativeWork semantics'],
-    ['href={`#ref-${n}`}', 'durable source self-link'],
+    ['href={`#${citationId}`}', 'durable source self-link'],
     ['itemProp="name"', 'citation text name semantic'],
     ['itemProp="url"', 'source URL semantic'],
   ])
