@@ -73,30 +73,37 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  // Explicit alignment mismatches and claim-breadth overreach are two views of
-  // the same editorial root cause: the claim says more than its linked evidence
-  // directly supports. Aggregate them into one semantic remediation reason per
-  // profile instead of double-scoring parallel semantic analyzers.
+  // Explicit alignment mismatches, claim-breadth overreach, and exaggerated
+  // effect/certainty language are three views of one editorial root cause: the
+  // claim says more than its linked evidence directly supports. Aggregate them
+  // once per profile instead of double-scoring parallel semantic analyzers.
   const semanticByUrl = new Map<string, {
     explicit: typeof topology.semanticAlignment.findings
     breadth: typeof topology.claimBreadth.findings
+    effect: typeof topology.effectCertainty.findings
   }>()
   for (const item of topology.semanticAlignment.findings) {
-    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [] }
+    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [] }
     group.explicit.push(item)
     semanticByUrl.set(item.url, group)
   }
   for (const item of topology.claimBreadth.findings) {
-    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [] }
+    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [] }
     group.breadth.push(item)
+    semanticByUrl.set(item.url, group)
+  }
+  for (const item of topology.effectCertainty.findings) {
+    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [], effect: [] }
+    group.effect.push(item)
     semanticByUrl.set(item.url, group)
   }
   for (const [url, group] of semanticByUrl) {
     const highConfidence = [
       ...group.explicit.filter((item) => item.confidence >= 0.75),
       ...group.breadth.filter((item) => item.confidence >= 0.75),
+      ...group.effect.filter((item) => item.confidence >= 0.75),
     ].length
-    const issueCount = group.explicit.length + group.breadth.length
+    const issueCount = group.explicit.length + group.breadth.length + group.effect.length
     const breadthDimensions = {
       population: group.breadth.filter((item) => item.populationOverbroad).length,
       dose: group.breadth.filter((item) => item.doseOverbroad).length,
@@ -104,11 +111,16 @@ export function buildAggregatedTopologyGapSignals(
       formulation: group.breadth.filter((item) => item.formulationOverbroad).length,
       endpoint: group.breadth.filter((item) => item.endpointOverbroad).length,
     }
+    const effectDimensions = {
+      magnitude: group.effect.filter((item) => item.magnitudeOverstatement).length,
+      clinicalImportance: group.effect.filter((item) => item.clinicalImportanceOverstatement).length,
+      certainty: group.effect.filter((item) => item.certaintyOverstatement).length,
+    }
     signals.push({
       url,
       kind: 'semantic-claim-source-mismatch',
       weight: weights.semanticMismatch + Math.min(10, Math.max(0, issueCount - 1) * 2) + (highConfidence ? weights.highConfidenceSemanticMismatchBonus : 0),
-      detail: `${group.explicit.length} explicit alignment mismatch(es) and ${group.breadth.length} claim-breadth overreach finding(s); ${highConfidence} high-confidence; role ${group.explicit.filter((item) => item.roleMismatch).length}, domain ${group.explicit.filter((item) => item.domainMismatch).length}, population mismatch ${group.explicit.filter((item) => item.populationMismatch).length}; breadth population ${breadthDimensions.population}, dose ${breadthDimensions.dose}, duration ${breadthDimensions.duration}, formulation ${breadthDimensions.formulation}, endpoint ${breadthDimensions.endpoint}`,
+      detail: `${group.explicit.length} explicit alignment mismatch(es), ${group.breadth.length} claim-breadth overreach finding(s), and ${group.effect.length} effect/certainty overstatement finding(s); ${highConfidence} high-confidence; role ${group.explicit.filter((item) => item.roleMismatch).length}, domain ${group.explicit.filter((item) => item.domainMismatch).length}, population mismatch ${group.explicit.filter((item) => item.populationMismatch).length}; breadth population ${breadthDimensions.population}, dose ${breadthDimensions.dose}, duration ${breadthDimensions.duration}, formulation ${breadthDimensions.formulation}, endpoint ${breadthDimensions.endpoint}; effect magnitude ${effectDimensions.magnitude}, clinical importance ${effectDimensions.clinicalImportance}, certainty ${effectDimensions.certainty}`,
     })
   }
 
