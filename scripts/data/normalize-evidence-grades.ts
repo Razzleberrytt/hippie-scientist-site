@@ -10,8 +10,9 @@
  *
  * This runs immediately after the workbook parse so that summary indexes,
  * export batches, and the search index are all built from canonical values.
- * It is idempotent: the authored value is preserved in `evidence_grade_source`
- * and every rerun reconciles from that, never from its own output.
+ * It is idempotent: the authored grade and tier are preserved in
+ * `evidence_grade_source` / `evidence_tier_source`, and every rerun reconciles
+ * from those authored values rather than from its own normalized output.
  *
  * Usage: tsx scripts/data/normalize-evidence-grades.ts [--data-dir=public/data]
  */
@@ -19,7 +20,11 @@
 import { mkdirSync, readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import path from 'node:path'
 
-import { reconcileEvidenceGrade, type EvidenceReconciliation } from '../../lib/evidence-grade'
+import {
+  BAND_LABEL,
+  reconcileEvidenceGrade,
+  type EvidenceReconciliation,
+} from '../../lib/evidence-grade'
 import {
   buildEvidenceRationale,
   gradeIsBackedByEvidence,
@@ -34,6 +39,28 @@ const DATA_DIR = path.resolve(ROOT, dataDirArg ? dataDirArg.split('=')[1] : 'pub
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORTS_DIR, 'evidence-grade-migration.json')
 
+const PROFILE_SYNC_FIELDS = [
+  'summary',
+  'summary_source',
+  'evidence_grade',
+  'evidence_grade_source',
+  'evidence_tier',
+  'evidence_tier_source',
+  'evidence_grade_band',
+  'evidence_grade_reason',
+  'evidence_grade_explanation',
+  'evidence_grade_adjusted',
+  'evidence_design_match',
+  'evidence_risk_of_bias',
+  'evidence_consistency',
+  'evidence_rationale',
+  'evidence_human_study_count',
+  'evidence_recorded_study_count',
+  'evidence_strongest_design',
+  'evidence_grade_backed',
+  'evidence_grade_backing_gap',
+] as const
+
 type Row = Record<string, unknown>
 
 function readJson(file: string): Row[] {
@@ -45,6 +72,29 @@ function readJson(file: string): Row[] {
 
 function writeJson(file: string, rows: Row[]): void {
   writeFileSync(path.join(DATA_DIR, file), `${JSON.stringify(rows, null, 2)}\n`)
+}
+
+function syncDetailRecord(indexFile: string, row: Row): void {
+  const slug = String(row.slug ?? '').trim()
+  if (!slug) return
+
+  const detailDir = indexFile === 'herbs.json'
+    ? 'herbs-detail'
+    : indexFile === 'compounds.json'
+      ? 'compounds-detail'
+      : null
+  if (!detailDir) return
+
+  const detailPath = path.join(DATA_DIR, detailDir, `${slug}.json`)
+  if (!existsSync(detailPath)) return
+
+  const detail = JSON.parse(readFileSync(detailPath, 'utf8')) as Row
+  const nextDetail = { ...detail }
+  for (const field of PROFILE_SYNC_FIELDS) {
+    if (field in row) nextDetail[field] = row[field]
+    else delete nextDetail[field]
+  }
+  writeFileSync(detailPath, `${JSON.stringify(nextDetail, null, 2)}\n`)
 }
 
 /**
@@ -100,9 +150,13 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
   return bySlug
 }
 
-/** Reconcile from the authored value so reruns cannot ratchet grades downward. */
+/** Reconcile from authored values so reruns cannot ratchet evidence downward. */
 function sourceGrade(row: Row): unknown {
   return row.evidence_grade_source ?? row.evidence_grade
+}
+
+function sourceTier(row: Row): unknown {
+  return row.evidence_tier_source ?? row.evidence_tier
 }
 
 function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourcesBySlug: Map<string, Row[]>) {
@@ -128,8 +182,9 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
   let summariesWritten = 0
 
   const next = rows.map((row) => {
-    const authored = sourceGrade(row)
-    const result: EvidenceReconciliation = reconcileEvidenceGrade(authored, row.evidence_tier)
+    const authoredGrade = sourceGrade(row)
+    const authoredTier = sourceTier(row)
+    const result: EvidenceReconciliation = reconcileEvidenceGrade(authoredGrade, authoredTier)
     reasons[result.reason] = (reasons[result.reason] ?? 0) + 1
 
     if (result.adjusted) {
@@ -137,9 +192,10 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       changes.push({
         slug: row.slug,
         indexable: String(row.indexability_status ?? '').toUpperCase() === 'PUBLISH',
-        authoredGrade: String(authored ?? ''),
-        authoredTier: String(row.evidence_tier ?? ''),
+        authoredGrade: String(authoredGrade ?? ''),
+        authoredTier: String(authoredTier ?? ''),
         publishedGrade: result.grade,
+        publishedTier: result.band ? BAND_LABEL[result.band] : null,
         reason: result.reason,
       })
     }
@@ -165,12 +221,16 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       })
     }
 
-    // The summary is composed last so it can draw on the grade and rationale
-    // decided above. Only generated filler is replaced; authored prose stands.
+    // The resolved band is the only public tier. The workbook's authored tier
+    // remains available in evidence_tier_source for audit/reconciliation. This
+    // prevents a corrected Grade C/D record from simultaneously publishing a
+    // stale "Strong Human Evidence" tier.
     const enriched = {
       ...row,
       evidence_grade: result.grade,
-      evidence_grade_source: String(authored ?? ''),
+      evidence_grade_source: String(authoredGrade ?? ''),
+      evidence_tier: result.band ? BAND_LABEL[result.band] : '',
+      evidence_tier_source: String(authoredTier ?? ''),
       evidence_grade_band: result.band,
       evidence_grade_reason: result.reason,
       evidence_grade_explanation: result.explanation,
@@ -200,6 +260,7 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
   })
 
   writeJson(file, next)
+  for (const row of next) syncDetailRecord(file, row)
   return { file, total: rows.length, adjusted, rationaleCards, summariesWritten, reasons, changes, unbacked }
 }
 

@@ -15,22 +15,24 @@
  * 2. build-blog (blog post generation)
  * 3. build-articles (long-form article generation)
  * 4. build-runtime-from-workbook (data extraction)
- * 5. build-related-runtime-maps (relationship maps)
- * 6. build-runtime-summary-indexes (search indexes)
- * 7. build-route-manifest (route discovery)
- * 8. build-internal-link-engine (semantic internal links)
- * 9. build-sitemap-manifest (SEO sitemap source manifest)
- * 10. build-export-batches (batch optimization)
- * 11. build-semantic-snapshots (snapshot generation)
- * 12. build-production (next build)
- * 13. repair-broken-canonicals (replace deprecated canonical aliases in exported HTML)
- * 14. inject-content-depth-support (add route-aware supporting copy for low text/HTML pages)
- * 15. validate-structured-data-regressions (report known Semrush schema failures)
- * 16. apply-redirect-overrides (prepend exact audit-cleanup redirects)
- * 17. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
- * 18. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
- * 19. repair-static-blog-h1s (legacy static blog heading repair)
- * 20. build-pagefind (static search index)
+ * 5. normalize-evidence-grades (canonical public evidence contract)
+ * 6. build-related-runtime-maps (relationship maps)
+ * 7. build-runtime-summary-indexes (search indexes)
+ * 8. build-route-manifest (route discovery)
+ * 9. build-internal-link-engine (semantic internal links)
+ * 10. build-sitemap-manifest (SEO sitemap source manifest)
+ * 11. build-export-batches (batch optimization)
+ * 12. build-semantic-snapshots (snapshot generation)
+ * 13. build-search-index (search document generation)
+ * 14. build-production (next build)
+ * 15. repair-broken-canonicals (replace deprecated canonical aliases in exported HTML)
+ * 16. inject-content-depth-support (add route-aware supporting copy for low text/HTML pages)
+ * 17. validate-structured-data-regressions (report known Semrush schema failures)
+ * 18. apply-redirect-overrides (prepend exact audit-cleanup redirects)
+ * 19. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
+ * 20. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
+ * 21. repair-static-blog-h1s (legacy static blog heading repair)
+ * 22. build-pagefind (static search index)
  *
  * Time estimate: cold builds are dominated by Next static export and Pagefind;
  * warm builds skip cacheable generation steps when inputs and outputs match.
@@ -84,6 +86,24 @@ const steps = [
     cmd: 'node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out public/data',
     inputs: ['data/**/*.xlsx', 'data/**/*.json', 'data-sources/**/*.xlsx', 'scripts/data/**/*.mjs'],
     outputs: ['public/data/**/*'],
+  },
+  {
+    name: 'normalize-evidence-grades',
+    cmd: 'npx tsx scripts/data/normalize-evidence-grades.ts --data-dir=public/data',
+    inputs: [
+      'public/data/herbs.json',
+      'public/data/compounds.json',
+      'public/data/claims.json',
+      'public/data/herbs-detail/**/*.json',
+      'public/data/compounds-detail/**/*.json',
+      'scripts/data/normalize-evidence-grades.ts',
+      'lib/evidence-grade.ts',
+      'lib/evidence-rationale.ts',
+      'lib/profile-summary.ts',
+      'lib/study-class.ts',
+    ],
+    outputs: ['public/data/herbs.json', 'public/data/compounds.json', 'ops/reports/evidence-grade-migration.json'],
+    cacheable: false,
   },
   {
     name: 'build-related-runtime-maps',
