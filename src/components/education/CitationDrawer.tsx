@@ -17,7 +17,8 @@ export interface CitationDetail {
   url?: string
 }
 
-// Global helper to trigger the citation drawer
+// Global helper to trigger the citation drawer with real source metadata supplied
+// by the calling evidence component.
 export function triggerCitation(detail: CitationDetail) {
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('open-citation-drawer', { detail }))
@@ -43,7 +44,7 @@ export default function CitationDrawer() {
 
   if (!isOpen || !detail) return null
 
-  // Badges color mapping
+  // Evidence-grade colors are semantic rather than generic brand styling.
   const getGradeClass = (grade: string) => {
     switch (grade.toUpperCase()) {
       case 'A': return 'bg-emerald-50 text-emerald-700 border-emerald-200/50'
@@ -55,83 +56,78 @@ export default function CitationDrawer() {
 
   return (
     <div className="fixed inset-0 z-[200] overflow-hidden" role="dialog" aria-modal="true">
-      {/* Backdrop */}
       <div
         className="absolute inset-0 bg-ink/40 backdrop-blur-sm transition-opacity"
         onClick={() => setIsOpen(false)}
+        aria-hidden="true"
       />
 
       <div className="absolute inset-y-0 right-0 flex max-w-full pl-10">
-        <div className="w-screen max-w-md transform bg-[var(--surface-card-strong)] p-6 shadow-2xl transition-all duration-300 ease-in-out border-l border-[var(--border-soft)] flex flex-col justify-between dark:bg-[var(--surface-card-strong)]">
+        <div className="flex w-screen max-w-md transform flex-col justify-between border-l border-[var(--border-soft)] bg-[var(--surface-card-strong)] p-6 shadow-2xl transition-all duration-300 ease-in-out dark:bg-[var(--surface-card-strong)]">
           <div className="space-y-6 overflow-y-auto pr-1">
-            {/* Header */}
             <div className="flex items-start justify-between border-b border-brand-900/10 pb-4">
               <h2 className="text-lg font-bold text-ink">Evidence Verification</h2>
               <button
                 onClick={() => setIsOpen(false)}
                 type="button"
-                className="text-muted/60 hover:text-ink text-sm font-semibold"
+                className="text-sm font-semibold text-muted/60 hover:text-ink"
               >
                 ✕ Close
               </button>
             </div>
 
-            {/* Study Title */}
             <div className="space-y-2">
               <span className={`inline-flex rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${getGradeClass(detail.grade)}`}>
                 GRADE {detail.grade} EVIDENCE
               </span>
-              <h3 className="text-base font-bold text-ink leading-snug">{detail.title}</h3>
+              <h3 className="text-base font-bold leading-snug text-ink">{detail.title}</h3>
               {detail.authors && (
-                <p className="text-xs text-muted font-medium">{detail.authors} ({detail.year || 'n/d'})</p>
+                <p className="text-xs font-medium text-muted">{detail.authors} ({detail.year || 'n/d'})</p>
               )}
             </div>
 
-            {/* Study Parameters Grid */}
-            <div className="grid grid-cols-2 gap-3 bg-[var(--surface-subtle)] p-4 rounded-2xl border border-brand-900/10 text-xs">
+            <div className="grid grid-cols-2 gap-3 rounded-2xl border border-brand-900/10 bg-[var(--surface-subtle)] p-4 text-xs">
               <div>
-                <p className="font-bold text-muted/70 uppercase tracking-wider text-[9px]">Study Design</p>
+                <p className="text-[9px] font-bold uppercase tracking-wider text-muted/70">Study Design</p>
                 <p className="mt-0.5 font-semibold text-ink">{detail.design}</p>
               </div>
               <div>
-                <p className="font-bold text-muted/70 uppercase tracking-wider text-[9px]">Cohort Size</p>
+                <p className="text-[9px] font-bold uppercase tracking-wider text-muted/70">Cohort Size</p>
                 <p className="mt-0.5 font-semibold text-ink">{detail.sampleSize || 'N/A'}</p>
               </div>
               <div className="mt-2">
-                <p className="font-bold text-muted/70 uppercase tracking-wider text-[9px]">Risk of Bias</p>
+                <p className="text-[9px] font-bold uppercase tracking-wider text-muted/70">Risk of Bias</p>
                 <p className="mt-0.5 font-semibold text-ink">{detail.bias} Bias</p>
               </div>
               <div className="mt-2">
-                <p className="font-bold text-muted/70 uppercase tracking-wider text-[9px]">Journal</p>
-                <p className="mt-0.5 font-semibold text-ink truncate">{detail.journal || 'PubMed Central'}</p>
+                <p className="text-[9px] font-bold uppercase tracking-wider text-muted/70">Journal</p>
+                <p className="mt-0.5 truncate font-semibold text-ink">{detail.journal || 'Source not specified'}</p>
               </div>
             </div>
 
-            {/* Primary Takeaway */}
             <div className="space-y-2">
-              <h4 className="text-xs font-bold text-ink uppercase tracking-wider">Clinical Conclusion</h4>
-              <p className="text-xs leading-relaxed text-muted bg-brand-50/30 p-3 rounded-xl border border-brand-900/10">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-ink">Evidence Takeaway</h4>
+              <p className="rounded-xl border border-brand-900/10 bg-brand-50/30 p-3 text-xs leading-relaxed text-muted">
                 {detail.takeaway}
               </p>
             </div>
           </div>
 
-          {/* Footer Actions */}
-          <div className="border-t border-brand-900/10 pt-4 mt-6 flex gap-3">
-            {detail.pmid && (
+          <div className="mt-6 flex gap-3 border-t border-brand-900/10 pt-4">
+            {(detail.pmid || detail.url) && (
               <a
                 href={detail.url || `https://pubmed.ncbi.nlm.nih.gov/${detail.pmid}/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 rounded-xl bg-brand-800 py-3 text-center text-xs font-bold text-white hover:bg-brand-700 transition"
+                className="flex-1 rounded-xl bg-brand-800 py-3 text-center text-xs font-bold text-white transition hover:bg-brand-700"
               >
-                Open in PubMed (PMID: {detail.pmid})
+                {detail.pmid ? `Open in PubMed (PMID: ${detail.pmid})` : 'Open source'}
               </a>
             )}
             <button
               onClick={() => setIsOpen(false)}
               type="button"
-              className="rounded-xl bg-[var(--surface-subtle)] px-4 py-3 text-xs font-semibold text-muted hover:text-ink transition"
+              className="rounded-xl bg-[var(--surface-subtle)] px-4 py-3 text-xs font-semibold text-muted transition hover:text-ink"
             >
               Back
             </button>
@@ -139,57 +135,5 @@ export default function CitationDrawer() {
         </div>
       </div>
     </div>
-  )
-}
-
-// Text Citation Parser Utility Component
-interface ParsedCitationProps {
-  text: string
-  entityName?: string
-}
-
-export function ParsedCitationText({ text: content, entityName = 'Botanical' }: ParsedCitationProps) {
-  const citationRegex = /\[(\d+)\]/g
-  const parts = content.split(citationRegex)
-
-  if (parts.length <= 1) {
-    return <span>{content}</span>
-  }
-
-  return (
-    <span>
-      {parts.map((part, index) => {
-        // odd indices correspond to matches of the regex group (\d+)
-        if (index % 2 === 1) {
-          const id = part
-          const mockDetail: CitationDetail = {
-            id,
-            title: `Efficacy and Safety of ${entityName} extract in human trials: Reference study [${id}]`,
-            authors: 'Randolph W., et al.',
-            journal: 'Journal of Botanical Psychopharmacology',
-            year: '2024',
-            pmid: `384${id}19${id}`,
-            design: 'RCT (Randomized Controlled Trial)',
-            sampleSize: 'n = 84',
-            grade: id === '1' ? 'A' : 'B',
-            bias: 'Low',
-            takeaway: `Reference study [${id}] demonstrated significant positive outcomes in outcome areas compared to placebo. No severe side effects were reported.`,
-          }
-
-          return (
-            <button
-              key={`cp-${index}-${String(part).slice(0, 12)}`}
-              onClick={() => triggerCitation(mockDetail)}
-              type="button"
-              className="mx-0.5 inline-flex items-center justify-center rounded bg-emerald-50 px-1.5 py-0.5 text-[10px] font-bold text-emerald-800 hover:bg-emerald-100 border border-emerald-200/50"
-              aria-label={`Verify scientific study ${id}`}
-            >
-              [{id}]
-            </button>
-          )
-        }
-        return <span key={`cp-${index}-${String(part).slice(0, 12)}`}>{part}</span>
-      })}
-    </span>
   )
 }
