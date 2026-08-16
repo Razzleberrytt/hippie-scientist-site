@@ -27,6 +27,8 @@ export type ClaimSupportTier =
 export type ClaimQualityAnalysis = {
   url: string
   claimId: string
+  reviewStatus: string
+  approved: boolean
   predicate: string
   confidence: number
   sourceRefCount: number
@@ -79,6 +81,7 @@ export type ResearchQualityAnalysis = {
   profiles: ReturnType<typeof listResearchProfiles>
   profileAnalyses: ProfileQualityAnalysis[]
   claimAnalyses: ClaimQualityAnalysis[]
+  structuredClaimAnalyses: ClaimQualityAnalysis[]
 }
 
 function round(value: number, digits = 3): number {
@@ -110,6 +113,8 @@ function analyzeClaim(
   const predicate = String(claim.predicate ?? '')
   const outcomeClaim = predicate === 'supports_outcome'
   const confidence = Number(claim.confidence ?? 0)
+  const reviewStatus = String(claim.reviewStatus ?? '').trim().toLowerCase()
+  const approved = reviewStatus === 'approved'
   const strongHumanSupport = primaryHuman + synthesis > 0
 
   let supportTier: ClaimSupportTier = 'non-outcome'
@@ -124,6 +129,8 @@ function analyzeClaim(
   return {
     url,
     claimId: String(claim.id ?? 'unknown-claim'),
+    reviewStatus,
+    approved,
     predicate,
     confidence,
     sourceRefCount: refs.length,
@@ -245,13 +252,17 @@ export function analyzeResearchQuality(root = process.cwd()): ResearchQualityAna
   const cache = loadPubmedCache(root)
   const profiles = listResearchProfiles(root)
   const claimAnalyses: ClaimQualityAnalysis[] = []
+  const structuredClaimAnalyses: ClaimQualityAnalysis[] = []
   const profileAnalyses: ProfileQualityAnalysis[] = []
 
   for (const { url, record } of profiles) {
-    const claims = approvedClaims(record).map((claim) => analyzeClaim(url, claim, record, cache))
-    claimAnalyses.push(...claims)
-    profileAnalyses.push(analyzeProfile(url, record, cache, claims))
+    const allClaims = Array.isArray(record.claimMap) ? record.claimMap : []
+    const structuredClaims = allClaims.map((claim) => analyzeClaim(url, claim, record, cache))
+    const approved = structuredClaims.filter((claim) => claim.approved)
+    structuredClaimAnalyses.push(...structuredClaims)
+    claimAnalyses.push(...approved)
+    profileAnalyses.push(analyzeProfile(url, record, cache, structuredClaims))
   }
 
-  return { cache, profiles, profileAnalyses, claimAnalyses }
+  return { cache, profiles, profileAnalyses, claimAnalyses, structuredClaimAnalyses }
 }
