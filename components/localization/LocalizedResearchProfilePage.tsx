@@ -72,7 +72,7 @@ export default function LocalizedResearchProfilePage({
       </section>
 
       {(translation.safetyNotes || safetyClaims.length || translation.contraindications?.length) ? (
-        <section className='mt-8 rounded-[1.75rem] border border-[var(--border-strong)] border-l-4 border-l-[var(--hs-gold)] bg-[var(--surface-warning)] p-6 sm:p-8'>
+        <section className='mt-8 rounded-[1.75rem] border border-[var(--border-strong)] border-l-4 border-l-[color:var(--hs-gold)] bg-[var(--surface-warning)] p-6 sm:p-8'>
           <div className='flex items-center gap-3'>
             <ShieldCheck className='h-5 w-5 text-[var(--hs-gold)]' aria-hidden='true' />
             <h2 className='font-display text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl'>{ui.safetyHeading}</h2>
