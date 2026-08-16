@@ -1,3 +1,7 @@
+import {
+  crossProfileStudyIdentity,
+  crossProfileStudyIdentityMap,
+} from './research-coverage'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 
 export type CrossProfileStudyLoad = {
@@ -44,11 +48,12 @@ function round(value: number, digits = 3): number {
 }
 
 /**
- * Measure how many approved claims and profiles depend on each canonical study.
- * This complements per-profile concentration: a study may look harmless on every
- * individual page while still underwriting a large portion of the site globally.
+ * Measure how many approved claims and profiles depend on each site-wide
+ * canonical study. DOI/PMID aliases are normalized across profiles before load
+ * is counted, so identifier-shape differences cannot split one publication.
  */
 export function analyzeCrossProfileStudyLoad(analysis: ResearchQualityAnalysis): CrossProfileStudyLoad[] {
+  const globalIdentities = crossProfileStudyIdentityMap(analysis.profiles)
   const byStudy = new Map<string, {
     profiles: Set<string>
     claims: Map<string, { url: string; claimId: string; predicate: string; confidence: number }>
@@ -57,7 +62,8 @@ export function analyzeCrossProfileStudyLoad(analysis: ResearchQualityAnalysis):
   }>()
 
   for (const claim of analysis.claimAnalyses) {
-    for (const studyId of claim.studyIds) {
+    for (const localStudyId of claim.studyIds) {
+      const studyId = crossProfileStudyIdentity(claim.url, localStudyId, globalIdentities)
       const item = byStudy.get(studyId) ?? {
         profiles: new Set<string>(),
         claims: new Map<string, { url: string; claimId: string; predicate: string; confidence: number }>(),

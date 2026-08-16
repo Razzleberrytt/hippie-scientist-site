@@ -1,3 +1,7 @@
+import {
+  crossProfileStudyIdentity,
+  crossProfileStudyIdentityMap,
+} from './research-coverage'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 
 export type CrossProfileEvidenceBundleReuse = {
@@ -14,14 +18,14 @@ export type CrossProfileEvidenceBundleReuse = {
 }
 
 /**
- * Detect the same canonical multi-study evidence bundle being reused across
- * different profiles. Single-study reuse is intentionally left to the existing
- * cross-profile study-load analysis; this focuses on narrow 2-study bundles
- * that can otherwise look diversified while still being copied site-wide.
+ * Detect the same site-wide canonical multi-study evidence bundle being reused
+ * across profiles. DOI/PMID aliases are normalized across pages before bundle
+ * keys are built, preventing identifier-shape differences from hiding reuse.
  */
 export function analyzeCrossProfileEvidenceBundles(
   analysis: ResearchQualityAnalysis,
 ): CrossProfileEvidenceBundleReuse[] {
+  const globalIdentities = crossProfileStudyIdentityMap(analysis.profiles)
   const groups = new Map<string, {
     studyIds: string[]
     profiles: Set<string>
@@ -30,7 +34,10 @@ export function analyzeCrossProfileEvidenceBundles(
 
   for (const claim of analysis.claimAnalyses) {
     if (claim.studyIds.length < 2) continue
-    const studyIds = [...claim.studyIds].sort()
+    const studyIds = [...new Set(
+      claim.studyIds.map((studyId) => crossProfileStudyIdentity(claim.url, studyId, globalIdentities)),
+    )].sort()
+    if (studyIds.length < 2) continue
     const key = studyIds.join('|')
     const item = groups.get(key) ?? { studyIds, profiles: new Set<string>(), claims: [] }
     item.profiles.add(claim.url)
