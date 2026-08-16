@@ -147,6 +147,11 @@ html.dark .button-primary {
   color: #0d1712 !important;
 }
 
+html.dark .button-primary:hover {
+  border-color: #b5ceb8 !important;
+  background: #b5ceb8 !important;
+}
+
 .button-secondary {
   border-color: var(--border-strong) !important;
   background: var(--surface-card) !important;
