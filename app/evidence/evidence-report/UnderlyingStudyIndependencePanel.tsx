@@ -23,6 +23,7 @@ export default function UnderlyingStudyIndependencePanel({ metrics }: Props) {
   const unresolved = metrics.independenceUnresolvedClaims ?? 0
   const multiStudy = metrics.independenceMultiStudyApprovedClaims ?? 0
   const highConfidenceUnresolved = metrics.highConfidenceIndependenceUnresolvedClaims ?? 0
+  const primaryHumanMissingMetadata = metrics.globalPrimaryHumanPublicationsWithoutIndependenceMetadata ?? 0
 
   return (
     <section className="rounded-2xl border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8" aria-labelledby="underlying-study-independence-heading">
@@ -51,22 +52,28 @@ export default function UnderlyingStudyIndependencePanel({ metrics }: Props) {
           <p className="mt-2 text-xs leading-5 text-muted">Publication identities removed from the adjusted count because shared underlying-study identity was positively established.</p>
         </article>
         <article className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Mean explicit lineage coverage</p>
-          <p className="mt-2 text-3xl font-bold text-ink">{pct(metrics.meanIndependenceCoverage)}</p>
-          <p className="mt-2 text-xs leading-5 text-muted">Mean registry-or-lineage coverage across approved claims supported by multiple publication-level studies.</p>
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Primary-human metadata coverage</p>
+          <p className="mt-2 text-3xl font-bold text-ink">{pct(metrics.globalPrimaryHumanIndependenceMetadataCoverage)}</p>
+          <p className="mt-2 text-xs leading-5 text-muted">Share of unique primary-human publications with explicit registry, cohort, dataset, parent-study, or same-trial metadata available for independence assessment.</p>
         </article>
       </div>
 
-      {multiStudy > 0 ? (
+      {primaryHumanMissingMetadata > 0 ? (
         <div className="mt-5 rounded-xl border border-amber-900/15 bg-amber-50/70 p-4 text-sm leading-6 text-amber-950">
-          <strong>Independence remains unresolved for {unresolved} of {multiStudy} multi-study approved claims.</strong>{' '}
-          {highConfidenceUnresolved > 0 ? `${highConfidenceUnresolved} high-confidence claim${highConfidenceUnresolved === 1 ? '' : 's'} still lack complete explicit independence coverage. ` : ''}
-          Because unknown relationships are left separate, the adjusted study count is a conservative upper bound with respect to unobserved publication dependence—not proof that every remaining evidence unit is independently recruited or generated.
+          <strong>{primaryHumanMissingMetadata} unique primary-human publication{primaryHumanMissingMetadata === 1 ? '' : 's'} currently lack explicit independence metadata.</strong>{' '}
+          Those publications remain separate in the adjusted count unless and until the canonical research graph positively establishes shared underlying-study identity.
+        </div>
+      ) : null}
+
+      {multiStudy > 0 ? (
+        <div className="mt-4 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
+          <strong className="text-ink">Approved-claim diagnostic:</strong>{' '}
+          independence remains unresolved for {unresolved} of {multiStudy} approved claims supported by multiple publication-level studies; {highConfidenceUnresolved} of those unresolved claims are high-confidence. Mean claim-level explicit lineage coverage is {pct(metrics.meanIndependenceCoverage)}.
         </div>
       ) : null}
 
       <p className="mt-5 text-xs leading-5 text-muted">
-        These counts are narrower than the report’s “human evidence source records” metric: syntheses and reviews remain publication-level evidence records, while the independence-adjusted figure above is restricted to primary human research. It is not an estimate of unique participants and is not an RCT-only count. Across all study classes, the current topology retains {value(metrics.globalInventoryUnderlyingStudyCount)} evidence units after explicitly proven dependence collapse.
+        Because unknown relationships are left separate, the adjusted study count is a conservative upper bound with respect to unobserved publication dependence—not proof that every remaining evidence unit is independently recruited or generated. These counts are narrower than the report’s “human evidence source records” metric: syntheses and reviews remain publication-level evidence records, while the independence-adjusted figure above is restricted to primary human research. It is not an estimate of unique participants and is not an RCT-only count. Across all study classes, the current topology retains {value(metrics.globalInventoryUnderlyingStudyCount)} evidence units after explicitly proven dependence collapse.
       </p>
     </section>
   )
