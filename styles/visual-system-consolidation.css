@@ -1,93 +1,98 @@
 :root {
-  /* Canonical light palette: warm neutral canvas, forest actions, dark ink. */
-  --color-background: #f7f8f4;
-  --color-surface: #eef2eb;
-  --color-ink: #111a16;
-  --color-muted: #47544d;
-  --bg: #f7f8f4;
-  --surface: #eef2eb;
-  --surface-elevated: #fffefb;
-  --text-primary: #111a16;
-  --text-secondary: #405047;
-  --text-muted: #536159;
-  --surface-card: rgba(255, 254, 251, 0.94);
-  --surface-card-strong: #fffefb;
-  --surface-subtle: rgba(238, 242, 235, 0.82);
-  --surface-code: #f0f3ed;
-  --surface-warning: rgba(255, 248, 230, 0.92);
-  --surface-danger: rgba(255, 240, 240, 0.92);
-  --surface-info: rgba(239, 246, 241, 0.94);
-  --surface-neutral: rgba(247, 248, 244, 0.96);
-  --border-soft: rgba(31, 77, 41, 0.11);
-  --border-strong: rgba(31, 77, 41, 0.20);
-  --ring-brand: rgba(31, 77, 41, 0.30);
-  --accent-primary: #1f4d29;
-  --accent-secondary: #557247;
-  --accent-teal: #3f6b50;
-  --tone: #557247;
-  --tone-ink: #33443a;
+  /* Premium editorial palette: parchment canvas, charcoal ink, evergreen structure, brass signal. */
+  --color-background: #f3f0e9;
+  --color-surface: #ebe7de;
+  --color-ink: #1d1d1f;
+  --color-muted: #6c6862;
+  --bg: #f3f0e9;
+  --surface: #ebe7de;
+  --surface-elevated: #fffdf8;
+  --text-primary: #1d1d1f;
+  --text-secondary: #5f5b56;
+  --text-muted: #77716a;
+  --surface-card: rgba(255, 253, 248, 0.96);
+  --surface-card-strong: #fffdf8;
+  --surface-subtle: rgba(235, 231, 222, 0.84);
+  --surface-code: #ece9e2;
+  --surface-warning: rgba(252, 244, 224, 0.94);
+  --surface-danger: rgba(253, 239, 237, 0.94);
+  --surface-info: rgba(239, 241, 236, 0.94);
+  --surface-neutral: rgba(246, 243, 237, 0.96);
+  --border-soft: rgba(46, 44, 40, 0.11);
+  --border-strong: rgba(46, 44, 40, 0.20);
+  --ring-brand: rgba(176, 132, 73, 0.34);
+  --accent-primary: #2f4037;
+  --accent-secondary: #b18449;
+  --accent-teal: #66766c;
+  --tone: #66766c;
+  --tone-ink: #3c4a42;
 
-  /* Normalize the older hs-* editorial token family onto the same palette. */
-  --hs-gold: #557247;
-  --hs-gold-bright: #6f8f5c;
-  --hs-gold-soft: #d1dec6;
-  --hs-gold-ink: #435a3a;
-  --hs-ink: #111a16;
-  --hs-ink-soft: #33443a;
-  --hs-body: #536159;
-  --hs-hairline: rgba(31, 77, 41, 0.11);
-  --hs-hairline-strong: rgba(31, 77, 41, 0.20);
-  --hs-surface: #fffefb;
-  --hs-surface-2: rgba(255, 254, 251, 0.86);
-  --hs-lift: 0 1px 2px rgba(13, 23, 18, 0.06), 0 10px 28px -18px rgba(13, 23, 18, 0.20);
-  --hs-lift-hover: 0 2px 4px rgba(13, 23, 18, 0.07), 0 18px 36px -22px rgba(13, 23, 18, 0.24);
-  --hs-canvas: linear-gradient(180deg, #f9faf6 0%, #f7f8f4 42%, #f3f6f0 100%);
-  --hs-dot: rgba(31, 77, 41, 0.08);
-  --hs-dot-opacity: 0.18;
+  /* Legacy hs-* variables resolve into the same visual system. */
+  --hs-gold: #b18449;
+  --hs-gold-bright: #c59759;
+  --hs-gold-soft: #e7d2b2;
+  --hs-gold-ink: #8b632f;
+  --hs-ink: #1d1d1f;
+  --hs-ink-soft: #46443f;
+  --hs-body: #6c6862;
+  --hs-hairline: rgba(46, 44, 40, 0.11);
+  --hs-hairline-strong: rgba(46, 44, 40, 0.20);
+  --hs-surface: #fffdf8;
+  --hs-surface-2: rgba(255, 253, 248, 0.90);
+  --hs-lift: 0 1px 2px rgba(30, 28, 25, 0.05), 0 12px 30px -22px rgba(30, 28, 25, 0.24);
+  --hs-lift-hover: 0 2px 4px rgba(30, 28, 25, 0.06), 0 20px 42px -24px rgba(30, 28, 25, 0.30);
+  --hs-canvas: linear-gradient(180deg, #f7f4ee 0%, #f3f0e9 46%, #efebe3 100%);
+  --hs-dot: rgba(68, 62, 54, 0.06);
+  --hs-dot-opacity: 0.10;
 }
 
 html.dark {
-  --color-background: #0d1712;
-  --color-surface: #14261d;
-  --color-ink: #f2efe5;
-  --color-muted: #b0bfb5;
-  --bg: #0d1712;
-  --surface: #14261d;
-  --surface-elevated: #1a3028;
-  --text-primary: #f2efe5;
-  --text-secondary: #d8d5ca;
-  --text-muted: #b0bfb5;
-  --surface-card: rgba(26, 48, 40, 0.96);
-  --surface-card-strong: #1e372d;
-  --surface-subtle: rgba(26, 48, 40, 0.58);
-  --surface-code: #12221a;
-  --surface-warning: rgba(67, 49, 18, 0.78);
-  --surface-danger: rgba(67, 28, 28, 0.76);
-  --surface-info: rgba(24, 52, 40, 0.90);
-  --surface-neutral: rgba(18, 34, 26, 0.94);
-  --border-soft: rgba(180, 210, 190, 0.16);
-  --border-strong: rgba(180, 210, 190, 0.26);
-  --ring-brand: rgba(149, 185, 154, 0.32);
-  --accent-primary: #95b99a;
-  --accent-secondary: #78a380;
-  --accent-teal: #78a380;
-  --tone: #78a380;
-  --tone-ink: #b5ceb8;
+  /* Graphite dominates. Green is restrained to a subtle structural undertone. */
+  --color-background: #0e1011;
+  --color-surface: #15181a;
+  --color-ink: #f3eee4;
+  --color-muted: #aaa49a;
+  --bg: #0e1011;
+  --surface: #15181a;
+  --surface-elevated: #1c1f21;
+  --text-primary: #f3eee4;
+  --text-secondary: #c7c0b5;
+  --text-muted: #9d978e;
+  --surface-card: rgba(27, 30, 32, 0.97);
+  --surface-card-strong: #202326;
+  --surface-subtle: rgba(23, 26, 28, 0.82);
+  --surface-code: #171a1c;
+  --surface-warning: rgba(66, 51, 26, 0.78);
+  --surface-danger: rgba(62, 31, 32, 0.78);
+  --surface-info: rgba(28, 36, 34, 0.90);
+  --surface-neutral: rgba(18, 21, 23, 0.96);
+  --border-soft: rgba(227, 211, 181, 0.11);
+  --border-strong: rgba(227, 211, 181, 0.22);
+  --ring-brand: rgba(207, 164, 91, 0.36);
+  --accent-primary: #d0a35b;
+  --accent-secondary: #8d9b91;
+  --accent-teal: #829188;
+  --tone: #8d9b91;
+  --tone-ink: #d3d9d4;
 
-  --hs-gold: #95b99a;
-  --hs-gold-bright: #b5ceb8;
-  --hs-gold-soft: rgba(149, 185, 154, 0.24);
-  --hs-gold-ink: #b5ceb8;
-  --hs-ink: #f2efe5;
-  --hs-ink-soft: #d8d5ca;
-  --hs-body: #b0bfb5;
-  --hs-hairline: rgba(180, 210, 190, 0.16);
-  --hs-hairline-strong: rgba(180, 210, 190, 0.26);
-  --hs-surface: #1a3028;
-  --hs-surface-2: rgba(26, 48, 40, 0.78);
-  --hs-canvas: linear-gradient(180deg, #0d1712 0%, #101d16 100%);
-  --hs-dot: rgba(180, 210, 190, 0.08);
-  --hs-dot-opacity: 0.14;
+  --hs-gold: #d0a35b;
+  --hs-gold-bright: #e0b96f;
+  --hs-gold-soft: rgba(208, 163, 91, 0.24);
+  --hs-gold-ink: #e0b96f;
+  --hs-ink: #f3eee4;
+  --hs-ink-soft: #d7d0c5;
+  --hs-body: #aaa49a;
+  --hs-hairline: rgba(227, 211, 181, 0.11);
+  --hs-hairline-strong: rgba(227, 211, 181, 0.22);
+  --hs-surface: #1c1f21;
+  --hs-surface-2: rgba(28, 31, 33, 0.86);
+  --hs-lift: 0 1px 0 rgba(255, 255, 255, 0.025) inset, 0 16px 34px -24px rgba(0, 0, 0, 0.78);
+  --hs-lift-hover: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 24px 52px -26px rgba(0, 0, 0, 0.86);
+  --hs-canvas:
+    radial-gradient(85% 52% at 50% -12%, rgba(57, 75, 65, 0.18), transparent 58%),
+    linear-gradient(180deg, #0d0f10 0%, #101214 45%, #0e1011 100%);
+  --hs-dot: rgba(227, 211, 181, 0.045);
+  --hs-dot-opacity: 0.08;
 }
 
 body,
@@ -97,11 +102,11 @@ body,
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--accent-secondary) 34%, transparent);
+  background: color-mix(in srgb, var(--hs-gold) 34%, transparent);
   color: var(--text-primary);
 }
 
-/* Shared surfaces: one quiet elevation language rather than tinted gradients. */
+/* Shared surfaces: quiet material hierarchy, no tinted-gradient wallpaper. */
 :where(.hero-shell, .premium-card, .surface-card, .card-premium, .scientific-card, .library-card-premium, .library-content-card, .section-frame, .glass-card, .mobile-reading-card) {
   border-color: var(--border-soft) !important;
 }
@@ -119,11 +124,13 @@ a.library-content-card:hover {
   box-shadow: var(--hs-lift-hover) !important;
 }
 
-/* Eyebrows are labels, not decoration. */
+/* Labels use warm brass as a restrained editorial cue. */
 .eyebrow-label,
-.section-label {
+.section-label,
+.hs-eyebrow,
+.editorial-eyebrow {
   gap: 0 !important;
-  color: var(--accent-secondary) !important;
+  color: var(--hs-gold) !important;
   letter-spacing: 0.12em !important;
 }
 
@@ -132,47 +139,117 @@ a.library-content-card:hover {
   content: none !important;
 }
 
-/* Primary actions use the brand color directly; no charcoal/purple gradients. */
-.button-primary {
-  border: 1px solid #153a1f !important;
-  background: #1f4d29 !important;
-  color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(13, 23, 18, 0.16) !important;
+/* Core actions: charcoal/evergreen in light mode, brass in dark mode. */
+.button-primary,
+.hs-btn-primary {
+  border: 1px solid #26352e !important;
+  background: #2f4037 !important;
+  color: #fffdf8 !important;
+  box-shadow: 0 2px 8px rgba(22, 24, 22, 0.16) !important;
 }
 
-.button-primary:hover {
+.button-primary:hover,
+.hs-btn-primary:hover {
   transform: translateY(-1px) !important;
-  background: #153a1f !important;
-  box-shadow: 0 5px 14px rgba(13, 23, 18, 0.18) !important;
+  background: #26352e !important;
+  box-shadow: 0 6px 16px rgba(22, 24, 22, 0.20) !important;
 }
 
-html.dark .button-primary {
-  border-color: #95b99a !important;
-  background: #95b99a !important;
-  color: #0d1712 !important;
+html.dark .button-primary,
+html.dark .hs-btn-primary {
+  border-color: #d0a35b !important;
+  background: linear-gradient(180deg, #d9ad63 0%, #bd8a43 100%) !important;
+  color: #17191a !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28) !important;
 }
 
-html.dark .button-primary:hover {
-  border-color: #b5ceb8 !important;
-  background: #b5ceb8 !important;
+html.dark .button-primary:hover,
+html.dark .hs-btn-primary:hover {
+  border-color: #e0b96f !important;
+  background: linear-gradient(180deg, #e1b970 0%, #c7954e 100%) !important;
 }
 
-.button-secondary {
+.button-secondary,
+.hs-btn-ghost {
   border-color: var(--border-strong) !important;
-  background: var(--surface-card) !important;
+  background: color-mix(in srgb, var(--surface-card) 88%, transparent) !important;
   color: var(--text-primary) !important;
   backdrop-filter: none !important;
   box-shadow: none !important;
 }
 
-.button-secondary:hover {
+.button-secondary:hover,
+.hs-btn-ghost:hover {
   transform: none !important;
-  border-color: var(--accent-primary) !important;
+  border-color: color-mix(in srgb, var(--hs-gold) 48%, var(--border-strong)) !important;
   background: var(--surface-card-strong) !important;
 }
 
-/* Final typography guardrails. Template utilities can still opt into a smaller
-   scale, but old viewport-heavy rules cannot inflate ordinary mobile headings. */
+/* Homepage: neutralize legacy purple/green atmosphere and keep one luxury accent. */
+.hs-home .hs-display {
+  color: var(--hs-ink) !important;
+}
+
+.hs-home .hs-accent {
+  color: var(--hs-gold) !important;
+}
+
+html.dark .hs-home .hs-hero,
+html.dark .hs-home #choose-a-path {
+  background: transparent !important;
+}
+
+html.dark .hs-home .hs-goal,
+html.dark .hs-home .hs-specimen,
+html.dark .hs-home .hs-tool,
+html.dark .hs-home .hs-vs {
+  background: var(--surface-card) !important;
+  border-color: var(--border-soft) !important;
+  box-shadow: var(--hs-lift) !important;
+}
+
+html.dark .hs-home .hs-goal:hover,
+html.dark .hs-home .hs-specimen:hover,
+html.dark .hs-home .hs-tool:hover,
+html.dark .hs-home .hs-vs:hover {
+  border-color: var(--border-strong) !important;
+  box-shadow: var(--hs-lift-hover) !important;
+}
+
+html.dark .hs-home .hs-goal-icon,
+html.dark .hs-home .hs-specimen-icon {
+  color: var(--hs-gold) !important;
+  background: rgba(208, 163, 91, 0.08) !important;
+  border-color: rgba(208, 163, 91, 0.18) !important;
+}
+
+/* Decorative evidence dial recedes; on phones it disappears entirely. */
+.hs-home .hs-dial {
+  opacity: 0.44 !important;
+  filter: saturate(0.45) !important;
+}
+
+@media (max-width: 767px) {
+  .hs-home .hs-dial {
+    display: none !important;
+  }
+}
+
+/* Footer reads as a quiet ending, not another green content panel. */
+.editorial-footer {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.editorial-footer .editorial-card,
+.editorial-footer .editorial-link-tile,
+.editorial-footer .editorial-icon-disc {
+  background: var(--surface-card) !important;
+  border-color: var(--border-soft) !important;
+  box-shadow: none !important;
+}
+
+/* Final typography guardrails. */
 main h1 {
   max-width: 20ch;
 }
@@ -211,7 +288,7 @@ main li {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :where(.card-premium, .library-card-premium, .library-content-card, .button-primary, .button-secondary) {
+  :where(.card-premium, .library-card-premium, .library-content-card, .button-primary, .button-secondary, .hs-btn-primary, .hs-btn-ghost) {
     transform: none !important;
   }
 }
