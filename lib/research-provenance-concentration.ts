@@ -1,5 +1,7 @@
-import { canonicalStudyGroups } from './research-coverage'
+import { canonicalStudyGroups, type ResearchProfile } from './research-coverage'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
+
+export type StudyProvenance = { firstAuthor: string | null; journal: string | null }
 
 export type ProvenanceConcentrationProfile = {
   url: string
@@ -33,8 +35,6 @@ export type ProvenanceConcentrationAnalysis = {
   }
 }
 
-type Provenance = { firstAuthor: string | null; journal: string | null }
-
 function round(value: number, digits = 3): number {
   const scale = 10 ** digits
   return Math.round(value * scale) / scale
@@ -47,7 +47,7 @@ function normalizeToken(value: unknown): string {
 function provenanceForGroup(
   group: Array<Record<string, unknown>>,
   cache: ResearchQualityAnalysis['cache'],
-): Provenance {
+): StudyProvenance {
   for (const source of group) {
     const pmid = normalizeToken(source.pmid ?? source.pubmedId)
     const meta = (cache[pmid] ?? {}) as { authorList?: unknown; authors?: unknown; journal?: unknown }
@@ -64,6 +64,18 @@ function provenanceForGroup(
     }
   }
   return { firstAuthor: null, journal: null }
+}
+
+/** Build the canonical provenance lookup once so profile- and claim-level topology share identical metadata resolution. */
+export function buildStudyProvenanceIndex(
+  record: ResearchProfile,
+  cache: ResearchQualityAnalysis['cache'],
+): Map<string, StudyProvenance> {
+  const index = new Map<string, StudyProvenance>()
+  for (const [studyId, group] of canonicalStudyGroups(record)) {
+    index.set(studyId, provenanceForGroup(group, cache))
+  }
+  return index
 }
 
 function dominant(
@@ -93,10 +105,7 @@ export function analyzeProvenanceConcentration(analysis: ResearchQualityAnalysis
     const claims = claimsByUrl.get(url) ?? []
     if (!claims.length) continue
 
-    const groups = canonicalStudyGroups(record)
-    const provenanceByStudy = new Map<string, Provenance>()
-    for (const [studyId, group] of groups) provenanceByStudy.set(studyId, provenanceForGroup(group, analysis.cache))
-
+    const provenanceByStudy = buildStudyProvenanceIndex(record, analysis.cache)
     const authorEdges = new Map<string, number>()
     const journalEdges = new Map<string, number>()
     const authorStudies = new Map<string, Set<string>>()
