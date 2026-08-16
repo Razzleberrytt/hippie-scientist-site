@@ -11,26 +11,26 @@ export const coreGoals: readonly CoreGoal[] = [
   {
     slug: 'sleep',
     label: 'Sleep',
-    href: '/guides/sleep/',
-    description: 'Sleep aids, timing, alternatives, and sleep-support evidence',
+    href: '/goals/sleep/',
+    description: 'Compare sleep-support options by fit, onset, evidence quality, and risk',
   },
   {
     slug: 'stress',
     label: 'Stress',
-    href: '/guides/stress/',
-    description: 'Acute tension, chronic overload, burnout, and stress-support evidence',
+    href: '/goals/stress/',
+    description: 'Compare stress-support options by fit, onset, evidence quality, and risk',
   },
   {
     slug: 'anxiety',
     label: 'Anxiety',
-    href: '/guides/anxiety/',
-    description: 'Calming supports, overthinking, tension, and anxiety-focused evidence',
+    href: '/goals/anxiety/',
+    description: 'Compare anxiety-support options by fit, onset, evidence quality, and risk',
   },
   {
     slug: 'focus',
     label: 'Focus & Cognition',
-    href: '/guides/focus/',
-    description: 'Focus support, nootropics, and cognitive-performance evidence',
+    href: '/goals/focus/',
+    description: 'Compare focus-support options by stimulation profile, onset, evidence, and risk',
   },
 ] as const
 
