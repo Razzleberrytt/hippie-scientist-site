@@ -13,6 +13,7 @@ const ARTICLE_EVIDENCE = path.join(ROOT, 'src', 'components', 'evidence', 'WhatE
 const ARTICLE_CITATIONS = path.join(ROOT, 'src', 'lib', 'article-citation-metadata.ts')
 const ARTICLE_PAGE = path.join(ROOT, 'app', 'articles', '[slug]', 'page.tsx')
 const MENTAL_HEALTH_ARTICLE = path.join(ROOT, 'components', 'articles', 'MentalHealthArticlePage.tsx')
+const GOAL_CLUSTER_ARTICLE = path.join(ROOT, 'components', 'articles', 'GoalClusterArticlePage.tsx')
 const REFERENCES = path.join(ROOT, 'components', 'References.tsx')
 const EVIDENCE_BADGE = path.join(ROOT, 'components', 'ui', 'EvidenceScoreBadge.tsx')
 const SAFETY_GAUGE = path.join(ROOT, 'components', 'ui', 'SafetyGaugeMeter.tsx')
@@ -166,6 +167,23 @@ function auditMentalHealthCitationPrimitives() {
   }
 }
 
+function auditGoalClusterCitationPrimitives() {
+  requireSignals(GOAL_CLUSTER_ARTICLE, 'goal-cluster-citations', 'GoalClusterArticlePage', [
+    ["import References from '@/components/References'", 'shared References ledger import'],
+    ['const sourceRefs = content.references.map', 'sleep source adapter'],
+    ['<References refs={sourceRefs}', 'shared durable source ledger'],
+    ['citation: content.references.map((reference) => reference.href)', 'Article citation URL graph'],
+    ['href="#references"', 'source-ledger verification target'],
+    ['data-answer-engine-summary="true"', 'answer-engine summary marker'],
+    ['data-claim="true"', 'TLDR claim markers'],
+  ])
+
+  const source = text(GOAL_CLUSTER_ARTICLE)
+  if (source.includes('<h2 className="text-base font-semibold text-ink">References</h2>') && source.includes('content.references.map((reference) =>')) {
+    add('error', 'goal-cluster-citations', 'sleep goal-cluster page reintroduced a page-local references renderer instead of the shared ledger')
+  }
+}
+
 function auditProfilePrimitives() {
   requireSignals(EVIDENCE_BADGE, 'profile-semantics', 'EvidenceScoreBadge', [
     ['data-evidence="true"', 'evidence marker'],
@@ -244,6 +262,7 @@ auditMachineReadable()
 auditSharedExtractionPrimitives()
 auditArticleExtractionPrimitives()
 auditMentalHealthCitationPrimitives()
+auditGoalClusterCitationPrimitives()
 auditProfilePrimitives()
 auditExtractability()
 auditAntiPatterns()
