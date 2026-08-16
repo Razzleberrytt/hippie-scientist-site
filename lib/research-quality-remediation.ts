@@ -11,6 +11,7 @@ import type { ResearchQualityTopology } from './research-quality-topology'
 
 export const EVIDENCE_GRADE_BLOCKER_REASON = 'evidence-grade-topology-contradiction'
 export const EVIDENCE_GRADE_BLOCKER_WEIGHT = 100
+export const STUDY_DEPENDENCY_REASON = 'high-study-dependency'
 
 function recalculate(item: Pick<ResearchGapItem, 'url' | 'reasons'>): ResearchGapItem {
   const dimensionRawScores = item.reasons.reduce<Partial<Record<ResearchGapDimension, number>>>((scores, reason) => {
@@ -46,12 +47,44 @@ function recalculate(item: Pick<ResearchGapItem, 'url' | 'reasons'>): ResearchGa
 }
 
 /**
+ * Replace every publication-level or transition-only study-dependency reason
+ * inherited from the base policy with exactly one current underlying-study
+ * concentration reason per canonically overdependent profile.
+ */
+function canonicalizeStudyDependencyReasons(
+  byUrl: Map<string, Pick<ResearchGapItem, 'url' | 'reasons'>>,
+  topology: ResearchQualityTopology,
+) {
+  for (const item of byUrl.values()) {
+    item.reasons = item.reasons.filter((reason) => reason.kind !== STUDY_DEPENDENCY_REASON)
+  }
+
+  for (const profile of topology.underlyingStudyIndependence.profiles) {
+    if (!profile.overDependentOnSingleUnderlyingStudy) continue
+    const item = byUrl.get(profile.url) ?? { url: profile.url, reasons: [] }
+    const concentrationBonus = Math.round(Math.min(15, profile.underlyingStudyConcentrationIndex * 20))
+    const weight = Math.round(25 + profile.dominantUnderlyingStudySupportedClaimShare * 30 + concentrationBonus)
+    const reason: ResearchGapReason = {
+      kind: STUDY_DEPENDENCY_REASON,
+      dimension: 'concentration',
+      weight,
+      detail: `${Math.round(profile.dominantUnderlyingStudySupportedClaimShare * 100)}% of supported approved claims depend on one underlying study after explicit publication-lineage collapse; ${profile.publicationStudyCount} publications resolve to ${profile.underlyingStudyCount} underlying studies; effective underlying-study count ${profile.effectiveUnderlyingStudyCount}`,
+    }
+    item.reasons.push(reason)
+    byUrl.set(profile.url, item)
+  }
+}
+
+/**
  * Production remediation queue for the canonical research-quality snapshot.
  *
  * The base policy intentionally remains independent of profile-file grade state.
  * This wrapper joins the already-computed evidence-grade consistency result to
  * that queue so every hard Grade A topology contradiction has an explicit,
- * structural editorial remediation target. No analyzers are rerun here.
+ * structural editorial remediation target. It also canonicalizes study
+ * dependency remediation onto the underlying-study graph, replacing raw
+ * publication-level and transition-only dependency reasons. No analyzers are
+ * rerun here.
  */
 export function buildCanonicalResearchGapQueue(
   analysis: ResearchQualityAnalysis,
@@ -64,6 +97,8 @@ export function buildCanonicalResearchGapQueue(
       { url: item.url, reasons: [...item.reasons] },
     ]),
   )
+
+  canonicalizeStudyDependencyReasons(byUrl, topology)
 
   for (const finding of evidenceGradeConsistency.topologyContradictions) {
     const item = byUrl.get(finding.url) ?? { url: finding.url, reasons: [] }
@@ -81,5 +116,6 @@ export function buildCanonicalResearchGapQueue(
 
   return [...byUrl.values()]
     .map(recalculate)
+    .filter((item) => item.reasons.length > 0)
     .sort((a, b) => b.score - a.score || b.rawScore - a.rawScore || b.reasons.length - a.reasons.length || a.url.localeCompare(b.url))
 }
