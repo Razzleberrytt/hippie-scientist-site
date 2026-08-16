@@ -18,7 +18,7 @@ export default function UnassignedEvidenceStatusPanel({ dataset }: Props) {
 
   return (
     <section className="mx-auto mb-10 max-w-6xl px-4 sm:px-6 lg:px-8" aria-labelledby="unassigned-evidence-status-title">
-      <div className="rounded-2xl border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8">
+      <div className="card-premium p-6 sm:p-8">
         <p className="eyebrow-label">Grade accounting</p>
         <h2 id="unassigned-evidence-status-title" className="mt-2 text-2xl font-semibold text-ink">
           Unassigned means no single evidence grade is being claimed
