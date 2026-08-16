@@ -26,11 +26,6 @@ export default async function CompoundsPage() {
   const pageData = paginateItems(allCompounds, 1, COMPOUNDS_PAGE_SIZE)
   const leanCompounds = toLeanProfileIndexRecords(allCompounds)
   const leanPageItems = toLeanProfileIndexRecords(pageData.pageItems as RuntimeRecord[])
-  const heroMetrics = [
-    { value: allCompounds.length, label: 'profiles' },
-    { value: pageData.totalPages, label: 'index pages' },
-    { value: 'A–Z', label: 'searchable' },
-  ]
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-4 sm:py-6">
@@ -38,27 +33,8 @@ export default async function CompoundsPage() {
         <p className="eyebrow-label">Compound Research Library</p>
         <h1 className="heading-premium mt-5 max-w-4xl">Compound Library</h1>
         <p className="text-reading mt-4 max-w-3xl">
-          Mechanism, evidence strength, and safety context for published compounds and supplement constituents — evidence first, no hype.
+          Mechanism, evidence strength, and safety context for {allCompounds.length} published compounds and supplement constituents — evidence first, no hype.
         </p>
-
-        <dl className="mt-6 grid grid-cols-3 overflow-hidden rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_76%,transparent)] backdrop-blur-sm">
-          {heroMetrics.map((metric, index) => (
-            <div
-              key={metric.label}
-              className={`px-3 py-3.5 text-center sm:px-5 sm:py-4 ${index > 0 ? 'border-l border-[color:var(--hs-hairline)]' : ''}`}
-            >
-              <dt className="sr-only">{metric.label}</dt>
-              <dd>
-                <span className="block font-display text-2xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)] sm:text-[1.7rem]">
-                  {metric.value}
-                </span>
-                <span className="mt-1 block text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[color:var(--hs-body)] sm:text-[0.7rem] sm:tracking-[0.12em]">
-                  {metric.label}
-                </span>
-              </dd>
-            </div>
-          ))}
-        </dl>
       </section>
 
       <Pagination basePath="/compounds" currentPage={1} totalPages={pageData.totalPages} itemLabel="Compound profiles" />
