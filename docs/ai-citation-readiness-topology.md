@@ -6,7 +6,7 @@ Use one profile-level prioritization layer to decide which herb and compound pag
 
 ## Canonical score
 
-`scripts/ci/audit-ai-citation-topology.ts` scores each machine-readable profile from 0–100 using:
+`lib/ai-citation-readiness.ts` builds each machine-readable profile score from 0–100 using:
 
 - canonical claim-to-source citation completeness: 25%
 - canonical primary-human/systematic-review coverage: 20%
@@ -37,6 +37,15 @@ The topology consumes these fields directly from the shared research-quality ana
 
 This prevents AI SEO scoring from silently disagreeing with release research-quality policy.
 
+## One-pass generation
+
+The canonical `scripts/ci/research-quality.ts` pipeline now runs `analyzeResearchQuality()` once, derives research gaps and study-load topology, and passes that same in-memory analysis into `buildAiCitationReadiness()`. It writes both:
+
+- `ops/reports/research-quality.json` — authoritative research-quality roll-up plus the top AI remediation rows.
+- `reports/ai-citation-readiness.json` — the full AI citation-remediation queue.
+
+The standalone CLI remains a thin compatibility/diagnostic wrapper. It no longer owns scientific classification logic.
+
 ## Interpretation
 
 - 85–100: citation-ready structure; still subject to substantive editorial review.
@@ -60,18 +69,22 @@ For low-scoring profiles, fix gaps in this order:
 
 Never improve the score by fabricating citations, duplicating sources, relabeling narrative reviews as primary studies, or adding generic safety/freshness prose that is not supported by the underlying record.
 
-## Output
+## Commands
 
-Run:
+Canonical full research-quality pass:
+
+```bash
+npx tsx scripts/ci/research-quality.ts
+```
+
+Standalone AI view when only that report is needed:
 
 ```bash
 npx tsx scripts/ci/audit-ai-citation-topology.ts
 ```
 
-The audit writes `reports/ai-citation-readiness.json`, sorted from weakest to strongest profile. This is the canonical AI citation-remediation queue.
-
-Use `--strict` only when the entity artifacts have been generated and the existing backlog has been intentionally triaged. Strict mode fails on contradictory profiles or any profile scoring below 50.
+Use `--strict` on the standalone topology only after the current remediation backlog has been intentionally triaged.
 
 ## Relationship to existing audits
 
-`analyzeResearchQuality()` is authoritative for scientific-support topology. Specialized audits remain diagnostics. The AI topology adds retrieval/presentation readiness on top of that canonical graph; it must not create a second research-quality taxonomy, study classifier, concentration model, or remediation queue.
+`analyzeResearchQuality()` is authoritative for scientific-support topology. `buildAiCitationReadiness()` is the only AI citation-prioritization layer. Specialized audits remain diagnostics. Do not create a second research-quality taxonomy, study classifier, concentration model, or competing remediation queue.
