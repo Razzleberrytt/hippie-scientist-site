@@ -121,22 +121,18 @@ export function Navigation() {
             <span className='max-w-[13rem] truncate sm:max-w-none'>The Hippie Scientist</span>
           </Link>
 
-          <div className='hidden items-center gap-5 text-sm md:flex lg:gap-7'>
+          <div className='hidden items-center gap-5 text-sm lg:flex lg:gap-7'>
             {primaryLinks.map((link) => {
               const hasChildren = Boolean(link.children?.length)
               const childGroups = groupChildren(link.children)
               const isMegaMenu = childGroups.length > 1
               const active = isPrimaryActive(link)
-              // The panel is centred on its trigger, not on the viewport, so a
-              // width capped only at 100vw still runs off the right edge on the
-              // narrower desktop widths. Keep it small enough to clear the edge
-              // from wherever its trigger sits, and open it up from lg.
               const menuWidth = childGroups.length === 2
-                ? 'w-[min(26rem,calc(100vw-2rem))] lg:w-[min(46rem,calc(100vw-2rem))]'
-                : 'w-[min(30rem,calc(100vw-2rem))] lg:w-[min(58rem,calc(100vw-2rem))]'
+                ? 'w-[min(46rem,calc(100vw-2rem))]'
+                : 'w-[min(58rem,calc(100vw-2rem))]'
               const menuGrid = childGroups.length === 2
-                ? 'grid-cols-1 lg:grid-cols-2'
-                : 'grid-cols-2 lg:grid-cols-3'
+                ? 'grid-cols-2'
+                : 'grid-cols-3'
 
               return (
                 <div key={link.href} className='group relative'>
@@ -197,14 +193,14 @@ export function Navigation() {
 
           <div className='flex shrink-0 items-center gap-2'>
             <GlobalSearchModal enableHotkeys={!mobileOpen} />
-            <div className='hidden md:block'>
+            <div className='hidden lg:block'>
               <DarkModeToggle />
             </div>
             <button
               ref={mobileTriggerRef}
               type='button'
               onClick={() => setMobileOpen(!mobileOpen)}
-              className='inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/85 p-2 text-[#123c2f] shadow-sm transition hover:border-[#b88a42]/30 hover:bg-[#f5efe2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42]/50 focus-visible:ring-offset-2 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] md:hidden'
+              className='inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/85 p-2 text-[#123c2f] shadow-sm transition hover:border-[#b88a42]/30 hover:bg-[#f5efe2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42]/50 focus-visible:ring-offset-2 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] lg:hidden'
               aria-label={mobileOpen ? 'Close mobile navigation menu' : 'Open mobile navigation menu'}
               aria-expanded={mobileOpen}
               aria-controls='mobile-nav'
@@ -216,7 +212,7 @@ export function Navigation() {
       </div>
 
       {mobileOpen && (
-        <div id='mobile-nav' className='md:hidden'>
+        <div id='mobile-nav' className='lg:hidden'>
           <div className='fixed inset-0 z-40 bg-[#123c2f]/25 backdrop-blur-sm' onClick={closeMobile} aria-hidden='true' />
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- modal dialog handles Escape and Tab focus containment */}
           <div
