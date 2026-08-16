@@ -1,5 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+import {
+  extractBracketedIdentityNames,
+  levenshteinDistance,
+  normalizeEntityName,
+  stripBracketedIdentityNotes,
+} from '../../lib/entity-identity.mjs';
 import { evaluateProfileCompleteness } from '../../lib/profile-completeness.mjs';
 
 // Pairs that the similarity algorithm incorrectly groups — these are distinct substances
@@ -36,33 +42,13 @@ function ensureDirExists(dirPath) {
   if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath, { recursive: true });
 }
 
-function levenshtein(s1, s2) {
-  const len1 = s1.length;
-  const len2 = s2.length;
-  const matrix = Array.from({ length: len1 + 1 }, () => Array(len2 + 1).fill(0));
-  for (let i = 0; i <= len1; i++) matrix[i][0] = i;
-  for (let j = 0; j <= len2; j++) matrix[0][j] = j;
-  for (let i = 1; i <= len1; i++) {
-    for (let j = 1; j <= len2; j++) {
-      const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
-      matrix[i][j] = Math.min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + cost);
-    }
-  }
-  return matrix[len1][len2];
-}
-
-function cleanName(name) {
-  if (!name) return '';
-  return name.replace(/\s*[([].*?[\])]\s*/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
-}
-
-function getScientificNames(name) {
-  if (!name) return [];
-  const matches = [...name.matchAll(/[([](.*?)[\])]/g)].map(m => m[1].trim().toLowerCase());
-  return matches.filter(m => m.length > 2);
-}
-
 const genericWords = new Set(['extract', 'blend', 'complex', 'powder', 'root', 'berry', 'leaf', 'oil', 'standardized', 'capsule', 'tablet', 'form', 'use', 'sleep', 'active', 'aged']);
+function cleanName(name) {
+  return normalizeEntityName(stripBracketedIdentityNotes(name));
+}
+function getScientificNames(name) {
+  return extractBracketedIdentityNames(name).map((value) => normalizeEntityName(value));
+}
 function getCoreWords(name) {
   return cleanName(name).split(/[\s-]+/).filter(w => w.length > 1 && !genericWords.has(w));
 }
@@ -131,10 +117,10 @@ function runAudit() {
           isMatch = true;
           confidence = 'HIGH';
           reason = 'Exact name match';
-        } else if (levenshtein(slug1, slug2) < 3) {
+        } else if (levenshteinDistance(slug1, slug2) < 3) {
           isMatch = true;
           confidence = slug1.length > 5 ? 'HIGH' : 'MEDIUM';
-          reason = `Slug Levenshtein distance = ${levenshtein(slug1, slug2)}`;
+          reason = `Slug Levenshtein distance = ${levenshteinDistance(slug1, slug2)}`;
         } else if (
           scis1.some(s => s === clean2 || s === slug2 || s.replace(/\s+/g, '-') === slug2) ||
           scis2.some(s => s === clean1 || s === slug1 || s.replace(/\s+/g, '-') === slug1)
