@@ -156,13 +156,46 @@ function citationKey(citation: Citation): string {
         : `title:${citation.title.trim().toLowerCase()}`)
 }
 
-export function extractCitationsFromRecord(record: Record<string, unknown>): Citation[] {
+function normalizedContextValue(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(item => String(item).trim()).filter(Boolean).sort()
+  if (typeof value === 'string') return value.trim().replace(/\s+/g, ' ').toLowerCase()
+  return value ?? null
+}
+
+function citationContextKey(citation: Citation): string {
+  return JSON.stringify([
+    citationKey(citation),
+    normalizedContextValue(citation.year),
+    normalizedContextValue(citation.authors),
+    normalizedContextValue(citation.journal),
+    normalizedContextValue(citation.studyType),
+    normalizedContextValue(citation.evidenceClass),
+    normalizedContextValue(citation.sampleSize),
+    normalizedContextValue(citation.dose),
+    normalizedContextValue(citation.duration),
+    normalizedContextValue(citation.population),
+    normalizedContextValue(citation.outcome),
+    normalizedContextValue(citation.result),
+    normalizedContextValue(citation.limitation),
+    normalizedContextValue(citation.relationship),
+    normalizedContextValue(citation.confidence),
+    normalizedContextValue(citation.statisticalConsistency),
+    normalizedContextValue(citation.extractName),
+    normalizedContextValue(citation.conditions),
+    normalizedContextValue(citation.safetyOutcome),
+  ])
+}
+
+function extractCitations(
+  record: Record<string, unknown>,
+  keyForCitation: (citation: Citation) => string,
+): Citation[] {
   const results: Citation[] = []
   const seen = new Set<string>()
 
   const pushCitation = (citation: Citation) => {
     if (!citation.title && !citation.pmid && !citation.doi && !citation.url) return
-    const key = citationKey(citation)
+    const key = keyForCitation(citation)
     if (seen.has(key)) return
     seen.add(key)
     results.push(citation)
@@ -211,4 +244,18 @@ export function extractCitationsFromRecord(record: Record<string, unknown>): Cit
   }
 
   return results
+}
+
+/** Publication-level citation inventory for reader-facing citation lists. */
+export function extractCitationsFromRecord(record: Record<string, unknown>): Citation[] {
+  return extractCitations(record, citationKey)
+}
+
+/**
+ * Citation rows for evidence-data consumers that need distinct endpoint or
+ * ingredient contexts from the same publication. Exact duplicate contexts are
+ * collapsed, but rows that differ in structured metadata are preserved.
+ */
+export function extractCitationContextsFromRecord(record: Record<string, unknown>): Citation[] {
+  return extractCitations(record, citationContextKey)
 }
