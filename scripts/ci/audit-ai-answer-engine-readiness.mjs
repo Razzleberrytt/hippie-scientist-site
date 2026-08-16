@@ -17,6 +17,7 @@ const GOAL_CLUSTER_ARTICLE = path.join(ROOT, 'components', 'articles', 'GoalClus
 const RHABDO_PAGE = path.join(ROOT, 'app', 'learn', 'rhabdomyolysis', 'page.tsx')
 const LEGACY_GUIDE_REFERENCE = path.join(ROOT, 'components', 'LegacyGuideReference.tsx')
 const LEGACY_GUIDE_QUICK_ANSWER = path.join(ROOT, 'components', 'LegacyGuideQuickAnswer.tsx')
+const LEGACY_GUIDE_FAQ = path.join(ROOT, 'components', 'LegacyGuideFAQ.tsx')
 const LEGACY_GUIDE_PAGES = [
   ['prebiotics', path.join(ROOT, 'app', 'guides', 'other', 'prebiotics', 'page.tsx')],
   ['greens-powders', path.join(ROOT, 'app', 'guides', 'other', 'greens-powders', 'page.tsx')],
@@ -278,6 +279,33 @@ function auditLegacyGuideQuickAnswerPrimitives() {
   }
 }
 
+function auditLegacyGuideFaqPrimitives() {
+  requireSignals(LEGACY_GUIDE_FAQ, 'legacy-guide-faq', 'LegacyGuideFAQ', [
+    ["import FAQSchema from '@/components/seo/FAQSchema'", 'FAQ schema boundary'],
+    ['<FAQSchema pagePath={pagePath} questions={questions} />', 'shared structured FAQ rendering'],
+    ['id="frequently-asked-questions"', 'stable visible FAQ anchor'],
+    ['data-visible-faq="true"', 'visible FAQ marker'],
+    ['questions.map((faq)', 'shared visible FAQ rendering'],
+    ['href="#frequently-asked-questions"', 'durable FAQ self-link'],
+  ])
+
+  for (const [slug, file] of LEGACY_GUIDE_PAGES) {
+    requireSignals(file, 'legacy-guide-faq', `${slug} guide`, [
+      ["import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'", 'shared legacy FAQ import'],
+      ['<LegacyGuideFAQ', 'shared FAQ boundary usage'],
+      ['questions={FAQS}', 'FAQ source-array binding'],
+    ])
+
+    const source = text(file)
+    if (source.includes("import FAQSchema from '@/components/seo/FAQSchema'") || source.includes('<FAQSchema ')) {
+      add('error', 'legacy-guide-faq', `${slug} guide reintroduced standalone FAQ schema outside LegacyGuideFAQ`)
+    }
+    if (/FAQS\.map\s*\(/.test(source)) {
+      add('error', 'legacy-guide-faq', `${slug} guide reintroduced page-local FAQ rendering outside LegacyGuideFAQ`)
+    }
+  }
+}
+
 function auditLegacyGuideTablePrimitives() {
   for (const [slug, file] of LEGACY_GUIDE_PAGES) {
     const source = text(file)
@@ -391,6 +419,7 @@ auditGoalClusterCitationPrimitives()
 auditRhabdoCitationPrimitives()
 auditLegacyGuideReferencePrimitives()
 auditLegacyGuideQuickAnswerPrimitives()
+auditLegacyGuideFaqPrimitives()
 auditLegacyGuideTablePrimitives()
 auditProfilePrimitives()
 auditExtractability()
