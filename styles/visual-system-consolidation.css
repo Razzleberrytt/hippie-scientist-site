@@ -1,20 +1,91 @@
 :root {
-  /* Keep the app canvas on the same warm neutral used by the design tokens. */
-  --color-background: var(--bg);
+  /* Canonical light palette: warm neutral canvas, forest actions, dark ink. */
+  --color-background: #f7f8f4;
+  --color-surface: #eef2eb;
+  --color-ink: #111a16;
+  --color-muted: #47544d;
+  --bg: #f7f8f4;
+  --surface: #eef2eb;
+  --surface-elevated: #fffefb;
+  --text-primary: #111a16;
+  --text-secondary: #405047;
+  --text-muted: #536159;
+  --surface-card: rgba(255, 254, 251, 0.94);
+  --surface-card-strong: #fffefb;
+  --surface-subtle: rgba(238, 242, 235, 0.82);
+  --surface-code: #f0f3ed;
+  --surface-warning: rgba(255, 248, 230, 0.92);
+  --surface-danger: rgba(255, 240, 240, 0.92);
+  --surface-info: rgba(239, 246, 241, 0.94);
+  --surface-neutral: rgba(247, 248, 244, 0.96);
+  --border-soft: rgba(31, 77, 41, 0.11);
+  --border-strong: rgba(31, 77, 41, 0.20);
+  --ring-brand: rgba(31, 77, 41, 0.30);
+  --accent-primary: #1f4d29;
+  --accent-secondary: #557247;
+  --accent-teal: #3f6b50;
+
+  /* Normalize the older hs-* editorial token family onto the same palette. */
+  --hs-gold: #557247;
+  --hs-gold-bright: #6f8f5c;
+  --hs-gold-soft: #d1dec6;
+  --hs-ink: #111a16;
+  --hs-ink-soft: #33443a;
+  --hs-body: #536159;
+  --hs-hairline: rgba(31, 77, 41, 0.11);
+  --hs-hairline-strong: rgba(31, 77, 41, 0.20);
+  --hs-surface: #fffefb;
+  --hs-surface-2: rgba(255, 254, 251, 0.86);
+  --hs-lift: 0 1px 2px rgba(13, 23, 18, 0.06), 0 10px 28px -18px rgba(13, 23, 18, 0.20);
+  --hs-lift-hover: 0 2px 4px rgba(13, 23, 18, 0.07), 0 20px 42px -22px rgba(13, 23, 18, 0.28);
+  --hs-canvas: linear-gradient(180deg, #f9faf6 0%, #f7f8f4 42%, #f3f6f0 100%);
+  --hs-dot: rgba(31, 77, 41, 0.08);
+  --hs-dot-opacity: 0.18;
+}
+
+html.dark {
+  --color-background: #0d1712;
+  --color-surface: #14261d;
+  --color-ink: #f2efe5;
+  --color-muted: #b0bfb5;
+  --bg: #0d1712;
+  --surface: #14261d;
+  --surface-elevated: #1a3028;
+  --text-primary: #f2efe5;
+  --text-secondary: #d8d5ca;
+  --text-muted: #b0bfb5;
+  --surface-card: rgba(26, 48, 40, 0.96);
+  --surface-card-strong: #1e372d;
+  --surface-subtle: rgba(26, 48, 40, 0.58);
+  --border-soft: rgba(180, 210, 190, 0.16);
+  --border-strong: rgba(180, 210, 190, 0.26);
+  --ring-brand: rgba(149, 185, 154, 0.32);
+  --accent-primary: #95b99a;
+  --accent-secondary: #78a380;
+  --accent-teal: #78a380;
+
+  --hs-gold: #95b99a;
+  --hs-gold-bright: #b5ceb8;
+  --hs-gold-soft: rgba(149, 185, 154, 0.24);
+  --hs-ink: #f2efe5;
+  --hs-ink-soft: #d8d5ca;
+  --hs-body: #b0bfb5;
+  --hs-hairline: rgba(180, 210, 190, 0.16);
+  --hs-hairline-strong: rgba(180, 210, 190, 0.26);
+  --hs-surface: #1a3028;
+  --hs-surface-2: rgba(26, 48, 40, 0.78);
+  --hs-canvas: linear-gradient(180deg, #0d1712 0%, #101d16 100%);
+  --hs-dot: rgba(180, 210, 190, 0.08);
+  --hs-dot-opacity: 0.14;
 }
 
 body,
 .hs-shell {
-  background: var(--bg);
+  background: var(--hs-canvas);
+  color: var(--text-primary);
 }
 
-html.dark body,
-html.dark .hs-shell {
-  background: var(--bg);
-}
-
-/* Elevated content should read as distinct from the warm canvas without
-   introducing unrelated gray/blue tints. */
+/* Keep elevated content visually distinct without introducing unrelated tints. */
 :where(.hero-shell, .premium-card, .surface-card) {
   border-color: var(--border-soft);
 }
