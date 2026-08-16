@@ -8,7 +8,9 @@ function risk(overrides: Partial<MechanismRisk> = {}): MechanismRisk {
     mechanism: 'serotonergic',
     label: 'Serotonergic activity',
     severity: 'severe',
+    certainties: ['theoretical'],
     partnerCount: 2,
+    provenanceCoverage: { withProvenance: 0, total: 2 },
     topPartners: [
       { slug: 'herb-b', name: 'Herb B' },
       { slug: 'herb-c', name: 'Herb C' },
@@ -33,7 +35,7 @@ describe('AdditiveRiskPanel', () => {
 
   it('uses singular "supplement" wording when only one partner shares the flag', () => {
     const { container } = render(
-      <AdditiveRiskPanel risks={[risk({ partnerCount: 1, topPartners: [{ slug: 'herb-b', name: 'Herb B' }] })]} displayName="Herb A" />,
+      <AdditiveRiskPanel risks={[risk({ partnerCount: 1, provenanceCoverage: { withProvenance: 0, total: 1 }, topPartners: [{ slug: 'herb-b', name: 'Herb B' }] })]} displayName="Herb A" />,
     )
     expect(container.querySelector('.text-xs.text-muted')?.textContent).toMatch(/1\s*other supplement\s*share this flag/)
   })
@@ -49,6 +51,7 @@ describe('AdditiveRiskPanel', () => {
         risks={[
           risk({
             partnerCount: 5,
+            provenanceCoverage: { withProvenance: 0, total: 5 },
             topPartners: [
               { slug: 'a', name: 'Herb A' },
               { slug: 'b', name: 'Herb B' },
