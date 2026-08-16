@@ -56,6 +56,12 @@ function evidenceText(record: RuntimeRecord): string {
     .toLowerCase()
 }
 
+function authoredEvidenceSignals(record: RuntimeRecord) {
+  const rawGrade = record?.evidence_grade ?? record?.evidenceGrade
+  const rawTier = record?.evidence_tier ?? record?.evidenceTier ?? record?.evidenceLevel
+  return { rawGrade, rawTier, present: Boolean(text(rawGrade) || text(rawTier)) }
+}
+
 export function hasHumanEvidence(record: RuntimeRecord): boolean {
   const evidence = evidenceText(record)
 
@@ -92,8 +98,23 @@ export function isPreliminaryResearch(record: RuntimeRecord): boolean {
 }
 
 export function getEvidenceTier(record: RuntimeRecord): EvidenceTier {
-  const evidence = evidenceText(record)
+  const authored = authoredEvidenceSignals(record)
+  if (authored.present) {
+    const reconciled = reconcileEvidenceGrade(authored.rawGrade, authored.rawTier)
+    const rawTierText = text(authored.rawTier).toLowerCase()
+    if (reconciled.grade === 'A') return 'strong'
+    if (reconciled.grade === 'B') return 'moderate'
+    if (reconciled.grade === 'C') {
+      return /\b(mixed|conflict|inconsistent|equivocal)\b/.test(rawTierText) ? 'mixed' : 'limited'
+    }
+    if (reconciled.grade === 'D') {
+      return /\b(traditional|ethnobotanical|historical)\b/.test(rawTierText) ? 'traditional' : 'preliminary'
+    }
+    if (reconciled.grade === 'Avoid/Insufficient') return 'insufficient'
+    return 'review'
+  }
 
+  const evidence = evidenceText(record)
   if (/\b(needs? review|unknown|tbd|draft|placeholder|profile pending)\b/.test(evidence)) return 'review'
   if (/\b(none|no evidence|insufficient|minimal|not established)\b/.test(evidence)) return 'insufficient'
   if (/\b(mixed|conflict|inconsistent|equivocal)\b/.test(evidence)) return 'mixed'
@@ -151,13 +172,11 @@ export type EvidenceLetterGrade = CanonicalEvidenceGrade | 'Unassigned'
  * compatibility fallback so older runtime-only content does not disappear.
  */
 export function getEvidenceLetterGrade(record: RuntimeRecord): EvidenceLetterGrade {
-  const rawGrade = record?.evidence_grade ?? record?.evidenceGrade
-  const rawTier = record?.evidence_tier ?? record?.evidenceTier ?? record?.evidenceLevel
-  const reconciled = reconcileEvidenceGrade(rawGrade, rawTier)
-  if (reconciled.grade) return reconciled.grade
-
-  const hasAuthoredSignal = text(rawGrade) || text(rawTier)
-  if (hasAuthoredSignal) return 'Unassigned'
+  const authored = authoredEvidenceSignals(record)
+  if (authored.present) {
+    const reconciled = reconcileEvidenceGrade(authored.rawGrade, authored.rawTier)
+    return reconciled.grade ?? 'Unassigned'
+  }
 
   const tierMap: Record<EvidenceTier, EvidenceLetterGrade> = {
     strong: 'A',
