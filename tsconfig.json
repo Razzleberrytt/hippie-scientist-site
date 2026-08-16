@@ -96,7 +96,6 @@
     "src/lib/governedReviewFreshness.ts",
     "src/lib/growth.ts",
     "src/lib/herb-data.ts",
-    "src/lib/herbProducts.ts",
     "src/lib/herbRecommendations.ts",
     "src/lib/herbs.ts",
     "src/lib/interactionSeed.ts",
