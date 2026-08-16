@@ -14,27 +14,57 @@ export default function WhyWeBelieveThis({
   sourceCount = 0,
 }: WhyWeBelieveThisProps) {
   return (
-    <details open className="mt-4 rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
-      <summary className="cursor-pointer font-semibold text-ink">
-        Why we believe this
-        {sourceCount > 0 ? (
-          <span className="ml-2 text-xs font-normal text-muted">
-            {sourceCount} cited source{sourceCount === 1 ? '' : 's'}
+    <details
+      open
+      className="group mt-4 border-y border-[color:var(--hs-hairline-strong)] !bg-transparent !shadow-none"
+    >
+      <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 px-1 py-3 text-left [&::-webkit-details-marker]:hidden">
+        <span className="flex items-center gap-2">
+          <span className="text-xs font-bold uppercase tracking-[0.15em] text-[color:var(--tone-ink)]">
+            Why we believe this
           </span>
-        ) : null}
+          {sourceCount > 0 ? (
+            <span className="text-xs font-normal text-[color:var(--hs-body)]">
+              {sourceCount} cited source{sourceCount === 1 ? '' : 's'}
+            </span>
+          ) : null}
+        </span>
+        <svg
+          className="size-4 shrink-0 text-[color:var(--hs-body)] transition-transform group-open:rotate-180"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          aria-hidden="true"
+        >
+          <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </summary>
-      <div className="mt-3 space-y-3 text-sm leading-6 text-[#36483e] dark:text-[var(--text-muted)]">
-        <p>{evidenceSummary}</p>
-        {limitations ? (
-          <p><strong className="text-ink">Limitations:</strong> {limitations}</p>
+
+      <div className="border-t border-[color:var(--hs-hairline)] px-1 pb-5 pt-4 text-sm leading-7 text-[color:var(--hs-body)]">
+        <p className="max-w-3xl text-[color:var(--hs-body)]">{evidenceSummary}</p>
+
+        {(limitations || populationLimitations) ? (
+          <dl className="mt-4 divide-y divide-[color:var(--hs-hairline)] border-y border-[color:var(--hs-hairline)]">
+            {limitations ? (
+              <div className="grid gap-1 py-3 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-4">
+                <dt className="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--hs-ink)]">Limitations</dt>
+                <dd>{limitations}</dd>
+              </div>
+            ) : null}
+            {populationLimitations ? (
+              <div className="grid gap-1 py-3 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-4">
+                <dt className="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--hs-ink)]">Population limits</dt>
+                <dd>{populationLimitations}</dd>
+              </div>
+            ) : null}
+          </dl>
         ) : null}
-        {populationLimitations ? (
-          <p><strong className="text-ink">Population limits:</strong> {populationLimitations}</p>
-        ) : null}
+
         {conclusionChangeTrigger ? (
-          <div className="border-t border-brand-900/10 pt-3">
-            <p className="font-semibold text-ink">What would change our conclusion?</p>
-            <p className="mt-1">{conclusionChangeTrigger}</p>
+          <div className="relative mt-4 pl-4 before:absolute before:inset-y-0 before:left-0 before:w-0.5 before:bg-[color:var(--hs-gold)]">
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--hs-ink)]">What would change our conclusion?</p>
+            <p className="mt-1 max-w-3xl">{conclusionChangeTrigger}</p>
           </div>
         ) : null}
       </div>
