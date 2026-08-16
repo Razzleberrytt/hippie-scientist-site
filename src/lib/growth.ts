@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { canTrackAnalytics } from '@/lib/consent'
-import { readStorage, writeStorage } from '@/utils/storageState'
+import { getLS as readStorage, setLS as writeStorage } from '@/src/lib/storage'
 import { useLocation } from './router-compat'
 
 export type SavedEntityType = 'herb' | 'compound' | 'article' | 'blend'
