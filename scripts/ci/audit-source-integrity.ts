@@ -3,8 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
-import { analyzeResearchSourceIntegrity } from '../../lib/research-source-integrity'
+import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 import { STUDY_CLASS_INFO, type StudyClass } from '../../lib/study-class'
 
 const ROOT = process.cwd()
@@ -12,8 +11,7 @@ const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORTS_DIR, 'source-integrity.json')
 
 function main() {
-  const analysis = analyzeResearchQuality(ROOT)
-  const sourceIntegrity = analyzeResearchSourceIntegrity(analysis)
+  const { sourceIntegrity } = buildResearchQualitySnapshot(ROOT)
   const { summary, withdrawn, mostReferenced, oldAndLoadBearing } = sourceIntegrity
 
   fs.mkdirSync(REPORTS_DIR, { recursive: true })
@@ -21,7 +19,7 @@ function main() {
     schemaVersion: 2,
     generatedAt: new Date().toISOString(),
     currentYear: sourceIntegrity.currentYear,
-    source: 'lib/research-source-integrity.ts',
+    source: 'lib/research-quality-snapshot.ts -> lib/research-source-integrity.ts',
     summary,
     withdrawn,
     mostReferenced,
@@ -44,9 +42,7 @@ function main() {
 
   if (withdrawn.length) {
     console.error(`\n[source-integrity] FAILED — ${withdrawn.length} retracted or withdrawn study still cited.\n`)
-    for (const study of withdrawn) {
-      console.error(`  PMID ${study.pmid} [${study.publicationTypes.join(', ')}] cited by ${study.pages.join(', ')}`)
-    }
+    for (const study of withdrawn) console.error(`  PMID ${study.pmid} [${study.publicationTypes.join(', ')}] cited by ${study.pages.join(', ')}`)
     process.exit(1)
   }
 }
