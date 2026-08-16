@@ -23,16 +23,16 @@ export default async function GoalHubSections({
 }: GoalHubSectionsProps) {
   const entityTypeMap = await getSlugEntityTypeMap()
   const ingredients = getGoalIngredientCandidates(goalSlug)
-    .map((candidate) => {
+    .map((candidate): GoalHubLink | null => {
       const entityType = entityTypeMap[candidate.slug]
       if (!entityType) return null
       return {
         label: candidate.label,
         href: `/${entityType === 'herb' ? 'herbs' : 'compounds'}/${candidate.slug}/`,
         note: candidate.note,
-      } satisfies GoalHubLink
+      }
     })
-    .filter((link): link is GoalHubLink => Boolean(link))
+    .filter((link): link is GoalHubLink => link !== null)
 
   const hasLinks = stack || ingredients.length > 0 || compares.length > 0 || seoEntry
   if (!hasLinks) return null
