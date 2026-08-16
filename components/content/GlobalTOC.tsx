@@ -112,7 +112,7 @@ export default function GlobalTOC() {
         className="fixed right-4 top-24 z-30 hidden w-[210px] xl:block"
       >
         <div className="border-l border-[color:var(--hs-hairline-strong)] pl-4">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-700">
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-[var(--accent-teal)]">
             On this page
           </p>
           <TOCLinks headings={headings} activeId={activeId} compact />
@@ -144,8 +144,8 @@ function TOCLinks({
               'block border-l-2 px-2.5 py-1.5 leading-snug transition-colors',
               compact ? 'text-[11px]' : h.level === 3 ? 'text-xs' : 'text-sm',
               activeId === h.id
-                ? 'border-brand-700 bg-brand-50/70 font-semibold text-[color:var(--hs-ink)]'
-                : 'border-transparent text-[color:var(--hs-body)] hover:border-brand-700/30 hover:bg-brand-50/50 hover:text-[color:var(--hs-ink)]',
+                ? 'border-brand-700 bg-brand-50/70 font-semibold text-[color:var(--hs-ink)] dark:border-[var(--accent-teal)] dark:bg-[var(--surface-subtle)]'
+                : 'border-transparent text-[color:var(--hs-body)] hover:border-brand-700/30 hover:bg-brand-50/50 hover:text-[color:var(--hs-ink)] dark:hover:border-[var(--accent-teal)]/40 dark:hover:bg-[var(--surface-subtle)]',
             ].join(' ')}
           >
             {h.text}
