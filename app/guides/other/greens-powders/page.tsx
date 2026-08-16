@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
 import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
@@ -29,7 +29,6 @@ export default function GreensPowdersPage() {
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd title="Greens Powders: Do They Work?" description="AG1, Bloom, Grüns — greens powders are everywhere. 8 cited studies." url="https://thehippiescientist.net/guides/other/greens-powders" type="Article" />
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Greens Powders' }]} />
-      <FAQSchema pagePath="/guides/other/greens-powders/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Greens Powders: Do They Actually Do Anything?</h1><p className="text-lg leading-8 text-muted">AG1 ($99/month), Bloom, Live It Up, Grüns (acquired by Unilever for undisclosed sum) — greens powders are a multi-billion-dollar category built on the promise of replacing your multivitamin, probiotic, and vegetables in one scoop. Hugh Jackman and Lewis Hamilton endorse AG1. Strip away the marketing, and the evidence is remarkably thin. Here is what the research actually shows, with citations.</p>
 
@@ -85,6 +84,7 @@ export default function GreensPowdersPage() {
         <Ref n={7} text="Consumer Reports (2020). Heavy metals in greens powders and protein supplements investigation." url="https://www.consumerreports.org/health/supplements/heavy-metals-in-protein-supplements/" />
         <Ref n={8} text="Booth SL, et al. (2013). Vitamin K and warfarin interaction: clinical guidance. J Am Diet Assoc, 100(6): 641-646." />
       </ol></section>
+      <LegacyGuideFAQ pagePath="/guides/other/greens-powders/" questions={FAQS} />
       <EmailCapture headline="Get evidence reviews like this" description="8 cited studies. No influencer hype." ctaLabel="Get the evidence" location="guide-greens-powders" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>
