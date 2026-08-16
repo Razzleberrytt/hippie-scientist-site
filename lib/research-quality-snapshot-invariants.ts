@@ -59,6 +59,11 @@ export function validateResearchQualitySnapshotInvariants(
   const failures: ResearchSnapshotInvariantFailure[] = []
   const profileUrls = new Set(analysis.profileAnalyses.map((profile) => profile.url))
   const approvedClaimKeys = new Set(analysis.claimAnalyses.map((claim) => claimKey(claim.url, claim.claimId)))
+  const approvedMultiStudyClaimKeys = new Set(
+    analysis.claimAnalyses
+      .filter((claim) => claim.studyCount >= 2)
+      .map((claim) => claimKey(claim.url, claim.claimId)),
+  )
   const canonicalStudyPages = new Map<string, Set<string>>()
   const globalStudyIdentities = crossProfileStudyIdentityMap(analysis.profiles)
 
@@ -118,6 +123,12 @@ export function validateResearchQualitySnapshotInvariants(
       `edgeCardinality=${topology.edgeCardinality.summary.claims}; analysis=${analysis.structuredClaimAnalyses.length}`,
     )
   }
+  if (topology.evidenceIndependenceCoverage.summary.multiStudyApprovedClaims !== approvedMultiStudyClaimKeys.size) {
+    add(
+      'independence-coverage-claim-count-mismatch',
+      `coverage=${topology.evidenceIndependenceCoverage.summary.multiStudyApprovedClaims}; analysis=${approvedMultiStudyClaimKeys.size}`,
+    )
+  }
   for (const claim of topology.edgeCardinality.duplicateEdgeClaims) {
     add(
       'duplicate-claim-source-edge',
@@ -165,6 +176,13 @@ export function validateResearchQualitySnapshotInvariants(
   }
   for (const claim of topology.claimEvidenceAge) {
     requireApprovedClaim('evidence-age-unknown-claim', claim.url, claim.claimId)
+  }
+  for (const claim of topology.evidenceIndependenceCoverage.claims) {
+    const key = claimKey(claim.url, claim.claimId)
+    requireApprovedClaim('independence-coverage-unknown-claim', claim.url, claim.claimId)
+    if (!approvedMultiStudyClaimKeys.has(key)) {
+      add('independence-coverage-non-multistudy-claim', `${claim.url}::${claim.claimId}`)
+    }
   }
   for (const gap of researchGapQueue) {
     requireProfile('gap-queue-unknown-profile', gap.url, 'research gap queue')
