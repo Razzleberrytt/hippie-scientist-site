@@ -68,7 +68,6 @@ export const RESEARCH_GAP_WEIGHTS = {
   synthesisOnlyCausalSupport: 7,
   highConfidenceCausalLanguageBonus: 8,
   noPrimaryHumanStudy: 20,
-  narrativeReviewDominatedProfile: 20,
   edgeWeightedNarrativeDominance: 12,
   synthesisOnlyApprovedOutcome: 8,
   unmappedPrimaryHumanEvidence: 12,
@@ -133,7 +132,6 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'claim-provenance-narrow-multi-study-support': 'concentration',
   'pseudo-multi-source-support': 'concentration',
   'underlying-study-publication-reuse': 'concentration',
-  'narrative-review-dominated-profile': 'evidence-mix',
   'edge-weighted-narrative-dominance': 'evidence-mix',
   'approved-claims-without-primary-human-study': 'evidence-mix',
   'unmapped-primary-human-evidence': 'mapping',
@@ -230,10 +228,6 @@ function addEditorialBacklogReasons(analysis: ResearchQualityAnalysis, add: AddR
 
 function addProfileReasons(analysis: ResearchQualityAnalysis, add: AddReason) {
   for (const profile of analysis.profileAnalyses) {
-    if (profile.narrativeDominatedVsPrimaryHuman) {
-      const detail = profile.narrativeToPrimaryHumanRatio === null ? 'no primary-human studies' : `${profile.narrativeToPrimaryHumanRatio}:1 narrative-to-primary-human ratio`
-      add(profile.url, 'narrative-review-dominated-profile', RESEARCH_GAP_WEIGHTS.narrativeReviewDominatedProfile, detail)
-    }
     if (profile.noPrimaryHuman) add(profile.url, 'approved-claims-without-primary-human-study', RESEARCH_GAP_WEIGHTS.noPrimaryHumanStudy)
 
     const mappingBonus = profile.noPrimaryHuman ? RESEARCH_GAP_WEIGHTS.mappingGapNoApprovedPrimaryBonus : 0
