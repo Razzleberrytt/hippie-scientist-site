@@ -77,14 +77,21 @@ export type UnderlyingStudyIndependenceAnalysis = {
     collapsedPrimaryHumanPublicationCount: number
     /** Site-wide unique publication identities after DOI/PMID alias collapse. */
     globalInventoryPublicationCount: number
-    /** Site-wide underlying evidence units after cross-profile registry/lineage collapse. */
+    /** Site-wide evidence units remaining after explicitly proven dependence collapse. */
     globalInventoryUnderlyingStudyCount: number
     globalCollapsedInventoryPublicationCount: number
+    /** Unique publications with explicit registry/cohort/dataset/parent-study metadata available for independence assessment. */
+    globalInventoryPublicationsWithIndependenceMetadata: number
+    globalInventoryPublicationsWithoutIndependenceMetadata: number
+    globalInventoryIndependenceMetadataCoverage: number
     /** Site-wide unique primary-human publication identities. */
     globalPrimaryHumanPublicationCount: number
-    /** Site-wide independent primary-human evidence units. */
+    /** Primary-human evidence units remaining after explicitly proven dependence collapse. */
     globalPrimaryHumanUnderlyingStudyCount: number
     globalCollapsedPrimaryHumanPublicationCount: number
+    globalPrimaryHumanPublicationsWithIndependenceMetadata: number
+    globalPrimaryHumanPublicationsWithoutIndependenceMetadata: number
+    globalPrimaryHumanIndependenceMetadataCoverage: number
     overDependentProfiles: number
     newlyOverDependentProfiles: number
   }
@@ -102,9 +109,15 @@ type GlobalInventoryIndependence = {
   publicationCount: number
   underlyingStudyCount: number
   collapsedPublicationCount: number
+  publicationsWithIndependenceMetadata: number
+  publicationsWithoutIndependenceMetadata: number
+  independenceMetadataCoverage: number
   primaryHumanPublicationCount: number
   primaryHumanUnderlyingStudyCount: number
   collapsedPrimaryHumanPublicationCount: number
+  primaryHumanPublicationsWithIndependenceMetadata: number
+  primaryHumanPublicationsWithoutIndependenceMetadata: number
+  primaryHumanIndependenceMetadataCoverage: number
 }
 
 function round(value: number, digits = 3): number {
@@ -216,7 +229,10 @@ function buildProfileUnions(inputs: UnderlyingStudyIndependenceInputs): Map<stri
  * Project the same explicit registry/lineage evidence onto site-wide publication
  * identities. DOI/PMID aliases establish publication identity across profiles;
  * registry/cohort/dataset/parent-study identifiers establish underlying-study
- * dependence across those publications. No fuzzy title/author similarity is used.
+ * dependence across those publications. Metadata coverage is measured on the
+ * same unique-publication denominator as these global counts. A publication is
+ * considered covered only when explicit study-lineage metadata exists; DOI/PMID
+ * identity alone does not count as independence metadata.
  */
 function buildGlobalInventoryIndependence(
   inputs: UnderlyingStudyIndependenceInputs,
@@ -236,11 +252,13 @@ function buildGlobalInventoryIndependence(
   }
 
   const union = createUnion([...publicationIds])
+  const explicitMetadataPublicationIds = new Set<string>()
   const registryGroups = new Map<string, string[]>()
   for (const study of inputs.trialRegistrationIndependence.studies ?? []) {
     if (!study.stableRegistryId) continue
     const globalStudyId = crossProfileStudyIdentity(study.url, study.studyId, identities)
     if (!publicationIds.has(globalStudyId)) continue
+    explicitMetadataPublicationIds.add(globalStudyId)
     const group = registryGroups.get(study.stableRegistryId) ?? []
     group.push(globalStudyId)
     registryGroups.set(study.stableRegistryId, group)
@@ -249,19 +267,23 @@ function buildGlobalInventoryIndependence(
 
   // Compatibility path for synthetic/partial callers where claim diagnostics
   // carry same-trial pairs but the canonical study registry index is absent.
+  // An explicit same-trial pair is also explicit independence metadata for both
+  // referenced publication identities.
   for (const claim of inputs.trialRegistrationIndependence.claims) {
     for (const pair of claim.sameRegisteredTrialPairs) {
-      union.union(
-        crossProfileStudyIdentity(claim.url, pair.leftStudyId, identities),
-        crossProfileStudyIdentity(claim.url, pair.rightStudyId, identities),
-      )
+      const left = crossProfileStudyIdentity(claim.url, pair.leftStudyId, identities)
+      const right = crossProfileStudyIdentity(claim.url, pair.rightStudyId, identities)
+      if (publicationIds.has(left)) explicitMetadataPublicationIds.add(left)
+      if (publicationIds.has(right)) explicitMetadataPublicationIds.add(right)
+      union.union(left, right)
     }
   }
 
   const lineageGroups = new Map<string, string[]>()
   for (const study of inputs.evidenceLineage.studies) {
     const globalStudyId = crossProfileStudyIdentity(study.url, study.studyId, identities)
-    if (!publicationIds.has(globalStudyId)) continue
+    if (!publicationIds.has(globalStudyId) || !study.lineageIds.length) continue
+    explicitMetadataPublicationIds.add(globalStudyId)
     for (const lineageId of study.lineageIds) {
       const group = lineageGroups.get(lineageId) ?? []
       group.push(globalStudyId)
@@ -274,16 +296,36 @@ function buildGlobalInventoryIndependence(
   const primaryHumanUnderlyingStudyIds = new Set(
     [...primaryHumanPublicationIds].map((studyId) => union.find(studyId)),
   )
+  const primaryHumanMetadataPublicationIds = new Set(
+    [...primaryHumanPublicationIds].filter((studyId) => explicitMetadataPublicationIds.has(studyId)),
+  )
+  const publicationsWithIndependenceMetadata = explicitMetadataPublicationIds.size
+  const primaryHumanPublicationsWithIndependenceMetadata = primaryHumanMetadataPublicationIds.size
 
   return {
     publicationCount: publicationIds.size,
     underlyingStudyCount: underlyingStudyIds.size,
     collapsedPublicationCount: Math.max(0, publicationIds.size - underlyingStudyIds.size),
+    publicationsWithIndependenceMetadata,
+    publicationsWithoutIndependenceMetadata: Math.max(0, publicationIds.size - publicationsWithIndependenceMetadata),
+    independenceMetadataCoverage: round(
+      publicationIds.size ? publicationsWithIndependenceMetadata / publicationIds.size : 1,
+    ),
     primaryHumanPublicationCount: primaryHumanPublicationIds.size,
     primaryHumanUnderlyingStudyCount: primaryHumanUnderlyingStudyIds.size,
     collapsedPrimaryHumanPublicationCount: Math.max(
       0,
       primaryHumanPublicationIds.size - primaryHumanUnderlyingStudyIds.size,
+    ),
+    primaryHumanPublicationsWithIndependenceMetadata,
+    primaryHumanPublicationsWithoutIndependenceMetadata: Math.max(
+      0,
+      primaryHumanPublicationIds.size - primaryHumanPublicationsWithIndependenceMetadata,
+    ),
+    primaryHumanIndependenceMetadataCoverage: round(
+      primaryHumanPublicationIds.size
+        ? primaryHumanPublicationsWithIndependenceMetadata / primaryHumanPublicationIds.size
+        : 1,
     ),
   }
 }
@@ -464,9 +506,15 @@ export function analyzeUnderlyingStudyIndependence(
       globalInventoryPublicationCount: globalInventory.publicationCount,
       globalInventoryUnderlyingStudyCount: globalInventory.underlyingStudyCount,
       globalCollapsedInventoryPublicationCount: globalInventory.collapsedPublicationCount,
+      globalInventoryPublicationsWithIndependenceMetadata: globalInventory.publicationsWithIndependenceMetadata,
+      globalInventoryPublicationsWithoutIndependenceMetadata: globalInventory.publicationsWithoutIndependenceMetadata,
+      globalInventoryIndependenceMetadataCoverage: globalInventory.independenceMetadataCoverage,
       globalPrimaryHumanPublicationCount: globalInventory.primaryHumanPublicationCount,
       globalPrimaryHumanUnderlyingStudyCount: globalInventory.primaryHumanUnderlyingStudyCount,
       globalCollapsedPrimaryHumanPublicationCount: globalInventory.collapsedPrimaryHumanPublicationCount,
+      globalPrimaryHumanPublicationsWithIndependenceMetadata: globalInventory.primaryHumanPublicationsWithIndependenceMetadata,
+      globalPrimaryHumanPublicationsWithoutIndependenceMetadata: globalInventory.primaryHumanPublicationsWithoutIndependenceMetadata,
+      globalPrimaryHumanIndependenceMetadataCoverage: globalInventory.primaryHumanIndependenceMetadataCoverage,
       overDependentProfiles: profiles.filter((profile) => profile.overDependentOnSingleUnderlyingStudy).length,
       newlyOverDependentProfiles: newlyOverDependentProfiles.length,
     },
