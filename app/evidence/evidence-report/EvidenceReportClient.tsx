@@ -160,7 +160,7 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
         <p className="eyebrow-label">Category comparison</p>
         <h2 className="mt-2 text-2xl font-semibold text-ink">Where the current library has stronger human-evidence coverage</h2>
         <p className="mt-3 max-w-4xl text-sm leading-7 text-muted">
-          Categories are ranked by the share of indexable ingredients currently graded A/B, then by structured human-trial record coverage. These are source/publication-level counts rather than proven-independent underlying-study counts. Category names come from canonical runtime records; small categories can be volatile.
+          Categories are ranked by the share of indexable ingredients currently graded A/B, then by structured human-trial record coverage. Human source and trial counts are deduplicated publication entities within each category, not citation incidences or proven-independent underlying studies. Category names come from canonical runtime records; small categories can be volatile.
         </p>
         <div className="mt-6 overflow-x-auto">
           <table className="w-full min-w-[900px] border-collapse text-left text-sm">
