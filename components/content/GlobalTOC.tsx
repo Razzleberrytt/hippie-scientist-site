@@ -9,6 +9,8 @@ type Heading = {
   level: 2 | 3
 }
 
+const MIN_GLOBAL_TOC_HEADINGS = 4
+
 export default function GlobalTOC() {
   const [headings, setHeadings] = useState<Heading[]>([])
   const [activeId, setActiveId] = useState('')
@@ -18,13 +20,9 @@ export default function GlobalTOC() {
   const pathname = usePathname()
 
   useEffect(() => {
-    // This component lives in the persistent root layout, so re-scan the new
-    // page's headings on every route change instead of only on first mount.
     setActiveId('')
     setMobileOpen(false)
 
-    // Stand down whenever the page already owns a curated navigation surface.
-    // The global TOC is a fallback, not a second competing "On this page" UI.
     const hasCuratedSectionNav = Boolean(document.querySelector('nav[aria-label="Page sections"]'))
     const hasCuratedToc = Array.from(
       document.querySelectorAll('nav[aria-label="Table of contents"], aside[aria-label="Page navigation"]'),
@@ -35,11 +33,10 @@ export default function GlobalTOC() {
       return
     }
 
-    // Find all h2/h3 with ids in the main content area.
     const selector = 'article h2[id], article h3[id], main h2[id], main h3[id], .content-prose h2[id], .content-prose h3[id], .article-body h2[id], .article-body h3[id]'
     const elements = document.querySelectorAll(selector)
 
-    if (elements.length < 2) {
+    if (elements.length < MIN_GLOBAL_TOC_HEADINGS) {
       setVisible(false)
       return
     }
@@ -52,7 +49,7 @@ export default function GlobalTOC() {
       }))
       .filter(h => h.id && h.text && h.text.length > 0)
 
-    if (detected.length < 2) {
+    if (detected.length < MIN_GLOBAL_TOC_HEADINGS) {
       setVisible(false)
       return
     }
@@ -60,7 +57,6 @@ export default function GlobalTOC() {
     setHeadings(detected)
     setVisible(true)
 
-    // Set up intersection observer for active heading tracking.
     observer.current = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -85,7 +81,6 @@ export default function GlobalTOC() {
 
   return (
     <>
-      {/* Inline accordion stays available until the XL margin rail takes over. */}
       <div
         data-global-toc
         className="mx-4 mb-7 mt-4 border-y border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface-2)] sm:mx-6 sm:rounded-xl sm:border lg:mx-auto lg:w-[calc(100%-3rem)] lg:max-w-6xl xl:hidden"
@@ -96,7 +91,7 @@ export default function GlobalTOC() {
           onClick={() => setMobileOpen(o => !o)}
           className="flex min-h-12 w-full items-center justify-between px-4 py-3 text-sm font-semibold text-[color:var(--hs-ink)]"
         >
-          <span>On this page <span className="font-normal text-[color:var(--hs-body)]">({headings.length} sections)</span></span>
+          <span>On this page</span>
           <svg
             className={`size-4 transition-transform ${mobileOpen ? 'rotate-180' : ''}`}
             viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"
@@ -111,14 +106,13 @@ export default function GlobalTOC() {
         )}
       </div>
 
-      {/* Desktop fallback: editorial margin rail, not another floating card. */}
       <aside
         data-global-toc
         aria-label="Page contents"
         className="fixed right-4 top-24 z-30 hidden w-[210px] xl:block"
       >
         <div className="border-l border-[color:var(--hs-hairline-strong)] pl-4">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[color:var(--hs-gold)]">
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-700">
             On this page
           </p>
           <TOCLinks headings={headings} activeId={activeId} compact />
@@ -150,8 +144,8 @@ function TOCLinks({
               'block border-l-2 px-2.5 py-1.5 leading-snug transition-colors',
               compact ? 'text-[11px]' : h.level === 3 ? 'text-xs' : 'text-sm',
               activeId === h.id
-                ? 'border-[color:var(--hs-gold)] bg-[color:color-mix(in_srgb,var(--tone)_10%,transparent)] font-semibold text-[color:var(--hs-ink)]'
-                : 'border-transparent text-[color:var(--hs-body)] hover:border-[color:var(--hs-hairline-strong)] hover:bg-[color:color-mix(in_srgb,var(--tone)_7%,transparent)] hover:text-[color:var(--hs-ink)]',
+                ? 'border-brand-700 bg-brand-50/70 font-semibold text-[color:var(--hs-ink)]'
+                : 'border-transparent text-[color:var(--hs-body)] hover:border-brand-700/30 hover:bg-brand-50/50 hover:text-[color:var(--hs-ink)]',
             ].join(' ')}
           >
             {h.text}
