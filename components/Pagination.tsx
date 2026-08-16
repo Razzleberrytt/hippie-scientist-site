@@ -23,7 +23,7 @@ export default function Pagination({ basePath, currentPage, totalPages, itemLabe
   if (totalPages <= 1) return null
 
   const pages = visiblePages(currentPage, totalPages)
-  const linkClass = 'inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-700/30 hover:bg-[var(--surface-card-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40'
+  const linkClass = 'inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-700/30 hover:bg-[var(--surface-card-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40'
 
   return (
     <nav
@@ -45,7 +45,7 @@ export default function Pagination({ basePath, currentPage, totalPages, itemLabe
           <span key={page} className="contents">
             {index > 0 && page - pages[index - 1] > 1 ? <span className="px-1 text-muted" aria-hidden="true">…</span> : null}
             {page === currentPage ? (
-              <span aria-current="page" className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full bg-brand-800 px-3 text-sm font-bold text-white shadow-sm">
+              <span aria-current="page" className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full bg-brand-800 px-3 text-sm font-bold text-white shadow-sm">
                 <span className="sr-only">Page </span>{page}
               </span>
             ) : (
