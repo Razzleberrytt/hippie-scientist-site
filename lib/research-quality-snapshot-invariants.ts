@@ -83,6 +83,7 @@ export function validateResearchQualitySnapshotInvariants(
   const canonicalStudyPages = new Map<string, Set<string>>()
   const globalStudyIdentities = crossProfileStudyIdentityMap(analysis.profiles)
   let rawSourceCount = 0
+  let approvedOutcomeClaimCount = 0
 
   const add = (kind: string, detail: string) => failures.push({ kind, detail })
   const requireProfile = (kind: string, url: string, detail: string) => {
@@ -96,7 +97,14 @@ export function validateResearchQualitySnapshotInvariants(
     const claims = Array.isArray(profile.record.claimMap) ? profile.record.claimMap : []
     const seenClaims = new Set<string>()
     for (let index = 0; index < claims.length; index += 1) {
-      const id = text(claims[index]?.id)
+      const claim = claims[index]
+      if (
+        String(claim?.reviewStatus ?? '').toLowerCase() === 'approved'
+        && /supports_outcome|benefit|efficacy/i.test(text(claim?.predicate))
+      ) {
+        approvedOutcomeClaimCount += 1
+      }
+      const id = text(claim?.id)
       if (!id) {
         add('missing-claim-id', `${profile.url} · claimMap[${index}]`)
         continue
@@ -151,6 +159,9 @@ export function validateResearchQualitySnapshotInvariants(
   for (const invariant of validateDirectionalConsistencySnapshotInvariants(analysis, topology)) add(invariant.kind, invariant.detail)
 
   const selectiveOutcome = topology.selectiveOutcomeReporting
+  if (selectiveOutcome.summary.approvedOutcomeClaims !== approvedOutcomeClaimCount) {
+    add('selective-outcome-approved-count-mismatch', `summary=${selectiveOutcome.summary.approvedOutcomeClaims}; analysis=${approvedOutcomeClaimCount}`)
+  }
   if (selectiveOutcome.summary.assessableClaims !== selectiveOutcome.claims.length) {
     add('selective-outcome-assessable-count-mismatch', `summary=${selectiveOutcome.summary.assessableClaims}; rows=${selectiveOutcome.claims.length}`)
   }
