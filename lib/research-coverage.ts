@@ -40,14 +40,47 @@ export const PRIMARY_HUMAN_STUDY_CLASSES = new Set<StudyClass>(['rct', 'controll
 export const SYNTHESIS_STUDY_CLASSES = new Set<StudyClass>(['meta-analysis', 'systematic-review'])
 export const NARRATIVE_STUDY_CLASSES = new Set<StudyClass>(['narrative-review'])
 
+/**
+ * Load one canonical PubMed cache view. Structured metadata remains the base
+ * record, while the already-fetched abstract corpus is merged onto the same PMID
+ * under `abstract`. Consumers therefore do not need a second loader or a second
+ * source of truth when an analysis needs both metadata and publication text.
+ */
 export function loadPubmedCache(root = process.cwd()): PubmedCache {
-  const cachePath = path.join(root, 'ops', 'cache', 'pubmed-metadata.json')
-  if (!fs.existsSync(cachePath)) return {}
-  try {
-    return JSON.parse(fs.readFileSync(cachePath, 'utf8')).records ?? {}
-  } catch {
-    return {}
+  const cacheDir = path.join(root, 'ops', 'cache')
+  const metadataPath = path.join(cacheDir, 'pubmed-metadata.json')
+  const abstractsPath = path.join(cacheDir, 'pubmed-abstracts.json')
+  const records: PubmedCache = {}
+
+  if (fs.existsSync(metadataPath)) {
+    try {
+      const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8')).records ?? {}
+      for (const [pmid, record] of Object.entries(metadata)) {
+        records[String(pmid)] = record && typeof record === 'object'
+          ? { ...(record as Record<string, unknown>) }
+          : {}
+      }
+    } catch {
+      // Metadata coverage is allowed to be partial; downstream audits expose it.
+    }
   }
+
+  if (fs.existsSync(abstractsPath)) {
+    try {
+      const abstracts = JSON.parse(fs.readFileSync(abstractsPath, 'utf8')).abstracts ?? {}
+      for (const [pmid, abstract] of Object.entries(abstracts)) {
+        if (typeof abstract !== 'string' || !abstract.trim()) continue
+        records[String(pmid)] = {
+          ...(records[String(pmid)] ?? {}),
+          abstract: abstract.trim(),
+        }
+      }
+    } catch {
+      // Abstract coverage is optional; malformed cache data must not erase metadata.
+    }
+  }
+
+  return records
 }
 
 export function designFromPublicationTypes(publicationTypes: string[] = []): StudyClass {
