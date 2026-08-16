@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useId, useMemo, useRef } from 'react'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Search, SlidersHorizontal } from 'lucide-react'
+import { ChevronDown, Search, SlidersHorizontal } from 'lucide-react'
 import { useGlobalSearch, useListKeyboardNav } from './useGlobalSearch'
 import { FilterChip, TypeBadge, EvidenceBadge, SafetyBadge } from './search-ui'
 import type { SearchFacetOption } from '@/lib/search/types'
@@ -52,6 +52,7 @@ export default function GlobalSearch() {
   const listRef = useRef<HTMLUListElement>(null)
   const listboxId = useId()
   const optionPrefix = useId()
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
   const navigate = (index: number) => {
     const doc = search.results[index]
@@ -84,9 +85,23 @@ export default function GlobalSearch() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10">
-      <aside className="space-y-5 lg:sticky lg:top-20 lg:self-start" aria-label="Search filters">
+      <aside className="space-y-3 lg:sticky lg:top-20 lg:self-start lg:space-y-5" aria-label="Search filters">
         <div className="flex items-center justify-between gap-3">
-          <span className="flex items-center gap-2 text-sm font-semibold text-[color:var(--hs-ink)]">
+          <button
+            type="button"
+            onClick={() => setMobileFiltersOpen((open) => !open)}
+            aria-expanded={mobileFiltersOpen}
+            aria-controls="search-filter-panel"
+            className="flex min-h-11 items-center gap-2 rounded-xl text-sm font-semibold text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] lg:hidden"
+          >
+            <SlidersHorizontal className="h-4 w-4 text-[color:var(--tone-ink)]" aria-hidden="true" />
+            <span>Refine index{search.activeFilters ? ` (${search.activeFilters})` : ''}</span>
+            <ChevronDown
+              aria-hidden="true"
+              className={`h-4 w-4 text-[color:var(--hs-body)] transition-transform ${mobileFiltersOpen ? 'rotate-180' : ''}`}
+            />
+          </button>
+          <span className="hidden items-center gap-2 text-sm font-semibold text-[color:var(--hs-ink)] lg:flex">
             <SlidersHorizontal className="h-4 w-4 text-[color:var(--tone-ink)]" aria-hidden="true" />
             Refine index
           </span>
@@ -102,7 +117,10 @@ export default function GlobalSearch() {
         </div>
 
         {search.facets ? (
-          <div className="space-y-5 rounded-[1.4rem] border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_88%,transparent)] p-4 sm:p-5">
+          <div
+            id="search-filter-panel"
+            className={`${mobileFiltersOpen ? 'block' : 'hidden'} space-y-5 rounded-[1.4rem] border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_88%,transparent)] p-4 sm:p-5 lg:block`}
+          >
             <FacetGroup
               title="Content type"
               options={search.facets.types}
