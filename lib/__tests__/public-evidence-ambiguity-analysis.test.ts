@@ -36,6 +36,12 @@ describe('public evidence ambiguity magnitude', () => {
       participantCountRatio: 2.5,
       studyClassFamilies: ['primary-human-trial', 'synthesis'],
       crossFamilyStudyClassConflict: true,
+      candidateDerivedAmbiguity: {
+        publicationYear: true,
+        participantCount: true,
+        studyClass: true,
+      },
+      storedFlagMismatches: [],
     })
   })
 
@@ -47,9 +53,32 @@ describe('public evidence ambiguity magnitude', () => {
 
     expect(result.studyClassFamilies).toEqual(['primary-human-trial'])
     expect(result.crossFamilyStudyClassConflict).toBe(false)
+    expect(result.candidateDerivedAmbiguity.studyClass).toBe(true)
+    expect(result.storedFlagMismatches).toEqual([])
     expect(result.publicationYearSpan).toBeNull()
     expect(result.participantCountAbsoluteSpread).toBeNull()
     expect(result.participantCountRatio).toBeNull()
+  })
+
+  it('treats candidate sets as authoritative and diagnoses stale ambiguity flags', () => {
+    const analysis = analyzePublicEvidenceAmbiguity([
+      study({
+        id: 'doi:10.1000/candidates-win',
+        publicationYearCandidates: [2020, 2021],
+        publicationYearAmbiguous: false,
+      }),
+      study({
+        id: 'doi:10.1000/flag-only',
+        participantCountCandidates: [100],
+        participantCountAmbiguous: true,
+      }),
+    ])
+
+    expect(analysis.summary.studiesWithAnyAmbiguity).toBe(1)
+    expect(analysis.summary.ambiguityFlagMismatchStudyCount).toBe(2)
+    expect(analysis.summary.ambiguityFlagMismatchCount).toBe(2)
+    expect(analysis.studies[0].magnitude.storedFlagMismatches).toEqual(['publication-year'])
+    expect(analysis.studies[1].magnitude.storedFlagMismatches).toEqual(['participant-count'])
   })
 
   it('summarizes the largest observed conflict magnitudes across the public study inventory', () => {
@@ -78,6 +107,8 @@ describe('public evidence ambiguity magnitude', () => {
     expect(analysis.summary).toEqual({
       studiesAnalyzed: 3,
       studiesWithAnyAmbiguity: 2,
+      ambiguityFlagMismatchStudyCount: 0,
+      ambiguityFlagMismatchCount: 0,
       crossFamilyStudyClassConflictCount: 1,
       largestPublicationYearSpan: 5,
       largestParticipantCountAbsoluteSpread: 150,
