@@ -7,6 +7,10 @@ on:
       - 'app/**'
       - 'components/**'
       - 'lib/**'
+      - 'src/lib/schema*.ts'
+      - 'src/lib/schema-*.ts'
+      - 'src/lib/__tests__/schema*.test.ts'
+      - 'src/lib/__tests__/schema-*.test.ts'
       - 'public/data/**'
       - 'data/evidence/**'
       - 'data/media/**'
@@ -20,6 +24,10 @@ on:
       - 'app/**'
       - 'components/**'
       - 'lib/**'
+      - 'src/lib/schema*.ts'
+      - 'src/lib/schema-*.ts'
+      - 'src/lib/__tests__/schema*.test.ts'
+      - 'src/lib/__tests__/schema-*.test.ts'
       - 'public/data/**'
       - 'data/evidence/**'
       - 'data/media/**'
@@ -48,6 +56,12 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - name: Run shared schema regression tests
+        run: >-
+          npx vitest run
+          src/lib/__tests__/schema-graph.test.ts
+          src/lib/__tests__/schema-injector.test.ts
+          src/lib/__tests__/structured-data.test.ts
       - name: Build static export
         env:
           COMMIT_HASH: ${{ github.sha }}

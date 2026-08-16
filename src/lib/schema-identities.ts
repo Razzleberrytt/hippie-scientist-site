@@ -54,21 +54,33 @@ function hasSchemaType(node: Record<string, unknown>, expected: string): boolean
 }
 
 /**
- * Canonicalize only the site's two first-party authority entities. This runs at
- * the JSON-LD serialization boundary so older builders cannot accidentally emit
- * a second anonymous publisher/author identity. Third-party people and
- * organizations are left untouched.
+ * Canonicalize only the site's two first-party authority entities. The
+ * relationship name matters: historical builders sometimes used the site
+ * Organization as an Article `author`; that exact first-party author role is
+ * normalized to the canonical Person. Publisher/reviewer Organization roles
+ * remain organizations. Third-party identities are never rewritten.
  */
-export function normalizeSiteSchemaIdentities(value: unknown): unknown {
-  if (Array.isArray(value)) return value.map(normalizeSiteSchemaIdentities)
+export function normalizeSiteSchemaIdentities(value: unknown, relationship = ''): unknown {
+  if (Array.isArray(value)) {
+    return value.map((entry) => normalizeSiteSchemaIdentities(entry, relationship))
+  }
   if (!value || typeof value !== 'object') return value
 
   const source = value as Record<string, unknown>
   const normalized = Object.fromEntries(
-    Object.entries(source).map(([key, child]) => [key, normalizeSiteSchemaIdentities(child)]),
+    Object.entries(source).map(([key, child]) => [
+      key,
+      normalizeSiteSchemaIdentities(child, key),
+    ]),
   ) as Record<string, unknown>
 
-  if (hasSchemaType(normalized, 'Organization') && normalized.name === SITE_NAME) {
+  const isFirstPartyOrganization = hasSchemaType(normalized, 'Organization') && normalized.name === SITE_NAME
+
+  if (relationship === 'author' && isFirstPartyOrganization) {
+    return authorSchemaIdentity()
+  }
+
+  if (isFirstPartyOrganization) {
     return {
       ...normalized,
       '@id': ORGANIZATION_SCHEMA_ID,
