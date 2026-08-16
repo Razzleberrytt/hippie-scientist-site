@@ -1,7 +1,12 @@
+import { normalizeDoi, normalizePmidList } from './citation-identifiers.mjs'
 import {
-  designFromPublicationTypes,
+  canonicalStudyClass,
+  canonicalStudyGroups,
+  crossProfileStudyIdentity,
+  crossProfileStudyIdentityMap,
   PRIMARY_HUMAN_STUDY_CLASSES,
   SYNTHESIS_STUDY_CLASSES,
+  type ResearchSource,
 } from './research-coverage'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import type { StudyClass } from './study-class'
@@ -9,7 +14,9 @@ import type { StudyClass } from './study-class'
 const WITHDRAWN = /retract|expression of concern|withdrawn/i
 
 export type SourceIntegrityStudy = {
+  studyId: string
   pmid: string
+  doi: string
   pageCount: number
   pages: string[]
   title: string
@@ -25,6 +32,10 @@ export type ResearchSourceIntegrity = {
   summary: {
     citedStudies: number
     withMetadata: number
+    withStableIdentifier: number
+    pmidIdentified: number
+    doiOnly: number
+    fallbackOnly: number
     citedOnMultipleProfiles: number
     loadBearing: number
     oldAndLoadBearing: number
@@ -41,52 +52,89 @@ export type ResearchSourceIntegrity = {
   studies: SourceIntegrityStudy[]
 }
 
-function citationGraph(analysis: ResearchQualityAnalysis): Map<string, Set<string>> {
-  const referencedBy = new Map<string, Set<string>>()
+type StudyAggregate = { pages: Set<string>; sources: ResearchSource[] }
+
+function firstText(values: unknown[]): string {
+  for (const value of values) {
+    const text = String(value ?? '').trim()
+    if (text) return text
+  }
+  return ''
+}
+
+function canonicalStudyGraph(analysis: ResearchQualityAnalysis): Map<string, StudyAggregate> {
+  const globalIdentities = crossProfileStudyIdentityMap(analysis.profiles)
+  const studies = new Map<string, StudyAggregate>()
+
   for (const { url, record } of analysis.profiles) {
-    for (const source of Array.isArray(record.sources) ? record.sources : []) {
-      const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
-      if (!pmid) continue
-      const pages = referencedBy.get(pmid) ?? new Set<string>()
-      pages.add(url)
-      referencedBy.set(pmid, pages)
+    for (const [localStudyId, group] of canonicalStudyGroups(record)) {
+      const studyId = crossProfileStudyIdentity(url, localStudyId, globalIdentities)
+      const item = studies.get(studyId) ?? { pages: new Set<string>(), sources: [] }
+      item.pages.add(url)
+      item.sources.push(...group)
+      studies.set(studyId, item)
     }
   }
-  return referencedBy
+  return studies
+}
+
+function summarizeStudy(
+  studyId: string,
+  aggregate: StudyAggregate,
+  analysis: ResearchQualityAnalysis,
+): SourceIntegrityStudy {
+  const pmids = [...new Set(aggregate.sources.flatMap((source) => normalizePmidList(source.pmid ?? source.pubmedId)))]
+  const dois = [...new Set(aggregate.sources.map((source) => normalizeDoi(source.doi)).filter(Boolean))]
+  const metadata = pmids
+    .map((pmid) => analysis.cache[pmid] ?? {})
+    .filter((record) => Object.keys(record).length > 0) as Array<Record<string, unknown>>
+
+  const publicationTypes = [...new Set([
+    ...metadata.flatMap((record) => Array.isArray(record.publicationTypes) ? record.publicationTypes.map(String) : []),
+    ...aggregate.sources.flatMap((source) => Array.isArray(source.publicationTypes) ? source.publicationTypes.map(String) : []),
+  ])]
+  const title = firstText([
+    ...metadata.map((record) => record.title),
+    ...aggregate.sources.map((source) => source.title),
+  ]).slice(0, 120)
+  const journal = firstText([
+    ...metadata.map((record) => record.journal),
+    ...aggregate.sources.map((source) => source.journal),
+  ])
+  const rawYear = firstText([
+    ...metadata.map((record) => record.year),
+    ...aggregate.sources.map((source) => source.year),
+  ])
+  const year = Number.isFinite(Number(rawYear)) ? Number(rawYear) : null
+
+  return {
+    studyId,
+    pmid: pmids[0] ?? '',
+    doi: dois[0] ?? '',
+    pageCount: aggregate.pages.size,
+    pages: [...aggregate.pages].sort(),
+    title,
+    journal,
+    year,
+    design: canonicalStudyClass(aggregate.sources, analysis.cache),
+    publicationTypes,
+    hasMetadata: Boolean(title),
+  }
 }
 
 /**
- * Source-level integrity facts derived from an already-built canonical research
- * analysis. This deliberately excludes claim/profile topology; that belongs to
- * research-quality-analysis and research-quality-policy rather than a second
- * competing source-integrity report.
+ * Source-level integrity facts derived from the same site-wide canonical study
+ * identities used by cross-profile topology. DOI-only and identifier-less local
+ * studies remain visible instead of disappearing from PMID-only accounting.
  */
 export function analyzeResearchSourceIntegrity(
   analysis: ResearchQualityAnalysis,
   currentYear = Number(process.env.SOURCE_AUDIT_YEAR) || new Date().getFullYear(),
 ): ResearchSourceIntegrity {
-  const referencedBy = citationGraph(analysis)
-  const studies: SourceIntegrityStudy[] = [...referencedBy.entries()].map(([pmid, pages]) => {
-    const meta = (analysis.cache[pmid] ?? {}) as {
-      title?: string
-      journal?: string
-      year?: number
-      publicationTypes?: string[]
-    }
-    return {
-      pmid,
-      pageCount: pages.size,
-      pages: [...pages].sort(),
-      title: String(meta.title ?? '').slice(0, 120),
-      journal: String(meta.journal ?? ''),
-      year: Number.isFinite(Number(meta.year)) ? Number(meta.year) : null,
-      design: designFromPublicationTypes(meta.publicationTypes ?? []),
-      publicationTypes: meta.publicationTypes ?? [],
-      hasMetadata: Boolean(meta.title),
-    }
-  })
+  const studies = [...canonicalStudyGraph(analysis).entries()]
+    .map(([studyId, aggregate]) => summarizeStudy(studyId, aggregate, analysis))
+    .sort((a, b) => b.pageCount - a.pageCount || (a.year ?? 0) - (b.year ?? 0) || a.studyId.localeCompare(b.studyId))
 
-  studies.sort((a, b) => b.pageCount - a.pageCount || (a.year ?? 0) - (b.year ?? 0) || a.pmid.localeCompare(b.pmid))
   const withdrawn = studies.filter((study) => study.publicationTypes.some((type) => WITHDRAWN.test(type)))
   const dated = studies.filter((study): study is SourceIntegrityStudy & { year: number } => typeof study.year === 'number')
   const age: Record<'within5' | 'within10' | 'within20' | 'over20', number> = {
@@ -117,6 +165,10 @@ export function analyzeResearchSourceIntegrity(
     summary: {
       citedStudies: studies.length,
       withMetadata: studies.filter((study) => study.hasMetadata).length,
+      withStableIdentifier: studies.filter((study) => Boolean(study.pmid || study.doi)).length,
+      pmidIdentified: studies.filter((study) => Boolean(study.pmid)).length,
+      doiOnly: studies.filter((study) => Boolean(study.doi) && !study.pmid).length,
+      fallbackOnly: studies.filter((study) => !study.pmid && !study.doi).length,
       citedOnMultipleProfiles: studies.filter((study) => study.pageCount > 1).length,
       loadBearing: loadBearing.length,
       oldAndLoadBearing: oldAndLoadBearing.length,
