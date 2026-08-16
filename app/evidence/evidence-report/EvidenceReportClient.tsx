@@ -81,7 +81,7 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
         <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">State of Supplement Evidence 2026</h1>
         <p className="mt-5 max-w-4xl text-lg leading-8 text-muted">
           A build-time analysis of the currently indexable Hippie Scientist research library: evidence grades,
-          structured sources, human trials, reported participant counts, safety cautions, and explicit disagreement
+          structured study/source records, human-study records, reported participant counts, safety cautions, and explicit disagreement
           between supporting and unfavorable or null evidence relationships.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
@@ -109,16 +109,17 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
           <p className="mt-2 text-xs leading-5 text-muted">{metrics.ingredientsWithSafetyCautions} profiles contain caution signals; this is a screening statistic, not a risk rate.</p>
         </div>
         <div className="card-premium p-5">
-          <p className="eyebrow-label">Human trials indexed</p>
+          <p className="eyebrow-label">Human trial records indexed</p>
           <p className="mt-2 text-3xl font-bold text-ink">{metrics.humanTrialCount.toLocaleString()}</p>
-          <p className="mt-2 text-xs leading-5 text-muted">Across {metrics.studyCount.toLocaleString()} deduplicated structured study entities.</p>
+          <p className="mt-2 text-xs leading-5 text-muted">Across {metrics.studyCount.toLocaleString()} deduplicated structured study entities. This is a record count, not a count of proven-independent underlying trials.</p>
         </div>
       </section>
 
       <section className="grid gap-4 md:grid-cols-3" aria-label="Study coverage">
         <div className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Human evidence sources</p>
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Human evidence source records</p>
           <p className="mt-2 text-3xl font-bold text-ink">{metrics.humanStudyCount.toLocaleString()}</p>
+          <p className="mt-1 text-xs text-muted">Publication/study entities classified as human evidence. Multiple records can originate from the same underlying trial, cohort, or dataset.</p>
         </div>
         <div className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Reported participants</p>
@@ -159,13 +160,13 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
         <p className="eyebrow-label">Category comparison</p>
         <h2 className="mt-2 text-2xl font-semibold text-ink">Where the current library has stronger human-evidence coverage</h2>
         <p className="mt-3 max-w-4xl text-sm leading-7 text-muted">
-          Categories are ranked by the share of indexable ingredients currently graded A/B, then by structured human-trial coverage. Category names come from canonical runtime records; small categories can be volatile.
+          Categories are ranked by the share of indexable ingredients currently graded A/B, then by structured human-trial record coverage. These are source/publication-level counts rather than proven-independent underlying-study counts. Category names come from canonical runtime records; small categories can be volatile.
         </p>
         <div className="mt-6 overflow-x-auto">
-          <table className="w-full min-w-[760px] border-collapse text-left text-sm">
+          <table className="w-full min-w-[900px] border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-brand-900/10 text-xs uppercase tracking-wider text-muted">
-                <th className="py-3 pr-4">Category</th><th className="py-3 pr-4">Ingredients</th><th className="py-3 pr-4">A/B</th><th className="py-3 pr-4">Preliminary/insufficient</th><th className="py-3 pr-4">Human sources</th><th className="py-3">Human trials</th>
+                <th className="py-3 pr-4">Category</th><th className="py-3 pr-4">Ingredients</th><th className="py-3 pr-4">A/B</th><th className="py-3 pr-4">Preliminary/insufficient</th><th className="py-3 pr-4">Unassigned</th><th className="py-3 pr-4">Human source records</th><th className="py-3">Human trial records</th>
               </tr>
             </thead>
             <tbody>
@@ -175,6 +176,7 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
                   <td className="py-3 pr-4 text-muted">{category.totalIngredients}</td>
                   <td className="py-3 pr-4 text-muted">{category.strongOrModerate}</td>
                   <td className="py-3 pr-4 text-muted">{category.preliminaryOrInsufficient}</td>
+                  <td className="py-3 pr-4 text-muted">{category.unassigned}</td>
                   <td className="py-3 pr-4 text-muted">{category.humanStudies}</td>
                   <td className="py-3 text-muted">{category.humanTrials}</td>
                 </tr>
