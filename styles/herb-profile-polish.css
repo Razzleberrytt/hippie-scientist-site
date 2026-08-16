@@ -1,9 +1,10 @@
 /*
   Herb profile premium polish.
-  Targets rendered herb profile sections without changing workbook/generated data.
+  Targets rendered profile sections without changing workbook/generated data.
+  Palette ownership comes from the canonical theme tokens; this layer owns
+  profile-specific hierarchy, density, table affordances, and responsive rhythm.
 */
 
-/* Main herb profile shell: inferred from the shared profile TOC rendered on profile pages. */
 main:has(nav[aria-label="Page sections"]) > div.mx-auto {
   max-width: 1180px;
 }
@@ -13,23 +14,9 @@ main:has(nav[aria-label="Page sections"]) .hero-shell,
 main:has(nav[aria-label="Page sections"]) #quick-stats,
 main:has(nav[aria-label="Page sections"]) #compare,
 main:has(nav[aria-label="Page sections"]) section.rounded-2xl {
-  border-color: rgba(235, 246, 236, 0.16);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(203, 216, 192, 0.08), transparent 34%),
-    linear-gradient(180deg, rgba(30, 55, 42, 0.92), rgba(21, 42, 31, 0.88));
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.045);
-}
-
-html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell,
-html:not(.dark) #ashwagandha-stress-claim,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) #quick-stats,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) #compare,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) section.rounded-2xl {
-  border-color: rgba(29, 74, 47, 0.12);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(83, 111, 73, 0.08), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 250, 243, 0.82));
-  box-shadow: 0 18px 52px rgba(16, 32, 24, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  border-color: var(--border-soft);
+  background: var(--surface-card);
+  box-shadow: var(--hs-lift);
 }
 
 main:has(nav[aria-label="Page sections"]) h1,
@@ -38,16 +25,7 @@ main:has(nav[aria-label="Page sections"]) h3,
 #ashwagandha-stress-claim h2,
 #ashwagandha-stress-claim h3,
 #ashwagandha-stress-claim .text-ink {
-  color: #f5f0e6;
-}
-
-html:not(.dark) main:has(nav[aria-label="Page sections"]) h1,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) h2,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) h3,
-html:not(.dark) #ashwagandha-stress-claim h2,
-html:not(.dark) #ashwagandha-stress-claim h3,
-html:not(.dark) #ashwagandha-stress-claim .text-ink {
-  color: #111a16;
+  color: var(--text-primary);
 }
 
 main:has(nav[aria-label="Page sections"]) p,
@@ -59,27 +37,11 @@ main:has(nav[aria-label="Page sections"]) dd,
 #ashwagandha-stress-claim .text-muted,
 #ashwagandha-stress-claim .text-\[\#46574d\],
 #ashwagandha-stress-claim .text-\[\#5f4a24\] {
-  color: rgba(221, 233, 223, 0.78);
-}
-
-html:not(.dark) main:has(nav[aria-label="Page sections"]) p,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) li,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) dd,
-html:not(.dark) #ashwagandha-stress-claim p,
-html:not(.dark) #ashwagandha-stress-claim li,
-html:not(.dark) #ashwagandha-stress-claim dd,
-html:not(.dark) #ashwagandha-stress-claim .text-muted,
-html:not(.dark) #ashwagandha-stress-claim .text-\[\#46574d\],
-html:not(.dark) #ashwagandha-stress-claim .text-\[\#5f4a24\] {
-  color: #4f6057;
+  color: var(--text-secondary);
 }
 
 #ashwagandha-stress-claim dt {
-  color: #cbd8c0;
-}
-
-html:not(.dark) #ashwagandha-stress-claim dt {
-  color: #314b33;
+  color: var(--hs-gold-ink);
 }
 
 /* Inner stat cards and dense evidence cards. */
@@ -89,20 +51,9 @@ main:has(nav[aria-label="Page sections"]) #quick-stats .rounded-xl,
 #ashwagandha-stress-claim article,
 #ashwagandha-stress-claim table,
 main:has(nav[aria-label="Page sections"]) table {
-  border-color: rgba(235, 246, 236, 0.13);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.035));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
-}
-
-html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell .rounded-xl,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) #quick-stats .rounded-xl,
-html:not(.dark) #ashwagandha-stress-claim .rounded-xl,
-html:not(.dark) #ashwagandha-stress-claim article,
-html:not(.dark) #ashwagandha-stress-claim table,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) table {
-  border-color: rgba(29, 74, 47, 0.1);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(243, 245, 238, 0.62));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  border-color: var(--border-soft);
+  background: var(--surface-card-strong);
+  box-shadow: none;
 }
 
 #ashwagandha-stress-claim > header {
@@ -118,75 +69,41 @@ html:not(.dark) main:has(nav[aria-label="Page sections"]) table {
 #ashwagandha-stress-claim > header,
 main:has(nav[aria-label="Page sections"]) #quick-stats,
 main:has(nav[aria-label="Page sections"]) #compare {
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 #ashwagandha-stress-claim > section:hover,
 main:has(nav[aria-label="Page sections"]) #quick-stats:hover,
 main:has(nav[aria-label="Page sections"]) #compare:hover {
-  transform: translateY(-2px);
-  border-color: rgba(235, 246, 236, 0.24);
-  box-shadow: 0 22px 72px rgba(0, 0, 0, 0.27), inset 0 1px 0 rgba(255, 255, 255, 0.07);
-}
-
-html:not(.dark) #ashwagandha-stress-claim > section:hover,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) #quick-stats:hover,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) #compare:hover {
-  border-color: rgba(29, 74, 47, 0.2);
-  box-shadow: 0 24px 68px rgba(16, 32, 24, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.84);
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+  box-shadow: var(--hs-lift-hover);
 }
 
 #ashwagandha-stress-claim table thead,
 main:has(nav[aria-label="Page sections"]) table thead {
-  background: rgba(255, 255, 255, 0.055);
-}
-
-html:not(.dark) #ashwagandha-stress-claim table thead,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) table thead {
-  background: rgba(243, 245, 238, 0.82);
+  background: var(--surface-subtle);
 }
 
 #ashwagandha-stress-claim table th,
 #ashwagandha-stress-claim table td,
 main:has(nav[aria-label="Page sections"]) table th,
 main:has(nav[aria-label="Page sections"]) table td {
-  border-color: rgba(235, 246, 236, 0.12);
+  border-color: var(--border-soft);
 }
 
-html:not(.dark) #ashwagandha-stress-claim table th,
-html:not(.dark) #ashwagandha-stress-claim table td,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) table th,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) table td {
-  border-color: rgba(29, 74, 47, 0.1);
-}
-
-/* Warning/safety blocks keep their meaning but stop looking like broken brown boxes. */
+/* Warning/safety blocks keep amber because that color carries meaning. */
 #ashwagandha-stress-claim .bg-amber-50\/75,
 #ashwagandha-stress-claim .bg-amber-50\/80 {
-  border-color: rgba(245, 158, 11, 0.24);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(245, 158, 11, 0.12), transparent 34%),
-    linear-gradient(180deg, rgba(71, 43, 19, 0.78), rgba(45, 35, 22, 0.74));
-}
-
-html:not(.dark) #ashwagandha-stress-claim .bg-amber-50\/75,
-html:not(.dark) #ashwagandha-stress-claim .bg-amber-50\/80 {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(245, 158, 11, 0.10), transparent 32%),
-    linear-gradient(180deg, rgba(255, 251, 235, 0.9), rgba(255, 247, 237, 0.78));
+  border-color: color-mix(in srgb, #f59e0b 28%, var(--border-soft));
+  background: var(--surface-warning);
 }
 
 /* Bottom product / sourcing areas on herb profiles. */
 main:has(nav[aria-label="Page sections"]) [id="compare"] .rounded-2xl,
 main:has(nav[aria-label="Page sections"]) [id="compare"] article {
-  border-color: rgba(235, 246, 236, 0.13);
-  background: rgba(255, 255, 255, 0.055);
-}
-
-html:not(.dark) main:has(nav[aria-label="Page sections"]) [id="compare"] .rounded-2xl,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) [id="compare"] article {
-  border-color: rgba(29, 74, 47, 0.1);
-  background: rgba(255, 255, 255, 0.74);
+  border-color: var(--border-soft);
+  background: var(--surface-card);
 }
 
 /* Make large evidence tables feel intentional instead of tiny on mobile. */
@@ -201,18 +118,12 @@ main:has(nav[aria-label="Page sections"]) .overflow-x-auto:has(table)::after {
   content: 'Swipe table →';
   display: none;
   padding: 0.7rem 0.85rem;
-  border-top: 1px solid rgba(235, 246, 236, 0.12);
-  color: rgba(221, 233, 223, 0.68);
+  border-top: 1px solid var(--border-soft);
+  color: var(--text-muted);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-html:not(.dark) #ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
-html:not(.dark) main:has(nav[aria-label="Page sections"]) .overflow-x-auto:has(table)::after {
-  border-top-color: rgba(29, 74, 47, 0.1);
-  color: #5f6f66;
 }
 
 #ashwagandha-stress-claim table th,
@@ -225,12 +136,7 @@ main:has(nav[aria-label="Page sections"]) table td {
 
 #ashwagandha-stress-claim table tbody tr:nth-child(even),
 main:has(nav[aria-label="Page sections"]) table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-html:not(.dark) #ashwagandha-stress-claim table tbody tr:nth-child(even),
-html:not(.dark) main:has(nav[aria-label="Page sections"]) table tbody tr:nth-child(even) {
-  background: rgba(243, 245, 238, 0.48);
+  background: color-mix(in srgb, var(--surface-subtle) 54%, transparent);
 }
 
 #ashwagandha-stress-claim a,
