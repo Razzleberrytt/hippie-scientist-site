@@ -169,10 +169,6 @@ main li {
   main .text-reading {
     line-height: 1.68;
   }
-
-  .container-page {
-    padding-inline: 1rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
