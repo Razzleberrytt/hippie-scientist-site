@@ -44,9 +44,9 @@ export function ComparisonTable({
         </h3>
       ) : null}
 
-      <ResponsiveTable label={accessibleLabel} className="hidden sm:block">
+      <ResponsiveTable label={accessibleLabel} className="hidden sm:block" showTitle={!title}>
         <table className="min-w-[680px] w-full text-sm">
-          <caption>{tableCaption}</caption>
+          <caption className="sr-only">{tableCaption}</caption>
           <thead>
             <tr className="border-b border-brand-900/10 bg-brand-50/50 dark:bg-brand-100/40">
               {tableHeaders.map((header, index) => (
