@@ -2,6 +2,7 @@ import { buildSchemaGraph } from '../../src/lib/schema-graph'
 import { serializeJsonLd } from '../../src/lib/schema-injector'
 import { SITE_URL } from '../../src/lib/seo'
 import {
+  AUTHOR_SCHEMA_ID,
   ORGANIZATION_SCHEMA_ID,
   WEBSITE_SCHEMA_ID,
 } from '../../src/lib/schema-identities'
@@ -24,29 +25,21 @@ type AuthorityJsonLdProps = {
 function normalizeFaqItem(item: FaqItem): FaqItem | null {
   const question = String(item.question || '').trim()
   const answer = String(item.answer || '').trim()
-
-  if (question.length < 12 || answer.length <= 50) {
-    return null
-  }
-
+  if (question.length < 12 || answer.length <= 50) return null
   return { question, answer }
 }
 
 function getMeaningfulFaqItems(items: FaqItem[] | undefined): FaqItem[] {
   const seenQuestions = new Set<string>()
   const meaningfulItems: FaqItem[] = []
-
   for (const item of items ?? []) {
     const normalized = normalizeFaqItem(item)
     if (!normalized) continue
-
     const questionKey = normalized.question.toLowerCase()
     if (seenQuestions.has(questionKey)) continue
-
     seenQuestions.add(questionKey)
     meaningfulItems.push(normalized)
   }
-
   return meaningfulItems
 }
 
@@ -65,6 +58,7 @@ export default function AuthorityJsonLd({
   const breadcrumbId = `${canonical}#breadcrumb`
   const faqId = `${canonical}#faq`
   const meaningfulFaqItems = getMeaningfulFaqItems(faqItems)
+  const hasEditorialAuthor = type === 'Article' || type === 'MedicalWebPage'
 
   const webpage = {
     '@type': type === 'MedicalWebPage' ? ['MedicalWebPage', 'WebPage'] : type,
@@ -74,6 +68,7 @@ export default function AuthorityJsonLd({
     description,
     url: canonical,
     isPartOf: { '@id': WEBSITE_SCHEMA_ID },
+    ...(hasEditorialAuthor ? { author: { '@id': AUTHOR_SCHEMA_ID } } : {}),
     publisher: { '@id': ORGANIZATION_SCHEMA_ID },
     ...(type !== 'Article' && breadcrumbs.length ? { breadcrumb: { '@id': breadcrumbId } } : {}),
     ...(meaningfulFaqItems.length ? { hasPart: { '@id': faqId } } : {}),
@@ -93,9 +88,8 @@ export default function AuthorityJsonLd({
       }
     : null
 
-  const faq =
-    meaningfulFaqItems.length > 0
-      ? {
+  const faq = meaningfulFaqItems.length > 0
+    ? {
         '@type': 'FAQPage',
         '@id': faqId,
         url: canonical,
@@ -106,16 +100,14 @@ export default function AuthorityJsonLd({
           acceptedAnswer: { '@type': 'Answer', text: item.answer },
         })),
       }
-      : null
+    : null
 
   const graph = buildSchemaGraph([webpage, breadcrumb, faq])
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: serializeJsonLd(graph),
-      }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(graph) }}
     />
   )
 }
