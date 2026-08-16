@@ -1,5 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { buildSemanticLinkSuggestions } from '@/lib/semantic-internal-linking'
+import { slugify } from '@/lib/slug-utils'
 
 export type ProgrammaticTopicCluster = {
   slug: string
@@ -8,13 +9,6 @@ export type ProgrammaticTopicCluster = {
   intent: 'best-for' | 'compare' | 'pathway' | 'beginner-guide'
   signals: string[]
   links: ReturnType<typeof buildSemanticLinkSuggestions>
-}
-
-function slugify(value: unknown) {
-  return text(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '')
 }
 
 function title(value: unknown) {

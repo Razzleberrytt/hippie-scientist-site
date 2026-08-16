@@ -1,4 +1,5 @@
 import { text, unique } from '@/lib/display-utils'
+import { slugify } from '@/lib/slug-utils'
 import { buildProductRecommendationContext } from '@/lib/semantic-product-recommendations'
 
 export type CommercialPageBlueprint = {
@@ -8,10 +9,6 @@ export type CommercialPageBlueprint = {
   description: string
   safetyNote: string
   qualityCriteria: string[]
-}
-
-function slugify(value: unknown) {
-  return text(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
 function title(value: unknown) {
