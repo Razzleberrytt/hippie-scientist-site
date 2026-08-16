@@ -156,6 +156,44 @@ describe('canonical outcome metadata', () => {
     }
   })
 
+  it('does not treat unrelated safety significance language as a null primary efficacy result', () => {
+    const input = analysis(
+      [{ id: 's1', pmid: '123' }],
+      { '123': { abstract: 'The primary outcome favored treatment with no significant adverse events.' } },
+    )
+    const trialRegistrationIndependence = registration([{
+      url: '/herbs/example/',
+      studyId: 'pmid:123',
+      registryIds: [],
+      stableRegistryId: null,
+      ambiguous: false,
+    }])
+
+    const result = analyzeOutcomeMetadata({ analysis: input, trialRegistrationIndependence })
+
+    expect(result.studies[0].primaryOutcomeStatus).toBe('met')
+    expect(result.summary.primaryOutcomeNotMet).toBe(0)
+  })
+
+  it('still recognizes an explicit no-significant-difference primary outcome as not met', () => {
+    const input = analysis(
+      [{ id: 's1', pmid: '123' }],
+      { '123': { abstract: 'The primary outcome showed no significant difference between groups with no serious adverse events.' } },
+    )
+    const trialRegistrationIndependence = registration([{
+      url: '/herbs/example/',
+      studyId: 'pmid:123',
+      registryIds: [],
+      stableRegistryId: null,
+      ambiguous: false,
+    }])
+
+    const result = analyzeOutcomeMetadata({ analysis: input, trialRegistrationIndependence })
+
+    expect(result.studies[0].primaryOutcomeStatus).toBe('not-met')
+    expect(result.summary.primaryOutcomeNotMet).toBe(1)
+  })
+
   it('keeps missing outcome metadata unknown', () => {
     const input = analysis([{ id: 's1', pmid: '123', title: 'Randomized clinical trial' }])
     const trialRegistrationIndependence = registration([{
