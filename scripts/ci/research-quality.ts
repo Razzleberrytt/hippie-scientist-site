@@ -6,7 +6,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { buildAiCitationReadiness, writeAiCitationReadinessReport } from '../../lib/ai-citation-readiness'
-import { analyzeCitationIntegrity, writeCitationIntegrityReport } from '../../lib/citation-integrity.mjs'
+import { writeCitationIntegrityReport } from '../../lib/citation-integrity.mjs'
 import { analyzeEvidenceGradeConsistency, writeEvidenceGradeConsistencyReport } from '../../lib/evidence-grade-consistency'
 import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 import { writeResearchSemanticAlignmentReport } from '../../lib/research-semantic-alignment'
@@ -46,8 +46,7 @@ console.log('='.repeat(76))
 
 const coreStarted = Date.now()
 const snapshot = buildResearchQualitySnapshot(ROOT)
-const { analysis, topology, gate, researchGapQueue, sourceIntegrity } = snapshot
-const citationIntegrity = analyzeCitationIntegrity(analysis.profiles)
+const { analysis, topology, gate, researchGapQueue, sourceIntegrity, citationIntegrity } = snapshot
 const evidenceGradeConsistency = analyzeEvidenceGradeConsistency(ROOT)
 const aiCitationReadiness = buildAiCitationReadiness(analysis, ROOT)
 
