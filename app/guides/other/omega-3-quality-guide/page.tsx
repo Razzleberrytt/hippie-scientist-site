@@ -33,7 +33,7 @@ const OMEGA3_REFS = [
   { n: 4, text: 'Skulas-Ray AC, et al. (2019). Omega-3 Fatty Acids for the Management of Hypertriglyceridemia: A Science Advisory From the American Heart Association. Circulation, 140(12):e673-e691.', url: 'https://pubmed.ncbi.nlm.nih.gov/31422671/' },
   { n: 5, text: 'Bhatt DL, et al. (2019). Cardiovascular Risk Reduction with Icosapent Ethyl for Hypertriglyceridemia (REDUCE-IT). N Engl J Med, 380(1):11-22.', url: 'https://pubmed.ncbi.nlm.nih.gov/30415628/' },
   { n: 6, text: 'Nicholls SJ, et al. (2020). Effect of High-Dose Omega-3 Fatty Acids vs Corn Oil on Major Adverse Cardiovascular Events (STRENGTH). JAMA, 324(22):2268-2280.', url: 'https://pubmed.ncbi.nlm.nih.gov/33190147/' },
-  { n: 7, text: 'Albert BB, et al. (2013). Fish oil supplements in New Zealand are highly oxidised and do not meet label content of n-3 PUFA. Sci Rep / review context on oxidation and uncertain clinical consequences.', url: 'https://pubmed.ncbi.nlm.nih.gov/23738326/' },
+  { n: 7, text: 'Albert BB, et al. (2013). Oxidation of marine omega-3 supplements and human health. Biomed Res Int, 2013:464921.', url: 'https://pubmed.ncbi.nlm.nih.gov/23738326/' },
   { n: 8, text: 'Jackowski SA, et al. (2015). Oxidation levels of North American over-the-counter n-3 (omega-3) supplements and the influence of supplement formulation and delivery form. J Nutr Sci, 4:e30.', url: 'https://pubmed.ncbi.nlm.nih.gov/26688721/' },
   { n: 9, text: 'Comparative human trial of microalgal versus fish-derived EPA+DHA bioavailability (2025).', url: 'https://pubmed.ncbi.nlm.nih.gov/41096614/' },
 ]
