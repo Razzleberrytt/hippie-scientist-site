@@ -102,18 +102,25 @@ export default function SearchPage() {
         </dl>
       </section>
 
+      <Suspense fallback={<SearchSkeleton />}>
+        <GlobalSearch />
+      </Suspense>
+
       {/* Static search directory for no-JS users and quick navigation. The
-          interactive search UI below provides the richer filtering experience. */}
-      <div className="mb-8 space-y-6 rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-        <p className="text-sm leading-6 text-muted">
-          Use the curated shortcuts below to jump directly into popular profiles, goal-based decision guides, research collections, and safety tools before or alongside the interactive search.
-        </p>
+          interactive search remains the primary task above. */}
+      <section className="mt-8 space-y-6 rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm sm:p-6">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">Browse instead</p>
+          <p className="mt-2 text-sm leading-6 text-muted">
+            Prefer curated shortcuts? Jump directly into popular profiles, goal-based decision guides, research collections, and safety tools.
+          </p>
+        </div>
 
         <div className="space-y-2">
-          <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Popular Searches</h2>
+          <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Popular searches</h2>
           <div className="flex flex-wrap gap-2">
             {popularSearches.map(item => (
-              <Link key={item.name} href={item.href} className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-[0.8rem] font-medium text-ink hover:border-brand-700/20">
+              <Link key={item.name} href={item.href} className="rounded-full border border-brand-900/10 bg-[var(--surface-card-strong)] px-3 py-1.5 text-[0.8rem] font-medium text-ink transition hover:border-brand-700/20">
                 {item.name}
               </Link>
             ))}
@@ -122,7 +129,7 @@ export default function SearchPage() {
 
         <div className="grid gap-6 md:grid-cols-3">
           <div className="space-y-2">
-            <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Browse by Goal</h2>
+            <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Browse by goal</h2>
             <ul className="space-y-1">
               {popularGoals.map(item => (
                 <li key={item.name}>
@@ -134,7 +141,7 @@ export default function SearchPage() {
             </ul>
           </div>
           <div className="space-y-2">
-            <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Browse by Category</h2>
+            <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Browse by category</h2>
             <ul className="space-y-1">
               <li>
                 <Link href="/herbs/" className="text-sm font-semibold text-brand-800 hover:underline">
@@ -149,7 +156,7 @@ export default function SearchPage() {
             </ul>
           </div>
           <div className="space-y-2">
-            <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Research Tools</h2>
+            <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Research tools</h2>
             <ul className="space-y-1">
               {researchTools.map(item => (
                 <li key={item.name}>
@@ -161,11 +168,7 @@ export default function SearchPage() {
             </ul>
           </div>
         </div>
-      </div>
-
-      <Suspense fallback={<SearchSkeleton />}>
-        <GlobalSearch />
-      </Suspense>
+      </section>
     </div>
   )
 }
