@@ -8,6 +8,7 @@ import type { ResearchQualityGate } from './research-quality-gate'
 import type { ResearchGapItem } from './research-quality-policy'
 import type { ResearchQualityTopology } from './research-quality-topology'
 import type { ResearchSourceIntegrity } from './research-source-integrity'
+import { validateUnderlyingStudySnapshotInvariants } from './research-underlying-study-snapshot-invariants'
 
 export type ResearchSnapshotInvariantFailure = {
   kind: string
@@ -152,6 +153,9 @@ export function validateResearchQualitySnapshotInvariants(
       'independence-coverage-claim-count-mismatch',
       `coverage=${topology.evidenceIndependenceCoverage.summary.multiStudyApprovedClaims}; analysis=${approvedMultiStudyClaimKeys.size}`,
     )
+  }
+  for (const invariant of validateUnderlyingStudySnapshotInvariants(analysis, topology)) {
+    add(invariant.kind, invariant.detail)
   }
   for (const claim of topology.edgeCardinality.duplicateEdgeClaims) {
     add(
