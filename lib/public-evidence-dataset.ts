@@ -14,6 +14,7 @@ import {
   type EvidenceStudyClass,
   type EvidenceStudyRecord,
 } from '@/lib/evidence-study'
+import { buildResearchQualitySnapshot } from '@/lib/research-quality-snapshot'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import {
   getCompoundBySlug,
@@ -23,7 +24,7 @@ import {
 } from '@/src/lib/runtime-data'
 import type { RuntimeRecord } from '@/src/types/content'
 
-export const PUBLIC_EVIDENCE_DATASET_VERSION = '2026.08.15'
+export const PUBLIC_EVIDENCE_DATASET_VERSION = '2026.08.16'
 export const PUBLIC_EVIDENCE_DATASET_TITLE = 'The Hippie Scientist Public Evidence Dataset 2026'
 
 export type PublicEvidenceIngredient = {
@@ -100,6 +101,18 @@ export type PublicEvidenceReportMetrics = {
   contradictingRelationships: number
   noClearEffectRelationships: number
   disagreementStudyCount: number
+  /** Null for synthetic/pure builders that do not execute canonical topology. */
+  underlyingStudyMetricsSource: 'canonical-research-topology' | null
+  /** Unique site-wide publication identities across every canonical research profile. */
+  globalInventoryPublicationCount: number | null
+  /** Site-wide evidence units after explicit registry/lineage dependence collapse. */
+  globalInventoryUnderlyingStudyCount: number | null
+  globalCollapsedInventoryPublicationCount: number | null
+  /** Unique site-wide primary-human publication identities. */
+  globalPrimaryHumanPublicationCount: number | null
+  /** Independent site-wide primary-human evidence units after explicit dependence collapse. */
+  globalPrimaryHumanUnderlyingStudyCount: number | null
+  globalCollapsedPrimaryHumanPublicationCount: number | null
   gradeDistribution: Array<{ grade: string; count: number; pct: number }>
   categories: EvidenceCategorySummary[]
 }
@@ -406,6 +419,13 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     contradictingRelationships,
     noClearEffectRelationships,
     disagreementStudyCount: studies.filter(study => study.relationshipSummary === 'mixed').length,
+    underlyingStudyMetricsSource: null,
+    globalInventoryPublicationCount: null,
+    globalInventoryUnderlyingStudyCount: null,
+    globalCollapsedInventoryPublicationCount: null,
+    globalPrimaryHumanPublicationCount: null,
+    globalPrimaryHumanUnderlyingStudyCount: null,
+    globalCollapsedPrimaryHumanPublicationCount: null,
     gradeDistribution,
     categories,
   }
@@ -449,7 +469,22 @@ export async function getPublicEvidenceDataset(): Promise<PublicEvidenceDataset>
     hydrateIndexableRecords(herbs, 'herb'),
     hydrateIndexableRecords(compounds, 'compound'),
   ])
-  return buildPublicEvidenceDatasetFromRecords([...herbRecords, ...compoundRecords])
+  const dataset = buildPublicEvidenceDatasetFromRecords([...herbRecords, ...compoundRecords])
+  const independence = buildResearchQualitySnapshot(process.cwd()).topology.underlyingStudyIndependence.summary
+
+  return {
+    ...dataset,
+    metrics: {
+      ...dataset.metrics,
+      underlyingStudyMetricsSource: 'canonical-research-topology',
+      globalInventoryPublicationCount: independence.globalInventoryPublicationCount,
+      globalInventoryUnderlyingStudyCount: independence.globalInventoryUnderlyingStudyCount,
+      globalCollapsedInventoryPublicationCount: independence.globalCollapsedInventoryPublicationCount,
+      globalPrimaryHumanPublicationCount: independence.globalPrimaryHumanPublicationCount,
+      globalPrimaryHumanUnderlyingStudyCount: independence.globalPrimaryHumanUnderlyingStudyCount,
+      globalCollapsedPrimaryHumanPublicationCount: independence.globalCollapsedPrimaryHumanPublicationCount,
+    },
+  }
 }
 
 function csvEscape(value: unknown): string {

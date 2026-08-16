@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  PUBLIC_EVIDENCE_DATASET_VERSION,
   buildPublicEvidenceDatasetFromRecords,
   publicEvidenceDatasetToCsv,
 } from '@/lib/public-evidence-dataset'
@@ -79,6 +80,23 @@ describe('public evidence dataset', () => {
     expect(dataset.metrics.strongOrModerateIngredients).toBe(1)
     expect(dataset.metrics.preliminaryOrInsufficientIngredients).toBe(1)
     expect(dataset.metrics.ingredientsWithSafetyCautions).toBe(1)
+  })
+
+  it('does not fabricate independence metrics in the pure record builder', () => {
+    const dataset = buildPublicEvidenceDatasetFromRecords([
+      { type: 'herb', record: record({ slug: 'alpha' }) },
+    ])
+
+    expect(PUBLIC_EVIDENCE_DATASET_VERSION).toBe('2026.08.16')
+    expect(dataset.metrics).toMatchObject({
+      underlyingStudyMetricsSource: null,
+      globalInventoryPublicationCount: null,
+      globalInventoryUnderlyingStudyCount: null,
+      globalCollapsedInventoryPublicationCount: null,
+      globalPrimaryHumanPublicationCount: null,
+      globalPrimaryHumanUnderlyingStudyCount: null,
+      globalCollapsedPrimaryHumanPublicationCount: null,
+    })
   })
 
   it('exports structured study relationships to CSV without losing stable IDs', () => {
