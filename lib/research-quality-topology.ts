@@ -17,6 +17,7 @@ import { analyzeOutcomeMetadataCoverage } from './research-outcome-metadata-cove
 import { analyzeOutcomeRegistrationAlignment } from './research-outcome-registration-alignment'
 import { analyzeOutcomeReportingIntegrity } from './research-outcome-reporting-integrity'
 import { buildOutcomeReviewQueue } from './research-outcome-review-queue'
+import { analyzeStudyParticipantCountAmbiguities } from './research-participant-count-ambiguity'
 import { analyzeProvenanceConcentration, analyzeStudyProvenanceConflicts } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import { analyzeResearchSemanticAlignment } from './research-semantic-alignment'
@@ -50,6 +51,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const claimEvidenceAge = analyzeClaimEvidenceAge(analysis)
   const evidenceAgeSummary = summarizeEvidenceAge(claimEvidenceAge)
   const studyYearConflicts = analyzeStudyYearConflicts(analysis)
+  const participantCountAmbiguities = analyzeStudyParticipantCountAmbiguities(analysis)
   const legacyOnlyClaims = claimEvidenceAge.filter((claim) => claim.allKnownEvidenceOlderThan10Years)
   const highConfidenceLegacyOnlyClaims = claimEvidenceAge.filter((claim) => claim.highConfidenceLegacyOnlyClaim)
   const studyIdentityCoverage = analyzeStudyIdentityCoverage(analysis)
@@ -104,6 +106,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
   const metadataIntegrity = buildResearchMetadataIntegrity({
     studyYearConflicts,
+    participantCountAmbiguities,
     provenanceConflicts,
     studyClassConflicts,
     claimCitationMetadata,
@@ -122,6 +125,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     claimEvidenceAge,
     evidenceAgeSummary,
     studyYearConflicts,
+    participantCountAmbiguities,
     legacyOnlyClaims,
     highConfidenceLegacyOnlyClaims,
     studyIdentityCoverage,
