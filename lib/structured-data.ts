@@ -1,5 +1,10 @@
-const SITE_URL = 'https://thehippiescientist.net'
-const AUTHOR_URL = `${SITE_URL}/info/author/`
+import { SITE_URL } from '@/src/lib/site'
+import {
+  AUTHOR_SCHEMA_ID,
+  ORGANIZATION_SCHEMA_ID,
+  authorSchemaIdentity,
+  organizationSchemaIdentity,
+} from '@/src/lib/schema-identities'
 
 function toIsoDate(value: unknown): string | undefined {
   if (typeof value !== 'string' || !value.trim()) return undefined
@@ -10,25 +15,14 @@ function toIsoDate(value: unknown): string | undefined {
 export function buildOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': `${SITE_URL}/#organization`,
-    name: 'The Hippie Scientist',
-    url: SITE_URL,
-    logo: {
-      '@type': 'ImageObject',
-      url: `${SITE_URL}/logo.svg`,
-    },
+    ...organizationSchemaIdentity(),
   }
 }
 
 export function buildPersonSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': `${AUTHOR_URL}#person`,
-    name: 'Willie B. Randolph III',
-    url: AUTHOR_URL,
-    affiliation: { '@id': `${SITE_URL}/#organization` },
+    ...authorSchemaIdentity(),
   }
 }
 
@@ -51,8 +45,8 @@ export function buildMedicalWebPageSchema(entity: Record<string, unknown>, type:
       name: entity.name,
       description,
     },
-    author: { '@id': `${AUTHOR_URL}#person` },
-    publisher: { '@id': `${SITE_URL}/#organization` },
+    author: { '@id': AUTHOR_SCHEMA_ID },
+    publisher: { '@id': ORGANIZATION_SCHEMA_ID },
   }
 }
 
@@ -70,8 +64,8 @@ export function buildArticleSchema(post: Record<string, unknown>) {
     ...(dateModified ? { dateModified } : {}),
     mainEntityOfPage: url,
     url,
-    author: { '@id': `${AUTHOR_URL}#person` },
-    publisher: { '@id': `${SITE_URL}/#organization` },
+    author: { '@id': AUTHOR_SCHEMA_ID },
+    publisher: { '@id': ORGANIZATION_SCHEMA_ID },
     ...(post.image ? { image: post.image } : {}),
   }
 }
@@ -88,8 +82,8 @@ export function buildDatasetSchema(dataset: Record<string, unknown>) {
     url,
     ...(datePublished ? { datePublished } : {}),
     ...(dateModified ? { dateModified } : {}),
-    creator: { '@id': `${SITE_URL}/#organization` },
-    publisher: { '@id': `${SITE_URL}/#organization` },
+    creator: { '@id': ORGANIZATION_SCHEMA_ID },
+    publisher: { '@id': ORGANIZATION_SCHEMA_ID },
     ...(dataset.license ? { license: dataset.license } : {}),
     ...(dataset.distribution ? { distribution: dataset.distribution } : {}),
   }
