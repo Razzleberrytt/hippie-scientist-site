@@ -171,10 +171,6 @@ export function DecisionProfileCard({
           </p>
         ) : null}
       </div>
-
-      <div className="mt-3 flex items-center gap-1 text-sm font-bold text-brand-700 transition-all duration-200 group-hover:gap-2 group-hover:text-brand-900 dark:text-[var(--text-secondary)] dark:group-hover:text-[var(--text-primary)]">
-        View profile <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-      </div>
     </Link>
   )
 }
