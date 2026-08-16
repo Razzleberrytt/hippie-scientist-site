@@ -27,84 +27,72 @@ const SECTIONS = [
     href: '/guides/mental-health/',
     desc: 'OCD, BPD, and every named DSM-5-TR personality disorder — citation-rich guides covering diagnosis, differential diagnosis, treatment, safety, and stigma.',
     color: 'border-l-cyan-600',
-    articles: ['OCD', 'Borderline personality disorder', 'Personality disorders overview', 'OCD vs OCPD', 'Avoidant personality disorder'],
   },
   {
     title: 'ADHD',
     href: '/guides/adhd/',
     desc: 'Supplements, nutrients, and strategies for attention and executive function — 22 evidence-based guides.',
     color: 'border-l-blue-500',
-    articles: ['Best supplements for ADHD', 'Magnesium for ADHD', 'Omega-3 and ADHD', 'ADHD blood tests', 'Sleep and ADHD'],
   },
   {
     title: 'Sleep',
     href: '/guides/sleep/',
     desc: 'Natural sleep aids, melatonin alternatives, and sleep hygiene — 17 guides with clinical evidence.',
     color: 'border-l-indigo-500',
-    articles: ['Best supplements for sleep', 'Magnesium for sleep', 'Magnesium vs melatonin', 'Sleep stack guide', 'Herbs for sleep'],
   },
   {
     title: 'Stress',
     href: '/guides/stress/',
     desc: 'Evidence-aware guides for acute tension, chronic overload, burnout, adaptogens, and stress-support decisions.',
     color: 'border-l-orange-500',
-    articles: ['Stress support', 'Adaptogens', 'Ashwagandha', 'Rhodiola', 'L-theanine'],
   },
   {
     title: 'Anxiety',
     href: '/guides/anxiety/',
     desc: 'Evidence-graded guides for anxious thoughts, physical tension, and calm — with safety warnings kept visible.',
     color: 'border-l-amber-500',
-    articles: ['Best herbs for anxiety', 'Natural anxiety support', 'Ashwagandha for anxiety', 'L-theanine for calm', 'Magnesium for anxiety'],
   },
   {
     title: 'Focus & Cognition',
     href: '/guides/focus/',
     desc: 'Nootropics, focus stacks, and cognitive enhancement — 6 guides on getting more from your brain.',
     color: 'border-l-emerald-500',
-    articles: ['Best nootropics for focus', 'Focus without caffeine crash', 'L-theanine vs caffeine', 'Best focus supplements'],
   },
   {
     title: 'Metabolic Health',
     href: '/guides/metabolic-health/',
     desc: 'Blood sugar, insulin sensitivity, weight-loss claims, medication context, and metabolic supplement comparisons kept tied to human evidence.',
     color: 'border-l-lime-600',
-    articles: ['Berberine vs inositol', 'Berberine vs cinnamon', 'Berberine for weight loss', 'Berberine vs metformin'],
   },
   {
     title: 'Herb Guides',
     href: '/guides/herbs/',
     desc: 'Deep-dive monographs on individual herbs — ashwagandha, kava, passionflower, rhodiola, turmeric.',
     color: 'border-l-green-600',
-    articles: ['Ashwagandha complete guide', 'Kava guide', 'Rhodiola guide', 'Turmeric & curcumin', 'Passionflower guide'],
   },
   {
     title: 'Comparisons',
     href: '/guides/compare/',
     desc: 'Head-to-head supplement comparisons — ashwagandha vs rhodiola, melatonin vs valerian, and more.',
     color: 'border-l-rose-500',
-    articles: ['Ashwagandha vs L-theanine vs magnesium', 'Melatonin vs valerian vs magnesium', 'Rhodiola vs ashwagandha', 'Kava vs alcohol'],
   },
   {
     title: 'Best Supplements',
     href: '/guides/best/',
     desc: 'Curated recommendations for specific needs — blood pressure, fat loss, joint support, gut health.',
     color: 'border-l-purple-500',
-    articles: ['Best for blood pressure', 'Best for fat loss', 'Best for joint support', 'Best for gut health'],
   },
   {
     title: 'Science Foundations',
     href: '/learn/',
     desc: 'Research literacy, neuroscience, interactions, and product quality explainers that make the rest of the library easier to evaluate.',
     color: 'border-l-teal-600',
-    articles: ['Evidence literacy', 'How to read scientific studies', 'Neuroscience glossary', 'Interactions', 'Product quality'],
   },
   {
     title: 'Supplement Topic Guides',
     href: '/guides/other/',
     desc: 'Form and quality guides, popular supplement categories, goal-based routines, advanced compounds, and harm reduction — organized by the decision you are making.',
     color: 'border-l-stone-500',
-    articles: ['Magnesium types', 'Omega-3 quality', 'Gut health', 'Stacking safety', 'Advanced research'],
   },
 ]
 
@@ -136,11 +124,6 @@ export default function LibraryHub() {
           >
             <h2 className="text-xl font-bold text-ink">{section.title}</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted">{section.desc}</p>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {section.articles.map((article) => (
-                <span key={article} className="border-b border-brand-900/10 px-0.5 py-1 text-xs font-medium text-brand-700 md:rounded-full md:border-0 md:bg-brand-50 md:px-2.5 md:py-0.5">{article}</span>
-              ))}
-            </div>
           </Link>
         ))}
       </div>
