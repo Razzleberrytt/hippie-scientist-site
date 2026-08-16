@@ -85,6 +85,7 @@ function executeStep(cmd, index) {
     const stepName = cmd.split('scripts/')[1]?.split('.mjs')[0] || cmd
     const stepStart = performance.now()
     const stderr = []
+    let settled = false
 
     process.stdout.write(`⏱️  [${String(index + 1).padStart(2, ' ')}/${qaSteps.length}] ${stepName.substring(0, 40).padEnd(40)} ... `)
 
@@ -96,6 +97,9 @@ function executeStep(cmd, index) {
     child.stderr.on('data', chunk => stderr.push(chunk))
 
     const finish = (passed, code = 0, error = null) => {
+      if (settled) return
+      settled = true
+
       const stepDuration = performance.now() - stepStart
       results.set(stepName, { passed, duration: stepDuration })
 
