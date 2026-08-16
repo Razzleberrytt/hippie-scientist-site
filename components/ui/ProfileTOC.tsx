@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react'
 type TocItem = { id: string; label: string }
 type ProfileTOCVariant = 'all' | 'mobile' | 'desktop'
 
+export function getActiveTocLabel(items: TocItem[], activeId: string | null) {
+  return items.find(({ id }) => id === activeId)?.label || items[0]?.label || ''
+}
+
 export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[]; variant?: ProfileTOCVariant }) {
   const [activeId, setActiveId] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -28,7 +32,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
 
   if (items.length === 0) return null
 
-  const activeLabel = items.find(({ id }) => id === activeId)?.label || items[0]?.label
+  const activeLabel = getActiveTocLabel(items, activeId)
 
   const links = (
     <ol className='space-y-0.5'>
