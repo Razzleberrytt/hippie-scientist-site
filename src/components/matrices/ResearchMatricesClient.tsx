@@ -7,7 +7,7 @@ import {
   rowsForRiskMatrix,
   type ResearchMatrixRow,
   type RiskMatrixId,
-} from '@/lib/research-matrices'
+} from '@/lib/research-matrices.shared'
 
 type MatrixView = 'evidence' | RiskMatrixId
 
