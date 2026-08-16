@@ -3,12 +3,13 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 describe('Author page', () => {
-  it('includes the updated author identity copy', () => {
+  it('includes the canonical author identity and accountability copy', () => {
     const source = readFileSync(join(process.cwd(), 'app/info/author/page.tsx'), 'utf8')
 
     expect(source).toContain('Willie B. Randolph III')
-    expect(source).toContain('Oak Ridge, Tennessee')
-    expect(source).toContain('father of two little girls')
+    expect(source).toContain('founder and independent author of The Hippie Scientist')
+    expect(source).toContain('The useful reason to know who is behind this project is accountability')
+    expect(source).toContain('No implied clinical or academic credential')
   })
 
   it('keeps active bylines and schema helpers aligned with the canonical author profile', () => {
