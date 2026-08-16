@@ -16,6 +16,7 @@ import {
   analyzeCrossProfileStudyLoad,
   analyzeEvidenceBundleReuse,
 } from './research-study-load'
+import { analyzeTrialRegistrationIndependence } from './research-trial-registration-independence'
 
 export type ResearchQualityTopology = ReturnType<typeof buildResearchQualityTopology>
 
@@ -54,6 +55,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const highConfidenceProvenanceNarrowMultiStudyClaims = claimProvenanceIndependence.filter(
     (claim) => claim.highConfidenceProvenanceNarrowMultiStudySupport,
   )
+  const trialRegistrationIndependence = analyzeTrialRegistrationIndependence(analysis)
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
@@ -84,6 +86,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     claimProvenanceIndependence,
     provenanceNarrowMultiStudyClaims,
     highConfidenceProvenanceNarrowMultiStudyClaims,
+    trialRegistrationIndependence,
     studyClassConflicts,
     semanticAlignment,
     claimLanguageCalibration,
