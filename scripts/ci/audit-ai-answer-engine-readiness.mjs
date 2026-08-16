@@ -222,7 +222,20 @@ function auditLegacyGuideReferencePrimitives() {
     ['href={`#${citationId}`}', 'durable source self-link'],
     ['itemProp="name"', 'citation text name semantic'],
     ['itemProp="url"', 'source URL semantic'],
+    ['function sourceIdentifier(url?: string)', 'URL-only source identifier normalizer'],
+    ["hostname === 'pubmed.ncbi.nlm.nih.gov'", 'canonical PubMed host gate'],
+    ['return match ? `PMID:${match[1]}`', 'PMID identifier derivation'],
+    ["hostname === 'doi.org' || hostname === 'www.doi.org'", 'canonical DOI host gate'],
+    ['return /^10\\.\\d{4,9}\\/\\S+$/i.test(doi) ? `DOI:${doi}`', 'DOI identifier syntax gate'],
+    ['data-source-identifier={identifier}', 'machine-readable source identifier'],
+    ['itemProp="identifier"', 'CreativeWork identifier semantic'],
   ])
+
+  const legacyReferenceSource = text(LEGACY_GUIDE_REFERENCE)
+  const identifierNormalizer = legacyReferenceSource.split('function sourceIdentifier')[1]?.split('/**')[0] || ''
+  if (/\btext\b/.test(identifierNormalizer)) {
+    add('error', 'legacy-guide-citations', 'LegacyGuideReference source identifier normalizer reads citation prose instead of URL-only identity')
+  }
 
   for (const [slug, file] of LEGACY_GUIDE_PAGES) {
     requireSignals(file, 'legacy-guide-citations', `${slug} guide`, [
