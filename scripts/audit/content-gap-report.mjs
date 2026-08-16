@@ -1,297 +1,168 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs'
+import { collectionHasMeaningfulText, hasMeaningfulText, isMissingLike } from '../../lib/data-quality.mjs'
 
-// Helper to ensure directory exists
-function ensureDirExists(dirPath) {
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
-  }
+const REPORT_DIR = 'reports'
+const PROFILE_FIELDS = ['description', 'safety', 'evidence_level', 'mechanism', 'best_for', 'dosing', 'interactions']
+const DESCRIPTION_PLACEHOLDERS = [
+  /evidence-aware botanical profile with mechanism/i,
+  /evidence-aware compound profile with mechanism/i,
+]
+
+function ensureReportDir() {
+  fs.mkdirSync(REPORT_DIR, { recursive: true })
 }
 
-// Check if a field value is filled and is not a placeholder
 function checkDescription(value) {
-  if (!value || typeof value !== 'string') return false;
-  const val = value.toLowerCase().trim();
-  if (val.length === 0) return false;
-  
-  const placeholders = [
-    'evidence-aware botanical profile with mechanism',
-    'evidence-aware compound profile with mechanism',
-    'needs review',
-    'safety review pending',
-    'research pending',
-    'research-only',
-    'placeholder'
-  ];
-
-  return !placeholders.some(p => val.includes(p));
+  return hasMeaningfulText(value, DESCRIPTION_PLACEHOLDERS)
 }
 
 export function checkSafety(value) {
-  const placeholders = [
-    'needs review',
-    'safety review pending',
-    'research pending',
-    'placeholder'
-  ];
-
-  const checkVal = (v) => {
-    if (!v || typeof v !== 'string') return false;
-    const val = v.toLowerCase().trim();
-    if (val.length === 0) return false;
-    return !placeholders.some(p => val.includes(p));
-  };
-
-  if (Array.isArray(value)) {
-    return value.length > 0 && value.some(checkVal);
-  }
-  return checkVal(value);
+  return collectionHasMeaningfulText(value)
 }
 
 function checkEvidenceLevel(item) {
-  const level = item.evidence_tier || item.evidence_grade || item.evidenceLevel || item.evidence_level;
-  if (!level) return false;
-  const val = String(level).toLowerCase().trim();
-  return val.length > 0 && val !== 'null' && val !== 'undefined';
+  return !isMissingLike(item.evidence_tier ?? item.evidence_grade ?? item.evidenceLevel ?? item.evidence_level)
 }
 
 function checkMechanism(item) {
-  const mechs = item.mechanisms || item.canonical_mechanisms || item.mechanism;
-  if (!mechs) return false;
-  if (Array.isArray(mechs)) {
-    return mechs.length > 0;
-  }
-  const val = String(mechs).toLowerCase().trim();
-  return val.length > 0 && val !== 'null' && val !== 'undefined';
+  const value = item.mechanisms ?? item.canonical_mechanisms ?? item.mechanism
+  return Array.isArray(value) ? value.length > 0 : !isMissingLike(value)
 }
 
 function checkBestFor(item) {
-  const best = item.effects || item.primary_effects || item.best_for || item.bestFor;
-  if (!best) return false;
-  
-  const checkVal = (v) => {
-    if (!v) return false;
-    const val = String(v).toLowerCase().trim();
-    if (val.length === 0) return false;
-    const placeholders = ['research pending', 'research_only', 'research-pending', 'needs review', 'placeholder'];
-    return !placeholders.some(p => val.includes(p));
-  };
-
-  if (Array.isArray(best)) {
-    return best.length > 0 && best.some(checkVal);
-  }
-  return checkVal(best);
+  return collectionHasMeaningfulText(item.effects ?? item.primary_effects ?? item.best_for ?? item.bestFor)
 }
 
 function checkDosing(item) {
-  const dosing = item.dosage || item.typical_dosage || item.dosing || item.dosage_range;
-  if (!dosing) return false;
-  if (Array.isArray(dosing)) return dosing.length > 0;
-  const val = String(dosing).toLowerCase().trim();
-  return val.length > 0 && val !== 'null' && val !== 'undefined';
+  const value = item.dosage ?? item.typical_dosage ?? item.dosing ?? item.dosage_range
+  return Array.isArray(value) ? value.length > 0 : !isMissingLike(value)
 }
 
 function checkInteractions(item, interactionEdgesMap) {
-  const val = item.interactions;
-  if (Array.isArray(val) ? val.length > 0 : false) return true;
-  if (typeof val === 'string') {
-    const str = val.toLowerCase().trim();
-    if (str.length > 0 && str !== 'null' && str !== 'undefined') return true;
-  }
-  // `item.interactions` is never populated by the workbook pipeline — real,
-  // rendered interaction content lives in the derived interaction graph
-  // (public/data/interaction_edges.json), which powers the live "Interactions"
-  // section on /herbs/:slug and /compounds/:slug via InteractionWarnings.
-  const edges = interactionEdgesMap?.[item.slug];
-  return Array.isArray(edges) && edges.length > 0;
+  if (collectionHasMeaningfulText(item.interactions)) return true
+  const edges = interactionEdgesMap?.[item.slug]
+  return Array.isArray(edges) && edges.length > 0
 }
 
-// Slugs whose empty contraindications_or_flags field was already reviewed and
-// intentionally left blank (evidence doesn't support a categorical human
-// contraindication) — see docs/LOOP_NOTES.md's repeated findings that these
-// ledgers must be checked before treating an empty safety field as a gap.
 export function loadDocumentedSafetyExceptions() {
-  const ledgerPaths = [
+  const slugs = new Set()
+  for (const ledgerPath of [
     'data-sources/safety-evidence-limited-exceptions.json',
     'data-sources/safety-evidence-limited-primary-runtime-exceptions.json',
-  ];
-  const slugs = new Set();
-  for (const ledgerPath of ledgerPaths) {
-    if (!fs.existsSync(ledgerPath)) continue;
-    const parsed = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
-    for (const entry of parsed.exceptions || []) {
-      if (entry.slug) slugs.add(entry.slug);
-    }
+  ]) {
+    if (!fs.existsSync(ledgerPath)) continue
+    const parsed = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'))
+    for (const entry of parsed.exceptions ?? []) if (entry.slug) slugs.add(entry.slug)
   }
-  return slugs;
+  return slugs
+}
+
+function analyzeProfile(item, type, interactionEdgesMap, documentedSafetyExceptions) {
+  const safetyFilled = checkSafety(item.contraindications)
+  const safetyDocumentedException = !safetyFilled && documentedSafetyExceptions.has(item.slug)
+  const state = {
+    description: checkDescription(item.description),
+    safety: safetyFilled || safetyDocumentedException,
+    evidence_level: checkEvidenceLevel(item),
+    mechanism: checkMechanism(item),
+    best_for: checkBestFor(item),
+    dosing: checkDosing(item),
+    interactions: checkInteractions(item, interactionEdgesMap),
+  }
+  const missingFields = PROFILE_FIELDS.filter((field) => !state[field])
+
+  return {
+    name: item.name,
+    slug: item.slug,
+    type,
+    completeness: (PROFILE_FIELDS.length - missingFields.length) / PROFILE_FIELDS.length,
+    missingFields,
+    details: Object.fromEntries(PROFILE_FIELDS.map((field) => [
+      field,
+      field === 'safety' && safetyDocumentedException ? 'DOCUMENTED_EXCEPTION' : state[field] ? 'FILLED' : 'EMPTY',
+    ])),
+  }
+}
+
+function priorityRows(profiles) {
+  const prioritySlugs = [
+    'ashwagandha', 'turmeric', 'lions-mane', 'bacopa-monnieri', 'rhodiola-rosea',
+    'ginkgo-biloba', 'valerian-root', 'elderberry', 'echinacea', 'ginger', 'reishi',
+    'cordyceps', 'holy-basil', 'passionflower', 'st-johns-wort', 'magnesium-glycinate',
+    'l-theanine', 'creatine', 'omega-3', 'vitamin-d3',
+  ]
+  return prioritySlugs.map((prioritySlug) => ({
+    prioritySlug,
+    profile: profiles.find((profile) =>
+      profile.slug === prioritySlug ||
+      (prioritySlug === 'valerian-root' && profile.slug === 'valerian') ||
+      profile.slug?.includes(prioritySlug) ||
+      prioritySlug.includes(profile.slug),
+    ) ?? null,
+  }))
+}
+
+function renderMarkdown(profiles, documentedSafetyExceptions) {
+  const total = profiles.length
+  const filled = (field) => profiles.filter((profile) => profile.details[field] !== 'EMPTY').length
+  const pct = (count) => total ? ((count / total) * 100).toFixed(1) : '0.0'
+  const priorities = priorityRows(profiles)
+
+  const lines = [
+    '# Content Gap Audit Report', '',
+    `Generated on: ${new Date().toISOString()}`, '',
+    '## Summary Statistics', '',
+    `- **Total Profiles Evaluated**: ${total}`,
+    `- **Safety Data Fill/Reviewed Rate**: ${pct(filled('safety'))}% (${filled('safety')} / ${total}); documented evidence-limited exceptions are treated as reviewed rather than missing`,
+    `- **Description Fill Rate**: ${pct(filled('description'))}% (${filled('description')} / ${total})`,
+    `- **Mechanism Fill Rate**: ${pct(filled('mechanism'))}% (${filled('mechanism')} / ${total})`,
+    `- **Interactions Fill Rate**: ${pct(filled('interactions'))}% (${filled('interactions')} / ${total})`,
+    `- **Documented Safety Exceptions Loaded**: ${documentedSafetyExceptions.size}`, '',
+    '## High-Traffic Priority Slugs (Completeness)', '',
+    '| Priority Slug | Matched Profile | Type | Completeness % | Missing Fields |',
+    '| --- | --- | --- | --- | --- |',
+  ]
+
+  for (const { prioritySlug, profile } of priorities) {
+    if (!profile) {
+      lines.push(`| \`${prioritySlug}\` | *No matching profile* | - | - | - |`)
+      continue
+    }
+    lines.push(`| \`${prioritySlug}\` | **${profile.name}** (\`${profile.slug}\`) | ${profile.type} | ${(profile.completeness * 100).toFixed(0)}% | ${profile.missingFields.join(', ') || '*None (100% Complete)*'} |`)
+  }
+
+  lines.push('', '## Completeness Audit Table (Sorted Worst to Best)', '',
+    '| Profile Name | Slug | Type | Completeness % | Missing Fields |',
+    '| --- | --- | --- | --- | --- |')
+  for (const profile of profiles) {
+    lines.push(`| ${profile.name} | \`${profile.slug}\` | ${profile.type} | ${(profile.completeness * 100).toFixed(0)}% | ${profile.missingFields.join(', ') || '*None (100% Complete)*'} |`)
+  }
+  lines.push('')
+  return lines.join('\n')
 }
 
 function runGapAnalysis() {
-  const herbsPath = 'public/data/herbs.json';
-  const compoundsPath = 'public/data/compounds.json';
-  const interactionEdgesPath = 'public/data/interaction_edges.json';
-
+  const herbsPath = 'public/data/herbs.json'
+  const compoundsPath = 'public/data/compounds.json'
+  const interactionEdgesPath = 'public/data/interaction_edges.json'
   if (!fs.existsSync(herbsPath) || !fs.existsSync(compoundsPath)) {
-    console.error('Error: Required JSON files public/data/herbs.json or compounds.json are missing.');
-    process.exit(1);
+    console.error('Error: Required JSON files public/data/herbs.json or compounds.json are missing.')
+    process.exit(1)
   }
 
-  const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'));
-  const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'));
-  const interactionEdgesMap = fs.existsSync(interactionEdgesPath)
-    ? JSON.parse(fs.readFileSync(interactionEdgesPath, 'utf8'))
-    : {};
-  const documentedSafetyExceptions = loadDocumentedSafetyExceptions();
+  const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'))
+  const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'))
+  const interactionEdgesMap = fs.existsSync(interactionEdgesPath) ? JSON.parse(fs.readFileSync(interactionEdgesPath, 'utf8')) : {}
+  const documentedSafetyExceptions = loadDocumentedSafetyExceptions()
+  const profiles = [
+    ...herbs.map((item) => analyzeProfile(item, 'herb', interactionEdgesMap, documentedSafetyExceptions)),
+    ...compounds.map((item) => analyzeProfile(item, 'compound', interactionEdgesMap, documentedSafetyExceptions)),
+  ].sort((a, b) => a.completeness - b.completeness || String(a.name).localeCompare(String(b.name)))
 
-  const allProfiles = [];
-  let safetyFilledCount = 0;
-  let safetyDocumentedExceptionCount = 0;
-  let descriptionFilledCount = 0;
-  let mechanismFilledCount = 0;
-  let interactionsFilledCount = 0;
-
-  const prioritySlugs = [
-    'ashwagandha', 'turmeric', 'lions-mane', 'bacopa-monnieri', 'rhodiola-rosea',
-    'ginkgo-biloba', 'valerian-root', 'elderberry', 'echinacea', 'ginger',
-    'reishi', 'cordyceps', 'holy-basil', 'passionflower', 'st-johns-wort',
-    'magnesium-glycinate', 'l-theanine', 'creatine', 'omega-3', 'vitamin-d3'
-  ];
-
-  const processItems = (items, type) => {
-    items.forEach(item => {
-      const descFilled = checkDescription(item.description);
-      const safetyFilled = checkSafety(item.contraindications);
-      const safetyDocumentedException = !safetyFilled && documentedSafetyExceptions.has(item.slug);
-      const evidenceFilled = checkEvidenceLevel(item);
-      const mechFilled = checkMechanism(item);
-      const bestForFilled = checkBestFor(item);
-      const dosingFilled = checkDosing(item);
-      const interactionsFilled = checkInteractions(item, interactionEdgesMap);
-
-      if (descFilled) descriptionFilledCount++;
-      if (safetyFilled) safetyFilledCount++;
-      if (safetyDocumentedException) safetyDocumentedExceptionCount++;
-      if (mechFilled) mechanismFilledCount++;
-      if (interactionsFilled) interactionsFilledCount++;
-
-      const missing = [];
-      if (!descFilled) missing.push('description');
-      if (!safetyFilled && !safetyDocumentedException) missing.push('safety');
-      if (!evidenceFilled) missing.push('evidence_level');
-      if (!mechFilled) missing.push('mechanism');
-      if (!bestForFilled) missing.push('best_for');
-      if (!dosingFilled) missing.push('dosing');
-      if (!interactionsFilled) missing.push('interactions');
-
-      const totalFields = 7;
-      const completeness = (totalFields - missing.length) / totalFields;
-
-      allProfiles.push({
-        name: item.name,
-        slug: item.slug,
-        type,
-        completeness,
-        missingFields: missing,
-        details: {
-          description: descFilled ? 'FILLED' : 'EMPTY',
-          safety: safetyFilled ? 'FILLED' : (safetyDocumentedException ? 'DOCUMENTED_EXCEPTION' : 'EMPTY'),
-          evidence_level: evidenceFilled ? 'FILLED' : 'EMPTY',
-          mechanism: mechFilled ? 'FILLED' : 'EMPTY',
-          best_for: bestForFilled ? 'FILLED' : 'EMPTY',
-          dosing: dosingFilled ? 'FILLED' : 'EMPTY',
-          interactions: interactionsFilled ? 'FILLED' : 'EMPTY'
-        }
-      });
-    });
-  };
-
-  processItems(herbs, 'herb');
-  processItems(compounds, 'compound');
-
-  // Sort by completeness ASC (worst first)
-  allProfiles.sort((a, b) => a.completeness - b.completeness || a.name.localeCompare(b.name));
-
-  // Write JSON report
-  ensureDirExists('reports');
-  fs.writeFileSync('reports/content-gaps.json', JSON.stringify(allProfiles, null, 2));
-  console.log(`Wrote reports/content-gaps.json with ${allProfiles.length} profiles.`);
-
-  // Calculate summaries
-  const total = allProfiles.length;
-  const pctSafety = ((safetyFilledCount / total) * 100).toFixed(1);
-  const pctDesc = ((descriptionFilledCount / total) * 100).toFixed(1);
-  const pctMech = ((mechanismFilledCount / total) * 100).toFixed(1);
-  const pctInteractions = ((interactionsFilledCount / total) * 100).toFixed(1);
-
-  // Match priority slugs (allowing partial match for things like 'valerian-root' matching 'valerian')
-  const getPriorityMatches = () => {
-    const results = [];
-    prioritySlugs.forEach(pSlug => {
-      // Find matching profile (exact, or containing/contained)
-      const match = allProfiles.find(p => 
-        p.slug === pSlug || 
-        (pSlug === 'valerian-root' && p.slug === 'valerian') ||
-        p.slug.includes(pSlug) || 
-        pSlug.includes(p.slug)
-      );
-
-      if (match) {
-        results.push({ prioritySlug: pSlug, profile: match });
-      } else {
-        results.push({ prioritySlug: pSlug, profile: null });
-      }
-    });
-    return results;
-  };
-
-  const priorityMatches = getPriorityMatches();
-
-  // Generate Markdown report
-  let md = `# Content Gap Audit Report
-
-Generated on: ${new Date().toISOString()}
-
-## Summary Statistics
-
-- **Total Profiles Evaluated**: ${total}
-- **Safety Data Fill Rate**: ${pctSafety}% (${safetyFilledCount} / ${total}); plus ${safetyDocumentedExceptionCount} slug(s) with a documented evidence-limited exception (reviewed and intentionally left blank — see \`data-sources/safety-evidence-limited-exceptions.json\` and \`data-sources/safety-evidence-limited-primary-runtime-exceptions.json\`), not counted below as a "safety" gap
-- **Description Fill Rate**: ${pctDesc}% (${descriptionFilledCount} / ${total})
-- **Mechanism Fill Rate**: ${pctMech}% (${mechanismFilledCount} / ${total})
-- **Interactions Fill Rate**: ${pctInteractions}% (${interactionsFilledCount} / ${total}) — counts profiles with a derived interaction-graph entry in \`interaction_edges.json\` (the data source the live "Interactions" page section actually reads)
-
-## High-Traffic Priority Slugs (Completeness)
-
-Here is the completeness audit for the top 20 highest-traffic priority slugs:
-
-| Priority Slug | Matched Profile | Type | Completeness % | Missing Fields |
-| --- | --- | --- | --- | --- |
-`;
-
-  priorityMatches.forEach(pm => {
-    if (pm.profile) {
-      const p = pm.profile;
-      const missing = p.missingFields.join(', ') || '*None (100% Complete)*';
-      md += `| \`${pm.prioritySlug}\` | **${p.name}** (\`${p.slug}\`) | ${p.type} | ${(p.completeness * 100).toFixed(0)}% | ${missing} |\n`;
-    } else {
-      md += `| \`${pm.prioritySlug}\` | *No matching profile* | - | - | - |\n`;
-    }
-  });
-
-  md += `\n## Completeness Audit Table (Sorted Worst to Best)
-
-| Profile Name | Slug | Type | Completeness % | Missing Fields |
-| --- | --- | --- | --- | --- |
-`;
-
-  allProfiles.forEach(p => {
-    const missing = p.missingFields.join(', ') || '*None (100% Complete)*';
-    md += `| ${p.name} | \`${p.slug}\` | ${p.type} | ${(p.completeness * 100).toFixed(0)}% | ${missing} |\n`;
-  });
-
-  fs.writeFileSync('reports/content-gaps.md', md);
-  console.log(`Wrote reports/content-gaps.md.`);
+  ensureReportDir()
+  fs.writeFileSync(`${REPORT_DIR}/content-gaps.json`, `${JSON.stringify(profiles, null, 2)}\n`)
+  fs.writeFileSync(`${REPORT_DIR}/content-gaps.md`, renderMarkdown(profiles, documentedSafetyExceptions))
+  console.log(`[content-gaps] Evaluated ${profiles.length} profiles; wrote reports/content-gaps.{json,md}`)
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  runGapAnalysis();
-}
+if (import.meta.url === `file://${process.argv[1]}`) runGapAnalysis()
