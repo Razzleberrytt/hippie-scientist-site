@@ -39,6 +39,7 @@ const {
   semanticAlignment,
   claimBreadth,
   effectCertainty,
+  directionalConsistency,
   claimLanguageCalibration: languageCalibration,
   crossProfileStudyLoad,
   systemicLoadBearingStudies,
@@ -117,6 +118,8 @@ results.unshift({
     `semanticMismatches=${semanticAlignment.summary.anyMismatch}`,
     `claimBreadthOverreach=${claimBreadth.summary.overbroadClaims}`,
     `effectCertaintyOverreach=${effectCertainty.summary.findings}`,
+    `directionalFindings=${directionalConsistency.summary.findings}`,
+    `endpointCherryPick=${directionalConsistency.summary.endpointCherryPickRisks}`,
     `causalWithoutControlled=${languageCalibration.summary.causalWithoutControlledSupport}`,
     `pseudoMultiSource=${edgeCardinality.summary.pseudoMultiSourceClaims}`,
     `sameTrialReuse=${trialRegistrationIndependence.summary.sameTrialReuseClaims}`,
@@ -169,6 +172,7 @@ const coreSummary = {
   semanticAlignment: semanticAlignment.summary,
   claimBreadth: claimBreadth.summary,
   effectCertainty: effectCertainty.summary,
+  directionalConsistency: directionalConsistency.summary,
   claimLanguageCalibration: languageCalibration.summary,
   claimCitationMetadata: claimCitationMetadata.summary,
   edgeCardinality: edgeCardinality.summary,
@@ -210,7 +214,7 @@ const coreSummary = {
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 27,
+  schemaVersion: 28,
   generatedAt: new Date().toISOString(),
   passed: !failed,
   source: {
@@ -226,6 +230,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
     underlyingStudyIndependence: 'lib/research-underlying-study-independence.ts',
     claimBreadth: 'lib/research-claim-breadth.ts',
     effectCertainty: 'lib/research-effect-certainty.ts',
+    directionalConsistency: 'lib/research-directional-consistency.ts',
   },
   coreSummary,
   structuralFailures: gate.structuralFailures,
@@ -253,6 +258,11 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
     summary: effectCertainty.summary,
     findings: effectCertainty.findings.slice(0, 150),
     highConfidenceFindings: effectCertainty.highConfidenceFindings.slice(0, 100),
+  },
+  directionalConsistency: {
+    summary: directionalConsistency.summary,
+    findings: directionalConsistency.findings.slice(0, 150),
+    highConfidenceFindings: directionalConsistency.highConfidenceFindings.slice(0, 100),
   },
   claimLanguageCalibration: {
     summary: languageCalibration.summary,
@@ -324,6 +334,7 @@ console.log(`Research gate: ${gate.summary.blockingFailures} blocking · ${gate.
 console.log(`Semantic alignment: ${semanticAlignment.summary.anyMismatch} explicit mismatch(es) · ${semanticAlignment.summary.highConfidenceMismatches} high-confidence`)
 console.log(`Claim breadth: ${claimBreadth.summary.overbroadClaims} overbroad claim(s) · ${claimBreadth.summary.highConfidenceOverbroadClaims} high-confidence · population ${claimBreadth.summary.populationOverbroadClaims} · dose ${claimBreadth.summary.doseOverbroadClaims} · duration ${claimBreadth.summary.durationOverbroadClaims} · formulation ${claimBreadth.summary.formulationOverbroadClaims} · endpoint ${claimBreadth.summary.endpointOverbroadClaims}`)
 console.log(`Effect/certainty: ${effectCertainty.summary.findings} overstatement finding(s) · ${effectCertainty.summary.highConfidenceFindings} high-confidence · magnitude ${effectCertainty.summary.magnitudeOverstatements} · clinical importance ${effectCertainty.summary.clinicalImportanceOverstatements} · certainty ${effectCertainty.summary.certaintyOverstatements}`)
+console.log(`Directionality: ${directionalConsistency.summary.findings} finding(s) · ${directionalConsistency.summary.highConfidenceFindings} high-confidence · endpoint cherry-pick ${directionalConsistency.summary.endpointCherryPickRisks} · heterogeneous bundles ${directionalConsistency.summary.directionalHeterogeneityClaims} · uniformly-positive overstatement ${directionalConsistency.summary.uniformlyPositiveOverstatements}`)
 console.log(`Language calibration: ${languageCalibration.summary.causalWithoutControlledSupport} unsupported direct-causal claim(s)`)
 console.log(`Edge cardinality: ${edgeCardinality.summary.pseudoMultiSourceClaims} pseudo-multi-source · ${edgeCardinality.summary.aliasCollapsedClaims} alias-collapsed · ${edgeCardinality.summary.duplicateEdges} duplicate edge(s)`)
 console.log(`Underlying-study reuse: ${trialRegistrationIndependence.summary.sameTrialReuseClaims} same-trial claim(s) · ${evidenceLineage.summary.sharedNonRegistryLineageClaims} shared lineage claim(s)`)
