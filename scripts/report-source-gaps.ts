@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { sourceClassesForEvidenceClasses } from './lib/source-class-governance'
 
 type ItemType = 'herb_page' | 'compound_page' | 'collection_page' | 'comparison_page' | 'discovery_surface' | 'recommendation_surface'
 type PriorityLabel = 'do_now' | 'next_wave' | 're_review_needed' | 'governance_fix_needed' | 'low_priority' | 'defer'
@@ -99,19 +100,14 @@ const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'source-gaps.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'source-gaps.md')
 
 const HUMAN_EVIDENCE_CLASSES = new Set(['human-clinical', 'human-observational'])
-const HUMAN_SOURCE_CLASSES = new Set([
-  'randomized-human-trial',
-  'non-randomized-human-study',
-  'observational-human-evidence',
-  'systematic-review-meta-analysis',
-])
+const HUMAN_SOURCE_CLASSES = sourceClassesForEvidenceClasses(HUMAN_EVIDENCE_CLASSES)
 const SAFETY_SOURCE_CLASSES = new Set([
   'regulatory-agency-monograph-guidance',
   'reference-database-authority',
   'systematic-review-meta-analysis',
 ])
-const MECHANISM_SOURCE_CLASSES = new Set(['preclinical-mechanistic-study'])
-const TRADITIONAL_SOURCE_CLASSES = new Set(['traditional-use-monograph'])
+const MECHANISM_SOURCE_CLASSES = sourceClassesForEvidenceClasses(['preclinical-mechanistic'])
+const TRADITIONAL_SOURCE_CLASSES = sourceClassesForEvidenceClasses(['traditional-use'])
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T
