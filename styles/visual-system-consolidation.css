@@ -1,0 +1,20 @@
+:root {
+  /* Keep the app canvas on the same warm neutral used by the design tokens. */
+  --color-background: var(--bg);
+}
+
+body,
+.hs-shell {
+  background: var(--bg);
+}
+
+html.dark body,
+html.dark .hs-shell {
+  background: var(--bg);
+}
+
+/* Elevated content should read as distinct from the warm canvas without
+   introducing unrelated gray/blue tints. */
+:where(.hero-shell, .premium-card, .surface-card) {
+  border-color: var(--border-soft);
+}
