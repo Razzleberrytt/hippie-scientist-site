@@ -75,7 +75,7 @@ export default function AffiliateProductBox({ slug, products, heading = 'Product
                     productSlot: product.slot,
                     productAsin: product.asin,
                   })}
-                  className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2 text-xs font-bold text-white transition hover:bg-brand-900 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100"
+                  className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2 text-xs font-bold text-white transition hover:bg-brand-900 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100"
                 >
                   View on Amazon →
                 </a>
