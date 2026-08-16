@@ -65,11 +65,11 @@ const TIERS: TierRow[] = [
 ]
 
 type Props = {
-  /** Visually highlight one tier (matches current compound) */
+  /** Visually highlight one tier (matches current compound). */
   highlightTier?: EvidenceStrengthTier
-  /** Extra Tailwind classes on the outer wrapper */
+  /** Extra Tailwind classes on the outer wrapper. */
   className?: string
-  /** Start expanded (default false) */
+  /** Start expanded (default false). */
   defaultOpen?: boolean
 }
 
@@ -80,10 +80,10 @@ export default function EvidenceLegend({
 }: Props) {
   return (
     <details
-      className={`group rounded-[1rem] border border-brand-900/10 bg-white/90 shadow-sm ${className}`}
+      className={`group border-y border-[color:var(--hs-hairline-strong)] !bg-transparent !shadow-none ${className}`}
       open={defaultOpen || undefined}
     >
-      <summary className="flex cursor-pointer select-none list-none items-center gap-2 px-5 py-3 text-xs font-semibold text-brand-700 hover:text-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 [&::-webkit-details-marker]:hidden">
+      <summary className="flex min-h-12 cursor-pointer select-none list-none items-center gap-2 px-1 py-3 text-xs font-semibold text-[color:var(--tone-ink)] hover:text-[color:var(--hs-ink)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] [&::-webkit-details-marker]:hidden">
         <span
           className="transition-transform duration-200 group-open:rotate-90"
           aria-hidden="true"
@@ -94,26 +94,22 @@ export default function EvidenceLegend({
         <span className="hidden group-open:inline">Hide evidence level guide</span>
       </summary>
 
-      <div className="border-t border-brand-900/10 px-5 pb-5 pt-4">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
-          Evidence Strength Scale — How We Rate Research
-        </p>
-        <p className="mt-1.5 text-xs leading-5 text-muted">
-          Each rating reflects the quality, quantity, and human relevance of available clinical
-          research. Ratings are assigned to specific outcomes (e.g., &ldquo;sleep quality&rdquo;)
-          — not compounds overall.
+      <div className="border-t border-[color:var(--hs-hairline)] px-1 pb-5 pt-4">
+        <p className="eyebrow-label">Evidence Strength Scale</p>
+        <p className="mt-2 max-w-3xl text-xs leading-5 text-[color:var(--hs-body)]">
+          Each rating reflects the quality, quantity, and human relevance of available clinical research. Ratings are assigned to specific outcomes (for example, sleep quality) — not compounds overall.
         </p>
 
-        <div className="mt-4 space-y-3">
+        <div className="mt-4 divide-y divide-[color:var(--hs-hairline)]">
           {TIERS.map((row) => {
             const isHighlighted = row.tier === highlightTier
             return (
               <div
                 key={row.tier}
-                className={`rounded-[0.75rem] border p-3 transition-colors ${
+                className={`relative py-4 pl-3 pr-1 transition-colors ${
                   isHighlighted
-                    ? 'border-brand-700/30 bg-brand-50/80 ring-1 ring-brand-700/20'
-                    : 'border-brand-900/10 bg-brand-50/20'
+                    ? 'bg-[color:color-mix(in_srgb,var(--tone)_8%,transparent)] before:absolute before:inset-y-3 before:left-0 before:w-0.5 before:bg-[color:var(--hs-gold)]'
+                    : ''
                 }`}
                 aria-current={isHighlighted ? 'true' : undefined}
               >
@@ -124,15 +120,14 @@ export default function EvidenceLegend({
                     {row.grade} · {row.label}
                   </span>
                   {isHighlighted && (
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-700">
-                      ← current
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[color:var(--hs-gold)]">
+                      Current tier
                     </span>
                   )}
                 </div>
 
-                {/* Mini progress bar */}
                 <div
-                  className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-neutral-200/80"
+                  className="mt-2 h-1.5 w-full max-w-md overflow-hidden rounded-full bg-neutral-200/80"
                   role="meter"
                   aria-valuenow={row.score}
                   aria-valuemin={0}
@@ -145,13 +140,13 @@ export default function EvidenceLegend({
                   />
                 </div>
 
-                <div className="mt-2 grid gap-1 text-[11px] text-muted sm:grid-cols-2">
+                <div className="mt-2 grid gap-1 text-[11px] text-[color:var(--hs-body)] sm:grid-cols-2 sm:gap-5">
                   <p>
-                    <span className="font-semibold text-ink">What it means: </span>
+                    <span className="font-semibold text-[color:var(--hs-ink)]">What it means: </span>
                     {row.what}
                   </p>
                   <p>
-                    <span className="font-semibold text-ink">Human trials: </span>
+                    <span className="font-semibold text-[color:var(--hs-ink)]">Human trials: </span>
                     {row.human}
                   </p>
                 </div>
@@ -160,11 +155,8 @@ export default function EvidenceLegend({
           })}
         </div>
 
-        <p className="mt-4 text-[10px] leading-5 text-muted">
-          Ratings reflect what the scientific literature currently supports — not marketing claims.
-          Effect sizes, study quality, and population context all influence the final grade.
-          &ldquo;Moderate&rdquo; evidence is meaningful; most supplements in widespread use sit at
-          &ldquo;Limited&rdquo; or below.
+        <p className="mt-4 max-w-3xl text-[10px] leading-5 text-[color:var(--hs-body)]">
+          Ratings reflect what the scientific literature currently supports — not marketing claims. Effect sizes, study quality, and population context all influence the final grade. “Moderate” evidence is meaningful; most supplements in widespread use sit at “Limited” or below.
         </p>
       </div>
     </details>
