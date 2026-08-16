@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  buildArticleReferenceSchema,
   buildCitationReadySummary,
+  normalizeArticleReferences,
   normalizeCitationMetadata,
+  normalizeDoi,
   resolveRelatedArticles,
 } from '../article-citation-metadata'
 
@@ -66,6 +69,82 @@ describe('buildCitationReadySummary', () => {
 
     expect(summary.match(/Keep this conclusion\./g)).toHaveLength(1)
     expect(sentenceCount(summary)).toBe(2)
+  })
+})
+
+describe('article reference normalization', () => {
+  it('normalizes DOI URLs and keeps ordinal anchors independent of source identity', () => {
+    const refs = normalizeArticleReferences([
+      {
+        title: 'Trial one',
+        authors: 'Example A, Example B',
+        journal: 'Example Journal',
+        year: 2025,
+        doi: 'https://doi.org/10.1000/ABC.123',
+      },
+      {
+        title: 'Trial two',
+        pmid: '12345678',
+      },
+    ])
+
+    expect(refs[0]).toMatchObject({
+      n: 1,
+      doi: '10.1000/ABC.123',
+      url: 'https://doi.org/10.1000/ABC.123',
+      sourceId: 'doi:10.1000/abc.123',
+    })
+    expect(refs[1]).toMatchObject({
+      n: 2,
+      pmid: '12345678',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/12345678/',
+      sourceId: 'pmid:12345678',
+    })
+  })
+
+  it('prefers an explicit source URL while preserving PMID/DOI identifiers', () => {
+    const [ref] = normalizeArticleReferences([
+      {
+        title: 'Trial',
+        pmid: '12345678',
+        doi: 'doi:10.1000/test',
+        url: 'https://example.org/full-text',
+      },
+    ])
+
+    expect(ref.url).toBe('https://example.org/full-text')
+    expect(ref.pmid).toBe('12345678')
+    expect(ref.doi).toBe('10.1000/test')
+  })
+
+  it('keeps free-form author strings out of structured scholarly author nodes', () => {
+    const [ref] = normalizeArticleReferences([
+      { title: 'Trial', authors: 'Smith J, Doe R', pmid: '12345678', year: '2025' },
+    ])
+    const schema = buildArticleReferenceSchema(ref)
+
+    expect(schema['@type']).toBe('ScholarlyArticle')
+    expect(schema['@id']).toBe('https://pubmed.ncbi.nlm.nih.gov/12345678/')
+    expect(schema).not.toHaveProperty('author')
+    expect(schema.identifier).toEqual([
+      { '@type': 'PropertyValue', propertyID: 'PMID', value: '12345678' },
+    ])
+  })
+
+  it('does not invent a URL or structured identity when only title metadata exists', () => {
+    const [ref] = normalizeArticleReferences([{ title: 'Narrative source' }])
+    const schema = buildArticleReferenceSchema(ref)
+
+    expect(ref.n).toBe(1)
+    expect(ref.sourceId).toBe('title:narrative-source')
+    expect(ref.url).toBeUndefined()
+    expect(schema).not.toHaveProperty('@id')
+    expect(schema).not.toHaveProperty('url')
+  })
+
+  it('normalizes common DOI prefixes without lowercasing the visible DOI value', () => {
+    expect(normalizeDoi(' DOI: 10.1000/ABC.XYZ ')).toBe('10.1000/ABC.XYZ')
+    expect(normalizeDoi('https://dx.doi.org/10.1000/ABC.XYZ')).toBe('10.1000/ABC.XYZ')
   })
 })
 
