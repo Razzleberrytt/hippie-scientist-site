@@ -31,6 +31,8 @@ export const RESEARCH_GAP_WEIGHTS = {
   unclassifiedStructuredSupport: 20,
   highConfidenceWeakClaimBonus: 15,
   noPrimaryHumanStudy: 20,
+  orphanedPrimaryHumanEvidence: 12,
+  orphanedHumanWhileClaimsNoPrimaryBonus: 8,
   narrativeReviewDominatedProfile: 20,
   synthesisOnlyApprovedOutcome: 8,
   poorStudyMetadataCoverage: 12,
@@ -186,6 +188,15 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
         profile.url,
         'approved-claims-without-primary-human-study',
         RESEARCH_GAP_WEIGHTS.noPrimaryHumanStudy,
+      )
+    }
+    if (profile.orphanedPrimaryHuman > 0) {
+      const mappingBonus = profile.noPrimaryHuman ? RESEARCH_GAP_WEIGHTS.orphanedHumanWhileClaimsNoPrimaryBonus : 0
+      add(
+        profile.url,
+        'orphaned-primary-human-evidence',
+        RESEARCH_GAP_WEIGHTS.orphanedPrimaryHumanEvidence + mappingBonus,
+        `${profile.orphanedPrimaryHuman} primary-human stud${profile.orphanedPrimaryHuman === 1 ? 'y is' : 'ies are'} present in the profile but not linked to any approved claim${mappingBonus ? '; approved claims otherwise have no linked primary-human study' : ''}`,
       )
     }
 
