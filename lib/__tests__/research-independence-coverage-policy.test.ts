@@ -18,6 +18,8 @@ const weights = {
   highConfidenceCausalLanguageBonus: 8,
   claimCitationMetadataGap: 8,
   highConfidenceCitationMetadataBonus: 4,
+  metadataIntegrity: 8,
+  highConfidenceMetadataIntegrityBonus: 4,
   provenanceNarrowMultiStudySupport: 8,
   highConfidenceProvenanceNarrowBonus: 4,
   pseudoMultiSourceSupport: 9,
