@@ -1,7 +1,7 @@
 /* Final token hardening.
-   Loaded last so legacy Tailwind/theme variables cannot leak the former
-   green/purple identity back into shared components. Semantic evidence and
-   safety colors remain untouched because they carry information. */
+   Loaded last so legacy Tailwind/theme variables cannot leak former visual eras
+   back into shared components. Semantic evidence and safety colors remain
+   untouched because they carry information. */
 
 :root {
   --color-background: #f3f0e9;
@@ -31,11 +31,25 @@
   --accent-secondary: #b18449;
   --accent-teal: #66766c;
 
-  /* Legacy editorial accent tokens now resolve to brass instead of sage. */
+  /* Canonical compatibility map for the older hs-* editorial token family. */
   --hs-gold: #b18449;
   --hs-gold-bright: #c99b5f;
   --hs-gold-soft: #efe2ce;
   --hs-gold-ink: #6f4f28;
+  --hs-ink: var(--text-primary);
+  --hs-ink-soft: var(--text-secondary);
+  --hs-body: var(--text-secondary);
+  --hs-hairline: var(--border-soft);
+  --hs-hairline-strong: var(--border-strong);
+  --hs-surface: var(--surface-elevated);
+  --hs-surface-2: var(--surface-card);
+  --hs-lift: 0 1px 2px rgba(29, 29, 31, 0.05), 0 10px 28px -18px rgba(29, 29, 31, 0.20);
+  --hs-lift-hover: 0 2px 4px rgba(29, 29, 31, 0.07), 0 18px 36px -22px rgba(29, 29, 31, 0.28);
+  --hs-canvas:
+    radial-gradient(92% 46% at 88% -6%, rgba(177, 132, 73, 0.08), transparent 58%),
+    linear-gradient(180deg, #f6f3ed 0%, #f3f0e9 42%, #eeebe4 100%);
+  --hs-dot: rgba(46, 44, 40, 0.08);
+  --hs-dot-opacity: 0.18;
 
   /* Keep Tailwind brand utilities compatible with the editorial identity. */
   --color-brand-50: #f1f2ef;
@@ -84,6 +98,20 @@ html.dark {
   --hs-gold-bright: #e0bd7d;
   --hs-gold-soft: rgba(208, 163, 91, 0.22);
   --hs-gold-ink: #e4c691;
+  --hs-ink: var(--text-primary);
+  --hs-ink-soft: var(--text-secondary);
+  --hs-body: var(--text-secondary);
+  --hs-hairline: var(--border-soft);
+  --hs-hairline-strong: var(--border-strong);
+  --hs-surface: var(--surface-elevated);
+  --hs-surface-2: var(--surface-card);
+  --hs-lift: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 14px 34px -16px rgba(0, 0, 0, 0.62);
+  --hs-lift-hover: 0 1px 0 rgba(255, 255, 255, 0.07) inset, 0 24px 48px -20px rgba(0, 0, 0, 0.78);
+  --hs-canvas:
+    radial-gradient(88% 42% at 88% -6%, rgba(208, 163, 91, 0.08), transparent 60%),
+    linear-gradient(180deg, #101214 0%, #0e1011 50%, #121416 100%);
+  --hs-dot: rgba(227, 211, 181, 0.07);
+  --hs-dot-opacity: 0.14;
 
   --color-brand-50: #181b1c;
   --color-brand-100: #202426;
@@ -99,8 +127,8 @@ html.dark {
   --color-brand: #d0a35b;
 }
 
-/* The body itself must agree with the shell; this prevents a green flash or
-   exposed strip during overscroll, navigation transitions, and short pages. */
+/* The body itself must agree with the shell; this prevents a stale-color flash
+   or exposed strip during overscroll, navigation transitions, and short pages. */
 body {
   background: var(--bg) !important;
   color: var(--text-primary);
@@ -110,7 +138,7 @@ html.dark body {
   background: #0e1011 !important;
 }
 
-/* Finish the primary-action migration after older styles define forest colors. */
+/* Finish the primary-action migration after older styles define legacy colors. */
 .button-primary {
   border-color: #25332c !important;
   background: #2f4037 !important;
@@ -133,7 +161,7 @@ html.dark .button-primary:hover {
   background: #e0bd7d !important;
 }
 
-/* Generic focus and link affordances use brass rather than inherited green. */
+/* Generic focus and link affordances use the canonical brass accent. */
 :where(a, button, summary, input, textarea, select):focus-visible {
   outline-color: var(--hs-gold) !important;
 }
