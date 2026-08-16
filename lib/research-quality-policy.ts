@@ -39,6 +39,9 @@ export const RESEARCH_GAP_WEIGHTS = {
   narrowRepeatedEvidenceBundle: 15,
   nearDuplicateEvidenceSupport: 10,
   systemicLoadBearingStudyDependency: 8,
+  uncertainStudyIdentityCoverage: 10,
+  highConfidenceIdentityUncertaintyBonus: 8,
+  weakIdentityCoverageBonus: 6,
   legacyOnlyOutcomeClaim: 8,
   highConfidenceLegacyOnlyBonus: 4,
   unknownEvidenceYearMetadata: 4,
@@ -67,7 +70,6 @@ export function buildResearchGapQueue(
   topology: ResearchQualityTopology = buildResearchQualityTopology(analysis),
 ): ResearchGapItem[] {
   const queue = new Map<string, { url: string; score: number; reasons: ResearchGapReason[] }>()
-
   const add = (url: string, kind: string, weight: number, detail?: string) => {
     if (!url) return
     const item = queue.get(url) ?? { url, score: 0, reasons: [] }
@@ -137,21 +139,11 @@ export function buildResearchGapQueue(
     }
     if (profile.unmappedPrimaryHuman > 0) {
       const bonus = profile.noPrimaryHuman ? RESEARCH_GAP_WEIGHTS.mappingGapNoApprovedPrimaryBonus : 0
-      add(
-        profile.url,
-        'unmapped-primary-human-evidence',
-        RESEARCH_GAP_WEIGHTS.unmappedPrimaryHumanEvidence + bonus,
-        `${profile.unmappedPrimaryHuman} primary-human stud${profile.unmappedPrimaryHuman === 1 ? 'y is' : 'ies are'} not linked to any structured claim${bonus ? '; approved claims also have no linked primary-human study' : ''}`,
-      )
+      add(profile.url, 'unmapped-primary-human-evidence', RESEARCH_GAP_WEIGHTS.unmappedPrimaryHumanEvidence + bonus, `${profile.unmappedPrimaryHuman} primary-human stud${profile.unmappedPrimaryHuman === 1 ? 'y is' : 'ies are'} not linked to any structured claim${bonus ? '; approved claims also have no linked primary-human study' : ''}`)
     }
     if (profile.unapprovedOnlyPrimaryHuman > 0) {
       const bonus = profile.noPrimaryHuman ? RESEARCH_GAP_WEIGHTS.mappingGapNoApprovedPrimaryBonus : 0
-      add(
-        profile.url,
-        'primary-human-evidence-only-on-unapproved-claims',
-        RESEARCH_GAP_WEIGHTS.unapprovedOnlyPrimaryHumanEvidence + bonus,
-        `${profile.unapprovedOnlyPrimaryHuman} primary-human stud${profile.unapprovedOnlyPrimaryHuman === 1 ? 'y is' : 'ies are'} linked to structured claims but none of those links reach an approved claim`,
-      )
+      add(profile.url, 'primary-human-evidence-only-on-unapproved-claims', RESEARCH_GAP_WEIGHTS.unapprovedOnlyPrimaryHumanEvidence + bonus, `${profile.unapprovedOnlyPrimaryHuman} primary-human stud${profile.unapprovedOnlyPrimaryHuman === 1 ? 'y is' : 'ies are'} linked to structured claims but none of those links reach an approved claim`)
     }
 
     const unclassifiedStudies = Number(profile.designMix.unclassified ?? 0)
@@ -192,6 +184,18 @@ export function buildResearchGapQueue(
   for (const [url, systemic] of systemicByProfile) {
     const studyBonus = Math.min(12, Math.max(0, systemic.studies - 1) * 2)
     add(url, 'systemic-load-bearing-study-dependency', RESEARCH_GAP_WEIGHTS.systemicLoadBearingStudyDependency + studyBonus, `${systemic.studies} site-wide load-bearing stud${systemic.studies === 1 ? 'y' : 'ies'} support ${systemic.claims} approved claim${systemic.claims === 1 ? '' : 's'} on this profile`)
+  }
+
+  for (const identity of topology.studyIdentityCoverage.profiles) {
+    if (identity.uncertainMultiStudyClaimCount === 0 && !identity.weakIdentityCoverage) continue
+    const highConfidenceBonus = identity.highConfidenceUncertainClaimCount > 0 ? RESEARCH_GAP_WEIGHTS.highConfidenceIdentityUncertaintyBonus : 0
+    const weakCoverageBonus = identity.weakIdentityCoverage ? RESEARCH_GAP_WEIGHTS.weakIdentityCoverageBonus : 0
+    add(
+      identity.url,
+      'uncertain-study-identity-independence',
+      RESEARCH_GAP_WEIGHTS.uncertainStudyIdentityCoverage + highConfidenceBonus + weakCoverageBonus,
+      `${identity.uncertainMultiStudyClaimCount} multi-study approved claim(s) include fallback source identities; ${Math.round(identity.stableIdentityCoverage * 100)}% of approved claim-linked studies have stable DOI/PMID identity${identity.highConfidenceUncertainClaimCount ? `; ${identity.highConfidenceUncertainClaimCount} high-confidence claim(s) affected` : ''}`,
+    )
   }
 
   for (const freshness of topology.claimEvidenceAge) {
