@@ -150,6 +150,26 @@ export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
   }
 }
 
+export type AtlasCanonicalResearchProfile = {
+  primaryHumanUnderlyingStudyCount: number
+}
+
+/**
+ * Apply canonical grade reconciliation and independence-adjusted human-study
+ * counts after the broad runtime adapter has done its compatibility work.
+ */
+export function enrichAtlasRecordWithCanonicalResearch(
+  record: BotanicalAtlasRecord,
+  herb: RuntimeRecord,
+  profile?: AtlasCanonicalResearchProfile,
+): BotanicalAtlasRecord {
+  return {
+    ...record,
+    evidence: atlasEvidenceFromGrade(getEvidenceLetterGrade(herb)),
+    humanEvidenceCount: profile?.primaryHumanUnderlyingStudyCount ?? record.humanEvidenceCount,
+  }
+}
+
 export interface AtlasCompoundRelationship {
   compound: string
   relationship: string
@@ -211,15 +231,11 @@ export const getBotanicalAtlasRecords = cache(async (): Promise<BotanicalAtlasRe
 
   return herbRecords
     .filter((herb: RuntimeRecord) => getRuntimeVisibility(herb).canRender)
-    .map((herb: RuntimeRecord) => {
-      const record = toAtlasRecord(herb)
-      const profile = canonicalHumanByUrl.get(`/herbs/${herb.slug}/`)
-      return {
-        ...record,
-        evidence: atlasEvidenceFromGrade(getEvidenceLetterGrade(herb)),
-        humanEvidenceCount: profile?.primaryHumanUnderlyingStudyCount ?? record.humanEvidenceCount,
-      }
-    })
+    .map((herb: RuntimeRecord) => enrichAtlasRecordWithCanonicalResearch(
+      toAtlasRecord(herb),
+      herb,
+      canonicalHumanByUrl.get(`/herbs/${herb.slug}/`),
+    ))
     .map((record: BotanicalAtlasRecord) => enrichAtlasRecordWithMappedCompounds(record, mappedCompoundsByHerb.get(record.slug)))
     .filter((herb: BotanicalAtlasRecord) => herb.effects.length || herb.compounds.length || herb.safety.length)
     .sort((a: BotanicalAtlasRecord, b: BotanicalAtlasRecord) => a.name.localeCompare(b.name))
