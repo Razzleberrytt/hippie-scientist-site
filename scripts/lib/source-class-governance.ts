@@ -1,29 +1,24 @@
-import fs from 'node:fs'
+import sourceClassGovernanceData from '../../schemas/source-class-governance.json'
 
-export type SourceClassGovernanceRule = {
-  evidenceClass: string
-  allowedSourceTypes: string[]
-  pmidApplicable: boolean
-  preferredStudyDesigns: string[]
-}
+export type SourceClass = keyof typeof sourceClassGovernanceData
+export type SourceClassGovernanceRule = (typeof sourceClassGovernanceData)[SourceClass]
+export type EvidenceClass = SourceClassGovernanceRule['evidenceClass']
+export type SourceType = SourceClassGovernanceRule['allowedSourceTypes'][number]
+export type StudyDesign = SourceClassGovernanceRule['preferredStudyDesigns'][number]
 
-export type SourceClassGovernance = Record<string, SourceClassGovernanceRule>
+export const sourceClassGovernance = sourceClassGovernanceData
 
-const governanceUrl = new URL('../../schemas/source-class-governance.json', import.meta.url)
-
-export const sourceClassGovernance = JSON.parse(
-  fs.readFileSync(governanceUrl, 'utf8'),
-) as SourceClassGovernance
-
-export function sourceClassesForEvidenceClasses(evidenceClasses: Iterable<string>): Set<string> {
+export function sourceClassesForEvidenceClasses(evidenceClasses: Iterable<string>): Set<SourceClass> {
   const allowedEvidenceClasses = new Set(evidenceClasses)
   return new Set(
-    Object.entries(sourceClassGovernance)
+    (Object.entries(sourceClassGovernance) as Array<[SourceClass, SourceClassGovernanceRule]>)
       .filter(([, rule]) => allowedEvidenceClasses.has(rule.evidenceClass))
       .map(([sourceClass]) => sourceClass),
   )
 }
 
 export function getSourceClassRule(sourceClass: string): SourceClassGovernanceRule | null {
-  return sourceClassGovernance[sourceClass] ?? null
+  return sourceClass in sourceClassGovernance
+    ? sourceClassGovernance[sourceClass as SourceClass]
+    : null
 }
