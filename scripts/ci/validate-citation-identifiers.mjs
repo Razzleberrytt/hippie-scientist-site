@@ -12,6 +12,7 @@
  *   - a PMID or DOI that cannot be a real identifier
  *   - a citation URL that is not a single well-formed link
  *   - one identifier recorded under conflicting study titles
+ *   - the same identified study listed more than once on one profile
  *
  * Reported only: missing year/authors/journal and placeholder titles. Those are
  * enrichment gaps across most of the corpus; failing on them would block every
@@ -61,10 +62,13 @@ function main() {
   const blocking = []
   const advisory = []
   const seenByIdentifier = new Map()
+  const duplicateProfileSources = []
   let sources = 0
 
   for (const { kind, slug, record } of detailRecords()) {
     const url = `/${kind}/${slug}/`
+    const profileIdentifiers = new Set()
+
     for (const source of Array.isArray(record.sources) ? record.sources : []) {
       sources += 1
 
@@ -90,8 +94,18 @@ function main() {
         advisory.push({ url, missing: ['placeholder-title'], value: text(source.title).slice(0, 90) })
       }
 
-      // Same identifier, different titles — one study recorded twice.
       if (completeness.identifier) {
+        if (profileIdentifiers.has(completeness.identifier)) {
+          duplicateProfileSources.push({
+            url,
+            identifier: completeness.identifier,
+            title: text(source.title).slice(0, 80),
+          })
+        } else {
+          profileIdentifiers.add(completeness.identifier)
+        }
+
+        // Same identifier, different titles — one study recorded inconsistently.
         const titles = seenByIdentifier.get(completeness.identifier) ?? new Set()
         const normalized = text(source.title).toLowerCase()
         if (normalized) titles.add(normalized)
@@ -112,13 +126,14 @@ function main() {
   fs.mkdirSync(REPORTS_DIR, { recursive: true })
   fs.writeFileSync(
     REPORT_PATH,
-    `${JSON.stringify({ generatedAt: new Date().toISOString(), sources, blocking, missingCounts, conflicts }, null, 2)}\n`,
+    `${JSON.stringify({ generatedAt: new Date().toISOString(), sources, blocking, duplicateProfileSources, missingCounts, conflicts }, null, 2)}\n`,
   )
 
   console.log('\nCitation identifiers')
   console.log('='.repeat(66))
   console.log(`Sources scanned        ${sources}`)
   console.log(`Blocking problems      ${blocking.length}`)
+  console.log(`Duplicate profile refs ${duplicateProfileSources.length}`)
   console.log(`Same id, two titles    ${conflicts.length}`)
   for (const [field, count] of Object.entries(missingCounts).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${String(count).padStart(5)}  missing ${field}`)
@@ -129,6 +144,14 @@ function main() {
     console.error(`\n[citation-identifiers] FAILED — ${blocking.length} unusable identifier(s).\n`)
     for (const problem of blocking.slice(0, 20)) {
       console.error(`  ${problem.url} · ${problem.kind} · ${problem.value}`)
+    }
+    process.exit(1)
+  }
+
+  if (duplicateProfileSources.length) {
+    console.error(`\n[citation-identifiers] FAILED — ${duplicateProfileSources.length} duplicate source reference(s) within profiles.`)
+    for (const duplicate of duplicateProfileSources.slice(0, 20)) {
+      console.error(`  ${duplicate.url} · ${duplicate.identifier} · ${duplicate.title}`)
     }
     process.exit(1)
   }
