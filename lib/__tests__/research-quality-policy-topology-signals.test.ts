@@ -39,6 +39,8 @@ function topology(overrides: Record<string, unknown> = {}): ResearchQualityTopol
     effectCertainty: { findings: [] },
     directionalConsistency: { findings: [] },
     selectiveOutcomeReporting: { findings: [] },
+    outcomeReportingIntegrity: { claims: [] },
+    outcomeMetadataCoverage: { claimCoverageGaps: [] },
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { lowCoverageClaims: [] },
     metadataIntegrity: { profiles: [] },
@@ -69,6 +71,102 @@ describe('aggregated topology gap signals', () => {
     expect(semantic[0]).toMatchObject({ url: '/herbs/a/' })
     expect(semantic[0].detail).toContain('3 explicit alignment mismatch(es)')
     expect(semantic[0].detail).toContain('2 high-confidence')
+  })
+
+  it('scores existing selective-outcome behavior once through canonical outcome integrity', () => {
+    const outcomeFinding = {
+      url: '/herbs/a/',
+      claimId: 'c1',
+      predicate: 'supports_outcome',
+      confidence: 0.9,
+      linkedStudyCount: 1,
+      affectedStudyIds: ['pmid:1'],
+      risks: ['null-primary-with-favorable-secondary'],
+      severity: 'moderate',
+    }
+    const legacyFinding = {
+      url: '/herbs/a/',
+      claimId: 'c1',
+      confidence: 0.9,
+      selectiveOutcomeRisk: true,
+      explicitOutcomeSwitchRisk: false,
+    }
+    const signals = buildAggregatedTopologyGapSignals(topology({
+      outcomeReportingIntegrity: { claims: [outcomeFinding] },
+      selectiveOutcomeReporting: { findings: [legacyFinding] },
+    }), weights)
+
+    const semantic = signals.filter((signal) => signal.kind === 'semantic-claim-source-mismatch')
+    expect(semantic).toHaveLength(1)
+    expect(semantic[0]).toMatchObject({ weight: 28 })
+    expect(semantic[0].detail).toContain('1 outcome-reporting integrity finding(s)')
+    expect(semantic[0].detail).toContain('selective outcome 1')
+  })
+
+  it('surfaces registered-vs-reported primary mismatch and non-reporting in policy', () => {
+    const signals = buildAggregatedTopologyGapSignals(topology({
+      outcomeReportingIntegrity: {
+        claims: [{
+          url: '/herbs/a/',
+          claimId: 'c1',
+          predicate: 'supports_outcome',
+          confidence: 0.9,
+          linkedStudyCount: 2,
+          affectedStudyIds: ['pmid:1'],
+          risks: [
+            'registered-reported-primary-mismatch',
+            'explicit-registered-outcome-nonreporting',
+          ],
+          severity: 'high',
+        }],
+      },
+    }), weights)
+
+    const semantic = signals.find((signal) => signal.kind === 'semantic-claim-source-mismatch')
+    expect(semantic).toMatchObject({ url: '/herbs/a/', weight: 28 })
+    expect(semantic?.detail).toContain('registered/reported primary mismatch 1')
+    expect(semantic?.detail).toContain('registered outcome non-reporting 1')
+  })
+
+  it('does not stack weight when one claim carries multiple outcome-integrity risks', () => {
+    const oneRisk = buildAggregatedTopologyGapSignals(topology({
+      outcomeReportingIntegrity: {
+        claims: [{
+          url: '/herbs/a/', claimId: 'c1', predicate: 'supports_outcome', confidence: 0.9,
+          linkedStudyCount: 1, affectedStudyIds: ['pmid:1'],
+          risks: ['registered-reported-primary-mismatch'], severity: 'high',
+        }],
+      },
+    }), weights)
+    const threeRisks = buildAggregatedTopologyGapSignals(topology({
+      outcomeReportingIntegrity: {
+        claims: [{
+          url: '/herbs/a/', claimId: 'c1', predicate: 'supports_outcome', confidence: 0.9,
+          linkedStudyCount: 1, affectedStudyIds: ['pmid:1'],
+          risks: [
+            'registered-reported-primary-mismatch',
+            'explicit-outcome-switch',
+            'null-primary-with-favorable-secondary',
+          ], severity: 'high',
+        }],
+      },
+    }), weights)
+
+    expect(oneRisk.find((signal) => signal.kind === 'semantic-claim-source-mismatch')?.weight).toBe(28)
+    expect(threeRisks.find((signal) => signal.kind === 'semantic-claim-source-mismatch')?.weight).toBe(28)
+  })
+
+  it('does not penalize outcome metadata coverage gaps by themselves', () => {
+    const signals = buildAggregatedTopologyGapSignals(topology({
+      outcomeMetadataCoverage: {
+        claimCoverageGaps: [{
+          url: '/herbs/a/', claimId: 'c1', confidence: 0.95,
+          outcomeMetadataGap: true, highConfidenceOutcomeMetadataGap: true,
+        }],
+      },
+    }), weights)
+
+    expect(signals.some((signal) => signal.url === '/herbs/a/')).toBe(false)
   })
 
   it('routes narrow multi-study provenance once per affected profile', () => {
