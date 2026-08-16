@@ -73,9 +73,11 @@ function authoredEvidenceSignals(record: RuntimeRecord) {
  */
 function structuredHumanEvidence(record: RuntimeRecord): boolean | null {
   const citations = extractCitationsFromRecord(record as Record<string, unknown>)
-  const classified = citations.filter(citation => citation.evidenceClass !== 'other')
+  const classified = citations.flatMap(citation =>
+    citation.evidenceClass && citation.evidenceClass !== 'other' ? [citation.evidenceClass] : [],
+  )
   if (!classified.length) return null
-  return classified.some(citation => isHumanEvidenceClass(citation.evidenceClass))
+  return classified.some(evidenceClass => isHumanEvidenceClass(evidenceClass))
 }
 
 export function hasHumanEvidence(record: RuntimeRecord): boolean {
