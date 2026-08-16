@@ -1,19 +1,75 @@
 import { describe, expect, it } from 'vitest'
 
-import { getCompounds, getHerbs } from '@/src/lib/runtime-data'
+import type { PublicEvidenceDataset } from '@/lib/public-evidence-dataset'
+import { summarizeCategoryEvidenceMix } from '@/lib/evidence-report-insights'
 
-function slugs(records: Awaited<ReturnType<typeof getHerbs>>): string[] {
-  return records
-    .map((record) => typeof record?.slug === 'string' ? record.slug.trim() : '')
-    .filter(Boolean)
-}
+describe('public evidence cross-type category identity', () => {
+  it('uses ingredient paths when herb and compound relationships share a slug', () => {
+    const dataset = {
+      schemaVersion: 1,
+      datasetVersion: 'test',
+      title: 'Test dataset',
+      generatedFrom: 'test',
+      methodologyPath: '/info/editorial-policy/',
+      citationExplorerPath: '/learn/citation-explorer/',
+      citationText: 'Test citation',
+      ingredients: [
+        {
+          slug: 'shared',
+          name: 'Shared Herb',
+          type: 'herb',
+          path: '/herbs/shared/',
+          evidenceGrade: 'B',
+          category: 'Sleep',
+          safetyCaution: false,
+        },
+        {
+          slug: 'shared',
+          name: 'Shared Compound',
+          type: 'compound',
+          path: '/compounds/shared/',
+          evidenceGrade: 'B',
+          category: 'Focus',
+          safetyCaution: false,
+        },
+      ],
+      studies: [
+        {
+          id: 'doi:10.1000/shared',
+          title: 'Shared identity test',
+          evidenceClass: 'randomized_controlled_trial',
+          confidence: 'moderate',
+          conditions: [],
+          relationships: [
+            {
+              ingredientSlug: 'shared',
+              ingredientName: 'Shared Herb',
+              ingredientType: 'herb',
+              ingredientPath: '/herbs/shared/',
+              evidenceGrade: 'B',
+              relationship: 'supports',
+            },
+            {
+              ingredientSlug: 'shared',
+              ingredientName: 'Shared Compound',
+              ingredientType: 'compound',
+              ingredientPath: '/compounds/shared/',
+              evidenceGrade: 'B',
+              relationship: 'supports',
+            },
+          ],
+          relationshipSummary: 'supports',
+        },
+      ],
+      metrics: {},
+    } as PublicEvidenceDataset
 
-describe('public evidence cross-type slug identity', () => {
-  it('keeps herb and compound runtime slugs globally unique', async () => {
-    const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
-    const herbSlugs = new Set(slugs(herbs))
-    const collisions = [...new Set(slugs(compounds).filter((slug) => herbSlugs.has(slug)))].sort()
+    const mix = summarizeCategoryEvidenceMix(dataset)
 
-    expect(collisions, `Cross-type slug collisions: ${collisions.join(', ')}`).toEqual([])
+    expect(mix.map((bucket) => [bucket.category, bucket.evidenceRelationships])).toEqual([
+      ['Focus', 1],
+      ['Sleep', 1],
+    ])
+    expect(mix.every((bucket) => bucket.primaryHumanRelationships === 1)).toBe(true)
   })
 })
