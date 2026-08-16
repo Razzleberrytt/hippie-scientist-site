@@ -26,6 +26,13 @@ export type ClaimSupportTier =
   | 'human-supported'
   | 'non-outcome'
 
+export type StructuredSupportTier =
+  | 'unsupported'
+  | 'unclassified'
+  | 'narrative-only'
+  | 'single-study'
+  | 'adequate'
+
 export type ClaimQualityAnalysis = {
   url: string
   claimId: string
@@ -43,7 +50,9 @@ export type ClaimQualityAnalysis = {
   designs: StudyClass[]
   outcomeClaim: boolean
   supportTier: ClaimSupportTier
+  structuredSupportTier: StructuredSupportTier
   weakStructuredClaim: boolean
+  highConfidenceWeakStructured: boolean
   highConfidenceWeakOutcome: boolean
   singleStudy: boolean
   aliasCollapsed: boolean
@@ -116,6 +125,18 @@ function buildProfileContext(record: ResearchProfile, cache: PubmedCache): Profi
   return { record, cache, sources, sourcesById, identities, studyGroups, studyDesigns }
 }
 
+function classifyStructuredSupport(
+  studyCount: number,
+  classifiedStudyCount: number,
+  narrativeCount: number,
+): StructuredSupportTier {
+  if (studyCount === 0) return 'unsupported'
+  if (classifiedStudyCount === 0) return 'unclassified'
+  if (narrativeCount === classifiedStudyCount) return 'narrative-only'
+  if (studyCount === 1) return 'single-study'
+  return 'adequate'
+}
+
 function analyzeClaim(url: string, claim: ResearchClaim, context: ProfileResearchContext): ClaimQualityAnalysis {
   const refs = uniqueSourceRefs(claim)
   const validRefs = refs.filter((ref) => context.sourcesById.has(ref))
@@ -130,6 +151,7 @@ function analyzeClaim(url: string, claim: ResearchClaim, context: ProfileResearc
   const outcomeClaim = predicate === 'supports_outcome'
   const confidence = Number(claim.confidence ?? 0)
   const strongHumanSupport = primaryHuman + synthesis > 0
+  const structuredSupportTier = classifyStructuredSupport(studyIds.length, classified.length, narrative)
 
   let supportTier: ClaimSupportTier = 'non-outcome'
   if (studyIds.length === 0) supportTier = 'unsupported'
@@ -138,7 +160,7 @@ function analyzeClaim(url: string, claim: ResearchClaim, context: ProfileResearc
   else if (outcomeClaim && !strongHumanSupport) supportTier = 'indirect-only'
   else if (outcomeClaim) supportTier = 'human-supported'
 
-  const weakStructuredClaim = outcomeClaim && supportTier !== 'human-supported'
+  const weakStructuredClaim = structuredSupportTier !== 'adequate'
   const weakOutcome = supportTier === 'narrative-only' || supportTier === 'indirect-only'
 
   return {
@@ -158,7 +180,9 @@ function analyzeClaim(url: string, claim: ResearchClaim, context: ProfileResearc
     designs,
     outcomeClaim,
     supportTier,
+    structuredSupportTier,
     weakStructuredClaim,
+    highConfidenceWeakStructured: confidence >= 0.75 && weakStructuredClaim,
     highConfidenceWeakOutcome:
       outcomeClaim && confidence >= 0.75 && (weakOutcome || supportTier === 'unclassified' || supportTier === 'unsupported'),
     singleStudy: studyIds.length === 1,
