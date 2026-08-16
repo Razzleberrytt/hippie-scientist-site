@@ -1,3 +1,8 @@
+import {
+  PRIMARY_HUMAN_STUDY_CLASSES,
+  canonicalStudyClass,
+  canonicalStudyGroups,
+} from './research-coverage'
 import type { EvidenceLineageAnalysis } from './research-evidence-lineage'
 import type { ResearchQualityAnalysis, StructuredSupportTier } from './research-quality-analysis'
 import type { TrialRegistrationIndependenceAnalysis } from './research-trial-registration-independence'
@@ -22,9 +27,18 @@ export type ClaimUnderlyingStudyIndependence = {
 export type ProfileUnderlyingStudyIndependence = {
   url: string
   supportedApprovedClaimCount: number
+  /** Claim-linked canonical publications. */
   publicationStudyCount: number
+  /** Claim-linked underlying evidence units after explicit dependence collapse. */
   underlyingStudyCount: number
   collapsedPublicationCount: number
+  /** Full canonical inventory, including studies not linked to approved claims. */
+  inventoryPublicationStudyCount: number
+  inventoryUnderlyingStudyCount: number
+  inventoryCollapsedPublicationCount: number
+  primaryHumanPublicationCount: number
+  primaryHumanUnderlyingStudyCount: number
+  collapsedPrimaryHumanPublicationCount: number
   mostUsedUnderlyingStudyId: string | null
   mostUsedUnderlyingStudyClaimCount: number
   dominantUnderlyingStudySupportedClaimShare: number
@@ -49,8 +63,13 @@ export type UnderlyingStudyIndependenceAnalysis = {
     highConfidencePseudoMultiStudyClaims: number
     supportTierDowngrades: number
     collapsedPublicationCount: number
+    profilesAnalyzed: number
     profilesWithSupportedClaims: number
     profilesWithReducedStudyCount: number
+    profilesWithReducedHumanStudyCount: number
+    primaryHumanPublicationCount: number
+    primaryHumanUnderlyingStudyCount: number
+    collapsedPrimaryHumanPublicationCount: number
     overDependentProfiles: number
     newlyOverDependentProfiles: number
   }
@@ -103,17 +122,19 @@ function addStudy(studyIdsByUrl: Map<string, Set<string>>, url: string, studyId:
 }
 
 /**
- * Build one explicit dependence graph per profile. Registry, cohort, dataset,
- * and parent-study relations are resolved before claims are projected onto the
- * graph, so dependence proven by different claims can combine transitively.
- *
- * The graph includes canonical inventory studies even when they are not linked
- * to approved claims. Such studies may prove a transitive identity bridge, but
- * they never contribute claim edges or concentration weight unless an approved
- * claim actually cites them.
+ * Build one explicit dependence graph per profile. Every canonical inventory
+ * study is registered before trial/cohort/dataset/parent-study relations are
+ * applied. This prevents unclaimed/orphan studies from disappearing from
+ * inventory-level independence counts while still keeping claim concentration
+ * weighted only by approved claim edges.
  */
 function buildProfileUnions(inputs: UnderlyingStudyIndependenceInputs): Map<string, Union> {
   const studyIdsByUrl = new Map<string, Set<string>>()
+  for (const profile of inputs.analysis.profiles) {
+    for (const studyId of canonicalStudyGroups(profile.record).keys()) {
+      addStudy(studyIdsByUrl, profile.url, studyId)
+    }
+  }
   for (const claim of inputs.analysis.claimAnalyses) {
     for (const studyId of claim.studyIds) addStudy(studyIdsByUrl, claim.url, studyId)
   }
@@ -142,9 +163,6 @@ function buildProfileUnions(inputs: UnderlyingStudyIndependenceInputs): Map<stri
     if (union) unionGroups(union, [studies])
   }
 
-  // Preserve explicit same-trial claim relations as a compatibility/fallback
-  // path for synthetic callers that supply claim diagnostics without the study
-  // registry index. Production analysis supplies both and the union is idempotent.
   for (const claim of inputs.trialRegistrationIndependence.claims) {
     const union = unions.get(claim.url)
     if (!union) continue
@@ -181,16 +199,6 @@ function claimGroups(studyIds: string[], union: Union): Map<string, string[]> {
   return groups
 }
 
-/**
- * Collapse publication-level study IDs only when canonical lineage analyzers
- * positively prove that publications belong to the same underlying
- * trial/cohort/dataset/parent study. Missing independence metadata is never
- * treated as dependence.
- *
- * Dependence is resolved once per profile, then projected onto each claim. This
- * captures transitive evidence relationships even when the publications proving
- * the chain never all co-occur on the same claim.
- */
 export function analyzeUnderlyingStudyIndependence(
   inputs: UnderlyingStudyIndependenceInputs,
 ): UnderlyingStudyIndependenceAnalysis {
@@ -260,8 +268,18 @@ export function analyzeUnderlyingStudyIndependence(
   }
 
   const profiles: ProfileUnderlyingStudyIndependence[] = []
-  for (const [url, profileClaims] of claimsByUrl) {
-    const union = unions.get(url) ?? createUnion([...new Set(profileClaims.flatMap((claim) => claim.studyIds))])
+  for (const profile of inputs.analysis.profiles) {
+    const { url, record } = profile
+    const profileClaims = claimsByUrl.get(url) ?? []
+    const inventoryGroups = canonicalStudyGroups(record)
+    const inventoryPublicationStudyIds = [...inventoryGroups.keys()]
+    const union = unions.get(url) ?? createUnion(inventoryPublicationStudyIds)
+    const inventoryUnderlyingStudyIds = [...new Set(inventoryPublicationStudyIds.map((studyId) => union.find(studyId)))]
+    const primaryHumanPublicationIds = [...inventoryGroups.entries()]
+      .filter(([, group]) => PRIMARY_HUMAN_STUDY_CLASSES.has(canonicalStudyClass(group, inputs.analysis.cache)))
+      .map(([studyId]) => studyId)
+    const primaryHumanUnderlyingStudyIds = [...new Set(primaryHumanPublicationIds.map((studyId) => union.find(studyId)))]
+
     const publicationStudyIds = [...new Set(profileClaims.flatMap((claim) => claim.studyIds))]
     const underlyingStudyIds = [...new Set(publicationStudyIds.map((studyId) => union.find(studyId)))]
     const use = new Map<string, number>()
@@ -295,6 +313,12 @@ export function analyzeUnderlyingStudyIndependence(
       publicationStudyCount: publicationStudyIds.length,
       underlyingStudyCount: underlyingStudyIds.length,
       collapsedPublicationCount: Math.max(0, publicationStudyIds.length - underlyingStudyIds.length),
+      inventoryPublicationStudyCount: inventoryPublicationStudyIds.length,
+      inventoryUnderlyingStudyCount: inventoryUnderlyingStudyIds.length,
+      inventoryCollapsedPublicationCount: Math.max(0, inventoryPublicationStudyIds.length - inventoryUnderlyingStudyIds.length),
+      primaryHumanPublicationCount: primaryHumanPublicationIds.length,
+      primaryHumanUnderlyingStudyCount: primaryHumanUnderlyingStudyIds.length,
+      collapsedPrimaryHumanPublicationCount: Math.max(0, primaryHumanPublicationIds.length - primaryHumanUnderlyingStudyIds.length),
       mostUsedUnderlyingStudyId: mostUsed?.[0] ?? null,
       mostUsedUnderlyingStudyClaimCount,
       dominantUnderlyingStudySupportedClaimShare: round(dominantUnderlyingStudySupportedClaimShare),
@@ -329,8 +353,13 @@ export function analyzeUnderlyingStudyIndependence(
       highConfidencePseudoMultiStudyClaims: highConfidencePseudoMultiStudyClaims.length,
       supportTierDowngrades: supportTierDowngrades.length,
       collapsedPublicationCount: reducedClaims.reduce((sum, claim) => sum + claim.collapsedPublicationCount, 0),
-      profilesWithSupportedClaims: profiles.length,
-      profilesWithReducedStudyCount: profiles.filter((profile) => profile.collapsedPublicationCount > 0).length,
+      profilesAnalyzed: profiles.length,
+      profilesWithSupportedClaims: profiles.filter((profile) => profile.supportedApprovedClaimCount > 0).length,
+      profilesWithReducedStudyCount: profiles.filter((profile) => profile.inventoryCollapsedPublicationCount > 0).length,
+      profilesWithReducedHumanStudyCount: profiles.filter((profile) => profile.collapsedPrimaryHumanPublicationCount > 0).length,
+      primaryHumanPublicationCount: profiles.reduce((sum, profile) => sum + profile.primaryHumanPublicationCount, 0),
+      primaryHumanUnderlyingStudyCount: profiles.reduce((sum, profile) => sum + profile.primaryHumanUnderlyingStudyCount, 0),
+      collapsedPrimaryHumanPublicationCount: profiles.reduce((sum, profile) => sum + profile.collapsedPrimaryHumanPublicationCount, 0),
       overDependentProfiles: profiles.filter((profile) => profile.overDependentOnSingleUnderlyingStudy).length,
       newlyOverDependentProfiles: newlyOverDependentProfiles.length,
     },
