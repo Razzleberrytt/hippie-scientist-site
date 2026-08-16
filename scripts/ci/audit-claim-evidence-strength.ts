@@ -23,6 +23,8 @@ const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'claim-evidence-strength.j
 const cache = loadPubmedCache(ROOT)
 const claims: Array<Record<string, unknown>> = []
 
+type SupportTier = 'unsupported' | 'unclassified' | 'narrative-only' | 'indirect-only' | 'human-supported' | 'non-outcome'
+
 for (const { url, record } of listResearchProfiles(ROOT)) {
   const identities = canonicalStudyIdentityMap(record)
   const groups = canonicalStudyGroups(record)
@@ -43,6 +45,15 @@ for (const { url, record } of listResearchProfiles(ROOT)) {
     const confidence = Number(claim.confidence ?? 0)
     const strongHumanSupport = primaryHuman + synthesis > 0
 
+    let supportTier: SupportTier = 'non-outcome'
+    if (studyIds.length === 0) supportTier = 'unsupported'
+    else if (classified.length === 0) supportTier = 'unclassified'
+    else if (outcomeClaim && narrative === classified.length) supportTier = 'narrative-only'
+    else if (outcomeClaim && !strongHumanSupport) supportTier = 'indirect-only'
+    else if (outcomeClaim) supportTier = 'human-supported'
+
+    const weakOutcome = supportTier === 'narrative-only' || supportTier === 'indirect-only'
+
     claims.push({
       url,
       claimId: String(claim.id ?? 'unknown-claim'),
@@ -56,37 +67,26 @@ for (const { url, record } of listResearchProfiles(ROOT)) {
       narrative,
       designs,
       outcomeClaim,
-      unsupported: studyIds.length === 0,
-      noClassifiedEvidence: studyIds.length > 0 && classified.length === 0,
-      narrativeOnlyOutcomeClaim: outcomeClaim && classified.length > 0 && narrative === classified.length,
-      outcomeWithoutPrimaryOrSynthesis: outcomeClaim && classified.length > 0 && !strongHumanSupport,
-      highConfidenceWeakOutcome: outcomeClaim && confidence >= 0.75 && !strongHumanSupport,
+      supportTier,
+      highConfidenceWeakOutcome: outcomeClaim && confidence >= 0.75 && (weakOutcome || supportTier === 'unclassified' || supportTier === 'unsupported'),
     })
   }
 }
 
-const unsupported = claims.filter((claim) => claim.unsupported)
-const noClassifiedEvidence = claims.filter((claim) => claim.noClassifiedEvidence)
-const narrativeOnlyOutcomeClaims = claims.filter((claim) => claim.narrativeOnlyOutcomeClaim)
-const outcomeWithoutPrimaryOrSynthesis = claims.filter((claim) => claim.outcomeWithoutPrimaryOrSynthesis)
-const highConfidenceWeakOutcome = claims.filter((claim) => claim.highConfidenceWeakOutcome)
+const tierCounts = claims.reduce<Record<string, number>>((counts, claim) => {
+  const tier = String(claim.supportTier)
+  counts[tier] = (counts[tier] ?? 0) + 1
+  return counts
+}, {})
 
 const report = {
   generatedAt: new Date().toISOString(),
   summary: {
     approvedClaims: claims.length,
     outcomeClaims: claims.filter((claim) => claim.outcomeClaim).length,
-    unsupported: unsupported.length,
-    noClassifiedEvidence: noClassifiedEvidence.length,
-    narrativeOnlyOutcomeClaims: narrativeOnlyOutcomeClaims.length,
-    outcomeWithoutPrimaryOrSynthesis: outcomeWithoutPrimaryOrSynthesis.length,
-    highConfidenceWeakOutcome: highConfidenceWeakOutcome.length,
+    supportTiers: tierCounts,
+    highConfidenceWeakOutcome: claims.filter((claim) => claim.highConfidenceWeakOutcome).length,
   },
-  unsupported,
-  noClassifiedEvidence,
-  narrativeOnlyOutcomeClaims,
-  outcomeWithoutPrimaryOrSynthesis,
-  highConfidenceWeakOutcome,
   claims,
 }
 
@@ -95,11 +95,10 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`)
 
 console.log('\nClaim-level evidence strength')
 console.log('='.repeat(72))
-console.log(`Approved claims                    ${report.summary.approvedClaims}`)
-console.log(`Outcome claims                     ${report.summary.outcomeClaims}`)
-console.log(`Unsupported claims                 ${report.summary.unsupported}`)
-console.log(`No classified linked evidence     ${report.summary.noClassifiedEvidence}`)
-console.log(`Narrative-review-only outcomes     ${report.summary.narrativeOnlyOutcomeClaims}`)
-console.log(`Outcomes without primary/synthesis ${report.summary.outcomeWithoutPrimaryOrSynthesis}`)
-console.log(`High-confidence weak outcomes      ${report.summary.highConfidenceWeakOutcome}`)
+console.log(`Approved claims               ${report.summary.approvedClaims}`)
+console.log(`Outcome claims                ${report.summary.outcomeClaims}`)
+for (const [tier, count] of Object.entries(tierCounts).sort((a, b) => b[1] - a[1])) {
+  console.log(`${tier.padEnd(29)} ${count}`)
+}
+console.log(`High-confidence weak outcomes ${report.summary.highConfidenceWeakOutcome}`)
 console.log(`\nReport: ${path.relative(ROOT, REPORT_PATH)}`)
