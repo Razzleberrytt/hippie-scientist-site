@@ -52,17 +52,48 @@ describe('underlying primary-human inventory counts', () => {
       inventoryPublicationStudyCount: 3,
       inventoryUnderlyingStudyCount: 2,
       inventoryCollapsedPublicationCount: 1,
+      inventoryPublicationsWithIndependenceMetadata: 2,
+      inventoryPublicationsWithoutIndependenceMetadata: 1,
+      inventoryIndependenceMetadataCoverage: 0.667,
       primaryHumanPublicationCount: 2,
       primaryHumanUnderlyingStudyCount: 1,
       collapsedPrimaryHumanPublicationCount: 1,
+      primaryHumanPublicationsWithIndependenceMetadata: 2,
+      primaryHumanPublicationsWithoutIndependenceMetadata: 0,
+      primaryHumanIndependenceMetadataCoverage: 1,
     })
     expect(result.summary).toMatchObject({
       profilesAnalyzed: 1,
       profilesWithSupportedClaims: 0,
       profilesWithReducedHumanStudyCount: 1,
+      profilesWithIncompletePrimaryHumanIndependenceMetadata: 0,
       primaryHumanPublicationCount: 2,
       primaryHumanUnderlyingStudyCount: 1,
       collapsedPrimaryHumanPublicationCount: 1,
     })
+  })
+
+  it('tracks primary-human lineage gaps even when evidence is not linked to approved claims', () => {
+    const analysis = fixtureAnalysis()
+    const studyIds = [...canonicalStudyGroups(analysis.profiles[0].record).keys()]
+    const first = studyIds.find((studyId) => studyId.includes('11111111')) as string
+
+    const result = analyzeUnderlyingStudyIndependence({
+      analysis,
+      trialRegistrationIndependence: {
+        studies: [{ url: '/herbs/example/', studyId: first, stableRegistryId: 'NCT01234567' }],
+        claims: [],
+      } as never,
+      evidenceLineage: { studies: [], claims: [] } as never,
+    })
+
+    expect(result.profiles[0]).toMatchObject({
+      supportedApprovedClaimCount: 0,
+      primaryHumanPublicationCount: 2,
+      primaryHumanPublicationsWithIndependenceMetadata: 1,
+      primaryHumanPublicationsWithoutIndependenceMetadata: 1,
+      primaryHumanIndependenceMetadataCoverage: 0.5,
+    })
+    expect(result.summary.profilesWithIncompletePrimaryHumanIndependenceMetadata).toBe(1)
   })
 })
