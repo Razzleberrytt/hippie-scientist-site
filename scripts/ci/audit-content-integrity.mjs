@@ -11,7 +11,8 @@
  *     voice too, but it carries real meaning, so deleting it would cost content.
  *  2. Boilerplate summaries — machine-generated filler standing in for prose.
  *  3. Duplicate entity candidates — two slugs competing for one search intent.
- *  4. Summaries repeated verbatim across different entities.
+ *  4. Mechanism vocabulary sitting in a field that describes outcomes.
+ *  5. Summaries repeated verbatim across different entities.
  *
  * Reporting only; this never exits non-zero. It exists so the work is visible
  * and rankable, not to block a build on a judgement call.
@@ -54,6 +55,22 @@ const BOILERPLATE_PATTERNS = [
   /\bprofile\s+with\s+mechanism,?\s+safety,?\s+and\s+practical\s+context\b/i,
   /^no summary available yet\.?$/i,
 ]
+
+/**
+ * Mechanism vocabulary. A target, pathway, or receptor is something the
+ * ingredient touches, not something it does for a person.
+ *
+ * The presentation layer already hedges: profile pages label these "main
+ * contexts" and the JSON-LD builder emits them as a generic
+ * "profile use contexts" property rather than a schema.org benefit. The
+ * conflation is in the data, where a pathway sits in an outcome field, and it
+ * still reaches surfaces that render the value bare — a compound card shows
+ * `primaryEffects[0]` as an unlabelled chip, so a card can read "AMPK".
+ */
+const MECHANISM_VOCABULARY =
+  /\b(ampk|nf-?kb|nrf2|mtor|cox-?2|5-?lox|gaba-?a|nmda|mao-?[ab]|sirt1|ppar\w*|hdac|tnf-?α|il-?6|cyp[0-9a-z]*|receptors?|pathway|signaling|inhibition|modulation|agonis\w*|antagonis\w*|apoptosis)\b/i
+
+const OUTCOME_FIELDS = ['effects', 'primary_effects', 'conditions', 'best_for']
 
 const ENTITY_SUFFIXES = [
   '-extract', '-berry', '-root', '-powder', '-isolated', '-hcl',
@@ -135,7 +152,24 @@ function main() {
   }
   duplicates.sort((a, b) => b.overlap - a.overlap)
 
-  // 4. Summaries repeated across entities.
+  // 4. Mechanism vocabulary sitting in an outcome field.
+  const mechanismAsOutcome = []
+  for (const record of records) {
+    const found = new Set()
+    for (const field of OUTCOME_FIELDS) {
+      const raw = record[field]
+      const items = Array.isArray(raw) ? raw : text(raw).split(/[;,|]/)
+      for (const item of items) {
+        const value = text(item)
+        if (value && MECHANISM_VOCABULARY.test(value)) found.add(`${field}:${value}`)
+      }
+    }
+    if (found.size) {
+      mechanismAsOutcome.push({ slug: record.slug, indexable: isIndexable(record), values: [...found].slice(0, 6) })
+    }
+  }
+
+  // 5. Summaries repeated across entities.
   const summaryOwners = new Map()
   for (const record of records) {
     const value = text(record.summary).toLowerCase()
@@ -160,12 +194,13 @@ function main() {
       contradictoryGrades: duplicates.filter((d) => d.contradictoryGrades).length,
     },
     repeatedSummaries: { groups: repeatedSummaries.length, records: repeatedSummaries.reduce((n, g) => n + g.count, 0) },
+    mechanismAsOutcome: { total: mechanismAsOutcome.length, indexable: indexableCount(mechanismAsOutcome) },
   }
 
   fs.mkdirSync(REPORTS_DIR, { recursive: true })
   fs.writeFileSync(
     REPORT_PATH,
-    `${JSON.stringify({ generatedAt: new Date().toISOString(), summary, softInstructions, boilerplate, duplicates, repeatedSummaries }, null, 2)}\n`,
+    `${JSON.stringify({ generatedAt: new Date().toISOString(), summary, softInstructions, boilerplate, duplicates, repeatedSummaries, mechanismAsOutcome }, null, 2)}\n`,
   )
 
   console.log('\nContent integrity')
@@ -176,6 +211,7 @@ function main() {
   console.log(`Duplicate entity candidates            ${String(summary.duplicateCandidates.total).padStart(4)}  (${summary.duplicateCandidates.bothIndexable} with both pages indexable)`)
   console.log(`  of those, contradictory grades       ${String(summary.duplicateCandidates.contradictoryGrades).padStart(4)}`)
   console.log(`Summaries repeated across entities     ${String(summary.repeatedSummaries.groups).padStart(4)}  groups covering ${summary.repeatedSummaries.records} records`)
+  console.log(`Mechanism listed as an outcome         ${String(summary.mechanismAsOutcome.total).padStart(4)}  (${summary.mechanismAsOutcome.indexable} indexable)`)
 
   const worst = duplicates.filter((d) => d.bothIndexable).slice(0, 8)
   if (worst.length) {
