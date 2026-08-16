@@ -12,6 +12,7 @@ on:
       - 'app/guides/other/collagen-supplements/page.tsx'
       - 'components/articles/GoalClusterArticlePage.tsx'
       - 'components/articles/MentalHealthArticlePage.tsx'
+      - 'components/LegacyGuideQuickAnswer.tsx'
       - 'components/LegacyGuideReference.tsx'
       - 'components/References.tsx'
       - 'components/seo/**'
@@ -129,6 +130,7 @@ jobs:
           app/learn/rhabdomyolysis/page.tsx
           components/articles/GoalClusterArticlePage.tsx
           components/articles/MentalHealthArticlePage.tsx
+          components/LegacyGuideQuickAnswer.tsx
           components/LegacyGuideReference.tsx
           components/References.tsx
           components/StructuredData.tsx

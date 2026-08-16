@@ -16,6 +16,7 @@ const MENTAL_HEALTH_ARTICLE = path.join(ROOT, 'components', 'articles', 'MentalH
 const GOAL_CLUSTER_ARTICLE = path.join(ROOT, 'components', 'articles', 'GoalClusterArticlePage.tsx')
 const RHABDO_PAGE = path.join(ROOT, 'app', 'learn', 'rhabdomyolysis', 'page.tsx')
 const LEGACY_GUIDE_REFERENCE = path.join(ROOT, 'components', 'LegacyGuideReference.tsx')
+const LEGACY_GUIDE_QUICK_ANSWER = path.join(ROOT, 'components', 'LegacyGuideQuickAnswer.tsx')
 const LEGACY_GUIDE_PAGES = [
   ['prebiotics', path.join(ROOT, 'app', 'guides', 'other', 'prebiotics', 'page.tsx')],
   ['greens-powders', path.join(ROOT, 'app', 'guides', 'other', 'greens-powders', 'page.tsx')],
@@ -236,6 +237,30 @@ function auditLegacyGuideReferencePrimitives() {
   }
 }
 
+function auditLegacyGuideQuickAnswerPrimitives() {
+  requireSignals(LEGACY_GUIDE_QUICK_ANSWER, 'legacy-guide-answers', 'LegacyGuideQuickAnswer', [
+    ['id="quick-answer"', 'stable quick-answer anchor'],
+    ['aria-labelledby="quick-answer-heading"', 'accessible heading relationship'],
+    ['data-answer-engine-summary="true"', 'answer-engine summary marker'],
+    ['data-claim="true"', 'claim marker'],
+    ['href="#quick-answer"', 'durable answer self-link'],
+    ['referencesHref', 'optional reference-ledger target'],
+    ['data-citation-sources="true"', 'claim-adjacent source marker'],
+  ])
+
+  for (const [slug, file] of LEGACY_GUIDE_PAGES) {
+    const source = text(file)
+    if (!source.includes("@/components/LegacyGuideQuickAnswer")) continue
+
+    for (const [signal, label] of [
+      ['<LegacyGuideQuickAnswer referencesHref="#references">', 'shared quick-answer wrapper with source target'],
+      ['id="references"', 'matching references target'],
+    ]) {
+      if (!source.includes(signal)) add('error', 'legacy-guide-answers', `${slug} guide missing ${label}`)
+    }
+  }
+}
+
 function auditProfilePrimitives() {
   requireSignals(EVIDENCE_BADGE, 'profile-semantics', 'EvidenceScoreBadge', [
     ['data-evidence="true"', 'evidence marker'],
@@ -317,6 +342,7 @@ auditMentalHealthCitationPrimitives()
 auditGoalClusterCitationPrimitives()
 auditRhabdoCitationPrimitives()
 auditLegacyGuideReferencePrimitives()
+auditLegacyGuideQuickAnswerPrimitives()
 auditProfilePrimitives()
 auditExtractability()
 auditAntiPatterns()
