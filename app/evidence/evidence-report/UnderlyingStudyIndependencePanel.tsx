@@ -12,6 +12,9 @@ function pct(value: number | null): string {
   return value === null ? '—' : `${Math.round(value * 100)}%`
 }
 
+const metricCardClass = 'rounded-xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] p-4'
+const warningCardClass = 'rounded-xl border border-amber-500/25 bg-[var(--surface-warning)] p-4 text-sm leading-6 text-amber-950 dark:text-amber-100'
+
 export default function UnderlyingStudyIndependencePanel({ metrics }: Props) {
   const available = metrics.underlyingStudyMetricsSource === 'canonical-research-topology'
     && metrics.globalPrimaryHumanPublicationCount !== null
@@ -29,7 +32,7 @@ export default function UnderlyingStudyIndependencePanel({ metrics }: Props) {
   const topologyMissing = metrics.researchTopologyMissingProfiles ?? 0
 
   return (
-    <section className="rounded-2xl border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8" aria-labelledby="underlying-study-independence-heading">
+    <section className="card-premium p-6 sm:p-8" aria-labelledby="underlying-study-independence-heading">
       <p className="eyebrow-label">Evidence independence</p>
       <h2 id="underlying-study-independence-heading" className="mt-2 text-2xl font-semibold text-ink">
         Independence-adjusted counts, not assumed independence
@@ -39,29 +42,29 @@ export default function UnderlyingStudyIndependencePanel({ metrics }: Props) {
       </p>
 
       {topologyMissing > 0 ? (
-        <div className="mt-5 rounded-xl border border-amber-900/15 bg-amber-50/70 p-4 text-sm leading-6 text-amber-950">
+        <div className={`mt-5 ${warningCardClass}`}>
           <strong>Research-topology coverage is {topologyMatched} of {topologyRequested} public profiles ({pct(metrics.researchTopologyProfileCoverage)}).</strong>{' '}
           {topologyMissing} public profile{topologyMissing === 1 ? '' : 's'} currently lack a matching canonical research-detail profile, so the independence-adjusted counts below cover only the matched subset. Ingredient, grade, and public source-record metrics elsewhere in this report still use the full indexable dataset.
         </div>
       ) : null}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <article className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+        <article className={metricCardClass}>
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Primary-human publications</p>
           <p className="mt-2 text-3xl font-bold text-ink">{value(metrics.globalPrimaryHumanPublicationCount)}</p>
           <p className="mt-2 text-xs leading-5 text-muted">Unique publication identities within the matched public research-profile scope, classified as primary human research.</p>
         </article>
-        <article className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+        <article className={metricCardClass}>
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Independence-adjusted human units</p>
           <p className="mt-2 text-3xl font-bold text-ink">{value(metrics.globalPrimaryHumanUnderlyingStudyCount)}</p>
           <p className="mt-2 text-xs leading-5 text-muted">Primary-human evidence units remaining after explicitly proven cross-publication dependence is collapsed.</p>
         </article>
-        <article className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+        <article className={metricCardClass}>
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Human publications collapsed</p>
           <p className="mt-2 text-3xl font-bold text-ink">{value(metrics.globalCollapsedPrimaryHumanPublicationCount)}</p>
           <p className="mt-2 text-xs leading-5 text-muted">Publication identities removed from the adjusted count because shared underlying-study identity was positively established.</p>
         </article>
-        <article className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+        <article className={metricCardClass}>
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Primary-human metadata coverage</p>
           <p className="mt-2 text-3xl font-bold text-ink">{pct(metrics.globalPrimaryHumanIndependenceMetadataCoverage)}</p>
           <p className="mt-2 text-xs leading-5 text-muted">Share of unique primary-human publications with explicit registry, cohort, dataset, parent-study, or same-trial metadata available for independence assessment.</p>
@@ -69,14 +72,14 @@ export default function UnderlyingStudyIndependencePanel({ metrics }: Props) {
       </div>
 
       {primaryHumanMissingMetadata > 0 ? (
-        <div className="mt-5 rounded-xl border border-amber-900/15 bg-amber-50/70 p-4 text-sm leading-6 text-amber-950">
+        <div className={`mt-5 ${warningCardClass}`}>
           <strong>{primaryHumanMissingMetadata} unique primary-human publication{primaryHumanMissingMetadata === 1 ? '' : 's'} currently lack explicit independence metadata.</strong>{' '}
           Those publications remain separate in the adjusted count unless and until the canonical research graph positively establishes shared underlying-study identity.
         </div>
       ) : null}
 
       {multiStudy > 0 ? (
-        <div className="mt-4 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
+        <div className="mt-4 rounded-xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] p-4 text-sm leading-6 text-muted">
           <strong className="text-ink">Approved-claim diagnostic:</strong>{' '}
           independence remains unresolved for {unresolved} of {multiStudy} approved claims supported by multiple publication-level studies; {highConfidenceUnresolved} of those unresolved claims are high-confidence. Mean claim-level explicit lineage coverage is {pct(metrics.meanIndependenceCoverage)}.
         </div>
