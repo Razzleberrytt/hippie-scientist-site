@@ -31,7 +31,7 @@
   --accent-secondary: #b18449;
   --accent-teal: #66766c;
 
-  /* Canonical compatibility map for the older hs-* editorial token family. */
+  /* Canonical compatibility map for older editorial token families. */
   --hs-gold: #b18449;
   --hs-gold-bright: #c99b5f;
   --hs-gold-soft: #efe2ce;
@@ -50,6 +50,8 @@
     linear-gradient(180deg, #f6f3ed 0%, #f3f0e9 42%, #eeebe4 100%);
   --hs-dot: rgba(46, 44, 40, 0.08);
   --hs-dot-opacity: 0.18;
+  --tone: var(--hs-gold);
+  --tone-ink: var(--hs-gold-ink);
 
   /* Keep Tailwind brand utilities compatible with the editorial identity. */
   --color-brand-50: #f1f2ef;
@@ -112,6 +114,8 @@ html.dark {
     linear-gradient(180deg, #101214 0%, #0e1011 50%, #121416 100%);
   --hs-dot: rgba(227, 211, 181, 0.07);
   --hs-dot-opacity: 0.14;
+  --tone: var(--hs-gold);
+  --tone-ink: var(--hs-gold-ink);
 
   --color-brand-50: #181b1c;
   --color-brand-100: #202426;
