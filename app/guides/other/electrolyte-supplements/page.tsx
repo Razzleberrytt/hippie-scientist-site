@@ -60,11 +60,7 @@ export default function ElectrolyteGuidePage() {
           <div className="p-4 rounded-xl bg-red-50 border border-red-200"><p className="text-sm font-semibold text-red-700">❌ Does Not Need</p><ul className="mt-2 space-y-1 text-xs leading-5 text-red-700"><li>Healthy adults with normal diets</li><li>Moderate exercise (under 60 min)</li><li>Any sedentary person eating food</li><li>Everyone else being marketed to</li></ul></div>
         </div>
         <div className="mt-3 p-3 rounded-lg bg-white border border-brand-200"><p className="text-xs font-semibold text-ink">The math:</p><p className="mt-1 text-xs leading-5 text-muted">LMNT/Liquid IV: $1.25-1.50/serving. DIY alternative: 1/4 tsp salt + 1/8 tsp potassium chloride + water + lemon = $0.05/serving. Same electrolytes. The $40-50/month electrolyte habit is better spent on food.</p></div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-emerald-700">Actually Needs Them</p><p className="mt-1 text-xs leading-5 text-muted">Endurance athletes (90+ min), outdoor laborers in heat, keto adaptation phase, vomiting/diarrhea recovery.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-red-600">Doesn't Need Them</p><p className="mt-1 text-xs leading-5 text-muted">Healthy adults with normal diets, moderate exercise, and functioning kidneys. Salt your food. Eat potassium-rich foods. Drink to thirst.</p></div>
-        </div>
-        <p className="text-xs leading-5 text-muted">DIY alternative: 1/4 tsp salt + 1/8 tsp potassium chloride in water with lemon = ~$0.05/serving vs $1.50 for LMNT.</p></section>
+      </section>
 
       <section id="references" className="card-premium scroll-mt-24 p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
         <Ref n={1} text="Australian Institute of Sport (AIS). Electrolyte Supplement: Sports Food fact sheet. AIS Supplement Framework, Group A." url="https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/electrolyte-supplement2" />
