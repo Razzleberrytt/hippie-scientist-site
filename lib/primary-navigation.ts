@@ -15,12 +15,11 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     href: '/goals',
     description: 'Start with what you are researching, then follow the evidence to relevant options',
     children: [
-      { section: 'Start here', label: 'Goal finder', href: '/goals', description: 'Choose the outcome or question you are actually researching' },
+      { section: 'Start here', label: 'Goal finder', href: '/goals' },
       ...coreGoals.map((goal) => ({
         section: 'Health goals',
         label: goal.label,
         href: goal.href.replace(/\/$/, ''),
-        description: goal.description,
       })),
     ],
   },
@@ -30,9 +29,9 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     description: 'Look up herbs, nutrients, active compounds, extracts, evidence, and safety',
     activePrefixes: ['/compounds'],
     children: [
-      { label: 'Herb database', href: '/herbs', description: 'Canonical herb profiles with evidence, dosing context, and safety summaries' },
-      { label: 'Compound database', href: '/compounds', description: 'Nutrients, isolated compounds, standardized extracts, and active constituents' },
-      { label: 'Search everything', href: '/search', description: 'Search common names, scientific names, compounds, guides, and research resources' },
+      { label: 'Herb database', href: '/herbs' },
+      { label: 'Compound database', href: '/compounds' },
+      { label: 'Search everything', href: '/search' },
     ],
   },
   {
@@ -40,8 +39,8 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     href: '/guides/compare',
     description: 'Compare options side by side by evidence, safety, form, dose, and practical tradeoffs',
     children: [
-      { label: 'Comparison center', href: '/guides/compare', description: 'Browse published side-by-side evidence and safety comparisons' },
-      { label: 'Build your own', href: '/guides/compare/dynamic', description: 'Choose two ingredients and inspect the structured research matrix' },
+      { label: 'Comparison center', href: '/guides/compare' },
+      { label: 'Build your own', href: '/guides/compare/dynamic' },
     ],
   },
   {
@@ -50,10 +49,10 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     description: 'Check interaction signals, contraindication context, and uncertainty before combining products',
     activePrefixes: ['/info/supplement-safety-checklist', '/guides/other/supplement-stacking-safety', '/novel-psychoactive-substances'],
     children: [
-      { label: 'Safety Checker', href: '/safety-checker', description: 'Screen supplement and medication-class combinations for documented or theoretical caution signals' },
-      { label: 'Supplement safety checklist', href: '/info/supplement-safety-checklist', description: 'A practical checklist for labels, interactions, contraindications, and product quality' },
-      { label: 'Stacking safety', href: '/guides/other/supplement-stacking-safety', description: 'Understand additive-risk patterns before combining supplements' },
-      { label: 'Harm-reduction research', href: '/novel-psychoactive-substances', description: 'Higher-caution profiles for emerging and psychoactive substances' },
+      { label: 'Safety Checker', href: '/safety-checker' },
+      { label: 'Supplement safety checklist', href: '/info/supplement-safety-checklist' },
+      { label: 'Stacking safety', href: '/guides/other/supplement-stacking-safety' },
+      { label: 'Harm-reduction research', href: '/novel-psychoactive-substances' },
     ],
   },
   {
@@ -62,13 +61,13 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     description: 'Original evidence reports, databases, visual research tools, citations, and methodology',
     activePrefixes: ['/evidence', '/tools', '/articles', '/learn', '/info/methodology'],
     children: [
-      { section: 'Original research', label: 'Evidence Report', href: '/evidence/evidence-report', description: 'The flagship state-of-supplement-evidence report and original aggregate findings' },
-      { section: 'Original research', label: 'Evidence Database', href: '/evidence/evidence-checker', description: 'Search structured ingredient evidence and filter by evidence strength' },
-      { section: 'Original research', label: 'Botanical Activity Atlas', href: '/tools/botanical-activity-atlas', description: 'Explore herbs → compounds → effects, evidence, noticeability, and safety relationships' },
-      { section: 'Keep up', label: 'Evidence digest', href: '/evidence/evidence-digest', description: 'Recent human-trial highlights and research changes' },
-      { section: 'Read and verify', label: 'All articles', href: '/articles', description: 'Research notes, evidence reviews, and editorial analysis' },
-      { section: 'Read and verify', label: 'Citation explorer', href: '/learn/citation-explorer', description: 'Inspect research references behind site conclusions' },
-      { section: 'Read and verify', label: 'Methodology', href: '/info/methodology', description: 'How evidence grades, safety language, and conclusions are produced' },
+      { section: 'Original research', label: 'Evidence Report', href: '/evidence/evidence-report' },
+      { section: 'Original research', label: 'Evidence Database', href: '/evidence/evidence-checker' },
+      { section: 'Original research', label: 'Botanical Activity Atlas', href: '/tools/botanical-activity-atlas' },
+      { section: 'Keep up', label: 'Evidence digest', href: '/evidence/evidence-digest' },
+      { section: 'Read and verify', label: 'All articles', href: '/articles' },
+      { section: 'Read and verify', label: 'Citation explorer', href: '/learn/citation-explorer' },
+      { section: 'Read and verify', label: 'Methodology', href: '/info/methodology' },
     ],
   },
 ]
