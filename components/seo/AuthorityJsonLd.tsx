@@ -1,9 +1,10 @@
 import { buildSchemaGraph } from '../../src/lib/schema-graph'
 import { serializeJsonLd } from '../../src/lib/schema-injector'
 import { SITE_URL } from '../../src/lib/seo'
-
-const WEBSITE_ID = `${SITE_URL}/#website`
-const ORGANIZATION_ID = `${SITE_URL}/#organization`
+import {
+  ORGANIZATION_SCHEMA_ID,
+  WEBSITE_SCHEMA_ID,
+} from '../../src/lib/schema-identities'
 
 type FaqItem = { question: string; answer: string }
 
@@ -72,8 +73,8 @@ export default function AuthorityJsonLd({
     headline: title,
     description,
     url: canonical,
-    isPartOf: { '@id': WEBSITE_ID },
-    publisher: { '@id': ORGANIZATION_ID },
+    isPartOf: { '@id': WEBSITE_SCHEMA_ID },
+    publisher: { '@id': ORGANIZATION_SCHEMA_ID },
     ...(type !== 'Article' && breadcrumbs.length ? { breadcrumb: { '@id': breadcrumbId } } : {}),
     ...(meaningfulFaqItems.length ? { hasPart: { '@id': faqId } } : {}),
     ...(citationUrls.length ? { citation: [...new Set(citationUrls)].filter(Boolean) } : {}),
