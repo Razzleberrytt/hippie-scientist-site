@@ -48,12 +48,12 @@ export function ComparisonTable({
         <table className="min-w-[680px] w-full text-sm">
           <caption className="sr-only">{tableCaption}</caption>
           <thead>
-            <tr className="border-b border-brand-900/10 bg-brand-50/50 dark:bg-brand-100/40">
+            <tr className="border-b border-brand-900/10 bg-brand-50/50 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
               {tableHeaders.map((header, index) => (
                 <th
                   key={`${header}-${index}`}
                   scope="col"
-                  className="whitespace-nowrap px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700"
+                  className="whitespace-nowrap px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700 dark:text-[var(--accent-teal)]"
                 >
                   {header}
                 </th>
@@ -64,7 +64,7 @@ export function ComparisonTable({
             {normalizedRows.map((row, rowIndex) => (
               <tr
                 key={`${getRowLabel(row)}-${rowIndex}`}
-                className="border-b border-brand-900/5 align-top last:border-0 hover:bg-brand-50/30 dark:hover:bg-brand-100/30"
+                className="border-b border-brand-900/5 align-top last:border-0 hover:bg-brand-50/30 dark:border-white/10 dark:hover:bg-[var(--surface-subtle)]"
               >
                 <th scope="row" className="whitespace-nowrap px-4 py-3 text-left font-semibold text-ink">
                   {getRowLabel(row)}
@@ -84,13 +84,13 @@ export function ComparisonTable({
         {normalizedRows.map((row, rowIndex) => (
           <div
             key={`${getRowLabel(row)}-mobile-${rowIndex}`}
-            className="rounded-xl border border-brand-900/10 bg-white/90 p-4 shadow-sm dark:bg-[var(--surface-card)]"
+            className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-4 shadow-sm dark:border-white/10"
           >
             <p className="text-sm font-semibold text-ink">{getRowLabel(row)}</p>
             <dl className="mt-3 space-y-2">
               {row.values.map((value, colIndex) => (
-                <div key={colIndex} className="grid gap-1 border-t border-brand-900/5 pt-2">
-                  <dt className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-brand-700">
+                <div key={colIndex} className="grid gap-1 border-t border-brand-900/5 pt-2 dark:border-white/10">
+                  <dt className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-brand-700 dark:text-[var(--accent-teal)]">
                     {valueHeaders[colIndex] || `Value ${colIndex + 1}`}
                   </dt>
                   <dd className="text-sm leading-6 text-muted">{value}</dd>
