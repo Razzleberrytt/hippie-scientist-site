@@ -30,6 +30,8 @@ export default function TrialDesignInsight({
     : 'border-amber-200 bg-amber-100 text-amber-900 dark:border-amber-200/20 dark:bg-amber-300/10 dark:text-amber-100'
   const headingId = `trial-design-${String(title || designType).toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
 
+  const metadataChipClass = 'rounded-full border border-brand-900/10 bg-[var(--surface-card-strong)] px-2.5 py-0.5 font-semibold text-muted dark:border-white/10'
+
   return (
     <section
       className={`my-6 rounded-[1rem] border p-5 shadow-sm transition-all ${borderClass}`}
@@ -43,25 +45,25 @@ export default function TrialDesignInsight({
           </span>
 
           {sampleSize !== undefined && (
-            <span className="rounded-full border border-brand-900/10 bg-white/75 px-2.5 py-0.5 font-semibold text-muted dark:border-white/10 dark:bg-white/5">
+            <span className={metadataChipClass}>
               n = {sampleSize} participants
             </span>
           )}
 
           {duration && (
-            <span className="rounded-full border border-brand-900/10 bg-white/75 px-2.5 py-0.5 font-semibold text-muted dark:border-white/10 dark:bg-white/5">
+            <span className={metadataChipClass}>
               {duration}
             </span>
           )}
 
           {blinding && blinding !== 'None' && (
-            <span className="rounded-full border border-brand-900/10 bg-white/75 px-2.5 py-0.5 font-semibold text-muted dark:border-white/10 dark:bg-white/5">
+            <span className={metadataChipClass}>
               {blinding}
             </span>
           )}
 
           {control && control !== 'Uncontrolled' && (
-            <span className="rounded-full border border-brand-900/10 bg-white/75 px-2.5 py-0.5 font-semibold text-muted dark:border-white/10 dark:bg-white/5">
+            <span className={metadataChipClass}>
               {control}
             </span>
           )}
