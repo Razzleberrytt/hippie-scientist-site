@@ -204,6 +204,33 @@
     border-radius: 1.25rem;
   }
 
+  /* The goal chooser should remain part of the light editorial flow; methodology
+     is the homepage's single deliberate dark band. */
+  .hs-home #choose-a-path {
+    border-color: color-mix(in srgb, var(--hs-gold) 20%, var(--hs-hairline));
+    background:
+      radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--hs-gold) 8%, transparent), transparent 34%),
+      var(--hs-surface) !important;
+    box-shadow: 0 18px 42px -34px rgba(29, 29, 31, 0.30);
+  }
+
+  .hs-home #choose-a-path .hs-display {
+    color: var(--hs-ink);
+  }
+
+  .hs-home #choose-a-path :is(.hs-accent, .hs-eyebrow, .hs-link) {
+    color: var(--hs-gold-ink);
+  }
+
+  .hs-home #choose-a-path .hs-lede {
+    color: var(--hs-body);
+  }
+
+  .hs-home #choose-a-path .hs-link {
+    border-color: color-mix(in srgb, var(--hs-gold) 22%, var(--hs-hairline));
+    background: var(--hs-surface-2);
+  }
+
   /* On phones, the trust rail is a credibility checklist, not another reading
      section. Keep the three labels and remove their explanatory second lines. */
   .hs-home .hs-rail > div {
