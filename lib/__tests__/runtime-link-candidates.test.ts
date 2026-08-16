@@ -37,10 +37,12 @@ describe('renderable runtime link candidate index', () => {
   })
 
   it('ignores records without a usable slug', () => {
+    const missingSlug = { indexability_status: 'PUBLISH' } as unknown as RuntimeRecord
+
     expect(
       buildRenderableRuntimeRecordIndex([
         { slug: '', indexability_status: 'PUBLISH' },
-        { indexability_status: 'PUBLISH' },
+        missingSlug,
       ]),
     ).toEqual(new Map())
   })

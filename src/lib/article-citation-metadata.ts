@@ -121,7 +121,7 @@ export function buildCitationReadySummary({
     ...keyTakeaways.map(cleanSentence),
   ])
 
-  let selected = preserveAuthoredCaveat(authoredSentences.slice(0, 4), authoredSentences)
+  const selected = preserveAuthoredCaveat(authoredSentences.slice(0, 4), authoredSentences)
 
   if (selected.length < 2) {
     if (sourceCount > 0 && evidenceGrade) {

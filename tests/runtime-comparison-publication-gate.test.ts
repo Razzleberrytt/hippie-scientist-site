@@ -75,12 +75,13 @@ describe('runtime comparison publication gate', () => {
   })
 
   it('preserves structured comparison field rendering after consolidation', () => {
-    const record: RuntimeRecord = {
+    const record = {
+      slug: 'structured-safety',
       safety: {
         common: ['GI upset', 'headache'],
         note: 'Dose dependent',
       },
-    }
+    } as unknown as RuntimeRecord
 
     expect(comparisonValueToText(record.safety)).toBe(
       'common: GI upset; headache; note: Dose dependent',

@@ -92,7 +92,7 @@ async function writeGraphic(baseName, svg, metadata, sharp) {
     svg: path.relative(root, svgPath).split(path.sep).join('/'),
     png: pngGenerated ? path.relative(root, pngPath).split(path.sep).join('/') : null,
     approvedForPublicUse: false,
-    embedHtml: `<a href="${metadata.sourceUrl}"><img src="${metadata.publicSvgUrl}" alt="${esc(metadata.alt)}"><\/a><p>Source: <a href="${metadata.sourceUrl}">The Hippie Scientist</a></p>`,
+    embedHtml: `<a href="${metadata.sourceUrl}"><img src="${metadata.publicSvgUrl}" alt="${esc(metadata.alt)}"></a><p>Source: <a href="${metadata.sourceUrl}">The Hippie Scientist</a></p>`,
   }
 }
 

@@ -5,10 +5,11 @@ import { buildPageMetadata, SITE_URL } from '@/src/lib/seo'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 
 const SLUG = '2026-08-evidence-literacy'
-const edition = getEvidenceDigestEdition(SLUG)
+const resolvedEdition = getEvidenceDigestEdition(SLUG)
 
-if (!edition) throw new Error(`Missing evidence digest edition: ${SLUG}`)
+if (!resolvedEdition) throw new Error(`Missing evidence digest edition: ${SLUG}`)
 
+const edition = resolvedEdition
 const PATH = `/evidence/evidence-digest/${SLUG}/`
 const SHARE_SUBJECT = encodeURIComponent(edition.title)
 const SHARE_BODY = encodeURIComponent(`Worth reading: ${edition.title}\n\n${SITE_URL}${PATH}`)

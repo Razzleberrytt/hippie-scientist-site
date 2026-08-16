@@ -49,7 +49,7 @@ function parseJsonLd(html) {
 
 function parseEvidenceGrades(html) {
   const visible = text(html);
-  const found = matches(visible, /(?:evidence\s+grade|grade)\s*[:\-]?\s*(Avoid\/Insufficient|[ABCD])\b/gi);
+  const found = matches(visible, /(?:evidence\s+grade|grade)\s*[:-]?\s*(Avoid\/Insufficient|[ABCD])\b/gi);
   return uniq(found.map((grade) => grade.length === 1 ? grade.toUpperCase() : 'Avoid/Insufficient'));
 }
 

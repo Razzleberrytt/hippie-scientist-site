@@ -45,11 +45,16 @@ describe('runtime metadata cache visibility', () => {
   })
 
   it('ignores records without a usable slug', () => {
+    const missingSlug = {
+      name: 'Missing',
+      indexability_status: 'PUBLISH',
+    } as unknown as RuntimeRecord
+
     expect(
       buildRenderableMetadataMap(
         [
           { slug: '', name: 'Empty', indexability_status: 'PUBLISH' },
-          { name: 'Missing', indexability_status: 'PUBLISH' },
+          missingSlug,
         ],
         'herb',
       ),

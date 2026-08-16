@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 type LastUpdatedBadgeProps = {
   date?: string | null
   label?: string
@@ -48,12 +50,12 @@ export default function LastUpdatedBadge({
       {showCorrectionLink ? (
         <>
           <span aria-hidden="true" className="text-muted/30">•</span>
-          <a
+          <Link
             href="/info/corrections/"
             className="text-brand-700 underline-offset-2 hover:underline dark:text-brand-100"
           >
             Report a correction
-          </a>
+          </Link>
         </>
       ) : null}
     </span>
