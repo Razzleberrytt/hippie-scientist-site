@@ -69,8 +69,9 @@ function rate(numerator: number, denominator: number): number {
   return denominator ? round(numerator / denominator) : 1
 }
 
+/** Keep coverage eligibility aligned with ResearchQualityAnalysis.outcomeClaim. */
 function isOutcomeClaim(claim: ResearchClaim): boolean {
-  return /supports_outcome|benefit|efficacy/i.test(text(claim.predicate))
+  return text(claim.predicate) === 'supports_outcome'
 }
 
 function countsForStudyIds(
