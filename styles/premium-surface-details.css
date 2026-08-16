@@ -7,7 +7,6 @@
   --surface-detail-border: var(--border-soft);
   --surface-detail-border-strong: var(--border-strong);
   --surface-detail-bg-strong: var(--surface-card-strong);
-  --surface-detail-focus: var(--ring-brand);
   --surface-detail-text: var(--text-primary);
   --surface-detail-muted: var(--text-muted);
 }
@@ -48,13 +47,13 @@ main textarea::placeholder {
   opacity: 0.72;
 }
 
+/* Mouse/programmatic focus gets a stronger boundary. Keyboard focus appearance
+   belongs to accessibility-wcag-22.css so its high-contrast ring cannot be
+   suppressed by this denser, more-specific selector. */
 main input:focus,
 main select:focus,
 main textarea:focus {
   border-color: var(--surface-detail-border-strong) !important;
-  outline: 3px solid var(--surface-detail-focus) !important;
-  outline-offset: 2px;
-  box-shadow: none !important;
 }
 
 /* Neutral disclosure chrome applies only when the component has not declared a
