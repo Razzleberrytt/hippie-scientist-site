@@ -7,6 +7,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
@@ -35,7 +36,9 @@ export default function CollagenGuidePage() {
       <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 2 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Collagen: What 100+ Trials Actually Show</h1><p className="text-lg leading-8 text-muted">Collagen is a $5+ billion category, endorsed by celebrities and backed by more clinical trials than most supplement categories. A 2026 umbrella review of 100+ RCTs with nearly 8,000 participants provides the strongest synthesis to date [1]. The effects are real but modest — here is what the evidence supports, with citations.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/collagen-supplements.jpg" alt="Collagen peptide powder in a glass jar with capsules on a wood surface" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Collagen — one of the better-studied supplement categories, but effects are modest.</figcaption></figure></section>
 
-      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">Collagen <strong>modestly improves skin hydration, elasticity, and wrinkle depth</strong> at 2.5-10 g/day over 4-12 weeks [1,2]. It <strong>moderately reduces joint pain in osteoarthritis</strong> at 40 mg-10 g/day over 3-6 months [3,4]. These effects are supported by multiple meta-analyses. Collagen is one of the better-studied supplement categories — but effects are incremental, not dramatic. ConsumerLab testing found per-gram collagen costs vary from $0.07 to over $25 [9] between products. Quality and dose matter enormously.</p></section>
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>Collagen <strong>modestly improves skin hydration, elasticity, and wrinkle depth</strong> at 2.5-10 g/day over 4-12 weeks [1,2]. It <strong>moderately reduces joint pain in osteoarthritis</strong> at 40 mg-10 g/day over 3-6 months [3,4]. These effects are supported by multiple meta-analyses. Collagen is one of the better-studied supplement categories — but effects are incremental, not dramatic. ConsumerLab testing found per-gram collagen costs vary from $0.07 to over $25 [9] between products. Quality and dose matter enormously.</p>
+      </LegacyGuideQuickAnswer>
 
       <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by claim</h2>
         <div className="space-y-4">
@@ -71,7 +74,7 @@ export default function CollagenGuidePage() {
         </tbody></table></div>
         <p className="text-xs leading-5 text-muted">One of the better-studied categories (100+ RCTs). Skin and joint benefits are real but modest. ConsumerLab: per-gram cost varies 350× between brands.</p></section>
 
-      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
+      <section id="references" className="card-premium scroll-mt-24 p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
         <Ref n={1} text="Anglia Ruskin University (2026). Umbrella review: daily collagen supplements improve skin elasticity, hydration. BBC News coverage of 100+ RCT meta-analysis." url="https://www.bbc.com/news/articles" />
         <Ref n={2} text="de Miranda RB, Weimer P, Rossi RC. (2021). Effects of hydrolyzed collagen on skin aging: systematic review and meta-analysis. Int J Dermatol, 60(12): 1449-1461." url="https://pubmed.ncbi.nlm.nih.gov/34617276/" />
         <Ref n={3} text="Crowley DC, et al. (2009). Safety and efficacy of undenatured type II collagen in knee osteoarthritis. Int J Med Sci, 6(6): 312-321." url="https://pubmed.ncbi.nlm.nih.gov/19847319/" />
