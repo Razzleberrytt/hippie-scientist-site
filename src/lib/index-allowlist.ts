@@ -23,6 +23,16 @@ export const CORE_INDEXABLE_ROUTES = [
   '/tools/botanical-activity-atlas/calming-botanicals',
   '/tools/botanical-activity-atlas/dream-and-perception-herbs',
   '/tools/botanical-activity-atlas/serotonergic-interaction-risk',
+  '/es',
+  '/es/hierbas',
+  '/es/compuestos',
+  '/es/objetivos',
+  '/es/objetivos/sueno',
+  '/es/objetivos/estres',
+  '/es/objetivos/ansiedad',
+  '/es/objetivos/concentracion',
+  '/es/metodologia',
+  '/es/seguridad',
 ] as const
 
 export const MONEY_ENTRY_ROUTES = [
