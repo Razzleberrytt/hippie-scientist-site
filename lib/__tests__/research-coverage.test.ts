@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  canonicalStudyClass,
+  canonicalStudyGroups,
   canonicalStudyIdentityMap,
   uniqueClaimStudyIdentities,
   type ResearchProfile,
@@ -48,5 +50,21 @@ describe('canonical study identity', () => {
 
     expect(uniqueClaimStudyIdentities({ sourceRefIds: ['a', 'b'] }, identities)).toHaveLength(1)
     expect(uniqueClaimStudyIdentities({ sourceRefIds: ['a', 'b', 'c'] }, identities)).toHaveLength(2)
+  })
+
+  it('derives study design once per canonical study and keeps the strongest classification', () => {
+    const record: ResearchProfile = {
+      sources: [
+        { id: 'a', doi: '10.1000/XYZ', pmid: '12345678', studyClass: 'narrative-review' },
+        { id: 'b', pmid: '12345678', studyClass: 'randomized controlled trial' },
+        { id: 'c', pmid: '87654321', studyClass: 'narrative-review' },
+      ],
+    }
+
+    const groups = canonicalStudyGroups(record)
+    expect(groups.size).toBe(2)
+    const merged = [...groups.values()].find((group) => group.length === 2)
+    expect(merged).toBeDefined()
+    expect(canonicalStudyClass(merged ?? [], {})).toBe('rct')
   })
 })
