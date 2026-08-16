@@ -11,6 +11,7 @@ import {
   Sparkles,
   Waypoints,
 } from 'lucide-react'
+import { coreGoals } from '@/lib/core-goals'
 import { SITE_URL } from '@/lib/navigation-config'
 import { buildTwitterMetadata } from '@/src/lib/seo'
 
@@ -68,10 +69,7 @@ const directorySections = [
       { label: 'Goal finder', href: '/goals/', detail: 'Choose the outcome or question you are researching' },
       { label: 'Mental Health', href: '/guides/mental-health/', detail: 'Conditions, treatment evidence, safety, and stigma-aware explainers' },
       { label: 'ADHD', href: '/guides/adhd/', detail: 'Attention, executive function, nutrients, and treatment context' },
-      { label: 'Sleep', href: '/guides/sleep/', detail: 'Sleep aids, alternatives, and sleep-hygiene evidence' },
-      { label: 'Stress', href: '/guides/stress/', detail: 'Acute tension, chronic overload, burnout, and stress-support evidence' },
-      { label: 'Anxiety', href: '/guides/anxiety/', detail: 'Calming supports, overthinking, tension, and anxiety-focused evidence' },
-      { label: 'Focus & Cognition', href: '/guides/focus/', detail: 'Focus support, nootropics, and cognitive performance' },
+      ...coreGoals.map((goal) => ({ label: goal.label, href: goal.href, detail: goal.description })),
       { label: 'More supplement topics', href: '/guides/other/', detail: 'Forms, quality, routines, advanced compounds, and harm reduction' },
     ],
   },
