@@ -16,7 +16,7 @@ describe('research matrix client boundary', () => {
     expect(client).toContain('Underlying human studies')
   })
 
-  it('keeps filesystem-backed research topology on the server contract', () => {
+  it('keeps filesystem-backed research topology and grade reconciliation on the server contract', () => {
     const shared = fs.readFileSync(
       path.join(process.cwd(), 'src/lib/research-matrices.shared.ts'),
       'utf8',
@@ -33,6 +33,9 @@ describe('research matrix client boundary', () => {
     expect(server).toContain("import 'server-only'")
     expect(server).toContain("from '@/lib/runtime-record-index'")
     expect(server).toContain("from '../../lib/research-quality-snapshot'")
+    expect(server).toContain('reconcileEvidenceGrade')
+    expect(server).not.toContain('canonicalGradeFromEvidenceTier')
+    expect(server).not.toContain('normalizeEvidenceGrade')
     expect(server).toContain('profile.primaryHumanUnderlyingStudyCount')
     expect(server).toContain('profile.primaryHumanPublicationCount')
     expect(server).toContain('profile.collapsedPrimaryHumanPublicationCount')
