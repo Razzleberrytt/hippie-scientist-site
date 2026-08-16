@@ -248,15 +248,17 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
             </ul>
 
             {/* Footer / live region */}
-            <div className="flex shrink-0 items-center justify-between border-t border-brand-900/10 bg-[var(--surface-subtle)] px-4 py-2 text-[11px] text-muted">
-              <span aria-live="polite" aria-atomic="true">
+            <div className="flex shrink-0 items-center justify-between gap-3 border-t border-brand-900/10 bg-[var(--surface-subtle)] px-4 py-2 text-[11px] text-muted">
+              <span aria-live="polite" aria-atomic="true" className="min-w-0">
                 {search.ready
                   ? `${search.results.length} result${search.results.length === 1 ? '' : 's'} shown`
                   : ''}
               </span>
-              <span className="hidden items-center gap-3 sm:flex">
-                <span>↑↓ navigate</span>
-                <span>↵ open</span>
+              <div className="flex shrink-0 items-center gap-3">
+                <span className="hidden items-center gap-3 sm:flex">
+                  <span>↑↓ navigate</span>
+                  <span>↵ open</span>
+                </span>
                 <Link
                   href="/search/"
                   onClick={close}
@@ -264,7 +266,7 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
                 >
                   Advanced search →
                 </Link>
-              </span>
+              </div>
             </div>
           </div>
         </div>
