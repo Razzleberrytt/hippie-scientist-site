@@ -18,8 +18,6 @@ export type AggregatedTopologyGapWeights = {
   provenanceNarrowMultiStudySupport: number
   highConfidenceProvenanceNarrowBonus: number
   pseudoMultiSourceSupport: number
-  sharedUnderlyingStudyReuse: number
-  highConfidenceUnderlyingStudyReuseBonus: number
   severeStudyClassConflict: number
   studyClassAmbiguity: number
 }
@@ -198,10 +196,10 @@ export function buildAggregatedTopologyGapSignals(
     const highConfidence = item.highConfidenceClaimKeys.size
     signals.push({
       url,
-      kind: 'shared-underlying-study-publication-reuse',
-      weight: weights.sharedUnderlyingStudyReuse
+      kind: 'claim-support-underlying-study-publication-reuse',
+      weight: weights.provenanceNarrowMultiStudySupport
         + Math.min(8, Math.max(0, affectedClaims - 1) * 2 + item.duplicatePublications)
-        + (highConfidence ? weights.highConfidenceUnderlyingStudyReuseBonus : 0),
+        + (highConfidence ? weights.highConfidenceProvenanceNarrowBonus : 0),
       detail: `${affectedClaims} approved multi-publication claim(s) reuse underlying evidence; ${item.registeredTrialClaims} same registered trial, ${item.nonRegistryLineageClaims} shared cohort/dataset/parent-study lineage; ${highConfidence} high-confidence`,
     })
   }
