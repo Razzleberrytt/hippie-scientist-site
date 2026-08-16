@@ -1,3 +1,5 @@
+import { coreGoalPrefixes, coreGoals } from './core-goals'
+
 export interface PrimaryNavigationItem {
   label: string
   href: string
@@ -12,13 +14,15 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Goals',
     href: '/goals',
     description: 'Start with what you are researching, then follow the evidence to relevant options',
-    activePrefixes: ['/goals', '/guides/mental-health', '/guides/adhd', '/guides/sleep', '/guides/stress', '/guides/anxiety', '/guides/focus'],
+    activePrefixes: ['/goals', '/guides/mental-health', '/guides/adhd', ...coreGoalPrefixes],
     children: [
       { section: 'Start here', label: 'Goal finder', href: '/goals', description: 'Choose the outcome or question you are actually researching' },
-      { section: 'Health goals', label: 'Sleep', href: '/guides/sleep', description: 'Sleep aids, timing, alternatives, and sleep-support evidence' },
-      { section: 'Health goals', label: 'Stress', href: '/guides/stress', description: 'Acute tension, chronic overload, burnout, and stress-support evidence' },
-      { section: 'Health goals', label: 'Anxiety', href: '/guides/anxiety', description: 'Calming supports, overthinking, tension, and anxiety-focused evidence' },
-      { section: 'Health goals', label: 'Focus & Cognition', href: '/guides/focus', description: 'Focus support, nootropics, and cognitive-performance evidence' },
+      ...coreGoals.map((goal) => ({
+        section: 'Health goals',
+        label: goal.label,
+        href: goal.href.replace(/\/$/, ''),
+        description: goal.description,
+      })),
       { section: 'Health goals', label: 'Mental Health', href: '/guides/mental-health', description: 'Conditions, treatment evidence, safety, and stigma-aware explainers' },
       { section: 'Health goals', label: 'ADHD', href: '/guides/adhd', description: 'Attention, executive function, nutrients, and treatment context' },
     ],
