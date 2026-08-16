@@ -26,7 +26,7 @@ export default function ConsentBanner() {
   const dnt = getSystemNoTracking()
 
   return (
-    <div className='fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+5.25rem)] z-[100] px-3 md:bottom-0 md:px-4 md:pb-4'>
+    <div className='fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] z-[100] px-3 md:bottom-0 md:px-4 md:pb-4'>
       <div
         role='region'
         aria-label='Privacy notice'
