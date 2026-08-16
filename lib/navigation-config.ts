@@ -18,6 +18,11 @@ export const routeLabels: Record<string, RouteMetadata> = {
     label: 'Home',
     description: 'The Hippie Scientist evidence-based supplement research',
   },
+  '/start': {
+    label: 'Start Here',
+    description: 'Choose between goal research, ingredient lookup, and safety checking',
+    parent: '/',
+  },
   '/library': {
     label: 'Explore Everything',
     description: 'Complete site directory',
@@ -105,6 +110,11 @@ export const routeLabels: Record<string, RouteMetadata> = {
   '/guides/focus': {
     label: 'Focus & Cognition',
     description: 'Focus support, nootropics, and cognitive performance',
+    parent: '/guides',
+  },
+  '/guides/metabolic-health': {
+    label: 'Metabolic Health',
+    description: 'Metabolic-health evidence, comparisons, medication context, and practical research paths',
     parent: '/guides',
   },
   '/guides/herbs': {
