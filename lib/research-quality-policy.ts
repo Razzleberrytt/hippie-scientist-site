@@ -84,6 +84,7 @@ export const RESEARCH_GAP_WEIGHTS = {
   veryHighConfidenceSingleStudyBonus: 10,
   unsupportedUnapprovedStructuredClaim: 4,
   weakUnapprovedStructuredClaim: 3,
+  unapprovedSingleStudyStructuredClaim: 2,
 } as const
 
 const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
@@ -198,6 +199,13 @@ function addEditorialBacklogReasons(analysis: ResearchQualityAnalysis, add: AddR
       add(claim.url, 'unsupported-unapproved-structured-claim', RESEARCH_GAP_WEIGHTS.unsupportedUnapprovedStructuredClaim, detail)
     } else if (claim.structuredSupportTier === 'unclassified' || claim.structuredSupportTier === 'narrative-only') {
       add(claim.url, `unapproved-claim-support-${claim.structuredSupportTier}`, RESEARCH_GAP_WEIGHTS.weakUnapprovedStructuredClaim, detail)
+    } else if (claim.structuredSupportTier === 'single-study') {
+      add(
+        claim.url,
+        'unapproved-claim-support-single-study',
+        RESEARCH_GAP_WEIGHTS.unapprovedSingleStudyStructuredClaim,
+        detail,
+      )
     } else if (claim.supportTier === 'indirect-only') {
       add(claim.url, 'unapproved-claim-support-indirect-only', RESEARCH_GAP_WEIGHTS.weakUnapprovedStructuredClaim, detail)
     }
