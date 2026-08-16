@@ -67,6 +67,8 @@ export default function AuthorityJsonLd({
     headline: title,
     description,
     url: canonical,
+    inLanguage: 'en-US',
+    ...(hasEditorialAuthor ? { mainEntityOfPage: canonical } : {}),
     isPartOf: { '@id': WEBSITE_SCHEMA_ID },
     ...(hasEditorialAuthor ? { author: { '@id': AUTHOR_SCHEMA_ID } } : {}),
     publisher: { '@id': ORGANIZATION_SCHEMA_ID },
