@@ -108,11 +108,17 @@ export type PublicEvidenceReportMetrics = {
   /** Site-wide evidence units remaining after explicitly proven registry/lineage dependence is collapsed. */
   globalInventoryUnderlyingStudyCount: number | null
   globalCollapsedInventoryPublicationCount: number | null
+  globalInventoryPublicationsWithIndependenceMetadata: number | null
+  globalInventoryPublicationsWithoutIndependenceMetadata: number | null
+  globalInventoryIndependenceMetadataCoverage: number | null
   /** Unique site-wide primary-human publication identities. */
   globalPrimaryHumanPublicationCount: number | null
   /** Primary-human evidence units remaining after explicitly proven dependence collapse; unresolved lineage is not assumed independent. */
   globalPrimaryHumanUnderlyingStudyCount: number | null
   globalCollapsedPrimaryHumanPublicationCount: number | null
+  globalPrimaryHumanPublicationsWithIndependenceMetadata: number | null
+  globalPrimaryHumanPublicationsWithoutIndependenceMetadata: number | null
+  globalPrimaryHumanIndependenceMetadataCoverage: number | null
   /** Claim-level coverage of explicit registry or non-registry lineage used to assess publication independence. */
   independenceMultiStudyApprovedClaims: number | null
   independenceFullyResolvedClaims: number | null
@@ -429,9 +435,15 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     globalInventoryPublicationCount: null,
     globalInventoryUnderlyingStudyCount: null,
     globalCollapsedInventoryPublicationCount: null,
+    globalInventoryPublicationsWithIndependenceMetadata: null,
+    globalInventoryPublicationsWithoutIndependenceMetadata: null,
+    globalInventoryIndependenceMetadataCoverage: null,
     globalPrimaryHumanPublicationCount: null,
     globalPrimaryHumanUnderlyingStudyCount: null,
     globalCollapsedPrimaryHumanPublicationCount: null,
+    globalPrimaryHumanPublicationsWithIndependenceMetadata: null,
+    globalPrimaryHumanPublicationsWithoutIndependenceMetadata: null,
+    globalPrimaryHumanIndependenceMetadataCoverage: null,
     independenceMultiStudyApprovedClaims: null,
     independenceFullyResolvedClaims: null,
     independenceUnresolvedClaims: null,
@@ -493,9 +505,15 @@ export async function getPublicEvidenceDataset(): Promise<PublicEvidenceDataset>
       globalInventoryPublicationCount: independence.globalInventoryPublicationCount,
       globalInventoryUnderlyingStudyCount: independence.globalInventoryUnderlyingStudyCount,
       globalCollapsedInventoryPublicationCount: independence.globalCollapsedInventoryPublicationCount,
+      globalInventoryPublicationsWithIndependenceMetadata: independence.globalInventoryPublicationsWithIndependenceMetadata,
+      globalInventoryPublicationsWithoutIndependenceMetadata: independence.globalInventoryPublicationsWithoutIndependenceMetadata,
+      globalInventoryIndependenceMetadataCoverage: independence.globalInventoryIndependenceMetadataCoverage,
       globalPrimaryHumanPublicationCount: independence.globalPrimaryHumanPublicationCount,
       globalPrimaryHumanUnderlyingStudyCount: independence.globalPrimaryHumanUnderlyingStudyCount,
       globalCollapsedPrimaryHumanPublicationCount: independence.globalCollapsedPrimaryHumanPublicationCount,
+      globalPrimaryHumanPublicationsWithIndependenceMetadata: independence.globalPrimaryHumanPublicationsWithIndependenceMetadata,
+      globalPrimaryHumanPublicationsWithoutIndependenceMetadata: independence.globalPrimaryHumanPublicationsWithoutIndependenceMetadata,
+      globalPrimaryHumanIndependenceMetadataCoverage: independence.globalPrimaryHumanIndependenceMetadataCoverage,
       independenceMultiStudyApprovedClaims: coverage.multiStudyApprovedClaims,
       independenceFullyResolvedClaims: coverage.fullyResolvedClaims,
       independenceUnresolvedClaims: coverage.unresolvedClaims,
