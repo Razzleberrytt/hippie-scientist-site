@@ -77,11 +77,17 @@ jobs:
       - name: Search Console opportunity report
         run: npm run seo:opportunities
 
+      - name: AI citation-readiness topology
+        run: npx tsx scripts/ci/audit-ai-citation-topology.ts
+
       - name: AI citation telemetry
         run: node scripts/seo/ai-citation-tracker.mjs --label=$(date -u +%F)
 
       - name: AI source-gap and competitor citation audit
         run: node scripts/seo/ai-source-gap-audit.mjs --label=$(date -u +%F)
+
+      - name: AI SEO action priority
+        run: node scripts/seo/ai-opportunity-priority.mjs
 
       - name: Upload weekly reports
         if: always()
@@ -93,6 +99,7 @@ jobs:
           path: |
             ops/reports/**
             ops/ai-citations/**
+            reports/**
             artifacts/**
 
   monthly-decay:
