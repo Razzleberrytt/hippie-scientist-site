@@ -242,16 +242,6 @@ function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
     const bonus = claim.highConfidenceHomogeneousMultiStudySupport ? RESEARCH_GAP_WEIGHTS.highConfidenceHomogeneousMultiStudyBonus : 0
     add(claim.url, 'homogeneous-multi-study-support', RESEARCH_GAP_WEIGHTS.homogeneousMultiStudySupport + bonus, `${claim.claimId} · ${claim.studyCount} studies but one evidence family (${claim.evidenceFamilies.join(', ')})`)
   }
-  for (const claim of topology.edgeCardinality.pseudoMultiSourceClaims) {
-    if (!claim.approved) continue
-    const bonus = Math.min(6, claim.aliasCollapsedSourceCount * 2)
-    add(
-      claim.url,
-      'pseudo-multi-source-support',
-      RESEARCH_GAP_WEIGHTS.pseudoMultiSourceSupport + bonus,
-      `${claim.claimId} · ${claim.validUniqueSourceRefCount} distinct source rows collapse to ${claim.canonicalStudyCount} canonical study`,
-    )
-  }
 
   const overlapByProfile = new Map<string, typeof topology.claimEvidenceOverlap>()
   for (const overlap of topology.claimEvidenceOverlap) {
@@ -329,6 +319,7 @@ function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
     highConfidenceCitationMetadataBonus: RESEARCH_GAP_WEIGHTS.highConfidenceCitationMetadataBonus,
     provenanceNarrowMultiStudySupport: RESEARCH_GAP_WEIGHTS.provenanceNarrowMultiStudySupport,
     highConfidenceProvenanceNarrowBonus: RESEARCH_GAP_WEIGHTS.highConfidenceProvenanceNarrowBonus,
+    pseudoMultiSourceSupport: RESEARCH_GAP_WEIGHTS.pseudoMultiSourceSupport,
     severeStudyClassConflict: RESEARCH_GAP_WEIGHTS.severeStudyClassConflict,
     studyClassAmbiguity: RESEARCH_GAP_WEIGHTS.studyClassAmbiguity,
   }
