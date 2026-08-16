@@ -22,4 +22,17 @@ describe('canonical research remediation boundary', () => {
     expect(remediation).toContain("dimension: 'structural'")
     expect(remediation).toContain('item.reasons.some((reason) => reason.kind === EVIDENCE_GRADE_BLOCKER_REASON)')
   })
+
+  it('replaces legacy dependency reasons with one current underlying-study reason', () => {
+    const root = process.cwd()
+    const remediation = fs.readFileSync(path.join(root, 'lib/research-quality-remediation.ts'), 'utf8')
+
+    expect(remediation).toContain("STUDY_DEPENDENCY_REASON = 'high-study-dependency'")
+    expect(remediation).toContain('item.reasons.filter((reason) => reason.kind !== STUDY_DEPENDENCY_REASON)')
+    expect(remediation).toContain('topology.underlyingStudyIndependence.profiles')
+    expect(remediation).toContain('profile.overDependentOnSingleUnderlyingStudy')
+    expect(remediation).toContain('profile.dominantUnderlyingStudySupportedClaimShare')
+    expect(remediation).toContain('profile.effectiveUnderlyingStudyCount')
+    expect(remediation).toContain('publications resolve to ${profile.underlyingStudyCount} underlying studies')
+  })
 })
