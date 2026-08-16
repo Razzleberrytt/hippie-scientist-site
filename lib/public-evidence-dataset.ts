@@ -57,6 +57,7 @@ export type PublicStudyEntity = {
   authors?: string
   journal?: string
   year?: number | string
+  publicationYearAmbiguous?: boolean
   pmid?: string
   doi?: string
   url?: string
@@ -99,6 +100,7 @@ export type PublicEvidenceReportMetrics = {
   participantCountCoverage: number
   participantCountAmbiguityStudyCount: number
   studyClassAmbiguityStudyCount: number
+  publicationYearAmbiguityStudyCount: number
   strongOrModerateIngredients: number
   preliminaryOrInsufficientIngredients: number
   unassignedIngredients: number
@@ -169,6 +171,12 @@ function cleanList(value: unknown): string[] {
   const text = cleanString(value)
   if (!text) return []
   return text.split(/[|;,]/).map(item => item.trim()).filter(Boolean)
+}
+
+function parsePublicationYear(value: unknown): number | null {
+  const year = Number(String(value ?? '').trim())
+  const currentYear = new Date().getFullYear()
+  return Number.isInteger(year) && year >= 1800 && year <= currentYear + 1 ? year : null
 }
 
 function canIndexRecord(record: RuntimeRecord): boolean {
@@ -266,6 +274,7 @@ function mergeStudyField<T>(current: T | undefined, incoming: T | undefined): T 
 export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]): PublicEvidenceDataset {
   const ingredients: PublicEvidenceIngredient[] = []
   const studiesById = new Map<string, PublicStudyEntity>()
+  const publicationYearsByStudyId = new Map<string, Set<number>>()
   const participantCountsByStudyId = new Map<string, Set<number>>()
   const evidenceClassesByStudyId = new Map<string, Set<EvidenceStudyClass>>()
   const gradeCounts = new Map<string, number>()
@@ -315,6 +324,12 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       const evidenceClass = citation.evidenceClass || normalizeEvidenceStudyClass(citation.studyType)
       const relationship = normalizeEvidenceRelationship(citation.relationship)
       const id = canonicalCitationIdentifier(citation, citationIdentities) || citation.id || evidenceStudyId(citation)
+      const publicationYear = parsePublicationYear(citation.year)
+      if (publicationYear !== null) {
+        const years = publicationYearsByStudyId.get(id) ?? new Set<number>()
+        years.add(publicationYear)
+        publicationYearsByStudyId.set(id, years)
+      }
       if (evidenceClass !== 'other') {
         const classes = evidenceClassesByStudyId.get(id) ?? new Set<EvidenceStudyClass>()
         classes.add(evidenceClass)
@@ -408,18 +423,32 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       .filter(([, counts]) => counts.size > 1)
       .map(([studyId]) => studyId),
   )
+  const ambiguousPublicationYearStudyIds = new Set(
+    [...publicationYearsByStudyId.entries()]
+      .filter(([, years]) => years.size > 1)
+      .map(([studyId]) => studyId),
+  )
   const studies = [...studiesById.values()]
     .map((study) => {
       const classes = evidenceClassesByStudyId.get(study.id)
+      const years = publicationYearsByStudyId.get(study.id)
       const studyClassAmbiguous = ambiguousStudyClassIds.has(study.id)
       const participantCountAmbiguous = ambiguousParticipantStudyIds.has(study.id)
+      const publicationYearAmbiguous = ambiguousPublicationYearStudyIds.has(study.id)
       const evidenceClass = !classes?.size
         ? study.evidenceClass
         : classes.size === 1
           ? [...classes][0]
           : 'other'
+      const year = !years?.size
+        ? study.year
+        : years.size === 1
+          ? [...years][0]
+          : undefined
       return {
         ...study,
+        year,
+        publicationYearAmbiguous,
         evidenceClass,
         studyClassAmbiguous,
         participantCountAmbiguous,
@@ -499,6 +528,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     participantCountCoverage: studyMetrics.studiesWithParticipantCounts,
     participantCountAmbiguityStudyCount: studies.filter(study => study.participantCountAmbiguous).length,
     studyClassAmbiguityStudyCount: studies.filter(study => study.studyClassAmbiguous).length,
+    publicationYearAmbiguityStudyCount: studies.filter(study => study.publicationYearAmbiguous).length,
     strongOrModerateIngredients: ingredients.filter(item => item.evidenceGrade === 'A' || item.evidenceGrade === 'B').length,
     preliminaryOrInsufficientIngredients: ingredients.filter(item => item.evidenceGrade === 'C' || item.evidenceGrade === 'D' || item.evidenceGrade === 'Avoid/Insufficient').length,
     unassignedIngredients: ingredients.filter(item => item.evidenceGrade === 'Unassigned').length,
@@ -620,7 +650,7 @@ function csvEscape(value: unknown): string {
 
 export function publicEvidenceDatasetToCsv(dataset: PublicEvidenceDataset): string {
   const headers = [
-    'study_id', 'title', 'authors', 'journal', 'year', 'pmid', 'doi', 'study_class', 'study_class_ambiguous',
+    'study_id', 'title', 'authors', 'journal', 'year', 'year_ambiguous', 'pmid', 'doi', 'study_class', 'study_class_ambiguous',
     'sample_size', 'participant_count_ambiguous', 'dose', 'duration', 'population', 'outcome', 'result', 'limitation',
     'relationship_summary', 'conditions', 'safety_outcome', 'ingredient_slugs', 'ingredient_names', 'ingredient_grades',
   ]
@@ -631,6 +661,7 @@ export function publicEvidenceDatasetToCsv(dataset: PublicEvidenceDataset): stri
     study.authors,
     study.journal,
     study.year,
+    Boolean(study.publicationYearAmbiguous),
     study.pmid,
     study.doi,
     study.evidenceClass,
