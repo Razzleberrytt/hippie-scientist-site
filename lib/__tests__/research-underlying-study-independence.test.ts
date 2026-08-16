@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest'
 
 import { analyzeUnderlyingStudyIndependence } from '@/lib/research-underlying-study-independence'
-import type { ResearchQualityAnalysis } from '@/lib/research-quality-analysis'
+import type { ClaimQualityAnalysis, ResearchQualityAnalysis } from '@/lib/research-quality-analysis'
 import type { TrialRegistrationIndependenceAnalysis } from '@/lib/research-trial-registration-independence'
 import type { EvidenceLineageAnalysis } from '@/lib/research-evidence-lineage'
 
 function analysis(studyIds: string[], confidence = 0.85): ResearchQualityAnalysis {
-  const claim = {
+  const claim: ClaimQualityAnalysis = {
     url: '/herbs/example/',
     claimId: 'claim-1',
     reviewStatus: 'approved',
