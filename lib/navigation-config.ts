@@ -1,7 +1,3 @@
-import { primaryNavigation, type PrimaryNavigationItem } from './primary-navigation'
-
-export type NavigationItem = PrimaryNavigationItem
-
 export interface BreadcrumbItem {
   label: string
   href: string
@@ -16,9 +12,6 @@ export interface RouteMetadata {
 }
 
 export const SITE_URL = 'https://thehippiescientist.net'
-
-// One navigation source of truth for the header, schema, helper utilities, and tests.
-export const mainNavigation: NavigationItem[] = primaryNavigation
 
 export const routeLabels: Record<string, RouteMetadata> = {
   '/': {
@@ -326,20 +319,4 @@ export function getRouteMetadata(pathname: string): RouteMetadata | null {
 
   const patternKey = findDynamicRoutePattern(normalizedPath)
   return patternKey ? routeLabels[patternKey] : null
-}
-
-export function flattenNavigation(
-  items: NavigationItem[] = mainNavigation
-): Array<{ item: NavigationItem; level: number; path: string }> {
-  const result: Array<{ item: NavigationItem; level: number; path: string }> = []
-
-  function traverse(currentItems: NavigationItem[], level: number) {
-    for (const item of currentItems) {
-      result.push({ item, level, path: item.href })
-      if (item.children) traverse(item.children, level + 1)
-    }
-  }
-
-  traverse(items, 0)
-  return result
 }
