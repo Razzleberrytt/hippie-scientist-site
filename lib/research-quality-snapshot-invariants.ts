@@ -75,8 +75,6 @@ export function validateResearchQualitySnapshotInvariants(
     if (!approvedClaimKeys.has(claimKey(url, claimId))) add(kind, `unknown approved claim ${url}::${claimId}`)
   }
 
-  // Claim/source row IDs are graph identities. Missing or duplicate IDs make
-  // downstream maps lossy even when the raw arrays still contain every row.
   for (const profile of analysis.profiles) {
     const claims = Array.isArray(profile.record.claimMap) ? profile.record.claimMap : []
     const seenClaims = new Set<string>()
@@ -115,6 +113,18 @@ export function validateResearchQualitySnapshotInvariants(
     add(
       'semantic-approved-claim-count-mismatch',
       `semantic=${topology.semanticAlignment.summary.approvedClaims}; analysis=${analysis.claimAnalyses.length}`,
+    )
+  }
+  if (topology.claimBreadth.summary.approvedClaimsWithHumanEvidence !== topology.claimBreadth.claims.length) {
+    add(
+      'claim-breadth-analyzed-count-mismatch',
+      `summary=${topology.claimBreadth.summary.approvedClaimsWithHumanEvidence}; rows=${topology.claimBreadth.claims.length}`,
+    )
+  }
+  if (topology.claimBreadth.summary.overbroadClaims !== topology.claimBreadth.findings.length) {
+    add(
+      'claim-breadth-finding-count-mismatch',
+      `summary=${topology.claimBreadth.summary.overbroadClaims}; rows=${topology.claimBreadth.findings.length}`,
     )
   }
   if (topology.edgeCardinality.summary.claims !== analysis.structuredClaimAnalyses.length) {
@@ -161,6 +171,10 @@ export function validateResearchQualitySnapshotInvariants(
   }
   for (const finding of topology.semanticAlignment.concentrationFindings) {
     requireApprovedClaim('semantic-concentration-unknown-claim', finding.url, finding.claimId)
+  }
+  for (const claim of topology.claimBreadth.claims) {
+    requireProfile('claim-breadth-unknown-profile', claim.url, claim.claimId)
+    requireApprovedClaim('claim-breadth-unknown-claim', claim.url, claim.claimId)
   }
   for (const finding of topology.claimLanguageCalibration.directEvidenceFindings) {
     requireApprovedClaim('language-calibration-unknown-claim', finding.url, finding.claimId)
