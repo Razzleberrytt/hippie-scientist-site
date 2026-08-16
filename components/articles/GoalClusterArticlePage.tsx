@@ -11,6 +11,7 @@ import {
   isCalibratedSleepArticleSlug,
   SLEEP_CLUSTER_EVIDENCE_REVIEW_DATE,
 } from '@/lib/sleep-cluster-public-copy'
+import References from '@/components/References'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import EvidenceMeter from '../EvidenceMeter'
 import EvidenceLegend from '../EvidenceLegend'
@@ -71,8 +72,14 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
   const articlePath = canonicalPath ?? `/articles/${article.slug}/`
   const canonicalUrl = `${SITE_URL}${articlePath}`
   const faqSchema = faqPageJsonLd({ pagePath: articlePath, questions: content.faq })
-  const schemas = [
-    blogJsonLd(
+  const sourceRefs = content.references.map((reference, index) => ({
+    n: index + 1,
+    title: reference.label,
+    text: '',
+    url: reference.href,
+  }))
+  const articleSchema = {
+    ...blogJsonLd(
       {
         title: publicMetadata.title,
         slug: article.slug,
@@ -81,6 +88,10 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
       },
       articlePath,
     ),
+    citation: content.references.map((reference) => reference.href),
+  }
+  const schemas = [
+    articleSchema,
     breadcrumbJsonLd([
       { name: 'Home', url: `${SITE_URL}/` },
       { name: 'Guides', url: `${SITE_URL}/guides/` },
@@ -135,11 +146,18 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
           )}
         </header>
 
-        <section className="card-premium p-6 sm:p-8">
-          <h2 className="text-xl font-semibold text-ink">TL;DR</h2>
+        <section className="card-premium p-6 sm:p-8" data-answer-engine-summary="true" data-evidence="true">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-xl font-semibold text-ink">TL;DR</h2>
+            {sourceRefs.length > 0 ? (
+              <a href="#references" data-citation-sources="true" className="text-xs font-bold text-brand-800 hover:underline">
+                Verify {sourceRefs.length} source{sourceRefs.length === 1 ? '' : 's'} ↓
+              </a>
+            ) : null}
+          </div>
           <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
             {content.tlDr.map((item) => (
-              <li key={item} className="flex gap-3">
+              <li key={item} className="flex gap-3" data-claim="true">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700" />
                 <span>{item}</span>
               </li>
@@ -290,23 +308,7 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
           </div>
         </section>
 
-        <section className="rounded-2xl border border-brand-900/10 bg-white/70 p-5">
-          <h2 className="text-base font-semibold text-ink">References</h2>
-          <ul className="mt-3 space-y-2 text-sm leading-6">
-            {content.references.map((reference) => (
-              <li key={reference.href}>
-                <a
-                  href={reference.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-800 hover:text-brand-700 hover:underline"
-                >
-                  {reference.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+        {sourceRefs.length > 0 ? <References refs={sourceRefs} /> : null}
       </article>
     </div>
   )
