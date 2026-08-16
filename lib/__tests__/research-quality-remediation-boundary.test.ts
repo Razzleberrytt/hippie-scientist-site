@@ -35,4 +35,17 @@ describe('canonical research remediation boundary', () => {
     expect(remediation).toContain('profile.effectiveUnderlyingStudyCount')
     expect(remediation).toContain('publications resolve to ${profile.underlyingStudyCount} underlying studies')
   })
+
+  it('rebuilds single-study support depth from adjusted claim cardinality', () => {
+    const root = process.cwd()
+    const remediation = fs.readFileSync(path.join(root, 'lib/research-quality-remediation.ts'), 'utf8')
+
+    expect(remediation).toContain("SINGLE_STUDY_REASON = 'single-study-approved-claim'")
+    expect(remediation).toContain('item.reasons.filter((reason) => reason.kind !== SINGLE_STUDY_REASON)')
+    expect(remediation).toContain('topology.underlyingStudyIndependence.claims')
+    expect(remediation).toContain('const underlyingStudyCount = adjusted?.underlyingStudyCount ?? claim.studyCount')
+    expect(remediation).toContain('if (underlyingStudyCount !== 1) continue')
+    expect(remediation).toContain('publications collapse to 1 underlying study')
+    expect(remediation).toContain('RESEARCH_GAP_WEIGHTS.highConfidenceSingleStudyBonus')
+  })
 })
