@@ -10,8 +10,23 @@ if (!fs.existsSync(outDir)) {
   process.exit(1)
 }
 
-const bannedTypes = new Set(['Physician', 'MedicalOrganization', 'MedicalClinic', 'Hospital'])
-const recognized = new Set(['Organization', 'Person', 'BreadcrumbList', 'Article', 'BlogPosting', 'Dataset', 'ImageObject', 'FAQPage', 'MedicalWebPage', 'WebPage', 'WebSite'])
+const bannedTypes = new Set([
+  'Physician',
+  'MedicalOrganization',
+  'MedicalClinic',
+  'Hospital',
+  'Pharmacy',
+  'Dentist',
+  'DiagnosticLab',
+  'MedicalBusiness',
+])
+const recognized = new Set([
+  'Organization', 'Person', 'BreadcrumbList', 'Article', 'BlogPosting', 'Dataset',
+  'ImageObject', 'FAQPage', 'MedicalWebPage', 'WebPage', 'WebSite', 'ProfilePage',
+  'CollectionPage', 'ItemList', 'ListItem', 'Question', 'Answer', 'Substance',
+  'ChemicalSubstance', 'DefinedTerm', 'Offer', 'Product', 'SoftwareApplication',
+])
+const legacyPlaceholderDates = new Set(['2026-01-01'])
 const errors = []
 const warnings = []
 const typeCounts = {}
@@ -51,9 +66,18 @@ function typesOf(node) {
 
 function dateCheck(node, route, key) {
   if (!node[key]) return
+  if (legacyPlaceholderDates.has(String(node[key]))) {
+    errors.push(`${route}: ${key} uses legacy placeholder date ${node[key]}`)
+    return
+  }
   const parsed = new Date(node[key])
   if (Number.isNaN(parsed.getTime())) errors.push(`${route}: ${key} is not a valid date (${node[key]})`)
   else if (parsed.getTime() > Date.now() + 24 * 60 * 60 * 1000) errors.push(`${route}: ${key} is in the future (${node[key]})`)
+}
+
+function nameOfReference(value) {
+  if (!value || typeof value !== 'object') return ''
+  return String(value.name || value['@id'] || '')
 }
 
 function validateNode(node, route) {
@@ -65,9 +89,10 @@ function validateNode(node, route) {
 
   if (types.includes('Person')) {
     if (!node.name) errors.push(`${route}: Person schema is missing name`)
-    if (node.medicalSpecialty || node.hasCredential || /doctor|physician|clinician/i.test(String(node.jobTitle || ''))) {
+    if (node.medicalSpecialty || node.hasCredential || /doctor|physician|clinician|pharmacist|dietitian/i.test(String(node.jobTitle || ''))) {
       errors.push(`${route}: Person schema contains medical credential/specialty claims requiring explicit editorial verification`)
     }
+    if (node.worksFor && !nameOfReference(node.worksFor)) errors.push(`${route}: Person worksFor relationship is incomplete`)
   }
 
   if (types.includes('Organization')) {
@@ -82,11 +107,13 @@ function validateNode(node, route) {
     if (!node.headline) errors.push(`${route}: Article/BlogPosting is missing headline`)
     dateCheck(node, route, 'datePublished')
     dateCheck(node, route, 'dateModified')
+    if (node.reviewedBy && !node.dateReviewed) errors.push(`${route}: reviewedBy is present without a truthful dateReviewed event`)
+    dateCheck(node, route, 'dateReviewed')
   }
 
   if (types.includes('Dataset')) {
     if (!node.name || !node.description || !node.url) errors.push(`${route}: Dataset requires name, description and stable url`)
-    if (!node.distribution) warnings.push(`${route}: Dataset has no downloadable distribution metadata`)
+    if (!node.distribution && !node.encodingFormat) warnings.push(`${route}: Dataset has no distribution or encoding metadata`)
     dateCheck(node, route, 'datePublished')
     dateCheck(node, route, 'dateModified')
   }
@@ -115,7 +142,7 @@ for (const file of walk(outDir)) {
   }
 }
 
-for (const required of ['Organization', 'Person', 'BreadcrumbList', 'Article']) {
+for (const required of ['Organization', 'Person', 'BreadcrumbList', 'Article', 'Dataset']) {
   if (!typeCounts[required]) warnings.push(`no ${required} schema observed in built output`)
 }
 

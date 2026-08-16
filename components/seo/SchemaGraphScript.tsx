@@ -60,8 +60,6 @@ export function normalizeProfileEntitySemantics(
     if (record['@id'] === artifact.entityId) {
       return {
         ...record,
-        // Schema.org `Substance` covers matter of biological origin. Avoid the
-        // non-canonical `MedicalSubstance` label previously emitted for herbs.
         '@type': 'Substance',
       }
     }
@@ -80,9 +78,6 @@ export function normalizeProfileEntitySemantics(
     if (mainEntityId === artifact.entityId && aboutType === 'MedicalTherapy') {
       return {
         ...record,
-        // The profile page is about the canonical herb entity, not a treatment
-        // intervention. Point `about` to the same Substance node used by
-        // `mainEntity` so the graph has one consistent identity.
         about: { '@id': artifact.entityId },
       }
     }
@@ -132,11 +127,7 @@ export function normalizePlaceholderPublicationDates(
     const types = Array.isArray(record['@type']) ? record['@type'] : [record['@type']]
 
     const isEntryArticle = id.endsWith('#webpage') && types.includes('Article')
-    if (
-      isEntryArticle &&
-      record.datePublished === LEGACY_PLACEHOLDER_PUBLICATION_DATE &&
-      !record.dateModified
-    ) {
+    if (isEntryArticle && record.datePublished === LEGACY_PLACEHOLDER_PUBLICATION_DATE) {
       const { datePublished: _datePublished, ...rest } = record
       return rest
     }
