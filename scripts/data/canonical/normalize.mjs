@@ -1,12 +1,13 @@
 // Shared value normalization used by migration and patch ingestion.
 //
-// Handles the "obvious formatting differences" the spec calls out: whitespace,
-// capitalization, boolean variants, delimiter differences, empty strings,
-// duplicate aliases.
+// Handles ingestion-specific coercion while delegating generic text/slug rules
+// to the repo-wide canonical primitives.
+
+import { normalizeStructuredText } from '../../../lib/data-quality.mjs'
+import { slugifyEntityName } from '../../../lib/entity-identity.mjs'
 
 export function cleanString(value) {
-  if (value == null) return ''
-  return String(value).replace(/\s+/g, ' ').trim()
+  return normalizeStructuredText(value)
 }
 
 export function isEmpty(value) {
@@ -33,7 +34,7 @@ export function splitList(value) {
   if (!raw) return []
   return dedupeStrings(
     raw
-      .split(/[;|/\n]+|,(?![^(]*\))/) // split on delimiters, but not commas inside parens
+      .split(/[;|/\n]+|,(?![^(]*\))/)
       .map((part) => cleanString(part))
       .filter(Boolean),
   )
@@ -52,13 +53,9 @@ export function dedupeStrings(values) {
   return out
 }
 
-// Slugify a name deterministically (mirrors common site slug rules).
+// Backward-compatible ingestion export backed by the canonical entity slugger.
 export function slugify(value) {
-  return cleanString(value)
-    .toLowerCase()
-    .replace(/['’.]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
+  return slugifyEntityName(value)
 }
 
 // Parse a number-ish cell to a finite number or undefined.
