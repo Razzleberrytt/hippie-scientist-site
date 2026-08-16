@@ -4,6 +4,7 @@ import { analyzeClaimLanguageCalibration } from './research-claim-language-calib
 import { analyzeClaimProvenanceIndependence } from './research-claim-provenance-independence'
 import { analyzeCrossProfileEvidenceBundles } from './research-cross-profile-bundles'
 import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
+import { analyzeResearchEdgeCardinality } from './research-edge-cardinality'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
 import { analyzeProvenanceConcentration } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
@@ -57,6 +58,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
   const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
+  const edgeCardinality = analyzeResearchEdgeCardinality(analysis)
 
   return {
     crossProfileStudyLoad,
@@ -86,5 +88,6 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     semanticAlignment,
     claimLanguageCalibration,
     claimCitationMetadata,
+    edgeCardinality,
   }
 }
