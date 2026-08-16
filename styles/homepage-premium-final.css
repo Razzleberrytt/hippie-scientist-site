@@ -128,6 +128,12 @@
   color: var(--hs-gold-ink);
 }
 
+/* The whole goal card is already a link, so repeating "Start here" on every
+   card is visual instruction without additional information. */
+.hs-home .hs-goal-go {
+  display: none;
+}
+
 /* Safety tools still differ by purpose, but lose the decorative glow so the
    text and icon—not a colored halo—carry the hierarchy. */
 .hs-home .hs-tool::after {
@@ -198,11 +204,55 @@
     border-radius: 1.25rem;
   }
 
+  /* On phones, the trust rail is a credibility checklist, not another reading
+     section. Keep the three labels and remove their explanatory second lines. */
   .hs-home .hs-rail > div {
-    padding-block: 0.85rem;
+    min-height: 3.25rem;
+    align-items: center;
+    padding-block: 0.75rem;
+  }
+
+  .hs-home .hs-rail dd {
+    display: none;
+  }
+
+  .hs-home .hs-goal {
+    min-height: 0 !important;
+    padding: 1rem !important;
+  }
+
+  .hs-home .hs-goal-title {
+    margin-top: 0.9rem !important;
+  }
+
+  .hs-home .hs-goal p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 
   .hs-home :is(.hs-goal, .hs-specimen, .hs-vs, .hs-tool, .hs-article):hover {
     transform: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .hs-home #choose-a-path > div:last-child {
+    gap: 0.65rem;
+  }
+
+  .hs-home .hs-goal-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .hs-home .hs-goal-title {
+    font-size: 1.1rem !important;
+  }
+
+  .hs-home .hs-goal p {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
   }
 }
