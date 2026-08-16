@@ -19,7 +19,7 @@ const TIERS: TierRow[] = [
     what: 'Multiple RCTs or a meta-analysis with consistent positive results across independent labs.',
     human: 'Yes — robust human clinical data',
     barClass: 'bg-[var(--color-evidence-strong)]',
-    badgeClass: 'bg-emerald-50 border-emerald-200 text-emerald-800',
+    badgeClass: 'bg-emerald-50 border-emerald-200 text-emerald-800 dark:bg-emerald-300/10 dark:border-emerald-200/20 dark:text-emerald-100',
     score: 90,
   },
   {
@@ -29,7 +29,7 @@ const TIERS: TierRow[] = [
     what: 'Human trials showing generally positive outcomes, though study scale or consistency may vary.',
     human: 'Yes — at least some quality human trials',
     barClass: 'bg-blue-600',
-    badgeClass: 'bg-blue-50 border-blue-200 text-blue-800',
+    badgeClass: 'bg-blue-50 border-blue-200 text-blue-800 dark:bg-blue-300/10 dark:border-blue-200/20 dark:text-blue-100',
     score: 70,
   },
   {
@@ -39,7 +39,7 @@ const TIERS: TierRow[] = [
     what: 'Small-scale human studies or preliminary trials exist, but better-controlled or larger trials are lacking.',
     human: 'Some — early or small human data',
     barClass: 'bg-amber-500',
-    badgeClass: 'bg-amber-50 border-amber-200 text-amber-800',
+    badgeClass: 'bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-300/10 dark:border-amber-200/20 dark:text-amber-100',
     score: 45,
   },
   {
@@ -49,7 +49,7 @@ const TIERS: TierRow[] = [
     what: 'Evidence comes mainly from animal studies, cell cultures, or proposed mechanisms — not validated in human trials.',
     human: 'No — animal or theoretical only',
     barClass: 'bg-amber-400',
-    badgeClass: 'bg-amber-50 border-amber-200 text-amber-700',
+    badgeClass: 'bg-amber-50 border-amber-200 text-amber-700 dark:bg-amber-300/10 dark:border-amber-200/20 dark:text-amber-100',
     score: 28,
   },
   {
@@ -59,7 +59,7 @@ const TIERS: TierRow[] = [
     what: 'Long historical or ethnobotanical use; modern clinical validation is minimal or absent.',
     human: 'No — traditional use record only',
     barClass: 'bg-slate-400',
-    badgeClass: 'bg-slate-50 border-slate-200 text-slate-700',
+    badgeClass: 'bg-slate-50 border-slate-200 text-slate-700 dark:bg-slate-300/10 dark:border-slate-200/20 dark:text-slate-100',
     score: 18,
   },
 ]
@@ -127,7 +127,7 @@ export default function EvidenceLegend({
                 </div>
 
                 <div
-                  className="mt-2 h-1.5 w-full max-w-md overflow-hidden rounded-full bg-neutral-200/80"
+                  className="mt-2 h-1.5 w-full max-w-md overflow-hidden rounded-full bg-neutral-200/80 dark:bg-white/10"
                   role="meter"
                   aria-valuenow={row.score}
                   aria-valuemin={0}
