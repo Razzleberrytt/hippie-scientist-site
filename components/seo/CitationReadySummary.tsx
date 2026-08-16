@@ -19,6 +19,7 @@ type CitationReadySummaryProps = {
   entityName?: string
   definition?: string
   limitation?: string
+  /** Precise claim-adjacent source links when the page can map the answer to individual references. */
   sources?: CitationSourceLink[]
   publishedAt?: string
   reviewedAt?: string
@@ -60,6 +61,7 @@ export default function CitationReadySummary({
   const limitationText = limitation || notClaiming
   const headingId = `${id}-heading`
   const hasProvenance = publishedAt || reviewedAt || authorName || editorName
+  const hasCitationProvenance = sources.length > 0 || Boolean(referencesHref)
 
   return (
     <section
@@ -116,7 +118,7 @@ export default function CitationReadySummary({
           ) : null}
         </dl>
 
-        {sources.length > 0 ? (
+        {hasCitationProvenance ? (
           <div data-citation-sources="true" className="border-t border-brand-900/10 pt-3 dark:border-white/10">
             <p className="text-sm font-semibold text-ink">Sources for this answer</p>
             <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-2 text-sm leading-6">
@@ -127,6 +129,13 @@ export default function CitationReadySummary({
                   </Link>
                 </li>
               ))}
+              {referencesHref ? (
+                <li>
+                  <Link href={referencesHref} className="font-semibold text-brand-700 underline hover:text-brand-900">
+                    {sources.length > 0 ? 'Full reference ledger' : 'Full references'}
+                  </Link>
+                </li>
+              ) : null}
             </ul>
           </div>
         ) : null}
@@ -140,16 +149,9 @@ export default function CitationReadySummary({
           </dl>
         ) : null}
 
-        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-          {referencesHref ? (
-            <Link href={referencesHref} className="font-semibold text-brand-700 underline hover:text-brand-900">
-              Jump to full references
-            </Link>
-          ) : null}
-          <a href={`#${id}`} className="font-semibold text-muted underline underline-offset-4 hover:text-ink">
-            Permanent link to this answer
-          </a>
-        </div>
+        <a href={`#${id}`} className="inline-flex text-sm font-semibold text-muted underline underline-offset-4 hover:text-ink">
+          Permanent link to this answer
+        </a>
       </div>
     </section>
   )
