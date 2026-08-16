@@ -4,24 +4,24 @@ import clsx from 'clsx'
 import type { SearchDoc, SearchContentType, EvidenceGrade, SafetySignal } from '@/lib/search/types'
 
 const TYPE_STYLES: Record<SearchContentType, string> = {
-  Herb: 'border-emerald-700/15 bg-emerald-50 text-emerald-800',
-  Compound: 'border-blue-700/15 bg-blue-50 text-blue-800',
-  Education: 'border-violet-700/15 bg-violet-50 text-violet-800',
+  Herb: 'border-emerald-700/15 bg-emerald-50 text-emerald-800 dark:border-emerald-300/20 dark:bg-emerald-300/10 dark:text-emerald-100',
+  Compound: 'border-blue-700/15 bg-blue-50 text-blue-800 dark:border-blue-300/20 dark:bg-blue-300/10 dark:text-blue-100',
+  Education: 'border-violet-700/15 bg-violet-50 text-violet-800 dark:border-violet-300/20 dark:bg-violet-300/10 dark:text-violet-100',
 }
 
 const EVIDENCE_STYLES: Record<EvidenceGrade, string> = {
-  Strong: 'border-emerald-700/15 bg-emerald-50 text-emerald-800',
-  Moderate: 'border-teal-700/15 bg-teal-50 text-teal-800',
-  Limited: 'border-amber-700/15 bg-amber-50 text-amber-800',
-  Preliminary: 'border-stone-500/15 bg-stone-100 text-stone-700',
-  Educational: 'border-violet-700/15 bg-violet-50 text-violet-800',
+  Strong: 'border-emerald-700/15 bg-emerald-50 text-emerald-800 dark:border-emerald-300/20 dark:bg-emerald-300/10 dark:text-emerald-100',
+  Moderate: 'border-teal-700/15 bg-teal-50 text-teal-800 dark:border-teal-300/20 dark:bg-teal-300/10 dark:text-teal-100',
+  Limited: 'border-amber-700/15 bg-amber-50 text-amber-800 dark:border-amber-300/20 dark:bg-amber-300/10 dark:text-amber-100',
+  Preliminary: 'border-stone-500/15 bg-stone-100 text-stone-700 dark:border-stone-300/20 dark:bg-stone-300/10 dark:text-stone-200',
+  Educational: 'border-violet-700/15 bg-violet-50 text-violet-800 dark:border-violet-300/20 dark:bg-violet-300/10 dark:text-violet-100',
 }
 
 const SAFETY_STYLES: Record<SafetySignal, string> = {
-  'Generally well tolerated': 'border-emerald-700/15 bg-emerald-50 text-emerald-800',
-  'Use with caution': 'border-amber-700/15 bg-amber-50 text-amber-800',
-  'Notable considerations': 'border-rose-700/15 bg-rose-50 text-rose-800',
-  Educational: 'border-violet-700/15 bg-violet-50 text-violet-800',
+  'Generally well tolerated': 'border-emerald-700/15 bg-emerald-50 text-emerald-800 dark:border-emerald-300/20 dark:bg-emerald-300/10 dark:text-emerald-100',
+  'Use with caution': 'border-amber-700/15 bg-amber-50 text-amber-800 dark:border-amber-300/20 dark:bg-amber-300/10 dark:text-amber-100',
+  'Notable considerations': 'border-rose-700/15 bg-rose-50 text-rose-800 dark:border-rose-300/20 dark:bg-rose-300/10 dark:text-rose-100',
+  Educational: 'border-violet-700/15 bg-violet-50 text-violet-800 dark:border-violet-300/20 dark:bg-violet-300/10 dark:text-violet-100',
 }
 
 const BADGE_BASE =
