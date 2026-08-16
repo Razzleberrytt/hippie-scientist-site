@@ -6,6 +6,11 @@ import os from 'node:os'
 import path from 'node:path'
 import { buildAiEntityArtifacts } from './ai-entity-artifacts.mjs'
 
+const SITE_URL = 'https://thehippiescientist.net'
+const ORGANIZATION_ID = `${SITE_URL}/#organization`
+const AUTHOR_URL = `${SITE_URL}/info/author/`
+const AUTHOR_ID = `${AUTHOR_URL}#person`
+
 const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'ths-ai-entity-'))
 const previousCwd = process.cwd()
 
@@ -108,6 +113,16 @@ try {
   assert.ok(herbArtifact['@graph'].some((node) => Array.isArray(node['@type']) && node['@type'].includes('Substance')))
   assert.ok(!JSON.stringify(herbArtifact).includes('MedicalSubstance'))
   assert.ok(!JSON.stringify(compoundArtifact).includes('MedicalSubstance'))
+
+  const evidenceArticle = herbArtifact['@graph'].find((node) => node['@type'] === 'Article')
+  assert.equal(evidenceArticle?.author?.['@type'], 'Person')
+  assert.equal(evidenceArticle?.author?.['@id'], AUTHOR_ID)
+  assert.equal(evidenceArticle?.author?.url, AUTHOR_URL)
+  assert.equal(evidenceArticle?.publisher?.['@type'], 'Organization')
+  assert.equal(evidenceArticle?.publisher?.['@id'], ORGANIZATION_ID)
+  assert.equal(evidenceArticle?.publisher?.url, SITE_URL)
+  assert.equal(evidenceArticle?.reviewedBy?.['@id'], ORGANIZATION_ID)
+
   assert.equal(manifest.entities.find((entry) => entry.slug === 'test-herb')?.dataUrl, '/data/ai-entities/herb/test-herb.json')
   for (let index = 1; index < manifest.entities.length; index += 1) {
     assert.ok(
