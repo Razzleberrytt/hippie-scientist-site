@@ -19,7 +19,13 @@ export interface ResearchMatrixRow {
   entityType: 'herb' | 'compound'
   href: string
   evidenceGrade: CanonicalEvidenceGrade | 'Unassigned'
+  /** Independence-adjusted primary-human study count when canonical topology is available. */
   humanEvidenceCount: number
+  /** Canonical primary-human publication count before proven same-study collapse. */
+  humanPublicationCount: number
+  collapsedHumanPublicationCount: number
+  /** False only for runtime records that do not yet have a canonical research profile. */
+  humanEvidenceCountCanonical: boolean
   outcomes: string[]
   mechanisms: string[]
   safetySignals: string[]

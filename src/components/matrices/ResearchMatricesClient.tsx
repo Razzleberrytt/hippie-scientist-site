@@ -38,6 +38,22 @@ function OutcomeCell({ mapped }: { mapped: boolean }) {
     : <span className='text-muted'>—</span>
 }
 
+function HumanStudyCount({ row }: { row: ResearchMatrixRow }) {
+  if (!row.humanEvidenceCount) return <span className='text-muted'>—</span>
+  const title = row.humanEvidenceCountCanonical
+    ? row.collapsedHumanPublicationCount > 0
+      ? `${row.humanPublicationCount} primary-human publications collapse to ${row.humanEvidenceCount} underlying human studies because explicit trial/cohort identity proves publication reuse.`
+      : `${row.humanEvidenceCount} canonical primary-human studies; no explicit publication reuse was collapsed.`
+    : `${row.humanEvidenceCount} human studies from legacy runtime count data; this record does not yet have canonical research-topology coverage.`
+
+  return (
+    <span className='font-semibold text-ink' title={title}>
+      {row.humanEvidenceCount}
+      {row.collapsedHumanPublicationCount > 0 ? <span className='ml-1 text-xs font-normal text-muted'>({row.humanPublicationCount} pubs)</span> : null}
+    </span>
+  )
+}
+
 export default function ResearchMatricesClient({ rows }: { rows: ResearchMatrixRow[] }) {
   const [view, setView] = useState<MatrixView>('evidence')
   const [query, setQuery] = useState('')
@@ -60,7 +76,7 @@ export default function ResearchMatricesClient({ rows }: { rows: ResearchMatrixR
           <div>
             <p className='eyebrow-label'>Matrix explorer</p>
             <h2 className='mt-1 text-2xl font-bold text-ink'>Choose a comparison lens</h2>
-            <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>Each matrix is generated from the same canonical runtime records so evidence, outcome, and safety labels do not drift between tools.</p>
+            <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>Each matrix is generated from the same canonical runtime records and research-quality topology so evidence, study counts, outcome mappings, and safety labels do not drift between tools.</p>
           </div>
           <label className='w-full sm:w-72'>
             <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Search matrices</span>
@@ -86,11 +102,11 @@ export default function ResearchMatricesClient({ rows }: { rows: ResearchMatrixR
           <div className='overflow-x-auto rounded-2xl border border-brand-900/10 bg-white/90 shadow-sm'>
             <table className='min-w-[1100px] w-full border-collapse text-left text-sm'>
               <caption className='sr-only'>Popular supplements compared across structured outcome mappings and profile-level evidence</caption>
-              <thead className='bg-brand-50/80 text-xs uppercase tracking-wide text-muted'><tr><th className='p-4'>Ingredient</th><th className='p-4'>Profile evidence</th><th className='p-4'>Mapped human studies</th>{OUTCOME_COLUMNS.map((column) => <th key={column.id} className='p-4'>{column.label}</th>)}</tr></thead>
-              <tbody>{evidenceRows.map((row) => <tr key={`${row.entityType}:${row.slug}`} className='border-t border-brand-900/10 align-top'><td className='p-4'><Link href={row.href} className='font-bold text-indigo-900 hover:underline'>{row.name}</Link><p className='mt-1 text-xs uppercase tracking-wide text-muted'>{row.entityType}</p></td><td className='p-4'><GradeBadge grade={row.evidenceGrade} /></td><td className='p-4 font-semibold text-ink'>{row.humanEvidenceCount || '—'}</td>{OUTCOME_COLUMNS.map((column) => <td key={column.id} className='p-4'><OutcomeCell mapped={column.matches(row)} /></td>)}</tr>)}</tbody>
+              <thead className='bg-brand-50/80 text-xs uppercase tracking-wide text-muted'><tr><th className='p-4'>Ingredient</th><th className='p-4'>Profile evidence</th><th className='p-4'>Underlying human studies</th>{OUTCOME_COLUMNS.map((column) => <th key={column.id} className='p-4'>{column.label}</th>)}</tr></thead>
+              <tbody>{evidenceRows.map((row) => <tr key={`${row.entityType}:${row.slug}`} className='border-t border-brand-900/10 align-top'><td className='p-4'><Link href={row.href} className='font-bold text-indigo-900 hover:underline'>{row.name}</Link><p className='mt-1 text-xs uppercase tracking-wide text-muted'>{row.entityType}</p></td><td className='p-4'><GradeBadge grade={row.evidenceGrade} /></td><td className='p-4'><HumanStudyCount row={row} /></td>{OUTCOME_COLUMNS.map((column) => <td key={column.id} className='p-4'><OutcomeCell mapped={column.matches(row)} /></td>)}</tr>)}</tbody>
             </table>
           </div>
-          <p className='text-xs leading-5 text-muted'>A blank cell means that outcome is not mapped in this dataset—not that the ingredient has been proven ineffective for that outcome. Human-study counts are shown only when structured count data is available.</p>
+          <p className='text-xs leading-5 text-muted'>A blank outcome cell means that outcome is not mapped in this dataset—not that the ingredient has been proven ineffective. Human-study counts use canonical primary-human studies when available; publications explicitly proven to come from the same underlying trial or cohort are counted once. Missing lineage is never assumed to mean duplicate evidence.</p>
         </section>
       ) : (
         <section className='space-y-4'>
@@ -99,8 +115,8 @@ export default function ResearchMatricesClient({ rows }: { rows: ResearchMatrixR
           <div className='overflow-x-auto rounded-2xl border border-brand-900/10 bg-white/90 shadow-sm'>
             <table className='min-w-[1050px] w-full border-collapse text-left text-sm'>
               <caption className='sr-only'>{definition?.title} generated from normalized structured safety signals</caption>
-              <thead className='bg-brand-50/80 text-xs uppercase tracking-wide text-muted'><tr><th className='p-4'>Ingredient</th><th className='p-4'>Profile evidence</th><th className='p-4'>Human studies</th><th className='p-4'>Why included</th><th className='p-4'>Other structured safety signals</th></tr></thead>
-              <tbody>{safetyRows.map((row) => <tr key={`${row.entityType}:${row.slug}`} className='border-t border-brand-900/10 align-top'><td className='p-4'><Link href={row.href} className='font-bold text-indigo-900 hover:underline'>{row.name}</Link></td><td className='p-4'><GradeBadge grade={row.evidenceGrade} /></td><td className='p-4 font-semibold text-ink'>{row.humanEvidenceCount || '—'}</td><td className='p-4 text-ink'>{definition?.signal ? `Structured ${definition.signal} signal` : 'One or more structured safety / interaction signals'}</td><td className='p-4 text-muted'>{row.safetySignals.join(' · ') || 'No structured signal'}</td></tr>)}</tbody>
+              <thead className='bg-brand-50/80 text-xs uppercase tracking-wide text-muted'><tr><th className='p-4'>Ingredient</th><th className='p-4'>Profile evidence</th><th className='p-4'>Underlying human studies</th><th className='p-4'>Why included</th><th className='p-4'>Other structured safety signals</th></tr></thead>
+              <tbody>{safetyRows.map((row) => <tr key={`${row.entityType}:${row.slug}`} className='border-t border-brand-900/10 align-top'><td className='p-4'><Link href={row.href} className='font-bold text-indigo-900 hover:underline'>{row.name}</Link></td><td className='p-4'><GradeBadge grade={row.evidenceGrade} /></td><td className='p-4'><HumanStudyCount row={row} /></td><td className='p-4 text-ink'>{definition?.signal ? `Structured ${definition.signal} signal` : 'One or more structured safety / interaction signals'}</td><td className='p-4 text-muted'>{row.safetySignals.join(' · ') || 'No structured signal'}</td></tr>)}</tbody>
             </table>
           </div>
           {!safetyRows.length ? <p className='rounded-xl border border-brand-900/10 bg-white p-5 text-sm text-muted'>No records match this matrix and search term.</p> : null}
