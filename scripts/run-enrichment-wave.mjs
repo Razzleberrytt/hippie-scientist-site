@@ -7,10 +7,10 @@ import { normalizeRouteSlug } from '../lib/entity-identity.mjs'
 const ROOT = process.cwd()
 const VALID_MODES = new Set(['full', 'source-review', 'authoring', 'submission-review', 'rollup-refresh'])
 const PHASES = {
-  'source-review': { command: 'npx', args: ['tsx', 'scripts/report-source-wave-2-review.ts'] },
-  authoring: { command: 'npx', args: ['tsx', 'scripts/report-enrichment-wave-2-authoring.ts'] },
+  'source-review': { command: 'npx', args: ['tsx', 'scripts/report-source-wave-review.ts'] },
+  authoring: { command: 'npx', args: ['tsx', 'scripts/report-enrichment-wave-authoring.ts'] },
   'submission-review': { command: 'npx', args: ['tsx', 'scripts/report-enrichment-submission-review.ts'] },
-  'rollup-refresh': { command: process.execPath, args: ['scripts/report-enrichment-wave-2-rollup.mjs'] },
+  'rollup-refresh': { command: process.execPath, args: ['scripts/report-enrichment-wave-rollup.mjs'] },
 }
 
 function safeWaveId(value) {
