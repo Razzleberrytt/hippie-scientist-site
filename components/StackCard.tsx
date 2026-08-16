@@ -49,14 +49,14 @@ export default function StackCard({
   const dosage = item.dosage_range || item.dosage || 'See profile'
 
   return (
-    <article className='rounded-2xl border border-neutral-200/60 bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition duration-200 motion-safe:hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)] flex flex-col justify-between'>
+    <article className='rounded-2xl border border-brand-900/10/60 bg-[var(--surface-card)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition duration-200 motion-safe:hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)] flex flex-col justify-between'>
       <div>
         <div className='flex items-start justify-between gap-3'>
           <h3 className='text-base font-bold leading-tight text-ink'>{displayName}</h3>
           <EvidenceBadge value={evidence} />
         </div>
 
-        <p className='mt-3 rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-neutral-700'>
+        <p className='mt-3 rounded-xl border border-brand-900/10 bg-[var(--surface-subtle)] px-3 py-2 text-sm text-muted'>
           <span className='font-semibold text-ink'>Dose</span> · {dosage}
         </p>
       </div>

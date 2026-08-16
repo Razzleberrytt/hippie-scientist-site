@@ -232,7 +232,7 @@ export default function EfficacyModelerClient() {
       {/* Selector and Controls Header */}
       <div className='grid gap-6 md:grid-cols-3'>
         {/* Ingredient selection */}
-        <div className='md:col-span-1 rounded-3xl border border-brand-900/10 bg-white p-5 space-y-4 shadow-xs'>
+        <div className='md:col-span-1 rounded-3xl border border-brand-900/10 bg-[var(--surface-card)] p-5 space-y-4 shadow-xs'>
           <h3 className='text-sm font-bold uppercase tracking-wider text-slate-400'>
             1. Select Ingredient
           </h3>
@@ -244,7 +244,7 @@ export default function EfficacyModelerClient() {
                 className={`flex items-center justify-between rounded-2xl px-4 py-3 text-left text-sm font-bold transition-all border cursor-pointer ${
                   selectedSlug === ing.slug
                     ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
-                    : 'bg-white text-slate-700 border-slate-100 hover:bg-slate-50'
+                    : 'bg-[var(--surface-card)] text-muted border-brand-900/10 hover:bg-[var(--surface-subtle)]'
                 }`}
               >
                 <span>{ing.name}</span>
@@ -263,19 +263,19 @@ export default function EfficacyModelerClient() {
         </div>
 
         {/* Modeler Controls Dashboard */}
-        <div className='md:col-span-2 rounded-3xl border border-brand-900/10 bg-white p-6 space-y-6 shadow-xs flex flex-col justify-between'>
+        <div className='md:col-span-2 rounded-3xl border border-brand-900/10 bg-[var(--surface-card)] p-6 space-y-6 shadow-xs flex flex-col justify-between'>
           <div className='space-y-4'>
             <div className='flex items-start justify-between gap-4'>
               <div>
-                <h2 className='text-xl font-bold text-slate-800'>{activeIngredient.name}</h2>
-                <p className='text-xs text-slate-500 mt-1'>{activeIngredient.mechanismText}</p>
+                <h2 className='text-xl font-bold text-ink'>{activeIngredient.name}</h2>
+                <p className='text-xs text-muted mt-1'>{activeIngredient.mechanismText}</p>
               </div>
             </div>
 
             {/* Dosage Slider */}
             <div className='space-y-3 pt-2'>
               <div className='flex items-center justify-between'>
-                <span className='text-xs font-bold text-slate-600'>Adjust Modeler Dosage:</span>
+                <span className='text-xs font-bold text-muted'>Adjust Modeler Dosage:</span>
                 <span className='text-sm font-black text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-xl border border-emerald-100'>
                   {dose} {activeIngredient.unit}
                 </span>
@@ -287,7 +287,7 @@ export default function EfficacyModelerClient() {
                 step={activeIngredient.slug === 'caffeine' || activeIngredient.slug === 'l-theanine' ? 50 : 50}
                 value={dose}
                 onChange={e => setDose(Number(e.target.value))}
-                className='w-full accent-emerald-600 h-2 bg-slate-100 rounded-lg cursor-pointer appearance-none'
+                className='w-full accent-emerald-600 h-2 bg-[var(--surface-subtle)] rounded-lg cursor-pointer appearance-none'
               />
               <div className='flex justify-between text-[10px] text-slate-400'>
                 <span>Min: {activeIngredient.minDose}mg</span>
@@ -313,39 +313,39 @@ export default function EfficacyModelerClient() {
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className='grid grid-cols-3 gap-2 border-t border-slate-100 pt-4'>
-            <div className='text-center p-2 rounded-2xl bg-slate-50 border border-slate-100/50'>
+          <div className='grid grid-cols-3 gap-2 border-t border-brand-900/10 pt-4'>
+            <div className='text-center p-2 rounded-2xl bg-[var(--surface-subtle)] border border-brand-900/10/50'>
               <span className='block text-[9px] uppercase tracking-wider text-slate-400 font-bold'>Onset</span>
-              <span className='text-xs font-black text-slate-700 mt-0.5 block'>{activeIngredient.onsetLabel}</span>
+              <span className='text-xs font-black text-muted mt-0.5 block'>{activeIngredient.onsetLabel}</span>
             </div>
-            <div className='text-center p-2 rounded-2xl bg-slate-50 border border-slate-100/50'>
+            <div className='text-center p-2 rounded-2xl bg-[var(--surface-subtle)] border border-brand-900/10/50'>
               <span className='block text-[9px] uppercase tracking-wider text-slate-400 font-bold'>Peak Action</span>
-              <span className='text-xs font-black text-slate-700 mt-0.5 block'>{activeIngredient.peakLabel}</span>
+              <span className='text-xs font-black text-muted mt-0.5 block'>{activeIngredient.peakLabel}</span>
             </div>
-            <div className='text-center p-2 rounded-2xl bg-slate-50 border border-slate-100/50'>
+            <div className='text-center p-2 rounded-2xl bg-[var(--surface-subtle)] border border-brand-900/10/50'>
               <span className='block text-[9px] uppercase tracking-wider text-slate-400 font-bold'>Clearance / HL</span>
-              <span className='text-xs font-black text-slate-700 mt-0.5 block'>{activeIngredient.halfLifeLabel}</span>
+              <span className='text-xs font-black text-muted mt-0.5 block'>{activeIngredient.halfLifeLabel}</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* SVG Interactive Chart Curve */}
-      <div className='rounded-3xl border border-brand-900/10 bg-white p-6 shadow-xs space-y-4'>
+      <div className='rounded-3xl border border-brand-900/10 bg-[var(--surface-card)] p-6 shadow-xs space-y-4'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center gap-2'>
             <Activity className='h-4 w-4 text-emerald-600' />
-            <h3 className='text-sm font-bold text-slate-800'>
+            <h3 className='text-sm font-bold text-ink'>
               Efficacy Curve & Plasma Concentration Map
             </h3>
           </div>
-          <span className='text-[10px] bg-slate-100 text-slate-500 rounded-lg px-2 py-1 font-bold uppercase'>
+          <span className='text-[10px] bg-[var(--surface-subtle)] text-muted rounded-lg px-2 py-1 font-bold uppercase'>
             Client-Side Simulation
           </span>
         </div>
 
         {/* Chart Window */}
-        <div className='relative w-full overflow-hidden bg-slate-50/50 rounded-2xl border border-slate-100 pt-4 pb-2'>
+        <div className='relative w-full overflow-hidden bg-[var(--surface-subtle)]/50 rounded-2xl border border-brand-900/10 pt-4 pb-2'>
           <svg
             viewBox='0 0 600 200'
             className='w-full h-auto overflow-visible'
@@ -431,22 +431,22 @@ export default function EfficacyModelerClient() {
 
       {/* Sourcing Conversion Block: Affiliate Cards & Router Integration */}
       <div className='space-y-6 pt-4'>
-        <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-4'>
+        <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-brand-900/10 pb-4'>
           <div>
-            <h2 className='text-2xl font-bold text-slate-800'>Verified Sourcing Recommendations</h2>
-            <p className='text-xs text-slate-500 mt-1'>
+            <h2 className='text-2xl font-bold text-ink'>Verified Sourcing Recommendations</h2>
+            <p className='text-xs text-muted mt-1'>
               We rank and resolve verified third-party tested supplements optimized for your target dose of{' '}
               <strong className='text-emerald-800 font-semibold'>{dose}mg</strong>.
             </p>
           </div>
 
           {/* Sorting preference selector */}
-          <div className='flex items-center gap-2 bg-slate-100/80 border border-slate-200/50 p-1 rounded-2xl text-xs font-bold text-slate-600 shrink-0'>
+          <div className='flex items-center gap-2 bg-[var(--surface-subtle)]/80 border border-brand-900/10/50 p-1 rounded-2xl text-xs font-bold text-muted shrink-0'>
             <span className='px-2 py-1 text-[10px] uppercase text-slate-400'>Rank By:</span>
             <button
               onClick={() => setSortPreference('cost')}
               className={`rounded-xl px-3 py-1 cursor-pointer ${
-                sortPreference === 'cost' ? 'bg-white text-emerald-800 shadow-xs' : 'hover:text-slate-800'
+                sortPreference === 'cost' ? 'bg-[var(--surface-card)] text-emerald-800 shadow-xs' : 'hover:text-ink'
               }`}
             >
               Lowest Cost
@@ -454,7 +454,7 @@ export default function EfficacyModelerClient() {
             <button
               onClick={() => setSortPreference('potency')}
               className={`rounded-xl px-3 py-1 cursor-pointer ${
-                sortPreference === 'potency' ? 'bg-white text-emerald-800 shadow-xs' : 'hover:text-slate-800'
+                sortPreference === 'potency' ? 'bg-[var(--surface-card)] text-emerald-800 shadow-xs' : 'hover:text-ink'
               }`}
             >
               Potency
@@ -462,7 +462,7 @@ export default function EfficacyModelerClient() {
             <button
               onClick={() => setSortPreference('certification')}
               className={`rounded-xl px-3 py-1 cursor-pointer ${
-                sortPreference === 'certification' ? 'bg-white text-emerald-800 shadow-xs' : 'hover:text-slate-800'
+                sortPreference === 'certification' ? 'bg-[var(--surface-card)] text-emerald-800 shadow-xs' : 'hover:text-ink'
               }`}
             >
               Quality Checks
@@ -481,16 +481,16 @@ export default function EfficacyModelerClient() {
             />
 
             {/* Educational Decision Sidebar Card */}
-            <div className='rounded-3xl border border-brand-900/10 bg-slate-50/50 p-5 space-y-4 flex flex-col justify-between'>
+            <div className='rounded-3xl border border-brand-900/10 bg-[var(--surface-subtle)]/50 p-5 space-y-4 flex flex-col justify-between'>
               <div className='space-y-3'>
                 <div className='flex items-center gap-2 text-indigo-900 font-bold text-sm'>
                   <ShieldCheck className='h-4 w-4 text-indigo-700' />
                   <span>Sourcing Quality Standards</span>
                 </div>
-                <p className='text-xs text-slate-600 leading-relaxed'>
+                <p className='text-xs text-muted leading-relaxed'>
                   All recommended vendors carry current GMP (Good Manufacturing Practice) certification. Products undergo third-party laboratory analysis to verify concentration integrity and check for contaminants like heavy metals, pesticide residues, and microbial impurities.
                 </p>
-                <div className='space-y-2 text-[11px] text-slate-500 pt-1'>
+                <div className='space-y-2 text-[11px] text-muted pt-1'>
                   <div className='flex items-center gap-1.5'>
                     <ArrowRight className='h-3 w-3 text-emerald-600' />
                     <span>GMP: Good Manufacturing Practices</span>
@@ -513,7 +513,7 @@ export default function EfficacyModelerClient() {
             </div>
           </div>
         ) : (
-          <div className='py-8 text-center text-slate-400 text-sm border border-dashed border-slate-200 rounded-[2rem] bg-white/50'>
+          <div className='py-8 text-center text-slate-400 text-sm border border-dashed border-brand-900/10 rounded-[2rem] bg-white/50'>
             No specific product registry matches for this dosage query. Check standard buy guides.
           </div>
         )}

@@ -168,7 +168,7 @@ export default function DynamicComparerClient({ herbs, compounds }: DynamicCompa
               }}
               onFocus={() => setOpenA(true)}
               placeholder='Type to search A...'
-              className='w-full rounded-2xl border border-brand-900/10 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
+              className='w-full rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] px-4 py-3 text-sm outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
             />
             {openA && filteredA.length > 0 && (
               <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card-strong)] py-1.5 shadow-xl'>
@@ -209,7 +209,7 @@ export default function DynamicComparerClient({ herbs, compounds }: DynamicCompa
               }}
               onFocus={() => setOpenB(true)}
               placeholder='Type to search B...'
-              className='w-full rounded-2xl border border-brand-900/10 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
+              className='w-full rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] px-4 py-3 text-sm outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
             />
             {openB && filteredB.length > 0 && (
               <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card-strong)] py-1.5 shadow-xl'>
@@ -245,98 +245,98 @@ export default function DynamicComparerClient({ herbs, compounds }: DynamicCompa
         <div className='overflow-hidden rounded-[2rem] border border-brand-900/10 bg-white/90 shadow-sm'>
           <div className='grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100'>
             {/* Left Label Column (Visible on Desktop) */}
-            <div className='hidden md:flex flex-col bg-slate-50/50'>
-              <div className='p-6 h-[88px] flex items-end border-b border-slate-100'>
+            <div className='hidden md:flex flex-col bg-[var(--surface-subtle)]/50'>
+              <div className='p-6 h-[88px] flex items-end border-b border-brand-900/10'>
                 <span className='text-xs font-bold uppercase tracking-wider text-slate-400'>Tradeoff Comparison Matrix</span>
               </div>
-              <div className='p-6 min-h-[92px] flex items-center border-b border-slate-100 font-bold text-sm text-slate-700'>
+              <div className='p-6 min-h-[92px] flex items-center border-b border-brand-900/10 font-bold text-sm text-muted'>
                 Category Type
               </div>
-              <div className='p-6 min-h-[140px] flex items-center border-b border-slate-100 font-bold text-sm text-slate-700'>
+              <div className='p-6 min-h-[140px] flex items-center border-b border-brand-900/10 font-bold text-sm text-muted'>
                 Primary Intent / Description
               </div>
-              <div className='p-6 min-h-[92px] flex items-center border-b border-slate-100 font-bold text-sm text-slate-700'>
+              <div className='p-6 min-h-[92px] flex items-center border-b border-brand-900/10 font-bold text-sm text-muted'>
                 Scientific Evidence
               </div>
-              <div className='p-6 min-h-[140px] flex items-center border-b border-slate-100 font-bold text-sm text-slate-700'>
+              <div className='p-6 min-h-[140px] flex items-center border-b border-brand-900/10 font-bold text-sm text-muted'>
                 Target Receptor Mechanisms
               </div>
-              <div className='p-6 min-h-[92px] flex items-center border-b border-slate-100 font-bold text-sm text-slate-700'>
+              <div className='p-6 min-h-[92px] flex items-center border-b border-brand-900/10 font-bold text-sm text-muted'>
                 Onset / Duration
               </div>
-              <div className='p-6 min-h-[120px] flex items-center border-b border-slate-100 font-bold text-sm text-slate-700'>
+              <div className='p-6 min-h-[120px] flex items-center border-b border-brand-900/10 font-bold text-sm text-muted'>
                 Standard Dosage & Prep
               </div>
-              <div className='p-6 min-h-[140px] flex items-center font-bold text-sm text-slate-700'>
+              <div className='p-6 min-h-[140px] flex items-center font-bold text-sm text-muted'>
                 Safety Cautions & Warnings
               </div>
             </div>
 
             {/* Column A */}
             <div className='flex flex-col'>
-              <div className='p-6 h-[88px] flex flex-col justify-between border-b border-slate-100 bg-emerald-50/10'>
+              <div className='p-6 h-[88px] flex flex-col justify-between border-b border-brand-900/10 bg-emerald-50/10'>
                 <div>
                   <span className='text-[10px] font-bold uppercase text-slate-400'>Ingredient A</span>
-                  <h3 className='text-lg font-bold text-slate-800 leading-snug'>{itemA.name}</h3>
+                  <h3 className='text-lg font-bold text-ink leading-snug'>{itemA.name}</h3>
                 </div>
               </div>
 
               {/* Mobile Category Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Category Type</div>
-              <div className='p-6 min-h-[92px] flex items-center border-b border-slate-100 text-sm text-slate-700'>
-                <span className='rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase text-slate-600'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Category Type</div>
+              <div className='p-6 min-h-[92px] flex items-center border-b border-brand-900/10 text-sm text-muted'>
+                <span className='rounded-full bg-[var(--surface-subtle)] px-3 py-1 text-xs font-bold uppercase text-muted'>
                   {itemA.type}
                 </span>
               </div>
 
               {/* Mobile Intent Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Primary Intent</div>
-              <div className='p-6 min-h-[140px] flex items-center border-b border-slate-100 text-sm text-slate-600 leading-relaxed'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Primary Intent</div>
+              <div className='p-6 min-h-[140px] flex items-center border-b border-brand-900/10 text-sm text-muted leading-relaxed'>
                 {itemA.summary || itemA.description || 'No direct summary found.'}
               </div>
 
               {/* Mobile Evidence Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Evidence Tier</div>
-              <div className='p-6 min-h-[92px] flex items-center border-b border-slate-100 text-sm'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Evidence Tier</div>
+              <div className='p-6 min-h-[92px] flex items-center border-b border-brand-900/10 text-sm'>
                 <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-bold ${
                   getEvidenceTier(itemA) === 'A'
                     ? 'bg-emerald-100 text-emerald-800'
                     : getEvidenceTier(itemA) === 'B'
                     ? 'bg-amber-100 text-amber-800'
-                    : 'bg-slate-100 text-slate-700'
+                    : 'bg-[var(--surface-subtle)] text-muted'
                 }`}>
                   {getEvidenceTier(itemA)} Evidence Tier
                 </span>
               </div>
 
               {/* Mobile Mechanisms Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Mechanisms</div>
-              <div className='p-6 min-h-[140px] flex items-center border-b border-slate-100 text-sm text-slate-600 leading-relaxed font-mono text-xs'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Mechanisms</div>
+              <div className='p-6 min-h-[140px] flex items-center border-b border-brand-900/10 text-sm text-muted leading-relaxed font-mono text-xs'>
                 {getMechanismString(itemA)}
               </div>
 
               {/* Mobile Onset Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Onset / Duration</div>
-              <div className='p-6 min-h-[92px] flex items-center border-b border-slate-100 text-sm text-slate-700'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Onset / Duration</div>
+              <div className='p-6 min-h-[92px] flex items-center border-b border-brand-900/10 text-sm text-muted'>
                 {getOnsetDuration(itemA)}
               </div>
 
               {/* Mobile Dosage Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Dosage & Prep</div>
-              <div className='p-6 min-h-[120px] flex items-center border-b border-slate-100 text-sm text-slate-600 leading-relaxed'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Dosage & Prep</div>
+              <div className='p-6 min-h-[120px] flex items-center border-b border-brand-900/10 text-sm text-muted leading-relaxed'>
                 {getDosagePrep(itemA)}
               </div>
 
               {/* Mobile Safety Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Safety Cautions</div>
-              <div className='p-6 min-h-[140px] flex items-center text-sm text-slate-600 leading-relaxed'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Safety Cautions</div>
+              <div className='p-6 min-h-[140px] flex items-center text-sm text-muted leading-relaxed'>
                 <div className='rounded-xl bg-amber-50/40 p-3.5 border border-amber-250/20 text-xs text-amber-900'>
                   {getSafetyString(itemA)}
                 </div>
               </div>
 
               {/* Deep Link Action A */}
-              <div className='p-6 border-t border-slate-100 bg-slate-50/20 flex justify-end'>
+              <div className='p-6 border-t border-brand-900/10 bg-[var(--surface-subtle)]/20 flex justify-end'>
                 <Link
                   href={itemA.type === 'herb' ? `/herbs/${itemA.slug}` : `/compounds/${itemA.slug}`}
                   className='rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-700 transition'
@@ -348,69 +348,69 @@ export default function DynamicComparerClient({ herbs, compounds }: DynamicCompa
 
             {/* Column B */}
             <div className='flex flex-col'>
-              <div className='p-6 h-[88px] flex flex-col justify-between border-b border-slate-100 bg-emerald-50/10'>
+              <div className='p-6 h-[88px] flex flex-col justify-between border-b border-brand-900/10 bg-emerald-50/10'>
                 <div>
                   <span className='text-[10px] font-bold uppercase text-slate-400'>Ingredient B</span>
-                  <h3 className='text-lg font-bold text-slate-800 leading-snug'>{itemB.name}</h3>
+                  <h3 className='text-lg font-bold text-ink leading-snug'>{itemB.name}</h3>
                 </div>
               </div>
 
               {/* Mobile Category Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Category Type</div>
-              <div className='p-6 min-h-[92px] flex items-center border-b border-slate-100 text-sm text-slate-700'>
-                <span className='rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase text-slate-600'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Category Type</div>
+              <div className='p-6 min-h-[92px] flex items-center border-b border-brand-900/10 text-sm text-muted'>
+                <span className='rounded-full bg-[var(--surface-subtle)] px-3 py-1 text-xs font-bold uppercase text-muted'>
                   {itemB.type}
                 </span>
               </div>
 
               {/* Mobile Intent Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Primary Intent</div>
-              <div className='p-6 min-h-[140px] flex items-center border-b border-slate-100 text-sm text-slate-600 leading-relaxed'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Primary Intent</div>
+              <div className='p-6 min-h-[140px] flex items-center border-b border-brand-900/10 text-sm text-muted leading-relaxed'>
                 {itemB.summary || itemB.description || 'No direct summary found.'}
               </div>
 
               {/* Mobile Evidence Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Evidence Tier</div>
-              <div className='p-6 min-h-[92px] flex items-center border-b border-slate-100 text-sm'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Evidence Tier</div>
+              <div className='p-6 min-h-[92px] flex items-center border-b border-brand-900/10 text-sm'>
                 <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-bold ${
                   getEvidenceTier(itemB) === 'A'
                     ? 'bg-emerald-100 text-emerald-800'
                     : getEvidenceTier(itemB) === 'B'
                     ? 'bg-amber-100 text-amber-800'
-                    : 'bg-slate-100 text-slate-700'
+                    : 'bg-[var(--surface-subtle)] text-muted'
                 }`}>
                   {getEvidenceTier(itemB)} Evidence Tier
                 </span>
               </div>
 
               {/* Mobile Mechanisms Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Mechanisms</div>
-              <div className='p-6 min-h-[140px] flex items-center border-b border-slate-100 text-sm text-slate-600 leading-relaxed font-mono text-xs'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Mechanisms</div>
+              <div className='p-6 min-h-[140px] flex items-center border-b border-brand-900/10 text-sm text-muted leading-relaxed font-mono text-xs'>
                 {getMechanismString(itemB)}
               </div>
 
               {/* Mobile Onset Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Onset / Duration</div>
-              <div className='p-6 min-h-[92px] flex items-center border-b border-slate-100 text-sm text-slate-700'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Onset / Duration</div>
+              <div className='p-6 min-h-[92px] flex items-center border-b border-brand-900/10 text-sm text-muted'>
                 {getOnsetDuration(itemB)}
               </div>
 
               {/* Mobile Dosage Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Dosage & Prep</div>
-              <div className='p-6 min-h-[120px] flex items-center border-b border-slate-100 text-sm text-slate-600 leading-relaxed'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Dosage & Prep</div>
+              <div className='p-6 min-h-[120px] flex items-center border-b border-brand-900/10 text-sm text-muted leading-relaxed'>
                 {getDosagePrep(itemB)}
               </div>
 
               {/* Mobile Safety Label */}
-              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-slate-50'>Safety Cautions</div>
-              <div className='p-6 min-h-[140px] flex items-center text-sm text-slate-600 leading-relaxed'>
+              <div className='md:hidden px-6 pt-4 text-[10px] font-bold uppercase text-slate-400 bg-[var(--surface-subtle)]'>Safety Cautions</div>
+              <div className='p-6 min-h-[140px] flex items-center text-sm text-muted leading-relaxed'>
                 <div className='rounded-xl bg-amber-50/40 p-3.5 border border-amber-250/20 text-xs text-amber-900'>
                   {getSafetyString(itemB)}
                 </div>
               </div>
 
               {/* Deep Link Action B */}
-              <div className='p-6 border-t border-slate-100 bg-slate-50/20 flex justify-end'>
+              <div className='p-6 border-t border-brand-900/10 bg-[var(--surface-subtle)]/20 flex justify-end'>
                 <Link
                   href={itemB.type === 'herb' ? `/herbs/${itemB.slug}` : `/compounds/${itemB.slug}`}
                   className='rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-700 transition'

@@ -8,7 +8,7 @@ export default function EvidenceConfidenceBar({ label, value = 0 }: Props) {
 
   return (
     <div className="space-y-2">
-      <div className="flex items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-neutral-500">
+      <div className="flex items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-muted">
         <span>{label}</span>
         <span>{percentage}%</span>
       </div>

@@ -22,7 +22,7 @@ export default function AffiliateProductCard({
 
   return (
     <div
-      className='group relative flex flex-col justify-between rounded-3xl border border-brand-900/10 bg-white p-5 hover:shadow-md transition-all duration-300'
+      className='group relative flex flex-col justify-between rounded-3xl border border-brand-900/10 bg-[var(--surface-card)] p-5 hover:shadow-md transition-all duration-300'
     >
       {/* Badges Container */}
       <div className='absolute -top-3 left-4 flex gap-1.5'>
@@ -49,15 +49,15 @@ export default function AffiliateProductCard({
           <span className='text-[10px] font-bold uppercase tracking-wider text-slate-400'>
             {product.brand}
           </span>
-          <h3 className='text-base font-bold text-slate-800 group-hover:text-emerald-700 transition-colors leading-tight mt-0.5'>
+          <h3 className='text-base font-bold text-ink group-hover:text-emerald-700 transition-colors leading-tight mt-0.5'>
             {product.name}
           </h3>
         </div>
 
         {/* Pricing Details */}
-        <div className='flex items-baseline justify-between border-y border-slate-100 py-3'>
+        <div className='flex items-baseline justify-between border-y border-brand-900/10 py-3'>
           <div>
-            <span className='text-2xl font-black text-slate-800'>
+            <span className='text-2xl font-black text-ink'>
               ${product.priceUsd.toFixed(2)}
             </span>
             <span className='text-[10px] text-slate-400 ml-1'>
@@ -76,23 +76,23 @@ export default function AffiliateProductCard({
 
         {/* Dosage Optimization Info */}
         <div className='space-y-2 text-xs'>
-          <div className='flex justify-between items-center text-slate-600 bg-slate-50/50 rounded-xl p-2.5 border border-slate-100'>
+          <div className='flex justify-between items-center text-muted bg-[var(--surface-subtle)]/50 rounded-xl p-2.5 border border-brand-900/10'>
             <span className='font-medium'>Daily Serving:</span>
-            <span className='font-bold text-slate-800'>
+            <span className='font-bold text-ink'>
               {capsulesNeeded} {capsulesNeeded === 1 ? 'capsule' : 'capsules'} ({actualYieldMg}mg)
             </span>
           </div>
 
           {primaryIng && (
-            <div className='flex justify-between items-center text-slate-600 px-1'>
+            <div className='flex justify-between items-center text-muted px-1'>
               <span>Active standardization:</span>
-              <span className='font-semibold text-slate-700 text-[11px]'>
+              <span className='font-semibold text-muted text-[11px]'>
                 {primaryIng.activeYieldPercent}% {primaryIng.activeCompound}
               </span>
             </div>
           )}
 
-          <div className='flex justify-between items-center text-slate-600 px-1'>
+          <div className='flex justify-between items-center text-muted px-1'>
             <span>Active compound yield:</span>
             <span className='font-bold text-emerald-800 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md'>
               {activeYieldMg.toFixed(1)}mg {primaryIng?.activeCompound}
@@ -127,7 +127,7 @@ export default function AffiliateProductCard({
       </div>
 
       {/* Referral Action */}
-      <div className='mt-5 pt-3 border-t border-slate-100 space-y-2.5'>
+      <div className='mt-5 pt-3 border-t border-brand-900/10 space-y-2.5'>
         <a
           href={affiliateUrl}
           target='_blank'

@@ -70,7 +70,7 @@ export default function DosingSafetyChecker({ items }: DosingSafetyCheckerProps)
               id="substance-select"
               value={selectedSlug}
               onChange={(event) => setSelectedSlug(event.target.value)}
-              className="min-h-11 w-full rounded-xl border border-brand-900/10 bg-white px-3 py-2 text-sm text-ink outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/20"
+              className="min-h-11 w-full rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2 text-sm text-ink outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/20"
             >
               <option value="">-- Select Substance --</option>
               {selectableItems.map(item => (
@@ -118,9 +118,9 @@ export default function DosingSafetyChecker({ items }: DosingSafetyCheckerProps)
               </div>
 
               {selectedItem.safety ? (
-                <div className="rounded-lg border border-slate-200 bg-slate-50/60 p-3">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-slate-600">Mapped safety summary</p>
-                  <p className="mt-1 text-[11px] leading-relaxed text-slate-700">{selectedItem.safety}</p>
+                <div className="rounded-lg border border-brand-900/10 bg-[var(--surface-subtle)]/60 p-3">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Mapped safety summary</p>
+                  <p className="mt-1 text-[11px] leading-relaxed text-muted">{selectedItem.safety}</p>
                 </div>
               ) : null}
 
@@ -142,8 +142,8 @@ export default function DosingSafetyChecker({ items }: DosingSafetyCheckerProps)
                   </ul>
                 </div>
               ) : (
-                <div className="flex items-start gap-2 rounded-lg border border-slate-300/60 bg-slate-50/70 p-3 text-[11px] leading-relaxed text-slate-700">
-                  <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-600" />
+                <div className="flex items-start gap-2 rounded-lg border border-brand-900/10/60 bg-[var(--surface-subtle)]/70 p-3 text-[11px] leading-relaxed text-muted">
+                  <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted" />
                   <span>No detailed constraints are mapped in this quick index. That is a missing-data state, not evidence that the substance is low risk.</span>
                 </div>
               )}
