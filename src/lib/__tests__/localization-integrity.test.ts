@@ -1,0 +1,110 @@
+import { describe, expect, it } from 'vitest'
+
+import { FRENCH_PAGES } from '../french-content'
+import { GERMAN_PAGES } from '../german-content'
+import {
+  DEFAULT_LOCALE,
+  FRENCH_LOCALE,
+  GERMAN_LOCALE,
+  LOCALIZED_ROUTES,
+  PORTUGUESE_LOCALE,
+  SPANISH_LOCALE,
+  getCurrentLocaleAlternates,
+  getLocalizedRoute,
+  normalizeInternationalPath,
+  type TranslationLocale,
+} from '../international-seo'
+import type { LocalizedPageData } from '../localization'
+import { PORTUGUESE_PAGES } from '../portuguese-content'
+import { SPANISH_PAGES } from '../spanish-content'
+
+const PACKS: Record<TranslationLocale, readonly LocalizedPageData[]> = {
+  [SPANISH_LOCALE]: Object.values(SPANISH_PAGES),
+  [PORTUGUESE_LOCALE]: Object.values(PORTUGUESE_PAGES),
+  [FRENCH_LOCALE]: Object.values(FRENCH_PAGES),
+  [GERMAN_LOCALE]: Object.values(GERMAN_PAGES),
+}
+
+function pageLinks(page: LocalizedPageData): string[] {
+  return [
+    ...page.sections.flatMap((section) => section.links?.map((link) => link.href) ?? []),
+    ...(page.primaryCta ? [page.primaryCta.href] : []),
+    ...(page.secondaryCta ? [page.secondaryCta.href] : []),
+  ]
+}
+
+function localePrefix(locale: TranslationLocale) {
+  if (locale === PORTUGUESE_LOCALE) return '/pt/'
+  return `/${locale}/`
+}
+
+describe('multilingual localization integrity', () => {
+  it('keeps every advertised translated route backed by exactly one substantive page', () => {
+    for (const [locale, pages] of Object.entries(PACKS) as [TranslationLocale, readonly LocalizedPageData[]][]) {
+      const expected = LOCALIZED_ROUTES
+        .map((route) => route.translations[locale])
+        .filter((path): path is string => Boolean(path))
+        .map(normalizeInternationalPath)
+        .sort()
+      const actual = pages.map((page) => normalizeInternationalPath(page.path)).sort()
+
+      expect(new Set(actual).size, `${locale} contains duplicate localized paths`).toBe(actual.length)
+      expect(actual, `${locale} content pack must exactly match the hreflang registry`).toEqual(expected)
+
+      for (const page of pages) {
+        expect(page.title.trim().length, `${page.path} must have a title`).toBeGreaterThan(12)
+        expect(page.description.trim().length, `${page.path} must have a description`).toBeGreaterThan(40)
+        expect(page.intro.trim().length, `${page.path} must have substantive introductory copy`).toBeGreaterThan(50)
+        expect(page.sections.length, `${page.path} must contain substantive editorial sections`).toBeGreaterThan(0)
+      }
+    }
+  })
+
+  it('keeps localized internal links inside each published locale pack resolvable', () => {
+    for (const [locale, pages] of Object.entries(PACKS) as [TranslationLocale, readonly LocalizedPageData[]][]) {
+      const published = new Set(pages.map((page) => normalizeInternationalPath(page.path)))
+      const prefix = localePrefix(locale)
+
+      for (const page of pages) {
+        for (const href of pageLinks(page)) {
+          const normalized = normalizeInternationalPath(href)
+          if (!normalized.startsWith(prefix)) continue
+          expect(published.has(normalized), `${page.path} links to missing ${locale} page ${normalized}`).toBe(true)
+        }
+      }
+    }
+  })
+
+  it('keeps hreflang alternates reciprocal for every localized route', () => {
+    for (const route of LOCALIZED_ROUTES) {
+      const expectedLocales = [
+        DEFAULT_LOCALE,
+        ...Object.keys(route.translations),
+        'x-default',
+      ].sort()
+      const paths = [route.english, ...Object.values(route.translations).filter((path): path is string => Boolean(path))]
+
+      for (const path of paths) {
+        const alternates = getCurrentLocaleAlternates(path)
+        expect(alternates.map((alternate) => alternate.locale).sort(), `${path} must expose the same reciprocal hreflang cluster`).toEqual(expectedLocales)
+
+        for (const locale of Object.keys(route.translations) as TranslationLocale[]) {
+          expect(getLocalizedRoute(path, locale), `${path} must resolve ${locale}`).toBe(normalizeInternationalPath(route.translations[locale] as string))
+        }
+        expect(getLocalizedRoute(path, DEFAULT_LOCALE), `${path} must resolve the English canonical`).toBe(normalizeInternationalPath(route.english))
+      }
+    }
+  })
+
+  it('does not reuse one translated URL for multiple English canonicals', () => {
+    const seen = new Map<string, string>()
+    for (const route of LOCALIZED_ROUTES) {
+      for (const translated of Object.values(route.translations)) {
+        if (!translated) continue
+        const normalized = normalizeInternationalPath(translated)
+        expect(seen.get(normalized), `${normalized} is mapped to both ${seen.get(normalized)} and ${route.english}`).toBeUndefined()
+        seen.set(normalized, route.english)
+      }
+    }
+  })
+})
