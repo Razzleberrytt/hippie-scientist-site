@@ -164,7 +164,7 @@ function hasSafetyCaution(record: RuntimeRecord): boolean {
     cleanString(record.safety_level),
   ].join(' ').toLowerCase()
 
-  return /\b(avoid|contraindicat|caution|interaction|pregnan|breastfeed|liver|kidney|bleed|sedat|stimul|risk|toxic|monitor)\b/.test(text)
+  return /\b(avoid(?:ance)?|contraindicat(?:e|ed|es|ion|ions)?|caution(?:s|ary)?|interactions?|pregnan(?:t|cy)|breastfeed(?:ing)?|liver|kidney|bleed(?:ing)?|sedat(?:e|ed|ion|ive)?|stimul(?:ant|ation)?|risks?|toxic(?:ity)?|monitor(?:ing)?)\b/.test(text)
 }
 
 function hasExplicitClaimOverreachFlag(record: RuntimeRecord): boolean {

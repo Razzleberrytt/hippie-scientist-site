@@ -22,7 +22,7 @@ describe('AffiliateProductCard regional URLs', () => {
       />,
     )
 
-    expect(screen.getByRole('link', { name: /check current price/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /view product details for test magnesium/i })).toHaveAttribute(
       'href',
       'https://www.amazon.co.uk/test-magnesium',
     )
@@ -42,7 +42,7 @@ describe('AffiliateProductCard regional URLs', () => {
       />,
     )
 
-    expect(screen.getByRole('link', { name: /check current price/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /view product details for test theanine/i })).toHaveAttribute(
       'href',
       'https://www.amazon.com/test-theanine',
     )
@@ -58,7 +58,7 @@ describe('AffiliateProductCard regional URLs', () => {
       />,
     )
 
-    expect(screen.getByRole('link', { name: /check current price/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /view product details for test rhodiola/i })).toHaveAttribute(
       'rel',
       'sponsored nofollow noopener noreferrer',
     )

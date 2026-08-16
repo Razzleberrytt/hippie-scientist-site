@@ -13,7 +13,7 @@ describe('SeeAlsoCluster accessibility contract', () => {
 
   it('provides visible keyboard focus treatment and directional cues', () => {
     expect(source).toContain('focus-visible:ring-2')
-    expect(source).toContain('focus-visible:ring-brand-600')
+    expect(source).toContain('focus-visible:ring-[color:var(--hs-gold)]')
     expect(source).toContain('{entry.label} →')
   })
 })

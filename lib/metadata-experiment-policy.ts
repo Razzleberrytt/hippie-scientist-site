@@ -42,7 +42,7 @@ export function classifyMetadataIntent(query: string): MetadataIntent {
   if (/\b(vs|versus|compare|comparison|alternative)\b/.test(value)) return 'comparison'
   if (/\b(dose|dosage|how much|mg|gram)\b/.test(value)) return 'dose'
   if (/\b(when|morning|night|time to take|before bed|with food|empty stomach)\b/.test(value)) return 'timing'
-  if (/\b(safe|safety|interaction|side effect|risk|contraindication|warning)\b/.test(value)) return 'safety'
+  if (/\b(safe|safety|interaction|side effects?|risks?|contraindications?|warnings?)\b/.test(value)) return 'safety'
   if (/\b(best brand|buy|quality|extract|form|glycinate|citrate|standardized|third party|coa)\b/.test(value)) return 'product-quality'
   return 'general'
 }

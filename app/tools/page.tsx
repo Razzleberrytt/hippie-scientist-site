@@ -4,7 +4,7 @@ import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Research Tools | The Hippie Scientist',
-  description: 'Interactive evidence, comparison, safety, and botanical research tools from The Hippie Scientist.',
+  description: 'Interactive research tools for comparing botanicals, evidence, activity, compounds, and safety context.',
   path: '/tools/',
 })
 
