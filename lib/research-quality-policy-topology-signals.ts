@@ -194,7 +194,9 @@ export function buildAggregatedTopologyGapSignals(
 
   for (const item of topology.metadataIntegrity.profiles) {
     const advisoryStudyClassConflicts = Math.max(0, item.studyClassConflicts - item.severeStudyClassConflicts)
+    const participantCountAmbiguities = item.participantCountAmbiguities ?? 0
     const advisoryIssueCount = item.yearConflicts
+      + participantCountAmbiguities
       + item.provenanceConflicts
       + advisoryStudyClassConflicts
       + item.lowCitationMetadataClaims
@@ -206,7 +208,7 @@ export function buildAggregatedTopologyGapSignals(
       weight: weights.metadataIntegrity
         + Math.min(12, Math.max(0, advisoryIssueCount - 1) * 2)
         + (highConfidence ? weights.highConfidenceMetadataIntegrityBonus : 0),
-      detail: `${advisoryIssueCount} advisory metadata integrity issue(s): ${item.yearConflicts} publication-year conflict(s), ${item.provenanceConflicts} provenance alias conflict(s), ${advisoryStudyClassConflicts} advisory study-class ambiguity, ${item.lowCitationMetadataClaims} low-completeness claim(s); ${item.highConfidenceLowCitationMetadataClaims} high-confidence citation gap(s)`,
+      detail: `${advisoryIssueCount} advisory metadata integrity issue(s): ${item.yearConflicts} publication-year conflict(s), ${participantCountAmbiguities} participant-count ambiguity finding(s), ${item.provenanceConflicts} provenance alias conflict(s), ${advisoryStudyClassConflicts} advisory study-class ambiguity, ${item.lowCitationMetadataClaims} low-completeness claim(s); ${item.highConfidenceLowCitationMetadataClaims} high-confidence citation gap(s)`,
     })
   }
 
