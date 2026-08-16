@@ -4,6 +4,7 @@ import { buildPageMetadata } from '@/src/lib/seo'
 import { getPublicEvidenceDataset } from '@/lib/public-evidence-dataset'
 import { evidenceGradeHistory } from '@/data/editorial/evidence-grade-history'
 import EvidenceReportClient from './EvidenceReportClient'
+import AmbiguityMagnitudePanel from './AmbiguityMagnitudePanel'
 import CategoryEvidenceMixPanel from './CategoryEvidenceMixPanel'
 import UnderlyingStudyIndependencePanel from './UnderlyingStudyIndependencePanel'
 import UnassignedEvidenceStatusPanel from './UnassignedEvidenceStatusPanel'
@@ -26,6 +27,7 @@ export default async function EvidenceReportPage() {
         metrics={dataset.metrics}
         changeHistory={evidenceGradeHistory}
       />
+      <AmbiguityMagnitudePanel studies={dataset.studies} />
       <UnderlyingStudyIndependencePanel metrics={dataset.metrics} />
       <UnassignedEvidenceStatusPanel dataset={dataset} />
       <CategoryEvidenceMixPanel dataset={dataset} />
