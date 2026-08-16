@@ -29,7 +29,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
   if (items.length === 0) return null
 
   const links = (
-    <ol className='space-y-1'>
+    <ol className='space-y-0.5'>
       {items.map(({ id, label }) => {
         const isActive = activeId === id
         return (
@@ -38,10 +38,10 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
               href={`#${id}`}
               onClick={() => setMobileOpen(false)}
               aria-current={isActive ? 'location' : undefined}
-              className={`flex min-h-11 items-center rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 ${
+              className={`flex min-h-11 items-center border-l-2 px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 ${
                 isActive
-                  ? 'bg-brand-50 font-semibold text-brand-900 shadow-sm dark:bg-white/10 dark:text-brand-50'
-                  : 'text-muted hover:bg-brand-50/60 hover:text-ink dark:hover:bg-white/10 dark:hover:text-brand-50'
+                  ? 'border-[color:var(--hs-gold)] bg-[color:color-mix(in_srgb,var(--tone)_9%,transparent)] font-semibold text-[color:var(--hs-ink)]'
+                  : 'border-transparent text-[color:var(--hs-body)] hover:border-[color:var(--hs-hairline-strong)] hover:bg-[color:color-mix(in_srgb,var(--tone)_6%,transparent)] hover:text-[color:var(--hs-ink)]'
               }`}
             >
               {label}
@@ -57,13 +57,13 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
       {variant !== 'desktop' ? (
         <nav
           aria-label='Page sections'
-          className='rounded-2xl border border-brand-900/10 bg-white/90 p-3 shadow-sm backdrop-blur lg:hidden dark:border-white/10 dark:bg-white/5'
+          className='rounded-xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] p-2 shadow-[var(--hs-lift)] lg:hidden'
         >
           <button
             type='button'
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
-            className='flex min-h-11 w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm font-semibold text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2'
+            className='flex min-h-12 w-full items-center justify-between px-3 py-2 text-left text-sm font-semibold text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
           >
             On this page
             <svg
@@ -72,14 +72,14 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
               fill='none'
               stroke='currentColor'
               strokeWidth='2'
-              className={`size-4 shrink-0 text-muted transition-transform ${mobileOpen ? 'rotate-180' : ''}`}
+              className={`size-4 shrink-0 text-[color:var(--hs-body)] transition-transform ${mobileOpen ? 'rotate-180' : ''}`}
             >
               <path d='M4 6l4 4 4-4' strokeLinecap='round' strokeLinejoin='round' />
             </svg>
           </button>
           {mobileOpen ? (
             <div
-              className='mt-3 overflow-y-auto overscroll-contain border-t border-brand-900/10 pt-3 pr-1 [scrollbar-width:thin] dark:border-white/10'
+              className='mt-2 overflow-y-auto overscroll-contain border-t border-[color:var(--hs-hairline)] pt-2 pr-1 [scrollbar-width:thin]'
               style={{ maxHeight: 'min(55dvh, 28rem)' }}
             >
               {links}
@@ -91,10 +91,12 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
       {variant !== 'mobile' ? (
         <nav
           aria-label='Page sections'
-          className='hidden w-56 shrink-0 self-start rounded-2xl border border-brand-900/10 bg-white/75 p-3 shadow-sm backdrop-blur lg:sticky lg:top-24 lg:block dark:border-white/10 dark:bg-white/5'
+          className='hidden w-56 shrink-0 self-start lg:sticky lg:top-24 lg:block'
         >
-          <p className='eyebrow-label mb-3 px-2'>On this page</p>
-          {links}
+          <div className='border-l border-[color:var(--hs-hairline-strong)] pl-3'>
+            <p className='eyebrow-label mb-3 px-2'>On this page</p>
+            {links}
+          </div>
         </nav>
       ) : null}
     </>
