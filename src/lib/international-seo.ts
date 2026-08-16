@@ -11,12 +11,36 @@ export const SPANISH_OG_LOCALE = 'es_ES'
 export const SPANISH_LANGUAGE = 'es'
 export const SPANISH_TEXT_DIRECTION = 'ltr'
 
-export const SUPPORTED_LOCALES = [DEFAULT_LOCALE, SPANISH_LOCALE] as const
+export const PORTUGUESE_LOCALE = 'pt-BR'
+export const PORTUGUESE_OG_LOCALE = 'pt_BR'
+export const PORTUGUESE_LANGUAGE = 'pt'
+
+export const FRENCH_LOCALE = 'fr'
+export const FRENCH_OG_LOCALE = 'fr_FR'
+export const FRENCH_LANGUAGE = 'fr'
+
+export const GERMAN_LOCALE = 'de'
+export const GERMAN_OG_LOCALE = 'de_DE'
+export const GERMAN_LANGUAGE = 'de'
+
+export const SUPPORTED_LOCALES = [
+  DEFAULT_LOCALE,
+  SPANISH_LOCALE,
+  PORTUGUESE_LOCALE,
+  FRENCH_LOCALE,
+  GERMAN_LOCALE,
+] as const
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
+export type TranslationLocale = Exclude<SupportedLocale, typeof DEFAULT_LOCALE>
 
 export type LocaleAlternate = {
   locale: SupportedLocale | 'x-default'
   url: string
+}
+
+export type LocalizedRoute = {
+  english: string
+  translations: Partial<Record<TranslationLocale, string>>
 }
 
 export type LocalizedRoutePair = {
@@ -24,25 +48,68 @@ export type LocalizedRoutePair = {
   spanish: string
 }
 
+export const LOCALE_CONFIG: Record<SupportedLocale, {
+  language: string
+  openGraphLocale: string
+  region?: string
+  textDirection: 'ltr' | 'rtl'
+}> = {
+  [DEFAULT_LOCALE]: {
+    language: DEFAULT_LANGUAGE,
+    openGraphLocale: DEFAULT_OG_LOCALE,
+    region: DEFAULT_REGION,
+    textDirection: 'ltr',
+  },
+  [SPANISH_LOCALE]: {
+    language: SPANISH_LANGUAGE,
+    openGraphLocale: SPANISH_OG_LOCALE,
+    textDirection: 'ltr',
+  },
+  [PORTUGUESE_LOCALE]: {
+    language: PORTUGUESE_LANGUAGE,
+    openGraphLocale: PORTUGUESE_OG_LOCALE,
+    region: 'BR',
+    textDirection: 'ltr',
+  },
+  [FRENCH_LOCALE]: {
+    language: FRENCH_LANGUAGE,
+    openGraphLocale: FRENCH_OG_LOCALE,
+    textDirection: 'ltr',
+  },
+  [GERMAN_LOCALE]: {
+    language: GERMAN_LANGUAGE,
+    openGraphLocale: GERMAN_OG_LOCALE,
+    textDirection: 'ltr',
+  },
+}
+
 /**
  * Canonical translation registry.
  *
- * Only add a pair after the Spanish URL is published with substantive,
- * equivalent editorial content. This prevents hreflang from advertising
- * placeholder, partial, or nonexistent translations.
+ * Only publish a locale path after that URL contains substantive editorially
+ * reviewed translated content. Hreflang is derived from this registry, so a
+ * missing translation is safer than advertising a thin or nonexistent page.
  */
-export const LOCALIZED_ROUTE_PAIRS: readonly LocalizedRoutePair[] = [
-  { english: '/', spanish: '/es/' },
-  { english: '/herbs/', spanish: '/es/hierbas/' },
-  { english: '/compounds/', spanish: '/es/compuestos/' },
-  { english: '/goals/', spanish: '/es/objetivos/' },
-  { english: '/goals/sleep/', spanish: '/es/objetivos/sueno/' },
-  { english: '/goals/stress/', spanish: '/es/objetivos/estres/' },
-  { english: '/goals/anxiety/', spanish: '/es/objetivos/ansiedad/' },
-  { english: '/goals/focus/', spanish: '/es/objetivos/concentracion/' },
-  { english: '/info/methodology/', spanish: '/es/metodologia/' },
-  { english: '/safety-checker/', spanish: '/es/seguridad/' },
+export const LOCALIZED_ROUTES: readonly LocalizedRoute[] = [
+  { english: '/', translations: { [SPANISH_LOCALE]: '/es/' } },
+  { english: '/herbs/', translations: { [SPANISH_LOCALE]: '/es/hierbas/' } },
+  { english: '/compounds/', translations: { [SPANISH_LOCALE]: '/es/compuestos/' } },
+  { english: '/goals/', translations: { [SPANISH_LOCALE]: '/es/objetivos/' } },
+  { english: '/goals/sleep/', translations: { [SPANISH_LOCALE]: '/es/objetivos/sueno/' } },
+  { english: '/goals/stress/', translations: { [SPANISH_LOCALE]: '/es/objetivos/estres/' } },
+  { english: '/goals/anxiety/', translations: { [SPANISH_LOCALE]: '/es/objetivos/ansiedad/' } },
+  { english: '/goals/focus/', translations: { [SPANISH_LOCALE]: '/es/objetivos/concentracion/' } },
+  { english: '/info/methodology/', translations: { [SPANISH_LOCALE]: '/es/metodologia/' } },
+  { english: '/safety-checker/', translations: { [SPANISH_LOCALE]: '/es/seguridad/' } },
 ] as const
+
+/** Backward-compatible Spanish-only view for existing validators/tests. */
+export const LOCALIZED_ROUTE_PAIRS: readonly LocalizedRoutePair[] = LOCALIZED_ROUTES
+  .filter((route) => route.translations[SPANISH_LOCALE])
+  .map((route) => ({
+    english: route.english,
+    spanish: route.translations[SPANISH_LOCALE] as string,
+  }))
 
 const withLeadingSlash = (path: string) => {
   if (!path) return '/'
@@ -69,60 +136,69 @@ export function buildDefaultLocaleUrl(path = '/') {
   return buildLocaleUrl(path)
 }
 
-export function getLocalizedRoute(path = '/', locale: SupportedLocale): string | null {
+function findLocalizedRoute(path = '/'): LocalizedRoute | undefined {
   const normalized = normalizeInternationalPath(path)
-  const pair = LOCALIZED_ROUTE_PAIRS.find(
-    (candidate) =>
-      normalizeInternationalPath(candidate.english) === normalized ||
-      normalizeInternationalPath(candidate.spanish) === normalized,
-  )
+  return LOCALIZED_ROUTES.find((candidate) => {
+    if (normalizeInternationalPath(candidate.english) === normalized) return true
+    return Object.values(candidate.translations).some(
+      (localizedPath) => localizedPath && normalizeInternationalPath(localizedPath) === normalized,
+    )
+  })
+}
 
-  if (!pair) return null
-  return locale === SPANISH_LOCALE
-    ? normalizeInternationalPath(pair.spanish)
-    : normalizeInternationalPath(pair.english)
+export function getLocalizedRoute(path = '/', locale: SupportedLocale): string | null {
+  const route = findLocalizedRoute(path)
+  if (!route) return null
+  if (locale === DEFAULT_LOCALE) return normalizeInternationalPath(route.english)
+  const translated = route.translations[locale]
+  return translated ? normalizeInternationalPath(translated) : null
+}
+
+export function hasLocaleTranslation(path = '/', locale: TranslationLocale): boolean {
+  return Boolean(getLocalizedRoute(path, locale))
 }
 
 export function hasSpanishTranslation(path = '/'): boolean {
-  return Boolean(getLocalizedRoute(path, SPANISH_LOCALE))
+  return hasLocaleTranslation(path, SPANISH_LOCALE)
 }
 
 /**
- * Safe published alternates.
- *
- * Hreflang is emitted only for routes in LOCALIZED_ROUTE_PAIRS. Untranslated
- * English pages continue to advertise only English + x-default so crawlers are
- * never sent to a thin or nonexistent Spanish URL.
+ * Safe published alternates for one canonical route family.
+ * Untranslated pages advertise only English + x-default.
  */
 export function getCurrentLocaleAlternates(path = '/'): LocaleAlternate[] {
-  const normalized = normalizeInternationalPath(path)
-  const englishPath = getLocalizedRoute(normalized, DEFAULT_LOCALE)
-  const spanishPath = getLocalizedRoute(normalized, SPANISH_LOCALE)
-
-  if (englishPath && spanishPath) {
-    const englishUrl = buildLocaleUrl(englishPath)
+  const route = findLocalizedRoute(path)
+  if (!route) {
+    const url = buildDefaultLocaleUrl(path)
     return [
-      { locale: DEFAULT_LOCALE, url: englishUrl },
-      { locale: SPANISH_LOCALE, url: buildLocaleUrl(spanishPath) },
-      { locale: 'x-default', url: englishUrl },
+      { locale: DEFAULT_LOCALE, url },
+      { locale: 'x-default', url },
     ]
   }
 
-  const url = buildDefaultLocaleUrl(normalized)
-  return [
-    { locale: DEFAULT_LOCALE, url },
-    { locale: 'x-default', url },
+  const englishUrl = buildLocaleUrl(route.english)
+  const alternates: LocaleAlternate[] = [
+    { locale: DEFAULT_LOCALE, url: englishUrl },
   ]
+
+  for (const locale of SUPPORTED_LOCALES) {
+    if (locale === DEFAULT_LOCALE) continue
+    const localizedPath = route.translations[locale]
+    if (localizedPath) alternates.push({ locale, url: buildLocaleUrl(localizedPath) })
+  }
+
+  alternates.push({ locale: 'x-default', url: englishUrl })
+  return alternates
 }
 
 export function getLocaleMetadata(path = '/', locale: SupportedLocale = DEFAULT_LOCALE) {
-  const isSpanish = locale === SPANISH_LOCALE
+  const config = LOCALE_CONFIG[locale]
   return {
-    language: isSpanish ? SPANISH_LANGUAGE : DEFAULT_LANGUAGE,
+    language: config.language,
     locale,
-    openGraphLocale: isSpanish ? SPANISH_OG_LOCALE : DEFAULT_OG_LOCALE,
-    region: isSpanish ? undefined : DEFAULT_REGION,
-    textDirection: isSpanish ? SPANISH_TEXT_DIRECTION : LOCALE_TEXT_DIRECTION,
+    openGraphLocale: config.openGraphLocale,
+    region: config.region,
+    textDirection: config.textDirection,
     alternates: getCurrentLocaleAlternates(path),
   }
 }
