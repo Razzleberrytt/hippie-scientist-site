@@ -21,6 +21,7 @@
     "validate:evidence-grades": "tsx scripts/ci/validate-evidence-grade-consistency.ts",
     "data:normalize-evidence": "tsx scripts/data/normalize-evidence-grades.ts --data-dir=public/data",
     "audit:content-integrity": "node scripts/ci/audit-content-integrity.mjs",
+    "audit:source-integrity": "tsx scripts/ci/audit-source-integrity.ts",
     "validate:scientific-names": "node scripts/ci/validate-scientific-names.mjs",
     "validate:editorial-leaks": "node scripts/ci/validate-editorial-leaks.mjs",
     "report:thin-pages": "npm run -s gate:content-quality && npm run -s audit:citation-density && node scripts/ci/report-thin-page-actions.mjs",
