@@ -103,6 +103,11 @@ export type PublicEvidenceReportMetrics = {
   disagreementStudyCount: number
   /** Null for synthetic/pure builders that do not execute canonical topology. */
   underlyingStudyMetricsSource: 'canonical-research-topology' | null
+  /** Public/indexable profiles requested from and matched by the canonical research topology. */
+  researchTopologyRequestedProfiles: number | null
+  researchTopologyMatchedProfiles: number | null
+  researchTopologyMissingProfiles: number | null
+  researchTopologyProfileCoverage: number | null
   /** Unique publication identities within the current public/indexable dataset scope. */
   globalInventoryPublicationCount: number | null
   /** Evidence units remaining in the current public scope after explicitly proven registry/lineage dependence is collapsed. */
@@ -432,6 +437,10 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     noClearEffectRelationships,
     disagreementStudyCount: studies.filter(study => study.relationshipSummary === 'mixed').length,
     underlyingStudyMetricsSource: null,
+    researchTopologyRequestedProfiles: null,
+    researchTopologyMatchedProfiles: null,
+    researchTopologyMissingProfiles: null,
+    researchTopologyProfileCoverage: null,
     globalInventoryPublicationCount: null,
     globalInventoryUnderlyingStudyCount: null,
     globalCollapsedInventoryPublicationCount: null,
@@ -493,10 +502,11 @@ export async function getPublicEvidenceDataset(): Promise<PublicEvidenceDataset>
     hydrateIndexableRecords(compounds, 'compound'),
   ])
   const dataset = buildPublicEvidenceDatasetFromRecords([...herbRecords, ...compoundRecords])
-  const topology = buildScopedResearchQualityTopology(
+  const scopedTopology = buildScopedResearchQualityTopology(
     process.cwd(),
     dataset.ingredients.map((ingredient) => ingredient.path),
-  ).topology
+  )
+  const topology = scopedTopology.topology
   const independence = topology.underlyingStudyIndependence.summary
   const coverage = topology.evidenceIndependenceCoverage.summary
 
@@ -505,6 +515,10 @@ export async function getPublicEvidenceDataset(): Promise<PublicEvidenceDataset>
     metrics: {
       ...dataset.metrics,
       underlyingStudyMetricsSource: 'canonical-research-topology',
+      researchTopologyRequestedProfiles: scopedTopology.requestedProfileUrls.length,
+      researchTopologyMatchedProfiles: scopedTopology.matchedProfileUrls.length,
+      researchTopologyMissingProfiles: scopedTopology.missingProfileUrls.length,
+      researchTopologyProfileCoverage: scopedTopology.profileCoverage,
       globalInventoryPublicationCount: independence.globalInventoryPublicationCount,
       globalInventoryUnderlyingStudyCount: independence.globalInventoryUnderlyingStudyCount,
       globalCollapsedInventoryPublicationCount: independence.globalCollapsedInventoryPublicationCount,
