@@ -24,17 +24,19 @@ export function EvidenceConfidence({
   whyNotHigher,
   whyNotLower,
   practicalTakeaway,
+  className = 'my-4',
 }: {
   title?: string
   grade: string
   whyNotHigher: string[]
   whyNotLower?: string[]
   practicalTakeaway: ReactNode
+  className?: string
 }) {
   const gradeStyle = GRADE_STYLE[String(grade).toLowerCase()] ?? GRADE_STYLE.moderate
 
   return (
-    <section className="not-prose my-4">
+    <section className={`not-prose ${className}`}>
       <details className="group border-y border-[color:var(--hs-hairline-strong)] !bg-transparent !p-0 !shadow-none">
         <summary className="flex min-h-12 cursor-pointer list-none flex-wrap items-center justify-between gap-3 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] [&::-webkit-details-marker]:hidden">
           <span className="flex flex-wrap items-center gap-3">
