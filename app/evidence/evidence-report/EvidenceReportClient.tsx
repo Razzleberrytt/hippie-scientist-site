@@ -139,9 +139,9 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
           </p>
         </div>
         <div className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Disagreement surfaced</p>
-          <p className="mt-2 text-3xl font-bold text-ink">{metrics.disagreementStudyCount.toLocaleString()}</p>
-          <p className="mt-1 text-xs text-muted">Study entities linked to mixed directional evidence contexts instead of being averaged away.</p>
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Endpoint heterogeneity</p>
+          <p className="mt-2 text-3xl font-bold text-ink">{metrics.withinIngredientDirectionalHeterogeneityStudyCount.toLocaleString()}</p>
+          <p className="mt-1 text-xs text-muted">Deduplicated study entities with mixed directional endpoint contexts for the same ingredient. Cross-ingredient variation is excluded from this headline count.</p>
         </div>
       </section>
 
