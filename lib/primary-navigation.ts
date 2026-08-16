@@ -14,7 +14,6 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Goals',
     href: '/goals',
     description: 'Start with what you are researching, then follow the evidence to relevant options',
-    activePrefixes: ['/goals'],
     children: [
       { section: 'Start here', label: 'Goal finder', href: '/goals', description: 'Choose the outcome or question you are actually researching' },
       ...coreGoals.map((goal) => ({
@@ -40,7 +39,6 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Compare',
     href: '/guides/compare',
     description: 'Compare options side by side by evidence, safety, form, dose, and practical tradeoffs',
-    activePrefixes: ['/guides/compare'],
     children: [
       { label: 'Comparison center', href: '/guides/compare', description: 'Browse published side-by-side evidence and safety comparisons' },
       { label: 'Build your own', href: '/guides/compare/dynamic', description: 'Choose two ingredients and inspect the structured research matrix' },
