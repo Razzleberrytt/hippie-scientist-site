@@ -35,11 +35,14 @@ function analysis(abstracts: string[], confidence = 0.8): ResearchQualityAnalysi
   } as unknown as ResearchQualityAnalysis
 }
 
-function report(abstracts: string[], confidence = 0.8) {
-  const input = analysis(abstracts, confidence)
+function analyze(input: ResearchQualityAnalysis) {
   const trialRegistrationIndependence = analyzeTrialRegistrationIndependence(input)
   const outcomeMetadata = analyzeOutcomeMetadata({ analysis: input, trialRegistrationIndependence })
   return analyzeSelectiveOutcomeReporting({ analysis: input, outcomeMetadata })
+}
+
+function report(abstracts: string[], confidence = 0.8) {
+  return analyze(analysis(abstracts, confidence))
 }
 
 describe('selective outcome reporting', () => {
@@ -80,5 +83,23 @@ describe('selective outcome reporting', () => {
 
     expect(result.summary.assessableClaims).toBe(0)
     expect(result.summary.findings).toBe(0)
+  })
+
+  it('counts duplicate source aliases as one canonical linked study', () => {
+    const input = analysis([
+      'The prespecified primary outcome showed no significant difference. A secondary endpoint significantly improved versus placebo.',
+      'Duplicate source row for the same publication.',
+    ])
+    input.profiles[0].record.sources = [
+      { id: 's1', pmid: '1', doi: '10.1000/example', studyClass: 'rct' },
+      { id: 's2', doi: '10.1000/example', studyClass: 'rct' },
+    ]
+    input.profiles[0].record.claimMap![0].sourceRefIds = ['s1', 's2']
+
+    const result = analyze(input)
+
+    expect(result.claims[0].humanSourceCount).toBe(1)
+    expect(result.claims[0].primaryOutcomeNotMetCount).toBe(1)
+    expect(result.summary.selectiveOutcomeRisks).toBe(1)
   })
 })
