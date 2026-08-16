@@ -47,6 +47,8 @@ function fixture(source: Record<string, unknown>) {
     evidenceGradeContradictions: [],
     summary: {
       structuralFailures: 0,
+      unsupportedApprovedClaims: 0,
+      danglingClaimSourceEdges: 0,
       severeStudyClassConflicts: 0,
       evidenceGradeContradictions: 0,
       blockingFailures: 0,
