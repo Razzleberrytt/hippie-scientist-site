@@ -36,11 +36,11 @@ const GRADES = [
 export default function EvidenceGradeExplainer() {
   return (
     <details className="group">
-      <summary className="flex min-h-11 cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted select-none transition-colors hover:bg-brand-50/60 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
+      <summary className="flex min-h-11 cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted select-none transition-colors hover:bg-[var(--surface-subtle)] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
         <span aria-hidden="true" className="inline-block text-brand-500 transition-transform group-open:rotate-90">▶</span>
         How evidence grades work
       </summary>
-      <div className="mt-3 rounded-xl border border-brand-900/10 bg-white/70 p-3 space-y-2 dark:border-white/10 dark:bg-white/5">
+      <div className="mt-3 space-y-2 rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3 dark:border-white/10">
         <p className="text-[11px] leading-5 text-muted">
           Each grade reflects the strength and consistency of published human evidence — not marketing claims.
           Grades are based on study count, design quality, effect size, consistency, and recency.
@@ -52,7 +52,7 @@ export default function EvidenceGradeExplainer() {
               className={`flex items-start gap-2 rounded-lg border p-2 ${bg} ${border}`}
             >
               <span
-                className={`shrink-0 inline-flex h-6 w-6 items-center justify-center rounded-full border bg-white/60 ${text} ${border} text-xs font-bold dark:bg-black/10`}
+                className={`inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border bg-[var(--surface-card-strong)] ${text} ${border} text-xs font-bold`}
               >
                 {grade}
               </span>
