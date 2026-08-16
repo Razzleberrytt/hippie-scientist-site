@@ -3,13 +3,13 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { buildAiCitationReadiness, writeAiCitationReadinessReport } from '../../lib/ai-citation-readiness'
-import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
+import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 
 const ROOT = process.cwd()
 const strict = process.argv.includes('--strict')
 const entityRoot = path.join(ROOT, 'public', 'data', 'ai-entities')
 
-const analysis = analyzeResearchQuality(ROOT)
+const { analysis } = buildResearchQualitySnapshot(ROOT)
 const report = buildAiCitationReadiness(analysis, ROOT)
 const output = writeAiCitationReadinessReport(report, ROOT)
 const { summary } = report
