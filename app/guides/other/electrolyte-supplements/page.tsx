@@ -5,6 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -18,9 +19,6 @@ const FAQS = [
   { question: 'Do I need electrolyte supplements?', answer: 'Most people do not. The AIS (Australian Institute of Sport) classifies electrolyte supplements as a sports food for specific use cases: prolonged exercise &gt;90 min, extreme heat, or documented high sodium losses [1]. For healthy adults with normal diets and moderate activity, kidneys regulate electrolyte balance effectively [2]. Supplementation is primarily indicated for endurance athletes, outdoor laborers in heat, and during illness with vomiting/diarrhea.' },
   { question: 'Is LMNT worth it?', answer: 'For heavy sweaters and endurance athletes — reasonable. LMNT provides 1,000 mg sodium, 200 mg potassium, and 60 mg magnesium at ~$1.50/serving. The 5:1 sodium-to-potassium ratio reflects sweat composition [3]. For everyone else, salt your food and eat potassium-rich foods (bananas, potatoes, spinach) — same electrolytes at 1% of the cost.' },
 ];
-
-type RefProps = { n: number; text: string; url?: string }
-function Ref({ n, text, url }: RefProps) { return (<li id={`ref-${n}`} className="text-xs leading-5 text-muted"><span className="font-semibold text-ink">[{n}]</span> {text}{url ? <> <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand-700 underline hover:text-brand-800">→</a></> : null}</li>) }
 
 export default function ElectrolyteGuidePage() {
   return (

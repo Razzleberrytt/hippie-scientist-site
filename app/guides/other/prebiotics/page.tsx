@@ -5,6 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -21,9 +22,6 @@ const FAQS = [
   { question: 'Why do prebiotics cause gas?', answer: 'Fermentation produces gas (hydrogen, methane, CO₂). Start at 1-2 g/day, increase by 1-2 g every 3-4 days over 2-3 weeks. Most adapt within 1-2 weeks [2]. Persistent bloating at low doses may indicate SIBO or IBS — consult a gastroenterologist. PHGG (partially hydrolyzed guar gum) is the best-tolerated prebiotic for sensitive guts [5].' },
   { question: 'Which prebiotic supplement is best?', answer: 'PHGG — best-tolerated, evidence for IBS [5]. Inulin/FOS — most studied for microbiome support, more gas [2]. GOS — gentler, supports immune function [6]. Resistant starch (green banana flour, potato starch) — metabolic health, 15-30 g/day. Start with PHGG if sensitive; inulin if fiber-tolerant. No supplement replicates the diversity of food fiber [4].' },
 ];
-
-type RefProps = { n: number; text: string; url?: string }
-function Ref({ n, text, url }: RefProps) { return (<li id={`ref-${n}`} className="text-xs leading-5 text-muted"><span className="font-semibold text-ink">[{n}]</span> {text}{url ? <> <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand-700 underline hover:text-brand-800">→</a></> : null}</li>) }
 
 export default function PrebioticsGuide() {
   return (

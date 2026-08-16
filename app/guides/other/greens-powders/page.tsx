@@ -5,6 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -21,9 +22,6 @@ const FAQS = [
   { question: 'What should I look for in a greens powder?', answer: 'Transparent labeling (no proprietary blends), third-party testing for heavy metals (algae ingredients concentrate contaminants) [7], organic certification, and clear ingredient amounts. Expect $30-50/month for quality. Anything approaching $100/month should be scrutinized carefully.' },
   { question: 'Are greens powders safe?', answer: 'Generally yes, but three concerns: (1) heavy metal contamination in spirulina/chlorella products [7], (2) excessive B6/B12 doses causing neuropathy or acne with long-term use, (3) vitamin K interference with warfarin [8]. The lack of FDA pre-market review means quality varies dramatically.' },
 ]
-
-type RefProps = { n: number; text: string; url?: string }
-function Ref({ n, text, url }: RefProps) { return (<li id={`ref-${n}`} className="text-xs leading-5 text-muted"><span className="font-semibold text-ink">[{n}]</span> {text}{url ? <> <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand-700 underline hover:text-brand-800">→</a></> : null}</li>) }
 
 export default function GreensPowdersPage() {
   return (

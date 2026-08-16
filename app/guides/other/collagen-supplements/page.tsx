@@ -7,6 +7,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -23,9 +24,6 @@ const FAQS = [
   { question: 'Is collagen just overpriced protein?', answer: 'Partially. Collagen lacks tryptophan (incomplete protein) and is inferior to whey for muscle protein synthesis [6]. However, its unique amino acid profile (25% glycine, 12% proline) may stimulate fibroblast collagen synthesis in ways general protein does not [1,7]. The skin/joint evidence is specific to collagen, not just protein. Value depends on your goals.' },
   { question: 'Can I get collagen from bone broth?', answer: 'Bone broth collagen content is unpredictable — one study found commercial broths ranged from undetectable to 5 g/serving [8]. Supplements provide standardized doses matching clinical trial protocols. Bone broth is a healthy food but not a reliable substitute for studied collagen doses.' },
 ];
-
-type RefProps = { n: number; text: string; url?: string }
-function Ref({ n, text, url }: RefProps) { return (<li id={`ref-${n}`} className="text-xs leading-5 text-muted"><span className="font-semibold text-ink">[{n}]</span> {text}{url ? <> <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand-700 underline hover:text-brand-800">→</a></> : null}</li>) }
 
 export default function CollagenGuidePage() {
   return (
