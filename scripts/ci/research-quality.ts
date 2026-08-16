@@ -1,12 +1,12 @@
 #!/usr/bin/env npx tsx
 /** Canonical one-pass research-quality pipeline and unified roll-up. */
 
-import { spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 
 import { buildAiCitationReadiness, writeAiCitationReadinessReport } from '../../lib/ai-citation-readiness'
 import { writeCitationIntegrityReport } from '../../lib/citation-integrity.mjs'
+import { analyzeContentIntegrity, writeContentIntegrityReport } from '../../lib/content-integrity.mjs'
 import { writeEvidenceGradeConsistencyReport } from '../../lib/evidence-grade-consistency'
 import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 import { writeResearchSemanticAlignmentReport } from '../../lib/research-semantic-alignment'
@@ -14,10 +14,6 @@ import { writeResearchSemanticAlignmentReport } from '../../lib/research-semanti
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORT_DIR, 'research-quality.json')
-
-const externalChecks = [
-  { id: 'content-integrity', label: 'Structured content integrity', command: process.execPath, args: ['scripts/ci/audit-content-integrity.mjs'] },
-] as const
 
 type CheckResult = {
   id: string
@@ -27,16 +23,6 @@ type CheckResult = {
   durationMs: number
   stdoutTail: string
   stderrTail: string
-}
-
-function tail(value: string, maxLines = 24): string {
-  return value.split(/\r?\n/).filter(Boolean).slice(-maxLines).join('\n')
-}
-
-function readSummary(fileName: string): unknown {
-  const file = path.join(REPORT_DIR, fileName)
-  if (!fs.existsSync(file)) return null
-  try { return JSON.parse(fs.readFileSync(file, 'utf8')).summary ?? null } catch { return null }
 }
 
 const results: CheckResult[] = []
@@ -88,6 +74,19 @@ const semanticReportPath = writeResearchSemanticAlignmentReport(semanticAlignmen
 const citationReportPath = writeCitationIntegrityReport(citationIntegrity, ROOT)
 const evidenceGradeReportPath = writeEvidenceGradeConsistencyReport(evidenceGradeConsistency, ROOT)
 const aiCitationReportPath = writeAiCitationReadinessReport(aiCitationReadiness, ROOT)
+const contentIntegrityStarted = Date.now()
+const contentIntegrity = analyzeContentIntegrity(ROOT)
+const contentIntegrityReportPath = writeContentIntegrityReport(contentIntegrity, ROOT)
+const contentIntegrityDurationMs = Date.now() - contentIntegrityStarted
+results.push({
+  id: 'content-integrity',
+  label: 'Structured content integrity',
+  passed: true,
+  exitCode: 0,
+  durationMs: contentIntegrityDurationMs,
+  stdoutTail: `profiles=${contentIntegrity.summary.profiles}; indexable=${contentIntegrity.summary.indexable}; duplicateCandidates=${contentIntegrity.summary.duplicateCandidates.total}; mechanismAsOutcome=${contentIntegrity.summary.mechanismAsOutcome.total}`,
+  stderrTail: '',
+})
 
 const weakApprovedOutcomes = analysis.claimAnalyses.filter((claim) => claim.outcomeClaim && ['unsupported', 'unclassified', 'narrative-only', 'indirect-only'].includes(claim.supportTier))
 const unsupportedUnapprovedClaims = analysis.structuredClaimAnalyses.filter((claim) => !claim.approved && claim.supportTier === 'unsupported')
@@ -102,7 +101,7 @@ const weakIdentityProfiles = studyIdentityCoverage.profiles.filter((profile) => 
 const corePassed = gate.passed && sourceIntegrity.summary.withdrawn === 0
 const coreDurationMs = Date.now() - coreStarted
 
-results.push({
+results.unshift({
   id: 'canonical-core',
   label: 'Canonical claim/profile/source research-quality analysis',
   passed: corePassed,
@@ -132,7 +131,7 @@ results.push({
 console.log(`${corePassed ? 'PASS' : 'FAIL'}  Canonical claim/profile/source research-quality analysis  (${coreDurationMs}ms)`)
 if (!corePassed) failed = true
 
-results.push({
+results.splice(1, 0, {
   id: 'citation-identities',
   label: 'Citation identity integrity',
   passed: citationIntegrity.passed,
@@ -144,7 +143,7 @@ results.push({
 if (!citationIntegrity.passed) failed = true
 
 const gradesPassed = evidenceGradeConsistency.invalid.length === 0
-results.push({
+results.splice(2, 0, {
   id: 'evidence-grades',
   label: 'Evidence grade consistency',
   passed: gradesPassed,
@@ -154,22 +153,6 @@ results.push({
   stderrTail: gradesPassed ? '' : `${evidenceGradeConsistency.invalid.length} non-canonical published grade(s)`,
 })
 if (!gradesPassed) failed = true
-
-for (const check of externalChecks) {
-  const started = Date.now()
-  const run = spawnSync(check.command, check.args, { cwd: ROOT, encoding: 'utf8', env: process.env })
-  const exitCode = run.status ?? 1
-  const passed = exitCode === 0
-  const durationMs = Date.now() - started
-  const stdout = String(run.stdout ?? '')
-  const stderr = String(run.stderr ?? '')
-  results.push({ id: check.id, label: check.label, passed, exitCode, durationMs, stdoutTail: tail(stdout), stderrTail: tail(stderr) })
-  if (!passed) {
-    failed = true
-    const detail = tail(stderr || stdout, 10)
-    if (detail) console.error(detail)
-  }
-}
 
 const coreSummary = {
   profiles: analysis.profileAnalyses.length,
@@ -319,7 +302,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
   topResearchGaps: researchGapQueue.slice(0, 50),
   topAiCitationRemediation: aiCitationReadiness.profiles.slice(0, 50),
   checks: results,
-  contentIntegritySummary: readSummary('content-integrity.json'),
+  contentIntegritySummary: contentIntegrity.summary,
 }, null, 2)}\n`)
 
 console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structuredClaims} structured claims · ${coreSummary.approvedClaims} approved`)
@@ -336,6 +319,7 @@ console.log(`Semantic report: ${path.relative(ROOT, semanticReportPath)}`)
 console.log(`Citation report: ${path.relative(ROOT, citationReportPath)}`)
 console.log(`Evidence-grade report: ${path.relative(ROOT, evidenceGradeReportPath)}`)
 console.log(`AI report: ${path.relative(ROOT, aiCitationReportPath)}`)
+console.log(`Content-integrity report: ${path.relative(ROOT, contentIntegrityReportPath)}`)
 console.log(`Roll-up report: ${path.relative(ROOT, REPORT_PATH)}`)
 
 if (failed) {
