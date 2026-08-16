@@ -15,23 +15,28 @@ export default function CompareFAQ({ faqs }: CompareFAQProps) {
   return (
     <section className="max-w-4xl space-y-6">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">FAQ</p>
-        <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
+        <p className="eyebrow-label">FAQ</p>
+        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[color:var(--hs-ink)]">
           Common Questions
         </h2>
       </div>
 
-      <div className="space-y-3">
+      <div className="border-y border-[color:var(--hs-hairline-strong)] divide-y divide-[color:var(--hs-hairline)]">
         {faqs.map((faq, index) => (
           <details
-            key={index}
+            key={faq.question}
             open={index === 0}
-            className="group rounded-2xl border border-brand-900/10 bg-white/80"
+            className="group !border-0 !bg-transparent !p-0 !shadow-none"
           >
-            <summary className="flex cursor-pointer select-none items-center justify-between gap-4 px-5 py-4 text-sm font-medium text-ink marker:content-none">
-              <span>{faq.question}</span>
+            <summary className="flex min-h-12 cursor-pointer list-none select-none items-center justify-between gap-4 py-4 text-sm font-semibold text-[color:var(--hs-ink)] [&::-webkit-details-marker]:hidden">
+              <span className="flex min-w-0 items-start gap-3">
+                <span className="font-display text-sm tabular-nums text-[color:var(--hs-gold)]" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span>{faq.question}</span>
+              </span>
               <svg
-                className="h-4 w-4 shrink-0 text-brand-700 transition-transform duration-200 group-open:rotate-180"
+                className="h-4 w-4 shrink-0 text-[color:var(--hs-body)] transition-transform duration-200 group-open:rotate-180"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -41,32 +46,32 @@ export default function CompareFAQ({ faqs }: CompareFAQProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </summary>
-            <div className="px-5 pb-5">
-              <p className="text-sm leading-relaxed text-muted">{faq.answer}</p>
+            <div className="pb-5 pl-8 pr-1">
+              <p className="max-w-3xl text-sm leading-7 text-[color:var(--hs-body)]">{faq.answer}</p>
             </div>
           </details>
         ))}
       </div>
 
-      <div className="rounded-2xl border border-brand-900/10 bg-brand-50/80 p-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
+      <div className="rounded-2xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface-2)] p-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
         <div className="space-y-1">
-          <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
+          <p className="text-xs font-bold uppercase tracking-wider text-[color:var(--tone-ink)]">
             Need a clearer next step?
           </p>
-          <p className="text-sm leading-6 text-muted">
+          <p className="text-sm leading-6 text-[color:var(--hs-body)]">
             Review the decision guide above, or browse the full compare hub for nearby tradeoffs.
           </p>
         </div>
         <div className="mt-3 flex flex-col gap-2 sm:mt-0 sm:flex-row">
           <a
             href="#compare-decision"
-            className="rounded-full bg-brand-700 px-4 py-2 text-center text-xs font-bold text-white transition-colors hover:bg-brand-600"
+            className="button-primary rounded-full px-4 py-2 text-center text-xs font-bold"
           >
             Review decision guide ↑
           </a>
           <Link
             href="/guides/compare/"
-            className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-center text-xs font-bold text-brand-800 transition-colors hover:bg-brand-100"
+            className="button-secondary rounded-full px-4 py-2 text-center text-xs font-bold"
           >
             Compare hub →
           </Link>
