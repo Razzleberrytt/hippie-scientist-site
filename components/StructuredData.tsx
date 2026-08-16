@@ -1,12 +1,14 @@
 import JsonLd from './seo/JsonLd'
+import { SITE_URL } from '@/src/lib/site'
+import {
+  AUTHOR_NAME,
+  AUTHOR_SCHEMA_ID,
+  AUTHOR_URL,
+  ORGANIZATION_SCHEMA_ID,
+  WEBSITE_SCHEMA_ID,
+  organizationSchemaIdentity,
+} from '@/src/lib/schema-identities'
 
-const SITE_URL = 'https://thehippiescientist.net'
-const SITE_NAME = 'The Hippie Scientist'
-const DEFAULT_AUTHOR = 'Willie B. Randolph III'
-const WEBSITE_ID = `${SITE_URL}/#website`
-const ORGANIZATION_ID = `${SITE_URL}/#organization`
-const AUTHOR_URL = `${SITE_URL}/info/author/`
-const AUTHOR_ID = `${AUTHOR_URL}#person`
 const MIN_FAQ_SCHEMA_ITEMS = 2
 
 const FAQ_FALLBACK_ANSWER_PREFIXES = [
@@ -57,6 +59,7 @@ export interface StructuredDataProps {
   description: string
   datePublished: string
   dateModified?: string
+  /** Reserved for backward compatibility. The canonical author identity is site-governed. */
   authorName?: string
   image?: string
   faqs?: FAQItem[]
@@ -81,7 +84,7 @@ export default function StructuredData({
   description,
   datePublished,
   dateModified,
-  authorName = DEFAULT_AUTHOR,
+  authorName = AUTHOR_NAME,
   image = `${SITE_URL}/og-default.jpg`,
   faqs,
   breadcrumbs,
@@ -97,6 +100,13 @@ export default function StructuredData({
   const webpageId = isMonetized ? `${canonicalPageUrl}#supplement` : `${canonicalPageUrl}#webpage`
   const breadcrumbId = `${canonicalPageUrl}#breadcrumb`
   const faqId = `${canonicalPageUrl}#faq`
+  const author = {
+    '@type': 'Person',
+    '@id': AUTHOR_SCHEMA_ID,
+    name: authorName,
+    url: AUTHOR_URL,
+  }
+  const publisher = organizationSchemaIdentity()
 
   if (isMonetized) {
     schemas.push({
@@ -110,23 +120,9 @@ export default function StructuredData({
       url: canonicalPageUrl,
       datePublished,
       dateModified: dateModified ?? datePublished,
-      author: {
-        '@type': 'Person',
-        '@id': AUTHOR_ID,
-        name: authorName,
-        url: AUTHOR_URL,
-      },
-      publisher: {
-        '@type': 'Organization',
-        '@id': ORGANIZATION_ID,
-        name: SITE_NAME,
-        url: SITE_URL,
-        logo: {
-          '@type': 'ImageObject',
-          url: `${SITE_URL}/logo.svg`,
-        },
-      },
-      isPartOf: { '@id': WEBSITE_ID },
+      author,
+      publisher,
+      isPartOf: { '@id': WEBSITE_SCHEMA_ID },
       ...(hasBreadcrumbs ? { breadcrumb: { '@id': breadcrumbId } } : {}),
       ...(hasFaqSchema ? { hasPart: { '@id': faqId } } : {}),
       mainEntityOfPage: {
@@ -147,29 +143,13 @@ export default function StructuredData({
       datePublished,
       dateModified: dateModified ?? datePublished,
       ...(dateModified ? { lastReviewed: dateModified } : {}),
-      author: {
-        '@type': 'Person',
-        '@id': AUTHOR_ID,
-        name: authorName,
-        url: AUTHOR_URL,
-      },
-      publisher: {
-        '@type': 'Organization',
-        '@id': ORGANIZATION_ID,
-        name: SITE_NAME,
-        url: SITE_URL,
-        logo: {
-          '@type': 'ImageObject',
-          url: `${SITE_URL}/logo.svg`,
-        },
-      },
-      isPartOf: { '@id': WEBSITE_ID },
+      author,
+      publisher,
+      isPartOf: { '@id': WEBSITE_SCHEMA_ID },
       ...(hasBreadcrumbs ? { breadcrumb: { '@id': breadcrumbId } } : {}),
       ...(hasFaqSchema ? { hasPart: { '@id': faqId } } : {}),
-      medicalAudience: {
-        '@type': 'MedicalAudience',
-        audienceType: 'Patient',
-      },
+      // Educational research content is not a clinical service. Avoid Patient
+      // audience markup that could imply a clinician-patient relationship.
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': canonicalPageUrl,
@@ -177,9 +157,6 @@ export default function StructuredData({
     })
   }
 
-  // FAQPage should only be emitted when there are enough meaningful Q&A pairs
-  // for rich-result eligibility. A one-item FAQ block creates avoidable schema
-  // noise across thin/partial pages without adding search value.
   if (hasFaqSchema) {
     schemas.push({
       '@context': 'https://schema.org',
