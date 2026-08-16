@@ -60,6 +60,19 @@ function fixtures() {
       findings: [],
       highConfidenceFindings: [],
     },
+    selectiveOutcomeReporting: {
+      summary: {
+        approvedOutcomeClaims: 0,
+        assessableClaims: 0,
+        findings: 0,
+        highConfidenceFindings: 0,
+        selectiveOutcomeRisks: 0,
+        explicitOutcomeSwitchRisks: 0,
+      },
+      claims: [],
+      findings: [],
+      highConfidenceFindings: [],
+    },
     underlyingStudyIndependence: {
       summary: {
         multiStudyApprovedClaims: 0,
@@ -194,6 +207,50 @@ describe('research quality snapshot invariants', () => {
     const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
     expect(report.passed).toBe(false)
     expect(report.failures.map((failure) => failure.kind)).toContain('semantic-approved-claim-count-mismatch')
+  })
+
+  it('detects selective-outcome summary drift', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
+    topology.selectiveOutcomeReporting.summary.assessableClaims = 1
+    topology.selectiveOutcomeReporting.summary.findings = 1
+    topology.selectiveOutcomeReporting.summary.highConfidenceFindings = 1
+    topology.selectiveOutcomeReporting.summary.selectiveOutcomeRisks = 1
+    topology.selectiveOutcomeReporting.summary.explicitOutcomeSwitchRisks = 1
+    const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
+    const kinds = report.failures.map((failure) => failure.kind)
+    expect(kinds).toContain('selective-outcome-assessable-count-mismatch')
+    expect(kinds).toContain('selective-outcome-finding-count-mismatch')
+    expect(kinds).toContain('selective-outcome-high-confidence-count-mismatch')
+    expect(kinds).toContain('selective-outcome-risk-count-mismatch')
+    expect(kinds).toContain('selective-outcome-switch-count-mismatch')
+  })
+
+  it('detects selective-outcome rows that reference unknown canonical claims', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
+    const row = {
+      url: '/herbs/example',
+      claimId: 'missing-claim',
+      predicate: 'supports_outcome',
+      confidence: 0.8,
+      humanSourceCount: 1,
+      assessableSourceCount: 1,
+      registeredOrPrespecifiedPrimaryNullCount: 1,
+      favorableSecondaryOrExploratoryCount: 1,
+      explicitOutcomeSwitchCount: 0,
+      primaryOutcomeNotMetCount: 1,
+      selectiveOutcomeRisk: true,
+      explicitOutcomeSwitchRisk: false,
+      reasons: ['fixture'],
+    }
+    topology.selectiveOutcomeReporting.claims = [row]
+    topology.selectiveOutcomeReporting.findings = [row]
+    topology.selectiveOutcomeReporting.highConfidenceFindings = [row]
+    topology.selectiveOutcomeReporting.summary.assessableClaims = 1
+    topology.selectiveOutcomeReporting.summary.findings = 1
+    topology.selectiveOutcomeReporting.summary.highConfidenceFindings = 1
+    topology.selectiveOutcomeReporting.summary.selectiveOutcomeRisks = 1
+    const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
+    expect(report.failures.map((failure) => failure.kind)).toContain('selective-outcome-unknown-claim')
   })
 
   it('detects derived findings that reference an unknown approved claim', () => {

@@ -149,6 +149,39 @@ export function validateResearchQualitySnapshotInvariants(
   }
   for (const invariant of validateEffectCertaintySnapshotInvariants(analysis, topology)) add(invariant.kind, invariant.detail)
   for (const invariant of validateDirectionalConsistencySnapshotInvariants(analysis, topology)) add(invariant.kind, invariant.detail)
+
+  const selectiveOutcome = topology.selectiveOutcomeReporting
+  if (selectiveOutcome.summary.assessableClaims !== selectiveOutcome.claims.length) {
+    add('selective-outcome-assessable-count-mismatch', `summary=${selectiveOutcome.summary.assessableClaims}; rows=${selectiveOutcome.claims.length}`)
+  }
+  if (selectiveOutcome.summary.findings !== selectiveOutcome.findings.length) {
+    add('selective-outcome-finding-count-mismatch', `summary=${selectiveOutcome.summary.findings}; rows=${selectiveOutcome.findings.length}`)
+  }
+  if (selectiveOutcome.summary.highConfidenceFindings !== selectiveOutcome.highConfidenceFindings.length) {
+    add('selective-outcome-high-confidence-count-mismatch', `summary=${selectiveOutcome.summary.highConfidenceFindings}; rows=${selectiveOutcome.highConfidenceFindings.length}`)
+  }
+  const computedSelectiveOutcomeRisks = selectiveOutcome.findings.filter((claim) => claim.selectiveOutcomeRisk).length
+  if (selectiveOutcome.summary.selectiveOutcomeRisks !== computedSelectiveOutcomeRisks) {
+    add('selective-outcome-risk-count-mismatch', `summary=${selectiveOutcome.summary.selectiveOutcomeRisks}; computed=${computedSelectiveOutcomeRisks}`)
+  }
+  const computedOutcomeSwitchRisks = selectiveOutcome.findings.filter((claim) => claim.explicitOutcomeSwitchRisk).length
+  if (selectiveOutcome.summary.explicitOutcomeSwitchRisks !== computedOutcomeSwitchRisks) {
+    add('selective-outcome-switch-count-mismatch', `summary=${selectiveOutcome.summary.explicitOutcomeSwitchRisks}; computed=${computedOutcomeSwitchRisks}`)
+  }
+  const selectiveOutcomeClaimKeys = new Set(selectiveOutcome.claims.map((claim) => claimKey(claim.url, claim.claimId)))
+  for (const finding of selectiveOutcome.findings) {
+    if (!selectiveOutcomeClaimKeys.has(claimKey(finding.url, finding.claimId))) {
+      add('selective-outcome-finding-not-assessable', `${finding.url}::${finding.claimId}`)
+    }
+  }
+  for (const finding of selectiveOutcome.highConfidenceFindings) {
+    const key = claimKey(finding.url, finding.claimId)
+    if (!selectiveOutcomeClaimKeys.has(key)) add('selective-outcome-high-confidence-not-assessable', `${finding.url}::${finding.claimId}`)
+    if (!selectiveOutcome.findings.some((candidate) => claimKey(candidate.url, candidate.claimId) === key)) {
+      add('selective-outcome-high-confidence-not-finding', `${finding.url}::${finding.claimId}`)
+    }
+  }
+
   if (topology.edgeCardinality.summary.claims !== analysis.structuredClaimAnalyses.length) {
     add('edge-cardinality-claim-count-mismatch', `edgeCardinality=${topology.edgeCardinality.summary.claims}; analysis=${analysis.structuredClaimAnalyses.length}`)
   }
@@ -177,6 +210,10 @@ export function validateResearchQualitySnapshotInvariants(
   for (const claim of topology.claimBreadth.claims) {
     requireProfile('claim-breadth-unknown-profile', claim.url, claim.claimId)
     requireApprovedClaim('claim-breadth-unknown-claim', claim.url, claim.claimId)
+  }
+  for (const claim of selectiveOutcome.claims) {
+    requireProfile('selective-outcome-unknown-profile', claim.url, claim.claimId)
+    requireApprovedClaim('selective-outcome-unknown-claim', claim.url, claim.claimId)
   }
   for (const finding of topology.claimLanguageCalibration.directEvidenceFindings) requireApprovedClaim('language-calibration-unknown-claim', finding.url, finding.claimId)
   for (const claim of topology.claimCitationMetadata.claims) requireApprovedClaim('citation-metadata-unknown-claim', claim.url, claim.claimId)
