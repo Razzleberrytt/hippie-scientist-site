@@ -115,8 +115,11 @@ function auditProfilePrimitives() {
   ])
   requireSignals(SAFETY_GAUGE, 'profile-semantics', 'SafetyGaugeMeter', [
     ['data-safety-context="true"', 'safety-context marker'],
-    ['data-safety-score={clamped}', 'safety-score value'],
+    ['data-safety-label={label}', 'qualitative safety label'],
   ])
+  if (text(SAFETY_GAUGE).includes('data-safety-score=')) {
+    add('error', 'profile-semantics', 'SafetyGaugeMeter exposes a derived visual gauge as a machine-readable clinical-looking score')
+  }
   requireSignals(LAST_UPDATED, 'profile-semantics', 'LastUpdatedBadge', [
     ['data-editorial-provenance="true"', 'editorial-provenance marker'],
     ['data-last-reviewed=', 'last-reviewed value'],
