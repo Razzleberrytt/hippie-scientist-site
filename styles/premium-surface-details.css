@@ -17,7 +17,10 @@ main table {
   border-radius: 0.9rem;
 }
 
-main thead th {
+/* Ordinary publication tables use the neutral header treatment. Semantic
+   red/rose/amber/yellow/emerald table heads keep their component-defined fill
+   and text color instead of being painted over by child <th> cells. */
+main thead:not([class*='bg-red']):not([class*='bg-rose']):not([class*='bg-amber']):not([class*='bg-yellow']):not([class*='bg-emerald']) th {
   background: var(--surface-subtle) !important;
   color: var(--text-primary) !important;
 }
