@@ -15,8 +15,9 @@ import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
 import LocalizedNavigation from '@/components/localization/LocalizedNavigation'
-import SpanishFooter from '@/components/localization/SpanishFooter'
-import { EnglishOnly, SpanishOnly } from '@/components/localization/LocaleGate'
+import LocalizedFooter from '@/components/localization/LocalizedFooter'
+import LocalizedSkipLink from '@/components/localization/LocalizedSkipLink'
+import { EnglishOnly, LocalizedOnly } from '@/components/localization/LocaleGate'
 import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
 import { serializeJsonLd } from '../src/lib/schema-injector'
 import { DEFAULT_LOCALE, DEFAULT_OG_LOCALE, LOCALE_TEXT_DIRECTION } from '../src/lib/international-seo'
@@ -129,9 +130,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <NavigationSchema />
           <BreadcrumbSchema />
         </EnglishOnly>
-        <a href='#main-content' className='skip-link'>
-          Skip to main content
-        </a>
+        <LocalizedSkipLink />
         <DarkModeProvider>
           <div className='hs-shell min-h-screen bg-background text-ink transition-colors duration-300'>
             <header>
@@ -156,9 +155,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <EnglishOnly>
               <Footer />
             </EnglishOnly>
-            <SpanishOnly>
-              <SpanishFooter />
-            </SpanishOnly>
+            <LocalizedOnly>
+              <LocalizedFooter />
+            </LocalizedOnly>
             <ScrollToTopButton />
             <EnglishOnly>
               <CitationDrawerLazy />
