@@ -86,14 +86,14 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
         {(product.price || product.rating) ? <p className='mt-4 text-xs font-semibold text-muted'>{[product.price, product.rating ? `${product.rating.toFixed(1)} rating` : ''].filter(Boolean).join(' / ')}</p> : null}
 
         {product.selectionCriteria?.length ? (
-          <div className='mt-4 rounded-xl border border-brand-900/10 bg-brand-50/50 p-3'>
+          <div className='mt-4 rounded-xl border border-brand-900/10 bg-brand-50/50 p-3 dark:border-white/10 dark:bg-white/5'>
             <p className='text-[10px] font-bold uppercase tracking-wider text-muted'>Selection criteria</p>
             <ul className='mt-2 space-y-1 text-xs leading-5 text-muted'>{product.selectionCriteria.slice(0, 4).map((criterion) => <li key={criterion}>• {criterion}</li>)}</ul>
           </div>
         ) : null}
 
-        {lifecycle?.action === 'review' ? <p className='mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900'>Product verification needs refresh: {lifecycle.reasons.join(' ')}</p> : null}
-        {lifecycleBlocked ? <p className='mt-3 rounded-lg bg-rose-50 px-3 py-2 text-xs leading-5 text-rose-900'>Recommendation suppressed: {lifecycle?.reasons.join(' ')}</p> : null}
+        {lifecycle?.action === 'review' ? <p className='mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900 dark:bg-amber-300/10 dark:text-amber-100'>Product verification needs refresh: {lifecycle.reasons.join(' ')}</p> : null}
+        {lifecycleBlocked ? <p className='mt-3 rounded-lg bg-rose-50 px-3 py-2 text-xs leading-5 text-rose-900 dark:bg-rose-300/10 dark:text-rose-100'>Recommendation suppressed: {lifecycle?.reasons.join(' ')}</p> : null}
 
         {isValidUrl ? (
           <a
