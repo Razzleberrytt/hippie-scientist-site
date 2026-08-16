@@ -29,13 +29,17 @@ export default function LegacyGuideFAQ({ questions, pagePath }: LegacyGuideFAQPr
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
         <div className="space-y-4">
           {questions.map((faq) => (
-            <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+            <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
               <h3 className="font-semibold text-ink">{faq.question}</h3>
               <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
             </div>
           ))}
         </div>
-        <a href="#references" data-citation-sources="true" className="text-xs font-semibold text-brand-800 hover:underline">
+        <a
+          href="#references"
+          data-citation-sources="true"
+          className="inline-flex min-h-11 items-center rounded-lg text-xs font-semibold text-brand-800 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 dark:text-brand-200"
+        >
           Verify sources →
         </a>
         <a href="#frequently-asked-questions" className="sr-only">Permanent link to frequently asked questions</a>
