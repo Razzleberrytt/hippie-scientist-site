@@ -26,7 +26,7 @@ function claim(overrides: Partial<ClaimQualityAnalysis> & Pick<ClaimQualityAnaly
     primaryHuman: studyCount,
     synthesis: 0,
     narrative: 0,
-    designs: Array.from({ length: studyCount }, () => 'rct'),
+    designs: Array.from({ length: studyCount }, () => 'rct' as const),
     outcomeClaim: true,
     supportTier: 'human-supported',
     structuredSupportTier: studyCount === 1 ? 'single-study' : 'adequate',
