@@ -27,7 +27,7 @@ export function DecisionEmptyState({
   actions: DecisionEmptyStateAction[]
 }) {
   return (
-    <div className="rounded-[1rem] border border-brand-900/10 bg-white/85 p-4 shadow-sm sm:p-5">
+    <div className="rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-4 shadow-sm sm:p-5">
       <div className="max-w-2xl space-y-2">
         <p className="eyebrow-label">{eyebrow}</p>
         <h2 className="compact-heading">{title}</h2>
@@ -72,13 +72,13 @@ export function DecisionFilterGroup({
   open?: boolean
 }) {
   const itemClass = (active: boolean) =>
-    `rounded-full border px-2.5 py-1.5 text-xs font-semibold leading-tight transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`
+    `rounded-full border px-2.5 py-1.5 text-xs font-semibold leading-tight transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-[var(--surface-card)] text-[var(--text-secondary)] hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)] hover:text-ink'}`
   const activeContextLabel = activeFilter === 'all'
     ? null
     : options.find(option => option.value === activeFilter)?.label
 
   return (
-    <details className="group mt-3 rounded-[0.8rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-3 shadow-none" open={open || undefined}>
+    <details className="group mt-3 rounded-[0.8rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-none" open={open || undefined}>
       <summary className="flex min-h-8 cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/30 focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden">
         <span className="min-w-0">
           <span>Refine by context</span>
