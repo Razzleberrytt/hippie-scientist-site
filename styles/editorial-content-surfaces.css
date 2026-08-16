@@ -106,7 +106,7 @@ html:not(.dark) nav[aria-label="Page sections"] a {
   color: var(--hs-body);
 }
 
-html:not(.dark) nav[aria-label="Page sections"] a[aria-current="true"],
+html:not(.dark) nav[aria-label="Page sections"] a[aria-current="location"],
 html:not(.dark) nav[aria-label="Page sections"] a:hover {
   background: color-mix(in srgb, var(--tone) 7%, var(--hs-surface));
   color: var(--hs-ink);
