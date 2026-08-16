@@ -9,7 +9,6 @@ main:has(nav[aria-label="Page sections"]) > div.mx-auto {
   max-width: 1180px;
 }
 
-main:has(nav[aria-label="Page sections"]) .hero-shell,
 #ashwagandha-stress-claim,
 main:has(nav[aria-label="Page sections"]) #quick-stats,
 main:has(nav[aria-label="Page sections"]) #compare,
