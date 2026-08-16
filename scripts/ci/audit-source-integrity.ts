@@ -1,57 +1,29 @@
-/**
- * Canonical research/source integrity audit.
- *
- * Measures both the global study graph and the profile-local claim graph:
- *  1. Which studies are load-bearing across the site.
- *  2. Retractions / expressions of concern.
- *  3. Citation age and study-design mix.
- *  4. Per-profile evidence mix (primary human, synthesis, narrative review, other).
- *  5. Claim dependency concentration: unsupported claims, single-source claims,
- *     dangling source references, and profiles whose approved claims repeatedly
- *     depend on the same study.
- *
- * Retractions remain blocking here. Claim-coverage defects are reported for
- * editorial triage; the dedicated research-quality gate can decide which of
- * those should block release.
- */
+/** Canonical research/source integrity and coverage-topology audit. */
 
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { normalizeStudyClass, strongestStudyClass, STUDY_CLASS_INFO, type StudyClass } from '../../lib/study-class'
+import {
+  approvedClaims,
+  designFromPublicationTypes,
+  listResearchProfiles,
+  loadPubmedCache,
+  NARRATIVE_STUDY_CLASSES,
+  PRIMARY_HUMAN_STUDY_CLASSES,
+  sourceMap,
+  sourceStudyClass,
+  SYNTHESIS_STUDY_CLASSES,
+  uniqueSourceRefs,
+  type PubmedCache,
+  type ResearchProfile,
+} from '../../lib/research-coverage'
+import { STUDY_CLASS_INFO, type StudyClass } from '../../lib/study-class'
 
 const ROOT = process.cwd()
-const DATA_DIR = path.join(ROOT, 'public', 'data')
-const CACHE_PATH = path.join(ROOT, 'ops', 'cache', 'pubmed-metadata.json')
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORTS_DIR, 'source-integrity.json')
 const WITHDRAWN = /retract|expression of concern|withdrawn/i
 const CURRENT_YEAR = Number(process.env.SOURCE_AUDIT_YEAR) || new Date().getFullYear()
-
-const PRIMARY_HUMAN = new Set<StudyClass>(['rct', 'controlled-trial', 'uncontrolled-trial'])
-const SYNTHESIS = new Set<StudyClass>(['meta-analysis', 'systematic-review'])
-const NARRATIVE = new Set<StudyClass>(['narrative-review'])
-
-type SourceRecord = {
-  id?: string
-  pmid?: string
-  pubmedId?: string
-  studyClass?: string
-  studyType?: string
-}
-
-type ClaimRecord = {
-  id?: string
-  claim?: string
-  reviewStatus?: string
-  sourceRefIds?: string[]
-}
-
-type ProfileRecord = {
-  slug?: string
-  sources?: SourceRecord[]
-  claimMap?: ClaimRecord[]
-}
 
 type ProfileAnalysis = {
   url: string
@@ -72,53 +44,7 @@ type ProfileAnalysis = {
   noPrimaryHuman: boolean
 }
 
-function loadCache(): Record<string, Record<string, unknown>> {
-  if (!fs.existsSync(CACHE_PATH)) return {}
-  try {
-    return JSON.parse(fs.readFileSync(CACHE_PATH, 'utf8')).records ?? {}
-  } catch {
-    return {}
-  }
-}
-
-function designOf(meta: { publicationTypes?: string[] }): StudyClass {
-  const classes = (meta.publicationTypes ?? [])
-    .filter((type) => !/^journal article$/i.test(type))
-    .map((type) => normalizeStudyClass(type))
-    .filter((studyClass) => studyClass !== 'unclassified')
-  return strongestStudyClass(classes)
-}
-
-function sourceDesign(source: SourceRecord, cache: Record<string, Record<string, unknown>>): StudyClass {
-  const explicit = normalizeStudyClass(source.studyClass ?? source.studyType ?? '')
-  if (explicit !== 'unclassified') return explicit
-  const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
-  const meta = (cache[pmid] ?? {}) as { publicationTypes?: string[] }
-  return meta.publicationTypes ? designOf(meta) : 'unclassified'
-}
-
-function profileRecords(): Array<{ url: string; record: ProfileRecord }> {
-  const profiles: Array<{ url: string; record: ProfileRecord }> = []
-  for (const [dir, kind] of [
-    ['herbs-detail', 'herbs'],
-    ['compounds-detail', 'compounds'],
-  ]) {
-    const full = path.join(DATA_DIR, dir)
-    if (!fs.existsSync(full)) continue
-    for (const file of fs.readdirSync(full)) {
-      if (!file.endsWith('.json')) continue
-      try {
-        const record = JSON.parse(fs.readFileSync(path.join(full, file), 'utf8')) as ProfileRecord
-        profiles.push({ url: `/${kind}/${record.slug ?? file.replace(/\.json$/, '')}/`, record })
-      } catch {
-        // Parsing defects are owned by the data validators.
-      }
-    }
-  }
-  return profiles
-}
-
-function buildCitationGraph(profiles: Array<{ url: string; record: ProfileRecord }>): Map<string, Set<string>> {
+function buildCitationGraph(profiles: ReturnType<typeof listResearchProfiles>): Map<string, Set<string>> {
   const referencedBy = new Map<string, Set<string>>()
   for (const { url, record } of profiles) {
     for (const source of Array.isArray(record.sources) ? record.sources : []) {
@@ -131,24 +57,24 @@ function buildCitationGraph(profiles: Array<{ url: string; record: ProfileRecord
   return referencedBy
 }
 
-function analyzeProfile(url: string, record: ProfileRecord, cache: Record<string, Record<string, unknown>>): ProfileAnalysis {
+function analyzeProfile(url: string, record: ResearchProfile, cache: PubmedCache): ProfileAnalysis {
   const sources = Array.isArray(record.sources) ? record.sources : []
-  const claims = Array.isArray(record.claimMap) ? record.claimMap : []
-  const sourceById = new Map(sources.filter((s) => s.id).map((s) => [String(s.id), s]))
+  const allClaims = Array.isArray(record.claimMap) ? record.claimMap : []
+  const approved = approvedClaims(record)
+  const sourcesById = sourceMap(record)
   const designMix: Record<string, number> = {}
   let primaryHuman = 0
   let synthesis = 0
   let narrativeReview = 0
 
   for (const source of sources) {
-    const design = sourceDesign(source, cache)
+    const design = sourceStudyClass(source, cache)
     designMix[design] = (designMix[design] ?? 0) + 1
-    if (PRIMARY_HUMAN.has(design)) primaryHuman += 1
-    if (SYNTHESIS.has(design)) synthesis += 1
-    if (NARRATIVE.has(design)) narrativeReview += 1
+    if (PRIMARY_HUMAN_STUDY_CLASSES.has(design)) primaryHuman += 1
+    if (SYNTHESIS_STUDY_CLASSES.has(design)) synthesis += 1
+    if (NARRATIVE_STUDY_CLASSES.has(design)) narrativeReview += 1
   }
 
-  const approved = claims.filter((claim) => String(claim.reviewStatus ?? '').toLowerCase() === 'approved')
   const unsupportedApprovedClaims: string[] = []
   const singleSourceApprovedClaims: string[] = []
   const danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }> = []
@@ -156,11 +82,11 @@ function analyzeProfile(url: string, record: ProfileRecord, cache: Record<string
 
   for (const claim of approved) {
     const claimId = String(claim.id ?? 'unknown-claim')
-    const refs = [...new Set(Array.isArray(claim.sourceRefIds) ? claim.sourceRefIds.map(String).filter(Boolean) : [])]
+    const refs = uniqueSourceRefs(claim)
     if (refs.length === 0) unsupportedApprovedClaims.push(claimId)
     if (refs.length === 1) singleSourceApprovedClaims.push(claimId)
     for (const ref of refs) {
-      if (!sourceById.has(ref)) danglingSourceRefs.push({ claimId, sourceRefId: ref })
+      if (!sourcesById.has(ref)) danglingSourceRefs.push({ claimId, sourceRefId: ref })
       else sourceUse.set(ref, (sourceUse.get(ref) ?? 0) + 1)
     }
   }
@@ -173,7 +99,7 @@ function analyzeProfile(url: string, record: ProfileRecord, cache: Record<string
   return {
     url,
     sourceCount: sources.length,
-    claimCount: claims.length,
+    claimCount: allClaims.length,
     approvedClaimCount: approved.length,
     designMix,
     primaryHuman,
@@ -191,8 +117,8 @@ function analyzeProfile(url: string, record: ProfileRecord, cache: Record<string
 }
 
 function main() {
-  const cache = loadCache()
-  const profiles = profileRecords()
+  const cache = loadPubmedCache(ROOT)
+  const profiles = listResearchProfiles(ROOT)
   const referencedBy = buildCitationGraph(profiles)
 
   const studies = [...referencedBy.entries()].map(([pmid, pages]) => {
@@ -204,15 +130,15 @@ function main() {
       title: String(meta.title ?? '').slice(0, 120),
       journal: meta.journal ?? '',
       year: meta.year ?? null,
-      design: (meta.publicationTypes ? designOf(meta) : 'unclassified') as StudyClass,
+      design: designFromPublicationTypes(meta.publicationTypes ?? []),
       publicationTypes: meta.publicationTypes ?? [],
       hasMetadata: Boolean(meta.title),
     }
   })
 
   studies.sort((a, b) => b.pageCount - a.pageCount || (a.year ?? 0) - (b.year ?? 0))
-  const withdrawn = studies.filter((s) => s.publicationTypes.some((t) => WITHDRAWN.test(t)))
-  const dated = studies.filter((s) => s.year)
+  const withdrawn = studies.filter((study) => study.publicationTypes.some((type) => WITHDRAWN.test(type)))
+  const dated = studies.filter((study) => study.year)
   const age: Record<string, number> = { within5: 0, within10: 0, within20: 0, over20: 0 }
   for (const study of dated) {
     const years = CURRENT_YEAR - study.year!
@@ -224,10 +150,10 @@ function main() {
 
   const designMix: Record<string, number> = {}
   for (const study of studies) designMix[study.design] = (designMix[study.design] ?? 0) + 1
-  const central = studies.filter((s) => s.pageCount >= 3)
-  const oldAndCentral = central.filter((s) => s.year && CURRENT_YEAR - s.year > 15)
-  const humanPrimary = studies.filter((s) => PRIMARY_HUMAN.has(s.design)).length
-  const synthesis = studies.filter((s) => SYNTHESIS.has(s.design)).length
+  const central = studies.filter((study) => study.pageCount >= 3)
+  const oldAndCentral = central.filter((study) => study.year && CURRENT_YEAR - study.year > 15)
+  const humanPrimary = studies.filter((study) => PRIMARY_HUMAN_STUDY_CLASSES.has(study.design)).length
+  const synthesis = studies.filter((study) => SYNTHESIS_STUDY_CLASSES.has(study.design)).length
 
   const profileTopology = profiles.map(({ url, record }) => analyzeProfile(url, record, cache))
   const unsupportedClaims = profileTopology.flatMap((p) => p.unsupportedApprovedClaims.map((claimId) => ({ url: p.url, claimId })))
@@ -241,8 +167,8 @@ function main() {
 
   const summary = {
     citedStudies: studies.length,
-    withMetadata: studies.filter((s) => s.hasMetadata).length,
-    citedOnMultipleProfiles: studies.filter((s) => s.pageCount > 1).length,
+    withMetadata: studies.filter((study) => study.hasMetadata).length,
+    citedOnMultipleProfiles: studies.filter((study) => study.pageCount > 1).length,
     loadBearing: central.length,
     oldAndLoadBearing: oldAndCentral.length,
     withdrawn: withdrawn.length,
@@ -250,9 +176,9 @@ function main() {
     designMix,
     humanPrimary,
     synthesis,
-    medianYear: dated.length ? dated.map((s) => s.year!).sort((a, b) => a - b)[Math.floor(dated.length / 2)] : null,
+    medianYear: dated.length ? dated.map((study) => study.year!).sort((a, b) => a - b)[Math.floor(dated.length / 2)] : null,
     profiles: profileTopology.length,
-    approvedClaims: profileTopology.reduce((sum, p) => sum + p.approvedClaimCount, 0),
+    approvedClaims: profileTopology.reduce((sum, profile) => sum + profile.approvedClaimCount, 0),
     unsupportedApprovedClaims: unsupportedClaims.length,
     singleSourceApprovedClaims: singleSourceClaims.length,
     danglingClaimSourceRefs: danglingRefs.length,
@@ -262,26 +188,23 @@ function main() {
   }
 
   fs.mkdirSync(REPORTS_DIR, { recursive: true })
-  fs.writeFileSync(
-    REPORT_PATH,
-    `${JSON.stringify({
-      generatedAt: new Date().toISOString(),
-      currentYear: CURRENT_YEAR,
-      summary,
-      claimTopology: {
-        unsupportedClaims,
-        singleSourceClaims,
-        danglingRefs,
-        concentratedProfiles,
-        reviewDominatedProfiles,
-        noPrimaryHumanProfiles,
-        profiles: profileTopology,
-      },
-      withdrawn,
-      mostReferenced: studies.slice(0, 40),
-      oldAndLoadBearing: oldAndCentral,
-    }, null, 2)}\n`,
-  )
+  fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
+    generatedAt: new Date().toISOString(),
+    currentYear: CURRENT_YEAR,
+    summary,
+    claimTopology: {
+      unsupportedClaims,
+      singleSourceClaims,
+      danglingRefs,
+      concentratedProfiles,
+      reviewDominatedProfiles,
+      noPrimaryHumanProfiles,
+      profiles: profileTopology,
+    },
+    withdrawn,
+    mostReferenced: studies.slice(0, 40),
+    oldAndLoadBearing: oldAndCentral,
+  }, null, 2)}\n`)
 
   console.log('\nResearch coverage topology')
   console.log('='.repeat(72))
