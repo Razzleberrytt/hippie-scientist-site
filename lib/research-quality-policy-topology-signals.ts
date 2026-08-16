@@ -235,14 +235,15 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  for (const profile of topology.underlyingStudyIndependence.newlyOverDependentProfiles) {
+  for (const profile of topology.underlyingStudyIndependence.profiles) {
+    if (!profile.overDependentOnSingleUnderlyingStudy) continue
     const concentrationBonus = Math.round(Math.min(15, profile.underlyingStudyConcentrationIndex * 20))
     const weight = Math.round(25 + profile.dominantUnderlyingStudySupportedClaimShare * 30 + concentrationBonus)
     signals.push({
       url: profile.url,
       kind: 'high-study-dependency',
       weight,
-      detail: `${Math.round(profile.dominantUnderlyingStudySupportedClaimShare * 100)}% of supported approved claims depend on one underlying study after explicit publication-lineage collapse; ${profile.publicationStudyCount} publications resolve to ${profile.underlyingStudyCount} underlying studies; effective underlying-study count ${profile.effectiveUnderlyingStudyCount}`,
+      detail: `${Math.round(profile.dominantUnderlyingStudySupportedClaimShare * 100)}% of supported approved claims depend on one underlying study after explicit publication-lineage collapse; ${profile.publicationStudyCount} publications resolve to ${profile.underlyingStudyCount} underlying studies; effective underlying-study count ${profile.effectiveUnderlyingStudyCount}${profile.newlyOverDependentAfterIndependenceAdjustment ? '; concentration emerges only after independence adjustment' : ''}`,
     })
   }
 
