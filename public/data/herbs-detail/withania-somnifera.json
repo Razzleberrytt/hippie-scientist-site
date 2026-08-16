@@ -195,7 +195,14 @@
     {
       "id": "src_d7761bb98937",
       "title": "Use short-term, cautious structure/function wording; include liver, thyroid, pregnancy, sedative, antidiabetes, antihypertensive, and immunosuppressant cautions.",
-      "url": "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/ | https://www.ncbi.nlm.nih.gov/books/NBK548536/",
+      "url": "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/",
+      "note": "authoritative safety/regulatory reference",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_d7761bb98937-2",
+      "title": "Use short-term, cautious structure/function wording; include liver, thyroid, pregnancy, sedative, antidiabetes, antihypertensive, and immunosuppressant cautions.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548536/",
       "note": "authoritative safety/regulatory reference",
       "reviewStatus": "pending"
     },

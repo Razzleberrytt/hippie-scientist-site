@@ -132,8 +132,16 @@
     {
       "id": "src_3bc3ceb5a629",
       "title": "PK/bioavailability confirmed; food effect increases absorption; 5-LOX/inflammation.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/15070181/; https://pubmed.ncbi.nlm.nih.gov/22167571/",
-      "pmid": "15070181; 22167571",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15070181/",
+      "pmid": "15070181",
+      "note": "human_pk",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_3bc3ceb5a629-2",
+      "title": "PK/bioavailability confirmed; food effect increases absorption; 5-LOX/inflammation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22167571/",
+      "pmid": "22167571",
       "note": "human_pk",
       "reviewStatus": "pending"
     }

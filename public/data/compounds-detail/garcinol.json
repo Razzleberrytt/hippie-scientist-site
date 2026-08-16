@@ -135,8 +135,16 @@
     {
       "id": "src_2da296428064",
       "title": "HAT/HDAC inhibition; anti-inflammatory.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33799504/; https://pubmed.ncbi.nlm.nih.gov/33034447/",
-      "pmid": "33799504; 33034447",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33799504/",
+      "pmid": "33799504",
+      "note": "needs_classification",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_2da296428064-2",
+      "title": "HAT/HDAC inhibition; anti-inflammatory.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33034447/",
+      "pmid": "33034447",
       "note": "needs_classification",
       "reviewStatus": "pending"
     }

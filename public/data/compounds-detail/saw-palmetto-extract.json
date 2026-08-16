@@ -112,7 +112,15 @@
     {
       "id": "src_e220f13ccd17",
       "title": "v9.2: Large JAMA RCT found saw palmetto no better than placebo at 320–960 mg/day; block monetized recommendation.",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326341/ | https://jamanetwork.com/journals/jama/fullarticle/1104439",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326341/",
+      "note": "human_rct",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_e220f13ccd17-2",
+      "title": "v9.2: Large JAMA RCT found saw palmetto no better than placebo at 320–960 mg/day; block monetized recommendation.",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/1104439",
       "note": "human_rct",
       "studyType": "Randomized controlled trial",
       "reviewStatus": "pending"
