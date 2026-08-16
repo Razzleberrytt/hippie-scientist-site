@@ -51,8 +51,6 @@ export default async function HerbsPage() {
         </p>
       </header>
 
-      <Pagination basePath="/herbs" currentPage={1} totalPages={pageData.totalPages} itemLabel="Herb profiles" />
-
       <nav aria-label="Herb profiles index" className="sr-only">
         <ul>
           {herbs.map((herb) => (
