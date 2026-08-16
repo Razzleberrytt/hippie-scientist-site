@@ -37,8 +37,6 @@ export default async function CompoundsPage() {
         </p>
       </section>
 
-      <Pagination basePath="/compounds" currentPage={1} totalPages={pageData.totalPages} itemLabel="Compound profiles" />
-
       <nav aria-label="Published compound profiles index" className="sr-only">
         <ul>
           {allCompounds.map((c) => (
