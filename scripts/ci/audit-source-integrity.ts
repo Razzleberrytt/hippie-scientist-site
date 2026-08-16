@@ -3,22 +3,11 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
 import {
-  approvedClaims,
-  canonicalStudyClass,
-  canonicalStudyGroups,
-  canonicalStudyIdentityMap,
   designFromPublicationTypes,
-  listResearchProfiles,
-  loadPubmedCache,
-  NARRATIVE_STUDY_CLASSES,
   PRIMARY_HUMAN_STUDY_CLASSES,
-  sourceMap,
   SYNTHESIS_STUDY_CLASSES,
-  uniqueClaimStudyIdentities,
-  uniqueSourceRefs,
-  type PubmedCache,
-  type ResearchProfile,
 } from '../../lib/research-coverage'
 import { STUDY_CLASS_INFO, type StudyClass } from '../../lib/study-class'
 
@@ -28,28 +17,7 @@ const REPORT_PATH = path.join(REPORTS_DIR, 'source-integrity.json')
 const WITHDRAWN = /retract|expression of concern|withdrawn/i
 const CURRENT_YEAR = Number(process.env.SOURCE_AUDIT_YEAR) || new Date().getFullYear()
 
-type ProfileAnalysis = {
-  url: string
-  sourceCount: number
-  canonicalStudyCount: number
-  claimCount: number
-  approvedClaimCount: number
-  designMix: Record<string, number>
-  primaryHuman: number
-  synthesis: number
-  narrativeReview: number
-  unsupportedApprovedClaims: string[]
-  singleStudyApprovedClaims: string[]
-  aliasCollapsedClaims: string[]
-  danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }>
-  mostUsedStudyIdentity: string | null
-  mostUsedStudyClaimCount: number
-  studyDependencyShare: number
-  reviewDominated: boolean
-  noPrimaryHuman: boolean
-}
-
-function buildCitationGraph(profiles: ReturnType<typeof listResearchProfiles>): Map<string, Set<string>> {
+function buildCitationGraph(profiles: ReturnType<typeof analyzeResearchQuality>['profiles']): Map<string, Set<string>> {
   const referencedBy = new Map<string, Set<string>>()
   for (const { url, record } of profiles) {
     for (const source of Array.isArray(record.sources) ? record.sources : []) {
@@ -62,78 +30,8 @@ function buildCitationGraph(profiles: ReturnType<typeof listResearchProfiles>): 
   return referencedBy
 }
 
-function analyzeProfile(url: string, record: ResearchProfile, cache: PubmedCache): ProfileAnalysis {
-  const sources = Array.isArray(record.sources) ? record.sources : []
-  const allClaims = Array.isArray(record.claimMap) ? record.claimMap : []
-  const approved = approvedClaims(record)
-  const sourcesById = sourceMap(record)
-  const studyIdentities = canonicalStudyIdentityMap(record)
-  const studyGroups = canonicalStudyGroups(record)
-  const designMix: Record<string, number> = {}
-  let primaryHuman = 0
-  let synthesis = 0
-  let narrativeReview = 0
-
-  for (const group of studyGroups.values()) {
-    const design = canonicalStudyClass(group, cache)
-    designMix[design] = (designMix[design] ?? 0) + 1
-    if (PRIMARY_HUMAN_STUDY_CLASSES.has(design)) primaryHuman += 1
-    if (SYNTHESIS_STUDY_CLASSES.has(design)) synthesis += 1
-    if (NARRATIVE_STUDY_CLASSES.has(design)) narrativeReview += 1
-  }
-
-  const unsupportedApprovedClaims: string[] = []
-  const singleStudyApprovedClaims: string[] = []
-  const aliasCollapsedClaims: string[] = []
-  const danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }> = []
-  const studyUse = new Map<string, number>()
-
-  for (const claim of approved) {
-    const claimId = String(claim.id ?? 'unknown-claim')
-    const refs = uniqueSourceRefs(claim)
-    const validRefs = refs.filter((ref) => sourcesById.has(ref))
-    const studies = uniqueClaimStudyIdentities(claim, studyIdentities)
-
-    if (studies.length === 0) unsupportedApprovedClaims.push(claimId)
-    if (studies.length === 1) singleStudyApprovedClaims.push(claimId)
-    if (validRefs.length > studies.length && studies.length > 0) aliasCollapsedClaims.push(claimId)
-
-    for (const ref of refs) {
-      if (!sourcesById.has(ref)) danglingSourceRefs.push({ claimId, sourceRefId: ref })
-    }
-    for (const study of studies) studyUse.set(study, (studyUse.get(study) ?? 0) + 1)
-  }
-
-  const mostUsed = [...studyUse.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0] ?? null
-  const mostUsedStudyClaimCount = mostUsed?.[1] ?? 0
-  const studyDependencyShare = approved.length ? mostUsedStudyClaimCount / approved.length : 0
-  const classified = primaryHuman + synthesis + narrativeReview
-
-  return {
-    url,
-    sourceCount: sources.length,
-    canonicalStudyCount: studyGroups.size,
-    claimCount: allClaims.length,
-    approvedClaimCount: approved.length,
-    designMix,
-    primaryHuman,
-    synthesis,
-    narrativeReview,
-    unsupportedApprovedClaims,
-    singleStudyApprovedClaims,
-    aliasCollapsedClaims,
-    danglingSourceRefs,
-    mostUsedStudyIdentity: mostUsed?.[0] ?? null,
-    mostUsedStudyClaimCount,
-    studyDependencyShare: Number(studyDependencyShare.toFixed(3)),
-    reviewDominated: classified >= 3 && narrativeReview / classified >= 0.6,
-    noPrimaryHuman: approved.length > 0 && primaryHuman === 0,
-  }
-}
-
 function main() {
-  const cache = loadPubmedCache(ROOT)
-  const profiles = listResearchProfiles(ROOT)
+  const { cache, profiles, profileAnalyses: profileTopology } = analyzeResearchQuality(ROOT)
   const referencedBy = buildCitationGraph(profiles)
 
   const studies = [...referencedBy.entries()].map(([pmid, pages]) => {
@@ -170,7 +68,6 @@ function main() {
   const humanPrimary = studies.filter((study) => PRIMARY_HUMAN_STUDY_CLASSES.has(study.design)).length
   const synthesis = studies.filter((study) => SYNTHESIS_STUDY_CLASSES.has(study.design)).length
 
-  const profileTopology = profiles.map(({ url, record }) => analyzeProfile(url, record, cache))
   const unsupportedClaims = profileTopology.flatMap((p) => p.unsupportedApprovedClaims.map((claimId) => ({ url: p.url, claimId })))
   const danglingRefs = profileTopology.flatMap((p) => p.danglingSourceRefs.map((item) => ({ url: p.url, ...item })))
   const singleStudyClaims = profileTopology.flatMap((p) => p.singleStudyApprovedClaims.map((claimId) => ({ url: p.url, claimId })))
