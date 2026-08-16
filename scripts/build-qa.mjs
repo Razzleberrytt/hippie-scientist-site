@@ -3,29 +3,15 @@
 /**
  * Build QA Pipeline
  *
- * Comprehensive validation and audit suite
- * All verification, audit, and SEO checks run in parallel
- * Safe to run independently from deployment pipeline
- *
- * Usage: npm run build:qa
- * Or: node scripts/build-qa.mjs
- *
- * Steps executed in parallel:
- * ~32 verification, validation, and audit checks
- * Including: data validation, route verification, SEO checks, security validation
- * Plus: validate-data-next and verify-generated-data (moved from build:deploy)
- *
- * Parallelization: ~32 tasks running concurrently
- * Time estimate: ~15-20s (instead of ~150s+ sequentially)
- * Savings: ~130s through parallelization + deferral from deployment pipeline
+ * Comprehensive validation and audit suite. Independent checks run with bounded
+ * concurrency so this remains safe to run separately from deployment.
  */
 
-import { execSync, spawnSync } from 'child_process'
-import { performance } from 'perf_hooks'
+import { spawn } from 'node:child_process'
+import { performance } from 'node:perf_hooks'
 
 const startTime = performance.now()
 
-// All QA and verification steps
 const qaSteps = [
   // Data validation
   'node scripts/ci/validate-workbook-source.mjs',
@@ -60,7 +46,7 @@ const qaSteps = [
   'node scripts/ci/validate-build-seo-metadata.mjs',
   'node scripts/ci/validate-route-seo.mjs',
 
-  // Safety
+  // Runtime safety
   'node scripts/ci/check-node-version.mjs',
 
   // Audits
@@ -79,81 +65,79 @@ const qaSteps = [
   'node scripts/ci/validate-indexability-metadata.mjs',
 ]
 
+const maxConcurrency = 8
+const results = new Map()
+const errors = []
+let nextStepIndex = 0
+
 console.log(`
 ╔════════════════════════════════════════════════╗
 ║           Build QA Pipeline (Parallel)         ║
 ║      Comprehensive Validation & Audits         ║
 ╚════════════════════════════════════════════════╝
 
-Executing ${qaSteps.length} verification & audit steps in parallel...
+Executing ${qaSteps.length} verification & audit steps with concurrency=${Math.min(maxConcurrency, qaSteps.length)}...
 `)
 
-const results = new Map()
-const errors = []
-const maxConcurrency = 8 // Allow up to 8 parallel processes
-
-/**
- * Execute a step and track results
- */
 function executeStep(cmd, index) {
   return new Promise((resolve) => {
+    const args = cmd.split(' ').slice(1)
     const stepName = cmd.split('scripts/')[1]?.split('.mjs')[0] || cmd
     const stepStart = performance.now()
+    const stderr = []
+    let settled = false
 
     process.stdout.write(`⏱️  [${String(index + 1).padStart(2, ' ')}/${qaSteps.length}] ${stepName.substring(0, 40).padEnd(40)} ... `)
 
-    const proc = spawnSync('node', cmd.split(' ').slice(1), {
+    const child = spawn(process.execPath, args, {
       cwd: process.cwd(),
-      stdio: 'pipe',
-      shell: false,
+      stdio: ['ignore', 'ignore', 'pipe'],
     })
 
-    const stepDuration = performance.now() - stepStart
+    child.stderr.on('data', chunk => stderr.push(chunk))
 
-    if (proc.status === 0) {
-      console.log(`✓ ${(stepDuration / 1000).toFixed(2)}s`)
-      results.set(stepName, { passed: true, duration: stepDuration })
-    } else {
-      console.log(`✗ FAILED`)
-      results.set(stepName, { passed: false, duration: stepDuration })
-      errors.push({ step: stepName, code: proc.status, stderr: proc.stderr?.toString() })
+    const finish = (passed, code = 0, error = null) => {
+      if (settled) return
+      settled = true
+
+      const stepDuration = performance.now() - stepStart
+      results.set(stepName, { passed, duration: stepDuration })
+
+      if (passed) {
+        console.log(`✓ ${(stepDuration / 1000).toFixed(2)}s`)
+      } else {
+        console.log('✗ FAILED')
+        errors.push({
+          step: stepName,
+          code,
+          stderr: error?.message || Buffer.concat(stderr).toString(),
+        })
+      }
+      resolve()
     }
 
-    resolve()
+    child.once('error', error => finish(false, -1, error))
+    child.once('close', code => finish(code === 0, code ?? -1))
   })
 }
 
-/**
- * Run tasks with concurrency limit
- */
-async function runQASteps() {
-  const queue = [...qaSteps]
-  const executing = []
-  const executed = []
-
-  while (queue.length > 0 || executing.length > 0) {
-    // Start new tasks if under concurrency limit
-    while (executing.length < maxConcurrency && queue.length > 0) {
-      const cmd = queue.shift()
-      const index = executed.length + executing.length
-      const task = executeStep(cmd, index).then(() => {
-        executing.splice(executing.indexOf(task), 1)
-      })
-      executing.push(task)
-    }
-
-    // Wait for at least one to complete
-    if (executing.length > 0) {
-      await Promise.race(executing)
-    }
+async function runWorker() {
+  while (nextStepIndex < qaSteps.length) {
+    const index = nextStepIndex
+    nextStepIndex += 1
+    await executeStep(qaSteps[index], index)
   }
 }
 
-// Execute all QA steps
-await runQASteps()
+await Promise.all(
+  Array.from(
+    { length: Math.min(maxConcurrency, qaSteps.length) },
+    () => runWorker(),
+  ),
+)
 
 const totalDuration = performance.now() - startTime
-const passed = [...results.values()].filter(r => r.passed).length
+const passed = [...results.values()].filter(result => result.passed).length
 const failed = errors.length
 
 if (failed === 0) {
@@ -167,19 +151,18 @@ Summary:
   Checks Passed: ${passed}/${qaSteps.length}
 
 Status: Ready for production deployment
-
 `)
   process.exit(0)
-} else {
-  console.log(`
+}
+
+console.log(`
 ╔════════════════════════════════════════════════╗
 ║     ✗ ${failed} QA Checks Failed                       ║
 ╚════════════════════════════════════════════════╝
 
 Failed checks:
-${errors.map(e => `  - ${e.step}`).join('\n')}
+${errors.map(error => `  - ${error.step}`).join('\n')}
 
 Fix these issues before deployment.
 `)
-  process.exit(1)
-}
+process.exit(1)
