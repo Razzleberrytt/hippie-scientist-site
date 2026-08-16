@@ -117,6 +117,24 @@ export function validateResearchQualitySnapshotInvariants(
       `semantic=${topology.semanticAlignment.summary.approvedClaims}; analysis=${analysis.claimAnalyses.length}`,
     )
   }
+  if (topology.claimBreadth.summary.overbroadClaims !== topology.claimBreadth.findings.length) {
+    add(
+      'claim-breadth-finding-count-mismatch',
+      `summary=${topology.claimBreadth.summary.overbroadClaims}; rows=${topology.claimBreadth.findings.length}`,
+    )
+  }
+  if (topology.claimBreadth.summary.highConfidenceOverbroadClaims !== topology.claimBreadth.highConfidenceFindings.length) {
+    add(
+      'claim-breadth-high-confidence-count-mismatch',
+      `summary=${topology.claimBreadth.summary.highConfidenceOverbroadClaims}; rows=${topology.claimBreadth.highConfidenceFindings.length}`,
+    )
+  }
+  if (topology.claimBreadth.findings.length > topology.claimBreadth.claims.length) {
+    add(
+      'claim-breadth-subset-count-mismatch',
+      `findings=${topology.claimBreadth.findings.length}; analyzed=${topology.claimBreadth.claims.length}`,
+    )
+  }
   if (topology.edgeCardinality.summary.claims !== analysis.structuredClaimAnalyses.length) {
     add(
       'edge-cardinality-claim-count-mismatch',
@@ -161,6 +179,10 @@ export function validateResearchQualitySnapshotInvariants(
   }
   for (const finding of topology.semanticAlignment.concentrationFindings) {
     requireApprovedClaim('semantic-concentration-unknown-claim', finding.url, finding.claimId)
+  }
+  for (const claim of topology.claimBreadth.claims) {
+    requireProfile('claim-breadth-unknown-profile', claim.url, claim.claimId)
+    requireApprovedClaim('claim-breadth-unknown-claim', claim.url, claim.claimId)
   }
   for (const finding of topology.claimLanguageCalibration.directEvidenceFindings) {
     requireApprovedClaim('language-calibration-unknown-claim', finding.url, finding.claimId)
