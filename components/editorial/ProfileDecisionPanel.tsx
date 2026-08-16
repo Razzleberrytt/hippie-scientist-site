@@ -30,6 +30,7 @@ export function ProfileDecisionPanel({
           evidenceNote={verdict.evidenceNote}
           betterAlternative={verdict.betterAlternative}
           bottomLine={verdict.bottomLine}
+          className="my-0"
         />
       ) : null}
 

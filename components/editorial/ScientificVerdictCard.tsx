@@ -39,6 +39,7 @@ type ScientificVerdictCardProps = {
   badgeLabel?: string
   /** Reserved for future visual variants; currently only "default". */
   variant?: 'default'
+  className?: string
   children?: ReactNode
 }
 
@@ -71,6 +72,7 @@ export function ScientificVerdictCard({
   safetyNote,
   evidenceNote,
   badgeLabel,
+  className = '',
   children,
 }: ScientificVerdictCardProps) {
   const best = toList(bestFor)
@@ -88,7 +90,7 @@ export function ScientificVerdictCard({
       data-answer-engine-decision="true"
       data-recommendation={String(recommendation)}
       aria-label="Scientific verdict"
-      className="not-prose my-6 scroll-mt-24 overflow-hidden rounded-2xl border-2 border-brand-900/15 bg-white shadow-md ring-1 ring-brand-900/5 dark:border-white/12 dark:bg-[var(--surface-card)]"
+      className={`not-prose my-6 scroll-mt-24 overflow-hidden rounded-2xl border-2 border-brand-900/15 bg-white shadow-md ring-1 ring-brand-900/5 dark:border-white/12 dark:bg-[var(--surface-card)] ${className}`}
     >
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-brand-900/10 bg-brand-50/60 px-5 py-3 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
         <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand-700">{title}</span>
