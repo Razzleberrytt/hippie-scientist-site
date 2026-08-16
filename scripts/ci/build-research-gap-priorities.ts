@@ -1,25 +1,15 @@
 #!/usr/bin/env npx tsx
-/** Build one prioritized remediation queue from the canonical research reports. */
+/** Build one prioritized remediation queue directly from canonical research-quality analysis. */
 
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
+
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
 const OUTPUT = path.join(REPORT_DIR, 'research-gaps.json')
-
-function readJson(name: string): Record<string, any> {
-  const file = path.join(REPORT_DIR, name)
-  if (!fs.existsSync(file)) return {}
-  try {
-    return JSON.parse(fs.readFileSync(file, 'utf8'))
-  } catch {
-    return {}
-  }
-}
-
-const topology = readJson('source-integrity.json')
-const strength = readJson('claim-evidence-strength.json')
+const { profileAnalyses, claimAnalyses } = analyzeResearchQuality(ROOT)
 const queue = new Map<string, { url: string; score: number; reasons: Array<{ kind: string; weight: number; detail?: string }> }>()
 
 function add(url: string, kind: string, weight: number, detail?: string) {
@@ -30,40 +20,45 @@ function add(url: string, kind: string, weight: number, detail?: string) {
   queue.set(url, item)
 }
 
-for (const item of topology.claimTopology?.unsupportedClaims ?? []) {
-  add(item.url, 'unsupported-approved-claim', 100, item.claimId)
-}
-for (const item of topology.claimTopology?.danglingRefs ?? []) {
-  add(item.url, 'dangling-claim-source-edge', 100, `${item.claimId} -> ${item.sourceRefId}`)
-}
-for (const item of topology.claimTopology?.singleStudyClaims ?? []) {
-  add(item.url, 'single-study-approved-claim', 5, item.claimId)
-}
-for (const profile of topology.claimTopology?.concentratedProfiles ?? []) {
-  const share = Number(profile.studyDependencyShare ?? 0)
-  const weight = Math.round(20 + share * 30)
-  add(profile.url, 'high-study-dependency', weight, `${Math.round(share * 100)}% of approved claims depend on one canonical study`)
-}
-for (const profile of topology.claimTopology?.reviewDominatedProfiles ?? []) {
-  add(profile.url, 'narrative-review-dominated-profile', 15)
-}
-for (const profile of topology.claimTopology?.noPrimaryHumanProfiles ?? []) {
-  add(profile.url, 'approved-claims-without-primary-human-study', 20)
-}
+for (const claim of claimAnalyses) {
+  if (claim.supportTier === 'unsupported') {
+    add(claim.url, 'unsupported-approved-claim', 100, claim.claimId)
+  }
+  for (const sourceRefId of claim.danglingSourceRefs) {
+    add(claim.url, 'dangling-claim-source-edge', 100, `${claim.claimId} -> ${sourceRefId}`)
+  }
+  if (claim.singleStudy) {
+    add(claim.url, 'single-study-approved-claim', 5, claim.claimId)
+  }
 
-for (const claim of strength.claims ?? []) {
-  const tier = String(claim.supportTier ?? '')
+  const tier = claim.supportTier
   if (tier === 'unsupported' || tier === 'human-supported' || tier === 'non-outcome') continue
-
   const baseWeight = tier === 'narrative-only' ? 25 : 20
   const confidenceBonus = claim.highConfidenceWeakOutcome ? 15 : 0
-  const weight = baseWeight + confidenceBonus
   add(
     claim.url,
     `claim-support-${tier}`,
-    weight,
-    `${String(claim.claimId ?? '')}${confidenceBonus ? ' · high confidence' : ''}`,
+    baseWeight + confidenceBonus,
+    `${claim.claimId}${confidenceBonus ? ' · high confidence' : ''}`,
   )
+}
+
+for (const profile of profileAnalyses) {
+  if (profile.approvedClaimCount >= 3 && profile.studyDependencyShare >= 0.5) {
+    const share = profile.studyDependencyShare
+    add(
+      profile.url,
+      'high-study-dependency',
+      Math.round(20 + share * 30),
+      `${Math.round(share * 100)}% of approved claims depend on one canonical study`,
+    )
+  }
+  if (profile.reviewDominated) {
+    add(profile.url, 'narrative-review-dominated-profile', 15)
+  }
+  if (profile.noPrimaryHuman) {
+    add(profile.url, 'approved-claims-without-primary-human-study', 20)
+  }
 }
 
 const ranked = [...queue.values()]
@@ -79,6 +74,7 @@ const ranked = [...queue.values()]
 
 const report = {
   generatedAt: new Date().toISOString(),
+  source: 'lib/research-quality-analysis.ts',
   scoring: {
     note: 'Scores prioritize structural invalidity first, then mutually exclusive claim-support tiers and canonical-study concentration. They are triage weights, not evidence grades.',
     weights: {
