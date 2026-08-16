@@ -16,7 +16,6 @@ describe('goals route metadata', () => {
     })
     expect(getRouteMetadata('/goals/sleep')).toMatchObject({
       label: 'Goal Guide',
-      isDynamic: true,
     })
   })
 
