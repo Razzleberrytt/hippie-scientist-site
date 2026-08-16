@@ -45,6 +45,9 @@ const safetyLinks = [
 const legalLinks = [
   { href: PUBLIC_ROUTES.about, label: 'About' },
   { href: PUBLIC_ROUTES.author, label: 'Author' },
+  { href: '/info/editorial-policy/', label: 'Editorial Policy' },
+  { href: '/info/corrections/', label: 'Corrections' },
+  { href: '/info/content-licensing/', label: 'Content Attribution' },
   { href: PUBLIC_ROUTES.faq, label: 'FAQ' },
   { href: PUBLIC_ROUTES.contact, label: 'Contact' },
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
