@@ -15,7 +15,9 @@ import {
   type TranslationLocale,
 } from '../international-seo'
 import type { LocalizedPageData } from '../localization'
+import { assertCompleteProfileTranslation, loadCanonicalLocalizedProfile } from '../localized-profile'
 import { PORTUGUESE_PAGES } from '../portuguese-content'
+import { PROFILE_TRANSLATIONS, type ProfileTranslationLocale } from '../profile-translations'
 import { SPANISH_PAGES } from '../spanish-content'
 
 const PACKS: Record<TranslationLocale, readonly LocalizedPageData[]> = {
@@ -38,18 +40,24 @@ function localePrefix(locale: TranslationLocale) {
   return `/${locale}/`
 }
 
+function publishedPaths(locale: TranslationLocale) {
+  const core = PACKS[locale].map((page) => normalizeInternationalPath(page.path))
+  const profiles = PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale].map((profile) => normalizeInternationalPath(profile.path))
+  return [...core, ...profiles].sort()
+}
+
 describe('multilingual localization integrity', () => {
-  it('keeps every advertised translated route backed by exactly one substantive page', () => {
+  it('keeps every advertised translated route backed by exactly one substantive localized artifact', () => {
     for (const [locale, pages] of Object.entries(PACKS) as [TranslationLocale, readonly LocalizedPageData[]][]) {
       const expected = LOCALIZED_ROUTES
         .map((route) => route.translations[locale])
         .filter((path): path is string => Boolean(path))
         .map(normalizeInternationalPath)
         .sort()
-      const actual = pages.map((page) => normalizeInternationalPath(page.path)).sort()
+      const actual = publishedPaths(locale)
 
       expect(new Set(actual).size, `${locale} contains duplicate localized paths`).toBe(actual.length)
-      expect(actual, `${locale} content pack must exactly match the hreflang registry`).toEqual(expected)
+      expect(actual, `${locale} published artifacts must exactly match the hreflang registry`).toEqual(expected)
 
       for (const page of pages) {
         expect(page.title.trim().length, `${page.path} must have a title`).toBeGreaterThan(12)
@@ -57,12 +65,19 @@ describe('multilingual localization integrity', () => {
         expect(page.intro.trim().length, `${page.path} must have substantive introductory copy`).toBeGreaterThan(50)
         expect(page.sections.length, `${page.path} must contain substantive editorial sections`).toBeGreaterThan(0)
       }
+
+      for (const profile of PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale]) {
+        expect(profile.title.trim().length, `${profile.path} must have a title`).toBeGreaterThan(12)
+        expect(profile.summary.trim().length, `${profile.path} must have a substantive summary`).toBeGreaterThan(80)
+        const canonical = loadCanonicalLocalizedProfile(profile.kind, profile.slug)
+        expect(() => assertCompleteProfileTranslation(canonical, profile)).not.toThrow()
+      }
     }
   })
 
   it('keeps localized internal links inside each published locale pack resolvable', () => {
     for (const [locale, pages] of Object.entries(PACKS) as [TranslationLocale, readonly LocalizedPageData[]][]) {
-      const published = new Set(pages.map((page) => normalizeInternationalPath(page.path)))
+      const published = new Set(publishedPaths(locale))
       const prefix = localePrefix(locale)
 
       for (const page of pages) {
