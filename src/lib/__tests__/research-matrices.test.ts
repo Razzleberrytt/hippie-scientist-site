@@ -2,7 +2,19 @@ import { describe, expect, it } from 'vitest'
 import { rowsForRiskMatrix, type ResearchMatrixRow } from '../research-matrices'
 
 const row = (overrides: Partial<ResearchMatrixRow>): ResearchMatrixRow => ({
-  slug: 'example', name: 'Example', entityType: 'herb', href: '/herbs/example/', evidenceGrade: 'C', humanEvidenceCount: 0, outcomes: [], mechanisms: [], safetySignals: [], ...overrides,
+  slug: 'example',
+  name: 'Example',
+  entityType: 'herb',
+  href: '/herbs/example/',
+  evidenceGrade: 'C',
+  humanEvidenceCount: 0,
+  humanPublicationCount: 0,
+  collapsedHumanPublicationCount: 0,
+  humanEvidenceCountCanonical: false,
+  outcomes: [],
+  mechanisms: [],
+  safetySignals: [],
+  ...overrides,
 })
 
 const rows = [
