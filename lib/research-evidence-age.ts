@@ -47,6 +47,18 @@ export type EvidenceAgeSummary = {
   highConfidenceLegacyOnlyClaims: number
 }
 
+export type StudyYearObservation = {
+  url: string
+  studyId: string
+  years: number[]
+}
+
+export type StudyYearConflict = StudyYearObservation & {
+  minYear: number
+  maxYear: number
+  yearSpread: number
+}
+
 function numericYear(value: unknown): number | null {
   const year = Number(value)
   const currentYear = new Date().getFullYear()
@@ -70,30 +82,58 @@ function median(values: number[]): number | null {
   return sorted.length % 2 ? sorted[middle] : Math.round((sorted[middle - 1] + sorted[middle]) / 2)
 }
 
-/**
- * Build a canonical study -> publication year map from profile sources and the
- * PubMed metadata cache. Conflicting alias years are reduced by median rather
- * than silently choosing the oldest/newest value.
- */
-export function canonicalStudyYearMap(analysis: ResearchQualityAnalysis): Map<string, number> {
-  const observations = new Map<string, number[]>()
+function scopedStudyKey(url: string, studyId: string): string {
+  return `${url}::${studyId}`
+}
 
-  for (const { record } of analysis.profiles) {
+/**
+ * Preserve every observed publication year for each profile-local canonical
+ * study. The URL namespace matters for identifier-less fallback identities such
+ * as `source-ref:s1`, which may legitimately recur on unrelated profiles.
+ */
+export function canonicalStudyYearObservations(analysis: ResearchQualityAnalysis): Map<string, StudyYearObservation> {
+  const observations = new Map<string, StudyYearObservation>()
+
+  for (const { url, record } of analysis.profiles) {
     for (const [studyId, group] of canonicalStudyGroups(record)) {
-      const years = group.flatMap((source) => sourceYears(source, analysis.cache))
+      const years = [...new Set(group.flatMap((source) => sourceYears(source, analysis.cache)))].sort((a, b) => a - b)
       if (!years.length) continue
-      const existing = observations.get(studyId) ?? []
-      existing.push(...years)
-      observations.set(studyId, existing)
+      observations.set(scopedStudyKey(url, studyId), { url, studyId, years })
     }
   }
 
+  return observations
+}
+
+/**
+ * Build a profile-scoped canonical study -> publication year map. Conflicting
+ * alias years are reduced by median for age calculations, while the raw
+ * observations remain available through `canonicalStudyYearObservations()` so
+ * metadata conflicts are not silently lost.
+ */
+export function canonicalStudyYearMap(analysis: ResearchQualityAnalysis): Map<string, number> {
   const result = new Map<string, number>()
-  for (const [studyId, years] of observations) {
-    const value = median([...new Set(years)])
-    if (value !== null) result.set(studyId, value)
+  for (const [key, observation] of canonicalStudyYearObservations(analysis)) {
+    const value = median(observation.years)
+    if (value !== null) result.set(key, value)
   }
   return result
+}
+
+export function analyzeStudyYearConflicts(analysis: ResearchQualityAnalysis): StudyYearConflict[] {
+  return [...canonicalStudyYearObservations(analysis).values()]
+    .filter((observation) => observation.years.length > 1)
+    .map((observation) => {
+      const minYear = observation.years[0]
+      const maxYear = observation.years.at(-1) ?? minYear
+      return {
+        ...observation,
+        minYear,
+        maxYear,
+        yearSpread: maxYear - minYear,
+      }
+    })
+    .sort((a, b) => b.yearSpread - a.yearSpread || a.url.localeCompare(b.url) || a.studyId.localeCompare(b.studyId))
 }
 
 /**
@@ -117,7 +157,7 @@ export function analyzeClaimEvidenceAge(
     .map((claim) => {
       const datedStudies = claim.studyIds
         .map((studyId, index) => ({
-          year: studyYears.get(studyId),
+          year: studyYears.get(scopedStudyKey(claim.url, studyId)),
           design: claim.designs[index] ?? 'unclassified',
         }))
         .filter((item): item is { year: number; design: (typeof claim.designs)[number] } => typeof item.year === 'number')

@@ -7,7 +7,7 @@ import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
 import { analyzeResearchEdgeCardinality } from './research-edge-cardinality'
 import { analyzeEvidenceIndependenceCoverage } from './research-evidence-independence-coverage'
 import { analyzeEvidenceLineage } from './research-evidence-lineage'
-import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
+import { analyzeClaimEvidenceAge, analyzeStudyYearConflicts, summarizeEvidenceAge } from './research-evidence-age'
 import { analyzeProvenanceConcentration } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import { analyzeResearchSemanticAlignment } from './research-semantic-alignment'
@@ -38,6 +38,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const crossPredicateEvidenceOverlap = claimEvidenceOverlap.filter((item) => item.differentPredicates)
   const claimEvidenceAge = analyzeClaimEvidenceAge(analysis)
   const evidenceAgeSummary = summarizeEvidenceAge(claimEvidenceAge)
+  const studyYearConflicts = analyzeStudyYearConflicts(analysis)
   const legacyOnlyClaims = claimEvidenceAge.filter((claim) => claim.allKnownEvidenceOlderThan10Years)
   const highConfidenceLegacyOnlyClaims = claimEvidenceAge.filter((claim) => claim.highConfidenceLegacyOnlyClaim)
   const studyIdentityCoverage = analyzeStudyIdentityCoverage(analysis)
@@ -80,6 +81,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     crossPredicateEvidenceOverlap,
     claimEvidenceAge,
     evidenceAgeSummary,
+    studyYearConflicts,
     legacyOnlyClaims,
     highConfidenceLegacyOnlyClaims,
     studyIdentityCoverage,
