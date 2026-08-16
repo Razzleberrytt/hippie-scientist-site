@@ -41,9 +41,6 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     activePrefixes: ['/guides/compare'],
     children: [
       { label: 'Comparison center', href: '/guides/compare', description: 'Browse published side-by-side evidence and safety comparisons' },
-      { label: 'Melatonin vs Magnesium', href: '/guides/compare/melatonin-vs-magnesium', description: 'Compare two common sleep-oriented options by evidence, timing, and tradeoffs' },
-      { label: 'Rhodiola vs Ashwagandha', href: '/guides/compare/rhodiola-vs-ashwagandha', description: 'Compare two adaptogens with different stimulation and stress profiles' },
-      { label: 'Ashwagandha vs Magnesium', href: '/guides/compare/ashwagandha-vs-magnesium', description: 'Compare stress, sleep, evidence, and safety differences' },
       { label: 'Build your own', href: '/guides/compare/dynamic', description: 'Choose two ingredients and inspect the structured research matrix' },
     ],
   },
