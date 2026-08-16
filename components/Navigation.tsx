@@ -246,48 +246,22 @@ export function Navigation() {
 
             <nav className='flex flex-col gap-2 text-base' aria-label='Mobile primary links'>
               {primaryLinks.map((link) => {
-                const childGroups = groupChildren(link.children)
                 const active = isPrimaryActive(link)
 
                 return (
-                  <div key={link.href}>
-                    <Link
-                      href={toCanonicalHref(link.href)}
-                      onClick={closeMobile}
-                      aria-current={active ? 'page' : undefined}
-                      className={`block rounded-2xl px-4 py-3.5 font-semibold transition ${
-                        active
-                          ? 'border border-[#b88a42]/20 bg-[#f5efe2] text-[#123c2f] shadow-sm dark:border-[var(--border-strong)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
-                          : 'text-[#33433c] hover:bg-[#f5efe2]/70 hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                    {childGroups.length > 0 ? (
-                      <div className='ml-4 mt-2 border-l border-[#123c2f]/10 pl-3 dark:border-[var(--border-soft)]'>
-                        {childGroups.map(({ section, items }) => (
-                          <div key={section || 'links'} className={section ? 'pb-2' : ''}>
-                            {section ? (
-                              <p className='px-3 pb-1 pt-3 text-[0.66rem] font-extrabold uppercase tracking-[0.15em] text-[#8a6a38] dark:text-[var(--accent-gold)]'>
-                                {section}
-                              </p>
-                            ) : null}
-                            {items.map((child) => (
-                              <Link
-                                key={child.href}
-                                href={toCanonicalHref(child.href)}
-                                onClick={closeMobile}
-                                aria-current={isChildActive(child.href) ? 'page' : undefined}
-                                className='block rounded-xl px-3 py-2.5 text-sm font-medium text-[#526159] transition hover:bg-[#f5efe2]/65 hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
-                              >
-                                {child.label}
-                              </Link>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                    ) : null}
-                  </div>
+                  <Link
+                    key={link.href}
+                    href={toCanonicalHref(link.href)}
+                    onClick={closeMobile}
+                    aria-current={active ? 'page' : undefined}
+                    className={`block rounded-2xl px-4 py-3.5 font-semibold transition ${
+                      active
+                        ? 'border border-[#b88a42]/20 bg-[#f5efe2] text-[#123c2f] shadow-sm dark:border-[var(--border-strong)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
+                        : 'text-[#33433c] hover:bg-[#f5efe2]/70 hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
                 )
               })}
 
