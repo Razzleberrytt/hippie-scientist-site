@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
 import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
@@ -26,7 +26,6 @@ export default function ElectrolyteGuidePage() {
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd title="Electrolyte Supplements: Who Needs Them?" description="LMNT, Liquid IV — 8 cited studies on who actually benefits." url="https://thehippiescientist.net/guides/other/electrolyte-supplements" type="Article" />
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Electrolyte Supplements' }]} />
-      <FAQSchema pagePath="/guides/other/electrolyte-supplements/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Electrolyte Supplements: Who Actually Needs Them?</h1><p className="text-lg leading-8 text-muted">LMNT ($1.50/serving), Liquid IV, DripDrop — the electrolyte category has expanded from sports nutrition into mainstream wellness. But for most people, these products solve a problem they don&rsquo;t have. The AIS classifies electrolytes as a sports food for specific use cases only [1]. Here&rsquo;s the evidence.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/electrolyte-supplements.jpg" alt="Electrolyte supplement packets and a glass of water on a gym surface" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Electrolyte supplements — essential for athletes, unnecessary for everyone else.</figcaption></figure></section>
@@ -72,6 +71,7 @@ export default function ElectrolyteGuidePage() {
         <Ref n={7} text="Volek JS, Phinney SD. (2012). The Art and Science of Low Carbohydrate Performance. Beyond Obesity LLC." />
         <Ref n={8} text="Francisco R, et al. (2026). Athlete hydration: beyond performance toward long-term health. Sports Med, Apr 22." url="https://pubmed.ncbi.nlm.nih.gov/42020895/" />
       </ol></section>
+      <LegacyGuideFAQ pagePath="/guides/other/electrolyte-supplements/" questions={FAQS} />
       <EmailCapture headline="Get evidence reviews like this" description="8 cited studies. No influencer hype." ctaLabel="Get the evidence" location="guide-electrolytes" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>
