@@ -83,7 +83,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const claimBreadth = analyzeClaimBreadth(analysis)
   const effectCertainty = analyzeEffectCertainty(analysis)
   const directionalConsistency = analyzeDirectionalConsistency(analysis)
-  const selectiveOutcomeReporting = analyzeSelectiveOutcomeReporting(analysis)
+  const selectiveOutcomeReporting = analyzeSelectiveOutcomeReporting({ analysis, outcomeMetadata })
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
   const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
   const metadataIntegrity = buildResearchMetadataIntegrity({
