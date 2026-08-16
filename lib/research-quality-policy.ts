@@ -66,6 +66,8 @@ export const RESEARCH_GAP_WEIGHTS = {
   mappingGapNoApprovedPrimaryBonus: 8,
   poorStudyMetadataCoverage: 12,
   narrowRepeatedEvidenceBundle: 15,
+  homogeneousMultiStudySupport: 7,
+  highConfidenceHomogeneousMultiStudyBonus: 5,
   nearDuplicateEvidenceSupport: 10,
   systemicLoadBearingStudyDependency: 8,
   provenanceConcentration: 10,
@@ -91,6 +93,7 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'single-study-approved-claim': 'concentration',
   'high-study-dependency': 'concentration',
   'narrow-repeated-evidence-bundle': 'concentration',
+  'homogeneous-multi-study-support': 'concentration',
   'near-duplicate-claim-evidence-support': 'concentration',
   'systemic-load-bearing-study-dependency': 'concentration',
   'provenance-concentrated-evidence': 'concentration',
@@ -265,6 +268,18 @@ function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
       'narrow-repeated-evidence-bundle',
       RESEARCH_GAP_WEIGHTS.narrowRepeatedEvidenceBundle + reuseBonus,
       `${bundle.approvedClaimCount} approved claims reuse the same ${bundle.studyCount}-study evidence bundle`,
+    )
+  }
+
+  for (const claim of topology.homogeneousMultiStudyClaims) {
+    const highConfidenceBonus = claim.highConfidenceHomogeneousMultiStudySupport
+      ? RESEARCH_GAP_WEIGHTS.highConfidenceHomogeneousMultiStudyBonus
+      : 0
+    add(
+      claim.url,
+      'homogeneous-multi-study-support',
+      RESEARCH_GAP_WEIGHTS.homogeneousMultiStudySupport + highConfidenceBonus,
+      `${claim.claimId} · ${claim.studyCount} studies but one evidence family (${claim.evidenceFamilies.join(', ')})${highConfidenceBonus ? ' · high confidence' : ''}`,
     )
   }
 
