@@ -42,7 +42,7 @@ const page: SpanishPageData = {
     },
   ],
   primaryCta: { href: '/es/objetivos/', label: 'Elegir un objetivo' },
-  secondaryCta: { href: '/', label: 'English version' },
+  secondaryCta: { href: '/', label: 'Versión en inglés' },
 }
 
 export const metadata = buildSpanishPageMetadata(page)
