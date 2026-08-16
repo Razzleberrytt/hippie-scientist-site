@@ -117,7 +117,7 @@ export default function EmailCapture({
   const statusClassName = state === 'error' ? 'text-sm leading-6 text-red-700' : 'text-sm leading-6 text-muted'
 
   return (
-    <aside className="my-10 rounded-3xl border border-brand-900/10 bg-brand-50/70 p-5 shadow-sm sm:p-7" aria-labelledby={titleId} data-lead-magnet={magnet}>
+    <aside className="my-10 rounded-3xl border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm sm:p-7" aria-labelledby={titleId} data-lead-magnet={magnet}>
       <div className="space-y-3">
         <p className="eyebrow-label">{eyebrow}</p>
         <h2 id={titleId} className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
@@ -134,7 +134,7 @@ export default function EmailCapture({
       </div>
 
       {state === 'success' ? (
-        <div className="mt-6 rounded-2xl border border-brand-900/10 bg-white p-4 text-sm leading-6 text-muted">
+        <div className="mt-6 rounded-2xl border border-brand-900/10 bg-[var(--surface-card-strong)] p-4 text-sm leading-6 text-muted">
           <p className="font-semibold text-ink">{message}</p>
           <a className="mt-3 inline-flex rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800" href={resourceUrl}>
             {resourceLabel}
@@ -152,7 +152,7 @@ export default function EmailCapture({
               required
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="w-full rounded-2xl border border-brand-900/15 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-brand-700 focus:ring-2 focus:ring-brand-700/20"
+              className="w-full rounded-2xl border border-brand-900/15 bg-[var(--surface-card-strong)] px-4 py-3 text-base text-ink outline-none transition focus:border-brand-700 focus:ring-2 focus:ring-brand-700/20"
               placeholder="you@example.com"
             />
           </div>
@@ -166,7 +166,7 @@ export default function EmailCapture({
               autoComplete="given-name"
               value={firstName}
               onChange={(event) => setFirstName(event.target.value)}
-              className="w-full rounded-2xl border border-brand-900/15 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-brand-700 focus:ring-2 focus:ring-brand-700/20"
+              className="w-full rounded-2xl border border-brand-900/15 bg-[var(--surface-card-strong)] px-4 py-3 text-base text-ink outline-none transition focus:border-brand-700 focus:ring-2 focus:ring-brand-700/20"
               placeholder="First name"
             />
           </div>
