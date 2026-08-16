@@ -144,6 +144,7 @@ export function getContextualLeadMagnet(pathname: string): LeadMagnet {
 
 export function shouldShowContextualLeadMagnet(pathname: string) {
   const path = pathname.toLowerCase()
+  if (path === '/') return false
   if (path.startsWith('/lead-magnets/')) return false
   if (path.startsWith('/api/')) return false
   if (path.includes('/privacy') || path.includes('/terms') || path.includes('/corrections')) return false
