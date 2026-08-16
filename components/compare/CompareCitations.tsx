@@ -44,21 +44,26 @@ function ItemSources({ item }: ItemSourcesProps) {
   if (sources.length === 0) return null
 
   return (
-    <div>
-      <h3 className="mb-3 text-sm font-semibold text-ink">{item.name}</h3>
-      <ol className="space-y-2">
+    <div className="py-4">
+      <div className="mb-3 flex items-baseline justify-between gap-3">
+        <h3 className="text-sm font-semibold text-[color:var(--hs-ink)]">{item.name}</h3>
+        <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[color:var(--hs-body)]">
+          {sources.length} source{sources.length === 1 ? '' : 's'}
+        </span>
+      </div>
+      <ol className="divide-y divide-[color:var(--hs-hairline)] border-y border-[color:var(--hs-hairline)]">
         {sources.map((source, i) => {
           const label = getSourceLabel(source, i)
           const url = getSourceUrl(source)
           return (
-            <li key={i} className="text-sm leading-relaxed text-muted">
-              {i + 1}.{' '}
+            <li key={`${label}-${i}`} className="grid gap-2 py-3 text-sm leading-6 text-[color:var(--hs-body)] sm:grid-cols-[2.5rem_minmax(0,1fr)]">
+              <span className="font-display tabular-nums text-[color:var(--hs-gold)]">{String(i + 1).padStart(2, '0')}</span>
               {url ? (
                 <a
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-2 hover:text-brand-700"
+                  className="underline decoration-[color:var(--hs-hairline-strong)] underline-offset-3 hover:text-[color:var(--tone-ink)] hover:decoration-[color:var(--hs-gold)]"
                 >
                   {label}
                 </a>
@@ -74,17 +79,23 @@ function ItemSources({ item }: ItemSourcesProps) {
 }
 
 export default function CompareCitations({ item1, item2 }: CompareCitationsProps) {
-  const hasSources =
-    (item1.sources && item1.sources.length > 0) ||
-    (item2.sources && item2.sources.length > 0)
+  const item1Count = item1.sources?.length ?? 0
+  const item2Count = item2.sources?.length ?? 0
+  const totalSources = item1Count + item2Count
+  const hasSources = totalSources > 0
 
   return (
     <section>
-      <details className="group rounded-2xl border border-brand-900/10 bg-white/80">
-        <summary className="flex cursor-pointer select-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-ink marker:content-none">
-          <span>References &amp; Sources</span>
+      <details className="group border-y border-[color:var(--hs-hairline-strong)] !bg-transparent !p-0 !shadow-none">
+        <summary className="flex min-h-12 cursor-pointer list-none select-none items-center justify-between gap-4 py-3 text-sm font-semibold text-[color:var(--hs-ink)] [&::-webkit-details-marker]:hidden">
+          <span className="flex items-center gap-2">
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--tone-ink)]">References &amp; Sources</span>
+            {hasSources ? (
+              <span className="text-xs font-normal text-[color:var(--hs-body)]">{totalSources} surfaced</span>
+            ) : null}
+          </span>
           <svg
-            className="h-4 w-4 shrink-0 text-brand-700 transition-transform duration-200 group-open:rotate-180"
+            className="h-4 w-4 shrink-0 text-[color:var(--hs-body)] transition-transform duration-200 group-open:rotate-180"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -95,37 +106,37 @@ export default function CompareCitations({ item1, item2 }: CompareCitationsProps
           </svg>
         </summary>
 
-        <div className="space-y-6 px-5 pb-6 pt-2">
+        <div className="border-t border-[color:var(--hs-hairline)] pb-5">
           {hasSources ? (
-            <>
+            <div className="divide-y divide-[color:var(--hs-hairline-strong)]">
               <ItemSources item={item1} />
               <ItemSources item={item2} />
-            </>
+            </div>
           ) : (
-            <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-subtle)] p-4">
-              <p className="text-sm leading-6 text-muted">
+            <div className="relative py-5 pl-4 before:absolute before:inset-y-5 before:left-0 before:w-0.5 before:bg-[color:var(--hs-gold)]">
+              <p className="max-w-3xl text-sm leading-7 text-[color:var(--hs-body)]">
                 No source-level citations are surfaced in this comparison record. The comparison is assembled from the structured herb and compound profile data; open the full profiles below to inspect any source context available there.
               </p>
             </div>
           )}
 
-          <div className="rounded-2xl border border-brand-900/10 bg-brand-50/70 p-4">
-            <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
+          <div className="mt-5 rounded-2xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface-2)] p-4">
+            <p className="text-xs font-bold uppercase tracking-wider text-[color:var(--tone-ink)]">
               Want the full evidence context?
             </p>
-            <p className="mt-1 text-sm leading-6 text-muted">
+            <p className="mt-1 text-sm leading-6 text-[color:var(--hs-body)]">
               Open the full profiles for dosing notes, safety flags, mechanisms, and source-level context before deciding.
             </p>
             <div className="mt-3 flex flex-col gap-2 sm:flex-row">
               <Link
                 href={item1.pageUrl}
-                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-center text-xs font-bold text-brand-800 transition-colors hover:bg-brand-100"
+                className="button-secondary rounded-full px-4 py-2 text-center text-xs font-bold"
               >
                 Read {item1.name} profile →
               </Link>
               <Link
                 href={item2.pageUrl}
-                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-center text-xs font-bold text-brand-800 transition-colors hover:bg-brand-100"
+                className="button-secondary rounded-full px-4 py-2 text-center text-xs font-bold"
               >
                 Read {item2.name} profile →
               </Link>
