@@ -94,7 +94,7 @@ function analyzeProfile(url: string, record: ResearchProfile, cache: PubmedCache
     const validRefs = refs.filter((ref) => sourcesById.has(ref))
     const studies = uniqueClaimStudyIdentities(claim, studyIdentities)
 
-    if (refs.length === 0) unsupportedApprovedClaims.push(claimId)
+    if (studies.length === 0) unsupportedApprovedClaims.push(claimId)
     if (studies.length === 1) singleStudyApprovedClaims.push(claimId)
     if (validRefs.length > studies.length && studies.length > 0) aliasCollapsedClaims.push(claimId)
 
