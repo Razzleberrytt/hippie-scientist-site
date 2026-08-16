@@ -10,22 +10,22 @@ export const LOCALIZED_PROFILE_UI: Record<ProfileTranslationLocale, LocalizedPro
     evidenceEyebrow: 'Perfil de pesquisa traduzido', evidenceHeading: 'O que as evidências mostram', evidenceIntro: 'As afirmações abaixo correspondem, uma a uma, às afirmações aprovadas do perfil científico original. As referências permanecem no idioma original.', safetyHeading: 'Segurança e precauções', dosageHeading: 'Dose estudada e contexto', sourcesHeading: 'Fontes', sourcesIntro: 'São mostradas as fontes ligadas às afirmações aprovadas deste perfil.', evidenceLevelLabel: 'Nível de evidência', confidenceLabel: 'Confiança editorial', sourceLabel: 'Fonte', originalLabel: 'Perfil original em inglês', backToLibraryLabel: 'Voltar para ervas', educationalDisclaimer: 'Conteúdo educacional. Não substitui avaliação médica individual nem orientação profissional sobre medicamentos, gravidez, doenças ou tratamento.',
   },
   fr: {
-    evidenceEyebrow: 'Profil de recherche traduit',
-    evidenceHeading: 'Ce que montrent les données',
-    evidenceIntro: 'Les affirmations ci-dessous correspondent une à une aux affirmations approuvées du profil scientifique original. Les références sont conservées dans leur langue d’origine.',
-    safetyHeading: 'Sécurité et précautions',
-    dosageHeading: 'Dose étudiée et contexte',
-    sourcesHeading: 'Sources',
-    sourcesIntro: 'Les sources liées aux affirmations approuvées de ce profil sont conservées ici.',
-    evidenceLevelLabel: 'Niveau de preuve',
-    confidenceLabel: 'Confiance éditoriale',
-    sourceLabel: 'Source',
-    originalLabel: 'Profil original en anglais',
-    backToLibraryLabel: 'Retour aux plantes',
-    educationalDisclaimer: 'Contenu éducatif. Ne remplace pas une évaluation médicale individuelle ni un avis professionnel concernant les médicaments, la grossesse, les maladies ou les traitements.',
+    evidenceEyebrow: 'Profil de recherche traduit', evidenceHeading: 'Ce que montrent les données', evidenceIntro: 'Les affirmations ci-dessous correspondent une à une aux affirmations approuvées du profil scientifique original. Les références sont conservées dans leur langue d’origine.', safetyHeading: 'Sécurité et précautions', dosageHeading: 'Dose étudiée et contexte', sourcesHeading: 'Sources', sourcesIntro: 'Les sources liées aux affirmations approuvées de ce profil sont conservées ici.', evidenceLevelLabel: 'Niveau de preuve', confidenceLabel: 'Confiance éditoriale', sourceLabel: 'Source', originalLabel: 'Profil original en anglais', backToLibraryLabel: 'Retour aux plantes', educationalDisclaimer: 'Contenu éducatif. Ne remplace pas une évaluation médicale individuelle ni un avis professionnel concernant les médicaments, la grossesse, les maladies ou les traitements.',
   },
   de: {
-    evidenceEyebrow: 'Übersetztes Forschungsprofil', evidenceHeading: 'Was die Evidenz zeigt', evidenceIntro: 'Die folgenden Aussagen entsprechen den freigegebenen Aussagen des wissenschaftlichen Originalprofils.', safetyHeading: 'Sicherheit und Vorsichtsmaßnahmen', dosageHeading: 'Untersuchte Dosis und Kontext', sourcesHeading: 'Quellen', sourcesIntro: 'Quellen zu den freigegebenen Aussagen.', evidenceLevelLabel: 'Evidenzniveau', confidenceLabel: 'Redaktionelle Konfidenz', sourceLabel: 'Quelle', originalLabel: 'Englisches Originalprofil', backToLibraryLabel: 'Zurück zu Kräutern', educationalDisclaimer: 'Bildungsinhalt; ersetzt keine individuelle medizinische Beurteilung.',
+    evidenceEyebrow: 'Übersetztes Forschungsprofil',
+    evidenceHeading: 'Was die Evidenz zeigt',
+    evidenceIntro: 'Die folgenden Aussagen entsprechen jeweils einer freigegebenen Aussage des wissenschaftlichen Originalprofils. Die Quellenangaben bleiben im Original erhalten.',
+    safetyHeading: 'Sicherheit und Vorsichtsmaßnahmen',
+    dosageHeading: 'Untersuchte Dosierung und Kontext',
+    sourcesHeading: 'Quellen',
+    sourcesIntro: 'Hier werden die Quellen angezeigt, die mit den freigegebenen Aussagen dieses Profils verknüpft sind.',
+    evidenceLevelLabel: 'Evidenzniveau',
+    confidenceLabel: 'Redaktionelle Sicherheit',
+    sourceLabel: 'Quelle',
+    originalLabel: 'Englisches Originalprofil',
+    backToLibraryLabel: 'Zurück zu den Kräutern',
+    educationalDisclaimer: 'Bildungsinhalt. Er ersetzt keine individuelle medizinische Beurteilung oder professionelle Beratung zu Medikamenten, Schwangerschaft, Erkrankungen oder Behandlungen.',
   },
 }
 
@@ -77,8 +77,24 @@ const FRENCH_HERBS: readonly LocalizedProfileTranslation[] = [{
   }, originalPath: '/herbs/ashwagandha/',
 }]
 
+const GERMAN_HERBS: readonly LocalizedProfileTranslation[] = [{
+  kind: 'herb', slug: 'ashwagandha', path: '/de/kraeuter/ashwagandha/', title: 'Ashwagandha (Withania somnifera): Evidenz und Sicherheit',
+  summary: 'Ashwagandha ist ein Wurzelextrakt, der vor allem bei anhaltendem Stress, stressbezogenen Angstsymptomen und Schlaf untersucht wurde, nicht als sofortige Linderung. Metaanalysen deuten auf einen möglichen Nutzen hin, doch die Studien verwenden unterschiedliche Extrakte und Dosierungen und die Sicherheit der Schlussfolgerungen ist begrenzt; Produktstandardisierung sowie Vorsicht bei Schilddrüse, Leber, Schwangerschaft und sedierenden Mitteln sind wichtig.',
+  dosage: 'Die Studien rechtfertigen keine universelle Dosierung für alle Produkte. Formulierungen und Konzentrationen unterscheiden sich; Dosierungen sollten im Zusammenhang mit dem konkret untersuchten Extrakt und dessen Sicherheitskontext interpretiert werden.',
+  safetyNotes: 'Kurzzeitstudien berichten meist über eine gute Verträglichkeit, leichte Magen-Darm-Beschwerden und Schläfrigkeit können jedoch auftreten. Zusätzlich gibt es seltene Signale für Schilddrüsenstimulation und Leberschädigung.',
+  contraindications: ['Während der Schwangerschaft vermeiden, sofern nicht ausdrücklich medizinisch empfohlen.', 'Zusätzliche Vorsicht bei Schilddrüsenerkrankungen oder -medikamenten sowie mit Sedativa, Blutdrucksenkern, Antidiabetika und Immunsuppressiva.', 'Bei Gelbsucht, dunklem Urin, starkem Juckreiz oder anhaltenden Oberbauchbeschwerden absetzen und medizinisch abklären lassen.'],
+  claims: {
+    clm_554b74f570d4: 'Die klinische Evidenzbasis bleibt durch kleine Studien, heterogene Extrakte und Dosierungsschemata, unterschiedliche Endpunktmessungen und Bedenken hinsichtlich des Verzerrungsrisikos begrenzt; Ergebnisse einer bestimmten Zubereitung sollten daher nicht auf alle Ashwagandha-Produkte übertragen werden.',
+    clm_62d80de74d95: 'Kurzzeitige randomisierte Studien berichten im Allgemeinen über eine gute Verträglichkeit, leichte Magen-Darm-Symptome und Schläfrigkeit können jedoch auftreten, und die vorhandene Evidenz belegt keine Langzeitsicherheit über verschiedene Produkte oder Populationen hinweg.',
+    clm_78af0b376bf1: 'Systematische Übersichten randomisierter Studien deuten darauf hin, dass einige Ashwagandha-Extrakte wahrgenommenen Stress und Angstsymptome bei Erwachsenen verringern können; die Evidenz sollte jedoch vorsichtig interpretiert werden, da sich Formulierungen, Dosierungen, Studienpopulationen und Endpunkte zwischen den Studien unterscheiden.',
+    clm_9318758bf577: 'Ashwagandha sollte während der Schwangerschaft vermieden werden, sofern es nicht ausdrücklich von einer qualifizierten Fachperson empfohlen wird. Besondere Vorsicht ist bei Schilddrüsenerkrankungen oder Schilddrüsenmedikamenten sowie bei Sedativa, Blutdrucksenkern, Antidiabetika und Immunsuppressiva geboten, da humane Sicherheits- und Interaktionsdaten begrenzt sind und Schilddrüsenstimulation oder additive Wirkungen plausibel sind.',
+    clm_d6711d6cd0c9: 'Seltene Fälle und Fallserien klinisch relevanter Leberschädigungen wurden mit Ashwagandha-Produkten in Verbindung gebracht, häufig mit cholestatischen oder gemischten Mustern; bei Gelbsucht, dunklem Urin, starkem Juckreiz oder anhaltenden Oberbauchbeschwerden sollte die Einnahme beendet und medizinische Hilfe gesucht werden.',
+    clm_ead0ae0bd2e4: 'Eine systematische Übersichtsarbeit und Metaanalyse fand eine insgesamt moderate Verbesserung von Schlafendpunkten durch Ashwagandha-Extrakt, mit einem stärkeren Signal bei Erwachsenen mit Insomnie; die Zahl der Studien war jedoch begrenzt und ein Publikationsbias konnte nicht zuverlässig beurteilt werden.',
+  }, originalPath: '/herbs/ashwagandha/',
+}]
+
 export const PROFILE_TRANSLATIONS: Readonly<Record<ProfileTranslationLocale, readonly LocalizedProfileTranslation[]>> = {
-  es: SPANISH_HERBS, 'pt-BR': PORTUGUESE_HERBS, fr: FRENCH_HERBS, de: [],
+  es: SPANISH_HERBS, 'pt-BR': PORTUGUESE_HERBS, fr: FRENCH_HERBS, de: GERMAN_HERBS,
 }
 
 export function getProfileTranslation(locale: ProfileTranslationLocale, kind: 'herb' | 'compound', slug: string) {
