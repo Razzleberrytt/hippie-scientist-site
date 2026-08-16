@@ -131,20 +131,6 @@ export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
       herb.clinical_trials,
       herb.clinicalTrials,
     ),
-    humanPublicationCount: positiveInteger(
-      herb.human_trial_count,
-      herb.humanTrialCount,
-      herb.human_study_count,
-      herb.humanStudyCount,
-      herb.clinical_study_count,
-      herb.clinicalStudyCount,
-      herb.human_trials,
-      herb.humanTrials,
-      herb.clinical_trials,
-      herb.clinicalTrials,
-    ),
-    collapsedHumanPublicationCount: 0,
-    humanEvidenceCountCanonical: false,
     intensity: normalizeIntensity(
       text(
         herb.intensityLabel,
@@ -232,9 +218,6 @@ export const getBotanicalAtlasRecords = cache(async (): Promise<BotanicalAtlasRe
         ...record,
         evidence: atlasEvidenceFromGrade(getEvidenceLetterGrade(herb)),
         humanEvidenceCount: profile?.primaryHumanUnderlyingStudyCount ?? record.humanEvidenceCount,
-        humanPublicationCount: profile?.primaryHumanPublicationCount ?? record.humanPublicationCount,
-        collapsedHumanPublicationCount: profile?.collapsedPrimaryHumanPublicationCount ?? 0,
-        humanEvidenceCountCanonical: Boolean(profile),
       }
     })
     .map((record: BotanicalAtlasRecord) => enrichAtlasRecordWithMappedCompounds(record, mappedCompoundsByHerb.get(record.slug)))
