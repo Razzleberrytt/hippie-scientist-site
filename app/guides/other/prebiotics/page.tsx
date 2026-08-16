@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
 import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
@@ -29,7 +29,6 @@ export default function PrebioticsGuide() {
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd title="Prebiotics: Evidence, Types & Food Sources" description="Prebiotics feed your gut bacteria. 8 cited studies on what works." url="https://thehippiescientist.net/guides/other/prebiotics" type="Article" />
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Prebiotics' }]} />
-      <FAQSchema pagePath="/guides/other/prebiotics/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Prebiotics: Feeding Your Gut Bacteria — Does It Matter?</h1><p className="text-lg leading-8 text-muted">The gut microbiome is one of the hottest areas in nutrition, and prebiotics — fibers that selectively feed beneficial bacteria — are central to the conversation. The 2017 ISAPP consensus formalized the definition [1]. But the gap between what prebiotics can do in controlled studies and what supplements promise on the label is substantial. Here&rsquo;s the evidence.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/prebiotics.jpg" alt="Prebiotic-rich foods: garlic, onions, asparagus, green bananas, and oats on a wood surface" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Prebiotic foods — superior to any supplement.</figcaption></figure></section>
@@ -72,16 +71,8 @@ export default function PrebioticsGuide() {
         <Ref n={7} text="Robertson MD, et al. (2005). Resistant starch improves insulin sensitivity in healthy subjects. Diabetologia, 48(6): 1218-1225." url="https://pubmed.ncbi.nlm.nih.gov/15778869/" />
         <Ref n={8} text="Deehan EC, et al. (2020). Precision microbiome modulation with discrete dietary fiber structures. Cell Host Microbe, 27(3): 389-404." url="https://pubmed.ncbi.nlm.nih.gov/32101703/" />
       </ol></section>
-      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
-        <div className="space-y-4">
-          {FAQS.map((faq) => (
-            <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
-              <h3 className="font-semibold text-ink">{faq.question}</h3>
-              <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+
+      <LegacyGuideFAQ pagePath="/guides/other/prebiotics/" questions={FAQS} />
 
       <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Related reading</h2>
         <p className="text-sm leading-7 text-muted">Prebiotics feed the bacteria; probiotics seed them. Round out the gut picture:</p>
