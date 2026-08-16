@@ -137,12 +137,12 @@ export default function Footer() {
             </nav>
 
             <div className='editorial-card mt-6 rounded-2xl p-4 sm:p-5'>
-              <p className='editorial-eyebrow'>Lost or not sure where to begin?</p>
+              <p className='editorial-eyebrow'>Not sure where to begin?</p>
               <p className='mt-2 text-sm leading-6 text-[color:var(--hs-body)]'>
-                The master directory explains how the site is organized and links every major guide, article, profile, research, and safety collection.
+                Start with your intent: choose a health goal, look up an ingredient, or check safety before going deeper.
               </p>
-              <Link className='mt-3 inline-flex text-sm font-bold text-[color:var(--tone-ink)] hover:text-[color:var(--hs-ink)]' to={PUBLIC_ROUTES.library} prefetch={true}>
-                Explore the complete site →
+              <Link className='mt-3 inline-flex text-sm font-bold text-[color:var(--tone-ink)] hover:text-[color:var(--hs-ink)]' to={PUBLIC_ROUTES.start} prefetch={true}>
+                Start here →
               </Link>
             </div>
           </div>
