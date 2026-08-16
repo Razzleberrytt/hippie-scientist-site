@@ -119,7 +119,13 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
         <div className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Human evidence source records</p>
           <p className="mt-2 text-3xl font-bold text-ink">{metrics.humanStudyCount.toLocaleString()}</p>
-          <p className="mt-1 text-xs text-muted">Publication/study entities classified as human evidence. Multiple records can originate from the same underlying trial, cohort, or dataset.</p>
+          <p className="mt-1 text-xs text-muted">
+            Publication/study entities classified as human evidence.
+            {metrics.studyClassAmbiguityStudyCount > 0
+              ? ` ${metrics.studyClassAmbiguityStudyCount} deduplicated study record${metrics.studyClassAmbiguityStudyCount === 1 ? '' : 's'} with conflicting concrete design classes ${metrics.studyClassAmbiguityStudyCount === 1 ? 'is' : 'are'} conservatively classified as Other / unclear and excluded from human/trial counts until reconciled.`
+              : ''}{' '}
+            Multiple publication records can still originate from the same underlying trial, cohort, or dataset.
+          </p>
         </div>
         <div className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Reported participants</p>
