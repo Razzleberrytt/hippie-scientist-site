@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Brain, Leaf, Newspaper, Search, Shapes } from 'lucide-react'
+import { coreGoals } from '../../lib/core-goals'
 import { Link } from '../lib/router-compat'
 import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
@@ -19,11 +20,9 @@ const exploreLinks = [
 ]
 
 const priorityGoalLinks = [
+  ...coreGoals.map((goal) => ({ href: goal.href, label: goal.label })),
   { href: '/guides/mental-health/', label: 'Mental Health' },
-  { href: '/guides/sleep/', label: 'Sleep' },
   { href: '/guides/adhd/', label: 'ADHD' },
-  { href: '/guides/anxiety/', label: 'Anxiety' },
-  { href: '/guides/focus/', label: 'Focus & Cognition' },
   { href: '/guides/other/', label: 'More topics' },
 ]
 
