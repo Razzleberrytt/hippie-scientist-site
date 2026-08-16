@@ -4,14 +4,16 @@ import { notFound } from 'next/navigation'
 import { allArticleMonographs, allBlogPosts } from '../../../.content-collections/generated'
 
 import ArticleMdx from '@/components/articles/ArticleMdx'
-import References, { type Ref } from '@/components/References'
+import References from '@/components/References'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
 import WhatEvidenceShows from '@/src/components/evidence/WhatEvidenceShows'
 import { editorialReviewEvents } from '@/data/editorial/reviews'
 import { latestReviewForPage } from '@/lib/editorial-provenance'
 import {
+  buildArticleReferenceSchema,
   buildCitationReadySummary,
+  normalizeArticleReferences,
   normalizeCitationMetadata,
   resolveRelatedArticles,
 } from '@/src/lib/article-citation-metadata'
@@ -27,63 +29,6 @@ const articlePages = [...allArticleMonographs, ...allBlogPosts]
 
 type PageProps = {
   params: Promise<{ slug: string }>
-}
-
-type ArticleReference = Ref & {
-  sourceId?: string
-}
-
-function normalizeArticleReferences(references: readonly unknown[]): ArticleReference[] {
-  return references.map((raw, index) => {
-    const ref = (raw && typeof raw === 'object' ? raw : {}) as Record<string, unknown>
-    const title = String(ref.title || `Source ${index + 1}`).trim()
-    const authors = typeof ref.authors === 'string' ? ref.authors.trim() : undefined
-    const year = typeof ref.year === 'string' || typeof ref.year === 'number' ? ref.year : undefined
-    const pmid = typeof ref.pmid === 'string' ? ref.pmid.trim() : undefined
-    const doi = typeof ref.doi === 'string' ? ref.doi.trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '') : undefined
-    const explicitUrl = typeof ref.url === 'string' ? ref.url.trim() : ''
-    const url = explicitUrl
-      || (doi ? `https://doi.org/${doi}` : '')
-      || (pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` : '')
-      || undefined
-
-    return {
-      n: index + 1,
-      title,
-      text: [authors, year ? String(year) : ''].filter(Boolean).join(' · '),
-      authors,
-      year,
-      pmid,
-      doi,
-      url,
-      sourceId: doi ? `doi:${doi.toLowerCase()}` : pmid ? `pmid:${pmid}` : url,
-    }
-  })
-}
-
-function citationSchema(ref: ArticleReference) {
-  const identifiers = [
-    ref.pmid ? { '@type': 'PropertyValue', propertyID: 'PMID', value: ref.pmid } : null,
-    ref.doi ? { '@type': 'PropertyValue', propertyID: 'DOI', value: ref.doi } : null,
-  ].filter(Boolean)
-
-  return {
-    '@type': 'ScholarlyArticle',
-    ...(ref.sourceId ? { '@id': ref.sourceId.startsWith('http') ? ref.sourceId : ref.url } : {}),
-    name: ref.title,
-    ...(ref.year ? { datePublished: String(ref.year) } : {}),
-    ...(identifiers.length ? { identifier: identifiers } : {}),
-    ...(ref.url ? { url: ref.url } : {}),
-    ...(ref.authors
-      ? {
-          additionalProperty: {
-            '@type': 'PropertyValue',
-            name: 'Authors as cited',
-            value: ref.authors,
-          },
-        }
-      : {}),
-  }
 }
 
 export function generateStaticParams() {
@@ -149,7 +94,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       ? { '@type': 'Person', '@id': AUTHOR_SCHEMA_ID, name: AUTHOR_NAME, url: AUTHOR_URL }
       : { '@type': 'Person', name: author },
     publisher: { '@id': ORGANIZATION_SCHEMA_ID },
-    citation: articleReferences.map(citationSchema),
+    citation: articleReferences.map(buildArticleReferenceSchema),
   }
 
   const takeawaySchema = keyTakeaways.length > 0
