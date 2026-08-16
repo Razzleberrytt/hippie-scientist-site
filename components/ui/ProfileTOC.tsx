@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react'
 type TocItem = { id: string; label: string }
 type ProfileTOCVariant = 'all' | 'mobile' | 'desktop'
 
+export function getActiveTocLabel(items: TocItem[], activeId: string | null) {
+  return items.find(({ id }) => id === activeId)?.label || items[0]?.label || ''
+}
+
 export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[]; variant?: ProfileTOCVariant }) {
   const [activeId, setActiveId] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -27,6 +31,8 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
   }, [items])
 
   if (items.length === 0) return null
+
+  const activeLabel = getActiveTocLabel(items, activeId)
 
   const links = (
     <ol className='space-y-0.5'>
@@ -57,15 +63,21 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
       {variant !== 'desktop' ? (
         <nav
           aria-label='Page sections'
-          className='rounded-xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] p-2 shadow-[var(--hs-lift)] lg:hidden'
+          className='overflow-hidden rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_92%,transparent)] shadow-[0_10px_28px_-24px_rgba(53,47,65,0.36)] backdrop-blur lg:hidden'
         >
           <button
             type='button'
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
-            className='flex min-h-12 w-full items-center justify-between px-3 py-2 text-left text-sm font-semibold text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
+            className='flex min-h-11 w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--hs-gold)]'
           >
-            On this page
+            <span className='flex min-w-0 items-center gap-2.5'>
+              <span className='shrink-0 text-[0.64rem] font-extrabold uppercase tracking-[0.16em] text-[color:var(--hs-gold-ink)]'>
+                On this page
+              </span>
+              <span aria-hidden='true' className='h-4 w-px shrink-0 bg-[color:var(--hs-hairline-strong)]' />
+              <span className='truncate text-sm font-semibold'>{activeLabel}</span>
+            </span>
             <svg
               aria-hidden='true'
               viewBox='0 0 16 16'
@@ -79,7 +91,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
           </button>
           {mobileOpen ? (
             <div
-              className='mt-2 overflow-y-auto overscroll-contain border-t border-[color:var(--hs-hairline)] pt-2 pr-1 [scrollbar-width:thin]'
+              className='overflow-y-auto overscroll-contain border-t border-[color:var(--hs-hairline)] px-2 py-2 pr-3 [scrollbar-width:thin]'
               style={{ maxHeight: 'min(55dvh, 28rem)' }}
             >
               {links}
