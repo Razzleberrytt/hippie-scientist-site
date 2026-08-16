@@ -21,6 +21,7 @@ export type ResearchSnapshotInvariantReport = {
     missingClaimIds: number
     duplicateSourceIds: number
     missingSourceIds: number
+    duplicateClaimSourceEdges: number
     sourceIntegrityFailures: number
   }
 }
@@ -90,6 +91,18 @@ export function validateResearchQualitySnapshotInvariants(
     add(
       'semantic-approved-claim-count-mismatch',
       `semantic=${topology.semanticAlignment.summary.approvedClaims}; analysis=${analysis.claimAnalyses.length}`,
+    )
+  }
+  if (topology.edgeCardinality.summary.claims !== analysis.structuredClaimAnalyses.length) {
+    add(
+      'edge-cardinality-claim-count-mismatch',
+      `edgeCardinality=${topology.edgeCardinality.summary.claims}; analysis=${analysis.structuredClaimAnalyses.length}`,
+    )
+  }
+  for (const claim of topology.edgeCardinality.duplicateEdgeClaims) {
+    add(
+      'duplicate-claim-source-edge',
+      `${claim.url}::${claim.claimId} · duplicateRefs=${claim.duplicateSourceRefs.join(',')} · duplicateEdges=${claim.duplicateSourceRefCount}`,
     )
   }
 
@@ -166,6 +179,7 @@ export function validateResearchQualitySnapshotInvariants(
   const missingClaimIds = failures.filter((failure) => failure.kind === 'missing-claim-id').length
   const duplicateSourceIds = failures.filter((failure) => failure.kind === 'duplicate-source-id').length
   const missingSourceIds = failures.filter((failure) => failure.kind === 'missing-source-id').length
+  const duplicateClaimSourceEdges = failures.filter((failure) => failure.kind === 'duplicate-claim-source-edge').length
   const sourceIntegrityFailures = failures.filter((failure) => failure.kind.startsWith('source-')).length
 
   return {
@@ -180,6 +194,7 @@ export function validateResearchQualitySnapshotInvariants(
       missingClaimIds,
       duplicateSourceIds,
       missingSourceIds,
+      duplicateClaimSourceEdges,
       sourceIntegrityFailures,
     },
   }
