@@ -82,9 +82,15 @@ function fixtures() {
         globalInventoryPublicationCount: 2,
         globalInventoryUnderlyingStudyCount: 1,
         globalCollapsedInventoryPublicationCount: 1,
+        globalInventoryPublicationsWithIndependenceMetadata: 2,
+        globalInventoryPublicationsWithoutIndependenceMetadata: 0,
+        globalInventoryIndependenceMetadataCoverage: 1,
         globalPrimaryHumanPublicationCount: 2,
         globalPrimaryHumanUnderlyingStudyCount: 1,
         globalCollapsedPrimaryHumanPublicationCount: 1,
+        globalPrimaryHumanPublicationsWithIndependenceMetadata: 2,
+        globalPrimaryHumanPublicationsWithoutIndependenceMetadata: 0,
+        globalPrimaryHumanIndependenceMetadataCoverage: 1,
         overDependentProfiles: 0,
         newlyOverDependentProfiles: 0,
       },
@@ -127,7 +133,17 @@ describe('underlying-study snapshot invariants', () => {
     const { analysis, topology } = fixtures()
     topology.underlyingStudyIndependence.summary.globalInventoryPublicationCount = 3
     topology.underlyingStudyIndependence.summary.globalCollapsedInventoryPublicationCount = 2
+    topology.underlyingStudyIndependence.summary.globalInventoryPublicationsWithoutIndependenceMetadata = 1
+    topology.underlyingStudyIndependence.summary.globalInventoryIndependenceMetadataCoverage = 0.667
     const kinds = validateUnderlyingStudySnapshotInvariants(analysis, topology).map((failure) => failure.kind)
     expect(kinds).toContain('underlying-study-global-publication-exceeds-incidences')
+  })
+
+  it('rejects inventory metadata coverage that does not reconcile to unique publications', () => {
+    const { analysis, topology } = fixtures()
+    topology.underlyingStudyIndependence.summary.globalPrimaryHumanPublicationsWithIndependenceMetadata = 1
+    const kinds = validateUnderlyingStudySnapshotInvariants(analysis, topology).map((failure) => failure.kind)
+    expect(kinds).toContain('underlying-study-global-primary-human-metadata-gap-mismatch')
+    expect(kinds).toContain('underlying-study-global-primary-human-metadata-coverage-mismatch')
   })
 })
