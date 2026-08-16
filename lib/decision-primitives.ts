@@ -84,6 +84,32 @@ export function normalizeDecisionEvidence(value?: unknown, fallback: StandardEvi
   return fallback
 }
 
+/**
+ * Phrase an evidence label as a noun phrase for use mid-sentence.
+ *
+ * Six of the eight standard labels already end in "evidence", so a template
+ * writing `{label} evidence rating` produced "a moderate evidence evidence
+ * rating" on 532 published pages. The label carries the word; the sentence
+ * must not add it again.
+ *
+ * The two labels that do not end in "evidence" — "Traditional use" and
+ * "Needs review" — are not evidence strengths at all, so they get wording that
+ * does not imply one.
+ *
+ * The article is part of the returned phrase because it varies ("a moderate…",
+ * "an insufficient…"); a caller writing its own "a" would be wrong one label in
+ * eight.
+ */
+export function describeEvidenceRating(labelOrValue?: unknown): string {
+  const label = normalizeDecisionEvidence(labelOrValue)
+
+  if (label === 'Traditional use') return 'a traditional-use rating rather than a graded evidence rating'
+  if (label === 'Needs review') return 'an evidence rating that is still under review'
+
+  const phrase = `${label.toLowerCase()} rating`
+  return `${/^[aeiou]/.test(phrase) ? 'an' : 'a'} ${phrase}`
+}
+
 export function getDecisionEvidenceTone(labelOrValue?: unknown): DecisionEvidenceTone {
   const label = normalizeDecisionEvidence(labelOrValue)
   if (label === 'Strong evidence') return 'strong'

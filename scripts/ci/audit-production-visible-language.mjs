@@ -35,16 +35,30 @@ function routeFromFile(file) {
   rel = rel.replace(/\/index\.html$/, '/').replace(/\.html$/, '/')
   return `/${rel}`.replace(/\/+/g, '/')
 }
-function visibleText(html) {
+/**
+ * Flatten a page to the text a reader actually sees, one text run per line.
+ *
+ * Tags become newlines rather than spaces. Collapsing them to spaces fused
+ * neighbouring elements into phrases nobody ever reads: a breadcrumb of
+ * `<a>Evidence</a><a>Evidence Report</a>` became "Evidence Evidence Report" and
+ * tripped the duplicate-word rule, as did a heading ending in "Evidence"
+ * followed by a paragraph opening "Evidence-based". 14 of 546 findings were
+ * that artefact.
+ *
+ * Keeping runs on separate lines means a pattern only matches text that is
+ * genuinely adjacent in one rendered run.
+ */
+function visibleTextLines(html) {
   return html
-    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<svg\b[\s\S]*?<\/svg>/gi, ' ')
-    .replace(/<!--([\s\S]*?)-->/g, ' ')
-    .replace(/<[^>]+>/g, ' ')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, '\n')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, '\n')
+    .replace(/<svg\b[\s\S]*?<\/svg>/gi, '\n')
+    .replace(/<!--([\s\S]*?)-->/g, '\n')
+    .replace(/<[^>]+>/g, '\n')
     .replace(/&(?:nbsp|amp|quot|#39|lt|gt);/gi, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
+    .split('\n')
+    .map((line) => line.replace(/[^\S\n]+/g, ' ').trim())
+    .filter(Boolean)
 }
 
 const findings = []
@@ -52,13 +66,19 @@ let pages = 0
 for (const file of walk(outDir)) {
   pages += 1
   const route = routeFromFile(file)
-  const body = visibleText(fs.readFileSync(file, 'utf8'))
+  const lines = visibleTextLines(fs.readFileSync(file, 'utf8'))
   for (const [code, pattern] of forbidden) {
-    const match = pattern.exec(body)
-    if (!match) continue
-    const start = Math.max(0, match.index - 80)
-    const end = Math.min(body.length, match.index + match[0].length + 120)
-    findings.push({ route, code, excerpt: body.slice(start, end) })
+    // Report a route once per rule, on the first text run that matches.
+    let hit = null
+    for (const line of lines) {
+      const match = pattern.exec(line)
+      if (!match) continue
+      const start = Math.max(0, match.index - 80)
+      const end = Math.min(line.length, match.index + match[0].length + 120)
+      hit = line.slice(start, end)
+      break
+    }
+    if (hit) findings.push({ route, code, excerpt: hit })
   }
 }
 
