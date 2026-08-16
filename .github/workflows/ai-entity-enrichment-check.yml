@@ -22,6 +22,7 @@ on:
       - 'lib/research-quality-analysis.ts'
       - 'scripts/ci/audit-ai-*.mjs'
       - 'scripts/ci/audit-ai-*.ts'
+      - 'scripts/data/ai-entity-artifacts.mjs'
       - 'scripts/data/ai-entity-enrichment-lib.mjs'
       - 'scripts/data/ai-entity-enrichment-smoke.mjs'
       - 'scripts/data/build-runtime-summary-indexes.mjs'
@@ -105,6 +106,7 @@ jobs:
           src/lib/schema-injector.ts
           src/lib/__tests__/schema-injector.test.ts
           lib/structured-data.ts
+          scripts/data/ai-entity-artifacts.mjs
           scripts/data/ai-entity-enrichment-lib.mjs
           scripts/data/ai-entity-enrichment-smoke.mjs
           scripts/data/build-runtime-summary-indexes.mjs
