@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
+import { coreGoals } from '@/lib/core-goals'
 import { generateDynamicBreadcrumbs } from '@/lib/navigation-config'
 
 describe('navigation breadcrumbs', () => {
@@ -30,11 +31,14 @@ describe('navigation breadcrumbs', () => {
     ])
   })
 
-  it('uses the concrete slug for dynamic goal pages', () => {
-    expect(generateDynamicBreadcrumbs('/goals/sleep')).toEqual([
-      { label: 'Home', href: '/', current: false },
-      { label: 'Supplement Goals', href: '/goals', current: false },
-      { label: 'Sleep', href: '/goals/sleep', current: true },
-    ])
+  it('uses the canonical goal taxonomy for goal breadcrumbs', () => {
+    for (const goal of coreGoals) {
+      const href = goal.href.replace(/\/$/, '')
+      expect(generateDynamicBreadcrumbs(href)).toEqual([
+        { label: 'Home', href: '/', current: false },
+        { label: 'Supplement Goals', href: '/goals', current: false },
+        { label: goal.label, href, current: true },
+      ])
+    }
   })
 })
