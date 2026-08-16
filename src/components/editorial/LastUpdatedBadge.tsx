@@ -36,11 +36,11 @@ export default function LastUpdatedBadge({
       data-last-reviewed={date || undefined}
       data-citation-count={citationCount !== undefined ? citationCount : undefined}
       aria-label={`${label}: ${formatted}${citationCount ? `. ${citationCount} ${sourceLabel}.` : ''}${showCorrectionLink ? ' Report a correction.' : ''}`}
-      className={`inline-flex flex-wrap items-center gap-2 rounded-full border border-brand-900/10 bg-white/80 px-3 py-1 text-xs font-semibold text-muted ${className}`}
+      className={`inline-flex flex-wrap items-center gap-x-2 gap-y-1.5 ${className}`}
     >
-      <span className="inline-flex items-center gap-2">
-        <span className='h-1.5 w-1.5 rounded-full bg-[var(--color-evidence-strong)]' aria-hidden='true' />
-        <span>
+      <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-brand-900/10 bg-white/80 px-3 py-1 text-xs font-semibold text-muted">
+        <span className='h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-evidence-strong)]' aria-hidden='true' />
+        <span className="min-w-0">
           {label}: <time itemProp="dateModified" dateTime={date || undefined}>{formatted}</time>
           {citationCount !== undefined && citationCount > 0 ? (
             <>
@@ -51,15 +51,12 @@ export default function LastUpdatedBadge({
         </span>
       </span>
       {showCorrectionLink ? (
-        <>
-          <span aria-hidden="true" className="text-muted/30">•</span>
-          <Link
-            href="/info/corrections/"
-            className="text-brand-700 underline-offset-2 hover:underline dark:text-brand-100"
-          >
-            Report a correction
-          </Link>
-        </>
+        <Link
+          href="/info/corrections/"
+          className="inline-flex min-h-8 items-center rounded-full px-2 text-xs font-semibold text-brand-700 underline-offset-2 hover:underline dark:text-brand-100"
+        >
+          Report a correction
+        </Link>
       ) : null}
     </span>
   )
