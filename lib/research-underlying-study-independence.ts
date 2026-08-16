@@ -38,9 +38,15 @@ export type ProfileUnderlyingStudyIndependence = {
   inventoryPublicationStudyCount: number
   inventoryUnderlyingStudyCount: number
   inventoryCollapsedPublicationCount: number
+  inventoryPublicationsWithIndependenceMetadata: number
+  inventoryPublicationsWithoutIndependenceMetadata: number
+  inventoryIndependenceMetadataCoverage: number
   primaryHumanPublicationCount: number
   primaryHumanUnderlyingStudyCount: number
   collapsedPrimaryHumanPublicationCount: number
+  primaryHumanPublicationsWithIndependenceMetadata: number
+  primaryHumanPublicationsWithoutIndependenceMetadata: number
+  primaryHumanIndependenceMetadataCoverage: number
   mostUsedUnderlyingStudyId: string | null
   mostUsedUnderlyingStudyClaimCount: number
   dominantUnderlyingStudySupportedClaimShare: number
@@ -69,6 +75,7 @@ export type UnderlyingStudyIndependenceAnalysis = {
     profilesWithSupportedClaims: number
     profilesWithReducedStudyCount: number
     profilesWithReducedHumanStudyCount: number
+    profilesWithIncompletePrimaryHumanIndependenceMetadata: number
     /** Profile-study incidences; a publication reused on two profiles counts twice. */
     primaryHumanPublicationCount: number
     /** Profile-study incidences after profile-local independence adjustment. */
@@ -156,6 +163,29 @@ function addStudy(studyIdsByUrl: Map<string, Set<string>>, url: string, studyId:
   const studies = studyIdsByUrl.get(url) ?? new Set<string>()
   studies.add(studyId)
   studyIdsByUrl.set(url, studies)
+}
+
+function addMetadata(metadataByUrl: Map<string, Set<string>>, url: string, studyId: string) {
+  const studies = metadataByUrl.get(url) ?? new Set<string>()
+  studies.add(studyId)
+  metadataByUrl.set(url, studies)
+}
+
+function buildProfileIndependenceMetadata(inputs: UnderlyingStudyIndependenceInputs): Map<string, Set<string>> {
+  const metadataByUrl = new Map<string, Set<string>>()
+  for (const study of inputs.trialRegistrationIndependence.studies ?? []) {
+    if (study.stableRegistryId) addMetadata(metadataByUrl, study.url, study.studyId)
+  }
+  for (const claim of inputs.trialRegistrationIndependence.claims) {
+    for (const pair of claim.sameRegisteredTrialPairs) {
+      addMetadata(metadataByUrl, claim.url, pair.leftStudyId)
+      addMetadata(metadataByUrl, claim.url, pair.rightStudyId)
+    }
+  }
+  for (const study of inputs.evidenceLineage.studies) {
+    if (study.lineageIds.length) addMetadata(metadataByUrl, study.url, study.studyId)
+  }
+  return metadataByUrl
 }
 
 /**
@@ -265,10 +295,6 @@ function buildGlobalInventoryIndependence(
   }
   unionGroups(union, registryGroups.values())
 
-  // Compatibility path for synthetic/partial callers where claim diagnostics
-  // carry same-trial pairs but the canonical study registry index is absent.
-  // An explicit same-trial pair is also explicit independence metadata for both
-  // referenced publication identities.
   for (const claim of inputs.trialRegistrationIndependence.claims) {
     for (const pair of claim.sameRegisteredTrialPairs) {
       const left = crossProfileStudyIdentity(claim.url, pair.leftStudyId, identities)
@@ -345,6 +371,7 @@ export function analyzeUnderlyingStudyIndependence(
   inputs: UnderlyingStudyIndependenceInputs,
 ): UnderlyingStudyIndependenceAnalysis {
   const unions = buildProfileUnions(inputs)
+  const profileMetadata = buildProfileIndependenceMetadata(inputs)
   const globalInventory = buildGlobalInventoryIndependence(inputs)
   const claims: ClaimUnderlyingStudyIndependence[] = []
 
@@ -417,11 +444,26 @@ export function analyzeUnderlyingStudyIndependence(
     const inventoryGroups = canonicalStudyGroups(record)
     const inventoryPublicationStudyIds = [...inventoryGroups.keys()]
     const union = unions.get(url) ?? createUnion(inventoryPublicationStudyIds)
+    const metadataStudyIds = profileMetadata.get(url) ?? new Set<string>()
     const inventoryUnderlyingStudyIds = [...new Set(inventoryPublicationStudyIds.map((studyId) => union.find(studyId)))]
+    const inventoryPublicationsWithIndependenceMetadata = inventoryPublicationStudyIds.filter((studyId) => metadataStudyIds.has(studyId)).length
+    const inventoryPublicationsWithoutIndependenceMetadata = Math.max(0, inventoryPublicationStudyIds.length - inventoryPublicationsWithIndependenceMetadata)
+    const inventoryIndependenceMetadataCoverage = round(
+      inventoryPublicationStudyIds.length
+        ? inventoryPublicationsWithIndependenceMetadata / inventoryPublicationStudyIds.length
+        : 1,
+    )
     const primaryHumanPublicationIds = [...inventoryGroups.entries()]
       .filter(([, group]) => PRIMARY_HUMAN_STUDY_CLASSES.has(canonicalStudyClass(group, inputs.analysis.cache)))
       .map(([studyId]) => studyId)
     const primaryHumanUnderlyingStudyIds = [...new Set(primaryHumanPublicationIds.map((studyId) => union.find(studyId)))]
+    const primaryHumanPublicationsWithIndependenceMetadata = primaryHumanPublicationIds.filter((studyId) => metadataStudyIds.has(studyId)).length
+    const primaryHumanPublicationsWithoutIndependenceMetadata = Math.max(0, primaryHumanPublicationIds.length - primaryHumanPublicationsWithIndependenceMetadata)
+    const primaryHumanIndependenceMetadataCoverage = round(
+      primaryHumanPublicationIds.length
+        ? primaryHumanPublicationsWithIndependenceMetadata / primaryHumanPublicationIds.length
+        : 1,
+    )
 
     const publicationStudyIds = [...new Set(profileClaims.flatMap((claim) => claim.studyIds))]
     const underlyingStudyIds = [...new Set(publicationStudyIds.map((studyId) => union.find(studyId)))]
@@ -459,9 +501,15 @@ export function analyzeUnderlyingStudyIndependence(
       inventoryPublicationStudyCount: inventoryPublicationStudyIds.length,
       inventoryUnderlyingStudyCount: inventoryUnderlyingStudyIds.length,
       inventoryCollapsedPublicationCount: Math.max(0, inventoryPublicationStudyIds.length - inventoryUnderlyingStudyIds.length),
+      inventoryPublicationsWithIndependenceMetadata,
+      inventoryPublicationsWithoutIndependenceMetadata,
+      inventoryIndependenceMetadataCoverage,
       primaryHumanPublicationCount: primaryHumanPublicationIds.length,
       primaryHumanUnderlyingStudyCount: primaryHumanUnderlyingStudyIds.length,
       collapsedPrimaryHumanPublicationCount: Math.max(0, primaryHumanPublicationIds.length - primaryHumanUnderlyingStudyIds.length),
+      primaryHumanPublicationsWithIndependenceMetadata,
+      primaryHumanPublicationsWithoutIndependenceMetadata,
+      primaryHumanIndependenceMetadataCoverage,
       mostUsedUnderlyingStudyId: mostUsed?.[0] ?? null,
       mostUsedUnderlyingStudyClaimCount,
       dominantUnderlyingStudySupportedClaimShare: round(dominantUnderlyingStudySupportedClaimShare),
@@ -475,6 +523,7 @@ export function analyzeUnderlyingStudyIndependence(
   profiles.sort((a, b) =>
     Number(b.newlyOverDependentAfterIndependenceAdjustment) - Number(a.newlyOverDependentAfterIndependenceAdjustment)
     || Number(b.overDependentOnSingleUnderlyingStudy) - Number(a.overDependentOnSingleUnderlyingStudy)
+    || a.primaryHumanIndependenceMetadataCoverage - b.primaryHumanIndependenceMetadataCoverage
     || b.dominantUnderlyingStudySupportedClaimShare - a.dominantUnderlyingStudySupportedClaimShare
     || a.effectiveUnderlyingStudyCount - b.effectiveUnderlyingStudyCount
     || a.url.localeCompare(b.url),
@@ -500,6 +549,9 @@ export function analyzeUnderlyingStudyIndependence(
       profilesWithSupportedClaims: profiles.filter((profile) => profile.supportedApprovedClaimCount > 0).length,
       profilesWithReducedStudyCount: profiles.filter((profile) => profile.inventoryCollapsedPublicationCount > 0).length,
       profilesWithReducedHumanStudyCount: profiles.filter((profile) => profile.collapsedPrimaryHumanPublicationCount > 0).length,
+      profilesWithIncompletePrimaryHumanIndependenceMetadata: profiles.filter(
+        (profile) => profile.primaryHumanPublicationCount >= 2 && profile.primaryHumanIndependenceMetadataCoverage < 1,
+      ).length,
       primaryHumanPublicationCount: profiles.reduce((sum, profile) => sum + profile.primaryHumanPublicationCount, 0),
       primaryHumanUnderlyingStudyCount: profiles.reduce((sum, profile) => sum + profile.primaryHumanUnderlyingStudyCount, 0),
       collapsedPrimaryHumanPublicationCount: profiles.reduce((sum, profile) => sum + profile.collapsedPrimaryHumanPublicationCount, 0),
