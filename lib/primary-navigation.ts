@@ -1,4 +1,4 @@
-import { coreGoalPrefixes, coreGoals } from './core-goals'
+import { coreGoals } from './core-goals'
 
 export interface PrimaryNavigationItem {
   label: string
@@ -14,7 +14,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Goals',
     href: '/goals',
     description: 'Start with what you are researching, then follow the evidence to relevant options',
-    activePrefixes: ['/goals', '/guides/mental-health', '/guides/adhd', ...coreGoalPrefixes],
+    activePrefixes: ['/goals', '/guides/mental-health', '/guides/adhd'],
     children: [
       { section: 'Start here', label: 'Goal finder', href: '/goals', description: 'Choose the outcome or question you are actually researching' },
       ...coreGoals.map((goal) => ({
