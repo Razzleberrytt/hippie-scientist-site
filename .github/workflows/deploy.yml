@@ -16,6 +16,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     environment: production
     env:
       STATIC_OUTPUT_DIR: out

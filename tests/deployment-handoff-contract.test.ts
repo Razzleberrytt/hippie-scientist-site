@@ -26,12 +26,13 @@ describe('production deployment handoff contract', () => {
     expect(workflow).toContain('ref: ${{ github.sha }}')
   })
 
-  it('lets an active production deploy finish instead of canceling it for a newer head', () => {
+  it('lets an active production deploy finish but bounds how long it can monopolize the deploy group', () => {
     const workflow = read('.github/workflows/deploy.yml')
 
     expect(workflow).toContain('concurrency:')
     expect(workflow).toContain('group: deploy-${{ github.ref }}')
     expect(workflow).toContain('cancel-in-progress: false')
+    expect(workflow).toContain('timeout-minutes: 60')
   })
 
   it('validates tests, canonical data, source-of-truth, types, lint, build, and output before publishing', () => {
