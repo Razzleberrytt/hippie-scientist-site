@@ -67,6 +67,9 @@ export const RESEARCH_GAP_WEIGHTS = {
   unapprovedOnlyPrimaryHumanEvidence: 8,
   mappingGapNoApprovedPrimaryBonus: 8,
   narrativeReviewDominatedProfile: 20,
+  edgeWeightedNarrativeDominance: 12,
+  provenanceConcentration: 10,
+  dualProvenanceConcentrationBonus: 6,
   synthesisOnlyApprovedOutcome: 8,
   poorStudyMetadataCoverage: 12,
   narrowRepeatedEvidenceBundle: 15,
@@ -94,8 +97,13 @@ function dimensionForReason(kind: string): ResearchGapDimension {
     || kind === 'narrow-repeated-evidence-bundle'
     || kind === 'near-duplicate-claim-evidence-support'
     || kind === 'systemic-load-bearing-study-dependency'
+    || kind === 'provenance-concentrated-evidence'
   ) return 'concentration'
-  if (kind === 'narrative-review-dominated-profile' || kind === 'approved-claims-without-primary-human-study') return 'evidence-mix'
+  if (
+    kind === 'narrative-review-dominated-profile'
+    || kind === 'edge-weighted-narrative-dominance'
+    || kind === 'approved-claims-without-primary-human-study'
+  ) return 'evidence-mix'
   if (kind === 'unmapped-primary-human-evidence' || kind === 'primary-human-evidence-only-on-unapproved-claims') return 'mapping'
   if (kind === 'uncertain-study-identity-independence') return 'identity'
   if (kind === 'poor-study-metadata-coverage' || kind === 'unknown-evidence-year-metadata') return 'metadata'
@@ -202,6 +210,38 @@ export function buildResearchGapQueue(
     if (profile.canonicalStudyCount >= 3 && metadataCoverage < 0.7) {
       add(profile.url, 'poor-study-metadata-coverage', RESEARCH_GAP_WEIGHTS.poorStudyMetadataCoverage, `${Math.round(metadataCoverage * 100)}% of canonical studies have classified study designs`)
     }
+  }
+
+  for (const profile of topology.edgeWeightedNarrativeDominatedProfiles) {
+    const ratio = profile.narrativeToPrimaryHumanEdgeRatio === null
+      ? 'no primary-human claim-study edges'
+      : `${profile.narrativeToPrimaryHumanEdgeRatio}:1 narrative-to-primary-human edge ratio`
+    add(
+      profile.url,
+      'edge-weighted-narrative-dominance',
+      RESEARCH_GAP_WEIGHTS.edgeWeightedNarrativeDominance,
+      `${Math.round(profile.narrativeReviewEdgeShare * 100)}% of classified approved claim-study edges are narrative reviews; ${ratio}`,
+    )
+  }
+
+  for (const profile of topology.provenanceConcentratedProfiles) {
+    const dualBonus = profile.firstAuthorConcentrated && profile.journalConcentrated
+      ? RESEARCH_GAP_WEIGHTS.dualProvenanceConcentrationBonus
+      : 0
+    const signals = [
+      profile.firstAuthorConcentrated
+        ? `${Math.round(profile.dominantFirstAuthorEdgeShare * 100)}% of author-known edges from ${profile.dominantFirstAuthor}`
+        : null,
+      profile.journalConcentrated
+        ? `${Math.round(profile.dominantJournalEdgeShare * 100)}% of journal-known edges from ${profile.dominantJournal}`
+        : null,
+    ].filter((value): value is string => Boolean(value))
+    add(
+      profile.url,
+      'provenance-concentrated-evidence',
+      RESEARCH_GAP_WEIGHTS.provenanceConcentration + dualBonus,
+      signals.join('; '),
+    )
   }
 
   for (const bundle of topology.narrowRepeatedEvidenceBundles) {
