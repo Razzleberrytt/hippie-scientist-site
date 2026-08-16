@@ -5,9 +5,9 @@ import {
   canonicalStudyGroups,
   canonicalStudyIdentityMap,
   uniqueClaimStudyIdentities,
-  type ResearchClaim,
 } from './research-coverage'
 import { researchSourceEvidenceText } from './research-evidence-text'
+import { canonicalOutcomeClaimKeys, isCanonicalOutcomeClaim } from './research-outcome-claim-eligibility'
 import type { OutcomeMetadataAnalysis } from './research-outcome-metadata'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 
@@ -49,10 +49,6 @@ function text(value: unknown): string {
   return String(value ?? '').replace(/\s+/g, ' ').trim()
 }
 
-function isOutcomeClaim(claim: ResearchClaim): boolean {
-  return /supports_outcome|benefit|efficacy/i.test(text(claim.predicate))
-}
-
 /**
  * Look for an affirmative secondary/subgroup/exploratory signal after removing
  * explicitly negated result phrases. Removing only the negated signal preserves
@@ -76,13 +72,14 @@ export function analyzeSelectiveOutcomeReporting(input: {
   const { analysis, outcomeMetadata } = input
   const claims: SelectiveOutcomeReportingFinding[] = []
   let approvedOutcomeClaims = 0
+  const outcomeClaimKeys = canonicalOutcomeClaimKeys(analysis)
   const outcomeByStudy = new Map(outcomeMetadata.studies.map((study) => [`${study.url}::${study.studyId}`, study]))
 
   for (const { url, record } of analysis.profiles) {
     const identities = canonicalStudyIdentityMap(record)
     const groups = canonicalStudyGroups(record)
     for (const claim of approvedClaims(record)) {
-      if (!isOutcomeClaim(claim)) continue
+      if (!isCanonicalOutcomeClaim(outcomeClaimKeys, url, claim)) continue
       approvedOutcomeClaims += 1
 
       const studyIds = uniqueClaimStudyIdentities(claim, identities)
