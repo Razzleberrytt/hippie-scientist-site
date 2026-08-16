@@ -65,16 +65,11 @@ export type HerbArticleSchemaArgs = {
   authorName?: string
   /** Author absolute URL. */
   authorUrl?: string
-  /**
-   * Evidence grade string emitted as a PropertyValue, e.g. "B — Moderate".
-   * Provides structured context for automated parsers without polluting
-   * the core Article fields.
-   */
+  /** Evidence grade retained for API compatibility; not emitted as Article additionalProperty. */
   evidenceGrade?: string
   /**
    * Optional list of cited sources emitted as schema:citation nodes.
    * Each entry should be a descriptive title or full bibliographic reference.
-   * Strengthens AI-search discovery signals for scholarly herb research pages.
    */
   citations?: string[]
 }
@@ -113,14 +108,6 @@ export function buildHerbArticleSchema(args: HerbArticleSchemaArgs): JsonLdNode 
   if (args.datePublished) node.datePublished = args.datePublished
   if (args.dateModified) node.dateModified = args.dateModified
 
-  if (args.evidenceGrade) {
-    node.additionalProperty = {
-      '@type': 'PropertyValue',
-      name: 'Evidence grade',
-      value: args.evidenceGrade,
-    }
-  }
-
   if (args.citations && args.citations.length > 0) {
     node.citation = args.citations.map(title => ({
       '@type': 'CreativeWork',
@@ -128,8 +115,6 @@ export function buildHerbArticleSchema(args: HerbArticleSchemaArgs): JsonLdNode 
     }))
   }
 
-  // Defensive assertion for future refactors: publisher must resolve to the
-  // canonical organization rather than reusing the Person author object.
   if ((node.publisher as Record<string, unknown>)['@id'] !== ORGANIZATION_SCHEMA_ID) {
     throw new Error('Herb article publisher identity drifted from canonical organization')
   }
