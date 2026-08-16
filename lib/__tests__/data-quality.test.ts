@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import {
   collectionHasMeaningfulText,
   hasMeaningfulText,
+  hasUsefulStructuredValue,
   isMissingLike,
   normalizeStructuredText,
 } from '@/lib/data-quality.mjs'
@@ -27,5 +28,15 @@ describe('canonical data quality primitives', () => {
   it('handles arrays through the same predicate', () => {
     expect(collectionHasMeaningfulText(['placeholder', 'Avoid with anticoagulants.'])).toBe(true)
     expect(collectionHasMeaningfulText(['placeholder', 'research-only'])).toBe(false)
+  })
+
+  it('recognizes useful structured values consistently', () => {
+    expect(hasUsefulStructuredValue(null)).toBe(false)
+    expect(hasUsefulStructuredValue('N/A')).toBe(false)
+    expect(hasUsefulStructuredValue([])).toBe(false)
+    expect(hasUsefulStructuredValue({})).toBe(false)
+    expect(hasUsefulStructuredValue(0)).toBe(true)
+    expect(hasUsefulStructuredValue(['x'])).toBe(true)
+    expect(hasUsefulStructuredValue({ value: 'x' })).toBe(true)
   })
 })
