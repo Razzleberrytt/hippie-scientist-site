@@ -27,6 +27,26 @@ describe('findEditorialLeaks', () => {
     expect(hasEditorialLeak('It should be framed consistently with gymnema while preserving alternate-name discoverability.')).toBe(true)
   })
 
+  it('catches imperative instructions that have no subject at all', () => {
+    // Verbatim summaries of 77 profiles, 44 of them indexable. The two below
+    // are shared by 35 and 34 records respectively.
+    expect(hasEditorialLeak('Keep claims tied to source-backed preparation and safety context.')).toBe(true)
+    expect(hasEditorialLeak('Treat dosing and outcomes as review-gated unless pmid-backed human evidence is present.')).toBe(true)
+  })
+
+  it('treats internal governance jargon as pipeline copy wherever it appears', () => {
+    // Neither term means anything to a reader.
+    expect(hasEditorialLeak('Dosing is review-gated for this record.')).toBe(true)
+    expect(hasEditorialLeak('Outcomes require pmid-backed evidence.')).toBe(true)
+  })
+
+  it('does not treat ordinary sentences starting with Keep or Treat as instructions', () => {
+    // The imperative patterns are anchored on editorial nouns, so advice to a
+    // reader survives.
+    expect(hasEditorialLeak('Keep the bottle away from direct sunlight.')).toBe(false)
+    expect(hasEditorialLeak('Treat any new symptom as a reason to stop and ask a clinician.')).toBe(false)
+  })
+
   it('names the pattern that matched, for the audit trail', () => {
     expect(findEditorialLeaks('It should be framed modestly.')[0]?.name).toBe('framing-instruction')
   })
