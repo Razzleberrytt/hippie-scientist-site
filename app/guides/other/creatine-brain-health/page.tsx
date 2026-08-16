@@ -6,7 +6,8 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
 
@@ -27,7 +28,7 @@ const FAQS = [
   {
     question: 'Does creatine help during sleep deprivation?',
     answer:
-      'Possibly, but the evidence is still small. A 2026 systematic review found only five eligible studies and described a favorable early trend with effects varying by cognitive domain. A separate 2026 crossover study in 29 healthy participants found mitigation of several cognitive deficits during 21 hours of sleep deprivation. That is promising, not a validated shift-work or sleep-loss treatment protocol.',
+      'Possibly, but the evidence is still small. A 2026 systematic review found only five eligible studies and described a favorable early trend with effects varying by cognitive domain. A separate 2026 crossover study in 29 healthy participants found mitigation of several cognitive deficits during 21 hours of sleep deprivation. That is promising laboratory evidence, not a validated shift-work or sleep-loss treatment protocol.',
   },
   {
     question: 'Does creatine treat depression?',
@@ -102,7 +103,6 @@ export default function CreatineBrainPage() {
         description="Evidence-calibrated review of creatine for cognitive outcomes, acute sleep deprivation, depressive symptoms, psychiatric augmentation, and kidney-marker interpretation."
         url="https://thehippiescientist.net/guides/other/creatine-brain-health/"
         type="MedicalWebPage"
-        faqItems={[...FAQS]}
         citationUrls={CREATINE_BRAIN_REFS.map((reference) => reference.url)}
       />
       <AuthorityBreadcrumbs
@@ -112,10 +112,9 @@ export default function CreatineBrainPage() {
           { label: 'Creatine & Brain Health' },
         ]}
       />
-      <FAQSchema pagePath="/guides/other/creatine-brain-health/" questions={[...FAQS]} />
 
       <section className="max-w-4xl space-y-5">
-        <p className="eyebrow-label">2026 Evidence Review · Updated August 15, 2026</p>
+        <p className="eyebrow-label">2026 Evidence Review · Updated August 16, 2026</p>
         <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           Creatine for Brain Health: Where the Evidence Is Real—and Where the Hype Runs Ahead
         </h1>
@@ -140,57 +139,51 @@ export default function CreatineBrainPage() {
         </figure>
       </section>
 
-      <section className="card-premium max-w-4xl space-y-4 p-6">
-        <p className="eyebrow-label">Evidence bottom line</p>
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">The brain evidence is promising, domain-specific, and easy to overstate</h2>
-        <p className="text-sm leading-7 text-muted">
-          The 2024 cognitive meta-analysis included <strong>16 randomized trials / 492 adults</strong>. It found modest benefits for memory, attention time, and processing-speed time, but <strong>not overall cognition or executive function</strong> [1]. That is useful evidence, but it is not the same as a universal nootropic effect.
-        </p>
-        <p className="text-sm leading-7 text-muted">
-          In depression, the newest broad meta-analysis included <strong>11 trials / 1,093 participants</strong>. The pooled standardized effect favored creatine, but certainty was <strong>very low</strong>, heterogeneity was substantial, and the average effect translated to about 2.2 points on the 17-item Hamilton Depression Rating Scale—below the review&apos;s 3-point minimal important difference [4].
-        </p>
-      </section>
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>The brain evidence is <strong>promising but domain-specific</strong>. A 2024 meta-analysis of 16 randomized trials / 492 adults found modest benefits for memory, attention time, and processing-speed time, but not overall cognition or executive function [1]. In depression, an 11-trial / 1,093-participant meta-analysis found a pooled signal, but certainty was very low and the average effect was below the review&rsquo;s prespecified minimal important difference [4]. Acute sleep-deprivation findings are interesting but sparse [2,3], and psychiatric use has context-specific safety boundaries [5].</p>
+      </LegacyGuideQuickAnswer>
 
-      <section className="card-premium max-w-4xl space-y-5 border-l-4 border-brand-700 bg-brand-50/30 p-6">
+      <section id="creatine-brain-outcomes" data-answer-engine-table="true" className="card-premium max-w-4xl scroll-mt-24 space-y-5 border-l-4 border-brand-700 bg-brand-50/30 p-6">
         <p className="eyebrow-label">Outcome-by-outcome ledger</p>
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Do not collapse every “brain” result into one grade</h2>
         <div className="overflow-x-auto">
           <table className="min-w-[760px] w-full text-sm">
+            <caption className="sr-only">Creatine brain-health use cases compared by best current evidence, signal, and main limitation</caption>
             <thead>
               <tr className="border-b border-brand-900/10">
-                <th className="py-2 pr-4 text-left font-semibold text-ink">Use case</th>
-                <th className="py-2 pr-4 text-left font-semibold text-ink">Best current evidence</th>
-                <th className="py-2 pr-4 text-left font-semibold text-ink">Signal</th>
-                <th className="py-2 text-left font-semibold text-ink">Main limit</th>
+                <th scope="col" className="py-2 pr-4 text-left font-semibold text-ink">Use case</th>
+                <th scope="col" className="py-2 pr-4 text-left font-semibold text-ink">Best current evidence</th>
+                <th scope="col" className="py-2 pr-4 text-left font-semibold text-ink">Signal</th>
+                <th scope="col" className="py-2 text-left font-semibold text-ink">Main limit</th>
               </tr>
             </thead>
             <tbody className="text-muted">
               <tr className="border-b border-brand-900/5 align-top">
-                <td className="py-3 pr-4 font-medium text-ink">General adult cognition</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">General adult cognition</th>
                 <td className="py-3 pr-4">16-RCT meta-analysis / 492 adults [1]</td>
                 <td className="py-3 pr-4">Memory, attention time, processing speed</td>
                 <td className="py-3">No significant overall-cognition or executive-function effect</td>
               </tr>
               <tr className="border-b border-brand-900/5 align-top">
-                <td className="py-3 pr-4 font-medium text-ink">Acute sleep deprivation</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Acute sleep deprivation</th>
                 <td className="py-3 pr-4">2026 systematic review: only 5 studies [2]</td>
                 <td className="py-3 pr-4">Favorable early trend; domain-dependent</td>
-                <td className="py-3">Sparse evidence; unusual experimental conditions and doses</td>
+                <td className="py-3">Sparse evidence; laboratory conditions and unusual experimental dosing</td>
               </tr>
               <tr className="border-b border-brand-900/5 align-top">
-                <td className="py-3 pr-4 font-medium text-ink">Depressive symptoms</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Depressive symptoms</th>
                 <td className="py-3 pr-4">11-trial meta-analysis / 1,093 participants [4]</td>
                 <td className="py-3 pr-4">Small-to-moderate pooled effect</td>
                 <td className="py-3">Very-low certainty; average effect below minimal important difference</td>
               </tr>
               <tr className="border-b border-brand-900/5 align-top">
-                <td className="py-3 pr-4 font-medium text-ink">Diagnosed mental disorders</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Diagnosed mental disorders</th>
                 <td className="py-3 pr-4">2026 review: 5 RCTs total [5]</td>
                 <td className="py-3 pr-4">Some adult MDD augmentation signals</td>
                 <td className="py-3">Only MDD and bipolar depression studied; no broad psychiatric evidence</td>
               </tr>
               <tr className="align-top">
-                <td className="py-3 pr-4 font-medium text-ink">Menopause-related cognition</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Menopause-related cognition</th>
                 <td className="py-3 pr-4">Small 36-person RCT [8]</td>
                 <td className="py-3 pr-4">Some reaction-time / brain-creatine findings</td>
                 <td className="py-3">Small, formulation-specific, not a general “brain fog” treatment trial</td>
@@ -266,25 +259,26 @@ export default function CreatineBrainPage() {
         </p>
       </section>
 
-      <section className="card-premium max-w-4xl space-y-4 p-6">
+      <section id="creatine-brain-claim-boundaries" data-answer-engine-table="true" className="card-premium max-w-4xl scroll-mt-24 space-y-4 p-6">
         <p className="eyebrow-label">Evidence applicability</p>
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Claims we can and cannot make in 2026</h2>
         <div className="overflow-x-auto">
           <table className="min-w-[700px] w-full text-sm">
+            <caption className="sr-only">Creatine brain-health claims and their current evidence status</caption>
             <thead>
               <tr className="border-b border-brand-900/10">
-                <th className="py-2 pr-4 text-left font-semibold text-ink">Claim</th>
-                <th className="py-2 text-left font-semibold text-ink">Current status</th>
+                <th scope="col" className="py-2 pr-4 text-left font-semibold text-ink">Claim</th>
+                <th scope="col" className="py-2 text-left font-semibold text-ink">Current status</th>
               </tr>
             </thead>
             <tbody className="text-muted">
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine improves some cognitive domains on average</td><td className="py-3"><strong>Supported, modestly</strong></td></tr>
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine improves overall cognition/executive function</td><td className="py-3"><strong>Not established</strong></td></tr>
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine reliably prevents cognitive decline from sleep loss</td><td className="py-3"><strong>Promising but sparse</strong></td></tr>
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine is a proven antidepressant</td><td className="py-3"><strong>No</strong></td></tr>
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine has been tested broadly across psychiatric disorders</td><td className="py-3"><strong>No</strong> — RCT review found MDD and bipolar depression only</td></tr>
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Creatine necessarily damages healthy kidneys because creatinine rises</td><td className="py-3"><strong>No</strong></td></tr>
-              <tr><td className="py-3 pr-4">One universal “brain dose” is established</td><td className="py-3"><strong>No</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-normal">Creatine improves some cognitive domains on average</th><td className="py-3"><strong>Supported, modestly</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-normal">Creatine improves overall cognition/executive function</th><td className="py-3"><strong>Not established</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-normal">Creatine reliably prevents cognitive decline from sleep loss</th><td className="py-3"><strong>Promising but sparse</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-normal">Creatine is a proven antidepressant</th><td className="py-3"><strong>No</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-normal">Creatine has been tested broadly across psychiatric disorders</th><td className="py-3"><strong>No</strong> — RCT review found MDD and bipolar depression only</td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-normal">Creatine necessarily damages healthy kidneys because creatinine rises</th><td className="py-3"><strong>No</strong></td></tr>
+              <tr><th scope="row" className="py-3 pr-4 text-left font-normal">One universal “brain dose” is established</th><td className="py-3"><strong>No</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -313,6 +307,7 @@ export default function CreatineBrainPage() {
       </section>
 
       <References refs={CREATINE_BRAIN_REFS} />
+      <LegacyGuideFAQ pagePath="/guides/other/creatine-brain-health/" questions={[...FAQS]} />
 
       <div className="max-w-4xl rounded-xl border border-brand-900/10 bg-brand-50/40 p-4 text-xs leading-6 text-muted">
         <strong className="text-ink">Commercial-links boundary:</strong> product availability below does not establish that a retail creatine product reproduces any cognitive, psychiatric, menopause, or sleep-deprivation trial. Brain claims should stay attached to the specific formulation, population, dose, and outcome studied.
