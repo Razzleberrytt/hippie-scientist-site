@@ -10,7 +10,7 @@ import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from '../../lib/researc
 import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
 import { buildResearchGapQueue, structuralCoverageFailures } from '../../lib/research-quality-policy'
 import { analyzeResearchSourceIntegrity } from '../../lib/research-source-integrity'
-import { analyzeCrossProfileStudyLoad, analyzeEvidenceBundleReuse } from '../../lib/research-study-load'
+import { analyzeClaimEvidenceOverlap, analyzeCrossProfileStudyLoad, analyzeEvidenceBundleReuse } from '../../lib/research-study-load'
 
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
@@ -45,6 +45,8 @@ const crossProfileStudyLoad = analyzeCrossProfileStudyLoad(analysis)
 const systemicLoadBearingStudies = crossProfileStudyLoad.filter((study) => study.systemicLoadBearing)
 const evidenceBundleReuse = analyzeEvidenceBundleReuse(analysis)
 const narrowRepeatedEvidenceBundles = evidenceBundleReuse.filter((bundle) => bundle.narrowRepeatedEvidenceBundle)
+const claimEvidenceOverlap = analyzeClaimEvidenceOverlap(analysis)
+const crossPredicateEvidenceOverlap = claimEvidenceOverlap.filter((item) => item.differentPredicates)
 const claimEvidenceAge = analyzeClaimEvidenceAge(analysis)
 const evidenceAgeSummary = summarizeEvidenceAge(claimEvidenceAge)
 const legacyOnlyClaims = claimEvidenceAge.filter((claim) => claim.allKnownEvidenceOlderThan10Years)
@@ -63,7 +65,7 @@ const coreDurationMs = Date.now() - coreStarted
 results.push({
   id: 'canonical-core', label: 'Canonical claim/profile/source research-quality analysis', passed: corePassed,
   exitCode: corePassed ? 0 : 1, durationMs: coreDurationMs,
-  stdoutTail: `profiles=${analysis.profileAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; sourceStudies=${sourceIntegrity.summary.citedStudies}; gaps=${researchGapQueue.length}; systemicStudies=${systemicLoadBearingStudies.length}; narrowEvidenceBundles=${narrowRepeatedEvidenceBundles.length}; legacyOnly=${legacyOnlyClaims.length}; aiBelow70=${aiCitationReadiness.summary.below70}`,
+  stdoutTail: `profiles=${analysis.profileAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; sourceStudies=${sourceIntegrity.summary.citedStudies}; gaps=${researchGapQueue.length}; systemicStudies=${systemicLoadBearingStudies.length}; narrowEvidenceBundles=${narrowRepeatedEvidenceBundles.length}; nearDuplicatePairs=${claimEvidenceOverlap.length}; legacyOnly=${legacyOnlyClaims.length}; aiBelow70=${aiCitationReadiness.summary.below70}`,
   stderrTail: [structuralFailures.length ? `${structuralFailures.length} invalid evidence edge(s)` : '', sourceIntegrity.summary.withdrawn ? `${sourceIntegrity.summary.withdrawn} withdrawn/retracted citation(s)` : ''].filter(Boolean).join('; '),
 })
 console.log(`${corePassed ? 'PASS' : 'FAIL'}  Canonical claim/profile/source research-quality analysis  (${coreDurationMs}ms)`)
@@ -86,25 +88,27 @@ const coreSummary = {
   narrativeDominatedProfiles: narrativeDominatedProfiles.length, profilesWithApprovedClaimsButNoPrimaryHumanStudy: noPrimaryHumanProfiles.length,
   profilesWithResearchGaps: researchGapQueue.length, canonicalStudiesSupportingApprovedClaims: crossProfileStudyLoad.length,
   systemicLoadBearingStudies: systemicLoadBearingStudies.length, repeatedEvidenceBundles: evidenceBundleReuse.length,
-  narrowRepeatedEvidenceBundles: narrowRepeatedEvidenceBundles.length, sourceIntegrity: sourceIntegrity.summary,
+  narrowRepeatedEvidenceBundles: narrowRepeatedEvidenceBundles.length, nearDuplicateEvidencePairs: claimEvidenceOverlap.length,
+  crossPredicateNearDuplicateEvidencePairs: crossPredicateEvidenceOverlap.length, sourceIntegrity: sourceIntegrity.summary,
   evidenceAge: evidenceAgeSummary, aiCitationReadiness: aiCitationReadiness.summary,
 }
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 7, generatedAt: new Date().toISOString(), passed: !failed,
-  source: { analysis: 'lib/research-quality-analysis.ts', policy: 'lib/research-quality-policy.ts', sourceIntegrity: 'lib/research-source-integrity.ts', crossProfileStudyLoad: 'lib/research-study-load.ts', evidenceBundleReuse: 'lib/research-study-load.ts', evidenceAge: 'lib/research-evidence-age.ts', aiCitationReadiness: 'lib/ai-citation-readiness.ts' },
+  schemaVersion: 8, generatedAt: new Date().toISOString(), passed: !failed,
+  source: { analysis: 'lib/research-quality-analysis.ts', policy: 'lib/research-quality-policy.ts', sourceIntegrity: 'lib/research-source-integrity.ts', crossProfileStudyLoad: 'lib/research-study-load.ts', evidenceBundleReuse: 'lib/research-study-load.ts', claimEvidenceOverlap: 'lib/research-study-load.ts', evidenceAge: 'lib/research-evidence-age.ts', aiCitationReadiness: 'lib/ai-citation-readiness.ts' },
   coreSummary, structuralFailures, withdrawnCitedStudies: sourceIntegrity.withdrawn,
   oldAndLoadBearingStudies: sourceIntegrity.oldAndLoadBearing.slice(0, 100), systemicLoadBearingStudies: systemicLoadBearingStudies.slice(0, 50),
   topCrossProfileStudyLoad: crossProfileStudyLoad.slice(0, 100), narrowRepeatedEvidenceBundles: narrowRepeatedEvidenceBundles.slice(0, 100),
-  topRepeatedEvidenceBundles: evidenceBundleReuse.slice(0, 100), highConfidenceLegacyOnlyClaims: highConfidenceLegacyOnlyClaims.slice(0, 100),
-  topLegacyOnlyClaims: legacyOnlyClaims.slice(0, 100), topResearchGaps: researchGapQueue.slice(0, 50), topAiCitationRemediation: aiCitationReadiness.profiles.slice(0, 50),
+  topRepeatedEvidenceBundles: evidenceBundleReuse.slice(0, 100), topClaimEvidenceOverlap: claimEvidenceOverlap.slice(0, 150),
+  highConfidenceLegacyOnlyClaims: highConfidenceLegacyOnlyClaims.slice(0, 100), topLegacyOnlyClaims: legacyOnlyClaims.slice(0, 100),
+  topResearchGaps: researchGapQueue.slice(0, 50), topAiCitationRemediation: aiCitationReadiness.profiles.slice(0, 50),
   checks: results, evidenceGradeSummary: readSummary('evidence-grade-consistency.json'), contentIntegritySummary: readSummary('content-integrity.json'),
 }, null, 2)}\n`)
 
 console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structuredClaims} structured claims · ${coreSummary.approvedClaims} approved`)
 console.log(`Source integrity: ${sourceIntegrity.summary.citedStudies} studies · ${sourceIntegrity.summary.withdrawn} withdrawn/concern · ${sourceIntegrity.summary.oldAndLoadBearing} old load-bearing`)
-console.log(`Evidence topology: ${coreSummary.systemicLoadBearingStudies} systemic studies · ${coreSummary.narrowRepeatedEvidenceBundles} narrow repeated bundles · ${evidenceAgeSummary.legacyOnly10Years} legacy-only claims`)
+console.log(`Evidence topology: ${coreSummary.systemicLoadBearingStudies} systemic studies · ${coreSummary.narrowRepeatedEvidenceBundles} narrow repeated bundles · ${coreSummary.nearDuplicateEvidencePairs} near-duplicate claim pairs (${coreSummary.crossPredicateNearDuplicateEvidencePairs} cross-predicate) · ${evidenceAgeSummary.legacyOnly10Years} legacy-only claims`)
 console.log(`AI citation remediation: ${aiCitationReadiness.summary.below70} below 70 · ${aiCitationReadiness.summary.contradictions} contradiction(s)`)
 console.log(`AI report: ${path.relative(ROOT, aiCitationReportPath)}`)
 console.log(`Roll-up report: ${path.relative(ROOT, REPORT_PATH)}`)

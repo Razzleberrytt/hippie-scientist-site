@@ -1,6 +1,6 @@
 import { analyzeClaimEvidenceAge } from './research-evidence-age'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
-import { analyzeEvidenceBundleReuse } from './research-study-load'
+import { analyzeClaimEvidenceOverlap, analyzeEvidenceBundleReuse } from './research-study-load'
 
 export type ResearchGapReason = {
   kind: string
@@ -35,6 +35,7 @@ export const RESEARCH_GAP_WEIGHTS = {
   synthesisOnlyApprovedOutcome: 8,
   poorStudyMetadataCoverage: 12,
   narrowRepeatedEvidenceBundle: 15,
+  nearDuplicateEvidenceSupport: 10,
   legacyOnlyOutcomeClaim: 8,
   highConfidenceLegacyOnlyBonus: 4,
   unknownEvidenceYearMetadata: 4,
@@ -199,6 +200,24 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
       'narrow-repeated-evidence-bundle',
       RESEARCH_GAP_WEIGHTS.narrowRepeatedEvidenceBundle + reuseBonus,
       `${bundle.approvedClaimCount} approved claims reuse the same ${bundle.studyCount}-study evidence bundle`,
+    )
+  }
+
+  const overlapByProfile = new Map<string, ReturnType<typeof analyzeClaimEvidenceOverlap>>()
+  for (const overlap of analyzeClaimEvidenceOverlap(analysis)) {
+    const items = overlapByProfile.get(overlap.url) ?? []
+    items.push(overlap)
+    overlapByProfile.set(overlap.url, items)
+  }
+  for (const [url, overlaps] of overlapByProfile) {
+    const crossPredicateCount = overlaps.filter((item) => item.differentPredicates).length
+    const overlapBonus = Math.min(10, Math.max(0, overlaps.length - 1) * 2)
+    const maxContainment = Math.max(...overlaps.map((item) => item.containment))
+    add(
+      url,
+      'near-duplicate-claim-evidence-support',
+      RESEARCH_GAP_WEIGHTS.nearDuplicateEvidenceSupport + overlapBonus,
+      `${overlaps.length} claim pair(s) share near-duplicate evidence; ${crossPredicateCount} cross-predicate; max containment ${Math.round(maxContainment * 100)}%`,
     )
   }
 
