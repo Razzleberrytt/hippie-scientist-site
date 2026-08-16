@@ -2,29 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import { getSheetData } from '../utils/read-workbook-exceljs.mjs';
 import { evaluateProfileCompleteness } from '../../lib/profile-completeness.mjs';
-
-function slugify(text) {
-  if (!text) return '';
-  return text.toLowerCase()
-    .replace(/[’'"“”`]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
-function normalize(text) {
-  if (!text) return '';
-  return text.toLowerCase()
-    .replace(/[’'"“”`]/g, '')
-    .replace(/[^a-z0-9]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function extractParentheses(text) {
-  if (!text) return null;
-  const match = text.match(/\(([^)]+)\)/);
-  return match ? match[1].trim() : null;
-}
+import {
+  extractParentheticalNames,
+  normalizeEntityName,
+  slugifyEntityName,
+  stripParentheticalName,
+} from '../../lib/entity-identity.mjs';
 
 function ensureDirExists(dirPath) {
   if (!fs.existsSync(dirPath)) {
@@ -85,12 +68,12 @@ async function run() {
     if (!rawSlug) return;
 
     const rawName = String(row.name || '').trim();
-    const parenthetical = extractParentheses(rawName);
+    const [parenthetical = ''] = extractParentheticalNames(rawName);
     let commonName = rawName;
     let latinName = String(row.latin_name || '').trim();
 
     if (parenthetical) {
-      commonName = rawName.replace(/\([^)]+\)/, '').trim();
+      commonName = stripParentheticalName(rawName);
       latinName = parenthetical;
     }
 
@@ -108,9 +91,9 @@ async function run() {
       name: rawName,
       commonName,
       latinName,
-      commonSlug: slugify(commonName),
-      latinSlug: latinName ? slugify(latinName) : '',
-      normalizedName: normalize(commonName)
+      commonSlug: slugifyEntityName(commonName),
+      latinSlug: latinName ? slugifyEntityName(latinName) : '',
+      normalizedName: normalizeEntityName(commonName)
     });
   });
 
