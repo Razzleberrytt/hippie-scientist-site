@@ -5,6 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
@@ -33,7 +34,9 @@ export default function PrebioticsGuide() {
       <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 2 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Prebiotics: Feeding Your Gut Bacteria — Does It Matter?</h1><p className="text-lg leading-8 text-muted">The gut microbiome is one of the hottest areas in nutrition, and prebiotics — fibers that selectively feed beneficial bacteria — are central to the conversation. The 2017 ISAPP consensus formalized the definition [1]. But the gap between what prebiotics can do in controlled studies and what supplements promise on the label is substantial. Here&rsquo;s the evidence.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/prebiotics.jpg" alt="Prebiotic-rich foods: garlic, onions, asparagus, green bananas, and oats on a wood surface" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Prebiotic foods — superior to any supplement.</figcaption></figure></section>
 
-      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">Prebiotic fibers <strong>consistently increase Bifidobacterium and Lactobacillus counts</strong> and short-chain fatty acid (SCFA) production — this is well-established [2,3]. The Reynolds 2019 Lancet meta-analysis of 185 prospective studies and 58 clinical trials found 25-29 g/day fiber reduced all-cause mortality by 15-30% and cardiovascular mortality by 16-24% [4]. However, isolated prebiotic supplements have much less evidence than dietary fiber for hard outcomes. Most claims beyond bowel regularity and microbiome composition changes are extrapolations from association studies.</p></section>
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>Prebiotic fibers <strong>consistently increase Bifidobacterium and Lactobacillus counts</strong> and short-chain fatty acid (SCFA) production — this is well-established [2,3]. The Reynolds 2019 Lancet meta-analysis of 185 prospective studies and 58 clinical trials found 25-29 g/day fiber reduced all-cause mortality by 15-30% and cardiovascular mortality by 16-24% [4]. However, isolated prebiotic supplements have much less evidence than dietary fiber for hard outcomes. Most claims beyond bowel regularity and microbiome composition changes are extrapolations from association studies.</p>
+      </LegacyGuideQuickAnswer>
 
       <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by claim</h2>
         <div className="space-y-4">
@@ -59,7 +62,7 @@ export default function PrebioticsGuide() {
           <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Supplement If Needed</p><p className="mt-1 text-xs leading-5 text-muted">PHGG for sensitive gut. Inulin/FOS for general microbiome. GOS for immune. Start at 1-2 g, titrate up. Expect modest effects.</p></div>
         </div></section>
 
-      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
+      <section id="references" className="card-premium scroll-mt-24 p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
         <Ref n={1} text="Gibson GR, et al. (2017). Expert consensus: the International Scientific Association for Probiotics and Prebiotics (ISAPP) consensus on prebiotics. Nat Rev Gastroenterol Hepatol, 14(8): 491-502." url="https://pubmed.ncbi.nlm.nih.gov/28611480/" />
         <Ref n={2} text="Holscher HD. (2017). Dietary fiber and prebiotics and the gastrointestinal microbiota. Gut Microbes, 8(2): 172-184." url="https://pubmed.ncbi.nlm.nih.gov/28165863/" />
         <Ref n={3} text="Holscher HD, et al. (2015). Fiber supplementation influences gut microbiota and SCFA production. Am J Clin Nutr, 101(1): 55-64." url="https://pubmed.ncbi.nlm.nih.gov/25527752/" />
