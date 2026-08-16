@@ -18,6 +18,8 @@ export type ResearchSnapshotInvariantReport = {
     countMismatches: number
     duplicateClaimIds: number
     missingClaimIds: number
+    duplicateSourceIds: number
+    missingSourceIds: number
   }
 }
 
@@ -53,19 +55,31 @@ export function validateResearchQualitySnapshotInvariants(
     if (!approvedClaimKeys.has(claimKey(url, claimId))) add(kind, `unknown approved claim ${url}::${claimId}`)
   }
 
-  // Claim IDs are graph identities. Missing or duplicate IDs make downstream
-  // url::claimId indexes lossy even if the raw claim arrays still contain rows.
+  // Claim/source row IDs are graph identities. Missing or duplicate IDs make
+  // downstream maps lossy even when the raw arrays still contain every row.
   for (const profile of analysis.profiles) {
     const claims = Array.isArray(profile.record.claimMap) ? profile.record.claimMap : []
-    const seen = new Set<string>()
+    const seenClaims = new Set<string>()
     for (let index = 0; index < claims.length; index += 1) {
       const id = text(claims[index]?.id)
       if (!id) {
         add('missing-claim-id', `${profile.url} · claimMap[${index}]`)
         continue
       }
-      if (seen.has(id)) add('duplicate-claim-id', `${profile.url}::${id}`)
-      else seen.add(id)
+      if (seenClaims.has(id)) add('duplicate-claim-id', `${profile.url}::${id}`)
+      else seenClaims.add(id)
+    }
+
+    const sources = Array.isArray(profile.record.sources) ? profile.record.sources : []
+    const seenSources = new Set<string>()
+    for (let index = 0; index < sources.length; index += 1) {
+      const id = text(sources[index]?.id)
+      if (!id) {
+        add('missing-source-id', `${profile.url} · sources[${index}]`)
+        continue
+      }
+      if (seenSources.has(id)) add('duplicate-source-id', `${profile.url}::${id}`)
+      else seenSources.add(id)
     }
   }
 
@@ -126,6 +140,8 @@ export function validateResearchQualitySnapshotInvariants(
   const countMismatches = failures.filter((failure) => failure.kind.includes('mismatch')).length
   const duplicateClaimIds = failures.filter((failure) => failure.kind === 'duplicate-claim-id').length
   const missingClaimIds = failures.filter((failure) => failure.kind === 'missing-claim-id').length
+  const duplicateSourceIds = failures.filter((failure) => failure.kind === 'duplicate-source-id').length
+  const missingSourceIds = failures.filter((failure) => failure.kind === 'missing-source-id').length
 
   return {
     passed: failures.length === 0,
@@ -137,6 +153,8 @@ export function validateResearchQualitySnapshotInvariants(
       countMismatches,
       duplicateClaimIds,
       missingClaimIds,
+      duplicateSourceIds,
+      missingSourceIds,
     },
   }
 }
