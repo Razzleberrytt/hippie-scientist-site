@@ -69,7 +69,7 @@ export default function StackingSafetyPage() {
           A supplement combination is not automatically safer because every ingredient is sold over the counter or described as natural. FDA notes that problems can occur when supplements are combined with each other or with medicines, and many potential combinations have never been tested directly. The useful question is not “Is this stack safe?” in the abstract; it is “What interaction signals, evidence gaps, and person-specific risks apply to these exact ingredients?”
         </p>
         <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-[var(--surface-card)]">
             <Image src="/images/guides/supplement-stacking-safety.jpg" alt="Supplement bottles with caution concept" width={1536} height={1024} priority className="w-full h-auto" />
           </div>
           <figcaption className="mt-3 text-center text-sm text-muted">Combination safety depends on the exact ingredients, medicines, and evidence—not a generic stacking rule.</figcaption>
@@ -124,9 +124,9 @@ export default function StackingSafetyPage() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
-          <p className="text-sm font-black uppercase tracking-wider text-slate-700">5. Pharmacokinetic interactions</p>
-          <div className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
+        <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-subtle)]/70 p-4">
+          <p className="text-sm font-black uppercase tracking-wider text-muted">5. Pharmacokinetic interactions</p>
+          <div className="mt-3 space-y-2 text-sm leading-7 text-muted">
             <p>
               Some supplements change drug metabolism or transport rather than simply adding the same effect. St. John&apos;s wort is a well-documented example: it can lower exposure to multiple medicines by inducing drug-metabolizing enzymes and transporters [2-4]. That means a stack can create risk even when its ingredients do not “feel” pharmacologically similar.
             </p>

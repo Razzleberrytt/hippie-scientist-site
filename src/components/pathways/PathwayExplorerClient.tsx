@@ -294,7 +294,7 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
       {/* Search and Targets List Panel */}
       <div className='space-y-6 lg:col-span-1'>
         <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4'>
-          <h2 className='text-lg font-bold text-slate-800'>Neurochemical Targets</h2>
+          <h2 className='text-lg font-bold text-ink'>Neurochemical Targets</h2>
           
           <div className='space-y-3'>
             {/* Search Input */}
@@ -303,7 +303,7 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder='Search targets (e.g. GABA, D2)...'
-              className='w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-sm focus:border-emerald-500 focus:outline-none'
+              className='w-full rounded-2xl border border-brand-900/10 px-4 py-2.5 text-sm focus:border-emerald-500 focus:outline-none'
             />
 
             {/* Category Select Pills */}
@@ -316,7 +316,7 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
                   className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
                     activeCategory === cat
                       ? 'bg-emerald-600 text-white'
-                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                      : 'bg-[var(--surface-subtle)] text-muted hover:bg-[var(--surface-subtle)]'
                   }`}
                 >
                   {cat}
@@ -329,7 +329,7 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
         {/* Targets List */}
         <div className='space-y-3 max-h-[600px] overflow-y-auto pr-1'>
           {filteredTargets.length === 0 ? (
-            <div className='rounded-3xl border border-slate-150 bg-white/70 py-12 text-center text-sm text-slate-400'>
+            <div className='rounded-3xl border border-brand-900/10 bg-white/70 py-12 text-center text-sm text-slate-400'>
               No targets match your filter.
             </div>
           ) : (
@@ -345,7 +345,7 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
                   className={`w-full text-left rounded-2xl border p-4 transition-all ${
                     isSelected
                       ? 'border-emerald-500 bg-emerald-50/50 shadow-sm'
-                      : 'border-brand-900/10 bg-white/90 hover:border-slate-300 hover:bg-white'
+                      : 'border-brand-900/10 bg-white/90 hover:border-brand-900/10 hover:bg-[var(--surface-card)]'
                   }`}
                   type='button'
                 >
@@ -354,13 +354,13 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
                       <span className='rounded bg-emerald-100 px-1.5 py-0.5 text-[9px] font-bold uppercase text-emerald-800'>
                         {target.category}
                       </span>
-                      <h3 className='mt-1 text-sm font-bold text-slate-800'>{target.name}</h3>
+                      <h3 className='mt-1 text-sm font-bold text-ink'>{target.name}</h3>
                     </div>
-                    <span className='rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-500'>
+                    <span className='rounded-full bg-[var(--surface-subtle)] px-2 py-0.5 text-[10px] font-bold text-muted'>
                       {count} {count === 1 ? 'link' : 'links'}
                     </span>
                   </div>
-                  <p className='mt-1.5 line-clamp-2 text-xs text-slate-500 leading-normal'>
+                  <p className='mt-1.5 line-clamp-2 text-xs text-muted leading-normal'>
                     {target.function}
                   </p>
                 </button>
@@ -374,37 +374,37 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
       <div className='lg:col-span-2 space-y-6'>
         <div className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-6'>
           {/* Header */}
-          <div className='border-b border-slate-100 pb-5 space-y-2'>
+          <div className='border-b border-brand-900/10 pb-5 space-y-2'>
             <div className='flex flex-wrap items-center gap-2'>
               <span className='rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-800'>
                 {selectedTarget.category} Target Network
               </span>
             </div>
-            <h2 className='text-2xl font-bold text-slate-800 sm:text-3xl'>{selectedTarget.name}</h2>
+            <h2 className='text-2xl font-bold text-ink sm:text-3xl'>{selectedTarget.name}</h2>
             <p className='text-xs font-semibold text-slate-400 italic'>{selectedTarget.fullName}</p>
           </div>
 
           {/* Biological Mechanics */}
           <div className='grid gap-6 sm:grid-cols-2'>
-            <div className='rounded-2xl bg-slate-50/50 border border-slate-100 p-5 space-y-2.5'>
+            <div className='rounded-2xl bg-[var(--surface-subtle)]/50 border border-brand-900/10 p-5 space-y-2.5'>
               <h3 className='text-xs font-bold uppercase tracking-wider text-slate-400'>Biological Role</h3>
-              <p className='text-sm leading-relaxed text-slate-700'>{selectedTarget.description}</p>
+              <p className='text-sm leading-relaxed text-muted'>{selectedTarget.description}</p>
             </div>
-            <div className='rounded-2xl bg-slate-50/50 border border-slate-100 p-5 space-y-2.5'>
+            <div className='rounded-2xl bg-[var(--surface-subtle)]/50 border border-brand-900/10 p-5 space-y-2.5'>
               <h3 className='text-xs font-bold uppercase tracking-wider text-slate-400'>Physiological Effect</h3>
-              <p className='text-sm leading-relaxed text-slate-700'>{selectedTarget.function}</p>
+              <p className='text-sm leading-relaxed text-muted'>{selectedTarget.function}</p>
             </div>
           </div>
 
-          <div className='rounded-2xl bg-emerald-50/20 border border-emerald-100/50 p-5 text-sm leading-relaxed text-slate-600'>
+          <div className='rounded-2xl bg-emerald-50/20 border border-emerald-100/50 p-5 text-sm leading-relaxed text-muted'>
             <span className='font-bold text-emerald-800'>Scientific Context: </span>
             {selectedTarget.details}
           </div>
 
           {/* Connected Profiles */}
           <div className='space-y-6 pt-2'>
-            <div className='flex items-center justify-between border-b border-slate-100 pb-3'>
-              <h3 className='text-base font-bold text-slate-800'>
+            <div className='flex items-center justify-between border-b border-brand-900/10 pb-3'>
+              <h3 className='text-base font-bold text-ink'>
                 Connected Database Entries ({totalMatchesCount})
               </h3>
               <span className='text-xs text-slate-400'>Sorted by evidence strength</span>
@@ -426,13 +426,13 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
                       {selectedMatches.herbs.map(herb => (
                         <div
                           key={herb.slug}
-                          className='flex flex-col justify-between rounded-2xl border border-slate-100 p-4 hover:shadow-sm bg-white'
+                          className='flex flex-col justify-between rounded-2xl border border-brand-900/10 p-4 hover:shadow-sm bg-[var(--surface-card)]'
                         >
                           <div>
                             <div className='flex items-start justify-between gap-2'>
                               <Link
                                 href={`/herbs/${herb.slug}`}
-                                className='text-sm font-bold text-slate-800 hover:text-emerald-700 hover:underline'
+                                className='text-sm font-bold text-ink hover:text-emerald-700 hover:underline'
                               >
                                 {herb.name}
                               </Link>
@@ -445,12 +445,12 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
                               </span>
                             </div>
                             {herb.matchingSnippet && (
-                              <p className='mt-2 text-xs text-slate-500 italic leading-normal'>
+                              <p className='mt-2 text-xs text-muted italic leading-normal'>
                                 {herb.matchingSnippet}
                               </p>
                             )}
                           </div>
-                          <div className='mt-3 border-t border-slate-50 pt-2 flex items-center justify-between text-[10px] text-slate-400'>
+                          <div className='mt-3 border-t border-brand-900/10 pt-2 flex items-center justify-between text-[10px] text-slate-400'>
                             <span>Mechanism Pathway Match</span>
                             <Link
                               href={`/herbs/${herb.slug}`}
@@ -475,13 +475,13 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
                       {selectedMatches.compounds.map(compound => (
                         <div
                           key={compound.slug}
-                          className='flex flex-col justify-between rounded-2xl border border-slate-100 p-4 hover:shadow-sm bg-white'
+                          className='flex flex-col justify-between rounded-2xl border border-brand-900/10 p-4 hover:shadow-sm bg-[var(--surface-card)]'
                         >
                           <div>
                             <div className='flex items-start justify-between gap-2'>
                               <Link
                                 href={`/compounds/${compound.slug}`}
-                                className='text-sm font-bold text-slate-800 hover:text-emerald-700 hover:underline'
+                                className='text-sm font-bold text-ink hover:text-emerald-700 hover:underline'
                               >
                                 {compound.name}
                               </Link>
@@ -494,12 +494,12 @@ export default function PathwayExplorerClient({ herbs, compounds }: PathwayExplo
                               </span>
                             </div>
                             {compound.matchingSnippet && (
-                              <p className='mt-2 text-xs text-slate-500 italic leading-normal'>
+                              <p className='mt-2 text-xs text-muted italic leading-normal'>
                                 {compound.matchingSnippet}
                               </p>
                             )}
                           </div>
-                          <div className='mt-3 border-t border-slate-50 pt-2 flex items-center justify-between text-[10px] text-slate-400'>
+                          <div className='mt-3 border-t border-brand-900/10 pt-2 flex items-center justify-between text-[10px] text-slate-400'>
                             <span>Mechanism Pathway Match</span>
                             <Link
                               href={`/compounds/${compound.slug}`}

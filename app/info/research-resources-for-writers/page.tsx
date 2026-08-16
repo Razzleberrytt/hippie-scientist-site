@@ -64,8 +64,8 @@ export default function ResearchResourcesForWritersPage() {
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
       <header className="max-w-3xl">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Writer & journalist media kit</p>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">Research resources you can verify and cite</h1>
-        <p className="mt-5 text-lg leading-8 text-slate-700">
+        <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">Research resources you can verify and cite</h1>
+        <p className="mt-5 text-lg leading-8 text-muted">
           Start with the underlying research asset, not a promotional pitch. These resources are designed to make scope, methodology,
           caveats, source trails, data downloads, and reusable visuals easy to inspect before you cite The Hippie Scientist.
         </p>
@@ -74,13 +74,13 @@ export default function ResearchResourcesForWritersPage() {
       <section className="mt-10 grid gap-5 md:grid-cols-2" aria-labelledby="resources-heading">
         <h2 id="resources-heading" className="sr-only">Research resources</h2>
         {resources.map((resource) => (
-          <article key={resource.href} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-semibold text-slate-950">
+          <article key={resource.href} className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-6 shadow-sm">
+            <h3 className="text-xl font-semibold text-ink">
               <Link className="underline decoration-emerald-300 underline-offset-4 hover:decoration-emerald-600" href={resource.href}>
                 {resource.title}
               </Link>
             </h3>
-            <p className="mt-3 leading-7 text-slate-700">{resource.description}</p>
+            <p className="mt-3 leading-7 text-muted">{resource.description}</p>
           </article>
         ))}
       </section>
@@ -97,26 +97,26 @@ export default function ResearchResourcesForWritersPage() {
 
       <section className="mt-12 grid gap-8 lg:grid-cols-2">
         <div>
-          <h2 className="text-2xl font-semibold text-slate-950">What makes a useful pitch to us</h2>
-          <p className="mt-3 leading-7 text-slate-700">
+          <h2 className="text-2xl font-semibold text-ink">What makes a useful pitch to us</h2>
+          <p className="mt-3 leading-7 text-muted">
             Corrections, missing primary studies, reproducible data issues, evidence changes, outdated statistics, and genuinely broken research-resource links are welcome. Product placement offers do not change evidence grades.
           </p>
         </div>
         <div>
-          <h2 className="text-2xl font-semibold text-slate-950">Press and supporting-data questions</h2>
-          <p className="mt-3 leading-7 text-slate-700">
+          <h2 className="text-2xl font-semibold text-ink">Press and supporting-data questions</h2>
+          <p className="mt-3 leading-7 text-muted">
             Use the <Link className="font-medium text-emerald-800 underline underline-offset-4" href="/info/contact/">contact page</Link> and identify the article,
             deadline, and exact statistic or research object you need verified. Requests are easier to answer accurately when the required source trail is explicit.
           </p>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
             {requestChecklist.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
       </section>
 
       <section className="mt-12 rounded-3xl border border-emerald-900/15 bg-emerald-50 p-7 sm:p-9">
-        <h2 className="text-2xl font-semibold text-slate-950">What we can verify — and what we will not improvise</h2>
-        <p className="mt-4 leading-7 text-slate-700">
+        <h2 className="text-2xl font-semibold text-ink">What we can verify — and what we will not improvise</h2>
+        <p className="mt-4 leading-7 text-muted">
           Reporter responses should return the underlying source object, scope, methodology, and caveats. If a number or scientific claim cannot be verified before a deadline, the project should say that rather than supplying an unverified quote. The same rule applies to evidence-change pitches and replacement statistics offered during outreach.
         </p>
       </section>

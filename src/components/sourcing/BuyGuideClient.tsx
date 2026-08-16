@@ -154,30 +154,30 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
       <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4'>
         <div className='max-w-3xl space-y-2'>
           <p className='eyebrow-label'>Product-quality layer</p>
-          <h2 className='text-lg font-bold text-slate-800'>Search sourcing checklists</h2>
-          <p className='text-xs leading-5 text-slate-500'>Quality scores reward only structured product/form/testing facts actually recorded in the dataset. Checklist advice is guidance, not proof. Scores do not change an ingredient’s evidence grade, and affiliate commission is not a scoring input.</p>
-          <input type='text' value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder='Search ingredient name (e.g. Ashwagandha, L-Theanine)...' className='w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none' />
+          <h2 className='text-lg font-bold text-ink'>Search sourcing checklists</h2>
+          <p className='text-xs leading-5 text-muted'>Quality scores reward only structured product/form/testing facts actually recorded in the dataset. Checklist advice is guidance, not proof. Scores do not change an ingredient’s evidence grade, and affiliate commission is not a scoring input.</p>
+          <input type='text' value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder='Search ingredient name (e.g. Ashwagandha, L-Theanine)...' className='w-full rounded-2xl border border-brand-900/10 px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none' />
         </div>
       </div>
 
-      {!searchQuery && allItems.length > filteredItems.length ? <p className='text-xs text-slate-500'>Showing {filteredItems.length} sourcing option{filteredItems.length === 1 ? '' : 's'} in this session. Search by ingredient name to inspect the full library.</p> : null}
+      {!searchQuery && allItems.length > filteredItems.length ? <p className='text-xs text-muted'>Showing {filteredItems.length} sourcing option{filteredItems.length === 1 ? '' : 's'} in this session. Search by ingredient name to inspect the full library.</p> : null}
 
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
         {filteredItems.length === 0 ? (
-          <div className='col-span-full py-16 text-center text-slate-400 text-sm border border-dashed border-slate-200 rounded-[2rem] bg-white/50'>No sourcing checklists match your search.</div>
+          <div className='col-span-full py-16 text-center text-slate-400 text-sm border border-dashed border-brand-900/10 rounded-[2rem] bg-white/50'>No sourcing checklists match your search.</div>
         ) : filteredItems.map(item => (
-          <div key={item.slug} className='flex flex-col justify-between rounded-3xl border border-brand-900/10 bg-white p-5 hover:shadow-md transition-shadow'>
+          <div key={item.slug} className='flex flex-col justify-between rounded-3xl border border-brand-900/10 bg-[var(--surface-card)] p-5 hover:shadow-md transition-shadow'>
             <div className='space-y-4'>
               <div>
                 <div className='flex items-start justify-between gap-2'>
-                  <Link href={item.type === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`} className='text-base font-bold text-slate-800 hover:text-emerald-700 hover:underline leading-snug'>{item.name}</Link>
-                  <span className='rounded-full bg-slate-100 px-2 py-0.5 text-[9px] uppercase font-bold text-slate-500 shrink-0'>{item.type}</span>
+                  <Link href={item.type === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`} className='text-base font-bold text-ink hover:text-emerald-700 hover:underline leading-snug'>{item.name}</Link>
+                  <span className='rounded-full bg-[var(--surface-subtle)] px-2 py-0.5 text-[9px] uppercase font-bold text-muted shrink-0'>{item.type}</span>
                 </div>
                 {item.standardization ? <p className='mt-1 text-[11px] text-emerald-800 font-semibold'>Standardization/form: {item.standardization}</p> : null}
-                {item.studiedForm ? <p className='mt-1 text-[11px] text-slate-500'>Studied form recorded: {item.studiedForm}</p> : null}
-                {item.activeMarker ? <p className='mt-1 text-[11px] text-slate-500'>Active marker: {item.activeMarker}</p> : null}
-                {item.elementalAmount ? <p className='mt-1 text-[11px] text-slate-500'>Elemental amount: {item.elementalAmount}</p> : null}
-                {item.activeDose ? <p className='mt-1 text-[11px] text-slate-500'>Active dose/serving: {item.activeDose}</p> : null}
+                {item.studiedForm ? <p className='mt-1 text-[11px] text-muted'>Studied form recorded: {item.studiedForm}</p> : null}
+                {item.activeMarker ? <p className='mt-1 text-[11px] text-muted'>Active marker: {item.activeMarker}</p> : null}
+                {item.elementalAmount ? <p className='mt-1 text-[11px] text-muted'>Elemental amount: {item.elementalAmount}</p> : null}
+                {item.activeDose ? <p className='mt-1 text-[11px] text-muted'>Active dose/serving: {item.activeDose}</p> : null}
               </div>
 
               <div className='rounded-xl border border-sky-900/10 bg-sky-50/70 p-3'>
@@ -186,14 +186,14 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
                 <p className='mt-1 text-[10px] leading-4 text-sky-900'>Measures recorded label/form/testing transparency only. It is not an efficacy score.</p>
               </div>
 
-              <div className='border-t border-slate-100 pt-3 space-y-2.5'>
+              <div className='border-t border-brand-900/10 pt-3 space-y-2.5'>
                 <span className='text-[10px] font-bold uppercase tracking-wider text-slate-400'>What to verify before buying</span>
-                <ul className='space-y-2'>{item.criteria.slice(0, 4).map((criterion, idx) => <li key={`${criterion}-${idx}`} className='flex items-start gap-2 text-xs leading-relaxed text-slate-600'><span aria-hidden='true' className='mt-0.5 text-emerald-600'>✓</span><span>{criterion}</span></li>)}</ul>
+                <ul className='space-y-2'>{item.criteria.slice(0, 4).map((criterion, idx) => <li key={`${criterion}-${idx}`} className='flex items-start gap-2 text-xs leading-relaxed text-muted'><span aria-hidden='true' className='mt-0.5 text-emerald-600'>✓</span><span>{criterion}</span></li>)}</ul>
                 {item.quality.cautions.length ? <p className='text-[10px] leading-4 text-amber-800'>Unverified / missing structured data: {item.quality.cautions.slice(0, 3).join(' · ')}</p> : null}
               </div>
             </div>
 
-            <div className='mt-5 pt-3 border-t border-slate-100 space-y-3'>
+            <div className='mt-5 pt-3 border-t border-brand-900/10 space-y-3'>
               <a
                 href={item.affiliateUrl}
                 target='_blank'
