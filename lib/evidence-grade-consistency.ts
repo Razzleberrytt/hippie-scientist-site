@@ -38,6 +38,10 @@ export type EvidenceGradeFinding = {
   pseudoMultiStudyClaimCount: number
   highConfidencePseudoMultiStudyClaimCount: number
   collapsedPublicationCount: number
+  overDependentOnSingleUnderlyingStudy: boolean
+  newlyOverDependentAfterIndependenceAdjustment: boolean
+  dominantUnderlyingStudySupportedClaimShare: number | null
+  effectiveUnderlyingStudyCount: number | null
   issues: string[]
 }
 
@@ -74,12 +78,12 @@ function readJson(dataDir: string, file: string): EvidenceGradeProfileRecord[] {
 
 /**
  * Analyze published profile evidence grades. Legacy grade-vs-tier consistency
- * remains visible, while an optional canonical topology adds one deliberately
- * narrow independence check: Grade A cannot claim strong evidence when a
- * high-confidence approved claim only appears multi-study because multiple
- * publications collapse to one explicitly identified underlying study. Grade B
- * receives an advisory warning for the same proven dependence rather than a
- * contradiction. Missing lineage never creates either issue.
+ * remains visible, while optional canonical topology adds independence checks.
+ * Grade A cannot claim strong evidence when either high-confidence claims only
+ * appear multi-study because dependent publications collapse to one underlying
+ * study, or the profile as a whole is demonstrably concentrated on one
+ * underlying study. Grade B receives advisory warnings for those conditions.
+ * Missing lineage never creates either issue.
  */
 export function analyzeEvidenceGradeConsistency(
   root = process.cwd(),
@@ -104,6 +108,9 @@ export function analyzeEvidenceGradeConsistency(
     item.collapsedPublications += claim.collapsedPublicationCount
     pseudoByUrl.set(claim.url, item)
   }
+  const independenceProfileByUrl = new Map(
+    (topology?.underlyingStudyIndependence.profiles ?? []).map((profile) => [profile.url, profile] as const),
+  )
 
   for (const [kind, rows] of records) {
     for (const record of rows) {
@@ -117,6 +124,9 @@ export function analyzeEvidenceGradeConsistency(
       const distance = gradeTierDistance(normalized.band, tierBand)
       const indexable = String(record.indexability_status ?? '').toUpperCase() === 'PUBLISH'
       const independence = pseudoByUrl.get(url) ?? { claims: 0, highConfidenceClaims: 0, collapsedPublications: 0 }
+      const independenceProfile = independenceProfileByUrl.get(url)
+      const overDependent = Boolean(independenceProfile?.overDependentOnSingleUnderlyingStudy)
+      const newlyOverDependent = Boolean(independenceProfile?.newlyOverDependentAfterIndependenceAdjustment)
       const issues: string[] = []
 
       const publishedIsValid = published === null || published === undefined || isCanonicalEvidenceGrade(published)
@@ -130,6 +140,11 @@ export function analyzeEvidenceGradeConsistency(
         issues.push('strong-grade-with-pseudo-multi-study-support')
       } else if (normalized.grade === 'B' && independence.claims > 0) {
         issues.push('moderate-grade-with-pseudo-multi-study-support')
+      }
+      if (normalized.grade === 'A' && overDependent) {
+        issues.push('strong-grade-with-underlying-study-concentration')
+      } else if (normalized.grade === 'B' && overDependent) {
+        issues.push('moderate-grade-with-underlying-study-concentration')
       }
       if (!issues.length) continue
 
@@ -148,26 +163,43 @@ export function analyzeEvidenceGradeConsistency(
         pseudoMultiStudyClaimCount: independence.claims,
         highConfidencePseudoMultiStudyClaimCount: independence.highConfidenceClaims,
         collapsedPublicationCount: independence.collapsedPublications,
+        overDependentOnSingleUnderlyingStudy: overDependent,
+        newlyOverDependentAfterIndependenceAdjustment: newlyOverDependent,
+        dominantUnderlyingStudySupportedClaimShare: independenceProfile?.dominantUnderlyingStudySupportedClaimShare ?? null,
+        effectiveUnderlyingStudyCount: independenceProfile?.effectiveUnderlyingStudyCount ?? null,
         issues,
       })
     }
   }
 
   const indexableFindings = findings.filter((finding) => finding.indexable)
+  const hasStrongTopologyContradiction = (finding: EvidenceGradeFinding) =>
+    finding.issues.includes('strong-grade-with-pseudo-multi-study-support')
+    || finding.issues.includes('strong-grade-with-underlying-study-concentration')
+  const hasModerateTopologyWarning = (finding: EvidenceGradeFinding) =>
+    finding.issues.includes('moderate-grade-with-pseudo-multi-study-support')
+    || finding.issues.includes('moderate-grade-with-underlying-study-concentration')
+
   const topologyContradictions = indexableFindings
-    .filter((finding) => finding.issues.includes('strong-grade-with-pseudo-multi-study-support'))
-    .sort((a, b) => b.highConfidencePseudoMultiStudyClaimCount - a.highConfidencePseudoMultiStudyClaimCount || a.url.localeCompare(b.url))
-  const topologyWarnings = indexableFindings
-    .filter((finding) => finding.issues.includes('moderate-grade-with-pseudo-multi-study-support'))
-    .sort((a, b) => b.pseudoMultiStudyClaimCount - a.pseudoMultiStudyClaimCount || a.url.localeCompare(b.url))
-  const contradictions = indexableFindings
-    .filter((finding) =>
-      finding.issues.includes('contradicts-evidence-tier')
-      || finding.issues.includes('strong-grade-with-pseudo-multi-study-support'),
-    )
+    .filter(hasStrongTopologyContradiction)
     .sort((a, b) =>
-      Number(b.issues.includes('strong-grade-with-pseudo-multi-study-support'))
-      - Number(a.issues.includes('strong-grade-with-pseudo-multi-study-support'))
+      Number(b.newlyOverDependentAfterIndependenceAdjustment) - Number(a.newlyOverDependentAfterIndependenceAdjustment)
+      || Number(b.overDependentOnSingleUnderlyingStudy) - Number(a.overDependentOnSingleUnderlyingStudy)
+      || b.highConfidencePseudoMultiStudyClaimCount - a.highConfidencePseudoMultiStudyClaimCount
+      || a.url.localeCompare(b.url),
+    )
+  const topologyWarnings = indexableFindings
+    .filter(hasModerateTopologyWarning)
+    .sort((a, b) =>
+      Number(b.newlyOverDependentAfterIndependenceAdjustment) - Number(a.newlyOverDependentAfterIndependenceAdjustment)
+      || Number(b.overDependentOnSingleUnderlyingStudy) - Number(a.overDependentOnSingleUnderlyingStudy)
+      || b.pseudoMultiStudyClaimCount - a.pseudoMultiStudyClaimCount
+      || a.url.localeCompare(b.url),
+    )
+  const contradictions = indexableFindings
+    .filter((finding) => finding.issues.includes('contradicts-evidence-tier') || hasStrongTopologyContradiction(finding))
+    .sort((a, b) =>
+      Number(hasStrongTopologyContradiction(b)) - Number(hasStrongTopologyContradiction(a))
       || (b.distance ?? 0) - (a.distance ?? 0)
       || a.url.localeCompare(b.url),
     )

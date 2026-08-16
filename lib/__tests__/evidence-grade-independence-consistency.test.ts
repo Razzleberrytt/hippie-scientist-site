@@ -70,6 +70,50 @@ function topology(): ResearchQualityTopology {
           independenceAdjustedStructuredSupportTier: 'single-study',
         },
       ],
+      profiles: [
+        {
+          url: '/herbs/grade-a/',
+          supportedApprovedClaimCount: 4,
+          publicationStudyCount: 4,
+          underlyingStudyCount: 2,
+          collapsedPublicationCount: 2,
+          mostUsedUnderlyingStudyId: 'trial:1',
+          mostUsedUnderlyingStudyClaimCount: 3,
+          dominantUnderlyingStudySupportedClaimShare: 0.75,
+          underlyingStudyConcentrationIndex: 0.625,
+          effectiveUnderlyingStudyCount: 1.6,
+          overDependentOnSingleUnderlyingStudy: true,
+          newlyOverDependentAfterIndependenceAdjustment: true,
+        },
+        {
+          url: '/herbs/grade-b/',
+          supportedApprovedClaimCount: 4,
+          publicationStudyCount: 4,
+          underlyingStudyCount: 2,
+          collapsedPublicationCount: 2,
+          mostUsedUnderlyingStudyId: 'trial:2',
+          mostUsedUnderlyingStudyClaimCount: 3,
+          dominantUnderlyingStudySupportedClaimShare: 0.75,
+          underlyingStudyConcentrationIndex: 0.625,
+          effectiveUnderlyingStudyCount: 1.6,
+          overDependentOnSingleUnderlyingStudy: true,
+          newlyOverDependentAfterIndependenceAdjustment: false,
+        },
+        {
+          url: '/herbs/grade-c/',
+          supportedApprovedClaimCount: 4,
+          publicationStudyCount: 4,
+          underlyingStudyCount: 2,
+          collapsedPublicationCount: 2,
+          mostUsedUnderlyingStudyId: 'trial:3',
+          mostUsedUnderlyingStudyClaimCount: 3,
+          dominantUnderlyingStudySupportedClaimShare: 0.75,
+          underlyingStudyConcentrationIndex: 0.625,
+          effectiveUnderlyingStudyCount: 1.6,
+          overDependentOnSingleUnderlyingStudy: true,
+          newlyOverDependentAfterIndependenceAdjustment: true,
+        },
+      ],
     },
   } as unknown as ResearchQualityTopology
 }
@@ -90,10 +134,20 @@ describe('evidence grade independence consistency', () => {
         pseudoMultiStudyClaimCount: 1,
         highConfidencePseudoMultiStudyClaimCount: 1,
         collapsedPublicationCount: 1,
+        overDependentOnSingleUnderlyingStudy: true,
+        newlyOverDependentAfterIndependenceAdjustment: true,
+        dominantUnderlyingStudySupportedClaimShare: 0.75,
+        effectiveUnderlyingStudyCount: 1.6,
       })
       expect(report.topologyContradictions[0].issues).toContain('strong-grade-with-pseudo-multi-study-support')
-      expect(report.topologyWarnings[0]).toMatchObject({ url: '/herbs/grade-b/', canonicalGrade: 'B' })
+      expect(report.topologyContradictions[0].issues).toContain('strong-grade-with-underlying-study-concentration')
+      expect(report.topologyWarnings[0]).toMatchObject({
+        url: '/herbs/grade-b/',
+        canonicalGrade: 'B',
+        overDependentOnSingleUnderlyingStudy: true,
+      })
       expect(report.topologyWarnings[0].issues).toContain('moderate-grade-with-pseudo-multi-study-support')
+      expect(report.topologyWarnings[0].issues).toContain('moderate-grade-with-underlying-study-concentration')
       expect(report.findings.some((finding) => finding.url === '/herbs/grade-c/')).toBe(false)
     } finally {
       rmSync(root, { recursive: true, force: true })
