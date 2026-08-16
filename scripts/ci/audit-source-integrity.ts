@@ -69,13 +69,14 @@ function main() {
   const synthesis = studies.filter((study) => SYNTHESIS_STUDY_CLASSES.has(study.design)).length
 
   const unsupportedClaims = profileTopology.flatMap((p) => p.unsupportedApprovedClaims.map((claimId) => ({ url: p.url, claimId })))
+  const weakStructuredClaims = profileTopology.flatMap((p) => p.weakStructuredClaims.map((claimId) => ({ url: p.url, claimId })))
   const danglingRefs = profileTopology.flatMap((p) => p.danglingSourceRefs.map((item) => ({ url: p.url, ...item })))
   const singleStudyClaims = profileTopology.flatMap((p) => p.singleStudyApprovedClaims.map((claimId) => ({ url: p.url, claimId })))
   const aliasCollapsedClaims = profileTopology.flatMap((p) => p.aliasCollapsedClaims.map((claimId) => ({ url: p.url, claimId })))
   const concentratedProfiles = profileTopology
-    .filter((p) => p.approvedClaimCount >= 3 && p.studyDependencyShare >= 0.5)
-    .sort((a, b) => b.studyDependencyShare - a.studyDependencyShare || b.approvedClaimCount - a.approvedClaimCount)
-  const reviewDominatedProfiles = profileTopology.filter((p) => p.reviewDominated)
+    .filter((p) => p.overDependentOnSingleStudy)
+    .sort((a, b) => b.dominantStudySupportedClaimShare - a.dominantStudySupportedClaimShare || a.effectiveStudyCount - b.effectiveStudyCount)
+  const reviewDominatedProfiles = profileTopology.filter((p) => p.narrativeDominatedVsPrimaryHuman)
   const noPrimaryHumanProfiles = profileTopology.filter((p) => p.noPrimaryHuman)
 
   const summary = {
@@ -93,6 +94,7 @@ function main() {
     profiles: profileTopology.length,
     approvedClaims: profileTopology.reduce((sum, profile) => sum + profile.approvedClaimCount, 0),
     unsupportedApprovedClaims: unsupportedClaims.length,
+    weakStructuredClaims: weakStructuredClaims.length,
     singleStudyApprovedClaims: singleStudyClaims.length,
     aliasCollapsedClaims: aliasCollapsedClaims.length,
     danglingClaimSourceRefs: danglingRefs.length,
@@ -108,6 +110,7 @@ function main() {
     summary,
     claimTopology: {
       unsupportedClaims,
+      weakStructuredClaims,
       singleStudyClaims,
       aliasCollapsedClaims,
       danglingRefs,
@@ -126,11 +129,12 @@ function main() {
   console.log(`Profiles analyzed           ${summary.profiles}`)
   console.log(`Approved structured claims  ${summary.approvedClaims}`)
   console.log(`Unsupported approved claims ${summary.unsupportedApprovedClaims}`)
+  console.log(`Weak structured claims      ${summary.weakStructuredClaims}`)
   console.log(`Single-study claims         ${summary.singleStudyApprovedClaims}`)
   console.log(`Alias-collapsed claims      ${summary.aliasCollapsedClaims}`)
   console.log(`Dangling claim source refs  ${summary.danglingClaimSourceRefs}`)
   console.log(`Concentrated profiles       ${summary.concentratedProfiles}`)
-  console.log(`Review-dominated profiles   ${summary.reviewDominatedProfiles}`)
+  console.log(`Narrative>human profiles    ${summary.reviewDominatedProfiles}`)
   console.log(`Claims, no primary human    ${summary.profilesWithClaimsButNoPrimaryHumanStudy}`)
   console.log(`\nCited studies               ${summary.citedStudies} (${summary.withMetadata} with PubMed metadata)`)
   console.log(`Load-bearing (>=3 pages)    ${summary.loadBearing}`)
@@ -143,7 +147,7 @@ function main() {
   if (concentratedProfiles.length) {
     console.log('\nHighest claim-study concentration:')
     for (const profile of concentratedProfiles.slice(0, 10)) {
-      console.log(`  ${(profile.studyDependencyShare * 100).toFixed(0).padStart(3)}% · ${profile.approvedClaimCount} claims · ${profile.url}`)
+      console.log(`  ${(profile.dominantStudySupportedClaimShare * 100).toFixed(0).padStart(3)}% · effective ${profile.effectiveStudyCount.toFixed(2)} studies · ${profile.url}`)
     }
   }
   console.log(`\nReport: ${path.relative(ROOT, REPORT_PATH)}`)
