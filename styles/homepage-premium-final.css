@@ -1,7 +1,7 @@
 /* Final homepage flagship treatment.
-   Keep the hero editorial and restrained: typography, actions and trust signals
-   do the work. Decorative instrumentation and implementation metrics stay out
-   of the primary decision path. */
+   Keep the homepage editorial and restrained: typography, actions, material
+   contrast and a small brass accent system do the work. Decorative color is
+   deliberately limited so semantic color can keep its meaning elsewhere. */
 
 .hs-home::before {
   background-image: none;
@@ -87,6 +87,112 @@
   color: #151719 !important;
 }
 
+/* Homepage navigation cards should feel like one publication, not a color-coded
+   dashboard. Strong semantic color remains reserved for actual evidence/safety
+   status components elsewhere on the site. */
+.hs-home :is(.hs-goal, .hs-specimen, .hs-vs, .hs-article) {
+  --tone: var(--hs-gold);
+  --tone-ink: var(--hs-gold-ink);
+}
+
+.hs-home :is(.hs-goal, .hs-specimen, .hs-vs, .hs-article) {
+  border-color: var(--hs-hairline) !important;
+  background: var(--hs-surface) !important;
+  box-shadow: 0 12px 32px -28px rgba(29, 29, 31, 0.30) !important;
+}
+
+.dark .hs-home :is(.hs-goal, .hs-specimen, .hs-vs, .hs-article) {
+  background: var(--hs-surface) !important;
+  box-shadow: 0 14px 34px -28px rgba(0, 0, 0, 0.72) !important;
+}
+
+.hs-home :is(.hs-goal, .hs-specimen, .hs-vs, .hs-article)::after {
+  display: none !important;
+}
+
+.hs-home :is(.hs-goal, .hs-specimen, .hs-vs, .hs-article):hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--hs-gold) 30%, var(--hs-hairline)) !important;
+  box-shadow: 0 18px 38px -28px rgba(29, 29, 31, 0.34) !important;
+}
+
+.hs-home .hs-article::before {
+  height: 1px;
+  background: var(--hs-gold);
+  opacity: 0.58;
+}
+
+.hs-home :is(.hs-goal-icon, .hs-specimen-icon) {
+  border-color: color-mix(in srgb, var(--hs-gold) 24%, var(--hs-hairline));
+  background: color-mix(in srgb, var(--hs-gold-soft) 38%, var(--hs-surface));
+  color: var(--hs-gold-ink);
+}
+
+/* Safety tools still differ by purpose, but lose the decorative glow so the
+   text and icon—not a colored halo—carry the hierarchy. */
+.hs-home .hs-tool::after {
+  display: none !important;
+}
+
+.hs-home .hs-tool {
+  box-shadow: 0 12px 32px -28px rgba(29, 29, 31, 0.30);
+}
+
+.hs-home .hs-tool:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px -28px rgba(29, 29, 31, 0.34);
+}
+
+/* The methodology band is the one deliberate dark editorial moment. It should
+   read as graphite, not another green surface. */
+.hs-home .hs-method {
+  border-color: rgba(208, 163, 91, 0.20);
+  color: #f0ebe2;
+  background: linear-gradient(180deg, #17191a 0%, #111315 100%);
+}
+
+.hs-home .hs-method::before,
+.hs-home .hs-method-mark {
+  display: none;
+}
+
+.hs-home .hs-method .hs-display {
+  color: #fffdf8;
+}
+
+.hs-home .hs-method .hs-eyebrow,
+.hs-home .hs-method .hs-step-num,
+.hs-home .hs-method-link {
+  color: #d5aa64;
+}
+
+.hs-home .hs-method .hs-step-num {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+}
+
+.hs-home .hs-method .hs-step {
+  border-color: rgba(232, 222, 205, 0.14);
+}
+
+.hs-home .hs-method p {
+  color: #bdb7ad !important;
+}
+
+.hs-home .hs-method h3 {
+  color: #fffdf8 !important;
+}
+
+.hs-home .hs-method-link {
+  border-color: rgba(213, 170, 100, 0.34);
+}
+
+.hs-home .hs-method-link:hover {
+  color: #f0cf96;
+  border-color: #f0cf96;
+}
+
 @media (max-width: 639px) {
   .hs-home .hs-hero {
     border-radius: 1.25rem;
@@ -94,5 +200,9 @@
 
   .hs-home .hs-rail > div {
     padding-block: 0.85rem;
+  }
+
+  .hs-home :is(.hs-goal, .hs-specimen, .hs-vs, .hs-tool, .hs-article):hover {
+    transform: none;
   }
 }
