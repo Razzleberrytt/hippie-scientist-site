@@ -78,6 +78,7 @@ const {
   crossProfileEvidenceBundles,
   narrowCrossProfileEvidenceBundles,
   claimCitationMetadata,
+  edgeCardinality,
 } = topology
 
 const semanticReportPath = writeResearchSemanticAlignmentReport(semanticAlignment, ROOT)
@@ -112,6 +113,7 @@ results.push({
     `blocking=${gate.summary.blockingFailures}`,
     `semanticMismatches=${semanticAlignment.summary.anyMismatch}`,
     `causalWithoutControlled=${languageCalibration.summary.causalWithoutControlledSupport}`,
+    `pseudoMultiSource=${edgeCardinality.summary.pseudoMultiSourceClaims}`,
   ].join('; '),
   stderrTail: [
     gate.summary.structuralFailures ? `${gate.summary.structuralFailures} invalid evidence edge(s)` : '',
@@ -173,6 +175,7 @@ const coreSummary = {
   semanticAlignment: semanticAlignment.summary,
   claimLanguageCalibration: languageCalibration.summary,
   claimCitationMetadata: claimCitationMetadata.summary,
+  edgeCardinality: edgeCardinality.summary,
   weakApprovedOutcomeClaims: weakApprovedOutcomes.length,
   unsupportedUnapprovedStructuredClaims: unsupportedUnapprovedClaims.length,
   weakUnapprovedOutcomeClaims: weakUnapprovedOutcomes.length,
@@ -207,7 +210,7 @@ const coreSummary = {
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 21,
+  schemaVersion: 22,
   generatedAt: new Date().toISOString(),
   passed: !failed,
   source: {
@@ -216,6 +219,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
     topology: 'lib/research-quality-topology.ts',
     policy: 'lib/research-quality-policy.ts',
     gate: 'lib/research-quality-gate.ts',
+    edgeCardinality: 'lib/research-edge-cardinality.ts',
   },
   coreSummary,
   structuralFailures: gate.structuralFailures,
@@ -242,6 +246,12 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
   claimCitationMetadata: {
     summary: claimCitationMetadata.summary,
     highConfidenceLowCoverageClaims: claimCitationMetadata.highConfidenceLowCoverageClaims.slice(0, 100),
+  },
+  edgeCardinality: {
+    summary: edgeCardinality.summary,
+    pseudoMultiSourceClaims: edgeCardinality.pseudoMultiSourceClaims.slice(0, 150),
+    aliasCollapsedClaims: edgeCardinality.aliasCollapsedClaims.slice(0, 150),
+    duplicateEdgeClaims: edgeCardinality.duplicateEdgeClaims.slice(0, 100),
   },
   withdrawnCitedStudies: sourceIntegrity.withdrawn,
   evidenceGradeInvalid: evidenceGradeConsistency.invalid,
@@ -273,6 +283,7 @@ console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structure
 console.log(`Research gate: ${gate.summary.blockingFailures} blocking · ${gate.summary.structuralFailures} structural · ${gate.summary.severeStudyClassConflicts} severe study-class conflict(s)`)
 console.log(`Semantic alignment: ${semanticAlignment.summary.anyMismatch} explicit mismatch(es) · ${semanticAlignment.summary.highConfidenceMismatches} high-confidence`)
 console.log(`Language calibration: ${languageCalibration.summary.causalWithoutControlledSupport} unsupported direct-causal claim(s)`)
+console.log(`Edge cardinality: ${edgeCardinality.summary.pseudoMultiSourceClaims} pseudo-multi-source · ${edgeCardinality.summary.aliasCollapsedClaims} alias-collapsed · ${edgeCardinality.summary.duplicateEdges} duplicate edge(s)`)
 console.log(`Gap queue: ${researchGapQueue.length} profile(s) prioritized`)
 console.log(`Semantic report: ${path.relative(ROOT, semanticReportPath)}`)
 console.log(`Citation report: ${path.relative(ROOT, citationReportPath)}`)
