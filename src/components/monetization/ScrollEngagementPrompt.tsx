@@ -63,25 +63,24 @@ export default function ScrollEngagementPrompt({
 
   return (
     <div
-      className='fixed bottom-20 left-4 right-4 z-[85] mx-auto max-w-md motion-safe:animate-[slide-up_0.2s_ease-out] md:bottom-8 md:left-auto md:right-6'
+      className='fixed bottom-[calc(env(safe-area-inset-bottom)+4.75rem)] left-3 right-3 z-[85] mx-auto max-w-md motion-safe:animate-[slide-up_0.2s_ease-out] md:bottom-8 md:left-auto md:right-6'
       role='dialog'
-      aria-modal='true'
       aria-live='polite'
       aria-label='Safety checklist and newsletter offer'
     >
-      <div className='rounded-2xl border border-brand-900/15 bg-white p-4 shadow-lg'>
+      <div className='rounded-2xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] p-4 shadow-[var(--hs-lift-hover)]'>
         <div className='flex items-start justify-between gap-3'>
           <div>
-            <p className='text-xs font-bold uppercase tracking-[0.14em] text-brand-700'>
+            <p className='text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--hs-gold-ink)]'>
               Free resource
             </p>
-            <p className='mt-1 text-sm font-semibold text-ink'>{headline}</p>
-            <p className='mt-1 text-xs leading-5 text-muted'>{description}</p>
+            <p className='mt-1 text-sm font-semibold text-[color:var(--hs-ink)]'>{headline}</p>
+            <p className='mt-1 text-xs leading-5 text-[color:var(--hs-body)]'>{description}</p>
           </div>
           <button
             type='button'
             onClick={dismiss}
-            className='shrink-0 rounded-full px-2 py-1 text-xs font-bold text-muted hover:bg-stone-100'
+            className='shrink-0 rounded-full px-2 py-1 text-xs font-bold text-[color:var(--hs-body)] transition hover:bg-[color:var(--hs-surface-2)] hover:text-[color:var(--hs-ink)]'
             aria-label='Dismiss'
           >
             ✕
@@ -90,7 +89,7 @@ export default function ScrollEngagementPrompt({
         <Link
           href={ctaHref}
           onClick={dismiss}
-          className='mt-3 inline-flex w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2.5 text-xs font-bold text-white hover:bg-brand-900'
+          className='button-primary mt-3 inline-flex min-h-11 w-full items-center justify-center px-4 py-2.5 text-xs'
         >
           {ctaLabel}
         </Link>
