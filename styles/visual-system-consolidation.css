@@ -96,6 +96,11 @@ body,
   color: var(--text-primary);
 }
 
+::selection {
+  background: color-mix(in srgb, var(--accent-secondary) 34%, transparent);
+  color: var(--text-primary);
+}
+
 /* Shared surfaces: one quiet elevation language rather than tinted gradients. */
 :where(.hero-shell, .premium-card, .surface-card, .card-premium, .scientific-card, .library-card-premium, .library-content-card, .section-frame, .glass-card, .mobile-reading-card) {
   border-color: var(--border-soft) !important;
