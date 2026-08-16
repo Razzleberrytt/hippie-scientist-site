@@ -5,7 +5,6 @@ import {
   BookOpen,
   Brain,
   FlaskConical,
-  Leaf,
   Search,
   ShieldCheck,
   Sparkles,
@@ -33,30 +32,6 @@ export const metadata: Metadata = {
     description: 'Use one clear directory to browse every major guide, article, profile database, research resource, and safety tool.',
   }),
 }
-
-const quickStarts = [
-  {
-    title: 'I have a health goal',
-    description: 'Choose the outcome or question first, then follow the evidence to relevant options.',
-    href: '/goals/',
-    action: 'Choose a goal',
-    Icon: Brain,
-  },
-  {
-    title: 'I am researching an ingredient',
-    description: 'Look up a herb, nutrient, active compound, or standardized extract.',
-    href: '/herbs/',
-    action: 'Browse profiles',
-    Icon: Leaf,
-  },
-  {
-    title: 'I want to read the research',
-    description: 'Browse evidence reviews, research notes, explainers, and recent updates.',
-    href: '/articles/',
-    action: 'Browse articles',
-    Icon: BookOpen,
-  },
-]
 
 const directorySections = [
   {
@@ -188,28 +163,6 @@ export default function SiteDirectoryPage() {
           </aside>
         </div>
       </header>
-
-      <section aria-labelledby='choose-a-path'>
-        <div className='max-w-3xl'>
-          <p className='eyebrow-label'>Start with your intent</p>
-          <h2 id='choose-a-path' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>What are you trying to do?</h2>
-        </div>
-        <div className='mt-6 grid gap-4 md:grid-cols-3'>
-          {quickStarts.map(({ title, description, href, action, Icon }) => (
-            <Link key={href} href={href} className='card-premium group flex h-full flex-col p-6'>
-              <span className='inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-800'>
-                <Icon className='h-5 w-5' aria-hidden='true' />
-              </span>
-              <h3 className='mt-5 text-xl font-bold text-ink'>{title}</h3>
-              <p className='mt-3 flex-1 text-sm leading-7 text-muted'>{description}</p>
-              <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-800'>
-                {action}
-                <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' aria-hidden='true' />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
 
       <section className='space-y-6' aria-labelledby='complete-directory'>
         <div className='max-w-3xl'>
