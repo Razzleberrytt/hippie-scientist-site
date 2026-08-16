@@ -5,24 +5,38 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { assertWorkbookExists, resolveWorkbookPath } from '../workbook-source.mjs'
 import { getSheet, readWorkbook, sheetToRows } from './workbook-parser.mjs'
+import { isMissingLike, normalizeStructuredText } from '../../lib/data-quality.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
 const reportsDir = path.join(repoRoot, 'reports')
 
-const JUNK_VALUES = new Set(['', 'na', 'n/a', 'none', 'null', 'undefined', 'unknown', 'unk', 'tbd', '-', '--'])
-
 const REQUIRED_HERB_FIELDS = ['name', 'slug', 'summary', 'description', 'dosage', 'safetyNotes', 'preparation']
 const REQUIRED_COMPOUND_FIELDS = ['name', 'slug', 'summary', 'safetyNotes']
 
-function cleanText(value) {
-  return String(value ?? '').replace(/\s+/g, ' ').trim()
-}
+function collectSheetGaps(sheet, requiredFields) {
+  if (!sheet) return { scanned: 0, gaps: [] }
+  const rows = sheetToRows(sheet)
+  const gaps = []
 
-function isJunk(value) {
-  const text = cleanText(value).toLowerCase()
-  return !text || JUNK_VALUES.has(text)
+  rows.forEach((row, index) => {
+    const rowNumber = index + 2
+    const entityName = normalizeStructuredText(row.name || row.slug || `Row ${rowNumber}`)
+    for (const field of requiredFields) {
+      const value = row[field]
+      if (!isMissingLike(value)) continue
+      gaps.push({
+        rowNumber,
+        entityName,
+        field,
+        type: normalizeStructuredText(value) ? 'placeholder' : 'missing',
+        value: normalizeStructuredText(value),
+      })
+    }
+  })
+
+  return { scanned: rows.length, gaps }
 }
 
 async function run() {
@@ -31,115 +45,54 @@ async function run() {
 
   let workbook
   try {
-    workbook = await readWorkbook(workbookPath, {
-      sheets: ['Herb Master V3', 'Compound Master V3'],
-    })
+    workbook = await readWorkbook(workbookPath, { sheets: ['Herb Master V3', 'Compound Master V3'] })
   } catch (err) {
     console.warn('[workbook-gaps] WARNING: Could not parse workbook:', err.message)
     console.warn('[workbook-gaps] Skipping workbook gap audit — resolve xlsx parse error to re-enable.')
     process.exit(0)
   }
-  const gaps = []
 
-  // Audit Herbs Sheet
-  const herbSheet = getSheet(workbook, 'Herb Master V3')
-  let herbsScanned = 0
-  if (herbSheet) {
-    const rows = sheetToRows(herbSheet)
-    herbsScanned = rows.length
-    rows.forEach((row, index) => {
-      const rowNumber = index + 2
-      const entityName = cleanText(row.name || row.slug || `Row ${rowNumber}`)
-      
-      REQUIRED_HERB_FIELDS.forEach(field => {
-        const val = row[field]
-        if (isJunk(val)) {
-          gaps.push({
-            sheet: 'Herb Master V3',
-            rowNumber,
-            entityName,
-            field,
-            type: !cleanText(val) ? 'missing' : 'placeholder',
-            value: cleanText(val)
-          })
-        }
-      })
-    })
-  }
-
-  // Audit Compounds Sheet
-  const compoundSheet = getSheet(workbook, 'Compound Master V3')
-  let compoundsScanned = 0
-  if (compoundSheet) {
-    const rows = sheetToRows(compoundSheet)
-    compoundsScanned = rows.length
-    rows.forEach((row, index) => {
-      const rowNumber = index + 2
-      const entityName = cleanText(row.name || row.slug || `Row ${rowNumber}`)
-      
-      REQUIRED_COMPOUND_FIELDS.forEach(field => {
-        const val = row[field]
-        if (isJunk(val)) {
-          gaps.push({
-            sheet: 'Compound Master V3',
-            rowNumber,
-            entityName,
-            field,
-            type: !cleanText(val) ? 'missing' : 'placeholder',
-            value: cleanText(val)
-          })
-        }
-      })
-    })
-  }
+  const herb = collectSheetGaps(getSheet(workbook, 'Herb Master V3'), REQUIRED_HERB_FIELDS)
+  const compound = collectSheetGaps(getSheet(workbook, 'Compound Master V3'), REQUIRED_COMPOUND_FIELDS)
+  const gaps = [
+    ...herb.gaps.map((gap) => ({ sheet: 'Herb Master V3', ...gap })),
+    ...compound.gaps.map((gap) => ({ sheet: 'Compound Master V3', ...gap })),
+  ]
 
   const summary = {
     scannedAt: new Date().toISOString(),
     workbookPath: path.relative(repoRoot, workbookPath),
     summary: {
-      totalHerbsScanned: herbsScanned,
-      totalCompoundsScanned: compoundsScanned,
-      totalGapsFound: gaps.length
+      totalHerbsScanned: herb.scanned,
+      totalCompoundsScanned: compound.scanned,
+      totalGapsFound: gaps.length,
     },
-    gaps
+    gaps,
   }
 
   fs.mkdirSync(reportsDir, { recursive: true })
-  
-  // Write JSON report
-  fs.writeFileSync(
-    path.join(reportsDir, 'workbook-gaps-report.json'),
-    `${JSON.stringify(summary, null, 2)}\n`,
-    'utf8'
-  )
+  fs.writeFileSync(path.join(reportsDir, 'workbook-gaps-report.json'), `${JSON.stringify(summary, null, 2)}\n`, 'utf8')
 
-  // Write Markdown report
   const mdReport = [
     '# Workbook Metadata Gap Audit Report',
     '',
     `- **Workbook Audited:** \`${summary.workbookPath}\``,
     `- **Audited At:** ${summary.scannedAt}`,
-    `- **Total Herbs Scanned:** ${summary.summary.totalHerbsScanned}`,
-    `- **Total Compounds Scanned:** ${summary.summary.totalCompoundsScanned}`,
-    `- **Total Gap Warnings Found:** ${summary.summary.totalGapsFound}`,
+    `- **Total Herbs Scanned:** ${herb.scanned}`,
+    `- **Total Compounds Scanned:** ${compound.scanned}`,
+    `- **Total Gap Warnings Found:** ${gaps.length}`,
     '',
     '## Detailed Gap Findings',
     '',
     '| Sheet | Row | Entity Name | Field | Type | Raw Value |',
     '| --- | --- | --- | --- | --- | --- |',
-    ...gaps.map(gap => `| ${gap.sheet} | ${gap.rowNumber} | ${gap.entityName} | \`${gap.field}\` | ${gap.type} | ${gap.value ? `\`"${gap.value}"\`` : '*empty*'} |`),
-    ''
+    ...gaps.map((gap) => `| ${gap.sheet} | ${gap.rowNumber} | ${gap.entityName} | \`${gap.field}\` | ${gap.type} | ${gap.value ? `\`"${gap.value}"\`` : '*empty*'} |`),
+    '',
   ]
+  fs.writeFileSync(path.join(reportsDir, 'workbook-gaps-report.md'), mdReport.join('\n'), 'utf8')
 
-  fs.writeFileSync(
-    path.join(reportsDir, 'workbook-gaps-report.md'),
-    mdReport.join('\n'),
-    'utf8'
-  )
-
-  console.log(`[audit-workbook-gaps] Scanned ${herbsScanned} herbs and ${compoundsScanned} compounds. Found ${gaps.length} gaps.`)
-  console.log('[audit-workbook-gaps] Wrote reports/workbook-gaps-report.json')
-  console.log('[audit-workbook-gaps] Wrote reports/workbook-gaps-report.md')
+  console.log(`[audit-workbook-gaps] Scanned ${herb.scanned} herbs and ${compound.scanned} compounds. Found ${gaps.length} gaps.`)
+  console.log('[audit-workbook-gaps] Wrote reports/workbook-gaps-report.{json,md}')
 }
 
 run().catch((error) => {
