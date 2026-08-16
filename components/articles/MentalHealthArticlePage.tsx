@@ -18,12 +18,14 @@ import {
   canonicalUrl,
   DEFAULT_OG_IMAGE,
   SITE_NAME,
-  SITE_URL,
 } from '@/src/lib/seo'
+import {
+  AUTHOR_NAME,
+  AUTHOR_SCHEMA_ID,
+  AUTHOR_URL,
+} from '@/src/lib/schema-identities'
 
 const BASE_PATH = '/guides/mental-health'
-const AUTHOR_NAME = 'Willie B. Randolph III'
-const AUTHOR_URL = `${SITE_URL}/info/author/`
 
 function formatReviewDate(date: string): string {
   return new Intl.DateTimeFormat('en-US', {
@@ -70,7 +72,11 @@ function CitedPassage({ passage, article, as = 'p' }: {
     .filter((item): item is { id: string; number: number } => typeof item.number === 'number')
 
   return (
-    <Tag className={as === 'li' ? 'leading-7 text-muted' : 'text-[1.01rem] leading-[1.85] text-muted'}>
+    <Tag
+      className={as === 'li' ? 'leading-7 text-muted' : 'text-[1.01rem] leading-[1.85] text-muted'}
+      data-claim="true"
+      data-citation-sources={refs.length ? refs.map((ref) => `ref-${ref.number}`).join(',') : undefined}
+    >
       {passage.text}{' '}
       {refs.length > 0 && (
         <sup className="ml-0.5 whitespace-nowrap text-[0.72em] font-bold text-brand-700" aria-label="Citations">
@@ -78,7 +84,9 @@ function CitedPassage({ passage, article, as = 'p' }: {
             <React.Fragment key={ref.id}>
               {index > 0 && ','}
               <a
-                href={`#ref-${ref.id}`}
+                href={`#ref-${ref.number}`}
+                data-citation-link="true"
+                data-source-id={ref.id}
                 className="rounded-sm px-0.5 hover:bg-brand-50 hover:text-brand-900"
                 aria-label={`Reference ${ref.number}`}
               >
@@ -168,6 +176,7 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
     mainEntityOfPage: articleUrl,
     author: {
       '@type': 'Person',
+      '@id': AUTHOR_SCHEMA_ID,
       name: AUTHOR_NAME,
       url: AUTHOR_URL,
     },
@@ -180,6 +189,7 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
     articleSection: article.category,
     keywords: keywords.join(', '),
     inLanguage: 'en-US',
+    citation: article.references.map((reference) => reference.url),
     isPartOf: {
       '@type': 'CollectionPage',
       '@id': collectionId,
@@ -325,30 +335,61 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <section id="references" className="mt-7 scroll-mt-24 rounded-2xl border border-brand-900/10 bg-brand-50/40 p-5 sm:p-8" aria-labelledby="references-heading">
+      <section
+        id="references"
+        aria-labelledby="references-heading"
+        data-reference-ledger="true"
+        className="mt-7 scroll-mt-24 rounded-2xl border border-brand-900/10 bg-brand-50/40 p-5 sm:p-8"
+      >
         <h2 id="references-heading" className="text-2xl font-semibold tracking-tight text-ink">References</h2>
         <p className="mt-2 text-sm leading-6 text-muted">
           Reference links point to the publisher, DOI, government agency, or official guideline page. A source tier describes the kind of evidence; it is not a guarantee that every conclusion is certain or applies to every person.
         </p>
         <ol className="mt-5 space-y-4">
-          {article.references.map((reference, index) => (
-            <li key={reference.id} id={`ref-${reference.id}`} className="scroll-mt-24 rounded-xl border border-brand-900/10 bg-white p-4 text-sm leading-6 text-muted">
-              <div className="flex items-start gap-3">
-                <span className="inline-flex min-w-7 justify-center rounded-full bg-brand-100 px-2 py-0.5 font-bold text-brand-900">{index + 1}</span>
-                <div>
-                  <a href={reference.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 hover:underline">
-                    {reference.citation}
+          {article.references.map((reference, index) => {
+            const citationNumber = index + 1
+            const citationId = `ref-${citationNumber}`
+            return (
+              <li
+                key={reference.id}
+                id={citationId}
+                data-citation-source="true"
+                data-citation-id={citationId}
+                data-source-id={reference.id}
+                data-source-tier={reference.tier}
+                itemScope
+                itemType="https://schema.org/CreativeWork"
+                className="scroll-mt-24 rounded-xl border border-brand-900/10 bg-white p-4 text-sm leading-6 text-muted"
+              >
+                <div className="flex items-start gap-3">
+                  <a
+                    href={`#${citationId}`}
+                    aria-label={`Permanent link to reference ${citationNumber}`}
+                    className="inline-flex min-w-7 justify-center rounded-full bg-brand-100 px-2 py-0.5 font-bold text-brand-900 hover:underline"
+                  >
+                    {citationNumber}
                   </a>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2 py-0.5 text-[0.7rem] font-bold uppercase tracking-wide text-brand-800">
-                      {reference.tier}
-                    </span>
-                    {reference.note && <span className="text-xs text-muted">{reference.note}</span>}
+                  <div>
+                    <a
+                      href={reference.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      itemProp="url"
+                      className="font-semibold text-brand-800 hover:underline"
+                    >
+                      <cite itemProp="name" className="not-italic">{reference.citation}</cite>
+                    </a>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2 py-0.5 text-[0.7rem] font-bold uppercase tracking-wide text-brand-800">
+                        {reference.tier}
+                      </span>
+                      {reference.note && <span className="text-xs text-muted">{reference.note}</span>}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            )
+          })}
         </ol>
       </section>
 
