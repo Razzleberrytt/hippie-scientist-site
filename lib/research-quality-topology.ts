@@ -1,5 +1,6 @@
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
+import { analyzeStudyIdentityCoverage } from './research-study-identity-coverage'
 import {
   analyzeClaimEvidenceOverlap,
   analyzeCrossProfileStudyLoad,
@@ -24,6 +25,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const evidenceAgeSummary = summarizeEvidenceAge(claimEvidenceAge)
   const legacyOnlyClaims = claimEvidenceAge.filter((claim) => claim.allKnownEvidenceOlderThan10Years)
   const highConfidenceLegacyOnlyClaims = claimEvidenceAge.filter((claim) => claim.highConfidenceLegacyOnlyClaim)
+  const studyIdentityCoverage = analyzeStudyIdentityCoverage(analysis)
 
   return {
     crossProfileStudyLoad,
@@ -36,5 +38,6 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     evidenceAgeSummary,
     legacyOnlyClaims,
     highConfidenceLegacyOnlyClaims,
+    studyIdentityCoverage,
   }
 }
