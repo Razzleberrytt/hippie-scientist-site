@@ -16,25 +16,50 @@ interface Props {
 
 export default function InternalLinks({ links, heading = 'Related Resources' }: Props) {
   if (!links.length) return null
+
   return (
-    <section className="space-y-4">
-      <h2 className="text-xl font-semibold text-ink">{heading}</h2>
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {links.map((link) => (
+    <section className="border-y border-[color:var(--hs-hairline-strong)] py-6">
+      <div className="mb-2 flex items-end justify-between gap-4">
+        <div>
+          <p className="eyebrow-label">Explore further</p>
+          <h2 className="mt-2 text-xl font-semibold tracking-tight text-[color:var(--hs-ink)]">{heading}</h2>
+        </div>
+        <span className="hidden text-[10px] font-bold uppercase tracking-[0.14em] text-[color:var(--hs-body)] sm:inline">
+          {links.length} selected
+        </span>
+      </div>
+
+      <div className="divide-y divide-[color:var(--hs-hairline)]">
+        {links.map((link, index) => (
           <Link
             key={link.href}
             href={link.href}
-            className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10 dark:focus-visible:ring-offset-[var(--surface-card)]"
+            className="group grid gap-3 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-4 sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:items-start sm:gap-4"
           >
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200">
-              {TYPE_LABELS[link.type]}
-            </p>
-            <p className="mt-1 text-sm font-semibold text-ink">{link.label}</p>
-            {link.description && (
-              <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">
-                {link.description}
+            <span className="font-display text-sm tabular-nums text-[color:var(--hs-gold)]">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+
+            <div className="min-w-0">
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[color:var(--tone-ink)]">
+                {TYPE_LABELS[link.type]}
               </p>
-            )}
+              <p className="mt-1 text-sm font-semibold text-[color:var(--hs-ink)] transition group-hover:text-[color:var(--tone-ink)]">
+                {link.label}
+              </p>
+              {link.description ? (
+                <p className="mt-1 max-w-2xl text-xs leading-5 text-[color:var(--hs-body)]">
+                  {link.description}
+                </p>
+              ) : null}
+            </div>
+
+            <span
+              aria-hidden="true"
+              className="hidden pt-4 text-lg text-[color:var(--hs-body)] transition group-hover:translate-x-1 group-hover:text-[color:var(--hs-gold)] sm:block"
+            >
+              →
+            </span>
           </Link>
         ))}
       </div>
