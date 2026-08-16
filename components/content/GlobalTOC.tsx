@@ -23,15 +23,19 @@ export default function GlobalTOC() {
     setActiveId('')
     setMobileOpen(false)
 
-    // Profile pages ship their own curated section nav (ProfileTOC). Rendering
-    // this generic TOC there produces a second "On this page" box that overlaps
-    // the sticky sidebar, so stand down when one exists.
-    if (document.querySelector('nav[aria-label="Page sections"]')) {
+    // Stand down whenever the page already owns a curated navigation surface.
+    // The global TOC is a fallback, not a second competing "On this page" UI.
+    const hasCuratedSectionNav = Boolean(document.querySelector('nav[aria-label="Page sections"]'))
+    const hasCuratedToc = Array.from(
+      document.querySelectorAll('nav[aria-label="Table of contents"], aside[aria-label="Page navigation"]'),
+    ).some((element) => !element.closest('[data-global-toc]'))
+
+    if (hasCuratedSectionNav || hasCuratedToc) {
       setVisible(false)
       return
     }
 
-    // Find all h2/h3 with ids in the main content area
+    // Find all h2/h3 with ids in the main content area.
     const selector = 'article h2[id], article h3[id], main h2[id], main h3[id], .content-prose h2[id], .content-prose h3[id], .article-body h2[id], .article-body h3[id]'
     const elements = document.querySelectorAll(selector)
 
@@ -56,7 +60,7 @@ export default function GlobalTOC() {
     setHeadings(detected)
     setVisible(true)
 
-    // Set up intersection observer for active heading tracking
+    // Set up intersection observer for active heading tracking.
     observer.current = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -81,15 +85,18 @@ export default function GlobalTOC() {
 
   return (
     <>
-      {/* Inline TOC stays available until the fixed XL sidebar takes over. */}
-      <div className="mx-4 mb-6 mt-4 rounded-xl border-2 border-brand-900/15 bg-white p-0 shadow-sm dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] sm:mx-6 lg:mx-auto lg:w-[calc(100%-3rem)] lg:max-w-6xl xl:hidden">
+      {/* Inline accordion stays available until the XL margin rail takes over. */}
+      <div
+        data-global-toc
+        className="mx-4 mb-7 mt-4 border-y border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface-2)] sm:mx-6 sm:rounded-xl sm:border lg:mx-auto lg:w-[calc(100%-3rem)] lg:max-w-6xl xl:hidden"
+      >
         <button
           type="button"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(o => !o)}
-          className="flex w-full items-center justify-between px-4 py-3 text-sm font-semibold text-ink dark:text-[var(--text-primary)]"
+          className="flex min-h-12 w-full items-center justify-between px-4 py-3 text-sm font-semibold text-[color:var(--hs-ink)]"
         >
-          On this page ({headings.length} sections)
+          <span>On this page <span className="font-normal text-[color:var(--hs-body)]">({headings.length} sections)</span></span>
           <svg
             className={`size-4 transition-transform ${mobileOpen ? 'rotate-180' : ''}`}
             viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"
@@ -98,19 +105,20 @@ export default function GlobalTOC() {
           </svg>
         </button>
         {mobileOpen && (
-          <nav aria-label="Table of contents" className="border-t border-brand-900/10 px-4 py-3 dark:border-[var(--border-soft)]">
+          <nav aria-label="Table of contents" className="border-t border-[color:var(--hs-hairline)] px-4 py-3">
             <TOCLinks headings={headings} activeId={activeId} onClick={() => setMobileOpen(false)} />
           </nav>
         )}
       </div>
 
-      {/* Desktop: fixed sidebar on the right */}
+      {/* Desktop fallback: editorial margin rail, not another floating card. */}
       <aside
+        data-global-toc
         aria-label="Page contents"
-        className="fixed right-4 top-24 z-30 hidden w-[200px] xl:block"
+        className="fixed right-4 top-24 z-30 hidden w-[210px] xl:block"
       >
-        <div className="rounded-xl border-2 border-brand-900/15 bg-white p-3 shadow-md ring-1 ring-brand-900/5 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] dark:ring-white/5">
-          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-700 dark:text-[var(--accent-teal)]">
+        <div className="border-l border-[color:var(--hs-hairline-strong)] pl-4">
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[color:var(--hs-gold)]">
             On this page
           </p>
           <TOCLinks headings={headings} activeId={activeId} compact />
@@ -139,11 +147,11 @@ function TOCLinks({
             href={`#${h.id}`}
             onClick={onClick}
             className={[
-              'block rounded-lg px-2 py-1 leading-snug transition-colors',
+              'block border-l-2 px-2.5 py-1.5 leading-snug transition-colors',
               compact ? 'text-[11px]' : h.level === 3 ? 'text-xs' : 'text-sm',
               activeId === h.id
-                ? 'bg-brand-50 font-semibold text-brand-800 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
-                : 'text-muted hover:bg-brand-50/60 hover:text-brand-800 dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]',
+                ? 'border-[color:var(--hs-gold)] bg-[color:color-mix(in_srgb,var(--tone)_10%,transparent)] font-semibold text-[color:var(--hs-ink)]'
+                : 'border-transparent text-[color:var(--hs-body)] hover:border-[color:var(--hs-hairline-strong)] hover:bg-[color:color-mix(in_srgb,var(--tone)_7%,transparent)] hover:text-[color:var(--hs-ink)]',
             ].join(' ')}
           >
             {h.text}
