@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
 import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
@@ -31,7 +31,6 @@ export default function CollagenGuidePage() {
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd title="Collagen: Evidence, Benefits & Types" description="Collagen is a $5B+ category with 100+ RCTs — here's what the evidence shows." url="https://thehippiescientist.net/guides/other/collagen-supplements" type="Article" />
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Collagen Supplements' }]} />
-      <FAQSchema pagePath="/guides/other/collagen-supplements/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 10 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Collagen: What 100+ Trials Actually Show</h1><p className="text-lg leading-8 text-muted">Collagen is a $5+ billion category, endorsed by celebrities and backed by more clinical trials than most supplement categories. A 2026 umbrella review of 100+ RCTs with nearly 8,000 participants provides the strongest synthesis to date [1]. The effects are real but modest — here is what the evidence supports, with citations.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/collagen-supplements.jpg" alt="Collagen peptide powder in a glass jar with capsules on a wood surface" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Collagen — one of the better-studied supplement categories, but effects are modest.</figcaption></figure></section>
@@ -80,6 +79,7 @@ export default function CollagenGuidePage() {
         <Ref n={9} text="ConsumerLab.com (2023). Collagen Supplements Review: per-gram cost ranges from $0.07 to $25+." url="https://www.consumerlab.com/reviews/collagen-supplements-review/collagen/" />
         <Ref n={10} text="Choi FD, et al. (2019). Oral collagen supplementation: systematic review of dermatological applications. J Drugs Dermatol, 18(1): 9-16." url="https://pubmed.ncbi.nlm.nih.gov/30681787/" />
       </ol></section>
+      <LegacyGuideFAQ pagePath="/guides/other/collagen-supplements/" questions={FAQS} />
       <div className="max-w-4xl">
         <RecommendationSection products={getRevenueProductSet('collagen')?.products ?? []} />
       </div>
