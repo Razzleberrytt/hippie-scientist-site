@@ -6,29 +6,27 @@ import {
   FRENCH_ROUTE_KEYS,
   FRENCH_UI,
   buildFrenchPageMetadata,
-  type FrenchPageKey,
 } from '@/src/lib/french-content'
+import {
+  generateLocalizedStaticParams,
+  resolveLocalizedPage,
+  type LocalizedRouteParams,
+} from '@/src/lib/localized-route-runtime'
 
-type PageProps = { params: Promise<{ segments: string[] }> }
+type PageProps = { params: LocalizedRouteParams }
 export const dynamicParams = false
 
 export function generateStaticParams() {
-  return Object.keys(FRENCH_ROUTE_KEYS).map((route) => ({ segments: route.split('/') }))
-}
-
-async function resolvePage(params: PageProps['params']) {
-  const { segments } = await params
-  const key = FRENCH_ROUTE_KEYS[segments.join('/')] as FrenchPageKey | undefined
-  return key ? FRENCH_PAGES[key] : null
+  return generateLocalizedStaticParams(FRENCH_ROUTE_KEYS)
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const page = await resolvePage(params)
+  const page = await resolveLocalizedPage(params, FRENCH_ROUTE_KEYS, FRENCH_PAGES)
   return page ? buildFrenchPageMetadata(page) : {}
 }
 
 export default async function FrenchLocalizedPage({ params }: PageProps) {
-  const page = await resolvePage(params)
+  const page = await resolveLocalizedPage(params, FRENCH_ROUTE_KEYS, FRENCH_PAGES)
   if (!page) notFound()
   return <LocalizedCorePage page={page} ui={FRENCH_UI} lang='fr' />
 }
