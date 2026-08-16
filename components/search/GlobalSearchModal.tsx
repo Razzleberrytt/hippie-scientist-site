@@ -43,7 +43,8 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
       if (!doc) return
       close()
       router.push(doc.href)
-    }, [search.results, close, router],
+    },
+    [search.results, close, router],
   )
 
   const { activeIndex, setActiveIndex, onKeyDown } = useListKeyboardNav({
@@ -113,7 +114,8 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
         event.preventDefault()
         first.focus()
       }
-    }, [close],
+    },
+    [close],
   )
 
   const activeOptionId = search.results[activeIndex] ? `${optionPrefix}-${activeIndex}` : undefined
