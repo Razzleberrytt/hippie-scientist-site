@@ -69,14 +69,17 @@
     {
       "id": "src_aea5d4a48620",
       "title": "A Systematic Review of the Effect of Dietary Supplements on Cognitive Performance in Healthy Young Adults and Military Personnel",
-      "url": "https://consensus.app/papers/a-systematic-review-of-the-effect-of-dietary-supplements-on-pomeroy-tooley/be9aab8f3df35859a85ce0fcb2b16507/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32093203/",
       "year": "2020",
       "authors": "Pomeroy et al.",
       "journal": "Nutrients",
       "citation": "Dietary supplement cognition review; suggests tyrosine or caffeine may help in sleep-deprived military/young adult contexts; most research low quality.",
       "note": "evidence;runtime_claim_gate",
       "studyType": "Systematic review",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "32093203",
+      "metadataSource": "pubmed",
+      "doi": "10.3390/nu12020545"
     }
   ],
   "dosage": "Tyrosine; sleep-deprived/operational-stress context. Dose varied; needs dedicated dose/form pass before display.",

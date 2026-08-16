@@ -73,13 +73,16 @@
     {
       "id": "src_862d85e3eb53",
       "title": "Estimation of Dietary Capsaicinoid Exposure in Korea and Assessment of Its Health Effects",
-      "url": "https://consensus.app/papers/estimation-of-dietary-capsaicinoid-exposure-in-korea-and-kwon/c060344aae1a57aa8b0a5ace9318fa73/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34371974/",
       "year": "2021",
       "authors": "Kwon",
       "journal": "Nutrients",
       "citation": "Mean capsaicinoid intake 3.25 mg/day; abdominal pain reported; 30 mg/day may be max tolerable for long-term repeated consumption",
       "note": "capsaicin exposure and GI tolerance",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "34371974",
+      "metadataSource": "pubmed",
+      "doi": "10.3390/nu13072461"
     }
   ],
   "governance": {

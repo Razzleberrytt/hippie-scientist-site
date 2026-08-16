@@ -32,14 +32,18 @@
     {
       "id": "src_9e3090651583",
       "title": "Neuroprotective, neurogenic, and anticholinergic evidence of Ganoderma lucidum cognitive effects: Crucial knowledge is still lacking",
-      "url": "https://consensus.app/papers/neuroprotective-neurogenic-and-anticholinergic-luz-pinheiro/b769fa72870d5aefabcd1201a40422cf/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37052237/",
       "year": "2023",
       "authors": "Luz et al.",
       "journal": "Medicinal Research Reviews",
       "citation": "Mechanistic/preclinical-heavy cognitive review; explicitly highlights crucial knowledge gaps for future studies.",
       "note": "evidence_gap;runtime_claim_gate",
-      "studyType": "Mechanistic",
-      "reviewStatus": "approved"
+      "studyType": "Narrative review",
+      "reviewStatus": "approved",
+      "pmid": "37052237",
+      "metadataSource": "pubmed",
+      "doi": "10.1002/med.21957",
+      "studyClass": "narrative-review"
     }
   ],
   "governance": {

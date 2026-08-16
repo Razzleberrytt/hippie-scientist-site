@@ -265,26 +265,32 @@
     {
       "id": "src_070f1c3027c3",
       "title": "Optimizing the Time and Dose of Melatonin as a Sleep-Promoting Drug: A Systematic Review of Randomized Controlled Trials and Dose-Response Meta-Analysis",
-      "url": "https://consensus.app/papers/optimizing-the-time-and-dose-of-melatonin-as-a-cruz-sanabria-bruno/bae0ee234b6350a4b2b427a03a96a39f/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38888087/",
       "year": "2024",
       "authors": "F. Cruz-Sanabria; S. Bruno; A. Crippa; P. Frumento; M. Scarselli; Debra J. Skene; U. Faraguna",
       "journal": "Journal of Pineal Research",
       "citation": "Consensus result; citation_count=43; record_type=systematic_review_meta_analysis",
       "note": "melatonin dose/timing and sleep-onset runtime rules",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "38888087",
+      "metadataSource": "pubmed",
+      "doi": "10.1111/jpi.12985"
     },
     {
       "id": "src_6fa7f731b20d",
       "title": "Safety of higher doses of melatonin in adults: A systematic review and meta-analysis",
-      "url": "https://consensus.app/papers/safety-of-higher-doses-of-melatonin-in-adults-a-systematic-schrire-phillips/99b1be443f505288a9bf6c6d22c6a986/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34923676/",
       "year": "2021",
       "authors": "Zoe M Schrire; C. Phillips; J. Chapman; S. Duffy; G. Wong; A. D’Rozario; M. Comas; I. Raisin; B. Saini; C. Gordon; A. McKinnon; S. Naismith; N. Marshall; R. Grunstein; C. Hoyos",
       "journal": "Journal of Pineal Research",
       "citation": "Consensus result; citation_count=110; record_type=systematic_review_meta_analysis",
       "note": "melatonin safety and high-dose adverse event reporting",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "34923676",
+      "metadataSource": "pubmed",
+      "doi": "10.1111/jpi.12782"
     }
   ],
   "dosage": "Dose-response meta-analysis suggested sleep effects peaking around 4 mg/day and timing about 3 hours before desired bedtime in that analysis; common practice varies. | Oral melatonin; immediate vs prolonged-release and timing should be separated.",

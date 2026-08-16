@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-08-16T00:50:31.246Z",
-  "count": 836,
+  "fetchedAt": "2026-08-16T01:10:16.579Z",
+  "count": 849,
   "failures": [
     {
       "pmid": "17127598",
@@ -5763,6 +5763,24 @@
       ],
       "fetchedFrom": "pubmed-esummary"
     },
+    "31413233": {
+      "pmid": "31413233",
+      "title": "Improvement of cognitive functions by oral intake of Hericium erinaceus",
+      "authors": "Saitsu Y et al.",
+      "authorCount": 5,
+      "journal": "Biomed Res",
+      "year": 2019,
+      "volume": "40",
+      "pages": "125-131",
+      "doi": "10.2220/biomedres.40.125",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
     "31431019": {
       "pmid": "31431019",
       "title": "Schisandra chinensis and its phytotherapeutical applications",
@@ -6404,6 +6422,22 @@
       "publicationTypes": [
         "Journal Article",
         "Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
+    "32093203": {
+      "pmid": "32093203",
+      "title": "A Systematic Review of the Effect of Dietary Supplements on Cognitive Performance in Healthy Young Adults and Military Personnel",
+      "authors": "Pomeroy DE et al.",
+      "authorCount": 5,
+      "journal": "Nutrients",
+      "year": 2020,
+      "volume": "12",
+      "pages": "",
+      "doi": "10.3390/nu12020545",
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review"
       ],
       "fetchedFrom": "pubmed-esummary"
     },
@@ -7659,6 +7693,21 @@
       ],
       "fetchedFrom": "pubmed-esummary"
     },
+    "34371974": {
+      "pmid": "34371974",
+      "title": "Estimation of Dietary Capsaicinoid Exposure in Korea and Assessment of Its Health Effects",
+      "authors": "Kwon Y",
+      "authorCount": 1,
+      "journal": "Nutrients",
+      "year": 2021,
+      "volume": "13",
+      "pages": "",
+      "doi": "10.3390/nu13072461",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
     "34376917": {
       "pmid": "34376917",
       "title": "Effects of anthocyanin, astaxanthin, and lutein on eye functions: a randomized, double-blind, placebo-controlled study",
@@ -8105,6 +8154,23 @@
       "publicationTypes": [
         "Journal Article",
         "Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
+    "34923676": {
+      "pmid": "34923676",
+      "title": "Safety of higher doses of melatonin in adults: A systematic review and meta-analysis",
+      "authors": "Menczel Schrire Z et al.",
+      "authorCount": 15,
+      "journal": "J Pineal Res",
+      "year": 2022,
+      "volume": "72",
+      "pages": "e12782",
+      "doi": "10.1111/jpi.12782",
+      "publicationTypes": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ],
       "fetchedFrom": "pubmed-esummary"
     },
@@ -9018,6 +9084,23 @@
       ],
       "fetchedFrom": "pubmed-esummary"
     },
+    "36111960": {
+      "pmid": "36111960",
+      "title": "Spicy Food and Chili Peppers and Multiple Health Outcomes: Umbrella Review",
+      "authors": "Ao Z et al.",
+      "authorCount": 3,
+      "journal": "Mol Nutr Food Res",
+      "year": 2022,
+      "volume": "66",
+      "pages": "e2200167",
+      "doi": "10.1002/mnfr.202200167",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
     "36134975": {
       "pmid": "36134975",
       "title": "Japanese Knotweed Rhizome Bark Extract Inhibits Live SARS-CoV-2 In Vitro",
@@ -9414,6 +9497,22 @@
       ],
       "fetchedFrom": "pubmed-esummary"
     },
+    "36717399": {
+      "pmid": "36717399",
+      "title": "Efficacy of Silexan in patients with anxiety disorders: a meta-analysis of randomized, placebo-controlled trials",
+      "authors": "Dold M et al.",
+      "authorCount": 7,
+      "journal": "Eur Arch Psychiatry Clin Neurosci",
+      "year": 2023,
+      "volume": "273",
+      "pages": "1615-1628",
+      "doi": "10.1007/s00406-022-01547-w",
+      "publicationTypes": [
+        "Meta-Analysis",
+        "Journal Article"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
     "36732502": {
       "pmid": "36732502",
       "title": "Celastrol suppresses colorectal cancer via covalent targeting peroxiredoxin 1",
@@ -9714,6 +9813,23 @@
       "publicationTypes": [
         "Journal Article",
         "Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
+    "37052237": {
+      "pmid": "37052237",
+      "title": "Neuroprotective, neurogenic, and anticholinergic evidence of Ganoderma lucidum cognitive effects: Crucial knowledge is still lacking",
+      "authors": "Luz DA et al.",
+      "authorCount": 4,
+      "journal": "Med Res Rev",
+      "year": 2023,
+      "volume": "43",
+      "pages": "1504-1536",
+      "doi": "10.1002/med.21957",
+      "publicationTypes": [
+        "Journal Article",
+        "Review",
+        "Research Support, Non-U.S. Gov't"
       ],
       "fetchedFrom": "pubmed-esummary"
     },
@@ -11455,6 +11571,22 @@
       ],
       "fetchedFrom": "pubmed-esummary"
     },
+    "38784853": {
+      "pmid": "38784853",
+      "title": "The Effect of Oral Chamomile on Anxiety: A Systematic Review of Clinical Trials",
+      "authors": "Saadatmand S et al.",
+      "authorCount": 3,
+      "journal": "Clin Nutr Res",
+      "year": 2024,
+      "volume": "13",
+      "pages": "139-147",
+      "doi": "10.7762/cnr.2024.13.2.139",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
     "38797379": {
       "pmid": "38797379",
       "title": "Beneficial effects of oxymatrine from Sophora flavescens on alleviating Ulcerative colitis by improving inflammation and ferroptosis",
@@ -11480,6 +11612,22 @@
       "volume": "15",
       "pages": "144-161",
       "doi": "10.1080/21501203.2023.2260408",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
+    "38817505": {
+      "pmid": "38817505",
+      "title": "Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review",
+      "authors": "Rawji A et al.",
+      "authorCount": 7,
+      "journal": "Cureus",
+      "year": 2024,
+      "volume": "16",
+      "pages": "e59317",
+      "doi": "10.7759/cureus.59317",
       "publicationTypes": [
         "Journal Article",
         "Review"
@@ -11515,6 +11663,23 @@
       "publicationTypes": [
         "Journal Article",
         "Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
+    "38888087": {
+      "pmid": "38888087",
+      "title": "Optimizing the Time and Dose of Melatonin as a Sleep-Promoting Drug: A Systematic Review of Randomized Controlled Trials and Dose-Response Meta-Analysis",
+      "authors": "Cruz-Sanabria F et al.",
+      "authorCount": 7,
+      "journal": "J Pineal Res",
+      "year": 2024,
+      "volume": "76",
+      "pages": "e12985",
+      "doi": "10.1111/jpi.12985",
+      "publicationTypes": [
+        "Systematic Review",
+        "Journal Article",
+        "Meta-Analysis"
       ],
       "fetchedFrom": "pubmed-esummary"
     },
@@ -11684,6 +11849,22 @@
       "doi": "10.1016/j.phymed.2024.155909",
       "publicationTypes": [
         "Journal Article"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
+    "39070254": {
+      "pmid": "39070254",
+      "title": "The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis",
+      "authors": "Xu C et al.",
+      "authorCount": 4,
+      "journal": "Front Nutr",
+      "year": 2024,
+      "volume": "11",
+      "pages": "1424972",
+      "doi": "10.3389/fnut.2024.1424972",
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review"
       ],
       "fetchedFrom": "pubmed-esummary"
     },
@@ -12159,6 +12340,23 @@
       ],
       "fetchedFrom": "pubmed-esummary"
     },
+    "39474788": {
+      "pmid": "39474788",
+      "title": "Effects of Ginseng on Cognitive Function: A Systematic Review and Meta-Analysis",
+      "authors": "Zeng M et al.",
+      "authorCount": 7,
+      "journal": "Phytother Res",
+      "year": 2024,
+      "volume": "38",
+      "pages": "6023-6034",
+      "doi": "10.1002/ptr.8359",
+      "publicationTypes": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
     "39476924": {
       "pmid": "39476924",
       "title": "Advances in the study of polysaccharides from Anemarrhena asphodeloides Bge.: A review",
@@ -12282,6 +12480,23 @@
       "publicationTypes": [
         "Journal Article",
         "Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
+    "39552387": {
+      "pmid": "39552387",
+      "title": "The effect of vitamin D supplementation on depression: a systematic review and dose-response meta-analysis of randomized controlled trials",
+      "authors": "Ghaemi S et al.",
+      "authorCount": 4,
+      "journal": "Psychol Med",
+      "year": 2024,
+      "volume": "54",
+      "pages": "3999-4008",
+      "doi": "10.1017/S0033291724001697",
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
       ],
       "fetchedFrom": "pubmed-esummary"
     },

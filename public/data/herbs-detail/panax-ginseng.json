@@ -31,14 +31,17 @@
     {
       "id": "src_d4dcaabcf614",
       "title": "Effects of Ginseng on Cognitive Function: A Systematic Review and Meta-Analysis",
-      "url": "https://consensus.app/papers/effects-of-ginseng-on-cognitive-function-a-systematic-zeng-zhang/960465ac4f6a54cba41fbadf49486813/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39474788/",
       "year": "2024",
       "authors": "Zeng et al.",
       "journal": "Phytotherapy Research",
       "citation": "15 RCTs/671 participants; memory effect signal; no positive effect on overall cognition, attention, executive function.",
       "note": "evidence;runtime_claim_gate",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "39474788",
+      "metadataSource": "pubmed",
+      "doi": "10.1002/ptr.8359"
     }
   ],
   "governance": {

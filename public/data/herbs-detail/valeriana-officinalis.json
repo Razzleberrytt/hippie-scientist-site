@@ -30,16 +30,21 @@
   "region": "",
   "sources": [
     {
-      "pubmedId": "33086877",
-      "title": "Valerian Root in Treating Sleep Problems and Associated Disorders-A Systematic Review and Meta-Analysis",
-      "authors": "Shinjyo N et al.",
-      "year": 2020,
+      "id": "src_1bcdfb0b0168",
+      "title": "Valerian Root in Treating Sleep Problems and Associated Disorders—A Systematic Review and Meta-Analysis",
       "url": "https://pubmed.ncbi.nlm.nih.gov/33086877/",
-      "journal": "J Evid Based Integr Med",
-      "doi": "10.1177/2515690X20967323",
+      "year": "2020",
+      "authors": "N. Shinjyo; G. Waddell; Julia Green",
+      "journal": "Journal of Evidence-based Integrative Medicine",
+      "citation": "Consensus result; citation_count=102; record_type=systematic_review_meta_analysis",
+      "note": "valerian subjective sleep/anxiety, extract quality, severe adverse events",
       "studyType": "Meta-analysis",
-      "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "reviewStatus": "approved",
+      "pmid": "33086877",
+      "metadataSource": "pubmed",
+      "doi": "10.1177/2515690X20967323",
+      "pubmedId": "33086877",
+      "studyClass": "meta-analysis"
     },
     {
       "pubmedId": "30058034",
@@ -64,18 +69,6 @@
       "studyType": "Narrative review",
       "studyClass": "narrative-review",
       "metadataSource": "pubmed"
-    },
-    {
-      "id": "src_1bcdfb0b0168",
-      "title": "Valerian Root in Treating Sleep Problems and Associated Disorders—A Systematic Review and Meta-Analysis",
-      "url": "https://consensus.app/papers/valerian-root-in-treating-sleep-problems-and-associated-shinjyo-waddell/256f974f235d53c7a338c40d12481df9/?utm_source=chatgpt",
-      "year": "2020",
-      "authors": "N. Shinjyo; G. Waddell; Julia Green",
-      "journal": "Journal of Evidence-based Integrative Medicine",
-      "citation": "Consensus result; citation_count=102; record_type=systematic_review_meta_analysis",
-      "note": "valerian subjective sleep/anxiety, extract quality, severe adverse events",
-      "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
     },
     {
       "id": "src_f085ef23cc53",

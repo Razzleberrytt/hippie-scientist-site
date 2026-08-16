@@ -150,14 +150,17 @@
     {
       "id": "src_3922d0deba42",
       "title": "Effect of Ashwagandha (Withania somnifera) extract on sleep: A systematic review and meta-analysis",
-      "url": "https://consensus.app/papers/effect-of-ashwagandha-withania-somnifera-extract-on-sleep-cheah-norhayati/feb55754e0d655ac8afb0bf0c3e31816/?utm_source=chatgpt",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34559859/",
       "year": "2021",
       "authors": "Cheah; Norhayati; Yaacob; Rahman",
       "journal": "PLoS ONE",
       "citation": "5 RCTs; 400 adults; safety data limited",
       "note": "sleep evidence",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "pmid": "34559859",
+      "metadataSource": "pubmed",
+      "doi": "10.1371/journal.pone.0257843"
     },
     {
       "id": "src_5c8f28c15213",

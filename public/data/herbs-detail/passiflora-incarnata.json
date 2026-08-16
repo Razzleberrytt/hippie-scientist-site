@@ -28,16 +28,21 @@
   "region": "",
   "sources": [
     {
-      "pubmedId": "33352740",
-      "title": "Passiflora incarnata in Neuropsychiatric Disorders-A Systematic Review",
-      "authors": "Janda K et al.",
-      "year": 2020,
+      "id": "src_cde5874cd342",
+      "title": "Passiflora incarnata in Neuropsychiatric Disorders—A Systematic Review",
       "url": "https://pubmed.ncbi.nlm.nih.gov/33352740/",
+      "year": "2020",
+      "authors": "K. Janda; Karolina Wojtkowska; K. Jakubczyk; Justyna Antoniewicz; K. Skonieczna-Żydecka",
       "journal": "Nutrients",
-      "doi": "10.3390/nu12123894",
+      "citation": "Consensus result; citation_count=59; record_type=systematic_review",
+      "note": "passionflower anxiety/sleep neuropsychiatric evidence and safety",
       "studyType": "Systematic review",
-      "studyClass": "systematic-review",
-      "metadataSource": "pubmed"
+      "reviewStatus": "approved",
+      "pmid": "33352740",
+      "metadataSource": "pubmed",
+      "doi": "10.3390/nu12123894",
+      "pubmedId": "33352740",
+      "studyClass": "systematic-review"
     },
     {
       "pubmedId": "29464801",
@@ -78,18 +83,6 @@
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
       "metadataSource": "pubmed"
-    },
-    {
-      "id": "src_cde5874cd342",
-      "title": "Passiflora incarnata in Neuropsychiatric Disorders—A Systematic Review",
-      "url": "https://consensus.app/papers/passiflora-incarnata-in-neuropsychiatric-disordersa-janda-wojtkowska/50bff026091f52e8bf012ac1556a8121/?utm_source=chatgpt",
-      "year": "2020",
-      "authors": "K. Janda; Karolina Wojtkowska; K. Jakubczyk; Justyna Antoniewicz; K. Skonieczna-Żydecka",
-      "journal": "Nutrients",
-      "citation": "Consensus result; citation_count=59; record_type=systematic_review",
-      "note": "passionflower anxiety/sleep neuropsychiatric evidence and safety",
-      "studyType": "Systematic review",
-      "reviewStatus": "approved"
     }
   ],
   "governance": {
