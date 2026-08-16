@@ -249,15 +249,11 @@ function auditLegacyGuideQuickAnswerPrimitives() {
   ])
 
   for (const [slug, file] of LEGACY_GUIDE_PAGES) {
-    const source = text(file)
-    if (!source.includes("@/components/LegacyGuideQuickAnswer")) continue
-
-    for (const [signal, label] of [
+    requireSignals(file, 'legacy-guide-answers', `${slug} guide`, [
+      ["import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'", 'shared quick-answer import'],
       ['<LegacyGuideQuickAnswer referencesHref="#references">', 'shared quick-answer wrapper with source target'],
       ['id="references"', 'matching references target'],
-    ]) {
-      if (!source.includes(signal)) add('error', 'legacy-guide-answers', `${slug} guide missing ${label}`)
-    }
+    ])
   }
 }
 
