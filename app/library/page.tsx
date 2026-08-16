@@ -11,7 +11,6 @@ import {
   Sparkles,
   Waypoints,
 } from 'lucide-react'
-import { allArticleMonographs, allBlogPosts } from '../../.content-collections/generated'
 import { SITE_URL } from '@/lib/navigation-config'
 import { buildTwitterMetadata } from '@/src/lib/seo'
 
@@ -33,10 +32,6 @@ export const metadata: Metadata = {
     description: 'Use one clear directory to browse every major guide, article, profile database, research resource, and safety tool.',
   }),
 }
-
-const latestArticles = [...allArticleMonographs, ...allBlogPosts]
-  .sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated))
-  .slice(0, 6)
 
 const quickStarts = [
   {
@@ -249,34 +244,6 @@ export default function SiteDirectoryPage() {
                 ))}
               </div>
             </section>
-          ))}
-        </div>
-      </section>
-
-      <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/55 p-6 sm:p-8' aria-labelledby='recent-articles'>
-        <div className='flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between'>
-          <div>
-            <p className='eyebrow-label'>Recently updated</p>
-            <h2 id='recent-articles' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>Latest articles</h2>
-            <p className='mt-2 text-sm leading-7 text-muted'>A direct window into the editorial collection that was previously difficult to discover.</p>
-          </div>
-          <Link href='/articles/' className='inline-flex items-center gap-2 text-sm font-bold text-brand-800'>
-            View every article
-            <ArrowRight className='h-4 w-4' aria-hidden='true' />
-          </Link>
-        </div>
-
-        <div className='mt-6 grid gap-3 md:grid-cols-2'>
-          {latestArticles.map((article) => (
-            <Link key={article.slug} href={article.url} className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:border-brand-700/25 hover:bg-white'>
-              <div className='flex flex-wrap items-center gap-2 text-xs text-muted'>
-                <span className='font-bold uppercase tracking-wider text-brand-700'>{article.category}</span>
-                <span aria-hidden='true'>•</span>
-                <time dateTime={article.lastUpdated}>{article.lastUpdated}</time>
-              </div>
-              <h3 className='mt-2 text-lg font-bold leading-snug text-ink'>{article.title}</h3>
-              <p className='mt-2 line-clamp-2 text-sm leading-6 text-muted'>{article.description}</p>
-            </Link>
           ))}
         </div>
       </section>
