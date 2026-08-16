@@ -54,7 +54,7 @@ const SWITCH_FIELDS = ['outcomeSwitch', 'outcomeSwitched', 'primaryOutcomeChange
 const NON_REPORTING_FIELDS = ['registeredOutcomeNotReported', 'prespecifiedOutcomeNotReported'] as const
 
 const PRIMARY_NOT_MET_TEXT = /\bprimary (?:outcome|endpoint)[^.]{0,180}(?:was not met|not met|failed to meet|did not meet|no significant|not statistically significant|non[- ]significant)\b/i
-const PRIMARY_MET_TEXT = /\bprimary (?:outcome|endpoint)[^.]{0,180}(?:was met|met the|statistically significant|significantly (?:improved|reduced|increased|decreased)|favou?r(?:ed|s)|superior)\b/i
+const PRIMARY_MET_TEXT = /\bprimary (?:outcome|endpoint)[^.]{0,180}(?:was met|met the|was statistically significant|was significantly (?:improved|reduced|increased|decreased)|favou?r(?:ed|s)|superior)\b/i
 const OUTCOME_SWITCH_TEXT = /\b(outcome switch(?:ing|ed)?|switched (?:the )?(?:primary )?(?:outcome|endpoint)|changed (?:the )?(?:primary )?(?:outcome|endpoint)|primary outcome (?:was )?changed|deviation from (?:the )?(?:registered|prespecified|protocol[- ]specified) outcome)\b/i
 const OUTCOME_NOT_REPORTED_TEXT = /\b(?:registered|prespecified|pre[- ]specified|protocol[- ]specified) (?:primary )?(?:outcome|endpoint)[^.]{0,140}(?:not reported|was not reported|unreported|omitted)\b/i
 
