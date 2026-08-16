@@ -82,7 +82,7 @@ describe('public evidence dataset', () => {
     expect(dataset.metrics.ingredientsWithSafetyCautions).toBe(1)
   })
 
-  it('does not fabricate independence metrics in the pure record builder', () => {
+  it('does not fabricate independence metrics or coverage in the pure record builder', () => {
     const dataset = buildPublicEvidenceDatasetFromRecords([
       { type: 'herb', record: record({ slug: 'alpha' }) },
     ])
@@ -96,6 +96,11 @@ describe('public evidence dataset', () => {
       globalPrimaryHumanPublicationCount: null,
       globalPrimaryHumanUnderlyingStudyCount: null,
       globalCollapsedPrimaryHumanPublicationCount: null,
+      independenceMultiStudyApprovedClaims: null,
+      independenceFullyResolvedClaims: null,
+      independenceUnresolvedClaims: null,
+      highConfidenceIndependenceUnresolvedClaims: null,
+      meanIndependenceCoverage: null,
     })
   })
 

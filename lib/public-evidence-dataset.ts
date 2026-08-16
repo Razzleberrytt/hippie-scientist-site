@@ -105,14 +105,20 @@ export type PublicEvidenceReportMetrics = {
   underlyingStudyMetricsSource: 'canonical-research-topology' | null
   /** Unique site-wide publication identities across every canonical research profile. */
   globalInventoryPublicationCount: number | null
-  /** Site-wide evidence units after explicit registry/lineage dependence collapse. */
+  /** Site-wide evidence units remaining after explicitly proven registry/lineage dependence is collapsed. */
   globalInventoryUnderlyingStudyCount: number | null
   globalCollapsedInventoryPublicationCount: number | null
   /** Unique site-wide primary-human publication identities. */
   globalPrimaryHumanPublicationCount: number | null
-  /** Independent site-wide primary-human evidence units after explicit dependence collapse. */
+  /** Primary-human evidence units remaining after explicitly proven dependence collapse; unresolved lineage is not assumed independent. */
   globalPrimaryHumanUnderlyingStudyCount: number | null
   globalCollapsedPrimaryHumanPublicationCount: number | null
+  /** Claim-level coverage of explicit registry or non-registry lineage used to assess publication independence. */
+  independenceMultiStudyApprovedClaims: number | null
+  independenceFullyResolvedClaims: number | null
+  independenceUnresolvedClaims: number | null
+  highConfidenceIndependenceUnresolvedClaims: number | null
+  meanIndependenceCoverage: number | null
   gradeDistribution: Array<{ grade: string; count: number; pct: number }>
   categories: EvidenceCategorySummary[]
 }
@@ -426,6 +432,11 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     globalPrimaryHumanPublicationCount: null,
     globalPrimaryHumanUnderlyingStudyCount: null,
     globalCollapsedPrimaryHumanPublicationCount: null,
+    independenceMultiStudyApprovedClaims: null,
+    independenceFullyResolvedClaims: null,
+    independenceUnresolvedClaims: null,
+    highConfidenceIndependenceUnresolvedClaims: null,
+    meanIndependenceCoverage: null,
     gradeDistribution,
     categories,
   }
@@ -470,7 +481,9 @@ export async function getPublicEvidenceDataset(): Promise<PublicEvidenceDataset>
     hydrateIndexableRecords(compounds, 'compound'),
   ])
   const dataset = buildPublicEvidenceDatasetFromRecords([...herbRecords, ...compoundRecords])
-  const independence = buildResearchQualitySnapshot(process.cwd()).topology.underlyingStudyIndependence.summary
+  const topology = buildResearchQualitySnapshot(process.cwd()).topology
+  const independence = topology.underlyingStudyIndependence.summary
+  const coverage = topology.evidenceIndependenceCoverage.summary
 
   return {
     ...dataset,
@@ -483,6 +496,11 @@ export async function getPublicEvidenceDataset(): Promise<PublicEvidenceDataset>
       globalPrimaryHumanPublicationCount: independence.globalPrimaryHumanPublicationCount,
       globalPrimaryHumanUnderlyingStudyCount: independence.globalPrimaryHumanUnderlyingStudyCount,
       globalCollapsedPrimaryHumanPublicationCount: independence.globalCollapsedPrimaryHumanPublicationCount,
+      independenceMultiStudyApprovedClaims: coverage.multiStudyApprovedClaims,
+      independenceFullyResolvedClaims: coverage.fullyResolvedClaims,
+      independenceUnresolvedClaims: coverage.unresolvedClaims,
+      highConfidenceIndependenceUnresolvedClaims: coverage.highConfidenceUnresolvedClaims,
+      meanIndependenceCoverage: coverage.meanCombinedCoverage,
     },
   }
 }
