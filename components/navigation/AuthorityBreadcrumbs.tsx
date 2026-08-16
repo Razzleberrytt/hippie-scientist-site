@@ -28,7 +28,7 @@ export default function AuthorityBreadcrumbs({
   return (
     <nav
       aria-label="Breadcrumb"
-      className="flex flex-nowrap items-center gap-1.5 overflow-x-auto whitespace-nowrap text-sm"
+      className="-mx-1 flex flex-nowrap items-center gap-1.5 overflow-x-auto px-1 pb-0.5 whitespace-nowrap text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:pb-0"
     >
       {items.map((item, index) => {
         const isLast = index === items.length - 1
