@@ -1,6 +1,7 @@
 import { analyzeClaimCitationMetadata } from './research-claim-citation-metadata'
 import { analyzeClaimEvidenceDiversity } from './research-claim-evidence-diversity'
 import { analyzeClaimLanguageCalibration } from './research-claim-language-calibration'
+import { analyzeClaimProvenanceIndependence } from './research-claim-provenance-independence'
 import { analyzeCrossProfileEvidenceBundles } from './research-cross-profile-bundles'
 import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
@@ -45,6 +46,13 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const highConfidenceHomogeneousMultiStudyClaims = claimEvidenceDiversity.filter(
     (claim) => claim.highConfidenceHomogeneousMultiStudySupport,
   )
+  const claimProvenanceIndependence = analyzeClaimProvenanceIndependence(analysis)
+  const provenanceNarrowMultiStudyClaims = claimProvenanceIndependence.filter(
+    (claim) => claim.provenanceNarrowMultiStudySupport,
+  )
+  const highConfidenceProvenanceNarrowMultiStudyClaims = claimProvenanceIndependence.filter(
+    (claim) => claim.highConfidenceProvenanceNarrowMultiStudySupport,
+  )
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
@@ -71,6 +79,9 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     claimEvidenceDiversity,
     homogeneousMultiStudyClaims,
     highConfidenceHomogeneousMultiStudyClaims,
+    claimProvenanceIndependence,
+    provenanceNarrowMultiStudyClaims,
+    highConfidenceProvenanceNarrowMultiStudyClaims,
     studyClassConflicts,
     semanticAlignment,
     claimLanguageCalibration,
