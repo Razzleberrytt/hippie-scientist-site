@@ -19,7 +19,7 @@ describe('Evidence Digest integrity reset', () => {
     const page = read('app/evidence/evidence-digest/page.tsx')
 
     expect(page).toContain('Source Verification in Progress')
-    expect(page).toContain('study identifiers, intervention details, outcome summaries, and evidence labels are re-audited')
+    expect(page).toContain('identifiers, interventions, outcomes, and evidence labels are re-audited against the underlying publications')
     expect(page).toContain('index: false')
     expect(page).toContain('follow: true')
 
