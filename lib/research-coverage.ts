@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { citationIdentifiers } from './citation-identifiers.mjs'
+import { citationIdentifiers, normalizePmidList } from './citation-identifiers.mjs'
 import { normalizeStudyClass, strongestStudyClass, type StudyClass } from './study-class'
 
 export type ResearchSource = Record<string, unknown> & {
@@ -106,11 +106,62 @@ function normalizeResearchSourceIdentity(source: ResearchSource): ResearchSource
   return canonicalId ? { ...source, id: canonicalId } : source
 }
 
+/**
+ * A legacy workbook source row can contain multiple PMIDs even though each PMID
+ * names a distinct publication. Expand those rows before any canonical study or
+ * claim analysis runs. Claims referencing the original row are expanded to all
+ * split source IDs, preserving the intended multi-study support.
+ */
 function normalizeResearchProfileSources(record: ResearchProfile): ResearchProfile {
   if (!Array.isArray(record.sources)) return record
+
+  const sources: ResearchSource[] = []
+  const sourceRefExpansion = new Map<string, string[]>()
+
+  for (const rawSource of record.sources) {
+    const source = normalizeResearchSourceIdentity(rawSource)
+    const pmids = normalizePmidList(source.pmid ?? source.pubmedId)
+    if (pmids.length <= 1) {
+      sources.push(source)
+      continue
+    }
+
+    const originalId = String(source.id ?? '').trim()
+    const expandedIds: string[] = []
+    for (let index = 0; index < pmids.length; index += 1) {
+      const pmid = pmids[index]
+      const id = originalId
+        ? index === 0 ? originalId : `${originalId}::pmid:${pmid}`
+        : `pmid:${pmid}`
+      const splitSource: ResearchSource = {
+        ...source,
+        id,
+        pmid,
+        url: `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,
+      }
+      delete splitSource.pubmedId
+      // One DOI cannot be assigned safely to one of several distinct PMIDs.
+      // Keep publication identity conservative rather than creating a false alias.
+      delete splitSource.doi
+      sources.push(splitSource)
+      expandedIds.push(id)
+    }
+    if (originalId) sourceRefExpansion.set(originalId, expandedIds)
+  }
+
+  const claimMap = Array.isArray(record.claimMap)
+    ? record.claimMap.map((claim) => ({
+        ...claim,
+        sourceRefIds: Array.isArray(claim.sourceRefIds)
+          ? claim.sourceRefIds.flatMap((sourceRefId) => sourceRefExpansion.get(String(sourceRefId)) ?? [String(sourceRefId)])
+          : claim.sourceRefIds,
+      }))
+    : record.claimMap
+
   return {
     ...record,
-    sources: record.sources.map(normalizeResearchSourceIdentity),
+    sources,
+    claimMap,
   }
 }
 
