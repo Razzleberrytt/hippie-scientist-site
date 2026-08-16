@@ -133,4 +133,38 @@ describe('public evidence export determinism', () => {
       '/herbs/shared/',
     ])
   })
+
+  it('recomputes exported ambiguity flags from authoritative candidate sets', () => {
+    const normalized = normalizePublicEvidenceDatasetForExport(dataset([
+      study({
+        id: 'doi:10.1000/conflict',
+        publicationYearCandidates: [2020, 2021],
+        publicationYearAmbiguous: false,
+        participantCountCandidates: [100],
+        participantCountAmbiguous: true,
+        studyClassCandidates: ['controlled_trial', 'randomized_controlled_trial'],
+        studyClassAmbiguous: false,
+      }),
+      study({
+        id: 'doi:10.1000/no-candidates',
+        publicationYearAmbiguous: true,
+        participantCountAmbiguous: true,
+        studyClassAmbiguous: true,
+      }),
+    ]))
+
+    const conflict = normalized.studies.find((item) => item.id === 'doi:10.1000/conflict')
+    expect(conflict).toMatchObject({
+      publicationYearAmbiguous: true,
+      participantCountAmbiguous: false,
+      studyClassAmbiguous: true,
+    })
+
+    const noCandidates = normalized.studies.find((item) => item.id === 'doi:10.1000/no-candidates')
+    expect(noCandidates).toMatchObject({
+      publicationYearAmbiguous: false,
+      participantCountAmbiguous: false,
+      studyClassAmbiguous: false,
+    })
+  })
 })
