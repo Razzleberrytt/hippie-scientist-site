@@ -133,12 +133,13 @@
   background: color-mix(in srgb, var(--hs-surface) 94%, transparent);
 }
 
-.article-card-flow thead {
+/* This scoped owner must beat the later generic editorial table-header rule. */
+html:not(.dark) .article-card-flow thead {
   background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--tone) 8%, var(--hs-surface)),
     color-mix(in srgb, var(--tone) 4%, var(--hs-surface))
-  );
+  ) !important;
 }
 
 .article-card-flow tbody tr:last-child td {
