@@ -1,14 +1,22 @@
 #!/usr/bin/env node
+/**
+ * Canonical AI-search / citation-readiness orchestrator.
+ *
+ * Unique responsibility retained here: comparison-page grounding structure.
+ * All general answer-engine, research-topology, entity-completeness, and claim-
+ * integrity checks delegate to their authoritative implementations.
+ */
+
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 
 const ROOT = process.cwd()
 const COMPARE_DIR = path.join(ROOT, 'app', 'guides', 'compare')
-const LLMS_FILE = path.join(ROOT, 'public', 'llms.txt')
 const HERBS_DATA = path.join(ROOT, 'public', 'data', 'herbs.json')
 const COMPOUNDS_DATA = path.join(ROOT, 'public', 'data', 'compounds.json')
-const ENTITY_AUDIT = path.join(ROOT, 'scripts', 'ci', 'audit-ai-entity-completeness.mjs')
+const strict = process.argv.includes('--strict')
+const NPX = process.platform === 'win32' ? 'npx.cmd' : 'npx'
 
 const REQUIRED_MELATONIN_HEADINGS = [
   'Melatonin vs magnesium: quick answer',
@@ -47,101 +55,104 @@ function isNoindexPage(source) {
   return /robots:\s*{[^}]*index:\s*false/.test(source)
 }
 
-function auditPage({ slug, file }) {
+function auditComparisonPage({ slug, file }) {
   const source = readFileSync(file, 'utf8')
-  const warnings = []
+  const findings = []
+  if (isNoindexPage(source)) return { slug, file: path.relative(ROOT, file), findings }
 
-  if (isNoindexPage(source)) return { slug, file: path.relative(ROOT, file), warnings }
-
-  if (!hasCanonicalComparePath(source, slug)) warnings.push('missing explicit /guides/compare/* canonical path')
-  if (!/<h1[\s>]/.test(source)) warnings.push('missing visible H1')
-  if (!/CitationReadySummary|Quick answer|quick answer/i.test(source)) warnings.push('missing quick-answer or citation summary signal')
-  if (!/References|CompareCitations/.test(source)) warnings.push('missing visible references/citations component')
-  if (!/AuthorityJsonLd|CompareSchema|JsonLd|SchemaGraphScript/.test(source)) warnings.push('missing JSON-LD/schema component')
-  if (!/\/info\/methodology|\/info\/disclaimer|\/safety-checker|\/info\/dosing/.test(source)) warnings.push('missing methodology/disclaimer/safety/dosing support link')
-  if (!/\/guides\/compare\//.test(source)) warnings.push('missing canonical internal link to /guides/compare/')
-  if (hasNoncanonicalCompareLink(source)) warnings.push('contains noncanonical /compare link; prefer /guides/compare/')
+  if (!hasCanonicalComparePath(source, slug)) findings.push('missing explicit /guides/compare/* canonical path')
+  if (!/<h1[\s>]/.test(source)) findings.push('missing visible H1')
+  if (!/CitationReadySummary|Quick answer|quick answer/i.test(source)) findings.push('missing quick-answer/citation summary signal')
+  if (!/References|CompareCitations|ShowMeTheStudies/.test(source)) findings.push('missing visible references/citations surface')
+  if (!/AuthorityJsonLd|CompareSchema|JsonLd|SchemaGraphScript/.test(source)) findings.push('missing JSON-LD/schema component')
+  if (!/\/info\/methodology|\/info\/disclaimer|\/safety-checker|\/info\/dosing/.test(source)) {
+    findings.push('missing methodology/disclaimer/safety/dosing support link')
+  }
+  if (!/\/guides\/compare\//.test(source)) findings.push('missing canonical internal link to /guides/compare/')
+  if (hasNoncanonicalCompareLink(source)) findings.push('contains noncanonical /compare link; prefer /guides/compare/')
   if (/AggregateRating|['"]@type['"]\s*:\s*['"]Review['"]/.test(source)) {
-    warnings.push('contains rating/review schema term; verify this is not fake AggregateRating/Review markup')
+    findings.push('contains rating/review schema term; verify visible, real provenance')
   }
 
   if (slug === 'melatonin-vs-magnesium') {
     for (const heading of REQUIRED_MELATONIN_HEADINGS) {
-      if (!source.includes(heading)) warnings.push(`missing Bing grounding-query heading: ${heading}`)
+      if (!source.includes(heading)) findings.push(`missing grounding-query heading: ${heading}`)
     }
   }
 
-  return { slug, file: path.relative(ROOT, file), warnings }
+  return { slug, file: path.relative(ROOT, file), findings }
 }
 
-function auditLlmsTxt() {
-  if (!existsSync(LLMS_FILE)) return ['public/llms.txt is missing']
-
-  const source = readFileSync(LLMS_FILE, 'utf8')
-  const urls = [...source.matchAll(/https:\/\/thehippiescientist\.net\/[^\s)]+/g)].map((match) => match[0])
-  const warnings = []
-
-  for (const url of urls) {
-    const parsed = new URL(url)
-    if (parsed.hostname !== 'thehippiescientist.net') warnings.push(`noncanonical host in llms.txt: ${url}`)
-    if (parsed.pathname.startsWith('/compare/')) warnings.push(`noncanonical compare URL in llms.txt: ${url}`)
-    if (parsed.pathname.startsWith('/goals/')) warnings.push(`legacy goals URL in llms.txt; prefer /guides/*: ${url}`)
-    if (/\/(?:api|draft|preview|tmp|temp|ops|agent)\//.test(parsed.pathname)) {
-      warnings.push(`internal route listed in llms.txt: ${url}`)
-    }
+function runCheck({ id, label, command, args, optional = false, enabled = true }) {
+  if (!enabled) {
+    console.log(`SKIP  ${label}`)
+    return { id, label, status: 'skipped', exitCode: 0 }
   }
-
-  if (!/\/guides\/compare\//.test(source)) warnings.push('llms.txt missing canonical /guides/compare/ citation guidance')
-  if (!/\/info\/disclaimer\//.test(source)) warnings.push('llms.txt missing disclaimer citation target')
-  if (!/\/safety-checker\//.test(source)) warnings.push('llms.txt missing safety checker citation target')
-  if (!/AI entity data/i.test(source)) warnings.push('llms.txt missing AI entity data discovery guidance')
-
-  return warnings
+  const run = spawnSync(command, args, { cwd: ROOT, stdio: 'inherit', env: process.env })
+  const exitCode = run.status ?? 1
+  if (exitCode === 0) {
+    console.log(`PASS  ${label}`)
+    return { id, label, status: 'passed', exitCode }
+  }
+  if (optional) {
+    console.log(`WARN  ${label} exited ${exitCode}`)
+    return { id, label, status: 'warning', exitCode }
+  }
+  console.error(`FAIL  ${label} exited ${exitCode}`)
+  return { id, label, status: 'failed', exitCode }
 }
 
-function runEntityAudit() {
-  if (!existsSync(ENTITY_AUDIT)) {
-    return { skipped: true, reason: 'entity completeness audit script is missing' }
-  }
-  if (!existsSync(HERBS_DATA) || !existsSync(COMPOUNDS_DATA)) {
-    return { skipped: true, reason: 'public/data/herbs.json or compounds.json has not been built' }
-  }
+console.log('\nCanonical AI-search quality audit')
+console.log('='.repeat(72))
 
-  const result = spawnSync(process.execPath, [ENTITY_AUDIT], {
-    cwd: ROOT,
-    stdio: 'inherit',
-  })
-  return { skipped: false, status: result.status ?? 1 }
+const comparisonResults = readComparePages().map(auditComparisonPage)
+const comparisonFindings = comparisonResults.filter((result) => result.findings.length > 0)
+console.log(`[ai-search] comparison pages=${comparisonResults.length} withFindings=${comparisonFindings.length}`)
+for (const result of comparisonFindings.slice(0, 100)) {
+  console.log(`WARN  /guides/compare/${result.slug}/ (${result.file})`)
+  for (const finding of result.findings) console.log(`  - ${finding}`)
+}
+if (comparisonFindings.length > 100) console.log(`[ai-search] ${comparisonFindings.length - 100} additional comparison findings omitted`)
+
+const strictArg = strict ? ['--strict'] : []
+const checks = [
+  runCheck({
+    id: 'answer-engine',
+    label: 'Answer-engine discovery, extraction, profile semantics, and anti-patterns',
+    command: process.execPath,
+    args: ['scripts/ci/audit-ai-answer-engine-readiness.mjs', ...strictArg],
+  }),
+  runCheck({
+    id: 'citation-topology',
+    label: 'Canonical research + AI citation-readiness topology',
+    command: NPX,
+    args: ['tsx', 'scripts/ci/audit-ai-citation-topology.ts', ...strictArg],
+  }),
+  runCheck({
+    id: 'claim-integrity',
+    label: 'Extractable claim/evidence consistency',
+    command: process.execPath,
+    args: ['scripts/ci/audit-ai-claim-integrity.mjs', ...strictArg],
+  }),
+  runCheck({
+    id: 'entity-completeness',
+    label: 'AI entity identity, claims, citations, relationships, safety, and freshness',
+    command: process.execPath,
+    args: ['scripts/ci/audit-ai-entity-completeness.mjs'],
+    enabled: existsSync(HERBS_DATA) && existsSync(COMPOUNDS_DATA),
+  }),
+]
+
+const hardFailures = checks.filter((check) => check.status === 'failed')
+const comparisonFailure = strict && comparisonFindings.length > 0
+
+console.log('\n[ai-search] summary')
+console.log(`  comparison findings: ${comparisonFindings.length}${strict ? ' (strict)' : ' (advisory)'}`)
+for (const check of checks) console.log(`  ${check.id}: ${check.status}`)
+
+if (hardFailures.length || comparisonFailure) {
+  console.error('[ai-search] FAILED')
+  process.exit(1)
 }
 
-const results = readComparePages().map(auditPage)
-const warned = results.filter((result) => result.warnings.length > 0)
-const llmsWarnings = auditLlmsTxt()
-
-console.log(`[audit-ai-citations] scanned ${results.length} compare page(s) under app/guides/compare`)
-console.log('[audit-ai-citations] scanned public/llms.txt for canonical AI citation targets')
-
-if (!warned.length && !llmsWarnings.length) {
-  console.log('[audit-ai-citations] citation-readiness PASS: no page or llms.txt warnings found.')
-} else {
-  console.log(`[audit-ai-citations] advisory warnings: ${warned.length} page(s) need review; ${llmsWarnings.length} llms.txt issue(s).`)
-  for (const result of warned) {
-    console.log(`\n- /guides/compare/${result.slug}/ (${result.file})`)
-    for (const warning of result.warnings) console.log(`  - ${warning}`)
-  }
-  if (llmsWarnings.length) {
-    console.log('\n- public/llms.txt')
-    for (const warning of llmsWarnings) console.log(`  - ${warning}`)
-  }
-}
-
-console.log('\n[audit-ai-citations] running entity identity, claim, citation, relationship, safety, and freshness audit')
-const entityAudit = runEntityAudit()
-if (entityAudit.skipped) {
-  console.log(`[audit-ai-citations] entity audit skipped: ${entityAudit.reason}`)
-} else if (entityAudit.status !== 0) {
-  console.error(`[audit-ai-citations] entity audit exited with status ${entityAudit.status}`)
-  process.exit(entityAudit.status)
-}
-
-console.log('\n[audit-ai-citations] Advisory page warnings do not fail CI; explicit entity score thresholds can be enabled separately.')
+console.log('[ai-search] PASS — canonical AI-search checks completed without hard failures.')
