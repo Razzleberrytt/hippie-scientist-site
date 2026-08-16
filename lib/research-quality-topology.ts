@@ -1,3 +1,4 @@
+import { analyzeClaimBreadth } from './research-claim-breadth'
 import { analyzeClaimCitationMetadata } from './research-claim-citation-metadata'
 import { analyzeClaimEvidenceDiversity } from './research-claim-evidence-diversity'
 import { analyzeClaimLanguageCalibration } from './research-claim-language-calibration'
@@ -68,6 +69,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   })
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
+  const claimBreadth = analyzeClaimBreadth(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
   const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
   const metadataIntegrity = buildResearchMetadataIntegrity({
@@ -109,6 +111,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     evidenceIndependenceCoverage,
     studyClassConflicts,
     semanticAlignment,
+    claimBreadth,
     claimLanguageCalibration,
     claimCitationMetadata,
     metadataIntegrity,
