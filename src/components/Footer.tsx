@@ -1,8 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Brain, Leaf, Newspaper, Search, Shapes } from 'lucide-react'
-import { coreGoals } from '../../lib/core-goals'
+import { Leaf } from 'lucide-react'
 import { Link } from '../lib/router-compat'
 import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
@@ -10,51 +9,31 @@ import { isAnalyticsRouteEnabled } from '../lib/analyticsAccess'
 import { PUBLIC_ROUTES } from '../lib/public-routes'
 
 const exploreLinks = [
-  { href: PUBLIC_ROUTES.guides, label: 'Topics & Guides', Icon: Brain },
-  { href: PUBLIC_ROUTES.articles, label: 'Articles', Icon: Newspaper },
-  { href: PUBLIC_ROUTES.herbs, label: 'Herb Database', Icon: Leaf },
-  { href: PUBLIC_ROUTES.compounds, label: 'Compounds', Icon: Shapes },
-  { href: '/search/', label: 'Search', Icon: Search },
-]
-
-const priorityGoalLinks = [
-  ...coreGoals.map((goal) => ({ href: goal.href, label: goal.label })),
-  { href: '/guides/mental-health/', label: 'Mental Health' },
-  { href: '/guides/adhd/', label: 'ADHD' },
-  { href: '/guides/other/', label: 'More topics' },
-]
-
-const researchLinks = [
-  { href: '/learn/', label: 'Learning library' },
-  { href: '/evidence/evidence-report/', label: 'Evidence report' },
-  { href: '/evidence/evidence-digest/', label: 'Evidence digest' },
-  { href: '/info/methodology/', label: 'Methodology' },
-  { href: '/info/infographics/', label: 'Infographics' },
+  { href: '/goals/', label: 'Goals' },
+  { href: PUBLIC_ROUTES.herbs, label: 'Herbs' },
+  { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
+  { href: '/guides/compare/', label: 'Compare' },
+  { href: PUBLIC_ROUTES.articles, label: 'Research' },
 ]
 
 const safetyLinks = [
   { href: '/safety-checker/', label: 'Safety checker' },
+  { href: '/evidence/evidence-checker/', label: 'Evidence lookup' },
   { href: '/info/dosing/', label: 'Dosing guide' },
-  { href: '/info/supplement-safety-checklist/', label: 'Supplement checklist' },
   { href: '/learn/interactions/', label: 'Interactions' },
-  { href: '/learn/product-quality/', label: 'Product quality' },
 ]
 
 const aboutLinks = [
   { href: PUBLIC_ROUTES.about, label: 'About' },
   { href: PUBLIC_ROUTES.author, label: 'Author' },
-  { href: PUBLIC_ROUTES.faq, label: 'FAQ' },
   { href: PUBLIC_ROUTES.contact, label: 'Contact' },
+  { href: '/info/methodology/', label: 'Methodology' },
 ]
 
-const policyLinks = [
-  { href: '/info/editorial-policy/', label: 'Editorial Policy' },
-  { href: '/info/corrections/', label: 'Corrections' },
-  { href: '/info/content-licensing/', label: 'Content Attribution' },
-  { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
+const legalLinks = [
+  { href: PUBLIC_ROUTES.privacy, label: 'Privacy' },
   { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
-  { href: '/info/affiliate-disclosure/', label: 'Affiliate Disclosure' },
-  { href: '/sitemap.xml', label: 'Sitemap' },
+  { href: '/info/affiliate-disclosure/', label: 'Affiliate disclosure' },
 ]
 
 function formatBuildDate(isoDate: string) {
@@ -65,9 +44,9 @@ function formatBuildDate(isoDate: string) {
 
 export default function Footer() {
   const [open, setOpen] = useState(false)
-  const availablePolicyLinks = isAnalyticsRouteEnabled()
-    ? [...policyLinks, { href: '/analytics', label: 'Analytics' }]
-    : policyLinks
+  const availableLegalLinks = isAnalyticsRouteEnabled()
+    ? [...legalLinks, { href: '/analytics', label: 'Analytics' }]
+    : legalLinks
 
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
 
@@ -80,139 +59,69 @@ export default function Footer() {
   const versionStampParts = [`v${appVersion}`, commitHash]
   if (buildDate) versionStampParts.push(buildDate)
 
-  const socialClass =
-    'rounded-full border border-[color:var(--hs-hairline)] bg-[color:var(--hs-surface-2)] px-4 py-2 text-xs font-bold text-[color:var(--tone-ink)] transition hover:border-[color:var(--hs-gold)] hover:bg-[color:var(--hs-surface)] hover:text-[color:var(--hs-ink)]'
   const footerLinkClass =
     'text-sm font-medium text-[color:var(--hs-body)] transition hover:text-[color:var(--hs-ink)]'
 
   return (
-    <footer className='editorial-footer mt-12 w-full px-4 pb-28 pt-12 sm:px-6 sm:pt-16 md:pb-12'>
-      <div className='relative z-10 mx-auto w-full max-w-6xl'>
-        <div className='grid gap-8 md:grid-cols-[0.85fr_1.15fr] md:gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12'>
-          <div>
+    <footer className='editorial-footer mt-16 w-full border-t border-[color:var(--hs-hairline)] px-5 pb-10 pt-10 sm:px-8 sm:pb-12 sm:pt-12'>
+      <div className='mx-auto w-full max-w-6xl'>
+        <div className='grid gap-10 lg:grid-cols-[1.15fr_1.85fr] lg:gap-16'>
+          <div className='max-w-md'>
             <div className='flex items-center gap-3'>
-              <span className='editorial-icon-disc h-12 w-12'>
-                <Leaf aria-hidden='true' className='h-6 w-6 text-[color:var(--tone-ink)]' strokeWidth={1.7} />
+              <span className='editorial-icon-disc flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--hs-hairline)]'>
+                <Leaf aria-hidden='true' className='h-5 w-5 text-[color:var(--hs-gold)]' strokeWidth={1.6} />
               </span>
-              <p className='font-display text-2xl font-semibold tracking-[-0.025em] text-[color:var(--hs-ink)]'>
+              <p className='font-display text-xl font-semibold tracking-[-0.02em] text-[color:var(--hs-ink)] sm:text-2xl'>
                 The Hippie Scientist
               </p>
             </div>
-            <p className='mt-3 max-w-md text-sm leading-6 text-[color:var(--hs-body)]'>
-              Evidence-first botanical research for clearer, safer supplement decisions. Educational only — not medical advice.
+
+            <p className='mt-4 text-sm leading-6 text-[color:var(--hs-body)]'>
+              Evidence-first supplement research for clearer, safer decisions. Educational only — not medical advice.
             </p>
 
-            <div className='mt-4 flex flex-wrap gap-2'>
-              <a href='https://x.com/TheHippieSci' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on X (opens in a new tab)' className={socialClass}>
-                X
-              </a>
-              <a href='https://www.instagram.com/thehippiesci' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on Instagram (opens in a new tab)' className={socialClass}>
-                Instagram
-              </a>
-              <a href='https://www.youtube.com/@TheHippieSci' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on YouTube (opens in a new tab)' className={socialClass}>
-                YouTube
-              </a>
+            <div className='mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm'>
+              <a className={footerLinkClass} href='https://x.com/TheHippieSci' target='_blank' rel='noopener noreferrer'>X</a>
+              <a className={footerLinkClass} href='https://www.instagram.com/thehippiesci' target='_blank' rel='noopener noreferrer'>Instagram</a>
+              <a className={footerLinkClass} href='https://www.youtube.com/@TheHippieSci' target='_blank' rel='noopener noreferrer'>YouTube</a>
             </div>
 
-            <nav aria-label='About the site' className='mt-4 flex flex-wrap gap-x-4 gap-y-2'>
-              {aboutLinks.map((link) => (
-                <Link key={link.href} className='text-xs font-semibold text-[color:var(--hs-body)] transition hover:text-[color:var(--hs-ink)]' to={link.href} prefetch={true}>
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-
-            <div className='editorial-card mt-6 rounded-2xl p-4 sm:p-5'>
-              <p className='editorial-eyebrow'>Not sure where to begin?</p>
+            <div className='mt-7 border-l border-[color:var(--hs-hairline-strong)] pl-4'>
+              <p className='editorial-eyebrow text-[0.68rem] font-bold uppercase'>New here?</p>
               <p className='mt-2 text-sm leading-6 text-[color:var(--hs-body)]'>
-                Start with your intent: choose a health goal, look up an ingredient, or check safety before going deeper.
+                Choose a goal, look up an ingredient, or check safety first.
               </p>
-              <Link className='mt-3 inline-flex text-sm font-bold text-[color:var(--tone-ink)] hover:text-[color:var(--hs-ink)]' to={PUBLIC_ROUTES.start} prefetch={true}>
+              <Link className='mt-2 inline-flex text-sm font-bold text-[color:var(--hs-gold)] hover:text-[color:var(--hs-ink)]' to={PUBLIC_ROUTES.start} prefetch={true}>
                 Start here →
               </Link>
             </div>
           </div>
 
-          <div>
-            <p className='editorial-eyebrow'>Explore</p>
-            <div className='mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3'>
-              {exploreLinks.map(({ href, label, Icon }) => (
-                <Link
-                  key={href}
-                  to={href}
-                  prefetch={true}
-                  className='editorial-link-tile group flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-[color:var(--hs-ink)] transition'
-                >
-                  <Icon className='h-4 w-4 shrink-0 text-[color:var(--tone-ink)]' aria-hidden='true' strokeWidth={1.7} />
-                  <span className='text-sm font-bold leading-tight text-balance'>{label}</span>
-                </Link>
-              ))}
-            </div>
-
-            <div className='mt-7 grid grid-cols-2 gap-x-5 gap-y-7 lg:grid-cols-4'>
-              <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[color:var(--tone-ink)]'>Popular topics</h3>
-                <ul className='mt-3 space-y-2'>
-                  {priorityGoalLinks.map((link) => (
-                    <li key={`${link.href}-${link.label}`}>
-                      <Link className={footerLinkClass} to={link.href} prefetch={true}>
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[color:var(--tone-ink)]'>Research</h3>
-                <ul className='mt-3 space-y-2'>
-                  {researchLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link className={footerLinkClass} to={link.href} prefetch={true}>
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[color:var(--tone-ink)]'>Safety</h3>
-                <ul className='mt-3 space-y-2'>
-                  {safetyLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link className={footerLinkClass} to={link.href} prefetch={true}>
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                  <li>
-                    <button className={footerLinkClass} type='button' onClick={() => setOpen(true)}>
-                      Privacy settings
-                    </button>
+          <div className='grid grid-cols-2 gap-x-8 gap-y-9 sm:grid-cols-4'>
+            <FooterGroup title='Explore' links={exploreLinks} linkClass={footerLinkClass} />
+            <FooterGroup title='Safety' links={safetyLinks} linkClass={footerLinkClass} />
+            <FooterGroup title='About' links={aboutLinks} linkClass={footerLinkClass} />
+            <div>
+              <p className='editorial-eyebrow text-[0.68rem] font-bold uppercase'>Legal</p>
+              <ul className='mt-4 space-y-2.5'>
+                {availableLegalLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link className={footerLinkClass} to={link.href} prefetch={true}>{link.label}</Link>
                   </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[color:var(--tone-ink)]'>Policies & legal</h3>
-                <ul className='mt-3 space-y-2'>
-                  {availablePolicyLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link className={footerLinkClass} to={link.href} prefetch={true}>
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                ))}
+                <li>
+                  <button className={footerLinkClass} type='button' onClick={() => setOpen(true)}>
+                    Privacy settings
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
-        <div className='mt-8 flex flex-col justify-between gap-3 border-t border-[color:var(--hs-hairline)] pt-6 text-xs text-[color:var(--hs-body)] sm:flex-row'>
-          <div>© 2024–{copyrightYear} The Hippie Scientist. All rights reserved.</div>
-          <div className='flex flex-wrap gap-x-4 gap-y-2'>
+        <div className='mt-10 flex flex-col justify-between gap-3 border-t border-[color:var(--hs-hairline)] pt-6 text-xs text-[color:var(--hs-body)] sm:flex-row sm:items-center'>
+          <div>© 2024–{copyrightYear} The Hippie Scientist</div>
+          <div className='flex flex-wrap gap-x-4 gap-y-1'>
             <span>Educational use only</span>
             <span>Not medical advice</span>
             {showBuildMeta && <span>Build {versionStampParts.join(' · ')}</span>}
@@ -221,5 +130,28 @@ export default function Footer() {
       </div>
       <ConsentManager open={open} onClose={() => setOpen(false)} />
     </footer>
+  )
+}
+
+function FooterGroup({
+  title,
+  links,
+  linkClass,
+}: {
+  title: string
+  links: { href: string; label: string }[]
+  linkClass: string
+}) {
+  return (
+    <div>
+      <p className='editorial-eyebrow text-[0.68rem] font-bold uppercase'>{title}</p>
+      <ul className='mt-4 space-y-2.5'>
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link className={linkClass} to={link.href} prefetch={true}>{link.label}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
