@@ -37,10 +37,10 @@ function ChoiceButtons({
           type="button"
           aria-pressed={value === answer}
           onClick={() => onChoose(question, answer)}
-          className={`min-h-10 rounded-full border px-4 py-2 text-sm font-semibold transition ${
+          className={`min-h-11 rounded-full border px-4 py-2 text-sm font-semibold transition ${
             value === answer
-              ? 'border-brand-700/40 bg-brand-50 text-brand-900'
-              : 'border-brand-900/15 bg-white text-ink hover:bg-brand-50/60'
+              ? 'border-brand-700/40 bg-brand-50 text-brand-900 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
+              : 'border-brand-900/15 bg-[var(--surface-card-strong)] text-ink hover:bg-[var(--surface-subtle)]'
           }`}
         >
           {answer === 'yes' ? 'Yes' : 'No'}
@@ -77,7 +77,7 @@ export default function ProfileFeedback() {
   if (!isCanonicalProfile) return null
 
   return (
-    <section aria-labelledby="profile-feedback-title" className="not-prose rounded-2xl border border-brand-900/10 bg-white/80 p-5 shadow-sm dark:bg-[var(--surface-card)]">
+    <section aria-labelledby="profile-feedback-title" className="not-prose rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm">
       <div className="max-w-2xl">
         <p className="eyebrow-label">Help improve this profile</p>
         <h2 id="profile-feedback-title" className="mt-2 text-xl font-semibold text-ink">Was this useful for your research?</h2>
@@ -107,10 +107,10 @@ export default function ProfileFeedback() {
                 type="button"
                 aria-pressed={missing === category.value}
                 onClick={() => chooseMissing(category.value)}
-                className={`min-h-10 rounded-full border px-3.5 py-2 text-sm font-semibold transition ${
+                className={`min-h-11 rounded-full border px-3.5 py-2 text-sm font-semibold transition ${
                   missing === category.value
-                    ? 'border-brand-700/40 bg-brand-50 text-brand-900'
-                    : 'border-brand-900/15 bg-white text-ink hover:bg-brand-50/60'
+                    ? 'border-brand-700/40 bg-brand-50 text-brand-900 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
+                    : 'border-brand-900/15 bg-[var(--surface-card-strong)] text-ink hover:bg-[var(--surface-subtle)]'
                 }`}
               >
                 {category.label}
