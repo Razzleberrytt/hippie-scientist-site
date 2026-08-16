@@ -192,7 +192,7 @@ function mapByKey(list) {
 }
 
 function runDeterministicRefresh() {
-  runCommand('npm', ['run', 'report:enrichment-wave-2-authoring'])
+  runCommand('npx', ['tsx', 'scripts/report-enrichment-wave-authoring.ts'])
 
   const promotedEntries = parseNormalizedInput(PATHS.canonicalGovernedInput)
   const { normalizedEntries, issues, sourceById } = validateAndNormalizeEntries(promotedEntries, {
