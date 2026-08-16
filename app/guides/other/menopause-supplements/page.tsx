@@ -4,114 +4,212 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
-import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Menopause Supplements: Evidence Review (2026 Guide)',
-  description: 'Which supplements actually help with menopause symptoms? Evidence-graded review of creatine, magnesium, ashwagandha, black cohosh, soy isoflavones, and vitamin D.',
+  title: 'Menopause Supplements: Symptom-Specific Evidence (2026)',
+  description:
+    'Guideline-led menopause supplement review separating hot flashes, bone health, sleep, cognition, mood, and muscle evidence. Includes creatine, soy isoflavones, black cohosh, vitamin D/calcium, and magnesium limitations.',
   path: '/guides/other/menopause-supplements/',
   openGraphType: 'article',
 })
 
 const FAQS = [
-  { question: 'What supplements actually work for menopause symptoms?', answer: 'The strongest evidence supports: creatine for brain fog and muscle preservation [1,2], soy isoflavones for hot flashes (modest effect) [3], vitamin D + calcium for bone density [4], and magnesium for sleep [5]. Black cohosh shows mixed results — some trials positive, others no better than placebo [6]. Most herbal menopause supplements lack rigorous evidence.' },
-  { question: 'Does creatine help with menopause brain fog?', answer: 'Emerging evidence suggests yes. A 2025 RCT in peri/postmenopausal women (n=36) found 1,500 mg/day creatine improved reaction time, reduced mood swings, and increased frontal brain creatine [1]. A 2024 meta-analysis found creatine improves cognition in adults, especially under stress [2]. The mechanism: declining estrogen reduces brain creatine synthesis; supplementation may compensate.' },
-  { question: 'Can supplements replace HRT?', answer: 'No. Hormone replacement therapy has stronger evidence for vasomotor symptoms and bone density than any supplement [7]. Supplements may complement HRT or serve as alternatives for women who cannot take HRT, but they should not be considered equivalent. Always discuss HRT and supplement options with a menopause specialist.' },
-  { question: 'How much creatine should menopausal women take?', answer: 'Studies use 3-5 g/day of creatine monohydrate [1,2]. No loading phase needed for cognitive benefits. Take consistently — effects build over 4-8 weeks. Creatine monohydrate is preferred (most studied, best absorbed). Pair with resistance training for muscle preservation benefits.' },
-  { question: 'Are menopause supplements safe?', answer: 'Most are generally safe, but interactions matter. Black cohosh may affect the liver (monitor LFTs) [6]. Soy isoflavones have theoretical estrogenic effects (caution with hormone-sensitive cancers). Creatine is well-studied with decades of safety data. Always disclose all supplements to your healthcare provider, especially if taking HRT, blood thinners, or thyroid medication.' },
-]
+  {
+    question: 'What supplements are recommended for hot flashes and night sweats?',
+    answer:
+      'The Menopause Society’s 2023 nonhormone position statement does not recommend dietary supplements or herbal remedies as a treatment category for vasomotor symptoms because evidence is inconsistent. Hormone therapy remains the most effective treatment when appropriate, and several nonhormone prescription and behavioral options have stronger evidence than supplements.',
+  },
+  {
+    question: 'Does soy help hot flashes?',
+    answer:
+      'Soy-isoflavone studies have produced mixed results. A recent meta-analysis found small overall symptom effects but no significant pooled benefit for hot flashes or vasomotor symptoms, and The Menopause Society does not recommend soy foods or extracts as a vasomotor treatment category. Soy foods can still be part of a healthy diet; that is a different claim from treating hot flashes.',
+  },
+  {
+    question: 'Does creatine help menopause brain fog?',
+    answer:
+      'Evidence is early. CONCRET-MENOPA enrolled only 36 peri/postmenopausal women across four groups and tested low-dose creatine hydrochloride and creatine ethyl ester regimens. Selected reaction-time, brain-creatine, lipid, and mood-related signals were reported, but the study did not establish a universal menopause protocol or test the common 3–5 g/day creatine-monohydrate recommendation.',
+  },
+  {
+    question: 'Is black cohosh effective and safe?',
+    answer:
+      'Black-cohosh evidence is inconsistent and may be product-specific. NCCIH notes possible benefit in some studies but no high-quality, consistent evidence across products. Rare serious liver injury has been reported, causality is uncertain, and some commercial products have contained the wrong herb or undeclared mixtures.',
+  },
+  {
+    question: 'Do vitamin D, calcium, or magnesium treat menopause symptoms?',
+    answer:
+      'They should not be treated as one menopause-symptom package. Vitamin D and calcium belong mainly in bone-health, dietary-intake, deficiency, and osteoporosis decisions. Magnesium has limited sleep evidence in selected populations, but that is not menopause-specific proof that magnesium treats menopausal insomnia.',
+  },
+] as const
 
 const MENOPAUSE_REFS = [
-  { n: 1, text: 'Korovljev D, et al. (2025). Creatine supplementation in perimenopausal and menopausal women: a randomized controlled trial (CONCRET-MENOPA). Nutrients.', url: 'https://pubmed.ncbi.nlm.nih.gov/' },
-  { n: 2, text: 'Candow DG, et al. (2023). "Heads Up" for creatine supplementation and brain health. Sports Med, 53(Suppl 1): 69-83.', url: 'https://pubmed.ncbi.nlm.nih.gov/37814108/' },
-  { n: 3, text: 'Taku K, et al. (2012). Extracted or synthesized soybean isoflavones reduce menopausal hot flash frequency. Menopause, 19(7): 776-790.', url: 'https://pubmed.ncbi.nlm.nih.gov/22433977/' },
-  { n: 4, text: 'Weaver CM, et al. (2016). Calcium plus vitamin D supplementation and risk of fractures. Osteoporos Int, 27(1): 367-376.', url: 'https://pubmed.ncbi.nlm.nih.gov/26416385/' },
-  { n: 5, text: 'Abbasi B, et al. (2012). Magnesium supplementation and primary insomnia in elderly. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
-  { n: 6, text: 'Leach MJ, Moore V. (2012). Black cohosh for menopausal symptoms. Cochrane Database Syst Rev, (9): CD007244.', url: 'https://pubmed.ncbi.nlm.nih.gov/22972105/' },
-  { n: 7, text: 'The NAMS 2022 Hormone Therapy Position Statement Advisory Panel. The 2022 hormone therapy position statement of The North American Menopause Society. Menopause, 29(7): 767-794.', url: 'https://pubmed.ncbi.nlm.nih.gov/35797481/' },
-  { n: 8, text: 'Xu C, et al. (2024). Creatine supplementation on cognitive function: systematic review and meta-analysis. Front Nutr, 11: 1421486.', url: 'https://pubmed.ncbi.nlm.nih.gov/39131742/' },
+  {
+    n: 1,
+    text: 'The North American Menopause Society. (2023). Nonhormone therapy position statement. Menopause, 30(6):573-590.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/37252752/',
+  },
+  {
+    n: 2,
+    text: 'Korovljev D, et al. (2026). CONCRET-MENOPA: randomized trial of creatine formulations in 36 peri/postmenopausal women. J Am Nutr Assoc, 45(3):199-210.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40854087/',
+  },
+  {
+    n: 3,
+    text: 'Effects of soy isoflavones on menopausal symptoms in perimenopausal women: systematic review and meta-analysis. (2025).',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40718787/',
+  },
+  {
+    n: 4,
+    text: 'NCCIH. Black Cohosh: Usefulness and Safety.',
+    url: 'https://www.nccih.nih.gov/health/black-cohosh',
+  },
+  {
+    n: 5,
+    text: 'NCCIH. Menopausal Symptoms and Complementary Health Approaches.',
+    url: 'https://www.nccih.nih.gov/health/menopausal-symptoms-in-depth',
+  },
+  {
+    n: 6,
+    text: 'The North American Menopause Society. (2022). Hormone Therapy Position Statement. Menopause, 29(7):767-794.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/35797481/',
+  },
+]
+
+const symptomRows = [
+  {
+    symptom: 'Hot flashes / night sweats',
+    supplementEvidence: 'Supplements and herbal remedies are not recommended as a treatment category in the 2023 Menopause Society statement [1].',
+    betterFrame: 'Compare evidence-based hormone and nonhormone options rather than ranking supplements.',
+  },
+  {
+    symptom: 'Cognition / “brain fog”',
+    supplementEvidence: 'One 36-person creatine trial reported selected signals with specific creatine formulations [2].',
+    betterFrame: 'Promising, early, product-specific evidence—not a universal creatine protocol.',
+  },
+  {
+    symptom: 'Sleep',
+    supplementEvidence: 'No supplement has a menopause-specific evidence base strong enough to become a default insomnia treatment.',
+    betterFrame: 'Identify vasomotor symptoms, insomnia disorder, sleep apnea, restless legs, mood, medications, and other causes first.',
+  },
+  {
+    symptom: 'Bone health',
+    supplementEvidence: 'Vitamin D and calcium have nutritional/osteoporosis roles, but they are not generic treatments for menopause symptoms.',
+    betterFrame: 'Use dietary intake, deficiency status, fracture risk, and osteoporosis guidance.',
+  },
+  {
+    symptom: 'Muscle / strength',
+    supplementEvidence: 'Creatine has broader exercise and muscle evidence, but the menopause-specific clinical question is distinct from hot-flash treatment.',
+    betterFrame: 'Keep resistance training, protein intake, and condition-specific evidence separate from vasomotor claims.',
+  },
 ]
 
 export default function MenopauseSupplementsPage() {
   return (
     <div className="container-page py-10 space-y-10">
-      <AuthorityJsonLd title="Menopause Supplements: Evidence Review" description="Which supplements actually help with menopause symptoms?" url="https://thehippiescientist.net/guides/other/menopause-supplements" type="Article" />
+      <AuthorityJsonLd
+        title="Menopause Supplements: Symptom-Specific Evidence"
+        description="Guideline-led review separating vasomotor symptoms, cognition, sleep, bone health, and muscle evidence."
+        url="https://thehippiescientist.net/guides/other/menopause-supplements"
+        type="MedicalWebPage"
+        citationUrls={MENOPAUSE_REFS.map((ref) => ref.url)}
+      />
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Menopause Supplements' }]} />
-      <FAQSchema pagePath="/guides/other/menopause-supplements/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Menopause Supplements: What the Evidence Actually Shows</h1><p className="text-lg leading-8 text-muted">Menopause is not a condition to be cured — it&rsquo;s a biological transition that half the population experiences. The supplement industry has responded with hundreds of products claiming to ease symptoms, preserve cognition, and protect bones. Some of these claims have evidence behind them. Most don&rsquo;t. Here&rsquo;s what the research actually supports — with citations to the primary literature.</p>
-        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/menopause-supplements.jpg" alt="Woman's hands holding supplements and water, menopause wellness concept" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Menopause supplementation — evidence over marketing.</figcaption></figure></section>
+      <section className="space-y-5 max-w-4xl">
+        <p className="eyebrow-label">Evidence Review · Symptom-specific, not stack-based</p>
+        <h1 className="text-5xl font-bold tracking-tight text-ink">Menopause Supplements: Match the Evidence to the Symptom</h1>
+        <p className="text-lg leading-8 text-muted">
+          Hot flashes, sleep problems, bone loss, mood changes, cognitive complaints, and muscle changes are not one outcome. A supplement can have evidence in one lane and none in another. That is why this guide does not rank a universal menopause stack or convert small trials into fixed dosing protocols.
+        </p>
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image src="/images/guides/menopause-supplements.jpg" alt="Menopause supplement evidence review with separate symptom categories" width={1536} height={1024} priority className="w-full h-auto" />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">The useful question is “which symptom?” before “which supplement?”</figcaption>
+        </figure>
+      </section>
 
-      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">The supplements with the strongest evidence for menopause symptoms are: <strong>creatine</strong> for brain fog, mood, and muscle preservation [1,2,8]; <strong>soy isoflavones</strong> for modest hot flash reduction [3]; <strong>vitamin D + calcium</strong> for bone density [4]; and <strong>magnesium</strong> for sleep [5]. Black cohosh shows mixed results and the Cochrane review found insufficient evidence to recommend it [6]. No supplement replaces the evidence base for HRT, which remains the most effective intervention for vasomotor symptoms and bone protection when clinically appropriate [7]. The 2025 CONCRET-MENOPA trial is the first RCT specifically examining creatine in menopausal women [1].</p></section>
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>
+          There is <strong>no evidence-based universal menopause supplement stack</strong>. For hot flashes and night sweats, The Menopause Society’s 2023 nonhormone statement does not recommend supplements or herbal remedies as a treatment category [1]. Soy evidence remains mixed [3]. Black cohosh has product-specific and liver-safety uncertainty [4,5]. Creatine has an interesting but very small menopause-specific trial in 36 women [2], which is not enough to establish a broad dosing protocol. Vitamin D/calcium and magnesium belong in separate bone-health, deficiency, or sleep questions rather than one “menopause formula.”
+        </p>
+      </LegacyGuideQuickAnswer>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Menopause Supplement Evidence</p>
-        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Supplement</th><th className="text-left py-2 pr-4 font-semibold text-ink">Best For</th><th className="text-left py-2 pr-4 font-semibold text-ink">Evidence</th><th className="text-left py-2 pr-4 font-semibold text-ink">Dose</th><th className="text-left py-2 font-semibold text-ink">Cost/mo</th></tr></thead><tbody className="text-muted">
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Creatine</td><td className="py-2 pr-4">Brain fog, mood, muscle</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">Moderate</span></td><td className="py-2 pr-4">3-5 g/day</td><td className="py-2">$5-10</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Soy Isoflavones</td><td className="py-2 pr-4">Hot flashes</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">Moderate</span></td><td className="py-2 pr-4">30-100 mg/day</td><td className="py-2">$15-25</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Vitamin D + Calcium</td><td className="py-2 pr-4">Bone density</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">Strong</span></td><td className="py-2 pr-4">800-2000 IU + 1000 mg</td><td className="py-2">$3-8</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Magnesium Glycinate</td><td className="py-2 pr-4">Sleep</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Moderate</span></td><td className="py-2 pr-4">200-400 mg</td><td className="py-2">$8-15</td></tr>
-          <tr><td className="py-2 pr-4 font-medium text-ink">Black Cohosh</td><td className="py-2 pr-4">Hot flashes, mood</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-800">Mixed</span></td><td className="py-2 pr-4">20-40 mg/day</td><td className="py-2">$10-20</td></tr>
-        </tbody></table></div>
-        <div className="mt-3 p-3 rounded-lg bg-white border border-brand-200"><p className="text-xs font-semibold text-ink">Recommended stack:</p><p className="mt-1 text-xs leading-5 text-muted">Start with creatine (3-5 g/day) + vitamin D (2000 IU). Add magnesium glycinate (200 mg) for sleep. Add soy isoflavones if hot flashes persist after 8 weeks. Skip black cohosh unless other options fail. Total: $15-30/month for the core three.</p></div>
-        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Supplement</th><th className="text-left py-2 pr-4 font-semibold text-ink">Best For</th><th className="text-left py-2 pr-4 font-semibold text-ink">Evidence</th><th className="text-left py-2 font-semibold text-ink">Dose</th></tr></thead><tbody className="text-muted">
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Creatine</td><td className="py-2 pr-4">Brain fog, mood, muscle</td><td className="py-2 pr-4 text-emerald-700 font-semibold">Moderate</td><td className="py-2">3-5 g/day</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Soy Isoflavones</td><td className="py-2 pr-4">Hot flashes</td><td className="py-2 pr-4 text-emerald-700 font-semibold">Moderate</td><td className="py-2">30-100 mg/day</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Vitamin D + Calcium</td><td className="py-2 pr-4">Bone density</td><td className="py-2 pr-4 text-emerald-700 font-semibold">Strong</td><td className="py-2">800-2000 IU + 1000 mg</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Magnesium</td><td className="py-2 pr-4">Sleep</td><td className="py-2 pr-4 text-amber-700 font-semibold">Moderate</td><td className="py-2">200-400 mg glycinate</td></tr>
-          <tr><td className="py-2 pr-4 font-medium text-ink">Black Cohosh</td><td className="py-2 pr-4">Hot flashes, mood</td><td className="py-2 pr-4 text-red-600 font-semibold">Mixed</td><td className="py-2">20-40 mg/day</td></tr>
-        </tbody></table></div>
-        <p className="text-xs leading-5 text-muted">Start with creatine + vitamin D. Add magnesium if sleep is an issue. Soy isoflavones if hot flashes persist. Black cohosh only if other options fail and LFTs are monitored.</p></section>
-
-      <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by supplement</h2>
-        <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Creatine — Brain fog, mood, muscle (Emerging to Moderate)</h3><p className="mt-2 text-sm leading-7 text-muted">The most exciting development in menopause supplementation. A 2025 RCT (Korovljev et al., n=36) found 1,500 mg/day creatine hydrochloride improved reaction time, reduced mood swing severity, and increased frontal brain creatine concentrations in peri/postmenopausal women [1]. A 2024 meta-analysis (Xu et al., 14 RCTs) confirmed creatine improves cognition, especially under stress conditions [8]. The mechanism: estrogen supports creatine synthesis; declining estrogen reduces brain creatine stores, and supplementation may compensate [1,2]. Dosing: 3-5 g/day creatine monohydrate. Benefits build over 4-8 weeks. Pair with resistance training for muscle preservation. This is well-studied, safe, and inexpensive — a strong candidate for most menopausal women.</p></div>
-          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Soy isoflavones — Hot flashes (Moderate)</h3><p className="mt-2 text-sm leading-7 text-muted">A 2012 meta-analysis (Taku et al., 17 RCTs) found soy isoflavones reduced hot flash frequency by ~20% vs placebo, with effects stronger in women with more frequent symptoms [3]. Effect sizes are modest but consistent. Equol-producing women (those who can convert daidzein to equol in the gut) appear to benefit more. Dosing: 30-100 mg/day isoflavones. Safety note: theoretical estrogenic effects warrant caution with hormone-sensitive cancers, though epidemiological data is reassuring.</p></div>
-          <div className="p-4 rounded-xl bg-amber-50/60"><h3 className="font-semibold text-ink">Black cohosh — Mixed evidence</h3><p className="mt-2 text-sm leading-7 text-muted">The 2012 Cochrane review (Leach &amp; Moore, 16 RCTs) found insufficient evidence to recommend black cohosh for menopausal symptoms [6]. Some individual trials show benefit; others show no difference from placebo. The heterogeneity in products (extract type, dose) partly explains the inconsistency. Liver safety monitoring is recommended with use.</p></div>
-          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Vitamin D + Calcium — Bone health (Strong)</h3><p className="mt-2 text-sm leading-7 text-muted">Well-established for bone density preservation in postmenopausal women [4]. The combination reduces fracture risk, particularly in women with low baseline intake. Dosing: 800-2,000 IU vitamin D3 + 1,000-1,200 mg calcium (diet + supplement). Vitamin K2 may enhance calcium deposition in bone but evidence is weaker.</p></div>
+      <section id="menopause-symptom-evidence" data-answer-engine-table="true" className="card-premium p-6 space-y-4 max-w-5xl scroll-mt-24">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by symptom—not by supplement popularity</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-[900px] w-full text-left text-sm">
+            <caption className="sr-only">Menopause symptom categories compared by supplement evidence and better decision frame</caption>
+            <thead>
+              <tr className="border-b border-brand-900/10 text-ink">
+                <th scope="col" className="py-3 pr-4">Symptom / goal</th>
+                <th scope="col" className="py-3 pr-4">What supplement evidence supports</th>
+                <th scope="col" className="py-3">Better decision frame</th>
+              </tr>
+            </thead>
+            <tbody className="text-muted">
+              {symptomRows.map((row) => (
+                <tr key={row.symptom} className="border-b border-brand-900/5 last:border-0 align-top">
+                  <th scope="row" className="py-3 pr-4 text-left font-semibold text-ink">{row.symptom}</th>
+                  <td className="py-3 pr-4">{row.supplementEvidence}</td>
+                  <td className="py-3">{row.betterFrame}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Why menopause creates unique supplement needs</h2><p className="text-sm leading-7 text-muted">The 2026 Cambridge UK Biobank study (n=125,000) confirmed menopause is linked to reductions in grey matter volume in the hippocampus, entorhinal cortex, and anterior cingulate — regions involved in memory, emotion, and attention. Estrogen plays a critical role in brain glucose metabolism, creatine synthesis, and bone turnover. As it declines, the brain becomes less efficient at generating energy, contributing to brain fog and cognitive fatigue. HRT addresses some of these deficits but does not fully reverse grey matter changes. This is where targeted supplementation — particularly creatine for brain energetics and vitamin D for bone — has a plausible biological rationale.</p></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Vasomotor symptoms: supplements are not the evidence leader</h2>
+        <p className="text-sm leading-7 text-muted">
+          The Menopause Society’s 2023 position statement recommends several nonhormone approaches for vasomotor symptoms but lists supplements/herbal remedies—and soy foods/extracts—as not recommended because evidence is inconsistent [1]. Hormone therapy remains the most effective treatment for vasomotor symptoms when clinically appropriate [1,6]. That does not mean every person should use hormone therapy; it means supplement pages should not imply equivalent evidence.
+        </p>
+      </section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Creatine at 3-5 g/day is the strongest evidence-based supplement for menopausal brain fog and muscle preservation [1,2,8]. Soy isoflavones modestly reduce hot flashes [3]. Vitamin D + calcium protect bones [4]. Magnesium supports sleep [5]. Most other menopause supplements lack rigorous evidence — and none replace the evidence base for HRT when it is clinically appropriate [7]. If you choose to supplement, start with creatine and vitamin D: well-studied, safe, inexpensive, and supported by plausible mechanisms. Track symptoms for 8-12 weeks before adding anything else.</p></section>
-      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
-        <div className="space-y-4">
-          {FAQS.map((faq) => (
-            <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
-              <h3 className="font-semibold text-ink">{faq.question}</h3>
-              <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
-            </div>
-          ))}
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Creatine: interesting signal, tiny menopause-specific evidence base</h2>
+        <p className="text-sm leading-7 text-muted">
+          CONCRET-MENOPA randomized 36 peri/postmenopausal women across four groups and tested low-dose creatine hydrochloride, creatine ethyl ester combinations, and placebo for eight weeks [2]. Selected reaction-time, frontal-brain-creatine, lipid, and mood-related signals were reported. That is hypothesis-generating evidence—not proof that creatine treats menopause “brain fog,” not proof of broad mood or muscle benefit in this population, and not evidence for a 3–5 g/day creatine-monohydrate menopause protocol because that regimen was not tested in this trial.
+        </p>
+      </section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Soy isoflavones: mixed evidence, especially for vasomotor outcomes</h2>
+        <p className="text-sm leading-7 text-muted">
+          Soy-isoflavone research is heterogeneous across product, dose, population, and outcome. A 2025 meta-analysis found a small overall symptom signal but no significant pooled effect on hot flashes, excessive sweating, insomnia, or vasomotor symptoms [3]. That lines up with the guideline-level caution against treating soy as a dependable vasomotor therapy [1]. Soy foods can still fit a healthy dietary pattern; that is a nutrition claim, not a hot-flash treatment claim.
+        </p>
+      </section>
+
+      <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-6 text-amber-950 dark:border-amber-200/20 dark:bg-amber-950/20 dark:text-amber-50">
+        <p className="text-xs font-bold uppercase tracking-[0.16em]">Black-cohosh boundary</p>
+        <h2 className="mt-2 text-2xl font-semibold">Product identity and liver safety matter</h2>
+        <p className="mt-3 text-sm leading-7">
+          NCCIH describes black-cohosh findings as inconsistent across products and studies [4,5]. Rare serious liver injury has been reported, although causality is uncertain, and some commercial products have contained the wrong herb or undeclared mixtures [4]. That makes “black cohosh” a product-specific evidence and quality question—not a generic backup option after other supplements fail.
+        </p>
+      </section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Bone health and sleep belong in their own evidence lanes</h2>
+        <p className="text-sm leading-7 text-muted">
+          Vitamin D and calcium matter for nutrition and bone health, but decisions about supplementation depend on dietary intake, deficiency risk, fracture risk, osteoporosis status, kidney function, and other clinical context. They should not appear in a “menopause stack” simply because menopause changes bone risk. Likewise, generic magnesium sleep studies in older adults do not establish a menopause-specific treatment for insomnia.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/guides/other/vitamin-d-k2-guide/" className="rounded-full border border-brand-900/10 px-4 py-2 text-sm font-semibold text-brand-800 hover:bg-brand-50">Vitamin D + K2 evidence →</Link>
+          <Link href="/guides/other/magnesium-types-guide/" className="rounded-full border border-brand-900/10 px-4 py-2 text-sm font-semibold text-brand-800 hover:bg-brand-50">Magnesium forms →</Link>
         </div>
       </section>
-
-      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Related reading</h2>
-        <p className="text-sm leading-7 text-muted">Go deeper on the core stack ingredients:</p>
-        <ul className="grid gap-2 sm:grid-cols-2 text-sm font-semibold text-brand-800">
-          <li><Link href="/guides/other/creatine-brain-health/" className="hover:underline">Creatine for brain health →</Link></li>
-          <li><Link href="/compounds/creatine/" className="hover:underline">Creatine compound profile →</Link></li>
-          <li><Link href="/guides/other/vitamin-d-k2-guide/" className="hover:underline">Vitamin D + K2 guide →</Link></li>
-          <li><Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium glycinate profile →</Link></li>
-          <li><Link href="/herbs/black-cohosh/" className="hover:underline">Black cohosh herb profile →</Link></li>
-          <li><Link href="/guides/other/magnesium-types-guide/" className="hover:underline">Magnesium types guide →</Link></li>
-        </ul>
-      </section>
-
-      <div className="max-w-4xl">
-        <RecommendationSection
-          title="Creatine product picks"
-          description="Creatine monohydrate is the best-evidenced pick in this guide for menopausal brain fog and muscle preservation — start here rather than with black cohosh. These are sourcing starting points; plain creatine monohydrate is the studied form, and the dosing and HRT-disclosure notes above still apply."
-          products={getRevenueProductSet('creatine')?.products ?? []}
-        />
-      </div>
 
       <References refs={MENOPAUSE_REFS} />
-      <EmailCapture headline="Get evidence reviews like this" description="We track claims against clinical evidence. No hype, no influencer talking points." ctaLabel="Get the evidence" location="guide-menopause" />
-      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
+      <LegacyGuideFAQ pagePath="/guides/other/menopause-supplements/" questions={[...FAQS]} />
+      <EmailCapture headline="Get evidence reviews like this" description="Menopause evidence separated by symptom, not packaged into a supplement stack." ctaLabel="Get the evidence" location="guide-menopause" />
+      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
+        <Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link>
+        <Link href="/info/supplement-safety-checklist/" className="text-sm font-bold text-brand-800 hover:underline">Safety checklist →</Link>
+      </div>
     </div>
   )
 }
