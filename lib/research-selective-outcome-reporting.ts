@@ -41,7 +41,7 @@ export type SelectiveOutcomeReportingReport = {
   highConfidenceFindings: SelectiveOutcomeReportingFinding[]
 }
 
-const FAVORABLE_SECONDARY = /\b(?:secondary (?:outcome|endpoint)|subgroup|sub-group|post[- ]hoc|exploratory (?:outcome|endpoint|analysis))[^.]{0,220}(?:significant|improv|reduc|benefit|favou?r|superior|positive)\b/i
+const FAVORABLE_SECONDARY = /\b(?:secondary (?:outcome|endpoint)|subgroup|sub-group|post[- ]hoc|exploratory (?:outcome|endpoint|analysis))[^.]{0,220}(?:statistically\s+significant|significant(?:ly)?|improv\w*|reduc\w*|benefit\w*|favou?r\w*|superior|positive)\b/i
 const NEGATED_FAVORABLE_SIGNAL = /\b(?:not|no|did not|didn't|failed to|without)\s+(?:(?:statistically|clinically)\s+)?(?:significant|significantly\s+(?:improv\w*|reduc\w*)|improv\w*|reduc\w*|benefit\w*|favou?r\w*|superior|positive)\b|\bnon[- ]?significant\b/gi
 const REGISTERED_LANGUAGE = /\b(registered|prespecified|pre[- ]specified|protocol[- ]specified|trial registration|registry)\b/i
 
