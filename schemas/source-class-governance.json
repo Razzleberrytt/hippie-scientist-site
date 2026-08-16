@@ -1,0 +1,50 @@
+{
+  "randomized-human-trial": {
+    "evidenceClass": "human-clinical",
+    "allowedSourceTypes": ["journal-article", "clinical-trial-registry"],
+    "pmidApplicable": true,
+    "preferredStudyDesigns": ["randomized-controlled-trial"]
+  },
+  "non-randomized-human-study": {
+    "evidenceClass": "human-clinical",
+    "allowedSourceTypes": ["journal-article"],
+    "pmidApplicable": true,
+    "preferredStudyDesigns": ["non-randomized-trial", "cohort"]
+  },
+  "observational-human-evidence": {
+    "evidenceClass": "human-observational",
+    "allowedSourceTypes": ["journal-article", "systematic-review"],
+    "pmidApplicable": true,
+    "preferredStudyDesigns": ["cohort", "case-control", "cross-sectional"]
+  },
+  "systematic-review-meta-analysis": {
+    "evidenceClass": "human-clinical",
+    "allowedSourceTypes": ["systematic-review", "meta-analysis", "journal-article"],
+    "pmidApplicable": true,
+    "preferredStudyDesigns": ["systematic-review", "meta-analysis"]
+  },
+  "preclinical-mechanistic-study": {
+    "evidenceClass": "preclinical-mechanistic",
+    "allowedSourceTypes": ["journal-article"],
+    "pmidApplicable": true,
+    "preferredStudyDesigns": ["in-vitro", "in-vivo-animal"]
+  },
+  "traditional-use-monograph": {
+    "evidenceClass": "traditional-use",
+    "allowedSourceTypes": ["monograph", "book"],
+    "pmidApplicable": false,
+    "preferredStudyDesigns": ["narrative-monograph"]
+  },
+  "regulatory-agency-monograph-guidance": {
+    "evidenceClass": "regulatory-monograph",
+    "allowedSourceTypes": ["regulatory-guidance", "monograph"],
+    "pmidApplicable": false,
+    "preferredStudyDesigns": ["regulatory-guidance"]
+  },
+  "reference-database-authority": {
+    "evidenceClass": "regulatory-monograph",
+    "allowedSourceTypes": ["reference-database"],
+    "pmidApplicable": false,
+    "preferredStudyDesigns": ["database-reference"]
+  }
+}
