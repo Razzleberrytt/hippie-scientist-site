@@ -1,4 +1,5 @@
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
+import { buildAggregatedTopologyGapSignals } from './research-quality-policy-topology-signals'
 import { buildResearchQualityTopology, type ResearchQualityTopology } from './research-quality-topology'
 
 export type ResearchGapDimension =
@@ -84,9 +85,13 @@ export const RESEARCH_GAP_WEIGHTS = {
   provenanceConcentration: 10,
   firstAuthorConcentrationBonus: 6,
   journalConcentrationBonus: 4,
+  provenanceNarrowMultiStudySupport: 8,
+  highConfidenceProvenanceNarrowBonus: 4,
   uncertainStudyIdentityCoverage: 10,
   highConfidenceIdentityUncertaintyBonus: 8,
   weakIdentityCoverageBonus: 6,
+  severeStudyClassConflict: 100,
+  studyClassAmbiguity: 5,
   legacyOnlyOutcomeClaim: 8,
   highConfidenceLegacyOnlyBonus: 4,
   unknownEvidenceYearMetadata: 4,
@@ -101,6 +106,7 @@ export const RESEARCH_GAP_WEIGHTS = {
 const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'unsupported-approved-claim': 'structural',
   'dangling-claim-source-edge': 'structural',
+  'severe-canonical-study-class-conflict': 'structural',
   'synthesis-only-approved-outcome': 'claim-support',
   'semantic-claim-source-mismatch': 'semantic',
   'semantic-single-source-support': 'semantic',
@@ -118,6 +124,7 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'near-duplicate-claim-evidence-support': 'concentration',
   'systemic-load-bearing-study-dependency': 'concentration',
   'provenance-concentrated-evidence': 'concentration',
+  'claim-provenance-narrow-multi-study-support': 'concentration',
   'narrative-review-dominated-profile': 'evidence-mix',
   'edge-weighted-narrative-dominance': 'evidence-mix',
   'approved-claims-without-primary-human-study': 'evidence-mix',
@@ -126,6 +133,7 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'uncertain-study-identity-independence': 'identity',
   'poor-study-metadata-coverage': 'metadata',
   'claim-citation-metadata-gap': 'metadata',
+  'canonical-study-class-ambiguity': 'metadata',
   'unknown-evidence-year-metadata': 'metadata',
   'legacy-only-outcome-evidence': 'freshness',
 }
@@ -202,37 +210,8 @@ function addProfileReasons(analysis: ResearchQualityAnalysis, add: AddReason) {
   }
 }
 
-function addSemanticReasons(topology: ResearchQualityTopology, add: AddReason) {
-  for (const finding of topology.semanticAlignment.findings) {
-    const bonus = finding.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSemanticMismatchBonus : 0
-    add(finding.url, 'semantic-claim-source-mismatch', RESEARCH_GAP_WEIGHTS.semanticMismatch + bonus, `${finding.claimId} · ${finding.reasons.join('; ')}`)
-  }
-  for (const finding of topology.semanticAlignment.concentrationFindings) {
-    const base = finding.semanticSingleSource ? RESEARCH_GAP_WEIGHTS.semanticSingleSource : RESEARCH_GAP_WEIGHTS.semanticSupportConcentration
-    const bonus = finding.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSemanticConcentrationBonus : 0
-    add(finding.url, finding.semanticSingleSource ? 'semantic-single-source-support' : 'semantic-support-concentration', base + bonus, `${finding.claimId} · ${finding.alignedSourceCount}/${finding.sourceCount} linked sources explicitly align`)
-  }
-  for (const finding of topology.semanticAlignment.coverageGapFindings) {
-    const bonus = finding.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSemanticCoverageGapBonus : 0
-    add(finding.url, 'semantic-metadata-coverage-gap', RESEARCH_GAP_WEIGHTS.semanticMetadataCoverageGap + bonus, `${finding.claimId} · ${Math.round(finding.semanticMetadataCoverage * 100)}% semantically comparable source coverage`)
-  }
-
-  const strictKeys = new Set(topology.claimLanguageCalibration.findings.map((finding) => `${finding.url}::${finding.claimId}`))
-  const synthesisKeys = new Set(topology.claimLanguageCalibration.synthesisOnlyFindings.map((finding) => `${finding.url}::${finding.claimId}`))
-  for (const finding of topology.claimLanguageCalibration.directEvidenceFindings) {
-    const key = `${finding.url}::${finding.claimId}`
-    const high = finding.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceCausalLanguageBonus : 0
-    if (strictKeys.has(key)) add(finding.url, 'causal-language-without-controlled-or-synthesis', RESEARCH_GAP_WEIGHTS.causalWithoutControlledOrSynthesis + high, `${finding.claimId} · ${finding.causalTerms.join(', ')}`)
-    else if (synthesisKeys.has(key)) add(finding.url, 'synthesis-only-causal-language', RESEARCH_GAP_WEIGHTS.synthesisOnlyCausalSupport + high, `${finding.claimId} · causal language has synthesis but no directly linked controlled-human study`)
-    else add(finding.url, 'causal-language-without-direct-controlled-study', RESEARCH_GAP_WEIGHTS.causalWithoutDirectControlled + high, `${finding.claimId} · causal language lacks directly linked controlled-human study`)
-  }
-}
-
 function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
   for (const bundle of topology.narrowRepeatedEvidenceBundles) add(bundle.url, 'narrow-repeated-evidence-bundle', RESEARCH_GAP_WEIGHTS.narrowRepeatedEvidenceBundle + Math.min(10, Math.max(0, bundle.approvedClaimCount - 3) * 2), `${bundle.approvedClaimCount} approved claims reuse the same ${bundle.studyCount}-study bundle`)
-  for (const bundle of topology.narrowCrossProfileEvidenceBundles) {
-    for (const url of bundle.profiles) add(url, 'narrow-cross-profile-evidence-bundle', RESEARCH_GAP_WEIGHTS.narrowCrossProfileEvidenceBundle + Math.min(8, Math.max(0, bundle.profileCount - 2) * 2), `${bundle.approvedClaimCount} claims across ${bundle.profileCount} profiles reuse the same ${bundle.studyCount}-study bundle`)
-  }
   for (const claim of topology.homogeneousMultiStudyClaims) add(claim.url, 'homogeneous-multi-study-support', RESEARCH_GAP_WEIGHTS.homogeneousMultiStudySupport + (claim.highConfidenceHomogeneousMultiStudySupport ? RESEARCH_GAP_WEIGHTS.highConfidenceHomogeneousMultiStudyBonus : 0), `${claim.claimId} · ${claim.studyCount} studies but one evidence family (${claim.evidenceFamilies.join(', ')})`)
 
   for (const claim of topology.provenanceNarrowMultiStudyClaims) {
@@ -272,14 +251,31 @@ function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
     add(identity.url, 'uncertain-study-identity-independence', RESEARCH_GAP_WEIGHTS.uncertainStudyIdentityCoverage + (identity.highConfidenceUncertainClaimCount > 0 ? RESEARCH_GAP_WEIGHTS.highConfidenceIdentityUncertaintyBonus : 0) + (identity.weakIdentityCoverage ? RESEARCH_GAP_WEIGHTS.weakIdentityCoverageBonus : 0), `${identity.uncertainMultiStudyClaimCount} multi-study claims include fallback identities; ${Math.round(identity.stableIdentityCoverage * 100)}% stable identity coverage`)
   }
 
-  for (const metadata of topology.claimCitationMetadata.lowCoverageClaims) add(metadata.url, 'claim-citation-metadata-gap', RESEARCH_GAP_WEIGHTS.claimCitationMetadataGap + (metadata.highConfidenceLowMetadataCoverage ? RESEARCH_GAP_WEIGHTS.highConfidenceCitationMetadataBonus : 0), `${metadata.claimId} · ${Math.round(metadata.fieldMetadataCoverage * 100)}% citation field completeness across ${metadata.studyCount} studies`)
-
   for (const freshness of topology.claimEvidenceAge) {
     if (freshness.studyCount > 0 && freshness.knownYearCount === 0) add(freshness.url, 'unknown-evidence-year-metadata', RESEARCH_GAP_WEIGHTS.unknownEvidenceYearMetadata, `${freshness.claimId} · publication year unknown for all ${freshness.studyCount} studies`)
     else if (freshness.legacyOnlyOutcomeClaim) add(freshness.url, 'legacy-only-outcome-evidence', RESEARCH_GAP_WEIGHTS.legacyOnlyOutcomeClaim + (freshness.highConfidenceLegacyOnlyClaim ? RESEARCH_GAP_WEIGHTS.highConfidenceLegacyOnlyBonus : 0), `${freshness.claimId} · newest known supporting study ${freshness.newestYear ?? 'unknown'}`)
   }
 
-  addSemanticReasons(topology, add)
+  for (const signal of buildAggregatedTopologyGapSignals(topology, {
+    narrowCrossProfileEvidenceBundle: RESEARCH_GAP_WEIGHTS.narrowCrossProfileEvidenceBundle,
+    semanticMismatch: RESEARCH_GAP_WEIGHTS.semanticMismatch,
+    highConfidenceSemanticMismatchBonus: RESEARCH_GAP_WEIGHTS.highConfidenceSemanticMismatchBonus,
+    semanticSingleSource: RESEARCH_GAP_WEIGHTS.semanticSingleSource,
+    semanticSupportConcentration: RESEARCH_GAP_WEIGHTS.semanticSupportConcentration,
+    highConfidenceSemanticConcentrationBonus: RESEARCH_GAP_WEIGHTS.highConfidenceSemanticConcentrationBonus,
+    semanticMetadataCoverageGap: RESEARCH_GAP_WEIGHTS.semanticMetadataCoverageGap,
+    highConfidenceSemanticCoverageGapBonus: RESEARCH_GAP_WEIGHTS.highConfidenceSemanticCoverageGapBonus,
+    causalWithoutControlledOrSynthesis: RESEARCH_GAP_WEIGHTS.causalWithoutControlledOrSynthesis,
+    causalWithoutDirectControlled: RESEARCH_GAP_WEIGHTS.causalWithoutDirectControlled,
+    synthesisOnlyCausalSupport: RESEARCH_GAP_WEIGHTS.synthesisOnlyCausalSupport,
+    highConfidenceCausalLanguageBonus: RESEARCH_GAP_WEIGHTS.highConfidenceCausalLanguageBonus,
+    claimCitationMetadataGap: RESEARCH_GAP_WEIGHTS.claimCitationMetadataGap,
+    highConfidenceCitationMetadataBonus: RESEARCH_GAP_WEIGHTS.highConfidenceCitationMetadataBonus,
+    provenanceNarrowMultiStudySupport: RESEARCH_GAP_WEIGHTS.provenanceNarrowMultiStudySupport,
+    highConfidenceProvenanceNarrowBonus: RESEARCH_GAP_WEIGHTS.highConfidenceProvenanceNarrowBonus,
+    severeStudyClassConflict: RESEARCH_GAP_WEIGHTS.severeStudyClassConflict,
+    studyClassAmbiguity: RESEARCH_GAP_WEIGHTS.studyClassAmbiguity,
+  })) add(signal.url, signal.kind, signal.weight, signal.detail)
 }
 
 function finalizeGap(item: MutableGap): ResearchGapItem {
