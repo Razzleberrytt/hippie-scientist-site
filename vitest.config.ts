@@ -2,6 +2,8 @@ import { defineConfig } from 'vitest/config'
 import { transformWithOxc, type Plugin } from 'vite'
 import path from 'path'
 
+const ROOT = import.meta.dirname
+
 function workspaceAliasPlugin(): Plugin {
   return {
     name: 'workspace-alias',
@@ -11,11 +13,11 @@ function workspaceAliasPlugin(): Plugin {
       if (!match) return null
 
       const relativePath = match[1]
-      const srcAttempt = path.resolve(__dirname, 'src', relativePath)
+      const srcAttempt = path.resolve(ROOT, 'src', relativePath)
       const resolvedSrc = await this.resolve(srcAttempt, importer, { skipSelf: true })
       if (resolvedSrc) return resolvedSrc.id
 
-      const rootAttempt = path.resolve(__dirname, relativePath)
+      const rootAttempt = path.resolve(ROOT, relativePath)
       const resolvedRoot = await this.resolve(rootAttempt, importer, { skipSelf: true })
       return resolvedRoot?.id ?? null
     },
@@ -29,7 +31,7 @@ export default defineConfig({
       // standalone-CLI branch in scripts/data/build-interaction-data.mjs that
       // never executes under test. Alias it to a stub so Vite's static import
       // analysis can still resolve the specifier when transforming that file.
-      xlsx: path.resolve(__dirname, 'scripts/data/xlsx-optional-dependency-stub.mjs'),
+      xlsx: path.resolve(ROOT, 'scripts/data/xlsx-optional-dependency-stub.mjs'),
     },
   },
   plugins: [
