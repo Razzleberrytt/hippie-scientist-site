@@ -20,6 +20,7 @@ const weights = {
   highConfidenceCitationMetadataBonus: 4,
   provenanceNarrowMultiStudySupport: 8,
   highConfidenceProvenanceNarrowBonus: 4,
+  pseudoMultiSourceSupport: 9,
   severeStudyClassConflict: 100,
   studyClassAmbiguity: 5,
 }
@@ -31,6 +32,7 @@ function topology(overrides: Record<string, unknown> = {}): ResearchQualityTopol
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { lowCoverageClaims: [] },
     provenanceNarrowMultiStudyClaims: [],
+    edgeCardinality: { pseudoMultiSourceClaims: [] },
     studyClassConflicts: { conflicts: [], severeConflicts: [] },
     ...overrides,
   } as unknown as ResearchQualityTopology
@@ -65,6 +67,25 @@ describe('aggregated topology gap signals', () => {
     const provenance = signals.filter((signal) => signal.kind === 'claim-provenance-narrow-multi-study-support')
     expect(provenance).toHaveLength(1)
     expect(provenance[0].detail).toContain('2 multi-study approved claim(s)')
+  })
+
+  it('aggregates pseudo-multi-source claims once per profile', () => {
+    const signals = buildAggregatedTopologyGapSignals(topology({
+      edgeCardinality: {
+        pseudoMultiSourceClaims: [
+          { url: '/herbs/a/', approved: true, aliasCollapsedSourceCount: 1, validUniqueSourceRefCount: 2 },
+          { url: '/herbs/a/', approved: true, aliasCollapsedSourceCount: 2, validUniqueSourceRefCount: 3 },
+          { url: '/herbs/a/', approved: false, aliasCollapsedSourceCount: 5, validUniqueSourceRefCount: 6 },
+        ],
+      },
+    }), weights)
+
+    const pseudo = signals.filter((signal) => signal.kind === 'pseudo-multi-source-support')
+    expect(pseudo).toHaveLength(1)
+    expect(pseudo[0]).toMatchObject({ url: '/herbs/a/' })
+    expect(pseudo[0].detail).toContain('2 approved claim(s)')
+    expect(pseudo[0].detail).toContain('3 redundant source row(s)')
+    expect(pseudo[0].detail).toContain('3 source rows')
   })
 
   it('keeps severe and advisory study-class conflicts distinct', () => {

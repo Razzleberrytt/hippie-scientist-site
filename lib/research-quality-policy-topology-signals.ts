@@ -17,6 +17,7 @@ export type AggregatedTopologyGapWeights = {
   highConfidenceCitationMetadataBonus: number
   provenanceNarrowMultiStudySupport: number
   highConfidenceProvenanceNarrowBonus: number
+  pseudoMultiSourceSupport: number
   severeStudyClassConflict: number
   studyClassAmbiguity: number
 }
@@ -144,6 +145,17 @@ export function buildAggregatedTopologyGapSignals(
       kind: 'claim-provenance-narrow-multi-study-support',
       weight: weights.provenanceNarrowMultiStudySupport + Math.min(6, Math.max(0, items.length - 1)) + (highConfidence ? weights.highConfidenceProvenanceNarrowBonus : 0),
       detail: `${items.length} multi-study approved claim(s) have narrow publication provenance; ${sameAuthor} same-first-author lineage; ${sameJournal} same-journal lineage; ${highConfidence} high-confidence`,
+    })
+  }
+
+  for (const [url, items] of groupByUrl(topology.edgeCardinality.pseudoMultiSourceClaims.filter((item) => item.approved))) {
+    const collapsedRows = items.reduce((sum, item) => sum + item.aliasCollapsedSourceCount, 0)
+    const maxNominalSources = Math.max(...items.map((item) => item.validUniqueSourceRefCount))
+    signals.push({
+      url,
+      kind: 'pseudo-multi-source-support',
+      weight: weights.pseudoMultiSourceSupport + Math.min(8, Math.max(0, items.length - 1) * 2 + collapsedRows),
+      detail: `${items.length} approved claim(s) look multi-source but collapse to one canonical study; ${collapsedRows} redundant source row(s); widest nominal support ${maxNominalSources} source rows`,
     })
   }
 
