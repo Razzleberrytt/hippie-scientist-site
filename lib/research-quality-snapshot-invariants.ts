@@ -2,6 +2,7 @@ import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import type { ResearchQualityGate } from './research-quality-gate'
 import type { ResearchGapItem } from './research-quality-policy'
 import type { ResearchQualityTopology } from './research-quality-topology'
+import type { ResearchSourceIntegrity } from './research-source-integrity'
 
 export type ResearchSnapshotInvariantFailure = {
   kind: string
@@ -20,6 +21,7 @@ export type ResearchSnapshotInvariantReport = {
     missingClaimIds: number
     duplicateSourceIds: number
     missingSourceIds: number
+    sourceIntegrityFailures: number
   }
 }
 
@@ -42,6 +44,7 @@ export function validateResearchQualitySnapshotInvariants(
   topology: ResearchQualityTopology,
   gate: ResearchQualityGate,
   researchGapQueue: ResearchGapItem[],
+  sourceIntegrity?: ResearchSourceIntegrity,
 ): ResearchSnapshotInvariantReport {
   const failures: ResearchSnapshotInvariantFailure[] = []
   const profileUrls = new Set(analysis.profileAnalyses.map((profile) => profile.url))
@@ -135,6 +138,27 @@ export function validateResearchQualitySnapshotInvariants(
     requireProfile('gap-queue-unknown-profile', gap.url, 'research gap queue')
   }
 
+  if (sourceIntegrity) {
+    if (sourceIntegrity.summary.citedStudies !== sourceIntegrity.studies.length) {
+      add('source-study-count-mismatch', `summary=${sourceIntegrity.summary.citedStudies}; rows=${sourceIntegrity.studies.length}`)
+    }
+    if (sourceIntegrity.summary.withdrawn !== sourceIntegrity.withdrawn.length) {
+      add('source-withdrawn-count-mismatch', `summary=${sourceIntegrity.summary.withdrawn}; rows=${sourceIntegrity.withdrawn.length}`)
+    }
+
+    const seenPmids = new Set<string>()
+    for (const study of sourceIntegrity.studies) {
+      if (seenPmids.has(study.pmid)) add('source-duplicate-pmid', study.pmid)
+      else seenPmids.add(study.pmid)
+
+      const uniquePages = new Set(study.pages)
+      if (study.pageCount !== uniquePages.size) {
+        add('source-page-count-mismatch', `${study.pmid}: pageCount=${study.pageCount}; pages=${uniquePages.size}`)
+      }
+      for (const url of uniquePages) requireProfile('source-unknown-profile', url, `PMID ${study.pmid}`)
+    }
+  }
+
   const unknownProfileReferences = failures.filter((failure) => failure.kind.includes('unknown-profile')).length
   const unknownClaimReferences = failures.filter((failure) => failure.kind.includes('unknown-claim')).length
   const countMismatches = failures.filter((failure) => failure.kind.includes('mismatch')).length
@@ -142,6 +166,7 @@ export function validateResearchQualitySnapshotInvariants(
   const missingClaimIds = failures.filter((failure) => failure.kind === 'missing-claim-id').length
   const duplicateSourceIds = failures.filter((failure) => failure.kind === 'duplicate-source-id').length
   const missingSourceIds = failures.filter((failure) => failure.kind === 'missing-source-id').length
+  const sourceIntegrityFailures = failures.filter((failure) => failure.kind.startsWith('source-')).length
 
   return {
     passed: failures.length === 0,
@@ -155,6 +180,7 @@ export function validateResearchQualitySnapshotInvariants(
       missingClaimIds,
       duplicateSourceIds,
       missingSourceIds,
+      sourceIntegrityFailures,
     },
   }
 }
