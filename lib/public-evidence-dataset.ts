@@ -1,3 +1,7 @@
+import {
+  buildCitationIdentifierIdentityMap,
+  canonicalCitationIdentifier,
+} from '@/lib/citation-identifiers.mjs'
 import { extractCitationsFromRecord } from '@/lib/citations'
 import { getEvidenceLetterGrade } from '@/lib/evidence'
 import {
@@ -261,10 +265,19 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
   const gradeCounts = new Map<string, number>()
   const categoryMap = new Map<string, EvidenceCategorySummary>()
   let explicitlyFlaggedClaimOverreach = 0
+  const indexableEntities = entities.filter(({ record }) => canIndexRecord(record))
+  const citationsByPath = new Map<string, ReturnType<typeof extractCitationsFromRecord>>()
+  const allCitations: ReturnType<typeof extractCitationsFromRecord> = []
 
-  for (const { record, type } of entities) {
-    if (!canIndexRecord(record)) continue
+  for (const { record, type } of indexableEntities) {
+    const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}/`
+    const citations = extractCitationsFromRecord(record)
+    citationsByPath.set(path, citations)
+    allCitations.push(...citations)
+  }
+  const citationIdentities = buildCitationIdentifierIdentityMap(allCitations)
 
+  for (const { record, type } of indexableEntities) {
     const name = entityName(record)
     const evidenceGrade = getEvidenceLetterGrade(record)
     const category = entityCategory(record)
@@ -291,11 +304,11 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     }
     if (evidenceGrade === 'Unassigned') categorySummary.unassigned += 1
 
-    const citations = extractCitationsFromRecord(record)
+    const citations = citationsByPath.get(path) ?? []
     for (const citation of citations) {
       const evidenceClass = citation.evidenceClass || normalizeEvidenceStudyClass(citation.studyType)
       const relationship = normalizeEvidenceRelationship(citation.relationship)
-      const id = citation.id || evidenceStudyId(citation)
+      const id = canonicalCitationIdentifier(citation, citationIdentities) || citation.id || evidenceStudyId(citation)
       const conditions = [...new Set([...(citation.conditions || [])].map(item => item.trim()).filter(Boolean))]
       const relationshipRecord: PublicStudyRelationship = {
         ingredientSlug: record.slug,
