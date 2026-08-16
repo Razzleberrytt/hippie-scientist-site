@@ -63,8 +63,9 @@ describe('getEvidenceTier', () => {
     expect(getEvidenceTier(record({ evidence_tier: 'Insufficient evidence' }))).toBe('insufficient')
   })
 
-  it('classifies conflicting studies as mixed', () => {
+  it('preserves mixed and traditional nuance inside reconciled C/D bands', () => {
     expect(getEvidenceTier(record({ evidence_tier: 'Mixed / conflicting results' }))).toBe('mixed')
+    expect(getEvidenceTier(record({ evidence_tier: 'Traditional / historical use only' }))).toBe('traditional')
   })
 
   it('classifies robust clinical evidence as strong', () => {
@@ -75,8 +76,19 @@ describe('getEvidenceTier', () => {
     expect(getEvidenceTier(record({ evidence_tier: 'Moderate evidence' }))).toBe('moderate')
   })
 
-  it('classifies ethnobotanical-only records as traditional', () => {
-    expect(getEvidenceTier(record({ evidence_tier: 'Traditional / historical use only' }))).toBe('traditional')
+  it('uses the reconciled weaker band when authored grade and tier disagree', () => {
+    const conflicted = record({ evidence_grade: 'A', evidence_tier: 'Limited Evidence' })
+    expect(getEvidenceLetterGrade(conflicted)).toBe('C')
+    expect(getEvidenceTier(conflicted)).toBe('limited')
+    expect(getEvidenceLabel(conflicted)).toBe('Limited evidence')
+    expect(getEvidenceColor(conflicted)).toBe('slate')
+  })
+
+  it('routes outcome-dependent authored evidence to review instead of a fabricated strong tier', () => {
+    const outcomeDependent = record({ evidence_grade: 'Varies by outcome', evidence_tier: 'Strong Evidence' })
+    expect(getEvidenceLetterGrade(outcomeDependent)).toBe('Unassigned')
+    expect(getEvidenceTier(outcomeDependent)).toBe('review')
+    expect(getEvidenceLabel(outcomeDependent)).toBe('Needs review')
   })
 
   it('falls back to "limited" when nothing else is known', () => {
