@@ -34,6 +34,7 @@ export const LOCALE_CONFIG: Record<SupportedLocale, { language: string; openGrap
   [GERMAN_LOCALE]: { language: GERMAN_LANGUAGE, openGraphLocale: GERMAN_OG_LOCALE, textDirection: 'ltr' },
 }
 
+/** Substantive translated core/navigation pages. */
 export const LOCALIZED_ROUTES: readonly LocalizedRoute[] = [
   { english: '/', translations: { [SPANISH_LOCALE]: '/es/', [PORTUGUESE_LOCALE]: '/pt/', [FRENCH_LOCALE]: '/fr/', [GERMAN_LOCALE]: '/de/' } },
   { english: '/herbs/', translations: { [SPANISH_LOCALE]: '/es/hierbas/', [PORTUGUESE_LOCALE]: '/pt/ervas/', [FRENCH_LOCALE]: '/fr/plantes/', [GERMAN_LOCALE]: '/de/kraeuter/' } },
@@ -47,6 +48,13 @@ export const LOCALIZED_ROUTES: readonly LocalizedRoute[] = [
   { english: '/safety-checker/', translations: { [SPANISH_LOCALE]: '/es/seguridad/', [PORTUGUESE_LOCALE]: '/pt/seguranca/', [FRENCH_LOCALE]: '/fr/securite/', [GERMAN_LOCALE]: '/de/sicherheit/' } },
 ] as const
 
+/** Detailed scientific profiles only enter this registry after complete approved-claim translation. */
+export const LOCALIZED_PROFILE_ROUTES: readonly LocalizedRoute[] = [
+  { english: '/herbs/ashwagandha/', translations: { [SPANISH_LOCALE]: '/es/hierbas/ashwagandha/' } },
+  { english: '/compounds/l-theanine/', translations: { [SPANISH_LOCALE]: '/es/compuestos/l-theanine/' } },
+] as const
+
+export const ALL_LOCALIZED_ROUTES: readonly LocalizedRoute[] = [...LOCALIZED_ROUTES, ...LOCALIZED_PROFILE_ROUTES]
 export const LOCALIZED_ROUTE_PAIRS: readonly LocalizedRoutePair[] = LOCALIZED_ROUTES.filter((route) => route.translations[SPANISH_LOCALE]).map((route) => ({ english: route.english, spanish: route.translations[SPANISH_LOCALE] as string }))
 const withLeadingSlash = (path: string) => (!path ? '/' : path.startsWith('/') ? path : `/${path}`)
 const withTrailingSlash = (path: string) => (!path || path === '/' || path.endsWith('/') || /\.[a-z0-9]+$/i.test(path) ? path || '/' : `${path}/`)
@@ -55,7 +63,7 @@ export function buildLocaleUrl(path = '/') { return new URL(normalizeInternation
 export function buildDefaultLocaleUrl(path = '/') { return buildLocaleUrl(path) }
 function findLocalizedRoute(path = '/'): LocalizedRoute | undefined {
   const normalized = normalizeInternationalPath(path)
-  return LOCALIZED_ROUTES.find((candidate) => normalizeInternationalPath(candidate.english) === normalized || Object.values(candidate.translations).some((localizedPath) => localizedPath && normalizeInternationalPath(localizedPath) === normalized))
+  return ALL_LOCALIZED_ROUTES.find((candidate) => normalizeInternationalPath(candidate.english) === normalized || Object.values(candidate.translations).some((localizedPath) => localizedPath && normalizeInternationalPath(localizedPath) === normalized))
 }
 export function getLocalizedRoute(path = '/', locale: SupportedLocale): string | null {
   const route = findLocalizedRoute(path)
