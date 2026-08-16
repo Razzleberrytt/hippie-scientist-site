@@ -11,14 +11,10 @@ const routeLabels: Record<string, string> = {
   '/start': 'Start Here',
   '/library': 'Explore Everything',
   '/articles': 'Articles',
-  '/articles/[slug]': 'Article',
   '/herbs': 'Herbs',
-  '/herbs/[slug]': 'Herb Profile',
   '/compounds': 'Compounds',
-  '/compounds/[slug]': 'Compound Profile',
   '/search': 'Search',
   '/goals': 'Supplement Goals',
-  '/goals/[slug]': 'Goal Guide',
   '/guides': 'Topics & Guides',
   '/guides/mental-health': 'Mental Health',
   '/guides/adhd': 'ADHD',
@@ -31,11 +27,8 @@ const routeLabels: Record<string, string> = {
   '/guides/best': 'Best Supplements',
   '/guides/compare': 'Comparisons',
   '/guides/other': 'Supplement Topic Guides',
-  '/guides/[slug]': 'Guide',
-  '/guides/[section]/[slug]': 'Guide',
   '/lead-magnets/adhd-supplement-starter-checklist': 'ADHD Supplement Starter Checklist',
   '/learn': 'Learning Library',
-  '/learn/[slug]': 'Learning Resource',
   '/novel-psychoactive-substances': 'Novel Psychoactive Substances',
   '/safety': 'Safety',
   '/safety-checker': 'Safety Checker',
@@ -71,25 +64,6 @@ function segmentToLabel(segment: string): string {
     .replace(/\bL Theanine\b/g, 'L-Theanine')
 }
 
-function findDynamicRoutePattern(pathname: string): string | null {
-  const segments = pathname.split('/').filter(Boolean)
-
-  for (const key in routeLabels) {
-    if (!key.includes('[')) continue
-
-    const keySegments = key.split('/').filter(Boolean)
-    if (keySegments.length !== segments.length) continue
-
-    const matches = keySegments.every((keySegment, index) =>
-      keySegment.startsWith('[') || keySegment === segments[index]
-    )
-
-    if (matches) return key
-  }
-
-  return null
-}
-
 export function generateDynamicBreadcrumbs(
   pathname: string,
   customTrail?: BreadcrumbItem[]
@@ -114,9 +88,7 @@ export function generateDynamicBreadcrumbs(
 
     if (!isLast && isStructuralSegment) continue
 
-    const exactLabel = routeLabels[currentPath]
-    const patternKey = exactLabel ? null : findDynamicRoutePattern(currentPath)
-    const displayLabel = exactLabel || (patternKey ? segmentToLabel(segments[i]) : segmentToLabel(segments[i]))
+    const displayLabel = routeLabels[currentPath] || segmentToLabel(segments[i])
 
     breadcrumbs.push({
       label: segments[i - 1] === 'page' ? `Page ${segments[i]}` : displayLabel,
