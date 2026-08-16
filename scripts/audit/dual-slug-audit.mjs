@@ -1,11 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import { getSheetData } from '../utils/read-workbook-exceljs.mjs';
+import { evaluateProfileCompleteness } from '../../lib/profile-completeness.mjs';
 
 function slugify(text) {
   if (!text) return '';
   return text.toLowerCase()
-    .replace(/[’'""`]/g, '')
+    .replace(/[’'"“”`]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
@@ -13,7 +14,7 @@ function slugify(text) {
 function normalize(text) {
   if (!text) return '';
   return text.toLowerCase()
-    .replace(/[’'""`]/g, '')
+    .replace(/[’'"“”`]/g, '')
     .replace(/[^a-z0-9]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
@@ -41,47 +42,20 @@ async function run() {
     process.exit(1);
   }
 
-  // Load workbook data
   console.log(`Loading sheet 'Herb Master V3' from ${workbookPath}...`);
   const rows = await getSheetData(workbookPath, 'Herb Master V3');
 
-  // Load public herbs JSON to calculate completeness of existing profiles
   let herbsJson = [];
   if (fs.existsSync(herbsJsonPath)) {
     herbsJson = JSON.parse(fs.readFileSync(herbsJsonPath, 'utf8'));
   }
   const herbsJsonMap = new Map(herbsJson.map(h => [h.slug, h]));
-
-  const checkSafety = (val) => {
-    if (!val) return false;
-    const s = String(val).toLowerCase();
-    return !['needs review', 'safety review pending', 'placeholder', 'pending'].some(p => s.includes(p));
-  };
-  const checkDescription = (val) => {
-    if (!val) return false;
-    const s = String(val).toLowerCase();
-    return s.length >= 15 && !['evidence-aware', 'needs review', 'placeholder'].some(p => s.includes(p));
-  };
-  const checkBestFor = (val) => {
-    if (!val) return false;
-    const s = String(val).toLowerCase();
-    return !['research pending', 'research_only', 'placeholder'].some(p => s.includes(p));
-  };
   const getCompleteness = (slug) => {
-    const h = herbsJsonMap.get(slug);
-    if (!h) return -1; // doesn't exist
-    let filled = 0;
-    if (checkDescription(h.description || h.summary)) filled++;
-    if (checkSafety(h.safety)) filled++;
-    if (h.evidence_tier || h.evidence_grade) filled++;
-    if (h.canonical_mechanisms && h.canonical_mechanisms.length > 0) filled++;
-    if (checkBestFor(h.effects || h.primary_effects)) filled++;
-    if (h.dosage || h.typical_dosage) filled++;
-    if (h.interactions && h.interactions.length > 0) filled++;
-    return filled / 7;
+    const herb = herbsJsonMap.get(slug);
+    if (!herb) return -1;
+    return evaluateProfileCompleteness(herb, { safetyValue: herb.safety ?? herb.contraindications }).completeness;
   };
 
-  // Load sitemap URLs
   let sitemapUrls = [];
   if (fs.existsSync(sitemapPath)) {
     console.log(`Reading sitemap from ${sitemapPath}...`);
@@ -105,7 +79,6 @@ async function run() {
 
   console.log(`Found ${sitemapSlugs.size} herb slugs in sitemap.`);
 
-  // Step 1: Parse workbook rows into normalized Herb info
   const herbs = [];
   rows.forEach((row, idx) => {
     const rawSlug = String(row.slug || '').trim();
@@ -113,7 +86,6 @@ async function run() {
 
     const rawName = String(row.name || '').trim();
     const parenthetical = extractParentheses(rawName);
-    
     let commonName = rawName;
     let latinName = String(row.latin_name || '').trim();
 
@@ -122,7 +94,6 @@ async function run() {
       latinName = parenthetical;
     }
 
-    // Heuristics for latin name detection from slug if not set
     if (!latinName && rawSlug.includes('-')) {
       const parts = rawSlug.split('-');
       const botanicalWords = ['sativum', 'erinaceus', 'lucidum', 'chamomilla', 'officinale', 'somnifera', 'monnieri', 'rosea', 'sinensis', 'vulgaris', 'odorata'];
@@ -143,7 +114,6 @@ async function run() {
     });
   });
 
-  // Step 2: Group duplicates based on name/slug matching
   const groups = [];
   const visitedIndices = new Set();
 
@@ -185,12 +155,10 @@ async function run() {
     groups.push(group);
   }
 
-  // Step 3: Process groups to determine canonical and redirect mapping
   const redirectMap = {};
   const mappedResults = [];
   const sitemapOrphans = [];
 
-  // Sort groups deterministically by their first item's slug
   groups.sort((a, b) => a[0].slug.localeCompare(b[0].slug));
 
   groups.forEach(group => {
@@ -230,8 +198,6 @@ async function run() {
     }
 
     const targetPath = `/herbs/${bestSlug}`;
-    
-    // Legacy slugs inside this group
     const legacySlugs = new Set();
     group.forEach(item => {
       legacySlugs.add(item.slug);
@@ -257,7 +223,6 @@ async function run() {
     });
   });
 
-  // Identify sitemap slugs that were NOT mapped to any group
   sitemapSlugs.forEach(slug => {
     let found = false;
     groups.forEach(group => {
@@ -271,14 +236,11 @@ async function run() {
     }
   });
 
-  // Ensure reports dir exists
   ensureDirExists('reports');
 
-  // Write reports/slug-redirect-map.json
   fs.writeFileSync('reports/slug-redirect-map.json', JSON.stringify(redirectMap, null, 2));
   console.log(`Wrote reports/slug-redirect-map.json with ${Object.keys(redirectMap).length} mappings.`);
 
-  // Generate dual-slug-map.md
   let md = `# Dual Slug Reconciler Audit Report
 
 Generated on: ${new Date().toISOString()}
