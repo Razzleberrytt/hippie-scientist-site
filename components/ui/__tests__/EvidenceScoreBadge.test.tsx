@@ -12,13 +12,13 @@ describe('EvidenceScoreBadge', () => {
   it('prefers an explicit grade prop over the record-derived grade', () => {
     render(<EvidenceScoreBadge record={{ evidence_tier: 'Strong evidence' }} grade="D" />)
     expect(screen.getByText('D')).toBeTruthy()
-    expect(screen.getByText('Traditional')).toBeTruthy()
+    expect(screen.getByText('Preliminary')).toBeTruthy()
   })
 
   it('defaults to grade C when neither record nor grade is given', () => {
     render(<EvidenceScoreBadge />)
     expect(screen.getByText('C')).toBeTruthy()
-    expect(screen.getByText('Preliminary')).toBeTruthy()
+    expect(screen.getByText('Limited')).toBeTruthy()
   })
 
   it('hides the label text when showLabel is false', () => {
