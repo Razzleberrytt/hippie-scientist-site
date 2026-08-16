@@ -40,6 +40,7 @@ export type ClaimQualityAnalysis = {
   designs: string[]
   outcomeClaim: boolean
   supportTier: ClaimSupportTier
+  weakStructuredClaim: boolean
   highConfidenceWeakOutcome: boolean
   singleStudy: boolean
   aliasCollapsed: boolean
@@ -52,6 +53,7 @@ export type ProfileQualityAnalysis = {
   claimCount: number
   approvedClaimCount: number
   supportedApprovedClaimCount: number
+  weakStructuredClaimCount: number
   designMix: Record<string, number>
   primaryHuman: number
   synthesis: number
@@ -59,6 +61,7 @@ export type ProfileQualityAnalysis = {
   narrativeToPrimaryHumanRatio: number | null
   narrativeDominatedVsPrimaryHuman: boolean
   unsupportedApprovedClaims: string[]
+  weakStructuredClaims: string[]
   singleStudyApprovedClaims: string[]
   aliasCollapsedClaims: string[]
   danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }>
@@ -119,6 +122,7 @@ function analyzeClaim(
   else if (outcomeClaim && !strongHumanSupport) supportTier = 'indirect-only'
   else if (outcomeClaim) supportTier = 'human-supported'
 
+  const weakStructuredClaim = outcomeClaim && supportTier !== 'human-supported'
   const weakOutcome = supportTier === 'narrative-only' || supportTier === 'indirect-only'
 
   return {
@@ -137,6 +141,7 @@ function analyzeClaim(
     designs,
     outcomeClaim,
     supportTier,
+    weakStructuredClaim,
     highConfidenceWeakOutcome:
       outcomeClaim && confidence >= 0.75 && (weakOutcome || supportTier === 'unclassified' || supportTier === 'unsupported'),
     singleStudy: studyIds.length === 1,
@@ -169,6 +174,7 @@ function analyzeProfile(
 
   const claimById = new Map(claims.map((claim) => [claim.claimId, claim]))
   const unsupportedApprovedClaims: string[] = []
+  const weakStructuredClaims: string[] = []
   const singleStudyApprovedClaims: string[] = []
   const aliasCollapsedClaims: string[] = []
   const danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }> = []
@@ -183,6 +189,7 @@ function analyzeProfile(
     if (!analysis) continue
 
     if (analysis.supportTier === 'unsupported') unsupportedApprovedClaims.push(claimId)
+    if (analysis.weakStructuredClaim) weakStructuredClaims.push(claimId)
     if (analysis.singleStudy) singleStudyApprovedClaims.push(claimId)
     if (analysis.aliasCollapsed) aliasCollapsedClaims.push(claimId)
     for (const sourceRefId of analysis.danglingSourceRefs) danglingSourceRefs.push({ claimId, sourceRefId })
@@ -218,6 +225,7 @@ function analyzeProfile(
     claimCount: allClaims.length,
     approvedClaimCount: approved.length,
     supportedApprovedClaimCount,
+    weakStructuredClaimCount: weakStructuredClaims.length,
     designMix,
     primaryHuman,
     synthesis,
@@ -225,6 +233,7 @@ function analyzeProfile(
     narrativeToPrimaryHumanRatio: narrativeToPrimaryHumanRatio === null ? null : round(narrativeToPrimaryHumanRatio),
     narrativeDominatedVsPrimaryHuman,
     unsupportedApprovedClaims,
+    weakStructuredClaims,
     singleStudyApprovedClaims,
     aliasCollapsedClaims,
     danglingSourceRefs,
