@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import { COMPOUNDS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagination'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
@@ -16,10 +17,14 @@ type P = {
 export async function generateStaticParams() {
   const compounds = await loadPublishedCompounds()
   const total = Math.max(1, Math.ceil(compounds.length / COMPOUNDS_PAGE_SIZE))
-
-  return Array.from({ length: Math.max(total - 1, 0) }, (_, i) => ({
+  const realParams = Array.from({ length: Math.max(total - 1, 0) }, (_, i) => ({
     page: String(i + 2),
   }))
+
+  // `output: export` requires at least one parameter for a dynamic route.
+  // When the governed library fits on page 1, build page 2 as a sentinel and
+  // immediately resolve it through notFound() below so no duplicate page ships.
+  return realParams.length ? realParams : [{ page: '2' }]
 }
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
@@ -37,6 +42,9 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
 export default async function CompoundsPageN({ params }: P) {
   const n = clampPositiveInt((await params).page, 2)
   const compounds = await loadPublishedCompounds()
+  const totalPages = Math.max(1, Math.ceil(compounds.length / COMPOUNDS_PAGE_SIZE))
+  if (n < 2 || n > totalPages) notFound()
+
   const p = paginateItems(compounds, n, COMPOUNDS_PAGE_SIZE)
   const leanCompounds = toLeanProfileIndexRecords(compounds)
   const leanPageItems = toLeanProfileIndexRecords(p.pageItems as RuntimeRecord[])
