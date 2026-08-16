@@ -3,6 +3,7 @@ import {
   crossProfileStudyIdentity,
   crossProfileStudyIdentityMap,
 } from './research-coverage'
+import { validateEffectCertaintySnapshotInvariants } from './research-effect-certainty-snapshot-invariants'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import type { ResearchQualityGate } from './research-quality-gate'
 import type { ResearchGapItem } from './research-quality-policy'
@@ -138,6 +139,9 @@ export function validateResearchQualitySnapshotInvariants(
   }
   if (topology.effectCertainty.summary.highConfidenceFindings !== topology.effectCertainty.highConfidenceFindings.length) {
     add('effect-certainty-high-confidence-count-mismatch', `summary=${topology.effectCertainty.summary.highConfidenceFindings}; rows=${topology.effectCertainty.highConfidenceFindings.length}`)
+  }
+  for (const invariant of validateEffectCertaintySnapshotInvariants(analysis, topology)) {
+    add(invariant.kind, invariant.detail)
   }
   if (topology.edgeCardinality.summary.claims !== analysis.structuredClaimAnalyses.length) {
     add('edge-cardinality-claim-count-mismatch', `edgeCardinality=${topology.edgeCardinality.summary.claims}; analysis=${analysis.structuredClaimAnalyses.length}`)
