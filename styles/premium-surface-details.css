@@ -69,11 +69,10 @@ main summary {
   text-wrap: pretty;
 }
 
-/* Small evidence/status pills keep their local semantic fill; only their edge
-   treatment is normalized. */
+/* Named evidence pills use a quiet neutral edge. Generic status pills keep the
+   semantic border selected by their component. */
 .evidence-pill-strong,
-.evidence-pill-moderate,
-main :is([class*='rounded-full'][class*='text-']) {
+.evidence-pill-moderate {
   border-color: var(--surface-detail-border) !important;
   box-shadow: none !important;
 }
