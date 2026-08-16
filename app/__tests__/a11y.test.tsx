@@ -1,57 +1,49 @@
-import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import axe from 'axe-core'
+import { axe } from 'jest-axe'
+import { describe, expect, it } from 'vitest'
 
-import SafetyBadge from '../../components/ui/SafetyBadge'
-import { DecisionProfileCard } from '../../components/ui/DecisionPrimitives'
-import ProfileEvidenceLens from '../../components/ui/ProfileEvidenceLens'
+import EvidenceSummary from '@/components/EvidenceSummary'
+import ProfileEvidenceLens from '@/components/ProfileEvidenceLens'
+import ProfileHero from '@/components/ProfileHero'
 
-// Basic axe runner for jsdom rendered output
 async function checkA11y(container: HTMLElement) {
-  const results = await axe.run(container)
-  const violations = results.violations.filter(v => v.impact === 'critical' || v.impact === 'serious')
-  expect(violations).toHaveLength(0)
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
 }
 
 describe('a11y (axe-core)', () => {
-  it('SafetyBadge for pending status has accessible public wording and no serious violations', async () => {
-    const { container } = render(<SafetyBadge level="Safety review pending" />)
-    // Public text communicates the evidence state rather than the editorial workflow state.
-    expect(screen.getByText(/Safety data limited/i)).toBeInTheDocument()
-    expect(screen.queryByText(/Safety review pending/i)).not.toBeInTheDocument()
-    // The ambiguous/limited state still has an actionable accessible explanation.
-    const badge = screen.getByText(/Safety data limited/i).closest('span')
-    expect(badge).toHaveAttribute('aria-label', expect.stringMatching(/data.*limited.*caution.*full profile/i))
-    await checkA11y(container)
-  })
-
-  it('SafetyBadge for known status has no violations', async () => {
-    const { container } = render(<SafetyBadge level="Generally well tolerated" />)
-    await checkA11y(container)
-  })
-
-  it('DecisionProfileCard renders with semantic structure and no serious a11y violations', async () => {
+  it('EvidenceSummary exposes evidence details accessibly', async () => {
     const { container } = render(
-      <DecisionProfileCard
-        href="/herbs/ashwagandha/"
+      <EvidenceSummary
+        record={{
+          slug: 'ashwagandha',
+          name: 'Ashwagandha',
+          evidence_tier: 'moderate',
+          evidence_grade: 'B',
+          evidence_summary: 'Moderate human evidence for stress-related outcomes.',
+          evidence_notes: 'Trials are short and use different extracts.',
+        }}
+      />
+    )
+    await checkA11y(container)
+  })
+
+  it('ProfileHero remains accessible with practical profile content', async () => {
+    const { container } = render(
+      <ProfileHero
         name="Ashwagandha"
-        summary="Evidence summary for stress."
-        bestFor="Stress support"
-        mechanisms={['GABA', 'Cortisol']}
+        summary="A botanical studied for stress and sleep."
+        bestFor="Stress"
+        mechanisms={['GABA modulation', 'stress response']}
         fallbackSummary="Ashwagandha profile summarizing available evidence, mechanisms, safety context, and practical research notes."
       />
     )
-    // Has heading for name
-    expect(screen.getByRole('heading', { name: /Ashwagandha/i })).toBeInTheDocument()
-    // Link is present
-    expect(screen.getByRole('link', { name: /Ashwagandha|View profile/i })).toBeInTheDocument()
     await checkA11y(container)
   })
 
-  it('Profile card renders without evidence/safety boxes', async () => {
+  it('ProfileHero remains accessible when optional profile details are absent', async () => {
     const { container } = render(
-      <DecisionProfileCard
-        href="/herbs/unknown/"
+      <ProfileHero
         name="Unknown Herb"
         summary="Profile summary."
         bestFor="General"
@@ -82,7 +74,7 @@ describe('a11y (axe-core)', () => {
 
     expect(screen.getByRole('progressbar', { name: /Evidence strength/i })).toBeInTheDocument()
     expect(screen.getByText(/Human clinical evidence/i)).toBeInTheDocument()
-    expect(screen.getByText(/Mechanistic/i)).toBeInTheDocument()
+    expect(screen.getByText(/^Mechanistic \/ preclinical:/i)).toBeInTheDocument()
     await checkA11y(container)
   })
 })
