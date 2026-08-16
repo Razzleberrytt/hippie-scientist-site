@@ -1,4 +1,4 @@
-import { slugify } from './slug'
+import { slugify } from '../../lib/slug-utils'
 import { getCommonName } from './herbName'
 import { normalizeScientificTags } from './tags'
 
