@@ -40,17 +40,17 @@ html:not(.dark) :where(.identity-kicker, .evidence-pill-strong, .evidence-pill-m
 
 /* Herb and compound profile shells: keep a subtle page signal without creating
    a second competing brand canvas underneath the global shell. */
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) {
+html:not(.dark) main:has(nav[aria-label="Page sections"]) {
   background:
     radial-gradient(circle at 96% 3%, color-mix(in srgb, var(--tone) 8%, transparent), transparent 23rem),
     radial-gradient(circle at 4% 24%, color-mix(in srgb, var(--hs-gold) 7%, transparent), transparent 22rem);
 }
 
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) > div.mx-auto {
+html:not(.dark) main:has(nav[aria-label="Page sections"]) > div.mx-auto {
   max-width: 74rem;
 }
 
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell {
+html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell {
   border-color: color-mix(in srgb, var(--hs-gold) 22%, var(--hs-hairline));
   background:
     radial-gradient(circle at 88% 10%, rgba(255, 255, 255, 0.72), transparent 17rem),
@@ -59,14 +59,14 @@ html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell
   box-shadow: var(--hs-lift);
 }
 
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell h1 {
+html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell h1 {
   color: var(--hs-ink);
   font-family: var(--font-fraunces), Fraunces, Georgia, serif;
   font-weight: 650;
   letter-spacing: -0.045em;
 }
 
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell .rounded-xl {
+html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell .rounded-xl {
   border-color: var(--hs-hairline);
   background: color-mix(in srgb, var(--hs-surface) 82%, transparent);
   box-shadow: 0 7px 22px rgba(53, 47, 65, 0.045);
@@ -91,12 +91,12 @@ html:not(.dark) nav[aria-label="Page sections"] a:hover {
 
 /* Accordions and editorial disclosures */
 html:not(.dark) :where(.card-premium, .surface-depth, .scientific-card) > details > summary,
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) details > summary {
+html:not(.dark) main:has(nav[aria-label="Page sections"]) details > summary {
   color: var(--hs-ink);
 }
 
 html:not(.dark) :where(.card-premium, .surface-depth, .scientific-card) > details > summary:hover,
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) details > summary:hover {
+html:not(.dark) main:has(nav[aria-label="Page sections"]) details > summary:hover {
   color: var(--tone-ink);
 }
 
@@ -200,12 +200,12 @@ html:not(.dark) main :where(article, section) > a.rounded-2xl:hover {
 }
 
 @media (max-width: 768px) {
-  html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell {
+  html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell {
     border-radius: 1.45rem !important;
     padding: 1.1rem !important;
   }
 
-  html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell h1 {
+  html:not(.dark) main:has(nav[aria-label="Page sections"]) .hero-shell h1 {
     font-size: clamp(2.35rem, 11vw, 3.25rem) !important;
   }
 }
