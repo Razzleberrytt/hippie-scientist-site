@@ -1,20 +1,20 @@
 const SEVERITY_STYLES = {
   info: {
-    bg: 'bg-blue-50/70',
-    border: 'border-blue-200/50',
-    text: 'text-blue-900',
+    bg: 'bg-blue-50/70 dark:bg-blue-300/10',
+    border: 'border-blue-200/50 dark:border-blue-200/20',
+    text: 'text-blue-900 dark:text-blue-100',
     label: 'Note',
   },
   caution: {
-    bg: 'bg-amber-50/70',
-    border: 'border-amber-200/50',
-    text: 'text-amber-950',
+    bg: 'bg-amber-50/70 dark:bg-amber-300/10',
+    border: 'border-amber-200/50 dark:border-amber-200/20',
+    text: 'text-amber-950 dark:text-amber-100',
     label: 'Caution',
   },
   warning: {
-    bg: 'bg-red-50/70',
-    border: 'border-red-200/50',
-    text: 'text-red-950',
+    bg: 'bg-red-50/70 dark:bg-red-300/10',
+    border: 'border-red-200/50 dark:border-red-200/20',
+    text: 'text-red-950 dark:text-red-100',
     label: 'Warning',
   },
 } as const
