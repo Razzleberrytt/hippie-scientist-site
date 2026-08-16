@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { evaluateProfileCompleteness } from '../../lib/profile-completeness.mjs';
 
 // Pairs that the similarity algorithm incorrectly groups — these are distinct substances
 // that happen to have similar slug names. Never auto-redirect these.
@@ -31,14 +32,10 @@ const DENY_REDIRECT_PAIRS = new Set([
   'magnesium|electrolytes-magnesium-blend', 'electrolytes-magnesium-blend|magnesium',
 ]);
 
-// Helper to ensure directory exists
 function ensureDirExists(dirPath) {
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
-  }
+  if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath, { recursive: true });
 }
 
-// Levenshtein distance helper
 function levenshtein(s1, s2) {
   const len1 = s1.length;
   const len2 = s2.length;
@@ -48,81 +45,32 @@ function levenshtein(s1, s2) {
   for (let i = 1; i <= len1; i++) {
     for (let j = 1; j <= len2; j++) {
       const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
-      matrix[i][j] = Math.min(
-        matrix[i - 1][j] + 1,      // deletion
-        matrix[i][j - 1] + 1,      // insertion
-        matrix[i - 1][j - 1] + cost // substitution
-      );
+      matrix[i][j] = Math.min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + cost);
     }
   }
   return matrix[len1][len2];
 }
 
-// Clean and normalize strings for matching
 function cleanName(name) {
   if (!name) return '';
   return name.replace(/\s*[([].*?[\])]\s*/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
-// Extract scientific/Latin names in parentheses
 function getScientificNames(name) {
   if (!name) return [];
   const matches = [...name.matchAll(/[([](.*?)[\])]/g)].map(m => m[1].trim().toLowerCase());
   return matches.filter(m => m.length > 2);
 }
 
-// Normalize words by removing generic botanical/compound suffixes
 const genericWords = new Set(['extract', 'blend', 'complex', 'powder', 'root', 'berry', 'leaf', 'oil', 'standardized', 'capsule', 'tablet', 'form', 'use', 'sleep', 'active', 'aged']);
 function getCoreWords(name) {
-  return cleanName(name)
-    .split(/[\s-]+/)
-    .filter(w => w.length > 1 && !genericWords.has(w));
+  return cleanName(name).split(/[\s-]+/).filter(w => w.length > 1 && !genericWords.has(w));
 }
 
-// Calculate completeness score (based on Task 2 logic)
-function calculateCompleteness(item) {
-  let filled = 0;
-  const total = 7;
-  
-  // 1. Description
-  const desc = item.description || '';
-  if (desc && !desc.toLowerCase().includes('evidence-aware') && !desc.toLowerCase().includes('needs review') && !desc.toLowerCase().includes('safety review pending')) {
-    filled++;
-  }
-  // 2. Safety
-  const safetyVal = item.safety || '';
-  if (safetyVal && !safetyVal.toLowerCase().includes('needs review') && !safetyVal.toLowerCase().includes('safety review pending')) {
-    filled++;
-  }
-  // 3. Evidence
-  if (item.evidence_tier || item.evidence_grade) {
-    filled++;
-  }
-  // 4. Mechanism
-  if (item.mechanisms && item.mechanisms.length > 0) {
-    filled++;
-  }
-  // 5. Best for / Effects
-  const effects = item.effects || [];
-  if (effects.length > 0 && !effects.includes('research_only') && !effects.includes('research-pending')) {
-    filled++;
-  }
-  // 6. Dosing
-  if (item.dosage || item.typical_dosage) {
-    filled++;
-  }
-  // 7. Interactions
-  if (item.interactions && item.interactions.length > 0) {
-    filled++;
-  }
-
-  return filled / total;
-}
-
-// Main execution
 function runAudit() {
   const herbsPath = 'public/data/herbs.json';
   const compoundsPath = 'public/data/compounds.json';
+  const interactionEdgesPath = 'public/data/interaction_edges.json';
 
   if (!fs.existsSync(herbsPath) || !fs.existsSync(compoundsPath)) {
     console.error('Error: Required JSON files public/data/herbs.json or compounds.json are missing.');
@@ -131,6 +79,9 @@ function runAudit() {
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'));
   const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'));
+  const interactionEdgesMap = fs.existsSync(interactionEdgesPath)
+    ? JSON.parse(fs.readFileSync(interactionEdgesPath, 'utf8'))
+    : {};
 
   console.log('--- Loading public/data/herbs.json and compounds.json ---');
   console.log('Herbs sample (first 3):');
@@ -139,8 +90,6 @@ function runAudit() {
   compounds.slice(0, 3).forEach(c => console.log(`  - Name: "${c.name}", Slug: "${c.slug}"`));
   console.log('-----------------------------------------------------\n');
 
-  // We want to run audit separately on herbs and compounds to avoid incorrect cross-type redirects.
-  // Wait, let's keep them separate as duplicates inside herbs and duplicates inside compounds.
   const auditGroups = [
     { type: 'herbs', items: herbs, prefix: '/herbs' },
     { type: 'compounds', items: compounds, prefix: '/compounds' }
@@ -178,29 +127,22 @@ function runAudit() {
         const slugName1 = slug1.replace(/-/g, ' ');
         const slugName2 = slug2.replace(/-/g, ' ');
 
-        // Match Rule A: Exact clean name match
         if (clean1 === clean2 && clean1.length > 0) {
           isMatch = true;
           confidence = 'HIGH';
           reason = 'Exact name match';
-        }
-        // Match Rule B: Levenshtein distance of slugs < 3
-        else if (levenshtein(slug1, slug2) < 3) {
+        } else if (levenshtein(slug1, slug2) < 3) {
           isMatch = true;
           confidence = slug1.length > 5 ? 'HIGH' : 'MEDIUM';
           reason = `Slug Levenshtein distance = ${levenshtein(slug1, slug2)}`;
-        }
-        // Match Rule C: Scientific/Latin name matching clean name or slug
-        else if (
+        } else if (
           scis1.some(s => s === clean2 || s === slug2 || s.replace(/\s+/g, '-') === slug2) ||
           scis2.some(s => s === clean1 || s === slug1 || s.replace(/\s+/g, '-') === slug1)
         ) {
           isMatch = true;
           confidence = 'HIGH';
           reason = 'Latin / Scientific name mapping match';
-        }
-        // Match Rule D: Core words match (spelling variation or synonym)
-        else {
+        } else {
           const core1 = getCoreWords(item1.name);
           const core2 = getCoreWords(item2.name);
           const coreSlug1 = getCoreWords(slugName1);
@@ -219,47 +161,34 @@ function runAudit() {
             isMatch = true;
             confidence = 'HIGH';
             reason = 'Core words match';
-          }
-          // Sub-form or overlap (e.g. Garlic vs Garlic Extract)
-          else if (
+          } else if (
             (core1.length > 0 && core1.every(w => core2.includes(w))) ||
             (core2.length > 0 && core2.every(w => core1.includes(w)))
           ) {
-            // If one is generic form and other is extract, we can group as MEDIUM or LOW duplicate
             isMatch = true;
             confidence = 'MEDIUM';
             reason = 'One name is subset of other name (e.g. extract / berry variation)';
           }
         }
 
-        // Deny-list check: skip known false-positive pairs regardless of algorithm confidence
-        if (isMatch && DENY_REDIRECT_PAIRS.has(`${slug1}|${slug2}`)) {
-          isMatch = false;
-        }
+        if (isMatch && DENY_REDIRECT_PAIRS.has(`${slug1}|${slug2}`)) isMatch = false;
 
-        // Chemistry-aware and Clinical profile distinction filtering:
-        // Do not redirect if they are both active and have different clinical features (mechanisms, effects, or evidence levels).
         if (isMatch) {
           const mechanisms1 = new Set(item1.mechanisms || []);
           const mechanisms2 = new Set(item2.mechanisms || []);
           const effects1 = new Set(item1.effects || []);
           const effects2 = new Set(item2.effects || []);
 
-          const hasDifferentMechanisms = mechanisms1.size > 0 && mechanisms2.size > 0 && 
+          const hasDifferentMechanisms = mechanisms1.size > 0 && mechanisms2.size > 0 &&
             (![...mechanisms1].every(m => mechanisms2.has(m)) || ![...mechanisms2].every(m => mechanisms1.has(m)));
-
           const hasDifferentEffects = effects1.size > 0 && effects2.size > 0 &&
             (![...effects1].every(e => effects2.has(e)) || ![...effects2].every(e => effects1.has(e)));
-
           const hasDistinctEvidence = item1.evidence_tier && item2.evidence_tier &&
             item1.evidence_tier.toLowerCase().trim() !== item2.evidence_tier.toLowerCase().trim();
-
           const hasDistinctEvidenceGrade = item1.evidence_grade && item2.evidence_grade &&
             item1.evidence_grade.toLowerCase().trim() !== item2.evidence_grade.toLowerCase().trim();
 
-          if (hasDifferentMechanisms || hasDifferentEffects || hasDistinctEvidence || hasDistinctEvidenceGrade) {
-            isMatch = false;
-          }
+          if (hasDifferentMechanisms || hasDifferentEffects || hasDistinctEvidence || hasDistinctEvidenceGrade) isMatch = false;
         }
 
         if (isMatch) {
@@ -271,90 +200,52 @@ function runAudit() {
       if (group.length > 1) {
         group.forEach(item => visited.add(item.slug));
 
-        // Canonical Selection Algorithm
-        // Score each candidate:
-        // - Prefer shorter slug
-        // - Prefer no parenthesis in name
-        // - Prefer sitemap included
-        // - Prefer higher completeness
         const candidates = group.map(item => {
-          const completeness = calculateCompleteness(item);
+          const completeness = evaluateProfileCompleteness(item, { interactionEdgesMap }).completeness;
           let score = 0;
-          score += (25 - item.slug.length); // shorter is better
+          score += (25 - item.slug.length);
           if (!item.name.includes('(')) score += 10;
           if (item.sitemap_included === true || String(item.sitemap_included).toLowerCase() === 'true') score += 5;
           score += completeness * 15;
-
           return { item, score, completeness };
         });
 
         candidates.sort((a, b) => b.score - a.score);
         const canonical = candidates[0].item;
-        
-        groups.push({
-          type,
-          prefix,
-          canonical,
-          candidates,
-          matches: matchDetails
-        });
+
+        groups.push({ type, prefix, canonical, candidates, matches: matchDetails });
       }
     }
 
     allGroups.push(...groups);
 
-    // Build the redirect map for HIGH and MEDIUM confidence groups
     groups.forEach(g => {
       const canonicalPath = `${prefix}/${g.canonical.slug}`;
       g.candidates.forEach(c => {
         if (c.item.slug !== g.canonical.slug) {
-          // Find match details to check confidence
           const match = g.matches.find(m => m.slug === c.item.slug);
           const conf = match ? match.confidence : 'LOW';
-          if (conf === 'HIGH') {
-            const redirectPath = `${prefix}/${c.item.slug}`;
-            allRedirects[redirectPath] = canonicalPath;
-          }
+          if (conf === 'HIGH') allRedirects[`${prefix}/${c.item.slug}`] = canonicalPath;
         }
       });
     });
   }
 
-  // Ensure reports directory exists
   ensureDirExists('reports');
-
-  // Write JSON redirects
   fs.writeFileSync('reports/slug-redirects.proposed.json', JSON.stringify(allRedirects, null, 2));
   console.log(`Wrote reports/slug-redirects.proposed.json containing ${Object.keys(allRedirects).length} redirects.`);
 
-  // Write Markdown report
-  let md = `# Duplicate Slug Audit Report
-
-Generated on: ${new Date().toISOString()}
-Total Duplicate Groups Found: ${allGroups.length}
-
-## Summary Table
-
-| Library | Primary / Canonical Slug | Duplicate Slugs Found | Group Confidence | Recommended Action |
-| --- | --- | --- | --- | --- |
-`;
+  let md = `# Duplicate Slug Audit Report\n\nGenerated on: ${new Date().toISOString()}\nTotal Duplicate Groups Found: ${allGroups.length}\n\n## Summary Table\n\n| Library | Primary / Canonical Slug | Duplicate Slugs Found | Group Confidence | Recommended Action |\n| --- | --- | --- | --- | --- |\n`;
 
   allGroups.sort((a, b) => a.type.localeCompare(b.type));
 
   allGroups.forEach(g => {
-    const dups = g.candidates
-      .filter(c => c.item.slug !== g.canonical.slug)
-      .map(c => c.item.slug)
-      .join(', ');
+    const dups = g.candidates.filter(c => c.item.slug !== g.canonical.slug).map(c => c.item.slug).join(', ');
+    const confs = g.candidates.filter(c => c.item.slug !== g.canonical.slug).map(c => {
+      const match = g.matches.find(m => m.slug === c.item.slug);
+      return match ? match.confidence : 'LOW';
+    });
 
-    // Determine group confidence (max confidence among matches)
-    const confs = g.candidates
-      .filter(c => c.item.slug !== g.canonical.slug)
-      .map(c => {
-        const match = g.matches.find(m => m.slug === c.item.slug);
-        return match ? match.confidence : 'LOW';
-      });
-    
     let groupConf = 'LOW';
     if (confs.includes('HIGH')) groupConf = 'HIGH';
     else if (confs.includes('MEDIUM')) groupConf = 'MEDIUM';
@@ -379,7 +270,7 @@ Total Duplicate Groups Found: ${allGroups.length}
   });
 
   fs.writeFileSync('reports/duplicate-slugs.md', md);
-  console.log(`Wrote reports/duplicate-slugs.md.`);
+  console.log('Wrote reports/duplicate-slugs.md.');
 }
 
 runAudit();
