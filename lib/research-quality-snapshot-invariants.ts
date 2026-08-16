@@ -3,6 +3,7 @@ import {
   crossProfileStudyIdentity,
   crossProfileStudyIdentityMap,
 } from './research-coverage'
+import { validateDirectionalConsistencySnapshotInvariants } from './research-directional-consistency-snapshot-invariants'
 import { validateEffectCertaintySnapshotInvariants } from './research-effect-certainty-snapshot-invariants'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import type { ResearchQualityGate } from './research-quality-gate'
@@ -135,6 +136,7 @@ export function validateResearchQualitySnapshotInvariants(
     add('claim-breadth-finding-count-mismatch', `summary=${topology.claimBreadth.summary.overbroadClaims}; rows=${topology.claimBreadth.findings.length}`)
   }
   for (const invariant of validateEffectCertaintySnapshotInvariants(analysis, topology)) add(invariant.kind, invariant.detail)
+  for (const invariant of validateDirectionalConsistencySnapshotInvariants(analysis, topology)) add(invariant.kind, invariant.detail)
   if (topology.edgeCardinality.summary.claims !== analysis.structuredClaimAnalyses.length) {
     add('edge-cardinality-claim-count-mismatch', `edgeCardinality=${topology.edgeCardinality.summary.claims}; analysis=${analysis.structuredClaimAnalyses.length}`)
   }
