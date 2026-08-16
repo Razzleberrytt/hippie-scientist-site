@@ -30,6 +30,9 @@ export type SemanticAlignmentFinding = {
   alignedSourceCount: number
   uncertainSourceCount: number
   explicitMismatchSourceCount: number
+  comparableSourceCount: number
+  semanticMetadataCoverage: number
+  semanticCoverageGap: boolean
   semanticSupportShare: number | null
   semanticSingleSource: boolean
   semanticSupportConcentrated: boolean
@@ -49,6 +52,10 @@ export type SemanticAlignmentReport = {
   summary: {
     approvedClaims: number
     semanticallyAssessableClaims: number
+    semanticallyComparableClaims: number
+    fullySemanticallyAssessableClaims: number
+    semanticCoverageGapClaims: number
+    highConfidenceSemanticCoverageGaps: number
     roleMismatches: number
     domainMismatches: number
     populationMismatches: number
@@ -62,6 +69,8 @@ export type SemanticAlignmentReport = {
   highConfidenceMismatches: SemanticAlignmentFinding[]
   concentrationFindings: SemanticAlignmentFinding[]
   highConfidenceConcentrationFindings: SemanticAlignmentFinding[]
+  coverageGapFindings: SemanticAlignmentFinding[]
+  highConfidenceCoverageGapFindings: SemanticAlignmentFinding[]
 }
 
 const ROLE_PATTERNS: Array<[EvidenceRole, RegExp[]]> = [
@@ -137,7 +146,7 @@ function claimRole(claim: ResearchClaim): EvidenceRole {
   if (/mechanism/.test(predicate)) return 'mechanism'
   if (/pharmacokinetic|bioavailability/.test(predicate)) return 'pharmacokinetics'
   if (/supports_outcome|benefit|efficacy/.test(predicate)) {
-    if (/evidence base|heterogene|risk[- ]?of[- ]?bias|generaliz/i.test(claimText)) return 'evidence-quality'
+    if (/evidence base|heterogene|risk[- ]?of[- ]bias|generaliz/i.test(claimText)) return 'evidence-quality'
     return 'outcome'
   }
   return detectRole(claimText)
@@ -225,6 +234,9 @@ function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfile
   const alignedSourceCount = sourceAlignment.filter((status) => status === 'aligned').length
   const uncertainSourceCount = sourceAlignment.filter((status) => status === 'uncertain').length
   const explicitMismatchSourceCount = sourceAlignment.filter((status) => status === 'mismatch').length
+  const comparableSourceCount = alignedSourceCount + explicitMismatchSourceCount
+  const semanticMetadataCoverage = sources.length ? comparableSourceCount / sources.length : 0
+  const semanticCoverageGap = semanticMetadataCoverage < 0.5
   const fullyAssessable = uncertainSourceCount === 0
   const semanticSupportShare = fullyAssessable && sources.length ? alignedSourceCount / sources.length : null
   const semanticSingleSource = fullyAssessable && sources.length >= 2 && alignedSourceCount === 1
@@ -234,6 +246,7 @@ function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfile
   if (roleMismatch) reasons.push(`claim role ${role} is not represented by linked source roles: ${unique(sourceRoles).join(', ')}`)
   if (domainMismatch) reasons.push(`claim domain ${claimDomains.join(', ')} is disjoint from explicit source domains`)
   if (populationMismatch) reasons.push(`claim population ${claimPopulations.join(', ')} is disjoint from explicit source populations`)
+  if (semanticCoverageGap) reasons.push(`only ${comparableSourceCount} of ${sources.length} linked sources contain enough semantic metadata for alignment comparison`)
   if (semanticSingleSource) reasons.push(`only 1 of ${sources.length} explicitly assessable linked sources is semantically aligned`)
   else if (semanticSupportConcentrated) reasons.push(`${alignedSourceCount} of ${sources.length} explicitly assessable linked sources are semantically aligned`)
 
@@ -247,6 +260,9 @@ function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfile
     alignedSourceCount,
     uncertainSourceCount,
     explicitMismatchSourceCount,
+    comparableSourceCount,
+    semanticMetadataCoverage: Number(semanticMetadataCoverage.toFixed(3)),
+    semanticCoverageGap,
     semanticSupportShare: semanticSupportShare === null ? null : Number(semanticSupportShare.toFixed(3)),
     semanticSingleSource,
     semanticSupportConcentrated,
@@ -265,8 +281,9 @@ function analyzeClaim(url: string, claim: ResearchClaim, record: ResearchProfile
 export function analyzeResearchSemanticAlignment(analysis: ResearchQualityAnalysis): SemanticAlignmentReport {
   const findings: SemanticAlignmentFinding[] = []
   const concentrationFindings: SemanticAlignmentFinding[] = []
+  const coverageGapFindings: SemanticAlignmentFinding[] = []
+  const analyzedFindings: SemanticAlignmentFinding[] = []
   let approvedClaimCount = 0
-  let assessable = 0
 
   for (const { url, record } of analysis.profiles) {
     const claims = approvedClaims(record)
@@ -274,9 +291,10 @@ export function analyzeResearchSemanticAlignment(analysis: ResearchQualityAnalys
     for (const claim of claims) {
       const finding = analyzeClaim(url, claim, record)
       if (!finding) continue
-      assessable += 1
+      analyzedFindings.push(finding)
       if (finding.roleMismatch || finding.domainMismatch || finding.populationMismatch) findings.push(finding)
       if (finding.semanticSingleSource || finding.semanticSupportConcentrated) concentrationFindings.push(finding)
+      if (finding.semanticCoverageGap) coverageGapFindings.push(finding)
     }
   }
 
@@ -288,14 +306,23 @@ export function analyzeResearchSemanticAlignment(analysis: ResearchQualityAnalys
     a.claimId.localeCompare(b.claimId)
   findings.sort(sorter)
   concentrationFindings.sort(sorter)
+  coverageGapFindings.sort((a, b) =>
+    a.semanticMetadataCoverage - b.semanticMetadataCoverage || sorter(a, b),
+  )
   const highConfidenceMismatches = findings.filter((finding) => finding.confidence >= 0.75)
   const highConfidenceConcentrationFindings = concentrationFindings.filter((finding) => finding.confidence >= 0.75)
+  const highConfidenceCoverageGapFindings = coverageGapFindings.filter((finding) => finding.confidence >= 0.75)
 
   return {
     generatedAt: new Date().toISOString(),
     summary: {
       approvedClaims: approvedClaimCount,
-      semanticallyAssessableClaims: assessable,
+      // Compatibility: claims with linked source rows that were analyzed at all.
+      semanticallyAssessableClaims: analyzedFindings.length,
+      semanticallyComparableClaims: analyzedFindings.filter((finding) => finding.comparableSourceCount > 0).length,
+      fullySemanticallyAssessableClaims: analyzedFindings.filter((finding) => finding.uncertainSourceCount === 0).length,
+      semanticCoverageGapClaims: coverageGapFindings.length,
+      highConfidenceSemanticCoverageGaps: highConfidenceCoverageGapFindings.length,
       roleMismatches: findings.filter((finding) => finding.roleMismatch).length,
       domainMismatches: findings.filter((finding) => finding.domainMismatch).length,
       populationMismatches: findings.filter((finding) => finding.populationMismatch).length,
@@ -309,6 +336,8 @@ export function analyzeResearchSemanticAlignment(analysis: ResearchQualityAnalys
     highConfidenceMismatches,
     concentrationFindings,
     highConfidenceConcentrationFindings,
+    coverageGapFindings,
+    highConfidenceCoverageGapFindings,
   }
 }
 
