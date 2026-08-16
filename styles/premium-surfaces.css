@@ -1,44 +1,7 @@
-/* Premium surfaces — phase 2 of promoting the homepage design language.
- *
- * Phase 0/1 (styles/premium-foundation.css) gave every route the shared tokens
- * and canvas. This file moves shared component surfaces onto the same vocabulary.
- */
-
-:root {
-  /* Default surfaces use muted indigo. Green is reserved for semantic/local
-     botanical accents instead of acting as the site's universal brand color. */
-  --tone: #6f66a8;
-  --tone-ink: #514a87;
-  --hs-gold-ink: #76511c;
-}
-
-html.dark {
-  --tone: #9a90cf;
-  --tone-ink: #c4bce8;
-  --hs-gold-ink: #d9b271;
-}
-
-.library-index-page {
-  --tone: #5c4db8;
-  --tone-ink: #4a3da3;
-}
-
-html.dark .library-index-page {
-  --tone: #a89dcc;
-  --tone-ink: #c3bce0;
-}
-
-.goal-decision-experience {
-  --tone: #2563eb;
-  --tone-ink: #1d4fd8;
-}
-
-html.dark .goal-decision-experience {
-  --tone: #7ea6f5;
-  --tone-ink: #a8c4f8;
-}
-
-/* ---------- Cards ---------- */
+/* Shared premium surface primitives.
+ * Palette, navigation, homepage atmosphere, profile hierarchy, and button color
+ * now belong to the canonical visual-system layers. This file owns only neutral
+ * reusable geometry and interaction behavior. */
 
 html .card-premium,
 html .scientific-card,
@@ -49,42 +12,42 @@ html .surface-subtle,
 html .section-frame,
 html .glass-card,
 html .mobile-reading-card {
-  border: 1px solid color-mix(in srgb, var(--tone) 22%, transparent);
+  border: 1px solid var(--border-soft);
   border-radius: 1.25rem;
-  background:
-    linear-gradient(160deg, color-mix(in srgb, var(--tone) 9%, transparent), transparent 62%),
-    var(--hs-surface);
+  background: var(--surface-card);
   box-shadow: var(--hs-lift);
-  transition:
-    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 260ms ease,
-    border-color 260ms ease;
-}
-
-html.dark .card-premium,
-html.dark .scientific-card,
-html.dark .library-card-premium,
-html.dark .library-content-card,
-html.dark .surface-depth,
-html.dark .surface-subtle,
-html.dark .section-frame,
-html.dark .glass-card,
-html.dark .mobile-reading-card {
-  border-color: color-mix(in srgb, var(--tone) 28%, transparent);
-  background:
-    linear-gradient(158deg, color-mix(in srgb, var(--tone) 20%, transparent), transparent 68%),
-    var(--hs-surface);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 html a.card-premium:hover,
-html a .card-premium:hover,
 html button.card-premium:hover,
 html .card-premium:has(> a):hover,
 html .library-card-premium:hover,
 html .library-content-card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--tone) 48%, transparent);
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
   box-shadow: var(--hs-lift-hover);
+}
+
+html .chip-readable {
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  background: var(--surface-card);
+  color: var(--text-primary);
+  box-shadow: none;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+html a.chip-readable:hover,
+html button.chip-readable:hover {
+  border-color: color-mix(in srgb, var(--hs-gold) 42%, var(--border-strong));
+  background: var(--surface-card-strong);
+}
+
+html main hr {
+  height: 1px;
+  border: 0;
+  background: var(--border-soft);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -96,327 +59,15 @@ html .library-content-card:hover {
   html .surface-subtle,
   html .section-frame,
   html .glass-card,
-  html .mobile-reading-card {
-    transition: none;
-  }
-
-  html a.card-premium:hover,
-  html .library-card-premium:hover,
-  html .library-content-card:hover {
-    transform: none;
-  }
-}
-
-/* ---------- Eyebrows ---------- */
-
-html .eyebrow-label,
-html .section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--hs-gold-ink);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-html .eyebrow-label::before,
-html .section-label::before {
-  content: '';
-  width: 1.6rem;
-  height: 1px;
-  flex: 0 0 auto;
-  background: currentColor;
-  opacity: 0.55;
-}
-
-@media (max-width: 480px) {
-  html .eyebrow-label,
-  html .section-label {
-    gap: 0.5rem;
-    font-size: 0.64rem;
-    letter-spacing: 0.15em;
-  }
-
-  html .eyebrow-label::before,
-  html .section-label::before {
-    width: 1.1rem;
-  }
-}
-
-/* ---------- Chips ---------- */
-
-html .chip-readable {
-  border: 1px solid var(--hs-hairline);
-  border-radius: 999px;
-  background: var(--hs-surface);
-  color: var(--hs-ink);
-  box-shadow: var(--hs-lift);
-  transition:
-    transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 200ms ease,
-    box-shadow 200ms ease;
-}
-
-html a.chip-readable:hover,
-html button.chip-readable:hover {
-  transform: translateY(-2px);
-  border-color: var(--hs-gold);
-  box-shadow: var(--hs-lift-hover);
-}
-
-@media (prefers-reduced-motion: reduce) {
+  html .mobile-reading-card,
   html .chip-readable {
     transition: none;
   }
 
-  html a.chip-readable:hover,
-  html button.chip-readable:hover {
+  html a.card-premium:hover,
+  html button.card-premium:hover,
+  html .library-card-premium:hover,
+  html .library-content-card:hover {
     transform: none;
-  }
-}
-
-/* ---------- Buttons ---------- */
-
-html .button-primary {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(48, 43, 58, 0.92);
-  background: linear-gradient(140deg, #454052 0%, #302c39 55%, #28242f 100%);
-  color: #fffaf3;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.13) inset,
-    0 14px 30px -12px rgba(48, 43, 58, 0.58);
-}
-
-html.dark .button-primary {
-  border-color: rgba(213, 173, 108, 0.38);
-  background: linear-gradient(140deg, #625985 0%, #433d59 55%, #302b3d 100%);
-}
-
-html .button-primary:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.17) inset,
-    0 20px 40px -12px rgba(48, 43, 58, 0.48);
-}
-
-html .button-secondary {
-  border: 1px solid var(--hs-hairline-strong);
-  background: var(--hs-surface-2);
-  color: var(--hs-ink);
-  backdrop-filter: blur(10px);
-}
-
-html .button-secondary:hover {
-  transform: translateY(-2px);
-  border-color: var(--hs-gold);
-  background: var(--hs-surface);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html .button-primary:hover,
-  html .button-secondary:hover {
-    transform: none;
-  }
-}
-
-/* ---------- Dividers ---------- */
-
-html main hr {
-  border: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--hs-hairline-strong) 12%,
-    var(--hs-hairline-strong) 88%,
-    transparent
-  );
-}
-
-/* ---------- Mobile navigation widget ---------- */
-
-@keyframes hs-widget-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* ---------- Mobile homepage palette correction ---------- */
-
-@media (max-width: 639px) {
-  .hs-home .hs-hero {
-    background:
-      radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--hs-gold) 16%, transparent), transparent 34%),
-      radial-gradient(circle at 8% 18%, rgba(111, 102, 168, 0.14), transparent 36%),
-      linear-gradient(155deg, color-mix(in srgb, var(--hs-surface) 95%, transparent), var(--hs-surface-2));
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.6) inset,
-      0 24px 60px -36px rgba(62, 55, 73, 0.34);
-  }
-
-  .dark .hs-home .hs-hero {
-    background:
-      radial-gradient(circle at 92% 8%, rgba(213, 173, 108, 0.13), transparent 34%),
-      radial-gradient(circle at 8% 18%, rgba(123, 109, 186, 0.18), transparent 38%),
-      linear-gradient(155deg, rgba(47, 43, 58, 0.98), rgba(29, 27, 35, 0.99));
-  }
-
-  .hs-home .hs-hero .hs-btn-primary {
-    border-color: rgba(49, 44, 59, 0.92);
-    background: linear-gradient(140deg, #4a4458 0%, #332f3d 55%, #292530 100%);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.14) inset,
-      0 14px 30px -12px rgba(49, 44, 59, 0.55);
-  }
-
-  .dark .hs-home .hs-hero .hs-btn-primary {
-    border-color: rgba(213, 173, 108, 0.38);
-    background: linear-gradient(140deg, #665c8c 0%, #493f61 55%, #332c43 100%);
-  }
-
-  .hs-home .hs-hero .hs-btn-primary,
-  .hs-home .hs-hero .hs-btn-ghost,
-  .hs-home .hs-hero .hs-rail > * {
-    box-shadow: 0 12px 28px -20px rgba(55, 49, 65, 0.38);
-  }
-
-  .hs-home #choose-a-path {
-    border-color: rgba(218, 189, 139, 0.2);
-    background:
-      radial-gradient(circle at 100% 0%, rgba(213, 173, 108, 0.18), transparent 35%),
-      radial-gradient(circle at 0% 100%, rgba(119, 103, 181, 0.22), transparent 40%),
-      linear-gradient(155deg, #463f53 0%, #332e3d 52%, #292530 100%);
-    box-shadow: 0 26px 58px -38px rgba(28, 24, 34, 0.9);
-  }
-
-  .hs-home #choose-a-path .hs-lede {
-    color: rgba(245, 240, 248, 0.76);
-  }
-
-  .hs-home section:has(.hs-vs):has(.hs-tool) > div {
-    box-shadow: 0 18px 42px -34px rgba(55, 49, 65, 0.42);
-  }
-}
-
-/* ---------- Site navigation palette ---------- */
-
-nav[aria-label='Primary'] {
-  border-color: var(--hs-hairline) !important;
-  background: color-mix(in srgb, var(--hs-surface) 93%, transparent) !important;
-}
-
-nav[aria-label='Primary'] a {
-  color: var(--hs-body) !important;
-}
-
-nav[aria-label='Primary'] a:hover,
-nav[aria-label='Primary'] a[aria-current='page'],
-nav[aria-label='Primary'] a[aria-label='The Hippie Scientist home'] {
-  color: var(--hs-ink) !important;
-}
-
-nav[aria-label='Primary'] a[aria-label='The Hippie Scientist home'] svg {
-  color: var(--tone-ink) !important;
-}
-
-nav[aria-label='Primary'] button[aria-controls='mobile-nav'] {
-  border-color: var(--hs-hairline) !important;
-  background: color-mix(in srgb, var(--hs-surface) 88%, transparent) !important;
-  color: var(--hs-ink) !important;
-}
-
-#mobile-nav > div[aria-hidden='true'] {
-  background: rgba(42, 38, 49, 0.24) !important;
-}
-
-#mobile-nav [role='dialog'] {
-  border-color: var(--hs-hairline) !important;
-  background: var(--hs-surface) !important;
-}
-
-#mobile-nav [role='dialog'] button {
-  border-color: var(--hs-hairline) !important;
-  color: var(--hs-ink) !important;
-}
-
-/* ---------- Profile palette + hierarchy ---------- */
-
-/* The legacy profile polish used forest green for every major container. Keep
-   the premium depth, but make the hero the visual anchor and let secondary
-   sections recede into neutral editorial surfaces. */
-main:has(nav[aria-label='Jump to profile sections']) .hero-shell {
-  border-color: color-mix(in srgb, var(--tone) 28%, transparent) !important;
-  background:
-    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--hs-gold) 15%, transparent), transparent 34%),
-    radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--tone) 15%, transparent), transparent 42%),
-    linear-gradient(155deg, #fffaf3 0%, #f6f1f7 100%) !important;
-  box-shadow: 0 24px 58px -34px rgba(53, 47, 65, 0.28) !important;
-}
-
-html.dark main:has(nav[aria-label='Jump to profile sections']) .hero-shell {
-  border-color: color-mix(in srgb, var(--tone) 34%, transparent) !important;
-  background:
-    radial-gradient(circle at 100% 0%, rgba(213, 173, 108, 0.12), transparent 34%),
-    radial-gradient(circle at 0% 100%, rgba(125, 111, 187, 0.18), transparent 42%),
-    linear-gradient(155deg, #332f3d 0%, #232129 100%) !important;
-  box-shadow: 0 26px 64px -34px rgba(0, 0, 0, 0.72) !important;
-}
-
-main:has(nav[aria-label='Jump to profile sections']) #quick-stats,
-main:has(nav[aria-label='Jump to profile sections']) #compare,
-main:has(nav[aria-label='Jump to profile sections']) section.rounded-2xl {
-  border-color: var(--hs-hairline) !important;
-  background:
-    linear-gradient(160deg, color-mix(in srgb, var(--tone) 6%, transparent), transparent 68%),
-    color-mix(in srgb, var(--hs-surface) 95%, transparent) !important;
-  box-shadow: 0 12px 30px -24px rgba(53, 47, 65, 0.22) !important;
-}
-
-html.dark main:has(nav[aria-label='Jump to profile sections']) #quick-stats,
-html.dark main:has(nav[aria-label='Jump to profile sections']) #compare,
-html.dark main:has(nav[aria-label='Jump to profile sections']) section.rounded-2xl {
-  border-color: var(--hs-hairline) !important;
-  background:
-    linear-gradient(160deg, color-mix(in srgb, var(--tone) 10%, transparent), transparent 68%),
-    rgba(255, 255, 255, 0.035) !important;
-}
-
-main:has(nav[aria-label='Jump to profile sections']) p,
-main:has(nav[aria-label='Jump to profile sections']) li,
-main:has(nav[aria-label='Jump to profile sections']) dd {
-  color: var(--hs-body) !important;
-}
-
-main:has(nav[aria-label='Jump to profile sections']) h1,
-main:has(nav[aria-label='Jump to profile sections']) h2,
-main:has(nav[aria-label='Jump to profile sections']) h3 {
-  color: var(--hs-ink) !important;
-}
-
-main:has(nav[aria-label='Jump to profile sections']) table,
-main:has(nav[aria-label='Jump to profile sections']) .rounded-xl {
-  border-color: var(--hs-hairline) !important;
-}
-
-@media (max-width: 768px) {
-  main:has(nav[aria-label='Jump to profile sections']) .hero-shell {
-    border-radius: 1.5rem !important;
-    padding: 1.25rem !important;
-  }
-
-  main:has(nav[aria-label='Jump to profile sections']) #quick-stats,
-  main:has(nav[aria-label='Jump to profile sections']) #compare,
-  main:has(nav[aria-label='Jump to profile sections']) section.rounded-2xl {
-    border-radius: 1.1rem !important;
-    box-shadow: 0 8px 24px -22px rgba(53, 47, 65, 0.18) !important;
   }
 }
