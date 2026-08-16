@@ -35,7 +35,7 @@ export default function LocalizedResearchProfilePage({
 
   return (
     <article className='mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-16 lg:px-10' lang={lang}>
-      <header className='rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-card-strong)] p-6 shadow-[0_18px_48px_rgba(45,35,19,0.08)] sm:p-10'>
+      <header className='rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-card-strong)] p-6 shadow-[var(--hs-lift)] sm:p-10'>
         <p className='text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--hs-gold)]'>{ui.evidenceEyebrow}</p>
         <h1 className='mt-4 font-display text-4xl font-semibold tracking-[-0.035em] text-[var(--text-primary)] sm:text-5xl'>{translation.title}</h1>
         <p className='mt-6 max-w-3xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg'>{translation.summary}</p>
