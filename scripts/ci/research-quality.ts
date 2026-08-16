@@ -8,16 +8,8 @@ import path from 'node:path'
 import { buildAiCitationReadiness, writeAiCitationReadinessReport } from '../../lib/ai-citation-readiness'
 import { analyzeCitationIntegrity, writeCitationIntegrityReport } from '../../lib/citation-integrity.mjs'
 import { analyzeEvidenceGradeConsistency, writeEvidenceGradeConsistencyReport } from '../../lib/evidence-grade-consistency'
-import { analyzeClaimLanguageCalibration } from '../../lib/research-claim-language-calibration'
-import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
-import { buildResearchQualityGate } from '../../lib/research-quality-gate'
-import { buildResearchGapQueue } from '../../lib/research-quality-policy'
-import { buildResearchQualityTopology } from '../../lib/research-quality-topology'
-import {
-  analyzeResearchSemanticAlignment,
-  writeResearchSemanticAlignmentReport,
-} from '../../lib/research-semantic-alignment'
-import { analyzeResearchSourceIntegrity } from '../../lib/research-source-integrity'
+import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
+import { writeResearchSemanticAlignmentReport } from '../../lib/research-semantic-alignment'
 
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
@@ -41,15 +33,12 @@ console.log('\nCanonical research-quality pipeline')
 console.log('='.repeat(76))
 
 const coreStarted = Date.now()
-const analysis = analyzeResearchQuality(ROOT)
-const topology = buildResearchQualityTopology(analysis)
-const gate = buildResearchQualityGate(analysis, topology)
+const snapshot = buildResearchQualitySnapshot(ROOT)
+const { analysis, topology, gate, researchGapQueue, sourceIntegrity } = snapshot
 const structuralFailures = gate.structuralFailures
-const researchGapQueue = buildResearchGapQueue(analysis, topology)
-const sourceIntegrity = analyzeResearchSourceIntegrity(analysis)
-const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
+const semanticAlignment = topology.semanticAlignment
 const semanticReportPath = writeResearchSemanticAlignmentReport(semanticAlignment, ROOT)
-const languageCalibration = analyzeClaimLanguageCalibration(analysis)
+const languageCalibration = topology.claimLanguageCalibration
 const citationIntegrity = analyzeCitationIntegrity(analysis.profiles)
 const citationReportPath = writeCitationIntegrityReport(citationIntegrity, ROOT)
 const evidenceGradeConsistency = analyzeEvidenceGradeConsistency(ROOT)
@@ -168,7 +157,7 @@ const coreSummary = {
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
   schemaVersion: 20, generatedAt: new Date().toISOString(), passed: !failed,
-  source: { analysis: 'lib/research-quality-analysis.ts', topology: 'lib/research-quality-topology.ts', policy: 'lib/research-quality-policy.ts', gate: 'lib/research-quality-gate.ts', claimEvidenceDiversity: 'lib/research-claim-evidence-diversity.ts', claimProvenanceIndependence: 'lib/research-claim-provenance-independence.ts', semanticAlignment: 'lib/research-semantic-alignment.ts', claimLanguageCalibration: 'lib/research-claim-language-calibration.ts', designUsage: 'lib/research-design-usage.ts', provenanceConcentration: 'lib/research-provenance-concentration.ts', studyIdentityCoverage: 'lib/research-study-identity-coverage.ts', studyClassConflicts: 'lib/research-study-class-conflicts.ts', citationIntegrity: 'lib/citation-integrity.mjs', sourceIntegrity: 'lib/research-source-integrity.ts', evidenceGradeConsistency: 'lib/evidence-grade-consistency.ts', aiCitationReadiness: 'lib/ai-citation-readiness.ts' },
+  source: { snapshot: 'lib/research-quality-snapshot.ts', analysis: 'lib/research-quality-analysis.ts', topology: 'lib/research-quality-topology.ts', policy: 'lib/research-quality-policy.ts', gate: 'lib/research-quality-gate.ts', claimEvidenceDiversity: 'lib/research-claim-evidence-diversity.ts', claimProvenanceIndependence: 'lib/research-claim-provenance-independence.ts', semanticAlignment: 'lib/research-semantic-alignment.ts', claimLanguageCalibration: 'lib/research-claim-language-calibration.ts', designUsage: 'lib/research-design-usage.ts', provenanceConcentration: 'lib/research-provenance-concentration.ts', studyIdentityCoverage: 'lib/research-study-identity-coverage.ts', studyClassConflicts: 'lib/research-study-class-conflicts.ts', citationIntegrity: 'lib/citation-integrity.mjs', sourceIntegrity: 'lib/research-source-integrity.ts', evidenceGradeConsistency: 'lib/evidence-grade-consistency.ts', aiCitationReadiness: 'lib/ai-citation-readiness.ts' },
   coreSummary, structuralFailures, severeStudyClassConflicts: gate.severeStudyClassConflicts, studyClassConflicts: studyClassConflicts.conflicts.slice(0, 150), citationIntegrity: { blocking: citationIntegrity.blocking, duplicateProfileSources: citationIntegrity.duplicateProfileSources, identifierPairConflicts: citationIntegrity.identifierPairConflicts, conflicts: citationIntegrity.conflicts, missingCounts: citationIntegrity.missingCounts },
   semanticAlignment: { summary: semanticAlignment.summary, highConfidenceMismatches: semanticAlignment.highConfidenceMismatches.slice(0, 100), findings: semanticAlignment.findings.slice(0, 200) },
   claimLanguageCalibration: { summary: languageCalibration.summary, highConfidenceFindings: languageCalibration.highConfidenceFindings.slice(0, 100), findings: languageCalibration.findings.slice(0, 200) },
