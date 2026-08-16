@@ -238,14 +238,14 @@ function hasExplicitClaimOverreachFlag(record: RuntimeRecord): boolean {
 }
 
 function aggregateRelationship(relationships: PublicStudyRelationship[]): EvidenceRelationship {
-  const values = new Set(relationships.map(item => item.relationship))
-  if (values.has('supports') && (values.has('contradicts') || values.has('no_clear_effect'))) return 'mixed'
-  if (values.has('contradicts') && values.has('mixed')) return 'mixed'
-  if (values.has('mixed')) return 'mixed'
-  if (values.has('contradicts')) return 'contradicts'
-  if (values.has('supports')) return 'supports'
-  if (values.has('no_clear_effect')) return 'no_clear_effect'
-  return 'background'
+  const directional = new Set(
+    relationships
+      .map(item => item.relationship)
+      .filter((value) => value !== 'background'),
+  )
+  if (directional.size === 0) return 'background'
+  if (directional.has('mixed') || directional.size > 1) return 'mixed'
+  return [...directional][0]
 }
 
 function relationshipContextKey(relationship: PublicStudyRelationship): string {
