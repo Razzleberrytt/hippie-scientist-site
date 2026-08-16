@@ -38,6 +38,7 @@ function topology(overrides: Record<string, unknown> = {}): ResearchQualityTopol
     claimBreadth: { findings: [] },
     effectCertainty: { findings: [] },
     directionalConsistency: { findings: [] },
+    selectiveOutcomeReporting: { findings: [] },
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { lowCoverageClaims: [] },
     metadataIntegrity: { profiles: [] },
