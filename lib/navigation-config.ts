@@ -234,23 +234,6 @@ export const routeLabels: Record<string, RouteMetadata> = {
   },
 }
 
-export const footerLinks = {
-  legal: [
-    { label: 'Privacy Policy', href: '/info/privacy' },
-    { label: 'Disclaimer', href: '/info/disclaimer' },
-    { label: 'Affiliate Disclosure', href: '/info/affiliate-disclosure' },
-  ],
-  social: [],
-  meta: [
-    { label: 'Explore Everything', href: '/library' },
-    { label: 'Articles', href: '/articles' },
-    { label: 'Evidence Report', href: '/evidence/evidence-report' },
-    { label: 'Evidence Lookup', href: '/evidence/evidence-checker' },
-    { label: 'Sitemap', href: '/sitemap.xml' },
-    { label: 'RSS', href: '/rss.xml' },
-  ],
-}
-
 const SEGMENT_LABEL_OVERRIDES: Record<string, string> = {
   'lions-mane': "Lion's Mane",
   'l-theanine': 'L-Theanine',
