@@ -5,15 +5,17 @@ import { describe, expect, it } from 'vitest'
 const read = (relativePath: string) => fs.readFileSync(path.join(process.cwd(), relativePath), 'utf8')
 
 describe('Evidence Report data integrity', () => {
-  it('derives report counts from runtime records instead of hard-coded study statistics', () => {
+  it('derives report counts from canonical runtime records instead of hard-coded study statistics', () => {
     const page = read('app/evidence/evidence-report/page.tsx')
     const client = read('app/evidence/evidence-report/EvidenceReportClient.tsx')
-    const combined = `${page}\n${client}`
+    const dataset = read('lib/public-evidence-dataset.ts')
+    const combined = `${page}\n${client}\n${dataset}`
 
-    expect(page).toContain('getHerbs()')
-    expect(page).toContain('getCompounds()')
-    expect(page).toContain('getRuntimeVisibility(record).canRender')
-    expect(page).toContain('record.evidence_grade')
+    expect(page).toContain('getPublicEvidenceDataset()')
+    expect(dataset).toContain('getHerbs()')
+    expect(dataset).toContain('getCompounds()')
+    expect(dataset).toContain('getRuntimeVisibility(record).canIndex')
+    expect(dataset).toContain('getEvidenceLetterGrade(record)')
     expect(combined).not.toContain('816 peer-reviewed studies')
     expect(combined).not.toContain("pct: 15")
     expect(combined).not.toContain("pct: 25")
@@ -21,12 +23,13 @@ describe('Evidence Report data integrity', () => {
     expect(combined).not.toContain('557 compounds')
   })
 
-  it('labels the distribution as profile-level rather than study-level', () => {
+  it('labels the grade distribution as profile-level and keeps study counts distinct', () => {
     const client = read('app/evidence/evidence-report/EvidenceReportClient.tsx')
 
-    expect(client).toContain('It is a profile-level distribution, not a count or grading of individual studies.')
-    expect(client).toContain('A profile grade is not a study count')
-    expect(client).toContain('Unclassified does not mean ineffective')
+    expect(client).toContain('{item.grade} · {item.count} profiles')
+    expect(client).toContain('C, D, or Avoid/Insufficient profiles remain visibly separate from stronger evidence.')
+    expect(client).toContain('Across {metrics.studyCount.toLocaleString()} deduplicated structured study entities.')
+    expect(client).toContain('this is a screening statistic, not a risk rate.')
   })
 
   it('keeps the linked annual article aligned with the generated report', () => {
