@@ -42,15 +42,15 @@ export default function LocalizedNavigation() {
     return (
       <>
         <Navigation />
-        <div className='border-b border-[#123c2f]/10 bg-[#fffdf8]/90 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card-strong)]'>
+        <div className='border-b border-[var(--border-soft)] bg-[var(--surface-card-strong)]/90'>
           <div className='mx-auto flex max-w-7xl justify-end px-4 sm:px-6 lg:px-8'>
             <Link
               href={spanishHref}
               hrefLang='es'
-              className='inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-xs font-semibold text-[#526159] transition hover:bg-[#f5efe2] hover:text-[#123c2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42]/50 dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
+              className='inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-xs font-semibold text-[var(--text-secondary)] transition hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-brand)]'
               aria-label='Ver esta sección en español'
             >
-              <Languages className='h-3.5 w-3.5' aria-hidden='true' />
+              <Languages className='h-3.5 w-3.5 text-[var(--accent-gold)]' aria-hidden='true' />
               Español
             </Link>
           </div>
@@ -63,18 +63,18 @@ export default function LocalizedNavigation() {
 
   return (
     <nav
-      className='sticky top-0 z-[110] border-b border-[#123c2f]/10 bg-[#fffdf8]/95 backdrop-blur-xl dark:border-[var(--border-strong)] dark:bg-[rgba(20,38,29,0.95)]'
+      className='sticky top-0 z-[110] border-b border-[var(--border-soft)] bg-[color:var(--surface-card-strong)]/95 backdrop-blur-xl'
       aria-label='Navegación principal'
     >
       <div className='mx-auto max-w-7xl px-3 sm:px-6 lg:px-8'>
         <div className='flex min-h-[4.6rem] items-center justify-between gap-3'>
           <Link
             href='/es/'
-            className='flex min-w-0 items-center gap-2.5 font-display text-base font-semibold tracking-[-0.025em] text-[#123c2f] dark:text-[var(--text-primary)] sm:text-lg'
+            className='flex min-w-0 items-center gap-2.5 font-display text-base font-semibold tracking-[-0.025em] text-[var(--text-primary)] sm:text-lg'
             aria-label='Inicio de The Hippie Scientist en español'
           >
             <span className='editorial-icon-disc h-9 w-9 shrink-0 border-none bg-transparent shadow-none'>
-              <Leaf aria-hidden='true' className='h-6 w-6 text-[#315f50] dark:text-[var(--accent-teal)]' strokeWidth={1.7} />
+              <Leaf aria-hidden='true' className='h-6 w-6 text-[var(--accent-gold)]' strokeWidth={1.7} />
             </span>
             <span className='truncate'>The Hippie Scientist</span>
           </Link>
@@ -87,11 +87,7 @@ export default function LocalizedNavigation() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`font-semibold transition ${
-                    active
-                      ? 'text-[#123c2f] dark:text-[var(--text-primary)]'
-                      : 'text-[#526159] hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
-                  }`}
+                  className={`font-semibold transition ${active ? 'text-[var(--accent-gold)]' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
                 >
                   {link.label}
                 </Link>
@@ -103,9 +99,9 @@ export default function LocalizedNavigation() {
             <Link
               href={englishHref}
               hrefLang='en-US'
-              className='inline-flex min-h-11 items-center gap-1.5 rounded-full border border-[#123c2f]/10 bg-[#fffdf8] px-3 py-2 text-xs font-bold text-[#44544d] transition hover:border-[#b88a42]/30 hover:bg-[#f5efe2] dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)]'
+              className='inline-flex min-h-11 items-center gap-1.5 rounded-full border border-[var(--border-soft)] bg-[var(--surface-card)] px-3 py-2 text-xs font-bold text-[var(--text-secondary)] transition hover:border-[var(--border-strong)] hover:bg-[var(--surface-subtle)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-brand)]'
             >
-              <Languages className='h-3.5 w-3.5' aria-hidden='true' />
+              <Languages className='h-3.5 w-3.5 text-[var(--accent-gold)]' aria-hidden='true' />
               English
             </Link>
             <DarkModeToggle />
@@ -125,8 +121,8 @@ export default function LocalizedNavigation() {
                 aria-current={active ? 'page' : undefined}
                 className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-3 py-2 text-xs font-semibold transition ${
                   active
-                    ? 'bg-[#123c2f] text-[#fffdf8] dark:bg-[var(--accent-teal)] dark:text-[#0f2119]'
-                    : 'bg-[#f5efe2]/75 text-[#33433c] hover:bg-[#ece3d2] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
+                    ? 'bg-[#d0a35b] text-[#151719]'
+                    : 'border border-[var(--border-soft)] bg-[var(--surface-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 {link.label}
