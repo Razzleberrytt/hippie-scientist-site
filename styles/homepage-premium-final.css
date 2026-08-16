@@ -1,86 +1,98 @@
-/* Final homepage palette harmonization.
-   Loaded after the legacy homepage layers so desktop and edge states cannot
-   fall back to the old forest/sage identity. The evidence dial remains a
-   restrained scientific focal point rendered in graphite, ivory and brass. */
+/* Final homepage flagship treatment.
+   Keep the hero editorial and restrained: typography, actions and trust signals
+   do the work. Decorative instrumentation and implementation metrics stay out
+   of the primary decision path. */
 
 .hs-home::before {
-  background-image: radial-gradient(circle at 1px 1px, rgba(77, 68, 55, 0.07) 1px, transparent 0);
+  background-image: none;
 }
 
-.dark .hs-home::before {
-  background-image: radial-gradient(circle at 1px 1px, rgba(224, 185, 111, 0.055) 1px, transparent 0);
+.hs-home .hs-hero {
+  position: relative;
+  border-color: color-mix(in srgb, var(--hs-gold) 16%, var(--hs-hairline));
+  background: color-mix(in srgb, var(--hs-surface) 96%, transparent);
+  box-shadow: 0 24px 60px -48px rgba(29, 29, 31, 0.28);
+}
+
+.dark .hs-home .hs-hero {
+  background: color-mix(in srgb, var(--hs-surface) 94%, transparent);
+  box-shadow: 0 28px 70px -52px rgba(0, 0, 0, 0.82);
 }
 
 .hs-home .hs-hero::before {
-  background: radial-gradient(circle at 40% 40%, rgba(177, 132, 73, 0.10), transparent 65%);
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--hs-gold) 6%, transparent), transparent 34%);
 }
 
-.dark .hs-home .hs-hero::before {
-  background: radial-gradient(circle at 40% 40%, rgba(208, 163, 91, 0.10), transparent 65%);
+.hs-home .hs-hero > div:first-child {
+  display: block;
+  max-width: 54rem;
 }
 
-.hs-home .hs-dial::before {
-  background: radial-gradient(circle at 45% 40%, rgba(176, 132, 73, 0.16), transparent 68%);
+.hs-home .hs-hero > div:first-child > div:first-child {
+  position: relative;
+  z-index: 1;
 }
 
-.dark .hs-home .hs-dial::before {
-  background: radial-gradient(circle at 45% 40%, rgba(208, 163, 91, 0.14), transparent 68%);
+/* The evidence dial repeated the trust rail without adding decision value. */
+.hs-home .hs-dial {
+  display: none !important;
 }
 
-.dark .hs-home .hs-dial-ring--inner {
-  background: repeating-conic-gradient(
-    from 0deg,
-    rgba(208, 163, 91, 0.28) 0deg 0.5deg,
-    transparent 0.5deg 15deg
-  );
+/* Database counts are useful operationally, but they do not help a reader make
+   the first decision on the homepage. Keep the hero focused on intent. */
+.hs-home .hs-hero > dl:not(.hs-rail) {
+  display: none;
 }
 
-.hs-home .hs-dial-core {
-  background:
-    radial-gradient(circle at 34% 26%, rgba(255, 253, 248, 0.99), rgba(239, 234, 224, 0.96) 58%, rgba(220, 211, 196, 0.94)),
-    var(--hs-surface);
-  box-shadow:
-    0 18px 44px -16px rgba(45, 39, 31, 0.28),
-    0 0 0 10px color-mix(in srgb, var(--hs-surface) 55%, transparent),
-    0 0 0 11px var(--hs-hairline);
-}
-
-.dark .hs-home .hs-dial-core {
-  background:
-    radial-gradient(circle at 34% 26%, rgba(58, 57, 53, 0.98), rgba(34, 36, 36, 0.99) 58%, rgba(22, 24, 25, 1));
-  box-shadow:
-    0 18px 44px -12px rgba(0, 0, 0, 0.75),
-    0 0 34px -8px rgba(208, 163, 91, 0.16),
-    0 0 0 10px rgba(18, 20, 21, 0.78),
-    0 0 0 11px var(--hs-hairline);
+.hs-home .hs-rail {
+  max-width: 56rem;
+  border-top: 1px solid var(--hs-hairline);
+  border-bottom: 0;
 }
 
 .hs-home .hs-btn-primary {
-  border-color: #26352e;
-  background: linear-gradient(180deg, #35483e 0%, #293a31 100%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.10) inset,
-    0 14px 30px -14px rgba(31, 39, 34, 0.40);
+  border-color: #272729;
+  background: #272729;
+  color: #fffdf8;
+  box-shadow: 0 12px 28px -18px rgba(29, 29, 31, 0.58);
+}
+
+.hs-home .hs-btn-primary:hover {
+  border-color: #343437;
+  background: #343437;
+  box-shadow: 0 16px 34px -20px rgba(29, 29, 31, 0.54);
+}
+
+.hs-home .hs-btn-primary :is(svg) {
+  color: #d9b46f !important;
 }
 
 .dark .hs-home .hs-btn-primary {
   border-color: #d0a35b;
-  background: linear-gradient(180deg, #d9ad63 0%, #bd8a43 100%);
-  color: #17191a;
-}
-
-.hs-home .hs-btn-primary:hover {
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.14) inset,
-    0 20px 40px -14px rgba(31, 39, 34, 0.36);
+  background: #d0a35b;
+  color: #151719;
+  box-shadow: 0 14px 30px -18px rgba(208, 163, 91, 0.46);
 }
 
 .dark .hs-home .hs-btn-primary:hover {
-  background: linear-gradient(180deg, #e1b970 0%, #c7954e 100%);
+  border-color: #dfb66d;
+  background: #dfb66d;
 }
 
-@media (min-width: 640px) {
+.dark .hs-home .hs-btn-primary :is(svg) {
+  color: #151719 !important;
+}
+
+@media (max-width: 639px) {
   .hs-home .hs-hero {
-    border-color: color-mix(in srgb, var(--hs-gold) 18%, var(--hs-hairline));
+    border-radius: 1.25rem;
+  }
+
+  .hs-home .hs-rail > div {
+    padding-block: 0.85rem;
   }
 }
