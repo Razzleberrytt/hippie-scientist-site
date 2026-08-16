@@ -1,59 +1,8 @@
-/* Premium foundation — the homepage design language, promoted site-wide.
+/* Premium structural foundation.
  *
- * The homepage system in styles/homepage-editorial-redesign.css was written
- * scoped to .hs-home so it could not leak into other routes. That scoping is
- * what kept the rest of the site on an older, flatter surface vocabulary.
- *
- * This file lifts the palette, elevation, and hairline tokens to the document
- * root so every route can build on them. The visual direction is intentionally
- * editorial rather than "wellness green": warm ivory, charcoal ink, muted brass,
- * and restrained indigo carry the brand; botanical green is reserved for local
- * category accents where it has semantic value.
+ * Palette and elevation tokens now belong to the later canonical visual-system
+ * layers. This file owns only the shared page canvas geometry and content measure.
  */
-
-:root {
-  --hs-gold: #a9772f;
-  --hs-gold-bright: #bd8a3d;
-  --hs-gold-soft: #dfc59c;
-  --hs-ink: #29272f;
-  --hs-ink-soft: #514d59;
-  --hs-body: #625e68;
-  --hs-hairline: rgba(45, 42, 52, 0.11);
-  --hs-hairline-strong: rgba(45, 42, 52, 0.19);
-  --hs-surface: #fffaf3;
-  --hs-surface-2: rgba(255, 250, 243, 0.74);
-  --hs-lift: 0 1px 2px rgba(44, 37, 34, 0.045), 0 12px 32px -12px rgba(49, 42, 52, 0.14);
-  --hs-lift-hover: 0 2px 4px rgba(44, 37, 34, 0.055), 0 26px 56px -18px rgba(49, 42, 52, 0.23);
-
-  /* A quiet editorial ground: ivory first, with a soft indigo signal and a
-     brass warmth near the top. */
-  --hs-canvas: radial-gradient(105% 55% at 12% -8%, rgba(111, 101, 171, 0.15), transparent 58%),
-    radial-gradient(90% 48% at 88% -4%, rgba(189, 138, 61, 0.10), transparent 58%),
-    linear-gradient(180deg, #fffaf3 0%, #fbf7f1 34%, #f7f1ea 100%);
-  --hs-dot: rgba(64, 58, 75, 0.11);
-  --hs-dot-opacity: 0.42;
-}
-
-html.dark {
-  --hs-gold: #d5ad6c;
-  --hs-gold-bright: #e3c183;
-  --hs-gold-soft: rgba(213, 173, 108, 0.25);
-  --hs-ink: #f5f0e8;
-  --hs-ink-soft: #d5cedb;
-  --hs-body: #c4bec9;
-  --hs-hairline: rgba(225, 217, 232, 0.13);
-  --hs-hairline-strong: rgba(225, 217, 232, 0.24);
-  --hs-surface: #201e25;
-  --hs-surface-2: rgba(35, 32, 41, 0.68);
-  --hs-lift: 0 1px 0 rgba(255, 255, 255, 0.045) inset, 0 16px 40px -16px rgba(0, 0, 0, 0.68);
-  --hs-lift-hover: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 30px 64px -20px rgba(0, 0, 0, 0.82);
-
-  --hs-canvas: radial-gradient(110% 55% at 12% -8%, rgba(105, 91, 172, 0.24), transparent 60%),
-    radial-gradient(80% 42% at 88% -4%, rgba(182, 132, 72, 0.11), transparent 60%),
-    linear-gradient(180deg, #151319 0%, #121116 48%, #17141b 100%);
-  --hs-dot: rgba(215, 207, 224, 0.12);
-  --hs-dot-opacity: 0.34;
-}
 
 /* ---------- Page canvas ---------- */
 
