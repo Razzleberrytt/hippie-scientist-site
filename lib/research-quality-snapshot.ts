@@ -4,6 +4,10 @@ import { analyzeResearchQuality, type ResearchQualityAnalysis } from './research
 import { buildResearchQualityGate, type ResearchQualityGate } from './research-quality-gate'
 import { buildCanonicalResearchGapQueue } from './research-quality-remediation'
 import {
+  validateResearchRemediationInvariants,
+  type ResearchRemediationInvariantReport,
+} from './research-quality-remediation-invariants'
+import {
   validateResearchQualitySnapshotInvariants,
   type ResearchSnapshotInvariantReport,
 } from './research-quality-snapshot-invariants'
@@ -19,6 +23,7 @@ export type ResearchQualitySnapshot = {
   citationIntegrity: ReturnType<typeof analyzeCitationIntegrity>
   evidenceGradeConsistency: ReturnType<typeof analyzeEvidenceGradeConsistency>
   invariants: ResearchSnapshotInvariantReport
+  remediationInvariants: ResearchRemediationInvariantReport
 }
 
 /**
@@ -48,11 +53,18 @@ export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQual
     sourceIntegrity,
     citationIntegrity,
   )
+  const remediationInvariants = validateResearchRemediationInvariants(gate, researchGapQueue)
 
   if (!invariants.passed) {
     const details = invariants.failures.slice(0, 10).map((failure) => `${failure.kind}: ${failure.detail}`).join('; ')
     throw new Error(
       `[research-quality-snapshot] ${invariants.summary.failures} internal invariant failure(s): ${details}`,
+    )
+  }
+  if (!remediationInvariants.passed) {
+    const details = remediationInvariants.failures.slice(0, 10).map((failure) => `${failure.kind}: ${failure.url}`).join('; ')
+    throw new Error(
+      `[research-quality-snapshot] ${remediationInvariants.summary.failures} gate/remediation invariant failure(s): ${details}`,
     )
   }
 
@@ -65,5 +77,6 @@ export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQual
     citationIntegrity,
     evidenceGradeConsistency,
     invariants,
+    remediationInvariants,
   }
 }
