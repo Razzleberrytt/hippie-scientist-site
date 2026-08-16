@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import '@fontsource-variable/inter'
 import '@fontsource-variable/fraunces/wght.css'
-import { Navigation } from '@/components/Navigation'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { NavigationSchema } from '@/components/NavigationSchema'
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema'
@@ -16,6 +15,9 @@ import EmailReturnAttribution from '@/components/EmailReturnAttribution'
 import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
+import LocalizedNavigation from '@/components/localization/LocalizedNavigation'
+import SpanishFooter from '@/components/localization/SpanishFooter'
+import { EnglishOnly, SpanishOnly } from '@/components/localization/LocaleGate'
 import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
 import { serializeJsonLd } from '../src/lib/schema-injector'
 import { DEFAULT_LOCALE, DEFAULT_OG_LOCALE, LOCALE_TEXT_DIRECTION } from '../src/lib/international-seo'
@@ -124,18 +126,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteOrgLd) }}
         />
-        <NavigationSchema />
-        <BreadcrumbSchema />
+        <EnglishOnly>
+          <NavigationSchema />
+          <BreadcrumbSchema />
+        </EnglishOnly>
         <a href='#main-content' className='skip-link'>
           Skip to main content
         </a>
         <DarkModeProvider>
           <div className='hs-shell min-h-screen bg-background text-ink transition-colors duration-300'>
             <header>
-              <Navigation />
+              <LocalizedNavigation />
             </header>
-            <Breadcrumbs />
-            <CommercialIntentBridge />
+            <EnglishOnly>
+              <Breadcrumbs />
+              <CommercialIntentBridge />
+            </EnglishOnly>
             <main
               id='main-content'
               data-pagefind-body
@@ -144,12 +150,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             >
               <GlobalTOC />
               {children}
-              <ContextualLeadMagnet />
+              <EnglishOnly>
+                <ContextualLeadMagnet />
+              </EnglishOnly>
             </main>
-            <Footer />
-            <MobileBottomNav />
+            <EnglishOnly>
+              <Footer />
+              <MobileBottomNav />
+            </EnglishOnly>
+            <SpanishOnly>
+              <SpanishFooter />
+            </SpanishOnly>
             <ScrollToTopButton />
-            <CitationDrawerLazy />
+            <EnglishOnly>
+              <CitationDrawerLazy />
+            </EnglishOnly>
             <ClickTracker />
             <EmailReturnAttribution />
             <ConsentBanner />
