@@ -62,6 +62,64 @@ describe('public evidence dataset', () => {
     expect(dataset.metrics.humanTrialCount).toBe(1)
   })
 
+  it('collapses DOI-only and PMID-only rows when a DOI+PMID bridge proves one publication', () => {
+    const dataset = buildPublicEvidenceDatasetFromRecords([
+      {
+        type: 'herb',
+        record: record({
+          slug: 'doi-only',
+          name: 'DOI only',
+          sources: [{
+            title: 'Shared publication via DOI',
+            doi: '10.1000/shared-study',
+            study_type: 'randomized controlled trial',
+            relationship: 'supports',
+          }],
+        }),
+      },
+      {
+        type: 'compound',
+        record: record({
+          slug: 'bridge',
+          name: 'Bridge',
+          sources: [{
+            title: 'Shared publication bridge',
+            doi: 'https://doi.org/10.1000/shared-study',
+            pmid: '34559859',
+            study_type: 'randomized controlled trial',
+            relationship: 'mixed',
+          }],
+        }),
+      },
+      {
+        type: 'herb',
+        record: record({
+          slug: 'pmid-only',
+          name: 'PMID only',
+          sources: [{
+            title: 'Shared publication via PMID',
+            pmid: '34559859',
+            study_type: 'randomized controlled trial',
+            relationship: 'contradicts',
+          }],
+        }),
+      },
+    ])
+
+    expect(dataset.studies).toHaveLength(1)
+    expect(dataset.studies[0].id).toBe('doi:10.1000/shared-study')
+    expect(dataset.studies[0]).toMatchObject({
+      pmid: '34559859',
+      doi: '10.1000/shared-study',
+    })
+    expect(dataset.studies[0].relationships.map((item) => item.ingredientSlug).sort()).toEqual([
+      'bridge',
+      'doi-only',
+      'pmid-only',
+    ])
+    expect(dataset.metrics.studyCount).toBe(1)
+  })
+
   it('excludes non-indexable records from the public dataset', () => {
     const dataset = buildPublicEvidenceDatasetFromRecords([
       { type: 'herb', record: record({ slug: 'public', indexability_status: 'PUBLISH' }) },
