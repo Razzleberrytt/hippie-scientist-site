@@ -215,10 +215,6 @@ function addEditorialBacklogReasons(analysis: ResearchQualityAnalysis, add: AddR
 
 function addProfileReasons(analysis: ResearchQualityAnalysis, add: AddReason) {
   for (const profile of analysis.profileAnalyses) {
-    if (profile.overDependentOnSingleStudy) {
-      const concentrationBonus = Math.round(Math.min(15, profile.studyConcentrationIndex * 20))
-      add(profile.url, 'high-study-dependency', Math.round(25 + profile.dominantStudySupportedClaimShare * 30 + concentrationBonus), `${Math.round(profile.dominantStudySupportedClaimShare * 100)}% of supported approved claims depend on one canonical study; effective study count ${profile.effectiveStudyCount}`)
-    }
     if (profile.narrativeDominatedVsPrimaryHuman) {
       const detail = profile.narrativeToPrimaryHumanRatio === null ? 'no primary-human studies' : `${profile.narrativeToPrimaryHumanRatio}:1 narrative-to-primary-human ratio`
       add(profile.url, 'narrative-review-dominated-profile', RESEARCH_GAP_WEIGHTS.narrativeReviewDominatedProfile, detail)
