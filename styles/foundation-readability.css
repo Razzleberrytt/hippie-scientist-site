@@ -192,36 +192,14 @@ canvas {
   }
 }
 
-/* Goal decision page polish: scoped to /goals/[goal] runtime pages. */
-.goal-decision-experience {
-  --goal-card-border: var(--border-soft);
-  --goal-card-bg: var(--surface-card);
-}
-
-.goal-decision-experience .goal-mini-card,
-.goal-decision-experience .goal-link-card,
-.goal-decision-experience details {
-  border-color: var(--goal-card-border);
-  background-color: var(--goal-card-bg);
-}
-
+/* Goal decision page behavior: scoped to /goals/[goal] runtime pages. */
 .goal-decision-experience details summary::after {
   content: none;
-}
-
-.goal-decision-experience #comparison-table .overflow-x-auto {
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
 }
 
 .goal-decision-experience #comparison-table th,
 .goal-decision-experience #comparison-table td {
   vertical-align: top;
-}
-
-.goal-decision-experience #safety-first article {
-  border-color: color-mix(in srgb, #fb7185 22%, var(--border-soft));
-  background-color: var(--surface-danger);
 }
 
 @media (max-width: 640px) {
