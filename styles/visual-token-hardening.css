@@ -31,6 +31,12 @@
   --accent-secondary: #b18449;
   --accent-teal: #66766c;
 
+  /* Legacy editorial accent tokens now resolve to brass instead of sage. */
+  --hs-gold: #b18449;
+  --hs-gold-bright: #c99b5f;
+  --hs-gold-soft: #efe2ce;
+  --hs-gold-ink: #6f4f28;
+
   /* Keep Tailwind brand utilities compatible with the editorial identity. */
   --color-brand-50: #f1f2ef;
   --color-brand-100: #e1e5df;
@@ -74,6 +80,11 @@ html.dark {
   --accent-secondary: #8d9b91;
   --accent-teal: #829188;
 
+  --hs-gold: #d0a35b;
+  --hs-gold-bright: #e0bd7d;
+  --hs-gold-soft: rgba(208, 163, 91, 0.22);
+  --hs-gold-ink: #e4c691;
+
   --color-brand-50: #181b1c;
   --color-brand-100: #202426;
   --color-brand-200: #2a302d;
@@ -99,12 +110,35 @@ html.dark body {
   background: #0e1011 !important;
 }
 
+/* Finish the primary-action migration after older styles define forest colors. */
+.button-primary {
+  border-color: #25332c !important;
+  background: #2f4037 !important;
+  color: #ffffff !important;
+}
+
+.button-primary:hover {
+  border-color: #17201b !important;
+  background: #25332c !important;
+}
+
+html.dark .button-primary {
+  border-color: #d0a35b !important;
+  background: #d0a35b !important;
+  color: #0e1011 !important;
+}
+
+html.dark .button-primary:hover {
+  border-color: #e0bd7d !important;
+  background: #e0bd7d !important;
+}
+
 /* Generic focus and link affordances use brass rather than inherited green. */
 :where(a, button, summary, input, textarea, select):focus-visible {
-  outline-color: var(--hs-gold, #b18449) !important;
+  outline-color: var(--hs-gold) !important;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--hs-gold, #b18449) 34%, transparent);
+  background: color-mix(in srgb, var(--hs-gold) 34%, transparent);
   color: var(--text-primary);
 }
