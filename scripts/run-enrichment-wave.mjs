@@ -2,40 +2,40 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
+import { normalizeRouteSlug } from '../lib/entity-identity.mjs'
 
 const ROOT = process.cwd()
 const VALID_MODES = new Set(['full', 'source-review', 'authoring', 'submission-review', 'rollup-refresh'])
-
-function slugify(value) {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
+const PHASES = {
+  'source-review': { command: 'npx', args: ['tsx', 'scripts/report-source-wave-2-review.ts'] },
+  authoring: { command: 'npx', args: ['tsx', 'scripts/report-enrichment-wave-2-authoring.ts'] },
+  'submission-review': { command: 'npx', args: ['tsx', 'scripts/report-enrichment-submission-review.ts'] },
+  'rollup-refresh': { command: process.execPath, args: ['scripts/report-enrichment-wave-2-rollup.mjs'] },
 }
 
-function safeWaveId(waveId) {
-  const safe = slugify(waveId)
-  if (!safe) throw new Error(`Invalid --wave-id value: ${waveId}`)
+function safeWaveId(value) {
+  const safe = normalizeRouteSlug(value)
+  if (!safe) throw new Error(`Invalid --wave-id value: ${value}`)
   return safe
 }
 
 function buildWavePaths(waveId) {
   const safe = safeWaveId(waveId)
+  const reports = path.join(ROOT, 'ops', 'reports')
   return {
     sourceCandidates: path.join(ROOT, 'ops', 'source-candidates.json'),
-    sourceWaveTargets: path.join(ROOT, 'ops', 'reports', `source-${safe}-targets.json`),
-    sourceWaveCandidates: path.join(ROOT, 'ops', 'reports', `source-${safe}-candidates.json`),
-    sourceWaveSummary: path.join(ROOT, 'ops', 'reports', `source-${safe}-summary.md`),
-    sourceWaveReview: path.join(ROOT, 'ops', 'reports', `source-${safe}-review.json`),
-    sourceWaveReviewMd: path.join(ROOT, 'ops', 'reports', `source-${safe}-review.md`),
-    submissionReview: path.join(ROOT, 'ops', 'reports', 'enrichment-submission-review.json'),
-    authoringReport: path.join(ROOT, 'ops', 'reports', `enrichment-${safe}-authoring.json`),
-    authoringMd: path.join(ROOT, 'ops', 'reports', `enrichment-${safe}-authoring.md`),
-    rollupReport: path.join(ROOT, 'ops', 'reports', `enrichment-${safe}-rollup.json`),
-    rollupMd: path.join(ROOT, 'ops', 'reports', `enrichment-${safe}-rollup.md`),
-    summaryReport: path.join(ROOT, 'ops', 'reports', `enrichment-wave-runner-${safe}-summary.json`),
-    genericizationReport: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-runner-genericization.json'),
+    sourceWaveTargets: path.join(reports, `source-${safe}-targets.json`),
+    sourceWaveCandidates: path.join(reports, `source-${safe}-candidates.json`),
+    sourceWaveSummary: path.join(reports, `source-${safe}-summary.md`),
+    sourceWaveReview: path.join(reports, `source-${safe}-review.json`),
+    sourceWaveReviewMd: path.join(reports, `source-${safe}-review.md`),
+    submissionReview: path.join(reports, 'enrichment-submission-review.json'),
+    authoringReport: path.join(reports, `enrichment-${safe}-authoring.json`),
+    authoringMd: path.join(reports, `enrichment-${safe}-authoring.md`),
+    rollupReport: path.join(reports, `enrichment-${safe}-rollup.json`),
+    rollupMd: path.join(reports, `enrichment-${safe}-rollup.md`),
+    summaryReport: path.join(reports, `enrichment-wave-runner-${safe}-summary.json`),
+    genericizationReport: path.join(reports, 'enrichment-wave-runner-genericization.json'),
   }
 }
 
@@ -49,37 +49,18 @@ function writeJson(filePath, value) {
 }
 
 function parseArgs(argv) {
-  const parsed = { mode: 'full', targets: '', dryRun: false, waveId: 'wave-2' }
-
+  const args = { mode: 'full', targets: '', dryRun: false, waveId: 'wave-2', help: false }
   for (let i = 0; i < argv.length; i += 1) {
     const token = argv[i]
-    if (token === '--mode') {
-      parsed.mode = argv[i + 1] || ''
+    if (token === '--dry-run') args.dryRun = true
+    else if (token === '--help' || token === '-h') args.help = true
+    else if (token === '--mode' || token === '--targets' || token === '--wave-id') {
+      const key = token.slice(2).replace('wave-id', 'waveId')
+      args[key] = argv[i + 1] || ''
       i += 1
-      continue
-    }
-    if (token === '--targets') {
-      parsed.targets = argv[i + 1] || ''
-      i += 1
-      continue
-    }
-    if (token === '--wave-id') {
-      parsed.waveId = argv[i + 1] || ''
-      i += 1
-      continue
-    }
-    if (token === '--dry-run') {
-      parsed.dryRun = true
-      continue
-    }
-    if (token === '--help' || token === '-h') {
-      parsed.help = true
-      continue
-    }
-    throw new Error(`Unknown argument: ${token}`)
+    } else throw new Error(`Unknown argument: ${token}`)
   }
-
-  return parsed
+  return args
 }
 
 function usage() {
@@ -87,15 +68,14 @@ function usage() {
     'Usage: node scripts/run-enrichment-wave.mjs --wave-id <id> --targets <path> [--mode <full|source-review|authoring|submission-review|rollup-refresh>] [--dry-run]',
     '',
     'Examples:',
-    '  npm run run:enrichment-wave -- --wave-id wave-3 --targets ops/reports/enrichment-wave-2-targets.json --mode full',
-    '  npm run run:enrichment-wave -- --wave-id wave-2b --targets ops/reports/enrichment-wave-2b-targets.json --mode source-review',
+    '  node scripts/run-enrichment-wave.mjs --wave-id wave-3 --targets ops/targets/enrichment-wave-next.json --mode full',
+    '  node scripts/run-enrichment-wave.mjs --wave-id safety-pass --targets ops/targets/enrichment-wave-safety.json --mode source-review',
   ].join('\n')
 }
 
 function loadTargets(targetPath) {
   const resolved = path.isAbsolute(targetPath) ? targetPath : path.join(ROOT, targetPath)
   if (!fs.existsSync(resolved)) throw new Error(`Targets file not found: ${targetPath}`)
-
   const payload = readJson(resolved)
   if (!Array.isArray(payload?.targets) || payload.targets.length === 0) {
     throw new Error(`Targets file must include a non-empty targets array: ${targetPath}`)
@@ -103,19 +83,16 @@ function loadTargets(targetPath) {
 
   const targets = payload.targets.map((target, index) => {
     const entityType = target?.entityType
-    const entitySlug = slugify(target?.entitySlug)
+    const entitySlug = normalizeRouteSlug(target?.entitySlug)
     if (!['herb', 'compound'].includes(entityType) || !entitySlug) {
       throw new Error(`Invalid target at index ${index}: expected entityType herb|compound and non-empty entitySlug`)
     }
-
     return {
       entityType,
       entitySlug,
       waveStatus: target.waveStatus || 'declared-target',
       selectionWhy: target.selectionWhy || 'Declared by target artifact.',
-      highestPriorityMissingTopics: Array.isArray(target.highestPriorityMissingTopics)
-        ? target.highestPriorityMissingTopics
-        : [],
+      highestPriorityMissingTopics: Array.isArray(target.highestPriorityMissingTopics) ? target.highestPriorityMissingTopics : [],
       criticality: Array.isArray(target.criticality) ? target.criticality : [],
       currentGovernedCoverageStatus: target.currentGovernedCoverageStatus || 'unknown',
     }
@@ -135,87 +112,61 @@ function buildStagedInputs(targetReport, paths) {
   const intakeById = new Map((intakeQueue?.tasks || []).map(task => [task.intakeTaskId, task]))
   const selectedKeys = new Set(targetReport.targets.map(target => `${target.entityType}:${target.entitySlug}`))
 
-  const waveCandidates = sourceCandidates
+  const candidates = sourceCandidates
     .map(candidate => {
-      const relatedFromCandidate = Array.isArray(candidate.relatedEntities)
+      const declared = Array.isArray(candidate.relatedEntities)
         ? candidate.relatedEntities
-            .map(entity => ({ entityType: entity?.entityType, entitySlug: slugify(entity?.entitySlug) }))
+            .map(entity => ({ entityType: entity?.entityType, entitySlug: normalizeRouteSlug(entity?.entitySlug) }))
             .filter(entity => ['herb', 'compound'].includes(entity.entityType) && entity.entitySlug)
         : []
-
-      if (relatedFromCandidate.length > 0) {
-        return {
-          ...candidate,
-          relatedEntities: relatedFromCandidate,
-          relatedTopicGaps: Array.isArray(candidate.relatedTopicGaps) ? candidate.relatedTopicGaps : [],
-        }
-      }
+      if (declared.length) return { ...candidate, relatedEntities: declared, relatedTopicGaps: candidate.relatedTopicGaps || [] }
 
       const task = intakeById.get(candidate.intakeTaskId)
       const entityType = task?.itemType === 'compound_page' ? 'compound' : task?.itemType === 'herb_page' ? 'herb' : null
-      const entitySlug = slugify(task?.entitySlug)
+      const entitySlug = normalizeRouteSlug(task?.entitySlug)
       if (!entityType || !entitySlug) return null
-      return {
-        ...candidate,
-        relatedEntities: [{ entityType, entitySlug }],
-        relatedTopicGaps: task?.topicType ? [String(task.topicType)] : [],
-      }
+      return { ...candidate, relatedEntities: [{ entityType, entitySlug }], relatedTopicGaps: task?.topicType ? [String(task.topicType)] : [] }
     })
     .filter(Boolean)
-    .filter(candidate =>
-      candidate.relatedEntities.some(entity => selectedKeys.has(`${entity.entityType}:${entity.entitySlug}`)),
-    )
+    .filter(candidate => candidate.relatedEntities.some(entity => selectedKeys.has(`${entity.entityType}:${entity.entitySlug}`)))
 
   return {
     selectedTargetCount: targetReport.targets.length,
-    stagedCandidateCount: waveCandidates.length,
+    stagedCandidateCount: candidates.length,
     stagedTargetPath: path.relative(ROOT, paths.sourceWaveTargets),
     stagedCandidatePath: path.relative(ROOT, paths.sourceWaveCandidates),
     stagedTargetsPayload: {
       generatedAt: new Date().toISOString(),
-      deterministicModelVersion: 'governed-wave-runner-target-staging-v1',
-      selectionPolicy: {
-        sourceTargetArtifact: targetReport.sourcePath,
-        notes: 'Targets are explicitly declared by operator input to governed wave runner.',
-      },
+      deterministicModelVersion: 'governed-wave-runner-target-staging-v2',
+      selectionPolicy: { sourceTargetArtifact: targetReport.sourcePath, notes: 'Targets explicitly declared to the governed wave runner.' },
       targets: targetReport.targets,
     },
     stagedCandidatesPayload: {
       generatedAt: new Date().toISOString(),
-      deterministicModelVersion: 'governed-wave-runner-candidate-staging-v1',
+      deterministicModelVersion: 'governed-wave-runner-candidate-staging-v2',
       sourceCandidatesPath: path.relative(ROOT, paths.sourceCandidates),
       selectedTargetCount: targetReport.targets.length,
-      candidates: waveCandidates,
+      candidates,
     },
   }
 }
 
-function stageWaveInputFiles(stagedInput, paths) {
-  const targetSnapshot = fs.existsSync(paths.sourceWaveTargets)
-    ? fs.readFileSync(paths.sourceWaveTargets, 'utf8')
-    : null
-  const candidateSnapshot = fs.existsSync(paths.sourceWaveCandidates)
-    ? fs.readFileSync(paths.sourceWaveCandidates, 'utf8')
-    : null
-
-  writeJson(paths.sourceWaveTargets, stagedInput.stagedTargetsPayload)
-  writeJson(paths.sourceWaveCandidates, stagedInput.stagedCandidatesPayload)
-
+function stageWaveInputFiles(staged, paths) {
+  const snapshots = [paths.sourceWaveTargets, paths.sourceWaveCandidates].map(file =>
+    fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null,
+  )
+  writeJson(paths.sourceWaveTargets, staged.stagedTargetsPayload)
+  writeJson(paths.sourceWaveCandidates, staged.stagedCandidatesPayload)
   return () => {
-    if (targetSnapshot === null) fs.rmSync(paths.sourceWaveTargets, { force: true })
-    else fs.writeFileSync(paths.sourceWaveTargets, targetSnapshot, 'utf8')
-
-    if (candidateSnapshot === null) fs.rmSync(paths.sourceWaveCandidates, { force: true })
-    else fs.writeFileSync(paths.sourceWaveCandidates, candidateSnapshot, 'utf8')
+    ;[paths.sourceWaveTargets, paths.sourceWaveCandidates].forEach((file, index) => {
+      if (snapshots[index] === null) fs.rmSync(file, { force: true })
+      else fs.writeFileSync(file, snapshots[index], 'utf8')
+    })
   }
 }
 
 function phasePlan(mode) {
-  if (mode === 'source-review') return ['source-review']
-  if (mode === 'authoring') return ['authoring']
-  if (mode === 'submission-review') return ['submission-review']
-  if (mode === 'rollup-refresh') return ['rollup-refresh']
-  return ['source-review', 'authoring', 'submission-review', 'rollup-refresh']
+  return mode === 'full' ? Object.keys(PHASES) : [mode]
 }
 
 function wavePhaseEnv(waveId, paths) {
@@ -235,55 +186,57 @@ function wavePhaseEnv(waveId, paths) {
   }
 }
 
-function runCommand(command, args, env) {
-  execFileSync(command, args, { cwd: ROOT, stdio: 'inherit', env })
+function preflight(plan) {
+  for (const phase of plan) {
+    const spec = PHASES[phase]
+    if (!spec) throw new Error(`No implementation registered for phase: ${phase}`)
+    const script = spec.args.at(-1)
+    if (script?.startsWith('scripts/') && !fs.existsSync(path.join(ROOT, script))) {
+      throw new Error(`Missing phase implementation for ${phase}: ${script}`)
+    }
+  }
 }
 
 function runPhase(phase, env) {
-  if (phase === 'source-review') {
-    runCommand('npm', ['run', 'report:source-wave-2-review'], env)
-    return
-  }
-  if (phase === 'authoring') {
-    runCommand('npm', ['run', 'report:enrichment-authoring-packs'], env)
-    return
-  }
-  if (phase === 'submission-review') {
-    runCommand('npm', ['run', 'report:enrichment-submission-review'], env)
-    return
-  }
-  if (phase === 'rollup-refresh') {
-    runCommand('node', ['scripts/report-enrichment-wave-2-rollup.mjs'], env)
-  }
+  const { command, args } = PHASES[phase]
+  execFileSync(command, args, { cwd: ROOT, stdio: 'inherit', env })
 }
 
 function topicCovered(topic, coverage) {
   if (topic === 'evidence') return Number(coverage?.evidence || 0) > 0
-  if (topic === 'safety' || topic === 'interactions' || topic === 'population-cautions') return Number(coverage?.safety || 0) > 0
+  if (['safety', 'interactions', 'population-cautions'].includes(topic)) return Number(coverage?.safety || 0) > 0
   if (topic === 'mechanism') return Number(coverage?.mechanism || 0) > 0
-  if (topic === 'constituent' || topic === 'conflict-uncertainty') return Number(coverage?.constituent || 0) > 0
+  if (['constituent', 'conflict-uncertainty'].includes(topic)) return Number(coverage?.constituent || 0) > 0
   return false
 }
 
-function buildSummary(waveId, targetReport, plan, stageMeta, dryRun, paths) {
-  const summary = {
+function buildSummary(waveId, targetReport, plan, staged, dryRun, paths) {
+  const sourceReview = fs.existsSync(paths.sourceWaveReview) ? readJson(paths.sourceWaveReview) : null
+  const submissionReview = fs.existsSync(paths.submissionReview) ? readJson(paths.submissionReview) : null
+  const rollup = fs.existsSync(paths.rollupReport) ? readJson(paths.rollupReport) : null
+  const coverageDeltas = Array.isArray(rollup?.beforeAfterByWaveTarget)
+    ? rollup.beforeAfterByWaveTarget.map(row => ({
+        entityType: row.entityType,
+        entitySlug: row.entitySlug,
+        beforeGovernedEntries: Number(row?.governedEntriesIncluded?.before || 0),
+        afterGovernedEntries: Number(row?.governedEntriesIncluded?.after || 0),
+        deltaGovernedEntries: Number(row?.governedEntriesIncluded?.delta || 0),
+        beforeTopicCoverage: row?.topicCoverage?.before || {},
+        afterTopicCoverage: row?.topicCoverage?.after || {},
+      }))
+    : []
+  const byKey = new Map(coverageDeltas.map(row => [`${row.entityType}:${row.entitySlug}`, row]))
+
+  return {
     generatedAt: new Date().toISOString(),
-    deterministicModelVersion: 'governed-enrichment-wave-runner-summary-v2',
-    wave: {
-      waveId,
-      submissionPrefix: `sub_${safeWaveId(waveId).replace(/-/g, '')}-`,
-    },
-    targetArtifact: {
-      path: targetReport.sourcePath,
-      generatedAt: targetReport.generatedAt,
-      deterministicModelVersion: targetReport.deterministicModelVersion,
-      selectedTargets: targetReport.targets,
-    },
+    deterministicModelVersion: 'governed-enrichment-wave-runner-summary-v3',
+    wave: { waveId, submissionPrefix: `sub_${safeWaveId(waveId).replace(/-/g, '')}-` },
+    targetArtifact: { path: targetReport.sourcePath, generatedAt: targetReport.generatedAt, deterministicModelVersion: targetReport.deterministicModelVersion, selectedTargets: targetReport.targets },
     execution: {
-      mode: plan.length === 4 ? 'full' : plan[0],
+      mode: plan.length === Object.keys(PHASES).length ? 'full' : plan[0],
       dryRun,
       phasesRun: plan,
-      stagedInputs: stageMeta,
+      stagedInputs: staged,
       reportPaths: {
         sourceReview: path.relative(ROOT, paths.sourceWaveReview),
         authoring: path.relative(ROOT, paths.authoringReport),
@@ -292,153 +245,63 @@ function buildSummary(waveId, targetReport, plan, stageMeta, dryRun, paths) {
       },
     },
     sourceReview: {
-      approvedNewSourceCount: 0,
-      promotedToRegistryCount: 0,
-      blockedCandidates: [],
-    },
-    submissionReview: {
-      approvedNewEnrichmentEntryCount: 0,
-      promotedSubmissionIds: [],
-      blockedSubmissionIds: [],
-    },
-    coverageDeltas: [],
-    unresolvedCriticalGaps: [],
-  }
-
-  if (fs.existsSync(paths.sourceWaveReview)) {
-    const sourceReview = readJson(paths.sourceWaveReview)
-    summary.sourceReview = {
       approvedNewSourceCount: Number(sourceReview?.summary?.approvedCount || 0),
       promotedToRegistryCount: Number(sourceReview?.summary?.promotedCount || 0),
-      blockedCandidates: (sourceReview?.candidateDecisions || [])
-        .filter(row => row.promotedSourceId == null)
-        .map(row => ({
-          candidateSourceId: row.candidateSourceId,
-          reasons: row.reasons || [],
-        })),
-    }
-  }
-
-  if (fs.existsSync(paths.submissionReview)) {
-    const submissionReview = readJson(paths.submissionReview)
-    summary.submissionReview = {
+      blockedCandidates: (sourceReview?.candidateDecisions || []).filter(row => row.promotedSourceId == null).map(row => ({ candidateSourceId: row.candidateSourceId, reasons: row.reasons || [] })),
+    },
+    submissionReview: {
       approvedNewEnrichmentEntryCount: Number(submissionReview?.summary?.promotableCount || 0),
       promotedSubmissionIds: submissionReview?.promotion?.promotedSubmissionIds || [],
       blockedSubmissionIds: submissionReview?.promotion?.blockedSubmissionIds || [],
-    }
+    },
+    coverageDeltas,
+    unresolvedCriticalGaps: targetReport.targets.map(target => {
+      const after = byKey.get(`${target.entityType}:${target.entitySlug}`)?.afterTopicCoverage || {}
+      const unresolved = target.highestPriorityMissingTopics.filter(topic => !topicCovered(topic, after))
+      return { entityType: target.entityType, entitySlug: target.entitySlug, unresolvedCriticalTopics: unresolved, blockerReasons: unresolved.length ? ['critical_topic_still_uncovered_after_rollup'] : [] }
+    }),
   }
-
-  if (fs.existsSync(paths.rollupReport)) {
-    const rollup = readJson(paths.rollupReport)
-    const deltaRows = Array.isArray(rollup?.beforeAfterByWaveTarget) ? rollup.beforeAfterByWaveTarget : []
-
-    summary.coverageDeltas = deltaRows.map(row => ({
-      entityType: row.entityType,
-      entitySlug: row.entitySlug,
-      beforeGovernedEntries: Number(row?.governedEntriesIncluded?.before || 0),
-      afterGovernedEntries: Number(row?.governedEntriesIncluded?.after || 0),
-      deltaGovernedEntries: Number(row?.governedEntriesIncluded?.delta || 0),
-      beforeTopicCoverage: row?.topicCoverage?.before || {},
-      afterTopicCoverage: row?.topicCoverage?.after || {},
-    }))
-
-    const byKey = new Map(summary.coverageDeltas.map(row => [`${row.entityType}:${row.entitySlug}`, row]))
-    summary.unresolvedCriticalGaps = targetReport.targets.map(target => {
-      const key = `${target.entityType}:${target.entitySlug}`
-      const delta = byKey.get(key)
-      const afterCoverage = delta?.afterTopicCoverage || {}
-      const unresolved = target.highestPriorityMissingTopics.filter(topic => !topicCovered(topic, afterCoverage))
-      return {
-        entityType: target.entityType,
-        entitySlug: target.entitySlug,
-        unresolvedCriticalTopics: unresolved,
-        blockerReasons: unresolved.length > 0 ? ['critical_topic_still_uncovered_after_rollup'] : [],
-      }
-    })
-  }
-
-  return summary
 }
 
 function writeGenericizationSummary(paths) {
-  const summary = {
+  writeJson(paths.genericizationReport, {
     generatedAt: new Date().toISOString(),
-    deterministicModelVersion: 'enrichment-wave-runner-genericization-v1',
-    extractedWaveAgnosticPhases: [
-      {
-        phaseId: 'source-review',
-        reusedScript: 'scripts/report-source-wave-2-review.ts',
-        parameterInputs: ['ENRICHMENT_WAVE_ID', 'ENRICHMENT_WAVE_TARGETS_PATH', 'ENRICHMENT_WAVE_CANDIDATES_PATH'],
-      },
-      {
-        phaseId: 'authoring',
-        reusedScript: 'scripts/report-enrichment-wave-2-authoring.ts',
-        parameterInputs: ['ENRICHMENT_WAVE_ID', 'ENRICHMENT_WAVE_TARGETS_PATH', 'ENRICHMENT_WAVE_SUBMISSION_PREFIX'],
-      },
-      {
-        phaseId: 'submission-review',
-        reusedScript: 'scripts/report-enrichment-submission-review.ts',
-        parameterInputs: [],
-      },
-      {
-        phaseId: 'rollup-refresh',
-        reusedScript: 'scripts/report-enrichment-wave-2-rollup.mjs',
-        parameterInputs: ['ENRICHMENT_WAVE_ID', 'ENRICHMENT_WAVE_TARGETS_PATH', 'ENRICHMENT_WAVE_SUBMISSION_PREFIX'],
-      },
-    ],
-    waveAwareOutputPattern: {
-      sourceTargets: 'ops/reports/source-<wave-id>-targets.json',
-      sourceCandidates: 'ops/reports/source-<wave-id>-candidates.json',
-      sourceReview: 'ops/reports/source-<wave-id>-review.{json,md}',
-      authoring: 'ops/reports/enrichment-<wave-id>-authoring.{json,md}',
-      rollup: 'ops/reports/enrichment-<wave-id>-rollup.{json,md}',
-      runnerSummary: 'ops/reports/enrichment-wave-runner-<wave-id>-summary.json',
-    },
-  }
-
-  writeJson(paths.genericizationReport, summary)
+    deterministicModelVersion: 'enrichment-wave-runner-genericization-v2',
+    phases: Object.entries(PHASES).map(([phaseId, spec]) => ({ phaseId, executable: [spec.command, ...spec.args].join(' ') })),
+    notes: 'The runner owns phase execution directly; package.json aliases are not required.',
+  })
 }
 
 function main() {
   const args = parseArgs(process.argv.slice(2))
-  if (args.help) {
-    console.log(usage())
-    return
-  }
+  if (args.help) return console.log(usage())
   if (!args.targets) throw new Error(`Missing required argument --targets\n\n${usage()}`)
   if (!args.waveId) throw new Error(`Missing required argument --wave-id\n\n${usage()}`)
-  if (!VALID_MODES.has(args.mode)) throw new Error(`Invalid --mode value: ${args.mode}. Expected one of: ${Array.from(VALID_MODES).join(', ')}`)
+  if (!VALID_MODES.has(args.mode)) throw new Error(`Invalid --mode value: ${args.mode}. Expected one of: ${[...VALID_MODES].join(', ')}`)
 
   const waveId = safeWaveId(args.waveId)
   const paths = buildWavePaths(waveId)
-  const env = wavePhaseEnv(waveId, paths)
   const targetReport = loadTargets(args.targets)
-  const stagedInput = buildStagedInputs(targetReport, paths)
+  const staged = buildStagedInputs(targetReport, paths)
   const plan = phasePlan(args.mode)
+  preflight(plan)
 
   if (!args.dryRun) {
-    const restoreStageFiles = stageWaveInputFiles(stagedInput, paths)
+    const restore = stageWaveInputFiles(staged, paths)
     try {
-      for (const phase of plan) runPhase(phase, env)
+      for (const phase of plan) runPhase(phase, wavePhaseEnv(waveId, paths))
     } finally {
-      restoreStageFiles()
+      restore()
     }
   }
 
-  const summary = buildSummary(
-    waveId,
-    targetReport,
-    plan,
-    {
-      selectedTargetCount: stagedInput.selectedTargetCount,
-      stagedCandidateCount: stagedInput.stagedCandidateCount,
-      stagedTargetPath: stagedInput.stagedTargetPath,
-      stagedCandidatePath: stagedInput.stagedCandidatePath,
-    },
-    args.dryRun,
-    paths,
-  )
-  writeJson(paths.summaryReport, summary)
+  const stageMeta = {
+    selectedTargetCount: staged.selectedTargetCount,
+    stagedCandidateCount: staged.stagedCandidateCount,
+    stagedTargetPath: staged.stagedTargetPath,
+    stagedCandidatePath: staged.stagedCandidatePath,
+  }
+  writeJson(paths.summaryReport, buildSummary(waveId, targetReport, plan, stageMeta, args.dryRun, paths))
   writeGenericizationSummary(paths)
 
   console.log(`[run-enrichment-wave] waveId=${waveId} mode=${args.mode} dryRun=${args.dryRun} targets=${targetReport.targets.length}`)
