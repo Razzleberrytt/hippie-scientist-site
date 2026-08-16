@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: maintenance-cadence
@@ -31,6 +32,31 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Restore prior AI telemetry history
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          previous_run=$(gh run list \
+            --workflow=maintenance-cadence.yml \
+            --status=success \
+            --limit=1 \
+            --json databaseId \
+            --jq '.[0].databaseId // empty')
+          if [ -n "$previous_run" ]; then
+            mkdir -p .prior-weekly
+            gh run download "$previous_run" --pattern 'weekly-maintenance-*' --dir .prior-weekly || true
+            mkdir -p ops/ai-citations
+            prior_history=$(find .prior-weekly -type d -path '*/ops/ai-citations' -print -quit)
+            if [ -n "$prior_history" ]; then
+              cp -R "$prior_history"/. ops/ai-citations/
+              echo "Restored prior AI telemetry from workflow run $previous_run"
+            else
+              echo "Prior workflow artifact had no AI telemetry history"
+            fi
+          else
+            echo "No prior successful maintenance run found; starting telemetry history"
+          fi
 
       - name: Broken-link check
         run: npm run audit:links
@@ -63,7 +89,7 @@ jobs:
         with:
           name: weekly-maintenance-${{ github.run_id }}
           if-no-files-found: ignore
-          retention-days: 30
+          retention-days: 90
           path: |
             ops/reports/**
             ops/ai-citations/**
