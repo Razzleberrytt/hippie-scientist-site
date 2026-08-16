@@ -12,43 +12,41 @@ import {
   ShieldCheck,
   Zap,
 } from 'lucide-react'
+import { coreGoals } from '@/lib/core-goals'
 import articlesData from '@/data/articles/articles.json'
 import buildReport from '@/public/data/build-report.json'
 
-const heroGoals = [
-  {
-    slug: 'sleep',
+const goalVisuals = {
+  sleep: {
     tone: 'sleep',
-    title: 'Sleep',
-    href: '/guides/sleep/',
     icon: Moon,
     prompt: 'Compare sleep supports by timing, evidence, and next-day effects.',
   },
-  {
-    slug: 'stress',
+  stress: {
     tone: 'stress',
-    title: 'Stress',
-    href: '/guides/stress/',
     icon: Leaf,
     prompt: 'Sort calming supports and adaptogens by symptom pattern.',
   },
-  {
-    slug: 'anxiety',
+  anxiety: {
     tone: 'anxiety',
-    title: 'Anxiety',
-    href: '/guides/anxiety/',
     icon: Cloud,
     prompt: 'Research options for overthinking, tension, and calm — without hype.',
   },
-  {
-    slug: 'focus',
+  focus: {
     tone: 'focus',
-    title: 'Focus',
-    href: '/guides/focus/',
     icon: Zap,
     prompt: 'Weigh stimulant and non-stimulant approaches to attention.',
   },
-]
+} as const
+
+const heroGoals = coreGoals.map((goal) => ({
+  slug: goal.slug,
+  tone: goalVisuals[goal.slug].tone,
+  title: goal.label,
+  href: goal.href,
+  icon: goalVisuals[goal.slug].icon,
+  prompt: goalVisuals[goal.slug].prompt,
+}))
 
 const trustItems = [
   { label: 'Evidence-first', body: 'Human research before marketing claims', icon: FlaskConical },
@@ -277,7 +275,7 @@ export default function HomepageV2() {
               </>
             }
             subtitle='Begin with the outcome you care about. Each hub narrows the field before sending you into individual profiles.'
-            action={{ href: '/guides/', label: 'Browse all guides' }}
+            action={{ href: '/goals/', label: 'Browse all goals' }}
             size='lg'
           />
 
