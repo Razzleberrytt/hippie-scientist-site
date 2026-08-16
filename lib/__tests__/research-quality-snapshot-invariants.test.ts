@@ -51,11 +51,13 @@ function fixtures() {
     passed: true,
     structuralFailures: [],
     severeStudyClassConflicts: [],
+    evidenceGradeContradictions: [],
     summary: {
       structuralFailures: 0,
       unsupportedApprovedClaims: 0,
       danglingClaimSourceEdges: 0,
       severeStudyClassConflicts: 0,
+      evidenceGradeContradictions: 0,
       blockingFailures: 0,
     },
   } as ResearchQualityGate
@@ -92,6 +94,25 @@ describe('research quality snapshot invariants', () => {
     )
     expect(report.passed).toBe(true)
     expect(report.summary.failures).toBe(0)
+  })
+
+  it('accepts a legitimate Grade A gate blocker as normal gate state', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity, citationIntegrity } = fixtures()
+    gate.passed = false
+    gate.evidenceGradeContradictions = [{ url: '/herbs/example' }] as never
+    gate.summary.evidenceGradeContradictions = 1
+    gate.summary.blockingFailures = 1
+
+    const report = validateResearchQualitySnapshotInvariants(
+      analysis,
+      topology,
+      gate,
+      queue,
+      sourceIntegrity,
+      citationIntegrity,
+    )
+    expect(report.passed).toBe(true)
+    expect(report.failures).toEqual([])
   })
 
   it('accepts DOI-only and profile-local fallback source identities', () => {
@@ -146,6 +167,13 @@ describe('research quality snapshot invariants', () => {
     const kinds = report.failures.map((failure) => failure.kind)
     expect(kinds).toContain('gate-blocking-count-mismatch')
     expect(kinds).toContain('gate-pass-state-mismatch')
+  })
+
+  it('detects evidence-grade blocker count drift', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
+    gate.summary.evidenceGradeContradictions = 1
+    const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
+    expect(report.failures.map((failure) => failure.kind)).toContain('gate-evidence-grade-count-mismatch')
   })
 
   it('detects source-integrity count drift', () => {
