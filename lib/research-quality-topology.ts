@@ -1,3 +1,4 @@
+import { analyzeClaimCitationMetadata } from './research-claim-citation-metadata'
 import { analyzeClaimEvidenceDiversity } from './research-claim-evidence-diversity'
 import { analyzeClaimLanguageCalibration } from './research-claim-language-calibration'
 import { analyzeCrossProfileEvidenceBundles } from './research-cross-profile-bundles'
@@ -47,6 +48,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
+  const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
 
   return {
     crossProfileStudyLoad,
@@ -72,5 +74,6 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     studyClassConflicts,
     semanticAlignment,
     claimLanguageCalibration,
+    claimCitationMetadata,
   }
 }
