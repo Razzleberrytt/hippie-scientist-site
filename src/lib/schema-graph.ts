@@ -10,6 +10,11 @@ import {
   type HerbJsonLdArgs,
 } from './seo'
 import {
+  AUTHOR_SCHEMA_ID,
+  ORGANIZATION_SCHEMA_ID,
+  WEBSITE_SCHEMA_ID,
+} from './schema-identities'
+import {
   buildFAQPageFromComparisonRows,
   buildFocusClusterBreadcrumb,
   buildWorkbookEntitySchema,
@@ -87,11 +92,16 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
         mainEntityOfPage: canonical,
         mainEntity: { '@id': `${canonical}#entity` },
         hasPart: { '@id': evidenceArticleId },
+        isPartOf: { '@id': WEBSITE_SCHEMA_ID },
         ...(args.modifiedAt ? { dateModified: args.modifiedAt } : {}),
-        ...(args.reviewedAt ? { dateReviewed: args.reviewedAt } : {}),
-        reviewedBy: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
-        author: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
-        publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+        ...(args.reviewedAt
+          ? {
+              dateReviewed: args.reviewedAt,
+              reviewedBy: { '@id': ORGANIZATION_SCHEMA_ID },
+            }
+          : {}),
+        author: { '@id': AUTHOR_SCHEMA_ID },
+        publisher: { '@id': ORGANIZATION_SCHEMA_ID },
       }
     : null
 
@@ -121,9 +131,8 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
     mainEntityOfPage: { '@id': webpageId },
     about: { '@id': `${canonical}#entity` },
     articleSection: ['Evidence Summary', 'Safety & Cautions'],
-    author: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
-    publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
-    ...(args.reviewedAt ? { datePublished: args.reviewedAt } : {}),
+    author: { '@id': AUTHOR_SCHEMA_ID },
+    publisher: { '@id': ORGANIZATION_SCHEMA_ID },
     ...(args.modifiedAt ? { dateModified: args.modifiedAt } : {}),
   }
 
@@ -222,7 +231,7 @@ export function buildToolPageSchemaGraph(args: {
     headline: args.title,
     description: args.description,
     url: canonical,
-    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
+    isPartOf: { '@id': WEBSITE_SCHEMA_ID },
     breadcrumb: { '@id': breadcrumbId },
     medicalAudience: 'Consumer',
     ...(faqQuestions.length ? { hasPart: { '@id': faqId } } : {}),
@@ -272,10 +281,9 @@ export function buildSeoEntrySchemaGraph(args: {
     description: args.description,
     url: canonical,
     mainEntityOfPage: canonical,
-    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
-    author: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
-    publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
-    datePublished: '2026-01-01',
+    isPartOf: { '@id': WEBSITE_SCHEMA_ID },
+    author: { '@id': AUTHOR_SCHEMA_ID },
+    publisher: { '@id': ORGANIZATION_SCHEMA_ID },
     ...(args.faqs.length ? { hasPart: { '@id': faqId } } : {}),
   }
 
@@ -330,7 +338,7 @@ export function buildCompareHubSchemaGraph(args: {
     name: args.title,
     description: args.description,
     url: canonical,
-    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
+    isPartOf: { '@id': WEBSITE_SCHEMA_ID },
     breadcrumb: { '@id': breadcrumbId },
     mainEntity: { '@id': itemListId },
     ...(faqQuestions.length ? { hasPart: { '@id': faqId } } : {}),
@@ -392,7 +400,7 @@ export function buildGuideHubSchemaGraph(args: {
     name: args.title,
     description: args.description,
     url: canonical,
-    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
+    isPartOf: { '@id': WEBSITE_SCHEMA_ID },
     breadcrumb: { '@id': breadcrumbId },
     mainEntity: { '@id': itemListId },
   }
@@ -434,10 +442,10 @@ export function buildCompareDetailSchemaGraph(args: {
     name: args.title,
     description: args.description,
     url: canonical,
-    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
+    isPartOf: { '@id': WEBSITE_SCHEMA_ID },
     breadcrumb: { '@id': breadcrumbId },
     about: args.entities.map(entity => ({
-      '@type': entity.type === 'herb' ? 'MedicalTherapy' : 'ChemicalSubstance',
+      '@type': entity.type === 'herb' ? 'Substance' : 'ChemicalSubstance',
       name: entity.name,
       url: normalizeCanonical(toAbsoluteUrl(entity.url)),
     })),
