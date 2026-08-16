@@ -99,4 +99,41 @@ describe('global underlying-study identity', () => {
       globalPrimaryHumanIndependenceMetadataCoverage: 0.5,
     })
   })
+
+  it('counts ambiguous registry evidence as metadata without collapsing publications', () => {
+    const analysis = fixtureAnalysis()
+    const firstStudyId = [...canonicalStudyGroups(analysis.profiles[0].record).keys()][0]
+
+    const result = analyzeUnderlyingStudyIndependence({
+      analysis,
+      trialRegistrationIndependence: {
+        studies: [
+          {
+            url: '/herbs/first/',
+            studyId: firstStudyId,
+            registryIds: ['NCT01234567', 'ISRCTN12345678'],
+            stableRegistryId: null,
+            ambiguous: true,
+          },
+        ],
+        claims: [],
+      } as never,
+      evidenceLineage: { studies: [], claims: [] } as never,
+    })
+
+    expect(result.summary).toMatchObject({
+      globalInventoryPublicationCount: 2,
+      globalInventoryUnderlyingStudyCount: 2,
+      globalCollapsedInventoryPublicationCount: 0,
+      globalInventoryPublicationsWithIndependenceMetadata: 1,
+      globalInventoryPublicationsWithoutIndependenceMetadata: 1,
+      globalInventoryIndependenceMetadataCoverage: 0.5,
+      globalPrimaryHumanPublicationCount: 2,
+      globalPrimaryHumanUnderlyingStudyCount: 2,
+      globalCollapsedPrimaryHumanPublicationCount: 0,
+      globalPrimaryHumanPublicationsWithIndependenceMetadata: 1,
+      globalPrimaryHumanPublicationsWithoutIndependenceMetadata: 1,
+      globalPrimaryHumanIndependenceMetadataCoverage: 0.5,
+    })
+  })
 })
