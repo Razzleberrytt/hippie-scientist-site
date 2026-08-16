@@ -2,6 +2,7 @@ import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
 import { analyzeProvenanceConcentration } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
+import { analyzeStudyClassConflicts } from './research-study-class-conflicts'
 import { analyzeStudyIdentityCoverage } from './research-study-identity-coverage'
 import {
   analyzeClaimEvidenceOverlap,
@@ -32,6 +33,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const edgeWeightedNarrativeDominatedProfiles = edgeWeightedDesignUsage.filter((profile) => profile.edgeWeightedNarrativeDominated)
   const provenanceConcentration = analyzeProvenanceConcentration(analysis)
   const provenanceConcentratedProfiles = provenanceConcentration.profiles.filter((profile) => profile.provenanceConcentrated)
+  const studyClassConflicts = analyzeStudyClassConflicts(analysis)
 
   return {
     crossProfileStudyLoad,
@@ -49,5 +51,6 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     edgeWeightedNarrativeDominatedProfiles,
     provenanceConcentration,
     provenanceConcentratedProfiles,
+    studyClassConflicts,
   }
 }
