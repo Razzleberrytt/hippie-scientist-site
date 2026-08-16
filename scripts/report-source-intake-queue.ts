@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { getSourceClassRule, type SourceClass } from './lib/source-class-governance'
 
 type ItemType = 'herb_page' | 'compound_page' | 'collection_page' | 'comparison_page' | 'discovery_surface' | 'recommendation_surface'
 type PriorityLabel = 'do_now' | 'next_wave' | 're_review_needed' | 'governance_fix_needed' | 'low_priority' | 'defer'
@@ -25,8 +26,8 @@ type SourceGapItem = {
   priorityLabel: PriorityLabel
   topicType: TopicType
   sourceGapType: SourceGapType
-  currentSourceClasses: string[]
-  recommendedSourceClasses: string[]
+  currentSourceClasses: SourceClass[]
+  recommendedSourceClasses: SourceClass[]
   safetyCritical: boolean
   publishBlocking: boolean
   relatedWorkpackIds: string[]
@@ -56,7 +57,7 @@ type WorkpackReport = {
 
 type SourceRegistryRow = {
   sourceId: string
-  sourceClass: string
+  sourceClass: SourceClass
   sourceType: string
   evidenceClass: string
   organization?: string
@@ -67,7 +68,7 @@ type SourceCandidate = {
   candidateSourceId: string
   intakeTaskId: string
   sourceType: string
-  sourceClass: string
+  sourceClass: SourceClass
   language?: string
   publicationStatus?: string
   reviewStatus?: string
@@ -100,7 +101,7 @@ type RetryPass =
 
 type RetryAttempt = {
   pass: RetryPass
-  allowedSourceClasses: string[]
+  allowedSourceClasses: SourceClass[]
   relaxedConstraints: string[]
   whyAllowed: string
   attemptCandidateCount: number
@@ -120,7 +121,7 @@ type SourceIntakeTask = {
   acquisitionTier: IntakeTier
   safetyCritical: boolean
   publishBlocking: boolean
-  recommendedSourceClasses: string[]
+  recommendedSourceClasses: SourceClass[]
   recommendedOrganizations: string[]
   recommendedStudyDesigns: string[]
   whyThisSourceMatters: string
@@ -167,7 +168,7 @@ const SOURCE_CANDIDATES_PATH = path.join(ROOT, 'ops', 'source-candidates.json')
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'source-intake-queue.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'source-intake-queue.md')
 
-const SOURCE_CLASS_ORGANIZATIONS: Record<string, string[]> = {
+const SOURCE_CLASS_ORGANIZATIONS: Record<SourceClass, string[]> = {
   'randomized-human-trial': ['ClinicalTrials.gov', 'PubMed', 'Cochrane Library'],
   'non-randomized-human-study': ['PubMed', 'WHO ICTRP', 'OpenAlex'],
   'observational-human-evidence': ['PubMed', 'NIH/NCCIH', 'OpenAlex'],
@@ -176,17 +177,6 @@ const SOURCE_CLASS_ORGANIZATIONS: Record<string, string[]> = {
   'traditional-use-monograph': ['WHO Monographs', 'EMA HMPC', 'Commission E'],
   'regulatory-agency-monograph-guidance': ['NIH ODS', 'EMA HMPC', 'Health Canada NHP', 'WHO Monographs'],
   'reference-database-authority': ['Natural Medicines', 'Drugs.com Interaction Checker', 'PubChem'],
-}
-
-const SOURCE_CLASS_STUDY_DESIGNS: Record<string, string[]> = {
-  'randomized-human-trial': ['randomized-controlled-trial'],
-  'non-randomized-human-study': ['non-randomized-trial', 'cohort'],
-  'observational-human-evidence': ['cohort', 'case-control', 'cross-sectional'],
-  'systematic-review-meta-analysis': ['systematic-review', 'meta-analysis'],
-  'preclinical-mechanistic-study': ['in-vitro', 'in-vivo-animal'],
-  'traditional-use-monograph': ['narrative-monograph'],
-  'regulatory-agency-monograph-guidance': ['regulatory-guidance'],
-  'reference-database-authority': ['database-reference'],
 }
 
 const GAP_WHY_MATTERS: Partial<Record<SourceGapType, string>> = {
@@ -206,7 +196,7 @@ const GAP_WHY_MATTERS: Partial<Record<SourceGapType, string>> = {
   inactive_registered_sources: 'Inactive references cannot support publishable enrichment; replacement active sources are required.',
 }
 
-const TOPIC_CLASS_FALLBACKS: Record<TopicType, { pass2: string[]; pass3: string[] }> = {
+const TOPIC_CLASS_FALLBACKS: Record<TopicType, { pass2: SourceClass[]; pass3: SourceClass[] }> = {
   safety: {
     pass2: ['regulatory-agency-monograph-guidance', 'systematic-review-meta-analysis'],
     pass3: ['reference-database-authority', 'observational-human-evidence'],
@@ -277,7 +267,7 @@ function governanceChecksForTask(workpackIds: string[], workpackById: Map<string
 function minimumCriteriaForTask(args: {
   gap: SourceGapItem
   tier: IntakeTier
-  recommendedSourceClasses: string[]
+  recommendedSourceClasses: SourceClass[]
 }): string[] {
   const { gap, tier, recommendedSourceClasses } = args
   const criteria = new Set<string>([
@@ -320,12 +310,14 @@ function duplicateRiskNotes(gap: SourceGapItem, registry: SourceRegistryRow[]): 
   return `High duplicate risk: ${matchingActive} active sources already match recommended classes; prioritize methodologically stronger or newer references only.`
 }
 
-function mergeOrganizations(recommendedClasses: string[]): string[] {
+function mergeOrganizations(recommendedClasses: SourceClass[]): string[] {
   return dedupe(recommendedClasses.flatMap(sourceClass => SOURCE_CLASS_ORGANIZATIONS[sourceClass] || [])).sort()
 }
 
-function mergeStudyDesigns(recommendedClasses: string[]): string[] {
-  return dedupe(recommendedClasses.flatMap(sourceClass => SOURCE_CLASS_STUDY_DESIGNS[sourceClass] || [])).sort()
+function mergeStudyDesigns(recommendedClasses: SourceClass[]): string[] {
+  return dedupe(
+    recommendedClasses.flatMap(sourceClass => getSourceClassRule(sourceClass)?.preferredStudyDesigns || []),
+  ).sort()
 }
 
 function statusForTier(tier: IntakeTier): IntakeStatus {
@@ -389,7 +381,7 @@ function completionForTask(task: Omit<SourceIntakeTask, 'completion' | 'adaptive
 
 function buildRetryAttempts(task: Omit<SourceIntakeTask, 'completion' | 'adaptiveRetryAttempts' | 'unresolvedAfterRetries'>, candidatePool: SourceCandidate[]): RetryAttempt[] {
   const fallbacks = TOPIC_CLASS_FALLBACKS[task.topicType] || TOPIC_CLASS_FALLBACKS.surface_coverage
-  const passDefinitions: Array<{ pass: RetryPass; classes: string[]; relaxedConstraints: string[]; whyAllowed: string }> = [
+  const passDefinitions: Array<{ pass: RetryPass; classes: SourceClass[]; relaxedConstraints: string[]; whyAllowed: string }> = [
     {
       pass: 'pass_1_strict_high_confidence',
       classes: task.recommendedSourceClasses,
