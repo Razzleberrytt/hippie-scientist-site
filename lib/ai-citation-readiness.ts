@@ -54,6 +54,11 @@ export type AiCitationReadinessReport = {
   profiles: AiCitationReadinessRow[]
 }
 
+export type AiCitationReadinessInvariantReport = {
+  passed: boolean
+  failures: string[]
+}
+
 function filesUnder(dir: string, out: string[] = []): string[] {
   if (!fs.existsSync(dir)) return out
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -214,10 +219,46 @@ export function buildAiCitationReadiness(
   }
 }
 
+export function validateAiCitationReadinessReport(report: AiCitationReadinessReport): AiCitationReadinessInvariantReport {
+  const failures: string[] = []
+  const rows = report.profiles
+  const expected = {
+    profiles: rows.length,
+    matchedResearchProfiles: rows.filter((row) => Boolean(row.researchUrl)).length,
+    averageScore: rows.length ? Math.round(rows.reduce((sum, row) => sum + row.score, 0) / rows.length) : 0,
+    below50: rows.filter((row) => row.score < 50).length,
+    below70: rows.filter((row) => row.score < 70).length,
+    contradictions: rows.filter((row) => row.contradiction).length,
+    overDependentOnSingleStudy: rows.filter((row) => row.gaps.includes('canonical research graph is over-dependent on one study')).length,
+    narrativeDominated: rows.filter((row) => row.gaps.includes('narrative-review dominated versus primary human research')).length,
+  }
+
+  for (const [field, value] of Object.entries(expected)) {
+    const actual = report.summary[field as keyof typeof expected]
+    if (actual !== value) failures.push(`${field}: summary=${actual}; rows=${value}`)
+  }
+
+  for (const row of rows) {
+    if (!Number.isFinite(row.score) || row.score < 0 || row.score > 100) {
+      failures.push(`${row.kind}/${row.slug}: score=${row.score} outside 0..100`)
+    }
+    if (!Number.isFinite(row.citationCompleteness) || row.citationCompleteness < 0 || row.citationCompleteness > 1) {
+      failures.push(`${row.kind}/${row.slug}: citationCompleteness=${row.citationCompleteness} outside 0..1`)
+    }
+  }
+
+  return { passed: failures.length === 0, failures }
+}
+
 export function writeAiCitationReadinessReport(
   report: AiCitationReadinessReport,
   root = process.cwd(),
 ): string {
+  const invariants = validateAiCitationReadinessReport(report)
+  if (!invariants.passed) {
+    throw new Error(`[ai-citation-readiness] ${invariants.failures.length} invariant failure(s): ${invariants.failures.slice(0, 10).join('; ')}`)
+  }
+
   const output = path.join(root, 'reports', 'ai-citation-readiness.json')
   fs.mkdirSync(path.dirname(output), { recursive: true })
   fs.writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`)
