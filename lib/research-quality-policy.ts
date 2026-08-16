@@ -93,6 +93,8 @@ export const RESEARCH_GAP_WEIGHTS = {
   weakIdentityCoverageBonus: 6,
   severeStudyClassConflict: 100,
   studyClassAmbiguity: 5,
+  synthesisRefreshGap: 10,
+  highConfidenceSynthesisRefreshBonus: 5,
   legacyOnlyOutcomeClaim: 8,
   highConfidenceLegacyOnlyBonus: 4,
   unknownEvidenceYearMetadata: 4,
@@ -135,6 +137,7 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'claim-citation-metadata-gap': 'metadata',
   'canonical-study-class-ambiguity': 'metadata',
   'unknown-evidence-year-metadata': 'metadata',
+  'synthesis-outpaced-by-newer-primary-evidence': 'freshness',
   'legacy-only-outcome-evidence': 'freshness',
 }
 
@@ -280,6 +283,15 @@ function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
   }
 
   for (const freshness of topology.claimEvidenceAge) {
+    if (freshness.synthesisOutpacedByNewerPrimaryEvidence) {
+      const bonus = freshness.highConfidenceSynthesisRefreshGap ? RESEARCH_GAP_WEIGHTS.highConfidenceSynthesisRefreshBonus : 0
+      add(
+        freshness.url,
+        'synthesis-outpaced-by-newer-primary-evidence',
+        RESEARCH_GAP_WEIGHTS.synthesisRefreshGap + bonus,
+        `${freshness.claimId} · newest synthesis ${freshness.newestSynthesisYear ?? 'unknown'} trails primary-human evidence ${freshness.newestPrimaryHumanYear ?? 'unknown'} by ${freshness.synthesisLagYears ?? '?'} years${bonus ? ' · high confidence' : ''}`,
+      )
+    }
     if (freshness.studyCount > 0 && freshness.knownYearCount === 0) {
       add(freshness.url, 'unknown-evidence-year-metadata', RESEARCH_GAP_WEIGHTS.unknownEvidenceYearMetadata, `${freshness.claimId} · publication year unknown for all ${freshness.studyCount} studies`)
     } else if (freshness.legacyOnlyOutcomeClaim) {
