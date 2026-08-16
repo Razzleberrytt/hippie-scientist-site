@@ -44,17 +44,21 @@ for (const claim of claimAnalyses) {
 }
 
 for (const profile of profileAnalyses) {
-  if (profile.approvedClaimCount >= 3 && profile.studyDependencyShare >= 0.5) {
-    const share = profile.studyDependencyShare
+  if (profile.overDependentOnSingleStudy) {
+    const share = profile.dominantStudySupportedClaimShare
+    const concentrationBonus = Math.round(Math.min(15, profile.studyConcentrationIndex * 20))
     add(
       profile.url,
       'high-study-dependency',
-      Math.round(20 + share * 30),
-      `${Math.round(share * 100)}% of approved claims depend on one canonical study`,
+      Math.round(25 + share * 30 + concentrationBonus),
+      `${Math.round(share * 100)}% of supported approved claims depend on one canonical study; effective study count ${profile.effectiveStudyCount}`,
     )
   }
-  if (profile.reviewDominated) {
-    add(profile.url, 'narrative-review-dominated-profile', 15)
+  if (profile.narrativeDominatedVsPrimaryHuman) {
+    const ratio = profile.narrativeToPrimaryHumanRatio === null
+      ? 'no primary-human studies'
+      : `${profile.narrativeToPrimaryHumanRatio}:1 narrative-to-primary-human ratio`
+    add(profile.url, 'narrative-review-dominated-profile', 20, ratio)
   }
   if (profile.noPrimaryHuman) {
     add(profile.url, 'approved-claims-without-primary-human-study', 20)
@@ -76,16 +80,16 @@ const report = {
   generatedAt: new Date().toISOString(),
   source: 'lib/research-quality-analysis.ts',
   scoring: {
-    note: 'Scores prioritize structural invalidity first, then mutually exclusive claim-support tiers and canonical-study concentration. They are triage weights, not evidence grades.',
+    note: 'Scores prioritize structural invalidity first, then claim-support weakness, effective-study concentration, and evidence-mix imbalance. They are triage weights, not evidence grades.',
     weights: {
       unsupportedApprovedClaim: 100,
       danglingClaimSourceEdge: 100,
-      highStudyDependency: '20 + dependency share × 30',
+      highStudyDependency: '25 + dominant supported-claim share × 30 + concentration bonus (max 15)',
       narrativeOnlyClaimSupport: 25,
       indirectOrUnclassifiedClaimSupport: 20,
       highConfidenceWeakClaimBonus: 15,
       noPrimaryHumanStudy: 20,
-      narrativeReviewDominatedProfile: 15,
+      narrativeReviewDominatedProfile: 20,
       singleStudyApprovedClaim: 5,
     },
   },
