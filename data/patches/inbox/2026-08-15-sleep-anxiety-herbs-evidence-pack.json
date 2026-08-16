@@ -1,0 +1,251 @@
+[
+  {
+    "patch_id": "pubmed-2026-08-15-passionflower-insomnia-rct-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-16T00:02:00.000Z",
+    "target": { "slug": "passiflora-incarnata", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A double-blind randomized placebo-controlled study in 110 adults with insomnia disorder found that two weeks of Passiflora incarnata extract increased polysomnographic total sleep time by about 23 minutes more than placebo, while sleep efficiency and wake after sleep onset improved within the passionflower group but did not differ significantly from placebo.",
+        "confidence": 0.93,
+        "notes": "This is direct insomnia evidence but only one short trial. The between-group signal was for total sleep time; do not upgrade the null between-group sleep-efficiency/WASO outcomes. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1097/YIC.0000000000000291",
+        "pmid": "31714321",
+        "title": "Effects of Passiflora incarnata Linnaeus on polysomnographic sleep parameters in subjects with insomnia disorder: a double-blind randomized placebo-controlled study",
+        "year": 2020
+      }
+    ],
+    "notes": "Short direct insomnia RCT with positive and null outcomes preserved.",
+    "confidence": 0.93,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-passionflower-stress-sleep-product-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-16T00:02:00.000Z",
+    "target": { "slug": "passiflora-incarnata", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2024 randomized double-blind placebo-controlled trial in 65 participants with stress and sleep problems reported lower perceived stress and higher total sleep time after 30 days of a standardized Passiflora incarnata extract, but the study was small and tested a specific commercial extract rather than passionflower as a class.",
+        "confidence": 0.78,
+        "notes": "Product-specific SIVI extract; authors included researchers from the botanical company. Preserve product directness and small-sample limitation. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.7759/cureus.56530",
+        "pmid": "38646244",
+        "title": "Randomized, Double-Blind, Placebo-Controlled, Clinical Study of Passiflora incarnata in Participants With Stress and Sleep Problems",
+        "year": 2024
+      }
+    ],
+    "notes": "Positive but product-specific stress/sleep trial.",
+    "confidence": 0.78,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-passionflower-anxiety-small-trials-003",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-16T00:02:00.000Z",
+    "target": { "slug": "passiflora-incarnata", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "Small randomized trials have reported anxiety reductions with Passiflora incarnata in generalized-anxiety and preoperative settings, but these studies are too small and context-specific to establish passionflower as a general treatment for anxiety disorders.",
+        "confidence": 0.82,
+        "notes": "The 2001 GAD pilot included only 36 outpatients and used oxazepam as an active comparator; the 2008 preoperative trial randomized 60 surgical patients and measured short-term premedication anxiety. NCCIH continues to characterize conclusions as not definite. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1046/j.1365-2710.2001.00367.x",
+        "pmid": "11679026",
+        "title": "Passionflower in the treatment of generalized anxiety: a pilot double-blind randomized controlled trial with oxazepam",
+        "year": 2001
+      },
+      {
+        "doi": "10.1213/ane.0b013e318172c3f9",
+        "pmid": "18499602",
+        "title": "Preoperative oral Passiflora incarnata reduces anxiety in ambulatory surgery patients: a double-blind, placebo-controlled study",
+        "year": 2008
+      }
+    ],
+    "notes": "Context-specific anxiety signal; prevents broad disease-treatment extrapolation.",
+    "confidence": 0.82,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-chamomile-anxiety-meta-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-16T00:02:00.000Z",
+    "target": { "slug": "chamomile", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2019 systematic review and meta-analysis found no significant pooled reduction in state or situational anxiety across three randomized trials, while some generalized-anxiety-disorder measures and subjective sleep-quality outcomes favored chamomile; insomnia evidence was limited to one randomized trial with no significant improvement in insomnia severity.",
+        "confidence": 0.91,
+        "notes": "Twelve RCTs were included overall. Keep state-anxiety, GAD, sleep-quality, and insomnia conclusions separate rather than labeling chamomile broadly anxiolytic or hypnotic. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1002/ptr.6349",
+        "pmid": "31006899",
+        "title": "Therapeutic efficacy and safety of chamomile for state anxiety, generalized anxiety disorder, insomnia, and sleep quality: A systematic review and meta-analysis of randomized trials and quasi-randomized trials",
+        "year": 2019
+      }
+    ],
+    "notes": "Outcome-specific synthesis with null anxiety/insomnia findings preserved.",
+    "confidence": 0.91,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-chamomile-insomnia-null-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-16T00:02:00.000Z",
+    "target": { "slug": "chamomile", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A randomized double-blind placebo-controlled pilot in 34 adults with chronic primary insomnia found no significant between-group improvement in total sleep time, sleep efficiency, sleep latency, wake after sleep onset, sleep quality, or awakenings after 28 days of chamomile extract.",
+        "confidence": 0.95,
+        "notes": "Small pilot but directly addresses chronic primary insomnia. This null trial should remain visible whenever chamomile is described as a sleep aid. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1186/1472-6882-11-78",
+        "pmid": "21939549",
+        "title": "Preliminary examination of the efficacy and safety of a standardized chamomile extract for chronic primary insomnia: a randomized placebo-controlled pilot study",
+        "year": 2011
+      }
+    ],
+    "notes": "Direct null insomnia evidence.",
+    "confidence": 0.95,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-chamomile-gad-rct-003",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-16T00:02:00.000Z",
+    "target": { "slug": "chamomile", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A small 2009 randomized double-blind placebo-controlled trial in mild-to-moderate generalized anxiety disorder found a greater reduction in Hamilton Anxiety scores with a standardized chamomile extract, suggesting a modest anxiolytic signal that requires replication.",
+        "confidence": 0.86,
+        "notes": "57 participants were randomized; the authors explicitly described the result as modest and preliminary. Disease-treatment context requires enhanced editorial review and should not be generalized to tea or unstandardized products. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1097/JCP.0b013e3181ac935c",
+        "pmid": "19593179",
+        "title": "A randomized, double-blind, placebo-controlled trial of oral Matricaria recutita (chamomile) extract therapy for generalized anxiety disorder",
+        "year": 2009
+      }
+    ],
+    "notes": "Preliminary GAD signal with disease/product directness preserved.",
+    "confidence": 0.86,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-chamomile-gad-relapse-primary-null-004",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-16T00:02:00.000Z",
+    "target": { "slug": "chamomile", "entity_type": "compound" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "In a longer randomized continuation study of responders with generalized anxiety disorder, continued chamomile maintained lower symptom scores but did not significantly reduce the primary outcome of relapse risk versus placebo, so the trial should not be summarized as a definitive relapse-prevention success.",
+        "confidence": 0.92,
+        "notes": "93 responders entered the randomized phase; relapse hazard ratio 0.52 with 95% CI 0.20-1.33, P=0.16. Keep the nonsignificant primary outcome visible alongside favorable secondary symptoms. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1016/j.phymed.2016.10.012",
+        "pmid": "27912875",
+        "title": "Long-term chamomile (Matricaria chamomilla L.) treatment for generalized anxiety disorder: A randomized clinical trial",
+        "year": 2016
+      }
+    ],
+    "notes": "Primary-outcome-null evidence prevents one-sided GAD summary.",
+    "confidence": 0.92,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-valerian-umbrella-001",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-16T00:02:00.000Z",
+    "target": { "slug": "valeriana-officinalis", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "A 2024 umbrella review found no demonstrated efficacy of valerian for treating insomnia, although some lower-level evidence suggests possible improvement in subjective sleep quality; quantitative and objective sleep benefits were not established.",
+        "confidence": 0.96,
+        "notes": "This should be the dominant current evidence summary for insomnia rather than older single-trial or subjective sleep-quality claims. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1016/j.euroneuro.2024.01.008",
+        "pmid": "38359657",
+        "title": "Does valerian work for insomnia? An umbrella review of the evidence",
+        "year": 2024
+      }
+    ],
+    "notes": "Highest-level current efficacy synthesis.",
+    "confidence": 0.96,
+    "requires_review": true
+  },
+  {
+    "patch_id": "pubmed-2026-08-15-valerian-cyp-human-002",
+    "patch_version": "1",
+    "generator": "primary-literature-enrichment",
+    "created_at": "2026-08-16T00:02:00.000Z",
+    "target": { "slug": "valeriana-officinalis", "entity_type": "herb" },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "interactions",
+        "value": "A controlled human pharmacokinetic study found no significant CYP2D6 effect and only minimal CYP3A4-related changes after 14 nights of valerian, with the investigators concluding that clinically significant CYP2D6/CYP3A4 interactions were unlikely at typical studied exposure.",
+        "confidence": 0.94,
+        "notes": "This directly contradicts blanket claims that valerian is a major CYP3A4 inhibitor affecting a large fraction of prescription drugs. It does not rule out additive sedation or product-/drug-specific interactions. Human review required."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1124/dmd.104.001164",
+        "pmid": "15328251",
+        "title": "Multiple night-time doses of valerian (Valeriana officinalis) had minimal effects on CYP3A4 activity and no effect on CYP2D6 activity in healthy volunteers",
+        "year": 2004
+      }
+    ],
+    "notes": "Human interaction evidence correcting an overstated mechanism-based warning.",
+    "confidence": 0.94,
+    "requires_review": true
+  }
+]
