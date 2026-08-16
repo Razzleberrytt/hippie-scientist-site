@@ -143,6 +143,48 @@ export function validateUnderlyingStudySnapshotInvariants(
   if (product.summary.collapsedPrimaryHumanPublicationCount !== collapsedPrimaryHumanPublicationCount) {
     add('underlying-study-primary-human-collapse-count-mismatch', `summary=${product.summary.collapsedPrimaryHumanPublicationCount}; computed=${collapsedPrimaryHumanPublicationCount}`)
   }
+
+  if (!validAdjustedCount(product.summary.globalInventoryPublicationCount, product.summary.globalInventoryUnderlyingStudyCount)) {
+    add('underlying-study-invalid-global-inventory-adjusted-count', `publication=${product.summary.globalInventoryPublicationCount}; underlying=${product.summary.globalInventoryUnderlyingStudyCount}`)
+  }
+  const expectedGlobalInventoryCollapsed = Math.max(
+    0,
+    product.summary.globalInventoryPublicationCount - product.summary.globalInventoryUnderlyingStudyCount,
+  )
+  if (product.summary.globalCollapsedInventoryPublicationCount !== expectedGlobalInventoryCollapsed) {
+    add('underlying-study-global-inventory-collapse-mismatch', `summary=${product.summary.globalCollapsedInventoryPublicationCount}; expected=${expectedGlobalInventoryCollapsed}`)
+  }
+  if (!validAdjustedCount(product.summary.globalPrimaryHumanPublicationCount, product.summary.globalPrimaryHumanUnderlyingStudyCount)) {
+    add('underlying-study-invalid-global-primary-human-adjusted-count', `publication=${product.summary.globalPrimaryHumanPublicationCount}; underlying=${product.summary.globalPrimaryHumanUnderlyingStudyCount}`)
+  }
+  const expectedGlobalPrimaryHumanCollapsed = Math.max(
+    0,
+    product.summary.globalPrimaryHumanPublicationCount - product.summary.globalPrimaryHumanUnderlyingStudyCount,
+  )
+  if (product.summary.globalCollapsedPrimaryHumanPublicationCount !== expectedGlobalPrimaryHumanCollapsed) {
+    add('underlying-study-global-primary-human-collapse-mismatch', `summary=${product.summary.globalCollapsedPrimaryHumanPublicationCount}; expected=${expectedGlobalPrimaryHumanCollapsed}`)
+  }
+  const inventoryPublicationIncidences = product.profiles.reduce((sum, profile) => sum + profile.inventoryPublicationStudyCount, 0)
+  const inventoryUnderlyingIncidences = product.profiles.reduce((sum, profile) => sum + profile.inventoryUnderlyingStudyCount, 0)
+  if (product.summary.globalInventoryPublicationCount > inventoryPublicationIncidences) {
+    add('underlying-study-global-publication-exceeds-incidences', `global=${product.summary.globalInventoryPublicationCount}; incidences=${inventoryPublicationIncidences}`)
+  }
+  if (product.summary.globalInventoryUnderlyingStudyCount > inventoryUnderlyingIncidences) {
+    add('underlying-study-global-underlying-exceeds-incidences', `global=${product.summary.globalInventoryUnderlyingStudyCount}; incidences=${inventoryUnderlyingIncidences}`)
+  }
+  if (product.summary.globalPrimaryHumanPublicationCount > primaryHumanPublicationCount) {
+    add('underlying-study-global-primary-human-publication-exceeds-incidences', `global=${product.summary.globalPrimaryHumanPublicationCount}; incidences=${primaryHumanPublicationCount}`)
+  }
+  if (product.summary.globalPrimaryHumanUnderlyingStudyCount > primaryHumanUnderlyingStudyCount) {
+    add('underlying-study-global-primary-human-underlying-exceeds-incidences', `global=${product.summary.globalPrimaryHumanUnderlyingStudyCount}; incidences=${primaryHumanUnderlyingStudyCount}`)
+  }
+  if (product.summary.globalPrimaryHumanPublicationCount > product.summary.globalInventoryPublicationCount) {
+    add('underlying-study-global-human-publication-exceeds-inventory', `human=${product.summary.globalPrimaryHumanPublicationCount}; inventory=${product.summary.globalInventoryPublicationCount}`)
+  }
+  if (product.summary.globalPrimaryHumanUnderlyingStudyCount > product.summary.globalInventoryUnderlyingStudyCount) {
+    add('underlying-study-global-human-underlying-exceeds-inventory', `human=${product.summary.globalPrimaryHumanUnderlyingStudyCount}; inventory=${product.summary.globalInventoryUnderlyingStudyCount}`)
+  }
+
   if (product.summary.overDependentProfiles !== product.profiles.filter((profile) => profile.overDependentOnSingleUnderlyingStudy).length) {
     add('underlying-study-overdependent-profile-count-mismatch', `summary=${product.summary.overDependentProfiles}`)
   }
