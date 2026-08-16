@@ -16,6 +16,9 @@ type MedicationClass = {
   pattern: RegExp
 }
 
+const EMPTY_STATIC_EXPORT_SLUG = '__static-export-empty__'
+const EMPTY_STATIC_EXPORT_MEDICATION_CLASS = '__static-export-empty__'
+
 const MEDICATION_CLASSES: MedicationClass[] = [
   { slug: 'antidepressants', label: 'antidepressants', pattern: /\b(antidepressant|ssri|snri|maoi|serotonergic)\b/i },
   { slug: 'sedatives', label: 'sedatives and CNS depressants', pattern: /\b(sedative|benzodiazepine|cns depressant|sleep medication|hypnotic)\b/i },
@@ -31,13 +34,17 @@ const MEDICATION_CLASSES: MedicationClass[] = [
 
 export async function generateStaticParams() {
   const records = await loadIndexableInteractionIngredients()
-  return records.flatMap((record) => {
+  const realParams = records.flatMap((record) => {
     const slug = cleanInteractionValue(record.slug)
     const interactions = interactionValueToText(record.interactions)
     return MEDICATION_CLASSES
       .filter((medicationClass) => medicationClass.pattern.test(interactions))
       .map((medicationClass) => ({ slug, medicationClass: medicationClass.slug }))
   })
+
+  return realParams.length
+    ? realParams
+    : [{ slug: EMPTY_STATIC_EXPORT_SLUG, medicationClass: EMPTY_STATIC_EXPORT_MEDICATION_CLASS }]
 }
 
 async function resolvePage(slug: string, medicationClassSlug: string) {
