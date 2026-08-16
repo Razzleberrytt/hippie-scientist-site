@@ -13,6 +13,7 @@ import { analyzeEvidenceLineage } from './research-evidence-lineage'
 import { analyzeClaimEvidenceAge, analyzeStudyYearConflicts, summarizeEvidenceAge } from './research-evidence-age'
 import { buildResearchMetadataIntegrity } from './research-metadata-integrity'
 import { analyzeOutcomeMetadata } from './research-outcome-metadata'
+import { analyzeOutcomeRegistrationAlignment } from './research-outcome-registration-alignment'
 import { analyzeProvenanceConcentration, analyzeStudyProvenanceConflicts } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import { analyzeResearchSemanticAlignment } from './research-semantic-alignment'
@@ -68,6 +69,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   )
   const trialRegistrationIndependence = analyzeTrialRegistrationIndependence(analysis)
   const outcomeMetadata = analyzeOutcomeMetadata({ analysis, trialRegistrationIndependence })
+  const outcomeRegistrationAlignment = analyzeOutcomeRegistrationAlignment(outcomeMetadata)
   const evidenceLineage = analyzeEvidenceLineage(analysis)
   const evidenceIndependenceCoverage = analyzeEvidenceIndependenceCoverage({
     trialRegistrationIndependence,
@@ -122,6 +124,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     highConfidenceProvenanceNarrowMultiStudyClaims,
     trialRegistrationIndependence,
     outcomeMetadata,
+    outcomeRegistrationAlignment,
     evidenceLineage,
     evidenceIndependenceCoverage,
     underlyingStudyIndependence,
