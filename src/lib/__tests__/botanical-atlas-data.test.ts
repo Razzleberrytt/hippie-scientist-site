@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   buildMappedCompoundsByHerb,
+  enrichAtlasRecordWithCanonicalResearch,
   enrichAtlasRecordWithMappedCompounds,
   toAtlasRecord,
 } from '@/lib/botanical-atlas-data'
@@ -78,6 +79,30 @@ describe('Botanical Activity Atlas runtime fallbacks', () => {
     const result = toAtlasRecord(record({ mechanisms: ['Unmapped experimental pathway XYZ'] }))
     expect(result.effects).toEqual([])
     expect(result.inferredEffects).toEqual([])
+  })
+
+  it('reconciles authored evidence and replaces legacy human counts from canonical topology', () => {
+    const herb = record({
+      evidence_grade: 'A',
+      evidence_tier: 'Limited Evidence',
+      human_trial_count: 7,
+    })
+    const legacy = toAtlasRecord(herb)
+    expect(legacy.humanEvidenceCount).toBe(7)
+
+    const canonical = enrichAtlasRecordWithCanonicalResearch(legacy, herb, {
+      primaryHumanUnderlyingStudyCount: 2,
+    })
+    expect(canonical.evidence).toBe('Preliminary')
+    expect(canonical.humanEvidenceCount).toBe(2)
+  })
+
+  it('uses legacy count only when canonical topology coverage is unavailable', () => {
+    const herb = record({ evidence_tier: 'Moderate Evidence', human_trial_count: 4 })
+    const legacy = toAtlasRecord(herb)
+    const enriched = enrichAtlasRecordWithCanonicalResearch(legacy, herb)
+    expect(enriched.evidence).toBe('Moderate')
+    expect(enriched.humanEvidenceCount).toBe(4)
   })
 
   it('indexes only contains relationships from the canonical herb-compound map', () => {
