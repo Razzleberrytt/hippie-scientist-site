@@ -7,8 +7,11 @@ const root = process.cwd()
 const removedLegacyFiles = [
   'src/lib/curatedProducts.ts',
   'scripts/verify-curated-affiliates.ts',
+  'scripts/verify-herb-affiliate-links.ts',
   'scripts/report-affiliate-inventory.ts',
+  'scripts/report-conversion-scorecard.ts',
   'scripts/report-governed-cta-refresh.ts',
+  'scripts/report-phase2-roadmap.mjs',
 ]
 
 describe('curated product legacy removal contract', () => {
