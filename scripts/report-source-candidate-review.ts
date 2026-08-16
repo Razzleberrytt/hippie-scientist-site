@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
+import { getSourceClassRule } from './lib/source-class-governance'
 
 type ReviewStatus =
   | 'draft_candidate'
@@ -148,60 +149,6 @@ const CANDIDATE_SCHEMA_PATH = path.join(ROOT, 'schemas', 'source-candidate.schem
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'source-candidate-review.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'source-candidate-review.md')
 
-const CLASS_RULES: Record<
-  string,
-  { evidenceClass: string; allowedTypes: Set<string>; pmidApplicable: boolean; preferredStudyDesigns: string[] }
-> = {
-  'randomized-human-trial': {
-    evidenceClass: 'human-clinical',
-    allowedTypes: new Set(['journal-article', 'clinical-trial-registry']),
-    pmidApplicable: true,
-    preferredStudyDesigns: ['randomized-controlled-trial'],
-  },
-  'non-randomized-human-study': {
-    evidenceClass: 'human-clinical',
-    allowedTypes: new Set(['journal-article']),
-    pmidApplicable: true,
-    preferredStudyDesigns: ['non-randomized-trial', 'cohort'],
-  },
-  'observational-human-evidence': {
-    evidenceClass: 'human-observational',
-    allowedTypes: new Set(['journal-article', 'systematic-review']),
-    pmidApplicable: true,
-    preferredStudyDesigns: ['cohort', 'case-control', 'cross-sectional'],
-  },
-  'systematic-review-meta-analysis': {
-    evidenceClass: 'human-clinical',
-    allowedTypes: new Set(['systematic-review', 'meta-analysis', 'journal-article']),
-    pmidApplicable: true,
-    preferredStudyDesigns: ['systematic-review', 'meta-analysis'],
-  },
-  'preclinical-mechanistic-study': {
-    evidenceClass: 'preclinical-mechanistic',
-    allowedTypes: new Set(['journal-article']),
-    pmidApplicable: true,
-    preferredStudyDesigns: ['in-vitro', 'in-vivo-animal'],
-  },
-  'traditional-use-monograph': {
-    evidenceClass: 'traditional-use',
-    allowedTypes: new Set(['monograph', 'book']),
-    pmidApplicable: false,
-    preferredStudyDesigns: ['narrative-monograph'],
-  },
-  'regulatory-agency-monograph-guidance': {
-    evidenceClass: 'regulatory-monograph',
-    allowedTypes: new Set(['regulatory-guidance', 'monograph']),
-    pmidApplicable: false,
-    preferredStudyDesigns: ['regulatory-guidance'],
-  },
-  'reference-database-authority': {
-    evidenceClass: 'regulatory-monograph',
-    allowedTypes: new Set(['reference-database']),
-    pmidApplicable: false,
-    preferredStudyDesigns: ['database-reference'],
-  },
-}
-
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T
 }
@@ -324,7 +271,7 @@ function run() {
     const promotionBlockedReasons: string[] = []
     const duplicateMatches: Array<{ sourceId: string; matchType: 'doi' | 'pmid' | 'canonicalUrl' }> = []
 
-    const classRule = CLASS_RULES[candidate.sourceClass]
+    const classRule = getSourceClassRule(candidate.sourceClass)
     if (!intakeTask) metadataIssues.push(`intakeTaskId=${candidate.intakeTaskId} not found in source-intake queue.`)
 
     if (!classRule) {
@@ -337,7 +284,7 @@ function run() {
       )
       pushIfMissing(
         metadataIssues,
-        classRule.allowedTypes.has(candidate.sourceType),
+        classRule.allowedSourceTypes.includes(candidate.sourceType),
         `sourceType=${candidate.sourceType} is not allowed for sourceClass=${candidate.sourceClass}.`,
       )
       if (!classRule.pmidApplicable && isNonEmpty(candidate.pmid)) {
