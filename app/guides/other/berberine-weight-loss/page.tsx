@@ -6,7 +6,8 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
 
@@ -87,7 +88,6 @@ export default function BerberineWeightLossPage() {
         description="Evidence-calibrated review of berberine for body weight, comparison integrity versus GLP-1 drugs, human interaction data, and supplement-quality limits."
         url="https://thehippiescientist.net/guides/other/berberine-weight-loss/"
         type="MedicalWebPage"
-        faqItems={[...FAQS]}
         citationUrls={BERBERINE_REFS.map((reference) => reference.url)}
       />
       <AuthorityBreadcrumbs
@@ -97,10 +97,9 @@ export default function BerberineWeightLossPage() {
           { label: 'Berberine for Weight Loss' },
         ]}
       />
-      <FAQSchema pagePath="/guides/other/berberine-weight-loss/" questions={[...FAQS]} />
 
       <section className="max-w-4xl space-y-5">
-        <p className="eyebrow-label">2026 Evidence Review · Updated August 15, 2026</p>
+        <p className="eyebrow-label">2026 Evidence Review · Updated August 16, 2026</p>
         <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           Berberine for Weight Loss: “Nature&apos;s Ozempic” or a Modest Metabolic Supplement?
         </h1>
@@ -125,18 +124,16 @@ export default function BerberineWeightLossPage() {
         </figure>
       </section>
 
-      <section className="card-premium max-w-4xl space-y-4 p-6">
-        <p className="eyebrow-label">Quick answer</p>
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">The latest pooled effect is modest</h2>
-        <p className="text-sm leading-7 text-muted">
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>
           A 2026 systematic review and meta-analysis included <strong>23 randomized-trial articles</strong>. Berberine reduced body weight by an average of <strong>0.88 kg versus control</strong> (95% CI -1.36 to -0.39), BMI by 0.48 kg/m², and waist circumference modestly; waist-to-hip ratio was not significantly different [1].
         </p>
-        <p className="text-sm leading-7 text-muted">
+        <p className="mt-3">
           The authors also highlighted inconsistent reporting of <strong>purity, potency, and gram amounts</strong> and common risk-of-bias problems. That makes “berberine works” a much less useful statement than “some randomized trials show a small average anthropometric effect, with product and design uncertainty.”
         </p>
-      </section>
+      </LegacyGuideQuickAnswer>
 
-      <section className="card-premium max-w-4xl space-y-5 border-l-4 border-brand-700 bg-brand-50/30 p-6">
+      <section id="berberine-vs-semaglutide" data-answer-engine-table="true" className="card-premium max-w-4xl scroll-mt-24 space-y-5 border-l-4 border-brand-700 bg-brand-50/30 p-6">
         <p className="eyebrow-label">Comparison integrity</p>
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Berberine vs semaglutide: do not fake a head-to-head trial</h2>
         <p className="text-sm leading-7 text-muted">
@@ -145,36 +142,37 @@ export default function BerberineWeightLossPage() {
 
         <div className="overflow-x-auto">
           <table className="min-w-[720px] w-full text-sm">
+            <caption className="sr-only">Evidence comparison between berberine weight-loss studies and semaglutide STEP 1</caption>
             <thead>
               <tr className="border-b border-brand-900/10">
-                <th className="py-2 pr-4 text-left font-semibold text-ink">Evidence feature</th>
-                <th className="py-2 pr-4 text-left font-semibold text-ink">Berberine</th>
-                <th className="py-2 text-left font-semibold text-ink">Semaglutide 2.4 mg (STEP 1)</th>
+                <th scope="col" className="py-2 pr-4 text-left font-semibold text-ink">Evidence feature</th>
+                <th scope="col" className="py-2 pr-4 text-left font-semibold text-ink">Berberine</th>
+                <th scope="col" className="py-2 text-left font-semibold text-ink">Semaglutide 2.4 mg (STEP 1)</th>
               </tr>
             </thead>
             <tbody className="text-muted">
               <tr className="border-b border-brand-900/5 align-top">
-                <td className="py-3 pr-4 font-medium text-ink">Design</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Design</th>
                 <td className="py-3 pr-4">2026 meta-analysis of 23 randomized-trial articles</td>
                 <td className="py-3">One large double-blind RCT, 1,961 adults</td>
               </tr>
               <tr className="border-b border-brand-900/5 align-top">
-                <td className="py-3 pr-4 font-medium text-ink">Weight result</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Weight result</th>
                 <td className="py-3 pr-4">Pooled mean difference: -0.88 kg versus control [1]</td>
                 <td className="py-3">Mean body-weight change at week 68: -14.9% versus -2.4% placebo [2]</td>
               </tr>
               <tr className="border-b border-brand-900/5 align-top">
-                <td className="py-3 pr-4 font-medium text-ink">Product</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Product</th>
                 <td className="py-3 pr-4">Multiple berberine interventions with variable characterization</td>
                 <td className="py-3">Defined prescription semaglutide regimen</td>
               </tr>
               <tr className="border-b border-brand-900/5 align-top">
-                <td className="py-3 pr-4 font-medium text-ink">FDA-approved anti-obesity drug?</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">FDA-approved anti-obesity drug?</th>
                 <td className="py-3 pr-4">No</td>
                 <td className="py-3">Yes; Wegovy is a GLP-1 receptor agonist approved for chronic weight management in indicated populations [4]</td>
               </tr>
               <tr className="align-top">
-                <td className="py-3 pr-4 font-medium text-ink">Head-to-head with the other?</td>
+                <th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Head-to-head with the other?</th>
                 <td className="py-3 pr-4">No</td>
                 <td className="py-3">No</td>
               </tr>
@@ -234,24 +232,25 @@ export default function BerberineWeightLossPage() {
         </ul>
       </section>
 
-      <section className="card-premium max-w-4xl space-y-4 p-6">
+      <section id="berberine-evidence-applicability" data-answer-engine-table="true" className="card-premium max-w-4xl scroll-mt-24 space-y-4 p-6">
         <p className="eyebrow-label">Evidence applicability</p>
         <h2 className="text-2xl font-semibold tracking-tight text-ink">What the evidence does and does not support</h2>
         <div className="overflow-x-auto">
           <table className="min-w-[680px] w-full text-sm">
+            <caption className="sr-only">Berberine weight-loss claim applicability ledger</caption>
             <thead>
               <tr className="border-b border-brand-900/10">
-                <th className="py-2 pr-4 text-left font-semibold text-ink">Claim</th>
-                <th className="py-2 text-left font-semibold text-ink">Current status</th>
+                <th scope="col" className="py-2 pr-4 text-left font-semibold text-ink">Claim</th>
+                <th scope="col" className="py-2 text-left font-semibold text-ink">Current status</th>
               </tr>
             </thead>
             <tbody className="text-muted">
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Berberine has randomized weight-loss evidence</td><td className="py-3"><strong>Yes</strong> — pooled average effect is modest</td></tr>
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Berberine is a natural GLP-1 drug</td><td className="py-3"><strong>No</strong></td></tr>
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Berberine is proven equivalent to semaglutide</td><td className="py-3"><strong>No</strong> — no head-to-head trial</td></tr>
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">There is one established berberine weight-loss dose</td><td className="py-3"><strong>No</strong></td></tr>
-              <tr className="border-b border-brand-900/5"><td className="py-3 pr-4">Human drug-interaction evidence exists</td><td className="py-3"><strong>Yes</strong> — controlled CYP-probe data exist</td></tr>
-              <tr><td className="py-3 pr-4">Every retail berberine product is trial-equivalent</td><td className="py-3"><strong>No</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Berberine has randomized weight-loss evidence</th><td className="py-3"><strong>Yes</strong> — pooled average effect is modest</td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Berberine is a natural GLP-1 drug</th><td className="py-3"><strong>No</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Berberine is proven equivalent to semaglutide</th><td className="py-3"><strong>No</strong> — no head-to-head trial</td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-medium text-ink">There is one established berberine weight-loss dose</th><td className="py-3"><strong>No</strong></td></tr>
+              <tr className="border-b border-brand-900/5"><th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Human drug-interaction evidence exists</th><td className="py-3"><strong>Yes</strong> — controlled CYP-probe data exist</td></tr>
+              <tr><th scope="row" className="py-3 pr-4 text-left font-medium text-ink">Every retail berberine product is trial-equivalent</th><td className="py-3"><strong>No</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -277,6 +276,7 @@ export default function BerberineWeightLossPage() {
         </p>
       </section>
 
+      <LegacyGuideFAQ questions={[...FAQS]} pagePath="/guides/other/berberine-weight-loss/" />
       <References refs={BERBERINE_REFS} />
 
       <div className="max-w-4xl rounded-xl border border-brand-900/10 bg-brand-50/40 p-4 text-xs leading-6 text-muted">
