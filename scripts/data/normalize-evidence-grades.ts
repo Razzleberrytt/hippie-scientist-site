@@ -16,7 +16,7 @@
  * Usage: tsx scripts/data/normalize-evidence-grades.ts [--data-dir=public/data]
  */
 
-import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { mkdirSync, readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import path from 'node:path'
 
 import { reconcileEvidenceGrade, type EvidenceReconciliation } from '../../lib/evidence-grade'
@@ -25,7 +25,7 @@ import {
   gradeIsBackedByEvidence,
   type EvidenceRationale,
 } from '../../lib/evidence-rationale'
-import { normalizeStudyClass, STUDY_CLASS_INFO } from '../../lib/study-class'
+import { normalizeStudyClass, strongestStudyClass, STUDY_CLASS_INFO } from '../../lib/study-class'
 
 const ROOT = process.cwd()
 const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
@@ -46,12 +46,65 @@ function writeJson(file: string, rows: Row[]): void {
   writeFileSync(path.join(DATA_DIR, file), `${JSON.stringify(rows, null, 2)}\n`)
 }
 
+/**
+ * Study designs for each profile's cited literature, taken from PubMed.
+ *
+ * `claims.json` reaches only 142 indexable profiles, and 201 of its 512 rows
+ * record no design at all. The cited sources reach 318, and since
+ * `fetch-pubmed-metadata.mjs` they carry PubMed's own publication types, which
+ * are authoritative rather than inferred from a title. Combining both raises
+ * the profiles that can show a rationale from 142 to 341.
+ */
+function loadSourceDesignsBySlug(): Map<string, Row[]> {
+  const cachePath = path.join(ROOT, 'ops', 'cache', 'pubmed-metadata.json')
+  if (!existsSync(cachePath)) return new Map()
+
+  const cache = JSON.parse(readFileSync(cachePath, 'utf8'))
+  const records: Record<string, { publicationTypes?: string[] }> = cache.records ?? {}
+  const bySlug = new Map<string, Row[]>()
+
+  for (const dir of ['herbs-detail', 'compounds-detail']) {
+    const full = path.join(DATA_DIR, dir)
+    if (!existsSync(full)) continue
+
+    for (const file of readdirSync(full)) {
+      if (!file.endsWith('.json')) continue
+      const detail = JSON.parse(readFileSync(path.join(full, file), 'utf8'))
+      const slug = String(detail.slug ?? file.replace(/\.json$/, ''))
+      const designs: Row[] = []
+
+      for (const source of Array.isArray(detail.sources) ? detail.sources : []) {
+        const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
+        const meta = records[pmid]
+        if (!meta?.publicationTypes?.length) continue
+
+        // PubMed tags nearly every record "Journal Article", which says nothing
+        // about design; the specific tags alongside it carry the information.
+        const classes = meta.publicationTypes
+          .filter((type) => !/^journal article$/i.test(type))
+          .map((type) => normalizeStudyClass(type))
+          .filter((studyClass) => studyClass !== 'unclassified')
+        if (!classes.length) continue
+
+        designs.push({
+          study_class: strongestStudyClass(classes),
+          study_class_source: meta.publicationTypes.join('; '),
+        })
+      }
+
+      if (designs.length) bySlug.set(slug, designs)
+    }
+  }
+
+  return bySlug
+}
+
 /** Reconcile from the authored value so reruns cannot ratchet grades downward. */
 function sourceGrade(row: Row): unknown {
   return row.evidence_grade_source ?? row.evidence_grade
 }
 
-function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>) {
+function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourcesBySlug: Map<string, Row[]>) {
   const rows = readJson(file)
   if (!rows.length) {
     return {
@@ -88,7 +141,13 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>) {
       })
     }
 
-    const rationale: EvidenceRationale = buildEvidenceRationale(claimsBySlug.get(String(row.slug)) ?? [])
+    // Claims and cited sources are separate records of the same literature, so
+    // both feed the rationale; sources reach more than twice as many profiles.
+    const evidenceInputs = [
+      ...(claimsBySlug.get(String(row.slug)) ?? []),
+      ...(sourcesBySlug.get(String(row.slug)) ?? []),
+    ]
+    const rationale: EvidenceRationale = buildEvidenceRationale(evidenceInputs)
     if (rationale.designMatch) rationaleCards += 1
 
     const backing = gradeIsBackedByEvidence(result.grade, rationale)
@@ -170,9 +229,10 @@ function main() {
   // Claims first: their canonical study class feeds the profile rationale.
   const claims = normalizeClaims()
   const claimsBySlug = claims.bySlug ?? new Map<string, Row[]>()
+  const sourcesBySlug = loadSourceDesignsBySlug()
   const profiles = [
-    normalizeProfiles('herbs.json', claimsBySlug),
-    normalizeProfiles('compounds.json', claimsBySlug),
+    normalizeProfiles('herbs.json', claimsBySlug, sourcesBySlug),
+    normalizeProfiles('compounds.json', claimsBySlug, sourcesBySlug),
   ]
 
   const totals = {
