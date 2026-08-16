@@ -340,9 +340,11 @@ describe('research quality snapshot invariants', () => {
   it('detects source-integrity ownership drift across profiles', () => {
     const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
     analysis.profiles.push({
+      kind: 'herbs',
       url: '/herbs/second',
+      file: 'second.json',
       record: { claimMap: [], sources: [{ id: 'source-2', pmid: '123' }] },
-    } as typeof analysis.profiles[number])
+    })
     analysis.profileAnalyses.push({ url: '/herbs/second' } as typeof analysis.profileAnalyses[number])
     const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
     expect(report.passed).toBe(false)
