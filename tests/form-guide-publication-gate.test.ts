@@ -73,9 +73,11 @@ describe('form guide publication gate', () => {
 
   it('preserves object and delimiter-separated form representations', () => {
     const objectRecord: RuntimeRecord = {
+      slug: 'object-forms',
       forms: { extract: 'standardized', powder: 'whole root' },
     }
     const stringRecord: RuntimeRecord = {
+      slug: 'string-forms',
       available_forms: 'capsule | liquid',
     }
 
