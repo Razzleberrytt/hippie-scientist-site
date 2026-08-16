@@ -9,6 +9,7 @@ const reviewPath = path.join(root, 'data/media/research-graphic-reviews.json')
 const publicDir = path.join(root, 'public/media/research')
 const publicManifestPath = path.join(publicDir, 'manifest.json')
 const checkOnly = process.argv.includes('--check')
+const MAX_FUTURE_REVIEW_SKEW_MS = 5 * 60 * 1000
 
 function readJson(file, fallback) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
@@ -28,10 +29,15 @@ function normalizedReview(review) {
   }
 }
 
+function hasValidReviewTimestamp(reviewedAt) {
+  const reviewedAtMs = Date.parse(reviewedAt)
+  return Number.isFinite(reviewedAtMs) && reviewedAtMs <= Date.now() + MAX_FUTURE_REVIEW_SKEW_MS
+}
+
 function isApproved(review) {
   if (!review || review.status !== 'approved') return false
   if (!review.reviewer || !review.reviewedAt) return false
-  if (Number.isNaN(Date.parse(review.reviewedAt))) return false
+  if (!hasValidReviewTimestamp(review.reviewedAt)) return false
   return review.evidenceVerified && review.attributionVerified && review.destinationVerified && review.visualVerified
 }
 
