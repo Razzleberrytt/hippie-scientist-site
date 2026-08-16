@@ -8,6 +8,11 @@ export type TrialRegistryResolution = {
   ambiguous: boolean
 }
 
+export type StudyTrialRegistration = TrialRegistryResolution & {
+  url: string
+  studyId: string
+}
+
 export type SameRegisteredTrialPair = {
   leftStudyId: string
   rightStudyId: string
@@ -31,10 +36,14 @@ export type ClaimTrialRegistrationIndependence = {
 }
 
 export type TrialRegistrationIndependenceAnalysis = {
+  studies: StudyTrialRegistration[]
   claims: ClaimTrialRegistrationIndependence[]
   sameTrialReuseClaims: ClaimTrialRegistrationIndependence[]
   highConfidenceSameTrialReuseClaims: ClaimTrialRegistrationIndependence[]
   summary: {
+    canonicalStudies: number
+    studiesWithRegistryCoverage: number
+    studiesWithAmbiguousRegistryEvidence: number
     multiStudyApprovedClaims: number
     claimsWithRegistryCoverage: number
     claimsWithAmbiguousRegistryEvidence: number
@@ -140,10 +149,10 @@ function adjustedStudyCount(
 }
 
 /**
- * Detect when multiple canonical publications supporting one approved claim are
- * actually outputs from the same registered clinical trial. The existing study
- * independence engine owns the relation rule; this adapter resolves canonical
- * research studies onto registry IDs from structured fields and PubMed text.
+ * Detect when canonical publications are outputs from the same registered
+ * clinical trial. Study-level registry resolution is preserved in the result so
+ * downstream independence analysis can reason across a whole profile instead of
+ * only publications that happen to co-occur on one approved claim.
  *
  * Publications mentioning multiple registry IDs are deliberately ambiguous and
  * never collapsed automatically.
@@ -152,13 +161,17 @@ export function analyzeTrialRegistrationIndependence(
   analysis: ResearchQualityAnalysis,
 ): TrialRegistrationIndependenceAnalysis {
   const registryByUrl = new Map<string, Map<string, TrialRegistryResolution>>()
+  const studies: StudyTrialRegistration[] = []
   for (const { url, record } of analysis.profiles) {
     const registry = new Map<string, TrialRegistryResolution>()
     for (const [studyId, group] of canonicalStudyGroups(record)) {
-      registry.set(studyId, resolveCanonicalStudyTrialRegistry(group, analysis.cache))
+      const resolution = resolveCanonicalStudyTrialRegistry(group, analysis.cache)
+      registry.set(studyId, resolution)
+      studies.push({ url, studyId, ...resolution })
     }
     registryByUrl.set(url, registry)
   }
+  studies.sort((a, b) => a.url.localeCompare(b.url) || a.studyId.localeCompare(b.studyId))
 
   const claims: ClaimTrialRegistrationIndependence[] = []
   for (const claim of analysis.claimAnalyses) {
@@ -214,10 +227,14 @@ export function analyzeTrialRegistrationIndependence(
   const highConfidenceSameTrialReuseClaims = claims.filter((claim) => claim.highConfidenceSameTrialReuse)
 
   return {
+    studies,
     claims,
     sameTrialReuseClaims,
     highConfidenceSameTrialReuseClaims,
     summary: {
+      canonicalStudies: studies.length,
+      studiesWithRegistryCoverage: studies.filter((study) => Boolean(study.stableRegistryId)).length,
+      studiesWithAmbiguousRegistryEvidence: studies.filter((study) => study.ambiguous).length,
       multiStudyApprovedClaims: claims.length,
       claimsWithRegistryCoverage: claims.filter((claim) => claim.registryKnownStudyCount > 0).length,
       claimsWithAmbiguousRegistryEvidence: claims.filter((claim) => claim.registryAmbiguousStudyCount > 0).length,
