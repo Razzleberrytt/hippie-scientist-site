@@ -103,7 +103,7 @@ const EXACT_BAND_VALUES: Record<string, EvidenceBand> = {
  * Values that grade different outcomes differently. Picking one grade from
  * these would misrepresent the record, so they remain explicitly unassigned.
  */
-const OUTCOME_DEPENDENT_RE = /\b[a-df]\s*[+-]?\s+for\s+\w+.*;\s*[a-df]\s*[+-]?\s+for\s+/i
+const OUTCOME_DEPENDENT_RE = /(?:\b[a-df]\s*[+-]?\s+for\s+\w+.*;\s*[a-df]\s*[+-]?\s+for\s+|\b(?:varies?|differs?)\s+by\s+outcome\b|\boutcome[- ]dependent\b|\bdepends?\s+on\s+(?:the\s+)?outcome\b)/i
 
 /**
  * Legacy phrase mappings, ordered from strongest/specific to weakest. Ambiguous
