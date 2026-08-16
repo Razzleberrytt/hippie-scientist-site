@@ -50,14 +50,20 @@ for (const profile of topology.claimTopology?.reviewDominatedProfiles ?? []) {
 for (const profile of topology.claimTopology?.noPrimaryHumanProfiles ?? []) {
   add(profile.url, 'approved-claims-without-primary-human-study', 20)
 }
-for (const claim of strength.highConfidenceWeakOutcome ?? []) {
-  add(claim.url, 'high-confidence-weak-outcome-claim', 40, String(claim.claimId ?? ''))
-}
-for (const claim of strength.narrativeOnlyOutcomeClaims ?? []) {
-  add(claim.url, 'narrative-only-outcome-claim', 25, String(claim.claimId ?? ''))
-}
-for (const claim of strength.noClassifiedEvidence ?? []) {
-  add(claim.url, 'unclassified-linked-evidence', 20, String(claim.claimId ?? ''))
+
+for (const claim of strength.claims ?? []) {
+  const tier = String(claim.supportTier ?? '')
+  if (tier === 'unsupported' || tier === 'human-supported' || tier === 'non-outcome') continue
+
+  const baseWeight = tier === 'narrative-only' ? 25 : 20
+  const confidenceBonus = claim.highConfidenceWeakOutcome ? 15 : 0
+  const weight = baseWeight + confidenceBonus
+  add(
+    claim.url,
+    `claim-support-${tier}`,
+    weight,
+    `${String(claim.claimId ?? '')}${confidenceBonus ? ' · high confidence' : ''}`,
+  )
 }
 
 const ranked = [...queue.values()]
@@ -74,15 +80,15 @@ const ranked = [...queue.values()]
 const report = {
   generatedAt: new Date().toISOString(),
   scoring: {
-    note: 'Scores prioritize structural invalidity first, then claim-strength and canonical-study concentration weaknesses. They are triage weights, not evidence grades.',
+    note: 'Scores prioritize structural invalidity first, then mutually exclusive claim-support tiers and canonical-study concentration. They are triage weights, not evidence grades.',
     weights: {
       unsupportedApprovedClaim: 100,
       danglingClaimSourceEdge: 100,
-      highConfidenceWeakOutcome: 40,
       highStudyDependency: '20 + dependency share × 30',
-      narrativeOnlyOutcome: 25,
+      narrativeOnlyClaimSupport: 25,
+      indirectOrUnclassifiedClaimSupport: 20,
+      highConfidenceWeakClaimBonus: 15,
       noPrimaryHumanStudy: 20,
-      unclassifiedLinkedEvidence: 20,
       narrativeReviewDominatedProfile: 15,
       singleStudyApprovedClaim: 5,
     },
