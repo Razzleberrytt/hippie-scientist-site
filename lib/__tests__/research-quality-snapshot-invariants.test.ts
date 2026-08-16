@@ -17,7 +17,7 @@ function fixtures() {
       },
     }],
     profileAnalyses: [{ url: '/herbs/example' }],
-    claimAnalyses: [{ url: '/herbs/example', claimId: 'claim-1' }],
+    claimAnalyses: [{ url: '/herbs/example', claimId: 'claim-1', studyCount: 1 }],
     structuredClaimAnalyses: [],
   } as unknown as ResearchQualityAnalysis
 
@@ -27,9 +27,29 @@ function fixtures() {
       findings: [],
       concentrationFindings: [],
     },
+    claimBreadth: {
+      claims: [],
+      findings: [],
+      highConfidenceFindings: [],
+      summary: {
+        approvedClaimsWithHumanEvidence: 0,
+        assessableClaims: 0,
+        overbroadClaims: 0,
+        highConfidenceOverbroadClaims: 0,
+        populationOverbroadClaims: 0,
+        doseOverbroadClaims: 0,
+        durationOverbroadClaims: 0,
+        formulationOverbroadClaims: 0,
+        endpointOverbroadClaims: 0,
+      },
+    },
     edgeCardinality: {
       summary: { claims: 0 },
       duplicateEdgeClaims: [],
+    },
+    evidenceIndependenceCoverage: {
+      claims: [],
+      summary: { multiStudyApprovedClaims: 0 },
     },
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { claims: [] },
@@ -94,6 +114,24 @@ describe('research quality snapshot invariants', () => {
     const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
     expect(report.passed).toBe(false)
     expect(report.failures.map((failure) => failure.kind)).toContain('semantic-approved-claim-count-mismatch')
+  })
+
+  it('detects claim-breadth rows that reference an unknown approved claim', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
+    topology.claimBreadth.claims = [
+      { url: '/herbs/example', claimId: 'missing-claim' },
+    ] as typeof topology.claimBreadth.claims
+    const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
+    expect(report.passed).toBe(false)
+    expect(report.failures.map((failure) => failure.kind)).toContain('claim-breadth-unknown-claim')
+  })
+
+  it('detects claim-breadth summary drift', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
+    topology.claimBreadth.summary.overbroadClaims = 1
+    const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
+    expect(report.passed).toBe(false)
+    expect(report.failures.map((failure) => failure.kind)).toContain('claim-breadth-finding-count-mismatch')
   })
 
   it('detects derived findings that reference an unknown approved claim', () => {
