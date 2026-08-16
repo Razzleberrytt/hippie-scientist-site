@@ -1,6 +1,5 @@
-import { analyzeClaimEvidenceAge } from './research-evidence-age'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
-import { analyzeClaimEvidenceOverlap, analyzeCrossProfileStudyLoad, analyzeEvidenceBundleReuse } from './research-study-load'
+import { buildResearchQualityTopology, type ResearchQualityTopology } from './research-quality-topology'
 
 export type ResearchGapReason = {
   kind: string
@@ -62,7 +61,10 @@ export function structuralCoverageFailures(analysis: ResearchQualityAnalysis): S
   return failures
 }
 
-export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): ResearchGapItem[] {
+export function buildResearchGapQueue(
+  analysis: ResearchQualityAnalysis,
+  topology: ResearchQualityTopology = buildResearchQualityTopology(analysis),
+): ResearchGapItem[] {
   const queue = new Map<string, { url: string; score: number; reasons: ResearchGapReason[] }>()
 
   const add = (url: string, kind: string, weight: number, detail?: string) => {
@@ -213,8 +215,7 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
     }
   }
 
-  for (const bundle of analyzeEvidenceBundleReuse(analysis)) {
-    if (!bundle.narrowRepeatedEvidenceBundle) continue
+  for (const bundle of topology.narrowRepeatedEvidenceBundles) {
     const reuseBonus = Math.min(10, Math.max(0, bundle.approvedClaimCount - 3) * 2)
     add(
       bundle.url,
@@ -224,8 +225,8 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
     )
   }
 
-  const overlapByProfile = new Map<string, ReturnType<typeof analyzeClaimEvidenceOverlap>>()
-  for (const overlap of analyzeClaimEvidenceOverlap(analysis)) {
+  const overlapByProfile = new Map<string, typeof topology.claimEvidenceOverlap>()
+  for (const overlap of topology.claimEvidenceOverlap) {
     const items = overlapByProfile.get(overlap.url) ?? []
     items.push(overlap)
     overlapByProfile.set(overlap.url, items)
@@ -243,8 +244,7 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
   }
 
   const systemicByProfile = new Map<string, { studies: number; claims: number }>()
-  for (const study of analyzeCrossProfileStudyLoad(analysis)) {
-    if (!study.systemicLoadBearing) continue
+  for (const study of topology.systemicLoadBearingStudies) {
     for (const url of study.profiles) {
       const item = systemicByProfile.get(url) ?? { studies: 0, claims: 0 }
       item.studies += 1
@@ -262,7 +262,7 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
     )
   }
 
-  for (const freshness of analyzeClaimEvidenceAge(analysis)) {
+  for (const freshness of topology.claimEvidenceAge) {
     if (freshness.studyCount > 0 && freshness.knownYearCount === 0) {
       add(
         freshness.url,
