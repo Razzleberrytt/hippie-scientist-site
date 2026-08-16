@@ -1,4 +1,5 @@
-import type { ResearchQualityTopology } from './research-quality-topology'
+import type { EvidenceLineageAnalysis } from './research-evidence-lineage'
+import type { TrialRegistrationIndependenceAnalysis } from './research-trial-registration-independence'
 
 export type ClaimEvidenceIndependenceCoverage = {
   url: string
@@ -26,6 +27,11 @@ export type EvidenceIndependenceCoverage = {
   }
 }
 
+export type EvidenceIndependenceCoverageInputs = {
+  trialRegistrationIndependence: TrialRegistrationIndependenceAnalysis
+  evidenceLineage: EvidenceLineageAnalysis
+}
+
 function round(value: number, digits = 3): number {
   const scale = 10 ** digits
   return Math.round(value * scale) / scale
@@ -37,13 +43,13 @@ function round(value: number, digits = 3): number {
  * missing lineage as evidence that publications are dependent.
  */
 export function analyzeEvidenceIndependenceCoverage(
-  topology: Pick<ResearchQualityTopology, 'trialRegistrationIndependence' | 'evidenceLineage'>,
+  inputs: EvidenceIndependenceCoverageInputs,
 ): EvidenceIndependenceCoverage {
   const registryByClaim = new Map(
-    topology.trialRegistrationIndependence.claims.map((claim) => [`${claim.url}::${claim.claimId}`, claim]),
+    inputs.trialRegistrationIndependence.claims.map((claim) => [`${claim.url}::${claim.claimId}`, claim]),
   )
   const lineageByClaim = new Map(
-    topology.evidenceLineage.claims.map((claim) => [`${claim.url}::${claim.claimId}`, claim]),
+    inputs.evidenceLineage.claims.map((claim) => [`${claim.url}::${claim.claimId}`, claim]),
   )
 
   const claimKeys = new Set([...registryByClaim.keys(), ...lineageByClaim.keys()])
@@ -52,7 +58,9 @@ export function analyzeEvidenceIndependenceCoverage(
   for (const key of claimKeys) {
     const registry = registryByClaim.get(key)
     const lineage = lineageByClaim.get(key)
-    const [url, claimId] = key.split('::')
+    const separator = key.lastIndexOf('::')
+    const url = key.slice(0, separator)
+    const claimId = key.slice(separator + 2)
     const studyCount = registry?.apparentStudyCount ?? lineage?.studyCount ?? 0
     if (studyCount < 2) continue
 
