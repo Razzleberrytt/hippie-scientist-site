@@ -10,6 +10,11 @@ function claimKey(url: string, claimId: string): string {
   return `${url}::${claimId}`
 }
 
+function validAdjustedCount(publicationCount: number, underlyingCount: number): boolean {
+  if (publicationCount === 0) return underlyingCount === 0
+  return underlyingCount >= 1 && underlyingCount <= publicationCount
+}
+
 /**
  * Validate arithmetic and ownership for the canonical underlying-study graph.
  * These checks are implementation invariants, not scientific judgments.
@@ -75,7 +80,7 @@ export function validateUnderlyingStudySnapshotInvariants(
     if (claim.apparentStudyCount !== source.studyCount) {
       add('underlying-study-apparent-count-mismatch', `${key}: product=${claim.apparentStudyCount}; analysis=${source.studyCount}`)
     }
-    if (claim.underlyingStudyCount < 1 || claim.underlyingStudyCount > claim.apparentStudyCount) {
+    if (!validAdjustedCount(claim.apparentStudyCount, claim.underlyingStudyCount)) {
       add('underlying-study-invalid-adjusted-count', `${key}: apparent=${claim.apparentStudyCount}; underlying=${claim.underlyingStudyCount}`)
     }
     const expectedCollapsed = Math.max(0, claim.apparentStudyCount - claim.underlyingStudyCount)
@@ -111,11 +116,32 @@ export function validateUnderlyingStudySnapshotInvariants(
     }
   }
 
-  if (product.summary.profilesWithSupportedClaims !== product.profiles.length) {
-    add('underlying-study-profile-count-mismatch', `summary=${product.summary.profilesWithSupportedClaims}; rows=${product.profiles.length}`)
+  if (product.summary.profilesAnalyzed !== product.profiles.length) {
+    add('underlying-study-profile-count-mismatch', `summary=${product.summary.profilesAnalyzed}; rows=${product.profiles.length}`)
   }
-  if (product.summary.profilesWithReducedStudyCount !== product.profiles.filter((profile) => profile.collapsedPublicationCount > 0).length) {
-    add('underlying-study-reduced-profile-count-mismatch', `summary=${product.summary.profilesWithReducedStudyCount}`)
+  const supportedProfileCount = product.profiles.filter((profile) => profile.supportedApprovedClaimCount > 0).length
+  if (product.summary.profilesWithSupportedClaims !== supportedProfileCount) {
+    add('underlying-study-supported-profile-count-mismatch', `summary=${product.summary.profilesWithSupportedClaims}; computed=${supportedProfileCount}`)
+  }
+  const reducedInventoryProfiles = product.profiles.filter((profile) => profile.inventoryCollapsedPublicationCount > 0).length
+  if (product.summary.profilesWithReducedStudyCount !== reducedInventoryProfiles) {
+    add('underlying-study-reduced-profile-count-mismatch', `summary=${product.summary.profilesWithReducedStudyCount}; computed=${reducedInventoryProfiles}`)
+  }
+  const reducedHumanProfiles = product.profiles.filter((profile) => profile.collapsedPrimaryHumanPublicationCount > 0).length
+  if (product.summary.profilesWithReducedHumanStudyCount !== reducedHumanProfiles) {
+    add('underlying-study-reduced-human-profile-count-mismatch', `summary=${product.summary.profilesWithReducedHumanStudyCount}; computed=${reducedHumanProfiles}`)
+  }
+  const primaryHumanPublicationCount = product.profiles.reduce((sum, profile) => sum + profile.primaryHumanPublicationCount, 0)
+  if (product.summary.primaryHumanPublicationCount !== primaryHumanPublicationCount) {
+    add('underlying-study-primary-human-publication-count-mismatch', `summary=${product.summary.primaryHumanPublicationCount}; computed=${primaryHumanPublicationCount}`)
+  }
+  const primaryHumanUnderlyingStudyCount = product.profiles.reduce((sum, profile) => sum + profile.primaryHumanUnderlyingStudyCount, 0)
+  if (product.summary.primaryHumanUnderlyingStudyCount !== primaryHumanUnderlyingStudyCount) {
+    add('underlying-study-primary-human-adjusted-count-mismatch', `summary=${product.summary.primaryHumanUnderlyingStudyCount}; computed=${primaryHumanUnderlyingStudyCount}`)
+  }
+  const collapsedPrimaryHumanPublicationCount = product.profiles.reduce((sum, profile) => sum + profile.collapsedPrimaryHumanPublicationCount, 0)
+  if (product.summary.collapsedPrimaryHumanPublicationCount !== collapsedPrimaryHumanPublicationCount) {
+    add('underlying-study-primary-human-collapse-count-mismatch', `summary=${product.summary.collapsedPrimaryHumanPublicationCount}; computed=${collapsedPrimaryHumanPublicationCount}`)
   }
   if (product.summary.overDependentProfiles !== product.profiles.filter((profile) => profile.overDependentOnSingleUnderlyingStudy).length) {
     add('underlying-study-overdependent-profile-count-mismatch', `summary=${product.summary.overDependentProfiles}`)
@@ -136,13 +162,31 @@ export function validateUnderlyingStudySnapshotInvariants(
     if (profile.supportedApprovedClaimCount !== source.supportedApprovedClaimCount) {
       add('underlying-study-profile-supported-claim-count-mismatch', `${profile.url}: product=${profile.supportedApprovedClaimCount}; analysis=${source.supportedApprovedClaimCount}`)
     }
-    if (profile.underlyingStudyCount < 1 || profile.underlyingStudyCount > profile.publicationStudyCount) {
+
+    if (!validAdjustedCount(profile.publicationStudyCount, profile.underlyingStudyCount)) {
       add('underlying-study-invalid-profile-adjusted-count', `${profile.url}: publication=${profile.publicationStudyCount}; underlying=${profile.underlyingStudyCount}`)
     }
-    const expectedCollapsed = Math.max(0, profile.publicationStudyCount - profile.underlyingStudyCount)
-    if (profile.collapsedPublicationCount !== expectedCollapsed) {
-      add('underlying-study-profile-collapse-mismatch', `${profile.url}: rows=${profile.collapsedPublicationCount}; expected=${expectedCollapsed}`)
+    const expectedClaimCollapsed = Math.max(0, profile.publicationStudyCount - profile.underlyingStudyCount)
+    if (profile.collapsedPublicationCount !== expectedClaimCollapsed) {
+      add('underlying-study-profile-collapse-mismatch', `${profile.url}: rows=${profile.collapsedPublicationCount}; expected=${expectedClaimCollapsed}`)
     }
+
+    if (!validAdjustedCount(profile.inventoryPublicationStudyCount, profile.inventoryUnderlyingStudyCount)) {
+      add('underlying-study-invalid-inventory-adjusted-count', `${profile.url}: publication=${profile.inventoryPublicationStudyCount}; underlying=${profile.inventoryUnderlyingStudyCount}`)
+    }
+    const expectedInventoryCollapsed = Math.max(0, profile.inventoryPublicationStudyCount - profile.inventoryUnderlyingStudyCount)
+    if (profile.inventoryCollapsedPublicationCount !== expectedInventoryCollapsed) {
+      add('underlying-study-inventory-collapse-mismatch', `${profile.url}: rows=${profile.inventoryCollapsedPublicationCount}; expected=${expectedInventoryCollapsed}`)
+    }
+
+    if (!validAdjustedCount(profile.primaryHumanPublicationCount, profile.primaryHumanUnderlyingStudyCount)) {
+      add('underlying-study-invalid-primary-human-adjusted-count', `${profile.url}: publication=${profile.primaryHumanPublicationCount}; underlying=${profile.primaryHumanUnderlyingStudyCount}`)
+    }
+    const expectedPrimaryHumanCollapsed = Math.max(0, profile.primaryHumanPublicationCount - profile.primaryHumanUnderlyingStudyCount)
+    if (profile.collapsedPrimaryHumanPublicationCount !== expectedPrimaryHumanCollapsed) {
+      add('underlying-study-primary-human-collapse-mismatch', `${profile.url}: rows=${profile.collapsedPrimaryHumanPublicationCount}; expected=${expectedPrimaryHumanCollapsed}`)
+    }
+
     if (profile.newlyOverDependentAfterIndependenceAdjustment !== (profile.overDependentOnSingleUnderlyingStudy && !source.overDependentOnSingleStudy)) {
       add('underlying-study-new-overdependent-state-mismatch', profile.url)
     }
