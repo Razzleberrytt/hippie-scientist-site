@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { allArticleMonographs, allBlogPosts } from '../../../.content-collections/generated'
 
 import ArticleMdx from '@/components/articles/ArticleMdx'
+import References, { type Ref } from '@/components/References'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
 import WhatEvidenceShows from '@/src/components/evidence/WhatEvidenceShows'
@@ -15,11 +16,74 @@ import {
   resolveRelatedArticles,
 } from '@/src/lib/article-citation-metadata'
 import { SITE_URL, buildPageMetadata, compactMetaTitle } from '../../../src/lib/seo'
+import {
+  AUTHOR_NAME,
+  AUTHOR_SCHEMA_ID,
+  AUTHOR_URL,
+  ORGANIZATION_SCHEMA_ID,
+} from '@/src/lib/schema-identities'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts]
 
 type PageProps = {
   params: Promise<{ slug: string }>
+}
+
+type ArticleReference = Ref & {
+  sourceId?: string
+}
+
+function normalizeArticleReferences(references: readonly unknown[]): ArticleReference[] {
+  return references.map((raw, index) => {
+    const ref = (raw && typeof raw === 'object' ? raw : {}) as Record<string, unknown>
+    const title = String(ref.title || `Source ${index + 1}`).trim()
+    const authors = typeof ref.authors === 'string' ? ref.authors.trim() : undefined
+    const year = typeof ref.year === 'string' || typeof ref.year === 'number' ? ref.year : undefined
+    const pmid = typeof ref.pmid === 'string' ? ref.pmid.trim() : undefined
+    const doi = typeof ref.doi === 'string' ? ref.doi.trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '') : undefined
+    const explicitUrl = typeof ref.url === 'string' ? ref.url.trim() : ''
+    const url = explicitUrl
+      || (doi ? `https://doi.org/${doi}` : '')
+      || (pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` : '')
+      || undefined
+
+    return {
+      n: index + 1,
+      title,
+      text: [authors, year ? String(year) : ''].filter(Boolean).join(' · '),
+      authors,
+      year,
+      pmid,
+      doi,
+      url,
+      sourceId: doi ? `doi:${doi.toLowerCase()}` : pmid ? `pmid:${pmid}` : url,
+    }
+  })
+}
+
+function citationSchema(ref: ArticleReference) {
+  const identifiers = [
+    ref.pmid ? { '@type': 'PropertyValue', propertyID: 'PMID', value: ref.pmid } : null,
+    ref.doi ? { '@type': 'PropertyValue', propertyID: 'DOI', value: ref.doi } : null,
+  ].filter(Boolean)
+
+  return {
+    '@type': 'ScholarlyArticle',
+    ...(ref.sourceId ? { '@id': ref.sourceId.startsWith('http') ? ref.sourceId : ref.url } : {}),
+    name: ref.title,
+    ...(ref.year ? { datePublished: String(ref.year) } : {}),
+    ...(identifiers.length ? { identifier: identifiers } : {}),
+    ...(ref.url ? { url: ref.url } : {}),
+    ...(ref.authors
+      ? {
+          additionalProperty: {
+            '@type': 'PropertyValue',
+            name: 'Authors as cited',
+            value: ref.authors,
+          },
+        }
+      : {}),
+  }
 }
 
 export function generateStaticParams() {
@@ -48,14 +112,16 @@ export default async function ArticleMonographPage({ params }: PageProps) {
   const pagePath = `/articles/${page.slug}/`
   const relatedPages = resolveRelatedArticles(page, articlePages)
   const { keyTakeaways, citationQuestions, canonicalConcepts } = normalizeCitationMetadata(page)
+  const articleReferences = normalizeArticleReferences(page.references)
   const citationReadySummary = buildCitationReadySummary({
     description: page.description,
     keyTakeaways,
-    sourceCount: page.references.length,
+    sourceCount: articleReferences.length,
     evidenceGrade: page.evidenceGrade,
   })
 
-  const author = 'author' in page ? page.author : undefined
+  const sourceAuthor = 'author' in page && typeof page.author === 'string' ? page.author.trim() : ''
+  const author = sourceAuthor || AUTHOR_NAME
   const reviewEvent = latestReviewForPage(editorialReviewEvents, pagePath)
   const lastReviewed = reviewEvent?.reviewedAt
   const reviewedBy = reviewEvent?.reviewerName
@@ -79,52 +145,43 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     keywords: page.tags,
     articleSection: page.category,
     ...(canonicalConcepts.length > 0 ? { about: canonicalConcepts } : {}),
-    author: author
-      ? { '@type': 'Person', name: author }
-      : { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
-    publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
-    citation: page.references.map((ref) => ({
-      '@type': 'ScholarlyArticle',
-      headline: ref.title,
-      author: ref.authors,
-      datePublished: ref.year,
-      identifier: ref.pmid ? `PMID:${ref.pmid}` : undefined,
-      url: ref.url || (ref.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}/` : undefined),
-    })),
+    author: author === AUTHOR_NAME
+      ? { '@type': 'Person', '@id': AUTHOR_SCHEMA_ID, name: AUTHOR_NAME, url: AUTHOR_URL }
+      : { '@type': 'Person', name: author },
+    publisher: { '@id': ORGANIZATION_SCHEMA_ID },
+    citation: articleReferences.map(citationSchema),
   }
 
-  const takeawaySchema =
-    keyTakeaways.length > 0
-      ? {
-          '@context': 'https://schema.org',
-          '@type': 'ItemList',
-          name: `${page.title}: Scientific Takeaways`,
-          itemListElement: keyTakeaways.map((takeaway, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            name: takeaway,
-          })),
-        }
-      : null
+  const takeawaySchema = keyTakeaways.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: `${page.title}: Scientific Takeaways`,
+        itemListElement: keyTakeaways.map((takeaway, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: takeaway,
+        })),
+      }
+    : null
 
-  const medicalPageSchema =
-    lastReviewed || page.references.length > 0
-      ? {
-          '@context': 'https://schema.org',
-          '@type': 'MedicalWebPage',
-          url: `${SITE_URL}${pagePath}`,
-          ...(lastReviewed ? { lastReviewed } : {}),
-          ...(reviewerLabel
-            ? {
-                reviewedBy: {
-                  '@type': 'Person',
-                  name: reviewedBy,
-                  ...(reviewerCredential ? { honorificSuffix: reviewerCredential } : {}),
-                },
-              }
-            : {}),
-        }
-      : null
+  const medicalPageSchema = lastReviewed || articleReferences.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'MedicalWebPage',
+        url: `${SITE_URL}${pagePath}`,
+        ...(lastReviewed ? { lastReviewed } : {}),
+        ...(reviewerLabel
+          ? {
+              reviewedBy: {
+                '@type': 'Person',
+                name: reviewedBy,
+                ...(reviewerCredential ? { honorificSuffix: reviewerCredential } : {}),
+              },
+            }
+          : {}),
+      }
+    : null
 
   const hasResearchBrief = citationQuestions.length > 0 || keyTakeaways.length > 0
 
@@ -137,20 +194,14 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       <header className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2.5">
           <span className="identity-kicker">{page.category}</span>
-          {page.evidenceGrade ? (
-            <span className="identity-kicker">Evidence {page.evidenceGrade}</span>
-          ) : null}
+          {page.evidenceGrade ? <span className="identity-kicker">Evidence {page.evidenceGrade}</span> : null}
           {factualUpdated ? (
-            <time dateTime={factualUpdated} className="identity-meta">
-              Factual update {factualUpdated}
-            </time>
+            <time dateTime={factualUpdated} className="identity-meta">Factual update {factualUpdated}</time>
           ) : null}
           {templateUpdated ? (
             <>
               <span aria-hidden="true" className="identity-meta">·</span>
-              <time dateTime={templateUpdated} className="identity-meta">
-                Template revision {templateUpdated}
-              </time>
+              <time dateTime={templateUpdated} className="identity-meta">Template revision {templateUpdated}</time>
             </>
           ) : null}
           <span aria-hidden="true" className="identity-meta">·</span>
@@ -166,37 +217,32 @@ export default async function ArticleMonographPage({ params }: PageProps) {
             id={`article-evidence-${page.slug}`}
             summary={citationReadySummary}
             evidenceGrade={page.evidenceGrade}
-            sourceCount={page.references.length}
+            sourceCount={articleReferences.length}
+            referencesHref={articleReferences.length ? '#references' : undefined}
           />
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-[color:var(--hs-hairline)] pt-4 text-xs text-[color:var(--hs-body)]">
-          {author ? (
-            <span>
-              Written by <span className="font-semibold text-[color:var(--hs-ink)]">{author}</span>
-            </span>
-          ) : null}
+          <span>
+            Written by <span className="font-semibold text-[color:var(--hs-ink)]">{author}</span>
+          </span>
           {reviewerLabel ? (
             <>
               <span aria-hidden="true">·</span>
-              <span>
-                Reviewed by <span className="font-semibold text-[color:var(--hs-ink)]">{reviewerLabel}</span>
-              </span>
+              <span>Reviewed by <span className="font-semibold text-[color:var(--hs-ink)]">{reviewerLabel}</span></span>
             </>
           ) : null}
           {lastReviewed ? (
             <>
               <span aria-hidden="true">·</span>
-              <span>
-                Last reviewed <time dateTime={lastReviewed}>{lastReviewed}</time>
-              </span>
+              <span>Last reviewed <time dateTime={lastReviewed}>{lastReviewed}</time></span>
             </>
           ) : null}
-          {page.references.length > 0 ? (
+          {articleReferences.length > 0 ? (
             <>
               <span aria-hidden="true">·</span>
               <a href="#references" className="font-semibold text-[color:var(--tone-ink)] hover:underline">
-                {page.references.length} cited sources
+                {articleReferences.length} cited sources
               </a>
             </>
           ) : null}
@@ -218,9 +264,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
                 </h2>
                 <ul className="mt-5 divide-y divide-[color:var(--hs-hairline)] text-sm leading-6 text-[color:var(--hs-body)]">
                   {citationQuestions.map((question) => (
-                    <li key={question} className="py-3 first:pt-0 last:pb-0">
-                      {question}
-                    </li>
+                    <li key={question} className="py-3 first:pt-0 last:pb-0">{question}</li>
                   ))}
                 </ul>
               </div>
@@ -254,27 +298,10 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         </ContentCards>
       </div>
 
-      {page.references.length > 0 ? (
-        <section id="references" className="mt-8 scroll-mt-24 border-t border-[color:var(--hs-hairline)] py-8">
-          <h2 className="text-lg font-bold text-ink">References</h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-muted marker:font-semibold marker:text-brand-800">
-            {page.references.map((ref, index) => (
-              <li key={`${ref.title}-${index}`} id={`ref-${ref.pmid || index + 1}`} className="scroll-mt-24">
-                {ref.authors ? `${ref.authors} ` : ''}
-                {ref.title}
-                {ref.year ? ` (${ref.year})` : ''}
-                {ref.url ? (
-                  <>
-                    {' — '}
-                    <a href={ref.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 hover:underline">
-                      Source
-                    </a>
-                  </>
-                ) : null}
-              </li>
-            ))}
-          </ol>
-        </section>
+      {articleReferences.length > 0 ? (
+        <div className="mt-8">
+          <References refs={articleReferences} />
+        </div>
       ) : null}
 
       {relatedPages.length > 0 ? (
