@@ -1,7 +1,23 @@
 import { canonicalStudyGroups, type ResearchProfile } from './research-coverage'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 
-export type StudyProvenance = { firstAuthor: string | null; journal: string | null }
+export type StudyProvenance = {
+  firstAuthor: string | null
+  journal: string | null
+  firstAuthorCandidates: string[]
+  journalCandidates: string[]
+  firstAuthorConflict: boolean
+  journalConflict: boolean
+}
+
+export type StudyProvenanceConflict = {
+  url: string
+  studyId: string
+  firstAuthorCandidates: string[]
+  journalCandidates: string[]
+  firstAuthorConflict: boolean
+  journalConflict: boolean
+}
 
 export type ProvenanceConcentrationProfile = {
   url: string
@@ -44,26 +60,68 @@ function normalizeToken(value: unknown): string {
   return String(value ?? '').trim().replace(/\s+/g, ' ')
 }
 
+function normalizeProvenanceToken(value: unknown): string | null {
+  const normalized = normalizeToken(value).toLowerCase()
+  return normalized || null
+}
+
+function sourceProvenance(
+  source: Record<string, unknown>,
+  cache: ResearchQualityAnalysis['cache'],
+): { firstAuthor: string | null; journal: string | null } {
+  const pmid = normalizeToken(source.pmid ?? source.pubmedId)
+  const meta = (cache[pmid] ?? {}) as { authorList?: unknown; authors?: unknown; journal?: unknown }
+  const metaAuthors = Array.isArray(meta.authorList)
+    ? meta.authorList.map(normalizeToken).filter(Boolean)
+    : Array.isArray(meta.authors)
+      ? meta.authors.map(normalizeToken).filter(Boolean)
+      : []
+  const sourceAuthors = Array.isArray(source.authorList)
+    ? source.authorList.map(normalizeToken).filter(Boolean)
+    : Array.isArray(source.authors)
+      ? source.authors.map(normalizeToken).filter(Boolean)
+      : []
+  const firstAuthor = normalizeProvenanceToken(
+    metaAuthors[0] || sourceAuthors[0] || source.firstAuthor,
+  )
+  const journal = normalizeProvenanceToken(meta.journal || source.journal)
+  return { firstAuthor, journal }
+}
+
+function consensus(values: Array<string | null>): {
+  value: string | null
+  candidates: string[]
+  conflict: boolean
+} {
+  const candidates = [...new Set(values.filter((value): value is string => Boolean(value)))].sort()
+  return {
+    value: candidates.length === 1 ? candidates[0] : null,
+    candidates,
+    conflict: candidates.length > 1,
+  }
+}
+
+/**
+ * Resolve canonical study provenance from every alias row. PubMed metadata is
+ * preferred per alias when available. Group-level provenance is emitted only
+ * when all known aliases agree; conflicts are explicit instead of depending on
+ * source-row order.
+ */
 function provenanceForGroup(
   group: Array<Record<string, unknown>>,
   cache: ResearchQualityAnalysis['cache'],
 ): StudyProvenance {
-  for (const source of group) {
-    const pmid = normalizeToken(source.pmid ?? source.pubmedId)
-    const meta = (cache[pmid] ?? {}) as { authorList?: unknown; authors?: unknown; journal?: unknown }
-    const authorList = Array.isArray(meta.authorList) ? meta.authorList.map(normalizeToken).filter(Boolean) : []
-    const firstAuthor = authorList[0]
-      || (Array.isArray(source.authorList) ? source.authorList.map(normalizeToken).filter(Boolean)[0] : '')
-      || normalizeToken(source.firstAuthor)
-    const journal = normalizeToken(source.journal || meta.journal)
-    if (firstAuthor || journal) {
-      return {
-        firstAuthor: firstAuthor ? firstAuthor.toLowerCase() : null,
-        journal: journal ? journal.toLowerCase() : null,
-      }
-    }
+  const resolved = group.map((source) => sourceProvenance(source, cache))
+  const authors = consensus(resolved.map((item) => item.firstAuthor))
+  const journals = consensus(resolved.map((item) => item.journal))
+  return {
+    firstAuthor: authors.value,
+    journal: journals.value,
+    firstAuthorCandidates: authors.candidates,
+    journalCandidates: journals.candidates,
+    firstAuthorConflict: authors.conflict,
+    journalConflict: journals.conflict,
   }
-  return { firstAuthor: null, journal: null }
 }
 
 /** Build the canonical provenance lookup once so profile- and claim-level topology share identical metadata resolution. */
@@ -78,6 +136,31 @@ export function buildStudyProvenanceIndex(
   return index
 }
 
+export function analyzeStudyProvenanceConflicts(
+  analysis: ResearchQualityAnalysis,
+): StudyProvenanceConflict[] {
+  const conflicts: StudyProvenanceConflict[] = []
+  for (const { url, record } of analysis.profiles) {
+    for (const [studyId, provenance] of buildStudyProvenanceIndex(record, analysis.cache)) {
+      if (!provenance.firstAuthorConflict && !provenance.journalConflict) continue
+      conflicts.push({
+        url,
+        studyId,
+        firstAuthorCandidates: provenance.firstAuthorCandidates,
+        journalCandidates: provenance.journalCandidates,
+        firstAuthorConflict: provenance.firstAuthorConflict,
+        journalConflict: provenance.journalConflict,
+      })
+    }
+  }
+  return conflicts.sort((a, b) =>
+    Number(b.firstAuthorConflict) - Number(a.firstAuthorConflict)
+    || Number(b.journalConflict) - Number(a.journalConflict)
+    || a.url.localeCompare(b.url)
+    || a.studyId.localeCompare(b.studyId),
+  )
+}
+
 function dominant(
   edgeCounts: Map<string, number>,
   studySets: Map<string, Set<string>>,
@@ -89,8 +172,8 @@ function dominant(
 
 /**
  * Measure whether approved claim-study edges are disproportionately carried by
- * publications from the same first-author lineage or journal. Missing metadata
- * only lowers coverage; it never counts as concentration.
+ * publications from the same first-author lineage or journal. Missing or
+ * conflicting provenance lowers coverage; it never counts as concentration.
  */
 export function analyzeProvenanceConcentration(analysis: ResearchQualityAnalysis): ProvenanceConcentrationAnalysis {
   const claimsByUrl = new Map<string, typeof analysis.claimAnalyses>()

@@ -8,7 +8,7 @@ import { analyzeResearchEdgeCardinality } from './research-edge-cardinality'
 import { analyzeEvidenceIndependenceCoverage } from './research-evidence-independence-coverage'
 import { analyzeEvidenceLineage } from './research-evidence-lineage'
 import { analyzeClaimEvidenceAge, analyzeStudyYearConflicts, summarizeEvidenceAge } from './research-evidence-age'
-import { analyzeProvenanceConcentration } from './research-provenance-concentration'
+import { analyzeProvenanceConcentration, analyzeStudyProvenanceConflicts } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import { analyzeResearchSemanticAlignment } from './research-semantic-alignment'
 import { analyzeStudyClassConflicts } from './research-study-class-conflicts'
@@ -45,6 +45,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const edgeWeightedDesignUsage = analyzeEdgeWeightedDesignUsage(analysis)
   const edgeWeightedNarrativeDominatedProfiles = edgeWeightedDesignUsage.filter((profile) => profile.edgeWeightedNarrativeDominated)
   const provenanceConcentration = analyzeProvenanceConcentration(analysis)
+  const provenanceConflicts = analyzeStudyProvenanceConflicts(analysis)
   const provenanceConcentratedProfiles = provenanceConcentration.profiles.filter((profile) => profile.provenanceConcentrated)
   const claimEvidenceDiversity = analyzeClaimEvidenceDiversity(analysis)
   const homogeneousMultiStudyClaims = claimEvidenceDiversity.filter((claim) => claim.homogeneousMultiStudySupport)
@@ -88,6 +89,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     edgeWeightedDesignUsage,
     edgeWeightedNarrativeDominatedProfiles,
     provenanceConcentration,
+    provenanceConflicts,
     provenanceConcentratedProfiles,
     claimEvidenceDiversity,
     homogeneousMultiStudyClaims,
