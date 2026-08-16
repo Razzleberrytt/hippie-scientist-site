@@ -33,20 +33,39 @@ function claim(url: string, claimId: string, studyIds: string[]): ClaimQualityAn
 }
 
 function analysis(claims: ClaimQualityAnalysis[]): ResearchQualityAnalysis {
-  return { cache: {}, profiles: [], profileAnalyses: [], claimAnalyses: claims, structuredClaimAnalyses: claims }
+  const studiesByUrl = new Map<string, Set<string>>()
+  for (const item of claims) {
+    const studies = studiesByUrl.get(item.url) ?? new Set<string>()
+    for (const studyId of item.studyIds) studies.add(studyId)
+    studiesByUrl.set(item.url, studies)
+  }
+
+  const profiles = [...studiesByUrl.entries()].map(([url, studyIds]) => ({
+    url,
+    kind: url.startsWith('/compounds/') ? 'compounds' as const : 'herbs' as const,
+    file: '',
+    record: {
+      sources: [...studyIds].map((studyId) => {
+        const pmid = studyId.replace(/^pmid:/, '')
+        return { id: studyId, pmid }
+      }),
+    },
+  }))
+
+  return { cache: {}, profiles, profileAnalyses: [], claimAnalyses: claims, structuredClaimAnalyses: claims }
 }
 
 describe('cross-profile evidence bundle reuse', () => {
   it('flags a two-study bundle reused by three approved claims across two profiles', () => {
     const result = analyzeCrossProfileEvidenceBundles(analysis([
-      claim('/herbs/a/', 'a1', ['s1', 's2']),
-      claim('/herbs/a/', 'a2', ['s2', 's1']),
-      claim('/compounds/b/', 'b1', ['s1', 's2']),
+      claim('/herbs/a/', 'a1', ['pmid:111', 'pmid:222']),
+      claim('/herbs/a/', 'a2', ['pmid:222', 'pmid:111']),
+      claim('/compounds/b/', 'b1', ['pmid:111', 'pmid:222']),
     ]))
 
     expect(result).toHaveLength(1)
     expect(result[0]).toMatchObject({
-      studyIds: ['s1', 's2'],
+      studyIds: ['pmid:111', 'pmid:222'],
       studyCount: 2,
       profileCount: 2,
       approvedClaimCount: 3,
@@ -56,17 +75,17 @@ describe('cross-profile evidence bundle reuse', () => {
 
   it('does not duplicate the single-study load-bearing analysis', () => {
     const result = analyzeCrossProfileEvidenceBundles(analysis([
-      claim('/herbs/a/', 'a1', ['single']),
-      claim('/compounds/b/', 'b1', ['single']),
-      claim('/compounds/c/', 'c1', ['single']),
+      claim('/herbs/a/', 'a1', ['pmid:111']),
+      claim('/compounds/b/', 'b1', ['pmid:111']),
+      claim('/compounds/c/', 'c1', ['pmid:111']),
     ]))
     expect(result).toHaveLength(0)
   })
 
   it('reports broader multi-study bundles across profiles without calling them narrow', () => {
     const result = analyzeCrossProfileEvidenceBundles(analysis([
-      claim('/herbs/a/', 'a1', ['s1', 's2', 's3']),
-      claim('/compounds/b/', 'b1', ['s1', 's2', 's3']),
+      claim('/herbs/a/', 'a1', ['pmid:111', 'pmid:222', 'pmid:333']),
+      claim('/compounds/b/', 'b1', ['pmid:111', 'pmid:222', 'pmid:333']),
     ]))
     expect(result[0]).toMatchObject({ profileCount: 2, studyCount: 3, narrowCrossProfileBundle: false })
   })
