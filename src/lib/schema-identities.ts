@@ -47,3 +47,43 @@ export function authorSchemaIdentity() {
     affiliation: organizationSchemaRef(),
   }
 }
+
+function hasSchemaType(node: Record<string, unknown>, expected: string): boolean {
+  const type = node['@type']
+  return Array.isArray(type) ? type.includes(expected) : type === expected
+}
+
+/**
+ * Canonicalize only the site's two first-party authority entities. This runs at
+ * the JSON-LD serialization boundary so older builders cannot accidentally emit
+ * a second anonymous publisher/author identity. Third-party people and
+ * organizations are left untouched.
+ */
+export function normalizeSiteSchemaIdentities(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(normalizeSiteSchemaIdentities)
+  if (!value || typeof value !== 'object') return value
+
+  const source = value as Record<string, unknown>
+  const normalized = Object.fromEntries(
+    Object.entries(source).map(([key, child]) => [key, normalizeSiteSchemaIdentities(child)]),
+  ) as Record<string, unknown>
+
+  if (hasSchemaType(normalized, 'Organization') && normalized.name === SITE_NAME) {
+    return {
+      ...normalized,
+      '@id': ORGANIZATION_SCHEMA_ID,
+      url: SITE_URL,
+    }
+  }
+
+  if (hasSchemaType(normalized, 'Person') && normalized.name === AUTHOR_NAME) {
+    return {
+      ...normalized,
+      '@id': AUTHOR_SCHEMA_ID,
+      url: AUTHOR_URL,
+      affiliation: normalized.affiliation ?? organizationSchemaRef(),
+    }
+  }
+
+  return normalized
+}
