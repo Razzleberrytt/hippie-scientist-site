@@ -25,11 +25,11 @@
   scroll-snap-align: start;
   scroll-snap-stop: normal;
   scrollbar-gutter: stable;
-  border: 1px solid rgb(120 72 18 / 0.14);
+  border: 1px solid color-mix(in srgb, var(--hs-gold) 24%, var(--border-soft));
   border-radius: 0.875rem;
-  background: rgb(255 255 255 / 0.72);
+  background: color-mix(in srgb, var(--surface-card) 94%, var(--hs-gold) 6%);
   padding: 0.875rem;
-  box-shadow: 0 1px 2px rgb(72 42 12 / 0.05);
+  box-shadow: var(--hs-lift);
 }
 
 #safety details > div.mt-4.grid > div > h3 {
@@ -38,7 +38,7 @@
   z-index: 1;
   margin: -0.875rem -0.875rem 0.5rem;
   padding: 0.875rem 0.875rem 0.625rem;
-  background: rgb(255 255 255 / 0.94);
+  background: color-mix(in srgb, var(--surface-card-strong) 96%, var(--hs-gold) 4%);
   backdrop-filter: blur(6px);
 }
 
@@ -69,14 +69,4 @@
     scroll-behavior: auto;
     scroll-snap-type: none;
   }
-}
-
-.dark #safety details > div.mt-4.grid > div {
-  border-color: rgb(252 211 77 / 0.14);
-  background: rgb(120 72 18 / 0.18);
-  box-shadow: none;
-}
-
-.dark #safety details > div.mt-4.grid > div > h3 {
-  background: rgb(55 36 12 / 0.94);
 }
