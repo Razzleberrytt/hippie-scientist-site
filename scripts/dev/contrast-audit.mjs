@@ -12,8 +12,12 @@
  *   npm i --no-save playwright && node scripts/dev/contrast-audit.mjs
  */
 import { chromium } from 'playwright'
-const ROUTES = ['/', '/herbs/ashwagandha/', '/compounds/l-theanine/', '/guides/', '/guides/compare/',
-  '/library/', '/goals/sleep/', '/articles/', '/safety-checker/', '/info/about/', '/learn/', '/evidence/evidence-report/']
+const ROUTES = [
+  '/', '/start/', '/library/', '/goals/',
+  '/goals/sleep/', '/goals/stress/', '/goals/anxiety/', '/goals/focus/',
+  '/herbs/ashwagandha/', '/compounds/l-theanine/', '/guides/', '/guides/compare/',
+  '/articles/', '/safety-checker/', '/info/about/', '/learn/', '/evidence/evidence-report/',
+]
 const browser = await chromium.launch({ ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}) })
 const rows = []
 for (const theme of ['light', 'dark']) {
