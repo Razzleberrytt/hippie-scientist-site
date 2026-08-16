@@ -41,7 +41,8 @@ describe('contextual lead magnets', () => {
     expect(getContextualLeadMagnet('/about/').slug).toBe('supplement-evidence-starter-kit')
   })
 
-  it('suppresses the contextual capture on resource and policy pages', () => {
+  it('suppresses the contextual capture where another primary capture or policy boundary owns the page', () => {
+    expect(shouldShowContextualLeadMagnet('/')).toBe(false)
     expect(shouldShowContextualLeadMagnet('/lead-magnets/sleep-supplement-evidence-guide/')).toBe(false)
     expect(shouldShowContextualLeadMagnet('/privacy/')).toBe(false)
     expect(shouldShowContextualLeadMagnet('/terms/')).toBe(false)
