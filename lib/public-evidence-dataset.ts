@@ -14,7 +14,7 @@ import {
   type EvidenceStudyClass,
   type EvidenceStudyRecord,
 } from '@/lib/evidence-study'
-import { buildResearchQualitySnapshot } from '@/lib/research-quality-snapshot'
+import { buildScopedResearchQualityTopology } from '@/lib/research-quality-snapshot'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import {
   getCompoundBySlug,
@@ -103,15 +103,15 @@ export type PublicEvidenceReportMetrics = {
   disagreementStudyCount: number
   /** Null for synthetic/pure builders that do not execute canonical topology. */
   underlyingStudyMetricsSource: 'canonical-research-topology' | null
-  /** Unique site-wide publication identities across every canonical research profile. */
+  /** Unique publication identities within the current public/indexable dataset scope. */
   globalInventoryPublicationCount: number | null
-  /** Site-wide evidence units remaining after explicitly proven registry/lineage dependence is collapsed. */
+  /** Evidence units remaining in the current public scope after explicitly proven registry/lineage dependence is collapsed. */
   globalInventoryUnderlyingStudyCount: number | null
   globalCollapsedInventoryPublicationCount: number | null
   globalInventoryPublicationsWithIndependenceMetadata: number | null
   globalInventoryPublicationsWithoutIndependenceMetadata: number | null
   globalInventoryIndependenceMetadataCoverage: number | null
-  /** Unique site-wide primary-human publication identities. */
+  /** Unique primary-human publication identities within the current public/indexable dataset scope. */
   globalPrimaryHumanPublicationCount: number | null
   /** Primary-human evidence units remaining after explicitly proven dependence collapse; unresolved lineage is not assumed independent. */
   globalPrimaryHumanUnderlyingStudyCount: number | null
@@ -493,7 +493,10 @@ export async function getPublicEvidenceDataset(): Promise<PublicEvidenceDataset>
     hydrateIndexableRecords(compounds, 'compound'),
   ])
   const dataset = buildPublicEvidenceDatasetFromRecords([...herbRecords, ...compoundRecords])
-  const topology = buildResearchQualitySnapshot(process.cwd()).topology
+  const topology = buildScopedResearchQualityTopology(
+    process.cwd(),
+    dataset.ingredients.map((ingredient) => ingredient.path),
+  ).topology
   const independence = topology.underlyingStudyIndependence.summary
   const coverage = topology.evidenceIndependenceCoverage.summary
 
