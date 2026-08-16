@@ -4,7 +4,6 @@ import {
   AUTHOR_NAME,
   AUTHOR_SCHEMA_ID,
   AUTHOR_URL,
-  ORGANIZATION_SCHEMA_ID,
   WEBSITE_SCHEMA_ID,
   organizationSchemaIdentity,
 } from '@/src/lib/schema-identities'
@@ -29,14 +28,10 @@ function normalizeCanonicalUrl(value: string): string {
 
   try {
     const url = new URL(trimmed, SITE_URL)
-
-    // Preserve third-party URLs exactly as supplied. Internal page routes use
-    // the site's trailing-slash canonical convention, while root and assets do not.
     if (url.origin !== SITE_URL) return trimmed
     if (url.pathname !== '/' && !url.pathname.endsWith('/') && !hasFileExtension(url.pathname)) {
       url.pathname = `${url.pathname}/`
     }
-
     return url.toString()
   } catch {
     return trimmed
@@ -59,7 +54,7 @@ export interface StructuredDataProps {
   description: string
   datePublished: string
   dateModified?: string
-  /** Reserved for backward compatibility. The canonical author identity is site-governed. */
+  /** Backward-compatible custom author display name. */
   authorName?: string
   image?: string
   faqs?: FAQItem[]
@@ -100,12 +95,17 @@ export default function StructuredData({
   const webpageId = isMonetized ? `${canonicalPageUrl}#supplement` : `${canonicalPageUrl}#webpage`
   const breadcrumbId = `${canonicalPageUrl}#breadcrumb`
   const faqId = `${canonicalPageUrl}#faq`
-  const author = {
-    '@type': 'Person',
-    '@id': AUTHOR_SCHEMA_ID,
-    name: authorName,
-    url: AUTHOR_URL,
-  }
+  const author = authorName === AUTHOR_NAME
+    ? {
+        '@type': 'Person',
+        '@id': AUTHOR_SCHEMA_ID,
+        name: AUTHOR_NAME,
+        url: AUTHOR_URL,
+      }
+    : {
+        '@type': 'Person',
+        name: authorName,
+      }
   const publisher = organizationSchemaIdentity()
 
   if (isMonetized) {
