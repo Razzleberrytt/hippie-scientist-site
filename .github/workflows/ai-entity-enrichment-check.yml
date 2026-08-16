@@ -4,11 +4,17 @@ on:
   pull_request:
     paths:
       - 'components/seo/**'
+      - 'components/StructuredData.tsx'
+      - 'components/compare/CompareSchema.tsx'
       - 'components/editorial/ProfileDecisionPanel.tsx'
       - 'components/editorial/ScientificVerdictCard.tsx'
       - 'components/ui/EvidenceScoreBadge.tsx'
       - 'components/ui/SafetyGaugeMeter.tsx'
       - 'src/components/editorial/LastUpdatedBadge.tsx'
+      - 'src/lib/schema-identities.ts'
+      - 'src/lib/schema-injector.ts'
+      - 'src/lib/__tests__/schema-injector.test.ts'
+      - 'lib/structured-data.ts'
       - 'app/info/content-licensing/**'
       - 'public/llms.txt'
       - 'app/robots.ts'
@@ -16,6 +22,7 @@ on:
       - 'lib/research-quality-analysis.ts'
       - 'scripts/ci/audit-ai-*.mjs'
       - 'scripts/ci/audit-ai-*.ts'
+      - 'scripts/data/ai-entity-artifacts.mjs'
       - 'scripts/data/ai-entity-enrichment-lib.mjs'
       - 'scripts/data/ai-entity-enrichment-smoke.mjs'
       - 'scripts/data/build-runtime-summary-indexes.mjs'
@@ -69,8 +76,12 @@ jobs:
       - name: Install dependencies
         run: npm ci --silent
 
-      - name: Run schema discovery and provenance tests
-        run: npx vitest run components/seo/__tests__/SchemaGraphScript.test.ts components/seo/__tests__/SchemaGraphScript.provenance.test.ts
+      - name: Run schema identity, discovery, and provenance tests
+        run: >-
+          npx vitest run
+          src/lib/__tests__/schema-injector.test.ts
+          components/seo/__tests__/SchemaGraphScript.test.ts
+          components/seo/__tests__/SchemaGraphScript.provenance.test.ts
 
       - name: Run canonical AI-search quality audit
         run: npm run audit:ai-citations
@@ -78,9 +89,12 @@ jobs:
       - name: Lint AI-search implementation files
         run: >-
           npx eslint
+          components/StructuredData.tsx
+          components/compare/CompareSchema.tsx
           components/seo/SchemaGraphScript.tsx
           components/seo/CitationReadySummary.tsx
           components/seo/AnswerEngineTable.tsx
+          components/seo/AuthorityJsonLd.tsx
           components/seo/__tests__/SchemaGraphScript.test.ts
           components/seo/__tests__/SchemaGraphScript.provenance.test.ts
           components/editorial/ProfileDecisionPanel.tsx
@@ -88,6 +102,11 @@ jobs:
           components/ui/EvidenceScoreBadge.tsx
           components/ui/SafetyGaugeMeter.tsx
           src/components/editorial/LastUpdatedBadge.tsx
+          src/lib/schema-identities.ts
+          src/lib/schema-injector.ts
+          src/lib/__tests__/schema-injector.test.ts
+          lib/structured-data.ts
+          scripts/data/ai-entity-artifacts.mjs
           scripts/data/ai-entity-enrichment-lib.mjs
           scripts/data/ai-entity-enrichment-smoke.mjs
           scripts/data/build-runtime-summary-indexes.mjs

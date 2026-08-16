@@ -1,7 +1,10 @@
 import type { CompareItem } from '@/lib/compare'
 import JsonLd from '@/components/seo/JsonLd'
-
-const SITE_URL = 'https://thehippiescientist.net'
+import { SITE_URL } from '@/src/lib/site'
+import {
+  AUTHOR_SCHEMA_ID,
+  ORGANIZATION_SCHEMA_ID,
+} from '@/src/lib/schema-identities'
 
 interface FAQItem {
   question: string
@@ -33,16 +36,8 @@ export function buildCompareSchema({ item1, item2, slug, faqs, dateModified, cit
         '@type': 'Article',
         headline,
         description,
-        author: {
-          '@type': 'Organization',
-          name: 'The Hippie Scientist',
-          url: SITE_URL,
-        },
-        publisher: {
-          '@type': 'Organization',
-          name: 'The Hippie Scientist',
-          url: SITE_URL,
-        },
+        author: { '@id': AUTHOR_SCHEMA_ID },
+        publisher: { '@id': ORGANIZATION_SCHEMA_ID },
         ...(dateModified ? { dateModified } : {}),
         ...(citationUrls.length ? { citation: [...new Set(citationUrls)].filter(Boolean) } : {}),
         url: pageUrl,

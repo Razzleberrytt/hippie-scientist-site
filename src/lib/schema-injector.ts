@@ -9,11 +9,19 @@
  * Informational herb profiles are not commercial product listings, so no
  * Product node is emitted here — Product schema was intentionally removed.
  *
- * Serialization: serializeJsonLd() centralises schema sanitization and the
- * HTML-safe escaping used when writing JSON-LD script payloads.
+ * Serialization: serializeJsonLd() centralises schema sanitization, first-party
+ * identity normalization, and HTML-safe escaping for JSON-LD script payloads.
  */
 
 import { sanitizeJsonLdPayload } from '@/lib/json-ld-sanitize'
+import {
+  AUTHOR_NAME,
+  AUTHOR_URL,
+  ORGANIZATION_SCHEMA_ID,
+  authorSchemaRef,
+  normalizeSiteSchemaIdentities,
+  organizationSchemaIdentity,
+} from './schema-identities'
 
 export type JsonLdNode = Record<string, unknown>
 
@@ -23,13 +31,14 @@ export type JsonLdNode = Record<string, unknown>
 
 /**
  * Sanitizes and serializes a JSON-LD payload for use in an HTML script element.
- * Escapes <, >, and & to their Unicode escape sequences so an untrusted value
- * cannot break out of the enclosing <script> tag.
+ * First-party author/publisher objects are normalized to their canonical IDs,
+ * then <, >, and & are escaped so values cannot break out of the script tag.
  */
 export function serializeJsonLd(node: unknown): string {
   const sanitized = sanitizeJsonLdPayload(node)
+  const normalized = normalizeSiteSchemaIdentities(sanitized)
 
-  return JSON.stringify(sanitized ?? {})
+  return JSON.stringify(normalized ?? {})
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e')
     .replace(/&/g, '\\u0026')
@@ -52,53 +61,43 @@ export type HerbArticleSchemaArgs = {
   datePublished?: string
   /** ISO 8601 date, e.g. "2026-06-14" */
   dateModified?: string
-  /** Author/publisher display name */
+  /** Author display name. The canonical site author remains Willie unless explicitly different. */
   authorName?: string
-  /** Author/publisher absolute URL */
+  /** Author absolute URL. */
   authorUrl?: string
-  /**
-   * Evidence grade string emitted as a PropertyValue, e.g. "B — Moderate".
-   * Provides structured context for automated parsers without polluting
-   * the core Article fields.
-   */
+  /** Evidence grade retained for API compatibility; not emitted as Article additionalProperty. */
   evidenceGrade?: string
   /**
    * Optional list of cited sources emitted as schema:citation nodes.
    * Each entry should be a descriptive title or full bibliographic reference.
-   * Strengthens AI-search discovery signals for scholarly herb research pages.
    */
   citations?: string[]
 }
 
 /**
  * Builds a Schema.org Article node for a herb evidence profile page.
- *
- * Google Rich Results minimum required fields:
- *   - headline (required)
- *   - image   (required for Article rich result appearance)
- *   - datePublished (required)
- *   - author.name (required)
- *
- * Supply image, datePublished, and authorName to unlock Article rich results.
  */
 export function buildHerbArticleSchema(args: HerbArticleSchemaArgs): JsonLdNode {
-  const publisher: JsonLdNode = {
-    '@type': 'Organization',
-    name: args.authorName ?? 'The Hippie Scientist',
-    url: args.authorUrl ?? 'https://thehippiescientist.net',
-  }
+  const isCanonicalAuthor =
+    (!args.authorName || args.authorName === AUTHOR_NAME)
+    && (!args.authorUrl || args.authorUrl === AUTHOR_URL)
+
+  const author: JsonLdNode = isCanonicalAuthor
+    ? { '@type': 'Person', ...authorSchemaRef(), name: AUTHOR_NAME, url: AUTHOR_URL }
+    : {
+        '@type': 'Person',
+        name: args.authorName ?? AUTHOR_NAME,
+        ...(args.authorUrl ? { url: args.authorUrl } : {}),
+      }
 
   const node: JsonLdNode = {
     '@context': 'https://schema.org',
-    // ScholarlyArticle is a Schema.org subtype of Article — keeps Article rich
-    // result eligibility while providing stronger AI-search discovery signals
-    // for botanical research pages.
     '@type': ['ScholarlyArticle', 'Article'],
     headline: args.headline,
     description: args.description,
     url: args.url,
-    author: publisher,
-    publisher: publisher,
+    author,
+    publisher: organizationSchemaIdentity(),
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': args.url,
@@ -114,6 +113,10 @@ export function buildHerbArticleSchema(args: HerbArticleSchemaArgs): JsonLdNode 
       '@type': 'CreativeWork',
       name: title,
     }))
+  }
+
+  if ((node.publisher as Record<string, unknown>)['@id'] !== ORGANIZATION_SCHEMA_ID) {
+    throw new Error('Herb article publisher identity drifted from canonical organization')
   }
 
   return node

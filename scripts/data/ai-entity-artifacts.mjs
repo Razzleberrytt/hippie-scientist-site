@@ -3,8 +3,20 @@ import path from 'node:path'
 import { hasUsefulStructuredValue } from '../../lib/data-quality.mjs'
 import { buildAiEntityArtifacts as buildBaseAiEntityArtifacts } from './ai-entity-enrichment-lib.mjs'
 
-function normalizeSchemaTypes(value) {
-  if (Array.isArray(value)) return value.map(normalizeSchemaTypes)
+const SITE_URL = 'https://thehippiescientist.net'
+const SITE_NAME = 'The Hippie Scientist'
+const ORGANIZATION_ID = `${SITE_URL}/#organization`
+const AUTHOR_NAME = 'Willie B. Randolph III'
+const AUTHOR_URL = `${SITE_URL}/info/author/`
+const AUTHOR_ID = `${AUTHOR_URL}#person`
+
+function schemaTypes(value) {
+  const raw = value?.['@type']
+  return Array.isArray(raw) ? raw.map(String) : raw ? [String(raw)] : []
+}
+
+function normalizeArtifactSchema(value, relationship = '') {
+  if (Array.isArray(value)) return value.map((entry) => normalizeArtifactSchema(entry, relationship))
   if (!value || typeof value !== 'object') return value
 
   const normalized = {}
@@ -19,8 +31,45 @@ function normalizeSchemaTypes(value) {
         continue
       }
     }
-    normalized[key] = normalizeSchemaTypes(entry)
+    normalized[key] = normalizeArtifactSchema(entry, key)
   }
+
+  const types = schemaTypes(normalized)
+  const isFirstPartyOrganization = types.includes('Organization') && normalized.name === SITE_NAME
+  const isFirstPartyPerson = types.includes('Person') && normalized.name === AUTHOR_NAME
+
+  // AI entity shards bypass the React/HTML serializer, so normalize their
+  // first-party identities here at the publication boundary. For editorial
+  // authorship, convert the historical organizational author object into the
+  // canonical Person; publisher/reviewer Organization roles remain organizations.
+  if (relationship === 'author' && isFirstPartyOrganization) {
+    return {
+      ...normalized,
+      '@type': 'Person',
+      '@id': AUTHOR_ID,
+      name: AUTHOR_NAME,
+      url: AUTHOR_URL,
+      affiliation: { '@id': ORGANIZATION_ID },
+    }
+  }
+
+  if (isFirstPartyOrganization) {
+    return {
+      ...normalized,
+      '@id': ORGANIZATION_ID,
+      url: SITE_URL,
+    }
+  }
+
+  if (isFirstPartyPerson) {
+    return {
+      ...normalized,
+      '@id': AUTHOR_ID,
+      url: AUTHOR_URL,
+      affiliation: normalized.affiliation || { '@id': ORGANIZATION_ID },
+    }
+  }
+
   return normalized
 }
 
@@ -37,10 +86,10 @@ async function normalizeArtifactDirectory(directory) {
     .map(async (name) => {
       const filePath = path.join(directory, name)
       const raw = await fs.readFile(filePath, 'utf8')
-      if (!raw.includes('MedicalSubstance')) return
       const parsed = JSON.parse(raw)
-      const normalized = normalizeSchemaTypes(parsed)
-      await fs.writeFile(filePath, `${JSON.stringify(normalized)}\n`, 'utf8')
+      const normalized = normalizeArtifactSchema(parsed)
+      const next = `${JSON.stringify(normalized)}\n`
+      if (next !== raw) await fs.writeFile(filePath, next, 'utf8')
     }))
 }
 
@@ -49,10 +98,6 @@ function mergeSummaryWithDetail(summary, detail) {
 
   const merged = { ...detail }
   for (const [key, value] of Object.entries(summary || {})) {
-    // The root arrays are the governance/runtime authority. Keep every useful
-    // root value, but let the richer detail payload fill fields that were
-    // intentionally omitted or collapsed by summary generation (citations,
-    // claims, review provenance, relationships, safety detail, identifiers).
     if (hasUsefulStructuredValue(value) || !hasUsefulStructuredValue(merged[key])) {
       merged[key] = value
     }

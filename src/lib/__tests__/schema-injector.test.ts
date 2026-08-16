@@ -3,10 +3,11 @@ import {
   serializeJsonLd,
   buildHerbArticleSchema,
 } from '../schema-injector'
-
-// ---------------------------------------------------------------------------
-// serializeJsonLd
-// ---------------------------------------------------------------------------
+import {
+  AUTHOR_SCHEMA_ID,
+  AUTHOR_URL,
+  ORGANIZATION_SCHEMA_ID,
+} from '../schema-identities'
 
 describe('serializeJsonLd', () => {
   it('produces valid JSON', () => {
@@ -47,6 +48,45 @@ describe('serializeJsonLd', () => {
     expect(parsed.safetyWarnings).toBeUndefined()
   })
 
+  it('canonicalizes the first-party organization identity without touching its role', () => {
+    const parsed = JSON.parse(serializeJsonLd({
+      '@type': 'Article',
+      publisher: {
+        '@type': 'Organization',
+        name: 'The Hippie Scientist',
+        url: 'https://thehippiescientist.net',
+      },
+    }))
+
+    expect(parsed.publisher['@id']).toBe(ORGANIZATION_SCHEMA_ID)
+    expect(parsed.publisher.url).toBe('https://thehippiescientist.net')
+  })
+
+  it('canonicalizes the first-party author identity recursively', () => {
+    const parsed = JSON.parse(serializeJsonLd({
+      '@type': 'Article',
+      author: {
+        '@type': 'Person',
+        name: 'Willie B. Randolph III',
+      },
+    }))
+
+    expect(parsed.author['@id']).toBe(AUTHOR_SCHEMA_ID)
+    expect(parsed.author.url).toBe(AUTHOR_URL)
+    expect(parsed.author.affiliation['@id']).toBe(ORGANIZATION_SCHEMA_ID)
+  })
+
+  it('does not rewrite third-party people or organizations', () => {
+    const parsed = JSON.parse(serializeJsonLd({
+      author: { '@type': 'Person', name: 'External Reviewer', url: 'https://example.org/reviewer' },
+      publisher: { '@type': 'Organization', name: 'Example Journal', url: 'https://example.org' },
+    }))
+
+    expect(parsed.author['@id']).toBeUndefined()
+    expect(parsed.publisher['@id']).toBeUndefined()
+    expect(parsed.author.url).toBe('https://example.org/reviewer')
+  })
+
   it('round-trips cleanly through JSON.parse', () => {
     const node = { '@type': 'Article', headline: 'A & B < C > D', url: 'https://example.com/' }
     const serialized = serializeJsonLd(node)
@@ -55,10 +95,6 @@ describe('serializeJsonLd', () => {
     expect(parsed.headline).toBe('A & B < C > D')
   })
 })
-
-// ---------------------------------------------------------------------------
-// buildHerbArticleSchema — Google Rich Results compliance
-// ---------------------------------------------------------------------------
 
 describe('buildHerbArticleSchema', () => {
   const base = {
@@ -76,23 +112,15 @@ describe('buildHerbArticleSchema', () => {
     expect(schema['@type']).toEqual(expect.arrayContaining(['ScholarlyArticle', 'Article']))
   })
 
-  it('includes headline (required for Article rich results)', () => {
+  it('includes headline and image', () => {
     const schema = buildHerbArticleSchema(base)
     expect(schema.headline).toBe(base.headline)
-  })
-
-  it('includes image (required for Article rich results)', () => {
-    const schema = buildHerbArticleSchema(base)
     expect(schema.image).toBe(base.image)
   })
 
-  it('includes datePublished (required for Article rich results)', () => {
+  it('includes publication and modification dates when supplied', () => {
     const schema = buildHerbArticleSchema(base)
     expect(schema.datePublished).toBe('2026-01-15')
-  })
-
-  it('includes dateModified when provided', () => {
-    const schema = buildHerbArticleSchema(base)
     expect(schema.dateModified).toBe('2026-06-14')
   })
 
@@ -102,28 +130,34 @@ describe('buildHerbArticleSchema', () => {
     expect(schema.dateModified).toBeUndefined()
   })
 
-  it('includes author.name (required for Article rich results)', () => {
+  it('uses the canonical Person as the default author', () => {
     const schema = buildHerbArticleSchema(base)
     const author = schema.author as Record<string, unknown>
-    expect(typeof author.name).toBe('string')
-    expect((author.name as string).length).toBeGreaterThan(0)
+    expect(author['@type']).toBe('Person')
+    expect(author.name).toBe('Willie B. Randolph III')
+    expect(author['@id']).toBe(AUTHOR_SCHEMA_ID)
+    expect(author.url).toBe(AUTHOR_URL)
   })
 
-  it('defaults author name to The Hippie Scientist', () => {
-    const schema = buildHerbArticleSchema(base)
-    const author = schema.author as Record<string, unknown>
-    expect(author.name).toBe('The Hippie Scientist')
-  })
-
-  it('accepts a custom author name', () => {
-    const schema = buildHerbArticleSchema({ ...base, authorName: 'Custom Author' })
+  it('keeps a genuinely custom author distinct from the canonical author ID', () => {
+    const schema = buildHerbArticleSchema({
+      ...base,
+      authorName: 'Custom Author',
+      authorUrl: 'https://example.org/custom-author',
+    })
     const author = schema.author as Record<string, unknown>
     expect(author.name).toBe('Custom Author')
+    expect(author.url).toBe('https://example.org/custom-author')
+    expect(author['@id']).toBeUndefined()
   })
 
-  it('publisher matches author (required for Article rich results)', () => {
+  it('uses the canonical Organization as publisher rather than duplicating the author', () => {
     const schema = buildHerbArticleSchema(base)
-    expect(schema.author).toEqual(schema.publisher)
+    const publisher = schema.publisher as Record<string, unknown>
+    expect(publisher['@type']).toBe('Organization')
+    expect(publisher['@id']).toBe(ORGANIZATION_SCHEMA_ID)
+    expect(publisher.name).toBe('The Hippie Scientist')
+    expect(schema.author).not.toEqual(schema.publisher)
   })
 
   it('includes mainEntityOfPage linking back to the URL', () => {
