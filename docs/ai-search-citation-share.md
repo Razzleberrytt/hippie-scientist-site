@@ -1,264 +1,141 @@
-# AI Searchability & Citation-Share Roadmap
+# AI Citation-Share & Feedback Playbook
 
-Purpose: make The Hippie Scientist easier for AI search engines, answer engines, and citation systems to understand, quote, and cite without weakening editorial quality or creating fake authority signals.
+This document covers **measurement and iteration**. The implementation standard lives in `docs/ai-search-optimization.md`; scientific support policy lives in the canonical research-quality pipeline. Do not use this file to create a second readiness model.
 
-## Current baseline
+## Goal
 
-- Canonical host is `https://thehippiescientist.net`, not the `www` host.
-- `app/robots.ts` allows public crawling and blocks internal/API/draft/temp routes.
-- `app/sitemap.ts` emits canonical, indexable routes and avoids generated compare pages that are not actually built.
-- `components/References.tsx` renders visible reference lists with stable `#ref-N` anchors.
-- `components/seo/AuthorityJsonLd.tsx` and `src/lib/schema-graph.ts` already provide JSON-LD patterns for WebPage, Article, MedicalWebPage, FAQPage, BreadcrumbList, ItemList, author, publisher, reviewedBy, dateReviewed, and dateModified signals where used.
+Increase the share and breadth of canonical Hippie Scientist pages cited by answer engines while preserving scientific nuance, source provenance, safety context, and canonical URL discipline.
 
-## Bing AI Performance model
+## Metrics
 
-Bing Webmaster Tools' AI Performance reporting changes the optimization target from only ranking/clicks to citation participation. Treat the report as a feedback loop for:
+Use observed data when available:
 
-- `Total citations`: how often site content is cited in Microsoft AI experiences.
-- `Average cited pages`: whether AI systems are using one isolated URL or multiple supporting pages from the site.
-- `Citation timeline`: whether citation activity improves after content refreshes and URL submissions.
-- `Grounding queries`: the phrases that caused Bing/Copilot-style systems to retrieve and cite site content.
-- `Page-level citation activity`: which exact URLs earn citations and which important pages are missing.
+- citation frequency — how often canonical THS URLs are cited;
+- cited-page breadth — how many distinct canonical pages participate;
+- grounding-query coverage — whether important questions map to a strong existing source;
+- citation momentum — whether page/topic citations are rising or falling between retained snapshots;
+- competitor-source pressure — where other domains repeatedly win citations;
+- source-gap structure — facts/qualifiers competitors make easier to verify, after independent verification;
+- organic demand — Search Console impressions/clicks/opportunity for the same canonical page;
+- citation readiness — structural ability of the page to expose governed claims, evidence, limitations, safety, sources, freshness, and identity.
 
-Optimization implication: every important page should be answerable at the passage level, canonical at the URL level, supported at the cluster level, and safe to cite at the claim level.
+None of these metrics upgrades or downgrades scientific evidence.
 
-## Bing-informed KPI definitions
+## Canonical reports
 
-Track these internally when reviewing Bing AI Performance data:
+### First-party AI citation performance
 
-| KPI | What it means | How to improve it |
-| --- | --- | --- |
-| Citation frequency | How often the site is cited in AI answers | Strengthen exact-answer passages, schema, references, and topical authority |
-| Cited-page breadth | How many different canonical pages receive citations | Build clusters around goals, comparisons, safety, and product quality |
-| Grounding-query coverage | Whether reported grounding queries have a strong matching page | Map each query to a canonical page and add a visible answer block if weak |
-| Citation share by page | Which URLs are carrying AI visibility | Upgrade pages already earning citations first, then close gaps |
-| Citation freshness | Whether citation activity responds to updates | Add dateModified/dateReviewed where accurate and submit updated URLs through Bing/IndexNow |
-
-## Priority 1: Make the site easy for AI crawlers to understand
-
-- Add and maintain `/llms.txt` as a human-readable AI discovery file.
-- Keep `/llms.txt` focused on canonical URLs, preferred citation targets, and safety/medical-advice boundaries.
-- Do not expose internal JSON endpoints, dashboards, draft routes, preview routes, or temporary tooling.
-- Keep canonical URLs consistent with sitemap output and redirects.
-- Keep compare URLs canonical under `/guides/compare/*`; do not recreate duplicate `/compare/*` indexable pages.
-
-Acceptance checks:
-
-- `/llms.txt` exists in the static export.
-- `/llms.txt` points to canonical, live URLs only.
-- No noncanonical `/compare/*` URL is listed when the canonical page lives at `/guides/compare/*`.
-- The file includes guidance for query-to-page citation matching.
-
-## Priority 2: Make pages quoteable and citation-ready
-
-For flagship pages and pages with search traction, add a consistent citation-ready block near the top:
-
-- `Quick answer`
-- `Best fit`
-- `Evidence level`
-- `Safety note`
-- `What this page is not claiming`
-- `References` link jump
-
-The goal is not more words. The goal is making the answer extractable without losing nuance.
-
-Recommended component name:
-
-- `components/seo/CitationReadySummary.tsx`
-
-Suggested props:
-
-```ts
-type CitationReadySummaryProps = {
-  answer: string
-  bestFor?: string[]
-  evidenceLevel?: string
-  safetyNote?: string
-  notClaiming?: string
-  referencesHref?: string
-}
+```bash
+node scripts/seo/ai-citation-tracker.mjs --label=YYYY-MM-DD
 ```
 
-## Priority 3: Upgrade references from visible list to structured citation signals
+Primary output:
 
-Current `References` output is useful, but it can become more machine-readable.
+- `ops/reports/ai-citations.json`
+- retained history under `ops/ai-citations/`
 
-Improve `components/References.tsx` carefully:
+### Competitor/source-gap observations
 
-- Keep the visible ordered list.
-- Keep stable `id="ref-N"` anchors.
-- Add `aria-label="References"` to the section.
-- Add `itemScope` / `itemType="https://schema.org/CreativeWork"` where safe.
-- Add `rel="noopener noreferrer nofollow"` only if the editorial policy wants nofollow; otherwise keep current outbound citation links clean.
-- Support optional fields in refs later:
-  - `title`
-  - `authors`
-  - `journal`
-  - `year`
-  - `pmid`
-  - `doi`
+Store generic, non-sensitive question→cited-source observations under:
 
-Do not invent citation metadata. Only use fields already known from source content or workbook data.
+- `data-sources/ai-source-audits/*.csv`
 
-## Priority 4: Improve article JSON-LD for cite-worthy pages
+Then run:
 
-For high-value guide and compare pages, prefer schema that includes:
-
-- `@type`: `Article` or `MedicalWebPage` + `WebPage` where medically adjacent
-- `headline`
-- `description`
-- `url`
-- `mainEntityOfPage`
-- `author`
-- `publisher`
-- `dateModified`
-- `dateReviewed` when true
-- `about`
-- `citation` only when citation URLs/metadata are real
-- `breadcrumb`
-- FAQ schema only when the FAQ is visible on the page
-
-Do not add fake Review or AggregateRating schema.
-
-## Priority 5: Build a citation-share audit script
-
-Add a script that reports whether indexable pages have the minimum citation-readiness features.
-
-Suggested script:
-
-- `scripts/ci/audit-ai-citation-readiness.mjs`
-
-Checks:
-
-- Page has indexable metadata/canonical.
-- Page is in sitemap if indexable.
-- Page has an H1.
-- Page has a quick-answer or summary block.
-- Page has visible references when making evidence claims.
-- Page links to methodology/disclaimer/safety context where appropriate.
-- Page has JSON-LD.
-- Page avoids fake ratings/reviews.
-- Page has canonical internal links to relevant hubs.
-- Page includes Bing-relevant answer structure: direct answer, comparison, safety, evidence, and next-step context.
-
-Suggested npm script:
-
-```json
-"audit:ai-citations": "node scripts/ci/audit-ai-citation-readiness.mjs"
+```bash
+node scripts/seo/ai-source-gap-audit.mjs --label=YYYY-MM-DD
 ```
 
-## Priority 6: Add a Bing AI Performance workflow
+Primary output:
 
-When Bing Webmaster Tools shows AI Performance data, use this loop:
+- `ops/reports/ai-source-gaps.json`
+- `ops/reports/ai-source-gaps.md`
+- dated source-gap history
 
-1. Export or record the top grounding queries.
-2. Group queries by intent: comparison, goal, safety, dosing, product quality, specific herb/compound.
-3. Map every query to one canonical URL.
-4. For each high-value query with no clear target page, create or upgrade one page — do not scatter answers across many weak pages.
-5. For each cited page, inspect whether the cited passage is safe, nuanced, and directly quotable.
-6. Add internal links from the cited page to its support cluster so AI systems can cite multiple pages when useful.
-7. Refresh `dateModified` only when meaningful editorial changes were made.
-8. Submit changed canonical URLs through Bing URL Submission/IndexNow.
-9. Recheck total citations, average cited pages, grounding queries, and page-level citation activity after Bing refreshes.
+A `missing_fact` field is a **verification task**, not permission to copy a competitor. Check the underlying fact against primary or otherwise authoritative sources before editing THS.
 
-## Priority 7: Roll out by page type, not randomly
+### Structural citation readiness
 
-Order of operations:
-
-1. Compare pages with Semrush/GSC/Bing grounding-query traction.
-2. Goal hubs: sleep, stress, anxiety, focus.
-3. Money guides and best-supplement pages.
-4. Herb/compound profiles that already pass indexability gates.
-5. Lower-priority long-tail pages only after the system is stable.
-
-## Flagship implementation target
-
-Start with:
-
-- `/guides/compare/melatonin-vs-magnesium/`
-
-Why:
-
-- It has clear search intent.
-- It has visible references.
-- It has comparison structure.
-- Semrush already flagged content/semantic improvements.
-- Bing AI Performance can evaluate whether the page earns citations for grounding queries like `melatonin vs magnesium`, `magnesium glycinate vs melatonin`, `can you take magnesium and melatonin together`, and `melatonin side effects vs magnesium side effects`.
-- It can become the template for future compare pages.
-
-## Codex implementation prompt
-
-```text
-You are working in Razzleberrytt/hippie-scientist-site.
-
-Goal: optimize AI searchability and citation share using Bing Webmaster Tools AI Performance concepts: total citations, average cited pages, grounding queries, citation timeline, and page-level citation activity.
-
-Implement an AI-citation-readiness pass with these constraints:
-
-1. Preserve canonical route policy.
-   - Do not create duplicate indexable /compare/* pages.
-   - Use /guides/compare/* as canonical for built compare pages.
-   - Add redirects only when needed; do not split citation signals.
-
-2. Keep /public/llms.txt accurate.
-   - Ensure it is included in static export.
-   - Ensure all listed URLs are canonical and public.
-   - Do not list internal JSON/data/dashboard/preview routes.
-   - Keep the AI citation and Bing grounding-query guidance aligned with real canonical pages.
-
-3. Create a reusable CitationReadySummary component.
-   - Location: components/seo/CitationReadySummary.tsx
-   - Props: answer, bestFor, evidenceLevel, safetyNote, notClaiming, referencesHref.
-   - Render readable, scannable text for humans.
-   - Do not use hidden text.
-   - The block should be extractable as a safe AI answer passage.
-
-4. Upgrade the melatonin vs magnesium page first.
-   - File: app/guides/compare/melatonin-vs-magnesium/page.tsx
-   - Add the CitationReadySummary near the top after the intro.
-   - Include a concise answer, best-fit bullets, evidence level, safety note, and references jump.
-   - Add direct subheadings that match likely Bing grounding queries:
-     - Melatonin vs magnesium: quick answer
-     - Magnesium glycinate vs melatonin: the core difference
-     - Can you take magnesium and melatonin together?
-     - Side effects: melatonin vs magnesium
-     - Which is better for staying asleep?
-   - Keep the content natural; do not keyword-stuff.
-   - Keep existing references visible.
-   - Add links to /guides/sleep/, /safety-checker/, /info/dosing/, and relevant compound pages.
-
-5. Improve References component accessibility and citation readiness.
-   - File: components/References.tsx
-   - Keep existing visual behavior.
-   - Add aria-label and stable anchor behavior.
-   - Add machine-readable structure only for fields that already exist.
-   - Do not invent citation metadata.
-
-6. Improve structured data for cite-worthy pages.
-   - For compare detail pages, support real citation URLs in JSON-LD when refs are passed.
-   - Do not add fake AggregateRating, Review, or medical claims.
-   - FAQ schema only if the questions and answers are visibly rendered on the page.
-
-7. Add a lightweight audit script.
-   - File: scripts/ci/audit-ai-citation-readiness.mjs
-   - It should scan built app guide/compare pages and report missing quick answer/citation summary/references/schema/internal-link signals.
-   - Add Bing-specific checks: likely grounding-query headings, citation target links, and no noncanonical /compare/* links.
-   - Make it advisory first; do not fail CI yet.
-   - Add npm script: audit:ai-citations.
-
-8. Validation:
-   npm run typecheck
-   npm run lint
-   npm run build
-
-Report files changed, exact URLs improved, Bing AI Performance metrics targeted, and any skipped SEO suggestions such as fake AggregateRating schema.
+```bash
+npx tsx scripts/ci/audit-ai-citation-topology.ts
 ```
 
-## Do not do
+Output:
 
-- Do not add fake aggregate ratings.
-- Do not add hidden keyword text.
-- Do not cite studies that are not actually referenced.
-- Do not list noncanonical redirected URLs in `/llms.txt`.
-- Do not expose private/internal/generated data routes as citation targets.
-- Do not chase every grounding query with a new thin page; strengthen canonical pages and clusters first.
+- `reports/ai-citation-readiness.json`
+
+This report consumes canonical research-quality analysis for study identity, support tiers, source concentration, primary-human/synthesis/narrative coverage, and related scientific signals.
+
+### Final action priority
+
+```bash
+node scripts/seo/ai-opportunity-priority.mjs
+```
+
+Output:
+
+- `ops/reports/ai-opportunity-priority.json`
+- `ops/reports/ai-opportunity-priority.md`
+
+This is the operating queue. It joins readiness deficit, observed AI citations/momentum, competitor citation pressure, and Search Console demand by canonical page.
+
+## Weekly loop
+
+The existing maintenance workflow runs the measurement chain and retains history across ephemeral GitHub runners.
+
+Review the resulting queue in this order:
+
+1. **Correctness first.** Fix contradictions, unsupported approved claims, dangling refs, and misleading safety/evidence wording regardless of traffic upside.
+2. **Then demand-weighted repair.** Among scientifically valid pages, prioritize high competitor pressure, meaningful AI citation activity, falling citation momentum, and/or organic impressions.
+3. **Improve the existing canonical source.** Add or clarify answer-first passages, qualifiers, source proximity, semantic tables, anchors, provenance, or internal routing only where the information already belongs.
+4. **Verify missing facts independently.** Do not copy competitor wording or treat competitor publication as proof.
+5. **Create a new page only for genuinely distinct intent.** Do not generate AI-only doorway pages or one thin page per grounding query.
+6. **Retain history and compare again.** Look for citation-rate, breadth, and page-level changes rather than assuming a structural edit worked.
+
+## Query mapping rules
+
+Map common intents to the smallest authoritative canonical source:
+
+- `Does X work for Y?` → specific herb/compound profile plus the closest outcome guide when needed.
+- `X vs Y` → the matching comparison page.
+- `Is X safe?` → the specific profile plus interaction/safety context.
+- `Can I combine X and Y?` → interaction/safety context first; absence of a listed warning is not proof of no interaction.
+- `How much X?` → dosing principles plus visible studied-dose context; do not turn a research dose into personalized medical instruction.
+- `How does X work?` → mechanism section, explicitly separate from efficacy.
+- `What is the evidence?` → evidence summary, human studies, limitations, methodology.
+- `Best supplement for Y?` → goal/comparison guide; evidence and safety outrank popularity or monetization.
+
+## What to improve on a cited or near-cited page
+
+Only when supported by the page data:
+
+- concise direct answer or verdict;
+- stable answer/decision anchor;
+- canonical evidence grade and plain-language meaning;
+- population, formulation, dose, duration, and outcome qualifiers;
+- direct study/reference links near the conclusion;
+- explicit limitations and disagreement;
+- visible safety/interaction context;
+- meaningful last-reviewed/date-modified provenance;
+- semantic research/comparison tables;
+- canonical internal links to methodology and supporting cluster pages.
+
+## What not to do
+
+- Do not add fake `AggregateRating` or `Review` schema.
+- Do not add hidden citation text or keyword dumps.
+- Do not fabricate citations, author/reviewer credentials, dates, or research metadata.
+- Do not expose private/internal data as citation targets.
+- Do not create duplicate `/compare/*` or other alternate indexable copies of canonical pages.
+- Do not use a visual safety percentage as if it were a validated machine-readable clinical risk score.
+- Do not let AI citation or Search Console demand alter the scientific evidence grade.
+
+## Canonical quality command
+
+For implementation/release readiness, use the orchestrator rather than independently running overlapping legacy checks:
+
+```bash
+npm run audit:ai-citations
+```
+
+Use `docs/ai-search-optimization.md` for architecture and policy details.
