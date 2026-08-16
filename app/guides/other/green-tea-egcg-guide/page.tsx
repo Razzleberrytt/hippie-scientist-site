@@ -6,56 +6,202 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Green Tea Extract (EGCG): Benefits, Risks & Dosing (2026)',
-  description: 'Green tea extract and EGCG for metabolism, brain health, and longevity. Evidence review with critical safety warning about liver toxicity at high doses.',
+  title: 'Green Tea & EGCG: Extract Safety, Liver Risk & Evidence (2026)',
+  description:
+    'Evidence-first green tea and EGCG guide separating brewed tea from concentrated extracts, liver-injury evidence, weight-loss effect size, and why no universal supplemental EGCG safety threshold has been established.',
   path: '/guides/other/green-tea-egcg-guide/',
   openGraphType: 'article',
 })
 
 const FAQS = [
-  { question: 'Does green tea extract help with weight loss?', answer: 'Modestly. A 2021 meta-analysis found green tea catechins increased energy expenditure by ~4-5% and fat oxidation. The effect is small — roughly 1-2 kg additional weight loss over 12 weeks compared to placebo. This is not a weight loss drug. The effect is most consistent when combined with caffeine. Decaffeinated green tea extract has weaker or null effects on metabolism.' },
-  { question: 'Is green tea extract safe for the liver?', answer: 'Yes at low doses, NO at high doses. Green tea extract has been linked to dozens of cases of acute liver injury, particularly when taken on an empty stomach or at high doses (above 800 mg EGCG/day). The risk is low but real. Take with food, do not exceed 400 mg EGCG/day from supplements, and stop immediately if you develop jaundice, dark urine, or abdominal pain. Green tea as a beverage is safe — the concentrated extracts are the concern.' },
-  { question: 'How much EGCG is in a cup of green tea?', answer: 'About 50-100 mg per cup. A typical green tea extract capsule provides 200-400 mg EGCG — equivalent to 4-8 cups of tea, but without the protective food matrix. This concentration difference is why extracts carry liver risk that tea does not. Drinking 3-5 cups of green tea daily provides catechins safely. You would need to drink 20+ cups to match a high-dose extract.' },
-  { question: 'Does green tea prevent cancer?', answer: 'Observational studies show green tea drinkers have lower cancer rates, but randomized trials are inconsistent and generally negative. The 2020 Cochrane review found insufficient evidence to recommend green tea for cancer prevention. The observational benefit is likely confounded by healthier lifestyles among tea drinkers. Green tea is a healthy beverage — not a proven cancer preventative.' },
-  { question: 'Green tea vs matcha vs extract — which is best?', answer: 'Matcha (whole powdered leaf) provides the most catechins per gram — roughly 3x more EGCG than steeped green tea. Matcha also provides L-theanine and chlorophyll that extracts lack. Green tea extract is the most convenient but carries the liver risk at high doses. Recommendation: drink matcha or green tea for health benefits; use extract only if you have a specific goal and stay under 400 mg EGCG/day with food.' },
-]
+  {
+    question: 'Is green tea extract safe for the liver?',
+    answer:
+      'Green tea extract has a documented liver-injury signal. EFSA found that supplemental EGCG doses at 800 mg/day or above can be associated with liver-enzyme elevations, but importantly could not identify a universally safe supplemental dose below that amount from the available evidence. NIH also notes that some green-tea extracts can cause liver damage, especially when taken on an empty stomach. A fixed internet cutoff should not be treated as a guarantee of safety.',
+  },
+  {
+    question: 'Is brewed green tea safer than green tea extract?',
+    answer:
+      'Yes, the safety profile is different. EFSA concluded that catechins from green-tea infusions and similar beverages are generally safe, while concentrated supplements have the clearer liver-safety concern. Rare liver injury has still been reported with large green-tea intake, so “generally safe” is more accurate than “zero risk.”',
+  },
+  {
+    question: 'Does green tea or EGCG cause meaningful weight loss?',
+    answer:
+      'The average effect is small. Recent randomized-trial meta-analyses report modest reductions in body weight and related measures, often well under 1-2 kg on average, with low or variable certainty. That is not comparable to an approved weight-loss medicine and does not create a strong reason to accept concentrated-extract risk.',
+  },
+  {
+    question: 'Is matcha automatically safer or better than extract?',
+    answer:
+      'Not automatically. Matcha is a powdered tea food rather than the same thing as a concentrated extract, but catechin and caffeine content vary by product and serving. The evidence does not justify a universal “best form” ranking or a fixed EGCG-per-serving assumption for all matcha products.',
+  },
+  {
+    question: 'What symptoms should prompt stopping a green tea extract?',
+    answer:
+      'Potential liver-injury symptoms such as jaundice, dark urine, persistent nausea or vomiting, unusual fatigue, or right-upper-abdominal pain warrant stopping the product and seeking medical evaluation. People with liver disease, multiple medicines, pregnancy, or other important health conditions should not treat concentrated green-tea extract as a routine wellness product without review.',
+  },
+] as const
 
 const GREENTEA_REFS = [
-  { n: 1, text: 'Hursel R, et al. (2021). Green tea catechin and caffeine on energy expenditure. Obes Rev, 12(7): e573-e581.', url: 'https://pubmed.ncbi.nlm.nih.gov/21366839/' },
-  { n: 2, text: 'Mazzanti G, et al. (2009). Hepatotoxicity from green tea. Eur J Clin Pharmacol, 65(4): 331-341.', url: 'https://pubmed.ncbi.nlm.nih.gov/19198822/' },
-  { n: 3, text: 'Boehm K, et al. (2020). Green tea for cancer prevention. Cochrane Database Syst Rev, (3): CD005004.', url: 'https://pubmed.ncbi.nlm.nih.gov/32154958/' },
+  {
+    n: 1,
+    text: 'European Food Safety Authority. (2018). Safety of green tea catechins. EFSA concluded green-tea infusions are generally safe; supplemental EGCG at 800 mg/day or above may pose liver concerns, and a safe supplemental dose below that level could not be established.',
+    url: 'https://www.efsa.europa.eu/en/press/news/180418',
+  },
+  {
+    n: 2,
+    text: 'NIH Office of Dietary Supplements. Dietary Supplements for Immune Function and Infectious Diseases — Green Tea safety section. Notes liver-injury reports and higher risk with some extracts, especially on an empty stomach.',
+    url: 'https://ods.od.nih.gov/factsheets/ImmuneFunction-HealthProfessional/',
+  },
+  {
+    n: 3,
+    text: 'LiverTox. Green Tea. National Institute of Diabetes and Digestive and Kidney Diseases. Clinically apparent liver injury has been linked to green-tea extract and, more rarely, large green-tea intake.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/31643260/',
+  },
+  {
+    n: 4,
+    text: 'Effects of green tea supplementation on obesity indices and adipokines in adults: a GRADE-assessed systematic review and dose-response meta-analysis of randomized controlled trials. (2025).',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40326418/',
+  },
+  {
+    n: 5,
+    text: 'Comparative effects of tea and coffee drinking on body weight in adults: a systematic review and network meta-analysis of randomized trials. (2024).',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/39497467/',
+  },
+]
+
+const formRows = [
+  {
+    form: 'Brewed green tea',
+    evidence: 'EFSA considers catechins from green-tea infusions generally safe [1].',
+    limitation: 'Catechin and caffeine content vary; rare liver injury has been reported with very large intake [3].',
+    interpretation: 'Food/beverage context with the strongest safety margin of the forms compared here.',
+  },
+  {
+    form: 'Matcha / powdered tea',
+    evidence: 'Whole powdered tea rather than a standardized extract.',
+    limitation: 'Serving composition varies; no universal EGCG-per-serving number or “best form” status applies.',
+    interpretation: 'Judge the actual product and serving rather than assuming equivalence to either brewed tea or extract.',
+  },
+  {
+    form: 'Concentrated green-tea extract',
+    evidence: 'Clearer liver-safety signal in supplements; ≥800 mg/day EGCG has produced liver-enzyme elevations in trials [1,2].',
+    limitation: 'EFSA could not establish a universally safe supplemental dose below 800 mg/day [1].',
+    interpretation: 'Do not convert a lower number into a guaranteed-safe threshold.',
+  },
 ]
 
 export default function GreenTeaEGCGPage() {
   return (
     <div className="container-page py-10 space-y-10">
-      <AuthorityJsonLd title="Green Tea EGCG Guide" description="Evidence and safety review of green tea extract." url="https://thehippiescientist.net/guides/other/green-tea-egcg-guide" type="Article" />
-      <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Green Tea Extract' }]} />
-      <FAQSchema pagePath="/guides/other/green-tea-egcg-guide/" questions={FAQS} />
+      <AuthorityJsonLd
+        title="Green Tea and EGCG: Extract Safety, Liver Risk and Evidence"
+        description="Evidence review separating brewed green tea from concentrated EGCG extracts, with liver-safety and weight-effect boundaries."
+        url="https://thehippiescientist.net/guides/other/green-tea-egcg-guide"
+        type="MedicalWebPage"
+        citationUrls={GREENTEA_REFS.map((ref) => ref.url)}
+      />
+      <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Green Tea & EGCG' }]} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Green Tea Extract: Benefits With a Liver Warning</h1><p className="text-lg leading-8 text-muted">Green tea is one of the healthiest beverages in the world. Green tea extract concentrates its catechins 10-20x — which sounds good until you learn about the liver toxicity cases. Here is what the evidence shows, and why the dose makes the difference between benefit and risk.</p>
-        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/green-tea-egcg-guide.jpg" alt="Fresh green tea leaves beside matcha and a steaming cup" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Green tea extract — benefits with a liver warning.</figcaption></figure></section>
+      <section className="space-y-5 max-w-4xl">
+        <p className="eyebrow-label">Evidence Review · Beverage vs extract matters</p>
+        <h1 className="text-5xl font-bold tracking-tight text-ink">Green Tea and EGCG: Concentration Changes the Risk</h1>
+        <p className="text-lg leading-8 text-muted">
+          Brewed green tea, matcha, and concentrated green-tea extracts are often treated as interchangeable because they share catechins such as EGCG. They are not interchangeable exposures. The strongest safety concern belongs to concentrated extracts, where liver injury has been documented and no universal “safe below this dose” threshold has been established.
+        </p>
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image src="/images/guides/green-tea-egcg-guide.jpg" alt="Green tea leaves, matcha, brewed tea, and extract capsules compared" width={1536} height={1024} priority className="w-full h-auto" />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">A tea beverage and a concentrated extract can contain the same catechin family while carrying very different exposure and safety questions.</figcaption>
+        </figure>
+      </section>
 
-      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Drink green tea — do not megadose green tea extract.</strong> Green tea as a beverage (3-5 cups/day) is safe and provides 150-500 mg catechins. Green tea extract above 400 mg EGCG/day carries a small but real risk of acute liver injury [2]. The weight loss effect is modest (~1-2 kg) and not worth the liver risk at high doses [1]. If you take green tea extract, stay under 400 mg EGCG/day, take with food, and stop immediately at any sign of liver stress. Matcha provides the best of both worlds — concentrated catechins without the extract-related liver risk.</p></section>
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>
+          <strong>Brewed green tea is generally safe; concentrated green-tea extract has a documented liver-injury signal.</strong> EFSA found liver-enzyme concerns at supplemental EGCG intakes of 800 mg/day or above, but could not identify a universally safe supplemental dose below that level [1]. NIH likewise notes that some extracts can cause liver damage, particularly when taken on an empty stomach [2]. Weight-loss effects in randomized-trial meta-analyses are small on average [4,5], so concentrated extract should not be treated like a high-value weight-loss intervention.
+        </p>
+      </LegacyGuideQuickAnswer>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Green Tea Forms</p><div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Form</th><th className="text-left py-2 pr-4 font-semibold text-ink">EGCG per serving</th><th className="text-left py-2 pr-4 font-semibold text-ink">Liver Risk</th><th className="text-left py-2 pr-4 font-semibold text-ink">Best For</th><th className="text-left py-2 font-semibold text-ink">Cost/mo</th></tr></thead><tbody className="text-muted">
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Steeped green tea</td><td className="py-2 pr-4">50-100 mg/cup</td><td className="py-2 pr-4 text-emerald-700">None</td><td className="py-2 pr-4">General health</td><td className="py-2">$5-10</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Matcha powder</td><td className="py-2 pr-4">150-200 mg/serving</td><td className="py-2 pr-4 text-emerald-700">None</td><td className="py-2 pr-4">Concentrated catechins + L-theanine</td><td className="py-2">$15-25</td></tr>
-          <tr><td className="py-2 pr-4 font-medium text-ink">Green tea extract</td><td className="py-2 pr-4">200-800 mg/capsule</td><td className="py-2 pr-4 text-red-600">Significant above 800 mg</td><td className="py-2 pr-4">Convenience (use with caution)</td><td className="py-2">$10-20</td></tr>
-        </tbody></table></div></section>
+      <section id="green-tea-form-evidence" data-answer-engine-table="true" className="card-premium scroll-mt-24 p-6 space-y-4 max-w-5xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Tea, matcha, and extract are different exposure categories</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-[900px] w-full text-left text-sm">
+            <caption className="sr-only">Green tea forms compared by safety evidence, limitations, and practical interpretation</caption>
+            <thead>
+              <tr className="border-b border-brand-900/10 text-ink">
+                <th scope="col" className="py-3 pr-4">Form</th>
+                <th scope="col" className="py-3 pr-4">What evidence supports</th>
+                <th scope="col" className="py-3 pr-4">Main limitation</th>
+                <th scope="col" className="py-3">Practical interpretation</th>
+              </tr>
+            </thead>
+            <tbody className="text-muted">
+              {formRows.map((row) => (
+                <tr key={row.form} className="border-b border-brand-900/5 last:border-0 align-top">
+                  <th scope="row" className="py-3 pr-4 text-left font-semibold text-ink">{row.form}</th>
+                  <td className="py-3 pr-4">{row.evidence}</td>
+                  <td className="py-3 pr-4">{row.limitation}</td>
+                  <td className="py-3">{row.interpretation}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Bottom line</h2><p className="text-sm leading-7 text-muted">Green tea is a healthy beverage. Green tea extract is a concentrated supplement with a documented, dose-dependent liver injury risk [2]. The weight loss effect is too small to justify the risk at high doses [1]. Drink matcha for the best combination of catechins, L-theanine, and safety. If you take extract, stay under 400 mg EGCG/day with food. The green tea story is a perfect example of why "natural" does not mean "safe at any dose."</p></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Why 800 mg is not a safety target—and 400 mg is not a proven safe line</h2>
+        <p className="text-sm leading-7 text-muted">
+          EFSA reviewed human evidence linking supplemental green-tea catechins to liver effects. At 800 mg/day EGCG, some trials showed initial signs of liver injury, but the agency also emphasized that the available data did <strong>not</strong> allow a safe supplemental dose below 800 mg/day to be identified [1]. That distinction matters: an observed problem threshold is not the same thing as a validated safe ceiling.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          NIH notes that liver damage has been reported with green-tea extracts and that risk may be higher when extracts are taken on an empty stomach [2]. Taking a product with food may change exposure, but it does not turn an arbitrary dose cutoff into a guarantee of safety.
+        </p>
+      </section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Weight loss: statistically detectable does not mean clinically large</h2>
+        <p className="text-sm leading-7 text-muted">
+          Recent randomized-trial syntheses generally find small average changes in body weight or body-composition measures with green-tea interventions [4,5]. One 2025 meta-analysis reported an average body-weight difference of less than 1 kg, while a 2024 network meta-analysis found small weight effects with low to very-low certainty [4,5]. Different preparations, caffeine content, populations, and trial designs make a single “EGCG burns X% more fat” claim misleading.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          That effect size is important for the risk-benefit decision: a concentrated extract with a liver-injury signal should not be sold as though it offers drug-like weight-loss benefit.
+        </p>
+      </section>
+
+      <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-6 text-amber-950 dark:border-amber-200/20 dark:bg-amber-950/20 dark:text-amber-50">
+        <p className="text-xs font-bold uppercase tracking-[0.16em]">Liver-safety boundary</p>
+        <h2 className="mt-2 text-2xl font-semibold">Concentrated extract deserves more caution than a tea beverage</h2>
+        <p className="mt-3 text-sm leading-7">
+          LiverTox documents clinically apparent acute liver injury from green-tea extract and rare reports after very large green-tea intake [3]. Jaundice, dark urine, persistent nausea or vomiting, unusual fatigue, or right-upper-abdominal pain after starting an extract are reasons to stop the product and seek medical evaluation. Existing liver disease, pregnancy, or complex medication use also changes the decision.
+        </p>
+        <Link href="/safety-checker/" className="mt-5 inline-flex rounded-full bg-amber-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-950 dark:bg-amber-100 dark:text-amber-950">
+          Check supplement interactions
+        </Link>
+      </section>
+
       <References refs={GREENTEA_REFS} />
+      <LegacyGuideFAQ pagePath="/guides/other/green-tea-egcg-guide/" questions={[...FAQS]} />
+
       <div className="max-w-4xl">
-        <RecommendationSection products={getRevenueProductSet('green-tea-extract')?.products ?? []} />
+        <RecommendationSection
+          title="Green-tea extract sourcing examples"
+          description="Product links are sourcing examples, not a claim that concentrated extract is necessary or that any fixed EGCG dose is universally safe. Compare exact catechin content, other ingredients, testing, medication context, and liver-safety warnings before considering a product."
+          products={getRevenueProductSet('green-tea-extract')?.products ?? []}
+        />
       </div>
-      <EmailCapture headline="Get evidence reviews like this" description="Green tea, EGCG, liver safety — evidence over marketing." ctaLabel="Get the evidence" location="guide-green-tea" />
-      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
+
+      <EmailCapture headline="Get evidence reviews like this" description="Green tea, EGCG, and liver-safety evidence without invented safe-dose rules." ctaLabel="Get the evidence" location="guide-green-tea" />
+      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
+        <Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link>
+        <Link href="/info/supplement-safety-checklist/" className="text-sm font-bold text-brand-800 hover:underline">Safety checklist →</Link>
+      </div>
     </div>
   )
 }
