@@ -96,33 +96,21 @@ export default function MobileBottomNav() {
         </nav>
       </div>
 
-      <div className='flex items-center gap-2'>
-        {pathname !== '/search' && !pathname.startsWith('/search/') ? (
-          <Link
-            href='/search/'
-            aria-label='Search herbs and compounds'
-            className='pointer-events-auto inline-flex h-13 w-13 min-h-12 min-w-12 items-center justify-center rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] shadow-[var(--hs-lift)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 motion-safe:active:scale-95'
-          >
-            <Search aria-hidden='true' className='h-5 w-5' strokeWidth={1.9} />
-          </Link>
-        ) : null}
-
-        <button
-          ref={triggerRef}
-          type='button'
-          onClick={() => setOpen((value) => !value)}
-          aria-expanded={open}
-          aria-controls={panelId}
-          aria-label={open ? 'Close quick navigation menu' : 'Open quick navigation menu'}
-          className='pointer-events-auto inline-flex h-13 w-13 min-h-12 min-w-12 items-center justify-center rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] shadow-[var(--hs-lift)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 motion-safe:active:scale-95'
-        >
-          {open ? (
-            <X aria-hidden='true' className='h-5 w-5' strokeWidth={2} />
-          ) : (
-            <Compass aria-hidden='true' className='h-5 w-5' strokeWidth={1.9} />
-          )}
-        </button>
-      </div>
+      <button
+        ref={triggerRef}
+        type='button'
+        onClick={() => setOpen((value) => !value)}
+        aria-expanded={open}
+        aria-controls={panelId}
+        aria-label={open ? 'Close quick navigation menu' : 'Open quick navigation menu'}
+        className='pointer-events-auto inline-flex h-13 w-13 min-h-12 min-w-12 items-center justify-center rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] shadow-[var(--hs-lift)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 motion-safe:active:scale-95'
+      >
+        {open ? (
+          <X aria-hidden='true' className='h-5 w-5' strokeWidth={2} />
+        ) : (
+          <Compass aria-hidden='true' className='h-5 w-5' strokeWidth={1.9} />
+        )}
+      </button>
     </div>
   )
 }
