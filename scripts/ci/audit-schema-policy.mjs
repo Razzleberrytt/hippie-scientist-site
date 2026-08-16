@@ -10,6 +10,13 @@ if (!fs.existsSync(outDir)) {
   process.exit(1)
 }
 
+const SITE_URL = 'https://thehippiescientist.net'
+const SITE_NAME = 'The Hippie Scientist'
+const ORGANIZATION_ID = `${SITE_URL}/#organization`
+const AUTHOR_NAME = 'Willie B. Randolph III'
+const AUTHOR_URL = `${SITE_URL}/info/author/`
+const AUTHOR_ID = `${AUTHOR_URL}#person`
+
 const bannedTypes = new Set([
   'Physician',
   'MedicalOrganization',
@@ -21,7 +28,7 @@ const bannedTypes = new Set([
   'MedicalBusiness',
 ])
 const recognized = new Set([
-  'Organization', 'Person', 'BreadcrumbList', 'Article', 'BlogPosting', 'Dataset',
+  'Organization', 'Person', 'BreadcrumbList', 'Article', 'BlogPosting', 'ScholarlyArticle', 'Dataset',
   'ImageObject', 'FAQPage', 'MedicalWebPage', 'WebPage', 'WebSite', 'ProfilePage',
   'CollectionPage', 'ItemList', 'ListItem', 'Question', 'Answer', 'Substance',
   'ChemicalSubstance', 'DefinedTerm', 'Offer', 'Product', 'SoftwareApplication',
@@ -80,12 +87,34 @@ function nameOfReference(value) {
   return String(value.name || value['@id'] || '')
 }
 
+function validateFirstPartyIdentity(node, route, types) {
+  if (types.includes('Organization') && node.name === SITE_NAME) {
+    if (node['@id'] !== ORGANIZATION_ID) {
+      errors.push(`${route}: first-party Organization must resolve to ${ORGANIZATION_ID}`)
+    }
+    if (node.url !== SITE_URL) {
+      errors.push(`${route}: first-party Organization must use canonical url ${SITE_URL}`)
+    }
+  }
+
+  if (types.includes('Person') && node.name === AUTHOR_NAME) {
+    if (node['@id'] !== AUTHOR_ID) {
+      errors.push(`${route}: first-party author Person must resolve to ${AUTHOR_ID}`)
+    }
+    if (node.url !== AUTHOR_URL) {
+      errors.push(`${route}: first-party author Person must use canonical url ${AUTHOR_URL}`)
+    }
+  }
+}
+
 function validateNode(node, route) {
   const types = typesOf(node)
   for (const type of types) {
     typeCounts[type] = (typeCounts[type] || 0) + 1
     if (bannedTypes.has(type)) errors.push(`${route}: banned credential/clinical schema type ${type}`)
   }
+
+  validateFirstPartyIdentity(node, route, types)
 
   if (types.includes('Person')) {
     if (!node.name) errors.push(`${route}: Person schema is missing name`)
@@ -103,12 +132,16 @@ function validateNode(node, route) {
     if (!Array.isArray(node.itemListElement) || !node.itemListElement.length) errors.push(`${route}: BreadcrumbList has no items`)
   }
 
-  if (types.includes('Article') || types.includes('BlogPosting')) {
+  if (types.includes('Article') || types.includes('BlogPosting') || types.includes('ScholarlyArticle')) {
     if (!node.headline) errors.push(`${route}: Article/BlogPosting is missing headline`)
     dateCheck(node, route, 'datePublished')
     dateCheck(node, route, 'dateModified')
     if (node.reviewedBy && !node.dateReviewed) errors.push(`${route}: reviewedBy is present without a truthful dateReviewed event`)
     dateCheck(node, route, 'dateReviewed')
+
+    if (node.author?.['@type'] === 'Organization' && node.author?.name === SITE_NAME) {
+      warnings.push(`${route}: Article uses organizational authorship; prefer the canonical Person when the visible byline names the author`)
+    }
   }
 
   if (types.includes('Dataset')) {
