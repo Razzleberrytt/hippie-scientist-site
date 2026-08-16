@@ -8,12 +8,8 @@ import path from 'node:path'
 import { buildAiCitationReadiness, writeAiCitationReadinessReport } from '../../lib/ai-citation-readiness'
 import { analyzeCitationIntegrity, writeCitationIntegrityReport } from '../../lib/citation-integrity.mjs'
 import { analyzeEvidenceGradeConsistency, writeEvidenceGradeConsistencyReport } from '../../lib/evidence-grade-consistency'
-import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
-import { buildResearchQualityGate } from '../../lib/research-quality-gate'
-import { buildResearchGapQueue } from '../../lib/research-quality-policy'
-import { buildResearchQualityTopology } from '../../lib/research-quality-topology'
+import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 import { writeResearchSemanticAlignmentReport } from '../../lib/research-semantic-alignment'
-import { analyzeResearchSourceIntegrity } from '../../lib/research-source-integrity'
 
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
@@ -49,11 +45,8 @@ console.log('\nCanonical research-quality pipeline')
 console.log('='.repeat(76))
 
 const coreStarted = Date.now()
-const analysis = analyzeResearchQuality(ROOT)
-const topology = buildResearchQualityTopology(analysis)
-const gate = buildResearchQualityGate(analysis, topology)
-const researchGapQueue = buildResearchGapQueue(analysis, topology)
-const sourceIntegrity = analyzeResearchSourceIntegrity(analysis)
+const snapshot = buildResearchQualitySnapshot(ROOT)
+const { analysis, topology, gate, researchGapQueue, sourceIntegrity } = snapshot
 const citationIntegrity = analyzeCitationIntegrity(analysis.profiles)
 const evidenceGradeConsistency = analyzeEvidenceGradeConsistency(ROOT)
 const aiCitationReadiness = buildAiCitationReadiness(analysis, ROOT)
@@ -218,6 +211,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
   generatedAt: new Date().toISOString(),
   passed: !failed,
   source: {
+    snapshot: 'lib/research-quality-snapshot.ts',
     analysis: 'lib/research-quality-analysis.ts',
     topology: 'lib/research-quality-topology.ts',
     policy: 'lib/research-quality-policy.ts',
