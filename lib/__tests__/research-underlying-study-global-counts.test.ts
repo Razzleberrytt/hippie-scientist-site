@@ -33,7 +33,7 @@ function fixtureAnalysis(): ResearchQualityAnalysis {
 }
 
 describe('global underlying-study identity', () => {
-  it('separates profile-study incidences from site-wide independent human studies', () => {
+  it('separates profile-study incidences from site-wide adjusted human units with full metadata coverage', () => {
     const analysis = fixtureAnalysis()
     const firstStudyId = [...canonicalStudyGroups(analysis.profiles[0].record).keys()][0]
     const secondStudyId = [...canonicalStudyGroups(analysis.profiles[1].record).keys()][0]
@@ -59,9 +59,44 @@ describe('global underlying-study identity', () => {
       globalInventoryPublicationCount: 2,
       globalInventoryUnderlyingStudyCount: 1,
       globalCollapsedInventoryPublicationCount: 1,
+      globalInventoryPublicationsWithIndependenceMetadata: 2,
+      globalInventoryPublicationsWithoutIndependenceMetadata: 0,
+      globalInventoryIndependenceMetadataCoverage: 1,
       globalPrimaryHumanPublicationCount: 2,
       globalPrimaryHumanUnderlyingStudyCount: 1,
       globalCollapsedPrimaryHumanPublicationCount: 1,
+      globalPrimaryHumanPublicationsWithIndependenceMetadata: 2,
+      globalPrimaryHumanPublicationsWithoutIndependenceMetadata: 0,
+      globalPrimaryHumanIndependenceMetadataCoverage: 1,
+    })
+  })
+
+  it('measures primary-human metadata coverage on the full unique-publication inventory', () => {
+    const analysis = fixtureAnalysis()
+    const firstStudyId = [...canonicalStudyGroups(analysis.profiles[0].record).keys()][0]
+
+    const result = analyzeUnderlyingStudyIndependence({
+      analysis,
+      trialRegistrationIndependence: {
+        studies: [
+          { url: '/herbs/first/', studyId: firstStudyId, stableRegistryId: 'NCT07654321' },
+        ],
+        claims: [],
+      } as never,
+      evidenceLineage: { studies: [], claims: [] } as never,
+    })
+
+    expect(result.summary).toMatchObject({
+      globalInventoryPublicationCount: 2,
+      globalInventoryUnderlyingStudyCount: 2,
+      globalInventoryPublicationsWithIndependenceMetadata: 1,
+      globalInventoryPublicationsWithoutIndependenceMetadata: 1,
+      globalInventoryIndependenceMetadataCoverage: 0.5,
+      globalPrimaryHumanPublicationCount: 2,
+      globalPrimaryHumanUnderlyingStudyCount: 2,
+      globalPrimaryHumanPublicationsWithIndependenceMetadata: 1,
+      globalPrimaryHumanPublicationsWithoutIndependenceMetadata: 1,
+      globalPrimaryHumanIndependenceMetadataCoverage: 0.5,
     })
   })
 })

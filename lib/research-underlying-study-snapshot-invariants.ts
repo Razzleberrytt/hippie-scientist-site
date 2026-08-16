@@ -15,6 +15,11 @@ function validAdjustedCount(publicationCount: number, underlyingCount: number): 
   return underlyingCount >= 1 && underlyingCount <= publicationCount
 }
 
+function round(value: number, digits = 3): number {
+  const scale = 10 ** digits
+  return Math.round(value * scale) / scale
+}
+
 /**
  * Validate arithmetic and ownership for the canonical underlying-study graph.
  * These checks are implementation invariants, not scientific judgments.
@@ -154,6 +159,26 @@ export function validateUnderlyingStudySnapshotInvariants(
   if (product.summary.globalCollapsedInventoryPublicationCount !== expectedGlobalInventoryCollapsed) {
     add('underlying-study-global-inventory-collapse-mismatch', `summary=${product.summary.globalCollapsedInventoryPublicationCount}; expected=${expectedGlobalInventoryCollapsed}`)
   }
+
+  const expectedGlobalInventoryWithoutMetadata = Math.max(
+    0,
+    product.summary.globalInventoryPublicationCount - product.summary.globalInventoryPublicationsWithIndependenceMetadata,
+  )
+  if (product.summary.globalInventoryPublicationsWithIndependenceMetadata > product.summary.globalInventoryPublicationCount) {
+    add('underlying-study-global-inventory-metadata-exceeds-publications', `metadata=${product.summary.globalInventoryPublicationsWithIndependenceMetadata}; publications=${product.summary.globalInventoryPublicationCount}`)
+  }
+  if (product.summary.globalInventoryPublicationsWithoutIndependenceMetadata !== expectedGlobalInventoryWithoutMetadata) {
+    add('underlying-study-global-inventory-metadata-gap-mismatch', `summary=${product.summary.globalInventoryPublicationsWithoutIndependenceMetadata}; expected=${expectedGlobalInventoryWithoutMetadata}`)
+  }
+  const expectedGlobalInventoryMetadataCoverage = round(
+    product.summary.globalInventoryPublicationCount
+      ? product.summary.globalInventoryPublicationsWithIndependenceMetadata / product.summary.globalInventoryPublicationCount
+      : 1,
+  )
+  if (product.summary.globalInventoryIndependenceMetadataCoverage !== expectedGlobalInventoryMetadataCoverage) {
+    add('underlying-study-global-inventory-metadata-coverage-mismatch', `summary=${product.summary.globalInventoryIndependenceMetadataCoverage}; expected=${expectedGlobalInventoryMetadataCoverage}`)
+  }
+
   if (!validAdjustedCount(product.summary.globalPrimaryHumanPublicationCount, product.summary.globalPrimaryHumanUnderlyingStudyCount)) {
     add('underlying-study-invalid-global-primary-human-adjusted-count', `publication=${product.summary.globalPrimaryHumanPublicationCount}; underlying=${product.summary.globalPrimaryHumanUnderlyingStudyCount}`)
   }
@@ -164,6 +189,29 @@ export function validateUnderlyingStudySnapshotInvariants(
   if (product.summary.globalCollapsedPrimaryHumanPublicationCount !== expectedGlobalPrimaryHumanCollapsed) {
     add('underlying-study-global-primary-human-collapse-mismatch', `summary=${product.summary.globalCollapsedPrimaryHumanPublicationCount}; expected=${expectedGlobalPrimaryHumanCollapsed}`)
   }
+
+  const expectedGlobalPrimaryHumanWithoutMetadata = Math.max(
+    0,
+    product.summary.globalPrimaryHumanPublicationCount - product.summary.globalPrimaryHumanPublicationsWithIndependenceMetadata,
+  )
+  if (product.summary.globalPrimaryHumanPublicationsWithIndependenceMetadata > product.summary.globalPrimaryHumanPublicationCount) {
+    add('underlying-study-global-primary-human-metadata-exceeds-publications', `metadata=${product.summary.globalPrimaryHumanPublicationsWithIndependenceMetadata}; publications=${product.summary.globalPrimaryHumanPublicationCount}`)
+  }
+  if (product.summary.globalPrimaryHumanPublicationsWithoutIndependenceMetadata !== expectedGlobalPrimaryHumanWithoutMetadata) {
+    add('underlying-study-global-primary-human-metadata-gap-mismatch', `summary=${product.summary.globalPrimaryHumanPublicationsWithoutIndependenceMetadata}; expected=${expectedGlobalPrimaryHumanWithoutMetadata}`)
+  }
+  const expectedGlobalPrimaryHumanMetadataCoverage = round(
+    product.summary.globalPrimaryHumanPublicationCount
+      ? product.summary.globalPrimaryHumanPublicationsWithIndependenceMetadata / product.summary.globalPrimaryHumanPublicationCount
+      : 1,
+  )
+  if (product.summary.globalPrimaryHumanIndependenceMetadataCoverage !== expectedGlobalPrimaryHumanMetadataCoverage) {
+    add('underlying-study-global-primary-human-metadata-coverage-mismatch', `summary=${product.summary.globalPrimaryHumanIndependenceMetadataCoverage}; expected=${expectedGlobalPrimaryHumanMetadataCoverage}`)
+  }
+  if (product.summary.globalPrimaryHumanPublicationsWithIndependenceMetadata > product.summary.globalInventoryPublicationsWithIndependenceMetadata) {
+    add('underlying-study-global-primary-human-metadata-exceeds-inventory-metadata', `human=${product.summary.globalPrimaryHumanPublicationsWithIndependenceMetadata}; inventory=${product.summary.globalInventoryPublicationsWithIndependenceMetadata}`)
+  }
+
   const inventoryPublicationIncidences = product.profiles.reduce((sum, profile) => sum + profile.inventoryPublicationStudyCount, 0)
   const inventoryUnderlyingIncidences = product.profiles.reduce((sum, profile) => sum + profile.inventoryUnderlyingStudyCount, 0)
   if (product.summary.globalInventoryPublicationCount > inventoryPublicationIncidences) {
