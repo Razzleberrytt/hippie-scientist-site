@@ -1,6 +1,10 @@
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import path from 'node:path'
+
 import { describe, expect, it } from 'vitest'
 
-import type { ClaimQualityAnalysis, ResearchQualityAnalysis } from '@/lib/research-quality-analysis'
+import { analyzeResearchQuality, type ClaimQualityAnalysis, type ResearchQualityAnalysis } from '@/lib/research-quality-analysis'
 import { buildResearchGapQueue } from '@/lib/research-quality-policy'
 import {
   analyzeClaimEvidenceOverlap,
@@ -50,14 +54,22 @@ function analysis(claims: ClaimQualityAnalysis[]): ResearchQualityAnalysis {
       url,
       sourceCount: 0,
       canonicalStudyCount: 0,
+      claimLinkedCanonicalStudyCount: 0,
+      orphanedCanonicalStudyCount: 0,
       claimCount: claims.filter((item) => item.url === url).length,
       approvedClaimCount: claims.filter((item) => item.url === url).length,
       supportedApprovedClaimCount: claims.filter((item) => item.url === url && item.studyCount > 0).length,
       weakStructuredClaimCount: claims.filter((item) => item.url === url && item.weakStructuredClaim).length,
       designMix: {},
+      claimLinkedDesignMix: {},
       primaryHuman: 1,
       synthesis: 0,
       narrativeReview: 0,
+      claimLinkedPrimaryHuman: 1,
+      claimLinkedSynthesis: 0,
+      claimLinkedNarrativeReview: 0,
+      orphanedPrimaryHuman: 0,
+      inventoryNarrativeToPrimaryHumanRatio: 0,
       narrativeToPrimaryHumanRatio: 0,
       narrativeDominatedVsPrimaryHuman: false,
       unsupportedApprovedClaims: [],
@@ -140,5 +152,40 @@ describe('research evidence topology contracts', () => {
     expect(ordinary?.reasonCounts['single-study-approved-claim']).toBe(1)
     expect(high?.reasonCounts['single-study-approved-claim']).toBe(1)
     expect(high?.score ?? 0).toBeGreaterThan(ordinary?.score ?? 0)
+  })
+
+  it('does not let an uncited RCT hide review-dominated approved claims', () => {
+    const root = mkdtempSync(path.join(tmpdir(), 'research-quality-'))
+    try {
+      const detailDir = path.join(root, 'public', 'data', 'herbs-detail')
+      mkdirSync(detailDir, { recursive: true })
+      writeFileSync(path.join(detailDir, 'example.json'), JSON.stringify({
+        slug: 'example',
+        sources: [
+          { id: 'orphan-rct', pmid: '11111111', studyClass: 'rct' },
+          { id: 'review-1', pmid: '22222222', studyClass: 'narrative-review' },
+          { id: 'review-2', pmid: '33333333', studyClass: 'narrative-review' },
+        ],
+        claimMap: [
+          {
+            id: 'outcome',
+            predicate: 'supports_outcome',
+            confidence: 0.7,
+            reviewStatus: 'approved',
+            sourceRefIds: ['review-1', 'review-2'],
+          },
+        ],
+      }))
+
+      const profile = analyzeResearchQuality(root).profileAnalyses[0]
+      expect(profile.primaryHuman).toBe(1)
+      expect(profile.claimLinkedPrimaryHuman).toBe(0)
+      expect(profile.claimLinkedNarrativeReview).toBe(2)
+      expect(profile.orphanedPrimaryHuman).toBe(1)
+      expect(profile.noPrimaryHuman).toBe(true)
+      expect(profile.narrativeDominatedVsPrimaryHuman).toBe(true)
+    } finally {
+      rmSync(root, { recursive: true, force: true })
+    }
   })
 })
