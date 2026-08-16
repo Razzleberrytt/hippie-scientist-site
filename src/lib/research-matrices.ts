@@ -1,7 +1,7 @@
 import 'server-only'
 
 import { cache } from '@/lib/react-cache'
-import { normalizeEvidenceGrade, canonicalGradeFromEvidenceTier, type CanonicalEvidenceGrade } from '../../lib/evidence-grade'
+import { reconcileEvidenceGrade, type CanonicalEvidenceGrade } from '../../lib/evidence-grade'
 import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
@@ -49,9 +49,11 @@ const positiveInteger = (...values: unknown[]): number => {
 }
 
 const canonicalEvidence = (record: RuntimeRecord): CanonicalEvidenceGrade | 'Unassigned' => {
-  const normalized = normalizeEvidenceGrade(record.evidence_grade ?? record.evidenceGrade)
-  if (normalized.grade) return normalized.grade
-  return canonicalGradeFromEvidenceTier(record.evidence_tier ?? record.evidenceTier ?? record.evidenceLevel) ?? 'Unassigned'
+  const reconciled = reconcileEvidenceGrade(
+    record.evidence_grade ?? record.evidenceGrade,
+    record.evidence_tier ?? record.evidenceTier ?? record.evidenceLevel,
+  )
+  return reconciled.grade ?? 'Unassigned'
 }
 
 type CanonicalHumanCount = {
