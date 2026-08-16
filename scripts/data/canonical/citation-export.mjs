@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { loadDataset } from './store.mjs'
+import { citationUrl, normalizeDoi, normalizePmidList } from '../../../lib/citation-identifiers.mjs'
 
 const EXCLUDED_REVIEW_STATUSES = new Set(['rejected', 'deprecated'])
 const PROFILE_TYPES = new Set(['herb', 'compound'])
@@ -20,21 +21,9 @@ function compact(record) {
   )
 }
 
-function normalizeDoi(value) {
-  return text(value)
-    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '')
-    .replace(/^doi:\s*/i, '')
-}
-
-function sourceUrl(source) {
-  const direct = text(source?.url)
-  if (/^https?:\/\//i.test(direct)) return direct
-  const doi = normalizeDoi(source?.doi)
-  if (doi) return `https://doi.org/${doi}`
-  const pmid = text(source?.pmid)
-  if (pmid) return `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`
-  return ''
-}
+// Identifier handling lives in lib/citation-identifiers.mjs so the exporter,
+// the CI validator and the render layer agree on what a usable citation is.
+const sourceUrl = citationUrl
 
 function inferStudyType(source) {
   const haystack = [
@@ -62,7 +51,12 @@ function normalizeSource(source) {
   if (!id) return null
 
   const doi = normalizeDoi(source.doi)
-  const pmid = text(source.pmid)
+  // A cell can pack two studies into one value ("15070181; 22167571"). The
+  // first identifier becomes this row's link; the rest are preserved so the
+  // second study is not silently lost from the evidence count.
+  const pmids = normalizePmidList(source.pmid ?? source.pubmedId)
+  const pmid = pmids[0] ?? ''
+  const additionalPmids = pmids.slice(1)
   const url = sourceUrl(source)
   const citation = text(source.citation)
   const title = text(source.title) || citation || (doi ? `DOI ${doi}` : pmid ? `PubMed ${pmid}` : url)
@@ -74,6 +68,7 @@ function normalizeSource(source) {
     url,
     doi,
     pmid,
+    additionalPmids: additionalPmids.length ? additionalPmids : undefined,
     year: source.year,
     authors: text(source.author_or_label),
     journal: text(source.journal),
