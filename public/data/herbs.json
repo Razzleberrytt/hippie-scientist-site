@@ -111,7 +111,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Malpighia emarginata"
   },
   {
     "slug": "agarikon",
@@ -326,7 +327,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Trachyspermum ammi"
   },
   {
     "slug": "aloe-vera",
@@ -463,7 +465,8 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Aloe vera"
   },
   {
     "slug": "panax-quinquefolius",
@@ -572,7 +575,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Panax quinquefolius"
   },
   {
     "slug": "american-yellow-lotus",
@@ -807,7 +811,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Andrographis paniculata"
   },
   {
     "slug": "anemarrhena-asphodeloides",
@@ -939,7 +944,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Anemarrhena asphodeloides"
   },
   {
     "slug": "angelica-archangelica",
@@ -1058,7 +1064,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Angelica archangelica"
   },
   {
     "slug": "angelica-dahurica",
@@ -1176,7 +1183,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Angelica dahurica"
   },
   {
     "slug": "angelica-pubescens",
@@ -1289,7 +1297,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Angelica pubescens"
   },
   {
     "slug": "angelica-root",
@@ -1521,7 +1530,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Angelica sinensis"
   },
   {
     "slug": "anise-hyssop",
@@ -1877,7 +1887,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Artemisia absinthium"
   },
   {
     "slug": "artemisia-annua",
@@ -2005,7 +2016,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Artemisia annua"
   },
   {
     "slug": "artemisia-capillaris",
@@ -2123,7 +2135,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Artemisia capillaris"
   },
   {
     "slug": "artichoke",
@@ -2360,7 +2373,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Angelica keiskei"
   },
   {
     "slug": "ashoka",
@@ -2471,7 +2485,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Saraca asoca"
   },
   {
     "slug": "withania-somnifera",
@@ -2610,7 +2625,8 @@
     "evidence_recorded_study_count": 11,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Withania somnifera"
   },
   {
     "slug": "ashwagandha",
@@ -2740,7 +2756,8 @@
     "evidence_recorded_study_count": 9,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Withania somnifera"
   },
   {
     "slug": "panax-ginseng",
@@ -2858,7 +2875,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Panax ginseng"
   },
   {
     "slug": "astragalus",
@@ -3125,7 +3143,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Astragalus membranaceus"
   },
   {
     "slug": "atractylodes",
@@ -3354,7 +3373,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Atractylodes macrocephala"
   },
   {
     "slug": "bacopa",
@@ -3475,7 +3495,8 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Bacopa monnieri"
   },
   {
     "slug": "bael",
@@ -3584,7 +3605,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Aegle marmelos"
   },
   {
     "slug": "lagerstroemia-speciosa",
@@ -3811,7 +3833,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Myrica cerifera"
   },
   {
     "slug": "berberis",
@@ -4081,7 +4104,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Berberis vulgaris"
   },
   {
     "slug": "momordica-charantia",
@@ -4197,7 +4221,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Momordica charantia"
   },
   {
     "slug": "black-cohosh",
@@ -4305,7 +4330,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Actaea racemosa"
   },
   {
     "slug": "piper-nigrum",
@@ -4411,7 +4437,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Piper nigrum"
   },
   {
     "slug": "black-seed",
@@ -4543,7 +4570,8 @@
     "evidence_recorded_study_count": 5,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Nigella sativa"
   },
   {
     "slug": "black-tea",
@@ -4676,7 +4704,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Camellia sinensis"
   },
   {
     "slug": "blue-lotus",
@@ -4784,7 +4813,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Nymphaea caerulea"
   },
   {
     "slug": "blueberry",
@@ -5027,7 +5057,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Peumus boldus"
   },
   {
     "slug": "boswellia-serrata",
@@ -5129,7 +5160,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Boswellia serrata"
   },
   {
     "slug": "boswellia-carterii",
@@ -5241,7 +5273,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Boswellia carterii"
   },
   {
     "slug": "brassica-juncea",
@@ -5354,7 +5387,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Brassica juncea"
   },
   {
     "slug": "brassica-oleracea",
@@ -5468,7 +5502,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Brassica oleracea"
   },
   {
     "slug": "buckwheat",
@@ -5605,7 +5640,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Fagopyrum esculentum"
   },
   {
     "slug": "bupleurum",
@@ -5841,7 +5877,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Bupleurum falcatum"
   },
   {
     "slug": "burdock",
@@ -5949,7 +5986,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Arctium lappa"
   },
   {
     "slug": "butterbur",
@@ -6056,7 +6094,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Petasites hybridus"
   },
   {
     "slug": "theobroma-cacao",
@@ -6168,7 +6207,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Theobroma cacao"
   },
   {
     "slug": "calamus",
@@ -6277,7 +6317,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Acorus calamus"
   },
   {
     "slug": "calendula",
@@ -6394,7 +6435,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Calendula officinalis"
   },
   {
     "slug": "eschscholzia-californica",
@@ -6606,7 +6648,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Capsicum annuum"
   },
   {
     "slug": "capsicum-frutescens",
@@ -6714,7 +6757,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Capsicum frutescens"
   },
   {
     "slug": "caraway",
@@ -6818,7 +6862,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Carum carvi"
   },
   {
     "slug": "elettaria-cardamomum",
@@ -7040,7 +7085,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "uncontrolled-trial",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Ceratonia siliqua"
   },
   {
     "slug": "cassia-alata",
@@ -7151,7 +7197,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Senna alata"
   },
   {
     "slug": "cat-s-claw",
@@ -7261,7 +7308,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Uncaria tomentosa"
   },
   {
     "slug": "catuba",
@@ -7483,7 +7531,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Capsicum annuum"
   },
   {
     "slug": "celastrus-paniculatus",
@@ -7618,7 +7667,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Celastrus paniculatus"
   },
   {
     "slug": "chaga",
@@ -7742,7 +7792,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Inonotus obliquus"
   },
   {
     "slug": "matricaria-chamomilla",
@@ -7846,7 +7897,8 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Matricaria chamomilla"
   },
   {
     "slug": "chinese-skullcap",
@@ -7976,7 +8028,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Scutellaria baicalensis"
   },
   {
     "slug": "chuanxiong",
@@ -8094,7 +8147,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Ligusticum chuanxiong"
   },
   {
     "slug": "cichorium-intybus",
@@ -8217,7 +8271,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Cichorium intybus"
   },
   {
     "slug": "cinnamomum-verum",
@@ -8326,7 +8381,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Cinnamomum verum"
   },
   {
     "slug": "cissus",
@@ -8677,7 +8733,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Cistanche deserticola"
   },
   {
     "slug": "citicoline",
@@ -8939,7 +8996,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "single-human-study-for-grade-a"
+    "evidence_grade_backing_gap": "single-human-study-for-grade-a",
+    "scientific_name": "Citrus bergamia"
   },
   {
     "slug": "citrus-sinensis",
@@ -9067,7 +9125,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Citrus sinensis"
   },
   {
     "slug": "clove",
@@ -9176,7 +9235,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Syzygium aromaticum"
   },
   {
     "slug": "cnidium-monnieri",
@@ -9284,7 +9344,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Cnidium monnieri"
   },
   {
     "slug": "codonopsis",
@@ -9394,7 +9455,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Codonopsis pilosula"
   },
   {
     "slug": "coffea-arabica",
@@ -9506,7 +9568,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Coffea arabica"
   },
   {
     "slug": "coffee-cherry",
@@ -9879,7 +9942,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Commiphora mukul"
   },
   {
     "slug": "coptis",
@@ -10135,7 +10199,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Coptis chinensis"
   },
   {
     "slug": "cordyceps-sinensis",
@@ -10386,7 +10451,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Coriandrum sativum"
   },
   {
     "slug": "cornus-officinalis",
@@ -10514,7 +10580,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Cornus officinalis"
   },
   {
     "slug": "corydalis",
@@ -10731,7 +10798,8 @@
     "evidence_recorded_study_count": 5,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Vaccinium macrocarpon"
   },
   {
     "slug": "crocus-sativus",
@@ -10859,7 +10927,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Crocus sativus"
   },
   {
     "slug": "curcuma-wenyujin",
@@ -10967,7 +11036,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Curcuma wenyujin"
   },
   {
     "slug": "curcuma-zedoaria",
@@ -11081,7 +11151,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Curcuma zedoaria"
   },
   {
     "slug": "curcumin",
@@ -11196,7 +11267,8 @@
     "evidence_recorded_study_count": 11,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Curcuma longa"
   },
   {
     "slug": "curry-leaf",
@@ -11313,7 +11385,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Murraya koenigii"
   },
   {
     "slug": "cyclea-peltata",
@@ -11427,7 +11500,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Cyclea peltata"
   },
   {
     "slug": "cymbopogon-citratus",
@@ -11549,7 +11623,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Cymbopogon citratus"
   },
   {
     "slug": "damiana",
@@ -11659,7 +11734,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Turnera diffusa"
   },
   {
     "slug": "dandelion",
@@ -11784,7 +11860,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Taraxacum officinale"
   },
   {
     "slug": "danshen",
@@ -11893,7 +11970,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Salvia miltiorrhiza"
   },
   {
     "slug": "daphne-odora",
@@ -12005,7 +12083,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Daphne odora"
   },
   {
     "slug": "dendrobium",
@@ -12233,7 +12312,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Angelica sinensis"
   },
   {
     "slug": "echinacea-purpurea",
@@ -12456,7 +12536,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Sambucus nigra"
   },
   {
     "slug": "elecampane",
@@ -12562,7 +12643,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Inula helenium"
   },
   {
     "slug": "elephantopus-scaber",
@@ -13589,7 +13671,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Foeniculum vulgare"
   },
   {
     "slug": "trigonella-foenum-graecum",
@@ -13704,7 +13787,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Trigonella foenum-graecum"
   },
   {
     "slug": "feverfew",
@@ -13827,7 +13911,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Tanacetum parthenium"
   },
   {
     "slug": "ficus-carica",
@@ -14658,7 +14743,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Allium sativum"
   },
   {
     "slug": "garlic",
@@ -14784,7 +14870,8 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Allium sativum"
   },
   {
     "slug": "gastrodia",
@@ -15016,7 +15103,8 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Zingiber officinale"
   },
   {
     "slug": "ginkgo-biloba",
@@ -15239,7 +15327,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Glycyrrhiza glabra"
   },
   {
     "slug": "goldenseal",
@@ -15487,7 +15576,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Centella asiatica"
   },
   {
     "slug": "vitis-vinifera",
@@ -15616,7 +15706,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Vitis vinifera"
   },
   {
     "slug": "grapefruit",
@@ -15859,7 +15950,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "single-human-study-for-grade-a"
+    "evidence_grade_backing_gap": "single-human-study-for-grade-a",
+    "scientific_name": "Camellia sinensis"
   },
   {
     "slug": "green-tea-extract",
@@ -15970,7 +16062,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Camellia sinensis"
   },
   {
     "slug": "guarana",
@@ -16434,7 +16527,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Gymnema sylvestre"
   },
   {
     "slug": "harpagophytum-procumbens",
@@ -16651,7 +16745,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Crataegus monogyna"
   },
   {
     "slug": "hibiscus-sabdariffa",
@@ -16762,7 +16857,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "scientific_name": "Hibiscus sabdariffa"
   },
   {
     "slug": "holy-basil",
@@ -16907,7 +17003,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Ocimum tenuiflorum"
   },
   {
     "slug": "holy-basil-purple",
@@ -17368,7 +17465,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Humulus lupulus"
   },
   {
     "slug": "horse-chestnut",
@@ -17824,7 +17922,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Hypericum perforatum"
   },
   {
     "slug": "berberis-aristata",
@@ -17945,7 +18044,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-claims-recorded"
+    "evidence_grade_backing_gap": "no-claims-recorded",
+    "scientific_name": "Berberis aristata"
   },
   {
     "slug": "isatis",
@@ -18758,7 +18858,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Piper methysticum"
   },
   {
     "slug": "kuding-tea",
@@ -19466,7 +19567,8 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Melissa officinalis"
   },
   {
     "slug": "lemon-verbena",
@@ -19815,7 +19917,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Glycyrrhiza glabra"
   },
   {
     "slug": "ligusticum-chuanxiong",
@@ -19940,7 +20043,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Ligusticum chuanxiong"
   },
   {
     "slug": "hericium-erinaceus",
@@ -20717,7 +20821,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Lepidium meyenii"
   },
   {
     "slug": "magnolia-officinalis",
@@ -20832,7 +20937,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "uncontrolled-trial",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Magnolia officinalis"
   },
   {
     "slug": "maitake-d-fraction",
@@ -21196,7 +21302,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Garcinia mangostana"
   },
   {
     "slug": "maral-root",
@@ -21641,7 +21748,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Silybum marianum"
   },
   {
     "slug": "milk-thistle",
@@ -21761,7 +21869,8 @@
     "evidence_recorded_study_count": 5,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Silybum marianum"
   },
   {
     "slug": "morinda-citrifolia",
@@ -21897,7 +22006,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Morinda citrifolia"
   },
   {
     "slug": "moringa",
@@ -22038,7 +22148,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Moringa oleifera"
   },
   {
     "slug": "morus-alba",
@@ -22161,7 +22272,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Morus alba"
   },
   {
     "slug": "mucuna",
@@ -22296,7 +22408,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Mucuna pruriens"
   },
   {
     "slug": "mugwort",
@@ -23111,7 +23224,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Nelumbo nucifera"
   },
   {
     "slug": "nettle-root",
@@ -23353,7 +23467,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Nigella sativa"
   },
   {
     "slug": "noni",
@@ -23470,7 +23585,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Morinda citrifolia"
   },
   {
     "slug": "notoginseng",
@@ -24077,7 +24193,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Olea europaea"
   },
   {
     "slug": "ophiopogon",
@@ -24548,7 +24665,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Paeonia lactiflora"
   },
   {
     "slug": "paeonia-suffruticosa",
@@ -24676,7 +24794,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Paeonia suffruticosa"
   },
   {
     "slug": "papaya-leaf",
@@ -24919,7 +25038,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Petroselinum crispum"
   },
   {
     "slug": "passiflora-incarnata",
@@ -25031,7 +25151,8 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Passiflora incarnata"
   },
   {
     "slug": "pastinaca-sativa",
@@ -25141,7 +25262,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Pastinaca sativa"
   },
   {
     "slug": "pau-d-arco",
@@ -25364,7 +25486,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Mentha × piperita"
   },
   {
     "slug": "perilla",
@@ -25731,7 +25854,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Phellodendron amurense"
   },
   {
     "slug": "phosphatidylserine",
@@ -25978,7 +26102,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Piper longum"
   },
   {
     "slug": "plantago-lanceolata",
@@ -26094,7 +26219,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Plantago lanceolata"
   },
   {
     "slug": "plantago-major",
@@ -26210,7 +26336,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Plantago major"
   },
   {
     "slug": "plumbago-zeylanica",
@@ -26328,7 +26455,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Plumbago zeylanica"
   },
   {
     "slug": "polygala",
@@ -26570,7 +26698,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Punica granatum"
   },
   {
     "slug": "poria",
@@ -26691,7 +26820,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Wolfiporia extensa"
   },
   {
     "slug": "psoralea-corylifolia",
@@ -26821,7 +26951,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Psoralea corylifolia"
   },
   {
     "slug": "psyllium",
@@ -26943,7 +27074,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Plantago ovata"
   },
   {
     "slug": "pueraria-lobata",
@@ -27068,7 +27200,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Pueraria lobata"
   },
   {
     "slug": "pueraria-mirifica",
@@ -27174,7 +27307,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Pueraria mirifica"
   },
   {
     "slug": "punarnava",
@@ -27646,7 +27780,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Trifolium pratense"
   },
   {
     "slug": "rehmannia-glutinosa",
@@ -27771,7 +27906,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Rehmannia glutinosa"
   },
   {
     "slug": "rehmannia-prepared",
@@ -27886,7 +28022,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Rehmannia glutinosa"
   },
   {
     "slug": "ganoderma-lucidum",
@@ -27992,7 +28129,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Ganoderma lucidum"
   },
   {
     "slug": "reishi",
@@ -28111,7 +28249,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Ganoderma lucidum"
   },
   {
     "slug": "resveratrol",
@@ -28356,7 +28495,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Rheum palmatum"
   },
   {
     "slug": "rhodiola",
@@ -28485,7 +28625,8 @@
     "evidence_recorded_study_count": 16,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Rhodiola rosea"
   },
   {
     "slug": "rice-bran",
@@ -28745,7 +28886,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Aspalathus linearis"
   },
   {
     "slug": "rose-hips",
@@ -29117,7 +29259,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Salvia rosmarinus"
   },
   {
     "slug": "saffron",
@@ -29242,7 +29385,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Crocus sativus"
   },
   {
     "slug": "sage",
@@ -29385,7 +29529,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Salvia officinalis"
   },
   {
     "slug": "salacia-reticulata",
@@ -29494,7 +29639,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Salacia reticulata"
   },
   {
     "slug": "salvia-miltiorrhiza",
@@ -29603,7 +29749,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Salvia miltiorrhiza"
   },
   {
     "slug": "saw-palmetto",
@@ -29717,7 +29864,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Serenoa repens"
   },
   {
     "slug": "schisandra",
@@ -29839,7 +29987,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Schisandra chinensis"
   },
   {
     "slug": "schisandra-berry",
@@ -29952,7 +30101,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Schisandra chinensis"
   },
   {
     "slug": "schisandra-chinensis",
@@ -30072,7 +30222,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Schisandra chinensis"
   },
   {
     "slug": "scutellaria-baicalensis",
@@ -30212,7 +30363,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Scutellaria baicalensis"
   },
   {
     "slug": "selaginella-tamariscina",
@@ -30326,7 +30478,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Selaginella tamariscina"
   },
   {
     "slug": "serenoa-repens",
@@ -30451,7 +30604,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Serenoa repens"
   },
   {
     "slug": "shankhpushpi",
@@ -30681,7 +30835,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Asparagus racemosus"
   },
   {
     "slug": "scutellaria-lateriflora",
@@ -30783,7 +30938,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Scutellaria lateriflora"
   },
   {
     "slug": "sophora-alopecuroides",
@@ -30894,7 +31050,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Sophora alopecuroides"
   },
   {
     "slug": "sophora-flavescens",
@@ -31018,7 +31175,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Sophora flavescens"
   },
   {
     "slug": "soursop",
@@ -31126,7 +31284,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Annona muricata"
   },
   {
     "slug": "soybean",
@@ -31255,7 +31414,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Glycine max"
   },
   {
     "slug": "st-johns-wort",
@@ -31369,7 +31529,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Hypericum perforatum"
   },
   {
     "slug": "stellera-chamaejasme",
@@ -31480,7 +31641,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Stellera chamaejasme"
   },
   {
     "slug": "stephania-cepharantha",
@@ -31591,7 +31753,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Stephania cepharantha"
   },
   {
     "slug": "stephania-japonica",
@@ -31707,7 +31870,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Stephania japonica"
   },
   {
     "slug": "stephania-tetrandra",
@@ -31823,7 +31987,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Stephania tetrandra"
   },
   {
     "slug": "suma",
@@ -31932,7 +32097,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Pfaffia paniculata"
   },
   {
     "slug": "syzygium-aromaticum",
@@ -32053,7 +32219,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Syzygium aromaticum"
   },
   {
     "slug": "tamarind",
@@ -32170,7 +32337,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Tamarindus indica"
   },
   {
     "slug": "artemisia-dracunculus",
@@ -32271,7 +32439,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Artemisia dracunculus"
   },
   {
     "slug": "terminalia-arjuna",
@@ -32376,7 +32545,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Terminalia arjuna"
   },
   {
     "slug": "thunder-god-vine",
@@ -32502,7 +32672,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Tripterygium wilfordii"
   },
   {
     "slug": "thyme",
@@ -32625,7 +32796,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Thymus vulgaris"
   },
   {
     "slug": "tongkat-ali",
@@ -32742,7 +32914,8 @@
     "evidence_recorded_study_count": 4,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Eurycoma longifolia"
   },
   {
     "slug": "tribulus-terrestris",
@@ -32848,7 +33021,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "rct",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Tribulus terrestris"
   },
   {
     "slug": "tripterygium-wilfordii",
@@ -32974,7 +33148,8 @@
     "evidence_recorded_study_count": 2,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": false,
-    "evidence_grade_backing_gap": "no-human-study-recorded"
+    "evidence_grade_backing_gap": "no-human-study-recorded",
+    "scientific_name": "Tripterygium wilfordii"
   },
   {
     "slug": "turkey-tail",
@@ -33082,7 +33257,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Trametes versicolor"
   },
   {
     "slug": "turmeric",
@@ -33217,7 +33393,8 @@
     "evidence_recorded_study_count": 5,
     "evidence_strongest_design": "systematic-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Curcuma longa"
   },
   {
     "slug": "valeriana-officinalis",
@@ -33330,7 +33507,8 @@
     "evidence_recorded_study_count": 5,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Valeriana officinalis"
   },
   {
     "slug": "valerian",
@@ -33444,7 +33622,8 @@
     "evidence_recorded_study_count": 6,
     "evidence_strongest_design": "meta-analysis",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Valeriana officinalis"
   },
   {
     "slug": "verbena-officinalis",
@@ -33561,7 +33740,8 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Verbena officinalis"
   },
   {
     "slug": "white-peony",
@@ -33679,7 +33859,8 @@
     "evidence_recorded_study_count": 1,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Paeonia lactiflora"
   },
   {
     "slug": "wild-yam",
@@ -33796,7 +33977,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Dioscorea villosa"
   },
   {
     "slug": "wormwood",
@@ -33913,7 +34095,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Artemisia absinthium"
   },
   {
     "slug": "yarrow",
@@ -34021,7 +34204,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Achillea millefolium"
   },
   {
     "slug": "yerba-mate",
@@ -34156,7 +34340,8 @@
     "evidence_recorded_study_count": 0,
     "evidence_strongest_design": "unclassified",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Ilex paraguariensis"
   },
   {
     "slug": "yohimbe",
@@ -34272,6 +34457,7 @@
     "evidence_recorded_study_count": 3,
     "evidence_strongest_design": "narrative-review",
     "evidence_grade_backed": true,
-    "evidence_grade_backing_gap": null
+    "evidence_grade_backing_gap": null,
+    "scientific_name": "Pausinystalia johimbe"
   }
 ]
