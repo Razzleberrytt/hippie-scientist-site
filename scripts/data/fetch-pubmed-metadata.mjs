@@ -92,7 +92,16 @@ function normalizeEntry(pmid, entry) {
   return {
     pmid,
     title: String(entry.title ?? '').replace(/\s+/g, ' ').replace(/\.$/, '').trim(),
+    /** Display form: "Cheah KL et al." */
     authors: formatAuthors(entry),
+    /**
+     * Every author, in order. The display form collapses to "et al." after the
+     * first name, which is right on a page and wrong in a BibTeX or RIS export
+     * — a reference manager needs the full list to format any citation style.
+     */
+    authorList: Array.isArray(entry.authors)
+      ? entry.authors.filter((a) => a.authtype === 'Author').map((a) => String(a.name).trim()).filter(Boolean)
+      : [],
     authorCount: Array.isArray(entry.authors) ? entry.authors.filter((a) => a.authtype === 'Author').length : 0,
     journal: String(entry.source ?? '').trim(),
     year: extractYear(entry),
