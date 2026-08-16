@@ -802,7 +802,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           limitations={evidenceLimitations}
         />
 
-        {(herb.evidence_design_match && herb.evidence_risk_of_bias && herb.evidence_consistency) || herb.trial_design_insight ? (
+        {(herb.evidence_design_match && herb.evidence_risk_of_bias) || herb.trial_design_insight ? (
           <details className="group rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4">
             <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
               <span>Study design details</span>
@@ -812,12 +812,15 @@ export default async function HerbDetailPage({ params }: PageProps) {
         {/* `grade` is passed raw and normalized inside the component. There is
             deliberately no `|| 'C'` fallback: defaulting asserted a
             Limited-Evidence grade the record never carried. */}
-        {herb.evidence_design_match && herb.evidence_risk_of_bias && herb.evidence_consistency && (
+        {herb.evidence_design_match && herb.evidence_risk_of_bias && (
           <EvidenceGradeRationale
             grade={(herb.evidence_grade as string) || ''}
             designMatch={herb.evidence_design_match as string}
             riskOfBias={herb.evidence_risk_of_bias as string}
-            consistency={herb.evidence_consistency as string}
+            /* Consistency is only derivable where enough studies are on record.
+               Saying so beats hiding the whole card: 163 profiles can show
+               design and bias against the 27 that can also show agreement. */
+            consistency={(herb.evidence_consistency as string) || 'Not assessed'}
           >
             {(herb.evidence_rationale || herb.evidence_summary || herb.summary || '') as string}
           </EvidenceGradeRationale>
