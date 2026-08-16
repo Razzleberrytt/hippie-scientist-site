@@ -96,6 +96,7 @@ export type PublicEvidenceReportMetrics = {
   approximateParticipants: number
   participantCountCoverage: number
   participantCountAmbiguityStudyCount: number
+  studyClassAmbiguityStudyCount: number
   strongOrModerateIngredients: number
   preliminaryOrInsufficientIngredients: number
   unassignedIngredients: number
@@ -264,6 +265,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
   const ingredients: PublicEvidenceIngredient[] = []
   const studiesById = new Map<string, PublicStudyEntity>()
   const participantCountsByStudyId = new Map<string, Set<number>>()
+  const evidenceClassesByStudyId = new Map<string, Set<EvidenceStudyClass>>()
   const gradeCounts = new Map<string, number>()
   const categoryMap = new Map<string, EvidenceCategorySummary>()
   let explicitlyFlaggedClaimOverreach = 0
@@ -311,6 +313,11 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       const evidenceClass = citation.evidenceClass || normalizeEvidenceStudyClass(citation.studyType)
       const relationship = normalizeEvidenceRelationship(citation.relationship)
       const id = canonicalCitationIdentifier(citation, citationIdentities) || citation.id || evidenceStudyId(citation)
+      if (evidenceClass !== 'other') {
+        const classes = evidenceClassesByStudyId.get(id) ?? new Set<EvidenceStudyClass>()
+        classes.add(evidenceClass)
+        evidenceClassesByStudyId.set(id, classes)
+      }
       const parsedParticipantCount = parseSampleSize(citation.sampleSize)
       if (parsedParticipantCount !== null) {
         const counts = participantCountsByStudyId.get(id) ?? new Set<number>()
@@ -389,11 +396,23 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     categoryMap.set(category, categorySummary)
   }
 
-  const studies = [...studiesById.values()].sort((a, b) => {
-    const yearDiff = Number(b.year || 0) - Number(a.year || 0)
-    if (yearDiff !== 0) return yearDiff
-    return a.title.localeCompare(b.title)
-  })
+  const ambiguousStudyClassIds = new Set(
+    [...evidenceClassesByStudyId.entries()]
+      .filter(([, classes]) => classes.size > 1)
+      .map(([studyId]) => studyId),
+  )
+  const studies = [...studiesById.values()]
+    .map((study) => {
+      const classes = evidenceClassesByStudyId.get(study.id)
+      if (!classes?.size) return study
+      if (classes.size === 1) return { ...study, evidenceClass: [...classes][0] }
+      return { ...study, evidenceClass: 'other' as const }
+    })
+    .sort((a, b) => {
+      const yearDiff = Number(b.year || 0) - Number(a.year || 0)
+      if (yearDiff !== 0) return yearDiff
+      return a.title.localeCompare(b.title)
+    })
   const ambiguousParticipantStudyIds = new Set(
     [...participantCountsByStudyId.entries()]
       .filter(([, counts]) => counts.size > 1)
@@ -467,6 +486,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     approximateParticipants: studyMetrics.approximateParticipants,
     participantCountCoverage: studyMetrics.studiesWithParticipantCounts,
     participantCountAmbiguityStudyCount: ambiguousParticipantStudyIds.size,
+    studyClassAmbiguityStudyCount: ambiguousStudyClassIds.size,
     strongOrModerateIngredients: ingredients.filter(item => item.evidenceGrade === 'A' || item.evidenceGrade === 'B').length,
     preliminaryOrInsufficientIngredients: ingredients.filter(item => item.evidenceGrade === 'C' || item.evidenceGrade === 'D' || item.evidenceGrade === 'Avoid/Insufficient').length,
     unassignedIngredients: ingredients.filter(item => item.evidenceGrade === 'Unassigned').length,
