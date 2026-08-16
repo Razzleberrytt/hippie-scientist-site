@@ -90,23 +90,25 @@ function barColor(tier: EvidenceStrengthTier): string {
 }
 
 function textColor(tier: EvidenceStrengthTier): string {
-  if (tier === 'strong') return 'text-emerald-800'
-  if (tier === 'moderate') return 'text-blue-800'
-  if (tier === 'limited' || tier === 'mixed') return 'text-amber-800'
-  if (tier === 'preliminary') return 'text-amber-700'
-  return 'text-slate-700'
+  if (tier === 'strong') return 'text-emerald-800 dark:text-emerald-100'
+  if (tier === 'moderate') return 'text-blue-800 dark:text-blue-100'
+  if (tier === 'limited' || tier === 'mixed') return 'text-amber-800 dark:text-amber-100'
+  if (tier === 'preliminary') return 'text-amber-700 dark:text-amber-100'
+  return 'text-slate-700 dark:text-slate-100'
 }
 
 function bgColor(tier: EvidenceStrengthTier): string {
-  if (tier === 'strong') return 'bg-emerald-50'
-  if (tier === 'moderate') return 'bg-blue-50'
-  return 'bg-amber-50'
+  if (tier === 'strong') return 'bg-emerald-50 dark:bg-emerald-300/10'
+  if (tier === 'moderate') return 'bg-blue-50 dark:bg-blue-300/10'
+  if (tier === 'limited' || tier === 'mixed' || tier === 'preliminary') return 'bg-amber-50 dark:bg-amber-300/10'
+  return 'bg-slate-50 dark:bg-slate-300/10'
 }
 
 function borderColor(tier: EvidenceStrengthTier): string {
-  if (tier === 'strong') return 'border-emerald-200'
-  if (tier === 'moderate') return 'border-blue-200'
-  return 'border-amber-200'
+  if (tier === 'strong') return 'border-emerald-200 dark:border-emerald-200/20'
+  if (tier === 'moderate') return 'border-blue-200 dark:border-blue-200/20'
+  if (tier === 'limited' || tier === 'mixed' || tier === 'preliminary') return 'border-amber-200 dark:border-amber-200/20'
+  return 'border-slate-200 dark:border-slate-200/20'
 }
 
 /**
