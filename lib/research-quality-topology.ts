@@ -5,6 +5,7 @@ import { analyzeClaimLanguageCalibration } from './research-claim-language-calib
 import { analyzeClaimProvenanceIndependence } from './research-claim-provenance-independence'
 import { analyzeCrossProfileEvidenceBundles } from './research-cross-profile-bundles'
 import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
+import { analyzeEffectCertainty } from './research-effect-certainty'
 import { analyzeResearchEdgeCardinality } from './research-edge-cardinality'
 import { analyzeEvidenceIndependenceCoverage } from './research-evidence-independence-coverage'
 import { analyzeEvidenceLineage } from './research-evidence-lineage'
@@ -76,6 +77,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
   const claimBreadth = analyzeClaimBreadth(analysis)
+  const effectCertainty = analyzeEffectCertainty(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
   const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
   const metadataIntegrity = buildResearchMetadataIntegrity({
@@ -119,6 +121,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     studyClassConflicts,
     semanticAlignment,
     claimBreadth,
+    effectCertainty,
     claimLanguageCalibration,
     claimCitationMetadata,
     metadataIntegrity,
