@@ -1,16 +1,42 @@
 import { describe, expect, it } from 'vitest'
 
-import { analyzeEvidenceIndependenceCoverage } from '@/lib/research-evidence-independence-coverage'
+import {
+  analyzeEvidenceIndependenceCoverage,
+  type EvidenceIndependenceCoverageInputs,
+} from '@/lib/research-evidence-independence-coverage'
 
-function inputs() {
+function inputs(): EvidenceIndependenceCoverageInputs {
   return {
     trialRegistrationIndependence: {
-      claims: [], sameTrialReuseClaims: [], highConfidenceSameTrialReuseClaims: [],
-      summary: { multiStudyApprovedClaims: 0, claimsWithRegistryCoverage: 0, claimsWithAmbiguousRegistryEvidence: 0, sameTrialReuseClaims: 0, highConfidenceSameTrialReuseClaims: 0, duplicatePublicationCount: 0 },
+      studies: [],
+      claims: [],
+      sameTrialReuseClaims: [],
+      highConfidenceSameTrialReuseClaims: [],
+      summary: {
+        canonicalStudies: 0,
+        studiesWithRegistryCoverage: 0,
+        studiesWithAmbiguousRegistryEvidence: 0,
+        multiStudyApprovedClaims: 0,
+        claimsWithRegistryCoverage: 0,
+        claimsWithAmbiguousRegistryEvidence: 0,
+        sameTrialReuseClaims: 0,
+        highConfidenceSameTrialReuseClaims: 0,
+        duplicatePublicationCount: 0,
+      },
     },
     evidenceLineage: {
-      studies: [], claims: [], sharedNonRegistryLineageClaims: [], highConfidenceSharedNonRegistryLineageClaims: [],
-      summary: { studies: 0, studiesWithExplicitLineage: 0, explicitStudyLineageCoverage: 0, multiStudyApprovedClaims: 0, sharedNonRegistryLineageClaims: 0, highConfidenceSharedNonRegistryLineageClaims: 0 },
+      studies: [],
+      claims: [],
+      sharedNonRegistryLineageClaims: [],
+      highConfidenceSharedNonRegistryLineageClaims: [],
+      summary: {
+        studies: 0,
+        studiesWithExplicitLineage: 0,
+        explicitStudyLineageCoverage: 0,
+        multiStudyApprovedClaims: 0,
+        sharedNonRegistryLineageClaims: 0,
+        highConfidenceSharedNonRegistryLineageClaims: 0,
+      },
     },
   }
 }
