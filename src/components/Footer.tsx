@@ -43,14 +43,17 @@ const safetyLinks = [
   { href: '/learn/product-quality/', label: 'Product quality' },
 ]
 
-const legalLinks = [
+const aboutLinks = [
   { href: PUBLIC_ROUTES.about, label: 'About' },
   { href: PUBLIC_ROUTES.author, label: 'Author' },
+  { href: PUBLIC_ROUTES.faq, label: 'FAQ' },
+  { href: PUBLIC_ROUTES.contact, label: 'Contact' },
+]
+
+const policyLinks = [
   { href: '/info/editorial-policy/', label: 'Editorial Policy' },
   { href: '/info/corrections/', label: 'Corrections' },
   { href: '/info/content-licensing/', label: 'Content Attribution' },
-  { href: PUBLIC_ROUTES.faq, label: 'FAQ' },
-  { href: PUBLIC_ROUTES.contact, label: 'Contact' },
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
   { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
   { href: '/info/affiliate-disclosure/', label: 'Affiliate Disclosure' },
@@ -66,9 +69,9 @@ function formatBuildDate(isoDate: string) {
 export default function Footer() {
   const pathname = usePathname() || '/'
   const [open, setOpen] = useState(false)
-  const availableLegalLinks = isAnalyticsRouteEnabled()
-    ? [...legalLinks, { href: '/analytics', label: 'Analytics' }]
-    : legalLinks
+  const availablePolicyLinks = isAnalyticsRouteEnabled()
+    ? [...policyLinks, { href: '/analytics', label: 'Analytics' }]
+    : policyLinks
 
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
 
@@ -125,6 +128,14 @@ export default function Footer() {
                 YouTube
               </a>
             </div>
+
+            <nav aria-label='About the site' className='mt-4 flex flex-wrap gap-x-4 gap-y-2'>
+              {aboutLinks.map((link) => (
+                <Link key={link.href} className='text-xs font-semibold text-[color:var(--hs-body)] transition hover:text-[color:var(--hs-ink)]' to={link.href} prefetch={true}>
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
 
             <div className='editorial-card mt-6 rounded-2xl p-4 sm:p-5'>
               <p className='editorial-eyebrow'>Lost or not sure where to begin?</p>
@@ -199,9 +210,9 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[color:var(--tone-ink)]'>About & legal</h3>
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[color:var(--tone-ink)]'>Policies & legal</h3>
                 <ul className='mt-3 space-y-2'>
-                  {availableLegalLinks.map((link) => (
+                  {availablePolicyLinks.map((link) => (
                     <li key={link.href}>
                       <Link className={footerLinkClass} to={link.href} prefetch={true}>
                         {link.label}
