@@ -36,9 +36,9 @@ export const metadata: Metadata = {
 const quickStarts = [
   {
     title: 'I have a health goal',
-    description: 'Start with organized guidance for sleep, ADHD, anxiety, focus, or mental health.',
-    href: '/guides/',
-    action: 'Browse topics',
+    description: 'Choose the outcome or question first, then follow the evidence to relevant options.',
+    href: '/goals/',
+    action: 'Choose a goal',
     Icon: Brain,
   },
   {
@@ -65,10 +65,12 @@ const directorySections = [
     description: 'Start with the problem you are trying to understand rather than guessing which ingredient page to open.',
     Icon: Brain,
     links: [
+      { label: 'Goal finder', href: '/goals/', detail: 'Choose the outcome or question you are researching' },
       { label: 'Mental Health', href: '/guides/mental-health/', detail: 'Conditions, treatment evidence, safety, and stigma-aware explainers' },
       { label: 'ADHD', href: '/guides/adhd/', detail: 'Attention, executive function, nutrients, and treatment context' },
       { label: 'Sleep', href: '/guides/sleep/', detail: 'Sleep aids, alternatives, and sleep-hygiene evidence' },
-      { label: 'Anxiety & Stress', href: '/guides/anxiety/', detail: 'Calming supports, adaptogens, and stress-management evidence' },
+      { label: 'Stress', href: '/guides/stress/', detail: 'Acute tension, chronic overload, burnout, and stress-support evidence' },
+      { label: 'Anxiety', href: '/guides/anxiety/', detail: 'Calming supports, overthinking, tension, and anxiety-focused evidence' },
       { label: 'Focus & Cognition', href: '/guides/focus/', detail: 'Focus support, nootropics, and cognitive performance' },
       { label: 'More supplement topics', href: '/guides/other/', detail: 'Forms, quality, routines, advanced compounds, and harm reduction' },
     ],
@@ -179,10 +181,11 @@ export default function SiteDirectoryPage() {
           <aside className='rounded-3xl border border-brand-900/10 bg-brand-50/55 p-5'>
             <p className='text-sm font-bold text-ink'>How the site is organized</p>
             <ol className='mt-4 space-y-4 text-sm leading-6 text-muted'>
-              <li><strong className='text-ink'>1. Topics</strong> answer a health or practical question.</li>
+              <li><strong className='text-ink'>1. Goals</strong> start with the outcome or question you are researching.</li>
               <li><strong className='text-ink'>2. Ingredients</strong> provide structured herb and compound profiles.</li>
-              <li><strong className='text-ink'>3. Research</strong> explains evidence, mechanisms, and uncertainty.</li>
-              <li><strong className='text-ink'>4. Tools</strong> help check safety, evidence strength, and dosing context.</li>
+              <li><strong className='text-ink'>3. Compare</strong> puts options side by side by evidence and tradeoffs.</li>
+              <li><strong className='text-ink'>4. Safety</strong> surfaces interactions, contraindications, and stacking context.</li>
+              <li><strong className='text-ink'>5. Research</strong> explains evidence, methods, citations, and uncertainty.</li>
             </ol>
           </aside>
         </div>
