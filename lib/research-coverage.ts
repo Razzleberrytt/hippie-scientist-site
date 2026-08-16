@@ -99,6 +99,21 @@ export function sourceStudyClass(source: ResearchSource, cache: PubmedCache): St
   return designFromPublicationTypes(meta.publicationTypes ?? [])
 }
 
+function normalizeResearchSourceIdentity(source: ResearchSource): ResearchSource {
+  const explicitId = String(source.id ?? '').trim()
+  if (explicitId) return source
+  const [canonicalId] = citationIdentifiers(source)
+  return canonicalId ? { ...source, id: canonicalId } : source
+}
+
+function normalizeResearchProfileSources(record: ResearchProfile): ResearchProfile {
+  if (!Array.isArray(record.sources)) return record
+  return {
+    ...record,
+    sources: record.sources.map(normalizeResearchSourceIdentity),
+  }
+}
+
 export function listResearchProfiles(root = process.cwd()): ResearchProfileEntry[] {
   const dataDir = path.join(root, 'public', 'data')
   const profiles: ResearchProfileEntry[] = []
@@ -114,7 +129,8 @@ export function listResearchProfiles(root = process.cwd()): ResearchProfileEntry
       if (!name.endsWith('.json')) continue
       const file = path.join(full, name)
       try {
-        const record = JSON.parse(fs.readFileSync(file, 'utf8')) as ResearchProfile
+        const rawRecord = JSON.parse(fs.readFileSync(file, 'utf8')) as ResearchProfile
+        const record = normalizeResearchProfileSources(rawRecord)
         const slug = String(record.slug ?? name.replace(/\.json$/, ''))
         profiles.push({ kind, url: `/${kind}/${slug}/`, file, record })
       } catch {
