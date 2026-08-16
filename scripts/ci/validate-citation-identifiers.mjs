@@ -13,6 +13,7 @@
  *   - a citation URL that is not a single well-formed link
  *   - one identifier recorded under conflicting study titles
  *   - the same identified study listed more than once on one profile
+ *   - one PMID paired with multiple DOIs, or one DOI paired with multiple PMIDs
  *
  * Reported only: missing year/authors/journal and placeholder titles. Those are
  * enrichment gaps across most of the corpus; failing on them would block every
@@ -58,11 +59,30 @@ function* detailRecords() {
   }
 }
 
+function addMapping(map, key, value) {
+  if (!key || !value) return
+  const values = map.get(key) ?? new Set()
+  values.add(value)
+  map.set(key, values)
+}
+
+function mappingConflicts(map, fromKind, toKind) {
+  return [...map.entries()]
+    .filter(([, values]) => values.size > 1)
+    .map(([identifier, values]) => ({
+      kind: `${fromKind}-to-${toKind}`,
+      identifier,
+      values: [...values].sort(),
+    }))
+}
+
 function main() {
   const blocking = []
   const advisory = []
   const seenByIdentifier = new Map()
   const duplicateProfileSources = []
+  const pmidToDois = new Map()
+  const doiToPmids = new Map()
   let sources = 0
 
   for (const { kind, slug, record } of detailRecords()) {
@@ -84,6 +104,11 @@ function main() {
       }
       if (rawUrl && !/^https?:\/\/\S+$/.test(rawUrl)) {
         blocking.push({ url, kind: 'malformed-citation-url', value: rawUrl.slice(0, 120), title: text(source.title).slice(0, 80) })
+      }
+
+      if (isValidPmid(rawPmid) && isValidDoi(rawDoi)) {
+        addMapping(pmidToDois, rawPmid, rawDoi)
+        addMapping(doiToPmids, rawDoi, rawPmid)
       }
 
       const completeness = citationCompleteness(source)
@@ -118,6 +143,11 @@ function main() {
     .filter(([, titles]) => titles.size > 1)
     .map(([identifier, titles]) => ({ identifier, titles: [...titles].map((t) => t.slice(0, 80)) }))
 
+  const identifierPairConflicts = [
+    ...mappingConflicts(pmidToDois, 'pmid', 'doi'),
+    ...mappingConflicts(doiToPmids, 'doi', 'pmid'),
+  ]
+
   const missingCounts = {}
   for (const item of advisory) {
     for (const field of item.missing) missingCounts[field] = (missingCounts[field] ?? 0) + 1
@@ -126,7 +156,7 @@ function main() {
   fs.mkdirSync(REPORTS_DIR, { recursive: true })
   fs.writeFileSync(
     REPORT_PATH,
-    `${JSON.stringify({ generatedAt: new Date().toISOString(), sources, blocking, duplicateProfileSources, missingCounts, conflicts }, null, 2)}\n`,
+    `${JSON.stringify({ generatedAt: new Date().toISOString(), sources, blocking, duplicateProfileSources, identifierPairConflicts, missingCounts, conflicts }, null, 2)}\n`,
   )
 
   console.log('\nCitation identifiers')
@@ -134,6 +164,7 @@ function main() {
   console.log(`Sources scanned        ${sources}`)
   console.log(`Blocking problems      ${blocking.length}`)
   console.log(`Duplicate profile refs ${duplicateProfileSources.length}`)
+  console.log(`Identifier pair issues ${identifierPairConflicts.length}`)
   console.log(`Same id, two titles    ${conflicts.length}`)
   for (const [field, count] of Object.entries(missingCounts).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${String(count).padStart(5)}  missing ${field}`)
@@ -152,6 +183,14 @@ function main() {
     console.error(`\n[citation-identifiers] FAILED — ${duplicateProfileSources.length} duplicate source reference(s) within profiles.`)
     for (const duplicate of duplicateProfileSources.slice(0, 20)) {
       console.error(`  ${duplicate.url} · ${duplicate.identifier} · ${duplicate.title}`)
+    }
+    process.exit(1)
+  }
+
+  if (identifierPairConflicts.length) {
+    console.error(`\n[citation-identifiers] FAILED — ${identifierPairConflicts.length} inconsistent PMID/DOI mapping(s).`)
+    for (const conflict of identifierPairConflicts.slice(0, 20)) {
+      console.error(`  ${conflict.kind} · ${conflict.identifier} · ${conflict.values.join(' <> ')}`)
     }
     process.exit(1)
   }
