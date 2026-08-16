@@ -6,7 +6,6 @@ import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { NavigationSchema } from '@/components/NavigationSchema'
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema'
 import Footer from '../src/components/Footer'
-import MobileBottomNav from '../src/components/mobile-bottom-nav'
 import ScrollToTopButton from '../src/components/ScrollToTopButton'
 import ClickTracker from '@/components/ClickTracker'
 import CommercialIntentBridge from '@/components/CommercialIntentBridge'
@@ -157,7 +156,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </main>
             <EnglishOnly>
               <Footer />
-              <MobileBottomNav />
             </EnglishOnly>
             <SpanishOnly>
               <SpanishFooter />
