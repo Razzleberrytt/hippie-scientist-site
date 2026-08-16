@@ -5,6 +5,8 @@ import path from 'node:path'
 
 import {
   approvedClaims,
+  canonicalStudyClass,
+  canonicalStudyGroups,
   canonicalStudyIdentityMap,
   designFromPublicationTypes,
   listResearchProfiles,
@@ -12,7 +14,6 @@ import {
   NARRATIVE_STUDY_CLASSES,
   PRIMARY_HUMAN_STUDY_CLASSES,
   sourceMap,
-  sourceStudyClass,
   SYNTHESIS_STUDY_CLASSES,
   uniqueClaimStudyIdentities,
   uniqueSourceRefs,
@@ -67,13 +68,14 @@ function analyzeProfile(url: string, record: ResearchProfile, cache: PubmedCache
   const approved = approvedClaims(record)
   const sourcesById = sourceMap(record)
   const studyIdentities = canonicalStudyIdentityMap(record)
+  const studyGroups = canonicalStudyGroups(record)
   const designMix: Record<string, number> = {}
   let primaryHuman = 0
   let synthesis = 0
   let narrativeReview = 0
 
-  for (const source of sources) {
-    const design = sourceStudyClass(source, cache)
+  for (const group of studyGroups.values()) {
+    const design = canonicalStudyClass(group, cache)
     designMix[design] = (designMix[design] ?? 0) + 1
     if (PRIMARY_HUMAN_STUDY_CLASSES.has(design)) primaryHuman += 1
     if (SYNTHESIS_STUDY_CLASSES.has(design)) synthesis += 1
@@ -110,7 +112,7 @@ function analyzeProfile(url: string, record: ResearchProfile, cache: PubmedCache
   return {
     url,
     sourceCount: sources.length,
-    canonicalStudyCount: new Set(studyIdentities.values()).size,
+    canonicalStudyCount: studyGroups.size,
     claimCount: allClaims.length,
     approvedClaimCount: approved.length,
     designMix,
