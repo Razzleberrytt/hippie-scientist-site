@@ -72,14 +72,14 @@ export function DecisionFilterGroup({
   open?: boolean
 }) {
   const itemClass = (active: boolean) =>
-    `rounded-full border px-2.5 py-1.5 text-xs font-semibold leading-tight transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-[var(--surface-card)] text-[var(--text-secondary)] hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)] hover:text-ink'}`
+    `inline-flex min-h-11 items-center justify-center rounded-full border px-3 py-2 text-center text-xs font-semibold leading-tight transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-[var(--surface-card)] text-[var(--text-secondary)] hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)] hover:text-ink'}`
   const activeContextLabel = activeFilter === 'all'
     ? null
     : options.find(option => option.value === activeFilter)?.label
 
   return (
     <details className="group mt-3 rounded-[0.8rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-none" open={open || undefined}>
-      <summary className="flex min-h-8 cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/30 focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden">
+      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/30 focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden">
         <span className="min-w-0">
           <span>Refine by context</span>
           {activeContextLabel ? (
