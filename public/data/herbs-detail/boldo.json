@@ -33,21 +33,32 @@
       "title": "Tacrolimus and herbs interactions: a review",
       "authors": "Abushammala I et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34620272/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34620272/",
+      "journal": "Pharmazie",
+      "doi": "10.1691/ph.2021.1684",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "41353162",
       "title": "Boldo leaves reduce seizures, neuroinflammation, and hemichannel activity in a murine model of chronic epilepsy",
       "authors": "García-Rodríguez C et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41353162/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41353162/",
+      "journal": "Biol Res",
+      "doi": "10.1186/s40659-025-00647-w",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40362563",
       "title": "Peumus boldus Extract Inhibits Lipid Accumulation in 3T3-L1 Adipocytes",
       "authors": "Montaldo L et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40362563/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40362563/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms26094326",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

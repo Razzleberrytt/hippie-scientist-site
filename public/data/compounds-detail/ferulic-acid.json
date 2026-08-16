@@ -162,7 +162,9 @@
       "journal": "Biochem Biophys Res Commun",
       "citation": "Author not retrieved (1998). Biochem Biophys Res Commun. PMID: 9878519. DOI: 10.1006/bbrc.1998.9681.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Bourne LC and Rice-Evans C",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract capsule",

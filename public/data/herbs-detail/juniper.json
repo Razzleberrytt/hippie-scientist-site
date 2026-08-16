@@ -34,21 +34,34 @@
       "title": "World Endometriosis Society consensus on the classification of endometriosis",
       "authors": "Johnson NP et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27920089/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27920089/",
+      "journal": "Hum Reprod",
+      "doi": "10.1093/humrep/dew293",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36445447",
       "title": "[Phytotherapy in uro-oncology]",
       "authors": "Bauer-Büntzel C et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36445447/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36445447/",
+      "journal": "Urologie",
+      "doi": "10.1007/s00120-022-01979-1",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33874310",
       "title": "Reviews",
       "authors": "PubMed indexed authors",
       "year": 1991,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33874310/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33874310/",
+      "journal": "New Phytol",
+      "doi": "10.1111/j.1469-8137.1991.tb00015.x",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

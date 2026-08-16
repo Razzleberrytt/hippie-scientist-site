@@ -34,31 +34,48 @@
       "title": "Tongkat Ali",
       "authors": "PubMed indexed authors",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39527684/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39527684/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36013514",
       "title": "Eurycoma longifolia (Jack) Improves Serum Total Testosterone in Men: A Systematic Review and Meta-Analysis of Clinical Trials",
       "authors": "Leisegang K et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36013514/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36013514/",
+      "journal": "Medicina (Kaunas)",
+      "doi": "10.3390/medicina58081047",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33541567",
       "title": "A 6-month, double-blind, placebo-controlled, randomized trial to evaluate the effect of Eurycoma longifolia (Tongkat Ali) and concurrent training on erectile function and testosterone levels in androgen deficiency of aging males (ADAM)",
       "authors": "Leitão AE et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33541567/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33541567/",
+      "journal": "Maturitas",
+      "doi": "10.1016/j.maturitas.2020.12.002",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_a2c634d38f77",
-      "title": "PubMed PMID 23754792. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Tongkat Ali as a potential herbal supplement for physically active male and female seniors--a pilot study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23754792/",
       "pmid": "23754792",
       "authors": "PubMed",
       "citation": "PubMed PMID 23754792. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Phytother Res",
+      "year": 2014,
+      "doi": "10.1002/ptr.5017",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -86,23 +86,31 @@
   "sources": [
     {
       "id": "src_74aff507b53f",
-      "title": "PubMed PMID 25808252. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Celebrate World Hypertension Day (WHD) on May 17, 2015, and contribute to improving awareness of hypertension",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25808252/",
       "pmid": "25808252",
       "authors": "PubMed",
       "citation": "PubMed PMID 25808252. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Clin Hypertens (Greenwich)",
+      "year": 2015,
+      "doi": "10.1111/jch.12542",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_c0401bbdfecb",
-      "title": "PubMed PMID 24912386. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Expert consensus document. The International Scientific Association for Probiotics and Prebiotics consensus statement on the scope and appropriate use of the term probiotic",
       "url": "https://pubmed.ncbi.nlm.nih.gov/24912386/",
       "pmid": "24912386",
       "authors": "PubMed",
       "citation": "PubMed PMID 24912386. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Nat Rev Gastroenterol Hepatol",
+      "year": 2014,
+      "doi": "10.1038/nrgastro.2014.66",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

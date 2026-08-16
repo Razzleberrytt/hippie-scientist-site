@@ -148,53 +148,74 @@
   "sources": [
     {
       "id": "src_04928558bfad",
-      "title": "PubMed PMID 18497367. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Adaptation of orientation vectors of otolith-related central vestibular neurons to gravity",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18497367/",
       "pmid": "18497367",
       "authors": "PubMed",
       "citation": "PubMed PMID 18497367. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Neurophysiol",
+      "year": 2008,
+      "doi": "10.1152/jn.90289.2008",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_4431416626da",
-      "title": "PubMed PMID 30415628. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Cardiovascular Risk Reduction with Icosapent Ethyl for Hypertriglyceridemia",
       "url": "https://pubmed.ncbi.nlm.nih.gov/30415628/",
       "pmid": "30415628",
       "authors": "PubMed",
       "citation": "PubMed PMID 30415628. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "N Engl J Med",
+      "year": 2019,
+      "doi": "10.1056/NEJMoa1812792",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_938e1bdb63fd",
-      "title": "PubMed PMID 25287985. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Blue blocker glasses as a countermeasure for alerting effects of evening light-emitting diode screen exposure in male teenagers",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25287985/",
       "pmid": "25287985",
       "authors": "PubMed",
       "citation": "PubMed PMID 25287985. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Adolesc Health",
+      "year": 2015,
+      "doi": "10.1016/j.jadohealth.2014.08.002",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_a190dcbbb452",
-      "title": "PubMed PMID 27132744. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Manjunath",
       "url": "https://pubmed.ncbi.nlm.nih.gov/27132744/",
       "pmid": "27132744",
       "authors": "PubMed",
       "citation": "PubMed PMID 27132744. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Natl Med J India",
+      "year": 2015,
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_aef42e549429",
-      "title": "PubMed PMID 30686880. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Progress in Fetal Surgery: A Buoyant Start or Watchful Reluctance? Perspectives for India",
       "url": "https://pubmed.ncbi.nlm.nih.gov/30686880/",
       "pmid": "30686880",
       "authors": "PubMed",
       "citation": "PubMed PMID 30686880. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Indian Assoc Pediatr Surg",
+      "year": 2019,
+      "doi": "10.4103/jiaps.JIAPS_84_18",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "softgel or liquid oil",

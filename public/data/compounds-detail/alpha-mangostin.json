@@ -142,7 +142,9 @@
       "journal": "Mol Nutr Food Res",
       "citation": "Author not retrieved (2011). Mol Nutr Food Res. PMID: 21254395. DOI: 10.1002/mnfr.201000511.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Li L et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract capsule",

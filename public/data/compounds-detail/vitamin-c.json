@@ -90,23 +90,33 @@
   "sources": [
     {
       "id": "src_2e1f6ee2f631",
-      "title": "PubMed PMID 19147492. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Oxidative stress-induced peptidoglycan deacetylase in Helicobacter pylori",
       "url": "https://pubmed.ncbi.nlm.nih.gov/19147492/",
       "pmid": "19147492",
       "authors": "PubMed",
       "citation": "PubMed PMID 19147492. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Biol Chem",
+      "year": 2009,
+      "doi": "10.1074/jbc.M808071200",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_698caa1f98a9",
-      "title": "PubMed PMID 23440782. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Vitamin C for preventing and treating the common cold",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23440782/",
       "pmid": "23440782",
       "authors": "PubMed",
       "citation": "PubMed PMID 23440782. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Cochrane Database Syst Rev",
+      "year": 2013,
+      "doi": "10.1002/14651858.CD000980.pub4",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "chelated mineral capsule or powder",

@@ -40,31 +40,48 @@
       "title": "Black Cumin (Nigella sativa L.): A Comprehensive Review on Phytochemistry, Health Benefits, Molecular Pharmacology, and Safety",
       "authors": "Hannan MA et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34073784/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34073784/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu13061784",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37184195",
       "title": "Black Cumin Seed",
       "authors": "PubMed indexed authors",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37184195/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37184195/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30000936",
       "title": "Black Seed",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000936/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000936/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_91535100ff5c",
-      "title": "PubMed PMID 26875640. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Nigella sativa (black seed) effects on plasma lipid concentrations in humans: A systematic review and meta-analysis of randomized placebo-controlled trials",
       "url": "https://pubmed.ncbi.nlm.nih.gov/26875640/",
       "pmid": "26875640",
       "authors": "PubMed",
       "citation": "PubMed PMID 26875640. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Pharmacol Res",
+      "year": 2016,
+      "doi": "10.1016/j.phrs.2016.02.008",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

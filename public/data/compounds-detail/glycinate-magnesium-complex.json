@@ -65,13 +65,19 @@
   "sources": [
     {
       "id": "src_783236db1529",
-      "title": "PubMed PMID 40918053. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: A Randomized, Placebo-Controlled Trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/40918053/",
       "pmid": "40918053",
       "authors": "PubMed",
       "citation": "PubMed PMID 40918053. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Nat Sci Sleep",
+      "year": 2025,
+      "doi": "10.2147/NSS.S524348",
+      "studyType": "Uncontrolled trial",
+      "studyClass": "uncontrolled-trial",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "chelated mineral",

@@ -34,31 +34,52 @@
       "title": "Plant-derived nootropics and human cognition: A systematic review",
       "authors": "Lorca C et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34978226/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34978226/",
+      "journal": "Crit Rev Food Sci Nutr",
+      "doi": "10.1080/10408398.2021.2021137",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36061899",
       "title": "Pharmacological attributes of Bacopa monnieri extract: Current updates and clinical manifestation",
       "authors": "Fatima U et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36061899/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36061899/",
+      "journal": "Front Nutr",
+      "doi": "10.3389/fnut.2022.972379",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36987052",
       "title": "Nootropic Herbs, Shrubs, and Trees as Potential Cognitive Enhancers",
       "authors": "Malík M et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36987052/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36987052/",
+      "journal": "Plants (Basel)",
+      "doi": "10.3390/plants12061364",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_9e2ace19600b",
-      "title": "PubMed PMID 18611150. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effects of a standardized Bacopa monnieri extract on cognitive performance, anxiety, and depression in the elderly: a randomized, double-blind, placebo-controlled trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18611150/",
       "pmid": "18611150",
       "authors": "PubMed",
       "citation": "PubMed PMID 18611150. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Altern Complement Med",
+      "year": 2008,
+      "doi": "10.1089/acm.2008.0018",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_fe0411c48dea",

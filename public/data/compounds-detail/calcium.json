@@ -124,13 +124,19 @@
   "sources": [
     {
       "id": "src_738081654367",
-      "title": "PubMed PMID 31860103. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Vitamin D and Calcium for the Prevention of Fracture: A Systematic Review and Meta-analysis",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31860103/",
       "pmid": "31860103",
       "authors": "PubMed",
       "citation": "PubMed PMID 31860103. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "JAMA Netw Open",
+      "year": 2019,
+      "doi": "10.1001/jamanetworkopen.2019.17789",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_e60ce5d9aaa2",

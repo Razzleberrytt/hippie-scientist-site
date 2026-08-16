@@ -30,21 +30,34 @@
       "title": "Perilla frutescens Leaf-Derived Extracellular Vesicle-Like Particles Carry Pab-miR-396a-5p to Alleviate Psoriasis by Modulating IL-17 Signaling",
       "authors": "Liu Y et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40248109/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40248109/",
+      "journal": "Research (Wash D C)",
+      "doi": "10.34133/research.0675",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "20505356",
       "title": "Stress-induced flowering",
       "authors": "Wada KC et al.",
       "year": 2010,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/20505356/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20505356/",
+      "journal": "Plant Signal Behav",
+      "doi": "10.4161/psb.5.8.11826",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37570851",
       "title": "The Role and Mechanism of Perilla frutescens in Cancer Treatment",
       "authors": "Huang S et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37570851/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37570851/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules28155883",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -37,21 +37,34 @@
       "title": "Rosemary and neem: an insight into their combined anti-dandruff and anti-hair loss efficacy",
       "authors": "Hashem MM et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38565924/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38565924/",
+      "journal": "Sci Rep",
+      "doi": "10.1038/s41598-024-57838-w",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38358164",
       "title": "Alternative first-line malaria treatment",
       "authors": "Maafoh C et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38358164/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38358164/",
+      "journal": "Ann Afr Med",
+      "doi": "10.4103/aam.aam_35_23",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38290997",
       "title": "Phytotherapy in periodontics as an effective and sustainable supplemental treatment: a narrative review",
       "authors": "Gawish AS et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38290997/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38290997/",
+      "journal": "J Periodontal Implant Sci",
+      "doi": "10.5051/jpis.2301420071",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

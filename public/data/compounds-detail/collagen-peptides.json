@@ -65,13 +65,19 @@
   "sources": [
     {
       "id": "src_e613cf0b61e3",
-      "title": "PubMed PMID 23949208. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Oral supplementation of specific collagen peptides has beneficial effects on human skin physiology: a double-blind, placebo-controlled study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23949208/",
       "pmid": "23949208",
       "authors": "PubMed",
       "citation": "PubMed PMID 23949208. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Skin Pharmacol Physiol",
+      "year": 2014,
+      "doi": "10.1159/000351376",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "powder or capsule",

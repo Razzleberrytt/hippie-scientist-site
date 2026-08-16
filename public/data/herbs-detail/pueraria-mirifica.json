@@ -31,21 +31,32 @@
       "title": "Medical applications of phytoestrogens from the Thai herb Pueraria mirifica",
       "authors": "Malaivijitnond S et al.",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22460444/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22460444/",
+      "journal": "Front Med",
+      "doi": "10.1007/s11684-012-0184-8",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38539824",
       "title": "Dietary Puerarin Supplementation Improves Immune Response and Antioxidant Capacity of Sows",
       "authors": "Cao S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38539824/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38539824/",
+      "journal": "Antioxidants (Basel)",
+      "doi": "10.3390/antiox13030290",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36232220",
       "title": "Inhibition of LPS-Induced Microglial Activation by the Ethyl Acetate Extract of Pueraria mirifica",
       "authors": "Jantaratnotai N et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36232220/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36232220/",
+      "journal": "Int J Environ Res Public Health",
+      "doi": "10.3390/ijerph191912920",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

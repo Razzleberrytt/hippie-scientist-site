@@ -109,17 +109,25 @@
       "citation": "Author not retrieved (2014). J Am Coll Nutr. PMID: 24533610. DOI: 10.1080/07315724.2014.870013.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Onakpoya I et al.",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_cc31fbab8401",
-      "title": "PubMed PMID 18842808. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effect of glucomannan on plasma lipid and glucose concentrations, body weight, and blood pressure: systematic review and meta-analysis",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18842808/",
       "pmid": "18842808",
       "authors": "PubMed",
       "citation": "PubMed PMID 18842808. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Am J Clin Nutr",
+      "year": 2008,
+      "doi": "10.1093/ajcn/88.4.1167",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

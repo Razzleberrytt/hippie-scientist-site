@@ -28,21 +28,36 @@
       "title": "Frankincense--therapeutic properties",
       "authors": "Al-Yasiry AR et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27117114/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27117114/",
+      "journal": "Postepy Hig Med Dosw (Online)",
+      "doi": "10.5604/17322693.1200553",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29018060",
       "title": "Dietary supplements for treating osteoarthritis: a systematic review and meta-analysis",
       "authors": "Liu X et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29018060/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29018060/",
+      "journal": "Br J Sports Med",
+      "doi": "10.1136/bjsports-2016-097333",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32680575",
       "title": "Effectiveness of Boswellia and Boswellia extract for osteoarthritis patients: a systematic review and meta-analysis",
       "authors": "Yu G et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32680575/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32680575/",
+      "journal": "BMC Complement Med Ther",
+      "doi": "10.1186/s12906-020-02985-6",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

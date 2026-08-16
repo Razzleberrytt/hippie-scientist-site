@@ -36,21 +36,36 @@
       "title": "Phytochemistry and pharmacology of Celastrus paniculatus Wild.: a nootropic drug",
       "authors": "Aleem M et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34529902/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34529902/",
+      "journal": "J Complement Integr Med",
+      "doi": "10.1515/jcim-2021-0251",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35005853",
       "title": "Neuroprotective potential of Celastrus paniculatus seeds against common neurological ailments: a narrative review",
       "authors": "Sankaramourthy D et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35005853/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35005853/",
+      "journal": "J Complement Integr Med",
+      "doi": "10.1515/jcim-2021-0448",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35199395",
       "title": "An extensive review on phytochemistry and pharmacological activities of Indian medicinal plant Celastrus paniculatus Willd",
       "authors": "Nagpal K et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35199395/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35199395/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.7424",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

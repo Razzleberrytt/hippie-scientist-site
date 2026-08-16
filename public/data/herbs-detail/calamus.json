@@ -35,21 +35,36 @@
       "title": "Telovelar surgical approach",
       "authors": "Ghali MGZ et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31807931/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31807931/",
+      "journal": "Neurosurg Rev",
+      "doi": "10.1007/s10143-019-01190-5",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39942962",
       "title": "Aromatherapy and Essential Oils: Holistic Strategies in Complementary and Alternative Medicine for Integral Wellbeing",
       "authors": "Caballero-Gallardo K et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39942962/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39942962/",
+      "journal": "Plants (Basel)",
+      "doi": "10.3390/plants14030400",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33494677",
       "title": "Radioprotectors: Nature's Boon",
       "authors": "Lang DK et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33494677/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33494677/",
+      "journal": "Mini Rev Med Chem",
+      "doi": "10.2174/1389557521666210120112814",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

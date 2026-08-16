@@ -31,21 +31,36 @@
       "title": "Ayurvedic Herbal Medicines: A Literature Review of Their Applications in Female Reproductive Health",
       "authors": "Patibandla S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38558676/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38558676/",
+      "journal": "Cureus",
+      "doi": "10.7759/cureus.55240",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34283916",
       "title": "Effectiveness of Inhaled Aromatherapy on Chemotherapy-Induced Nausea and Vomiting: A Systematic Review",
       "authors": "Toniolo J et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34283916/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34283916/",
+      "journal": "J Altern Complement Med",
+      "doi": "10.1089/acm.2021.0067",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33506690",
       "title": "Functional foods modulating inflammation and metabolism in chronic diseases: a systematic review",
       "authors": "Luvián-Morales J et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33506690/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33506690/",
+      "journal": "Crit Rev Food Sci Nutr",
+      "doi": "10.1080/10408398.2021.1875189",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

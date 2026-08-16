@@ -39,21 +39,34 @@
       "title": "Scutellaria baicalensis Extracts Restrict Intestinal Epithelial Cell Ferroptosis by Regulating Lipid Peroxidation and GPX4/ACSL4 in Colitis",
       "authors": "Zhang J et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40220415/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40220415/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2025.156708",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31070530",
       "title": "A comprehensive review on phytochemistry, pharmacology, and flavonoid biosynthesis of Scutellaria baicalensis",
       "authors": "Wang ZL et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31070530/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31070530/",
+      "journal": "Pharm Biol",
+      "doi": "10.1080/13880209.2018.1492620",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31236960",
       "title": "Scutellaria baicalensis Georgi. (Lamiaceae): a review of its traditional uses, botany, phytochemistry, pharmacology and toxicology",
       "authors": "Zhao T et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31236960/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31236960/",
+      "journal": "J Pharm Pharmacol",
+      "doi": "10.1111/jphp.13129",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

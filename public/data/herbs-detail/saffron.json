@@ -32,21 +32,36 @@
       "title": "The Effects of Crocus sativus (Saffron) on ADHD: A Systematic Review",
       "authors": "Seyedi-Sahebari S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37864351/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37864351/",
+      "journal": "J Atten Disord",
+      "doi": "10.1177/10870547231203176",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29464801",
       "title": "Herbal medicine for depression and anxiety: A systematic review with assessment of potential psycho-oncologic relevance",
       "authors": "Yeung KS et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29464801/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29464801/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.6033",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36235697",
       "title": "Effectivity of Saffron Extract (Saffr'Activ) on Treatment for Children and Adolescents with Attention Deficit/Hyperactivity Disorder (ADHD): A Clinical Effectivity Study",
       "authors": "Blasco-Fontecilla H et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36235697/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36235697/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu14194046",
+      "studyType": "Uncontrolled trial",
+      "studyClass": "uncontrolled-trial",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -32,21 +32,33 @@
       "title": "A review of the pharmacological effects of Arctium lappa (burdock)",
       "authors": "Chan YS et al.",
       "year": 2011,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/20981575/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20981575/",
+      "journal": "Inflammopharmacology",
+      "doi": "10.1007/s10787-010-0062-4",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "11362284",
       "title": "Essiac",
       "authors": "Majchrowicz MA et al.",
       "year": 1995,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/11362284/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11362284/",
+      "journal": "Notes Undergr",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35873376",
       "title": "Mechanistic insights on burdock (Arctium lappa L.) extract effects on diabetes mellitus",
       "authors": "Mondal SC et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35873376/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35873376/",
+      "journal": "Food Sci Biotechnol",
+      "doi": "10.1007/s10068-022-01091-2",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

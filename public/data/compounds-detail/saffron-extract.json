@@ -65,13 +65,19 @@
   "sources": [
     {
       "id": "src_9f508d2c359c",
-      "title": "PubMed PMID 28735826. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "affron(®) a novel saffron extract (Crocus sativus L.) improves mood in healthy adults over 4 weeks in a double-blind, parallel, randomized, placebo-controlled clinical trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/28735826/",
       "pmid": "28735826",
       "authors": "PubMed",
       "citation": "PubMed PMID 28735826. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Complement Ther Med",
+      "year": 2017,
+      "doi": "10.1016/j.ctim.2017.06.001",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract capsule",

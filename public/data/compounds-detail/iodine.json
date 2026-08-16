@@ -120,13 +120,18 @@
   "sources": [
     {
       "id": "src_0abece3aa01b",
-      "title": "PubMed PMID 15734706. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The effects of iodine on intelligence in children: a meta-analysis of studies conducted in China",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15734706/",
       "pmid": "15734706",
       "authors": "PubMed",
       "citation": "PubMed PMID 15734706. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Asia Pac J Clin Nutr",
+      "year": 2005,
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_991903c9ff62",

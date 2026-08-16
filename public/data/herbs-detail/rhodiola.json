@@ -30,41 +30,68 @@
       "title": "Plant Adaptogens-History and Future Perspectives",
       "authors": "Todorova V et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34445021/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34445021/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu13082861",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35745023",
       "title": "The Effectiveness of Rhodiola rosea L. Preparations in Alleviating Various Aspects of Life-Stress Symptoms and Stress-Induced Conditions-Encouraging Clinical Evidence",
       "authors": "Ivanova Stojcheva E et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35745023/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35745023/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules27123902",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29568244",
       "title": "Herbal medicine for sports: a review",
       "authors": "Sellami M et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29568244/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29568244/",
+      "journal": "J Int Soc Sports Nutr",
+      "doi": "10.1186/s12970-018-0218-y",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_2ee233da1a3a",
-      "title": "PubMed PMID 19016404. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A randomised, double-blind, placebo-controlled, parallel-group study of the standardised extract shr-5 of the roots of Rhodiola rosea in the treatment of subjects with stress-related fatigue",
       "url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
       "pmid": "19016404",
       "authors": "PubMed",
       "citation": "PubMed PMID 19016404. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Planta Med",
+      "year": 2009,
+      "doi": "10.1055/s-0028-1088346",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_74fdaae54d8a",
-      "title": "PubMed PMID 20378318. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Rosenroot (Rhodiola rosea): traditional use, chemical composition, pharmacology and clinical efficacy",
       "url": "https://pubmed.ncbi.nlm.nih.gov/20378318/",
       "pmid": "20378318",
       "authors": "PubMed",
       "citation": "PubMed PMID 20378318. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Phytomedicine",
+      "year": 2010,
+      "doi": "10.1016/j.phymed.2010.02.002",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_212be327d082",

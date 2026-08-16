@@ -37,21 +37,32 @@
       "title": "Panax notoginseng: derived exosome-like nanoparticles attenuate ischemia reperfusion injury via altering microglia polarization",
       "authors": "Li S et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37946257/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37946257/",
+      "journal": "J Nanobiotechnology",
+      "doi": "10.1186/s12951-023-02161-1",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33127555",
       "title": "Chemical constituents of Panax ginseng and Panax notoginseng explain why they differ in therapeutic efficacy",
       "authors": "Liu H et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33127555/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33127555/",
+      "journal": "Pharmacol Res",
+      "doi": "10.1016/j.phrs.2020.105263",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35372585",
       "title": "Using Network Pharmacology to Explore the Mechanism of Panax notoginseng in the Treatment of Myocardial Fibrosis",
       "authors": "Han J et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35372585/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35372585/",
+      "journal": "J Diabetes Res",
+      "doi": "10.1155/2022/8895950",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

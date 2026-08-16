@@ -33,21 +33,34 @@
       "title": "Cistanche deserticola extract and its active components, echinacoside, ameliorate sarcopenia by activating the IGF-1/PI3K-AKT pathway to modulate ferroptosis",
       "authors": "Wang X et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41106096/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41106096/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2025.157378",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35930138",
       "title": "Cistanche Deserticola for Regulation of Bone Metabolism: Therapeutic Potential and Molecular Mechanisms on Postmenopausal Osteoporosis",
       "authors": "Wang C et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35930138/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35930138/",
+      "journal": "Chin J Integr Med",
+      "doi": "10.1007/s11655-022-3518-z",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38876007",
       "title": "Chemical composition, pharmacological effects, and parasitic mechanisms of Cistanche deserticola: An update",
       "authors": "Zhang S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38876007/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38876007/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2024.155808",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

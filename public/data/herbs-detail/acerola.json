@@ -32,21 +32,36 @@
       "title": "A Collagen Supplement Improves Skin Hydration, Elasticity, Roughness, and Density: Results of a Randomized, Placebo-Controlled, Blind Study",
       "authors": "Bolke L et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31627309/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31627309/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu11102494",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38396766",
       "title": "Acerola (Malpighia emarginata) Anti-Inflammatory Activity-A Review",
       "authors": "Olędzki R et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38396766/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38396766/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms25042089",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30150795",
       "title": "Acerola, an untapped functional superfruit: a review on latest frontiers",
       "authors": "Prakash A et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30150795/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30150795/",
+      "journal": "J Food Sci Technol",
+      "doi": "10.1007/s13197-018-3309-5",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

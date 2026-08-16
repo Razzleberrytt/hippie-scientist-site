@@ -106,13 +106,19 @@
   "sources": [
     {
       "id": "src_36a6058bc2c4",
-      "title": "PubMed PMID 9820262. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Garcinia cambogia (hydroxycitric acid) as a potential antiobesity agent: a randomized controlled trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/9820262/",
       "pmid": "9820262",
       "authors": "PubMed",
       "citation": "PubMed PMID 9820262. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "JAMA",
+      "year": 1998,
+      "doi": "10.1001/jama.280.18.1596",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract",

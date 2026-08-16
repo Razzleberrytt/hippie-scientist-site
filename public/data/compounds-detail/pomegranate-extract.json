@@ -66,13 +66,19 @@
   "sources": [
     {
       "id": "src_a269a9f84c29",
-      "title": "PubMed PMID 27888156. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effects of pomegranate juice on blood pressure: A systematic review and meta-analysis of randomized controlled trials",
       "url": "https://pubmed.ncbi.nlm.nih.gov/27888156/",
       "pmid": "27888156",
       "authors": "PubMed",
       "citation": "PubMed PMID 27888156. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Pharmacol Res",
+      "year": 2017,
+      "doi": "10.1016/j.phrs.2016.11.018",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

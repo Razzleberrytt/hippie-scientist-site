@@ -43,31 +43,52 @@
       "title": "Pharmacological Update Properties of Aloe Vera and its Major Active Constituents",
       "authors": "Sánchez M et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32183224/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32183224/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules25061324",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37915246",
       "title": "Aloe Barbadensis Miller (Aloe Vera)",
       "authors": "Kaur S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37915246/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37915246/",
+      "journal": "Int J Vitam Nutr Res",
+      "doi": "10.1024/0300-9831/a000797",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38998660",
       "title": "Aloe vera-An Extensive Review Focused on Recent Studies",
       "authors": "Catalano A et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38998660/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38998660/",
+      "journal": "Foods",
+      "doi": "10.3390/foods13132155",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_96fe08d35f48",
-      "title": "PubMed PMID 27347994. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Efficacy of Aloe Vera Supplementation on Prediabetes and Early Non-Treated Diabetic Patients: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
       "url": "https://pubmed.ncbi.nlm.nih.gov/27347994/",
       "pmid": "27347994",
       "authors": "PubMed",
       "citation": "PubMed PMID 27347994. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Nutrients",
+      "year": 2016,
+      "doi": "10.3390/nu8070388",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

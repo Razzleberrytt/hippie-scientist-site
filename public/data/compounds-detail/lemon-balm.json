@@ -121,13 +121,19 @@
   "sources": [
     {
       "id": "src_826d7cae36e1",
-      "title": "PubMed PMID 34449930. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The effects of lemon balm (Melissa officinalis L.) on depression and anxiety in clinical trials: A systematic review and meta-analysis",
       "url": "https://pubmed.ncbi.nlm.nih.gov/34449930/",
       "pmid": "34449930",
       "authors": "PubMed",
       "citation": "PubMed PMID 34449930. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Phytother Res",
+      "year": 2021,
+      "doi": "10.1002/ptr.7252",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract capsule",

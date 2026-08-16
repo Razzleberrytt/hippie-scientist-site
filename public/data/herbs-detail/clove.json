@@ -33,21 +33,36 @@
       "title": "Antibacterial and Antifungal Activities of Spices",
       "authors": "Liu Q et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28621716/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28621716/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms18061283",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34770801",
       "title": "Clove Essential Oil (Syzygium aromaticum L. Myrtaceae): Extraction, Chemical Composition, Food Applications, and Essential Bioactivity for Human Health",
       "authors": "Haro-González JN et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34770801/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34770801/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules26216387",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33916044",
       "title": "Biological Properties and Prospects for the Application of Eugenol-A Review",
       "authors": "Ulanowska M et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33916044/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33916044/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms22073671",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

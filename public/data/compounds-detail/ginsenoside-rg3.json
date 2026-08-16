@@ -144,7 +144,11 @@
       "journal": "Int J Mol Med",
       "citation": "Author not retrieved (2017). Int J Mol Med. PMID: 28098857. DOI: 10.3892/ijmm.2017.2857.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Sun M et al.",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized botanical extract capsule",

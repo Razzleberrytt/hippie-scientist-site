@@ -38,21 +38,36 @@
       "title": "Artemisinin and Its Derivatives as Potential Anticancer Agents",
       "authors": "Wen L et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39202965/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39202965/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules29163886",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "28837410",
       "title": "New insights into artemisinin regulation",
       "authors": "Lv Z et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28837410/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28837410/",
+      "journal": "Plant Signal Behav",
+      "doi": "10.1080/15592324.2017.1366398",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40375936",
       "title": "Unlocking the potential of Artemisia annua for artemisinin production: current insights and emerging strategies",
       "authors": "Vashisth D et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40375936/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40375936/",
+      "journal": "3 Biotech",
+      "doi": "10.1007/s13205-025-04332-3",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

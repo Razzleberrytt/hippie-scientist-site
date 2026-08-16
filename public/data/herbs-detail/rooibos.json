@@ -32,21 +32,34 @@
       "title": "Tacrolimus and herbs interactions: a review",
       "authors": "Abushammala I et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34620272/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34620272/",
+      "journal": "Pharmazie",
+      "doi": "10.1691/ph.2021.1684",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32364226",
       "title": "Experimental assembly reveals ecological drift as a major driver of root nodule bacterial diversity in a woody legume crop",
       "authors": "Ramoneda J et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32364226/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32364226/",
+      "journal": "FEMS Microbiol Ecol",
+      "doi": "10.1093/femsec/fiaa083",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34402103",
       "title": "Rooibos (Aspalathus linearis) influence on health and ovarian functions",
       "authors": "Sirotkin AV et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34402103/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34402103/",
+      "journal": "J Anim Physiol Anim Nutr (Berl)",
+      "doi": "10.1111/jpn.13624",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

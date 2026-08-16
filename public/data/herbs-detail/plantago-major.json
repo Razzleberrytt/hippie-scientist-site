@@ -31,21 +31,36 @@
       "title": "Update on the treatment of chemotherapy and radiotherapy-induced buccal mucositis: a systematic review",
       "authors": "Wen S et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37314054/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37314054/",
+      "journal": "Acta Odontol Latinoam",
+      "doi": "10.54589/aol.36/1/3",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29028587",
       "title": "Chemical constituents and medical benefits of Plantago major",
       "authors": "Adom MB et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29028587/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29028587/",
+      "journal": "Biomed Pharmacother",
+      "doi": "10.1016/j.biopha.2017.09.152",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37631007",
       "title": "Antimicrobial and Other Biomedical Properties of Extracts from Plantago major, Plantaginaceae",
       "authors": "Zhakipbekov K et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37631007/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37631007/",
+      "journal": "Pharmaceuticals (Basel)",
+      "doi": "10.3390/ph16081092",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

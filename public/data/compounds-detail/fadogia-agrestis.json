@@ -104,7 +104,9 @@
       "journal": "Asian J Androl",
       "citation": "Author not retrieved (2005). Asian J Androl. PMID: 16281088. DOI: 10.1111/j.1745-7262.2005.00052.x.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Yakubu MT et al.",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_b5b0b0a73b41",

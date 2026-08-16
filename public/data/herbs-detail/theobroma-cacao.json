@@ -29,21 +29,34 @@
       "title": "Mediterranean diet: The role of long-chain ω-3 fatty acids in fish; polyphenols in fruits, vegetables, cereals, coffee, tea, cacao and wine; probiotics and vitamins in prevention of stroke, age-related cognitive decline, and Alzheimer disease",
       "authors": "Román GC et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31521398/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31521398/",
+      "journal": "Rev Neurol (Paris)",
+      "doi": "10.1016/j.neurol.2019.08.005",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29119920",
       "title": "Polyphenols: Inflammation",
       "authors": "Natsume M et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29119920/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29119920/",
+      "journal": "Curr Pharm Des",
+      "doi": "10.2174/1381612823666171109104141",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30372004",
       "title": "Chocolate",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30372004/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30372004/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

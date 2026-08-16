@@ -34,21 +34,36 @@
       "title": "Herbal Products Used in Menopause and for Gynecological Disorders",
       "authors": "Kenda M et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules26247421",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39477563",
       "title": "Complementary and Alternative Medicine for Menopause",
       "authors": "Smith-Francis MJ et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39477563/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39477563/",
+      "journal": "Nurs Clin North Am",
+      "doi": "10.1016/j.cnur.2024.08.001",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33383165",
       "title": "Neither soy nor isoflavone intake affects male reproductive hormones: An expanded and updated meta-analysis of clinical studies",
       "authors": "Reed KE et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33383165/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33383165/",
+      "journal": "Reprod Toxicol",
+      "doi": "10.1016/j.reprotox.2020.12.019",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

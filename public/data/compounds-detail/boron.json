@@ -64,13 +64,17 @@
   "sources": [
     {
       "id": "src_6bc0961b2000",
-      "title": "PubMed PMID 21129941. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Comparative effects of daily and weekly boron supplementation on plasma steroid hormones and proinflammatory cytokines",
       "url": "https://pubmed.ncbi.nlm.nih.gov/21129941/",
       "pmid": "21129941",
       "authors": "PubMed",
       "citation": "PubMed PMID 21129941. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Trace Elem Med Biol",
+      "year": 2011,
+      "doi": "10.1016/j.jtemb.2010.10.001",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or softgel",

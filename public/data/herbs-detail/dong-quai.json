@@ -40,21 +40,34 @@
       "title": "Herb-drug interactions",
       "authors": "Fugh-Berman A et al.",
       "year": 2000,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/",
+      "journal": "Lancet",
+      "doi": "10.1016/S0140-6736(99)06457-0",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27677719",
       "title": "Botanicals and Their Bioactive Phytochemicals for Women's Health",
       "authors": "Dietz BM et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27677719/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27677719/",
+      "journal": "Pharmacol Rev",
+      "doi": "10.1124/pr.115.010843",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30000896",
       "title": "Dong Quai",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000896/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000896/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

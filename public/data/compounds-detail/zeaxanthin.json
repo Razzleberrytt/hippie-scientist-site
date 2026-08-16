@@ -62,13 +62,19 @@
   "sources": [
     {
       "id": "src_56cc494303b2",
-      "title": "PubMed PMID 23644932. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Lutein + zeaxanthin and omega-3 fatty acids for age-related macular degeneration: the Age-Related Eye Disease Study 2 (AREDS2) randomized clinical trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23644932/",
       "pmid": "23644932",
       "authors": "PubMed",
       "citation": "PubMed PMID 23644932. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "JAMA",
+      "year": 2013,
+      "doi": "10.1001/jama.2013.4997",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

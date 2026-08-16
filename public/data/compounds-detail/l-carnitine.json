@@ -65,13 +65,17 @@
   "sources": [
     {
       "id": "src_6f68e9784e5a",
-      "title": "PubMed PMID 15607555. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A novel therapeutic strategy for Ehlers-Danlos syndrome based on nutritional supplements",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15607555/",
       "pmid": "15607555",
       "authors": "PubMed",
       "citation": "PubMed PMID 15607555. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Med Hypotheses",
+      "year": 2005,
+      "doi": "10.1016/j.mehy.2004.07.023",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "softgel or liquid oil",

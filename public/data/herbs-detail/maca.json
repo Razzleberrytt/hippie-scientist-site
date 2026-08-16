@@ -31,31 +31,50 @@
       "title": "Medicinal effects of Peruvian maca (Lepidium meyenii): a review",
       "authors": "da Silva Leitão Peres N  et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31951246/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31951246/",
+      "journal": "Food Funct",
+      "doi": "10.1039/c9fo02732g",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38440178",
       "title": "Exploring the chemical and pharmacological variability of Lepidium meyenii: a comprehensive review of the effects of maca",
       "authors": "Ulloa Del Carpio N et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38440178/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38440178/",
+      "journal": "Front Pharmacol",
+      "doi": "10.3389/fphar.2024.1360422",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38398854",
       "title": "Not All Maca Is Created Equal: A Review of Colors, Nutrition, Phytochemicals, and Clinical Uses",
       "authors": "Minich DM et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38398854/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38398854/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu16040530",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_3910aa71f4eb",
-      "title": "PubMed PMID 18072817. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Spotlight on rasagiline in Parkinson's disease",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18072817/",
       "pmid": "18072817",
       "authors": "PubMed",
       "citation": "PubMed PMID 18072817. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "CNS Drugs",
+      "year": 2008,
+      "doi": "10.2165/00023210-200822010-00007",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_1f49196ffdbf",

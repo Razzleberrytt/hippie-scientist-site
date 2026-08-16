@@ -65,13 +65,19 @@
   "sources": [
     {
       "id": "src_320c9c51472e",
-      "title": "PubMed PMID 30198828. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effects of Yeast (1,3)-(1,6)-Beta-Glucan on Severity of Upper Respiratory Tract Infections: A Double-Blind, Randomized, Placebo-Controlled Study in Healthy Subjects",
       "url": "https://pubmed.ncbi.nlm.nih.gov/30198828/",
       "pmid": "30198828",
       "authors": "PubMed",
       "citation": "PubMed PMID 30198828. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Am Coll Nutr",
+      "year": 2019,
+      "doi": "10.1080/07315724.2018.1478339",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

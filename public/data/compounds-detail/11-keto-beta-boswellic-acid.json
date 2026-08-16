@@ -135,7 +135,12 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/15070181/",
       "pmid": "15070181",
       "note": "human_pk",
-      "reviewStatus": "pending"
+      "reviewStatus": "pending",
+      "journal": "Phytomedicine",
+      "year": 2004,
+      "authors": "Sharma S et al.",
+      "doi": "10.1078/0944-7113-00290",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_3bc3ceb5a629-2",
@@ -143,7 +148,14 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/22167571/",
       "pmid": "22167571",
       "note": "human_pk",
-      "reviewStatus": "pending"
+      "reviewStatus": "pending",
+      "journal": "J Clin Pharmacol",
+      "year": 2012,
+      "authors": "Skarke C et al.",
+      "doi": "10.1177/0091270011422811",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",

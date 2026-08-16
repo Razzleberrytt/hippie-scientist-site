@@ -28,21 +28,36 @@
       "title": "Curcumin: A Review of Its Effects on Human Health",
       "authors": "Hewlings SJ et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29065496/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29065496/",
+      "journal": "Foods",
+      "doi": "10.3390/foods6100092",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32929825",
       "title": "Piperine: A review of its biological effects",
       "authors": "Haq IU et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32929825/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32929825/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.6855",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30651162",
       "title": "Health Benefits of Culinary Herbs and Spices",
       "authors": "Jiang TA et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30651162/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30651162/",
+      "journal": "J AOAC Int",
+      "doi": "10.5740/jaoacint.18-0418",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -39,21 +39,36 @@
       "title": "D-mannose for preventing and treating urinary tract infections",
       "authors": "Cooper TE et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36041061/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36041061/",
+      "journal": "Cochrane Database Syst Rev",
+      "doi": "10.1002/14651858.CD013608.pub2",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "23472485",
       "title": "Adverse effects of herbal medicines: an overview of systematic reviews",
       "authors": "Posadzki P et al.",
       "year": 2013,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/23472485/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23472485/",
+      "journal": "Clin Med (Lond)",
+      "doi": "10.7861/clinmedicine.13-1-7",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31840355",
       "title": "Indian Morinda species: A review",
       "authors": "Singh B et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31840355/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31840355/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.6579",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

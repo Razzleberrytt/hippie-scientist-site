@@ -33,21 +33,36 @@
       "title": "Treatment of Benign Prostatic Hyperplasia by Natural Drugs",
       "authors": "Csikós E et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34885733/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34885733/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules26237141",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31163183",
       "title": "Screening of pharmacological uses of Urtica dioica and others benefits",
       "authors": "Dhouibi R et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31163183/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31163183/",
+      "journal": "Prog Biophys Mol Biol",
+      "doi": "10.1016/j.pbiomolbio.2019.05.008",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "17509841",
       "title": "A comprehensive review on the stinging nettle effect and efficacy profiles. Part II: urticae radix",
       "authors": "Chrubasik JE et al.",
       "year": 2007,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/17509841/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17509841/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2007.03.014",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

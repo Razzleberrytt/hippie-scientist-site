@@ -35,21 +35,35 @@
       "title": "Garlic and Hypertension: Efficacy, Mechanism of Action, and Clinical Implications",
       "authors": "Sleiman C et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39275211/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39275211/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu16172895",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "28762712",
       "title": "Common Herbal Dietary Supplement-Drug Interactions",
       "authors": "Asher GN et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/",
+      "journal": "Am Fam Physician",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36650621",
       "title": "Herb-Drug Interactions and Their Impact on Pharmacokinetics: An Update",
       "authors": "Cheng W et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36650621/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36650621/",
+      "journal": "Curr Drug Metab",
+      "doi": "10.2174/1389200224666230116113240",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -84,13 +84,19 @@
   "sources": [
     {
       "id": "src_04ef965bd127",
-      "title": "PubMed PMID 15496046. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Efficacy of zinc against common cold viruses: an overview",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15496046/",
       "pmid": "15496046",
       "authors": "PubMed",
       "citation": "PubMed PMID 15496046. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Am Pharm Assoc (2003)",
+      "year": 2004,
+      "doi": "10.1331/1544-3191.44.5.594.hulisz",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "chelated mineral capsule or powder",

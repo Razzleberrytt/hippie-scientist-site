@@ -102,13 +102,19 @@
   "sources": [
     {
       "id": "src_0faf9710cf5a",
-      "title": "PubMed PMID 11752510. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Treatment of low back pain with a herbal or synthetic anti-rheumatic: a randomized controlled study. Willow bark extract for low back pain",
       "url": "https://pubmed.ncbi.nlm.nih.gov/11752510/",
       "pmid": "11752510",
       "authors": "PubMed",
       "citation": "PubMed PMID 11752510. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Rheumatology (Oxford)",
+      "year": 2001,
+      "doi": "10.1093/rheumatology/40.12.1388",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

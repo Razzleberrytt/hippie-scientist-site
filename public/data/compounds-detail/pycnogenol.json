@@ -118,13 +118,19 @@
   "sources": [
     {
       "id": "src_4a4d5861f666",
-      "title": "PubMed PMID 31763928. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effect of Pycnogenol on Blood Pressure: Findings From a PRISMA Compliant Systematic Review and Meta-Analysis of Randomized, Double-Blind, Placebo-Controlled, Clinical Studies",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31763928/",
       "pmid": "31763928",
       "authors": "PubMed",
       "citation": "PubMed PMID 31763928. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Angiology",
+      "year": 2020,
+      "doi": "10.1177/0003319719889428",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

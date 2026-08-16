@@ -33,21 +33,35 @@
       "title": "Clinician guidelines for the treatment of psychiatric disorders with nutraceuticals and phytoceuticals: The World Federation of Societies of Biological Psychiatry (WFSBP) and Canadian Network for Mood and Anxiety Treatments (CANMAT) Taskforce",
       "authors": "Sarris J et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35311615/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35311615/",
+      "journal": "World J Biol Psychiatry",
+      "doi": "10.1080/15622975.2021.2013041",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33424664",
       "title": "Pharmacotherapy of Anxiety Disorders: Current and Emerging Treatment Options",
       "authors": "Garakani A et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33424664/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33424664/",
+      "journal": "Front Psychiatry",
+      "doi": "10.3389/fpsyt.2020.595584",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "28762712",
       "title": "Common Herbal Dietary Supplement-Drug Interactions",
       "authors": "Asher GN et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/",
+      "journal": "Am Fam Physician",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

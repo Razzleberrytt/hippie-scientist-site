@@ -89,7 +89,9 @@
       "citation": "Author not retrieved (2020). Phytother Res. PMID: 32048383. DOI: 10.1002/ptr.6627.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Mansoori A et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

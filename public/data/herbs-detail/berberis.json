@@ -45,21 +45,36 @@
       "title": "Biological properties and clinical applications of berberine",
       "authors": "Song D et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32335802/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32335802/",
+      "journal": "Front Med",
+      "doi": "10.1007/s11684-019-0724-6",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30637820",
       "title": "Berberine and barberry (Berberis vulgaris): A clinical review",
       "authors": "Imenshahidi M et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30637820/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30637820/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.6252",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27671811",
       "title": "Berberine and Its Role in Chronic Disease",
       "authors": "Cicero AF et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27671811/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27671811/",
+      "journal": "Adv Exp Med Biol",
+      "doi": "10.1007/978-3-319-41334-1_2",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

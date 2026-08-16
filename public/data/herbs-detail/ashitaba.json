@@ -32,21 +32,34 @@
       "title": "Toxicological assessment of Ashitaba Chalcone",
       "authors": "Maronpot RR et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25576957/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25576957/",
+      "journal": "Food Chem Toxicol",
+      "doi": "10.1016/j.fct.2014.12.021",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29880082",
       "title": "Possible antithrombotic effects of Angelica keiskei (Ashitaba)",
       "authors": "Ohkura N et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29880082/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29880082/",
+      "journal": "Pharmazie",
+      "doi": "10.1691/ph.2018.8370",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "27399234",
       "title": "A Review of the Medicinal Uses and Pharmacology of Ashitaba",
       "authors": "Caesar LK et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27399234/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27399234/",
+      "journal": "Planta Med",
+      "doi": "10.1055/s-0042-110496",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

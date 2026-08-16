@@ -36,21 +36,34 @@
       "title": "Exploring the active components and potential mechanisms of Zhimu-Huangbai herb-pair in the treatment of depression",
       "authors": "Lei X et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39904199/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39904199/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2025.156365",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36330891",
       "title": "A review of the botany, ethnopharmacology, phytochemistry, pharmacology, toxicology and quality of Anemarrhena asphodeloides Bunge",
       "authors": "Liu C et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36330891/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36330891/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2022.115857",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39476924",
       "title": "Advances in the study of polysaccharides from Anemarrhena asphodeloides Bge.: A review",
       "authors": "An H et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39476924/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39476924/",
+      "journal": "Int J Biol Macromol",
+      "doi": "10.1016/j.ijbiomac.2024.136999",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

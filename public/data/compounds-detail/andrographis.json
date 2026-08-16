@@ -111,13 +111,19 @@
   "sources": [
     {
       "id": "src_21d61628ee99",
-      "title": "PubMed PMID 15095142. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Andrographis paniculata in the treatment of upper respiratory tract infections: a systematic review of safety and efficacy",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15095142/",
       "pmid": "15095142",
       "authors": "PubMed",
       "citation": "PubMed PMID 15095142. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Planta Med",
+      "year": 2004,
+      "doi": "10.1055/s-2004-818938",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

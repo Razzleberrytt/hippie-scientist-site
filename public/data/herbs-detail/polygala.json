@@ -31,21 +31,34 @@
       "title": "Polygala tenuifolia willd. Extract alleviates LPS-induced acute lung injury in rats via TLR4/NF-κB pathway and NLRP3 inflammasome suppression",
       "authors": "Guo S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38972239/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38972239/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2024.155859",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "22414105",
       "title": "Nature against depression",
       "authors": "El-Alfy AT et al.",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22414105/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22414105/",
+      "journal": "Curr Med Chem",
+      "doi": "10.2174/092986712800229096",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31765761",
       "title": "A review on the phytopharmacological studies of the genus Polygala",
       "authors": "Lacaille-Dubois MA et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31765761/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31765761/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2019.112417",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

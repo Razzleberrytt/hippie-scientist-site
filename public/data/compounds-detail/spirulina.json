@@ -64,13 +64,17 @@
   "sources": [
     {
       "id": "src_b06318b9c33e",
-      "title": "PubMed PMID 20301409. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Isolated Methylmalonic Acidemia",
       "url": "https://pubmed.ncbi.nlm.nih.gov/20301409/",
       "pmid": "20301409",
       "authors": "PubMed",
       "citation": "PubMed PMID 20301409. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "year": 2022,
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

@@ -39,21 +39,34 @@
       "title": "Huntington's disease clinical trials update: March 2025",
       "authors": "Farag M et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40302443/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40302443/",
+      "journal": "J Huntingtons Dis",
+      "doi": "10.1177/18796397251337000",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29403626",
       "title": "A review of effective herbal medicines in controlling menopausal symptoms",
       "authors": "Kargozar R et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29403626/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29403626/",
+      "journal": "Electron Physician",
+      "doi": "10.19082/5826",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29034191",
       "title": "Pharmacological properties of Salvia officinalis and its components",
       "authors": "Ghorbani A et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29034191/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29034191/",
+      "journal": "J Tradit Complement Med",
+      "doi": "10.1016/j.jtcme.2016.12.014",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

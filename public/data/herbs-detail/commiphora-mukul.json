@@ -38,21 +38,36 @@
       "title": "A Systematic Review and Meta-Analysis of Ayurvedic Herbal Preparations for Hypercholesterolemia",
       "authors": "Gyawali D et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34071454/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34071454/",
+      "journal": "Medicina (Kaunas)",
+      "doi": "10.3390/medicina57060546",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37301302",
       "title": "Commiphora mukul (Hook. ex Stocks) Engl.: Historical records, application rules, phytochemistry, pharmacology, clinical research, and adverse reaction",
       "authors": "Garang Z et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37301302/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37301302/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2023.116717",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38148708",
       "title": "Current stage of preclinical and clinical development of guggulsterone in cancers: Challenges and promises",
       "authors": "Ijaz S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38148708/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38148708/",
+      "journal": "Cell Biol Int",
+      "doi": "10.1002/cbin.12112",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

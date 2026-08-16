@@ -37,31 +37,52 @@
       "title": "Depression and Its Phytopharmacotherapy-A Narrative Review",
       "authors": "Dobrek L et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36902200/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36902200/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms24054772",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36144755",
       "title": "Medicinal Plants Used for Anxiety, Depression, or Stress Treatment: An Update",
       "authors": "Kenda M et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36144755/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36144755/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules27186021",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37376614",
       "title": "A Narrative Review of Alternative Symptomatic Treatments for Herpes Simplex Virus",
       "authors": "Chang JY et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37376614/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37376614/",
+      "journal": "Viruses",
+      "doi": "10.3390/v15061314",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_826d7cae36e1",
-      "title": "PubMed PMID 34449930. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The effects of lemon balm (Melissa officinalis L.) on depression and anxiety in clinical trials: A systematic review and meta-analysis",
       "url": "https://pubmed.ncbi.nlm.nih.gov/34449930/",
       "pmid": "34449930",
       "authors": "PubMed",
       "citation": "PubMed PMID 34449930. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Phytother Res",
+      "year": 2021,
+      "doi": "10.1002/ptr.7252",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_a05ea67138e7",

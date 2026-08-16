@@ -33,21 +33,32 @@
       "title": "Mulberry leaves ameliorate diabetes via regulating metabolic profiling and AGEs/RAGE and p38 MAPK/NF-κB pathway",
       "authors": "Li JS et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34626776/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34626776/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2021.114713",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40527063",
       "title": "Mulberry leaf improves type 2 diabetes in mice via gut microbiota-SCFAs-GPRs axis and AMPK signaling pathway",
       "authors": "Zhang Y et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40527063/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40527063/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2025.156970",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38892603",
       "title": "Understanding the Impact of Different Doses of Reducose(®) Mulberry Leaf Extract on Blood Glucose and Insulin Responses after Eating a Complex Meal: Results from a Double-Blind, Randomised, Crossover Trial",
       "authors": "Thondre PS et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38892603/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38892603/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu16111670",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

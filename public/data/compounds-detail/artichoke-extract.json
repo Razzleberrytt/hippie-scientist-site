@@ -67,13 +67,19 @@
   "sources": [
     {
       "id": "src_38b3994acf96",
-      "title": "PubMed PMID 22746542. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Beneficial effects of artichoke leaf extract supplementation on increasing HDL-cholesterol in subjects with primary mild hypercholesterolaemia: a double-blind, randomized, placebo-controlled trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/22746542/",
       "pmid": "22746542",
       "authors": "PubMed",
       "citation": "PubMed PMID 22746542. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Int J Food Sci Nutr",
+      "year": 2013,
+      "doi": "10.3109/09637486.2012.700920",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

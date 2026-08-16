@@ -33,21 +33,33 @@
       "title": "A review of the bioactivity and potential health benefits of peppermint tea (Mentha piperita L.)",
       "authors": "McKay DL et al.",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/16767798/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16767798/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.1936",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32173933",
       "title": "Ethnomedicinal, phytochemical and pharmacological updates on Peppermint (Mentha × piperita L.)-A review",
       "authors": "Mahendran G et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32173933/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32173933/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.6664",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "21144345",
       "title": "Mentha piperita (peppermint)",
       "authors": "Herro E et al.",
       "year": 2010,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/21144345/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21144345/",
+      "journal": "Dermatitis",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

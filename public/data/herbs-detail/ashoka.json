@@ -34,21 +34,36 @@
       "title": "Social entrepreneurship in obesity prevention: A scoping review",
       "authors": "Chia A et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34841626/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34841626/",
+      "journal": "Obes Rev",
+      "doi": "10.1111/obr.13378",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34954676",
       "title": "The gender responsiveness of social entrepreneurship in health - A review of initiatives by Ashoka fellows",
       "authors": "Khalid S et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34954676/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34954676/",
+      "journal": "Soc Sci Med",
+      "doi": "10.1016/j.socscimed.2021.114665",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37390875",
       "title": "A comprehensive review on Saraca asoca (Fabaceae) - Historical perspective, traditional uses, biological activities, and conservation",
       "authors": "Urumarudappa SKJ et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37390875/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37390875/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2023.116861",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -109,13 +109,19 @@
   "sources": [
     {
       "id": "src_3213bd269e3f",
-      "title": "PubMed PMID 18499602. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Preoperative oral Passiflora incarnata reduces anxiety in ambulatory surgery patients: a double-blind, placebo-controlled study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18499602/",
       "pmid": "18499602",
       "authors": "PubMed",
       "citation": "PubMed PMID 18499602. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Anesth Analg",
+      "year": 2008,
+      "doi": "10.1213/ane.0b013e318172c3f9",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract capsule",

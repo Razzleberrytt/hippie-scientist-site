@@ -62,13 +62,17 @@
   "sources": [
     {
       "id": "src_0d867f116292",
-      "title": "PubMed PMID 29456638. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Biobran/MGN-3, an arabinoxylan rice bran, enhances NK cell activity in geriatric subjects: A randomized, double-blind, placebo-controlled clinical trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/29456638/",
       "pmid": "29456638",
       "authors": "PubMed",
       "citation": "PubMed PMID 29456638. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Exp Ther Med",
+      "year": 2018,
+      "doi": "10.3892/etm.2018.5713",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "powder or capsule",

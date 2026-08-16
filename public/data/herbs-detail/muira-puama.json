@@ -30,21 +30,32 @@
       "title": "Selected herbals and human exercise performance",
       "authors": "Bucci LR et al.",
       "year": 2000,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/10919969/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10919969/",
+      "journal": "Am J Clin Nutr",
+      "doi": "10.1093/ajcn/72.2.624S",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "29551532",
       "title": "Effect of ginger, Paullinia cupana, muira puama and l- citrulline, singly or in combination, on modulation of the inducible nitric oxide- NO-cGMP pathway in rat penile smooth muscle cells",
       "authors": "Ferrini MG et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29551532/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29551532/",
+      "journal": "Nitric Oxide",
+      "doi": "10.1016/j.niox.2018.03.010",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39845379",
       "title": "Nutraceutical and low energy shockwave treatments improved sexual function recovery in a rat pelvic neurovascular injury model",
       "authors": "Crisostomo-Wynne TC et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39845379/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39845379/",
+      "journal": "Sex Med",
+      "doi": "10.1093/sexmed/qfaf001",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

@@ -32,21 +32,36 @@
       "title": "Potential of natural products and gut microbiome in tumor immunotherapy",
       "authors": "Cao L et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39567970/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39567970/",
+      "journal": "Chin Med",
+      "doi": "10.1186/s13020-024-01032-7",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38254493",
       "title": "A Literature Review of the Pharmacological Effects of Jujube",
       "authors": "Zhu D et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38254493/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38254493/",
+      "journal": "Foods",
+      "doi": "10.3390/foods13020193",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "34472292",
       "title": "[Fruit cracking: a review]",
       "authors": "Li H et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34472292/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34472292/",
+      "journal": "Sheng Wu Gong Cheng Xue Bao",
+      "doi": "10.13345/j.cjb.200553",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

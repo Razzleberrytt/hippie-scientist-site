@@ -31,31 +31,47 @@
       "title": "Common Herbal Dietary Supplement-Drug Interactions",
       "authors": "Asher GN et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/",
+      "journal": "Am Fam Physician",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31643260",
       "title": "Green Tea",
       "authors": "PubMed indexed authors",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31643260/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31643260/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "26093535",
       "title": "Therapeutic effect of high-dose green tea extract on weight reduction: A randomized, double-blind, placebo-controlled clinical trial",
       "authors": "Chen IJ et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26093535/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26093535/",
+      "journal": "Clin Nutr",
+      "doi": "10.1016/j.clnu.2015.05.003",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_280a9a995334",
-      "title": "PubMed PMID 15598647. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Phosphorylation by Pho85 cyclin-dependent kinase acts as a signal for the down-regulation of the yeast sphingoid long-chain base kinase Lcb4 during the stationary phase",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15598647/",
       "pmid": "15598647",
       "authors": "PubMed",
       "citation": "PubMed PMID 15598647. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Biol Chem",
+      "year": 2005,
+      "doi": "10.1074/jbc.M410908200",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

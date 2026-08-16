@@ -33,31 +33,50 @@
       "title": "Milk thistle (Silybum marianum): A concise overview on its chemistry, pharmacological, and nutraceutical uses in liver diseases",
       "authors": "Abenavoli L et al.",
       "year": 2018,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30080294/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30080294/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.6171",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31069872",
       "title": "Safety and toxicity of silymarin, the major constituent of milk thistle extract: An updated review",
       "authors": "Soleimani V et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31069872/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31069872/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.6361",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30000830",
       "title": "Milk Thistle",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000830/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000830/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_e4d69d9267bd",
-      "title": "PubMed PMID 28419855. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A Randomized Trial of Silymarin for the Treatment of Nonalcoholic Steatohepatitis",
       "url": "https://pubmed.ncbi.nlm.nih.gov/28419855/",
       "pmid": "28419855",
       "authors": "PubMed",
       "citation": "PubMed PMID 28419855. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Clin Gastroenterol Hepatol",
+      "year": 2017,
+      "doi": "10.1016/j.cgh.2017.04.016",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

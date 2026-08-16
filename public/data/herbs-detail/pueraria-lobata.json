@@ -36,21 +36,32 @@
       "title": "Network Pharmacology and Bioinformatics Study of Six Medicinal Food Homologous Plants Against Colorectal Cancer",
       "authors": "Zhao X et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39940699/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39940699/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms26030930",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "24339367",
       "title": "Puerarin: a review of pharmacological effects",
       "authors": "Zhou YX et al.",
       "year": 2014,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/24339367/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24339367/",
+      "journal": "Phytother Res",
+      "doi": "10.1002/ptr.5083",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39326132",
       "title": "Puerarin ameliorates colitis by direct suppression of macrophage M1 polarization in DSS mice",
       "authors": "Tao Q et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39326132/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39326132/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2024.156048",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

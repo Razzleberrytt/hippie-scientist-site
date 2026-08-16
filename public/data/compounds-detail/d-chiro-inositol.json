@@ -65,13 +65,19 @@
   "sources": [
     {
       "id": "src_f7ab63c70d7e",
-      "title": "PubMed PMID 29498933. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Management of women with PCOS using myo-inositol and folic acid. New clinical data and review of the literature",
       "url": "https://pubmed.ncbi.nlm.nih.gov/29498933/",
       "pmid": "29498933",
       "authors": "PubMed",
       "citation": "PubMed PMID 29498933. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Horm Mol Biol Clin Investig",
+      "year": 2018,
+      "doi": "10.1515/hmbci-2017-0067",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

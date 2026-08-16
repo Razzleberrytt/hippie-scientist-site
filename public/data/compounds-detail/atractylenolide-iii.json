@@ -138,7 +138,9 @@
       "journal": "Phytomedicine",
       "citation": "Author not retrieved (2019). Phytomedicine. PMID: 30981186. DOI: 10.1016/j.phymed.2019.152922.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Zhou K et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

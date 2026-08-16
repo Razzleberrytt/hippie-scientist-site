@@ -92,7 +92,9 @@
       "citation": "Author not retrieved (2018). Cells. PMID: 30037060. DOI: 10.3390/cells7070081.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "studyType": "Mechanistic",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Smith E et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized botanical extract capsule",

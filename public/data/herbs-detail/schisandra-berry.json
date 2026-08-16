@@ -34,14 +34,22 @@
       "title": "A narrative review on the role of traditional Chinese medicine (TCM) in treating coronary artery disease",
       "authors": "Zhang A et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40143483/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40143483/",
+      "journal": "J Pak Med Assoc",
+      "doi": "10.47391/JPMA.11610",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "16552829",
       "title": "Biochemical basis of the \"Qi-invigorating\" action of Schisandra berry (wu-wei-zi) in Chinese medicine",
       "authors": "Ko KM et al.",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/16552829/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16552829/",
+      "journal": "Am J Chin Med",
+      "doi": "10.1142/S0192415X06003734",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

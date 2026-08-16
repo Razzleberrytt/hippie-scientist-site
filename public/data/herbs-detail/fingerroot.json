@@ -35,28 +35,42 @@
       "title": "Fingerroot, Boesenbergia rotunda and its Aphrodisiac Activity",
       "authors": "Ongwisespaiboon O et al.",
       "year": 2017,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28503050/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28503050/",
+      "journal": "Pharmacogn Rev",
+      "doi": "10.4103/phrev.phrev_50_16",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36699694",
       "title": "Pharmacological Activities of Fingerroot Extract and Its Phytoconstituents Against SARS-CoV-2 Infection in Golden Syrian Hamsters",
       "authors": "Kongratanapasert T et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36699694/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36699694/",
+      "journal": "J Exp Pharmacol",
+      "doi": "10.2147/JEP.S382895",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38328737",
       "title": "Oral sub-chronic toxicity of fingerroot (Boesenbergia rotunda) rhizome extract formulation in Wistar rats",
       "authors": "Techapichetvanich P et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38328737/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38328737/",
+      "journal": "Toxicol Rep",
+      "doi": "10.1016/j.toxrep.2024.01.013",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "35721953",
       "title": "Assessment of the CYP1A2 Inhibition-Mediated Drug Interaction Potential for Pinocembrin Using In Silico, In Vitro, and In Vivo Approaches",
       "authors": "Bhatt S et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35721953/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35721953/",
+      "journal": "ACS Omega",
+      "doi": "10.1021/acsomega.2c02315",
+      "metadataSource": "pubmed"
     },
     {
       "title": "Inhibitory Effect of Boesenbergia rotunda and Its Major Flavonoids, Pinostrobin and Pinocembrin on Carbohydrate Digestive Enzymes and Intestinal Glucose Transport in Caco-2 Cells",
@@ -70,7 +84,12 @@
       "title": "Traditional usages, chemical metabolites, pharmacological activities, and pharmacokinetics of Boesenbergia rotunda (L.) Mansf.: a comprehensive review",
       "authors": "Wang Y et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40176912/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40176912/",
+      "journal": "Front Pharmacol",
+      "doi": "10.3389/fphar.2025.1527210",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

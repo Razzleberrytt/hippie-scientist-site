@@ -88,7 +88,11 @@
       "journal": "Molecules",
       "citation": "Author not retrieved (2025). Molecules. PMID: 39942757. DOI: 10.3390/molecules30030654.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Capasso L et al.",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

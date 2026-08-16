@@ -37,21 +37,36 @@
       "title": "Botanicals and Their Bioactive Phytochemicals for Women's Health",
       "authors": "Dietz BM et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27677719/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27677719/",
+      "journal": "Pharmacol Rev",
+      "doi": "10.1124/pr.115.010843",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "21315814",
       "title": "Kudzu root: traditional uses and potential medicinal benefits in diabetes and cardiovascular diseases",
       "authors": "Wong KH et al.",
       "year": 2011,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/21315814/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21315814/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2011.02.001",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36358493",
       "title": "Pharmacological Activity, Pharmacokinetics, and Clinical Research Progress of Puerarin",
       "authors": "Wang D et al.",
       "year": 2022,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36358493/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36358493/",
+      "journal": "Antioxidants (Basel)",
+      "doi": "10.3390/antiox11112121",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

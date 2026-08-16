@@ -149,33 +149,47 @@
   "sources": [
     {
       "id": "src_2c881e8d3299",
-      "title": "PubMed PMID 17344500. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Iron treatment normalizes cognitive functioning in young women",
       "url": "https://pubmed.ncbi.nlm.nih.gov/17344500/",
       "pmid": "17344500",
       "authors": "PubMed",
       "citation": "PubMed PMID 17344500. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Am J Clin Nutr",
+      "year": 2007,
+      "doi": "10.1093/ajcn/85.3.778",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_35249a83e723",
-      "title": "PubMed PMID 12706309. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Occurrence of oxygen desaturation events during preterm infant bottle feeding near discharge",
       "url": "https://pubmed.ncbi.nlm.nih.gov/12706309/",
       "pmid": "12706309",
       "authors": "PubMed",
       "citation": "PubMed PMID 12706309. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Early Hum Dev",
+      "year": 2003,
+      "doi": "10.1016/s0378-3782(03)00008-2",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_4a32a37af842",
-      "title": "PubMed PMID 18711167. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Why choose serum cystatin C levels over serum creatinine levels as a serologic marker of kidney function?",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18711167/",
       "pmid": "18711167",
       "authors": "PubMed",
       "citation": "PubMed PMID 18711167. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Ann Intern Med",
+      "year": 2008,
+      "doi": "10.7326/0003-4819-149-4-200808190-00016",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "chelated mineral capsule or powder",

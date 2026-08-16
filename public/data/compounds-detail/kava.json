@@ -63,13 +63,19 @@
   "sources": [
     {
       "id": "src_203bc87edd2e",
-      "title": "PubMed PMID 12131602. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A placebo-controlled study of Kava kava in generalized anxiety disorder",
       "url": "https://pubmed.ncbi.nlm.nih.gov/12131602/",
       "pmid": "12131602",
       "authors": "PubMed",
       "citation": "PubMed PMID 12131602. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Int Clin Psychopharmacol",
+      "year": 2002,
+      "doi": "10.1097/00004850-200207000-00005",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

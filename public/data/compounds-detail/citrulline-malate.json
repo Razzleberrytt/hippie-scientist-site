@@ -62,13 +62,19 @@
   "sources": [
     {
       "id": "src_518c663921d5",
-      "title": "PubMed PMID 39408204. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effects of Acute Citrulline Malate Supplementation on CrossFit(®) Exercise Performance: A Randomized, Double-Blind, Placebo-Controlled, Cross-Over Study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/39408204/",
       "pmid": "39408204",
       "authors": "PubMed",
       "citation": "PubMed PMID 39408204. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Nutrients",
+      "year": 2024,
+      "doi": "10.3390/nu16193235",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "powder or capsule",

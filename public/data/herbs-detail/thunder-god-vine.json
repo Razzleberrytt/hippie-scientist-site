@@ -41,21 +41,32 @@
       "title": "Treatment of obesity with celastrol",
       "authors": "Liu J et al.",
       "year": 2015,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26000480/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26000480/",
+      "journal": "Cell",
+      "doi": "10.1016/j.cell.2015.05.011",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "36732502",
       "title": "Celastrol suppresses colorectal cancer via covalent targeting peroxiredoxin 1",
       "authors": "Xu H et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36732502/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36732502/",
+      "journal": "Signal Transduct Target Ther",
+      "doi": "10.1038/s41392-022-01231-4",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "32323812",
       "title": "Therapeutic targets of thunder god vine (Tripterygium wilfordii hook) in rheumatoid arthritis (Review)",
       "authors": "Song X et al.",
       "year": 2020,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32323812/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32323812/",
+      "journal": "Mol Med Rep",
+      "doi": "10.3892/mmr.2020.11052",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

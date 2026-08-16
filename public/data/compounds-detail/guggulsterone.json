@@ -158,7 +158,11 @@
       "journal": "Adv Exp Med Biol",
       "citation": "Author not retrieved (2016). Adv Exp Med Biol. PMID: 27771932. DOI: 10.1007/978-3-319-41342-6_15.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Yamada T and Sugimoto K",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized botanical extract capsule",

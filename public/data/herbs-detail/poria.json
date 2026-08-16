@@ -35,21 +35,32 @@
       "title": "Poria cocos: traditional uses, triterpenoid components and their renoprotective pharmacology",
       "authors": "Guo ZY et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39482471/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39482471/",
+      "journal": "Acta Pharmacol Sin",
+      "doi": "10.1038/s41401-024-01404-7",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37788785",
       "title": "Fuling-Zexie formula attenuates hyperuricemia-induced nephropathy and inhibits JAK2/STAT3 signaling and NLRP3 inflammasome activation in mice",
       "authors": "Lu M et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37788785/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37788785/",
+      "journal": "J Ethnopharmacol",
+      "doi": "10.1016/j.jep.2023.117262",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39520951",
       "title": "Kaixinsan regulates neuronal mitochondrial homeostasis to improve the cognitive function of Alzheimer's disease by activating CaMKKβ-AMPK-PGC-1α signaling axis",
       "authors": "Ren J et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39520951/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39520951/",
+      "journal": "Phytomedicine",
+      "doi": "10.1016/j.phymed.2024.156170",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

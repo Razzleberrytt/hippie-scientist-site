@@ -159,8 +159,11 @@
       "journal": "Front Pharmacol",
       "citation": "Author not retrieved (2021). Front Pharmacol. PMID: 35095483. DOI: 10.3389/fphar.2021.745683.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "studyType": "Systematic review",
-      "reviewStatus": "approved"
+      "studyType": "Narrative review",
+      "reviewStatus": "approved",
+      "authors": "Guo ZL et al.",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

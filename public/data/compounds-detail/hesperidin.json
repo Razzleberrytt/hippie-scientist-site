@@ -89,7 +89,11 @@
       "journal": "New Phytol",
       "citation": "Author not retrieved (2020). New Phytol. PMID: 32353900. DOI: 10.1111/nph.16632.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Gagliardi D and Manavella PA",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized botanical extract capsule",

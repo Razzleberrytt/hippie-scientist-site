@@ -34,21 +34,34 @@
       "title": "The structures and biological functions of polysaccharides from traditional Chinese herbs",
       "authors": "Zeng P et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31030757/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31030757/",
+      "journal": "Prog Mol Biol Transl Sci",
+      "doi": "10.1016/bs.pmbts.2019.03.003",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39101149",
       "title": "Ophiopogonin D: review of pharmacological activity",
       "authors": "Chen KQ et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39101149/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39101149/",
+      "journal": "Front Pharmacol",
+      "doi": "10.3389/fphar.2024.1401627",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "41800803",
       "title": "Methylophiopogonanone a attenuates pulmonary fibrosis by inhibiting SPP1-mediated macrophage polarization via the PI3K/Akt pathway",
       "authors": "Yang F et al.",
       "year": 2026,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41800803/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41800803/",
+      "journal": "Animal Model Exp Med",
+      "doi": "10.1002/ame2.70157",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

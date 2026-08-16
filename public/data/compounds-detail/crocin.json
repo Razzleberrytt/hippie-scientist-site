@@ -157,7 +157,9 @@
       "citation": "Author not retrieved (2015). J Affect Disord. PMID: 25484177. DOI: 10.1016/j.jad.2014.11.035.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "studyType": "Randomized controlled trial",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Talaei A et al.",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized botanical extract capsule",

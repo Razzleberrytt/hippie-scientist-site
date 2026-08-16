@@ -106,13 +106,19 @@
   "sources": [
     {
       "id": "src_005702379a61",
-      "title": "PubMed PMID 34503527. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "International Society of Sports Nutrition position stand: sodium bicarbonate and exercise performance",
       "url": "https://pubmed.ncbi.nlm.nih.gov/34503527/",
       "pmid": "34503527",
       "authors": "PubMed",
       "citation": "PubMed PMID 34503527. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Int Soc Sports Nutr",
+      "year": 2021,
+      "doi": "10.1186/s12970-021-00458-w",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "—",

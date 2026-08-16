@@ -68,13 +68,19 @@
   "sources": [
     {
       "id": "src_63fe90f947a8",
-      "title": "PubMed PMID 17145239. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Valerian for sleep: a systematic review and meta-analysis",
       "url": "https://pubmed.ncbi.nlm.nih.gov/17145239/",
       "pmid": "17145239",
       "authors": "PubMed",
       "citation": "PubMed PMID 17145239. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Am J Med",
+      "year": 2006,
+      "doi": "10.1016/j.amjmed.2006.02.026",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract",

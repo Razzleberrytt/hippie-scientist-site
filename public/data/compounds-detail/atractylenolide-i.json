@@ -135,7 +135,11 @@
       "journal": "Arch Pharm Res",
       "citation": "Author not retrieved (2021). Arch Pharm Res. PMID: 34269984. DOI: 10.1007/s12272-021-01342-6.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "Deng M et al.",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

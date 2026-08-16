@@ -38,13 +38,19 @@
   "sources": [
     {
       "id": "src_c9c95a2ed78b",
-      "title": "PubMed PMID 28400848. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The Clinical Efficacy and Safety of Tulsi in Humans: A Systematic Review of the Literature",
       "url": "https://pubmed.ncbi.nlm.nih.gov/28400848/",
       "pmid": "28400848",
       "authors": "PubMed",
       "citation": "PubMed PMID 28400848. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Evid Based Complement Alternat Med",
+      "year": 2017,
+      "doi": "10.1155/2017/9217567",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

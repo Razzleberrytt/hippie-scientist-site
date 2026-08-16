@@ -105,13 +105,18 @@
   "sources": [
     {
       "id": "src_589c4ec4e87b",
-      "title": "PubMed PMID 15927925. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Iberis amara L. and Iberogast--results of a systematic review concerning functional dyspepsia",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15927925/",
       "pmid": "15927925",
       "authors": "PubMed",
       "citation": "PubMed PMID 15927925. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Herb Pharmacother",
+      "year": 2004,
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "short-to-medium",

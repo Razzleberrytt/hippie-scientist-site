@@ -33,21 +33,34 @@
       "title": "Neuroprotective Herbs for the Management of Alzheimer's Disease",
       "authors": "Gregory J et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/",
+      "journal": "Biomolecules",
+      "doi": "10.3390/biom11040543",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31643645",
       "title": "Cat's Claw",
       "authors": "PubMed indexed authors",
       "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31643645/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31643645/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "17210508",
       "title": "Cat's claw: an Amazonian vine decreases inflammation in osteoarthritis",
       "authors": "Hardin SR et al.",
       "year": 2007,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/17210508/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17210508/",
+      "journal": "Complement Ther Clin Pract",
+      "doi": "10.1016/j.ctcp.2006.10.003",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

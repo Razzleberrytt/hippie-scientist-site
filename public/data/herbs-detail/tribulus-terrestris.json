@@ -25,13 +25,19 @@
   "sources": [
     {
       "id": "src_fc06f95d7d33",
-      "title": "PubMed PMID 17530942. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "The effect of five weeks of Tribulus terrestris supplementation on muscle strength and body composition during preseason training in elite rugby league players",
       "url": "https://pubmed.ncbi.nlm.nih.gov/17530942/",
       "pmid": "17530942",
       "authors": "PubMed",
       "citation": "PubMed PMID 17530942. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Strength Cond Res",
+      "year": 2007,
+      "doi": "10.1519/R-18395.1",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

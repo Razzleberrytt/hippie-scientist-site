@@ -163,33 +163,51 @@
   "sources": [
     {
       "id": "src_319bf8dafaf1",
-      "title": "PubMed PMID 19773644. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Cognitive effects of creatine ethyl ester supplementation",
       "url": "https://pubmed.ncbi.nlm.nih.gov/19773644/",
       "pmid": "19773644",
       "authors": "PubMed",
       "citation": "PubMed PMID 19773644. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Behav Pharmacol",
+      "year": 2009,
+      "doi": "10.1097/FBP.0b013e3283323c2a",
+      "studyType": "Uncontrolled trial",
+      "studyClass": "uncontrolled-trial",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_9ba65a7d6204",
-      "title": "PubMed PMID 16416332. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effect of creatine supplementation and sleep deprivation, with mild exercise, on cognitive and psychomotor performance, mood state, and plasma concentrations of catecholamines and cortisol",
       "url": "https://pubmed.ncbi.nlm.nih.gov/16416332/",
       "pmid": "16416332",
       "authors": "PubMed",
       "citation": "PubMed PMID 16416332. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Psychopharmacology (Berl)",
+      "year": 2006,
+      "doi": "10.1007/s00213-005-0269-z",
+      "studyType": "Uncontrolled trial",
+      "studyClass": "uncontrolled-trial",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_b08316272e24",
-      "title": "PubMed PMID 28615996. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine",
       "url": "https://pubmed.ncbi.nlm.nih.gov/28615996/",
       "pmid": "28615996",
       "authors": "PubMed",
       "citation": "PubMed PMID 28615996. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Int Soc Sports Nutr",
+      "year": 2017,
+      "doi": "10.1186/s12970-017-0173-z",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_da5119881f63",

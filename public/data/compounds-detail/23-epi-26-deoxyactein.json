@@ -86,7 +86,11 @@
       "journal": "Clin Pharmacol Ther",
       "citation": "Author not retrieved (2010). Clin Pharmacol Ther. PMID: 20032972. DOI: 10.1038/clpt.2009.251.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "authors": "van Breemen RB et al.",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",

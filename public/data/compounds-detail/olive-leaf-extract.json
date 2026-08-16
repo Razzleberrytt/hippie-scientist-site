@@ -68,13 +68,19 @@
   "sources": [
     {
       "id": "src_7ae7a5ea3481",
-      "title": "PubMed PMID 21443487. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Molecular mechanisms of inflammation. Anti-inflammatory benefits of virgin olive oil and the phenolic compound oleocanthal",
       "url": "https://pubmed.ncbi.nlm.nih.gov/21443487/",
       "pmid": "21443487",
       "authors": "PubMed",
       "citation": "PubMed PMID 21443487. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Curr Pharm Des",
+      "year": 2011,
+      "doi": "10.2174/138161211795428911",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

@@ -33,21 +33,31 @@
       "title": "Black Seed",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000936/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000936/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30000850",
       "title": "Caraway",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000850/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000850/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "17427617",
       "title": "Peppermint oil",
       "authors": "Kligler B et al.",
       "year": 2007,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/17427617/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17427617/",
+      "journal": "Am Fam Physician",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

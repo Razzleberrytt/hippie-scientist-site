@@ -32,21 +32,36 @@
       "title": "An overview of herbal alternatives in androgenetic alopecia",
       "authors": "Dhariwala MY et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30980598/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30980598/",
+      "journal": "J Cosmet Dermatol",
+      "doi": "10.1111/jocd.12930",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "19719333",
       "title": "Interactions between herbal medicines and prescribed drugs: an updated systematic review",
       "authors": "Izzo AA et al.",
       "year": 2009,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/19719333/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19719333/",
+      "journal": "Drugs",
+      "doi": "10.2165/11317010-000000000-00000",
+      "studyType": "Systematic review",
+      "studyClass": "systematic-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "31807332",
       "title": "Use of saw palmetto (Serenoa repens) extract for benign prostatic hyperplasia",
       "authors": "Kwon Y et al.",
       "year": 2019,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31807332/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31807332/",
+      "journal": "Food Sci Biotechnol",
+      "doi": "10.1007/s10068-019-00605-9",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_e220f13ccd17",

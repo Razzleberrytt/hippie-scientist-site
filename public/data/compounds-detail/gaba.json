@@ -65,13 +65,19 @@
   "sources": [
     {
       "id": "src_1ea4b8e52a2c",
-      "title": "PubMed PMID 41554764. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Lactiplantibacillus plantarum Lp815 improves sleep and increases urinary GABA in a randomized, double-blind, placebo-controlled study of sleep disturbance",
       "url": "https://pubmed.ncbi.nlm.nih.gov/41554764/",
       "pmid": "41554764",
       "authors": "PubMed",
       "citation": "PubMed PMID 41554764. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Sci Rep",
+      "year": 2026,
+      "doi": "10.1038/s41598-025-27861-6",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "powder or capsule",

@@ -204,43 +204,63 @@
   "sources": [
     {
       "id": "src_0e38d20729ea",
-      "title": "PubMed PMID 20091037. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Biopsychosocial determinants of physical and mental fatigue in patients with spondyloarthropathy",
       "url": "https://pubmed.ncbi.nlm.nih.gov/20091037/",
       "pmid": "20091037",
       "authors": "PubMed",
       "citation": "PubMed PMID 20091037. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Rheumatol Int",
+      "year": 2011,
+      "doi": "10.1007/s00296-009-1250-7",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_4fd666ecb3cf",
-      "title": "PubMed PMID 23691095. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Meta-analysis: melatonin for the treatment of primary sleep disorders",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23691095/",
       "pmid": "23691095",
       "authors": "PubMed",
       "citation": "PubMed PMID 23691095. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "PLoS One",
+      "year": 2013,
+      "doi": "10.1371/journal.pone.0063773",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_529bc3e73238",
-      "title": "PubMed PMID 25128263. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Wound ballistics of firearm-related injuries--part 2: mechanisms of skeletal injury and characteristics of maxillofacial ballistic trauma",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25128263/",
       "pmid": "25128263",
       "authors": "PubMed",
       "citation": "PubMed PMID 25128263. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Int J Oral Maxillofac Surg",
+      "year": 2015,
+      "doi": "10.1016/j.ijom.2014.07.012",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_ac1716c7775d",
-      "title": "PubMed PMID 12467979. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A putative novel nuclear-encoded subunit of the cytochrome c oxidase complex in trypanosomatids",
       "url": "https://pubmed.ncbi.nlm.nih.gov/12467979/",
       "pmid": "12467979",
       "authors": "PubMed",
       "citation": "PubMed PMID 12467979. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Mol Biochem Parasitol",
+      "year": 2002,
+      "doi": "10.1016/s0166-6851(02)00235-9",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_070f1c3027c3",

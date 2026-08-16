@@ -83,13 +83,19 @@
   "sources": [
     {
       "id": "src_d6bd0ab16fed",
-      "title": "PubMed PMID 20458757. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Systematic review and meta-analysis of Saccharomyces boulardii in adult patients",
       "url": "https://pubmed.ncbi.nlm.nih.gov/20458757/",
       "pmid": "20458757",
       "authors": "PubMed",
       "citation": "PubMed PMID 20458757. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "World J Gastroenterol",
+      "year": 2010,
+      "doi": "10.3748/wjg.v16.i18.2202",
+      "studyType": "Meta-analysis",
+      "studyClass": "meta-analysis",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_87430c135287",

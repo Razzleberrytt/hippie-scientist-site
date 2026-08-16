@@ -108,13 +108,19 @@
   "sources": [
     {
       "id": "src_10624494092d",
-      "title": "PubMed PMID 37405785. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effect of Fucoxanthin on Metabolic Syndrome, Insulin Sensitivity, and Insulin Secretion",
       "url": "https://pubmed.ncbi.nlm.nih.gov/37405785/",
       "pmid": "37405785",
       "authors": "PubMed",
       "citation": "PubMed PMID 37405785. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Med Food",
+      "year": 2023,
+      "doi": "10.1089/jmf.2022.0103",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract",

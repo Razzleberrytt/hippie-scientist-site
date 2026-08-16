@@ -36,21 +36,34 @@
       "title": "Plants Used as Antihypertensive",
       "authors": "Verma T et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33174095/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33174095/",
+      "journal": "Nat Prod Bioprospect",
+      "doi": "10.1007/s13659-020-00281-x",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "30000851",
       "title": "Coriander",
       "authors": "PubMed indexed authors",
       "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000851/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000851/",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "37513187",
       "title": "Coriandrum sativum and Its Utility in Psychiatric Disorders",
       "authors": "Santibáñez A et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37513187/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37513187/",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules28145314",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

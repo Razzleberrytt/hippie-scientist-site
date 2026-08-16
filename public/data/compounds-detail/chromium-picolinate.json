@@ -64,13 +64,18 @@
   "sources": [
     {
       "id": "src_8799e0f58983",
-      "title": "PubMed PMID 15208835. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A scientific review: the role of chromium in insulin resistance",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15208835/",
       "pmid": "15208835",
       "authors": "PubMed",
       "citation": "PubMed PMID 15208835. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Diabetes Educ",
+      "year": 2004,
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "chelated mineral capsule or powder",

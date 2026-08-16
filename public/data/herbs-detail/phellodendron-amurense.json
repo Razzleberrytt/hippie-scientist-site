@@ -37,21 +37,34 @@
       "title": "Berberine and Its Role in Chronic Disease",
       "authors": "Cicero AF et al.",
       "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27671811/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27671811/",
+      "journal": "Adv Exp Med Biol",
+      "doi": "10.1007/978-3-319-41334-1_2",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "39612339",
       "title": "Convergent evolution of berberine biosynthesis",
       "authors": "Xu Z et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39612339/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39612339/",
+      "journal": "Sci Adv",
+      "doi": "10.1126/sciadv.ads3596",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "38465436",
       "title": "Safety Issues of Herb-Warfarin Interactions",
       "authors": "Hazra S et al.",
       "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38465436/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38465436/",
+      "journal": "Curr Drug Metab",
+      "doi": "10.2174/0113892002290846240228061506",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

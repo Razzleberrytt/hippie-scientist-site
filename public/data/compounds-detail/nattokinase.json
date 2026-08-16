@@ -63,13 +63,19 @@
   "sources": [
     {
       "id": "src_0140e760e912",
-      "title": "PubMed PMID 18971533. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Effects of nattokinase on blood pressure: a randomized, controlled trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18971533/",
       "pmid": "18971533",
       "authors": "PubMed",
       "citation": "PubMed PMID 18971533. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Hypertens Res",
+      "year": 2008,
+      "doi": "10.1291/hypres.31.1583",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",

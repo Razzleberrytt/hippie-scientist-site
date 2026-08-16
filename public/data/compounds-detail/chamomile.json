@@ -114,13 +114,19 @@
   "sources": [
     {
       "id": "src_2ab07cb6684b",
-      "title": "PubMed PMID 19593179. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "A randomized, double-blind, placebo-controlled trial of oral Matricaria recutita (chamomile) extract therapy for generalized anxiety disorder",
       "url": "https://pubmed.ncbi.nlm.nih.gov/19593179/",
       "pmid": "19593179",
       "authors": "PubMed",
       "citation": "PubMed PMID 19593179. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "J Clin Psychopharmacol",
+      "year": 2009,
+      "doi": "10.1097/JCP.0b013e3181ac935c",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "standardized extract capsule",

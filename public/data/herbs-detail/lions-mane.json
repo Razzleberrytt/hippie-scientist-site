@@ -33,31 +33,52 @@
       "title": "Neurotrophic and Neuroprotective Effects of Hericium erinaceus",
       "authors": "Szućko-Kociuba I et al.",
       "year": 2023,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37958943/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37958943/",
+      "journal": "Int J Mol Sci",
+      "doi": "10.3390/ijms242115960",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "40284172",
       "title": "Lion's Mane Mushroom (Hericium erinaceus): A Neuroprotective Fungus with Antioxidant, Anti-Inflammatory, and Antimicrobial Potential-A Narrative Review",
       "authors": "Contato AG et al.",
       "year": 2025,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40284172/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40284172/",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu17081307",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "pubmedId": "33917843",
       "title": "Neuroprotective Herbs for the Management of Alzheimer's Disease",
       "authors": "Gregory J et al.",
       "year": 2021,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/",
+      "journal": "Biomolecules",
+      "doi": "10.3390/biom11040543",
+      "studyType": "Narrative review",
+      "studyClass": "narrative-review",
+      "metadataSource": "pubmed"
     },
     {
       "id": "src_79eae7626c5c",
-      "title": "PubMed PMID 18844328. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18844328/",
       "pmid": "18844328",
       "authors": "PubMed",
       "citation": "PubMed PMID 18844328. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Phytother Res",
+      "year": 2009,
+      "doi": "10.1002/ptr.2634",
+      "studyType": "Randomized controlled trial",
+      "studyClass": "rct",
+      "metadataSource": "pubmed"
     }
   ],
   "governance": {

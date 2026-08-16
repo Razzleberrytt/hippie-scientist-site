@@ -105,13 +105,16 @@
   "sources": [
     {
       "id": "src_dd5ae5c1300e",
-      "title": "PubMed PMID 15748367. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "title": "Evaluating the efficiency of a combination of Pygeum africanum and stinging nettle (Urtica dioica) extracts in treating benign prostatic hyperplasia (BPH): double-blind, randomized, placebo controlled trial",
       "url": "https://pubmed.ncbi.nlm.nih.gov/15748367/",
       "pmid": "15748367",
       "authors": "PubMed",
       "citation": "PubMed PMID 15748367. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
+      "reviewStatus": "approved",
+      "journal": "Int Braz J Urol",
+      "year": 2002,
+      "metadataSource": "pubmed"
     }
   ],
   "dosage": "capsule or standardized extract",
