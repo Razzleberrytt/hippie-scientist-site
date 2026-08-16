@@ -41,7 +41,8 @@ export type SelectiveOutcomeReportingReport = {
   highConfidenceFindings: SelectiveOutcomeReportingFinding[]
 }
 
-const FAVORABLE_SECONDARY = /\b(?:secondary (?:outcome|endpoint)|subgroup|sub-group|post[- ]hoc|exploratory (?:outcome|endpoint|analysis))[^.]{0,220}(?:significant|improv|reduc|benefit|favou?r|superior|positive)\b/i
+const FAVORABLE_SECONDARY = /\b(?:secondary (?:outcome|endpoint)|subgroup|sub-group|post[- ]hoc|exploratory (?:outcome|endpoint|analysis))[^.]{0,220}(?:statistically\s+significant|significant(?:ly)?|improv\w*|reduc\w*|benefit\w*|favou?r\w*|superior|positive)\b/i
+const NEGATED_FAVORABLE_SIGNAL = /\b(?:not|no|did not|didn't|failed to|without)\s+(?:(?:statistically|clinically)\s+)?(?:significant|significantly\s+(?:improv\w*|reduc\w*)|improv\w*|reduc\w*|benefit\w*|favou?r\w*|superior|positive)\b|\bnon[- ]?significant\b/gi
 const REGISTERED_LANGUAGE = /\b(registered|prespecified|pre[- ]specified|protocol[- ]specified|trial registration|registry)\b/i
 
 function text(value: unknown): string {
@@ -50,6 +51,16 @@ function text(value: unknown): string {
 
 function isOutcomeClaim(claim: ResearchClaim): boolean {
   return /supports_outcome|benefit|efficacy/i.test(text(claim.predicate))
+}
+
+/**
+ * Look for an affirmative secondary/subgroup/exploratory signal after removing
+ * explicitly negated result phrases. Removing only the negated signal preserves
+ * mixed sentences where a null secondary endpoint is followed by a genuinely
+ * favorable subgroup or post-hoc result.
+ */
+function hasFavorableSecondaryEvidence(value: string): boolean {
+  return FAVORABLE_SECONDARY.test(value.replace(NEGATED_FAVORABLE_SIGNAL, ''))
 }
 
 /**
@@ -83,7 +94,7 @@ export function analyzeSelectiveOutcomeReporting(input: {
       const studyRows = linkedHumanStudies.map(({ studyId, group }) => {
         const metadata = outcomeByStudy.get(`${url}::${studyId}`)
         const evidenceText = group.map((source) => researchSourceEvidenceText(source, analysis.cache)).filter(Boolean).join(' · ')
-        const favorableSecondary = FAVORABLE_SECONDARY.test(evidenceText)
+        const favorableSecondary = hasFavorableSecondaryEvidence(evidenceText)
         const explicitHierarchy = Boolean(
           metadata?.hasOutcomeMetadata
           || metadata?.trialRegistrationIds.length

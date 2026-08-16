@@ -58,6 +58,31 @@ describe('selective outcome reporting', () => {
     })
   })
 
+  it('does not treat a negated secondary result as favorable evidence', () => {
+    const result = report([
+      'The primary outcome was not met. The secondary endpoint was not statistically significant versus placebo.',
+    ])
+
+    expect(result.summary.selectiveOutcomeRisks).toBe(0)
+    expect(result.claims[0]).toMatchObject({
+      primaryOutcomeNotMetCount: 1,
+      favorableSecondaryOrExploratoryCount: 0,
+      selectiveOutcomeRisk: false,
+    })
+  })
+
+  it('retains a real favorable subgroup result beside a negated secondary endpoint', () => {
+    const result = report([
+      'The primary outcome was not met. The secondary endpoint was not significant, but subgroup analysis improved versus placebo.',
+    ])
+
+    expect(result.summary.selectiveOutcomeRisks).toBe(1)
+    expect(result.findings[0]).toMatchObject({
+      favorableSecondaryOrExploratoryCount: 1,
+      selectiveOutcomeRisk: true,
+    })
+  })
+
   it('flags explicit outcome switching or non-reporting of registered outcomes', () => {
     const result = report([
       'The primary outcome was changed after trial registration and the registered outcome was not reported.',
