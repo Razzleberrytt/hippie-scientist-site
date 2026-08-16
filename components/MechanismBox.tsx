@@ -10,20 +10,27 @@ interface Props {
 
 export default function MechanismBox({ summary, points }: Props) {
   return (
-    <div className="space-y-4 rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
-      <p className="text-sm leading-7 text-muted">{summary}</p>
-      {points && points.length > 0 && (
-        <dl className="grid gap-3 sm:grid-cols-2">
-          {points.map((point, i) => (
-            <div key={i} className="rounded-xl border border-brand-900/5 bg-brand-50/20 p-3 dark:border-white/10 dark:bg-white/5">
-              <dt className="text-xs font-bold uppercase tracking-[0.12em] text-brand-700 dark:text-brand-200">
+    <section className="border-y border-[color:var(--hs-hairline-strong)] py-5">
+      <p className="max-w-3xl text-sm leading-7 text-[color:var(--hs-body)]">{summary}</p>
+
+      {points && points.length > 0 ? (
+        <dl className="mt-4 divide-y divide-[color:var(--hs-hairline)] border-t border-[color:var(--hs-hairline)]">
+          {points.map((point, index) => (
+            <div
+              key={`${point.label}-${index}`}
+              className="grid gap-1 py-3.5 sm:grid-cols-[2.75rem_10rem_minmax(0,1fr)] sm:items-start sm:gap-4"
+            >
+              <span className="hidden font-display text-sm tabular-nums text-[color:var(--hs-gold)] sm:block" aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <dt className="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--tone-ink)]">
                 {point.label}
               </dt>
-              <dd className="mt-1 text-xs leading-5 text-muted">{point.description}</dd>
+              <dd className="text-sm leading-6 text-[color:var(--hs-body)]">{point.description}</dd>
             </div>
           ))}
         </dl>
-      )}
-    </div>
+      ) : null}
+    </section>
   )
 }
