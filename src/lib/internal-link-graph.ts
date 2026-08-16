@@ -1,3 +1,4 @@
+import { slugify } from '../../lib/slug-utils'
 import {
   getGoalOverlap,
   getMechanismOverlap,
@@ -29,20 +30,6 @@ export type SemanticLink = {
 }
 
 const MAX_LINKS_PER_NODE = 12
-
-function clean(value: unknown): string {
-  if (value === null || value === undefined) return ''
-  if (typeof value === 'string') return value.trim()
-  if (typeof value === 'number' || typeof value === 'boolean') return String(value).trim()
-  return ''
-}
-
-function slugify(value: unknown): string {
-  return clean(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
 
 function nodeSlug(node: SemanticLinkNode): string {
   return slugify(node.slug || node.id || node.name || node.title)
@@ -87,8 +74,6 @@ function goalGuideHref(slug: string): string {
   }
   return routes[slug] ?? '/guides'
 }
-
-
 
 function allowedRelationship(source: SemanticNodeType, target: SemanticNodeType): boolean {
   const valid: Array<[SemanticNodeType, SemanticNodeType]> = [
