@@ -9,7 +9,7 @@ import UnassignedEvidenceStatusPanel from './UnassignedEvidenceStatusPanel'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'State of Supplement Evidence 2026',
-  description: 'Original data report on evidence grades, structured source coverage, human trials, preclinical reliance, safety cautions, disagreement, and downloadable research data from The Hippie Scientist.',
+  description: 'Original data report on evidence grades, structured study/source records, human-study record coverage, preclinical reliance, safety cautions, disagreement, and downloadable research data from The Hippie Scientist.',
   path: '/evidence/evidence-report/',
   openGraphType: 'article',
 })
