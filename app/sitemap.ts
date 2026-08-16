@@ -271,7 +271,8 @@ function checkRouteFileEligibility(normalizedRoute: string): boolean {
       }
     }
   } catch {
-    // Safe fallback: treat as eligible when the file exists but can't be read.
+    // Publication/crawler policy must fail closed when source policy cannot be verified.
+    return false;
   }
 
   return true;
