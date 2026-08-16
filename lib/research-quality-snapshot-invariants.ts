@@ -125,153 +125,84 @@ export function validateResearchQualitySnapshotInvariants(
   }
 
   if (topology.semanticAlignment.summary.approvedClaims !== analysis.claimAnalyses.length) {
-    add(
-      'semantic-approved-claim-count-mismatch',
-      `semantic=${topology.semanticAlignment.summary.approvedClaims}; analysis=${analysis.claimAnalyses.length}`,
-    )
+    add('semantic-approved-claim-count-mismatch', `semantic=${topology.semanticAlignment.summary.approvedClaims}; analysis=${analysis.claimAnalyses.length}`)
   }
   if (topology.claimBreadth.summary.approvedClaimsWithHumanEvidence !== topology.claimBreadth.claims.length) {
-    add(
-      'claim-breadth-analyzed-count-mismatch',
-      `summary=${topology.claimBreadth.summary.approvedClaimsWithHumanEvidence}; rows=${topology.claimBreadth.claims.length}`,
-    )
+    add('claim-breadth-analyzed-count-mismatch', `summary=${topology.claimBreadth.summary.approvedClaimsWithHumanEvidence}; rows=${topology.claimBreadth.claims.length}`)
   }
   if (topology.claimBreadth.summary.overbroadClaims !== topology.claimBreadth.findings.length) {
-    add(
-      'claim-breadth-finding-count-mismatch',
-      `summary=${topology.claimBreadth.summary.overbroadClaims}; rows=${topology.claimBreadth.findings.length}`,
-    )
+    add('claim-breadth-finding-count-mismatch', `summary=${topology.claimBreadth.summary.overbroadClaims}; rows=${topology.claimBreadth.findings.length}`)
+  }
+  if (topology.effectCertainty.summary.findings !== topology.effectCertainty.findings.length) {
+    add('effect-certainty-finding-count-mismatch', `summary=${topology.effectCertainty.summary.findings}; rows=${topology.effectCertainty.findings.length}`)
+  }
+  if (topology.effectCertainty.summary.highConfidenceFindings !== topology.effectCertainty.highConfidenceFindings.length) {
+    add('effect-certainty-high-confidence-count-mismatch', `summary=${topology.effectCertainty.summary.highConfidenceFindings}; rows=${topology.effectCertainty.highConfidenceFindings.length}`)
   }
   if (topology.edgeCardinality.summary.claims !== analysis.structuredClaimAnalyses.length) {
-    add(
-      'edge-cardinality-claim-count-mismatch',
-      `edgeCardinality=${topology.edgeCardinality.summary.claims}; analysis=${analysis.structuredClaimAnalyses.length}`,
-    )
+    add('edge-cardinality-claim-count-mismatch', `edgeCardinality=${topology.edgeCardinality.summary.claims}; analysis=${analysis.structuredClaimAnalyses.length}`)
   }
   if (topology.evidenceIndependenceCoverage.summary.multiStudyApprovedClaims !== approvedMultiStudyClaimKeys.size) {
-    add(
-      'independence-coverage-claim-count-mismatch',
-      `coverage=${topology.evidenceIndependenceCoverage.summary.multiStudyApprovedClaims}; analysis=${approvedMultiStudyClaimKeys.size}`,
-    )
+    add('independence-coverage-claim-count-mismatch', `coverage=${topology.evidenceIndependenceCoverage.summary.multiStudyApprovedClaims}; analysis=${approvedMultiStudyClaimKeys.size}`)
   }
-  for (const invariant of validateUnderlyingStudySnapshotInvariants(analysis, topology)) {
-    add(invariant.kind, invariant.detail)
-  }
+  for (const invariant of validateUnderlyingStudySnapshotInvariants(analysis, topology)) add(invariant.kind, invariant.detail)
   for (const claim of topology.edgeCardinality.duplicateEdgeClaims) {
-    add(
-      'duplicate-claim-source-edge',
-      `${claim.url}::${claim.claimId} · duplicateRefs=${claim.duplicateSourceRefs.join(',')} · duplicateEdges=${claim.duplicateSourceRefCount}`,
-    )
+    add('duplicate-claim-source-edge', `${claim.url}::${claim.claimId} · duplicateRefs=${claim.duplicateSourceRefs.join(',')} · duplicateEdges=${claim.duplicateSourceRefCount}`)
   }
 
-  if (gate.summary.structuralFailures !== gate.structuralFailures.length) {
-    add('gate-structural-count-mismatch', `summary=${gate.summary.structuralFailures}; rows=${gate.structuralFailures.length}`)
-  }
-  if (gate.summary.severeStudyClassConflicts !== gate.severeStudyClassConflicts.length) {
-    add(
-      'gate-study-class-count-mismatch',
-      `summary=${gate.summary.severeStudyClassConflicts}; rows=${gate.severeStudyClassConflicts.length}`,
-    )
-  }
-  if (gate.summary.blockingFailures !== gate.structuralFailures.length + gate.severeStudyClassConflicts.length) {
-    add(
-      'gate-blocking-count-mismatch',
-      `summary=${gate.summary.blockingFailures}; computed=${gate.structuralFailures.length + gate.severeStudyClassConflicts.length}`,
-    )
-  }
-  if (gate.passed !== (gate.summary.blockingFailures === 0)) {
-    add('gate-pass-state-mismatch', `passed=${gate.passed}; blocking=${gate.summary.blockingFailures}`)
-  }
+  if (gate.summary.structuralFailures !== gate.structuralFailures.length) add('gate-structural-count-mismatch', `summary=${gate.summary.structuralFailures}; rows=${gate.structuralFailures.length}`)
+  if (gate.summary.severeStudyClassConflicts !== gate.severeStudyClassConflicts.length) add('gate-study-class-count-mismatch', `summary=${gate.summary.severeStudyClassConflicts}; rows=${gate.severeStudyClassConflicts.length}`)
+  if (gate.summary.blockingFailures !== gate.structuralFailures.length + gate.severeStudyClassConflicts.length) add('gate-blocking-count-mismatch', `summary=${gate.summary.blockingFailures}; computed=${gate.structuralFailures.length + gate.severeStudyClassConflicts.length}`)
+  if (gate.passed !== (gate.summary.blockingFailures === 0)) add('gate-pass-state-mismatch', `passed=${gate.passed}; blocking=${gate.summary.blockingFailures}`)
 
   for (const finding of topology.semanticAlignment.findings) {
     requireProfile('semantic-unknown-profile', finding.url, finding.claimId)
     requireApprovedClaim('semantic-unknown-claim', finding.url, finding.claimId)
   }
-  for (const finding of topology.semanticAlignment.concentrationFindings) {
-    requireApprovedClaim('semantic-concentration-unknown-claim', finding.url, finding.claimId)
-  }
+  for (const finding of topology.semanticAlignment.concentrationFindings) requireApprovedClaim('semantic-concentration-unknown-claim', finding.url, finding.claimId)
   for (const claim of topology.claimBreadth.claims) {
     requireProfile('claim-breadth-unknown-profile', claim.url, claim.claimId)
     requireApprovedClaim('claim-breadth-unknown-claim', claim.url, claim.claimId)
   }
-  for (const finding of topology.claimLanguageCalibration.directEvidenceFindings) {
-    requireApprovedClaim('language-calibration-unknown-claim', finding.url, finding.claimId)
+  for (const claim of topology.effectCertainty.claims) {
+    requireProfile('effect-certainty-unknown-profile', claim.url, claim.claimId)
+    requireApprovedClaim('effect-certainty-unknown-claim', claim.url, claim.claimId)
   }
-  for (const claim of topology.claimCitationMetadata.claims) {
-    requireApprovedClaim('citation-metadata-unknown-claim', claim.url, claim.claimId)
-  }
-  for (const claim of topology.claimEvidenceDiversity) {
-    requireApprovedClaim('evidence-diversity-unknown-claim', claim.url, claim.claimId)
-  }
-  for (const claim of topology.claimProvenanceIndependence) {
-    requireApprovedClaim('provenance-independence-unknown-claim', claim.url, claim.claimId)
-  }
-  for (const claim of topology.claimEvidenceAge) {
-    requireApprovedClaim('evidence-age-unknown-claim', claim.url, claim.claimId)
-  }
+  for (const finding of topology.claimLanguageCalibration.directEvidenceFindings) requireApprovedClaim('language-calibration-unknown-claim', finding.url, finding.claimId)
+  for (const claim of topology.claimCitationMetadata.claims) requireApprovedClaim('citation-metadata-unknown-claim', claim.url, claim.claimId)
+  for (const claim of topology.claimEvidenceDiversity) requireApprovedClaim('evidence-diversity-unknown-claim', claim.url, claim.claimId)
+  for (const claim of topology.claimProvenanceIndependence) requireApprovedClaim('provenance-independence-unknown-claim', claim.url, claim.claimId)
+  for (const claim of topology.claimEvidenceAge) requireApprovedClaim('evidence-age-unknown-claim', claim.url, claim.claimId)
   for (const claim of topology.evidenceIndependenceCoverage.claims) {
     const key = claimKey(claim.url, claim.claimId)
     requireApprovedClaim('independence-coverage-unknown-claim', claim.url, claim.claimId)
-    if (!approvedMultiStudyClaimKeys.has(key)) {
-      add('independence-coverage-non-multistudy-claim', `${claim.url}::${claim.claimId}`)
-    }
+    if (!approvedMultiStudyClaimKeys.has(key)) add('independence-coverage-non-multistudy-claim', `${claim.url}::${claim.claimId}`)
   }
-  for (const gap of researchGapQueue) {
-    requireProfile('gap-queue-unknown-profile', gap.url, 'research gap queue')
-  }
+  for (const gap of researchGapQueue) requireProfile('gap-queue-unknown-profile', gap.url, 'research gap queue')
 
   if (sourceIntegrity) {
-    if (sourceIntegrity.summary.citedStudies !== sourceIntegrity.studies.length) {
-      add('source-study-count-mismatch', `summary=${sourceIntegrity.summary.citedStudies}; rows=${sourceIntegrity.studies.length}`)
-    }
-    if (sourceIntegrity.summary.withdrawn !== sourceIntegrity.withdrawn.length) {
-      add('source-withdrawn-count-mismatch', `summary=${sourceIntegrity.summary.withdrawn}; rows=${sourceIntegrity.withdrawn.length}`)
-    }
+    if (sourceIntegrity.summary.citedStudies !== sourceIntegrity.studies.length) add('source-study-count-mismatch', `summary=${sourceIntegrity.summary.citedStudies}; rows=${sourceIntegrity.studies.length}`)
+    if (sourceIntegrity.summary.withdrawn !== sourceIntegrity.withdrawn.length) add('source-withdrawn-count-mismatch', `summary=${sourceIntegrity.summary.withdrawn}; rows=${sourceIntegrity.withdrawn.length}`)
 
     const seenStudyIds = new Set<string>()
     for (const study of sourceIntegrity.studies) {
       if (seenStudyIds.has(study.studyId)) add('source-duplicate-study-id', study.studyId)
       else seenStudyIds.add(study.studyId)
-
       const uniquePages = new Set(study.pages)
-      if (study.pageCount !== uniquePages.size) {
-        add('source-page-count-mismatch', `${study.studyId}: pageCount=${study.pageCount}; pages=${uniquePages.size}`)
-      }
+      if (study.pageCount !== uniquePages.size) add('source-page-count-mismatch', `${study.studyId}: pageCount=${study.pageCount}; pages=${uniquePages.size}`)
       for (const url of uniquePages) requireProfile('source-unknown-profile', url, study.studyId)
-
       const expectedPages = canonicalStudyPages.get(study.studyId)
-      if (!expectedPages) {
-        add('source-unexpected-study-id', `${study.studyId} does not exist in canonical profile sources`)
-      } else if (!sameStrings(uniquePages, expectedPages)) {
-        add(
-          'source-profile-ownership-mismatch',
-          `${study.studyId}: sourceIntegrity=${[...uniquePages].sort().join(',')}; analysis=${[...expectedPages].sort().join(',')}`,
-        )
-      }
+      if (!expectedPages) add('source-unexpected-study-id', `${study.studyId} does not exist in canonical profile sources`)
+      else if (!sameStrings(uniquePages, expectedPages)) add('source-profile-ownership-mismatch', `${study.studyId}: sourceIntegrity=${[...uniquePages].sort().join(',')}; analysis=${[...expectedPages].sort().join(',')}`)
     }
-
-    for (const studyId of canonicalStudyPages.keys()) {
-      if (!seenStudyIds.has(studyId)) add('source-missing-study-id', `${studyId} missing from source integrity`)
-    }
+    for (const studyId of canonicalStudyPages.keys()) if (!seenStudyIds.has(studyId)) add('source-missing-study-id', `${studyId} missing from source integrity`)
   }
 
   if (citationIntegrity) {
-    if (citationIntegrity.sources !== rawSourceCount) {
-      add('citation-source-count-mismatch', `citation=${citationIntegrity.sources}; analysis=${rawSourceCount}`)
-    }
-    const computedBlockingCount = citationIntegrity.blocking.length
-      + citationIntegrity.duplicateProfileSources.length
-      + citationIntegrity.identifierPairConflicts.length
-      + citationIntegrity.conflicts.length
-    if (citationIntegrity.blockingCount !== computedBlockingCount) {
-      add(
-        'citation-blocking-count-mismatch',
-        `summary=${citationIntegrity.blockingCount}; computed=${computedBlockingCount}`,
-      )
-    }
-    if (citationIntegrity.passed !== (citationIntegrity.blockingCount === 0)) {
-      add('citation-pass-state-mismatch', `passed=${citationIntegrity.passed}; blocking=${citationIntegrity.blockingCount}`)
-    }
+    if (citationIntegrity.sources !== rawSourceCount) add('citation-source-count-mismatch', `citation=${citationIntegrity.sources}; analysis=${rawSourceCount}`)
+    const computedBlockingCount = citationIntegrity.blocking.length + citationIntegrity.duplicateProfileSources.length + citationIntegrity.identifierPairConflicts.length + citationIntegrity.conflicts.length
+    if (citationIntegrity.blockingCount !== computedBlockingCount) add('citation-blocking-count-mismatch', `summary=${citationIntegrity.blockingCount}; computed=${computedBlockingCount}`)
+    if (citationIntegrity.passed !== (citationIntegrity.blockingCount === 0)) add('citation-pass-state-mismatch', `passed=${citationIntegrity.passed}; blocking=${citationIntegrity.blockingCount}`)
   }
 
   const unknownProfileReferences = failures.filter((failure) => failure.kind.includes('unknown-profile')).length
