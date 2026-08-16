@@ -278,6 +278,37 @@ function auditLegacyGuideQuickAnswerPrimitives() {
   }
 }
 
+function auditLegacyGuideTablePrimitives() {
+  for (const [slug, file] of LEGACY_GUIDE_PAGES) {
+    const source = text(file)
+    const tableCount = (source.match(/<table\b/g) || []).length
+    if (!tableCount) continue
+
+    const semanticSurfaceCount = (source.match(/data-answer-engine-table="true"/g) || []).length
+    const stableSurfaceCount = (source.match(/<section id="[^"]+" data-answer-engine-table="true"/g) || []).length
+    const captionCount = (source.match(/<caption\b/g) || []).length
+    const columnScopeCount = (source.match(/scope="col"/g) || []).length
+    const rowScopeCount = (source.match(/scope="row"/g) || []).length
+    const unscopedHeaders = source.match(/<th(?![^>]*\bscope=)[^>]*>/g) || []
+
+    if (semanticSurfaceCount !== tableCount) {
+      add('error', 'legacy-guide-tables', `${slug} guide renders ${tableCount} table(s) but marks ${semanticSurfaceCount} answer-engine table surface(s)`)
+    }
+    if (stableSurfaceCount !== tableCount) {
+      add('error', 'legacy-guide-tables', `${slug} guide tables must each live in a stably identified semantic section`)
+    }
+    if (captionCount !== tableCount) {
+      add('error', 'legacy-guide-tables', `${slug} guide renders ${tableCount} table(s) but only ${captionCount} caption(s)`)
+    }
+    if (unscopedHeaders.length) {
+      add('error', 'legacy-guide-tables', `${slug} guide contains ${unscopedHeaders.length} table header(s) without scope`)
+    }
+    if (columnScopeCount < tableCount || rowScopeCount < tableCount) {
+      add('error', 'legacy-guide-tables', `${slug} guide tables require both column and row header scopes`)
+    }
+  }
+}
+
 function auditProfilePrimitives() {
   requireSignals(EVIDENCE_BADGE, 'profile-semantics', 'EvidenceScoreBadge', [
     ['data-evidence="true"', 'evidence marker'],
@@ -360,6 +391,7 @@ auditGoalClusterCitationPrimitives()
 auditRhabdoCitationPrimitives()
 auditLegacyGuideReferencePrimitives()
 auditLegacyGuideQuickAnswerPrimitives()
+auditLegacyGuideTablePrimitives()
 auditProfilePrimitives()
 auditExtractability()
 auditAntiPatterns()
