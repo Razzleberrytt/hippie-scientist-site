@@ -24,6 +24,9 @@ export default function UnderlyingStudyIndependencePanel({ metrics }: Props) {
   const multiStudy = metrics.independenceMultiStudyApprovedClaims ?? 0
   const highConfidenceUnresolved = metrics.highConfidenceIndependenceUnresolvedClaims ?? 0
   const primaryHumanMissingMetadata = metrics.globalPrimaryHumanPublicationsWithoutIndependenceMetadata ?? 0
+  const topologyRequested = metrics.researchTopologyRequestedProfiles ?? 0
+  const topologyMatched = metrics.researchTopologyMatchedProfiles ?? 0
+  const topologyMissing = metrics.researchTopologyMissingProfiles ?? 0
 
   return (
     <section className="rounded-2xl border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8" aria-labelledby="underlying-study-independence-heading">
@@ -35,11 +38,18 @@ export default function UnderlyingStudyIndependencePanel({ metrics }: Props) {
         The canonical research graph first deduplicates publication identities across profiles, then collapses publications only when explicit trial-registration, cohort, dataset, or parent-study lineage shows they belong to the same underlying evidence unit. Missing lineage stays unresolved and is never treated as proof that publications are either dependent or independent.
       </p>
 
+      {topologyMissing > 0 ? (
+        <div className="mt-5 rounded-xl border border-amber-900/15 bg-amber-50/70 p-4 text-sm leading-6 text-amber-950">
+          <strong>Research-topology coverage is {topologyMatched} of {topologyRequested} public profiles ({pct(metrics.researchTopologyProfileCoverage)}).</strong>{' '}
+          {topologyMissing} public profile{topologyMissing === 1 ? '' : 's'} currently lack a matching canonical research-detail profile, so the independence-adjusted counts below cover only the matched subset. Ingredient, grade, and public source-record metrics elsewhere in this report still use the full indexable dataset.
+        </div>
+      ) : null}
+
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <article className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Primary-human publications</p>
           <p className="mt-2 text-3xl font-bold text-ink">{value(metrics.globalPrimaryHumanPublicationCount)}</p>
-          <p className="mt-2 text-xs leading-5 text-muted">Unique site-wide publication identities classified as primary human research.</p>
+          <p className="mt-2 text-xs leading-5 text-muted">Unique publication identities within the matched public research-profile scope, classified as primary human research.</p>
         </article>
         <article className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Independence-adjusted human units</p>
@@ -73,7 +83,7 @@ export default function UnderlyingStudyIndependencePanel({ metrics }: Props) {
       ) : null}
 
       <p className="mt-5 text-xs leading-5 text-muted">
-        Because unknown relationships are left separate, the adjusted study count is a conservative upper bound with respect to unobserved publication dependence—not proof that every remaining evidence unit is independently recruited or generated. These counts are narrower than the report’s “human evidence source records” metric: syntheses and reviews remain publication-level evidence records, while the independence-adjusted figure above is restricted to primary human research. It is not an estimate of unique participants and is not an RCT-only count. Across all study classes, the current topology retains {value(metrics.globalInventoryUnderlyingStudyCount)} evidence units after explicitly proven dependence collapse.
+        Because unknown relationships are left separate, the adjusted study count is a conservative upper bound with respect to unobserved publication dependence—not proof that every remaining evidence unit is independently recruited or generated. These counts are narrower than the report’s “human evidence source records” metric: syntheses and reviews remain publication-level evidence records, while the independence-adjusted figure above is restricted to primary human research. It is not an estimate of unique participants and is not an RCT-only count. Across all study classes in the matched public research-profile scope, the current topology retains {value(metrics.globalInventoryUnderlyingStudyCount)} evidence units after explicitly proven dependence collapse.
       </p>
     </section>
   )
