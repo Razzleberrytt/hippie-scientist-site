@@ -48,7 +48,10 @@ export function ProfileDecisionPanel({
         <section aria-label="Where to go next" className="not-prose">
           <details className="group border-y border-[color:var(--hs-hairline-strong)] !bg-transparent !p-0 !shadow-none">
             <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] [&::-webkit-details-marker]:hidden">
-              <span className="text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--tone-ink)]">Where to go next — guides &amp; comparisons</span>
+              <span className="text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--tone-ink)]">
+                <span className="sm:hidden">Next steps</span>
+                <span className="hidden sm:inline">Where to go next — guides &amp; comparisons</span>
+              </span>
               <svg
                 className="size-4 shrink-0 text-[color:var(--hs-body)] transition-transform group-open:rotate-180"
                 viewBox="0 0 16 16"
