@@ -26,6 +26,50 @@ export type ResearchQualitySnapshot = {
   remediationInvariants: ResearchRemediationInvariantReport
 }
 
+export type ScopedResearchQualityTopology = {
+  analysis: ResearchQualityAnalysis
+  topology: ResearchQualityTopology
+}
+
+/**
+ * Restrict an already-canonical research analysis to an explicit URL set.
+ * Every derived row is selected by the same profile URL key, so scoped
+ * consumers cannot accidentally mix a public profile denominator with hidden
+ * claim/profile rows from the full repository analysis.
+ */
+export function scopeResearchQualityAnalysis(
+  analysis: ResearchQualityAnalysis,
+  profileUrls: Iterable<string>,
+): ResearchQualityAnalysis {
+  const selected = new Set(profileUrls)
+  return {
+    ...analysis,
+    profiles: analysis.profiles.filter((profile) => selected.has(profile.url)),
+    profileAnalyses: analysis.profileAnalyses.filter((profile) => selected.has(profile.url)),
+    claimAnalyses: analysis.claimAnalyses.filter((claim) => selected.has(claim.url)),
+    structuredClaimAnalyses: analysis.structuredClaimAnalyses.filter((claim) => selected.has(claim.url)),
+  }
+}
+
+/**
+ * Canonical analysis+topology boundary for consumers whose visibility scope is
+ * intentionally narrower than the full repository. The full analysis is built
+ * with the same loaders/classifiers as CI, then scoped before any topology is
+ * derived. This is deliberately narrower than buildResearchQualitySnapshot:
+ * grade/gate/remediation products are repository-wide and must not be presented
+ * as scoped unless their own data loaders are scoped too.
+ */
+export function buildScopedResearchQualityTopology(
+  root = process.cwd(),
+  profileUrls: Iterable<string>,
+): ScopedResearchQualityTopology {
+  const analysis = scopeResearchQualityAnalysis(analyzeResearchQuality(root), profileUrls)
+  return {
+    analysis,
+    topology: buildResearchQualityTopology(analysis),
+  }
+}
+
 /**
  * Canonical execution boundary for research-quality consumers.
  *
