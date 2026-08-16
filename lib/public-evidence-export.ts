@@ -35,21 +35,36 @@ export function normalizePublicEvidenceDatasetForExport(dataset: PublicEvidenceD
     .sort((a, b) => a.name.localeCompare(b.name) || a.path.localeCompare(b.path))
 
   const studies = dataset.studies
-    .map((study) => ({
-      ...study,
-      publicationYearCandidates: study.publicationYearCandidates ? [...study.publicationYearCandidates].sort((a, b) => a - b) : undefined,
-      studyClassCandidates: study.studyClassCandidates ? [...study.studyClassCandidates].sort() : undefined,
-      participantCountCandidates: study.participantCountCandidates ? [...study.participantCountCandidates].sort((a, b) => a - b) : undefined,
-      conditions: [...study.conditions].sort((a, b) => a.localeCompare(b)),
-      relationships: study.relationships
-        .map((relationship) => ({
-          ...relationship,
-          conditions: relationship.conditions
-            ? [...relationship.conditions].sort((a, b) => a.localeCompare(b))
-            : undefined,
-        }))
-        .sort((a, b) => relationshipSortKey(a).localeCompare(relationshipSortKey(b))),
-    }))
+    .map((study) => {
+      const publicationYearCandidates = study.publicationYearCandidates
+        ? [...study.publicationYearCandidates].sort((a, b) => a - b)
+        : undefined
+      const studyClassCandidates = study.studyClassCandidates
+        ? [...study.studyClassCandidates].sort()
+        : undefined
+      const participantCountCandidates = study.participantCountCandidates
+        ? [...study.participantCountCandidates].sort((a, b) => a - b)
+        : undefined
+
+      return {
+        ...study,
+        publicationYearCandidates,
+        publicationYearAmbiguous: publicationYearCandidates ? publicationYearCandidates.length > 1 : false,
+        studyClassCandidates,
+        studyClassAmbiguous: studyClassCandidates ? studyClassCandidates.length > 1 : false,
+        participantCountCandidates,
+        participantCountAmbiguous: participantCountCandidates ? participantCountCandidates.length > 1 : false,
+        conditions: [...study.conditions].sort((a, b) => a.localeCompare(b)),
+        relationships: study.relationships
+          .map((relationship) => ({
+            ...relationship,
+            conditions: relationship.conditions
+              ? [...relationship.conditions].sort((a, b) => a.localeCompare(b))
+              : undefined,
+          }))
+          .sort((a, b) => relationshipSortKey(a).localeCompare(relationshipSortKey(b))),
+      }
+    })
     .sort((a, b) => {
       const yearDiff = Number(b.year || 0) - Number(a.year || 0)
       if (yearDiff !== 0) return yearDiff
