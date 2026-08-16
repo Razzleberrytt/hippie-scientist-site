@@ -4,6 +4,7 @@ import { buildResearchQualityTopology, type ResearchQualityTopology } from './re
 export type ResearchGapDimension =
   | 'structural'
   | 'claim-support'
+  | 'semantic'
   | 'concentration'
   | 'evidence-mix'
   | 'mapping'
@@ -12,13 +13,7 @@ export type ResearchGapDimension =
   | 'freshness'
   | 'editorial-backlog'
 
-export type ResearchGapReason = {
-  kind: string
-  dimension: ResearchGapDimension
-  weight: number
-  detail?: string
-}
-
+export type ResearchGapReason = { kind: string; dimension: ResearchGapDimension; weight: number; detail?: string }
 export type ResearchGapItem = {
   url: string
   score: number
@@ -29,7 +24,6 @@ export type ResearchGapItem = {
   reasons: ResearchGapReason[]
   reasonCounts: Record<string, number>
 }
-
 export type StructuralCoverageFailure = {
   kind: 'unsupported-approved-claim' | 'dangling-claim-source-edge'
   url: string
@@ -40,11 +34,12 @@ export type StructuralCoverageFailure = {
 export const RESEARCH_GAP_DIMENSION_CAPS: Record<ResearchGapDimension, number> = {
   structural: 200,
   'claim-support': 160,
+  semantic: 100,
   concentration: 80,
   'evidence-mix': 60,
   mapping: 50,
   identity: 40,
-  metadata: 30,
+  metadata: 40,
   freshness: 30,
   'editorial-backlog': 30,
 }
@@ -57,6 +52,17 @@ export const RESEARCH_GAP_WEIGHTS = {
   indirectOutcomeSupport: 20,
   unclassifiedStructuredSupport: 20,
   highConfidenceWeakClaimBonus: 15,
+  semanticMismatch: 18,
+  highConfidenceSemanticMismatchBonus: 10,
+  semanticSingleSource: 12,
+  semanticSupportConcentration: 8,
+  highConfidenceSemanticConcentrationBonus: 6,
+  semanticMetadataCoverageGap: 6,
+  highConfidenceSemanticCoverageGapBonus: 4,
+  causalWithoutControlledOrSynthesis: 18,
+  causalWithoutDirectControlled: 10,
+  synthesisOnlyCausalSupport: 7,
+  highConfidenceCausalLanguageBonus: 8,
   noPrimaryHumanStudy: 20,
   narrativeReviewDominatedProfile: 20,
   edgeWeightedNarrativeDominance: 12,
@@ -65,7 +71,10 @@ export const RESEARCH_GAP_WEIGHTS = {
   unapprovedOnlyPrimaryHumanEvidence: 8,
   mappingGapNoApprovedPrimaryBonus: 8,
   poorStudyMetadataCoverage: 12,
+  claimCitationMetadataGap: 8,
+  highConfidenceCitationMetadataBonus: 4,
   narrowRepeatedEvidenceBundle: 15,
+  narrowCrossProfileEvidenceBundle: 12,
   homogeneousMultiStudySupport: 7,
   highConfidenceHomogeneousMultiStudyBonus: 5,
   nearDuplicateEvidenceSupport: 10,
@@ -91,9 +100,17 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'unsupported-approved-claim': 'structural',
   'dangling-claim-source-edge': 'structural',
   'synthesis-only-approved-outcome': 'claim-support',
+  'semantic-claim-source-mismatch': 'semantic',
+  'semantic-single-source-support': 'semantic',
+  'semantic-support-concentration': 'semantic',
+  'semantic-metadata-coverage-gap': 'semantic',
+  'causal-language-without-controlled-or-synthesis': 'semantic',
+  'causal-language-without-direct-controlled-study': 'semantic',
+  'synthesis-only-causal-language': 'semantic',
   'single-study-approved-claim': 'concentration',
   'high-study-dependency': 'concentration',
   'narrow-repeated-evidence-bundle': 'concentration',
+  'narrow-cross-profile-evidence-bundle': 'concentration',
   'homogeneous-multi-study-support': 'concentration',
   'near-duplicate-claim-evidence-support': 'concentration',
   'systemic-load-bearing-study-dependency': 'concentration',
@@ -105,6 +122,7 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'primary-human-evidence-only-on-unapproved-claims': 'mapping',
   'uncertain-study-identity-independence': 'identity',
   'poor-study-metadata-coverage': 'metadata',
+  'claim-citation-metadata-gap': 'metadata',
   'unknown-evidence-year-metadata': 'metadata',
   'legacy-only-outcome-evidence': 'freshness',
 }
@@ -134,60 +152,20 @@ type AddReason = (url: string, kind: string, weight: number, detail?: string) =>
 
 function addApprovedClaimReasons(analysis: ResearchQualityAnalysis, add: AddReason) {
   for (const claim of analysis.claimAnalyses) {
-    if (claim.structuredSupportTier === 'unsupported') {
-      add(claim.url, 'unsupported-approved-claim', RESEARCH_GAP_WEIGHTS.unsupportedApprovedClaim, claim.claimId)
-    }
-    for (const sourceRefId of claim.danglingSourceRefs) {
-      add(claim.url, 'dangling-claim-source-edge', RESEARCH_GAP_WEIGHTS.danglingClaimSourceEdge, `${claim.claimId} -> ${sourceRefId}`)
-    }
+    if (claim.structuredSupportTier === 'unsupported') add(claim.url, 'unsupported-approved-claim', RESEARCH_GAP_WEIGHTS.unsupportedApprovedClaim, claim.claimId)
+    for (const sourceRefId of claim.danglingSourceRefs) add(claim.url, 'dangling-claim-source-edge', RESEARCH_GAP_WEIGHTS.danglingClaimSourceEdge, `${claim.claimId} -> ${sourceRefId}`)
 
     if (claim.singleStudy) {
       const high = claim.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSingleStudyBonus : 0
       const veryHigh = claim.confidence >= 0.9 ? RESEARCH_GAP_WEIGHTS.veryHighConfidenceSingleStudyBonus : 0
-      add(
-        claim.url,
-        'single-study-approved-claim',
-        RESEARCH_GAP_WEIGHTS.singleStudyApprovedClaim + high + veryHigh,
-        `${claim.claimId} · confidence ${claim.confidence}${veryHigh ? ' · very high confidence' : high ? ' · high confidence' : ''}`,
-      )
+      add(claim.url, 'single-study-approved-claim', RESEARCH_GAP_WEIGHTS.singleStudyApprovedClaim + high + veryHigh, `${claim.claimId} · confidence ${claim.confidence}`)
     }
-
-    if (claim.outcomeClaim && claim.primaryHuman === 0 && claim.synthesis > 0) {
-      add(
-        claim.url,
-        'synthesis-only-approved-outcome',
-        RESEARCH_GAP_WEIGHTS.synthesisOnlyApprovedOutcome,
-        `${claim.claimId} · synthesis evidence present but no direct primary-human study`,
-      )
-    }
+    if (claim.outcomeClaim && claim.primaryHuman === 0 && claim.synthesis > 0) add(claim.url, 'synthesis-only-approved-outcome', RESEARCH_GAP_WEIGHTS.synthesisOnlyApprovedOutcome, `${claim.claimId} · synthesis present but no primary-human study`)
 
     const confidenceBonus = claim.highConfidenceWeakStructured ? RESEARCH_GAP_WEIGHTS.highConfidenceWeakClaimBonus : 0
-    if (claim.structuredSupportTier === 'unclassified') {
-      add(
-        claim.url,
-        'claim-support-unclassified',
-        RESEARCH_GAP_WEIGHTS.unclassifiedStructuredSupport + confidenceBonus,
-        `${claim.claimId} · ${claim.predicate}${confidenceBonus ? ' · high confidence' : ''}`,
-      )
-    } else if (claim.structuredSupportTier === 'narrative-only') {
-      const base = claim.outcomeClaim
-        ? RESEARCH_GAP_WEIGHTS.narrativeOnlyOutcomeSupport
-        : RESEARCH_GAP_WEIGHTS.narrativeOnlyOtherStructuredSupport
-      add(
-        claim.url,
-        'claim-support-narrative-only',
-        base + confidenceBonus,
-        `${claim.claimId} · ${claim.predicate}${confidenceBonus ? ' · high confidence' : ''}`,
-      )
-    } else if (claim.supportTier === 'indirect-only') {
-      const outcomeBonus = claim.highConfidenceWeakOutcome ? RESEARCH_GAP_WEIGHTS.highConfidenceWeakClaimBonus : 0
-      add(
-        claim.url,
-        'claim-support-indirect-only',
-        RESEARCH_GAP_WEIGHTS.indirectOutcomeSupport + outcomeBonus,
-        `${claim.claimId}${outcomeBonus ? ' · high confidence' : ''}`,
-      )
-    }
+    if (claim.structuredSupportTier === 'unclassified') add(claim.url, 'claim-support-unclassified', RESEARCH_GAP_WEIGHTS.unclassifiedStructuredSupport + confidenceBonus, `${claim.claimId} · ${claim.predicate}`)
+    else if (claim.structuredSupportTier === 'narrative-only') add(claim.url, 'claim-support-narrative-only', (claim.outcomeClaim ? RESEARCH_GAP_WEIGHTS.narrativeOnlyOutcomeSupport : RESEARCH_GAP_WEIGHTS.narrativeOnlyOtherStructuredSupport) + confidenceBonus, `${claim.claimId} · ${claim.predicate}`)
+    else if (claim.supportTier === 'indirect-only') add(claim.url, 'claim-support-indirect-only', RESEARCH_GAP_WEIGHTS.indirectOutcomeSupport + (claim.highConfidenceWeakOutcome ? RESEARCH_GAP_WEIGHTS.highConfidenceWeakClaimBonus : 0), claim.claimId)
   }
 }
 
@@ -195,192 +173,94 @@ function addEditorialBacklogReasons(analysis: ResearchQualityAnalysis, add: AddR
   for (const claim of analysis.structuredClaimAnalyses) {
     if (claim.approved) continue
     const detail = `${claim.claimId} · ${claim.predicate} · ${claim.reviewStatus || 'unreviewed'}`
-    if (claim.structuredSupportTier === 'unsupported') {
-      add(claim.url, 'unsupported-unapproved-structured-claim', RESEARCH_GAP_WEIGHTS.unsupportedUnapprovedStructuredClaim, detail)
-    } else if (claim.structuredSupportTier === 'unclassified' || claim.structuredSupportTier === 'narrative-only') {
-      add(claim.url, `unapproved-claim-support-${claim.structuredSupportTier}`, RESEARCH_GAP_WEIGHTS.weakUnapprovedStructuredClaim, detail)
-    } else if (claim.structuredSupportTier === 'single-study') {
-      add(
-        claim.url,
-        'unapproved-claim-support-single-study',
-        RESEARCH_GAP_WEIGHTS.unapprovedSingleStudyStructuredClaim,
-        detail,
-      )
-    } else if (claim.supportTier === 'indirect-only') {
-      add(claim.url, 'unapproved-claim-support-indirect-only', RESEARCH_GAP_WEIGHTS.weakUnapprovedStructuredClaim, detail)
-    }
+    if (claim.structuredSupportTier === 'unsupported') add(claim.url, 'unsupported-unapproved-structured-claim', RESEARCH_GAP_WEIGHTS.unsupportedUnapprovedStructuredClaim, detail)
+    else if (claim.structuredSupportTier === 'unclassified' || claim.structuredSupportTier === 'narrative-only') add(claim.url, `unapproved-claim-support-${claim.structuredSupportTier}`, RESEARCH_GAP_WEIGHTS.weakUnapprovedStructuredClaim, detail)
+    else if (claim.structuredSupportTier === 'single-study') add(claim.url, 'unapproved-claim-support-single-study', RESEARCH_GAP_WEIGHTS.unapprovedSingleStudyStructuredClaim, detail)
+    else if (claim.supportTier === 'indirect-only') add(claim.url, 'unapproved-claim-support-indirect-only', RESEARCH_GAP_WEIGHTS.weakUnapprovedStructuredClaim, detail)
   }
 }
 
 function addProfileReasons(analysis: ResearchQualityAnalysis, add: AddReason) {
   for (const profile of analysis.profileAnalyses) {
     if (profile.overDependentOnSingleStudy) {
-      const share = profile.dominantStudySupportedClaimShare
       const concentrationBonus = Math.round(Math.min(15, profile.studyConcentrationIndex * 20))
-      add(
-        profile.url,
-        'high-study-dependency',
-        Math.round(25 + share * 30 + concentrationBonus),
-        `${Math.round(share * 100)}% of supported approved claims depend on one canonical study; effective study count ${profile.effectiveStudyCount}`,
-      )
+      add(profile.url, 'high-study-dependency', Math.round(25 + profile.dominantStudySupportedClaimShare * 30 + concentrationBonus), `${Math.round(profile.dominantStudySupportedClaimShare * 100)}% of supported approved claims depend on one canonical study; effective study count ${profile.effectiveStudyCount}`)
     }
-
-    if (profile.narrativeDominatedVsPrimaryHuman) {
-      const ratio = profile.narrativeToPrimaryHumanRatio === null
-        ? 'no primary-human studies'
-        : `${profile.narrativeToPrimaryHumanRatio}:1 narrative-to-primary-human ratio`
-      add(profile.url, 'narrative-review-dominated-profile', RESEARCH_GAP_WEIGHTS.narrativeReviewDominatedProfile, ratio)
-    }
-    if (profile.noPrimaryHuman) {
-      add(profile.url, 'approved-claims-without-primary-human-study', RESEARCH_GAP_WEIGHTS.noPrimaryHumanStudy)
-    }
+    if (profile.narrativeDominatedVsPrimaryHuman) add(profile.url, 'narrative-review-dominated-profile', RESEARCH_GAP_WEIGHTS.narrativeReviewDominatedProfile, profile.narrativeToPrimaryHumanRatio === null ? 'no primary-human studies' : `${profile.narrativeToPrimaryHumanRatio}:1 narrative-to-primary-human ratio`)
+    if (profile.noPrimaryHuman) add(profile.url, 'approved-claims-without-primary-human-study', RESEARCH_GAP_WEIGHTS.noPrimaryHumanStudy)
 
     const mappingBonus = profile.noPrimaryHuman ? RESEARCH_GAP_WEIGHTS.mappingGapNoApprovedPrimaryBonus : 0
-    if (profile.unmappedPrimaryHuman > 0) {
-      add(
-        profile.url,
-        'unmapped-primary-human-evidence',
-        RESEARCH_GAP_WEIGHTS.unmappedPrimaryHumanEvidence + mappingBonus,
-        `${profile.unmappedPrimaryHuman} primary-human stud${profile.unmappedPrimaryHuman === 1 ? 'y is' : 'ies are'} not linked to any structured claim`,
-      )
-    }
-    if (profile.unapprovedOnlyPrimaryHuman > 0) {
-      add(
-        profile.url,
-        'primary-human-evidence-only-on-unapproved-claims',
-        RESEARCH_GAP_WEIGHTS.unapprovedOnlyPrimaryHumanEvidence + mappingBonus,
-        `${profile.unapprovedOnlyPrimaryHuman} primary-human stud${profile.unapprovedOnlyPrimaryHuman === 1 ? 'y is' : 'ies are'} linked to structured claims but not approved claims`,
-      )
-    }
+    if (profile.unmappedPrimaryHuman > 0) add(profile.url, 'unmapped-primary-human-evidence', RESEARCH_GAP_WEIGHTS.unmappedPrimaryHumanEvidence + mappingBonus, `${profile.unmappedPrimaryHuman} primary-human studies are not linked to structured claims`)
+    if (profile.unapprovedOnlyPrimaryHuman > 0) add(profile.url, 'primary-human-evidence-only-on-unapproved-claims', RESEARCH_GAP_WEIGHTS.unapprovedOnlyPrimaryHumanEvidence + mappingBonus, `${profile.unapprovedOnlyPrimaryHuman} primary-human studies are linked only to unapproved claims`)
 
     const unclassifiedStudies = Number(profile.designMix.unclassified ?? 0)
-    const metadataCoverage = profile.canonicalStudyCount
-      ? Math.max(0, profile.canonicalStudyCount - unclassifiedStudies) / profile.canonicalStudyCount
-      : 1
-    if (profile.canonicalStudyCount >= 3 && metadataCoverage < 0.7) {
-      add(
-        profile.url,
-        'poor-study-metadata-coverage',
-        RESEARCH_GAP_WEIGHTS.poorStudyMetadataCoverage,
-        `${Math.round(metadataCoverage * 100)}% of canonical studies have classified study designs`,
-      )
-    }
+    const coverage = profile.canonicalStudyCount ? Math.max(0, profile.canonicalStudyCount - unclassifiedStudies) / profile.canonicalStudyCount : 1
+    if (profile.canonicalStudyCount >= 3 && coverage < 0.7) add(profile.url, 'poor-study-metadata-coverage', RESEARCH_GAP_WEIGHTS.poorStudyMetadataCoverage, `${Math.round(coverage * 100)}% of canonical studies have classified designs`)
+  }
+}
+
+function addSemanticReasons(topology: ResearchQualityTopology, add: AddReason) {
+  for (const finding of topology.semanticAlignment.findings) {
+    const bonus = finding.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSemanticMismatchBonus : 0
+    add(finding.url, 'semantic-claim-source-mismatch', RESEARCH_GAP_WEIGHTS.semanticMismatch + bonus, `${finding.claimId} · ${finding.reasons.join('; ')}`)
+  }
+  for (const finding of topology.semanticAlignment.concentrationFindings) {
+    const base = finding.semanticSingleSource ? RESEARCH_GAP_WEIGHTS.semanticSingleSource : RESEARCH_GAP_WEIGHTS.semanticSupportConcentration
+    const bonus = finding.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSemanticConcentrationBonus : 0
+    add(finding.url, finding.semanticSingleSource ? 'semantic-single-source-support' : 'semantic-support-concentration', base + bonus, `${finding.claimId} · ${finding.alignedSourceCount}/${finding.sourceCount} linked sources explicitly align`)
+  }
+  for (const finding of topology.semanticAlignment.coverageGapFindings) {
+    const bonus = finding.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSemanticCoverageGapBonus : 0
+    add(finding.url, 'semantic-metadata-coverage-gap', RESEARCH_GAP_WEIGHTS.semanticMetadataCoverageGap + bonus, `${finding.claimId} · ${Math.round(finding.semanticMetadataCoverage * 100)}% semantically comparable source coverage`)
+  }
+
+  const strictKeys = new Set(topology.claimLanguageCalibration.findings.map((finding) => `${finding.url}::${finding.claimId}`))
+  const synthesisKeys = new Set(topology.claimLanguageCalibration.synthesisOnlyFindings.map((finding) => `${finding.url}::${finding.claimId}`))
+  for (const finding of topology.claimLanguageCalibration.directEvidenceFindings) {
+    const key = `${finding.url}::${finding.claimId}`
+    const high = finding.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceCausalLanguageBonus : 0
+    if (strictKeys.has(key)) add(finding.url, 'causal-language-without-controlled-or-synthesis', RESEARCH_GAP_WEIGHTS.causalWithoutControlledOrSynthesis + high, `${finding.claimId} · ${finding.causalTerms.join(', ')}`)
+    else if (synthesisKeys.has(key)) add(finding.url, 'synthesis-only-causal-language', RESEARCH_GAP_WEIGHTS.synthesisOnlyCausalSupport + high, `${finding.claimId} · causal language has synthesis but no directly linked controlled-human study`)
+    else add(finding.url, 'causal-language-without-direct-controlled-study', RESEARCH_GAP_WEIGHTS.causalWithoutDirectControlled + high, `${finding.claimId} · causal language lacks directly linked controlled-human study`)
   }
 }
 
 function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
-  for (const bundle of topology.narrowRepeatedEvidenceBundles) {
-    const reuseBonus = Math.min(10, Math.max(0, bundle.approvedClaimCount - 3) * 2)
-    add(
-      bundle.url,
-      'narrow-repeated-evidence-bundle',
-      RESEARCH_GAP_WEIGHTS.narrowRepeatedEvidenceBundle + reuseBonus,
-      `${bundle.approvedClaimCount} approved claims reuse the same ${bundle.studyCount}-study evidence bundle`,
-    )
+  for (const bundle of topology.narrowRepeatedEvidenceBundles) add(bundle.url, 'narrow-repeated-evidence-bundle', RESEARCH_GAP_WEIGHTS.narrowRepeatedEvidenceBundle + Math.min(10, Math.max(0, bundle.approvedClaimCount - 3) * 2), `${bundle.approvedClaimCount} approved claims reuse the same ${bundle.studyCount}-study bundle`)
+  for (const bundle of topology.narrowCrossProfileEvidenceBundles) {
+    for (const url of bundle.profiles) add(url, 'narrow-cross-profile-evidence-bundle', RESEARCH_GAP_WEIGHTS.narrowCrossProfileEvidenceBundle + Math.min(8, Math.max(0, bundle.profileCount - 2) * 2), `${bundle.approvedClaimCount} claims across ${bundle.profileCount} profiles reuse the same ${bundle.studyCount}-study bundle`)
   }
-
-  for (const claim of topology.homogeneousMultiStudyClaims) {
-    const highConfidenceBonus = claim.highConfidenceHomogeneousMultiStudySupport
-      ? RESEARCH_GAP_WEIGHTS.highConfidenceHomogeneousMultiStudyBonus
-      : 0
-    add(
-      claim.url,
-      'homogeneous-multi-study-support',
-      RESEARCH_GAP_WEIGHTS.homogeneousMultiStudySupport + highConfidenceBonus,
-      `${claim.claimId} · ${claim.studyCount} studies but one evidence family (${claim.evidenceFamilies.join(', ')})${highConfidenceBonus ? ' · high confidence' : ''}`,
-    )
-  }
+  for (const claim of topology.homogeneousMultiStudyClaims) add(claim.url, 'homogeneous-multi-study-support', RESEARCH_GAP_WEIGHTS.homogeneousMultiStudySupport + (claim.highConfidenceHomogeneousMultiStudySupport ? RESEARCH_GAP_WEIGHTS.highConfidenceHomogeneousMultiStudyBonus : 0), `${claim.claimId} · ${claim.studyCount} studies but one evidence family (${claim.evidenceFamilies.join(', ')})`)
 
   const overlapByProfile = new Map<string, typeof topology.claimEvidenceOverlap>()
-  for (const overlap of topology.claimEvidenceOverlap) {
-    const items = overlapByProfile.get(overlap.url) ?? []
-    items.push(overlap)
-    overlapByProfile.set(overlap.url, items)
-  }
-  for (const [url, overlaps] of overlapByProfile) {
-    const crossPredicateCount = overlaps.filter((item) => item.differentPredicates).length
-    const overlapBonus = Math.min(10, Math.max(0, overlaps.length - 1) * 2)
-    const maxContainment = Math.max(...overlaps.map((item) => item.containment))
-    add(
-      url,
-      'near-duplicate-claim-evidence-support',
-      RESEARCH_GAP_WEIGHTS.nearDuplicateEvidenceSupport + overlapBonus,
-      `${overlaps.length} claim pair(s) share near-duplicate evidence; ${crossPredicateCount} cross-predicate; max containment ${Math.round(maxContainment * 100)}%`,
-    )
-  }
+  for (const overlap of topology.claimEvidenceOverlap) overlapByProfile.set(overlap.url, [...(overlapByProfile.get(overlap.url) ?? []), overlap])
+  for (const [url, overlaps] of overlapByProfile) add(url, 'near-duplicate-claim-evidence-support', RESEARCH_GAP_WEIGHTS.nearDuplicateEvidenceSupport + Math.min(10, Math.max(0, overlaps.length - 1) * 2), `${overlaps.length} claim pairs share near-duplicate evidence; ${overlaps.filter((item) => item.differentPredicates).length} cross-predicate`)
 
   const systemicByProfile = new Map<string, { studies: number; claims: number }>()
-  for (const study of topology.systemicLoadBearingStudies) {
-    for (const url of study.profiles) {
-      const item = systemicByProfile.get(url) ?? { studies: 0, claims: 0 }
-      item.studies += 1
-      item.claims += study.claims.filter((claim) => claim.url === url).length
-      systemicByProfile.set(url, item)
-    }
+  for (const study of topology.systemicLoadBearingStudies) for (const url of study.profiles) {
+    const item = systemicByProfile.get(url) ?? { studies: 0, claims: 0 }
+    item.studies += 1
+    item.claims += study.claims.filter((claim) => claim.url === url).length
+    systemicByProfile.set(url, item)
   }
-  for (const [url, systemic] of systemicByProfile) {
-    const studyBonus = Math.min(12, Math.max(0, systemic.studies - 1) * 2)
-    add(
-      url,
-      'systemic-load-bearing-study-dependency',
-      RESEARCH_GAP_WEIGHTS.systemicLoadBearingStudyDependency + studyBonus,
-      `${systemic.studies} site-wide load-bearing stud${systemic.studies === 1 ? 'y' : 'ies'} support ${systemic.claims} approved claim${systemic.claims === 1 ? '' : 's'} on this profile`,
-    )
-  }
+  for (const [url, item] of systemicByProfile) add(url, 'systemic-load-bearing-study-dependency', RESEARCH_GAP_WEIGHTS.systemicLoadBearingStudyDependency + Math.min(12, Math.max(0, item.studies - 1) * 2), `${item.studies} site-wide load-bearing studies support ${item.claims} claims on this profile`)
 
-  for (const design of topology.edgeWeightedNarrativeDominatedProfiles) {
-    add(
-      design.url,
-      'edge-weighted-narrative-dominance',
-      RESEARCH_GAP_WEIGHTS.edgeWeightedNarrativeDominance,
-      `${Math.round(design.narrativeReviewEdgeShare * 100)}% of classified approved claim-study edges are narrative reviews (${design.narrativeReviewEdges}/${design.classifiedEdges})`,
-    )
-  }
-
-  for (const provenance of topology.provenanceConcentratedProfiles) {
-    const authorBonus = provenance.firstAuthorConcentrated ? RESEARCH_GAP_WEIGHTS.firstAuthorConcentrationBonus : 0
-    const journalBonus = provenance.journalConcentrated ? RESEARCH_GAP_WEIGHTS.journalConcentrationBonus : 0
-    add(
-      provenance.url,
-      'provenance-concentrated-evidence',
-      RESEARCH_GAP_WEIGHTS.provenanceConcentration + authorBonus + journalBonus,
-      `first-author share ${Math.round(provenance.dominantFirstAuthorEdgeShare * 100)}% across ${provenance.dominantFirstAuthorStudyCount} study/studies; journal share ${Math.round(provenance.dominantJournalEdgeShare * 100)}% across ${provenance.dominantJournalStudyCount}`,
-    )
-  }
+  for (const design of topology.edgeWeightedNarrativeDominatedProfiles) add(design.url, 'edge-weighted-narrative-dominance', RESEARCH_GAP_WEIGHTS.edgeWeightedNarrativeDominance, `${Math.round(design.narrativeReviewEdgeShare * 100)}% of classified approved claim-study edges are narrative reviews`)
+  for (const provenance of topology.provenanceConcentratedProfiles) add(provenance.url, 'provenance-concentrated-evidence', RESEARCH_GAP_WEIGHTS.provenanceConcentration + (provenance.firstAuthorConcentrated ? RESEARCH_GAP_WEIGHTS.firstAuthorConcentrationBonus : 0) + (provenance.journalConcentrated ? RESEARCH_GAP_WEIGHTS.journalConcentrationBonus : 0), `first-author share ${Math.round(provenance.dominantFirstAuthorEdgeShare * 100)}%; journal share ${Math.round(provenance.dominantJournalEdgeShare * 100)}%`)
 
   for (const identity of topology.studyIdentityCoverage.profiles) {
     if (identity.uncertainMultiStudyClaimCount === 0 && !identity.weakIdentityCoverage) continue
-    const highConfidenceBonus = identity.highConfidenceUncertainClaimCount > 0
-      ? RESEARCH_GAP_WEIGHTS.highConfidenceIdentityUncertaintyBonus
-      : 0
-    const weakCoverageBonus = identity.weakIdentityCoverage ? RESEARCH_GAP_WEIGHTS.weakIdentityCoverageBonus : 0
-    add(
-      identity.url,
-      'uncertain-study-identity-independence',
-      RESEARCH_GAP_WEIGHTS.uncertainStudyIdentityCoverage + highConfidenceBonus + weakCoverageBonus,
-      `${identity.uncertainMultiStudyClaimCount} multi-study approved claim(s) include fallback identities; ${Math.round(identity.stableIdentityCoverage * 100)}% stable DOI/PMID coverage`,
-    )
+    add(identity.url, 'uncertain-study-identity-independence', RESEARCH_GAP_WEIGHTS.uncertainStudyIdentityCoverage + (identity.highConfidenceUncertainClaimCount > 0 ? RESEARCH_GAP_WEIGHTS.highConfidenceIdentityUncertaintyBonus : 0) + (identity.weakIdentityCoverage ? RESEARCH_GAP_WEIGHTS.weakIdentityCoverageBonus : 0), `${identity.uncertainMultiStudyClaimCount} multi-study claims include fallback identities; ${Math.round(identity.stableIdentityCoverage * 100)}% stable identity coverage`)
   }
 
+  for (const metadata of topology.claimCitationMetadata.lowCoverageClaims) add(metadata.url, 'claim-citation-metadata-gap', RESEARCH_GAP_WEIGHTS.claimCitationMetadataGap + (metadata.highConfidenceLowMetadataCoverage ? RESEARCH_GAP_WEIGHTS.highConfidenceCitationMetadataBonus : 0), `${metadata.claimId} · ${Math.round(metadata.fieldMetadataCoverage * 100)}% citation field completeness across ${metadata.studyCount} studies`)
+
   for (const freshness of topology.claimEvidenceAge) {
-    if (freshness.studyCount > 0 && freshness.knownYearCount === 0) {
-      add(
-        freshness.url,
-        'unknown-evidence-year-metadata',
-        RESEARCH_GAP_WEIGHTS.unknownEvidenceYearMetadata,
-        `${freshness.claimId} · publication year unknown for all ${freshness.studyCount} supporting studies`,
-      )
-      continue
-    }
-    if (!freshness.legacyOnlyOutcomeClaim) continue
-    const bonus = freshness.highConfidenceLegacyOnlyClaim ? RESEARCH_GAP_WEIGHTS.highConfidenceLegacyOnlyBonus : 0
-    add(
-      freshness.url,
-      'legacy-only-outcome-evidence',
-      RESEARCH_GAP_WEIGHTS.legacyOnlyOutcomeClaim + bonus,
-      `${freshness.claimId} · newest known supporting study ${freshness.newestYear ?? 'unknown'}${bonus ? ' · high confidence' : ''}`,
-    )
+    if (freshness.studyCount > 0 && freshness.knownYearCount === 0) add(freshness.url, 'unknown-evidence-year-metadata', RESEARCH_GAP_WEIGHTS.unknownEvidenceYearMetadata, `${freshness.claimId} · publication year unknown for all ${freshness.studyCount} studies`)
+    else if (freshness.legacyOnlyOutcomeClaim) add(freshness.url, 'legacy-only-outcome-evidence', RESEARCH_GAP_WEIGHTS.legacyOnlyOutcomeClaim + (freshness.highConfidenceLegacyOnlyClaim ? RESEARCH_GAP_WEIGHTS.highConfidenceLegacyOnlyBonus : 0), `${freshness.claimId} · newest known supporting study ${freshness.newestYear ?? 'unknown'}`)
   }
+
+  addSemanticReasons(topology, add)
 }
 
 function finalizeGap(item: MutableGap): ResearchGapItem {
@@ -388,37 +268,18 @@ function finalizeGap(item: MutableGap): ResearchGapItem {
     scores[reason.dimension] = (scores[reason.dimension] ?? 0) + reason.weight
     return scores
   }, {})
-  const dimensionScores = Object.fromEntries(
-    Object.entries(dimensionRawScores).map(([dimension, raw]) => [
-      dimension,
-      Math.min(Number(raw), RESEARCH_GAP_DIMENSION_CAPS[dimension as ResearchGapDimension]),
-    ]),
-  ) as Partial<Record<ResearchGapDimension, number>>
+  const dimensionScores = Object.fromEntries(Object.entries(dimensionRawScores).map(([dimension, raw]) => [dimension, Math.min(Number(raw), RESEARCH_GAP_DIMENSION_CAPS[dimension as ResearchGapDimension])])) as Partial<Record<ResearchGapDimension, number>>
   const rawScore = Object.values(dimensionRawScores).reduce((sum, value) => sum + Number(value ?? 0), 0)
   const score = Object.values(dimensionScores).reduce((sum, value) => sum + Number(value ?? 0), 0)
-  const cappedDimensions = Object.entries(dimensionRawScores)
-    .filter(([dimension, raw]) => Number(raw) > RESEARCH_GAP_DIMENSION_CAPS[dimension as ResearchGapDimension])
-    .map(([dimension]) => dimension as ResearchGapDimension)
+  const cappedDimensions = Object.entries(dimensionRawScores).filter(([dimension, raw]) => Number(raw) > RESEARCH_GAP_DIMENSION_CAPS[dimension as ResearchGapDimension]).map(([dimension]) => dimension as ResearchGapDimension)
   const reasonCounts = item.reasons.reduce<Record<string, number>>((counts, reason) => {
     counts[reason.kind] = (counts[reason.kind] ?? 0) + 1
     return counts
   }, {})
-
-  return {
-    ...item,
-    score: Math.round(score),
-    rawScore: Math.round(rawScore),
-    dimensionScores,
-    dimensionRawScores,
-    cappedDimensions,
-    reasonCounts,
-  }
+  return { ...item, score: Math.round(score), rawScore: Math.round(rawScore), dimensionScores, dimensionRawScores, cappedDimensions, reasonCounts }
 }
 
-export function buildResearchGapQueue(
-  analysis: ResearchQualityAnalysis,
-  topology: ResearchQualityTopology = buildResearchQualityTopology(analysis),
-): ResearchGapItem[] {
+export function buildResearchGapQueue(analysis: ResearchQualityAnalysis, topology: ResearchQualityTopology = buildResearchQualityTopology(analysis)): ResearchGapItem[] {
   const queue = new Map<string, MutableGap>()
   const add: AddReason = (url, kind, weight, detail) => {
     if (!url || weight <= 0) return
@@ -426,13 +287,9 @@ export function buildResearchGapQueue(
     item.reasons.push({ kind, dimension: dimensionForReason(kind), weight, ...(detail ? { detail } : {}) })
     queue.set(url, item)
   }
-
   addApprovedClaimReasons(analysis, add)
   addEditorialBacklogReasons(analysis, add)
   addProfileReasons(analysis, add)
   addTopologyReasons(topology, add)
-
-  return [...queue.values()]
-    .map(finalizeGap)
-    .sort((a, b) => b.score - a.score || b.rawScore - a.rawScore || b.reasons.length - a.reasons.length || a.url.localeCompare(b.url))
+  return [...queue.values()].map(finalizeGap).sort((a, b) => b.score - a.score || b.rawScore - a.rawScore || b.reasons.length - a.reasons.length || a.url.localeCompare(b.url))
 }
