@@ -28,6 +28,8 @@ export const RESEARCH_GAP_WEIGHTS = {
   highConfidenceWeakClaimBonus: 15,
   noPrimaryHumanStudy: 20,
   narrativeReviewDominatedProfile: 20,
+  synthesisOnlyApprovedOutcome: 8,
+  poorStudyMetadataCoverage: 12,
   singleStudyApprovedClaim: 5,
   unsupportedUnapprovedStructuredClaim: 4,
   weakUnapprovedOutcomeClaim: 3,
@@ -71,6 +73,14 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
     }
     if (claim.singleStudy) {
       add(claim.url, 'single-study-approved-claim', RESEARCH_GAP_WEIGHTS.singleStudyApprovedClaim, claim.claimId)
+    }
+    if (claim.synthesisOnlyOutcomeSupport) {
+      add(
+        claim.url,
+        'synthesis-only-approved-outcome',
+        RESEARCH_GAP_WEIGHTS.synthesisOnlyApprovedOutcome,
+        `${claim.claimId} · human synthesis present but no direct primary-human study`,
+      )
     }
 
     const tier = claim.supportTier
@@ -134,6 +144,14 @@ export function buildResearchGapQueue(analysis: ResearchQualityAnalysis): Resear
         profile.url,
         'approved-claims-without-primary-human-study',
         RESEARCH_GAP_WEIGHTS.noPrimaryHumanStudy,
+      )
+    }
+    if (profile.poorStudyMetadataCoverage) {
+      add(
+        profile.url,
+        'poor-study-metadata-coverage',
+        RESEARCH_GAP_WEIGHTS.poorStudyMetadataCoverage,
+        `${Math.round(profile.studyMetadataCoverage * 100)}% of canonical studies have classified study designs`,
       )
     }
   }
