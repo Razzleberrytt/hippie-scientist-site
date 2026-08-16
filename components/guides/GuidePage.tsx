@@ -11,36 +11,31 @@ import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
 const EVIDENCE_STYLES: Record<
   EvidenceLevel,
-  { bg: string; border: string; badge: string; label: string }
+  { badge: string; rail: string; label: string }
 > = {
   strong: {
-    bg: 'bg-emerald-50/80',
-    border: 'border-emerald-200/60',
     badge: 'bg-emerald-100 text-emerald-800',
+    rail: 'border-l-emerald-500',
     label: 'Strong Evidence',
   },
   moderate: {
-    bg: 'bg-blue-50/80',
-    border: 'border-blue-200/60',
     badge: 'bg-blue-100 text-blue-800',
+    rail: 'border-l-blue-500',
     label: 'Moderate Evidence',
   },
   limited: {
-    bg: 'bg-amber-50/80',
-    border: 'border-amber-200/60',
     badge: 'bg-amber-100 text-amber-800',
+    rail: 'border-l-amber-500',
     label: 'Limited Evidence',
   },
   preliminary: {
-    bg: 'bg-slate-50/80',
-    border: 'border-slate-200/60',
     badge: 'bg-slate-100 text-slate-700',
+    rail: 'border-l-slate-400',
     label: 'Preliminary',
   },
   traditional: {
-    bg: 'bg-violet-50/80',
-    border: 'border-violet-200/60',
     badge: 'bg-violet-100 text-violet-800',
+    rail: 'border-l-violet-500',
     label: 'Traditional Use',
   },
 }
@@ -116,7 +111,7 @@ function SectionContent({ section }: { section: GuideSection }) {
         )
       })}
       {section.subsections?.map((sub, i) => (
-        <div key={i} className="space-y-2 pl-4 border-l-2 border-brand-900/10">
+        <div key={i} className="space-y-2 border-l-2 border-brand-900/10 pl-4">
           <h3 className="text-lg font-semibold text-ink">{sub.title}</h3>
           <p className="text-sm leading-6 text-muted">{sub.body}</p>
           {sub.blocks?.map((block, j) => (
@@ -204,7 +199,7 @@ export default function GuidePage({ guide }: Props) {
 
   return (
     <div className="mx-auto max-w-4xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-      {/* Hero */}
+      {/* Hero remains the guide cover and primary visual anchor. */}
       <section className="overflow-hidden rounded-[2rem] border border-brand-900/10 bg-white/90 shadow-sm">
         {guide.heroImage && (
           <div className="relative h-48 w-full overflow-hidden sm:h-64">
@@ -218,7 +213,7 @@ export default function GuidePage({ guide }: Props) {
         )}
         <div className="p-6 sm:p-8">
           <div className="flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em]">
-            <span className="rounded-full bg-brand-50 px-2.5 py-1 text-brand-700 border border-brand-100/50">
+            <span className="rounded-full border border-brand-100/50 bg-brand-50 px-2.5 py-1 text-brand-700">
               {guide.category}
             </span>
             {guide.readingTime && (
@@ -236,58 +231,52 @@ export default function GuidePage({ guide }: Props) {
         </div>
       </section>
 
-      {/* Table of contents */}
+      {/* Curated guide index. The aria-label also tells GlobalTOC to stand down. */}
       {guide.sections.length > 2 && (
-        <nav className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-700">
-            In this guide
-          </p>
-          <ol className="mt-3 space-y-1">
+        <nav
+          aria-label="Table of contents"
+          className="border-y border-[color:var(--hs-hairline-strong)] py-5"
+        >
+          <p className="eyebrow-label">In this guide</p>
+          <ol className="mt-3 grid gap-x-6 sm:grid-cols-2">
             {guide.sections.map((sec, i) => (
-              <li key={sec.id}>
+              <li key={sec.id} className="border-t border-[color:var(--hs-hairline)] first:border-t-0 sm:[&:nth-child(2)]:border-t-0">
                 <a
                   href={`#${sec.id}`}
-                  className="flex items-baseline gap-2 text-sm text-ink hover:text-brand-700"
+                  className="group flex min-h-11 items-baseline gap-3 py-2.5 text-sm text-[color:var(--hs-ink)] hover:text-[color:var(--tone-ink)]"
                 >
-                  <span className="text-xs text-muted">{i + 1}.</span>
-                  {sec.title}
+                  <span className="font-display text-xs tabular-nums text-[color:var(--hs-gold)]">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="group-hover:underline group-hover:underline-offset-4">{sec.title}</span>
                 </a>
               </li>
             ))}
             {hasDosage && (
-              <li>
-                <a
-                  href="#dosage"
-                  className="flex items-baseline gap-2 text-sm text-ink hover:text-brand-700"
-                >
-                  <span className="text-xs text-muted">{guide.sections.length + 1}.</span>
-                  Dosage &amp; Forms
+              <li className="border-t border-[color:var(--hs-hairline)]">
+                <a href="#dosage" className="group flex min-h-11 items-baseline gap-3 py-2.5 text-sm text-[color:var(--hs-ink)] hover:text-[color:var(--tone-ink)]">
+                  <span className="font-display text-xs tabular-nums text-[color:var(--hs-gold)]">{String(guide.sections.length + 1).padStart(2, '0')}</span>
+                  <span className="group-hover:underline group-hover:underline-offset-4">Dosage &amp; Forms</span>
                 </a>
               </li>
             )}
             {hasSafety && (
-              <li>
-                <a
-                  href="#safety"
-                  className="flex items-baseline gap-2 text-sm text-ink hover:text-brand-700"
-                >
-                  <span className="text-xs text-muted">
-                    {guide.sections.length + (hasDosage ? 2 : 1)}.
+              <li className="border-t border-[color:var(--hs-hairline)]">
+                <a href="#safety" className="group flex min-h-11 items-baseline gap-3 py-2.5 text-sm text-[color:var(--hs-ink)] hover:text-[color:var(--tone-ink)]">
+                  <span className="font-display text-xs tabular-nums text-[color:var(--hs-gold)]">
+                    {String(guide.sections.length + (hasDosage ? 2 : 1)).padStart(2, '0')}
                   </span>
-                  Safety &amp; Precautions
+                  <span className="group-hover:underline group-hover:underline-offset-4">Safety &amp; Precautions</span>
                 </a>
               </li>
             )}
             {hasOptions && (
-              <li>
-                <a
-                  href="#products"
-                  className="flex items-baseline gap-2 text-sm text-ink hover:text-brand-700"
-                >
-                  <span className="text-xs text-muted">
-                    {guide.sections.length + (hasDosage ? 1 : 0) + (hasSafety ? 1 : 0) + 1}.
+              <li className="border-t border-[color:var(--hs-hairline)]">
+                <a href="#products" className="group flex min-h-11 items-baseline gap-3 py-2.5 text-sm text-[color:var(--hs-ink)] hover:text-[color:var(--tone-ink)]">
+                  <span className="font-display text-xs tabular-nums text-[color:var(--hs-gold)]">
+                    {String(guide.sections.length + (hasDosage ? 1 : 0) + (hasSafety ? 1 : 0) + 1).padStart(2, '0')}
                   </span>
-                  Product Options
+                  <span className="group-hover:underline group-hover:underline-offset-4">Product Options</span>
                 </a>
               </li>
             )}
@@ -295,26 +284,34 @@ export default function GuidePage({ guide }: Props) {
         </nav>
       )}
 
-      {/* Evidence highlights */}
+      {/* Evidence highlights become a scale-like ledger instead of mini-cards. */}
       {guide.evidenceHighlights.length > 0 && (
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-ink">Evidence Overview</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div>
+            <p className="eyebrow-label">Evidence overview</p>
+            <h2 className="mt-2 text-xl font-semibold text-[color:var(--hs-ink)]">What the evidence supports</h2>
+          </div>
+          <div className="divide-y divide-[color:var(--hs-hairline)] border-y border-[color:var(--hs-hairline-strong)]">
             {guide.evidenceHighlights.map((item, i) => {
               const style = EVIDENCE_STYLES[item.level]
               return (
                 <div
-                  key={i}
-                  className={`rounded-xl border p-4 ${style.bg} ${style.border}`}
+                  key={`${item.claim}-${i}`}
+                  className={`border-l-2 px-3 py-4 ${style.rail}`}
                 >
-                  <span
-                    className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] ${style.badge}`}
-                  >
-                    {style.label}
-                  </span>
-                  <p className="mt-2 text-sm font-medium text-ink">{item.claim}</p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span
+                      className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] ${style.badge}`}
+                    >
+                      {style.label}
+                    </span>
+                    <span className="font-display text-xs tabular-nums text-[color:var(--hs-gold)]" aria-hidden="true">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm font-medium text-[color:var(--hs-ink)]">{item.claim}</p>
                   {item.context && (
-                    <p className="mt-1 text-xs leading-5 text-muted">{item.context}</p>
+                    <p className="mt-1 max-w-3xl text-xs leading-5 text-[color:var(--hs-body)]">{item.context}</p>
                   )}
                 </div>
               )
