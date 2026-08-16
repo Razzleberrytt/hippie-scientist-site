@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { coreGoals, type CoreGoalSlug } from '@/lib/core-goals'
 import { buildPageMetadata } from '@/src/lib/seo'
 
 const TITLE = 'Start Here: Choose What You Are Researching'
 const DESCRIPTION =
-  'Choose a research path for Sleep, Stress, Anxiety, Focus, ingredient lookup, or supplement safety without entering personal medical information.'
+  'Choose whether you are starting from a goal, an ingredient, or a safety question without entering personal medical information.'
 
 export const metadata: Metadata = buildPageMetadata({
   title: TITLE,
@@ -14,30 +13,23 @@ export const metadata: Metadata = buildPageMetadata({
   openGraphType: 'website',
 })
 
-const pathDescriptions: Record<CoreGoalSlug, string> = {
-  sleep: 'Compare sleep-support evidence, timing, forms, and next-day tradeoffs.',
-  stress: 'Explore stress-related evidence without treating every calming mechanism as a proven outcome.',
-  anxiety: 'Use stricter evidence and safety framing for anxiety-adjacent research.',
-  focus: 'Research attention, cognition, stimulant tradeoffs, and non-stimulant approaches.',
-}
-
 const paths = [
-  ...coreGoals.map((goal) => ({
-    label: goal.label,
-    href: goal.href,
-    description: pathDescriptions[goal.slug],
-  })),
   {
-    label: 'Ingredient lookup',
+    label: 'Start with a goal',
+    href: '/goals/',
+    description: 'Choose the outcome or question first, then compare relevant options by evidence, fit, onset, and risk.',
+  },
+  {
+    label: 'Look up an ingredient',
     href: '/search/',
-    description: 'Find a herb or compound by common name, scientific context, goal, or mechanism.',
+    description: 'Find a herb, nutrient, compound, extract, or familiar supplement by name.',
   },
   {
-    label: 'Safety',
+    label: 'Check safety',
     href: '/safety-checker/',
-    description: 'Screen combinations for documented or theoretical caution flags and open the full safety profiles.',
+    description: 'Screen combinations for documented or theoretical caution signals before stacking products.',
   },
-]
+] as const
 
 export default function StartHerePage() {
   return (
@@ -48,14 +40,14 @@ export default function StartHerePage() {
           What are you researching?
         </h1>
         <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
-          Pick the closest research path. You do not need to describe symptoms, diagnoses, medications, or other personal health information to use this router.
+          Pick the closest intent. You do not need to describe symptoms, diagnoses, medications, or other personal health information to use this router.
         </p>
       </header>
 
-      <section className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3' aria-label='Research starting points'>
+      <section className='grid gap-4 md:grid-cols-3' aria-label='Research starting points'>
         {paths.map((path) => (
           <Link
-            key={path.label}
+            key={path.href}
             href={path.href}
             className='group rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/25 hover:bg-brand-50/30'
           >
@@ -64,17 +56,6 @@ export default function StartHerePage() {
             <span className='mt-5 inline-flex text-sm font-bold text-brand-800'>Open path →</span>
           </Link>
         ))}
-      </section>
-
-      <section className='rounded-2xl border border-brand-900/10 bg-brand-50/60 p-6 sm:p-8'>
-        <h2 className='text-2xl font-bold text-ink'>Not sure which path fits?</h2>
-        <p className='mt-3 max-w-3xl text-sm leading-7 text-muted'>
-          Start with ingredient search if you already have a name. Start with Safety if you are checking a combination. Otherwise choose the goal that best describes the information you want to read—not a diagnosis you want the site to make.
-        </p>
-        <div className='mt-5 flex flex-wrap gap-3'>
-          <Link href='/search/' className='button-primary'>Search ingredients</Link>
-          <Link href='/safety-checker/' className='button-secondary'>Open Safety Checker</Link>
-        </div>
       </section>
     </main>
   )
