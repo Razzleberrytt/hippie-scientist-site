@@ -10,19 +10,19 @@ const PAGE_PATH = '/goals/metabolic-health/'
 export const metadata: Metadata = {
   title: 'Metabolic Health Research: Berberine, Inositol & Cinnamon',
   description:
-    'Research metabolic-health supplements through human evidence, studied dose and form, interaction context, and head-to-head comparisons without treating supplements as disease treatment.',
+    'Start metabolic-health supplement research from the outcome, then move into the full evidence guide, canonical ingredient profiles, and safety context.',
   alternates: { canonical: `${SITE_URL}${PAGE_PATH}` },
   openGraph: {
     title: 'Metabolic Health Research',
     description:
-      'Start with Berberine, then compare evidence, formulation, and safety context across realistic metabolic-health alternatives.',
+      'Use one clear starting point for metabolic-health supplement research, then continue into evidence, comparisons, and safety.',
     url: `${SITE_URL}${PAGE_PATH}`,
     type: 'article',
     images: ['/og-default.jpg'],
   },
   twitter: buildTwitterMetadata({
     title: 'Metabolic Health Research',
-    description: 'Compare metabolic-health supplement evidence without turning marker research into disease-treatment advice.',
+    description: 'Start with the goal, then continue into the full metabolic-health evidence guide and safety context.',
   }),
 }
 
@@ -32,33 +32,29 @@ const breadcrumbs = breadcrumbJsonLd([
   { name: 'Metabolic Health Research', url: `${SITE_URL}${PAGE_PATH}` },
 ])
 
-const researchChecks = [
+const nextSteps = [
   {
-    title: 'Human endpoint',
-    text: 'Check what was actually measured in people. Glucose, lipid, appetite, body-composition, and disease-treatment outcomes are not interchangeable.',
+    href: '/guides/metabolic-health/',
+    eyebrow: 'Full topic guide',
+    title: 'Research metabolic health in depth',
+    description:
+      'Choose the actual question—blood sugar, insulin sensitivity, weight-loss claims, medication context, or a head-to-head comparison—then follow the relevant evidence path.',
   },
   {
-    title: 'Studied dose and form',
-    text: 'Match conclusions to the formulation and dose represented in the evidence record instead of assuming every consumer product is equivalent.',
+    href: '/compounds/berberine/',
+    eyebrow: 'Canonical profile',
+    title: 'Inspect the Berberine evidence record',
+    description:
+      'Review the underlying human evidence, studied dose and form, safety, and interaction context before comparing alternatives.',
   },
   {
-    title: 'Medication and safety context',
-    text: 'Metabolic-health ingredients can overlap with medication-sensitive pathways. Review the canonical interaction record before treating a supplement as a simple wellness add-on.',
+    href: '/safety-checker/',
+    eyebrow: 'Safety first',
+    title: 'Check combinations and medication context',
+    description:
+      'Screen ingredient combinations and documented or theoretical caution signals before treating a favorable comparison as clearance to combine products.',
   },
-]
-
-const comparisons = [
-  {
-    href: '/guides/compare/berberine-vs-inositol/',
-    label: 'Berberine vs Inositol',
-    note: 'Compare two common metabolic-health research paths using evidence, dose, formulation, and safety context.',
-  },
-  {
-    href: '/guides/compare/berberine-vs-cinnamon/',
-    label: 'Berberine vs Cinnamon',
-    note: 'Compare canonical records without assuming shared metabolic marketing means equivalent evidence.',
-  },
-]
+] as const
 
 export default function MetabolicHealthGoalPage() {
   return (
@@ -77,59 +73,29 @@ export default function MetabolicHealthGoalPage() {
         <p className="eyebrow-label">Goal research hub</p>
         <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">Metabolic health research</h1>
         <p className="text-lg leading-8 text-muted">
-          Start with Berberine because it anchors several of the site’s metabolic-health research paths, then compare realistic alternatives by human evidence, studied form, dose context, and safety. This hub is for evidence research—not diagnosis or disease treatment.
+          Start with the outcome you are researching, not a supplement claim. This page is the front door; the full metabolic-health guide owns the deeper comparison logic, while canonical ingredient profiles own the underlying evidence records.
         </p>
       </header>
 
-      <section className="card-premium max-w-4xl space-y-4 p-6 sm:p-8" aria-labelledby="start-berberine">
-        <p className="eyebrow-label">Start here</p>
-        <h2 id="start-berberine" className="text-2xl font-semibold text-ink">Inspect the Berberine evidence record first</h2>
-        <p className="leading-7 text-muted">
-          Use the canonical profile to establish what the site actually has for evidence, studied dose, formulations, safety, and interactions before moving into comparisons.
-        </p>
-        <Link href="/compounds/berberine/" className="font-semibold text-brand-800 hover:underline dark:text-brand-100">
-          Open the Berberine profile →
-        </Link>
-      </section>
-
-      <section className="max-w-5xl space-y-4">
-        <div>
-          <p className="eyebrow-label">Research filter</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">What to compare before drawing a conclusion</h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {researchChecks.map((item) => (
-            <article key={item.title} className="card-premium p-5">
-              <h3 className="font-semibold text-ink">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="card-premium max-w-5xl space-y-5 p-6 sm:p-8" aria-labelledby="compare-options">
-        <p className="eyebrow-label">Next step</p>
-        <h2 id="compare-options" className="text-2xl font-semibold text-ink">Compare realistic alternatives</h2>
-        <ul className="grid gap-4 sm:grid-cols-2">
-          {comparisons.map((comparison) => (
-            <li key={comparison.href}>
-              <Link href={comparison.href} className="block h-full rounded-2xl border border-brand-900/10 bg-white/70 p-5 transition hover:border-brand-700/20 hover:shadow-sm dark:border-white/10 dark:bg-white/5">
-                <span className="font-semibold text-brand-800 dark:text-brand-100">{comparison.label} →</span>
-                <span className="mt-2 block text-sm leading-6 text-muted">{comparison.note}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <section className="grid gap-4 md:grid-cols-3" aria-label="Metabolic health research paths">
+        {nextSteps.map((step) => (
+          <Link
+            key={step.href}
+            href={step.href}
+            className="card-premium block h-full p-6 transition hover:border-brand-700/20 hover:shadow-sm"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-200">
+              {step.eyebrow}
+            </p>
+            <h2 className="mt-2 text-xl font-semibold text-ink">{step.title}</h2>
+            <p className="mt-3 text-sm leading-7 text-muted">{step.description}</p>
+            <span className="mt-4 inline-flex text-sm font-semibold text-brand-800 dark:text-brand-100">Open path →</span>
+          </Link>
+        ))}
       </section>
 
       <section className="max-w-5xl rounded-2xl border border-amber-500/20 bg-amber-50/60 p-5 text-sm leading-6 text-muted dark:bg-amber-950/10">
-        <strong className="text-ink">Disease-treatment boundary:</strong> changes in metabolic markers do not make a supplement a substitute for diagnosis, prescribed treatment, or medication management. The site intentionally keeps those decisions outside this consumer comparison path.
-      </section>
-
-      <section className="max-w-5xl">
-        <Link href="/safety-checker/" className="font-semibold text-brand-800 hover:underline dark:text-brand-100">
-          Check ingredient combinations in the Safety Checker →
-        </Link>
+        <strong className="text-ink">Disease-treatment boundary:</strong> changes in metabolic markers do not make a supplement a substitute for diagnosis, prescribed treatment, or medication management. The site intentionally keeps those decisions outside this consumer research path.
       </section>
 
       <Disclaimer />
