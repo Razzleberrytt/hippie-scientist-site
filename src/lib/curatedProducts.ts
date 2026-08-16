@@ -59,8 +59,14 @@ function parseDate(value: string): Date | null {
 }
 
 const REVIEW_GRACE_PERIOD_DAYS = 30
+const MAX_FUTURE_REVIEW_SKEW_DAYS = 5 / (24 * 60)
 
-export type ReviewRecencyState = 'fresh' | 'stale_grace' | 'stale_expired' | 'missing_reviewed_at'
+export type ReviewRecencyState =
+  | 'fresh'
+  | 'stale_grace'
+  | 'stale_expired'
+  | 'missing_reviewed_at'
+  | 'future_reviewed_at'
 
 function getReviewAgeDays(
   product: CuratedProductRecommendation,
@@ -77,9 +83,10 @@ export function getReviewRecencyState(
   product: CuratedProductRecommendation,
   now: Date = new Date(),
 ): ReviewRecencyState {
-  if (!CURATED_PRODUCT_STALE_REVIEW_DAYS || CURATED_PRODUCT_STALE_REVIEW_DAYS <= 0) return 'fresh'
   const elapsedDays = getReviewAgeDays(product, now)
   if (elapsedDays === null) return 'missing_reviewed_at'
+  if (elapsedDays < -MAX_FUTURE_REVIEW_SKEW_DAYS) return 'future_reviewed_at'
+  if (!CURATED_PRODUCT_STALE_REVIEW_DAYS || CURATED_PRODUCT_STALE_REVIEW_DAYS <= 0) return 'fresh'
   if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS) return 'fresh'
   if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS + REVIEW_GRACE_PERIOD_DAYS)
     return 'stale_grace'
@@ -119,6 +126,7 @@ export type CuratedProductReadinessFailureReason =
   | 'missing_rationale'
   | 'missing_research_status'
   | 'missing_reviewed_at'
+  | 'future_reviewed_at'
   | 'inactive'
   | 'entity_page_mismatch'
   | 'confidence_tier_not_met'
@@ -177,7 +185,9 @@ export function assessCuratedProductReadiness(params: {
   if (!disclosurePresent) failureReasons.push('missing_disclosure')
   if (!rationalePresent) failureReasons.push('missing_rationale')
   if (!researchedReviewedStatusPresent) failureReasons.push('missing_research_status')
-  if (!reviewedAtPresent) failureReasons.push('missing_reviewed_at')
+  if (!reviewedAtPresent || reviewRecencyState === 'missing_reviewed_at')
+    failureReasons.push('missing_reviewed_at')
+  if (reviewRecencyState === 'future_reviewed_at') failureReasons.push('future_reviewed_at')
   if (!product.active) failureReasons.push('inactive')
   if (
     product.entityType !== pageContext.entityType ||
@@ -209,7 +219,8 @@ export function assessCuratedProductReadiness(params: {
     staleWithinGracePeriod ||
     genericLinkDetected ||
     malformedUrlDetected ||
-    reviewRecencyState === 'missing_reviewed_at'
+    reviewRecencyState === 'missing_reviewed_at' ||
+    reviewRecencyState === 'future_reviewed_at'
 
   return {
     entitySlug: product.entitySlug,
