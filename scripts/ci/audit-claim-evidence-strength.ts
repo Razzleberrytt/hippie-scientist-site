@@ -1,14 +1,15 @@
 #!/usr/bin/env npx tsx
-/** Claim-level evidence strength report derived from the canonical research-quality analysis. */
+/** Claim-level evidence strength report derived from the canonical research-quality snapshot. */
 
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
+import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 
 const ROOT = process.cwd()
 const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'claim-evidence-strength.json')
-const { claimAnalyses: claims, structuredClaimAnalyses } = analyzeResearchQuality(ROOT)
+const { analysis } = buildResearchQualitySnapshot(ROOT)
+const { claimAnalyses: claims, structuredClaimAnalyses } = analysis
 
 const tierCounts = claims.reduce<Record<string, number>>((counts, claim) => {
   counts[claim.supportTier] = (counts[claim.supportTier] ?? 0) + 1
@@ -59,7 +60,5 @@ console.log(`High-confidence weak outcomes      ${report.summary.highConfidenceW
 console.log(`Unapproved unsupported claims      ${report.summary.unapprovedUnsupportedStructuredClaims}`)
 console.log(`Unapproved weak structured claims  ${report.summary.unapprovedWeakStructuredClaims}`)
 console.log('\nStructured support tiers:')
-for (const [tier, count] of Object.entries(structuredTierCounts).sort((a, b) => b[1] - a[1])) {
-  console.log(`  ${tier.padEnd(26)} ${count}`)
-}
+for (const [tier, count] of Object.entries(structuredTierCounts).sort((a, b) => b[1] - a[1])) console.log(`  ${tier.padEnd(26)} ${count}`)
 console.log(`\nReport: ${path.relative(ROOT, REPORT_PATH)}`)
