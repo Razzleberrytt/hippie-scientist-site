@@ -15,6 +15,14 @@ const ARTICLE_PAGE = path.join(ROOT, 'app', 'articles', '[slug]', 'page.tsx')
 const MENTAL_HEALTH_ARTICLE = path.join(ROOT, 'components', 'articles', 'MentalHealthArticlePage.tsx')
 const GOAL_CLUSTER_ARTICLE = path.join(ROOT, 'components', 'articles', 'GoalClusterArticlePage.tsx')
 const RHABDO_PAGE = path.join(ROOT, 'app', 'learn', 'rhabdomyolysis', 'page.tsx')
+const LEGACY_GUIDE_REFERENCE = path.join(ROOT, 'components', 'LegacyGuideReference.tsx')
+const LEGACY_GUIDE_PAGES = [
+  ['prebiotics', path.join(ROOT, 'app', 'guides', 'other', 'prebiotics', 'page.tsx')],
+  ['greens-powders', path.join(ROOT, 'app', 'guides', 'other', 'greens-powders', 'page.tsx')],
+  ['bovine-colostrum', path.join(ROOT, 'app', 'guides', 'other', 'bovine-colostrum', 'page.tsx')],
+  ['electrolyte-supplements', path.join(ROOT, 'app', 'guides', 'other', 'electrolyte-supplements', 'page.tsx')],
+  ['collagen-supplements', path.join(ROOT, 'app', 'guides', 'other', 'collagen-supplements', 'page.tsx')],
+]
 const REFERENCES = path.join(ROOT, 'components', 'References.tsx')
 const EVIDENCE_BADGE = path.join(ROOT, 'components', 'ui', 'EvidenceScoreBadge.tsx')
 const SAFETY_GAUGE = path.join(ROOT, 'components', 'ui', 'SafetyGaugeMeter.tsx')
@@ -204,6 +212,29 @@ function auditRhabdoCitationPrimitives() {
   }
 }
 
+function auditLegacyGuideReferencePrimitives() {
+  requireSignals(LEGACY_GUIDE_REFERENCE, 'legacy-guide-citations', 'LegacyGuideReference', [
+    ['id={`ref-${n}`}', 'stable ordinal source anchors'],
+    ['data-citation-source="true"', 'citation-source marker'],
+    ['itemType="https://schema.org/CreativeWork"', 'conservative CreativeWork semantics'],
+    ['href={`#ref-${n}`}', 'durable source self-link'],
+    ['itemProp="name"', 'citation text name semantic'],
+    ['itemProp="url"', 'source URL semantic'],
+  ])
+
+  for (const [slug, file] of LEGACY_GUIDE_PAGES) {
+    requireSignals(file, 'legacy-guide-citations', `${slug} guide`, [
+      ["import Ref from '@/components/LegacyGuideReference'", 'shared legacy reference import'],
+      ['<Ref n={', 'shared legacy reference usage'],
+    ])
+
+    const source = text(file)
+    if (/^type RefProps\b/m.test(source) || /^function Ref\s*\(/m.test(source)) {
+      add('error', 'legacy-guide-citations', `${slug} guide reintroduced a local legacy reference renderer`)
+    }
+  }
+}
+
 function auditProfilePrimitives() {
   requireSignals(EVIDENCE_BADGE, 'profile-semantics', 'EvidenceScoreBadge', [
     ['data-evidence="true"', 'evidence marker'],
@@ -284,6 +315,7 @@ auditArticleExtractionPrimitives()
 auditMentalHealthCitationPrimitives()
 auditGoalClusterCitationPrimitives()
 auditRhabdoCitationPrimitives()
+auditLegacyGuideReferencePrimitives()
 auditProfilePrimitives()
 auditExtractability()
 auditAntiPatterns()
