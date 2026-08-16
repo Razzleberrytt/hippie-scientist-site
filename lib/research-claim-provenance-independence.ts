@@ -13,15 +13,19 @@ export type ClaimProvenanceIndependence = {
   distinctJournalCount: number
   sameFirstAuthorLineage: boolean
   sameJournalLineage: boolean
+  journalOnlyNarrowSupport: boolean
   provenanceNarrowMultiStudySupport: boolean
   highConfidenceProvenanceNarrowMultiStudySupport: boolean
 }
 
 /**
  * Detect multi-study claims whose apparent independence is narrowed by shared
- * publication provenance. Missing metadata never counts as concentration: a
- * claim must have provenance for at least two studies before author/journal
- * lineage can trigger a finding.
+ * publication provenance. Missing metadata never counts as concentration.
+ *
+ * Shared first-author lineage is meaningful with two studies. Journal-only
+ * overlap is weaker: two otherwise-independent papers in the same journal are
+ * common and should remain descriptive, so journal-only narrowing requires at
+ * least three known studies from the same journal.
  */
 export function analyzeClaimProvenanceIndependence(
   analysis: ResearchQualityAnalysis,
@@ -45,7 +49,8 @@ export function analyzeClaimProvenanceIndependence(
       const distinctJournalCount = new Set(journals).size
       const sameFirstAuthorLineage = authors.length >= 2 && distinctFirstAuthorCount === 1
       const sameJournalLineage = journals.length >= 2 && distinctJournalCount === 1
-      const provenanceNarrowMultiStudySupport = sameFirstAuthorLineage || sameJournalLineage
+      const journalOnlyNarrowSupport = journals.length >= 3 && distinctJournalCount === 1
+      const provenanceNarrowMultiStudySupport = sameFirstAuthorLineage || journalOnlyNarrowSupport
 
       return {
         url: claim.url,
@@ -59,6 +64,7 @@ export function analyzeClaimProvenanceIndependence(
         distinctJournalCount,
         sameFirstAuthorLineage,
         sameJournalLineage,
+        journalOnlyNarrowSupport,
         provenanceNarrowMultiStudySupport,
         highConfidenceProvenanceNarrowMultiStudySupport:
           provenanceNarrowMultiStudySupport && claim.confidence >= 0.75,
