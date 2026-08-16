@@ -35,12 +35,18 @@ function topology(): ResearchQualityTopology {
   return {
     narrowCrossProfileEvidenceBundles: [],
     semanticAlignment: { findings: [], concentrationFindings: [], coverageGapFindings: [] },
+    claimBreadth: { findings: [] },
+    effectCertainty: { findings: [] },
+    directionalConsistency: { findings: [] },
+    selectiveOutcomeReporting: { findings: [] },
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { lowCoverageClaims: [] },
+    metadataIntegrity: { profiles: [] },
     provenanceNarrowMultiStudyClaims: [],
     edgeCardinality: { pseudoMultiSourceClaims: [] },
     trialRegistrationIndependence: { sameTrialReuseClaims: [] },
     evidenceLineage: { sharedNonRegistryLineageClaims: [] },
+    underlyingStudyIndependence: { reducedClaims: [], profiles: [], newlyOverDependentProfiles: [] },
     evidenceIndependenceCoverage: {
       unresolvedClaims: [
         { url: '/herbs/a/', claimId: 'c1', combinedCoverage: 0.25, unresolvedStudyCount: 3, highConfidenceIndependenceUnresolved: true },
