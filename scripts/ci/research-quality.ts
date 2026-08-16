@@ -6,6 +6,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { buildAiCitationReadiness, writeAiCitationReadinessReport } from '../../lib/ai-citation-readiness'
+import { analyzeEvidenceGradeConsistency, writeEvidenceGradeConsistencyReport } from '../../lib/evidence-grade-consistency'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from '../../lib/research-evidence-age'
 import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
 import { buildResearchGapQueue, structuralCoverageFailures } from '../../lib/research-quality-policy'
@@ -15,11 +16,9 @@ import { analyzeClaimEvidenceOverlap, analyzeCrossProfileStudyLoad, analyzeEvide
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORT_DIR, 'research-quality.json')
-const NPX = process.platform === 'win32' ? 'npx.cmd' : 'npx'
 
 const externalChecks = [
   { id: 'citation-identities', label: 'Citation identity integrity', command: process.execPath, args: ['scripts/ci/validate-citation-identifiers.mjs'] },
-  { id: 'evidence-grades', label: 'Evidence grade consistency', command: NPX, args: ['tsx', 'scripts/ci/validate-evidence-grade-consistency.ts'] },
   { id: 'content-integrity', label: 'Structured content integrity', command: process.execPath, args: ['scripts/ci/audit-content-integrity.mjs'] },
 ] as const
 
@@ -41,6 +40,8 @@ const analysis = analyzeResearchQuality(ROOT)
 const structuralFailures = structuralCoverageFailures(analysis)
 const researchGapQueue = buildResearchGapQueue(analysis)
 const sourceIntegrity = analyzeResearchSourceIntegrity(analysis)
+const evidenceGradeConsistency = analyzeEvidenceGradeConsistency(ROOT)
+const evidenceGradeReportPath = writeEvidenceGradeConsistencyReport(evidenceGradeConsistency, ROOT)
 const crossProfileStudyLoad = analyzeCrossProfileStudyLoad(analysis)
 const systemicLoadBearingStudies = crossProfileStudyLoad.filter((study) => study.systemicLoadBearing)
 const evidenceBundleReuse = analyzeEvidenceBundleReuse(analysis)
@@ -71,6 +72,19 @@ results.push({
 console.log(`${corePassed ? 'PASS' : 'FAIL'}  Canonical claim/profile/source research-quality analysis  (${coreDurationMs}ms)`)
 if (!corePassed) failed = true
 
+const gradesPassed = evidenceGradeConsistency.invalid.length === 0
+results.push({
+  id: 'evidence-grades',
+  label: 'Evidence grade consistency',
+  passed: gradesPassed,
+  exitCode: gradesPassed ? 0 : 1,
+  durationMs: 0,
+  stdoutTail: `profiles=${evidenceGradeConsistency.totals.profiles}; flaggedIndexable=${evidenceGradeConsistency.totals.flaggedIndexable}; contradictions=${evidenceGradeConsistency.totals.contradictionsIndexable}`,
+  stderrTail: gradesPassed ? '' : `${evidenceGradeConsistency.invalid.length} non-canonical published grade(s)`,
+})
+console.log(`${gradesPassed ? 'PASS' : 'FAIL'}  Evidence grade consistency  (in-process)`)
+if (!gradesPassed) failed = true
+
 for (const check of externalChecks) {
   const started = Date.now(); const run = spawnSync(check.command, check.args, { cwd: ROOT, encoding: 'utf8', env: process.env })
   const exitCode = run.status ?? 1; const passed = exitCode === 0; const durationMs = Date.now() - started
@@ -90,26 +104,29 @@ const coreSummary = {
   systemicLoadBearingStudies: systemicLoadBearingStudies.length, repeatedEvidenceBundles: evidenceBundleReuse.length,
   narrowRepeatedEvidenceBundles: narrowRepeatedEvidenceBundles.length, nearDuplicateEvidencePairs: claimEvidenceOverlap.length,
   crossPredicateNearDuplicateEvidencePairs: crossPredicateEvidenceOverlap.length, sourceIntegrity: sourceIntegrity.summary,
-  evidenceAge: evidenceAgeSummary, aiCitationReadiness: aiCitationReadiness.summary,
+  evidenceGradeConsistency: evidenceGradeConsistency.totals, evidenceAge: evidenceAgeSummary, aiCitationReadiness: aiCitationReadiness.summary,
 }
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 8, generatedAt: new Date().toISOString(), passed: !failed,
-  source: { analysis: 'lib/research-quality-analysis.ts', policy: 'lib/research-quality-policy.ts', sourceIntegrity: 'lib/research-source-integrity.ts', crossProfileStudyLoad: 'lib/research-study-load.ts', evidenceBundleReuse: 'lib/research-study-load.ts', claimEvidenceOverlap: 'lib/research-study-load.ts', evidenceAge: 'lib/research-evidence-age.ts', aiCitationReadiness: 'lib/ai-citation-readiness.ts' },
+  schemaVersion: 9, generatedAt: new Date().toISOString(), passed: !failed,
+  source: { analysis: 'lib/research-quality-analysis.ts', policy: 'lib/research-quality-policy.ts', sourceIntegrity: 'lib/research-source-integrity.ts', evidenceGradeConsistency: 'lib/evidence-grade-consistency.ts', crossProfileStudyLoad: 'lib/research-study-load.ts', evidenceBundleReuse: 'lib/research-study-load.ts', claimEvidenceOverlap: 'lib/research-study-load.ts', evidenceAge: 'lib/research-evidence-age.ts', aiCitationReadiness: 'lib/ai-citation-readiness.ts' },
   coreSummary, structuralFailures, withdrawnCitedStudies: sourceIntegrity.withdrawn,
+  evidenceGradeInvalid: evidenceGradeConsistency.invalid, evidenceGradeContradictions: evidenceGradeConsistency.contradictions.slice(0, 100),
   oldAndLoadBearingStudies: sourceIntegrity.oldAndLoadBearing.slice(0, 100), systemicLoadBearingStudies: systemicLoadBearingStudies.slice(0, 50),
   topCrossProfileStudyLoad: crossProfileStudyLoad.slice(0, 100), narrowRepeatedEvidenceBundles: narrowRepeatedEvidenceBundles.slice(0, 100),
   topRepeatedEvidenceBundles: evidenceBundleReuse.slice(0, 100), topClaimEvidenceOverlap: claimEvidenceOverlap.slice(0, 150),
   highConfidenceLegacyOnlyClaims: highConfidenceLegacyOnlyClaims.slice(0, 100), topLegacyOnlyClaims: legacyOnlyClaims.slice(0, 100),
   topResearchGaps: researchGapQueue.slice(0, 50), topAiCitationRemediation: aiCitationReadiness.profiles.slice(0, 50),
-  checks: results, evidenceGradeSummary: readSummary('evidence-grade-consistency.json'), contentIntegritySummary: readSummary('content-integrity.json'),
+  checks: results, contentIntegritySummary: readSummary('content-integrity.json'),
 }, null, 2)}\n`)
 
 console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structuredClaims} structured claims · ${coreSummary.approvedClaims} approved`)
 console.log(`Source integrity: ${sourceIntegrity.summary.citedStudies} studies · ${sourceIntegrity.summary.withdrawn} withdrawn/concern · ${sourceIntegrity.summary.oldAndLoadBearing} old load-bearing`)
+console.log(`Evidence grades: ${evidenceGradeConsistency.totals.invalidPublishedGrades} invalid · ${evidenceGradeConsistency.totals.contradictionsIndexable} indexable contradictions`)
 console.log(`Evidence topology: ${coreSummary.systemicLoadBearingStudies} systemic studies · ${coreSummary.narrowRepeatedEvidenceBundles} narrow repeated bundles · ${coreSummary.nearDuplicateEvidencePairs} near-duplicate claim pairs (${coreSummary.crossPredicateNearDuplicateEvidencePairs} cross-predicate) · ${evidenceAgeSummary.legacyOnly10Years} legacy-only claims`)
 console.log(`AI citation remediation: ${aiCitationReadiness.summary.below70} below 70 · ${aiCitationReadiness.summary.contradictions} contradiction(s)`)
+console.log(`Evidence-grade report: ${path.relative(ROOT, evidenceGradeReportPath)}`)
 console.log(`AI report: ${path.relative(ROOT, aiCitationReportPath)}`)
 console.log(`Roll-up report: ${path.relative(ROOT, REPORT_PATH)}`)
 if (failed) { console.error('\n[research-quality] FAILED — one or more authoritative research checks failed.'); process.exit(1) }
