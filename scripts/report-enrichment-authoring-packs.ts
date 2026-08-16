@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import type { EvidenceClass, SourceClass } from './lib/source-class-governance'
 
 type EntityType = 'herb' | 'compound' | 'surface'
 type TopicType =
@@ -39,23 +40,6 @@ type ClaimType =
   | 'research_gap'
   | 'relationship_signal'
   | 'origin_note'
-
-type SourceClass =
-  | 'randomized-human-trial'
-  | 'non-randomized-human-study'
-  | 'observational-human-evidence'
-  | 'systematic-review-meta-analysis'
-  | 'preclinical-mechanistic-study'
-  | 'traditional-use-monograph'
-  | 'regulatory-agency-monograph-guidance'
-  | 'reference-database-authority'
-
-type EvidenceClass =
-  | 'human-clinical'
-  | 'human-observational'
-  | 'preclinical-mechanistic'
-  | 'traditional-use'
-  | 'regulatory-monograph'
 
 type BootstrapPack = {
   bootstrapPackId: string
