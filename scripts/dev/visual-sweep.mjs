@@ -17,13 +17,14 @@ import { chromium } from 'playwright'
 import { mkdirSync, writeFileSync } from 'node:fs'
 
 const ROUTES = [
-  '/', '/herbs/', '/herbs/ashwagandha/', '/compounds/', '/compounds/l-theanine/',
+  '/', '/start/', '/library/', '/goals/',
+  '/goals/sleep/', '/goals/stress/', '/goals/anxiety/', '/goals/focus/',
+  '/herbs/', '/herbs/ashwagandha/', '/compounds/', '/compounds/l-theanine/',
   '/guides/', '/guides/compare/', '/guides/compare/rhodiola-vs-ashwagandha/',
-  '/guides/sleep/', '/goals/sleep/', '/library/', '/articles/', '/learn/',
-  '/safety-checker/', '/evidence/evidence-report/', '/search/',
-  '/info/about/', '/info/faq/', '/info/methodology/', '/info/privacy/',
-  '/guides/mental-health/', '/guides/anxiety/', '/novel-psychoactive-substances/',
-  '/guides/other/', '/evidence/evidence-checker/',
+  '/guides/mental-health/', '/guides/metabolic-health/', '/guides/other/',
+  '/articles/', '/learn/', '/safety-checker/', '/evidence/evidence-report/',
+  '/evidence/evidence-checker/', '/search/', '/info/about/', '/info/faq/',
+  '/info/methodology/', '/info/privacy/', '/novel-psychoactive-substances/',
 ]
 const WIDTHS = [390, 768, 1280]
 const tag = process.argv[2] || 'base'
