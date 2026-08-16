@@ -9,7 +9,7 @@ import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
 const OUTPUT = path.join(REPORT_DIR, 'research-gaps.json')
-const { profileAnalyses, claimAnalyses } = analyzeResearchQuality(ROOT)
+const { profileAnalyses, claimAnalyses, structuredClaimAnalyses } = analyzeResearchQuality(ROOT)
 const queue = new Map<string, { url: string; score: number; reasons: Array<{ kind: string; weight: number; detail?: string }> }>()
 
 function add(url: string, kind: string, weight: number, detail?: string) {
@@ -41,6 +41,16 @@ for (const claim of claimAnalyses) {
     baseWeight + confidenceBonus,
     `${claim.claimId}${confidenceBonus ? ' · high confidence' : ''}`,
   )
+}
+
+for (const claim of structuredClaimAnalyses.filter((item) => !item.approved)) {
+  if (claim.supportTier === 'unsupported') {
+    add(claim.url, 'unsupported-unapproved-structured-claim', 4, `${claim.claimId} · ${claim.reviewStatus || 'unreviewed'}`)
+    continue
+  }
+  if (claim.outcomeClaim && ['unclassified', 'narrative-only', 'indirect-only'].includes(claim.supportTier)) {
+    add(claim.url, `unapproved-claim-support-${claim.supportTier}`, 3, `${claim.claimId} · ${claim.reviewStatus || 'unreviewed'}`)
+  }
 }
 
 for (const profile of profileAnalyses) {
@@ -80,7 +90,7 @@ const report = {
   generatedAt: new Date().toISOString(),
   source: 'lib/research-quality-analysis.ts',
   scoring: {
-    note: 'Scores prioritize structural invalidity first, then claim-support weakness, effective-study concentration, and evidence-mix imbalance. They are triage weights, not evidence grades.',
+    note: 'Scores prioritize structural invalidity first, then approved-claim weakness, effective-study concentration, evidence-mix imbalance, and finally low-weight editorial backlog for unapproved structured claims. They are triage weights, not evidence grades.',
     weights: {
       unsupportedApprovedClaim: 100,
       danglingClaimSourceEdge: 100,
@@ -91,6 +101,8 @@ const report = {
       noPrimaryHumanStudy: 20,
       narrativeReviewDominatedProfile: 20,
       singleStudyApprovedClaim: 5,
+      unsupportedUnapprovedStructuredClaim: 4,
+      weakUnapprovedOutcomeClaim: 3,
     },
   },
   summary: {
@@ -104,7 +116,7 @@ const report = {
 }
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
-fs.writeFileSync(OUTPUT, `${JSON.stringify(report, null, 2)}\n`)
+fs.writeFileSync(OUTPUT, `${JSON.stringify(report, null,2)}\n`)
 
 console.log('\nPrioritized research-gap queue')
 console.log('='.repeat(72))
