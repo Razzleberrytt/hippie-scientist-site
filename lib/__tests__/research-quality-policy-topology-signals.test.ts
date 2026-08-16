@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 
-import { buildAggregatedTopologyGapSignals } from '@/lib/research-quality-policy-topology-signals'
+import {
+  buildAggregatedTopologyGapSignals,
+  type AggregatedTopologyGapWeights,
+} from '@/lib/research-quality-policy-topology-signals'
 import type { ResearchQualityTopology } from '@/lib/research-quality-topology'
 
 const weights = {
@@ -16,14 +19,17 @@ const weights = {
   causalWithoutDirectControlled: 10,
   synthesisOnlyCausalSupport: 7,
   highConfidenceCausalLanguageBonus: 8,
-  claimCitationMetadataGap: 8,
-  highConfidenceCitationMetadataBonus: 4,
+  metadataIntegrity: 6,
+  highConfidenceMetadataIntegrityBonus: 4,
   provenanceNarrowMultiStudySupport: 8,
   highConfidenceProvenanceNarrowBonus: 4,
   pseudoMultiSourceSupport: 9,
+  underlyingStudyPublicationReuse: 12,
+  highConfidenceUnderlyingStudyPublicationReuseBonus: 6,
+  independenceMetadataGap: 8,
+  highConfidenceIndependenceMetadataBonus: 6,
   severeStudyClassConflict: 100,
-  studyClassAmbiguity: 5,
-}
+} satisfies AggregatedTopologyGapWeights
 
 function topology(overrides: Record<string, unknown> = {}): ResearchQualityTopology {
   return {
@@ -31,8 +37,12 @@ function topology(overrides: Record<string, unknown> = {}): ResearchQualityTopol
     semanticAlignment: { findings: [], concentrationFindings: [], coverageGapFindings: [] },
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { lowCoverageClaims: [] },
+    metadataIntegrity: { profiles: [] },
     provenanceNarrowMultiStudyClaims: [],
     edgeCardinality: { pseudoMultiSourceClaims: [] },
+    trialRegistrationIndependence: { sameTrialReuseClaims: [] },
+    evidenceLineage: { sharedNonRegistryLineageClaims: [] },
+    evidenceIndependenceCoverage: { unresolvedClaims: [] },
     studyClassConflicts: { conflicts: [], severeConflicts: [] },
     ...overrides,
   } as unknown as ResearchQualityTopology
@@ -88,20 +98,51 @@ describe('aggregated topology gap signals', () => {
     expect(pseudo[0].detail).toContain('3 source rows')
   })
 
-  it('keeps severe and advisory study-class conflicts distinct', () => {
+  it('aggregates advisory metadata once while leaving severe class conflicts structural', () => {
     const severe = { url: '/herbs/a/', severe: true }
-    const advisory = { url: '/herbs/b/', severe: false }
     const signals = buildAggregatedTopologyGapSignals(topology({
-      studyClassConflicts: { conflicts: [severe, advisory], severeConflicts: [severe] },
+      studyClassConflicts: { conflicts: [severe], severeConflicts: [severe] },
+      metadataIntegrity: {
+        profiles: [
+          {
+            url: '/herbs/a/',
+            yearConflicts: 0,
+            provenanceConflicts: 0,
+            studyClassConflicts: 1,
+            severeStudyClassConflicts: 1,
+            lowCitationMetadataClaims: 0,
+            highConfidenceLowCitationMetadataClaims: 0,
+            issueCount: 1,
+            severeIssueCount: 1,
+          },
+          {
+            url: '/herbs/b/',
+            yearConflicts: 1,
+            provenanceConflicts: 1,
+            studyClassConflicts: 1,
+            severeStudyClassConflicts: 0,
+            lowCitationMetadataClaims: 2,
+            highConfidenceLowCitationMetadataClaims: 1,
+            issueCount: 5,
+            severeIssueCount: 1,
+          },
+        ],
+      },
     }), weights)
 
     expect(signals.find((signal) => signal.url === '/herbs/a/')).toMatchObject({
       kind: 'severe-canonical-study-class-conflict',
       weight: 100,
     })
-    expect(signals.find((signal) => signal.url === '/herbs/b/')).toMatchObject({
-      kind: 'canonical-study-class-ambiguity',
-      weight: 5,
-    })
+    expect(signals.some((signal) => signal.url === '/herbs/a/' && signal.kind === 'research-metadata-integrity')).toBe(false)
+
+    const metadata = signals.find((signal) => signal.url === '/herbs/b/' && signal.kind === 'research-metadata-integrity')
+    expect(metadata).toMatchObject({ weight: 18 })
+    expect(metadata?.detail).toContain('5 advisory metadata integrity issue(s)')
+    expect(metadata?.detail).toContain('1 publication-year conflict(s)')
+    expect(metadata?.detail).toContain('1 provenance alias conflict(s)')
+    expect(metadata?.detail).toContain('1 advisory study-class ambiguity')
+    expect(metadata?.detail).toContain('2 low-completeness claim(s)')
+    expect(metadata?.detail).toContain('1 high-confidence citation gap(s)')
   })
 })

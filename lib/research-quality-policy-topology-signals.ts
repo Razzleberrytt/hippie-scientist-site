@@ -13,8 +13,8 @@ export type AggregatedTopologyGapWeights = {
   causalWithoutDirectControlled: number
   synthesisOnlyCausalSupport: number
   highConfidenceCausalLanguageBonus: number
-  claimCitationMetadataGap: number
-  highConfidenceCitationMetadataBonus: number
+  metadataIntegrity: number
+  highConfidenceMetadataIntegrityBonus: number
   provenanceNarrowMultiStudySupport: number
   highConfidenceProvenanceNarrowBonus: number
   pseudoMultiSourceSupport: number
@@ -23,7 +23,6 @@ export type AggregatedTopologyGapWeights = {
   independenceMetadataGap: number
   highConfidenceIndependenceMetadataBonus: number
   severeStudyClassConflict: number
-  studyClassAmbiguity: number
 }
 
 export type AggregatedTopologyGapSignal = {
@@ -129,14 +128,23 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  for (const [url, items] of groupByUrl(topology.claimCitationMetadata.lowCoverageClaims)) {
-    const highConfidence = items.filter((item) => item.highConfidenceLowMetadataCoverage).length
-    const minCoverage = Math.min(...items.map((item) => item.fieldMetadataCoverage))
+  // Advisory metadata findings share one root remediation path. Severe
+  // cross-family study-class conflicts remain structural and are scored below.
+  for (const item of topology.metadataIntegrity.profiles) {
+    const advisoryStudyClassConflicts = Math.max(0, item.studyClassConflicts - item.severeStudyClassConflicts)
+    const advisoryIssueCount = item.yearConflicts
+      + item.provenanceConflicts
+      + advisoryStudyClassConflicts
+      + item.lowCitationMetadataClaims
+    if (advisoryIssueCount === 0) continue
+    const highConfidence = item.highConfidenceLowCitationMetadataClaims > 0
     signals.push({
-      url,
-      kind: 'claim-citation-metadata-gap',
-      weight: weights.claimCitationMetadataGap + Math.min(6, Math.max(0, items.length - 1)) + (highConfidence ? weights.highConfidenceCitationMetadataBonus : 0),
-      detail: `${items.length} approved claim(s) rely on studies with <70% citation-field completeness; ${highConfidence} high-confidence; minimum field coverage ${Math.round(minCoverage * 100)}%`,
+      url: item.url,
+      kind: 'research-metadata-integrity',
+      weight: weights.metadataIntegrity
+        + Math.min(12, Math.max(0, advisoryIssueCount - 1) * 2)
+        + (highConfidence ? weights.highConfidenceMetadataIntegrityBonus : 0),
+      detail: `${advisoryIssueCount} advisory metadata integrity issue(s): ${item.yearConflicts} publication-year conflict(s), ${item.provenanceConflicts} provenance alias conflict(s), ${advisoryStudyClassConflicts} advisory study-class ambiguity, ${item.lowCitationMetadataClaims} low-completeness claim(s); ${item.highConfidenceLowCitationMetadataClaims} high-confidence citation gap(s)`,
     })
   }
 
@@ -228,15 +236,6 @@ export function buildAggregatedTopologyGapSignals(
       kind: 'severe-canonical-study-class-conflict',
       weight: weights.severeStudyClassConflict,
       detail: `${items.length} canonical study classification conflict(s) cross evidence families; structural gate also blocks these`,
-    })
-  }
-
-  for (const [url, items] of groupByUrl(topology.studyClassConflicts.conflicts.filter((item) => !item.severe))) {
-    signals.push({
-      url,
-      kind: 'canonical-study-class-ambiguity',
-      weight: weights.studyClassAmbiguity,
-      detail: `${items.length} canonical study/studies have same-family design classification ambiguity`,
     })
   }
 
