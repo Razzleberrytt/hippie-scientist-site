@@ -63,7 +63,8 @@ const weakUnapprovedOutcomes = analysis.structuredClaimAnalyses.filter((claim) =
 const overDependentProfiles = analysis.profileAnalyses.filter((profile) => profile.overDependentOnSingleStudy)
 const narrativeDominatedProfiles = analysis.profileAnalyses.filter((profile) => profile.narrativeDominatedVsPrimaryHuman)
 const noPrimaryHumanProfiles = analysis.profileAnalyses.filter((profile) => profile.noPrimaryHuman)
-const orphanedPrimaryHumanProfiles = analysis.profileAnalyses.filter((profile) => profile.orphanedPrimaryHuman > 0)
+const unmappedPrimaryHumanProfiles = analysis.profileAnalyses.filter((profile) => profile.unmappedPrimaryHuman > 0)
+const unapprovedOnlyPrimaryHumanProfiles = analysis.profileAnalyses.filter((profile) => profile.unapprovedOnlyPrimaryHuman > 0)
 const corePassed = structuralFailures.length === 0 && sourceIntegrity.summary.withdrawn === 0
 const coreDurationMs = Date.now() - coreStarted
 
@@ -117,7 +118,8 @@ const coreSummary = {
   weakApprovedOutcomeClaims: weakApprovedOutcomes.length, unsupportedUnapprovedStructuredClaims: unsupportedUnapprovedClaims.length,
   weakUnapprovedOutcomeClaims: weakUnapprovedOutcomes.length, overDependentProfiles: overDependentProfiles.length,
   narrativeDominatedProfiles: narrativeDominatedProfiles.length, profilesWithApprovedClaimsButNoPrimaryHumanStudy: noPrimaryHumanProfiles.length,
-  profilesWithOrphanedPrimaryHumanEvidence: orphanedPrimaryHumanProfiles.length,
+  profilesWithUnmappedPrimaryHumanEvidence: unmappedPrimaryHumanProfiles.length,
+  profilesWithPrimaryHumanEvidenceOnlyOnUnapprovedClaims: unapprovedOnlyPrimaryHumanProfiles.length,
   profilesWithResearchGaps: researchGapQueue.length, canonicalStudiesSupportingApprovedClaims: crossProfileStudyLoad.length,
   systemicLoadBearingStudies: systemicLoadBearingStudies.length, repeatedEvidenceBundles: evidenceBundleReuse.length,
   narrowRepeatedEvidenceBundles: narrowRepeatedEvidenceBundles.length, nearDuplicateEvidencePairs: claimEvidenceOverlap.length,
@@ -127,7 +129,7 @@ const coreSummary = {
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 11, generatedAt: new Date().toISOString(), passed: !failed,
+  schemaVersion: 12, generatedAt: new Date().toISOString(), passed: !failed,
   source: { analysis: 'lib/research-quality-analysis.ts', topology: 'lib/research-quality-topology.ts', policy: 'lib/research-quality-policy.ts', citationIntegrity: 'lib/citation-integrity.mjs', sourceIntegrity: 'lib/research-source-integrity.ts', evidenceGradeConsistency: 'lib/evidence-grade-consistency.ts', aiCitationReadiness: 'lib/ai-citation-readiness.ts' },
   coreSummary, structuralFailures, citationIntegrity: { blocking: citationIntegrity.blocking, duplicateProfileSources: citationIntegrity.duplicateProfileSources, identifierPairConflicts: citationIntegrity.identifierPairConflicts, conflicts: citationIntegrity.conflicts, missingCounts: citationIntegrity.missingCounts },
   withdrawnCitedStudies: sourceIntegrity.withdrawn, evidenceGradeInvalid: evidenceGradeConsistency.invalid, evidenceGradeContradictions: evidenceGradeConsistency.contradictions.slice(0, 100),
@@ -144,7 +146,7 @@ console.log(`Citation integrity: ${citationIntegrity.sources} sources · ${citat
 console.log(`Source integrity: ${sourceIntegrity.summary.citedStudies} studies · ${sourceIntegrity.summary.withdrawn} withdrawn/concern · ${sourceIntegrity.summary.oldAndLoadBearing} old load-bearing`)
 console.log(`Evidence grades: ${evidenceGradeConsistency.totals.invalidPublishedGrades} invalid · ${evidenceGradeConsistency.totals.contradictionsIndexable} indexable contradictions`)
 console.log(`Evidence topology: ${coreSummary.systemicLoadBearingStudies} systemic studies · ${coreSummary.narrowRepeatedEvidenceBundles} narrow repeated bundles · ${coreSummary.nearDuplicateEvidencePairs} near-duplicate claim pairs (${coreSummary.crossPredicateNearDuplicateEvidencePairs} cross-predicate) · ${evidenceAgeSummary.legacyOnly10Years} legacy-only claims`)
-console.log(`Mapping gaps: ${coreSummary.profilesWithOrphanedPrimaryHumanEvidence} profile(s) contain orphaned primary-human evidence`)
+console.log(`Mapping gaps: ${coreSummary.profilesWithUnmappedPrimaryHumanEvidence} profile(s) with unmapped primary-human evidence · ${coreSummary.profilesWithPrimaryHumanEvidenceOnlyOnUnapprovedClaims} with primary-human evidence only on unapproved claims`)
 console.log(`AI citation remediation: ${aiCitationReadiness.summary.below70} below 70 · ${aiCitationReadiness.summary.contradictions} contradiction(s)`)
 console.log(`Citation report: ${path.relative(ROOT, citationReportPath)}`)
 console.log(`Evidence-grade report: ${path.relative(ROOT, evidenceGradeReportPath)}`)
