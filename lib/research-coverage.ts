@@ -1,7 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { citationIdentifiers, normalizePmidList } from './citation-identifiers.mjs'
+import {
+  buildCitationIdentifierIdentityMap,
+  canonicalCitationIdentifier,
+  citationIdentifiers,
+  normalizePmidList,
+} from './citation-identifiers.mjs'
 import { normalizeStudyClass, strongestStudyClass, type StudyClass } from './study-class'
 
 export type ResearchSource = Record<string, unknown> & {
@@ -207,44 +212,16 @@ export function uniqueSourceRefs(claim: ResearchClaim): string[] {
   return [...new Set(Array.isArray(claim.sourceRefIds) ? claim.sourceRefIds.map(String).filter(Boolean) : [])]
 }
 
-function createIdentityUnion() {
-  const parent = new Map<string, string>()
-  const find = (value: string): string => {
-    const current = parent.get(value) ?? value
-    if (current === value) {
-      parent.set(value, value)
-      return value
-    }
-    const root = find(current)
-    parent.set(value, root)
-    return root
-  }
-  const union = (a: string, b: string) => {
-    const rootA = find(a)
-    const rootB = find(b)
-    if (rootA === rootB) return
-    const [keep, merge] = [rootA, rootB].sort()
-    parent.set(merge, keep)
-  }
-  return { find, union }
-}
-
 export function canonicalStudyIdentityMap(record: ResearchProfile): Map<string, string> {
   const sources = Array.isArray(record.sources) ? record.sources : []
-  const { find, union } = createIdentityUnion()
-
-  for (const source of sources) {
-    const aliases = citationIdentifiers(source)
-    for (const alias of aliases) find(alias)
-    for (let i = 1; i < aliases.length; i += 1) union(aliases[0], aliases[i])
-  }
-
+  const aliasIdentities = buildCitationIdentifierIdentityMap(sources)
   const identities = new Map<string, string>()
+
   for (const source of sources) {
     const sourceId = String(source.id ?? '').trim()
     if (!sourceId) continue
-    const aliases = citationIdentifiers(source)
-    identities.set(sourceId, aliases.length ? find(aliases[0]) : `source-ref:${sourceId}`)
+    const canonical = canonicalCitationIdentifier(source, aliasIdentities)
+    identities.set(sourceId, canonical || `source-ref:${sourceId}`)
   }
   return identities
 }
@@ -266,29 +243,23 @@ export function canonicalStudyGroups(record: ResearchProfile): Map<string, Resea
 
 /**
  * Resolve profile-local canonical study IDs onto one site-wide stable identity.
- * DOI/PMID aliases are unioned across every profile, so a study represented as
- * DOI+PMID on one page and PMID-only on another still collapses to one study.
- * Identifier-less rows remain profile-local to prevent coincidental source IDs
- * from different pages from being treated as the same publication.
+ * DOI/PMID aliases are unioned across every profile through the same shared
+ * citation resolver used by other evidence consumers. Identifier-less rows
+ * remain profile-local to prevent coincidental source IDs from different pages
+ * from being treated as the same publication.
  */
 export function crossProfileStudyIdentityMap(
   profiles: readonly ResearchProfileEntry[],
 ): Map<string, string> {
-  const { find, union } = createIdentityUnion()
-
-  for (const { record } of profiles) {
-    for (const source of Array.isArray(record.sources) ? record.sources : []) {
-      const aliases = citationIdentifiers(source)
-      for (const alias of aliases) find(alias)
-      for (let i = 1; i < aliases.length; i += 1) union(aliases[0], aliases[i])
-    }
-  }
-
+  const allSources = profiles.flatMap(({ record }) => Array.isArray(record.sources) ? record.sources : [])
+  const aliasIdentities = buildCitationIdentifierIdentityMap(allSources)
   const identities = new Map<string, string>()
+
   for (const { url, record } of profiles) {
     for (const [localStudyId, group] of canonicalStudyGroups(record)) {
-      const aliases = [...new Set(group.flatMap((source) => citationIdentifiers(source)))]
-      const globalStudyId = aliases.length ? find(aliases[0]) : `${url}::${localStudyId}`
+      const globalStudyId = group
+        .map((source) => canonicalCitationIdentifier(source, aliasIdentities))
+        .find(Boolean) || `${url}::${localStudyId}`
       identities.set(`${url}::${localStudyId}`, globalStudyId)
     }
   }
