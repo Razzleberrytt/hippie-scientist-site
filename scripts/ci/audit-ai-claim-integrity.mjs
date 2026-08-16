@@ -57,6 +57,17 @@ function evidenceLabels(record) {
   return GRADE_FIELDS.map((field) => record?.[field]).filter((v) => v != null && String(v).trim()).map(String)
 }
 
+function semanticEvidenceLabel(value) {
+  const text = String(value ?? '').trim().toLowerCase()
+  if (!text) return ''
+  if (/^a(?:\s*[+-])?$|\bgrade\s*a\b|\bstrong\b|\brobust\b|\bwell[- ]established\b/.test(text)) return 'strong'
+  if (/^b(?:\s*[+-])?$|\bgrade\s*b\b|\bmoderate\b/.test(text)) return 'moderate'
+  if (/^c(?:\s*[+-])?$|\bgrade\s*c\b|\blimited\b|\bmixed\b|\bcontextual\b/.test(text)) return 'limited'
+  if (/^d(?:\s*[+-])?$|\bgrade\s*d\b|\bpreliminary\b|\bpreclinical\b|\bmechanistic\b|\btheoretical\b|\btraditional\b|\bearly\b/.test(text)) return 'preliminary'
+  if (/avoid|insufficient|no evidence|none|blocked|contraindicat/.test(text)) return 'insufficient'
+  return `raw:${text}`
+}
+
 const findings = []
 const totals = { profiles: 0, contradictoryStrength: 0, positiveNegative: 0, multiGrade: 0, strongWithoutHumanSignal: 0 }
 
@@ -87,13 +98,10 @@ for (const [kind, file] of DATASETS) {
       findings.push({ severity: 'error', kind, slug, issue: 'positive efficacy language coexists with unsupported/no-clear-benefit language' })
     }
 
-    const normalizedLabels = [...new Set(labels.map((value) => value.trim().toLowerCase()))]
+    const normalizedLabels = [...new Set(labels.map(semanticEvidenceLabel).filter(Boolean))]
     if (normalizedLabels.length > 1) {
-      const materiallyDifferent = normalizedLabels.some((a) => normalizedLabels.some((b) => a !== b && !(a.includes(b) || b.includes(a))))
-      if (materiallyDifferent) {
-        totals.multiGrade++
-        findings.push({ severity: 'warn', kind, slug, issue: `multiple evidence labels: ${labels.join(', ')}` })
-      }
+      totals.multiGrade++
+      findings.push({ severity: 'warn', kind, slug, issue: `multiple evidence labels: ${labels.join(', ')}` })
     }
 
     if (hasStrong) {
