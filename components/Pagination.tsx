@@ -30,11 +30,11 @@ export default function Pagination({ basePath, currentPage, totalPages, itemLabe
       aria-label={`${itemLabel} pagination`}
       className="flex flex-col gap-3 rounded-[0.9rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-4"
     >
-      <p className="text-sm font-semibold tabular-nums text-muted">
+      <p className="text-center text-sm font-semibold tabular-nums text-muted sm:text-left">
         Page <span className="text-ink">{currentPage}</span> of {totalPages}
       </p>
 
-      <div className="flex flex-wrap items-center gap-1.5">
+      <div className="flex flex-wrap items-center justify-center gap-1.5 sm:justify-end">
         {currentPage > 1 ? (
           <Link rel="prev" href={pageHref(basePath, currentPage - 1)} className={linkClass} aria-label="Go to previous page">
             <span aria-hidden="true">←</span><span className="ml-1.5 hidden sm:inline">Previous</span>
