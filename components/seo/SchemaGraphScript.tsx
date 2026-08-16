@@ -5,6 +5,9 @@ type SchemaGraphScriptProps = {
 }
 
 const LEGACY_PLACEHOLDER_PUBLICATION_DATE = '2026-01-01'
+const SITE_URL = 'https://thehippiescientist.net'
+const ORGANIZATION_ID = `${SITE_URL}/#organization`
+const USAGE_POLICY_URL = `${SITE_URL}/info/content-licensing/`
 
 export type EntityArtifact = {
   href: string
@@ -58,28 +61,20 @@ export function normalizeProfileEntitySemantics(
     const record = node as Record<string, unknown>
 
     if (record['@id'] === artifact.entityId) {
-      return {
-        ...record,
-        '@type': 'Substance',
-      }
+      return { ...record, '@type': 'Substance' }
     }
 
     const mainEntity = record.mainEntity
-    const mainEntityId =
-      mainEntity && typeof mainEntity === 'object'
-        ? (mainEntity as Record<string, unknown>)['@id']
-        : null
+    const mainEntityId = mainEntity && typeof mainEntity === 'object'
+      ? (mainEntity as Record<string, unknown>)['@id']
+      : null
     const about = record.about
-    const aboutType =
-      about && typeof about === 'object'
-        ? (about as Record<string, unknown>)['@type']
-        : null
+    const aboutType = about && typeof about === 'object'
+      ? (about as Record<string, unknown>)['@type']
+      : null
 
     if (mainEntityId === artifact.entityId && aboutType === 'MedicalTherapy') {
-      return {
-        ...record,
-        about: { '@id': artifact.entityId },
-      }
+      return { ...record, about: { '@id': artifact.entityId } }
     }
 
     return node
@@ -144,19 +139,25 @@ export function attachEntityDataset(
 ): Record<string, unknown> {
   if (!artifact || !Array.isArray(graph['@graph'])) return graph
 
+  const datasetId = `${artifact.canonicalUrl}#ai-entity-dataset`
   const dataset = {
     '@type': 'Dataset',
-    '@id': `${artifact.canonicalUrl}#ai-entity-dataset`,
+    '@id': datasetId,
     name: `${artifact.name} structured evidence data`,
     description: `Machine-readable identity, evidence claims, citations, relationships, safety, and review provenance for ${artifact.name}.`,
     url: artifact.absoluteUrl,
     encodingFormat: 'application/ld+json',
     about: { '@id': artifact.entityId },
     isBasedOn: artifact.canonicalUrl,
-    creator: {
-      '@type': 'Organization',
-      name: 'The Hippie Scientist',
-      url: 'https://thehippiescientist.net/',
+    creator: { '@id': ORGANIZATION_ID },
+    publisher: { '@id': ORGANIZATION_ID },
+    creditText: 'The Hippie Scientist',
+    usageInfo: USAGE_POLICY_URL,
+    conditionsOfAccess: 'Publicly accessible; reuse remains subject to the site attribution policy and third-party source rights.',
+    distribution: {
+      '@type': 'DataDownload',
+      contentUrl: artifact.absoluteUrl,
+      encodingFormat: 'application/ld+json',
     },
   }
 
@@ -166,16 +167,22 @@ export function attachEntityDataset(
     if (record['@id'] !== artifact.entityId) return node
 
     const existingSubjectOf = record.subjectOf
+    const datasetRef = { '@id': datasetId }
     const subjectOf = existingSubjectOf
       ? Array.isArray(existingSubjectOf)
-        ? [...existingSubjectOf, { '@id': dataset['@id'] }]
-        : [existingSubjectOf, { '@id': dataset['@id'] }]
-      : { '@id': dataset['@id'] }
+        ? existingSubjectOf.some((item) => item && typeof item === 'object' && (item as Record<string, unknown>)['@id'] === datasetId)
+          ? existingSubjectOf
+          : [...existingSubjectOf, datasetRef]
+        : (existingSubjectOf as Record<string, unknown>)['@id'] === datasetId
+          ? existingSubjectOf
+          : [existingSubjectOf, datasetRef]
+      : datasetRef
 
     return { ...record, subjectOf }
   })
 
-  return { ...graph, '@graph': [...nodes, dataset] }
+  const existingDataset = nodes.some((node) => node && typeof node === 'object' && (node as Record<string, unknown>)['@id'] === datasetId)
+  return { ...graph, '@graph': existingDataset ? nodes : [...nodes, dataset] }
 }
 
 export default function SchemaGraphScript({ graph }: SchemaGraphScriptProps) {
