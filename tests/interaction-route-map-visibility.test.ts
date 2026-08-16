@@ -33,10 +33,12 @@ describe('interaction partner route map visibility', () => {
   })
 
   it('does not create route entries for records without a valid slug', () => {
+    const missingSlug = { indexability_status: 'PUBLISH' } as unknown as RuntimeRecord
+
     expect(
       buildRenderableSlugEntityTypeMap(
         [{ slug: '', indexability_status: 'PUBLISH' }],
-        [{ indexability_status: 'PUBLISH' }],
+        [missingSlug],
       ),
     ).toEqual({})
   })
