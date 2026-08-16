@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
+import { slugifyEntityName } from '../lib/entity-identity.mjs'
 
 type RawRecord = string | Record<string, unknown>
 
@@ -36,14 +37,6 @@ function safeStr(value: unknown): string {
   return String(value ?? '').trim()
 }
 
-function safeSlug(value: unknown): string {
-  return safeStr(value)
-    .toLowerCase()
-    .replace(/&/g, ' and ')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
-
 function titleFromSlug(slug: string): string {
   return slug
     .split('-')
@@ -59,7 +52,7 @@ function isBadSlug(slug: string): boolean {
 function indexBySlug(records: Record<string, unknown>[]): Map<string, Record<string, unknown>> {
   return new Map(
     records
-      .map((record) => [safeSlug(record.slug), record] as const)
+      .map((record) => [slugifyEntityName(record.slug), record] as const)
       .filter(([slug]) => Boolean(slug)),
   )
 }
@@ -71,7 +64,7 @@ function normalizeRecord(
   sourceFile: string,
 ): ValidationRecord {
   const rawObject = typeof raw === 'string' ? { slug: raw } : raw
-  const slug = safeSlug(rawObject.slug)
+  const slug = slugifyEntityName(rawObject.slug)
   const detail = detailsBySlug.get(slug) || {}
   const merged = { ...detail, ...rawObject }
 
@@ -94,7 +87,7 @@ function validateCollection(records: ValidationRecord[]): string[] {
     const label = `${record.kind}:${record.slug || '<empty>'}`
 
     if (isBadSlug(record.slug)) {
-      const regenerated = safeSlug(record.name || record.commonName)
+      const regenerated = slugifyEntityName(record.name || record.commonName)
       errors.push(`${label} has invalid slug; suggested regenerated slug: ${regenerated || '<none>'}`)
     }
 
