@@ -14,6 +14,7 @@ const ARTICLE_CITATIONS = path.join(ROOT, 'src', 'lib', 'article-citation-metada
 const ARTICLE_PAGE = path.join(ROOT, 'app', 'articles', '[slug]', 'page.tsx')
 const MENTAL_HEALTH_ARTICLE = path.join(ROOT, 'components', 'articles', 'MentalHealthArticlePage.tsx')
 const GOAL_CLUSTER_ARTICLE = path.join(ROOT, 'components', 'articles', 'GoalClusterArticlePage.tsx')
+const RHABDO_PAGE = path.join(ROOT, 'app', 'learn', 'rhabdomyolysis', 'page.tsx')
 const REFERENCES = path.join(ROOT, 'components', 'References.tsx')
 const EVIDENCE_BADGE = path.join(ROOT, 'components', 'ui', 'EvidenceScoreBadge.tsx')
 const SAFETY_GAUGE = path.join(ROOT, 'components', 'ui', 'SafetyGaugeMeter.tsx')
@@ -184,6 +185,25 @@ function auditGoalClusterCitationPrimitives() {
   }
 }
 
+function auditRhabdoCitationPrimitives() {
+  requireSignals(RHABDO_PAGE, 'safety-citations', 'rhabdomyolysis page', [
+    ['normalizeArticleReferences(page.references)', 'canonical article reference normalization'],
+    ['articleReferences.map(buildArticleReferenceSchema)', 'canonical conservative citation schema'],
+    ['<References refs={articleReferences}', 'shared durable source ledger'],
+    ["'@id': AUTHOR_SCHEMA_ID", 'canonical first-party author identity'],
+    ["'@id': ORGANIZATION_SCHEMA_ID", 'canonical publisher identity'],
+    ['data-citation-sources="true"', 'source-ledger verification marker'],
+  ])
+
+  const source = text(RHABDO_PAGE)
+  if (source.includes("reference.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${reference.pmid}/`")) {
+    add('error', 'safety-citations', 'rhabdomyolysis page reintroduced page-local PubMed URL derivation')
+  }
+  if (/citation:\s*page\.references\.map/.test(source)) {
+    add('error', 'safety-citations', 'rhabdomyolysis page reintroduced page-local scholarly citation construction')
+  }
+}
+
 function auditProfilePrimitives() {
   requireSignals(EVIDENCE_BADGE, 'profile-semantics', 'EvidenceScoreBadge', [
     ['data-evidence="true"', 'evidence marker'],
@@ -263,6 +283,7 @@ auditSharedExtractionPrimitives()
 auditArticleExtractionPrimitives()
 auditMentalHealthCitationPrimitives()
 auditGoalClusterCitationPrimitives()
+auditRhabdoCitationPrimitives()
 auditProfilePrimitives()
 auditExtractability()
 auditAntiPatterns()

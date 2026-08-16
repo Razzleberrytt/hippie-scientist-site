@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'app/articles/**'
+      - 'app/learn/rhabdomyolysis/page.tsx'
       - 'components/articles/GoalClusterArticlePage.tsx'
       - 'components/articles/MentalHealthArticlePage.tsx'
       - 'components/References.tsx'
@@ -98,6 +99,7 @@ jobs:
         run: >-
           npx eslint
           app/articles/[slug]/page.tsx
+          app/learn/rhabdomyolysis/page.tsx
           components/articles/GoalClusterArticlePage.tsx
           components/articles/MentalHealthArticlePage.tsx
           components/References.tsx
