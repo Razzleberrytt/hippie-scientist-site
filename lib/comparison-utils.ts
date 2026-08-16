@@ -143,7 +143,7 @@ export function formatComparisonSlug(slug: string): string {
   }
 
   for (const [key, value] of Object.entries(overrides)) {
-    const regex = new RegExp(`\\b${key}\\b`, 'gi')
+    const regex = new RegExp(`\b${key}\b`, 'gi')
     title = title.replace(regex, value)
   }
 
