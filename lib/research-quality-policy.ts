@@ -341,7 +341,16 @@ function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
     highConfidenceIndependenceMetadataBonus: RESEARCH_GAP_WEIGHTS.highConfidenceIndependenceMetadataBonus,
     severeStudyClassConflict: RESEARCH_GAP_WEIGHTS.severeStudyClassConflict,
   }
-  for (const signal of buildAggregatedTopologyGapSignals(topology, aggregatedWeights)) {
+  const concentrationScoringTopology: ResearchQualityTopology = {
+    ...topology,
+    underlyingStudyIndependence: {
+      ...topology.underlyingStudyIndependence,
+      reducedClaims: topology.underlyingStudyIndependence.reducedClaims.filter(
+        (claim) => !claim.pseudoMultiStudySupport,
+      ),
+    },
+  }
+  for (const signal of buildAggregatedTopologyGapSignals(concentrationScoringTopology, aggregatedWeights)) {
     add(signal.url, signal.kind, signal.weight, signal.detail)
   }
 }
