@@ -37,7 +37,7 @@ export const LOCALE_CONFIG: Record<SupportedLocale, { language: string; openGrap
 export const LOCALIZED_ROUTES: readonly LocalizedRoute[] = [
   { english: '/', translations: { [SPANISH_LOCALE]: '/es/', [PORTUGUESE_LOCALE]: '/pt/', [FRENCH_LOCALE]: '/fr/', [GERMAN_LOCALE]: '/de/' } },
   { english: '/herbs/', translations: { [SPANISH_LOCALE]: '/es/hierbas/', [PORTUGUESE_LOCALE]: '/pt/ervas/', [FRENCH_LOCALE]: '/fr/plantes/', [GERMAN_LOCALE]: '/de/kraeuter/' } },
-  { english: '/herbs/ashwagandha/', translations: { [SPANISH_LOCALE]: '/es/hierbas/ashwagandha/' } },
+  { english: '/herbs/ashwagandha/', translations: { [SPANISH_LOCALE]: '/es/hierbas/ashwagandha/', [PORTUGUESE_LOCALE]: '/pt/ervas/ashwagandha/' } },
   { english: '/compounds/', translations: { [SPANISH_LOCALE]: '/es/compuestos/', [PORTUGUESE_LOCALE]: '/pt/compostos/', [FRENCH_LOCALE]: '/fr/composes/', [GERMAN_LOCALE]: '/de/wirkstoffe/' } },
   { english: '/goals/', translations: { [SPANISH_LOCALE]: '/es/objetivos/', [PORTUGUESE_LOCALE]: '/pt/objetivos/', [FRENCH_LOCALE]: '/fr/objectifs/', [GERMAN_LOCALE]: '/de/ziele/' } },
   { english: '/goals/sleep/', translations: { [SPANISH_LOCALE]: '/es/objetivos/sueno/', [PORTUGUESE_LOCALE]: '/pt/objetivos/sono/', [FRENCH_LOCALE]: '/fr/objectifs/sommeil/', [GERMAN_LOCALE]: '/de/ziele/schlaf/' } },
