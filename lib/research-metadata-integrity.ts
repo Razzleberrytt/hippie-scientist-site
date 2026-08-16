@@ -1,11 +1,13 @@
 import type { ClaimCitationMetadataAnalysis } from './research-claim-citation-metadata'
 import type { StudyYearConflict } from './research-evidence-age'
+import type { StudyParticipantCountAmbiguity } from './research-participant-count-ambiguity'
 import type { StudyProvenanceConflict } from './research-provenance-concentration'
 import type { StudyClassConflictAnalysis } from './research-study-class-conflicts'
 
 export type ResearchMetadataIntegrityProfile = {
   url: string
   yearConflicts: number
+  participantCountAmbiguities: number
   provenanceConflicts: number
   studyClassConflicts: number
   severeStudyClassConflicts: number
@@ -21,6 +23,7 @@ export type ResearchMetadataIntegrity = {
     profilesWithIssues: number
     profilesWithSevereIssues: number
     yearConflicts: number
+    participantCountAmbiguities: number
     provenanceConflicts: number
     studyClassConflicts: number
     severeStudyClassConflicts: number
@@ -31,6 +34,7 @@ export type ResearchMetadataIntegrity = {
 
 type MetadataIntegrityInputs = {
   studyYearConflicts: readonly StudyYearConflict[]
+  participantCountAmbiguities: readonly StudyParticipantCountAmbiguity[]
   provenanceConflicts: readonly StudyProvenanceConflict[]
   studyClassConflicts: StudyClassConflictAnalysis
   claimCitationMetadata: ClaimCitationMetadataAnalysis
@@ -42,6 +46,7 @@ function emptyProfile(url: string): MutableProfile {
   return {
     url,
     yearConflicts: 0,
+    participantCountAmbiguities: 0,
     provenanceConflicts: 0,
     studyClassConflicts: 0,
     severeStudyClassConflicts: 0,
@@ -64,6 +69,7 @@ export function buildResearchMetadataIntegrity(inputs: MetadataIntegrityInputs):
   }
 
   for (const conflict of inputs.studyYearConflicts) profile(conflict.url).yearConflicts += 1
+  for (const ambiguity of inputs.participantCountAmbiguities) profile(ambiguity.url).participantCountAmbiguities += 1
   for (const conflict of inputs.provenanceConflicts) profile(conflict.url).provenanceConflicts += 1
   for (const conflict of inputs.studyClassConflicts.conflicts) {
     const value = profile(conflict.url)
@@ -78,6 +84,7 @@ export function buildResearchMetadataIntegrity(inputs: MetadataIntegrityInputs):
   const profiles = [...byUrl.values()]
     .map((value): ResearchMetadataIntegrityProfile => {
       const issueCount = value.yearConflicts
+        + value.participantCountAmbiguities
         + value.provenanceConflicts
         + value.studyClassConflicts
         + value.lowCitationMetadataClaims
@@ -97,6 +104,7 @@ export function buildResearchMetadataIntegrity(inputs: MetadataIntegrityInputs):
       profilesWithIssues: profiles.length,
       profilesWithSevereIssues: profiles.filter((value) => value.severeIssueCount > 0).length,
       yearConflicts: inputs.studyYearConflicts.length,
+      participantCountAmbiguities: inputs.participantCountAmbiguities.length,
       provenanceConflicts: inputs.provenanceConflicts.length,
       studyClassConflicts: inputs.studyClassConflicts.conflicts.length,
       severeStudyClassConflicts: inputs.studyClassConflicts.severeConflicts.length,
