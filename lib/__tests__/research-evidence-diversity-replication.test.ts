@@ -46,9 +46,42 @@ describe('claim evidence diversity replication semantics', () => {
     expect(result).toMatchObject({
       sameFamilyMultiStudySupport: true,
       replicatedPrimaryHumanSupport: true,
+      replicatedSynthesisSupport: false,
+      replicatedOtherHumanSupport: false,
       homogeneousMultiStudySupport: false,
-      highConfidenceHomogeneousMultiStudySupport: false,
       evidenceFamilies: ['primary-human'],
+    })
+  })
+
+  it('treats multiple syntheses as same-family synthesis support rather than a homogeneity defect', () => {
+    const [result] = analyzeClaimEvidenceDiversity(analysis([
+      claim('synthesis', ['systematic-review', 'meta-analysis']),
+    ]))
+
+    expect(result).toMatchObject({
+      sameFamilyMultiStudySupport: true,
+      replicatedSynthesisSupport: true,
+      homogeneousMultiStudySupport: false,
+      evidenceFamilies: ['synthesis'],
+    })
+  })
+
+  it('separates observational human replication from preclinical homogeneity', () => {
+    const [human, preclinical] = analyzeClaimEvidenceDiversity(analysis([
+      claim('observational', ['observational', 'case-report']),
+      claim('preclinical', ['animal', 'in-vitro']),
+    ])).sort((a, b) => a.claimId.localeCompare(b.claimId))
+
+    expect(human).toMatchObject({
+      claimId: 'observational',
+      replicatedOtherHumanSupport: true,
+      homogeneousMultiStudySupport: false,
+      evidenceFamilies: ['other-human'],
+    })
+    expect(preclinical).toMatchObject({
+      claimId: 'preclinical',
+      homogeneousMultiStudySupport: true,
+      evidenceFamilies: ['preclinical'],
     })
   })
 
