@@ -13,10 +13,11 @@ import {
 } from '@/lib/research-study-load'
 
 function claim(overrides: Partial<ClaimQualityAnalysis> & Pick<ClaimQualityAnalysis, 'url' | 'claimId' | 'studyIds'>): ClaimQualityAnalysis {
-  const studyCount = overrides.studyIds.length
+  const { url, claimId, studyIds, ...optionalOverrides } = overrides
+  const studyCount = studyIds.length
   return {
-    url: overrides.url,
-    claimId: overrides.claimId,
+    url,
+    claimId,
     reviewStatus: 'approved',
     approved: true,
     predicate: 'supports_outcome',
@@ -24,7 +25,7 @@ function claim(overrides: Partial<ClaimQualityAnalysis> & Pick<ClaimQualityAnaly
     sourceRefCount: studyCount,
     validSourceRefCount: studyCount,
     danglingSourceRefs: [],
-    studyIds: overrides.studyIds,
+    studyIds,
     studyCount,
     classifiedStudyCount: studyCount,
     primaryHuman: studyCount,
@@ -39,7 +40,7 @@ function claim(overrides: Partial<ClaimQualityAnalysis> & Pick<ClaimQualityAnaly
     highConfidenceWeakOutcome: false,
     singleStudy: studyCount === 1,
     aliasCollapsed: false,
-    ...overrides,
+    ...optionalOverrides,
   }
 }
 
