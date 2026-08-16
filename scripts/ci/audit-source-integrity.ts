@@ -10,13 +10,19 @@ const ROOT = process.cwd()
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORTS_DIR, 'source-integrity.json')
 
+function displayIdentifier(study: { studyId: string; pmid: string; doi: string }): string {
+  if (study.pmid) return `PMID ${study.pmid}`
+  if (study.doi) return `DOI ${study.doi}`
+  return study.studyId
+}
+
 function main() {
   const { sourceIntegrity } = buildResearchQualitySnapshot(ROOT)
   const { summary, withdrawn, mostReferenced, oldAndLoadBearing } = sourceIntegrity
 
   fs.mkdirSync(REPORTS_DIR, { recursive: true })
   fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-    schemaVersion: 2,
+    schemaVersion: 3,
     generatedAt: new Date().toISOString(),
     currentYear: sourceIntegrity.currentYear,
     source: 'lib/research-quality-snapshot.ts -> lib/research-source-integrity.ts',
@@ -28,7 +34,8 @@ function main() {
 
   console.log('\nResearch source integrity')
   console.log('='.repeat(72))
-  console.log(`Cited studies               ${summary.citedStudies} (${summary.withMetadata} with PubMed metadata)`)
+  console.log(`Canonical cited studies     ${summary.citedStudies} (${summary.withMetadata} with metadata)`)
+  console.log(`Stable identifiers          ${summary.withStableIdentifier} · PMID ${summary.pmidIdentified} · DOI-only ${summary.doiOnly} · fallback ${summary.fallbackOnly}`)
   console.log(`Cited on multiple profiles  ${summary.citedOnMultipleProfiles}`)
   console.log(`Load-bearing (>=3 pages)    ${summary.loadBearing}`)
   console.log(`Old + load-bearing (>15y)   ${summary.oldAndLoadBearing}`)
@@ -40,7 +47,7 @@ function main() {
 
   if (withdrawn.length) {
     console.error(`\n[source-integrity] FAILED — ${withdrawn.length} retracted or withdrawn study still cited.\n`)
-    for (const study of withdrawn) console.error(`  PMID ${study.pmid} [${study.publicationTypes.join(', ')}] cited by ${study.pages.join(', ')}`)
+    for (const study of withdrawn) console.error(`  ${displayIdentifier(study)} [${study.publicationTypes.join(', ')}] cited by ${study.pages.join(', ')}`)
     process.exit(1)
   }
 }
