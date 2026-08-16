@@ -175,20 +175,6 @@
   box-shadow: none;
 }
 
-html.dark .article-card-flow > .article-section-card {
-  border-top-color: var(--hs-hairline) !important;
-  background: transparent !important;
-}
-
-html.dark .article-card-flow blockquote {
-  background: transparent !important;
-  color: var(--hs-body);
-}
-
-html.dark .article-card-flow table {
-  background: color-mix(in srgb, var(--hs-surface) 94%, transparent);
-}
-
 html.dark .article-card-flow thead {
   background: linear-gradient(
     180deg,
