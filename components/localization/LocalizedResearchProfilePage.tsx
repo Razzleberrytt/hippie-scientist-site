@@ -36,7 +36,7 @@ export default function LocalizedResearchProfilePage({
   return (
     <article className='mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-16 lg:px-10' lang={lang}>
       <header className='rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-card-strong)] p-6 shadow-[0_18px_48px_rgba(45,35,19,0.08)] sm:p-10'>
-        <p className='text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--accent-gold)]'>{ui.evidenceEyebrow}</p>
+        <p className='text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--hs-gold)]'>{ui.evidenceEyebrow}</p>
         <h1 className='mt-4 font-display text-4xl font-semibold tracking-[-0.035em] text-[var(--text-primary)] sm:text-5xl'>{translation.title}</h1>
         <p className='mt-6 max-w-3xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg'>{translation.summary}</p>
         <div className='mt-6 flex flex-wrap gap-3 text-sm'>
@@ -51,7 +51,7 @@ export default function LocalizedResearchProfilePage({
 
       <section className='mt-8 rounded-[1.75rem] border border-[var(--border-soft)] bg-[var(--surface-card)] p-6 sm:p-8'>
         <div className='flex items-start gap-3'>
-          <BookOpen className='mt-1 h-5 w-5 shrink-0 text-[var(--accent-gold)]' aria-hidden='true' />
+          <BookOpen className='mt-1 h-5 w-5 shrink-0 text-[var(--hs-gold)]' aria-hidden='true' />
           <div>
             <h2 className='font-display text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl'>{ui.evidenceHeading}</h2>
             <p className='mt-2 max-w-3xl text-sm leading-7 text-[var(--text-secondary)]'>{ui.evidenceIntro}</p>
@@ -74,7 +74,7 @@ export default function LocalizedResearchProfilePage({
       {(translation.safetyNotes || safetyClaims.length || translation.contraindications?.length) ? (
         <section className='mt-8 rounded-[1.75rem] border border-[var(--border-soft)] bg-[var(--surface-card)] p-6 sm:p-8'>
           <div className='flex items-center gap-3'>
-            <ShieldCheck className='h-5 w-5 text-[var(--accent-gold)]' aria-hidden='true' />
+            <ShieldCheck className='h-5 w-5 text-[var(--hs-gold)]' aria-hidden='true' />
             <h2 className='font-display text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl'>{ui.safetyHeading}</h2>
           </div>
           {translation.safetyNotes ? <p className='mt-4 leading-7 text-[var(--text-secondary)]'>{translation.safetyNotes}</p> : null}
@@ -111,7 +111,7 @@ export default function LocalizedResearchProfilePage({
               <span className='font-semibold text-[var(--text-primary)]'>{index + 1}. {source.title ?? 'Source'}</span>
               {[source.journal, source.year].filter(Boolean).length ? <span className='ml-2'>({[source.journal, source.year].filter(Boolean).join(', ')})</span> : null}
               {source.url ? (
-                <a href={source.url} target='_blank' rel='noopener noreferrer' className='ml-2 inline-flex items-center gap-1 font-semibold text-[var(--accent-gold)] hover:underline'>
+                <a href={source.url} target='_blank' rel='noopener noreferrer' className='ml-2 inline-flex items-center gap-1 font-semibold text-[var(--hs-gold)] hover:underline'>
                   <ExternalLink className='h-3.5 w-3.5' aria-hidden='true' />
                   {ui.sourceLabel}
                 </a>
