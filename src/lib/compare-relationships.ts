@@ -1,3 +1,4 @@
+import { slugify } from '../../lib/slug-utils'
 import {
   getEffectOverlap,
   getGoalOverlap,
@@ -47,13 +48,6 @@ function clean(value: unknown): string {
   if (typeof value === 'string') return value.trim()
   if (typeof value === 'number' || typeof value === 'boolean') return String(value).trim()
   return ''
-}
-
-function slugify(value: unknown): string {
-  return clean(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
 }
 
 function list(value: unknown): string[] {
