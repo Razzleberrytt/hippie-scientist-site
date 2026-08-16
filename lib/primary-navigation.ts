@@ -28,7 +28,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Ingredients',
     href: '/herbs',
     description: 'Look up herbs, nutrients, active compounds, extracts, evidence, and safety',
-    activePrefixes: ['/herbs', '/compounds'],
+    activePrefixes: ['/compounds'],
     children: [
       { label: 'Herb database', href: '/herbs', description: 'Canonical herb profiles with evidence, dosing context, and safety summaries' },
       { label: 'Compound database', href: '/compounds', description: 'Nutrients, isolated compounds, standardized extracts, and active constituents' },
@@ -48,7 +48,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Safety',
     href: '/safety-checker',
     description: 'Check interaction signals, contraindication context, and uncertainty before combining products',
-    activePrefixes: ['/safety-checker', '/info/supplement-safety-checklist', '/guides/other/supplement-stacking-safety', '/novel-psychoactive-substances'],
+    activePrefixes: ['/info/supplement-safety-checklist', '/guides/other/supplement-stacking-safety', '/novel-psychoactive-substances'],
     children: [
       { label: 'Safety Checker', href: '/safety-checker', description: 'Screen supplement and medication-class combinations for documented or theoretical caution signals' },
       { label: 'Supplement safety checklist', href: '/info/supplement-safety-checklist', description: 'A practical checklist for labels, interactions, contraindications, and product quality' },
