@@ -48,7 +48,17 @@ export type PublicStudyRelationship = {
   ingredientPath: string
   evidenceGrade: string
   relationship: EvidenceRelationship
+  dose?: string
+  duration?: string
+  population?: string
   outcome?: string
+  result?: string
+  limitation?: string
+  confidence?: EvidenceConfidence
+  statisticalConsistency?: string
+  extractName?: string
+  conditions?: string[]
+  safetyOutcome?: string
 }
 
 export type PublicStudyEntity = {
@@ -238,6 +248,27 @@ function aggregateRelationship(relationships: PublicStudyRelationship[]): Eviden
   return 'background'
 }
 
+function consensusRelationshipString(
+  relationships: PublicStudyRelationship[],
+  field: 'dose' | 'duration' | 'population' | 'outcome' | 'result' | 'limitation' | 'statisticalConsistency' | 'extractName' | 'safetyOutcome',
+): string | undefined {
+  const values = relationships
+    .map((relationship) => cleanString(relationship[field]))
+    .filter(Boolean)
+  const normalized = new Map<string, string>()
+  for (const value of values) normalized.set(value.toLowerCase().replace(/\s+/g, ' '), value)
+  return normalized.size === 1 ? [...normalized.values()][0] : undefined
+}
+
+function consensusRelationshipConfidence(relationships: PublicStudyRelationship[]): EvidenceConfidence {
+  const values = new Set(
+    relationships
+      .map((relationship) => relationship.confidence)
+      .filter((value): value is EvidenceConfidence => Boolean(value) && value !== 'unknown'),
+  )
+  return values.size === 1 ? [...values][0] : 'unknown'
+}
+
 function toStudyRecord(study: PublicStudyEntity): EvidenceStudyRecord {
   return {
     id: study.id,
@@ -349,7 +380,17 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
         ingredientPath: path,
         evidenceGrade,
         relationship,
+        dose: citation.dose,
+        duration: citation.duration,
+        population: citation.population,
         outcome: citation.outcome,
+        result: citation.result,
+        limitation: citation.limitation,
+        confidence: normalizeEvidenceConfidence(citation.confidence),
+        statisticalConsistency: citation.statisticalConsistency,
+        extractName: citation.extractName,
+        conditions,
+        safetyOutcome: citation.safetyOutcome,
       }
 
       const existing = studiesById.get(id)
@@ -389,15 +430,6 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
         existing.url = mergeStudyField(existing.url, citation.url)
         existing.studyType = mergeStudyField(existing.studyType, citation.studyType)
         existing.sampleSize = mergeStudyField(existing.sampleSize, citation.sampleSize)
-        existing.dose = mergeStudyField(existing.dose, citation.dose)
-        existing.duration = mergeStudyField(existing.duration, citation.duration)
-        existing.population = mergeStudyField(existing.population, citation.population)
-        existing.outcome = mergeStudyField(existing.outcome, citation.outcome)
-        existing.result = mergeStudyField(existing.result, citation.result)
-        existing.limitation = mergeStudyField(existing.limitation, citation.limitation)
-        existing.statisticalConsistency = mergeStudyField(existing.statisticalConsistency, citation.statisticalConsistency)
-        existing.extractName = mergeStudyField(existing.extractName, citation.extractName)
-        existing.safetyOutcome = mergeStudyField(existing.safetyOutcome, citation.safetyOutcome)
         existing.conditions = [...new Set([...existing.conditions, ...conditions])]
         if (!existing.relationships.some(item =>
           item.ingredientSlug === relationshipRecord.ingredientSlug &&
@@ -452,6 +484,16 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
         evidenceClass,
         studyClassAmbiguous,
         participantCountAmbiguous,
+        dose: consensusRelationshipString(study.relationships, 'dose'),
+        duration: consensusRelationshipString(study.relationships, 'duration'),
+        population: consensusRelationshipString(study.relationships, 'population'),
+        outcome: consensusRelationshipString(study.relationships, 'outcome'),
+        result: consensusRelationshipString(study.relationships, 'result'),
+        limitation: consensusRelationshipString(study.relationships, 'limitation'),
+        confidence: consensusRelationshipConfidence(study.relationships),
+        statisticalConsistency: consensusRelationshipString(study.relationships, 'statisticalConsistency'),
+        extractName: consensusRelationshipString(study.relationships, 'extractName'),
+        safetyOutcome: consensusRelationshipString(study.relationships, 'safetyOutcome'),
       }
     })
     .sort((a, b) => {
@@ -653,6 +695,7 @@ export function publicEvidenceDatasetToCsv(dataset: PublicEvidenceDataset): stri
     'study_id', 'title', 'authors', 'journal', 'year', 'year_ambiguous', 'pmid', 'doi', 'study_class', 'study_class_ambiguous',
     'sample_size', 'participant_count_ambiguous', 'dose', 'duration', 'population', 'outcome', 'result', 'limitation',
     'relationship_summary', 'conditions', 'safety_outcome', 'ingredient_slugs', 'ingredient_names', 'ingredient_grades',
+    'relationships_json',
   ]
 
   const rows = dataset.studies.map(study => [
@@ -680,6 +723,7 @@ export function publicEvidenceDatasetToCsv(dataset: PublicEvidenceDataset): stri
     study.relationships.map(item => item.ingredientSlug).join('|'),
     study.relationships.map(item => item.ingredientName).join('|'),
     study.relationships.map(item => item.evidenceGrade).join('|'),
+    JSON.stringify(study.relationships),
   ].map(csvEscape).join(','))
 
   return `${headers.join(',')}\n${rows.join('\n')}\n`
