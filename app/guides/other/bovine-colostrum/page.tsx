@@ -5,6 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -21,9 +22,6 @@ const FAQS = [
   { question: 'Is bovine colostrum safe?', answer: 'Generally well-tolerated at studied doses (10-60 g/day for up to 12 weeks). Common side effects: bloating, nausea, diarrhea [2]. Contraindicated in milk protein allergy. Long-term safety beyond 12 weeks is unknown. The FDA has accepted the safety of hyperimmune milks based on clinical data [2]. Those with hormone-sensitive conditions should consult a clinician.' },
   { question: 'How much colostrum should I take?', answer: 'Clinical studies use 10-60 g/day, with 20 g/day being common. Most commercial products provide 1-2 g per serving — well below studied doses [3]. Look for products standardized to ≥15% IgG from grass-fed, first-milking sources. GI permeability studies used 20 g/day for 14 days or 1.7 g/kg/day pre-exercise [2]. Start low and assess tolerance.' },
 ]
-
-type RefProps = { n: number; text: string; url?: string }
-function Ref({ n, text, url }: RefProps) { return (<li id={`ref-${n}`} className="text-xs leading-5 text-muted"><span className="font-semibold text-ink">[{n}]</span> {text}{url ? <> <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand-700 underline hover:text-brand-800">→</a></> : null}</li>) }
 
 export default function BovineColostrumGuidePage() {
   return (
