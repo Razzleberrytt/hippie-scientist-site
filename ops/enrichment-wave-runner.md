@@ -2,13 +2,13 @@
 
 Stable entry point:
 
-- `npm run run:enrichment-wave -- --wave-id <wave-id> --targets <path> --mode <full|source-review|authoring|submission-review|rollup-refresh>`
+- `node scripts/run-enrichment-wave.mjs --wave-id <wave-id> --targets <path> --mode <full|source-review|authoring|submission-review|rollup-refresh>`
 
 Examples:
 
-- `npm run run:enrichment-wave -- --wave-id wave-1 --targets ops/reports/enrichment-wave-1-targets.json --mode full`
-- `npm run run:enrichment-wave -- --wave-id wave-2b --targets ops/reports/enrichment-wave-2b-targets.json --mode source-review`
-- `npm run run:enrichment-wave -- --wave-id wave-3 --targets ops/reports/enrichment-wave-3-targets.json --mode full`
+- `node scripts/run-enrichment-wave.mjs --wave-id wave-1 --targets ops/reports/enrichment-wave-1-targets.json --mode full`
+- `node scripts/run-enrichment-wave.mjs --wave-id wave-2b --targets ops/reports/enrichment-wave-2b-targets.json --mode source-review`
+- `node scripts/run-enrichment-wave.mjs --wave-id wave-3 --targets ops/reports/enrichment-wave-3-targets.json --mode full`
 
 ## Why this exists
 
