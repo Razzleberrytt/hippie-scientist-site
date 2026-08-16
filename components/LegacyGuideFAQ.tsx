@@ -35,6 +35,9 @@ export default function LegacyGuideFAQ({ questions, pagePath }: LegacyGuideFAQPr
             </div>
           ))}
         </div>
+        <a href="#references" data-citation-sources="true" className="text-xs font-semibold text-brand-800 hover:underline">
+          Verify sources →
+        </a>
         <a href="#frequently-asked-questions" className="sr-only">Permanent link to frequently asked questions</a>
       </section>
     </>
