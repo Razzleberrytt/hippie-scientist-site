@@ -107,14 +107,6 @@ export function uniqueSourceRefs(claim: ResearchClaim): string[] {
   return [...new Set(Array.isArray(claim.sourceRefIds) ? claim.sourceRefIds.map(String).filter(Boolean) : [])]
 }
 
-/**
- * Resolve source-row IDs to canonical study identities.
- *
- * A study can carry both a DOI and PMID, and legacy data can contain more than
- * one source row for the same study. Source-row counts therefore overstate
- * evidence independence. Alias-connected rows are collapsed into one component;
- * rows without a stable identifier remain distinct rather than being guessed at.
- */
 export function canonicalStudyIdentityMap(record: ResearchProfile): Map<string, string> {
   const sources = Array.isArray(record.sources) ? record.sources : []
   const parent = new Map<string, string>()
@@ -154,7 +146,25 @@ export function canonicalStudyIdentityMap(record: ResearchProfile): Map<string, 
   return identities
 }
 
-/** Stable studies supporting a claim, after collapsing duplicate/alias source rows. */
+export function canonicalStudyGroups(record: ResearchProfile): Map<string, ResearchSource[]> {
+  const identities = canonicalStudyIdentityMap(record)
+  const groups = new Map<string, ResearchSource[]>()
+  for (const source of Array.isArray(record.sources) ? record.sources : []) {
+    const sourceId = String(source.id ?? '').trim()
+    if (!sourceId) continue
+    const identity = identities.get(sourceId)
+    if (!identity) continue
+    const group = groups.get(identity) ?? []
+    group.push(source)
+    groups.set(identity, group)
+  }
+  return groups
+}
+
+export function canonicalStudyClass(group: ResearchSource[], cache: PubmedCache): StudyClass {
+  return strongestStudyClass(group.map((source) => sourceStudyClass(source, cache)))
+}
+
 export function uniqueClaimStudyIdentities(
   claim: ResearchClaim,
   identities: Map<string, string>,
