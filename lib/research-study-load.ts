@@ -24,6 +24,25 @@ export type EvidenceBundleReuse = {
   narrowRepeatedEvidenceBundle: boolean
 }
 
+export type ClaimEvidenceOverlap = {
+  url: string
+  claimA: { claimId: string; predicate: string; confidence: number; studyCount: number }
+  claimB: { claimId: string; predicate: string; confidence: number; studyCount: number }
+  sharedStudyIds: string[]
+  sharedStudyCount: number
+  unionStudyCount: number
+  jaccard: number
+  containment: number
+  sameEvidenceBundle: boolean
+  differentPredicates: boolean
+  nearDuplicateEvidenceSupport: boolean
+}
+
+function round(value: number, digits = 3): number {
+  const scale = 10 ** digits
+  return Math.round(value * scale) / scale
+}
+
 /**
  * Measure how many approved claims and profiles depend on each canonical study.
  * This complements per-profile concentration: a study may look harmless on every
@@ -84,12 +103,7 @@ export function analyzeCrossProfileStudyLoad(analysis: ResearchQualityAnalysis):
     )
 }
 
-/**
- * Detect multiple approved structured claims on the same profile that reuse the
- * exact same canonical evidence bundle. Reuse is not automatically wrong, but
- * it is a topology warning when several apparently distinct claims are all
- * underwritten by the same narrow study set.
- */
+/** Detect exact evidence-bundle reuse across approved claims on one profile. */
 export function analyzeEvidenceBundleReuse(analysis: ResearchQualityAnalysis): EvidenceBundleReuse[] {
   const bundles = new Map<string, {
     url: string
@@ -102,12 +116,7 @@ export function analyzeEvidenceBundleReuse(analysis: ResearchQualityAnalysis): E
     const studyIds = [...claim.studyIds].sort()
     const key = `${claim.url}::${studyIds.join('|')}`
     const item = bundles.get(key) ?? { url: claim.url, studyIds, claims: [] }
-    item.claims.push({
-      claimId: claim.claimId,
-      predicate: claim.predicate,
-      confidence: claim.confidence,
-      outcomeClaim: claim.outcomeClaim,
-    })
+    item.claims.push({ claimId: claim.claimId, predicate: claim.predicate, confidence: claim.confidence, outcomeClaim: claim.outcomeClaim })
     bundles.set(key, item)
   }
 
@@ -127,9 +136,7 @@ export function analyzeEvidenceBundleReuse(analysis: ResearchQualityAnalysis): E
         outcomeClaimCount,
         highConfidenceClaimCount,
         predicates,
-        claims: item.claims
-          .map(({ claimId, predicate, confidence }) => ({ claimId, predicate, confidence }))
-          .sort((a, b) => a.claimId.localeCompare(b.claimId)),
+        claims: item.claims.map(({ claimId, predicate, confidence }) => ({ claimId, predicate, confidence })).sort((a, b) => a.claimId.localeCompare(b.claimId)),
         repeatedEvidenceBundle: approvedClaimCount >= 2,
         narrowRepeatedEvidenceBundle: approvedClaimCount >= 3 && studyCount <= 2,
       }
@@ -140,4 +147,62 @@ export function analyzeEvidenceBundleReuse(analysis: ResearchQualityAnalysis): E
       || a.studyCount - b.studyCount
       || a.url.localeCompare(b.url),
     )
+}
+
+/**
+ * Detect near-duplicate rather than exactly identical evidence support. The
+ * containment metric catches cases like {A,B} vs {A,B,C}, where Jaccard alone
+ * understates that one claim's evidence is completely contained in the other.
+ */
+export function analyzeClaimEvidenceOverlap(analysis: ResearchQualityAnalysis): ClaimEvidenceOverlap[] {
+  const byProfile = new Map<string, typeof analysis.claimAnalyses>()
+  for (const claim of analysis.claimAnalyses) {
+    if (!claim.studyIds.length) continue
+    const claims = byProfile.get(claim.url) ?? []
+    claims.push(claim)
+    byProfile.set(claim.url, claims)
+  }
+
+  const overlaps: ClaimEvidenceOverlap[] = []
+  for (const [url, claims] of byProfile) {
+    for (let i = 0; i < claims.length; i += 1) {
+      const a = claims[i]
+      const setA = new Set(a.studyIds)
+      for (let j = i + 1; j < claims.length; j += 1) {
+        const b = claims[j]
+        const setB = new Set(b.studyIds)
+        const shared = [...setA].filter((studyId) => setB.has(studyId)).sort()
+        if (!shared.length) continue
+        const union = new Set([...setA, ...setB])
+        const jaccard = shared.length / union.size
+        const containment = shared.length / Math.min(setA.size, setB.size)
+        const sameEvidenceBundle = setA.size === setB.size && shared.length === setA.size
+        const nearDuplicateEvidenceSupport = !sameEvidenceBundle && containment >= 0.8 && union.size <= 4
+        if (!nearDuplicateEvidenceSupport) continue
+
+        overlaps.push({
+          url,
+          claimA: { claimId: a.claimId, predicate: a.predicate, confidence: a.confidence, studyCount: setA.size },
+          claimB: { claimId: b.claimId, predicate: b.predicate, confidence: b.confidence, studyCount: setB.size },
+          sharedStudyIds: shared,
+          sharedStudyCount: shared.length,
+          unionStudyCount: union.size,
+          jaccard: round(jaccard),
+          containment: round(containment),
+          sameEvidenceBundle,
+          differentPredicates: a.predicate !== b.predicate,
+          nearDuplicateEvidenceSupport,
+        })
+      }
+    }
+  }
+
+  return overlaps.sort((a, b) =>
+    Number(b.differentPredicates) - Number(a.differentPredicates)
+    || b.containment - a.containment
+    || b.jaccard - a.jaccard
+    || a.unionStudyCount - b.unionStudyCount
+    || a.url.localeCompare(b.url)
+    || a.claimA.claimId.localeCompare(b.claimA.claimId),
+  )
 }
