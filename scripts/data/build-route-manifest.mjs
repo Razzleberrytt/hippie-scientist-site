@@ -48,6 +48,46 @@ const STATIC_ROUTE_METADATA = {
     title: 'Botanical Activity Atlas',
     description: 'Explore botanical activity and mechanism relationships across herbs and compounds with conservative evidence and safety context.',
   },
+  '/es': {
+    title: 'The Hippie Scientist en Español | Suplementos con Evidencia',
+    description: 'Compara hierbas y suplementos por evidencia humana, mecanismos, dosis, seguridad e interacciones con explicaciones claras en español.',
+  },
+  '/es/hierbas': {
+    title: 'Hierbas: Evidencia, Mecanismos y Seguridad',
+    description: 'Explora hierbas con investigación en humanos, mecanismos, dosis, seguridad e interacciones explicados con rigor y lenguaje claro en español.',
+  },
+  '/es/compuestos': {
+    title: 'Compuestos y Suplementos: Evidencia y Seguridad',
+    description: 'Explora compuestos y suplementos por evidencia humana, mecanismos, dosis, seguridad e interacciones en una biblioteca de investigación en español.',
+  },
+  '/es/objetivos': {
+    title: 'Suplementos por Objetivo: Sueño, Estrés y Más',
+    description: 'Compara suplementos por objetivo — sueño, estrés, ansiedad y concentración — usando evidencia, seguridad, dosis y contexto práctico en español.',
+  },
+  '/es/objetivos/sueno': {
+    title: 'Suplementos para Dormir: Evidencia y Seguridad',
+    description: 'Compara suplementos para el sueño por evidencia humana, horario, duración, efectos al día siguiente, dosis e interacciones importantes.',
+  },
+  '/es/objetivos/estres': {
+    title: 'Suplementos para el Estrés: Evidencia y Seguridad',
+    description: 'Compara suplementos para el estrés por evidencia humana, patrón de síntomas, tiempo de uso, seguridad, dosis e interacciones relevantes.',
+  },
+  '/es/objetivos/ansiedad': {
+    title: 'Suplementos para la Ansiedad: Evidencia y Seguridad',
+    description: 'Compara suplementos estudiados para ansiedad por calidad de evidencia, sedación, dosis, interacciones y límites de la investigación disponible.',
+  },
+  '/es/objetivos/concentracion': {
+    title: 'Suplementos para la Concentración: Evidencia y Seguridad',
+    description: 'Compara suplementos para concentración por evidencia humana, estimulación, duración, sueño, tolerabilidad, dosis e interacciones relevantes.',
+  },
+  '/es/metodologia': {
+    title: 'Metodología: Cómo Evaluamos la Evidencia',
+    description: 'Conoce cómo The Hippie Scientist separa evidencia humana, mecanismos, seguridad e incertidumbre para evaluar suplementos con rigor en español.',
+  },
+  '/es/seguridad': {
+    title: 'Seguridad de Suplementos e Interacciones',
+    description: 'Revisa interacciones, contraindicaciones, sedación, duplicación de efectos y contexto de dosis antes de combinar hierbas o suplementos.',
+  },
 }
 
 function text(value) {
