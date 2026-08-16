@@ -10,6 +10,10 @@ function clean(value: unknown): string {
 function relationshipSortKey(relationship: PublicStudyRelationship): string {
   return JSON.stringify([
     clean(relationship.ingredientSlug),
+    clean(relationship.ingredientType),
+    clean(relationship.ingredientPath),
+    clean(relationship.ingredientName),
+    clean(relationship.evidenceGrade),
     clean(relationship.relationship),
     clean(relationship.outcome),
     clean(relationship.result),

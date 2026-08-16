@@ -100,4 +100,37 @@ describe('public evidence export determinism', () => {
     expect(normalizedFirst.studies[1].conditions).toEqual(['Sleep', 'Stress'])
     expect(normalizedFirst.studies[1].relationships.map((item) => item.ingredientSlug)).toEqual(['a', 'z'])
   })
+
+  it('stabilizes relationship ordering when herb and compound identities share a slug', () => {
+    const sharedContext = {
+      ingredientSlug: 'shared',
+      ingredientName: 'Shared',
+      evidenceGrade: 'B',
+      relationship: 'supports' as const,
+      outcome: 'Same endpoint',
+    }
+    const herbRelationship = {
+      ...sharedContext,
+      ingredientType: 'herb' as const,
+      ingredientPath: '/herbs/shared/',
+    }
+    const compoundRelationship = {
+      ...sharedContext,
+      ingredientType: 'compound' as const,
+      ingredientPath: '/compounds/shared/',
+    }
+
+    const first = normalizePublicEvidenceDatasetForExport(dataset([
+      study({ relationships: [herbRelationship, compoundRelationship] }),
+    ]))
+    const second = normalizePublicEvidenceDatasetForExport(dataset([
+      study({ relationships: [compoundRelationship, herbRelationship] }),
+    ]))
+
+    expect(JSON.stringify(first)).toBe(JSON.stringify(second))
+    expect(first.studies[0].relationships.map((item) => item.ingredientPath)).toEqual([
+      '/compounds/shared/',
+      '/herbs/shared/',
+    ])
+  })
 })
