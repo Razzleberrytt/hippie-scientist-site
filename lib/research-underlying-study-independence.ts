@@ -1,5 +1,5 @@
 import type { EvidenceLineageAnalysis } from './research-evidence-lineage'
-import type { ResearchQualityAnalysis } from './research-quality-analysis'
+import type { ResearchQualityAnalysis, StructuredSupportTier } from './research-quality-analysis'
 import type { TrialRegistrationIndependenceAnalysis } from './research-trial-registration-independence'
 
 export type ClaimUnderlyingStudyIndependence = {
@@ -11,6 +11,9 @@ export type ClaimUnderlyingStudyIndependence = {
   underlyingStudyCount: number
   collapsedPublicationCount: number
   dependentPublicationGroups: string[][]
+  publicationStructuredSupportTier: StructuredSupportTier
+  independenceAdjustedStructuredSupportTier: StructuredSupportTier
+  supportTierDowngradedByDependence: boolean
   independenceReduced: boolean
   pseudoMultiStudySupport: boolean
   highConfidencePseudoMultiStudySupport: boolean
@@ -21,11 +24,13 @@ export type UnderlyingStudyIndependenceAnalysis = {
   reducedClaims: ClaimUnderlyingStudyIndependence[]
   pseudoMultiStudyClaims: ClaimUnderlyingStudyIndependence[]
   highConfidencePseudoMultiStudyClaims: ClaimUnderlyingStudyIndependence[]
+  supportTierDowngrades: ClaimUnderlyingStudyIndependence[]
   summary: {
     multiStudyApprovedClaims: number
     independenceReducedClaims: number
     pseudoMultiStudyClaims: number
     highConfidencePseudoMultiStudyClaims: number
+    supportTierDowngrades: number
     collapsedPublicationCount: number
   }
 }
@@ -65,6 +70,11 @@ function createUnion(studyIds: string[]) {
  * Combining the relation systems here also captures transitive dependence: for
  * example A/B may share a trial registration while B/C share an explicit cohort,
  * proving that all three publications represent one underlying evidence unit.
+ *
+ * Publication-level structured support remains preserved for auditability, while
+ * an independence-adjusted tier prevents an apparently adequate multi-publication
+ * claim from being represented as multi-study support when every publication
+ * collapses to one explicitly identified underlying study.
  */
 export function analyzeUnderlyingStudyIndependence(
   inputs: UnderlyingStudyIndependenceInputs,
@@ -114,6 +124,13 @@ export function analyzeUnderlyingStudyIndependence(
     const collapsedPublicationCount = Math.max(0, claim.studyCount - underlyingStudyCount)
     const independenceReduced = collapsedPublicationCount > 0
     const pseudoMultiStudySupport = claim.studyCount >= 2 && underlyingStudyCount === 1
+    const publicationStructuredSupportTier = claim.structuredSupportTier
+    const independenceAdjustedStructuredSupportTier: StructuredSupportTier =
+      pseudoMultiStudySupport && publicationStructuredSupportTier === 'adequate'
+        ? 'single-study'
+        : publicationStructuredSupportTier
+    const supportTierDowngradedByDependence =
+      independenceAdjustedStructuredSupportTier !== publicationStructuredSupportTier
 
     claims.push({
       url: claim.url,
@@ -124,6 +141,9 @@ export function analyzeUnderlyingStudyIndependence(
       underlyingStudyCount,
       collapsedPublicationCount,
       dependentPublicationGroups,
+      publicationStructuredSupportTier,
+      independenceAdjustedStructuredSupportTier,
+      supportTierDowngradedByDependence,
       independenceReduced,
       pseudoMultiStudySupport,
       highConfidencePseudoMultiStudySupport: pseudoMultiStudySupport && claim.confidence >= 0.75,
@@ -131,7 +151,8 @@ export function analyzeUnderlyingStudyIndependence(
   }
 
   claims.sort((a, b) =>
-    Number(b.highConfidencePseudoMultiStudySupport) - Number(a.highConfidencePseudoMultiStudySupport)
+    Number(b.supportTierDowngradedByDependence) - Number(a.supportTierDowngradedByDependence)
+    || Number(b.highConfidencePseudoMultiStudySupport) - Number(a.highConfidencePseudoMultiStudySupport)
     || Number(b.pseudoMultiStudySupport) - Number(a.pseudoMultiStudySupport)
     || b.collapsedPublicationCount - a.collapsedPublicationCount
     || b.apparentStudyCount - a.apparentStudyCount
@@ -142,17 +163,20 @@ export function analyzeUnderlyingStudyIndependence(
   const reducedClaims = claims.filter((claim) => claim.independenceReduced)
   const pseudoMultiStudyClaims = claims.filter((claim) => claim.pseudoMultiStudySupport)
   const highConfidencePseudoMultiStudyClaims = claims.filter((claim) => claim.highConfidencePseudoMultiStudySupport)
+  const supportTierDowngrades = claims.filter((claim) => claim.supportTierDowngradedByDependence)
 
   return {
     claims,
     reducedClaims,
     pseudoMultiStudyClaims,
     highConfidencePseudoMultiStudyClaims,
+    supportTierDowngrades,
     summary: {
       multiStudyApprovedClaims: claims.length,
       independenceReducedClaims: reducedClaims.length,
       pseudoMultiStudyClaims: pseudoMultiStudyClaims.length,
       highConfidencePseudoMultiStudyClaims: highConfidencePseudoMultiStudyClaims.length,
+      supportTierDowngrades: supportTierDowngrades.length,
       collapsedPublicationCount: reducedClaims.reduce((sum, claim) => sum + claim.collapsedPublicationCount, 0),
     },
   }
