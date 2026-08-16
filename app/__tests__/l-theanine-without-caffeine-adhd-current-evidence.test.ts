@@ -92,7 +92,7 @@ describe('L-theanine ADHD route evidence calibration', () => {
     expect(text).toMatch(/Only five boys/i)
     expect(text).toMatch(/98 boys ages 8[–-]12 with diagnosed ADHD/i)
     expect(text).toMatch(/evaluated sleep over six weeks rather than daytime attention or core ADHD symptoms/i)
-    expect(text).toMatch(/current evidence does not justify presenting it as a proven non-stimulant ADHD treatment/i)
+    expect(text).toMatch(/does not turn L-theanine into a proven ADHD treatment/i)
   })
 
   it('removes the old ADHD-route starting protocol, timing script, and off-day advice', () => {
@@ -113,8 +113,8 @@ describe('L-theanine ADHD route evidence calibration', () => {
   it('keeps the ADHD route medication and pediatric safety boundaries explicit', () => {
     const text = read(ADHD_SOURCE)
 
-    expect(text).toMatch(/direct interaction and coadministration evidence is limited/i)
-    expect(text).toMatch(/pediatric studies used defined research products and supervised protocols/i)
+    expect(text).toMatch(/direct (?:long-term )?interaction and coadministration evidence is limited/i)
+    expect(text).toMatch(/pediatric(?:\/adolescent)? studies used defined research products or protocols and supervised procedures/i)
     expect(text).toMatch(/not a basis for unsupervised pediatric supplementation/i)
     expect(text).toMatch(/do not stop, skip, lower, or otherwise change prescribed ADHD medication/i)
     expect(text).toMatch(/prescriber or pharmacist managing that treatment/i)

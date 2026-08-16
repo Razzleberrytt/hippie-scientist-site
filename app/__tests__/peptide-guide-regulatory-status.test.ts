@@ -37,7 +37,7 @@ describe('peptide guide regulatory status', () => {
     const cjc = read(guidePaths[2])
     const ipamorelin = read(guidePaths[3])
 
-    expect(bpc).toContain('advisory-committee discussion or recommendation is not FDA approval')
+    expect(bpc).toContain('A 503A compounding-list recommendation is also fundamentally different from FDA approval')
     expect(tb500).toContain('Advisory-committee consideration does not equal FDA approval')
     expect(cjc).toContain('CJC-1295 is not FDA-approved')
     expect(ipamorelin).toContain('Ipamorelin is not FDA-approved as a finished drug product')
