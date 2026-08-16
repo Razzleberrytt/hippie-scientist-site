@@ -1,193 +1,98 @@
-/*
-  Compact hero typography guardrails.
-  Purpose: keep public-page hero titles controlled without making mobile landing
-  pages feel visually timid. The headline should still read as the page's primary
-  visual anchor on a phone.
-*/
+/* Compact, consistent hero treatment.
+ * Keep page intros visually distinct without decorative geometry or a second
+ * competing palette. Typography and spacing do the hierarchy work.
+ */
+
+.hero-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--hs-hairline);
+  background: color-mix(in srgb, var(--hs-surface) 96%, var(--surface) 4%);
+  box-shadow: var(--hs-lift);
+  padding: clamp(1.35rem, 3vw, 2.25rem) !important;
+}
+
+html.dark .hero-shell {
+  background: color-mix(in srgb, var(--hs-surface) 94%, var(--surface) 6%);
+}
 
 .hero-shell h1,
 .hero-shell .heading-premium {
-  max-width: min(100%, 13.5ch) !important;
-  font-size: clamp(2.05rem, 5.4vw, 3.35rem) !important;
+  max-width: min(100%, 14ch) !important;
+  font-size: clamp(2rem, 4.8vw, 3.2rem) !important;
   line-height: 1.04 !important;
-  letter-spacing: -0.045em !important;
+  letter-spacing: -0.035em !important;
+  text-wrap: balance;
 }
 
 .hero-shell h1 + p,
 .hero-shell .heading-premium + p {
-  margin-top: 1rem;
+  margin-top: 0.9rem;
 }
 
-/* Signature research-folio opening surface. This is deliberately more authored
-   than the ordinary card system: a page intro should feel like the cover of a
-   research note, not another card in the stack. */
-.hero-shell {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  border-color: color-mix(in srgb, var(--tone) 24%, var(--hs-hairline)) !important;
-  background:
-    radial-gradient(circle at 94% 10%, color-mix(in srgb, var(--hs-gold) 13%, transparent), transparent 30%),
-    radial-gradient(circle at 8% 100%, color-mix(in srgb, var(--tone) 11%, transparent), transparent 38%),
-    linear-gradient(145deg, color-mix(in srgb, var(--hs-surface) 98%, white), color-mix(in srgb, var(--hs-surface) 93%, var(--tone) 7%)) !important;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.78) inset,
-    0 24px 60px -38px rgba(52, 46, 64, 0.34) !important;
-  padding-block: clamp(1.45rem, 3.5vw, 2.45rem) !important;
-}
-
-html.dark .hero-shell {
-  border-color: color-mix(in srgb, var(--tone) 32%, var(--hs-hairline)) !important;
-  background:
-    radial-gradient(circle at 94% 10%, rgba(213, 173, 108, 0.12), transparent 30%),
-    radial-gradient(circle at 8% 100%, rgba(126, 111, 190, 0.16), transparent 40%),
-    linear-gradient(145deg, #302c39, #232129) !important;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.055) inset,
-    0 28px 66px -38px rgba(0, 0, 0, 0.74) !important;
-}
-
-/* A short brass registration rule becomes a recurring visual signature across
-   articles, guides, tools and directory pages. */
-.hero-shell::before {
-  content: '';
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: clamp(1.25rem, 4vw, 2.5rem);
-  width: clamp(4.25rem, 12vw, 7.25rem);
-  height: 2px;
-  background: linear-gradient(90deg, var(--hs-gold), color-mix(in srgb, var(--hs-gold) 15%, transparent));
-  box-shadow: 0 0 20px color-mix(in srgb, var(--hs-gold) 24%, transparent);
-}
-
-/* Fine orbital geometry: scientific rather than botanical decoration. */
-.hero-shell::after {
-  content: '';
-  position: absolute;
-  z-index: 0;
-  right: -4.5rem;
-  top: -5rem;
-  width: 14rem;
-  height: 14rem;
-  pointer-events: none;
-  border: 1px solid color-mix(in srgb, var(--tone) 18%, transparent);
-  border-radius: 50%;
-  opacity: 0.55;
-  box-shadow:
-    0 0 0 1.5rem color-mix(in srgb, var(--tone) 3%, transparent),
-    0 0 0 3rem color-mix(in srgb, var(--tone) 2%, transparent);
-}
-
-.hero-shell > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Intro metadata should read as editorial furniture rather than loose text. */
 .hero-shell .identity-kicker,
 .hero-shell .eyebrow-label,
 .hero-shell .section-label {
-  min-height: 2rem;
-  border: 1px solid color-mix(in srgb, var(--hs-gold) 22%, var(--hs-hairline));
-  border-radius: 999px;
-  padding: 0.45rem 0.7rem;
-  background: color-mix(in srgb, var(--hs-surface) 76%, transparent);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.48) inset;
-  backdrop-filter: blur(10px);
-}
-
-html.dark .hero-shell .identity-kicker,
-html.dark .hero-shell .eyebrow-label,
-html.dark .hero-shell .section-label {
-  background: rgba(255, 255, 255, 0.045);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  display: block;
+  width: fit-content;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--accent-secondary);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
 }
 
 .hero-shell .identity-meta {
   color: var(--hs-body);
-  font-size: 0.76rem;
-  font-weight: 650;
-  letter-spacing: 0.035em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-/* Deck copy gets a deliberate editorial measure and slightly larger opening
-   voice without making body copy elsewhere feel oversized. */
 .hero-shell .detail-reading,
 .hero-shell .text-reading {
   max-width: 62ch;
-  font-size: clamp(1rem, 0.97rem + 0.18vw, 1.1rem);
-  line-height: 1.72;
+  font-size: clamp(1rem, 0.98rem + 0.12vw, 1.08rem);
+  line-height: 1.68;
   color: var(--hs-body) !important;
 }
 
 @media (max-width: 768px) {
+  .hero-shell {
+    padding: 1.25rem !important;
+    border-radius: 1.25rem !important;
+  }
+
   .hero-shell h1,
   .hero-shell .heading-premium {
     max-width: min(100%, 13ch) !important;
-    font-size: clamp(2.15rem, 9.4vw, 2.8rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.042em !important;
-    text-wrap: balance;
-  }
-
-  .hero-shell {
-    padding: 1.35rem 1.2rem 1.3rem !important;
-    border-radius: 1.5rem !important;
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.68) inset,
-      0 20px 48px -34px rgba(52, 46, 64, 0.3) !important;
-  }
-
-  html.dark .hero-shell {
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.045) inset,
-      0 22px 52px -34px rgba(0, 0, 0, 0.7) !important;
-  }
-
-  .hero-shell::before {
-    left: 1.2rem;
-    width: 4.5rem;
-  }
-
-  .hero-shell::after {
-    right: -5.5rem;
-    top: -5.5rem;
-    width: 13rem;
-    height: 13rem;
-    opacity: 0.45;
-  }
-
-  .hero-shell .eyebrow-label,
-  .hero-shell .section-label {
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-shell .identity-kicker,
-  .hero-shell .eyebrow-label,
-  .hero-shell .section-label {
-    min-height: 1.9rem;
-    padding: 0.42rem 0.62rem;
-  }
-}
-
-@media (max-width: 430px) {
-  .hero-shell h1,
-  .hero-shell .heading-premium {
-    max-width: min(100%, 12ch) !important;
-    font-size: clamp(2.08rem, 10vw, 2.58rem) !important;
-    line-height: 1.015 !important;
-    letter-spacing: -0.044em !important;
-  }
-
-  .hero-shell h1 + p,
-  .hero-shell .heading-premium + p {
-    margin-top: 0.85rem;
+    font-size: clamp(2rem, 8.6vw, 2.65rem) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -0.035em !important;
   }
 
   .hero-shell .detail-reading,
   .hero-shell .text-reading {
     font-size: 1rem;
-    line-height: 1.68;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-shell {
+    padding: 1.1rem !important;
+  }
+
+  .hero-shell h1,
+  .hero-shell .heading-premium {
+    max-width: 100% !important;
+    font-size: clamp(1.95rem, 8.9vw, 2.4rem) !important;
   }
 }
