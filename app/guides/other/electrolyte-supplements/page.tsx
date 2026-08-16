@@ -5,6 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
@@ -30,7 +31,9 @@ export default function ElectrolyteGuidePage() {
       <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 2 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Electrolyte Supplements: Who Actually Needs Them?</h1><p className="text-lg leading-8 text-muted">LMNT ($1.50/serving), Liquid IV, DripDrop — the electrolyte category has expanded from sports nutrition into mainstream wellness. But for most people, these products solve a problem they don&rsquo;t have. The AIS classifies electrolytes as a sports food for specific use cases only [1]. Here&rsquo;s the evidence.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/electrolyte-supplements.jpg" alt="Electrolyte supplement packets and a glass of water on a gym surface" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Electrolyte supplements — essential for athletes, unnecessary for everyone else.</figcaption></figure></section>
 
-      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">Electrolyte supplements are <strong>medically indicated for a small fraction of the population</strong>: endurance athletes (&gt;90 min exercise), outdoor laborers in heat, those on very low-carb diets (increased natriuresis), and illness with significant fluid loss [1,5]. For everyone else, they are an expensive way to consume salt, potassium, and magnesium — all abundantly available in food [2]. The marketing positions them as daily wellness products, but evidence for everyday use by non-athletes is nonexistent.</p></section>
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>Electrolyte supplements are <strong>medically indicated for a small fraction of the population</strong>: endurance athletes (&gt;90 min exercise), outdoor laborers in heat, those on very low-carb diets (increased natriuresis), and illness with significant fluid loss [1,5]. For everyone else, they are an expensive way to consume salt, potassium, and magnesium — all abundantly available in food [2]. The marketing positions them as daily wellness products, but evidence for everyday use by non-athletes is nonexistent.</p>
+      </LegacyGuideQuickAnswer>
 
       <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by use case</h2>
         <div className="space-y-4">
@@ -63,7 +66,7 @@ export default function ElectrolyteGuidePage() {
         </div>
         <p className="text-xs leading-5 text-muted">DIY alternative: 1/4 tsp salt + 1/8 tsp potassium chloride in water with lemon = ~$0.05/serving vs $1.50 for LMNT.</p></section>
 
-      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
+      <section id="references" className="card-premium scroll-mt-24 p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
         <Ref n={1} text="Australian Institute of Sport (AIS). Electrolyte Supplement: Sports Food fact sheet. AIS Supplement Framework, Group A." url="https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/electrolyte-supplement2" />
         <Ref n={2} text="IOM (2005). Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate. National Academies Press." url="https://pubmed.ncbi.nlm.nih.gov/15883093/" />
         <Ref n={3} text="Baker LB. (2017). Sweating rate and sweat sodium concentration in athletes. Sports Med, 47(Suppl 1): 65-77." url="https://pubmed.ncbi.nlm.nih.gov/28332115/" />
