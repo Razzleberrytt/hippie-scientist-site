@@ -73,13 +73,42 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  for (const [url, items] of groupByUrl(topology.semanticAlignment.findings)) {
-    const highConfidence = items.filter((item) => item.confidence >= 0.75).length
+  // Explicit alignment mismatches and claim-breadth overreach are two views of
+  // the same editorial root cause: the claim says more than its linked evidence
+  // directly supports. Aggregate them into one semantic remediation reason per
+  // profile instead of double-scoring parallel semantic analyzers.
+  const semanticByUrl = new Map<string, {
+    explicit: typeof topology.semanticAlignment.findings
+    breadth: typeof topology.claimBreadth.findings
+  }>()
+  for (const item of topology.semanticAlignment.findings) {
+    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [] }
+    group.explicit.push(item)
+    semanticByUrl.set(item.url, group)
+  }
+  for (const item of topology.claimBreadth.findings) {
+    const group = semanticByUrl.get(item.url) ?? { explicit: [], breadth: [] }
+    group.breadth.push(item)
+    semanticByUrl.set(item.url, group)
+  }
+  for (const [url, group] of semanticByUrl) {
+    const highConfidence = [
+      ...group.explicit.filter((item) => item.confidence >= 0.75),
+      ...group.breadth.filter((item) => item.confidence >= 0.75),
+    ].length
+    const issueCount = group.explicit.length + group.breadth.length
+    const breadthDimensions = {
+      population: group.breadth.filter((item) => item.populationOverbroad).length,
+      dose: group.breadth.filter((item) => item.doseOverbroad).length,
+      duration: group.breadth.filter((item) => item.durationOverbroad).length,
+      formulation: group.breadth.filter((item) => item.formulationOverbroad).length,
+      endpoint: group.breadth.filter((item) => item.endpointOverbroad).length,
+    }
     signals.push({
       url,
       kind: 'semantic-claim-source-mismatch',
-      weight: weights.semanticMismatch + Math.min(10, Math.max(0, items.length - 1) * 2) + (highConfidence ? weights.highConfidenceSemanticMismatchBonus : 0),
-      detail: `${items.length} approved claim(s) have explicit semantic mismatch; ${highConfidence} high-confidence; role ${items.filter((item) => item.roleMismatch).length}, domain ${items.filter((item) => item.domainMismatch).length}, population ${items.filter((item) => item.populationMismatch).length}`,
+      weight: weights.semanticMismatch + Math.min(10, Math.max(0, issueCount - 1) * 2) + (highConfidence ? weights.highConfidenceSemanticMismatchBonus : 0),
+      detail: `${group.explicit.length} explicit alignment mismatch(es) and ${group.breadth.length} claim-breadth overreach finding(s); ${highConfidence} high-confidence; role ${group.explicit.filter((item) => item.roleMismatch).length}, domain ${group.explicit.filter((item) => item.domainMismatch).length}, population mismatch ${group.explicit.filter((item) => item.populationMismatch).length}; breadth population ${breadthDimensions.population}, dose ${breadthDimensions.dose}, duration ${breadthDimensions.duration}, formulation ${breadthDimensions.formulation}, endpoint ${breadthDimensions.endpoint}`,
     })
   }
 
