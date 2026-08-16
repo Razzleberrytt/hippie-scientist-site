@@ -16,6 +16,7 @@
     "validate:dose-fields": "tsx scripts/ci/validate-dose-fields.ts",
     "validate:citation-identifiers": "node scripts/ci/validate-citation-identifiers.mjs",
     "citations:fetch-pubmed": "node scripts/data/fetch-pubmed-metadata.mjs",
+    "citations:participant-counts": "node scripts/data/extract-participant-counts.mjs",
     "citations:build-exports": "tsx scripts/data/build-citation-exports.ts",
     "citations:apply-pubmed": "tsx scripts/data/apply-pubmed-metadata.ts",
     "data:repair-packed-citations": "node scripts/data/repair-packed-citations.mjs",
