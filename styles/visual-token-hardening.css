@@ -142,25 +142,29 @@ html.dark body {
   background: #0e1011 !important;
 }
 
-/* Finish the primary-action migration after older styles define legacy colors. */
-.button-primary {
-  border-color: #25332c !important;
-  background: #2f4037 !important;
-  color: #ffffff !important;
+/* Final action owner: graphite in light mode, brass in dark mode. */
+.button-primary,
+.hs-btn-primary {
+  border-color: #272729 !important;
+  background: #272729 !important;
+  color: #fffdf8 !important;
 }
 
-.button-primary:hover {
-  border-color: #17201b !important;
-  background: #25332c !important;
+.button-primary:hover,
+.hs-btn-primary:hover {
+  border-color: #343437 !important;
+  background: #343437 !important;
 }
 
-html.dark .button-primary {
+html.dark .button-primary,
+html.dark .hs-btn-primary {
   border-color: #d0a35b !important;
   background: #d0a35b !important;
   color: #0e1011 !important;
 }
 
-html.dark .button-primary:hover {
+html.dark .button-primary:hover,
+html.dark .hs-btn-primary:hover {
   border-color: #e0bd7d !important;
   background: #e0bd7d !important;
 }
