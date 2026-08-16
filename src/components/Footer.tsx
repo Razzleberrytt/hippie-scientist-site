@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
 import { Brain, Leaf, Newspaper, Search, Shapes } from 'lucide-react'
 import { coreGoals } from '../../lib/core-goals'
 import { Link } from '../lib/router-compat'
@@ -9,7 +8,6 @@ import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
 import { isAnalyticsRouteEnabled } from '../lib/analyticsAccess'
 import { PUBLIC_ROUTES } from '../lib/public-routes'
-import NewsletterSignup from '../../components/NewsletterSignup'
 
 const exploreLinks = [
   { href: PUBLIC_ROUTES.guides, label: 'Topics & Guides', Icon: Brain },
@@ -66,7 +64,6 @@ function formatBuildDate(isoDate: string) {
 }
 
 export default function Footer() {
-  const pathname = usePathname() || '/'
   const [open, setOpen] = useState(false)
   const availablePolicyLinks = isAnalyticsRouteEnabled()
     ? [...policyLinks, { href: '/analytics', label: 'Analytics' }]
@@ -91,17 +88,6 @@ export default function Footer() {
   return (
     <footer className='editorial-footer mt-12 w-full px-4 pb-28 pt-12 sm:px-6 sm:pt-16 md:pb-12'>
       <div className='relative z-10 mx-auto w-full max-w-6xl'>
-        {pathname === '/' ? (
-          <NewsletterSignup
-            title='Take the 5-question safety check before your next supplement'
-            description='Get the printable checklist for screening medications, dose and form, stacking risk, product quality, and when to ask a clinician.'
-            ctaLabel='Send me the checklist'
-            location='global-footer'
-            variant='editorial'
-            className='mb-10 sm:mb-14'
-          />
-        ) : null}
-
         <div className='grid gap-8 md:grid-cols-[0.85fr_1.15fr] md:gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12'>
           <div>
             <div className='flex items-center gap-3'>
