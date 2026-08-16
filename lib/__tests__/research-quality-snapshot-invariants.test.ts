@@ -18,6 +18,7 @@ function fixtures() {
     }],
     profileAnalyses: [{ url: '/herbs/example' }],
     claimAnalyses: [{ url: '/herbs/example', claimId: 'claim-1' }],
+    structuredClaimAnalyses: [],
   } as unknown as ResearchQualityAnalysis
 
   const topology = {
@@ -25,6 +26,10 @@ function fixtures() {
       summary: { approvedClaims: 1 },
       findings: [],
       concentrationFindings: [],
+    },
+    edgeCardinality: {
+      summary: { claims: 0 },
+      duplicateEdgeClaims: [],
     },
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { claims: [] },
@@ -50,7 +55,7 @@ function fixtures() {
   const sourceIntegrity = {
     summary: { citedStudies: 1, withdrawn: 0 },
     withdrawn: [],
-    studies: [{ pmid: '123', pageCount: 1, pages: ['/herbs/example'] }],
+    studies: [{ studyId: 'pmid:123', pmid: '123', doi: '', pageCount: 1, pages: ['/herbs/example'] }],
   } as unknown as ResearchSourceIntegrity
 
   return { analysis, topology, gate, queue, sourceIntegrity }
@@ -62,6 +67,25 @@ describe('research quality snapshot invariants', () => {
     const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
     expect(report.passed).toBe(true)
     expect(report.summary.failures).toBe(0)
+  })
+
+  it('accepts DOI-only and profile-local fallback source identities', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
+    analysis.profiles[0].record.sources = [
+      { id: 'source-1', pmid: '123' },
+      { id: 'doi-only', doi: '10.1000/example' },
+      { id: 'fallback' },
+    ]
+    sourceIntegrity.studies = [
+      sourceIntegrity.studies[0],
+      { studyId: 'doi:10.1000/example', pmid: '', doi: '10.1000/example', pageCount: 1, pages: ['/herbs/example'] },
+      { studyId: '/herbs/example::source-ref:fallback', pmid: '', doi: '', pageCount: 1, pages: ['/herbs/example'] },
+    ] as typeof sourceIntegrity.studies
+    sourceIntegrity.summary.citedStudies = 3
+
+    const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
+    expect(report.passed).toBe(true)
+    expect(report.summary.sourceIntegrityFailures).toBe(0)
   })
 
   it('detects semantic approved-claim count drift', () => {
@@ -115,14 +139,14 @@ describe('research quality snapshot invariants', () => {
     expect(report.failures.map((failure) => failure.kind)).toContain('source-unknown-profile')
   })
 
-  it('detects duplicate source identities and page-count drift', () => {
+  it('detects duplicate canonical source identities and page-count drift', () => {
     const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
     sourceIntegrity.studies.push({ ...sourceIntegrity.studies[0] })
     sourceIntegrity.summary.citedStudies = 2
     sourceIntegrity.studies[0].pageCount = 2
     const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
     const kinds = report.failures.map((failure) => failure.kind)
-    expect(kinds).toContain('source-duplicate-pmid')
+    expect(kinds).toContain('source-duplicate-study-id')
     expect(kinds).toContain('source-page-count-mismatch')
   })
 
@@ -139,13 +163,14 @@ describe('research quality snapshot invariants', () => {
     expect(kinds).toContain('missing-source-id')
   })
 
-  it('detects source-integrity studies that do not exist in raw profile sources', () => {
+  it('detects source-integrity studies that do not exist in canonical profile sources', () => {
     const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
+    sourceIntegrity.studies[0].studyId = 'pmid:999'
     sourceIntegrity.studies[0].pmid = '999'
     const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
     const kinds = report.failures.map((failure) => failure.kind)
-    expect(kinds).toContain('source-unexpected-pmid')
-    expect(kinds).toContain('source-missing-pmid')
+    expect(kinds).toContain('source-unexpected-study-id')
+    expect(kinds).toContain('source-missing-study-id')
   })
 
   it('detects source-integrity ownership drift across profiles', () => {
