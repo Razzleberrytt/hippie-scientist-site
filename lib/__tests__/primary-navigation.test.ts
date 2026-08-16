@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { coreGoals } from '../core-goals'
 import { primaryNavigation } from '../primary-navigation'
 
 describe('primary navigation', () => {
@@ -10,6 +11,16 @@ describe('primary navigation', () => {
       'Safety',
     ])
     expect(primaryNavigation[4]?.label).toBe('Research')
+  })
+
+  it('keeps the Goals menu inside the canonical goals namespace', () => {
+    const goals = primaryNavigation.find((item) => item.label === 'Goals')
+    const goalChildren = goals?.children?.filter((item) => item.section === 'Health goals') ?? []
+
+    expect(goalChildren.map(({ label, href }) => ({ label, href }))).toEqual(
+      coreGoals.map((goal) => ({ label: goal.label, href: goal.href.replace(/\/$/, '') })),
+    )
+    expect(goals?.children?.some((item) => item.href.startsWith('/guides/'))).toBe(false)
   })
 
   it('keeps the Botanical Activity Atlas discoverable through Research', () => {
