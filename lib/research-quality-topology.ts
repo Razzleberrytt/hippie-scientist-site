@@ -15,6 +15,7 @@ import { buildResearchMetadataIntegrity } from './research-metadata-integrity'
 import { analyzeProvenanceConcentration, analyzeStudyProvenanceConflicts } from './research-provenance-concentration'
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import { analyzeResearchSemanticAlignment } from './research-semantic-alignment'
+import { analyzeSelectiveOutcomeReporting } from './research-selective-outcome-reporting'
 import { analyzeStudyClassConflicts } from './research-study-class-conflicts'
 import { analyzeStudyIdentityCoverage } from './research-study-identity-coverage'
 import {
@@ -80,6 +81,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   const claimBreadth = analyzeClaimBreadth(analysis)
   const effectCertainty = analyzeEffectCertainty(analysis)
   const directionalConsistency = analyzeDirectionalConsistency(analysis)
+  const selectiveOutcomeReporting = analyzeSelectiveOutcomeReporting(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
   const claimCitationMetadata = analyzeClaimCitationMetadata(analysis)
   const metadataIntegrity = buildResearchMetadataIntegrity({
@@ -125,6 +127,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     claimBreadth,
     effectCertainty,
     directionalConsistency,
+    selectiveOutcomeReporting,
     claimLanguageCalibration,
     claimCitationMetadata,
     metadataIntegrity,
