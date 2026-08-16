@@ -62,7 +62,7 @@ describe('canonical study identity', () => {
     }
 
     const groups = canonicalStudyGroups(record)
-    expect(groups).toHaveLength(2)
+    expect(groups.size).toBe(2)
     const merged = [...groups.values()].find((group) => group.length === 2)
     expect(merged).toBeDefined()
     expect(canonicalStudyClass(merged ?? [], {})).toBe('rct')
