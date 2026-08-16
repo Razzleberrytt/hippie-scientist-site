@@ -27,9 +27,18 @@ function fixtures() {
       findings: [],
       concentrationFindings: [],
     },
+    claimBreadth: {
+      summary: { approvedClaimsWithHumanEvidence: 0, overbroadClaims: 0 },
+      claims: [],
+      findings: [],
+    },
     edgeCardinality: {
       summary: { claims: 0 },
       duplicateEdgeClaims: [],
+    },
+    evidenceIndependenceCoverage: {
+      summary: { multiStudyApprovedClaims: 0 },
+      claims: [],
     },
     claimLanguageCalibration: { directEvidenceFindings: [] },
     claimCitationMetadata: { claims: [] },
