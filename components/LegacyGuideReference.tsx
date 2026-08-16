@@ -34,6 +34,9 @@ function sourceIdentifier(url?: string): string | undefined {
   return undefined
 }
 
+const referenceActionClass =
+  'inline-flex min-h-11 items-center rounded-sm font-semibold underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 dark:focus-visible:ring-brand-200/50'
+
 /**
  * Compatibility reference item for older hand-authored guides that only model
  * an ordinal, citation text, and optional source URL. Keep this conservative:
@@ -58,7 +61,7 @@ export default function LegacyGuideReference({ n, text, url }: LegacyGuideRefere
       <a
         href={`#${citationId}`}
         aria-label={`Permanent link to reference ${n}`}
-        className="font-semibold text-ink underline-offset-4 hover:underline"
+        className={`${referenceActionClass} mr-1 text-ink hover:text-brand-900 dark:hover:text-brand-100`}
       >
         [{n}]
       </a>{' '}
@@ -71,7 +74,7 @@ export default function LegacyGuideReference({ n, text, url }: LegacyGuideRefere
             target="_blank"
             rel="noopener noreferrer"
             itemProp="url"
-            className="text-brand-700 underline hover:text-brand-800"
+            className={`${referenceActionClass} ml-1 text-brand-700 hover:text-brand-900 dark:text-brand-200 dark:hover:text-brand-100`}
           >
             {sourceLabel(url)}
           </a>
