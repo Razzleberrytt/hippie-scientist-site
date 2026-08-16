@@ -57,4 +57,15 @@ describe('research-quality CI boundary', () => {
       `CI/report scripts must consume buildResearchQualitySnapshot() instead of reconstructing canonical research state; direct specialized analyzers are reserved for their lightweight standalone validators:\n${violations.join('\n')}`,
     ).toEqual([])
   })
+
+  it('keeps structured content integrity in-process in the canonical roll-up', () => {
+    const root = process.cwd()
+    const rollup = fs.readFileSync(path.join(root, 'scripts', 'ci', 'research-quality.ts'), 'utf8')
+
+    expect(rollup).toContain("from '../../lib/content-integrity.mjs'")
+    expect(rollup).toContain('analyzeContentIntegrity(ROOT)')
+    expect(rollup).toContain('writeContentIntegrityReport(contentIntegrity, ROOT)')
+    expect(rollup).not.toContain('spawnSync')
+    expect(rollup).not.toContain('audit-content-integrity.mjs')
+  })
 })
