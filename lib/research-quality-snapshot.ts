@@ -23,13 +23,22 @@ export type ResearchQualitySnapshot = {
  * Specialized reporters may format different views, but they should consume
  * this snapshot instead of independently rebuilding analysis/topology/gate/policy
  * state. The hard gate and softer remediation queue remain separate by design.
- * Snapshot invariants detect implementation contradictions between those views.
+ * Snapshot invariants are implementation contracts: contradictory derived views
+ * invalidate the snapshot itself and therefore fail every canonical consumer.
  */
 export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQualitySnapshot {
   const analysis = analyzeResearchQuality(root)
   const topology = buildResearchQualityTopology(analysis)
   const gate = buildResearchQualityGate(analysis, topology)
   const researchGapQueue = buildResearchGapQueue(analysis, topology)
+  const invariants = validateResearchQualitySnapshotInvariants(analysis, topology, gate, researchGapQueue)
+
+  if (!invariants.passed) {
+    const details = invariants.failures.slice(0, 10).map((failure) => `${failure.kind}: ${failure.detail}`).join('; ')
+    throw new Error(
+      `[research-quality-snapshot] ${invariants.summary.failures} internal invariant failure(s): ${details}`,
+    )
+  }
 
   return {
     analysis,
@@ -37,6 +46,6 @@ export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQual
     gate,
     researchGapQueue,
     sourceIntegrity: analyzeResearchSourceIntegrity(analysis),
-    invariants: validateResearchQualitySnapshotInvariants(analysis, topology, gate, researchGapQueue),
+    invariants,
   }
 }
