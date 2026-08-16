@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import SafetyCheckerClient from '../SafetyCheckerClient'
+import type { SafetyToolItem } from '@/lib/safety-checker-engine'
 
 vi.mock('next/link', () => ({
   default: ({ children, href }: { children: React.ReactNode; href: string }) => (
@@ -8,19 +9,21 @@ vi.mock('next/link', () => ({
   ),
 }))
 
-const herbs = [
+const herbs: SafetyToolItem[] = [
   {
     slug: 'rhodiola-rosea',
     name: 'Rhodiola Rosea',
+    type: 'herb',
     safety: 'Caution: Mild MAOI-like activity. Avoid with strong stimulants or SSRIs.',
     mechanism: 'Inhibits monoamine oxidase (MAOI) enzymes.',
   },
 ]
 
-const compounds = [
+const compounds: SafetyToolItem[] = [
   {
     slug: 'kanna-extract',
     name: 'Kanna Extract',
+    type: 'compound',
     safety: 'Caution: Serotonergic modulation. Avoid with SSRIs or MAOIs.',
     mechanism: 'Serotonin reuptake inhibitor. 5-HT signaling increase.',
   },
