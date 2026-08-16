@@ -93,7 +93,7 @@ export default async function SeeAlsoCluster({
   if (!relatedMatches.length && !grouped.length) return null
 
   const guideLinkClass =
-    'inline-flex min-h-11 items-center rounded-lg px-2.5 text-xs font-semibold text-brand-700 transition hover:bg-brand-50 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2'
+    'inline-flex min-h-11 items-center text-xs font-semibold text-[color:var(--tone-ink)] underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
 
   return (
     <div className={`space-y-4 ${className ?? ''}`}>
@@ -103,14 +103,11 @@ export default async function SeeAlsoCluster({
 
       {grouped.length > 0 ? (
         <section
-          className="space-y-4 rounded-2xl border border-brand-900/10 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5 sm:p-5"
+          className="border-y border-[color:var(--hs-hairline-strong)] py-5"
           aria-labelledby="see-also-cluster-heading"
         >
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <p
-              id="see-also-cluster-heading"
-              className="text-xs font-bold uppercase tracking-wider text-brand-700"
-            >
+            <p id="see-also-cluster-heading" className="eyebrow-label">
               Also in this cluster
             </p>
             {grouped.length === 1 ? (
@@ -120,33 +117,41 @@ export default async function SeeAlsoCluster({
             ) : null}
           </div>
 
-          {grouped.map((group) => (
-            <div key={group.clusterId} className="space-y-2">
-              {grouped.length > 1 ? (
-                <div className="flex items-center justify-between gap-2">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted">
-                    {group.clusterLabel}
-                  </p>
-                  <Link href={group.clusterGoalHref} prefetch={false} className={guideLinkClass}>
-                    Full guide →
-                  </Link>
+          <div className="mt-2 divide-y divide-[color:var(--hs-hairline)]">
+            {grouped.map((group, groupIndex) => (
+              <div key={group.clusterId} className="py-4">
+                {grouped.length > 1 ? (
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-xs tabular-nums text-[color:var(--hs-gold)]" aria-hidden="true">
+                        {String(groupIndex + 1).padStart(2, '0')}
+                      </span>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[color:var(--hs-body)]">
+                        {group.clusterLabel}
+                      </p>
+                    </div>
+                    <Link href={group.clusterGoalHref} prefetch={false} className={guideLinkClass}>
+                      Full guide →
+                    </Link>
+                  </div>
+                ) : null}
+
+                <div className={`${grouped.length > 1 ? 'mt-2' : ''} flex gap-4 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]`}>
+                  {group.entries.map((entry) => (
+                    <Link
+                      key={`${entry.kind}:${entry.slug}`}
+                      href={entry.href}
+                      prefetch={false}
+                      title={entry.reason}
+                      className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap border-b border-transparent text-sm font-semibold capitalize text-[color:var(--tone-ink)] transition hover:border-[color:var(--hs-gold)] hover:text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+                    >
+                      {entry.label} →
+                    </Link>
+                  ))}
                 </div>
-              ) : null}
-              <div className="flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
-                {group.entries.map((entry) => (
-                  <Link
-                    key={`${entry.kind}:${entry.slug}`}
-                    href={entry.href}
-                    prefetch={false}
-                    title={entry.reason}
-                    className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 text-sm font-semibold capitalize text-brand-800 transition hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
-                  >
-                    {entry.label} →
-                  </Link>
-                ))}
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </section>
       ) : null}
     </div>
