@@ -11,18 +11,22 @@ export default function Collapsible({ title, children, defaultOpen = false, clas
   return (
     <details
       open={defaultOpen}
-      className={`group rounded-xl border-2 border-brand-900/15 bg-white shadow-sm ring-1 ring-brand-900/5 dark:border-white/15 dark:bg-white/5 ${className}`}
+      className={`group border-y border-[color:var(--hs-hairline-strong)] bg-transparent ${className}`}
     >
-      <summary className="flex cursor-pointer select-none items-center justify-between gap-3 rounded-xl px-5 py-4 font-semibold text-ink transition hover:bg-brand-50/40 group-open:rounded-b-none dark:hover:bg-white/10">
+      <summary className="flex min-h-12 cursor-pointer select-none items-center justify-between gap-3 px-1 py-3.5 font-semibold text-[color:var(--hs-ink)] transition hover:text-[color:var(--tone-ink)]">
         <span>{title}</span>
-        <span
-          className="flex-shrink-0 text-muted transition-transform group-open:rotate-180"
+        <svg
+          className="size-4 shrink-0 text-[color:var(--hs-body)] transition-transform group-open:rotate-180"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
           aria-hidden="true"
         >
-          v
-        </span>
+          <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </summary>
-      <div className="border-t border-brand-900/10 px-5 pb-5 pt-3 text-sm leading-7 text-muted dark:border-white/10">
+      <div className="border-t border-[color:var(--hs-hairline)] px-1 pb-5 pt-4 text-sm leading-7 text-[color:var(--hs-body)]">
         {children}
       </div>
     </details>
