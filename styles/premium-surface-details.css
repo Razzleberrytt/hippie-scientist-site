@@ -24,6 +24,13 @@ main thead:not([class*='bg-red']):not([class*='bg-rose']):not([class*='bg-amber'
   color: var(--text-primary) !important;
 }
 
+/* Article tables own their header atmosphere at the <thead> level. Keep cells
+   transparent so the scoped article gradient remains visible. */
+.article-card-flow thead th {
+  background: transparent !important;
+  color: inherit !important;
+}
+
 main tbody tr {
   transition: background-color 140ms ease;
 }
