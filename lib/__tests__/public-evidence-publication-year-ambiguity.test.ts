@@ -51,12 +51,13 @@ describe('public evidence publication-year ambiguity', () => {
 
     expect(dataset.studies).toHaveLength(1)
     expect(dataset.studies[0].year).toBeUndefined()
+    expect(dataset.studies[0].publicationYearCandidates).toEqual([2020, 2021])
     expect(dataset.studies[0].publicationYearAmbiguous).toBe(true)
     expect(dataset.metrics.publicationYearAmbiguityStudyCount).toBe(1)
 
     const csv = publicEvidenceDatasetToCsv(dataset)
-    expect(csv).toContain('year,year_ambiguous')
-    expect(csv).toContain('true,34559859')
+    expect(csv).toContain('year,year_candidates,year_ambiguous')
+    expect(csv).toContain(',2020|2021,true,34559859')
   })
 
   it('uses one valid year over missing year metadata regardless of order', () => {
@@ -89,6 +90,7 @@ describe('public evidence publication-year ambiguity', () => {
       const dataset = buildPublicEvidenceDatasetFromRecords(entities)
       expect(dataset.studies).toHaveLength(1)
       expect(dataset.studies[0].year).toBe(2022)
+      expect(dataset.studies[0].publicationYearCandidates).toEqual([2022])
       expect(dataset.studies[0].publicationYearAmbiguous).toBe(false)
       expect(dataset.metrics.publicationYearAmbiguityStudyCount).toBe(0)
     }
