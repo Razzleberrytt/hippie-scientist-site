@@ -130,6 +130,7 @@ results.unshift({
   stderrTail: [
     gate.summary.structuralFailures ? `${gate.summary.structuralFailures} invalid evidence edge(s)` : '',
     gate.summary.severeStudyClassConflicts ? `${gate.summary.severeStudyClassConflicts} severe study-class conflict(s)` : '',
+    gate.summary.evidenceGradeContradictions ? `${gate.summary.evidenceGradeContradictions} topology-backed Grade A contradiction(s)` : '',
     sourceIntegrity.summary.withdrawn ? `${sourceIntegrity.summary.withdrawn} withdrawn/retracted citation(s)` : '',
   ].filter(Boolean).join('; '),
 })
@@ -147,15 +148,30 @@ results.splice(1, 0, {
 })
 if (!citationIntegrity.passed) failed = true
 
-const gradesPassed = evidenceGradeConsistency.invalid.length === 0
+const gradesPassed =
+  evidenceGradeConsistency.invalid.length === 0
+  && evidenceGradeConsistency.topologyContradictions.length === 0
+const gradeErrors = [
+  evidenceGradeConsistency.invalid.length
+    ? `${evidenceGradeConsistency.invalid.length} non-canonical published grade(s)`
+    : '',
+  evidenceGradeConsistency.topologyContradictions.length
+    ? `${evidenceGradeConsistency.topologyContradictions.length} topology-backed Grade A contradiction(s)`
+    : '',
+].filter(Boolean).join('; ')
 results.splice(2, 0, {
   id: 'evidence-grades',
   label: 'Evidence grade consistency',
   passed: gradesPassed,
   exitCode: gradesPassed ? 0 : 1,
   durationMs: 0,
-  stdoutTail: `profiles=${evidenceGradeConsistency.totals.profiles}; contradictions=${evidenceGradeConsistency.totals.contradictionsIndexable}`,
-  stderrTail: gradesPassed ? '' : `${evidenceGradeConsistency.invalid.length} non-canonical published grade(s)`,
+  stdoutTail: [
+    `profiles=${evidenceGradeConsistency.totals.profiles}`,
+    `contradictions=${evidenceGradeConsistency.totals.contradictionsIndexable}`,
+    `topologyContradictions=${evidenceGradeConsistency.totals.topologyContradictionsIndexable}`,
+    `topologyWarnings=${evidenceGradeConsistency.totals.topologyWarningsIndexable}`,
+  ].join('; '),
+  stderrTail: gradeErrors,
 })
 if (!gradesPassed) failed = true
 
@@ -330,7 +346,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
 }, null, 2)}\n`)
 
 console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structuredClaims} structured claims · ${coreSummary.approvedClaims} approved`)
-console.log(`Research gate: ${gate.summary.blockingFailures} blocking · ${gate.summary.structuralFailures} structural · ${gate.summary.severeStudyClassConflicts} severe study-class conflict(s)`)
+console.log(`Research gate: ${gate.summary.blockingFailures} blocking · ${gate.summary.structuralFailures} structural · ${gate.summary.severeStudyClassConflicts} severe study-class conflict(s) · ${gate.summary.evidenceGradeContradictions} Grade A contradiction(s)`)
 console.log(`Semantic alignment: ${semanticAlignment.summary.anyMismatch} explicit mismatch(es) · ${semanticAlignment.summary.highConfidenceMismatches} high-confidence`)
 console.log(`Claim breadth: ${claimBreadth.summary.overbroadClaims} overbroad claim(s) · ${claimBreadth.summary.highConfidenceOverbroadClaims} high-confidence · population ${claimBreadth.summary.populationOverbroadClaims} · dose ${claimBreadth.summary.doseOverbroadClaims} · duration ${claimBreadth.summary.durationOverbroadClaims} · formulation ${claimBreadth.summary.formulationOverbroadClaims} · endpoint ${claimBreadth.summary.endpointOverbroadClaims}`)
 console.log(`Effect/certainty: ${effectCertainty.summary.findings} overstatement finding(s) · ${effectCertainty.summary.highConfidenceFindings} high-confidence · magnitude ${effectCertainty.summary.magnitudeOverstatements} · clinical importance ${effectCertainty.summary.clinicalImportanceOverstatements} · certainty ${effectCertainty.summary.certaintyOverstatements}`)
