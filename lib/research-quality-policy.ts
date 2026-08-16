@@ -167,7 +167,18 @@ export function structuralCoverageFailures(analysis: ResearchQualityAnalysis): S
   ])
 }
 
-function addApprovedClaimReasons(analysis: ResearchQualityAnalysis, add: AddReason) {
+function addApprovedClaimReasons(
+  analysis: ResearchQualityAnalysis,
+  topology: ResearchQualityTopology,
+  add: AddReason,
+) {
+  const pseudoMultiStudyByClaim = new Map(
+    topology.underlyingStudyIndependence.pseudoMultiStudyClaims.map((claim) => [
+      `${claim.url}::${claim.claimId}`,
+      claim,
+    ] as const),
+  )
+
   for (const claim of analysis.claimAnalyses) {
     if (claim.structuredSupportTier === 'unsupported') {
       add(claim.url, 'unsupported-approved-claim', RESEARCH_GAP_WEIGHTS.unsupportedApprovedClaim, claim.claimId)
@@ -175,10 +186,14 @@ function addApprovedClaimReasons(analysis: ResearchQualityAnalysis, add: AddReas
     for (const sourceRefId of claim.danglingSourceRefs) {
       add(claim.url, 'dangling-claim-source-edge', RESEARCH_GAP_WEIGHTS.danglingClaimSourceEdge, `${claim.claimId} -> ${sourceRefId}`)
     }
-    if (claim.singleStudy) {
+    const pseudoMultiStudy = pseudoMultiStudyByClaim.get(`${claim.url}::${claim.claimId}`)
+    if (claim.singleStudy || pseudoMultiStudy) {
       const high = claim.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSingleStudyBonus : 0
       const veryHigh = claim.confidence >= 0.9 ? RESEARCH_GAP_WEIGHTS.veryHighConfidenceSingleStudyBonus : 0
-      add(claim.url, 'single-study-approved-claim', RESEARCH_GAP_WEIGHTS.singleStudyApprovedClaim + high + veryHigh, `${claim.claimId} · confidence ${claim.confidence}`)
+      const detail = pseudoMultiStudy
+        ? `${claim.claimId} · confidence ${claim.confidence} · ${pseudoMultiStudy.apparentStudyCount} publications collapse to ${pseudoMultiStudy.underlyingStudyCount} underlying study`
+        : `${claim.claimId} · confidence ${claim.confidence}`
+      add(claim.url, 'single-study-approved-claim', RESEARCH_GAP_WEIGHTS.singleStudyApprovedClaim + high + veryHigh, detail)
     }
     if (claim.outcomeClaim && claim.primaryHuman === 0 && claim.synthesis > 0) {
       add(claim.url, 'synthesis-only-approved-outcome', RESEARCH_GAP_WEIGHTS.synthesisOnlyApprovedOutcome, `${claim.claimId} · synthesis present but no primary-human study`)
@@ -365,7 +380,7 @@ export function buildResearchGapQueue(
     item.reasons.push({ kind, dimension: dimensionForReason(kind), weight, ...(detail ? { detail } : {}) })
     queue.set(url, item)
   }
-  addApprovedClaimReasons(analysis, add)
+  addApprovedClaimReasons(analysis, topology, add)
   addEditorialBacklogReasons(analysis, add)
   addProfileReasons(analysis, add)
   addTopologyReasons(topology, add)
