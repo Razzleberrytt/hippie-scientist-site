@@ -11,12 +11,13 @@
  * Blocking (exit 1):
  *   - a PMID or DOI that cannot be a real identifier
  *   - a citation URL that is not a single well-formed link
+ *   - one identifier recorded under conflicting study titles
  *
  * Reported only: missing year/authors/journal and placeholder titles. Those are
  * enrichment gaps across most of the corpus; failing on them would block every
  * build without telling anyone something new.
  *
- * Usage: node scripts/ci/validate-citation-identifiers.mjs [--strict]
+ * Usage: node scripts/ci/validate-citation-identifiers.mjs
  */
 
 import fs from 'node:fs'
@@ -34,7 +35,6 @@ const ROOT = process.cwd()
 const DATA_DIR = path.join(ROOT, 'public', 'data')
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORTS_DIR, 'citation-identifiers.json')
-const STRICT = process.argv.includes('--strict')
 
 const text = (value) => String(value ?? '').trim()
 
@@ -133,8 +133,11 @@ function main() {
     process.exit(1)
   }
 
-  if (STRICT && conflicts.length) {
+  if (conflicts.length) {
     console.error(`\n[citation-identifiers] FAILED — ${conflicts.length} identifier(s) recorded under conflicting titles.`)
+    for (const conflict of conflicts.slice(0, 20)) {
+      console.error(`  ${conflict.identifier} · ${conflict.titles.join(' <> ')}`)
+    }
     process.exit(1)
   }
 }
