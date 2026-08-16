@@ -14,6 +14,7 @@ import path from 'node:path'
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORT_DIR, 'research-quality.json')
+const NPX = process.platform === 'win32' ? 'npx.cmd' : 'npx'
 
 const checks = [
   {
@@ -25,19 +26,25 @@ const checks = [
   {
     id: 'coverage-topology',
     label: 'Research coverage topology',
-    command: process.platform === 'win32' ? 'npx.cmd' : 'npx',
+    command: NPX,
     args: ['tsx', 'scripts/ci/audit-source-integrity.ts'],
   },
   {
     id: 'coverage-structure',
     label: 'Approved claim evidence edges',
-    command: process.platform === 'win32' ? 'npx.cmd' : 'npx',
+    command: NPX,
     args: ['tsx', 'scripts/ci/validate-research-coverage.ts'],
+  },
+  {
+    id: 'claim-strength',
+    label: 'Claim-level evidence strength',
+    command: NPX,
+    args: ['tsx', 'scripts/ci/audit-claim-evidence-strength.ts'],
   },
   {
     id: 'evidence-grades',
     label: 'Evidence grade consistency',
-    command: process.platform === 'win32' ? 'npx.cmd' : 'npx',
+    command: NPX,
     args: ['tsx', 'scripts/ci/validate-evidence-grade-consistency.ts'],
   },
   {
@@ -60,6 +67,16 @@ type CheckResult = {
 
 function tail(value: string, maxLines = 24): string {
   return value.split(/\r?\n/).filter(Boolean).slice(-maxLines).join('\n')
+}
+
+function readSummary(fileName: string): unknown {
+  const file = path.join(REPORT_DIR, fileName)
+  if (!fs.existsSync(file)) return null
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8')).summary ?? null
+  } catch {
+    return null
+  }
 }
 
 const results: CheckResult[] = []
@@ -99,16 +116,6 @@ for (const check of checks) {
   }
 }
 
-const sourceIntegrityPath = path.join(REPORT_DIR, 'source-integrity.json')
-let topologySummary: unknown = null
-if (fs.existsSync(sourceIntegrityPath)) {
-  try {
-    topologySummary = JSON.parse(fs.readFileSync(sourceIntegrityPath, 'utf8')).summary ?? null
-  } catch {
-    topologySummary = null
-  }
-}
-
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(
   REPORT_PATH,
@@ -116,7 +123,8 @@ fs.writeFileSync(
     generatedAt: new Date().toISOString(),
     passed: !failed,
     checks: results,
-    topologySummary,
+    topologySummary: readSummary('source-integrity.json'),
+    claimStrengthSummary: readSummary('claim-evidence-strength.json'),
   }, null, 2)}\n`,
 )
 
@@ -125,4 +133,4 @@ if (failed) {
   console.error('\n[research-quality] FAILED — one or more authoritative research checks failed.')
   process.exit(1)
 }
-console.log('\n[research-quality] PASS — citation identity, coverage topology, evidence edges, grades, and structured integrity agree.')
+console.log('\n[research-quality] PASS — citation identity, coverage topology, claim strength, evidence edges, grades, and structured integrity agree.')
