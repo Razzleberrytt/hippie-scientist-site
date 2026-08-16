@@ -49,7 +49,7 @@ jobs:
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
-          git fetch origin "$BASE_REF" --depth=1
+          git fetch origin "$BASE_REF"
           changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
           printf '%s\n' "$changed"
           printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
