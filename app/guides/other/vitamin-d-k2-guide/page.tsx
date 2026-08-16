@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import FAQSchema from '@/components/seo/FAQSchema'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
 
@@ -42,7 +43,7 @@ const FAQS = [
     answer:
       'Warfarin and similar anticoagulants can interact seriously with vitamin K. People using these medicines generally need consistent vitamin K intake and should not make supplement changes without the clinician managing anticoagulation. Malabsorption, kidney disease, pregnancy, osteoporosis treatment, and known vitamin deficiencies can also change the decision.',
   },
-]
+] as const
 
 const VITAMIN_D_K_REFS = [
   {
@@ -126,7 +127,6 @@ export default function VitaminDK2Page() {
           { label: 'Vitamin D + K2' },
         ]}
       />
-      <FAQSchema pagePath="/guides/other/vitamin-d-k2-guide/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl">
         <p className="eyebrow-label">Evidence Review · Official guidance updated</p>
@@ -151,32 +151,28 @@ export default function VitaminDK2Page() {
         </figure>
       </section>
 
-      <section className="card-premium p-6 space-y-4 border-l-4 border-brand-700 bg-brand-50/30">
-        <p className="text-xs font-bold uppercase tracking-wider text-brand-700">Quick answer</p>
-        <h2 className="text-2xl font-semibold text-ink">Do not treat D3 + K2 as a universal protocol</h2>
-        <p className="text-sm leading-7 text-muted">
-          For generally healthy adults under 75, the 2024 Endocrine Society guideline suggests against routine vitamin D supplementation above the dietary reference intake solely for disease prevention [2]. NIH lists 600 IU daily for adults through age 70 and 800 IU after age 70 as the vitamin D RDA, while 4,000 IU is an upper intake limit for adults, not a routine target [1]. There is also no universal “optimal” 25(OH)D target: NIH considers 20 ng/mL or more generally adequate for most healthy people, and current Endocrine Society guidance does not define a single target for disease prevention [1,2].
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>
+          For generally healthy adults under 75, the 2024 Endocrine Society guideline suggests against routine vitamin D supplementation above the dietary reference intake solely for disease prevention [2]. NIH lists 600 IU daily for adults through age 70 and 800 IU after age 70 as the vitamin D RDA, while 4,000 IU is an upper intake limit for adults, not a routine target [1]. K2 is a separate question: vitamin K-dependent proteins are relevant to bone and vascular biology, but current evidence does not establish that everyone taking vitamin D needs K2 or that K2 reliably prevents arterial calcification [3].
         </p>
-        <p className="text-sm leading-7 text-muted">
-          K2 is a separate question. Vitamin K-dependent proteins are relevant to bone and vascular biology, but that does not prove that adding K2 to vitamin D prevents arterial calcification. NIH says the cardiovascular role of vitamin K supplementation remains unclear [3].
-        </p>
-      </section>
+      </LegacyGuideQuickAnswer>
 
-      <section className="space-y-4 max-w-5xl">
+      <section id="vitamin-d-k2-decision-table" data-answer-engine-table="true" className="space-y-4 max-w-5xl scroll-mt-24">
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Choose the question before choosing the supplement</h2>
         <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white/90 dark:border-white/10 dark:bg-white/5">
           <table className="min-w-[860px] w-full text-left text-sm">
+            <caption className="sr-only">Vitamin D and K2 decisions by clinical context</caption>
             <thead>
               <tr className="border-b border-brand-900/10 text-ink">
-                <th className="p-4">Context</th>
-                <th className="p-4">Vitamin D decision</th>
-                <th className="p-4">Vitamin K / K2 decision</th>
+                <th scope="col" className="p-4">Context</th>
+                <th scope="col" className="p-4">Vitamin D decision</th>
+                <th scope="col" className="p-4">Vitamin K / K2 decision</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-brand-900/10 text-muted">
               {decisionRows.map((row) => (
                 <tr key={row.context}>
-                  <td className="p-4 font-semibold text-ink">{row.context}</td>
+                  <th scope="row" className="p-4 font-semibold text-left text-ink">{row.context}</th>
                   <td className="p-4 leading-6">{row.vitaminD}</td>
                   <td className="p-4 leading-6">{row.vitaminK}</td>
                 </tr>
@@ -230,6 +226,7 @@ export default function VitaminDK2Page() {
       </section>
 
       <References refs={VITAMIN_D_K_REFS} />
+      <LegacyGuideFAQ pagePath="/guides/other/vitamin-d-k2-guide/" questions={[...FAQS]} />
       <EmailCapture
         headline="Get evidence reviews like this"
         description="Supplement evidence, dosing boundaries, and safety — without marketing shortcuts."
