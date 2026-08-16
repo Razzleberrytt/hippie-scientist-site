@@ -20,6 +20,45 @@ describe('runtime summary governance boundary', () => {
     expect(readHerbs).toBeGreaterThan(holds)
   })
 
+  it('supports a derived-only refresh that preserves already-governed runtime state', () => {
+    const summarySource = fs.readFileSync(
+      path.join(process.cwd(), 'scripts/data/build-runtime-summary-indexes.mjs'),
+      'utf8',
+    )
+    const enforcementSource = fs.readFileSync(
+      path.join(process.cwd(), 'scripts/data/enforce-production-content-invariants.mjs'),
+      'utf8',
+    )
+
+    expect(summarySource).toContain("process.argv.includes('--preserve-governed-state')")
+    expect(summarySource).toContain('if (PRESERVE_GOVERNED_STATE)')
+    expect(summarySource).toContain('skipping mutating pre-summary stages')
+    expect(enforcementSource).toContain(
+      'build-runtime-summary-indexes.mjs --data-dir=public/data --preserve-governed-state',
+    )
+  })
+
+  it('keeps mutating governance and citation replay outside preserve-governed-state mode', () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), 'scripts/data/build-runtime-summary-indexes.mjs'),
+      'utf8',
+    )
+
+    const preserveBranch = source.indexOf('if (PRESERVE_GOVERNED_STATE)')
+    const mutatingBranch = source.indexOf('} else {', preserveBranch)
+    const postprocess = source.indexOf("import('./postprocess-workbook-payloads.mjs')", mutatingBranch)
+    const governance = source.indexOf("import('./apply-governance-overlay.mjs')", mutatingBranch)
+    const citationExport = source.indexOf('exportCanonicalCitationsToRuntime', mutatingBranch)
+    const readHerbs = source.indexOf("readJson(path.join(DATA_DIR, 'herbs.json'))")
+
+    expect(preserveBranch).toBeGreaterThan(-1)
+    expect(mutatingBranch).toBeGreaterThan(preserveBranch)
+    expect(postprocess).toBeGreaterThan(mutatingBranch)
+    expect(governance).toBeGreaterThan(postprocess)
+    expect(citationExport).toBeGreaterThan(governance)
+    expect(readHerbs).toBeGreaterThan(citationExport)
+  })
+
   it('keeps the current AI entity artifact authority after governance replay', () => {
     const source = fs.readFileSync(
       path.join(process.cwd(), 'scripts/data/build-runtime-summary-indexes.mjs'),

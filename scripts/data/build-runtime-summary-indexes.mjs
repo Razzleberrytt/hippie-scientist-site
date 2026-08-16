@@ -15,6 +15,7 @@ const DATA_DIR_ARG = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = DATA_DIR_ARG
   ? DATA_DIR_ARG.split('=')[1]
   : 'public/data'
+const PRESERVE_GOVERNED_STATE = process.argv.includes('--preserve-governed-state')
 
 const SUMMARY_DIR = path.join(DATA_DIR, 'summary-indexes')
 await fs.mkdir(SUMMARY_DIR, { recursive: true })
@@ -204,53 +205,60 @@ function buildAlphaEntityShards(records) {
 async function main() {
   const totalTimer = createStageTimer('summary-index-build')
 
-  // This builder is the production boundary immediately before route/sitemap/static
-  // metadata generation. Normalize and govern the freshly generated runtime payloads
-  // here so every downstream artifact consumes the same authority state.
-  const postprocessTimer = createStageTimer('workbook-payload-postprocess')
-  await import('./postprocess-workbook-payloads.mjs')
-  postprocessTimer.finish()
+  if (PRESERVE_GOVERNED_STATE) {
+    // Invariant enforcement has already scrubbed and demoted the runtime payloads.
+    // A derived-only refresh must never re-run stages that can republish, rehydrate,
+    // or otherwise mutate that governed state before summaries/routes are rebuilt.
+    console.log('[summary-indexes] preserving governed runtime state; skipping mutating pre-summary stages')
+  } else {
+    // This builder is the production boundary immediately before route/sitemap/static
+    // metadata generation. Normalize and govern the freshly generated runtime payloads
+    // here so every downstream artifact consumes the same authority state.
+    const postprocessTimer = createStageTimer('workbook-payload-postprocess')
+    await import('./postprocess-workbook-payloads.mjs')
+    postprocessTimer.finish()
 
-  const governanceTimer = createStageTimer('governance-overlay')
-  await import('./apply-governance-overlay.mjs')
-  governanceTimer.finish()
+    const governanceTimer = createStageTimer('governance-overlay')
+    await import('./apply-governance-overlay.mjs')
+    governanceTimer.finish()
 
-  // The generic overlay uses a broad record-level source gate. A small set of
-  // source-backed cluster-member routes has a stricter, dedicated trust contract,
-  // so restore that explicit authority before applying any deliberate editorial holds.
-  const clusterTimer = createStageTimer('cluster-member-governance-reconciliation')
-  const clusterReport = await reconcileValidatedClusterMemberGovernance({ dataDir: DATA_DIR })
-  clusterTimer.finish({ corrected: clusterReport.total })
-  if (clusterReport.total > 0) {
-    console.log(
-      `[summary-indexes] restored validated cluster-member authority: ${[
-        ...clusterReport.herbs.map((slug) => `herb:${slug}`),
-        ...clusterReport.compounds.map((slug) => `compound:${slug}`),
-      ].join(', ')}`,
-    )
+    // The generic overlay uses a broad record-level source gate. A small set of
+    // source-backed cluster-member routes has a stricter, dedicated trust contract,
+    // so restore that explicit authority before applying any deliberate editorial holds.
+    const clusterTimer = createStageTimer('cluster-member-governance-reconciliation')
+    const clusterReport = await reconcileValidatedClusterMemberGovernance({ dataDir: DATA_DIR })
+    clusterTimer.finish({ corrected: clusterReport.total })
+    if (clusterReport.total > 0) {
+      console.log(
+        `[summary-indexes] restored validated cluster-member authority: ${[
+          ...clusterReport.herbs.map((slug) => `herb:${slug}`),
+          ...clusterReport.compounds.map((slug) => `compound:${slug}`),
+        ].join(', ')}`,
+      )
+    }
+
+    // Curated allowlists and validated cluster trust express editorial priority, but an
+    // explicit content hold (hidden_until_grounded/research_only) outranks either until grounded.
+    const holdTimer = createStageTimer('deliberate-governance-hold-reconciliation')
+    const holdReport = await reconcileDeliberateGovernanceHolds({ dataDir: DATA_DIR })
+    holdTimer.finish({ corrected: holdReport.total })
+    if (holdReport.total > 0) {
+      console.log(
+        `[summary-indexes] preserved deliberate governance holds: ${[
+          ...holdReport.herbs.map((slug) => `herb:${slug}`),
+          ...holdReport.compounds.map((slug) => `compound:${slug}`),
+        ].join(', ')}`,
+      )
+    }
+
+    const citationTimer = createStageTimer('canonical-citation-export')
+    const citationReport = exportCanonicalCitationsToRuntime({ dataDir: DATA_DIR })
+    citationTimer.finish({
+      profiles: citationReport.profilesWithCanonicalClaims,
+      updated: citationReport.updated.length,
+      missingDetails: citationReport.skippedMissingDetail.length,
+    })
   }
-
-  // Curated allowlists and validated cluster trust express editorial priority, but an
-  // explicit content hold (hidden_until_grounded/research_only) outranks either until grounded.
-  const holdTimer = createStageTimer('deliberate-governance-hold-reconciliation')
-  const holdReport = await reconcileDeliberateGovernanceHolds({ dataDir: DATA_DIR })
-  holdTimer.finish({ corrected: holdReport.total })
-  if (holdReport.total > 0) {
-    console.log(
-      `[summary-indexes] preserved deliberate governance holds: ${[
-        ...holdReport.herbs.map((slug) => `herb:${slug}`),
-        ...holdReport.compounds.map((slug) => `compound:${slug}`),
-      ].join(', ')}`,
-    )
-  }
-
-  const citationTimer = createStageTimer('canonical-citation-export')
-  const citationReport = exportCanonicalCitationsToRuntime({ dataDir: DATA_DIR })
-  citationTimer.finish({
-    profiles: citationReport.profilesWithCanonicalClaims,
-    updated: citationReport.updated.length,
-    missingDetails: citationReport.skippedMissingDetail.length,
-  })
 
   const herbs = await readJson(path.join(DATA_DIR, 'herbs.json'))
   const compounds = await readJson(path.join(DATA_DIR, 'compounds.json'))
