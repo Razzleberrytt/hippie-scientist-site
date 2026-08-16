@@ -4,21 +4,12 @@
    with meaning. */
 
 :root {
-  --surface-detail-border: rgba(46, 44, 40, 0.13);
-  --surface-detail-border-strong: rgba(46, 44, 40, 0.23);
-  --surface-detail-bg-strong: rgba(255, 253, 248, 0.97);
-  --surface-detail-focus: rgba(177, 132, 73, 0.28);
-  --surface-detail-text: #1d1d1f;
-  --surface-detail-muted: #6c6862;
-}
-
-html.dark {
-  --surface-detail-border: rgba(227, 211, 181, 0.13);
-  --surface-detail-border-strong: rgba(227, 211, 181, 0.24);
-  --surface-detail-bg-strong: rgba(28, 31, 33, 0.96);
-  --surface-detail-focus: rgba(208, 163, 91, 0.30);
-  --surface-detail-text: #f3eee4;
-  --surface-detail-muted: #aaa49a;
+  --surface-detail-border: var(--border-soft);
+  --surface-detail-border-strong: var(--border-strong);
+  --surface-detail-bg-strong: var(--surface-card-strong);
+  --surface-detail-focus: var(--ring-brand);
+  --surface-detail-text: var(--text-primary);
+  --surface-detail-muted: var(--text-muted);
 }
 
 main table {
