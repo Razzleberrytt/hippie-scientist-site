@@ -67,14 +67,17 @@ export type PublicStudyEntity = {
   authors?: string
   journal?: string
   year?: number | string
+  publicationYearCandidates?: number[]
   publicationYearAmbiguous?: boolean
   pmid?: string
   doi?: string
   url?: string
   studyType?: string
   evidenceClass: EvidenceStudyClass
+  studyClassCandidates?: EvidenceStudyClass[]
   studyClassAmbiguous?: boolean
   sampleSize?: number | string
+  participantCountCandidates?: number[]
   participantCountAmbiguous?: boolean
   dose?: string
   duration?: string
@@ -471,44 +474,35 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
     categoryMap.set(category, categorySummary)
   }
 
-  const ambiguousStudyClassIds = new Set(
-    [...evidenceClassesByStudyId.entries()]
-      .filter(([, classes]) => classes.size > 1)
-      .map(([studyId]) => studyId),
-  )
-  const ambiguousParticipantStudyIds = new Set(
-    [...participantCountsByStudyId.entries()]
-      .filter(([, counts]) => counts.size > 1)
-      .map(([studyId]) => studyId),
-  )
-  const ambiguousPublicationYearStudyIds = new Set(
-    [...publicationYearsByStudyId.entries()]
-      .filter(([, years]) => years.size > 1)
-      .map(([studyId]) => studyId),
-  )
   const studies = [...studiesById.values()]
     .map((study) => {
-      const classes = evidenceClassesByStudyId.get(study.id)
-      const years = publicationYearsByStudyId.get(study.id)
-      const studyClassAmbiguous = ambiguousStudyClassIds.has(study.id)
-      const participantCountAmbiguous = ambiguousParticipantStudyIds.has(study.id)
-      const publicationYearAmbiguous = ambiguousPublicationYearStudyIds.has(study.id)
-      const evidenceClass = !classes?.size
+      const studyClassCandidates = [...(evidenceClassesByStudyId.get(study.id) ?? [])].sort()
+      const participantCountCandidates = [...(participantCountsByStudyId.get(study.id) ?? [])].sort((a, b) => a - b)
+      const publicationYearCandidates = [...(publicationYearsByStudyId.get(study.id) ?? [])].sort((a, b) => a - b)
+      const studyClassAmbiguous = studyClassCandidates.length > 1
+      const participantCountAmbiguous = participantCountCandidates.length > 1
+      const publicationYearAmbiguous = publicationYearCandidates.length > 1
+      const evidenceClass = studyClassCandidates.length === 0
         ? study.evidenceClass
-        : classes.size === 1
-          ? [...classes][0]
+        : studyClassCandidates.length === 1
+          ? studyClassCandidates[0]
           : 'other'
-      const year = !years?.size
+      const year = publicationYearCandidates.length === 0
         ? study.year
-        : years.size === 1
-          ? [...years][0]
+        : publicationYearCandidates.length === 1
+          ? publicationYearCandidates[0]
           : undefined
+      const sampleSize = participantCountAmbiguous ? undefined : study.sampleSize
       return {
         ...study,
         year,
+        publicationYearCandidates,
         publicationYearAmbiguous,
         evidenceClass,
+        studyClassCandidates,
         studyClassAmbiguous,
+        sampleSize,
+        participantCountCandidates,
         participantCountAmbiguous,
         dose: consensusRelationshipString(study.relationships, 'dose'),
         duration: consensusRelationshipString(study.relationships, 'duration'),
@@ -527,9 +521,7 @@ export function buildPublicEvidenceDatasetFromRecords(entities: EntityRecord[]):
       if (yearDiff !== 0) return yearDiff
       return a.title.localeCompare(b.title)
     })
-  const studyMetrics = summarizeEvidenceStudies(studies.map((study) =>
-    toStudyRecord(study.participantCountAmbiguous ? { ...study, sampleSize: undefined } : study),
-  ))
+  const studyMetrics = summarizeEvidenceStudies(studies.map(toStudyRecord))
   const categoryBySlug = new Map(ingredients.map((ingredient) => [ingredient.slug, ingredient.category] as const))
 
   for (const study of studies) {
@@ -719,8 +711,10 @@ function csvEscape(value: unknown): string {
 
 export function publicEvidenceDatasetToCsv(dataset: PublicEvidenceDataset): string {
   const headers = [
-    'study_id', 'title', 'authors', 'journal', 'year', 'year_ambiguous', 'pmid', 'doi', 'study_class', 'study_class_ambiguous',
-    'sample_size', 'participant_count_ambiguous', 'dose', 'duration', 'population', 'outcome', 'result', 'limitation',
+    'study_id', 'title', 'authors', 'journal', 'year', 'year_candidates', 'year_ambiguous', 'pmid', 'doi',
+    'study_class', 'study_class_candidates', 'study_class_ambiguous',
+    'sample_size', 'participant_count_candidates', 'participant_count_ambiguous',
+    'dose', 'duration', 'population', 'outcome', 'result', 'limitation',
     'relationship_summary', 'conditions', 'safety_outcome', 'ingredient_slugs', 'ingredient_names', 'ingredient_grades',
     'relationships_json',
   ]
@@ -731,12 +725,15 @@ export function publicEvidenceDatasetToCsv(dataset: PublicEvidenceDataset): stri
     study.authors,
     study.journal,
     study.year,
+    (study.publicationYearCandidates ?? []).join('|'),
     Boolean(study.publicationYearAmbiguous),
     study.pmid,
     study.doi,
     study.evidenceClass,
+    (study.studyClassCandidates ?? []).join('|'),
     Boolean(study.studyClassAmbiguous),
     parseSampleSize(study.sampleSize) ?? study.sampleSize,
+    (study.participantCountCandidates ?? []).join('|'),
     Boolean(study.participantCountAmbiguous),
     study.dose,
     study.duration,
