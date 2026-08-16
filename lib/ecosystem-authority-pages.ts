@@ -1,5 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { buildSemanticLinkSuggestions } from '@/lib/semantic-internal-linking'
+import { slugify } from '@/lib/slug-utils'
 import { buildResearchKnowledgeReport } from '../src/lib/research-knowledge-layer'
 import { buildProgrammaticTopicClusters } from '@/lib/programmatic-topic-clusters'
 import type { RuntimeRecord } from '../src/types/content'
@@ -18,13 +19,6 @@ export type EcosystemAuthorityPage = {
     caution: string
   }[]
   internalLinks: ReturnType<typeof buildSemanticLinkSuggestions>
-}
-
-function slugify(value: unknown) {
-  return text(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '')
 }
 
 function title(value: unknown) {
