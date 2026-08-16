@@ -3,6 +3,7 @@ import path from 'node:path'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 import { getSourceClassRule } from './lib/source-class-governance'
+import type { SourceRegistryRecord } from './lib/source-registry-record'
 
 type ReviewStatus =
   | 'draft_candidate'
@@ -40,40 +41,13 @@ type SourceIntakeQueueReport = {
   tasks: SourceIntakeTask[]
 }
 
-type SourceRegistryRow = {
-  sourceId: string
-  title: string
-  shortTitle?: string
-  sourceType: string
-  sourceClass: string
-  organization?: string
-  authors?: string[]
-  publicationYear?: number
-  citationText?: string
-  doi?: string
-  pmid?: string
-  monographId?: string
-  isbn?: string
-  canonicalUrl?: string
-  language: string
-  jurisdiction?: string
-  evidenceClass: string
-  studyDesign?: string
-  publicationStatus: string
-  reliabilityTier: string
-  reviewer: string
-  reviewedAt: string
-  notes?: string
-  active: boolean
-}
-
 type SourceCandidate = {
   candidateSourceId: string
   intakeTaskId: string
   title: string
   shortTitle?: string
-  sourceType: string
-  sourceClass: string
+  sourceType: SourceRegistryRecord['sourceType']
+  sourceClass: SourceRegistryRecord['sourceClass']
   organization?: string
   authors?: string[]
   publicationYear?: number
@@ -85,10 +59,10 @@ type SourceCandidate = {
   isbn?: string
   language?: string
   jurisdiction?: string
-  evidenceClass: string
-  studyDesign?: string
-  publicationStatus: string
-  proposedReliabilityTier: string
+  evidenceClass: SourceRegistryRecord['evidenceClass']
+  studyDesign?: SourceRegistryRecord['studyDesign']
+  publicationStatus: SourceRegistryRecord['publicationStatus']
+  proposedReliabilityTier: SourceRegistryRecord['reliabilityTier']
   duplicateRisk: 'low' | 'moderate' | 'high' | 'known-duplicate'
   duplicateOfSourceId?: string
   reviewer?: string
@@ -136,7 +110,7 @@ type CandidateReviewReport = {
   }
   assessments: CandidateAssessment[]
   promotionPreview: {
-    registryInsertions: SourceRegistryRow[]
+    registryInsertions: SourceRegistryRecord[]
     blockedCandidates: Array<{ candidateSourceId: string; reasons: string[] }>
   }
 }
@@ -206,7 +180,7 @@ function pushIfMissing(issues: string[], condition: boolean, message: string) {
 
 function run() {
   const intake = readJson<SourceIntakeQueueReport>(INTAKE_PATH)
-  const registry = readJson<SourceRegistryRow[]>(REGISTRY_PATH)
+  const registry = readJson<SourceRegistryRecord[]>(REGISTRY_PATH)
   const candidates = fs.existsSync(CANDIDATE_PATH) ? readJson<SourceCandidate[]>(CANDIDATE_PATH) : []
   const candidateSchema = readJson(CANDIDATE_SCHEMA_PATH)
 
@@ -225,7 +199,7 @@ function run() {
   const activeByUrl = new Map(
     activeRegistry
       .map(source => [canonicalizeUrl(source.canonicalUrl), source] as const)
-      .filter((entry): entry is [string, SourceRegistryRow] => isNonEmpty(entry[0])),
+      .filter((entry): entry is [string, SourceRegistryRecord] => isNonEmpty(entry[0])),
   )
 
   const byDeclaredStatus: Record<ReviewStatus, number> = {
@@ -257,7 +231,7 @@ function run() {
   }
 
   const assessments: CandidateAssessment[] = []
-  const insertions: SourceRegistryRow[] = []
+  const insertions: SourceRegistryRecord[] = []
   const blocked: Array<{ candidateSourceId: string; reasons: string[] }> = []
 
   const takenSourceIds = new Set(registry.map(row => row.sourceId))
