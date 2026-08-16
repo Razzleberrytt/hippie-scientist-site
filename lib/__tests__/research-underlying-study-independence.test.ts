@@ -96,7 +96,7 @@ function lineageAnalysis(
 }
 
 describe('underlying study independence', () => {
-  it('combines registered-trial and cohort lineage transitively', () => {
+  it('combines registered-trial and cohort lineage transitively and downgrades pseudo-multi-study support', () => {
     const result = analyzeUnderlyingStudyIndependence({
       analysis: analysis(['a', 'b', 'c']),
       trialRegistrationIndependence: trialAnalysis([
@@ -112,11 +112,16 @@ describe('underlying study independence', () => {
       apparentStudyCount: 3,
       underlyingStudyCount: 1,
       collapsedPublicationCount: 2,
+      publicationStructuredSupportTier: 'adequate',
+      independenceAdjustedStructuredSupportTier: 'single-study',
+      supportTierDowngradedByDependence: true,
       independenceReduced: true,
       pseudoMultiStudySupport: true,
       highConfidencePseudoMultiStudySupport: true,
     })
     expect(result.claims[0].dependentPublicationGroups).toEqual([['a', 'b', 'c']])
+    expect(result.summary.supportTierDowngrades).toBe(1)
+    expect(result.supportTierDowngrades).toHaveLength(1)
   })
 
   it('does not collapse publications when no explicit dependence relation exists', () => {
@@ -130,12 +135,15 @@ describe('underlying study independence', () => {
       apparentStudyCount: 3,
       underlyingStudyCount: 3,
       collapsedPublicationCount: 0,
+      publicationStructuredSupportTier: 'adequate',
+      independenceAdjustedStructuredSupportTier: 'adequate',
+      supportTierDowngradedByDependence: false,
       independenceReduced: false,
       pseudoMultiStudySupport: false,
     })
   })
 
-  it('can reduce support without collapsing an entire claim to one underlying study', () => {
+  it('can reduce publication count without downgrading multi-study support when two underlying studies remain', () => {
     const result = analyzeUnderlyingStudyIndependence({
       analysis: analysis(['a', 'b', 'c']),
       trialRegistrationIndependence: trialAnalysis([
@@ -148,6 +156,9 @@ describe('underlying study independence', () => {
       apparentStudyCount: 3,
       underlyingStudyCount: 2,
       collapsedPublicationCount: 1,
+      publicationStructuredSupportTier: 'adequate',
+      independenceAdjustedStructuredSupportTier: 'adequate',
+      supportTierDowngradedByDependence: false,
       independenceReduced: true,
       pseudoMultiStudySupport: false,
     })
