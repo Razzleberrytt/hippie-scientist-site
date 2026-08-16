@@ -1,5 +1,7 @@
 import { getHerbCompoundMap, getHerbs } from '@/lib/runtime-data'
 import { cache } from '@/lib/react-cache'
+import { getEvidenceLetterGrade, type EvidenceLetterGrade } from '../../lib/evidence'
+import { buildResearchQualitySnapshot } from '../../lib/research-quality-snapshot'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import {
   inferAtlasEffectsFromMechanisms,
@@ -52,6 +54,14 @@ const KNOWN_COMPOUND_CLASSES = new Set([
 
 const inferCompoundClasses = (compounds: string[]): string[] =>
   uniqueNormalized(compounds, normalizeCompoundClass).filter((value) => KNOWN_COMPOUND_CLASSES.has(value))
+
+const atlasEvidenceFromGrade = (grade: EvidenceLetterGrade): string => {
+  if (grade === 'A') return 'Strong'
+  if (grade === 'B') return 'Moderate'
+  if (grade === 'C') return 'Preliminary'
+  if (grade === 'D') return 'Traditional / preclinical'
+  return 'Unclassified'
+}
 
 export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
   const explicitEffects = uniqueNormalized(
@@ -121,6 +131,20 @@ export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
       herb.clinical_trials,
       herb.clinicalTrials,
     ),
+    humanPublicationCount: positiveInteger(
+      herb.human_trial_count,
+      herb.humanTrialCount,
+      herb.human_study_count,
+      herb.humanStudyCount,
+      herb.clinical_study_count,
+      herb.clinicalStudyCount,
+      herb.human_trials,
+      herb.humanTrials,
+      herb.clinical_trials,
+      herb.clinicalTrials,
+    ),
+    collapsedHumanPublicationCount: 0,
+    humanEvidenceCountCanonical: false,
     intensity: normalizeIntensity(
       text(
         herb.intensityLabel,
@@ -194,10 +218,25 @@ export const getBotanicalAtlasRecords = cache(async (): Promise<BotanicalAtlasRe
   const herbRecords = rawHerbs as RuntimeRecord[]
   const compoundMapRows = herbCompoundMap as RuntimeRecord[]
   const mappedCompoundsByHerb = buildMappedCompoundsByHerb(compoundMapRows)
+  const { topology } = buildResearchQualitySnapshot(process.cwd())
+  const canonicalHumanByUrl = new Map(
+    topology.underlyingStudyIndependence.profiles.map((profile) => [profile.url, profile] as const),
+  )
 
   return herbRecords
     .filter((herb: RuntimeRecord) => getRuntimeVisibility(herb).canRender)
-    .map(toAtlasRecord)
+    .map((herb: RuntimeRecord) => {
+      const record = toAtlasRecord(herb)
+      const profile = canonicalHumanByUrl.get(`/herbs/${herb.slug}/`)
+      return {
+        ...record,
+        evidence: atlasEvidenceFromGrade(getEvidenceLetterGrade(herb)),
+        humanEvidenceCount: profile?.primaryHumanUnderlyingStudyCount ?? record.humanEvidenceCount,
+        humanPublicationCount: profile?.primaryHumanPublicationCount ?? record.humanPublicationCount,
+        collapsedHumanPublicationCount: profile?.collapsedPrimaryHumanPublicationCount ?? 0,
+        humanEvidenceCountCanonical: Boolean(profile),
+      }
+    })
     .map((record: BotanicalAtlasRecord) => enrichAtlasRecordWithMappedCompounds(record, mappedCompoundsByHerb.get(record.slug)))
     .filter((herb: BotanicalAtlasRecord) => herb.effects.length || herb.compounds.length || herb.safety.length)
     .sort((a: BotanicalAtlasRecord, b: BotanicalAtlasRecord) => a.name.localeCompare(b.name))
