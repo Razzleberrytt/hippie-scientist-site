@@ -24,11 +24,14 @@
   --accent-primary: #1f4d29;
   --accent-secondary: #557247;
   --accent-teal: #3f6b50;
+  --tone: #557247;
+  --tone-ink: #33443a;
 
   /* Normalize the older hs-* editorial token family onto the same palette. */
   --hs-gold: #557247;
   --hs-gold-bright: #6f8f5c;
   --hs-gold-soft: #d1dec6;
+  --hs-gold-ink: #435a3a;
   --hs-ink: #111a16;
   --hs-ink-soft: #33443a;
   --hs-body: #536159;
@@ -37,7 +40,7 @@
   --hs-surface: #fffefb;
   --hs-surface-2: rgba(255, 254, 251, 0.86);
   --hs-lift: 0 1px 2px rgba(13, 23, 18, 0.06), 0 10px 28px -18px rgba(13, 23, 18, 0.20);
-  --hs-lift-hover: 0 2px 4px rgba(13, 23, 18, 0.07), 0 20px 42px -22px rgba(13, 23, 18, 0.28);
+  --hs-lift-hover: 0 2px 4px rgba(13, 23, 18, 0.07), 0 18px 36px -22px rgba(13, 23, 18, 0.24);
   --hs-canvas: linear-gradient(180deg, #f9faf6 0%, #f7f8f4 42%, #f3f6f0 100%);
   --hs-dot: rgba(31, 77, 41, 0.08);
   --hs-dot-opacity: 0.18;
@@ -63,10 +66,13 @@ html.dark {
   --accent-primary: #95b99a;
   --accent-secondary: #78a380;
   --accent-teal: #78a380;
+  --tone: #78a380;
+  --tone-ink: #b5ceb8;
 
   --hs-gold: #95b99a;
   --hs-gold-bright: #b5ceb8;
   --hs-gold-soft: rgba(149, 185, 154, 0.24);
+  --hs-gold-ink: #b5ceb8;
   --hs-ink: #f2efe5;
   --hs-ink-soft: #d8d5ca;
   --hs-body: #b0bfb5;
@@ -85,9 +91,69 @@ body,
   color: var(--text-primary);
 }
 
-/* Keep elevated content visually distinct without introducing unrelated tints. */
-:where(.hero-shell, .premium-card, .surface-card) {
-  border-color: var(--border-soft);
+/* Shared surfaces: one quiet elevation language rather than tinted gradients. */
+:where(.hero-shell, .premium-card, .surface-card, .card-premium, .scientific-card, .library-card-premium, .library-content-card, .section-frame, .glass-card, .mobile-reading-card) {
+  border-color: var(--border-soft) !important;
+}
+
+:where(.card-premium, .scientific-card, .library-card-premium, .library-content-card, .section-frame, .glass-card, .mobile-reading-card) {
+  background: var(--surface-card) !important;
+  box-shadow: var(--hs-lift) !important;
+}
+
+:is(a, button).card-premium:hover,
+a.library-card-premium:hover,
+a.library-content-card:hover {
+  transform: translateY(-1px) !important;
+  border-color: var(--border-strong) !important;
+  box-shadow: var(--hs-lift-hover) !important;
+}
+
+/* Eyebrows are labels, not decoration. */
+.eyebrow-label,
+.section-label {
+  gap: 0 !important;
+  color: var(--accent-secondary) !important;
+  letter-spacing: 0.12em !important;
+}
+
+.eyebrow-label::before,
+.section-label::before {
+  content: none !important;
+}
+
+/* Primary actions use the brand color directly; no charcoal/purple gradients. */
+.button-primary {
+  border: 1px solid #153a1f !important;
+  background: #1f4d29 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(13, 23, 18, 0.16) !important;
+}
+
+.button-primary:hover {
+  transform: translateY(-1px) !important;
+  background: #153a1f !important;
+  box-shadow: 0 5px 14px rgba(13, 23, 18, 0.18) !important;
+}
+
+html.dark .button-primary {
+  border-color: #95b99a !important;
+  background: #95b99a !important;
+  color: #0d1712 !important;
+}
+
+.button-secondary {
+  border-color: var(--border-strong) !important;
+  background: var(--surface-card) !important;
+  color: var(--text-primary) !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.button-secondary:hover {
+  transform: none !important;
+  border-color: var(--accent-primary) !important;
+  background: var(--surface-card-strong) !important;
 }
 
 /* Final typography guardrails. Template utilities can still opt into a smaller
@@ -126,5 +192,11 @@ main li {
 
   .container-page {
     padding-inline: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.card-premium, .library-card-premium, .library-content-card, .button-primary, .button-secondary) {
+    transform: none !important;
   }
 }
