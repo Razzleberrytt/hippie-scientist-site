@@ -18,6 +18,8 @@ export type AggregatedTopologyGapWeights = {
   provenanceNarrowMultiStudySupport: number
   highConfidenceProvenanceNarrowBonus: number
   pseudoMultiSourceSupport: number
+  underlyingStudyPublicationReuse: number
+  highConfidenceUnderlyingStudyPublicationReuseBonus: number
   severeStudyClassConflict: number
   studyClassAmbiguity: number
 }
@@ -159,7 +161,7 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  // Registration and non-registry lineage are two ways to prove the same root
+  // Registration and non-registry lineage are alternate proofs of one root
   // problem: multiple publications are not independent underlying evidence.
   const underlyingReuse = new Map<string, {
     claimKeys: Set<string>
@@ -196,10 +198,10 @@ export function buildAggregatedTopologyGapSignals(
     const highConfidence = item.highConfidenceClaimKeys.size
     signals.push({
       url,
-      kind: 'claim-support-underlying-study-publication-reuse',
-      weight: weights.provenanceNarrowMultiStudySupport
+      kind: 'underlying-study-publication-reuse',
+      weight: weights.underlyingStudyPublicationReuse
         + Math.min(8, Math.max(0, affectedClaims - 1) * 2 + item.duplicatePublications)
-        + (highConfidence ? weights.highConfidenceProvenanceNarrowBonus : 0),
+        + (highConfidence ? weights.highConfidenceUnderlyingStudyPublicationReuseBonus : 0),
       detail: `${affectedClaims} approved multi-publication claim(s) reuse underlying evidence; ${item.registeredTrialClaims} same registered trial, ${item.nonRegistryLineageClaims} shared cohort/dataset/parent-study lineage; ${highConfidence} high-confidence`,
     })
   }
