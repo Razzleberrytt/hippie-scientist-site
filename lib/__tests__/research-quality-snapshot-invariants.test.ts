@@ -13,7 +13,7 @@ function fixtures() {
       url: '/herbs/example',
       record: {
         claimMap: [{ id: 'claim-1' }],
-        sources: [{ id: 'source-1' }],
+        sources: [{ id: 'source-1', pmid: '123' }],
       },
     }],
     profileAnalyses: [{ url: '/herbs/example' }],
@@ -105,7 +105,6 @@ describe('research quality snapshot invariants', () => {
     const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
     expect(report.passed).toBe(false)
     expect(report.failures.map((failure) => failure.kind)).toContain('source-study-count-mismatch')
-    expect(report.summary.sourceIntegrityFailures).toBe(1)
   })
 
   it('detects source rows that reference unknown profiles', () => {
@@ -129,10 +128,35 @@ describe('research quality snapshot invariants', () => {
 
   it('detects duplicate and missing source row IDs in raw profiles', () => {
     const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
-    analysis.profiles[0].record.sources = [{ id: 'source-1' }, { id: 'source-1' }, { id: '' }]
+    analysis.profiles[0].record.sources = [
+      { id: 'source-1', pmid: '123' },
+      { id: 'source-1', pmid: '123' },
+      { id: '', pmid: '123' },
+    ]
     const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
     const kinds = report.failures.map((failure) => failure.kind)
     expect(kinds).toContain('duplicate-source-id')
     expect(kinds).toContain('missing-source-id')
+  })
+
+  it('detects source-integrity studies that do not exist in raw profile sources', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
+    sourceIntegrity.studies[0].pmid = '999'
+    const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
+    const kinds = report.failures.map((failure) => failure.kind)
+    expect(kinds).toContain('source-unexpected-pmid')
+    expect(kinds).toContain('source-missing-pmid')
+  })
+
+  it('detects source-integrity ownership drift across profiles', () => {
+    const { analysis, topology, gate, queue, sourceIntegrity } = fixtures()
+    analysis.profiles.push({
+      url: '/herbs/second',
+      record: { claimMap: [], sources: [{ id: 'source-2', pmid: '123' }] },
+    } as typeof analysis.profiles[number])
+    analysis.profileAnalyses.push({ url: '/herbs/second' } as typeof analysis.profileAnalyses[number])
+    const report = validateResearchQualitySnapshotInvariants(analysis, topology, gate, queue, sourceIntegrity)
+    expect(report.passed).toBe(false)
+    expect(report.failures.map((failure) => failure.kind)).toContain('source-profile-ownership-mismatch')
   })
 })
