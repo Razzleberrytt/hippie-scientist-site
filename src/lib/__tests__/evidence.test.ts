@@ -97,7 +97,7 @@ describe('getEvidenceLabel / getEvidenceColor', () => {
 })
 
 describe('getEvidenceLetterGrade', () => {
-  it('prefers an explicit unambiguous letter grade', () => {
+  it('uses an explicit grade when it is the only authored evidence signal', () => {
     expect(getEvidenceLetterGrade(record({ evidence_grade: 'A' }))).toBe('A')
     expect(getEvidenceLetterGrade(record({ evidence_grade: 'b+' }))).toBe('B')
   })
@@ -107,7 +107,17 @@ describe('getEvidenceLetterGrade', () => {
     expect(getEvidenceLetterGrade(record({ evidence_tier: 'Traditional use' }))).toBe('D')
   })
 
-  it('falls back to the tier map derived from getEvidenceTier', () => {
+  it('resolves conflicting authored grade and tier conservatively', () => {
+    expect(getEvidenceLetterGrade(record({ evidence_grade: 'A', evidence_tier: 'Limited Evidence' }))).toBe('C')
+    expect(getEvidenceLetterGrade(record({ evidence_grade: 'B', evidence_tier: 'Preclinical Evidence' }))).toBe('D')
+  })
+
+  it('preserves outcome-dependent or explicitly unresolved authored grades as unassigned', () => {
+    expect(getEvidenceLetterGrade(record({ evidence_grade: 'Varies by outcome', evidence_tier: 'Strong Evidence' }))).toBe('Unassigned')
+    expect(getEvidenceLetterGrade(record({ evidence_grade: 'Not applicable', evidence_tier: 'Moderate Evidence' }))).toBe('Unassigned')
+  })
+
+  it('keeps the historical compatibility fallback only when no authored grade or tier exists', () => {
     expect(getEvidenceLetterGrade(record())).toBe('C')
   })
 })
