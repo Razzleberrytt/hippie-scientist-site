@@ -16,10 +16,6 @@ const OWNED_ANALYSIS_CALLS = [
     call: 'analyzeCitationIntegrity(',
     allowedFiles: new Set(['scripts/ci/validate-citation-identifiers.mjs']),
   },
-  {
-    call: 'analyzeEvidenceGradeConsistency(',
-    allowedFiles: new Set(['scripts/ci/validate-evidence-grade-consistency.ts']),
-  },
 ] as const
 
 function listCodeFiles(dir: string): string[] {
@@ -31,13 +27,13 @@ function listCodeFiles(dir: string): string[] {
   })
 }
 
-describe('research-quality CI boundary', () => {
-  it('keeps scripts/ci consumers on the canonical research-quality snapshot', () => {
+describe('research-quality script boundary', () => {
+  it('keeps every script consumer on the canonical research-quality snapshot', () => {
     const root = process.cwd()
-    const ciDir = path.join(root, 'scripts', 'ci')
+    const scriptsDir = path.join(root, 'scripts')
     const violations: string[] = []
 
-    for (const file of listCodeFiles(ciDir)) {
+    for (const file of listCodeFiles(scriptsDir)) {
       const source = fs.readFileSync(file, 'utf8')
       const relative = path.relative(root, file).replaceAll(path.sep, '/')
 
@@ -54,7 +50,7 @@ describe('research-quality CI boundary', () => {
 
     expect(
       violations,
-      `CI/report scripts must consume buildResearchQualitySnapshot() instead of reconstructing canonical research state; direct specialized analyzers are reserved for their lightweight standalone validators:\n${violations.join('\n')}`,
+      `Scripts must consume buildResearchQualitySnapshot() instead of reconstructing canonical research state; direct specialized analyzers are reserved for explicitly owned lightweight validators:\n${violations.join('\n')}`,
     ).toEqual([])
   })
 
@@ -67,5 +63,16 @@ describe('research-quality CI boundary', () => {
     expect(rollup).toContain('writeContentIntegrityReport(contentIntegrity, ROOT)')
     expect(rollup).not.toContain('spawnSync')
     expect(rollup).not.toContain('audit-content-integrity.mjs')
+  })
+
+  it('keeps the evidence-grade status row aligned with topology-backed hard-gate policy', () => {
+    const root = process.cwd()
+    const rollup = fs.readFileSync(path.join(root, 'scripts', 'ci', 'research-quality.ts'), 'utf8')
+
+    expect(rollup).toContain('evidenceGradeConsistency.topologyContradictions.length === 0')
+    expect(rollup).toContain('topologyContradictions=${evidenceGradeConsistency.totals.topologyContradictionsIndexable}')
+    expect(rollup).toContain('topologyWarnings=${evidenceGradeConsistency.totals.topologyWarningsIndexable}')
+    expect(rollup).toContain('gate.summary.evidenceGradeContradictions')
+    expect(rollup).toContain('topology-backed Grade A contradiction(s)')
   })
 })
