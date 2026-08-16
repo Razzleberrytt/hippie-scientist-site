@@ -1,4 +1,5 @@
 import type { ResearchQualityAnalysis } from './research-quality-analysis'
+import { buildExtendedTopologyGapSignals } from './research-quality-policy-topology-signals'
 import { buildResearchQualityTopology, type ResearchQualityTopology } from './research-quality-topology'
 
 export type ResearchGapDimension =
@@ -85,12 +86,29 @@ export const RESEARCH_GAP_WEIGHTS = {
   unsupportedUnapprovedStructuredClaim: 4,
   weakUnapprovedStructuredClaim: 3,
   unapprovedSingleStudyStructuredClaim: 2,
+  crossProfileBundleReuse: 10,
+  semanticMismatch: 12,
+  highConfidenceSemanticMismatchBonus: 8,
+  semanticCoverageGap: 6,
+  highConfidenceSemanticCoverageGapBonus: 4,
+  semanticConcentration: 8,
+  highConfidenceSemanticConcentrationBonus: 4,
+  causalWithoutDirectControlledSupport: 10,
+  synthesisOnlyCausalSupport: 5,
+  highConfidenceCausalLanguageBonus: 5,
+  claimCitationMetadataGap: 8,
+  highConfidenceCitationMetadataBonus: 4,
+  severeStudyClassConflict: 100,
+  studyClassAmbiguity: 5,
 } as const
 
 const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'unsupported-approved-claim': 'structural',
   'dangling-claim-source-edge': 'structural',
+  'severe-canonical-study-class-conflict': 'structural',
   'synthesis-only-approved-outcome': 'claim-support',
+  'semantic-evidence-mismatch': 'claim-support',
+  'causal-language-without-direct-controlled-support': 'claim-support',
   'single-study-approved-claim': 'concentration',
   'high-study-dependency': 'concentration',
   'narrow-repeated-evidence-bundle': 'concentration',
@@ -98,6 +116,8 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'near-duplicate-claim-evidence-support': 'concentration',
   'systemic-load-bearing-study-dependency': 'concentration',
   'provenance-concentrated-evidence': 'concentration',
+  'cross-profile-narrow-evidence-bundle': 'concentration',
+  'semantic-support-concentration': 'concentration',
   'narrative-review-dominated-profile': 'evidence-mix',
   'edge-weighted-narrative-dominance': 'evidence-mix',
   'approved-claims-without-primary-human-study': 'evidence-mix',
@@ -106,6 +126,9 @@ const DIMENSION_BY_KIND: Record<string, ResearchGapDimension> = {
   'uncertain-study-identity-independence': 'identity',
   'poor-study-metadata-coverage': 'metadata',
   'unknown-evidence-year-metadata': 'metadata',
+  'semantic-evidence-coverage-gap': 'metadata',
+  'claim-linked-citation-metadata-gap': 'metadata',
+  'canonical-study-class-ambiguity': 'metadata',
   'legacy-only-outcome-evidence': 'freshness',
 }
 
@@ -380,6 +403,25 @@ function addTopologyReasons(topology: ResearchQualityTopology, add: AddReason) {
       RESEARCH_GAP_WEIGHTS.legacyOnlyOutcomeClaim + bonus,
       `${freshness.claimId} · newest known supporting study ${freshness.newestYear ?? 'unknown'}${bonus ? ' · high confidence' : ''}`,
     )
+  }
+
+  for (const signal of buildExtendedTopologyGapSignals(topology, {
+    crossProfileBundleReuse: RESEARCH_GAP_WEIGHTS.crossProfileBundleReuse,
+    semanticMismatch: RESEARCH_GAP_WEIGHTS.semanticMismatch,
+    highConfidenceSemanticMismatchBonus: RESEARCH_GAP_WEIGHTS.highConfidenceSemanticMismatchBonus,
+    semanticCoverageGap: RESEARCH_GAP_WEIGHTS.semanticCoverageGap,
+    highConfidenceSemanticCoverageGapBonus: RESEARCH_GAP_WEIGHTS.highConfidenceSemanticCoverageGapBonus,
+    semanticConcentration: RESEARCH_GAP_WEIGHTS.semanticConcentration,
+    highConfidenceSemanticConcentrationBonus: RESEARCH_GAP_WEIGHTS.highConfidenceSemanticConcentrationBonus,
+    causalWithoutDirectControlledSupport: RESEARCH_GAP_WEIGHTS.causalWithoutDirectControlledSupport,
+    synthesisOnlyCausalSupport: RESEARCH_GAP_WEIGHTS.synthesisOnlyCausalSupport,
+    highConfidenceCausalLanguageBonus: RESEARCH_GAP_WEIGHTS.highConfidenceCausalLanguageBonus,
+    claimCitationMetadataGap: RESEARCH_GAP_WEIGHTS.claimCitationMetadataGap,
+    highConfidenceCitationMetadataBonus: RESEARCH_GAP_WEIGHTS.highConfidenceCitationMetadataBonus,
+    severeStudyClassConflict: RESEARCH_GAP_WEIGHTS.severeStudyClassConflict,
+    studyClassAmbiguity: RESEARCH_GAP_WEIGHTS.studyClassAmbiguity,
+  })) {
+    add(signal.url, signal.kind, signal.weight, signal.detail)
   }
 }
 
