@@ -7,6 +7,7 @@ import path from 'node:path'
 
 import { analyzeResearchQuality } from '../../lib/research-quality-analysis'
 import { buildResearchGapQueue, structuralCoverageFailures } from '../../lib/research-quality-policy'
+import { analyzeCrossProfileStudyLoad } from '../../lib/research-study-load'
 
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
@@ -46,6 +47,8 @@ const coreStarted = Date.now()
 const analysis = analyzeResearchQuality(ROOT)
 const structuralFailures = structuralCoverageFailures(analysis)
 const researchGapQueue = buildResearchGapQueue(analysis)
+const crossProfileStudyLoad = analyzeCrossProfileStudyLoad(analysis)
+const systemicLoadBearingStudies = crossProfileStudyLoad.filter((study) => study.systemicLoadBearing)
 const weakApprovedOutcomes = analysis.claimAnalyses.filter((claim) =>
   claim.outcomeClaim && ['unsupported', 'unclassified', 'narrative-only', 'indirect-only'].includes(claim.supportTier),
 )
@@ -67,7 +70,7 @@ results.push({
   passed: corePassed,
   exitCode: corePassed ? 0 : 1,
   durationMs: coreDurationMs,
-  stdoutTail: `profiles=${analysis.profileAnalyses.length}; structuredClaims=${analysis.structuredClaimAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; gaps=${researchGapQueue.length}`,
+  stdoutTail: `profiles=${analysis.profileAnalyses.length}; structuredClaims=${analysis.structuredClaimAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; gaps=${researchGapQueue.length}; systemicStudies=${systemicLoadBearingStudies.length}`,
   stderrTail: structuralFailures.length ? `${structuralFailures.length} structurally invalid approved-claim evidence edge(s)` : '',
 })
 console.log(`${corePassed ? 'PASS' : 'FAIL'}  Canonical claim/profile research-quality analysis  (${coreDurationMs}ms)`)
@@ -104,19 +107,24 @@ const coreSummary = {
   narrativeDominatedProfiles: narrativeDominatedProfiles.length,
   profilesWithApprovedClaimsButNoPrimaryHumanStudy: noPrimaryHumanProfiles.length,
   profilesWithResearchGaps: researchGapQueue.length,
+  canonicalStudiesSupportingApprovedClaims: crossProfileStudyLoad.length,
+  systemicLoadBearingStudies: systemicLoadBearingStudies.length,
 }
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 2,
+  schemaVersion: 3,
   generatedAt: new Date().toISOString(),
   passed: !failed,
   source: {
     analysis: 'lib/research-quality-analysis.ts',
     policy: 'lib/research-quality-policy.ts',
+    crossProfileStudyLoad: 'lib/research-study-load.ts',
   },
   coreSummary,
   structuralFailures,
+  systemicLoadBearingStudies: systemicLoadBearingStudies.slice(0, 50),
+  topCrossProfileStudyLoad: crossProfileStudyLoad.slice(0, 100),
   topResearchGaps: researchGapQueue.slice(0, 50),
   checks: results,
   sourceIntegritySummary: readSummary('source-integrity.json'),
@@ -126,6 +134,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
 
 console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structuredClaims} structured claims · ${coreSummary.approvedClaims} approved`)
 console.log(`Structural failures ${coreSummary.structuralFailures} · weak approved outcomes ${coreSummary.weakApprovedOutcomeClaims} · research-gap profiles ${coreSummary.profilesWithResearchGaps}`)
+console.log(`Systemic load-bearing studies ${coreSummary.systemicLoadBearingStudies} of ${coreSummary.canonicalStudiesSupportingApprovedClaims} canonical studies supporting approved claims`)
 console.log(`Roll-up report: ${path.relative(ROOT, REPORT_PATH)}`)
 if (failed) {
   console.error('\n[research-quality] FAILED — one or more authoritative research checks failed.')
