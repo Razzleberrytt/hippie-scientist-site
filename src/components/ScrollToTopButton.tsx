@@ -22,7 +22,7 @@ export default function ScrollToTopButton() {
     <button
       type="button"
       onClick={scrollToTop}
-      className={`fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 z-[85] min-h-10 min-w-10 rounded-full border border-brand-900/15 bg-[var(--surface-card-strong)] p-2 text-brand-800 shadow-sm backdrop-blur transition-all motion-safe:hover:scale-105 md:bottom-8 md:right-6 md:flex ${visible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+      className={`fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 z-[85] inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-brand-900/15 bg-[var(--surface-card-strong)] p-2 text-brand-800 shadow-sm backdrop-blur transition-all motion-safe:hover:scale-105 md:bottom-8 md:right-6 ${visible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
       aria-label='Scroll to top'
       tabIndex={visible ? 0 : -1}
     >
