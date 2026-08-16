@@ -14,7 +14,9 @@ import {
   type PubmedCache,
   type ResearchClaim,
   type ResearchProfile,
+  type ResearchSource,
 } from './research-coverage'
+import type { StudyClass } from './study-class'
 
 export type ClaimSupportTier =
   | 'unsupported'
@@ -32,12 +34,13 @@ export type ClaimQualityAnalysis = {
   sourceRefCount: number
   validSourceRefCount: number
   danglingSourceRefs: string[]
+  studyIds: string[]
   studyCount: number
   classifiedStudyCount: number
   primaryHuman: number
   synthesis: number
   narrative: number
-  designs: string[]
+  designs: StudyClass[]
   outcomeClaim: boolean
   supportTier: ClaimSupportTier
   highConfidenceWeakOutcome: boolean
@@ -81,28 +84,41 @@ export type ResearchQualityAnalysis = {
   claimAnalyses: ClaimQualityAnalysis[]
 }
 
+type ProfileResearchContext = {
+  record: ResearchProfile
+  cache: PubmedCache
+  sources: ResearchSource[]
+  sourcesById: Map<string, ResearchSource>
+  identities: Map<string, string>
+  studyGroups: Map<string, ResearchSource[]>
+  studyDesigns: Map<string, StudyClass>
+}
+
 function round(value: number, digits = 3): number {
   const scale = 10 ** digits
   return Math.round(value * scale) / scale
 }
 
-function analyzeClaim(
-  url: string,
-  claim: ResearchClaim,
-  record: ResearchProfile,
-  cache: PubmedCache,
-): ClaimQualityAnalysis {
+function buildProfileContext(record: ResearchProfile, cache: PubmedCache): ProfileResearchContext {
+  const sources = Array.isArray(record.sources) ? record.sources : []
   const sourcesById = sourceMap(record)
   const identities = canonicalStudyIdentityMap(record)
-  const groups = canonicalStudyGroups(record)
+  const studyGroups = canonicalStudyGroups(record)
+  const studyDesigns = new Map<string, StudyClass>()
+
+  for (const [studyId, group] of studyGroups) {
+    studyDesigns.set(studyId, canonicalStudyClass(group, cache))
+  }
+
+  return { record, cache, sources, sourcesById, identities, studyGroups, studyDesigns }
+}
+
+function analyzeClaim(url: string, claim: ResearchClaim, context: ProfileResearchContext): ClaimQualityAnalysis {
   const refs = uniqueSourceRefs(claim)
-  const validRefs = refs.filter((ref) => sourcesById.has(ref))
-  const danglingSourceRefs = refs.filter((ref) => !sourcesById.has(ref))
-  const studyIds = uniqueClaimStudyIdentities(claim, identities)
-  const designs = studyIds
-    .map((studyId) => groups.get(studyId))
-    .filter((group): group is NonNullable<typeof group> => Boolean(group))
-    .map((group) => canonicalStudyClass(group, cache))
+  const validRefs = refs.filter((ref) => context.sourcesById.has(ref))
+  const danglingSourceRefs = refs.filter((ref) => !context.sourcesById.has(ref))
+  const studyIds = uniqueClaimStudyIdentities(claim, context.identities)
+  const designs = studyIds.map((studyId) => context.studyDesigns.get(studyId) ?? 'unclassified')
   const classified = designs.filter((design) => design !== 'unclassified')
   const primaryHuman = classified.filter((design) => PRIMARY_HUMAN_STUDY_CLASSES.has(design)).length
   const synthesis = classified.filter((design) => SYNTHESIS_STUDY_CLASSES.has(design)).length
@@ -129,6 +145,7 @@ function analyzeClaim(
     sourceRefCount: refs.length,
     validSourceRefCount: validRefs.length,
     danglingSourceRefs,
+    studyIds,
     studyCount: studyIds.length,
     classifiedStudyCount: classified.length,
     primaryHuman,
@@ -146,51 +163,44 @@ function analyzeClaim(
 
 function analyzeProfile(
   url: string,
-  record: ResearchProfile,
-  cache: PubmedCache,
+  context: ProfileResearchContext,
   claims: ClaimQualityAnalysis[],
 ): ProfileQualityAnalysis {
-  const sources = Array.isArray(record.sources) ? record.sources : []
-  const allClaims = Array.isArray(record.claimMap) ? record.claimMap : []
-  const approved = approvedClaims(record)
-  const studyGroups = canonicalStudyGroups(record)
+  const allClaims = Array.isArray(context.record.claimMap) ? context.record.claimMap : []
+  const approved = approvedClaims(context.record)
   const designMix: Record<string, number> = {}
   let primaryHuman = 0
   let synthesis = 0
   let narrativeReview = 0
 
-  for (const group of studyGroups.values()) {
-    const design = canonicalStudyClass(group, cache)
+  for (const design of context.studyDesigns.values()) {
     designMix[design] = (designMix[design] ?? 0) + 1
     if (PRIMARY_HUMAN_STUDY_CLASSES.has(design)) primaryHuman += 1
     if (SYNTHESIS_STUDY_CLASSES.has(design)) synthesis += 1
     if (NARRATIVE_STUDY_CLASSES.has(design)) narrativeReview += 1
   }
 
-  const claimById = new Map(claims.map((claim) => [claim.claimId, claim]))
   const unsupportedApprovedClaims: string[] = []
   const singleStudyApprovedClaims: string[] = []
   const aliasCollapsedClaims: string[] = []
   const danglingSourceRefs: Array<{ claimId: string; sourceRefId: string }> = []
   const studyUse = new Map<string, number>()
-  const identities = canonicalStudyIdentityMap(record)
   let claimStudyEdges = 0
   let supportedApprovedClaimCount = 0
 
-  for (const claim of approved) {
-    const claimId = String(claim.id ?? 'unknown-claim')
-    const analysis = claimById.get(claimId)
-    if (!analysis) continue
+  for (const analysis of claims) {
+    if (analysis.supportTier === 'unsupported') unsupportedApprovedClaims.push(analysis.claimId)
+    if (analysis.singleStudy) singleStudyApprovedClaims.push(analysis.claimId)
+    if (analysis.aliasCollapsed) aliasCollapsedClaims.push(analysis.claimId)
+    for (const sourceRefId of analysis.danglingSourceRefs) {
+      danglingSourceRefs.push({ claimId: analysis.claimId, sourceRefId })
+    }
 
-    if (analysis.supportTier === 'unsupported') unsupportedApprovedClaims.push(claimId)
-    if (analysis.singleStudy) singleStudyApprovedClaims.push(claimId)
-    if (analysis.aliasCollapsed) aliasCollapsedClaims.push(claimId)
-    for (const sourceRefId of analysis.danglingSourceRefs) danglingSourceRefs.push({ claimId, sourceRefId })
-
-    const studies = uniqueClaimStudyIdentities(claim, identities)
-    if (studies.length > 0) supportedApprovedClaimCount += 1
-    claimStudyEdges += studies.length
-    for (const study of studies) studyUse.set(study, (studyUse.get(study) ?? 0) + 1)
+    if (analysis.studyIds.length > 0) supportedApprovedClaimCount += 1
+    claimStudyEdges += analysis.studyIds.length
+    for (const studyId of analysis.studyIds) {
+      studyUse.set(studyId, (studyUse.get(studyId) ?? 0) + 1)
+    }
   }
 
   const rankedStudyUse = [...studyUse.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
@@ -213,8 +223,8 @@ function analyzeProfile(
 
   return {
     url,
-    sourceCount: sources.length,
-    canonicalStudyCount: studyGroups.size,
+    sourceCount: context.sources.length,
+    canonicalStudyCount: context.studyGroups.size,
     claimCount: allClaims.length,
     approvedClaimCount: approved.length,
     supportedApprovedClaimCount,
@@ -248,9 +258,10 @@ export function analyzeResearchQuality(root = process.cwd()): ResearchQualityAna
   const profileAnalyses: ProfileQualityAnalysis[] = []
 
   for (const { url, record } of profiles) {
-    const claims = approvedClaims(record).map((claim) => analyzeClaim(url, claim, record, cache))
+    const context = buildProfileContext(record, cache)
+    const claims = approvedClaims(record).map((claim) => analyzeClaim(url, claim, context))
     claimAnalyses.push(...claims)
-    profileAnalyses.push(analyzeProfile(url, record, cache, claims))
+    profileAnalyses.push(analyzeProfile(url, context, claims))
   }
 
   return { cache, profiles, profileAnalyses, claimAnalyses }
