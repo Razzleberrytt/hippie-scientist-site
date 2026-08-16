@@ -1,4 +1,5 @@
 import type { Citation } from '@/components/ui/ShowMeTheStudies'
+import { normalizePmidList } from '@/lib/citation-identifiers.mjs'
 import {
   evidenceStudyId,
   normalizeEvidenceConfidence,
@@ -57,7 +58,9 @@ function sourceObjectToCitation(src: Record<string, unknown>): Citation {
   const pmid =
     src.pmid
       ? String(src.pmid)
-      : parsePmid(rawUrl) || parsePmid(citationText)
+      : src.pubmedId
+        ? String(src.pubmedId)
+        : parsePmid(rawUrl) || parsePmid(citationText)
   const url = rawUrl || doiUrl(doi) || (pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` : undefined)
   const studyType = firstString(src, ['studyType', 'study_type', 'design', 'design_type', 'publication_type', 'type'])
   const relationshipRaw = firstString(src, ['relationship', 'evidence_direction', 'direction', 'direction_of_effect'])
@@ -93,6 +96,25 @@ function sourceObjectToCitation(src: Record<string, unknown>): Citation {
   return citation
 }
 
+/**
+ * Expand a structured row that packs multiple PubMed studies into one field.
+ * Metadata is copied to each publication, but a DOI is deliberately not assigned
+ * when several PMIDs are present because the row does not establish which PMID
+ * that DOI aliases.
+ */
+function sourceObjectToCitations(src: Record<string, unknown>): Citation[] {
+  const pmids = normalizePmidList(src.pmid ?? src.pubmedId)
+  if (pmids.length <= 1) return [sourceObjectToCitation(src)]
+
+  return pmids.map((pmid) => sourceObjectToCitation({
+    ...src,
+    pmid,
+    pubmedId: undefined,
+    doi: undefined,
+    url: `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,
+  }))
+}
+
 function stringToCitation(src: string): Citation {
   const pmid = parsePmid(src)
   const doi = parseDoi(src)
@@ -108,6 +130,20 @@ function stringToCitation(src: string): Citation {
     relationship: 'background',
     confidence: 'unknown',
   }
+}
+
+function stringToCitations(src: string): Citation[] {
+  const pmids = normalizePmidList(src)
+  if (pmids.length <= 1) return [stringToCitation(src)]
+  return pmids.map((pmid) => ({
+    id: `pmid:${pmid}`,
+    title: src,
+    pmid,
+    url: `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,
+    evidenceClass: 'other',
+    relationship: 'background',
+    confidence: 'unknown',
+  }))
 }
 
 function citationKey(citation: Citation): string {
@@ -137,27 +173,28 @@ export function extractCitationsFromRecord(record: Record<string, unknown>): Cit
     for (const src of sources) {
       if (!src) continue
       if (typeof src === 'string') {
-        pushCitation(stringToCitation(src))
+        for (const citation of stringToCitations(src)) pushCitation(citation)
       } else if (typeof src === 'object') {
-        pushCitation(sourceObjectToCitation(src as Record<string, unknown>))
+        for (const citation of sourceObjectToCitations(src as Record<string, unknown>)) pushCitation(citation)
       }
     }
   }
 
   const pmids = record?.pmids
   if (Array.isArray(pmids)) {
-    for (const pmid of pmids) {
-      if (!pmid) continue
-      const id = String(pmid)
-      pushCitation({
-        id: `pmid:${id}`,
-        title: `PubMed ${id}`,
-        pmid: id,
-        url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`,
-        evidenceClass: 'other',
-        relationship: 'background',
-        confidence: 'unknown',
-      })
+    for (const value of pmids) {
+      if (!value) continue
+      for (const id of normalizePmidList(value)) {
+        pushCitation({
+          id: `pmid:${id}`,
+          title: `PubMed ${id}`,
+          pmid: id,
+          url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`,
+          evidenceClass: 'other',
+          relationship: 'background',
+          confidence: 'unknown',
+        })
+      }
     }
   }
 
@@ -166,9 +203,9 @@ export function extractCitationsFromRecord(record: Record<string, unknown>): Cit
     for (const ref of references) {
       if (!ref) continue
       if (typeof ref === 'string') {
-        pushCitation(stringToCitation(ref))
+        for (const citation of stringToCitations(ref)) pushCitation(citation)
       } else if (typeof ref === 'object') {
-        pushCitation(sourceObjectToCitation(ref as Record<string, unknown>))
+        for (const citation of sourceObjectToCitations(ref as Record<string, unknown>)) pushCitation(citation)
       }
     }
   }
