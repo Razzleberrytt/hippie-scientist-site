@@ -67,6 +67,9 @@ const {
   edgeWeightedNarrativeDominatedProfiles,
   provenanceConcentration,
   provenanceConcentratedProfiles,
+  claimEvidenceDiversity,
+  homogeneousMultiStudyClaims,
+  highConfidenceHomogeneousMultiStudyClaims,
 } = topology
 const aiCitationReadiness = buildAiCitationReadiness(analysis, ROOT)
 const aiCitationReportPath = writeAiCitationReadinessReport(aiCitationReadiness, ROOT)
@@ -86,7 +89,7 @@ const coreDurationMs = Date.now() - coreStarted
 results.push({
   id: 'canonical-core', label: 'Canonical claim/profile/source research-quality analysis', passed: corePassed,
   exitCode: corePassed ? 0 : 1, durationMs: coreDurationMs,
-  stdoutTail: `profiles=${analysis.profileAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; sourceStudies=${sourceIntegrity.summary.citedStudies}; gaps=${researchGapQueue.length}; systemicStudies=${systemicLoadBearingStudies.length}; narrowEvidenceBundles=${narrowRepeatedEvidenceBundles.length}; nearDuplicatePairs=${claimEvidenceOverlap.length}; edgeWeightedNarrative=${edgeWeightedNarrativeDominatedProfiles.length}; provenanceConcentrated=${provenanceConcentratedProfiles.length}; identityUncertain=${studyIdentityCoverage.summary.uncertainMultiStudyClaims}; semanticMismatches=${semanticAlignment.summary.anyMismatch}; causalWithoutControlled=${languageCalibration.summary.causalWithoutControlledSupport}; legacyOnly=${legacyOnlyClaims.length}; aiBelow70=${aiCitationReadiness.summary.below70}`,
+  stdoutTail: `profiles=${analysis.profileAnalyses.length}; approvedClaims=${analysis.claimAnalyses.length}; sourceStudies=${sourceIntegrity.summary.citedStudies}; gaps=${researchGapQueue.length}; systemicStudies=${systemicLoadBearingStudies.length}; narrowEvidenceBundles=${narrowRepeatedEvidenceBundles.length}; homogeneousMultiStudy=${homogeneousMultiStudyClaims.length}; nearDuplicatePairs=${claimEvidenceOverlap.length}; edgeWeightedNarrative=${edgeWeightedNarrativeDominatedProfiles.length}; provenanceConcentrated=${provenanceConcentratedProfiles.length}; identityUncertain=${studyIdentityCoverage.summary.uncertainMultiStudyClaims}; semanticMismatches=${semanticAlignment.summary.anyMismatch}; causalWithoutControlled=${languageCalibration.summary.causalWithoutControlledSupport}; legacyOnly=${legacyOnlyClaims.length}; aiBelow70=${aiCitationReadiness.summary.below70}`,
   stderrTail: [structuralFailures.length ? `${structuralFailures.length} invalid evidence edge(s)` : '', sourceIntegrity.summary.withdrawn ? `${sourceIntegrity.summary.withdrawn} withdrawn/retracted citation(s)` : ''].filter(Boolean).join('; '),
 })
 console.log(`${corePassed ? 'PASS' : 'FAIL'}  Canonical claim/profile/source research-quality analysis  (${coreDurationMs}ms)`)
@@ -136,6 +139,8 @@ const coreSummary = {
   weakUnapprovedOutcomeClaims: weakUnapprovedOutcomes.length, overDependentProfiles: overDependentProfiles.length,
   narrativeDominatedProfiles: narrativeDominatedProfiles.length, edgeWeightedNarrativeDominatedProfiles: edgeWeightedNarrativeDominatedProfiles.length,
   provenanceConcentratedProfiles: provenanceConcentratedProfiles.length,
+  homogeneousMultiStudyClaims: homogeneousMultiStudyClaims.length,
+  highConfidenceHomogeneousMultiStudyClaims: highConfidenceHomogeneousMultiStudyClaims.length,
   profilesWithApprovedClaimsButNoPrimaryHumanStudy: noPrimaryHumanProfiles.length,
   profilesWithUnmappedPrimaryHumanEvidence: unmappedPrimaryHumanProfiles.length,
   profilesWithPrimaryHumanEvidenceOnlyOnUnapprovedClaims: unapprovedOnlyPrimaryHumanProfiles.length,
@@ -151,14 +156,16 @@ const coreSummary = {
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 17, generatedAt: new Date().toISOString(), passed: !failed,
-  source: { analysis: 'lib/research-quality-analysis.ts', topology: 'lib/research-quality-topology.ts', policy: 'lib/research-quality-policy.ts', semanticAlignment: 'lib/research-semantic-alignment.ts', claimLanguageCalibration: 'lib/research-claim-language-calibration.ts', designUsage: 'lib/research-design-usage.ts', provenanceConcentration: 'lib/research-provenance-concentration.ts', studyIdentityCoverage: 'lib/research-study-identity-coverage.ts', citationIntegrity: 'lib/citation-integrity.mjs', sourceIntegrity: 'lib/research-source-integrity.ts', evidenceGradeConsistency: 'lib/evidence-grade-consistency.ts', aiCitationReadiness: 'lib/ai-citation-readiness.ts' },
+  schemaVersion: 18, generatedAt: new Date().toISOString(), passed: !failed,
+  source: { analysis: 'lib/research-quality-analysis.ts', topology: 'lib/research-quality-topology.ts', policy: 'lib/research-quality-policy.ts', claimEvidenceDiversity: 'lib/research-claim-evidence-diversity.ts', semanticAlignment: 'lib/research-semantic-alignment.ts', claimLanguageCalibration: 'lib/research-claim-language-calibration.ts', designUsage: 'lib/research-design-usage.ts', provenanceConcentration: 'lib/research-provenance-concentration.ts', studyIdentityCoverage: 'lib/research-study-identity-coverage.ts', citationIntegrity: 'lib/citation-integrity.mjs', sourceIntegrity: 'lib/research-source-integrity.ts', evidenceGradeConsistency: 'lib/evidence-grade-consistency.ts', aiCitationReadiness: 'lib/ai-citation-readiness.ts' },
   coreSummary, structuralFailures, citationIntegrity: { blocking: citationIntegrity.blocking, duplicateProfileSources: citationIntegrity.duplicateProfileSources, identifierPairConflicts: citationIntegrity.identifierPairConflicts, conflicts: citationIntegrity.conflicts, missingCounts: citationIntegrity.missingCounts },
   semanticAlignment: { summary: semanticAlignment.summary, highConfidenceMismatches: semanticAlignment.highConfidenceMismatches.slice(0, 100), findings: semanticAlignment.findings.slice(0, 200) },
   claimLanguageCalibration: { summary: languageCalibration.summary, highConfidenceFindings: languageCalibration.highConfidenceFindings.slice(0, 100), findings: languageCalibration.findings.slice(0, 200) },
   withdrawnCitedStudies: sourceIntegrity.withdrawn, evidenceGradeInvalid: evidenceGradeConsistency.invalid, evidenceGradeContradictions: evidenceGradeConsistency.contradictions.slice(0, 100),
   oldAndLoadBearingStudies: sourceIntegrity.oldAndLoadBearing.slice(0, 100), systemicLoadBearingStudies: systemicLoadBearingStudies.slice(0, 50),
   topCrossProfileStudyLoad: crossProfileStudyLoad.slice(0, 100), narrowRepeatedEvidenceBundles: narrowRepeatedEvidenceBundles.slice(0, 100),
+  homogeneousMultiStudyClaims: homogeneousMultiStudyClaims.slice(0, 150), highConfidenceHomogeneousMultiStudyClaims: highConfidenceHomogeneousMultiStudyClaims.slice(0, 100),
+  topClaimEvidenceDiversity: claimEvidenceDiversity.slice(0, 200),
   topRepeatedEvidenceBundles: evidenceBundleReuse.slice(0, 100), topClaimEvidenceOverlap: claimEvidenceOverlap.slice(0, 150),
   edgeWeightedNarrativeDominatedProfiles: edgeWeightedNarrativeDominatedProfiles.slice(0, 100), topEdgeWeightedDesignUsage: edgeWeightedDesignUsage.slice(0, 150),
   provenanceConcentratedProfiles: provenanceConcentratedProfiles.slice(0, 100), topProvenanceConcentration: provenanceConcentration.profiles.slice(0, 150),
@@ -172,7 +179,7 @@ console.log(`\nCore: ${coreSummary.profiles} profiles · ${coreSummary.structure
 console.log(`Citation integrity: ${citationIntegrity.sources} sources · ${citationIntegrity.blockingCount} blocking identity problems`)
 console.log(`Source integrity: ${sourceIntegrity.summary.citedStudies} studies · ${sourceIntegrity.summary.withdrawn} withdrawn/concern · ${sourceIntegrity.summary.oldAndLoadBearing} old load-bearing`)
 console.log(`Evidence grades: ${evidenceGradeConsistency.totals.invalidPublishedGrades} invalid · ${evidenceGradeConsistency.totals.contradictionsIndexable} indexable contradictions`)
-console.log(`Evidence topology: ${coreSummary.systemicLoadBearingStudies} systemic studies · ${coreSummary.narrowRepeatedEvidenceBundles} narrow repeated bundles · ${coreSummary.nearDuplicateEvidencePairs} near-duplicate claim pairs (${coreSummary.crossPredicateNearDuplicateEvidencePairs} cross-predicate) · ${evidenceAgeSummary.legacyOnly10Years} legacy-only claims`)
+console.log(`Evidence topology: ${coreSummary.systemicLoadBearingStudies} systemic studies · ${coreSummary.narrowRepeatedEvidenceBundles} narrow repeated bundles · ${coreSummary.homogeneousMultiStudyClaims} homogeneous multi-study claims (${coreSummary.highConfidenceHomogeneousMultiStudyClaims} high-confidence) · ${coreSummary.nearDuplicateEvidencePairs} near-duplicate claim pairs (${coreSummary.crossPredicateNearDuplicateEvidencePairs} cross-predicate) · ${evidenceAgeSummary.legacyOnly10Years} legacy-only claims`)
 console.log(`Design usage: ${edgeWeightedNarrativeDominatedProfiles.length} profile(s) narrative-dominated by approved claim-study edges`)
 console.log(`Provenance: ${provenanceConcentration.summary.provenanceConcentratedProfiles} concentrated profile(s) · ${provenanceConcentration.summary.firstAuthorConcentratedProfiles} first-author · ${provenanceConcentration.summary.journalConcentratedProfiles} journal`)
 console.log(`Semantic alignment: ${semanticAlignment.summary.anyMismatch} explicit mismatch(es) · ${semanticAlignment.summary.highConfidenceMismatches} high-confidence · ${semanticAlignment.summary.roleMismatches} role · ${semanticAlignment.summary.domainMismatches} domain · ${semanticAlignment.summary.populationMismatches} population`)
