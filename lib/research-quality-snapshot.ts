@@ -38,7 +38,7 @@ export function buildResearchQualitySnapshot(root = process.cwd()): ResearchQual
   const researchGapQueue = buildResearchGapQueue(analysis, topology)
   const sourceIntegrity = analyzeResearchSourceIntegrity(analysis)
   const citationIntegrity = analyzeCitationIntegrity(analysis.profiles)
-  const evidenceGradeConsistency = analyzeEvidenceGradeConsistency(root)
+  const evidenceGradeConsistency = analyzeEvidenceGradeConsistency(root, topology)
   const invariants = validateResearchQualitySnapshotInvariants(
     analysis,
     topology,
