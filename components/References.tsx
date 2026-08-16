@@ -45,6 +45,8 @@ export default function References({ refs }: { refs: Ref[] }) {
               id={citationId}
               data-citation-source="true"
               data-citation-id={citationId}
+              data-citation-authors={ref.authors || undefined}
+              data-citation-journal={ref.journal || undefined}
               data-pmid={ref.pmid || undefined}
               data-doi={ref.doi || undefined}
               itemScope
@@ -63,8 +65,6 @@ export default function References({ refs }: { refs: Ref[] }) {
                   {ref.title || ref.text}
                 </cite>
                 {ref.title ? <span> {ref.text}</span> : null}
-                {ref.authors ? <meta itemProp="author" content={ref.authors} /> : null}
-                {ref.journal ? <meta itemProp="isPartOf" content={ref.journal} /> : null}
                 {ref.year ? <meta itemProp="datePublished" content={String(ref.year)} /> : null}
                 {ref.pmid ? <meta itemProp="identifier" content={`PMID:${ref.pmid}`} /> : null}
                 {ref.doi ? <meta itemProp="identifier" content={`DOI:${ref.doi}`} /> : null}
