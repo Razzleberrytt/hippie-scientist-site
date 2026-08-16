@@ -36,17 +36,15 @@ export default function EvidenceMeter({
   }
 
   return (
-    <div className="rounded-[1rem] border border-brand-900/10 bg-white/85 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+    <section className="border-y border-[color:var(--hs-hairline-strong)] py-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="space-y-1">
           <p className="eyebrow-label">
             Evidence Strength{context ? ` — ${context}` : ''}
           </p>
-          {!compact && (
-            <p className="text-xs leading-5 text-muted">
-              Confidence estimate based on available human and mechanistic research.
-            </p>
-          )}
+          <p className="text-xs leading-5 text-[color:var(--hs-body)]">
+            Confidence estimate based on available human and mechanistic research.
+          </p>
         </div>
 
         <span
@@ -58,7 +56,7 @@ export default function EvidenceMeter({
       </div>
 
       <div
-        className="mt-3 h-3 overflow-hidden rounded-full bg-neutral-200/80 dark:bg-white/10"
+        className="mt-3 h-2.5 overflow-hidden rounded-full bg-neutral-200/80 dark:bg-white/10"
         role="meter"
         aria-valuenow={data.score}
         aria-valuemin={0}
@@ -71,24 +69,33 @@ export default function EvidenceMeter({
         />
       </div>
 
-      <div className="mt-1 flex justify-between text-[0.6rem] font-semibold uppercase tracking-[0.08em] text-muted">
+      <div className="mt-1 flex justify-between text-[0.6rem] font-semibold uppercase tracking-[0.08em] text-[color:var(--hs-body)]">
         <span>Theoretical</span>
         <span>Limited</span>
         <span>Moderate</span>
         <span>Strong</span>
       </div>
 
-      <details className="group mt-3 border-0 bg-transparent p-0 shadow-none dark:bg-transparent" open={defaultOpen || undefined}>
-        <summary className="flex min-h-11 cursor-pointer select-none items-center gap-1.5 rounded-md text-xs font-semibold text-brand-700 hover:text-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-1 dark:text-brand-100 dark:hover:text-white dark:focus-visible:ring-offset-transparent list-none [&::-webkit-details-marker]:hidden">
-          <span className="transition-transform duration-200 group-open:rotate-90" aria-hidden="true">
-            ▶
-          </span>
+      <details className="group mt-3 border-t border-[color:var(--hs-hairline)] !bg-transparent !p-0 !shadow-none" open={defaultOpen || undefined}>
+        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 py-2.5 text-xs font-semibold text-[color:var(--tone-ink)] hover:text-[color:var(--hs-ink)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden">
           <span className="group-open:hidden">See evidence details</span>
-          <span className="hidden group-open:inline">Hide details</span>
+          <span className="hidden group-open:inline">Hide evidence details</span>
+          <svg
+            className="size-4 shrink-0 text-[color:var(--hs-body)] transition-transform group-open:rotate-180"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden="true"
+          >
+            <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </summary>
 
-        <EvidenceMeterDetail data={data} />
+        <div className="border-t border-[color:var(--hs-hairline)] pt-3">
+          <EvidenceMeterDetail data={data} />
+        </div>
       </details>
-    </div>
+    </section>
   )
 }
