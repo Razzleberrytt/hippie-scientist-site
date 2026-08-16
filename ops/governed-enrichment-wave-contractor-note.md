@@ -3,13 +3,13 @@
 Use the single stable CLI:
 
 ```bash
-npm run run:enrichment-wave -- --wave-id <wave-id> --targets <targets-json-path> --mode <full|source-review|authoring|submission-review|rollup-refresh>
+node scripts/run-enrichment-wave.mjs --wave-id <wave-id> --targets <targets-json-path> --mode <full|source-review|authoring|submission-review|rollup-refresh>
 ```
 
 Recommended dry run first:
 
 ```bash
-npm run run:enrichment-wave -- --wave-id wave-3 --targets ops/reports/enrichment-wave-3-targets.json --mode full --dry-run
+node scripts/run-enrichment-wave.mjs --wave-id wave-3 --targets ops/reports/enrichment-wave-3-targets.json --mode full --dry-run
 ```
 
 Then run without `--dry-run` when ready.
