@@ -7,13 +7,7 @@
   position: relative;
   overflow: hidden;
   border: 1px solid var(--hs-hairline);
-  background: color-mix(in srgb, var(--hs-surface) 96%, var(--surface) 4%);
-  box-shadow: var(--hs-lift);
   padding: clamp(1.35rem, 3vw, 2.25rem) !important;
-}
-
-html.dark .hero-shell {
-  background: color-mix(in srgb, var(--hs-surface) 94%, var(--surface) 6%);
 }
 
 .hero-shell h1,
