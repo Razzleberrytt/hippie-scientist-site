@@ -5,6 +5,7 @@ import { analyzeClaimProvenanceIndependence } from './research-claim-provenance-
 import { analyzeCrossProfileEvidenceBundles } from './research-cross-profile-bundles'
 import { analyzeEdgeWeightedDesignUsage } from './research-design-usage'
 import { analyzeResearchEdgeCardinality } from './research-edge-cardinality'
+import { analyzeEvidenceIndependenceCoverage } from './research-evidence-independence-coverage'
 import { analyzeEvidenceLineage } from './research-evidence-lineage'
 import { analyzeClaimEvidenceAge, summarizeEvidenceAge } from './research-evidence-age'
 import { analyzeProvenanceConcentration } from './research-provenance-concentration'
@@ -58,6 +59,10 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
   )
   const trialRegistrationIndependence = analyzeTrialRegistrationIndependence(analysis)
   const evidenceLineage = analyzeEvidenceLineage(analysis)
+  const evidenceIndependenceCoverage = analyzeEvidenceIndependenceCoverage({
+    trialRegistrationIndependence,
+    evidenceLineage,
+  })
   const studyClassConflicts = analyzeStudyClassConflicts(analysis)
   const semanticAlignment = analyzeResearchSemanticAlignment(analysis)
   const claimLanguageCalibration = analyzeClaimLanguageCalibration(analysis)
@@ -90,6 +95,7 @@ export function buildResearchQualityTopology(analysis: ResearchQualityAnalysis) 
     highConfidenceProvenanceNarrowMultiStudyClaims,
     trialRegistrationIndependence,
     evidenceLineage,
+    evidenceIndependenceCoverage,
     studyClassConflicts,
     semanticAlignment,
     claimLanguageCalibration,
