@@ -200,48 +200,20 @@ export function buildAggregatedTopologyGapSignals(
     })
   }
 
-  // Registration and non-registry lineage are alternate proofs of one root
-  // problem: multiple publications are not independent underlying evidence.
-  const underlyingReuse = new Map<string, {
-    claimKeys: Set<string>
-    highConfidenceClaimKeys: Set<string>
-    registeredTrialClaims: number
-    nonRegistryLineageClaims: number
-    duplicatePublications: number
-  }>()
-  for (const claim of topology.trialRegistrationIndependence.sameTrialReuseClaims) {
-    const item = underlyingReuse.get(claim.url) ?? {
-      claimKeys: new Set<string>(), highConfidenceClaimKeys: new Set<string>(), registeredTrialClaims: 0,
-      nonRegistryLineageClaims: 0, duplicatePublications: 0,
-    }
-    const key = `${claim.url}::${claim.claimId}`
-    item.claimKeys.add(key)
-    if (claim.highConfidenceSameTrialReuse) item.highConfidenceClaimKeys.add(key)
-    item.registeredTrialClaims += 1
-    item.duplicatePublications += claim.duplicatePublicationCount
-    underlyingReuse.set(claim.url, item)
-  }
-  for (const claim of topology.evidenceLineage.sharedNonRegistryLineageClaims) {
-    const item = underlyingReuse.get(claim.url) ?? {
-      claimKeys: new Set<string>(), highConfidenceClaimKeys: new Set<string>(), registeredTrialClaims: 0,
-      nonRegistryLineageClaims: 0, duplicatePublications: 0,
-    }
-    const key = `${claim.url}::${claim.claimId}`
-    item.claimKeys.add(key)
-    if (claim.highConfidenceSharedNonRegistryLineage) item.highConfidenceClaimKeys.add(key)
-    item.nonRegistryLineageClaims += 1
-    underlyingReuse.set(claim.url, item)
-  }
-  for (const [url, item] of underlyingReuse) {
-    const affectedClaims = item.claimKeys.size
-    const highConfidence = item.highConfidenceClaimKeys.size
+  // One canonical union graph now owns registered-trial + cohort/dataset/parent
+  // dependence. Policy only ranks the resulting adjusted underlying-study count.
+  for (const [url, items] of groupByUrl(topology.underlyingStudyIndependence.reducedClaims)) {
+    const collapsedPublications = items.reduce((sum, item) => sum + item.collapsedPublicationCount, 0)
+    const pseudoMultiStudy = items.filter((item) => item.pseudoMultiStudySupport).length
+    const highConfidencePseudo = items.filter((item) => item.highConfidencePseudoMultiStudySupport).length
+    const minimumUnderlyingStudyCount = Math.min(...items.map((item) => item.underlyingStudyCount))
     signals.push({
       url,
       kind: 'underlying-study-publication-reuse',
       weight: weights.underlyingStudyPublicationReuse
-        + Math.min(8, Math.max(0, affectedClaims - 1) * 2 + item.duplicatePublications)
-        + (highConfidence ? weights.highConfidenceUnderlyingStudyPublicationReuseBonus : 0),
-      detail: `${affectedClaims} approved multi-publication claim(s) reuse underlying evidence; ${item.registeredTrialClaims} same registered trial, ${item.nonRegistryLineageClaims} shared cohort/dataset/parent-study lineage; ${highConfidence} high-confidence`,
+        + Math.min(12, Math.max(0, items.length - 1) * 2 + collapsedPublications + pseudoMultiStudy * 3)
+        + (highConfidencePseudo ? weights.highConfidenceUnderlyingStudyPublicationReuseBonus : 0),
+      detail: `${items.length} approved claim(s) lose apparent study independence after explicit lineage collapse; ${collapsedPublications} publication(s) collapse; ${pseudoMultiStudy} claim(s) reduce to one underlying study; ${highConfidencePseudo} high-confidence pseudo-multi-study; minimum adjusted count ${minimumUnderlyingStudyCount}`,
     })
   }
 
