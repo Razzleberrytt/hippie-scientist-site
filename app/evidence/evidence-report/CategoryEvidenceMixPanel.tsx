@@ -15,7 +15,7 @@ export default function CategoryEvidenceMixPanel({ dataset }: Props) {
 
   return (
     <section className="mx-auto mb-10 max-w-6xl px-4 sm:px-6 lg:px-8" aria-labelledby="category-evidence-mix-title">
-      <div className="rounded-2xl border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8">
+      <div className="card-premium p-6 sm:p-8">
         <p className="eyebrow-label">Evidence-design mix</p>
         <h2 id="category-evidence-mix-title" className="mt-2 text-2xl font-semibold text-ink">
           Which categories rely on direct human research, synthesis, or preclinical evidence?
