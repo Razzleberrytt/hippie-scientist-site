@@ -24,7 +24,6 @@ const weights = {
   highConfidenceProvenanceNarrowBonus: 4,
   pseudoMultiSourceSupport: 9,
   underlyingStudyPublicationReuse: 12,
-  highConfidenceUnderlyingStudyPublicationReuseBonus: 6,
   independenceMetadataGap: 8,
   highConfidenceIndependenceMetadataBonus: 6,
   severeStudyClassConflict: 100,
@@ -54,6 +53,10 @@ function topology(): ResearchQualityTopology {
       ],
     },
     studyClassConflicts: { conflicts: [], severeConflicts: [] },
+    // Required by buildAggregatedTopologyGapSignals; the `as unknown as`
+    // cast below hid its absence from the type checker and the helper threw
+    // on `topology.outcomeReportingIntegrity.claims` at runtime instead.
+    outcomeReportingIntegrity: { claims: [] },
   } as unknown as ResearchQualityTopology
 }
 
@@ -64,7 +67,7 @@ describe('evidence independence remediation policy', () => {
     expect(signal).toBeDefined()
     expect(signal?.url).toBe('/herbs/a/')
     expect(signal?.detail).toContain('2 approved multi-study claim(s) have unresolved independence')
-    expect(signal?.detail).toContain('4 study slot(s) lack explicit')
+    expect(signal?.detail).toContain('4 claim-linked study slot(s) lack explicit lineage')
     expect(signal?.detail).toContain('1 high-confidence')
     expect(signal?.detail).not.toContain('reuse underlying evidence')
   })

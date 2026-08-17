@@ -23,7 +23,14 @@ export type CategoryEvidenceMix = {
   synthesisShare: number
 }
 
-export function summarizeCategoryEvidenceMix(dataset: PublicEvidenceDataset): CategoryEvidenceMix[] {
+/**
+ * Only `ingredients` and `studies` are read, so the parameter says so. The
+ * wider PublicEvidenceDataset type forced test fixtures to fake seven unused
+ * fields or cast around the checker; a full dataset still satisfies this.
+ */
+export function summarizeCategoryEvidenceMix(
+  dataset: Pick<PublicEvidenceDataset, 'ingredients' | 'studies'>,
+): CategoryEvidenceMix[] {
   const categoryByPath = new Map(dataset.ingredients.map(ingredient => [ingredient.path, ingredient.category]))
   const buckets = new Map<string, Omit<CategoryEvidenceMix, 'preclinicalShare' | 'humanShare' | 'primaryHumanShare' | 'synthesisShare'>>()
 

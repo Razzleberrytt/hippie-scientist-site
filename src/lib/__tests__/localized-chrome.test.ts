@@ -23,7 +23,7 @@ describe('localized chrome', () => {
   })
 
   it('provides complete localized chrome copy for every translated locale', () => {
-    for (const locale of [SPANISH_LOCALE, PORTUGUESE_LOCALE, FRENCH_LOCALE, GERMAN_LOCALE]) {
+    for (const locale of [SPANISH_LOCALE, PORTUGUESE_LOCALE, FRENCH_LOCALE, GERMAN_LOCALE] as const) {
       const config = LOCALIZED_CHROME[locale]
       expect(config.links).toHaveLength(5)
       expect(config.footerDescription.length).toBeGreaterThan(20)

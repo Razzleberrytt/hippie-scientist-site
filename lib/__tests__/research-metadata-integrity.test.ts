@@ -5,6 +5,9 @@ import { buildResearchMetadataIntegrity } from '@/lib/research-metadata-integrit
 describe('research metadata integrity rollup', () => {
   it('groups specialized metadata findings once per profile without redefining detection', () => {
     const inputs = {
+      // Required by MetadataIntegrityInputs. It was missing entirely, which
+      // is what made the cast below unsound rather than merely verbose.
+      participantCountAmbiguities: [],
       studyYearConflicts: [
         { url: '/herbs/a/', studyId: 'study-a', years: [2018, 2020], minYear: 2018, maxYear: 2020, yearSpread: 2 },
       ],
@@ -45,7 +48,7 @@ describe('research metadata integrity rollup', () => {
           averageFieldMetadataCoverage: 0.5,
         },
       },
-    } as Parameters<typeof buildResearchMetadataIntegrity>[0]
+    } satisfies Parameters<typeof buildResearchMetadataIntegrity>[0]
 
     const result = buildResearchMetadataIntegrity(inputs)
 

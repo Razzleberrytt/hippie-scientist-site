@@ -75,13 +75,6 @@ export function Navigation() {
     return prefixes.some((prefix) => pathMatches(pathname, prefix))
   }
 
-  const isChildActive = (href: string) => {
-    if (href === '/guides' || href === '/learn' || href === '/articles' || href === '/library') {
-      return pathname === href
-    }
-    return pathMatches(pathname, href)
-  }
-
   const closeMobile = () => setMobileOpen(false)
 
   const handleMobileDialogKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {

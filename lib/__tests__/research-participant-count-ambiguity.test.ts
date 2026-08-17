@@ -28,7 +28,6 @@ const weights = {
   highConfidenceProvenanceNarrowBonus: 4,
   pseudoMultiSourceSupport: 9,
   underlyingStudyPublicationReuse: 12,
-  highConfidenceUnderlyingStudyPublicationReuseBonus: 6,
   independenceMetadataGap: 8,
   highConfidenceIndependenceMetadataBonus: 6,
   severeStudyClassConflict: 100,
