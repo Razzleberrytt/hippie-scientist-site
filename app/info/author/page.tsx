@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
 import { buildPageMetadata } from '../../../src/lib/seo'
 
@@ -102,6 +103,13 @@ export default function AuthorPage() {
         ]}
       />
       <FaqJsonLd items={faqItems} />
+      <AuthorityBreadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Info', href: '/info/' },
+          { label: 'Author' },
+        ]}
+      />
 
       <section className='hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Editorial responsibility</p>
@@ -128,7 +136,7 @@ export default function AuthorPage() {
 
       <section className='grid gap-5 lg:grid-cols-2' aria-label='Author trust boundaries'>
         <article className='card-premium p-6 sm:p-7'>
-          <p className='section-label'>What this establishes</p>
+          <p className='eyebrow-label'>What this establishes</p>
           <h2 className='mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]'>
             Methodology, transparency, and editorial responsibility
           </h2>
@@ -139,7 +147,7 @@ export default function AuthorPage() {
           </p>
         </article>
         <article className='card-premium p-6 sm:p-7'>
-          <p className='section-label'>What this does not establish</p>
+          <p className='eyebrow-label'>What this does not establish</p>
           <h2 className='mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]'>
             No implied clinical or academic credential
           </h2>
@@ -152,8 +160,8 @@ export default function AuthorPage() {
       </section>
 
       <section aria-labelledby='workflow-title'>
-        <p className='section-label'>Editorial workflow</p>
-        <h2 id='workflow-title' className='mt-3 max-w-3xl font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
+        <p className='eyebrow-label'>Editorial workflow</p>
+        <h2 id='workflow-title' className='compact-heading mt-3 max-w-3xl'>
           How evidence moves from source material to a public conclusion
         </h2>
         <div className='mt-7 grid gap-7 md:grid-cols-2 lg:grid-cols-4'>
@@ -172,10 +180,8 @@ export default function AuthorPage() {
       <section className='border-y border-[color:var(--hs-hairline)] py-8 sm:py-10'>
         <div className='grid gap-8 lg:grid-cols-2 lg:gap-12'>
           <div>
-            <p className='section-label'>Evidence independence</p>
-            <h2 className='mt-3 max-w-2xl font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
-              Evidence rankings are not for sale.
-            </h2>
+            <p className='eyebrow-label'>Evidence independence</p>
+            <h2 className='compact-heading mt-3 max-w-2xl'>Evidence rankings are not for sale.</h2>
             <p className='mt-4 max-w-2xl text-sm leading-7 text-[color:var(--hs-body)]'>
               Supplement companies cannot pay to raise an evidence grade, change which studies count, weaken a safety
               warning, or alter the scientific conclusion. Affiliate commission cannot influence an evidence grade or
@@ -183,10 +189,8 @@ export default function AuthorPage() {
             </p>
           </div>
           <div>
-            <p className='section-label'>Funding &amp; conflicts</p>
-            <h2 className='mt-3 max-w-2xl font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
-              Commercial relationships must remain visible and downstream of evidence.
-            </h2>
+            <p className='eyebrow-label'>Funding &amp; conflicts</p>
+            <h2 className='compact-heading mt-3 max-w-2xl'>Commercial relationships must remain visible and downstream of evidence.</h2>
             <p className='mt-4 max-w-2xl text-sm leading-7 text-[color:var(--hs-body)]'>
               Monetized links are disclosed. A commercial relationship does not create scientific support, and the
               absence of a commercial relationship does not make weak evidence strong. Material conflicts that could
@@ -197,39 +201,39 @@ export default function AuthorPage() {
       </section>
 
       <section aria-labelledby='trust-pages-title'>
-        <p className='section-label'>Verify the process</p>
-        <h2 id='trust-pages-title' className='mt-3 font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
-          Trust and research resources
-        </h2>
+        <p className='eyebrow-label'>Verify the process</p>
+        <h2 id='trust-pages-title' className='compact-heading mt-3'>Trust and research resources</h2>
         <div className='mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5'>
           {trustLinks.map((item) => (
-            <Link key={item.href} href={item.href} className='card-premium p-6 transition motion-safe:hover:-translate-y-0.5'>
-              <h3 className='text-lg font-semibold tracking-tight text-ink'>{item.title}</h3>
-              <p className='mt-3 text-sm leading-7 text-muted'>{item.body}</p>
-              <span className='mt-5 inline-flex text-sm font-semibold text-[color:var(--tone-ink)]'>Open →</span>
+            <Link
+              key={item.href}
+              href={item.href}
+              className='card-premium group p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
+            >
+              <h3 className='text-lg font-semibold tracking-tight text-[color:var(--hs-ink)]'>{item.title}</h3>
+              <p className='mt-3 text-sm leading-7 text-[color:var(--hs-body)]'>{item.body}</p>
+              <span className='mt-5 inline-flex text-sm font-semibold text-[color:var(--hs-gold-ink)] group-hover:underline'>Open →</span>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 sm:p-8' aria-labelledby='accountability-title'>
-        <p className='section-label'>Accountability</p>
-        <h2 id='accountability-title' className='mt-3 font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>
-          A correction is more useful than an uncheckable claim of authority.
-        </h2>
+      <section className='section-frame p-6 sm:p-8' aria-labelledby='accountability-title'>
+        <p className='eyebrow-label'>Accountability</p>
+        <h2 id='accountability-title' className='compact-heading mt-3'>A correction is more useful than an uncheckable claim of authority.</h2>
         <p className='mt-4 max-w-3xl text-sm leading-7 text-[color:var(--hs-body)]'>
           If a page misclassifies a study, overstates a finding, misses a safety source, or uses stale evidence, readers
           can flag it publicly through the correction workflow. Material scientific corrections are recorded rather
           than silently rewritten as though the earlier claim never existed.
         </p>
-        <Link href='/info/corrections/' className='mt-5 inline-flex rounded-full bg-brand-800 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900'>
+        <Link href='/info/corrections/' className='button-primary mt-5 inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-bold'>
           Review or submit corrections →
         </Link>
       </section>
 
-      <section className='border-t border-[color:var(--hs-hairline)] pt-8 sm:pt-10' aria-labelledby='author-faq-title'>
-        <p className='section-label'>Reader questions</p>
-        <h2 id='author-faq-title' className='mt-3 font-display text-3xl font-semibold tracking-[-0.035em] text-[color:var(--hs-ink)]'>FAQ</h2>
+      <section className='section-frame p-6 sm:p-8' aria-labelledby='author-faq-title'>
+        <p className='eyebrow-label'>Reader questions</p>
+        <h2 id='author-faq-title' className='compact-heading mt-3'>FAQ</h2>
         <div className='mt-5 divide-y divide-[color:var(--hs-hairline)]'>
           {faqItems.map((item) => (
             <article key={item.question} className='py-5 first:pt-0 last:pb-0'>
