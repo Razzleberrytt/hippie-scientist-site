@@ -1,0 +1,40 @@
+name: Backlog integrity
+
+on:
+  pull_request:
+    paths:
+      - 'ops/backlog/**'
+      - 'scripts/backlog/**'
+      - 'scripts/ci/validate-master-backlog.mjs'
+      - '.github/workflows/backlog-integrity.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'ops/backlog/**'
+      - 'scripts/backlog/**'
+      - 'scripts/ci/validate-master-backlog.mjs'
+      - '.github/workflows/backlog-integrity.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  backlog-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate master backlog
+        run: node scripts/ci/validate-master-backlog.mjs
+
+      - name: Smoke-test deterministic ticket selection
+        run: |
+          node scripts/backlog/next-ticket.mjs
+          node scripts/backlog/next-ticket.mjs --area Evidence --limit 5
