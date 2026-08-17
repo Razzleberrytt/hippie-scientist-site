@@ -187,11 +187,12 @@ Do not silently take over another agent's active branch.
 
 ## Source of truth
 
-- Immutable ticket definitions: `backlog/master_backlog.csv.zlib`
+- Immutable ticket definitions: `backlog/master_backlog.csv.xz.b64`
 - Mutable execution state: `backlog/status.csv`
 - Generated readable view: `backlog/master_backlog.csv` via `python backlog/materialize_backlog.py`
-- Human dashboard snapshot: `backlog/master_backlog.xlsx`
+- Optional human XLSX dashboard: generated separately when needed; it is not the repository execution authority
 - Execution rules: `BACKLOG_IMPLEMENTATION_PLAYBOOK.md`
+- One-command launcher: `BEGIN_BACKLOG_PROCESS.md`
 - Multi-agent ownership rules: this file
 
 Agents update `status.csv`; they do not edit the compressed ticket-definition seed.
