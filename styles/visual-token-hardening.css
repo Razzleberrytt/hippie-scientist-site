@@ -4,22 +4,36 @@
    untouched because they carry information. */
 
 :root {
+  /* Canonical brand primitives. Shared UI should continue consuming the
+     semantic/compatibility aliases below; these are the single source of truth
+     for the core visual identity. */
+  --brand-graphite: #1d1d1f;
+  --brand-forest: #2f4037;
+  --brand-sage: #66766c;
+  --brand-brass-deep: #6f4f28;
+  --brand-brass: #b18449;
+  --brand-brass-bright: #c99b5f;
+  --brand-brass-emphasis: #d0a35b;
+  --brand-brass-highlight: #e0bd7d;
+  --brand-brass-soft: #efe2ce;
+  --brand-paper: #fffdf8;
+
   --color-background: #f3f0e9;
   --color-surface: #ebe7de;
-  --color-ink: #1d1d1f;
+  --color-ink: var(--brand-graphite);
   --color-muted: #6c6862;
 
   --bg: #f3f0e9;
   --surface: #ebe7de;
-  --surface-elevated: #fffdf8;
-  --text-primary: #1d1d1f;
+  --surface-elevated: var(--brand-paper);
+  --text-primary: var(--brand-graphite);
   --text-secondary: #5f5b56;
   --text-muted: #77716a;
   --border-soft: rgba(46, 44, 40, 0.11);
   --border-strong: rgba(46, 44, 40, 0.20);
   --border-default: var(--border-soft);
   --surface-card: rgba(255, 253, 248, 0.96);
-  --surface-card-strong: #fffdf8;
+  --surface-card-strong: var(--brand-paper);
   --surface-1: var(--surface);
   --surface-2: var(--surface-card);
   --surface-subtle: rgba(235, 231, 222, 0.84);
@@ -27,15 +41,15 @@
   --surface-neutral: rgba(246, 243, 237, 0.96);
   --ring-brand: rgba(176, 132, 73, 0.34);
 
-  --accent-primary: #2f4037;
-  --accent-secondary: #b18449;
-  --accent-teal: #66766c;
+  --accent-primary: var(--brand-forest);
+  --accent-secondary: var(--brand-brass);
+  --accent-teal: var(--brand-sage);
 
   /* Canonical compatibility map for older editorial token families. */
-  --hs-gold: #b18449;
-  --hs-gold-bright: #c99b5f;
-  --hs-gold-soft: #efe2ce;
-  --hs-gold-ink: #6f4f28;
+  --hs-gold: var(--brand-brass);
+  --hs-gold-bright: var(--brand-brass-bright);
+  --hs-gold-soft: var(--brand-brass-soft);
+  --hs-gold-ink: var(--brand-brass-deep);
   --hs-ink: var(--text-primary);
   --hs-ink-soft: var(--text-secondary);
   --hs-body: var(--text-secondary);
@@ -59,13 +73,13 @@
   --color-brand-200: #c6cec8;
   --color-brand-300: #a7b4ab;
   --color-brand-400: #84958a;
-  --color-brand-500: #66766c;
+  --color-brand-500: var(--brand-sage);
   --color-brand-600: #4d5e54;
   --color-brand-700: #394940;
-  --color-brand-800: #2f4037;
+  --color-brand-800: var(--brand-forest);
   --color-brand-900: #25332c;
   --color-brand-950: #17201b;
-  --color-brand: #2f4037;
+  --color-brand: var(--brand-forest);
 }
 
 html.dark {
@@ -92,12 +106,12 @@ html.dark {
   --surface-neutral: rgba(18, 21, 23, 0.96);
   --ring-brand: rgba(207, 164, 91, 0.36);
 
-  --accent-primary: #d0a35b;
+  --accent-primary: var(--brand-brass-emphasis);
   --accent-secondary: #8d9b91;
   --accent-teal: #829188;
 
-  --hs-gold: #d0a35b;
-  --hs-gold-bright: #e0bd7d;
+  --hs-gold: var(--brand-brass-emphasis);
+  --hs-gold-bright: var(--brand-brass-highlight);
   --hs-gold-soft: rgba(208, 163, 91, 0.22);
   --hs-gold-ink: #e4c691;
   --hs-ink: var(--text-primary);
@@ -128,7 +142,7 @@ html.dark {
   --color-brand-800: #d8ddd9;
   --color-brand-900: #e9ebe8;
   --color-brand-950: #f5f3ed;
-  --color-brand: #d0a35b;
+  --color-brand: var(--brand-brass-emphasis);
 }
 
 /* The body itself must agree with the shell; this prevents a stale-color flash
@@ -158,15 +172,15 @@ html.dark body {
 
 html.dark .button-primary,
 html.dark .hs-btn-primary {
-  border-color: #d0a35b !important;
-  background: #d0a35b !important;
+  border-color: var(--brand-brass-emphasis) !important;
+  background: var(--brand-brass-emphasis) !important;
   color: #0e1011 !important;
 }
 
 html.dark .button-primary:hover,
 html.dark .hs-btn-primary:hover {
-  border-color: #e0bd7d !important;
-  background: #e0bd7d !important;
+  border-color: var(--brand-brass-highlight) !important;
+  background: var(--brand-brass-highlight) !important;
 }
 
 /* Generic focus and link affordances use the canonical brass accent. */
