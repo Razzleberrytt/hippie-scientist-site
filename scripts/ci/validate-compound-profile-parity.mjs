@@ -19,7 +19,7 @@ expect('evidence jump points to the rendered evidence section', source.includes(
 expect('safety summary is visible before the decision panel', safetySummary > heroStart && safetySummary < decisionStart)
 expect('quick facts are integrated into the hero', quickStats > heroStart && quickStats < decisionStart)
 expect('standalone duplicate quick-stats section is removed', !source.includes('id="quick-stats"'))
-expect('hero facts use semantic surface variables', source.includes('bg-[var(--surface-card)]') && source.includes('bg-[var(--surface-warning)]'))
+expect('hero facts reuse existing card and warning surfaces', source.includes('bg-[var(--surface-card)]') && source.includes('bg-amber-50/70'))
 expect('safety details have a direct jump link', source.includes('href="#safety"'))
 expect('safety section is sticky-header safe', source.includes('id="safety" className="scroll-mt-24'))
 expect('mechanism and compare anchors are sticky-header safe', source.includes('id="mechanisms" className="card-premium scroll-mt-24') && source.includes('id="compare" className="card-premium scroll-mt-24'))
