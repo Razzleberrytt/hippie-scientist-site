@@ -1,4 +1,5 @@
 import { masterBacklog as backlog } from '../../ops/backlog/master-backlog.mjs'
+import { activeClaims } from '../../ops/backlog/active-claims.mjs'
 
 const failures = []
 const allowedPriorities = new Set(['critical', 'high', 'medium', 'low'])
@@ -12,6 +13,7 @@ const allowedStatuses = new Set([
   'merged_observing',
   'complete',
 ])
+const activeStatuses = new Set(['in_progress', 'qa'])
 const completionVerification = new Set(['merge', 'measure'])
 
 function fail(message) {
@@ -84,6 +86,31 @@ for (const ticket of tickets) {
   }
 }
 
+for (const ticket of tickets) {
+  const claim = activeClaims[ticket.id]
+  if (activeStatuses.has(ticket.status)) {
+    if (!claim) {
+      fail(`${ticket.id}: ${ticket.status} requires an active agent claim`)
+      continue
+    }
+    if (!nonEmptyString(claim.agent)) fail(`${ticket.id}: active claim requires agent`)
+    if (!nonEmptyString(claim.claimed_at) || Number.isNaN(Date.parse(claim.claimed_at))) {
+      fail(`${ticket.id}: active claim requires a parseable claimed_at timestamp`)
+    }
+    if (!nonEmptyString(claim.branch)) fail(`${ticket.id}: active claim requires branch`)
+    if (!nonEmptyString(claim.scope)) fail(`${ticket.id}: active claim requires scope`)
+    if (!Array.isArray(claim.work_refs) || claim.work_refs.length === 0) {
+      fail(`${ticket.id}: active claim requires work_refs`)
+    }
+  } else if (claim) {
+    fail(`${ticket.id}: active claim exists while ticket status is ${ticket.status}`)
+  }
+}
+
+for (const claimedId of Object.keys(activeClaims)) {
+  if (!byId.has(claimedId)) fail(`active claim references unknown ticket ${claimedId}`)
+}
+
 const sortedRanks = [...tickets].sort((a, b) => a.rank - b.rank)
 for (let index = 0; index < sortedRanks.length; index += 1) {
   const expectedRank = index + 1
@@ -133,4 +160,5 @@ const counts = tickets.reduce((acc, ticket) => {
 }, {})
 
 console.log(`Master backlog valid: ${tickets.length} tickets.`)
+console.log(`Active claims: ${Object.keys(activeClaims).length}`)
 console.log(`Status counts: ${JSON.stringify(counts)}`)
