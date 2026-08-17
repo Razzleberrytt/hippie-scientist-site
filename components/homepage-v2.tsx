@@ -191,7 +191,7 @@ export default function HomepageV2() {
               <p className='hs-eyebrow'>Evidence-based supplement guidance</p>
 
               <h1 className='hs-display mt-6 max-w-[17ch] text-[2.9rem] leading-[1.02] sm:mt-7 sm:max-w-[14ch] sm:text-[4.2rem] lg:text-[4.9rem]'>
-                Feel Better <span className='hs-accent'>Without Guessing</span>
+                Make Smarter <span className='hs-accent'>Supplement Decisions</span>
               </h1>
 
               <p className='hs-lede mt-6 max-w-xl text-[1.05rem] leading-[1.65] sm:mt-7 sm:text-xl sm:leading-9'>
