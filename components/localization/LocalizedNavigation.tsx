@@ -31,7 +31,7 @@ function LanguageLinks({ pathname, currentLocale, compact = false }: { pathname:
   if (!links.length) return null
 
   return (
-    <div className={`flex items-center ${compact ? 'gap-1' : 'gap-1.5'} overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`} aria-label={currentConfig.languagesAriaLabel}>
+    <div role='group' className={`flex items-center ${compact ? 'gap-1' : 'gap-1.5'} overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`} aria-label={currentConfig.languagesAriaLabel}>
       <Languages className='h-3.5 w-3.5 shrink-0 text-[var(--accent-gold)]' aria-hidden='true' />
       {links.map((link) => (
         <Link
@@ -116,7 +116,7 @@ export default function LocalizedNavigation() {
           </div>
         </div>
 
-        <div className='-mx-1 flex items-center gap-1 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:hidden' aria-label={config.sectionsAriaLabel}>
+        <div role='group' className='-mx-1 flex items-center gap-1 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:hidden' aria-label={config.sectionsAriaLabel}>
           {config.links.map((link) => {
             const active = isNavActive(pathname, link.href)
             return (
