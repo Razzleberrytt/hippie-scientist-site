@@ -20,12 +20,14 @@ export default function LocalizedResearchProfilePage({
   ui,
   lang,
   libraryHref,
+  backToLibraryLabel,
 }: {
   canonical: CanonicalLocalizedProfile
   translation: LocalizedProfileTranslation
   ui: LocalizedProfileUiCopy
   lang: string
   libraryHref: string
+  backToLibraryLabel?: string
 }) {
   assertCompleteProfileTranslation(canonical, translation)
   const claims = getApprovedCanonicalClaims(canonical)
@@ -41,7 +43,7 @@ export default function LocalizedResearchProfilePage({
         <p className='mt-6 max-w-3xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg'>{translation.summary}</p>
         <div className='mt-6 flex flex-wrap gap-3 text-sm'>
           <Link href={libraryHref} className='rounded-full border border-[var(--border-soft)] px-4 py-2 font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]'>
-            {ui.backToLibraryLabel}
+            {backToLibraryLabel ?? ui.backToLibraryLabel}
           </Link>
           <Link href={translation.originalPath} hrefLang='en-US' className='rounded-full border border-[var(--border-soft)] px-4 py-2 font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]'>
             {ui.originalLabel}
