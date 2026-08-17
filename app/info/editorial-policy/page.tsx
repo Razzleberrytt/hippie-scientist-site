@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { buildPageMetadata } from '@/src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -13,26 +14,31 @@ const gradeRules = [
   {
     grade: 'A',
     label: 'Strong',
+    tone: 'border-emerald-700/20 bg-emerald-50 text-emerald-800 dark:border-emerald-300/20 dark:bg-emerald-300/10 dark:text-emerald-100',
     rule: 'Requires a mature, direct human evidence base: replicated relevant human outcomes or a high-quality synthesis of relevant human trials, acceptable consistency, and no major directness problem that would make the public claim broader than the evidence.',
   },
   {
     grade: 'B',
     label: 'Moderate',
+    tone: 'border-blue-700/20 bg-blue-50 text-blue-800 dark:border-blue-300/20 dark:bg-blue-300/10 dark:text-blue-100',
     rule: 'Meaningful direct human evidence exists, but replication, precision, duration, population breadth, consistency, formulation match, or study quality still limits confidence.',
   },
   {
     grade: 'C',
     label: 'Limited',
+    tone: 'border-amber-700/20 bg-amber-50 text-amber-900 dark:border-amber-300/20 dark:bg-amber-300/10 dark:text-amber-100',
     rule: 'Human evidence is sparse, small, indirect, inconsistent, exploratory, or strongly dependent on a narrow preparation/population. Mechanistic or preclinical evidence may add plausibility but cannot promote a claim to B by itself.',
   },
   {
     grade: 'D',
     label: 'Preliminary',
+    tone: 'border-stone-600/20 bg-stone-100 text-stone-800 dark:border-stone-300/20 dark:bg-stone-300/10 dark:text-stone-200',
     rule: 'Evidence is mainly mechanistic, animal, in-vitro, traditional, uncontrolled, or otherwise too indirect to support a practical efficacy conclusion. The page may remain useful as a research reference.',
   },
   {
     grade: 'Avoid / Insufficient',
     label: 'Do not infer benefit',
+    tone: 'border-slate-500/20 bg-slate-50 text-slate-700 dark:border-slate-300/20 dark:bg-slate-300/10 dark:text-slate-200',
     rule: 'Evidence is absent, materially unfavorable, too unreliable to support the claim, or the practical framing is limited by a safety context that makes casual recommendation inappropriate. Safety certainty and efficacy certainty remain separate fields.',
   },
 ]
@@ -87,19 +93,27 @@ const automationRules = [
 export default function EditorialPolicyPage() {
   return (
     <main className="container-page mx-auto max-w-5xl space-y-12 py-10">
+      <AuthorityBreadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Info', href: '/info/' },
+          { label: 'Editorial Policy' },
+        ]}
+      />
+
       <section className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
         <p className="eyebrow-label">Public scientific standard</p>
-        <h1 className="heading-premium mt-4">Editorial, evidence &amp; automation policy</h1>
+        <h1 className="heading-premium mt-5">Editorial, evidence &amp; automation policy</h1>
         <p className="text-reading mt-4 max-w-3xl">
           This is the operational contract behind the research pages: what can raise confidence, what cannot,
           how conflicting evidence is handled, what automation is allowed to do, and which commercial
           incentives are forbidden from affecting scientific conclusions.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/info/methodology/" className="rounded-full bg-brand-800 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900">
+          <Link href="/info/methodology/" className="button-primary inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-bold">
             Methodology overview
           </Link>
-          <Link href="/info/corrections/" className="rounded-full border border-brand-900/15 px-5 py-2.5 text-sm font-semibold text-ink hover:bg-brand-50">
+          <Link href="/info/corrections/" className="button-secondary inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold">
             Corrections history
           </Link>
         </div>
@@ -107,19 +121,19 @@ export default function EditorialPolicyPage() {
 
       <section aria-labelledby="grade-rules-title">
         <p className="eyebrow-label">Canonical grading rules</p>
-        <h2 id="grade-rules-title" className="mt-2 text-3xl font-semibold tracking-tight text-ink">A / B / C / D / Avoid–Insufficient</h2>
-        <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
+        <h2 id="grade-rules-title" className="compact-heading mt-3">A / B / C / D / Avoid–Insufficient</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-[color:var(--hs-body)]">
           Grades describe confidence in a defined claim or profile conclusion. A strong grade cannot be created
           by citation volume, mechanistic plausibility, popularity, or commercial value alone.
         </p>
-        <div className="mt-6 divide-y divide-brand-900/10 rounded-2xl border border-brand-900/10 bg-white">
-          {gradeRules.map(item => (
-            <article key={item.grade} className="grid gap-3 p-5 md:grid-cols-[150px_1fr]">
+        <div className="section-frame mt-6 overflow-hidden p-0">
+          {gradeRules.map((item, index) => (
+            <article key={item.grade} className={`grid gap-3 p-5 md:grid-cols-[150px_1fr] ${index > 0 ? 'border-t border-[color:var(--hs-hairline)]' : ''}`}>
               <div>
-                <span className="inline-flex rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1 text-xs font-bold text-brand-800">{item.grade}</span>
-                <p className="mt-2 text-sm font-semibold text-ink">{item.label}</p>
+                <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold ${item.tone}`}>{item.grade}</span>
+                <p className="mt-2 text-sm font-semibold text-[color:var(--hs-ink)]">{item.label}</p>
               </div>
-              <p className="text-sm leading-7 text-muted">{item.rule}</p>
+              <p className="text-sm leading-7 text-[color:var(--hs-body)]">{item.rule}</p>
             </article>
           ))}
         </div>
@@ -127,21 +141,21 @@ export default function EditorialPolicyPage() {
 
       <section aria-labelledby="standards-title">
         <p className="eyebrow-label">Inclusion, interpretation &amp; safety</p>
-        <h2 id="standards-title" className="mt-2 text-3xl font-semibold tracking-tight text-ink">Rules that constrain the conclusion</h2>
+        <h2 id="standards-title" className="compact-heading mt-3">Rules that constrain the conclusion</h2>
         <div className="mt-6 grid gap-5 md:grid-cols-2">
           {standards.map(item => (
             <article key={item.title} className="card-premium p-6">
-              <h3 className="text-lg font-semibold text-ink">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">{item.body}</p>
+              <h3 className="text-lg font-semibold text-[color:var(--hs-ink)]">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[color:var(--hs-body)]">{item.body}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 sm:p-8" aria-labelledby="automation-title">
+      <section className="section-frame p-6 sm:p-8" aria-labelledby="automation-title">
         <p className="eyebrow-label">AI &amp; editorial automation</p>
-        <h2 id="automation-title" className="mt-2 text-3xl font-semibold tracking-tight text-ink">Automation can transform evidence; it cannot manufacture authority</h2>
-        <ul className="mt-5 space-y-3 text-sm leading-7 text-muted">
+        <h2 id="automation-title" className="compact-heading mt-3">Automation can transform evidence; it cannot manufacture authority</h2>
+        <ul className="mt-5 space-y-3 text-sm leading-7 text-[color:var(--hs-body)]">
           {automationRules.map(rule => <li key={rule}>• {rule}</li>)}
         </ul>
       </section>
@@ -149,8 +163,8 @@ export default function EditorialPolicyPage() {
       <section className="grid gap-5 md:grid-cols-2">
         <article className="card-premium p-6">
           <p className="eyebrow-label">External review</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">Reviewer claims are conditional on real review events</h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
+          <h2 className="mt-2 text-2xl font-semibold text-[color:var(--hs-ink)]">Reviewer claims are conditional on real review events</h2>
+          <p className="mt-3 text-sm leading-7 text-[color:var(--hs-body)]">
             A page may display an external reviewer’s identity, qualifications, and review date only when a real,
             page-specific review event has been recorded. The site does not imply physician, pharmacist, dietitian,
             or other professional review where it did not occur.
@@ -158,8 +172,8 @@ export default function EditorialPolicyPage() {
         </article>
         <article className="card-premium p-6">
           <p className="eyebrow-label">Funding &amp; independence</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">Evidence rankings are not for sale</h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
+          <h2 className="mt-2 text-2xl font-semibold text-[color:var(--hs-ink)]">Evidence rankings are not for sale</h2>
+          <p className="mt-3 text-sm leading-7 text-[color:var(--hs-body)]">
             Supplement companies cannot pay to raise or alter an evidence grade. Affiliate commissions cannot
             alter evidence grades, safety conclusions, source selection, or the scientific inclusion threshold.
             Product-quality scoring, when used, remains separate from efficacy evidence.
@@ -167,18 +181,18 @@ export default function EditorialPolicyPage() {
         </article>
       </section>
 
-      <section className="rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8">
+      <section className="section-frame p-6 sm:p-8">
         <p className="eyebrow-label">Why trust this page?</p>
-        <h2 className="mt-2 text-2xl font-semibold text-ink">The standard is designed to be auditable</h2>
-        <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
+        <h2 className="compact-heading mt-3">The standard is designed to be auditable</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-[color:var(--hs-body)]">
           The useful question is not whether a page sounds confident; it is whether its claims can be traced to
           identifiable evidence, whether limitations remain visible, whether review dates represent actual review,
           and whether material corrections remain public. Those are the constraints this policy is designed to enforce.
         </p>
         <div className="mt-5 flex flex-wrap gap-4 text-sm font-semibold">
-          <Link href="/learn/citation-explorer/" className="text-brand-700 hover:underline">Citation Explorer →</Link>
-          <Link href="/evidence/evidence-report/" className="text-brand-700 hover:underline">Evidence Report →</Link>
-          <Link href="/info/affiliate-disclosure/" className="text-brand-700 hover:underline">Affiliate disclosure →</Link>
+          <Link href="/learn/citation-explorer/" className="text-[color:var(--hs-gold-ink)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2">Citation Explorer →</Link>
+          <Link href="/evidence/evidence-report/" className="text-[color:var(--hs-gold-ink)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2">Evidence Report →</Link>
+          <Link href="/info/affiliate-disclosure/" className="text-[color:var(--hs-gold-ink)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2">Affiliate disclosure →</Link>
         </div>
       </section>
     </main>
