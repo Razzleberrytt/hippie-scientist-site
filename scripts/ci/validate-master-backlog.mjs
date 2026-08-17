@@ -15,6 +15,8 @@ const allowedStatuses = new Set([
 ])
 const activeStatuses = new Set(['in_progress', 'qa'])
 const completionVerification = new Set(['merge', 'measure'])
+const canonicalTicketIdPattern = /^THS-\d{3}$/
+const externalTicketLikeRefPattern = /^THS-\d{4,}$/
 
 function fail(message) {
   failures.push(message)
@@ -35,7 +37,9 @@ if (!Array.isArray(backlog.completion_gate) || backlog.completion_gate.length < 
 
 const byId = new Map()
 for (const ticket of tickets) {
-  if (!/^THS-\d{3,4}$/.test(ticket.id || '')) fail(`invalid ticket id: ${ticket.id}`)
+  if (!canonicalTicketIdPattern.test(ticket.id || '')) {
+    fail(`invalid canonical ticket id: ${ticket.id}; master backlog IDs must use THS-001 through THS-999 format`)
+  }
   if (byId.has(ticket.id)) fail(`duplicate ticket id: ${ticket.id}`)
   byId.set(ticket.id, ticket)
 
@@ -56,7 +60,15 @@ for (const ticket of tickets) {
       if (!ticket.verification.includes(required)) fail(`${ticket.id}: verification must include ${required}`)
     }
   }
-  if (!Array.isArray(ticket.work_refs)) fail(`${ticket.id}: work_refs must be an array`)
+  if (!Array.isArray(ticket.work_refs)) {
+    fail(`${ticket.id}: work_refs must be an array`)
+  } else {
+    for (const workRef of ticket.work_refs) {
+      if (typeof workRef === 'string' && externalTicketLikeRefPattern.test(workRef)) {
+        fail(`${ticket.id}: external ticket-like work ref ${workRef} must be namespaced, for example external:${workRef}`)
+      }
+    }
+  }
 
   if (['verify_existing', 'in_progress', 'qa'].includes(ticket.status) && ticket.work_refs.length === 0) {
     fail(`${ticket.id}: ${ticket.status} requires at least one work reference`)
@@ -101,6 +113,12 @@ for (const ticket of tickets) {
     if (!nonEmptyString(claim.scope)) fail(`${ticket.id}: active claim requires scope`)
     if (!Array.isArray(claim.work_refs) || claim.work_refs.length === 0) {
       fail(`${ticket.id}: active claim requires work_refs`)
+    } else {
+      for (const workRef of claim.work_refs) {
+        if (typeof workRef === 'string' && externalTicketLikeRefPattern.test(workRef)) {
+          fail(`${ticket.id}: active-claim external ticket-like work ref ${workRef} must be namespaced, for example external:${workRef}`)
+        }
+      }
     }
   } else if (claim) {
     fail(`${ticket.id}: active claim exists while ticket status is ${ticket.status}`)
@@ -108,6 +126,9 @@ for (const ticket of tickets) {
 }
 
 for (const claimedId of Object.keys(activeClaims)) {
+  if (!canonicalTicketIdPattern.test(claimedId)) {
+    fail(`active claim uses non-canonical master ticket id ${claimedId}`)
+  }
   if (!byId.has(claimedId)) fail(`active claim references unknown ticket ${claimedId}`)
 }
 
