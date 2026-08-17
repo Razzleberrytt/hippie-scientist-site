@@ -36,6 +36,8 @@ export type InternalLinkGroup = {
     score?: number
     type?: string
     clusters?: string[]
+    /** Clusters shared by the source route and this target route. */
+    sharedClusters?: string[]
   }>
 }
 
@@ -195,6 +197,26 @@ async function readInternalLinkMap(): Promise<InternalLinkMap> {
 
 const getInternalLinkMap = cache(async () => readInternalLinkMap())
 
+/**
+ * Attach only relationship context that can be proven from both sides of the
+ * generated internal-link map. This prevents low-score fallback links from
+ * receiving a made-up "shared topic" explanation merely because the target has
+ * a cluster label of its own.
+ */
+export function attachSharedClusterContext(
+  groups: InternalLinkGroup[],
+  sourceClusters: string[],
+): InternalLinkGroup[] {
+  const sourceSet = new Set(sourceClusters.map(text).filter(Boolean))
+  return groups.map((group) => ({
+    ...group,
+    links: group.links.map((link) => ({
+      ...link,
+      sharedClusters: (link.clusters || []).filter((cluster) => sourceSet.has(cluster)).slice(0, 2),
+    })),
+  }))
+}
+
 export const getRelatedProfilesMap = cache(async () => getRuntimeMapByFile('related-profiles.json'))
 export const getComparisonMap = cache(async () => getRuntimeMapByFile('comparison-map.json'))
 export const getStackMap = cache(async () => getRuntimeMapByFile('stack-map.json'))
@@ -206,7 +228,9 @@ export const getComparisonRecommendationsMap = cache(async () => getRuntimeMapBy
 export const getRouteInternalLinkGroups = cache(async (route: string): Promise<InternalLinkGroup[]> => {
   const normalizedRoute = text(route).replace(/\/+$/, '') || '/'
   const map = await getInternalLinkMap()
-  return (map[normalizedRoute]?.groups || []).slice(0, 5)
+  const entry = map[normalizedRoute]
+  if (!entry) return []
+  return attachSharedClusterContext((entry.groups || []).slice(0, 5), entry.clusters || [])
 })
 
 export const getRuntimeMapEntries = cache(async (
