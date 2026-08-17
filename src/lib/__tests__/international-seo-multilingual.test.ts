@@ -29,4 +29,20 @@ describe('multilingual international SEO registry', () => {
       'x-default',
     ])
   })
+
+  it('exposes reciprocal alternates for translated scientific profiles', () => {
+    expect(getLocalizedRoute('/compounds/l-theanine/', SPANISH_LOCALE)).toBe('/es/compuestos/l-theanine/')
+    expect(getLocalizedRoute('/es/compuestos/l-theanine/', PORTUGUESE_LOCALE)).toBe('/pt/compostos/l-theanine/')
+    expect(getLocalizedRoute('/pt/compostos/l-theanine/', FRENCH_LOCALE)).toBe('/fr/composes/l-theanine/')
+    expect(getLocalizedRoute('/fr/composes/l-theanine/', GERMAN_LOCALE)).toBe('/de/wirkstoffe/l-theanine/')
+
+    expect(getCurrentLocaleAlternates('/de/wirkstoffe/l-theanine/').map((item) => item.locale)).toEqual([
+      DEFAULT_LOCALE,
+      SPANISH_LOCALE,
+      PORTUGUESE_LOCALE,
+      FRENCH_LOCALE,
+      GERMAN_LOCALE,
+      'x-default',
+    ])
+  })
 })
