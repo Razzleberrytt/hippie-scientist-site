@@ -112,7 +112,7 @@ export default function LocalizedNavigation() {
             <div className='hidden sm:block'>
               <LanguageLinks pathname={pathname} currentLocale={locale} compact />
             </div>
-            <DarkModeToggle />
+            <DarkModeToggle locale={locale} />
           </div>
         </div>
 
