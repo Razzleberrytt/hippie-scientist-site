@@ -10,14 +10,15 @@ Agents should edit backlog/status.csv after ticket state changes.
 
 from __future__ import annotations
 
+import base64
 import csv
 import io
+import lzma
 import sys
-import zlib
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SEED_PATH = HERE / "master_backlog.csv.zlib"
+SEED_PATH = HERE / "master_backlog.csv.xz.b64"
 STATUS_PATH = HERE / "status.csv"
 OUTPUT_PATH = HERE / "master_backlog.csv"
 
@@ -42,11 +43,14 @@ ALLOWED_STATUSES = {
 
 
 def load_seed() -> tuple[list[str], list[dict[str, str]]]:
-    raw = zlib.decompress(SEED_PATH.read_bytes()).decode("utf-8")
+    encoded = SEED_PATH.read_text(encoding="utf-8").strip()
+    raw = lzma.decompress(base64.b64decode(encoded)).decode("utf-8")
     reader = csv.DictReader(io.StringIO(raw))
     if not reader.fieldnames:
         raise SystemExit("Backlog seed has no header.")
     rows = list(reader)
+    if len(rows) != 1000:
+        raise SystemExit(f"Expected 1000 backlog tickets, found {len(rows)}.")
     return list(reader.fieldnames), rows
 
 
@@ -115,8 +119,6 @@ def main() -> int:
     if unknown:
         raise SystemExit(f"status.csv contains unknown ticket IDs: {unknown[:10]}")
 
-    # Ensure generated output includes the coordination fields even if the original
-    # immutable seed predates the multi-agent ledger.
     for field in MUTABLE_FIELDS:
         if field not in fieldnames:
             fieldnames.append(field)
@@ -136,9 +138,8 @@ def main() -> int:
 
     counts: dict[str, int] = {}
     for row in rows:
-        counts[row.get("Status", "") or "Unspecified"] = (
-            counts.get(row.get("Status", "") or "Unspecified", 0) + 1
-        )
+        status = row.get("Status", "") or "Unspecified"
+        counts[status] = counts.get(status, 0) + 1
 
     print(f"Wrote {len(rows)} tickets to {OUTPUT_PATH.relative_to(HERE.parent)}")
     print("Status counts:", ", ".join(f"{k}={v}" for k, v in sorted(counts.items())))
