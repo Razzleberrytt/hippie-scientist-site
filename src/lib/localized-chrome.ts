@@ -15,6 +15,7 @@ export type LocalizedChromeConfig = {
   sectionsAriaLabel: string
   languagesAriaLabel: string
   equivalentPageLabel: string
+  scrollTopLabel: string
   links: readonly { href: string; label: string }[]
   footerDescription: string
   footerAriaLabel: string
@@ -31,6 +32,7 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     sectionsAriaLabel: 'Site sections',
     languagesAriaLabel: 'Languages',
     equivalentPageLabel: 'equivalent page',
+    scrollTopLabel: 'Scroll to top',
     links: [],
     footerDescription: '',
     footerAriaLabel: 'Footer links',
@@ -45,6 +47,7 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     sectionsAriaLabel: 'Secciones en español',
     languagesAriaLabel: 'Idiomas',
     equivalentPageLabel: 'página equivalente',
+    scrollTopLabel: 'Volver arriba',
     links: [
       { href: '/es/hierbas/', label: 'Hierbas' },
       { href: '/es/compuestos/', label: 'Compuestos' },
@@ -65,6 +68,7 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     sectionsAriaLabel: 'Seções em português',
     languagesAriaLabel: 'Idiomas',
     equivalentPageLabel: 'página equivalente',
+    scrollTopLabel: 'Voltar ao topo',
     links: [
       { href: '/pt/ervas/', label: 'Ervas' },
       { href: '/pt/compostos/', label: 'Compostos' },
@@ -85,6 +89,7 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     sectionsAriaLabel: 'Sections en français',
     languagesAriaLabel: 'Langues',
     equivalentPageLabel: 'page équivalente',
+    scrollTopLabel: 'Retour en haut',
     links: [
       { href: '/fr/plantes/', label: 'Plantes' },
       { href: '/fr/composes/', label: 'Composés' },
@@ -105,6 +110,7 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     sectionsAriaLabel: 'Bereiche auf Deutsch',
     languagesAriaLabel: 'Sprachen',
     equivalentPageLabel: 'entsprechende Seite',
+    scrollTopLabel: 'Zum Seitenanfang',
     links: [
       { href: '/de/kraeuter/', label: 'Kräuter' },
       { href: '/de/wirkstoffe/', label: 'Wirkstoffe' },
