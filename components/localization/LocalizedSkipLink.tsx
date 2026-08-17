@@ -7,7 +7,7 @@ export default function LocalizedSkipLink() {
   const pathname = usePathname()
   const locale = getLocaleFromPathname(pathname)
   return (
-    <a href='#main-content' className='skip-link'>
+    <a href='#main-content' className='skip-link' lang={locale}>
       {LOCALIZED_CHROME[locale].skipLabel}
     </a>
   )

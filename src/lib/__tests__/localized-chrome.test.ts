@@ -29,6 +29,8 @@ describe('localized chrome', () => {
       expect(config.footerDescription.length).toBeGreaterThan(20)
       expect(config.footerDisclaimer.length).toBeGreaterThan(20)
       expect(config.skipLabel.length).toBeGreaterThan(5)
+      expect(config.languagesAriaLabel.length).toBeGreaterThan(3)
+      expect(config.equivalentPageLabel.length).toBeGreaterThan(5)
     }
   })
 })

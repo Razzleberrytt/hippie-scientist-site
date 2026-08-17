@@ -13,6 +13,8 @@ export type LocalizedChromeConfig = {
   homeHref: string
   navAriaLabel: string
   sectionsAriaLabel: string
+  languagesAriaLabel: string
+  equivalentPageLabel: string
   links: readonly { href: string; label: string }[]
   footerDescription: string
   footerAriaLabel: string
@@ -27,6 +29,8 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     homeHref: '/',
     navAriaLabel: 'Main navigation',
     sectionsAriaLabel: 'Site sections',
+    languagesAriaLabel: 'Languages',
+    equivalentPageLabel: 'equivalent page',
     links: [],
     footerDescription: '',
     footerAriaLabel: 'Footer links',
@@ -39,6 +43,8 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     homeHref: '/es/',
     navAriaLabel: 'Navegación principal',
     sectionsAriaLabel: 'Secciones en español',
+    languagesAriaLabel: 'Idiomas',
+    equivalentPageLabel: 'página equivalente',
     links: [
       { href: '/es/hierbas/', label: 'Hierbas' },
       { href: '/es/compuestos/', label: 'Compuestos' },
@@ -57,6 +63,8 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     homeHref: '/pt/',
     navAriaLabel: 'Navegação principal',
     sectionsAriaLabel: 'Seções em português',
+    languagesAriaLabel: 'Idiomas',
+    equivalentPageLabel: 'página equivalente',
     links: [
       { href: '/pt/ervas/', label: 'Ervas' },
       { href: '/pt/compostos/', label: 'Compostos' },
@@ -75,6 +83,8 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     homeHref: '/fr/',
     navAriaLabel: 'Navigation principale',
     sectionsAriaLabel: 'Sections en français',
+    languagesAriaLabel: 'Langues',
+    equivalentPageLabel: 'page équivalente',
     links: [
       { href: '/fr/plantes/', label: 'Plantes' },
       { href: '/fr/composes/', label: 'Composés' },
@@ -93,6 +103,8 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
     homeHref: '/de/',
     navAriaLabel: 'Hauptnavigation',
     sectionsAriaLabel: 'Bereiche auf Deutsch',
+    languagesAriaLabel: 'Sprachen',
+    equivalentPageLabel: 'entsprechende Seite',
     links: [
       { href: '/de/kraeuter/', label: 'Kräuter' },
       { href: '/de/wirkstoffe/', label: 'Wirkstoffe' },

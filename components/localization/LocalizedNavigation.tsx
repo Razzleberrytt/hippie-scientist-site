@@ -20,6 +20,7 @@ function isNavActive(pathname: string, href: string) {
 }
 
 function LanguageLinks({ pathname, currentLocale, compact = false }: { pathname: string; currentLocale: SupportedLocale; compact?: boolean }) {
+  const currentConfig = LOCALIZED_CHROME[currentLocale]
   const links = SUPPORTED_LOCALES.flatMap((locale) => {
     if (locale === currentLocale) return []
     const href = getLocalizedRoute(pathname, locale)
@@ -30,7 +31,7 @@ function LanguageLinks({ pathname, currentLocale, compact = false }: { pathname:
   if (!links.length) return null
 
   return (
-    <div className={`flex items-center ${compact ? 'gap-1' : 'gap-1.5'} overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`} aria-label='Languages'>
+    <div className={`flex items-center ${compact ? 'gap-1' : 'gap-1.5'} overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`} aria-label={currentConfig.languagesAriaLabel}>
       <Languages className='h-3.5 w-3.5 shrink-0 text-[var(--accent-gold)]' aria-hidden='true' />
       {links.map((link) => (
         <Link
@@ -38,9 +39,9 @@ function LanguageLinks({ pathname, currentLocale, compact = false }: { pathname:
           href={link.href}
           hrefLang={link.locale}
           className='inline-flex min-h-11 shrink-0 items-center rounded-full px-2.5 py-2 text-xs font-semibold text-[var(--text-secondary)] transition hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-brand)]'
-          aria-label={`${link.label}: equivalent page`}
+          aria-label={`${link.label}: ${currentConfig.equivalentPageLabel}`}
         >
-          {link.label}
+          <span lang={link.locale}>{link.label}</span>
         </Link>
       ))}
     </div>
@@ -76,6 +77,7 @@ export default function LocalizedNavigation() {
     <nav
       className='sticky top-0 z-[110] border-b border-[var(--border-soft)] bg-[color:var(--surface-card-strong)]/95 backdrop-blur-xl'
       aria-label={config.navAriaLabel}
+      lang={locale}
     >
       <div className='mx-auto max-w-7xl px-3 sm:px-6 lg:px-8'>
         <div className='flex min-h-[4.6rem] items-center justify-between gap-3'>
