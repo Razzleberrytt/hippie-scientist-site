@@ -14,6 +14,8 @@ on:
       - 'postcss.config.*'
       - 'package.json'
       - 'package-lock.json'
+      - 'scripts/ci/audit-accessibility-patterns.mjs'
+      - 'scripts/ci/validate-accessibility-baseline.mjs'
       - '.github/workflows/fast-ui-check.yml'
   workflow_dispatch:
 
@@ -57,3 +59,12 @@ jobs:
 
       - name: Run UI checks
         run: npm run check:ui
+
+      - name: Validate accessibility baseline
+        run: node scripts/ci/validate-accessibility-baseline.mjs
+
+      - name: Block known accessibility anti-patterns
+        run: node scripts/ci/audit-accessibility-patterns.mjs --strict
+
+      - name: Run accessibility component tests
+        run: npm run test:a11y
