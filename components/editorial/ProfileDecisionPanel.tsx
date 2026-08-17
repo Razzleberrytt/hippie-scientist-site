@@ -11,8 +11,8 @@ export function ProfileDecisionPanel({
   decision: ProfileDecision
   name: string
 }) {
-  const { verdict, continueReading } = decision
-  if (!verdict && continueReading.length === 0) return null
+  const { verdict, runtimeSummary, continueReading } = decision
+  if (!verdict && !runtimeSummary && continueReading.length === 0) return null
 
   return (
     <div className="space-y-4">
@@ -32,6 +32,40 @@ export function ProfileDecisionPanel({
           bottomLine={verdict.bottomLine}
           className="!my-0"
         />
+      ) : runtimeSummary ? (
+        <section
+          id="decision-summary"
+          aria-labelledby="runtime-summary-heading"
+          className="not-prose rounded-2xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--surface-card)] p-4 sm:p-5"
+        >
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 id="runtime-summary-heading" className="text-base font-bold text-[color:var(--tone-ink)]">
+              At a glance
+            </h2>
+            <span className="text-xs text-[color:var(--hs-body)]">From this profile&apos;s structured data</span>
+          </div>
+
+          <dl className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {runtimeSummary.evidence ? (
+              <div className="rounded-xl border border-[color:var(--hs-hairline)] p-3">
+                <dt className="text-[10px] font-bold uppercase tracking-[0.12em] text-[color:var(--hs-body)]">Evidence</dt>
+                <dd className="mt-1 text-sm font-semibold leading-6 text-[color:var(--tone-ink)]">{runtimeSummary.evidence}</dd>
+              </div>
+            ) : null}
+            {runtimeSummary.safety ? (
+              <div className="rounded-xl border border-amber-700/20 bg-amber-50/60 p-3 dark:bg-amber-950/20">
+                <dt className="text-[10px] font-bold uppercase tracking-[0.12em] text-amber-800 dark:text-amber-300">Safety</dt>
+                <dd className="mt-1 text-sm font-semibold leading-6 text-[color:var(--tone-ink)]">{runtimeSummary.safety}</dd>
+              </div>
+            ) : null}
+            {runtimeSummary.topUses.length > 0 ? (
+              <div className="rounded-xl border border-[color:var(--hs-hairline)] p-3 sm:col-span-2 lg:col-span-1">
+                <dt className="text-[10px] font-bold uppercase tracking-[0.12em] text-[color:var(--hs-body)]">Profile context</dt>
+                <dd className="mt-1 text-sm leading-6 text-[color:var(--tone-ink)]">{runtimeSummary.topUses.join(', ')}</dd>
+              </div>
+            ) : null}
+          </dl>
+        </section>
       ) : null}
 
       {verdict?.evidenceConfidence ? (
