@@ -25,7 +25,6 @@ const weights = {
   highConfidenceProvenanceNarrowBonus: 4,
   pseudoMultiSourceSupport: 9,
   underlyingStudyPublicationReuse: 12,
-  highConfidenceUnderlyingStudyPublicationReuseBonus: 6,
   independenceMetadataGap: 8,
   highConfidenceIndependenceMetadataBonus: 6,
   severeStudyClassConflict: 100,
@@ -201,7 +200,7 @@ describe('aggregated topology gap signals', () => {
     expect(pseudo[0].detail).toContain('3 source rows')
   })
 
-  it('scores canonical underlying-study reductions once and prioritizes pseudo-multi-study support', () => {
+  it('scores canonical underlying-study reductions once per profile', () => {
     const signals = buildAggregatedTopologyGapSignals(topology({
       underlyingStudyIndependence: {
         reducedClaims: [
@@ -229,11 +228,13 @@ describe('aggregated topology gap signals', () => {
 
     const reuse = signals.filter((signal) => signal.kind === 'underlying-study-publication-reuse')
     expect(reuse).toHaveLength(1)
-    expect(reuse[0]).toMatchObject({ url: '/herbs/a/', weight: 25 })
+    // 16, not 25: bd467ccdb removed the pseudo-multi-study bonus from scoring,
+    // and research-gap-partial-reuse-semantics asserts it stays removed.
+    expect(reuse[0]).toMatchObject({ url: '/herbs/a/', weight: 16 })
     expect(reuse[0].detail).toContain('2 approved claim(s)')
     expect(reuse[0].detail).toContain('2 publication(s) collapse')
-    expect(reuse[0].detail).toContain('1 claim(s) reduce to one underlying study')
-    expect(reuse[0].detail).toContain('1 high-confidence pseudo-multi-study')
+    expect(reuse[0].detail).toContain('retain multiple underlying studies but lose apparent publication-level independence')
+    expect(reuse[0].detail).not.toContain('high-confidence pseudo-multi-study')
     expect(reuse[0].detail).toContain('minimum adjusted count 1')
   })
 

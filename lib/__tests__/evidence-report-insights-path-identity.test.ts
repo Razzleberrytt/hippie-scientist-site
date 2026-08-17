@@ -54,7 +54,7 @@ describe('category evidence mix path identity', () => {
           ],
         },
       ],
-    } as PublicEvidenceDataset
+    } satisfies Pick<PublicEvidenceDataset, 'ingredients' | 'studies'>
 
     const summary = summarizeCategoryEvidenceMix(dataset)
     const stress = summary.find(category => category.category === 'Stress')
