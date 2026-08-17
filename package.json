@@ -26,6 +26,7 @@
     "audit:source-integrity": "tsx scripts/ci/audit-source-integrity.ts",
     "validate:sitemap-indexability": "node scripts/ci/validate-sitemap-indexability.mjs",
     "validate:redirect-indexability": "node scripts/ci/validate-redirect-indexability.mjs",
+    "validate:evidence-backing": "node scripts/ci/validate-evidence-backing-disclosure.mjs",
     "validate:theme-contrast": "node scripts/ci/validate-theme-contrast.mjs",
     "validate:scientific-names": "node scripts/ci/validate-scientific-names.mjs",
     "validate:editorial-leaks": "node scripts/ci/validate-editorial-leaks.mjs",
