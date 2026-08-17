@@ -38,6 +38,7 @@ import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '../../../src/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import SafetyGaugeMeter from '@/components/ui/SafetyGaugeMeter'
+import ProfileSafetyLine from '@/components/ui/ProfileSafetyLine'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
 import { buildProfileDecision } from '@/lib/profile-decision'
@@ -577,26 +578,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
               <EvidenceScoreBadge record={herbRecord} />
             </div>
 
-            {/* Safety Summary — one line; full detail lives in the Safety section below */}
-            <div
-              className={`rounded-xl border px-3 py-2 ${
-                safetyTone === 'Standard caution'
-                  ? 'border-emerald-600/30 bg-emerald-50/70 dark:border-emerald-300/20 dark:bg-emerald-300/10'
-                  : 'border-amber-600/30 bg-amber-50/70 dark:border-amber-300/20 dark:bg-amber-300/10'
-              }`}
-            >
-              <p className="text-sm leading-6 text-ink">
-                <span
-                  className={`font-bold ${
-                    safetyTone === 'Standard caution' ? 'text-emerald-800 dark:text-emerald-100' : 'text-amber-800 dark:text-amber-100'
-                  }`}
-                >
-                  {safetyTone}
-                </span>{' '}
-                — {firstSentences(safetySummary, 1)}{' '}
-                <a href="#safety" className="font-semibold text-brand-800 hover:underline dark:text-brand-100">Details</a>
-              </p>
-            </div>
+            {/* Safety Summary — one line; full detail lives in the Safety section below.
+                Shared with compound profiles so both routes lead with the same
+                safety hierarchy. */}
+            <ProfileSafetyLine tone={safetyTone} summary={safetySummary} />
 
             {/* Quick stats strip */}
             <dl className="profile-quick-stats grid gap-2 sm:grid-cols-3">
