@@ -41,6 +41,7 @@ import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import ProfileSafetyLine from '@/components/ui/ProfileSafetyLine'
+import EvidenceBackingNote from '@/components/ui/EvidenceBackingNote'
 import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
 import { buildProfileDecision } from '@/lib/profile-decision'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
@@ -974,6 +975,12 @@ export default async function CompoundPage({ params }: PageProps) {
             <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
               <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence level</p>
               <p className="mt-1 text-sm font-semibold text-ink">{evidenceLevel || 'Mixed or uncertain'}</p>
+              {/* Shared with herb profiles so an unbacked grade is disclosed the
+                  same way on both routes. */}
+              <EvidenceBackingNote
+                backed={compound.evidence_grade_backed as boolean | null | undefined}
+                gap={compound.evidence_grade_backing_gap as string | null | undefined}
+              />
             </div>
             <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
               <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</p>

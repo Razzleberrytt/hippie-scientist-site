@@ -40,6 +40,7 @@ import Disclaimer from '../../../src/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import SafetyGaugeMeter from '@/components/ui/SafetyGaugeMeter'
 import ProfileSafetyLine from '@/components/ui/ProfileSafetyLine'
+import EvidenceBackingNote from '@/components/ui/EvidenceBackingNote'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
 import { buildProfileDecision } from '@/lib/profile-decision'
@@ -600,6 +601,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
               <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2">
                 <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence</dt>
                 <dd className="mt-0.5 text-sm font-semibold text-ink">{evidenceStrength || 'Mixed or uncertain'}</dd>
+                {/* Where the recorded studies do not demonstrate the grade, say
+                    so here rather than only inside the collapsed study-design
+                    block, which most of these records do not render at all. */}
+                <EvidenceBackingNote
+                  backed={herb.evidence_grade_backed as boolean | null | undefined}
+                  gap={herb.evidence_grade_backing_gap as string | null | undefined}
+                />
               </div>
               <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2">
                 <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</dt>
