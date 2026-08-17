@@ -4,12 +4,13 @@ This directory is the repository-facing execution system for The Hippie Scientis
 
 ## Files
 
-- `master_backlog.csv.zlib` — immutable compressed ticket-definition seed for all 1,000 tickets.
+- `master_backlog.csv.xz.b64` — immutable compressed/base64 ticket-definition seed for all 1,000 tickets.
 - `status.csv` — **mutable Git-friendly source of truth for execution state and ownership**.
 - `materialize_backlog.py` — combines the immutable seed + `status.csv` into a readable `master_backlog.csv`.
-- `master_backlog.xlsx` — human-friendly dashboard/reference snapshot with Dashboard, Agent Queue, Definitions, and Execution Protocol tabs.
 - `AGENT_COORDINATION.md` — specialist lanes, claiming, ownership, collision prevention, blockers, and merge protocol.
 - `../BACKLOG_IMPLEMENTATION_PLAYBOOK.md` — implementation contract for any agent working a THS ticket.
+
+A separate XLSX dashboard can be regenerated periodically for human review; agents do not need it for routine execution.
 
 ## Generate the readable backlog
 
@@ -89,7 +90,7 @@ An agent must not start a ticket already actively owned by another agent.
 
 Ticket definitions live in the immutable seed. Live execution state lives in `status.csv`.
 
-The XLSX file is a human dashboard/reference snapshot. It should not be edited after every ticket. The readable CSV is regenerated from the seed + status ledger instead of being used as the mutable authority.
+The readable CSV is regenerated from the seed + status ledger instead of being used as the mutable authority. This keeps ordinary agent updates small and reviewable in Git.
 
 ## Done means done
 
