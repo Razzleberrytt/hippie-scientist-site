@@ -1,0 +1,48 @@
+name: Apply compound profile parity
+
+on:
+  push:
+    branches:
+      - ths/compound-profile-parity
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-compound-profile-parity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Apply deterministic profile migration
+        run: node scripts/migrations/apply-compound-profile-parity.mjs
+
+      - name: Validate resulting profile structure
+        run: node scripts/ci/validate-compound-profile-parity.mjs
+
+      - name: Commit migrated profile when needed
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- app/compounds/'[slug]'/page.tsx; then
+            echo "Profile already migrated; nothing to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/compounds/'[slug]'/page.tsx
+          git commit -m "feat(profile): align compound evidence and safety hierarchy"
+          git push origin HEAD:ths/compound-profile-parity
