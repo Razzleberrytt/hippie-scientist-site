@@ -23,6 +23,7 @@ type RouteConfig = {
   kind: LocalizedProfileKind
   lang: string
   libraryHref: string
+  libraryLabel?: string
 }
 
 type PageProps = { params: Promise<{ slug: string }> }
@@ -83,6 +84,7 @@ export function createLocalizedProfileRoute(config: RouteConfig) {
         ui={LOCALIZED_PROFILE_UI[config.locale]}
         lang={config.lang}
         libraryHref={config.libraryHref}
+        backToLibraryLabel={config.libraryLabel}
       />
     )
   }
