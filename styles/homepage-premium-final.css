@@ -27,27 +27,6 @@
   background: linear-gradient(90deg, color-mix(in srgb, var(--hs-gold) 6%, transparent), transparent 34%);
 }
 
-.hs-home .hs-hero > div:first-child {
-  display: block;
-  max-width: 54rem;
-}
-
-.hs-home .hs-hero > div:first-child > div:first-child {
-  position: relative;
-  z-index: 1;
-}
-
-/* The evidence dial repeated the trust rail without adding decision value. */
-.hs-home .hs-dial {
-  display: none !important;
-}
-
-/* Database counts are useful operationally, but they do not help a reader make
-   the first decision on the homepage. Keep the hero focused on intent. */
-.hs-home .hs-hero > dl:not(.hs-rail) {
-  display: none;
-}
-
 .hs-home .hs-rail {
   max-width: 56rem;
   border-top: 1px solid var(--hs-hairline);
