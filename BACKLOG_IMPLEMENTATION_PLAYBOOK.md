@@ -4,145 +4,207 @@
 
 This document is the execution contract for agents working through the `THS-0001` through `THS-1000` backlog.
 
-In the repository, `backlog/master_backlog.csv` is the writable operational source of truth for ticket status, priority, dependencies, ownership, PR/commit links, and proof. `backlog/master_backlog.xlsx` is the human-friendly dashboard/reference snapshot. This playbook defines how agents are allowed to execute those tickets.
+The system is designed for several specialist agents working in parallel without duplicating tickets, overwriting each other, or weakening evidence/safety standards.
 
-Primary website: https://thehippiescientist.net/
+Read this file **and** `backlog/AGENT_COORDINATION.md` before claiming work.
 
-## Backlog structure
+## Repository backlog files
 
-The backlog contains exactly 1,000 tickets across 40 workstreams, 25 tickets per workstream.
+- `backlog/master_backlog.csv.zlib` — immutable definition seed for the 1,000 tickets.
+- `backlog/status.csv` — mutable source of truth for status, ownership, branch, blocker, PR/commit, and proof.
+- `backlog/materialize_backlog.py` — generates a readable `backlog/master_backlog.csv` from the seed + status ledger.
+- `backlog/master_backlog.xlsx` — human dashboard/reference snapshot.
+- `backlog/AGENT_COORDINATION.md` — claiming, specialty lanes, collision prevention, stale claims, and coordinator rules.
 
-### Phase 1 — Foundation — 175 tickets
+Generate the current readable backlog with:
 
-- Homepage & First Impression
-- Navigation & Information Architecture
-- Visual Design System
-- Typography & Reading Experience
-- Mobile & Responsive UX
-- Accessibility
-- Trust, Author, Editorial & Legal
+```bash
+python backlog/materialize_backlog.py
+```
 
-### Phase 2 — Core Content — 375 tickets
+Agents must never edit the compressed ticket-definition seed to change execution state.
 
-- Herb Profile Template
-- Compound Profile Template
-- Topic & Goal Hubs
-- Guides, Comparisons & Best-Of Pages
-- Articles & Learning Library
-- Herb & Compound Directories
-- Site Search & Discovery
-- Safety Checker & Interactive Tools
-- Evidence Lookup & Citation Explorer
-- Evidence Grading & Methodology
-- Safety & Interaction Data
-- Dosing & Product Quality
-- Content Quality & Editorial Consistency
-- Claim Substantiation & Language
-- Citations & Research References
+## Team model
 
-### Phase 3 — Discoverability & Growth — 275 tickets
+Do not manually assign all 1,000 tickets one by one. Each ticket already has a specialty lane in the master backlog.
 
-- Content Freshness & Review Queues
-- Internal Linking & Related Content
-- On-Page SEO
-- Technical SEO & Indexation
-- Structured Data & Schema
-- Performance & Core Web Vitals
-- Analytics & Measurement
-- Conversion & Email Capture
-- Affiliate & Monetization
-- UX States, Forms & Microcopy
-- Growth, Backlinks & Distribution
+Recommended lanes:
 
-### Phase 4 — Scale & Governance — 175 tickets
+| Lane | Primary responsibility |
+|---|---|
+| Coordinator | Queue health, dependencies, claims, collision prevention, blocker triage, reprioritization |
+| Design | Visual system, layout, typography, responsive UX, UI polish |
+| Engineering | Components, architecture, data plumbing, performance, build/runtime systems |
+| Evidence | Evidence grading, study quality, claims, citations, methodology |
+| Safety | Interactions, contraindications, warnings, safety validation |
+| SEO | Metadata, schema, internal linking, crawl/indexation, search architecture |
+| QA | Automated tests, visual regression, accessibility, release verification |
+| Growth | Conversion, email, affiliate UX, analytics, distribution experiments |
 
-- Component Architecture & Refactor
-- Data Model & Validation
-- Content Pipeline & Automation
-- Testing, CI & Visual QA
-- Security, Privacy & Compliance
-- Internationalization & Translation
-- Agent Operations & Governance
+The coordinator manages flow. Specialists implement tickets.
 
 ## Priority system
 
-- **P0 Critical:** foundation, health/safety/evidence integrity, indexation, major UX, or regression-prevention work. Execute before optional growth work.
-- **P1 High:** strong expected value and should follow P0 blockers/foundations.
-- **P2 Medium:** worthwhile optimization. Use analytics/Search Console/revenue evidence to decide exact order.
-- **P3 Later:** valid work that should not displace higher-ROI tickets yet.
+- **P0 Critical:** foundations, health/safety/evidence integrity, indexation, major UX, regression prevention.
+- **P1 High:** strong expected value after P0 foundations/blockers.
+- **P2 Medium:** worthwhile optimization; order increasingly by data.
+- **P3 Later:** valid work that should not displace higher-return tasks.
 
-The spreadsheet contains a computed **ROI Score = Impact × Confidence ÷ Effort Points**. Use it only as a tie-breaker after priority, dependencies, and safety constraints.
+Use ROI score only as a tie-breaker after priority, dependencies, safety, and collision risk.
 
 ## Status system
 
-`Not Started → Ready → In Progress → In Review → Done`
+Normal lifecycle:
+
+`Ready → In Progress → In Review → Done`
 
 Alternative states:
 
-- `Blocked` — a real dependency/conflict prevents safe execution.
-- `Won't Do` — intentionally rejected or superseded; reason must be recorded.
+- `Not Started` — defined but not yet eligible.
+- `Blocked` — a real dependency/conflict/review requirement prevents safe execution.
+- `Won't Do` — intentionally rejected/superseded; reason must be recorded.
 
-**Done never means “code was written.”** Done means the change was implemented, tested, reviewed, merged/deployed where applicable, and the proof/PR field was updated.
+**Done never means “code was written.”** Done means implementation, applicable tests/QA, merge/deploy where relevant, and proof are complete.
+
+## Claim-before-work rule
+
+Before changing implementation files, an agent must claim the ticket in `backlog/status.csv`.
+
+An active claim records:
+
+- `ID`
+- `Status=In Progress`
+- `Owner`
+- `Claimed At` (ISO-8601 timestamp)
+- `Branch`
+- optional `PR / Commit`
+- empty `Blocker`
+- optional `Proof / Notes`
+
+Example:
+
+```csv
+THS-0042,In Progress,design-agent,2026-08-16T21:15:00-04:00,ths/THS-0042-herb-card,,,
+```
+
+Publish the claim before substantive implementation begins. If another owner already has an active claim, do not start the same ticket.
+
+## Ticket selection rule
+
+A specialist selects work in this order:
+
+1. Ticket belongs to that specialist's lane.
+2. Status is `Ready`.
+3. Dependencies are satisfied.
+4. No active ticket materially overlaps the same foundational system/files.
+5. Highest priority first: P0, P1, P2, P3.
+6. Within a priority, prefer higher expected ROI and lower collision risk.
+
+Do **not** execute `THS-0001 → THS-1000` blindly because IDs are sequential.
 
 ## Standard agent loop
 
-1. **Select** the highest-priority `Ready` ticket whose dependencies are satisfied.
-2. **Inspect** existing code, data, content, styles, tests, and documentation before changing anything.
-3. **Scope** work to the ticket. Do not silently absorb unrelated cleanup.
-4. **Implement** at the shared layer whenever possible: design token, component, template, data model, validation rule, content pipeline, or reusable helper.
-5. **Test** the implementation and add regression coverage appropriate to the risk.
-6. **QA** representative desktop/mobile states for UI work and positive/negative fixtures for data/evidence/safety work.
-7. **Document** the change, tests, caveats, and before/after proof where useful.
-8. **Merge** after success. Rebase before beginning the next ticket.
-9. **Update** the backlog row: status, owner, PR/commit, proof/notes.
-10. **Measure** the expected outcome when a metric is available.
+1. **Sync** with the target branch.
+2. **Read** this playbook and `backlog/AGENT_COORDINATION.md`.
+3. **Materialize** the backlog.
+4. **Select** the highest-priority eligible ticket in your lane.
+5. **Claim** it in `backlog/status.csv` and publish the claim.
+6. **Inspect** existing code, data, content, styles, tests, and documentation before changing anything.
+7. **Scope** work to the ticket; do not absorb unrelated cleanup.
+8. **Implement** the smallest durable solution, preferring shared components/templates/data rules when appropriate.
+9. **Test** and add regression coverage appropriate to risk.
+10. **QA** applicable desktop/mobile/accessibility/data/evidence/SEO states.
+11. **Move to In Review** and record the PR.
+12. **Merge** only after applicable gates pass.
+13. **Mark Done** in `status.csv`, recording final PR/commit and proof.
+14. **Sync again** before claiming the next ticket.
 
-## Batch size
+## Coordinator loop
 
-Default to **1–5 closely related tickets per agent**.
+The coordinator normally does not implement feature tickets.
 
-Use **one ticket / one PR** for:
+1. Materialize the backlog.
+2. Review active claims and blocked work.
+3. Verify dependencies for candidate `Ready` tickets.
+4. Detect overlapping foundational work and serialize it when needed.
+5. Allow each specialist to claim its highest-priority eligible ticket.
+6. Resolve/re-route blockers and stale claims.
+7. Reprioritize later work when Search Console, analytics, revenue, incidents, completed dependencies, or architecture changes materially alter ROI.
+8. Keep concurrency intentionally limited until the process is stable.
 
-- evidence grading changes
-- safety or interaction logic
-- data migrations
-- technical SEO/indexation rules
-- privacy/security changes
-- architecture changes
-- high-risk affiliate/editorial changes
+Recommended starting concurrency is roughly four implementation lanes at once:
 
-A tightly coupled micro-batch may share a PR if splitting it would create broken intermediate states. Record every included ticket ID.
+- Design
+- Engineering
+- Evidence/Safety
+- SEO/QA
+
+Growth can run concurrently when it is not blocked by unfinished measurement/foundational UX work.
+
+## One-owner rule
+
+Every active ticket has exactly one implementation owner.
+
+Other agents may review or provide specialty input, but they must not independently implement competing versions of the same ticket.
+
+For cross-specialty work, choose one owner and record supporting reviewers/work in `Proof / Notes`.
+
+## Collision rules
+
+Do not run parallel tickets that both materially change the same:
+
+- shared design primitive;
+- canonical herb/compound template;
+- evidence-grade model;
+- safety/interactions model;
+- global routing/metadata layer;
+- schema/indexation infrastructure;
+- migration;
+- CI/build configuration;
+- generated dataset source.
+
+The coordinator may serialize tickets even when both are otherwise `Ready`.
 
 ## Branch and commit convention
 
-Recommended branch format:
+Single ticket:
 
 `ths/THS-####-short-description`
+
+Tightly coupled micro-batch:
+
+`ths/THS-####-####-short-description`
 
 Recommended commit prefix:
 
 `THS-####:`
 
-Examples:
+A working branch belongs to one implementation owner. Do not have multiple agents force-push the same branch.
 
-- `ths/THS-0001-homepage-value-prop`
-- `THS-0001: clarify homepage value proposition`
+## Batch size
 
-For a micro-batch:
+Default to **1–5 closely related tickets per agent**, but prefer **one ticket / one PR** for high-risk work including:
 
-`ths/THS-0001-0003-homepage-hero`
+- evidence grading;
+- safety/interactions;
+- data migrations;
+- technical SEO/indexation rules;
+- privacy/security;
+- architecture;
+- high-risk affiliate/editorial changes.
 
-The PR description must enumerate every ticket ID it closes.
+A micro-batch may share a PR only when splitting would create a broken intermediate state. Record every included ticket ID.
 
 ## Definition of Ready
 
 A ticket is `Ready` only when:
 
 - required dependencies are complete or verified unnecessary;
-- the relevant code/content/data can be located;
-- the task does not conflict with a newer architecture decision;
-- acceptance criteria are clear enough to test;
-- high-risk medical/evidence/safety work has an explicit review path.
+- relevant code/content/data can be located;
+- task does not conflict with a newer architecture decision;
+- acceptance criteria are testable;
+- required review path exists for high-risk medical/evidence/safety work;
+- no active claim overlaps the same foundational scope.
 
 ## Definition of Done
 
@@ -151,17 +213,17 @@ A ticket is `Done` only when all applicable gates pass:
 - implementation complete;
 - lint/type/build checks pass;
 - relevant automated tests pass;
-- regression test added when the bug could recur;
+- regression coverage added where recurrence is plausible;
 - desktop QA complete for visual changes;
 - mobile QA complete for visual changes;
 - keyboard/accessibility QA complete for interactive changes where relevant;
-- evidence/safety changes tested using positive and negative fixtures;
+- evidence/safety changes tested with positive and negative fixtures;
 - SEO changes inspected in rendered HTML;
 - schema changes validate;
 - analytics events fire once and contain no sensitive data;
 - no known regression remains;
-- PR/commit is recorded;
-- proof/notes are recorded;
+- PR/commit recorded;
+- proof/notes recorded;
 - merged/deployed where applicable.
 
 ## Evidence and medical-safety guardrails
@@ -170,137 +232,112 @@ The site is evidence-first. Agents must not trade accuracy for conversion, SEO, 
 
 1. Human evidence must remain visibly distinct from mechanism, animal, or in-vitro evidence.
 2. A mechanism cannot be rewritten as a proven human outcome.
-3. Evidence grades may only change under the canonical grading rules.
+3. Evidence grades may change only under canonical grading rules.
 4. Safety severity and evidence strength are separate concepts.
 5. Unknown interaction data must never be presented as proof of safety.
 6. Avoid/Insufficient must not be softened into positive marketing language.
-7. Do not automatically rewrite a medical conclusion solely because a new paper, guideline, regulatory page, or review appears.
-8. Material evidence or safety changes enter review before publication.
-9. Affiliate value must never determine evidence grade, ordering of scientific conclusions, or safety wording.
-10. If a ticket could materially alter a health conclusion and the expected behavior is unclear, mark it `Blocked` and document the question.
+7. Do not automatically rewrite medical conclusions solely because a new paper/guideline/regulatory page appears.
+8. Material evidence or safety changes require review before publication.
+9. Affiliate value must never determine evidence grade, scientific conclusions, or safety wording.
+10. If a ticket could materially alter a health conclusion and expected behavior is unclear, mark it `Blocked` with a concrete explanation.
 
-## Design implementation rules
+## Design rules
 
-The visual-design tickets are intended to eliminate one-off styling.
+- Establish/reuse design tokens rather than multiplying one-off values.
+- Reuse shared components before creating variants.
+- Prefer one canonical pattern per content type.
+- Test long titles, missing fields, dense warnings, and unusually large evidence/reference sections.
+- Check major visual changes on mobile and desktop.
+- Never hide meaningful safety/evidence information merely to make the page prettier.
 
-- Establish tokens before repeatedly changing raw colors/spacing across pages.
-- Reuse shared components before creating new variants.
-- Prefer one canonical page pattern per content type.
-- Test long titles, missing fields, dense safety warnings, and unusually large evidence/reference sections.
-- Every major visual change must be checked on mobile and desktop.
-- Do not hide important safety/evidence information merely to make the page prettier.
+## Content rules
 
-## Content implementation rules
-
-- Remove filler before adding more words.
-- Put the answer or verdict early when evidence allows it.
+- Remove filler before adding words.
+- Put the answer/verdict early when evidence allows it.
 - Keep uncertainty visible.
-- Use plain English without deleting meaningful scientific nuance.
-- Do not imply endorsement simply because an ingredient is popular.
-- Keep product research visually and editorially separate from evidence conclusions.
+- Use plain English without deleting scientific nuance.
+- Do not imply endorsement because an ingredient is popular.
+- Keep commercial content editorially separate from evidence conclusions.
 - Major claims must remain traceable to sources.
 
 ## SEO rules
 
 - Search optimization cannot introduce weaker or more sensational medical claims.
-- Do not generate hundreds of near-duplicate pages to chase keywords.
-- Do not index internal search results, filters, or utility pages unless the ticket explicitly establishes a safe canonical/indexation strategy.
-- A technical SEO ticket is not complete until representative rendered HTML has been inspected.
+- Do not mass-generate near-duplicate pages to chase keywords.
+- Do not index internal search/filter/utility pages without an explicit safe strategy.
+- Technical SEO tickets are not complete until representative rendered HTML is inspected.
 - For indexation changes, verify sitemap, canonical, robots, status code, and internal linking together.
 
-## Agent escalation / stop conditions
+## Blocker / stop conditions
 
-Stop the current ticket and mark it `Blocked` when:
+Stop and mark the ticket `Blocked` when:
 
 - requirements conflict;
-- the ticket would overwrite another active agent's foundational work;
-- a migration can cause irreversible data loss;
-- the correct evidence/safety conclusion is ambiguous;
-- tests fail for a reason unrelated to the ticket and the failure cannot safely be isolated;
-- the live data model materially differs from the ticket assumption;
-- implementing the ticket would require an undocumented architectural rewrite;
-- secrets, personal data, or sensitive analytics data could be exposed.
+- ticket overlaps another active agent's foundational work;
+- migration can cause irreversible data loss;
+- evidence/safety conclusion is ambiguous;
+- tests fail for an unrelated reason that cannot safely be isolated;
+- live data model materially differs from ticket assumptions;
+- implementation would require an undocumented architectural rewrite;
+- secrets, personal data, or sensitive analytics could be exposed.
 
-Record the blocker. Do not guess.
+`Blocked` requires a concrete `Blocker` entry. Do not guess.
 
 ## Proof expectations
 
-Examples of acceptable `Proof / Notes` entries:
+Useful proof includes:
 
 - before/after screenshot path or PR attachment;
-- tests added and exact command run;
+- exact tests/check commands run;
 - representative routes checked;
 - validation fixtures added;
-- Lighthouse/CWV before-and-after result;
-- schema validator result;
-- crawl/index check result;
-- event payload verified;
-- content QA sample set reviewed.
+- Lighthouse/CWV before/after;
+- schema validation result;
+- crawl/index result;
+- event payload verification;
+- content QA sample set.
 
 ## Suggested implementation sequence
 
-Do not execute `THS-0001 → THS-1000` blindly just because the IDs are sequential.
-
-1. Resolve P0 foundational design, navigation, trust, data, evidence, safety, testing, and indexation blockers.
+1. Resolve P0 design/navigation/trust/data/evidence/safety/testing/indexation foundations.
 2. Establish canonical herb and compound templates.
-3. Upgrade high-value/high-traffic pages through those shared templates.
+3. Upgrade high-value/high-traffic pages through shared templates.
 4. Strengthen search, directories, tools, and internal linking.
-5. Add measurement before large conversion or revenue experiments.
-6. Use Search Console, analytics, revenue, and content-quality data to reorder later P1/P2 work.
+5. Ensure measurement exists before large conversion/revenue experiments.
+6. Reorder later P1/P2 work using Search Console, analytics, revenue, and quality data.
 7. Introduce scale automation only after validation and rollback systems exist.
 
-The **Agent Queue** tab in the workbook provides an initial top-100 queue. Re-rank it as dependencies and real-world data change. When a ticket changes state, update the matching row in `backlog/master_backlog.csv`; do not rely on the XLSX snapshot as the authoritative status record.
-
-## Master prompt for an implementation agent
-
-Use this as a starting instruction for a coding/content agent:
+## Master prompt for a specialist implementation agent
 
 ```text
-You are implementing The Hippie Scientist master backlog.
+You are a specialist implementation agent for The Hippie Scientist backlog.
 
-Treat `backlog/master_backlog.csv` and repository documentation as the source of truth. Use `backlog/master_backlog.xlsx` as the dashboard/reference snapshot.
+Read BACKLOG_IMPLEMENTATION_PLAYBOOK.md and backlog/AGENT_COORDINATION.md first.
+Generate the current readable backlog with python backlog/materialize_backlog.py.
 
-Work only on the assigned THS ticket(s). Before changing anything, inspect the existing implementation and relevant tests/data. Preserve the site's evidence-first, safety-aware editorial boundaries.
+Work only within your assigned specialty lane. Select the highest-priority Ready ticket whose dependencies are satisfied, that is not already owned, and that does not collide with active foundational work.
 
-For each ticket:
-1. Confirm dependencies and acceptance criteria.
-2. Implement the smallest durable solution at the shared component/template/data layer when possible.
-3. Do not introduce unrelated architecture changes or medical/evidence claims.
+Before editing implementation files, claim the ticket in backlog/status.csv with Status=In Progress, your Owner identifier, an ISO-8601 Claimed At timestamp, and your working Branch. Publish that claim.
+
+For each claimed ticket:
+1. Inspect the existing implementation and relevant tests/data first.
+2. Implement only the scoped requirement using the smallest durable solution.
+3. Preserve existing working functionality and the site's evidence/safety boundaries.
 4. Add/update appropriate tests.
 5. Run all relevant lint, type, build, unit, integration, accessibility, visual, data, SEO, or E2E checks.
-6. For UI changes, QA desktop and mobile.
-7. For evidence/safety/data changes, test positive and negative fixtures and do not auto-change medical conclusions without review.
+6. For UI work, QA desktop and mobile.
+7. For evidence/safety/data work, use positive and negative fixtures and do not auto-change medical conclusions without review.
 8. Record before/after proof where useful.
-9. If successful, commit/PR with the THS ticket ID and merge according to repository policy.
-10. Update the ticket status, PR/commit, and proof notes in `backlog/master_backlog.csv`.
-11. Rebase before starting the next ticket.
+9. Move the ticket to In Review and record the PR.
+10. Merge only after applicable acceptance and QA gates pass.
+11. Mark the ticket Done in backlog/status.csv with final PR/commit and proof.
+12. Sync/rebase before claiming the next ticket.
 
-If requirements conflict, a migration is unsafe, a medical/safety conclusion becomes ambiguous, or a required dependency is missing, STOP and mark the ticket Blocked with a concise explanation instead of guessing.
+Never take an actively owned ticket. If requirements conflict, a dependency is missing, work overlaps an active foundational ticket, a migration is unsafe, or a medical/safety conclusion is ambiguous, mark the ticket Blocked with a concrete explanation instead of guessing.
 ```
-
-## Workbook tabs
-
-### Dashboard
-Portfolio-level counts and progress by priority/workstream/phase.
-
-### Master Backlog
-The 1,000-ticket reference dataset. Contains priority, impact, confidence, effort, ROI score, task, instructions, acceptance criteria, QA, dependencies, target route, measurement, status, owner, PR/commit, and proof.
-
-### Agent Queue
-An initial top-100 execution queue. It is a starting point, not an immutable ordering.
-
-### Definitions
-Priority/status/effort/risk and completion definitions.
-
-### Execution Protocol
-Short-form rules embedded in the workbook for agents that do not load this full document.
-
-## Current-site audit basis
-
-The backlog was designed against the current public site structure visible at https://thehippiescientist.net/ on August 16, 2026, including the homepage's goal hubs, ingredient databases, comparisons, evidence resources, safety tools, newsletter capture, research library, and trust/legal surfaces. The public homepage currently reports 291 herb records and 565 compound records. Individual pages should still be re-inspected at implementation time because the site can change after this backlog was generated.
 
 ## Operating principle
 
 The goal is not to finish 1,000 rows as fast as possible.
 
-The goal is to make every completed ticket leave the site measurably more trustworthy, readable, useful, discoverable, maintainable, or profitable **without degrading scientific accuracy or safety**.
+The goal is for every completed ticket to leave the site measurably more trustworthy, readable, useful, discoverable, maintainable, or profitable **without degrading scientific accuracy or safety**.
