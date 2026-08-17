@@ -82,19 +82,19 @@ export default function AffiliateDisclosurePage() {
         ]}
       />
 
-      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10'>
+      <section className='hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Transparency</p>
-        <h1 className='mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl'>
+        <h1 className='heading-premium mt-5 max-w-4xl'>
           Affiliate disclosure: product links do not control the evidence.
         </h1>
-        <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
+        <p className='text-reading mt-4 max-w-3xl'>
           The Hippie Scientist may earn commissions from qualifying product links. Those relationships help support the site,
           but they do not determine rankings, safety language, evidence grades, or editorial conclusions.
         </p>
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/info/methodology/' className='chip-readable hover:bg-white transition'>Methodology</Link>
-          <Link href='/learn/product-quality/' className='chip-readable hover:bg-white transition'>Product-quality guide</Link>
-          <Link href='/info/free-guide/' className='chip-readable hover:bg-white transition'>Free decision guide</Link>
+          <Link href='/info/methodology/' className='chip-readable px-4 py-2 text-sm font-semibold'>Methodology</Link>
+          <Link href='/learn/product-quality/' className='chip-readable px-4 py-2 text-sm font-semibold'>Product-quality guide</Link>
+          <Link href='/info/free-guide/' className='chip-readable px-4 py-2 text-sm font-semibold'>Free decision guide</Link>
         </div>
       </section>
 
@@ -104,18 +104,18 @@ export default function AffiliateDisclosurePage() {
         {principles.map((principle) => (
           <article key={principle.title} className='card-premium p-6'>
             <p className='eyebrow-label'>Trust principle</p>
-            <h2 className='mt-2 text-xl font-semibold tracking-tight text-ink'>{principle.title}</h2>
-            <p className='mt-3 text-sm leading-7 text-muted'>{principle.body}</p>
+            <h2 className='mt-2 text-xl font-semibold tracking-tight text-[color:var(--hs-ink)]'>{principle.title}</h2>
+            <p className='mt-3 text-sm leading-7 text-[color:var(--hs-body)]'>{principle.body}</p>
           </article>
         ))}
       </section>
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 shadow-sm sm:p-8'>
+      <section className='section-frame p-6 sm:p-8' aria-labelledby='affiliate-editorial-separation'>
         <p className='eyebrow-label'>Editorial separation</p>
-        <h2 className='mt-2 text-3xl font-semibold tracking-tight text-ink'>How product links are kept separate from evidence language</h2>
+        <h2 id='affiliate-editorial-separation' className='compact-heading mt-3'>How product links are kept separate from evidence language</h2>
         <ul className='mt-6 grid gap-3 md:grid-cols-2'>
           {separationChecks.map((check) => (
-            <li key={check} className='rounded-2xl border border-brand-900/10 bg-white/80 p-4 text-sm leading-6 text-muted'>
+            <li key={check} className='rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-4 text-sm leading-6 text-[color:var(--hs-body)]'>
               {check}
             </li>
           ))}
@@ -124,13 +124,14 @@ export default function AffiliateDisclosurePage() {
 
       <SafetyDisclaimerBox />
 
-      <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm'>
-        <h2 className='text-2xl font-semibold tracking-tight text-ink'>FAQ</h2>
-        <div className='mt-4 grid gap-4'>
+      <section className='section-frame p-6' aria-labelledby='affiliate-disclosure-faq'>
+        <p className='eyebrow-label'>Questions readers ask</p>
+        <h2 id='affiliate-disclosure-faq' className='compact-heading mt-3'>FAQ</h2>
+        <div className='mt-5 grid gap-4'>
           {faqItems.map((item) => (
-            <article key={item.question} className='rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4'>
-              <h3 className='font-bold text-ink'>{item.question}</h3>
-              <p className='mt-2 text-sm leading-7 text-muted'>{item.answer}</p>
+            <article key={item.question} className='rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-4'>
+              <h3 className='font-bold text-[color:var(--hs-ink)]'>{item.question}</h3>
+              <p className='mt-2 text-sm leading-7 text-[color:var(--hs-body)]'>{item.answer}</p>
             </article>
           ))}
         </div>
