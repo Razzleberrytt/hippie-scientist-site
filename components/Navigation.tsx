@@ -173,7 +173,7 @@ export function Navigation() {
                         {childGroups.map(({ section, items }) => (
                           <div key={section || 'links'} className={isMegaMenu ? 'rounded-2xl bg-[#f8f3e8]/55 p-2 dark:bg-[var(--surface-subtle)]' : ''}>
                             {section ? (
-                              <p className='px-3 pb-1 pt-2 text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-[#8a6a38] dark:text-[var(--accent-gold)]'>
+                              <p className='px-3 pb-2 pt-2 text-xs font-semibold leading-5 text-[#526159] dark:text-[var(--text-secondary)]'>
                                 {section}
                               </p>
                             ) : null}
