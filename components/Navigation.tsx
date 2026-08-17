@@ -28,8 +28,16 @@ function groupChildren(children: PrimaryNavigationItem[] = []) {
   return Array.from(groups.entries()).map(([section, items]) => ({ section, items }))
 }
 
+function normalizePath(path: string) {
+  return path === '/' ? '/' : path.replace(/\/$/, '')
+}
+
 function pathMatches(pathname: string, prefix: string) {
   return pathname === prefix || pathname.startsWith(`${prefix}/`)
+}
+
+function isCurrentPage(pathname: string, href: string) {
+  return normalizePath(pathname) === normalizePath(href)
 }
 
 export function Navigation() {
@@ -127,6 +135,7 @@ export function Navigation() {
               const childGroups = groupChildren(link.children)
               const isMegaMenu = childGroups.length > 1
               const active = isPrimaryActive(link)
+              const current = isCurrentPage(pathname, link.href)
               const menuWidth = childGroups.length === 2
                 ? 'w-[min(46rem,calc(100vw-2rem))]'
                 : 'w-[min(58rem,calc(100vw-2rem))]'
@@ -138,7 +147,7 @@ export function Navigation() {
                 <div key={link.href} className='group relative'>
                   <Link
                     href={toCanonicalHref(link.href)}
-                    aria-current={active ? 'page' : undefined}
+                    aria-current={current ? 'page' : undefined}
                     aria-haspopup={hasChildren ? 'true' : undefined}
                     className={`relative flex items-center gap-1 py-2 font-semibold transition-colors ${
                       active
@@ -172,7 +181,7 @@ export function Navigation() {
                               <Link
                                 key={child.href}
                                 href={toCanonicalHref(child.href)}
-                                aria-current={isChildActive(child.href) ? 'page' : undefined}
+                                aria-current={isCurrentPage(pathname, child.href) ? 'page' : undefined}
                                 className='block rounded-2xl px-3 py-2.5 transition hover:bg-[#f5efe2] focus-visible:bg-[#f5efe2] focus-visible:outline-none dark:hover:bg-[var(--surface-card)] dark:focus-visible:bg-[var(--surface-card)]'
                               >
                                 <span className='block text-sm font-semibold text-[#123c2f] dark:text-[var(--text-primary)]'>{child.label}</span>
@@ -247,13 +256,14 @@ export function Navigation() {
             <nav className='flex flex-col gap-2 text-base' aria-label='Mobile primary links'>
               {primaryLinks.map((link) => {
                 const active = isPrimaryActive(link)
+                const current = isCurrentPage(pathname, link.href)
 
                 return (
                   <Link
                     key={link.href}
                     href={toCanonicalHref(link.href)}
                     onClick={closeMobile}
-                    aria-current={active ? 'page' : undefined}
+                    aria-current={current ? 'page' : undefined}
                     className={`block rounded-2xl px-4 py-3.5 font-semibold transition ${
                       active
                         ? 'border border-[#b88a42]/20 bg-[#f5efe2] text-[#123c2f] shadow-sm dark:border-[var(--border-strong)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
