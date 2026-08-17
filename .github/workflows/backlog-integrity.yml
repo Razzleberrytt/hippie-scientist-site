@@ -38,3 +38,6 @@ jobs:
         run: |
           node scripts/backlog/next-ticket.mjs
           node scripts/backlog/next-ticket.mjs --area Evidence --limit 5
+
+      - name: Publish backlog status summary
+        run: node scripts/backlog/report.mjs >> "$GITHUB_STEP_SUMMARY"
