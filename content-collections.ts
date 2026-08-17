@@ -1,6 +1,7 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import { compileMDX } from '@content-collections/mdx'
 import remarkGfm from 'remark-gfm'
+import remarkImageDimensions from './lib/remark-image-dimensions.mjs'
 import { z } from 'zod/v4'
 
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
@@ -14,7 +15,9 @@ const articleReferenceSchema = z.object({
 })
 
 const mdxOptions = {
-  remarkPlugins: [remarkGfm],
+  // Image dimensions are stamped from the files themselves so article images
+  // reserve their space and stop reflowing the page as they load.
+  remarkPlugins: [remarkGfm, remarkImageDimensions],
 }
 
 const articleFaqSchema = z.object({
