@@ -14,7 +14,6 @@ import {
 } from 'lucide-react'
 import { coreGoals } from '@/lib/core-goals'
 import articlesData from '@/data/articles/articles.json'
-import buildReport from '@/public/data/build-report.json'
 
 const goalVisuals = {
   sleep: {
@@ -136,14 +135,6 @@ const methodSteps = [
   },
 ]
 
-const counts = buildReport.counts
-
-const heroStats = [
-  { value: `${counts.herbs}`, label: 'herb records' },
-  { value: `${counts.compounds}`, label: 'compound records' },
-  { value: `${counts.claims}`, label: 'sourced claims' },
-]
-
 type SectionHeaderProps = {
   eyebrow?: string
   title: React.ReactNode
@@ -186,65 +177,36 @@ export default function HomepageV2() {
     <div className='hs-home'>
       <div className='mx-auto max-w-6xl px-5 sm:px-8 lg:px-10'>
         <section className='hs-hero pb-10 pt-8 sm:pb-20 sm:pt-16 lg:pt-20'>
-          <div className='grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10'>
-            <div>
-              <p className='hs-eyebrow'>Evidence-based supplement guidance</p>
+          <div className='relative z-[1] max-w-[54rem]'>
+            <p className='hs-eyebrow'>Evidence-based supplement guidance</p>
 
-              <h1 className='hs-display mt-6 max-w-[17ch] text-[2.9rem] leading-[1.02] sm:mt-7 sm:max-w-[14ch] sm:text-[4.2rem] lg:text-[4.9rem]'>
-                Make Smarter <span className='hs-accent'>Supplement Decisions</span>
-              </h1>
+            <h1 className='hs-display mt-6 max-w-[17ch] text-[2.9rem] leading-[1.02] sm:mt-7 sm:max-w-[14ch] sm:text-[4.2rem] lg:text-[4.9rem]'>
+              Make Smarter <span className='hs-accent'>Supplement Decisions</span>
+            </h1>
 
-              <p className='hs-lede mt-6 max-w-xl text-[1.05rem] leading-[1.65] sm:mt-7 sm:text-xl sm:leading-9'>
-                Compare herbs and supplements on human evidence, mechanism, dose, and safety — so you can
-                start with your goal instead of the marketing.
-              </p>
+            <p className='hs-lede mt-6 max-w-xl text-[1.05rem] leading-[1.65] sm:mt-7 sm:text-xl sm:leading-9'>
+              Compare herbs and supplements on human evidence, mechanism, dose, and safety — so you can start
+              with your goal instead of the marketing.
+            </p>
 
-              <div className='mt-9 flex flex-col gap-3 sm:flex-row sm:items-center'>
-                <Link
-                  href='#choose-a-path'
-                  className='hs-btn-primary inline-flex min-h-14 items-center justify-center gap-3 rounded-full px-7 py-4 text-base font-bold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--hs-gold)] focus-visible:ring-offset-2'
-                >
-                  <Leaf className='h-5 w-5 text-[#e2cba3]' aria-hidden='true' strokeWidth={1.8} />
-                  Choose a health goal
-                  <ArrowRight className='h-5 w-5 text-[#e2cba3]' aria-hidden='true' />
-                </Link>
-                <Link
-                  href='/search/'
-                  className='hs-btn-ghost inline-flex min-h-14 items-center justify-center gap-2.5 rounded-full px-7 py-4 text-base font-bold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--hs-gold)] focus-visible:ring-offset-2'
-                >
-                  <Search className='h-5 w-5' aria-hidden='true' strokeWidth={1.8} />
-                  Search by name
-                </Link>
-              </div>
-            </div>
-
-            <div className='hs-dial' aria-hidden='true'>
-              <div className='hs-dial-ring hs-dial-ring--outer' />
-              <div className='hs-dial-ring hs-dial-ring--mid' />
-              <div className='hs-dial-ring hs-dial-ring--inner' />
-              <div className='hs-dial-core'>
-                <Leaf className='h-14 w-14' strokeWidth={1.25} />
-              </div>
-              <span className='hs-dial-chip'>Human evidence</span>
-              <span className='hs-dial-chip'>Safety context</span>
-              <span className='hs-dial-chip'>Dose ranges</span>
-              <span className='hs-dial-chip'>Honest limits</span>
+            <div className='mt-9 flex flex-col gap-3 sm:flex-row sm:items-center'>
+              <Link
+                href='#choose-a-path'
+                className='hs-btn-primary inline-flex min-h-14 items-center justify-center gap-3 rounded-full px-7 py-4 text-base font-bold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--hs-gold)] focus-visible:ring-offset-2'
+              >
+                <Leaf className='h-5 w-5 text-[#e2cba3]' aria-hidden='true' strokeWidth={1.8} />
+                Choose a health goal
+                <ArrowRight className='h-5 w-5 text-[#e2cba3]' aria-hidden='true' />
+              </Link>
+              <Link
+                href='/search/'
+                className='hs-btn-ghost inline-flex min-h-14 items-center justify-center gap-2.5 rounded-full px-7 py-4 text-base font-bold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--hs-gold)] focus-visible:ring-offset-2'
+              >
+                <Search className='h-5 w-5' aria-hidden='true' strokeWidth={1.8} />
+                Search by name
+              </Link>
             </div>
           </div>
-
-          <dl className='mt-10 grid grid-cols-3 gap-x-4 sm:mt-12 sm:flex sm:flex-wrap sm:items-baseline sm:gap-x-8'>
-            {heroStats.map((stat) => (
-              <div key={stat.label} className='sm:flex sm:items-baseline sm:gap-2'>
-                <dt className='sr-only'>{stat.label}</dt>
-                <dd className='sm:flex sm:items-baseline sm:gap-2'>
-                  <span className='hs-stat-num block text-[1.6rem] sm:inline sm:text-[1.75rem]'>{stat.value}</span>
-                  <span aria-hidden='true' className='mt-0.5 block text-[0.78rem] leading-[1.3] text-[color:var(--hs-body)] sm:mt-0 sm:inline sm:text-sm'>
-                    {stat.label}
-                  </span>
-                </dd>
-              </div>
-            ))}
-          </dl>
 
           <dl className='hs-rail mt-10 grid grid-cols-1 gap-0 sm:grid-cols-3'>
             {trustItems.map((item) => {
@@ -376,10 +338,7 @@ export default function HomepageV2() {
                       }
                     >
                       {comparison.parts.map((part, index) => (
-                        <span
-                          key={part}
-                          className={isMultiWay ? 'hs-vs-part' : 'flex items-center gap-2.5'}
-                        >
+                        <span key={part} className={isMultiWay ? 'hs-vs-part' : 'flex items-center gap-2.5'}>
                           {index > 0 ? <span className='hs-vs-mark'>vs</span> : null}
                           <span
                             className={
