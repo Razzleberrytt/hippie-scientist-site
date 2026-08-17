@@ -8,6 +8,14 @@ This directory is the canonical control board for site-quality work. `master-bac
 
 Code existing on a branch is **not** completion. A ticket may move to `complete` only after the implementation is present on the canonical source path, relevant automated gates pass, rendered UI is checked on mobile and desktop when applicable, regressions are ruled out, the work is merged to `main`, and a post-merge measurement or verification note is recorded.
 
+## Ticket ID namespace
+
+- The master backlog owns the three-digit `THS-001` through `THS-999` namespace. The current board uses `THS-001` through `THS-375`.
+- A reference such as `THS-0028` is **not** a master-backlog ticket. Parallel or external agent systems may use their own identifiers, but those identifiers must not be treated as canonical backlog IDs.
+- Record external ticket-like references in `work_refs` with an explicit namespace, for example `external:THS-0028`.
+- Dependencies and active claims may reference only canonical three-digit master-backlog IDs.
+- If the master backlog ever needs more than 999 tickets, change/version the schema deliberately rather than silently widening the ID format.
+
 ## Status model
 
 - `backlog` — defined, not selected.
