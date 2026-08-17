@@ -116,7 +116,8 @@
       "doi": "10.1002/14651858.CD000980.pub4",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 11306
     }
   ],
   "dosage": "chelated mineral capsule or powder",

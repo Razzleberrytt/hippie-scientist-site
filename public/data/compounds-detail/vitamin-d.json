@@ -166,7 +166,8 @@
       "doi": "10.1136/bmj.i6583",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 11321
     }
   ],
   "dosage": "capsule or softgel",

@@ -57,7 +57,8 @@
       "doi": "10.18388/abp.2020_5996",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 141
     }
   ],
   "governance": {

@@ -88,7 +88,8 @@
       "doi": "10.3390/nu8070388",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 415
     }
   ],
   "governance": {

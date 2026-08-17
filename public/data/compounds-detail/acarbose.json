@@ -124,7 +124,8 @@
       "doi": "10.2337/diacare.22.6.960",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 1946
     }
   ],
   "dosage": "long",

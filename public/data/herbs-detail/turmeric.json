@@ -82,7 +82,8 @@
       "doi": "10.2147/CIA.S58535",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 367
     }
   ],
   "governance": {

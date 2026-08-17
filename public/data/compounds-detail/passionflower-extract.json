@@ -124,7 +124,8 @@
       "doi": "10.1097/YIC.0000000000000291",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 110
     }
   ],
   "dosage": "extract",

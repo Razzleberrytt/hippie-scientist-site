@@ -79,7 +79,8 @@
       "doi": "10.3109/09637486.2012.700920",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 92
     }
   ],
   "dosage": "capsule or standardized extract",

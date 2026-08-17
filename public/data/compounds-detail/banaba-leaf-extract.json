@@ -76,7 +76,8 @@
       "doi": "10.1089/jmf.2021.0039",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 24
     }
   ],
   "dosage": "medium",

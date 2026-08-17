@@ -109,7 +109,8 @@
       "doi": "10.1016/j.joca.2025.06.005",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 162
     }
   ],
   "dosage": "capsule or standardized extract",

@@ -118,7 +118,8 @@
       "doi": "10.1001/jama.280.18.1596",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 135
     }
   ],
   "dosage": "standardized extract",

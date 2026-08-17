@@ -77,7 +77,8 @@
       "doi": "10.1016/j.amjmed.2006.02.026",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 1093
     },
     {
       "id": "src_911a7102c58d",

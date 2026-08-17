@@ -75,7 +75,8 @@
       "doi": "10.1291/hypres.31.1583",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 86
     }
   ],
   "dosage": "capsule or standardized extract",

@@ -77,7 +77,8 @@
       "doi": "10.1038/s41598-025-27861-6",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 139
     }
   ],
   "dosage": "powder or capsule",

@@ -131,7 +131,8 @@
       "year": 2005,
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 12291
     },
     {
       "id": "src_991903c9ff62",

@@ -94,7 +94,8 @@
       "year": 2013,
       "studyType": "Uncontrolled trial",
       "studyClass": "uncontrolled-trial",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 210
     }
   ],
   "governance": {

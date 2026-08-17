@@ -41,7 +41,8 @@
       "reviewStatus": "approved",
       "pmid": "39474788",
       "metadataSource": "pubmed",
-      "doi": "10.1002/ptr.8359"
+      "doi": "10.1002/ptr.8359",
+      "sampleSize": 671
     }
   ],
   "governance": {

@@ -76,7 +76,8 @@
       "doi": "10.1002/14651858.CD000530.pub3",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 4631
     }
   ],
   "dosage": "capsule or standardized extract",

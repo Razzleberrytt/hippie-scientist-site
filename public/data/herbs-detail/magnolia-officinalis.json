@@ -38,7 +38,8 @@
       "doi": "10.1182/bloodadvances.2023010668",
       "studyType": "Uncontrolled trial",
       "studyClass": "uncontrolled-trial",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 68
     },
     {
       "pubmedId": "29925102",

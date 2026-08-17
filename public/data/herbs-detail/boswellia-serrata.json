@@ -57,7 +57,8 @@
       "doi": "10.1186/s12906-020-02985-6",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 545
     }
   ],
   "governance": {

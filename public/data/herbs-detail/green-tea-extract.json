@@ -57,7 +57,8 @@
       "doi": "10.1016/j.clnu.2015.05.003",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 115
     },
     {
       "id": "src_280a9a995334",

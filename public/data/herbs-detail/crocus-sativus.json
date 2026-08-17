@@ -40,7 +40,8 @@
       "doi": "10.1177/10870547231203176",
       "studyType": "Systematic review",
       "studyClass": "systematic-review",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 118
     },
     {
       "pubmedId": "30036891",
