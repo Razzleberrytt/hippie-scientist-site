@@ -15,8 +15,16 @@ import {
 } from '@/src/lib/international-seo'
 import { LOCALIZED_CHROME, getLocaleFromPathname } from '@/src/lib/localized-chrome'
 
+function normalizePath(path: string) {
+  return path === '/' ? '/' : path.replace(/\/$/, '')
+}
+
 function isNavActive(pathname: string, href: string) {
-  return pathname === href.replace(/\/$/, '') || pathname.startsWith(href)
+  return normalizePath(pathname) === normalizePath(href) || pathname.startsWith(href)
+}
+
+function isNavCurrent(pathname: string, href: string) {
+  return normalizePath(pathname) === normalizePath(href)
 }
 
 function LanguageLinks({ pathname, currentLocale, compact = false }: { pathname: string; currentLocale: SupportedLocale; compact?: boolean }) {
@@ -95,11 +103,12 @@ export default function LocalizedNavigation() {
           <div className='hidden items-center gap-5 text-sm lg:flex'>
             {config.links.map((link) => {
               const active = isNavActive(pathname, link.href)
+              const current = isNavCurrent(pathname, link.href)
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  aria-current={active ? 'page' : undefined}
+                  aria-current={current ? 'page' : undefined}
                   className={`font-semibold transition ${active ? 'text-[var(--accent-gold)]' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
                 >
                   {link.label}
@@ -119,11 +128,12 @@ export default function LocalizedNavigation() {
         <div className='-mx-1 flex items-center gap-1 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:hidden' aria-label={config.sectionsAriaLabel}>
           {config.links.map((link) => {
             const active = isNavActive(pathname, link.href)
+            const current = isNavCurrent(pathname, link.href)
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                aria-current={active ? 'page' : undefined}
+                aria-current={current ? 'page' : undefined}
                 className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-3 py-2 text-xs font-semibold transition ${active ? 'bg-[#d0a35b] text-[#151719]' : 'border border-[var(--border-soft)] bg-[var(--surface-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
               >
                 {link.label}
