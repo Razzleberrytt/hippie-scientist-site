@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { buildPageMetadata, faqPageJsonLd, breadcrumbJsonLd, SITE_URL } from '../../../src/lib/seo'
 import References from '@/components/References'
 
@@ -60,6 +61,7 @@ const faqLd = faqPageJsonLd({
 })
 const breadcrumbLd = breadcrumbJsonLd([
   { name: 'Home', url: SITE_URL },
+  { name: 'Info', url: `${SITE_URL}/info/` },
   { name: 'FAQ', url: `${SITE_URL}/info/faq/` },
 ])
 
@@ -69,119 +71,80 @@ const FAQ_REFS = [
 
 export default function FaqPage() {
   return (
-    <div className='space-y-8 max-w-5xl mx-auto px-4 py-8'>
-      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+    <div className='container-page space-y-8 py-8 sm:space-y-10 sm:py-10'>
+      <JsonLd schema={faqLd} />
+      <JsonLd schema={breadcrumbLd} />
+      <AuthorityBreadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Info', href: '/info/' },
+          { label: 'FAQ' },
+        ]}
+      />
+
+      <section className='hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>FAQ</p>
-
-        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>
-          Frequently asked questions
-        </h1>
-
-        {/* Reusable Schema.org JSON-LD for FAQPage + BreadcrumbList (static export safe) */}
-        <JsonLd schema={faqLd} />
-        <JsonLd schema={breadcrumbLd} />
-
-        <p className='mt-4 max-w-3xl text-base leading-7 text-ink/80 sm:text-lg'>
-          Quick answers about what The Hippie Scientist is, how to use it, and
-          what it is not.
+        <h1 className='heading-premium mt-5 max-w-4xl'>Frequently asked questions</h1>
+        <p className='text-reading mt-4 max-w-3xl'>
+          Quick answers about what The Hippie Scientist is, how to use it, where its limits are, and what to do when a question needs more than a public research page.
         </p>
-
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link
-            href='/info/about/'
-            className='rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 shadow-sm'
-          >
+          <Link href='/info/about/' className='button-primary inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold'>
             Read About
           </Link>
-
-          <Link
-            href='/info/contact/'
-            className='rounded-full border border-stone-200 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'
-          >
+          <Link href='/info/contact/' className='button-secondary inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold'>
             Contact
           </Link>
-
-          <Link
-            href='/info/disclaimer/'
-            className='rounded-full border border-stone-200 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'
-          >
+          <Link href='/info/disclaimer/' className='button-secondary inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold'>
             Disclaimer
           </Link>
         </div>
       </section>
 
-      <section className='grid gap-4 md:grid-cols-2'>
+      <section className='grid gap-4 md:grid-cols-2' aria-label='Frequently asked questions'>
         {faqs.map(item => (
-          <div key={item.question} className='card-premium p-6'>
-            <h2 className='text-lg font-semibold text-ink'>
-              {item.question}
-            </h2>
-
-            <p className='mt-3 text-sm leading-6 text-muted'>
-              {item.answer}
-            </p>
-          </div>
+          <article key={item.question} className='card-premium p-6'>
+            <h2 className='text-lg font-semibold text-[color:var(--hs-ink)]'>{item.question}</h2>
+            <p className='mt-3 text-sm leading-6 text-[color:var(--hs-body)]'>{item.answer}</p>
+          </article>
         ))}
       </section>
 
       <section className='grid gap-6 lg:grid-cols-[1.2fr_0.8fr]'>
         <div className='card-premium p-6 sm:p-8'>
-          <p className='text-xs font-semibold uppercase tracking-wider text-emerald-700'>
-            Still need help?
-          </p>
-
-          <h2 className='mt-3 text-2xl font-semibold text-ink'>Use the main sections</h2>
-
-          <div className='mt-4 space-y-4 text-sm leading-7 text-muted sm:text-base'>
+          <p className='eyebrow-label'>Still need help?</p>
+          <h2 className='mt-3 text-2xl font-semibold text-[color:var(--hs-ink)]'>Use the main research paths</h2>
+          <div className='mt-4 space-y-4 text-sm leading-7 text-[color:var(--hs-body)] sm:text-base'>
             <p>
-              If you are browsing a topic, the fastest path is usually:
-              libraries first, detail pages second, blog posts third.
+              If you are browsing a topic, the fastest path is usually the structured libraries first, detail pages second, and longer research notes after that.
             </p>
-
             <p>
-              That gives you a simple overview first and more context after that.
+              That gives you a quick orientation before you move into the deeper evidence and safety context.
             </p>
           </div>
         </div>
 
         <aside className='card-premium h-fit p-6'>
-          <p className='text-xs font-semibold uppercase tracking-wider text-emerald-700'>
-            Start here
-          </p>
-
-          <div className='mt-4 space-y-3'>
-            <Link
-              href='/herbs/'
-              className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'
-            >
-              <p className='text-sm font-semibold text-ink'>Herbs</p>
-              <p className='mt-1 text-sm leading-6 text-muted'>
-                Browse plant profiles and summaries.
-              </p>
-            </Link>
-
-            <Link
-              href='/compounds/'
-              className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'
-            >
-              <p className='text-sm font-semibold text-ink'>Compounds</p>
-              <p className='mt-1 text-sm leading-6 text-muted'>
-                Review constituents and quick notes.
-              </p>
-            </Link>
-
-            <Link
-              href='/articles/'
-              className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'
-            >
-              <p className='text-sm font-semibold text-ink'>Articles</p>
-              <p className='mt-1 text-sm leading-6 text-muted'>
-                Research notes, evidence reviews, and practical notes.
-              </p>
-            </Link>
+          <p className='eyebrow-label'>Start here</p>
+          <div className='mt-4 divide-y divide-[color:var(--hs-hairline)]'>
+            {[
+              { href: '/herbs/', title: 'Herbs', body: 'Browse plant profiles and summaries.' },
+              { href: '/compounds/', title: 'Compounds', body: 'Review constituents and quick notes.' },
+              { href: '/articles/', title: 'Articles', body: 'Research notes, evidence reviews, and practical context.' },
+            ].map(item => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className='block py-4 first:pt-0 last:pb-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
+              >
+                <p className='text-sm font-semibold text-[color:var(--hs-ink)]'>{item.title}</p>
+                <p className='mt-1 text-sm leading-6 text-[color:var(--hs-body)]'>{item.body}</p>
+              </Link>
+            ))}
           </div>
         </aside>
       </section>
+
       <References refs={FAQ_REFS} />
     </div>
   )
