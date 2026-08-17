@@ -71,8 +71,8 @@ export function FilterChip({ label, count, active, onClick }: FilterChipProps) {
       className={clsx(
         'inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[0.8rem] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:color-mix(in_srgb,var(--hs-gold)_45%,transparent)]',
         active
-          ? 'border-[color:color-mix(in_srgb,var(--tone)_48%,var(--hs-hairline))] bg-[linear-gradient(140deg,#4b4558_0%,#332f3d_100%)] text-[#fffaf3] shadow-sm dark:border-[color:color-mix(in_srgb,var(--hs-gold)_30%,transparent)] dark:bg-[linear-gradient(140deg,#665c8c_0%,#40384f_100%)]'
-          : 'border-[color:var(--hs-hairline)] bg-[color:var(--hs-surface)] text-[color:var(--hs-body)] hover:border-[color:color-mix(in_srgb,var(--tone)_36%,var(--hs-hairline))] hover:text-[color:var(--hs-ink)]',
+          ? 'border-[color:var(--hs-gold)] bg-[color:var(--hs-gold-soft)] text-[color:var(--hs-gold-ink)]'
+          : 'border-[color:var(--hs-hairline)] bg-[color:var(--hs-surface)] text-[color:var(--hs-body)] hover:border-[color:var(--hs-hairline-strong)] hover:text-[color:var(--hs-ink)]',
       )}
     >
       <span>{label}</span>
@@ -81,8 +81,8 @@ export function FilterChip({ label, count, active, onClick }: FilterChipProps) {
           className={clsx(
             'rounded-full px-1.5 text-[0.7rem] font-semibold tabular-nums',
             active
-              ? 'bg-white/15 text-[#fffaf3]'
-              : 'bg-[color:color-mix(in_srgb,var(--tone)_8%,var(--hs-surface-2))] text-[color:var(--tone-ink)]',
+              ? 'bg-[color:color-mix(in_srgb,var(--hs-gold)_16%,var(--surface-card))] text-[color:var(--hs-gold-ink)]'
+              : 'bg-[color:color-mix(in_srgb,var(--hs-gold)_8%,var(--hs-surface-2))] text-[color:var(--hs-gold-ink)]',
           )}
         >
           {count}
@@ -119,8 +119,8 @@ export function ResultRow({ doc, active, id, onHover, onSelect }: ResultRowProps
       className={clsx(
         'flex w-full cursor-pointer flex-col gap-1 rounded-xl border px-3 py-2.5 text-left transition',
         active
-          ? 'border-[color:color-mix(in_srgb,var(--tone)_30%,var(--hs-hairline))] bg-[color:color-mix(in_srgb,var(--tone)_7%,var(--hs-surface))] shadow-[inset_2px_0_0_var(--hs-gold)]'
-          : 'border-transparent hover:bg-[color:color-mix(in_srgb,var(--tone)_4%,var(--hs-surface))]',
+          ? 'border-[color:color-mix(in_srgb,var(--hs-gold)_30%,var(--hs-hairline))] bg-[color:color-mix(in_srgb,var(--hs-gold)_7%,var(--hs-surface))] shadow-[inset_2px_0_0_var(--hs-gold)]'
+          : 'border-transparent hover:bg-[color:color-mix(in_srgb,var(--hs-gold)_4%,var(--hs-surface))]',
       )}
     >
       <span className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
