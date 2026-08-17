@@ -7,11 +7,10 @@
  * content exists at two URLs, each declaring itself canonical, and the only
  * thing preventing duplicate indexation is the edge rule firing every time.
  *
- * Seven legacy routes are in that state today. Each is a real decision — either
- * the redirect is stale and the page should be reachable, or the page is
- * orphaned and should stop building — and both answers are editorial rather
- * than mechanical, so this does not pick one. It records them as a baseline and
- * fails on anything new, so the list can only shrink.
+ * Seven legacy routes were in that state. Rather than choose between deleting
+ * content and dropping redirects, each redirected page now declares `noindex`
+ * and canonicalises to its destination: nothing is deleted, the page still
+ * renders if the edge rule fails, and the duplicate stops competing.
  *
  * Requires a build. Without `out/` there is nothing to check and the audit
  * skips rather than reporting a false all-clear.
@@ -28,19 +27,12 @@ const REDIRECTS = path.join(ROOT, 'public', '_redirects')
 const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'redirect-indexability.json')
 
 /**
- * Known conflicts awaiting an editorial decision on which URL owns the content.
- * Keyed by redirect source. Removing an entry here is the goal; adding one
- * requires deciding this duplicate is acceptable, which it generally is not.
+ * Empty by design. Every route that redirected while still shipping an
+ * indexable page has been corrected: the page now declares `noindex` and points
+ * its canonical at the redirect destination. Anything appearing here is a new
+ * regression, not inherited debt.
  */
-const BASELINE = new Set([
-  '/articles/ashwagandha',
-  '/articles/l-theanine',
-  '/best-supplements-for-adhd',
-  '/magnesium-for-adhd',
-  '/l-theanine-for-adhd',
-  '/citicoline-vs-alpha-gpc',
-  '/omega-3-for-adhd',
-])
+const BASELINE = new Set([])
 
 function parseRedirects() {
   if (!fs.existsSync(REDIRECTS)) return []

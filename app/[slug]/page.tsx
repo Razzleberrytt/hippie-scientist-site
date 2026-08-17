@@ -14,6 +14,7 @@ import {
   getFocusClusterArticle,
 } from '@/lib/focus-cluster-markdown'
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE, compactMetaTitle } from '../../src/lib/seo'
+import { withRedirectSourceMetadata } from '@/src/lib/redirect-source-metadata'
 const ADHD_CHECKLIST_CAPTURE = {
   title: 'Get the ADHD Supplement Starter Checklist',
   description: 'A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks.',
@@ -157,7 +158,9 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
   const canonical = `${SITE_URL}/${article.slug}/`
   const metaTitle = compactMetaTitle(article.seoTitle)
 
-  return {
+  // Some of these legacy slugs are 301'd to a guide but still build here, so
+  // the unconditional `index: true` below would advertise a duplicate.
+  return withRedirectSourceMetadata({
     title: metaTitle,
     description: article.metaDescription,
     alternates: { canonical },
@@ -178,7 +181,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
       creator: TWITTER_HANDLE,
     },
     robots: { index: true, follow: true },
-  }
+  }, `/${article.slug}/`)
 }
 
 function parseBlocks(raw: string): Block[] {

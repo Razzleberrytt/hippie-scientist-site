@@ -18,6 +18,7 @@ import {
   resolveRelatedArticles,
 } from '@/src/lib/article-citation-metadata'
 import { SITE_URL, buildPageMetadata, compactMetaTitle } from '../../../src/lib/seo'
+import { withRedirectSourceMetadata } from '@/src/lib/redirect-source-metadata'
 import {
   AUTHOR_NAME,
   AUTHOR_SCHEMA_ID,
@@ -40,13 +41,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = articlePages.find((item) => item.slug === slug)
   if (!page) return { title: 'Page Not Found', robots: { index: false, follow: true } }
 
-  return buildPageMetadata({
-    title: compactMetaTitle(page.title),
-    description: page.description,
-    path: `/articles/${page.slug}/`,
-    keywords: page.tags,
-    openGraphType: 'article',
-  })
+  // Some legacy article URLs are 301'd to a guide. Those pages still build, so
+  // without this they would claim to be canonical for content that lives
+  // elsewhere.
+  return withRedirectSourceMetadata(
+    buildPageMetadata({
+      title: compactMetaTitle(page.title),
+      description: page.description,
+      path: `/articles/${page.slug}/`,
+      keywords: page.tags,
+      openGraphType: 'article',
+    }),
+    `/articles/${page.slug}/`,
+  )
 }
 
 export default async function ArticleMonographPage({ params }: PageProps) {

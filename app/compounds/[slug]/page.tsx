@@ -15,6 +15,7 @@ import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@
 import { normalizeSlug } from '@/lib/slug-utils'
 import { DEPRECATED_COMPOUND_CANONICALS } from '@/lib/deprecated-compound-canonicals'
 import { buildPageMetadata, CANONICALIZED_AWAY_PROFILE_SLUGS, faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL } from '../../../src/lib/seo'
+import { withRedirectSourceMetadata } from '@/src/lib/redirect-source-metadata'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import CompoundSourceHerbs from '@/components/seo/CompoundSourceHerbs'
 import ProfileTOC from '@/components/ui/ProfileTOC'
@@ -293,7 +294,8 @@ export async function generateMetadata({ params }: PageProps) {
     }
   }
 
-  return metadata
+  // A built page at a redirected URL must not present itself as canonical.
+  return withRedirectSourceMetadata(metadata, `/compounds/${normalizedSlug}/`)
 }
 
 function CompoundMdxPage({ page }: { page: (typeof allCompoundMdxPages)[number] }) {
