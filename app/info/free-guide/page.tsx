@@ -88,20 +88,20 @@ export default function FreeGuidePage() {
         ]}
       />
 
-      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10'>
+      <section className='hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Free guide</p>
-        <h1 className='mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl'>
+        <h1 className='heading-premium mt-5 max-w-4xl'>
           Supplement decision guide: choose by evidence, not hype.
         </h1>
-        <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
+        <p className='text-reading mt-4 max-w-3xl'>
           Use this guide to compare supplements without turning limited evidence, product marketing,
           or forum anecdotes into overconfident decisions. It gives readers a practical framework for
           goal fit, safety context, product quality, and stacking risk.
         </p>
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/learn/citation-explorer/' className='chip-readable hover:bg-white transition'>Citation explorer</Link>
-          <Link href='/learn/product-quality/' className='chip-readable hover:bg-white transition'>Product quality</Link>
-          <Link href='/learn/interactions/' className='chip-readable hover:bg-white transition'>Interaction framework</Link>
+          <Link href='/learn/citation-explorer/' className='chip-readable px-4 py-2 text-sm font-semibold'>Citation explorer</Link>
+          <Link href='/learn/product-quality/' className='chip-readable px-4 py-2 text-sm font-semibold'>Product quality</Link>
+          <Link href='/learn/interactions/' className='chip-readable px-4 py-2 text-sm font-semibold'>Interaction framework</Link>
         </div>
       </section>
 
@@ -111,28 +111,31 @@ export default function FreeGuidePage() {
         {guideSections.map((section) => (
           <article key={section.title} className='card-premium p-6'>
             <p className='eyebrow-label'>Goal pathway</p>
-            <h2 className='mt-2 text-xl font-semibold text-ink'>{section.title}</h2>
-            <p className='mt-3 text-sm leading-7 text-muted'>{section.body}</p>
-            <Link href={section.href} className='mt-4 inline-flex text-sm font-bold text-brand-800 hover:underline'>
+            <h2 className='mt-2 text-xl font-semibold text-[color:var(--hs-ink)]'>{section.title}</h2>
+            <p className='mt-3 text-sm leading-7 text-[color:var(--hs-body)]'>{section.body}</p>
+            <Link
+              href={section.href}
+              className='mt-4 inline-flex text-sm font-bold text-[color:var(--hs-gold-ink)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
+            >
               Read guide
             </Link>
           </article>
         ))}
       </section>
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 shadow-sm sm:p-8'>
+      <section className='section-frame p-6 sm:p-8' aria-labelledby='decision-checklist-heading'>
         <div className='max-w-3xl space-y-3'>
           <p className='eyebrow-label'>Decision checklist</p>
-          <h2 className='text-3xl font-semibold tracking-tight text-ink'>What the guide helps you check first</h2>
-          <p className='text-sm leading-7 text-muted'>
+          <h2 id='decision-checklist-heading' className='compact-heading'>What the guide helps you check first</h2>
+          <p className='text-sm leading-7 text-[color:var(--hs-body)]'>
             The best supplement decision is usually a slower decision. This checklist keeps the process grounded
             in goal fit, evidence quality, product transparency, and conservative comparison.
           </p>
         </div>
         <ol className='mt-6 grid gap-3 md:grid-cols-2'>
           {checklistItems.map((item, index) => (
-            <li key={item} className='rounded-2xl border border-brand-900/10 bg-white/80 p-4 text-sm leading-6 text-muted'>
-              <span className='mr-2 font-bold text-brand-800'>{index + 1}.</span>{item}
+            <li key={item} className='rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-4 text-sm leading-6 text-[color:var(--hs-body)]'>
+              <span className='mr-2 font-bold text-[color:var(--hs-gold-ink)]'>{index + 1}.</span>{item}
             </li>
           ))}
         </ol>
@@ -143,26 +146,27 @@ export default function FreeGuidePage() {
 
       <section className='card-premium p-6 sm:p-8'>
         <p className='eyebrow-label'>What you get</p>
-        <h2 className='mt-2 text-2xl font-semibold text-ink'>A practical checklist you can use immediately</h2>
-        <p className='mt-3 max-w-3xl text-sm leading-7 text-muted'>
+        <h2 className='mt-2 text-2xl font-semibold text-[color:var(--hs-ink)]'>A practical checklist you can use immediately</h2>
+        <p className='mt-3 max-w-3xl text-sm leading-7 text-[color:var(--hs-body)]'>
           The free checklist is a static, printable resource for medication-review prompts, dose and form checks,
           stacking-risk questions, and quality markers before buying. It is built to slow down the decision,
           not push readers toward a product.
         </p>
         <div className='mt-5 flex flex-wrap gap-3'>
-          <Link href='/info/methodology/' className='chip-readable hover:bg-white transition'>Methodology</Link>
-          <Link href='/info/affiliate-disclosure/' className='chip-readable hover:bg-white transition'>Affiliate disclosure</Link>
-          <Link href='/info/infographics/' className='chip-readable hover:bg-white transition'>Free infographics</Link>
+          <Link href='/info/methodology/' className='chip-readable px-4 py-2 text-sm font-semibold'>Methodology</Link>
+          <Link href='/info/affiliate-disclosure/' className='chip-readable px-4 py-2 text-sm font-semibold'>Affiliate disclosure</Link>
+          <Link href='/info/infographics/' className='chip-readable px-4 py-2 text-sm font-semibold'>Free infographics</Link>
         </div>
       </section>
 
-      <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm'>
-        <h2 className='text-2xl font-semibold tracking-tight text-ink'>FAQ</h2>
-        <div className='mt-4 grid gap-4'>
+      <section className='section-frame p-6' aria-labelledby='free-guide-faq'>
+        <p className='eyebrow-label'>Questions readers ask</p>
+        <h2 id='free-guide-faq' className='compact-heading mt-3'>FAQ</h2>
+        <div className='mt-5 grid gap-4'>
           {faqItems.map((item) => (
-            <article key={item.question} className='rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4'>
-              <h3 className='font-bold text-ink'>{item.question}</h3>
-              <p className='mt-2 text-sm leading-7 text-muted'>{item.answer}</p>
+            <article key={item.question} className='rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-4'>
+              <h3 className='font-bold text-[color:var(--hs-ink)]'>{item.question}</h3>
+              <p className='mt-2 text-sm leading-7 text-[color:var(--hs-body)]'>{item.answer}</p>
             </article>
           ))}
         </div>
