@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, BookOpen, Languages, ShieldCheck } from 'lucide-react'
+import LanguageSwitcher from '@/components/localization/LanguageSwitcher'
 import type { LocalizedPageData, LocalizedUiCopy } from '@/src/lib/localization'
 
 export default function LocalizedCorePage({ page, ui, lang }: { page: LocalizedPageData; ui: LocalizedUiCopy; lang: string }) {
@@ -12,6 +13,7 @@ export default function LocalizedCorePage({ page, ui, lang }: { page: LocalizedP
         </div>
         <h1 className='mt-5 max-w-4xl font-display text-4xl font-semibold leading-tight tracking-[-0.035em] text-[var(--text-primary)] sm:text-5xl'>{page.title}</h1>
         <p className='mt-6 max-w-3xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg'>{page.intro}</p>
+        <LanguageSwitcher path={page.path} />
         <div className='mt-7 flex items-start gap-3 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] px-4 py-4 text-sm leading-6 text-[var(--text-secondary)]'>
           <BookOpen className='mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-gold)]' aria-hidden='true' />
           <p>{ui.translationNotice}</p>
