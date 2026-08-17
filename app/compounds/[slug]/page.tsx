@@ -814,8 +814,8 @@ export default async function CompoundPage({ params }: PageProps) {
         />
 
         {/* Title Header */}
-        <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-sm sm:p-8 lg:p-10">
-          <header className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
+        <div id="overview" className="profile-hero hero-shell scroll-mt-24 rounded-[2rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
+          <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
             <div className="space-y-3">
               <div className="space-y-1">
                 <p className="eyebrow-label">Compound Profile</p>
@@ -831,6 +831,43 @@ export default async function CompoundPage({ params }: PageProps) {
                 <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
                 <EvidenceScoreBadge record={compound} />
               </div>
+
+              <div className={`mt-4 rounded-xl border px-3 py-2 text-xs leading-5 ${
+                safetyTone === 'Generally well tolerated'
+                  ? 'border-emerald-900/10 bg-emerald-50/70 text-emerald-950'
+                  : 'border-amber-900/10 bg-amber-50/70 text-amber-950'
+              }`}>
+                <strong>{safetyTone}:</strong>{' '}
+                {firstSentences(safetySummary, 1)}{' '}
+                <a href="#safety" className="font-semibold underline underline-offset-2">Details</a>
+              </div>
+
+              <dl className="profile-quick-stats mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence</dt>
+                  <dd className="mt-1 text-sm font-semibold text-ink">{evidenceLevel || 'Mixed or uncertain'}</dd>
+                </div>
+                <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</dt>
+                  <dd className="mt-1 text-sm font-semibold text-ink">{timeline || 'Varies by prep'}</dd>
+                </div>
+                <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety</dt>
+                  <dd className="mt-1 text-sm font-semibold text-ink">{safetyTone}</dd>
+                </div>
+                {effects.length > 0 ? (
+                  <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
+                    <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Best for</dt>
+                    <dd className="mt-1 text-sm text-ink">{effects.slice(0, 3).join(', ')}</dd>
+                  </div>
+                ) : null}
+                {avoidIf.length > 0 ? (
+                  <div className="rounded-xl border border-amber-900/10 bg-amber-50/70 p-3 sm:col-span-2 lg:col-span-1">
+                    <dt className="text-[10px] font-bold uppercase tracking-wider text-amber-900">Avoid / review if</dt>
+                    <dd className="mt-1 text-sm text-amber-950">{avoidIf.slice(0, 3).join(', ')}</dd>
+                  </div>
+                ) : null}
+              </dl>
             </div>
             <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
           </header>
@@ -843,10 +880,10 @@ export default async function CompoundPage({ params }: PageProps) {
         {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
         <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">
           {[
-            { label: 'Quick Stats', href: '#quick-stats' },
+            { label: 'Overview', href: '#overview' },
             { label: 'Safety', href: '#safety' },
             ...(interactionEdges.length > 0 ? [{ label: 'Interactions', href: '#interactions' }] : []),
-            { label: 'Evidence', href: '#evidence-summary' },
+            { label: 'Evidence', href: '#evidence' },
             ...(mechanismHints.length > 0 ? [{ label: 'Mechanisms', href: '#mechanisms' }] : []),
             { label: 'Compare', href: '#compare' },
           ].map(({ label, href }) => (
@@ -959,39 +996,6 @@ export default async function CompoundPage({ params }: PageProps) {
 
         <RegulatoryStatusSection compound={compound} />
 
-        {/* Section 1: Quick Stats */}
-        <section id="quick-stats" className="hero-shell rounded-2xl border border-brand-900/10 p-5 sm:p-6 space-y-4">
-          <h2 className="text-lg font-bold text-ink">Quick Stats</h2>
-          <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence level</p>
-              <p className="mt-1 text-sm font-semibold text-ink">{evidenceLevel || 'Mixed or uncertain'}</p>
-            </div>
-            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</p>
-              <p className="mt-1 text-sm font-semibold text-ink">{timeline || 'Varies by prep'}</p>
-            </div>
-            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety rating</p>
-              <p className="mt-1 text-sm font-semibold text-ink">{safetyTone}: {safetyLevel || 'Safety review pending'}</p>
-            </div>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {effects.length > 0 && (
-              <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted font-semibold">Best for</p>
-                <p className="mt-1 text-sm text-ink">{effects.slice(0, 3).join(', ')}</p>
-              </div>
-            )}
-            {avoidIf.length > 0 && (
-              <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900 font-semibold">Avoid / review if</p>
-                <p className="mt-1 text-sm text-amber-900">{avoidIf.slice(0, 3).join(', ')}</p>
-              </div>
-            )}
-          </div>
-        </section>
-
         {/* Source herbs — internal links from the curated relationship map */}
         <div id="compounds"><CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} /></div>
 
@@ -1008,7 +1012,7 @@ export default async function CompoundPage({ params }: PageProps) {
         ) : null}
 
         {/* Section 2: Safety */}
-        <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
+        <section id="safety" className="scroll-mt-24 rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
           <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
           {trustGuidance.evidenceLabel ? (
             <div className="space-y-3 text-sm leading-6 text-amber-950">
@@ -1130,7 +1134,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
         {/* Section 4: Mechanisms (Collapsible) */}
         {mechanismHints.length > 0 && (
-          <section id="mechanisms" className="card-premium p-4 sm:p-5">
+          <section id="mechanisms" className="card-premium scroll-mt-24 p-4 sm:p-5">
             <details className="group">
               <summary className="flex cursor-pointer items-center justify-between font-bold text-ink text-lg select-none">
                 <span>Mechanisms &amp; Biological Pathways</span>
@@ -1192,7 +1196,7 @@ export default async function CompoundPage({ params }: PageProps) {
         />
 
         {/* Section 5: Compare Nearby + CTA */}
-        <section id="compare" className="card-premium p-4 sm:p-5 space-y-4">
+        <section id="compare" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
           <div className="space-y-1">
             <h2 className="text-lg font-bold text-ink">Compare &amp; Sourcing</h2>
             <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
@@ -1324,11 +1328,14 @@ export default async function CompoundPage({ params }: PageProps) {
         </div>
           </div>
           <ProfileTOC items={[
-            { id: 'evidence',  label: 'Evidence'  },
-            { id: 'safety',    label: 'Safety'    },
-            { id: 'dosing',    label: 'Dosing'    },
-            { id: 'compounds', label: 'Compounds' },
-            { id: 'faq',       label: 'FAQ'       },
+            { id: 'overview', label: 'Overview' },
+            { id: 'safety', label: 'Safety' },
+            ...(interactionEdges.length > 0 ? [{ id: 'interactions', label: 'Interactions' }] : []),
+            { id: 'evidence', label: 'Evidence' },
+            { id: 'dosing', label: 'Dosing' },
+            { id: 'compounds', label: 'Source herbs' },
+            ...(mechanismHints.length > 0 ? [{ id: 'mechanisms', label: 'Mechanisms' }] : []),
+            { id: 'compare', label: 'Compare' },
           ]} />
         </div>
       </div>
