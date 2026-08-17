@@ -27,13 +27,13 @@ export function DecisionEmptyState({
   actions: DecisionEmptyStateAction[]
 }) {
   return (
-    <div className="rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-4 shadow-sm sm:p-5">
+    <div className="section-frame p-4 sm:p-5">
       <div className="max-w-2xl space-y-2">
         <p className="eyebrow-label">{eyebrow}</p>
         <h2 className="compact-heading">{title}</h2>
-        <p className="text-sm leading-6 text-prose-soft sm:text-base">{description}</p>
+        <p className="text-sm leading-6 text-[color:var(--hs-body)] sm:text-base">{description}</p>
         {currentScan ? (
-          <p className="text-sm leading-6 text-muted">Current scan: {currentScan}</p>
+          <p className="text-sm leading-6 text-[color:var(--text-muted)]">Current scan: {currentScan}</p>
         ) : null}
       </div>
 
@@ -72,18 +72,18 @@ export function DecisionFilterGroup({
   open?: boolean
 }) {
   const itemClass = (active: boolean) =>
-    `inline-flex min-h-11 items-center justify-center rounded-full border px-3 py-2 text-center text-xs font-semibold leading-tight transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-[var(--surface-card)] text-[var(--text-secondary)] hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)] hover:text-ink'}`
+    `inline-flex min-h-11 items-center justify-center rounded-full border px-3 py-2 text-center text-xs font-semibold leading-tight transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 ${active ? 'border-[color:var(--hs-gold)] bg-[color:var(--hs-gold-soft)] text-[color:var(--hs-gold-ink)]' : 'border-[color:var(--hs-hairline)] bg-[color:var(--surface-card)] text-[color:var(--hs-body)] hover:border-[color:var(--hs-hairline-strong)] hover:bg-[color:var(--surface-card-strong)] hover:text-[color:var(--hs-ink)]'}`
   const activeContextLabel = activeFilter === 'all'
     ? null
     : options.find(option => option.value === activeFilter)?.label
 
   return (
-    <details className="group mt-3 rounded-[0.8rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-none" open={open || undefined}>
-      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/30 focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden">
+    <details className="group mt-3 rounded-[0.8rem] border border-[color:var(--hs-hairline)] bg-[color:var(--surface-card)] p-3" open={open || undefined}>
+      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-[color:var(--hs-ink)] select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden">
         <span className="min-w-0">
           <span>Refine by context</span>
           {activeContextLabel ? (
-            <span className="ml-2 font-semibold text-brand-800">· {activeContextLabel}</span>
+            <span className="ml-2 font-semibold text-[color:var(--hs-gold-ink)]">· {activeContextLabel}</span>
           ) : null}
         </span>
         <svg
@@ -92,7 +92,7 @@ export function DecisionFilterGroup({
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          className="size-4 shrink-0 text-brand-800 transition-transform group-open:rotate-180"
+          className="size-4 shrink-0 text-[color:var(--hs-body)] transition-transform group-open:rotate-180"
         >
           <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -135,27 +135,27 @@ export function DecisionProfileCard({
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-[0.9rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:border-brand-700/25 hover:bg-[var(--surface-card-strong)] hover:shadow-[0_6px_18px_rgba(16,32,24,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:hover:shadow-[0_6px_18px_rgba(0,0,0,0.25)]"
+      className="card-premium group flex h-full flex-col p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
     >
       <div className="flex flex-1 flex-col">
         <div className="flex min-w-0 flex-wrap items-start justify-between gap-3">
-          <h3 className="min-w-0 break-words text-base font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-lg">
+          <h3 className="min-w-0 break-words text-base font-semibold leading-tight tracking-tight text-[color:var(--hs-ink)] transition group-hover:text-[color:var(--hs-gold-ink)] sm:text-lg">
             {name}
           </h3>
           {featured ? (
-            <span className={`${decisionStatusBadgeClass} shrink-0 border-brand-700/10 bg-brand-50 text-brand-800`}>
+            <span className={`${decisionStatusBadgeClass} shrink-0 border-[color:var(--hs-gold)] bg-[color:var(--hs-gold-soft)] text-[color:var(--hs-gold-ink)]`}>
               Start here
             </span>
           ) : null}
         </div>
 
-        <p className="mt-1.5 line-clamp-2 text-sm leading-5 text-[var(--text-secondary)]">
+        <p className="mt-1.5 line-clamp-2 text-sm leading-5 text-[color:var(--text-secondary)]">
           {summary || fallbackSummary}
         </p>
 
         {bestForItems.length > 0 ? (
           <div className="mt-2">
-            <p className={`${decisionMicroLabelClass} mb-1.5 text-[var(--text-muted)]`}>Best for</p>
+            <p className={`${decisionMicroLabelClass} mb-1.5 text-[color:var(--text-muted)]`}>Best for</p>
             <div className={decisionMetadataClusterClass}>
               {bestForItems.map((item, idx) => (
                 <span key={idx} className={decisionChipClass}>{item}</span>
@@ -165,8 +165,8 @@ export function DecisionProfileCard({
         ) : null}
 
         {visibleMechanisms.length > 0 ? (
-          <p className="mt-2 border-t border-brand-900/10 pt-2 text-xs leading-5 text-[var(--text-secondary)]">
-            <span className={`${decisionMicroLabelClass} mr-1.5 text-[var(--text-muted)]`}>Mechanisms</span>
+          <p className="mt-2 border-t border-[color:var(--hs-hairline)] pt-2 text-xs leading-5 text-[color:var(--text-secondary)]">
+            <span className={`${decisionMicroLabelClass} mr-1.5 text-[color:var(--text-muted)]`}>Mechanisms</span>
             {visibleMechanisms.join(' · ')}
           </p>
         ) : null}
