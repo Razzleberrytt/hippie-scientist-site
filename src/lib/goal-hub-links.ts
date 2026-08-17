@@ -1,4 +1,5 @@
 import { supplementComparisons } from '@/data/comparisons'
+import { goals } from '@/data/goals'
 
 export type GoalHubLink = {
   label: string
@@ -197,8 +198,12 @@ export function getGoalHubLinks(goalSlug: string) {
   }
 }
 
-/** Herb/compound slug → primary goal pages for internal linking */
-const ENTITY_GOAL_MAP: Record<string, string[]> = {
+/**
+ * Editorial ordering for the highest-value entity → goal pathways. Structured
+ * goal data extends this map so newly curated goal options inherit links
+ * automatically instead of requiring one-off profile edits.
+ */
+const EDITORIAL_ENTITY_GOAL_MAP: Record<string, string[]> = {
   ashwagandha: ['stress', 'anxiety', 'sleep'],
   rhodiola: ['stress', 'focus', 'energy'],
   'l-theanine': ['sleep', 'stress', 'focus', 'anxiety'],
@@ -215,11 +220,36 @@ const ENTITY_GOAL_MAP: Record<string, string[]> = {
   boswellia: ['inflammation', 'pain', 'joint-support'],
 }
 
+const MAX_ENTITY_GOAL_LINKS = 4
+
+function normalizeEntitySlug(slug: string): string {
+  return slug.toLowerCase().trim().replace(/[^a-z0-9-]/g, '')
+}
+
+function getStructuredGoalSlugs(entitySlug: string): string[] {
+  return goals
+    .filter((goal) =>
+      goal.options.some((option) => normalizeEntitySlug(option.slug) === entitySlug) ||
+      goal.quickPicks.some((pick) => normalizeEntitySlug(pick.slug) === entitySlug),
+    )
+    .map((goal) => goal.slug)
+}
+
+function getGoalGuideHref(goalSlug: string): string {
+  return GOAL_GUIDE_ROUTES[goalSlug] ?? `/goals/${goalSlug}/`
+}
+
+/** Herb/compound slug → primary goal pages for internal linking. */
 export function getGoalsForEntity(slug: string): GoalHubLink[] {
-  const normalized = slug.toLowerCase().replace(/[^a-z0-9-]/g, '')
-  const goalSlugs = ENTITY_GOAL_MAP[normalized] ?? []
+  const normalized = normalizeEntitySlug(slug)
+  if (!normalized) return []
+
+  const editorial = EDITORIAL_ENTITY_GOAL_MAP[normalized] ?? []
+  const structured = getStructuredGoalSlugs(normalized)
+  const goalSlugs = [...new Set([...editorial, ...structured])].slice(0, MAX_ENTITY_GOAL_LINKS)
+
   return goalSlugs.map((goalSlug) => ({
     label: goalSlug.replace(/-/g, ' '),
-    href: GOAL_GUIDE_ROUTES[goalSlug] ?? '/guides/',
+    href: getGoalGuideHref(goalSlug),
   }))
 }
