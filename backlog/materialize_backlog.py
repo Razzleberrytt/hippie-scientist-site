@@ -11,6 +11,7 @@ Agents should edit backlog/status.csv after ticket state changes.
 from __future__ import annotations
 
 import base64
+import binascii
 import csv
 import io
 import lzma
@@ -44,7 +45,32 @@ ALLOWED_STATUSES = {
 
 def load_seed() -> tuple[list[str], list[dict[str, str]]]:
     encoded = SEED_PATH.read_text(encoding="utf-8").strip()
-    raw = lzma.decompress(base64.b64decode(encoded)).decode("utf-8")
+
+    # The seed is the only copy of the 1,000 ticket definitions, so a damaged
+    # blob has to say so plainly. Decoding it raw surfaced a bare
+    # `binascii.Error: Incorrect padding` traceback, which reads like a bug in
+    # this script rather than a corrupt input file.
+    try:
+        compressed = base64.b64decode(encoded, validate=True)
+    except binascii.Error as exc:
+        raise SystemExit(
+            f"Backlog seed is not valid base64 ({exc}). {SEED_PATH} is "
+            f"{len(encoded)} characters; a base64 payload must be a multiple of 4. "
+            "The seed cannot be repaired from this repository and has to be "
+            "re-published from its source."
+        ) from exc
+
+    if compressed[:6] != b"\xfd7zXZ\x00":
+        raise SystemExit(
+            f"Backlog seed does not decode to an xz stream (leading bytes: "
+            f"{compressed[:6]!r}). {SEED_PATH} is truncated or damaged and has to "
+            "be re-published from its source."
+        )
+
+    try:
+        raw = lzma.decompress(compressed).decode("utf-8")
+    except lzma.LZMAError as exc:
+        raise SystemExit(f"Backlog seed failed to decompress ({exc}).") from exc
     reader = csv.DictReader(io.StringIO(raw))
     if not reader.fieldnames:
         raise SystemExit("Backlog seed has no header.")

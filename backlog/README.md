@@ -2,6 +2,28 @@
 
 This directory is the repository-facing execution system for The Hippie Scientist's 1,000-ticket improvement backlog.
 
+## ⚠ Current blocker: the ticket seed is corrupt
+
+`master_backlog.csv.xz.b64` cannot be decoded, so `materialize_backlog.py`
+cannot produce `master_backlog.csv` and **ticket selection by ID is impossible**.
+
+- The file is 19,999 characters. Base64 must be a multiple of 4.
+- The decoded payload does not begin with the xz magic `FD 37 7A 58 5A 00`, so
+  its leading bytes are missing rather than merely mis-padded.
+- Only one commit (`0e4f38bce`) ever touched the seed, and it was already
+  corrupt there, so there is no earlier good copy to restore.
+- Prefix and padding repair was attempted across candidate leading characters;
+  none yields a valid xz stream.
+
+The 1,000 ticket definitions exist nowhere else in this repository. **The seed
+has to be re-published from whatever produced it.** Until then, work proceeds
+from concrete production/build failures and the THS tickets already named on
+open PRs, which `BEGIN_BACKLOG_PROCESS.md` ranks above ticket order anyway.
+
+This blocker is recorded here rather than in `status.csv` because that ledger is
+validated against seed ticket IDs; a synthetic row would break
+`materialize_backlog.py` once the seed is restored.
+
 ## Files
 
 - `master_backlog.csv.xz.b64` — immutable compressed/base64 ticket-definition seed for all 1,000 tickets.

@@ -34,6 +34,93 @@ const BLOCK_RULES = [
 
 const importRegex = /(?:import\s+(?:[^'";]+\s+from\s+)?|export\s+[^'";]*from\s+|import\s*\()\s*['"]([^'"]+)['"]/g
 
+/**
+ * Blank out comment text so the line rules only see executable code.
+ *
+ * The rules match bare identifiers — `headers(`, `cookies(`, `noStore(` — which
+ * are ordinary English inside a comment. A JSDoc block describing JPEG frame
+ * headers tripped `headers-call` and failed this gate for the whole repository,
+ * blocking every open PR behind a false positive.
+ *
+ * Comment characters are replaced with spaces rather than removed so line
+ * numbers and columns in the violation report stay accurate. String literals
+ * are tracked only so a `//` or an apostrophe inside one is not mistaken for a
+ * comment delimiter; their contents are deliberately left intact, because a
+ * forbidden call written as a string is still worth a human look.
+ *
+ * @param {string} source
+ * @returns {string}
+ */
+function stripComments(source) {
+  let out = ''
+  let state = 'code'
+  let quote = ''
+
+  for (let i = 0; i < source.length; i += 1) {
+    const ch = source[i]
+    const next = source[i + 1]
+
+    if (state === 'code') {
+      if (ch === '"' || ch === "'" || ch === '`') {
+        state = 'string'
+        quote = ch
+        out += ch
+        continue
+      }
+      if (ch === '/' && next === '/') {
+        state = 'line-comment'
+        out += '  '
+        i += 1
+        continue
+      }
+      if (ch === '/' && next === '*') {
+        state = 'block-comment'
+        out += '  '
+        i += 1
+        continue
+      }
+      out += ch
+      continue
+    }
+
+    if (state === 'string') {
+      // A backslash escapes the next character, including the closing quote.
+      if (ch === '\\') {
+        out += ch + (next ?? '')
+        i += 1
+        continue
+      }
+      if (ch === quote) state = 'code'
+      // An unterminated string cannot span a newline outside a template
+      // literal; recovering here keeps a stray quote from swallowing the file.
+      if (ch === '\n' && quote !== '`') state = 'code'
+      out += ch
+      continue
+    }
+
+    if (state === 'line-comment') {
+      if (ch === '\n') {
+        state = 'code'
+        out += ch
+        continue
+      }
+      out += ' '
+      continue
+    }
+
+    // block-comment
+    if (ch === '*' && next === '/') {
+      state = 'code'
+      out += '  '
+      i += 1
+      continue
+    }
+    out += ch === '\n' ? ch : ' '
+  }
+
+  return out
+}
+
 function normalize(rel) { return rel.split(path.sep).join('/') }
 function isSourceFile(file) { return SOURCE_EXTENSIONS.has(path.extname(file)) }
 
@@ -122,11 +209,14 @@ async function main() {
       }
     }
 
-    const lines = content.split('\n')
-    lines.forEach((line, i) => {
+    // Match against code only; the reported excerpt still comes from the
+    // original line so the message shows what the author actually wrote.
+    const codeLines = stripComments(content).split('\n')
+    const rawLines = content.split('\n')
+    codeLines.forEach((line, i) => {
       for (const rule of BLOCK_RULES) {
         if (rule.pattern && rule.pattern.test(line)) {
-          violations.push(`${rel}:${i + 1}: [${rule.id}] ${line.trim()}`)
+          violations.push(`${rel}:${i + 1}: [${rule.id}] ${(rawLines[i] ?? line).trim()}`)
         }
       }
     })
