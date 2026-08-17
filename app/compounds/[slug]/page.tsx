@@ -39,6 +39,7 @@ import Disclaimer from '../../../src/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
+import ProfileSafetyLine from '@/components/ui/ProfileSafetyLine'
 import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
 import { buildProfileDecision } from '@/lib/profile-decision'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
@@ -827,6 +828,11 @@ export default async function CompoundPage({ params }: PageProps) {
                 ) : null}
               </div>
               <p className="text-base leading-7 text-muted">{quickSummary}</p>
+              {/* Safety above the fold, matching herb profiles. Previously the
+                  first safety mention on a compound sat ~200 lines lower, so the
+                  same ingredient class led with a different hierarchy depending
+                  on which route a reader arrived through. */}
+              <ProfileSafetyLine tone={safetyTone} summary={safetySummary} />
               <div className="mt-3 flex flex-wrap items-center gap-3">
                 <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
                 <EvidenceScoreBadge record={compound} />
