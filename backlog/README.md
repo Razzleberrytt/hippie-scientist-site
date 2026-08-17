@@ -9,8 +9,13 @@ This directory is the repository-facing execution system for The Hippie Scientis
 - `materialize_backlog.py` — combines the immutable seed + `status.csv` into a readable `master_backlog.csv`.
 - `AGENT_COORDINATION.md` — specialist lanes, claiming, ownership, collision prevention, blockers, and merge protocol.
 - `../BACKLOG_IMPLEMENTATION_PLAYBOOK.md` — implementation contract for any agent working a THS ticket.
+- `../BEGIN_BACKLOG_PROCESS.md` — one-command launch/resume contract for the backlog process.
 
 A separate XLSX dashboard can be regenerated periodically for human review; agents do not need it for routine execution.
+
+## One-command launch
+
+If the user says **“begin the backlog process”**, read `../BEGIN_BACKLOG_PROCESS.md` and start/resume the coordinator loop without asking the user to manually pick a ticket or specialty lane.
 
 ## Generate the readable backlog
 
@@ -59,7 +64,7 @@ An agent must not start a ticket already actively owned by another agent.
 
 ## Agent workflow
 
-1. Read `../BACKLOG_IMPLEMENTATION_PLAYBOOK.md` and `AGENT_COORDINATION.md`.
+1. Read `../BEGIN_BACKLOG_PROCESS.md`, `../BACKLOG_IMPLEMENTATION_PLAYBOOK.md`, and `AGENT_COORDINATION.md`.
 2. Sync/rebase with the target branch.
 3. Materialize the backlog.
 4. Select the highest-priority `Ready` ticket in the agent's specialty lane whose dependencies are satisfied and whose scope does not collide with active work.
