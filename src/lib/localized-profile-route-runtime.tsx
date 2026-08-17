@@ -3,6 +3,10 @@ import { notFound } from 'next/navigation'
 
 import LocalizedResearchProfilePage from '@/components/localization/LocalizedResearchProfilePage'
 import {
+  getCompoundProfileTranslation,
+  getCompoundProfileTranslationSlugs,
+} from './compound-profile-translations'
+import {
   DEFAULT_OG_LOCALE,
   FRENCH_OG_LOCALE,
   GERMAN_OG_LOCALE,
@@ -35,6 +39,18 @@ const OG_LOCALE: Record<ProfileTranslationLocale, string> = {
   de: GERMAN_OG_LOCALE,
 }
 
+function translationFor(locale: ProfileTranslationLocale, kind: LocalizedProfileKind, slug: string) {
+  return kind === 'compound'
+    ? getCompoundProfileTranslation(locale, slug)
+    : getProfileTranslation(locale, kind, slug)
+}
+
+function translationSlugsFor(locale: ProfileTranslationLocale, kind: LocalizedProfileKind) {
+  return kind === 'compound'
+    ? getCompoundProfileTranslationSlugs(locale)
+    : getProfileTranslationSlugs(locale, kind)
+}
+
 /**
  * One fail-closed route runtime for all translated scientific profiles.
  * Route files provide only locale/kind/library configuration; claim coverage,
@@ -42,12 +58,12 @@ const OG_LOCALE: Record<ProfileTranslationLocale, string> = {
  */
 export function createLocalizedProfileRoute(config: RouteConfig) {
   function generateStaticParams() {
-    return getProfileTranslationSlugs(config.locale, config.kind).map((slug) => ({ slug }))
+    return translationSlugsFor(config.locale, config.kind).map((slug) => ({ slug }))
   }
 
   async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params
-    const translation = getProfileTranslation(config.locale, config.kind, slug)
+    const translation = translationFor(config.locale, config.kind, slug)
     if (!translation) return { robots: { index: false, follow: true } }
 
     // Loading the canonical record here also applies the same fail-closed
@@ -73,7 +89,7 @@ export function createLocalizedProfileRoute(config: RouteConfig) {
 
   async function Page({ params }: PageProps) {
     const { slug } = await params
-    const translation = getProfileTranslation(config.locale, config.kind, slug)
+    const translation = translationFor(config.locale, config.kind, slug)
     if (!translation) notFound()
 
     const canonical = loadCanonicalLocalizedProfile(config.kind, slug)

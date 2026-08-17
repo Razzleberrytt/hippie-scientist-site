@@ -39,6 +39,7 @@ export const LOCALIZED_ROUTES: readonly LocalizedRoute[] = [
   { english: '/herbs/', translations: { [SPANISH_LOCALE]: '/es/hierbas/', [PORTUGUESE_LOCALE]: '/pt/ervas/', [FRENCH_LOCALE]: '/fr/plantes/', [GERMAN_LOCALE]: '/de/kraeuter/' } },
   { english: '/herbs/ashwagandha/', translations: { [SPANISH_LOCALE]: '/es/hierbas/ashwagandha/', [PORTUGUESE_LOCALE]: '/pt/ervas/ashwagandha/', [FRENCH_LOCALE]: '/fr/plantes/ashwagandha/', [GERMAN_LOCALE]: '/de/kraeuter/ashwagandha/' } },
   { english: '/compounds/', translations: { [SPANISH_LOCALE]: '/es/compuestos/', [PORTUGUESE_LOCALE]: '/pt/compostos/', [FRENCH_LOCALE]: '/fr/composes/', [GERMAN_LOCALE]: '/de/wirkstoffe/' } },
+  { english: '/compounds/l-theanine/', translations: { [SPANISH_LOCALE]: '/es/compuestos/l-theanine/', [PORTUGUESE_LOCALE]: '/pt/compostos/l-theanine/', [FRENCH_LOCALE]: '/fr/composes/l-theanine/', [GERMAN_LOCALE]: '/de/wirkstoffe/l-theanine/' } },
   { english: '/goals/', translations: { [SPANISH_LOCALE]: '/es/objetivos/', [PORTUGUESE_LOCALE]: '/pt/objetivos/', [FRENCH_LOCALE]: '/fr/objectifs/', [GERMAN_LOCALE]: '/de/ziele/' } },
   { english: '/goals/sleep/', translations: { [SPANISH_LOCALE]: '/es/objetivos/sueno/', [PORTUGUESE_LOCALE]: '/pt/objetivos/sono/', [FRENCH_LOCALE]: '/fr/objectifs/sommeil/', [GERMAN_LOCALE]: '/de/ziele/schlaf/' } },
   { english: '/goals/stress/', translations: { [SPANISH_LOCALE]: '/es/objetivos/estres/', [PORTUGUESE_LOCALE]: '/pt/objetivos/estresse/', [FRENCH_LOCALE]: '/fr/objectifs/stress/', [GERMAN_LOCALE]: '/de/ziele/stress/' } },
