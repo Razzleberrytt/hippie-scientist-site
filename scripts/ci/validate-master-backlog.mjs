@@ -1,10 +1,6 @@
-import fs from 'node:fs'
-import path from 'node:path'
+import { masterBacklog as backlog } from '../../ops/backlog/master-backlog.mjs'
 
-const backlogPath = path.join(process.cwd(), 'ops/backlog/master-backlog.json')
-const backlog = JSON.parse(fs.readFileSync(backlogPath, 'utf8'))
 const failures = []
-
 const allowedPriorities = new Set(['critical', 'high', 'medium', 'low'])
 const allowedStatuses = new Set([
   'backlog',
@@ -48,6 +44,9 @@ for (const ticket of tickets) {
     if (!nonEmptyString(ticket[field])) fail(`${ticket.id}: missing ${field}`)
   }
   if (!Array.isArray(ticket.dependencies)) fail(`${ticket.id}: dependencies must be an array`)
+  if (!Array.isArray(ticket.affected_routes) || ticket.affected_routes.length === 0) {
+    fail(`${ticket.id}: affected_routes must contain at least one scope`)
+  }
   if (!Array.isArray(ticket.verification) || ticket.verification.length === 0) {
     fail(`${ticket.id}: verification must contain at least one gate`)
   } else {
@@ -117,8 +116,8 @@ function visit(id, pathStack = []) {
 }
 for (const id of byId.keys()) visit(id)
 
-const requiredSeedTickets = Array.from({ length: 15 }, (_, index) => `THS-${String(index + 1).padStart(3, '0')}`)
-for (const id of requiredSeedTickets) {
+for (let index = 1; index <= 15; index += 1) {
+  const id = `THS-${String(index).padStart(3, '0')}`
   if (!byId.has(id)) fail(`missing original seed ticket ${id}`)
 }
 
