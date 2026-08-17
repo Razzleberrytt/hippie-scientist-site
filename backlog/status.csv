@@ -1,1 +1,2 @@
 ID,Status,Owner,Claimed At,Branch,PR / Commit,Blocker,Proof / Notes
+THS-0551,In Review,growth-agent,2026-08-16T21:14:37-04:00,growth/ths-0551-herb-goal-links,PR #4023,GitHub Actions PR validation still queued,Structured goal-link derivation implemented; tests added for flagship ordering Ginger coverage four-link cap and unknown entities; awaiting CI before merge
