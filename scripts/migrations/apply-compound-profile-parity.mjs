@@ -62,7 +62,7 @@ const heroMetaAfter = `              <div className="mt-3 flex flex-wrap items-c
                   </div>
                 ) : null}
                 {avoidIf.length > 0 ? (
-                  <div className="rounded-xl border border-amber-900/10 bg-[var(--surface-warning)] p-3 sm:col-span-2 lg:col-span-1">
+                  <div className="rounded-xl border border-amber-900/10 bg-amber-50/70 p-3 sm:col-span-2 lg:col-span-1">
                     <dt className="text-[10px] font-bold uppercase tracking-wider text-amber-900">Avoid / review if</dt>
                     <dd className="mt-1 text-sm text-amber-950">{avoidIf.slice(0, 3).join(', ')}</dd>
                   </div>
