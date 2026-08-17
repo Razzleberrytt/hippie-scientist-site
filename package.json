@@ -24,6 +24,7 @@
     "data:normalize-evidence": "tsx scripts/data/normalize-evidence-grades.ts --data-dir=public/data",
     "audit:content-integrity": "node scripts/ci/audit-content-integrity.mjs",
     "audit:source-integrity": "tsx scripts/ci/audit-source-integrity.ts",
+    "validate:sitemap-indexability": "node scripts/ci/validate-sitemap-indexability.mjs",
     "validate:redirect-indexability": "node scripts/ci/validate-redirect-indexability.mjs",
     "validate:theme-contrast": "node scripts/ci/validate-theme-contrast.mjs",
     "validate:scientific-names": "node scripts/ci/validate-scientific-names.mjs",
