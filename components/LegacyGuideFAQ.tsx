@@ -8,6 +8,12 @@ type LegacyGuideFaqItem = {
 type LegacyGuideFAQProps = {
   questions: LegacyGuideFaqItem[]
   pagePath: string
+  /**
+   * Where "Verify sources" points. Callers already pass this — five pages did
+   * so while the prop was undeclared, which broke the production build — and a
+   * guide whose references live elsewhere needs to override the default anchor.
+   */
+  referencesHref?: string
 }
 
 /**
@@ -15,7 +21,7 @@ type LegacyGuideFAQProps = {
  * array powers both visible content and FAQ structured data so the two surfaces
  * cannot drift independently.
  */
-export default function LegacyGuideFAQ({ questions, pagePath }: LegacyGuideFAQProps) {
+export default function LegacyGuideFAQ({ questions, pagePath, referencesHref = '#references' }: LegacyGuideFAQProps) {
   if (!questions.length) return null
 
   return (
@@ -36,7 +42,7 @@ export default function LegacyGuideFAQ({ questions, pagePath }: LegacyGuideFAQPr
           ))}
         </div>
         <a
-          href="#references"
+          href={referencesHref}
           data-citation-sources="true"
           className="inline-flex min-h-11 items-center rounded-lg text-xs font-semibold text-brand-800 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 dark:text-brand-200"
         >
