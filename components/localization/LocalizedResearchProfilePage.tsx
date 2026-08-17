@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { BookOpen, ExternalLink, ShieldCheck } from 'lucide-react'
 
+import LanguageSwitcher from '@/components/localization/LanguageSwitcher'
 import {
   assertCompleteProfileTranslation,
   getApprovedCanonicalClaims,
@@ -41,6 +42,7 @@ export default function LocalizedResearchProfilePage({
         <p className='text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--hs-gold)]'>{ui.evidenceEyebrow}</p>
         <h1 className='mt-4 font-display text-4xl font-semibold tracking-[-0.035em] text-[var(--text-primary)] sm:text-5xl'>{translation.title}</h1>
         <p className='mt-6 max-w-3xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg'>{translation.summary}</p>
+        <LanguageSwitcher path={translation.path} />
         <div className='mt-6 flex flex-wrap gap-3 text-sm'>
           <Link href={libraryHref} className='rounded-full border border-[var(--border-soft)] px-4 py-2 font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]'>
             {backToLibraryLabel ?? ui.backToLibraryLabel}
