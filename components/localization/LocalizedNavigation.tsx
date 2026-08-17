@@ -55,10 +55,10 @@ export default function LocalizedNavigation() {
   const localeMeta = LOCALE_CONFIG[locale]
 
   useEffect(() => {
-    document.documentElement.lang = localeMeta.language === 'pt' ? 'pt-BR' : localeMeta.language
+    document.documentElement.lang = locale
     document.documentElement.dir = localeMeta.textDirection
     document.documentElement.dataset.locale = locale
-  }, [locale, localeMeta.language, localeMeta.textDirection])
+  }, [locale, localeMeta.textDirection])
 
   if (locale === DEFAULT_LOCALE) {
     return (
