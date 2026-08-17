@@ -21,7 +21,15 @@ SEED_PATH = HERE / "master_backlog.csv.zlib"
 STATUS_PATH = HERE / "status.csv"
 OUTPUT_PATH = HERE / "master_backlog.csv"
 
-MUTABLE_FIELDS = ("Status", "Owner", "PR / Commit", "Proof / Notes")
+MUTABLE_FIELDS = (
+    "Status",
+    "Owner",
+    "Claimed At",
+    "Branch",
+    "PR / Commit",
+    "Blocker",
+    "Proof / Notes",
+)
 ALLOWED_STATUSES = {
     "Not Started",
     "Ready",
@@ -70,6 +78,28 @@ def load_status() -> dict[str, dict[str, str]]:
                     f"Invalid Status {status!r} for {ticket_id} at line {line_no}."
                 )
 
+            owner = (row.get("Owner") or "").strip()
+            claimed_at = (row.get("Claimed At") or "").strip()
+            branch = (row.get("Branch") or "").strip()
+            blocker = (row.get("Blocker") or "").strip()
+
+            if status in {"In Progress", "In Review"} and not owner:
+                raise SystemExit(
+                    f"{ticket_id} is {status} but has no Owner at line {line_no}."
+                )
+            if status in {"In Progress", "In Review"} and not branch:
+                raise SystemExit(
+                    f"{ticket_id} is {status} but has no Branch at line {line_no}."
+                )
+            if status == "In Progress" and not claimed_at:
+                raise SystemExit(
+                    f"{ticket_id} is In Progress but has no Claimed At timestamp at line {line_no}."
+                )
+            if status == "Blocked" and not blocker:
+                raise SystemExit(
+                    f"{ticket_id} is Blocked but has no Blocker explanation at line {line_no}."
+                )
+
             result[ticket_id] = {
                 field: (row.get(field) or "") for field in MUTABLE_FIELDS
             }
@@ -85,10 +115,19 @@ def main() -> int:
     if unknown:
         raise SystemExit(f"status.csv contains unknown ticket IDs: {unknown[:10]}")
 
+    # Ensure generated output includes the coordination fields even if the original
+    # immutable seed predates the multi-agent ledger.
+    for field in MUTABLE_FIELDS:
+        if field not in fieldnames:
+            fieldnames.append(field)
+
     for row in rows:
         overlay = status_by_id.get(row["ID"])
         if overlay is not None:
             row.update(overlay)
+        else:
+            for field in MUTABLE_FIELDS:
+                row.setdefault(field, "")
 
     with OUTPUT_PATH.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
@@ -97,7 +136,9 @@ def main() -> int:
 
     counts: dict[str, int] = {}
     for row in rows:
-        counts[row["Status"]] = counts.get(row["Status"], 0) + 1
+        counts[row.get("Status", "") or "Unspecified"] = (
+            counts.get(row.get("Status", "") or "Unspecified", 0) + 1
+        )
 
     print(f"Wrote {len(rows)} tickets to {OUTPUT_PATH.relative_to(HERE.parent)}")
     print("Status counts:", ", ".join(f"{k}={v}" for k, v in sorted(counts.items())))
