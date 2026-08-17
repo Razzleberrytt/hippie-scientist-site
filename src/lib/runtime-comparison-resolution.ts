@@ -89,3 +89,36 @@ export function resolveRuntimeComparisonSide(
 
   return { label: config.label, record: null, href: null }
 }
+
+/**
+ * Whether both sides of a comparison resolve to a publishable record.
+ *
+ * `RuntimeEvidenceComparison` calls `notFound()` when either side is missing,
+ * which is correct: the site should not build a comparison on a record it will
+ * not publish. But the pages declare their metadata statically, so a page that
+ * renders a 404 still shipped `index, follow` — and Next's not-found boundary
+ * then added its own `noindex`, leaving two contradictory robots tags in one
+ * document.
+ *
+ * Metadata can call this to tell the truth instead. Both sides use the same
+ * resolver the renderer uses, so the answers cannot drift apart.
+ */
+export async function canRenderRuntimeComparison(
+  left: RuntimeComparisonSideConfig,
+  right: RuntimeComparisonSideConfig,
+  loadRecords: () => Promise<{ herbs: unknown[]; compounds: unknown[] }>,
+): Promise<boolean> {
+  try {
+    const { herbs, compounds } = await loadRecords()
+    const herbRecords = herbs as RuntimeRecord[]
+    const compoundRecords = compounds as RuntimeRecord[]
+    return Boolean(
+      resolveRuntimeComparisonSide(left, herbRecords, compoundRecords).record &&
+        resolveRuntimeComparisonSide(right, herbRecords, compoundRecords).record,
+    )
+  } catch {
+    // Indexation must fail closed: if availability cannot be determined, treat
+    // the comparison as unavailable rather than advertising a page that may 404.
+    return false
+  }
+}
