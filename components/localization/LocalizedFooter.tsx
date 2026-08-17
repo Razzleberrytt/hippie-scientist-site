@@ -31,7 +31,7 @@ export default function LocalizedFooter() {
           {config.links.map((link) => (
             <Link key={link.href} href={link.href} className={footerLinkClass}>{link.label}</Link>
           ))}
-          <Link href={englishHref} hrefLang='en-US' className={footerLinkClass}>English</Link>
+          <Link href={englishHref} hrefLang='en-US' lang='en' className={footerLinkClass}>English</Link>
         </nav>
       </div>
       <div className='border-t border-[var(--border-soft)] px-5 py-5 text-center text-xs leading-5 text-[var(--text-muted)]'>
