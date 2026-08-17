@@ -16,8 +16,6 @@ on:
       - 'scripts/**'
       - 'styles/**'
       - 'types/**'
-      - 'tests/**'
-      - '**/__tests__/**'
       - 'package.json'
       - 'package-lock.json'
       - '.nvmrc'
@@ -29,6 +27,18 @@ on:
       - '.lighthouserc*.json'
       - '**/*.xlsx'
       - '.github/workflows/lighthouse.yml'
+      # Test-only edits cannot change rendered production output. Keep these
+      # exclusions after the broad positive patterns so they win.
+      - '!tests/**'
+      - '!**/__tests__/**'
+      - '!**/*.test.ts'
+      - '!**/*.test.tsx'
+      - '!**/*.test.js'
+      - '!**/*.test.jsx'
+      - '!**/*.spec.ts'
+      - '!**/*.spec.tsx'
+      - '!**/*.spec.js'
+      - '!**/*.spec.jsx'
   schedule:
     - cron: '41 10 * * 2'
   workflow_dispatch:
