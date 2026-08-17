@@ -35,13 +35,13 @@ export const decisionStatusBadgeClass =
   `${decisionBadgeClass} tracking-[0.02em]`
 
 export const decisionChipClass =
-  'inline-flex min-h-6 max-w-full items-center rounded-full border border-brand-900/10 bg-[var(--surface-subtle)] px-2 py-0.5 text-[0.68rem] font-semibold leading-snug text-[var(--text-muted)] break-words'
+  'inline-flex min-h-6 max-w-full items-center rounded-full border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] px-2 py-0.5 text-[0.68rem] font-semibold leading-snug text-[color:var(--text-muted)] break-words'
 
 export const decisionMicroLabelClass =
   'text-[0.64rem] font-bold uppercase tracking-[0.09em] leading-none'
 
 export const decisionMetricShellClass =
-  'min-w-0 rounded-[0.65rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-2 py-1.5'
+  'min-w-0 rounded-[0.65rem] border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] px-2 py-1.5'
 
 export const decisionMetadataClusterClass =
   'flex flex-wrap items-center gap-1.5'
