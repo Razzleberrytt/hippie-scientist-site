@@ -55,6 +55,27 @@ function studyClassFromPublicationTypes(types: readonly string[]): StudyClass {
   return strongestStudyClass(classes)
 }
 
+/**
+ * Whether two titles are the same string once punctuation and spacing are
+ * ignored — a hyphen against an em-dash, a trailing period, differing case.
+ *
+ * Deliberately strict: it compares the full normalized text, so a genuinely
+ * different curated title can never be silently replaced by PubMed's. Only
+ * cosmetic divergence qualifies.
+ */
+function isCosmeticTitleVariant(current: unknown, canonical: string): boolean {
+  const normalize = (value: string) =>
+    value
+      .toLowerCase()
+      .replace(/[‐-―]/g, '-')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim()
+
+  const a = normalize(text(current))
+  const b = normalize(canonical)
+  return Boolean(a) && a === b && text(current) !== canonical
+}
+
 function main() {
   if (!existsSync(CACHE_PATH)) {
     console.error('[pubmed-apply] No cache. Run: node scripts/data/fetch-pubmed-metadata.mjs')
@@ -104,7 +125,17 @@ function main() {
         if (meta.doi && !normalizeDoi(source.doi)) fill('doi', meta.doi)
         // A placeholder title is a note about absent metadata, so PubMed's
         // title is strictly better. A curated title is left alone.
-        if (meta.title && isPlaceholderCitationTitle(source.title)) fill('title', meta.title)
+        if (meta.title && isPlaceholderCitationTitle(source.title)) {
+          fill('title', meta.title)
+        } else if (meta.title && isCosmeticTitleVariant(source.title, meta.title)) {
+          // Same study, cosmetically different title. Two profiles cited PMID
+          // 33086877 as "…Disorders-A Systematic Review" and
+          // "…Disorders—A Systematic Review", and PMID 32048383 with and
+          // without a trailing period, which reads as two studies to anything
+          // keyed on title. Adopting PubMed's form makes one study look like
+          // one study.
+          fill('title', meta.title)
+        }
 
         const studyClass = studyClassFromPublicationTypes(meta.publicationTypes)
         if (studyClass !== 'unclassified' && text(source.studyType) !== STUDY_CLASS_INFO[studyClass].label) {
