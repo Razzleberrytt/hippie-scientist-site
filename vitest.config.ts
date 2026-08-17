@@ -32,6 +32,11 @@ export default defineConfig({
       // never executes under test. Alias it to a stub so Vite's static import
       // analysis can still resolve the specifier when transforming that file.
       xlsx: path.resolve(ROOT, 'scripts/data/xlsx-optional-dependency-stub.mjs'),
+      // 'server-only' is Next's client-bundle guard. It has no runtime
+      // behaviour and is not a direct dependency, so Vite cannot resolve it and
+      // any test importing a server module failed to load. Stubbing it here
+      // keeps the real guard in the source and in production builds.
+      'server-only': path.resolve(ROOT, 'tests/stubs/server-only.mjs'),
     },
   },
   plugins: [
