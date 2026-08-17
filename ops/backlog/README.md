@@ -1,6 +1,6 @@
 # The Hippie Scientist — Master Backlog
 
-This directory is the canonical control board for site-quality work.
+This directory is the canonical control board for site-quality work. `master-backlog.mjs` expands the original 15 tickets into a machine-readable 375-ticket queue covering design, UX, page templates, content, evidence, safety, SEO, internal linking, conversion, accessibility, performance, structured data/AI, analytics, automation, testing, and technical debt.
 
 ## Execution loop
 
@@ -30,7 +30,7 @@ Code existing on a branch is **not** completion. A ticket may move to `complete`
 7. Do not merge red CI.
 8. Do not mark a merged ticket complete until the result has been measured or explicitly post-merge verified.
 9. If a ticket exposes a prerequisite, add the prerequisite as a dependency rather than silently expanding scope.
-10. Keep `ops/backlog/master-backlog.json` authoritative; chat transcripts and issue comments are secondary notes.
+10. Keep `ops/backlog/master-backlog.mjs` authoritative; chat transcripts and issue comments are secondary notes.
 
 ## Commands
 
