@@ -1,5 +1,4 @@
-import fs from 'node:fs'
-import path from 'node:path'
+import { masterBacklog as backlog } from '../../ops/backlog/master-backlog.mjs'
 
 const args = process.argv.slice(2)
 function readArg(name, fallback = null) {
@@ -10,7 +9,6 @@ function readArg(name, fallback = null) {
 const areaFilter = readArg('--area')
 const limitRaw = Number(readArg('--limit', '1'))
 const limit = Number.isFinite(limitRaw) && limitRaw > 0 ? Math.min(Math.floor(limitRaw), 25) : 1
-const backlog = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'ops/backlog/master-backlog.json'), 'utf8'))
 const tickets = backlog.tickets || []
 const byId = new Map(tickets.map((ticket) => [ticket.id, ticket]))
 const priorityWeight = { critical: 0, high: 1, medium: 2, low: 3 }
@@ -48,6 +46,7 @@ console.log(JSON.stringify({
     task: ticket.task,
     status: ticket.status,
     dependencies: ticket.dependencies,
+    affected_routes: ticket.affected_routes,
     verification: ticket.verification,
     work_refs: ticket.work_refs,
   })),
