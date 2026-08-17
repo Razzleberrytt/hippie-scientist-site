@@ -98,19 +98,19 @@ export default function NewsletterArchivePage() {
         ]}
       />
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10'>
+      <section className='hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Newsletter archive</p>
-        <h1 className='mt-3 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
+        <h1 className='heading-premium mt-5 max-w-4xl'>
           Evidence-first supplement notes, without the hype cycle.
         </h1>
-        <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
+        <p className='text-reading mt-4 max-w-3xl'>
           The newsletter is for readers who want concise research updates, product-quality reminders,
           and safety-first supplement context without sales-first ranking language. Use this archive as a preview of the style.
         </p>
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/info/free-guide/' className='chip-readable hover:bg-white transition'>Free decision guide</Link>
-          <Link href='/info/infographics/' className='chip-readable hover:bg-white transition'>Free infographics</Link>
-          <Link href='/info/privacy/' className='chip-readable hover:bg-white transition'>Privacy policy</Link>
+          <Link href='/info/free-guide/' className='chip-readable px-4 py-2 text-sm font-semibold'>Free decision guide</Link>
+          <Link href='/info/infographics/' className='chip-readable px-4 py-2 text-sm font-semibold'>Free infographics</Link>
+          <Link href='/info/privacy/' className='chip-readable px-4 py-2 text-sm font-semibold'>Privacy policy</Link>
         </div>
       </section>
 
@@ -118,8 +118,8 @@ export default function NewsletterArchivePage() {
         {newsletterBenefits.map((benefit) => (
           <article key={benefit.title} className='card-premium p-6'>
             <p className='eyebrow-label'>Why subscribe</p>
-            <h2 className='mt-2 text-xl font-semibold tracking-tight text-ink'>{benefit.title}</h2>
-            <p className='mt-3 text-sm leading-7 text-muted'>{benefit.body}</p>
+            <h2 className='mt-2 text-xl font-semibold tracking-tight text-[color:var(--hs-ink)]'>{benefit.title}</h2>
+            <p className='mt-3 text-sm leading-7 text-[color:var(--hs-body)]'>{benefit.body}</p>
           </article>
         ))}
       </section>
@@ -133,26 +133,32 @@ export default function NewsletterArchivePage() {
 
       <NewsletterInterestSignup />
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 shadow-sm sm:p-8'>
+      <section className='section-frame p-6 sm:p-8' aria-labelledby='newsletter-archive-preview'>
         <p className='eyebrow-label'>Archive preview</p>
-        <h2 className='mt-2 text-3xl font-semibold tracking-tight text-ink'>Example topics readers care about</h2>
+        <h2 id='newsletter-archive-preview' className='compact-heading mt-3'>Example topics readers care about</h2>
         <div className='mt-6 grid gap-4 md:grid-cols-3'>
           {archiveItems.map((item) => (
-            <Link key={item.title} href={item.href} className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm transition motion-safe:hover:-translate-y-0.5'>
-              <h3 className='text-base font-semibold text-ink'>{item.title}</h3>
-              <p className='mt-3 text-sm leading-6 text-muted'>{item.description}</p>
+            <Link
+              key={item.title}
+              href={item.href}
+              className='card-premium group flex min-h-[11rem] flex-col p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
+            >
+              <h3 className='text-base font-semibold text-[color:var(--hs-ink)]'>{item.title}</h3>
+              <p className='mt-3 text-sm leading-6 text-[color:var(--hs-body)]'>{item.description}</p>
+              <span className='mt-auto pt-4 text-sm font-bold text-[color:var(--hs-gold-ink)] group-hover:underline'>Read topic →</span>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm'>
-        <h2 className='text-2xl font-semibold tracking-tight text-ink'>FAQ</h2>
-        <div className='mt-4 grid gap-4'>
+      <section className='section-frame p-6' aria-labelledby='newsletter-faq'>
+        <p className='eyebrow-label'>Questions readers ask</p>
+        <h2 id='newsletter-faq' className='compact-heading mt-3'>FAQ</h2>
+        <div className='mt-5 grid gap-4'>
           {faqItems.map((item) => (
-            <article key={item.question} className='rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4'>
-              <h3 className='font-bold text-ink'>{item.question}</h3>
-              <p className='mt-2 text-sm leading-7 text-muted'>{item.answer}</p>
+            <article key={item.question} className='rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-4'>
+              <h3 className='font-bold text-[color:var(--hs-ink)]'>{item.question}</h3>
+              <p className='mt-2 text-sm leading-7 text-[color:var(--hs-body)]'>{item.answer}</p>
             </article>
           ))}
         </div>
