@@ -45,7 +45,7 @@ jobs:
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     name: Lighthouse audit
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
 
     steps:
       - name: Checkout
@@ -90,17 +90,24 @@ jobs:
       - name: Audit third-party scripts and image stability
         run: node scripts/ci/audit-third-party-performance.mjs
 
-      - name: Run Lighthouse performance and accessibility audits
+      - name: Run Lighthouse mobile, desktop, and accessibility audits
         run: |
           npx serve@14 out -p 3000 &
           SERVER_PID=$!
           trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
           timeout 30 bash -c 'until curl -sf http://localhost:3000 > /dev/null; do sleep 1; done'
 
+          echo "Running mobile performance audit"
           npx @lhci/cli@0.14 collect --config=.lighthouserc.json
           npx @lhci/cli@0.14 assert --config=.lighthouserc.json
-          mv .lighthouseci .lighthouseci-performance
+          mv .lighthouseci .lighthouseci-performance-mobile
 
+          echo "Running desktop performance audit"
+          npx @lhci/cli@0.14 collect --config=.lighthouserc.desktop.json
+          npx @lhci/cli@0.14 assert --config=.lighthouserc.desktop.json
+          mv .lighthouseci .lighthouseci-performance-desktop
+
+          echo "Running expanded accessibility audit"
           npx @lhci/cli@0.14 collect --config=.lighthouserc.a11y.json
           npx @lhci/cli@0.14 assert --config=.lighthouserc.a11y.json
           mv .lighthouseci .lighthouseci-accessibility
@@ -115,7 +122,8 @@ jobs:
         with:
           name: performance-results-${{ github.run_number }}
           path: |
-            .lighthouseci-performance/
+            .lighthouseci-performance-mobile/
+            .lighthouseci-performance-desktop/
             .lighthouseci-accessibility/
             reports/third-party-performance.json
             reports/client-runtime-size.json
@@ -127,12 +135,13 @@ jobs:
         if: always()
         run: |
           echo "## Performance & Accessibility Governance" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Lighthouse performance target: ≥ 82" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Hard CWV gates: LCP ≤ 2.5s, CLS ≤ 0.10, TBT ≤ 300ms" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Mobile Lighthouse performance target: ≥ 82" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Desktop Lighthouse performance target: ≥ 85" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Hard CWV gates on both viewports: LCP ≤ 2.5s, CLS ≤ 0.10, TBT ≤ 300ms" >> "$GITHUB_STEP_SUMMARY"
           echo "- Hard accessibility gate: ≥ 90" >> "$GITHUB_STEP_SUMMARY"
           echo "- Client-boundary source budget: warn at 18KB, fail at 45KB" >> "$GITHUB_STEP_SUMMARY"
           echo "- Global CSS and likely-unused component surface is reported on every run" >> "$GITHUB_STEP_SUMMARY"
           echo "- Weekly production cache monitor verifies explicit cache policy and immutable Next static assets" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Performance URLs: /, /herbs/ashwagandha/, /compounds/l-theanine/" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Performance URLs (mobile + desktop): /, /herbs/ashwagandha/, /compounds/l-theanine/" >> "$GITHUB_STEP_SUMMARY"
           echo "- Accessibility URLs: /, /goals/, /herbs/ashwagandha/, /compounds/l-theanine/, /guides/compare/, /safety-checker/, /evidence/evidence-checker/, /tools/botanical-activity-atlas/, /evidence/evidence-report/" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
