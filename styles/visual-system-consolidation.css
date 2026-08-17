@@ -172,7 +172,21 @@ main li {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :where(.card-premium, .library-card-premium, .library-content-card, .button-primary, .button-secondary, .hs-btn-primary, .hs-btn-ghost) {
+  :where(
+    .card-premium,
+    .library-card-premium,
+    .library-content-card,
+    .button-primary,
+    .button-secondary,
+    .hs-btn-primary,
+    .hs-btn-ghost,
+    .hs-home .hs-goal,
+    .hs-home .hs-specimen,
+    .hs-home .hs-vs,
+    .hs-home .hs-tool,
+    .hs-home .hs-article
+  ) {
     transform: none !important;
+    transition: none !important;
   }
 }
