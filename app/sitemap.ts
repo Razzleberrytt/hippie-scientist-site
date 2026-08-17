@@ -432,11 +432,51 @@ function route(
   };
 }
 
+/**
+ * Overlay the governance fields the profile templates actually use.
+ *
+ * The summary indexes are generated after the governance overlay runs, so they
+ * are the same records the pages read when they compute their robots tag. The
+ * raw parser output is kept for everything else — names, dates, evidence — and
+ * only the three fields that decide indexability are taken from the overlay.
+ *
+ * A record missing from the overlay keeps its parser values rather than being
+ * dropped, so a stale or partial index can never silently empty the sitemap.
+ */
+function withOverlayGovernance<T extends SitemapSourceItem>(records: T[], overlayPath: string): T[] {
+  const overlay = readJsonArray<SitemapSourceItem>(overlayPath);
+  if (!overlay.length) return records;
+
+  const bySlug = new Map(overlay.map((entry) => [String(entry.slug ?? ''), entry]));
+  return records.map((record) => {
+    const match = bySlug.get(String(record.slug ?? ''));
+    if (!match) return record;
+    return {
+      ...record,
+      indexability_status: match.indexability_status ?? record.indexability_status,
+      sitemap_included: match.sitemap_included ?? record.sitemap_included,
+      robots: match.robots ?? record.robots,
+    };
+  });
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const redirectSources = readRedirectSources();
 
-  const herbsData = readJsonArray<SitemapSourceItem>('public/data/herbs.json');
-  const compoundsData = readJsonArray<SitemapSourceItem>('public/data/compounds.json');
+  // Profile pages resolve their robots tag from the summary indexes, which carry
+  // the governance overlay. `herbs.json` and `compounds.json` are the pre-overlay
+  // parser output and disagree with them on 99 records — 30 herbs and 69
+  // compounds — which is why the sitemap has been listing URLs whose pages
+  // render `noindex`. Reading the same post-overlay governance the pages read
+  // keeps the two answers identical.
+  const herbsData = withOverlayGovernance(
+    readJsonArray<SitemapSourceItem>('public/data/herbs.json'),
+    'public/data/summary-indexes/herbs-summary.json',
+  );
+  const compoundsData = withOverlayGovernance(
+    readJsonArray<SitemapSourceItem>('public/data/compounds.json'),
+    'public/data/summary-indexes/compounds-summary.json',
+  );
 
   const blogPosts = readJsonArray<SitemapSourceItem>('data/blog/posts.json');
   const articlesData = readJsonArray<SitemapSourceItem>('data/articles/articles.json');

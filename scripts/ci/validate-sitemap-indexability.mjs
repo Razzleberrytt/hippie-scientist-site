@@ -28,10 +28,12 @@ const SITEMAP = path.join(OUT_DIR, 'sitemap.xml')
 const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'sitemap-indexability.json')
 
 /**
- * Known count at the time this check was added. The gate fails if the number
- * grows; lowering it as routes are fixed is the point.
+ * Remaining known offenders. Both are comparison pages that call `notFound()`
+ * at render time while their static metadata still declares `index, follow`,
+ * so they emit two contradictory robots tags. That is a different defect from
+ * the governance mismatch this number used to cover, which is now fixed.
  */
-const BASELINE_MAX = 75
+const BASELINE_MAX = 2
 
 const args = process.argv.slice(2)
 const maxIndex = args.indexOf('--max')
