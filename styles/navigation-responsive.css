@@ -10,10 +10,11 @@
 /* The root shell renders one global breadcrumb trail on non-article routes.
    A number of older page templates also render AuthorityBreadcrumbs inside
    <main>, producing two visible trails and wasting first-screen space on phones.
-   Suppress only the page-local duplicate when the global trail is present.
-   Article routes intentionally omit the global trail, so their local navigation
-   remains untouched. */
-[data-global-breadcrumb] + main nav[aria-label='Breadcrumb'] {
+   Suppress only the page-local duplicate when the global trail is present, even
+   when optional shell chrome (such as the commercial-intent bridge) renders
+   between the global breadcrumb and <main>. Article routes intentionally omit
+   the global trail, so their local navigation remains untouched. */
+[data-global-breadcrumb] ~ main nav[aria-label='Breadcrumb'] {
   display: none;
 }
 
