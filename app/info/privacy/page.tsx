@@ -92,19 +92,17 @@ export default function PrivacyPage() {
         ]}
       />
 
-      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10'>
+      <section className='hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Privacy</p>
-        <h1 className='mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl'>
-          Privacy policy in plain English.
-        </h1>
-        <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
+        <h1 className='heading-premium mt-5 max-w-4xl'>Privacy policy in plain English.</h1>
+        <p className='text-reading mt-4 max-w-3xl'>
           The Hippie Scientist is an educational research website. This page explains what information may be processed
           during normal browsing, email subscriptions, contact messages, affiliate links, and external research links.
         </p>
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/info/contact/' className='chip-readable hover:bg-white transition'>Contact</Link>
-          <Link href='/info/affiliate-disclosure/' className='chip-readable hover:bg-white transition'>Affiliate disclosure</Link>
-          <Link href='/info/newsletter/' className='chip-readable hover:bg-white transition'>Newsletter</Link>
+          <Link href='/info/contact/' className='chip-readable px-4 py-2 text-sm font-semibold'>Contact</Link>
+          <Link href='/info/affiliate-disclosure/' className='chip-readable px-4 py-2 text-sm font-semibold'>Affiliate disclosure</Link>
+          <Link href='/info/newsletter/' className='chip-readable px-4 py-2 text-sm font-semibold'>Newsletter</Link>
         </div>
       </section>
 
@@ -112,20 +110,20 @@ export default function PrivacyPage() {
         {privacyHighlights.map((item) => (
           <article key={item.title} className='card-premium p-6'>
             <p className='eyebrow-label'>Privacy highlight</p>
-            <h2 className='mt-2 text-xl font-semibold tracking-tight text-ink'>{item.title}</h2>
-            <p className='mt-3 text-sm leading-7 text-muted'>{item.body}</p>
+            <h2 className='mt-2 text-xl font-semibold tracking-tight text-[color:var(--hs-ink)]'>{item.title}</h2>
+            <p className='mt-3 text-sm leading-7 text-[color:var(--hs-body)]'>{item.body}</p>
           </article>
         ))}
       </section>
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 shadow-sm sm:p-8'>
+      <section className='section-frame p-6 sm:p-8' aria-labelledby='privacy-information-categories'>
         <p className='eyebrow-label'>Information categories</p>
-        <h2 className='mt-2 text-3xl font-semibold tracking-tight text-ink'>What may be processed</h2>
+        <h2 id='privacy-information-categories' className='compact-heading mt-3'>What may be processed</h2>
         <div className='mt-6 grid gap-4 md:grid-cols-2'>
           {dataCategories.map((item) => (
-            <article key={item.title} className='rounded-2xl border border-brand-900/10 bg-white/80 p-5'>
-              <h3 className='font-bold text-ink'>{item.title}</h3>
-              <p className='mt-2 text-sm leading-7 text-muted'>{item.body}</p>
+            <article key={item.title} className='rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-5'>
+              <h3 className='font-bold text-[color:var(--hs-ink)]'>{item.title}</h3>
+              <p className='mt-2 text-sm leading-7 text-[color:var(--hs-body)]'>{item.body}</p>
             </article>
           ))}
         </div>
@@ -134,28 +132,28 @@ export default function PrivacyPage() {
       <section className='grid gap-6 lg:grid-cols-[1.2fr_0.8fr]'>
         <div className='card-premium p-6 sm:p-8'>
           <p className='eyebrow-label'>Plain-English policy</p>
-          <h2 className='mt-3 text-3xl font-semibold tracking-tight text-ink'>How information is handled</h2>
-          <div className='mt-5 space-y-6 text-sm leading-7 text-muted sm:text-base'>
+          <h2 className='mt-3 text-3xl font-semibold tracking-tight text-[color:var(--hs-ink)]'>How information is handled</h2>
+          <div className='mt-5 space-y-6 text-sm leading-7 text-[color:var(--hs-body)] sm:text-base'>
             <div>
-              <h3 className='text-lg font-bold text-ink mb-1'>1. Browsing and technical logs</h3>
+              <h3 className='mb-1 text-lg font-bold text-[color:var(--hs-ink)]'>1. Browsing and technical logs</h3>
               <p>
                 The site does not require user registration or accounts. Hosting and security services may process basic technical logs to operate the site and protect it from abuse.
               </p>
             </div>
             <div>
-              <h3 className='text-lg font-bold text-ink mb-1'>2. Cookies, analytics, and affiliate attribution</h3>
+              <h3 className='mb-1 text-lg font-bold text-[color:var(--hs-ink)]'>2. Cookies, analytics, and affiliate attribution</h3>
               <p>
                 Cookies, local storage, analytics tags, or affiliate parameters may be used for measurement, site functionality, or purchase attribution. Browser settings can limit or block many of these features.
               </p>
             </div>
             <div>
-              <h3 className='text-lg font-bold text-ink mb-1'>3. Email and newsletter services</h3>
+              <h3 className='mb-1 text-lg font-bold text-[color:var(--hs-ink)]'>3. Email and newsletter services</h3>
               <p>
                 Contact messages and newsletter signups are voluntary. Email services may store the address you provide, send messages, and process unsubscribe requests according to their own policies.
               </p>
             </div>
             <div>
-              <h3 className='text-lg font-bold text-ink mb-1'>4. External links</h3>
+              <h3 className='mb-1 text-lg font-bold text-[color:var(--hs-ink)]'>4. External links</h3>
               <p>
                 Links to research databases, retailers, affiliate partners, embedded services, or other websites may be governed by those external services and their own privacy practices.
               </p>
@@ -165,28 +163,33 @@ export default function PrivacyPage() {
 
         <aside className='card-premium h-fit p-6'>
           <p className='eyebrow-label'>Related pages</p>
-          <div className='mt-4 space-y-3'>
+          <div className='mt-4 divide-y divide-[color:var(--hs-hairline)]'>
             {[
               { href: '/info/disclaimer/', title: 'Disclaimer', body: 'How to use the site responsibly.' },
               { href: '/info/contact/', title: 'Contact', body: 'Send corrections, feedback, or privacy questions.' },
               { href: '/info/about/', title: 'About', body: 'Learn what the project is for.' },
             ].map((item) => (
-              <Link key={item.href} href={item.href} className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'>
-                <p className='text-sm font-semibold text-ink'>{item.title}</p>
-                <p className='mt-1 text-sm leading-6 text-muted'>{item.body}</p>
+              <Link
+                key={item.href}
+                href={item.href}
+                className='block py-4 first:pt-0 last:pb-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
+              >
+                <p className='text-sm font-semibold text-[color:var(--hs-ink)]'>{item.title}</p>
+                <p className='mt-1 text-sm leading-6 text-[color:var(--hs-body)]'>{item.body}</p>
               </Link>
             ))}
           </div>
         </aside>
       </section>
 
-      <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm'>
-        <h2 className='text-2xl font-semibold tracking-tight text-ink'>FAQ</h2>
-        <div className='mt-4 grid gap-4'>
+      <section className='section-frame p-6' aria-labelledby='privacy-faq'>
+        <p className='eyebrow-label'>Questions readers ask</p>
+        <h2 id='privacy-faq' className='compact-heading mt-3'>FAQ</h2>
+        <div className='mt-5 grid gap-4'>
           {faqItems.map((item) => (
-            <article key={item.question} className='rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4'>
-              <h3 className='font-bold text-ink'>{item.question}</h3>
-              <p className='mt-2 text-sm leading-7 text-muted'>{item.answer}</p>
+            <article key={item.question} className='rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-4'>
+              <h3 className='font-bold text-[color:var(--hs-ink)]'>{item.question}</h3>
+              <p className='mt-2 text-sm leading-7 text-[color:var(--hs-body)]'>{item.answer}</p>
             </article>
           ))}
         </div>
