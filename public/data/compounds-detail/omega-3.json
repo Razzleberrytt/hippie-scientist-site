@@ -174,7 +174,8 @@
       "doi": "10.1056/NEJMoa1812792",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 8179
     },
     {
       "id": "src_938e1bdb63fd",

@@ -121,7 +121,8 @@
       "doi": "10.1213/ane.0b013e318172c3f9",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 60
     }
   ],
   "dosage": "standardized extract capsule",

@@ -76,7 +76,8 @@
       "doi": "10.1016/j.cgh.2017.04.016",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 99
     }
   ],
   "governance": {

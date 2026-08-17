@@ -130,7 +130,8 @@
       "doi": "10.1177/0003319719889428",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 626
     }
   ],
   "dosage": "—",

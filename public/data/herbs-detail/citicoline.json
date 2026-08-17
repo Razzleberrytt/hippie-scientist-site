@@ -127,7 +127,8 @@
       "doi": "10.1093/jn/nxab119",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 100
     }
   ],
   "governance": {

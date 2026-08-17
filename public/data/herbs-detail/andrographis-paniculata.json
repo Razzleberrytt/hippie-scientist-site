@@ -59,7 +59,8 @@
       "doi": "10.5582/ddt.2023.01053",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 60
     }
   ],
   "governance": {

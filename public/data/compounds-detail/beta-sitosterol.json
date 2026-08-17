@@ -75,7 +75,8 @@
       "year": 1997,
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 177
     }
   ],
   "dosage": "capsule or standardized extract",

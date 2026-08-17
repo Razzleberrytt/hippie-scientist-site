@@ -160,7 +160,8 @@
       "reviewStatus": "approved",
       "pmid": "34559859",
       "metadataSource": "pubmed",
-      "doi": "10.1371/journal.pone.0257843"
+      "doi": "10.1371/journal.pone.0257843",
+      "sampleSize": 400
     },
     {
       "id": "src_5c8f28c15213",

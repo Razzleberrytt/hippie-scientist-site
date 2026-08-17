@@ -39,7 +39,8 @@
       "doi": "10.1080/19490976.2023.2197837",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 242
     },
     {
       "pubmedId": "33762150",

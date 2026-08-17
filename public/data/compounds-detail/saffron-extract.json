@@ -77,7 +77,8 @@
       "doi": "10.1016/j.ctim.2017.06.001",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 128
     }
   ],
   "dosage": "standardized extract capsule",

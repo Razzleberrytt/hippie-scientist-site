@@ -77,7 +77,8 @@
       "doi": "10.2147/NSS.S524348",
       "studyType": "Uncontrolled trial",
       "studyClass": "uncontrolled-trial",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 155
     }
   ],
   "dosage": "chelated mineral",

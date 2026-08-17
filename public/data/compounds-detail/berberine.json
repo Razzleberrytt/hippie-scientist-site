@@ -166,7 +166,8 @@
       "doi": "10.1016/j.metabol.2008.01.013",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 84
     },
     {
       "id": "src_fe3eabf330c8",

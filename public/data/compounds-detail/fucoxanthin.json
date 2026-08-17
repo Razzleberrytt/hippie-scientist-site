@@ -120,7 +120,8 @@
       "doi": "10.1089/jmf.2022.0103",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 28
     }
   ],
   "dosage": "standardized extract",

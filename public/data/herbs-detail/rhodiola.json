@@ -75,7 +75,8 @@
       "doi": "10.1055/s-0028-1088346",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 60
     },
     {
       "id": "src_74fdaae54d8a",

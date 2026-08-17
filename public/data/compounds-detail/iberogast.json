@@ -116,7 +116,8 @@
       "year": 2004,
       "studyType": "Systematic review",
       "studyClass": "systematic-review",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 595
     }
   ],
   "dosage": "short-to-medium",

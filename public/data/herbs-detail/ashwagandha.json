@@ -42,7 +42,8 @@
       "authors": "Cheah KL et al.",
       "metadataSource": "pubmed",
       "pubmedId": "34559859",
-      "studyClass": "meta-analysis"
+      "studyClass": "meta-analysis",
+      "sampleSize": 400
     },
     {
       "pubmedId": "39348746",
@@ -54,7 +55,8 @@
       "doi": "10.1016/j.explore.2024.103062",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 558
     },
     {
       "pubmedId": "31517876",

@@ -76,7 +76,8 @@
       "reviewStatus": "approved",
       "pmid": "39552387",
       "metadataSource": "pubmed",
-      "doi": "10.1017/S0033291724001697"
+      "doi": "10.1017/S0033291724001697",
+      "sampleSize": 24189
     }
   ],
   "dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context.",

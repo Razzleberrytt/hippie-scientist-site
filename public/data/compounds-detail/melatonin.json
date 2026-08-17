@@ -230,7 +230,8 @@
       "doi": "10.1371/journal.pone.0063773",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 1683
     },
     {
       "id": "src_529bc3e73238",
@@ -290,7 +291,8 @@
       "reviewStatus": "approved",
       "pmid": "34923676",
       "metadataSource": "pubmed",
-      "doi": "10.1111/jpi.12782"
+      "doi": "10.1111/jpi.12782",
+      "sampleSize": 3861
     }
   ],
   "dosage": "Dose-response meta-analysis suggested sleep effects peaking around 4 mg/day and timing about 3 hours before desired bedtime in that analysis; common practice varies. | Oral melatonin; immediate vs prolonged-release and timing should be separated.",

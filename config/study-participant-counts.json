@@ -1,0 +1,425 @@
+{
+  "generatedBy": "hand verification of ops/reports/participant-counts.json against PubMed abstracts",
+  "verifiedOn": "2026-08-17",
+  "proposed": 67,
+  "acceptedAsExtracted": 57,
+  "corrected": 8,
+  "rejected": [
+    {
+      "pmid": "31860103",
+      "reason": "The 500 figure is an inclusion threshold, not a count. Separate meta-analyses cover 39,141 / 34,243 / 49,282 participants."
+    },
+    {
+      "pmid": "33383165",
+      "reason": "Meta-analysis of 41 studies reporting a different n per hormone (TT 1753, FT 752, E2 1000, E1 239, SHBG 967). No single cohort size."
+    }
+  ],
+  "counts": [
+    {
+      "pmid": "9313662",
+      "sampleSize": 177,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "the primary outcome variable. In total, 177 patients with BPH were recruited for 6 months of"
+    },
+    {
+      "pmid": "9820262",
+      "sampleSize": 135,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "dy weight change and fat mass change. A total of 135 subjects were randomized to either active hydrox"
+    },
+    {
+      "pmid": "10372249",
+      "sampleSize": 1946,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "reatment of type 2 diabetes. We studied 1,946 patients (63% men) who were previously enrolled"
+    },
+    {
+      "pmid": "10881250",
+      "sampleSize": 636,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "r, double-blind trial was undertaken in 636 patients with mild to moderate AD. Patients were"
+    },
+    {
+      "pmid": "11752510",
+      "sampleSize": 114,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": ". Using computer-generated random list, 114 patients were allocated to receive a daily dose of he"
+    },
+    {
+      "pmid": "12612144",
+      "sampleSize": 60,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "ns to ex vivo oxidative stress. Healthy individuals (n = 60; age >40 y; 30 men/30 women) consumed a"
+    },
+    {
+      "pmid": "15734706",
+      "sampleSize": 12291,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "Q. Thirty-seven reported studies, total 12,291 children, were analysed. The effect size was an"
+    },
+    {
+      "pmid": "15927925",
+      "sampleSize": 595,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "the gastrointestinal symptom-scores in 595 patients. The therapeutic efficacy was also foun"
+    },
+    {
+      "pmid": "17121765",
+      "sampleSize": 47,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "double-blind placebo-controlled trial. Subjects (n = 47) with a confirmed diagnosis of moderate"
+    },
+    {
+      "pmid": "17145239",
+      "sampleSize": 1093,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "ntified 16 eligible studies examining a total of 1093 patients. Most studies had significant methodolo"
+    },
+    {
+      "pmid": "17344500",
+      "sampleSize": 149,
+      "verifiedAgainst": "pubmed-abstract",
+      "correctedFrom": 42,
+      "correctionNote": "Extractor took the iron-sufficient subgroup (n=42). Baseline enrolment was 149; 113 completed 16wk.",
+      "evidence": "113). At baseline, the iron-sufficient women (n = 42) performed better on cognitive tasks (P"
+    },
+    {
+      "pmid": "18442638",
+      "sampleSize": 84,
+      "verifiedAgainst": "pubmed-abstract",
+      "correctedFrom": 36,
+      "correctionNote": "Extractor took study A only (36). Paper reports study A (36) and study B (48).",
+      "evidence": "diabetes mellitus patients. In study A, 36 adults with newly diagnosed type 2 diabetes me"
+    },
+    {
+      "pmid": "18499602",
+      "sampleSize": 60,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "cation may be desirable. In this study, 60 patients were randomized into two groups to receive e"
+    },
+    {
+      "pmid": "18681988",
+      "sampleSize": 27,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "ng and mood were compared to placebo in 27 participants. Performance was measured at baseline a"
+    },
+    {
+      "pmid": "18844328",
+      "sampleSize": 30,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "ter 2 weeks of preliminary examination, 30 subjects were randomized into two 15-person groups, o"
+    },
+    {
+      "pmid": "18971533",
+      "sampleSize": 86,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "double-blind, placebo-controlled trial, 86 participants ranging from 20 to 80 years of age with"
+    },
+    {
+      "pmid": "19016404",
+      "sampleSize": 60,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "nostic criteria for fatigue syndrome. A total of 60 individuals were randomised into two groups, one ("
+    },
+    {
+      "pmid": "22746542",
+      "sampleSize": 92,
+      "verifiedAgainst": "pubmed-abstract",
+      "correctedFrom": 46,
+      "correctionNote": "Extractor took the placebo arm (46). Trial randomised 92 overweight subjects, 46 per arm.",
+      "evidence": "1; 3.9 kg/m(2), male/female: 20/26) and 46 subjects to placebo (age: 53.8 &#xb1; 9.0 years,"
+    },
+    {
+      "pmid": "23440782",
+      "sampleSize": 11306,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "Twenty-nine trial comparisons involving 11,306 participants contributed to the meta-analysis on the"
+    },
+    {
+      "pmid": "23644932",
+      "sampleSize": 4203,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "n, conducted in 2006-2012 and enrolling 4203 participants aged 50 to 85 years at risk for progres"
+    },
+    {
+      "pmid": "23691095",
+      "sampleSize": 1683,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "to placebo. Nineteen studies involving 1683 subjects were included in this meta-analysis. Melaton"
+    },
+    {
+      "pmid": "23832433",
+      "sampleSize": 60,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "ajor depressive disorder (MDD). Herein, 60 patients diagnosed with MDD were randomized in a"
+    },
+    {
+      "pmid": "23949208",
+      "sampleSize": 69,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "double-blind, placebo-controlled trial, 69 women aged 35-55 years were randomized to rec"
+    },
+    {
+      "pmid": "24035939",
+      "sampleSize": 210,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "n patients with essential hypertension. Patients (n=210) with stage 1 essential hypertension we"
+    },
+    {
+      "pmid": "24456909",
+      "sampleSize": 539,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "mized, double-blind, double-dummy trial 539 adults with GAD according to DSM-5 criteria an"
+    },
+    {
+      "pmid": "24554461",
+      "sampleSize": 4631,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "l. Twenty-four double-blind trials with 4631 participants including a total of 33 comparisons of"
+    },
+    {
+      "pmid": "24672232",
+      "sampleSize": 367,
+      "verifiedAgainst": "pubmed-abstract",
+      "correctedFrom": 182,
+      "correctionNote": "Extractor took the ibuprofen arm (182). 367 randomised: 185 C. domestica, 182 ibuprofen.",
+      "evidence": "vents (AEs) were also recorded. 185 and 182 patients were randomly assigned into C. domestica ext"
+    },
+    {
+      "pmid": "25282031",
+      "sampleSize": 420,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "ed by a time to first event analysis. A total of 420 patients were enrolled. There were no significan"
+    },
+    {
+      "pmid": "25498346",
+      "sampleSize": 2569,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "lled clinical trials were included with 2569 patients. There are seven subgroups in our meta-"
+    },
+    {
+      "pmid": "26093535",
+      "sampleSize": 115,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "rials.gov Identifier no. NCT02147041. A total of 115 women with central obesity were screened at o"
+    },
+    {
+      "pmid": "27000311",
+      "sampleSize": 3101,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "n (GRADE) methods. We included 27 RCTs (3101 women). Most included studies were conducted"
+    },
+    {
+      "pmid": "27347994",
+      "sampleSize": 415,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "ized controlled trials (RCTs) involving 415 participants were included. Compared with the controls, a"
+    },
+    {
+      "pmid": "28202713",
+      "sampleSize": 11321,
+      "verifiedAgainst": "pubmed-abstract",
+      "correctedFrom": 321,
+      "correctionNote": "Extractor split on a thin-space thousands separator, reading 11 321 as 321. 25 RCTs, 11,321 participants.",
+      "evidence": "ised controlled trials (total 11&#x2009;321 participants, aged 0 to 95 years) were identified. I"
+    },
+    {
+      "pmid": "28419855",
+      "sampleSize": 99,
+      "verifiedAgainst": "pubmed-abstract",
+      "correctedFrom": 49,
+      "correctionNote": "Extractor took the silymarin arm (49). 99 randomised: 49 silymarin, 50 placebo.",
+      "evidence": "roups given silymarin (700 mg; n&#xa0;= 49 patients) or placebo (n&#xa0;= 50 patients) 3 ti"
+    },
+    {
+      "pmid": "28735826",
+      "sampleSize": 128,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "in healthy adults. In this 3 arm study, 128 participants self-reporting low mood but not diagnos"
+    },
+    {
+      "pmid": "30415628",
+      "sampleSize": 8179,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "rdial infarction, or nonfatal stroke. A total of 8179 patients were enrolled (70.7% for secondary prev"
+    },
+    {
+      "pmid": "30670267",
+      "sampleSize": 180,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "ing pathology. This analysis included a total of 180 participants and evaluates moderators such as vaccin"
+    },
+    {
+      "pmid": "31655395",
+      "sampleSize": 9193,
+      "verifiedAgainst": "pubmed-abstract",
+      "correctedFrom": 7993,
+      "correctionNote": "Extractor took the RCT participants only (7993). Qualitative synthesis included 65 RCTs (7993) plus 25 NRSs (1200).",
+      "evidence": "e reporting, and other biases. 65 RCTs (7993 participants) and 25 NRSs (1200 participants) were i"
+    },
+    {
+      "pmid": "31714321",
+      "sampleSize": 110,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "with insomnia disorder. A total number 110 adult participants (mean age&#x2009;=&#x2009;"
+    },
+    {
+      "pmid": "31763928",
+      "sampleSize": 626,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "n BP was reported in 7 trials involving 626 participants. Meta-analysis did not suggest any sign"
+    },
+    {
+      "pmid": "32680575",
+      "sampleSize": 545,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "lequesne index. Seven trials involving 545 patients were included. Compared with the control gro"
+    },
+    {
+      "pmid": "33541567",
+      "sampleSize": 45,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": ", placebo-controlled four-arm clinical. 45 men (47.38 &#xb1; 5.03 years) were randomiz"
+    },
+    {
+      "pmid": "33978188",
+      "sampleSize": 100,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "tiple comparisons. A total of 99 out of 100 participants completed the study in its entirety. After the 12"
+    },
+    {
+      "pmid": "34071454",
+      "sampleSize": 1386,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "A systematic review of 32 studies with 1386 participants found randomized controlled trials of t"
+    },
+    {
+      "pmid": "34467577",
+      "sampleSize": 419,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "nalysis consisting of 10 studies with a total of 419 participants showed that GS supplementation signific"
+    },
+    {
+      "pmid": "34559859",
+      "sampleSize": 400,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "randomized controlled trials containing 400 participants were analyzed. Ashwagandha extract exhibited"
+    },
+    {
+      "pmid": "34726501",
+      "sampleSize": 24,
+      "verifiedAgainst": "pubmed-abstract",
+      "correctedFrom": 12,
+      "correctionNote": "Extractor took the placebo arm (12). Trial enrolled 24 patients with metabolic syndrome, 12 per arm.",
+      "evidence": "and dinner for 12 weeks. The remaining 12 patients received placebo at the same dosage. Body mass i"
+    },
+    {
+      "pmid": "34923676",
+      "sampleSize": 3861,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "tors. 79 studies were identified with a total of 3861 participants. Studies included a large range of medi"
+    },
+    {
+      "pmid": "35620294",
+      "sampleSize": 1024,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "sults: Eleven clinical trials including 1024 participants and 23 preclinical studies were assesse"
+    },
+    {
+      "pmid": "35935936",
+      "sampleSize": 2396,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "alysis. Twenty-nine (29) RCTs involving 2396 participants and 5 types of arthritis were included."
+    },
+    {
+      "pmid": "36041061",
+      "sampleSize": 719,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "GRADE approach. We included seven RCTs (719 participants) in adult females and males who had eit"
+    },
+    {
+      "pmid": "36070433",
+      "sampleSize": 141,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "and EORTC QLQ-HandN-35-Chinese version. 141 patients were recruited and divided into an intervent"
+    },
+    {
+      "pmid": "37078654",
+      "sampleSize": 242,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "gut microbiota at weeks 0, 2, and 4. A total of 242 participants completed the study. No time-by-group e"
+    },
+    {
+      "pmid": "37405785",
+      "sampleSize": 28,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "trolled clinical trial was conducted in 28 patients diagnosed with MetS. Patients were rand"
+    },
+    {
+      "pmid": "37682792",
+      "sampleSize": 68,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "0&#xa0;mg twice daily) was evaluated in 68 patients with R/R MZL who had received at least"
+    },
+    {
+      "pmid": "37821383",
+      "sampleSize": 60,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "se. This randomized, double-blind study enrolled 60 adult patients with acute viral pharyngitis."
+    },
+    {
+      "pmid": "37864351",
+      "sampleSize": 118,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "udies met our inclusion criteria with a total of 118 patients. The results manifested an efficient ro"
+    },
+    {
+      "pmid": "38170849",
+      "sampleSize": 1140,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": ") and corresponding active molecules. A total of 1140 participants from 12 RCTs were included in the stati"
+    },
+    {
+      "pmid": "39070254",
+      "sampleSize": 492,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "intervals (CI). Sixteen RCTs involving 492 participants aged 20.8-76.4&#x2009;years, including"
+    },
+    {
+      "pmid": "39348746",
+      "sampleSize": 558,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "randomized controlled trials involving 558 patients were eligible for this study. The findings o"
+    },
+    {
+      "pmid": "39474788",
+      "sampleSize": 671,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": ". A total of 15 RCTs were included, and 671 patients were analyzed. The subjects included healthy"
+    },
+    {
+      "pmid": "39552387",
+      "sampleSize": 24189,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "e. Our analysis included 31 trials with 24189 participants. Each 1000 IU/day vitamin D 3 supplemen"
+    },
+    {
+      "pmid": "40554037",
+      "sampleSize": 162,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "c consumption, and treatment tolerance. 162 patients were randomly assigned to receive CBTIL (n=8"
+    },
+    {
+      "pmid": "40918053",
+      "sampleSize": 155,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "double-blind, placebo-controlled trial enrolled 155 adults aged 18-65 years with self-reported poo"
+    },
+    {
+      "pmid": "41554764",
+      "sampleSize": 139,
+      "verifiedAgainst": "pubmed-abstract",
+      "evidence": "or 5&#xa0;billion CFU of Lp815 per day. 139 Individuals (5&#xa0;billion CFU Lp815 n&#x2009;=&#x"
+    }
+  ]
+}

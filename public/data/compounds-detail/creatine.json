@@ -223,7 +223,8 @@
       "pmid": "39070254",
       "metadataSource": "pubmed",
       "doi": "10.3389/fnut.2024.1424972",
-      "studyClass": "systematic-review"
+      "studyClass": "systematic-review",
+      "sampleSize": 492
     }
   ],
   "dosage": "Creatine monohydrate; adult RCT evidence; domain-specific cognition outcomes. Use studied-dose table; do not invent one universal cognitive dose from meta-analysis alone.",

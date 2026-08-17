@@ -117,7 +117,8 @@
       "doi": "10.1212/wnl.54.12.2261",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 636
     }
   ],
   "dosage": "prescription tablet",

@@ -68,7 +68,8 @@
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
       "metadataSource": "pubmed",
-      "pubmedId": "30670267"
+      "pubmedId": "30670267",
+      "sampleSize": 180
     }
   ],
   "governance": {

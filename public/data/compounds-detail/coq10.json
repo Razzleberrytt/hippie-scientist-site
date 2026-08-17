@@ -97,7 +97,8 @@
       "doi": "10.1016/j.jchf.2014.06.008",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 420
     },
     {
       "id": "src_ad46e361d8f8",

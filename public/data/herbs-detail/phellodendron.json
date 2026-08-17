@@ -52,7 +52,8 @@
       "doi": "10.1016/j.jep.2014.09.049",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 2569
     },
     {
       "pubmedId": "39612339",

@@ -36,7 +36,8 @@
       "doi": "10.3389/fimmu.2022.891822",
       "studyType": "Meta-analysis",
       "studyClass": "meta-analysis",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 2396
     },
     {
       "pubmedId": "27837604",
@@ -89,7 +90,8 @@
       "doi": "10.1002/ptr.5025",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 60
     },
     {
       "id": "src_c3f7857d2f8d",

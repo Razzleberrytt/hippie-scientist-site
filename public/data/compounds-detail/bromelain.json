@@ -76,7 +76,8 @@
       "doi": "10.1093/qjmed/hcl118",
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "sampleSize": 47
     }
   ],
   "dosage": "capsule or standardized extract",
