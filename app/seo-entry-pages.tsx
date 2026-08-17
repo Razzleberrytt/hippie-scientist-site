@@ -13,6 +13,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { EvidenceBadge } from '@/components/ui'
 import { buildPageMetadata } from '../src/lib/seo'
+import { withRedirectSourceMetadata } from '../src/lib/redirect-source-metadata'
 import { isRestrictedRecord } from '../src/lib/restricted-ingredients'
 import { buildSeoEntrySchemaGraph } from '../src/lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
@@ -453,7 +454,18 @@ export function generateSeoEntryMetadata(route: string, canonicalPath?: string):
   if (isGeneratedGuideRoute) {
     meta = { ...meta, robots: { index: false, follow: true } }
   }
-  return meta
+  // Several legacy entry routes are 301'd to a guide but still build here. A
+  // page served at a redirected URL must not claim to be canonical for content
+  // that now lives elsewhere.
+  //
+  // Keyed on `canonicalRoute`, not `route`: `route` is the content key, which
+  // for relocated pages is the *old* path — the redirect source. The page is
+  // served at `canonicalRoute`, the destination. Keying on `route` would
+  // deindex the very pages the redirects point at.
+  return withRedirectSourceMetadata(
+    meta,
+    canonicalRoute.startsWith('/') ? canonicalRoute : `/${canonicalRoute}`,
+  )
 }
 
 export async function SeoEntryPage({ route, canonicalPath }: { route: string; canonicalPath?: string }) {

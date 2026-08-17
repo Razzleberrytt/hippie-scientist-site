@@ -13,6 +13,7 @@ import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEntityConditionEntries, getRouteInternalLinkGroups, type RuntimeMapEntry } from '../../../src/lib/runtime-related-maps'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldIndexRoute, SITE_URL } from '../../../src/lib/seo'
+import { withRedirectSourceMetadata } from '@/src/lib/redirect-source-metadata'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import HerbSchemaGenerator from '../../../src/components/herb-profile/SchemaGenerator'
 import HerbCompoundLinks from '@/components/seo/HerbCompoundLinks'
@@ -139,23 +140,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (canonicalSlug !== normalizedSlug) {
     const indexDecision = shouldIndexRoute(`/herbs/${canonicalSlug}`, { ...herb, slug: canonicalSlug })
-    return {
-      ...metadata,
-      alternates: { canonical: `${SITE_URL}/herbs/${canonicalSlug}/` },
-      robots: { index: indexDecision.index, follow: true },
-    }
+    // indexDecision is computed for the canonical target, not for the alias URL
+    // being served, so a redirected alias could still say index. Correct that.
+    return withRedirectSourceMetadata(
+      {
+        ...metadata,
+        alternates: { canonical: `${SITE_URL}/herbs/${canonicalSlug}/` },
+        robots: { index: indexDecision.index, follow: true },
+      },
+      `/herbs/${normalizedSlug}/`,
+    )
   }
 
   if (aliasCanonicalSlug) {
     const indexDecision = shouldIndexRoute(`/herbs/${aliasCanonicalSlug}`, { ...herb, slug: aliasCanonicalSlug })
-    return {
-      ...metadata,
-      alternates: { canonical: `${SITE_URL}/herbs/${aliasCanonicalSlug}/` },
-      robots: { index: indexDecision.index, follow: true },
-    }
+    // indexDecision is computed for the canonical target, not for the alias URL
+    // being served, so a redirected alias could still say index. Correct that.
+    return withRedirectSourceMetadata(
+      {
+        ...metadata,
+        alternates: { canonical: `${SITE_URL}/herbs/${aliasCanonicalSlug}/` },
+        robots: { index: indexDecision.index, follow: true },
+      },
+      `/herbs/${normalizedSlug}/`,
+    )
   }
 
-  return metadata
+  // A built page at a redirected URL must not present itself as canonical.
+  return withRedirectSourceMetadata(metadata, `/herbs/${normalizedSlug}/`)
 }
 
 function getEffects(herb: Herb) {
