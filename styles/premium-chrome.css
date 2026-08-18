@@ -1,0 +1,164 @@
+/* Canonical site chrome: navigation, locale rail, mobile drawer, and footer.
+ * Components use canonical tokens directly; this layer adds only shared
+ * material treatment and shell-level composition. Breadcrumb fallback behavior
+ * remains in globals.css so there is exactly one visibility owner.
+ */
+
+/* Primary header: quiet editorial hardware rather than another content card. */
+.site-primary-nav {
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-elevated) 91%, transparent);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.56) inset,
+    0 14px 34px -34px rgba(29, 29, 31, 0.38);
+  backdrop-filter: blur(20px) saturate(112%);
+}
+
+html.dark .site-primary-nav {
+  background: color-mix(in srgb, #101214 91%, transparent);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.025) inset,
+    0 18px 42px -34px rgba(0, 0, 0, 0.88);
+}
+
+.site-primary-nav a[aria-label^='The Hippie Scientist'] {
+  color: var(--text-primary);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-weight: 610;
+  letter-spacing: -0.025em;
+}
+
+.site-primary-nav a[aria-label^='The Hippie Scientist'] svg {
+  color: var(--hs-gold);
+}
+
+.site-primary-nav button {
+  border-color: var(--border-soft);
+  color: var(--text-primary);
+}
+
+.site-primary-nav button:hover {
+  border-color: color-mix(in srgb, var(--hs-gold) 38%, var(--border-soft));
+}
+
+/* Mega menus use one restrained material language across every nav group. */
+.site-primary-nav .group > div > div {
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-elevated) 97%, transparent);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.52) inset,
+    0 24px 56px -34px rgba(29, 29, 31, 0.34);
+}
+
+html.dark .site-primary-nav .group > div > div {
+  background: #1a1d1f;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.035) inset,
+    0 28px 64px -34px rgba(0, 0, 0, 0.78);
+}
+
+.site-primary-nav .group > div > div > div {
+  background: color-mix(in srgb, var(--surface-subtle) 72%, transparent);
+}
+
+.site-primary-nav .group > div > div a:hover,
+.site-primary-nav .group > div > div a:focus-visible {
+  background: color-mix(in srgb, var(--hs-gold-soft) 22%, var(--surface-card));
+}
+
+/* The language rail is secondary navigation, so it visually recedes rather than
+ * reading as a second full header. */
+.locale-switcher-bar {
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-card-strong) 80%, transparent);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset;
+  backdrop-filter: blur(14px);
+}
+
+html.dark .locale-switcher-bar {
+  background: color-mix(in srgb, #151719 88%, transparent);
+}
+
+.locale-switcher-bar a:hover {
+  background: color-mix(in srgb, var(--hs-gold-soft) 20%, transparent);
+}
+
+/* Mobile drawer. */
+#mobile-nav [role='dialog'][aria-label='Mobile navigation menu'] {
+  padding-top: max(1.5rem, env(safe-area-inset-top));
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
+
+#mobile-nav > div[aria-hidden='true'] {
+  background: rgba(6, 7, 8, 0.62);
+  backdrop-filter: blur(7px);
+}
+
+#mobile-nav [role='dialog'] {
+  border-color: var(--border-soft);
+  background: var(--surface-elevated);
+  box-shadow: -22px 0 62px rgba(0, 0, 0, 0.30);
+}
+
+html.dark #mobile-nav [role='dialog'] {
+  background: #151719;
+  box-shadow: -24px 0 72px rgba(0, 0, 0, 0.74);
+}
+
+#mobile-nav a[aria-current='page'] {
+  border-color: color-mix(in srgb, var(--hs-gold) 25%, transparent);
+  background: color-mix(in srgb, var(--hs-gold-soft) 28%, var(--surface-card));
+  color: var(--text-primary);
+  box-shadow: none;
+}
+
+/* Footer: a deliberate quiet ending with the same paper/brass material system. */
+.editorial-footer {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--border-soft);
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--hs-gold-soft) 18%, transparent), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card) 45%, transparent), transparent 72%);
+  color: var(--text-primary);
+}
+
+.dark .editorial-footer {
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--hs-gold) 7%, transparent), transparent 36%),
+    linear-gradient(180deg, rgba(28, 31, 33, 0.28), transparent 72%);
+}
+
+.editorial-footer .editorial-icon-disc {
+  border-color: color-mix(in srgb, var(--hs-gold) 24%, var(--border-soft));
+  background: color-mix(in srgb, var(--hs-gold-soft) 24%, var(--surface-card));
+  box-shadow: none;
+}
+
+.editorial-footer .editorial-eyebrow {
+  color: var(--hs-gold-ink);
+  letter-spacing: 0.14em;
+}
+
+.dark .editorial-footer .editorial-eyebrow {
+  color: var(--hs-gold-bright);
+}
+
+.editorial-footer a,
+.editorial-footer button {
+  text-underline-offset: 0.2em;
+}
+
+.editorial-footer a:hover,
+.editorial-footer button:hover {
+  color: var(--hs-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-primary-nav,
+  .site-primary-nav *,
+  #mobile-nav *,
+  .editorial-footer * {
+    transition: none !important;
+  }
+}

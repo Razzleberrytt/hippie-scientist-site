@@ -23,11 +23,13 @@ import { serializeJsonLd } from '../src/lib/schema-injector'
 import { DEFAULT_LOCALE, DEFAULT_OG_LOCALE, LOCALE_TEXT_DIRECTION } from '../src/lib/international-seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import './globals.css'
+
+/* Legacy/template-specific layers load first. They may define local component
+ * behavior, but they no longer own the canonical brand palette or homepage. */
 import '@/styles/foundation-readability.css'
 import '@/styles/premium-library-polish.css'
 import '@/styles/herb-profile-polish.css'
 import '@/styles/profile-navigation-cleanup.css'
-import '@/styles/navigation-responsive.css'
 import '@/styles/compact-hero-typography.css'
 import '@/styles/resonant-theme-lighting.css'
 import '@/styles/premium-surface-details.css'
@@ -36,14 +38,17 @@ import '@/styles/article-visual-polish.css'
 import '@/styles/compact-safety-cautions.css'
 import '@/styles/editorial-botanical-refresh.css'
 import '@/styles/editorial-content-surfaces.css'
-import '@/styles/homepage-editorial-redesign.css'
-import '@/styles/homepage-responsive.css'
+
+/* Canonical premium system. Ownership is intentionally ordered:
+ * tokens -> foundation -> surfaces/type -> controls -> chrome -> homepage. */
+import '@/styles/visual-token-hardening.css'
 import '@/styles/premium-foundation.css'
 import '@/styles/premium-surfaces.css'
 import '@/styles/premium-typography.css'
+import '@/styles/premium-controls.css'
+import '@/styles/premium-chrome.css'
+import '@/styles/homepage-structure.css'
 import '@/styles/homepage-premium-final.css'
-import '@/styles/visual-system-consolidation.css'
-import '@/styles/visual-token-hardening.css'
 
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 const WEBSITE_ID = `${SITE_URL}/#website`

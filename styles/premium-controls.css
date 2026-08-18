@@ -1,0 +1,83 @@
+/* Canonical premium controls.
+ *
+ * Brand tokens describe values; this file owns how generic actions consume
+ * those values. Homepage-specific actions may refine the treatment later in
+ * homepage-premium-final.css without changing the global control contract.
+ */
+
+.button-primary,
+.btn-primary {
+  border: 1px solid #272729;
+  background: #272729;
+  color: #fffdf8;
+  box-shadow: 0 10px 24px -18px rgba(29, 29, 31, 0.58);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.button-primary:hover,
+.btn-primary:hover {
+  transform: translateY(-1px);
+  border-color: #343437;
+  background: #343437;
+  color: #fffdf8;
+  box-shadow: 0 16px 30px -20px rgba(29, 29, 31, 0.58);
+}
+
+html.dark .button-primary,
+html.dark .btn-primary {
+  border-color: var(--brand-brass-emphasis);
+  background: var(--brand-brass-emphasis);
+  color: #0e1011;
+  box-shadow: 0 12px 26px -18px rgba(208, 163, 91, 0.46);
+}
+
+html.dark .button-primary:hover,
+html.dark .btn-primary:hover {
+  border-color: var(--brand-brass-highlight);
+  background: var(--brand-brass-highlight);
+  color: #0e1011;
+}
+
+.button-secondary {
+  border: 1px solid var(--border-strong);
+  background: color-mix(in srgb, var(--surface-card) 90%, transparent);
+  color: var(--text-primary);
+  box-shadow: 0 8px 20px -20px rgba(29, 29, 31, 0.46);
+  backdrop-filter: blur(8px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.button-secondary:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--hs-gold) 42%, var(--border-strong));
+  background: var(--surface-card-strong);
+  color: var(--text-primary);
+  box-shadow: 0 12px 24px -22px rgba(29, 29, 31, 0.42);
+}
+
+html.dark .button-secondary {
+  background: color-mix(in srgb, var(--surface-card) 94%, transparent);
+  box-shadow: 0 10px 22px -20px rgba(0, 0, 0, 0.72);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button-primary,
+  .btn-primary,
+  .button-secondary {
+    transition: none;
+  }
+
+  .button-primary:hover,
+  .btn-primary:hover,
+  .button-secondary:hover {
+    transform: none;
+  }
+}
