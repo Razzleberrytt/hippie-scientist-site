@@ -79,6 +79,15 @@ export function normalizeTopicKey(topic: string): string {
 
 function inferIntent(topic: string): GapIntent {
   const value = topic.toLowerCase()
+  // A topic that sets mechanism against human evidence is an evidence-distinction
+  // piece, not an ingredient comparison. The generic `vs` test ran first and
+  // swallowed it, routing 'mechanism vs human evidence' to `comparison` - which
+  // would plan a compare page for the one boundary this site is most careful
+  // about. Both concepts must be present, so 'ashwagandha vs rhodiola' is still
+  // a comparison.
+  if (/\b(mechanism|pathway)\b/.test(value) && /\b(human|clinical)\s+evidence\b/.test(value)) {
+    return 'mechanism-vs-human-evidence'
+  }
   if (/\b(vs|versus|compare|comparison)\b/.test(value)) return 'comparison'
   if (/\b(extract|glycinate|citrate|oxide|threonate|standardized|form)\b/.test(value)) return 'form-extract'
   if (/\b(interaction|together|with medication|drug)\b/.test(value)) return 'interaction-research'

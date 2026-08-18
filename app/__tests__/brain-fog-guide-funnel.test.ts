@@ -27,7 +27,7 @@ describe('brain fog and fatigue guide funnel', () => {
     // Counting raw occurrences also counted the canonical `path:` in metadata and
     // the FAQ component's `pagePath`, neither of which is a link offered to a
     // reader. What must not exist is a next-step link back to this page.
-    expect(source).not.toMatch(new RegExp(`href=['\"]${selfRoute}['\"]`))
+    expect(source).not.toMatch(new RegExp(`href=['"]${selfRoute}['"]`))
     // Which guides are worth linking is an editorial choice and has changed.
     // The contract is that the page sends readers somewhere else, to more than
     // one distinct destination.

@@ -2,18 +2,22 @@ import { describe, expect, it } from 'vitest'
 import { summarizeCategoryEvidenceMix } from '@/lib/evidence-report-insights'
 import type { PublicEvidenceDataset } from '@/lib/public-evidence-dataset'
 
+// Ingredients are keyed by profile path rather than bare slug: the same slug can
+// exist as both a herb and a compound, so a slug-keyed mix silently merged two
+// different ingredients. A slug-shaped fixture resolves to Uncategorized and
+// every category assertion reads undefined.
 const dataset = {
   ingredients: [
-    { slug: 'alpha', category: 'Adaptogens' },
-    { slug: 'beta', category: 'Adaptogens' },
-    { slug: 'gamma', category: 'Minerals' },
+    { path: '/herbs/alpha/', slug: 'alpha', category: 'Adaptogens' },
+    { path: '/herbs/beta/', slug: 'beta', category: 'Adaptogens' },
+    { path: '/compounds/gamma/', slug: 'gamma', category: 'Minerals' },
   ],
   studies: [
-    { evidenceClass: 'mechanistic', relationships: [{ ingredientSlug: 'alpha' }] },
-    { evidenceClass: 'animal', relationships: [{ ingredientSlug: 'beta' }] },
-    { evidenceClass: 'randomized_controlled_trial', relationships: [{ ingredientSlug: 'alpha' }] },
-    { evidenceClass: 'randomized_controlled_trial', relationships: [{ ingredientSlug: 'gamma' }] },
-    { evidenceClass: 'systematic_review', relationships: [{ ingredientSlug: 'gamma' }] },
+    { evidenceClass: 'mechanistic', relationships: [{ ingredientPath: '/herbs/alpha/' }] },
+    { evidenceClass: 'animal', relationships: [{ ingredientPath: '/herbs/beta/' }] },
+    { evidenceClass: 'randomized_controlled_trial', relationships: [{ ingredientPath: '/herbs/alpha/' }] },
+    { evidenceClass: 'randomized_controlled_trial', relationships: [{ ingredientPath: '/compounds/gamma/' }] },
+    { evidenceClass: 'systematic_review', relationships: [{ ingredientPath: '/compounds/gamma/' }] },
   ],
 } as unknown as PublicEvidenceDataset
 

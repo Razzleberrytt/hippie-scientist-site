@@ -75,10 +75,21 @@ describe('HerbSchemaGenerator', () => {
     expect((author.name as string).length).toBeGreaterThan(0)
   })
 
-  it('Article publisher matches author', () => {
+  it('Article credits a person as author and the organization as publisher', () => {
     const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
     const { article } = getScripts(c)
-    expect(article.publisher).toEqual(article.author)
+    const author = article.author as Record<string, unknown>
+    const publisher = article.publisher as Record<string, unknown>
+
+    // These are different entities in schema.org and Google reads them that way:
+    // a Person wrote it, an Organization published it, and the publisher is what
+    // carries the logo. This previously asserted they were identical, which would
+    // mean publishing the article under a Person with no organization logo.
+    expect(author['@type']).toBe('Person')
+    expect(publisher['@type']).toBe('Organization')
+    expect(publisher.logo).toBeTruthy()
+    // The author is still tied to the publishing organization.
+    expect((author.affiliation as Record<string, unknown>)['@id']).toBe(publisher['@id'])
   })
 
   it('Article mainEntityOfPage links back to the canonical URL', () => {
