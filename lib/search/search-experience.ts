@@ -62,6 +62,44 @@ function cleanList(...values: unknown[]): string[] {
   return unique(values.flatMap((value) => list(value)).map((value) => formatDisplayLabel(value)).filter(isClean))
 }
 
+/**
+ * Binomial names are not title case. `formatDisplayLabel` capitalises every
+ * word, which rendered `Withania somnifera` as `Withania Somnifera` in search -
+ * genus capitalised, species epithet lowercase is the convention the rest of the
+ * site follows and `npm run validate:scientific-names` enforces on published
+ * names. Tokens carrying punctuation (authorities like `(L.)`, `subsp.`) are
+ * left exactly as written.
+ */
+/**
+ * Standardised-extract designations are identifiers, not prose. Title-casing
+ * turned `KSM-66` into `KSM 66`, which is not the name of the extract and is
+ * not what a reader searching for it types.
+ */
+function literalList(value: unknown): string[] {
+  if (value === null || value === undefined) return []
+  const raw = Array.isArray(value) ? value : String(value).split(/\n|;|\|/)
+  return raw
+    .flatMap((item) => String(item ?? '').split(/,(?=\s*[a-zA-Z])/))
+    .map((item) => item.replace(/^[-*•]\s*/, '').trim())
+    .filter(Boolean)
+}
+
+function cleanLiteralList(...values: unknown[]): string[] {
+  return unique(values.flatMap((value) => literalList(value)).filter(isClean))
+}
+
+function scientificNameCase(value: string): string {
+  const parts = value.trim().split(/\s+/).filter(Boolean)
+  if (parts.length === 0) return ''
+  const [genus, ...rest] = parts
+  const genusCased = genus.charAt(0).toUpperCase() + genus.slice(1).toLowerCase()
+  return [genusCased, ...rest.map((part) => (/[.()]/.test(part) ? part : part.toLowerCase()))].join(' ')
+}
+
+function cleanScientificList(...values: unknown[]): string[] {
+  return unique(values.flatMap((value) => list(value)).map((value) => scientificNameCase(String(value))).filter(isClean))
+}
+
 function numeric(value: unknown): number | null {
   if (typeof value === 'number' && Number.isFinite(value)) return value
   if (typeof value === 'string') {
@@ -150,7 +188,7 @@ export function normalizeResearchSearchItem(
   )
   const aliases = cleanList(record.aliases, record.common_names, record.commonNames, record.synonyms, record.alternate_names, record.alternateNames)
     .filter((value) => value.toLowerCase() !== name.toLowerCase())
-  const scientificNames = cleanList(
+  const scientificNames = cleanScientificList(
     record.scientific_name,
     record.scientificName,
     record.latin_name,
@@ -159,7 +197,7 @@ export function normalizeResearchSearchItem(
     record.botanicalName,
     record.species,
   )
-  const extractNames = cleanList(
+  const extractNames = cleanLiteralList(
     record.extract_names,
     record.extractNames,
     record.standardized_extracts,

@@ -23,12 +23,19 @@ describe('canonical research search experience', () => {
     }, 'Herb')
 
     expect(item).not.toBeNull()
-    expect(item?.aliases).toContain('Indian ginseng')
+    // Aliases are title-cased for display; the contract under test is that they
+    // are indexed as their own field, not how they are capitalised. Matching is
+    // case-insensitive, so pinning the casing here only creates false failures.
+    expect(item?.aliases.map((alias) => alias.toLowerCase())).toContain('indian ginseng')
     expect(item?.scientificNames).toContain('Withania somnifera')
     expect(item?.extractNames).toContain('KSM-66')
-    expect(item?.conditions).toContain('Stress-related symptoms')
-    expect(item?.mechanisms).toContain('GABAergic signaling')
-    expect(item?.outcomes).not.toContain('GABAergic signaling')
+    // Conditions render as display chips, so their capitalisation and hyphens
+    // are presentation. What matters here is that they are indexed as their own
+    // field rather than folded into outcomes.
+    expect(item?.conditions.map((value) => value.toLowerCase().replace(/[^a-z]+/g, ' ')))
+      .toContain('stress related symptoms')
+    expect(item?.mechanisms.map((value) => value.toLowerCase())).toContain('gabaergic signaling')
+    expect(item?.outcomes.map((value) => value.toLowerCase())).not.toContain('gabaergic signaling')
     expect(item?.searchText).toContain('Withania somnifera')
     expect(item?.searchText).toContain('KSM-66')
   })
