@@ -1,12 +1,8 @@
-/* Canonical site chrome: navigation, locale rail, breadcrumbs, mobile drawer,
- * and footer. Components use canonical tokens directly; this layer adds only
- * shared material treatment and shell-level composition. */
-
-/* Older templates sometimes render a second breadcrumb inside main. The root
- * shell already renders one on non-article routes, so suppress only duplicates. */
-[data-global-breadcrumb] ~ main nav[aria-label='Breadcrumb'] {
-  display: none;
-}
+/* Canonical site chrome: navigation, locale rail, mobile drawer, and footer.
+ * Components use canonical tokens directly; this layer adds only shared
+ * material treatment and shell-level composition. Breadcrumb fallback behavior
+ * remains in globals.css so there is exactly one visibility owner.
+ */
 
 /* Primary header: quiet editorial hardware rather than another content card. */
 .site-primary-nav {
