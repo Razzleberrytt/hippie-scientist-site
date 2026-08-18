@@ -97,13 +97,25 @@ jobs:
           trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
           timeout 30 bash -c 'until curl -sf http://localhost:3000 > /dev/null; do sleep 1; done'
 
+          PERF_STATUS=0
+          A11Y_STATUS=0
+
           npx @lhci/cli@0.14 collect --config=.lighthouserc.json
-          npx @lhci/cli@0.14 assert --config=.lighthouserc.json
-          mv .lighthouseci .lighthouseci-performance
+          rm -rf .lighthouseci-performance
+          cp -R .lighthouseci .lighthouseci-performance
+          npx @lhci/cli@0.14 assert --config=.lighthouserc.json || PERF_STATUS=$?
+          rm -rf .lighthouseci
 
           npx @lhci/cli@0.14 collect --config=.lighthouserc.a11y.json
-          npx @lhci/cli@0.14 assert --config=.lighthouserc.a11y.json
-          mv .lighthouseci .lighthouseci-accessibility
+          rm -rf .lighthouseci-accessibility
+          cp -R .lighthouseci .lighthouseci-accessibility
+          npx @lhci/cli@0.14 assert --config=.lighthouserc.a11y.json || A11Y_STATUS=$?
+          rm -rf .lighthouseci
+
+          if [ "$PERF_STATUS" -ne 0 ] || [ "$A11Y_STATUS" -ne 0 ]; then
+            echo "Lighthouse assertions failed (performance=$PERF_STATUS, accessibility=$A11Y_STATUS). Diagnostics were preserved for artifact upload."
+            exit 1
+          fi
 
       - name: Monitor production cache behavior
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -122,6 +134,7 @@ jobs:
             reports/css-component-surface.json
             docs/performance/budgets-log.md
           retention-days: 30
+          include-hidden-files: true
 
       - name: Add workflow summary
         if: always()
