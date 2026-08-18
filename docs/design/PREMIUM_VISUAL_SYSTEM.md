@@ -1,5 +1,7 @@
 # The Hippie Scientist — Premium Visual System
 
+Tracking issue: #4070
+
 ## Direction
 
 The site should feel like a **botanical research journal crossed with a precision scientific instrument**: calm, authoritative, warm, legible, and materially refined without becoming decorative or luxurious at the expense of scientific credibility.
