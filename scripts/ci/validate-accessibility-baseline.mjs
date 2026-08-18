@@ -5,6 +5,7 @@ const files = {
   layout: 'app/layout.tsx',
   css: 'styles/accessibility-wcag-22.css',
   navigation: 'components/Navigation.tsx',
+  skipLink: 'components/localization/LocalizedSkipLink.tsx',
   evidenceLookup: 'app/evidence/evidence-checker/EvidenceLookupClient.tsx',
   atlas: 'src/components/atlas/BotanicalActivityAtlasClient.tsx',
 }
@@ -13,9 +14,18 @@ const source = Object.fromEntries(
   await Promise.all(Object.entries(files).map(async ([key, file]) => [key, await fs.readFile(file, 'utf8')])),
 )
 
+// The skip link moved out of the layout and into LocalizedSkipLink, which sets
+// `lang` so the label is announced in the page's language. This contract kept
+// grepping app/layout.tsx for the inline markup, so it reported a missing skip
+// link on every run while the built HTML has carried one the whole time.
+// Follow the link to wherever the layout renders it; if the layout stops
+// rendering the component, the check falls back to the layout and fails again -
+// which is the behaviour worth keeping.
+const skipLinkSource = /<LocalizedSkipLink\b/.test(source.layout) ? source.skipLink : source.layout
+
 const contracts = [
-  ['skip navigation link', source.layout.includes("href='#main-content'") && source.layout.includes("className='skip-link'")],
-  ['focusable main landmark target', source.layout.includes("id='main-content'") && source.layout.includes('tabIndex={-1}')],
+  ['skip navigation link', /href=['"]#main-content['"]/.test(skipLinkSource) && /className=['"]skip-link['"]/.test(skipLinkSource)],
+  ['focusable main landmark target', /id=['"]main-content['"]/.test(source.layout) && source.layout.includes('tabIndex={-1}')],
   ['primary navigation landmark', /aria-label=['"]Primary['"]/.test(source.navigation)],
   ['mobile navigation landmark', /aria-label=['"]Mobile primary links['"]/.test(source.navigation)],
   ['keyboard focus-visible rule', /:focus-visible/.test(source.css)],
