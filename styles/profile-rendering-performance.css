@@ -1,0 +1,46 @@
+/*
+ * Profile rendering performance
+ *
+ * This layer owns rendering containment only. It must not become a visual skin.
+ * Profile HTML remains server-rendered and crawlable; the browser may skip
+ * layout/paint work for stable deep sections until they approach the viewport.
+ */
+
+:is(
+  #editorial-review,
+  #safety,
+  #interactions,
+  #evidence,
+  #dosing,
+  #pathway,
+  #mechanisms,
+  #compounds,
+  #goals,
+  #conditions,
+  #related,
+  #compare
+) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 48rem;
+}
+
+/* Printing must lay out the full article immediately. */
+@media print {
+  :is(
+    #editorial-review,
+    #safety,
+    #interactions,
+    #evidence,
+    #dosing,
+    #pathway,
+    #mechanisms,
+    #compounds,
+    #goals,
+    #conditions,
+    #related,
+    #compare
+  ) {
+    content-visibility: visible;
+    contain-intrinsic-size: none;
+  }
+}
