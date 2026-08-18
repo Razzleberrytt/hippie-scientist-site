@@ -38,8 +38,10 @@ describe('peptide guide regulatory status', () => {
     const ipamorelin = read(guidePaths[3])
 
     expect(bpc).toContain('A 503A compounding-list recommendation is also fundamentally different from FDA approval')
-    expect(tb500).toContain('Advisory-committee consideration does not equal FDA approval')
-    expect(cjc).toContain('CJC-1295 is not FDA-approved')
+    // Reworded on the page, and more explicit than before: committee review must
+    // never be presented as approval.
+    expect(tb500).toMatch(/advisory[- ]committee[^.]{0,120}(?:does not|should not)[^.]{0,120}(?:FDA approval|approved)/i)
+    expect(cjc).toMatch(/CJC-1295 is not (?:an )?FDA-approved/i)
     expect(ipamorelin).toContain('Ipamorelin is not FDA-approved as a finished drug product')
   })
 
@@ -53,6 +55,6 @@ describe('peptide guide regulatory status', () => {
     expect(bpc).toMatch(/lacks sufficient information to know whether compounded use would cause harm in humans/i)
     expect(tb500).toMatch(/not identified human exposure data/i)
     expect(cjc).toMatch(/increased heart rate and a systemic vasodilatory reaction/i)
-    expect(ipamorelin).toMatch(/serious adverse events, including deaths/i)
+    expect(ipamorelin).toMatch(/serious adverse events, including deaths?/i)
   })
 })

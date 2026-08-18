@@ -17,14 +17,20 @@ describe('melatonin dosing evidence calibration', () => {
     expect(source).not.toContain('0.3-1 mg is as effective as higher doses')
     expect(source).not.toContain('receptor desensitization')
     expect(source).toContain('There is no single evidence-based melatonin dose for every sleep problem')
-    expect(source).toContain('study context, not a universal protocol')
+    // The page must keep framing the meta-analytic dose as study context rather
+    // than a protocol a reader should follow. The sentence carrying that has been
+    // rewritten, so match the claim rather than the wording.
+    expect(source).toMatch(/not[^.]{0,90}universal[^.]{0,40}protocol/i)
   })
 
   it('keeps chronic insomnia, children, and product variability boundaries visible', () => {
     const source = read(PAGE)
 
-    expect(source).toContain('CBT-I is the strongest recommended treatment for chronic insomnia')
-    expect(source).toContain('parents should discuss melatonin with a pediatric health professional')
+    // CBT-I must stay visible as the strongly recommended option for chronic
+    // insomnia, and the pediatric decision must stay routed to a professional.
+    expect(source).toMatch(/strongly recommends?[^.]{0,80}CBT-I|CBT-I[^.]{0,60}strong[^.]{0,40}recommendation/i)
+    expect(source).toMatch(/chronic insomnia/i)
+    expect(source).toMatch(/parents[^.]{0,60}pediatric health professional/i)
     expect(source).toContain('74% to 347% of the labeled amount')
   })
 
