@@ -1,6 +1,6 @@
 /* Canonical site chrome: navigation, locale rail, breadcrumbs, mobile drawer,
- * and footer. This layer owns shell-facing presentation; page content styles do
- * not need to know how the global chrome is rendered. */
+ * and footer. Components use canonical tokens directly; this layer adds only
+ * shared material treatment and shell-level composition. */
 
 /* Older templates sometimes render a second breadcrumb inside main. The root
  * shell already renders one on non-article routes, so suppress only duplicates. */
@@ -9,104 +9,82 @@
 }
 
 /* Primary header: quiet editorial hardware rather than another content card. */
-header > nav {
-  border-color: var(--border-soft) !important;
-  background: color-mix(in srgb, var(--surface-elevated) 91%, transparent) !important;
+.site-primary-nav {
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-elevated) 91%, transparent);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.56) inset,
     0 14px 34px -34px rgba(29, 29, 31, 0.38);
   backdrop-filter: blur(20px) saturate(112%);
 }
 
-html.dark header > nav {
-  background: color-mix(in srgb, #101214 91%, transparent) !important;
+html.dark .site-primary-nav {
+  background: color-mix(in srgb, #101214 91%, transparent);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.025) inset,
     0 18px 42px -34px rgba(0, 0, 0, 0.88);
 }
 
-header > nav a {
-  color: var(--text-secondary) !important;
-}
-
-header > nav a:hover,
-header > nav a[aria-current='page'],
-header > nav a[aria-label^='The Hippie Scientist'] {
-  color: var(--text-primary) !important;
-}
-
-header > nav a[aria-current='page']::after {
-  height: 1px !important;
-  background: var(--hs-gold) !important;
-}
-
-header > nav a[aria-label^='The Hippie Scientist'] {
+.site-primary-nav a[aria-label^='The Hippie Scientist'] {
+  color: var(--text-primary);
   font-family: var(--font-fraunces), Fraunces, Georgia, serif;
-  font-weight: 610 !important;
-  letter-spacing: -0.025em !important;
+  font-weight: 610;
+  letter-spacing: -0.025em;
 }
 
-header > nav a[aria-label^='The Hippie Scientist'] svg {
-  color: var(--hs-gold) !important;
+.site-primary-nav a[aria-label^='The Hippie Scientist'] svg {
+  color: var(--hs-gold);
 }
 
-header > nav button {
-  border-color: var(--border-soft) !important;
-  background: color-mix(in srgb, var(--surface-card) 91%, transparent) !important;
-  color: var(--text-primary) !important;
-  box-shadow: none !important;
+.site-primary-nav button {
+  border-color: var(--border-soft);
+  color: var(--text-primary);
 }
 
-header > nav button:hover {
-  border-color: color-mix(in srgb, var(--hs-gold) 38%, var(--border-soft)) !important;
-  background: var(--surface-card-strong) !important;
+.site-primary-nav button:hover {
+  border-color: color-mix(in srgb, var(--hs-gold) 38%, var(--border-soft));
 }
 
 /* Mega menus use one restrained material language across every nav group. */
-header > nav .group > div > div {
-  border-color: var(--border-soft) !important;
-  background: color-mix(in srgb, var(--surface-elevated) 97%, transparent) !important;
+.site-primary-nav .group > div > div {
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-elevated) 97%, transparent);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.52) inset,
-    0 24px 56px -34px rgba(29, 29, 31, 0.34) !important;
+    0 24px 56px -34px rgba(29, 29, 31, 0.34);
 }
 
-html.dark header > nav .group > div > div {
-  background: #1a1d1f !important;
+html.dark .site-primary-nav .group > div > div {
+  background: #1a1d1f;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.035) inset,
-    0 28px 64px -34px rgba(0, 0, 0, 0.78) !important;
+    0 28px 64px -34px rgba(0, 0, 0, 0.78);
 }
 
-header > nav .group > div > div > div {
-  background: color-mix(in srgb, var(--surface-subtle) 72%, transparent) !important;
+.site-primary-nav .group > div > div > div {
+  background: color-mix(in srgb, var(--surface-subtle) 72%, transparent);
 }
 
-header > nav .group > div > div a:hover,
-header > nav .group > div > div a:focus-visible {
-  background: color-mix(in srgb, var(--hs-gold-soft) 22%, var(--surface-card)) !important;
+.site-primary-nav .group > div > div a:hover,
+.site-primary-nav .group > div > div a:focus-visible {
+  background: color-mix(in srgb, var(--hs-gold-soft) 22%, var(--surface-card));
 }
 
 /* The language rail is secondary navigation, so it visually recedes rather than
  * reading as a second full header. */
-header > nav + div {
-  border-color: var(--border-soft) !important;
-  background: color-mix(in srgb, var(--surface-card-strong) 80%, transparent) !important;
+.locale-switcher-bar {
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-card-strong) 80%, transparent);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset;
   backdrop-filter: blur(14px);
 }
 
-html.dark header > nav + div {
-  background: color-mix(in srgb, #151719 88%, transparent) !important;
+html.dark .locale-switcher-bar {
+  background: color-mix(in srgb, #151719 88%, transparent);
 }
 
-header > nav + div a {
-  color: var(--text-secondary) !important;
-}
-
-header > nav + div a:hover {
-  background: color-mix(in srgb, var(--hs-gold-soft) 20%, transparent) !important;
-  color: var(--text-primary) !important;
+.locale-switcher-bar a:hover {
+  background: color-mix(in srgb, var(--hs-gold-soft) 20%, transparent);
 }
 
 /* Mobile drawer. */
@@ -116,71 +94,58 @@ header > nav + div a:hover {
 }
 
 #mobile-nav > div[aria-hidden='true'] {
-  background: rgba(6, 7, 8, 0.62) !important;
+  background: rgba(6, 7, 8, 0.62);
   backdrop-filter: blur(7px);
 }
 
 #mobile-nav [role='dialog'] {
-  border-color: var(--border-soft) !important;
-  background: var(--surface-elevated) !important;
-  box-shadow: -22px 0 62px rgba(0, 0, 0, 0.30) !important;
+  border-color: var(--border-soft);
+  background: var(--surface-elevated);
+  box-shadow: -22px 0 62px rgba(0, 0, 0, 0.30);
 }
 
 html.dark #mobile-nav [role='dialog'] {
-  background: #151719 !important;
-  box-shadow: -24px 0 72px rgba(0, 0, 0, 0.74) !important;
-}
-
-#mobile-nav a {
-  color: var(--text-secondary) !important;
-}
-
-#mobile-nav a:hover,
-#mobile-nav a[aria-current='page'] {
-  color: var(--text-primary) !important;
+  background: #151719;
+  box-shadow: -24px 0 72px rgba(0, 0, 0, 0.74);
 }
 
 #mobile-nav a[aria-current='page'] {
-  border-color: color-mix(in srgb, var(--hs-gold) 25%, transparent) !important;
-  background: color-mix(in srgb, var(--hs-gold-soft) 28%, var(--surface-card)) !important;
-  box-shadow: none !important;
-}
-
-#mobile-nav nav > div:last-child {
-  border-color: var(--border-soft) !important;
-  background: var(--surface-subtle) !important;
+  border-color: color-mix(in srgb, var(--hs-gold) 25%, transparent);
+  background: color-mix(in srgb, var(--hs-gold-soft) 28%, var(--surface-card));
+  color: var(--text-primary);
+  box-shadow: none;
 }
 
 /* Footer: a deliberate quiet ending with the same paper/brass material system. */
 .editorial-footer {
   position: relative;
   overflow: hidden;
-  border-color: var(--border-soft) !important;
+  border-color: var(--border-soft);
   background:
     radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--hs-gold-soft) 18%, transparent), transparent 34%),
-    linear-gradient(180deg, color-mix(in srgb, var(--surface-card) 45%, transparent), transparent 72%) !important;
-  color: var(--text-primary) !important;
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card) 45%, transparent), transparent 72%);
+  color: var(--text-primary);
 }
 
 .dark .editorial-footer {
   background:
     radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--hs-gold) 7%, transparent), transparent 36%),
-    linear-gradient(180deg, rgba(28, 31, 33, 0.28), transparent 72%) !important;
+    linear-gradient(180deg, rgba(28, 31, 33, 0.28), transparent 72%);
 }
 
 .editorial-footer .editorial-icon-disc {
-  border-color: color-mix(in srgb, var(--hs-gold) 24%, var(--border-soft)) !important;
-  background: color-mix(in srgb, var(--hs-gold-soft) 24%, var(--surface-card)) !important;
-  box-shadow: none !important;
+  border-color: color-mix(in srgb, var(--hs-gold) 24%, var(--border-soft));
+  background: color-mix(in srgb, var(--hs-gold-soft) 24%, var(--surface-card));
+  box-shadow: none;
 }
 
 .editorial-footer .editorial-eyebrow {
-  color: var(--hs-gold-ink) !important;
-  letter-spacing: 0.14em !important;
+  color: var(--hs-gold-ink);
+  letter-spacing: 0.14em;
 }
 
 .dark .editorial-footer .editorial-eyebrow {
-  color: var(--hs-gold-bright) !important;
+  color: var(--hs-gold-bright);
 }
 
 .editorial-footer a,
@@ -190,12 +155,12 @@ html.dark #mobile-nav [role='dialog'] {
 
 .editorial-footer a:hover,
 .editorial-footer button:hover {
-  color: var(--hs-ink) !important;
+  color: var(--hs-ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  header > nav,
-  header > nav *,
+  .site-primary-nav,
+  .site-primary-nav *,
   #mobile-nav *,
   .editorial-footer * {
     transition: none !important;
