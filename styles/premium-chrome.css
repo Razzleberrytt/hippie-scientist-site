@@ -1,0 +1,203 @@
+/* Canonical site chrome: navigation, locale rail, breadcrumbs, mobile drawer,
+ * and footer. This layer owns shell-facing presentation; page content styles do
+ * not need to know how the global chrome is rendered. */
+
+/* Older templates sometimes render a second breadcrumb inside main. The root
+ * shell already renders one on non-article routes, so suppress only duplicates. */
+[data-global-breadcrumb] ~ main nav[aria-label='Breadcrumb'] {
+  display: none;
+}
+
+/* Primary header: quiet editorial hardware rather than another content card. */
+header > nav {
+  border-color: var(--border-soft) !important;
+  background: color-mix(in srgb, var(--surface-elevated) 91%, transparent) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.56) inset,
+    0 14px 34px -34px rgba(29, 29, 31, 0.38);
+  backdrop-filter: blur(20px) saturate(112%);
+}
+
+html.dark header > nav {
+  background: color-mix(in srgb, #101214 91%, transparent) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.025) inset,
+    0 18px 42px -34px rgba(0, 0, 0, 0.88);
+}
+
+header > nav a {
+  color: var(--text-secondary) !important;
+}
+
+header > nav a:hover,
+header > nav a[aria-current='page'],
+header > nav a[aria-label^='The Hippie Scientist'] {
+  color: var(--text-primary) !important;
+}
+
+header > nav a[aria-current='page']::after {
+  height: 1px !important;
+  background: var(--hs-gold) !important;
+}
+
+header > nav a[aria-label^='The Hippie Scientist'] {
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-weight: 610 !important;
+  letter-spacing: -0.025em !important;
+}
+
+header > nav a[aria-label^='The Hippie Scientist'] svg {
+  color: var(--hs-gold) !important;
+}
+
+header > nav button {
+  border-color: var(--border-soft) !important;
+  background: color-mix(in srgb, var(--surface-card) 91%, transparent) !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
+}
+
+header > nav button:hover {
+  border-color: color-mix(in srgb, var(--hs-gold) 38%, var(--border-soft)) !important;
+  background: var(--surface-card-strong) !important;
+}
+
+/* Mega menus use one restrained material language across every nav group. */
+header > nav .group > div > div {
+  border-color: var(--border-soft) !important;
+  background: color-mix(in srgb, var(--surface-elevated) 97%, transparent) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.52) inset,
+    0 24px 56px -34px rgba(29, 29, 31, 0.34) !important;
+}
+
+html.dark header > nav .group > div > div {
+  background: #1a1d1f !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.035) inset,
+    0 28px 64px -34px rgba(0, 0, 0, 0.78) !important;
+}
+
+header > nav .group > div > div > div {
+  background: color-mix(in srgb, var(--surface-subtle) 72%, transparent) !important;
+}
+
+header > nav .group > div > div a:hover,
+header > nav .group > div > div a:focus-visible {
+  background: color-mix(in srgb, var(--hs-gold-soft) 22%, var(--surface-card)) !important;
+}
+
+/* The language rail is secondary navigation, so it visually recedes rather than
+ * reading as a second full header. */
+header > nav + div {
+  border-color: var(--border-soft) !important;
+  background: color-mix(in srgb, var(--surface-card-strong) 80%, transparent) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset;
+  backdrop-filter: blur(14px);
+}
+
+html.dark header > nav + div {
+  background: color-mix(in srgb, #151719 88%, transparent) !important;
+}
+
+header > nav + div a {
+  color: var(--text-secondary) !important;
+}
+
+header > nav + div a:hover {
+  background: color-mix(in srgb, var(--hs-gold-soft) 20%, transparent) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Mobile drawer. */
+#mobile-nav [role='dialog'][aria-label='Mobile navigation menu'] {
+  padding-top: max(1.5rem, env(safe-area-inset-top));
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
+
+#mobile-nav > div[aria-hidden='true'] {
+  background: rgba(6, 7, 8, 0.62) !important;
+  backdrop-filter: blur(7px);
+}
+
+#mobile-nav [role='dialog'] {
+  border-color: var(--border-soft) !important;
+  background: var(--surface-elevated) !important;
+  box-shadow: -22px 0 62px rgba(0, 0, 0, 0.30) !important;
+}
+
+html.dark #mobile-nav [role='dialog'] {
+  background: #151719 !important;
+  box-shadow: -24px 0 72px rgba(0, 0, 0, 0.74) !important;
+}
+
+#mobile-nav a {
+  color: var(--text-secondary) !important;
+}
+
+#mobile-nav a:hover,
+#mobile-nav a[aria-current='page'] {
+  color: var(--text-primary) !important;
+}
+
+#mobile-nav a[aria-current='page'] {
+  border-color: color-mix(in srgb, var(--hs-gold) 25%, transparent) !important;
+  background: color-mix(in srgb, var(--hs-gold-soft) 28%, var(--surface-card)) !important;
+  box-shadow: none !important;
+}
+
+#mobile-nav nav > div:last-child {
+  border-color: var(--border-soft) !important;
+  background: var(--surface-subtle) !important;
+}
+
+/* Footer: a deliberate quiet ending with the same paper/brass material system. */
+.editorial-footer {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--border-soft) !important;
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--hs-gold-soft) 18%, transparent), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card) 45%, transparent), transparent 72%) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .editorial-footer {
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--hs-gold) 7%, transparent), transparent 36%),
+    linear-gradient(180deg, rgba(28, 31, 33, 0.28), transparent 72%) !important;
+}
+
+.editorial-footer .editorial-icon-disc {
+  border-color: color-mix(in srgb, var(--hs-gold) 24%, var(--border-soft)) !important;
+  background: color-mix(in srgb, var(--hs-gold-soft) 24%, var(--surface-card)) !important;
+  box-shadow: none !important;
+}
+
+.editorial-footer .editorial-eyebrow {
+  color: var(--hs-gold-ink) !important;
+  letter-spacing: 0.14em !important;
+}
+
+.dark .editorial-footer .editorial-eyebrow {
+  color: var(--hs-gold-bright) !important;
+}
+
+.editorial-footer a,
+.editorial-footer button {
+  text-underline-offset: 0.2em;
+}
+
+.editorial-footer a:hover,
+.editorial-footer button:hover {
+  color: var(--hs-ink) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header > nav,
+  header > nav *,
+  #mobile-nav *,
+  .editorial-footer * {
+    transition: none !important;
+  }
+}
