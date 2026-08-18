@@ -24,7 +24,10 @@ export default async function EvidenceReport2026Page() {
     return (
       <main className='container-page space-y-6 py-10'>
         <p className='eyebrow-label'>Permanent archive · {edition.year}</p>
-        <h1 className='text-4xl font-semibold tracking-tight text-ink'>{edition.title}</h1>
+        {/* The live report at /evidence/evidence-report/ carries the same title, so
+            the archived edition says so in its heading as well as its <title>.
+            Two indexable pages sharing one H1 reads as duplicate content. */}
+        <h1 className='text-4xl font-semibold tracking-tight text-ink'>{edition.title} — Archived Edition</h1>
         <div className='rounded-2xl border border-amber-900/15 bg-amber-50/70 p-6 text-sm leading-7 text-amber-950'>
           This annual edition is pinned to dataset <strong>{edition.datasetVersion}</strong>. The active dataset is now <strong>{dataset.datasetVersion}</strong>, so this route refuses to substitute newer calculations for the historical edition. This fail-closed guard prevents a later rebuild from silently rewriting the 2026 report.
         </div>
