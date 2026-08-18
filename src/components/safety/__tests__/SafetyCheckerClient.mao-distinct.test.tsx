@@ -30,7 +30,7 @@ const compounds: SafetyToolItem[] = [
 ]
 
 function addIngredient(name: string) {
-  const input = screen.getByPlaceholderText(/Type herb or compound/i)
+  const input = screen.getByLabelText(/Add an herb, supplement, or compound/i)
   fireEvent.focus(input)
   fireEvent.change(input, { target: { value: name } })
   fireEvent.click(screen.getByText(name))
@@ -42,9 +42,12 @@ describe('SafetyCheckerClient MAO overlap requires a distinct selection', () => 
 
     addIngredient('Rhodiola Rosea')
 
-    expect(screen.queryByText(/MAO-related mechanism flag/i)).not.toBeInTheDocument()
-    expect(screen.getByText(/No rule-based overlap flags found/i)).toBeInTheDocument()
-    expect(screen.getByText(/Screening: No rule flags/i)).toBeInTheDocument()
+    // One MAOI-tagged supplement must not satisfy both sides of its own overlap
+    // rule. Screening does not begin until a second item is present, so no flag
+    // can be manufactured from a single selection.
+    expect(screen.queryByText(/Serotonergic overlap/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Screening result/i)).not.toBeInTheDocument()
+    expect(screen.getByText(/Add at least two ingredients\/classes/i)).toBeInTheDocument()
   })
 
   it('still flags a MAO-related supplement when a different selected item has a serotonergic signal', () => {
@@ -53,8 +56,9 @@ describe('SafetyCheckerClient MAO overlap requires a distinct selection', () => 
     addIngredient('Rhodiola Rosea')
     addIngredient('Kanna Extract')
 
-    expect(screen.getByText(/MAO-related mechanism flag/i)).toBeInTheDocument()
-    expect(screen.getByText(/alongside another serotonergic or stimulant signal/i)).toBeInTheDocument()
-    expect(screen.getByText(/Screening: Caution flags/i)).toBeInTheDocument()
+    // A second, genuinely distinct serotonergic item does produce the flag.
+    expect(screen.getByText(/Serotonergic overlap/i)).toBeInTheDocument()
+    expect(screen.getByText(/share a serotonergic safety, interaction, or mechanism signal/i)).toBeInTheDocument()
+    expect(screen.getByText(/does not by itself prove a clinical interaction/i)).toBeInTheDocument()
   })
 })

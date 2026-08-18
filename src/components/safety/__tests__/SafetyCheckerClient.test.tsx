@@ -54,15 +54,17 @@ describe('SafetyCheckerClient', () => {
   it('renders default empty state and compact disclaimer', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    expect(screen.getByText(/Search Ingredients/i)).toBeInTheDocument()
-    expect(screen.getByText(/Add items/i)).toBeInTheDocument()
-    expect(screen.getByText(/Educational safety screen only/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/Add an herb, supplement, or compound/i)).toBeInTheDocument()
+    // Medication classes are broad educational buckets, and the tool has to keep
+    // saying so rather than implying a drug-level interaction database.
+    expect(screen.getByText(/not a medication-specific interaction database/i)).toBeInTheDocument()
+    expect(screen.getByText(/Add at least two ingredients\/classes/i)).toBeInTheDocument()
   })
 
   it('keeps interactions available on first render', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    const input = screen.getByLabelText(/Add an herb, supplement, or compound/i)
     expect(input).not.toBeDisabled()
 
     const ssriBtn = screen.getByRole('button', { name: /SSRI \/ SNRI Antidepressants/i })
@@ -72,7 +74,7 @@ describe('SafetyCheckerClient', () => {
   it('flags sedative overlap without presenting it as a diagnosis', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    const input = screen.getByLabelText(/Add an herb, supplement, or compound/i)
     fireEvent.focus(input)
     fireEvent.change(input, { target: { value: 'Kava' } })
     fireEvent.click(screen.getByText('Kava'))
@@ -80,15 +82,16 @@ describe('SafetyCheckerClient', () => {
     fireEvent.change(input, { target: { value: 'Valerian' } })
     fireEvent.click(screen.getByText('Valerian Root'))
 
-    expect(screen.getByText(/Sedation-related overlap/i)).toBeInTheDocument()
-    expect(screen.getByText(/Additive drowsiness or impairment may be possible/i)).toBeInTheDocument()
-    expect(screen.getByText(/Screening: Caution flags/i)).toBeInTheDocument()
+    expect(screen.getByText(/Sedation overlap/i)).toBeInTheDocument()
+    expect(screen.getByText(/share a sedation safety, interaction, or mechanism signal/i)).toBeInTheDocument()
+    // A flag is a signal, not a diagnosis, and the card must keep saying so.
+    expect(screen.getByText(/does not by itself prove a clinical interaction/i)).toBeInTheDocument()
   })
 
   it('keeps supplement-only MAO mechanism matches as caution flags', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    const input = screen.getByLabelText(/Add an herb, supplement, or compound/i)
     fireEvent.focus(input)
     fireEvent.change(input, { target: { value: 'Rhodiola' } })
     fireEvent.click(screen.getByText('Rhodiola Rosea'))
@@ -96,70 +99,83 @@ describe('SafetyCheckerClient', () => {
     fireEvent.change(input, { target: { value: 'Kanna' } })
     fireEvent.click(screen.getByText('Kanna Extract'))
 
-    expect(screen.getByText(/MAO-related mechanism flag/i)).toBeInTheDocument()
-    expect(screen.getByText(/not equivalent to a prescription MAOI contraindication/i)).toBeInTheDocument()
-    expect(screen.getByText(/Screening: Caution flags/i)).toBeInTheDocument()
+    // Supplement-only signals are reported as an overlap between ingredients.
+    // They must not borrow prescription-MAOI severity language.
+    expect(screen.getByText('Serotonergic overlap')).toBeInTheDocument()
+    expect(screen.queryByText(/with medication class/i)).not.toBeInTheDocument()
+    expect(screen.getByText(/does not by itself prove a clinical interaction/i)).toBeInTheDocument()
     expect(screen.queryByText(/fatal hypertensive/i)).not.toBeInTheDocument()
   })
 
   it('clears list when clear button is clicked', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    const input = screen.getByLabelText(/Add an herb, supplement, or compound/i)
     fireEvent.focus(input)
     fireEvent.change(input, { target: { value: 'Kava' } })
     fireEvent.click(screen.getByText('Kava'))
 
-    expect(screen.getByText(/Selected List \(1\)/i)).toBeInTheDocument()
+    expect(screen.getByText(/1 selected item/i)).toBeInTheDocument()
 
-    fireEvent.click(screen.getByText(/Clear All/i))
-    expect(screen.getByText(/No items selected/i)).toBeInTheDocument()
+    fireEvent.click(screen.getByText(/Clear all/i))
+    expect(screen.getByText(/Add at least two ingredients\/classes/i)).toBeInTheDocument()
   })
 
   it('uses a high-priority flag for an SSRI class plus a serotonergic supplement signal', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    const input = screen.getByLabelText(/Add an herb, supplement, or compound/i)
     fireEvent.focus(input)
     fireEvent.change(input, { target: { value: 'Kanna' } })
     fireEvent.click(screen.getByText('Kanna Extract'))
 
     fireEvent.click(screen.getByRole('button', { name: /SSRI \/ SNRI Antidepressants/i }))
 
-    expect(screen.getByText(/Serotonergic overlap — medication review advised/i)).toBeInTheDocument()
-    expect(screen.getByText(/mechanism flag alone cannot quantify that risk/i)).toBeInTheDocument()
-    expect(screen.getByText(/Screening: High-priority flags/i)).toBeInTheDocument()
+    // Adding a prescription class must be visible in the flag itself, so a
+    // medication overlap cannot read like a supplement-only one.
+    expect(screen.getByText(/Serotonergic overlap with medication class/i)).toBeInTheDocument()
+    expect(screen.getByText(/SSRI \/ SNRI antidepressants \(medication class\)/i)).toBeInTheDocument()
+    expect(screen.getByText(/does not by itself prove a clinical interaction/i)).toBeInTheDocument()
   })
 
   it('action buttons and search are immediately available with disclaimer visible', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    expect(screen.getByPlaceholderText(/Type herb or compound/i)).not.toBeDisabled()
+    expect(screen.getByLabelText(/Add an herb, supplement, or compound/i)).not.toBeDisabled()
     expect(screen.getByRole('button', { name: /SSRI \/ SNRI Antidepressants/i })).not.toBeDisabled()
     expect(screen.getByRole('button', { name: /MAO Inhibitors \(MAOIs\)/i })).not.toBeDisabled()
-    expect(screen.getByRole('button', { name: /Blood Thinners \/ Anticoagulants/i })).not.toBeDisabled()
+    expect(screen.getByRole('button', { name: /Anticoagulants \/ antiplatelets/i })).not.toBeDisabled()
   })
 
-  it('compact disclaimer says both flags and no-flags have limits', () => {
+  it('says an empty result is not evidence of safety', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    expect(screen.getByText(/Educational safety screen only/i)).toBeInTheDocument()
-    expect(screen.getByText(/no flag is not proof that a combination is safe/i)).toBeInTheDocument()
+    const input = screen.getByLabelText(/Add an herb, supplement, or compound/i)
+    fireEvent.focus(input)
+    fireEvent.change(input, { target: { value: 'Caffeine' } })
+    fireEvent.click(screen.getByText('Caffeine'))
+    fireEvent.change(input, { target: { value: 'Valerian' } })
+    fireEvent.click(screen.getByText('Valerian Root'))
+
+    // The dangerous reading of this tool is 'nothing flagged, therefore safe'.
+    // Whatever the wording, a clean screen has to say what it does not mean.
+    expect(screen.getByText(/No documented overlap found/i)).toBeInTheDocument()
+    expect(screen.getByText(/does not mean/i)).toBeInTheDocument()
     expect(screen.queryByRole('checkbox')).not.toBeInTheDocument()
   })
 
   it('uses a high-priority flag when an MAOI medication class overlaps a serotonergic supplement signal', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    const input = screen.getByLabelText(/Add an herb, supplement, or compound/i)
     fireEvent.focus(input)
     fireEvent.change(input, { target: { value: 'Kanna' } })
     fireEvent.click(screen.getByText('Kanna Extract'))
 
     fireEvent.click(screen.getByRole('button', { name: /MAO Inhibitors \(MAOIs\)/i }))
 
-    expect(screen.getByText(/MAOI medication overlap — pharmacist review advised/i)).toBeInTheDocument()
-    expect(screen.getByText(/Do not use this screen as clearance/i)).toBeInTheDocument()
-    expect(screen.getByText(/Screening: High-priority flags/i)).toBeInTheDocument()
+    expect(screen.getByText(/overlap with medication class/i)).toBeInTheDocument()
+    expect(screen.getByText(/MAO inhibitors \(MAOIs\) \(medication class\)/i)).toBeInTheDocument()
+    expect(screen.getByText(/does not by itself prove a clinical interaction/i)).toBeInTheDocument()
   })
 })
