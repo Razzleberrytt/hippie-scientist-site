@@ -6,8 +6,9 @@
  * deterministic and collision-free.
  *
  * Default mode scans all raster images for the manual `npm run build:images`
- * workflow. Production uses `--monograph-registry` so we generate only the
- * images referenced by the canonical monograph image registry.
+ * workflow. Production uses `--monograph-registry`, which derives the required
+ * image set from the canonical featured-image registry plus explicit local image
+ * overrides in the built monograph runtime data.
  *
  * Usage:
  *   node scripts/optimize-images.mjs
@@ -27,23 +28,17 @@ const repoRoot = path.join(__dirname, '..')
 const INPUT_DIR = path.join(repoRoot, 'public', 'images')
 const OUTPUT_DIR = path.join(INPUT_DIR, 'optimized')
 const MONOGRAPH_REGISTRY = path.join(repoRoot, 'lib', 'monograph-images.ts')
+const RUNTIME_DATA_DIR = path.join(repoRoot, 'public', 'data')
 const WIDTHS = [400, 800, 1200]
 const QUALITY = 85
 const SUPPORTED_EXTS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.avif', '.tif', '.tiff', '.webp'])
+const EXPLICIT_IMAGE_FIELDS = new Set(['image', 'imageUrl', 'og', 'thumbnail'])
+const LOCAL_RASTER_RE = /^\/images\/(?!optimized\/)(.+)\.(jpe?g|png|gif|avif|tiff?|webp)$/i
 const registryOnly = process.argv.includes('--monograph-registry')
 
-async function dirExists(dirPath) {
+async function pathExists(targetPath) {
   try {
-    await access(dirPath)
-    return true
-  } catch {
-    return false
-  }
-}
-
-async function fileExists(filePath) {
-  try {
-    await access(filePath)
+    await access(targetPath)
     return true
   } catch {
     return false
@@ -74,36 +69,105 @@ async function getImageFiles(dir) {
   return files
 }
 
-async function getMonographRegistryImageFiles() {
-  const source = await readFile(MONOGRAPH_REGISTRY, 'utf8')
-  const srcPattern = /\bsrc:\s*['"](\/images\/[^'"]+\.(?:jpe?g|png|gif|avif|tiff?|webp))['"]/gi
-  const imagePaths = new Set()
+async function getJsonFiles(dir) {
+  let entries
+  try {
+    entries = await readdir(dir, { withFileTypes: true })
+  } catch {
+    return []
+  }
 
-  for (const match of source.matchAll(srcPattern)) {
-    const publicPath = match[1]
+  const files = []
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name)
+    if (entry.isDirectory()) files.push(...await getJsonFiles(fullPath))
+    else if (entry.isFile() && entry.name.endsWith('.json')) files.push(fullPath)
+  }
+  return files
+}
+
+function collectExplicitLocalRasterPaths(value, output) {
+  if (!value || typeof value !== 'object') return
+
+  if (Array.isArray(value)) {
+    for (const item of value) collectExplicitLocalRasterPaths(item, output)
+    return
+  }
+
+  for (const [key, child] of Object.entries(value)) {
+    if (EXPLICIT_IMAGE_FIELDS.has(key) && typeof child === 'string' && LOCAL_RASTER_RE.test(child.trim())) {
+      output.add(child.trim())
+    }
+    if (child && typeof child === 'object') collectExplicitLocalRasterPaths(child, output)
+  }
+}
+
+async function collectRuntimeExplicitImagePaths() {
+  const paths = new Set()
+  const files = [
+    path.join(RUNTIME_DATA_DIR, 'herbs.json'),
+    path.join(RUNTIME_DATA_DIR, 'compounds.json'),
+    ...await getJsonFiles(path.join(RUNTIME_DATA_DIR, 'herbs-detail')),
+    ...await getJsonFiles(path.join(RUNTIME_DATA_DIR, 'compounds-detail')),
+  ]
+
+  for (const filePath of files) {
+    if (!(await pathExists(filePath))) continue
+    try {
+      const parsed = JSON.parse(await readFile(filePath, 'utf8'))
+      collectExplicitLocalRasterPaths(parsed, paths)
+    } catch (err) {
+      throw new Error(`Unable to inspect monograph image fields in ${path.relative(repoRoot, filePath)}: ${err.message}`)
+    }
+  }
+
+  return paths
+}
+
+async function resolveLocalImagePaths(publicPaths) {
+  const imagePaths = new Set()
+  const missing = []
+  const inputRoot = path.resolve(INPUT_DIR)
+
+  for (const publicPath of publicPaths) {
+    if (!LOCAL_RASTER_RE.test(publicPath)) continue
     const inputPath = path.join(repoRoot, 'public', publicPath.replace(/^\//, ''))
     const resolved = path.resolve(inputPath)
 
-    if (!resolved.startsWith(`${path.resolve(INPUT_DIR)}${path.sep}`)) {
-      throw new Error(`Registry image resolved outside public/images: ${publicPath}`)
+    if (!resolved.startsWith(`${inputRoot}${path.sep}`)) {
+      throw new Error(`Monograph image resolved outside public/images: ${publicPath}`)
     }
-    if (!SUPPORTED_EXTS.has(path.extname(inputPath).toLowerCase())) continue
+    if (!(await pathExists(inputPath))) {
+      missing.push(publicPath)
+      continue
+    }
     imagePaths.add(inputPath)
   }
 
-  if (imagePaths.size === 0) {
-    throw new Error(`No local raster image sources found in ${path.relative(repoRoot, MONOGRAPH_REGISTRY)}`)
-  }
-
-  const missing = []
-  for (const inputPath of imagePaths) {
-    if (!(await fileExists(inputPath))) missing.push(path.relative(repoRoot, inputPath))
-  }
   if (missing.length) {
-    throw new Error(`Monograph registry references missing local image(s): ${missing.join(', ')}`)
+    throw new Error(`Monograph data references missing local raster image(s): ${missing.join(', ')}`)
   }
 
   return [...imagePaths].sort()
+}
+
+async function getMonographRegistryImageFiles() {
+  const source = await readFile(MONOGRAPH_REGISTRY, 'utf8')
+  const literalPattern = /['"](\/images\/(?!optimized\/)[^'"]+\.(?:jpe?g|png|gif|avif|tiff?|webp))['"]/gi
+  const publicPaths = new Set()
+
+  for (const match of source.matchAll(literalPattern)) {
+    publicPaths.add(match[1])
+  }
+
+  const explicitRuntimePaths = await collectRuntimeExplicitImagePaths()
+  for (const publicPath of explicitRuntimePaths) publicPaths.add(publicPath)
+
+  if (publicPaths.size === 0) {
+    throw new Error('No local raster monograph image sources were discovered from the registry/runtime data')
+  }
+
+  return resolveLocalImagePaths(publicPaths)
 }
 
 async function optimizeImage(sharp, inputPath) {
@@ -134,7 +198,7 @@ async function optimizeImage(sharp, inputPath) {
 async function main() {
   const start = performance.now()
 
-  if (!(await dirExists(INPUT_DIR))) {
+  if (!(await pathExists(INPUT_DIR))) {
     console.log('[optimize-images] public/images/ not found — skipping (no images to optimize).')
     return
   }
@@ -182,7 +246,7 @@ async function main() {
   }
 
   const elapsed = ((performance.now() - start) / 1000).toFixed(2)
-  const scope = registryOnly ? 'monograph-registry' : 'all-images'
+  const scope = registryOnly ? 'monograph-sources' : 'all-images'
   console.log(`[optimize-images] Done (${scope}). ${files.length} source image(s) → ${totalGenerated} WebP output(s) in ${elapsed}s.`)
 }
 
