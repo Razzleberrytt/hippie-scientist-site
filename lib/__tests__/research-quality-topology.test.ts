@@ -44,11 +44,45 @@ function claim(overrides: Partial<ClaimQualityAnalysis> & Pick<ClaimQualityAnaly
   }
 }
 
+/**
+ * A local study id only becomes one cross-profile publication when the sources
+ * behind it carry a shared identifier; identifier-less rows deliberately stay
+ * profile-local so two pages cannot merge unrelated studies that happen to use
+ * the same local id. Giving every fixture study a stable PMID is what makes
+ * `global` in three profiles genuinely the same publication rather than three.
+ */
+const FIXTURE_PMIDS = new Map<string, string>()
+
+function fixturePmid(localStudyId: string): string {
+  const existing = FIXTURE_PMIDS.get(localStudyId)
+  if (existing) return existing
+  const pmid = String(30000000 + FIXTURE_PMIDS.size)
+  FIXTURE_PMIDS.set(localStudyId, pmid)
+  return pmid
+}
+
+function studyIdentity(localStudyId: string): string {
+  return `pmid:${fixturePmid(localStudyId)}`
+}
+
 function analysis(claims: ClaimQualityAnalysis[]): ResearchQualityAnalysis {
   const urls = [...new Set(claims.map((item) => item.url))]
   return {
     cache: {},
-    profiles: [],
+    profiles: urls.map((url) => ({
+      url,
+      record: {
+        slug: url.split('/').filter(Boolean).pop() ?? 'example',
+        // Claims cite canonical study identities, so a `pmid:` identity needs a
+        // source carrying that PMID for the cross-profile map to resolve it.
+        // Identifier-less ids stay profile-local, which is the intended rule.
+        sources: [...new Set(claims.filter((item) => item.url === url).flatMap((item) => item.studyIds))]
+          .map((studyId) => {
+            const pmid = studyId.startsWith('pmid:') ? studyId.slice('pmid:'.length) : null
+            return pmid ? { id: studyId, pmid } : { id: studyId }
+          }),
+      },
+    })) as ResearchQualityAnalysis['profiles'],
     claimAnalyses: claims,
     structuredClaimAnalyses: claims,
     profileAnalyses: urls.map((url) => ({
@@ -125,15 +159,15 @@ describe('research evidence topology contracts', () => {
 
   it('marks a study systemic when it supports five approved claims across three profiles', () => {
     const input = analysis([
-      claim({ url: '/herbs/a/', claimId: 'a1', studyIds: ['global'] }),
-      claim({ url: '/herbs/a/', claimId: 'a2', studyIds: ['global'] }),
-      claim({ url: '/herbs/b/', claimId: 'b1', studyIds: ['global'] }),
-      claim({ url: '/herbs/b/', claimId: 'b2', studyIds: ['global'] }),
-      claim({ url: '/herbs/c/', claimId: 'c1', studyIds: ['global'] }),
+      claim({ url: '/herbs/a/', claimId: 'a1', studyIds: [studyIdentity('global')] }),
+      claim({ url: '/herbs/a/', claimId: 'a2', studyIds: [studyIdentity('global')] }),
+      claim({ url: '/herbs/b/', claimId: 'b1', studyIds: [studyIdentity('global')] }),
+      claim({ url: '/herbs/b/', claimId: 'b2', studyIds: [studyIdentity('global')] }),
+      claim({ url: '/herbs/c/', claimId: 'c1', studyIds: [studyIdentity('global')] }),
     ])
 
     expect(analyzeCrossProfileStudyLoad(input)[0]).toMatchObject({
-      studyId: 'global',
+      studyId: studyIdentity('global'),
       approvedClaimCount: 5,
       profileCount: 3,
       systemicLoadBearing: true,

@@ -8,6 +8,15 @@ import { analyzeUnderlyingStudyIndependence } from '@/lib/research-underlying-st
 describe('underlying-study inventory bridge nodes', () => {
   it('uses an unmapped publication to prove transitive dependence without counting it as claim support', () => {
     const analysis = {
+      cache: {},
+      // The profile's own study inventory. Independence analysis walks it to
+      // build the union-find over publications, so omitting it threw before any
+      // assertion ran. `b` is present here but cited by no claim - it is the
+      // unmapped bridge this test is about.
+      profiles: [{
+        url: '/herbs/example/',
+        record: { slug: 'example', sources: [{ id: 'a' }, { id: 'b' }, { id: 'c' }] },
+      }],
       profileAnalyses: [{ url: '/herbs/example/', overDependentOnSingleStudy: false }],
       claimAnalyses: [{
         url: '/herbs/example/',

@@ -38,7 +38,7 @@ function list(value: unknown): unknown[] {
   return value ? [value] : []
 }
 
-function evidenceText(record: RuntimeRecord): string {
+export function evidenceText(record: RuntimeRecord): string {
   return [
     readPath(record, ['safety', 'confidence']),
     readPath(record, ['safety', 'evidenceTier']),

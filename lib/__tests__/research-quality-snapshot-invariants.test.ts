@@ -90,6 +90,24 @@ function fixtures() {
         collapsedPrimaryHumanPublicationCount: 0,
         overDependentProfiles: 0,
         newlyOverDependentProfiles: 0,
+        profilesWithIncompletePrimaryHumanIndependenceMetadata: 0,
+        // Global inventory counters. The snapshot validator compares each of
+        // these against a value it recomputes, so leaving them off reported a
+        // dozen `summary=undefined` mismatches rather than the invariant each
+        // case is written to exercise. Coverage ratios are 1 when there is
+        // nothing to cover, matching the validator's own empty-set fallback.
+        globalInventoryPublicationCount: 0,
+        globalInventoryUnderlyingStudyCount: 0,
+        globalCollapsedInventoryPublicationCount: 0,
+        globalInventoryPublicationsWithIndependenceMetadata: 0,
+        globalInventoryPublicationsWithoutIndependenceMetadata: 0,
+        globalInventoryIndependenceMetadataCoverage: 1,
+        globalPrimaryHumanPublicationCount: 0,
+        globalPrimaryHumanUnderlyingStudyCount: 0,
+        globalCollapsedPrimaryHumanPublicationCount: 0,
+        globalPrimaryHumanPublicationsWithIndependenceMetadata: 0,
+        globalPrimaryHumanPublicationsWithoutIndependenceMetadata: 0,
+        globalPrimaryHumanIndependenceMetadataCoverage: 1,
       },
       claims: [],
       reducedClaims: [],

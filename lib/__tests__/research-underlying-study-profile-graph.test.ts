@@ -34,16 +34,33 @@ function claim(claimId: string, studyIds: string[]) {
   }
 }
 
+/**
+ * An identifier-less source is identified profile-locally as `source-ref:<id>`
+ * (canonicalStudyIdentityMap), so the claim graph, registry and lineage rows
+ * have to speak in the same identities as the record inventory. Using bare
+ * 'a'/'b'/'c' left the inventory collapse invisible and reported zero reduced
+ * profiles while the claim graph clearly collapsed two publications into one.
+ */
+const STUDY = { a: 'source-ref:a', b: 'source-ref:b', c: 'source-ref:c' } as const
+
 describe('profile-wide underlying study graph', () => {
   it('combines registry and cohort relations across claims and exposes false diversification', () => {
     const claims = [
-      claim('claim-ac', ['a', 'c']),
-      claim('claim-b', ['b']),
-      claim('claim-a', ['a']),
+      claim('claim-ac', [STUDY.a, STUDY.c]),
+      claim('claim-b', [STUDY.b]),
+      claim('claim-a', [STUDY.a]),
     ]
     const analysis = {
       cache: {},
-      profiles: [],
+      // Profile rows are built by walking analysis.profiles for the record's own
+      // study inventory; an empty list produced no profile row at all, so the
+      // concentration assertions below were reading undefined. The inventory
+      // carries the same three publications the claims cite, so the registry
+      // collapse of a and b is visible as an inventory reduction too.
+      profiles: [{
+        url: '/herbs/example/',
+        record: { slug: 'example', sources: [{ id: 'a' }, { id: 'b' }, { id: 'c' }] },
+      }],
       claimAnalyses: claims,
       structuredClaimAnalyses: claims,
       profileAnalyses: [{
@@ -54,9 +71,9 @@ describe('profile-wide underlying study graph', () => {
 
     const trialRegistrationIndependence = {
       studies: [
-        { url: '/herbs/example/', studyId: 'a', registryIds: ['NCT01234567'], stableRegistryId: 'NCT01234567', ambiguous: false },
-        { url: '/herbs/example/', studyId: 'b', registryIds: ['NCT01234567'], stableRegistryId: 'NCT01234567', ambiguous: false },
-        { url: '/herbs/example/', studyId: 'c', registryIds: [], stableRegistryId: null, ambiguous: false },
+        { url: '/herbs/example/', studyId: STUDY.a, registryIds: ['NCT01234567'], stableRegistryId: 'NCT01234567', ambiguous: false },
+        { url: '/herbs/example/', studyId: STUDY.b, registryIds: ['NCT01234567'], stableRegistryId: 'NCT01234567', ambiguous: false },
+        { url: '/herbs/example/', studyId: STUDY.c, registryIds: [], stableRegistryId: null, ambiguous: false },
       ],
       claims: [],
       sameTrialReuseClaims: [],
@@ -76,8 +93,8 @@ describe('profile-wide underlying study graph', () => {
 
     const evidenceLineage = {
       studies: [
-        { url: '/herbs/example/', studyId: 'b', lineageIds: ['cohort:COHORT-1'], explicitLineage: true },
-        { url: '/herbs/example/', studyId: 'c', lineageIds: ['cohort:COHORT-1'], explicitLineage: true },
+        { url: '/herbs/example/', studyId: STUDY.b, lineageIds: ['cohort:COHORT-1'], explicitLineage: true },
+        { url: '/herbs/example/', studyId: STUDY.c, lineageIds: ['cohort:COHORT-1'], explicitLineage: true },
       ],
       claims: [],
       sharedNonRegistryLineageClaims: [],

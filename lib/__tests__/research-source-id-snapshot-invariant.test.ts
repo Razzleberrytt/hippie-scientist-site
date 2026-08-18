@@ -38,6 +38,23 @@ function fixture(source: Record<string, unknown>) {
     claimEvidenceDiversity: [],
     claimProvenanceIndependence: [],
     claimEvidenceAge: [],
+    // Required on a real topology (research-quality-topology builds it for every
+    // run) and dereferenced unguarded by the snapshot validator. The `as unknown`
+    // cast below hides that from the compiler, so omitting it turned these cases
+    // into a TypeError instead of the assertion they are written to make.
+    selectiveOutcomeReporting: {
+      summary: {
+        approvedOutcomeClaims: 0,
+        assessableClaims: 0,
+        findings: 0,
+        highConfidenceFindings: 0,
+        selectiveOutcomeRisks: 0,
+        explicitOutcomeSwitchRisks: 0,
+      },
+      claims: [],
+      findings: [],
+      highConfidenceFindings: [],
+    },
   } as unknown as ResearchQualityTopology
 
   const gate = {
