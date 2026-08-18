@@ -1,4 +1,5 @@
 import {
+  evidenceText,
   getEvidenceTier,
   hasHumanEvidence,
   hasMechanismEvidence,
@@ -69,6 +70,14 @@ export function policyForResearchMaturity(level: ResearchMaturity): ResearchMatu
  * is emerging; early human/traditional evidence is preliminary; mechanism-only
  * or unresolved evidence is theoretical.
  */
+/**
+ * Tier wording that names the evidence as preliminary outright. Deliberately
+ * narrow: `limited`, `low` and `weak` are not included, because those already
+ * have their own tier handling and demoting them here would change commercial
+ * treatment for records nobody described as preliminary.
+ */
+const EXPLICIT_PRELIMINARY_TIER = /\b(preliminary|early)\b/i
+
 export function deriveResearchMaturity(
   record: RuntimeRecord | Record<string, unknown>,
 ): ResearchMaturity {
@@ -78,9 +87,23 @@ export function deriveResearchMaturity(
   const mechanism = hasMechanismEvidence(runtimeRecord)
 
   if ((tier === 'strong' || tier === 'moderate') && human) return 'established'
+
+  // Mechanism, animal or in-vitro evidence with no human evidence is theoretical
+  // whatever the tier says. This ran after the tier branches, so an animal-only
+  // record whose tier reconciled to preliminary was published as `Preliminary
+  // research` with `preliminary` outcome language - mechanism reading as early
+  // human evidence, which the evidence rules do not allow.
+  if (!human && mechanism) return 'theoretical'
+
+  // An explicit preliminary/early tier outranks the reconciled grade. Grade
+  // reconciliation changed after this module was written, so 'Preliminary human
+  // evidence' began reconciling to C, reading as `limited`, and returning
+  // `emerging` - which permits commercial treatment and purchase intent on a
+  // record its own tier calls preliminary.
+  if (EXPLICIT_PRELIMINARY_TIER.test(evidenceText(runtimeRecord))) return 'preliminary'
+
   if ((tier === 'limited' || tier === 'mixed') && human) return 'emerging'
   if (tier === 'preliminary' || tier === 'traditional') return 'preliminary'
-  if (!human && mechanism) return 'theoretical'
   if (tier === 'insufficient' || tier === 'review') return 'theoretical'
 
   return human ? 'emerging' : 'theoretical'

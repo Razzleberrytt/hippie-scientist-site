@@ -8,8 +8,12 @@ function record(fields: Partial<RuntimeRecord> & Record<string, unknown> = {}): 
 
 describe('getEvidenceStrengthData', () => {
   it('gives strong human evidence a high score, "A" grade, and no downgrade reasons', () => {
+    // The tier has to name human research. `hasHumanEvidence` deliberately
+    // refuses to infer it from strength words alone - "strong" says nothing
+    // about whether any cited study involved people - so a fixture claiming
+    // strong human evidence has to say so.
     const data = getEvidenceStrengthData(
-      record({ evidence_tier: 'Strong evidence', mechanisms: ['GABA modulation'] }),
+      record({ evidence_tier: 'Strong human clinical trial evidence', mechanisms: ['GABA modulation'] }),
     )
 
     expect(data.tier).toBe('strong')
@@ -59,9 +63,11 @@ describe('getEvidenceStrengthData', () => {
   it('returns a consistent set of Tailwind classes for the "strong" tier', () => {
     const data = getEvidenceStrengthData(record({ evidence_tier: 'Strong evidence' }))
 
-    expect(data.barColorClass).toBe('bg-emerald-600')
-    expect(data.textColorClass).toBe('text-emerald-800')
-    expect(data.bgColorClass).toBe('bg-emerald-50')
-    expect(data.borderColorClass).toBe('border-emerald-200')
+    // Dark-mode variants are appended to these class strings, so the contract is
+    // that each carries its base colour, not that it is that string exactly.
+    expect(data.barColorClass).toContain('bg-emerald-600')
+    expect(data.textColorClass).toContain('text-emerald-800')
+    expect(data.bgColorClass).toContain('bg-emerald-50')
+    expect(data.borderColorClass).toContain('border-emerald-200')
   })
 })

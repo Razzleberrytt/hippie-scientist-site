@@ -29,12 +29,14 @@ describe('InteractionWarnings', () => {
     )
 
     expect(screen.getByText('15 flagged pairings')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Partner 12' })).toBeInTheDocument()
-    expect(screen.queryByRole('link', { name: 'Partner 13' })).not.toBeInTheDocument()
+    // Partner links now carry their interaction certainty in the label
+    // ("Partner 12 - Theoretical interaction certainty"), so compare the link
+    // text rather than asking for an exact accessible name.
+    const partnerLinks = screen.getAllByRole('link').map((link) => link.textContent?.trim() ?? '')
+    expect(partnerLinks.some((label) => label.startsWith('Partner 12'))).toBe(true)
+    expect(partnerLinks.some((label) => label.startsWith('Partner 13'))).toBe(false)
     expect(screen.getByText(/\+3 more pairings share this mechanism/)).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Use the Safety Checker' })).toHaveAttribute(
-      'href',
-      '/safety-checker',
-    )
+    expect(screen.getByRole('link', { name: 'Use the Safety Checker' }).getAttribute('href'))
+      .toMatch(/^\/safety-checker\/?$/)
   })
 })

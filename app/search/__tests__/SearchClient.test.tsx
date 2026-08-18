@@ -36,20 +36,14 @@ const mockCompounds = [
   }
 ]
 
-// Mock global.fetch synchronously to avoid async timing issues in tests
-global.fetch = vi.fn((url: string) => {
-  const data = url.includes('herbs-summary') ? mockHerbs : mockCompounds
-  return {
-    then: (cb: any) => {
-      const res = cb({
-        json: () => ({
-          then: (cb2: any) => cb2(data)
-        })
-      })
-      return res
-    }
-  } as any
-}) as any
+// The search experience loads both summary files with Promise.all and sets
+// state when they resolve. The previous mock returned a hand-rolled thenable,
+// which Promise.all never settles, so the component rendered with no records at
+// all and every assertion below failed on an empty list.
+global.fetch = vi.fn(async (url: string) => ({
+  ok: true,
+  json: async () => (url.includes('herbs-summary') ? mockHerbs : mockCompounds),
+})) as unknown as typeof fetch
 
 vi.mock('../../../src/lib/semantic-orchestration', () => ({
   getSemanticOrchestrationSignals: vi.fn(() => ({
@@ -73,34 +67,37 @@ function searchInput() {
 }
 
 describe('SearchClient Component', () => {
-  it('renders default search interface successfully', () => {
+  it('renders default search interface successfully', async () => {
     render(<SearchClient />)
 
     expect(screen.getByRole('heading', { name: /Search ingredients, outcomes, and research context/i })).toBeInTheDocument()
     expect(searchInput()).toBeInTheDocument()
-    expect(screen.getByText('2 shown')).toBeInTheDocument()
+    expect(await screen.findByText('2 shown')).toBeInTheDocument()
   })
 
-  it('filters and expands search queries using synonyms', () => {
+  it('filters and expands search queries using synonyms', async () => {
     render(<SearchClient />)
+    await screen.findByText('2 shown')
 
     fireEvent.change(searchInput(), { target: { value: 'sleep' } })
-    expect(screen.getByText('Ashwagandha')).toBeInTheDocument()
+    expect(await screen.findAllByText(/Ashwagandha/i)).not.toHaveLength(0)
   })
 
-  it('provides auto-suggestions when typing in the input', () => {
+  it('provides auto-suggestions when typing in the input', async () => {
     render(<SearchClient />)
+    await screen.findByText('2 shown')
 
     fireEvent.change(searchInput(), { target: { value: 'Ash' } })
-    expect(screen.getByText('Quick matches')).toBeInTheDocument()
+    expect(await screen.findByText('Quick matches')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Ashwagandha/i })).toBeInTheDocument()
   })
 
-  it('excludes restricted substances (e.g. DMT, 5-MeO-DMT, kratom, ibogaine, ketamine, fadogia) from search results and dosing options', () => {
+  it('excludes restricted substances (e.g. DMT, 5-MeO-DMT, kratom, ibogaine, ketamine, fadogia) from search results and dosing options', async () => {
     render(<SearchClient />)
+    await screen.findByText('2 shown')
 
     fireEvent.change(searchInput(), { target: { value: 'theanine' } })
+    expect(await screen.findAllByText(/L-Theanine/i)).not.toHaveLength(0)
     expect(screen.queryByText(/DMT/i)).not.toBeInTheDocument()
-    expect(screen.getAllByText(/L-Theanine/i).length).toBeGreaterThan(0)
   })
 })

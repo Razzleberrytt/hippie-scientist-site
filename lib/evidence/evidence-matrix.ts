@@ -91,7 +91,15 @@ export function auditMarketingAgainstEvidence(cells: OutcomeEvidenceCell[]): Mar
 
     let classification: MarketingClaimAudit['classification'] = 'unclear'
     const notes: string[] = []
-    if (weakEvidence && marketingIntensity >= 50) {
+    // Heavy promotion against evidence that is merely not strong - a middling
+    // grade, or a mixed direction - was falling through to `unclear`, so an
+    // ingredient with three marketing claims, high popularity and mixed-direction
+    // grade C evidence was never flagged. Overmarketing does not require the
+    // evidence to be graded D or show harm; it requires the marketing to outrun
+    // whatever the evidence actually supports.
+    const promotionalOverreach = !strongEvidence && marketingIntensity >= 50 && mismatchScore >= 30
+
+    if ((weakEvidence && marketingIntensity >= 50) || promotionalOverreach) {
       classification = 'overmarketed'
       notes.push('Marketing intensity materially exceeds the strength or direction of the evidence.')
     } else if (strongEvidence && marketingIntensity < 30) {

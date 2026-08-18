@@ -24,7 +24,9 @@ describe('vitamin D and K2 evidence calibration', () => {
     const source = read(PAGE)
 
     expect(source).toContain('does not prove that adding K2 to vitamin D prevents arterial calcification')
-    expect(source).toContain('the cardiovascular role of vitamin K supplementation remains unclear')
+    // Now stated as 'the cardiovascular role of different vitamin K forms remains
+    // unclear', which is more precise. The claim is what must survive.
+    expect(source).toMatch(/cardiovascular role of[^.]{0,60}vitamin K[^.]{0,60}remains unclear/i)
     expect(source).toContain('Warfarin and similar anticoagulants')
   })
 

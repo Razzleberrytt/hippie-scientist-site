@@ -56,16 +56,27 @@ const GUIDED_SEARCHES = [
   ['Human evidence', 'human clinical trial evidence', 'Bias toward profiles with more complete human-evidence context.'],
 ] as const
 
-function expandQuery(query: string): string {
+/**
+ * The query plus any goal synonyms, as separate terms.
+ *
+ * These used to be joined into one string and handed to Fuse, which matches a
+ * pattern as a whole rather than as alternatives - so expanding `sleep` into
+ * `sleep insomnia rest wind down sleep quality` produced a phrase that matched
+ * nothing, and a search for `sleep` returned no results at all even when a
+ * profile listed Sleep among its outcomes. Expansion has to widen recall, not
+ * replace the term the reader typed.
+ */
+function expandQueryTerms(query: string): string[] {
   const normalized = query.toLowerCase().trim()
-  if (!normalized) return ''
+  if (!normalized) return []
   const expanded = new Set(normalized.split(/\s+/).filter(Boolean))
   for (const word of Array.from(expanded)) {
     for (const [goal, synonyms] of Object.entries(GOAL_SYNONYMS)) {
       if (word === goal || goal.includes(word) || word.includes(goal)) synonyms.forEach((value) => expanded.add(value))
     }
   }
-  return Array.from(expanded).join(' ')
+  // The typed query stays first so its own matches win ties on relevance.
+  return [normalized, ...Array.from(expanded).filter((term) => term !== normalized)]
 }
 
 function typeBadgeClass(type: ResearchSearchType): string {
@@ -276,12 +287,24 @@ export default function ResearchSearchExperience() {
   }), [searchItems])
 
   const normalizedQuery = query.trim()
-  const expandedQuery = useMemo(() => expandQuery(normalizedQuery), [normalizedQuery])
+  const expandedTerms = useMemo(() => expandQueryTerms(normalizedQuery), [normalizedQuery])
   const intent = getSearchIntent(normalizedQuery)
 
   const results = useMemo(() => {
+    // Each term is searched on its own and the best relevance per item wins, so
+    // a synonym can add a result but can never dilute the typed term's match.
+    const byItem = new Map<string, { item: ResearchSearchItem; relevance: number }>()
+    for (const term of expandedTerms) {
+      for (const match of fuse.search(term)) {
+        const relevance = 1 - (match.score ?? 1)
+        const key = `${match.item.type}:${match.item.slug}`
+        const existing = byItem.get(key)
+        if (!existing || relevance > existing.relevance) byItem.set(key, { item: match.item, relevance })
+      }
+    }
+
     let base = normalizedQuery
-      ? fuse.search(expandedQuery).map((match) => ({ item: match.item, relevance: 1 - (match.score ?? 1) }))
+      ? [...byItem.values()]
           .sort((a, b) => weightedSearchScore(b.item, b.relevance, intent) - weightedSearchScore(a.item, a.relevance, intent))
           .map((match) => match.item)
       : searchItems.slice(0, 24)
@@ -290,7 +313,7 @@ export default function ResearchSearchExperience() {
     if (humanEvidenceOnly) base = base.filter((item) => item.evidenceCompleteness >= 0.5 || item.evidenceScore >= 0.68)
     if (mechanismOnly) base = base.filter((item) => item.mechanisms.length > 0)
     return base.slice(0, 36)
-  }, [expandedQuery, filter, fuse, humanEvidenceOnly, intent, mechanismOnly, normalizedQuery, searchItems])
+  }, [expandedTerms, filter, fuse, humanEvidenceOnly, intent, mechanismOnly, normalizedQuery, searchItems])
 
   const didYouMean = useMemo(() => {
     if (!normalizedQuery || results.length > 0 || normalizedQuery.length < 3) return null

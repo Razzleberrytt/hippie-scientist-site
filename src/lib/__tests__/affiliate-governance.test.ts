@@ -7,11 +7,17 @@ import {
 import { getGoal } from '@/data/goals'
 import { goalContainsRestrictedIngredient, isRestrictedRecord } from '../restricted-ingredients'
 
+// A record that clears the research-maturity gate on its own merits, so these
+// cases isolate the governance flags they are about. profile_status alone is a
+// maturity signal with no evidence behind it, which resolves to theoretical and
+// withdraws purchase intent - correct behaviour, but not what is under test
+// here (see affiliate-maturity-governance.test.ts for that boundary).
 const baseAffiliateRecord = {
   slug: 'l-theanine',
   displayName: 'L-Theanine',
   affiliate_ready: true,
   profile_status: 'complete',
+  evidence_tier: 'Strong human clinical trial evidence',
 }
 
 describe('affiliate governance gates', () => {

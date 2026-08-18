@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { formatDisplayLabel, list } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
 import { SITE_URL, SITE_NAME } from './site'
-import { getCurrentLocaleAlternates } from './international-seo'
+import { getCurrentLocaleAlternates, isPublishedTranslationPath } from './international-seo'
 import {
   CORE_INDEXABLE_ROUTES,
   CURATED_INDEXABLE_COMPOUND_SLUGS,
@@ -501,6 +501,14 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
 
   if (/^\/(learn|education|compare|stacks|psychoactive|novel-psychoactive-substances)\/[^/]+$/.test(normalizedPath)) {
     return { index: true, follow: true, reason: 'supporting-detail-route', priority: 0.6 }
+  }
+
+  // The patterns above describe the English route tree. A published translation
+  // matches none of them, so every localized URL reached the default deny below
+  // while the page itself renders index,follow and self-canonical, and the
+  // localized sitemap advertises it. Answer for those the way the pages do.
+  if (isPublishedTranslationPath(normalizedPath)) {
+    return { index: true, follow: true, reason: 'published-translation', priority: 0.6 }
   }
 
   return { index: false, follow: true, reason: 'not-priority-index-route', priority: 0 }
