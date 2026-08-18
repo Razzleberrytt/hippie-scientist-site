@@ -541,8 +541,8 @@ const tickets = seedTickets.map((ticket, index) => {
 // truth for board state — the same role `seedTickets` plays for THS-001..015.
 const generatedTicketOverrides = {
   'THS-178': {
-    status: 'in_progress',
-    work_refs: ['branch:ths/THS-178-sitemap-canonical-visibility'],
+    status: 'qa',
+    work_refs: ['#4054', 'branch:ths/THS-178-sitemap-canonical-visibility'],
   },
 }
 

@@ -52,7 +52,7 @@ export const activeClaims = {
     agent: 'claude-seo',
     claimed_at: '2026-08-17T19:40:00-04:00',
     branch: 'ths/THS-178-sitemap-canonical-visibility',
-    work_refs: ['branch:ths/THS-178-sitemap-canonical-visibility'],
+    work_refs: ['#4054', 'branch:ths/THS-178-sitemap-canonical-visibility'],
     scope: 'Sitemap inclusion derived from the canonical and robots visibility each route declares',
   },
 }
