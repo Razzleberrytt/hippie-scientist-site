@@ -89,6 +89,13 @@ const parseUndeclaredDependencies = ({ root, declared }) => {
     while ((m = re.exec(txt))) {
       const spec = m[1] || m[2]
       if (!spec || spec.startsWith('.') || spec.startsWith('@/') || spec.startsWith('/')) continue
+      // Prose, not code. The scanner matches `from '...'` anywhere in a file,
+      // including inside comments, so lib/evidence-grade.ts explaining that a
+      // claim is "a different claim from 'insufficient evidence'" was read as a
+      // dependency on a package called `insufficient evidence` and failed the
+      // build repo-wide. No real specifier contains whitespace, so this cannot
+      // hide a genuinely undeclared dependency.
+      if (/\s/.test(spec)) continue
 
       const name = spec.startsWith('@') ? spec.split('/').slice(0, 2).join('/') : spec.split('/')[0]
 
@@ -119,9 +126,13 @@ const runSelfTest = () => {
   const ignoredImport = "const dep = " + "requ" + "ire('another-missing')\n"
   fs.writeFileSync(path.join(fixtureRoot, 'node_modules', 'badpkg', 'index.js'), ignoredImport)
 
+  const proseComment = '/** This is a different claim from "insufficient evidence" and must not count. */' + String.fromCharCode(10)
+  fs.writeFileSync(path.join(fixtureRoot, 'app', 'prose.ts'), proseComment + "export const grade = 'A'" + String.fromCharCode(10))
+
   const unresolved = parseUndeclaredDependencies({ root: fixtureRoot, declared: new Set(['react']) })
   if (!unresolved.some((line) => line.includes('missing-package'))) throw new Error('Expected missing-package to be reported')
   if (unresolved.some((line) => line.includes('another-missing'))) throw new Error('node_modules should be excluded from scan')
+  if (unresolved.some((line) => line.includes('insufficient evidence'))) throw new Error('Prose in a comment must not be read as a dependency')
   console.log('validate-direct-dependencies: self-test OK')
 }
 
