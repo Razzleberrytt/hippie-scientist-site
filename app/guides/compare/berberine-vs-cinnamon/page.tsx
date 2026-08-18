@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 
 import RuntimeEvidenceComparison from '@/src/components/comparison/RuntimeEvidenceComparison'
 import { buildRuntimeComparisonMetadata } from '@/src/lib/runtime-comparison-metadata'
+import { RUNTIME_COMPARISON_SIDES } from '@/lib/runtime-comparison-sides'
 
-const COMPARISON_LEFT = { label: 'Berberine', candidates: ['berberine'] }
-const COMPARISON_RIGHT = { label: 'Cinnamon', candidates: ['cinnamon', 'ceylon-cinnamon', 'cinnamomum-verum', 'cinnamomum-cassia'] }
+const { left: COMPARISON_LEFT, right: COMPARISON_RIGHT } = RUNTIME_COMPARISON_SIDES['berberine-vs-cinnamon']
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildRuntimeComparisonMetadata({

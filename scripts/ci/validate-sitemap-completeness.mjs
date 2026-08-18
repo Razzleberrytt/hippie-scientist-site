@@ -167,6 +167,37 @@ function normalizePath(url) {
   }
 }
 
+/**
+ * Every sitemap file the built robots.txt points at, resolved to a path inside
+ * out/. Falls back to sitemap.xml alone when robots.txt is absent or names only
+ * remote sitemaps.
+ */
+function collectAdvertisedSitemapFiles(primarySitemapPath) {
+  const files = new Set([primarySitemapPath])
+  const robotsPath = path.join(OUT_DIR, 'robots.txt')
+  if (!fs.existsSync(robotsPath)) return [...files]
+
+  try {
+    const robots = fs.readFileSync(robotsPath, 'utf8')
+    for (const line of robots.split(/\r?\n/)) {
+      const match = line.match(/^\s*sitemap\s*:\s*(\S+)\s*$/i)
+      if (!match) continue
+      let pathname
+      try {
+        pathname = new URL(match[1]).pathname
+      } catch {
+        pathname = match[1]
+      }
+      const candidate = path.join(OUT_DIR, pathname.replace(/^\/+/, ''))
+      if (fs.existsSync(candidate)) files.add(candidate)
+    }
+  } catch {
+    // Unreadable robots.txt: sitemap.xml alone still gives a real, if narrower, check.
+  }
+
+  return [...files]
+}
+
 function main() {
   if (!fs.existsSync(APP_DIR)) {
     console.error('[validate-sitemap-completeness] FAIL: app/ directory does not exist.')
@@ -193,6 +224,12 @@ function main() {
     process.exit(1)
   }
 
+  // Coverage is the union of every sitemap robots.txt advertises, not sitemap.xml
+  // alone. Translated routes are published by app/localized/sitemap.ts with their
+  // hreflang cluster, so checking one file reported /de, /es, /fr and /pt as
+  // missing when crawlers were already being handed them.
+  const sitemapFiles = collectAdvertisedSitemapFiles(sitemapPath)
+
   // Runtime/profile governance can generate robots and canonical metadata in a
   // static wrapper, so source inspection alone is not authoritative after a
   // successful build. The rendered HTML is the final page-level indexing and
@@ -201,13 +238,16 @@ function main() {
   const indexableStaticRoutes = staticRoutes.filter(
     (route) => !builtRouteHasNoindex(route) && !builtRouteCanonicalizesElsewhere(route),
   )
-  const sitemapUrls = new Set(parseXmlUrls(fs.readFileSync(sitemapPath, 'utf8')).map(normalizePath))
+  const sitemapUrls = new Set(
+    sitemapFiles.flatMap((file) => parseXmlUrls(fs.readFileSync(file, 'utf8')).map(normalizePath)),
+  )
   const missing = indexableStaticRoutes.filter((route) => !sitemapUrls.has(route)).sort()
 
-  console.log(`[validate-sitemap-completeness] Found ${indexableStaticRoutes.length} canonical, indexable static app/ routes after rendered metadata filtering; ${sitemapUrls.size} URLs in sitemap.xml.`)
+  const sitemapNames = sitemapFiles.map((file) => path.relative(OUT_DIR, file).split(path.sep).join('/')).join(', ')
+  console.log(`[validate-sitemap-completeness] Found ${indexableStaticRoutes.length} canonical, indexable static app/ routes after rendered metadata filtering; ${sitemapUrls.size} URLs across ${sitemapNames}.`)
 
   if (missing.length > 0) {
-    console.error(`[validate-sitemap-completeness] FAIL: ${missing.length} real, canonical, indexable route(s) are missing from sitemap.xml:`)
+    console.error(`[validate-sitemap-completeness] FAIL: ${missing.length} real, canonical, indexable route(s) are missing from every advertised sitemap:`)
     for (const route of missing) console.error(`  - ${route}`)
     console.error('')
     console.error('If a route is intentionally excluded, verify that its rendered robots metadata is noindex, its rendered canonical points elsewhere, or add it to EXCLUDED_ROUTES with a comment explaining why.')
@@ -217,7 +257,7 @@ function main() {
     process.exit(1)
   }
 
-  console.log('[validate-sitemap-completeness] PASS: every canonical, indexable static app/ route is covered by sitemap.xml.')
+  console.log('[validate-sitemap-completeness] PASS: every canonical, indexable static app/ route is covered by an advertised sitemap.')
 }
 
 main()

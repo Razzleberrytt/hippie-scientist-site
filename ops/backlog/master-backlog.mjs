@@ -534,6 +534,18 @@ const tickets = seedTickets.map((ticket, index) => {
   }
 })
 
+// Execution-state overrides for generated tickets.
+//
+// Generated tickets default to `backlog`. An agent that claims one records its
+// live status and work refs here so this module stays the single source of
+// truth for board state — the same role `seedTickets` plays for THS-001..015.
+const generatedTicketOverrides = {
+  'THS-178': {
+    status: 'qa',
+    work_refs: ['#4054', 'branch:ths/THS-178-sitemap-canonical-visibility'],
+  },
+}
+
 let nextRank = tickets.length + 1
 for (const [area, config] of Object.entries(areaConfig)) {
   for (const [taskIndex, task] of config.tasks.entries()) {
@@ -551,6 +563,7 @@ for (const [area, config] of Object.entries(areaConfig)) {
       affected_routes: config.routes,
       verification: normalizeVerification(config.verification),
       work_refs: [],
+      ...(generatedTicketOverrides[`THS-${String(nextRank).padStart(3, '0')}`] || {}),
     })
     nextRank += 1
   }

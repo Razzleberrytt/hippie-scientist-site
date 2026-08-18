@@ -12,6 +12,15 @@ import {
 import { learnPosts } from './learn/data';
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
 import { getBuiltCompareSlugs } from '@/lib/compare-pages';
+import { RUNTIME_COMPARISON_SIDES } from '@/lib/runtime-comparison-sides';
+import {
+  buildRouteVisibilityIndex,
+  declaresSelfCanonicalIndexable,
+  declaresSitemapIneligible,
+} from '@/lib/sitemap-route-visibility';
+import { canRenderRuntimeComparison } from '@/src/lib/runtime-comparison-resolution';
+import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index';
+import { LOCALIZED_ROUTES } from '@/src/lib/international-seo';
 
 type SitemapSourceItem = {
   slug?: string;
@@ -460,8 +469,25 @@ function withOverlayGovernance<T extends SitemapSourceItem>(records: T[], overla
   });
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const redirectSources = readRedirectSources();
+
+  // What each static page declares about itself. Inclusion follows that
+  // declaration in both directions: a page that renders noindex or canonicalises
+  // elsewhere is never advertised, and a page that renders index+self-canonical
+  // is advertised without waiting for someone to add it to a literal list below.
+  const routeVisibility = buildRouteVisibilityIndex();
+
+  // Translated URLs are published by app/localized/sitemap.ts with their full
+  // hreflang cluster, and robots.txt advertises both sitemaps. Listing them here
+  // too would split one URL's discovery across two files.
+  const localizedTranslationPaths = new Set(
+    LOCALIZED_ROUTES.flatMap((localized) =>
+      Object.values(localized.translations)
+        .filter((translated): translated is string => Boolean(translated))
+        .map((translated) => normalizeRoutePath(translated)),
+    ),
+  );
 
   // Profile pages resolve their robots tag from the summary indexes, which carry
   // the governance overlay. `herbs.json` and `compounds.json` are the pre-overlay
@@ -531,6 +557,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const indexDecision = shouldIndexRoute(normalized, pageData);
     if (!indexDecision.index) return;
     sitemapEntries.push(route(normalizeSitemapUrl(normalized), changeFrequency, Math.min(priority, indexDecision.priority || priority), lastModified));
+  };
+
+  // A standalone static page that renders index+follow and canonicalises to
+  // itself is published, and the sitemap should say so. shouldIndexRoute() ranks
+  // *generated* families (profiles, articles, guides) against record governance
+  // and falls through to `not-priority-index-route` for anything outside those
+  // patterns, which is why pages like /info/editorial-policy and /updates were
+  // withheld from the sitemap while their own HTML invited indexing. Its explicit
+  // exclusions — internal and utility routes such as /search, /admin, /api — are
+  // decisions rather than fallthrough, so they still win here.
+  const addDeclaredStaticRoute = (pathName: string) => {
+    const normalized = normalizeRoutePath(pathName);
+    if (redirectSources.has(normalized)) return;
+    const indexDecision = shouldIndexRoute(normalized);
+    if (!indexDecision.index && indexDecision.reason !== 'not-priority-index-route') return;
+    sitemapEntries.push(route(normalizeSitemapUrl(normalized), 'monthly', indexDecision.priority || 0.5));
   };
 
   const addFocusClusterRoute = (
@@ -729,7 +771,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // do NOT correspond to built pages; emitting them previously advertised ~640 hard 404s
   // to search engines (the /guides/compare/* not-found cluster). getBuiltCompareSlugs()
   // scans the filesystem so the sitemap can never drift from what the build emits.
+  // A built compare page is not necessarily a page that renders: the runtime
+  // comparisons resolve both ingredients from the published record set and call
+  // notFound() when either side is unpublishable, which renders noindex. Asking
+  // the same resolver the page uses keeps the sitemap from advertising those.
+  const unavailableComparisonRoutes = new Set<string>();
+  for (const [slug, sides] of Object.entries(RUNTIME_COMPARISON_SIDES)) {
+    const available = await canRenderRuntimeComparison(sides.left, sides.right, getUnifiedRuntimeRecords);
+    if (!available) unavailableComparisonRoutes.add(normalizeRoutePath(`/guides/compare/${slug}`));
+  }
+
   getBuiltCompareSlugs().forEach((slug) => {
+    if (unavailableComparisonRoutes.has(normalizeRoutePath(`/guides/compare/${slug}`))) return;
     addRoute(`/guides/compare/${slug}`, 'monthly', 0.6);
   });
 
@@ -768,12 +821,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     addRoute(r, 'monthly', 0.5, undefined, entry);
   });
 
+  // Every remaining static page that declares itself indexable and canonical to
+  // itself. Without this, a page shipped outside one of the literal lists above
+  // is simply never advertised — the state /goals/metabolic-health,
+  // /info/editorial-policy, /tools/* and 20 more routes were in.
+  const alreadyListed = new Set(sitemapEntries.map((entry) => normalizeRoutePath(entry.url)));
+  for (const [route] of routeVisibility) {
+    if (alreadyListed.has(route)) continue;
+    if (localizedTranslationPaths.has(route)) continue;
+    if (!declaresSelfCanonicalIndexable(route, routeVisibility)) continue;
+    alreadyListed.add(route);
+    addDeclaredStaticRoute(route);
+  }
+
   // Dedupe by url (supplements + manifest may overlap) for valid lean sitemap
   const seen = new Set<string>();
   const uniqueEntries = sitemapEntries.filter((e) => {
     const norm = normalizeRoutePath(e.url);
     if (redirectSources.has(norm)) return false;
     if (!checkRouteFileEligibility(norm)) return false;
+    // Applies to every entry, including the literal list above, so a page that
+    // declares noindex or a different canonical cannot be advertised by any path
+    // into this array.
+    if (declaresSitemapIneligible(norm, routeVisibility)) return false;
+    if (unavailableComparisonRoutes.has(norm)) return false;
     if (seen.has(e.url)) return false;
     seen.add(e.url);
     return true;
