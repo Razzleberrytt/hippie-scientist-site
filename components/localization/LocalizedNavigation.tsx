@@ -46,6 +46,7 @@ function LanguageLinks({ pathname, currentLocale, compact = false }: { pathname:
           key={link.locale}
           href={link.href}
           hrefLang={link.locale}
+          prefetch={false}
           className='inline-flex min-h-11 shrink-0 items-center rounded-full px-2.5 py-2 text-xs font-semibold text-[var(--text-secondary)] transition hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-brand)]'
           aria-label={`${link.label}: ${currentConfig.equivalentPageLabel}`}
         >
@@ -91,6 +92,7 @@ export default function LocalizedNavigation() {
         <div className='flex min-h-[4.6rem] items-center justify-between gap-3'>
           <Link
             href={config.homeHref}
+            prefetch={false}
             className='flex min-w-0 items-center gap-2.5 font-display text-base font-semibold tracking-[-0.025em] text-[var(--text-primary)] sm:text-lg'
             aria-label={`The Hippie Scientist — ${config.languageLabel}`}
           >
@@ -108,6 +110,7 @@ export default function LocalizedNavigation() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  prefetch={false}
                   aria-current={current ? 'page' : undefined}
                   className={`font-semibold transition ${active ? 'text-[var(--hs-gold-ink)] dark:text-[var(--hs-gold-bright)]' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
                 >
@@ -133,6 +136,7 @@ export default function LocalizedNavigation() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 aria-current={current ? 'page' : undefined}
                 className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-3 py-2 text-xs font-semibold transition ${active ? 'bg-[var(--hs-gold)] text-[#151719]' : 'border border-[var(--border-soft)] bg-[var(--surface-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
               >
