@@ -104,7 +104,7 @@ export function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-[110] border-b border-[var(--border-soft)] bg-[color:var(--surface-elevated)]/92 backdrop-blur-xl transition-all ${
+      className={`site-primary-nav sticky top-0 z-[110] border-b border-[var(--border-soft)] bg-[color:var(--surface-elevated)]/92 backdrop-blur-xl transition-all ${
         scrolled ? 'shadow-[0_12px_32px_-28px_rgba(29,29,31,0.38)] dark:shadow-[0_14px_36px_-28px_rgba(0,0,0,0.8)]' : ''
       }`}
       aria-label='Primary'
@@ -259,7 +259,7 @@ export function Navigation() {
                     aria-current={current ? 'page' : undefined}
                     className={`block rounded-2xl px-4 py-3.5 font-semibold transition ${
                       active
-                        ? 'border border-[color:var(--home-brass-rule,var(--border-strong))] bg-[var(--surface-subtle)] text-[var(--text-primary)] shadow-sm'
+                        ? 'border border-[var(--border-strong)] bg-[var(--surface-subtle)] text-[var(--text-primary)] shadow-sm'
                         : 'text-[var(--text-secondary)] hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)]'
                     }`}
                   >
