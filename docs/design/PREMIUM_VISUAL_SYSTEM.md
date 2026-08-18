@@ -29,18 +29,20 @@ Tailwind theme, browser/base defaults, and legacy compatibility primitives.
 
 ### 2. Legacy/template-specific layers
 
-These may define local component behavior but must not become the source of truth for the global brand palette, global surfaces, navigation chrome, or homepage atmosphere.
+These may define local component behavior but must not become the source of truth for the global brand palette, global surfaces, controls, navigation chrome, or homepage atmosphere.
 
 ### 3. `styles/visual-token-hardening.css`
 
-**Single owner of canonical brand tokens.**
+**Single owner of canonical brand values.**
 
 Owns:
 
 - graphite / forest / sage / brass / paper primitives
 - light and dark theme aliases
 - compatibility mappings for older `--hs-*` and Tailwind brand tokens
-- global selection/focus brand treatment
+- the document canvas aliases consumed by later layers
+
+It does **not** own buttons, focus rings, cards, navigation, or page composition. Accessibility owns focus behavior; visual components consume tokens instead of redefining them here.
 
 Do not introduce a second brand palette in another stylesheet.
 
@@ -60,21 +62,35 @@ Owns shared editorial voice: heading family, tracking, lede treatment, prose-lin
 
 Page templates still own their specific type scale.
 
-### 7. `styles/premium-chrome.css`
+### 7. `styles/premium-controls.css`
+
+**Single owner of generic action presentation.**
+
+Owns:
+
+- `.button-primary` and `.btn-primary`
+- `.button-secondary`
+- global light/dark action material treatment
+- generic action lift/press behavior
+
+Homepage-specific controls may refine this treatment later because they belong to a specific composition, but brand tokens themselves must remain value-only.
+
+### 8. `styles/premium-chrome.css`
 
 **Single owner of shell-facing presentation.**
 
 Owns:
 
 - primary navigation material treatment
-- navigation active/focus presentation
 - mega menus
 - locale rail
 - mobile navigation drawer
 - duplicate breadcrumb suppression
 - footer atmosphere
 
-### 8. `styles/homepage-structure.css`
+Navigation components should use canonical token variables directly rather than embedding a second hardcoded palette for this stylesheet to override.
+
+### 9. `styles/homepage-structure.css`
 
 Owns homepage-only geometry and interaction primitives that the React component relies on:
 
@@ -87,7 +103,7 @@ Owns homepage-only geometry and interaction primitives that the React component 
 
 It should not become a palette or atmosphere file.
 
-### 9. `styles/homepage-premium-final.css`
+### 10. `styles/homepage-premium-final.css`
 
 **Single owner of homepage visual composition.**
 
