@@ -40,11 +40,12 @@ import '@/styles/editorial-botanical-refresh.css'
 import '@/styles/editorial-content-surfaces.css'
 
 /* Canonical premium system. Ownership is intentionally ordered:
- * tokens -> foundation -> shared surfaces/type -> chrome -> homepage. */
+ * tokens -> foundation -> surfaces/type -> controls -> chrome -> homepage. */
 import '@/styles/visual-token-hardening.css'
 import '@/styles/premium-foundation.css'
 import '@/styles/premium-surfaces.css'
 import '@/styles/premium-typography.css'
+import '@/styles/premium-controls.css'
 import '@/styles/premium-chrome.css'
 import '@/styles/homepage-structure.css'
 import '@/styles/homepage-premium-final.css'
