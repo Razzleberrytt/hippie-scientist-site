@@ -25,7 +25,7 @@ The cascade is deliberately ordered in `app/layout.tsx`.
 
 ### 1. `app/globals.css`
 
-Tailwind theme, browser/base defaults, and legacy compatibility primitives.
+Tailwind theme, browser/base defaults, legacy compatibility primitives, and existing root-vs-template breadcrumb fallback behavior.
 
 ### 2. Legacy/template-specific layers
 
@@ -77,16 +77,17 @@ Homepage-specific controls may refine this treatment later because they belong t
 
 ### 8. `styles/premium-chrome.css`
 
-**Single owner of shell-facing presentation.**
+**Single owner of shell-facing visual presentation.**
 
 Owns:
 
 - primary navigation material treatment
 - mega menus
 - locale rail
-- mobile navigation drawer
-- duplicate breadcrumb suppression
+- mobile navigation drawer material treatment
 - footer atmosphere
+
+It does not decide which breadcrumb instance is visible. That fallback behavior already exists in `app/globals.css`, and having two visibility owners can hide both trails.
 
 Navigation components should use canonical token variables directly rather than embedding a second hardcoded palette for this stylesheet to override.
 
