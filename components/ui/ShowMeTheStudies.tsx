@@ -377,7 +377,7 @@ export default function ShowMeTheStudies({
         <div className="border-t border-amber-700/20 bg-amber-50 px-4 py-4 dark:bg-amber-300/10">
           <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-amber-900 dark:text-amber-100">Where studies disagree</p>
           <p className="mt-2 text-sm leading-6 text-amber-950 dark:text-amber-50">
-            The structured evidence is not uniform: {metrics.supportive} source relationship{metrics.supportive === 1 ? '' : 's'} support the conclusion, {metrics.mixed} are mixed, {metrics.contradicting} contradict it, and {metrics.noClearEffect} report no clear effect. Differences in population, dose or preparation, duration, outcome definition, and study design can produce genuinely different results; inspect the rows below rather than treating the studies as one averaged vote.
+            The structured evidence is not uniform: {metrics.supportive} source relationship{metrics.supportive === 1 ? '' : 's'} support{metrics.supportive === 1 ? 's' : ''} the conclusion, {metrics.mixed} are mixed, {metrics.contradicting} contradict it, and {metrics.noClearEffect} report no clear effect. Differences in population, dose or preparation, duration, outcome definition, and study design can produce genuinely different results; inspect the rows below rather than treating the studies as one averaged vote.
           </p>
         </div>
       ) : null}

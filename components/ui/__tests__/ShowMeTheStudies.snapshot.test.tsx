@@ -27,7 +27,8 @@ describe('ShowMeTheStudies default evidence snapshot', () => {
     render(<ShowMeTheStudies citations={citations} />)
 
     expect(screen.getByText('What the evidence actually shows')).toBeTruthy()
-    expect(screen.getByText(/2 human trials/i)).toBeTruthy()
+    // The count now appears in both the summary line and the detail block.
+    expect(screen.getAllByText(/2 human trials/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/approximate participant total is 200/i)).toBeTruthy()
     expect(screen.getByText(/1 supporting, 0 mixed, 1 contradicting/i)).toBeTruthy()
     expect(screen.getByText(/Confidence: not separately assigned/i)).toBeTruthy()

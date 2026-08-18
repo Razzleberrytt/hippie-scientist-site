@@ -15,10 +15,15 @@ describe('EvidenceScoreBadge', () => {
     expect(screen.getByText('Preliminary')).toBeTruthy()
   })
 
-  it('defaults to grade C when neither record nor grade is given', () => {
-    render(<EvidenceScoreBadge />)
-    expect(screen.getByText('C')).toBeTruthy()
-    expect(screen.getByText('Limited')).toBeTruthy()
+  it('reports an unassigned grade rather than inventing one', () => {
+    // With no record and no grade there is nothing to grade. Defaulting to C
+    // published an evidence grade the authored signals do not support, so the
+    // badge now says so explicitly instead.
+    const { container } = render(<EvidenceScoreBadge />)
+
+    expect(screen.getByText('Unassigned')).toBeTruthy()
+    expect(container.querySelector('[data-evidence-grade="Unassigned"]')).toBeTruthy()
+    expect(screen.queryByText('C')).toBeNull()
   })
 
   it('hides the label text when showLabel is false', () => {
