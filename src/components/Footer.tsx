@@ -14,6 +14,8 @@ const exploreLinks = [
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
   { href: '/guides/compare/', label: 'Compare' },
   { href: PUBLIC_ROUTES.articles, label: 'Research' },
+  { href: '/library/', label: 'Library' },
+  { href: '/evidence/research-trends/', label: 'Research trends' },
 ]
 
 const safetyLinks = [
@@ -28,12 +30,15 @@ const aboutLinks = [
   { href: PUBLIC_ROUTES.author, label: 'Author' },
   { href: PUBLIC_ROUTES.contact, label: 'Contact' },
   { href: '/info/methodology/', label: 'Methodology' },
+  { href: '/info/reviews/', label: 'Review history' },
+  { href: '/info/research-resources-for-writers/', label: 'For writers' },
 ]
 
 const legalLinks = [
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy' },
   { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
   { href: '/info/affiliate-disclosure/', label: 'Affiliate disclosure' },
+  { href: '/info/content-licensing/', label: 'Content licensing' },
 ]
 
 function formatBuildDate(isoDate: string) {

@@ -541,6 +541,7 @@ export default function BestNootropicsForFocusPage() {
           <Link href="/guides/adhd/adhd-supplements/" className="hover:text-brand-800">ADHD Supplements Hub →</Link>
           <Link href="/guides/other/supplements-for-brain-fog-and-fatigue/" className="hover:text-brand-800">Brain Fog & Fatigue →</Link>
           <Link href="/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/" className="hover:text-brand-800">Caffeine vs L-Theanine vs Bacopa →</Link>
+          <Link href="/best-supplements-for-focus-without-caffeine/" className="hover:text-brand-800">Focus Support Without Caffeine →</Link>
           <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>
 
