@@ -35,10 +35,11 @@ try {
   })
 
   // Static export cannot rely on Next's image optimization service. Generate
-  // deterministic local WebP variants before rendering, then expose a build-only
-  // flag so server-rendered profile heroes can reference those derived files.
-  console.log('[build] Generating responsive local image variants...')
-  execSync('node scripts/optimize-images.mjs', {
+  // deterministic local WebP variants for only the canonical monograph hero
+  // registry before rendering, then expose a build-only flag so server-rendered
+  // profile heroes can reference those derived files.
+  console.log('[build] Generating responsive monograph image variants...')
+  execSync('node scripts/optimize-images.mjs --monograph-registry', {
     stdio: 'inherit',
     env: process.env,
   })
