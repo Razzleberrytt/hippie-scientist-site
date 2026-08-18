@@ -1,9 +1,8 @@
 /* Premium homepage flagship — Botanical Research Journal
  *
- * This file is intentionally the final homepage-specific layer. It replaces
- * the older patchwork of decorative overrides with one coherent composition:
- * warm paper, graphite ink, forest structure, restrained brass, generous
- * rhythm, matched geometry, and a single scientific-instrument focal point.
+ * This is the sole homepage visual-composition owner. Geometry that React
+ * relies on lives in homepage-structure.css; this file owns atmosphere,
+ * materials, hierarchy, responsive composition, and homepage-only color.
  */
 
 .hs-home {
@@ -167,9 +166,6 @@
   z-index: 1;
 }
 
-/* Restore the original two-column composition. The previous final layer hid the
-   dial and collapsed the hero into one text column, which left the flagship
-   surface visually underweighted on desktop. */
 .hs-home .hs-hero > div:first-child {
   display: grid;
   max-width: none;
@@ -212,7 +208,7 @@
 }
 
 .hs-home .hs-btn-primary :is(svg) {
-  color: #d7b376 !important;
+  color: #d7b376;
 }
 
 .dark .hs-home .hs-btn-primary {
@@ -222,7 +218,7 @@
 }
 
 .dark .hs-home .hs-btn-primary :is(svg) {
-  color: #101214 !important;
+  color: #101214;
 }
 
 .hs-home .hs-btn-ghost {
@@ -239,8 +235,8 @@
   background: var(--hs-surface);
 }
 
-/* Scientific evidence dial — simplified into a precision instrument rather than
-   a glowing infographic. */
+/* Scientific evidence dial — a precision instrument rather than a glowing
+   infographic. It is decorative and intentionally desktop-only. */
 .hs-home .hs-dial {
   position: relative;
   display: none;
@@ -251,7 +247,7 @@
 
 @media (min-width: 1024px) {
   .hs-home .hs-dial {
-    display: block !important;
+    display: block;
   }
 }
 
@@ -442,12 +438,12 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border: 1px solid var(--home-rule) !important;
+  border: 1px solid var(--home-rule);
   border-radius: var(--home-radius-lg);
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--hs-gold-soft) 13%, transparent), transparent 42%),
-    var(--hs-surface) !important;
-  box-shadow: 0 14px 34px -30px rgba(29, 29, 31, 0.40) !important;
+    var(--hs-surface);
+  box-shadow: 0 14px 34px -30px rgba(29, 29, 31, 0.40);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
@@ -471,7 +467,7 @@
   content: '';
   position: absolute;
   inset: auto 0 0 0;
-  display: block !important;
+  display: block;
   height: 3px;
   background: linear-gradient(90deg, var(--hs-gold), color-mix(in srgb, var(--hs-gold) 20%, transparent));
   opacity: 0.52;
@@ -482,8 +478,8 @@
 
 .hs-home .hs-goal:hover {
   transform: translateY(-3px);
-  border-color: var(--home-brass-rule) !important;
-  box-shadow: 0 22px 44px -30px rgba(29, 29, 31, 0.44) !important;
+  border-color: var(--home-brass-rule);
+  box-shadow: 0 22px 44px -30px rgba(29, 29, 31, 0.44);
 }
 
 .hs-home .hs-goal:hover::after {
@@ -523,23 +519,23 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 1.2rem;
-  border: 1px solid var(--home-rule) !important;
+  border: 1px solid var(--home-rule);
   border-radius: var(--home-radius-md);
   padding: 1rem;
-  background: color-mix(in srgb, var(--hs-surface) 97%, var(--hs-gold-soft) 3%) !important;
-  box-shadow: none !important;
-  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+  background: color-mix(in srgb, var(--hs-surface) 97%, var(--hs-gold-soft) 3%);
+  box-shadow: none;
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
 }
 
 .hs-home .hs-specimen::after {
-  display: none !important;
+  display: none;
 }
 
 .hs-home .hs-specimen:hover {
   transform: translateY(-2px);
-  border-color: var(--home-brass-rule) !important;
-  background: var(--hs-surface) !important;
-  box-shadow: 0 16px 30px -28px rgba(29, 29, 31, 0.38) !important;
+  border-color: var(--home-brass-rule);
+  background: var(--hs-surface);
+  box-shadow: 0 16px 30px -28px rgba(29, 29, 31, 0.38);
 }
 
 .hs-home .hs-specimen-icon {
@@ -578,19 +574,19 @@
 .hs-home :is(.hs-vs, .hs-tool, .hs-article) {
   --tone: var(--hs-gold);
   --tone-ink: var(--hs-gold-ink);
-  border-color: var(--home-rule) !important;
-  background: var(--hs-surface) !important;
-  box-shadow: 0 14px 34px -30px rgba(29, 29, 31, 0.40) !important;
+  border-color: var(--home-rule);
+  background: var(--hs-surface);
+  box-shadow: 0 14px 34px -30px rgba(29, 29, 31, 0.40);
 }
 
 .hs-home :is(.hs-vs, .hs-tool, .hs-article)::after {
-  display: none !important;
+  display: none;
 }
 
 .hs-home :is(.hs-vs, .hs-tool, .hs-article):hover {
   transform: translateY(-2px);
-  border-color: var(--home-brass-rule) !important;
-  box-shadow: 0 20px 40px -30px rgba(29, 29, 31, 0.44) !important;
+  border-color: var(--home-brass-rule);
+  box-shadow: 0 20px 40px -30px rgba(29, 29, 31, 0.44);
 }
 
 .hs-home .hs-vs {
@@ -620,16 +616,28 @@
   opacity: 0.72;
 }
 
-/* Some earlier layers wrapped comparison and tool cards in a tinted panel. Keep
-   the grouping, but turn it into a proper editorial spread rather than another
-   card-within-a-card. */
+/* The decision/safety pair are peer editorial modules. Give them identical
+   material treatment, padding, and brass rules so the two-column composition
+   feels intentionally balanced rather than coincidentally adjacent. */
 .hs-home section:has(.hs-vs):has(.hs-tool) > div {
-  border: 1px solid var(--home-rule) !important;
-  border-radius: var(--home-radius-xl) !important;
+  position: relative;
+  border: 1px solid var(--home-rule);
+  border-radius: var(--home-radius-xl);
+  padding: clamp(1.2rem, 2.4vw, 1.8rem);
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--hs-gold-soft) 10%, transparent), transparent 46%),
-    color-mix(in srgb, var(--hs-surface-2) 92%, transparent) !important;
-  box-shadow: 0 24px 52px -44px rgba(29, 29, 31, 0.42) !important;
+    color-mix(in srgb, var(--hs-surface-2) 92%, transparent);
+  box-shadow: 0 24px 52px -44px rgba(29, 29, 31, 0.42);
+}
+
+.hs-home section:has(.hs-vs):has(.hs-tool) > div::after {
+  content: '';
+  position: absolute;
+  left: clamp(1.2rem, 2.4vw, 1.8rem);
+  top: 0.85rem;
+  width: 3.5rem;
+  height: 1px;
+  background: var(--home-brass-rule);
 }
 
 /* ---------- Methodology band ---------- */
@@ -667,6 +675,10 @@
   color: #fffdf8;
 }
 
+.hs-home .hs-method .hs-accent {
+  color: #e0bd7d;
+}
+
 .hs-home .hs-method :is(.hs-eyebrow, .hs-step-num, .hs-method-link) {
   color: #d9b16e;
 }
@@ -682,11 +694,11 @@
 }
 
 .hs-home .hs-method p {
-  color: #bbb5aa !important;
+  color: #bbb5aa;
 }
 
 .hs-home .hs-method h3 {
-  color: #fffdf8 !important;
+  color: #fffdf8;
 }
 
 .hs-home .hs-method-link {
@@ -719,7 +731,7 @@
   }
 
   .hs-home .hs-dial {
-    display: none !important;
+    display: none;
   }
 
   .hs-home .hs-hero h1 {
@@ -782,18 +794,24 @@
     width: 2.6rem;
   }
 
+  .hs-home section:has(.hs-vs):has(.hs-tool) > div::after {
+    left: 1.15rem;
+    top: 0.75rem;
+    width: 2.6rem;
+  }
+
   .hs-home #choose-a-path {
     border: 1px solid var(--home-rule);
     border-radius: var(--home-radius-xl);
     padding-inline: 0.85rem;
     background:
       radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--hs-gold-soft) 20%, transparent), transparent 34%),
-      color-mix(in srgb, var(--hs-surface) 75%, transparent) !important;
+      color-mix(in srgb, var(--hs-surface) 75%, transparent);
   }
 
   .hs-home .hs-goal {
-    min-height: 0 !important;
-    padding: 1rem !important;
+    min-height: 0;
+    padding: 1rem;
   }
 
   .hs-home .hs-goal::before {
@@ -803,7 +821,7 @@
   }
 
   .hs-home .hs-goal-title {
-    margin-top: 0.9rem !important;
+    margin-top: 0.9rem;
   }
 
   .hs-home .hs-goal p {
@@ -833,12 +851,12 @@
   }
 
   .hs-home .hs-goal-title {
-    font-size: 1.08rem !important;
+    font-size: 1.08rem;
   }
 
   .hs-home .hs-goal p {
-    font-size: 0.74rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.74rem;
+    line-height: 1.4;
   }
 
   .hs-home .hs-specimen {
