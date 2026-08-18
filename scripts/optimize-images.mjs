@@ -1,17 +1,22 @@
 #!/usr/bin/env node
 /**
  * Build-time image optimizer.
- * Converts raster images in public/images/ to WebP at responsive sizes.
- * Output mirrors the source tree under public/images/optimized/ so nested
- * assets keep deterministic, collision-free paths.
+ * Converts local raster images to responsive WebP variants under
+ * public/images/optimized/ while mirroring source directories so paths remain
+ * deterministic and collision-free.
+ *
+ * Default mode scans all raster images for the manual `npm run build:images`
+ * workflow. Production uses `--monograph-registry` so we generate only the
+ * images referenced by the canonical monograph image registry.
  *
  * Usage:
  *   node scripts/optimize-images.mjs
+ *   node scripts/optimize-images.mjs --monograph-registry
  *   npm run build:images
  */
 
 import { createRequire } from 'node:module'
-import { readdir, mkdir, access, rm } from 'node:fs/promises'
+import { readdir, mkdir, access, rm, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { performance } from 'node:perf_hooks'
 import { fileURLToPath } from 'node:url'
@@ -21,13 +26,24 @@ const repoRoot = path.join(__dirname, '..')
 
 const INPUT_DIR = path.join(repoRoot, 'public', 'images')
 const OUTPUT_DIR = path.join(INPUT_DIR, 'optimized')
+const MONOGRAPH_REGISTRY = path.join(repoRoot, 'lib', 'monograph-images.ts')
 const WIDTHS = [400, 800, 1200]
 const QUALITY = 85
 const SUPPORTED_EXTS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.avif', '.tif', '.tiff', '.webp'])
+const registryOnly = process.argv.includes('--monograph-registry')
 
 async function dirExists(dirPath) {
   try {
     await access(dirPath)
+    return true
+  } catch {
+    return false
+  }
+}
+
+async function fileExists(filePath) {
+  try {
+    await access(filePath)
     return true
   } catch {
     return false
@@ -56,6 +72,38 @@ async function getImageFiles(dir) {
     if (SUPPORTED_EXTS.has(ext)) files.push(fullPath)
   }
   return files
+}
+
+async function getMonographRegistryImageFiles() {
+  const source = await readFile(MONOGRAPH_REGISTRY, 'utf8')
+  const srcPattern = /\bsrc:\s*['"](\/images\/[^'"]+\.(?:jpe?g|png|gif|avif|tiff?|webp))['"]/gi
+  const imagePaths = new Set()
+
+  for (const match of source.matchAll(srcPattern)) {
+    const publicPath = match[1]
+    const inputPath = path.join(repoRoot, 'public', publicPath.replace(/^\//, ''))
+    const resolved = path.resolve(inputPath)
+
+    if (!resolved.startsWith(`${path.resolve(INPUT_DIR)}${path.sep}`)) {
+      throw new Error(`Registry image resolved outside public/images: ${publicPath}`)
+    }
+    if (!SUPPORTED_EXTS.has(path.extname(inputPath).toLowerCase())) continue
+    imagePaths.add(inputPath)
+  }
+
+  if (imagePaths.size === 0) {
+    throw new Error(`No local raster image sources found in ${path.relative(repoRoot, MONOGRAPH_REGISTRY)}`)
+  }
+
+  const missing = []
+  for (const inputPath of imagePaths) {
+    if (!(await fileExists(inputPath))) missing.push(path.relative(repoRoot, inputPath))
+  }
+  if (missing.length) {
+    throw new Error(`Monograph registry references missing local image(s): ${missing.join(', ')}`)
+  }
+
+  return [...imagePaths].sort()
 }
 
 async function optimizeImage(sharp, inputPath) {
@@ -91,7 +139,10 @@ async function main() {
     return
   }
 
-  const files = await getImageFiles(INPUT_DIR)
+  const files = registryOnly
+    ? await getMonographRegistryImageFiles()
+    : await getImageFiles(INPUT_DIR)
+
   if (files.length === 0) {
     console.log('[optimize-images] No supported images found in public/images/ — skipping.')
     return
@@ -131,7 +182,8 @@ async function main() {
   }
 
   const elapsed = ((performance.now() - start) / 1000).toFixed(2)
-  console.log(`[optimize-images] Done. ${files.length} source image(s) → ${totalGenerated} WebP output(s) in ${elapsed}s.`)
+  const scope = registryOnly ? 'monograph-registry' : 'all-images'
+  console.log(`[optimize-images] Done (${scope}). ${files.length} source image(s) → ${totalGenerated} WebP output(s) in ${elapsed}s.`)
 }
 
 main().catch(err => {
