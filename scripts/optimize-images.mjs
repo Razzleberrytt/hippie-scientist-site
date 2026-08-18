@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
  * Build-time image optimizer.
- * Converts images in public/images/ to WebP at responsive sizes for faster page loads.
- * Output goes to public/images/optimized/ — committed to the repo alongside originals.
+ * Converts raster images in public/images/ to WebP at responsive sizes.
+ * Output mirrors the source tree under public/images/optimized/ so nested
+ * assets keep deterministic, collision-free paths.
  *
  * Usage:
  *   node scripts/optimize-images.mjs
@@ -10,7 +11,7 @@
  */
 
 import { createRequire } from 'node:module'
-import { readdir, mkdir, access } from 'node:fs/promises'
+import { readdir, mkdir, access, rm } from 'node:fs/promises'
 import path from 'node:path'
 import { performance } from 'node:perf_hooks'
 import { fileURLToPath } from 'node:url'
@@ -19,10 +20,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.join(__dirname, '..')
 
 const INPUT_DIR = path.join(repoRoot, 'public', 'images')
-const OUTPUT_DIR = path.join(repoRoot, 'public', 'images', 'optimized')
+const OUTPUT_DIR = path.join(INPUT_DIR, 'optimized')
 const WIDTHS = [400, 800, 1200]
 const QUALITY = 85
-const SUPPORTED_EXTS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.avif', '.tiff', '.webp'])
+const SUPPORTED_EXTS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.avif', '.tif', '.tiff', '.webp'])
 
 async function dirExists(dirPath) {
   try {
@@ -43,29 +44,40 @@ async function getImageFiles(dir) {
 
   const files = []
   for (const entry of entries) {
-    if (entry.isDirectory()) continue
-    const ext = path.extname(entry.name).toLowerCase()
-    if (SUPPORTED_EXTS.has(ext)) {
-      files.push(path.join(dir, entry.name))
+    const fullPath = path.join(dir, entry.name)
+
+    if (entry.isDirectory()) {
+      if (path.resolve(fullPath) === path.resolve(OUTPUT_DIR)) continue
+      files.push(...await getImageFiles(fullPath))
+      continue
     }
+
+    const ext = path.extname(entry.name).toLowerCase()
+    if (SUPPORTED_EXTS.has(ext)) files.push(fullPath)
   }
   return files
 }
 
-async function optimizeImage(sharp, inputPath, outputDir) {
+async function optimizeImage(sharp, inputPath) {
+  const relativePath = path.relative(INPUT_DIR, inputPath)
+  const relativeDir = path.dirname(relativePath)
   const basename = path.basename(inputPath, path.extname(inputPath))
+  const outputDir = path.join(OUTPUT_DIR, relativeDir)
   const results = []
+
+  await mkdir(outputDir, { recursive: true })
 
   for (const width of WIDTHS) {
     const outputName = `${basename}-${width}w.webp`
     const outputPath = path.join(outputDir, outputName)
 
-    await sharp(inputPath)
+    await sharp(inputPath, { animated: false })
+      .rotate()
       .resize(width, null, { withoutEnlargement: true })
       .webp({ quality: QUALITY })
       .toFile(outputPath)
 
-    results.push(outputName)
+    results.push(path.relative(OUTPUT_DIR, outputPath).split(path.sep).join('/'))
   }
 
   return results
@@ -85,9 +97,11 @@ async function main() {
     return
   }
 
+  // Derived assets are reproducible. Rebuild the directory from source so
+  // deleted/renamed originals cannot leave stale variants behind.
+  await rm(OUTPUT_DIR, { recursive: true, force: true })
   await mkdir(OUTPUT_DIR, { recursive: true })
 
-  // Use createRequire so this ESM file can load sharp (CJS package)
   const require = createRequire(import.meta.url)
   let sharp
   try {
@@ -99,15 +113,21 @@ async function main() {
   }
 
   let totalGenerated = 0
+  let failed = 0
   for (const inputPath of files) {
     const rel = path.relative(repoRoot, inputPath)
     try {
-      const outputs = await optimizeImage(sharp, inputPath, OUTPUT_DIR)
+      const outputs = await optimizeImage(sharp, inputPath)
       totalGenerated += outputs.length
       console.log(`[optimize-images] ${rel} → ${outputs.join(', ')}`)
     } catch (err) {
-      console.warn(`[optimize-images] WARN: failed to process ${rel}: ${err.message}`)
+      failed += 1
+      console.error(`[optimize-images] ERROR: failed to process ${rel}: ${err.message}`)
     }
+  }
+
+  if (failed > 0) {
+    throw new Error(`${failed} source image(s) failed optimization`)
   }
 
   const elapsed = ((performance.now() - start) / 1000).toFixed(2)
