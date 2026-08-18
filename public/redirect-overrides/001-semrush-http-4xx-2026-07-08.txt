@@ -273,7 +273,6 @@
 /guides/compare/maca-root-extract-vs-panax-ginseng/ /guides/compare/ 301
 /guides/compare/melatonin-vs-glycine/ /guides/compare/ 301
 /guides/compare/melatonin-vs-magnesium-glycinate/ /guides/compare/ 301
-/guides/compare/melatonin-vs-valerian/ /guides/compare/ 301
 /guides/compare/melatonin-vs-valerian-root-extract/ /guides/compare/ 301
 /guides/compare/mitragynine-vs-7-hydroxymitragynine/ /guides/compare/ 301
 /guides/compare/montmorency-tart-cherry-extract-vs-magnesium/ /guides/compare/ 301
