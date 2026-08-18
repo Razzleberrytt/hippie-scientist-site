@@ -30,7 +30,6 @@ import '@/styles/foundation-readability.css'
 import '@/styles/premium-library-polish.css'
 import '@/styles/herb-profile-polish.css'
 import '@/styles/profile-navigation-cleanup.css'
-import '@/styles/navigation-responsive.css'
 import '@/styles/compact-hero-typography.css'
 import '@/styles/resonant-theme-lighting.css'
 import '@/styles/premium-surface-details.css'
@@ -41,11 +40,12 @@ import '@/styles/editorial-botanical-refresh.css'
 import '@/styles/editorial-content-surfaces.css'
 
 /* Canonical premium system. Ownership is intentionally ordered:
- * tokens -> foundation -> shared surfaces/type -> homepage structure -> skin. */
+ * tokens -> foundation -> shared surfaces/type -> chrome -> homepage. */
 import '@/styles/visual-token-hardening.css'
 import '@/styles/premium-foundation.css'
 import '@/styles/premium-surfaces.css'
 import '@/styles/premium-typography.css'
+import '@/styles/premium-chrome.css'
 import '@/styles/homepage-structure.css'
 import '@/styles/homepage-premium-final.css'
 
