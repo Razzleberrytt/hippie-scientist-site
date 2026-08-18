@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 
 import RuntimeEvidenceComparison from '@/src/components/comparison/RuntimeEvidenceComparison'
 import { buildRuntimeComparisonMetadata } from '@/src/lib/runtime-comparison-metadata'
+import { RUNTIME_COMPARISON_SIDES } from '@/lib/runtime-comparison-sides'
 
-const COMPARISON_LEFT = { label: 'Creatine Monohydrate', candidates: ['creatine-monohydrate', 'creatine'] }
-const COMPARISON_RIGHT = { label: 'Alternative Creatine Form', candidates: ['creatine-hcl', 'creatine-hydrochloride', 'buffered-creatine', 'creatine-ethyl-ester'] }
+const { left: COMPARISON_LEFT, right: COMPARISON_RIGHT } = RUNTIME_COMPARISON_SIDES['creatine-monohydrate-vs-alternative-forms']
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildRuntimeComparisonMetadata({
