@@ -24,6 +24,28 @@
   contain-intrinsic-size: auto 48rem;
 }
 
+/*
+ * The legacy compound profile places ProfileTOC's default "all" variant as a
+ * direct sibling of the article in an always-horizontal flex row. Below lg the
+ * TOC's mobile nav is therefore a real flex item and can squeeze the article to
+ * a sliver. Herb profiles already split mobile/desktop TOCs explicitly.
+ *
+ * Keep this bridge deliberately structural and narrow: only a flex row with a
+ * direct Page sections nav carrying ProfileTOC's literal `lg:hidden` token is
+ * stacked. The desktop-only TOC used by herb profiles does not match.
+ */
+@media (max-width: 1023px) {
+  .flex.items-start:has(> nav[aria-label='Page sections'][class~='lg:hidden']) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flex.items-start > nav[aria-label='Page sections'][class~='lg:hidden'] {
+    order: -1;
+    width: 100%;
+  }
+}
+
 /* Printing must lay out the full article immediately. */
 @media print {
   :is(
