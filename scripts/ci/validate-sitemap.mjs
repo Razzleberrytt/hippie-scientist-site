@@ -221,8 +221,14 @@ function main() {
     failed = true
   }
 
-  if (compoundCount < 8) {
-    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs (expected at least 8 curated/quality-gated compound URLs).`)
+  // This is a catastrophic-regression smoke floor, not a publishing target.
+  // Route-level completeness, rendered canonical/noindex checks, and governance
+  // decide which compound profiles belong in the sitemap. Current conservative
+  // governance can legitimately publish fewer than the historical threshold of
+  // eight, so keep enough headroom that a science-driven demotion cannot make CI
+  // pressure the project to republish a profile merely to satisfy a count.
+  if (compoundCount < 5) {
+    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs (expected at least 5 governed compound URLs; lower usually indicates a route/governance pipeline regression).`)
     failed = true
   }
 
