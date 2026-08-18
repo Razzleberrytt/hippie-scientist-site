@@ -39,16 +39,15 @@ import '@/styles/compact-safety-cautions.css'
 import '@/styles/editorial-botanical-refresh.css'
 import '@/styles/editorial-content-surfaces.css'
 
-/* Canonical premium system. Ownership is intentionally ordered:
- * tokens -> foundation -> surfaces/type -> controls -> chrome -> homepage. */
+/* Canonical premium system. Root ownership is intentionally ordered:
+ * tokens -> foundation -> surfaces/type -> controls -> chrome.
+ * Homepage structure/composition are route-scoped from app/page.tsx. */
 import '@/styles/visual-token-hardening.css'
 import '@/styles/premium-foundation.css'
 import '@/styles/premium-surfaces.css'
 import '@/styles/premium-typography.css'
 import '@/styles/premium-controls.css'
 import '@/styles/premium-chrome.css'
-import '@/styles/homepage-structure.css'
-import '@/styles/homepage-premium-final.css'
 
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 const WEBSITE_ID = `${SITE_URL}/#website`
