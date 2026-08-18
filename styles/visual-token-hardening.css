@@ -1,12 +1,12 @@
-/* Final token hardening.
-   Loaded last so legacy Tailwind/theme variables cannot leak former visual eras
-   back into shared components. Semantic evidence and safety colors remain
-   untouched because they carry information. */
+/* Canonical visual tokens.
+ *
+ * This file owns values, not component presentation. Shared controls, chrome,
+ * surfaces, typography, and homepage composition consume these variables in
+ * their own canonical layers. Semantic evidence and safety colors remain
+ * separate because they communicate meaning rather than brand identity.
+ */
 
 :root {
-  /* Canonical brand primitives. Shared UI should continue consuming the
-     semantic/compatibility aliases below; these are the single source of truth
-     for the core visual identity. */
   --brand-graphite: #1d1d1f;
   --brand-forest: #2f4037;
   --brand-sage: #66766c;
@@ -45,7 +45,8 @@
   --accent-secondary: var(--brand-brass);
   --accent-teal: var(--brand-sage);
 
-  /* Canonical compatibility map for older editorial token families. */
+  /* Compatibility aliases keep older templates visually aligned while they are
+     progressively migrated to the canonical naming scheme. */
   --hs-gold: var(--brand-brass);
   --hs-gold-bright: var(--brand-brass-bright);
   --hs-gold-soft: var(--brand-brass-soft);
@@ -67,7 +68,7 @@
   --tone: var(--hs-gold);
   --tone-ink: var(--hs-gold-ink);
 
-  /* Keep Tailwind brand utilities compatible with the editorial identity. */
+  /* Tailwind brand utilities remain compatible with the editorial identity. */
   --color-brand-50: #f1f2ef;
   --color-brand-100: #e1e5df;
   --color-brand-200: #c6cec8;
@@ -145,47 +146,15 @@ html.dark {
   --color-brand: var(--brand-brass-emphasis);
 }
 
-/* The body itself must agree with the shell; this prevents a stale-color flash
-   or exposed strip during overscroll, navigation transitions, and short pages. */
+/* Body and overscroll must agree with the shell so short pages and transitions
+   never expose a stale visual era. */
 body {
-  background: var(--bg) !important;
+  background: var(--bg);
   color: var(--text-primary);
 }
 
 html.dark body {
-  background: #0e1011 !important;
-}
-
-/* Final action owner: graphite in light mode, brass in dark mode. */
-.button-primary,
-.hs-btn-primary {
-  border-color: #272729 !important;
-  background: #272729 !important;
-  color: #fffdf8 !important;
-}
-
-.button-primary:hover,
-.hs-btn-primary:hover {
-  border-color: #343437 !important;
-  background: #343437 !important;
-}
-
-html.dark .button-primary,
-html.dark .hs-btn-primary {
-  border-color: var(--brand-brass-emphasis) !important;
-  background: var(--brand-brass-emphasis) !important;
-  color: #0e1011 !important;
-}
-
-html.dark .button-primary:hover,
-html.dark .hs-btn-primary:hover {
-  border-color: var(--brand-brass-highlight) !important;
-  background: var(--brand-brass-highlight) !important;
-}
-
-/* Generic focus and link affordances use the canonical brass accent. */
-:where(a, button, summary, input, textarea, select):focus-visible {
-  outline-color: var(--hs-gold) !important;
+  background: #0e1011;
 }
 
 ::selection {
