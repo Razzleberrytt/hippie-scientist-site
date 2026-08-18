@@ -2,20 +2,46 @@ import { existsSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { LOCALIZED_ROUTES, SPANISH_LOCALE, getLocalizedRoute } from '../../src/lib/international-seo'
 import { SPANISH_PAGES } from '../../src/lib/spanish-content'
+import { SPANISH_ROUTE_KEYS } from '../../src/lib/spanish-routes'
 
 const spanishRoutes = LOCALIZED_ROUTES
   .map((route) => route.translations[SPANISH_LOCALE])
   .filter((path): path is string => Boolean(path))
 
-function routeToPageFile(path: string) {
-  const normalized = path === '/' ? '' : path.replace(/^\//, '').replace(/\/$/, '')
-  return normalized ? `app/${normalized}/page.tsx` : 'app/page.tsx'
+/**
+ * How a Spanish URL is actually served. The routes stopped being one directory
+ * per page: `/es/` is a literal page, the content pages are enumerated by the
+ * `app/es/[...segments]` catch-all, and profiles come from a `[slug]` route.
+ *
+ * The catch-all sets `dynamicParams = false`, so a path missing from
+ * SPANISH_ROUTE_KEYS is not built at all and any hreflang link to it hands a
+ * crawler a 404 — which is the failure this test exists to prevent.
+ */
+function routeResolution(path: string): 'literal' | 'catch-all' | 'profile-slug' | 'unbuilt' {
+  const segments = path.replace(/^\/es\/?/, '').replace(/\/$/, '')
+  if (!segments) return existsSync('app/es/page.tsx') ? 'literal' : 'unbuilt'
+  if (existsSync(`app/es/${segments}/page.tsx`)) return 'literal'
+  if (segments in SPANISH_ROUTE_KEYS) return 'catch-all'
+
+  const parts = segments.split('/')
+  if (parts.length === 2 && existsSync(`app/es/${parts[0]}/[slug]/page.tsx`)) return 'profile-slug'
+
+  return 'unbuilt'
 }
 
 describe('Spanish localization integrity', () => {
-  it('publishes a real page file for every advertised Spanish hreflang route', () => {
+  it('builds a real page for every advertised Spanish hreflang route', () => {
     for (const path of spanishRoutes) {
-      expect(existsSync(routeToPageFile(path)), `Missing Spanish route file for ${path}`).toBe(true)
+      expect(routeResolution(path), `${path} is advertised with hreflang but nothing builds it`).not.toBe('unbuilt')
+    }
+  })
+
+  it('enumerates every catch-all Spanish route, which dynamicParams = false requires', () => {
+    const catchAll = spanishRoutes.filter((path) => routeResolution(path) === 'catch-all')
+    expect(catchAll.length).toBeGreaterThan(0)
+    for (const path of catchAll) {
+      const segments = path.replace(/^\/es\/?/, '').replace(/\/$/, '')
+      expect(SPANISH_ROUTE_KEYS[segments], `${path} must map to a Spanish page key`).toBeTruthy()
     }
   })
 

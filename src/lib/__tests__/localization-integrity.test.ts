@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 import { FRENCH_PAGES } from '../french-content'
@@ -17,6 +18,7 @@ import {
 import type { LocalizedPageData } from '../localization'
 import { assertCompleteProfileTranslation, loadCanonicalLocalizedProfile } from '../localized-profile'
 import { PORTUGUESE_PAGES } from '../portuguese-content'
+import { COMPOUND_PROFILE_TRANSLATIONS } from '../compound-profile-translations'
 import { PROFILE_TRANSLATIONS, type ProfileTranslationLocale } from '../profile-translations'
 import { SPANISH_PAGES } from '../spanish-content'
 
@@ -40,10 +42,30 @@ function localePrefix(locale: TranslationLocale) {
   return `/${locale}/`
 }
 
+function localeDirectory(locale: TranslationLocale) {
+  return localePrefix(locale).replace(/\//g, '')
+}
+
+/**
+ * Everything this locale actually publishes. Translated profiles live in two
+ * registries - herbs in PROFILE_TRANSLATIONS, compounds in
+ * COMPOUND_PROFILE_TRANSLATIONS - and reading only the first made every
+ * `/<locale>/<compounds>/l-theanine/` look unpublished when it ships.
+ *
+ * The locale homepage is a route of its own (app/es/page.tsx and siblings)
+ * rather than a content-pack entry; Spanish keeps it only there, the other
+ * locales also list it in their pack, so it is added once when missing.
+ */
 function publishedPaths(locale: TranslationLocale) {
   const core = PACKS[locale].map((page) => normalizeInternationalPath(page.path))
   const profiles = PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale].map((profile) => normalizeInternationalPath(profile.path))
-  return [...core, ...profiles].sort()
+  const compounds = COMPOUND_PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale].map((profile) => normalizeInternationalPath(profile.path))
+
+  const paths = [...core, ...profiles, ...compounds]
+  const home = normalizeInternationalPath(localePrefix(locale))
+  if (!paths.includes(home) && existsSync(`app/${localeDirectory(locale)}/page.tsx`)) paths.push(home)
+
+  return paths.sort()
 }
 
 describe('multilingual localization integrity', () => {
@@ -66,7 +88,10 @@ describe('multilingual localization integrity', () => {
         expect(page.sections.length, `${page.path} must contain substantive editorial sections`).toBeGreaterThan(0)
       }
 
-      for (const profile of PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale]) {
+      for (const profile of [
+        ...PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale],
+        ...COMPOUND_PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale],
+      ]) {
         expect(profile.title.trim().length, `${profile.path} must have a title`).toBeGreaterThan(12)
         expect(profile.summary.trim().length, `${profile.path} must have a substantive summary`).toBeGreaterThan(80)
         const canonical = loadCanonicalLocalizedProfile(profile.kind, profile.slug)

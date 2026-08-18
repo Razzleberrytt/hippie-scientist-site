@@ -59,6 +59,23 @@ function findLocalizedRoute(path = '/'): LocalizedRoute | undefined {
   const normalized = normalizeInternationalPath(path)
   return LOCALIZED_ROUTES.find((candidate) => normalizeInternationalPath(candidate.english) === normalized || Object.values(candidate.translations).some((localizedPath) => localizedPath && normalizeInternationalPath(localizedPath) === normalized))
 }
+/**
+ * True when `path` is a translation this site publishes, in any locale.
+ *
+ * Indexability is decided by route-family patterns that describe the English
+ * tree only, so a published translation matched none of them and fell through
+ * to a default deny while the page itself renders index,follow. Callers that
+ * ask whether a URL should be indexed need to recognise these.
+ */
+export function isPublishedTranslationPath(path = '/'): boolean {
+  const normalized = normalizeInternationalPath(path)
+  return LOCALIZED_ROUTES.some((route) =>
+    Object.values(route.translations).some(
+      (translated) => translated && normalizeInternationalPath(translated) === normalized,
+    ),
+  )
+}
+
 export function getLocalizedRoute(path = '/', locale: SupportedLocale): string | null {
   const route = findLocalizedRoute(path)
   if (!route) return null

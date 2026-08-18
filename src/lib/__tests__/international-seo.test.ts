@@ -4,6 +4,7 @@ import {
   DEFAULT_LANGUAGE,
   DEFAULT_REGION,
   LOCALIZED_ROUTE_PAIRS,
+  LOCALIZED_ROUTES,
   LOCALE_TEXT_DIRECTION,
   SPANISH_LOCALE,
   SUPPORTED_LOCALES,
@@ -16,13 +17,13 @@ import {
 import { shouldIndexRoute } from '../seo'
 
 describe('international SEO helpers', () => {
-  it('declares English as the default and Spanish as a supported locale', () => {
+  it('declares English as the default and every published translation as supported', () => {
     expect(DEFAULT_LOCALE).toBe('en-US')
     expect(DEFAULT_LANGUAGE).toBe('en')
     expect(DEFAULT_REGION).toBe('US')
     expect(LOCALE_TEXT_DIRECTION).toBe('ltr')
     expect(SPANISH_LOCALE).toBe('es')
-    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es'])
+    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es', 'pt-BR', 'fr', 'de'])
   })
 
   it('normalizes paths for locale alternates without query strings', () => {
@@ -30,16 +31,20 @@ describe('international SEO helpers', () => {
     expect(normalizeInternationalPath('/robots.txt')).toBe('/robots.txt')
   })
 
-  it('builds translated hreflang pairs only for published Spanish equivalents', () => {
+  it('builds translated hreflang pairs only for routes that have published equivalents', () => {
     expect(getCurrentLocaleAlternates('/herbs/')).toEqual([
       { locale: 'en-US', url: 'https://thehippiescientist.net/herbs/' },
       { locale: 'es', url: 'https://thehippiescientist.net/es/hierbas/' },
+      { locale: 'pt-BR', url: 'https://thehippiescientist.net/pt/ervas/' },
+      { locale: 'fr', url: 'https://thehippiescientist.net/fr/plantes/' },
+      { locale: 'de', url: 'https://thehippiescientist.net/de/kraeuter/' },
       { locale: 'x-default', url: 'https://thehippiescientist.net/herbs/' },
     ])
 
-    expect(getCurrentLocaleAlternates('/herbs/ashwagandha/')).toEqual([
-      { locale: 'en-US', url: 'https://thehippiescientist.net/herbs/ashwagandha/' },
-      { locale: 'x-default', url: 'https://thehippiescientist.net/herbs/ashwagandha/' },
+    // An untranslated profile must not advertise alternates that do not exist.
+    expect(getCurrentLocaleAlternates('/herbs/turmeric/')).toEqual([
+      { locale: 'en-US', url: 'https://thehippiescientist.net/herbs/turmeric/' },
+      { locale: 'x-default', url: 'https://thehippiescientist.net/herbs/turmeric/' },
     ])
   })
 
@@ -53,17 +58,23 @@ describe('international SEO helpers', () => {
     expect(buildDefaultLocaleUrl('/')).toBe('https://thehippiescientist.net/')
   })
 
-  it('exposes locale metadata for both language versions', () => {
-    expect(getLocaleMetadata('/').alternates).toHaveLength(3)
+  it('exposes locale metadata for every language version', () => {
+    // One entry per supported locale plus x-default.
+    expect(getLocaleMetadata('/').alternates).toHaveLength(SUPPORTED_LOCALES.length + 1)
     expect(getLocaleMetadata('/').openGraphLocale).toBe('en_US')
     expect(getLocaleMetadata('/es/', 'es').openGraphLocale).toBe('es_ES')
   })
 
-  it('keeps every published Spanish translation indexable', () => {
-    for (const pair of LOCALIZED_ROUTE_PAIRS) {
-      const decision = shouldIndexRoute(pair.spanish)
-      expect(decision.index, `${pair.spanish} should be indexable`).toBe(true)
-      expect(decision.follow).toBe(true)
+  it('keeps every published translation indexable, in every locale', () => {
+    // Not just Spanish: a translation the site publishes and links with hreflang
+    // must not be told noindex by the indexability policy.
+    for (const route of LOCALIZED_ROUTES) {
+      for (const translated of Object.values(route.translations)) {
+        if (!translated) continue
+        const decision = shouldIndexRoute(translated)
+        expect(decision.index, `${translated} should be indexable`).toBe(true)
+        expect(decision.follow).toBe(true)
+      }
     }
   })
 

@@ -1,7 +1,22 @@
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+
+/**
+ * Completeness now also requires the translation to be recorded at the current
+ * claim revision, so a translated page cannot keep publishing after the claims
+ * beneath it change. PROFILE_TRANSLATION_REVISIONS is a static literal keyed by
+ * real published paths, so these fixtures drive it through this mock instead of
+ * borrowing a live path whose hash they cannot match.
+ */
+const { revisionByPath } = vi.hoisted(() => ({ revisionByPath: new Map<string, string>() }))
+
+vi.mock('../profile-translation-revisions', () => ({
+  PROFILE_TRANSLATION_REVISIONS: {},
+  getProfileTranslationRevision: (path: string) => revisionByPath.get(path) ?? null,
+}))
 
 import {
   assertCompleteProfileTranslation,
+  canonicalProfileClaimRevision,
   profileTranslationCoverage,
   type CanonicalLocalizedProfile,
   type LocalizedProfileTranslation,
@@ -30,6 +45,11 @@ function translation(claims: Record<string, string>): LocalizedProfileTranslatio
 }
 
 describe('localized profile claim coverage', () => {
+  beforeEach(() => {
+    revisionByPath.clear()
+    revisionByPath.set('/es/hierbas/example/', canonicalProfileClaimRevision(canonical))
+  })
+
   it('requires every approved canonical claim and ignores pending claims', () => {
     const result = profileTranslationCoverage(canonical, translation({
       'approved-1': 'uno',
@@ -37,6 +57,25 @@ describe('localized profile claim coverage', () => {
     }))
 
     expect(result).toMatchObject({ approvedClaims: 2, translatedClaims: 2, missing: [], stale: [], complete: true })
+  })
+
+  it('fails closed when the translation was recorded against older claims', () => {
+    revisionByPath.set('/es/hierbas/example/', 'revision-from-before-the-claims-changed')
+    const localized = translation({ 'approved-1': 'uno', 'approved-2': 'dos' })
+
+    const coverage = profileTranslationCoverage(canonical, localized)
+    expect(coverage.missing).toEqual([])
+    expect(coverage.revisionCurrent).toBe(false)
+    expect(coverage.complete).toBe(false)
+    expect(() => assertCompleteProfileTranslation(canonical, localized)).toThrow(/revision=stale/)
+  })
+
+  it('fails closed when no revision was ever recorded for the translation', () => {
+    revisionByPath.clear()
+    const localized = translation({ 'approved-1': 'uno', 'approved-2': 'dos' })
+
+    expect(profileTranslationCoverage(canonical, localized).complete).toBe(false)
+    expect(() => assertCompleteProfileTranslation(canonical, localized)).toThrow(/revision=stale:missing/)
   })
 
   it('fails closed when an approved claim is missing', () => {
