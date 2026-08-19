@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import HomepageV2 from '@/components/homepage-v2'
 import { buildPageMetadata } from '../src/lib/seo'
+import '@/styles/homepage-structure.css'
+import '@/styles/homepage-premium-final.css'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'The Hippie Scientist: Evidence & Safety for Supplements',

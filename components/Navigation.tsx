@@ -113,6 +113,7 @@ export function Navigation() {
         <div className='flex h-[4.35rem] items-center justify-between gap-2 sm:h-[4.8rem] sm:gap-3'>
           <Link
             href='/'
+            prefetch={false}
             className='flex min-w-0 items-center gap-2 font-display text-[0.9rem] font-semibold tracking-[-0.025em] text-[var(--text-primary)] transition hover:text-[var(--text-primary)] sm:gap-2.5 sm:text-[1.28rem]'
             aria-label='The Hippie Scientist home'
           >
@@ -140,6 +141,7 @@ export function Navigation() {
                 <div key={link.href} className='group relative'>
                   <Link
                     href={toCanonicalHref(link.href)}
+                    prefetch={false}
                     aria-current={current ? 'page' : undefined}
                     aria-haspopup={hasChildren ? 'true' : undefined}
                     className={`relative flex items-center gap-1 py-2 font-semibold transition-colors ${
@@ -174,6 +176,7 @@ export function Navigation() {
                               <Link
                                 key={child.href}
                                 href={toCanonicalHref(child.href)}
+                                prefetch={false}
                                 aria-current={isCurrentPage(pathname, child.href) ? 'page' : undefined}
                                 className='block rounded-2xl px-3 py-2.5 transition hover:bg-[var(--surface-card)] focus-visible:bg-[var(--surface-card)] focus-visible:outline-none'
                               >
@@ -227,7 +230,7 @@ export function Navigation() {
             style={{ height: '100dvh' }}
           >
             <div className='mb-6 flex items-center justify-between gap-3'>
-              <Link href='/' onClick={closeMobile} aria-label='The Hippie Scientist home' className='flex min-w-0 items-center gap-2.5 font-display text-lg font-semibold text-[var(--text-primary)]'>
+              <Link href='/' prefetch={false} onClick={closeMobile} aria-label='The Hippie Scientist home' className='flex min-w-0 items-center gap-2.5 font-display text-lg font-semibold text-[var(--text-primary)]'>
                 <Leaf aria-hidden='true' className='h-5 w-5 shrink-0 text-[var(--hs-gold)]' strokeWidth={1.7} />
                 <span className='truncate'>The Hippie Scientist</span>
               </Link>
@@ -255,6 +258,7 @@ export function Navigation() {
                   <Link
                     key={link.href}
                     href={toCanonicalHref(link.href)}
+                    prefetch={false}
                     onClick={closeMobile}
                     aria-current={current ? 'page' : undefined}
                     className={`block rounded-2xl px-4 py-3.5 font-semibold transition ${
