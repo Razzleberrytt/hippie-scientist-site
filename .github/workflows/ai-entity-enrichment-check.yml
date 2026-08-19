@@ -120,6 +120,15 @@ jobs:
           components/seo/__tests__/SchemaGraphScript.test.ts
           components/seo/__tests__/SchemaGraphScript.provenance.test.ts
 
+      # The AI-search audits read public/data, which is generated and therefore
+      # a snapshot rather than the pipeline's output. Normalising evidence grades
+      # first is what every build already does; without it the audit reported four
+      # compounds carrying evidence_tier "Strong Human Evidence" alongside grade
+      # Avoid/Insufficient - a contradiction the normaliser resolves, and which
+      # exists in no built output.
+      - name: Normalize evidence grades before auditing
+        run: npm run -s data:normalize-evidence
+
       - name: Run canonical AI-search quality audit
         run: npm run audit:ai-citations
 
