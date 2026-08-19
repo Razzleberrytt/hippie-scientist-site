@@ -8,7 +8,11 @@ type MonographHeroImageProps = {
   eyebrow: string
 }
 
-const HERO_SIZES = '(min-width: 1024px) 32rem, (min-width: 640px) 50vw, 100vw'
+// Profile pages render the mobile hero inside ~2.125rem side insets. Reporting
+// 100vw made the browser believe the 344px Lighthouse slot was wider than 400px
+// and select the 800w candidate. Match the real mobile slot so 400w can be used
+// when appropriate while preserving the existing tablet/desktop hints.
+const HERO_SIZES = '(min-width: 1024px) 32rem, (min-width: 640px) 50vw, calc(100vw - 4.25rem)'
 const HERO_CLASS = 'aspect-[16/10] w-full object-cover object-center sm:aspect-[4/3]'
 
 export default function MonographHeroImage({ image }: MonographHeroImageProps) {
