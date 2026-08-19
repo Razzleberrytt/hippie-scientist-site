@@ -19,6 +19,9 @@ scripts/out/
 public/og/
 public/stats.json
 
+# Derived responsive image assets (rebuilt from canonical source images).
+public/images/optimized/
+
 # Local/archive artifacts that should not ship
 archive-orphaned-not-for-app/
 src/data/backups/
