@@ -8,6 +8,8 @@ const repoRoot = path.resolve(__dirname, '../../..')
 const DEFAULT_APPLIED_PATCH_DIR = path.join(repoRoot, 'data', 'patches', 'applied')
 
 const DOSE_TEXT_RE = /(?:\b\d+(?:\.\d+)?\s*(?:mg|g|mcg|µg|ug|ml|iu)(?:\s*\/\s*(?:day|d))?\b|\b(?:dose|dosage|per day|\/day)\b)/i
+const HUMAN_OPERATION_RE = /\b(?:humans?|adults?|participants?|patients?|subjects?|volunteers?|people|randomi[sz]ed|placebo[- ]controlled|crossover|clinical trial)\b/i
+const EXPLICIT_NON_HUMAN_SOURCE_RE = /\b(?:in[ -]?vitro|animal|rodent|mouse|mice|rat|cell culture|mechanistic)\b/i
 const SAFETY_FIELD_RE = /^(?:safety|safety_notes|runtime_safety|contraindications?|side_effects?|tolerability)$/i
 const DOSE_FIELD_RE = /^(?:dose|dosage|typical_dosage|dosage_or_preferred_form|dose_or_duration)$/i
 const INTERACTION_FIELD_RE = /^(?:interaction|interactions|drug_interaction|drug_interactions)$/i
@@ -24,6 +26,18 @@ function normalizeField(value) {
   return String(value || '').trim().toLowerCase().replace(/[\s-]+/g, '_')
 }
 
+function sourceText(source) {
+  return text([
+    source?.title,
+    source?.citation,
+    source?.studyType,
+    source?.study_type,
+    source?.design,
+    source?.publicationType,
+    source?.publication_type,
+  ])
+}
+
 export function rolesForAppliedOperation(operation = {}) {
   const roles = new Set()
   const op = String(operation.op || '').trim().toLowerCase()
@@ -33,17 +47,18 @@ export function rolesForAppliedOperation(operation = {}) {
   if (op === 'add_drug_interaction' || INTERACTION_FIELD_RE.test(field)) roles.add('interaction')
   if (DOSE_FIELD_RE.test(field)) roles.add('dose')
 
-  // Applied evidence patches attach their patch-level sources to the operation.
-  // When the reviewed operation itself contains a concrete studied regimen, that
-  // source is legitimately dose-bearing even if the field is primarily safety or
-  // efficacy. We only classify the relationship; no dose claim is created here.
+  // Applied evidence patches attach their patch-level sources to the reviewed
+  // operation. Preserve only relationship facts that are explicit in that
+  // reviewed operation; this does not create a new scientific claim.
   const operationText = text([
     operation.value,
+    operation.claim,
     operation.notes,
     operation.qualifiers,
     operation.payload,
   ])
   if (DOSE_TEXT_RE.test(operationText)) roles.add('dose')
+  if (HUMAN_OPERATION_RE.test(operationText)) roles.add('human')
 
   return [...roles].sort()
 }
@@ -73,13 +88,21 @@ export function buildAppliedPatchSourceRoleMap({ patchDir = DEFAULT_APPLIED_PATC
       const id = sourceId(source)
       if (!id) continue
       const existing = roleMap.get(id) || new Set()
-      for (const role of roles) existing.add(role)
+      const explicitlyNonHuman = EXPLICIT_NON_HUMAN_SOURCE_RE.test(sourceText(source))
+      for (const role of roles) {
+        // A reviewed human-context operation is useful provenance for ambiguous
+        // human-study titles, but it must never launder a source that explicitly
+        // identifies itself as in-vitro, animal, cell-culture, or mechanistic.
+        if (role === 'human' && explicitlyNonHuman) continue
+        existing.add(role)
+      }
       roleMap.set(id, existing)
     }
   }
 
   return new Map(
     [...roleMap.entries()]
+      .filter(([, roles]) => roles.size > 0)
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([id, roles]) => [id, [...roles].sort()]),
   )
