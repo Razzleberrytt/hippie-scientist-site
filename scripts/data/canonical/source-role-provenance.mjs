@@ -26,6 +26,16 @@ function normalizeField(value) {
   return String(value || '').trim().toLowerCase().replace(/[\s-]+/g, '_')
 }
 
+function normalizeEntityType(value) {
+  const normalized = String(value || '').trim().toLowerCase()
+  if (normalized === 'herb' || normalized === 'compound') return normalized
+  return ''
+}
+
+function normalizeSlug(value) {
+  return String(value || '').trim().toLowerCase()
+}
+
 function sourceText(source) {
   return text([
     source?.title,
@@ -36,6 +46,13 @@ function sourceText(source) {
     source?.publicationType,
     source?.publication_type,
   ])
+}
+
+export function sourceRoleKey(entityType, slug, sourceIdValue) {
+  const type = normalizeEntityType(entityType)
+  const normalizedSlug = normalizeSlug(slug)
+  const id = String(sourceIdValue || '').trim()
+  return type && normalizedSlug && id ? `${type}:${normalizedSlug}:${id}` : ''
 }
 
 export function rolesForAppliedOperation(operation = {}) {
@@ -80,14 +97,19 @@ export function buildAppliedPatchSourceRoleMap({ patchDir = DEFAULT_APPLIED_PATC
     }
 
     if (String(patch?._apply_result?.status || '').toLowerCase() !== 'applied') continue
+    const entityType = normalizeEntityType(patch?.target?.entity_type || patch?.target?.entityType)
+    const slug = normalizeSlug(patch?.target?.slug)
+    if (!entityType || !slug) continue
+
     const roles = new Set((patch.operations || []).flatMap(rolesForAppliedOperation))
     if (!roles.size) continue
 
     for (const source of patch.sources || []) {
       if (!source || typeof source !== 'object') continue
       const id = sourceId(source)
-      if (!id) continue
-      const existing = roleMap.get(id) || new Set()
+      const key = sourceRoleKey(entityType, slug, id)
+      if (!key) continue
+      const existing = roleMap.get(key) || new Set()
       const explicitlyNonHuman = EXPLICIT_NON_HUMAN_SOURCE_RE.test(sourceText(source))
       for (const role of roles) {
         // A reviewed human-study operation is useful provenance for ambiguous
@@ -96,7 +118,7 @@ export function buildAppliedPatchSourceRoleMap({ patchDir = DEFAULT_APPLIED_PATC
         if (role === 'human' && explicitlyNonHuman) continue
         existing.add(role)
       }
-      roleMap.set(id, existing)
+      roleMap.set(key, existing)
     }
   }
 
@@ -104,7 +126,7 @@ export function buildAppliedPatchSourceRoleMap({ patchDir = DEFAULT_APPLIED_PATC
     [...roleMap.entries()]
       .filter(([, roles]) => roles.size > 0)
       .sort(([a], [b]) => a.localeCompare(b))
-      .map(([id, roles]) => [id, [...roles].sort()]),
+      .map(([key, roles]) => [key, [...roles].sort()]),
   )
 }
 
