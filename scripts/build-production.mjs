@@ -19,6 +19,17 @@ for (const dir of [outPath, nextPath]) {
 }
 
 try {
+  // Canonical citation export intentionally keeps evidence claims/sources separate
+  // from the workbook. Applied reviewed patches also carry source-role context
+  // (safety, interaction, studied dose) that older canonical source rows did not
+  // persist in `used_for`. Restore only that already-reviewed relationship metadata
+  // before invariant enforcement; no scientific claim or citation is created here.
+  console.log('[build] Restoring reviewed evidence source roles...')
+  execSync('node scripts/data/apply-reviewed-source-role-overlay.mjs --data-dir=public/data', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
   // Publication invariants are deployment-critical. The workbook/runtime build
   // may preserve weak records for internal research, but immediately before
   // Next renders production HTML we scrub internal language and force any
@@ -29,6 +40,17 @@ try {
     stdio: 'inherit',
     env: process.env,
   })
+
+  // A governance-triggered derived-data refresh re-exports canonical citations.
+  // Reapply the same deterministic role overlay before the final invariant check
+  // so an approved survivor cannot lose its reviewed source classification merely
+  // because another profile was demoted and forced a refresh.
+  console.log('[build] Reapplying reviewed evidence source roles after governance refresh...')
+  execSync('node scripts/data/apply-reviewed-source-role-overlay.mjs --data-dir=public/data', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
   execSync('node scripts/ci/validate-production-content-invariants.mjs --data-dir=public/data', {
     stdio: 'inherit',
     env: process.env,
