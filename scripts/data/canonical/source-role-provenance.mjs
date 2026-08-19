@@ -8,7 +8,7 @@ const repoRoot = path.resolve(__dirname, '../../..')
 const DEFAULT_APPLIED_PATCH_DIR = path.join(repoRoot, 'data', 'patches', 'applied')
 
 const DOSE_TEXT_RE = /(?:\b\d+(?:\.\d+)?\s*(?:mg|g|mcg|µg|ug|ml|iu)(?:\s*\/\s*(?:day|d))?\b|\b(?:dose|dosage|per day|\/day)\b)/i
-const HUMAN_OPERATION_RE = /\b(?:humans?|adults?|participants?|patients?|subjects?|volunteers?|people|randomi[sz]ed|placebo[- ]controlled|crossover|clinical trial)\b/i
+const HUMAN_OPERATION_RE = /\b(?:humans?|adults?|participants?|patients?|subjects?|volunteers?|randomi[sz]ed|placebo[- ]controlled|crossover|clinical trial)\b/i
 const EXPLICIT_NON_HUMAN_SOURCE_RE = /\b(?:in[ -]?vitro|animal|rodent|mouse|mice|rat|cell culture|mechanistic)\b/i
 const SAFETY_FIELD_RE = /^(?:safety|safety_notes|runtime_safety|contraindications?|side_effects?|tolerability)$/i
 const DOSE_FIELD_RE = /^(?:dose|dosage|typical_dosage|dosage_or_preferred_form|dose_or_duration)$/i
@@ -90,7 +90,7 @@ export function buildAppliedPatchSourceRoleMap({ patchDir = DEFAULT_APPLIED_PATC
       const existing = roleMap.get(id) || new Set()
       const explicitlyNonHuman = EXPLICIT_NON_HUMAN_SOURCE_RE.test(sourceText(source))
       for (const role of roles) {
-        // A reviewed human-context operation is useful provenance for ambiguous
+        // A reviewed human-study operation is useful provenance for ambiguous
         // human-study titles, but it must never launder a source that explicitly
         // identifies itself as in-vitro, animal, cell-culture, or mechanistic.
         if (role === 'human' && explicitlyNonHuman) continue
