@@ -2,6 +2,7 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import {
   buildAppliedPatchSourceRoleMap,
   mergeReviewedSourceRoleNote,
@@ -73,7 +74,11 @@ export function applyReviewedSourceRoleOverlay({ dataDir = 'public/data', roleMa
   return report
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+const isCli = process.argv[1]
+  ? path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))
+  : false
+
+if (isCli) {
   const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
   const dataDir = dataDirArg ? dataDirArg.slice('--data-dir='.length) : 'public/data'
   const report = applyReviewedSourceRoleOverlay({ dataDir })
