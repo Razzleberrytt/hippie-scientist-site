@@ -3,6 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { evaluateRecord } from '../lib/production-content-invariants.mjs'
 import {
   buildAppliedPatchSourceRoleMap,
   mergeReviewedSourceRoleNote,
@@ -33,6 +34,7 @@ export function applyReviewedSourceRoleOverlay({ dataDir = 'public/data', roleMa
     updatedProfiles: 0,
     updatedSources: 0,
     updatedByKind: { herbs: 0, compounds: 0 },
+    candidateDiagnostics: [],
   }
 
   for (const [kind, directory] of [['herbs', 'herbs-detail'], ['compounds', 'compounds-detail']]) {
@@ -64,10 +66,24 @@ export function applyReviewedSourceRoleOverlay({ dataDir = 'public/data', roleMa
 
       if (!changed) continue
       record.sources = nextSources
+
+      const invariantKind = kind === 'herbs' ? 'herb' : 'compound'
+      const remainingCodes = [...new Set(
+        evaluateRecord(record, invariantKind)
+          .filter((finding) => finding.blocking !== false)
+          .map((finding) => finding.code),
+      )].sort()
+
       writeJson(filePath, record)
       report.updatedProfiles += 1
       report.updatedSources += changedSources
       report.updatedByKind[kind] += 1
+      report.candidateDiagnostics.push({
+        kind: invariantKind,
+        slug: String(record.slug || path.basename(name, '.json')),
+        updatedSources: changedSources,
+        remainingCodes,
+      })
     }
   }
 
@@ -86,4 +102,10 @@ if (isCli) {
     `[reviewed-source-roles] applied patch roles to ${report.updatedSources} approved source(s) across ${report.updatedProfiles} profile(s) ` +
     `(herbs=${report.updatedByKind.herbs}, compounds=${report.updatedByKind.compounds}; mappedSources=${report.reviewedRoleSources})`,
   )
+  for (const candidate of report.candidateDiagnostics) {
+    console.log(
+      `[reviewed-source-roles] candidate ${candidate.kind}:${candidate.slug} updatedSources=${candidate.updatedSources} ` +
+      `remaining=${candidate.remainingCodes.length ? candidate.remainingCodes.join(',') : 'none'}`,
+    )
+  }
 }
