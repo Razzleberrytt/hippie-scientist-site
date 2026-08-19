@@ -79,7 +79,7 @@ describe('reviewed source-role provenance', () => {
       operations: [{
         op: 'add_claim',
         field: 'effects',
-        value: 'This in-vitro result does not prove better outcomes in people.',
+        value: 'The reviewed discussion contrasts this source with randomized trials in adults, but this source itself is in vitro.',
       }],
       sources: [source],
       _apply_result: { status: 'applied' },
