@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '../../..')
 const DEFAULT_APPLIED_PATCH_DIR = path.join(repoRoot, 'data', 'patches', 'applied')
 
-const DOSE_TEXT_RE = /(?:\b\d+(?:\.\d+)?\s*(?:mg|g|mcg|µg|ug|ml|iu)(?:\s*\/\s*(?:day|d))?\b|\b(?:dose|dosage|daily|per day|\/day|twice daily|once daily)\b)/i
+const DOSE_TEXT_RE = /(?:\b\d+(?:\.\d+)?\s*(?:mg|g|mcg|µg|ug|ml|iu)(?:\s*\/\s*(?:day|d))?\b|\b(?:dose|dosage|per day|\/day)\b)/i
 const SAFETY_FIELD_RE = /^(?:safety|safety_notes|runtime_safety|contraindications?|side_effects?|tolerability)$/i
 const DOSE_FIELD_RE = /^(?:dose|dosage|typical_dosage|dosage_or_preferred_form|dose_or_duration)$/i
 const INTERACTION_FIELD_RE = /^(?:interaction|interactions|drug_interaction|drug_interactions)$/i
