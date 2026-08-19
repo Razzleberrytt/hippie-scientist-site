@@ -7,6 +7,7 @@ import {
   buildAppliedPatchSourceRoleMap,
   mergeReviewedSourceRoleNote,
   rolesForAppliedOperation,
+  sourceRoleKey,
 } from '../source-role-provenance.mjs'
 import { applyReviewedSourceRoleOverlay } from '../../apply-reviewed-source-role-overlay.mjs'
 
@@ -39,7 +40,7 @@ describe('reviewed source-role provenance', () => {
     })).toEqual(['dose', 'human'])
   })
 
-  it('derives roles only from patches that were actually applied', () => {
+  it('derives profile-scoped roles only from patches that were actually applied', () => {
     const patchDir = tempDir('source-role-patches-')
     const source = {
       doi: '10.3390/nu11102362',
@@ -49,12 +50,14 @@ describe('reviewed source-role provenance', () => {
     }
     const applied = {
       patch_id: 'reviewed-safety',
+      target: { entity_type: 'compound', slug: 'l-theanine' },
       operations: [{ op: 'add_claim', field: 'safety', value: '200 mg/day; short-term tolerability.' }],
       sources: [source],
       _apply_result: { status: 'applied' },
     }
     const rejected = {
       patch_id: 'not-applied-interaction',
+      target: { entity_type: 'compound', slug: 'l-theanine' },
       operations: [{ op: 'add_drug_interaction', value: 'Interaction claim.' }],
       sources: [{ doi: '10.1000/not-applied', title: 'Not applied' }],
       _apply_result: { status: 'rejected' },
@@ -63,8 +66,10 @@ describe('reviewed source-role provenance', () => {
     fs.writeFileSync(path.join(patchDir, 'rejected.json'), JSON.stringify(rejected))
 
     const roleMap = buildAppliedPatchSourceRoleMap({ patchDir })
-    expect(roleMap.get(sourceId(source))).toEqual(['dose', 'safety'])
+    const key = sourceRoleKey('compound', 'l-theanine', sourceId(source))
+    expect(roleMap.get(key)).toEqual(['dose', 'safety'])
     expect(roleMap.size).toBe(1)
+    expect(roleMap.get(sourceRoleKey('compound', 'glycine', sourceId(source)))).toBeUndefined()
   })
 
   it('never launders an explicitly in-vitro source into a human source', () => {
@@ -76,6 +81,7 @@ describe('reviewed source-role provenance', () => {
     }
     fs.writeFileSync(path.join(patchDir, 'applied.json'), JSON.stringify({
       patch_id: 'reviewed-mechanistic',
+      target: { entity_type: 'compound', slug: 'magnesium-glycinate' },
       operations: [{
         op: 'add_claim',
         field: 'effects',
@@ -86,7 +92,8 @@ describe('reviewed source-role provenance', () => {
     }))
 
     const roleMap = buildAppliedPatchSourceRoleMap({ patchDir })
-    expect(roleMap.get(sourceId(source))).toBeUndefined()
+    const key = sourceRoleKey('compound', 'magnesium-glycinate', sourceId(source))
+    expect(roleMap.get(key)).toBeUndefined()
   })
 
   it('merges deterministic reviewed-role metadata idempotently', () => {
@@ -97,7 +104,7 @@ describe('reviewed source-role provenance', () => {
 })
 
 describe('runtime reviewed source-role overlay', () => {
-  it('annotates approved sources but never upgrades pending sources', () => {
+  it('annotates approved sources only for the intended profile and never upgrades pending sources', () => {
     const root = tempDir('source-role-runtime-')
     const detailDir = path.join(root, 'compounds-detail')
     fs.mkdirSync(detailDir, { recursive: true })
@@ -113,8 +120,9 @@ describe('runtime reviewed source-role overlay', () => {
     const report = applyReviewedSourceRoleOverlay({
       dataDir: root,
       roleMap: new Map([
-        ['src_approved', ['dose', 'human', 'safety']],
-        ['src_pending', ['human', 'safety']],
+        [sourceRoleKey('compound', 'l-theanine', 'src_approved'), ['dose', 'human', 'safety']],
+        [sourceRoleKey('compound', 'l-theanine', 'src_pending'), ['human', 'safety']],
+        [sourceRoleKey('compound', 'glycine', 'src_approved'), ['interaction']],
       ]),
     })
     const updated = JSON.parse(fs.readFileSync(filePath, 'utf8'))
