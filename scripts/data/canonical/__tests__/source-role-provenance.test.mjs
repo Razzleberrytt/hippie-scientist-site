@@ -56,7 +56,7 @@ describe('reviewed source-role provenance', () => {
 
     const roleMap = buildAppliedPatchSourceRoleMap({ patchDir })
     expect(roleMap.get(sourceId(source))).toEqual(['dose', 'safety'])
-    expect(roleMap).toHaveLength(1)
+    expect(roleMap.size).toBe(1)
   })
 
   it('merges deterministic reviewed-role metadata idempotently', () => {
