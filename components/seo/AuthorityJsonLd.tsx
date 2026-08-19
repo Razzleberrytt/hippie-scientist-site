@@ -20,6 +20,13 @@ type AuthorityJsonLdProps = {
   }>
   faqItems?: FaqItem[]
   citationUrls?: string[]
+  /**
+   * Emit an Article node alongside the page node. A long-form editorial guide is
+   * both a MedicalWebPage and an Article; the page node can only carry one
+   * @type, so a page that is reviewed as an article opts in here rather than
+   * choosing between the two.
+   */
+  includeArticle?: boolean
 }
 
 function normalizeFaqItem(item: FaqItem): FaqItem | null {
@@ -51,6 +58,7 @@ export default function AuthorityJsonLd({
   breadcrumbs = [],
   faqItems,
   citationUrls = [],
+  includeArticle = false,
 }: AuthorityJsonLdProps) {
   const normalizedUrl = url.replace('https://thehippiescientist.net', SITE_URL)
   const canonical = normalizedUrl.endsWith('/') ? normalizedUrl : `${normalizedUrl}/`
@@ -104,7 +112,23 @@ export default function AuthorityJsonLd({
       }
     : null
 
-  const graph = buildSchemaGraph([webpage, breadcrumb, faq])
+  const article = includeArticle && type !== 'Article'
+    ? {
+        '@type': 'Article',
+        '@id': `${canonical}#article`,
+        headline: title,
+        description,
+        url: canonical,
+        inLanguage: 'en-US',
+        mainEntityOfPage: { '@id': webpageId },
+        isPartOf: { '@id': webpageId },
+        author: { '@id': AUTHOR_SCHEMA_ID },
+        publisher: { '@id': ORGANIZATION_SCHEMA_ID },
+        ...(citationUrls.length ? { citation: [...new Set(citationUrls)].filter(Boolean) } : {}),
+      }
+    : null
+
+  const graph = buildSchemaGraph([webpage, article, breadcrumb, faq])
 
   return (
     <script

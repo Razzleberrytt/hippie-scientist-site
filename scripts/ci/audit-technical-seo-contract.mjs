@@ -77,14 +77,45 @@ function internalLinks(html) {
     .filter(Boolean)
 }
 
+/**
+ * True when a redirect rule governs paths on the canonical host.
+ *
+ * normalizePath() reduces a rule to its path, which is what the link and
+ * sitemap checks need - but it also erases the host, turning the www-to-apex
+ * canonicalisation rules into identity redirects. 19 of the 42 www rules in
+ * public/_redirects have the same path on both sides, so `/`, `/goals/`,
+ * `/guides/` and `/safety-checker/` were read as redirect sources that loop to
+ * themselves. Every internal link to them then counted as a link into a
+ * redirect: 4093 of 4159 reported errors, from four of the most-linked routes
+ * on the site.
+ *
+ * A rule whose source is another host describes what happens to requests for
+ * that host. It does not make an apex-host path a redirect source.
+ */
+function governsCanonicalHost(source) {
+  if (!/^https?:\/\//i.test(source)) return true
+  try {
+    return new URL(source).origin === CANONICAL_ORIGIN
+  } catch {
+    return false
+  }
+}
+
 function parseRedirects() {
   if (!fs.existsSync(REDIRECTS_FILE)) return []
   return fs.readFileSync(REDIRECTS_FILE, 'utf8').split(/\r?\n/).map((line) => line.trim())
     .filter((line) => line && !line.startsWith('#'))
     .map((line) => line.split(/\s+/))
     .filter((parts) => parts.length >= 2)
+    .filter(([from]) => governsCanonicalHost(from))
     .map(([from, to, status = '302']) => ({ from: normalizePath(from), to: normalizePath(to), rawTo: to, status }))
     .filter((row) => row.from && row.to && /^30[1278]$/.test(row.status))
+    // A rule whose source and target share a path once normalised is trailing-slash
+    // canonicalisation (`/safety-checker` -> `/safety-checker/`), which this site
+    // needs because it builds with trailingSlash: true. It cannot redirect the
+    // canonical form anywhere, so treating it as a redirect source made every link
+    // to /safety-checker/ look like a link into a redirect.
+    .filter((row) => row.from !== row.to)
 }
 
 function parseSitemap() {

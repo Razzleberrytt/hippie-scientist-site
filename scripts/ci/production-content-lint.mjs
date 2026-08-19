@@ -58,6 +58,33 @@ function walkHtml(dir) {
   return files
 }
 
+/**
+ * The canonical this page declares, when it points at a different URL.
+ *
+ * A page consolidated by rel=canonical is not competing with its target - it
+ * exists to hand its signals over. /compounds/berberine-hcl is deliberately
+ * crawlable-but-canonicalized because noindex would suppress it instead of
+ * consolidating it (see app/compounds/[slug]/page.tsx), and
+ * /articles/best-supplements-for-sleep re-exports the guide it canonicalises to.
+ * Judging those as duplicate or missing H1s asks a page to differ from the one
+ * it has declared itself a duplicate of.
+ */
+function canonicalisesElsewhere(html, route) {
+  const tags = html.match(/<link\b[^>]*>/gi) || []
+  const canonicalTag = tags.find((tag) => /\brel\s*=\s*["']canonical["']/i.test(tag))
+  const href = canonicalTag?.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1]
+  if (!href) return false
+
+  let pathname = href
+  try {
+    pathname = new URL(href).pathname
+  } catch {
+    // Relative canonical: compare as written.
+  }
+  const normalise = (value) => (value.length > 1 ? value.replace(/\/+$/, '') : value)
+  return normalise(pathname) !== normalise(route)
+}
+
 function auditH1Uniqueness() {
   const groups = new Map()
   const missing = []
@@ -69,6 +96,7 @@ function auditH1Uniqueness() {
     const html = fs.readFileSync(filePath, 'utf8')
     const robots = (html.match(/<meta\s+[^>]*name=["']robots["'][^>]*content=["']([^"']*)["']/i) || [])[1] || ''
     if (/\bnoindex\b/i.test(robots)) continue
+    if (canonicalisesElsewhere(html, route)) continue
     const values = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)]
       .map((match) => stripTags(match[1]))
       .filter(Boolean)

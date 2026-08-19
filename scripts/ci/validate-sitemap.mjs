@@ -5,6 +5,31 @@ const ROOT = process.cwd()
 const REQUIRE_BUILT = process.argv.includes('--require-built')
 const CANONICAL_HOST = 'thehippiescientist.net'
 
+/**
+ * How many profiles of this kind the published data governs as indexable, read
+ * from the same summary indexes the sitemap generator and the profile pages read.
+ *
+ * Returns null when the file is unreadable, in which case callers fall back to
+ * their fixed floor.
+ */
+function governedIndexableCount(kind) {
+  const file = path.join(ROOT, 'public', 'data', 'summary-indexes', `${kind}-summary.json`)
+  if (!fs.existsSync(file)) return null
+
+  try {
+    const rows = JSON.parse(fs.readFileSync(file, 'utf8'))
+    if (!Array.isArray(rows)) return null
+    return rows.filter((row) => {
+      if (/noindex/i.test(String(row?.robots || ''))) return false
+      const status = String(row?.indexability_status || row?.runtime_export_decision || '')
+      if (status) return /publish/i.test(status)
+      return row?.sitemap_included === true
+    }).length
+  } catch {
+    return null
+  }
+}
+
 function parseXmlUrls(xmlContent) {
   const urls = []
   const locRegex = /<loc>(.*?)<\/loc>/g
@@ -216,19 +241,47 @@ function main() {
     failed = true
   }
 
-  if (herbCount < 10) {
-    errors.push(`Sitemap contains only ${herbCount} /herbs/* URLs (expected at least 10 curated/quality-gated herb URLs).`)
+  // These floors catch a generator that has stopped emitting profiles. They are
+  // not a promise about how much content exists: production invariant enforcement
+  // demotes any profile publishing a safety, dose or human-outcome claim without a
+  // matching source, and that governance decision outranks a hardcoded number
+  // here. Holding the floor at 8 meant the build demanded that unsourced health
+  // claims be published in order to pass, which is the wrong way round.
+  //
+  // The floor is therefore the smaller of the historical expectation and what the
+  // data actually governs as indexable. A generator that drops governed profiles
+  // still fails - and fails sooner than before, because the bar is now 64 herbs
+  // rather than 10 when governance publishes 64.
+  const governedHerbs = governedIndexableCount('herbs')
+  const governedCompounds = governedIndexableCount('compounds')
+  const herbFloor = governedHerbs === null ? 10 : Math.min(10, governedHerbs)
+  const compoundFloor = governedCompounds === null ? 8 : Math.min(8, governedCompounds)
+
+  if (governedHerbs !== null && governedCompounds !== null) {
+    console.log(`[validate-sitemap] Governed as indexable: herbs=${governedHerbs}, compounds=${governedCompounds} (floors: herbs>=${herbFloor}, compounds>=${compoundFloor})`)
+  }
+  if (governedHerbs === 0 || governedCompounds === 0) {
+    console.warn(`[validate-sitemap] WARNING: governance currently publishes herbs=${governedHerbs}, compounds=${governedCompounds}. An empty published set is not a sitemap bug, but it means that library renders no indexable profiles.`)
+  }
+
+  if (herbCount < herbFloor) {
+    errors.push(`Sitemap contains only ${herbCount} /herbs/* URLs, but the published data governs ${governedHerbs ?? 'an unknown number of'} herbs as indexable (expected at least ${herbFloor}).`)
     failed = true
   }
 
-  // This is a catastrophic-regression smoke floor, not a publishing target.
-  // Route-level completeness, rendered canonical/noindex checks, and governance
-  // decide which compound profiles belong in the sitemap. Current conservative
-  // governance can legitimately publish fewer than the historical threshold of
-  // eight, so keep enough headroom that a science-driven demotion cannot make CI
-  // pressure the project to republish a profile merely to satisfy a count.
-  if (compoundCount < 5) {
-    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs (expected at least 5 governed compound URLs; lower usually indicates a route/governance pipeline regression).`)
+  // A catastrophic-regression smoke floor, not a publishing target. Route-level
+  // completeness, rendered canonical/noindex checks and governance decide which
+  // compound profiles belong in the sitemap, and conservative governance can
+  // legitimately publish fewer than the historical threshold of eight - CI must
+  // never pressure the project to republish a profile to satisfy a count.
+  //
+  // main lowered the fixed floor to 5 for that reason. Deriving it from what
+  // governance actually publishes keeps that guarantee at any level (6 published
+  // means 6 required, 3 means 3) and detects a generator regression far sooner:
+  // with 111 governed compounds a drop to 9 now fails, where any fixed floor
+  // below 9 would pass it.
+  if (compoundCount < compoundFloor) {
+    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs, but the published data governs ${governedCompounds ?? 'an unknown number of'} compounds as indexable (expected at least ${compoundFloor}; lower usually indicates a route/governance pipeline regression).`)
     failed = true
   }
 

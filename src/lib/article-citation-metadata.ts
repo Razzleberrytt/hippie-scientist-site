@@ -191,6 +191,11 @@ export function buildArticleReferenceSchema(ref: NormalizedArticleReference) {
     '@type': 'ScholarlyArticle',
     ...(ref.url ? { '@id': ref.url } : {}),
     name: ref.title,
+    // Schema policy requires a headline on every Article-shaped node, including
+    // the cited works nested under an article's citation list. A cited study's
+    // headline is its title, so this states it rather than leaving consumers to
+    // infer it from name alone.
+    headline: ref.title,
     ...(ref.year ? { datePublished: String(ref.year) } : {}),
     ...(identifiers.length ? { identifier: identifiers } : {}),
     ...(ref.url ? { url: ref.url } : {}),

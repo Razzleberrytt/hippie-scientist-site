@@ -93,6 +93,7 @@ export default function Page() {
           description="Smokeless-tobacco-specific cessation evidence for counseling, varenicline, nicotine replacement, nicotine pouches, and non-nicotine oral substitutes."
           url="https://thehippiescientist.net/guides/other/healthy-dipping-tobacco-alternatives/"
           type="MedicalWebPage"
+          includeArticle
           citationUrls={REFS.map((ref) => ref.url)}
         />
         <AuthorityBreadcrumbs

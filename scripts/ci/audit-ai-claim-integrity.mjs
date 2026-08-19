@@ -75,9 +75,29 @@ for (const [kind, file] of DATASETS) {
     const claimText = textFor(record, CLAIM_FIELDS)
     const allText = flatten(record).join(' | ')
 
-    const hasStrong = labels.some((label) => STRONG_LABEL.test(label)) || STRONG_CLAIM.test(claimText)
-    const hasWeak = WEAK.test(claimText)
-    if (hasStrong && hasWeak) {
+    // A contradiction is two signals of the same kind disagreeing: labels that
+    // fight each other, or prose that calls the same evidence both strong and
+    // preliminary. It is not a strong label sitting beside a narrative caveat -
+    // CLAIM_FIELDS includes summary, limitations and research_gaps, which is
+    // exactly where a profile is supposed to calibrate a finding. Aloe vera reads
+    // 'lowered fasting glucose ... the included trials were small and used varied
+    // preparations, so the evidence is preliminary'; flagging that made deleting
+    // the caveat the way to pass, which is the opposite of keeping uncertainty
+    // visible.
+    const hasStrongLabel = labels.some((label) => STRONG_LABEL.test(label))
+    const hasWeakLabel = labels.some((label) => WEAK.test(label))
+    const hasStrongClaim = STRONG_CLAIM.test(claimText)
+    const hasWeakClaim = WEAK.test(claimText)
+    const hasStrong = hasStrongLabel || hasStrongClaim
+    const hasWeak = hasWeakClaim
+    // Prose is compared no further: CLAIM_FIELDS concatenates summary,
+    // description, limitations and research gaps, and a multi-outcome profile is
+    // supposed to grade them separately. Creatine reads 'strong human evidence for
+    // selected high-intensity exercise outcomes' in one field and 'unclear' about a
+    // different outcome in another - precise, not contradictory. Only labels
+    // disagreeing with labels is unambiguous: one record cannot be graded both
+    // strong and preliminary overall.
+    if (hasStrongLabel && hasWeakLabel) {
       totals.contradictoryStrength++
       findings.push({ severity: 'error', kind, slug, issue: 'strong evidence signal conflicts with preliminary/mixed/limited language' })
     }

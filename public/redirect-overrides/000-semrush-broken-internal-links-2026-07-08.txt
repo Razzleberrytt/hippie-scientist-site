@@ -109,7 +109,7 @@
 # 3 broken-link instances
 /compare/alpha-lipoic-acid-vs-d-chiro-inositol/ /guides/compare/ 301
 # 3 broken-link instances
-/compare/melatonin-vs-l-theanine/ /guides/compare/ 301
+/compare/melatonin-vs-l-theanine/ /guides/compare/melatonin-vs-l-theanine/ 301
 # 3 broken-link instances
 /compare/choline-vs-lecithin/ /guides/compare/ 301
 # 3 broken-link instances
@@ -173,7 +173,7 @@
 # 2 broken-link instances
 /compare/mitragynine-vs-7-hydroxymitragynine/ /guides/compare/ 301
 # 2 broken-link instances
-/compare/l-theanine-vs-magnesium/ /guides/compare/ 301
+/compare/l-theanine-vs-magnesium/ /guides/compare/l-theanine-vs-magnesium/ 301
 # 2 broken-link instances
 /compare/panax-ginseng-vs-bacopa/ /guides/compare/ 301
 # 2 broken-link instances
@@ -211,7 +211,7 @@
 # 1 broken-link instances
 /compare/melatonin-vs-magnesium-glycinate/ /guides/compare/ 301
 # 1 broken-link instances
-/compare/melatonin-vs-valerian/ /guides/compare/ 301
+/compare/melatonin-vs-valerian/ /guides/compare/melatonin-vs-valerian/ 301
 # 1 broken-link instances
 /compare/melatonin-vs-valerian-root-extract/ /guides/compare/ 301
 # 1 broken-link instances
@@ -364,11 +364,8 @@
 # 1 broken-link instances
 /guides/compare/hawthorn-vs-coq10/ /guides/compare/ 301
 # 1 broken-link instances
-/guides/compare/l-theanine-vs-magnesium/ /guides/compare/ 301
 # 1 broken-link instances
-/guides/compare/melatonin-vs-l-theanine/ /guides/compare/ 301
 # 1 broken-link instances
-/guides/compare/melatonin-vs-valerian/ /guides/compare/ 301
 # 1 broken-link instances
 /guides/compare/quercetin-vs-resveratrol/ /guides/compare/ 301
 # 1 broken-link instances

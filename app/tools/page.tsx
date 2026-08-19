@@ -38,6 +38,13 @@ const tools = [
     exampleLabel: 'Explore the 2026 Evidence Report',
   },
   {
+    href: '/tools/evidence-matrices/',
+    title: 'Evidence & Safety Matrices',
+    description: 'Read outcomes and ingredients as a grid: which options carry human evidence for a goal, which rest on mechanism, and where safety cautions cluster — without averaging disagreement away.',
+    exampleHref: '/tools/evidence-matrices/',
+    exampleLabel: 'Open the evidence matrices',
+  },
+  {
     href: '/guides/compare/',
     title: 'Comparisons',
     description: 'Put two options side by side by evidence, safety, dose, form, timing, and practical tradeoffs instead of collapsing them into a simplistic winner.',
