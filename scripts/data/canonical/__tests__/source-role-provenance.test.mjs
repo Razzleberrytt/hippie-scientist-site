@@ -31,6 +31,14 @@ describe('reviewed source-role provenance', () => {
     })).toEqual(['dose', 'safety'])
   })
 
+  it('classifies human context only when it is explicit in the reviewed operation', () => {
+    expect(rolesForAppliedOperation({
+      op: 'add_claim',
+      field: 'effects',
+      value: 'A randomized crossover study in healthy adults used 3 g before bedtime.',
+    })).toEqual(['dose', 'human'])
+  })
+
   it('derives roles only from patches that were actually applied', () => {
     const patchDir = tempDir('source-role-patches-')
     const source = {
@@ -59,6 +67,28 @@ describe('reviewed source-role provenance', () => {
     expect(roleMap.size).toBe(1)
   })
 
+  it('never launders an explicitly in-vitro source into a human source', () => {
+    const patchDir = tempDir('source-role-nonhuman-')
+    const source = {
+      doi: '10.1000/in-vitro',
+      title: 'In Vitro Evaluation of Magnesium Bioavailability',
+      year: '2025',
+    }
+    fs.writeFileSync(path.join(patchDir, 'applied.json'), JSON.stringify({
+      patch_id: 'reviewed-mechanistic',
+      operations: [{
+        op: 'add_claim',
+        field: 'effects',
+        value: 'This in-vitro result does not prove better outcomes in people.',
+      }],
+      sources: [source],
+      _apply_result: { status: 'applied' },
+    }))
+
+    const roleMap = buildAppliedPatchSourceRoleMap({ patchDir })
+    expect(roleMap.get(sourceId(source))).toBeUndefined()
+  })
+
   it('merges deterministic reviewed-role metadata idempotently', () => {
     const once = mergeReviewedSourceRoleNote('existing editorial note', ['safety', 'dose', 'safety'])
     expect(once).toBe('existing editorial note; reviewed source role: dose, safety')
@@ -83,14 +113,14 @@ describe('runtime reviewed source-role overlay', () => {
     const report = applyReviewedSourceRoleOverlay({
       dataDir: root,
       roleMap: new Map([
-        ['src_approved', ['dose', 'safety']],
-        ['src_pending', ['safety']],
+        ['src_approved', ['dose', 'human', 'safety']],
+        ['src_pending', ['human', 'safety']],
       ]),
     })
     const updated = JSON.parse(fs.readFileSync(filePath, 'utf8'))
 
     expect(report).toMatchObject({ updatedProfiles: 1, updatedSources: 1 })
-    expect(updated.sources[0].note).toBe('reviewed source role: dose, safety')
+    expect(updated.sources[0].note).toBe('reviewed source role: dose, human, safety')
     expect(updated.sources[1].note).toBe('')
   })
 })
