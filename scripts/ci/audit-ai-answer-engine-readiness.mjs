@@ -286,7 +286,11 @@ function auditLegacyGuideFaqPrimitives() {
     ['id="frequently-asked-questions"', 'stable visible FAQ anchor'],
     ['data-visible-faq="true"', 'visible FAQ marker'],
     ['questions.map((faq)', 'shared visible FAQ rendering'],
-    ['href="#references"', 'FAQ source-ledger verification target'],
+    // The anchor moved behind a `referencesHref` prop so a guide whose references
+    // live elsewhere can point at them; the default still targets #references.
+    // Checking the literal href missed that refactor while the contract held.
+    ["referencesHref = '#references'", 'FAQ source-ledger verification default'],
+    ['href={referencesHref}', 'FAQ source-ledger link'],
     ['data-citation-sources="true"', 'FAQ source-verification marker'],
     ['href="#frequently-asked-questions"', 'durable FAQ self-link'],
   ])
@@ -319,7 +323,10 @@ function auditLegacyGuideTablePrimitives() {
     const captionCount = (source.match(/<caption\b/g) || []).length
     const columnScopeCount = (source.match(/scope="col"/g) || []).length
     const rowScopeCount = (source.match(/scope="row"/g) || []).length
-    const unscopedHeaders = source.match(/<th(?![^>]*\bscope=)[^>]*>/g) || []
+    // `<th` also prefixes `<thead>`, so this counted every <thead> as a header
+    // missing scope: all five legacy guides reported unscoped headers while every
+    // real <th> in them already carries scope. Require a non-letter after `th`.
+    const unscopedHeaders = source.match(/<th(?![a-z])(?![^>]*\bscope=)[^>]*>/gi) || []
 
     if (semanticSurfaceCount !== tableCount) {
       add('error', 'legacy-guide-tables', `${slug} guide renders ${tableCount} table(s) but marks ${semanticSurfaceCount} answer-engine table surface(s)`)
