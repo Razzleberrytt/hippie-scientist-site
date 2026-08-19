@@ -7,6 +7,7 @@ import { evaluateRecord } from '../lib/production-content-invariants.mjs'
 import {
   buildAppliedPatchSourceRoleMap,
   mergeReviewedSourceRoleNote,
+  sourceRoleKey,
 } from './canonical/source-role-provenance.mjs'
 
 function readJson(filePath) {
@@ -29,7 +30,7 @@ export function applyReviewedSourceRoleOverlay({ dataDir = 'public/data', roleMa
   const root = path.resolve(process.cwd(), dataDir)
   const report = {
     dataDir: path.relative(process.cwd(), root),
-    reviewedRoleSources: roleMap.size,
+    reviewedRoleRelationships: roleMap.size,
     scannedProfiles: 0,
     updatedProfiles: 0,
     updatedSources: 0,
@@ -47,12 +48,15 @@ export function applyReviewedSourceRoleOverlay({ dataDir = 'public/data', roleMa
       if (!record || typeof record !== 'object' || Array.isArray(record)) continue
       report.scannedProfiles += 1
 
+      const invariantKind = kind === 'herbs' ? 'herb' : 'compound'
+      const slug = String(record.slug || path.basename(name, '.json')).trim().toLowerCase()
       const sources = Array.isArray(record.sources) ? record.sources : []
       let changed = false
       let changedSources = 0
       const nextSources = sources.map((source) => {
         if (!source || typeof source !== 'object' || !isApproved(source)) return source
-        const roles = roleMap.get(String(source.id || '').trim())
+        const key = sourceRoleKey(invariantKind, slug, source.id)
+        const roles = key ? roleMap.get(key) : null
         if (!roles?.length) return source
 
         const previous = String(source.note || '').trim()
@@ -67,7 +71,6 @@ export function applyReviewedSourceRoleOverlay({ dataDir = 'public/data', roleMa
       if (!changed) continue
       record.sources = nextSources
 
-      const invariantKind = kind === 'herbs' ? 'herb' : 'compound'
       const remainingCodes = [...new Set(
         evaluateRecord(record, invariantKind)
           .filter((finding) => finding.blocking !== false)
@@ -80,7 +83,7 @@ export function applyReviewedSourceRoleOverlay({ dataDir = 'public/data', roleMa
       report.updatedByKind[kind] += 1
       report.candidateDiagnostics.push({
         kind: invariantKind,
-        slug: String(record.slug || path.basename(name, '.json')),
+        slug,
         updatedSources: changedSources,
         remainingCodes,
       })
@@ -100,7 +103,7 @@ if (isCli) {
   const report = applyReviewedSourceRoleOverlay({ dataDir })
   console.log(
     `[reviewed-source-roles] applied patch roles to ${report.updatedSources} approved source(s) across ${report.updatedProfiles} profile(s) ` +
-    `(herbs=${report.updatedByKind.herbs}, compounds=${report.updatedByKind.compounds}; mappedSources=${report.reviewedRoleSources})`,
+    `(herbs=${report.updatedByKind.herbs}, compounds=${report.updatedByKind.compounds}; mappedRelationships=${report.reviewedRoleRelationships})`,
   )
   for (const candidate of report.candidateDiagnostics) {
     console.log(
