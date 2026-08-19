@@ -90,6 +90,21 @@ function scriptSummary(html) {
   }
 }
 
+/**
+ * True when a built page is the not-found boundary rather than real content.
+ *
+ * Static export needs at least one parameter for a dynamic route, so
+ * app/<segment>/page/[page] builds page 2 as a sentinel and resolves it through
+ * notFound() when the governed library fits on a single page - which it now does
+ * for compounds, after invariant enforcement demoted unsourced profiles. The
+ * sentinel is a 404, so requiring it to be crawlable asks for a page the site is
+ * deliberately not publishing.
+ */
+function isNotFoundRender(html) {
+  return /<h1[^>]*>[\s]*Page not found/i.test(html)
+    || /<title>[^<]*Page Not Found/i.test(html)
+}
+
 const errors = []
 const warnings = []
 const pagination = {}
@@ -110,6 +125,11 @@ for (const segment of ['herbs', 'compounds']) {
     const html = readRoute(route)
     if (!html) {
       errors.push(`${route} is missing static HTML`)
+      continue
+    }
+
+    if (isNotFoundRender(html)) {
+      pagination[segment].checks.push({ route, skipped: 'not-found sentinel' })
       continue
     }
 
