@@ -37,7 +37,7 @@ export default async function CompoundsPage() {
         </p>
       </section>
 
-      <nav aria-label="Published compound profiles index" className="sr-only">
+      <nav aria-label="Published compound profiles index" className="hidden">
         <ul>
           {allCompounds.map((c) => (
             <li key={c.slug}>

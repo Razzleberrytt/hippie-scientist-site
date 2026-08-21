@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   MEDICATION_CLASSES,
   buildSafetyShareSearch,
+  canonicalizeSafetyToolItems,
   collectSafetySignalMatches,
   parseSafetyShareSearch,
   screenSafetySelection,
@@ -77,5 +78,22 @@ describe('safety checker engine', () => {
     const parsed = parseSafetyShareSearch('?items=herb:ashwagandha,diagnosis:private,herb:bad%20slug&meds=ssri-snri,free-text')
     expect(parsed.items).toEqual(['herb:ashwagandha'])
     expect(parsed.meds).toEqual(['ssri-snri'])
+  })
+
+  it('collapses herb and cross-taxonomy compound aliases onto the canonical profile', () => {
+    const results = canonicalizeSafetyToolItems([
+      item({ slug: 'withania-somnifera', name: 'Ashwagandha alias' }),
+      item({ slug: 'ashwagandha-root-extract', name: 'Ashwagandha extract', type: 'compound' }),
+      item({ slug: 'ashwagandha', name: 'Ashwagandha' }),
+    ])
+
+    expect(results).toEqual([item({ slug: 'ashwagandha', name: 'Ashwagandha' })])
+  })
+
+  it('canonicalizes legacy item tokens in shared URLs', () => {
+    expect(parseSafetyShareSearch('?items=herb:withania-somnifera,compound:ashwagandha-root-extract')).toEqual({
+      items: ['herb:ashwagandha'],
+      meds: [],
+    })
   })
 })

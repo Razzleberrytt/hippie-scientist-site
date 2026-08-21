@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import Fuse from 'fuse.js'
-import { computeFacets, filterDocs, runSearch, activeFilterCount, type SearchEngine } from '../search-engine'
+import { computeFacets, filterDocs, runSearch, activeFilterCount, canonicalizeSearchDocs, type SearchEngine } from '../search-engine'
 import { EMPTY_FILTERS, type SearchDoc, type SearchFilterState } from '../types'
 
 function doc(partial: Partial<SearchDoc> & { id: string; title: string; type: SearchDoc['type'] }): SearchDoc {
@@ -43,6 +43,16 @@ describe('computeFacets', () => {
     expect(facets.types.find((t) => t.value === 'Herb')?.count).toBe(1)
     expect(facets.goals.find((g) => g.value === 'stress')?.count).toBe(2)
     expect(facets.goals.find((g) => g.value === 'stress')?.label).toBe('Stress')
+  })
+})
+
+describe('canonicalizeSearchDocs', () => {
+  it('keeps the canonical profile and removes herb and compound redirect aliases', () => {
+    const canonical = doc({ id: 'Herb:ashwagandha', slug: 'ashwagandha', title: 'Ashwagandha', type: 'Herb', href: '/herbs/ashwagandha/' })
+    const herbAlias = doc({ id: 'Herb:withania-somnifera', slug: 'withania-somnifera', title: 'Withania somnifera', type: 'Herb', href: '/herbs/withania-somnifera/' })
+    const compoundAlias = doc({ id: 'Compound:ashwagandha-root-extract', slug: 'ashwagandha-root-extract', title: 'Ashwagandha root extract', type: 'Compound', href: '/compounds/ashwagandha-root-extract/' })
+
+    expect(canonicalizeSearchDocs([herbAlias, compoundAlias, canonical])).toEqual([canonical])
   })
 })
 

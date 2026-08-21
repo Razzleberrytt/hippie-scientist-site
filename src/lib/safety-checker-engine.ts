@@ -1,4 +1,5 @@
 import { normalizeSafetySignals } from '@/lib/botanical-atlas-taxonomy'
+import { canonicalizeProfileHref } from '@/lib/canonical-profile-href'
 
 export type SafetyItemType = 'herb' | 'compound'
 export type InteractionEvidenceClass = 'documented' | 'structured-signal' | 'theoretical-additive' | 'unknown'
@@ -17,6 +18,33 @@ export interface SafetyToolItem {
   interaction_type?: string
   sources?: string[]
   incomplete_safety_data?: boolean
+}
+
+/** Remove redirect aliases so the checker presents one selectable record per profile. */
+export function canonicalizeSafetyToolItems(items: SafetyToolItem[]): SafetyToolItem[] {
+  const byProfile = new Map<string, { item: SafetyToolItem; isCanonical: boolean }>()
+
+  for (const source of items) {
+    const sourceHref = `/${source.type === 'herb' ? 'herbs' : 'compounds'}/${source.slug}/`
+    const href = canonicalizeProfileHref(sourceHref)
+    const match = /^\/(herbs|compounds)\/([^/]+)\/$/.exec(href)
+    if (!match) continue
+
+    const item: SafetyToolItem = {
+      ...source,
+      type: match[1] === 'herbs' ? 'herb' : 'compound',
+      slug: match[2],
+    }
+    const key = `${item.type}:${item.slug}`
+    const candidate = { item, isCanonical: href === sourceHref }
+    const existing = byProfile.get(key)
+
+    if (!existing || (candidate.isCanonical && !existing.isCanonical)) {
+      byProfile.set(key, candidate)
+    }
+  }
+
+  return Array.from(byProfile.values(), ({ item }) => item)
 }
 
 export interface MedicationClass {
@@ -189,7 +217,18 @@ export function buildSafetyShareSearch(items: SafetyToolItem[], medications: Med
 
 export function parseSafetyShareSearch(search: string) {
   const params = new URLSearchParams(search.startsWith('?') ? search.slice(1) : search)
-  const items = (params.get('items') ?? '').split(',').map((token) => token.trim()).filter((token) => /^(herb|compound):[a-z0-9][a-z0-9-]*$/.test(token)).slice(0, 8)
+  const items = Array.from(new Set(
+    (params.get('items') ?? '')
+      .split(',')
+      .map((token) => token.trim())
+      .filter((token) => /^(herb|compound):[a-z0-9][a-z0-9-]*$/.test(token))
+      .map((token) => {
+        const [type, slug] = token.split(':')
+        const href = canonicalizeProfileHref(`/${type === 'herb' ? 'herbs' : 'compounds'}/${slug}/`)
+        const match = /^\/(herbs|compounds)\/([^/]+)\/$/.exec(href)
+        return match ? `${match[1] === 'herbs' ? 'herb' : 'compound'}:${match[2]}` : token
+      }),
+  )).slice(0, 8)
   const meds = (params.get('meds') ?? '').split(',').map((token) => token.trim()).filter((token) => MEDICATION_CLASSES.some((medication) => medication.id === token)).slice(0, 6)
   return { items, meds }
 }

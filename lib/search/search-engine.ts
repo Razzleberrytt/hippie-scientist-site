@@ -5,6 +5,7 @@ import type {
   SearchFacetOption,
   SearchFilterState,
 } from './types'
+import { canonicalizeProfileHref } from '@/lib/canonical-profile-href'
 
 /**
  * Client-side search engine over the precomputed `search-index.json`.
@@ -82,6 +83,25 @@ export function computeFacets(docs: SearchDoc[]): SearchFacets {
   }
 }
 
+/** Collapse redirect-only aliases onto the canonical result users should open. */
+export function canonicalizeSearchDocs(docs: SearchDoc[]): SearchDoc[] {
+  const byHref = new Map<string, { doc: SearchDoc; isCanonical: boolean }>()
+
+  for (const source of docs) {
+    const href = canonicalizeProfileHref(source.href)
+    const candidate = { doc: { ...source, href }, isCanonical: href === source.href }
+    const existing = byHref.get(href)
+
+    // Prefer the record already published at the canonical URL when both a
+    // canonical record and one or more redirect aliases exist.
+    if (!existing || (candidate.isCanonical && !existing.isCanonical)) {
+      byHref.set(href, candidate)
+    }
+  }
+
+  return Array.from(byHref.values(), ({ doc }) => doc)
+}
+
 export async function loadSearchEngine(): Promise<SearchEngine> {
   if (!enginePromise) {
     enginePromise = (async () => {
@@ -89,7 +109,9 @@ export async function loadSearchEngine(): Promise<SearchEngine> {
         import('fuse.js'),
         import('@/public/data/search-index.json'),
       ])
-      const docs = (indexModule.default ?? indexModule) as unknown as SearchDoc[]
+      const docs = canonicalizeSearchDocs(
+        (indexModule.default ?? indexModule) as unknown as SearchDoc[],
+      )
       const fuse = new FuseCtor(docs, {
         keys: [
           { name: 'title', weight: 0.45 },

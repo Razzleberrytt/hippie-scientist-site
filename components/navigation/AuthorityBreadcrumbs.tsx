@@ -27,7 +27,7 @@ export default function AuthorityBreadcrumbs({
 
   return (
     <nav aria-label="Breadcrumb">
-      <ol className="-mx-1 flex flex-nowrap items-center gap-1.5 overflow-x-auto px-1 pb-0.5 whitespace-nowrap text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:pb-0">
+      <ol className="-mx-1 flex flex-nowrap items-center gap-1.5 overflow-hidden px-1 pb-0.5 whitespace-nowrap text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:overflow-x-auto sm:px-0 sm:pb-0">
         {items.map((item, index) => {
           const isLast = index === items.length - 1
           const href = item.href ? normalizeBreadcrumbHref(item.href) : undefined
@@ -35,7 +35,7 @@ export default function AuthorityBreadcrumbs({
           return (
             <li
               key={href ?? item.label}
-              className="flex shrink-0 items-center gap-1.5"
+              className={`flex items-center gap-1.5 ${isLast ? 'min-w-0 flex-1 sm:flex-none' : 'shrink-0'}`}
             >
               {href && !isLast ? (
                 <Link
@@ -47,7 +47,7 @@ export default function AuthorityBreadcrumbs({
               ) : (
                 <span
                   aria-current={isLast ? 'page' : undefined}
-                  className={isLast ? 'font-semibold text-ink dark:text-[var(--text-primary)]' : 'text-muted dark:text-[var(--text-muted)]'}
+                  className={isLast ? 'block min-w-0 truncate font-semibold text-ink dark:text-[var(--text-primary)] sm:overflow-visible sm:text-clip' : 'text-muted dark:text-[var(--text-muted)]'}
                 >
                   {item.label}
                 </span>
