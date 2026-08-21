@@ -105,4 +105,18 @@ describe('cluster member runtime trust audit', () => {
 
     expect(result.findings.map(item => item.id)).toContain('invalid-inheritance-relationship')
   })
+
+  it('accepts a search interaction flag backed by the generated interaction graph', () => {
+    const fixture = validFixture('edge-backed-interaction')
+    fixture.searchRecord.safetyFlags.hasInteractions = true
+
+    const withoutEdge = evaluateClusterMemberProfile(fixture)
+    expect(withoutEdge.findings.map(item => item.id)).toContain('search-index-safety-contradiction')
+
+    const withEdge = evaluateClusterMemberProfile({
+      ...fixture,
+      interactionSlugs: new Set([fixture.base.slug]),
+    })
+    expect(withEdge.findings.map(item => item.id)).not.toContain('search-index-safety-contradiction')
+  })
 })

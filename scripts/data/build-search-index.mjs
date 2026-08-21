@@ -16,8 +16,15 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import matter from 'gray-matter'
 import { resolveRuntimeRecordLayers } from '../../lib/runtime-record-resolver.mjs'
+import {
+  hasSearchInteractionSignal,
+  interactionSlugsFromEdges,
+} from './search-safety-contract.mjs'
+
+export { hasSearchInteractionSignal, interactionSlugsFromEdges } from './search-safety-contract.mjs'
 
 const ROOT = process.cwd()
 const args = process.argv.slice(2)
@@ -138,15 +145,6 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'))
 }
 
-export function interactionSlugsFromEdges(edges) {
-  if (!edges || typeof edges !== 'object' || Array.isArray(edges)) return new Set()
-  return new Set(
-    Object.entries(edges)
-      .filter(([slug, relationships]) => slug.trim() && Array.isArray(relationships) && relationships.length > 0)
-      .map(([slug]) => slug.trim()),
-  )
-}
-
 function loadInteractionSlugs() {
   try {
     return interactionSlugsFromEdges(readJson('interaction_edges.json'))
@@ -209,7 +207,7 @@ function buildHerbDocs() {
         evidenceGrade: normalizeEvidence(item.evidenceLevel || item.confidence),
         safety: normalizeSafety({ safetyNotes: item.safetyNotes || item.safety, contraindications, interactions, isEducation: false }),
         safetyFlags: {
-          hasInteractions: INTERACTION_SLUGS.has(slug) || interactions.length > 0,
+          hasInteractions: hasSearchInteractionSignal(slug, interactions, INTERACTION_SLUGS),
           hasContraindications: contraindications.length > 0,
         },
         tags: effects.slice(0, 4),
@@ -255,7 +253,7 @@ function buildCompoundDocs() {
         evidenceGrade: normalizeEvidence(item.evidenceLevel),
         safety: normalizeSafety({ safetyNotes: item.safetyNotes || item.safety, contraindications, interactions, isEducation: false }),
         safetyFlags: {
-          hasInteractions: INTERACTION_SLUGS.has(slug) || interactions.length > 0,
+          hasInteractions: hasSearchInteractionSignal(slug, interactions, INTERACTION_SLUGS),
           hasContraindications: contraindications.length > 0,
         },
         tags: effects.slice(0, 4),
@@ -363,6 +361,6 @@ function main() {
   )
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main()
 }
