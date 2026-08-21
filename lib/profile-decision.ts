@@ -1,4 +1,5 @@
 import { getProfileVerdict, type ProfileVerdictOverlay } from '@/config/profile-verdicts'
+import { getProfileIntentRoutes } from './topic-taxonomy'
 
 /**
  * Derives the decision surface for a herb/compound profile from runtime data
@@ -9,6 +10,7 @@ import { getProfileVerdict, type ProfileVerdictOverlay } from '@/config/profile-
  * This keeps the source-of-truth boundary clean:
  *   - structured facts  → workbook / runtime data (evidence tier, safety flags)
  *   - editorial verdict → config/profile-verdicts.ts (curated, opt-in)
+ *   - topic routing      → lib/topic-taxonomy.ts (organizational only)
  *   - rendering         → components/editorial/ProfileDecisionPanel
  */
 
@@ -33,8 +35,8 @@ const asStringList = (value: unknown): string[] => {
   return []
 }
 
-/** Build a lowercased keyword corpus from the fields that describe what a profile is about. */
-function corpusOf(record: LooseRecord): string {
+/** Build routing signals from fields that already describe what a profile is about. */
+function routingSignalsOf(record: LooseRecord): string[] {
   return [
     record.name,
     record.summary,
@@ -45,39 +47,20 @@ function corpusOf(record: LooseRecord): string {
     ...asStringList(record.tags),
     ...asStringList(record.keywords),
   ]
-    .map((v) => String(v ?? '').toLowerCase())
-    .join(' ')
+    .map((value) => String(value ?? '').trim())
+    .filter(Boolean)
 }
-
-// Intent → goal hub, matched by keyword. Ordered by priority; deduped by href.
-const INTENT_ROUTES: { keywords: string[]; path: ContinuePath }[] = [
-  {
-    keywords: ['sleep', 'insomnia', 'melatonin', 'sedative', 'rest'],
-    path: { ifYouWant: 'help sleeping', goTo: 'Sleep guides', href: '/guides/sleep/' },
-  },
-  {
-    keywords: ['anxiety', 'stress', 'cortisol', 'calm', 'gaba', 'anxiolytic', 'adaptogen', 'relax'],
-    path: { ifYouWant: 'help with anxiety or stress', goTo: 'Anxiety & stress guides', href: '/guides/anxiety/' },
-  },
-  {
-    keywords: ['focus', 'cognition', 'cognitive', 'attention', 'nootropic', 'adhd', 'memory', 'concentration'],
-    path: { ifYouWant: 'sharper focus', goTo: 'Focus guides', href: '/guides/focus/' },
-  },
-]
 
 export function buildProfileDecision(record: LooseRecord, kind: 'herb' | 'compound'): ProfileDecision {
   const slug = String(record.slug ?? '')
   const verdict = getProfileVerdict(slug)
 
-  const corpus = corpusOf(record)
-  const continueReading: ContinuePath[] = []
-  const seen = new Set<string>()
-  for (const { keywords, path } of INTENT_ROUTES) {
-    if (keywords.some((k) => corpus.includes(k)) && !seen.has(path.href)) {
-      continueReading.push(path)
-      seen.add(path.href)
-    }
-  }
+  // Topic matching is navigation only. It must not be reused as evidence that
+  // the ingredient treats a condition; scientific outcome claims live in the
+  // canonical evidence/claim data instead.
+  const continueReading: ContinuePath[] = getProfileIntentRoutes(routingSignalsOf(record))
+  const seen = new Set(continueReading.map((path) => path.href))
+
   // Always offer a browse-the-ecosystem exit relevant to this profile type.
   const indexPath: ContinuePath =
     kind === 'herb'
