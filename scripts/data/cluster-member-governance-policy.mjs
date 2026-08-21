@@ -4,6 +4,7 @@ import {
   CLUSTER_MEMBER_RUNTIME_DECISION,
   getClusterMemberRuntimeTrustRecord,
 } from '../../config/cluster-member-runtime-trust.mjs'
+import { writeFileWithTransientRetry } from './write-file-with-retry.mjs'
 
 const GENERIC_SOURCE_DOWNGRADE_REASON = 'missing_record_level_sources'
 const CLUSTER_TRUST_REASON = 'cluster_member_runtime_trust'
@@ -55,7 +56,7 @@ async function readJson(filePath, fallback) {
 }
 
 async function writeJson(filePath, value) {
-  await fs.writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
+  await writeFileWithTransientRetry(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
 }
 
 async function reconcileCollection(dataDir, listFile, detailDirName) {

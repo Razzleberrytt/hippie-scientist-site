@@ -1,4 +1,7 @@
 # Content Strategy — The Hippie Scientist
+
+> **Legacy strategy (unverified current state).** Retained for historical context. Route, count, priority, and implementation claims below may be stale. Use [`PROJECT_CHARTER.md`](PROJECT_CHARTER.md), [`CURRENT_STATE.md`](CURRENT_STATE.md), and [`CURRENT_SPRINT.md`](CURRENT_SPRINT.md) for current authority.
+
 *Workstream C: Topical Clusters, High-Value Comparisons, and Content Freeze*
 
 ---

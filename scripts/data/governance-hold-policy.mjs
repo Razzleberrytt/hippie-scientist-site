@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { writeFileWithTransientRetry } from './write-file-with-retry.mjs'
 
 export const DELIBERATE_HOLD_DECISIONS = new Set([
   'hidden_until_grounded',
@@ -119,7 +120,7 @@ async function readJson(filePath, fallback) {
 }
 
 async function writeJson(filePath, value) {
-  await fs.writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
+  await writeFileWithTransientRetry(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
 }
 
 function stableClone(value) {
@@ -136,7 +137,7 @@ function stableClone(value) {
 }
 
 async function writeDeterministicJson(filePath, value) {
-  await fs.writeFile(filePath, `${JSON.stringify(stableClone(value))}\n`, 'utf8')
+  await writeFileWithTransientRetry(filePath, `${JSON.stringify(stableClone(value))}\n`, 'utf8')
 }
 
 async function reconcileCollection(dataDir, listFile, detailDirName) {

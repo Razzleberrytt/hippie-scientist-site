@@ -1,5 +1,7 @@
 # Weekly CRO Tracker
 
+> **Legacy placeholder.** The zero values below were not supported by source exports during the 2026-08-21 audit and must not be treated as a baseline or business result. Current definitions, unknowns, owners, and acquisition steps live in [`../SCOREBOARD.md`](../SCOREBOARD.md).
+
 | Week | Target pages upgraded | Email subscribers | Affiliate clicks | Affiliate sales | Revenue | Conversion rate | Notes | Next action |
 |---:|---|---:|---:|---:|---:|---:|---|---|
 | 1 | Sleep, stress, focus, brain fog, fatigue, overthinking | 0 | 0 | 0 | $0 | 0% | Baseline after CRO deployment | Connect email provider |
