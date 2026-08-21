@@ -161,6 +161,9 @@ export default function HomepageV2() {
               <Link href='/safety-checker/' className='hs-text-link'>
                 Check interactions <ArrowRight aria-hidden='true' />
               </Link>
+              <Link href='/info/supplement-safety-checklist/' className='hs-text-link'>
+                Get the safety checklist <ArrowRight aria-hidden='true' />
+              </Link>
             </div>
           </div>
 
