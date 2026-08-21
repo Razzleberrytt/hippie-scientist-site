@@ -33,8 +33,9 @@ const nextConfig = {
     cpus: 2,
   },
   images: {
-    loader: 'custom',
-    loaderFile: './src/lib/cloudflare-image-loader.ts',
+    // Static export ships source assets as-is; disable Next's runtime image
+    // pipeline so every route renders consistently in local and Cloudflare builds.
+    unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: '**.media-amazon.com' },
       { protocol: 'https', hostname: '**.ssl-images-amazon.com' },

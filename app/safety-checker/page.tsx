@@ -10,6 +10,7 @@ import { buildToolPageSchemaGraph } from '../../src/lib/schema-graph'
 import { buildPageMetadata, SITE_URL } from '../../src/lib/seo'
 import { toSafetyToolRecord } from '../../src/lib/tool-page-payloads'
 import type { RuntimeRecord } from '../../src/types/content'
+import { canonicalizeSafetyToolItems } from '@/lib/safety-checker-engine'
 
 const SafetyCheckerClient = dynamic(
   () => import('../../src/components/safety/SafetyCheckerClient'),
@@ -33,6 +34,11 @@ export default async function SafetyCheckerPage() {
   const compounds: RuntimeRecord[] = rawCompounds.filter(
     (compound: RuntimeRecord) => getRuntimeVisibility(compound).canRender,
   )
+
+  const safetyItems = canonicalizeSafetyToolItems([
+    ...herbs.map((herb) => toSafetyToolRecord(herb, 'herb')),
+    ...compounds.map((compound) => toSafetyToolRecord(compound, 'compound')),
+  ])
 
   const schemaGraph = buildToolPageSchemaGraph({
     path: '/safety-checker',
@@ -117,8 +123,8 @@ export default async function SafetyCheckerPage() {
 
       <Suspense fallback={<WizardSkeleton />}>
         <SafetyCheckerClient
-          herbs={herbs.map((herb) => toSafetyToolRecord(herb, 'herb'))}
-          compounds={compounds.map((compound) => toSafetyToolRecord(compound, 'compound'))}
+          herbs={safetyItems.filter((item) => item.type === 'herb')}
+          compounds={safetyItems.filter((item) => item.type === 'compound')}
         />
       </Suspense>
 

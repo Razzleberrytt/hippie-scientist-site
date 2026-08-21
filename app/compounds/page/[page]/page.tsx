@@ -63,7 +63,7 @@ export default async function CompoundsPageN({ params }: P) {
 
       <Pagination basePath="/compounds" currentPage={p.currentPage} totalPages={p.totalPages} itemLabel="Compound profiles" />
 
-      <nav aria-label="Published compound profiles on this page" className="sr-only">
+      <nav aria-label="Published compound profiles on this page" className="hidden">
         <ul>
           {p.pageItems.map((compound) => (
             <li key={compound.slug}>

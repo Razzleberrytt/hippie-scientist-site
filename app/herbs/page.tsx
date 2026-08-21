@@ -51,7 +51,7 @@ export default async function HerbsPage() {
         </p>
       </header>
 
-      <nav aria-label="Herb profiles index" className="sr-only">
+      <nav aria-label="Herb profiles index" className="hidden">
         <ul>
           {herbs.map((herb) => (
             <li key={herb.slug}>
