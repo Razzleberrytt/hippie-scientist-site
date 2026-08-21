@@ -49,8 +49,9 @@ function text(value: unknown): string {
   return String(value ?? '').replace(/\s+/g, ' ').trim()
 }
 
+/** Keep the selective-reporting denominator aligned with ResearchQualityAnalysis.outcomeClaim. */
 function isOutcomeClaim(claim: ResearchClaim): boolean {
-  return /supports_outcome|benefit|efficacy/i.test(text(claim.predicate))
+  return text(claim.predicate) === 'supports_outcome'
 }
 
 /**

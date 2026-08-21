@@ -6,7 +6,7 @@ import type { OutcomeRegistrationAlignmentAnalysis } from '@/lib/research-outcom
 import type { ResearchQualityAnalysis } from '@/lib/research-quality-analysis'
 import type { SelectiveOutcomeReportingReport } from '@/lib/research-selective-outcome-reporting'
 
-function analysis(): ResearchQualityAnalysis {
+function analysis(predicate = 'supports_outcome'): ResearchQualityAnalysis {
   return {
     cache: {},
     profiles: [{
@@ -21,7 +21,7 @@ function analysis(): ResearchQualityAnalysis {
         ],
         claimMap: [{
           id: 'claim-1',
-          predicate: 'supports_outcome',
+          predicate,
           confidence: 0.9,
           reviewStatus: 'approved',
           sourceRefIds: ['s1', 's2'],
@@ -183,5 +183,18 @@ describe('outcome-reporting integrity', () => {
 
     expect(result.summary.affectedStudies).toBe(0)
     expect(result.summary.affectedApprovedOutcomeClaims).toBe(0)
+  })
+
+  it('does not widen canonical outcome eligibility to benefit-like predicates', () => {
+    const result = analyzeOutcomeReportingIntegrity({
+      analysis: analysis('benefit'),
+      outcomeMetadata: outcomeMetadata(),
+      outcomeRegistrationAlignment: alignment(),
+      selectiveOutcomeReporting: selective(),
+    })
+
+    expect(result.summary.affectedStudies).toBe(1)
+    expect(result.summary.affectedApprovedOutcomeClaims).toBe(0)
+    expect(result.claims).toEqual([])
   })
 })
