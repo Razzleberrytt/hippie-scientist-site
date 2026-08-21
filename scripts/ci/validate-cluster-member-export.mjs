@@ -24,7 +24,11 @@ for (const { kind, slug } of profiles) {
   // Next serializes the not-found boundary into every static page's RSC payload,
   // so the generic "Page not found" copy is not evidence that the boundary won.
   if (/Compound Not Found|Herb Not Found|id="__next_error__"/i.test(html)) errors.push(`${kind}/${slug}: exported not-found content`)
-  if (/name="robots" content="noindex/i.test(html)) errors.push(`${kind}/${slug}: exported noindex metadata`)
+  // The production-content invariant gate may deliberately demote one of these
+  // profiles when its rendered claims are not backed by a classified source.
+  // Sitemap/indexability validators own that decision; this cluster regression
+  // check should still prove the route renders with its canonical and safety
+  // content without overriding the safer final noindex directive.
   if (!html.includes(`rel="canonical" href="${expectedCanonical}"`)) errors.push(`${kind}/${slug}: missing self-canonical`)
   if (!html.includes('Safety evidence:')) errors.push(`${kind}/${slug}: missing evidence-labelled safety`)
   if (/Generally well tolerated for most users/i.test(html)) errors.push(`${kind}/${slug}: generic safety placeholder leaked`)
@@ -45,4 +49,4 @@ if (errors.length) {
   process.exit(1)
 }
 
-console.log(`[validate-cluster-member-export] PASS: ${profiles.length}/4 profiles are indexable, self-canonical, and evidence-labelled.`)
+console.log(`[validate-cluster-member-export] PASS: ${profiles.length}/4 profiles render, self-canonicalize, and include evidence-labelled safety.`)
