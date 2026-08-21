@@ -2,6 +2,10 @@
 
 Evidence-first supplement and botanical reference site built with the Next.js App Router and exported as static Cloudflare Pages output.
 
+## Project Control
+
+Before changing the project, read `AGENTS.md` and the authoritative sequence in [`docs/DOCS_INDEX.md`](docs/DOCS_INDEX.md). [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md) records verified present reality; [`docs/CURRENT_SPRINT.md`](docs/CURRENT_SPRINT.md) is the only immediate execution queue. Older strategy, status, backlog, and audit documents are reference material unless that index says otherwise.
+
 ## Quick Start
 
 ```bash

@@ -1,5 +1,29 @@
 # AGENTS.md
 
+## Required operating sequence
+
+Before beginning work, agents must:
+
+1. Read `docs/PROJECT_CHARTER.md`, `docs/CURRENT_STATE.md`, `docs/ROADMAP.md`, `docs/CURRENT_SPRINT.md`, `docs/MASTER_BACKLOG.md`, `docs/DECISIONS.md`, and `docs/SCOREBOARD.md` in the order defined by `docs/DOCS_INDEX.md`.
+2. Select the highest-priority unblocked ticket in `docs/CURRENT_SPRINT.md`; do not execute old plans or backlog seeds directly.
+3. Inspect the existing implementation and recent relevant history before editing.
+4. Avoid duplicating an existing system; extend or repair it when evidence supports doing so.
+5. Preserve stable URLs unless a documented decision authorizes a change; add redirects and regressions for authorized changes.
+6. Preserve evidence, safety, disclosure, privacy, and editorial standards as release gates.
+7. Work on one scoped ticket at a time.
+8. Avoid unrelated cleanup during scoped work.
+9. Run the tests and audits relevant to the changed behavior.
+10. Run the production build before completion unless the ticket is explicitly access-only and changes no repository behavior.
+11. Visually verify user-facing changes when possible, in both themes and relevant responsive layouts.
+12. Record validation evidence, commands, results, limitations, and proof required by the ticket.
+13. Update ticket status and backlog records when work starts, blocks, enters review, or completes.
+14. Update authoritative documentation when architecture, behavior, metric definitions, or operating assumptions change.
+15. Stop after completing the scoped ticket rather than inventing additional work.
+16. Report unknowns, assumptions, access limitations, and failed validation honestly.
+17. Never fabricate analytics, business results, tests, screenshots, deployment status, or completion evidence.
+
+**Strict WIP limit:** Maximum three concurrent workstreams—Discovery/SEO, Revenue/Conversion, and Authority/Content. Within a workstream, activate one ticket at a time. Safety incidents may interrupt work but must be recorded explicitly.
+
 ## Project guidance for coding agents
 
 - Keep routes like `/herbs/:slug`, `/compounds/:slug`, `/guides/:cluster/:slug`, `/learn/:slug`, `/info/:slug`, and `/evidence/:slug` stable; if you must rename or remove one, add a redirect in `public/_redirects` so links and SEO don't break.
@@ -34,7 +58,7 @@
 - `/herbs/:slug` — individual herb profiles
 - `/compounds/:slug` — individual compound profiles
 
-Older `/articles/*`, `/goals/*`, `/stacks/*`, top-level `/compare/*`, and top-level `/best-supplements-for-*` URLs should be treated as legacy compatibility/redirect surfaces unless explicitly reactivated. Prefer linking to the current `/guides/*` taxonomy. See `docs/site-organization.md`.
+Older `/articles/*`, `/goals/*`, `/stacks/*`, top-level `/compare/*`, and top-level `/best-supplements-for-*` URLs are legacy taxonomy/compatibility surfaces. Some `/articles/*` and `/goals/*` routes remain live and user-facing; do not remove, deindex, or consolidate them without route/query evidence, a documented decision, redirects, internal-link updates, and regression tests. Prefer linking new work to the current `/guides/*` taxonomy. See `docs/site-organization.md`.
 
 ## Evidence-first decision pages
 
@@ -69,7 +93,7 @@ Required practices:
 
 ## Publication manifest
 - Build/update through `npm run data:build`.
-- Verify `public/data/publication-manifest.json` and `counts.herbs_eligible > 0`.
+- Treat pre-build eligibility as provisional. Verify final built robots and sitemap behavior as well as `public/data/publication-manifest.json`; until ticket SEO-001 is complete, record any count disagreement rather than choosing the most favorable artifact.
 
 ## Agent Enrichment and Patch Workflow
 

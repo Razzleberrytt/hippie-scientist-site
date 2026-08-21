@@ -1,394 +1,70 @@
-# THE HIPPIE SCIENTIST — MASTER BACKLOG
+# Master Backlog
 
-Last Updated: 2026-06-17
+**Status:** Authoritative ranked backlog
+**Updated:** 2026-08-21
+**Immediate work:** Only tickets also present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started.
 
-Purpose:
+## Scoring and gates
 
-This document is the single source of truth for all work on The Hippie Scientist.
+`Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`
 
-Every work session starts here.
+Business impact, user value, traffic potential, strategic leverage, and effort use 1–5. Confidence is 0.50, 0.75, or 1.00. Higher is better; effort is the denominator. Dependencies and safety/evidence/disclosure gates override scores. Details are in [DECISIONS.md](DECISIONS.md). Workstreams: **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authority/Content, **O** Operations.
 
-Never ask:
+## Now
 
-> What should I work on today?
+Only these unblocked tickets may start, subject to the three-workstream WIP limit.
 
-Open this file and execute the highest unfinished priority.
+| ID | Title | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance criteria | Proof required | Relevant scope | Notes |
+|---|---|---|---|---|---|---:|---|---|---|---|---|
+| REV-001 | Verify production analytics and governed funnel events | R | Ready | P0 | 5/4/4/5/1/1 | 400.0 | Analytics/env access for receipt proof | Consent blocks pre-consent loading; configured analytics loads after consent; view and affiliate events include page/CTA/destination context | Network or DebugView evidence, consent log, configuration checklist | Analytics loader, click tracker, live site | Highest leverage; missing access is not zero |
+| SEO-001 | Reconcile post-build profile publication truth | D | Ready | P0 | 5/5/5/5/.75/3 | 156.3 | None | One final artifact agrees with built robots and sitemap for every profile and reason | Clean-build counts, parity regression, artifact diff | Publication data, sitemap/robots, scripts | Do not broaden indexability during reconciliation |
+| SEO-003 | Clear schema identity gate | D | Ready | P1 | 4/4/4/4/1/2 | 128.0 | Reproduced in full local policy | Affected first-party identity IDs are consistent and full schema policy passes | Full reports, route regression, build | JSON-LD helpers, `/guides/adhd/*` | Full local policy reports 38 blockers |
+| AUTH-001 | Resolve four duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Inspect route/query evidence | Each pair has one owner or distinct job; redirects protect removed URLs | Intent matrix, redirects, link/canonical tests, build | Routes in `CURRENT_STATE.md`, `_redirects` | Do not consolidate on filename alone |
 
----
+## Next
 
-# 🎯 NORTH STAR
+| ID | Title | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance criteria | Proof required | Relevant scope | Notes |
+|---|---|---|---|---|---|---:|---|---|---|---|---|
+| PERF-001 | Repair representative-template Lighthouse failures | D | Planned | P1 | 4/4/4/3/1/3 | 64.0 | Preserve/review open performance work | Representative budgets pass or limitations are approved; accessibility does not regress | Lighthouse before/after, visual check, build | Search hydration, monograph media/CSS | Measured causes only; no redesign |
+| SEO-005 | Reconcile live robots localized sitemap declarations | D | Planned | P2 | 3/3/3/3/.75/1 | 60.8 | Next deploy/cache visibility | Production robots matches intended source; declared sitemaps resolve canonically | Live response, deploy SHA, sitemap samples | `app/robots.ts`, deploy/CDN | May be deploy drift rather than a source bug |
+| LINK-001 | Remove verified redirect-hop internal links | A | Planned | P2 | 2/4/3/2/1/1 | 48.0 | AUTH-001 decisions | Audited source links point directly to final canonical destinations | Link audit and changed routes | Findings from content audit | Preserve redirects for external links |
+| DOC-002 | Triage open PRs/issues against current sprint | O | Planned | P1 | 3/3/2/5/1/2 | 45.0 | Control reset merged | Each item is current, superseded, duplicate, blocked, or closed; active work maps to a ticket | Exported triage and close/supersede links | GitHub PR/issue queue | Audit observed 45 PRs/35 issues |
+| OPS-001 | Add workbook namespace/fallback regression fixture | O | Planned | P2 | 3/3/2/4/.75/2 | 27.0 | Safe fixture | Normal and namespace-prefixed paths yield identical normalized record keys/counts | Fixture test and data-build log | Workbook reader/build scripts | Repair fragility; do not replace pipeline |
+| CONTENT-001 | Review thin/orphan findings by user job | A | Planned | P2 | 3/4/3/3/.75/3 | 27.0 | AUTH-001; GSC baseline | Each finding is keep/upgrade/consolidate/noindex with rationale; only valuable fixes become tickets | Review sheet, query/link evidence | 55 thin and one definite orphan findings | Word count is not a verdict |
 
-Build the most useful evidence-based herbal and supplement resource on the internet.
+## Later
 
-Primary objectives:
+| ID | Title | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance criteria | Proof required | Relevant scope | Notes |
+|---|---|---|---|---|---|---:|---|---|---|---|---|
+| ENGINE-001 | Codify repeatable decision-page qualification/proof | A | Planned | P2 | 4/5/4/5/.75/3 | 100.0 | M2 flagship result | Template captures demand, intent, outcomes, directness, contrary evidence, safety, disclosure, measurement, and tests | Three completed page packets | Content standard/templates/tests | Avoid boilerplate repetition |
+| CLUSTER-001 | Expand one validated authority cluster | A | Planned | P2 | 4/4/5/4/.5/5 | 32.0 | M3 engine; demand data | Existing pages upgraded first; every new page has unique intent/evidence/measurement | Cluster brief, GSC evidence, gates | Selected cluster | No broad expansion |
+| AUTO-001 | Automate publication-governance anomaly reporting | O | Planned | P3 | 3/3/3/5/.5/4 | 16.9 | SEO-001 stable artifact | CI detects unexpected eligibility/reason/count changes | Fixtures, CI artifact, simulated failure | Data build/CI | Stable truth must precede automation |
+| EMAIL-001 | Validate and optimize email conversion journey | R | Planned | P2 | 3/4/2/3/.5/3 | 12.0 | REV-001/002; Mailchimp access | Delivery/conversion baseline exists before one controlled improvement | Mailchimp/GA export, tests | Newsletter/Pages Functions | No external signup without authority |
+| PARTNER-001 | Define evidence-safe partnership policy/pilot | R | Planned | P3 | 3/4/2/3/.5/3 | 12.0 | M2/M3 | Policy protects independence/disclosure/safety; pilot has attribution and stop rules | Approved policy and brief | Business/editorial operations | No partner-driven claims |
 
-1. Improve existing content
-2. Build topical authority
-3. Publish consistently
-4. Maintain technical health
-5. Grow organic traffic
-6. Build sustainable affiliate revenue
+## Blocked
 
-Execution > complexity
+| ID | Title | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Blocker/dependencies | Acceptance criteria | Proof required | Relevant scope | Notes |
+|---|---|---|---|---|---|---:|---|---|---|---|---|
+| SEO-004 | Import 28-day GSC opportunity baseline | D | Blocked | P0 | 5/4/5/5/.75/1 | 375.0 | Search Console/service-account access | Fixed-period query/page metrics and ranking cohorts populate scoreboard | Authorized export and dated aggregation | GSC/fetch script | Sitemap does not prove rank |
+| REV-002 | Establish aligned funnel/revenue baseline | R | Blocked | P0 | 5/4/5/5/.75/1 | 375.0 | REV-001; GA4/Amazon/Mailchimp access | Fixed-period funnel values share definitions/dates; unavailable values stay Unknown | Exports and reconciliation | Analytics/affiliate/email reports | Revenue needs network evidence |
+| REV-003 | Select one flagship commercial decision page | R | Blocked | P1 | 5/4/5/5/.75/1 | 375.0 | SEO-004 and REV-002 | One existing page wins a documented demand/intent/evidence/safety/conversion comparison | Scored shortlist and decision | Existing decision routes | No intuition-only selection |
+| SEO-002 | Recover reviewed flagship profile source roles | D | Blocked | P0 | 5/5/5/5/.75/4 | 117.2 | SEO-001; review PR #4089 | Reviewed roles survive regeneration; pages index only if all gates pass | Review, tests, robots/sitemap proof | Ashwagandha/L-theanine | Never force `index` |
+| AUTH-003 | Upgrade selected existing decision page | A | Blocked | P1 | 5/5/5/4/.75/4 | 117.2 | REV-003/004; evidence review | Page meets evidence standard and has clear disclosed CTAs | Claim review, tests, visual/build proof | Selected page/sources | One controlled page |
+| REV-004 | Validate flagship disclosure/destinations | R | Blocked | P1 | 4/5/3/3/.75/2 | 67.5 | REV-003 | Disclosure, product/form match, status, tag, and paid-link attributes pass | Live/source link audit, screenshot | Selected page/revenue config | A search fallback needs a reason |
+| AUTH-002 | Strengthen links to selected flagship | A | Blocked | P1 | 3/4/4/3/.75/2 | 54.0 | REV-003 | Relevant canonical pages link directly with descriptive anchors | Link graph/audit | Selected cluster | No irrelevant links |
 
-Consistency > perfection
+## Completed historical capabilities
 
----
+These records preserve verified existing capability; they do not prove business results.
 
-# 🛑 FROZEN SYSTEMS
+| ID | Title | Workstream | Status | Priority | Business impact | User value | Traffic potential | Strategic leverage | Effort | Confidence | Dependencies | Acceptance criteria | Proof required | Relevant scope | Notes |
+|---|---|---|---|---|---:|---:|---:|---:|---|---|---|---|---|---|---|
+| BASE-001 | Static-export deployment path | Operations | Completed | Historical | 5 | 5 | 5 | 5 | N/A | High | Cloudflare access | Static export deploys and sampled core routes render/canonicalize | Successful 2026-08-21 deploy and live sample | Next config, deploy workflow, `out/` | Other quality workflows were not all green |
+| BASE-002 | Central affiliate configuration/click instrumentation | Revenue | Completed | Historical | 4 | 4 | 3 | 4 | N/A | High for code; Unknown for receipt | Consent/config | Tag is centralized; paid-link attributes and governed click code exist | Source audit and sampled links | Affiliate config/click events | Receipt/revenue remain unverified |
+| SAFE-001 | Resolve turmeric runtime safety-contract mismatch | Authority | Completed | P0 | 5 | 5 | 4 | 5 | 2 | High | Generated interaction graph | Search flags and resolved runtime safety agree without deleting warnings | 28 targeted tests, strict audit with zero findings, production build | Cluster trust audit/tests and runtime boundary | Completed in control reset |
+| OPS-002 | Retry transient generated-data file locks | Operations | Completed | P0 blocker | 3 | 3 | 2 | 4 | 1 | High | Reproduced Windows `UNKNOWN` writes | Bounded retry handles transient lock codes; `ENOSPC` fails immediately | Three unit tests, summary step, production build | Governance/citation JSON writers | Minimal reliability repair; no content semantics changed |
 
-Infrastructure is considered COMPLETE.
+## Legacy backlog disposition
 
-Do NOT work on:
-
-- architecture redesigns
-- route restructuring
-- navigation redesigns
-- folder reorganizations
-- additional infrastructure phases
-- unnecessary refactors
-
-Only modify infrastructure if something is broken.
-
----
-
-# 📚 DATA ARCHITECTURE RULES
-
-Source of truth:
-
-```text
-herb_monograph_master.xlsx
-```
-
-Data flow:
-
-```text
-Workbook
-↓
-npm run data:build
-↓
-public/data/*
-↓
-Site pages
-```
-
-Rules:
-
-- Never manually edit generated JSON
-- Never manually create herb pages
-- Never manually create compound pages
-- Preserve stable URLs
-- Add redirects if routes ever change
-
----
-
-# 🔥 ACTIVE SPRINT — ONLY WORK HERE
-
-Priority order:
-
-1. Audit issues
-2. Thin pages
-3. Authority clusters
-4. New content
-5. Revenue improvements
-
-Never skip ahead.
-
----
-
-# 📋 TECHNICAL HEALTH
-
-Run weekly:
-
-```bash
-npm run audit:content
-npm run audit:links
-npm run build
-```
-
-Resolve:
-
-- broken links
-- metadata issues
-- duplicate slugs
-- orphaned pages
-- thin pages
-
-Goal:
-
-Zero regressions.
-
----
-
-# 📈 CONTENT UPGRADE QUEUE — HIGHEST ROI
-
-Before creating a new page ask:
-
-> Can I improve an existing page instead?
-
-If yes:
-
-Improve the existing page.
-
-Every upgraded page should include:
-
-## Required sections
-
-- Introduction
-- Quick Answer
-- Evidence Overview
-- Benefits
-- Risks & Safety
-- Who Should Use It
-- Who Should Avoid It
-- FAQs
-- Related Guides
-- Related Comparisons
-
-Targets:
-
-- 1,500–2,500 words
-- evidence-based
-- easy to scan
-- internal links
-
----
-
-# 🧠 AUTHORITY CLUSTERS
-
-Current focus:
-
-## 😴 Sleep
-
-Priority: ⭐⭐⭐⭐⭐
-
-Core work:
-
-- Best Supplements for Sleep
-- Magnesium for Sleep
-- Magnesium vs Melatonin
-- Ashwagandha vs Magnesium
-- Best Herbs for Staying Asleep
-
----
-
-## 😌 Stress
-
-Priority: ⭐⭐⭐⭐⭐
-
-Core work:
-
-- Best Supplements for Stress
-- Signs of High Cortisol
-- Best Adaptogens for Stress
-- How to Lower Cortisol Naturally
-- Ashwagandha Alternatives
-
----
-
-## 😟 Anxiety
-
-Priority: ⭐⭐⭐⭐
-
-Core work:
-
-- Best Herbs for Anxiety
-- Natural Anxiolytics
-- Kava vs L-Theanine
-- Fast-Acting Herbs for Anxiety
-
----
-
-## 🧠 Focus
-
-Priority: ⭐⭐⭐⭐
-
-Core work:
-
-- Best Supplements for Focus
-- Citicoline vs Alpha-GPC
-- Caffeine Alternatives
-- Brain Fog Supplements
-
----
-
-## Future clusters
-
-Do not expand into these until the current clusters are strong.
-
-- Gut Health
-- Longevity
-- Women's Health
-- Men's Health
-- Metabolic Health
-
----
-
-# 📰 CONTENT RULES
-
-Every page must belong to ONE category.
-
-## Goals
-
-Outcome pages.
-
-Examples:
-
-- Best Supplements for Sleep
-- Best Herbs for Anxiety
-
-## Guides
-
-Decision pages.
-
-Examples:
-
-- Ashwagandha for Stress
-- Magnesium for Sleep
-
-## Articles
-
-Question pages.
-
-Examples:
-
-- Can You Take Magnesium Every Night?
-- How Long Does Ashwagandha Take to Work?
-
-## Compare
-
-Head-to-head pages.
-
-Examples:
-
-- Magnesium vs Melatonin
-- Rhodiola vs Ashwagandha
-
-## Herbs
-
-Workbook only.
-
-Never manually create.
-
-## Compounds
-
-Workbook only.
-
-Never manually create.
-
----
-
-# 🔄 DAILY WORKFLOW
-
-1. Open `docs/MASTER_BACKLOG.md`
-2. Check Active Sprint
-3. Run audits if necessary
-4. Upgrade one existing page
-5. Publish one new page only if existing issues are under control
-6. Build
-7. Push
-
----
-
-# 🔁 WEEKLY WORKFLOW
-
-Run:
-
-```bash
-npm run audit:content
-npm run audit:links
-npm run build
-```
-
-Review:
-
-- broken links
-- metadata
-- duplicate slugs
-- orphaned pages
-- thin pages
-
----
-
-# 🚀 PUBLISHING PIPELINE
-
-```text
-Choose topic
-↓
-npm run create:page
-↓
-1st Builder
-↓
-2nd Gatekeeper
-↓
-3rd Publisher
-↓
-npm run audit:content
-↓
-npm run audit:links
-↓
-npm run build
-↓
-Commit
-↓
-Push
-↓
-Cloudflare deploys
-```
-
----
-
-# 💰 REVENUE TASKS
-
-Review monthly:
-
-- Affiliate placements
-- Product cards
-- Email capture opportunities
-- Comparison pages
-- Buyer's guides
-
----
-
-# 📊 SCOREBOARD
-
-Technical Health
-
-- [ ] 0 broken links
-- [ ] 0 metadata issues
-- [ ] 0 duplicate slugs
-- [ ] 0 orphaned pages
-
-Content Health
-
-- [ ] 0 thin pages
-
-Authority
-
-- [ ] Sleep established
-- [ ] Stress established
-- [ ] Anxiety established
-- [ ] Focus established
-
-Business
-
-- [ ] Affiliate optimization complete
-- [ ] Email capture system optimized
-
----
-
-# GOLDEN RULE
-
-Never ask:
-
-> What should I build?
-
-Ask:
-
-> What is the highest ROI unfinished task?
-
-Do that.
-
-Then stop.
-
-Repeat tomorrow.
+The corrupt compressed seed under `backlog/` and the separate 375-ticket `ops/backlog/` system are historical inputs, not execution queues. Revalidate useful problems and promote them here; their completion claims do not override current proof.

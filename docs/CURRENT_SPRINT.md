@@ -1,0 +1,56 @@
+# Current Sprint
+
+**Status:** Authoritative immediate execution queue
+**Sprint:** Revenue Foundation Baseline
+**Updated:** 2026-08-21
+**WIP limit:** Maximum three concurrent workstreams; within each workstream, activate one ticket at a time. An agent works one scoped ticket and stops after proof and record updates.
+
+## Sprint objective
+
+Establish trustworthy production measurement, reconcile indexability truth, and prepare exactly one evidence-safe commercial journey for improvement. The sprint does not authorize broad content creation, robot overrides, redesign, or infrastructure replacement.
+
+## Queue rules
+
+- Start the highest-priority unblocked ticket in a workstream.
+- `Ready` means dependencies are satisfied; `Blocked` names the missing dependency.
+- Completion requires the acceptance criteria and proof below, relevant tests, and the production build unless the ticket is explicitly access-only.
+- Analytics values remain `Unknown` until exported from an authorized source.
+
+## 1. Discovery / SEO
+
+| ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
+|---|---|---|---|---|---|---|---|---|---|---|
+| SEO-001 | Reconcile post-build profile publication truth | P0 | Data/SEO engineer | None | One post-invariant artifact reports every profile's final robots, sitemap eligibility, and reason; counts match built HTML and sitemap in a clean production build | Command log, count diff before/after, passing parity regression, build result | `scripts/`, `public/data/publication-*`, sitemap/robots builders | Ready | M (1–2 d) | Restores reliable indexing decisions and prevents unsafe robot overrides |
+| SEO-002 | Recover reviewed flagship profile source roles | P0 | Evidence/content engineer | SEO-001; review PR #4089 before duplicating work | Ashwagandha and L-theanine evidence roles are reviewed against sources; valid roles survive regeneration; pages index only if all existing gates pass | Source-review record, regenerated diff, route-specific tests, final HTML robots/sitemap proof | Workbook, source registry/overlays, `/herbs/ashwagandha/`, `/compounds/l-theanine/` | Blocked | L (2–4 d) | Can restore two high-value depth pages without weakening governance |
+| SEO-003 | Clear current schema identity gate | P1 | SEO engineer | Reproduce latest workflow; coordinate open PRs | All first-party Person/Organization IDs are consistent on affected ADHD guides; full schema policy and regression suite pass | Failing/passing report, fixture or route tests, production build | JSON-LD helpers, `/guides/adhd/*`, schema workflows | Ready: full local policy reproduces 38 violations | M | Restores a current release gate and entity consistency |
+| SEO-004 | Import 28-day GSC opportunity baseline | P0 | Growth analyst | Search Console access/service account | Scoreboard contains 28-day impressions, clicks, CTR, position, top landing pages, pages near top 20/top 10, and gainers/losers with exact dates | Read-only export/query, saved aggregate with no secrets, scoreboard update | Search Console, `scripts/seo/fetch-search-console.mjs` | Blocked: credentials | S | Replaces speculative SEO priorities with observed demand |
+
+## 2. Revenue / Conversion
+
+| ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
+|---|---|---|---|---|---|---|---|---|---|---|
+| REV-001 | Verify production analytics and governed funnel events | P0 | Analytics engineer | GA4/Ahrefs property access; production env visibility | Confirm identifiers load after consent, not before; verify page/guide view and affiliate-click events with page/CTA/destination context; document any missing configuration without inventing values | Network/DebugView screenshots or timestamped event log, consent test, env-name checklist, no secret values | `src/lib/loadAnalytics.ts`, `components/ClickTracker.tsx`, consent provider, live site | Ready; access may block final receipt | S (≤1 d) | Unlocks every traffic/conversion decision and detects broken tracking |
+| REV-002 | Establish aligned funnel and revenue baseline | P0 | Growth analyst | REV-001; GA4, Amazon, Mailchimp access | Fixed 28-day sessions, landing engagement, affiliate clicks, CTR, revenue, RPM, and email signups are imported with source and date range; unavailable metrics remain explicitly Unknown | Read-only exports and reconciliation notes; scoreboard update | GA4, Amazon Associates, Mailchimp, `docs/SCOREBOARD.md` | Blocked: REV-001/access | S | Creates the first honest business baseline |
+| REV-003 | Select one flagship commercial decision page | P1 | Product/growth lead | SEO-004 and REV-002 | One existing indexable page is selected using demand, intent, evidence completeness, safety, and conversion data; alternatives and non-selection reasons recorded | Scored shortlist and dated decision entry | Existing `/guides/compare/*`, `/guides/best/*`, `/guides/sleep/*` | Blocked | S | Focuses conversion work on the highest-confidence existing opportunity |
+| REV-004 | Validate flagship disclosure and destinations | P1 | Commerce/editorial reviewer | REV-003 | Disclosure occurs before first affiliate link; every destination resolves to the intended product/form/market; search fallbacks are retained or replaced only with documented reason | Link audit, live screenshots, source diff, affiliate-tag audit | Selected route, `config/revenue-products.ts`, disclosure components | Blocked | S–M | Improves trust and reduces broken or low-relevance commercial exits |
+
+## 3. Authority / Content
+
+| ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
+|---|---|---|---|---|---|---|---|---|---|---|
+| AUTH-001 | Resolve four verified duplicate-intent route pairs | P1 | Content SEO editor | Inspect traffic/canonical/link evidence before deciding | Each pair has a documented canonical owner; content is differentiated or consolidated; any removed URL has a redirect; exact regressions pass | Intent matrix, GSC evidence or Unknown label, redirect/internal-link tests, build | Four pairs listed in `CURRENT_STATE.md`, `public/_redirects` | Ready | M | Concentrates relevance and removes misleading duplicate surfaces |
+| AUTH-002 | Strengthen links to the selected flagship | P1 | Content editor | REV-003; link audit | Only contextually relevant existing pages link to the flagship with descriptive anchors; no redirect-hop or orphan regression | Before/after link graph, changed-route list, full link audit, build | Selected cluster and related monographs/guides | Blocked | M | Improves discovery and user journeys without new content volume |
+| AUTH-003 | Upgrade the selected existing decision page | P1 | Evidence-first content editor | REV-003, REV-004; evidence review | Page meets the decision-page standard, separates outcomes, includes contrary/null evidence and safety/directness boundaries, and improves CTA clarity without ranking by commission | Claim-source review, route-specific regressions, disclosure/link audit, visual check, build | Selected flagship route and evidence sources | Blocked | L | Creates the first measurable evidence-safe revenue-loop experiment |
+
+## Sprint exit conditions
+
+- REV-001 and SEO-001 are complete or have precise external-access blockers.
+- The current schema and safety/runtime failures have owners and reproducible proof.
+- A fixed-period search and business baseline exists, or every unavailable field has an owner and acquisition step.
+- One flagship page is selected only after evidence and measurement dependencies are satisfied.
+- No more than three workstreams were active, and no speculative page production was added.
+
+## Completed during the reset
+
+- **SAFE-001:** Search interaction flags now honor generated interaction edges; the runtime regression and strict four-profile trust audit pass with zero actionable findings.
+- **OPS-002:** Generated-data governance and citation writes retry bounded transient Windows file locks, while non-transient failures such as `ENOSPC` still fail immediately. Unit tests and the production build pass.

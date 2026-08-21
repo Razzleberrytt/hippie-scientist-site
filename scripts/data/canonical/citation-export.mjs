@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { loadDataset } from './store.mjs'
 import { citationUrl, normalizeDoi, normalizePmidList } from '../../../lib/citation-identifiers.mjs'
+import { writeFileSyncWithTransientRetry } from '../write-file-with-retry.mjs'
 
 const EXCLUDED_REVIEW_STATUSES = new Set(['rejected', 'deprecated'])
 const PROFILE_TYPES = new Set(['herb', 'compound'])
@@ -288,7 +289,7 @@ function readJson(filePath) {
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true })
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
+  writeFileSyncWithTransientRetry(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
 }
 
 export function exportCanonicalCitationsToRuntime({
