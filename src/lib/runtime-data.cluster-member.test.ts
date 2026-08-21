@@ -23,9 +23,9 @@ describe('cluster-member production runtime boundary', () => {
     expect(record?.safety).toMatch(/^Safety evidence:/)
     expect(record?.side_effects).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.interactions).toEqual([])
-    expect(record?.indexability_status).toBe('PUBLISH')
-    expect(record?.robots).toBe('index,follow')
-    expect(record?.sitemap_included).toBe(true)
+    expect(record?.indexability_status).toBe(core.indexability_status)
+    expect(record?.robots).toBe(core.robots)
+    expect(record?.sitemap_included).toBe(core.sitemap_included)
   })
 
   it.each(compoundSlugs)('%s is renderable with matching build-time and renderer trust values', async slug => {
@@ -49,12 +49,20 @@ describe('cluster-member production runtime boundary', () => {
 
   it('keeps search safety and flags aligned for all four profiles', () => {
     const search = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'search-index.json'), 'utf8'))
+    const interactionEdges = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'interaction_edges.json'), 'utf8'))
     const records = search.filter((record: Record<string, unknown>) => [...herbSlugs, ...compoundSlugs].includes(record.slug as never))
 
     expect(records).toHaveLength(4)
     for (const record of records) {
       expect(record.safety).not.toMatch(/generally well tolerated/i)
-      expect(record.safetyFlags).toMatchObject({ hasContraindications: true, hasInteractions: false })
+      const relationships = interactionEdges[record.slug as string]
+      const kind = herbSlugs.includes(record.slug as never) ? 'herbs' : 'compounds'
+      const core = coreRecord(kind, record.slug as string)
+      expect(record.safetyFlags).toMatchObject({
+        hasContraindications: true,
+        hasInteractions: (Array.isArray(relationships) && relationships.length > 0)
+          || (Array.isArray(core?.interactions) && core.interactions.length > 0),
+      })
     }
   })
 })

@@ -1,10 +1,22 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import {
   GOAL_KEYWORDS,
   PATHWAY_KEYWORDS,
+  hasSearchInteractionSignal,
   interactionSlugsFromEdges,
   matchFacets,
 } from './build-search-index.mjs'
+
+describe('direct script execution', () => {
+  it('uses a cross-platform file URL comparison', () => {
+    const source = fs.readFileSync(path.join(process.cwd(), 'scripts/data/build-search-index.mjs'), 'utf8')
+
+    expect(source).toContain('pathToFileURL(process.argv[1]).href')
+    expect(source).not.toContain('`file://${process.argv[1]}`')
+  })
+})
 
 describe('matchFacets', () => {
   it('does not match a keyword glued as a prefix inside an unrelated word', () => {
@@ -56,5 +68,11 @@ describe('interactionSlugsFromEdges', () => {
   it('fails closed for malformed graph payloads', () => {
     expect([...interactionSlugsFromEdges(null)]).toEqual([])
     expect([...interactionSlugsFromEdges([])]).toEqual([])
+  })
+
+  it('preserves flat runtime interactions as a compatibility fallback', () => {
+    expect(hasSearchInteractionSignal('caffeine', [], new Set(['caffeine']))).toBe(true)
+    expect(hasSearchInteractionSignal('caffeine', ['MAOI'], new Set())).toBe(true)
+    expect(hasSearchInteractionSignal('caffeine', [], new Set())).toBe(false)
   })
 })
