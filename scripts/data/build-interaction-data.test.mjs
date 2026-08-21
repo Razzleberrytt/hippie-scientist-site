@@ -86,7 +86,13 @@ describe('deriveInteractionData', () => {
     expect(data.edgesBySlug['herb-a'][0]).toMatchObject({
       partner_slug: 'herb-b',
       certainty: 'theoretical',
+      provenance: {
+        source_ids: ['workbook:herb-a:contra', 'workbook:herb-b:contra'],
+      },
     })
+    expect(data.edgesBySlug['herb-a'][0]).not.toHaveProperty('risk_class')
+    expect(data.edgesBySlug['herb-a'][0]).not.toHaveProperty('unsupervised_use_inappropriate')
+    expect(data.edgesBySlug['herb-a'][0].provenance).not.toHaveProperty('note')
     expect(data.edgesBySlug['herb-b']).toHaveLength(1)
     expect(data.edgesBySlug['herb-b'][0].partner_slug).toBe('herb-a')
   })

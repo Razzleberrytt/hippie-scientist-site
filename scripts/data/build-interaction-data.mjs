@@ -26,6 +26,9 @@ const PLAIN = { serotonergic:'serotonergic activity', anticoagulant:'effects on 
 
 const splitFlags = v => (v == null ? [] : String(v).split(/[;,]/).map(s => s.trim()).filter(Boolean));
 const workbookSourceId = slug => `workbook:Entity_Master:${slug}:contraindications_or_flags`;
+const compactWorkbookSourceId = sourceId => String(sourceId)
+  .replace(/^workbook:Entity_Master:/, 'workbook:')
+  .replace(/:contraindications_or_flags$/, ':contra');
 const tagProvenance = slug => ({
   source_ids: [workbookSourceId(slug)],
   note: 'Derived from the canonical contraindications_or_flags source field. This provenance identifies the source data field, not an independently verified clinical interaction study.',
@@ -34,6 +37,13 @@ const edgeProvenance = (sourceSlug, targetSlug) => ({
   source_ids: [workbookSourceId(sourceSlug), workbookSourceId(targetSlug)],
   note: 'Pairwise flag is inferred from two source-backed contraindication fields sharing a mechanism. It is a theoretical additive-risk screen unless pair-specific evidence is reviewed separately.',
 });
+
+function compactEdgeProvenance(provenance) {
+  return {
+    source_ids: provenance.source_ids.map(compactWorkbookSourceId),
+    ...(provenance.reviewed_at ? { reviewed_at: provenance.reviewed_at } : {}),
+  };
+}
 
 export function deriveInteractionData(rows) {
   const tagSet = new Set();        // dedupe on full tuple, like pandas drop_duplicates
@@ -111,7 +121,10 @@ export function deriveInteractionData(rows) {
   edges.sort((a, b) => a.source_slug.localeCompare(b.source_slug)
     || a.target_slug.localeCompare(b.target_slug) || a.risk_mechanism.localeCompare(b.risk_mechanism));
 
-  // slug-keyed lookups for O(1) detail-page access (each edge indexed under both ends)
+  // Slug-keyed lookups provide O(1) detail-page access (each edge is indexed
+  // under both ends). Keep this public projection lean: the full audit edges
+  // above retain the generic provenance note and policy defaults, while runtime
+  // consumers already treat missing risk_class/false flags as the general case.
   const edgesBySlug = {}, tagsBySlug = {};
   for (const e of edges) {
     (edgesBySlug[e.source_slug] ??= []).push({
@@ -121,9 +134,7 @@ export function deriveInteractionData(rows) {
       severity: e.severity,
       weight: e.weight_or_strength,
       certainty: e.certainty,
-      risk_class: e.risk_class,
-      provenance: e.provenance,
-      unsupervised_use_inappropriate: e.unsupervised_use_inappropriate,
+      provenance: compactEdgeProvenance(e.provenance),
       claim_language: e.claim_language,
       notes: e.notes,
     });
@@ -134,9 +145,7 @@ export function deriveInteractionData(rows) {
       severity: e.severity,
       weight: e.weight_or_strength,
       certainty: e.certainty,
-      risk_class: e.risk_class,
-      provenance: e.provenance,
-      unsupervised_use_inappropriate: e.unsupervised_use_inappropriate,
+      provenance: compactEdgeProvenance(e.provenance),
       claim_language: e.claim_language,
       notes: e.notes,
     });
