@@ -175,6 +175,13 @@ function addApprovedClaimReasons(
       claim,
     ] as const),
   )
+  const singleStudyByProfile = new Map<string, {
+    claims: number
+    pseudoMultiStudyClaims: number
+    highConfidenceClaims: number
+    veryHighConfidenceClaims: number
+    weight: number
+  }>()
 
   for (const claim of analysis.claimAnalyses) {
     if (claim.structuredSupportTier === 'unsupported') {
@@ -187,10 +194,19 @@ function addApprovedClaimReasons(
     if (claim.singleStudy || pseudoMultiStudy) {
       const high = claim.confidence >= 0.75 ? RESEARCH_GAP_WEIGHTS.highConfidenceSingleStudyBonus : 0
       const veryHigh = claim.confidence >= 0.9 ? RESEARCH_GAP_WEIGHTS.veryHighConfidenceSingleStudyBonus : 0
-      const detail = pseudoMultiStudy
-        ? `${claim.claimId} · confidence ${claim.confidence} · ${pseudoMultiStudy.apparentStudyCount} publications collapse to ${pseudoMultiStudy.underlyingStudyCount} underlying study`
-        : `${claim.claimId} · confidence ${claim.confidence}`
-      add(claim.url, 'single-study-approved-claim', RESEARCH_GAP_WEIGHTS.singleStudyApprovedClaim + high + veryHigh, detail)
+      const group = singleStudyByProfile.get(claim.url) ?? {
+        claims: 0,
+        pseudoMultiStudyClaims: 0,
+        highConfidenceClaims: 0,
+        veryHighConfidenceClaims: 0,
+        weight: 0,
+      }
+      group.claims += 1
+      group.pseudoMultiStudyClaims += pseudoMultiStudy ? 1 : 0
+      group.highConfidenceClaims += high ? 1 : 0
+      group.veryHighConfidenceClaims += veryHigh ? 1 : 0
+      group.weight += RESEARCH_GAP_WEIGHTS.singleStudyApprovedClaim + high + veryHigh
+      singleStudyByProfile.set(claim.url, group)
     }
     if (claim.outcomeClaim && claim.primaryHuman === 0 && claim.synthesis > 0) {
       add(claim.url, 'synthesis-only-approved-outcome', RESEARCH_GAP_WEIGHTS.synthesisOnlyApprovedOutcome, `${claim.claimId} · synthesis present but no primary-human study`)
@@ -206,6 +222,15 @@ function addApprovedClaimReasons(
       const bonus = claim.highConfidenceWeakOutcome ? RESEARCH_GAP_WEIGHTS.highConfidenceWeakClaimBonus : 0
       add(claim.url, 'claim-support-indirect-only', RESEARCH_GAP_WEIGHTS.indirectOutcomeSupport + bonus, claim.claimId)
     }
+  }
+
+  for (const [url, group] of singleStudyByProfile) {
+    add(
+      url,
+      'single-study-approved-claim',
+      group.weight,
+      `${group.claims} approved claim(s) effectively depend on one study; ${group.pseudoMultiStudyClaims} via explicit publication-lineage collapse; ${group.highConfidenceClaims} high-confidence; ${group.veryHighConfidenceClaims} very-high-confidence`,
+    )
   }
 }
 
