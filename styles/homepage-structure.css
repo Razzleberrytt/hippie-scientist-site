@@ -95,14 +95,18 @@
 }
 
 .hs-comparison-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   min-height: 5.5rem;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-.hs-comparison-row > span {
+.hs-comparison-index {
+  min-width: 2rem;
+}
+
+.hs-comparison-copy {
   min-width: 0;
 }
 
@@ -140,7 +144,7 @@
 @media (max-width: 767px) {
   .hs-index-hero {
     align-items: stretch;
-    padding-block: 2.1rem 1.5rem;
+    padding-block: 2.35rem 1.75rem;
     text-align: left;
   }
 
@@ -150,8 +154,15 @@
     align-self: center;
   }
 
+  /* Four choices read much better as a balanced decision matrix than a cramped
+   * four-across rail on narrow screens. */
+  .hs-goal-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hs-goal-link {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 
   .hs-decision-section,
@@ -168,12 +179,23 @@
   }
 }
 
+@media (max-width: 480px) {
+  .hs-comparison-row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.75rem;
+  }
+
+  .hs-comparison-index {
+    min-width: 1.55rem;
+  }
+}
+
 @media (max-width: 390px) {
   .hs-home-shell {
     --home-shell-padding: 1rem;
   }
 
   .hs-goal-link {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
   }
 }

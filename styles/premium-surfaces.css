@@ -14,9 +14,51 @@ html .glass-card,
 html .mobile-reading-card {
   border: 1px solid var(--border-soft);
   border-radius: 1.25rem;
-  background: var(--surface-card);
-  box-shadow: var(--hs-lift);
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 56%, transparent) 0%, transparent 7rem),
+    var(--surface-card);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 58%, transparent),
+    var(--hs-lift);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+html.dark .card-premium,
+html.dark .scientific-card,
+html.dark .library-card-premium,
+html.dark .library-content-card,
+html.dark .surface-depth,
+html.dark .surface-subtle,
+html.dark .section-frame,
+html.dark .glass-card,
+html.dark .mobile-reading-card {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    var(--hs-lift);
+}
+
+/* Section frames are supporting editorial panels rather than peer cards. Give
+ * them quieter elevation and a little more material contrast so page hierarchy
+ * stays obvious even when several surfaces appear together. */
+html .section-frame,
+html .surface-subtle {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 34%, transparent), transparent 8rem),
+    color-mix(in srgb, var(--surface-subtle) 80%, var(--surface-card));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 42%, transparent),
+    0 14px 34px -32px rgba(29, 29, 31, 0.26);
+}
+
+html.dark .section-frame,
+html.dark .surface-subtle {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 16px 38px -30px rgba(0, 0, 0, 0.64);
 }
 
 html a.card-premium:hover,
@@ -24,30 +66,59 @@ html button.card-premium:hover,
 html .card-premium:has(> a):hover,
 html .library-card-premium:hover,
 html .library-content-card:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   border-color: var(--border-strong);
-  box-shadow: var(--hs-lift-hover);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 62%, transparent),
+    var(--hs-lift-hover);
+}
+
+html.dark a.card-premium:hover,
+html.dark button.card-premium:hover,
+html.dark .card-premium:has(> a):hover,
+html.dark .library-card-premium:hover,
+html.dark .library-content-card:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    var(--hs-lift-hover);
+}
+
+html .card-premium:focus-within,
+html .scientific-card:focus-within,
+html .library-card-premium:focus-within,
+html .library-content-card:focus-within {
+  border-color: var(--border-strong);
 }
 
 html .chip-readable {
   border: 1px solid var(--border-soft);
   border-radius: 999px;
-  background: var(--surface-card);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 62%, transparent), transparent),
+    var(--surface-card);
   color: var(--text-primary);
-  box-shadow: none;
-  transition: border-color 160ms ease, background-color 160ms ease;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 45%, transparent);
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+html.dark .chip-readable {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
 html a.chip-readable:hover,
 html button.chip-readable:hover {
-  border-color: color-mix(in srgb, var(--hs-gold) 42%, var(--border-strong));
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--hs-gold) 34%, var(--border-strong));
   background: var(--surface-card-strong);
 }
 
 html main hr {
   height: 1px;
   border: 0;
-  background: var(--border-soft);
+  background: linear-gradient(90deg, transparent, var(--border-strong) 12%, var(--border-strong) 88%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -67,7 +138,9 @@ html main hr {
   html a.card-premium:hover,
   html button.card-premium:hover,
   html .library-card-premium:hover,
-  html .library-content-card:hover {
+  html .library-content-card:hover,
+  html a.chip-readable:hover,
+  html button.chip-readable:hover {
     transform: none;
   }
 }

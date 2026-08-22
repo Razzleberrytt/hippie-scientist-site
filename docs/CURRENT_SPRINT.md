@@ -2,17 +2,18 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Revenue Foundation Baseline
-**Updated:** 2026-08-21
+**Updated:** 2026-08-22
 **WIP limit:** Maximum three concurrent workstreams; within each workstream, activate one ticket at a time. An agent works one scoped ticket and stops after proof and record updates.
 
 ## Sprint objective
 
-Establish trustworthy production measurement, reconcile indexability truth, and prepare exactly one evidence-safe commercial journey for improvement. The sprint does not authorize broad content creation, robot overrides, redesign, or infrastructure replacement.
+Establish trustworthy production measurement, reconcile indexability truth, and prepare exactly one evidence-safe commercial journey for improvement. The sprint does not authorize broad content creation, robot overrides, redesign, or infrastructure replacement. **Exception:** on 2026-08-22 the project owner directly authorized one scoped visual-system refinement (`AUTH-004`); it must preserve routes, evidence/safety semantics, canonical CSS ownership, accessibility, and performance gates and does not authorize a second redesign system.
 
 ## Queue rules
 
 - Start the highest-priority unblocked ticket in a workstream.
 - `Ready` means dependencies are satisfied; `Blocked` names the missing dependency.
+- A direct owner instruction may temporarily displace queue order when the exception is recorded here before completion and remains within an existing workstream/WIP limit.
 - Completion requires the acceptance criteria and proof below, relevant tests, and the production build unless the ticket is explicitly access-only.
 - Analytics values remain `Unknown` until exported from an authorized source.
 
@@ -38,6 +39,7 @@ Establish trustworthy production measurement, reconcile indexability truth, and 
 
 | ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
 |---|---|---|---|---|---|---|---|---|---|---|
+| AUTH-004 | Refine canonical visual system and flagship homepage | P0 owner-directed | UI/experience engineer | Direct owner request 2026-08-22; avoid active Research PR overlap | Shared canvas, surfaces, typography, controls, chrome, and homepage composition feel materially more coherent and premium; mobile goal navigation is balanced; routes, content meaning, evidence/safety semantic colors, dark mode, reduced motion, and canonical CSS ownership remain intact | Source diff, visual-system regression test, relevant UI checks, production build, rendered light/dark mobile/desktop review when available | Canonical premium CSS owners, `components/homepage-v2.tsx`, homepage route-scoped CSS | In Review | M | Raises perceived authority and coherence across shared site surfaces without creating redesign debt |
 | AUTH-001 | Resolve four verified duplicate-intent route pairs | P1 | Content SEO editor | Inspect traffic/canonical/link evidence before deciding | Each pair has a documented canonical owner; content is differentiated or consolidated; any removed URL has a redirect; exact regressions pass | Intent matrix, GSC evidence or Unknown label, redirect/internal-link tests, build | Four pairs listed in `CURRENT_STATE.md`, `public/_redirects` | Ready | M | Concentrates relevance and removes misleading duplicate surfaces |
 | AUTH-002 | Strengthen links to the selected flagship | P1 | Content editor | REV-003; link audit | Only contextually relevant existing pages link to the flagship with descriptive anchors; no redirect-hop or orphan regression | Before/after link graph, changed-route list, full link audit, build | Selected cluster and related monographs/guides | Blocked | M | Improves discovery and user journeys without new content volume |
 | AUTH-003 | Upgrade the selected existing decision page | P1 | Evidence-first content editor | REV-003, REV-004; evidence review | Page meets the decision-page standard, separates outcomes, includes contrary/null evidence and safety/directness boundaries, and improves CTA clarity without ranking by commission | Claim-source review, route-specific regressions, disclosure/link audit, visual check, build | Selected flagship route and evidence sources | Blocked | L | Creates the first measurable evidence-safe revenue-loop experiment |
@@ -49,6 +51,7 @@ Establish trustworthy production measurement, reconcile indexability truth, and 
 - A fixed-period search and business baseline exists, or every unavailable field has an owner and acquisition step.
 - One flagship page is selected only after evidence and measurement dependencies are satisfied.
 - No more than three workstreams were active, and no speculative page production was added.
+- AUTH-004 either passes its visual/build proof or remains In Review with the limitation recorded; it does not relax evidence, safety, accessibility, or performance gates.
 
 ## Completed during the reset
 
