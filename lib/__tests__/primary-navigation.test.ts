@@ -23,6 +23,17 @@ describe('primary navigation', () => {
     expect(goals?.children?.some((item) => item.href.startsWith('/guides/'))).toBe(false)
   })
 
+  it('uses the source-first research library as the Research landing page', () => {
+    const research = primaryNavigation.find((item) => item.label === 'Research')
+
+    expect(research?.href).toBe('/research')
+    expect(research?.activePrefixes).toContain('/research')
+    expect(research?.children?.[0]).toMatchObject({
+      label: 'Research library',
+      href: '/research',
+    })
+  })
+
   it('keeps the Botanical Activity Atlas discoverable through Research', () => {
     const research = primaryNavigation.find((item) => item.label === 'Research')
     const atlas = research?.children?.find((item) => item.href === '/tools/botanical-activity-atlas')
@@ -39,6 +50,7 @@ describe('primary navigation', () => {
     expect(research?.children).toEqual(expect.arrayContaining([
       expect.objectContaining({ label: 'Evidence Report', href: '/evidence/evidence-report' }),
       expect.objectContaining({ label: 'Evidence Database', href: '/evidence/evidence-checker' }),
+      expect.objectContaining({ label: 'Citation explorer', href: '/learn/citation-explorer' }),
     ]))
   })
 })
