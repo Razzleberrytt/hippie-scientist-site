@@ -1,14 +1,14 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-08-21
+**Updated:** 2026-08-22
 **Immediate work:** Only tickets also present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started.
 
 ## Scoring and gates
 
 `Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`
 
-Business impact, user value, traffic potential, strategic leverage, and effort use 1–5. Confidence is 0.50, 0.75, or 1.00. Higher is better; effort is the denominator. Dependencies and safety/evidence/disclosure gates override scores. Details are in [DECISIONS.md](DECISIONS.md). Workstreams: **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authority/Content, **O** Operations.
+Business impact, user value, traffic potential, strategic leverage, and effort use 1–5. Confidence is 0.50, 0.75, or 1.00. Higher is better; effort is the denominator. Dependencies and safety/evidence/disclosure gates override scores. Details are in [DECISIONS.md](DECISIONS.md). Workstreams: **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authority/Content, **O** Operations. A direct owner instruction may be recorded as an owner-directed exception; it still requires the same proof and release gates.
 
 ## Now
 
@@ -16,10 +16,11 @@ Only these unblocked tickets may start, subject to the three-workstream WIP limi
 
 | ID | Title | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance criteria | Proof required | Relevant scope | Notes |
 |---|---|---|---|---|---|---:|---|---|---|---|---|
+| AUTH-004 | Refine canonical visual system and flagship homepage | A | In Review | P0 owner-directed | 3/5/3/4/1/2 | 90.0 | Direct owner request 2026-08-22; avoid active Research PR overlap | Shared canvas, surfaces, type, controls, chrome, and homepage are more coherent; mobile goal chooser is balanced; no route/content/evidence/safety semantic regressions; dark/reduced-motion behavior remains | Source diff, visual regression contract, UI checks, production build, rendered light/dark mobile/desktop review when available | Canonical premium CSS owners and homepage | One scoped refinement inside the existing premium system; no second design system |
 | REV-001 | Verify production analytics and governed funnel events | R | Ready | P0 | 5/4/4/5/1/1 | 400.0 | Analytics/env access for receipt proof | Consent blocks pre-consent loading; configured analytics loads after consent; view and affiliate events include page/CTA/destination context | Network or DebugView evidence, consent log, configuration checklist | Analytics loader, click tracker, live site | Highest leverage; missing access is not zero |
 | SEO-001 | Reconcile post-build profile publication truth | D | Ready | P0 | 5/5/5/5/.75/3 | 156.3 | None | One final artifact agrees with built robots and sitemap for every profile and reason | Clean-build counts, parity regression, artifact diff | Publication data, sitemap/robots, scripts | Do not broaden indexability during reconciliation |
 | SEO-003 | Clear schema identity gate | D | Ready | P1 | 4/4/4/4/1/2 | 128.0 | Reproduced in full local policy | Affected first-party identity IDs are consistent and full schema policy passes | Full reports, route regression, build | JSON-LD helpers, `/guides/adhd/*` | Full local policy reports 38 blockers |
-| AUTH-001 | Resolve four duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Inspect route/query evidence | Each pair has one owner or distinct job; redirects protect removed URLs | Intent matrix, redirects, link/canonical tests, build | Routes in `CURRENT_STATE.md`, `_redirects` | Do not consolidate on filename alone |
+| AUTH-001 | Resolve four duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Inspect route/query evidence | Each pair has one owner or distinct job; redirects protect removed URLs | Intent matrix, redirects, link/canonical tests, build | Routes in `CURRENT_STATE.md`, `_redirects` | Do not consolidate on filename alone; wait for AUTH-004 to leave review before activating in Authority |
 
 ## Next
 
