@@ -8,366 +8,129 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
+import References from '@/components/References'
 import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-anxiety`
-const DATE = '2026-08-11'
+const DATE = '2026-08-22'
 
 export const metadata: Metadata = {
-  title: 'Best Herbs for Anxiety: Human Evidence & Safety',
+  title: 'Best Herbs for Anxiety: Evidence-Ranked Guide (2026)',
   description:
-    'Evidence-first comparison of ashwagandha, oral Silexan lavender oil, passionflower, and kava for anxiety, with directness, funding, and safety limits.',
+    'Evidence-ranked anxiety herbs with 20 clinical and safety sources: oral Silexan lavender oil, ashwagandha, chamomile, passionflower and kava, including negative trials and funding context.',
   alternates: { canonical: '/guides/anxiety/best-herbs-for-anxiety/' },
   openGraph: {
-    title: 'Best Herbs for Anxiety: Human Evidence & Safety',
+    title: 'Best Herbs for Anxiety: Evidence-Ranked Guide (2026)',
     description:
-      'Compare anxiety herbs by direct human evidence, formulation, duration, funding context, and safety instead of same-day rankings or universal winners.',
+      'Compare anxiety herbs by direct human evidence, formulation, negative trials, funding concentration and safety—not popularity or same-day claims.',
     url: '/guides/anxiety/best-herbs-for-anxiety/',
     type: 'article',
-    images: ['/og-default.jpg'],
+    images: ['/images/guides/best-herbs-for-anxiety.jpg'],
   },
   twitter: buildTwitterMetadata({
-    title: 'Best Herbs for Anxiety: Human Evidence & Safety',
-    description: 'Compare anxiety herbs by direct human evidence, formulation, duration, funding context, and safety instead of same-day rankings or universal winners.',
+    title: 'Best Herbs for Anxiety: Evidence-Ranked Guide (2026)',
+    description: 'Compare anxiety herbs by direct human evidence, formulation, negative trials, funding concentration and safety.',
   }),
 }
 
-const FAQS = [
-  {
-    question: 'Which herb has the strongest direct anxiety evidence?',
-    answer:
-      'There is no universal best herb. Among the options on this page, the most direct anxiety-disorder trial program belongs to Silexan, a proprietary oral lavender-oil preparation studied at defined doses over 10 weeks. That evidence does not automatically apply to lavender tea, aromatherapy, raw essential oil, or every lavender supplement. The 2023 meta-analysis also reports that its five included trials were completed by the Silexan manufacturer, and the research and publication were financially supported by that manufacturer, so funding and author ties are an important interpretation limit. Ashwagandha has a repeated-dose stress/anxiety signal, but its evidence is formulation-specific and often comes from adults with elevated stress rather than a single anxiety diagnosis.',
-  },
-  {
-    question: 'Is passionflower proven to work as well as oxazepam?',
-    answer:
-      'No. The often-cited trial enrolled only 36 outpatients with generalized anxiety disorder for 4 weeks and compared passionflower extract with oxazepam. The small study found no significant difference at the end of the trial, but it was a pilot and was not designed to establish equivalence. NCCIH still describes the overall passionflower evidence as limited and inconclusive.',
-  },
-  {
-    question: 'Is kava a good option for acute anxiety?',
-    answer:
-      'Current evidence does not support presenting kava as a reliable acute-anxiety choice. A 16-week placebo-controlled trial in 171 non-medicated adults with diagnosed generalized anxiety disorder did not find a significant anxiety benefit over placebo. Kava products have also been linked to rare severe and sometimes fatal liver injury, and kava should not be combined with alcohol or other sedatives.',
-  },
-  {
-    question: 'Can anxiety herbs replace medication or therapy?',
-    answer:
-      'No. Supplements should not replace prescribed medication, psychotherapy, or evaluation of persistent or impairing anxiety. Do not stop or reduce psychiatric medication based on this guide, and review herb–drug interactions with a clinician or pharmacist.',
-  },
-  {
-    question: 'What if anxiety is severe or I do not feel safe?',
-    answer:
-      'Severe panic, rapidly worsening symptoms, suicidal thoughts, thoughts of self-harm, inability to stay safe, or imminent danger require immediate emergency or crisis care rather than supplement experimentation.',
-  },
+function Cite({ n }: { n: number }) {
+  return (
+    <sup className="ml-0.5 align-super text-[0.7em] font-semibold text-brand-700">
+      <a href={`#ref-${n}`} aria-label={`Reference ${n}`} className="hover:underline">[{n}]</a>
+    </sup>
+  )
+}
+
+const REFS = [
+  { n: 1, title: 'Efficacy of Silexan in patients with anxiety disorders: a meta-analysis of randomized, placebo-controlled trials', text: 'Dold M, et al. Eur Arch Psychiatry Clin Neurosci. 2023;273(7):1615-1628. Five trials / 1,213 adult outpatients.', year: 2023, pmid: '36717399', doi: '10.1007/s00406-022-01547-w', url: 'https://pubmed.ncbi.nlm.nih.gov/36717399/' },
+  { n: 2, title: 'Lavender oil preparation Silexan is effective in generalized anxiety disorder: randomized comparison to placebo and paroxetine', text: 'Kasper S, et al. Int J Neuropsychopharmacol. 2014;17(6):859-869. 539 adults with GAD.', year: 2014, pmid: '24456909', doi: '10.1017/S1461145714000017', url: 'https://pubmed.ncbi.nlm.nih.gov/24456909/' },
+  { n: 3, title: 'Silexan is effective in subsyndromal anxiety disorder: a randomized, double-blind, placebo-controlled trial', text: 'Kasper S, et al. 221 adults, 80 mg/day for 10 weeks.', year: 2010, pmid: '20512042', url: 'https://pubmed.ncbi.nlm.nih.gov/20512042/' },
+  { n: 4, title: 'A multi-center, double-blind, randomised study of Silexan in comparison to Lorazepam for generalized anxiety disorder', text: 'Six-week active-comparator GAD trial.', year: 2010, pmid: '19962288', url: 'https://pubmed.ncbi.nlm.nih.gov/19962288/' },
+  { n: 5, title: 'Therapeutic effects of Silexan on somatic symptoms and physical health in patients with anxiety disorders: A meta-analysis', text: 'Meta-analysis of five randomized placebo-controlled anxiety trials.', year: 2021, pmid: '33638614', url: 'https://pubmed.ncbi.nlm.nih.gov/33638614/' },
+  { n: 6, title: 'Effects of Ashwagandha on stress and anxiety: A systematic review and meta-analysis', text: 'Arumugam V, et al. Explore (NY). 2024. Nine RCTs / 558 participants.', year: 2024, pmid: '39348746', doi: '10.1016/j.explore.2024.103062', url: 'https://pubmed.ncbi.nlm.nih.gov/39348746/' },
+  { n: 7, title: 'Does Ashwagandha supplementation have a beneficial effect on the management of anxiety and stress?', text: 'Systematic review and dose-response meta-analysis of 12 RCTs / 1,002 participants; evidence certainty rated low.', year: 2022, pmid: '36017529', url: 'https://pubmed.ncbi.nlm.nih.gov/36017529/' },
+  { n: 8, title: 'Passionflower in the treatment of generalized anxiety: a pilot double-blind randomized controlled trial with oxazepam', text: 'Akhondzadeh S, et al. J Clin Pharm Ther. 2001;26(5):363-367. 36 outpatients.', year: 2001, pmid: '11679026', doi: '10.1046/j.1365-2710.2001.00367.x', url: 'https://pubmed.ncbi.nlm.nih.gov/11679026/' },
+  { n: 9, title: 'Passionflower: Usefulness and Safety', text: 'National Center for Complementary and Integrative Health. Current evidence and safety overview.', year: 2026, url: 'https://www.nccih.nih.gov/health/passionflower' },
+  { n: 10, title: 'Kava for generalised anxiety disorder: A 16-week double-blind, randomised, placebo-controlled study', text: 'Sarris J, et al. Aust N Z J Psychiatry. 2020;54(3):288-297. 171 adults with GAD; no significant benefit over placebo.', year: 2020, pmid: '31813230', doi: '10.1177/0004867419891246', url: 'https://pubmed.ncbi.nlm.nih.gov/31813230/' },
+  { n: 11, title: 'Kava in the treatment of generalized anxiety disorder: a double-blind, randomized, placebo-controlled study', text: 'Sarris J, et al. J Clin Psychopharmacol. 2013;33(5):643-648. Shorter GAD trial with positive anxiety signal.', year: 2013, pmid: '23635869', doi: '10.1097/JCP.0b013e318291be67', url: 'https://pubmed.ncbi.nlm.nih.gov/23635869/' },
+  { n: 12, title: 'Kava in generalized anxiety disorder: three placebo-controlled trials', text: 'Connor KM, Payne V, Davidson JRT. Int Clin Psychopharmacol. 2006. Pooled small trials found no kava benefit.', year: 2006, pmid: '16877894', doi: '10.1097/00004850-200609000-00001', url: 'https://pubmed.ncbi.nlm.nih.gov/16877894/' },
+  { n: 13, title: 'The effectiveness and safety of Kava Kava for treating anxiety symptoms: A systematic review and analysis of randomized clinical trials', text: 'Smith K, Leiras C. Complement Ther Clin Pract. 2018;33:107-117. Mixed short-term trial evidence.', year: 2018, pmid: '30396607', doi: '10.1016/j.ctcp.2018.09.003', url: 'https://pubmed.ncbi.nlm.nih.gov/30396607/' },
+  { n: 14, title: 'Kava: Usefulness and Safety', text: 'National Center for Complementary and Integrative Health. Current liver-injury and sedative-interaction warnings.', year: 2026, url: 'https://www.nccih.nih.gov/health/kava' },
+  { n: 15, title: 'Complementary and Alternative Medicine Treatments for Generalized Anxiety Disorder', text: 'Systematic review and meta-analysis of randomized controlled trials. Evidence for most CAM approaches remained limited.', year: 2018, pmid: '29508154', url: 'https://pubmed.ncbi.nlm.nih.gov/29508154/' },
+  { n: 16, title: 'A randomized, double-blind, placebo-controlled trial of oral chamomile extract therapy for generalized anxiety disorder', text: 'Amsterdam JD, et al. J Clin Psychopharmacol. 2009;29:378-382. 57 randomized adults with mild-to-moderate GAD.', year: 2009, pmid: '19593179', doi: '10.1097/JCP.0b013e3181ac935c', url: 'https://pubmed.ncbi.nlm.nih.gov/19593179/' },
+  { n: 17, title: 'Long-term chamomile treatment for generalized anxiety disorder: A randomized clinical trial', text: 'Mao JJ, et al. Phytomedicine. 2016;23(14):1735-1742. Primary relapse endpoint was not statistically significant.', year: 2016, pmid: '27912875', doi: '10.1016/j.phymed.2016.10.012', url: 'https://pubmed.ncbi.nlm.nih.gov/27912875/' },
+  { n: 18, title: 'Therapeutic efficacy and safety of chamomile for state anxiety, generalized anxiety disorder, insomnia, and sleep quality', text: 'Systematic review and meta-analysis of 12 randomized/quasi-randomized trials.', year: 2019, pmid: '31006899', doi: '10.1002/ptr.6349', url: 'https://pubmed.ncbi.nlm.nih.gov/31006899/' },
+  { n: 19, title: 'Medicinal herbs for the treatment of anxiety: A systematic review and network meta-analysis', text: 'Network meta-analysis concluding herbal results remain preliminary because of small samples and strong placebo effects.', year: 2022, pmid: '35378276', url: 'https://pubmed.ncbi.nlm.nih.gov/35378276/' },
+  { n: 20, title: 'Ashwagandha: Usefulness and Safety', text: 'National Center for Complementary and Integrative Health. Current safety review: short-term use, pregnancy/breastfeeding, thyroid/autoimmune, medication and rare liver-injury cautions.', year: 2026, url: 'https://www.nccih.nih.gov/health/ashwagandha' },
 ]
 
-const SOURCES = [
-  {
-    label: 'Silexan meta-analysis of randomized placebo-controlled anxiety trials (2023)',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/36717399/',
-    note: 'Five double-blind placebo-controlled trials; 1,213 adult outpatients received Silexan 80 mg/day or placebo for 10 weeks. The paper states the included trials were completed by the manufacturer and that the research/publication were financially supported by Dr. Willmar Schwabe GmbH & Co. KG; one author was a company employee and multiple authors disclosed Schwabe ties.',
-  },
-  {
-    label: 'Silexan randomized trial in generalized anxiety disorder (2014)',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/24456909/',
-    note: '539 adults with GAD were randomized to Silexan 160 mg, Silexan 80 mg, paroxetine 20 mg, or placebo for 10 weeks.',
-  },
-  {
-    label: 'Ashwagandha stress and anxiety systematic review and meta-analysis (2024)',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/39348746/',
-    note: 'Nine randomized placebo-controlled trials and 558 participants; repeated-dose evidence using specific ashwagandha formulations.',
-  },
-  {
-    label: 'Passionflower versus oxazepam pilot trial in generalized anxiety disorder (2001)',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/11679026/',
-    note: '36 outpatients with DSM-IV GAD; passionflower extract 45 drops/day versus oxazepam 30 mg/day for 4 weeks. A small pilot cannot establish equivalence.',
-  },
-  {
-    label: 'Kava randomized placebo-controlled trial in generalized anxiety disorder (2020)',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/31813230/',
-    note: '171 non-medicated adults with diagnosed GAD; aqueous dried-root extract standardized to 120 mg kavalactones twice daily for 16 weeks did not significantly outperform placebo.',
-  },
-  {
-    label: 'NCCIH: Kava usefulness and safety',
-    href: 'https://www.nccih.nih.gov/health/kava',
-    note: 'Current safety summary includes rare severe or fatal liver injury reports and cautions against combining kava with benzodiazepines or alcohol.',
-  },
-  {
-    label: 'NCCIH: Passionflower usefulness and safety',
-    href: 'https://www.nccih.nih.gov/health/passionflower',
-    note: 'Overall human evidence is limited; anxiety conclusions are not definite. Drowsiness, dizziness, confusion, pregnancy, and anesthesia cautions matter.',
-  },
+const FAQS = [
+  { question: 'Which herb has the strongest direct evidence for anxiety?', answer: 'Among the options compared here, oral Silexan has the most concentrated anxiety-disorder trial program, including placebo-controlled GAD and subthreshold-anxiety studies. But the claim belongs to a proprietary oral lavender-oil preparation, not lavender in general, and the 2023 meta-analysis reports substantial manufacturer involvement and author ties that should temper confidence.' },
+  { question: 'Does ashwagandha help anxiety?', answer: 'Meta-analyses report reductions in anxiety and stress measures with specific ashwagandha preparations, but trial heterogeneity is high and one larger review rated the certainty of evidence low. Many studies also enroll people with elevated stress rather than a single diagnosed anxiety disorder.' },
+  { question: 'Does chamomile help generalized anxiety disorder?', answer: 'Small controlled studies suggest a possible benefit. One placebo-controlled trial found a greater reduction in anxiety scores with chamomile, while a longer continuation study did not significantly reduce the primary relapse endpoint despite lower symptom scores. A 2019 meta-analysis described the GAD signal as promising but called for larger trials.' },
+  { question: 'Is passionflower as effective as oxazepam?', answer: 'That has not been established. The often-cited study included only 36 GAD outpatients over four weeks. Finding no significant difference in a small pilot is not proof of equivalence or non-inferiority. NCCIH continues to describe passionflower anxiety evidence as limited.' },
+  { question: 'Does kava work for anxiety?', answer: 'The evidence is mixed. Some older and shorter trials were positive, but pooled small studies and a larger 16-week GAD trial did not show a significant benefit over placebo. Kava also carries a rare but serious liver-injury concern, which materially changes its risk-benefit profile.' },
+  { question: 'Is lavender aromatherapy the same as Silexan?', answer: 'No. The strongest direct anxiety evidence on this page is for a defined orally administered lavender-oil preparation. It should not be generalized to lavender tea, aromatherapy, topical products, culinary lavender, or ingestion of raw essential oil.' },
+  { question: 'Can herbs replace therapy or prescribed anxiety medication?', answer: 'No. Persistent or impairing anxiety deserves evidence-based mental-health care. Do not stop or reduce prescribed treatment because of a supplement guide, and review herb-drug interactions with a clinician or pharmacist.' },
 ]
 
 const HEADINGS: Heading[] = [
   { id: 'bottom-line', text: 'Bottom line', level: 2 },
-  { id: 'directness', text: 'Compare by evidence directness', level: 2 },
-  { id: 'evidence', text: 'Herb-by-herb evidence', level: 2 },
+  { id: 'ranking', text: 'Evidence-ranked comparison', level: 2 },
+  { id: 'silexan', text: 'Oral lavender oil (Silexan)', level: 2 },
+  { id: 'ashwagandha', text: 'Ashwagandha', level: 2 },
+  { id: 'chamomile', text: 'Chamomile', level: 2 },
+  { id: 'passionflower', text: 'Passionflower', level: 2 },
+  { id: 'kava', text: 'Kava', level: 2 },
   { id: 'safety', text: 'Safety can outrank efficacy', level: 2 },
   { id: 'limits', text: 'What not to infer', level: 2 },
-  { id: 'sources', text: 'Sources', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
 ]
 
 export default function BestHerbsForAnxietyPage() {
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: FAQS.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  }
-
+  const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQS.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) }
   const toc = <TableOfContents headings={HEADINGS} />
 
   return (
     <ArticleLayout toc={toc} zone="supplement">
-      <StructuredData
-        pageUrl={PAGE_URL}
-        headline="Best Herbs for Anxiety: What the Evidence Supports in 2026"
-        description="Evidence-first comparison of ashwagandha, Silexan lavender oil, passionflower, and kava for anxiety."
-        datePublished="2026-06-16"
-        dateModified={DATE}
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Guides', href: '/guides' },
-          { label: 'Anxiety', href: '/guides/anxiety/' },
-          { label: 'Best Herbs for Anxiety', href: '/guides/anxiety/best-herbs-for-anxiety' },
-        ]}
-      />
+      <StructuredData pageUrl={PAGE_URL} headline="Best Herbs for Anxiety: Evidence-Ranked Guide (2026)" description="Evidence-ranked comparison of oral Silexan lavender oil, ashwagandha, chamomile, passionflower and kava, with 20 clinical and safety sources." datePublished="2026-06-16" dateModified={DATE} breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides' }, { label: 'Anxiety', href: '/guides/anxiety/' }, { label: 'Best Herbs for Anxiety', href: '/guides/anxiety/best-herbs-for-anxiety' }]} />
       <JsonLd schema={faqSchema} />
 
       <div className="space-y-10">
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-          <p className="eyebrow-label">Anxiety herb evidence guide</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Herbs for Anxiety</h1>
-          <p className="mt-2 text-xs text-muted">Last evidence review August 11, 2026</p>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-            “Best” is the wrong first question for anxiety herbs. The useful comparison is what was studied
-            directly, in whom, with which preparation, for how long, who funded the evidence, and what safety
-            limits come with it. This guide keeps formulation-specific evidence separate from broad herb-category
-            claims and does not turn study timing into a same-day treatment promise.
-          </p>
-
-          <div className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-950">
-            <strong>Care boundary:</strong> Persistent or impairing anxiety deserves established mental-health
-            care rather than supplement escalation. Suicidal thoughts, thoughts of self-harm, inability to stay
-            safe, or imminent danger require immediate emergency or crisis care.
-          </div>
-
-          <figure className="mt-6">
-            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
-              <Image
-                src="/images/guides/best-herbs-for-anxiety.jpg"
-                alt="Anxiety-related botanicals arranged for an evidence comparison"
-                width={1536}
-                height={1024}
-                priority
-                className="h-auto w-full"
-              />
-            </div>
-            <figcaption className="mt-3 text-center text-sm text-muted">
-              Anxiety evidence is preparation-specific: a studied extract or oral oil cannot be generalized to every product made from the same plant.
-            </figcaption>
-          </figure>
+          <p className="eyebrow-label">Anxiety herb evidence guide · 20-source ledger</p>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Herbs for Anxiety: What Human Evidence Actually Supports</h1>
+          <p className="mt-2 text-xs text-muted">Last evidence review August 22, 2026</p>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">Anxiety is one of the easiest supplement topics to overstate. A positive stress study is not the same as a generalized-anxiety-disorder trial, and a studied proprietary extract is not the same as the whole plant category. This guide ranks the evidence by <strong className="text-ink">diagnostic directness, preparation match, replication, funding concentration and safety</strong> — and includes negative trials alongside positive ones.</p>
+          <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm"><Image src="/images/guides/best-herbs-for-anxiety.jpg" alt="Anxiety-related botanicals arranged for an evidence comparison" width={1536} height={1024} priority className="h-auto w-full" /></div><figcaption className="mt-3 text-center text-sm text-muted">Evidence belongs to the preparation that was studied. Oral lavender oil, lavender tea and aromatherapy are not interchangeable interventions.</figcaption></figure>
         </section>
 
         <section id="bottom-line" className="scroll-mt-20 rounded-[1.65rem] border border-brand-700/25 bg-brand-50/60 p-6 shadow-sm">
-          <p className="eyebrow-label">Bottom line</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">The evidence hierarchy is not the same as a “best herb” ranking</h2>
-          <div className="mt-4 space-y-3 text-sm leading-7 text-muted sm:text-base">
-            <p>
-              <strong>Oral Silexan</strong> has the most direct anxiety-disorder trial program among the options
-              compared here, but the evidence belongs to a proprietary oral lavender-oil preparation studied for
-              10 weeks. It should not be generalized to lavender tea, aromatherapy, or raw essential oil. The
-              evidence concentration also needs a funding caveat: the 2023 meta-analysis reports manufacturer-
-              completed trials, manufacturer financial support, a company-employed coauthor, and multiple Schwabe ties.
-            </p>
-            <p>
-              <strong>Ashwagandha</strong> has a meaningful repeated-dose stress/anxiety signal across randomized
-              trials, but studies use specific formulations and multi-week exposure. <strong>Passionflower</strong>
-              remains supported mainly by small studies, while <strong>kava</strong> combines mixed efficacy with a
-              safety ceiling serious enough that it should not be promoted as the fast or obvious choice.
-            </p>
-          </div>
+          <p className="eyebrow-label">Bottom line</p><h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Silexan has the most direct anxiety-disorder evidence here — but it comes with a concentration caveat</h2>
+          <div className="mt-4 space-y-3 text-sm leading-7 text-muted sm:text-base"><p>Five placebo-controlled trials involving 1,213 adult outpatients found oral Silexan 80 mg/day superior to placebo across investigator- and patient-rated anxiety outcomes over ten weeks.<Cite n={1} /> A large GAD trial also tested 80 and 160 mg/day against placebo and paroxetine.<Cite n={2} /></p><p>That is unusually direct evidence for an herbal product, but it is <strong className="text-ink">not independent replication across unrelated lavender preparations</strong>. The 2023 meta-analysis states that the included studies were completed by the manufacturer, the work/publication received manufacturer financial support, one author was a company employee and several authors disclosed company ties.<Cite n={1} /></p><p><strong className="text-ink">Ashwagandha</strong> has repeated-dose stress/anxiety evidence but greater population and formulation heterogeneity.<Cite n={6} /><Cite n={7} /> <strong className="text-ink">Chamomile</strong> has a smaller but legitimate GAD research program.<Cite n={16} /><Cite n={17} /><Cite n={18} /> <strong className="text-ink">Passionflower</strong> remains preliminary, while <strong className="text-ink">kava</strong> combines mixed efficacy with a materially higher safety concern.<Cite n={8} /><Cite n={10} /><Cite n={14} /></p></div>
         </section>
 
-        <section id="directness" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Compare directness, not popularity</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">What was actually studied?</h2>
-          <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
-            <table className="min-w-[820px] w-full text-sm">
-              <thead className="border-b border-brand-900/10 bg-brand-50/50">
-                <tr>
-                  <th className="p-4 text-left font-semibold text-ink">Option</th>
-                  <th className="p-4 text-left font-semibold text-ink">Direct human evidence</th>
-                  <th className="p-4 text-left font-semibold text-ink">Main limit</th>
-                  <th className="p-4 text-left font-semibold text-ink">Safety ceiling</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-brand-900/10">
-                <tr className="align-top">
-                  <td className="p-4 font-semibold text-ink">Silexan oral lavender oil</td>
-                  <td className="p-4 text-muted">Five placebo-controlled anxiety trials in 1,213 adult outpatients at 80 mg/day for 10 weeks; additional GAD dose-ranging data exist.</td>
-                  <td className="p-4 text-muted">Proprietary preparation; the meta-analysis reports manufacturer-completed trials and manufacturer funding/author ties.</td>
-                  <td className="p-4 text-muted">Do not ingest raw essential oil as if it were the studied product.</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="p-4 font-semibold text-ink">Ashwagandha</td>
-                  <td className="p-4 text-muted">Nine randomized placebo-controlled trials / 558 participants in the 2024 meta-analysis using specific formulations over repeated dosing.</td>
-                  <td className="p-4 text-muted">Heterogeneous extracts, populations, and outcome measures; not a class effect for every powder or capsule.</td>
-                  <td className="p-4 text-muted">Pregnancy, thyroid, autoimmune, medication, and rare liver-injury concerns require individual review.</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="p-4 font-semibold text-ink">Passionflower</td>
-                  <td className="p-4 text-muted">One often-cited pilot enrolled 36 GAD outpatients for 4 weeks: passionflower extract 45 drops/day versus oxazepam 30 mg/day.</td>
-                  <td className="p-4 text-muted">Tiny active-comparator pilot; no basis for declaring equivalence, and NCCIH still calls the overall evidence inconclusive.</td>
-                  <td className="p-4 text-muted">Drowsiness, dizziness, confusion, pregnancy, and anesthesia interactions matter.</td>
-                </tr>
-                <tr className="align-top">
-                  <td className="p-4 font-semibold text-ink">Kava</td>
-                  <td className="p-4 text-muted">A 16-week placebo-controlled GAD trial in 171 non-medicated adults used aqueous dried-root extract standardized to 120 mg kavalactones twice daily.</td>
-                  <td className="p-4 text-muted">The trial did not significantly outperform placebo; the broader efficacy literature is mixed.</td>
-                  <td className="p-4 text-muted">Rare severe or fatal liver injury has been linked to kava products; avoid combining kava with benzodiazepines or alcohol.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
+        <section id="ranking" className="scroll-mt-20 space-y-4"><p className="eyebrow-label">Directness before popularity</p><h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence-ranked anxiety herb comparison</h2><div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm"><table className="min-w-[960px] w-full text-sm"><thead className="border-b border-brand-900/10 bg-brand-50/50"><tr><th className="p-4 text-left font-semibold text-ink">Option</th><th className="p-4 text-left font-semibold text-ink">Most direct evidence</th><th className="p-4 text-left font-semibold text-ink">Main limitation</th><th className="p-4 text-left font-semibold text-ink">Verdict</th></tr></thead><tbody className="divide-y divide-brand-900/10"><tr className="align-top"><td className="p-4 font-semibold text-ink">Silexan oral lavender oil</td><td className="p-4 text-muted">Five placebo-controlled anxiety trials / 1,213 adults plus GAD active-comparator work.<Cite n={1} /><Cite n={2} /></td><td className="p-4 text-muted">Proprietary preparation; evidence is concentrated around one manufacturer and associated investigators.</td><td className="p-4 text-muted">Most direct trial program</td></tr><tr className="align-top"><td className="p-4 font-semibold text-ink">Ashwagandha</td><td className="p-4 text-muted">Multiple RCTs/meta-analyses reporting stress/anxiety improvements.<Cite n={6} /><Cite n={7} /></td><td className="p-4 text-muted">High heterogeneity; many populations are stress-enriched rather than one diagnosed anxiety disorder; extracts differ.</td><td className="p-4 text-muted">Promising, less diagnostically direct</td></tr><tr className="align-top"><td className="p-4 font-semibold text-ink">Chamomile extract</td><td className="p-4 text-muted">Placebo-controlled GAD trial plus longer continuation study and meta-analysis.<Cite n={16} /><Cite n={17} /><Cite n={18} /></td><td className="p-4 text-muted">Small evidence base; long-term study primary relapse endpoint was not significant.</td><td className="p-4 text-muted">Interesting second-tier evidence</td></tr><tr className="align-top"><td className="p-4 font-semibold text-ink">Passionflower</td><td className="p-4 text-muted">36-person GAD pilot versus oxazepam.<Cite n={8} /></td><td className="p-4 text-muted">Far too small to establish equivalence; NCCIH says conclusions remain limited.<Cite n={9} /></td><td className="p-4 text-muted">Preliminary</td></tr><tr className="align-top"><td className="p-4 font-semibold text-ink">Kava</td><td className="p-4 text-muted">Older mixed trials, one positive 2013 GAD study and a negative larger 2020 GAD trial.<Cite n={10} /><Cite n={11} /><Cite n={12} /></td><td className="p-4 text-muted">Inconsistent efficacy plus rare severe liver injury reports.<Cite n={13} /><Cite n={14} /></td><td className="p-4 text-muted">Risk-benefit ceiling is high</td></tr></tbody></table></div><p className="text-sm leading-7 text-muted">A broader 2022 network meta-analysis of medicinal herbs concluded that the field remains preliminary because of small samples and strong placebo effects.<Cite n={19} /> A systematic review focused specifically on GAD likewise found most complementary approaches supported by limited evidence and poor safety reporting.<Cite n={15} /></p></section>
 
-        <section id="evidence" className="scroll-mt-20 space-y-5">
-          <p className="eyebrow-label">Herb-by-herb evidence</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">How to interpret each option without overclaiming it</h2>
+        <section id="silexan" className="scroll-mt-20 card-premium p-6 space-y-3"><h2 className="text-2xl font-semibold text-ink">1. Oral lavender oil (Silexan): strongest directness, narrowest generalization</h2><p className="text-sm leading-7 text-muted">The 2023 meta-analysis included all five completed double-blind placebo-controlled trials of Silexan 80 mg/day in adults with subthreshold anxiety, mixed anxiety/depressive disorder or GAD and found statistically significant benefits over placebo after ten weeks.<Cite n={1} /> Separate studies include a 539-person GAD trial, a 221-person subsyndromal-anxiety placebo trial and a lorazepam comparison.<Cite n={2} /><Cite n={3} /><Cite n={4} /> A second meta-analysis found improvements in somatic-anxiety symptoms as well.<Cite n={5} /></p><div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 text-sm leading-7 text-amber-950"><strong>Funding/directness caveat:</strong> the evidence is unusually coherent partly because it studies one defined product. That is scientifically useful, but independence is limited: manufacturer sponsorship and author/company ties are disclosed in the meta-analysis.<Cite n={1} /></div><p className="text-sm font-semibold text-ink">Do not convert this into “lavender works for anxiety.” The defensible claim is about a specific oral lavender-oil preparation studied at defined doses and durations.</p></section>
 
-          <article className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-            <h3 className="text-xl font-semibold text-ink">Silexan: direct anxiety evidence, narrow formulation claim</h3>
-            <p className="mt-3 text-sm leading-7 text-muted">
-              The 2023 meta-analysis pooled five double-blind randomized placebo-controlled trials in 1,213 adult
-              outpatients who received Silexan 80 mg/day or placebo for 10 weeks. A separate 539-person GAD trial
-              compared 80 mg and 160 mg Silexan with paroxetine and placebo. This is comparatively direct anxiety
-              evidence, but it supports the studied oral preparation—not every lavender product.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted">
-              <strong>Funding/conflict boundary:</strong> the meta-analysis states that all five included trials
-              were completed by the manufacturer of Silexan and that the research and publication were financially
-              supported by Dr. Willmar Schwabe GmbH &amp; Co. KG. One coauthor was a company employee, and several
-              authors disclosed Schwabe consulting, honoraria, or other ties. That does not nullify the trials, but
-              it is a material bias boundary when judging how confidently to elevate this program over alternatives.
-            </p>
-            <Link href="/compounds/lavender/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Lavender evidence profile →</Link>
-          </article>
+        <section id="ashwagandha" className="scroll-mt-20 card-premium p-6 space-y-3"><h2 className="text-2xl font-semibold text-ink">2. Ashwagandha: meaningful signal, but broader and messier evidence</h2><p className="text-sm leading-7 text-muted">A 2024 meta-analysis of nine RCTs (558 participants) reported improvements in perceived stress, Hamilton Anxiety scores and cortisol versus placebo.<Cite n={6} /> A 2022 analysis of 12 trials (1,002 participants) likewise reported stress/anxiety improvements but had very high heterogeneity and rated certainty low.<Cite n={7} /></p><p className="text-sm leading-7 text-muted">That makes ashwagandha credible enough to discuss, but it is less direct for diagnosed anxiety than a GAD-specific trial program. Results also belong to specific extracts and repeated-dose schedules rather than every ashwagandha product or same-day use.</p><p className="text-sm leading-7 text-muted">NCCIH says some preparations may help stress but describes anxiety evidence as unclear; it also flags short-term-only safety knowledge, pregnancy/breastfeeding avoidance, thyroid/autoimmune cautions, medication interactions and rare liver injury reports.<Cite n={20} /></p><Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">Ashwagandha evidence guide →</Link></section>
 
-          <article className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-            <h3 className="text-xl font-semibold text-ink">Ashwagandha: repeated-dose signal, not an acute anxiolytic</h3>
-            <p className="mt-3 text-sm leading-7 text-muted">
-              The 2024 meta-analysis included nine randomized placebo-controlled trials and 558 participants and
-              found pooled improvements in stress/anxiety measures and cortisol. The key directness limit is that
-              trials used defined formulations over repeated dosing, often in adults with stress or anxiety symptoms.
-              That supports a multi-week extract signal, not a same-day calming promise or a guarantee for every product.
-            </p>
-            <Link href="/guides/anxiety/ashwagandha-for-anxiety/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Ashwagandha for anxiety →</Link>
-          </article>
+        <section id="chamomile" className="scroll-mt-20 card-premium p-6 space-y-3"><h2 className="text-2xl font-semibold text-ink">3. Chamomile: real GAD trials, including an important non-significant endpoint</h2><p className="text-sm leading-7 text-muted">A placebo-controlled trial in 57 randomized adults with mild-to-moderate GAD found a greater reduction in Hamilton Anxiety scores with pharmaceutical-grade chamomile extract over eight weeks.<Cite n={16} /></p><p className="text-sm leading-7 text-muted">The longer-term continuation study is more nuanced. Responders to open-label chamomile were randomized to continue chamomile or switch to placebo. The primary time-to-relapse result favored chamomile numerically but was not statistically significant, although anxiety symptoms remained lower in the continuation group.<Cite n={17} /> A 2019 meta-analysis found a GAD signal but little evidence for generic state anxiety and called for larger trials.<Cite n={18} /></p><p className="text-sm font-semibold text-ink">Verdict: more interesting than a generic “calming tea” reputation suggests, but still too small a literature for a confident top ranking.</p></section>
 
-          <article className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-            <h3 className="text-xl font-semibold text-ink">Passionflower: a small signal, not benzodiazepine equivalence</h3>
-            <p className="mt-3 text-sm leading-7 text-muted">
-              The trial most often cited for generalized anxiety enrolled only 36 outpatients for 4 weeks. Eighteen
-              received passionflower extract 45 drops/day and 18 received oxazepam 30 mg/day. No significant
-              difference appeared at the end of the small pilot, while oxazepam acted faster. That result is not
-              evidence that passionflower is equivalent to oxazepam, and NCCIH still considers the broader anxiety
-              evidence too limited for definite conclusions.
-            </p>
-            <Link href="/herbs/passionflower/" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">Passionflower profile →</Link>
-          </article>
+        <section id="passionflower" className="scroll-mt-20 card-premium p-6 space-y-3"><h2 className="text-2xl font-semibold text-ink">4. Passionflower: the famous oxazepam comparison is only a pilot</h2><p className="text-sm leading-7 text-muted">The study most often cited enrolled 36 GAD outpatients for four weeks and compared passionflower extract with oxazepam. It reported no significant difference at the end of treatment and less job-performance impairment with passionflower.<Cite n={8} /></p><p className="text-sm leading-7 text-muted">But a tiny active-comparator study that fails to detect a difference is <strong className="text-ink">not</strong> proof of equivalence. NCCIH still describes the overall passionflower anxiety evidence as limited and notes drowsiness, dizziness, confusion, pregnancy and perioperative cautions.<Cite n={9} /></p><Link href="/herbs/passionflower/" className="font-semibold text-brand-700 hover:underline">Passionflower evidence profile →</Link></section>
 
-          <article className="rounded-[1.65rem] border border-red-200 bg-red-50/70 p-6 shadow-sm">
-            <h3 className="text-xl font-semibold text-red-950">Kava: mixed efficacy plus a high-consequence safety caveat</h3>
-            <p className="mt-3 text-sm leading-7 text-red-900">
-              In the larger 2020 GAD trial, 171 non-medicated adults received an aqueous dried-root extract
-              standardized to 120 mg kavalactones twice daily or placebo for 16 weeks. Kava did not significantly
-              outperform placebo. NCCIH also notes rare severe and sometimes fatal liver injury linked to kava
-              products and advises against combining kava with benzodiazepines or alcohol. That combination of
-              uncertain benefit and potentially serious harm makes a rapid-use kava ranking inappropriate.
-            </p>
-            <Link href="/guides/kava/" className="mt-3 inline-block text-sm font-semibold text-red-900 hover:underline">Kava safety guide →</Link>
-          </article>
-        </section>
+        <section id="kava" className="scroll-mt-20 card-premium p-6 space-y-3"><h2 className="text-2xl font-semibold text-ink">5. Kava: mixed efficacy, unusually important safety tradeoff</h2><p className="text-sm leading-7 text-muted">Kava illustrates why evidence reviews should include later negative trials. A 2013 six-week GAD study reported a moderate benefit over placebo,<Cite n={11} /> but pooled earlier GAD trials found no effect,<Cite n={12} /> and a larger 16-week study in 171 adults found no significant advantage over placebo; liver-function abnormalities were also more frequent with kava in that trial.<Cite n={10} /></p><p className="text-sm leading-7 text-muted">A 2018 systematic review found mixed short-term evidence, with only three of seven placebo-controlled trials positive.<Cite n={13} /> NCCIH notes rare severe and sometimes fatal liver injury reports and warns against combining kava with other sedatives such as benzodiazepines or alcohol.<Cite n={14} /></p><p className="text-sm font-semibold text-ink">Verdict: even if efficacy were clearer, the safety ceiling would keep kava from being an easy “best herb” recommendation.</p></section>
 
-        <section id="safety" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm">
-          <p className="eyebrow-label text-amber-900">Safety can outrank efficacy</p>
-          <h2 className="mt-2 text-xl font-semibold text-amber-950">A stronger signal is not automatically a better personal choice</h2>
-          <ul className="mt-4 space-y-2 text-sm leading-7 text-amber-950">
-            <li>• Do not stop, reduce, or replace prescribed anxiety medication based on supplement evidence.</li>
-            <li>• Sedating herbs can add to alcohol, benzodiazepines, sleep medicines, opioids, or anesthesia.</li>
-            <li>• Kava deserves a separate liver-risk discussion before use; “water extract” does not erase all reported liver concerns.</li>
-            <li>• Passionflower should be avoided during pregnancy and discussed around surgery/anesthesia.</li>
-            <li>• Ashwagandha requires extra caution with pregnancy, thyroid disease/medication, autoimmune conditions, and liver concerns.</li>
-            <li>• Persistent or impairing anxiety is a care question, not a reason to keep escalating supplement complexity.</li>
-          </ul>
-        </section>
+        <section id="safety" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6"><h2 className="text-2xl font-semibold text-amber-950">Safety can outrank efficacy</h2><ul className="mt-4 space-y-2 text-sm leading-7 text-amber-950"><li>• <strong>Kava:</strong> rare severe liver injury and sedative interactions materially alter its risk-benefit profile.<Cite n={14} /></li><li>• <strong>Passionflower:</strong> may cause drowsiness, dizziness or confusion and should not be used during pregnancy; perioperative/anesthesia context matters.<Cite n={9} /></li><li>• <strong>Ashwagandha:</strong> pregnancy/breastfeeding, thyroid/autoimmune disorders, liver history and medication interactions deserve explicit review.<Cite n={20} /></li><li>• <strong>Silexan:</strong> evidence applies to the manufactured oral preparation, not ingestion of raw lavender essential oil.</li></ul></section>
 
-        <section id="limits" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-ink">What not to infer from this evidence</h2>
-          <ul className="mt-4 space-y-2 text-sm leading-7 text-muted">
-            <li>• A studied proprietary extract or oral oil does not validate every product sold under the same plant name.</li>
-            <li>• Study dose and timing describe the trial; they are not automatically personal dosing instructions.</li>
-            <li>• A non-significant difference between two small groups does not prove two treatments are equivalent.</li>
-            <li>• Traditional use, mechanism plausibility, or online popularity does not establish treatment efficacy for an anxiety disorder.</li>
-            <li>• Evidence for a single ingredient does not prove a multi-herb “anxiety stack” works better.</li>
-          </ul>
-        </section>
+        <section id="limits" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6"><h2 className="text-2xl font-semibold text-ink">What not to infer from these studies</h2><ul className="mt-4 space-y-2 text-sm leading-7 text-muted"><li>• “No significant difference” in a tiny pilot does not prove two treatments are equally effective.</li><li>• A proprietary extract trial does not validate every product made from the same plant.</li><li>• A stress score improvement in otherwise healthy adults is not identical to treating diagnosed GAD.</li><li>• Several positive studies from one manufacturer are not the same evidentiary situation as independent replication by unrelated groups.</li><li>• A same-day subjective calming effect does not establish durable treatment of an anxiety disorder.</li></ul></section>
 
-        <section id="sources" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-ink">Sources and directness notes</h2>
-          <ol className="mt-4 space-y-4">
-            {SOURCES.map((source, index) => (
-              <li key={source.href} className="text-sm leading-7 text-muted">
-                <span className="font-semibold text-ink">{index + 1}. </span>
-                <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">{source.label}</a>
-                <span> — {source.note}</span>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <section id="faq" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-ink">Frequently asked questions</h2>
-          <div className="mt-4 divide-y divide-brand-900/10">
-            {FAQS.map((faq) => (
-              <div key={faq.question} className="py-4 first:pt-0 last:pb-0">
-                <h3 className="font-semibold text-ink">{faq.question}</h3>
-                <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="rounded-[1.65rem] border border-brand-900/10 bg-brand-50/50 p-6">
-          <p className="text-sm leading-7 text-muted">
-            <strong className="text-ink">Product sourcing:</strong> this broad comparison intentionally does not
-            rank affiliate products. Follow the ingredient-specific evidence guides for formulation and sourcing
-            context so monetization does not silently decide which herb appears to be the winner.
-          </p>
-        </div>
-
-        <div className="space-y-6">
-          <NewsletterCtaBlock />
-          <EmailCapture />
-        </div>
-
-        <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
-          <Link href="/guides/anxiety/" className="hover:text-brand-800">Anxiety goal hub →</Link>
-          <Link href="/guides/anxiety/natural-anxiety-relief/" className="hover:text-brand-800">Natural anxiety relief →</Link>
-          <Link href="/guides/anxiety/anxiety-stack-guide/" className="hover:text-brand-800">Anxiety stack evidence guide →</Link>
-          <Link href="/guides/anxiety/l-theanine-for-anxiety/" className="hover:text-brand-800">L-theanine for anxiety →</Link>
-          <Link href="/guides/anxiety/ashwagandha-for-anxiety/" className="hover:text-brand-800">Ashwagandha for anxiety →</Link>
-          <Link href="/guides/kava/" className="hover:text-brand-800">Kava safety guide →</Link>
-          <Link href="/guides/" className="hover:text-brand-800">All guides →</Link>
-        </nav>
+        <References refs={REFS} />
+        <section id="faq" className="scroll-mt-20 space-y-4"><h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2><div className="space-y-3">{FAQS.map((faq) => <details key={faq.question} className="card-premium p-5"><summary className="cursor-pointer font-semibold text-ink">{faq.question}</summary><p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p></details>)}</div></section>
+        <EmailCapture location="best-herbs-for-anxiety" />
+        <NewsletterCtaBlock title="Get the evidence without the hype" description="Research updates on herbs, supplements and safety—written around what the human evidence actually supports." location="best-herbs-for-anxiety-newsletter" />
+        <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700"><Link href="/guides/best/supplements-for-stress/" className="hover:text-brand-800">Stress supplements →</Link><Link href="/guides/anxiety/best-adaptogens-for-stress/" className="hover:text-brand-800">Adaptogens for stress →</Link><Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="hover:text-brand-800">Herbs at night →</Link><Link href="/guides/anxiety/" className="hover:text-brand-800">Anxiety hub →</Link></nav>
       </div>
     </ArticleLayout>
   )
