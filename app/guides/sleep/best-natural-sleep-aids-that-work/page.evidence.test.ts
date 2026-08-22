@@ -11,17 +11,19 @@ describe('natural sleep aids evidence discipline', () => {
   it('does not promise a universal L-theanine onset or established supplement stacks', () => {
     expect(source).not.toContain('L-theanine work within 30–60 minutes')
     expect(source).not.toContain('Some combinations are well established')
-    expect(source).toContain('Do not promise a 30–60 minute L-theanine onset')
-    expect(source).toContain('Combination evidence is product-specific')
+    expect(source).toMatch(/not enough to promise a universal bedtime dose/i)
+    expect(source).toMatch(/guaranteed 30-minute onset/i)
+    expect(source).toMatch(/Multi-ingredient trials test a specific formula/i)
+    expect(source).toMatch(/cannot establish that every ingredient pair is synergistic/i)
   })
 
   it('anchors L-theanine sleep claims to current reviews and gives study context', () => {
     expect(source).toContain('https://pubmed.ncbi.nlm.nih.gov/40056718/')
     expect(source).toContain('https://pubmed.ncbi.nlm.nih.gov/41176609/')
-    expect(source).toContain('19 articles included 897 people')
-    expect(source).toContain('13 standalone L-theanine trials (550 participants)')
-    expect(source).toContain('single dose to eight weeks')
-    expect(source).toContain('limited, mixed')
+    expect(source).toMatch(/19 articles and 897 participants/i)
+    expect(source).toMatch(/13 standalone L-theanine trials \(550 participants\)/i)
+    expect(source).toMatch(/dose, duration and efficacy in clinical insomnia remain unsettled/i)
+    expect(source).toMatch(/clinical-insomnia evidence remains limited/i)
   })
 
   it('keeps magnesium and valerian certainty aligned to higher-level evidence', () => {
@@ -33,7 +35,7 @@ describe('natural sleep aids evidence discipline', () => {
 
   it('retains the explicit passionflower pregnancy warning', () => {
     expect(source).toContain('https://www.nccih.nih.gov/health/passionflower')
-    expect(source).toContain('Do not use passionflower during pregnancy')
+    expect(source).toMatch(/passionflower should not be used during pregnancy/i)
     expect(source).toContain('may induce uterine contractions')
   })
 
@@ -43,8 +45,8 @@ describe('natural sleep aids evidence discipline', () => {
     expect(source).not.toContain('valerianProducts')
   })
 
-  it('marks the evidence update in structured data and visible copy', () => {
-    expect(source).toContain('dateModified="2026-08-11"')
-    expect(source).toContain('Last updated August 2026')
+  it('marks the current evidence update in structured data and visible copy', () => {
+    expect(source).toContain('dateModified="2026-08-22"')
+    expect(source).toContain('Last updated August 22, 2026')
   })
 })
