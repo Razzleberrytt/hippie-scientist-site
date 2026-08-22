@@ -68,6 +68,9 @@ export default function SearchPage() {
     { value: 4, label: 'search lenses' },
   ]
 
+  const directoryLinkClass =
+    'text-sm font-semibold text-[color:var(--hs-gold-ink)] underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-4 sm:py-6">
       <Script
@@ -108,32 +111,37 @@ export default function SearchPage() {
 
       {/* Static search directory for no-JS users and quick navigation. The
           interactive search remains the primary task above. */}
-      <section className="mt-8 space-y-6 rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm sm:p-6">
+      <section className="section-frame mt-8 space-y-6 p-5 sm:p-6" aria-labelledby="search-browse-directory">
         <div className="max-w-3xl">
           <p className="eyebrow-label">Browse instead</p>
-          <p className="mt-2 text-sm leading-6 text-muted">
-            Prefer curated shortcuts? Jump directly into popular profiles, goal-based decision guides, research collections, and safety tools.
+          <h2 id="search-browse-directory" className="compact-heading mt-3">Use a curated shortcut when you already know the direction.</h2>
+          <p className="mt-3 text-sm leading-6 text-[color:var(--hs-body)]">
+            Jump directly into popular profiles, goal-based decision guides, research collections, and safety tools.
           </p>
         </div>
 
         <div className="space-y-2">
-          <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Popular searches</h2>
+          <h3 className="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--hs-body)]">Popular searches</h3>
           <div className="flex flex-wrap gap-2">
             {popularSearches.map(item => (
-              <Link key={item.name} href={item.href} className="rounded-full border border-brand-900/10 bg-[var(--surface-card-strong)] px-3 py-1.5 text-[0.8rem] font-medium text-ink transition hover:border-brand-700/20">
+              <Link
+                key={item.name}
+                href={item.href}
+                className="rounded-full border border-[color:var(--hs-hairline)] bg-[color:var(--surface-card)] px-3 py-1.5 text-[0.8rem] font-semibold text-[color:var(--hs-ink)] transition hover:border-[color:var(--hs-gold)] hover:text-[color:var(--hs-gold-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+              >
                 {item.name}
               </Link>
             ))}
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 border-t border-[color:var(--hs-hairline)] pt-5 md:grid-cols-3">
           <div className="space-y-2">
-            <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Browse by goal</h2>
-            <ul className="space-y-1">
+            <h3 className="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--hs-body)]">Browse by goal</h3>
+            <ul className="space-y-2">
               {popularGoals.map(item => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:underline">
+                  <Link href={item.href} className={directoryLinkClass}>
                     {item.name} Decision Guide
                   </Link>
                 </li>
@@ -141,26 +149,26 @@ export default function SearchPage() {
             </ul>
           </div>
           <div className="space-y-2">
-            <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Browse by category</h2>
-            <ul className="space-y-1">
+            <h3 className="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--hs-body)]">Browse by category</h3>
+            <ul className="space-y-2">
               <li>
-                <Link href="/herbs/" className="text-sm font-semibold text-brand-800 hover:underline">
+                <Link href="/herbs/" className={directoryLinkClass}>
                   Herb & Botanical Library
                 </Link>
               </li>
               <li>
-                <Link href="/compounds/" className="text-sm font-semibold text-brand-800 hover:underline">
+                <Link href="/compounds/" className={directoryLinkClass}>
                   Compound & Nootropic Library
                 </Link>
               </li>
             </ul>
           </div>
           <div className="space-y-2">
-            <h2 className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">Research tools</h2>
-            <ul className="space-y-1">
+            <h3 className="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--hs-body)]">Research tools</h3>
+            <ul className="space-y-2">
               {researchTools.map(item => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:underline">
+                  <Link href={item.href} className={directoryLinkClass}>
                     {item.name}
                   </Link>
                 </li>
