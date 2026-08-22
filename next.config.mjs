@@ -33,9 +33,20 @@ const nextConfig = {
     cpus: 2,
   },
   images: {
-    // Static export ships source assets as-is; disable Next's runtime image
-    // pipeline so every route renders consistently in local and Cloudflare builds.
-    unoptimized: true,
+    // Static export cannot use Next's *runtime* optimizer, but it can use a
+    // build-time one. `unoptimized: true` disabled the pipeline outright, so
+    // `next/image` emitted no `srcset` and no modern format and every image
+    // shipped as its full-size original — the Ashwagandha hero was a 263KB JPEG
+    // carrying `priority`, which preloaded and took critical-path bandwidth
+    // from the render-blocking CSS.
+    //
+    // The custom loader resolves each requested width to a WebP variant that
+    // `scripts/optimize-images.mjs` pre-rendered at build time, and falls back
+    // to the original for anything it has no variant for (remote Amazon images,
+    // SVGs, encode failures). No runtime service is involved, so this stays
+    // compatible with `output: 'export'`.
+    loader: 'custom',
+    loaderFile: './src/lib/cloudflare-image-loader.ts',
     remotePatterns: [
       { protocol: 'https', hostname: '**.media-amazon.com' },
       { protocol: 'https', hostname: '**.ssl-images-amazon.com' },
