@@ -80,19 +80,19 @@ export default function DisclaimerPage() {
         ]}
       />
 
-      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10'>
+      <section className='hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Disclaimer</p>
-        <h1 className='mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl'>
+        <h1 className='heading-premium mt-5 max-w-4xl'>
           Educational disclaimer: use the site as research context, not personal instruction.
         </h1>
-        <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
+        <p className='text-reading mt-4 max-w-3xl'>
           The Hippie Scientist is an educational website. It helps readers understand supplement research,
           mechanisms, safety questions, and product-quality tradeoffs, but it cannot evaluate anyone’s full personal situation.
         </p>
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/info/methodology/' className='chip-readable hover:bg-white transition'>Methodology</Link>
-          <Link href='/learn/interactions/' className='chip-readable hover:bg-white transition'>Interaction framework</Link>
-          <Link href='/info/contact/' className='chip-readable hover:bg-white transition'>Contact</Link>
+          <Link href='/info/methodology/' className='chip-readable px-4 py-2 text-sm font-semibold'>Methodology</Link>
+          <Link href='/learn/interactions/' className='chip-readable px-4 py-2 text-sm font-semibold'>Interaction framework</Link>
+          <Link href='/info/contact/' className='chip-readable px-4 py-2 text-sm font-semibold'>Contact</Link>
         </div>
       </section>
 
@@ -100,18 +100,18 @@ export default function DisclaimerPage() {
         {boundaries.map((boundary) => (
           <article key={boundary.title} className='card-premium p-6'>
             <p className='eyebrow-label'>Boundary</p>
-            <h2 className='mt-2 text-xl font-semibold tracking-tight text-ink'>{boundary.title}</h2>
-            <p className='mt-3 text-sm leading-7 text-muted'>{boundary.body}</p>
+            <h2 className='mt-2 text-xl font-semibold tracking-tight text-[color:var(--hs-ink)]'>{boundary.title}</h2>
+            <p className='mt-3 text-sm leading-7 text-[color:var(--hs-body)]'>{boundary.body}</p>
           </article>
         ))}
       </section>
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 shadow-sm sm:p-8'>
+      <section className='section-frame p-6 sm:p-8' aria-labelledby='responsible-use-heading'>
         <p className='eyebrow-label'>Responsible use</p>
-        <h2 className='mt-2 text-3xl font-semibold tracking-tight text-ink'>How to read supplement research pages carefully</h2>
+        <h2 id='responsible-use-heading' className='compact-heading mt-3'>How to read supplement research pages carefully</h2>
         <ul className='mt-6 grid gap-3 md:grid-cols-2'>
           {responsibleUse.map((item) => (
-            <li key={item} className='rounded-2xl border border-brand-900/10 bg-white/80 p-4 text-sm leading-6 text-muted'>
+            <li key={item} className='rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-4 text-sm leading-6 text-[color:var(--hs-body)]'>
               {item}
             </li>
           ))}
@@ -121,8 +121,8 @@ export default function DisclaimerPage() {
       <section className='grid gap-6 lg:grid-cols-[1.2fr_0.8fr]'>
         <div className='card-premium p-6 sm:p-8'>
           <p className='eyebrow-label'>What this means in practice</p>
-          <h2 className='mt-3 text-2xl font-semibold tracking-tight text-ink'>Read carefully and verify important decisions</h2>
-          <div className='mt-4 space-y-4 text-sm leading-7 text-muted sm:text-base'>
+          <h2 className='mt-3 text-2xl font-semibold tracking-tight text-[color:var(--hs-ink)]'>Read carefully and verify important decisions</h2>
+          <div className='mt-4 space-y-4 text-sm leading-7 text-[color:var(--hs-body)] sm:text-base'>
             <p>
               This site is meant to help you browse topics, understand basic terms, and organize research.
             </p>
@@ -139,28 +139,33 @@ export default function DisclaimerPage() {
 
         <aside className='card-premium h-fit p-6'>
           <p className='eyebrow-label'>Helpful links</p>
-          <div className='mt-4 space-y-3'>
+          <div className='mt-4 divide-y divide-[color:var(--hs-hairline)]'>
             {[
               { href: '/info/about/', title: 'About', body: 'Learn what the project is for.' },
               { href: '/learn/product-quality/', title: 'Product quality', body: 'Review label and sourcing questions.' },
               { href: '/safety-checker/', title: 'Safety checker', body: 'Use the educational safety workflow.' },
             ].map((item) => (
-              <Link key={item.href} href={item.href} className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'>
-                <p className='text-sm font-semibold text-ink'>{item.title}</p>
-                <p className='mt-1 text-sm leading-6 text-muted'>{item.body}</p>
+              <Link
+                key={item.href}
+                href={item.href}
+                className='block py-4 first:pt-0 last:pb-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
+              >
+                <p className='text-sm font-semibold text-[color:var(--hs-ink)]'>{item.title}</p>
+                <p className='mt-1 text-sm leading-6 text-[color:var(--hs-body)]'>{item.body}</p>
               </Link>
             ))}
           </div>
         </aside>
       </section>
 
-      <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm'>
-        <h2 className='text-2xl font-semibold tracking-tight text-ink'>FAQ</h2>
-        <div className='mt-4 grid gap-4'>
+      <section className='section-frame p-6' aria-labelledby='disclaimer-faq'>
+        <p className='eyebrow-label'>Questions readers ask</p>
+        <h2 id='disclaimer-faq' className='compact-heading mt-3'>FAQ</h2>
+        <div className='mt-5 grid gap-4'>
           {faqItems.map((item) => (
-            <article key={item.question} className='rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4'>
-              <h3 className='font-bold text-ink'>{item.question}</h3>
-              <p className='mt-2 text-sm leading-7 text-muted'>{item.answer}</p>
+            <article key={item.question} className='rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-4'>
+              <h3 className='font-bold text-[color:var(--hs-ink)]'>{item.question}</h3>
+              <p className='mt-2 text-sm leading-7 text-[color:var(--hs-body)]'>{item.answer}</p>
             </article>
           ))}
         </div>
