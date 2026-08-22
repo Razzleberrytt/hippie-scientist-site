@@ -75,13 +75,6 @@
       "year": 2008,
       "doi": "10.2165/00023210-200822010-00007",
       "metadataSource": "pubmed"
-    },
-    {
-      "id": "src_1f49196ffdbf",
-      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "note": "gap identification only; not used to populate factual fields",
-      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -108,40 +101,7 @@
       "clm_ada4e0ca6714"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_210f972e45a4",
-      "claim": "Energy/libido in trials.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Energy/libido in trials.",
-      "qualifiers": {
-        "direction": "needs_source_check",
-        "study_id": "ent_study_403878c2c752"
-      },
-      "sourceRefIds": [
-        "src_1f49196ffdbf"
-      ]
-    },
-    {
-      "id": "clm_22802f29e888",
-      "claim": "Insufficient reliable evidence identified.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Insufficient reliable evidence identified.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_403878c2c752"
-      },
-      "sourceRefIds": [
-        "src_1f49196ffdbf"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "Gelatinized powder: 1.5-3 g/day; extracts vary; limited standardization",
   "typical_dosage": "Gelatinized powder: 1.5-3 g/day; extracts vary; limited standardization"
 }

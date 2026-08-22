@@ -40,40 +40,7 @@
       "clm_ff79b849e942"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_3b5bc19f1e51",
-      "claim": "Anti-inflammatory (NF-κB/5-LOX); extract OA trials.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Anti-inflammatory (NF-κB/5-LOX); extract OA trials.",
-      "qualifiers": {
-        "direction": "partial verified",
-        "study_id": "ent_study_5f48cef0dce1"
-      },
-      "sourceRefIds": [
-        "src_de66fcd0ec6f"
-      ]
-    },
-    {
-      "id": "clm_ff79b849e942",
-      "claim": "Insufficient reliable evidence identified.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Insufficient reliable evidence identified.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_5f48cef0dce1"
-      },
-      "sourceRefIds": [
-        "src_de66fcd0ec6f"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -128,15 +95,7 @@
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
   "safety": "Safety evidence: limited human evidence for an AKBA-enriched Boswellia extract, not isolated AKBA. A 90-day trial monitored one extract standardized to 30% AKBA; pregnancy, breastfeeding, surgery, bleeding, liver, kidney, and medication-interaction safety for isolated AKBA remain insufficient.",
-  "sources": [
-    {
-      "id": "src_de66fcd0ec6f",
-      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "note": "gap identification only; not used to populate factual fields",
-      "reviewStatus": "approved"
-    }
-  ],
+  "sources": [],
   "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
   "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
   "contraindications": [

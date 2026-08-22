@@ -41,15 +41,7 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sources": [
-    {
-      "id": "src_b5b0b0a73b41",
-      "title": "",
-      "note": "needs_classification",
-      "studyType": "Animal",
-      "reviewStatus": "pending"
-    }
-  ],
+  "sources": [],
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract"
 }

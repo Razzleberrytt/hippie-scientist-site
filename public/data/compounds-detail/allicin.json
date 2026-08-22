@@ -41,51 +41,10 @@
       "clm_627c1d2fa04e"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_31f872f3c433",
-      "claim": "Variable bioavailability; cholesterol/antimicrobial in garlic preparations.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Variable bioavailability; cholesterol/antimicrobial in garlic preparations.",
-      "qualifiers": {
-        "direction": "partial",
-        "study_id": "ent_study_6036044dd9c8"
-      },
-      "sourceRefIds": [
-        "src_9067df95e386"
-      ]
-    },
-    {
-      "id": "clm_627c1d2fa04e",
-      "claim": "Insufficient reliable evidence identified.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Insufficient reliable evidence identified.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_6036044dd9c8"
-      },
-      "sourceRefIds": [
-        "src_9067df95e386"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sources": [
-    {
-      "id": "src_9067df95e386",
-      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "note": "gap identification only; not used to populate factual fields",
-      "reviewStatus": "approved"
-    }
-  ],
+  "sources": [],
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [

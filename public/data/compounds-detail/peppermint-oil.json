@@ -45,24 +45,6 @@
   },
   "claimMap": [
     {
-      "id": "clm_0494700fe982",
-      "claim": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "enteric-coated peppermint oil; minimum 2 weeks",
-        "population": "adults with IBS",
-        "study_id": "ent_study_1574104d8c31"
-      },
-      "sourceRefIds": [
-        "src_8e18d4094410"
-      ]
-    },
-    {
       "id": "clm_c639a187e552",
       "claim": "Colpermin trial",
       "predicate": "supports_outcome",
@@ -101,13 +83,6 @@
       "studyType": "Randomized controlled trial",
       "studyClass": "rct",
       "metadataSource": "pubmed"
-    },
-    {
-      "id": "src_8e18d4094410",
-      "title": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
-      "note": "review_or_meta_analysis",
-      "studyType": "Meta-analysis",
-      "reviewStatus": "pending"
     },
     {
       "id": "src_daaebe6b0244",

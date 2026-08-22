@@ -39,51 +39,10 @@
       "clm_58dec79c6bdc"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_2dae4b4299b1",
-      "claim": "Insufficient reliable evidence identified.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Insufficient reliable evidence identified.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_a1280061927e"
-      },
-      "sourceRefIds": [
-        "src_702f79a3300f"
-      ]
-    },
-    {
-      "id": "clm_58dec79c6bdc",
-      "claim": "Omega-3 lipid benefits.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Omega-3 lipid benefits.",
-      "qualifiers": {
-        "direction": "limited",
-        "study_id": "ent_study_a1280061927e"
-      },
-      "sourceRefIds": [
-        "src_702f79a3300f"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sources": [
-    {
-      "id": "src_702f79a3300f",
-      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "note": "gap identification only; not used to populate factual fields",
-      "reviewStatus": "approved"
-    }
-  ],
+  "sources": [],
   "dosage": "—",
   "typical_dosage": "—"
 }
