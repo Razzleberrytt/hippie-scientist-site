@@ -1,374 +1,293 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { buildPageMetadata } from '../../../../src/lib/seo'
-
-export const metadata: Metadata = buildPageMetadata({
-  title: 'Melatonin vs Valerian vs Magnesium: Evidence & Safety',
-  description: 'Evidence-informed 3-way comparison of melatonin, valerian root, and magnesium for sleep latency, circadian rhythm timing, safety, and supplement selection.',
-  path: '/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/',
-})
-
 import Link from 'next/link'
+import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import CitationReadySummary from '@/components/seo/CitationReadySummary'
-import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
-import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
-import FAQSchema from '@/components/seo/FAQSchema'
-import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
-import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import ConversionStickyCTA from '@/components/conversion-sticky-cta'
+import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
+import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import References from '@/components/References'
+import EmailCapture from '@/components/EmailCapture'
 
-const MELATONIN_VS_VALERIAN_VS_MAGNESIUM_REFS = [
-  { n: 1, text: 'Ferracioli-Oda E, et al. (2013). Meta-analysis: melatonin for primary sleep disorders. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
-  { n: 2, text: 'Bent S, et al. (2006). Valerian for sleep: systematic review and meta-analysis. Am J Med, 119(12): 1005-1012.', url: 'https://pubmed.ncbi.nlm.nih.gov/17145239/' },
-  { n: 3, text: 'Abbasi B, et al. (2012). Magnesium supplementation and primary insomnia in elderly. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
-  { n: 4, text: 'Fernández-San-Martín MI, et al. (2010). Valerian for insomnia: meta-analysis of RCTs. Sleep Med, 11(6): 505-511.', url: 'https://pubmed.ncbi.nlm.nih.gov/20096668/' },
-  { n: 5, text: 'Held K, et al. (2002). Magnesium and sleep: a placebo-controlled trial. Pharmacopsychiatry, 35(4): 135-143.', url: 'https://pubmed.ncbi.nlm.nih.gov/12163983/' },
-  { n: 6, text: 'Buscemi N, et al. (2005). The efficacy and safety of exogenous melatonin for primary sleep disorders. J Gen Intern Med, 20(12): 1151-1158.', url: 'https://pubmed.ncbi.nlm.nih.gov/16423108/' },
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Melatonin vs Valerian vs Magnesium for Sleep: 2026 Evidence',
+  description:
+    'Evidence-first comparison of melatonin, valerian root, and magnesium for sleep. Separates circadian timing, chronic insomnia, the 2024 valerian umbrella review, the 2025 magnesium-bisglycinate trial, safety, and evidence gaps.',
+  path: '/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/',
+  openGraphType: 'article',
+})
+
+const REFS = [
+  {
+    n: 1,
+    text: 'Cruz-Sanabria F, et al. Optimizing the Time and Dose of Melatonin as a Sleep-Promoting Drug: systematic review and dose-response meta-analysis. J Pineal Res. 2024. PMID 38888087.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/38888087/',
+  },
+  {
+    n: 2,
+    text: 'Iyer S, et al. Exogenous Melatonin and Sleep Quality: A Scoping Review of Systematic Reviews. J Clin Pharmacol. 2026;66:e70115. PMID 41014554.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/41014554/',
+  },
+  {
+    n: 3,
+    text: 'van Geijlswijk IM, et al. The use of exogenous melatonin in delayed sleep phase disorder: a meta-analysis. Sleep. 2010;33:1605-1614. PMID 21120122.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/21120122/',
+  },
+  {
+    n: 4,
+    text: 'Valente V, et al. Does valerian work for insomnia? An umbrella review of the evidence. Eur Neuropsychopharmacol. 2024;82:6-28. PMID 38359657.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/38359657/',
+  },
+  {
+    n: 5,
+    text: 'National Center for Complementary and Integrative Health. Valerian: Usefulness and Safety. Updated 2025.',
+    url: 'https://www.nccih.nih.gov/health/valerian',
+  },
+  {
+    n: 6,
+    text: 'Schuster J, et al. Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: randomized placebo-controlled trial. Nat Sci Sleep. 2025;17:2027-2040. PMID 40918053.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40918053/',
+  },
+  {
+    n: 7,
+    text: 'Mah J, Pitre T. Oral magnesium supplementation for insomnia in older adults: systematic review and meta-analysis. BMC Complement Med Ther. 2021;21:125. PMID 33865376.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/33865376/',
+  },
+  {
+    n: 8,
+    text: 'National Center for Complementary and Integrative Health. Sleep Disorders and Complementary Health Approaches: Usefulness and Safety.',
+    url: 'https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches',
+  },
+  {
+    n: 9,
+    text: 'Sateia MJ, et al. Clinical Practice Guideline for the Pharmacologic Treatment of Chronic Insomnia in Adults. J Clin Sleep Med. 2017;13:307-349. PMID 27998379.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/27998379/',
+  },
+  {
+    n: 10,
+    text: 'Edinger JD, et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: AASM clinical practice guideline. J Clin Sleep Med. 2021;17:255-262. PMID 33164742.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/33164742/',
+  },
+  {
+    n: 11,
+    text: 'NIH Office of Dietary Supplements. Magnesium Fact Sheet for Health Professionals.',
+    url: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/',
+  },
+]
+
+const FAQS = [
+  {
+    question: 'Is magnesium or valerian better for sleep?',
+    answer:
+      'There is no direct high-quality head-to-head trial establishing one as better. The 2024 valerian umbrella review concluded that valerian does not have empirical support for insomnia, while a 2025 magnesium-bisglycinate RCT found a statistically significant but small improvement in insomnia-severity scores over four weeks. That makes magnesium bisglycinate the more current direct trial signal, but not a proven insomnia treatment or universal winner [4,6].',
+  },
+  {
+    question: 'Is melatonin stronger than magnesium or valerian?',
+    answer:
+      '“Stronger” is the wrong comparison because melatonin has a different role. It is a circadian timing signal with direct evidence for clock-shifting problems such as delayed sleep phase and jet lag. Its evidence for routine adult chronic insomnia is much less impressive [1-3,8,9].',
+  },
+  {
+    question: 'Does valerian need several weeks to work?',
+    answer:
+      'A fixed 2–4 week onset rule is not established. Valerian trials use different extracts, schedules, durations, and outcomes, and the 2024 umbrella review found the overall insomnia evidence insufficient [4,5]. Trial duration should not be converted into a guaranteed personal onset timeline.',
+  },
+  {
+    question: 'Is magnesium glycinate proven to be the best magnesium for sleep?',
+    answer:
+      'No. Magnesium bisglycinate now has one direct 2025 sleep trial, but the average between-group effect was small. Head-to-head clinical evidence showing glycinate is superior to other well-absorbed magnesium forms for sleep remains inadequate [6,7].',
+  },
+  {
+    question: 'Can melatonin, valerian, and magnesium be combined?',
+    answer:
+      'Separate ingredient studies do not establish that a three-product combination is more effective or safer. Valerian should not be combined casually with alcohol or sedatives, and medication use, kidney function, product duplication, and other health conditions can change the safety picture [5,11].',
+  },
+]
+
+const rows = [
+  {
+    option: 'Melatonin',
+    bestEvidence: 'Circadian timing, delayed sleep-wake phase, jet lag; modest sleep-onset effects in some populations [1-3].',
+    weakPoint: 'Not a reliable general treatment for adult chronic insomnia or repeated awakenings [8,9].',
+    keySafety: 'Timing and product-label accuracy matter; long-term safety is less established than short-term use.',
+  },
+  {
+    option: 'Valerian',
+    bestEvidence: 'Traditional use and heterogeneous older trials; some individual studies/meta-analyses reported subjective sleep signals.',
+    weakPoint: '2024 umbrella review concluded empirical support for insomnia is lacking; NCCIH says evidence is inconsistent [4,5].',
+    keySafety: 'Long-term safety is uncertain; NCCIH advises against combining with alcohol or sedatives [5].',
+  },
+  {
+    option: 'Magnesium / bisglycinate',
+    bestEvidence: '2025 bisglycinate RCT: small additional improvement in insomnia-severity score over placebo after four weeks [6].',
+    weakPoint: 'Overall sleep literature remains heterogeneous/low certainty; no proof glycinate is the universal best form [6,7].',
+    keySafety: 'GI effects and kidney function matter; supplemental magnesium can interact with absorption of some medicines [11].',
+  },
 ]
 
 export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
-  const revenueProducts = ['melatonin', 'valerian', 'magnesium']
-    .map(slug => getRevenueProductSet(slug))
-    .filter((set): set is NonNullable<typeof set> => Boolean(set))
-    .flatMap(set => set.products)
-
   return (
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
-        title="Melatonin vs Valerian vs Magnesium for Sleep Support"
-        description="Evidence-informed 3-way comparison of melatonin, valerian root, and magnesium for sleep latency, circadian rhythm timing, safety, and supplement selection.
-      "
-        url="https://thehippiescientist.net/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep"
-        type="Article"
+        title="Melatonin vs Valerian vs Magnesium for Sleep"
+        description="Evidence-first comparison of melatonin, valerian root, and magnesium, separating circadian timing from insomnia and current trial evidence from mechanism claims."
+        url="https://thehippiescientist.net/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/"
+        type="MedicalWebPage"
+        citationUrls={REFS.map((ref) => ref.url)}
       />
-
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/guides/compare' },
-          { label: 'Melatonin vs Valerian vs Magnesium for Sleep' },
+          { label: 'Compare', href: '/guides/compare/' },
+          { label: 'Melatonin vs Valerian vs Magnesium' },
         ]}
       />
 
       <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Educational Comparison</p>
-        <h1 className="text-5xl font-bold tracking-tight text-ink">
-          Melatonin vs Valerian vs Magnesium: Which Supports Your Sleep Pattern?
-        </h1>
+        <p className="eyebrow-label">Evidence Comparison · 11 References · Updated August 22, 2026</p>
+        <h1 className="text-5xl font-bold tracking-tight text-ink">Melatonin vs Valerian vs Magnesium: They Do Not Solve the Same Sleep Problem</h1>
         <p className="text-lg leading-8 text-muted">
-          If you struggle to fall asleep, these three common bedtime choices target entirely different aspects of sleep.
-          <strong> Melatonin</strong> acts as a circadian timing signal to shift when you feel tired.
-          <strong> Valerian root</strong> is a traditional herb targeting GABA pathways to reduce sleep latency over weeks.
-          <strong> Magnesium glycinate</strong> provides foundational mineral support for baseline physical muscle relaxation.
+          The useful comparison is not “which one knocks you out fastest?” Melatonin is primarily a <strong>circadian timing signal</strong>. Valerian is a traditional sedating herb whose modern insomnia evidence remains inconsistent. Magnesium is an essential mineral with a newer bisglycinate sleep trial showing a <strong>small average benefit</strong>. None is a universal substitute for diagnosing persistent insomnia.
         </p>
-
         <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <Image
               src="/images/guides/melatonin-vs-valerian-vs-magnesium-for-sleep.jpg"
-              alt="Melatonin tablets, valerian root, and magnesium capsules compared for sleep"
+              alt="Melatonin, valerian root, and magnesium compared by sleep evidence rather than marketing claims"
               width={1536}
               height={1024}
               priority
               className="w-full h-auto"
             />
           </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            Melatonin vs valerian vs magnesium — three sleep tools compared.
-          </figcaption>
+          <figcaption className="mt-3 text-center text-sm text-muted">Compare the clinical question first: circadian timing, insomnia symptoms, evidence quality, and safety are different lanes.</figcaption>
         </figure>
       </section>
 
-      <CitationReadySummary
-        answer="Melatonin, valerian root, and magnesium support sleep in different ways: melatonin shifts circadian timing for people who aren't tired at bedtime, valerian root builds cumulative GABA-related relaxation over 2-4 weeks, and magnesium (especially glycinate) supports baseline physical relaxation and muscle tension release."
-        bestFor={[
-          'Melatonin: shifted sleep schedules, jet lag, or trouble feeling tired at the desired bedtime.',
-          'Valerian root: mild bedtime restlessness, taken consistently for cumulative benefit rather than as a one-off.',
-          'Magnesium glycinate: physical tension, muscle soreness, or general nightly wind-down support.',
-        ]}
-        evidenceLevel="Melatonin has strong evidence for shifting sleep timing. Valerian root and magnesium have limited-to-moderate evidence from smaller trials for sleep quality and latency."
-        safetyNote="Valerian root should never be combined with prescription sedatives, benzodiazepines, or alcohol. Magnesium requires caution in kidney disease. Melatonin may warrant caution with autoimmune conditions and can cause next-day grogginess at high doses."
-        notClaiming="This page is not claiming any of these three is a replacement for treating a diagnosed sleep disorder."
-        referencesHref="#references"
-      />
+      <LegacyGuideQuickAnswer referencesHref="#references">
+        <p>
+          For a <strong>shifted body clock</strong>, melatonin has the most direct rationale and trial evidence [1-3]. For ordinary chronic insomnia, none of these three has evidence approaching CBT-I [9,10]. Valerian&rsquo;s evidence was downgraded by a 2024 umbrella review that found no empirical support for insomnia [4]. Magnesium bisglycinate has a newer randomized trial, but the extra benefit over placebo was small (Cohen&rsquo;s d = 0.2) after four weeks [6]. There is no high-quality head-to-head trial proving magnesium is better than valerian—or vice versa.
+        </p>
+      </LegacyGuideQuickAnswer>
 
-      {/* 3-Column Core Comparison Cards */}
-      <section className="grid gap-6 lg:grid-cols-3">
-        <div className="card-premium p-6 space-y-4 flex flex-col justify-between">
-          <div>
-            <p className="eyebrow-label bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-full inline-block mb-2 text-xs font-semibold">
-              Circadian Signal
-            </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-ink">Melatonin</h2>
-            <p className="text-sm leading-7 text-muted mt-2">
-              Best for sleep timing shifts, jet lag, or shift work. It is a hormone, not a sedative, and is most effective when taken in low doses (0.3–3 mg) 30–60 minutes before your desired bedtime.
-            </p>
-          </div>
-          <div className="pt-4">
-            <Link href="/compounds/melatonin/" className="chip-readable text-xs font-bold">
-              Explore Melatonin →
-            </Link>
-          </div>
-        </div>
-
-        <div className="card-premium p-6 space-y-4 flex flex-col justify-between">
-          <div>
-            <p className="eyebrow-label bg-teal-50 text-teal-800 px-2 py-0.5 rounded-full inline-block mb-2 text-xs font-semibold">
-              GABAergic Herb
-            </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-ink">Valerian Root</h2>
-            <p className="text-sm leading-7 text-muted mt-2">
-              Best for mild bedtime restlessness. It is a traditional relaxing root extract that works by modulating GABA-A receptors, showing cumulative benefit over 2–4 weeks.
-            </p>
-          </div>
-          <div className="pt-4">
-            <Link href="/herbs/valerian/" className="chip-readable text-xs font-bold">
-              Explore Valerian →
-            </Link>
-          </div>
-        </div>
-
-        <div className="card-premium p-6 space-y-4 flex flex-col justify-between">
-          <div>
-            <p className="eyebrow-label bg-blue-50 text-blue-800 px-2 py-0.5 rounded-full inline-block mb-2 text-xs font-semibold">
-              Physical Relaxant
-            </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-ink">Magnesium</h2>
-            <p className="text-sm leading-7 text-muted mt-2">
-              Best for physical tension, cramps, and nightly wind-down routines. Highly bioavailable forms like magnesium glycinate also deliver glycine, supporting neurochemical quieting.
-            </p>
-          </div>
-          <div className="pt-4">
-            <Link href="/compounds/magnesium/" className="chip-readable text-xs font-bold">
-              Explore Magnesium →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Head-to-Head Comparison Table */}
-      <section className="card-premium p-6 space-y-5 max-w-5xl">
-        <p className="eyebrow-label">Decision Table</p>
-        <h2 className="text-3xl font-semibold tracking-tight text-ink">Head-to-Head Comparison</h2>
+      <section id="three-way-evidence-table" data-answer-engine-table="true" className="card-premium p-6 space-y-4 max-w-5xl scroll-mt-24">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Three-way evidence comparison</h2>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[720px] text-sm text-left border-collapse">
-            <thead className="text-ink">
-              <tr className="border-b border-black/10">
-                <th className="py-3 pr-4 font-bold uppercase tracking-wider text-xs">Factor</th>
-                <th className="py-3 pr-4 font-bold uppercase tracking-wider text-xs">Melatonin</th>
-                <th className="py-3 pr-4 font-bold uppercase tracking-wider text-xs">Valerian Root</th>
-                <th className="py-3 pr-4 font-bold uppercase tracking-wider text-xs">Magnesium (Glycinate)</th>
+          <table className="min-w-[900px] w-full text-left text-sm">
+            <caption className="sr-only">Melatonin, valerian, and magnesium compared by best-supported evidence, limitations, and safety</caption>
+            <thead>
+              <tr className="border-b border-brand-900/10 text-ink">
+                <th scope="col" className="p-4">Option</th>
+                <th scope="col" className="p-4">Best-supported evidence</th>
+                <th scope="col" className="p-4">Main evidence limit</th>
+                <th scope="col" className="p-4">Key safety boundary</th>
               </tr>
             </thead>
-            <tbody className="text-muted divide-y divide-black/5">
-              <tr>
-                <td className="py-3.5 pr-4 font-semibold text-ink">Primary Fit</td>
-                <td className="py-3.5 pr-4">Shifted sleep schedule, jet lag, late-night sleep onset</td>
-                <td className="py-3.5 pr-4">Mild bedtime worry, general sleep quality issues</td>
-                <td className="py-3.5 pr-4">Physical restlessness, muscle tension, wind-down baseline</td>
-              </tr>
-              <tr>
-                <td className="py-3.5 pr-4 font-semibold text-ink">Onset Speed</td>
-                <td className="py-3.5 pr-4">30 to 60 minutes</td>
-                <td className="py-3.5 pr-4">Cumulative; requires 2 to 4 weeks of daily use</td>
-                <td className="py-3.5 pr-4">Days to weeks of steady evening use</td>
-              </tr>
-              <tr>
-                <td className="py-3.5 pr-4 font-semibold text-ink">Primary Mechanism</td>
-                <td className="py-3.5 pr-4">Suprachiasmatic nucleus melatonin receptor activation</td>
-                <td className="py-3.5 pr-4">Valerenic acids modulate GABA-A receptors</td>
-                <td className="py-3.5 pr-4">NMDA receptor block; glycine neurotransmission</td>
-              </tr>
-              <tr>
-                <td className="py-3.5 pr-4 font-semibold text-ink">Evidence Grade</td>
-                <td className="py-3.5 pr-4">
-                  <span className="inline-flex rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-800 border border-emerald-100">
-                    Strong (timing)
-                  </span>
-                </td>
-                <td className="py-3.5 pr-4">
-                  <span className="inline-flex rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-800 border border-emerald-100">
-                    Limited to Moderate
-                  </span>
-                </td>
-                <td className="py-3.5 pr-4">
-                  <span className="inline-flex rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-800 border border-emerald-100">
-                    Limited to Moderate
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td className="py-3.5 pr-4 font-semibold text-ink">Main Cautions</td>
-                <td className="py-3.5 pr-4">Autoimmune caution, vivid dreams, morning grogginess</td>
-                <td className="py-3.5 pr-4">Sedative medications, alcohol, strong odor aversion</td>
-                <td className="py-3.5 pr-4">Renal clearance issues ( kidney disease)</td>
-              </tr>
-              <tr>
-                <td className="py-3.5 pr-4 font-semibold text-ink">Bottom Line</td>
-                <td className="py-3.5 pr-4">Best for fixing sleep schedule timing</td>
-                <td className="py-3.5 pr-4">Best traditional herb for cumulative sleep support</td>
-                <td className="py-3.5 pr-4">Best baseline daily relaxation mineral</td>
-              </tr>
+            <tbody className="divide-y divide-brand-900/10 text-muted">
+              {rows.map((row) => (
+                <tr key={row.option} className="align-top">
+                  <th scope="row" className="p-4 text-left font-semibold text-ink">{row.option}</th>
+                  <td className="p-4 leading-6">{row.bestEvidence}</td>
+                  <td className="p-4 leading-6">{row.weakPoint}</td>
+                  <td className="p-4 leading-6">{row.keySafety}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </section>
 
-      {/* Practical Trade-offs Deep Dive */}
-      <section className="grid gap-6 lg:grid-cols-3">
-        <div className="card-premium p-6 space-y-3">
-          <p className="eyebrow-label">Scenario 1</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">The Circadian Desync</h2>
+      <section className="grid gap-5 lg:grid-cols-3">
+        <article className="card-premium p-6 space-y-4">
+          <p className="eyebrow-label">Melatonin</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Best understood as a clock signal</h2>
           <p className="text-sm leading-7 text-muted">
-            If you lie awake for hours staring at the ceiling because you are simply not tired until 3:00 AM,
-            <strong> Melatonin</strong> is the primary intervention. Start with low, physiological doses (e.g. 0.3 mg)
-            to avoid the heavy morning grogginess caused by typical megadose retail tablets.
+            Melatonin can advance biological and sleep timing in delayed-sleep-phase studies and has a clear role in jet-lag research [1-3]. That is different from saying it is a strong generic sedative. A 2026 review of systematic reviews emphasizes how much melatonin outcomes vary by population, indication, formulation, and endpoint [2].
           </p>
-        </div>
-        <div className="card-premium p-6 space-y-3">
-          <p className="eyebrow-label">Scenario 2</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Traditional Herbal Sleep</h2>
           <p className="text-sm leading-7 text-muted">
-            If you want a natural herbal alternative to pharmaceutical sleep aids, <strong> Valerian root</strong>
-            has long historical usage. Keep in mind that clinical trials show its benefits are cumulative;
-            taking a single dose on an irregular basis is unlikely to provide significant relief.
+            This page therefore does not give a fixed 30–60 minute onset or universal low-dose protocol. Timing relative to the circadian target can matter more than a simple bedtime rule.
           </p>
-        </div>
-        <div className="card-premium p-6 space-y-3">
-          <p className="eyebrow-label">Scenario 3</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Physical &amp; Tension Wind-Down</h2>
+        </article>
+
+        <article className="card-premium p-6 space-y-4">
+          <p className="eyebrow-label">Valerian</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Traditional use is stronger than modern certainty</h2>
           <p className="text-sm leading-7 text-muted">
-            If you struggle to fall asleep because your body feels tense, tight, or you experience evening muscle soreness,
-            <strong> Magnesium glycinate</strong> supports natural muscle relaxation and baseline GABA levels
-            without altering your sleep hormones directly.
+            Older valerian reviews reported some positive subjective sleep findings, but study quality, extracts, and outcomes varied substantially. The 2024 umbrella review concluded that valerian does not currently have empirical support for insomnia [4], and NCCIH likewise describes the sleep evidence as inconsistent [5].
           </p>
-        </div>
+          <p className="text-sm leading-7 text-muted">
+            There is no validated rule that valerian requires two to four weeks to “build up.” A trial duration is not a guaranteed onset timeline.
+          </p>
+        </article>
+
+        <article className="card-premium p-6 space-y-4">
+          <p className="eyebrow-label">Magnesium</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">A newer signal—but still a small one</h2>
+          <p className="text-sm leading-7 text-muted">
+            The 2025 randomized trial enrolled 155 adults reporting poor sleep. Magnesium bisglycinate produced a slightly larger improvement in Insomnia Severity Index score than placebo after four weeks, with a small effect size (d = 0.2) [6]. That is useful form-specific evidence, not proof of a powerful sleep effect.
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            The broader magnesium insomnia literature remains limited and heterogeneous [7]. Glycinate should not be promoted as the proven “best” sleep form or as a direct GABA treatment.
+          </p>
+        </article>
       </section>
 
-      {/* Safety Considerations */}
-      <section className="card-premium p-6 space-y-5 max-w-4xl border-l-4 border-rose-500 bg-rose-50/10">
-        <p className="text-xs font-bold uppercase tracking-wider text-rose-900">Safety &amp; Clinical Cautions</p>
-        <h2 className="text-2xl font-bold tracking-tight text-ink">Important Physiological Limits</h2>
-        <div className="space-y-4 text-sm leading-relaxed text-muted">
-          <p>
-            Do not treat these options as risk-free just because they are sold over-the-counter:
-          </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>
-              <strong>Melatonin</strong> is a powerful hormone. Animal studies and select clinical observations suggest caution with autoimmune conditions (melatonin can theoretically stimulate immune activity). It can also cause next-day drowsiness, vivid dreams, or lower natural body temperature.
-            </li>
-            <li>
-              <strong>Valerian Root</strong> must never be combined with prescription sedatives, benzodiazepines, or alcohol due to the high risk of oversedation and respiratory depression. Always use trusted, verified brands; historically, some bulk herbal preparations have had reports of liver toxicity.
-            </li>
-            <li>
-              <strong>Magnesium</strong> requires caution in kidney disease. Excess magnesium is filtered by the kidneys, so impaired renal clearance can lead to severe accumulation.
-            </li>
-          </ul>
-          <div className="flex flex-wrap gap-3 pt-2">
-            <Link href="/safety-checker/" className="chip-readable">Check Your Medication Interactions</Link>
-            <Link href="/info/dosing/" className="chip-readable">Dosing Guidance</Link>
-          </div>
-        </div>
+      <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-6 text-amber-950 dark:border-amber-200/20 dark:bg-amber-950/20 dark:text-amber-50">
+        <p className="text-xs font-bold uppercase tracking-[0.16em]">Comparison limit</p>
+        <h2 className="mt-2 text-2xl font-semibold">There is no clean head-to-head winner</h2>
+        <p className="mt-3 text-sm leading-7">
+          No high-quality randomized trial identified for this review directly compared melatonin, valerian, and magnesium against one another using the same population, formulation, duration, and sleep outcomes. Ranking them 1–2–3 would therefore create precision the evidence does not contain. The better decision is to match the evidence to the actual problem and keep expectations modest.
+        </p>
       </section>
 
-      {/* FAQ Section */}
       <section className="card-premium p-6 space-y-4 max-w-4xl">
-        <p className="eyebrow-label">FAQ</p>
-        <h2 className="text-3xl font-semibold tracking-tight text-ink">Common Questions</h2>
-        <div className="space-y-4 text-sm leading-7 text-muted">
-          <div>
-            <h3 className="text-lg font-semibold text-ink">Why does melatonin cause morning grogginess?</h3>
-            <p>
-              Most commercial melatonin supplements are dosed at 5 mg or 10 mg—which is up to 30 times higher than the physiological dose (0.3 mg) our brains produce. This massive excess spills over into the morning, causing hangover-like fatigue.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-ink">Does valerian root smell bad?</h3>
-            <p>
-              Yes. Valerian root contains volatile compounds (including valeric acid) that smell strongly of sweaty socks or damp earth. This is normal for genuine extracts and does not mean the product has gone bad.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-ink">Can I combine magnesium and melatonin?</h3>
-            <p>
-              Yes. They are commonly paired. Magnesium glycinate relaxes the muscle tissue and nervous system, while melatonin signaling coordinates the circadian sleep cycle. Check with a pharmacist to ensure they do not conflict with your existing medications.
-            </p>
-          </div>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">For chronic insomnia, the hierarchy changes</h2>
+        <p className="text-sm leading-7 text-muted">
+          Persistent difficulty falling asleep or staying asleep is not simply a supplement-selection problem. AASM recommends multicomponent cognitive behavioral therapy for insomnia (CBT-I) as a core evidence-based treatment [10]. Its pharmacologic guideline suggests against routine melatonin and valerian for adult chronic insomnia [9], while magnesium is not an established guideline insomnia treatment either.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          Repeated awakenings can also reflect sleep apnea, restless legs, pain, reflux, alcohol, medication effects, menopause symptoms, mood disorders, or circadian misalignment. More sedation does not diagnose the cause.
+        </p>
+      </section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Safety is not interchangeable either</h2>
+        <ul className="ml-5 list-disc space-y-2 text-sm leading-7 text-muted">
+          <li><strong>Valerian:</strong> NCCIH advises against combining it with alcohol or sedatives; long-term safety is uncertain [5].</li>
+          <li><strong>Magnesium:</strong> impaired kidney function increases toxicity risk, and supplemental magnesium can interfere with absorption of some medicines [11].</li>
+          <li><strong>Melatonin:</strong> short-term safety is better characterized than long-term use, and U.S. supplement-label accuracy can vary substantially.</li>
+          <li><strong>Combination use:</strong> separate single-ingredient trials do not establish that combining these products is more effective or safer.</li>
+        </ul>
+        <Link href="/articles/natural-sleep-aids-with-sleep-medications-safety/" className="inline-flex text-sm font-bold text-brand-800 hover:underline">
+          Sleep supplement + medication safety →
+        </Link>
+      </section>
+
+      <LegacyGuideFAQ questions={FAQS} pagePath="/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/" referencesHref="#references" />
+
+      <div id="references" className="scroll-mt-24">
+        <References refs={REFS} />
+      </div>
+
+      <section className="card-premium p-6 space-y-3 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Go deeper</h2>
+        <div className="grid gap-2 sm:grid-cols-2 text-sm font-semibold text-brand-800">
+          <Link href="/guides/other/melatonin-dosage-guide/" className="hover:underline">Melatonin circadian evidence →</Link>
+          <Link href="/articles/valerian-root/" className="hover:underline">Valerian evidence review →</Link>
+          <Link href="/articles/magnesium-glycinate/" className="hover:underline">Magnesium glycinate evidence →</Link>
+          <Link href="/guides/sleep/best-supplements-for-sleep/" className="hover:underline">Sleep supplements hub →</Link>
         </div>
       </section>
 
-      <FAQSchema
-        pagePath="/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/"
-        questions={[
-          { question: 'Why does melatonin cause morning grogginess?', answer: 'Melatonin has a short half-life (20-50 minutes), but higher doses (5+ mg) can leave residual levels above physiological range into the morning, causing daytime drowsiness. Using 0.3-1 mg and taking it 1-2 hours before bed reduces next-day grogginess.' },
-          { question: 'Does valerian root smell bad?', answer: 'Yes, valerian root has a strong, earthy, sometimes described as \'dirty sock\' smell due to valerenic acid and other volatile compounds. This is normal and does not indicate spoilage. Encapsulated forms minimize the odor.' },
-          { question: 'Can I combine magnesium and melatonin?', answer: 'Yes, magnesium and melatonin are a common and safe combination. Magnesium supports GABA activity and muscle relaxation, while melatonin signals sleep onset. Start low with melatonin (0.3-1 mg) and magnesium glycinate (200 mg) and evaluate tolerance before increasing.' },
-        ]}
-      />
-
-      <EnhancedEmailCapture
-        headline="Sleep Optimization &amp; Safety Guide"
-        description="Download our evidence-first sleep guide covering low-dose melatonin protocols, clean magnesium forms, and safety checklists."
-        benefit1="Find your minimal effective dose: the 0.3 mg melatonin shift"
-        benefit2="Differentiate magnesium forms: glycinate vs. threonate vs. citrate"
-        benefit3="Autoimmune and medication safety limits for common sleep aids"
-        ctaLabel="Get the sleep guide"
+      <EmailCapture
+        headline="Get evidence reviews like this"
+        description="Sleep claims compared by direct human evidence instead of bedtime marketing."
+        ctaLabel="Get the evidence"
         location="compare-melatonin-valerian-magnesium"
       />
-
-      <RelatedDiscoveryWidget
-        heading="Explore Sleep Support"
-        subheading="Dig deeper into sleep science, dosage forms, and related adaptogens."
-        items={[
-          {
-            type: 'compound',
-            label: 'Compound',
-            title: 'Melatonin',
-            description: 'Circadian clock hormone. Strong for sleep-onset timing, with vivid dream tradeoffs.',
-            href: '/compounds/melatonin',
-          },
-          {
-            type: 'herb',
-            label: 'Herb',
-            title: 'Valerian Root',
-            description: 'Traditional GABA-modulating root extract. Cumulative benefits for bedtime tension.',
-            href: '/herbs/valerian',
-          },
-          {
-            type: 'compound',
-            label: 'Compound',
-            title: 'Magnesium',
-            description: 'Essential mineral for muscle relaxation, NMDA pathway regulation, and sleep support.',
-            href: '/compounds/magnesium',
-          },
-          {
-            type: 'guide',
-            label: 'Guide',
-            title: 'Sleep Decisions',
-            description: 'A comprehensive decision guide comparing sleep aids by onset speed and risk.',
-            href: '/guides/sleep',
-          },
-        ]}
-      />
-
-      <div className="space-y-3">
-        <AffiliateDisclosure />
-        <RecommendationSection
-          title="Melatonin, Valerian, and Magnesium Product Picks"
-          description="Affiliate recommended options selected by editorial standards. Review dosage and kidney health warnings first."
-          products={revenueProducts}
-        />
+      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
+        <Link href="/guides/compare/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to comparisons</Link>
+        <Link href="/guides/sleep/" className="text-sm font-bold text-brand-800 hover:underline">Sleep evidence hub →</Link>
       </div>
-      <ConversionStickyCTA
-        brand={revenueProducts[0]?.brand}
-        name={revenueProducts[0]?.title}
-        href={revenueProducts[0]?.affiliateUrl || '#'}
-      />
-      <References refs={MELATONIN_VS_VALERIAN_VS_MAGNESIUM_REFS} />
     </div>
   )
 }
