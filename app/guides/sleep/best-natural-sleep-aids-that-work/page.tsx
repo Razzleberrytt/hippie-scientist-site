@@ -12,66 +12,175 @@ import { buildTwitterMetadata } from '@/src/lib/seo'
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-natural-sleep-aids-that-work`
 
 export const metadata: Metadata = {
-  title: 'Natural Sleep Aids That Work: Evidence-Based Guide',
+  title: 'Best Natural Sleep Aids That Work: Evidence & Safety',
   description:
-    'Evidence-based natural sleep guide covering sleep timing, foundational habits, melatonin, magnesium, L-theanine, valerian, and passionflower—plus where supplements fit.',
+    'Which natural sleep aids actually work? Evidence-ranked guide to melatonin, magnesium, L-theanine, valerian, passionflower, ashwagandha and glycine, with 20+ clinical sources and safety context.',
   alternates: { canonical: '/guides/sleep/best-natural-sleep-aids-that-work/' },
   openGraph: {
-    title: 'Natural Sleep Aids That Work: Evidence-Based Guide',
+    title: 'Best Natural Sleep Aids That Work: Evidence & Safety',
     description:
-      'An evidence-graded look at common natural sleep aids, what human trials actually show, where uncertainty remains, and when persistent insomnia deserves evaluation.',
+      'A citation-dense, evidence-ranked guide to natural sleep aids: what helps, what is overhyped, how strong the human evidence is, and when supplements are the wrong tool.',
     url: '/guides/sleep/best-natural-sleep-aids-that-work/',
     type: 'article',
-    images: ['/og-default.jpg'],
+    images: ['/images/guides/best-natural-sleep-aids-that-work.jpg'],
   },
   twitter: buildTwitterMetadata({
-    title: 'Natural Sleep Aids That Work: Evidence-Based Guide',
-    description: 'An evidence-graded look at common natural sleep aids, what human trials actually show, where uncertainty remains, and when persistent insomnia deserves evaluation.',
+    title: 'Best Natural Sleep Aids That Work: Evidence & Safety',
+    description:
+      'Evidence-ranked natural sleep aids with systematic reviews, clinical guidelines, human trials and practical safety context.',
   }),
+}
+
+function Cite({ n }: { n: number }) {
+  return (
+    <sup className="ml-0.5 align-super text-[0.7em] font-semibold text-brand-700">
+      <a href={`#ref-${n}`} aria-label={`Reference ${n}`} className="hover:underline">[{n}]</a>
+    </sup>
+  )
 }
 
 const FAQS = [
   {
-    question: 'What is the most effective natural sleep aid?',
+    question: 'What is the best natural sleep aid that actually works?',
     answer:
-      'There is no single best supplement for insomnia. Melatonin has a distinct role as a circadian timing signal, especially when sleep timing is shifted. Magnesium, L-theanine, valerian and passionflower each have human studies, but the strength and consistency of evidence vary and do not justify a universal ranking.',
+      'There is no universal best supplement. For chronic insomnia, cognitive behavioral therapy for insomnia (CBT-I) has stronger guideline support than supplements. Among supplements, melatonin has the clearest role when sleep timing or circadian rhythm is the issue. L-theanine has promising recent meta-analytic evidence for subjective sleep outcomes, while magnesium, valerian, passionflower, ashwagandha and glycine have more limited or population-specific evidence.',
   },
   {
-    question: 'How long do natural sleep aids take to work?',
+    question: 'What is the strongest natural sleeping pill?',
     answer:
-      'There is no reliable 30–60 minute rule across natural sleep aids. Melatonin timing depends on the circadian goal, while L-theanine, magnesium and herbal trials use different doses, products and treatment windows. A study schedule is not the same thing as a guaranteed onset time for an individual.',
+      '“Strongest” is not a useful evidence category because natural products differ in mechanism, formulation and target problem. A product that feels sedating is not necessarily better at treating insomnia. If the problem is chronic insomnia, guidelines prioritize CBT-I rather than trying to identify the most sedating supplement.',
+  },
+  {
+    question: 'Is melatonin better than magnesium for sleep?',
+    answer:
+      'They are not interchangeable. Melatonin is a circadian timing signal and has a clearer role when sleep timing is shifted. Magnesium is a nutrient; supplementation may help some people, but the insomnia trial base is small and low quality, particularly when magnesium status is unknown.',
+  },
+  {
+    question: 'Does valerian really work for sleep?',
+    answer:
+      'A 2024 umbrella review found no demonstrated efficacy for treating insomnia, although some reviews reported improvements in subjective sleep quality. That makes valerian a plausible but unproven option rather than an evidence-leading sleep aid.',
+  },
+  {
+    question: 'Can L-theanine help with racing thoughts at night?',
+    answer:
+      'Recent systematic reviews suggest L-theanine may improve some subjective sleep outcomes, but the evidence does not establish it as a treatment for racing thoughts or clinical insomnia. If persistent worry or mental overactivation is driving insomnia, addressing the underlying insomnia or anxiety pattern is more important than assuming a supplement will switch it off.',
   },
   {
     question: 'Are natural sleep aids safe to take every night?',
     answer:
-      'Nightly safety is not equally established for every supplement, dose or duration. Short-term trials can support tolerability without proving indefinite use is risk-free. Medication use, pregnancy or breastfeeding, kidney disease and other health conditions can change the risk. Passionflower should not be used during pregnancy because it may induce uterine contractions. Persistent insomnia is a reason to evaluate the cause rather than simply extending supplement use.',
+      'Safety depends on the ingredient, dose, duration, medications, pregnancy status, kidney function and product quality. Short-term tolerability in a clinical trial does not prove indefinite nightly use is risk-free. Some products can add to sedation or interact with medications, and passionflower is specifically discouraged during pregnancy by NCCIH.',
   },
   {
-    question: 'Can I combine natural sleep aids?',
+    question: 'Can I combine several natural sleep supplements?',
     answer:
-      'Do not assume common combinations are well established. Trials of multi-ingredient products cannot prove that magnesium plus L-theanine or melatonin plus L-theanine is reliably better than either ingredient alone. If you choose to try supplements, adding one variable at a time makes benefit, side effects and interactions easier to interpret.',
+      'Do not assume a popular stack is proven. Multi-ingredient trials test a specific formula and cannot establish that every ingredient pair is synergistic. Combining several sedating products can also make side effects and interactions harder to identify.',
+  },
+  {
+    question: 'What should I do if natural sleep aids do not work?',
+    answer:
+      'Persistent insomnia deserves evaluation rather than endless supplement switching. Chronic insomnia can coexist with circadian disorders, sleep apnea, restless legs, medication effects, mood or anxiety disorders, pain and other conditions. CBT-I is recommended as initial treatment for chronic insomnia in major clinical guidelines.',
   },
 ]
 
 const HEADINGS: Heading[] = [
   { id: 'quick-answer', text: 'Quick answer', level: 2 },
-  { id: 'takeaways', text: 'Key takeaways', level: 2 },
-  { id: 'match', text: 'Match the sleep aid to your problem', level: 2 },
-  { id: 'research', text: 'What the research actually supports', level: 2 },
-  { id: 'sleep-herbs', text: 'Best herbs for sleep', level: 2 },
-  { id: 'risks', text: 'Risks & safety', level: 2 },
-  { id: 'mistakes', text: 'Common mistakes to avoid', level: 2 },
+  { id: 'ranking', text: 'Evidence ranking', level: 2 },
+  { id: 'first-line', text: 'What works best for chronic insomnia', level: 2 },
+  { id: 'melatonin', text: 'Melatonin', level: 2 },
+  { id: 'l-theanine', text: 'L-theanine', level: 2 },
+  { id: 'magnesium', text: 'Magnesium', level: 2 },
+  { id: 'ashwagandha', text: 'Ashwagandha', level: 2 },
+  { id: 'valerian', text: 'Valerian', level: 2 },
+  { id: 'passionflower', text: 'Passionflower', level: 2 },
+  { id: 'glycine', text: 'Glycine', level: 2 },
+  { id: 'natural-foundations', text: 'Natural approaches beyond supplements', level: 2 },
+  { id: 'safety', text: 'Safety & interactions', level: 2 },
+  { id: 'choose', text: 'How to choose an evidence-aligned option', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
 ]
 
-const BEST_NATURAL_SLEEP_AIDS_THAT_WORK_REFS = [
-  { n: 1, text: 'Mah J, Pitre T. (2021). Oral magnesium supplementation for insomnia in older adults: systematic review and meta-analysis. BMC Complement Med Ther, 21:125.', url: 'https://pubmed.ncbi.nlm.nih.gov/33865376/' },
-  { n: 2, text: 'Valente V, et al. (2024). Does valerian work for insomnia? An umbrella review of the evidence. Eur Neuropsychopharmacol, 82:6-28.', url: 'https://pubmed.ncbi.nlm.nih.gov/38359657/' },
-  { n: 3, text: 'Ferracioli-Oda E, et al. (2013). Melatonin for primary sleep disorders: meta-analysis. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
-  { n: 4, text: 'Bulman A, et al. (2025). The effects of L-theanine consumption on sleep outcomes: a systematic review and meta-analysis. Sleep Med Rev, 81:102076.', url: 'https://pubmed.ncbi.nlm.nih.gov/40056718/' },
-  { n: 5, text: 'Cotter J, et al. (2026). Examining the effect of L-theanine on sleep: a systematic review of dietary supplementation trials. Nutr Neurosci, 29(2):224-238.', url: 'https://pubmed.ncbi.nlm.nih.gov/41176609/' },
-  { n: 6, text: 'Lee J, et al. (2020). Effects of Passiflora incarnata on polysomnographic sleep parameters in subjects with insomnia disorder: randomized placebo-controlled study. Int Clin Psychopharmacol, 35(1):29-35.', url: 'https://pubmed.ncbi.nlm.nih.gov/31714321/' },
-  { n: 7, text: 'National Center for Complementary and Integrative Health. Passionflower: Usefulness and Safety. Pregnancy warning reviewed on the current NCCIH fact sheet.', url: 'https://www.nccih.nih.gov/health/passionflower' },
+const REFS = [
+  { n: 1, title: 'Management of Chronic Insomnia Disorder in Adults: A Clinical Practice Guideline From the American College of Physicians', text: 'Qaseem A, et al. Ann Intern Med. 2016;165(2):125-133.', authors: 'Qaseem A, Kansagara D, Forciea MA, Cooke M, Denberg TD', journal: 'Annals of Internal Medicine', year: 2016, pmid: '27136449', doi: '10.7326/M15-2175', url: 'https://pubmed.ncbi.nlm.nih.gov/27136449/' },
+  { n: 2, title: 'Behavioral and psychological treatments for chronic insomnia disorder in adults: an American Academy of Sleep Medicine clinical practice guideline', text: 'Edinger JD, et al. J Clin Sleep Med. 2021;17(2):255-262.', authors: 'Edinger JD, et al.', journal: 'Journal of Clinical Sleep Medicine', year: 2021, pmid: '33164742', doi: '10.5664/jcsm.8986', url: 'https://pubmed.ncbi.nlm.nih.gov/33164742/' },
+  { n: 3, title: 'Combination treatment for chronic insomnia disorder in adults: an American Academy of Sleep Medicine clinical practice guideline', text: 'AASM clinical practice guideline. 2026.', authors: 'American Academy of Sleep Medicine task force', journal: 'Journal of Clinical Sleep Medicine', year: 2026, pmid: '41975142', url: 'https://pubmed.ncbi.nlm.nih.gov/41975142/' },
+  { n: 4, title: 'Initial treatment choices for long-term remission of chronic insomnia disorder in adults: a systematic review and network meta-analysis', text: 'Network meta-analysis of CBT-I, pharmacotherapy and combination treatment.', year: 2024, pmid: '39188094', url: 'https://pubmed.ncbi.nlm.nih.gov/39188094/' },
+  { n: 5, title: 'Effects of sleep hygiene education for insomnia: A systematic review and meta-analysis', text: 'Yeung WF, et al. Sleep Med Rev. 2025; systematic review of 42 RCTs.', year: 2025, pmid: '40449065', doi: '10.1016/j.smrv.2025.102109', url: 'https://pubmed.ncbi.nlm.nih.gov/40449065/' },
+  { n: 6, title: 'Clinical Practice Guideline for the Pharmacologic Treatment of Chronic Insomnia in Adults', text: 'Sateia MJ, et al. J Clin Sleep Med. 2017;13(2):307-349.', year: 2017, pmid: '27998379', url: 'https://pubmed.ncbi.nlm.nih.gov/27998379/' },
+  { n: 7, title: 'Identifying complementary and alternative medicine recommendations for insomnia treatment and care', text: 'Systematic review and critical assessment of clinical practice guidelines.', year: 2023, pmid: '37397764', url: 'https://pubmed.ncbi.nlm.nih.gov/37397764/' },
+  { n: 8, title: 'Over-the-counter products for insomnia in adults: A scoping review of randomised controlled trials', text: 'Scoping review of 51 randomized trials.', year: 2025, pmid: '40054227', url: 'https://pubmed.ncbi.nlm.nih.gov/40054227/' },
+  { n: 9, title: 'Meta-analysis: melatonin for the treatment of primary sleep disorders', text: 'Ferracioli-Oda E, Qawasmi A, Bloch MH. PLoS One. 2013;8(5):e63773.', year: 2013, pmid: '23691095', doi: '10.1371/journal.pone.0063773', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
+  { n: 10, title: 'Evidence for the efficacy of melatonin in the treatment of primary adult sleep disorders', text: 'Systematic review and meta-analysis.', year: 2017, pmid: '28648359', url: 'https://pubmed.ncbi.nlm.nih.gov/28648359/' },
+  { n: 11, title: 'The effects of L-theanine consumption on sleep outcomes: A systematic review and meta-analysis', text: 'Bulman A, et al. Sleep Med Rev. 2025;81:102076.', year: 2025, pmid: '40056718', doi: '10.1016/j.smrv.2025.102076', url: 'https://pubmed.ncbi.nlm.nih.gov/40056718/' },
+  { n: 12, title: 'Examining the effect of L-theanine on sleep: a systematic review of dietary supplementation trials', text: 'Systematic review of 13 standalone L-theanine trials.', year: 2026, pmid: '41176609', url: 'https://pubmed.ncbi.nlm.nih.gov/41176609/' },
+  { n: 13, title: 'Oral magnesium supplementation for insomnia in older adults: a Systematic Review & Meta-Analysis', text: 'Mah J, Pitre T. BMC Complement Med Ther. 2021;21:125.', year: 2021, pmid: '33865376', doi: '10.1186/s12906-021-03297-z', url: 'https://pubmed.ncbi.nlm.nih.gov/33865376/' },
+  { n: 14, title: 'Effect of Ashwagandha (Withania somnifera) extract on sleep: A systematic review and meta-analysis', text: 'Cheah KL, et al. PLoS One. 2021;16(9):e0257843.', year: 2021, pmid: '34559859', doi: '10.1371/journal.pone.0257843', url: 'https://pubmed.ncbi.nlm.nih.gov/34559859/' },
+  { n: 15, title: 'Does valerian work for insomnia? An umbrella review of the evidence', text: 'Valente V, et al. Eur Neuropsychopharmacol. 2024;82:6-28.', year: 2024, pmid: '38359657', doi: '10.1016/j.euroneuro.2024.01.008', url: 'https://pubmed.ncbi.nlm.nih.gov/38359657/' },
+  { n: 16, title: 'Effects of Passiflora incarnata Linnaeus on polysomnographic sleep parameters in subjects with insomnia disorder', text: 'Lee J, et al. Double-blind randomized placebo-controlled study. Int Clin Psychopharmacol. 2020;35(1):29-35.', year: 2020, pmid: '31714321', doi: '10.1097/YIC.0000000000000291', url: 'https://pubmed.ncbi.nlm.nih.gov/31714321/' },
+  { n: 17, title: 'A double-blind, placebo-controlled investigation of Passiflora incarnata herbal tea on subjective sleep quality', text: 'Ngan A, Conduit R. Phytother Res. 2011.', year: 2011, pmid: '21294203', doi: '10.1002/ptr.3400', url: 'https://pubmed.ncbi.nlm.nih.gov/21294203/' },
+  { n: 18, title: 'New therapeutic strategy for amino acid medicine: glycine improves the quality of sleep', text: 'Bannai M, Kawai N. J Pharmacol Sci. 2012.', year: 2012, pmid: '22293292', doi: '10.1254/jphs.11r04fm', url: 'https://pubmed.ncbi.nlm.nih.gov/22293292/' },
+  { n: 19, title: 'The effects of glycine on subjective daytime performance in partially sleep-restricted healthy volunteers', text: 'Bannai M, et al. Front Neurol. 2012;3:61.', year: 2012, pmid: '22529837', doi: '10.3389/fneur.2012.00061', url: 'https://pubmed.ncbi.nlm.nih.gov/22529837/' },
+  { n: 20, title: 'Passionflower: Usefulness and Safety', text: 'National Center for Complementary and Integrative Health. Current consumer fact sheet.', year: 2026, url: 'https://www.nccih.nih.gov/health/passionflower' },
+  { n: 21, title: 'Magnesium Fact Sheet for Consumers', text: 'NIH Office of Dietary Supplements. Safety, upper limits and medication-interaction context.', year: 2024, url: 'https://ods.od.nih.gov/factsheets/Magnesium-Consumer/' },
+  { n: 22, title: 'Systematic Review of Clinical Practice Guidelines for Insomnia Disorder', text: 'Review of insomnia clinical practice guidelines and recommendations.', year: 2022, pmid: '36355585', url: 'https://pubmed.ncbi.nlm.nih.gov/36355585/' },
+]
+
+const evidenceRows = [
+  {
+    aid: 'CBT-I (not a supplement)',
+    verdict: 'Strongest overall for chronic insomnia',
+    evidence: 'High guideline support',
+    bestFor: 'Chronic insomnia disorder',
+    caveat: 'Requires behavioral treatment rather than a pill',
+  },
+  {
+    aid: 'Melatonin',
+    verdict: 'Useful when timing is the problem',
+    evidence: 'Moderate / context-specific',
+    bestFor: 'Circadian timing; modest sleep-onset benefit in some groups',
+    caveat: 'Not a universal sedative; timing matters',
+  },
+  {
+    aid: 'L-theanine',
+    verdict: 'Promising subjective sleep signal',
+    evidence: 'Low-to-moderate',
+    bestFor: 'Sleep quality support; evidence still developing',
+    caveat: 'Clinical-insomnia evidence remains limited',
+  },
+  {
+    aid: 'Magnesium',
+    verdict: 'Plausible, but evidence is thin',
+    evidence: 'Low / very low certainty',
+    bestFor: 'Possibly some older adults; deficiency is a separate issue',
+    caveat: 'Do not generalize small older-adult trials to everyone',
+  },
+  {
+    aid: 'Ashwagandha',
+    verdict: 'Small positive signal',
+    evidence: 'Low-to-moderate',
+    bestFor: 'Sleep complaints, particularly when stress coexists',
+    caveat: 'Extracts and doses vary; not first-line insomnia therapy',
+  },
+  {
+    aid: 'Valerian',
+    verdict: 'Popular, but insomnia efficacy unproven',
+    evidence: 'Low / inconclusive',
+    bestFor: 'Possible subjective sleep-quality improvement',
+    caveat: '2024 umbrella review found no demonstrated insomnia efficacy',
+  },
+  {
+    aid: 'Passionflower',
+    verdict: 'Interesting early human data',
+    evidence: 'Low / preliminary',
+    bestFor: 'Short-term sleep-quality or total-sleep-time signals',
+    caveat: 'Small evidence base; avoid during pregnancy',
+  },
+  {
+    aid: 'Glycine',
+    verdict: 'Early, intriguing evidence',
+    evidence: 'Low / preliminary',
+    bestFor: 'Subjective sleep quality and next-day fatigue in small studies',
+    caveat: 'Evidence base is much smaller than marketing often implies',
+  },
 ]
 
 export default function Page() {
@@ -81,43 +190,53 @@ export default function Page() {
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Natural Sleep Aids That Work: Evidence-Based Guide"
-        description="Evidence-graded guide to natural sleep aids, including what human trials support, what remains uncertain, and when persistent insomnia deserves evaluation."
+        headline="Best Natural Sleep Aids That Work: Evidence & Safety"
+        description="Evidence-ranked guide to natural sleep aids including melatonin, magnesium, L-theanine, valerian, passionflower, ashwagandha and glycine, with clinical guideline context."
         datePublished="2026-06-18"
-        dateModified="2026-08-11"
+        dateModified="2026-08-22"
         faqs={FAQS}
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Best Natural Sleep Aids That Work', href: '/guides/sleep/best-natural-sleep-aids-that-work' },
+          { label: 'Sleep', href: '/guides/sleep' },
+          { label: 'Natural Sleep Aids That Work', href: '/guides/sleep/best-natural-sleep-aids-that-work' },
         ]}
       />
 
       <div className="space-y-12">
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
-          <p className="eyebrow-label">Evidence-based sleep guide</p>
+          <p className="eyebrow-label">Evidence-ranked sleep guide · 22-source clinical ledger</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Natural Sleep Aids That Work: Evidence-Based Guide
+            Best Natural Sleep Aids That Work: What the Evidence Actually Supports
           </h1>
           <p className="mt-2 text-xs text-muted">
             Written and edited by{' '}
             <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">Willie B. Randolph III</Link>
-            {' '}· Last updated August 2026
+            {' '}· Last updated August 22, 2026
           </p>
           <p className="detail-reading mt-4 text-muted">
-            Natural sleep aids are often ranked as though one capsule reliably fixes one kind of
-            insomnia. Human evidence is messier. Some ingredients have a clear biological role but
-            modest clinical effects; others have promising subjective outcomes without strong objective
-            confirmation. This guide separates those signals from marketing certainty and shows where
-            the evidence is useful, limited or still inconclusive.
+            The phrase <em>natural sleep aid</em> covers everything from circadian hormones to minerals,
+            amino acids and herbs — ingredients with very different evidence. This guide ranks them by
+            human data rather than popularity, distinguishes chronic insomnia from occasional poor sleep,
+            and puts supplements in the context of the treatments that major sleep guidelines actually recommend.
           </p>
 
-          <div className="mt-5 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
-            <strong className="text-ink">Use this broader guide when “natural sleep aid” includes more than a capsule.</strong>{' '}
-            If you only want to compare supplement ingredients, go straight to{' '}
-            <Link href="/guides/sleep/best-supplements-for-sleep/" className="font-semibold text-brand-700 hover:underline">
-              the sleep-supplement comparison
-            </Link>.
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border border-brand-900/10 bg-white/70 p-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-700">Best-supported overall</p>
+              <p className="mt-1 font-semibold text-ink">CBT-I for chronic insomnia</p>
+              <p className="mt-1 text-xs text-muted">Guideline-supported, durable, and not a supplement.</p>
+            </div>
+            <div className="rounded-xl border border-brand-900/10 bg-white/70 p-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-700">Best-defined supplement role</p>
+              <p className="mt-1 font-semibold text-ink">Melatonin for sleep timing</p>
+              <p className="mt-1 text-xs text-muted">More defensible for circadian mismatch than as a blanket sedative.</p>
+            </div>
+            <div className="rounded-xl border border-brand-900/10 bg-white/70 p-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-700">Most promising newer signal</p>
+              <p className="mt-1 font-semibold text-ink">L-theanine</p>
+              <p className="mt-1 text-xs text-muted">Recent meta-analysis supports modest subjective improvements.</p>
+            </div>
           </div>
 
           <figure className="mt-6">
@@ -132,205 +251,312 @@ export default function Page() {
               />
             </div>
             <figcaption className="mt-3 text-center text-sm text-muted">
-              Common natural sleep aids — compared by human evidence, limitations and safety context.
+              “Natural” describes origin, not evidence quality. The clinically important question is what outcome each ingredient has actually improved in humans.
             </figcaption>
           </figure>
         </section>
 
-        <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
-          <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
+        <section id="quick-answer" className="card-premium scroll-mt-20 space-y-4 p-6">
+          <p className="eyebrow-label">Direct answer</p>
+          <h2 className="text-2xl font-semibold text-ink">Which natural sleep aids actually work?</h2>
           <p className="text-muted">
-            Start with the sleep problem, not a supplement stack. <strong className="text-ink">Melatonin</strong>{' '}
-            is most defensible when the problem is circadian timing. <strong className="text-ink">Magnesium</strong>{' '}
-            may help some people, but insomnia trials are small and low quality. A 2025 meta-analysis found
-            small improvements in several <em>subjective</em> sleep outcomes with <strong className="text-ink">L-theanine</strong>,
-            while also noting that pure L-theanine studies and dose/duration evidence remain limited.
-            <strong className="text-ink"> Valerian</strong> and <strong className="text-ink">passionflower</strong>{' '}
-            have less consistent evidence. For chronic insomnia, supplements should not displace evaluation
-            and evidence-based insomnia treatment.
+            <strong className="text-ink">For chronic insomnia, the strongest evidence is not for a supplement at all:</strong>{' '}
+            major guidelines recommend cognitive behavioral therapy for insomnia (CBT-I) as initial treatment.
+            <Cite n={1} /><Cite n={2} /> A 2024 network meta-analysis also found CBT-I more beneficial than
+            pharmacotherapy for long-term remission.<Cite n={4} />
           </p>
+          <p className="text-muted">
+            Among common supplements, <strong className="text-ink">melatonin</strong> has the clearest mechanistic and
+            clinical role when the issue involves circadian timing, although average benefits for general sleep disorders
+            are modest.<Cite n={9} /><Cite n={10} /> <strong className="text-ink">L-theanine</strong> has encouraging recent
+            meta-analytic data for subjective sleep outcomes, but optimal dose, duration and efficacy in clinical insomnia
+            remain unsettled.<Cite n={11} /><Cite n={12} /> <strong className="text-ink">Magnesium, ashwagandha, valerian,
+            passionflower and glycine</strong> all have human evidence, but each has important limitations described below.
+          </p>
+          <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 text-sm leading-6 text-amber-950">
+            <strong>Important distinction:</strong> a supplement can improve a sleep questionnaire in a small trial without
+            being an established treatment for chronic insomnia. We grade those as different claims.
+          </div>
         </section>
 
-        <section id="takeaways" className="scroll-mt-20 space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">Key takeaways</h2>
-          <ul className="space-y-2 text-muted">
-            <li>• <strong className="text-ink">Do not treat “natural” as one evidence category.</strong> Melatonin, magnesium, L-theanine and herbs have different mechanisms, trial designs and certainty levels.</li>
-            <li>• <strong className="text-ink">Do not promise a 30–60 minute L-theanine onset.</strong> Current reviews do not establish a universal sleep dose, onset or duration.</li>
-            <li>• <strong className="text-ink">Magnesium is not a universal sleep fix.</strong> The insomnia evidence is limited and low quality, especially when magnesium status is unknown.</li>
-            <li>• <strong className="text-ink">Valerian evidence remains inconclusive.</strong> A 2024 umbrella review found subjective sleep signals but no demonstrated efficacy for insomnia.</li>
-            <li>• <strong className="text-ink">Combination evidence is product-specific.</strong> A multi-ingredient trial does not prove that any two ingredients form a reliably superior stack.</li>
+        <section id="ranking" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Evidence hierarchy</p>
+          <h2 className="text-2xl font-semibold text-ink">Natural sleep aids ranked by evidence</h2>
+          <p className="text-muted">
+            This table is intentionally conservative. “Evidence” reflects human sleep outcomes and guideline context — not
+            mechanism, traditional use, popularity or how sedating a product feels. Reviews of complementary insomnia
+            guidance consistently find that evidence quality varies widely across natural products.<Cite n={7} /><Cite n={8} />
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-brand-900/10">
+            <table className="min-w-[760px] w-full text-left text-sm">
+              <thead className="bg-brand-50/70 text-ink">
+                <tr>
+                  <th className="p-3 font-semibold">Aid</th>
+                  <th className="p-3 font-semibold">Verdict</th>
+                  <th className="p-3 font-semibold">Evidence level</th>
+                  <th className="p-3 font-semibold">Best-fit question</th>
+                  <th className="p-3 font-semibold">Main limitation</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10 bg-white">
+                {evidenceRows.map((row) => (
+                  <tr key={row.aid} className="align-top">
+                    <td className="p-3 font-semibold text-ink">{row.aid}</td>
+                    <td className="p-3 text-muted">{row.verdict}</td>
+                    <td className="p-3 text-muted">{row.evidence}</td>
+                    <td className="p-3 text-muted">{row.bestFor}</td>
+                    <td className="p-3 text-muted">{row.caveat}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="first-line" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">The part supplement rankings often omit</p>
+          <h2 className="text-2xl font-semibold text-ink">What works best for chronic insomnia?</h2>
+          <p className="text-muted">
+            The American College of Physicians recommends CBT-I as initial treatment for adults with chronic insomnia,
+            and the AASM separately recommends multicomponent CBT-I as a behavioral treatment.<Cite n={1} /><Cite n={2} />
+            In 2026, an AASM guideline on combination treatment suggested CBT-I plus medication over medication alone,
+            but suggested against combination treatment over CBT-I alone — a useful reminder that adding a sleep drug does
+            not automatically improve on CBT-I.<Cite n={3} />
+          </p>
+          <p className="text-muted">
+            Sleep hygiene still matters, but it should not be confused with full CBT-I. A 2025 meta-analysis of 42 randomized
+            trials found sleep-hygiene education improved insomnia scores from baseline, yet it was inferior to CBT-I and
+            partial CBT-I approaches.<Cite n={5} /> That is why “turn off your phone and take magnesium” is too shallow an
+            answer for persistent insomnia.
+          </p>
+          <div className="card-premium p-5">
+            <h3 className="font-semibold text-ink">When this page is the right tool</h3>
+            <p className="mt-2 text-sm text-muted">
+              Use this guide to compare common over-the-counter and natural options. If insomnia is frequent, persistent or
+              impairing daytime function, treat the supplement decision as secondary to identifying and treating the sleep disorder itself.
+            </p>
+          </div>
+        </section>
+
+        <section id="melatonin" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Most clearly defined supplement role</p>
+          <h2 className="text-2xl font-semibold text-ink">1. Melatonin: best when sleep timing is the problem</h2>
+          <p className="text-muted">
+            Melatonin is a hormone involved in circadian timing, not simply a botanical sedative. A meta-analysis of 19
+            randomized placebo-controlled studies found modest average improvements in sleep latency, total sleep time and
+            sleep quality across primary sleep disorders.<Cite n={9} /> A separate review found some of the most convincing
+            evidence in delayed sleep phase and other circadian-related conditions.<Cite n={10} />
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="card-premium p-5">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-700">What the evidence supports</p>
+              <p className="mt-2 text-sm text-muted">A real but generally modest sleep signal, with stronger conceptual fit for circadian timing than for “knocking you out.”</p>
+            </div>
+            <div className="card-premium p-5">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-700">What marketing often skips</p>
+              <p className="mt-2 text-sm text-muted">Timing, formulation and the specific sleep disorder matter. More milligrams is not automatically more effective.</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted">
+            The AASM pharmacologic guideline for chronic insomnia did not recommend melatonin as a treatment for sleep-onset
+            or sleep-maintenance insomnia in adults based on the evidence available at that time.<Cite n={6} /> That does not
+            mean melatonin has no role; it means circadian use and chronic-insomnia treatment should not be collapsed into one claim.
+          </p>
+          <Link href="/compounds/melatonin/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the melatonin evidence profile →</Link>
+        </section>
+
+        <section id="l-theanine" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Promising newer evidence</p>
+          <h2 className="text-2xl font-semibold text-ink">2. L-theanine: promising for subjective sleep quality</h2>
+          <p className="text-muted">
+            A 2025 systematic review and meta-analysis included 19 articles and 897 participants. It found statistically
+            significant improvements in subjective sleep-onset latency, daytime dysfunction and overall subjective sleep
+            quality, while emphasizing the shortage of studies using pure L-theanine and the need to establish dose and
+            duration.<Cite n={11} />
+          </p>
+          <p className="text-muted">
+            A 2026 systematic review focused on 13 standalone L-theanine trials (550 participants) and found beneficial
+            signals across several subjective and objective measures, but also called for more high-quality trials,
+            particularly in people with clinical insomnia.<Cite n={12} />
+          </p>
+          <div className="rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm text-muted">
+            <strong className="text-ink">Evidence grade: low-to-moderate.</strong> Enough human data to be interesting;
+            not enough to promise a universal bedtime dose, a guaranteed 30-minute onset, or treatment of “racing thoughts.”
+          </div>
+          <Link href="/compounds/l-theanine/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the L-theanine profile →</Link>
+        </section>
+
+        <section id="magnesium" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Popular, but frequently overclaimed</p>
+          <h2 className="text-2xl font-semibold text-ink">3. Magnesium: plausible, but the insomnia evidence is limited</h2>
+          <p className="text-muted">
+            Magnesium is physiologically important, but that does not prove supplementation improves sleep in people who
+            already have adequate magnesium status. A 2021 systematic review found only three randomized trials in 151 older
+            adults. Pooled sleep-onset latency improved, but total sleep time did not significantly improve, and the evidence
+            was judged low to very low quality.<Cite n={13} />
+          </p>
+          <p className="text-muted">
+            This is also why claims such as “magnesium glycinate is the best natural sleep aid” go beyond the evidence. The
+            trial literature does not establish one magnesium form as a universally superior insomnia treatment.
+          </p>
+          <p className="text-sm text-muted">
+            Supplemental magnesium can cause gastrointestinal effects, and kidney function matters because healthy kidneys
+            normally help remove excess magnesium. NIH also sets an adult upper limit of 350 mg/day for magnesium from
+            supplements and medications unless a clinician recommends otherwise; that limit does not include food magnesium.<Cite n={21} />
+          </p>
+          <Link href="/guides/sleep/magnesium-for-sleep/" className="inline-flex font-semibold text-brand-700 hover:underline">Read magnesium for sleep →</Link>
+        </section>
+
+        <section id="ashwagandha" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Stress-linked sleep complaints</p>
+          <h2 className="text-2xl font-semibold text-ink">4. Ashwagandha: a small positive sleep signal, not an insomnia cure</h2>
+          <p className="text-muted">
+            A 2021 systematic review and meta-analysis pooled five randomized trials with 400 adults and found a small but
+            statistically significant overall sleep benefit. Effects were larger in subgroups with insomnia, higher studied
+            extract doses and longer treatment durations, but the evidence base was still small and heterogeneous.<Cite n={14} />
+          </p>
+          <p className="text-muted">
+            Ashwagandha is therefore more defensible as a <em>promising stress-and-sleep ingredient</em> than as a proven
+            replacement for CBT-I or a guaranteed natural sleeping pill. Extract standardization matters: findings from one
+            branded or standardized preparation do not automatically transfer to every powder or gummy.
+          </p>
+          <Link href="/herbs/ashwagandha/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the ashwagandha evidence profile →</Link>
+        </section>
+
+        <section id="valerian" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Traditional favorite, weaker modern case</p>
+          <h2 className="text-2xl font-semibold text-ink">5. Valerian: subjective signals, but no demonstrated insomnia efficacy</h2>
+          <p className="text-muted">
+            A 2024 umbrella review synthesized systematic reviews of valerian for sleep disturbances. Its conclusion was
+            unusually clear: the evidence did not demonstrate efficacy for treating insomnia, although valerian appeared to
+            improve subjective sleep quality in some analyses. Objective and quantitative findings were inconsistent and the
+            underlying studies were heterogeneous and often low quality.<Cite n={15} />
+          </p>
+          <p className="text-muted">
+            The AASM guideline similarly suggested against valerian for sleep-onset or sleep-maintenance insomnia in adults
+            based on the evidence available for chronic insomnia.<Cite n={6} />
+          </p>
+          <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 text-sm text-amber-950">
+            <strong>Verdict:</strong> “Valerian may help some people feel that they slept better” is more defensible than
+            “valerian treats insomnia.” Those are not the same claim.
+          </div>
+          <Link href="/herbs/valerian/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the valerian profile →</Link>
+        </section>
+
+        <section id="passionflower" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Preliminary human evidence</p>
+          <h2 className="text-2xl font-semibold text-ink">6. Passionflower: interesting, but still a small evidence base</h2>
+          <p className="text-muted">
+            In a 2020 randomized placebo-controlled study of 110 adults with insomnia disorder, passionflower increased total
+            sleep time by about 23 minutes relative to placebo over two weeks, while between-group differences for sleep
+            efficiency and wake-after-sleep-onset were not significant.<Cite n={16} /> An earlier small crossover trial of
+            passionflower tea found improved subjective sleep-quality ratings in healthy young adults.<Cite n={17} />
+          </p>
+          <p className="text-muted">
+            These are useful signals, not a mature evidence base. Preparation also matters: tea, extract and combination
+            products are not interchangeable.
+          </p>
+          <div className="rounded-xl border border-red-200 bg-red-50/70 p-4 text-sm text-red-950">
+            <strong>Pregnancy warning:</strong> NCCIH states that passionflower should not be used during pregnancy because it
+            may induce uterine contractions.<Cite n={20} />
+          </div>
+          <Link href="/herbs/passionflower/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the passionflower profile →</Link>
+        </section>
+
+        <section id="glycine" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Emerging amino-acid option</p>
+          <h2 className="text-2xl font-semibold text-ink">7. Glycine: intriguing small trials, not yet a top-tier sleep aid</h2>
+          <p className="text-muted">
+            Human studies have reported improvements in subjective sleep quality after bedtime glycine, and mechanistic work
+            has explored thermoregulation as one possible pathway.<Cite n={18} /> In partially sleep-restricted healthy
+            volunteers, 3 g before bedtime improved some next-day fatigue and sleepiness measures compared with placebo.<Cite n={19} />
+          </p>
+          <p className="text-muted">
+            The limitation is scale: glycine has a much smaller clinical literature than its popularity on social media can
+            make it seem. The evidence is better described as <strong className="text-ink">promising and preliminary</strong>
+            than proven for insomnia.
+          </p>
+          <Link href="/guides/sleep/glycine-for-sleep/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the glycine for sleep guide →</Link>
+        </section>
+
+        <section id="natural-foundations" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">More important than another capsule</p>
+          <h2 className="text-2xl font-semibold text-ink">Natural approaches beyond supplements</h2>
+          <p className="text-muted">
+            If “natural sleep aid” means non-drug strategies, behavioral treatment deserves to be at the top of the list.
+            CBT-I typically combines techniques such as stimulus control, sleep restriction/compression, cognitive work and
+            sleep-related behavioral change rather than relying on sleep hygiene alone.<Cite n={1} /><Cite n={2} />
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <article className="card-premium p-5">
+              <h3 className="font-semibold text-ink">Consistent sleep-wake timing</h3>
+              <p className="mt-2 text-sm text-muted">Useful for stabilizing circadian cues, especially when irregular schedules are part of the problem.</p>
+            </article>
+            <article className="card-premium p-5">
+              <h3 className="font-semibold text-ink">Light timing</h3>
+              <p className="mt-2 text-sm text-muted">Morning and evening light exposure can shift circadian timing; the correct direction depends on the circadian problem.</p>
+            </article>
+            <article className="card-premium p-5">
+              <h3 className="font-semibold text-ink">Stimulus control</h3>
+              <p className="mt-2 text-sm text-muted">A core behavioral insomnia technique intended to reconnect bed with sleep rather than prolonged wakefulness.</p>
+            </article>
+            <article className="card-premium p-5">
+              <h3 className="font-semibold text-ink">Sleep hygiene — useful, but insufficient alone</h3>
+              <p className="mt-2 text-sm text-muted">A 2025 meta-analysis found benefit, but less improvement than CBT-I and partial CBT-I interventions.<Cite n={5} /></p>
+            </article>
+          </div>
+        </section>
+
+        <section id="safety" className="scroll-mt-20 space-y-4 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
+          <h2 className="text-2xl font-semibold text-amber-950">Safety &amp; interactions: “natural” is not the same as harmless</h2>
+          <p className="text-sm text-amber-950">
+            Reviews of over-the-counter insomnia products often report mild short-term adverse effects, but trial duration is
+            usually limited and formulas vary.<Cite n={8} /> Safety therefore has to be assessed ingredient by ingredient.
+          </p>
+          <ul className="space-y-2 text-sm text-amber-950">
+            <li>• <strong>Sedation can add up.</strong> Combining multiple calming/sedating supplements with alcohol, antihistamines, prescription sedatives or other CNS-active agents can increase impairment.</li>
+            <li>• <strong>Magnesium:</strong> supplemental magnesium can cause diarrhea and abdominal symptoms, and impaired kidney function changes the risk from excess magnesium.<Cite n={21} /></li>
+            <li>• <strong>Passionflower:</strong> avoid during pregnancy because of the uterine-contraction warning from NCCIH.<Cite n={20} /></li>
+            <li>• <strong>Product quality matters.</strong> Herbal extracts and multi-ingredient blends can differ substantially from the exact preparations studied in trials.</li>
+            <li>• <strong>Persistent symptoms need a cause-focused approach.</strong> Loud snoring with pauses, restless legs, severe daytime sleepiness, circadian misalignment, pain, medication effects, mood symptoms and other conditions can masquerade as “I just need a stronger sleep aid.”</li>
           </ul>
         </section>
 
-        <section id="match" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Start here</p>
-          <h2 className="text-2xl font-semibold text-ink">Match the sleep aid to your problem</h2>
-          <p className="text-muted">
-            These are evidence-aligned directions to research, not treatment prescriptions. The same
-            symptom can have different causes, and persistent insomnia deserves a broader assessment.
-          </p>
+        <section id="choose" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">A better buying framework</p>
+          <h2 className="text-2xl font-semibold text-ink">How to choose an evidence-aligned natural sleep aid</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              { problem: 'Sleep timing is shifted by travel or schedule', pick: 'Research melatonin timing', href: '/compounds/melatonin' },
-              { problem: 'You are considering L-theanine for sleep', pick: 'Review the sleep-specific evidence', href: '/compounds/l-theanine' },
-              { problem: 'You suspect low magnesium or have a reason to supplement', pick: 'Review magnesium evidence and safety', href: '/compounds/magnesium-glycinate' },
-              { problem: 'Stress seems linked to poor sleep', pick: 'Separate stress evidence from insomnia evidence', href: '/herbs/ashwagandha' },
-              { problem: 'You are considering valerian', pick: 'Review the mixed insomnia evidence first', href: '/herbs/valerian' },
-              { problem: 'You are considering passionflower', pick: 'Review the preliminary human trials', href: '/herbs/passionflower/' },
-            ].map((row) => (
-              <Link key={row.problem} href={row.href} className="card-premium block p-5 transition hover:border-brand-700/40">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted">If this describes you</p>
-                <p className="mt-1 text-sm font-semibold text-ink">{row.problem}</p>
-                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-brand-700">Evidence next step</p>
-                <p className="mt-1 text-sm font-medium text-brand-800">{row.pick} →</p>
-              </Link>
+              ['1. Name the actual sleep problem', 'Sleep timing, sleep onset, repeated waking, early waking and chronic insomnia are not interchangeable targets.'],
+              ['2. Match the ingredient to that target', 'Melatonin has a circadian role; magnesium is a nutrient; L-theanine and herbs have different evidence bases.'],
+              ['3. Match the product to the study', 'Species, extract, formulation and dose should resemble the evidence being cited. “Contains valerian” is not enough.'],
+              ['4. Prefer single-ingredient transparency', 'A proprietary blend makes it difficult to know whether the formula resembles any studied preparation.'],
+              ['5. Change one variable at a time', 'If several supplements start together, it becomes difficult to know which one helped or caused side effects.'],
+              ['6. Escalate the evaluation, not the stack', 'If insomnia persists, the next step should be understanding the disorder — not automatically adding another sedative ingredient.'],
+            ].map(([title, copy]) => (
+              <article key={title} className="card-premium p-5">
+                <h3 className="font-semibold text-ink">{title}</h3>
+                <p className="mt-2 text-sm text-muted">{copy}</p>
+              </article>
             ))}
           </div>
         </section>
 
-        <section id="research" className="scroll-mt-20 space-y-5">
-          <p className="eyebrow-label">Evidence overview</p>
-          <h2 className="text-2xl font-semibold text-ink">What the research actually supports</h2>
+        <section className="card-premium space-y-4 p-6">
+          <p className="eyebrow-label">The Hippie Scientist verdict</p>
+          <h2 className="text-2xl font-semibold text-ink">The best sleep aid depends on the problem — and sometimes the best “aid” is not a supplement</h2>
           <p className="text-muted">
-            The labels below describe the clinical evidence for sleep outcomes, not how popular an
-            ingredient is. A plausible mechanism or a positive small trial is not the same as a proven
-            insomnia treatment. This is educational context, not personal medical advice.
+            For <strong className="text-ink">chronic insomnia</strong>, CBT-I has the strongest clinical-guideline case.<Cite n={1} /><Cite n={2} />
+            For <strong className="text-ink">circadian timing problems</strong>, melatonin is more biologically and clinically targeted than a generic sedative stack.<Cite n={9} /><Cite n={10} />
+            For people exploring supplements, <strong className="text-ink">L-theanine has a promising modern evidence signal</strong>, while magnesium, ashwagandha,
+            valerian, passionflower and glycine should be viewed as increasingly tentative rather than as interchangeable “natural sleeping pills.”
           </p>
-
-          <div className="space-y-3">
-            <article className="card-premium p-6">
-              <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium</Link>{' '}
-                <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Limited · Low certainty</span>
-              </h3>
-              <p className="mt-3 text-sm text-muted">
-                Magnesium is biologically relevant to sleep and deficiency matters, but supplementation
-                evidence for insomnia is not robust. A systematic review found only three randomized
-                trials in 151 older adults; sleep-onset latency improved in pooled analysis, while the
-                evidence quality was rated low to very low and total sleep time did not significantly
-                improve. That does not establish magnesium glycinate as the broadly best sleep aid or
-                prove a universal bedtime dose. See{' '}
-                <Link href="/guides/sleep/magnesium-for-sleep/" className="font-medium text-brand-700 hover:underline">magnesium for sleep</Link>{' '}
-                for the form, dose and safety discussion.
-              </p>
-            </article>
-
-            <article className="card-premium p-6">
-              <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>{' '}
-                <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Promising · Heterogeneous evidence</span>
-              </h3>
-              <p className="mt-3 text-sm text-muted">
-                The 2025 meta-analysis pooled randomized trials across participants of different ages and
-                health states: 19 articles included 897 people and 18 entered the meta-analysis. It found
-                small improvements in subjective sleep-onset latency, daytime dysfunction and overall
-                subjective sleep quality, but the authors specifically flagged the shortage of studies on
-                pure L-theanine and said dose and duration still need to be established. A separate 2026
-                review narrowed the question to 13 standalone L-theanine trials (550 participants), using
-                50–900 mg/day for periods ranging from a single dose to eight weeks; it found the evidence
-                more consistent for sleep-quality measures than total sleep time and noted limited, mixed
-                results in people meeting criteria for clinical insomnia. That supports a possible sleep
-                signal, not a guaranteed 30–60 minute onset or a validated insomnia protocol.
-              </p>
-            </article>
-
-            <article className="card-premium p-6">
-              <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/compounds/melatonin/" className="hover:underline">Melatonin</Link>{' '}
-                <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Best defined · Circadian timing</span>
-              </h3>
-              <p className="mt-3 text-sm text-muted">
-                Melatonin is a circadian signal rather than a conventional sedative. Its clearest use is
-                when sleep timing is misaligned, while effects for general insomnia are more modest and
-                depend on timing, formulation and population. Dose and timing should follow the specific
-                goal rather than a “more is better” rule. See{' '}
-                <Link href="/guides/compare/melatonin-vs-magnesium/" className="font-medium text-brand-700 hover:underline">melatonin vs magnesium</Link>{' '}
-                and{' '}
-                <Link href="/guides/sleep/magnesium-vs-melatonin/" className="font-medium text-brand-700 hover:underline">our magnesium vs melatonin guide</Link>{' '}
-                for the different mechanisms.
-              </p>
-            </article>
-
-            <article className="card-premium p-6">
-              <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/herbs/valerian/" className="hover:underline">Valerian root</Link>{' '}
-                <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Inconclusive · Subjective signal</span>
-              </h3>
-              <p className="mt-3 text-sm text-muted">
-                Valerian remains popular, but popularity is stronger than the insomnia evidence. A 2024
-                umbrella review found no demonstrated efficacy for treating insomnia, although some
-                reviews reported subjective sleep-quality improvement. Objective and quantitative results
-                remain inconsistent, and preparations vary substantially. Avoid presenting a particular
-                extract or treatment duration as reliably effective.
-              </p>
-            </article>
-
-            <article className="card-premium p-6">
-              <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/herbs/passionflower/" className="hover:underline">Passionflower</Link>{' '}
-                <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Preliminary · Small trial base</span>
-              </h3>
-              <p className="mt-3 text-sm text-muted">
-                Passionflower has preliminary human sleep data rather than a mature evidence base. In one
-                randomized placebo-controlled insomnia trial, total sleep time increased by about 23
-                minutes relative to placebo, while between-group differences for sleep efficiency and
-                wake-after-sleep-onset were not significant. That is a signal worth studying, not proof of
-                a reliable herbal insomnia treatment. <strong className="text-ink">Do not use passionflower during pregnancy:</strong>{' '}
-                NCCIH warns that it may induce uterine contractions. Read the full{' '}
-                <Link href="/guides/passionflower/" className="font-medium text-brand-700 hover:underline">passionflower guide</Link>{' '}
-                for preparation and safety context.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section id="sleep-herbs" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Herbal sleep aids</p>
-          <h2 className="text-2xl font-semibold text-ink">Best herbs for sleep and sleeplessness</h2>
           <p className="text-muted">
-            “Best” is too strong for most sleep herbs. Valerian has the largest review literature but
-            inconclusive insomnia efficacy; passionflower has smaller randomized trials with some
-            positive signals; lemon balm is commonly used in combination products, which makes its
-            independent effect harder to isolate. Treat tea rituals and traditional use as different
-            evidence from a controlled insomnia trial.
+            The edge is not finding the supplement with the loudest marketing. It is matching the right intervention to the right sleep problem and being honest about how certain the evidence actually is.
           </p>
-          <div className="grid gap-4 sm:grid-cols-3">
-            <Link href="/herbs/valerian/" className="card-premium block p-5 text-sm hover:border-brand-700/40">
-              <span className="block font-semibold text-ink">Valerian</span>
-              <span className="mt-2 block text-muted">Commonly used for sleep, with subjective signals but inconclusive evidence for treating insomnia.</span>
-            </Link>
-            <Link href="/herbs/passionflower/" className="card-premium block p-5 text-sm hover:border-brand-700/40">
-              <span className="block font-semibold text-ink">Passionflower</span>
-              <span className="mt-2 block text-muted">Preliminary randomized evidence suggests possible sleep benefits, but replication and stronger trials are needed. Avoid during pregnancy.</span>
-            </Link>
-            <Link href="/herbs/melissa-officinalis/" className="card-premium block p-5 text-sm hover:border-brand-700/40">
-              <span className="block font-semibold text-ink">Lemon balm</span>
-              <span className="mt-2 block text-muted">Often studied in combinations, so do not assume the effect of a multi-ingredient formula belongs to lemon balm alone.</span>
-            </Link>
-          </div>
         </section>
 
-        <section id="risks" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
-          <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
-          <ul className="space-y-2 text-sm text-amber-900">
-            <li>• Do not assume “natural” means interaction-free. Sedating supplements can add to the effects of alcohol, prescription sedatives or other products that impair alertness.</li>
-            <li>• <strong>Pregnancy:</strong> do not use passionflower; NCCIH warns that it may induce uterine contractions. Pregnancy and breastfeeding also change the safety calculation for other supplements, so review them individually.</li>
-            <li>• Supplemental magnesium can cause gastrointestinal effects, and impaired kidney function changes magnesium safety.</li>
-            <li>• Persistent insomnia, loud snoring with pauses, restless legs, significant mood symptoms or daytime exhaustion can point to a condition a supplement will not address.</li>
-          </ul>
-        </section>
-
-        <section id="mistakes" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-red-100 bg-red-50/60 p-6">
-          <h2 className="text-xl font-semibold text-red-900">Common mistakes to avoid</h2>
-          <ul className="space-y-2 text-sm text-red-800">
-            <li>• <strong>Treating study timing as guaranteed onset.</strong> Taking an ingredient 30–60 minutes before bed in a trial does not prove that everyone will feel an effect in that window.</li>
-            <li>• <strong>Turning a positive small study into a universal ranking.</strong> Population, formulation, dose and outcome measure all matter.</li>
-            <li>• <strong>Assuming stacks are established.</strong> Multi-ingredient products are not evidence that every pair of ingredients is synergistic.</li>
-            <li>• <strong>Ignoring persistent insomnia.</strong> Repeatedly adding supplements can delay finding a circadian, breathing, movement, medication, mood or behavioral contributor.</li>
-          </ul>
-        </section>
-
-        <References refs={BEST_NATURAL_SLEEP_AIDS_THAT_WORK_REFS} />
+        <References refs={REFS} />
 
         <section id="faq" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2>
@@ -347,13 +573,15 @@ export default function Page() {
         <EmailCapture location="guides-best-natural-sleep-aids-that-work" className="mt-6" />
 
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
+          <h2 className="text-2xl font-semibold text-ink">Related sleep guides &amp; evidence profiles</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/sleep/best-supplements-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Sleep →</Link>
+            <Link href="/guides/other/sleep-supplements-guide/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Sleep Supplements Guide →</Link>
             <Link href="/guides/sleep/magnesium-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Magnesium for Sleep →</Link>
-            <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
+            <Link href="/guides/sleep/glycine-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Glycine for Sleep →</Link>
             <Link href="/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Melatonin vs Valerian vs Magnesium →</Link>
-            <Link href="/guides/compare/sleep-herbs-vs-melatonin/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Sleep Herbs vs Melatonin →</Link>
+            <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
+            <Link href="/herbs/valerian/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Valerian Evidence Profile →</Link>
             <Link href="/guides/sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Sleep Guides →</Link>
           </div>
         </section>
