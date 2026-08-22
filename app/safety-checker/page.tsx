@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { WizardSkeleton } from '@/components/skeletons'
 import { buildToolPageSchemaGraph } from '../../src/lib/schema-graph'
@@ -69,52 +70,61 @@ export default async function SafetyCheckerPage() {
   })
 
   return (
-    <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-6xl space-y-6 px-4 pb-24 pt-4 sm:pt-6'>
       <SchemaGraphScript graph={schemaGraph} />
 
-      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-4'>
+      <Breadcrumbs
+        items={[
+          { href: '/', label: 'Home' },
+          { label: 'Safety Interaction Checker' },
+        ]}
+      />
+
+      <header className='hero-shell rounded-[2rem] border px-5 py-6 sm:p-8'>
         <p className='eyebrow-label'>Educational safety screen</p>
-        <h1 className='text-3xl font-bold tracking-tight text-ink sm:text-5xl mt-2'>
-          Safety Interaction Checker
-        </h1>
-        <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>
+        <h1 className='heading-premium mt-5 max-w-4xl'>Safety Interaction Checker</h1>
+        <p className='text-reading mt-4 max-w-3xl'>
           Screen a supplement stack for possible interaction patterns and overlapping cautions. The checker uses structured safety and mechanism signals to decide what deserves a closer look; it cannot determine whether a combination is safe for you or predict a clinical interaction.
         </p>
-      </section>
+      </header>
 
       <section className='grid gap-4 md:grid-cols-3' aria-label='How to use the supplement safety checker'>
-        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='text-base font-bold text-ink'>Start with your full list</h2>
-          <p className='mt-2 text-sm leading-6 text-muted'>
+        <article className='card-premium p-5 sm:p-6'>
+          <p className='eyebrow-label'>Step 1</p>
+          <h2 className='mt-3 text-lg font-semibold tracking-tight text-[color:var(--hs-ink)]'>Start with your full list</h2>
+          <p className='mt-3 text-sm leading-6 text-[color:var(--hs-body)]'>
             Add the herbs, supplements, compounds, and medication classes you are trying to reason about. The screen looks for repeated caution categories such as sedation, stimulation, blood-pressure effects, serotonergic signals, bleeding concerns, and other structured safety flags.
           </p>
         </article>
-        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='text-base font-bold text-ink'>Read flags, not permissions</h2>
-          <p className='mt-2 text-sm leading-6 text-muted'>
+        <article className='card-premium p-5 sm:p-6'>
+          <p className='eyebrow-label'>Step 2</p>
+          <h2 className='mt-3 text-lg font-semibold tracking-tight text-[color:var(--hs-ink)]'>Read flags, not permissions</h2>
+          <p className='mt-3 text-sm leading-6 text-[color:var(--hs-body)]'>
             No flag does not mean a stack is proven safe, and a flag does not prove an interaction will occur. Use the output to decide what to simplify, research more carefully, or review with a clinician or pharmacist.
           </p>
         </article>
-        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='text-base font-bold text-ink'>Escalate higher-risk contexts</h2>
-          <p className='mt-2 text-sm leading-6 text-muted'>
+        <article className='card-premium p-5 sm:p-6'>
+          <p className='eyebrow-label'>Step 3</p>
+          <h2 className='mt-3 text-lg font-semibold tracking-tight text-[color:var(--hs-ink)]'>Escalate higher-risk contexts</h2>
+          <p className='mt-3 text-sm leading-6 text-[color:var(--hs-body)]'>
             Prescription medications, pregnancy, breastfeeding, surgery, chronic disease, anticoagulants, antidepressants, sedatives, stimulants, and narrow-therapeutic-index medicines deserve medication-specific review rather than relying on a general supplement screen.
           </p>
         </article>
       </section>
 
-      <section className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-        <h2 className='text-xl font-bold tracking-tight text-ink'>What this checker can and cannot tell you</h2>
-        <div className='mt-4 grid gap-5 md:grid-cols-2'>
+      <section className='section-frame p-5 sm:p-6' aria-labelledby='safety-checker-boundaries'>
+        <p className='eyebrow-label'>Interpret the output</p>
+        <h2 id='safety-checker-boundaries' className='compact-heading mt-3'>What this checker can and cannot tell you</h2>
+        <div className='mt-5 grid gap-5 border-t border-[color:var(--hs-hairline)] pt-5 md:grid-cols-2'>
           <div>
-            <h3 className='text-sm font-bold uppercase tracking-wide text-emerald-800'>Useful for</h3>
-            <p className='mt-2 text-sm leading-6 text-muted'>
+            <h3 className='text-sm font-bold uppercase tracking-wide text-emerald-800 dark:text-emerald-300'>Useful for</h3>
+            <p className='mt-2 text-sm leading-6 text-[color:var(--hs-body)]'>
               Surfacing repeated caution categories, finding ingredient combinations that deserve a closer source check, comparing known safety notes, and identifying when a stack is becoming too complex to reason about from labels alone.
             </p>
           </div>
           <div>
-            <h3 className='text-sm font-bold uppercase tracking-wide text-rose-800'>Not a substitute for</h3>
-            <p className='mt-2 text-sm leading-6 text-muted'>
+            <h3 className='text-sm font-bold uppercase tracking-wide text-rose-800 dark:text-rose-300'>Not a substitute for</h3>
+            <p className='mt-2 text-sm leading-6 text-[color:var(--hs-body)]'>
               Medication-specific interaction checking, dose-specific risk assessment, individual side-effect prediction, diagnosis, or professional review of your medical history. The database can also miss interactions that are unknown, newly reported, or not captured by its rules.
             </p>
           </div>
@@ -128,27 +138,30 @@ export default async function SafetyCheckerPage() {
         />
       </Suspense>
 
-      <section className='rounded-2xl border border-emerald-900/10 bg-emerald-50/45 p-5 shadow-sm'>
+      <section className='section-frame p-5 sm:p-6' aria-labelledby='safety-checker-continue'>
         <p className='eyebrow-label'>Continue researching</p>
-        <h2 className='mt-2 text-xl font-bold tracking-tight text-ink'>Trace a flag back to the evidence</h2>
-        <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>
+        <h2 id='safety-checker-continue' className='compact-heading mt-3'>Trace a flag back to the evidence</h2>
+        <p className='mt-3 max-w-3xl text-sm leading-6 text-[color:var(--hs-body)]'>
           Use the Botanical Activity Atlas and ingredient profiles to inspect the chemistry, evidence strength, and source-specific safety notes behind a screening flag. For medication questions, use those pages as background for a clinician or pharmacist review rather than as a clearance tool.
         </p>
-        <div className='mt-4 flex flex-wrap gap-3'>
-          <Link href='/tools/botanical-activity-atlas/serotonergic-interaction-risk/' className='rounded-full bg-emerald-900 px-4 py-2 text-sm font-bold text-white transition hover:bg-emerald-800'>
+        <div className='mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap'>
+          <Link href='/tools/botanical-activity-atlas/serotonergic-interaction-risk/' className='button-primary inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-center text-sm font-bold'>
             Review serotonergic-signal botanicals
           </Link>
-          <Link href='/tools/botanical-activity-atlas/' className='rounded-full border border-emerald-900/20 bg-white px-4 py-2 text-sm font-bold text-emerald-900 transition hover:border-emerald-900/35'>
+          <Link
+            href='/tools/botanical-activity-atlas/'
+            className='inline-flex min-h-11 items-center justify-center rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--surface-card)] px-5 py-2.5 text-center text-sm font-bold text-[color:var(--hs-ink)] transition hover:border-[color:var(--hs-gold)] hover:text-[color:var(--hs-gold-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
+          >
             Open the complete atlas
           </Link>
         </div>
       </section>
 
-      <section className='rounded-2xl border border-rose-900/15 bg-rose-50/50 p-5 text-xs leading-relaxed text-rose-950'>
-        <p className='font-bold flex items-center gap-1.5'>
-          ⚠️ Educational screening limitation
-        </p>
-        <p className='mt-1.5'>
+      <section className='rounded-[1.25rem] border border-rose-900/15 bg-rose-50/50 p-5 text-xs leading-relaxed text-rose-950 dark:border-rose-300/20 dark:bg-rose-950/20 dark:text-rose-100' aria-labelledby='safety-screening-limitation'>
+        <h2 id='safety-screening-limitation' className='flex items-center gap-1.5 font-sans text-xs font-bold tracking-normal text-inherit'>
+          <span aria-hidden='true'>⚠️</span> Educational screening limitation
+        </h2>
+        <p className='mt-2'>
           This tool matches selected items against qualitative safety fields and rule-based overlap categories in the site database. It can surface possible concerns but cannot verify that an interaction will occur, rule out interactions, account for your dose or medical history, or replace medication-specific review. If you take prescription or over-the-counter medicines, share your complete medication and supplement list with a clinician or pharmacist before changing your regimen.
         </p>
       </section>
