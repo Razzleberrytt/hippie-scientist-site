@@ -74,6 +74,7 @@ function main() {
     CONFIRMED_MISATTRIBUTIONS.map((entry) => `${entry.profile}::${entry.pmid}`),
   )
   const misattributionsSeen = new Set()
+  const observedPmidProfiles = new Map()
 
   let filesChanged = 0
   let profilesInspected = 0
@@ -101,6 +102,11 @@ function main() {
         const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
         const doi = String(source.doi ?? '').trim()
         const url = String(source.url ?? '').trim()
+
+        if (pmid) {
+          if (!observedPmidProfiles.has(pmid)) observedPmidProfiles.set(pmid, new Set())
+          observedPmidProfiles.get(pmid).add(slug)
+        }
 
         if (!pmid && !doi && !url) {
           if (sourceId(source)) removedSourceIds.add(sourceId(source))
@@ -186,27 +192,27 @@ function main() {
     process.exit(1)
   }
 
-  // A hand-verified entry that matches nothing usually means it was already
-  // withdrawn by an earlier run — this script has to be idempotent, since the
-  // pipeline runs it on every build. So "not found now" only counts as stale if
-  // the previous report does not record it as withdrawn either. That keeps the
-  // guard meaningful (a citation known to be wrong cannot quietly return under
-  // a changed slug or PMID) without failing on a corpus that is already clean.
-  const previouslyWithdrawn = new Set()
-  if (fs.existsSync(REPORT_PATH)) {
-    try {
-      const previous = JSON.parse(fs.readFileSync(REPORT_PATH, 'utf8'))
-      for (const entry of previous.citations ?? []) {
-        const pmid = String(entry?.source?.pmid ?? entry?.source?.pubmedId ?? '').trim()
-        if (entry?.profile && pmid) previouslyWithdrawn.add(`${entry.profile}::${pmid}`)
-      }
-    } catch {
-      // A corrupt report is not evidence of anything; fall through to the strict check.
+  // A confirmed bad citation being absent is the desired steady state and must
+  // pass on a clean checkout. The old implementation depended on a gitignored
+  // previous-run report to prove prior withdrawal, so a deterministic rebuild
+  // failed even when the corpus was already clean. Preserve the useful drift
+  // guard instead: if the same hand-verified PMID reappears under a different
+  // profile, fail rather than silently treating the denylist entry as stale.
+  const movedMisattributions = []
+  for (const entry of CONFIRMED_MISATTRIBUTIONS) {
+    const key = `${entry.profile}::${entry.pmid}`
+    if (misattributionsSeen.has(key)) continue
+    const profiles = [...(observedPmidProfiles.get(entry.pmid) || [])]
+      .filter((profile) => profile !== entry.profile)
+      .sort()
+    if (profiles.length) {
+      movedMisattributions.push({
+        expectedProfile: entry.profile,
+        pmid: entry.pmid,
+        observedProfiles: profiles,
+      })
     }
   }
-  const unmatched = [...misattributionKeys].filter(
-    (key) => !misattributionsSeen.has(key) && !previouslyWithdrawn.has(key),
-  )
 
   if (!DRY_RUN && quarantined.length) {
     fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true })
@@ -234,9 +240,12 @@ function main() {
   console.log(`Claims dereferenced ${claimsDereferenced}  (kept, dangling ref dropped)`)
   if (quarantined.length && !DRY_RUN) console.log(`\nReport: ${path.relative(ROOT, REPORT_PATH)}`)
 
-  if (unmatched.length) {
-    console.error(`\n[quarantine-citations] FAILED — hand-verified entries matched nothing: ${unmatched.join(', ')}`)
-    console.error('Either the citation was already removed, or the profile/PMID changed. Re-verify before editing this list.')
+  if (movedMisattributions.length) {
+    console.error('\n[quarantine-citations] FAILED — confirmed bad PMID reappeared under a different profile:')
+    for (const row of movedMisattributions) {
+      console.error(`  PMID ${row.pmid}: expected denylist profile ${row.expectedProfile}; observed under ${row.observedProfiles.join(', ')}`)
+    }
+    console.error('Re-verify the moved citation before changing the denylist.')
     process.exit(1)
   }
 }
