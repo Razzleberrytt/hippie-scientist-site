@@ -9,7 +9,7 @@ import JsonLd from './JsonLd'
 
 type FAQItem = { question: string; answer: string }
 
-export default function FAQSchema({ questions, pagePath }: { questions: FAQItem[]; pagePath: string }) {
+export default function FAQSchema({ questions, pagePath }: { questions: readonly FAQItem[]; pagePath: string }) {
   if (!questions.length) return null
 
   const faqJsonLd = {

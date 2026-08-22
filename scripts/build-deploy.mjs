@@ -1,43 +1,11 @@
 #!/usr/bin/env node
 
 /**
- * Build Deploy Pipeline
+ * Production deployment pipeline for Cloudflare Pages.
  *
- * Streamlined build for production deployment to Cloudflare Pages
- * Includes ONLY essential steps needed for deployment.
- * Non-critical validation and audit steps are excluded.
- *
- * Usage: npm run build:deploy
- * Or: node scripts/build-deploy.mjs
- *
- * Steps executed in order:
- * 1. validate-article-quality (article quality gates)
- * 2. build-blog (blog post generation)
- * 3. build-articles (long-form article generation)
- * 4. build-runtime-from-workbook (data extraction)
- * 5. normalize-evidence-grades (canonical public evidence contract)
- * 6. build-related-runtime-maps (relationship maps)
- * 7. build-runtime-summary-indexes (search indexes)
- * 8. build-route-manifest (route discovery)
- * 9. build-internal-link-engine (semantic internal links)
- * 10. build-sitemap-manifest (SEO sitemap source manifest)
- * 11. build-export-batches (batch optimization)
- * 12. build-semantic-snapshots (snapshot generation)
- * 13. build-search-index (search document generation)
- * 14. build-production (next build)
- * 15. repair-broken-canonicals (replace deprecated canonical aliases in exported HTML)
- * 16. inject-content-depth-support (add route-aware supporting copy for low text/HTML pages)
- * 17. validate-structured-data-regressions (report known Semrush schema failures)
- * 18. apply-redirect-overrides (prepend exact audit-cleanup redirects)
- * 19. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
- * 20. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
- * 21. repair-static-blog-h1s (legacy static blog heading repair)
- * 22. build-pagefind (static search index)
- *
- * Time estimate: cold builds are dominated by Next static export and Pagefind;
- * warm builds skip cacheable generation steps when inputs and outputs match.
- * Savings come from deferring non-critical checks to npm run build:qa and
- * reusing unchanged generated artifacts.
+ * Critical invariant: the deploy must run the same governance stages that
+ * determine indexability in the full data pipeline before it regenerates
+ * summary indexes, route manifests, internal links, and the sitemap.
  */
 
 import { execSync } from 'child_process'
@@ -105,6 +73,53 @@ const steps = [
     outputs: ['public/data/herbs.json', 'public/data/compounds.json', 'ops/reports/evidence-grade-migration.json'],
     cacheable: false,
   },
+
+  // Keep production on the same canonical governance path as `data:build`.
+  // Before this sequence existed here, deploys regenerated summary indexes from
+  // raw workbook output and could collapse hundreds of publishable profiles to
+  // roughly ninety while the full data pipeline still produced ~350.
+  {
+    name: 'validate-sleep-evidence-engine',
+    cmd: 'node scripts/data/validate-sleep-evidence-engine.mjs --data-dir=public/data',
+    inputs: ['public/data/**/*', 'scripts/data/validate-sleep-evidence-engine.mjs'],
+    outputs: [],
+    cacheable: false,
+  },
+  {
+    name: 'postprocess-workbook-payloads',
+    cmd: 'node scripts/data/postprocess-workbook-payloads.mjs',
+    inputs: ['public/data/**/*', 'scripts/data/postprocess-workbook-payloads.mjs'],
+    outputs: ['public/data/**/*'],
+    cacheable: false,
+  },
+  {
+    name: 'apply-participant-counts',
+    cmd: 'node scripts/data/apply-participant-counts.mjs',
+    inputs: ['public/data/**/*', 'scripts/data/apply-participant-counts.mjs'],
+    outputs: ['public/data/**/*'],
+    cacheable: false,
+  },
+  {
+    name: 'quarantine-unverifiable-citations',
+    cmd: 'node scripts/data/quarantine-unverifiable-citations.mjs --data-dir=public/data',
+    inputs: ['public/data/**/*', 'scripts/data/quarantine-unverifiable-citations.mjs'],
+    outputs: ['public/data/**/*'],
+    cacheable: false,
+  },
+  {
+    name: 'apply-governance-overlay',
+    cmd: 'node scripts/data/apply-governance-overlay.mjs --data-dir=public/data',
+    inputs: ['public/data/**/*', 'scripts/data/apply-governance-overlay.mjs'],
+    outputs: ['public/data/**/*'],
+    cacheable: false,
+  },
+  {
+    name: 'sanitize-public-text-pre-index',
+    cmd: 'node scripts/data/sanitize-public-text.mjs --data-dir=public/data',
+    inputs: ['public/data/**/*.json', 'scripts/data/sanitize-public-text.mjs', 'lib/editorial-leak.mjs'],
+    outputs: ['public/data/**/*.json'],
+    cacheable: false,
+  },
   {
     name: 'build-related-runtime-maps',
     cmd: 'node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data',
@@ -112,10 +127,36 @@ const steps = [
     outputs: ['public/data/runtime-maps/related-profiles.json', 'public/data/runtime-maps/comparison-map.json', 'public/data/runtime-maps/comparison-recommendations.json', 'public/data/runtime-maps/entity-to-conditions.json', 'public/data/runtime-maps/stack-map.json'],
   },
   {
+    name: 'apply-pubmed-metadata',
+    cmd: 'npx tsx scripts/data/apply-pubmed-metadata.ts',
+    inputs: [
+      'ops/cache/pubmed-metadata.json',
+      'public/data/herbs-detail/**/*.json',
+      'public/data/compounds-detail/**/*.json',
+      'scripts/data/apply-pubmed-metadata.ts',
+    ],
+    outputs: ['public/data/herbs-detail/**/*.json', 'public/data/compounds-detail/**/*.json'],
+    cacheable: false,
+  },
+  {
     name: 'build-runtime-summary-indexes',
     cmd: 'node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data',
     inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'scripts/data/build-runtime-summary-indexes.mjs'],
     outputs: ['public/data/summary-indexes/herbs-summary.json', 'public/data/summary-indexes/compounds-summary.json', 'public/data/summary-indexes/search-index.json', 'public/data/summary-indexes/alphabetical-shards.json', 'public/data/summary-indexes/entity-shards.json', 'public/data/summary-indexes/alpha-entity-shards.json'],
+  },
+  {
+    name: 'validate-indexability-divergence',
+    cmd: 'node scripts/ci/report-indexability-divergence.mjs --data-dir=public/data',
+    inputs: ['public/data/summary-indexes/*.json', 'public/data/herbs-detail/**/*.json', 'public/data/compounds-detail/**/*.json', 'config/indexability-divergence-baseline.json', 'scripts/ci/report-indexability-divergence.mjs'],
+    outputs: [],
+    cacheable: false,
+  },
+  {
+    name: 'validate-production-indexability-budget',
+    cmd: 'node scripts/ci/validate-production-indexability-budget.mjs --data-dir=public/data',
+    inputs: ['public/data/summary-indexes/herbs-summary.json', 'public/data/summary-indexes/compounds-summary.json', 'config/indexability-production-budget.json', 'scripts/ci/validate-production-indexability-budget.mjs'],
+    outputs: [],
+    cacheable: false,
   },
   {
     name: 'build-route-manifest',
@@ -153,27 +194,9 @@ const steps = [
     cacheable: false,
   },
   {
-    // The production build parses the workbook but does not run the full
-    // `data:build` chain, so the payloads it ships are largely the ones
-    // committed to the repo. That is how internal editorial notes and
-    // governance rulings reached live pages: every step that removes them
-    // lived in a pipeline the deploy never ran. Enrichment is re-applied from
-    // the committed PubMed cache and the sanitizer runs last, immediately
-    // before the pages are rendered, so nothing upstream can reintroduce a
-    // leak into the deployed output.
-    name: 'apply-pubmed-metadata',
-    cmd: 'npx tsx scripts/data/apply-pubmed-metadata.ts',
-    inputs: [
-      'ops/cache/pubmed-metadata.json',
-      'public/data/herbs-detail/**/*.json',
-      'public/data/compounds-detail/**/*.json',
-      'scripts/data/apply-pubmed-metadata.ts',
-    ],
-    outputs: ['public/data/herbs-detail/**/*.json', 'public/data/compounds-detail/**/*.json'],
-    cacheable: false,
-  },
-  {
-    name: 'sanitize-public-text',
+    // A final sanitation pass occurs after every generated artifact is rebuilt so
+    // nothing downstream can reintroduce internal editorial text.
+    name: 'sanitize-public-text-final',
     cmd: 'node scripts/data/sanitize-public-text.mjs --data-dir=public/data',
     inputs: ['public/data/**/*.json', 'scripts/data/sanitize-public-text.mjs', 'lib/editorial-leak.mjs'],
     outputs: ['public/data/**/*.json'],
@@ -233,6 +256,20 @@ const steps = [
     cacheable: false,
   },
   {
+    name: 'canonicalize-internal-redirect-links',
+    cmd: 'node scripts/seo/canonicalize-internal-redirect-links.mjs',
+    inputs: ['out/**/*.html', 'out/_redirects', 'scripts/seo/canonicalize-internal-redirect-links.mjs'],
+    outputs: ['out/**/*.html'],
+    cacheable: false,
+  },
+  {
+    name: 'audit-internal-redirect-links',
+    cmd: 'node scripts/ci/audit-internal-redirect-links.mjs',
+    inputs: ['out/**/*.html', 'out/_redirects', 'scripts/ci/audit-internal-redirect-links.mjs'],
+    outputs: [],
+    cacheable: false,
+  },
+  {
     name: 'write-static-sitemap',
     cmd: 'node scripts/seo/write-static-sitemap.mjs',
     inputs: ['out/**/*.html', 'out/_redirects', 'scripts/seo/write-static-sitemap.mjs'],
@@ -264,7 +301,7 @@ const steps = [
 console.log(`
 ╔════════════════════════════════════════════════╗
 ║       Build Deploy Pipeline (Production)       ║
-║              Deployment-Critical Only           ║
+║              Deployment-Critical Only          ║
 ╚════════════════════════════════════════════════╝
 
 Executing ${steps.length} essential build steps...
@@ -275,8 +312,7 @@ let failed = false
 const executed = []
 
 for (const step of steps) {
-  process.stdout.write(`⏱️  ${step.name.padEnd(35)} ... `)
-
+  process.stdout.write(`⏱️  ${step.name.padEnd(38)} ... `)
   const stepStart = performance.now()
 
   try {
@@ -290,9 +326,7 @@ for (const step of steps) {
         executed.push({ ...step, cached: true, duration: 0 })
         continue
       }
-      if (!cachedResult && !outputsPresent) {
-        console.log('[CACHE OUTPUTS MISSING]')
-      }
+      if (!cachedResult && !outputsPresent) console.log('[CACHE OUTPUTS MISSING]')
     }
 
     execSync(step.cmd, {
@@ -305,7 +339,6 @@ for (const step of steps) {
     })
 
     const stepDuration = performance.now() - stepStart
-
     if (step.outputs && step.cacheable !== false) {
       await cache.markStepComplete(step.name, step.outputs, step.inputs || [])
     }

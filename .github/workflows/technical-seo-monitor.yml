@@ -9,6 +9,7 @@ on:
       - 'lib/**'
       - 'src/lib/**'
       - 'public/_redirects'
+      - 'public/redirect-overrides/**'
       - 'app/sitemap.ts'
       - 'app/robots.ts'
       - 'scripts/ci/audit-technical-seo-contract.mjs'
@@ -18,6 +19,7 @@ on:
     branches: [main]
     paths:
       - 'public/_redirects'
+      - 'public/redirect-overrides/**'
       - 'app/sitemap.ts'
       - 'app/robots.ts'
       - 'src/lib/seo.ts'
@@ -58,6 +60,13 @@ jobs:
         env:
           COMMIT_HASH: ${{ github.sha }}
         run: npm run build:deploy
+
+      # The deployed redirect contract is out/_redirects after
+      # apply-redirect-overrides has flattened and prepended the source fragments.
+      # Audit that file, not the pre-build public/_redirects seed, or legitimate
+      # canonical aliases appear as foreign-canonical pages with no redirect.
+      - name: Use deployment redirect contract
+        run: cp out/_redirects public/_redirects
 
       - name: Audit canonical, redirect, 404, and sitemap contract
         run: node scripts/ci/audit-technical-seo-contract.mjs

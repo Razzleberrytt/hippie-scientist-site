@@ -49,6 +49,11 @@ export const DEPRECATED_COMPOUND_CANONICALS: Record<string, string> = {
   elderberry: '/herbs/elderberry',
   resveratrol: '/herbs/resveratrol',
   'trans-resveratrol': '/herbs/resveratrol',
+  // Whole-botanical records belong in the herb library, not in /compounds/.
+  chamomile: '/herbs/matricaria-chamomilla',
+  fenugreek: '/herbs/trigonella-foenum-graecum',
+  lavender: '/herbs/lavandula-angustifolia',
+  'lemon-balm': '/herbs/melissa-officinalis',
 }
 
 // True when `slug` redirects to another browseable record. Same-taxonomy

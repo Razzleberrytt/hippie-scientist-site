@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import React from 'react'
 
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '../../src/lib/seo'
+import { serializeJsonLd } from '@/lib/schema-injector'
 import LastUpdatedBadge from '../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getFocusAdhdArticle, focusAdhdArticles } from '@/lib/focus-adhd-articles'
@@ -417,8 +418,8 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
 
   return (
     <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbLd) }} />
 
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
         <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
