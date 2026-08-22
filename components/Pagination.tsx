@@ -23,12 +23,12 @@ export default function Pagination({ basePath, currentPage, totalPages, itemLabe
   if (totalPages <= 1) return null
 
   const pages = visiblePages(currentPage, totalPages)
-  const linkClass = 'inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-700/30 hover:bg-[var(--surface-card-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40'
+  const linkClass = 'chip-readable inline-flex min-h-11 min-w-11 items-center justify-center px-3 text-sm font-semibold text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40'
 
   return (
     <nav
       aria-label={`${itemLabel} pagination`}
-      className="flex flex-col gap-3 rounded-[0.9rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-4"
+      className="section-frame flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between sm:px-5"
     >
       <p className="text-center text-sm font-semibold tabular-nums text-muted sm:text-left">
         Page <span className="text-ink">{currentPage}</span> of {totalPages}
@@ -45,7 +45,10 @@ export default function Pagination({ basePath, currentPage, totalPages, itemLabe
           <span key={page} className="contents">
             {index > 0 && page - pages[index - 1] > 1 ? <span className="px-1 text-muted" aria-hidden="true">…</span> : null}
             {page === currentPage ? (
-              <span aria-current="page" className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full bg-brand-800 px-3 text-sm font-bold text-white shadow-sm">
+              <span
+                aria-current="page"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-brand-800/20 bg-brand-800 px-3 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]"
+              >
                 <span className="sr-only">Page </span>{page}
               </span>
             ) : (
