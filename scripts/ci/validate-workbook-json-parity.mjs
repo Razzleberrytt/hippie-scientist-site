@@ -23,6 +23,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { readWorkbook, getSheet, sheetToRows } from '../data/workbook-parser.mjs'
+import { RESTRICTED_RUNTIME_TERMS } from '../data/restricted-runtime-terms.mjs'
 import { assertWorkbookExists, resolveWorkbookPath } from '../workbook-source.mjs'
 
 const repoRoot = process.cwd()
@@ -97,11 +98,82 @@ async function main() {
     .filter((slug) => slug && !workbookCompoundSlugs.has(slug))
     .sort()
 
+  // The reverse direction. Checking only for orphans in public/data catches a
+  // hand-edited JSON file, but not a workbook row that never reached runtime —
+  // a profile can be authored in the source of truth and silently never ship,
+  // and the parity gate would still pass.
+  const runtimeHerbSlugs = new Set(herbsJson.map((r) => clean(r.slug).toLowerCase()).filter(Boolean))
+  const runtimeCompoundSlugs = new Set(compoundsJson.map((r) => clean(r.slug).toLowerCase()).filter(Boolean))
+  // Controlled substances and DEA schedule-I material are parsed but
+  // deliberately withheld from runtime, so their absence is policy working, not
+  // a dropped record. The list is imported from the parser rather than copied,
+  // so parity cannot start reporting the gap between two copies of a policy.
+  const withheld = (slug) => {
+    const normalized = slug.replace(/-/g, ' ')
+    return RESTRICTED_RUNTIME_TERMS.some((term) => {
+      const normalizedTerm = String(term).toLowerCase().replace(/-/g, ' ')
+      return normalized === normalizedTerm || normalized.includes(normalizedTerm)
+    })
+  }
+
+  const missingHerbsAll = [...workbookHerbSlugs].filter((slug) => !runtimeHerbSlugs.has(slug)).sort()
+  const missingCompoundsAll = [...workbookCompoundSlugs].filter((slug) => !runtimeCompoundSlugs.has(slug)).sort()
+  const withheldCount = [...missingHerbsAll, ...missingCompoundsAll].filter(withheld).length
+  const missingHerbs = missingHerbsAll.filter((slug) => !withheld(slug))
+  const missingCompounds = missingCompoundsAll.filter((slug) => !withheld(slug))
+
+  // Duplicate slugs collapse records into each other during the build, so one
+  // profile silently overwrites another.
+  const duplicates = []
+  for (const [label, rows] of [['herb', herbsJson], ['compound', compoundsJson]]) {
+    const seen = new Set()
+    for (const row of rows) {
+      const slug = clean(row.slug).toLowerCase()
+      if (!slug) continue
+      if (seen.has(slug)) duplicates.push(`${label}:${slug}`)
+      seen.add(slug)
+    }
+  }
+
   console.log(`[validate-workbook-json-parity] Workbook: ${workbookHerbSlugs.size} herb rows, ${workbookCompoundSlugs.size} compound rows.`)
   console.log(`[validate-workbook-json-parity] public/data: ${herbsJson.length} herbs, ${compoundsJson.length} compounds.`)
+  console.log(`[validate-workbook-json-parity] Deliberately withheld (controlled substances): ${withheldCount}.`)
+
+  // A parity check that compared two empty sets would agree perfectly.
+  if (workbookHerbSlugs.size === 0 || workbookCompoundSlugs.size === 0 || herbsJson.length === 0 || compoundsJson.length === 0) {
+    console.error('[validate-workbook-json-parity] FAIL: one side of the comparison is empty, so parity means nothing.')
+    console.error(`  workbook herbs=${workbookHerbSlugs.size} compounds=${workbookCompoundSlugs.size}; runtime herbs=${herbsJson.length} compounds=${compoundsJson.length}`)
+    process.exit(1)
+  }
+
+  if (missingHerbs.length > 0 || missingCompounds.length > 0) {
+    console.error('[validate-workbook-json-parity] FAIL: these workbook rows never reached public/data.')
+    console.error('The workbook is the source of truth, so a row that does not ship is either a parse failure')
+    console.error('or a profile that was authored and silently dropped.')
+    if (missingHerbs.length > 0) {
+      console.error(`
+Herbs missing from runtime (${missingHerbs.length}):`)
+      for (const slug of missingHerbs.slice(0, 40)) console.error(`  - ${slug}`)
+      if (missingHerbs.length > 40) console.error(`  … and ${missingHerbs.length - 40} more`)
+    }
+    if (missingCompounds.length > 0) {
+      console.error(`
+Compounds missing from runtime (${missingCompounds.length}):`)
+      for (const slug of missingCompounds.slice(0, 40)) console.error(`  - ${slug}`)
+      if (missingCompounds.length > 40) console.error(`  … and ${missingCompounds.length - 40} more`)
+    }
+    process.exit(1)
+  }
+
+  if (duplicates.length > 0) {
+    console.error(`[validate-workbook-json-parity] FAIL: duplicate slugs in public/data (${duplicates.length}).`)
+    console.error('Records sharing a slug overwrite each other during the build.')
+    for (const entry of duplicates.slice(0, 40)) console.error(`  - ${entry}`)
+    process.exit(1)
+  }
 
   if (orphanHerbs.length === 0 && orphanCompounds.length === 0) {
-    console.log('[validate-workbook-json-parity] PASS: every herb/compound in public/data has a matching workbook row.')
+    console.log('[validate-workbook-json-parity] PASS: parity holds in both directions, no duplicate slugs.')
     return
   }
 

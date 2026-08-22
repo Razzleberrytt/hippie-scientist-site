@@ -19,6 +19,7 @@ import { cleanUserFacingText } from '../../lib/editorial-leak.mjs'
 import { validateEvidenceEnginePayload } from './evidence-engine-validation.mjs'
 import { getEvidenceEngineGoalConfigs, normalizeEvidenceProblemKey } from './evidence-engine-goals.mjs'
 import { deriveInteractionData, validate as validateInteractionData } from './build-interaction-data.mjs'
+import { RESTRICTED_RUNTIME_TERMS } from './restricted-runtime-terms.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -64,39 +65,6 @@ function clean(v) {
 
 function lower(v) { return clean(v).toLowerCase() }
 
-const RESTRICTED_RUNTIME_TERMS = [
-  '5-meo-dmt',
-  '5 meo dmt',
-  '7-hydroxymitragynine',
-  '7 hydroxymitragynine',
-  '7-oh-mitragynine',
-  '7 oh mitragynine',
-  '7-oh',
-  'amanita muscaria',
-  'anabasine',
-  'anatabine',
-  'dmt',
-  'hawaiian baby woodrose',
-  'harmaline',
-  'harmine',
-  'ibogaine',
-  'ketamine',
-  'kratom',
-  'lobeline',
-  'lsa',
-  'mescaline',
-  'mitragynine',
-  'morning glory',
-  'nicotiana glauca',
-  'nicotiana tabacum',
-  'noopept',
-  'psilocybin',
-  'salvinorin',
-  'sinicuichi',
-  'tetrahydroharmine',
-  'thc',
-  'thcv',
-]
 
 const RESTRICTED_STATUS_PATTERNS = [
   /schedule\s*i\b/i,
