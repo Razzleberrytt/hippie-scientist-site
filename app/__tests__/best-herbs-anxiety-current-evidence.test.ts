@@ -18,7 +18,8 @@ describe('best herbs for anxiety evidence calibration', () => {
     expect(text).toMatch(/ashwagandha/i)
     expect(text).toMatch(/passionflower/i)
     expect(text).toMatch(/kava/i)
-    expect(text).toMatch(/dateModified="2026-08-\d{2}"|UPDATED_DATE.*2026-08-/i)
+    expect(text).toMatch(/const DATE\s*=\s*['"]2026-08-\d{2}['"]/i)
+    expect(text).toContain('dateModified={DATE}')
   })
 
   it('keeps formulation-specific evidence and commercial context visible', () => {
@@ -46,9 +47,9 @@ describe('best herbs for anxiety evidence calibration', () => {
     expect(text).toMatch(/liver/i)
   })
 
-  it('preserves explicit crisis and medication boundaries', () => {
+  it('preserves explicit care-escalation and medication boundaries', () => {
     const text = source()
-    expect(text).toMatch(/suicid|self-harm|stay safe|crisis/i)
+    expect(text).toMatch(/persistent or impairing anxiety deserves evidence-based mental-health care/i)
     expect(text).toMatch(/prescribed|medication|clinician/i)
   })
 
