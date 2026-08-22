@@ -7,17 +7,21 @@
 /* Primary header: quiet editorial hardware rather than another content card. */
 .site-primary-nav {
   border-color: var(--border-soft);
-  background: color-mix(in srgb, var(--surface-elevated) 91%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 54%, transparent), transparent),
+    color-mix(in srgb, var(--surface-elevated) 91%, transparent);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.56) inset,
+    0 1px 0 rgba(255, 255, 255, 0.58) inset,
     0 14px 34px -34px rgba(29, 29, 31, 0.38);
   backdrop-filter: blur(20px) saturate(112%);
 }
 
 html.dark .site-primary-nav {
-  background: color-mix(in srgb, #101214 91%, transparent);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent),
+    color-mix(in srgb, #101214 91%, transparent);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.025) inset,
+    0 1px 0 rgba(255, 255, 255, 0.03) inset,
     0 18px 42px -34px rgba(0, 0, 0, 0.88);
 }
 
@@ -26,6 +30,22 @@ html.dark .site-primary-nav {
   font-family: var(--font-fraunces), Fraunces, Georgia, serif;
   font-weight: 610;
   letter-spacing: -0.025em;
+}
+
+/* The leaf becomes a subtle publication seal instead of a loose icon. */
+.site-primary-nav a[aria-label^='The Hippie Scientist'] .editorial-icon-disc {
+  border: 1px solid color-mix(in srgb, var(--hs-gold) 24%, var(--border-soft)) !important;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--hs-gold-soft) 20%, var(--surface-card-strong)), var(--surface-card)) !important;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 48%, transparent),
+    0 9px 18px -16px rgba(29, 29, 31, 0.34) !important;
+}
+
+html.dark .site-primary-nav a[aria-label^='The Hippie Scientist'] .editorial-icon-disc {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 10px 20px -16px rgba(0, 0, 0, 0.72) !important;
 }
 
 .site-primary-nav a[aria-label^='The Hippie Scientist'] svg {
@@ -44,20 +64,25 @@ html.dark .site-primary-nav {
 /* Mega menus use one restrained material language across every nav group. */
 .site-primary-nav .group > div > div {
   border-color: var(--border-soft);
-  background: color-mix(in srgb, var(--surface-elevated) 97%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 58%, transparent), transparent 8rem),
+    color-mix(in srgb, var(--surface-elevated) 97%, transparent);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.52) inset,
+    0 1px 0 rgba(255, 255, 255, 0.54) inset,
     0 24px 56px -34px rgba(29, 29, 31, 0.34);
 }
 
 html.dark .site-primary-nav .group > div > div {
-  background: #1a1d1f;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 8rem),
+    #1a1d1f;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.035) inset,
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
     0 28px 64px -34px rgba(0, 0, 0, 0.78);
 }
 
 .site-primary-nav .group > div > div > div {
+  border: 1px solid color-mix(in srgb, var(--border-soft) 72%, transparent);
   background: color-mix(in srgb, var(--surface-subtle) 72%, transparent);
 }
 
@@ -96,20 +121,28 @@ html.dark .locale-switcher-bar {
 
 #mobile-nav [role='dialog'] {
   border-color: var(--border-soft);
-  background: var(--surface-elevated);
-  box-shadow: -22px 0 62px rgba(0, 0, 0, 0.30);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 52%, transparent), transparent 11rem),
+    var(--surface-elevated);
+  box-shadow:
+    inset 1px 0 0 color-mix(in srgb, #fff 32%, transparent),
+    -22px 0 62px rgba(0, 0, 0, 0.30);
 }
 
 html.dark #mobile-nav [role='dialog'] {
-  background: #151719;
-  box-shadow: -24px 0 72px rgba(0, 0, 0, 0.74);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 11rem),
+    #151719;
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.025),
+    -24px 0 72px rgba(0, 0, 0, 0.74);
 }
 
 #mobile-nav a[aria-current='page'] {
   border-color: color-mix(in srgb, var(--hs-gold) 25%, transparent);
   background: color-mix(in srgb, var(--hs-gold-soft) 28%, var(--surface-card));
   color: var(--text-primary);
-  box-shadow: none;
+  box-shadow: inset 3px 0 0 color-mix(in srgb, var(--hs-gold) 72%, transparent);
 }
 
 /* Footer: a deliberate quiet ending with the same paper/brass material system. */
@@ -123,16 +156,29 @@ html.dark #mobile-nav [role='dialog'] {
   color: var(--text-primary);
 }
 
+.editorial-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--hs-gold) 10%, transparent), transparent);
+  opacity: 0.42;
+}
+
 .dark .editorial-footer {
   background:
     radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--hs-gold) 7%, transparent), transparent 36%),
     linear-gradient(180deg, rgba(28, 31, 33, 0.28), transparent 72%);
 }
 
+.editorial-footer > * {
+  position: relative;
+}
+
 .editorial-footer .editorial-icon-disc {
   border-color: color-mix(in srgb, var(--hs-gold) 24%, var(--border-soft));
   background: color-mix(in srgb, var(--hs-gold-soft) 24%, var(--surface-card));
-  box-shadow: none;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 36%, transparent);
 }
 
 .editorial-footer .editorial-eyebrow {
