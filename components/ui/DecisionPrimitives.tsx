@@ -27,17 +27,20 @@ export function DecisionEmptyState({
   actions: DecisionEmptyStateAction[]
 }) {
   return (
-    <div className="rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-4 shadow-sm sm:p-5">
-      <div className="max-w-2xl space-y-2">
+    <div className="section-frame p-5 sm:p-6">
+      <div className="max-w-2xl space-y-2.5">
         <p className="eyebrow-label">{eyebrow}</p>
         <h2 className="compact-heading">{title}</h2>
         <p className="text-sm leading-6 text-prose-soft sm:text-base">{description}</p>
         {currentScan ? (
-          <p className="text-sm leading-6 text-muted">Current scan: {currentScan}</p>
+          <p className="chip-readable inline-flex max-w-full px-3 py-1.5 text-sm leading-5 text-[var(--text-secondary)]">
+            <span className="mr-1.5 font-semibold text-[var(--text-muted)]">Current scan:</span>
+            <span className="min-w-0 break-words">{currentScan}</span>
+          </p>
         ) : null}
       </div>
 
-      <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+      <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
         {actions.map(action => (
           <Link
             key={`${action.href}-${action.label}`}
@@ -72,37 +75,44 @@ export function DecisionFilterGroup({
   open?: boolean
 }) {
   const itemClass = (active: boolean) =>
-    `inline-flex min-h-11 items-center justify-center rounded-full border px-3 py-2 text-center text-xs font-semibold leading-tight transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-[var(--surface-card)] text-[var(--text-secondary)] hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)] hover:text-ink'}`
+    `chip-readable inline-flex min-h-11 items-center justify-center px-3 py-2 text-center text-xs font-semibold leading-tight ${active ? 'border-brand-700/30 bg-brand-50 text-brand-900' : 'text-[var(--text-secondary)]'}`
   const activeContextLabel = activeFilter === 'all'
     ? null
     : options.find(option => option.value === activeFilter)?.label
 
   return (
-    <details className="group mt-3 rounded-[0.8rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-none" open={open || undefined}>
-      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/30 focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden">
+    <details className="surface-subtle group mt-3 p-3.5 sm:p-4" open={open || undefined}>
+      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-[0.85rem] px-1 text-sm font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/30 focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden">
         <span className="min-w-0">
           <span>Refine by context</span>
           {activeContextLabel ? (
             <span className="ml-2 font-semibold text-brand-800">· {activeContextLabel}</span>
           ) : null}
         </span>
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 16 16"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="size-4 shrink-0 text-brand-800 transition-transform group-open:rotate-180"
-        >
-          <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <span className="editorial-icon-disc size-8 shrink-0" aria-hidden="true">
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="size-4 text-brand-800 transition-transform group-open:rotate-180"
+          >
+            <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
       </summary>
-      <div className="mt-3 flex flex-wrap gap-2">
-        <Link href={buildHref('all', query)} className={itemClass(activeFilter === 'all')}>
+      <div className="mt-3 flex flex-wrap gap-2 border-t border-[color:var(--border-soft)] pt-3">
+        <Link href={buildHref('all', query)} className={itemClass(activeFilter === 'all')} aria-current={activeFilter === 'all' ? 'true' : undefined}>
           All contexts
         </Link>
         {options.map(option => (
-          <Link key={option.value} href={buildHref(option.value, query)} className={itemClass(activeFilter === option.value)}>
+          <Link
+            key={option.value}
+            href={buildHref(option.value, query)}
+            className={itemClass(activeFilter === option.value)}
+            aria-current={activeFilter === option.value ? 'true' : undefined}
+            title={option.hint}
+          >
             {option.label}
           </Link>
         ))}
@@ -135,7 +145,7 @@ export function DecisionProfileCard({
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-[0.9rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:border-brand-700/25 hover:bg-[var(--surface-card-strong)] hover:shadow-[0_6px_18px_rgba(16,32,24,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:hover:shadow-[0_6px_18px_rgba(0,0,0,0.25)]"
+      className="card-premium group flex h-full flex-col p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40"
     >
       <div className="flex flex-1 flex-col">
         <div className="flex min-w-0 flex-wrap items-start justify-between gap-3">
@@ -143,18 +153,18 @@ export function DecisionProfileCard({
             {name}
           </h3>
           {featured ? (
-            <span className={`${decisionStatusBadgeClass} shrink-0 border-brand-700/10 bg-brand-50 text-brand-800`}>
+            <span className={`${decisionStatusBadgeClass} shrink-0 border-brand-700/15 bg-brand-50 text-brand-800`}>
               Start here
             </span>
           ) : null}
         </div>
 
-        <p className="mt-1.5 line-clamp-2 text-sm leading-5 text-[var(--text-secondary)]">
+        <p className="mt-2 line-clamp-3 text-sm leading-5 text-[var(--text-secondary)]">
           {summary || fallbackSummary}
         </p>
 
         {bestForItems.length > 0 ? (
-          <div className="mt-2">
+          <div className="mt-3">
             <p className={`${decisionMicroLabelClass} mb-1.5 text-[var(--text-muted)]`}>Best for</p>
             <div className={decisionMetadataClusterClass}>
               {bestForItems.map((item, idx) => (
@@ -165,11 +175,15 @@ export function DecisionProfileCard({
         ) : null}
 
         {visibleMechanisms.length > 0 ? (
-          <p className="mt-2 border-t border-brand-900/10 pt-2 text-xs leading-5 text-[var(--text-secondary)]">
+          <p className="mt-3 border-t border-[color:var(--border-soft)] pt-3 text-xs leading-5 text-[var(--text-secondary)]">
             <span className={`${decisionMicroLabelClass} mr-1.5 text-[var(--text-muted)]`}>Mechanisms</span>
             {visibleMechanisms.join(' · ')}
           </p>
         ) : null}
+
+        <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-brand-800">
+          Open profile <span aria-hidden="true">→</span>
+        </span>
       </div>
     </Link>
   )
