@@ -14,12 +14,12 @@ const lines = txt
   .map(line => line.trim())
   .filter(line => line && !line.startsWith('#'))
 
-// Targets are the routes that actually build. The three legacy guide aliases
-// below used to expect /guides/<slug>/, which app/guides/[slug] does not
-// generate, so the assertion was passing while the redirect served a 404.
+// Targets are routes that actually build and represent the final canonical
+// destination. Required legacy rules must point directly at that destination,
+// never at an intermediate alias that itself redirects elsewhere.
 const requiredRedirects = [
   '/atom.xml /feed.xml 301',
-  '/natural-anxiolytics-beyond-ashwagandha /guides/anxiety/natural-anxiolytics-beyond-ashwagandha/ 301',
+  '/natural-anxiolytics-beyond-ashwagandha /guides/anxiety/best-herbs-for-anxiety/ 301',
   '/psychedelic-adjacent-herbs /guides/other/psychedelic-adjacent-herbs/ 301',
   '/sleep-herbs-vs-melatonin /guides/sleep/sleep-herbs-vs-melatonin/ 301',
   '/compounds/coq10 /compounds/coenzyme-q10/ 301',
@@ -67,6 +67,11 @@ const requiredRedirects = [
   '/compounds/elderberry /herbs/elderberry/ 301',
   '/compounds/resveratrol /herbs/resveratrol/ 301',
   '/compounds/trans-resveratrol /herbs/resveratrol/ 301',
+  '/compounds/chamomile /herbs/matricaria-chamomilla/ 301',
+  '/compounds/fenugreek /herbs/trigonella-foenum-graecum/ 301',
+  '/compounds/lavender /herbs/lavandula-angustifolia/ 301',
+  '/compounds/lemon-balm /herbs/melissa-officinalis/ 301',
+  '/herbs/schisandra-chinensis /herbs/schisandra/ 301',
   '/herbs/ashwagandha-withania-somnifera /herbs/ashwagandha/ 301',
   '/herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301',
   '/safety-checker /safety-checker/ 301',
@@ -114,9 +119,7 @@ if (missingRequiredRedirects.length) {
 }
 
 // Every redirect target must resolve to a page that was actually exported.
-// Three required rules previously pointed at /guides/<slug>/ routes that
-// app/guides/[slug] does not build, so the redirect resolved to a 404 — a
-// redirect into a dead end is worse than no redirect, because search engines
+// A redirect into a dead end is worse than no redirect, because search engines
 // keep the source URL in the index while it earns nothing.
 const targetsMissingPages = []
 for (const line of lines) {

@@ -55,10 +55,21 @@ const curated = {
  * Paths that 301 elsewhere. Their page is still exported, but it must ship
  * noindex regardless of what the record says — the canonical URL is the redirect
  * target, and Cloudflare serves the redirect before the static file anyway.
+ *
+ * Read the redirect file from the built artifact, not public/_redirects. The
+ * deploy pipeline prepends redirect overrides and flattens chains into
+ * out/_redirects after `next build`; auditing the source file misses exactly the
+ * production-only rules this check is supposed to understand.
  */
+const builtRedirectsPath = path.join(outDir, '_redirects')
+if (!fs.existsSync(builtRedirectsPath)) {
+  console.error('[profile-robots] missing out/_redirects — run the production build before auditing profile robots')
+  process.exit(1)
+}
+
 const redirectSources = new Set(
   fs
-    .readFileSync(path.join(repoRoot, 'public/_redirects'), 'utf8')
+    .readFileSync(builtRedirectsPath, 'utf8')
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter((line) => line && !line.startsWith('#'))
