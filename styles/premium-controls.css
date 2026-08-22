@@ -7,7 +7,11 @@
 .button-primary,
 .btn-primary {
   border: 1px solid #272729;
-  background: linear-gradient(180deg, #303033 0%, #242426 100%);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--brand-graphite) 91%, var(--brand-paper)),
+    var(--brand-graphite)
+  );
   color: #fffdf8;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.10),
@@ -22,8 +26,12 @@
 .button-primary:hover,
 .btn-primary:hover {
   transform: translateY(-1px);
-  border-color: #3a3a3d;
-  background: linear-gradient(180deg, #39393c 0%, #2d2d30 100%);
+  border-color: color-mix(in srgb, var(--brand-graphite) 84%, var(--brand-paper));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--brand-graphite) 82%, var(--brand-paper)),
+    color-mix(in srgb, var(--brand-graphite) 92%, var(--brand-paper))
+  );
   color: #fffdf8;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
@@ -61,7 +69,11 @@ html.dark .btn-primary {
 html.dark .button-primary:hover,
 html.dark .btn-primary:hover {
   border-color: var(--brand-brass-highlight);
-  background: linear-gradient(180deg, #e5c58a 0%, var(--brand-brass-highlight) 100%);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--brand-brass-highlight) 88%, var(--brand-paper)),
+    var(--brand-brass-highlight)
+  );
   color: #0e1011;
 }
 
