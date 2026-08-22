@@ -142,7 +142,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                   setShowDropdown(true)
                 }}
                 onFocus={() => setShowDropdown(true)}
-                aria-controls={SEARCH_RESULTS_ID}
+                aria-controls={showDropdown && searchQuery ? SEARCH_RESULTS_ID : undefined}
                 placeholder="Type to search (e.g. Rhodiola, Kanna)..."
                 className="min-h-11 w-full rounded-full border border-brand-900/10 bg-white/80 py-2 pl-10 pr-12 text-sm text-ink placeholder:text-muted transition focus:border-brand-700"
               />

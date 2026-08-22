@@ -86,6 +86,16 @@ try {
     env: { ...process.env, NODE_OPTIONS: '--max-old-space-size=4096', NEXT_TELEMETRY_DISABLED: '1' },
   })
 
+  // Some legacy guide templates still emit raw JSON-LD instead of the shared
+  // serializer. Normalize every exported JSON-LD payload at the deployment
+  // boundary so first-party Person/Organization entities always resolve to the
+  // canonical IDs without weakening schema truthfulness checks.
+  console.log('[build] Normalizing static schema identities...')
+  execSync('npx tsx scripts/seo/normalize-static-schema-identities.ts', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
   // The source-data gate proves structured invariants. This second gate proves
   // the user/crawler-visible HTML did not reintroduce placeholders, version
   // labels, debug strings or other internal-development language in templates.
