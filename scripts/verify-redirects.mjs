@@ -14,12 +14,12 @@ const lines = txt
   .map(line => line.trim())
   .filter(line => line && !line.startsWith('#'))
 
-// Targets are the routes that actually build. The three legacy guide aliases
-// below used to expect /guides/<slug>/, which app/guides/[slug] does not
-// generate, so the assertion was passing while the redirect served a 404.
+// Targets are routes that actually build and represent the final canonical
+// destination. Required legacy rules must point directly at that destination,
+// never at an intermediate alias that itself redirects elsewhere.
 const requiredRedirects = [
   '/atom.xml /feed.xml 301',
-  '/natural-anxiolytics-beyond-ashwagandha /guides/anxiety/natural-anxiolytics-beyond-ashwagandha/ 301',
+  '/natural-anxiolytics-beyond-ashwagandha /guides/anxiety/best-herbs-for-anxiety/ 301',
   '/psychedelic-adjacent-herbs /guides/other/psychedelic-adjacent-herbs/ 301',
   '/sleep-herbs-vs-melatonin /guides/sleep/sleep-herbs-vs-melatonin/ 301',
   '/compounds/coq10 /compounds/coenzyme-q10/ 301',
@@ -67,6 +67,11 @@ const requiredRedirects = [
   '/compounds/elderberry /herbs/elderberry/ 301',
   '/compounds/resveratrol /herbs/resveratrol/ 301',
   '/compounds/trans-resveratrol /herbs/resveratrol/ 301',
+  '/compounds/chamomile /herbs/matricaria-chamomilla/ 301',
+  '/compounds/fenugreek /herbs/trigonella-foenum-graecum/ 301',
+  '/compounds/lavender /herbs/lavandula-angustifolia/ 301',
+  '/compounds/lemon-balm /herbs/melissa-officinalis/ 301',
+  '/herbs/schisandra-chinensis /herbs/schisandra/ 301',
   '/herbs/ashwagandha-withania-somnifera /herbs/ashwagandha/ 301',
   '/herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301',
   '/safety-checker /safety-checker/ 301',
@@ -114,9 +119,7 @@ if (missingRequiredRedirects.length) {
 }
 
 // Every redirect target must resolve to a page that was actually exported.
-// Three required rules previously pointed at /guides/<slug>/ routes that
-// app/guides/[slug] does not build, so the redirect resolved to a 404 — a
-// redirect into a dead end is worse than no redirect, because search engines
+// A redirect into a dead end is worse than no redirect, because search engines
 // keep the source URL in the index while it earns nothing.
 const targetsMissingPages = []
 for (const line of lines) {
@@ -127,7 +130,6 @@ for (const line of lines) {
   if (/^https?:\/\//i.test(target)) {
     try {
       const url = new URL(target)
-      // Off-site targets are outside this repo's control.
       if (!/(^|\.)thehippiescientist\.net$/i.test(url.hostname)) continue
       pathname = url.pathname
     } catch {
@@ -147,19 +149,11 @@ for (const line of lines) {
 }
 
 if (targetsMissingPages.length) {
-  console.error(
-    `[verify-redirects] ${targetsMissingPages.length} redirect target(s) do not exist in ${staticDir}/:`,
-  )
-  for (const rule of targetsMissingPages.slice(0, 25)) {
-    console.error(`[verify-redirects]   ${rule}`)
-  }
+  console.error(`[verify-redirects] ${targetsMissingPages.length} redirect target(s) do not exist in ${staticDir}/:`)
+  for (const rule of targetsMissingPages.slice(0, 25)) console.error(`[verify-redirects]   ${rule}`)
   process.exit(1)
 }
 
-// A URL cannot be both advertised as canonical in the sitemap and redirected
-// away. This happens when a redirect is added to paper over a 404 and the page
-// is built later: `public/redirect-overrides/*` rules are *prepended* to
-// out/_redirects, so they win over everything and silently orphan the new page.
 const sitemapPath = path.join(staticDir, 'sitemap.xml')
 if (fs.existsSync(sitemapPath)) {
   const sitemapXml = fs.readFileSync(sitemapPath, 'utf8')
@@ -177,12 +171,9 @@ if (fs.existsSync(sitemapPath)) {
   for (const line of lines) {
     const [source, target = ''] = line.split(/\s+/)
     if (source.includes('*') || !source.startsWith('/')) continue
-
     const normalized = source.replace(/\/+$/, '') || '/'
     if (!sitemapPaths.has(normalized)) continue
 
-    // A rule that only adds the trailing slash is the canonicalization itself
-    // (`/safety-checker -> /safety-checker/`), not a redirect away from the page.
     let targetPath = target
     if (/^https?:\/\//i.test(target)) {
       try {
@@ -192,34 +183,18 @@ if (fs.existsSync(sitemapPath)) {
       }
     }
     if ((targetPath.replace(/\/+$/, '') || '/') === normalized) continue
-
     shadowed.push(line)
   }
 
   if (shadowed.length) {
-    console.error(
-      `[verify-redirects] ${shadowed.length} sitemap URL(s) are also redirect sources — they would 301 away from a page listed as canonical:`,
-    )
-    for (const rule of shadowed.slice(0, 25)) {
-      console.error(`[verify-redirects]   ${rule}`)
-    }
+    console.error(`[verify-redirects] ${shadowed.length} sitemap URL(s) are also redirect sources — they would 301 away from a page listed as canonical:`)
+    for (const rule of shadowed.slice(0, 25)) console.error(`[verify-redirects]   ${rule}`)
     process.exit(1)
   }
 }
 
-// Cloudflare does not follow redirect chains server-side: a rule whose target
-// is itself a redirect source costs crawlers and users a second round trip.
-// `normalize-redirects.mjs` flattens chains in public/_redirects, but it runs
-// before `apply-redirect-overrides.mjs` prepends the override rules — and a
-// prepended override that retires page B turns every existing `A -> B` rule
-// into a chain. Those chains only exist in the built file, so they are checked
-// here.
-// `:splat`/`:param` placeholders must not be resolved as literal routes. Match
-// a colon that starts a path segment so the `https://` protocol colon in the
-// absolute www rules is not mistaken for one.
 const hasPlaceholder = (value) => value.includes('*') || /(^|\/):[a-z]/i.test(value)
 
-/** Pathname of a redirect target, or null if it is not a route on our host. */
 const routeOfTarget = (target) => {
   if (target.startsWith('/')) return target.replace(/\/+$/, '') || '/'
   if (!/^https?:\/\//i.test(target)) return null
@@ -237,10 +212,7 @@ for (const line of lines) {
   const [source, target = '', status = ''] = line.split(/\s+/)
   if (!/^30[1278]$/.test(status)) continue
   if (hasPlaceholder(source) || !source.startsWith('/')) continue
-
   const normalized = source.replace(/\/+$/, '') || '/'
-  // A rule that only adds the trailing slash is the canonicalization itself
-  // (`/safety-checker -> /safety-checker/`), not a hop to a different page.
   if (routeOfTarget(target) === normalized) continue
   if (!redirectSourcePaths.has(normalized)) redirectSourcePaths.set(normalized, target)
 }
@@ -250,24 +222,17 @@ for (const line of lines) {
   const [source, target = '', status = ''] = line.split(/\s+/)
   if (!/^30[1278]$/.test(status)) continue
   if (hasPlaceholder(source) || hasPlaceholder(target)) continue
-
   const normalizedTarget = routeOfTarget(target)
   if (!normalizedTarget) continue
-
   const normalizedSource = source.replace(/\/+$/, '') || '/'
   if (normalizedTarget === normalizedSource) continue
-
   const nextHop = redirectSourcePaths.get(normalizedTarget)
   if (nextHop) chained.push(`${line}  ->  ${normalizedTarget} then redirects to ${nextHop}`)
 }
 
 if (chained.length) {
-  console.error(
-    `[verify-redirects] ${chained.length} redirect rule(s) point at another redirect source (multi-hop chain):`,
-  )
-  for (const rule of chained.slice(0, 25)) {
-    console.error(`[verify-redirects]   ${rule}`)
-  }
+  console.error(`[verify-redirects] ${chained.length} redirect rule(s) point at another redirect source (multi-hop chain):`)
+  for (const rule of chained.slice(0, 25)) console.error(`[verify-redirects]   ${rule}`)
   process.exit(1)
 }
 
