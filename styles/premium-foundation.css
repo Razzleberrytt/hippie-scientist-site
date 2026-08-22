@@ -1,6 +1,6 @@
 /* Premium structural foundation.
- * Owns only the global canvas and page measure. Decorative texture, palette,
- * elevation, and page-specific atmosphere belong to later canonical layers. */
+ * Owns the global canvas, restrained document-grain treatment, and page measure.
+ * Palette, elevation, and page-specific atmosphere belong to their canonical layers. */
 
 .hs-shell {
   position: relative;
