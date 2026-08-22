@@ -34,18 +34,18 @@ html.dark .site-primary-nav {
 
 /* The leaf becomes a subtle publication seal instead of a loose icon. */
 .site-primary-nav a[aria-label^='The Hippie Scientist'] .editorial-icon-disc {
-  border: 1px solid color-mix(in srgb, var(--hs-gold) 24%, var(--border-soft)) !important;
+  border: 1px solid color-mix(in srgb, var(--hs-gold) 24%, var(--border-soft));
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--hs-gold-soft) 20%, var(--surface-card-strong)), var(--surface-card)) !important;
+    linear-gradient(180deg, color-mix(in srgb, var(--hs-gold-soft) 20%, var(--surface-card-strong)), var(--surface-card));
   box-shadow:
     inset 0 1px 0 color-mix(in srgb, #fff 48%, transparent),
-    0 9px 18px -16px rgba(29, 29, 31, 0.34) !important;
+    0 9px 18px -16px rgba(29, 29, 31, 0.34);
 }
 
 html.dark .site-primary-nav a[aria-label^='The Hippie Scientist'] .editorial-icon-disc {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.035),
-    0 10px 20px -16px rgba(0, 0, 0, 0.72) !important;
+    0 10px 20px -16px rgba(0, 0, 0, 0.72);
 }
 
 .site-primary-nav a[aria-label^='The Hippie Scientist'] svg {
