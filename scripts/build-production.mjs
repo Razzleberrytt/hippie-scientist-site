@@ -19,6 +19,26 @@ for (const dir of [outPath, nextPath]) {
 }
 
 try {
+  // `data:build` intentionally applies PubMed metadata a second time after the
+  // derived/search artifacts are generated, then re-quarantines invalid or
+  // misattributed citations and sanitizes the affected public text. A direct
+  // deployment build must converge on that same final citation state before
+  // publication invariants run; otherwise CI and Cloudflare can disagree about
+  // which profiles are safe to index.
+  console.log('[build] Finalizing production citation integrity...')
+  execSync('npx tsx scripts/data/apply-pubmed-metadata.ts', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+  execSync('node scripts/data/quarantine-unverifiable-citations.mjs --data-dir=public/data', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+  execSync('node scripts/data/sanitize-public-text.mjs --data-dir=public/data', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
   // Publication invariants are deployment-critical. Before evaluating them,
   // project explicit claim/source provenance into the classifier surface so a
   // real linked human/safety/dose source is not rejected merely because its
