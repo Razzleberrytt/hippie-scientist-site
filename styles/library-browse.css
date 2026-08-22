@@ -1,0 +1,122 @@
+/* Route-scoped visual refinement for the primary Herbs and Compounds browse flows.
+ * This layer does not create new palette or surface primitives. It only normalizes
+ * legacy Tailwind neutral recipes inside the two library indexes onto the canonical
+ * premium tokens while the shared browse components migrate incrementally. */
+
+.library-browse-page {
+  --library-control-bg: color-mix(in srgb, var(--surface-card-strong) 72%, var(--surface-card));
+}
+
+.library-browse-page > .hero-shell {
+  border-color: var(--border-soft);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface-card-strong) 76%, transparent), transparent 62%),
+    var(--surface-card);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 52%, transparent),
+    0 18px 44px -38px rgba(29, 29, 31, 0.34);
+}
+
+html.dark .library-browse-page > .hero-shell {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 20px 48px -36px rgba(0, 0, 0, 0.7);
+}
+
+/* The library indexes still contain a handful of older neutral utility recipes.
+ * Scope their visual output to the canonical material system without touching
+ * semantic evidence/safety colors or other routes. */
+.library-browse-page [class*='border-brand-900/10'] {
+  border-color: var(--border-soft);
+}
+
+.library-browse-page [class*='bg-white/'],
+.library-browse-page [class*='fbfaf6'] {
+  background-color: var(--surface-card);
+}
+
+.library-browse-page [class*='text-[#33443a]'] {
+  color: var(--text-secondary);
+}
+
+.library-browse-page .shadow-sm {
+  box-shadow: var(--hs-lift);
+}
+
+.library-browse-page section.shadow-sm,
+.library-browse-page .hero-shell.shadow-sm {
+  border-radius: 1.25rem;
+}
+
+.library-browse-page a.shadow-sm,
+.library-browse-page div.shadow-sm {
+  border-radius: 1rem;
+}
+
+.library-browse-page [aria-labelledby$='-search-heading'] {
+  border-color: var(--border-soft);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 46%, transparent), transparent 8rem),
+    var(--surface-card);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 46%, transparent),
+    var(--hs-lift);
+}
+
+.library-browse-page [aria-labelledby$='-search-heading'] input[type='search'] {
+  border-color: var(--border-soft);
+  background: var(--library-control-bg);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 38%, transparent),
+    0 10px 24px -24px rgba(29, 29, 31, 0.35);
+}
+
+.library-browse-page [aria-labelledby$='-search-heading'] summary {
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-subtle) 72%, transparent);
+}
+
+.library-browse-page [aria-labelledby$='-search-heading'] details details {
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-subtle) 78%, var(--surface-card));
+}
+
+/* The compound index includes a secondary signal panel below the page H1.
+ * Keep it useful, but visually subordinate it to the actual page hero. */
+.library-browse-page .hero-shell.shadow-sm {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 34%, transparent), transparent 8rem),
+    color-mix(in srgb, var(--surface-subtle) 80%, var(--surface-card));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 40%, transparent),
+    0 14px 34px -32px rgba(29, 29, 31, 0.28);
+}
+
+html.dark .library-browse-page .hero-shell.shadow-sm,
+html.dark .library-browse-page [aria-labelledby$='-search-heading'] {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 16px 38px -30px rgba(0, 0, 0, 0.64);
+}
+
+/* Active neutral filters need a dark-theme material treatment. Evidence/safety
+ * badges keep their own semantic palettes and are intentionally not targeted. */
+html.dark .library-browse-page .bg-brand-50 {
+  background-color: color-mix(in srgb, var(--hs-forest) 24%, var(--surface-card));
+}
+
+html.dark .library-browse-page .text-brand-900,
+html.dark .library-browse-page .text-brand-800 {
+  color: color-mix(in srgb, var(--hs-gold) 58%, var(--text-primary));
+}
+
+.library-browse-page .animate-pulse {
+  animation-duration: 1.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .library-browse-page .animate-pulse {
+    animation: none;
+  }
+}
