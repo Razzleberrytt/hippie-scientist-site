@@ -1,176 +1,358 @@
 ---
 slug: creatine-brain-health
-title: "Creatine for Brain Health: Evidence for Cognition, Mood, and Aging"
-description: "Creatine is no longer just a gym supplement. Emerging evidence suggests benefits for cognitive function, mental fatigue, brain energy metabolism, and healthy aging. Here's what the research shows."
+title: "Creatine for Brain Health: Cognition, Sleep Loss, Mood & Safety — 2026 Review"
+description: "Evidence-first 2026 review of creatine for cognition, memory, sleep deprivation, depression, brain energy metabolism, kidney safety, and why sports dosing should not be converted into a universal nootropic protocol."
 date: '2026-06-30'
-updatedAt: '2026-06-30'
+updatedAt: '2026-08-22'
 author: Will
 category: Cognitive health
-evidence_grade: Moderate
+evidence_grade: mixed-human-evidence
 keywords:
   - creatine brain health
   - creatine cognitive function
+  - creatine memory
   - creatine mental fatigue
-  - creatine nootropic
-  - creatine for women
-  - creatine aging
+  - creatine sleep deprivation
   - creatine depression
+  - creatine nootropic
   - creatine brain fog
-  - creatine dosage brain
+  - creatine cognition evidence
 featured_image: ''
 tags:
   - creatine
   - brain health
-  - cognitive function
-  - nootropics
+  - cognition
+  - sleep deprivation
+  - mood
   - evidence review
 profile_status: published
-ai_assisted: false
-faqs:
-  - question: "Does creatine help with brain fog?"
-    answer: "Possibly. Creatine plays a key role in brain energy metabolism — neurons use creatine phosphate to rapidly regenerate ATP during periods of high cognitive demand. Studies in sleep-deprived and mentally fatigued individuals show creatine supplementation (5–20 g/day) can improve cognitive performance. In non-sleep-deprived, well-rested individuals, the cognitive benefits are less pronounced. It's most useful when your brain is under metabolic stress."
-  - question: "Should women take creatine?"
-    answer: "Yes. Women may actually benefit more from creatine for brain health than men, particularly for mood. A 2023 study found that women with major depressive disorder who added 5 g/day of creatine to their antidepressant saw significantly greater mood improvement than those on antidepressant alone. Women also tend to have lower baseline brain creatine levels, which may make supplementation more impactful."
-  - question: "What's the best creatine dose for brain health?"
-    answer: "The standard 5 g/day maintenance dose used for muscle is the most studied for brain health. Some cognitive studies used 20 g/day for short periods (loading phase). Unlike muscle, the brain is relatively resistant to creatine uptake — it produces some creatine endogenously and doesn't take up blood creatine as readily as muscle. This means effects may take longer to manifest (2–4 weeks) compared to muscle benefits."
+sitemap_included: true
+ai_assisted: true
 references:
+  - title: "The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis"
+    authors: "Xu C, Bi S, et al."
+    year: "2024"
+    pmid: "39070254"
+    url: "https://pubmed.ncbi.nlm.nih.gov/39070254/"
+  - title: "Creatine and improvement in cognitive function: Evaluation of a health claim"
+    authors: "EFSA Panel on Nutrition, Novel Foods and Food Allergens"
+    year: "2024"
+    pmid: "39564533"
+    doi: "10.2903/j.efsa.2024.9100"
+    url: "https://pubmed.ncbi.nlm.nih.gov/39564533/"
+  - title: "Single dose creatine improves cognitive performance and induces changes in cerebral high energy phosphates during sleep deprivation"
+    authors: "Gordji-Nejad A, et al."
+    year: "2024"
+    pmid: "38418482"
+    doi: "10.1038/s41598-024-54249-9"
+    url: "https://pubmed.ncbi.nlm.nih.gov/38418482/"
+  - title: "Effects of creatine supplementation on memory in healthy individuals: a systematic review and meta-analysis of randomized controlled trials"
+    authors: "Prokopidis K, et al."
+    year: "2023"
+    pmid: "35984306"
+    url: "https://pubmed.ncbi.nlm.nih.gov/35984306/"
+  - title: "Creatine supplementation for treating symptoms of depression: a systematic review and meta-analysis"
+    authors: "Eckert I, Lima J, Dariva AA"
+    year: "2025"
+    doi: "10.1017/S0007114525105588"
+    url: "https://doi.org/10.1017/S0007114525105588"
+  - title: "The Effect of Creatine Monohydrate on Mental Disorders: A Systematic Review of Randomized Controlled Trials"
+    authors: "Fares BJ, Zhou C, Fabiano N, et al."
+    year: "2026"
+    doi: "10.1177/07067437251408171"
+    url: "https://journals.sagepub.com/doi/10.1177/07067437251408171"
+  - title: "A randomized double-blind placebo-controlled trial of oral creatine monohydrate augmentation for enhanced response to a selective serotonin reuptake inhibitor in women with major depressive disorder"
+    authors: "Lyoo IK, et al."
+    year: "2012"
+    pmid: "22864431"
+    url: "https://pubmed.ncbi.nlm.nih.gov/22864431/"
+  - title: "Effect of creatine supplementation on kidney function: a systematic review and meta-analysis"
+    authors: "Naeini EK, Eskandari M, Mortazavi M, et al."
+    year: "2025"
+    doi: "10.1186/s12882-025-04558-6"
+    url: "https://link.springer.com/article/10.1186/s12882-025-04558-6"
   - title: "Creatine supplementation and cognitive function: a systematic review"
     authors: "Avgerinos KI, Spyrou N, Bougioukas KI, Kapogiannis D"
     year: "2018"
     pmid: "30086660"
     url: "https://pubmed.ncbi.nlm.nih.gov/30086660/"
-  - title: "Creatine for the treatment of depression: a systematic review and meta-analysis"
-    authors: "Toniolo RA, Pereira MCS, Fernandes FB, de Aguiar GF, Tavares H, Lafer B"
-    year: "2023"
-    pmid: "36805435"
-    url: "https://pubmed.ncbi.nlm.nih.gov/36805435/"
-  - title: "Oral creatine monohydrate supplementation improves brain performance"
-    authors: "Rae C, Digney AL, McEwan SR, Bates TC"
-    year: "2003"
-    pmid: "14561278"
-    url: "https://pubmed.ncbi.nlm.nih.gov/14561278/"
-  - title: "Creatine supplementation in women with major depressive disorder"
-    authors: "Lyoo IK, Yoon S, Kim TS, Lim SM, Choi Y, Kim JE, Hwang J, Jeong HS, Cho HB, Bae S, Hong S, Chung YA, Renshaw PF"
-    year: "2012"
-    pmid: "22864431"
-    url: "https://pubmed.ncbi.nlm.nih.gov/22864431/"
-  - title: "Beyond muscle: the effects of creatine supplementation on brain creatine, cognitive processing, and traumatic brain injury"
-    authors: "Dolan E, Gualano B, Rawson ES"
-    year: "2019"
-    pmid: "30552842"
-    url: "https://pubmed.ncbi.nlm.nih.gov/30552842/"
-  - title: "Effect of creatine supplementation on cognitive performance in young adults"
-    authors: "McMorris T, Mielcarz G, Harris RC, Swain JP, Howard A"
-    year: "2007"
-    pmid: "18059623"
-    url: "https://pubmed.ncbi.nlm.nih.gov/18059623/"
 ---
 
-
-## TL;DR
-
-**Creatine isn't just for muscles — it fuels brain energy metabolism.** Studies show 5 g/day improves cognitive performance under sleep deprivation, mental fatigue, and aging. Best for: brain fog during stress, cognitive aging, women augmenting depression treatment. Not a stimulant — effects build over 2–4 weeks. Evidence grade: Moderate for cognition under stress; preliminary for mood. **Full evidence below.**
-
-## Creatine Is Not Just for Muscles
-
-Creatine is best known as a gym supplement — and for good reason. It's one of the most extensively studied and consistently effective ergogenic aids, with hundreds of trials confirming it improves strength, power, and muscle mass when combined with resistance training.
-
-But creatine's primary biological function — serving as a rapid energy buffer through the creatine-phosphate system — is not limited to muscle. The brain is one of the most energetically demanding organs in the body, consuming roughly 20% of total energy despite being only 2% of body mass. Neurons use creatine phosphate to rapidly regenerate ATP during periods of high cognitive demand. And emerging research suggests that increasing brain creatine levels through supplementation may have measurable benefits for cognition, mental fatigue, mood, and brain health during aging.
-
-## How Creatine Works in the Brain
-
-Creatine's energy-buffering role in the brain is identical to its role in muscle:
-
-1. ATP (adenosine triphosphate) is the cell's immediate energy currency
-2. When a neuron fires rapidly, ATP is consumed and converted to ADP
-3. Creatine phosphate donates a phosphate group to ADP, rapidly regenerating ATP
-4. This keeps the neuron firing during sustained cognitive demand
-
-The brain also synthesizes some creatine endogenously, but supplementation can increase brain creatine levels — though less dramatically than in muscle, because the blood-brain barrier limits uptake. This is why brain effects may require longer supplementation periods (2–4 weeks) or higher doses than muscle effects.
-
-## Cognitive Performance: When It Helps Most
-
-A 2018 systematic review of creatine and cognitive function found that creatine supplementation improved cognitive performance primarily under conditions of **metabolic stress** — sleep deprivation, mental fatigue, hypoxia, or aging. In well-rested, healthy young adults under normal conditions, the cognitive benefits were minimal or non-significant.
-
-This pattern makes physiological sense: if your brain's energy systems are already operating at full capacity, adding more creatine doesn't help. But when those systems are strained — by lack of sleep, prolonged mental effort, or age-related decline — the extra energy buffer becomes meaningful.
-
-Key findings from the cognitive literature:
-
-- **Sleep deprivation:** Creatine (20 g/day for 24 hours, or 5 g/day for 6 weeks) reduced the cognitive performance decline typically seen with sleep loss (McMorris 2007, Rae 2003)
-- **Mental fatigue:** A 2003 study found that 5 g/day of creatine for 6 weeks significantly reduced mental fatigue during a demanding calculation task
-- **Vegetarians/vegans:** People who don't eat meat have lower baseline creatine levels and may benefit more from supplementation — several studies specifically found larger cognitive effects in vegetarians
-- **Aging:** Older adults show greater cognitive benefits from creatine than young adults, consistent with age-related declines in brain energy metabolism
-
-## Mood and Depression: Particularly for Women
-
-One of the more striking findings in creatine research is its potential role in depression, especially in women. A 2012 study from Harvard found that women with major depressive disorder who added 5 g/day of creatine to their SSRI antidepressant showed significantly greater improvement in depression scores over 8 weeks compared to women on SSRI + placebo — with effects emerging as early as week 2.
-
-A 2023 systematic review and meta-analysis of creatine for depression confirmed these findings: creatine augmentation of antidepressant treatment produced moderate-to-large effect sizes, with a stronger signal in women than men.
-
-The proposed mechanism involves creatine's role in brain energy metabolism. Depression is increasingly understood as involving mitochondrial dysfunction and impaired brain energy metabolism — particularly in the prefrontal cortex. By improving cellular energy availability, creatine may address one of the underlying metabolic components of depression, rather than acting through neurotransmitter modulation (as most antidepressants do). This makes it mechanistically complementary to standard treatments.
-
-## Brain Health and Aging
-
-A 2019 review on creatine and brain health identified several promising directions:
-
-- **Neuroprotection:** Creatine's energy-buffering role may protect neurons from energy failure during ischemic events, traumatic brain injury, and neurodegenerative processes
-- **Age-related cognitive decline:** Older adults show greater cognitive benefit from creatine, consistent with age-related declines in brain creatine levels and mitochondrial function
-- **TBI and concussion:** Preliminary studies suggest creatine may reduce cognitive symptoms following traumatic brain injury, though data is limited
-
-The evidence for neuroprotection is primarily mechanistic and from animal models — human prevention trials are lacking. But the safety profile and low cost of creatine make it an unusually attractive candidate for further research.
-
-## Practical Use for Brain Health
-
-| Parameter | Recommendation |
-|-----------|---------------|
-| **Form** | Creatine monohydrate (the most studied and cost-effective form) |
-| **Dose** | 5 g/day (standard maintenance) |
-| **Loading (optional)** | 20 g/day for 5–7 days, then 5 g/day maintenance |
-| **Duration to effect** | 2–4 weeks for cognitive effects, 2–8 weeks for mood |
-| **Timing** | Any time; consistency matters more than timing |
-| **Cost** | $10–20/month (creatine monohydrate is one of the cheapest supplements) |
-| **Hydration** | Creatine draws water into cells; maintain adequate hydration |
-
+> **Bottom line:** Creatine has a biologically plausible role in brain energy metabolism and **some real human cognitive signals**, but it is not a proven general-purpose nootropic. A 2024 meta-analysis found improvements in selected domains such as memory and processing speed, while an independent EFSA evidence review concluded that a cause-and-effect relationship for improved cognitive function in the general adult population had **not** been established. The most striking recent experiment used a **single very large research dose during 21 hours of sleep deprivation** and found better cognition plus measurable brain-energy changes. That is evidence for a stress-state effect—not a consumer dosing protocol. Depression evidence is also more cautious than older summaries suggested: a 2025 meta-analysis found a small-to-moderate average effect, but the estimated benefit was below the prespecified minimal important difference and certainty was very low.
 
 ![Creatine Brain Health](/images/guides/creatine-brain-health.jpg)
 
-**Who may benefit most:**
-- People under high cognitive demand or sleep restriction
-- Vegetarians and vegans (lower baseline creatine)
-- Women with depression (strongest mood evidence)
-- Older adults (>50) concerned about cognitive aging
-- Athletes in contact sports (theoretical neuroprotection)
+## At a glance
 
-**Who may not notice a difference:**
-- Well-rested, healthy young adults under normal conditions
-- People already eating high-meat diets (higher baseline creatine)
-
-## Safety
-
-Creatine monohydrate is one of the safest and most studied supplements available. Decades of research and widespread use have not identified significant adverse effects at standard doses (5 g/day). The most common side effect is mild GI discomfort, particularly at loading doses (20 g/day). Weight gain of 1–3 lbs from intramuscular water retention is common and expected — this is not fat gain.
-
-The longstanding myth that creatine damages kidneys has been thoroughly debunked by multiple long-term studies in healthy individuals. However, people with pre-existing kidney disease should consult a nephrologist before supplementing.
-
-## Bottom Line
-
-Creatine's expansion beyond the gym into brain health is supported by a growing and mechanistically coherent body of evidence. The benefits are context-dependent — most pronounced under metabolic stress (sleep deprivation, mental fatigue, aging, depression) — which aligns with its fundamental role as a cellular energy buffer.
-
-At $10–20/month with an excellent safety profile, creatine monohydrate is one of the most underrated nootropics. It won't produce an acute cognitive "boost" like caffeine, but for sustained brain energy and resilience under stress, it's worth considering — particularly for women, vegetarians, older adults, and anyone running on insufficient sleep.
+| Question | Evidence-first answer |
+|---|---|
+| Does creatine improve cognition in everyone? | **Not established.** Results vary by cognitive domain, population, dose, and metabolic stress. |
+| Memory | Some supportive meta-analytic evidence, with stronger signals in older adults than younger adults. |
+| Processing speed | A 2024 meta-analysis reported a favorable pooled signal. |
+| Executive function / global cognition | No consistent broad benefit established. |
+| Sleep deprivation | Promising. A 2024 crossover experiment found cognitive and brain-energy effects during acute sleep loss. |
+| Depression | **Promising but uncertain.** Newer meta-analysis: very-low-certainty evidence and average effect below a clinically important threshold. |
+| Brain aging / dementia prevention | Not established as a prevention strategy. |
+| TBI / concussion prevention | Mechanistically interesting; insufficient human outcome evidence for routine preventive claims. |
+| Kidney safety in healthy users | Updated meta-analysis found a small creatinine increase but no significant pooled reduction in GFR; very long-term data remain more limited. |
+| Universal brain dose | **No.** Study regimens vary widely, and high research doses should not be converted into a DIY cognitive protocol. |
 
 ---
 
+## What changed in the evidence picture
+
+Older summaries often told a neat story: creatine helps cognition mainly in vegetarians, older adults, or people under stress, and a standard gym-style daily dose can simply be reused for the brain.
+
+The newer literature is messier—and more useful.
+
+### 1. A 2024 meta-analysis found domain-specific benefits
+
+A 2024 systematic review and meta-analysis included **16 randomized controlled trials and 492 participants**. The pooled analysis reported favorable effects on some outcomes, including memory and information-processing speed, with less consistent evidence for other domains. [PubMed 39070254](https://pubmed.ncbi.nlm.nih.gov/39070254/)
+
+That supports saying that creatine **may improve selected cognitive outcomes**.
+
+It does not support saying that creatine reliably improves global cognition, executive function, attention, productivity, or “brain fog” in every healthy adult.
+
+### 2. EFSA independently reached a stricter conclusion
+
+In 2024, the European Food Safety Authority evaluated a proposed health claim for creatine and cognitive function. The panel reviewed the human intervention evidence and concluded that a **cause-and-effect relationship had not been established** for improvement in one or more cognitive domains in the general adult population. [PMID 39564533](https://pubmed.ncbi.nlm.nih.gov/39564533/)
+
+EFSA highlighted several reasons:
+
+- positive working-memory findings appeared mainly in a small number of high-dose short-duration studies;
+- effects were not reproduced consistently at lower doses;
+- a response-inhibition finding was isolated among many null outcomes;
+- disease-population trials did not establish a general cognitive effect;
+- and the overall mechanistic evidence was judged insufficient to rescue inconsistent clinical results.
+
+This does not mean the 2024 meta-analysis is “wrong.” It means **different evidence-synthesis frameworks can reach different levels of confidence** from the same heterogeneous literature.
+
+### 3. The sleep-deprivation experiment is unusually compelling—but unusually specific
+
+A 2024 randomized crossover study gave participants a single **0.35 g/kg dose of creatine monohydrate** during approximately 21 hours of sleep deprivation. Researchers used magnetic resonance spectroscopy alongside cognitive testing. Creatine altered brain high-energy phosphate measures and improved several cognitive-performance outcomes and processing speed versus placebo. [PMID 38418482](https://pubmed.ncbi.nlm.nih.gov/38418482/)
+
+This is some of the most direct human evidence connecting creatine, brain energetics, and cognitive performance.
+
+But it should be interpreted exactly as studied:
+
+- acute severe sleep deprivation;
+- one unusually high research dose;
+- laboratory cognitive tasks;
+- short follow-up;
+- no evidence that routinely repeating that dose is appropriate or safe;
+- no proof that the same effect occurs in a well-rested person doing ordinary work.
+
+**Research dose ≠ recommendation.**
+
+---
+
+## Cognition: useful signal, not a universal nootropic effect
+
+The strongest responsible summary is:
+
+> Creatine appears capable of affecting selected cognitive outcomes, especially in some older, metabolically stressed, sleep-deprived, or otherwise specific populations, but broad enhancement of cognition in healthy adults is not consistently established.
+
+### Memory
+
+A 2023 memory-specific meta-analysis found a small overall memory benefit, with a much larger subgroup signal in older adults than younger participants. [PMID 35984306](https://pubmed.ncbi.nlm.nih.gov/35984306/)
+
+That makes age a plausible effect modifier, but subgroup findings are not a guarantee that every older adult benefits or that creatine prevents dementia.
+
+### Vegetarians and vegans
+
+People consuming little or no meat may have lower dietary creatine intake. Some older trials reported larger cognitive effects in vegetarians, but this is not consistent enough to turn dietary pattern into a reliable response test.
+
+The safe conclusion is **possible effect modification**, not “vegetarians need creatine for their brain.”
+
+### Mental fatigue and “brain fog”
+
+“Brain fog” is not a single validated diagnosis. It can reflect sleep loss, medication effects, anemia, thyroid disease, mood disorders, infection, post-viral states, nutritional deficiency, sleep apnea, and many other causes.
+
+Creatine’s sleep-deprivation data make an energy-buffering hypothesis plausible. That does not justify using creatine as a catch-all treatment for unexplained cognitive symptoms.
+
+---
+
+## Depression: the older article overstated the certainty
+
+This page previously cited **PMID 36805435** as a creatine/depression systematic review. That PMID belongs to an unrelated randomized respiratory-strength-training trial in amyotrophic lateral sclerosis and should not have been used here.
+
+The current evidence is more nuanced.
+
+### 2025 depression meta-analysis
+
+A 2025 systematic review and meta-analysis pooled **11 trials / 1,093 participants**. The average standardized effect favored creatine, but certainty was rated **very low**. The estimated average benefit translated to approximately **2.2 points on the 17-item Hamilton Depression Rating Scale**, below the authors’ stated minimal important difference of 3 points. Heterogeneity was substantial, and bias analyses suggested that the apparent effect may be overestimated. [DOI 10.1017/S0007114525105588](https://doi.org/10.1017/S0007114525105588)
+
+The authors’ conclusion is a useful calibration: the true effect could be small, clinically unimportant, or even null.
+
+### 2026 mental-disorders systematic review
+
+A 2026 systematic review of randomized trials found only **five RCTs** across mental disorders, mostly major depressive disorder plus one bipolar-depression study. Some adjunctive trials were positive; others were not. Two participants receiving creatine in a very small bipolar-depression evidence set experienced hypomania/mania. [Sage review](https://journals.sagepub.com/doi/10.1177/07067437251408171)
+
+That means creatine should not be framed as a casual “mood supplement” or antidepressant substitute.
+
+### The 2012 women-with-MDD trial still matters—but does not establish a sex-wide rule
+
+The often-cited 2012 randomized trial enrolled women with major depressive disorder receiving an SSRI and found a larger improvement with adjunctive creatine than placebo over eight weeks. [PMID 22864431](https://pubmed.ncbi.nlm.nih.gov/22864431/)
+
+That is a meaningful signal in a defined treatment context.
+
+It does **not** prove that:
+
+- women generally benefit more than men from creatine;
+- healthy women should take creatine for mood;
+- creatine monotherapy treats major depression;
+- creatine can replace antidepressants;
+- or a study regimen should be copied without clinical supervision.
+
+---
+
+## Brain aging, neuroprotection, and TBI: mechanism runs ahead of clinical proof
+
+Creatine has an attractive neuroprotection story because the phosphocreatine system buffers cellular energy during metabolic stress. Animal and mechanistic studies have explored ischemia, neurodegeneration, oxidative stress, mitochondrial function, and traumatic brain injury.
+
+Those data are useful for **biological plausibility**.
+
+They do not establish that routine supplementation:
+
+- prevents Alzheimer’s disease;
+- prevents Parkinson’s disease;
+- prevents concussion;
+- reduces long-term dementia risk;
+- improves recovery after every TBI;
+- or should be used prophylactically by contact-sport athletes for brain protection.
+
+The correct label is **research interest**, not preventive efficacy.
+
+---
+
+## Brain creatine is harder to change than muscle creatine
+
+The brain both synthesizes creatine and regulates transport across the blood-brain barrier. Supplementation can alter brain creatine-related measures, but the response is smaller and less predictable than the increase seen in skeletal muscle.
+
+That matters because many online guides simply borrow muscle-supplement protocols and assume the brain follows the same time course.
+
+It does not.
+
+The 2024 sleep-deprivation study is particularly interesting because it suggests that **high energy demand may transiently change central creatine uptake or utilization**. But that experimental result should not be transformed into a high-dose consumer strategy.
+
+---
+
+## Why this page does not give a “brain-health dose”
+
+Creatine research uses many different regimens depending on the question:
+
+- multi-week daily supplementation;
+- short loading phases;
+- high-dose acute protocols;
+- psychiatric adjunctive regimens;
+- athletic protocols;
+- disease-specific trials.
+
+There is no single regimen validated across memory, depression, sleep deprivation, healthy aging, and mental fatigue.
+
+The prior version of this article recommended:
+
+- 5 g/day maintenance;
+- an optional 20 g/day loading phase;
+- a 2–4 week cognitive timeline;
+- and fixed “brain health” use guidance.
+
+Those statements were too prescriptive relative to the evidence and have been removed.
+
+A research dose describes how a study was conducted. It does not automatically become an evidence-based personal protocol.
+
+---
+
+## Kidney safety: creatinine can rise without measured GFR falling
+
+A 2025 systematic review and meta-analysis of kidney outcomes found a **small increase in serum creatinine** with creatine supplementation but no significant pooled change in glomerular filtration rate. [BMC Nephrology 2025](https://link.springer.com/article/10.1186/s12882-025-04558-6)
+
+This distinction matters because creatine supplementation can increase creatinine production, making creatinine-based kidney estimates harder to interpret.
+
+### What the updated evidence supports
+
+- In studied populations, creatine did not produce a significant pooled reduction in GFR.
+- Serum creatinine can rise modestly without demonstrating kidney injury.
+- Creatinine-only interpretation can therefore be misleading in someone using creatine.
+
+### What remains uncertain
+
+- Many trials are short to medium duration.
+- Very long-term safety data are less extensive than short-term sports data.
+- Existing kidney disease is not the same evidence context as healthy adults.
+- Kidney testing may need interpretation in light of supplement use.
+
+“Creatine never affects the kidneys” is too broad. “Creatine always damages kidneys” is also unsupported.
+
+---
+
+## Product and formulation boundary
+
+The brain literature overwhelmingly concerns **creatine monohydrate**.
+
+That does not establish that creatine hydrochloride, buffered creatine, creatine nitrate, gummies, proprietary nootropic blends, or other forms produce superior brain effects.
+
+If a product cites a creatine-monohydrate cognition study, the evidence applies most directly when:
+
+1. the same chemical form is used;
+2. the study exposure is comparable;
+3. the population is similar;
+4. the same outcome is being claimed.
+
+“Contains creatine” is not enough to inherit every creatine study.
+
+---
+
+## Evidence ledger
+
+| Claim | Current evidence grade | Why |
+|---|---|---|
+| Improves memory in some adults | **Limited–Moderate** | Meta-analytic signal, but age and study heterogeneity matter |
+| Improves processing speed | **Limited–Moderate** | Favorable pooled signal in 2024 synthesis |
+| Improves global cognition in healthy adults | **Uncertain** | EFSA found no established cause-and-effect relationship |
+| Helps during severe sleep deprivation | **Promising** | Direct 2024 physiology + cognition crossover study, but highly specific protocol |
+| Treats depression | **Insufficient as a stand-alone claim** | Very-low-certainty meta-analytic evidence; adjunctive signals are inconsistent |
+| Prevents dementia | **Not established** | No prevention trial evidence supporting that claim |
+| Prevents concussion/TBI | **Not established** | Human prevention evidence insufficient |
+| Damages healthy kidneys | **Not supported by current pooled GFR evidence** | 2025 meta-analysis showed no significant GFR reduction |
+| Has a universal brain-health dose | **No** | Regimens and outcomes are too heterogeneous |
+
+---
+
+## Final verdict
+
+Creatine is a rare supplement with both a very strong **muscle-performance evidence base** and a genuinely interesting **brain-research program**.
+
+But the strength of those two evidence bases is not equal.
+
+For the brain, the best current summary is:
+
+- **memory and processing-speed signals exist**;
+- **effects appear context-dependent**;
+- severe sleep deprivation is one of the most compelling experimental settings;
+- healthy-adult global cognitive enhancement is **not established**;
+- depression data are **promising but very uncertain**;
+- neuroprotection claims remain ahead of clinical proof;
+- and no universal cognitive dosing protocol has been validated.
+
+**Evidence grade: mixed human evidence, with stronger support for selected cognitive domains and stress-state performance than for a general nootropic effect.**
+
+That is more interesting—and more defensible—than calling creatine either “the most underrated nootropic” or “just a gym supplement.”
+
 ## References
 
-| # | Authors | Title | Journal | Year | PMID |
-|---|---------|-------|---------|------|------|
-| 1 | Avgerinos KI et al. | Creatine supplementation and cognitive function | Exp Gerontol | 2018 | [30086660](https://pubmed.ncbi.nlm.nih.gov/30086660/) |
-| 2 | Toniolo RA et al. | Creatine for depression: systematic review | J Affect Disord | 2023 | [36805435](https://pubmed.ncbi.nlm.nih.gov/36805435/) |
-| 3 | Rae C et al. | Oral creatine monohydrate improves brain performance | Proc R Soc B | 2003 | [14561278](https://pubmed.ncbi.nlm.nih.gov/14561278/) |
-| 4 | Lyoo IK et al. | Creatine supplementation in women with MDD | Am J Psychiatry | 2012 | [22864431](https://pubmed.ncbi.nlm.nih.gov/22864431/) |
-| 5 | Dolan E et al. | Creatine effects on brain creatine, cognition, and TBI | Sports Med | 2019 | [30552842](https://pubmed.ncbi.nlm.nih.gov/30552842/) |
-| 6 | McMorris T et al. | Creatine and cognitive performance in young adults | Psychopharmacology | 2007 | [18059623](https://pubmed.ncbi.nlm.nih.gov/18059623/) |
+1. [2024 systematic review/meta-analysis of creatine and adult cognitive function — PMID 39070254](https://pubmed.ncbi.nlm.nih.gov/39070254/)
+2. [EFSA 2024 evaluation of creatine and cognitive function — PMID 39564533](https://pubmed.ncbi.nlm.nih.gov/39564533/)
+3. [2024 sleep-deprivation creatine crossover with brain-energy spectroscopy — PMID 38418482](https://pubmed.ncbi.nlm.nih.gov/38418482/)
+4. [2023 memory meta-analysis — PMID 35984306](https://pubmed.ncbi.nlm.nih.gov/35984306/)
+5. [2025 depression meta-analysis — DOI 10.1017/S0007114525105588](https://doi.org/10.1017/S0007114525105588)
+6. [2026 systematic review of creatine in mental disorders](https://journals.sagepub.com/doi/10.1177/07067437251408171)
+7. [2012 adjunctive creatine trial in women with MDD — PMID 22864431](https://pubmed.ncbi.nlm.nih.gov/22864431/)
+8. [2025 kidney-function systematic review/meta-analysis](https://link.springer.com/article/10.1186/s12882-025-04558-6)
+9. [2018 systematic review of creatine and cognition — PMID 30086660](https://pubmed.ncbi.nlm.nih.gov/30086660/)
+
 ## Related Articles
 
-- [Lion's Mane vs Stimulants for ADHD](/articles/lions-mane-vs-stimulants-adhd/)
-- [Saffron for Depression](/articles/saffron-depression-evidence/)
-- [Ashwagandha: Stress, Sleep & the Evidence](/guides/herbs/ashwagandha/)
+- [Lion's Mane: Cognition, Mood, Dose & Evidence](/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/)
+- [Magnesium Glycinate: Sleep Evidence & Safety](/articles/magnesium-glycinate/)
+- [Supplement Safety Checklist](/info/supplement-safety-checklist/)
