@@ -82,6 +82,9 @@ jobs:
       - name: Build production static HTML from governed data
         run: node scripts/build-production.mjs
 
+      - name: Apply production redirect overrides
+        run: node scripts/seo/apply-redirect-overrides.mjs
+
       - name: Prove placeholders and dev language are absent from visible HTML
         run: node scripts/ci/audit-production-visible-language.mjs
 
