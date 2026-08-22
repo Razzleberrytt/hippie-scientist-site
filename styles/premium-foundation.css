@@ -9,20 +9,21 @@
   background: var(--hs-canvas);
 }
 
-/* A near-imperceptible paper grain keeps large neutral areas from feeling flat
- * without competing with scientific content. Existing dot tokens make the
- * treatment theme-aware and keep the visual vocabulary centralized. */
+/* A near-imperceptible paper grain keeps the upper document canvas from feeling
+ * flat without competing with scientific content or painting across very long
+ * research pages. Existing dot tokens keep it theme-aware and centralized. */
 .hs-shell::before {
   content: '';
   position: absolute;
   z-index: 0;
-  inset: 0;
+  inset: 0 0 auto;
+  height: 52rem;
   pointer-events: none;
   background-image: radial-gradient(circle, var(--hs-dot) 0.65px, transparent 0.7px);
   background-size: 18px 18px;
   opacity: var(--hs-dot-opacity);
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.62) 48%, transparent 96%);
-  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.62) 48%, transparent 96%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.56) 54%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.56) 54%, transparent 100%);
 }
 
 .hs-shell > header,
