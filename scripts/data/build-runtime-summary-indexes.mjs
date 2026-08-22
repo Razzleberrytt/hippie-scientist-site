@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { execFileSync } from 'node:child_process'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import {
@@ -258,6 +259,23 @@ async function main() {
       updated: citationReport.updated.length,
       missingDetails: citationReport.skippedMissingDetail.length,
     })
+
+    // Canonical citation export intentionally owns workbook-backed identifiers,
+    // but the workbook still contains legacy placeholder titles and a small set
+    // of records that have already been audited as unverifiable or misattributed.
+    // Finalize citations at this mutation boundary so every caller — including
+    // the fast CI build and the production deploy — sees the same clean corpus.
+    const quarantineTimer = createStageTimer('citation-quarantine')
+    await import('./quarantine-unverifiable-citations.mjs')
+    quarantineTimer.finish()
+
+    const pubmedTimer = createStageTimer('pubmed-metadata-reapply')
+    execFileSync(
+      process.execPath,
+      ['--import', 'tsx', 'scripts/data/apply-pubmed-metadata.ts'],
+      { stdio: 'inherit' },
+    )
+    pubmedTimer.finish()
   }
 
   const herbs = await readJson(path.join(DATA_DIR, 'herbs.json'))
