@@ -3,14 +3,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { requireBuildOutput } from '../lib/required-build-output.mjs'
+
 const root = process.cwd()
 const outDir = path.join(root, 'out')
 const assetExt = /\.(?:css|js|json|png|jpe?g|gif|webp|avif|svg|ico|txt|xml|map|woff2?)$/i
 
-if (!fs.existsSync(outDir)) {
-  console.log('[route-reference-integrity] SKIP: out/ not found')
-  process.exit(0)
-}
+requireBuildOutput({ name: 'route-reference-integrity', dir: outDir, minFiles: 200 })
 
 function walkHtml(dir, files = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {

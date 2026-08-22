@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 import fs from 'node:fs';import path from 'node:path'
 import fsPromises from 'node:fs/promises'
-const root=process.cwd(), outDir=path.join(root,'out'); if(!fs.existsSync(outDir)){console.log('[audit-seo-routes] SKIP: out/ not found. Run npm run build first.');process.exit(0)}
+
+import { requireBuildOutput } from '../lib/required-build-output.mjs'
+const root=process.cwd(), outDir=path.join(root,'out')
+requireBuildOutput({ name: 'audit-seo-routes', dir: outDir, minFiles: 200 })
 const FULL_HTML_AUDIT = process.env.FULL_HTML_AUDIT === '1' || process.env.CI === 'true';
 let files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(e.name.endsWith('.html'))files.push(f)}};walk(outDir)
 

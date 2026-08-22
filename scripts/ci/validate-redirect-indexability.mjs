@@ -21,6 +21,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { requireBuildOutput } from '../lib/required-build-output.mjs'
+
 const ROOT = process.cwd()
 const OUT_DIR = path.join(ROOT, 'out')
 const REDIRECTS = path.join(ROOT, 'public', '_redirects')
@@ -54,10 +56,7 @@ function isSlashNormalization(rule) {
 }
 
 function main() {
-  if (!fs.existsSync(OUT_DIR)) {
-    console.log('[redirect-indexability] SKIPPED — no out/ directory; run a build first.')
-    return
-  }
+  requireBuildOutput({ name: 'redirect-indexability', dir: OUT_DIR, minFiles: 200 })
 
   const violations = []
   for (const rule of parseRedirects()) {

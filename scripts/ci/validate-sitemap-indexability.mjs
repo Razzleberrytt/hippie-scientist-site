@@ -45,9 +45,16 @@ function pageFileFor(urlPath) {
 }
 
 function main() {
+  // The sitemap is the whole subject of this check; without it there is
+  // nothing to validate, and returning quietly reported a pass.
   if (!fs.existsSync(SITEMAP)) {
-    console.log('[sitemap-indexability] SKIPPED — no out/sitemap.xml; run a build first.')
-    return
+    if (process.argv.includes('--optional')) {
+      console.log('[sitemap-indexability] SKIPPED: no out/sitemap.xml and a skip was explicitly allowed.')
+      return
+    }
+    console.error('[sitemap-indexability] FAILED: no out/sitemap.xml, so no URL was inspected.')
+    console.error('Run `npm run build` first, or pass --optional if a skip is genuinely intended.')
+    process.exit(1)
   }
 
   const xml = fs.readFileSync(SITEMAP, 'utf8')
