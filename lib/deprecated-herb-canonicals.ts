@@ -26,6 +26,7 @@ export const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
   'atractylodes-macrocephala': 'atractylodes',
   'angelica-sinensis': 'dong-quai',
   'angelica-root': 'angelica-archangelica',
+  'schisandra-chinensis': 'schisandra',
   // Same plant split across two herb records. `saw-palmetto` is now the canonical
   // one: it was promoted through scripts/data/promote-profile.mjs (workbook
   // runtime_export_decision -> full_public_runtime, grounded on the CAMUS trial),
