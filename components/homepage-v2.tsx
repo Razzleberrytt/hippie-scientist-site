@@ -134,9 +134,12 @@ export default function HomepageV2() {
           </div>
 
           <div className='hs-comparison-list'>
-            {comparisons.map((comparison) => (
+            {comparisons.map((comparison, index) => (
               <Link key={comparison.href} href={comparison.href} className='hs-comparison-row'>
-                <span>
+                <span className='hs-comparison-index' aria-hidden='true'>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className='hs-comparison-copy'>
                   <strong>{comparison.label}</strong>
                   <small>{comparison.context}</small>
                 </span>
