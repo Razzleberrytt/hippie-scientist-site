@@ -7,3 +7,9 @@
 # canonical profile instead of leaving it as a 404.
 /herbs/cinnamon /herbs/cinnamomum-verum/ 301
 /herbs/cinnamon/ /herbs/cinnamomum-verum/ 301
+
+# These exported alias pages intentionally canonicalize to consolidated guides.
+# Make that relationship an HTTP redirect too, so crawlers never see an
+# indexable alias whose canonical points elsewhere.
+/articles/best-supplements-for-sleep/ /guides/sleep/best-supplements-for-sleep/ 301
+/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/ /guides/anxiety/best-herbs-for-anxiety/ 301
