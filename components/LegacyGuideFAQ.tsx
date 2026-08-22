@@ -6,7 +6,7 @@ type LegacyGuideFaqItem = {
 }
 
 type LegacyGuideFAQProps = {
-  questions: LegacyGuideFaqItem[]
+  questions: readonly LegacyGuideFaqItem[]
   pagePath: string
   /**
    * Where "Verify sources" points. Callers already pass this — five pages did
@@ -26,7 +26,7 @@ export default function LegacyGuideFAQ({ questions, pagePath, referencesHref = '
 
   return (
     <>
-      <FAQSchema pagePath={pagePath} questions={questions} />
+      <FAQSchema pagePath={pagePath} questions={[...questions]} />
       <section
         id="frequently-asked-questions"
         className="card-premium scroll-mt-24 p-6 space-y-4 max-w-4xl"
