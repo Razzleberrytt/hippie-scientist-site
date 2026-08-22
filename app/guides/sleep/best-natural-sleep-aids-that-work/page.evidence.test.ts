@@ -22,7 +22,7 @@ describe('natural sleep aids evidence discipline', () => {
     expect(source).toContain('https://pubmed.ncbi.nlm.nih.gov/41176609/')
     expect(source).toMatch(/19 articles and 897 participants/i)
     expect(source).toMatch(/13 standalone L-theanine trials \(550 participants\)/i)
-    expect(source).toMatch(/dose, duration and efficacy in clinical insomnia remain unsettled/i)
+    expect(source).toMatch(/dose, duration and efficacy in clinical insomnia\s+remain unsettled/i)
     expect(source).toMatch(/clinical-insomnia evidence remains limited/i)
   })
 
