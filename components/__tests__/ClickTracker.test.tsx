@@ -32,6 +32,7 @@ vi.mock('@/src/lib/loadAnalytics', () => ({
 afterEach(() => {
   mocks.getConsent.mockReset()
   mocks.trackLeadMagnetClick.mockReset()
+  vi.unstubAllGlobals()
 })
 
 describe('ClickTracker', () => {
@@ -68,5 +69,31 @@ describe('ClickTracker', () => {
     fireEvent.click(document.querySelector('a')!)
 
     expect(mocks.trackLeadMagnetClick).not.toHaveBeenCalled()
+  })
+
+  it('does not install affiliate impression observers before analytics consent', () => {
+    let consent = 'unknown'
+    mocks.getConsent.mockImplementation(() => consent)
+
+    const observe = vi.fn()
+    const disconnect = vi.fn()
+    const IntersectionObserverMock = vi.fn(() => ({
+      observe,
+      unobserve: vi.fn(),
+      disconnect,
+      takeRecords: vi.fn(() => []),
+      root: null,
+      rootMargin: '',
+      thresholds: [0, 0.5, 1],
+    }))
+    vi.stubGlobal('IntersectionObserver', IntersectionObserverMock)
+
+    render(<ClickTracker />)
+    expect(IntersectionObserverMock).not.toHaveBeenCalled()
+
+    consent = 'granted'
+    fireEvent(window, new Event('consent-granted'))
+
+    expect(IntersectionObserverMock).toHaveBeenCalledTimes(1)
   })
 })
