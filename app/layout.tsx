@@ -135,42 +135,42 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <BreadcrumbSchema />
         </EnglishOnly>
         <LocalizedSkipLink />
-        <DarkModeProvider>
-          <div className='hs-shell min-h-screen bg-background text-ink transition-colors duration-300'>
-            <header>
+        <div className='hs-shell min-h-screen bg-background text-ink transition-colors duration-300'>
+          <header>
+            <DarkModeProvider>
               <LocalizedNavigation />
-            </header>
+            </DarkModeProvider>
+          </header>
+          <EnglishOnly>
+            <Breadcrumbs />
+            <CommercialIntentBridge />
+          </EnglishOnly>
+          <main
+            id='main-content'
+            data-pagefind-body
+            className='pb-[calc(env(safe-area-inset-bottom)+2rem)] md:pb-8'
+            tabIndex={-1}
+          >
+            <GlobalTOC />
+            {children}
             <EnglishOnly>
-              <Breadcrumbs />
-              <CommercialIntentBridge />
+              <ContextualLeadMagnet />
             </EnglishOnly>
-            <main
-              id='main-content'
-              data-pagefind-body
-              className='pb-[calc(env(safe-area-inset-bottom)+2rem)] md:pb-8'
-              tabIndex={-1}
-            >
-              <GlobalTOC />
-              {children}
-              <EnglishOnly>
-                <ContextualLeadMagnet />
-              </EnglishOnly>
-            </main>
-            <EnglishOnly>
-              <Footer />
-            </EnglishOnly>
-            <LocalizedOnly>
-              <LocalizedFooter />
-            </LocalizedOnly>
-            <ScrollToTopButton />
-            <EnglishOnly>
-              <CitationDrawerLazy />
-            </EnglishOnly>
-            <ClickTracker />
-            <EmailReturnAttribution />
-            <ConsentBanner />
-          </div>
-        </DarkModeProvider>
+          </main>
+          <EnglishOnly>
+            <Footer />
+          </EnglishOnly>
+          <LocalizedOnly>
+            <LocalizedFooter />
+          </LocalizedOnly>
+          <ScrollToTopButton />
+          <EnglishOnly>
+            <CitationDrawerLazy />
+          </EnglishOnly>
+          <ClickTracker />
+          <EmailReturnAttribution />
+          <ConsentBanner />
+        </div>
       </body>
     </html>
   )
