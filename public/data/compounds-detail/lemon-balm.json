@@ -42,25 +42,7 @@
       "clm_f2e20bbcaca0"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_f2e20bbcaca0",
-      "claim": "v9.5: Meta-analysis found lemon balm improved anxiety and depression scores vs placebo; sleep claims should stay secondary unless direct sleep data is added.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Meta-analysis found lemon balm improved anxiety and depression scores vs placebo; sleep claims should stay secondary unless direct sleep data is added.",
-      "qualifiers": {
-        "direction": "anxiety, sleep",
-        "dose_or_duration": "Lemon balm dose varies by extract; clinical trials commonly use standardized Melissa officinalis preparations rather than loose tea",
-        "study_id": "ent_study_848e9fe402d2"
-      },
-      "sourceRefIds": [
-        "src_826d7cae36e1"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [

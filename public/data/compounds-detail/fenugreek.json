@@ -2,7 +2,7 @@
   "id": "fenugreek",
   "slug": "fenugreek",
   "name": "Fenugreek",
-  "summary": "Fenugreek entry from SciSpace evidence pass. Evidence level: moderate metabolic.",
+  "summary": "Fenugreek carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 1 in people. Recorded activity centres on metabolic regulation, hormonal signaling context and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy due to documented uterine-stimulant effects and birth-defect risk at supplemental doses.",
   "description": "Fenugreek is cataloged as saponin/alkaloid botanical. Reported mechanisms: glucose metabolism modulation; possible 5-alpha-reductase/aromatase effects preclinical.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_8004e1937486"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_8004e1937486",
-      "claim": "v9.6: Human evidence exists for libido/metabolic markers, but testosterone claims should remain conservative.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.6: Human evidence exists for libido/metabolic markers, but testosterone claims should remain conservative.",
-      "qualifiers": {
-        "direction": "metabolism, testosterone",
-        "dose_or_duration": "Fenugreek dose varies; many extracts use 500–600 mg/day in human studies",
-        "study_id": "ent_study_5dd4af3f84dd"
-      },
-      "sourceRefIds": [
-        "src_8fc841bf5035"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

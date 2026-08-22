@@ -2,8 +2,8 @@
   "id": "acetate",
   "slug": "acetate",
   "name": "acetate",
-  "summary": "acetate is tracked for short-chain fatty acid that activates FFAR2/3 to regulate appetite, insulin sensitivity, and lipid metabolism; short-chain with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
-  "description": "acetate is tracked for short-chain fatty acid that activates FFAR2/3 to regulate appetite, insulin sensitivity, and lipid metabolism; short-chain with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+  "summary": "acetate carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, glucose metabolism support and lipid metabolism support, which describes mechanism rather than demonstrated benefit. generally safe; excessive intake may cause GI irritation or enamel erosion.",
+  "description": "acetate compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",

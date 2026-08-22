@@ -2,7 +2,7 @@
   "id": "citrulline-malate",
   "slug": "citrulline-malate",
   "name": "Citrulline Malate",
-  "summary": "Decision-ready summary: Citrulline Malate is best framed for exercise pump; high-rep performance; blood-flow support; safety screen: hypotension; nitrate/PDE5 medication review.",
+  "summary": "Citrulline Malate carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on mitochondrial support, vascular function support and endothelial function support, which describes mechanism rather than demonstrated benefit. Noted cautions include limited data.",
   "description": "Citrulline Malate supports pump; endurance; blood flow with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_5ac824292899"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_5ac824292899",
-      "claim": "v9.2: Recent acute RCT used 4.4 g pre-workout; earlier performance studies often use higher 6–8 g dosing.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.2: Recent acute RCT used 4.4 g pre-workout; earlier performance studies often use higher 6–8 g dosing.",
-      "qualifiers": {
-        "direction": "blood_flow, performance",
-        "dose_or_duration": "4.4–8 g acute pre-workout citrulline malate, depending on study and product ratio",
-        "study_id": "ent_study_f529dbfb7ce3"
-      },
-      "sourceRefIds": [
-        "src_518c663921d5"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

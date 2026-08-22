@@ -1,8 +1,8 @@
 {
   "name": "Hypericum Perforatum",
   "slug": "hypericum-perforatum",
-  "summary": "Hypericum perforatum contains Hyperforin and is linked here to TRPC6 channel modulation.",
-  "description": "Hypericum perforatum contains Hyperforin and is linked here to TRPC6 channel modulation.",
+  "summary": "St. John's wort (Hypericum perforatum) is a yellow-flowered plant whose extracts contain hypericin and hyperforin and are used mainly for low mood. It is one of the best-evidenced herbal antidepressants: a large Cochrane systematic review found that St. John's wort was more effective than placebo and about as effective as standard antidepressants for major depression, with fewer side effects, though results varied and many trials came from German-speaking countries. Crucially, it speeds the breakdown of many medications, including birth-control pills, blood thinners, immunosuppressants, and some antidepressants and HIV drugs, so it can cause serious interactions and should not be combined with prescription drugs without medical advice.",
+  "description": "St. John's wort (Hypericum perforatum) is a yellow-flowered plant whose extracts contain hypericin and hyperforin and are used mainly for low mood. It is one of the best-evidenced herbal antidepressants: a large Cochrane systematic review found that St. John's wort was more effective than placebo and about as effective as standard antidepressants for major depression, with fewer side effects, though results varied and many trials came from German-speaking countries. Crucially, it speeds the breakdown of many medications, including birth-control pills, blood thinners, immunosuppressants, and some antidepressants and HIV drugs, so it can cause serious interactions and should not be combined with prescription drugs without medical advice.",
   "primaryActions": [
     "stress"
   ],

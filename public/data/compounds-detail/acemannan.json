@@ -40,40 +40,7 @@
       "clm_f4f72a5ce0f7"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_21dfca3e375e",
-      "claim": "Insufficient reliable evidence identified.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Insufficient reliable evidence identified.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_81aee27a4913"
-      },
-      "sourceRefIds": [
-        "src_641600177dcb"
-      ]
-    },
-    {
-      "id": "clm_f4f72a5ce0f7",
-      "claim": "Immunomodulatory/wound-healing (preclinical dominant).",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Immunomodulatory/wound-healing (preclinical dominant).",
-      "qualifiers": {
-        "direction": "needs_source_check",
-        "study_id": "ent_study_81aee27a4913"
-      },
-      "sourceRefIds": [
-        "src_641600177dcb"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -122,15 +89,7 @@
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
   "safety": "Safety evidence: one controlled human trial in a narrow clinical population. In a 48-week trial in 63 men with advanced HIV disease, oral acemannan had no significant adverse-event difference from placebo and no significant pharmacokinetic interaction with zidovudine; other populations, pregnancy, breastfeeding, organ impairment, and other medications remain insufficiently studied.",
-  "sources": [
-    {
-      "id": "src_641600177dcb",
-      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "note": "gap identification only; not used to populate factual fields",
-      "reviewStatus": "approved"
-    }
-  ],
+  "sources": [],
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [

@@ -46,40 +46,7 @@
       "clm_941d00c1691d"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_1b75464c37cd",
-      "claim": "Insufficient reliable evidence identified.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Insufficient reliable evidence identified.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_3fa04ace5d8c"
-      },
-      "sourceRefIds": [
-        "src_9857f95b8a14"
-      ]
-    },
-    {
-      "id": "clm_941d00c1691d",
-      "claim": "Venotonic for CVI (strong Cochrane-level extract evidence).",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Venotonic for CVI (strong Cochrane-level extract evidence).",
-      "qualifiers": {
-        "direction": "verified",
-        "study_id": "ent_study_3fa04ace5d8c"
-      },
-      "sourceRefIds": [
-        "src_9857f95b8a14"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -148,15 +115,7 @@
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
   "safety": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
-  "sources": [
-    {
-      "id": "src_9857f95b8a14",
-      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "note": "gap identification only; not used to populate factual fields",
-      "reviewStatus": "approved"
-    }
-  ],
+  "sources": [],
   "dosage": "standardized botanical extract capsule",
   "typical_dosage": "standardized botanical extract capsule",
   "contraindications": [

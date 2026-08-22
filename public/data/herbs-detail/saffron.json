@@ -1,8 +1,8 @@
 {
   "name": "Saffron",
   "slug": "saffron",
-  "summary": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
-  "description": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
+  "summary": "Saffron is the dried red stigmas of the Crocus sativus flower, whose carotenoid crocin and the volatile compound safranal are regarded as its main active constituents. Beyond culinary use, it is studied for mood: a meta-analysis of randomized clinical trials in adults with major depressive disorder found that saffron supplementation reduced depression symptoms relative to placebo and performed comparably to antidepressant medication in the trials reviewed. Most studies were small, short, and conducted in a single region, so larger independent trials are needed. Very high doses of saffron can be toxic.",
+  "description": "Saffron is the dried red stigmas of the Crocus sativus flower, whose carotenoid crocin and the volatile compound safranal are regarded as its main active constituents. Beyond culinary use, it is studied for mood: a meta-analysis of randomized clinical trials in adults with major depressive disorder found that saffron supplementation reduced depression symptoms relative to placebo and performed comparably to antidepressant medication in the trials reviewed. Most studies were small, short, and conducted in a single region, so larger independent trials are needed. Very high doses of saffron can be toxic.",
   "primaryActions": [
     "stress"
   ],

@@ -39,25 +39,7 @@
       "clm_74d806102cf5"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_74d806102cf5",
-      "claim": "v9.6: Nattokinase has mechanistic/cardiovascular marker evidence but bleeding-risk context blocks casual monetization.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.6: Nattokinase has mechanistic/cardiovascular marker evidence but bleeding-risk context blocks casual monetization.",
-      "qualifiers": {
-        "direction": "heart_health, circulation",
-        "dose_or_duration": "Nattokinase FU dose varies; product-specific fibrinolytic units must be disclosed",
-        "study_id": "ent_study_f5e86d30ae33"
-      },
-      "sourceRefIds": [
-        "src_0140e760e912"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

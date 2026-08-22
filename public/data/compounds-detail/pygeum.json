@@ -38,25 +38,7 @@
       "clm_86be0785f0bb"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_86be0785f0bb",
-      "claim": "v9.2: Older meta-analysis suggests possible BPH benefit, but a pygeum/nettle combination RCT showed placebo-like results.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.2: Older meta-analysis suggests possible BPH benefit, but a pygeum/nettle combination RCT showed placebo-like results.",
-      "qualifiers": {
-        "direction": "prostate_health",
-        "dose_or_duration": "Pygeum dose is product-specific; older studies often used extract preparations for ≥30 days",
-        "study_id": "ent_study_e1d1de48b3b4"
-      },
-      "sourceRefIds": [
-        "src_dd5ae5c1300e"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [

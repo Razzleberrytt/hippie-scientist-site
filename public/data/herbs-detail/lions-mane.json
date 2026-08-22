@@ -103,25 +103,7 @@
       "clm_2bf6f53036e4"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_2bf6f53036e4",
-      "claim": "v9.8: Lion's mane is promising but evidence is still small/emerging; keep below bacopa/citicoline for cognition.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.8: Lion's mane is promising but evidence is still small/emerging; keep below bacopa/citicoline for cognition.",
-      "qualifiers": {
-        "direction": "focus, cognition",
-        "dose_or_duration": "1–3 g/day fruiting-body powder or extract-equivalent in small human trials; product-specific dosing matters",
-        "study_id": "ent_study_f435022566a3"
-      },
-      "sourceRefIds": [
-        "src_79eae7626c5c"
-      ]
-    }
-  ],
+  "claimMap": [],
   "effects": [
     "cognitive",
     "neuroprotective",

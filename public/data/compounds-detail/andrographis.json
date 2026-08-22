@@ -39,25 +39,7 @@
       "clm_ba731cede1f9"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_ba731cede1f9",
-      "claim": "v8.2: Systematic reviews found Andrographis paniculata superior to placebo for uncomplicated upper respiratory infection symptom relief.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: Systematic reviews found Andrographis paniculata superior to placebo for uncomplicated upper respiratory infection symptom relief.",
-      "qualifiers": {
-        "direction": "immunity",
-        "dose_or_duration": "andrographis extract dosing varies by product; use standardized andrographolide-labeled products",
-        "study_id": "ent_study_d698d397ed42"
-      },
-      "sourceRefIds": [
-        "src_21d61628ee99"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [

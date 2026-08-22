@@ -2,7 +2,7 @@
   "id": "beta-glucans",
   "slug": "beta-glucans",
   "name": "Beta-glucans",
-  "summary": "Decision-ready summary: Beta-glucans is best framed for LDL cholesterol reduction; immune support; glycemic response; safety screen: immunosuppressants caution; GI bloating.",
+  "summary": "Beta-glucans carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. May cause GI symptoms; immune-modulation claims need cautious framing with immunosuppressant use.",
   "description": "Beta-glucans supports cholesterol; immune; fiber with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -41,25 +41,7 @@
       "clm_828d27ff727d"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_828d27ff727d",
-      "claim": "v8.2: Yeast beta-glucan has randomized evidence in URTI severity/incidence contexts, but product source matters.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: Yeast beta-glucan has randomized evidence in URTI severity/incidence contexts, but product source matters.",
-      "qualifiers": {
-        "direction": "immunity, heart_health",
-        "dose_or_duration": "yeast beta-glucan 900 mg/day studied for URTI severity; oat beta-glucan dosing differs for cholesterol",
-        "study_id": "ent_study_677b4643994d"
-      },
-      "sourceRefIds": [
-        "src_320c9c51472e"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

@@ -40,25 +40,7 @@
       "clm_94265c161b52"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_94265c161b52",
-      "claim": "v9.2: Chamomile has RCT evidence for generalized anxiety symptoms; sleep use should remain secondary/traditional unless direct sleep evidence is added.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.2: Chamomile has RCT evidence for generalized anxiety symptoms; sleep use should remain secondary/traditional unless direct sleep evidence is added.",
-      "qualifiers": {
-        "direction": "anxiety, sleep",
-        "dose_or_duration": "Chamomile extract 220–1500 mg/day in GAD trials; tea dosing is product-dependent",
-        "study_id": "ent_study_4daf121dddff"
-      },
-      "sourceRefIds": [
-        "src_2ab07cb6684b"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [

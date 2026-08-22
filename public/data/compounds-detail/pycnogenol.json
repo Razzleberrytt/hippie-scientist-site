@@ -40,25 +40,7 @@
       "clm_c41c217d7b6b"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_c41c217d7b6b",
-      "claim": "v9.2: Meta-analysis did not find significant BP benefit; endothelial-function evidence exists but claims should stay limited.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.2: Meta-analysis did not find significant BP benefit; endothelial-function evidence exists but claims should stay limited.",
-      "qualifiers": {
-        "direction": "heart_health",
-        "dose_or_duration": "Pycnogenol doses vary by trial; 100–200 mg/day often studied",
-        "study_id": "ent_study_d12006311e38"
-      },
-      "sourceRefIds": [
-        "src_4a4d5861f666"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [

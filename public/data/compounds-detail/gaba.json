@@ -3,7 +3,7 @@
   "slug": "gaba",
   "name": "GABA Oral",
   "summary": "Limited evidence for stress reduction.",
-  "description": "Oral GABA is tracked for stress-related outcomes, with biological plausibility tied to CNS inhibitory signaling; human evidence remains limited and mixed.",
+  "description": "Limited evidence for stress reduction.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Modulation",
@@ -41,25 +41,7 @@
       "clm_45e7572b4781"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_45e7572b4781",
-      "claim": "v9.5: Recent sleep data applies to L. plantarum Lp815 increasing urinary GABA, not generic GABA capsules; keep generic GABA blocked.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Recent sleep data applies to L. plantarum Lp815 increasing urinary GABA, not generic GABA capsules; keep generic GABA blocked.",
-      "qualifiers": {
-        "direction": "sleep, anxiety",
-        "dose_or_duration": "Product-specific GABA dosing varies; stronger evidence may exist for specific probiotic strains that affect GABA rather than generic GABA supplements",
-        "study_id": "ent_study_1f102f4dd916"
-      },
-      "sourceRefIds": [
-        "src_1ea4b8e52a2c"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

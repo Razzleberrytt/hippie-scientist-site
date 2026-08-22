@@ -2,7 +2,7 @@
   "id": "d-mannose",
   "slug": "d-mannose",
   "name": "D-Mannose",
-  "summary": "Decision-ready summary: D-Mannose is best framed for recurrent UTI prevention context; urinary tract adhesion support; safety screen: diabetes medication review; active UTI needs medical care.",
+  "summary": "D-Mannose carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on prevents bacterial adhesion (E. coli) to urinary tract epithelium., which describes mechanism rather than demonstrated benefit. Noted cautions include caution in diabetes.",
   "description": "D-mannose may reduce urinary pathogens’ ability to adhere to uroepithelium, aligning with UTI prevention use; clinical confidence varies across studies.",
   "compoundClass": "",
   "mechanisms": [
@@ -40,31 +40,13 @@
       "clm_13ff725ab524"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_13ff725ab524",
-      "claim": "v10.0: The 2024 JAMA Internal Medicine RCT used 2 g/day for 6 months in 598 women and found no significant prevention benefit; block monetized recommendation.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: The 2024 JAMA Internal Medicine RCT used 2 g/day for 6 months in 598 women and found no significant prevention benefit; block monetized recommendation.",
-      "qualifiers": {
-        "direction": "urinary_health",
-        "dose_or_duration": "2 g/day was tested for 6 months in a large UK primary-care RCT and did not significantly reduce medically attended recurrent UTI",
-        "study_id": "ent_study_be28edb67ffd"
-      },
-      "sourceRefIds": [
-        "src_9255cb1dfdee"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [
     {
       "id": "src_9255cb1dfdee",
-      "title": "v10.0: The 2024 JAMA Internal Medicine RCT used 2 g/day for 6 months in 598 women and found no significant prevention benefit; block monetized recommendation.",
+      "title": "",
       "url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2817488",
       "note": "human_rct",
       "studyType": "Randomized controlled trial",
@@ -72,7 +54,7 @@
     },
     {
       "id": "src_9255cb1dfdee-2",
-      "title": "v10.0: The 2024 JAMA Internal Medicine RCT used 2 g/day for 6 months in 598 women and found no significant prevention benefit; block monetized recommendation.",
+      "title": "",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11002776/",
       "note": "human_rct",
       "studyType": "Randomized controlled trial",
@@ -80,7 +62,7 @@
     },
     {
       "id": "src_9255cb1dfdee-3",
-      "title": "v10.0: The 2024 JAMA Internal Medicine RCT used 2 g/day for 6 months in 598 women and found no significant prevention benefit; block monetized recommendation.",
+      "title": "",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12471090/",
       "note": "human_rct",
       "studyType": "Randomized controlled trial",

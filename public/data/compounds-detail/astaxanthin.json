@@ -2,7 +2,7 @@
   "id": "astaxanthin",
   "slug": "astaxanthin",
   "name": "Astaxanthin",
-  "summary": "Decision-ready summary: Astaxanthin is best framed for skin photoaging support; oxidative stress; exercise recovery context; safety screen: pregnancy; hormone-sensitive medication review.",
+  "summary": "Astaxanthin carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and mitochondrial support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy or breastfeeding due to insufficient safety data.",
   "description": "Astaxanthin supports skin; oxidative stress; exercise recovery with moderate confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -41,25 +41,7 @@
       "clm_ed70e879f636"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_ed70e879f636",
-      "claim": "v8.2: Astaxanthin has RCT evidence for visual function and digital eye strain outcomes, with recent pediatric and adult data.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: Astaxanthin has RCT evidence for visual function and digital eye strain outcomes, with recent pediatric and adult data.",
-      "qualifiers": {
-        "direction": "eye_health, inflammation",
-        "dose_or_duration": "4–9 mg/day in visual function trials",
-        "study_id": "ent_study_ba597f13385b"
-      },
-      "sourceRefIds": [
-        "src_96a391c482c6"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

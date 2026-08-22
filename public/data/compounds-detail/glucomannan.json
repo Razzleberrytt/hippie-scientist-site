@@ -2,7 +2,7 @@
   "id": "glucomannan",
   "slug": "glucomannan",
   "name": "Glucomannan",
-  "summary": "Decision-ready summary: Glucomannan is best framed for satiety; LDL cholesterol support; constipation support; safety screen: swallowing difficulty; bowel obstruction; medication timing conflicts.",
+  "summary": "Glucomannan carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 4 in people. Findings across those studies disagree. Recorded activity centres on metabolic regulation, vascular function support and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Must be taken with adequate water; separate from medications if absorption timing matters.",
   "description": "Glucomannan supports satiety; fiber; cholesterol with moderate-high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -57,23 +57,6 @@
       },
       "sourceRefIds": [
         "src_143bc8055d65"
-      ]
-    },
-    {
-      "id": "clm_655eb71f68cc",
-      "claim": "v10.3: Glucomannan evidence for weight loss is mixed; strongest consumer value is fiber/satiety with strict water/choking cautions.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.3: Glucomannan evidence for weight loss is mixed; strongest consumer value is fiber/satiety with strict water/choking cautions.",
-      "qualifiers": {
-        "direction": "weight, gut_health",
-        "dose_or_duration": "About 2–4 g/day split before meals with plenty of water; follow product-specific instructions",
-        "study_id": "ent_study_243c35c6fb2d"
-      },
-      "sourceRefIds": [
-        "src_cc31fbab8401"
       ]
     },
     {

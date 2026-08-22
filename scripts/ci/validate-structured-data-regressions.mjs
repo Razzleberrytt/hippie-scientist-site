@@ -2,6 +2,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { requireBuildOutput } from '../lib/required-build-output.mjs'
+
 const root = process.cwd()
 const outDir = path.join(root, 'out')
 const strictMode = process.env.STRICT_STRUCTURED_DATA_REGRESSIONS === '1'
@@ -100,10 +102,7 @@ function validateNode(node, route, blockIndex, objectPath, errors) {
   }
 }
 
-if (!fs.existsSync(outDir)) {
-  console.log('[validate-structured-data-regressions] SKIP: out/ not found. Run a build first.')
-  process.exit(0)
-}
+requireBuildOutput({ name: 'validate-structured-data-regressions', dir: outDir, minFiles: 200 })
 
 const errors = []
 let routeCount = 0

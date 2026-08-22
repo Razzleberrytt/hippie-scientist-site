@@ -1,8 +1,8 @@
 {
   "name": "Serenoa Repens",
   "slug": "serenoa-repens",
-  "summary": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
-  "description": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
+  "summary": "Saw palmetto (Serenoa repens) is a dwarf palm whose berry extract, rich in fatty acids and phytosterols, is widely sold for prostate symptoms. Despite its popularity, the evidence does not support it: a large Cochrane systematic review found that saw palmetto, even at double and triple the usual dose, did not improve urinary flow, night-time urination, or overall symptoms of benign prostatic enlargement compared with placebo. It is generally well tolerated, but men with urinary symptoms should be evaluated by a clinician rather than relying on it.",
+  "description": "Saw palmetto (Serenoa repens) is a dwarf palm whose berry extract, rich in fatty acids and phytosterols, is widely sold for prostate symptoms. Despite its popularity, the evidence does not support it: a large Cochrane systematic review found that saw palmetto, even at double and triple the usual dose, did not improve urinary flow, night-time urination, or overall symptoms of benign prostatic enlargement compared with placebo. It is generally well tolerated, but men with urinary symptoms should be evaluated by a clinician rather than relying on it.",
   "primaryActions": [
     "stress"
   ],

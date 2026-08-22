@@ -284,7 +284,7 @@
     },
     {
       "id": "clm_2b80926fbb9a",
-      "claim": "Rhodiola may reduce some symptoms of stress-related or mental fatigue in selected populations, but the clinical literature is heterogeneous and frequently at risk of bias; the effect should be framed as preliminary rather than established.",
+      "claim": "Rhodiola may reduce some symptoms of stress-related or mental fatigue in selected populations, but the clinical literature is heterogeneous and frequently at risk of bias.",
       "predicate": "supports_outcome",
       "evidenceLevel": "human_obs",
       "confidence": 0.72,

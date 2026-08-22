@@ -1,8 +1,8 @@
 {
   "name": "Curcumin",
   "slug": "curcumin",
-  "summary": "Curcumin is tracked for fat_loss,inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-  "description": "Curcumin is tracked for fat_loss,inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "summary": "Curcumin (Curcuma longa) carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 11 recorded studies, 8 in people. No disagreement is recorded across them. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and NF-kB modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include anticoagulants.",
+  "description": "Curcumin botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "anti-inflammatory",
     "analgesic"
@@ -60,20 +60,6 @@
       "doi": "10.1080/10408398.2015.1077195",
       "studyType": "Narrative review",
       "studyClass": "narrative-review",
-      "metadataSource": "pubmed"
-    },
-    {
-      "id": "src_690ac9bb5f89",
-      "title": "Impact of the 'Artful Moments' Intervention on Persons with Dementia and Their Care Partners: a Pilot Study",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27403209/",
-      "pmid": "27403209",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 27403209. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved",
-      "journal": "Can Geriatr J",
-      "year": 2016,
-      "doi": "10.5770/cgj.19.220",
       "metadataSource": "pubmed"
     },
     {
@@ -206,24 +192,6 @@
       },
       "sourceRefIds": [
         "src_7dce165a398a"
-      ]
-    },
-    {
-      "id": "clm_e0d10311460b",
-      "claim": "CRP reduction",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "CRP reduction",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "500–1500 mg; varies",
-        "population": "adults",
-        "study_id": "ent_study_679fe810ef68"
-      },
-      "sourceRefIds": [
-        "src_690ac9bb5f89"
       ]
     },
     {

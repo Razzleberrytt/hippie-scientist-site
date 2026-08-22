@@ -2,7 +2,7 @@
   "id": "coq10",
   "slug": "coq10",
   "name": "Coenzyme Q10",
-  "summary": "Decision-ready summary: Coenzyme Q10 is best framed for statin-associated muscle symptoms; heart failure support; mitochondrial fatigue; safety screen: warfarin or anticoagulant management; planned surgery.",
+  "summary": "Coenzyme Q10 carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 3 in people. No disagreement is recorded across them. Recorded activity centres on oxidative stress modulation, mitochondrial support and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include warfarin or another vitamin-K antagonist without clinician monitoring.",
   "description": "Coenzyme Q10 supports heart; mitochondria; fatigue with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [

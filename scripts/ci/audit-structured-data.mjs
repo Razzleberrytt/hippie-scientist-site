@@ -1,11 +1,52 @@
 #!/usr/bin/env node
 import fs from 'node:fs';import path from 'node:path'
 import fsPromises from 'node:fs/promises'
-const root=process.cwd(), outDir=path.join(root,'out'); if(!fs.existsSync(outDir)){console.log('[audit-structured-data] SKIP: out/ not found. Run npm run build first.');process.exit(0)}
+const root=process.cwd(), outDir=path.join(root,'out')
+// This audit runs in `verify:postbuild` and in the schema governance workflow,
+// both of which build first, so a missing `out/` means the audit cannot do its
+// job — not that there is nothing to check. It used to exit 0 here, which
+// reported a passing structured-data audit for a build that was never
+// inspected. `--optional` is the explicit opt-out for callers that genuinely
+// want a skip.
+const OPTIONAL = process.argv.includes('--optional')
+if (!fs.existsSync(outDir)) {
+  if (OPTIONAL) {
+    console.log('[audit-structured-data] SKIPPED: out/ not found and --optional was passed.')
+    process.exit(0)
+  }
+  console.error('[audit-structured-data] FAILED: out/ not found, so no page was inspected.')
+  console.error('Run `npm run build` first, or pass --optional if a skip is genuinely intended.')
+  process.exit(1)
+}
+/**
+ * A build that renders almost nothing would otherwise sail through every check
+ * below, because each one iterates over a list that happens to be empty.
+ */
+const MIN_EXPECTED_HTML_FILES = 200
 const families=[['herbs','/herbs/'],['compounds','/compounds/'],['guides','/guides/'],['learn','/learn/'],['info','/info/'],['legacy-blog','/blog/'],['homepage','/']]
 const required=['MedicalWebPage','Article','BlogPosting','BreadcrumbList','FAQPage','Organization','WebSite']
+
+/**
+ * Types every rendered page is expected to carry, and the extra type each
+ * content family is expected to carry on top. Measured against the current
+ * build, which sits at 97-100% for the site-wide pair and 98-99% for
+ * MedicalWebPage on profiles.
+ */
+const SITE_WIDE_TYPES=['Organization','WebSite']
+const FAMILY_TYPES={herbs:['MedicalWebPage'],compounds:['MedicalWebPage']}
+/** Floor per family, expressed as the share of pages carrying every required type. */
+const COVERAGE_FLOOR=0.95
+function requiredForFamily(family){
+  return [...SITE_WIDE_TYPES, ...(FAMILY_TYPES[family]??[])]
+}
 const FULL_HTML_AUDIT = process.env.FULL_HTML_AUDIT === '1' || process.env.CI === 'true';
 let files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(e.name.endsWith('.html'))files.push(f)}};walk(outDir)
+
+if (files.length < MIN_EXPECTED_HTML_FILES) {
+  console.error(`[audit-structured-data] FAILED: found ${files.length} HTML files under out/, below the ${MIN_EXPECTED_HTML_FILES} minimum.`)
+  console.error('The build output looks incomplete, so a clean structured-data result would mean nothing.')
+  process.exit(1)
+}
 
 if (!FULL_HTML_AUDIT) {
   const criticalSubpaths = [
@@ -128,7 +169,16 @@ async function run() {
   const byFamily={}
   for(const r of rows){byFamily[r.family]??={count:0,hits:Object.fromEntries(required.map(t=>[t,0]))};byFamily[r.family].count++;for(const t of required) if(r.types[t]) byFamily[r.family].hits[t]++}
   const familyCoverage=Object.fromEntries(Object.entries(byFamily).map(([k,v])=>[k,{routes:v.count,coverage:Object.fromEntries(required.map(t=>[t,Number((v.hits[t]/v.count*100).toFixed(1))]))}]))
-  const missing=rows.map(r=>({route:r.route,missing:required.filter(t=>!r.types[t])})).filter(r=>r.missing.length)
+  // `missing` used to mean "lacks any of the seven types we know about", and
+  // since no single page can reasonably carry all seven — a herb profile is not
+  // also a BlogPosting — every page counted as missing. The audit printed
+  // "routes=10, missing=10" and passed, which read as a total schema failure
+  // and was in fact a denominator error. Coverage is genuinely 97-100% for the
+  // site-wide types.
+  //
+  // A page is now measured against the types its own family is expected to
+  // carry, so the number means something and can be enforced.
+  const missing=rows.map(r=>({route:r.route,missing:requiredForFamily(r.family).filter(t=>!r.types[t])})).filter(r=>r.missing.length)
   const malformed=rows.filter(r=>r.blockCount===0).map(r=>r.route)
 
   // Representative checks + parse validation. These are the blocking checks.
@@ -272,7 +322,33 @@ async function run() {
   if (errors.length > 0) {
     console.warn(`[audit-structured-data] Note: ${errors.length} schema gaps on non-rep pages (diagnostic only; see full report).`)
   }
-  console.log('[audit-structured-data] PASS: Representative + core schema checks ok. Per-page coverage for all details is diagnostic.');
+  // Enforce the floor per family. This is the check that the old diagnostic
+  // metric could never make, because its numbers were meaningless.
+  const coverageFailures=[]
+  for(const [family,stats] of Object.entries(byFamily)){
+    if(stats.count===0) continue
+    const need=requiredForFamily(family)
+    const complete=rows.filter(r=>r.family===family&&need.every(t=>r.types[t])).length
+    const share=complete/stats.count
+    if(share<COVERAGE_FLOOR){
+      coverageFailures.push(`${family}: ${(share*100).toFixed(1)}% of ${stats.count} pages carry [${need.join(', ')}] (floor ${(COVERAGE_FLOOR*100).toFixed(0)}%)`)
+    }
+  }
+  if(coverageFailures.length){
+    console.error('[audit-structured-data] FAILED: structured-data coverage dropped below the floor.')
+    coverageFailures.forEach(f=>console.error(`  - ${f}`))
+    process.exit(1)
+  }
+
+  // Be explicit about what passed. Non-representative pages are reported but
+  // not enforced, so this message must not imply full-corpus coverage.
+  console.log(
+    `[audit-structured-data] PASS: ${repChecks.length} representative page(s) and core schema checks ok ` +
+      `across ${rows.length} rendered routes.`,
+  )
+  if (errors.length > 0) {
+    console.log(`[audit-structured-data] ${errors.length} non-representative page(s) have schema gaps — reported, not enforced.`)
+  }
 }
 
 run().catch(err => {

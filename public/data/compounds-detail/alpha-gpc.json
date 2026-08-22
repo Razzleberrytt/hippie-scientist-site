@@ -2,7 +2,7 @@
   "id": "alpha-gpc",
   "slug": "alpha-gpc",
   "name": "Alpha-GPC",
-  "summary": "Decision-ready summary: Alpha-GPC is best framed for cognitive performance; memory support; power output support; safety screen: low blood pressure; cholinergic sensitivity; anticholinergic medication conflicts.",
+  "summary": "Alpha-GPC carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a uncontrolled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, neurotransmitter modulation and cellular protection, which describes mechanism rather than demonstrated benefit. Noted cautions include known hypersensitivity to alpha-GPC or its excipients.",
   "description": "Alpha-GPC supports memory; focus; performance with moderate-high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -42,42 +42,7 @@
       "clm_9a29339ab37a"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_1bf5eb8f335b",
-      "claim": "v9.8: Alpha-GPC has more clinical-impairment evidence than healthy nootropic evidence; keep low priority.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.8: Alpha-GPC has more clinical-impairment evidence than healthy nootropic evidence; keep low priority.",
-      "qualifiers": {
-        "direction": "focus, cognition",
-        "dose_or_duration": "600 mg acute for performance contexts; 1200 mg/day used in cognitive impairment contexts",
-        "study_id": "ent_study_da1eec75e537"
-      },
-      "sourceRefIds": [
-        "src_27246dab02a6"
-      ]
-    },
-    {
-      "id": "clm_9a29339ab37a",
-      "claim": "v8.2: Alpha-GPC has clinical trial evidence in cognitive impairment contexts; consumer nootropic evidence is more limited.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: Alpha-GPC has clinical trial evidence in cognitive impairment contexts; consumer nootropic evidence is more limited.",
-      "qualifiers": {
-        "direction": "focus, cognition",
-        "dose_or_duration": "600 mg acute for performance contexts; 1200 mg/day used in cognitive impairment contexts",
-        "study_id": "ent_study_523395f631fa"
-      },
-      "sourceRefIds": [
-        "src_27246dab02a6"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,

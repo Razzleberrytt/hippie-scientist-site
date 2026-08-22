@@ -4,6 +4,8 @@ import fs from 'node:fs'
 import fsPromises from 'node:fs/promises'
 import path from 'node:path'
 
+import { requireBuildOutput } from '../lib/required-build-output.mjs'
+
 const root = process.cwd()
 const outDir = path.join(root, 'out')
 const FULL_HTML_AUDIT = process.env.FULL_HTML_AUDIT === '1' || process.env.CI === 'true'
@@ -20,10 +22,7 @@ function walk(dir) {
   }
 }
 
-if (!fs.existsSync(outDir)) {
-  console.log('[audit-internal-links] SKIP: Build output not found at out/. Run npm run build first.')
-  process.exit(0)
-}
+requireBuildOutput({ name: 'audit-internal-links', dir: outDir, minFiles: 200 })
 
 walk(outDir)
 

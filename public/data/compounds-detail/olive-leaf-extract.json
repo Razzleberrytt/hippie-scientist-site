@@ -44,25 +44,7 @@
       "clm_bdf9edc8b3f4"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_bdf9edc8b3f4",
-      "claim": "v9.6: Evidence is promising but not strong enough for high-priority placement.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.6: Evidence is promising but not strong enough for high-priority placement.",
-      "qualifiers": {
-        "direction": "heart_health, metabolism",
-        "dose_or_duration": "Olive leaf extract doses vary; 500–1000 mg/day studied in cardiometabolic trials",
-        "study_id": "ent_study_1b6342793d94"
-      },
-      "sourceRefIds": [
-        "src_7ae7a5ea3481"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

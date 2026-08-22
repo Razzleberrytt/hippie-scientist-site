@@ -167,18 +167,34 @@ function mapSourceRow(row, rowIndex, sheetName) {
 // Build a source record from an Evidence_Register row's inline citation, when
 // present, so claim.source_ids can resolve even if the source isn't in
 // Source_Register.
+//
+// `title` is a *bibliographic* field: it is rendered to readers as the name of
+// the study (`ShowMeTheStudies`, `ReferencedStudies`, `References`). It used to
+// fall back to `supported_claim_language || notes`, and neither is a study
+// title. `notes` is an internal editorial column, which is how governance
+// rulings — "v10.0: … block monetized 'blood sugar' recommendation." — ended up
+// rendered as citation titles on 23 public profiles. `supported_claim_language`
+// is the claim wording, which made the citation restate the claim instead of
+// naming the paper it came from.
+//
+// Evidence_Register has no title column, so the honest value is an empty title:
+// the renderers already fall back to the URL, and
+// `apply-pubmed-metadata.ts` fills the real title from PubMed for any row with
+// a PMID. The editorial note is kept in `legacy`, which is internal-only, so no
+// research context is lost — it just stops being published as a citation.
 function sourceFromEvidence(row, rowIndex, sheetName) {
   const pmid = cleanString(row.pmid)
   const doi = cleanString(row.doi)
   const url = cleanString(row.url_or_source)
   if (!pmid && !doi && !url) return null
   const id = sourceId({ pmid, doi, url, title: cleanString(row.entity_name) })
+  const evidenceNote = cleanString(row.supported_claim_language) || cleanString(row.notes)
   return {
     id,
     pmid: pmid || undefined,
     doi: doi || undefined,
     url: url || undefined,
-    title: cleanString(row.supported_claim_language) || cleanString(row.notes),
+    title: '',
     author_or_label: '',
     year: undefined,
     journal: '',
@@ -187,7 +203,7 @@ function sourceFromEvidence(row, rowIndex, sheetName) {
     review_status: 'pending',
     ...baseTimestamps(),
     provenance: [provenance(sheetName, rowIndex + 1)],
-    legacy: {},
+    legacy: evidenceNote ? { evidence_note: evidenceNote } : {},
   }
 }
 

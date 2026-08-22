@@ -2,7 +2,7 @@
   "id": "andrographolide",
   "slug": "andrographolide",
   "name": "Andrographolide",
-  "summary": "Decision-ready summary: Andrographolide is best framed for upper respiratory symptom support; immune response modulation; safety screen: pregnancy; autoimmune disease caution; anticoagulants.",
+  "summary": "Andrographolide carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a systematic review, drawn from 2 recorded studies, 1 in people. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and mitochondrial support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy.",
   "description": "Andrographolide supports immune; respiratory with moderate confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -41,25 +41,7 @@
       "clm_93a5d5ef9b7a"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_93a5d5ef9b7a",
-      "claim": "v8.2: Human evidence primarily supports standardized Andrographis extracts, not isolated andrographolide consumer use.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: Human evidence primarily supports standardized Andrographis extracts, not isolated andrographolide consumer use.",
-      "qualifiers": {
-        "direction": "immunity, inflammation",
-        "dose_or_duration": "research-only isolated constituent; use parent herb extract unless human dose is specified",
-        "study_id": "ent_study_bb1de3bf5348"
-      },
-      "sourceRefIds": [
-        "src_21d61628ee99"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

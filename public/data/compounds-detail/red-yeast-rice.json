@@ -2,7 +2,7 @@
   "id": "red-yeast-rice",
   "slug": "red-yeast-rice",
   "name": "Red Yeast Rice",
-  "summary": "Decision-ready summary: Red Yeast Rice is best framed for LDL cholesterol reduction when medically appropriate; statin-like supplement comparison; safety screen: statins; liver disease; pregnancy; CYP3A4 inhibitors.",
+  "summary": "Red Yeast Rice carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a regulatory or official guidance, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on metabolic regulation, vascular function support and lipid metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include liver.",
   "description": "Red Yeast Rice supports LDL cholesterol; cardiovascular risk factor with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_69d501d81e12"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_69d501d81e12",
-      "claim": "v9.6: Red yeast rice can lower LDL, but monacolin K variability/statin-like risk makes it inappropriate for casual affiliate promotion.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.6: Red yeast rice can lower LDL, but monacolin K variability/statin-like risk makes it inappropriate for casual affiliate promotion.",
-      "qualifiers": {
-        "direction": "heart_health",
-        "dose_or_duration": "Product monacolin K content varies widely; consumer dose cannot be assumed from label",
-        "study_id": "ent_study_827d4a9d0c98"
-      },
-      "sourceRefIds": [
-        "src_3aa4c686d649"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

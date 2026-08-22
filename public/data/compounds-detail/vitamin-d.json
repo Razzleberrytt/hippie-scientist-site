@@ -2,7 +2,7 @@
   "id": "vitamin-d",
   "slug": "vitamin-d",
   "name": "Vitamin D",
-  "summary": "Decision-ready summary: Vitamin D is best framed for vitamin D deficiency correction; bone health; immune support when deficient; safety screen: hypercalcemia; sarcoidosis; high-dose use without labs.",
+  "summary": "Vitamin D carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 5 recorded studies, 5 in people. No disagreement is recorded across them. Recorded activity centres on metabolic regulation, immune signaling modulation and metabolic, which describes mechanism rather than demonstrated benefit. Noted cautions include hypercalcemia or vitamin D toxicity.",
   "description": "Vitamin D supports bone mineralization and helps prevent deficiency-related effects, with additional roles in immune regulation supported by higher-confidence observational/interventional data.",
   "compoundClass": "",
   "mechanisms": [

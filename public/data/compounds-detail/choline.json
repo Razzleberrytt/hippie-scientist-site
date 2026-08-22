@@ -40,25 +40,7 @@
       "clm_ed0d4b169b9b"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_ed0d4b169b9b",
-      "claim": "v9.2: ODS choline guidance supports intake/dosing context; direct supplement outcome claims require form-specific studies.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.2: ODS choline guidance supports intake/dosing context; direct supplement outcome claims require form-specific studies.",
-      "qualifiers": {
-        "direction": "focus, metabolism",
-        "dose_or_duration": "Adequate intake: 550 mg/day adult men; 425 mg/day adult women",
-        "study_id": "ent_study_304469023793"
-      },
-      "sourceRefIds": [
-        "src_176bf317ac2d"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -114,7 +96,7 @@
   "sources": [
     {
       "id": "src_176bf317ac2d",
-      "title": "v9.2: ODS choline guidance supports intake/dosing context; direct supplement outcome claims require form-specific studies.",
+      "title": "",
       "url": "https://ods.od.nih.gov/factsheets/Choline-HealthProfessional/",
       "note": "needs_classification",
       "reviewStatus": "pending"

@@ -43,22 +43,6 @@
   },
   "claimMap": [
     {
-      "id": "clm_59eee77e22c2",
-      "claim": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_b2a4c6b8e710"
-      },
-      "sourceRefIds": [
-        "src_cf69345e6261"
-      ]
-    },
-    {
       "id": "clm_9d35fa3bb4a7",
       "claim": "Animal testosterone data only.",
       "predicate": "supports_outcome",
@@ -72,22 +56,6 @@
       },
       "sourceRefIds": [
         "src_cf69345e6261"
-      ]
-    },
-    {
-      "id": "clm_bc7b68de2efe",
-      "claim": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "qualifiers": {
-        "direction": "testosterone",
-        "study_id": "ent_study_f46b1cec8bef"
-      },
-      "sourceRefIds": [
-        "src_b5b0b0a73b41"
       ]
     }
   ],
@@ -107,13 +75,6 @@
       "reviewStatus": "approved",
       "authors": "Yakubu MT et al.",
       "metadataSource": "pubmed"
-    },
-    {
-      "id": "src_b5b0b0a73b41",
-      "title": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "note": "needs_classification",
-      "studyType": "Animal",
-      "reviewStatus": "pending"
     }
   ],
   "dosage": "—",

@@ -2,7 +2,7 @@
   "id": "mucuna-pruriens",
   "slug": "mucuna-pruriens",
   "name": "Mucuna pruriens",
-  "summary": "Decision-ready summary: Mucuna pruriens is best framed for dopamine precursor support; Parkinsonian context; mood/motivation context; safety screen: psychosis/bipolar risk; levodopa medications; MAOIs.",
+  "summary": "Mucuna pruriens carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on neurotransmitter modulation and dopaminergic, which describes mechanism rather than demonstrated benefit. Noted cautions include concurrent MAOI antidepressants due to a documented risk of a severe pressor crisis from combined dopamine and monoamine surge.",
   "description": "Mucuna pruriens contains bioactive constituents that support dopaminergic tone, which can plausibly affect mood, motor control, and neurochemical signaling relevant to movement symptoms.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_e0b64a01c5e2"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_e0b64a01c5e2",
-      "claim": "v9.4: Human evidence involves L-DOPA/Parkinson’s or infertility contexts; block monetized wellness positioning.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.4: Human evidence involves L-DOPA/Parkinson’s or infertility contexts; block monetized wellness positioning.",
-      "qualifiers": {
-        "direction": "fertility, dopamine",
-        "dose_or_duration": "Clinical dosing is context-specific and L-DOPA-dependent; not suitable for generic consumer dosing",
-        "study_id": "ent_study_b806111eb5c4"
-      },
-      "sourceRefIds": [
-        "src_5f66f401acda"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

@@ -44,22 +44,6 @@
   },
   "claimMap": [
     {
-      "id": "clm_377ad916561b",
-      "claim": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_e479a531b94c"
-      },
-      "sourceRefIds": [
-        "src_01811d8113ac"
-      ]
-    },
-    {
       "id": "clm_d5d9a5ad1b51",
       "claim": "Antimicrobial/antitumor (preclinical).",
       "predicate": "supports_outcome",

@@ -41,23 +41,6 @@
   },
   "claimMap": [
     {
-      "id": "clm_173feb9f336a",
-      "claim": "v10.0: Iodine is essential but over-supplementation can worsen thyroid problems; position as adequacy support only.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Iodine is essential but over-supplementation can worsen thyroid problems; position as adequacy support only.",
-      "qualifiers": {
-        "direction": "thyroid_health",
-        "dose_or_duration": "Adult RDA 150 mcg/day iodine; pregnancy 220 mcg/day; lactation 290 mcg/day; adult UL 1100 mcg/day",
-        "study_id": "ent_study_0dd829423d9a"
-      },
-      "sourceRefIds": [
-        "src_991903c9ff62"
-      ]
-    },
-    {
       "id": "clm_39991709464b",
       "claim": "improved cognition",
       "predicate": "supports_outcome",
@@ -136,7 +119,7 @@
     },
     {
       "id": "src_991903c9ff62",
-      "title": "v10.0: Iodine is essential but over-supplementation can worsen thyroid problems; position as adequacy support only.",
+      "title": "",
       "url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
       "note": "needs_classification",
       "reviewStatus": "pending"

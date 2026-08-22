@@ -1,8 +1,8 @@
 {
   "name": "Moringa",
   "slug": "moringa",
-  "summary": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood -all.",
-  "description": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood cure-all.",
+  "summary": "Moringa (Moringa oleifera) carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people. Recorded activity centres on oxidative stress modulation, metabolic regulation and AMPK signaling, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding caution for concentrated extracts and especially non-leaf parts.",
+  "description": "Moringa botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "antioxidant",
     "metabolic"

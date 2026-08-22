@@ -2,8 +2,8 @@
   "id": "nicotinamide-riboside",
   "slug": "nicotinamide-riboside",
   "name": "Nicotinamide riboside",
-  "summary": "Nicotinamide riboside is tracked for Acts as an NAD+ precursor affecting cellular energy metabolism and sirtuin-linked pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Nicotinamide riboside is tracked for Acts as an NAD+ precursor affecting cellular energy metabolism and sirtuin-linked pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Nicotinamide riboside carries a Grade B rating — moderate evidence. Recorded activity centres on SIRT1 signaling and SIRT1, which describes mechanism rather than demonstrated benefit. Mild GI upset, headache, or flushing possible; long-term clinical outcome safety is still limited.",
+  "description": "Nicotinamide riboside compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "SIRT1 Signaling",

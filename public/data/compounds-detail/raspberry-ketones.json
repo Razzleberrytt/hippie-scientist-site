@@ -38,35 +38,10 @@
       "clm_b8cab8ce8aab"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_b8cab8ce8aab",
-      "claim": "v10.3: Mostly preclinical/marketing evidence; block monetized weight-loss positioning. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.3: Mostly preclinical/marketing evidence; block monetized weight-loss positioning. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "qualifiers": {
-        "direction": "weight",
-        "study_id": "ent_study_25a9f84c8b22"
-      },
-      "sourceRefIds": [
-        "src_b5b0b0a73b41"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sources": [
-    {
-      "id": "src_b5b0b0a73b41",
-      "title": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "note": "needs_classification",
-      "studyType": "Animal",
-      "reviewStatus": "pending"
-    }
-  ],
+  "sources": [],
   "dosage": "—",
   "typical_dosage": "—"
 }

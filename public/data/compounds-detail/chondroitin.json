@@ -2,7 +2,7 @@
   "id": "chondroitin",
   "slug": "chondroitin",
   "name": "Chondroitin",
-  "summary": "Decision-ready summary: Chondroitin is best framed for knee osteoarthritis comfort; cartilage-support context; safety screen: warfarin; bleeding disorder; planned surgery.",
+  "summary": "Chondroitin carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Findings across those studies disagree. Recorded activity centres on inflammatory signaling modulation, which describes mechanism rather than demonstrated benefit. Use caution with anticoagulants or bleeding-risk contexts.",
   "description": "Chondroitin is used for joint support; proposed actions include cartilage matrix support and modulation of inflammatory enzymes in osteoarthritis physiology.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_ffe6364b7c92"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_ffe6364b7c92",
-      "claim": "v9.7: Chondroitin evidence is mixed and product quality varies; conservative OA symptom support only.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.7: Chondroitin evidence is mixed and product quality varies; conservative OA symptom support only.",
-      "qualifiers": {
-        "direction": "joints, pain",
-        "dose_or_duration": "800–1200 mg/day chondroitin sulfate in osteoarthritis trials",
-        "study_id": "ent_study_046d4e930818"
-      },
-      "sourceRefIds": [
-        "src_36895c5bc0d1"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

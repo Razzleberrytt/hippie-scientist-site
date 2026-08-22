@@ -2,7 +2,7 @@
   "id": "peppermint-oil",
   "slug": "peppermint-oil",
   "name": "Peppermint Oil",
-  "summary": "Decision-ready summary: Peppermint Oil is best framed for IBS abdominal pain; gut spasm; bloating discomfort; safety screen: GERD; hiatal hernia; gallbladder disease; young children.",
+  "summary": "Peppermint Oil carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 4 in people. No disagreement is recorded across them. Recorded activity centres on antispasmodic effect on GI smooth muscle., which describes mechanism rather than demonstrated benefit. Noted cautions include hiatal hernia due to worsened reflux symptoms.",
   "description": "Peppermint oil can relax gastrointestinal smooth muscle and reduce visceral pain signaling, aligning with evidence for IBS symptom reduction and abdominal discomfort.",
   "compoundClass": "",
   "mechanisms": [
@@ -45,41 +45,6 @@
   },
   "claimMap": [
     {
-      "id": "clm_0494700fe982",
-      "claim": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "enteric-coated peppermint oil; minimum 2 weeks",
-        "population": "adults with IBS",
-        "study_id": "ent_study_1574104d8c31"
-      },
-      "sourceRefIds": [
-        "src_8e18d4094410"
-      ]
-    },
-    {
-      "id": "clm_26cd09f04ba6",
-      "claim": "v10.4: Meta-analysis of 12 RCTs found enteric-coated peppermint oil improved IBS global symptoms and abdominal pain.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.4: Meta-analysis of 12 RCTs found enteric-coated peppermint oil improved IBS global symptoms and abdominal pain.",
-      "qualifiers": {
-        "direction": "gut_health, pain",
-        "dose_or_duration": "Enteric-coated peppermint oil products vary; clinical IBS trials generally use enteric-coated capsules taken before meals",
-        "study_id": "ent_study_2289c5a2a17d"
-      },
-      "sourceRefIds": [
-        "src_daaebe6b0244"
-      ]
-    },
-    {
       "id": "clm_c639a187e552",
       "claim": "Colpermin trial",
       "predicate": "supports_outcome",
@@ -120,15 +85,8 @@
       "metadataSource": "pubmed"
     },
     {
-      "id": "src_8e18d4094410",
-      "title": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
-      "note": "review_or_meta_analysis",
-      "studyType": "Meta-analysis",
-      "reviewStatus": "pending"
-    },
-    {
       "id": "src_daaebe6b0244",
-      "title": "v10.4: Meta-analysis of 12 RCTs found enteric-coated peppermint oil improved IBS global symptoms and abdominal pain.",
+      "title": "",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6337770/",
       "note": "review_or_meta_analysis",
       "studyType": "Meta-analysis",

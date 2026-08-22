@@ -2,7 +2,7 @@
   "id": "boron",
   "slug": "boron",
   "name": "Boron",
-  "summary": "Boron entry from SciSpace evidence pass. Evidence level: low.",
+  "summary": "Boron carries a Grade C rating — limited evidence. Strongest recorded design is a uncontrolled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on metabolic regulation, hormonal signaling context and endocrine, which describes mechanism rather than demonstrated benefit. low doses generally tolerated; high doses may cause GI/neurologic toxicity.",
   "description": "Boron is a trace element implicated in bone and steroid biology; it may influence markers tied to mineral homeostasis and vitamin D/calcium-related regulation.",
   "compoundClass": "",
   "mechanisms": [
@@ -40,25 +40,7 @@
       "clm_89958ae46b8d"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_89958ae46b8d",
-      "claim": "v8.2: Small human data suggest boron may influence inflammatory and hormone markers, but evidence remains limited.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: Small human data suggest boron may influence inflammatory and hormone markers, but evidence remains limited.",
-      "qualifiers": {
-        "direction": "bone_health, testosterone",
-        "dose_or_duration": "1–10 mg/day supplemental boron; higher intakes need caution",
-        "study_id": "ent_study_f6d8ca64a99f"
-      },
-      "sourceRefIds": [
-        "src_6bc0961b2000"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

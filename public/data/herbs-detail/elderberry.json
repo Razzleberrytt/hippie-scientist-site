@@ -93,25 +93,7 @@
       "clm_a3259e2394ab"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_a3259e2394ab",
-      "claim": "v9.9: Some human evidence suggests shorter respiratory symptoms, but study sizes and products are limited.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.9: Some human evidence suggests shorter respiratory symptoms, but study sizes and products are limited.",
-      "qualifiers": {
-        "direction": "immunity, respiratory",
-        "dose_or_duration": "Elderberry syrup/extract dosing varies by product; trial regimens are product-specific",
-        "study_id": "ent_study_fb54c2bb30e3"
-      },
-      "sourceRefIds": [
-        "src_28c26c941797"
-      ]
-    }
-  ],
+  "claimMap": [],
   "effects": [
     "antiviral",
     "respiratory"

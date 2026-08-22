@@ -1,8 +1,8 @@
 {
   "name": "Pomegranate",
   "slug": "pomegranate",
-  "summary": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
-  "description": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+  "summary": "Pomegranate (Punica granatum) is a fruit whose juice and peel are rich in punicalagins and other polyphenols with antioxidant activity. Its best-studied cardiovascular effect is on blood pressure: a systematic review and meta-analysis of randomized trials found that drinking pomegranate juice modestly lowered both systolic and diastolic blood pressure, an effect seen across different doses and study durations. Pomegranate can inhibit drug-metabolizing enzymes, so, like grapefruit, it may interact with some medications; anyone taking prescription drugs regularly should check with a pharmacist.",
+  "description": "Pomegranate (Punica granatum) is a fruit whose juice and peel are rich in punicalagins and other polyphenols with antioxidant activity. Its best-studied cardiovascular effect is on blood pressure: a systematic review and meta-analysis of randomized trials found that drinking pomegranate juice modestly lowered both systolic and diastolic blood pressure, an effect seen across different doses and study durations. Pomegranate can inhibit drug-metabolizing enzymes, so, like grapefruit, it may interact with some medications; anyone taking prescription drugs regularly should check with a pharmacist.",
   "primaryActions": [
     "antioxidant"
   ],

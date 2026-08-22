@@ -2,8 +2,8 @@
   "id": "caffeine-l-theanine",
   "slug": "caffeine-l-theanine",
   "name": "caffeine l-theanine",
-  "summary": "caffeine l-theanine is tracked for Adenosine antagonism; GABA/glutamate modulation; Combines adenosine antagonism with glutamatergic modulation improving with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
-  "description": "caffeine l-theanine is tracked for Adenosine antagonism; GABA/glutamate modulation; Combines adenosine antagonism with glutamatergic modulation improving with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
+  "summary": "May support acute attention and mood outcomes in healthy participants.",
+  "description": "May support acute attention and mood outcomes in healthy participants. Caveat: Do not imply sleep benefit or long-term cognitive enhancement.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Modulation",
@@ -58,23 +58,6 @@
       },
       "sourceRefIds": [
         "src_a051bced3154"
-      ]
-    },
-    {
-      "id": "clm_e511c7aa9bc0",
-      "claim": "v8.2: Caffeine plus L-theanine has acute evidence for attention-related outcomes.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: Caffeine plus L-theanine has acute evidence for attention-related outcomes.",
-      "qualifiers": {
-        "direction": "focus, energy",
-        "dose_or_duration": "caffeine 50–150 mg plus L-theanine 100–200 mg acute",
-        "study_id": "ent_study_f20a5c7c1f08"
-      },
-      "sourceRefIds": [
-        "src_e2df05e4dcb4"
       ]
     }
   ],

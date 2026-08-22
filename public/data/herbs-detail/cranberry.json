@@ -1,8 +1,8 @@
 {
   "name": "Cranberry Vaccinium macrocarpon",
   "slug": "cranberry",
-  "summary": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
-  "description": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
+  "summary": "Cranberry (Vaccinium macrocarpon) is a tart North American berry whose A-type proanthocyanidins are thought to reduce the ability of E. coli bacteria to adhere to the urinary-tract lining. Its main studied use is preventing urinary tract infections: a large Cochrane systematic review concluded that cranberry products reduce the risk of repeat UTIs in some groups, such as women with recurrent infections and children, while showing little benefit in elderly adults or people with bladder-emptying problems. Cranberry is used for prevention rather than to treat an active infection.",
+  "description": "Cranberry (Vaccinium macrocarpon) is a tart North American berry whose A-type proanthocyanidins are thought to reduce the ability of E. coli bacteria to adhere to the urinary-tract lining. Its main studied use is preventing urinary tract infections: a large Cochrane systematic review concluded that cranberry products reduce the risk of repeat UTIs in some groups, such as women with recurrent infections and children, while showing little benefit in elderly adults or people with bladder-emptying problems. Cranberry is used for prevention rather than to treat an active infection.",
   "primaryActions": [
     "antimicrobial"
   ],
@@ -96,25 +96,7 @@
       "clm_f35861085ba7"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_f35861085ba7",
-      "claim": "v10.0: Cochrane 2023 found cranberry products may reduce symptomatic culture-verified UTIs in women with recurrent UTIs, children, and post-intervention bladder-susceptible groups, but not elderly institutionalized adults, neuromuscular bladder, incomplete emptying, or pregnant women.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Cochrane 2023 found cranberry products may reduce symptomatic culture-verified UTIs in women with recurrent UTIs, children, and post-intervention bladder-susceptible groups, but not elderly institutionalized adults, neuromuscular bladder, incomplete emptying, or pregnant women.",
-      "qualifiers": {
-        "direction": "urinary_health, immunity",
-        "dose_or_duration": "Product-specific cranberry dose; PAC content should be disclosed, commonly targeting 36 mg PAC/day in UTI-focused products",
-        "study_id": "ent_study_75627b6e4285"
-      },
-      "sourceRefIds": [
-        "src_c9055177bf1f"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "Juice: 240-300 mL/day; standardized extract (~36 mg proanthocyanidins/day); variability across products",
   "typical_dosage": "Juice: 240-300 mL/day; standardized extract (~36 mg proanthocyanidins/day); variability across products"
 }

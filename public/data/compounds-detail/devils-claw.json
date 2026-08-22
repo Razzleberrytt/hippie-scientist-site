@@ -40,23 +40,6 @@
   },
   "claimMap": [
     {
-      "id": "clm_3e955379fd91",
-      "claim": "v9.7: Devil’s claw has some pain evidence but GI/ulcer cautions matter.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.7: Devil’s claw has some pain evidence but GI/ulcer cautions matter.",
-      "qualifiers": {
-        "direction": "pain, inflammation",
-        "dose_or_duration": "50–100 mg/day harpagoside-equivalent in several pain studies",
-        "study_id": "ent_study_d90b8ffee58b"
-      },
-      "sourceRefIds": [
-        "src_8b0e655d4aa1"
-      ]
-    },
-    {
       "id": "clm_61e2be3f1d3f",
       "claim": "Quality caveats; not definitive",
       "predicate": "supports_outcome",

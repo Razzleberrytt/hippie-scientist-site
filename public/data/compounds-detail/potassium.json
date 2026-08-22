@@ -2,7 +2,7 @@
   "id": "potassium",
   "slug": "potassium",
   "name": "Potassium",
-  "summary": "Decision-ready summary: Potassium is best framed for potassium deficiency; blood pressure support; electrolyte balance; safety screen: kidney disease; ACE inhibitors/ARBs; potassium-sparing diuretics.",
+  "summary": "Potassium carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people. Recorded activity centres on cellular protection, vascular function support and cardiovascular, which describes mechanism rather than demonstrated benefit. Noted cautions include caution with ACE inhibitors/renal disease.",
   "description": "Potassium supports electrolyte balance for normal blood pressure regulation and neuromuscular function; evidence is strongest for deficiency correction and blood pressure outcomes.",
   "compoundClass": "",
   "mechanisms": [
@@ -40,25 +40,7 @@
       "clm_1bc8b426415a"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_1bc8b426415a",
-      "claim": "v10.0: Potassium intake is strongly relevant to BP, but supplement safety requires strict medication/kidney cautions.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Potassium intake is strongly relevant to BP, but supplement safety requires strict medication/kidney cautions.",
-      "qualifiers": {
-        "direction": "heart_health, blood_pressure",
-        "dose_or_duration": "Adequate intake: 3400 mg/day adult men, 2600 mg/day adult women; potassium supplements are usually low-dose unless prescribed",
-        "study_id": "ent_study_a9f1c11afc6a"
-      },
-      "sourceRefIds": [
-        "src_06d69ae03171"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

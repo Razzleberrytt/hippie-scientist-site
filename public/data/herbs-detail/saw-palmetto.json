@@ -65,7 +65,7 @@
     },
     {
       "id": "src_e220f13ccd17",
-      "title": "v9.2: Large JAMA RCT found saw palmetto no better than placebo at 320–960 mg/day; block monetized recommendation.",
+      "title": "",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326341/",
       "note": "human_rct",
       "studyType": "Randomized controlled trial",
@@ -73,7 +73,7 @@
     },
     {
       "id": "src_e220f13ccd17-2",
-      "title": "v9.2: Large JAMA RCT found saw palmetto no better than placebo at 320–960 mg/day; block monetized recommendation.",
+      "title": "",
       "url": "https://jamanetwork.com/journals/jama/fullarticle/1104439",
       "note": "human_rct",
       "studyType": "Randomized controlled trial",
@@ -101,25 +101,7 @@
       "clm_381df7e364e5"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_381df7e364e5",
-      "claim": "v9.2: Large JAMA RCT found saw palmetto no better than placebo at 320–960 mg/day; block monetized recommendation.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.2: Large JAMA RCT found saw palmetto no better than placebo at 320–960 mg/day; block monetized recommendation.",
-      "qualifiers": {
-        "direction": "prostate_health",
-        "dose_or_duration": "320 mg/day extract was tested; up to 960 mg/day showed no benefit in a large RCT",
-        "study_id": "ent_study_d4e5ff2f1484"
-      },
-      "sourceRefIds": [
-        "src_e220f13ccd17"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "Lipidosterolic extract (85-95% fatty acids/sterols): 320 mg/day; evidence specific to standardized extracts",
   "typical_dosage": "Lipidosterolic extract (85-95% fatty acids/sterols): 320 mg/day; evidence specific to standardized extracts",
   "runtime_export_decision": "full_public_runtime",

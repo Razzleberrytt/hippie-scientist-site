@@ -63,23 +63,6 @@
       ]
     },
     {
-      "id": "clm_ac25585b7586",
-      "claim": "v10.0: Iron can improve fatigue in iron-deficient women, but should be lab-guided and safety-gated.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Iron can improve fatigue in iron-deficient women, but should be lab-guided and safety-gated.",
-      "qualifiers": {
-        "direction": "energy, blood_health",
-        "dose_or_duration": "RDA: 8 mg/day adult men, 18 mg/day premenopausal women; therapeutic iron dosing should be clinician-guided; adult UL 45 mg/day",
-        "study_id": "ent_study_b2e4463b0483"
-      },
-      "sourceRefIds": [
-        "src_4a32a37af842"
-      ]
-    },
-    {
       "id": "clm_b184df20b889",
       "claim": "reduced fatigue",
       "predicate": "supports_outcome",

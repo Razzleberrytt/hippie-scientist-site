@@ -2,8 +2,8 @@
   "id": "cordycepin",
   "slug": "cordycepin",
   "name": "cordycepin",
-  "summary": "cordycepin is tracked for M odulates ATP production and AMPK pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "cordycepin is tracked for M odulates ATP production and AMPK pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "cordycepin carries a Grade C rating — limited evidence. Recorded activity centres on mitochondrial support, metabolic regulation and AMPK signaling, which describes mechanism rather than demonstrated benefit. Limited human safety data.",
+  "description": "cordycepin compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Mitochondrial Support",

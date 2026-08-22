@@ -2,8 +2,8 @@
   "id": "phenylalanine",
   "slug": "phenylalanine",
   "name": "Phenylalanine",
-  "summary": "Decision-ready summary: Phenylalanine is best framed for catecholamine precursor support; mood/focus context; safety screen: phenylketonuria; MAO inhibitors; pregnancy high-dose caution.",
-  "description": "Phenylalanine can contribute to neurotransmitter precursor availability and is tracked for mood and focus effects with low-to-moderate overall confidence.",
+  "summary": "Phenylalanine carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on neurotransmitter modulation and catecholaminergic, which describes mechanism rather than demonstrated benefit. Noted cautions include ssri.",
+  "description": "Phenylalanine compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Amino Acid Precursor for Monoamines",

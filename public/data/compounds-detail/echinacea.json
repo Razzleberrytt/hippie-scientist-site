@@ -2,7 +2,7 @@
   "id": "echinacea",
   "slug": "echinacea",
   "name": "Echinacea",
-  "summary": "Echinacea entry from SciSpace evidence pass. Evidence level: mixed.",
+  "summary": "Echinacea carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Findings across those studies disagree. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include long-term use beyond eight weeks is not well studied.",
   "description": "Echinacea is cataloged as alkamide/caffeic acid botanical. Reported mechanisms: immune response modulation; cytokine/macrophage effects preclinical.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_f2c06f7b99a9"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_f2c06f7b99a9",
-      "claim": "v9.9: Evidence is mixed and product-specific; keep standard priority, not top-tier.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.9: Evidence is mixed and product-specific; keep standard priority, not top-tier.",
-      "qualifiers": {
-        "direction": "immunity, respiratory",
-        "dose_or_duration": "Echinacea dosing is product-specific; extract species/preparation must match clinical product",
-        "study_id": "ent_study_d96d4e307b9e"
-      },
-      "sourceRefIds": [
-        "src_4dd8f9af54c4"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

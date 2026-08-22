@@ -34,7 +34,7 @@
   {
     "slug": "agarikon",
     "name": "Agarikon",
-    "summary": "It should be framed modestly because traditional use is much stronger than modern evidence.",
+    "summary": "Agarikon carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "immune",
       "respiratory"
@@ -376,7 +376,7 @@
   {
     "slug": "angelica-root",
     "name": "Angelica Root",
-    "summary": "It should be framed carefully because furanocoumarin context matters for some use cases.",
+    "summary": "Angelica Root carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on digestive support and traditional cycle support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "digestive"
     ],
@@ -688,7 +688,7 @@
   {
     "slug": "ashoka",
     "name": "Ashoka",
-    "summary": "It should be framed conservatively because traditional gynecologic use is much stronger than modern evidence.",
+    "summary": "Ashoka (Saraca asoca) carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation and hormonal signaling context, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy or breastfeeding without clinician guidance.",
     "primary_effects": [
       "hormonal",
       "reproductive",
@@ -1596,7 +1596,7 @@
   {
     "slug": "bupleurum",
     "name": "Bupleurum",
-    "summary": "It should be framed conservatively because traditional-system context matters more than casual wellness claims.",
+    "summary": "Bupleurum carries a Grade C rating — limited evidence. Recorded activity centres on inflammatory signaling modulation, stress response modulation and NF-kB modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include active liver disease or elevated liver enzymes.",
     "primary_effects": [
       "liver_support",
       "anti_inflammatory",
@@ -1892,7 +1892,7 @@
   {
     "slug": "capsicum-frutescens",
     "name": "Capsicum Frutescens",
-    "summary": "May discuss capsaicin/capsaicinoids as food-derived compounds with metabolic/appetite and topical-pain contexts; cognition should be described as mostly preclinical/hypothesis-level.",
+    "summary": "Capsicum Frutescens (Capsicum frutescens) carries a Grade C rating — limited evidence. Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 3 in people. No disagreement is recorded across them. Recorded activity centres on metabolic regulation, which describes mechanism rather than demonstrated benefit. Noted cautions include caution reflux/GERD and gastritis/ulcers.",
     "primary_effects": [
       "Cognition",
       "Neurobiology",
@@ -2082,7 +2082,7 @@
   {
     "slug": "catuba",
     "name": "Catuba",
-    "summary": "It should be framed conservatively because traditional aphrodisiac narratives exceed modern evidence depth.",
+    "summary": "Catuba carries a Grade C rating — limited evidence. Recorded activity centres on stress response modulation and mitochondrial function, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "libido",
       "nervous_system",
@@ -2376,7 +2376,7 @@
   {
     "slug": "cissus",
     "name": "Cissus",
-    "summary": "It is best framed conservatively because evidence is mixed and product positioning often outruns the data.",
+    "summary": "Cissus carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician guidance and diabetes medications without monitoring.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic"
@@ -2410,7 +2410,7 @@
   {
     "slug": "cistanche",
     "name": "Cistanche",
-    "summary": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
+    "summary": "Cistanche carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on neuroprotective activity and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without guidance and diarrhea-prone conditions.",
     "primary_effects": [
       "sleep"
     ],
@@ -3412,7 +3412,7 @@
   {
     "slug": "dendrobium",
     "name": "Dendrobium",
-    "summary": "It should be framed conservatively because luxury-tonic narratives often exceed evidence depth.",
+    "summary": "Dendrobium carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people. Recorded activity centres on oxidative stress modulation and oxidative stress, which describes mechanism rather than demonstrated benefit. Noted cautions include blood pressure medication.",
     "primary_effects": [
       "sleep"
     ],
@@ -3780,7 +3780,7 @@
   {
     "slug": "eucommia",
     "name": "Eucommia",
-    "summary": "It is best framed conservatively because traditional tonic use is broader than modern evidence quality.",
+    "summary": "Eucommia carries a Grade C rating — limited evidence. Recorded activity centres on metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician guidance and hypotension or hypoglycemia risk.",
     "primary_effects": [
       "metabolic",
       "tonic"
@@ -4210,7 +4210,7 @@
   {
     "slug": "gastrodia",
     "name": "Gastrodia",
-    "summary": "It should be framed conservatively because traditional neurologic use is broader than modern evidence.",
+    "summary": "Gastrodia carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on stress response modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without guidance and sedative use without review.",
     "primary_effects": [
       "neuroprotective",
       "cognitive_support",
@@ -4604,7 +4604,7 @@
   {
     "slug": "gudmar",
     "name": "Gudmar",
-    "summary": "It should be framed consistently with gymnema while preserving alternate-name discoverability.",
+    "summary": "Gudmar carries a Grade C rating — limited evidence. Recorded activity centres on metabolic regulation, AMPK signaling and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "metabolic"
     ],
@@ -4810,7 +4810,7 @@
   {
     "slug": "holy-basil-purple",
     "name": "Holy Basil Purple",
-    "summary": "It should be framed similarly to tulsi while noting cultivar/form distinctions are secondary to constituent variability.",
+    "summary": "Holy Basil Purple carries a Grade C rating — limited evidence. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and metabolic regulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "adaptogen",
       "stress_reduction",
@@ -4846,7 +4846,7 @@
   {
     "slug": "holy-basil-seed",
     "name": "Holy Basil Seed",
-    "summary": "It should be framed distinctly from holy basil leaf because fiber and mucilage drive different use-cases.",
+    "summary": "Holy Basil Seed carries a Grade C rating — limited evidence. Recorded activity centres on metabolic regulation and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "digestive"
     ],
@@ -4976,7 +4976,7 @@
   {
     "slug": "houttuynia",
     "name": "Houttuynia",
-    "summary": "It should be framed cautiously because strong folklore claims exceed the evidence.",
+    "summary": "Houttuynia carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "immune",
       "respiratory"
@@ -5178,7 +5178,7 @@
   {
     "slug": "jatamansi",
     "name": "Jatamansi",
-    "summary": "It should be framed as a traditional aromatic rhizome with modest clinical depth.",
+    "summary": "Jatamansi carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people. Recorded activity centres on stress response modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "sleep"
     ],
@@ -5242,7 +5242,7 @@
   {
     "slug": "juniper",
     "name": "Juniper",
-    "summary": "It should be framed as an aromatic berry botanical with traditional GI and urinary relevance.",
+    "summary": "Juniper carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on digestive support, urinary support and aromatic support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy and kidney disease.",
     "primary_effects": [
       "digestive"
     ],
@@ -5334,7 +5334,7 @@
   {
     "slug": "kuding-tea",
     "name": "Kuding Tea",
-    "summary": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence.",
+    "summary": "Kuding Tea carries a Grade C rating — limited evidence. Recorded activity centres on oxidative stress modulation, metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -5800,7 +5800,7 @@
   {
     "slug": "longan",
     "name": "Longan",
-    "summary": "It should be framed as a food-like fruit botanical with modest modern evidence.",
+    "summary": "Longan carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on oxidative stress modulation, stress response modulation and oxidative stress, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "sleep"
     ],
@@ -5934,7 +5934,7 @@
   {
     "slug": "maitake-d-fraction",
     "name": "Maitake D-fraction",
-    "summary": "It should be framed distinctly from whole maitake because extract-standardization claims can exceed the underlying evidence.",
+    "summary": "Maitake D-fraction carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on inflammatory signaling modulation, immune signaling modulation and NF-kB modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "immune"
     ],
@@ -6000,7 +6000,7 @@
   {
     "slug": "mangosteen",
     "name": "Mangosteen",
-    "summary": "It should be framed conservatively because broad anti-inflammatory and disease claims outrun the evidence.",
+    "summary": "Mangosteen (Garcinia mangostana) carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and oxidative stress, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician guidance and bleeding disorder/anticoagulant use without review.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant"
@@ -6034,7 +6034,7 @@
   {
     "slug": "maral-root",
     "name": "Maral Root",
-    "summary": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality.",
+    "summary": "Maral Root carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include hormone-sensitive cancer.",
     "primary_effects": [
       "adaptogen",
       "stamina",
@@ -6342,7 +6342,7 @@
   {
     "slug": "mugwort",
     "name": "Mugwort",
-    "summary": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
+    "summary": "Mugwort carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on digestive support and traditional cycle support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy and seizure disorder.",
     "primary_effects": [
       "digestive"
     ],
@@ -6504,7 +6504,7 @@
   {
     "slug": "neem",
     "name": "Neem",
-    "summary": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance.",
+    "summary": "Neem carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/trying to conceive and children.",
     "primary_effects": [
       "antimicrobial",
       "skin-support"
@@ -6574,7 +6574,7 @@
   {
     "slug": "nettle-root",
     "name": "Nettle Root",
-    "summary": "It is best framed distinctly from nettle leaf.",
+    "summary": "Nettle Root carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation, hormonal signaling context and oxidative stress, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -6630,7 +6630,7 @@
   {
     "slug": "noni",
     "name": "Noni",
-    "summary": "It should be framed conservatively because broad folk claims exceed the strength of modern evidence.",
+    "summary": "Noni (Morinda citrifolia) carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include liver disease and kidney disease/hyperkalemia risk.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -7140,7 +7140,7 @@
   {
     "slug": "pau-d-arco",
     "name": "Pau D'arco",
-    "summary": "It should be framed conservatively because popular claims often exceed the evidence and preparation differences matter.",
+    "summary": "Pau D'arco carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include anticoagulant or antiplatelet medication.",
     "primary_effects": [
       "immune",
       "antimicrobial"
@@ -7694,7 +7694,7 @@
   {
     "slug": "pueraria-mirifica",
     "name": "Pueraria Mirifica",
-    "summary": "It is best framed very cautiously due to potent estrogenic positioning.",
+    "summary": "Pueraria Mirifica (Pueraria mirifica) carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on hormonal signaling context, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "hormonal"
     ],
@@ -7828,7 +7828,7 @@
   {
     "slug": "red-clover",
     "name": "Red Clover",
-    "summary": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts.",
+    "summary": "Red Clover (Trifolium pratense) carries a Grade C rating — limited evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 1 in people. Recorded activity centres on oxidative stress modulation, metabolic regulation and hormonal signaling context, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding and hormone-sensitive cancer/condition without clinician review.",
     "primary_effects": [
       "antioxidant",
       "hormonal"
@@ -7898,7 +7898,7 @@
   {
     "slug": "rehmannia-prepared",
     "name": "Rehmannia Prepared",
-    "summary": "It should be framed distinctly from raw rehmannia because processed-form use-cases differ materially.",
+    "summary": "Rehmannia Prepared (Rehmannia glutinosa) carries a Grade C rating — limited evidence. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "sleep"
     ],
@@ -8194,7 +8194,7 @@
   {
     "slug": "roselle-seed",
     "name": "Roselle Seed",
-    "summary": "It should be framed distinctly from hibiscus calyx because seed and calyx use-cases differ.",
+    "summary": "Roselle Seed carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on oxidative stress modulation, metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -8458,7 +8458,7 @@
   {
     "slug": "schisandra-berry",
     "name": "Schisandra Berry",
-    "summary": "It is best framed specifically around berry lignans and traditional stress-support positioning.",
+    "summary": "Schisandra Berry (Schisandra chinensis) carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people. Recorded activity centres on stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without guidance and active reflux/ulcer sensitivity.",
     "primary_effects": [
       "adaptogen",
       "liver_support",
@@ -9046,7 +9046,7 @@
   {
     "slug": "suma",
     "name": "Suma",
-    "summary": "It should be framed conservatively because traditional-use breadth exceeds evidence depth.",
+    "summary": "Suma (Pfaffia paniculata) carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on inflammatory signaling modulation and stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include hormone replacement therapy or hormonal contraceptives or other hormone-altering medication.",
     "primary_effects": [
       "sleep"
     ],

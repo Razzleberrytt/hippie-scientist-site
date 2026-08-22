@@ -42,57 +42,7 @@
       "clm_da987af74b23"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_6a8d24185799",
-      "claim": "v9.5: Oral Silexan has multiple anxiety RCTs; distinguish oral product evidence from lavender aromatherapy.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Oral Silexan has multiple anxiety RCTs; distinguish oral product evidence from lavender aromatherapy.",
-      "qualifiers": {
-        "direction": "anxiety",
-        "dose_or_duration": "80 mg/day oral Silexan lavender oil; some studies used 160 mg/day",
-        "study_id": "ent_study_71a5bae5c003"
-      },
-      "sourceRefIds": [
-        "src_724799cfc414"
-      ]
-    },
-    {
-      "id": "clm_c7c8afe2007c",
-      "claim": "Insufficient reliable evidence identified.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Insufficient reliable evidence identified.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_28b0c47d192f"
-      },
-      "sourceRefIds": [
-        "src_941e08f798f5"
-      ]
-    },
-    {
-      "id": "clm_da987af74b23",
-      "claim": "Anxiolytic/sleep.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Anxiolytic/sleep.",
-      "qualifiers": {
-        "direction": "needs_source_check",
-        "study_id": "ent_study_28b0c47d192f"
-      },
-      "sourceRefIds": [
-        "src_941e08f798f5"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "runtime_export_decision": "full_public_runtime",
@@ -160,13 +110,6 @@
       "studyClass": "rct",
       "metadataSource": "pubmed",
       "sampleSize": 539
-    },
-    {
-      "id": "src_941e08f798f5",
-      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "note": "gap identification only; not used to populate factual fields",
-      "reviewStatus": "approved"
     }
   ],
   "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",

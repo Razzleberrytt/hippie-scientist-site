@@ -82,7 +82,7 @@
     },
     {
       "id": "src_911a7102c58d",
-      "title": "v9.5: Systematic review suggests possible sleep-quality benefit but trials were heterogeneous and often methodologically weak; keep below melatonin/magnesium.",
+      "title": "",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4394901/",
       "note": "review_or_meta_analysis",
       "studyType": "Systematic review",
@@ -129,23 +129,6 @@
       },
       "sourceRefIds": [
         "src_63fe90f947a8"
-      ]
-    },
-    {
-      "id": "clm_8dc962da0a18",
-      "claim": "v9.5: Systematic review suggests possible sleep-quality benefit but trials were heterogeneous and often methodologically weak; keep below melatonin/magnesium.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Systematic review suggests possible sleep-quality benefit but trials were heterogeneous and often methodologically weak; keep below melatonin/magnesium.",
-      "qualifiers": {
-        "direction": "sleep",
-        "dose_or_duration": "Valerian extract doses vary; many sleep trials used 300–600 mg before bed",
-        "study_id": "ent_study_9dabb1189163"
-      },
-      "sourceRefIds": [
-        "src_911a7102c58d"
       ]
     }
   ],

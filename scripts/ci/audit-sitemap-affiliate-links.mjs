@@ -1,6 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { requireBuildOutput } from '../lib/required-build-output.mjs'
+
 const ROOT = process.cwd()
 const AMAZON_TAG = process.env.AMAZON_AFFILIATE_TAG || 'razzleberry02-20' // Central associate tag
 
@@ -18,10 +20,7 @@ function main() {
   const outDir = path.join(ROOT, 'out')
   const sitemapPath = path.join(outDir, 'sitemap.xml')
 
-  if (!fs.existsSync(outDir)) {
-    console.log('[audit-sitemap-affiliate-links] SKIP: out/ directory does not exist yet (pre-build stage).')
-    return
-  }
+  requireBuildOutput({ name: 'audit-sitemap-affiliate-links', dir: outDir })
 
   if (!fs.existsSync(sitemapPath)) {
     console.error('[audit-sitemap-affiliate-links] FAIL: out/sitemap.xml does not exist.')

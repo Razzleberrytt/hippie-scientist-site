@@ -40,25 +40,7 @@
       "clm_eab33e25532e"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_eab33e25532e",
-      "claim": "v8.2: American ginseng extract has randomized evidence for reducing acute respiratory illness outcomes in older adults.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: American ginseng extract has randomized evidence for reducing acute respiratory illness outcomes in older adults.",
-      "qualifiers": {
-        "direction": "immunity, energy",
-        "dose_or_duration": "product-specific standardized Panax quinquefolius extract; use studied extract dose",
-        "study_id": "ent_study_221817347b79"
-      },
-      "sourceRefIds": [
-        "src_6563b3b488ec"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

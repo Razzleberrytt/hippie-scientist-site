@@ -2,7 +2,7 @@
   "id": "digestive-enzymes",
   "slug": "digestive-enzymes",
   "name": "Digestive enzymes",
-  "summary": "Decision-ready summary: Digestive enzymes is best framed for meal-related digestive discomfort; enzyme insufficiency support; safety screen: pancreatitis unless clinician-directed; pork allergy for pancreatin forms.",
+  "summary": "Digestive enzymes carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on macronutrient breakdown via proteases, lipases and and amylases, which describes mechanism rather than demonstrated benefit. Use clinician guidance for true pancreatic insufficiency or active pancreatic disease.",
   "description": "Digestive enzymes supports digestion; meals with moderate confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,36 +38,10 @@
       "clm_f3287239f142"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_f3287239f142",
-      "claim": "v10.4: Generic digestive enzyme blends should be blocked unless matched to a specific intolerance/enzyme-deficiency evidence base. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.4: Generic digestive enzyme blends should be blocked unless matched to a specific intolerance/enzyme-deficiency evidence base. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "qualifiers": {
-        "direction": "digestion",
-        "dose_or_duration": "Dose must be enzyme-specific and activity-unit based; generic mg dosing is not meaningful",
-        "study_id": "ent_study_a7c03b2a0e18"
-      },
-      "sourceRefIds": [
-        "src_b5b0b0a73b41"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sources": [
-    {
-      "id": "src_b5b0b0a73b41",
-      "title": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "note": "needs_classification",
-      "studyType": "Animal",
-      "reviewStatus": "pending"
-    }
-  ],
+  "sources": [],
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract"
 }

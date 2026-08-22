@@ -2,8 +2,8 @@
   "id": "chromium-picolinate",
   "slug": "chromium-picolinate",
   "name": "chromium picolinate",
-  "summary": "chromium picolinate is tracked for Enhances insulin receptor signaling and glucose uptake with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "chromium picolinate is tracked for Enhances insulin receptor signaling and glucose uptake with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "chromium picolinate carries a Grade B rating — moderate evidence. Strongest recorded design is a regulatory or official guidance, drawn from 2 recorded studies, none of which measured an outcome in people. Findings across those studies disagree. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include kidney.",
+  "description": "chromium picolinate compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Insulin Receptor Signaling Enhancement",
@@ -40,25 +40,7 @@
       "clm_1a8cae97c265"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_1a8cae97c265",
-      "claim": "v10.0: Chromium picolinate should not be pushed as a top blood-sugar product.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Chromium picolinate should not be pushed as a top blood-sugar product.",
-      "qualifiers": {
-        "direction": "metabolism",
-        "dose_or_duration": "Chromium doses in diabetes trials vary widely, often 200–1000 mcg/day; routine use should be individualized",
-        "study_id": "ent_study_2b1342e9d8f4"
-      },
-      "sourceRefIds": [
-        "src_8799e0f58983"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

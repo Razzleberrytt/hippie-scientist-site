@@ -2,8 +2,8 @@
   "id": "cimifugoside",
   "slug": "cimifugoside",
   "name": "Cimifugoside",
-  "summary": "Cimifugoside is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Cimifugoside is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Cimifugoside carries a Grade C rating — limited evidence. Recorded activity centres on added as site-safe referenced entity during workbook readiness pass and limited, which describes mechanism rather than demonstrated benefit. Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
+  "description": "Cimifugoside compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "general phytochemical signaling",

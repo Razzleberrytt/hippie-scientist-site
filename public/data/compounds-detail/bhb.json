@@ -2,8 +2,8 @@
   "id": "bhb",
   "slug": "bhb",
   "name": "beta- hydroxybutyrate",
-  "summary": "beta- hydroxybutyrate is tracked for Acts as ketone body providing alternative energy and signaling via HDAC inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "beta- hydroxybutyrate is tracked for Acts as ketone body providing alternative energy and signaling via HDAC inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "beta- hydroxybutyrate carries a Grade B rating — moderate evidence. Recorded activity centres on metabolic regulation, stress response modulation and AMPK signaling, which describes mechanism rather than demonstrated benefit. May cause GI distress and electrolyte imbalance.",
+  "description": "beta- hydroxybutyrate compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",

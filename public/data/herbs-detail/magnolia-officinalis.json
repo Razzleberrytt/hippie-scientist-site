@@ -1,8 +1,8 @@
 {
   "name": "Magnolia",
   "slug": "magnolia-officinalis",
-  "summary": "Magnolia is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-  "description": "Magnolia is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "summary": "Needs dedicated human sleep/anxiety evidence before claims.",
+  "description": "Needs dedicated human sleep/anxiety evidence before claims. Caveat: Do not imply sleep/anxiety/cognition efficacy from preclinical AD-neolignan evidence.",
   "primaryActions": [
     "sleep",
     "stress"

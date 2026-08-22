@@ -1,6 +1,8 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
+import { findInternalGovernanceLeaks } from '../../lib/editorial-leak.mjs'
+
 const SITE_URL = 'https://thehippiescientist.net'
 const SCHEMA_VERSION = 'ai-entity-enrichment-v1'
 const REVIEWED_STATUSES = new Set(['reviewed', 'approved', 'published'])
@@ -251,7 +253,16 @@ function sourceSchemaType(sourceType) {
 
 function normalizeSource(source, index) {
   const row = isObject(source) ? source : { title: text(source) }
-  const title = pick(row, ['title', 'citation', 'ref']) || `Source ${index + 1}`
+  // A citation's title becomes the `name` of a JSON-LD CreativeWork, which is
+  // published for machines to read as the name of the study. Some workbook rows
+  // carry an internal governance ruling there instead — "v8.2: … strong
+  // consumer claims should be restricted." — so 48 citation nodes were named
+  // after a publishing decision. Fall back to the generic label rather than
+  // emit the ruling; `apply-pubmed-metadata.ts` supplies the real title for any
+  // row PubMed can resolve.
+  const rawTitle = pick(row, ['title', 'citation', 'ref'])
+  const title = (rawTitle && findInternalGovernanceLeaks(rawTitle).length === 0 ? rawTitle : '')
+    || `Source ${index + 1}`
   const normalizedDoi = doi(row.doi || row.url || row.citation || title)
   const normalizedPmid = pmid(row.pmid || row.url || row.citation || title)
   const url = pick(row, ['url', 'href'])

@@ -57,23 +57,6 @@
       "sourceRefIds": [
         "src_738081654367"
       ]
-    },
-    {
-      "id": "clm_bc84e5f9b54c",
-      "claim": "v10.0: Calcium should be positioned around dietary gap-filling and safety limits.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Calcium should be positioned around dietary gap-filling and safety limits.",
-      "qualifiers": {
-        "direction": "bone_health",
-        "dose_or_duration": "Adult RDA generally 1000–1200 mg/day total calcium from diet + supplements; adult UL 2000–2500 mg/day by age",
-        "study_id": "ent_study_a5274ea38451"
-      },
-      "sourceRefIds": [
-        "src_e60ce5d9aaa2"
-      ]
     }
   ],
   "indexability_status": "PUBLISH",
@@ -140,7 +123,7 @@
     },
     {
       "id": "src_e60ce5d9aaa2",
-      "title": "v10.0: Calcium should be positioned around dietary gap-filling and safety limits.",
+      "title": "",
       "url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
       "note": "needs_classification",
       "reviewStatus": "pending"

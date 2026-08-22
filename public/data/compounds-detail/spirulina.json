@@ -2,8 +2,8 @@
   "id": "spirulina",
   "slug": "spirulina",
   "name": "Spirulina",
-  "summary": "Spirulina is tracked for Nutrient-dense cyanobacteria with antioxidant and lipid-metabolism mechanisms proposed with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Spirulina is tracked for Nutrient-dense cyanobacteria with antioxidant and lipid-metabolism mechanisms proposed with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Spirulina carries a Avoid / Insufficient Evidence rating. Strongest recorded design is a uncontrolled trial, drawn from 2 recorded studies, 1 in people. Recorded activity centres on oxidative stress modulation, metabolic regulation and lipid metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include phenylketonuria due to phenylalanine content.",
+  "description": "Spirulina compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Oxidative Stress Modulation",
@@ -38,25 +38,7 @@
       "clm_9a49d797c09b"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_9a49d797c09b",
-      "claim": "v9.9: Spirulina evidence exists for lipid/metabolic markers but quality and contamination control are key.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.9: Spirulina evidence exists for lipid/metabolic markers but quality and contamination control are key.",
-      "qualifiers": {
-        "direction": "metabolism, immunity",
-        "dose_or_duration": "1–8 g/day spirulina used in human studies; dose depends on outcome/product",
-        "study_id": "ent_study_533825b088a8"
-      },
-      "sourceRefIds": [
-        "src_b06318b9c33e"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

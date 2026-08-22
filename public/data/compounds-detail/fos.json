@@ -36,26 +36,7 @@
       "clm_b08e289f92a7"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_b08e289f92a7",
-      "claim": "Microbiota modulation; GI tolerance matters",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Microbiota modulation; GI tolerance matters",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "fructooligosaccharides; variable",
-        "population": "human prebiotic trials",
-        "study_id": "ent_study_6b3a57098f5d"
-      },
-      "sourceRefIds": [
-        "src_20d072168304"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -92,14 +73,7 @@
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
   "safety": "Gas, bloating, and diarrhea at higher doses; caution IBS/FODMAP sensitivity.",
-  "sources": [
-    {
-      "id": "src_20d072168304",
-      "title": "Microbiota modulation; GI tolerance matters",
-      "note": "review_or_meta_analysis",
-      "reviewStatus": "pending"
-    }
-  ],
+  "sources": [],
   "dosage": "medium",
   "typical_dosage": "medium",
   "contraindications": [

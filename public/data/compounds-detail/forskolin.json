@@ -36,25 +36,7 @@
       "clm_680f7fbf4c6a"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_680f7fbf4c6a",
-      "claim": "v10.3: Forskolin has limited small-trial data and inconsistent weight outcomes; block fat-loss monetization.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.3: Forskolin has limited small-trial data and inconsistent weight outcomes; block fat-loss monetization.",
-      "qualifiers": {
-        "direction": "weight, metabolism",
-        "dose_or_duration": "Human studies used Coleus forskohlii extract protocols such as 250 mg of 10% forskolin twice daily, but evidence is limited",
-        "study_id": "ent_study_89f8c5a736fc"
-      },
-      "sourceRefIds": [
-        "src_786acb726fa1"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,

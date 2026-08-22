@@ -38,25 +38,7 @@
       "clm_b2fee3be9168"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_b2fee3be9168",
-      "claim": "v8.2: L-carnitine L-tartrate has human exercise recovery evidence, but claims should stay recovery-specific.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: L-carnitine L-tartrate has human exercise recovery evidence, but claims should stay recovery-specific.",
-      "qualifiers": {
-        "direction": "performance, recovery",
-        "dose_or_duration": "1–2 g/day L-carnitine L-tartrate in exercise recovery studies",
-        "study_id": "ent_study_d17bd980eee6"
-      },
-      "sourceRefIds": [
-        "src_9b85ebb8daf4"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,

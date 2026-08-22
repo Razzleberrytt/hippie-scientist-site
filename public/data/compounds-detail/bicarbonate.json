@@ -37,25 +37,7 @@
       "clm_a948798d6170"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_a948798d6170",
-      "claim": "v8.2: Sodium bicarbonate has sports-performance evidence, but dosing is sodium-heavy and GI-limited.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: Sodium bicarbonate has sports-performance evidence, but dosing is sodium-heavy and GI-limited.",
-      "qualifiers": {
-        "direction": "performance",
-        "dose_or_duration": "0.2–0.3 g/kg sodium bicarbonate pre-exercise is commonly studied",
-        "study_id": "ent_study_079a0371f76d"
-      },
-      "sourceRefIds": [
-        "src_005702379a61"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [

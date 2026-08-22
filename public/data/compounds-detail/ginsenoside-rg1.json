@@ -63,22 +63,6 @@
       "sourceRefIds": [
         "src_40ceff5ec8b6"
       ]
-    },
-    {
-      "id": "clm_3a3aad1ddd7d",
-      "claim": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_615a2180ea03"
-      },
-      "sourceRefIds": [
-        "src_40ceff5ec8b6"
-      ]
     }
   ],
   "indexability_status": "PUBLISH",

@@ -1,8 +1,8 @@
 {
   "name": "Quercetin",
   "slug": "quercetin",
-  "summary": "Quercetin is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-  "description": "Quercetin is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "summary": "Quercetin carries a Grade B rating — moderate evidence. Strongest recorded design is a systematic review, drawn from 6 recorded studies, 3 in people. No disagreement is recorded across them. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and metabolic regulation, which describes mechanism rather than demonstrated benefit. Noted cautions include antibiotics (quinolones) and anticoagulants.",
+  "description": "Quercetin botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "stress"
   ],
@@ -119,23 +119,6 @@
     ]
   },
   "claimMap": [
-    {
-      "id": "clm_1459c4aff3e9",
-      "claim": "v9.9: Quercetin is plausible but not a top-tier immune pick; bioavailability and drug-interaction cautions are central.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.9: Quercetin is plausible but not a top-tier immune pick; bioavailability and drug-interaction cautions are central.",
-      "qualifiers": {
-        "direction": "inflammation, immunity",
-        "dose_or_duration": "500–1000 mg/day quercetin used in many human studies; bioavailability varies substantially",
-        "study_id": "ent_study_2371f57bf423"
-      },
-      "sourceRefIds": [
-        "src_0ee85759f520"
-      ]
-    },
     {
       "id": "clm_86e09b6fa77b",
       "claim": "small endurance benefit",

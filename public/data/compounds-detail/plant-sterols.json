@@ -2,7 +2,7 @@
   "id": "plant-sterols",
   "slug": "plant-sterols",
   "name": "Plant Sterols",
-  "summary": "Decision-ready summary: Plant Sterols is best framed for LDL cholesterol reduction; heart-health food/supplement strategy; safety screen: sitosterolemia; fat-soluble nutrient monitoring context.",
+  "summary": "Plant Sterols carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, vascular function support and lipid metabolism support, which describes mechanism rather than demonstrated benefit. Avoid with sitosterolemia; consider overall dietary context.",
   "description": "Plant Sterols supports LDL cholesterol; heart health with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_c4e65166bec9"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_c4e65166bec9",
-      "claim": "v9.6: Plant sterols/stanols have consistent LDL-lowering evidence at gram-level doses.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.6: Plant sterols/stanols have consistent LDL-lowering evidence at gram-level doses.",
-      "qualifiers": {
-        "direction": "heart_health",
-        "dose_or_duration": "1.5–3 g/day plant sterols/stanols with meals",
-        "study_id": "ent_study_a3c9fc8d5023"
-      },
-      "sourceRefIds": [
-        "src_dc5e91c8cd2f"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [
