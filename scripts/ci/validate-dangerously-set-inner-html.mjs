@@ -22,7 +22,11 @@ const ALLOWLIST = new Set([
 const RAW_JSON_LD_BASELINE = new Map([
   ['app/compounds/[slug]/page.tsx', 1],
   ['app/herbs/[slug]/page.tsx', 1],
-  ['components/articles/FocusAdhdArticlePage.tsx', 2],
+  // FocusAdhdArticlePage held 2 raw `JSON.stringify` serializations until the
+  // ADHD guide's JSON-LD identities were normalized; both scripts now go
+  // through `serializeJsonLd`. The baseline is a ratchet, so dropping the
+  // entry to an implicit 0 is what keeps the file from regressing — leaving it
+  // at 2 would require the unsafe form to come back.
 ])
 
 const JSON_LD_SCRIPT_PATTERN = /<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*\/>|<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>[\s\S]*?<\/script>/g
