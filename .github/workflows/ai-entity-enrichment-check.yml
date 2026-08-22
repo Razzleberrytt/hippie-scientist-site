@@ -91,7 +91,7 @@ jobs:
       - name: Install dependencies
         run: npm ci --silent
 
-      - name: Guard legacy guide reference consolidation
+      - name: Guard guide reference consolidation
         shell: bash
         run: |
           files=(
@@ -102,10 +102,11 @@ jobs:
             app/guides/other/collagen-supplements/page.tsx
           )
           for file in "${files[@]}"; do
-            grep -Fq "import Ref from '@/components/LegacyGuideReference'" "$file" || {
-              echo "$file must reuse LegacyGuideReference" >&2
+            if ! grep -Fq "import Ref from '@/components/LegacyGuideReference'" "$file" \
+              && ! grep -Fq "import References from '@/components/References'" "$file"; then
+              echo "$file must reuse a shared reference renderer (LegacyGuideReference or References)" >&2
               exit 1
-            }
+            fi
             if grep -Eq '^type RefProps|^function Ref\(' "$file"; then
               echo "$file reintroduced a local legacy reference renderer" >&2
               exit 1

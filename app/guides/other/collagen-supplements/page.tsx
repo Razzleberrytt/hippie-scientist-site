@@ -8,7 +8,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
 import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
-import References from '@/components/References'
+import Ref from '@/components/LegacyGuideReference'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -88,7 +88,7 @@ export default function CollagenGuidePage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Collagen Supplements' }]} />
 
       <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Evidence Review · 12 Sources · Updated August 22, 2026</p>
+        <p className="eyebrow-label">Evidence Review · 12 References · Updated August 22, 2026</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">Collagen Supplements: The Evidence Is Stronger for Some Claims—and Much More Disputed for Skin Than Marketing Suggests</h1>
         <p className="text-lg leading-8 text-muted">
           Collagen has an unusually large supplement literature, but a large literature is not the same thing as a settled literature. Skin meta-analyses disagree sharply once funding source and trial quality are examined. Osteoarthritis evidence is more consistent. Bone outcomes are promising but not fracture evidence. And muscle research shows an important split: collagen is a relatively poor complete protein for acute muscle-protein synthesis, yet collagen peptides may still influence connective tissue and some training adaptations.
@@ -102,7 +102,7 @@ export default function CollagenGuidePage() {
 
       <section id="collagen-evidence" data-answer-engine-table="true" className="card-premium scroll-mt-24 p-6 space-y-4 max-w-5xl">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by outcome</h2>
-        <div className="overflow-x-auto"><table className="min-w-[940px] w-full text-sm"><caption className="sr-only">Collagen evidence by outcome and certainty</caption><thead><tr className="border-b border-brand-900/10"><th className="py-3 pr-4 text-left">Outcome</th><th className="py-3 pr-4 text-left">Current read</th><th className="py-3 text-left">Why</th></tr></thead><tbody className="divide-y divide-brand-900/5 text-muted">{evidenceRows.map(([outcome, grade, why]) => <tr key={outcome} className="align-top"><th scope="row" className="py-3 pr-4 text-left font-semibold text-ink">{outcome}</th><td className="py-3 pr-4 font-semibold text-ink">{grade}</td><td className="py-3 leading-6">{why}</td></tr>)}</tbody></table></div>
+        <div className="overflow-x-auto"><table className="min-w-[940px] w-full text-sm"><caption className="sr-only">Collagen evidence by outcome and certainty</caption><thead><tr className="border-b border-brand-900/10"><th scope="col" className="py-3 pr-4 text-left">Outcome</th><th scope="col" className="py-3 pr-4 text-left">Current read</th><th scope="col" className="py-3 text-left">Why</th></tr></thead><tbody className="divide-y divide-brand-900/5 text-muted">{evidenceRows.map(([outcome, grade, why]) => <tr key={outcome} className="align-top"><th scope="row" className="py-3 pr-4 text-left font-semibold text-ink">{outcome}</th><td className="py-3 pr-4 font-semibold text-ink">{grade}</td><td className="py-3 leading-6">{why}</td></tr>)}</tbody></table></div>
       </section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl">
@@ -167,8 +167,24 @@ export default function CollagenGuidePage() {
         </div>
       </section>
 
-      <div id="references" className="scroll-mt-24"><References refs={COLLAGEN_REFS} /></div>
-      <LegacyGuideFAQ pagePath="/guides/other/collagen-supplements/" questions={[...FAQS]} />
+      <section id="references" className="card-premium scroll-mt-24 p-6 space-y-4 max-w-5xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">References</h2>
+        <ol className="space-y-3">
+          <Ref n={1} text={COLLAGEN_REFS[0].text} url={COLLAGEN_REFS[0].url} />
+          <Ref n={2} text={COLLAGEN_REFS[1].text} url={COLLAGEN_REFS[1].url} />
+          <Ref n={3} text={COLLAGEN_REFS[2].text} url={COLLAGEN_REFS[2].url} />
+          <Ref n={4} text={COLLAGEN_REFS[3].text} url={COLLAGEN_REFS[3].url} />
+          <Ref n={5} text={COLLAGEN_REFS[4].text} url={COLLAGEN_REFS[4].url} />
+          <Ref n={6} text={COLLAGEN_REFS[5].text} url={COLLAGEN_REFS[5].url} />
+          <Ref n={7} text={COLLAGEN_REFS[6].text} url={COLLAGEN_REFS[6].url} />
+          <Ref n={8} text={COLLAGEN_REFS[7].text} url={COLLAGEN_REFS[7].url} />
+          <Ref n={9} text={COLLAGEN_REFS[8].text} url={COLLAGEN_REFS[8].url} />
+          <Ref n={10} text={COLLAGEN_REFS[9].text} url={COLLAGEN_REFS[9].url} />
+          <Ref n={11} text={COLLAGEN_REFS[10].text} url={COLLAGEN_REFS[10].url} />
+          <Ref n={12} text={COLLAGEN_REFS[11].text} url={COLLAGEN_REFS[11].url} />
+        </ol>
+      </section>
+      <LegacyGuideFAQ pagePath="/guides/other/collagen-supplements/" questions={FAQS} />
       <RecommendationSection products={getRevenueProductSet('collagen')?.products ?? []} />
       <EmailCapture headline="Get evidence reviews like this" description="Supplement evidence with funding, bias, product form, and outcome boundaries kept visible." ctaLabel="Get the evidence" location="guide-collagen" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/guides/other/protein-powder-guide/" className="text-sm font-bold text-brand-800 hover:underline">Protein powder guide →</Link></div>

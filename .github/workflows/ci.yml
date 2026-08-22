@@ -70,7 +70,17 @@ jobs:
         run: npm run typecheck
 
       - name: Run tests (vitest + a11y gate)
-        run: npm run test
+        run: |
+          set -o pipefail
+          npm run test 2>&1 | tee vitest.log
+
+      - name: Upload Vitest log
+        if: always() && hashFiles('vitest.log') != ''
+        uses: actions/upload-artifact@v7
+        with:
+          name: vitest-log-${{ github.sha }}
+          path: vitest.log
+          retention-days: 7
 
       - name: Validate canonical data system (schema, SQLite, graph, freshness)
         run: npm run data:ci
@@ -155,6 +165,6 @@ jobs:
           echo "## CI quality gate" >> "$GITHUB_STEP_SUMMARY"
           echo "- Purpose: enforce lint, typecheck, workbook/data correctness, recommendation-quality auditing, build verification, and security audit" >> "$GITHUB_STEP_SUMMARY"
           echo "- Branch/ref: $GITHUB_REF" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run data:ci; npx tsx scripts/audit-related-botanicals.ts; npm run guard:source-of-truth; npm run build:deploy; npm run verify:output; npm run audit:seo-reports; npm run indexability:report; node scripts/ci/audit-internal-redirect-links.mjs; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Artifacts: related-botanicals audit; seo-audit-reports (including indexability candidates); npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run test; npm run data:ci; npx tsx scripts/audit-related-botanicals.ts; npm run guard:source-of-truth; npm run build:deploy; npm run verify:output; npm run audit:seo-reports; npm run indexability:report; node scripts/ci/audit-internal-redirect-links.mjs; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Artifacts: vitest log; related-botanicals audit; seo-audit-reports (including indexability candidates); npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
