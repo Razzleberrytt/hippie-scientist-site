@@ -13,6 +13,7 @@ const exploreLinks = [
   { href: PUBLIC_ROUTES.herbs, label: 'Herbs' },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
   { href: '/guides/compare/', label: 'Compare' },
+  { href: '/guides/compare/turmeric-vs-curcumin/', label: 'Turmeric vs Curcumin' },
   { href: PUBLIC_ROUTES.articles, label: 'Research' },
   { href: '/library/', label: 'Library' },
   { href: '/evidence/research-trends/', label: 'Research trends' },

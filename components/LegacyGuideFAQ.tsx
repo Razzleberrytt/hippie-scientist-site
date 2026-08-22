@@ -6,7 +6,7 @@ type LegacyGuideFaqItem = {
 }
 
 type LegacyGuideFAQProps = {
-  questions: LegacyGuideFaqItem[]
+  questions: readonly LegacyGuideFaqItem[]
   pagePath: string
   /**
    * Where "Verify sources" points. Callers already pass this — five pages did

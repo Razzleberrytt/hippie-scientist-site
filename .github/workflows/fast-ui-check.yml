@@ -14,6 +14,12 @@ on:
       - 'postcss.config.*'
       - 'package.json'
       - 'package-lock.json'
+      - 'scripts/data/build-runtime-summary-indexes.mjs'
+      - 'scripts/data/apply-pubmed-metadata.ts'
+      - 'scripts/data/quarantine-unverifiable-citations.mjs'
+      - 'scripts/data/canonical/citation-export.mjs'
+      - 'scripts/ci/validate-citation-integrity.mjs'
+      - 'ops/cache/pubmed-metadata.json'
       - '.github/workflows/fast-ui-check.yml'
   workflow_dispatch:
 
