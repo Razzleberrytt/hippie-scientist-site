@@ -45,10 +45,10 @@ describe('best stress supplements evidence calibration', () => {
     expect(text).toMatch(/limited|modest|uncertain|does not establish/i)
   })
 
-  it('preserves explicit safety and crisis boundaries', () => {
+  it('preserves explicit safety and care-escalation boundaries', () => {
     const text = read(SOURCE)
     expect(text).toMatch(/medication|pregnan|kidney|liver|thyroid/i)
-    expect(text).toMatch(/suicid|self-harm|stay safe|crisis/i)
+    expect(text).toMatch(/persistent severe anxiety.*worsening mental-health symptoms.*cause-focused evaluation/i)
   })
 
   it('keeps monetization symmetric across compared ingredients', () => {
