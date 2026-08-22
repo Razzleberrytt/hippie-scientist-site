@@ -63,6 +63,9 @@ export default function ClickTracker() {
   useEffect(() => {
     const seenImpressions = new WeakSet<HTMLAnchorElement>()
     const visibleAffiliateLinks = new Map<HTMLAnchorElement, boolean>()
+    let observer: IntersectionObserver | null = null
+    let mutationObserver: MutationObserver | null = null
+    let impressionTrackingStarted = false
 
     const trackGenericImpression = (link: HTMLAnchorElement) => {
       if (seenImpressions.has(link) || getConsent() !== 'granted') return
@@ -84,42 +87,52 @@ export default function ClickTracker() {
       })
     }
 
-    const observer = typeof IntersectionObserver === 'undefined'
-      ? null
-      : new IntersectionObserver((entries) => {
-          for (const entry of entries) {
-            const link = entry.target as HTMLAnchorElement
-            const qualified = Boolean(entry.isIntersecting && entry.intersectionRatio >= 0.5)
-            visibleAffiliateLinks.set(link, qualified)
-            if (qualified) trackGenericImpression(link)
-          }
-        }, { threshold: [0, 0.5, 1] })
-
     const observeAffiliateLinks = (root: ParentNode = document) => {
       if (!observer) return
       root.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
         if (!isAffiliateLink(link) || link.dataset.affiliateObserverAttached === 'true') return
         link.dataset.affiliateObserverAttached = 'true'
-        observer.observe(link)
+        observer?.observe(link)
       })
     }
 
-    observeAffiliateLinks()
-    const mutationObserver = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        for (const node of Array.from(mutation.addedNodes)) {
-          if (node instanceof HTMLElement) observeAffiliateLinks(node)
+    const startImpressionTracking = () => {
+      if (impressionTrackingStarted || getConsent() !== 'granted') return
+      impressionTrackingStarted = true
+
+      if (typeof IntersectionObserver === 'undefined') return
+      observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          const link = entry.target as HTMLAnchorElement
+          const qualified = Boolean(entry.isIntersecting && entry.intersectionRatio >= 0.5)
+          visibleAffiliateLinks.set(link, qualified)
+          if (qualified) trackGenericImpression(link)
         }
-      }
-    })
-    mutationObserver.observe(document.body, { childList: true, subtree: true })
+      }, { threshold: [0, 0.5, 1] })
+
+      observeAffiliateLinks()
+      mutationObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          for (const node of Array.from(mutation.addedNodes)) {
+            if (node instanceof HTMLElement) observeAffiliateLinks(node)
+          }
+        }
+      })
+      mutationObserver.observe(document.body, { childList: true, subtree: true })
+    }
 
     const handleConsentChange = () => {
       if (getConsent() !== 'granted') return
+      startImpressionTracking()
       for (const [link, visible] of visibleAffiliateLinks.entries()) {
         if (visible) trackGenericImpression(link)
       }
     }
+
+    // A fresh visitor has no analytics consent, so do not scan the whole
+    // document or install mutation/intersection observers until there is a
+    // legitimate tracking reason to do so.
+    startImpressionTracking()
     window.addEventListener(CONSENT_CHANGE_EVENT, handleConsentChange)
 
     const handleDocumentClick = (event: MouseEvent) => {
@@ -165,7 +178,7 @@ export default function ClickTracker() {
     document.addEventListener('click', handleDocumentClick, { capture: true })
     return () => {
       observer?.disconnect()
-      mutationObserver.disconnect()
+      mutationObserver?.disconnect()
       visibleAffiliateLinks.clear()
       window.removeEventListener(CONSENT_CHANGE_EVENT, handleConsentChange)
       document.removeEventListener('click', handleDocumentClick, { capture: true })
