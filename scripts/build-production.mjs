@@ -34,6 +34,16 @@ try {
     env: process.env,
   })
 
+  // Static export cannot rely on Next's image optimization service. Generate
+  // deterministic local WebP variants for only the canonical monograph hero
+  // registry before rendering, then expose a build-only flag so server-rendered
+  // profile heroes can reference those derived files.
+  console.log('[build] Generating responsive monograph image variants...')
+  execSync('node scripts/optimize-images.mjs --monograph-registry', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
   if (fs.existsSync(pagesPath)) {
     console.log('[build] Temporarily moving src/pages to avoid Next.js routing conflicts...')
     fs.renameSync(pagesPath, tempPagesPath)
@@ -43,7 +53,12 @@ try {
   console.log('[build] Running next build...')
   execSync('npx next build', {
     stdio: 'inherit',
-    env: { ...process.env, NODE_OPTIONS: '--max-old-space-size=4096', NEXT_TELEMETRY_DISABLED: '1' },
+    env: {
+      ...process.env,
+      NODE_OPTIONS: '--max-old-space-size=4096',
+      NEXT_TELEMETRY_DISABLED: '1',
+      STATIC_RESPONSIVE_IMAGES: '1',
+    },
   })
 
   // The source-data gate proves structured invariants. This second gate proves
@@ -51,6 +66,12 @@ try {
   // labels, debug strings or other internal-development language in templates.
   console.log('[build] Auditing production-visible language...')
   execSync('node scripts/ci/audit-production-visible-language.mjs', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
+  console.log('[build] Validating responsive monograph image output...')
+  execSync('node scripts/ci/validate-responsive-monograph-images.mjs', {
     stdio: 'inherit',
     env: process.env,
   })
