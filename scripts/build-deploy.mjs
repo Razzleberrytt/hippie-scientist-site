@@ -153,6 +153,40 @@ const steps = [
     cacheable: false,
   },
   {
+    // The production build parses the workbook but does not run the full
+    // `data:build` chain, so the payloads it ships are largely the ones
+    // committed to the repo. That is how internal editorial notes and
+    // governance rulings reached live pages: every step that removes them
+    // lived in a pipeline the deploy never ran. Enrichment is re-applied from
+    // the committed PubMed cache and the sanitizer runs last, immediately
+    // before the pages are rendered, so nothing upstream can reintroduce a
+    // leak into the deployed output.
+    name: 'apply-pubmed-metadata',
+    cmd: 'npx tsx scripts/data/apply-pubmed-metadata.ts',
+    inputs: [
+      'ops/cache/pubmed-metadata.json',
+      'public/data/herbs-detail/**/*.json',
+      'public/data/compounds-detail/**/*.json',
+      'scripts/data/apply-pubmed-metadata.ts',
+    ],
+    outputs: ['public/data/herbs-detail/**/*.json', 'public/data/compounds-detail/**/*.json'],
+    cacheable: false,
+  },
+  {
+    name: 'sanitize-public-text',
+    cmd: 'node scripts/data/sanitize-public-text.mjs --data-dir=public/data',
+    inputs: ['public/data/**/*.json', 'scripts/data/sanitize-public-text.mjs', 'lib/editorial-leak.mjs'],
+    outputs: ['public/data/**/*.json'],
+    cacheable: false,
+  },
+  {
+    name: 'validate-editorial-leaks',
+    cmd: 'node scripts/ci/validate-editorial-leaks.mjs',
+    inputs: ['public/data/**/*.json', 'scripts/ci/validate-editorial-leaks.mjs', 'lib/editorial-leak.mjs'],
+    outputs: [],
+    cacheable: false,
+  },
+  {
     name: 'build-production',
     cmd: 'node scripts/build-production.mjs',
     inputs: [
