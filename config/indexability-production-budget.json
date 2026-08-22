@@ -1,0 +1,6 @@
+{
+  "minimumTotalProfiles": 250,
+  "minimumHerbs": 175,
+  "minimumCompounds": 60,
+  "note": "Production guardrail against accidental indexability collapse. Current governed output is about 350 profiles; these floors deliberately allow substantial editorial demotion while blocking pipeline regressions like the ~91-profile deploy state documented on 2026-08-21."
+}

@@ -203,7 +203,7 @@ for (const page of htmlPages) {
     /\bpage not found\b/,
     /\bcontent not found\b/,
     /\bno matching canonical profile yet\b/,
-    /\bdoes not exist\b/,
+    /\b(?:this|that|the) (?:page|content|profile|record|route) does not exist\b/,
     /\bwe couldn't find\b/,
   ]
   if (soft404Signals.some((pattern) => pattern.test(text)) && !robotsNoindex(page.html)) {

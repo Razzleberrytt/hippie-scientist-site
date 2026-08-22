@@ -19,17 +19,57 @@ for (const dir of [outPath, nextPath]) {
 }
 
 try {
-  // Publication invariants are deployment-critical. The workbook/runtime build
-  // may preserve weak records for internal research, but immediately before
-  // Next renders production HTML we scrub internal language and force any
-  // invariant-breaking public profile to NEEDS_REVIEW/noindex. If demotions
-  // occur, derived route/search/sitemap data is rebuilt from the governed state.
+  // `data:build` intentionally applies PubMed metadata a second time after the
+  // derived/search artifacts are generated, then re-quarantines invalid or
+  // misattributed citations and sanitizes the affected public text. A direct
+  // deployment build must converge on that same final citation state before
+  // publication invariants run; otherwise CI and Cloudflare can disagree about
+  // which profiles are safe to index.
+  console.log('[build] Finalizing production citation integrity...')
+  execSync('npx tsx scripts/data/apply-pubmed-metadata.ts', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+  execSync('node scripts/data/quarantine-unverifiable-citations.mjs --data-dir=public/data', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+  execSync('node scripts/data/sanitize-public-text.mjs --data-dir=public/data', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
+  // Publication invariants are deployment-critical. Before evaluating them,
+  // project explicit claim/source provenance into the classifier surface so a
+  // real linked human/safety/dose source is not rejected merely because its
+  // paper title omits a classification keyword. Unsupported numeric dosage is
+  // suppressed from the public runtime instead of deindexing an otherwise
+  // grounded profile.
+  console.log('[build] Preparing production evidence provenance...')
+  execSync('node scripts/data/prepare-production-evidence-provenance.mjs --data-dir=public/data', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
+  // The workbook/runtime build may preserve weak records for internal research,
+  // but immediately before Next renders production HTML we scrub internal
+  // language and force any remaining invariant-breaking public profile to
+  // NEEDS_REVIEW/noindex. If demotions occur, derived route/search/sitemap data
+  // is rebuilt from the governed state.
   console.log('[build] Enforcing production content invariants...')
   execSync('node scripts/data/enforce-production-content-invariants.mjs --data-dir=public/data --refresh-derived', {
     stdio: 'inherit',
     env: process.env,
   })
   execSync('node scripts/ci/validate-production-content-invariants.mjs --data-dir=public/data', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
+  // This check must run AFTER final invariant enforcement. Running it only
+  // earlier in build:deploy allowed the corpus to pass at ~350 indexable
+  // profiles and then silently collapse to ~82 immediately before rendering.
+  execSync('node scripts/ci/validate-production-indexability-budget.mjs --data-dir=public/data', {
     stdio: 'inherit',
     env: process.env,
   })

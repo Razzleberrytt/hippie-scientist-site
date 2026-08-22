@@ -61,25 +61,23 @@ jobs:
       - name: Exercise every invariant with deterministic fixtures
         run: node scripts/ci/test-production-content-invariants.mjs
 
-      - name: Build canonical runtime data
-        run: node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out public/data
+      # Start from the same governed corpus production deploys. Enforcing on raw
+      # workbook output skips post-processing, citation quarantine, governance
+      # overlay, and PubMed enrichment, which falsely demoted valid profiles.
+      - name: Build canonical governed runtime data
+        run: npm run data:build
+
+      - name: Prepare explicit evidence provenance
+        run: node scripts/data/prepare-production-evidence-provenance.mjs --data-dir=public/data
 
       - name: Scrub internal language and demote unsafe profiles
-        run: node scripts/data/enforce-production-content-invariants.mjs --data-dir=public/data
+        run: node scripts/data/enforce-production-content-invariants.mjs --data-dir=public/data --refresh-derived
 
       - name: Validate the post-enforcement profile corpus
         run: node scripts/ci/validate-production-content-invariants.mjs --data-dir=public/data
 
-      - name: Build downstream runtime maps
-        run: |
-          node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data
-          node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data
-          node scripts/data/build-route-manifest.mjs --data-dir=public/data
-          node scripts/data/build-internal-link-engine.mjs --data-dir=public/data
-          node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data
-          node scripts/data/build-export-batches.mjs --data-dir=public/data
-          node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data
-          node scripts/data/build-search-index.mjs --data-dir=public/data
+      - name: Validate post-enforcement indexability budget
+        run: node scripts/ci/validate-production-indexability-budget.mjs --data-dir=public/data
 
       - name: Build production static HTML from governed data
         run: node scripts/build-production.mjs
@@ -107,6 +105,8 @@ jobs:
         run: |
           echo '## Production content invariants' >> "$GITHUB_STEP_SUMMARY"
           echo '- A-grade criteria, human-source, safety-source, dose-source, citation resolution, placeholders, canonical duplicates, scientific names and internal-development language are covered.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- The workflow evaluates the same governed runtime corpus as production deployment; raw workbook output is never treated as the final publication contract.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Explicit claim-to-source provenance is normalized before enforcement; unsupported numeric dosage is suppressed rather than allowed to create a false page-level indexability failure.' >> "$GITHUB_STEP_SUMMARY"
           if [ -f reports/production-invariant-enforcement.json ]; then
             node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
           const fs = require('fs')
