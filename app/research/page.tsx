@@ -73,6 +73,11 @@ const researchTools = [
   },
 ]
 
+const REVIEW_CLASSES = new Set<string>(['meta_analysis', 'systematic_review', 'narrative_review'])
+const TRIAL_CLASSES = new Set<string>(['randomized_controlled_trial', 'controlled_trial'])
+const HUMAN_CONTEXT_CLASSES = new Set<string>(['observational', 'case_report'])
+const PRECLINICAL_CLASSES = new Set<string>(['mechanistic', 'animal', 'in_vitro'])
+
 function cleanDoi(doi: string) {
   return doi
     .trim()
@@ -96,7 +101,7 @@ function sourceHref(study: PublicStudyEntity) {
 function sourceLabel(study: PublicStudyEntity) {
   if (study.pmid?.trim()) return `PubMed · PMID ${study.pmid.trim()}`
   if (study.doi?.trim()) return `DOI · ${cleanDoi(study.doi)}`
-  return 'Open source'
+  return 'Original source'
 }
 
 function studyYear(study: PublicStudyEntity) {
@@ -129,20 +134,109 @@ function gradePriority(grade: string) {
   return 5
 }
 
+function rankStudies(studies: PublicStudyEntity[]) {
+  return [...studies].sort((a, b) => {
+    const rankA = EVIDENCE_STUDY_CLASS_DEFINITIONS[a.evidenceClass]?.hierarchyRank ?? 0
+    const rankB = EVIDENCE_STUDY_CLASS_DEFINITIONS[b.evidenceClass]?.hierarchyRank ?? 0
+    if (rankA !== rankB) return rankB - rankA
+
+    const yearDifference = studyYear(b) - studyYear(a)
+    if (yearDifference !== 0) return yearDifference
+
+    return a.title.localeCompare(b.title)
+  })
+}
+
+function compactStudyContext(study: PublicStudyEntity) {
+  const context = [study.population, study.outcome, study.result]
+    .map((value) => value?.trim())
+    .filter(Boolean)
+    .join(' · ')
+
+  if (!context) return ''
+  return context.length > 210 ? `${context.slice(0, 207).trimEnd()}…` : context
+}
+
+function StudySourceCard({ study }: { study: PublicStudyEntity }) {
+  const href = sourceHref(study)
+  if (!href) return null
+
+  const classLabel = EVIDENCE_STUDY_CLASS_DEFINITIONS[study.evidenceClass]?.label ?? 'Research record'
+  const ingredientNames = [...new Set(study.relationships.map((relationship) => relationship.ingredientName))]
+    .filter(Boolean)
+    .slice(0, 3)
+    .join(', ')
+  const context = compactStudyContext(study)
+
+  return (
+    <article className="flex h-full flex-col rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
+      <div className="flex flex-wrap gap-2 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-700">
+        <span>{classLabel}</span>
+        {studyYear(study) > 0 ? <span>· {studyYear(study)}</span> : null}
+      </div>
+      <h3 className="mt-3 text-base font-semibold leading-6 text-ink">{study.title}</h3>
+      <p className="mt-2 text-xs leading-5 text-muted">
+        {[study.journal, ingredientNames].filter(Boolean).join(' · ') || 'Structured research record'}
+      </p>
+      {context ? <p className="mt-3 text-xs leading-5 text-muted">{context}</p> : null}
+      <p className="mt-3 text-xs font-semibold text-muted">{relationshipLabel(study)}</p>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-auto pt-5 text-sm font-semibold text-brand-700 hover:underline"
+      >
+        {sourceLabel(study)} ↗
+      </a>
+    </article>
+  )
+}
+
+function StudyShelf({
+  id,
+  eyebrow,
+  title,
+  description,
+  studies,
+}: {
+  id: string
+  eyebrow: string
+  title: string
+  description: string
+  studies: PublicStudyEntity[]
+}) {
+  if (studies.length === 0) return null
+
+  return (
+    <section aria-labelledby={id}>
+      <div className="max-w-4xl">
+        <p className="eyebrow-label">{eyebrow}</p>
+        <h2 id={id} className="mt-2 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+          {title}
+        </h2>
+        <p className="mt-3 text-sm leading-7 text-muted">{description}</p>
+      </div>
+      <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {studies.map((study) => (
+          <StudySourceCard key={study.id} study={study} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
 export default async function ResearchPage() {
   const dataset = await getPublicEvidenceDataset()
 
-  const directlyLinkedStudies = [...dataset.studies]
-    .filter((study) => Boolean(sourceHref(study)))
-    .sort((a, b) => {
-      const rankA = EVIDENCE_STUDY_CLASS_DEFINITIONS[a.evidenceClass]?.hierarchyRank ?? 0
-      const rankB = EVIDENCE_STUDY_CLASS_DEFINITIONS[b.evidenceClass]?.hierarchyRank ?? 0
-      if (rankA !== rankB) return rankB - rankA
-      const yearDifference = studyYear(b) - studyYear(a)
-      if (yearDifference !== 0) return yearDifference
-      return a.title.localeCompare(b.title)
-    })
-    .slice(0, 12)
+  const directlyLinkedStudies = rankStudies(dataset.studies.filter((study) => Boolean(sourceHref(study))))
+  const reviewStudies = directlyLinkedStudies.filter((study) => REVIEW_CLASSES.has(study.evidenceClass)).slice(0, 6)
+  const trialStudies = directlyLinkedStudies.filter((study) => TRIAL_CLASSES.has(study.evidenceClass)).slice(0, 6)
+  const humanContextStudies = directlyLinkedStudies
+    .filter((study) => HUMAN_CONTEXT_CLASSES.has(study.evidenceClass))
+    .slice(0, 6)
+  const preclinicalStudies = directlyLinkedStudies
+    .filter((study) => PRECLINICAL_CLASSES.has(study.evidenceClass))
+    .slice(0, 6)
 
   const strongestIngredients = [...dataset.ingredients]
     .filter((ingredient) => ingredient.evidenceGrade === 'A' || ingredient.evidenceGrade === 'B')
@@ -152,93 +246,93 @@ export default async function ResearchPage() {
     })
     .slice(0, 18)
 
-  const directSourceCount = dataset.studies.filter((study) => Boolean(sourceHref(study))).length
+  const directSourceCount = directlyLinkedStudies.length
+  const visibleSourceCount =
+    reviewStudies.length + trialStudies.length + humanContextStudies.length + preclinicalStudies.length
 
   return (
-    <main className="mx-auto max-w-6xl space-y-12 px-4 py-10 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-6xl space-y-14 px-4 py-10 sm:px-6 lg:px-8">
       <section className="overflow-hidden rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
         <p className="eyebrow-label">Research library · sources first</p>
         <h1 className="mt-3 max-w-4xl font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           Follow the evidence all the way back to the research.
         </h1>
         <p className="mt-5 max-w-4xl text-lg leading-8 text-muted">
-          This is the front door to The Hippie Scientist research system: directly linked papers, human trials,
-          reviews, structured citation records, evidence tools, methodology, and public research data. Start with
-          the studies themselves; use grades and metrics as context, not as a substitute for reading the evidence.
+          Browse papers, human trials, reviews, observational research, and mechanistic studies with direct links to
+          PubMed, DOI records, or original sources. Grades and library-wide metrics are kept as context; the research
+          itself comes first.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link
             href="/learn/citation-explorer/"
             className="rounded-full bg-brand-800 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900"
           >
-            Browse studies
+            Search all citations
           </Link>
           <Link
             href="/evidence/evidence-checker/"
             className="rounded-full border border-brand-900/15 px-5 py-2.5 text-sm font-semibold text-ink hover:bg-brand-50"
           >
-            Search an ingredient
+            Research an ingredient
           </Link>
           <Link
             href="/info/methodology/"
             className="rounded-full border border-brand-900/15 px-5 py-2.5 text-sm font-semibold text-ink hover:bg-brand-50"
           >
-            Read the methodology
+            How evidence is graded
           </Link>
         </div>
       </section>
 
-      <section aria-labelledby="direct-research-heading">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+      <section className="rounded-2xl border border-brand-900/10 bg-brand-50/45 p-5 sm:p-6" aria-labelledby="source-first-heading">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="eyebrow-label">Direct research links</p>
-            <h2 id="direct-research-heading" className="mt-2 text-3xl font-semibold tracking-tight text-ink">
-              Open the papers, not just our summaries
+            <p className="eyebrow-label">Source-first browsing</p>
+            <h2 id="source-first-heading" className="mt-2 text-xl font-semibold text-ink">
+              {visibleSourceCount} directly linked studies are surfaced below
             </h2>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
-              These records are selected by study-design strength and recency from the current public evidence
-              dataset. Supportive, mixed, null, and unfavorable findings are all eligible; this is not a positive-results showcase.
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">
+              They are grouped by study design so stronger clinical evidence is easy to distinguish from observational,
+              mechanistic, and preclinical evidence. Supportive, mixed, null, and unfavorable findings are all eligible.
             </p>
           </div>
           <Link href="/learn/citation-explorer/" className="text-sm font-semibold text-brand-700 hover:underline">
-            Search all indexed citations →
+            Search the complete citation index →
           </Link>
         </div>
-
-        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {directlyLinkedStudies.map((study) => {
-            const href = sourceHref(study)
-            const classLabel = EVIDENCE_STUDY_CLASS_DEFINITIONS[study.evidenceClass]?.label ?? 'Research record'
-            const ingredientNames = [...new Set(study.relationships.map((relationship) => relationship.ingredientName))]
-              .slice(0, 3)
-              .join(', ')
-
-            return (
-              <article key={study.id} className="card-premium flex h-full flex-col p-5">
-                <div className="flex flex-wrap gap-2 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-700">
-                  <span>{classLabel}</span>
-                  {studyYear(study) > 0 ? <span>· {studyYear(study)}</span> : null}
-                </div>
-                <h3 className="mt-3 text-base font-semibold leading-6 text-ink">{study.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-muted">
-                  {[study.journal, ingredientNames].filter(Boolean).join(' · ') || 'Structured research record'}
-                </p>
-                <p className="mt-3 text-xs font-semibold text-muted">{relationshipLabel(study)}</p>
-                {href ? (
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-auto pt-5 text-sm font-semibold text-brand-700 hover:underline"
-                  >
-                    {sourceLabel(study)} ↗
-                  </a>
-                ) : null}
-              </article>
-            )
-          })}
-        </div>
       </section>
+
+      <StudyShelf
+        id="reviews-heading"
+        eyebrow="Evidence synthesis"
+        title="Systematic reviews & meta-analyses"
+        description="Start here when you want research that evaluates multiple studies together. Review quality still depends on the studies included, but these sources help show the broader evidence picture."
+        studies={reviewStudies}
+      />
+
+      <StudyShelf
+        id="trials-heading"
+        eyebrow="Human intervention research"
+        title="Randomized & controlled trials"
+        description="Direct links to intervention studies in people. These are especially useful for checking the tested population, preparation, dose, duration, comparator, and measured outcome."
+        studies={trialStudies}
+      />
+
+      <StudyShelf
+        id="human-context-heading"
+        eyebrow="Human context"
+        title="Observational & clinical evidence"
+        description="Human evidence outside controlled trials can reveal associations, real-world patterns, and clinical signals. It can be informative without establishing causation on its own."
+        studies={humanContextStudies}
+      />
+
+      <StudyShelf
+        id="preclinical-heading"
+        eyebrow="How it might work"
+        title="Mechanistic & preclinical research"
+        description="Animal, in-vitro, and mechanistic studies can explain plausible pathways and generate hypotheses. They belong in the evidence map, but they are intentionally kept separate from proof of a human benefit."
+        studies={preclinicalStudies}
+      />
 
       <section className="grid gap-5 lg:grid-cols-[1.25fr_0.75fr]" aria-labelledby="evidence-strongest-heading">
         <div className="rounded-2xl border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8">
@@ -247,8 +341,8 @@ export default async function ResearchPage() {
             Start with the A/B evidence profiles
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
-            These are the current indexable ingredient profiles graded Strong (A) or Moderate (B). A grade is a
-            navigation aid, not a guarantee of benefit, and different outcomes or preparations can have different evidence.
+            These are current indexable ingredient profiles graded Strong (A) or Moderate (B). A grade is a navigation
+            aid, not a guarantee of benefit, and different outcomes or preparations can have different evidence.
           </p>
           {strongestIngredients.length > 0 ? (
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -276,7 +370,11 @@ export default async function ResearchPage() {
           <p className="mt-3 text-sm leading-7 text-muted">
             The canonical grading system defines C as <strong className="text-ink">Limited Evidence</strong>. It is
             intentionally separated from D (Preliminary / Theoretical) and Avoid / Insufficient. A large C band can
-            reflect a research field where signals exist but the evidence base is not yet strong or consistent enough for B or A.
+            reflect a field where real signals exist but the evidence is not yet strong, direct, replicated, or consistent
+            enough for B or A.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            That distinction matters: “limited” is an uncertainty statement, not a negative verdict.
           </p>
           <Link href="/info/methodology/" className="mt-5 inline-flex text-sm font-semibold text-brand-700 hover:underline">
             How evidence is graded →
