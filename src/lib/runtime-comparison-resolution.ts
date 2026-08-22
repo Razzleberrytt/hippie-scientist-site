@@ -62,16 +62,21 @@ export function firstComparisonField(
   return optionalComparisonField(record, keys) || 'Not available in the canonical record.'
 }
 
-export function resolveRuntimeComparisonSide(
+function resolveComparisonSide(
   config: RuntimeComparisonSideConfig,
   herbs: RuntimeRecord[],
   compounds: RuntimeRecord[],
+  visibility: 'render' | 'index',
 ): ResolvedRuntimeComparisonSide {
   const candidates = new Set(config.candidates.map(cleanComparisonValue).filter(Boolean))
+  const isEligible = (record: RuntimeRecord) => {
+    const state = getRuntimeVisibility(record)
+    return visibility === 'render' ? state.canRender : state.canIndex
+  }
 
   const herb = herbs.find((record) => {
     const slug = cleanComparisonValue(record.slug)
-    return candidates.has(slug) && getRuntimeVisibility(record).canIndex
+    return candidates.has(slug) && isEligible(record)
   })
   if (herb) {
     const slug = cleanComparisonValue(herb.slug)
@@ -80,7 +85,7 @@ export function resolveRuntimeComparisonSide(
 
   const compound = compounds.find((record) => {
     const slug = cleanComparisonValue(record.slug)
-    return candidates.has(slug) && getRuntimeVisibility(record).canIndex
+    return candidates.has(slug) && isEligible(record)
   })
   if (compound) {
     const slug = cleanComparisonValue(compound.slug)
@@ -91,17 +96,28 @@ export function resolveRuntimeComparisonSide(
 }
 
 /**
- * Whether both sides of a comparison resolve to a publishable record.
+ * Resolve a side for page rendering.
  *
- * `RuntimeEvidenceComparison` calls `notFound()` when either side is missing,
- * which is correct: the site should not build a comparison on a record it will
- * not publish. But the pages declare their metadata statically, so a page that
- * renders a 404 still shipped `index, follow` — and Next's not-found boundary
- * then added its own `noindex`, leaving two contradictory robots tags in one
- * document.
+ * Rendering and indexability are intentionally separate concerns. A record that
+ * is temporarily NOINDEX/NEEDS_REVIEW can still be safe to render as supporting
+ * context, while treating `canIndex` as an existence check turns governance
+ * demotions into hard 404s for otherwise valid comparison URLs.
+ */
+export function resolveRuntimeComparisonSide(
+  config: RuntimeComparisonSideConfig,
+  herbs: RuntimeRecord[],
+  compounds: RuntimeRecord[],
+): ResolvedRuntimeComparisonSide {
+  return resolveComparisonSide(config, herbs, compounds, 'render')
+}
+
+/**
+ * Whether both sides are eligible for an indexable comparison page.
  *
- * Metadata can call this to tell the truth instead. Both sides use the same
- * resolver the renderer uses, so the answers cannot drift apart.
+ * Existing metadata and sitemap callers use this function as their publication
+ * gate. Keep it stricter than the renderer: a comparison may continue to exist
+ * when one ingredient is review-gated, but it must not be advertised for
+ * indexing until both ingredients pass runtime indexability governance.
  */
 export async function canRenderRuntimeComparison(
   left: RuntimeComparisonSideConfig,
@@ -113,12 +129,12 @@ export async function canRenderRuntimeComparison(
     const herbRecords = herbs as RuntimeRecord[]
     const compoundRecords = compounds as RuntimeRecord[]
     return Boolean(
-      resolveRuntimeComparisonSide(left, herbRecords, compoundRecords).record &&
-        resolveRuntimeComparisonSide(right, herbRecords, compoundRecords).record,
+      resolveComparisonSide(left, herbRecords, compoundRecords, 'index').record &&
+        resolveComparisonSide(right, herbRecords, compoundRecords, 'index').record,
     )
   } catch {
-    // Indexation must fail closed: if availability cannot be determined, treat
-    // the comparison as unavailable rather than advertising a page that may 404.
+    // Indexation must fail closed: if eligibility cannot be determined, do not
+    // advertise the comparison as indexable.
     return false
   }
 }
