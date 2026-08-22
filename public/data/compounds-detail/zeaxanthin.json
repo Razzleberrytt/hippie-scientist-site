@@ -2,7 +2,7 @@
   "id": "zeaxanthin",
   "slug": "zeaxanthin",
   "name": "Zeaxanthin",
-  "summary": "Decision-ready summary: Zeaxanthin is best framed for macular pigment support; retinal antioxidant protection; eye-health stacks; safety screen: none significant; review pregnancy supplement stack.",
+  "summary": "Zeaxanthin carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on oxidative stress modulation, stress response modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Generally well tolerated at common supplemental doses.",
   "description": "Zeaxanthin supports eye health; macular pigment; vision with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_37bafcfd3365"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_37bafcfd3365",
-      "claim": "v10.0: Zeaxanthin should be presented with lutein/AREDS2 context.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Zeaxanthin should be presented with lutein/AREDS2 context.",
-      "qualifiers": {
-        "direction": "eye_health",
-        "dose_or_duration": "AREDS2 formula uses lutein 10 mg plus zeaxanthin 2 mg/day",
-        "study_id": "ent_study_f63e70378753"
-      },
-      "sourceRefIds": [
-        "src_56cc494303b2"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

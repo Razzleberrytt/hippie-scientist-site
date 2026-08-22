@@ -40,25 +40,7 @@
       "clm_683ae859bc2d"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_683ae859bc2d",
-      "claim": "v9.6: Independent trials failed to reproduce strong lipid benefits; block monetized cholesterol claims.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.6: Independent trials failed to reproduce strong lipid benefits; block monetized cholesterol claims.",
-      "qualifiers": {
-        "direction": "heart_health",
-        "dose_or_duration": "5–20 mg/day used in older studies, but benefit is inconsistent",
-        "study_id": "ent_study_d1f8d8813dcb"
-      },
-      "sourceRefIds": [
-        "src_de0b9fbdbbcd"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

@@ -2,7 +2,7 @@
   "id": "capsaicin",
   "slug": "capsaicin",
   "name": "Capsaicin",
-  "summary": "Capsaicin is a capsaicinoid associated with chili peppers. Evidence level: moderate.",
+  "summary": "Capsaicin is a capsaicinoid associated with chili peppers.",
   "description": "Capsaicin activates TRPV1, driving afferent signaling that can alter pain perception and energy-related pathways. Human support is strongest for TRPV1 effects.",
   "compoundClass": "",
   "mechanisms": [
@@ -41,25 +41,7 @@
       "clm_fc1d40e1c709"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_fc1d40e1c709",
-      "claim": "v8.2: Topical capsaicin appears effective for osteoarthritis pain, with concentrations generally 0.025–0.075% in trials.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: Topical capsaicin appears effective for osteoarthritis pain, with concentrations generally 0.025–0.075% in trials.",
-      "qualifiers": {
-        "direction": "pain, inflammation",
-        "dose_or_duration": "topical 0.0125–0.075% capsaicin used in OA trials; oral supplement claims not supported",
-        "study_id": "ent_study_45d9155b2d81"
-      },
-      "sourceRefIds": [
-        "src_ac7187de89a0"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,

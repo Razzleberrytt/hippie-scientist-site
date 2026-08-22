@@ -39,25 +39,7 @@
       "clm_54766b1a73d2"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_54766b1a73d2",
-      "claim": "v9.5: Human evidence includes acute preoperative anxiety and opiate-withdrawal adjunct contexts; general anxiety claims should stay conservative.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Human evidence includes acute preoperative anxiety and opiate-withdrawal adjunct contexts; general anxiety claims should stay conservative.",
-      "qualifiers": {
-        "direction": "anxiety",
-        "dose_or_duration": "500 mg oral Passiflora incarnata used 90 minutes before surgery in a preoperative anxiety RCT",
-        "study_id": "ent_study_aa7a87919930"
-      },
-      "sourceRefIds": [
-        "src_3213bd269e3f"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "runtime_export_decision": "full_public_runtime",

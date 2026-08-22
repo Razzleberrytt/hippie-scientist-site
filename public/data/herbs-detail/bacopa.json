@@ -1,8 +1,8 @@
 {
   "name": "Bacopa",
   "slug": "bacopa",
-  "summary": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
-  "description": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+  "summary": "Clinical-data analysis found limited/modest evidence for memory/nootropic effects; no two healthy-subject studies showed the same significant cognitive-test changes, and more studies are needed.",
+  "description": "Clinical-data analysis found limited/modest evidence for memory/nootropic effects; no two healthy-subject studies showed the same significant cognitive-test changes, and more studies are needed.",
   "primaryActions": [
     "antioxidant",
     "cognitive",
@@ -157,6 +157,6 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "dosage": "Dose varies by standardized extract and bacoside content; do not publish a universal dose without extract standardization. | Bacopa monnieri extracts/standardized bacoside products; combinations should not be credited solely to bacopa.",
-  "typical_dosage": "Dose varies by standardized extract and bacoside content; do not publish a universal dose without extract standardization. | Bacopa monnieri extracts/standardized bacoside products; combinations should not be credited solely to bacopa."
+  "dosage": "Dose varies by standardized extract and bacoside content. | Bacopa monnieri extracts/standardized bacoside products; combinations should not be credited solely to bacopa.",
+  "typical_dosage": "Dose varies by standardized extract and bacoside content. | Bacopa monnieri extracts/standardized bacoside products; combinations should not be credited solely to bacopa."
 }

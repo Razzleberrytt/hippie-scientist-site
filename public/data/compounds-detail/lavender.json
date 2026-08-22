@@ -44,23 +44,6 @@
   },
   "claimMap": [
     {
-      "id": "clm_6a8d24185799",
-      "claim": "v9.5: Oral Silexan has multiple anxiety RCTs; distinguish oral product evidence from lavender aromatherapy.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Oral Silexan has multiple anxiety RCTs; distinguish oral product evidence from lavender aromatherapy.",
-      "qualifiers": {
-        "direction": "anxiety",
-        "dose_or_duration": "80 mg/day oral Silexan lavender oil; some studies used 160 mg/day",
-        "study_id": "ent_study_71a5bae5c003"
-      },
-      "sourceRefIds": [
-        "src_724799cfc414"
-      ]
-    },
-    {
       "id": "clm_c7c8afe2007c",
       "claim": "Insufficient reliable evidence identified.",
       "predicate": "supports_outcome",

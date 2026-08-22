@@ -39,25 +39,7 @@
       "clm_745460814eb3"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_745460814eb3",
-      "claim": "v10.0: Keep lower than myo-inositol; ratio/dose context matters.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Keep lower than myo-inositol; ratio/dose context matters.",
-      "qualifiers": {
-        "direction": "metabolism, hormone_health",
-        "dose_or_duration": "D-chiro-inositol is often combined with myo-inositol; 40:1 myo:DCI ratio is commonly marketed but product-specific evidence matters",
-        "study_id": "ent_study_abc3211477d1"
-      },
-      "sourceRefIds": [
-        "src_f7ab63c70d7e"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

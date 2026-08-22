@@ -109,6 +109,55 @@ function bump(field) {
 }
 
 /**
+ * Fields that describe a profile in prose and so can be recovered from the
+ * canonical record for that slug. `generated_description` and
+ * `meta_description` are derived restatements of the same thing, so they map
+ * onto the canonical summary rather than being left behind — 210 of them were,
+ * because the replacement rule only recognised the two literal field names.
+ *
+ * @type {Record<string, string[]>}
+ */
+const CANONICAL_SOURCE_FIELDS = {
+  summary: ['summary', 'description'],
+  description: ['description', 'summary'],
+  generated_description: ['summary', 'description'],
+  meta_description: ['summary', 'description'],
+  overview: ['summary', 'description'],
+}
+
+/**
+ * Recover a profile slug from a record that identifies itself by route rather
+ * than by slug. The route manifest keys 50 entries as `/herbs/agarikon` with no
+ * `slug` field, so their `meta_description` had no canonical prose to fall back
+ * to and kept the instruction.
+ *
+ * @param {Record<string, unknown>} node
+ * @returns {string}
+ */
+function slugFromRoute(node) {
+  for (const key of ['route', 'canonical_url', 'url', 'path']) {
+    const value = String(node?.[key] ?? '').trim()
+    if (!value) continue
+    const segments = value.replace(/[?#].*$/, '').split('/').filter(Boolean)
+    const last = segments[segments.length - 1]
+    if (last && !last.includes('.')) return last
+  }
+  return ''
+}
+
+function canonicalReplacement(key, slug, canonical) {
+  const candidates = CANONICAL_SOURCE_FIELDS[key]
+  if (!candidates || !slug) return null
+  const record = canonical.get(slug)
+  if (!record) return null
+  for (const field of candidates) {
+    const value = record[field]
+    if (value && !isLeakedUserFacingText(value)) return value
+  }
+  return null
+}
+
+/**
  * Repair one node in place. `slugHint` is the nearest enclosing record slug, so
  * a nested payload can still recover its own canonical prose.
  */
@@ -143,18 +192,14 @@ function repair(node, canonical, slugHint = '', depth = 0) {
     return changed
   }
 
-  const slug = String(node.slug ?? '').trim() || slugHint
+  const slug = String(node.slug ?? '').trim() || slugFromRoute(node) || slugHint
 
   for (const [key, value] of Object.entries(node)) {
     if (typeof value === 'string') {
       if (!PUBLIC_TEXT_FIELDS.includes(key)) continue
       if (!isLeakedUserFacingText(value)) continue
 
-      const canonicalText = canonical.get(slug)
-      const replacement =
-        (key === 'summary' || key === 'description') && canonicalText?.[key] && !isLeakedUserFacingText(canonicalText[key])
-          ? canonicalText[key]
-          : null
+      const replacement = canonicalReplacement(key, slug, canonical)
 
       if (replacement) {
         node[key] = replacement
@@ -212,7 +257,12 @@ function main() {
   for (const file of files) {
     const raw = fs.readFileSync(file, 'utf8')
     const payload = readJson(file)
-    if (!repair(payload, canonical)) continue
+    // Per-profile payloads (detail files, ai-entity graphs) are named after
+    // their slug, and their inner nodes — a JSON-LD `@graph` entry, for
+    // instance — carry no slug of their own. Seeding the hint from the filename
+    // lets those nodes recover the right profile's canonical prose.
+    const fileSlug = path.basename(file, '.json')
+    if (!repair(payload, canonical, canonical.has(fileSlug) ? fileSlug : '')) continue
     stats.filesChanged += 1
     // Match the file's existing formatting. The summary indexes are written
     // minified and the detail files pretty-printed; reformatting either would

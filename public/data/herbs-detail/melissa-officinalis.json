@@ -138,23 +138,6 @@
       "sourceRefIds": [
         "src_a05ea67138e7"
       ]
-    },
-    {
-      "id": "clm_eb432268c675",
-      "claim": "v9.5: Mapped to lemon balm evidence; keep claims mild and anxiety-focused.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Mapped to lemon balm evidence; keep claims mild and anxiety-focused.",
-      "qualifiers": {
-        "direction": "anxiety, sleep",
-        "dose_or_duration": "Lemon balm dose varies by extract; clinical trials commonly use standardized Melissa officinalis preparations rather than loose tea",
-        "study_id": "ent_study_e5bac96876c4"
-      },
-      "sourceRefIds": [
-        "src_826d7cae36e1"
-      ]
     }
   ],
   "indexability_status": "PUBLISH",

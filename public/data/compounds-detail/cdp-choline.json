@@ -40,42 +40,7 @@
       "clm_b102c0b06e9c"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_763ff93923bd",
-      "claim": "v9.2: Mapped to citicoline evidence; avoid overgeneralizing to all choline forms.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.2: Mapped to citicoline evidence; avoid overgeneralizing to all choline forms.",
-      "qualifiers": {
-        "direction": "focus, cognition",
-        "dose_or_duration": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
-        "study_id": "ent_study_e537f7d15255"
-      },
-      "sourceRefIds": [
-        "src_ad8ff3b198d3"
-      ]
-    },
-    {
-      "id": "clm_b102c0b06e9c",
-      "claim": "v9.8: Mapped to citicoline evidence; avoid extrapolating to all choline products.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.8: Mapped to citicoline evidence; avoid extrapolating to all choline products.",
-      "qualifiers": {
-        "direction": "focus, cognition",
-        "dose_or_duration": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
-        "study_id": "ent_study_3fe32885a7eb"
-      },
-      "sourceRefIds": [
-        "src_ad8ff3b198d3"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,

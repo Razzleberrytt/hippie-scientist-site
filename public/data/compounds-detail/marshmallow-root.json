@@ -39,31 +39,13 @@
       "clm_5c4972aac968"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_5c4972aac968",
-      "claim": "v10.4: Keep as research/traditional profile only until direct human evidence is added. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.4: Keep as research/traditional profile only until direct human evidence is added. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "qualifiers": {
-        "direction": "gut_health",
-        "dose_or_duration": "No well-supported universal clinical dose; product-specific demulcent use",
-        "study_id": "ent_study_b94a0a69d2f7"
-      },
-      "sourceRefIds": [
-        "src_b5b0b0a73b41"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [
     {
       "id": "src_b5b0b0a73b41",
-      "title": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
+      "title": "",
       "note": "needs_classification",
       "studyType": "Animal",
       "reviewStatus": "pending"

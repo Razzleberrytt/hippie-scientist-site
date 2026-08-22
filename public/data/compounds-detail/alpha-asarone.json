@@ -43,22 +43,6 @@
   },
   "claimMap": [
     {
-      "id": "clm_b6cd744c6303",
-      "claim": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
-      "qualifiers": {
-        "direction": "needs_validation",
-        "study_id": "ent_study_011428f76581"
-      },
-      "sourceRefIds": [
-        "src_ad6d412d2f8e"
-      ]
-    },
-    {
       "id": "clm_f02d8875af8d",
       "claim": "CNS/cholinergic; preclinical anxiolytic.",
       "predicate": "supports_outcome",

@@ -268,12 +268,12 @@
     },
     {
       "id": "clm_cd63174d3a52",
-      "claim": "Lion's Mane should be framed as generally food-like but not risk-free; potential side effects include stomach discomfort, headache, and allergic reactions.",
+      "claim": "Potential side effects include stomach discomfort, headache, and allergic reactions.",
       "predicate": "supports_outcome",
       "evidenceLevel": "none",
       "confidence": 0.5,
       "reviewStatus": "pending",
-      "notes": "Lion's Mane should be framed as generally food-like but not risk-free; potential side effects include stomach discomfort, headache, and allergic reactions.",
+      "notes": "Potential side effects include stomach discomfort, headache, and allergic reactions.",
       "qualifiers": {
         "direction": "limited safety reporting; mild side effects possible",
         "dose_or_duration": "Varied",

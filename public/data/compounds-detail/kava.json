@@ -2,7 +2,7 @@
   "id": "kava",
   "slug": "kava",
   "name": "Kava",
-  "summary": "Decision-ready summary: Kava is best framed for short-term anxiety reduction; relaxation without classic stimulation; safety screen: liver disease; alcohol; hepatotoxic medications; pregnancy.",
+  "summary": "Kava carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Findings across those studies disagree. Recorded activity centres on oxidative stress modulation, neurotransmitter modulation and stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include liver.",
   "description": "Kava supports anxiety; relaxation with moderate confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -39,25 +39,7 @@
       "clm_953f8bba05d2"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_953f8bba05d2",
-      "claim": "v9.5: GAD evidence is mixed and liver-safety concerns make it unsuitable for casual monetized recommendations.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: GAD evidence is mixed and liver-safety concerns make it unsuitable for casual monetized recommendations.",
-      "qualifiers": {
-        "direction": "anxiety",
-        "dose_or_duration": "120–240 mg/day kavalactones used in a 6-week GAD safety RCT",
-        "study_id": "ent_study_1acd5c7966ed"
-      },
-      "sourceRefIds": [
-        "src_203bc87edd2e"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

@@ -2,8 +2,8 @@
   "id": "egcg-caffeine",
   "slug": "egcg-caffeine",
   "name": "EGCG + Caffeine",
-  "summary": "EGCG + Caffeine is tracked for AMPK; COMT; adenosine antagonism with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "EGCG + Caffeine is tracked for AMPK; COMT; adenosine antagonism with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "EGCG + Caffeine carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, vascular function support and AMPK signaling, which describes mechanism rather than demonstrated benefit. Noted cautions include previous green-tea-extract-associated liver injury and high-dose EGCG extract use without clinical supervision.",
+  "description": "EGCG + Caffeine compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
@@ -39,25 +39,7 @@
       "clm_57b3a779611f"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_57b3a779611f",
-      "claim": "v10.3: Green tea catechin/caffeine effects are modest; liver/caffeine cautions are essential.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.3: Green tea catechin/caffeine effects are modest; liver/caffeine cautions are essential.",
-      "qualifiers": {
-        "direction": "weight, energy",
-        "dose_or_duration": "EGCG/caffeine trial doses vary; avoid high-dose EGCG and fasting use",
-        "study_id": "ent_study_ca7b9014641c"
-      },
-      "sourceRefIds": [
-        "src_72eadc586f7b"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

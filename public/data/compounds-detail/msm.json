@@ -39,25 +39,7 @@
       "clm_7e7757e8f96d"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_7e7757e8f96d",
-      "claim": "v9.7: MSM has small RCT evidence for knee OA symptoms; keep below stronger joint options.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.7: MSM has small RCT evidence for knee OA symptoms; keep below stronger joint options.",
-      "qualifiers": {
-        "direction": "joints, pain",
-        "dose_or_duration": "3.375 g/day in knee OA RCT; 6 g/day evaluated for musculoskeletal pain safety",
-        "study_id": "ent_study_6d77bd7c01a6"
-      },
-      "sourceRefIds": [
-        "src_0101f16f4835"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [

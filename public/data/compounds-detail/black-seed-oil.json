@@ -2,8 +2,8 @@
   "id": "black-seed-oil",
   "slug": "black-seed-oil",
   "name": "Black Seed Oil",
-  "summary": "Black Seed Oil is tracked for Nigella sativa oil contains thymoquinone with antioxidant and metabolic pathway effects with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Black Seed Oil is tracked for Nigella sativa oil contains thymoquinone with antioxidant and metabolic pathway effects with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Black Seed Oil carries a Avoid / Insufficient Evidence rating. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and metabolic regulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy due to insufficient safety data and discontinue before scheduled surgery due to bleeding risk.",
+  "description": "Black Seed Oil compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",

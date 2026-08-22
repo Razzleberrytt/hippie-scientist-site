@@ -1,8 +1,8 @@
 {
   "name": "Cistanche",
   "slug": "cistanche",
-  "summary": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
-  "description": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
+  "summary": "Cistanche carries a Grade C rating — limited evidence. Strongest recorded design is a narrative review, drawn from 2 recorded studies, none of which measured an outcome in people. Recorded activity centres on neuroprotective activity and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without guidance and diarrhea-prone conditions.",
+  "description": "Cistanche botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "sleep"
   ],
@@ -61,7 +61,7 @@
     },
     {
       "id": "src_b5b0b0a73b41",
-      "title": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
+      "title": "",
       "note": "needs_classification",
       "studyType": "Animal",
       "reviewStatus": "pending"
@@ -88,25 +88,7 @@
       "clm_86dc74b5f5ce"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_86dc74b5f5ce",
-      "claim": "v9.4: Promising preclinical/traditional profile but not enough direct human outcome evidence for monetized recommendation. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.4: Promising preclinical/traditional profile but not enough direct human outcome evidence for monetized recommendation. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "qualifiers": {
-        "direction": "energy, cognition",
-        "dose_or_duration": "Product-specific extract dosing varies; direct human outcome dose support is limited",
-        "study_id": "ent_study_589801351d56"
-      },
-      "sourceRefIds": [
-        "src_b5b0b0a73b41"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "Preparation-specific; use standardized product label for Stem decoction and require source-backed dosage review before therapeutic claims.",
   "typical_dosage": "Preparation-specific; use standardized product label for Stem decoction and require source-backed dosage review before therapeutic claims."
 }

@@ -1,8 +1,8 @@
 {
   "name": "Tribulus Tribulus terrestris",
   "slug": "tribulus-terrestris",
-  "summary": "Tribulus terrestris lean herb row for high-speed phytochemical ingestion.",
-  "description": "Tribulus terrestris lean herb row for high-speed phytochemical ingestion.",
+  "summary": "Tribulus (Tribulus terrestris) (Tribulus terrestris) carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 1 in people. Findings across those studies disagree. Recorded activity centres on vascular function support and endocrine, which describes mechanism rather than demonstrated benefit. Noted cautions include hormone-sensitive conditions (uncertain) and none well established.",
+  "description": "Tribulus (Tribulus terrestris) botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "sleep"
   ],
@@ -61,25 +61,7 @@
       "clm_6783f9e07f1c"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_6783f9e07f1c",
-      "claim": "v9.4: Human trials do not support broad testosterone boosting; block testosterone monetization.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.4: Human trials do not support broad testosterone boosting; block testosterone monetization.",
-      "qualifiers": {
-        "direction": "libido",
-        "dose_or_duration": "Human studies vary; testosterone claims not supported reliably",
-        "study_id": "ent_study_fdb6b2fabd86"
-      },
-      "sourceRefIds": [
-        "src_fc06f95d7d33"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

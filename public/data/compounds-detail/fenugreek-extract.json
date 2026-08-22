@@ -2,8 +2,8 @@
   "id": "fenugreek-extract",
   "slug": "fenugreek-extract",
   "name": "Fenugreek Extract",
-  "summary": "Fenugreek Extract is tracked for Contains saponins and soluble fiber that may affect glucose absorption and endocrine markers with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Fenugreek Extract is tracked for Contains saponins and soluble fiber that may affect glucose absorption and endocrine markers with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Fenugreek Extract carries a Avoid / Insufficient Evidence rating. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, hormonal signaling context and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy due to traditional uterine-stimulant use and reported association with birth defects at supplement doses.",
+  "description": "Fenugreek Extract compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",

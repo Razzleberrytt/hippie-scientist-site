@@ -10123,7 +10123,7 @@
   {
     "slug": "lithium-orotate",
     "name": "Lithium Orotate",
-    "summary": "Lithium orotate provides lithium ions, but robust human evidence for this salt form is lacking. Safety concerns should be framed from lithium's narrow therapeutic window and kidney/thyroid risk.",
+    "summary": "Lithium orotate provides lithium ions, but robust human evidence for this salt form is lacking.",
     "primary_effects": [
       "inositol signaling",
       "GSK-3",
@@ -12754,7 +12754,7 @@
   {
     "slug": "pantethine",
     "name": "Pantethine",
-    "summary": "Pantethine is a coenzyme A precursor studied for modest lipid improvements. Evidence is limited to small human trials and should be framed conservatively.",
+    "summary": "Pantethine is a coenzyme A precursor studied for modest lipid improvements.",
     "primary_effects": [
       "CoA metabolism",
       "lipid metabolism"
@@ -13341,7 +13341,7 @@
   {
     "slug": "pregnenolone",
     "name": "Pregnenolone",
-    "summary": "Pregnenolone is a neurosteroid precursor with limited human trial evidence in mood, substance-use, and psychiatric contexts; it should be framed as experimental rather than a general cognition or hormone-optimization supplement.",
+    "summary": "Pregnenolone carries a Grade C rating — limited evidence. Recorded activity centres on neurotransmitter modulation, hormonal signaling context and neurotransmitter signaling, which describes mechanism rather than demonstrated benefit. small trials report tolerability, but evidence is limited and endocrine, mood, and drug-interaction risks require clinician review.",
     "primary_effects": [
       "mood",
       "research_only"
@@ -15480,7 +15480,7 @@
   {
     "slug": "taurine-blend",
     "name": "Taurine Blend",
-    "summary": "Taurine blend entries should be treated as formulation/context rows, not separate proof beyond taurine evidence.",
+    "summary": "Taurine Blend carries a Grade B rating — moderate evidence. Recorded activity centres on cellular hydration regulation, calcium signaling and cardiac/muscle support, which describes mechanism rather than demonstrated benefit. Safety evidence: human taurine trials report no significant adverse-effect difference from control in studied settings, but this blend formulation is unspecified. Isolated-taurine findings cannot establish the safety of unknown co-ingredients, doses, or long-term use.",
     "primary_effects": [
       "calcium signaling",
       "osmotic regulation"

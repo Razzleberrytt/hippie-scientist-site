@@ -2,7 +2,7 @@
   "id": "boswellia",
   "slug": "boswellia",
   "name": "Boswellia",
-  "summary": "Boswellia entry from SciSpace evidence pass. Evidence level: moderate.",
+  "summary": "Boswellia carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 3 recorded studies, 3 in people. No disagreement is recorded across them. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Noted cautions include known allergy to boswellia or other Burseraceae-family plants.",
   "description": "Boswellia (boswellic acids) is mechanistically tied to lipoxygenase modulation, aligning with leukotriene-pathway suppression models for inflammatory processes.",
   "compoundClass": "",
   "mechanisms": [
@@ -41,23 +41,6 @@
     ]
   },
   "claimMap": [
-    {
-      "id": "clm_2f53e43dd10c",
-      "claim": "v9.7: Boswellia/AKBA has human OA evidence, but product standardization is critical.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.7: Boswellia/AKBA has human OA evidence, but product standardization is critical.",
-      "qualifiers": {
-        "direction": "joints, inflammation",
-        "dose_or_duration": "Boswellia extract dosing varies; AKBA-standardized extracts often use 100–250 mg/day in OA studies",
-        "study_id": "ent_study_255287bf68e1"
-      },
-      "sourceRefIds": [
-        "src_51f7a63c92af"
-      ]
-    },
     {
       "id": "clm_b8cd0cf03cc1",
       "claim": "Combination trial; do not isolate Boswellia effect",

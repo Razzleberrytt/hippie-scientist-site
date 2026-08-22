@@ -1,8 +1,8 @@
 {
   "name": "Asian Ginseng",
   "slug": "panax-ginseng",
-  "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
-  "description": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+  "summary": "Asian ginseng (Panax ginseng) is a slow-growing root whose ginsenosides are its characteristic compounds; it is a classic adaptogen taken for energy, cognition, and blood sugar. For glucose, a systematic review and meta-analysis of randomized trials across the Panax genus found that ginseng modestly lowered fasting blood glucose compared with control, although the effect was small and the trials were varied and often short. Evidence for its other traditional uses, such as memory and fatigue, is mixed. Ginseng may interact with blood thinners and with diabetes medications.",
+  "description": "May modestly support memory outcomes, but evidence is mixed for broader cognition. Caveat: Do not imply broad attention/executive-function benefit or stimulation without safety context.",
   "primaryActions": [
     "cognitive",
     "metabolic"

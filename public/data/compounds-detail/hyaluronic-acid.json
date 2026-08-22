@@ -39,25 +39,7 @@
       "clm_6ba7e4900f07"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_6ba7e4900f07",
-      "claim": "v9.7: Oral HA evidence is limited/product-specific; injection meta-analyses should not be used to market oral supplements.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.7: Oral HA evidence is limited/product-specific; injection meta-analyses should not be used to market oral supplements.",
-      "qualifiers": {
-        "direction": "joints, skin_hair_nails",
-        "dose_or_duration": "Oral sodium hyaluronate products are study-specific; injectable HA evidence does not translate to oral supplements",
-        "study_id": "ent_study_ff75720ab07c"
-      },
-      "sourceRefIds": [
-        "src_d0eb5bce755f"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

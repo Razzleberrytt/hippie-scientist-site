@@ -38,25 +38,7 @@
       "clm_c3d66e4b581c"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_c3d66e4b581c",
-      "claim": "v10.3: MCT effects on body composition are modest/context-dependent; emphasize tolerance and calorie context.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.3: MCT effects on body composition are modest/context-dependent; emphasize tolerance and calorie context.",
-      "qualifiers": {
-        "direction": "energy, weight",
-        "dose_or_duration": "MCT oil dosing is product/tolerance-specific; start low (for example 5–15 mL) to reduce GI effects",
-        "study_id": "ent_study_ac609ac55815"
-      },
-      "sourceRefIds": [
-        "src_0071dad30187"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [

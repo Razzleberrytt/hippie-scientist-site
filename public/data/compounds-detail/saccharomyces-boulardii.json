@@ -2,7 +2,7 @@
   "id": "saccharomyces-boulardii",
   "slug": "saccharomyces-boulardii",
   "name": "Saccharomyces boulardii",
-  "summary": "Decision-ready summary: Saccharomyces boulardii is best framed for antibiotic-associated diarrhea risk; traveler’s diarrhea context; gut resilience; safety screen: central venous catheter; severe immunocompromise; critical illness.",
+  "summary": "Saccharomyces boulardii carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 3 in people. No disagreement is recorded across them. Recorded activity centres on immune signaling modulation, gut_microbiome and liver_detoxification, which describes mechanism rather than demonstrated benefit. Fungemia risk is rare but important in central-line or severe immunocompromise contexts.",
   "description": "Saccharomyces boulardii supports antibiotic-associated diarrhea management by reinforcing gut barrier and immune signaling while limiting pathogen effects.",
   "compoundClass": "",
   "mechanisms": [
@@ -40,42 +40,7 @@
       "clm_1b2de9b7692a"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_0a2fee399029",
-      "claim": "v10.4: Meta-analysis found S. boulardii significantly reduced antibiotic-associated diarrhea risk in adults.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.4: Meta-analysis found S. boulardii significantly reduced antibiotic-associated diarrhea risk in adults.",
-      "qualifiers": {
-        "direction": "gut_health",
-        "dose_or_duration": "Common clinical range: 250–1000 mg/day or product-specific CFU dosing",
-        "study_id": "ent_study_c1be1b740c3c"
-      },
-      "sourceRefIds": [
-        "src_87430c135287"
-      ]
-    },
-    {
-      "id": "clm_1b2de9b7692a",
-      "claim": "v9.2: Systematic review/meta-analysis found significant efficacy for prevention of antibiotic-associated diarrhea.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.2: Systematic review/meta-analysis found significant efficacy for prevention of antibiotic-associated diarrhea.",
-      "qualifiers": {
-        "direction": "gut_health",
-        "dose_or_duration": "Common clinical range: 250–1000 mg/day or strain/product-specific CFU dosing",
-        "study_id": "ent_study_89fda9eb9965"
-      },
-      "sourceRefIds": [
-        "src_d6bd0ab16fed"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,
@@ -99,7 +64,7 @@
     },
     {
       "id": "src_87430c135287",
-      "title": "v10.4: Meta-analysis found S. boulardii significantly reduced antibiotic-associated diarrhea risk in adults.",
+      "title": "",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2868213/",
       "note": "review_or_meta_analysis",
       "studyType": "Meta-analysis",

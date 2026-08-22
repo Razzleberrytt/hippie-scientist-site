@@ -39,25 +39,7 @@
       "clm_fe92c4e702cd"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_fe92c4e702cd",
-      "claim": "v8.2: ODS notes deficiency is rare and biotin can interfere with laboratory tests; strong consumer claims should be restricted.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: ODS notes deficiency is rare and biotin can interfere with laboratory tests; strong consumer claims should be restricted.",
-      "qualifiers": {
-        "direction": "skin_hair_nails, metabolism",
-        "dose_or_duration": "30 mcg/day adequate intake for adults; high-dose use can interfere with lab tests",
-        "study_id": "ent_study_952868e1c887"
-      },
-      "sourceRefIds": [
-        "src_dbca2219df1e"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -110,7 +92,7 @@
   "sources": [
     {
       "id": "src_dbca2219df1e",
-      "title": "v8.2: ODS notes deficiency is rare and biotin can interfere with laboratory tests; strong consumer claims should be restricted.",
+      "title": "",
       "url": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/",
       "note": "needs_classification",
       "reviewStatus": "pending"

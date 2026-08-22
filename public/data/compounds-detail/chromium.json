@@ -2,7 +2,7 @@
   "id": "chromium",
   "slug": "chromium",
   "name": "Chromium",
-  "summary": "Chromium entry from SciSpace evidence pass. Evidence level: mixed.",
+  "summary": "Chromium carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 4 recorded studies, 2 in people. Findings across those studies disagree. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include liver and kidney.",
   "description": "Essential trace mineral; proposed insulin-signal amplification via chromodulin-related effects, which may influence glucose handling and metabolic homeostasis.",
   "compoundClass": "",
   "mechanisms": [
@@ -58,23 +58,6 @@
       },
       "sourceRefIds": [
         "src_77b5365e4e0b"
-      ]
-    },
-    {
-      "id": "clm_d304f5f66dce",
-      "claim": "v10.0: Chromium evidence for diabetes/glucose is mixed; block monetized 'blood sugar' recommendation.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Chromium evidence for diabetes/glucose is mixed; block monetized 'blood sugar' recommendation.",
-      "qualifiers": {
-        "direction": "metabolism",
-        "dose_or_duration": "Chromium doses in diabetes trials vary widely, often 200–1000 mcg/day; routine use should be individualized",
-        "study_id": "ent_study_c19240286d72"
-      },
-      "sourceRefIds": [
-        "src_8799e0f58983"
       ]
     }
   ],

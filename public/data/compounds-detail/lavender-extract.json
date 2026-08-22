@@ -59,23 +59,6 @@
       "sourceRefIds": [
         "src_d0f31504cef6"
       ]
-    },
-    {
-      "id": "clm_692acb4b15a1",
-      "claim": "v9.5: Mapped to oral lavender/Silexan evidence.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Mapped to oral lavender/Silexan evidence.",
-      "qualifiers": {
-        "direction": "anxiety",
-        "dose_or_duration": "80 mg/day oral Silexan lavender oil; some studies used 160 mg/day",
-        "study_id": "ent_study_7b2476d390d8"
-      },
-      "sourceRefIds": [
-        "src_724799cfc414"
-      ]
     }
   ],
   "indexability_status": "PUBLISH",

@@ -1,8 +1,8 @@
 {
   "name": "Phosphatidylserine",
   "slug": "phosphatidylserine",
-  "summary": "Phosphatidylserine is tracked for stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-  "description": "Phosphatidylserine is tracked for stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "summary": "Phosphatidylserine carries a Grade B rating — moderate evidence. Strongest recorded design is a uncontrolled trial, drawn from 3 recorded studies, 1 in people. Recorded activity centres on cellular protection, hormonal signaling context and stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include anticoagulants (theoretical).",
+  "description": "Phosphatidylserine botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "stress"
   ],
@@ -95,25 +95,7 @@
       "clm_e9deeb8bfb0d"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_e9deeb8bfb0d",
-      "claim": "v9.8: Evidence is plausible but smaller/older; avoid overranking compared with stronger cognition compounds.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.8: Evidence is plausible but smaller/older; avoid overranking compared with stronger cognition compounds.",
-      "qualifiers": {
-        "direction": "focus, stress",
-        "dose_or_duration": "300 mg/day used in memory/cognition contexts; higher doses studied for stress/cortisol response",
-        "study_id": "ent_study_3d69f0a830a4"
-      },
-      "sourceRefIds": [
-        "src_48f7980a9212"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "100-300 mg/day",
   "typical_dosage": "100-300 mg/day"
 }

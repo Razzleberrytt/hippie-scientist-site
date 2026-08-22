@@ -2,8 +2,8 @@
   "id": "gingerol",
   "slug": "gingerol",
   "name": "gingerol",
-  "summary": "gingerol is tracked for Inhibits COX-2 and reduces prostaglandin synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "gingerol is tracked for Inhibits COX-2 and reduces prostaglandin synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "gingerol carries a Grade B rating — moderate evidence. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and oxidative stress, which describes mechanism rather than demonstrated benefit. Safety evidence: human review evidence for oral ginger preparations, not isolated gingerol. Isolated-gingerol dose-response, pregnancy, breastfeeding, bleeding, surgery, liver, kidney, and medication-interaction safety remains insufficient.",
+  "description": "gingerol compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Prostaglandin Synthesis Reduction",

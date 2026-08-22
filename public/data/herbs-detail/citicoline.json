@@ -153,40 +153,5 @@
       "clm_f98e2dbc2bbc"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_be2a3ee91305",
-      "claim": "v9.8: Citicoline has RCT evidence for memory in older adults; avoid claiming broad stimulant-like focus benefits.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.8: Citicoline has RCT evidence for memory in older adults; avoid claiming broad stimulant-like focus benefits.",
-      "qualifiers": {
-        "direction": "focus, cognition",
-        "dose_or_duration": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
-        "study_id": "ent_study_c83c791110c6"
-      },
-      "sourceRefIds": [
-        "src_ad8ff3b198d3"
-      ]
-    },
-    {
-      "id": "clm_f98e2dbc2bbc",
-      "claim": "v9.2: 500 mg/day improved episodic and composite memory in a 12-week RCT of healthy older adults with age-associated memory impairment.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.2: 500 mg/day improved episodic and composite memory in a 12-week RCT of healthy older adults with age-associated memory impairment.",
-      "qualifiers": {
-        "direction": "focus, cognition",
-        "dose_or_duration": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
-        "study_id": "ent_study_68c3eb12e43b"
-      },
-      "sourceRefIds": [
-        "src_ad8ff3b198d3"
-      ]
-    }
-  ]
+  "claimMap": []
 }

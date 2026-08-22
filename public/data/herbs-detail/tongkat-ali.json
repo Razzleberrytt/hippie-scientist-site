@@ -1,8 +1,8 @@
 {
   "name": "Tongkat Ali",
   "slug": "tongkat-ali",
-  "summary": "It is best framed as a bitter root extract with endocrine and stimulation-related caution.",
-  "description": "It is best framed as a bitter root extract with endocrine and stimulation-related caution.",
+  "summary": "Tongkat Ali (Eurycoma longifolia) carries a Grade C rating — limited evidence. Strongest recorded design is a systematic review, drawn from 4 recorded studies, 3 in people. No disagreement is recorded across them. Recorded activity centres on hormonal signaling context, stress response modulation and endocrine, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy or breastfeeding without clinician guidance due to insufficient safety data.",
+  "description": "Tongkat Ali botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "stress"
   ],
@@ -100,25 +100,7 @@
       "clm_797888c2aae5"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_797888c2aae5",
-      "claim": "v9.4: Human evidence suggests possible stress/testosterone benefits, but effects are context-dependent and quality varies.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.4: Human evidence suggests possible stress/testosterone benefits, but effects are context-dependent and quality varies.",
-      "qualifiers": {
-        "direction": "testosterone, stress",
-        "dose_or_duration": "200–400 mg/day standardized Eurycoma longifolia extract in human studies",
-        "study_id": "ent_study_62c7bd247f3a"
-      },
-      "sourceRefIds": [
-        "src_a2c634d38f77"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "Preparation-specific; use standardized product label for Root/rhizome preparations are commonly used as teas and require source-backed dosage review before therapeutic claims.",
   "typical_dosage": "Preparation-specific; use standardized product label for Root/rhizome preparations are commonly used as teas and require source-backed dosage review before therapeutic claims."
 }

@@ -2,7 +2,7 @@
   "id": "lutein",
   "slug": "lutein",
   "name": "Lutein",
-  "summary": "Decision-ready summary: Lutein is best framed for macular pigment support; age-related eye health; screen-heavy lifestyle support; safety screen: none significant; review pregnancy supplement stack.",
+  "summary": "Lutein carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on oxidative stress modulation, stress response modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy or breastfeeding due to insufficient safety data for supplemental doses beyond dietary intake.",
   "description": "Lutein supports eye health; macular pigment; vision with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -72,23 +72,6 @@
       },
       "sourceRefIds": [
         "src_926aac42dc97"
-      ]
-    },
-    {
-      "id": "clm_d5d96f8f33d3",
-      "claim": "v10.0: Lutein/zeaxanthin strongest context is AREDS2-style macular support, not generic eyesight claims.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Lutein/zeaxanthin strongest context is AREDS2-style macular support, not generic eyesight claims.",
-      "qualifiers": {
-        "direction": "eye_health",
-        "dose_or_duration": "AREDS2 formula uses lutein 10 mg plus zeaxanthin 2 mg/day",
-        "study_id": "ent_study_f90f9930da9c"
-      },
-      "sourceRefIds": [
-        "src_56cc494303b2"
       ]
     }
   ],

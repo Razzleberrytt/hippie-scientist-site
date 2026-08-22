@@ -2,7 +2,7 @@
   "id": "artichoke-extract",
   "slug": "artichoke-extract",
   "name": "Artichoke Extract",
-  "summary": "Decision-ready summary: Artichoke Extract is best framed for indigestion support; cholesterol context; bile-flow support; safety screen: bile duct obstruction; gallstones; ragweed allergy.",
+  "summary": "Artichoke Extract carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on oxidative stress modulation, metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include avoid artichoke leaf extract with bile-duct obstruction or other obstructive biliary disease.",
   "description": "Artichoke Extract supports digestion; cholesterol; bile flow with moderate confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -41,25 +41,7 @@
       "clm_a5e7fa9af029"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_a5e7fa9af029",
-      "claim": "v8.2: A randomized placebo-controlled trial found HDL-cholesterol improvement in primary mild hypercholesterolemia.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: A randomized placebo-controlled trial found HDL-cholesterol improvement in primary mild hypercholesterolemia.",
-      "qualifiers": {
-        "direction": "heart_health, metabolism",
-        "dose_or_duration": "artichoke leaf extract doses vary; 250–2700 mg/day has been used in human studies",
-        "study_id": "ent_study_c07c39188a71"
-      },
-      "sourceRefIds": [
-        "src_38b3994acf96"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

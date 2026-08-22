@@ -2,8 +2,8 @@
   "id": "uc-ii-collagen",
   "slug": "uc-ii-collagen",
   "name": "Uc Ii Collagen",
-  "summary": "Uc Ii Collagen is tracked for May induce oral tolerance to type II collagen and reduce immune-mediated cartilage inflammation with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Uc Ii Collagen is tracked for May induce oral tolerance to type II collagen and reduce immune-mediated cartilage inflammation with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Uc Ii Collagen carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation and immune signaling modulation, which describes mechanism rather than demonstrated benefit. Safety evidence: one 180-day trial of a specific undenatured type II collagen product. Safety outcomes did not differ from placebo or glucosamine-chondroitin, but product-source allergy, pregnancy, breastfeeding, autoimmune disease, longer-term use, organ impairment, and medication-interaction safety remain insufficient.",
+  "description": "Uc Ii Collagen compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Immune Signaling Modulation",
@@ -43,23 +43,6 @@
     ]
   },
   "claimMap": [
-    {
-      "id": "clm_542a30b058cc",
-      "claim": "v9.7: UC-II evidence is distinct from collagen peptide evidence; keep product criteria strict.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.7: UC-II evidence is distinct from collagen peptide evidence; keep product criteria strict.",
-      "qualifiers": {
-        "direction": "joints, inflammation",
-        "dose_or_duration": "40 mg/day undenatured type II collagen (UC-II-style) in knee/joint studies",
-        "study_id": "ent_study_e911d6db73fb"
-      },
-      "sourceRefIds": [
-        "src_d7b833562a9a"
-      ]
-    },
     {
       "id": "clm_ebfa73fb805d",
       "claim": "Native/undenatured collagen evidence",

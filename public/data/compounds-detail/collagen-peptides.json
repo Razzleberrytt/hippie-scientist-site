@@ -2,7 +2,7 @@
   "id": "collagen-peptides",
   "slug": "collagen-peptides",
   "name": "Collagen Peptides",
-  "summary": "Decision-ready summary: Collagen Peptides is best framed for skin elasticity; joint comfort; connective tissue support; safety screen: allergy to source material.",
+  "summary": "Collagen Peptides carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include known allergy to the source protein.",
   "description": "Collagen peptides may support skin and connective tissue maintenance by providing absorbable collagen fragments that influence remodeling; evidence is moderate.",
   "compoundClass": "",
   "mechanisms": [
@@ -39,25 +39,7 @@
       "clm_15bb8e519e43"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_15bb8e519e43",
-      "claim": "v9.7: Collagen peptides have human RCT evidence for skin elasticity/wrinkles and joint/muscle-support contexts, but effects are modest and source/product quality matters.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.7: Collagen peptides have human RCT evidence for skin elasticity/wrinkles and joint/muscle-support contexts, but effects are modest and source/product quality matters.",
-      "qualifiers": {
-        "direction": "skin_hair_nails, joints",
-        "dose_or_duration": "2.5–10 g/day hydrolyzed collagen peptides; 15 g/day used with resistance training in some muscle studies",
-        "study_id": "ent_study_be364cd1de33"
-      },
-      "sourceRefIds": [
-        "src_e613cf0b61e3"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

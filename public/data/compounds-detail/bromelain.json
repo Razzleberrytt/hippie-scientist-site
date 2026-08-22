@@ -2,7 +2,7 @@
   "id": "bromelain",
   "slug": "bromelain",
   "name": "Bromelain",
-  "summary": "Decision-ready summary: Bromelain is best framed for sinus inflammation context; post-exercise soreness context; protein digestion support; safety screen: pineapple allergy; anticoagulants; planned surgery.",
+  "summary": "Bromelain carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Bleeding/allergy considerations matter; avoid around surgery unless clinician-directed.",
   "description": "Bromelain is a proteolytic mixture with mechanistic interest in inflammatory mediators and digestion support; evidence strength varies by outcome.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_c237c37213ae"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_c237c37213ae",
-      "claim": "v8.2: A 12-week knee OA pilot trial used 800 mg/day but did not show significant WOMAC superiority vs placebo.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: A 12-week knee OA pilot trial used 800 mg/day but did not show significant WOMAC superiority vs placebo.",
-      "qualifiers": {
-        "direction": "inflammation, pain",
-        "dose_or_duration": "800 mg/day studied in knee osteoarthritis pilot trial",
-        "study_id": "ent_study_10e972392007"
-      },
-      "sourceRefIds": [
-        "src_1897dff526db"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,

@@ -114,42 +114,7 @@
       "clm_e6cba7374936"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_cb7b1c3f5263",
-      "claim": "v10.4: Aloe has metabolic meta-analysis evidence, but safety/product distinction between gel/extract and latex is critical.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.4: Aloe has metabolic meta-analysis evidence, but safety/product distinction between gel/extract and latex is critical.",
-      "qualifiers": {
-        "direction": "gut_health, metabolism",
-        "dose_or_duration": "Aloe gel/extract dosing is product-specific; avoid anthraquinone/laxative aloe latex confusion",
-        "study_id": "ent_study_1b221a1b9c79"
-      },
-      "sourceRefIds": [
-        "src_96fe08d35f48"
-      ]
-    },
-    {
-      "id": "clm_e6cba7374936",
-      "claim": "v8.2: A meta-analysis of five RCTs reported improvements in FBG, HbA1c, and lipids in prediabetes/early untreated diabetes.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: A meta-analysis of five RCTs reported improvements in FBG, HbA1c, and lipids in prediabetes/early untreated diabetes.",
-      "qualifiers": {
-        "direction": "metabolism, gut_health",
-        "dose_or_duration": "product-specific aloe gel/extract dosing varies; avoid anthraquinone laxative confusion",
-        "study_id": "ent_study_150834238aea"
-      },
-      "sourceRefIds": [
-        "src_96fe08d35f48"
-      ]
-    }
-  ],
+  "claimMap": [],
   "effects": [
     "immune",
     "metabolic",

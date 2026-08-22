@@ -2,7 +2,7 @@
   "id": "arabinoxylan",
   "slug": "arabinoxylan",
   "name": "Arabinoxylan",
-  "summary": "Decision-ready summary: Arabinoxylan is best framed for prebiotic fiber support; glycemic response; gut microbiome; safety screen: IBS/FODMAP sensitivity; severe bloating.",
+  "summary": "Arabinoxylan carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on metabolic regulation, vascular function support and glucose metabolism support, which describes mechanism rather than demonstrated benefit. May worsen bloating in sensitive users; titrate fiber gradually.",
   "description": "Arabinoxylan supports fiber; gut; glucose with moderate confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -38,25 +38,7 @@
       "clm_ba233bbb4122"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_ba233bbb4122",
-      "claim": "v8.2: A geriatric RCT reported enhanced NK cell activity with arabinoxylan rice bran.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v8.2: A geriatric RCT reported enhanced NK cell activity with arabinoxylan rice bran.",
-      "qualifiers": {
-        "direction": "immunity",
-        "dose_or_duration": "rice-bran arabinoxylan product dosing varies; use product-specific clinical dose",
-        "study_id": "ent_study_d50fe028f144"
-      },
-      "sourceRefIds": [
-        "src_0d867f116292"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

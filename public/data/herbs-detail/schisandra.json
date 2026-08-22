@@ -58,7 +58,7 @@
     },
     {
       "id": "src_660c3852670e",
-      "title": "v9.4: Interesting adaptogen pharmacology, but direct consumer outcome evidence is not strong enough for monetized recommendation.",
+      "title": "",
       "url": "https://www.ncbi.nlm.nih.gov/books/NBK548496/",
       "note": "human_clinical_or_pk",
       "reviewStatus": "pending"
@@ -85,25 +85,7 @@
       "clm_315ad8811777"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_315ad8811777",
-      "claim": "v9.4: Interesting adaptogen pharmacology, but direct consumer outcome evidence is not strong enough for monetized recommendation.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.4: Interesting adaptogen pharmacology, but direct consumer outcome evidence is not strong enough for monetized recommendation.",
-      "qualifiers": {
-        "direction": "energy, stress",
-        "dose_or_duration": "Product-specific extract dosing varies; direct human clinical dose support is limited",
-        "study_id": "ent_study_c23641258830"
-      },
-      "sourceRefIds": [
-        "src_660c3852670e"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "Standardized extract (e.g., 1-3% schisandrins): 500-1500 mg/day; variability across products",
   "typical_dosage": "Standardized extract (e.g., 1-3% schisandrins): 500-1500 mg/day; variability across products"
 }

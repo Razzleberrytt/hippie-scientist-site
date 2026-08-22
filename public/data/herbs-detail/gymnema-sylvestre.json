@@ -95,25 +95,7 @@
       "clm_375c080e184b"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_375c080e184b",
-      "claim": "v9.6: Promising diabetes-support tradition, but modern evidence quality/quantity is insufficient for monetized recommendation.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.6: Promising diabetes-support tradition, but modern evidence quality/quantity is insufficient for monetized recommendation.",
-      "qualifiers": {
-        "direction": "metabolism",
-        "dose_or_duration": "Gymnema extract dosing varies; product-specific gymnemic acid content should be disclosed",
-        "study_id": "ent_study_712dfd25c12e"
-      },
-      "sourceRefIds": [
-        "src_5f132d994c7e"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "200-400 mg extract",
   "typical_dosage": "200-400 mg extract"
 }

@@ -74,25 +74,7 @@
       "clm_ee76cc800315"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_ee76cc800315",
-      "claim": "v9.4: Human studies exist but are small/heterogeneous; keep conservative and non-top-pick.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.4: Human studies exist but are small/heterogeneous; keep conservative and non-top-pick.",
-      "qualifiers": {
-        "direction": "stress, metabolism",
-        "dose_or_duration": "Tulsi extract dosing varies widely; product-specific clinical dose required",
-        "study_id": "ent_study_dc77f3f0bc0c"
-      },
-      "sourceRefIds": [
-        "src_c9c95a2ed78b"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,

@@ -111,23 +111,6 @@
   },
   "claimMap": [
     {
-      "id": "clm_58b8433d3043",
-      "claim": "v9.5: Mapped to passionflower evidence.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Mapped to passionflower evidence.",
-      "qualifiers": {
-        "direction": "anxiety",
-        "dose_or_duration": "500 mg oral Passiflora incarnata used 90 minutes before surgery in a preoperative anxiety RCT",
-        "study_id": "ent_study_b6ae6bd5185c"
-      },
-      "sourceRefIds": [
-        "src_3213bd269e3f"
-      ]
-    },
-    {
       "id": "clm_7a859c2ebe61",
       "claim": "Passionflower may reduce anxiety symptoms in some clinical contexts; effects in mild anxiety are less evident.",
       "predicate": "supports_outcome",

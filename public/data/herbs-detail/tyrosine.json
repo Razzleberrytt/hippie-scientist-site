@@ -1,8 +1,8 @@
 {
   "name": "L-Tyrosine",
   "slug": "tyrosine",
-  "summary": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-  "description": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "summary": "L-Tyrosine carries a Grade A rating — strong evidence. Strongest recorded design is a randomized controlled trial, drawn from 4 recorded studies, 1 in people. Recorded activity centres on neurotransmitter modulation, stress response modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Noted cautions include mAO inhibitors and thyroid meds.",
+  "description": "L-Tyrosine botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "stress"
   ],
@@ -97,25 +97,7 @@
       "clm_d098d900f4e3"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_d098d900f4e3",
-      "claim": "v9.8: Tyrosine evidence is strongest under stress/sleep-deprivation challenge, not everyday cognition.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.8: Tyrosine evidence is strongest under stress/sleep-deprivation challenge, not everyday cognition.",
-      "qualifiers": {
-        "direction": "focus, energy",
-        "dose_or_duration": "500–2000 mg acute common in supplements; several stress studies used higher mg/kg protocols",
-        "study_id": "ent_study_bf30d1dcdb19"
-      },
-      "sourceRefIds": [
-        "src_a3adb67a41f3"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "500-2000 mg acute dosing",
   "typical_dosage": "500-2000 mg acute dosing"
 }

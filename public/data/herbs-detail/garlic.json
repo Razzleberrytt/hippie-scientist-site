@@ -139,23 +139,6 @@
       "sourceRefIds": [
         "src_580ec4d8897a"
       ]
-    },
-    {
-      "id": "clm_b30b1807c759",
-      "claim": "v9.6: Garlic/aged garlic extract has human evidence for modest blood-pressure support; bleeding cautions are important.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.6: Garlic/aged garlic extract has human evidence for modest blood-pressure support; bleeding cautions are important.",
-      "qualifiers": {
-        "direction": "heart_health, immunity",
-        "dose_or_duration": "Aged garlic extract commonly 600–1200 mg/day in BP/lipid studies",
-        "study_id": "ent_study_c6f399b99a02"
-      },
-      "sourceRefIds": [
-        "src_b2edf411006a"
-      ]
     }
   ],
   "dosage": "Aged garlic extract (~1.2 mg S-allyl cysteine/day) or dried powder 600-1200 mg/day; composition varies by preparation",

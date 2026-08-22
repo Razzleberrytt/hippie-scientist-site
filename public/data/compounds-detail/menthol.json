@@ -2,7 +2,7 @@
   "id": "menthol",
   "slug": "menthol",
   "name": "Menthol",
-  "summary": "Menthol is a monoterpene associated with peppermint. Evidence level: moderate.",
+  "summary": "Menthol is a monoterpene associated with peppermint.",
   "description": "Menthol can relax airway and smooth muscle signaling by modulating ion channels and activating temperature-sensing TRPM8, influencing perceived airflow and discomfort.",
   "compoundClass": "",
   "mechanisms": [

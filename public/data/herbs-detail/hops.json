@@ -1,8 +1,8 @@
 {
   "name": "Hops",
   "slug": "hops",
-  "summary": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
-  "description": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
+  "summary": "Hops (Humulus lupulus) carries a Grade C rating — limited evidence. Strongest recorded design is a systematic review, drawn from 4 recorded studies, 1 in people. Recorded activity centres on stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without guidance and severe depression.",
+  "description": "Hops botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "sleep",
     "stress"
@@ -67,7 +67,7 @@
     },
     {
       "id": "src_911a7102c58d",
-      "title": "v9.5: Systematic review suggests possible sleep-quality benefit but trials were heterogeneous and often methodologically weak; keep below melatonin/magnesium.",
+      "title": "",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4394901/",
       "note": "review_or_meta_analysis",
       "studyType": "Systematic review",
@@ -95,25 +95,7 @@
       "clm_e1d2f04afa6e"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_e1d2f04afa6e",
-      "claim": "v9.5: Human sleep evidence commonly involves valerian/hops combinations; isolated hops should stay research-only.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.5: Human sleep evidence commonly involves valerian/hops combinations; isolated hops should stay research-only.",
-      "qualifiers": {
-        "direction": "sleep",
-        "dose_or_duration": "Product-specific; many human sleep products combine hops with valerian, limiting isolated-hop conclusions",
-        "study_id": "ent_study_eb2be479b2cd"
-      },
-      "sourceRefIds": [
-        "src_911a7102c58d"
-      ]
-    }
-  ],
+  "claimMap": [],
   "dosage": "Preparation-specific; use standardized product label for Strobile tea/tincture/extract and require source-backed dosage review before therapeutic claims.",
   "typical_dosage": "Preparation-specific; use standardized product label for Strobile tea/tincture/extract and require source-backed dosage review before therapeutic claims."
 }

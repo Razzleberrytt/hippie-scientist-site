@@ -61,23 +61,6 @@
       "sourceRefIds": [
         "src_aa51526269ce"
       ]
-    },
-    {
-      "id": "clm_92208b8275c9",
-      "claim": "v10.0: Selenium may lower thyroid antibodies in some studies, but routine high-dose use should be avoided.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_obs",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v10.0: Selenium may lower thyroid antibodies in some studies, but routine high-dose use should be avoided.",
-      "qualifiers": {
-        "direction": "thyroid_health, antioxidant",
-        "dose_or_duration": "Adult RDA 55 mcg/day; adult UL 400 mcg/day; many thyroid studies use 200 mcg/day",
-        "study_id": "ent_study_4fbf1daf1e74"
-      },
-      "sourceRefIds": [
-        "src_dfe6dba7f842"
-      ]
     }
   ],
   "indexability_status": "NEEDS_REVIEW",

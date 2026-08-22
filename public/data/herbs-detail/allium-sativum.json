@@ -1,8 +1,8 @@
 {
   "name": "Garlic",
   "slug": "allium-sativum",
-  "summary": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-  "description": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "summary": "Garlic (Allium sativum) is a culinary bulb whose organosulfur compounds — chiefly allicin, formed when raw cloves are crushed — account for most of its studied biological activity. It is among the better-researched dietary botanicals for cardiovascular endpoints: a systematic review and meta-analysis of randomized trials found garlic preparations produced modest reductions in blood pressure compared with placebo, with the clearest effect in people who were hypertensive at baseline. Response varies with the preparation and dose, and average effects in people with normal blood pressure are smaller.",
+  "description": "Garlic (Allium sativum) is a culinary bulb whose organosulfur compounds — chiefly allicin, formed when raw cloves are crushed — account for most of its studied biological activity. It is among the better-researched dietary botanicals for cardiovascular endpoints: a systematic review and meta-analysis of randomized trials found garlic preparations produced modest reductions in blood pressure compared with placebo, with the clearest effect in people who were hypertensive at baseline. Response varies with the preparation and dose, and average effects in people with normal blood pressure are smaller.",
   "primaryActions": [
     "cardiovascular"
   ],

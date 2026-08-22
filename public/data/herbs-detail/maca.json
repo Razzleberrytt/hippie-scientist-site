@@ -140,23 +140,6 @@
       "sourceRefIds": [
         "src_1f49196ffdbf"
       ]
-    },
-    {
-      "id": "clm_ada4e0ca6714",
-      "claim": "v9.4: Maca has limited human evidence for sexual desire, but hormone/testosterone claims should be avoided.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.4: Maca has limited human evidence for sexual desire, but hormone/testosterone claims should be avoided.",
-      "qualifiers": {
-        "direction": "energy, libido",
-        "dose_or_duration": "1.5–3 g/day gelatinized or powdered maca used in libido trials",
-        "study_id": "ent_study_8ca35537f350"
-      },
-      "sourceRefIds": [
-        "src_3910aa71f4eb"
-      ]
     }
   ],
   "dosage": "Gelatinized powder: 1.5-3 g/day; extracts vary; limited standardization",

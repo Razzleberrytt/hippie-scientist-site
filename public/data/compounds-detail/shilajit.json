@@ -2,7 +2,7 @@
   "id": "shilajit",
   "slug": "shilajit",
   "name": "Shilajit",
-  "summary": "Shilajit entry from SciSpace evidence pass. Evidence level: low.",
+  "summary": "Shilajit carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on mitochondrial support, endocrine and mitochondrial, which describes mechanism rather than demonstrated benefit. heavy metal contamination risk; limited safety data.",
   "description": "Shilajit is a mineral/fulvic acid-containing complex; fulvic compounds may enhance nutrient bioavailability and show preclinical mitochondria-related protective effects.",
   "compoundClass": "",
   "mechanisms": [
@@ -39,25 +39,7 @@
       "clm_bc0807c28361"
     ]
   },
-  "claimMap": [
-    {
-      "id": "clm_bc0807c28361",
-      "claim": "v9.4: One human trial suggests testosterone effects with purified shilajit; contamination/quality risk prevents top-tier ranking.",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "v9.4: One human trial suggests testosterone effects with purified shilajit; contamination/quality risk prevents top-tier ranking.",
-      "qualifiers": {
-        "direction": "energy, testosterone",
-        "dose_or_duration": "250 mg twice daily purified shilajit used in a testosterone trial",
-        "study_id": "ent_study_69e965211eb5"
-      },
-      "sourceRefIds": [
-        "src_f88a60c3992b"
-      ]
-    }
-  ],
+  "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sources": [

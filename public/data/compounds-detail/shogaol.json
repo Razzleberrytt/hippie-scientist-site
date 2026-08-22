@@ -2,8 +2,8 @@
   "id": "shogaol",
   "slug": "shogaol",
   "name": "shogaol",
-  "summary": "shogaol is tracked for Modulates inflammatory pathways via NF-kB inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "shogaol is tracked for Modulates inflammatory pathways via NF-kB inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "shogaol carries a Grade C rating — limited evidence. Recorded activity centres on inflammatory signaling modulation, NF-kB modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Limited human safety data available.",
+  "description": "shogaol compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "COX-2 Modulation (Preclinical)",
