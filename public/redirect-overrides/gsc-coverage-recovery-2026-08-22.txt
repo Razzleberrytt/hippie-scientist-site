@@ -10,6 +10,18 @@
 
 # These exported alias pages intentionally canonicalize to consolidated guides.
 # Make that relationship an HTTP redirect too, so crawlers never see an
-# indexable alias whose canonical points elsewhere.
+# indexable alias whose canonical points elsewhere. Legacy root URLs go directly
+# to the final canonical target to avoid redirect chains.
 /articles/best-supplements-for-sleep/ /guides/sleep/best-supplements-for-sleep/ 301
+/natural-anxiolytics-beyond-ashwagandha /guides/anxiety/best-herbs-for-anxiety/ 301
 /guides/anxiety/natural-anxiolytics-beyond-ashwagandha/ /guides/anxiety/best-herbs-for-anxiety/ 301
+
+# Whole-botanical records that were duplicated in the compound catalog are
+# consolidated to the canonical herb profiles. These explicit Cloudflare rules
+# match the runtime canonical maps so old links and crawler history transfer in
+# one hop instead of landing on duplicate indexable pages.
+/compounds/chamomile /herbs/matricaria-chamomilla/ 301
+/compounds/fenugreek /herbs/trigonella-foenum-graecum/ 301
+/compounds/lavender /herbs/lavandula-angustifolia/ 301
+/compounds/lemon-balm /herbs/melissa-officinalis/ 301
+/herbs/schisandra-chinensis /herbs/schisandra/ 301
