@@ -212,7 +212,8 @@
     "evidence:finalize": "node scripts/data/finalize-evidence-profile.mjs",
     "evidence:check": "npx vitest run scripts/data/canonical/__tests__/citation-export.test.mjs scripts/data/canonical/__tests__/evidence-finalize.test.mjs components/ui/__tests__/ShowMeTheStudies.test.tsx && npm run data:canonical:validate && node scripts/ci/validate-evidence-reviews.mjs",
     "validate:citation-integrity": "node scripts/ci/validate-citation-integrity.mjs",
-    "citations:quarantine": "node scripts/data/quarantine-unverifiable-citations.mjs"
+    "citations:quarantine": "node scripts/data/quarantine-unverifiable-citations.mjs",
+    "report:indexability-divergence": "node scripts/ci/report-indexability-divergence.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",
