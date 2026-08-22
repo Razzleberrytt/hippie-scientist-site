@@ -17,6 +17,7 @@ const coreRoutes = [
   '/',
   '/start',
   '/library',
+  '/research',
   '/goals',
   ...coreGoalRoutes,
   '/herbs',
@@ -76,6 +77,11 @@ const routeContentExpectations = [
   {
     route: '/',
     required: ['The Hippie Scientist'],
+  },
+  {
+    route: '/research',
+    required: ['Follow the evidence all the way back to the research.', 'Search the complete citation index'],
+    forbidden: [LOADING_SENTINEL],
   },
   {
     route: '/herbs',
@@ -141,6 +147,7 @@ const requiredSitemapUrls = [
   `${SITE_HOST}/`,
   `${SITE_HOST}/start/`,
   `${SITE_HOST}/library/`,
+  `${SITE_HOST}/research/`,
   `${SITE_HOST}/goals/`,
   ...coreGoalRoutes.map((route) => `${SITE_HOST}${route}`),
   `${SITE_HOST}/info/about/`,
