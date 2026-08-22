@@ -10,9 +10,9 @@ import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Protein Powder Guide: Whey, Plant, Casein & Collagen Evidence (2026)',
+  title: 'Whey vs Casein vs Plant Protein: What Actually Differs? (2026)',
   description:
-    'Evidence-first protein powder guide: total protein intake, per-meal distribution, whey vs plant protein, collagen limitations, kidney evidence, and supplement product testing.',
+    'Evidence-first comparison of whey, casein, plant and collagen protein powders: muscle protein synthesis, resistance-training outcomes, pre-sleep protein, kidney evidence and product quality.',
   path: '/guides/other/protein-powder-guide/',
   openGraphType: 'article',
 })
@@ -21,22 +21,27 @@ const FAQS = [
   {
     question: 'Which protein powder is best?',
     answer:
-      'There is no universal winner. The best choice depends on how much total protein you already eat, dietary preference, allergies or intolerance, amino-acid quality, training goals, cost, and product testing. Whey is well studied and leucine-rich; soy and well-formulated plant proteins can also support training adaptations when total intake is adequate.',
+      'There is no universal winner. Whey is leucine-rich and extremely well studied, but the best choice depends on total daily protein, dietary preference, tolerance, training goals, amino-acid quality, cost and product testing. Plant proteins can work well when total intake and essential amino acids are adequate, and casein is not automatically superior simply because it digests more slowly.',
+  },
+  {
+    question: 'Is whey better than plant protein?',
+    answer:
+      'The newest 2026 meta-analysis of acute muscle-protein-synthesis studies found point estimates that slightly favored animal proteins overall, but the difference was small and uncertain. Younger adults showed broadly similar responses, while adults 65 and older showed a modest animal-protein advantage. A separate 2025 meta-analysis of longer-term trials found a small average muscle-mass advantage for animal protein. Source, dose, age and total intake matter more than a simple plant-versus-whey label.',
+  },
+  {
+    question: 'Is casein better than whey before bed?',
+    answer:
+      'Not based on direct overnight muscle-protein-synthesis evidence. In a randomized trial that compared equal 45-gram pre-sleep servings after evening exercise, both whey and casein increased overnight protein synthesis versus placebo and did not significantly differ from each other. Casein can be a convenient pre-sleep protein, but slower digestion does not prove superior overnight muscle building.',
   },
   {
     question: 'Is more than 40 grams of protein in one meal wasted?',
     answer:
-      'No. The body does not stop absorbing protein at 40 grams, and protein above a single-meal muscle-protein-synthesis plateau is not simply “wasted.” Research on muscle building supports distributing adequate high-quality protein across the day, but the useful amount per meal scales with body size, total daily intake, meal composition, training, age, and the outcome being measured.',
+      'No. The body does not stop absorbing protein at 40 grams, and protein above a single-meal muscle-protein-synthesis plateau is not simply “wasted.” Research supports distributing adequate high-quality protein across the day, but the useful amount per meal scales with body size, total daily intake, meal composition, training, age and the outcome being measured.',
   },
   {
     question: 'Does a high-protein diet damage healthy kidneys?',
     answer:
       'Short- and medium-duration randomized trials in adults without chronic kidney disease have not shown consistent biochemical evidence of kidney injury, although higher protein intake can increase eGFR through hemodynamic adaptation. A 2026 meta-analysis emphasizes that most trials were relatively short and long-term renal implications remain uncertain. Existing kidney disease is a different clinical situation.',
-  },
-  {
-    question: 'Is plant protein much worse than whey?',
-    answer:
-      'Not categorically. A 2025 meta-analysis found a small average muscle-mass advantage for animal protein across trials, with important differences by age and protein source. Adequate doses of soy or well-formulated plant proteins can still support resistance-training outcomes. The useful question is amino-acid quality plus total intake, not “plant equals ineffective.”',
   },
   {
     question: 'Does collagen count as protein?',
@@ -46,7 +51,7 @@ const FAQS = [
   {
     question: 'How can someone judge protein powder quality?',
     answer:
-      'Protein powders are dietary supplements, and FDA does not approve them for safety and effectiveness before marketing. Independent certification can help verify label contents, manufacturing standards, contaminants, and—for athletes—banned substances. Certification is a quality-control signal, not proof that one protein source builds more muscle than another.',
+      'Protein powders are dietary supplements, and FDA does not approve them for safety and effectiveness before marketing. Independent certification can help verify label contents, manufacturing standards, contaminants and—for athletes—banned substances. Certification is a quality-control signal, not proof that one protein source builds more muscle than another.',
   },
 ] as const
 
@@ -63,7 +68,7 @@ const PROTEIN_REFS = [
   },
   {
     n: 3,
-    text: 'Reid-McCann RJ, et al. Effect of Plant Versus Animal Protein on Muscle Mass, Strength, Physical Performance, and Sarcopenia: systematic review and meta-analysis of RCTs. Nutr Rev. 2025;83:e1581-e1603. PMID 39813010.',
+    text: 'Reid-McCann RJ, et al. Effect of Plant Versus Animal Protein on Muscle Mass, Strength, Physical Performance, and Sarcopenia: systematic review and meta-analysis of randomized trials. Nutr Rev. 2025;83:e1581-e1603. PMID 39813010.',
     url: 'https://pubmed.ncbi.nlm.nih.gov/39813010/',
   },
   {
@@ -86,23 +91,33 @@ const PROTEIN_REFS = [
     text: 'NSF. Certified for Sport and dietary-supplement certification: label verification, contaminant standards and banned-substance testing.',
     url: 'https://www.nsf.org/about-nsf/faqs/nsf-services-certifications-marks-faqs',
   },
+  {
+    n: 8,
+    text: 'Mendes BR, et al. Effects of Plant- vs Animal-Based Proteins on Muscle Protein Synthesis: a systematic review with meta-analysis. J Acad Nutr Diet. 2026. PMID 42055214. DOI 10.1016/j.jand.2026.156365.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42055214/',
+  },
+  {
+    n: 9,
+    text: 'Trommelen J, et al. Pre-sleep protein ingestion increases mitochondrial protein synthesis rates during overnight recovery from endurance exercise: randomized trial comparing casein, whey and placebo. 2023. PMID 36857005.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/36857005/',
+  },
 ]
 
 const decisionRows = [
   {
     question: 'Need a convenient complete protein?',
-    evidence: 'Whey is highly studied and leucine-rich; soy and some plant blends can also provide complete essential-amino-acid profiles [1,3,5].',
+    evidence: 'Whey is highly studied and leucine-rich; soy and some plant blends can also provide complete essential-amino-acid profiles [1,5,8].',
     takeaway: 'Choose a tolerated source that helps meet the daily target; do not pay for a universal “best” label.',
   },
   {
     question: 'Vegan or dairy-free?',
-    evidence: 'Plant proteins can support muscle outcomes, though average effects vary with source, dose and population [3,5].',
-    takeaway: 'Prioritize adequate total protein and essential amino acids rather than assuming plant protein is automatically inferior.',
+    evidence: 'The 2026 acute-MPS synthesis found only a small, uncertain overall advantage for animal protein, with younger-adult responses broadly similar [8]. Longer-term muscle-mass trials still show a small average animal-protein advantage [3].',
+    takeaway: 'Prioritize adequate total protein and essential amino acids rather than assuming plant protein is ineffective.',
   },
   {
     question: 'Want protein before sleep?',
-    evidence: 'Pre-sleep protein can support overnight amino-acid availability, but this does not make casein universally necessary or superior.',
-    takeaway: 'Total daily intake and training matter more than buying a dedicated bedtime powder for most people.',
+    evidence: 'A direct randomized pre-sleep comparison found both whey and casein increased overnight protein synthesis versus placebo, with no significant whey-versus-casein difference [9].',
+    takeaway: 'Casein is a reasonable option, not a proven mandatory or superior bedtime protein.',
   },
   {
     question: 'Using collagen?',
@@ -111,7 +126,7 @@ const decisionRows = [
   },
   {
     question: 'Concerned about kidney health?',
-    evidence: 'Healthy-adult RCTs do not show consistent biochemical injury, but long-term high-protein renal effects remain uncertain [4].',
+    evidence: 'Healthy-adult randomized trials do not show consistent biochemical injury, but long-term high-protein renal effects remain uncertain [4].',
     takeaway: 'Do not generalize healthy-adult trial safety to known CKD or other kidney disease.',
   },
 ] as const
@@ -120,8 +135,8 @@ export default function ProteinPowderPage() {
   return (
     <div className="container-page space-y-10 py-10">
       <AuthorityJsonLd
-        title="Protein Powder Guide: Whey, Plant, Casein and Collagen Evidence"
-        description="Evidence-calibrated protein powder guide separating total intake, protein quality, source, kidney evidence, and supplement product testing."
+        title="Whey vs Casein vs Plant Protein: What Actually Differs?"
+        description="Evidence-calibrated protein powder guide separating total intake, whey vs plant muscle-protein synthesis, whey vs casein pre-sleep evidence, kidney evidence and supplement product testing."
         url="https://thehippiescientist.net/guides/other/protein-powder-guide/"
         type="MedicalWebPage"
         citationUrls={PROTEIN_REFS.map((ref) => ref.url)}
@@ -135,22 +150,22 @@ export default function ProteinPowderPage() {
       />
 
       <section className="max-w-4xl space-y-5">
-        <p className="eyebrow-label">Nutrition Evidence Review · Updated August 16, 2026</p>
-        <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">Protein Powder: Choose for the Gap You Need to Fill, Not a Universal “Best”</h1>
+        <p className="eyebrow-label">Nutrition Evidence Review · Updated August 22, 2026</p>
+        <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">Whey vs Casein vs Plant Protein: What Actually Differs?</h1>
         <p className="text-lg leading-8 text-muted">
-          Protein powder is a convenience food in supplement form. The strongest question is not “whey or plant?” in isolation—it is <strong>how much total protein is needed, what amino-acid quality the diet already provides, what source is tolerated, and whether the product itself is well characterized.</strong> Whole foods and powders can both contribute to the same daily protein goal.
+          Protein powder is a convenience food in supplement form. The strongest question is not “which powder wins?” in isolation—it is <strong>how much total protein is needed, what amino-acid quality the diet already provides, what source is tolerated, what outcome matters, and whether the product itself is well characterized.</strong> The newest 2026 evidence makes the simple whey-versus-casein-versus-plant ranking even harder to defend.
         </p>
         <figure className="mt-6">
           <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <Image src="/images/guides/collagen-supplements.jpg" alt="Protein powder and shaker beside an evidence comparison" width={1536} height={1024} priority className="h-auto w-full" />
           </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">Protein source matters, but total intake, amino-acid quality, training and product quality matter too.</figcaption>
+          <figcaption className="mt-3 text-center text-sm text-muted">Protein source matters, but total intake, amino-acid quality, age, training and product quality matter too.</figcaption>
         </figure>
       </section>
 
       <LegacyGuideQuickAnswer referencesHref="#references">
         <p>
-          Whey is a well-studied, leucine-rich option, but it is not the only effective protein powder [1]. A 2025 meta-analysis found a small average muscle-mass advantage for animal over plant protein, with meaningful source and population heterogeneity [3]. There is also no universal 40-gram “absorption limit”: useful per-meal intake scales with body size and daily goals [2]. In adults without CKD, high-protein randomized trials have not shown consistent biochemical kidney injury, but the newest 2026 meta-analysis says long-term renal implications remain uncertain [4].
+          <strong>Whey is not a universal winner, casein is not proven superior before bed, and plant protein is not “ineffective.”</strong> A 2026 meta-analysis of 12 acute muscle-protein-synthesis studies found only a small, uncertain overall advantage for animal proteins, with broadly similar responses in younger adults and a modest advantage for animal protein in adults 65 and older [8]. In a direct pre-sleep randomized comparison, equal servings of whey and casein both increased overnight muscle protein synthesis versus placebo and did not significantly differ from each other [9]. Longer-term randomized evidence still shows a small average muscle-mass advantage for animal protein, so source and population remain relevant [3].
         </p>
       </LegacyGuideQuickAnswer>
 
@@ -180,21 +195,32 @@ export default function ProteinPowderPage() {
       </section>
 
       <section className="card-premium max-w-4xl space-y-4 p-6">
-        <p className="eyebrow-label">Per-meal protein</p>
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">Forty grams is not a biological trap door</h2>
+        <p className="eyebrow-label">Whey vs plant · 2026 update</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Acute muscle-protein synthesis differences are smaller than marketing suggests</h2>
         <p className="text-sm leading-7 text-muted">
-          The body continues to digest and use amino acids above a single-meal muscle-protein-synthesis plateau. The often-cited review on meal distribution proposed roughly <strong>0.4 g/kg per meal across several meals</strong> as a practical way to reach a common ~1.6 g/kg/day muscle-building target, with higher per-meal values needed when total daily targets are higher [2]. That is a body-size-scaled heuristic—not proof that gram 41 becomes waste.
+          The 2026 systematic review and Bayesian meta-analysis included 12 studies comparing plant- and animal-based proteins in healthy adults [8]. Point estimates slightly favored animal proteins overall, but the pooled difference was small and imprecise. In adults ages 18–54, responses were broadly similar; adults 65–85 showed a modest animal-protein advantage. Most animal-protein data came from milk-based sources, while plant sources were heterogeneous, so neither “animal always wins” nor “all proteins are identical” matches the evidence.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          Longer-term training outcomes answer a different question. A 2025 randomized-trial meta-analysis found a small average muscle-mass advantage for animal over plant protein, with important variation by source, age and study design [3]. Acute MPS and months-long muscle gain should therefore not be treated as interchangeable endpoints.
         </p>
       </section>
 
       <section className="card-premium max-w-4xl space-y-4 p-6">
-        <p className="eyebrow-label">Whey vs plant</p>
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">Protein quality matters; “plant protein does not work” is still wrong</h2>
+        <p className="eyebrow-label">Whey vs casein · direct test</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">“Casein is better before bed” is not established by head-to-head overnight synthesis data</h2>
         <p className="text-sm leading-7 text-muted">
-          Animal proteins often have higher digestibility and essential-amino-acid density. In a 2025 meta-analysis of randomized trials, plant protein produced a small average disadvantage in muscle mass versus animal protein, particularly in younger adults, while the difference was not significant in older adults [3]. Individual plant sources and blends differ substantially [5].
+          Casein digests more slowly than whey, which makes it easy to turn physiology into a superiority claim. A direct randomized trial tested that assumption after evening endurance exercise: 36 healthy young men received 45 g casein, 45 g whey or placebo before sleep [9]. Both protein conditions increased overnight mitochondrial and myofibrillar protein-synthesis rates compared with placebo, but <strong>whey and casein did not significantly differ from one another</strong> on either synthesis outcome.
         </p>
         <p className="text-sm leading-7 text-muted">
-          That supports a nuanced rule: adequate high-quality plant protein can work well, but source, dose and amino-acid composition matter. It does not justify either “whey is always superior” or “all proteins are identical.”
+          That does not prove the two proteins are identical in every population or context. It does mean slower digestion alone is not evidence that casein builds more muscle overnight. If casein is convenient and tolerated, it is a reasonable pre-sleep choice; whey is also a defensible choice when the goal is simply to add high-quality protein before sleep.
+        </p>
+      </section>
+
+      <section className="card-premium max-w-4xl space-y-4 p-6">
+        <p className="eyebrow-label">Per-meal protein</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Forty grams is not a biological trap door</h2>
+        <p className="text-sm leading-7 text-muted">
+          The body continues to digest and use amino acids above a single-meal muscle-protein-synthesis plateau. The often-cited review on meal distribution proposed roughly <strong>0.4 g/kg per meal across several meals</strong> as a practical way to reach a common ~1.6 g/kg/day muscle-building target, with higher per-meal values needed when total daily targets are higher [2]. That is a body-size-scaled heuristic—not proof that gram 41 becomes waste.
         </p>
       </section>
 
