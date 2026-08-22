@@ -76,6 +76,38 @@ loosen standards to raise page counts, none of these were applied unilaterally.
 **This needs a human decision**, and it is the single largest open item from this
 repair.
 
+### The consequence is larger than indexing
+
+Reconciling is not only an SEO decision. `getRuntimeVisibility` reads the detail
+copy to decide `canRender`, and `RuntimeEvidenceComparison` calls `notFound()`
+when either side of a comparison fails to resolve:
+
+```ts
+if (!leftSide.record || !rightSide.record) notFound()
+```
+
+Building the site against a corpus with the governance overlay applied — where
+Ashwagandha becomes `NEEDS_REVIEW` — makes **17 `/guides/compare/*` pages render
+as 404s**, because the resolver drops any record whose detail verdict blocks
+rendering:
+
+`ashwagandha-vs-magnesium`, `ashwagandha-vs-saffron`, `bacopa-vs-citicoline`,
+`berberine-vs-cinnamon`, `caffeine-vs-caffeine-l-theanine`,
+`citicoline-vs-alpha-gpc`, `creatine-monohydrate-vs-alternative-forms`,
+`l-theanine-vs-ashwagandha`, `l-theanine-vs-magnesium`, `lions-mane-vs-bacopa`,
+`magnesium-glycinate-vs-citrate`, `magnesium-glycinate-vs-oxide`,
+`magnesium-glycinate-vs-threonate`, `melatonin-vs-l-theanine`,
+`melatonin-vs-valerian`, `rhodiola-vs-l-theanine`, `turmeric-vs-curcumin`.
+
+On the committed corpus these pages build and render correctly, because
+Ashwagandha is `PUBLISH` there. So the overlay does not merely demote profiles
+in search — it silently removes curated comparison guides from the site.
+
+Whoever takes the decision above should treat that as part of its cost, and
+should probably decouple `canRender` from the indexing verdict first: whether a
+page is *worth indexing* and whether it should *exist* are different questions,
+and one flag currently answers both.
+
 ## Recommendation
 
 1. Decide which layer is authoritative. The evidence points to the summary

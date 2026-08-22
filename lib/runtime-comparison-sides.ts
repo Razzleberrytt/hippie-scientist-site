@@ -81,7 +81,7 @@ export const RUNTIME_COMPARISON_SIDES: Record<RuntimeComparisonSlug, RuntimeComp
     right: { label: 'Magnesium', candidates: ['magnesium', 'magnesium-glycinate', 'magnesium-citrate', 'magnesium-threonate'] },
   },
   'lions-mane-vs-bacopa': {
-    left: { label: 'Lion’s Mane', candidates: ['lions-mane', 'lion-s-mane', 'lions-mane-mushroom'] },
+    left: { label: 'Lion’s Mane', candidates: ['lions-mane', 'lion-s-mane', 'lions-mane-mushroom', 'hericium-erinaceus'] },
     right: { label: 'Bacopa', candidates: ['bacopa', 'bacopa-monnieri', 'bacopa-monnieri-extract'] },
   },
   'magnesium-glycinate-vs-citrate': {
