@@ -13,7 +13,11 @@ import {
   PORTUGUESE_OG_LOCALE,
   SPANISH_OG_LOCALE,
 } from './international-seo'
-import { loadCanonicalLocalizedProfile, type LocalizedProfileKind } from './localized-profile'
+import {
+  loadCanonicalLocalizedProfile,
+  profileTranslationCoverage,
+  type LocalizedProfileKind,
+} from './localized-profile'
 import {
   getProfileTranslation,
   getProfileTranslationSlugs,
@@ -55,6 +59,12 @@ function translationSlugsFor(locale: ProfileTranslationLocale, kind: LocalizedPr
  * One fail-closed route runtime for all translated scientific profiles.
  * Route files provide only locale/kind/library configuration; claim coverage,
  * freshness validation, metadata, and rendering remain centralized.
+ *
+ * A canonical governance pass can legitimately remove or change claims after a
+ * translation was authored. That makes the translation stale, but it must not
+ * make the entire production export fail. Stale/incomplete localized profiles
+ * are therefore excluded from publication with notFound(), while metadata also
+ * fails closed to noindex during the same build.
  */
 export function createLocalizedProfileRoute(config: RouteConfig) {
   function generateStaticParams() {
@@ -66,11 +76,11 @@ export function createLocalizedProfileRoute(config: RouteConfig) {
     const translation = translationFor(config.locale, config.kind, slug)
     if (!translation) return { robots: { index: false, follow: true } }
 
-    // Loading the canonical record here also applies the same fail-closed
-    // translation completeness/freshness contract during metadata generation.
     const canonical = loadCanonicalLocalizedProfile(config.kind, slug)
-    const { assertCompleteProfileTranslation } = await import('./localized-profile')
-    assertCompleteProfileTranslation(canonical, translation)
+    const coverage = profileTranslationCoverage(canonical, translation)
+    if (!coverage.complete) {
+      return { robots: { index: false, follow: true } }
+    }
 
     const metadata = buildPageMetadata({
       title: translation.title,
@@ -93,6 +103,8 @@ export function createLocalizedProfileRoute(config: RouteConfig) {
     if (!translation) notFound()
 
     const canonical = loadCanonicalLocalizedProfile(config.kind, slug)
+    if (!profileTranslationCoverage(canonical, translation).complete) notFound()
+
     return (
       <LocalizedResearchProfilePage
         canonical={canonical}
