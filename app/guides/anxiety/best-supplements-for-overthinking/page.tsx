@@ -12,105 +12,90 @@ import { buildTwitterMetadata } from '@/src/lib/seo'
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-supplements-for-overthinking`
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Overthinking & a Racing Mind',
+  title: 'Racing Thoughts at Night: Supplements, Evidence & What Works',
   description:
-    'An evidence-first guide to supplements commonly considered for overthinking, separating direct evidence from adjacent stress, anxiety, and cognition research.',
+    'Evidence-first guide to overthinking and racing thoughts at night. Compare L-theanine, magnesium and ashwagandha with direct CBT-I evidence for sleep-related worry and rumination.',
   alternates: { canonical: '/guides/anxiety/best-supplements-for-overthinking/' },
   openGraph: {
-    title: 'Best Supplements for Overthinking & a Racing Mind',
+    title: 'Racing Thoughts at Night: Supplements, Evidence & What Works',
     description:
-      'Compare L-theanine, magnesium, and ashwagandha by what human studies actually measured, with evidence limits and safety context kept visible.',
+      'What actually helps bedtime overthinking? A citation-dense comparison of supplement evidence with direct research on sleep-related worry and repetitive negative thinking.',
     url: '/guides/anxiety/best-supplements-for-overthinking/',
     type: 'article',
-    images: ['/og-default.jpg'],
+    images: ['/images/guides/best-supplements-for-overthinking.jpg'],
   },
   twitter: buildTwitterMetadata({
-    title: 'Best Supplements for Overthinking & a Racing Mind',
-    description: 'Compare L-theanine, magnesium, and ashwagandha by what human studies actually measured, with evidence limits and safety context kept visible.',
+    title: 'Racing Thoughts at Night: Supplements, Evidence & What Works',
+    description:
+      'Supplement evidence is mostly indirect; CBT-I has direct evidence for sleep-related worry. Here is the evidence hierarchy.',
   }),
+}
+
+function Cite({ n }: { n: number }) {
+  return (
+    <sup className="ml-0.5 align-super text-[0.7em] font-semibold text-brand-700">
+      <a href={`#ref-${n}`} aria-label={`Reference ${n}`} className="hover:underline">[{n}]</a>
+    </sup>
+  )
 }
 
 const FAQS = [
   {
-    question: 'What supplement is best for overthinking?',
+    question: 'What supplement is best for overthinking or a racing mind?',
     answer:
-      'No supplement has strong direct evidence for treating overthinking itself. The closest evidence is indirect: L-theanine research includes acute cognition and mood outcomes, magnesium research includes subjective anxiety in vulnerable groups, and ashwagandha research includes chronic-stress outcomes. That makes these possible context-dependent options, not a proven ranking.',
+      'No supplement has strong direct evidence for treating overthinking or rumination itself. L-theanine has mixed stress and anxiety evidence, magnesium has heterogeneous anxiety/sleep evidence, and ashwagandha has repeated-dose stress/anxiety evidence. Those are adjacent outcomes, not direct proof of an anti-rumination effect.',
   },
   {
-    question: 'Can a supplement stop a racing mind at night?',
+    question: 'What actually helps racing thoughts before bed?',
     answer:
-      'A supplement may change arousal, stress, or anxiety for some people, but the studies cited here do not establish a reliable same-night treatment for rumination. Persistent bedtime rumination is better approached by checking sleep, caffeine, stress load, medications, and mental-health context rather than assuming a capsule is the missing piece.',
+      'When racing thoughts are part of insomnia, cognitive behavioral therapy for insomnia (CBT-I) has the most direct evidence on this page. A meta-analysis found moderate-to-large reductions in worry, especially sleep-related repetitive negative thinking, while effects on general rumination were smaller and less reliable.',
   },
   {
-    question: 'Is overthinking the same as anxiety?',
+    question: 'Does L-theanine stop racing thoughts?',
     answer:
-      'No. Overthinking or rumination describes a thinking pattern, while anxiety is a broader emotional and physical state. They can overlap, but evidence for an anxiety or stress outcome should not automatically be presented as evidence for rumination itself.',
+      'Not proven. A 2026 meta-analysis found a modest acute stress effect that was sensitive to higher-risk-of-bias studies, and anxiety effects were inconsistent. A randomized trial in generalized anxiety disorder did not find L-theanine superior to placebo for anxiety reduction.',
   },
   {
-    question: 'How long should I expect a supplement to take?',
+    question: 'Does magnesium help overthinking at night?',
     answer:
-      'There is no single evidence-based timeline for this goal. The cited L-theanine study measured acute effects, the ashwagandha trial ran for 60 days, and the magnesium review combined heterogeneous studies. Those timelines are study context, not a universal protocol.',
+      'Magnesium has some positive anxiety and sleep findings, but the evidence is heterogeneous and does not establish magnesium glycinate as a treatment for rumination. Benefits may be more plausible when magnesium intake or status is low, but baseline status is often not well characterized in trials.',
+  },
+  {
+    question: 'Can ashwagandha help a racing mind?',
+    answer:
+      'Ashwagandha has meta-analytic evidence for stress and anxiety outcomes over repeated dosing, but that does not establish a same-night effect on rumination or racing thoughts. Extracts, populations and treatment durations vary.',
   },
 ]
 
 const HEADINGS: Heading[] = [
   { id: 'quick-answer', text: 'Quick answer', level: 2 },
-  { id: 'decision-map', text: 'Choose by the outcome actually studied', level: 2 },
-  { id: 'evidence-profiles', text: 'Evidence profiles', level: 2 },
-  { id: 'study-context', text: 'Study context, not a protocol', level: 2 },
-  { id: 'basics', text: 'What to check before adding a supplement', level: 2 },
-  { id: 'risks', text: 'When a supplement is the wrong next step', level: 2 },
+  { id: 'direct-evidence', text: 'What directly targets racing thoughts', level: 2 },
+  { id: 'supplement-ranking', text: 'Supplement evidence ranking', level: 2 },
+  { id: 'l-theanine', text: 'L-theanine', level: 2 },
+  { id: 'magnesium', text: 'Magnesium', level: 2 },
+  { id: 'ashwagandha', text: 'Ashwagandha', level: 2 },
+  { id: 'bedtime', text: 'When overthinking happens at bedtime', level: 2 },
+  { id: 'safety', text: 'Safety and red flags', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
 ]
 
 const REFERENCES = [
-  {
-    n: 1,
-    text: 'Haskell CF, et al. L-theanine, caffeine and cognition. Biol Psychol. 2008. PMID: 18006208.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/',
-  },
-  {
-    n: 2,
-    text: 'Chandrasekhar K, et al. Ashwagandha root extract for stress and anxiety in adults. Indian J Psychol Med. 2012. PMID: 23439798.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/',
-  },
-  {
-    n: 3,
-    text: 'Boyle NB, et al. Magnesium supplementation and subjective anxiety and stress: systematic review. Nutrients. 2017. PMID: 28445426.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/28445426/',
-  },
+  { n: 1, title: 'Cognitive and affective effects of L-Theanine: a systematic review and meta-analysis of 31 randomized trials', text: 'Gerolymos C, et al. Mol Psychiatry. 2026.', year: 2026, pmid: '42410082', doi: '10.1038/s41380-026-03727-9', url: 'https://pubmed.ncbi.nlm.nih.gov/42410082/' },
+  { n: 2, title: 'L-theanine in the adjunctive treatment of generalized anxiety disorder: A double-blind, randomised, placebo-controlled trial', text: '46 participants with DSM-5 GAD; L-theanine did not outperform placebo for anxiety reduction.', year: 2019, pmid: '30580081', url: 'https://pubmed.ncbi.nlm.nih.gov/30580081/' },
+  { n: 3, title: 'Effects of L-Theanine Administration on Stress-Related Symptoms and Cognitive Functions in Healthy Adults', text: 'Randomized double-blind crossover trial; 30 healthy adults; 200 mg/day for four weeks.', year: 2019, pmid: '31623400', doi: '10.3390/nu11102362', url: 'https://pubmed.ncbi.nlm.nih.gov/31623400/' },
+  { n: 4, title: 'Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review', text: '15 interventional studies; heterogeneous forms, doses, populations and co-ingredients.', year: 2024, pmid: '38817505', doi: '10.7759/cureus.59317', url: 'https://pubmed.ncbi.nlm.nih.gov/38817505/' },
+  { n: 5, title: 'The Effects of Magnesium Supplementation on Subjective Anxiety and Stress—A Systematic Review', text: 'Boyle NB, et al. Nutrients. 2017.', year: 2017, pmid: '28445426', url: 'https://pubmed.ncbi.nlm.nih.gov/28445426/' },
+  { n: 6, title: 'Effects of Ashwagandha (Withania Somnifera) on stress and anxiety: A systematic review and meta-analysis', text: 'Nine randomized trials / 558 participants.', year: 2024, pmid: '39348746', doi: '10.1016/j.explore.2024.103062', url: 'https://pubmed.ncbi.nlm.nih.gov/39348746/' },
+  { n: 7, title: 'Does Ashwagandha supplementation have a beneficial effect on the management of anxiety and stress?', text: 'Systematic review and meta-analysis of randomized trials; certainty rated low.', year: 2022, pmid: '36017529', doi: '10.1002/ptr.7598', url: 'https://pubmed.ncbi.nlm.nih.gov/36017529/' },
+  { n: 8, title: 'Does cognitive behaviour therapy for insomnia reduce repetitive negative thinking and sleep-related worry beliefs?', text: 'Systematic review and meta-analysis of 15 randomized trials.', year: 2021, pmid: '32992228', doi: '10.1016/j.smrv.2020.101378', url: 'https://pubmed.ncbi.nlm.nih.gov/32992228/' },
+  { n: 9, title: 'Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline', text: 'Strong recommendation for multicomponent CBT-I.', year: 2021, pmid: '33164742', doi: '10.5664/jcsm.8986', url: 'https://pubmed.ncbi.nlm.nih.gov/33164742/' },
+  { n: 10, title: 'World Sleep Society endorsement of behavioral and psychological treatments for chronic insomnia disorder', text: 'Endorses CBT-I as treatment of choice for insomnia disorder.', year: 2023, pmid: '37454606', doi: '10.1016/j.sleep.2023.07.001', url: 'https://pubmed.ncbi.nlm.nih.gov/37454606/' },
+  { n: 11, title: 'Mechanisms of cognitive behavioural therapy for insomnia', text: 'Review describing roles of dysfunctional beliefs, selective attention, worry and rumination in CBT-I.', year: 2023, pmid: '36866434', doi: '10.1111/jsr.13860', url: 'https://pubmed.ncbi.nlm.nih.gov/36866434/' },
+  { n: 12, title: 'Daytime rumination as a feature of Insomnia Disorder: sleep related cognition is not merely a problem of the night', text: 'Observational study of sleep-related rumination across insomnia, OSA and healthy groups.', year: 2015, pmid: '26742678', doi: '10.12871/0003982920152349', url: 'https://pubmed.ncbi.nlm.nih.gov/26742678/' },
+  { n: 13, title: 'Ashwagandha: Usefulness and Safety', text: 'National Center for Complementary and Integrative Health. Current safety summary.', year: 2026, url: 'https://www.nccih.nih.gov/health/ashwagandha' },
+  { n: 14, title: 'Magnesium Fact Sheet for Health Professionals', text: 'NIH Office of Dietary Supplements. Safety and medication-interaction context.', year: 2026, url: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/' },
+  { n: 15, title: 'A Randomized, Triple-Blind, Placebo-Controlled, Crossover Study of a Single Dose of AlphaWave L-Theanine on Stress', text: 'Healthy moderately stressed adults; product-specific acute stress study.', year: 2021, pmid: '34562208', url: 'https://pubmed.ncbi.nlm.nih.gov/34562208/' },
 ]
-
-const DECISION_ROWS = [
-  {
-    label: 'Acute cognition and mood — not rumination',
-    option: 'L-theanine is often marketed here, but the cited trial does not prove an anti-rumination effect.',
-    evidence:
-      'The randomized crossover study measured cognition and mood after L-theanine, caffeine, and their combination. L-theanine alone did not produce a clean broad benefit pattern.',
-    href: '/compounds/l-theanine/',
-  },
-  {
-    label: 'Subjective anxiety in vulnerable groups',
-    option: 'Magnesium may be relevant when anxiety vulnerability or low-magnesium risk is part of the picture.',
-    evidence:
-      'A systematic review found suggestive results in anxiety-vulnerable samples, but the authors judged the quality of the existing evidence poor and called for better trials.',
-    href: '/compounds/magnesium-glycinate/',
-  },
-  {
-    label: 'Chronic stress — not a same-night rescue',
-    option: 'Ashwagandha has more direct stress evidence than rumination evidence.',
-    evidence:
-      'A 60-day randomized placebo-controlled trial in 64 adults with chronic stress reported improvements in stress scales and serum cortisol for one high-concentration root extract. That does not establish a treatment for rumination or prove every ashwagandha product equivalent.',
-    href: '/herbs/ashwagandha/',
-  },
-  {
-    label: 'Persistent intrusive or impairing rumination',
-    option: 'Do not make the next decision a supplement ranking.',
-    evidence:
-      'If repetitive thoughts are persistent, intrusive, tied to panic or low mood, or disrupting sleep and daily function, the higher-value next step is assessment of the underlying problem rather than stacking calming products.',
-    href: '/info/supplement-safety-checklist/',
-  },
-] as const
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
@@ -119,184 +104,173 @@ export default function Page() {
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Supplements for Overthinking"
-        description="Evidence-first guide to supplements commonly considered for overthinking, separating direct evidence from adjacent stress, anxiety, and cognition research."
+        headline="Racing Thoughts at Night: Supplements, Evidence & What Works"
+        description="Evidence-first guide to racing thoughts, overthinking and bedtime rumination, comparing direct CBT-I evidence with indirect supplement evidence."
         datePublished="2026-06-18"
-        dateModified="2026-08-10"
+        dateModified="2026-08-22"
         faqs={FAQS}
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides/' },
           { label: 'Anxiety Guides', href: '/guides/anxiety/' },
-          { label: 'Best Supplements for Overthinking', href: '/guides/anxiety/best-supplements-for-overthinking/' },
+          { label: 'Racing Thoughts & Overthinking', href: '/guides/anxiety/best-supplements-for-overthinking/' },
         ]}
       />
 
       <div className="space-y-12">
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
-          <p className="eyebrow-label">Evidence-first decision guide</p>
+          <p className="eyebrow-label">Evidence hierarchy · 15-source clinical ledger</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Best Supplements for Overthinking
+            Racing Thoughts at Night: What Actually Helps — and Where Supplements Fit
           </h1>
           <p className="mt-2 text-xs text-muted">
             Written and edited by{' '}
-            <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">
-              Willie B. Randolph III
-            </Link>{' '}
-            · Last updated August 10, 2026
+            <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">Willie B. Randolph III</Link>{' '}
+            · Last updated August 22, 2026
           </p>
           <p className="detail-reading mt-4 max-w-3xl text-muted">
-            “Overthinking” is not a single clinical outcome, and the human studies behind popular calming supplements usually
-            measure something adjacent: cognition, mood, subjective anxiety, stress scales, or cortisol. That distinction matters.
-            This guide keeps those outcomes separate so a plausible option does not get promoted into a proven treatment.
+            “Overthinking,” “racing thoughts,” worry and rumination are often treated as if they were one supplement target. They are not.
+            The strongest direct evidence on this page is actually behavioral: when repetitive thinking is tied to insomnia, CBT-I can reduce
+            sleep-related worry.<Cite n={8} /><Cite n={9} /> Supplement studies usually measure something adjacent — stress, anxiety, sleep quality
+            or attention — and should be labeled that way.
           </p>
-
-          <div className="mt-5 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
-            <strong className="text-ink">Intent check:</strong> this page is about repetitive thinking, not a cortisol test or a general insomnia ranking. For biomarker questions, see{' '}
-            <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="font-semibold text-brand-700 hover:underline">the cortisol guide</Link>;
-            for racing thoughts that mainly appear at bedtime, see{' '}
-            <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="font-semibold text-brand-700 hover:underline">nighttime anxiety and herbs</Link>.
-          </div>
-
           <figure className="mt-6">
             <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
-              <Image
-                src="/images/guides/best-supplements-for-overthinking.jpg"
-                alt="L-theanine and magnesium supplements with green tea and lavender"
-                width={1536}
-                height={1024}
-                priority
-                className="h-auto w-full"
-              />
+              <Image src="/images/guides/best-supplements-for-overthinking.jpg" alt="L-theanine and magnesium supplements with green tea and lavender" width={1536} height={1024} priority className="h-auto w-full" />
             </div>
-            <figcaption className="mt-3 text-center text-sm text-muted">
-              Commonly marketed options are not automatically supported for the same outcome.
-            </figcaption>
+            <figcaption className="mt-3 text-center text-sm text-muted">The clinically useful question is whether the evidence measures rumination itself or only a neighboring outcome.</figcaption>
           </figure>
         </section>
 
         <section id="quick-answer" className="card-premium scroll-mt-20 border-brand-700/30 bg-brand-50/60 p-6">
-          <p className="eyebrow-label">Quick answer</p>
-          <h2 className="mt-1 text-2xl font-semibold text-ink">There is no proven “best supplement” for overthinking</h2>
+          <p className="eyebrow-label">Direct answer</p>
+          <h2 className="mt-1 text-2xl font-semibold text-ink">There is no proven supplement for “turning off” a racing mind</h2>
+          <div className="mt-3 space-y-3 text-sm leading-7 text-muted">
+            <p>
+              <strong className="text-ink">L-theanine:</strong> the 2026 meta-analysis found a modest acute stress effect, but it was strongly influenced by higher-risk-of-bias studies; anxiety findings were inconsistent.<Cite n={1} /> A randomized GAD trial found no anxiety benefit over placebo.<Cite n={2} />
+            </p>
+            <p>
+              <strong className="text-ink">Magnesium:</strong> systematic reviews contain some positive anxiety and sleep findings, but forms, doses, populations and co-ingredients vary enough that a direct anti-rumination claim is not justified.<Cite n={4} /><Cite n={5} />
+            </p>
+            <p>
+              <strong className="text-ink">Ashwagandha:</strong> repeated-dose trials support a stress/anxiety signal, but certainty and standardization remain limitations, and the evidence does not establish a same-night effect on racing thoughts.<Cite n={6} /><Cite n={7} />
+            </p>
+          </div>
+        </section>
+
+        <section id="direct-evidence" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">The evidence most directly matched to the query</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">What directly targets racing thoughts before bed?</h2>
+          <p className="text-muted">
+            A 2021 systematic review and meta-analysis examined whether CBT-I reduces repetitive negative thinking — including worry and rumination.
+            Across 15 randomized trials, CBT-I produced moderate-to-large effects on worry, while effects on general rumination were small and not reliable.
+            The authors found the effect was stronger for <strong className="text-ink">sleep-related</strong> repetitive thinking than for broad rumination.<Cite n={8} />
+          </p>
+          <p className="text-muted">
+            That aligns with the AASM guideline strongly recommending multicomponent CBT-I for chronic insomnia, and the World Sleep Society's endorsement
+            of CBT-I as the treatment of choice for insomnia disorder.<Cite n={9} /><Cite n={10} /> Mechanistic reviews also identify worry, rumination,
+            dysfunctional sleep beliefs and selective attention as relevant cognitive treatment targets.<Cite n={11} />
+          </p>
+          <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 text-sm leading-6 text-amber-950">
+            <strong>Important:</strong> this does not mean every racing thought is caused by insomnia. It means that when the query is specifically
+            “my mind races when I try to sleep,” CBT-I evidence is more direct than borrowing a stress score from a supplement trial.
+          </div>
+        </section>
+
+        <section id="supplement-ranking" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Ranked by directness, not hype</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">How the supplement evidence actually stacks up</h2>
+          <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white">
+            <table className="min-w-[850px] w-full text-left text-sm">
+              <thead className="bg-brand-50/70">
+                <tr><th className="p-3 font-semibold text-ink">Option</th><th className="p-3 font-semibold text-ink">Closest supported outcome</th><th className="p-3 font-semibold text-ink">Direct for rumination?</th><th className="p-3 font-semibold text-ink">Main limitation</th></tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10">
+                <tr><td className="p-3 font-semibold text-ink">L-theanine</td><td className="p-3 text-muted">Attention; modest/bias-sensitive acute stress signal<Cite n={1} /></td><td className="p-3 text-muted">No</td><td className="p-3 text-muted">Anxiety findings inconsistent; GAD trial negative<Cite n={2} /></td></tr>
+                <tr><td className="p-3 font-semibold text-ink">Magnesium</td><td className="p-3 text-muted">Some anxiety/sleep outcomes<Cite n={4} /><Cite n={5} /></td><td className="p-3 text-muted">No</td><td className="p-3 text-muted">Heterogeneous studies; form superiority unresolved</td></tr>
+                <tr><td className="p-3 font-semibold text-ink">Ashwagandha</td><td className="p-3 text-muted">Repeated-dose stress/anxiety outcomes<Cite n={6} /><Cite n={7} /></td><td className="p-3 text-muted">No</td><td className="p-3 text-muted">Low-certainty/heterogeneous evidence; not an acute rescue</td></tr>
+                <tr><td className="p-3 font-semibold text-ink">CBT-I (not a supplement)</td><td className="p-3 text-muted">Sleep-related worry / repetitive negative thinking<Cite n={8} /></td><td className="p-3 text-muted">Yes, when tied to insomnia</td><td className="p-3 text-muted">Behavioral treatment, not a capsule</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="l-theanine" className="card-premium scroll-mt-20 p-6">
+          <h2 className="text-2xl font-semibold text-ink">L-theanine: interesting for stress and attention, not proven for rumination</h2>
+          <div className="mt-3 space-y-3 text-sm leading-7 text-muted">
+            <p>
+              The July 2026 meta-analysis pooled 31 randomized placebo-controlled trials with 1,168 participants. A 200 mg acute dose improved choice reaction time,
+              but the pooled acute stress reduction was modest and largely driven by higher-risk-of-bias studies; anxiety effects were inconsistent.<Cite n={1} />
+            </p>
+            <p>
+              A separate GAD trial is an important negative result: 46 participants received adjunctive L-theanine or placebo for eight weeks, and L-theanine did not
+              outperform placebo for anxiety reduction or overall insomnia severity.<Cite n={2} /> A small four-week healthy-adult crossover trial did report improvements
+              in selected stress/anxiety and sleep scores, but two authors were employees of the company that supplied the intervention.<Cite n={3} />
+            </p>
+            <p>
+              Product-specific acute stress studies also exist,<Cite n={15} /> but none of this establishes that L-theanine reliably stops intrusive thought loops or works
+              within a guaranteed 30–60 minute window for “mental chatter.”
+            </p>
+          </div>
+          <Link href="/compounds/l-theanine/" className="mt-3 inline-block font-semibold text-brand-700 hover:underline">L-theanine evidence profile →</Link>
+        </section>
+
+        <section id="magnesium" className="card-premium scroll-mt-20 p-6">
+          <h2 className="text-2xl font-semibold text-ink">Magnesium: plausible when status is low, but “magnesium glycinate for overthinking” outruns the evidence</h2>
+          <div className="mt-3 space-y-3 text-sm leading-7 text-muted">
+            <p>
+              A 2024 review found 15 eligible intervention studies: eight measured sleep outcomes and seven measured anxiety outcomes. Many reported at least one positive
+              result, but forms, doses, durations, populations and co-ingredients varied, limiting firm conclusions.<Cite n={4} /> An earlier review likewise described
+              suggestive evidence but major methodological limitations.<Cite n={5} />
+            </p>
+            <p>
+              Neither review establishes magnesium glycinate as the proven form for rumination. Supplemental magnesium can cause gastrointestinal effects and interact with
+              some medications; kidney impairment changes the safety calculation.<Cite n={14} />
+            </p>
+          </div>
+          <Link href="/compounds/magnesium-glycinate/" className="mt-3 inline-block font-semibold text-brand-700 hover:underline">Magnesium glycinate evidence profile →</Link>
+        </section>
+
+        <section id="ashwagandha" className="card-premium scroll-mt-20 p-6">
+          <h2 className="text-2xl font-semibold text-ink">Ashwagandha: stronger for repeated-dose stress than for racing thoughts</h2>
+          <div className="mt-3 space-y-3 text-sm leading-7 text-muted">
+            <p>
+              A 2024 meta-analysis of nine randomized trials (558 participants) found improvements in perceived stress, anxiety and cortisol across specific ashwagandha
+              formulations.<Cite n={6} /> A 2022 meta-analysis also found positive stress/anxiety effects but rated the certainty of evidence low and reported substantial
+              heterogeneity.<Cite n={7} />
+            </p>
+            <p>
+              Those data support a repeated-dose stress/anxiety signal, not a same-night treatment for rumination. NCCIH also notes pregnancy avoidance, thyroid/autoimmune
+              cautions, medication interactions and rare liver injury reports.<Cite n={13} />
+            </p>
+          </div>
+          <Link href="/herbs/ashwagandha/" className="mt-3 inline-block font-semibold text-brand-700 hover:underline">Ashwagandha evidence profile →</Link>
+        </section>
+
+        <section id="bedtime" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
+          <h2 className="text-2xl font-semibold text-ink">When the overthinking mainly happens at bedtime</h2>
           <p className="mt-3 text-sm leading-7 text-muted">
-            No supplement has strong direct evidence for treating “overthinking” itself. L-theanine, magnesium, and ashwagandha
-            are better understood as options with <em>adjacent</em> evidence in cognition or mood, subjective anxiety, or chronic
-            stress. The practical edge is to identify the outcome you are actually trying to change, then judge the evidence for
-            that outcome rather than buying a generic “calm” stack.
+            Sleep-related rumination is not just an internet phrase. Research has found elevated sleep-related repetitive thinking in people with insomnia,<Cite n={12} />
+            and CBT-I trials suggest sleep-related worry is modifiable.<Cite n={8} /> That makes a bedtime-specific page fundamentally different from a generic anxiety-supplement list.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            If the pattern is “I am fine until my head hits the pillow,” examine the insomnia loop itself — clock-watching, fear of not sleeping, compensatory time in bed,
+            repeated checking and sleep-related worry — instead of assuming the missing ingredient is a calming supplement. For persistent insomnia, CBT-I has strong guideline support.<Cite n={9} /><Cite n={10} />
           </p>
         </section>
 
-        <section id="decision-map" className="scroll-mt-20 space-y-5">
-          <div>
-            <p className="eyebrow-label">Decision map</p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Choose by the outcome actually studied</h2>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
-              These are not interchangeable claims. A stress score, an anxiety questionnaire, a reaction-time task, and repetitive
-              rumination answer different questions.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {DECISION_ROWS.map((row) => (
-              <article key={row.label} className="card-premium p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Closest evidence context</p>
-                <h3 className="mt-2 text-lg font-semibold text-ink">{row.label}</h3>
-                <p className="mt-3 text-sm font-medium leading-6 text-ink">{row.option}</p>
-                <p className="mt-2 text-sm leading-6 text-muted">{row.evidence}</p>
-                <Link href={row.href} className="mt-4 inline-block text-sm font-semibold text-brand-700 hover:underline">
-                  Read the narrower page →
-                </Link>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="evidence-profiles" className="scroll-mt-20 space-y-5">
-          <p className="eyebrow-label">Evidence profiles</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">What the cited human evidence does — and does not — show</h2>
-
-          <article className="card-premium p-6">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>
-              </h3>
-              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800">Indirect for rumination</span>
-            </div>
-            <p className="mt-4 text-sm leading-7 text-muted">
-              The cited randomized crossover trial tested acute cognition and mood after L-theanine, caffeine, and their
-              combination. L-theanine alone increased headache ratings and reduced performance on one serial-subtraction task;
-              several clearer performance effects involved caffeine or the combination. That evidence does not establish a
-              treatment for rumination, nor does it justify promising that L-theanine will reliably “quiet mental chatter.”
-            </p>
-          </article>
-
-          <article className="card-premium p-6">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium</Link>
-              </h3>
-              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800">Suggestive, low-quality evidence</span>
-            </div>
-            <p className="mt-4 text-sm leading-7 text-muted">
-              The systematic review covered 18 studies in groups already vulnerable to anxiety, including mildly anxious,
-              premenstrual, postpartum, and hypertensive samples. Results were mixed, and the authors concluded that the quality
-              of the existing evidence was poor. The review therefore supports caution—not a claim that magnesium glycinate is a
-              reliable treatment for overthinking or that one magnesium form is proven superior for this goal.
-            </p>
-          </article>
-
-          <article className="card-premium p-6">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/herbs/ashwagandha/" className="hover:underline">Ashwagandha</Link>
-              </h3>
-              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800">Stress evidence, not rumination evidence</span>
-            </div>
-            <p className="mt-4 text-sm leading-7 text-muted">
-              A small randomized placebo-controlled trial enrolled 64 adults with chronic stress and tested one high-concentration
-              full-spectrum root extract for 60 days. Stress-scale scores and serum cortisol improved relative to placebo. That is
-              relevant when chronic stress is the question, but it does not prove an immediate anti-rumination effect, establish a
-              universal dose, or show that every extract on the market is equivalent.
-            </p>
-          </article>
-        </section>
-
-        <section id="study-context" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-          <p className="eyebrow-label">Dose and timeline boundary</p>
-          <h2 className="mt-1 text-2xl font-semibold text-ink">Study context is not a protocol</h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            The studies on this page used different populations, products, outcomes, doses, and durations. A milligram amount from
-            one trial should not be copied into a universal “start here” instruction, and an acute cognition study should not be
-            given the same expected timeline as a 60-day chronic-stress trial. Product identity and the reason for taking it matter.
-          </p>
-        </section>
-
-        <section id="basics" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
-          <h2 className="text-xl font-semibold text-ink">What to check before adding a supplement</h2>
-          <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
-            <li>• <strong className="text-ink">Name the actual problem:</strong> worry, intrusive thoughts, sleep loss, stimulant overload, chronic stress, or another driver may require different next steps.</li>
-            <li>• <strong className="text-ink">Audit caffeine and sleep:</strong> adding a calming product while leaving a large arousal driver untouched makes the result difficult to interpret.</li>
-            <li>• <strong className="text-ink">Change one variable:</strong> multi-ingredient stacks make benefits, adverse effects, and interactions harder to attribute.</li>
-            <li>• <strong className="text-ink">Define a stop rule:</strong> stop and reassess if symptoms worsen, new adverse effects appear, or the chosen outcome does not meaningfully improve.</li>
-          </ul>
-        </section>
-
-        <section id="risks" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
+        <section id="safety" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
           <p className="eyebrow-label">Safety boundary</p>
-          <h2 className="mt-1 text-2xl font-semibold text-amber-950">When a supplement is the wrong next step</h2>
+          <h2 className="mt-1 text-2xl font-semibold text-amber-950">When supplement experimentation is the wrong lane</h2>
           <ul className="mt-4 space-y-3 text-sm leading-7 text-amber-900">
-            <li>• Repetitive thoughts are intrusive, frightening, tied to compulsions, panic, or low mood, or are significantly impairing sleep or daily function.</li>
-            <li>• Symptoms appeared after a medication or substance change, or you are combining multiple stimulating, sedating, or mood-active products.</li>
-            <li>• Pregnancy, breastfeeding, significant liver or kidney disease, or a complex medication regimen changes the safety calculation.</li>
-            <li>• You are using supplements to postpone assessment of a persistent mental-health or sleep problem.</li>
+            <li>• Racing or repetitive thoughts are persistent, intrusive, tied to compulsions, panic, major mood change or significant loss of function.</li>
+            <li>• Symptoms began after a medication, stimulant, recreational substance or major sleep-pattern change.</li>
+            <li>• You are escalating multiple “calming” products at once, making effects and interactions impossible to attribute.</li>
+            <li>• Sleep disturbance is chronic or accompanied by loud snoring/gasping, severe daytime sleepiness or other signs of a separate sleep disorder.</li>
           </ul>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/safety-checker/" className="rounded-full bg-amber-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-950">
-              Check interaction cautions
-            </Link>
-            <Link href="/info/supplement-safety-checklist/" className="rounded-full border border-amber-900/20 px-4 py-2 text-sm font-semibold text-amber-950 hover:bg-white/60">
-              Use the safety checklist
-            </Link>
+            <Link href="/safety-checker/" className="rounded-full bg-amber-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-950">Check interaction cautions</Link>
+            <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="rounded-full border border-amber-900/20 px-4 py-2 text-sm font-semibold text-amber-950 hover:bg-white/60">Sleep evidence guide</Link>
           </div>
         </section>
 
@@ -321,10 +295,8 @@ export default function Page() {
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
             <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Stress &amp; Anxiety at Night →</Link>
-            <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
-            <Link href="/safety-checker/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Safety Interaction Checker →</Link>
-            <Link href="/guides/anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
-            <Link href="/guides/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Guides →</Link>
+            <Link href="/guides/best/supplements-for-stress/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Stress →</Link>
+            <Link href="/guides/sleep/best-supplements-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Sleep Supplements →</Link>
           </div>
         </section>
       </div>
