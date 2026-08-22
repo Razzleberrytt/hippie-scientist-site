@@ -1,12 +1,17 @@
 'use client'
 
-import { useState, useEffect, useRef, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { useCallback, useEffect, useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Leaf, Menu, X } from 'lucide-react'
-import { GlobalSearchModal } from './search/GlobalSearchModal'
+import { Leaf, Menu, Search, X } from 'lucide-react'
 import DarkModeToggle from './DarkModeToggle'
 import { primaryNavigation, type PrimaryNavigationItem } from '@/lib/primary-navigation'
+
+const GlobalSearchModal = dynamic(
+  () => import('./search/GlobalSearchModal').then((mod) => mod.GlobalSearchModal),
+  { ssr: false },
+)
 
 const primaryLinks = primaryNavigation
 
@@ -43,10 +48,28 @@ function isCurrentPage(pathname: string, href: string) {
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [searchLoaded, setSearchLoaded] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
   const mobileTriggerRef = useRef<HTMLButtonElement>(null)
   const mobileDialogRef = useRef<HTMLDivElement>(null)
   const mobileCloseRef = useRef<HTMLButtonElement>(null)
+  const headerSearchTriggerRef = useRef<HTMLButtonElement>(null)
+  const drawerSearchTriggerRef = useRef<HTMLButtonElement>(null)
+  const searchReturnFocusRef = useRef<HTMLButtonElement | null>(null)
+  const searchDialogId = useId()
   const pathname = usePathname() || '/'
+
+  const openSearch = useCallback((trigger: HTMLButtonElement | null) => {
+    searchReturnFocusRef.current = trigger ?? headerSearchTriggerRef.current
+    setSearchLoaded(true)
+    setSearchOpen(true)
+  }, [])
+
+  const closeSearch = useCallback(() => {
+    setSearchOpen(false)
+    const returnTarget = searchReturnFocusRef.current
+    requestAnimationFrame(() => returnTarget?.focus())
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4)
@@ -69,6 +92,38 @@ export function Navigation() {
       requestAnimationFrame(() => mobileTrigger?.focus())
     }
   }, [mobileOpen])
+
+  // One lightweight global hotkey listener replaces the two independently
+  // hydrated search-modal controllers that previously lived in desktop/mobile nav.
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      const mod = event.metaKey || event.ctrlKey
+      if (mod && event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        if (searchOpen) {
+          closeSearch()
+        } else {
+          openSearch(mobileOpen ? drawerSearchTriggerRef.current : headerSearchTriggerRef.current)
+        }
+        return
+      }
+
+      const target = event.target as HTMLElement | null
+      const typing =
+        target &&
+        (target.tagName === 'INPUT' ||
+          target.tagName === 'TEXTAREA' ||
+          target.isContentEditable)
+
+      if (event.key === '/' && !typing && !searchOpen) {
+        event.preventDefault()
+        openSearch(mobileOpen ? drawerSearchTriggerRef.current : headerSearchTriggerRef.current)
+      }
+    }
+
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [closeSearch, mobileOpen, openSearch, searchOpen])
 
   const isPrimaryActive = (link: PrimaryNavigationItem) => {
     const prefixes = link.activePrefixes?.length ? link.activePrefixes : [link.href]
@@ -197,7 +252,23 @@ export function Navigation() {
           </div>
 
           <div className='flex shrink-0 items-center gap-2'>
-            <GlobalSearchModal enableHotkeys={!mobileOpen} />
+            <button
+              ref={headerSearchTriggerRef}
+              type='button'
+              onClick={() => openSearch(headerSearchTriggerRef.current)}
+              className='inline-flex min-h-[44px] items-center gap-2 rounded-full border border-brand-900/20 bg-white px-3 py-2.5 text-sm text-ink transition hover:border-brand-700/25 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] dark:hover:border-[var(--border-strong)] dark:hover:bg-[var(--surface-subtle)] md:min-h-[auto] md:py-1.5'
+              aria-label='Open search'
+              aria-haspopup='dialog'
+              aria-expanded={searchOpen}
+              aria-controls={searchOpen ? searchDialogId : undefined}
+              aria-keyshortcuts='Meta+K Control+K /'
+            >
+              <Search className='h-4 w-4' aria-hidden='true' />
+              <span className='hidden sm:inline'>Search</span>
+              <kbd className='hidden rounded border border-brand-900/15 bg-brand-50/60 px-1.5 py-0.5 text-[10px] font-semibold text-ink/75 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] md:inline'>
+                ⌘K
+              </kbd>
+            </button>
             <div className='hidden lg:block'>
               <DarkModeToggle />
             </div>
@@ -246,7 +317,23 @@ export function Navigation() {
             </div>
 
             <div className='mb-5'>
-              <GlobalSearchModal />
+              <button
+                ref={drawerSearchTriggerRef}
+                type='button'
+                onClick={() => openSearch(drawerSearchTriggerRef.current)}
+                className='inline-flex min-h-[44px] items-center gap-2 rounded-full border border-brand-900/20 bg-white px-3 py-2.5 text-sm text-ink transition hover:border-brand-700/25 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] dark:hover:border-[var(--border-strong)] dark:hover:bg-[var(--surface-subtle)] md:min-h-[auto] md:py-1.5'
+                aria-label='Open search'
+                aria-haspopup='dialog'
+                aria-expanded={searchOpen}
+                aria-controls={searchOpen ? searchDialogId : undefined}
+                aria-keyshortcuts='Meta+K Control+K /'
+              >
+                <Search className='h-4 w-4' aria-hidden='true' />
+                <span className='hidden sm:inline'>Search</span>
+                <kbd className='hidden rounded border border-brand-900/15 bg-brand-50/60 px-1.5 py-0.5 text-[10px] font-semibold text-ink/75 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] md:inline'>
+                  ⌘K
+                </kbd>
+              </button>
             </div>
 
             <nav className='flex flex-col gap-2 text-base' aria-label='Mobile primary links'>
@@ -281,6 +368,14 @@ export function Navigation() {
           </div>
         </div>
       )}
+
+      {searchLoaded ? (
+        <GlobalSearchModal
+          open={searchOpen}
+          onClose={closeSearch}
+          dialogId={searchDialogId}
+        />
+      ) : null}
     </nav>
   )
 }
