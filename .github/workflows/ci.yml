@@ -70,7 +70,9 @@ jobs:
         run: npm run typecheck
 
       - name: Run tests (vitest + a11y gate)
-        run: npm run test 2>&1 | tee vitest.log
+        run: |
+          set -o pipefail
+          npm run test 2>&1 | tee vitest.log
 
       - name: Upload Vitest log
         if: always() && hashFiles('vitest.log') != ''
