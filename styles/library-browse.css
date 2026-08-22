@@ -7,6 +7,14 @@
   --library-control-bg: color-mix(in srgb, var(--surface-card-strong) 72%, var(--surface-card));
 }
 
+/* Both route pages already own the responsive gutter. Their client roots used to
+ * add a second inset, while Herbs alone carried 7rem of bottom padding before the
+ * shared paginator. Flatten that legacy wrapper so the browse flow keeps one
+ * consistent page grid and one intentional section rhythm. */
+.library-browse-page > div {
+  padding: 0;
+}
+
 .library-browse-page > .hero-shell {
   border-color: var(--border-soft);
   background:
