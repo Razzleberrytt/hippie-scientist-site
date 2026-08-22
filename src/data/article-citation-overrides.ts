@@ -19,9 +19,40 @@ export const citationRelationshipTargets: Record<string, CitationRelationshipTar
     category: 'Foundations',
     url: '/learn/rhabdomyolysis/',
   },
+  'kratom-7oh-withdrawal-management': {
+    slug: 'kratom-7oh-withdrawal-management',
+    title: '7-OH Withdrawal: What the 2026 Evidence Actually Shows',
+    category: 'Harm Reduction',
+    url: '/guides/other/kratom-7oh-withdrawal-management/',
+  },
 }
 
 export const articleCitationOverrides: Record<string, ArticleCitationOverride> = {
+  'corynoxine-b-opioid-addiction-evidence-review': {
+    relatedSlugs: [
+      'mitragynine',
+      '7-hydroxymitragynine',
+      'mitragynine-pseudoindoxyl',
+      'kratom-7oh-withdrawal-management',
+    ],
+    keyTakeaways: [
+      'Corynoxine B has meaningful in-vitro mu-opioid receptor activity in newer assays, but the exact potency and signaling profile remain assay-dependent.',
+      'Mu-opioid receptor activity is a safety signal, not proof that corynoxine B causes addiction, physical dependence, withdrawal, or clinically significant opioid effects in humans.',
+      'Human pharmacokinetic, toxicological, abuse-liability, and controlled clinical data for isolated corynoxine B remain major evidence gaps.',
+    ],
+    citationQuestions: [
+      'Does corynoxine B activate the mu-opioid receptor?',
+      'Is corynoxine B addictive or dependence-forming?',
+      'Can corynoxine B treat opioid withdrawal or substance-use disorder?',
+    ],
+    canonicalConcepts: [
+      'corynoxine B',
+      'mu-opioid receptor',
+      'G-protein bias',
+      'physical dependence',
+      'kratom alkaloids',
+    ],
+  },
   'failure-chains-injected-mushroom-tea': {
     relatedSlugs: [
       'rhabdomyolysis',
