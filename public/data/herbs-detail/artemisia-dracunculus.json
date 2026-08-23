@@ -80,5 +80,11 @@
   },
   "claimMap": [],
   "dosage": "1000 mg extract",
-  "typical_dosage": "1000 mg extract"
+  "typical_dosage": "1000 mg extract",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

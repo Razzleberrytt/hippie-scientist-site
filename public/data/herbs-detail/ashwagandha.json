@@ -250,5 +250,17 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "dosage": "300-600 mg extract (KSM-66 or equivalent)",
-  "typical_dosage": "300-600 mg extract (KSM-66 or equivalent)"
+  "typical_dosage": "300-600 mg extract (KSM-66 or equivalent)",
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "curated_allowlist"
+  ]
 }

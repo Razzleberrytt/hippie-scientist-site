@@ -80,5 +80,11 @@
   },
   "claimMap": [],
   "dosage": "Oil providing gamma-linolenic acid (GLA): 240-540 mg GLA/day (~1-3 g oil); variability across formulations",
-  "typical_dosage": "Oil providing gamma-linolenic acid (GLA): 240-540 mg GLA/day (~1-3 g oil); variability across formulations"
+  "typical_dosage": "Oil providing gamma-linolenic acid (GLA): 240-540 mg GLA/day (~1-3 g oil); variability across formulations",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

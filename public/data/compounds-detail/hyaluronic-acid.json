@@ -40,8 +40,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_d0eb5bce755f",
@@ -62,5 +62,9 @@
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
     "Limited data."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }

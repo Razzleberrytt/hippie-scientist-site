@@ -97,5 +97,19 @@
   },
   "claimMap": [],
   "dosage": "100-300 mg/day",
-  "typical_dosage": "100-300 mg/day"
+  "typical_dosage": "100-300 mg/day",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ]
 }

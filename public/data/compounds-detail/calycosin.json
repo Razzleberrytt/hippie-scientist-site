@@ -39,10 +39,12 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ],
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract"
 }

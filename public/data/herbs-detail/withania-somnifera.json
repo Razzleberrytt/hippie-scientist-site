@@ -104,9 +104,9 @@
   "summary_quality": "",
   "runtime_export_decision": "primary_runtime_priority",
   "visibility_tier": "public",
-  "robots": "noindex,follow",
-  "sitemap_included": false,
-  "indexability_status": "NEEDS_REVIEW",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "PUBLISH",
   "indexability_score": 55,
   "indexability_reasons": [
     "effect-coverage",
@@ -115,9 +115,9 @@
     "identity-present",
     "mechanism-context",
     "profile-status:needs_review",
-    "safety-context-missing",
-    "summary-quality-missing",
-    "summary-too-thin"
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
   ],
   "meta_title": "",
   "meta_description": "",

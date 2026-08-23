@@ -41,8 +41,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_06d69ae03171",
@@ -63,5 +63,9 @@
   "typical_dosage": "chelated mineral capsule or powder",
   "contraindications": [
     "Caution with ACE inhibitors/renal disease."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }

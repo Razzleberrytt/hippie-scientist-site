@@ -36,11 +36,15 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "dosage": "extended-release or immediate-release per clinician context",
   "typical_dosage": "extended-release or immediate-release per clinician context",
   "contraindications": [
     "liver"
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }

@@ -76,7 +76,18 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": [],
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:primary_runtime_priority",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing",
+    "curated_allowlist"
+  ],
   "sources": [
     {
       "id": "src_c988432a2651",

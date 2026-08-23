@@ -59,8 +59,8 @@
       ]
     }
   ],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_681b9bde8e6f",
@@ -81,5 +81,9 @@
     }
   ],
   "dosage": "medium",
-  "typical_dosage": "medium"
+  "typical_dosage": "medium",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

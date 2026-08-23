@@ -142,5 +142,19 @@
     }
   ],
   "dosage": "Aged garlic extract (~1.2 mg S-allyl cysteine/day) or dried powder 600-1200 mg/day; composition varies by preparation",
-  "typical_dosage": "Aged garlic extract (~1.2 mg S-allyl cysteine/day) or dried powder 600-1200 mg/day; composition varies by preparation"
+  "typical_dosage": "Aged garlic extract (~1.2 mg S-allyl cysteine/day) or dried powder 600-1200 mg/day; composition varies by preparation",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ]
 }

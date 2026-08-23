@@ -34,10 +34,12 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "BLOCKED",
+  "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_reasons": [
+    "blocked-decision:alias_redirect_only"
+  ],
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract"
 }

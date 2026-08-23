@@ -85,5 +85,11 @@
   },
   "claimMap": [],
   "dosage": "1.5-5 g/day extract",
-  "typical_dosage": "1.5-5 g/day extract"
+  "typical_dosage": "1.5-5 g/day extract",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

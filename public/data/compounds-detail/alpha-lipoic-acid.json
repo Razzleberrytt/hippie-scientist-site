@@ -61,8 +61,8 @@
       ]
     }
   ],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_7a5eca313ce8",
@@ -83,5 +83,9 @@
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
     "Caution with hypoglycemic agents."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }

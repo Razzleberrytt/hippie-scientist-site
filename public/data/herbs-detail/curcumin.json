@@ -214,5 +214,19 @@
     }
   ],
   "dosage": "500-1500 mg/day (bioavailable forms)",
-  "typical_dosage": "500-1500 mg/day (bioavailable forms)"
+  "typical_dosage": "500-1500 mg/day (bioavailable forms)",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:primary_runtime_priority",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ]
 }

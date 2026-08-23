@@ -56,5 +56,17 @@
     "concurrent use with other acetylcholinesterase inhibitors such as donepezil or galantamine (risk of cholinergic crisis with excess salivation sweating and bradycardia)",
     "urinary tract obstruction",
     "not studied in pregnancy or breastfeeding"
+  ],
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "curated_allowlist"
   ]
 }

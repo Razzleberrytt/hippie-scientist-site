@@ -117,5 +117,19 @@
     }
   ],
   "dosage": "300-800 mg EGCG/day",
-  "typical_dosage": "300-800 mg EGCG/day"
+  "typical_dosage": "300-800 mg EGCG/day",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:cluster_member_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ]
 }

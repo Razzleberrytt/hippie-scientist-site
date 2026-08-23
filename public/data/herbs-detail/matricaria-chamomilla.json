@@ -151,5 +151,19 @@
     }
   ],
   "dosage": "Dose/form varies widely across tea, extract, capsule, and inhalation studies. Use source-specific dose when known. | Oral chamomile and chamomile preparations; aromatherapy evidence is separate and should not be merged with oral extract/tea.",
-  "typical_dosage": "Dose/form varies widely across tea, extract, capsule, and inhalation studies. Use source-specific dose when known. | Oral chamomile and chamomile preparations; aromatherapy evidence is separate and should not be merged with oral extract/tea."
+  "typical_dosage": "Dose/form varies widely across tea, extract, capsule, and inhalation studies. Use source-specific dose when known. | Oral chamomile and chamomile preparations; aromatherapy evidence is separate and should not be merged with oral extract/tea.",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ]
 }

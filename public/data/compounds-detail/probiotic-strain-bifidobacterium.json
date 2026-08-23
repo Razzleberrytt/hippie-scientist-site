@@ -36,7 +36,18 @@
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "missing_record_level_sources"
+  ],
   "dosage": "standardized oral supplement form",
   "typical_dosage": "standardized oral supplement form",
   "contraindications": [

@@ -35,11 +35,24 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
   "dosage": "chelated mineral capsule or powder",
   "typical_dosage": "chelated mineral capsule or powder",
   "contraindications": [
     "Caution in renal disease."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:primary_runtime_priority",
+    "identity-present",
+    "mechanism-context",
+    "non-publishable-profile-status",
+    "profile-status:research_only",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
   ]
 }

@@ -41,8 +41,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_ad26988bf771",
@@ -62,5 +62,9 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

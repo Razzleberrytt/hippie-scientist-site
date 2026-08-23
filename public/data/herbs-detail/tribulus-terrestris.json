@@ -62,10 +62,20 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
-  "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ],
   "dosage": "Extracts standardized to saponins: 250-1500 mg/day; variability across products",
   "typical_dosage": "Extracts standardized to saponins: 250-1500 mg/day; variability across products"
 }

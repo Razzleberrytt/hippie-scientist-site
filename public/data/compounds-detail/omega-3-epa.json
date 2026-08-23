@@ -43,7 +43,18 @@
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:primary_runtime_priority",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing",
+    "missing_record_level_sources"
+  ],
   "dosage": "softgel or liquid oil",
   "typical_dosage": "softgel or liquid oil",
   "contraindications": [

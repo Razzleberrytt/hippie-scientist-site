@@ -40,7 +40,18 @@
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:primary_runtime_priority",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "missing_record_level_sources"
+  ],
   "dosage": "Use L-theanine parent dose runtime: practical adult sleep-support range around 200–450 mg/day, with trials spanning 50–900 mg/day. | Standalone L-theanine preferred for this use-case; combination formulas need separate source rows. | This should probably be a goal/use-case view of L-theanine, not a separate ingredient entity unless the architecture needs use-specific slugs.",
   "typical_dosage": "Use L-theanine parent dose runtime: practical adult sleep-support range around 200–450 mg/day, with trials spanning 50–900 mg/day. | Standalone L-theanine preferred for this use-case; combination formulas need separate source rows. | This should probably be a goal/use-case view of L-theanine, not a separate ingredient entity unless the architecture needs use-specific slugs.",
   "contraindications": [

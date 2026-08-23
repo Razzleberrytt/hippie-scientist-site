@@ -94,10 +94,20 @@
       ]
     }
   ],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
-  "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ],
   "dosage": "300-600 mg/day standardized extract; traditional dried herb often 2-4 g/day",
   "typical_dosage": "300-600 mg/day standardized extract; traditional dried herb often 2-4 g/day"
 }

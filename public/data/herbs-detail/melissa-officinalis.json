@@ -144,5 +144,17 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "dosage": "Varies by extract/form; newer standardized extracts should be tracked separately from tea, essential oil, or combination products. | Lemon balm extracts, oral formulations, and sometimes aromatherapy/combination products; do not merge.",
-  "typical_dosage": "Varies by extract/form; newer standardized extracts should be tracked separately from tea, essential oil, or combination products. | Lemon balm extracts, oral formulations, and sometimes aromatherapy/combination products; do not merge."
+  "typical_dosage": "Varies by extract/form; newer standardized extracts should be tracked separately from tea, essential oil, or combination products. | Lemon balm extracts, oral formulations, and sometimes aromatherapy/combination products; do not merge.",
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "curated_allowlist"
+  ]
 }

@@ -122,5 +122,19 @@
     }
   ],
   "dosage": "Standardized extract (70-80% silymarin): 140-420 mg/day in divided doses; variability in silybin content",
-  "typical_dosage": "Standardized extract (70-80% silymarin): 140-420 mg/day in divided doses; variability in silybin content"
+  "typical_dosage": "Standardized extract (70-80% silymarin): 140-420 mg/day in divided doses; variability in silybin content",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ]
 }

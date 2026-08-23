@@ -33,8 +33,21 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
   "dosage": "standardized extract capsule",
-  "typical_dosage": "standardized extract capsule"
+  "typical_dosage": "standardized extract capsule",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "non-publishable-profile-status",
+    "profile-status:research_only",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ]
 }

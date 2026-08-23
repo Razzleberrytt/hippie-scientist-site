@@ -92,5 +92,19 @@
   },
   "claimMap": [],
   "dosage": "Preparation-specific; use standardized product label for Evidence is most relevant to bark preparations or standardized extracts used in clinical studies. and require source-backed dosage review before therapeutic claims.",
-  "typical_dosage": "Preparation-specific; use standardized product label for Evidence is most relevant to bark preparations or standardized extracts used in clinical studies. and require source-backed dosage review before therapeutic claims."
+  "typical_dosage": "Preparation-specific; use standardized product label for Evidence is most relevant to bark preparations or standardized extracts used in clinical studies. and require source-backed dosage review before therapeutic claims.",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ]
 }

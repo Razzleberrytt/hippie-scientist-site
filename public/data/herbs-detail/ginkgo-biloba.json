@@ -89,5 +89,17 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "dosage": "EGb 761 extract specifically; clinical mild-NCD context. Separate EGb 761 dosing from generic ginkgo products.",
-  "typical_dosage": "EGb 761 extract specifically; clinical mild-NCD context. Separate EGb 761 dosing from generic ginkgo products."
+  "typical_dosage": "EGb 761 extract specifically; clinical mild-NCD context. Separate EGb 761 dosing from generic ginkgo products.",
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "curated_allowlist"
+  ]
 }

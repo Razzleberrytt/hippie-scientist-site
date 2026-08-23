@@ -121,5 +121,19 @@
     }
   ],
   "dosage": "Silexan 80 mg/day orally for 10 weeks in meta-analysis. Do not generalize to all lavender oils/teas/aromatherapy. | Proprietary oral lavender oil preparation (Silexan); separate from essential-oil inhalation and topical lavender.",
-  "typical_dosage": "Silexan 80 mg/day orally for 10 weeks in meta-analysis. Do not generalize to all lavender oils/teas/aromatherapy. | Proprietary oral lavender oil preparation (Silexan); separate from essential-oil inhalation and topical lavender."
+  "typical_dosage": "Silexan 80 mg/day orally for 10 weeks in meta-analysis. Do not generalize to all lavender oils/teas/aromatherapy. | Proprietary oral lavender oil preparation (Silexan); separate from essential-oil inhalation and topical lavender.",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ]
 }

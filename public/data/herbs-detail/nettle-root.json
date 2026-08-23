@@ -86,5 +86,11 @@
   },
   "claimMap": [],
   "dosage": "Preparation-specific; use standardized product label for Root/rhizome preparations are commonly used as teas and require source-backed dosage review before therapeutic claims.",
-  "typical_dosage": "Preparation-specific; use standardized product label for Root/rhizome preparations are commonly used as teas and require source-backed dosage review before therapeutic claims."
+  "typical_dosage": "Preparation-specific; use standardized product label for Root/rhizome preparations are commonly used as teas and require source-backed dosage review before therapeutic claims.",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

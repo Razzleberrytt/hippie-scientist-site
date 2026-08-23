@@ -90,5 +90,17 @@
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
   "dosage": "60-250 mg/day kavalactones",
-  "typical_dosage": "60-250 mg/day kavalactones"
+  "typical_dosage": "60-250 mg/day kavalactones",
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:complete",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "curated_allowlist"
+  ]
 }

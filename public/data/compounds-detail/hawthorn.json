@@ -37,11 +37,15 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "dosage": "standardized extract capsule",
   "typical_dosage": "standardized extract capsule",
   "contraindications": [
     "May interact with cardiac medications."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }
