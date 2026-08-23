@@ -1,15 +1,49 @@
+import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import { gunzipSync } from 'node:zlib'
-import { describe, expect, it } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 import { readWorkbookExcelJS } from '../scripts/utils/read-workbook-exceljs.mjs'
 import { readWorkbook } from '../scripts/data/workbook-parser.mjs'
 import { resolveWorkbookPath } from '../scripts/workbook-source.mjs'
 
 const root = process.cwd()
 const dir = path.join(root, 'data-sources', 'runtime-enrichment')
-const ledger = JSON.parse(gunzipSync(fs.readFileSync(path.join(dir, '2026-08-23-enrichment.json.gz'))).toString('utf8'))
+const ledgerPath = path.join(dir, '2026-08-23-enrichment.json.gz')
 const manifest = JSON.parse(fs.readFileSync(path.join(dir, '2026-08-23-manifest.json'), 'utf8'))
+
+// Loaded lazily. This used to gunzip at module scope, so a corrupt ledger threw
+// during import and vitest reported the whole file as unloadable -- no test
+// name, no assertion, just a zlib error. Deferring the read lets the integrity
+// test below name the actual problem.
+let ledger: any
+
+describe('enrichment ledger integrity', () => {
+  // The manifest records `ledger.sha256` and `ledger.bytes`; for a while nothing
+  // read them, and a ledger truncated to 15,009 of 153,710 bytes reached the
+  // repository. It failed loudly by luck -- a truncation on a record boundary
+  // can gunzip and parse fine, and this ledger attaches citations to published
+  // profiles, so a silently partial import would put unverified evidence on
+  // live pages.
+  it('matches the digest recorded in its own manifest', () => {
+    const compressed = fs.readFileSync(ledgerPath)
+    expect(compressed.length).toBe(manifest.ledger.bytes)
+    expect(createHash('sha256').update(compressed).digest('hex')).toBe(manifest.ledger.sha256)
+  })
+
+  it('is refused by the parser when it does not match', async () => {
+    // Guards the guard: proves workbook-parser verifies before decompressing,
+    // so deleting the check fails here rather than in production data.
+    const parser = fs.readFileSync(
+      path.join(root, 'scripts', 'data', 'workbook-parser.mjs'),
+      'utf8',
+    )
+    expect(parser).toContain('verifyLedgerIntegrity')
+    expect(parser.indexOf('verifyLedgerIntegrity(compressed)')).toBeLessThan(
+      parser.indexOf('gunzipSync(compressed)'),
+    )
+  })
+})
 
 const ALLOWED_ENTITY_CONTEXT = new Set([
   'slug', 'entity_type', 'name',
@@ -22,6 +56,13 @@ const ALLOWED_ENTITY_CONTEXT = new Set([
 ])
 
 describe('Aug 23 additive enrichment ledger', () => {
+  // Scoped to this block so the integrity suite above still reports. A
+  // file-scope hook fails during collection and skips every test, including
+  // the one that would have named the cause.
+  beforeAll(() => {
+    ledger = JSON.parse(gunzipSync(fs.readFileSync(ledgerPath)).toString('utf8'))
+  })
+
   it('matches reviewed batch counts', () => {
     expect(ledger.entities).toHaveLength(manifest.counts.entity_context_rows)
     expect(ledger.evidence).toHaveLength(manifest.counts.evidence_rows)

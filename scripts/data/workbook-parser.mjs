@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { createHash } from 'node:crypto'
 import { gunzipSync } from 'node:zlib'
 import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'
 
@@ -34,6 +35,12 @@ const enrichmentFile = path.join(
   'data-sources',
   'runtime-enrichment',
   '2026-08-23-enrichment.json.gz',
+)
+const enrichmentManifestFile = path.join(
+  repoRoot,
+  'data-sources',
+  'runtime-enrichment',
+  '2026-08-23-manifest.json',
 )
 
 const ENTITY_SHEETS = ['Entity_Master', 'Sheet7']
@@ -90,6 +97,63 @@ function findLoadedSheet(sheets, candidates) {
   return candidates.find((name) => Array.isArray(sheets[name])) || null
 }
 
+/**
+ * Verify the ledger against the digest its own manifest records.
+ *
+ * The manifest declares `ledger.sha256` and `ledger.bytes` and nothing read
+ * them. That gap shipped a truncated ledger: 15,009 bytes of an intended
+ * 153,710 reached the repository, the DEFLATE stream desynchronized, and
+ * `gunzipSync` threw a bare `Z_DATA_ERROR` five steps into a thirty-step
+ * build -- a zlib stack trace that never mentioned the ledger, with twelve
+ * red checks cascading off it.
+ *
+ * The loud failure was luck. A truncation landing on a record boundary can
+ * gunzip cleanly and parse as JSON, and this ledger attaches evidence and
+ * citation provenance to published profiles. Importing a silently partial one
+ * would put real-looking citations on live pages that no one verified, which
+ * is the exact failure this project treats as unacceptable. Checking the
+ * digest before decompressing turns that from unlikely into impossible.
+ *
+ * Fails closed: an unreadable or incomplete manifest refuses the ledger rather
+ * than waving it through unverified.
+ */
+function verifyLedgerIntegrity(compressed) {
+  if (!fs.existsSync(enrichmentManifestFile)) {
+    throw new Error(
+      '[workbook-parser] enrichment ledger present but its manifest is missing: ' +
+        enrichmentManifestFile +
+        ' -- refusing to import an unverifiable ledger.',
+    )
+  }
+
+  let manifest
+  try {
+    manifest = JSON.parse(fs.readFileSync(enrichmentManifestFile, 'utf8'))
+  } catch (error) {
+    throw new Error('[workbook-parser] enrichment manifest is not valid JSON: ' + error.message)
+  }
+
+  const expectedSha = String(manifest?.ledger?.sha256 || '').toLowerCase()
+  const expectedBytes = Number(manifest?.ledger?.bytes)
+  if (!/^[0-9a-f]{64}$/.test(expectedSha) || !Number.isInteger(expectedBytes) || expectedBytes <= 0) {
+    throw new Error(
+      '[workbook-parser] enrichment manifest does not declare a usable ledger.sha256 and ledger.bytes; ' +
+        'refusing to import an unverifiable ledger.',
+    )
+  }
+
+  const actualBytes = compressed.length
+  const actualSha = createHash('sha256').update(compressed).digest('hex')
+  if (actualBytes !== expectedBytes || actualSha !== expectedSha) {
+    throw new Error(
+      '[workbook-parser] enrichment ledger does not match its manifest.' +
+        ' expected ' + expectedBytes + ' bytes sha256 ' + expectedSha +
+        ', got ' + actualBytes + ' bytes sha256 ' + actualSha +
+        '. The ledger was corrupted or truncated in transport; re-upload it rather than regenerating the manifest.',
+    )
+  }
+}
+
 let enrichmentCache = null
 
 function readEnrichmentLedger() {
@@ -99,7 +163,20 @@ function readEnrichmentLedger() {
     return enrichmentCache
   }
 
-  const raw = gunzipSync(fs.readFileSync(enrichmentFile)).toString('utf8')
+  const compressed = fs.readFileSync(enrichmentFile)
+  verifyLedgerIntegrity(compressed)
+
+  let raw
+  try {
+    raw = gunzipSync(compressed).toString('utf8')
+  } catch (error) {
+    throw new Error(
+      '[workbook-parser] enrichment ledger failed to decompress: ' +
+        error.message +
+        ' -- the file is corrupt despite matching its manifest digest, so the manifest is stale. ' +
+        'Regenerate both together.',
+    )
+  }
   let parsed
   try {
     parsed = JSON.parse(raw)
