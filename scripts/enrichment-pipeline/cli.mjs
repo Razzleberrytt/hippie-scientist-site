@@ -21,6 +21,7 @@ import { dryRun, formatDryRun, importPatch } from './lib/importer.mjs'
 import { buildResearchIndex, readResearchIndex, writeResearchIndex } from './lib/research-index.mjs'
 import { buildWorkerBrief, filterByShard, partition } from './lib/worker.mjs'
 import { computeMetrics, formatMetrics } from './lib/metrics.mjs'
+import { auditDuplicateOrganisms, formatDuplicateAudit } from './lib/duplicate-organisms.mjs'
 import { exportWorkbook } from './lib/xlsx-export.mjs'
 import {
   readReadiness,
@@ -28,7 +29,7 @@ import {
   readinessTemplate,
   writeReadiness,
 } from './lib/readiness.mjs'
-import { queuePath, exportsDir, relative, assertPipelineWritePath, opsRoot } from './lib/paths.mjs'
+import { queuePath, exportsDir, reportsDir, relative, assertPipelineWritePath, opsRoot } from './lib/paths.mjs'
 
 /**
  * Enrichment pipeline CLI.
@@ -54,6 +55,7 @@ const COMMANDS = {
   metrics: 'Print deterministic pipeline metrics.',
   readiness: 'Show or initialise the production-enrichment readiness record.',
   doctor: 'Check the contract against the live workbook and report drift.',
+  duplicates: 'Report entities that share a latin_name — the same organism under two profiles.',
 }
 
 function parseArgs(argv) {
@@ -479,6 +481,21 @@ async function main() {
     case 'readiness':
       cmdReadiness(flags)
       break
+    case 'duplicates': {
+      const canonical = await loadCanonical()
+      const report = auditDuplicateOrganisms(canonical)
+      console.log(formatDuplicateAudit(report))
+      if (flags.json === true) {
+        const target = path.join(reportsDir, 'duplicate-organisms.json')
+        assertPipelineWritePath(target)
+        fs.mkdirSync(path.dirname(target), { recursive: true })
+        fs.writeFileSync(target, `${JSON.stringify(report, null, 2)}
+`, 'utf8')
+        console.log(`
+report -> ${relative(target)}`)
+      }
+      break
+    }
     case 'doctor':
       await cmdDoctor()
       break

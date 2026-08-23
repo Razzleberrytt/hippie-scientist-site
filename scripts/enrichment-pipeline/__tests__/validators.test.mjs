@@ -275,6 +275,29 @@ describe('production integrity', () => {
     expect(rules(validateAgainstProduction(candidate, contract, moved))).toContain('stale-candidate')
   })
 
+  it('routes a value already held by another entity to review, not to import', () => {
+    // lions-mane and hericium-erinaceus are the same organism under two slugs.
+    const shared = makeCanonical([
+      publishedHerb({ slug: 'fixture-herb', latin_name: '' }),
+      publishedHerb({ slug: 'other-herb', latin_name: 'Withania somnifera' }),
+    ])
+    const result = validateCandidate(normalizeCandidate(makeCandidate(), contract), {
+      contract,
+      canonical: shared,
+    })
+    const shares = result.findings.filter((f) => f.rule === 'shared-value')
+    expect(shares).toHaveLength(1)
+    expect(shares[0].severity).toBe(SEVERITY.REVIEW)
+    expect(shares[0].message).toMatch(/other-herb/)
+    expect(result.verdict.importable).toBe(false)
+    expect(result.verdict.status).toBe('needs_review')
+  })
+
+  it('does not flag a shared value when no other entity holds it', () => {
+    const result = validateCandidate(normalizeCandidate(makeCandidate(), contract), { contract, canonical })
+    expect(result.findings.filter((f) => f.rule === 'shared-value')).toHaveLength(0)
+  })
+
   it('rejects any import against a duplicated slug', () => {
     const dupes = makeCanonical([publishedHerb({ slug: 'fixture-herb', latin_name: '' })], {
       duplicateSlugs: [{ slug: 'fixture-herb', rows: [2, 9] }],

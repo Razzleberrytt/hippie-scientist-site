@@ -436,6 +436,34 @@ export function validateAgainstProduction(candidate, contract, canonical) {
       continue
     }
 
+    // A value already held by a different entity means two profiles would claim
+    // the same thing. Sometimes that is correct — `holy-basil-seed` and
+    // `holy-basil-purple` share a source species, as do `milk-oats` and
+    // `oatstraw` — and sometimes it means the two entities are duplicates, as
+    // `lions-mane` and `hericium-erinaceus` are. Only a human can tell, so this
+    // routes to review rather than failing.
+    if (field.shared_value_needs_review && change.operation === 'set') {
+      const proposed = normalizeText(change.proposed_value).toLowerCase()
+      for (const [otherSlug, other] of canonical.bySlug) {
+        if (otherSlug === candidate.entity.slug) continue
+        if (normalizeText(other.row[change.field]).toLowerCase() !== proposed) continue
+        findings.push(
+          finding(
+            SEVERITY.REVIEW,
+            'shared-value',
+            `"${change.proposed_value}" is already the ${change.field} of entity "${otherSlug}"`,
+            {
+              ...at,
+              fix:
+                `Confirm whether "${candidate.entity.slug}" and "${otherSlug}" are genuinely different entities ` +
+                'that share a source organism (plant parts, preparations), or duplicates that should be merged.',
+            },
+          ),
+        )
+        break
+      }
+    }
+
     const canonicalValue = normalizeText(entity.row[change.field])
     const observed = normalizeText(change.current_value)
     if (canonicalValue !== observed) {
