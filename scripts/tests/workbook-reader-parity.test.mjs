@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { assertWorkbookExists, resolveWorkbookPath } from '../workbook-source.mjs'
 import {
@@ -114,8 +116,42 @@ if (process.env.VITEST) {
   const { expect, test } = await import('vitest')
 
   test('exceljs workbook reader matches the parser adapter sample output', async () => {
+    // The parser adapter no longer reproduces the raw workbook exactly: it
+    // applies the reviewed additive enrichment ledger, which appends rows to
+    // three registers. That divergence is the feature, so the parity guarantee
+    // is narrowed rather than dropped -- the only permitted difference is a row
+    // count on those three sheets, by exactly the post-dedupe totals the
+    // manifest declares. Anything else, including a changed field on a sampled
+    // row, still fails.
+    const manifest = JSON.parse(
+      fs.readFileSync(
+        path.join(process.cwd(), 'data-sources', 'runtime-enrichment', '2026-08-23-manifest.json'),
+        'utf8',
+      ),
+    )
+    const expectedGrowth = new Map([
+      ['Evidence_Register', manifest.counts.evidence_rows_after_canonical_dedupe],
+      ['Source_Register', manifest.counts.source_rows_after_canonical_dedupe],
+      ['Entity_Relationships', manifest.counts.live_relationship_rows_new_after_dedupe],
+    ])
+
     const result = await runParity({ log: false })
-    expect(result.discrepancies).toEqual([])
+
+    // `oldValue` is the parser adapter (enriched); `newValue` is the raw reader.
+    const unexplained = result.discrepancies.filter((item) => {
+      if (item.field !== 'row_count') return false
+      const growth = expectedGrowth.get(item.sheetName)
+      return growth === undefined || item.oldValue - item.newValue !== growth
+    })
+    const nonRowCount = result.discrepancies.filter((item) => item.field !== 'row_count')
+
+    expect(nonRowCount).toEqual([])
+    expect(unexplained).toEqual([])
+    // Every declared register must actually have grown, so a silently skipped
+    // enrichment cannot pass as parity.
+    expect(
+      result.discrepancies.filter((item) => item.field === 'row_count').map((item) => item.sheetName).sort(),
+    ).toEqual([...expectedGrowth.keys()].sort())
   }, 30000)
 
   test('parser adapter can materialize only requested sheets', async () => {

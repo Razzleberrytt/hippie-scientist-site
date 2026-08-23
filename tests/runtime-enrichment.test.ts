@@ -114,5 +114,9 @@ describe('Aug 23 additive enrichment ledger', () => {
       if (contextKeys.some((key) => resolved[key] && !canonical[key])) touched += 1
     }
     expect(touched).toBe(manifest.counts.entity_context_rows)
-  })
+    // Two full workbook reads. ExcelJS fails on this workbook's
+    // namespace-prefixed OOXML and falls back to a streaming reader that
+    // normalizes 14 files first, so this clears 15s alone but not under
+    // full-suite parallelism.
+  }, 60000)
 })
