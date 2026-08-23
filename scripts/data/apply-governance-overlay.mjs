@@ -214,6 +214,60 @@ const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
   // glucomannan — PMID 24533610, systematic review and meta-analysis of glucomannan
   //   for weight loss. Null result; registered on the same basis as bromelain.
   'glucomannan',
+  // Second verification pass, 2026-08-23. Same discipline: every PMID fetched
+  // from PubMed and read before registering. Four more misattributions and one
+  // dead identifier were rejected in this pass and are recorded in
+  // docs/audits/source-backed-promotions-2026-08-22.md.
+  // 23-epi-26-deoxyactein — PMID 20032972, phase I pharmacokinetics of
+  //   23-epi-26-deoxyactein in menopausal women given standardized black cohosh.
+  '23-epi-26-deoxyactein',
+  // boron — PMID 21129941, boron supplementation raises free testosterone and
+  //   lowers proinflammatory cytokines. Supports the testosterone half of the
+  //   claim; the bone-health half is not covered by this citation.
+  'boron',
+  // capsaicin — PMID 24941673, review of five double-blind RCTs of topical
+  //   capsaicin for osteoarthritis pain.
+  'capsaicin',
+  // chromium — PMID 15208835, review of chromium in insulin resistance.
+  'chromium',
+  // chromium-picolinate — PMID 15208835, the same review, which addresses the
+  //   picolinate form directly.
+  'chromium-picolinate',
+  // dihydrokavain — PMID 12494336, kavalactones and dihydrokavain modulate
+  //   GABAergic activity in rat brainstem. Preclinical, and the claim says so.
+  'dihydrokavain',
+  // fadogia-agrestis — PMID 16281088, testosterone and sexual behaviour in male
+  //   rats. Animal only, which is exactly what the claim states.
+  'fadogia-agrestis',
+  // folate — PMID 15671130, folate and vitamin B12 status in depression.
+  'folate',
+  // hyaluronic-acid — PMID 32650511, double-blind RCT of oral sodium hyaluronate
+  //   in knee osteoarthritis. Covers the joints half of the claim, not skin.
+  'hyaluronic-acid',
+  // kava — PMID 12131602, placebo-controlled trial of kava in generalized anxiety
+  //   disorder. Null on the primary endpoint; registered because it is real and
+  //   on-topic.
+  'kava',
+  // nattokinase — PMID 18971533, randomized controlled trial of nattokinase on
+  //   blood pressure.
+  'nattokinase',
+  // passionflower-extract — PMID 31714321, double-blind RCT of Passiflora
+  //   incarnata on polysomnographic sleep parameters in insomnia disorder.
+  'passionflower-extract',
+  // plant-sterols — PMID 24780090, meta-analysis of 124 studies on the
+  //   LDL-cholesterol-lowering effect of plant sterols and stanols.
+  'plant-sterols',
+  // saccharomyces-boulardii — PMID 20458757, systematic review and meta-analysis
+  //   of S. boulardii across 27 randomized trials.
+  'saccharomyces-boulardii',
+  // shilajit — PMID 26395129, randomized double-blind placebo-controlled trial of
+  //   purified shilajit on testosterone. Covers testosterone, not energy.
+  'shilajit',
+  // zeaxanthin — PMID 23644932, AREDS2 randomized trial of lutein + zeaxanthin in
+  //   age-related macular degeneration. Null on the primary endpoint.
+  'zeaxanthin',
+  // zinc — PMID 15496046, review of zinc for the common cold.
+  'zinc',
   '11-keto-beta-boswellic-acid',
   'acarbose',
   'acemannan',
