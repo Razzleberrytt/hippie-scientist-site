@@ -1,0 +1,131 @@
+{
+  "patch_version": 1,
+  "id": "enrich-pilot-2026-08-23-a4a4758eea",
+  "status": "applied",
+  "generated_by": "scripts/enrichment-pipeline",
+  "job_ids": [
+    "job_0d260afe5b24c9b2",
+    "job_245fb6ba5d54777a",
+    "job_350eea7c0ae12bda",
+    "job_462971117bdfe7b4",
+    "job_cade686666e50972",
+    "job_e12fee750ca78d8d"
+  ],
+  "sources": [
+    {
+      "id": "gbif-2687885",
+      "title": "Ginkgo biloba L. - GBIF Backbone Taxonomy (Plantae, Ginkgoaceae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2687885"
+    },
+    {
+      "id": "gbif-2759871",
+      "title": "Elettaria cardamomum (L.) Maton - GBIF Backbone Taxonomy (Plantae, Zingiberaceae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2759871"
+    },
+    {
+      "id": "gbif-2927096",
+      "title": "Ocimum basilicum L. - GBIF Backbone Taxonomy (Plantae, Lamiaceae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2927096"
+    },
+    {
+      "id": "gbif-2927305",
+      "title": "Lavandula angustifolia Mill. - GBIF Backbone Taxonomy (Plantae, Lamiaceae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2927305"
+    },
+    {
+      "id": "gbif-3035369",
+      "title": "Eleutherococcus senticosus (Rupr. & Maxim.) Maxim. - GBIF Backbone Taxonomy (Plantae, Araliaceae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3035369"
+    },
+    {
+      "id": "gbif-5248508",
+      "title": "Hericium erinaceus (Bull.) Pers. - GBIF Backbone Taxonomy (Fungi, Hericiaceae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5248508"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "elettaria-cardamomum",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Elettaria cardamomum",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2759871"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Elettaria cardamomum (L.) Maton\" as ACCEPTED with an EXACT match at species rank (usageKey 2759871, Plantae, Zingiberaceae). Recorded as a bare binomial to match the formatting of the 186 latin_name values already in Entity_Master. [enrichment-pipeline job job_462971117bdfe7b4, candidate cand_69a318793c040316]"
+    },
+    {
+      "slug": "eleuthero",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Eleutherococcus senticosus",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3035369"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Eleutherococcus senticosus (Rupr. & Maxim.) Maxim.\" as ACCEPTED with an EXACT match at species rank (usageKey 3035369, Plantae, Araliaceae). Recorded as a bare binomial to match the formatting of the 186 latin_name values already in Entity_Master. [enrichment-pipeline job job_245fb6ba5d54777a, candidate cand_cc70582bf58b748f]"
+    },
+    {
+      "slug": "ginkgo-biloba",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ginkgo biloba",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2687885"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Ginkgo biloba L.\" as ACCEPTED with an EXACT match at species rank (usageKey 2687885, Plantae, Ginkgoaceae). Recorded as a bare binomial to match the formatting of the 186 latin_name values already in Entity_Master. [enrichment-pipeline job job_e12fee750ca78d8d, candidate cand_32cb860edebaf6cf]"
+    },
+    {
+      "slug": "hericium-erinaceus",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Hericium erinaceus",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5248508"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Hericium erinaceus (Bull.) Pers.\" as ACCEPTED with an EXACT match at species rank (usageKey 5248508, Fungi, Hericiaceae). Recorded as a bare binomial to match the formatting of the 186 latin_name values already in Entity_Master. [enrichment-pipeline job job_cade686666e50972, candidate cand_b29b2f71d6911d34]"
+    },
+    {
+      "slug": "lavandula-angustifolia",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Lavandula angustifolia",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2927305"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Lavandula angustifolia Mill.\" as ACCEPTED with an EXACT match at species rank (usageKey 2927305, Plantae, Lamiaceae). Recorded as a bare binomial to match the formatting of the 186 latin_name values already in Entity_Master. [enrichment-pipeline job job_0d260afe5b24c9b2, candidate cand_9049144516cbd38e]"
+    },
+    {
+      "slug": "ocimum-basilicum",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ocimum basilicum",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2927096"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Ocimum basilicum L.\" as ACCEPTED with an EXACT match at species rank (usageKey 2927096, Plantae, Lamiaceae). Recorded as a bare binomial to match the formatting of the 186 latin_name values already in Entity_Master. [enrichment-pipeline job job_350eea7c0ae12bda, candidate cand_c946f67e2f7f79cf]"
+    }
+  ],
+  "approved_by": "Repo owner, delegated to Claude Code (session 015F1Gnxhg7XJu7E6UBh3HcP)",
+  "approved_at": "2026-08-23",
+  "review_note": "Each binomial independently resolved against api.gbif.org/v1/species/match?strict=true; all six returned status=ACCEPTED, matchType=EXACT, rank=SPECIES. Written as bare binomials to match the 186 existing latin_name values.",
+  "applied_at": "2026-08-23",
+  "applied_note": "Applied in place via scripts/enrichment-pipeline/cli.mjs import --apply. Re-import verified as a pure no-op. Entity content hash b4c542aee4a0b04d -> 94385c29ac07cf43."
+}

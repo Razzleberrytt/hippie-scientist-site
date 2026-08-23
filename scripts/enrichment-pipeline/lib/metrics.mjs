@@ -1,5 +1,5 @@
 import { JOB_STATUSES, readStore } from './job-store.mjs'
-import { listCandidates, readCandidate } from './candidates.mjs'
+import { latestCandidates, listCandidates, readCandidate } from './candidates.mjs'
 import { reuseMetrics } from './research-index.mjs'
 import { dedupeSources } from './source-identity.mjs'
 
@@ -26,7 +26,10 @@ export function computeMetrics({ scan = null, researchIndex = null } = {}) {
     for (const field of job.requested_fields) byField[field] = (byField[field] || 0) + 1
   }
 
-  const candidates = listCandidates()
+  // Per-job figures read the latest attempt only, so a retried job is not
+  // counted twice. Retries are reported separately as `attempts_total`.
+  const candidates = latestCandidates()
+  const attemptsTotal = listCandidates().length
   let fieldsProposed = 0
   let noOps = 0
   let citations = 0
@@ -82,6 +85,8 @@ export function computeMetrics({ scan = null, researchIndex = null } = {}) {
     },
     candidates: {
       total: candidates.length,
+      attempts_total: attemptsTotal,
+      retries: attemptsTotal - candidates.length,
       fields_proposed: fieldsProposed,
       no_ops: noOps,
       fields_per_candidate: round(fieldsProposed / withCandidates),
@@ -121,7 +126,7 @@ export function formatMetrics(metrics) {
   lines.push(`  by band                 ${JSON.stringify(metrics.jobs.by_priority_band)}`)
   lines.push('candidates')
   const c = metrics.candidates
-  lines.push(`  total                   ${c.total}`)
+  lines.push(`  total                   ${c.total} (${c.attempts_total} attempt(s), ${c.retries} retry/retries)`)
   lines.push(`  fields proposed         ${c.fields_proposed} (${c.fields_per_candidate}/candidate)`)
   lines.push(`  no-ops                  ${c.no_ops}`)
   lines.push(`  citations               ${c.citations_total} (${c.citations_per_candidate}/candidate)`)

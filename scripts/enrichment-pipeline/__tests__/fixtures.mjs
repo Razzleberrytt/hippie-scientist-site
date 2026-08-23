@@ -17,7 +17,10 @@ export function makeRow(overrides = {}) {
   return { ...BASE_ROW, ...overrides }
 }
 
-export function makeCanonical(rows, { entitySheet = 'Entity_Master', duplicateSlugs = [] } = {}) {
+export function makeCanonical(
+  rows,
+  { entitySheet = 'Entity_Master', duplicateSlugs = [], maintenanceRows = [] } = {},
+) {
   const bySlug = new Map()
   rows.forEach((row, index) => {
     bySlug.set(String(row.slug).toLowerCase(), { row, rowNumber: index + 2, index })
@@ -33,7 +36,7 @@ export function makeCanonical(rows, { entitySheet = 'Entity_Master', duplicateSl
     evidenceRows: [],
     sourceRows: [],
     relationshipRows: [],
-    maintenanceRows: [],
+    maintenanceRows,
     unresolvedGapRows: [],
   }
 }

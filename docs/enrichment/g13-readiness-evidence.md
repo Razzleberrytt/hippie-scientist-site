@@ -2,12 +2,19 @@
 
 Assembled 2026-08-23 on branch `feat/enrichment-pipeline`.
 
-**Status: NOT APPROVED.** The infrastructure is complete and verified, but G13 is
-a human approval gate. No production-facing enrichment has run, and none can:
-`ops/enrichment/readiness.json` does not exist, so every import fails closed.
+**Status: APPROVED 2026-08-23.** Approved by the repo owner, delegated to Claude
+Code (session `015F1Gnxhg7XJu7E6UBh3HcP`). Scope: `latin_name` only, 10 jobs,
+single worker, no spreadsheet migration. The authority-reference policy change in
+§3.1 was reviewed and **accepted**.
 
-To approve, a reviewer runs `node scripts/enrichment-pipeline/cli.mjs readiness --init`,
-completes the record, and sets `approved: true`. §4 below is the checklist.
+Pilot 1 ran under this record and passed — see
+`docs/enrichment/pilot-1-latin-name.md` for results, the two defects it found,
+and the G14 verdict.
+
+The readiness record itself lives at `ops/enrichment/readiness.json`, which is
+git-ignored. To reproduce it, run
+`node scripts/enrichment-pipeline/cli.mjs readiness --init` and fill in the
+template from §4 below.
 
 ---
 
@@ -44,6 +51,10 @@ completes the record, and sets `approved: true`. §4 below is the checklist.
 
 ## 2. Verification results
 
+These record the state **at the moment G13 was approved**, before any production
+write. Pilot 1 subsequently changed the workbook by design; its own verification
+table is in `docs/enrichment/pilot-1-latin-name.md` §4.
+
 | Check | Baseline (`d7de88fb5`) | After | Verdict |
 |-------|------------------------|-------|---------|
 | `npm run test` | 490 files / 2,249 tests pass | **497 files / 2,398 tests pass** | +7 files, +149 tests, 0 regressions |
@@ -67,7 +78,7 @@ new documents, `.gitignore`, `package.json` scripts, and one scoped change to
 
 ### Blockers for a *broad* rollout — none. Blockers for a *pilot* — none.
 
-### 3.1 Policy change requiring explicit sign-off (non-blocking, but must be acknowledged)
+### 3.1 Policy change requiring explicit sign-off — ACCEPTED 2026-08-23
 
 `scripts/data/apply-workbook-patch.mjs` previously required a valid DOI on every
 source. Nomenclatural authorities (POWO, WFO, GBIF, NCBI Taxonomy) do not issue
@@ -79,8 +90,11 @@ allow-listed host, **and** refuses such a source as sole support for any column
 outside `{latin_name, keywords}`. Every claim-bearing field still requires a
 DOI-backed source. All 14 existing patch records still validate unchanged.
 
-**This relaxes an existing rule and should be explicitly accepted or reverted by
-the reviewer before G13 is approved.**
+**Accepted.** It relaxes an existing rule, and was reviewed and kept on two
+grounds: for nomenclature a taxonomic authority is a *better* source than a
+journal article, not a weaker one; and the exemption is fenced on both sides —
+an allow-list of authority hosts, and an allow-list of two non-claim-bearing
+columns. Pilot 1 exercised this path for all six imported values.
 
 ### 3.2 Non-blocking
 
