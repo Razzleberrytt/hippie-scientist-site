@@ -185,6 +185,35 @@ const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
   // registered in claims.json as a negative_randomized_trial for prostate_health.
   // Verified as a real citation before registering.
   'saw-palmetto',
+  // Verified against PubMed 2026-08-22 before registering. Every PMID here was
+  // fetched and read; the paper is real and is about this entity and this
+  // outcome. Two further candidates were rejected in the same pass for citing
+  // papers about something else entirely — see docs/audits/source-backed-promotions-2026-08-22.md.
+  // andrographolide — PMID 15095142, Andrographis paniculata for upper respiratory
+  //   tract infections, systematic review of 7 double-blind trials (n=896).
+  'andrographolide',
+  // arabinoxylan — PMID 29456638, Biobran/MGN-3 arabinoxylan rice bran RCT;
+  //   enhances NK cell activity in geriatric subjects.
+  'arabinoxylan',
+  // banaba-leaf-extract — PMID 34726501, randomised double-blind placebo-controlled
+  //   trial of Banaba in metabolic syndrome.
+  'banaba-leaf-extract',
+  // beta-glucans — PMID 30198828, yeast (1,3)-(1,6)-beta-glucan RCT (n=299) on
+  //   upper respiratory tract infection severity.
+  'beta-glucans',
+  // beta-sitosterol — PMID 9313662, multicentre double-blind placebo-controlled
+  //   trial of beta-sitosterol in benign prostatic hyperplasia.
+  'beta-sitosterol',
+  // bromelain — PMID 17121765, randomised placebo-controlled trial of bromelain in
+  //   knee osteoarthritis. Null result; registered because the citation is real and
+  //   on-topic, not because it is favourable.
+  'bromelain',
+  // citrulline-malate — PMID 39408204, randomised double-blind cross-over trial of
+  //   acute citrulline malate on exercise performance.
+  'citrulline-malate',
+  // glucomannan — PMID 24533610, systematic review and meta-analysis of glucomannan
+  //   for weight loss. Null result; registered on the same basis as bromelain.
+  'glucomannan',
   '11-keto-beta-boswellic-acid',
   'acarbose',
   'acemannan',
