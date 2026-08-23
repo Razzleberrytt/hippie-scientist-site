@@ -1,7 +1,17 @@
 # Duplicate-organism audit
 
-**27 `latin_name` values are held by more than one entity. 22 of those have two
-or more publicly exported profiles.**
+**27 `latin_name` values are held by more than one entity. 13 of those actually
+serve two or more live profiles; 10 more are already resolved by a 301.**
+
+> **Corrected 2026-08-23.** An earlier version of this document said 22, and
+> claimed redirected pages were still being indexed. Both were wrong. The 22
+> came from reading `runtime_export_decision`, which a redirected entity keeps
+> at `full_public_runtime` even though the build emits no page for it. The
+> indexing claim came from reading `public/data/indexable-herbs.json` as if it
+> were the sitemap — it is not. Checked against `out/sitemap.xml`, **none** of
+> the redirect sources is built or listed, and `validate:redirect-indexability`
+> (THS-177) already covers that case and reports clean. The audit now derives
+> liveness from the route manifest and `public/_redirects`.
 
 This is pre-existing and unrelated to enrichment — it was surfaced by the
 shared-value guard added in batch 3, then confirmed by sweeping the values that
@@ -18,12 +28,28 @@ node scripts/enrichment-pipeline/cli.mjs duplicates --json   # + ops/enrichment/
 
 ## Why it matters
 
-Two indexed profiles for the same organism is a duplicate-content problem
+Two live profiles for the same organism is a duplicate-content problem
 regardless of whether the split was deliberate. `audit:duplicates` checks for
 duplicate *slugs*; these all have distinct slugs, so nothing existing catches
 them.
 
-Most pairs are a slug-vs-common-name split of one organism:
+### Already resolved (10)
+
+These pairs exist in the workbook but only one side is served — a 301 in
+`public/_redirects` already sends the other away, and the build emits no page
+for it. Nothing to do:
+`allium-sativum`→`garlic`, `valeriana-officinalis`→`valerian`,
+`silybum-marianum`→`milk-thistle`, `serenoa-repens`→`saw-palmetto`,
+`withania-somnifera`→`ashwagandha`, `ganoderma-lucidum`→`reishi`,
+`hericium-erinaceus`→`lions-mane`, plus three where one side simply emits no
+route.
+
+Every one of the nine herb redirects points the **binomial slug at the
+common-name slug**. That is a consistent, established precedent worth reusing.
+
+### Still competing (13)
+
+Most are the same slug-vs-common-name split:
 
 | latin_name | entities (all publicly exported unless noted) |
 |------------|-----------------------------------------------|

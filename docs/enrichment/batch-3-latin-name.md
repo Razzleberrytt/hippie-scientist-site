@@ -100,9 +100,11 @@ sometimes correct — `roselle-seed` and `hibiscus-sabdariffa` are seed and caly
 of the same plant.
 
 Following that thread produced a separate finding worth its own document:
-**27 `latin_name` values are already shared, 22 of them with two or more
-publicly exported profiles.** See `docs/enrichment/duplicate-organisms-audit.md`
-and the new `enrich duplicates` command.
+**27 `latin_name` values are already shared.** The first count of how many were
+live was wrong (22); measured against the route manifest and `public/_redirects`
+rather than the `runtime_export_decision` column it is **13**, with 10 more
+already resolved by a 301. See `docs/enrichment/duplicate-organisms-audit.md`
+and `npm run enrich:duplicates`.
 
 ## 5. Filled (23)
 
