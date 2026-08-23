@@ -95,6 +95,7 @@ describe('workflow release-impact contract', () => {
   it.each([
     ['.github/workflows/ci.yml', 'npm run build:deploy'],
     ['.github/workflows/production-content-lint.yml', 'npm run build:deploy'],
+    ['.github/workflows/production-content-invariants.yml', 'node scripts/build-production.mjs'],
   ])('%s skips its production build on docs-only PRs', (workflow, heavyCommand) => {
     // Nine workflows each ran their own `build:deploy`. A PR that changed only
     // prose still paid for every one of them, which is what made docs-only PRs
@@ -113,6 +114,7 @@ describe('workflow release-impact contract', () => {
     for (const workflow of [
       '.github/workflows/ci.yml',
       '.github/workflows/production-content-lint.yml',
+      '.github/workflows/production-content-invariants.yml',
       '.github/workflows/check.yml',
     ]) {
       const yaml = fs.readFileSync(path.join(process.cwd(), workflow), 'utf8')
@@ -206,5 +208,28 @@ describe('CLI writes both signals to $GITHUB_OUTPUT', () => {
       release_sensitive: 'true',
       docs_only: 'false',
     })
+  })
+})
+
+describe('workbook patch proposals stay validated', () => {
+  it('never gates the patch validator on docs_only', () => {
+    // `data-sources/workbook-patches/*.json` is classified docs-only, which is
+    // safe only because the patch schema is still enforced. If that gate ever
+    // learned to skip, proposals would merge unvalidated.
+    const workflows = fs
+      .readdirSync(path.join(process.cwd(), '.github', 'workflows'))
+      .filter((name) => name.endsWith('.yml'))
+      .map((name) => ({
+        name,
+        yaml: fs.readFileSync(path.join(process.cwd(), '.github', 'workflows', name), 'utf8'),
+      }))
+
+    const validators = workflows.filter(({ yaml }) =>
+      yaml.includes('Validate patch proposals against current workbook'),
+    )
+    expect(validators.map((w) => w.name)).toContain('workbook-patch-check.yml')
+    for (const { name, yaml } of validators) {
+      expect(yaml, name).not.toContain('docs_only')
+    }
   })
 })
