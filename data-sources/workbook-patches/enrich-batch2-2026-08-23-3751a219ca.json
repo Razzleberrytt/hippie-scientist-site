@@ -1,0 +1,340 @@
+{
+  "patch_version": 1,
+  "id": "enrich-batch2-2026-08-23-3751a219ca",
+  "status": "applied",
+  "generated_by": "scripts/enrichment-pipeline",
+  "job_ids": [
+    "job_18638fa3fa3cb555",
+    "job_1a709c20c5f369a1",
+    "job_1f390327cef49421",
+    "job_2bb762e1df3efed7",
+    "job_347eefb08365f4d7",
+    "job_45ce985c60c10d81",
+    "job_6163be06179c82ea",
+    "job_69f1846c4fb982b2",
+    "job_7b99335d62bee042",
+    "job_8dbd6a24d0ea4140",
+    "job_98a22cdd2b8e8546",
+    "job_a05da9e45441b59b",
+    "job_ae3a62eed5b719ba",
+    "job_b013edb67261f438",
+    "job_b630580f1b855141",
+    "job_ccbd6da28b1a55d2",
+    "job_da620db47844da61"
+  ],
+  "sources": [
+    {
+      "id": "gbif-2703459",
+      "title": "Oryza sativa - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2703459"
+    },
+    {
+      "id": "gbif-2758480",
+      "title": "Boesenbergia rotunda - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2758480"
+    },
+    {
+      "id": "gbif-2889173",
+      "title": "Reynoutria japonica - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2889173"
+    },
+    {
+      "id": "gbif-2926612",
+      "title": "Origanum vulgare - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2926612"
+    },
+    {
+      "id": "gbif-2927100",
+      "title": "Ocimum tenuiflorum - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2927100"
+    },
+    {
+      "id": "gbif-2928783",
+      "title": "Nicotiana glauca - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2928783"
+    },
+    {
+      "id": "gbif-2977636",
+      "title": "Pueraria montana - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2977636"
+    },
+    {
+      "id": "gbif-3112361",
+      "title": "Cynara scolymus - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3112361"
+    },
+    {
+      "id": "gbif-3152582",
+      "title": "Hibiscus sabdariffa - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3152582"
+    },
+    {
+      "id": "gbif-3189566",
+      "title": "Garcinia indica - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3189566"
+    },
+    {
+      "id": "gbif-3190638",
+      "title": "Mangifera indica - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3190638"
+    },
+    {
+      "id": "gbif-3623059",
+      "title": "Siraitia grosvenorii - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3623059"
+    },
+    {
+      "id": "gbif-3699548",
+      "title": "Terminalia arjuna - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3699548"
+    },
+    {
+      "id": "gbif-5334240",
+      "title": "Lonicera japonica - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5334240"
+    },
+    {
+      "id": "gbif-5361909",
+      "title": "Ficus carica - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5361909"
+    },
+    {
+      "id": "gbif-5534620",
+      "title": "Ilex guayusa - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5534620"
+    },
+    {
+      "id": "gbif-7503234",
+      "title": "Nelumbo lutea - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/7503234"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "american-yellow-lotus",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Nelumbo lutea",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-7503234"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Nelumbo lutea\" as ACCEPTED with an EXACT match at species rank (usageKey 7503234, Plantae). [enrichment-pipeline job job_da620db47844da61, candidate cand_07a79952d5be5c05]"
+    },
+    {
+      "slug": "arjuna",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Terminalia arjuna",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3699548"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Terminalia arjuna\" as ACCEPTED with an EXACT match at species rank (usageKey 3699548, Plantae). Arjuna is Terminalia arjuna in every herbal and clinical source. [enrichment-pipeline job job_a05da9e45441b59b, candidate cand_ab8f3840a18f422e]"
+    },
+    {
+      "slug": "artichoke",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Cynara scolymus",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3112361"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Cynara scolymus\" as ACCEPTED with an EXACT match at species rank (usageKey 3112361, Plantae). Globe artichoke. [enrichment-pipeline job job_18638fa3fa3cb555, candidate cand_1c36d9e166640a68]"
+    },
+    {
+      "slug": "ficus-carica",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ficus carica",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5361909"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Ficus carica\" as ACCEPTED with an EXACT match at species rank (usageKey 5361909, Plantae). [enrichment-pipeline job job_69f1846c4fb982b2, candidate cand_c4e9067aa8aecc17]"
+    },
+    {
+      "slug": "fingerroot",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Boesenbergia rotunda",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2758480"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Boesenbergia rotunda\" as ACCEPTED with an EXACT match at species rank (usageKey 2758480, Plantae). [enrichment-pipeline job job_ae3a62eed5b719ba, candidate cand_0200704d50a9cdac]"
+    },
+    {
+      "slug": "garcinia-indica",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Garcinia indica",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3189566"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Garcinia indica\" as ACCEPTED with an EXACT match at species rank (usageKey 3189566, Plantae). [enrichment-pipeline job job_b013edb67261f438, candidate cand_4a65dd40e770fbb1]"
+    },
+    {
+      "slug": "guayusa",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ilex guayusa",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5534620"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Ilex guayusa\" as ACCEPTED with an EXACT match at species rank (usageKey 5534620, Plantae). [enrichment-pipeline job job_1f390327cef49421, candidate cand_1b98d1a6d2c2da76]"
+    },
+    {
+      "slug": "holy-basil-purple",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ocimum tenuiflorum",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2927100"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Ocimum tenuiflorum\" as ACCEPTED with an EXACT match at species rank (usageKey 2927100, Plantae). Holy basil / tulsi. \"Purple\" is a cultivar (Krishna tulsi), so the value is recorded at species rank. [enrichment-pipeline job job_1a709c20c5f369a1, candidate cand_7ee1fea4d8edac03]"
+    },
+    {
+      "slug": "honeysuckle",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Lonicera japonica",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5334240"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Lonicera japonica\" as ACCEPTED with an EXACT match at species rank (usageKey 5334240, Plantae). Lonicera has ~180 species, but \"honeysuckle\" as a botanical ingredient is Lonicera japonica (Jin Yin Hua), and chlorogenic acid — listed on this entity — is its marker compound. [enrichment-pipeline job job_6163be06179c82ea, candidate cand_f193b3119776fb9e]"
+    },
+    {
+      "slug": "japanese-knotweed",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Reynoutria japonica",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2889173"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Reynoutria japonica\" as ACCEPTED with an EXACT match at species rank (usageKey 2889173, Plantae). Also published as Fallopia japonica and Polygonum cuspidatum; Reynoutria japonica is the accepted name. [enrichment-pipeline job job_347eefb08365f4d7, candidate cand_2bd687095d9f2242]"
+    },
+    {
+      "slug": "kudzu",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Pueraria montana",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2977636"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Pueraria montana\" as ACCEPTED with an EXACT match at species rank (usageKey 2977636, Plantae). Recorded at species rank; the supplement is usually the var. lobata variety of this species. [enrichment-pipeline job job_b630580f1b855141, candidate cand_c8f3f2098dee0b92]"
+    },
+    {
+      "slug": "luo-han-guo",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Siraitia grosvenorii",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3623059"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Siraitia grosvenorii\" as ACCEPTED with an EXACT match at species rank (usageKey 3623059, Plantae). Monk fruit. [enrichment-pipeline job job_ccbd6da28b1a55d2, candidate cand_0ff40c544cebbc5c]"
+    },
+    {
+      "slug": "mangifera-indica",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Mangifera indica",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3190638"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Mangifera indica\" as ACCEPTED with an EXACT match at species rank (usageKey 3190638, Plantae). [enrichment-pipeline job job_7b99335d62bee042, candidate cand_2c397042a5732250]"
+    },
+    {
+      "slug": "nicotiana-glauca",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Nicotiana glauca",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2928783"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Nicotiana glauca\" as ACCEPTED with an EXACT match at species rank (usageKey 2928783, Plantae). [enrichment-pipeline job job_98a22cdd2b8e8546, candidate cand_ec93e72b6aec528f]"
+    },
+    {
+      "slug": "oregano",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Origanum vulgare",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2926612"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Origanum vulgare\" as ACCEPTED with an EXACT match at species rank (usageKey 2926612, Plantae). [enrichment-pipeline job job_45ce985c60c10d81, candidate cand_ed9f681f639aad8d]"
+    },
+    {
+      "slug": "rice-bran",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Oryza sativa",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2703459"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Oryza sativa\" as ACCEPTED with an EXACT match at species rank (usageKey 2703459, Plantae). The entity is the bran; latin_name records the source plant. [enrichment-pipeline job job_8dbd6a24d0ea4140, candidate cand_1579602859eff24f]"
+    },
+    {
+      "slug": "roselle-seed",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Hibiscus sabdariffa",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3152582"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Hibiscus sabdariffa\" as ACCEPTED with an EXACT match at species rank (usageKey 3152582, Plantae). The entity is the seed; latin_name records the source plant. [enrichment-pipeline job job_2bb762e1df3efed7, candidate cand_1fdb52e2c6c79381]"
+    }
+  ],
+  "approved_by": "Repo owner, delegated to Claude Code (session 015F1Gnxhg7XJu7E6UBh3HcP)",
+  "approved_at": "2026-08-23",
+  "review_note": "Batch 2 under the G14 standing scope. Each binomial independently resolved against api.gbif.org/v1/species/match?strict=true; all 17 returned status=ACCEPTED, matchType=EXACT, rank=SPECIES. Synonym resolution deliberately not applied — see the grapefruit and cordyceps-sinensis no-ops in ops/enrichment/exports/batch2-2026-08-23-review.json.",
+  "applied_at": "2026-08-23",
+  "applied_note": "Applied in place via scripts/enrichment-pipeline/cli.mjs import --apply. Re-import verified as a pure no-op. Entity content hash 94385c29ac07cf43 -> abcfcbd247a0f0ab."
+}

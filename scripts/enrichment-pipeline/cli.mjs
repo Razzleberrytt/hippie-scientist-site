@@ -44,7 +44,7 @@ const COMMANDS = {
   queue: 'Print the current queue, filtered.',
   status: 'Job counts by status, band, and field.',
   brief: 'Print the field-limited worker brief for one job.',
-  claim: 'Claim jobs for a worker (supports --shard/--shards).',
+  claim: 'Claim jobs for a worker. Honours the readiness scope by default (--ignore-scope to opt out).',
   index: 'Build the local research index from Source_Register + Evidence_Register.',
   validate: 'Normalize and validate candidates; report verdicts.',
   export: 'Turn validated candidates into a reviewable workbook patch + review export.',
@@ -201,6 +201,41 @@ async function cmdBrief(flags) {
   console.log(JSON.stringify(buildWorkerBrief({ job, canonical, contract, researchIndex }), null, 2))
 }
 
+/**
+ * Claim scope.
+ *
+ * When an approved readiness record exists, `claim` honours it by default:
+ * jobs outside `allowed_fields`, or outside a pinned `pilot_scope.job_ids`, are
+ * not handed out. Pilot 1 showed why — `claim` took the first ten jobs in id
+ * order rather than the approved set, and only the import gate caught it. That
+ * is late: by then a worker has already spent effort on work that cannot land.
+ *
+ * `--ignore-scope` opts out for research that is not headed for import.
+ */
+function readinessClaimFilter(flags) {
+  if (flags['ignore-scope'] === true) return { filter: () => true, note: 'scope ignored (--ignore-scope)' }
+
+  const status = readinessStatus()
+  if (!status.approved) {
+    return { filter: () => true, note: 'no approved readiness record — claiming unrestricted' }
+  }
+
+  const record = status.record
+  const allowedFields = new Set(record.allowed_fields || [])
+  const pinned = new Set(record.pilot_scope?.job_ids || [])
+
+  return {
+    filter: (job) => {
+      if (pinned.size && !pinned.has(job.job_id)) return false
+      if (allowedFields.size && !job.requested_fields.every((f) => allowedFields.has(f))) return false
+      return true
+    },
+    note:
+      `scoped to readiness ${record.gate}: fields [${[...allowedFields].join(', ') || 'any'}]` +
+      (pinned.size ? `, ${pinned.size} pinned job(s)` : ''),
+  }
+}
+
 function cmdClaim(flags) {
   const worker = flags.worker
   if (!worker) throw new Error('claim requires --worker <id>')
@@ -208,17 +243,19 @@ function cmdClaim(flags) {
   const filters = filtersFrom(flags)
   const shardCount = flags.shards ? Number.parseInt(flags.shards, 10) : null
   const shard = flags.shard !== undefined ? Number.parseInt(flags.shard, 10) : null
+  const scope = readinessClaimFilter(flags)
 
   const claimed = claimJobs({
     worker,
     limit,
     filter: (job) => {
+      if (!scope.filter(job)) return false
       if (!filterJobs([job], filters).length) return false
       if (shardCount === null) return true
       return filterByShard([job], { shard, shardCount }).length > 0
     },
   })
-  console.log(`claimed ${claimed.length} job(s) for ${worker}`)
+  console.log(`claimed ${claimed.length} job(s) for ${worker} — ${scope.note}`)
   for (const job of claimed) console.log(`  ${job.job_id} ${job.slug} ${job.requested_fields.join('+')}`)
 }
 
