@@ -22,6 +22,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Classify release impact
+        id: impact
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          printf '%s\n' "$changed"
+          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
       - name: Setup Node from .nvmrc
         uses: actions/setup-node@v7
@@ -107,15 +120,17 @@ jobs:
         run: npm run audit:cluster-member-trust:strict
 
       - name: Build application
+        if: steps.impact.outputs.docs_only != 'true'
         env:
           COMMIT_HASH: ${{ github.sha }}
         run: npm run build:deploy
 
       - name: Verify build output
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run verify:output
 
       - name: Generate SEO audit reports
-        if: always()
+        if: always() && steps.impact.outputs.docs_only != 'true'
         run: |
           if ! find out -type f -name '*.html' -print -quit 2>/dev/null | grep -q .; then
             echo "No built HTML available; refreshing route manifest for fallback SEO audit."
@@ -124,11 +139,11 @@ jobs:
           npm run audit:seo-reports
 
       - name: Generate indexability candidate report
-        if: always()
+        if: always() && steps.impact.outputs.docs_only != 'true'
         run: npm run indexability:report
 
       - name: Audit internal links through redirects
-        if: always()
+        if: always() && steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/audit-internal-redirect-links.mjs
 
       - name: Upload SEO audit reports
@@ -143,6 +158,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Validate route SEO coverage
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run validate:route-seo
 
       - name: Run security audit gate
