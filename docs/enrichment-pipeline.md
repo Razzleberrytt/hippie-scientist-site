@@ -367,10 +367,14 @@ accepted target is at species rank, the **specific epithet is unchanged** (a
 generic transfer, not a lumping), and no other entity already holds the name.
 See `docs/enrichment/batch-3-latin-name.md` §1.
 
-**27 `latin_name` values are held by more than one entity, 22 with two or more
-published profiles.** Pre-existing and out of scope for the pipeline, which
-cannot touch entity identity — but it now refuses to make it worse. See
-`docs/enrichment/duplicate-organisms-audit.md` and `enrich duplicates`.
+**27 `latin_name` values are held by more than one entity; 13 actually serve two
+or more live profiles, and 10 are already resolved by a 301.** Pre-existing and
+out of scope for the pipeline, which cannot touch entity identity — but it now
+refuses to make it worse. Liveness comes from the route manifest and
+`public/_redirects`, never from `runtime_export_decision`: a redirected entity
+keeps `full_public_runtime` while emitting no page, which is how an earlier pass
+of this audit overstated the count as 22. See
+`docs/enrichment/duplicate-organisms-audit.md` and `npm run enrich:duplicates`.
 
 ### G13 — production-enrichment readiness
 
