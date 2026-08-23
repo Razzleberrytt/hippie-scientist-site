@@ -179,8 +179,16 @@ async function main() {
     console.error('[optimize-images] FAILED: no images were optimized.')
     process.exit(1)
   }
-  if (failures.length > files.length / 10) {
-    console.error(`[optimize-images] FAILED: ${failures.length} of ${files.length} images failed to encode.`)
+  // `src/lib/cloudflare-image-loader.ts` rewrites every supported image under
+  // `public/images/` to its WebP variant by convention rather than by consulting
+  // a manifest, because shipping that manifest to the browser cost ~17KB of
+  // duplicated JSON per chunk. That convention is only safe if this step is
+  // all-or-nothing, so a single encode failure fails the build rather than
+  // leaving one image to 404 at runtime.
+  if (failures.length > 0) {
+    console.error(`[optimize-images] FAILED: ${failures.length} of ${files.length} image(s) failed to encode.`)
+    for (const rel of failures.slice(0, 20)) console.error(`  - ${rel}`)
+    console.error('Every supported image must have variants; the image loader assumes it.')
     process.exit(1)
   }
 }
