@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-08-23-site-enrichment",
+  "generated_from": {
+    "input_files": [
+      "the_hippie_scientist_K-P_new_data_enrichment_continued(1).xlsx",
+      "the_hippie_scientist_enrichment_E-J_new_only(1).xlsx",
+      "the_hippie_scientist_net_new_enrichment_2026-08-23_v3(1).xlsx",
+      "thehippiescientist_enrichment_delta_continued_2026-08-23(1).xlsx",
+      "thehippiescientist_enrichment_delta_round3_2026-08-23(1).xlsx",
+      "thehippiescientist_enrichment_delta_round4_2026-08-23(1).xlsx",
+      "thehippiescientist_enrichment_delta_round5_2026-08-23(1).xlsx",
+      "thehippiescientist_enrichment_delta_round6_2026-08-23(1).xlsx",
+      "thehippiescientist_enrichment_delta_round7_2026-08-23(1).xlsx"
+    ],
+    "dedupe_note": "Duplicate/cumulative enrichment uploads were collapsed before integration."
+  },
+  "counts": {
+    "entity_context_rows": 85,
+    "evidence_rows": 308,
+    "source_rows": 298,
+    "relationship_rows": 152,
+    "live_relationship_rows_eligible": 41,
+    "relationship_candidates_retained_for_review": 111,
+    "evidence_rows_after_canonical_dedupe": 306,
+    "source_rows_after_canonical_dedupe": 294,
+    "relationship_rows_existing_duplicate": 16,
+    "live_relationship_rows_new_after_dedupe": 25
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "evidence_merge": "append-only, deduplicated by entity + PMID/DOI/title",
+    "relationship_merge": "only existing herb -> existing compound links become live; missing-entity candidates remain ledger-only",
+    "entity_context_merge": "additive allowlist only; cannot replace canonical workbook core/governance fields"
+  },
+  "ledger": {
+    "file": "2026-08-23-enrichment.json.gz",
+    "sha256": "9a8b1898a65d2fa79587e807d1fe753afab104457e76ac86c6469eeca60e2a78",
+    "bytes": 153710
+  }
+}
