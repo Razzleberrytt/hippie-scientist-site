@@ -10,7 +10,7 @@
  */
 
 import { createRequire } from 'node:module'
-import { readdir, mkdir, access } from 'node:fs/promises'
+import { readdir, mkdir, access, writeFile, stat } from 'node:fs/promises'
 import path from 'node:path'
 import { performance } from 'node:perf_hooks'
 import { fileURLToPath } from 'node:url'
@@ -20,6 +20,10 @@ const repoRoot = path.join(__dirname, '..')
 
 const INPUT_DIR = path.join(repoRoot, 'public', 'images')
 const OUTPUT_DIR = path.join(repoRoot, 'public', 'images', 'optimized')
+const MANIFEST_PATH = path.join(repoRoot, 'lib', 'generated', 'optimized-images.json')
+
+/** Variants actually re-encoded this run; the rest were already fresh. */
+let reencoded = 0
 const WIDTHS = [400, 800, 1200]
 const QUALITY = 85
 const SUPPORTED_EXTS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.avif', '.tiff', '.webp'])
@@ -33,6 +37,14 @@ async function dirExists(dirPath) {
   }
 }
 
+/**
+ * Walk `public/images/` recursively.
+ *
+ * This used to `continue` on every directory, so only the two images sitting at
+ * the top level were ever optimized and the 213 under `guides/` and
+ * `monographs/photos/` were silently skipped — including every profile hero.
+ * `optimized/` is excluded so repeated runs do not re-encode their own output.
+ */
 async function getImageFiles(dir) {
   let entries
   try {
@@ -43,32 +55,65 @@ async function getImageFiles(dir) {
 
   const files = []
   for (const entry of entries) {
-    if (entry.isDirectory()) continue
+    const full = path.join(dir, entry.name)
+    if (entry.isDirectory()) {
+      if (full === OUTPUT_DIR) continue
+      files.push(...(await getImageFiles(full)))
+      continue
+    }
     const ext = path.extname(entry.name).toLowerCase()
     if (SUPPORTED_EXTS.has(ext)) {
-      files.push(path.join(dir, entry.name))
+      files.push(full)
     }
   }
   return files
 }
 
-async function optimizeImage(sharp, inputPath, outputDir) {
+/**
+ * Emit WebP variants for one source image, mirroring its path under
+ * `optimized/` so `guides/ashwagandha-herb.jpg` becomes
+ * `optimized/guides/ashwagandha-herb-800w.webp` and two images with the same
+ * basename in different folders cannot overwrite each other.
+ *
+ * Returns the widths that were actually written. `withoutEnlargement` means a
+ * source narrower than a requested width yields the same pixels at that width,
+ * so the variant is still emitted and remains safe to serve.
+ */
+async function optimizeImage(sharp, inputPath) {
+  const relFromInput = path.relative(INPUT_DIR, inputPath)
+  const relDir = path.dirname(relFromInput)
   const basename = path.basename(inputPath, path.extname(inputPath))
-  const results = []
+  const outputDir = path.join(OUTPUT_DIR, relDir === '.' ? '' : relDir)
+  await mkdir(outputDir, { recursive: true })
 
+  // Re-encoding 215 images takes ~40s, and this now runs in every build path
+  // that renders pages. Skip any variant already newer than its source so
+  // repeat builds are effectively free while a changed image still rebuilds.
+  const sourceMtime = (await stat(inputPath)).mtimeMs
+  const widths = []
   for (const width of WIDTHS) {
-    const outputName = `${basename}-${width}w.webp`
-    const outputPath = path.join(outputDir, outputName)
+    const outputPath = path.join(outputDir, `${basename}-${width}w.webp`)
 
-    await sharp(inputPath)
-      .resize(width, null, { withoutEnlargement: true })
-      .webp({ quality: QUALITY })
-      .toFile(outputPath)
+    let fresh = false
+    try {
+      fresh = (await stat(outputPath)).mtimeMs >= sourceMtime
+    } catch {
+      fresh = false
+    }
 
-    results.push(outputName)
+    if (!fresh) {
+      await sharp(inputPath)
+        .resize(width, null, { withoutEnlargement: true })
+        .webp({ quality: QUALITY })
+        .toFile(outputPath)
+      reencoded += 1
+    }
+
+    widths.push(width)
   }
 
-  return results
+  const publicSrc = `/images/${relFromInput.split(path.sep).join('/')}`
+  return { publicSrc, widths }
 }
 
 async function main() {
@@ -99,19 +144,53 @@ async function main() {
   }
 
   let totalGenerated = 0
+  const failures = []
+  /** @type {Record<string, number[]>} */
+  const manifest = {}
+
   for (const inputPath of files) {
     const rel = path.relative(repoRoot, inputPath)
     try {
-      const outputs = await optimizeImage(sharp, inputPath, OUTPUT_DIR)
-      totalGenerated += outputs.length
-      console.log(`[optimize-images] ${rel} → ${outputs.join(', ')}`)
+      const { publicSrc, widths } = await optimizeImage(sharp, inputPath)
+      totalGenerated += widths.length
+      manifest[publicSrc] = widths
     } catch (err) {
+      failures.push(rel)
       console.warn(`[optimize-images] WARN: failed to process ${rel}: ${err.message}`)
     }
   }
 
+  // The loader rewrites an image to its WebP variant only if that variant is in
+  // this manifest, so a source that failed to encode keeps serving the original
+  // rather than 404ing.
+  const ordered = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)))
+  await mkdir(path.dirname(MANIFEST_PATH), { recursive: true })
+  await writeFile(MANIFEST_PATH, `${JSON.stringify(ordered, null, 2)}
+`, 'utf8')
+
   const elapsed = ((performance.now() - start) / 1000).toFixed(2)
-  console.log(`[optimize-images] Done. ${files.length} source image(s) → ${totalGenerated} WebP output(s) in ${elapsed}s.`)
+  console.log(
+    `[optimize-images] Done. ${files.length} source image(s) → ${totalGenerated} WebP output(s) (${reencoded} re-encoded) in ${elapsed}s.`,
+  )
+  console.log(`[optimize-images] Manifest: ${path.relative(repoRoot, MANIFEST_PATH)} (${Object.keys(ordered).length} images)`)
+
+  // A run that silently optimizes nothing is how this pipeline stayed broken.
+  if (Object.keys(ordered).length === 0) {
+    console.error('[optimize-images] FAILED: no images were optimized.')
+    process.exit(1)
+  }
+  // `src/lib/cloudflare-image-loader.ts` rewrites every supported image under
+  // `public/images/` to its WebP variant by convention rather than by consulting
+  // a manifest, because shipping that manifest to the browser cost ~17KB of
+  // duplicated JSON per chunk. That convention is only safe if this step is
+  // all-or-nothing, so a single encode failure fails the build rather than
+  // leaving one image to 404 at runtime.
+  if (failures.length > 0) {
+    console.error(`[optimize-images] FAILED: ${failures.length} of ${files.length} image(s) failed to encode.`)
+    for (const rel of failures.slice(0, 20)) console.error(`  - ${rel}`)
+    console.error('Every supported image must have variants; the image loader assumes it.')
+    process.exit(1)
+  }
 }
 
 main().catch(err => {

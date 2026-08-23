@@ -116,7 +116,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var d=document.documentElement;var s=localStorage.getItem('theme');var dark=s==='dark';d.classList.toggle('dark',dark);d.dataset.theme=dark?'dark':'light';d.style.colorScheme=dark?'dark':'light';d.classList.add('theme-ready')}catch(e){}})();`,
+            __html: `(function(){try{var d=document.documentElement;var s=localStorage.getItem('theme');var dark=s==='dark';d.classList.toggle('dark',dark);d.dataset.theme=dark?'dark':'light';d.style.colorScheme=dark?'dark':'light'}catch(e){}})();`,
           }}
         />
         <link rel="manifest" href="/manifest.json" />

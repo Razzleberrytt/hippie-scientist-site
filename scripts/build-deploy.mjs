@@ -50,6 +50,17 @@ const steps = [
     cacheable: false,
   },
   {
+    // `next/image` resolves every local image through the custom loader to a
+    // WebP variant produced here. The deploy never ran this step, so the
+    // variants did not exist in CI or on Cloudflare and every image shipped as
+    // its full-size original. It must run before `build-production` renders the
+    // pages that reference them.
+    name: 'optimize-images',
+    cmd: 'node scripts/optimize-images.mjs',
+    inputs: ['public/images/**/*.{jpg,jpeg,png,gif,avif,tiff,webp}', 'scripts/optimize-images.mjs'],
+    outputs: ['public/images/optimized/**/*.webp', 'lib/generated/optimized-images.json'],
+  },
+  {
     name: 'build-runtime-from-workbook',
     cmd: 'node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out public/data',
     inputs: ['data/**/*.xlsx', 'data/**/*.json', 'data-sources/**/*.xlsx', 'scripts/data/**/*.mjs'],
