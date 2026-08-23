@@ -97,3 +97,77 @@ PMID existence and titles came from NCBI E-utilities `esummary` in bulk rather
 than per-record lookups, and title comparison was done by token overlap in code.
 The nettle-root DOI is absent from PubMed and was recovered from CrossRef by
 bibliographic match — same title, journal and year — rather than constructed.
+
+
+---
+
+# Second batch — same day
+
+Five further workbooks were supplied: `EJ_new_data_enrichment_CONTINUED`,
+`qv_new_enrichment_pass3`, `net_new_enrichment_v2`, `net_new_enrichment_v2_2`
+(a duplicate of v2) and `wz_new_enrichment_continued`. 595 rows, **138 distinct
+PMIDs**, 121 DOIs.
+
+| Check | Result |
+|---|---|
+| PMIDs that resolve in PubMed | **138 / 138** |
+| Rows with a real claimed title | 188 |
+| Titles matching the actual paper | **188 / 188** |
+| Title mismatches | **0** |
+
+Across both batches: **261 PMIDs verified, 250 titled rows checked, zero
+misattributions.** Whatever process produced these files is attaching citations
+correctly, which is not true of the material already in the corpus.
+
+This batch references 121 profiles and reaches **5 held profiles with no claim**,
+four of which carry a usable PMID.
+
+## Integrated — 3 of 4
+
+`enrichment-2026-08-23-pass2-grounded-summaries.json`, again validated read-only
+and left at `status: proposal`.
+
+| Profile | Replaces | Grounded in |
+|---|---|---|
+| evening-primrose | "…is tracked for mechanism-informed herb research in the workbook. Human-outcome claims should remain gated…" | PMID 36846678 / [doi:10.1016/j.heliyon.2023.e13414](https://doi.org/10.1016/j.heliyon.2023.e13414) — meta-analysis of evening primrose oil on cervical ripening and birth outcomes |
+| guarana | "…is tracked for cognition,energy,inflammation with conservative evidence framing. Keep claims tied to…" | PMID 39536249 / [doi:10.1590/1806-9282.20240528](https://doi.org/10.1590/1806-9282.20240528) — meta-analysis of guarana for cancer-related fatigue |
+| hawthorn | "Improves symptoms and exercise tolerance in mild heart failure." | PMID 40732315 / [doi:10.3390/ph18071027](https://doi.org/10.3390/ph18071027) — meta-analysis of RCTs, blood pressure in hypertension |
+
+Two of these replace editorial instructions that were shipping as profile
+summaries. The third is different: hawthorn's cell asserts a heart-failure
+efficacy outcome with **no source attached at all**. The replacement leads with
+what the meta-analysis actually supports (blood pressure) and demotes the
+heart-failure claim to a separately evidenced traditional use rather than
+deleting it or continuing to assert it unsourced.
+
+The evening-primrose and guarana summaries both bound their evidence explicitly —
+obstetric findings are not generalized to the skin and menopause uses the oil is
+sold for, and guarana's cognition and energy claims are noted as inseparable from
+its caffeine content in most trials.
+
+## Rejected — goldenseal
+
+`goldenseal` reaches the same bar on paper: held, no claim, and a resolvable
+PMID (40149916). The paper is *"Interplay Between Traditional and Scientific
+Knowledge: Phytoconstituents and Their Roles in Lung and Colorectal Cancer
+Signaling Pathways"* ([doi:10.3390/biom15030380](https://doi.org/10.3390/biom15030380)).
+
+It is a real paper and it plausibly touches berberine, but lung and colorectal
+cancer signaling is not what goldenseal is used for, and grounding the profile
+summary on it would assert a connection the paper does not make about this herb.
+Left held.
+
+Its current summary — "Internal cross-linking supports Goldenseal through
+compounds such as berberine, hydrastine." — is a pipeline artefact and still
+needs replacing, just not with this citation.
+
+## Running totals
+
+| | Batch 1 | Batch 2 | Total |
+|---|---:|---:|---:|
+| Rows | 520 | 595 | 1,115 |
+| PMIDs resolved | 123/123 | 138/138 | **261/261** |
+| Titles matched | 62/62 | 188/188 | **250/250** |
+| Misattributions | 0 | 0 | **0** |
+| Grounded summary proposals | 2 | 3 | **5** |
+| Rejected on evidence grounds | 0 | 1 | 1 |
