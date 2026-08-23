@@ -165,6 +165,7 @@ node scripts/enrichment-pipeline/cli.mjs <command> [options]
   migrate       Compare a historical spreadsheet against canonical data (dry-run)
   metrics       Print deterministic pipeline metrics
   readiness     Show or initialise the readiness record
+  duplicates    Report entities that share a latin_name (--json writes a report)
   doctor        Check the contract against the live workbook
 
 Filters:  --priority P0,P1  --field latin_name  --entity-type herb
@@ -349,18 +350,27 @@ four no-ops, and found two defects that unit tests had missed (see §9.7). Ongoi
 enrichment is authorised for `latin_name` only; any new field, parallel workers,
 or spreadsheet migration needs a fresh readiness record.
 
-Batches so far — `latin_name` populated 186 → 209, 72 jobs remaining:
+Batches so far — `latin_name` populated 186 → 232, 47 jobs remaining (of which
+~25 are genuinely fillable; the rest need editorial decisions):
 
-| Batch | Jobs | Filled | No-op | Record |
-|-------|------|--------|-------|--------|
+| Batch | Jobs | Filled | Not filled | Record |
+|-------|------|--------|-----------|--------|
 | Pilot 1 | 10 | 6 | 4 | `docs/enrichment/pilot-1-latin-name.md` |
 | Batch 2 | 25 | 17 | 8 | `docs/enrichment/batch-2-latin-name.md` |
+| Batch 3 | 26 | 23 | 3 | `docs/enrichment/batch-3-latin-name.md` |
 
-**A taxonomic authority cannot be followed mechanically.** Batch 2 found that
-GBIF resolves `Citrus paradisi` (grapefruit) to `Citrus aurantium` — bitter
-orange, a different supplement with its own cardiovascular cautions. Synonym
-resolution is currently **not applied**; it needs its own readiness decision.
-See `docs/enrichment/batch-2-latin-name.md` §3.
+**A taxonomic authority cannot be followed mechanically.** GBIF resolves
+`Citrus paradisi` (grapefruit) to `Citrus aurantium` — bitter orange, a
+different supplement with its own cardiovascular cautions. Synonym resolution is
+now governed by `lib/taxonomy-policy.mjs`: a synonym resolves only when the
+accepted target is at species rank, the **specific epithet is unchanged** (a
+generic transfer, not a lumping), and no other entity already holds the name.
+See `docs/enrichment/batch-3-latin-name.md` §1.
+
+**27 `latin_name` values are held by more than one entity, 22 with two or more
+published profiles.** Pre-existing and out of scope for the pipeline, which
+cannot touch entity identity — but it now refuses to make it worse. See
+`docs/enrichment/duplicate-organisms-audit.md` and `enrich duplicates`.
 
 ### G13 — production-enrichment readiness
 

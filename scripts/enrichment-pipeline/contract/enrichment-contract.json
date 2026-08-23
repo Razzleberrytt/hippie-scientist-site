@@ -69,6 +69,7 @@
       "max_length": 120,
       "field_priority": "P2",
       "applies_to_entity_types": ["herb"],
+      "shared_value_needs_review": true,
       "rationale": "Taxonomic binomial verifiable against a nomenclatural authority (POWO, WFO, NCBI Taxonomy, GBIF). Not a health claim.",
       "gap_note": "687 blank rows at baseline; the single largest structured gap in Entity_Master."
     },

@@ -226,7 +226,8 @@
     "enrich:metrics": "node scripts/enrichment-pipeline/cli.mjs metrics",
     "enrich:readiness": "node scripts/enrichment-pipeline/cli.mjs readiness",
     "enrich:test": "vitest run scripts/enrichment-pipeline/__tests__",
-    "validate:workbook-patches": "node scripts/ci/validate-workbook-patches.mjs"
+    "validate:workbook-patches": "node scripts/ci/validate-workbook-patches.mjs",
+    "enrich:duplicates": "node scripts/enrichment-pipeline/cli.mjs duplicates"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",

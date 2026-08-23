@@ -1,0 +1,454 @@
+{
+  "patch_version": 1,
+  "id": "enrich-batch3-2026-08-23-9f1728edb3",
+  "status": "applied",
+  "generated_by": "scripts/enrichment-pipeline",
+  "job_ids": [
+    "job_0028bdea20c03586",
+    "job_05147702d6f23894",
+    "job_053515168aef2cfd",
+    "job_111f086108c2d5d5",
+    "job_253c449f969ccd18",
+    "job_42f8fe0c4d6c73cb",
+    "job_45f0aa3cc9feecc0",
+    "job_553509d9b2e4cda8",
+    "job_5b41613ecd61a95f",
+    "job_5e23acf732f738aa",
+    "job_60751e799d1e075c",
+    "job_6212780df11d0e55",
+    "job_668bf47a5735fb54",
+    "job_6c3cb706c1160be3",
+    "job_78f5c14cb50ff1df",
+    "job_8d6af354211f34b5",
+    "job_9cb48d8fa7f93b6b",
+    "job_b46b732ec9ffdcd5",
+    "job_bfd29b2d9bf554ad",
+    "job_c180ea19c54622ef",
+    "job_c68b8f1cfe43b13d",
+    "job_c70182b5ced01a1c",
+    "job_f664a0187d74acac"
+  ],
+  "sources": [
+    {
+      "id": "gbif-2560562",
+      "title": "Ophiocordyceps sinensis - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2560562"
+    },
+    {
+      "id": "gbif-2688470",
+      "title": "Huperzia serrata - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2688470"
+    },
+    {
+      "id": "gbif-2813351",
+      "title": "Gastrodia elata - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2813351"
+    },
+    {
+      "id": "gbif-2888380",
+      "title": "Eschscholzia californica - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2888380"
+    },
+    {
+      "id": "gbif-2926087",
+      "title": "Lithospermum erythrorhizon - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2926087"
+    },
+    {
+      "id": "gbif-2928774",
+      "title": "Nicotiana tabacum - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2928774"
+    },
+    {
+      "id": "gbif-3033110",
+      "title": "Hydrastis canadensis - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3033110"
+    },
+    {
+      "id": "gbif-3086282",
+      "title": "Boerhavia diffusa - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3086282"
+    },
+    {
+      "id": "gbif-3150935",
+      "title": "Echinacea purpurea - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3150935"
+    },
+    {
+      "id": "gbif-3188724",
+      "title": "Lagerstroemia speciosa - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3188724"
+    },
+    {
+      "id": "gbif-3189949",
+      "title": "Paullinia cupana - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3189949"
+    },
+    {
+      "id": "gbif-3190008",
+      "title": "Dimocarpus longan - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3190008"
+    },
+    {
+      "id": "gbif-3190474",
+      "title": "Azadirachta indica - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3190474"
+    },
+    {
+      "id": "gbif-3585335",
+      "title": "Harpagophytum procumbens - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3585335"
+    },
+    {
+      "id": "gbif-3723584",
+      "title": "Eucommia ulmoides - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3723584"
+    },
+    {
+      "id": "gbif-5384931",
+      "title": "Houttuynia cordata - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5384931"
+    },
+    {
+      "id": "gbif-5395925",
+      "title": "Elephantopus scaber - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5395925"
+    },
+    {
+      "id": "gbif-5406817",
+      "title": "Myristica fragrans - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5406817"
+    },
+    {
+      "id": "gbif-5408737",
+      "title": "Lobelia inflata - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5408737"
+    },
+    {
+      "id": "gbif-5420912",
+      "title": "Lawsonia inermis - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5420912"
+    },
+    {
+      "id": "gbif-7330952",
+      "title": "Embelia ribes - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/7330952"
+    },
+    {
+      "id": "gbif-7750120",
+      "title": "Mesembryanthemum tortuosum - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/7750120"
+    },
+    {
+      "id": "gbif-8877811",
+      "title": "Panax notoginseng - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/8877811"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "cordyceps-sinensis",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ophiocordyceps sinensis",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2560562"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Ophiocordyceps sinensis\" as ACCEPTED at species rank (usageKey 2560562). GBIF returns the searched name \"Cordyceps sinensis\" (2560564) as a SYNONYM. Resolved under the taxonomy policy: the accepted target is at SPECIES rank, the specific epithet \"sinensis\" is unchanged (a generic transfer of the same organism, not a lumping), and no other entity holds the accepted name. [enrichment-pipeline job job_78f5c14cb50ff1df, candidate cand_6d8a695c32b19b74]"
+    },
+    {
+      "slug": "echinacea-purpurea",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Echinacea purpurea",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3150935"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Echinacea purpurea\" as ACCEPTED at species rank (usageKey 3150935). [enrichment-pipeline job job_6212780df11d0e55, candidate cand_b5183b7372afdb6d]"
+    },
+    {
+      "slug": "elephantopus-scaber",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Elephantopus scaber",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5395925"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Elephantopus scaber\" as ACCEPTED at species rank (usageKey 5395925). [enrichment-pipeline job job_c180ea19c54622ef, candidate cand_0af162ae851b9553]"
+    },
+    {
+      "slug": "embelia-ribes",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Embelia ribes",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-7330952"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Embelia ribes\" as ACCEPTED at species rank (usageKey 7330952). [enrichment-pipeline job job_6c3cb706c1160be3, candidate cand_c28f96e134d43bb4]"
+    },
+    {
+      "slug": "eschscholzia-californica",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Eschscholzia californica",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2888380"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Eschscholzia californica\" as ACCEPTED at species rank (usageKey 2888380). [enrichment-pipeline job job_668bf47a5735fb54, candidate cand_7d7fb14c94172080]"
+    },
+    {
+      "slug": "eucommia",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Eucommia ulmoides",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3723584"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Eucommia ulmoides\" as ACCEPTED at species rank (usageKey 3723584). [enrichment-pipeline job job_253c449f969ccd18, candidate cand_48cf76a50df4bdfb]"
+    },
+    {
+      "slug": "gastrodia",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Gastrodia elata",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2813351"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Gastrodia elata\" as ACCEPTED at species rank (usageKey 2813351). [enrichment-pipeline job job_42f8fe0c4d6c73cb, candidate cand_0ae3029963e96384]"
+    },
+    {
+      "slug": "goldenseal",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Hydrastis canadensis",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3033110"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Hydrastis canadensis\" as ACCEPTED at species rank (usageKey 3033110). [enrichment-pipeline job job_60751e799d1e075c, candidate cand_8dfce6da022fb005]"
+    },
+    {
+      "slug": "guarana",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Paullinia cupana",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3189949"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Paullinia cupana\" as ACCEPTED at species rank (usageKey 3189949). [enrichment-pipeline job job_b46b732ec9ffdcd5, candidate cand_32ff74d0c9adad4a]"
+    },
+    {
+      "slug": "harpagophytum-procumbens",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Harpagophytum procumbens",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3585335"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Harpagophytum procumbens\" as ACCEPTED at species rank (usageKey 3585335). [enrichment-pipeline job job_c68b8f1cfe43b13d, candidate cand_e148988a7695cd6c]"
+    },
+    {
+      "slug": "houttuynia",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Houttuynia cordata",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5384931"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Houttuynia cordata\" as ACCEPTED at species rank (usageKey 5384931). [enrichment-pipeline job job_5b41613ecd61a95f, candidate cand_8f3d399832123760]"
+    },
+    {
+      "slug": "huperzia-serrata",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Huperzia serrata",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2688470"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Huperzia serrata\" as ACCEPTED at species rank (usageKey 2688470). [enrichment-pipeline job job_bfd29b2d9bf554ad, candidate cand_9834e7a352d6e5ea]"
+    },
+    {
+      "slug": "kanna",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Mesembryanthemum tortuosum",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-7750120"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Mesembryanthemum tortuosum\" as ACCEPTED at species rank (usageKey 7750120). GBIF returns the searched name \"Sceletium tortuosum\" (3707372) as a SYNONYM. Resolved under the taxonomy policy: SPECIES rank, epithet \"tortuosum\" unchanged, no collision. The kanna literature still uses Sceletium tortuosum, so expect that name to appear in sources. [enrichment-pipeline job job_45f0aa3cc9feecc0, candidate cand_4349b69209f85189]"
+    },
+    {
+      "slug": "lagerstroemia-speciosa",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Lagerstroemia speciosa",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3188724"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Lagerstroemia speciosa\" as ACCEPTED at species rank (usageKey 3188724). [enrichment-pipeline job job_111f086108c2d5d5, candidate cand_40ed2adad9230f6c]"
+    },
+    {
+      "slug": "lawsonia-inermis",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Lawsonia inermis",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5420912"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Lawsonia inermis\" as ACCEPTED at species rank (usageKey 5420912). [enrichment-pipeline job job_0028bdea20c03586, candidate cand_1310f5667c1ca70e]"
+    },
+    {
+      "slug": "lithospermum-erythrorhizon",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Lithospermum erythrorhizon",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2926087"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Lithospermum erythrorhizon\" as ACCEPTED at species rank (usageKey 2926087). [enrichment-pipeline job job_f664a0187d74acac, candidate cand_7932eeadb844f281]"
+    },
+    {
+      "slug": "lobelia-inflata",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Lobelia inflata",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5408737"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Lobelia inflata\" as ACCEPTED at species rank (usageKey 5408737). [enrichment-pipeline job job_553509d9b2e4cda8, candidate cand_ce94da1398f2cba9]"
+    },
+    {
+      "slug": "longan",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Dimocarpus longan",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3190008"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Dimocarpus longan\" as ACCEPTED at species rank (usageKey 3190008). [enrichment-pipeline job job_8d6af354211f34b5, candidate cand_bab17b80d4668491]"
+    },
+    {
+      "slug": "myristica-fragrans",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Myristica fragrans",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5406817"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Myristica fragrans\" as ACCEPTED at species rank (usageKey 5406817). [enrichment-pipeline job job_c70182b5ced01a1c, candidate cand_0a53f1b00a177fd2]"
+    },
+    {
+      "slug": "neem",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Azadirachta indica",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3190474"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Azadirachta indica\" as ACCEPTED at species rank (usageKey 3190474). [enrichment-pipeline job job_05147702d6f23894, candidate cand_d5b64b87a8582985]"
+    },
+    {
+      "slug": "nicotiana-tabacum",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Nicotiana tabacum",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2928774"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Nicotiana tabacum\" as ACCEPTED at species rank (usageKey 2928774). [enrichment-pipeline job job_5e23acf732f738aa, candidate cand_92e15c80931a53ba]"
+    },
+    {
+      "slug": "notoginseng",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Panax notoginseng",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-8877811"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Panax notoginseng\" as ACCEPTED at species rank (usageKey 8877811). [enrichment-pipeline job job_053515168aef2cfd, candidate cand_1cfc13cc0242e8c5]"
+    },
+    {
+      "slug": "punarnava",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Boerhavia diffusa",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3086282"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Boerhavia diffusa\" as ACCEPTED at species rank (usageKey 3086282). [enrichment-pipeline job job_9cb48d8fa7f93b6b, candidate cand_41913d83e3575418]"
+    }
+  ],
+  "approved_by": "Repo owner, delegated to Claude Code (session 015F1Gnxhg7XJu7E6UBh3HcP)",
+  "approved_at": "2026-08-23",
+  "review_note": "Batch 3. 21 direct ACCEPTED/EXACT/SPECIES matches plus 2 synonym resolutions (cordyceps-sinensis, kanna) under the policy in scripts/enrichment-pipeline/lib/taxonomy-policy.mjs. Three further jobs (lions-mane, garcinia-mangostana, gudmar) routed to review by the new shared-value guard because another entity already holds the proposed binomial.",
+  "applied_at": "2026-08-23",
+  "applied_note": "Applied in place. Re-import verified as a no-op. Entity content hash abcfcbd247a0f0ab -> see validate-workbook-schema."
+}
