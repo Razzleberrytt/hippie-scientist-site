@@ -349,6 +349,19 @@ four no-ops, and found two defects that unit tests had missed (see §9.7). Ongoi
 enrichment is authorised for `latin_name` only; any new field, parallel workers,
 or spreadsheet migration needs a fresh readiness record.
 
+Batches so far — `latin_name` populated 186 → 209, 72 jobs remaining:
+
+| Batch | Jobs | Filled | No-op | Record |
+|-------|------|--------|-------|--------|
+| Pilot 1 | 10 | 6 | 4 | `docs/enrichment/pilot-1-latin-name.md` |
+| Batch 2 | 25 | 17 | 8 | `docs/enrichment/batch-2-latin-name.md` |
+
+**A taxonomic authority cannot be followed mechanically.** Batch 2 found that
+GBIF resolves `Citrus paradisi` (grapefruit) to `Citrus aurantium` — bitter
+orange, a different supplement with its own cardiovascular cautions. Synonym
+resolution is currently **not applied**; it needs its own readiness decision.
+See `docs/enrichment/batch-2-latin-name.md` §3.
+
 ### G13 — production-enrichment readiness
 
 ```bash
@@ -424,10 +437,10 @@ or produces a no-op. Import, verify, then import again to confirm idempotency.
    unit test; two regression tests now cover it. **After every import, re-run
    `npm run enrich:scan` and confirm the gap count actually falls.**
 
-8. **`claim` does not read the readiness record.** It claims in job-id order, so
-   an operator can claim work outside an approved pilot scope. Scope is enforced
-   at import, which is where it matters, but release out-of-scope claims before
-   working them.
+8. **~~`claim` does not read the readiness record.~~** Fixed in batch 2. `claim`
+   now filters by the readiness record's `allowed_fields` and any pinned
+   `pilot_scope.job_ids` by default; `--ignore-scope` opts out for research that
+   is not headed for import.
 
 9. **A `no_op` verdict sets the job status to `rejected`.** Accurate — nothing is
    importable — but it reads as failure in `enrich status`. A distinct terminal
