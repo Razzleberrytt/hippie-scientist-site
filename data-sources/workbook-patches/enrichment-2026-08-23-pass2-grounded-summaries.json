@@ -1,0 +1,63 @@
+{
+  "patch_version": 1,
+  "id": "enrichment-2026-08-23-pass2-grounded-summaries",
+  "status": "proposal",
+  "sources": [
+    {
+      "id": "evening-primrose-cervical-ripening-meta-2023",
+      "doi": "10.1016/j.heliyon.2023.e13414",
+      "title": "The effect of evening primrose oil on cervical ripening and birth outcomes: A systematic review and meta-analysis",
+      "year": 2023
+    },
+    {
+      "id": "guarana-cancer-fatigue-meta-2024",
+      "doi": "10.1590/1806-9282.20240528",
+      "title": "Natural supplementation to effectively treat cancer-induced fatigue: evidence of a meta-analysis on the use of guarana",
+      "year": 2024
+    },
+    {
+      "id": "hawthorn-blood-pressure-meta-2025",
+      "doi": "10.3390/ph18071027",
+      "title": "Hawthorn (Crataegus spp.) Clinically Significantly Reduces Blood Pressure in Hypertension: A Meta-Analysis of Randomized Placebo-Controlled Clinical Trials",
+      "year": 2025
+    }
+  ],
+  "changes": [
+    {
+      "slug": "evening-primrose",
+      "column": "summary",
+      "expected_old_value": "Evening Primrose (Oenothera biennis) is tracked for mechanism-informed herb research in the workbook. Human-outcome claims should remain gated until source and dosage review are complete.",
+      "new_value": "Evening primrose oil is best evidenced in obstetric use: a systematic review and meta-analysis of randomized trials examined its effect on cervical ripening and birth outcomes. Evidence outside that setting is thinner, and the obstetric findings should not be generalized to the skin, menopause or inflammatory uses the oil is commonly sold for.",
+      "confidence": "high",
+      "source_ids": [
+        "evening-primrose-cervical-ripening-meta-2023"
+      ],
+      "rationale": "The existing cell describes the workbook's own review state rather than the herb, and shipped as the profile summary. Replaces it with the strongest evidence located for this profile, from a citation verified against PubMed (PMID 36846678), while explicitly bounding what that evidence covers.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "guarana",
+      "column": "summary",
+      "expected_old_value": "guarana is tracked for cognition,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+      "new_value": "Guarana (Paullinia cupana) is a caffeine-rich Amazonian seed. Its most direct clinical evidence is a meta-analysis of its use for cancer-related fatigue; the wider cognition and energy claims it is marketed on are not separable from its caffeine content in most trials.",
+      "confidence": "high",
+      "source_ids": [
+        "guarana-cancer-fatigue-meta-2024"
+      ],
+      "rationale": "The existing cell is an instruction to a writer, not prose for a reader. Replaced with the specific indication a meta-analysis actually addresses (PMID 39536249, verified against PubMed), and notes the caffeine confound rather than restating marketing categories.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "hawthorn",
+      "column": "summary",
+      "expected_old_value": "Improves symptoms and exercise tolerance in mild heart failure.",
+      "new_value": "Hawthorn (Crataegus spp.) has meta-analysed randomized, placebo-controlled evidence for reducing blood pressure in hypertension. It is also traditionally used for mild heart failure symptoms and exercise tolerance, which rests on a separate and older evidence base.",
+      "confidence": "high",
+      "source_ids": [
+        "hawthorn-blood-pressure-meta-2025"
+      ],
+      "rationale": "The existing cell asserts a heart-failure efficacy outcome with no source attached. Leads instead with the outcome a 2025 meta-analysis of randomized placebo-controlled trials does support (PMID 40732315, verified against PubMed), and demotes the heart-failure claim to a separately evidenced traditional use rather than deleting or asserting it.",
+      "requires_human_review": true
+    }
+  ]
+}
