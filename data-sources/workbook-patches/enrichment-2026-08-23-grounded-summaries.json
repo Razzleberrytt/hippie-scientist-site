@@ -1,0 +1,45 @@
+{
+  "patch_version": 1,
+  "id": "enrichment-2026-08-23-grounded-summaries",
+  "status": "proposal",
+  "sources": [
+    {
+      "id": "nettle-root-bph-rct-2005",
+      "doi": "10.1080/j157v05n04_01",
+      "title": "Urtica dioica for Treatment of Benign Prostatic Hyperplasia: A Prospective, Randomized, Double-Blind, Placebo-Controlled, Crossover Study",
+      "year": 2005
+    },
+    {
+      "id": "muira-puama-clerodane-ngf-2008",
+      "doi": "10.1021/np8004002",
+      "title": "Clerodane diterpenoids with NGF-potentiating activity from Ptychopetalum olacoides",
+      "year": 2008
+    }
+  ],
+  "changes": [
+    {
+      "slug": "nettle-root",
+      "column": "summary",
+      "expected_old_value": "It is best framed distinctly from nettle leaf.",
+      "new_value": "Nettle root is studied separately from nettle leaf, mainly for the lower-urinary-tract symptoms of benign prostatic hyperplasia. A randomized, double-blind, placebo-controlled crossover trial with 558 completers reported improvement in BPH symptom scores against placebo. The evidence base is small, and it does not establish an effect on disease progression or prostate size.",
+      "confidence": "high",
+      "source_ids": [
+        "nettle-root-bph-rct-2005"
+      ],
+      "rationale": "The existing cell is an instruction to a writer rather than prose for a reader, and it shipped as the profile summary. Replaces it with the evidence the profile actually rests on, from a citation verified against PubMed (PMID 16635963).",
+      "requires_human_review": true
+    },
+    {
+      "slug": "muira-puama",
+      "column": "summary",
+      "expected_old_value": "It is best framed as a traditional Amazonian botanical with modest modern evidence.",
+      "new_value": "Muira puama (Ptychopetalum olacoides) is a traditional Amazonian botanical whose modern evidence is largely preclinical. Phytochemical work has isolated clerodane diterpenoids from the bark with nerve-growth-factor-potentiating activity in vitro. Controlled human trials are lacking, so effects in people remain unestablished.",
+      "confidence": "high",
+      "source_ids": [
+        "muira-puama-clerodane-ngf-2008"
+      ],
+      "rationale": "Same defect as nettle-root: the cell is editorial direction, not reader prose. Replaces it with what the verified citation (PMID 18821798) actually shows, and states plainly that human evidence is absent rather than implying modest human support.",
+      "requires_human_review": true
+    }
+  ]
+}
