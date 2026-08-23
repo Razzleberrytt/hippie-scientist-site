@@ -142,3 +142,10 @@ docs/internal/
 # Agent metadata harvester cache (auto-generated, regenerates on each run)
 agent/cache/
 .visual-sweep/
+
+# Enrichment pipeline runtime state — rebuildable from the canonical workbook
+# by `node scripts/enrichment-pipeline/cli.mjs scan`. The durable artifacts are
+# the contract (scripts/enrichment-pipeline/contract) and any exported patch
+# proposal in data-sources/workbook-patches.
+ops/enrichment/*
+!ops/enrichment/README.md

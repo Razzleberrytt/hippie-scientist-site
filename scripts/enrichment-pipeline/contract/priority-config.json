@@ -1,0 +1,116 @@
+{
+  "config_version": 1,
+  "description": "Deterministic ROI/risk weights and research budgets. Every signal listed here is read from data that already exists in the repository; nothing is estimated or fabricated. A signal that is absent contributes 0 and the remaining weights are renormalized.",
+  "weights": {
+    "runtime_visibility": 0.26,
+    "retrieval_priority": 0.16,
+    "authority_weight": 0.16,
+    "completeness_deficit": 0.14,
+    "maintenance_backlog": 0.2,
+    "curated_prominence": 0.08
+  },
+  "signals": {
+    "runtime_visibility": {
+      "source": "Entity_Master.runtime_export_decision + public_search_visibility + seo_indexing_recommendation",
+      "runtime_export_decision": {
+        "primary_runtime_priority": 1,
+        "full_public_runtime": 0.85,
+        "cluster_member_runtime": 0.5,
+        "research_archive_runtime": 0.2,
+        "hidden_until_grounded": 0.05,
+        "alias_redirect_only": 0
+      },
+      "public_search_visibility": { "public": 1, "limited": 0.4, "hidden": 0.05, "redirect_only": 0 },
+      "seo_indexing_recommendation": {
+        "primary_index": 1,
+        "index": 0.8,
+        "low_priority_index": 0.35,
+        "noindex": 0
+      }
+    },
+    "retrieval_priority": {
+      "source": "Entity_Master.ai_retrieval_priority + semantic_priority",
+      "ai_retrieval_priority": { "highest": 1, "moderate": 0.55, "low": 0.2, "minimal": 0.05, "research_only": 0.05 },
+      "semantic_priority": {
+        "highest": 1,
+        "moderate": 0.55,
+        "low": 0.2,
+        "research_only": 0.05,
+        "redirect_resolution_only": 0
+      }
+    },
+    "authority_weight": {
+      "source": "Entity_Master.discovery_weight, authority_score, recommendation_weight",
+      "columns": ["discovery_weight", "authority_score", "recommendation_weight"],
+      "normalization": "divide by the maximum observed value in the current corpus"
+    },
+    "completeness_deficit": {
+      "source": "fraction of contract-enrichable fields that are currently gaps for this entity"
+    },
+    "maintenance_backlog": {
+      "source": "Maintenance_Queue rows with an open status for this entity_slug",
+      "priority_weights": { "P0": 1, "P1": 0.6, "P2": 0.3, "high": 0.6, "medium": 0.3 },
+      "open_statuses": ["open", "open_proposed", "needs_taxonomy_authority_verification", "latin_name_present_needs_authority_check"],
+      "saturation_rows": 8
+    },
+    "curated_prominence": {
+      "source": "public/data/seo-priority-report.json topHerbs/topCompounds",
+      "optional": true
+    }
+  },
+  "value_bands": {
+    "P1": 75,
+    "P2": 55,
+    "P3": 35,
+    "P4": 0
+  },
+  "risk_rules": {
+    "safety_gap_on_published_entity": {
+      "band": "P0",
+      "fields": ["contraindications_or_flags", "safety_notes", "runtime_safety"],
+      "requires_runtime_visibility_at_least": 0.5,
+      "rationale": "A publicly visible profile missing safety content is a user-harm risk and outranks every traffic opportunity."
+    },
+    "claim_integrity_gap_on_published_entity": {
+      "band": "P1",
+      "fields": ["primary_effects_or_targets", "summary", "evidence_tier", "mechanism_summary"],
+      "requires_runtime_visibility_at_least": 0.5,
+      "rationale": "A published profile missing a claim-gating field can surface unsupported language."
+    },
+    "duplicate_or_integrity_defect": {
+      "band": "P0",
+      "rationale": "Duplicate slugs and other structural defects block correct routing."
+    }
+  },
+  "research_budgets": {
+    "default": {
+      "max_sources_examined": 12,
+      "max_new_sources": 4,
+      "stop_when_supported": true,
+      "prefer_existing_sources": true
+    },
+    "by_field_priority": {
+      "P0": { "max_sources_examined": 30, "max_new_sources": 10, "stop_when_supported": false },
+      "P1": { "max_sources_examined": 20, "max_new_sources": 6, "stop_when_supported": false }
+    },
+    "by_field": {
+      "latin_name": { "max_sources_examined": 4, "max_new_sources": 2, "stop_when_supported": true },
+      "keywords": { "max_sources_examined": 3, "max_new_sources": 1, "stop_when_supported": true },
+      "description": { "max_sources_examined": 20, "max_new_sources": 6, "stop_when_supported": false }
+    },
+    "exceptions": {
+      "literature_review": {
+        "max_sources_examined": 60,
+        "max_new_sources": 25,
+        "stop_when_supported": false,
+        "requires_explicit_flag": "--exception=literature-review"
+      },
+      "high_risk_safety": {
+        "max_sources_examined": 60,
+        "max_new_sources": 25,
+        "stop_when_supported": false,
+        "requires_explicit_flag": "--exception=high-risk-safety"
+      }
+    }
+  }
+}
