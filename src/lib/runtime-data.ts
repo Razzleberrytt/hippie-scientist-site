@@ -17,6 +17,7 @@ import { resolveRuntimeRecordLayers } from '../../lib/runtime-record-resolver.mj
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
 const fileCache = new Map<string, unknown>()
+const AUG23_ENRICHMENT_CLAIM_PREFIX = 'aug23-enr-'
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
@@ -107,9 +108,70 @@ function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[])
   return merged
 }
 
+function citationSourceKey(source: Record<string, unknown>): string {
+  const doi = cleanString(source.doi).trim().toLowerCase()
+  if (doi) return `doi:${doi}`
+  const pmid = cleanString(source.pmid || source.pubmedId).trim()
+  if (pmid) return `pmid:${pmid}`
+  const url = cleanString(source.url).trim().toLowerCase()
+  if (url) return `url:${url}`
+  return `title:${cleanString(source.title).trim().toLowerCase()}`
+}
+
+function mergeCitationSources(baseValue: unknown, imported: Record<string, unknown>[]): Record<string, unknown>[] {
+  const output: Record<string, unknown>[] = []
+  const seen = new Set<string>()
+  const candidates = [
+    ...(Array.isArray(baseValue) ? baseValue.filter(isRecord) : []),
+    ...imported,
+  ]
+
+  for (const source of candidates) {
+    const key = citationSourceKey(source)
+    if (!key || key === 'title:' || seen.has(key)) continue
+    seen.add(key)
+    output.push(source)
+  }
+  return output
+}
+
+async function attachAug23WorkbookEvidence(record: RuntimeRecord): Promise<RuntimeRecord> {
+  const rawClaims = await readJsonFile('claims.json')
+  if (!Array.isArray(rawClaims)) return record
+
+  const importedSources = rawClaims.flatMap((value): Record<string, unknown>[] => {
+    if (!isRecord(value)) return []
+    const id = cleanString(value.id)
+    const profileSlug = cleanString(value.profile_slug)
+    if (!id.startsWith(AUG23_ENRICHMENT_CLAIM_PREFIX) || profileSlug !== record.slug) return []
+
+    const title = cleanString(value.title) || cleanString(value.claim)
+    const pmid = cleanString(value.pmid)
+    const doi = cleanString(value.doi)
+    const url = cleanString(value.source_url)
+    if (!title && !pmid && !doi && !url) return []
+
+    return [{
+      id: `src_${id}`,
+      title,
+      pmid,
+      doi,
+      url,
+      studyType: cleanString(value.evidence_tier),
+      result: cleanString(value.claim),
+      metadataSource: 'workbook-evidence-register',
+    }]
+  })
+
+  if (!importedSources.length) return record
+  return {
+    ...record,
+    sources: mergeCitationSources(record.sources, importedSources),
+  }
+}
+
 async function readDetailRecord(kind: 'herbs' | 'compounds', slug: string): Promise<RuntimeRecord | null> {
   if (!isSafeSlug(slug)) return null
-
   const detail = await readJsonFile(`${kind}-detail/${slug}.json`)
 
   return detail && !Array.isArray(detail) && typeof detail === 'object' ? detail as RuntimeRecord : null
@@ -223,10 +285,11 @@ export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null>
   if (!herb) return null
   const detail = await readDetailRecord('herbs', slug)
   const mergedHerb = detail ? resolveRuntimeRecordLayers(herb, [detail]) as RuntimeRecord : herb
+  const enrichedHerb = await attachAug23WorkbookEvidence(mergedHerb)
 
-  if (!mergedHerb || !getRuntimeVisibility(mergedHerb).canRender) return null
+  if (!enrichedHerb || !getRuntimeVisibility(enrichedHerb).canRender) return null
 
-  return mergedHerb
+  return enrichedHerb
 }
 
 export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | null> {
@@ -235,10 +298,11 @@ export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | n
   if (!compound) return null
   const detail = await readDetailRecord('compounds', slug)
   const mergedCompound = detail ? resolveRuntimeRecordLayers(compound, [detail]) as RuntimeRecord : compound
+  const enrichedCompound = await attachAug23WorkbookEvidence(mergedCompound)
 
-  if (!mergedCompound || !getRuntimeVisibility(mergedCompound).canRender) return null
+  if (!enrichedCompound || !getRuntimeVisibility(enrichedCompound).canRender) return null
 
-  return mergedCompound
+  return enrichedCompound
 }
 
 export const getFeaturedHerbs = cache(async (): Promise<RuntimeRecord[]> => {

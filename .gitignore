@@ -109,6 +109,10 @@ data-sources/*
 !data-sources/herb_monograph_master.xlsx
 !data-sources/workbook-patches/
 !data-sources/workbook-patches/*.json
+!data-sources/runtime-enrichment/
+!data-sources/runtime-enrichment/*.json
+!data-sources/runtime-enrichment/*.json.gz
+!data-sources/runtime-enrichment/README.md
 data-sources/*.csv
 data-sources/*.json
 

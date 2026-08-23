@@ -17,6 +17,14 @@
 *.zip  binary
 *.xlsx binary
 
+# Compressed payloads. The repo's first .gz -- a runtime enrichment ledger --
+# was committed while these were the only binary formats without a rule, so it
+# inherited `* text=auto eol=lf`. Auto-detection spared it, but nothing should
+# depend on that for a file whose bytes must survive verbatim.
+*.gz   binary
+*.tgz  binary
+*.br   binary
+
 # Explicit LF for source types
 *.ts   text eol=lf
 *.tsx  text eol=lf
