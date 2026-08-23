@@ -106,12 +106,23 @@ Policy for enrichment going forward:
 
 ## Backlog after this pass
 
-The previous audit measured **34 unverified identifier-bearing held profiles**
-after its first 10-record sample. This pass source-reviewed the 26 candidates
-that were directly traceable from the current held-profile/detail evidence
-surface: 13 registered, 4 rejected, and 9 held for structural repair.
+The previous audit measured **34 unverified identifier/source-signal-bearing held profiles**
+after its first 10-record sample. This pass source-reviewed 26 of those candidates:
+**13 were registered, 4 were rejected, and 9 remain held for structural repair**.
 
-The remaining long-run backlog is larger than the identifier-verification queue:
+That means the arithmetic after this branch is:
+
+- **21 held claim-source candidates remain unregistered**.
+- **13 of those 21 already have a disposition in this audit** (4 reject + 9 repair-needed).
+- **8 of the 21 remain to be source-reviewed**; they are not silently counted as complete.
+- `allicin` and `digestive-enzymes` are known examples where the source signal is a
+  placeholder rather than a usable scholarly identifier.
+- The new deterministic reporter
+  `scripts/data/report-held-source-verification-queue.mjs` derives the residual queue
+  directly from generated claims, held-profile state, and the source-backed registry so
+  future counts do not rely on hand-maintained arithmetic.
+
+The long-run backlog is larger than this identifier-verification queue:
 **272 held profiles have no governed claim at all** and require original
 literature sourcing, not identifier checking. Those should be enriched in
 research waves ordered by demand, content completeness, safety, and evidence
@@ -120,19 +131,18 @@ availability rather than by filling cells for completeness alone.
 ## Durable changes from this pass
 
 - Added 13 source-verified slugs to the governance source registry.
-- Recorded the owner-directed enrichment ticket as `SEO-006` in the current
-  sprint.
-- Preserved noindex/publication scoring boundaries; this pass does not
-  auto-publish held profiles.
-- Produced this repair manifest so workbook-owned citation defects are not lost
-  or "fixed" only in disposable generated JSON.
+- Recorded the owner-directed enrichment ticket as `SEO-006` in the current sprint.
+- Added a deterministic held-source verification queue reporter plus regression test.
+- Preserved noindex/publication scoring boundaries; this pass does not auto-publish held profiles.
+- Produced this repair manifest so workbook-owned citation defects are not lost or
+  "fixed" only in disposable generated JSON.
 
-## Next enrichment wave
+## Remaining governed work
 
 1. Withdraw/replace the four newly confirmed misattributed workbook citations.
 2. Repair the nine study-role/source-edge defects above.
 3. Normalize AI-tool discovery URLs to canonical scholarly identifiers.
-4. Re-run the held-profile census after regeneration; verify any residual
-   identifier-bearing candidates source-by-source.
+4. Source-review the eight residual unclassified claim-source candidates emitted by
+   the deterministic queue report.
 5. Begin original sourcing for the 272 no-claim profiles in prioritized waves,
    preserving null/negative and safety evidence alongside positive findings.
