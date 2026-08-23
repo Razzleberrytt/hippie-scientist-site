@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /**
- * Report held profiles whose governed claims carry a source signal but whose slug
- * has not been human-registered as source-backed.
+ * Report held profiles whose claims or detail records carry a source signal but
+ * whose slug has not been human-registered as source-backed.
  *
  * This is intentionally read-only. It does not promote profiles, mutate the
  * workbook, normalize identifiers, or infer that an identifier is scientifically
- * relevant. Its job is to keep the verification backlog deterministic and auditable.
+ * relevant. Claim-level evidence and detail-record source metadata are kept as
+ * separate lanes because a generated `sources[]` entry is not itself governed
+ * claim evidence.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -64,29 +66,28 @@ export function parseSourceBackedRegistry(overlayText) {
   return new Set([...match[1].matchAll(/^\s*'([^']+)',/gm)].map((row) => row[1]))
 }
 
-function claimSourceSignals(claim) {
-  const pmid = text(claim?.pmid)
-  const doi = text(claim?.doi)
-  const sourceUrl = text(claim?.source_url)
-  return { pmid, doi, sourceUrl }
-}
-
-function summarizeClaimSources(claims) {
+function summarizeSignals(rows) {
   const pmids = new Set()
   const invalidPmids = new Set()
   const dois = new Set()
   const invalidDois = new Set()
   const sourceUrls = new Set()
   const sourceUrlClasses = new Set()
+  const notes = new Set()
 
-  for (const claim of claims) {
-    const { pmid, doi, sourceUrl } = claimSourceSignals(claim)
+  for (const row of rows) {
+    const pmid = text(row?.pmid ?? row?.pubmedId)
+    const doi = text(row?.doi)
+    const sourceUrl = text(row?.source_url ?? row?.url)
+    const citation = text(row?.citation)
+
     if (pmid) (isValidPmid(pmid) ? pmids : invalidPmids).add(pmid)
     if (doi) (isValidDoi(doi) ? dois : invalidDois).add(doi)
     if (sourceUrl) {
       sourceUrls.add(sourceUrl)
       sourceUrlClasses.add(sourceUrlClass(sourceUrl))
     }
+    if (citation && !pmid && !doi && !sourceUrl) notes.add(citation)
   }
 
   return {
@@ -96,12 +97,27 @@ function summarizeClaimSources(claims) {
     invalidDoiSignals: [...invalidDois].sort(),
     sourceUrls: [...sourceUrls].sort(),
     sourceUrlClasses: [...sourceUrlClasses].filter(Boolean).sort(),
+    citationOnlyNotes: [...notes].sort(),
   }
+}
+
+function hasAnySignal(summary) {
+  return (
+    summary.validPmids.length > 0 ||
+    summary.invalidPmidSignals.length > 0 ||
+    summary.validDois.length > 0 ||
+    summary.invalidDoiSignals.length > 0 ||
+    summary.sourceUrls.length > 0 ||
+    summary.citationOnlyNotes.length > 0
+  )
 }
 
 function heldProfileMap(dataDir) {
   const map = new Map()
-  for (const [kind, file] of [['herb', 'herbs.json'], ['compound', 'compounds.json']]) {
+  for (const [kind, file, detailDir] of [
+    ['herb', 'herbs.json', 'herbs-detail'],
+    ['compound', 'compounds.json', 'compounds-detail'],
+  ]) {
     const rows = readJson(path.join(dataDir, file), [])
     for (const row of Array.isArray(rows) ? rows : []) {
       const reasons = Array.isArray(row?.indexability_reasons) ? row.indexability_reasons : []
@@ -109,6 +125,7 @@ function heldProfileMap(dataDir) {
       if (!row?.slug) continue
       map.set(String(row.slug), {
         entityType: kind,
+        detailDir,
         indexabilityStatus: text(row.indexability_status),
         profileStatus: text(row.profile_status),
         runtimeExportDecision: text(row.runtime_export_decision),
@@ -118,58 +135,100 @@ function heldProfileMap(dataDir) {
   return map
 }
 
+function detailSourcesForHeld(dataDir, held) {
+  const bySlug = new Map()
+  for (const [slug, meta] of held.entries()) {
+    const detail = readJson(path.join(dataDir, meta.detailDir, `${slug}.json`), null)
+    const record = detail?.record && typeof detail.record === 'object' ? detail.record : detail
+    const sources = Array.isArray(record?.sources) ? record.sources : []
+    if (sources.length) bySlug.set(slug, sources)
+  }
+  return bySlug
+}
+
 export function reportHeldSourceVerificationQueue(root = process.cwd()) {
   const dataDir = path.join(root, 'public', 'data')
   const claims = readJson(path.join(dataDir, 'claims.json'), [])
   const overlayPath = path.join(root, 'scripts', 'data', 'apply-governance-overlay.mjs')
   const registry = parseSourceBackedRegistry(fs.readFileSync(overlayPath, 'utf8'))
   const held = heldProfileMap(dataDir)
-  const bySlug = new Map()
+  const claimRowsBySlug = new Map()
 
   for (const claim of Array.isArray(claims) ? claims : []) {
     const slug = text(claim?.profile_slug)
     if (!slug || !held.has(slug)) continue
-    const { pmid, doi, sourceUrl } = claimSourceSignals(claim)
-    if (!pmid && !doi && !sourceUrl) continue
-    const rows = bySlug.get(slug) ?? []
+    const summary = summarizeSignals([claim])
+    if (!hasAnySignal(summary)) continue
+    const rows = claimRowsBySlug.get(slug) ?? []
     rows.push(claim)
-    bySlug.set(slug, rows)
+    claimRowsBySlug.set(slug, rows)
   }
 
+  const detailRowsBySlug = detailSourcesForHeld(dataDir, held)
+  const signalSlugs = new Set([...claimRowsBySlug.keys(), ...detailRowsBySlug.keys()])
   const candidates = []
   const registeredWithSignals = []
-  for (const [slug, rows] of [...bySlug.entries()].sort(([a], [b]) => a.localeCompare(b))) {
-    const summary = summarizeClaimSources(rows)
+
+  for (const slug of [...signalSlugs].sort()) {
+    const claimSummary = summarizeSignals(claimRowsBySlug.get(slug) ?? [])
+    const detailSummary = summarizeSignals(detailRowsBySlug.get(slug) ?? [])
     const entry = {
       slug,
       ...held.get(slug),
-      claimCountWithSourceSignals: rows.length,
-      ...summary,
+      claimCountWithSourceSignals: (claimRowsBySlug.get(slug) ?? []).length,
+      detailSourceCount: (detailRowsBySlug.get(slug) ?? []).length,
+      claimSignals: claimSummary,
+      detailSignals: detailSummary,
+      provenanceLanes: [
+        ...(hasAnySignal(claimSummary) ? ['claim'] : []),
+        ...(hasAnySignal(detailSummary) ? ['detail'] : []),
+      ],
     }
     if (registry.has(slug)) registeredWithSignals.push(entry)
     else candidates.push(entry)
   }
 
+  const candidateHasClass = (row, klass) =>
+    row.claimSignals.sourceUrlClasses.includes(klass) || row.detailSignals.sourceUrlClasses.includes(klass)
+  const candidateHasPlaceholder = (row) =>
+    row.claimSignals.invalidPmidSignals.length > 0 ||
+    row.claimSignals.invalidDoiSignals.length > 0 ||
+    row.claimSignals.citationOnlyNotes.length > 0 ||
+    row.detailSignals.invalidPmidSignals.length > 0 ||
+    row.detailSignals.invalidDoiSignals.length > 0 ||
+    row.detailSignals.citationOnlyNotes.length > 0 ||
+    candidateHasClass(row, 'placeholder_or_non_url') ||
+    candidateHasClass(row, 'malformed_url')
+
   return {
-    modelVersion: 'held-source-verification-queue-v1',
+    modelVersion: 'held-source-verification-queue-v2',
     counts: {
       heldProfiles: held.size,
-      heldProfilesWithClaimSourceSignals: bySlug.size,
-      registeredWithClaimSourceSignals: registeredWithSignals.length,
+      heldProfilesWithAnySourceSignals: signalSlugs.size,
+      registeredWithAnySourceSignals: registeredWithSignals.length,
       unregisteredCandidates: candidates.length,
-      candidatesWithValidPmid: candidates.filter((row) => row.validPmids.length > 0).length,
-      candidatesWithValidDoi: candidates.filter((row) => row.validDois.length > 0).length,
-      candidatesWithDiscoveryOrAiUrl: candidates.filter((row) => row.sourceUrlClasses.includes('discovery_or_ai_tool')).length,
-      candidatesWithPlaceholderSignals: candidates.filter((row) =>
-        row.invalidPmidSignals.length > 0 ||
-        row.invalidDoiSignals.length > 0 ||
-        row.sourceUrlClasses.includes('placeholder_or_non_url') ||
-        row.sourceUrlClasses.includes('malformed_url')
-      ).length,
+      claimLaneCandidates: candidates.filter((row) => row.provenanceLanes.includes('claim')).length,
+      detailLaneCandidates: candidates.filter((row) => row.provenanceLanes.includes('detail')).length,
+      detailOnlyCandidates: candidates.filter((row) => row.provenanceLanes.length === 1 && row.provenanceLanes[0] === 'detail').length,
+      candidatesWithValidPmid: candidates.filter((row) => row.claimSignals.validPmids.length > 0 || row.detailSignals.validPmids.length > 0).length,
+      candidatesWithValidDoi: candidates.filter((row) => row.claimSignals.validDois.length > 0 || row.detailSignals.validDois.length > 0).length,
+      candidatesWithDiscoveryOrAiUrl: candidates.filter((row) => candidateHasClass(row, 'discovery_or_ai_tool')).length,
+      candidatesWithPlaceholderSignals: candidates.filter(candidateHasPlaceholder).length,
     },
     candidates,
     registeredWithSignals,
   }
+}
+
+function compactIds(summary) {
+  return [...new Set([...summary.validPmids.map((id) => `PMID ${id}`), ...summary.validDois.map((id) => `DOI ${id}`)])].join(', ') || '—'
+}
+
+function compactClasses(summary) {
+  const classes = [...summary.sourceUrlClasses]
+  if (summary.citationOnlyNotes.length) classes.push('citation_only_note')
+  if (summary.invalidPmidSignals.length || summary.invalidDoiSignals.length) classes.push('invalid_identifier')
+  return [...new Set(classes)].join(', ') || '—'
 }
 
 function writeReport(root, report) {
@@ -185,17 +244,19 @@ function writeReport(root, report) {
     `Model: \`${report.modelVersion}\``,
     '',
     `- Held profiles: **${report.counts.heldProfiles}**`,
-    `- Held profiles with claim source signals: **${report.counts.heldProfilesWithClaimSourceSignals}**`,
-    `- Already registered with claim source signals: **${report.counts.registeredWithClaimSourceSignals}**`,
+    `- Held profiles with any source signals: **${report.counts.heldProfilesWithAnySourceSignals}**`,
+    `- Already registered with source signals: **${report.counts.registeredWithAnySourceSignals}**`,
     `- Unregistered verification candidates: **${report.counts.unregisteredCandidates}**`,
+    `- Detail-only candidates: **${report.counts.detailOnlyCandidates}**`,
     '',
-    '| Slug | Type | Valid PMID | Valid DOI | Source URL class |',
-    '|---|---|---|---|---|',
+    '| Slug | Type | Lane | Claim IDs | Detail IDs | Claim URL class | Detail URL class |',
+    '|---|---|---|---|---|---|---|',
     ...report.candidates.map((row) =>
-      `| ${row.slug} | ${row.entityType} | ${row.validPmids.join(', ') || '—'} | ${row.validDois.join(', ') || '—'} | ${row.sourceUrlClasses.join(', ') || '—'} |`
+      `| ${row.slug} | ${row.entityType} | ${row.provenanceLanes.join('+')} | ${compactIds(row.claimSignals)} | ${compactIds(row.detailSignals)} | ${compactClasses(row.claimSignals)} | ${compactClasses(row.detailSignals)} |`
     ),
     '',
-    '> This report is an inventory, not a scientific verdict. Every candidate still requires source-level human review before registration.',
+    '> Claim and detail source lanes are intentionally separate. A generated detail `sources[]` entry is not, by itself, governed claim evidence.',
+    '> This report is an inventory, not a scientific verdict. Every candidate still requires source-level review before registration.',
     '',
   ]
   fs.writeFileSync(mdPath, lines.join('\n'))
@@ -212,6 +273,7 @@ if (isMain) {
     const { jsonPath, mdPath } = writeReport(root, report)
     console.log(`[held-source-verification] held profiles: ${report.counts.heldProfiles}`)
     console.log(`[held-source-verification] unregistered candidates: ${report.counts.unregisteredCandidates}`)
+    console.log(`[held-source-verification] detail-only candidates: ${report.counts.detailOnlyCandidates}`)
     console.log(`[held-source-verification] JSON: ${path.relative(root, jsonPath)}`)
     console.log(`[held-source-verification] Markdown: ${path.relative(root, mdPath)}`)
   }
