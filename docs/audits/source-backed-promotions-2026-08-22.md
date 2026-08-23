@@ -77,3 +77,75 @@ Article metadata retrieved from PubMed.
   rather than verification, and are the long-run body of work.
 
 The unit of progress here is one verified citation, not one promoted page.
+
+
+---
+
+# Second pass — 2026-08-23
+
+Verified the remaining 26 candidates carrying a well-formed PMID. Same rule:
+fetch the paper, read it, decide.
+
+## Registered — 17 more
+
+`23-epi-26-deoxyactein` (PMID 20032972, phase I PK of the compound itself in
+women given standardized black cohosh), `boron` (21129941, raises free
+testosterone), `capsaicin` (24941673, review of five RCTs for osteoarthritis
+pain), `chromium` and `chromium-picolinate` (15208835, review of chromium in
+insulin resistance, which addresses the picolinate form directly),
+`dihydrokavain` (12494336, GABAergic modulation in rat brainstem),
+`fadogia-agrestis` (16281088, testosterone in male rats), `folate` (15671130,
+folate and B12 in depression), `hyaluronic-acid` (32650511, oral sodium
+hyaluronate RCT in knee osteoarthritis), `kava` (12131602, placebo-controlled
+trial in generalized anxiety disorder), `nattokinase` (18971533, RCT on blood
+pressure), `passionflower-extract` (31714321, polysomnography RCT in insomnia),
+`plant-sterols` (24780090, meta-analysis of 124 studies on LDL),
+`saccharomyces-boulardii` (20458757, meta-analysis across 27 trials), `shilajit`
+(26395129, RCT on testosterone), `zeaxanthin` (23644932, AREDS2), `zinc`
+(15496046, review of zinc for the common cold).
+
+Where a citation covers only part of a multi-part claim, the registration
+comment says so — `boron` does not evidence the bone-health half,
+`hyaluronic-acid` covers joints and not skin, `shilajit` covers testosterone and
+not energy.
+
+## Rejected — 4 more misattributed
+
+| Profile | PMID | What the paper actually is | Filed under |
+|---|---|---|---|
+| hawthorn-extract | 17470176 | *"Hematospermia associated with congenital arteriovenous malformation of internal iliac vessels"* — a urology case report, [doi:10.1111/j.1442-2042.2007.01576.x](https://doi.org/10.1111/j.1442-2042.2007.01576.x) | mild heart failure support |
+| hesperidin | 32353900 | *"Short-range regulatory chromatin loops in plants"* — plant genomics review, [doi:10.1111/nph.16632](https://doi.org/10.1111/nph.16632) | vascular / anti-inflammatory |
+| potassium | 25059961 | *"One Health: time to move on from just talking"* — a Veterinary Record news item, [doi:10.1136/vr.g4746](https://doi.org/10.1136/vr.g4746) | heart_health, blood_pressure |
+| red-yeast-rice | 27282571 | *"Molecular characterization of six new cases of red blood cell hexokinase deficiency"* — haematology genetics, [doi:10.1016/j.bcmd.2016.04.002](https://doi.org/10.1016/j.bcmd.2016.04.002) | heart_health |
+
+`red-yeast-rice` → *red blood cell* is almost certainly a string-matching
+artefact, which suggests these were attached by text similarity rather than by
+reading.
+
+## Rejected — 1 dead identifier
+
+`policosanol` cites PMID 17127598, which NCBI does not recognise. This matches
+the single unresolvable PMID already recorded by `apply-pubmed-metadata.ts`.
+
+## Held for review — 1 ambiguous
+
+`gaba` cites PMID 41554764, a real and recent randomized trial — but of a
+*probiotic* (Lactiplantibacillus plantarum Lp815) that raises endogenous GABA.
+It does not test GABA supplementation, so citing it on a GABA supplement profile
+for "sleep, anxiety" would overstate what was measured. Not registered.
+
+## Running totals
+
+| | First pass | Second pass | Total |
+|---|---:|---:|---:|
+| Verified and registered | 8 | 17 | **25** |
+| Misattributed | 2 | 4 | **6** |
+| Dead identifier | 0 | 1 | 1 |
+| Ambiguous, held | 0 | 1 | 1 |
+| **Checked** | 10 | 23 | **33** |
+
+**Six misattributed citations in 33 checked — 18%.** The rate held almost
+exactly across both passes, which is the clearest possible argument for reading
+every citation before trusting it.
+
+Article metadata retrieved from PubMed.
