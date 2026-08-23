@@ -22,29 +22,47 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Classify release impact
+        id: impact
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          printf '%s\n' "$changed"
+          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
       - name: Setup Node from .nvmrc
+        if: steps.impact.outputs.docs_only != 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm ci
 
       - name: Build production output
+        if: steps.impact.outputs.docs_only != 'true'
         env:
           COMMIT_HASH: ${{ github.sha }}
         run: npm run build:deploy
 
       - name: Run production content lint
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/production-content-lint.mjs
 
       - name: Snapshot built production quality
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/build-production-quality-snapshot.mjs
 
       - name: Download latest successful main quality baseline
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && steps.impact.outputs.docs_only != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -60,6 +78,7 @@ jobs:
           fi
 
       - name: Compare against latest main production snapshot
+        if: steps.impact.outputs.docs_only != 'true'
         env:
           PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
           REQUIRE_QUALITY_CHANGE_EXPLANATION: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}

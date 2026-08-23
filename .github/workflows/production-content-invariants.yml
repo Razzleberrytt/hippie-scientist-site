@@ -48,47 +48,72 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Classify release impact
+        id: impact
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          printf '%s\n' "$changed"
+          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
       - name: Setup Node
+        if: steps.impact.outputs.docs_only != 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm ci
 
       - name: Exercise every invariant with deterministic fixtures
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/test-production-content-invariants.mjs
 
       # Start from the same governed corpus production deploys. Enforcing on raw
       # workbook output skips post-processing, citation quarantine, governance
       # overlay, and PubMed enrichment, which falsely demoted valid profiles.
       - name: Build canonical governed runtime data
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run data:build
 
       - name: Prepare explicit evidence provenance
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/data/prepare-production-evidence-provenance.mjs --data-dir=public/data
 
       - name: Scrub internal language and demote unsafe profiles
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/data/enforce-production-content-invariants.mjs --data-dir=public/data --refresh-derived
 
       - name: Validate the post-enforcement profile corpus
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/validate-production-content-invariants.mjs --data-dir=public/data
 
       - name: Validate post-enforcement indexability budget
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/validate-production-indexability-budget.mjs --data-dir=public/data
 
       - name: Build production static HTML from governed data
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/build-production.mjs
 
       - name: Apply production redirect overrides
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/seo/apply-redirect-overrides.mjs
 
       - name: Prove placeholders and dev language are absent from visible HTML
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/audit-production-visible-language.mjs
 
       - name: Verify profile robots after invariant demotions
+        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/audit-profile-robots.mjs
 
       - name: Upload invariant reports
