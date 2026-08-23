@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Leaf, Menu, X } from 'lucide-react'
@@ -216,9 +217,22 @@ export function Navigation() {
         </div>
       </div>
 
-      {mobileOpen && (
+      {/* Rendered into <body> rather than inline.
+        *
+        * This <nav> carries `backdrop-blur-xl`, and `backdrop-filter` makes an
+        * element a containing block for `position: fixed` descendants. Left
+        * inside, the drawer and its backdrop resolved `fixed` against the
+        * header instead of the viewport: the full-screen backdrop covered only
+        * the header band, so the page behind was never dimmed, and the drawer
+        * was pinned to the header's own box. A portal puts both back in the
+        * viewport's coordinate space.
+        *
+        * The z-indexes then have to clear the header itself (`z-[110]`), which
+        * is no longer an ancestor painting them above the page.
+        */}
+      {mobileOpen && typeof document !== 'undefined' && createPortal(
         <div id='mobile-nav' className='lg:hidden'>
-          <div className='fixed inset-0 z-40 bg-[rgba(20,22,22,0.42)] backdrop-blur-sm' onClick={closeMobile} aria-hidden='true' />
+          <div className='fixed inset-0 z-[115] bg-[rgba(20,22,22,0.42)] backdrop-blur-sm' onClick={closeMobile} aria-hidden='true' />
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- modal dialog handles Escape and Tab focus containment */}
           <div
             ref={mobileDialogRef}
@@ -226,7 +240,7 @@ export function Navigation() {
             aria-modal='true'
             aria-label='Mobile navigation menu'
             onKeyDown={handleMobileDialogKeyDown}
-            className='fixed inset-y-0 right-0 z-50 w-[min(22rem,calc(100vw-1rem))] overflow-y-auto rounded-l-[2rem] border-l border-[var(--border-soft)] bg-[var(--surface-elevated)] px-5 py-6 shadow-2xl'
+            className='fixed inset-y-0 right-0 z-[120] w-[min(22rem,calc(100vw-1rem))] overflow-y-auto rounded-l-[2rem] border-l border-[var(--border-soft)] bg-[var(--surface-elevated)] px-5 py-6 shadow-2xl'
             style={{ height: '100dvh' }}
           >
             <div className='mb-6 flex items-center justify-between gap-3'>
@@ -279,7 +293,8 @@ export function Navigation() {
               </div>
             </nav>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </nav>
   )
