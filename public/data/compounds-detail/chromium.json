@@ -61,8 +61,8 @@
       ]
     }
   ],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_77b5365e4e0b",
@@ -102,5 +102,9 @@
   "contraindications": [
     "liver",
     "kidney"
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }

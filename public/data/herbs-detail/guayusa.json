@@ -87,5 +87,19 @@
   },
   "claimMap": [],
   "dosage": "Preparation-specific; use standardized product label for Use moderate brewed preparations or products with disclosed caffeine content and require source-backed dosage review before therapeutic claims.",
-  "typical_dosage": "Preparation-specific; use standardized product label for Use moderate brewed preparations or products with disclosed caffeine content and require source-backed dosage review before therapeutic claims."
+  "typical_dosage": "Preparation-specific; use standardized product label for Use moderate brewed preparations or products with disclosed caffeine content and require source-backed dosage review before therapeutic claims.",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ]
 }

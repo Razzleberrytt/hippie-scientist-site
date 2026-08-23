@@ -36,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
@@ -46,5 +46,18 @@
     "autoimmune disease such as lupus or rheumatoid arthritis or multiple sclerosis due to potential immune-stimulating flare risk",
     "discontinue at least two weeks before scheduled surgery due to additive bleeding risk",
     "pregnancy or breastfeeding due to insufficient safety data."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "non-publishable-profile-status",
+    "profile-status:research_only",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
   ]
 }

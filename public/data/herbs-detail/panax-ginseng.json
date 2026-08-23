@@ -86,10 +86,20 @@
       ]
     }
   ],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
-  "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ],
   "dosage": "Ginseng preparations varied; species/preparation split needed. Dose/form ambiguous; schedule dose pass.",
   "typical_dosage": "Ginseng preparations varied; species/preparation split needed. Dose/form ambiguous; schedule dose pass."
 }

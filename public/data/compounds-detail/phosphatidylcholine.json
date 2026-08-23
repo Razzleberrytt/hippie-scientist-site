@@ -39,5 +39,9 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded",
+    "curated_allowlist"
+  ]
 }

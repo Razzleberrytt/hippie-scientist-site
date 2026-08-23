@@ -40,8 +40,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_f88a60c3992b",
@@ -61,5 +61,9 @@
     }
   ],
   "dosage": "chelated mineral capsule or powder",
-  "typical_dosage": "chelated mineral capsule or powder"
+  "typical_dosage": "chelated mineral capsule or powder",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

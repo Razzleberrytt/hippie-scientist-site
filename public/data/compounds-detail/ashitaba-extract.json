@@ -35,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
   "dosage": "—",
   "typical_dosage": "—",
   "contraindications": [
@@ -44,5 +44,18 @@
     "anticoagulant or antiplatelet medications such as warfarin due to the plant's coumarin content and a theoretical additive bleeding risk",
     "photosensitizing medications or planned prolonged sun exposure due to coumarin-related photosensitivity potential",
     "pregnancy or breastfeeding due to a lack of human safety data."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "non-publishable-profile-status",
+    "profile-status:research_only",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
   ]
 }

@@ -39,8 +39,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_5f66f401acda",
@@ -67,5 +67,18 @@
     "psychosis or schizophrenia due to L-DOPA's potential to worsen psychotic symptoms",
     "pregnancy or breastfeeding or use in children due to insufficient safety data",
     "concurrent antipsychotic medication due to opposing dopaminergic mechanisms that may blunt either drug's effect."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "non-publishable-profile-status",
+    "profile-status:research_only",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
   ]
 }

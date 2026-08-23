@@ -83,5 +83,11 @@
   },
   "claimMap": [],
   "dosage": "Standardized extract (0.3% hypericin or 2-5% hyperforin): ~900 mg/day in divided doses; formulation-dependent",
-  "typical_dosage": "Standardized extract (0.3% hypericin or 2-5% hyperforin): ~900 mg/day in divided doses; formulation-dependent"
+  "typical_dosage": "Standardized extract (0.3% hypericin or 2-5% hyperforin): ~900 mg/day in divided doses; formulation-dependent",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

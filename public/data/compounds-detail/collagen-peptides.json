@@ -40,10 +40,20 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
-  "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ],
   "sources": [
     {
       "id": "src_e613cf0b61e3",

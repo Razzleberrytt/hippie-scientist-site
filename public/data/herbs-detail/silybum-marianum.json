@@ -85,5 +85,19 @@
   },
   "claimMap": [],
   "dosage": "420-600 mg/day silymarin",
-  "typical_dosage": "420-600 mg/day silymarin"
+  "typical_dosage": "420-600 mg/day silymarin",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ]
 }

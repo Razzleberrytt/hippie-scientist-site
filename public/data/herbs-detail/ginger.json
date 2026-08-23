@@ -160,5 +160,17 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "dosage": "500-2,000 mg/day standardized extract; fresh ginger equivalent often around 3-4 g/day",
-  "typical_dosage": "500-2,000 mg/day standardized extract; fresh ginger equivalent often around 3-4 g/day"
+  "typical_dosage": "500-2,000 mg/day standardized extract; fresh ginger equivalent often around 3-4 g/day",
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "curated_allowlist"
+  ]
 }

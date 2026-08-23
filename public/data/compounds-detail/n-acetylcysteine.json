@@ -43,5 +43,17 @@
   "typical_dosage": "softgel or liquid oil",
   "contraindications": [
     "Caution with asthma."
+  ],
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "curated_allowlist"
   ]
 }

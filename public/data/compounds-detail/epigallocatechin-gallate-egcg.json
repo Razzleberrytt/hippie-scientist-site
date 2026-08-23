@@ -50,5 +50,17 @@
     "concentrated extracts often retain caffeine content so stimulant-sensitive users or those with anxiety or insomnia should use caution",
     "may interact with anticoagulant or antiplatelet medications or certain blood pressure drugs",
     "pregnancy or breastfeeding caution due to insufficient safety data."
+  ],
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "curated_allowlist"
   ]
 }

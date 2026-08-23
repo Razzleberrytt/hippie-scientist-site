@@ -85,5 +85,19 @@
   },
   "claimMap": [],
   "dosage": "1-3 g/day extract",
-  "typical_dosage": "1-3 g/day extract"
+  "typical_dosage": "1-3 g/day extract",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ]
 }

@@ -58,10 +58,20 @@
       ]
     }
   ],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
-  "sitemap_included": false,
-  "indexability_reasons": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:primary_runtime_priority",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ],
   "sources": [
     {
       "id": "src_783236db1529",

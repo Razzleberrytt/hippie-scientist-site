@@ -88,5 +88,17 @@
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
   "dosage": "1000-2000 mg extract",
-  "typical_dosage": "1000-2000 mg extract"
+  "typical_dosage": "1000-2000 mg extract",
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "curated_allowlist"
+  ]
 }

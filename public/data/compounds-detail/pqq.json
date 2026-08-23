@@ -34,13 +34,26 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
     "pregnancy or breastfeeding was excluded from EFSA's novel food safety evaluation and should be avoided without clinician guidance",
     "doses well above the 20 milligram per day EFSA-reviewed level may raise kidney damage risk from pro-oxidant activity",
     "limited human data exist on interactions with other medications affecting energy metabolism or mitochondrial function and warrants clinician guidance for those on prescription drugs"
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "non-publishable-profile-status",
+    "profile-status:research_only",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
   ]
 }

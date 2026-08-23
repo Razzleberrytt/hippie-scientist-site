@@ -82,5 +82,19 @@
   },
   "claimMap": [],
   "dosage": "100-250 mg AKBA-standardized extract",
-  "typical_dosage": "100-250 mg AKBA-standardized extract"
+  "typical_dosage": "100-250 mg AKBA-standardized extract",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ]
 }

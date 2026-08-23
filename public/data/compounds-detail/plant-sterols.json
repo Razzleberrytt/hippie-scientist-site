@@ -39,8 +39,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_dc5e91c8cd2f",
@@ -60,5 +60,9 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

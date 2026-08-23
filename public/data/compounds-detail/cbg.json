@@ -37,8 +37,12 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "dosage": "not recommended for consumer purchase",
-  "typical_dosage": "not recommended for consumer purchase"
+  "typical_dosage": "not recommended for consumer purchase",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

@@ -93,8 +93,8 @@
       ]
     }
   ],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_52dfe1333a89",
@@ -131,5 +131,9 @@
   "typical_dosage": "standardized extract",
   "contraindications": [
     "cardiovascular"
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }

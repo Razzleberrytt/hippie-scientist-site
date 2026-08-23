@@ -45,8 +45,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_7ae7a5ea3481",
@@ -73,5 +73,18 @@
     "diabetes medication or insulin due to enhanced blood sugar lowering effect and hypoglycemia risk",
     "anticoagulant or antiplatelet medications due to increased bleeding risk",
     "pregnancy or breastfeeding due to insufficient safety data"
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "non-publishable-profile-status",
+    "profile-status:research_only",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
   ]
 }

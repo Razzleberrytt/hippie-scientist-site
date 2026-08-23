@@ -42,8 +42,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [],
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
@@ -55,5 +55,9 @@
     "May increase bleeding risk with anticoagulants/antiplatelets such as warfarin or aspirin or clopidogrel",
     "may potentiate antidiabetic and antihypertensive medications",
     "garlic constituents have been reported to reduce plasma levels of saquinavir and other CYP3A4-metabolized drugs."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }

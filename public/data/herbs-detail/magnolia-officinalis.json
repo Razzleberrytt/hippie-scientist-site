@@ -85,5 +85,19 @@
   },
   "claimMap": [],
   "dosage": "Magnolia officinalis neolignans; fetched abstract unavailable. No dose claim from fetched source.",
-  "typical_dosage": "Magnolia officinalis neolignans; fetched abstract unavailable. No dose claim from fetched source."
+  "typical_dosage": "Magnolia officinalis neolignans; fetched abstract unavailable. No dose claim from fetched source.",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ]
 }

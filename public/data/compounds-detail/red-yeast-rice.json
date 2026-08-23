@@ -39,8 +39,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_3aa4c686d649",
@@ -61,5 +61,9 @@
   "typical_dosage": "tested extract",
   "contraindications": [
     "liver"
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }

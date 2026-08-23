@@ -156,6 +156,19 @@ const steps = [
     outputs: ['public/data/summary-indexes/herbs-summary.json', 'public/data/summary-indexes/compounds-summary.json', 'public/data/summary-indexes/search-index.json', 'public/data/summary-indexes/alphabetical-shards.json', 'public/data/summary-indexes/entity-shards.json', 'public/data/summary-indexes/alpha-entity-shards.json'],
   },
   {
+    // Indexability was stored four times per profile and only two of the four
+    // agreed. This copies the detail payloads' status/robots/sitemap triple
+    // from the summary index — the copy `app/sitemap.ts` and the profile pages
+    // actually read — instead of letting it be maintained separately. It
+    // changes no governance decision, so the gate immediately below should
+    // report zero divergence rather than a shrinking number.
+    name: 'sync-detail-indexability',
+    cmd: 'node scripts/data/sync-detail-indexability.mjs --data-dir=public/data',
+    inputs: ['public/data/summary-indexes/herbs-summary.json', 'public/data/summary-indexes/compounds-summary.json', 'public/data/herbs-detail/**/*.json', 'public/data/compounds-detail/**/*.json', 'scripts/data/sync-detail-indexability.mjs'],
+    outputs: ['public/data/herbs-detail/**/*.json', 'public/data/compounds-detail/**/*.json'],
+    cacheable: false,
+  },
+  {
     name: 'validate-indexability-divergence',
     cmd: 'node scripts/ci/report-indexability-divergence.mjs --data-dir=public/data',
     inputs: ['public/data/summary-indexes/*.json', 'public/data/herbs-detail/**/*.json', 'public/data/compounds-detail/**/*.json', 'config/indexability-divergence-baseline.json', 'scripts/ci/report-indexability-divergence.mjs'],

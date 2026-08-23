@@ -89,5 +89,17 @@
     "hyperthyroidism or Graves disease may worsen with added thyroid hormone production",
     "levodopa or other dopaminergic Parkinson's medications may have altered absorption",
     "stimulant medications may compound overstimulation"
+  ],
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing",
+    "curated_allowlist"
   ]
 }

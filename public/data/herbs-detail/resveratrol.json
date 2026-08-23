@@ -175,5 +175,19 @@
     }
   ],
   "dosage": "150-500 mg/day",
-  "typical_dosage": "150-500 mg/day"
+  "typical_dosage": "150-500 mg/day",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ]
 }

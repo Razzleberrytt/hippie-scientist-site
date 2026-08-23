@@ -59,8 +59,8 @@
       ]
     }
   ],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_6833b35c98eb",
@@ -80,5 +80,9 @@
     }
   ],
   "dosage": "softgel or liquid oil",
-  "typical_dosage": "softgel or liquid oil"
+  "typical_dosage": "softgel or liquid oil",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }

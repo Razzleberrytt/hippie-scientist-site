@@ -59,8 +59,8 @@
       ]
     }
   ],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "BLOCKED",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_215b4cf4fb91",
@@ -83,5 +83,9 @@
   "typical_dosage": "—",
   "contraindications": [
     "Caution in liver disease."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "blocked-decision:alias_redirect_only"
   ]
 }

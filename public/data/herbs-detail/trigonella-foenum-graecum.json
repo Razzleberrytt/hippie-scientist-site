@@ -83,5 +83,19 @@
   },
   "claimMap": [],
   "dosage": "5-25 g seed powder OR 1 g extract",
-  "typical_dosage": "5-25 g seed powder OR 1 g extract"
+  "typical_dosage": "5-25 g seed powder OR 1 g extract",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:top50_authority_patched",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ]
 }

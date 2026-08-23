@@ -40,7 +40,18 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": [],
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing",
+    "manual_editorial_review"
+  ],
   "dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
   "typical_dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
   "contraindications": [

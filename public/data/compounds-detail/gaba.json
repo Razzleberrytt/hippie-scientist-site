@@ -42,8 +42,8 @@
     ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_1ea4b8e52a2c",
@@ -67,5 +67,9 @@
   "typical_dosage": "powder or capsule",
   "contraindications": [
     "Limited data."
+  ],
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
   ]
 }

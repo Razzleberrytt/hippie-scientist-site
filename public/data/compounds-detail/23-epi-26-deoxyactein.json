@@ -73,8 +73,8 @@
       ]
     }
   ],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
   "sources": [
     {
       "id": "src_95d2b5e35858",
@@ -94,5 +94,9 @@
     }
   ],
   "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
-  "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended"
+  "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "sitemap_included": false,
+  "indexability_reasons": [
+    "noindex-decision:hidden_until_grounded"
+  ]
 }
