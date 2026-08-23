@@ -214,6 +214,46 @@ const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
   // glucomannan — PMID 24533610, systematic review and meta-analysis of glucomannan
   //   for weight loss. Null result; registered on the same basis as bromelain.
   'glucomannan',
+  // Verified against the biomedical record 2026-08-23. Registration records that
+  // the citation is real and on-entity; it does not upgrade the evidence outcome,
+  // bypass profile completeness, or force live indexability.
+  // capsaicin — PMID 24941673, clinical review of topical capsaicin for OA pain.
+  'capsaicin',
+  // boron — PMID 21129941, small human boron-supplementation study (n=8); narrow
+  //   endocrine/inflammatory biomarker context only.
+  'boron',
+  // kava — PMID 12131602, placebo-controlled GAD study; primary kava-placebo
+  //   difference was not statistically significant, so the null/mixed result stands.
+  'kava',
+  // shilajit — PMID 26395129, purified shilajit trial measuring testosterone in
+  //   healthy volunteers; population and preparation remain part of the claim scope.
+  'shilajit',
+  // nattokinase — PMID 18971533, randomized controlled trial on blood pressure.
+  'nattokinase',
+  // zeaxanthin — PMID 23644932, AREDS2 phase-3 RCT of lutein + zeaxanthin and/or
+  //   omega-3 added to AREDS; primary analyses were null and combination-specific.
+  'zeaxanthin',
+  // plant-sterols — PMID 24780090, meta-analysis of randomized controlled studies
+  //   across plant-sterol/stanol dose ranges and LDL cholesterol.
+  'plant-sterols',
+  // saccharomyces-boulardii — PMID 20458757, systematic review/meta-analysis of
+  //   S. boulardii in adult patients.
+  'saccharomyces-boulardii',
+  // hyaluronic-acid — PMID 32650511, double-blind randomized placebo-controlled
+  //   trial of oral sodium hyaluronate in knee osteoarthritis.
+  'hyaluronic-acid',
+  // passionflower-extract — PMID 31714321, double-blind randomized placebo-controlled
+  //   Passiflora incarnata polysomnography study in insomnia disorder.
+  'passionflower-extract',
+  // 23-epi-26-deoxyactein — PMID 20032972, human pharmacokinetics after standardized
+  //   black-cohosh extract. This grounds PK/acute-safety context, not efficacy.
+  '23-epi-26-deoxyactein',
+  // dihydrokavain — PMID 12494336, rat gastric-brainstem preparation. Valid source,
+  //   explicitly preclinical; it must not be presented as a human outcome study.
+  'dihydrokavain',
+  // lions-mane — PMID 18844328, double-blind placebo-controlled Hericium erinaceus
+  //   trial in 30 adults with mild cognitive impairment.
+  'lions-mane',
   '11-keto-beta-boswellic-acid',
   'acarbose',
   'acemannan',
