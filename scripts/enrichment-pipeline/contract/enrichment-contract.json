@@ -1,0 +1,342 @@
+{
+  "contract_version": 1,
+  "canonical_source": {
+    "workbook": "data-sources/herb_monograph_master.xlsx",
+    "entity_sheet": "Entity_Master",
+    "entity_sheet_fallbacks": ["Sheet7", "Herb Master V3"],
+    "key_column": "slug",
+    "type_column": "entity_type",
+    "entity_types": ["herb", "compound"]
+  },
+  "import_path": {
+    "mechanism": "reviewable workbook patch",
+    "patch_directory": "data-sources/workbook-patches",
+    "runner": "scripts/data/apply-workbook-patch.mjs",
+    "ci_validator": "scripts/ci/validate-workbook-patches.mjs",
+    "note": "The pipeline never writes the workbook itself. Validated candidates are exported as workbook patches which a human must move from status 'proposal' to 'approved' before the existing atomic runner may write."
+  },
+  "non_importable_sheets": {
+    "Evidence_Register": {
+      "reason": "No safe programmatic write path exists for this sheet. scripts/data/edit-entity-master-cell.mjs is slug-keyed and Entity_Master-only.",
+      "supported_route": "Additive research ledger at data-sources/runtime-enrichment/ (evidence and source rows only, applied through the parser, never replacing canonical values).",
+      "pipeline_behaviour": "Candidates targeting this sheet are export-only and always route to manual review."
+    },
+    "Source_Register": {
+      "reason": "Same as Evidence_Register.",
+      "supported_route": "Additive research ledger at data-sources/runtime-enrichment/, plus the existing PubMed metadata backfill (npm run citations:fetch-pubmed, npm run citations:apply-pubmed).",
+      "pipeline_behaviour": "Candidates targeting this sheet are export-only and always route to manual review."
+    },
+    "Entity_Relationships": {
+      "reason": "Relationship edges are governed by the additive ledger's endpoint-existence rules.",
+      "supported_route": "data-sources/runtime-enrichment/ ledger.",
+      "pipeline_behaviour": "Out of scope for automatic enrichment."
+    }
+  },
+  "defaults": {
+    "type": "string",
+    "required": false,
+    "nullable": true,
+    "overwrite_policy": "never",
+    "requires_human_review": false,
+    "min_sources": 0,
+    "accepted_source_classes": [],
+    "min_evidence_level": "none",
+    "normalizer": "text",
+    "max_length": 4000,
+    "field_priority": "P3"
+  },
+  "fields": {
+    "entity_type": {
+      "enrichment": "prohibited",
+      "rationale": "Entity identity. Changing it re-routes the entity across the whole site."
+    },
+    "slug": {
+      "enrichment": "prohibited",
+      "rationale": "Route contract and primary key. Renames require a redirect in public/_redirects."
+    },
+    "name": {
+      "enrichment": "prohibited",
+      "rationale": "Entity identity and canonical display name."
+    },
+
+    "latin_name": {
+      "enrichment": "automatic",
+      "overwrite_policy": "only-if-empty",
+      "min_sources": 1,
+      "accepted_source_classes": ["reference-database-authority", "regulatory-agency-monograph-guidance"],
+      "min_evidence_level": "regulatory-monograph",
+      "normalizer": "binomialName",
+      "max_length": 120,
+      "field_priority": "P2",
+      "applies_to_entity_types": ["herb"],
+      "rationale": "Taxonomic binomial verifiable against a nomenclatural authority (POWO, WFO, NCBI Taxonomy, GBIF). Not a health claim.",
+      "gap_note": "687 blank rows at baseline; the single largest structured gap in Entity_Master."
+    },
+
+    "class_or_domain": {
+      "field_priority": "P3",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "rationale": "Drives cluster routing and discovery surfaces; a reclassification changes which pages an entity appears on."
+    },
+    "primary_effects_or_targets": {
+      "field_priority": "P2",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Claim-bearing and user-visible. Also a parser-required column."
+    },
+
+    "secondary_effects": {
+      "enrichment": "automatic",
+      "overwrite_policy": "only-if-empty",
+      "requires_human_review": true,
+      "min_sources": 1,
+      "accepted_source_classes": [
+        "systematic-review-meta-analysis",
+        "randomized-human-trial",
+        "non-randomized-human-study",
+        "observational-human-evidence"
+      ],
+      "min_evidence_level": "human-observational",
+      "normalizer": "semicolonList",
+      "max_length": 400,
+      "field_priority": "P2",
+      "rationale": "Secondary effect targets are claim-bearing, so a human must accept them even though the cell is empty. Human evidence required - mechanistic sources alone may not create an effect claim.",
+      "gap_note": "865 blank rows at baseline."
+    },
+
+    "mechanism_summary": {
+      "field_priority": "P3",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "User-visible mechanistic prose; fully populated. Rewrites are editorial, not gap-filling."
+    },
+
+    "canonical_pathways": {
+      "enrichment": "automatic",
+      "overwrite_policy": "only-if-empty",
+      "min_sources": 1,
+      "accepted_source_classes": [
+        "systematic-review-meta-analysis",
+        "randomized-human-trial",
+        "non-randomized-human-study",
+        "observational-human-evidence",
+        "preclinical-mechanistic-study"
+      ],
+      "min_evidence_level": "preclinical-mechanistic",
+      "normalizer": "semicolonList",
+      "max_length": 300,
+      "field_priority": "P2",
+      "controlled_vocabulary_source": "public/data/canonical-mechanisms.json",
+      "rationale": "Mechanistic pathway labels drawn from the canonical mechanism vocabulary. Preclinical sources are acceptable because a pathway label is explicitly mechanistic, not a clinical outcome.",
+      "gap_note": "119 blank rows at baseline."
+    },
+
+    "evidence_grade": {
+      "field_priority": "P3",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Evidence grading is a human editorial judgement and gates claim language across the site.",
+      "data_quality_note": "32 distinct raw values at baseline - needs a normalization pass before any automatic writing could be considered."
+    },
+    "evidence_tier": {
+      "field_priority": "P2",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Parser-required column that drives indexability and claim gates."
+    },
+    "confidence_tier": {
+      "field_priority": "P3",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Editorial confidence judgement.",
+      "data_quality_note": "18 distinct raw values at baseline."
+    },
+
+    "human_evidence_count": {
+      "enrichment": "derived",
+      "rationale": "Counted from Evidence_Register; writing it directly would desynchronize it from its source rows."
+    },
+    "source_count": {
+      "enrichment": "derived",
+      "rationale": "Counted from Source_Register."
+    },
+    "source_status": {
+      "enrichment": "derived",
+      "rationale": "Reflects the state of the source backfill passes."
+    },
+
+    "safety_notes": {
+      "field_priority": "P1",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Safety-critical, user-visible, and gated by validate:safety-visibility."
+    },
+    "contraindications_or_flags": {
+      "field_priority": "P1",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Safety-critical. An omission here is a user-harm risk, so no automatic write is acceptable.",
+      "gap_note": "269 blank rows at baseline - highest-value manual-review queue."
+    },
+    "dosage_or_preferred_form": {
+      "field_priority": "P2",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Dose content is gated by publish_status and validate:claim-discipline; studied regimens must never be phrased as recommendations."
+    },
+    "runtime_safety": {
+      "field_priority": "P2",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Runtime-surfaced safety string."
+    },
+
+    "benefit_score": { "enrichment": "derived", "rationale": "Computed score." },
+    "risk_score": { "enrichment": "derived", "rationale": "Computed score." },
+    "net_score": { "enrichment": "derived", "rationale": "Computed score." },
+    "recommendation_weight": { "enrichment": "derived", "rationale": "Computed ranking weight." },
+    "discovery_weight": { "enrichment": "derived", "rationale": "Computed ranking weight." },
+    "authority_score": { "enrichment": "derived", "rationale": "Computed ranking weight." },
+
+    "profile_status": {
+      "enrichment": "prohibited",
+      "rationale": "Publishing control; parser-required."
+    },
+    "publish_status": { "enrichment": "prohibited", "rationale": "Publishing control." },
+    "runtime_class": { "enrichment": "prohibited", "rationale": "Runtime routing control." },
+    "runtime_export_decision": {
+      "enrichment": "prohibited",
+      "rationale": "Publishing control; parser-required and drives indexability."
+    },
+    "public_search_visibility": { "enrichment": "prohibited", "rationale": "Publishing control." },
+    "seo_indexing_recommendation": { "enrichment": "prohibited", "rationale": "Indexing control." },
+    "ai_retrieval_priority": { "enrichment": "prohibited", "rationale": "Retrieval control." },
+    "semantic_priority": { "enrichment": "prohibited", "rationale": "Retrieval control." },
+
+    "canonical_ecosystem": {
+      "enrichment": "automatic",
+      "overwrite_policy": "only-if-empty",
+      "min_sources": 1,
+      "accepted_source_classes": [
+        "internal-canonical",
+        "systematic-review-meta-analysis",
+        "randomized-human-trial",
+        "preclinical-mechanistic-study"
+      ],
+      "min_evidence_level": "internal-canonical",
+      "normalizer": "semicolonList",
+      "max_length": 200,
+      "field_priority": "P3",
+      "rationale": "Classification label re-derived from canonical_pathways and class_or_domain, both of which already carry provenance.",
+      "gap_note": "16 blank rows at baseline."
+    },
+    "topic_ecosystems": {
+      "enrichment": "automatic",
+      "overwrite_policy": "only-if-empty",
+      "min_sources": 1,
+      "accepted_source_classes": [
+        "internal-canonical",
+        "systematic-review-meta-analysis",
+        "randomized-human-trial",
+        "preclinical-mechanistic-study"
+      ],
+      "min_evidence_level": "internal-canonical",
+      "normalizer": "semicolonList",
+      "max_length": 400,
+      "field_priority": "P3",
+      "rationale": "Classification label set re-derived from canonical data.",
+      "gap_note": "16 blank rows at baseline."
+    },
+
+    "summary": {
+      "field_priority": "P2",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Parser-required, user-visible, claim-bearing prose. Fully populated apart from 3 rows; those 3 are editorial work, not automated gap-filling."
+    },
+    "source_tables": {
+      "enrichment": "prohibited",
+      "rationale": "Provenance bookkeeping written by the workbook passes."
+    },
+
+    "description": {
+      "enrichment": "automatic",
+      "overwrite_policy": "only-if-empty",
+      "requires_human_review": true,
+      "min_sources": 2,
+      "accepted_source_classes": [
+        "systematic-review-meta-analysis",
+        "randomized-human-trial",
+        "non-randomized-human-study",
+        "observational-human-evidence",
+        "regulatory-agency-monograph-guidance"
+      ],
+      "min_evidence_level": "human-observational",
+      "normalizer": "prose",
+      "max_length": 1200,
+      "field_priority": "P3",
+      "rationale": "Long-form user-visible prose. Empty-cell-only, two human-evidence sources minimum, and always human-accepted before import."
+    },
+
+    "doNotMonetize": { "enrichment": "prohibited", "rationale": "Monetization governance." },
+    "doNotPromote": { "enrichment": "prohibited", "rationale": "Promotion governance." },
+    "governance_status": { "enrichment": "prohibited", "rationale": "Governance control." },
+    "legal_status": { "enrichment": "prohibited", "rationale": "Legal/regulatory control." },
+    "regulatory_status": { "enrichment": "prohibited", "rationale": "Regulatory control." },
+    "controlled_substance": { "enrichment": "prohibited", "rationale": "Regulatory control." },
+    "regulatory_federal": { "enrichment": "prohibited", "rationale": "Regulatory control." },
+    "last_regulatory_check": {
+      "enrichment": "prohibited",
+      "rationale": "Regulatory review bookkeeping - only a human regulatory review may stamp it."
+    },
+    "regulatory_changelog": { "enrichment": "prohibited", "rationale": "Regulatory audit trail." },
+    "allow_restricted_reference_export": {
+      "enrichment": "prohibited",
+      "rationale": "Restricted-substance export governance."
+    },
+
+    "tags": {
+      "field_priority": "P4",
+      "enrichment": "manual-review",
+      "overwrite_policy": "manual-review",
+      "requires_human_review": true,
+      "rationale": "Editorial badges rendered on profile pages."
+    },
+
+    "keywords": {
+      "enrichment": "automatic",
+      "overwrite_policy": "only-if-empty",
+      "min_sources": 1,
+      "accepted_source_classes": [
+        "internal-canonical",
+        "reference-database-authority",
+        "regulatory-agency-monograph-guidance"
+      ],
+      "min_evidence_level": "internal-canonical",
+      "normalizer": "semicolonList",
+      "max_length": 300,
+      "field_priority": "P4",
+      "rationale": "Synonyms and alternate names. Non-claim-bearing retrieval metadata."
+    },
+
+    "last_updated": {
+      "enrichment": "derived",
+      "rationale": "Stamped by the importer when a patch is applied, never researched."
+    },
+    "last_reviewed": {
+      "enrichment": "derived",
+      "rationale": "Stamped by a human reviewer, never researched."
+    }
+  }
+}

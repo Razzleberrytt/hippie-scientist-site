@@ -1,0 +1,96 @@
+{
+  "contract_version": 1,
+  "description": "Source-quality and evidence-level vocabulary for the canonical enrichment pipeline. Extends schemas/source-class-governance.json with the internal-canonical class used for values derived from already-cited canonical data.",
+  "evidence_levels": {
+    "none": { "rank": 0, "label": "No supporting evidence" },
+    "internal-canonical": { "rank": 1, "label": "Derived from already-cited canonical workbook data" },
+    "traditional-use": { "rank": 2, "label": "Traditional-use monograph or ethnobotanical record" },
+    "preclinical-mechanistic": { "rank": 3, "label": "In vitro or animal mechanistic study" },
+    "human-observational": { "rank": 4, "label": "Human observational study" },
+    "human-clinical": { "rank": 5, "label": "Controlled human trial" },
+    "regulatory-monograph": { "rank": 6, "label": "Regulatory agency monograph, guidance, or reference-database authority" },
+    "systematic-review": { "rank": 7, "label": "Systematic review or meta-analysis of human studies" }
+  },
+  "source_classes": {
+    "systematic-review-meta-analysis": {
+      "quality_tier": 1,
+      "evidence_level": "systematic-review",
+      "identifier_required": true,
+      "accepted_identifiers": ["doi", "pmid", "pmcid"]
+    },
+    "regulatory-agency-monograph-guidance": {
+      "quality_tier": 1,
+      "evidence_level": "regulatory-monograph",
+      "identifier_required": false,
+      "accepted_identifiers": ["url"],
+      "authority_hosts": [
+        "ods.od.nih.gov",
+        "www.ncbi.nlm.nih.gov",
+        "www.fda.gov",
+        "www.ema.europa.eu",
+        "www.who.int",
+        "www.accessdata.fda.gov"
+      ]
+    },
+    "randomized-human-trial": {
+      "quality_tier": 2,
+      "evidence_level": "human-clinical",
+      "identifier_required": true,
+      "accepted_identifiers": ["doi", "pmid", "pmcid"]
+    },
+    "non-randomized-human-study": {
+      "quality_tier": 2,
+      "evidence_level": "human-clinical",
+      "identifier_required": true,
+      "accepted_identifiers": ["doi", "pmid", "pmcid"]
+    },
+    "observational-human-evidence": {
+      "quality_tier": 2,
+      "evidence_level": "human-observational",
+      "identifier_required": true,
+      "accepted_identifiers": ["doi", "pmid", "pmcid"]
+    },
+    "preclinical-mechanistic-study": {
+      "quality_tier": 3,
+      "evidence_level": "preclinical-mechanistic",
+      "identifier_required": true,
+      "accepted_identifiers": ["doi", "pmid", "pmcid"]
+    },
+    "traditional-use-monograph": {
+      "quality_tier": 3,
+      "evidence_level": "traditional-use",
+      "identifier_required": false,
+      "accepted_identifiers": ["url", "isbn"]
+    },
+    "reference-database-authority": {
+      "quality_tier": 3,
+      "evidence_level": "regulatory-monograph",
+      "identifier_required": false,
+      "accepted_identifiers": ["url"],
+      "authority_hosts": [
+        "powo.science.kew.org",
+        "www.gbif.org",
+        "api.gbif.org",
+        "www.worldfloraonline.org",
+        "www.ncbi.nlm.nih.gov",
+        "pubchem.ncbi.nlm.nih.gov",
+        "www.ipni.org",
+        "www.tropicos.org"
+      ]
+    },
+    "internal-canonical": {
+      "quality_tier": 4,
+      "evidence_level": "internal-canonical",
+      "identifier_required": false,
+      "accepted_identifiers": ["canonical_ref"],
+      "note": "Used only for classification fields whose value is re-derived from other canonical workbook columns that already carry their own provenance. Never acceptable for a claim-bearing field."
+    }
+  },
+  "confidence_levels": ["low", "moderate", "high"],
+  "overwrite_policies": {
+    "never": "The field is never written by the pipeline.",
+    "only-if-empty": "Write only when the canonical cell is empty or missing-like. A populated cell is a no-op unless the value is equivalent.",
+    "only-if-higher-confidence": "Write when the canonical cell is empty, or when the candidate carries a strictly higher evidence rank AND high confidence. Any replacement of a non-equivalent populated value routes to review.",
+    "manual-review": "Never written automatically. Candidates are exported for a human to accept."
+  }
+}

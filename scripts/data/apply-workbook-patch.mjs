@@ -128,6 +128,39 @@ const HUMAN_REVIEW_COLUMNS = new Set([
 ])
 const DOI_PATTERN = /^10\.\d{4,9}\/\S+$/i
 
+/**
+ * Nomenclatural and reference-database authorities do not issue DOIs, so a
+ * source may declare `source_type: "authority-reference"` and cite a URL on one
+ * of these hosts instead. The exemption is deliberately narrow: a change whose
+ * *only* support is authority-reference sources may target nothing but the
+ * columns in AUTHORITY_ONLY_COLUMNS — non-claim, non-safety metadata. Anything
+ * that carries a health claim still requires a DOI-backed source.
+ */
+const AUTHORITY_SOURCE_TYPE = 'authority-reference'
+const AUTHORITY_HOSTS = [
+  'powo.science.kew.org',
+  'gbif.org',
+  'worldfloraonline.org',
+  'ncbi.nlm.nih.gov',
+  'ipni.org',
+  'tropicos.org',
+  'ods.od.nih.gov',
+  'fda.gov',
+  'ema.europa.eu',
+  'who.int',
+]
+const AUTHORITY_ONLY_COLUMNS = new Set(['latin_name', 'keywords'])
+
+function authorityHostOf(url) {
+  let host
+  try {
+    host = new URL(String(url || '')).hostname.toLowerCase().replace(/^www\./, '')
+  } catch {
+    return ''
+  }
+  return AUTHORITY_HOSTS.some((allowed) => host === allowed || host.endsWith(`.${allowed}`)) ? host : ''
+}
+
 function usage(exitCode = 0) {
   const stream = exitCode === 0 ? process.stdout : process.stderr
   stream.write(`Reviewable Entity_Master workbook patch runner\n\nUsage:\n  node scripts/data/apply-workbook-patch.mjs --patch data-sources/workbook-patches/example.json\n  node scripts/data/apply-workbook-patch.mjs --patch patch.json --apply --out /tmp/edited.xlsx\n  node scripts/data/apply-workbook-patch.mjs --patch patch.json --apply --in-place --approve-human-review\n\nOptions:\n  --patch <path>          JSON patch file (required)\n  --workbook <path>       Workbook path (default: data-sources/herb_monograph_master.xlsx)\n  --apply                 Write the patch; omitted means validation/dry-run only\n  --out <path>            Output workbook path when applying\n  --in-place              Atomically replace the source workbook when applying\n  --approve-human-review  Confirm review of dosage, safety, interaction, or evidence-grade fields\n  --help                  Show this help\n`)
@@ -238,6 +271,7 @@ function validatePatchStructure(patch, patchPath) {
   }
 
   const sourceIds = new Set()
+  const authorityOnlySourceIds = new Set()
   for (const [index, source] of (patch.sources || []).entries()) {
     const prefix = `sources[${index}]`
     const id = String(source?.id || '').trim()
@@ -245,7 +279,19 @@ function validatePatchStructure(patch, patchPath) {
     if (!id) errors.push(`${prefix}.id is required`)
     if (id && sourceIds.has(id)) errors.push(`${prefix}.id duplicates ${id}`)
     if (id) sourceIds.add(id)
-    if (!DOI_PATTERN.test(doi)) errors.push(`${prefix}.doi is not a valid DOI`)
+    if (source?.source_type === AUTHORITY_SOURCE_TYPE) {
+      const host = authorityHostOf(source?.url)
+      if (!host) {
+        errors.push(
+          `${prefix} is ${AUTHORITY_SOURCE_TYPE} and must cite a url on an accepted authority host ` +
+            `(${AUTHORITY_HOSTS.join(', ')})`,
+        )
+      }
+      if (doi && !DOI_PATTERN.test(doi)) errors.push(`${prefix}.doi is present but not a valid DOI`)
+      if (id && !doi) authorityOnlySourceIds.add(id)
+    } else if (!DOI_PATTERN.test(doi)) {
+      errors.push(`${prefix}.doi is not a valid DOI`)
+    }
     if (!String(source?.title || '').trim()) errors.push(`${prefix}.title is required`)
     if (!Number.isInteger(source?.year) || source.year < 1900 || source.year > 2100) {
       errors.push(`${prefix}.year must be a plausible integer year`)
@@ -279,6 +325,15 @@ function validatePatchStructure(patch, patchPath) {
     } else {
       for (const sourceId of change.source_ids) {
         if (!sourceIds.has(sourceId)) errors.push(`${prefix}.source_ids references unknown source ${sourceId}`)
+      }
+      const onlyAuthoritySupport = change.source_ids.every((sourceId) =>
+        authorityOnlySourceIds.has(sourceId),
+      )
+      if (onlyAuthoritySupport && !AUTHORITY_ONLY_COLUMNS.has(column)) {
+        errors.push(
+          `${prefix}.${column} is supported only by ${AUTHORITY_SOURCE_TYPE} sources without a DOI. ` +
+            `That support is accepted only for: ${[...AUTHORITY_ONLY_COLUMNS].join(', ')}`,
+        )
       }
     }
     if (!String(change?.rationale || '').trim()) errors.push(`${prefix}.rationale is required`)

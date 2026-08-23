@@ -214,7 +214,19 @@
     "validate:citation-integrity": "node scripts/ci/validate-citation-integrity.mjs",
     "citations:quarantine": "node scripts/data/quarantine-unverifiable-citations.mjs",
     "report:indexability-divergence": "node scripts/ci/report-indexability-divergence.mjs",
-    "data:sync-detail-indexability": "node scripts/data/sync-detail-indexability.mjs --data-dir=public/data"
+    "data:sync-detail-indexability": "node scripts/data/sync-detail-indexability.mjs --data-dir=public/data",
+    "enrich": "node scripts/enrichment-pipeline/cli.mjs",
+    "enrich:doctor": "node scripts/enrichment-pipeline/cli.mjs doctor",
+    "enrich:scan": "node scripts/enrichment-pipeline/cli.mjs scan",
+    "enrich:queue": "node scripts/enrichment-pipeline/cli.mjs queue",
+    "enrich:status": "node scripts/enrichment-pipeline/cli.mjs status",
+    "enrich:index": "node scripts/enrichment-pipeline/cli.mjs index",
+    "enrich:validate": "node scripts/enrichment-pipeline/cli.mjs validate",
+    "enrich:export": "node scripts/enrichment-pipeline/cli.mjs export",
+    "enrich:metrics": "node scripts/enrichment-pipeline/cli.mjs metrics",
+    "enrich:readiness": "node scripts/enrichment-pipeline/cli.mjs readiness",
+    "enrich:test": "vitest run scripts/enrichment-pipeline/__tests__",
+    "validate:workbook-patches": "node scripts/ci/validate-workbook-patches.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",
