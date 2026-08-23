@@ -2,12 +2,12 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Revenue Foundation Baseline
-**Updated:** 2026-08-22
+**Updated:** 2026-08-23
 **WIP limit:** Maximum three concurrent workstreams; within each workstream, activate one ticket at a time. An agent works one scoped ticket and stops after proof and record updates.
 
 ## Sprint objective
 
-Establish trustworthy production measurement, reconcile indexability truth, and prepare exactly one evidence-safe commercial journey for improvement. The sprint does not authorize broad content creation, robot overrides, redesign, or infrastructure replacement. **Exception:** on 2026-08-22 the project owner directly authorized one scoped visual-system refinement (`AUTH-004`), then explicitly asked that the refinement continue through the primary library browse experience; it must preserve routes, evidence/safety semantics, canonical CSS ownership, accessibility, and performance gates and does not authorize a second redesign system.
+Establish trustworthy production measurement, reconcile indexability truth, and prepare exactly one evidence-safe commercial journey for improvement. The sprint does not authorize broad content creation, robot overrides, redesign, or infrastructure replacement. **Exceptions:** on 2026-08-22 the project owner directly authorized one scoped visual-system refinement (`AUTH-004`), then explicitly asked that the refinement continue through the primary library browse experience; it must preserve routes, evidence/safety semantics, canonical CSS ownership, accessibility, and performance gates and does not authorize a second redesign system. On 2026-08-23 the project owner directly authorized an exhaustive data-enrichment pass. That pass is scoped as `SEO-006`: verify and repair the existing source/claim backlog through the governed evidence pipeline, never fabricate evidence, never use identifier presence alone as proof, and never auto-promote a profile merely because a source was verified.
 
 ## Queue rules
 
@@ -21,6 +21,7 @@ Establish trustworthy production measurement, reconcile indexability truth, and 
 
 | ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
 |---|---|---|---|---|---|---|---|---|---|---|
+| SEO-006 | Exhaustively verify and repair held-profile evidence enrichment | P0 owner-directed | Evidence/data engineer | Direct owner request 2026-08-23; preserve evidence/safety/indexability gates | Existing identifier-bearing held-profile citations are read and classified as verified, rejected, or repair-needed; only genuinely on-topic citations are registered as source-backed; misattributions and claim-role defects remain quarantined/documented; profiles are not auto-published; original-sourcing backlog is measured for follow-on waves | Source-by-source verification log, registry diff, rejected/repair-needed list, relevant governance/data validations, production build | `scripts/data/apply-governance-overlay.mjs`, generated profile evidence surfaces, evidence audit docs | Active | L | Converts the current enrichment backlog into trustworthy structured evidence without weakening scientific governance |
 | SEO-001 | Reconcile post-build profile publication truth | P0 | Data/SEO engineer | None | One post-invariant artifact reports every profile's final robots, sitemap eligibility, and reason; counts match built HTML and sitemap in a clean production build | Command log, count diff before/after, passing parity regression, build result | `scripts/`, `public/data/publication-*`, sitemap/robots builders | Ready | M (1–2 d) | Restores reliable indexing decisions and prevents unsafe robot overrides |
 | SEO-002 | Recover reviewed flagship profile source roles | P0 | Evidence/content engineer | SEO-001; review PR #4089 before duplicating work | Ashwagandha and L-theanine evidence roles are reviewed against sources; valid roles survive regeneration; pages index only if all existing gates pass | Source-review record, regenerated diff, route-specific tests, final HTML robots/sitemap proof | Workbook, source registry/overlays, `/herbs/ashwagandha/`, `/compounds/l-theanine/` | Blocked | L (2–4 d) | Can restore two high-value depth pages without weakening governance |
 | SEO-003 | Clear current schema identity gate | P1 | SEO engineer | Reproduce latest workflow; coordinate open PRs | All first-party Person/Organization IDs are consistent on affected ADHD guides; full schema policy and regression suite pass | Failing/passing report, fixture or route tests, production build | JSON-LD helpers, `/guides/adhd/*`, schema workflows | Ready: full local policy reproduces 38 violations | M | Restores a current release gate and entity consistency |
@@ -47,6 +48,7 @@ Establish trustworthy production measurement, reconcile indexability truth, and 
 ## Sprint exit conditions
 
 - REV-001 and SEO-001 are complete or have precise external-access blockers.
+- SEO-006 either closes the current identifier-bearing verification backlog or leaves each unresolved record in an explicit rejected/repair-needed state without weakening evidence gates.
 - The current schema and safety/runtime failures have owners and reproducible proof.
 - A fixed-period search and business baseline exists, or every unavailable field has an owner and acquisition step.
 - One flagship page is selected only after evidence and measurement dependencies are satisfied.
