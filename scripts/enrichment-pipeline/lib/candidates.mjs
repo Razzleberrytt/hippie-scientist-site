@@ -162,3 +162,20 @@ export function latestCandidateForJob(jobId) {
   const matches = listCandidates().filter((filePath) => path.basename(filePath).startsWith(`${jobId}.`))
   return matches.length ? matches[matches.length - 1] : null
 }
+
+/**
+ * One candidate per job — the highest attempt number.
+ *
+ * A retried job leaves its earlier attempts on disk as an audit trail, so
+ * anything that validates or exports must collapse them first. Reading every
+ * file instead would emit the same (slug, column) twice and produce a patch the
+ * workbook runner rejects as a duplicate edit.
+ */
+export function latestCandidates() {
+  const byJob = new Map()
+  for (const filePath of listCandidates()) {
+    const jobId = path.basename(filePath).split('.')[0]
+    byJob.set(jobId, filePath) // listCandidates() is sorted, so the last wins
+  }
+  return [...byJob.values()]
+}

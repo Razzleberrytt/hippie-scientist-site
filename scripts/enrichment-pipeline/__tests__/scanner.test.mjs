@@ -89,6 +89,35 @@ describe('gap scanner', () => {
     }
   })
 
+  it('does not re-queue a filled cell because of an open gap ticket', () => {
+    // An `open` Maintenance_Queue row means "this cell is blank, go find a
+    // value". Once the value exists the ticket is stale, not a dispute. Reading
+    // it as a dispute means filling the cell never closes the job.
+    const filled = makeCanonical([publishedHerb({ slug: 'filled-herb', latin_name: 'Withania somnifera' })], {
+      maintenanceRows: [
+        { entity_slug: 'filled-herb', issue_area: 'latin_name', status: 'open', priority: 'P1' },
+      ],
+    })
+    const scan = scanGaps(filled)
+    expect(scan.jobs.some((j) => j.requested_fields.includes('latin_name'))).toBe(false)
+  })
+
+  it('re-queues a filled cell only when a maintenance row disputes the existing value', () => {
+    const disputed = makeCanonical([publishedHerb({ slug: 'filled-herb', latin_name: 'Withania somnifera' })], {
+      maintenanceRows: [
+        {
+          entity_slug: 'filled-herb',
+          issue_area: 'latin_name',
+          status: 'latin_name_present_needs_authority_check',
+          priority: 'P1',
+        },
+      ],
+    })
+    const job = scanGaps(disputed).jobs.find((j) => j.requested_fields.includes('latin_name'))
+    expect(job).toBeTruthy()
+    expect(job.reasons.latin_name).toBe('unsupported')
+  })
+
   it('supports filtering by field, band, mode, and entity type', () => {
     const scan = scanGaps(canonical)
     expect(filterJobs(scan.jobs, { field: 'latin_name' }).every((j) => j.requested_fields.includes('latin_name'))).toBe(

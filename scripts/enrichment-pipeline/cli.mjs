@@ -13,7 +13,7 @@ import {
   statusCounts,
   syncQueue,
 } from './lib/job-store.mjs'
-import { latestCandidateForJob, listCandidates, readCandidate } from './lib/candidates.mjs'
+import { latestCandidateForJob, latestCandidates, readCandidate } from './lib/candidates.mjs'
 import { normalizeCandidate } from './lib/normalize.mjs'
 import { validateCandidate } from './lib/validators.mjs'
 import { buildPatch, writePatch, writeReviewExport } from './lib/exporter.mjs'
@@ -235,7 +235,7 @@ async function cmdIndex() {
 async function cmdValidate(flags) {
   const contract = loadContract()
   const canonical = await loadCanonical()
-  const paths = flags.job ? [latestCandidateForJob(flags.job)].filter(Boolean) : listCandidates()
+  const paths = flags.job ? [latestCandidateForJob(flags.job)].filter(Boolean) : latestCandidates()
 
   if (!paths.length) {
     console.log('no candidates to validate')

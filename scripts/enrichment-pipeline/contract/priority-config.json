@@ -51,6 +51,10 @@
       "source": "Maintenance_Queue rows with an open status for this entity_slug",
       "priority_weights": { "P0": 1, "P1": 0.6, "P2": 0.3, "high": 0.6, "medium": 0.3 },
       "open_statuses": ["open", "open_proposed", "needs_taxonomy_authority_verification", "latin_name_present_needs_authority_check"],
+      "disputes_populated_value_statuses": [
+        "needs_taxonomy_authority_verification",
+        "latin_name_present_needs_authority_check"
+      ],
       "saturation_rows": 8
     },
     "curated_prominence": {

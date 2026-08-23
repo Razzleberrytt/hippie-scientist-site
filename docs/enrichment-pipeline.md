@@ -341,8 +341,13 @@ permitted. **No production-facing enrichment may run before G13.**
 | G10 | Historical spreadsheets migrate through the normal candidate path |
 | G11 | CLI and metrics available; production import fails closed |
 | G12 | This document |
-| **G13** | **Human-approved readiness record. The first gate that authorises any production write.** |
-| **G14** | **Pilot approved. The gate that authorises ongoing incremental enrichment.** |
+| **G13** | **Human-approved readiness record. The first gate that authorises any production write.** ✅ approved 2026-08-23 |
+| **G14** | **Pilot approved. The gate that authorises ongoing incremental enrichment.** ✅ passed — `docs/enrichment/pilot-1-latin-name.md` |
+
+Pilot 1 filled six `latin_name` cells from the GBIF Backbone Taxonomy, recorded
+four no-ops, and found two defects that unit tests had missed (see §9.7). Ongoing
+enrichment is authorised for `latin_name` only; any new field, parallel workers,
+or spreadsheet migration needs a fresh readiness record.
 
 ### G13 — production-enrichment readiness
 
@@ -410,3 +415,20 @@ or produces a no-op. Import, verify, then import again to confirm idempotency.
    the workbook's own weight columns, the open `Maintenance_Queue` backlog, and
    curated prominence. Real traffic data would improve ranking; nothing is
    fabricated in its absence.
+
+7. **`Maintenance_Queue` statuses mean two different things.** An `open` row is a
+   *gap ticket* ("this cell is blank"). Only the statuses listed under
+   `disputes_populated_value_statuses` in `priority-config.json` question a value
+   that already exists. Conflating them means filling a cell never closes its
+   job — the ticket re-queues it forever. This was found by pilot 1, not by a
+   unit test; two regression tests now cover it. **After every import, re-run
+   `npm run enrich:scan` and confirm the gap count actually falls.**
+
+8. **`claim` does not read the readiness record.** It claims in job-id order, so
+   an operator can claim work outside an approved pilot scope. Scope is enforced
+   at import, which is where it matters, but release out-of-scope claims before
+   working them.
+
+9. **A `no_op` verdict sets the job status to `rejected`.** Accurate — nothing is
+   importable — but it reads as failure in `enrich status`. A distinct terminal
+   status would be clearer.

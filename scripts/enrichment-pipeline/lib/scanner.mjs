@@ -74,16 +74,24 @@ function classifyGap(value) {
 /**
  * Per-entity deficiency flags read from Maintenance_Queue.
  *
- * This is the only route by which a populated, meaningful cell can be queued.
- * It requires an *open* maintenance row that names the exact field for that
- * exact entity — a judgement an editorial pass already recorded in the
- * workbook. The Unresolved_Gaps sheet is deliberately not used here: its rows
- * are field-level blank counts for the whole sheet, not per-entity verdicts,
- * and treating them as flags would re-queue every populated cell.
+ * This is the only route by which a populated, meaningful cell can be queued,
+ * so the status filter has to be narrow. A plain `open` row is a *gap ticket*
+ * ("this cell is blank, go find a value") — it justifies queuing an empty cell,
+ * which the missing-value check already covers, and it says nothing about a
+ * value once one exists. Treating it as a dispute means filling the cell never
+ * closes the job: the same ticket re-queues it forever.
+ *
+ * Only the statuses that explicitly question an existing value count here,
+ * e.g. `latin_name_present_needs_authority_check`.
+ *
+ * The Unresolved_Gaps sheet is deliberately not used at all: its rows are
+ * field-level blank counts for a whole sheet, not per-entity verdicts.
  */
 function maintenanceDeficiencies(canonical, contract) {
   const openStatuses = new Set(
-    (loadPriorityConfig().signals.maintenance_backlog.open_statuses || []).map((s) => s.toLowerCase()),
+    (loadPriorityConfig().signals.maintenance_backlog.disputes_populated_value_statuses || []).map((s) =>
+      s.toLowerCase(),
+    ),
   )
   const bySlug = new Map()
   for (const row of canonical.maintenanceRows || []) {
