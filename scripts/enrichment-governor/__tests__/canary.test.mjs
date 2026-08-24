@@ -113,9 +113,9 @@ test('ashwagandha safety canary stays on the ashwagandha RCT and never borrows t
 })
 
 test('canary ratchet blocks a new unresolved source even when total debt count does not grow', () => {
-  const entries = baselineDebtEntries().map((row, index) => row.sourceId === 'src_pubmed-31517876' && index === 0 ? { ...row, sourceId: 'src_new-source' } : row)
+  const entries = baselineDebtEntries().map(row => row.sourceId === 'src_pubmed-31517876' ? { ...row, sourceId: 'src_new-source' } : row)
   const result = verifyCanaries(entries, [])
-  assert.equal(result.debt.unresolvedSourceIds.length, 7)
+  assert.equal(result.debt.unresolvedSourceIds.length, 6)
   assert.equal(result.pass, false)
   assert.ok(result.blockers.includes('new_provenance_debt:unresolved_source:src_new-source'))
 })
