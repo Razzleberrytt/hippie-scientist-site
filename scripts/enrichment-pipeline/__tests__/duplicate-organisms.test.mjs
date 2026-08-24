@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { auditDuplicateOrganisms, redirectedSlugs } from '../lib/duplicate-organisms.mjs'
+import { auditDuplicateOrganisms, proposeResolution, redirectedSlugs } from '../lib/duplicate-organisms.mjs'
 import { makeCanonical, publishedHerb } from './fixtures.mjs'
 
 /**
@@ -94,5 +94,77 @@ describe('duplicate-organism audit', () => {
     } finally {
       fs.rmSync(redirectsPath, { force: true })
     }
+  })
+})
+
+/**
+ * Survivor ranking. The workbook `source_count` column is stale and must not
+ * influence any of this — `glycyrrhiza-glabra` claims 24 while rendering the
+ * same three citations as `licorice`, which claims 7.
+ */
+describe('survivor proposals', () => {
+  const pair = makeCanonical([
+    publishedHerb({ slug: 'licorice', name: 'Licorice', latin_name: 'Glycyrrhiza glabra', source_count: '7' }),
+    publishedHerb({
+      slug: 'glycyrrhiza-glabra',
+      name: 'Glycyrrhiza Glabra',
+      latin_name: 'Glycyrrhiza glabra',
+      source_count: '24',
+    }),
+  ])
+  const routes = new Set(['licorice', 'glycyrrhiza-glabra'])
+  const audit = () => auditDuplicateOrganisms(pair, { redirects: new Map(), routes })
+  const evenly = () => ({ built: true, bytes: 100_000, pmids: 3 })
+
+  it('keeps the common-name slug when content is at parity, ignoring source_count', () => {
+    const plan = proposeResolution(pair, audit(), { content: evenly })
+    expect(plan.proposals).toHaveLength(1)
+    expect(plan.proposals[0].survivor).toBe('licorice')
+    expect(plan.proposals[0].retire).toEqual(['glycyrrhiza-glabra'])
+    expect(plan.proposals[0].basis).toMatch(/precedent/)
+    expect(plan.proposals[0].confidence).toBe('high')
+  })
+
+  it('lets materially better content override the precedent', () => {
+    // The gudmar / gymnema-sylvestre case: the binomial slug renders more.
+    const content = (slug) =>
+      slug === 'glycyrrhiza-glabra'
+        ? { built: true, bytes: 100_000, pmids: 6 }
+        : { built: true, bytes: 100_000, pmids: 1 }
+    const plan = proposeResolution(pair, audit(), { content })
+    expect(plan.proposals[0].survivor).toBe('glycyrrhiza-glabra')
+    expect(plan.proposals[0].basis).toMatch(/content decides/)
+  })
+
+  it('does not override the precedent for a one-citation difference', () => {
+    const content = (slug) =>
+      slug === 'glycyrrhiza-glabra'
+        ? { built: true, bytes: 100_000, pmids: 4 }
+        : { built: true, bytes: 100_000, pmids: 3 }
+    expect(proposeResolution(pair, audit(), { content }).proposals[0].survivor).toBe('licorice')
+  })
+
+  it('never keeps a side that has no built page', () => {
+    // The angelica-sinensis case.
+    const content = (slug) =>
+      slug === 'licorice' ? { built: false, bytes: 0, pmids: 0 } : { built: true, bytes: 100_000, pmids: 3 }
+    const plan = proposeResolution(pair, audit(), { content })
+    expect(plan.proposals[0].survivor).toBe('glycyrrhiza-glabra')
+    expect(plan.proposals[0].basis).toMatch(/no built page/)
+  })
+
+  it('excludes a part/preparation split from the merge proposals', () => {
+    const parts = makeCanonical([
+      publishedHerb({ slug: 'morus-alba', latin_name: 'Morus alba' }),
+      publishedHerb({ slug: 'mulberry-leaf', latin_name: 'Morus alba' }),
+    ])
+    const plan = proposeResolution(
+      parts,
+      auditDuplicateOrganisms(parts, { redirects: new Map(), routes: new Set(['morus-alba', 'mulberry-leaf']) }),
+      { content: evenly },
+    )
+    expect(plan.proposals).toHaveLength(0)
+    expect(plan.not_duplicates).toHaveLength(1)
+    expect(plan.not_duplicates[0].reason).toMatch(/part\/preparation/)
   })
 })
