@@ -129,20 +129,21 @@ html:not(.dark) main table :where(th, td) {
   border-color: var(--hs-hairline) !important;
 }
 
-/* Compare pages: neutral editorial ground with a restrained accent signal. */
-html:not(.dark) main:has(#compare-decision) {
+/* Compare pages: use the explicit shared-layout marker instead of rediscovering
+   the route from a descendant with main:has(). */
+html:not(.dark) [data-compare-page] {
   background:
     radial-gradient(circle at 95% 4%, color-mix(in srgb, var(--tone) 8%, transparent), transparent 23rem),
     radial-gradient(circle at 5% 24%, color-mix(in srgb, var(--hs-gold) 6%, transparent), transparent 22rem);
 }
 
-html:not(.dark) main:has(#compare-decision) h1,
-html:not(.dark) main:has(#compare-decision) h2 {
+html:not(.dark) [data-compare-page] h1,
+html:not(.dark) [data-compare-page] h2 {
   color: var(--hs-ink);
   font-family: var(--font-fraunces), Fraunces, Georgia, serif;
 }
 
-html:not(.dark) main:has(#compare-decision) :where(.rounded-2xl, .rounded-3xl) {
+html:not(.dark) [data-compare-page] :where(.rounded-2xl, .rounded-3xl) {
   border-color: var(--hs-hairline);
 }
 
