@@ -350,14 +350,15 @@ four no-ops, and found two defects that unit tests had missed (see §9.7). Ongoi
 enrichment is authorised for `latin_name` only; any new field, parallel workers,
 or spreadsheet migration needs a fresh readiness record.
 
-Batches so far — `latin_name` populated 186 → 232, 47 jobs remaining (of which
-~25 are genuinely fillable; the rest need editorial decisions):
+`latin_name` is **complete**: 186 → 253 of 293 herbs, all 107 jobs resolved,
+0 pending. See `docs/enrichment/handoff.md` for the operational handoff.
 
 | Batch | Jobs | Filled | Not filled | Record |
 |-------|------|--------|-----------|--------|
 | Pilot 1 | 10 | 6 | 4 | `docs/enrichment/pilot-1-latin-name.md` |
 | Batch 2 | 25 | 17 | 8 | `docs/enrichment/batch-2-latin-name.md` |
 | Batch 3 | 26 | 23 | 3 | `docs/enrichment/batch-3-latin-name.md` |
+| Batch 4 | 47 | 21 | 26 | `docs/enrichment/handoff.md` §5 |
 
 **A taxonomic authority cannot be followed mechanically.** GBIF resolves
 `Citrus paradisi` (grapefruit) to `Citrus aurantium` — bitter orange, a

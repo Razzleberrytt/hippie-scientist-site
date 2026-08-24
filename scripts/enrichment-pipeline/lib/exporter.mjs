@@ -105,6 +105,45 @@ export function buildPatch({ results, batchLabel, contract, status = 'proposal' 
     }
   }
 
+  // The per-candidate shared-value check compares against canonical state, so
+  // two candidates in the SAME batch proposing the same value both pass it —
+  // neither is in the workbook yet. Batch 4 imported `Avena sativa` for both
+  // `milk-oats` and `oatstraw` that way. Both values were correct, but the pair
+  // should have been surfaced. The exporter is the only layer that sees the
+  // whole batch, so the collision is caught here.
+  const collisions = new Map()
+  for (const change of changes) {
+    const field = contract.fields.get(change.column)
+    if (!field?.shared_value_needs_review) continue
+    const key = `${change.column}::${String(change.new_value).trim().toLowerCase()}`
+    if (!collisions.has(key)) collisions.set(key, [])
+    collisions.get(key).push(change)
+  }
+
+  const withdrawn = new Set()
+  for (const [, group] of collisions) {
+    if (group.length < 2) continue
+    const slugs = group.map((c) => c.slug)
+    for (const change of group) {
+      withdrawn.add(change)
+      excluded.push({
+        job_id: null,
+        slug: change.slug,
+        reason: 'needs_review',
+        errors: [],
+        reviews: [
+          `shared-value (same batch): ${change.column} "${change.new_value}" is proposed by ` +
+            `${slugs.length} entities in this batch (${slugs.join(', ')}). Confirm they are genuinely ` +
+            'different entities sharing a source organism, not duplicates.',
+        ],
+      })
+    }
+  }
+
+  const kept = changes.filter((change) => !withdrawn.has(change))
+  changes.length = 0
+  changes.push(...kept)
+
   changes.sort((a, b) => a.slug.localeCompare(b.slug) || a.column.localeCompare(b.column))
 
   const patch = {
