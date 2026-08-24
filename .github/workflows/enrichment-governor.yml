@@ -48,6 +48,10 @@ jobs:
       - name: Smoke-test durable control commands
         run: |
           node scripts/enrichment-governor/control.mjs lease-acquire --id=ci-fixture --owner=ci --files=tmp/fixture.json --entities=herb:fixture
+          if node scripts/enrichment-governor/control.mjs lease-acquire --id=ci-overlap --owner=ci --files=tmp/fixture.json --entities=herb:other; then
+            echo 'Expected overlapping lease acquisition to exit nonzero.' >&2
+            exit 1
+          fi
           node scripts/enrichment-governor/control.mjs lease-release --id=ci-fixture --disposition=verified
           node scripts/enrichment-governor/control.mjs metric --name=scansRun --delta=1
           node scripts/enrichment-governor/control.mjs integrity-record --source=src_ci-fixture --status=clear --note=ci-smoke-test
