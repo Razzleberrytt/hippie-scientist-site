@@ -25,6 +25,40 @@ Before work begins, the autonomous agent must inspect open enrichment PRs and th
 
 Low-value changes should be batched. Safety, publication-integrity, or materially misleading-evidence corrections may bypass batching urgency, but they do not bypass scientific or CI gates.
 
+### Durable operator commands
+
+`control.mjs` is the only command-line writer for routine governor state. It uses an exclusive lock and atomic JSON replacement for structured files, and appends audit events to the ledger.
+
+```bash
+# Reserve non-overlapping work before mutating the repo
+node scripts/enrichment-governor/control.mjs lease-acquire \
+  --id=lease-round-10 --owner=enrichment-agent \
+  --entities=herb:ashwagandha,compound:magnesium \
+  --files=data-sources/workbook-patches/round-10.json
+
+node scripts/enrichment-governor/control.mjs lease-release \
+  --id=lease-round-10 --disposition=completed
+
+# Queue useful work or record outcome metrics/blockers
+node scripts/enrichment-governor/control.mjs queue-add --key=herb:ashwagandha:safety --kind=safety --score=92
+node scripts/enrichment-governor/control.mjs metric --name=duplicatesPrevented --delta=1
+node scripts/enrichment-governor/control.mjs blocker --category=formulation_identity --detail='extract mismatch'
+
+# Record authoritative publication-integrity checks
+node scripts/enrichment-governor/control.mjs integrity-record \
+  --source=src_pubmed-31517876 --status=clear --url=https://pubmed.ncbi.nlm.nih.gov/31517876/
+
+# Self-improvement lifecycle; adoption reruns the fixed benchmark
+node scripts/enrichment-governor/control.mjs improvement-propose \
+  --id=imp_search-null-terms --surface=search_strategy \
+  --reason='two runs missed null trials' --benefit='increase contradictory-evidence recall'
+node scripts/enrichment-governor/control.mjs improvement-adopt --id=imp_search-null-terms
+# or improvement-reject / improvement-revert
+
+# Record repeated failure for quarantine evaluation
+node scripts/enrichment-governor/control.mjs failure --key=herb:example --reason=formulation_identity_conflict
+```
+
 ## Cheap scan vs deep work
 
 Every hourly run begins with a cheap scan. Deep literature research, full builds, repository edits, and PR creation happen only when a scored opportunity clears the configured threshold or a safety/publication-integrity override applies.
@@ -38,6 +72,7 @@ Run:
 ```bash
 node --test scripts/enrichment-governor/__tests__/governor.test.mjs
 node scripts/enrichment-governor/governor.mjs benchmark
+node scripts/enrichment-governor/governor.mjs verify-state
 node scripts/enrichment-governor/governor.mjs scan
 node scripts/enrichment-governor/canary.mjs
 node scripts/enrichment-governor/daily.mjs --dry-run
@@ -59,7 +94,7 @@ A repeated failure is quarantined after the configured threshold and is not retr
 
 ## Post-merge contract
 
-A green PR is not the end of the run. After merge, verify the merged SHA/checks, generated/runtime artifacts, and deployment/live behavior when available. If the merge causes a clear attributable regression and no immediate deterministic fix exists, create a clean protected revert rather than stacking speculative changes.
+A green PR is not the end of the run. After merge, the same Enrichment Governor workflow runs again on `main`, re-executing unit/regression tests, the benchmark, control-plane seed checks, durable-control smoke tests, the repository scan, canaries, and daily consolidation dry-run. The autonomous agent must also verify the exact merged SHA/checks and deployment/live behavior when deployment evidence is available. If the merge causes a clear attributable regression and no immediate deterministic fix exists, create a clean protected revert rather than stacking speculative changes.
 
 ## Immutable boundary
 
