@@ -6,10 +6,11 @@
   The older segmented jump bar duplicates those same destinations immediately
   beside it and adds visual/navigation noise.
 
-  No stylesheet depends on the legacy nav anymore; profile styling now scopes
-  from the real Page sections TOC. Keep this temporary hide rule only until the
-  large herb/compound route templates can safely delete their legacy markup.
+  Profile detail layouts provide [data-profile-page], so this rule can stay
+  route-scoped without rediscovering a large profile DOM through :has(). Keep
+  this temporary hide rule only until the large herb/compound route templates
+  can safely delete their legacy markup.
 */
-main:has(nav[aria-label='Page sections']) nav[aria-label='Jump to profile sections'] {
+[data-profile-page] nav[aria-label='Jump to profile sections'] {
   display: none !important;
 }
