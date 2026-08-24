@@ -10,7 +10,7 @@ describe('responsive image production contract', () => {
     const build = read('scripts/build-production.mjs')
     const optimizeCall = build.indexOf("execSync('node scripts/optimize-images.mjs'")
     const nextBuildCall = build.indexOf("execSync('npx next build'")
-    const validateCall = build.indexOf('validateResponsiveImageContract()')
+    const validateCall = build.indexOf('  validateResponsiveImageContract()', nextBuildCall)
 
     expect(optimizeCall).toBeGreaterThan(-1)
     expect(nextBuildCall).toBeGreaterThan(optimizeCall)
