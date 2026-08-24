@@ -28,13 +28,21 @@ describe('profile CSS performance scope', () => {
     expect(compoundLayout).toContain('usesMdxTemplate ? children')
   })
 
-  it('does not rediscover profile routes with the large-DOM main:has selector', () => {
+  it('does not rediscover profile routes with large-DOM main:has selectors', () => {
     const polish = read('styles/herb-profile-polish.css')
     const navigation = read('styles/profile-navigation-cleanup.css')
+    const editorial = read('styles/editorial-content-surfaces.css')
 
     expect(polish).not.toContain('main:has(')
     expect(navigation).not.toContain('main:has(')
+    expect(editorial).not.toContain('main:has(nav[aria-label="Page sections"])')
+
     expect(polish).toContain('[data-profile-page]')
     expect(navigation).toContain('[data-profile-page]')
+    expect(editorial).toContain('[data-profile-page]')
+
+    // Compare-page route discovery is a separate contract and intentionally
+    // stays out of this profile-specific atomic change.
+    expect(editorial).toContain('main:has(#compare-decision)')
   })
 })
