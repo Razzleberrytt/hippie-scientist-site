@@ -1,12 +1,8 @@
-'use client'
-
-import { useMemo, useState } from 'react'
 import {
   evidenceConsistencyLabel,
   evidenceRelationshipLabel,
   evidenceSourceUrl,
   evidenceStudyClassDefinition,
-  filterEvidenceStudiesByClass,
   formatEvidenceStudyClass,
   normalizeEvidenceStudyClass,
   summarizeEvidenceStudies,
@@ -15,6 +11,7 @@ import {
   type EvidenceStudyClass,
   type EvidenceStudyRecord,
 } from '@/lib/evidence-study'
+import StudyClassFilterControls from './StudyClassFilterControls'
 
 export interface Citation {
   id?: string
@@ -71,8 +68,6 @@ const STUDY_CLASS_ORDER: EvidenceStudyClass[] = [
   'other',
 ]
 const VISIBLE_ROWS = 6
-
-type StudyClassFilter = 'all' | EvidenceStudyClass
 
 function normalizedStudy(citation: Citation): EvidenceStudyRecord {
   const evidenceClass = citation.evidenceClass || normalizeEvidenceStudyClass(citation.studyType)
@@ -205,7 +200,11 @@ function StudyRow({ study, index }: { study: EvidenceStudyRecord; index: number 
   const preview = previewText(study)
 
   return (
-    <tr key={citationKey(study, index)} className="border-t border-brand-900/10 dark:border-white/10">
+    <tr
+      key={citationKey(study, index)}
+      data-study-class={study.evidenceClass}
+      className="border-t border-brand-900/10 dark:border-white/10"
+    >
       <td className="min-w-[260px] px-3 py-3 align-top sm:px-4">
         <p className="text-[13px] font-semibold leading-snug text-ink">
           {sourceUrl ? (
@@ -274,26 +273,15 @@ export default function ShowMeTheStudies({
   confidence,
   whatWouldChangeConclusion,
 }: Props) {
-  const [activeClass, setActiveClass] = useState<StudyClassFilter>('all')
-
-  const studies = useMemo(
-    () => (citations || []).map(normalizedStudy).sort(sortByStudyType),
-    [citations],
-  )
-  const metrics = useMemo(() => summarizeEvidenceStudies(studies), [studies])
-  const classCounts = useMemo(() => {
-    const counts = new Map<EvidenceStudyClass, number>()
-    for (const study of studies) counts.set(study.evidenceClass, (counts.get(study.evidenceClass) || 0) + 1)
-    return counts
-  }, [studies])
-  const availableClasses = STUDY_CLASS_ORDER.filter((studyClass) => classCounts.has(studyClass))
-  const filteredStudies = activeClass === 'all'
-    ? studies
-    : filterEvidenceStudiesByClass(studies, [activeClass])
-  const visible = filteredStudies.slice(0, VISIBLE_ROWS)
-  const overflow = filteredStudies.slice(VISIBLE_ROWS)
-
   if (!citations || citations.length === 0) return null
+
+  const studies = citations.map(normalizedStudy).sort(sortByStudyType)
+  const metrics = summarizeEvidenceStudies(studies)
+  const classCounts = new Map<EvidenceStudyClass, number>()
+  for (const study of studies) classCounts.set(study.evidenceClass, (classCounts.get(study.evidenceClass) || 0) + 1)
+  const availableClasses = STUDY_CLASS_ORDER.filter((studyClass) => classCounts.has(studyClass))
+  const visible = studies.slice(0, VISIBLE_ROWS)
+  const overflow = studies.slice(VISIBLE_ROWS)
 
   const participantLabel = metrics.studiesWithParticipantCounts > 0
     ? `~${metrics.approximateParticipants.toLocaleString()} participants across ${metrics.studiesWithParticipantCounts} human sources with reported N`
@@ -309,7 +297,10 @@ export default function ShowMeTheStudies({
   const hasDisagreement = metrics.mixed > 0 || metrics.contradicting > 0 || metrics.noClearEffect > 0
 
   return (
-    <details className="group/studies overflow-hidden rounded-2xl border-2 border-brand-900/10 bg-[var(--surface-card)] p-0 shadow-none backdrop-blur-none dark:border-white/10">
+    <details
+      data-study-summaries-root
+      className="group/studies overflow-hidden rounded-2xl border-2 border-brand-900/10 bg-[var(--surface-card)] p-0 shadow-none backdrop-blur-none dark:border-white/10"
+    >
       <summary className="flex cursor-pointer items-center justify-between gap-3 bg-brand-50/70 px-4 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:bg-[var(--surface-subtle)]">
         <span>
           <span className="block text-sm font-bold text-ink">Clinical Study Summaries ({citations.length})</span>
@@ -322,31 +313,17 @@ export default function ShowMeTheStudies({
 
       {availableClasses.length > 1 ? (
         <div className="border-t border-brand-900/10 bg-white/70 px-4 py-3 dark:border-white/10 dark:bg-white/5">
-          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-muted">Filter by study class</p>
-          <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Filter evidence by study class">
-            <button
-              type="button"
-              aria-pressed={activeClass === 'all'}
-              onClick={() => setActiveClass('all')}
-              className="rounded-full border border-brand-900/15 px-3 py-1 text-xs font-semibold text-ink aria-pressed:bg-brand-700 aria-pressed:text-white dark:border-white/15"
-            >
-              All ({studies.length})
-            </button>
-            {availableClasses.map((studyClass) => (
-              <button
-                key={studyClass}
-                type="button"
-                aria-pressed={activeClass === studyClass}
-                onClick={() => setActiveClass(studyClass)}
-                className="rounded-full border border-brand-900/15 px-3 py-1 text-xs font-semibold text-ink aria-pressed:bg-brand-700 aria-pressed:text-white dark:border-white/15"
-              >
-                {formatEvidenceStudyClass(studyClass)} ({classCounts.get(studyClass)})
-              </button>
-            ))}
-          </div>
-          <p className="mt-2 text-[11px] text-muted" aria-live="polite">
-            Showing {filteredStudies.length} of {studies.length} studies.
-          </p>
+          <StudyClassFilterControls
+            total={studies.length}
+            classes={availableClasses.map((studyClass) => ({
+              value: studyClass,
+              label: formatEvidenceStudyClass(studyClass),
+              count: classCounts.get(studyClass) || 0,
+            }))}
+          />
+          <noscript>
+            <p className="mt-2 text-[11px] text-muted">Study filters require JavaScript; all study rows remain available below.</p>
+          </noscript>
         </div>
       ) : null}
 
@@ -404,10 +381,13 @@ export default function ShowMeTheStudies({
       </div>
 
       {overflow.length > 0 && (
-        <details className="group border-x-0 border-b-0 border-t border-brand-900/10 bg-transparent p-0 shadow-none backdrop-blur-none dark:border-white/10">
+        <details
+          data-study-overflow
+          className="group border-x-0 border-b-0 border-t border-brand-900/10 bg-transparent p-0 shadow-none backdrop-blur-none dark:border-white/10"
+        >
           <summary className="flex cursor-pointer select-none items-center gap-1.5 px-4 py-2.5 text-xs font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-100 dark:hover:text-white">
             <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">▶</span>
-            Show {overflow.length} more stud{overflow.length === 1 ? 'y' : 'ies'}
+            <span data-study-overflow-label>Show {overflow.length} more stud{overflow.length === 1 ? 'y' : 'ies'}</span>
           </summary>
           <div className="overflow-x-auto">
             <table className="w-full min-w-[1600px] border-collapse text-left text-sm">
