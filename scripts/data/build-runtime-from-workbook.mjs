@@ -382,6 +382,22 @@ const MECHANISM_SYNONYM_OVERLAY = {
   'vascular-function-support': ['Endothelial Function', 'endothelial function', 'cardiovascular'],
   'mitochondrial-biogenesis': ['mitochondrial', 'mitochondrial function'],
   'hormonal-signaling-context': ['endocrine', 'endocrine signaling'],
+  // Terms the normalization report listed as unmapped that resolve to exactly
+  // one existing mechanism. Deliberately conservative: a term that could belong
+  // to more than one mechanism is left unmapped rather than guessed at, and the
+  // high-frequency unmapped terms are not here because they need taxonomy
+  // entries that do not exist yet — see docs/data/mechanism-normalization-gap.md.
+  'immune-modulation': ['immune_modulation'],
+  'autophagy-modulation': ['Autophagy'],
+  'nitric-oxide-modulation': ['Nitric Oxide Pathway Modulation'],
+  'calcium-channel-modulation': ['calcium signaling', 'intestinal smooth-muscle calcium-channel blockade'],
+  'serotonin-modulation': ['5-HT1A activity'],
+  'endocannabinoid-modulation': [
+    'endogenous CB1 agonism',
+    'weak CB1/CB2 interaction',
+    'proposed cannabinoid-like effects',
+    'FAAH degradation',
+  ],
 }
 
 function buildMechanismTaxonomy(rows) {
