@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "lastCheapScanAt": null,
+  "lastDeepWorkAt": null,
+  "lastDailyConsolidationAt": null,
+  "nextFrontier": null,
+  "lastMergedPr": null,
+  "lastVerifiedDeploy": null,
+  "mode": "active",
+  "notes": "Persistent control-plane state for the enrichment governor. Runtime rebuildable enrichment state remains under ops/enrichment/."
+}

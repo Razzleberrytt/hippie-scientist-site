@@ -7,7 +7,7 @@
 
 ## Sprint objective
 
-Establish trustworthy production measurement, reconcile indexability truth, and prepare exactly one evidence-safe commercial journey for improvement. The sprint does not authorize broad content creation, robot overrides, redesign, or infrastructure replacement. **Exception:** on 2026-08-22 the project owner directly authorized one scoped visual-system refinement (`AUTH-004`), then explicitly asked that the refinement continue through the primary library browse experience; it must preserve routes, evidence/safety semantics, canonical CSS ownership, accessibility, and performance gates and does not authorize a second redesign system. **Exception:** on 2026-08-24 the project owner directly authorized issue `#4182`, a scoped Discovery/SEO identity correction for five records misclassified as herbs; it must preserve all newer canonical-workbook work including #4184 and #4186, stable URLs through direct redirects, evidence/safety/governance semantics, and generated-data ownership.
+Establish trustworthy production measurement, reconcile indexability truth, and prepare exactly one evidence-safe commercial journey for improvement. The sprint does not authorize broad content creation, robot overrides, redesign, or infrastructure replacement. **Exception:** on 2026-08-22 the project owner directly authorized one scoped visual-system refinement (`AUTH-004`), then explicitly asked that the refinement continue through the primary library browse experience; it must preserve routes, evidence/safety semantics, canonical CSS ownership, accessibility, and performance gates and does not authorize a second redesign system. **Exception:** on 2026-08-24 the project owner directly authorized issue `#4182`, a scoped Discovery/SEO identity correction for five records misclassified as herbs; it must preserve all newer canonical-workbook work including #4184 and #4186, stable URLs through direct redirects, evidence/safety/governance semantics, and generated-data ownership. **Exception:** on 2026-08-24 the project owner directly authorized issue `#4223`, a cross-cutting Operations/Evidence-Governance control-plane ticket above the existing enrichment pipeline; it must not create a second source of truth, weaken scientific/safety/provenance gates, or mutate canonical workbook data outside the governed patch/import path. This maintenance exception does not authorize unrelated Operations work or a fourth product workstream.
 
 ## Queue rules
 
@@ -45,14 +45,21 @@ Establish trustworthy production measurement, reconcile indexability truth, and 
 | AUTH-002 | Strengthen links to the selected flagship | P1 | Content editor | REV-003; link audit | Only contextually relevant existing pages link to the flagship with descriptive anchors; no redirect-hop or orphan regression | Before/after link graph, changed-route list, full link audit, build | Selected cluster and related monographs/guides | Blocked | M | Improves discovery and user journeys without new content volume |
 | AUTH-003 | Upgrade the selected existing decision page | P1 | Evidence-first content editor | REV-003, REV-004; evidence review | Page meets the decision-page standard, separates outcomes, includes contrary/null evidence and safety/directness boundaries, and improves CTA clarity without ranking by commission | Claim-source review, route-specific regressions, disclosure/link audit, visual check, build | Selected flagship route and evidence sources | Blocked | L | Creates the first measurable evidence-safe revenue-loop experiment |
 
+## 4. Operations / Evidence Governance — owner-directed maintenance exception
+
+| ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
+|---|---|---|---|---|---|---|---|---|---|---|
+| #4223 | Add governed autonomous enrichment control plane | P0 owner-directed | Evidence operations engineer | Direct owner instruction 2026-08-24; existing canonical enrichment pipeline and workbook governance remain authoritative | Coordinate non-overlapping enrichment work; persist auditable state/learning/quarantine; prioritize with cheap-scan/deep-work gates; track source diversity, negative evidence, coverage, canaries, integrity rechecks and architecture drift; self-improvement is benchmark-gated; all scientific/safety/provenance/validation gates remain fail-closed | PR #4222 diff and review resolution; governor unit/regression tests; benchmark; state validator; overlap/lease CLI smoke test; canary and daily-consolidation checks; standard CI, Site Health, Build Check, Production Content Lint, Lighthouse and Atomic gate; post-merge main verification | `scripts/enrichment-governor/`, `ops/enrichment-governor/`, `.github/workflows/enrichment-governor.yml`; no canonical workbook mutation | In Review | M | Adds persistent coordination and learning above the existing pipeline without creating a second source of truth |
+
 ## Sprint exit conditions
 
 - REV-001 and SEO-001 are complete or have precise external-access blockers.
 - The current schema and safety/runtime failures have owners and reproducible proof.
 - A fixed-period search and business baseline exists, or every unavailable field has an owner and acquisition step.
 - One flagship page is selected only after evidence and measurement dependencies are satisfied.
-- No more than three workstreams were active, and no speculative page production was added.
+- No more than three product workstreams were active, and no speculative page production was added; #4223 remains a scoped cross-cutting maintenance exception only.
 - AUTH-004 either passes its visual/build proof or remains In Review with the limitation recorded; it does not relax evidence, safety, accessibility, or performance gates.
+- #4223 is merged only after review findings are resolved, required pre-merge gates are green, and its post-merge main verification/rollback contract is recorded.
 
 ## Completed during the reset
 

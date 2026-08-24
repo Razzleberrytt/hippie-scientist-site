@@ -1,0 +1,70 @@
+name: Enrichment Governor
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/enrichment-governor/**'
+      - 'ops/enrichment-governor/**'
+      - 'public/data/enrichment-normalized.jsonl'
+      - 'public/data/source-registry.json'
+      - 'scripts/enrichment-pipeline/contract/**'
+      - '.github/workflows/enrichment-governor.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/enrichment-governor/**'
+      - 'ops/enrichment-governor/**'
+      - 'public/data/enrichment-normalized.jsonl'
+      - 'public/data/source-registry.json'
+      - 'scripts/enrichment-pipeline/contract/**'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * *'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Unit and regression tests
+        run: node --test scripts/enrichment-governor/__tests__/*.test.mjs
+      - name: Fixed self-improvement benchmark
+        run: node scripts/enrichment-governor/governor.mjs benchmark
+      - name: Validate persistent control-plane state
+        run: node scripts/enrichment-governor/validate-state.mjs
+      - name: Detect concurrent sensitive PR overlap
+        if: github.event_name == 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/enrichment-governor/pr-overlap.mjs
+      - name: Smoke-test durable control commands
+        run: |
+          node scripts/enrichment-governor/control.mjs lease-acquire --id=ci-fixture --owner=ci --files=tmp/fixture.json --entities=herb:fixture
+          if node scripts/enrichment-governor/control.mjs lease-acquire --id=ci-overlap --owner=ci --files=tmp/fixture.json --entities=herb:other; then
+            echo 'Expected overlapping lease acquisition to exit nonzero.' >&2
+            exit 1
+          fi
+          node scripts/enrichment-governor/control.mjs lease-release --id=ci-fixture --disposition=verified
+          node scripts/enrichment-governor/control.mjs metric --name=scansRun --delta=1
+          node scripts/enrichment-governor/control.mjs integrity-record --source=src_ci-fixture --status=clear --note=ci-smoke-test
+          node scripts/enrichment-governor/control.mjs improvement-propose --id=imp_ci-fixture --surface=search_strategy --reason=ci-smoke-observation --benefit=verify-durable-control-path
+          node scripts/enrichment-governor/control.mjs improvement-adopt --id=imp_ci-fixture
+      - name: Revalidate state after mutation smoke tests
+        run: node scripts/enrichment-governor/validate-state.mjs
+      - name: Cheap repository scan
+        run: node scripts/enrichment-governor/governor.mjs scan
+      - name: Canary verification
+        run: node scripts/enrichment-governor/canary.mjs
+      - name: Daily consolidation dry run
+        run: node scripts/enrichment-governor/daily.mjs --dry-run

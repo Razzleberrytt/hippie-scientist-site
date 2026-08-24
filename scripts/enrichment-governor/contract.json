@@ -1,0 +1,148 @@
+{
+  "contractVersion": 1,
+  "mission": "Coordinate autonomous enrichment work without weakening scientific, safety, provenance, validation, or merge standards.",
+  "cheapScan": {
+    "deepWorkThreshold": 60,
+    "highPriorityOverride": ["publication_integrity", "safety", "material_misstatement"],
+    "maxDeepWorkCandidatesPerRun": 3
+  },
+  "opportunityScore": {
+    "weights": {
+      "evidenceGapSeverity": 0.24,
+      "pageImportance": 0.16,
+      "evidenceQuality": 0.16,
+      "freshness": 0.08,
+      "safetyImportance": 0.16,
+      "userFacingAccuracyImpact": 0.12,
+      "implementationEffortInverse": 0.04,
+      "scientificMergeRiskInverse": 0.04
+    },
+    "bands": {
+      "critical": 85,
+      "high": 70,
+      "medium": 50,
+      "low": 0
+    }
+  },
+  "coordination": {
+    "leaseMinutes": 90,
+    "writerLockMinutes": 10,
+    "maxConcurrentEnrichmentPrs": 2,
+    "overlapPolicy": "block_overlapping_files_or_entities",
+    "compatibleBatching": true,
+    "doNotOpenTrivialPrBelowScore": 70,
+    "sensitivePathPrefixes": [
+      "data-sources/",
+      "public/data/enrichment",
+      "public/data/source-registry",
+      "ops/enrichment-governor/",
+      "scripts/enrichment-governor/",
+      "scripts/enrichment-pipeline/"
+    ]
+  },
+  "quarantine": {
+    "failureThreshold": 3,
+    "cooldownHours": 72,
+    "releaseRequiresMaterialChange": true
+  },
+  "difficultyEscalation": {
+    "easy": ["deterministic_duplicate", "metadata_normalization", "known_schema_fix"],
+    "moderate": ["new_human_study", "source_registry_addition", "coverage_gap"],
+    "hard": ["formulation_identity_conflict", "species_transfer_risk", "publication_integrity_change", "contradictory_safety_interpretation", "persistent_ci_failure"],
+    "hardPolicy": "never_auto_merge_without_unambiguous_provenance_and_green_required_checks"
+  },
+  "selfImprovement": {
+    "minimumObservedRuns": 1,
+    "benchmarkRequiredForPermanentHeuristicChange": true,
+    "revertOnBenchmarkRegression": true,
+    "allowedSurfaces": [
+      "search_strategy",
+      "prioritization",
+      "deduplication",
+      "batching",
+      "validation_order",
+      "caching",
+      "execution_efficiency"
+    ],
+    "forbiddenSurfaces": [
+      "scientific_evidence_standard",
+      "safety_standard",
+      "provenance_requirement",
+      "branch_protection",
+      "required_validation_gate",
+      "null_or_negative_evidence_visibility"
+    ]
+  },
+  "publicationIntegrity": {
+    "recheckHighImpactDays": 30,
+    "recheckDefaultDays": 90,
+    "signals": ["retraction", "expression_of_concern", "major_correction", "invalid_identifier", "publication_status_change", "strong_new_contradiction"]
+  },
+  "coverageDimensions": [
+    "human_efficacy_signal",
+    "null_or_mixed_human_evidence",
+    "safety",
+    "interactions",
+    "dosage_context",
+    "mechanism",
+    "special_populations",
+    "source_freshness",
+    "source_independence",
+    "publication_integrity"
+  ],
+  "sourceDiversity": {
+    "minIndependentSourceIdsForHighConfidenceCoverage": 2,
+    "flagSingleSourceDominanceAtShare": 0.75,
+    "flagSingleEvidenceClassOnly": true,
+    "flagIndustryDominance": true
+  },
+  "negativeEvidence": {
+    "targetClaimTypes": ["efficacy_null_or_mixed", "evidence_conflict", "safety_risk", "research_gap"],
+    "searchIntents": ["no significant effect", "null result", "failed trial", "adverse event", "withdrawal", "retraction", "expression of concern", "contradictory meta-analysis"]
+  },
+  "canaries": {
+    "fixedAnchors": ["ashwagandha", "chamomile", "kava", "cbd", "luteolin"],
+    "dynamicTopRiskCount": 10,
+    "requiredChecks": ["source_linkage", "evidence_class", "schema_validity"],
+    "anchorRequirements": {
+      "ashwagandha": ["safety_visibility"],
+      "chamomile": ["null_visibility", "safety_visibility"],
+      "kava": ["null_visibility", "safety_visibility"],
+      "cbd": ["null_visibility", "safety_visibility"],
+      "luteolin": ["null_visibility"]
+    },
+    "targetChecks": ["null_visibility", "safety_visibility", "no_unresolved_source_ids"],
+    "baselineDebt": {
+      "allowedUnresolvedSourceIds": [
+        "src_cochrane-cd003383",
+        "src_fda-epidiolex-label-2021",
+        "src_pubmed-29801717",
+        "src_pubmed-31006899",
+        "src_pubmed-31517876",
+        "src_pubmed-40622698"
+      ],
+      "allowedMissingNullVisibilityAnchors": ["ashwagandha"],
+      "allowedMissingSafetyVisibilityAnchors": ["luteolin"]
+    },
+    "debtPolicy": "fail_on_any_new_debt_identity; retain known baseline debt warnings until repaired"
+  },
+  "budget": {
+    "defaultMaxDeepResearchCandidates": 3,
+    "defaultMaxFullBuildsPerRun": 1,
+    "requireExpectedValueAboveCost": true,
+    "safetyAndIntegrityOverride": true
+  },
+  "dailyConsolidation": {
+    "enabled": true,
+    "minimumHoursBetweenRuns": 20,
+    "tasks": ["compact_ledger", "refresh_scoreboard", "refresh_heatmap", "refresh_claim_source_graph", "prune_stale_queue", "review_quarantine", "select_next_frontier", "architecture_drift_check"]
+  },
+  "immutableInvariants": [
+    "Do not generalize across unmatched species, plant parts, extracts, formulations, constituents, doses, durations, populations, or study types.",
+    "Do not convert preclinical or mechanistic evidence into human efficacy.",
+    "Do not hide null, mixed, adverse, contradictory, corrected, retracted, expression-of-concern, or conflict-of-interest evidence.",
+    "Do not weaken, bypass, skip, delete, disable, reinterpret, or lower required tests, validators, provenance requirements, branch protections, scientific caveats, or safety gates.",
+    "Do not auto-merge materially ambiguous evidence identity, formulation attribution, publication integrity, safety interpretation, provenance, or failing required checks.",
+    "Do not overwrite canonical workbook data outside the repository's governed patch/import path."
+  ]
+}

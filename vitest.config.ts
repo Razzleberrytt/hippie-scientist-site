@@ -60,7 +60,18 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './vitest.setup.ts',
-    exclude: ['**/node_modules/**', '**/dist/**', '**/.next/**', '**/.claude/**', '**/out/**'],
+    // The governor regression suite is deliberately Node-native and is executed
+    // with `node --test` in the Enrichment Governor workflow. Letting Vitest
+    // discover it causes Vite to try to bundle the prefix-only `node:test`
+    // builtin instead of exercising the intended runner.
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.next/**',
+      '**/.claude/**',
+      '**/out/**',
+      'scripts/enrichment-governor/__tests__/**',
+    ],
     maxWorkers: '50%',
     testTimeout: 15000,
     pool: 'forks',

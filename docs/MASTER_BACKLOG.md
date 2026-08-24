@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-08-22
+**Updated:** 2026-08-24
 **Immediate work:** Only tickets also present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started.
 
 ## Scoring and gates
@@ -12,10 +12,11 @@ Business impact, user value, traffic potential, strategic leverage, and effort u
 
 ## Now
 
-Only these unblocked tickets may start, subject to the three-workstream WIP limit.
+Only these unblocked tickets may start, subject to the three-workstream WIP limit. Owner-directed Operations maintenance may be recorded here when it is cross-cutting infrastructure for an already-authorized workflow and does not activate unrelated Operations work or a fourth product workstream.
 
 | ID | Title | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance criteria | Proof required | Relevant scope | Notes |
 |---|---|---|---|---|---|---:|---|---|---|---|---|
+| #4223 | Add governed autonomous enrichment control plane | O | In Review | P0 owner-directed | 3/4/3/5/1/2 | 90.0 | Direct owner instruction 2026-08-24; canonical enrichment pipeline and workbook governance remain authoritative | Coordinate non-overlapping enrichment work; persist auditable learning/scoreboard/quarantine/postmortems; prioritize through cheap-scan/deep-work gates; track evidence decay, source diversity, negative evidence, coverage, canaries, publication integrity and architecture drift; benchmark-gate self-improvement; never weaken scientific/safety/provenance/validation gates or create a second source of truth | PR #4222 review resolution; governor unit/regression tests and benchmark; strict state validation; overlap and blocked-lease CLI smoke tests; real-schema canaries; serialized daily consolidation; standard CI, Site Health, Build Check, Production Content Lint, Lighthouse and Atomic gate; post-merge main verification | `scripts/enrichment-governor/`, `ops/enrichment-governor/`, `.github/workflows/enrichment-governor.yml`; no canonical workbook mutation | Owner-directed cross-cutting Operations/Evidence-Governance maintenance exception; scoped to #4223 only |
 | AUTH-004 | Refine canonical visual system across flagship and primary browse surfaces | A | In Review | P0 owner-directed | 3/5/3/4/1/2 | 90.0 | Direct owner requests 2026-08-22; avoid active Research PR overlap | Shared canvas, surfaces, type, controls, chrome, homepage, and primary Herbs/Compounds browse journeys are coherent; mobile goal chooser is balanced; browse loading/filter/card/pagination states share one material language; no route/content/evidence/safety semantic regressions; dark/reduced-motion behavior remains | Source diff, visual and library-browse regression contracts, UI checks, production build, rendered light/dark mobile/desktop review when available | Canonical premium CSS owners, homepage, shared decision/pagination components, `/herbs`, `/compounds` | Owner-directed continuation of one scoped refinement inside the existing premium system; no second design system |
 | REV-001 | Verify production analytics and governed funnel events | R | Ready | P0 | 5/4/4/5/1/1 | 400.0 | Analytics/env access for receipt proof | Consent blocks pre-consent loading; configured analytics loads after consent; view and affiliate events include page/CTA/destination context | Network or DebugView evidence, consent log, configuration checklist | Analytics loader, click tracker, live site | Highest leverage; missing access is not zero |
 | SEO-001 | Reconcile post-build profile publication truth | D | Ready | P0 | 5/5/5/5/.75/3 | 156.3 | None | One final artifact agrees with built robots and sitemap for every profile and reason | Clean-build counts, parity regression, artifact diff | Publication data, sitemap/robots, scripts | Do not broaden indexability during reconciliation |
