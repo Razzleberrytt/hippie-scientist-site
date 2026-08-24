@@ -14,7 +14,6 @@ export default [
       '.next/**',
       'node_modules/**',
       'next-env.d.ts',
-      'scripts/data/build-runtime-from-workbook.mjs',
       'scratch/**',
       '.claude/**',
       // Disposable enrichment-pipeline state and operator scratch scripts.
