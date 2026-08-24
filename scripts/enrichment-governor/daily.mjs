@@ -19,7 +19,12 @@ const nowMs = now.getTime()
 const nowIso = now.toISOString()
 
 function loadJson(file, fallback) {
-  try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
+  if (!fs.existsSync(file)) return fallback
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'))
+  } catch (error) {
+    throw new Error(`Unreadable persistent JSON at ${file}: ${error.message}`)
+  }
 }
 
 function writeJson(file, value) {
@@ -29,8 +34,10 @@ function writeJson(file, value) {
 
 function parseJsonl(file) {
   if (!fs.existsSync(file)) return []
-  return fs.readFileSync(file, 'utf8').split(/\r?\n/).map(line => line.trim()).filter(Boolean).flatMap(line => {
-    try { return [JSON.parse(line)] } catch { return [] }
+  return fs.readFileSync(file, 'utf8').split(/\r?\n/).map(line => line.trim()).filter(Boolean).map((line, index) => {
+    try { return JSON.parse(line) } catch (error) {
+      throw new Error(`Malformed JSONL at ${file}:${index + 1}: ${error.message}`)
+    }
   })
 }
 
@@ -151,8 +158,10 @@ export function runDailyConsolidation({ write = true } = {}) {
     entryCount: entries.length,
     sourceGraph: graph.counts,
     canaryPass: canaries.pass,
+    canaryStatus: canaries.status,
     canaryBlockers: canaries.blockers,
     canaryWarnings: canaries.warnings,
+    canaryDebt: canaries.debt,
     architectureDriftOk: drift.ok,
     architectureMissing: drift.missing,
     dueIntegrityRechecks: integrityWatch.sources.filter(row => row.due).length,
@@ -161,6 +170,13 @@ export function runDailyConsolidation({ write = true } = {}) {
     quarantinedCases: (quarantine.cases || []).filter(row => row.quarantined).length,
     scoreboardRates: updatedScoreboard.rates,
     ledgerEvents: ledgerSummary.totalEvents,
+  }
+
+  if (!canaries.pass) {
+    throw new Error(`Daily consolidation blocked by canary failures: ${canaries.blockers.join(', ')}`)
+  }
+  if (!drift.ok) {
+    throw new Error(`Daily consolidation blocked by architecture drift: ${drift.missing.join(', ')}`)
   }
 
   if (write) {
