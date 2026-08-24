@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-import { builtinModules } from 'node:module'
+import { builtinModules, isBuiltin } from 'node:module'
 
 const experimentalBuiltins = ['node:sqlite']
 const builtinSet = new Set([...builtinModules, ...builtinModules.map(m => `node:${m}`), ...experimentalBuiltins])
@@ -99,7 +99,13 @@ const parseUndeclaredDependencies = ({ root, declared }) => {
 
       const name = spec.startsWith('@') ? spec.split('/').slice(0, 2).join('/') : spec.split('/')[0]
 
+      // `builtinModules` does not enumerate every prefix-only builtin on every
+      // supported Node release (notably `node:test`). `isBuiltin()` is the
+      // authoritative runtime check and keeps those modules from being mistaken
+      // for undeclared npm dependencies.
       if (
+        isBuiltin(spec) ||
+        isBuiltin(name) ||
         builtinSet.has(spec) ||
         builtinSet.has(name) ||
         optionalProbes.has(name) ||
@@ -128,11 +134,13 @@ const runSelfTest = () => {
 
   const proseComment = '/** This is a different claim from "insufficient evidence" and must not count. */' + String.fromCharCode(10)
   fs.writeFileSync(path.join(fixtureRoot, 'app', 'prose.ts'), proseComment + "export const grade = 'A'" + String.fromCharCode(10))
+  fs.writeFileSync(path.join(fixtureRoot, 'app', 'node-builtin.ts'), "import test from 'node:test'\nexport const nodeTest = test\n")
 
   const unresolved = parseUndeclaredDependencies({ root: fixtureRoot, declared: new Set(['react']) })
   if (!unresolved.some((line) => line.includes('missing-package'))) throw new Error('Expected missing-package to be reported')
   if (unresolved.some((line) => line.includes('another-missing'))) throw new Error('node_modules should be excluded from scan')
   if (unresolved.some((line) => line.includes('insufficient evidence'))) throw new Error('Prose in a comment must not be read as a dependency')
+  if (unresolved.some((line) => line.includes('node:test'))) throw new Error('Node prefix-only builtins must not be reported as dependencies')
   console.log('validate-direct-dependencies: self-test OK')
 }
 
