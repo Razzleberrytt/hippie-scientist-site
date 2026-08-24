@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import EmailCapture from '@/components/articles/EmailCapture'
+import DeferredEmailCapture from '@/components/articles/DeferredEmailCapture'
 import { getContextualLeadMagnet, shouldShowContextualLeadMagnet } from '@/lib/lead-magnets'
 
 export default function ContextualLeadMagnet() {
@@ -13,7 +13,7 @@ export default function ContextualLeadMagnet() {
 
   return (
     <section className='container-page pb-4 pt-2' aria-label={`Free resource: ${offer.shortTitle}`}>
-      <EmailCapture
+      <DeferredEmailCapture
         title={offer.title}
         description={offer.description}
         ctaLabel={`Email me the ${offer.shortTitle}`}
