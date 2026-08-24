@@ -73,6 +73,62 @@ jobs:
               --in-place | tee -a retype-five-compounds-report.txt
           done
 
+      - name: Preserve legacy URLs after taxonomy correction
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('node:fs')
+          const file = 'public/_redirects'
+          let text = fs.readFileSync(file, 'utf8')
+
+          const oldResveratrol = [
+            '/compounds/resveratrol /herbs/resveratrol/ 301',
+            '/compounds/resveratrol/ /herbs/resveratrol/ 301',
+            '/compounds/trans-resveratrol /herbs/resveratrol/ 301',
+            '/compounds/trans-resveratrol/ /herbs/resveratrol/ 301',
+          ].join('\n')
+          const newResveratrol = [
+            '/herbs/resveratrol /compounds/resveratrol/ 301',
+            '/herbs/resveratrol/ /compounds/resveratrol/ 301',
+            '/compounds/trans-resveratrol /compounds/resveratrol/ 301',
+            '/compounds/trans-resveratrol/ /compounds/resveratrol/ 301',
+          ].join('\n')
+
+          if (text.includes(oldResveratrol)) {
+            text = text.replace(oldResveratrol, newResveratrol)
+          } else if (!text.includes(newResveratrol)) {
+            throw new Error('Expected resveratrol redirect block was not found; refusing a blind rewrite')
+          }
+
+          const anchor = '# Cross-taxonomy canonical: L-tyrosine is an amino-acid compound, not an herb.'
+          const additions = [
+            '# Cross-taxonomy canonicals: these rows are compounds, not herbs.',
+            '/herbs/citicoline /compounds/citicoline/ 301',
+            '/herbs/citicoline/ /compounds/citicoline/ 301',
+            '/herbs/quercetin /compounds/quercetin/ 301',
+            '/herbs/quercetin/ /compounds/quercetin/ 301',
+            '/herbs/phosphatidylserine /compounds/phosphatidylserine/ 301',
+            '/herbs/phosphatidylserine/ /compounds/phosphatidylserine/ 301',
+            '',
+          ].join('\n')
+
+          if (!text.includes('/herbs/citicoline /compounds/citicoline/ 301')) {
+            if (!text.includes(anchor)) throw new Error('Tyrosine cross-taxonomy anchor not found')
+            text = text.replace(anchor, additions + anchor)
+          }
+
+          const forbidden = [
+            '/compounds/resveratrol /herbs/resveratrol/ 301',
+            '/compounds/resveratrol/ /herbs/resveratrol/ 301',
+          ]
+          for (const rule of forbidden) {
+            if (text.includes(rule)) throw new Error(`Reverse resveratrol canonical still present: ${rule}`)
+          }
+
+          fs.writeFileSync(file, text)
+          NODE
+
       - name: Validate workbook schema
         run: npm run validate:workbook-schema --silent | tee -a retype-five-compounds-report.txt
 
@@ -85,16 +141,18 @@ jobs:
       - name: Show enrichment status
         run: npm run enrich:status --silent | tee -a retype-five-compounds-report.txt
 
-      - name: Commit validated canonical workbook to PR branch
-        if: steps.inspect.outputs.needs_change == 'true'
+      - name: Validate redirect indexability
+        run: npm run validate:redirect-indexability --silent | tee -a retype-five-compounds-report.txt
+
+      - name: Commit validated identity correction to PR branch
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data-sources/herb_monograph_master.xlsx
+          git add data-sources/herb_monograph_master.xlsx public/_redirects
           git diff --cached --quiet && exit 0
-          git commit -m "fix(data): retype five non-organism herbs as compounds"
+          git commit -m "fix(data): preserve routes for retyped compounds"
           git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
 
       - name: Upload corrected workbook
