@@ -55,8 +55,12 @@ async function validateRoute(route) {
   const html = await readFile(path.join(root, htmlPath), 'utf8')
   const failures = []
 
-  if (!/\bsrcset=/.test(html)) failures.push('exported hero HTML has no srcset attribute')
-  if (!/\bsizes=/.test(html)) failures.push('exported hero HTML has no sizes attribute')
+  // React/Next server markup may preserve JSX's `srcSet` casing in the raw
+  // exported source even though HTML attribute names are case-insensitive in
+  // the browser. Validate the HTML contract case-insensitively rather than
+  // rejecting a semantically identical serialization.
+  if (!/\bsrcset=/i.test(html)) failures.push('exported hero HTML has no srcset attribute')
+  if (!/\bsizes=/i.test(html)) failures.push('exported hero HTML has no sizes attribute')
 
   for (const width of WIDTHS) {
     const variant = optimizedVariant(route.source, width)
