@@ -1,0 +1,58 @@
+name: Fix resveratrol redirect contract
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: true
+
+      - name: Update required redirect contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('node:fs')
+          const file = 'scripts/verify-redirects.mjs'
+          let text = fs.readFileSync(file, 'utf8')
+          const oldBlock = [
+            "  '/compounds/resveratrol /herbs/resveratrol/ 301',",
+            "  '/compounds/trans-resveratrol /herbs/resveratrol/ 301',",
+          ].join('\n')
+          const newBlock = [
+            "  '/herbs/resveratrol /compounds/resveratrol/ 301',",
+            "  '/compounds/trans-resveratrol /compounds/resveratrol/ 301',",
+            "  '/herbs/citicoline /compounds/citicoline/ 301',",
+            "  '/herbs/quercetin /compounds/quercetin/ 301',",
+            "  '/herbs/phosphatidylserine /compounds/phosphatidylserine/ 301',",
+            "  '/herbs/tyrosine /compounds/l-tyrosine/ 301',",
+          ].join('\n')
+          if (!text.includes(oldBlock)) {
+            if (!text.includes(newBlock)) throw new Error('Expected old resveratrol required-redirect block not found')
+          } else {
+            text = text.replace(oldBlock, newBlock)
+          }
+          fs.writeFileSync(file, text)
+          NODE
+
+      - name: Remove one-shot workflow and commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm .github/workflows/fix-resveratrol-redirect-contract.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/verify-redirects.mjs
+          git commit -m "fix(ci): align required redirects with compound taxonomy"
+          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
