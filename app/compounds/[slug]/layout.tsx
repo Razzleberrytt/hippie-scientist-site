@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 import { allCompoundMdxPages } from '../../../.content-collections/generated'
 import { normalizeSlug } from '@/lib/slug-utils'
 import '@/styles/herb-profile-polish.css'
-import '@/styles/profile-navigation-cleanup.css'
 import '@/styles/compact-safety-cautions.css'
 
 type CompoundProfileLayoutProps = {
