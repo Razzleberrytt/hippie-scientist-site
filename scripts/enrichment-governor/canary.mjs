@@ -13,6 +13,10 @@ const ajv = new Ajv2020({ allErrors: true, strict: true, strictRequired: true })
 addFormats(ajv)
 const validateEntrySchema = ajv.compile(schema)
 
+const incompatibleEntitySources = new Map([
+  ['herb:ashwagandha', new Set(['src_fda-epidiolex-label-2021'])],
+])
+
 function parseJsonl(file) {
   if (!fs.existsSync(file)) return []
   return fs.readFileSync(file, 'utf8').split(/\r?\n/).map(line => line.trim()).filter(Boolean).map((line, index) => {
@@ -75,6 +79,12 @@ export function verifyCanaries(entries, sourceRegistry = []) {
     .map(row => ({ entity: row.entity, coverageScore: row.coverageScore, negativeEvidenceGap: row.negativeEvidenceGap, diversityFlags: row.sourceDiversity.flags }))
 
   const blockers = []
+  for (const entry of publishableEntries) {
+    const entityKey = `${entry.entityType}:${entry.entitySlug}`
+    if (incompatibleEntitySources.get(entityKey)?.has(entry.sourceId)) {
+      blockers.push(`${entry.entitySlug}:provenance_incompatible_source:${entry.sourceId}`)
+    }
+  }
   for (const row of fixed) {
     if (!row.present) {
       blockers.push(`${row.slug}:missing_canary`)
