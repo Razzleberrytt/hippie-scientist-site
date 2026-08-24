@@ -14,7 +14,8 @@ const statePath = name => path.join(stateDir, name)
 const nowIso = () => new Date().toISOString()
 
 function loadJson(file, fallback) {
-  try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
+  if (!fs.existsSync(file)) return fallback
+  return JSON.parse(fs.readFileSync(file, 'utf8'))
 }
 
 function atomicJson(file, value) {
@@ -57,20 +58,30 @@ function withLock(fn) {
     if (error.code === 'EEXIST') throw new Error('enrichment governor state is locked by another writer')
     throw error
   }
+
+  let result
+  let operationError = null
   try {
-    return fn()
-  } finally {
-    try {
-      fs.closeSync(fd)
-    } catch (error) {
-      if (error?.code !== 'EBADF') throw error
-    }
-    try {
-      fs.unlinkSync(lockPath)
-    } catch (error) {
-      if (error?.code !== 'ENOENT') throw error
-    }
+    result = fn()
+  } catch (error) {
+    operationError = error
   }
+
+  let cleanupError = null
+  try {
+    fs.closeSync(fd)
+  } catch (error) {
+    if (error?.code !== 'EBADF') cleanupError = error
+  }
+  try {
+    fs.unlinkSync(lockPath)
+  } catch (error) {
+    if (error?.code !== 'ENOENT' && !cleanupError) cleanupError = error
+  }
+
+  if (operationError) throw operationError
+  if (cleanupError) throw cleanupError
+  return result
 }
 
 function event(event, details = {}) {
