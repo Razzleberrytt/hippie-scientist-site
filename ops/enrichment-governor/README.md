@@ -1,5 +1,7 @@
 # Enrichment governor control plane
 
+Implementation issue: #4223.
+
 This directory is the **persistent, auditable control plane** for autonomous enrichment work. It intentionally does not replace `ops/enrichment/`, which remains rebuildable runtime state for the canonical enrichment pipeline.
 
 The canonical scientific source of truth is still `data-sources/herb_monograph_master.xlsx`, and production-facing workbook changes must continue through the repository's governed workbook-patch/import path.
