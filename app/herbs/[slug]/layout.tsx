@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 
 import '@/styles/herb-profile-polish.css'
-import '@/styles/profile-navigation-cleanup.css'
 import '@/styles/compact-safety-cautions.css'
 
 export default function HerbProfileLayout({ children }: { children: ReactNode }) {
