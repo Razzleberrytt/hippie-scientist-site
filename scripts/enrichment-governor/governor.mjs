@@ -96,11 +96,16 @@ export function sourceDiversity(entries = []) {
 
 function parseJsonl(file) {
   if (!fs.existsSync(file)) return []
-  return fs.readFileSync(file, 'utf8').split(/\r?\n/).map(line => line.trim()).filter(Boolean).map(line => JSON.parse(line))
+  return fs.readFileSync(file, 'utf8').split(/\r?\n/).map(line => line.trim()).filter(Boolean).map((line, index) => {
+    try { return JSON.parse(line) } catch (error) {
+      throw new Error(`Malformed JSONL at ${file}:${index + 1}: ${error.message}`)
+    }
+  })
 }
 
 function loadJson(file, fallback) {
-  try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
+  if (!fs.existsSync(file)) return fallback
+  return JSON.parse(fs.readFileSync(file, 'utf8'))
 }
 
 function writeJson(file, value) {
@@ -142,12 +147,15 @@ export function buildClaimSourceGraph(entries = [], sourceRegistry = []) {
   }
 }
 
+function isHumanEvidence(entry) {
+  return entry.evidenceClass === 'human-clinical' || entry.evidenceClass === 'human-observational'
+}
+
 function dimensionState(entityEntries, dimension) {
   const claimTypes = new Set(entityEntries.map(entry => entry.claimType))
   const topicTypes = new Set(entityEntries.map(entry => entry.topicType))
-  const hasHuman = entityEntries.some(entry => entry.evidenceClass === 'human-clinical' || entry.evidenceClass === 'human-observational')
-  if (dimension === 'human_efficacy_signal') return hasHuman && claimTypes.has('efficacy_signal')
-  if (dimension === 'null_or_mixed_human_evidence') return hasHuman && claimTypes.has('efficacy_null_or_mixed')
+  if (dimension === 'human_efficacy_signal') return entityEntries.some(entry => isHumanEvidence(entry) && entry.claimType === 'efficacy_signal')
+  if (dimension === 'null_or_mixed_human_evidence') return entityEntries.some(entry => isHumanEvidence(entry) && entry.claimType === 'efficacy_null_or_mixed')
   if (dimension === 'safety') return claimTypes.has('safety_risk') || [...topicTypes].some(t => /adverse|contraindication|caution|pregnancy|lactation|pediatric|older_adult/.test(t || ''))
   if (dimension === 'interactions') return [...topicTypes].some(t => /interaction|enzyme/.test(t || ''))
   if (dimension === 'dosage_context') return claimTypes.has('dosing_note') || topicTypes.has('dosage_context')
@@ -270,6 +278,13 @@ export function runBenchmark() {
   ])
   cases.push({ name: 'null_evidence_retained', pass: heatmap.rows[0].dimensions.null_or_mixed_human_evidence === true })
   cases.push({ name: 'safety_evidence_retained', pass: heatmap.rows[0].dimensions.safety === true })
+  const mixedHeatmap = buildCoverageHeatmap([
+    { entityType: 'herb', entitySlug: 'mixed', sourceId: 's1', evidenceClass: 'human-clinical', claimType: 'mechanistic_signal', topicType: 'mechanism', reviewedAt: nowIso() },
+    { entityType: 'herb', entitySlug: 'mixed', sourceId: 's2', evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_signal', topicType: 'supported_use', reviewedAt: nowIso() },
+    { entityType: 'herb', entitySlug: 'mixed', sourceId: 's3', evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use', reviewedAt: nowIso() },
+  ])
+  cases.push({ name: 'preclinical_claim_not_counted_as_human_efficacy', pass: mixedHeatmap.rows[0].dimensions.human_efficacy_signal === false })
+  cases.push({ name: 'preclinical_null_not_counted_as_human_null', pass: mixedHeatmap.rows[0].dimensions.null_or_mixed_human_evidence === false })
   const lease1 = acquireLease({ leases: [] }, { id: 'a', files: ['x.json'], entities: ['herb:a'] }, 0)
   const lease2 = canAcquireLease(lease1.queue, { files: ['x.json'], entities: ['herb:b'] }, 1)
   cases.push({ name: 'overlapping_work_blocked', pass: lease2.ok === false })
