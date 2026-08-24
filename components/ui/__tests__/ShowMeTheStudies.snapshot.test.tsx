@@ -23,15 +23,46 @@ const citations = [
 ]
 
 describe('ShowMeTheStudies default evidence snapshot', () => {
+  it('separates human evidence-source count from human-trial count', () => {
+    render(<ShowMeTheStudies citations={[
+      ...citations,
+      {
+        title: 'Systematic review',
+        doi: '10.1000/review',
+        studyType: 'systematic review',
+        evidenceClass: 'systematic_review' as const,
+        relationship: 'background' as const,
+      },
+    ]} />)
+
+    expect(screen.getAllByText(/3 human evidence sources/i).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/2 human trials/i).length).toBeGreaterThan(0)
+  })
+
   it('renders a citation-ready evidence summary even when callers pass only citations', () => {
     render(<ShowMeTheStudies citations={citations} />)
 
     expect(screen.getByText('What the evidence actually shows')).toBeTruthy()
-    // The count now appears in both the summary line and the detail block.
+    expect(screen.getAllByText(/2 human evidence sources/i).length).toBeGreaterThan(0)
     expect(screen.getAllByText(/2 human trials/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/approximate participant total is 200/i)).toBeTruthy()
-    expect(screen.getByText(/1 supporting, 0 mixed, 1 contradicting/i)).toBeTruthy()
+    expect(screen.getByText(/1 supports the conclusion, 0 are mixed, 1 contradict it/i)).toBeTruthy()
     expect(screen.getByText(/Confidence: not separately assigned/i)).toBeTruthy()
+  })
+
+  it('does not invent directional consistency when relationships are unclassified', () => {
+    render(<ShowMeTheStudies citations={[
+      {
+        title: 'Background review',
+        doi: '10.1000/background',
+        studyType: 'systematic review',
+        evidenceClass: 'systematic_review' as const,
+      },
+    ]} />)
+
+    expect(screen.getByText(/source-to-conclusion relationships are not classified/i)).toBeTruthy()
+    expect(screen.getAllByText(/consistency is not yet classifiable/i).length).toBeGreaterThan(0)
+    expect(screen.queryByText(/0 supporting, 0 mixed, 0 contradicting/i)).toBeNull()
   })
 
   it('warns against generalizing named-extract findings to every product', () => {
