@@ -18,6 +18,14 @@ for (const dir of [outPath, nextPath]) {
   }
 }
 
+function validateResponsiveImageContract() {
+  console.log('[build] Validating responsive image production contract...')
+  execSync('node scripts/ci/validate-responsive-image-contract.mjs', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+}
+
 try {
   // `data:build` intentionally applies PubMed metadata a second time after the
   // derived/search artifacts are generated, then re-quarantines invalid or
@@ -80,11 +88,27 @@ try {
     pagesMoved = true
   }
 
+  // `build:deploy` already warms this cacheable generator, but build-production
+  // is also invoked directly by profiling/orchestration paths. Keep the actual
+  // production-render boundary self-sufficient: fresh variants are a fast no-op,
+  // while missing/stale variants are regenerated before Next emits image URLs.
+  console.log('[build] Ensuring responsive image variants...')
+  execSync('node scripts/optimize-images.mjs', {
+    stdio: 'inherit',
+    env: process.env,
+  })
+
   console.log('[build] Running next build...')
   execSync('npx next build', {
     stdio: 'inherit',
     env: { ...process.env, NODE_OPTIONS: '--max-old-space-size=4096', NEXT_TELEMETRY_DISABLED: '1' },
   })
+
+  // Do not treat optimizer + loader wiring as sufficient proof. Inspect the
+  // actual exported herb/compound HTML and the copied files so a future loader,
+  // `sizes`, orchestration, or static-export change cannot silently reconnect
+  // production to full-size originals or nonexistent generated assets.
+  validateResponsiveImageContract()
 
   // Some legacy guide templates still emit raw JSON-LD instead of the shared
   // serializer. Normalize every exported JSON-LD payload at the deployment
@@ -132,8 +156,14 @@ try {
   if ((isKnown500Rename || isKnown500RenameExec) && outExists) {
     console.warn(
       '[build] WARNING: Next.js threw a known Windows rename error for 500.html, but the ' +
-      'out/ directory was populated successfully. Treating as a successful export.',
+      'out/ directory was populated successfully. Verifying the responsive image contract before accepting the export.',
     )
+    try {
+      validateResponsiveImageContract()
+    } catch (validationError) {
+      console.error('[build] Responsive image validation failed after recovered export:', validationError)
+      exitCode = 1
+    }
   } else {
     console.error('[build] Build failed:', error)
     exitCode = 1

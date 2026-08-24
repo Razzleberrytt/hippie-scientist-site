@@ -2,7 +2,8 @@
 /**
  * Build-time image optimizer.
  * Converts images in public/images/ to WebP at responsive sizes for faster page loads.
- * Output goes to public/images/optimized/ — committed to the repo alongside originals.
+ * Output goes to public/images/optimized/ as reproducible, gitignored build artifacts.
+ * The original images remain the editorial/source-of-truth assets.
  *
  * Usage:
  *   node scripts/optimize-images.mjs
@@ -160,13 +161,12 @@ async function main() {
     }
   }
 
-  // The loader rewrites an image to its WebP variant only if that variant is in
-  // this manifest, so a source that failed to encode keeps serving the original
-  // rather than 404ing.
+  // Keep a generated manifest for build/reporting/debugging visibility. The
+  // client loader intentionally does not import it because inlining the full
+  // image list into browser chunks previously added ~17KB of duplicate JSON.
   const ordered = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)))
   await mkdir(path.dirname(MANIFEST_PATH), { recursive: true })
-  await writeFile(MANIFEST_PATH, `${JSON.stringify(ordered, null, 2)}
-`, 'utf8')
+  await writeFile(MANIFEST_PATH, `${JSON.stringify(ordered, null, 2)}\n`, 'utf8')
 
   const elapsed = ((performance.now() - start) / 1000).toFixed(2)
   console.log(
