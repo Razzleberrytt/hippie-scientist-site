@@ -16,8 +16,6 @@ on:
       - 'scripts/**'
       - 'styles/**'
       - 'types/**'
-      - 'tests/**'
-      - '**/__tests__/**'
       - 'package.json'
       - 'package-lock.json'
       - '.nvmrc'
@@ -29,6 +27,10 @@ on:
       - '.lighthouserc*.json'
       - '**/*.xlsx'
       - '.github/workflows/lighthouse.yml'
+      - '!tests/**'
+      - '!**/__tests__/**'
+      - '!**/*.test.*'
+      - '!**/*.spec.*'
   schedule:
     - cron: '41 10 * * 2'
   workflow_dispatch:
@@ -67,7 +69,20 @@ jobs:
             ${{ runner.os }}-nextjs-lhci-
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --fund=false
+
+      - name: Select Lighthouse matrix
+        id: matrix
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "perf=.lighthouserc.pr.json" >> "$GITHUB_OUTPUT"
+            echo "a11y=.lighthouserc.a11y.pr.json" >> "$GITHUB_OUTPUT"
+            echo "label=PR representative matrix (9 browser audits)" >> "$GITHUB_OUTPUT"
+          else
+            echo "perf=.lighthouserc.json" >> "$GITHUB_OUTPUT"
+            echo "a11y=.lighthouserc.a11y.json" >> "$GITHUB_OUTPUT"
+            echo "label=Full matrix (18 browser audits)" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Validate accessibility primitives
         run: |
@@ -91,6 +106,9 @@ jobs:
         run: node scripts/ci/audit-third-party-performance.mjs
 
       - name: Run Lighthouse performance and accessibility audits
+        env:
+          PERF_CONFIG: ${{ steps.matrix.outputs.perf }}
+          A11Y_CONFIG: ${{ steps.matrix.outputs.a11y }}
         run: |
           npx serve@14 out -p 3000 &
           SERVER_PID=$!
@@ -100,30 +118,22 @@ jobs:
           PERF_STATUS=0
           A11Y_STATUS=0
 
-          npx @lhci/cli@0.14 collect --config=.lighthouserc.json
+          npx @lhci/cli@0.14 collect --config="$PERF_CONFIG"
           rm -rf .lighthouseci-performance
           cp -R .lighthouseci .lighthouseci-performance
-          npx @lhci/cli@0.14 assert --config=.lighthouserc.json || PERF_STATUS=$?
+          npx @lhci/cli@0.14 assert --config="$PERF_CONFIG" || PERF_STATUS=$?
           rm -rf .lighthouseci
 
-          npx @lhci/cli@0.14 collect --config=.lighthouserc.a11y.json
+          npx @lhci/cli@0.14 collect --config="$A11Y_CONFIG"
           rm -rf .lighthouseci-accessibility
           cp -R .lighthouseci .lighthouseci-accessibility
-          npx @lhci/cli@0.14 assert --config=.lighthouserc.a11y.json || A11Y_STATUS=$?
+          npx @lhci/cli@0.14 assert --config="$A11Y_CONFIG" || A11Y_STATUS=$?
           rm -rf .lighthouseci
 
           # Accessibility is a gate; performance is a trend.
-          #
-          # The performance budgets are deliberately unchanged, but they are
-          # asserted as warnings rather than errors. Measured on a shared
-          # runner, they are not a reliable pass/fail signal: two runs of the
-          # same commit reported total-blocking-time of 1992ms and 467ms on
-          # `/`, a 4.3x spread. A check that red-lights on noise gets ignored,
-          # and an ignored check hides the regressions it exists to catch.
-          #
-          # Accessibility is deterministic, currently passing, and stays a hard
-          # failure -- as do the build-correctness assertions in the perf config
-          # (unminified JS/CSS, unsized images), which cannot flake.
+          # Performance budgets remain unchanged, but shared-runner variance makes
+          # them unsuitable as a hard PR failure. Deterministic build-correctness
+          # assertions in the performance config remain hard errors.
           if [ "$PERF_STATUS" -ne 0 ]; then
             echo "::notice title=Lighthouse performance::Budgets exceeded on this run. Reported as a trend, not a gate -- see the job summary and the uploaded report."
           fi
@@ -160,6 +170,9 @@ jobs:
         if: always()
         run: |
           echo "## Performance & Accessibility Governance" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Audit matrix: ${{ steps.matrix.outputs.label }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- PR matrix keeps homepage/herb/compound performance checks plus hard accessibility checks on homepage, herb, compound, compare, safety-checker, and activity-atlas route archetypes." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Main/scheduled/manual runs retain the existing full 18-audit matrix." >> "$GITHUB_STEP_SUMMARY"
           echo "- Lighthouse performance target: ≥ 82 (tracked, not gated)" >> "$GITHUB_STEP_SUMMARY"
           echo "- CWV budgets, reported as a trend: LCP ≤ 2.5s, CLS ≤ 0.10, TBT ≤ 300ms" >> "$GITHUB_STEP_SUMMARY"
           echo "- Hard accessibility gate: ≥ 90" >> "$GITHUB_STEP_SUMMARY"
@@ -167,6 +180,4 @@ jobs:
           echo "- Client-boundary source budget: warn at 18KB, fail at 45KB" >> "$GITHUB_STEP_SUMMARY"
           echo "- Global CSS and likely-unused component surface is reported on every run" >> "$GITHUB_STEP_SUMMARY"
           echo "- Weekly production cache monitor verifies explicit cache policy and immutable Next static assets" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Performance URLs: /, /herbs/ashwagandha/, /compounds/l-theanine/" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Accessibility URLs: /, /goals/, /herbs/ashwagandha/, /compounds/l-theanine/, /guides/compare/, /safety-checker/, /evidence/evidence-checker/, /tools/botanical-activity-atlas/, /evidence/evidence-report/" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
