@@ -77,7 +77,7 @@ jobs:
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             echo "perf=.lighthouserc.pr.json" >> "$GITHUB_OUTPUT"
             echo "a11y=.lighthouserc.a11y.pr.json" >> "$GITHUB_OUTPUT"
-            echo "label=PR representative matrix (6 browser audits)" >> "$GITHUB_OUTPUT"
+            echo "label=PR representative matrix (9 browser audits)" >> "$GITHUB_OUTPUT"
           else
             echo "perf=.lighthouserc.json" >> "$GITHUB_OUTPUT"
             echo "a11y=.lighthouserc.a11y.json" >> "$GITHUB_OUTPUT"
@@ -171,7 +171,7 @@ jobs:
         run: |
           echo "## Performance & Accessibility Governance" >> "$GITHUB_STEP_SUMMARY"
           echo "- Audit matrix: ${{ steps.matrix.outputs.label }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- PR matrix keeps homepage/herb/compound performance + accessibility category checks and detailed accessibility checks on compare, safety-checker, and activity-atlas route archetypes." >> "$GITHUB_STEP_SUMMARY"
+          echo "- PR matrix keeps homepage/herb/compound performance checks plus hard accessibility checks on homepage, herb, compound, compare, safety-checker, and activity-atlas route archetypes." >> "$GITHUB_STEP_SUMMARY"
           echo "- Main/scheduled/manual runs retain the existing full 18-audit matrix." >> "$GITHUB_STEP_SUMMARY"
           echo "- Lighthouse performance target: ≥ 82 (tracked, not gated)" >> "$GITHUB_STEP_SUMMARY"
           echo "- CWV budgets, reported as a trend: LCP ≤ 2.5s, CLS ≤ 0.10, TBT ≤ 300ms" >> "$GITHUB_STEP_SUMMARY"
