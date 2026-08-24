@@ -14,6 +14,9 @@ function entry(slug, suffix, overrides = {}) {
     claimType: 'efficacy_signal',
     evidenceClass: 'human-clinical',
     topicType: 'supported_use',
+    findingTextShort: 'A sufficiently specific source-backed finding.',
+    findingTextNormalized: 'A sufficiently specific normalized source-backed finding for the canary regression fixture.',
+    reviewer: 'governor-test',
     active: true,
     editorialStatus: 'approved',
     reviewedAt: new Date().toISOString(),
@@ -29,7 +32,21 @@ function completeEntries() {
   ])
 }
 
-test('required canary checks block missing source linkage and schema shape', () => {
+function baselineDebtEntries() {
+  return [
+    entry('ashwagandha', 'efficacy', { sourceId: 'src_pubmed-31517876' }),
+    entry('ashwagandha', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'pregnancy_note' }),
+    entry('chamomile', 'safety', { sourceId: 'src_pubmed-31006899', claimType: 'safety_risk', topicType: 'adverse_effect' }),
+    entry('chamomile', 'null', { sourceId: 'src_pubmed-31006899', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
+    entry('kava', 'safety', { sourceId: 'src_cochrane-cd003383', claimType: 'safety_risk', topicType: 'condition_caution' }),
+    entry('kava', 'conflict', { sourceId: 'src_cochrane-cd003383', claimType: 'evidence_conflict', topicType: 'conflict_note' }),
+    entry('cbd', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'medication_class_caution' }),
+    entry('cbd', 'gap', { sourceId: 'src_pubmed-40622698', claimType: 'research_gap', topicType: 'research_gap' }),
+    entry('luteolin', 'null', { sourceId: 'src_pubmed-29801717', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use', evidenceClass: 'preclinical-mechanistic' }),
+  ]
+}
+
+test('required canary checks block missing source linkage and schema validity', () => {
   const entries = completeEntries()
   entries.find(row => row.entitySlug === 'ashwagandha').sourceId = ''
   const registry = completeEntries().map(row => ({ sourceId: row.sourceId }))
@@ -39,48 +56,60 @@ test('required canary checks block missing source linkage and schema shape', () 
   assert.ok(result.blockers.some(value => value.includes('ashwagandha:required_check_failed:schema_validity')))
 })
 
-test('known baseline debt remains visible without being mislabeled as clean', () => {
-  const entries = [
-    entry('ashwagandha', 'a', { claimType: 'safety_risk', topicType: 'pregnancy_note' }),
-    entry('chamomile', 'b', { claimType: 'safety_risk', topicType: 'adverse_effect' }),
-    entry('chamomile', 'c', { claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
-    entry('kava', 'd', { claimType: 'safety_risk', topicType: 'condition_caution' }),
-    entry('kava', 'e', { claimType: 'evidence_conflict', topicType: 'conflict_note' }),
-    entry('cbd', 'f', { claimType: 'safety_risk', topicType: 'medication_class_caution' }),
-    entry('cbd', 'g', { claimType: 'research_gap', topicType: 'research_gap' }),
-    entry('luteolin', 'h', { claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
-  ]
-  // Resolve two IDs so the unresolved-source debt is exactly six, matching the declared baseline budget.
-  const registry = [{ sourceId: entries[0].sourceId }, { sourceId: entries[1].sourceId }]
+test('real normalized-entry schema rejects an invalid enum value', () => {
+  const entries = completeEntries()
+  entries.find(row => row.entitySlug === 'ashwagandha').entityType = 'plant'
+  const registry = entries.map(row => ({ sourceId: row.sourceId }))
   const result = verifyCanaries(entries, registry)
+  assert.equal(result.pass, false)
+  assert.ok(result.blockers.includes('ashwagandha:required_check_failed:schema_validity'))
+})
+
+test('inactive evidence cannot satisfy a required canary', () => {
+  const entries = completeEntries()
+  const chamomileSafety = entries.find(row => row.entitySlug === 'chamomile' && row.claimType === 'safety_risk')
+  chamomileSafety.active = false
+  const registry = entries.map(row => ({ sourceId: row.sourceId }))
+  const result = verifyCanaries(entries, registry)
+  assert.equal(result.pass, false)
+  assert.ok(result.blockers.includes('chamomile:anchor_requirement_failed:safety_visibility'))
+  assert.equal(result.excludedEntryCount, 1)
+})
+
+test('unapproved evidence cannot satisfy a required canary', () => {
+  const entries = completeEntries()
+  const kavaNull = entries.find(row => row.entitySlug === 'kava' && row.claimType === 'efficacy_null_or_mixed')
+  kavaNull.editorialStatus = 'needs_review'
+  const registry = entries.map(row => ({ sourceId: row.sourceId }))
+  const result = verifyCanaries(entries, registry)
+  assert.equal(result.pass, false)
+  assert.ok(result.blockers.includes('kava:anchor_requirement_failed:null_visibility'))
+  assert.equal(result.excludedEntryCount, 1)
+})
+
+test('known baseline debt remains visible without being mislabeled as clean', () => {
+  const entries = baselineDebtEntries()
+  const result = verifyCanaries(entries, [])
   assert.equal(result.pass, true, JSON.stringify(result, null, 2))
   assert.equal(result.idealPass, false)
   assert.equal(result.status, 'PASS_WITH_BASELINE_DEBT')
-  assert.equal(result.debt.unresolvedSourceIds.length, 6)
+  assert.deepEqual(result.debt.unresolvedSourceIds, [
+    'src_cochrane-cd003383',
+    'src_fda-epidiolex-label-2021',
+    'src_pubmed-29801717',
+    'src_pubmed-31006899',
+    'src_pubmed-31517876',
+    'src_pubmed-40622698',
+  ])
   assert.deepEqual(result.debt.missingNullVisibilityAnchors, ['ashwagandha'])
   assert.deepEqual(result.debt.missingSafetyVisibilityAnchors, ['luteolin'])
+  assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, [])
 })
 
-test('canary ratchet blocks an increase in unresolved-source debt', () => {
-  const entries = completeEntries()
-  // Seven unique unresolved sources are enough to exceed the six-source baseline debt budget.
-  const reduced = [
-    entries.find(row => row.entitySlug === 'ashwagandha' && row.claimType === 'efficacy_signal'),
-    entries.find(row => row.entitySlug === 'ashwagandha' && row.claimType === 'efficacy_null_or_mixed'),
-    entries.find(row => row.entitySlug === 'ashwagandha' && row.claimType === 'safety_risk'),
-    entries.find(row => row.entitySlug === 'chamomile' && row.claimType === 'efficacy_null_or_mixed'),
-    entries.find(row => row.entitySlug === 'chamomile' && row.claimType === 'safety_risk'),
-    entries.find(row => row.entitySlug === 'kava' && row.claimType === 'efficacy_null_or_mixed'),
-    entries.find(row => row.entitySlug === 'kava' && row.claimType === 'safety_risk'),
-    entries.find(row => row.entitySlug === 'cbd' && row.claimType === 'efficacy_null_or_mixed'),
-    entries.find(row => row.entitySlug === 'cbd' && row.claimType === 'safety_risk'),
-    entries.find(row => row.entitySlug === 'luteolin' && row.claimType === 'efficacy_null_or_mixed'),
-    entries.find(row => row.entitySlug === 'luteolin' && row.claimType === 'safety_risk'),
-  ]
-  // Resolve all but seven unique IDs.
-  const uniqueIds = [...new Set(reduced.map(row => row.sourceId))]
-  const registry = uniqueIds.slice(7).map(sourceId => ({ sourceId }))
-  const result = verifyCanaries(reduced, registry)
+test('canary ratchet blocks a new unresolved source even when total debt count does not grow', () => {
+  const entries = baselineDebtEntries().map(row => row.sourceId === 'src_pubmed-31517876' ? { ...row, sourceId: 'src_new-source' } : row)
+  const result = verifyCanaries(entries, [])
+  assert.equal(result.debt.unresolvedSourceIds.length, 6)
   assert.equal(result.pass, false)
-  assert.ok(result.blockers.includes('baseline_debt_increased:unresolved_source_ids:7'))
+  assert.ok(result.blockers.includes('new_provenance_debt:unresolved_source:src_new-source'))
 })
