@@ -35,7 +35,7 @@ function completeEntries() {
 function baselineDebtEntries() {
   return [
     entry('ashwagandha', 'efficacy', { sourceId: 'src_pubmed-31517876' }),
-    entry('ashwagandha', 'safety', { sourceId: 'src_nccih-ashwagandha-safety', claimType: 'safety_risk', topicType: 'pregnancy_note', evidenceClass: 'regulatory-monograph' }),
+    entry('ashwagandha', 'safety', { sourceId: 'src_pubmed-31517876', claimType: 'population_note', topicType: 'adverse_effect', evidenceClass: 'human-clinical' }),
     entry('chamomile', 'safety', { sourceId: 'src_pubmed-31006899', claimType: 'safety_risk', topicType: 'adverse_effect' }),
     entry('chamomile', 'null', { sourceId: 'src_pubmed-31006899', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
     entry('kava', 'safety', { sourceId: 'src_cochrane-cd003383', claimType: 'safety_risk', topicType: 'condition_caution' }),
@@ -89,7 +89,7 @@ test('unapproved evidence cannot satisfy a required canary', () => {
 
 test('known baseline debt remains visible without being mislabeled as clean', () => {
   const entries = baselineDebtEntries()
-  const result = verifyCanaries(entries, [{ sourceId: 'src_nccih-ashwagandha-safety' }])
+  const result = verifyCanaries(entries, [])
   assert.equal(result.pass, true, JSON.stringify(result, null, 2))
   assert.equal(result.idealPass, false)
   assert.equal(result.status, 'PASS_WITH_BASELINE_DEBT')
@@ -106,16 +106,16 @@ test('known baseline debt remains visible without being mislabeled as clean', ()
   assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, [])
 })
 
-test('ashwagandha pregnancy canary uses the entity-specific NCCIH source, not the CBD label', () => {
-  const safety = baselineDebtEntries().find(row => row.entitySlug === 'ashwagandha' && row.topicType === 'pregnancy_note')
-  assert.equal(safety.sourceId, 'src_nccih-ashwagandha-safety')
+test('ashwagandha safety canary stays on the ashwagandha RCT and never borrows the CBD label', () => {
+  const safety = baselineDebtEntries().find(row => row.entitySlug === 'ashwagandha' && row.topicType === 'adverse_effect')
+  assert.equal(safety.sourceId, 'src_pubmed-31517876')
   assert.notEqual(safety.sourceId, 'src_fda-epidiolex-label-2021')
 })
 
 test('canary ratchet blocks a new unresolved source even when total debt count does not grow', () => {
-  const entries = baselineDebtEntries().map(row => row.sourceId === 'src_pubmed-31517876' ? { ...row, sourceId: 'src_new-source' } : row)
-  const result = verifyCanaries(entries, [{ sourceId: 'src_nccih-ashwagandha-safety' }])
-  assert.equal(result.debt.unresolvedSourceIds.length, 6)
+  const entries = baselineDebtEntries().map((row, index) => row.sourceId === 'src_pubmed-31517876' && index === 0 ? { ...row, sourceId: 'src_new-source' } : row)
+  const result = verifyCanaries(entries, [])
+  assert.equal(result.debt.unresolvedSourceIds.length, 7)
   assert.equal(result.pass, false)
   assert.ok(result.blockers.includes('new_provenance_debt:unresolved_source:src_new-source'))
 })
