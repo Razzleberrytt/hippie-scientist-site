@@ -57,9 +57,19 @@ function withLock(fn) {
     if (error.code === 'EEXIST') throw new Error('enrichment governor state is locked by another writer')
     throw error
   }
-  try { return fn() } finally {
-    try { fs.closeSync(fd) } catch {}
-    try { fs.unlinkSync(lockPath) } catch {}
+  try {
+    return fn()
+  } finally {
+    try {
+      fs.closeSync(fd)
+    } catch (error) {
+      if (error?.code !== 'EBADF') throw error
+    }
+    try {
+      fs.unlinkSync(lockPath)
+    } catch (error) {
+      if (error?.code !== 'ENOENT') throw error
+    }
   }
 }
 
@@ -179,7 +189,7 @@ function improvement(args, disposition) {
     const registry = loadJson(statePath('self-improvements.json'), { version: 1, experimental: [], adopted: [], rejected: [], reverted: [] })
     const allBuckets = ['experimental', 'adopted', 'rejected', 'reverted']
     const current = allBuckets.flatMap(bucket => (registry[bucket] || []).map(row => ({ ...row, _bucket: bucket }))).find(row => row.id === args.id)
-    let record = current ? { ...current } : {
+    const record = current ? { ...current } : {
       id: args.id,
       observedReason: args.reason || null,
       expectedBenefit: args.benefit || null,
