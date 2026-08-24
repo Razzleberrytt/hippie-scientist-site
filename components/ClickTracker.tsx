@@ -10,8 +10,14 @@ import {
 } from '@/lib/analytics'
 import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
 import { loadAnalytics } from '../src/lib/loadAnalytics'
-import { trackRevenueEvent } from '../src/lib/revenue-tracking'
-import ProfileFeedbackControls from '@/components/feedback/ProfileFeedbackControls'
+import DeferredProfileFeedbackControls from '@/components/feedback/DeferredProfileFeedbackControls'
+
+let revenueTrackingPromise: Promise<typeof import('../src/lib/revenue-tracking')> | null = null
+
+function loadRevenueTracking() {
+  revenueTrackingPromise ??= import('../src/lib/revenue-tracking')
+  return revenueTrackingPromise
+}
 
 function isAffiliateLink(link: HTMLAnchorElement) {
   const href = link.getAttribute('href') || ''
@@ -63,63 +69,84 @@ export default function ClickTracker() {
   useEffect(() => {
     const seenImpressions = new WeakSet<HTMLAnchorElement>()
     const visibleAffiliateLinks = new Map<HTMLAnchorElement, boolean>()
+    let observer: IntersectionObserver | null = null
+    let mutationObserver: MutationObserver | null = null
+    let impressionTrackingStarted = false
 
     const trackGenericImpression = (link: HTMLAnchorElement) => {
       if (seenImpressions.has(link) || getConsent() !== 'granted') return
       if (link.closest('[data-revenue-impression-tracker="true"]')) return
       const meta = affiliateMetadata(link)
       seenImpressions.add(link)
-      trackRevenueEvent({
-        kind: 'recommendation_impression',
-        location: meta.location,
-        label: meta.label,
-        target: meta.href,
-        productSlug: meta.ingredient || undefined,
-        productSlot: meta.productSlot,
-        productAsin: meta.productAsin,
-        modulePosition: meta.modulePosition,
-        ctaVariant: meta.ctaVariant,
-        experimentVariant: meta.experimentVariant,
-        retailer: meta.retailer,
-      })
+      void loadRevenueTracking()
+        .then(({ trackRevenueEvent }) => {
+          trackRevenueEvent({
+            kind: 'recommendation_impression',
+            location: meta.location,
+            label: meta.label,
+            target: meta.href,
+            productSlug: meta.ingredient || undefined,
+            productSlot: meta.productSlot,
+            productAsin: meta.productAsin,
+            modulePosition: meta.modulePosition,
+            ctaVariant: meta.ctaVariant,
+            experimentVariant: meta.experimentVariant,
+            retailer: meta.retailer,
+          })
+        })
+        .catch(() => {
+          // Revenue analytics must never affect page behavior.
+        })
     }
-
-    const observer = typeof IntersectionObserver === 'undefined'
-      ? null
-      : new IntersectionObserver((entries) => {
-          for (const entry of entries) {
-            const link = entry.target as HTMLAnchorElement
-            const qualified = Boolean(entry.isIntersecting && entry.intersectionRatio >= 0.5)
-            visibleAffiliateLinks.set(link, qualified)
-            if (qualified) trackGenericImpression(link)
-          }
-        }, { threshold: [0, 0.5, 1] })
 
     const observeAffiliateLinks = (root: ParentNode = document) => {
       if (!observer) return
       root.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
         if (!isAffiliateLink(link) || link.dataset.affiliateObserverAttached === 'true') return
         link.dataset.affiliateObserverAttached = 'true'
-        observer.observe(link)
+        observer?.observe(link)
       })
     }
 
-    observeAffiliateLinks()
-    const mutationObserver = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        for (const node of Array.from(mutation.addedNodes)) {
-          if (node instanceof HTMLElement) observeAffiliateLinks(node)
+    const startImpressionTracking = () => {
+      if (impressionTrackingStarted || getConsent() !== 'granted') return
+      impressionTrackingStarted = true
+      void loadRevenueTracking().catch(() => {
+        // Best-effort preload after consent; tracking remains non-blocking.
+      })
+
+      if (typeof IntersectionObserver === 'undefined') return
+      observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          const link = entry.target as HTMLAnchorElement
+          const qualified = Boolean(entry.isIntersecting && entry.intersectionRatio >= 0.5)
+          visibleAffiliateLinks.set(link, qualified)
+          if (qualified) trackGenericImpression(link)
         }
-      }
-    })
-    mutationObserver.observe(document.body, { childList: true, subtree: true })
+      }, { threshold: [0, 0.5, 1] })
+
+      observeAffiliateLinks()
+      mutationObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          for (const node of Array.from(mutation.addedNodes)) {
+            if (node instanceof HTMLElement) observeAffiliateLinks(node)
+          }
+        }
+      })
+      mutationObserver.observe(document.body, { childList: true, subtree: true })
+    }
 
     const handleConsentChange = () => {
       if (getConsent() !== 'granted') return
+      startImpressionTracking()
       for (const [link, visible] of visibleAffiliateLinks.entries()) {
         if (visible) trackGenericImpression(link)
       }
     }
+
+    // Fresh visitors have no analytics consent, so avoid whole-document scans,
+    // revenue attribution loading, and observers until consent actually exists.
+    startImpressionTracking()
     window.addEventListener(CONSENT_CHANGE_EVENT, handleConsentChange)
 
     const handleDocumentClick = (event: MouseEvent) => {
@@ -147,30 +174,37 @@ export default function ClickTracker() {
 
       if (!isAffiliateLink(link) || link.dataset.revenueTracked === 'true' || !consentGranted) return
       const meta = affiliateMetadata(link)
-      trackRevenueEvent({
-        kind: 'affiliate_click',
-        location: meta.location,
-        label: meta.label,
-        target: meta.href,
-        productSlug: meta.ingredient || undefined,
-        productSlot: meta.productSlot,
-        productAsin: meta.productAsin,
-        modulePosition: meta.modulePosition,
-        ctaVariant: meta.ctaVariant,
-        experimentVariant: meta.experimentVariant,
-        retailer: meta.retailer,
-      })
+      void loadRevenueTracking()
+        .then(({ trackRevenueEvent }) => {
+          trackRevenueEvent({
+            kind: 'affiliate_click',
+            location: meta.location,
+            label: meta.label,
+            target: meta.href,
+            productSlug: meta.ingredient || undefined,
+            productSlot: meta.productSlot,
+            productAsin: meta.productAsin,
+            modulePosition: meta.modulePosition,
+            ctaVariant: meta.ctaVariant,
+            experimentVariant: meta.experimentVariant,
+            retailer: meta.retailer,
+          })
+        })
+        .catch(() => {
+          // Analytics must never block navigation.
+        })
     }
 
     document.addEventListener('click', handleDocumentClick, { capture: true })
     return () => {
       observer?.disconnect()
-      mutationObserver.disconnect()
+      mutationObserver?.disconnect()
       visibleAffiliateLinks.clear()
       window.removeEventListener(CONSENT_CHANGE_EVENT, handleConsentChange)
       document.removeEventListener('click', handleDocumentClick, { capture: true })
     }
   }, [])
 
-  return <ProfileFeedbackControls />
+  const isProfileRoute = /^\/(?:herbs|compounds)\/[^/]+\/?$/.test(pathname)
+  return isProfileRoute ? <DeferredProfileFeedbackControls /> : null
 }
