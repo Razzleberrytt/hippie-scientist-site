@@ -5,7 +5,7 @@ export default function CompareLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <CompareHubAnalytics />
-      {children}
+      <div data-compare-page>{children}</div>
     </>
   )
 }
