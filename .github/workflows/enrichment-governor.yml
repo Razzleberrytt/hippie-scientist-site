@@ -1,0 +1,45 @@
+name: Enrichment Governor
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/enrichment-governor/**'
+      - 'ops/enrichment-governor/**'
+      - 'public/data/enrichment-normalized.jsonl'
+      - 'public/data/source-registry.json'
+      - 'scripts/enrichment-pipeline/contract/**'
+      - '.github/workflows/enrichment-governor.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/enrichment-governor/**'
+      - 'ops/enrichment-governor/**'
+      - 'public/data/enrichment-normalized.jsonl'
+      - 'public/data/source-registry.json'
+      - 'scripts/enrichment-pipeline/contract/**'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Unit and regression tests
+        run: node --test scripts/enrichment-governor/__tests__/governor.test.mjs
+      - name: Fixed self-improvement benchmark
+        run: node scripts/enrichment-governor/governor.mjs benchmark
+      - name: Cheap repository scan
+        run: node scripts/enrichment-governor/governor.mjs scan
+      - name: Canary verification
+        run: node scripts/enrichment-governor/canary.mjs
+      - name: Daily consolidation dry run
+        run: node scripts/enrichment-governor/daily.mjs --dry-run
