@@ -221,7 +221,7 @@ export function AshwagandhaStressClaim() {
     <section id="ashwagandha-stress-claim" className="space-y-6 rounded-[1.35rem] border border-emerald-900/15 bg-white/80 p-4 shadow-sm sm:p-6">
       <header className="hero-shell rounded-[1.15rem] border border-brand-900/10 p-4 sm:p-6">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="evidence-pill-moderate">{claim.evidenceLabel} evidence</span>
+          <span data-evidence-scope="claim" className="evidence-pill-moderate">Claim evidence · {claim.evidenceLabel}</span>
           <span className="rounded-full border border-amber-700/15 bg-amber-100/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-amber-900">{claim.safetyModifier}</span>
         </div>
         <div className="mt-5 space-y-3">
@@ -269,7 +269,9 @@ export function AshwagandhaStressClaim() {
       </section>
 
       <section className="card-premium p-4 sm:p-5">
-        <SectionHeader kicker="Evidence breakdown" title="Why the grade is moderate" />
+        <SectionHeader kicker="Claim evidence breakdown" title="Why this stress claim is graded moderate">
+          <p>This grade applies only to the perceived-stress claim below; the profile-wide evidence grade above summarizes the ingredient across its broader evidence record.</p>
+        </SectionHeader>
         <div className="mt-4 space-y-3">
           {evidenceBreakdown.map(item => (
             <div key={item.dimension} className="rounded-xl border border-brand-900/10 bg-white/80 p-4">
@@ -315,7 +317,7 @@ export function AshwagandhaStressClaim() {
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">What disagrees</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">A 2023 trial in adults with high stress and fatigue found fatigue improvement but not a clear perceived-stress reduction versus placebo.</p></div>
           <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">Why it may disagree</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">Population, baseline fatigue, extract chemistry, dose, study duration, and outcome sensitivity can all change whether perceived stress moves.</p></div>
-          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">Confidence change</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">This keeps the label at Moderate and changes the practical state to “consider with caution,” not “strongly recommended.”</p></div>
+          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">Confidence change</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">This keeps the claim-level label at Moderate and changes the practical state to “consider with caution,” not “strongly recommended.”</p></div>
         </div>
       </section>
 

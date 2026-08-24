@@ -282,17 +282,26 @@ export default function ShowMeTheStudies({
   const availableClasses = STUDY_CLASS_ORDER.filter((studyClass) => classCounts.has(studyClass))
   const visible = studies.slice(0, VISIBLE_ROWS)
   const overflow = studies.slice(VISIBLE_ROWS)
+  const directionalRelationships = metrics.supportive + metrics.mixed + metrics.contradicting + metrics.noClearEffect
 
   const participantLabel = metrics.studiesWithParticipantCounts > 0
-    ? `~${metrics.approximateParticipants.toLocaleString()} participants across ${metrics.studiesWithParticipantCounts} human sources with reported N`
+    ? `~${metrics.approximateParticipants.toLocaleString()} participants across ${metrics.studiesWithParticipantCounts} human evidence source${metrics.studiesWithParticipantCounts === 1 ? '' : 's'} with reported N`
     : 'Participant totals not consistently reported'
   const namedExtracts = [...new Set(studies.map(study => study.extractName).filter((value): value is string => Boolean(value)))]
+  const relationshipSummary = directionalRelationships > 0
+    ? [
+        `Among ${directionalRelationships} directionally classified source relationship${directionalRelationships === 1 ? '' : 's'}, ${metrics.supportive} support${metrics.supportive === 1 ? 's' : ''} the conclusion, ${metrics.mixed} are mixed, ${metrics.contradicting} contradict it, and ${metrics.noClearEffect} report no clear effect.`,
+        metrics.background > 0
+          ? `${metrics.background} additional source relationship${metrics.background === 1 ? ' is' : 's are'} background or not directionally classified.`
+          : '',
+      ].filter(Boolean).join(' ')
+    : 'Source-to-conclusion relationships are not classified in this structured set, so consistency is not yet classifiable.'
   const evidenceSnapshot = conclusion || [
-    `This table contains ${metrics.totalStudies} structured source${metrics.totalStudies === 1 ? '' : 's'}, including ${metrics.humanTrials} human trial${metrics.humanTrials === 1 ? '' : 's'}.`,
+    `This table contains ${metrics.totalStudies} structured source${metrics.totalStudies === 1 ? '' : 's'}, including ${metrics.humanStudies} human evidence source${metrics.humanStudies === 1 ? '' : 's'}; ${metrics.humanTrials} ${metrics.humanTrials === 1 ? 'is a human trial' : 'are human trials'}.`,
     metrics.studiesWithParticipantCounts > 0
-      ? `Across ${metrics.studiesWithParticipantCounts} human source${metrics.studiesWithParticipantCounts === 1 ? '' : 's'} with a reported sample size, the approximate participant total is ${metrics.approximateParticipants.toLocaleString()}; overlapping publications may include some of the same people.`
+      ? `Across ${metrics.studiesWithParticipantCounts} human evidence source${metrics.studiesWithParticipantCounts === 1 ? '' : 's'} with a reported sample size, the approximate participant total is ${metrics.approximateParticipants.toLocaleString()}; overlapping publications may include some of the same people.`
       : 'A reliable participant total cannot be calculated because sample size is not consistently structured in the cited sources.',
-    `The structured direction is ${evidenceConsistencyLabel(metrics.consistency).toLowerCase()}: ${metrics.supportive} supporting, ${metrics.mixed} mixed, ${metrics.contradicting} contradicting, and ${metrics.noClearEffect} no-clear-effect source relationships.`,
+    relationshipSummary,
   ].join(' ')
   const hasDisagreement = metrics.mixed > 0 || metrics.contradicting > 0 || metrics.noClearEffect > 0
 
@@ -305,7 +314,7 @@ export default function ShowMeTheStudies({
         <span>
           <span className="block text-sm font-bold text-ink">Clinical Study Summaries ({citations.length})</span>
           <span className="mt-0.5 block text-[11px] leading-5 text-muted">
-            {metrics.humanTrials} human trial{metrics.humanTrials === 1 ? '' : 's'} · {participantLabel} · {evidenceConsistencyLabel(metrics.consistency)}
+            {metrics.humanStudies} human evidence source{metrics.humanStudies === 1 ? '' : 's'} · {metrics.humanTrials} human trial{metrics.humanTrials === 1 ? '' : 's'} · {participantLabel} · {evidenceConsistencyLabel(metrics.consistency)}
           </span>
         </span>
         <span aria-hidden="true" className="shrink-0 text-brand-500 transition-transform group-open/studies:rotate-180">v</span>
@@ -337,7 +346,7 @@ export default function ShowMeTheStudies({
             </p>
           ) : null}
           <p className="mt-2 text-xs font-semibold text-ink">
-            {evidenceGrade ? `Evidence grade: ${evidenceGrade}` : 'Evidence grade: see the profile-level grade above'}
+            {evidenceGrade ? `Profile-wide evidence grade: ${evidenceGrade}` : 'Profile-wide evidence grade: see the profile grade above'}
             {' · '}
             {confidence ? `Confidence: ${confidence}` : 'Confidence: not separately assigned'}
           </p>

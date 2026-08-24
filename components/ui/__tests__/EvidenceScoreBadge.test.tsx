@@ -4,9 +4,11 @@ import EvidenceScoreBadge from '../EvidenceScoreBadge'
 
 describe('EvidenceScoreBadge', () => {
   it('derives the letter grade from a record when no explicit grade is given', () => {
-    render(<EvidenceScoreBadge record={{ evidence_tier: 'Strong evidence' }} />)
+    const { container } = render(<EvidenceScoreBadge record={{ evidence_tier: 'Strong evidence' }} />)
     expect(screen.getByText('A')).toBeTruthy()
     expect(screen.getByText('Strong')).toBeTruthy()
+    expect(screen.getByText('Profile-wide ·')).toBeTruthy()
+    expect(container.querySelector('[data-evidence-scope="profile-wide"]')).toBeTruthy()
   })
 
   it('prefers an explicit grade prop over the record-derived grade', () => {
@@ -22,6 +24,7 @@ describe('EvidenceScoreBadge', () => {
     const { container } = render(<EvidenceScoreBadge />)
 
     expect(screen.getByText('Unassigned')).toBeTruthy()
+    expect(screen.getByText('Profile-wide ·')).toBeTruthy()
     expect(container.querySelector('[data-evidence-grade="Unassigned"]')).toBeTruthy()
     expect(screen.queryByText('C')).toBeNull()
   })
@@ -30,16 +33,18 @@ describe('EvidenceScoreBadge', () => {
     render(<EvidenceScoreBadge grade="A" showLabel={false} />)
     expect(screen.getByText('A')).toBeTruthy()
     expect(screen.queryByText('Strong')).toBeNull()
+    expect(screen.queryByText('Profile-wide ·')).toBeNull()
   })
 
-  it('renders the circle variant with an accessible label describing the full meaning', () => {
+  it('renders the circle variant with an accessible profile-wide label describing the full meaning', () => {
     render(<EvidenceScoreBadge grade="B" size="circle" />)
-    expect(screen.getByLabelText(/Evidence grade B: Moderate Evidence/)).toBeTruthy()
+    expect(screen.getByLabelText(/Profile-wide evidence grade B: Moderate Evidence/)).toBeTruthy()
+    expect(screen.getByText(/Profile-wide ·/)).toBeTruthy()
   })
 
-  it('sets a title attribute with the full grade meaning for all size variants', () => {
+  it('sets a title attribute with the full profile-wide grade meaning for all size variants', () => {
     const { container } = render(<EvidenceScoreBadge grade="A" />)
     const badge = container.firstElementChild as HTMLElement
-    expect(badge.title).toMatch(/Strong Evidence/)
+    expect(badge.title).toMatch(/Profile-wide evidence grade A: Strong Evidence/)
   })
 })
