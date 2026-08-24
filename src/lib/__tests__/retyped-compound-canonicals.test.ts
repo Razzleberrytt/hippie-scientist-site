@@ -9,6 +9,7 @@ import {
   DEPRECATED_HERB_CANONICALS,
 } from '../../../lib/deprecated-herb-canonicals'
 
+// Post-#4186 regression contract: preserve duplicate consolidation while correcting taxonomy.
 describe('retyped compound canonical identities', () => {
   it('routes old herb identities directly to final compound canonicals', () => {
     expect(DEPRECATED_HERB_CANONICALS.resveratrol).toBe('resveratrol')
