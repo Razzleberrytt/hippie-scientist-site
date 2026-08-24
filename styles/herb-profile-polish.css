@@ -3,33 +3,37 @@
   Targets rendered profile sections without changing workbook/generated data.
   Palette ownership comes from the canonical theme tokens; this layer owns
   profile-specific hierarchy, density, table affordances, and responsive rhythm.
+
+  Profile routes provide the explicit [data-profile-page] boundary. Keep this
+  stylesheet scoped to that marker rather than rediscovering the route by
+  repeatedly evaluating a large-DOM :has() selector.
 */
 
-main:has(nav[aria-label="Page sections"]) > div.mx-auto {
+[data-profile-page] > div.mx-auto {
   max-width: 1180px;
 }
 
 #ashwagandha-stress-claim,
-main:has(nav[aria-label="Page sections"]) #quick-stats,
-main:has(nav[aria-label="Page sections"]) #compare,
-main:has(nav[aria-label="Page sections"]) section.rounded-2xl {
+[data-profile-page] #quick-stats,
+[data-profile-page] #compare,
+[data-profile-page] section.rounded-2xl {
   border-color: var(--border-soft);
   background: var(--surface-card);
   box-shadow: var(--hs-lift);
 }
 
-main:has(nav[aria-label="Page sections"]) h1,
-main:has(nav[aria-label="Page sections"]) h2,
-main:has(nav[aria-label="Page sections"]) h3,
+[data-profile-page] h1,
+[data-profile-page] h2,
+[data-profile-page] h3,
 #ashwagandha-stress-claim h2,
 #ashwagandha-stress-claim h3,
 #ashwagandha-stress-claim .text-ink {
   color: var(--text-primary);
 }
 
-main:has(nav[aria-label="Page sections"]) p,
-main:has(nav[aria-label="Page sections"]) li,
-main:has(nav[aria-label="Page sections"]) dd,
+[data-profile-page] p,
+[data-profile-page] li,
+[data-profile-page] dd,
 #ashwagandha-stress-claim p,
 #ashwagandha-stress-claim li,
 #ashwagandha-stress-claim dd,
@@ -44,12 +48,12 @@ main:has(nav[aria-label="Page sections"]) dd,
 }
 
 /* Inner stat cards and dense evidence cards. */
-main:has(nav[aria-label="Page sections"]) .hero-shell .rounded-xl,
-main:has(nav[aria-label="Page sections"]) #quick-stats .rounded-xl,
+[data-profile-page] .hero-shell .rounded-xl,
+[data-profile-page] #quick-stats .rounded-xl,
 #ashwagandha-stress-claim .rounded-xl,
 #ashwagandha-stress-claim article,
 #ashwagandha-stress-claim table,
-main:has(nav[aria-label="Page sections"]) table {
+[data-profile-page] table {
   border-color: var(--border-soft);
   background: var(--surface-card-strong);
   box-shadow: none;
@@ -66,28 +70,28 @@ main:has(nav[aria-label="Page sections"]) table {
 
 #ashwagandha-stress-claim > section,
 #ashwagandha-stress-claim > header,
-main:has(nav[aria-label="Page sections"]) #quick-stats,
-main:has(nav[aria-label="Page sections"]) #compare {
+[data-profile-page] #quick-stats,
+[data-profile-page] #compare {
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 #ashwagandha-stress-claim > section:hover,
-main:has(nav[aria-label="Page sections"]) #quick-stats:hover,
-main:has(nav[aria-label="Page sections"]) #compare:hover {
+[data-profile-page] #quick-stats:hover,
+[data-profile-page] #compare:hover {
   transform: translateY(-1px);
   border-color: var(--border-strong);
   box-shadow: var(--hs-lift-hover);
 }
 
 #ashwagandha-stress-claim table thead,
-main:has(nav[aria-label="Page sections"]) table thead {
+[data-profile-page] table thead {
   background: var(--surface-subtle);
 }
 
 #ashwagandha-stress-claim table th,
 #ashwagandha-stress-claim table td,
-main:has(nav[aria-label="Page sections"]) table th,
-main:has(nav[aria-label="Page sections"]) table td {
+[data-profile-page] table th,
+[data-profile-page] table td {
   border-color: var(--border-soft);
 }
 
@@ -99,21 +103,21 @@ main:has(nav[aria-label="Page sections"]) table td {
 }
 
 /* Bottom product / sourcing areas on herb profiles. */
-main:has(nav[aria-label="Page sections"]) [id="compare"] .rounded-2xl,
-main:has(nav[aria-label="Page sections"]) [id="compare"] article {
+[data-profile-page] [id="compare"] .rounded-2xl,
+[data-profile-page] [id="compare"] article {
   border-color: var(--border-soft);
   background: var(--surface-card);
 }
 
 /* Make large evidence tables feel intentional instead of tiny on mobile. */
 #ashwagandha-stress-claim .overflow-x-auto,
-main:has(nav[aria-label="Page sections"]) .overflow-x-auto {
+[data-profile-page] .overflow-x-auto {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
 }
 
 #ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
-main:has(nav[aria-label="Page sections"]) .overflow-x-auto:has(table)::after {
+[data-profile-page] .overflow-x-auto:has(table)::after {
   content: 'Swipe table →';
   display: none;
   padding: 0.7rem 0.85rem;
@@ -127,83 +131,83 @@ main:has(nav[aria-label="Page sections"]) .overflow-x-auto:has(table)::after {
 
 #ashwagandha-stress-claim table th,
 #ashwagandha-stress-claim table td,
-main:has(nav[aria-label="Page sections"]) table th,
-main:has(nav[aria-label="Page sections"]) table td {
+[data-profile-page] table th,
+[data-profile-page] table td {
   vertical-align: top;
   line-height: 1.55;
 }
 
 #ashwagandha-stress-claim table tbody tr:nth-child(even),
-main:has(nav[aria-label="Page sections"]) table tbody tr:nth-child(even) {
+[data-profile-page] table tbody tr:nth-child(even) {
   background: color-mix(in srgb, var(--surface-subtle) 54%, transparent);
 }
 
 #ashwagandha-stress-claim a,
-main:has(nav[aria-label="Page sections"]) a {
+[data-profile-page] a {
   text-underline-offset: 0.22em;
 }
 
 @media (max-width: 768px) {
-  main:has(nav[aria-label="Page sections"]) > div.mx-auto {
+  [data-profile-page] > div.mx-auto {
     padding-left: 0.9rem;
     padding-right: 0.9rem;
   }
 
-  main:has(nav[aria-label="Page sections"]) .hero-shell,
+  [data-profile-page] .hero-shell,
   #ashwagandha-stress-claim,
   #ashwagandha-stress-claim .card-premium,
-  main:has(nav[aria-label="Page sections"]) .card-premium,
-  main:has(nav[aria-label="Page sections"]) #quick-stats,
-  main:has(nav[aria-label="Page sections"]) #compare {
+  [data-profile-page] .card-premium,
+  [data-profile-page] #quick-stats,
+  [data-profile-page] #compare {
     border-radius: 1.15rem;
     padding: 1rem;
   }
 
-  main:has(nav[aria-label="Page sections"]) h1,
+  [data-profile-page] h1,
   #ashwagandha-stress-claim > header h2 {
     max-width: 15ch;
     font-size: clamp(2rem, 10vw, 2.75rem) !important;
     line-height: 1.02 !important;
   }
 
-  main:has(nav[aria-label="Page sections"]) h2,
+  [data-profile-page] h2,
   #ashwagandha-stress-claim h2 {
     max-width: 16ch;
     font-size: clamp(1.55rem, 7.8vw, 2.2rem) !important;
     line-height: 1.08 !important;
   }
 
-  main:has(nav[aria-label="Page sections"]) h3,
+  [data-profile-page] h3,
   #ashwagandha-stress-claim h3 {
     font-size: clamp(1.05rem, 5.2vw, 1.35rem) !important;
     line-height: 1.18 !important;
   }
 
   #ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
-  main:has(nav[aria-label="Page sections"]) .overflow-x-auto:has(table)::after {
+  [data-profile-page] .overflow-x-auto:has(table)::after {
     display: block;
   }
 
   #ashwagandha-stress-claim table,
-  main:has(nav[aria-label="Page sections"]) table {
+  [data-profile-page] table {
     font-size: 0.8rem;
   }
 
   #ashwagandha-stress-claim table th,
   #ashwagandha-stress-claim table td,
-  main:has(nav[aria-label="Page sections"]) table th,
-  main:has(nav[aria-label="Page sections"]) table td {
+  [data-profile-page] table th,
+  [data-profile-page] table td {
     padding: 0.7rem 0.75rem;
   }
 
   #ashwagandha-stress-claim .grid,
-  main:has(nav[aria-label="Page sections"]) #quick-stats .grid,
-  main:has(nav[aria-label="Page sections"]) #compare .grid {
+  [data-profile-page] #quick-stats .grid,
+  [data-profile-page] #compare .grid {
     gap: 0.7rem;
   }
 
   #ashwagandha-stress-claim > section + section,
-  main:has(nav[aria-label="Page sections"]) section + section {
+  [data-profile-page] section + section {
     margin-top: 0.1rem;
   }
 }
@@ -214,25 +218,25 @@ main:has(nav[aria-label="Page sections"]) a {
     line-height: 1.02 !important;
   }
 
-  main:has(nav[aria-label="Page sections"]) h1 {
+  [data-profile-page] h1 {
     font-size: clamp(2rem, 10.5vw, 2.65rem) !important;
     line-height: 1.02 !important;
   }
 
-  main:has(nav[aria-label="Page sections"]) h2 {
+  [data-profile-page] h2 {
     font-size: clamp(1.45rem, 7.5vw, 2rem) !important;
   }
 
   #ashwagandha-stress-claim .rounded-xl,
-  main:has(nav[aria-label="Page sections"]) #quick-stats .rounded-xl,
-  main:has(nav[aria-label="Page sections"]) #compare .rounded-2xl {
+  [data-profile-page] #quick-stats .rounded-xl,
+  [data-profile-page] #compare .rounded-2xl {
     border-radius: 0.95rem;
   }
 
   #ashwagandha-stress-claim p,
   #ashwagandha-stress-claim li,
-  main:has(nav[aria-label="Page sections"]) p,
-  main:has(nav[aria-label="Page sections"]) li {
+  [data-profile-page] p,
+  [data-profile-page] li {
     line-height: 1.72;
   }
 }
