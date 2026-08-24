@@ -77,23 +77,31 @@ describe('ClickTracker', () => {
 
     const observe = vi.fn()
     const disconnect = vi.fn()
-    const IntersectionObserverMock = vi.fn(() => ({
-      observe,
-      unobserve: vi.fn(),
-      disconnect,
-      takeRecords: vi.fn(() => []),
-      root: null,
-      rootMargin: '',
-      thresholds: [0, 0.5, 1],
-    }))
+    const observerConstructed = vi.fn()
+
+    class IntersectionObserverMock {
+      readonly root: Element | Document | null = null
+      readonly rootMargin = ''
+      readonly thresholds = [0, 0.5, 1]
+
+      constructor(_callback: IntersectionObserverCallback, _options?: IntersectionObserverInit) {
+        observerConstructed()
+      }
+
+      observe = observe
+      unobserve = vi.fn()
+      disconnect = disconnect
+      takeRecords = vi.fn(() => [])
+    }
+
     vi.stubGlobal('IntersectionObserver', IntersectionObserverMock)
 
     render(<ClickTracker />)
-    expect(IntersectionObserverMock).not.toHaveBeenCalled()
+    expect(observerConstructed).not.toHaveBeenCalled()
 
     consent = 'granted'
     fireEvent(window, new Event('consent-granted'))
 
-    expect(IntersectionObserverMock).toHaveBeenCalledTimes(1)
+    expect(observerConstructed).toHaveBeenCalledTimes(1)
   })
 })

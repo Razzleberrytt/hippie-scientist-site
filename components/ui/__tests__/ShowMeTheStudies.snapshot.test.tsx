@@ -78,9 +78,12 @@ describe('ShowMeTheStudies default evidence snapshot', () => {
 
   it('surfaces disagreement explicitly instead of averaging it away', () => {
     render(<ShowMeTheStudies citations={citations} />)
-    expect(screen.getByText('Where studies disagree')).toBeTruthy()
-    expect(screen.getByText(/1 source relationship supports the conclusion/i)).toBeTruthy()
-    expect(screen.getByText(/1 contradict it/i)).toBeTruthy()
-    expect(screen.getByText(/rather than treating the studies as one averaged vote/i)).toBeTruthy()
+    const disagreementHeading = screen.getByText('Where studies disagree')
+    const disagreementPanel = disagreementHeading.parentElement
+
+    expect(disagreementPanel).toBeTruthy()
+    expect(disagreementPanel?.textContent).toMatch(/1 source relationship supports the conclusion/i)
+    expect(disagreementPanel?.textContent).toMatch(/1 contradict it/i)
+    expect(disagreementPanel?.textContent).toMatch(/rather than treating the studies as one averaged vote/i)
   })
 })
