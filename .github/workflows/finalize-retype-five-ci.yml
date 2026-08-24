@@ -1,21 +1,21 @@
 name: Finalize retype-five CI consistency
 
 on:
-  pull_request:
-    types: [synchronize, reopened]
+  push:
+    branches:
+      - fix/retype-five-compounds-v2
 
 permissions:
   contents: write
 
 jobs:
   finalize:
-    if: github.event.pull_request.number == 4185
     runs-on: ubuntu-latest
     steps:
       - name: Checkout PR head
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: fix/retype-five-compounds-v2
           fetch-depth: 0
 
       - name: Setup Node
@@ -204,8 +204,6 @@ jobs:
           git restore --worktree public/data || true
 
       - name: Publish durable fixes and self-delete
-        env:
-          HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |
           rm .github/workflows/finalize-retype-five-ci.yml
           git config user.name "github-actions[bot]"
@@ -220,4 +218,4 @@ jobs:
           echo "Durable staged files:"
           git diff --cached --name-only
           git commit -m "fix(ci): align retyped canonicals with runtime parity"
-          git push origin "HEAD:${HEAD_REF}"
+          git push origin HEAD:fix/retype-five-compounds-v2
