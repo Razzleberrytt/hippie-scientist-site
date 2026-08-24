@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { gunzipSync } from 'node:zlib'
 import { pathToFileURL } from 'node:url'
 import { assertWorkbookExists, resolveWorkbookPath } from '../workbook-source.mjs'
 import {
@@ -9,6 +10,7 @@ import {
   sheetToRows,
 } from '../data/workbook-parser.mjs'
 import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'
+import { countEligibleNewRuntimeRelationships } from './runtime-enrichment-relationship-growth.mjs'
 
 function comparable(value) {
   if (value == null) return ''
@@ -95,7 +97,7 @@ async function runParity({ log = true } = {}) {
     lines.push('Parity: 100%')
     lines.push('Ready to migrate downstream scripts.')
     if (log) console.log(lines.join('\n'))
-    return { discrepancies: allDiscrepancies, output: lines.join('\n') }
+    return { discrepancies: allDiscrepancies, output: lines.join('\n'), rawWorkbook: newWorkbook }
   }
 
   lines.push(`Parity discrepancies: ${allDiscrepancies.length}`)
@@ -109,7 +111,7 @@ async function runParity({ log = true } = {}) {
   }
 
   if (log) console.log(lines.join('\n'))
-  return { discrepancies: allDiscrepancies, output: lines.join('\n') }
+  return { discrepancies: allDiscrepancies, output: lines.join('\n'), rawWorkbook: newWorkbook }
 }
 
 if (process.env.VITEST) {
@@ -119,23 +121,35 @@ if (process.env.VITEST) {
     // The parser adapter no longer reproduces the raw workbook exactly: it
     // applies the reviewed additive enrichment ledger, which appends rows to
     // three registers. That divergence is the feature, so the parity guarantee
-    // is narrowed rather than dropped -- the only permitted difference is a row
-    // count on those three sheets, by exactly the post-dedupe totals the
-    // manifest declares. Anything else, including a changed field on a sampled
-    // row, still fails.
+    // is narrowed rather than dropped. Evidence/source growth is pinned to the
+    // reviewed manifest; relationship growth is derived independently from the
+    // current canonical taxonomy because eligibility is herb -> compound by
+    // contract. Anything else, including a changed sampled field, still fails.
     const manifest = JSON.parse(
       fs.readFileSync(
         path.join(process.cwd(), 'data-sources', 'runtime-enrichment', '2026-08-23-manifest.json'),
         'utf8',
       ),
     )
+    const ledger = JSON.parse(
+      gunzipSync(
+        fs.readFileSync(
+          path.join(process.cwd(), 'data-sources', 'runtime-enrichment', '2026-08-23-enrichment.json.gz'),
+        ),
+      ).toString('utf8'),
+    )
+
+    const result = await runParity({ log: false })
+    const expectedRelationshipGrowth = countEligibleNewRuntimeRelationships(
+      result.rawWorkbook.getSheetData('Entity_Master'),
+      result.rawWorkbook.getSheetData('Entity_Relationships'),
+      ledger.relationships,
+    )
     const expectedGrowth = new Map([
       ['Evidence_Register', manifest.counts.evidence_rows_after_canonical_dedupe],
       ['Source_Register', manifest.counts.source_rows_after_canonical_dedupe],
-      ['Entity_Relationships', manifest.counts.live_relationship_rows_new_after_dedupe],
+      ['Entity_Relationships', expectedRelationshipGrowth],
     ])
-
-    const result = await runParity({ log: false })
 
     // `oldValue` is the parser adapter (enriched); `newValue` is the raw reader.
     const unexplained = result.discrepancies.filter((item) => {
