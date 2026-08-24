@@ -33,16 +33,20 @@ describe('heavy pull-request workflow path scopes', () => {
     expect(workflow).not.toContain("- '.github/workflows/**'")
   })
 
-  it('keeps Lighthouse focused on measurable site and accessibility inputs', () => {
+  it('keeps Lighthouse focused on measurable site and accessibility inputs while skipping test-only changes', () => {
     const workflow = read('.github/workflows/lighthouse.yml')
 
     expect(workflow).toContain('push:\n    branches: [main]\n  pull_request:')
     expect(workflow).toContain('paths:')
     for (const input of PRODUCTION_INPUTS) expect(workflow).toContain(input)
-    expect(workflow).toContain("- 'tests/**'")
-    expect(workflow).toContain("- '**/__tests__/**'")
     expect(workflow).toContain("- '.lighthouserc*.json'")
     expect(workflow).toContain("- '.github/workflows/lighthouse.yml'")
+    expect(workflow).toContain("- '!tests/**'")
+    expect(workflow).toContain("- '!**/__tests__/**'")
+    expect(workflow).toContain("- '!**/*.test.*'")
+    expect(workflow).toContain("- '!**/*.spec.*'")
+    expect(workflow).not.toContain("- 'tests/**'")
+    expect(workflow).not.toContain("- '**/__tests__/**'")
     expect(workflow).not.toContain("- 'docs/**'")
     expect(workflow).not.toContain("- '.github/workflows/**'")
   })
