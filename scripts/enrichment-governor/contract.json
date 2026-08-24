@@ -112,12 +112,19 @@
       "luteolin": ["null_visibility"]
     },
     "targetChecks": ["null_visibility", "safety_visibility", "no_unresolved_source_ids"],
-    "baselineDebtBudget": {
-      "maxUnresolvedSourceIds": 6,
-      "maxMissingNullVisibilityAnchors": 1,
-      "maxMissingSafetyVisibilityAnchors": 1
+    "baselineDebt": {
+      "allowedUnresolvedSourceIds": [
+        "src_cochrane-cd003383",
+        "src_fda-epidiolex-label-2021",
+        "src_pubmed-29801717",
+        "src_pubmed-31006899",
+        "src_pubmed-31517876",
+        "src_pubmed-40622698"
+      ],
+      "allowedMissingNullVisibilityAnchors": ["ashwagandha"],
+      "allowedMissingSafetyVisibilityAnchors": ["luteolin"]
     },
-    "debtPolicy": "fail_if_baseline_debt_increases; retain debt warnings until repaired"
+    "debtPolicy": "fail_on_any_new_debt_identity; retain known baseline debt warnings until repaired"
   },
   "budget": {
     "defaultMaxDeepResearchCandidates": 3,
