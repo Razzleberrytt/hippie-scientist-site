@@ -1,0 +1,156 @@
+{
+  "patch_version": 1,
+  "id": "enrich-batch5-2026-08-24-709a3880ae",
+  "status": "applied",
+  "generated_by": "scripts/enrichment-pipeline",
+  "job_ids": [
+    "job_05c2f5ed12dd0c09",
+    "job_1c8d05a90aad18fc",
+    "job_2a7607bee88770fc",
+    "job_aacc82f9df7b1171",
+    "job_cb521b13371f96da",
+    "job_efa0c208ec8b9e23",
+    "job_fb53e48f010f057b"
+  ],
+  "sources": [
+    {
+      "id": "gbif-2705275",
+      "title": "Cymbopogon citratus - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2705275"
+    },
+    {
+      "id": "gbif-2927100",
+      "title": "Ocimum tenuiflorum - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2927100"
+    },
+    {
+      "id": "gbif-3189571",
+      "title": "Garcinia mangostana - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3189571"
+    },
+    {
+      "id": "gbif-3730700",
+      "title": "Cistanche deserticola - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3730700"
+    },
+    {
+      "id": "gbif-5248508",
+      "title": "Hericium erinaceus - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5248508"
+    },
+    {
+      "id": "gbif-5361889",
+      "title": "Morus alba - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5361889"
+    },
+    {
+      "id": "gbif-8040540",
+      "title": "Gymnema sylvestre - GBIF Backbone Taxonomy",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/8040540"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "cistanche",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Cistanche deserticola",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3730700"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Cistanche deserticola\" as ACCEPTED at species rank (usageKey 3730700). [enrichment-pipeline job job_fb53e48f010f057b, candidate cand_ed903dbd6b3ceea7]",
+      "shared_value_acknowledged": "Cistanche deserticola is the primary medicinal species of the genus and is what this entity describes. cistanche-deserticola holds the same binomial; the merge is tracked separately."
+    },
+    {
+      "slug": "garcinia-mangostana",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Garcinia mangostana",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3189571"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Garcinia mangostana\" as ACCEPTED at species rank (usageKey 3189571). [enrichment-pipeline job job_05c2f5ed12dd0c09, candidate cand_4062a8a7eed192ac]",
+      "shared_value_acknowledged": "Duplicate of mangosteen (slug-vs-common-name). The binomial is correct for both; the merge is tracked separately."
+    },
+    {
+      "slug": "gudmar",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Gymnema sylvestre",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-8040540"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Gymnema sylvestre\" as ACCEPTED at species rank (usageKey 8040540). [enrichment-pipeline job job_1c8d05a90aad18fc, candidate cand_467193bc8fae5c54]",
+      "shared_value_acknowledged": "Duplicate of gymnema-sylvestre — gudmar is the Hindi name for the same plant. Merge tracked separately."
+    },
+    {
+      "slug": "holy-basil-seed",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ocimum tenuiflorum",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2927100"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Ocimum tenuiflorum\" as ACCEPTED at species rank (usageKey 2927100). [enrichment-pipeline job job_cb521b13371f96da, candidate cand_9876face03f2d9b2]",
+      "shared_value_acknowledged": "Legitimate plant-part split: the seed of holy basil, which holy-basil also describes."
+    },
+    {
+      "slug": "lemongrass",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Cymbopogon citratus",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2705275"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Cymbopogon citratus\" as ACCEPTED at species rank (usageKey 2705275). [enrichment-pipeline job job_2a7607bee88770fc, candidate cand_1cc97196a3106d0e]",
+      "shared_value_acknowledged": "Duplicate of cymbopogon-citratus (slug-vs-common-name). Merge tracked separately."
+    },
+    {
+      "slug": "lions-mane",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Hericium erinaceus",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5248508"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Hericium erinaceus\" as ACCEPTED at species rank (usageKey 5248508). [enrichment-pipeline job job_efa0c208ec8b9e23, candidate cand_c57d590b240187f2]",
+      "shared_value_acknowledged": "Same organism as hericium-erinaceus, whose route 301s here. This is the surviving slug, so it should carry the binomial. The duplicate pair is tracked by enrich duplicates."
+    },
+    {
+      "slug": "mulberry-leaf",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Morus alba",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5361889"
+      ],
+      "rationale": "GBIF Backbone Taxonomy records \"Morus alba\" as ACCEPTED at species rank (usageKey 5361889). [enrichment-pipeline job job_aacc82f9df7b1171, candidate cand_e3e20e4028dcd6ea]",
+      "shared_value_acknowledged": "Legitimate plant-part split: the leaf of Morus alba, which morus-alba also describes. Same pattern as roselle-seed alongside hibiscus-sabdariffa."
+    }
+  ],
+  "approved_by": "Repo owner, delegated to Claude Code (session 015F1Gnxhg7XJu7E6UBh3HcP)",
+  "approved_at": "2026-08-24",
+  "review_note": "The seven shared-value review cases, decided. Each binomial is correct for both entities; sharing one is established practice in this workbook (roselle-seed/hibiscus-sabdariffa, milk-oats/oatstraw, curcumin/turmeric). Whether any pair should be merged is an entity-level question tracked by enrich duplicates.",
+  "applied_at": "2026-08-24"
+}

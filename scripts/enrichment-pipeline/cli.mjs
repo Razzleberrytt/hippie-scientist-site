@@ -21,7 +21,7 @@ import { dryRun, formatDryRun, importPatch } from './lib/importer.mjs'
 import { buildResearchIndex, readResearchIndex, writeResearchIndex } from './lib/research-index.mjs'
 import { buildWorkerBrief, filterByShard, partition } from './lib/worker.mjs'
 import { computeMetrics, formatMetrics } from './lib/metrics.mjs'
-import { auditDuplicateOrganisms, formatDuplicateAudit } from './lib/duplicate-organisms.mjs'
+import { auditDuplicateOrganisms, formatDuplicateAudit, proposeResolution } from './lib/duplicate-organisms.mjs'
 import { exportWorkbook } from './lib/xlsx-export.mjs'
 import {
   readReadiness,
@@ -55,7 +55,7 @@ const COMMANDS = {
   metrics: 'Print deterministic pipeline metrics.',
   readiness: 'Show or initialise the production-enrichment readiness record.',
   doctor: 'Check the contract against the live workbook and report drift.',
-  duplicates: 'Report entities that share a latin_name — the same organism under two profiles.',
+  duplicates: 'Report entities that share a latin_name (--plan proposes survivors, --json writes a report).',
 }
 
 function parseArgs(argv) {
@@ -484,6 +484,31 @@ async function main() {
     case 'duplicates': {
       const canonical = await loadCanonical()
       const report = auditDuplicateOrganisms(canonical)
+      if (flags.plan === true) {
+        const plan = proposeResolution(canonical, report)
+        console.log(`not duplicates (${plan.not_duplicates.length}) — parts, preparations, or compound-vs-plant:`)
+        for (const item of plan.not_duplicates) {
+          console.log(`  ${item.value.padEnd(26)} ${item.entities.join(' + ')}`)
+          console.log(`  ${''.padEnd(26)} ${item.reason}`)
+        }
+        console.log(`
+merge proposals (${plan.proposals.length}):`)
+        for (const item of plan.proposals) {
+          console.log(`  [${item.confidence}] ${item.value.padEnd(26)} keep ${item.survivor} — retire ${item.retire.join(', ')}`)
+          console.log(`         basis: ${item.basis}`)
+          if (item.caveat) console.log(`         caveat: ${item.caveat}`)
+        }
+        console.log(`
+${plan.note}`)
+        const planPath = path.join(reportsDir, 'duplicate-resolution-plan.json')
+        assertPipelineWritePath(planPath)
+        fs.mkdirSync(path.dirname(planPath), { recursive: true })
+        fs.writeFileSync(planPath, `${JSON.stringify(plan, null, 2)}
+`, 'utf8')
+        console.log(`
+plan -> ${relative(planPath)}`)
+        break
+      }
       console.log(formatDuplicateAudit(report))
       if (flags.json === true) {
         const target = path.join(reportsDir, 'duplicate-organisms.json')

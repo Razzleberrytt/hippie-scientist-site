@@ -118,16 +118,78 @@ and it should not — those are identity and publishing decisions.
 What it does do is refuse to make the problem worse: any `latin_name` that
 another entity already holds routes to review instead of importing.
 
-## Suggested resolution
+## Resolution plan
 
-1. For each pair, decide: genuinely distinct (plant part, preparation) or duplicate?
-2. For duplicates, pick the surviving slug — prefer the one already ranking — and
-   add a redirect in `public/_redirects` for the other. `/herbs/:slug` is a
-   stable route contract, so a removal without a redirect breaks links and SEO.
-3. Set the retired entity's `runtime_export_decision` to `alias_redirect_only`
-   and `seo_indexing_recommendation` to `noindex` in the workbook.
-4. Re-run `node scripts/enrichment-pipeline/cli.mjs duplicates` to confirm the
-   published-duplicate count falls.
+```bash
+npm run enrich:duplicates -- --plan   # proposals + ops/enrichment/reports/duplicate-resolution-plan.json
+```
 
-Start with the 22 published pairs; the `schisandra` triple is the largest single
-win.
+### Four are not duplicates at all
+
+Filtered out automatically — one side is a part, a preparation, or the compound
+rather than the source organism:
+
+| value | entities | why |
+|-------|----------|-----|
+| *Camellia sinensis* | `black-tea`, `camellia-sinensis`, `green-tea-extract` | one plant, three preparations |
+| *Schisandra chinensis* | `schisandra`, `schisandra-berry`, `schisandra-chinensis` | `schisandra-berry` is the fruit |
+| *Morus alba* | `morus-alba`, `mulberry-leaf` | `mulberry-leaf` is the leaf |
+| *Nigella sativa* | `nigella-sativa`, `black-seed` | `black-seed` is the seed |
+
+`curcumin` / `turmeric` belongs in this list too — curcumin is the compound,
+turmeric the plant — but `curcumin` is typed `entity_type: herb`, so the type
+check cannot see it. It appears as a low-confidence proposal; do not merge it.
+
+### Five where every signal agrees
+
+Precedent and source counts point the same way. Apply these first:
+
+| keep | retire |
+|------|--------|
+| `saffron` | `crocus-sativus` |
+| `gudmar` | `gymnema-sylvestre` |
+| `chuanxiong` | `ligusticum-chuanxiong` |
+| `noni` | `morinda-citrifolia` |
+| `cistanche` | `cistanche-deserticola` |
+
+### Eight where precedent and content disagree
+
+In each of these the *binomial* slug — the side precedent says to retire —
+carries **more** sources than the common-name slug that would survive:
+
+| proposed survivor | proposed retire | sources on the retire side |
+|-------------------|-----------------|----------------------------|
+| `licorice` | `glycyrrhiza-glabra` | 24 |
+| `chinese-skullcap` | `scutellaria-baicalensis` | 22 |
+| `dong-quai` | `angelica-sinensis` | 11 |
+| `mangosteen` | `garcinia-mangostana` | 8 |
+| `white-peony` | `paeonia-lactiflora` | 8 |
+| `clove` | `syzygium-aromaticum` | 7 |
+| `thunder-god-vine` | `tripterygium-wilfordii` | 7 |
+| `turmeric` | `curcumin` | not a duplicate — see above |
+
+This is the most useful thing the plan surfaces. The nine redirects already in
+place all kept the common-name slug, but the binomial-slug entities generally
+carry the richer evidence. Applying the precedent mechanically would retire the
+better-sourced page in eight of thirteen cases. **Merge the content first, then
+redirect** — that order is safe in either direction.
+
+### Why this is a plan and not a change
+
+Choosing a survivor should be driven by which URL actually receives organic
+traffic, and there is no analytics feed in this repository. A 301 consolidates
+rather than deletes, so the downside is bounded — but it is still eight
+judgement calls made blind, on live indexed pages. The plan carries the exact
+redirect lines and workbook edits per pair, so confirming or flipping a row with
+Search Console open takes minutes.
+
+### Applying a row
+
+1. Move any sources or evidence worth keeping onto the survivor.
+2. Add both redirect lines from the plan to `public/_redirects`, with and
+   without the trailing slash, matching the existing style.
+3. Set the retired entity to `alias_redirect_only` and `noindex`. Both are
+   governance columns that the workbook patch runner refuses by design, so use
+   the surgical editor:
+   `npm run workbook:edit -- --slug <slug> --column <column> --value <value>`.
+4. `npm run enrich:duplicates` — the live-duplicate count should fall.

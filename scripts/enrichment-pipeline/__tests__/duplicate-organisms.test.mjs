@@ -1,5 +1,8 @@
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { auditDuplicateOrganisms } from '../lib/duplicate-organisms.mjs'
+import { auditDuplicateOrganisms, redirectedSlugs } from '../lib/duplicate-organisms.mjs'
 import { makeCanonical, publishedHerb } from './fixtures.mjs'
 
 /**
@@ -33,7 +36,7 @@ describe('duplicate-organism audit', () => {
 
   it('does not count a pair as live when one side is redirected away', () => {
     const report = auditDuplicateOrganisms(canonical, {
-      redirects: new Map([['allium-sativum', '/herbs/garlic/']]),
+      redirects: new Map([['herb:allium-sativum', '/herbs/garlic/']]),
       routes: allRouted,
     })
     expect(report.live_duplicates).toBe(1)
@@ -54,7 +57,7 @@ describe('duplicate-organism audit', () => {
 
   it('keeps reporting what the workbook column alone would have said', () => {
     const report = auditDuplicateOrganisms(canonical, {
-      redirects: new Map([['allium-sativum', '/herbs/garlic/']]),
+      redirects: new Map([['herb:allium-sativum', '/herbs/garlic/']]),
       routes: allRouted,
     })
     // Both are still full_public_runtime in the workbook even though one is 301'd.
@@ -72,5 +75,24 @@ describe('duplicate-organism audit', () => {
     expect(
       auditDuplicateOrganisms(canonical, { redirects: new Map(), routes: allRouted }).liveness_source,
     ).toBe('route-manifest')
+  })
+
+  it('keys redirects by namespace, so a compound route cannot retire a herb', () => {
+    // `/compounds/lions-mane` 301s, but the herb `lions-mane` does not. An
+    // unqualified key conflated the two and marked the herb as redirected away.
+    const redirectsPath = path.join(os.tmpdir(), `enrichment-redirects-${process.pid}.txt`)
+    fs.writeFileSync(
+      redirectsPath,
+      ['/compounds/lions-mane /herbs/lions-mane/ 301', '/herbs/garlic /herbs/other/ 301'].join('\n'),
+      'utf8',
+    )
+    try {
+      const map = redirectedSlugs({ redirectsPath })
+      expect(map.get('compound:lions-mane')).toBe('/herbs/lions-mane/')
+      expect(map.get('herb:lions-mane')).toBeUndefined()
+      expect(map.get('herb:garlic')).toBe('/herbs/other/')
+    } finally {
+      fs.rmSync(redirectsPath, { force: true })
+    }
   })
 })
