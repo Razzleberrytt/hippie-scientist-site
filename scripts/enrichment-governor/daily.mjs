@@ -8,29 +8,10 @@ import {
   buildCoverageHeatmap,
   contract,
   evidenceDecayScore,
+  isPublishableEntry,
 } from './governor.mjs'
 import { verifyCanaries } from './canary.mjs'
-
-const here = path.dirname(fileURLToPath(import.meta.url))
-const repoRoot = path.resolve(here, '..', '..')
-const stateDir = path.join(repoRoot, 'ops', 'enrichment-governor')
-const now = new Date()
-const nowMs = now.getTime()
-const nowIso = now.toISOString()
-
-function loadJson(file, fallback) {
-  if (!fs.existsSync(file)) return fallback
-  try {
-    return JSON.parse(fs.readFileSync(file, 'utf8'))
-  } catch (error) {
-    throw new Error(`Unreadable persistent JSON at ${file}: ${error.message}`)
-  }
-}
-
-function writeJson(file, value) {
-  fs.mkdirSync(path.dirname(file), { recursive: true })
-  fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`)
-}
+import { atomicJson, loadJsonStrict, repoRoot, stateDir, withWriterLock } from './state-io.mjs'
 
 function parseJsonl(file) {
   if (!fs.existsSync(file)) return []
@@ -51,7 +32,7 @@ function computeRates(scoreboard) {
   }
 }
 
-function buildIntegrityQueue(entries, watch) {
+function buildIntegrityQueue(entries, watch, nowMs, nowIso) {
   const bySource = new Map()
   for (const entry of entries) {
     if (!entry.sourceId) continue
@@ -120,20 +101,24 @@ function summarizeLedger() {
   return { totalEvents: events.length, counts, recent: tail }
 }
 
-export function runDailyConsolidation({ write = true } = {}) {
+function consolidateUnlocked({ write }) {
+  const now = new Date()
+  const nowMs = now.getTime()
+  const nowIso = now.toISOString()
   const entries = parseJsonl(path.join(repoRoot, 'public', 'data', 'enrichment-normalized.jsonl'))
-  const sourceRegistry = loadJson(path.join(repoRoot, 'public', 'data', 'source-registry.json'), [])
-  const state = loadJson(path.join(stateDir, 'state.json'), { version: 1 })
-  const scoreboard = loadJson(path.join(stateDir, 'scoreboard.json'), { version: 1, totals: {} })
-  const queue = loadJson(path.join(stateDir, 'work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
-  const quarantine = loadJson(path.join(stateDir, 'quarantine.json'), { version: 1, cases: [] })
-  const watch = loadJson(path.join(stateDir, 'integrity-watch.json'), { version: 1, sources: [] })
+  const publishableEntries = entries.filter(isPublishableEntry)
+  const sourceRegistry = loadJsonStrict(path.join(repoRoot, 'public', 'data', 'source-registry.json'), [])
+  const state = loadJsonStrict(path.join(stateDir, 'state.json'), { version: 1 })
+  const scoreboard = loadJsonStrict(path.join(stateDir, 'scoreboard.json'), { version: 1, totals: {} })
+  const queue = loadJsonStrict(path.join(stateDir, 'work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
+  const quarantine = loadJsonStrict(path.join(stateDir, 'quarantine.json'), { version: 1, cases: [] })
+  const watch = loadJsonStrict(path.join(stateDir, 'integrity-watch.json'), { version: 1, sources: [] })
 
-  const heatmap = buildCoverageHeatmap(entries)
-  const graph = buildClaimSourceGraph(entries, sourceRegistry)
+  const heatmap = buildCoverageHeatmap(publishableEntries)
+  const graph = buildClaimSourceGraph(publishableEntries, sourceRegistry)
   const canaries = verifyCanaries(entries, sourceRegistry)
   const drift = architectureDriftCheck(repoRoot)
-  const integrityWatch = buildIntegrityQueue(entries, watch)
+  const integrityWatch = buildIntegrityQueue(publishableEntries, watch, nowMs, nowIso)
   const researchTargets = buildResearchTargets(heatmap, quarantine)
   const activeLeases = (queue.leases || []).filter(lease => Date.parse(lease.expiresAt) > nowMs)
   const nextFrontier = researchTargets.find(row => !row.quarantined) || null
@@ -156,6 +141,7 @@ export function runDailyConsolidation({ write = true } = {}) {
   const summary = {
     generatedAt: nowIso,
     entryCount: entries.length,
+    publishableEntryCount: publishableEntries.length,
     sourceGraph: graph.counts,
     canaryPass: canaries.pass,
     canaryStatus: canaries.status,
@@ -180,19 +166,23 @@ export function runDailyConsolidation({ write = true } = {}) {
   }
 
   if (write) {
-    writeJson(path.join(stateDir, 'coverage-heatmap.json'), heatmap)
-    writeJson(path.join(stateDir, 'claim-source-graph.json'), graph)
-    writeJson(path.join(stateDir, 'canary-report.json'), canaries)
-    writeJson(path.join(stateDir, 'architecture-fingerprint.json'), { generatedAt: nowIso, ...drift })
-    writeJson(path.join(stateDir, 'integrity-watch.json'), integrityWatch)
-    writeJson(path.join(stateDir, 'research-targets.json'), { version: 1, generatedAt: nowIso, targets: researchTargets })
-    writeJson(path.join(stateDir, 'ledger-summary.json'), ledgerSummary)
-    writeJson(path.join(stateDir, 'scoreboard.json'), updatedScoreboard)
-    writeJson(path.join(stateDir, 'work-queue.json'), updatedQueue)
-    writeJson(path.join(stateDir, 'state.json'), updatedState)
-    writeJson(path.join(stateDir, 'daily-summary.json'), summary)
+    atomicJson(path.join(stateDir, 'coverage-heatmap.json'), heatmap)
+    atomicJson(path.join(stateDir, 'claim-source-graph.json'), graph)
+    atomicJson(path.join(stateDir, 'canary-report.json'), canaries)
+    atomicJson(path.join(stateDir, 'architecture-fingerprint.json'), { generatedAt: nowIso, ...drift })
+    atomicJson(path.join(stateDir, 'integrity-watch.json'), integrityWatch)
+    atomicJson(path.join(stateDir, 'research-targets.json'), { version: 1, generatedAt: nowIso, targets: researchTargets })
+    atomicJson(path.join(stateDir, 'ledger-summary.json'), ledgerSummary)
+    atomicJson(path.join(stateDir, 'scoreboard.json'), updatedScoreboard)
+    atomicJson(path.join(stateDir, 'work-queue.json'), updatedQueue)
+    atomicJson(path.join(stateDir, 'state.json'), updatedState)
+    atomicJson(path.join(stateDir, 'daily-summary.json'), summary)
   }
   return summary
+}
+
+export function runDailyConsolidation({ write = true } = {}) {
+  return write ? withWriterLock(() => consolidateUnlocked({ write: true })) : consolidateUnlocked({ write: false })
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
