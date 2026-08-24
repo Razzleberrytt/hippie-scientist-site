@@ -1,0 +1,66 @@
+name: Measure retyped runtime roots
+
+on:
+  push:
+    branches:
+      - fix/retype-five-compounds-v2
+
+permissions:
+  contents: read
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Snapshot committed roots
+        run: |
+          cp public/data/herbs.json /tmp/herbs-before.json
+          cp public/data/compounds.json /tmp/compounds-before.json
+      - name: Regenerate workbook-owned runtime roots
+        run: node scripts/data/build-runtime-from-workbook.mjs --out public/data
+      - name: Measure semantic delta
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const beforeHerbs = JSON.parse(fs.readFileSync('/tmp/herbs-before.json','utf8'))
+          const beforeCompounds = JSON.parse(fs.readFileSync('/tmp/compounds-before.json','utf8'))
+          const afterHerbs = JSON.parse(fs.readFileSync('public/data/herbs.json','utf8'))
+          const afterCompounds = JSON.parse(fs.readFileSync('public/data/compounds.json','utf8'))
+          const key = r => String(r?.slug || '').trim().toLowerCase()
+          const map = rows => new Map(rows.map(r => [key(r), r]).filter(([k]) => k))
+          const diff = (before, after) => {
+            const b = map(before), a = map(after)
+            const removed = [...b.keys()].filter(k => !a.has(k)).sort()
+            const added = [...a.keys()].filter(k => !b.has(k)).sort()
+            const changed = [...b.keys()].filter(k => a.has(k) && JSON.stringify(b.get(k)) !== JSON.stringify(a.get(k))).sort()
+            return { before: before.length, after: after.length, removed, added, changed_count: changed.length, changed }
+          }
+          const report = {
+            herbs: diff(beforeHerbs, afterHerbs),
+            compounds: diff(beforeCompounds, afterCompounds),
+          }
+          fs.writeFileSync('/tmp/runtime-root-diff-report.json', JSON.stringify(report, null, 2) + '\n')
+          console.log(JSON.stringify(report, null, 2))
+          NODE
+          git diff --numstat -- public/data/herbs.json public/data/compounds.json | tee /tmp/runtime-root-numstat.txt
+      - name: Validate regenerated roots against workbook
+        run: node scripts/ci/validate-workbook-json-parity.mjs
+      - name: Upload measurement
+        uses: actions/upload-artifact@v7
+        with:
+          name: retyped-runtime-root-measurement
+          path: |
+            /tmp/runtime-root-diff-report.json
+            /tmp/runtime-root-numstat.txt
+          retention-days: 7
