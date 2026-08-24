@@ -1,34 +1,11 @@
-import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 
 import { acquireLease, contract, quarantineDecision, runBenchmark } from './governor.mjs'
+import { appendJsonl, atomicJson, loadJsonStrict, statePath, withWriterLock } from './state-io.mjs'
 
-const here = path.dirname(fileURLToPath(import.meta.url))
-const repoRoot = path.resolve(here, '..', '..')
-const stateDir = path.join(repoRoot, 'ops', 'enrichment-governor')
-const lockPath = path.join(stateDir, '.lock')
-
-const statePath = name => path.join(stateDir, name)
 const nowIso = () => new Date().toISOString()
-
-function loadJson(file, fallback) {
-  if (!fs.existsSync(file)) return fallback
-  return JSON.parse(fs.readFileSync(file, 'utf8'))
-}
-
-function atomicJson(file, value) {
-  fs.mkdirSync(path.dirname(file), { recursive: true })
-  const temp = `${file}.${process.pid}.${Date.now()}.tmp`
-  fs.writeFileSync(temp, `${JSON.stringify(value, null, 2)}\n`)
-  fs.renameSync(temp, file)
-}
-
-function appendJsonl(file, value) {
-  fs.mkdirSync(path.dirname(file), { recursive: true })
-  fs.appendFileSync(file, `${JSON.stringify(value)}\n`)
-}
 
 function parseArgs(args) {
   const parsed = { _: [] }
@@ -48,49 +25,13 @@ function csv(value) {
   return String(value).split(',').map(value => value.trim()).filter(Boolean)
 }
 
-function withLock(fn) {
-  fs.mkdirSync(stateDir, { recursive: true })
-  let fd
-  try {
-    fd = fs.openSync(lockPath, 'wx')
-    fs.writeFileSync(fd, JSON.stringify({ pid: process.pid, acquiredAt: nowIso() }))
-  } catch (error) {
-    if (error.code === 'EEXIST') throw new Error('enrichment governor state is locked by another writer')
-    throw error
-  }
-
-  let result
-  let operationError = null
-  try {
-    result = fn()
-  } catch (error) {
-    operationError = error
-  }
-
-  let cleanupError = null
-  try {
-    fs.closeSync(fd)
-  } catch (error) {
-    if (error?.code !== 'EBADF') cleanupError = error
-  }
-  try {
-    fs.unlinkSync(lockPath)
-  } catch (error) {
-    if (error?.code !== 'ENOENT' && !cleanupError) cleanupError = error
-  }
-
-  if (operationError) throw operationError
-  if (cleanupError) throw cleanupError
-  return result
-}
-
-function event(event, details = {}) {
-  appendJsonl(statePath('ledger.jsonl'), { event, at: nowIso(), ...details })
+function event(eventName, details = {}) {
+  appendJsonl(statePath('ledger.jsonl'), { event: eventName, at: nowIso(), ...details })
 }
 
 function acquire(args) {
-  return withLock(() => {
-    const queue = loadJson(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
+  return withWriterLock(() => {
+    const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
     const request = {
       id: args.id || `lease_${crypto.randomUUID()}`,
       owner: args.owner || 'enrichment-agent',
@@ -111,9 +52,9 @@ function acquire(args) {
 }
 
 function release(args) {
-  return withLock(() => {
+  return withWriterLock(() => {
     if (!args.id) throw new Error('lease-release requires --id')
-    const queue = loadJson(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
+    const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
     const existing = (queue.leases || []).find(lease => lease.id === args.id)
     const leases = (queue.leases || []).filter(lease => lease.id !== args.id)
     atomicJson(statePath('work-queue.json'), { ...queue, leases, updatedAt: nowIso() })
@@ -123,9 +64,9 @@ function release(args) {
 }
 
 function queueAdd(args) {
-  return withLock(() => {
+  return withWriterLock(() => {
     if (!args.key) throw new Error('queue-add requires --key')
-    const queue = loadJson(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
+    const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
     const item = {
       key: args.key,
       kind: args.kind || 'enrichment',
@@ -144,9 +85,9 @@ function queueAdd(args) {
 }
 
 function metric(args) {
-  return withLock(() => {
+  return withWriterLock(() => {
     if (!args.name) throw new Error('metric requires --name')
-    const scoreboard = loadJson(statePath('scoreboard.json'), { version: 1, totals: {}, rates: {}, efficiency: {}, recurringBlockers: {} })
+    const scoreboard = loadJsonStrict(statePath('scoreboard.json'), { version: 1, totals: {}, rates: {}, efficiency: {}, recurringBlockers: {} })
     if (!(args.name in (scoreboard.totals || {}))) throw new Error(`unknown scoreboard metric: ${args.name}`)
     const delta = Number(args.delta ?? 1)
     if (!Number.isFinite(delta)) throw new Error('metric --delta must be numeric')
@@ -159,9 +100,9 @@ function metric(args) {
 }
 
 function blocker(args) {
-  return withLock(() => {
+  return withWriterLock(() => {
     if (!args.category) throw new Error('blocker requires --category')
-    const scoreboard = loadJson(statePath('scoreboard.json'), { version: 1, totals: {}, rates: {}, efficiency: {}, recurringBlockers: {} })
+    const scoreboard = loadJsonStrict(statePath('scoreboard.json'), { version: 1, totals: {}, rates: {}, efficiency: {}, recurringBlockers: {} })
     scoreboard.recurringBlockers ||= {}
     scoreboard.recurringBlockers[args.category] = Number(scoreboard.recurringBlockers[args.category] || 0) + 1
     scoreboard.updatedAt = nowIso()
@@ -172,9 +113,9 @@ function blocker(args) {
 }
 
 function integrityRecord(args) {
-  return withLock(() => {
+  return withWriterLock(() => {
     if (!args.source) throw new Error('integrity-record requires --source')
-    const watch = loadJson(statePath('integrity-watch.json'), { version: 1, generatedAt: null, sources: [] })
+    const watch = loadJsonStrict(statePath('integrity-watch.json'), { version: 1, generatedAt: null, sources: [] })
     const existing = (watch.sources || []).find(row => row.sourceId === args.source) || { sourceId: args.source }
     const status = args.status || 'clear'
     const concern = ['retracted', 'expression_of_concern', 'major_correction', 'invalid_identifier', 'publication_status_change', 'strong_new_contradiction'].includes(status)
@@ -194,10 +135,10 @@ function integrityRecord(args) {
 }
 
 function improvement(args, disposition) {
-  return withLock(() => {
+  return withWriterLock(() => {
     if (!args.id && disposition === 'experimental') args.id = `imp_${crypto.randomUUID()}`
     if (!args.id) throw new Error(`improvement-${disposition} requires --id`)
-    const registry = loadJson(statePath('self-improvements.json'), { version: 1, experimental: [], adopted: [], rejected: [], reverted: [] })
+    const registry = loadJsonStrict(statePath('self-improvements.json'), { version: 1, experimental: [], adopted: [], rejected: [], reverted: [] })
     const allBuckets = ['experimental', 'adopted', 'rejected', 'reverted']
     const current = allBuckets.flatMap(bucket => (registry[bucket] || []).map(row => ({ ...row, _bucket: bucket }))).find(row => row.id === args.id)
     const record = current ? { ...current } : {
@@ -234,9 +175,9 @@ function improvement(args, disposition) {
 }
 
 function failure(args) {
-  return withLock(() => {
+  return withWriterLock(() => {
     if (!args.key) throw new Error('failure requires --key')
-    const quarantine = loadJson(statePath('quarantine.json'), { version: 1, cases: [] })
+    const quarantine = loadJsonStrict(statePath('quarantine.json'), { version: 1, cases: [] })
     const existing = (quarantine.cases || []).find(row => row.key === args.key) || { key: args.key, consecutiveFailures: 0 }
     const next = {
       ...existing,
@@ -257,21 +198,26 @@ function failure(args) {
 
 function print(value) { process.stdout.write(`${JSON.stringify(value, null, 2)}\n`) }
 
+function printResult(value) {
+  print(value)
+  if (value?.ok === false) process.exitCode = 1
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const [command, ...raw] = process.argv.slice(2)
   const args = parseArgs(raw)
   try {
-    if (command === 'lease-acquire') print(acquire(args))
-    else if (command === 'lease-release') print(release(args))
-    else if (command === 'queue-add') print(queueAdd(args))
-    else if (command === 'metric') print(metric(args))
-    else if (command === 'blocker') print(blocker(args))
-    else if (command === 'integrity-record') print(integrityRecord(args))
-    else if (command === 'improvement-propose') print(improvement(args, 'experimental'))
-    else if (command === 'improvement-adopt') print(improvement(args, 'adopted'))
-    else if (command === 'improvement-reject') print(improvement(args, 'rejected'))
-    else if (command === 'improvement-revert') print(improvement(args, 'reverted'))
-    else if (command === 'failure') print(failure(args))
+    if (command === 'lease-acquire') printResult(acquire(args))
+    else if (command === 'lease-release') printResult(release(args))
+    else if (command === 'queue-add') printResult(queueAdd(args))
+    else if (command === 'metric') printResult(metric(args))
+    else if (command === 'blocker') printResult(blocker(args))
+    else if (command === 'integrity-record') printResult(integrityRecord(args))
+    else if (command === 'improvement-propose') printResult(improvement(args, 'experimental'))
+    else if (command === 'improvement-adopt') printResult(improvement(args, 'adopted'))
+    else if (command === 'improvement-reject') printResult(improvement(args, 'rejected'))
+    else if (command === 'improvement-revert') printResult(improvement(args, 'reverted'))
+    else if (command === 'failure') printResult(failure(args))
     else {
       console.error('Usage: control.mjs lease-acquire|lease-release|queue-add|metric|blocker|integrity-record|improvement-propose|improvement-adopt|improvement-reject|improvement-revert|failure [--key=value]')
       process.exitCode = 2
