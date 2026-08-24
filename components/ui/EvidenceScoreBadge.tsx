@@ -108,14 +108,16 @@ export default function EvidenceScoreBadge({
 }: EvidenceScoreBadgeProps) {
   const canonicalGrade = grade ?? (record ? getEvidenceLetterGrade(record as RuntimeRecord) : 'Unassigned')
   const config = GRADE_CONFIG[canonicalGrade]
+  const accessibleMeaning = `Profile-wide evidence grade ${canonicalGrade}: ${config.meaning}`
 
   if (size === 'circle') {
     return (
       <span
         data-evidence="true"
+        data-evidence-scope="profile-wide"
         data-evidence-grade={canonicalGrade}
         className={`inline-flex items-center gap-2 ${className}`}
-        title={config.meaning}
+        title={accessibleMeaning}
       >
         <span
           aria-hidden="true"
@@ -124,8 +126,8 @@ export default function EvidenceScoreBadge({
           {config.badge}
         </span>
         {showLabel && (
-          <span aria-label={`Evidence grade ${canonicalGrade}: ${config.meaning}`} className={`text-sm font-semibold ${GRADE_TEXT_ADAPTIVE[canonicalGrade]}`}>
-            {GRADE_MEANING_SHORT[canonicalGrade]}
+          <span aria-label={accessibleMeaning} className={`text-sm font-semibold ${GRADE_TEXT_ADAPTIVE[canonicalGrade]}`}>
+            <span className="font-medium">Profile-wide · </span>{GRADE_MEANING_SHORT[canonicalGrade]}
           </span>
         )}
       </span>
@@ -137,11 +139,13 @@ export default function EvidenceScoreBadge({
   return (
     <span
       data-evidence="true"
+      data-evidence-scope="profile-wide"
       data-evidence-grade={canonicalGrade}
-      title={config.meaning}
-      aria-label={`Evidence grade ${canonicalGrade}: ${config.meaning}`}
+      title={accessibleMeaning}
+      aria-label={accessibleMeaning}
       className={`inline-flex items-center rounded-full border font-bold tracking-wide ${config.bg} ${config.text} ${config.border} ${sizeClasses} ${className}`}
     >
+      {showLabel && <span className="font-medium">Profile-wide ·</span>}
       <span className={size === 'sm' ? 'text-[0.8rem]' : 'text-sm'}>{config.label}</span>
       {showLabel && canonicalGrade !== 'Avoid/Insufficient' && canonicalGrade !== 'Unassigned' && (
         <span className="font-semibold">{' '}{GRADE_MEANING_SHORT[canonicalGrade]}</span>
