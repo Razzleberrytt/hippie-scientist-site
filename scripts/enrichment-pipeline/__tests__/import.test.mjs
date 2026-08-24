@@ -91,6 +91,44 @@ describe('exporter', () => {
     expect(payload.summary.validated).toBe(0)
   })
 
+  it('withholds two candidates in one batch that propose the same shared-review value', () => {
+    // The per-candidate guard compares against canonical state, so neither of
+    // these trips it — the value is in neither row yet. Only the exporter sees
+    // the whole batch. Batch 4 imported `Avena sativa` twice this way.
+    const canonical = makeCanonical([
+      publishedHerb({ slug: 'milk-oats', latin_name: '' }),
+      publishedHerb({ slug: 'oatstraw', latin_name: '' }),
+    ])
+    const results = ['milk-oats', 'oatstraw'].map((slug) => {
+      const candidate = normalizeCandidate(
+        makeCandidate({
+          job_id: `job_${slug}`,
+          entity: { type: 'herb', slug, sheet: 'Entity_Master' },
+          changes: [{ ...makeCandidate().changes[0], proposed_value: 'Avena sativa' }],
+        }),
+        contract,
+      )
+      return validateCandidate(candidate, { contract, canonical })
+    })
+
+    // Both pass validation on their own.
+    for (const result of results) expect(result.verdict.importable).toBe(true)
+
+    const { patch, excluded } = buildPatch({ results, batchLabel: 'collide', contract })
+    expect(patch.changes).toHaveLength(0)
+    expect(excluded).toHaveLength(2)
+    expect(excluded[0].reviews[0]).toMatch(/same batch/)
+    expect(excluded[0].reviews[0]).toMatch(/milk-oats, oatstraw/)
+  })
+
+  it('leaves a lone shared-review value in the patch', () => {
+    const canonical = makeCanonical([publishedHerb({ slug: 'fixture-herb', latin_name: '' })])
+    const result = validatedResult(canonical)
+    const { patch, excluded } = buildPatch({ results: [result], batchLabel: 'solo', contract })
+    expect(patch.changes).toHaveLength(1)
+    expect(excluded).toHaveLength(0)
+  })
+
   it('refuses to overwrite a patch a human has already approved', () => {
     const { patch } = buildPatch({ results: [validatedResult()], batchLabel: 'test', contract })
     const dir = path.join(opsDir, 'patches')

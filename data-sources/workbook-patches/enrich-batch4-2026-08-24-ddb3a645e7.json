@@ -1,0 +1,409 @@
+{
+  "patch_version": 1,
+  "id": "enrich-batch4-2026-08-24-ddb3a645e7",
+  "status": "applied",
+  "generated_by": "scripts/enrichment-pipeline",
+  "job_ids": [
+    "job_0e477f40ad4bd218",
+    "job_14a445b176f70859",
+    "job_1f1c98f00f64bdd6",
+    "job_245e5b567e634ba2",
+    "job_31f90f122447e446",
+    "job_44bf761a3b6bcb71",
+    "job_51541525c17a8e99",
+    "job_5d0f4409ab3a6168",
+    "job_60e1b5b855fee4f7",
+    "job_61c69b08d52bd383",
+    "job_6c43059090223ecb",
+    "job_79c6d76dc80c0dec",
+    "job_85b035f8c937a0b6",
+    "job_8d9471414d311c82",
+    "job_a877a697c9836c93",
+    "job_ac52c5a802a3c13e",
+    "job_c40d692fbea6fc33",
+    "job_e29374dacd7154f4",
+    "job_f7ef97a97a277ffd",
+    "job_f9fb552fe68416f6",
+    "job_faea1980b90e7a43"
+  ],
+  "sources": [
+    {
+      "id": "gbif-2540800",
+      "title": "Grifola frondosa - GBIF Backbone Taxonomy (Fungi)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2540800"
+    },
+    {
+      "id": "gbif-2543474",
+      "title": "Fomitopsis officinalis - GBIF Backbone Taxonomy (Fungi)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2543474"
+    },
+    {
+      "id": "gbif-2705290",
+      "title": "Avena sativa - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2705290"
+    },
+    {
+      "id": "gbif-2774158",
+      "title": "Ophiopogon japonicus - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2774158"
+    },
+    {
+      "id": "gbif-2874484",
+      "title": "Carica papaya - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2874484"
+    },
+    {
+      "id": "gbif-2926406",
+      "title": "Agastache foeniculum - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2926406"
+    },
+    {
+      "id": "gbif-2993094",
+      "title": "Rubus idaeus - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/2993094"
+    },
+    {
+      "id": "gbif-3039423",
+      "title": "Ziziphus jujuba - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3039423"
+    },
+    {
+      "id": "gbif-3120946",
+      "title": "Artemisia vulgaris - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3120946"
+    },
+    {
+      "id": "gbif-3152520",
+      "title": "Althaea officinalis - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3152520"
+    },
+    {
+      "id": "gbif-3188924",
+      "title": "Oenothera biennis - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3188924"
+    },
+    {
+      "id": "gbif-3189815",
+      "title": "Aesculus hippocastanum - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3189815"
+    },
+    {
+      "id": "gbif-3685538",
+      "title": "Ptychopetalum olacoides - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/3685538"
+    },
+    {
+      "id": "gbif-4092242",
+      "title": "Handroanthus impetiginosum - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/4092242"
+    },
+    {
+      "id": "gbif-4095989",
+      "title": "Nardostachys jatamansi - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/4095989"
+    },
+    {
+      "id": "gbif-5341394",
+      "title": "Perilla frutescens - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5341394"
+    },
+    {
+      "id": "gbif-5374118",
+      "title": "Isatis tinctoria - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5374118"
+    },
+    {
+      "id": "gbif-5667503",
+      "title": "Aloysia citrodora - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/5667503"
+    },
+    {
+      "id": "gbif-7130673",
+      "title": "Cissus quadrangularis - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/7130673"
+    },
+    {
+      "id": "gbif-7960979",
+      "title": "Urtica dioica - GBIF Backbone Taxonomy (Plantae)",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://gbif.org/species/7960979"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "agarikon",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Fomitopsis officinalis",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2543474"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Fomitopsis officinalis\" as ACCEPTED with an EXACT match at species rank (usageKey 2543474, Fungi). [enrichment-pipeline job job_79c6d76dc80c0dec, candidate cand_904a12ccf4e3d7ef]"
+    },
+    {
+      "slug": "anise-hyssop",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Agastache foeniculum",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2926406"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Agastache foeniculum\" as ACCEPTED with an EXACT match at species rank (usageKey 2926406, Plantae). [enrichment-pipeline job job_31f90f122447e446, candidate cand_30195190c03d260e]"
+    },
+    {
+      "slug": "cissus",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Cissus quadrangularis",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-7130673"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Cissus quadrangularis\" as ACCEPTED with an EXACT match at species rank (usageKey 7130673, Plantae). [enrichment-pipeline job job_a877a697c9836c93, candidate cand_afb483b76699194a]"
+    },
+    {
+      "slug": "evening-primrose",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Oenothera biennis",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3188924"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Oenothera biennis\" as ACCEPTED with an EXACT match at species rank (usageKey 3188924, Plantae). [enrichment-pipeline job job_61c69b08d52bd383, candidate cand_8d36ada8d1cc28fb]"
+    },
+    {
+      "slug": "horse-chestnut",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Aesculus hippocastanum",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3189815"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Aesculus hippocastanum\" as ACCEPTED with an EXACT match at species rank (usageKey 3189815, Plantae). [enrichment-pipeline job job_f7ef97a97a277ffd, candidate cand_adda29b17b7e97d9]"
+    },
+    {
+      "slug": "isatis",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Isatis tinctoria",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5374118"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Isatis tinctoria\" as ACCEPTED with an EXACT match at species rank (usageKey 5374118, Plantae). [enrichment-pipeline job job_c40d692fbea6fc33, candidate cand_a48fce35e3d5e1e9]"
+    },
+    {
+      "slug": "jatamansi",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Nardostachys jatamansi",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-4095989"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Nardostachys jatamansi\" as ACCEPTED with an EXACT match at species rank (usageKey 4095989, Plantae). [enrichment-pipeline job job_14a445b176f70859, candidate cand_4a7d89268b6ab958]"
+    },
+    {
+      "slug": "jujube",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ziziphus jujuba",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3039423"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Ziziphus jujuba\" as ACCEPTED with an EXACT match at species rank (usageKey 3039423, Plantae). [enrichment-pipeline job job_51541525c17a8e99, candidate cand_be5097946535f410]"
+    },
+    {
+      "slug": "lemon-verbena",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Aloysia citrodora",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5667503"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Aloysia citrodora\" as ACCEPTED with an EXACT match at species rank (usageKey 5667503, Plantae). [enrichment-pipeline job job_0e477f40ad4bd218, candidate cand_a573bfdf67e435fe]"
+    },
+    {
+      "slug": "maitake-d-fraction",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Grifola frondosa",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2540800"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Grifola frondosa\" as ACCEPTED with an EXACT match at species rank (usageKey 2540800, Fungi). D-fraction is an extract of this fungus; latin_name records the source organism. [enrichment-pipeline job job_60e1b5b855fee4f7, candidate cand_d7d66e7e648767d6]"
+    },
+    {
+      "slug": "marshmallow",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Althaea officinalis",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3152520"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Althaea officinalis\" as ACCEPTED with an EXACT match at species rank (usageKey 3152520, Plantae). [enrichment-pipeline job job_f9fb552fe68416f6, candidate cand_4c106a2a2afe35cd]"
+    },
+    {
+      "slug": "milk-oats",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Avena sativa",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2705290"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Avena sativa\" as ACCEPTED with an EXACT match at species rank (usageKey 2705290, Plantae). Milky oat seed; latin_name records the source plant. [enrichment-pipeline job job_85b035f8c937a0b6, candidate cand_f4025a7933e358fc]"
+    },
+    {
+      "slug": "mugwort",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Artemisia vulgaris",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3120946"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Artemisia vulgaris\" as ACCEPTED with an EXACT match at species rank (usageKey 3120946, Plantae). [enrichment-pipeline job job_44bf761a3b6bcb71, candidate cand_0d3b0a657d637969]"
+    },
+    {
+      "slug": "muira-puama",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ptychopetalum olacoides",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-3685538"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Ptychopetalum olacoides\" as ACCEPTED with an EXACT match at species rank (usageKey 3685538, Plantae). [enrichment-pipeline job job_5d0f4409ab3a6168, candidate cand_fd4f7c12adffa0be]"
+    },
+    {
+      "slug": "nettle-root",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Urtica dioica",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-7960979"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Urtica dioica\" as ACCEPTED with an EXACT match at species rank (usageKey 7960979, Plantae). [enrichment-pipeline job job_245e5b567e634ba2, candidate cand_028159c118fb4eb0]"
+    },
+    {
+      "slug": "oatstraw",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Avena sativa",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2705290"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Avena sativa\" as ACCEPTED with an EXACT match at species rank (usageKey 2705290, Plantae). Oat straw (aerial stem); shares its source plant with milk-oats. [enrichment-pipeline job job_ac52c5a802a3c13e, candidate cand_706a60fd568e6d01]"
+    },
+    {
+      "slug": "ophiopogon",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Ophiopogon japonicus",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2774158"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Ophiopogon japonicus\" as ACCEPTED with an EXACT match at species rank (usageKey 2774158, Plantae). [enrichment-pipeline job job_1f1c98f00f64bdd6, candidate cand_a8ba0afb51d62586]"
+    },
+    {
+      "slug": "papaya-leaf",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Carica papaya",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2874484"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Carica papaya\" as ACCEPTED with an EXACT match at species rank (usageKey 2874484, Plantae). [enrichment-pipeline job job_faea1980b90e7a43, candidate cand_edfd17319f1bbc51]"
+    },
+    {
+      "slug": "pau-d-arco",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Handroanthus impetiginosum",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-4092242"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Handroanthus impetiginosum\" as ACCEPTED with an EXACT match at species rank (usageKey 4092242, Plantae). Formerly Tabebuia impetiginosa. GBIF spells the epithet impetiginosum. [enrichment-pipeline job job_6c43059090223ecb, candidate cand_ac606a7770b4faf5]"
+    },
+    {
+      "slug": "perilla",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Perilla frutescens",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-5341394"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Perilla frutescens\" as ACCEPTED with an EXACT match at species rank (usageKey 5341394, Plantae). [enrichment-pipeline job job_e29374dacd7154f4, candidate cand_dbd8138b5cf08ebb]"
+    },
+    {
+      "slug": "raspberry-leaf",
+      "column": "latin_name",
+      "expected_old_value": "",
+      "new_value": "Rubus idaeus",
+      "confidence": "high",
+      "source_ids": [
+        "gbif-2993094"
+      ],
+      "rationale": "GBIF Backbone Taxonomy returns \"Rubus idaeus\" as ACCEPTED with an EXACT match at species rank (usageKey 2993094, Plantae). [enrichment-pipeline job job_8d9471414d311c82, candidate cand_b12e2e7c7534382d]"
+    }
+  ],
+  "approved_by": "Repo owner, delegated to Claude Code (session 015F1Gnxhg7XJu7E6UBh3HcP)",
+  "approved_at": "2026-08-24",
+  "review_note": "Final latin_name batch. 21 direct ACCEPTED/EXACT/SPECIES matches. Four jobs routed to review by the shared-value guard (oatstraw, holy-basil-seed, lemongrass, mulberry-leaf) and 22 recorded as no-ops with reasons.",
+  "applied_at": "2026-08-24",
+  "applied_note": "Applied in place. Re-import verified as a no-op."
+}
