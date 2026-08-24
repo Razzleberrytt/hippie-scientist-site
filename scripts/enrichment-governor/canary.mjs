@@ -71,5 +71,7 @@ export function verifyCanaries(entries, sourceRegistry = []) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const entries = parseJsonl(path.join(repoRoot, 'public', 'data', 'enrichment-normalized.jsonl'))
   const registry = loadJson(path.join(repoRoot, 'public', 'data', 'source-registry.json'), [])
-  process.stdout.write(`${JSON.stringify(verifyCanaries(entries, registry), null, 2)}\n`)
+  const result = verifyCanaries(entries, registry)
+  process.stdout.write(`${JSON.stringify(result, null, 2)}\n`)
+  if (!result.pass) process.exitCode = 1
 }
