@@ -134,8 +134,9 @@ question. This mirrors `--approve-human-review` in the workbook runner.
 
 ## 6. Duplicate organisms
 
-34 `latin_name` values are held by more than one entity. **17 actually serve two
-or more live profiles**; 12 are already resolved by a 301.
+34 `latin_name` values are held by more than one entity. **After the 2026-08-24
+consolidation, 5 still serve two or more live profiles** — down from 17 — and all
+five are deliberate part/preparation splits. 12 are resolved by a 301.
 
 **That count went up as a direct result of §5**, from 28 shared and 13 live.
 Filling the seven review cases did not create seven duplicates — those entity
@@ -150,19 +151,15 @@ how an earlier pass of this audit overstated the count.
 
 `npm run enrich:duplicates -- --plan` proposes a survivor per group, separates the four that are not duplicates at all, and writes the exact redirect lines and workbook edits.
 
-**An established precedent exists and was not applied.** All nine herb redirects
-point the binomial slug at the common-name slug — `allium-sativum`→`garlic`,
-`withania-somnifera`→`ashwagandha`, `silybum-marianum`→`milk-thistle`, and so on.
-Most of the remaining 17 fit the same shape. Applying it would consolidate the
-duplicates, but choosing survivors for live indexed pages has real traffic
-consequences and there is no analytics feed in the repository to check which URL
-ranks. Several of the 13 are also legitimate splits rather than duplicates —
-`curcumin`/`turmeric` is compound vs source plant, `camellia-sinensis`/`black-tea`
-is one plant and two preparations.
+**The precedent was applied.** All nine pre-existing herb redirects pointed the
+binomial slug at the common-name slug, and twelve more now do. Two proposals
+flipped once ranking used real rendered content instead of the stale
+`source_count` column: `angelica-sinensis` has no built page, and
+`gymnema-sylvestre` renders four citations to `gudmar`s one. A thirteenth pair
+the audit could not see — `citicoline` and `cdp-choline`, same substance, neither
+carrying a `latin_name` — was resolved too.
 
-That decision is left open deliberately. See
-`docs/enrichment/duplicate-organisms-audit.md` for the full list and a suggested
-resolution procedure.
+See `docs/enrichment/duplicate-organisms-audit.md`.
 
 ## 7. Recommended next action
 

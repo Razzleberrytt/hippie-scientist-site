@@ -182,6 +182,31 @@ export function formatDuplicateAudit(report) {
 }
 
 /**
+ * Reader-visible content for a slug, from the built output when it exists.
+ *
+ * The workbook 'source_count' column is not a usable signal here: it is a stale
+ * counter that does not track Evidence_Register or Source_Register.
+ * 'glycyrrhiza-glabra' claims 24 while rendering the same three PMIDs as
+ * 'licorice', which claims 7. Ranking survivors by it produced eight false
+ * "the retire side is richer" warnings.
+ */
+export function renderedContent(slug, { outDir = path.join(repoRoot, 'out') } = {}) {
+  const file = path.join(outDir, 'herbs', slug, 'index.html')
+  if (!fs.existsSync(file)) return { built: false, bytes: 0, pmids: 0 }
+  const html = fs.readFileSync(file, 'utf8')
+  return {
+    built: true,
+    bytes: html.length,
+    pmids: new Set(html.match(/pubmed\.ncbi\.nlm\.nih\.gov\/\d+/g) || []).size,
+  }
+}
+
+/** Groups that share a binomial for a reason the type/part checks cannot see. */
+export const KNOWN_NON_DUPLICATES = {
+  'curcuma longa': 'curcumin is the compound, turmeric the source plant; curcumin is mistyped as entity_type=herb, so the type check cannot see it',
+}
+
+/**
  * Propose a survivor for each live duplicate group.
  *
  * The site has already resolved nine of these by hand, and every one of them
@@ -196,7 +221,7 @@ export function formatDuplicateAudit(report) {
  * content signals disagree. A `low` row should not be applied without checking
  * Search Console first.
  */
-export function proposeResolution(canonical, audit) {
+export function proposeResolution(canonical, audit, { content = renderedContent } = {}) {
   const slugLooksBinomial = (slug, value) =>
     slug === String(value || '').trim().toLowerCase().replace(/\s+/g, '-')
 
@@ -217,16 +242,19 @@ export function proposeResolution(canonical, audit) {
     const live = group.entities.filter((entity) => entity.published)
     if (live.length < 2) continue
 
+    const known = KNOWN_NON_DUPLICATES[group.key]
     const types = live.map((e) => String(canonical.bySlug.get(e.slug)?.row?.entity_type ?? '').toLowerCase())
     const mixedTypes = new Set(types).size > 1
     const partLike = live.filter((e) => PART_WORDS.test(e.slug))
-    if (mixedTypes || partLike.length) {
+    if (known || mixedTypes || partLike.length) {
       notDuplicates.push({
         value: group.value,
         entities: live.map((e) => e.slug),
-        reason: mixedTypes
-          ? 'mixed entity types — one side is the compound, the other the source organism'
-          : `part/preparation split: ${partLike.map((e) => e.slug).join(', ')}`,
+        reason:
+          known ||
+          (mixedTypes
+            ? 'mixed entity types — one side is the compound, the other the source organism'
+            : `part/preparation split: ${partLike.map((e) => e.slug).join(', ')}`),
       })
       continue
     }
@@ -234,45 +262,59 @@ export function proposeResolution(canonical, audit) {
     const scored = live.map((entity) => {
       const row = canonical.bySlug.get(entity.slug)?.row ?? {}
       const isBinomialSlug = slugLooksBinomial(entity.slug, group.value)
+      const info = content(entity.slug)
       return {
         ...entity,
         is_binomial_slug: isBinomialSlug,
         source_count: numeric(row, 'source_count'),
-        authority_score: numeric(row, 'authority_score'),
-        discovery_weight: numeric(row, 'discovery_weight'),
-        // Precedent dominates; content signals break ties within it.
-        score:
-          (isBinomialSlug ? 0 : 1000) +
-          numeric(row, 'source_count') * 10 +
-          numeric(row, 'authority_score'),
+        built: info.built,
+        rendered_pmids: info.pmids,
+        rendered_bytes: info.bytes,
       }
     })
 
-    const ranked = [...scored].sort((a, b) => b.score - a.score || a.slug.localeCompare(b.slug))
+    // Rank on what a reader actually gets, then fall back to the site's own
+    // precedent. Content only overrides precedent when the gap is material —
+    // an unbuilt page, or two or more extra distinct citations — because at
+    // parity the common-name slug is the better URL for search intent, which is
+    // why all nine existing redirects point that way.
+    const best = Math.max(...scored.map((e) => e.rendered_pmids))
+    const anyUnbuilt = scored.some((e) => !e.built)
+    const contentDecides =
+      anyUnbuilt || scored.some((e) => e.rendered_pmids <= best - 2)
+
+    const ranked = [...scored].sort((a, b) => {
+      if (a.built !== b.built) return a.built ? -1 : 1
+      if (contentDecides && b.rendered_pmids !== a.rendered_pmids) return b.rendered_pmids - a.rendered_pmids
+      if (a.is_binomial_slug !== b.is_binomial_slug) return a.is_binomial_slug ? 1 : -1
+      return b.rendered_bytes - a.rendered_bytes || a.slug.localeCompare(b.slug)
+    })
     const survivor = ranked[0]
     const retired = ranked.slice(1)
-
-    // Precedent and content agree when the common-name slug is also the one
-    // with more sources. When they disagree, say so instead of hiding it.
-    const richest = [...scored].sort((a, b) => b.source_count - a.source_count)[0]
-    const agrees = richest.slug === survivor.slug
     const anyBinomial = scored.some((e) => e.is_binomial_slug)
 
     proposals.push({
       value: group.value,
       survivor: survivor.slug,
       retire: retired.map((entity) => entity.slug),
-      confidence: agrees && anyBinomial ? 'high' : 'low',
-      basis: anyBinomial
-        ? 'binomial-slug redirects to common-name slug (9/9 existing precedent)'
-        : 'no binomial slug in this group; ranked by source_count and authority_score only',
-      caveat: agrees ? null : `${richest.slug} has more sources (${richest.source_count}) than the proposed survivor`,
+      // High whenever a real signal decided it: either content is materially
+      // better on the survivor, or content is at parity and precedent applies.
+      confidence: contentDecides || anyBinomial ? 'high' : 'low',
+      basis: contentDecides
+        ? `content decides: ${survivor.slug} renders ${survivor.rendered_pmids} citation(s)` +
+          (anyUnbuilt ? ' and the other side has no built page' : '')
+        : anyBinomial
+          ? 'content at parity; binomial slug redirects to the common-name slug (9/9 existing precedent)'
+          : 'content at parity and no binomial slug; ranked by page size only',
+      caveat: null,
       entities: scored.map((entity) => ({
         slug: entity.slug,
         name: entity.name,
         is_binomial_slug: entity.is_binomial_slug,
-        source_count: entity.source_count,
-        authority_score: entity.authority_score,
+        built: entity.built,
+        rendered_pmids: entity.rendered_pmids,
+        rendered_bytes: entity.rendered_bytes,
+        source_count_column: entity.source_count,
       })),
       redirects: retired.flatMap((entity) => [
         `/herbs/${entity.slug} /herbs/${survivor.slug}/ 301`,

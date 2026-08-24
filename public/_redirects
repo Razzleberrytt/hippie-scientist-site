@@ -26,8 +26,8 @@ https://www.thehippiescientist.net/herbs/sage https://thehippiescientist.net/her
 https://www.thehippiescientist.net/herbs/sage/ https://thehippiescientist.net/herbs/sage/ 301
 https://www.thehippiescientist.net/herbs/lagerstroemia-speciosa https://thehippiescientist.net/herbs/lagerstroemia-speciosa/ 301
 https://www.thehippiescientist.net/herbs/lagerstroemia-speciosa/ https://thehippiescientist.net/herbs/lagerstroemia-speciosa/ 301
-https://www.thehippiescientist.net/herbs/tripterygium-wilfordii https://thehippiescientist.net/herbs/tripterygium-wilfordii/ 301
-https://www.thehippiescientist.net/herbs/tripterygium-wilfordii/ https://thehippiescientist.net/herbs/tripterygium-wilfordii/ 301
+https://www.thehippiescientist.net/herbs/tripterygium-wilfordii https://thehippiescientist.net/herbs/thunder-god-vine/ 301
+https://www.thehippiescientist.net/herbs/tripterygium-wilfordii/ https://thehippiescientist.net/herbs/thunder-god-vine/ 301
 https://www.thehippiescientist.net/compare/lions-mane-vs-alpha-gpc https://thehippiescientist.net/guides/compare/ 301
 https://www.thehippiescientist.net/compare/lions-mane-vs-alpha-gpc/ https://thehippiescientist.net/guides/compare/ 301
 https://www.thehippiescientist.net/compare/caffeine-vs-l-theanine https://thehippiescientist.net/guides/compare/caffeine-vs-l-theanine/ 301
@@ -320,3 +320,34 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /best-for/non-stimulant-focus/ /goals/focus/ 301
 /best-for/non-sedating-calm /goals/anxiety/ 301
 /best-for/non-sedating-calm/ /goals/anxiety/ 301
+
+# Duplicate-organism consolidation: two profiles described one organism.
+# Survivors chosen by rendered content first, then by the site's own
+# precedent of pointing the binomial slug at the common-name slug.
+# See docs/enrichment/duplicate-organisms-audit.md.
+/herbs/angelica-sinensis /herbs/dong-quai/ 301
+/herbs/angelica-sinensis/ /herbs/dong-quai/ 301
+/herbs/cistanche-deserticola /herbs/cistanche/ 301
+/herbs/cistanche-deserticola/ /herbs/cistanche/ 301
+/herbs/crocus-sativus /herbs/saffron/ 301
+/herbs/crocus-sativus/ /herbs/saffron/ 301
+/herbs/garcinia-mangostana /herbs/mangosteen/ 301
+/herbs/garcinia-mangostana/ /herbs/mangosteen/ 301
+/herbs/glycyrrhiza-glabra /herbs/licorice/ 301
+/herbs/glycyrrhiza-glabra/ /herbs/licorice/ 301
+/herbs/gudmar /herbs/gymnema-sylvestre/ 301
+/herbs/gudmar/ /herbs/gymnema-sylvestre/ 301
+/herbs/ligusticum-chuanxiong /herbs/chuanxiong/ 301
+/herbs/ligusticum-chuanxiong/ /herbs/chuanxiong/ 301
+/herbs/morinda-citrifolia /herbs/noni/ 301
+/herbs/morinda-citrifolia/ /herbs/noni/ 301
+/herbs/paeonia-lactiflora /herbs/white-peony/ 301
+/herbs/paeonia-lactiflora/ /herbs/white-peony/ 301
+/herbs/scutellaria-baicalensis /herbs/chinese-skullcap/ 301
+/herbs/scutellaria-baicalensis/ /herbs/chinese-skullcap/ 301
+/herbs/syzygium-aromaticum /herbs/clove/ 301
+/herbs/syzygium-aromaticum/ /herbs/clove/ 301
+/herbs/tripterygium-wilfordii /herbs/thunder-god-vine/ 301
+/herbs/tripterygium-wilfordii/ /herbs/thunder-god-vine/ 301
+/herbs/citicoline /compounds/cdp-choline/ 301
+/herbs/citicoline/ /compounds/cdp-choline/ 301
