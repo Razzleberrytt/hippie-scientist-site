@@ -101,6 +101,11 @@ export function buildPatch({ results, batchLabel, contract, status = 'proposal' 
         source_ids: [...change.source_ids],
         rationale: `${change.rationale} [enrichment-pipeline job ${candidate.job_id}, candidate ${candidate.candidate_id}]`,
         ...(field?.requires_human_review ? { requires_human_review: true } : {}),
+        // Carried through so the same-batch collision check below can see a
+        // decision that was already made, and so the patch records it.
+        ...(change.shared_value_acknowledged
+          ? { shared_value_acknowledged: change.shared_value_acknowledged }
+          : {}),
       })
     }
   }
@@ -115,6 +120,7 @@ export function buildPatch({ results, batchLabel, contract, status = 'proposal' 
   for (const change of changes) {
     const field = contract.fields.get(change.column)
     if (!field?.shared_value_needs_review) continue
+    if (change.shared_value_acknowledged) continue
     const key = `${change.column}::${String(change.new_value).trim().toLowerCase()}`
     if (!collisions.has(key)) collisions.set(key, [])
     collisions.get(key).push(change)

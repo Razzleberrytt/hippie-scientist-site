@@ -444,21 +444,34 @@ export function validateAgainstProduction(candidate, contract, canonical) {
     // routes to review rather than failing.
     if (field.shared_value_needs_review && change.operation === 'set') {
       const proposed = normalizeText(change.proposed_value).toLowerCase()
+      // A decided case can carry an explicit acknowledgement, mirroring the
+      // workbook runner's --approve-human-review. It downgrades the finding to
+      // INFO for this change only, so the guard keeps surfacing pairs nobody
+      // has looked at yet.
+      const acknowledged = String(change.shared_value_acknowledged || '').trim()
       for (const [otherSlug, other] of canonical.bySlug) {
         if (otherSlug === candidate.entity.slug) continue
         if (normalizeText(other.row[change.field]).toLowerCase() !== proposed) continue
         findings.push(
-          finding(
-            SEVERITY.REVIEW,
-            'shared-value',
-            `"${change.proposed_value}" is already the ${change.field} of entity "${otherSlug}"`,
-            {
-              ...at,
-              fix:
-                `Confirm whether "${candidate.entity.slug}" and "${otherSlug}" are genuinely different entities ` +
-                'that share a source organism (plant parts, preparations), or duplicates that should be merged.',
-            },
-          ),
+          acknowledged
+            ? finding(
+                SEVERITY.INFO,
+                'shared-value-acknowledged',
+                `"${change.proposed_value}" is also the ${change.field} of entity "${otherSlug}"; accepted: ${acknowledged}`,
+                at,
+              )
+            : finding(
+                SEVERITY.REVIEW,
+                'shared-value',
+                `"${change.proposed_value}" is already the ${change.field} of entity "${otherSlug}"`,
+                {
+                  ...at,
+                  fix:
+                    `Confirm whether "${candidate.entity.slug}" and "${otherSlug}" are genuinely different entities ` +
+                    'that share a source organism (plant parts, preparations), or duplicates that should be merged. ' +
+                    'Once decided, set shared_value_acknowledged on the change with the reason.',
+                },
+              ),
         )
         break
       }

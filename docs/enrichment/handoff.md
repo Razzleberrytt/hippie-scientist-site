@@ -63,7 +63,7 @@ falls**.
 | jobs resolved | 107 of 107 — **0 pending** |
 | imported | 67 |
 | no-op, reason recorded | 33 |
-| awaiting human review | 7 |
+| decided shared-value cases | 7 |
 
 | Batch | Jobs | Filled | Record |
 |-------|------|--------|--------|
@@ -71,6 +71,7 @@ falls**.
 | Batch 2 | 25 | 17 | `batch-2-latin-name.md` |
 | Batch 3 | 26 | 23 | `batch-3-latin-name.md` |
 | Batch 4 | 47 | 21 | this document, §5 |
+| Batch 5 | 7 | 7 | the decided shared-value cases, §5 |
 
 Every no-op carries a reason in its candidate file. Nothing was left silently
 unattempted.
@@ -103,39 +104,56 @@ tripped the per-candidate check because the value was in neither row yet. Both
 values are correct, but the pair should have surfaced. The exporter now catches
 it, since it is the only layer that sees a whole batch.
 
-## 5. Awaiting a human (7)
+## 5. The seven review cases — decided and applied
 
-All are the shared-value guard asking whether a pair is a legitimate split or a
-duplicate. None is a research question.
+All seven were the shared-value guard asking "legitimate split, or duplicate?".
+For `latin_name` the answer is the same either way: the binomial is factually
+correct for both entities, and sharing one is already established practice here
+(`roselle-seed` with `hibiscus-sabdariffa`, `milk-oats` with `oatstraw`,
+`curcumin` with `turmeric`). Leaving a correct value off a page that exists is
+the worse outcome. All seven were filled.
 
-| entity | shares its binomial with |
-|--------|-------------------------|
-| `lions-mane` | `hericium-erinaceus` |
-| `garcinia-mangostana` | `mangosteen` |
-| `gudmar` | `gymnema-sylvestre` |
-| `lemongrass` | `cymbopogon-citratus` |
-| `mulberry-leaf` | `morus-alba` |
-| `cistanche` | `cistanche-deserticola` |
-| `holy-basil-seed` | `holy-basil` |
+Whether any pair should be *merged* is an entity-level question, tracked
+separately by `enrich duplicates` — filling a correct field neither creates nor
+worsens it.
 
-Five of the seven are the slug-vs-common-name pattern and look like duplicates.
-`holy-basil-seed` and arguably `mulberry-leaf` are plant-part splits and are
-probably fine as they are.
+A change may now carry `shared_value_acknowledged` with a reason, which
+downgrades the finding from review to info for that change only. The guard keeps
+surfacing pairs nobody has looked at yet; it just stops re-asking a settled
+question. This mirrors `--approve-human-review` in the workbook runner.
+
+| entity | shares with | decision |
+|--------|-------------|----------|
+| `lions-mane` | `hericium-erinaceus` | duplicate; this is the surviving slug |
+| `garcinia-mangostana` | `mangosteen` | duplicate, merge tracked separately |
+| `gudmar` | `gymnema-sylvestre` | duplicate, merge tracked separately |
+| `lemongrass` | `cymbopogon-citratus` | duplicate, merge tracked separately |
+| `cistanche` | `cistanche-deserticola` | duplicate; primary medicinal species |
+| `mulberry-leaf` | `morus-alba` | legitimate plant-part split |
+| `holy-basil-seed` | `holy-basil` | legitimate plant-part split |
 
 ## 6. Duplicate organisms
 
-28 `latin_name` values are held by more than one entity. **13 actually serve two
-or more live profiles**; 11 are already resolved by a 301.
+34 `latin_name` values are held by more than one entity. **17 actually serve two
+or more live profiles**; 12 are already resolved by a 301.
+
+**That count went up as a direct result of §5**, from 28 shared and 13 live.
+Filling the seven review cases did not create seven duplicates — those entity
+pairs already existed. They were invisible to a `latin_name` audit while one side
+of each pair had a blank cell. Making the data correct made the pre-existing
+problem measurable, which is the right trade.
 
 Measure it with `npm run enrich:duplicates`. Liveness comes from the route
 manifest and `public/_redirects`, never from `runtime_export_decision` — a
 redirected entity keeps `full_public_runtime` while emitting no page, which is
-how an earlier pass of this audit overstated the count as 23.
+how an earlier pass of this audit overstated the count.
+
+`npm run enrich:duplicates -- --plan` proposes a survivor per group, separates the four that are not duplicates at all, and writes the exact redirect lines and workbook edits.
 
 **An established precedent exists and was not applied.** All nine herb redirects
 point the binomial slug at the common-name slug — `allium-sativum`→`garlic`,
 `withania-somnifera`→`ashwagandha`, `silybum-marianum`→`milk-thistle`, and so on.
-Most of the remaining 13 fit the same shape. Applying it would consolidate the
+Most of the remaining 17 fit the same shape. Applying it would consolidate the
 duplicates, but choosing survivors for live indexed pages has real traffic
 consequences and there is no analytics feed in the repository to check which URL
 ranks. Several of the 13 are also legitimate splits rather than duplicates —
@@ -148,15 +166,33 @@ resolution procedure.
 
 ## 7. Recommended next action
 
-**Retype the non-organism entities.** `resveratrol`, `tyrosine`, `citicoline`,
-`quercetin`, and `phosphatidylserine` are `entity_type: herb` but are compounds.
-`entity_type` is prohibited to the pipeline by contract — it is entity identity —
-so they will keep queueing for herb-only fields and keep returning no-ops
-forever. `tyrosine` already 301s to `/compounds/l-tyrosine/`, so the herb-typed
-row is itself the defect. This is a small, bounded workbook edit that removes a
-recurring source of noise.
+**Retyping the non-organism entities is being done in #4183** — `resveratrol`,
+`tyrosine`, `citicoline`, `quercetin`, `phosphatidylserine` from `herb` to
+`compound`.
 
-After that, the next enrichment field. `canonical_pathways` (119 gaps) is the
+Two corrections to how this document previously framed it. First, the stated
+motivation was wrong: these jobs sit at `rejected` in the ledger and a rescan
+does not re-queue them, so there was never any recurring enrichment noise to
+remove. The real payoff is correct entity typing — schema.org emits
+`ChemicalSubstance` rather than a plant type, and the compound index becomes
+right.
+
+Second, a later draft withdrew the recommendation outright on the grounds that
+retyping would break `resveratrol` (whose **herb** route is canonical, with the
+compound `trans-resveratrol` 301ing to it) and would move live URLs for
+`quercetin` and `phosphatidylserine`. That withdrawal was over-corrected. Those
+are real costs, but they are the ordinary cost of a URL migration and #4183
+handles them properly: it flips the resveratrol redirect rather than leaving it
+dangling, repoints `trans-resveratrol` at the new canonical without creating a
+chain, and adds 301s for the other three.
+
+**The gap #4183 does not cover:** `citicoline` and `cdp-choline` are the same
+substance. `cdp-choline` is already a live compound route, so retyping
+`citicoline` produces two live compound URLs for one substance. The duplicate
+audit cannot see it, because neither carries a `latin_name`. One of the two
+should redirect to the other.
+
+The next enrichment field. `canonical_pathways` (119 gaps) is the
 best candidate: it is `only-if-empty`, has a controlled vocabulary in
 `public/data/canonical-mechanisms.json`, and accepts preclinical sources because
 a pathway label is explicitly mechanistic rather than a clinical outcome. It

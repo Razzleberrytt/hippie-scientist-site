@@ -43,9 +43,19 @@ export function redirectedSlugs({ redirectsPath = path.join(repoRoot, 'public/_r
     const trimmed = line.trim()
     if (!trimmed || trimmed.startsWith('#')) continue
     const match = trimmed.match(/^\/(herbs|compounds)\/([a-z0-9-]+)\/?\s+(\S+)\s+30[12]/)
-    if (match) map.set(match[2], match[3])
+    if (!match) continue
+    const [, segment, slug, target] = match
+    const type = segment === 'herbs' ? 'herb' : 'compound'
+    // Keyed by namespace: `/compounds/lions-mane` redirecting says nothing
+    // about the *herb* `lions-mane`, and an unqualified key wrongly marked the
+    // herb as redirected away.
+    map.set(`${type}:${slug}`, target)
   }
   return map
+}
+
+function redirectKey(entityType, slug) {
+  return `${String(entityType || '').trim().toLowerCase()}:${slug}`
 }
 
 /**
@@ -82,7 +92,7 @@ export function auditDuplicateOrganisms(canonical, { field = 'latin_name', redir
     const value = normalizeText(row[field]).toLowerCase()
     if (!value) continue
     if (!byValue.has(value)) byValue.set(value, [])
-    const redirectsTo = redirectMap.get(slug) || null
+    const redirectsTo = redirectMap.get(redirectKey(row.entity_type, slug)) || null
     byValue.get(value).push({
       slug,
       name: normalizeText(row.name),
@@ -169,4 +179,120 @@ export function formatDuplicateAudit(report) {
   lines.push('Entity identity and publishing controls are prohibited to the enrichment pipeline.')
   lines.push('Resolving these is a human editorial decision: merge, or redirect one slug to the other.')
   return lines.join('\n')
+}
+
+/**
+ * Propose a survivor for each live duplicate group.
+ *
+ * The site has already resolved nine of these by hand, and every one of them
+ * points the **binomial slug at the common-name slug** — `allium-sativum` to
+ * `garlic`, `withania-somnifera` to `ashwagandha`, `silybum-marianum` to
+ * `milk-thistle`. That precedent is the strongest signal available and is
+ * weighted accordingly.
+ *
+ * What is deliberately *not* available is which URL actually receives organic
+ * traffic; there is no analytics feed in the repository. So this proposes and
+ * explains, and marks a group `low` confidence whenever the precedent and the
+ * content signals disagree. A `low` row should not be applied without checking
+ * Search Console first.
+ */
+export function proposeResolution(canonical, audit) {
+  const slugLooksBinomial = (slug, value) =>
+    slug === String(value || '').trim().toLowerCase().replace(/\s+/g, '-')
+
+  const numeric = (row, column) => {
+    const parsed = Number.parseFloat(String(row?.[column] ?? '').trim())
+    return Number.isFinite(parsed) ? parsed : 0
+  }
+
+  // Words that mark an entity as a part, preparation, or extract of a plant
+  // rather than the plant itself. Those legitimately share a binomial and must
+  // not be proposed for merging.
+  const PART_WORDS = /(^|-)(leaf|leaves|seed|root|berry|berries|straw|peel|bark|flower|fruit|stem|hull|husk|tea|extract|oil|powder|prepared)(-|$)/
+
+  const proposals = []
+  const notDuplicates = []
+  for (const group of audit.groups) {
+    if (group.severity !== 'live-duplicate') continue
+    const live = group.entities.filter((entity) => entity.published)
+    if (live.length < 2) continue
+
+    const types = live.map((e) => String(canonical.bySlug.get(e.slug)?.row?.entity_type ?? '').toLowerCase())
+    const mixedTypes = new Set(types).size > 1
+    const partLike = live.filter((e) => PART_WORDS.test(e.slug))
+    if (mixedTypes || partLike.length) {
+      notDuplicates.push({
+        value: group.value,
+        entities: live.map((e) => e.slug),
+        reason: mixedTypes
+          ? 'mixed entity types — one side is the compound, the other the source organism'
+          : `part/preparation split: ${partLike.map((e) => e.slug).join(', ')}`,
+      })
+      continue
+    }
+
+    const scored = live.map((entity) => {
+      const row = canonical.bySlug.get(entity.slug)?.row ?? {}
+      const isBinomialSlug = slugLooksBinomial(entity.slug, group.value)
+      return {
+        ...entity,
+        is_binomial_slug: isBinomialSlug,
+        source_count: numeric(row, 'source_count'),
+        authority_score: numeric(row, 'authority_score'),
+        discovery_weight: numeric(row, 'discovery_weight'),
+        // Precedent dominates; content signals break ties within it.
+        score:
+          (isBinomialSlug ? 0 : 1000) +
+          numeric(row, 'source_count') * 10 +
+          numeric(row, 'authority_score'),
+      }
+    })
+
+    const ranked = [...scored].sort((a, b) => b.score - a.score || a.slug.localeCompare(b.slug))
+    const survivor = ranked[0]
+    const retired = ranked.slice(1)
+
+    // Precedent and content agree when the common-name slug is also the one
+    // with more sources. When they disagree, say so instead of hiding it.
+    const richest = [...scored].sort((a, b) => b.source_count - a.source_count)[0]
+    const agrees = richest.slug === survivor.slug
+    const anyBinomial = scored.some((e) => e.is_binomial_slug)
+
+    proposals.push({
+      value: group.value,
+      survivor: survivor.slug,
+      retire: retired.map((entity) => entity.slug),
+      confidence: agrees && anyBinomial ? 'high' : 'low',
+      basis: anyBinomial
+        ? 'binomial-slug redirects to common-name slug (9/9 existing precedent)'
+        : 'no binomial slug in this group; ranked by source_count and authority_score only',
+      caveat: agrees ? null : `${richest.slug} has more sources (${richest.source_count}) than the proposed survivor`,
+      entities: scored.map((entity) => ({
+        slug: entity.slug,
+        name: entity.name,
+        is_binomial_slug: entity.is_binomial_slug,
+        source_count: entity.source_count,
+        authority_score: entity.authority_score,
+      })),
+      redirects: retired.flatMap((entity) => [
+        `/herbs/${entity.slug} /herbs/${survivor.slug}/ 301`,
+        `/herbs/${entity.slug}/ /herbs/${survivor.slug}/ 301`,
+      ]),
+      workbook_edits: retired.map((entity) => ({
+        slug: entity.slug,
+        runtime_export_decision: 'alias_redirect_only',
+        seo_indexing_recommendation: 'noindex',
+      })),
+    })
+  }
+
+  return {
+    plan_version: 1,
+    generated_from: 'route-manifest + public/_redirects',
+    not_duplicates: notDuplicates.sort((a, b) => a.value.localeCompare(b.value)),
+    note:
+      'Proposals only. No analytics feed exists in this repository, so which URL actually ranks is unknown. ' +
+      'Confirm a low-confidence row against Search Console before applying it.',
+    proposals: proposals.sort((a, b) => a.value.localeCompare(b.value)),
+  }
 }
