@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 
 import {
   acquireLease,
+  buildCoverageHeatmap,
   canAcquireLease,
   candidateFingerprint,
   classifyDifficulty,
@@ -73,6 +74,28 @@ test('opportunity score rewards high-value, low-risk work', () => {
     scientificMergeRisk: 90,
   })
   assert.ok(high > low)
+})
+
+test('preclinical efficacy is not counted as human merely because another human entry exists', () => {
+  const heatmap = buildCoverageHeatmap([
+    {
+      entityType: 'herb', entitySlug: 'fixture', sourceId: 's1',
+      evidenceClass: 'human-clinical', claimType: 'mechanistic_signal', topicType: 'pathway',
+      reviewedAt: new Date().toISOString(),
+    },
+    {
+      entityType: 'herb', entitySlug: 'fixture', sourceId: 's2',
+      evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_signal', topicType: 'supported_use',
+      reviewedAt: new Date().toISOString(),
+    },
+    {
+      entityType: 'herb', entitySlug: 'fixture', sourceId: 's3',
+      evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use',
+      reviewedAt: new Date().toISOString(),
+    },
+  ])
+  assert.equal(heatmap.rows[0].dimensions.human_efficacy_signal, false)
+  assert.equal(heatmap.rows[0].dimensions.null_or_mixed_human_evidence, false)
 })
 
 test('fixed benchmark suite is fully green', () => {
