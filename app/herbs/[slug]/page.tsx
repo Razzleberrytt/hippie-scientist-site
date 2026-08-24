@@ -645,23 +645,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       <ProfileTOC items={tocItems} variant="mobile" />
 
-      {/* Jump navigation — styled as a segmented tab bar; still plain anchor links so all
-          section content stays server-rendered and reachable without JS. */}
-      <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-1.5 rounded-full border border-brand-900/10 bg-[#182f22] p-1.5 sm:inline-flex sm:flex-nowrap sm:gap-1">
-        {tocItems.slice(0, 7).map(({ label, id }, index) => (
-          <a
-            key={id}
-            href={`#${id}`}
-            className={`rounded-full px-3.5 py-1.5 text-xs font-semibold whitespace-nowrap transition-colors ${
-              index === 0
-                ? 'bg-white text-[#182f22]'
-                : 'text-white/70 hover:bg-white/10 hover:text-white'
-            }`}
-          >
-            {label}
-          </a>
-        ))}
-      </nav>
 
       {normalizedSlug === 'ashwagandha' && (
         <section className="card-premium p-4 sm:p-5">
