@@ -9,11 +9,38 @@ const repoRoot = path.resolve(here, '..', '..')
 
 function parseJsonl(file) {
   if (!fs.existsSync(file)) return []
-  return fs.readFileSync(file, 'utf8').split(/\r?\n/).map(line => line.trim()).filter(Boolean).map(line => JSON.parse(line))
+  return fs.readFileSync(file, 'utf8').split(/\r?\n/).map(line => line.trim()).filter(Boolean).map((line, index) => {
+    try { return JSON.parse(line) } catch (error) {
+      throw new Error(`Malformed JSONL at ${file}:${index + 1}: ${error.message}`)
+    }
+  })
 }
 
 function loadJson(file, fallback = []) {
-  try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
+  if (!fs.existsSync(file)) return fallback
+  return JSON.parse(fs.readFileSync(file, 'utf8'))
+}
+
+function hasRequiredEntryShape(row) {
+  return Boolean(
+    row &&
+    typeof row.enrichmentId === 'string' && row.enrichmentId &&
+    typeof row.entityType === 'string' && row.entityType &&
+    typeof row.entitySlug === 'string' && row.entitySlug &&
+    typeof row.sourceId === 'string' && row.sourceId &&
+    typeof row.claimType === 'string' && row.claimType &&
+    typeof row.evidenceClass === 'string' && row.evidenceClass
+  )
+}
+
+function checkValue(row, check) {
+  if (check === 'source_linkage') return row.sourceLinkage
+  if (check === 'evidence_class') return row.evidenceClass
+  if (check === 'schema_validity') return row.schemaValidity
+  if (check === 'null_visibility') return row.nullVisibility
+  if (check === 'safety_visibility') return row.safetyVisibility
+  if (check === 'no_unresolved_source_ids') return row.unresolvedSourceIds.length === 0
+  throw new Error(`Unknown canary check: ${check}`)
 }
 
 export function verifyCanaries(entries, sourceRegistry = []) {
@@ -37,6 +64,7 @@ export function verifyCanaries(entries, sourceRegistry = []) {
       claimCount: rows.length,
       sourceLinkage: rows.length > 0 && rows.every(row => Boolean(row.sourceId)),
       evidenceClass: rows.length > 0 && rows.every(row => Boolean(row.evidenceClass)),
+      schemaValidity: rows.length > 0 && rows.every(hasRequiredEntryShape),
       nullVisibility: rows.some(row => row.claimType === 'efficacy_null_or_mixed' || row.claimType === 'evidence_conflict' || row.claimType === 'research_gap'),
       safetyVisibility: rows.some(row => row.claimType === 'safety_risk' || /adverse|caution|pregnancy|interaction/.test(row.topicType || '')),
       unresolvedSourceIds: unresolved,
@@ -49,22 +77,55 @@ export function verifyCanaries(entries, sourceRegistry = []) {
 
   const blockers = []
   for (const row of fixed) {
-    if (!row.present) blockers.push(`${row.slug}:missing_canary`)
-    if (row.present && !row.sourceLinkage) blockers.push(`${row.slug}:missing_source_linkage`)
-    if (row.present && !row.evidenceClass) blockers.push(`${row.slug}:missing_evidence_class`)
+    if (!row.present) {
+      blockers.push(`${row.slug}:missing_canary`)
+      continue
+    }
+    for (const check of contract.canaries.requiredChecks || []) {
+      if (!checkValue(row, check)) blockers.push(`${row.slug}:required_check_failed:${check}`)
+    }
+    for (const check of contract.canaries.anchorRequirements?.[row.slug] || []) {
+      if (!checkValue(row, check)) blockers.push(`${row.slug}:anchor_requirement_failed:${check}`)
+    }
   }
+
+  const unresolvedSourceIds = [...new Set(fixed.flatMap(row => row.unresolvedSourceIds))].sort()
+  const missingNullVisibilityAnchors = fixed.filter(row => row.present && !row.nullVisibility).map(row => row.slug)
+  const missingSafetyVisibilityAnchors = fixed.filter(row => row.present && !row.safetyVisibility).map(row => row.slug)
+  const debt = {
+    unresolvedSourceIds,
+    missingNullVisibilityAnchors,
+    missingSafetyVisibilityAnchors,
+  }
+  const budget = contract.canaries.baselineDebtBudget || {}
+  if (unresolvedSourceIds.length > (budget.maxUnresolvedSourceIds ?? 0)) {
+    blockers.push(`baseline_debt_increased:unresolved_source_ids:${unresolvedSourceIds.length}`)
+  }
+  if (missingNullVisibilityAnchors.length > (budget.maxMissingNullVisibilityAnchors ?? 0)) {
+    blockers.push(`baseline_debt_increased:missing_null_visibility:${missingNullVisibilityAnchors.length}`)
+  }
+  if (missingSafetyVisibilityAnchors.length > (budget.maxMissingSafetyVisibilityAnchors ?? 0)) {
+    blockers.push(`baseline_debt_increased:missing_safety_visibility:${missingSafetyVisibilityAnchors.length}`)
+  }
+
+  const warnings = [
+    ...missingNullVisibilityAnchors.map(slug => `${slug}:baseline_debt:no_null_or_conflict_canary`),
+    ...missingSafetyVisibilityAnchors.map(slug => `${slug}:baseline_debt:no_safety_canary`),
+    ...unresolvedSourceIds.map(id => `baseline_debt:unresolved_source:${id}`),
+  ]
+  const pass = blockers.length === 0
+  const idealPass = pass && warnings.length === 0
 
   return {
     generatedAt: new Date().toISOString(),
     fixed,
     dynamic,
     blockers,
-    warnings: fixed.flatMap(row => [
-      ...(row.present && !row.nullVisibility ? [`${row.slug}:no_null_or_conflict_canary`] : []),
-      ...(row.present && !row.safetyVisibility ? [`${row.slug}:no_safety_canary`] : []),
-      ...row.unresolvedSourceIds.map(id => `${row.slug}:unresolved_source:${id}`),
-    ]),
-    pass: blockers.length === 0,
+    warnings,
+    debt,
+    pass,
+    idealPass,
+    status: !pass ? 'BLOCKED' : idealPass ? 'PASS' : 'PASS_WITH_BASELINE_DEBT',
   }
 }
 
