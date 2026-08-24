@@ -1,10 +1,14 @@
 # Mechanism normalization gap
 
 `build-runtime-from-workbook.mjs` maps each entity's raw mechanism terms onto the
-53-entry canonical taxonomy and writes `public/data/mechanism-normalization-report.json`.
+canonical taxonomy (53 sheet-defined mechanisms plus 8 declared in code) and writes `public/data/mechanism-normalization-report.json`.
 
-**Current state: 856 records — 623 fully mapped, 181 partially, 52 unmapped.**
-113 distinct terms fail to map, across 353 occurrences.
+**Current state: 856 records — 799 fully mapped, 30 partially, 27 unmapped.**
+82 distinct terms fail to map, across 89 occurrences.
+
+> Was 623 / 181 / 52 with 353 unmapped occurrences before the taxonomy additions
+> in §2. Eight mechanisms the source data uses but the sheet never defined are
+> now declared in code, which resolved 264 of those occurrences.
 
 This document says which of those are fixable and how, because the three causes
 need completely different work and lumping them together makes the number look
@@ -35,28 +39,33 @@ mechanism and guessing would put a wrong mechanism on a profile:
 - `TRPM8 receptor activation` — the taxonomy has `trpv1-modulation`; TRPM8 is a different channel
 - `inhibitory neurotransmission` — most likely GABA, but that is inference
 
-## 2. Needs new taxonomy entries — the bulk of the gap
+## 2. Added — eight mechanisms the sheet never defined
 
-**These cannot be fixed with the synonym overlay.** The overlay is keyed by
-`canonical_mechanism_id`, so it can only add aliases to a mechanism that already
-exists. Every term below has no corresponding entry in the 53.
+The synonym overlay cannot fix these: it is keyed by `canonical_mechanism_id`, so
+it can only alias a mechanism that already exists. Each term below had no entry
+in the 53.
 
-| term(s) | occurrences | proposed entry |
-|---------|-------------|----------------|
-| `Neurotransmitter Modulation`, `Neurotransmitter Signaling` | **198** | see §3 — this one is a design question, not a missing row |
-| `liver_detoxification`, `hepatobiliary support`, `mild choleretic/diuretic effects` | 13 | `hepatic-detoxification` — category `hepatic`, class `Metabolic modulation` |
-| `SIRT1`, `SIRT1 Signaling` | 13 | `sirtuin-activation` — category `longevity`, class `Signaling pathway modulation` (sits naturally beside `autophagy-modulation`) |
-| `digestive support`, `aromatic support`, `carminative effects`, `macronutrient breakdown via proteases`, `lipases` | 12 | `digestive-support` — category `gut`, class `Physiological effect` |
-| `Angiogenesis`, `Angiogenesis Promotion (VEGFR2 Upregulation)`, `Angiogenesis Support`, `Wound-Healing Angiogenesis Support` | 5 | `angiogenesis-modulation` — category `vascular`, class `Growth factor modulation` |
-| `Incretin signaling`, `GLP-1 Receptor Agonism`, `Dual GIP and GLP-1 Receptor Agonism`, `Glucose-Dependent Insulin Secretion`, `Glucagon Suppression` | 9 | `incretin-signaling` — category `metabolic`, class `Receptor interaction` |
-| `Growth hormone axis`, `IGF-1 signaling`, `Downstream IGF-1 Elevation`, `GHRH Receptor Agonism`, `Selective Pulsatile GH Release`, `Ghrelin Receptor (GHS-R1a) Agonism` | 9 | `gh-igf1-axis-modulation` — category `hormonal`, class `Hormonal modulation` |
-| `mucilage barrier formation`, `mucosal coating`, `mucosal protection`, `demulcent support`, `mucilage coating of GI mucosa` | 5 | `mucosal-barrier-support` — category `gut`, class `Physiological effect` |
+The taxonomy is read from `Taxonomy_Rules` rows tagged
+`source_table = Canonical_Mechanisms`, and the surgical cell editor cannot
+append a row to that sheet — it edits existing cells in `Entity_Master` only.
+Rather than leave these permanently unmapped, they are declared in
+`MECHANISM_TAXONOMY_ADDITIONS` and concatenated onto the sheet-derived list,
+exactly as `MECHANISM_SYNONYM_OVERLAY` already extends it in code.
 
-**Blocked on tooling.** The taxonomy is read from the workbook sheet
-`Canonical_Mechanisms` (falling back to `Taxonomy_Rules`), and
-`scripts/data/edit-entity-master-cell.mjs` edits existing cells in
-`Entity_Master` only — it cannot add a row to another sheet. Adding these eight
-entries needs either a row-append path for the workbook or a manual edit.
+**A workbook row wins.** Anything later defined in the sheet with the same id is
+kept and the code entry is dropped, so migrating these into `Taxonomy_Rules`
+needs no code change beyond deleting the entry.
+
+| id | category | class | covers |
+|----|----------|-------|--------|
+| `neurotransmitter-modulation` | core | Physiological effect | the generic term — see §3 |
+| `hepatic-detoxification` | hepatic | Metabolic modulation | `liver_detoxification`, `hepatobiliary support` |
+| `sirtuin-activation` | longevity | Signaling pathway modulation | `SIRT1`, `SIRT1 Signaling` |
+| `digestive-support` | gut | Physiological effect | `digestive support`, `aromatic support`, `carminative effects` |
+| `angiogenesis-modulation` | vascular | Growth factor modulation | `Angiogenesis` and its VEGFR2/wound-healing phrasings |
+| `incretin-signaling` | metabolic | Receptor interaction | GLP-1/GIP agonism, glucose-dependent insulin secretion |
+| `gh-igf1-axis-modulation` | hormonal | Hormonal modulation | GH axis, IGF-1, GHRH, ghrelin receptor |
+| `mucosal-barrier-support` | gut | Physiological effect | mucilage, demulcent, mucosal coating |
 
 ## 3. `Neurotransmitter Modulation` is a design question
 
@@ -69,7 +78,7 @@ serotonin, opioid, orexin, endocannabinoid, and so on. It deliberately has no
 generic parent. The source data says "Neurotransmitter Modulation" where the
 taxonomy wants "GABA modulation" or "Serotonin modulation".
 
-Two options, and they are genuinely different:
+Two options, genuinely different:
 
 1. **Add a generic `neurotransmitter-modulation` entry** — category `core`,
    class `Physiological effect`. Consistent with how `hormonal-signaling-context`
@@ -77,16 +86,26 @@ Two options, and they are genuinely different:
    occurrences immediately, at the cost of a less specific taxonomy.
 2. **Make the source specific** — replace the generic term on each of the ~198
    entities with the neurotransmitter actually involved. Better data, far more
-   work, and it is editorial rather than mechanical.
+   work, and editorial rather than mechanical.
 
-Option 1 is the pragmatic move and is reversible; option 2 is the correct one.
-Either way it is a decision about what the taxonomy is *for*, so it should not be
-made by a synonym mapping.
+**Decision: option 1, taken.** It loses nothing that option 2 would later
+recover. `raw_mechanisms` keeps the original term on every entity, so narrowing
+an entity to "GABA modulation" afterwards is an improvement rather than a
+correction, and the generic entry simply stops matching once a specific one
+does. Leaving 198 occurrences unmapped in the meantime is strictly worse than a
+correct-but-general mapping: unmapped terms contribute nothing to
+`canonical_mechanisms`, so those profiles currently carry no mechanism data at
+all.
+
+Option 2 remains the better end state. It is editorial work, entity by entity,
+and it is not blocked by anything here.
 
 ## 4. Not a taxonomy problem at all — source-data defects
 
-Roughly 60 of the 113 distinct terms are not mechanism names. They are sentence
-fragments produced by splitting prose on commas:
+This is now essentially all of what is left: roughly 60 of the 82 remaining
+distinct terms are not mechanism names. They are sentence fragments produced by
+`splitList` breaking prose on commas (it splits on `\n | ; ,`, which is correct
+for the delimited cells and wrong for the prose ones):
 
 ```
 "Provides caffeine        and amylases        and visceral sensitivity.
@@ -105,19 +124,46 @@ no unified or validated pathway.
 ```
 
 Adding synonyms for these would be wrong — they should be cleaned out of the
-source cells. They inflate the unmapped count and make the gap look larger than
-it is: about 60 of 113 distinct terms, but only around 70 of 353 occurrences.
+source cells, which is editorial work on `mechanism_summary` in the workbook.
+They are why the remaining distinct-term count (82) still looks high against
+only 89 occurrences: almost every one appears exactly once, because each is a
+unique fragment of a unique sentence rather than a term anyone is using.
 
 ## 5. Summary
 
-| cause | distinct terms | occurrences | fix |
-|-------|----------------|-------------|-----|
-| resolvable to an existing mechanism | 8 | ~14 | **done here** |
-| needs a new taxonomy entry | ~35 | ~66 | 8 proposed entries, blocked on a row-append path |
-| generic where the taxonomy is specific | 2 | 198 | design decision, §3 |
-| prose fragments and junk in the source | ~60 | ~70 | clean the source cells |
-| genuinely ambiguous, left alone | ~8 | ~10 | none — guessing would be worse |
+| cause | occurrences | status |
+|-------|-------------|--------|
+| generic where the taxonomy is specific | 198 | **resolved** — generic core entry added, §3 |
+| needed a taxonomy entry the sheet lacked | ~66 | **resolved** — 7 entries added, §2 |
+| resolvable to an existing mechanism | ~14 | **resolved** — synonyms, §1 |
+| prose fragments and junk in the source | ~70 | open — clean the source cells, §4 |
+| genuinely ambiguous | ~10 | left alone — guessing would be worse, §1 |
 
-The headline "234 records degrade" is true but misleading: one design decision
-covers 198 occurrences, and roughly a fifth of the remainder is source text that
-was never a mechanism.
+Net: 856 records went from 623 fully mapped to **799**, and unmapped occurrences
+from 353 to **89**. What remains is almost entirely §4 — text that was never a
+mechanism name and should be cleaned out of the source cells rather than mapped.
+
+## 6. Running the test suite
+
+Run `npm run test` **once at a time**. Two concurrent full-suite runs contend on
+the workbook and the built output, and `sitemap-canonical-visibility` and
+`workbook-reader-parity` fail under that contention.
+
+This was mistaken for suite flakiness twice during this work, and recorded as
+such in two pull requests before the cause was found: a background run and a
+foreground run overlapping. Run alone, the suite is green at 499 files / 2,425
+tests. The tests are fine.
+
+## 7. A note on how the code-defined entries stay honest
+
+Two guards, both learned from getting it wrong here:
+
+- `MECHANISM_SYNONYM_OVERLAY` is a plain object literal, so a second entry for
+  an id silently replaces the first. That happened: adding endocannabinoid
+  phrasings in one pass dropped the existing `endocannabinoid` and
+  `endocannabinoid system` aliases, and four occurrences regressed to unmapped
+  without any test noticing. The two entries are now merged.
+- `scripts/data/build-runtime-from-workbook.mjs` was in the ESLint ignore list,
+  which is why `no-dupe-keys` never ran on it. It had exactly **one** lint error
+  in the whole file; that is now fixed and the file is linted, so the same
+  mistake fails the build.

@@ -373,7 +373,14 @@ const MECHANISM_SYNONYM_OVERLAY = {
   'mtor-modulation': ['mTOR', 'mTOR signaling', 'mTOR pathway'],
   'neuroprotective-activity': ['neuroprotective', 'neuroprotection'],
   'gut-microbiome-modulation': ['gut_microbiome', 'gut microbiome'],
-  'endocannabinoid-modulation': ['endocannabinoid', 'endocannabinoid system'],
+  'endocannabinoid-modulation': [
+    'endocannabinoid',
+    'endocannabinoid system',
+    'endogenous CB1 agonism',
+    'weak CB1/CB2 interaction',
+    'proposed cannabinoid-like effects',
+    'FAAH degradation',
+  ],
   'lipid-metabolism-support': ['Lipid Metabolism', 'lipid metabolism'],
   'metabolic-regulation': ['metabolic', 'metabolism'],
   'antioxidant': ['Oxidative Stress', 'oxidative stress', 'Antioxidant defense', 'antioxidant defense'],
@@ -392,16 +399,113 @@ const MECHANISM_SYNONYM_OVERLAY = {
   'nitric-oxide-modulation': ['Nitric Oxide Pathway Modulation'],
   'calcium-channel-modulation': ['calcium signaling', 'intestinal smooth-muscle calcium-channel blockade'],
   'serotonin-modulation': ['5-HT1A activity'],
-  'endocannabinoid-modulation': [
-    'endogenous CB1 agonism',
-    'weak CB1/CB2 interaction',
-    'proposed cannabinoid-like effects',
-    'FAAH degradation',
-  ],
 }
+
+/**
+ * Mechanisms the workbook taxonomy does not define but the source data uses.
+ *
+ * The taxonomy is read from `Taxonomy_Rules` rows tagged
+ * `source_table = Canonical_Mechanisms`, and the surgical cell editor cannot
+ * append a row to that sheet — it edits existing cells in `Entity_Master` only.
+ * Rather than leave 264 term occurrences permanently unmapped, these are
+ * declared here and concatenated onto the sheet-derived list, exactly as
+ * MECHANISM_SYNONYM_OVERLAY already extends it in code.
+ *
+ * A workbook row wins: anything defined in the sheet with the same id is kept
+ * and the entry here is dropped, so migrating these into `Taxonomy_Rules` later
+ * needs no code change beyond deleting the entry.
+ *
+ * `neurotransmitter-modulation` is the deliberate one. The taxonomy carries 18
+ * *specific* neurotransmitter mechanisms and had no generic parent, so 198
+ * occurrences of the generic term the source actually uses went unmapped. A
+ * generic core entry is consistent with `hormonal-signaling-context`,
+ * `metabolic-regulation`, and the other core physiological effects, and it
+ * loses nothing: `raw_mechanisms` keeps the original term, so narrowing an
+ * entity to "GABA modulation" later is still an improvement, not a correction.
+ */
+const MECHANISM_TAXONOMY_ADDITIONS = [
+  {
+    canonical_mechanism_id: 'neurotransmitter-modulation',
+    canonical_label: 'Neurotransmitter modulation',
+    category: 'core',
+    mechanism_class: 'Physiological effect',
+    definition:
+      'Generic modulation of neurotransmitter signalling where the source does not name a specific transmitter. Prefer a specific mechanism when one is known.',
+    synonyms: ['Neurotransmitter Modulation', 'Neurotransmitter Signaling', 'neurotransmitter signalling', 'inhibitory neurotransmission'],
+  },
+  {
+    canonical_mechanism_id: 'hepatic-detoxification',
+    canonical_label: 'Hepatic detoxification',
+    category: 'hepatic',
+    mechanism_class: 'Metabolic modulation',
+    definition: 'Support of hepatic phase I/II detoxification and biliary flow.',
+    synonyms: ['liver_detoxification', 'liver detoxification', 'hepatobiliary support', 'hepatic support', 'choleretic'],
+  },
+  {
+    canonical_mechanism_id: 'sirtuin-activation',
+    canonical_label: 'Sirtuin activation',
+    category: 'longevity',
+    mechanism_class: 'Signaling pathway modulation',
+    definition: 'Activation of sirtuin deacetylases, chiefly SIRT1.',
+    synonyms: ['SIRT1', 'SIRT1 Signaling', 'sirtuin', 'sirtuin signaling', 'SIRT1 activation'],
+  },
+  {
+    canonical_mechanism_id: 'digestive-support',
+    canonical_label: 'Digestive support',
+    category: 'gut',
+    mechanism_class: 'Physiological effect',
+    definition: 'Support of digestion through enzymatic breakdown, motility, or carminative action.',
+    synonyms: ['digestive support', 'aromatic support', 'carminative effects', 'carminative', 'digestive enzyme support'],
+  },
+  {
+    canonical_mechanism_id: 'angiogenesis-modulation',
+    canonical_label: 'Angiogenesis modulation',
+    category: 'vascular',
+    mechanism_class: 'Growth factor modulation',
+    definition: 'Modulation of new blood-vessel formation, including VEGF signalling.',
+    synonyms: ['Angiogenesis', 'Angiogenesis Support', 'Angiogenesis Promotion (VEGFR2 Upregulation)', 'Wound-Healing Angiogenesis Support', 'angiogenic'],
+  },
+  {
+    canonical_mechanism_id: 'incretin-signaling',
+    canonical_label: 'Incretin signalling',
+    category: 'metabolic',
+    mechanism_class: 'Receptor interaction',
+    definition: 'GLP-1 and GIP receptor signalling and downstream glucose-dependent insulin secretion.',
+    synonyms: ['Incretin signaling', 'GLP-1 Receptor Agonism', 'Dual GIP and GLP-1 Receptor Agonism', 'Glucose-Dependent Insulin Secretion', 'Glucagon Suppression'],
+  },
+  {
+    canonical_mechanism_id: 'gh-igf1-axis-modulation',
+    canonical_label: 'GH/IGF-1 axis modulation',
+    category: 'hormonal',
+    mechanism_class: 'Hormonal modulation',
+    definition: 'Modulation of growth-hormone secretion and downstream IGF-1 signalling.',
+    synonyms: ['Growth hormone axis', 'IGF-1 signaling', 'Downstream IGF-1 Elevation', 'GHRH Receptor Agonism', 'Selective Pulsatile GH Release', 'Ghrelin Receptor (GHS-R1a) Agonism'],
+  },
+  {
+    canonical_mechanism_id: 'mucosal-barrier-support',
+    canonical_label: 'Mucosal barrier support',
+    category: 'gut',
+    mechanism_class: 'Physiological effect',
+    definition: 'Demulcent and mucilaginous protection of gastrointestinal mucosa.',
+    synonyms: ['mucilage barrier formation', 'mucosal coating', 'mucosal protection', 'demulcent support', 'mucilage coating of GI mucosa', 'demulcent'],
+  },
+]
 
 function buildMechanismTaxonomy(rows) {
   const mechanisms = normalizeRows(rows, canonicalMechanismRow)
+  const defined = new Set(mechanisms.map((mechanism) => mechanism.canonical_mechanism_id))
+  for (const addition of MECHANISM_TAXONOMY_ADDITIONS) {
+    if (defined.has(addition.canonical_mechanism_id)) continue
+    mechanisms.push(
+      stripRecord({
+        id: addition.canonical_mechanism_id,
+        ...addition,
+        label: addition.canonical_label,
+        synonyms: uniqueList([addition.canonical_label, addition.synonyms]),
+        confidence_status: 'active_code_defined',
+      }),
+    )
+  }
   for (const mechanism of mechanisms) {
     const overlay = MECHANISM_SYNONYM_OVERLAY[mechanism.canonical_mechanism_id]
     if (overlay) {
@@ -824,7 +928,10 @@ function details(dir, rows) {
         retries--
         // Synchronous sleep/wait for 200ms
         const start = Date.now()
-        while (Date.now() - start < 200) {}
+        while (Date.now() - start < 200) {
+          // Intentional busy-wait: this runs during teardown, where there is no
+          // event loop turn available to await a timer.
+        }
       } else if (e.code === 'ENOENT' || e.code === 'EPERM') {
         // Directory already gone or permission denied - just continue
         break
