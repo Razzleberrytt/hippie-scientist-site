@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "totals": {
+    "scansRun": 0,
+    "deepWorkRuns": 0,
+    "candidateSourcesDiscovered": 0,
+    "sourcesAccepted": 0,
+    "sourcesRejected": 0,
+    "duplicatesPrevented": 0,
+    "normalizedClaimsAdded": 0,
+    "nullOrContradictoryFindingsCaptured": 0,
+    "safetyOrIntegrityFindingsCaptured": 0,
+    "validatorFailures": 0,
+    "prsOpened": 0,
+    "prsFirstPassGreen": 0,
+    "prsMerged": 0,
+    "postMergeRegressions": 0,
+    "reverts": 0,
+    "selfImprovementsAdopted": 0,
+    "selfImprovementsRejected": 0,
+    "selfImprovementsReverted": 0
+  },
+  "rates": {
+    "firstPassPrSuccess": null,
+    "mergeSuccess": null,
+    "postMergeRegressionRate": null
+  },
+  "efficiency": {
+    "deepWorkPerUsefulMerge": null,
+    "relativeResearchEffort": null
+  },
+  "recurringBlockers": {},
+  "updatedAt": null
+}
