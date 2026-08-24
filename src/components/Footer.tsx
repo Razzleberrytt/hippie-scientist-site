@@ -1,10 +1,6 @@
-'use client'
-
-import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { Leaf } from 'lucide-react'
-import { Link } from '../lib/router-compat'
-import ConsentManager from './ConsentManager'
-import { onOpenConsent } from '../lib/consentBus'
+import FooterConsentControls from './FooterConsentControls'
 import { isAnalyticsRouteEnabled } from '../lib/analyticsAccess'
 import { PUBLIC_ROUTES } from '../lib/public-routes'
 
@@ -49,12 +45,9 @@ function formatBuildDate(isoDate: string) {
 }
 
 export default function Footer() {
-  const [open, setOpen] = useState(false)
   const availableLegalLinks = isAnalyticsRouteEnabled()
     ? [...legalLinks, { href: '/analytics', label: 'Analytics' }]
     : legalLinks
-
-  useEffect(() => onOpenConsent(() => setOpen(true)), [])
 
   const showBuildMeta = process.env.NEXT_PUBLIC_SHOW_BUILD_META === 'true'
   const buildDate = formatBuildDate(typeof __BUILD_DATE__ !== 'undefined' ? __BUILD_DATE__ : '')
@@ -99,7 +92,7 @@ export default function Footer() {
               <p className='mt-2 text-sm leading-6 text-[color:var(--hs-body)]'>
                 Choose a goal, look up an ingredient, or check safety first.
               </p>
-              <Link className={`mt-2 inline-flex text-sm font-bold text-[color:var(--hs-gold)] hover:text-[color:var(--hs-ink)] ${footerFocusClass}`} to={PUBLIC_ROUTES.start} prefetch={true}>
+              <Link className={`mt-2 inline-flex text-sm font-bold text-[color:var(--hs-gold)] hover:text-[color:var(--hs-ink)] ${footerFocusClass}`} href={PUBLIC_ROUTES.start} prefetch>
                 Start here →
               </Link>
             </div>
@@ -114,13 +107,11 @@ export default function Footer() {
               <ul className='mt-4 space-y-2.5'>
                 {availableLegalLinks.map((link) => (
                   <li key={link.href}>
-                    <Link className={footerLinkClass} to={link.href} prefetch={true}>{link.label}</Link>
+                    <Link className={footerLinkClass} href={link.href} prefetch>{link.label}</Link>
                   </li>
                 ))}
                 <li>
-                  <button className={footerLinkClass} type='button' onClick={() => setOpen(true)}>
-                    Privacy settings
-                  </button>
+                  <FooterConsentControls buttonClassName={footerLinkClass} />
                 </li>
               </ul>
             </div>
@@ -136,7 +127,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <ConsentManager open={open} onClose={() => setOpen(false)} />
     </footer>
   )
 }
@@ -156,7 +146,7 @@ function FooterGroup({
       <ul className='mt-4 space-y-2.5'>
         {links.map((link) => (
           <li key={link.href}>
-            <Link className={linkClass} to={link.href} prefetch={true}>{link.label}</Link>
+            <Link className={linkClass} href={link.href} prefetch>{link.label}</Link>
           </li>
         ))}
       </ul>
