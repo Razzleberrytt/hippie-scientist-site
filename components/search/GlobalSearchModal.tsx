@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useId, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Search, X } from 'lucide-react'
@@ -10,32 +10,33 @@ import type { SearchContentType } from '@/lib/search/types'
 
 const TYPE_FILTERS: SearchContentType[] = ['Herb', 'Compound', 'Education']
 
+type GlobalSearchModalProps = {
+  open: boolean
+  onClose: () => void
+  dialogId?: string
+}
+
 /**
- * Global command-palette search.
+ * Heavy global command-palette dialog.
  *
- * - Opens with Cmd/Ctrl+K (or "/" when not typing in a field) and via the
- *   visible trigger button.
- * - Accessible combobox + listbox with full keyboard navigation, focus trap,
- *   scroll lock, and focus restoration.
- * - Loads the search engine lazily on first open (code-split index + Fuse).
+ * Navigation owns the lightweight triggers, hotkeys, focus-return target, and
+ * first-interaction loading boundary. Keeping those responsibilities outside
+ * this module means the search UI, search hooks, and result rendering do not
+ * hydrate on every page load. Once loaded, this component stays mounted while
+ * closed so query/filter state survives reopening; the search engine/index
+ * itself remains lazy because `useGlobalSearch` is active only while open.
  */
-export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: boolean } = {}) {
-  const [open, setOpen] = useState(false)
+export function GlobalSearchModal({ open, onClose, dialogId: providedDialogId }: GlobalSearchModalProps) {
   const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
   const dialogRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLButtonElement>(null)
-  const dialogId = useId()
+  const generatedDialogId = useId()
+  const dialogId = providedDialogId ?? generatedDialogId
   const listboxId = useId()
   const optionPrefix = useId()
 
   const search = useGlobalSearch({ active: open, limit: 24 })
-
-  const close = useCallback(() => {
-    setOpen(false)
-    // Restore focus to the trigger for keyboard users.
-    requestAnimationFrame(() => triggerRef.current?.focus())
-  }, [])
+  const close = useCallback(() => onClose(), [onClose])
 
   const navigate = useCallback(
     (index: number) => {
@@ -53,46 +54,17 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
     resetKey: `${search.query}|${search.activeFilters}`,
   })
 
-  // Global hotkeys: Cmd/Ctrl+K, and "/" when not focused in an input.
-  useEffect(() => {
-    if (!enableHotkeys) return
-
-    const onKey = (event: KeyboardEvent) => {
-      const mod = event.metaKey || event.ctrlKey
-      if (mod && event.key.toLowerCase() === 'k') {
-        event.preventDefault()
-        if (open) close()
-        else setOpen(true)
-        return
-      }
-      const target = event.target as HTMLElement | null
-      const typing =
-        target &&
-        (target.tagName === 'INPUT' ||
-          target.tagName === 'TEXTAREA' ||
-          target.isContentEditable)
-      if (event.key === '/' && !typing && !open) {
-        event.preventDefault()
-        setOpen(true)
-      }
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open, close, enableHotkeys])
-
-  // Scroll lock + focus input on open.
   useEffect(() => {
     if (!open) return
-    const prevOverflow = document.body.style.overflow
+    const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    const focusTimer = requestAnimationFrame(() => inputRef.current?.focus())
+    const focusFrame = requestAnimationFrame(() => inputRef.current?.focus())
     return () => {
-      document.body.style.overflow = prevOverflow
-      cancelAnimationFrame(focusTimer)
+      document.body.style.overflow = previousOverflow
+      cancelAnimationFrame(focusFrame)
     }
   }, [open])
 
-  // Escape to close + simple focus trap within the dialog.
   const onDialogKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -125,153 +97,129 @@ export function GlobalSearchModal({ enableHotkeys = true }: { enableHotkeys?: bo
     document.getElementById(activeOptionId)?.scrollIntoView({ block: 'nearest' })
   }, [activeOptionId])
 
+  if (!open) return null
+
   return (
-    <>
-      <button
-        ref={triggerRef}
-        type="button"
-        onClick={() => setOpen(true)}
-        className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-brand-900/20 bg-white px-3 py-2.5 text-sm text-ink transition hover:border-brand-700/25 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] dark:hover:border-[var(--border-strong)] dark:hover:bg-[var(--surface-subtle)] md:min-h-[auto] md:py-1.5"
-        aria-label="Open search"
-        aria-haspopup="dialog"
-        aria-expanded={open}
-        aria-controls={open ? dialogId : undefined}
-        aria-keyshortcuts={enableHotkeys ? "Meta+K Control+K /" : undefined}
+    <div
+      className="fixed inset-0 z-[130] flex items-start justify-center px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-4 sm:pb-4 sm:pt-[12vh] lg:pt-[15vh]"
+      role="presentation"
+    >
+      <div
+        className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
+        onClick={close}
+        aria-hidden="true"
+      />
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- modal dialog requires onKeyDown for Escape/Tab focus trapping */}
+      <div
+        ref={dialogRef}
+        id={dialogId}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site search"
+        onKeyDown={onDialogKeyDown}
+        className="relative flex max-h-[calc(100dvh-1.5rem-env(safe-area-inset-top)-env(safe-area-inset-bottom))] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-2xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] sm:max-h-[76vh]"
       >
-        <Search className="h-4 w-4" aria-hidden="true" />
-        <span className="hidden sm:inline">Search</span>
-        <kbd className="hidden rounded border border-brand-900/15 bg-brand-50/60 px-1.5 py-0.5 text-[10px] font-semibold text-ink/75 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] md:inline">
-          ⌘K
-        </kbd>
-      </button>
-
-      {open && (
-        <div
-          className="fixed inset-0 z-[100] flex items-start justify-center px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-4 sm:pb-4 sm:pt-[12vh] lg:pt-[15vh]"
-          role="presentation"
-        >
-          <div
-            className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
-            onClick={close}
-            aria-hidden="true"
+        <div className="flex shrink-0 items-center gap-2.5 border-b border-brand-900/10 px-4">
+          <Search className="h-5 w-5 shrink-0 text-brand-700" aria-hidden="true" />
+          <input
+            ref={inputRef}
+            type="text"
+            role="combobox"
+            aria-expanded="true"
+            aria-controls={listboxId}
+            aria-activedescendant={activeOptionId}
+            aria-autocomplete="list"
+            aria-label="Search herbs, compounds, and education"
+            autoComplete="off"
+            spellCheck={false}
+            value={search.query}
+            onChange={(event) => search.setQuery(event.target.value)}
+            onKeyDown={onKeyDown}
+            placeholder="Search herbs, compounds, and education…"
+            className="min-h-14 w-full bg-transparent py-3 text-base text-ink outline-none placeholder:text-muted/60 dark:placeholder:text-[var(--text-muted)]/50"
           />
-          {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- modal dialog requires onKeyDown for Escape/Tab focus trapping */}
-          <div
-            ref={dialogRef}
-            id={dialogId}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Site search"
-            onKeyDown={onDialogKeyDown}
-            className="relative flex max-h-[calc(100dvh-1.5rem-env(safe-area-inset-top)-env(safe-area-inset-bottom))] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-2xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] sm:max-h-[76vh]"
+          <kbd className="hidden shrink-0 rounded border border-brand-900/15 bg-brand-50/60 px-1.5 py-0.5 text-[10px] font-semibold text-ink/75 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] sm:inline">
+            Esc
+          </kbd>
+          <button
+            type="button"
+            onClick={close}
+            aria-label="Close site search"
+            className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full text-muted transition hover:bg-brand-50 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]"
           >
-            {/* Search input (combobox) */}
-            <div className="flex shrink-0 items-center gap-2.5 border-b border-brand-900/10 px-4">
-              <Search className="h-5 w-5 shrink-0 text-brand-700" aria-hidden="true" />
-              <input
-                ref={inputRef}
-                type="text"
-                role="combobox"
-                aria-expanded='true'
-                aria-controls={listboxId}
-                aria-activedescendant={activeOptionId}
-                aria-autocomplete="list"
-                aria-label="Search herbs, compounds, and education"
-                autoComplete="off"
-                spellCheck={false}
-                value={search.query}
-                onChange={(e) => search.setQuery(e.target.value)}
-                onKeyDown={onKeyDown}
-                placeholder="Search herbs, compounds, and education…"
-                className="min-h-14 w-full bg-transparent py-3 text-base text-ink outline-none placeholder:text-muted/60 dark:placeholder:text-[var(--text-muted)]/50"
-              />
-              <kbd className="hidden shrink-0 rounded border border-brand-900/15 bg-brand-50/60 px-1.5 py-0.5 text-[10px] font-semibold text-ink/75 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] sm:inline">
-                Esc
-              </kbd>
-              <button
-                type="button"
-                onClick={close}
-                aria-label="Close site search"
-                className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full text-muted transition hover:bg-brand-50 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]"
-              >
-                <X className="h-4 w-4" aria-hidden="true" />
-              </button>
-            </div>
+            <X className="h-4 w-4" aria-hidden="true" />
+          </button>
+        </div>
 
-            {/* Quick type filters */}
-            <div role="group" aria-label="Filter by content type" className="flex shrink-0 flex-wrap items-center gap-1.5 border-b border-brand-900/10 px-4 py-2">
-              {TYPE_FILTERS.map((type) => (
-                <FilterChip
-                  key={type}
-                  label={type}
-                  active={search.filters.types.includes(type)}
-                  onClick={() => search.toggleFilter('types', type)}
-                />
-              ))}
-              {search.activeFilters > 0 && (
-                <button
-                  type="button"
-                  onClick={search.clearFilters}
-                  className="ml-auto rounded text-xs font-semibold text-brand-700 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
-                >
-                  Clear filters
-                </button>
-              )}
-            </div>
-
-            {/* Results listbox */}
-            <ul
-              id={listboxId}
-              role="listbox"
-              aria-label="Search results"
-              aria-busy={!search.ready}
-              className="min-h-0 flex-1 space-y-0.5 overflow-y-auto overscroll-contain p-2 sm:max-h-[50vh]"
+        <div role="group" aria-label="Filter by content type" className="flex shrink-0 flex-wrap items-center gap-1.5 border-b border-brand-900/10 px-4 py-2">
+          {TYPE_FILTERS.map((type) => (
+            <FilterChip
+              key={type}
+              label={type}
+              active={search.filters.types.includes(type)}
+              onClick={() => search.toggleFilter('types', type)}
+            />
+          ))}
+          {search.activeFilters > 0 && (
+            <button
+              type="button"
+              onClick={search.clearFilters}
+              className="ml-auto rounded text-xs font-semibold text-brand-700 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
             >
-              {!search.ready ? (
-                <li role="option" aria-disabled="true" aria-selected="false" className="px-3 py-6 text-center text-sm text-muted">Loading search…</li>
-              ) : search.results.length === 0 ? (
-                <li role="option" aria-disabled="true" aria-selected="false" className="px-3 py-6 text-center text-sm text-muted">
-                  {search.query ? `No matches for “${search.query}”.` : 'Start typing to search.'}
-                </li>
-              ) : (
-                search.results.map((doc, index) => (
-                  <ResultRow
-                    key={doc.id}
-                    doc={doc}
-                    id={`${optionPrefix}-${index}`}
-                    active={index === activeIndex}
-                    onHover={() => setActiveIndex(index)}
-                    onSelect={() => navigate(index)}
-                  />
-                ))
-              )}
-            </ul>
+              Clear filters
+            </button>
+          )}
+        </div>
 
-            {/* Footer / live region */}
-            <div className="flex shrink-0 items-center justify-between gap-3 border-t border-brand-900/10 bg-[var(--surface-subtle)] px-4 py-2 text-[11px] text-muted">
-              <span aria-live="polite" aria-atomic="true" className="min-w-0">
-                {search.ready
-                  ? `${search.results.length} result${search.results.length === 1 ? '' : 's'} shown`
-                  : ''}
-              </span>
-              <div className="flex shrink-0 items-center gap-3">
-                <span className="hidden items-center gap-3 sm:flex">
-                  <span>↑↓ navigate</span>
-                  <span>↵ open</span>
-                </span>
-                <Link
-                  href="/search/"
-                  onClick={close}
-                  className="rounded font-semibold text-brand-700 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
-                >
-                  Advanced search →
-                </Link>
-              </div>
-            </div>
+        <ul
+          id={listboxId}
+          role="listbox"
+          aria-label="Search results"
+          aria-busy={!search.ready}
+          className="min-h-0 flex-1 space-y-0.5 overflow-y-auto overscroll-contain p-2 sm:max-h-[50vh]"
+        >
+          {!search.ready ? (
+            <li role="option" aria-disabled="true" aria-selected="false" className="px-3 py-6 text-center text-sm text-muted">Loading search…</li>
+          ) : search.results.length === 0 ? (
+            <li role="option" aria-disabled="true" aria-selected="false" className="px-3 py-6 text-center text-sm text-muted">
+              {search.query ? `No matches for “${search.query}”.` : 'Start typing to search.'}
+            </li>
+          ) : (
+            search.results.map((doc, index) => (
+              <ResultRow
+                key={doc.id}
+                doc={doc}
+                id={`${optionPrefix}-${index}`}
+                active={index === activeIndex}
+                onHover={() => setActiveIndex(index)}
+                onSelect={() => navigate(index)}
+              />
+            ))
+          )}
+        </ul>
+
+        <div className="flex shrink-0 items-center justify-between gap-3 border-t border-brand-900/10 bg-[var(--surface-subtle)] px-4 py-2 text-[11px] text-muted">
+          <span aria-live="polite" aria-atomic="true" className="min-w-0">
+            {search.ready
+              ? `${search.results.length} result${search.results.length === 1 ? '' : 's'} shown`
+              : ''}
+          </span>
+          <div className="flex shrink-0 items-center gap-3">
+            <span className="hidden items-center gap-3 sm:flex">
+              <span>↑↓ navigate</span>
+              <span>↵ open</span>
+            </span>
+            <Link
+              href="/search/"
+              onClick={close}
+              className="rounded font-semibold text-brand-700 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
+            >
+              Advanced search →
+            </Link>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </div>
   )
 }
 
