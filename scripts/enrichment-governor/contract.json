@@ -26,10 +26,19 @@
   },
   "coordination": {
     "leaseMinutes": 90,
+    "writerLockMinutes": 10,
     "maxConcurrentEnrichmentPrs": 2,
     "overlapPolicy": "block_overlapping_files_or_entities",
     "compatibleBatching": true,
-    "doNotOpenTrivialPrBelowScore": 70
+    "doNotOpenTrivialPrBelowScore": 70,
+    "sensitivePathPrefixes": [
+      "data-sources/",
+      "public/data/enrichment",
+      "public/data/source-registry",
+      "ops/enrichment-governor/",
+      "scripts/enrichment-governor/",
+      "scripts/enrichment-pipeline/"
+    ]
   },
   "quarantine": {
     "failureThreshold": 3,
