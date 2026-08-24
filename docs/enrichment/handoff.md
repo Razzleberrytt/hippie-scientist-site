@@ -166,26 +166,31 @@ resolution procedure.
 
 ## 7. Recommended next action
 
-**Do not retype the non-organism entities.** An earlier draft of this document
-recommended retyping `resveratrol`, `tyrosine`, `citicoline`, `quercetin`, and
-`phosphatidylserine` from `herb` to `compound`. That recommendation was wrong on
-three counts, and checking each one is what showed it:
+**Retyping the non-organism entities is being done in #4183** — `resveratrol`,
+`tyrosine`, `citicoline`, `quercetin`, `phosphatidylserine` from `herb` to
+`compound`.
 
-- `tyrosine` is already resolved — its herb route 301s to `/compounds/l-tyrosine/`
-  and the compound entity is the live one. Nothing to do.
-- `resveratrol`'s **herb** route is deliberately canonical: the compound
-  `trans-resveratrol` 301s *to* `/herbs/resveratrol/`. Retyping would break that.
-- `quercetin` and `phosphatidylserine` are live at `/herbs/...`. Retyping moves
-  their URLs, for a purely taxonomic-tidiness gain.
+Two corrections to how this document previously framed it. First, the stated
+motivation was wrong: these jobs sit at `rejected` in the ledger and a rescan
+does not re-queue them, so there was never any recurring enrichment noise to
+remove. The real payoff is correct entity typing — schema.org emits
+`ChemicalSubstance` rather than a plant type, and the compound index becomes
+right.
 
-The premise was wrong too. These jobs sit at `rejected` in the ledger and a
-rescan does not re-queue them, so there is no recurring noise to remove. The
-classification is cosmetically wrong but functionally load-bearing — it is what
-their live URLs are built on. Leave it.
+Second, a later draft withdrew the recommendation outright on the grounds that
+retyping would break `resveratrol` (whose **herb** route is canonical, with the
+compound `trans-resveratrol` 301ing to it) and would move live URLs for
+`quercetin` and `phosphatidylserine`. That withdrawal was over-corrected. Those
+are real costs, but they are the ordinary cost of a URL migration and #4183
+handles them properly: it flips the resveratrol redirect rather than leaving it
+dangling, repoints `trans-resveratrol` at the new canonical without creating a
+chain, and adds 301s for the other three.
 
-One genuine finding from that check: **`citicoline` and `cdp-choline` are the
-same substance** and both have live routes. Neither carries a `latin_name`, so
-the duplicate audit cannot see it. Worth a look.
+**The gap #4183 does not cover:** `citicoline` and `cdp-choline` are the same
+substance. `cdp-choline` is already a live compound route, so retyping
+`citicoline` produces two live compound URLs for one substance. The duplicate
+audit cannot see it, because neither carries a `latin_name`. One of the two
+should redirect to the other.
 
 The next enrichment field. `canonical_pathways` (119 gaps) is the
 best candidate: it is `only-if-empty`, has a controlled vocabulary in
