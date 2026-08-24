@@ -55,19 +55,6 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
     setThemePreferenceState(preference)
     setIsDark(nextIsDark)
     applyTheme(nextIsDark)
-
-    // `html.theme-ready` enables the theme-switch colour transition, and
-    // `globals.css` scopes that transition to `html.theme-ready body *` — every
-    // element on the page. The pre-paint inline script used to add this class,
-    // so the universal transition rule was live during first render and the
-    // browser tracked transition state for all ~1800 elements before it could
-    // paint. Adding it one frame after hydration keeps the no-flash behaviour
-    // the class was introduced for (the `dark` class is still applied
-    // pre-paint) while leaving the first paint free of that work.
-    const frame = requestAnimationFrame(() => {
-      document.documentElement.classList.add('theme-ready')
-    })
-    return () => cancelAnimationFrame(frame)
   }, [])
 
   useEffect(() => {
