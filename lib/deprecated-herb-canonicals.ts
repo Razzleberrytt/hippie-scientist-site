@@ -34,14 +34,26 @@ export const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
   // search demand and matches this map's existing convention of binomial ->
   // common name (valeriana-officinalis -> valerian, and so on).
   'serenoa-repens': 'saw-palmetto',
-  // L-tyrosine is an amino-acid compound, not a botanical profile.
+  // Cross-taxonomy identity corrections: these rows are compounds, not botanicals.
+  // Values are the final compound canonical slugs; citicoline and tyrosine
+  // deliberately consolidate into stronger existing compound identities.
+  resveratrol: 'resveratrol',
+  citicoline: 'cdp-choline',
+  quercetin: 'quercetin',
+  phosphatidylserine: 'phosphatidylserine',
   tyrosine: 'l-tyrosine',
 }
 
 // Sources whose canonical target lives in a different taxonomy, so their
 // redirect (and any rewritten internal link) must point at /compounds/, not
 // /herbs/. Paired with an explicit public/_redirects rule.
-export const CROSS_TAXONOMY_REDIRECT_SLUGS = new Set(['tyrosine'])
+export const CROSS_TAXONOMY_REDIRECT_SLUGS = new Set([
+  'resveratrol',
+  'citicoline',
+  'quercetin',
+  'phosphatidylserine',
+  'tyrosine',
+])
 
 // True when `slug` redirects to a canonical that exists as its own record in
 // `presentSlugs` — i.e. the redirect source is a duplicate that should be

@@ -47,8 +47,10 @@ export const DEPRECATED_COMPOUND_CANONICALS: Record<string, string> = {
   maca: '/herbs/maca',
   'maca-root-extract': '/herbs/maca',
   elderberry: '/herbs/elderberry',
-  resveratrol: '/herbs/resveratrol',
-  'trans-resveratrol': '/herbs/resveratrol',
+  // Same-substance aliases after correcting workbook taxonomy.
+  tyrosine: 'l-tyrosine',
+  citicoline: 'cdp-choline',
+  'trans-resveratrol': 'resveratrol',
   // Whole-botanical records belong in the herb library, not in /compounds/.
   chamomile: '/herbs/matricaria-chamomilla',
   fenugreek: '/herbs/trigonella-foenum-graecum',

@@ -6,6 +6,7 @@ import { beforeAll, describe, expect, it } from 'vitest'
 import { readWorkbookExcelJS } from '../scripts/utils/read-workbook-exceljs.mjs'
 import { readWorkbook } from '../scripts/data/workbook-parser.mjs'
 import { resolveWorkbookPath } from '../scripts/workbook-source.mjs'
+import { countEligibleNewRuntimeRelationships } from '../scripts/tests/runtime-enrichment-relationship-growth.mjs'
 
 const root = process.cwd()
 const dir = path.join(root, 'data-sources', 'runtime-enrichment')
@@ -99,8 +100,14 @@ describe('Aug 23 additive enrichment ledger', () => {
       .toBe(manifest.counts.evidence_rows_after_canonical_dedupe)
     expect(enriched.Sheets.Source_Register.length - raw.getSheetData('Source_Register').length)
       .toBe(manifest.counts.source_rows_after_canonical_dedupe)
+
+    const expectedRelationshipGrowth = countEligibleNewRuntimeRelationships(
+      raw.getSheetData('Entity_Master'),
+      raw.getSheetData('Entity_Relationships'),
+      ledger.relationships,
+    )
     expect(enriched.Sheets.Entity_Relationships.length - raw.getSheetData('Entity_Relationships').length)
-      .toBe(manifest.counts.live_relationship_rows_new_after_dedupe)
+      .toBe(expectedRelationshipGrowth)
 
     const bySlug = new Map(enriched.Sheets.Entity_Master.map((row: any) => [row.slug, row]))
     const rawBySlug = new Map(raw.getSheetData('Entity_Master').map((row: any) => [row.slug, row]))

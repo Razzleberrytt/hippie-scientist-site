@@ -23,6 +23,7 @@ const overrideFiles = fs.readdirSync(overridesDir)
 
 const rules = []
 const seenSources = new Set()
+const canonicalOverrideSources = new Set()
 
 function sourceVariants(source) {
   if (!source.startsWith('/') || source === '/' || source.includes('*') || source.includes(':')) {
@@ -34,8 +35,25 @@ function sourceVariants(source) {
     : [source, `${source}/`]
 }
 
+// Historical SEO/audit exports are intentionally retained as evidence, even
+// after a once-missing route becomes a real canonical page. A
+// `# @canonical-source /path/` tombstone suppresses any imported override for
+// that source (including its slash variant) without emitting a self-redirect.
+// This lets current route ownership supersede stale 404-era cleanup safely.
+for (const fileName of overrideFiles) {
+  const filePath = path.join(overridesDir, fileName)
+  const lines = fs.readFileSync(filePath, 'utf8').split(/\r?\n/)
+
+  for (const line of lines) {
+    const match = line.trim().match(/^#\s*@canonical-source\s+(\S+)\s*$/)
+    if (!match) continue
+    for (const variant of sourceVariants(match[1])) canonicalOverrideSources.add(variant)
+  }
+}
+
 function addRule(source, target, status) {
   if (!source || !target) return
+  if (canonicalOverrideSources.has(source)) return
   if (seenSources.has(source)) return
 
   seenSources.add(source)
@@ -298,5 +316,5 @@ fs.writeFileSync(redirectsPath, flattenResult.contents)
 const repairResult = rewriteRedirectingInternalLinks(exactRedirectMap)
 
 console.log(
-  `[redirect-overrides] Prepended ${rules.length} redirect override rules, flattened ${flattenResult.flattenedCount} multi-hop redirect rules, rewrote ${repairResult.rewrittenLinks} internal redirect links, repaired ${repairResult.repairedCompareLinks} stale comparison links (${repairResult.collapsedUnbuiltCompareLinks} unbuilt pairs sent to the comparison hub), and touched ${repairResult.touchedFiles} HTML files.`,
+  `[redirect-overrides] Prepended ${rules.length} redirect override rules, suppressed ${canonicalOverrideSources.size} restored canonical source variants, flattened ${flattenResult.flattenedCount} multi-hop redirect rules, rewrote ${repairResult.rewrittenLinks} internal redirect links, repaired ${repairResult.repairedCompareLinks} stale comparison links (${repairResult.collapsedUnbuiltCompareLinks} unbuilt pairs sent to the comparison hub), and touched ${repairResult.touchedFiles} HTML files.`,
 )

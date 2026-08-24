@@ -81,6 +81,22 @@ describe('apply-redirect-overrides chain flattening', () => {
     expect(activeRules(run(dir))).toContain(splat)
   })
 
+  it('lets a restored canonical tombstone suppress stale audit redirects', () => {
+    const dir = makeWorkspace(
+      '/herbs/phosphatidylserine /compounds/phosphatidylserine/ 301\n',
+      {
+        '000-restored-canonical-routes.txt': '# @canonical-source /compounds/phosphatidylserine/\n',
+        '001-old-audit.txt': '/compounds/phosphatidylserine/ /guides/focus/ 301\n',
+      },
+    )
+
+    const rules = activeRules(run(dir))
+
+    expect(rules).toContain('/herbs/phosphatidylserine /compounds/phosphatidylserine/ 301')
+    expect(rules).not.toContain('/compounds/phosphatidylserine/ /guides/focus/ 301')
+    expect(rules).not.toContain('/compounds/phosphatidylserine /guides/focus/ 301')
+  })
+
   it('is idempotent so repeated builds cannot grow the file past the Cloudflare rule ceiling', () => {
     const dir = makeWorkspace('/legacy-focus/ /guides/focus/old/ 301\n', {
       '001-consolidation.txt': '/guides/focus/old/ /guides/focus/new/ 301\n',

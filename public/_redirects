@@ -147,10 +147,6 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/maca-root-extract/ /herbs/maca/ 301
 /compounds/elderberry /herbs/elderberry/ 301
 /compounds/elderberry/ /herbs/elderberry/ 301
-/compounds/resveratrol /herbs/resveratrol/ 301
-/compounds/resveratrol/ /herbs/resveratrol/ 301
-/compounds/trans-resveratrol /herbs/resveratrol/ 301
-/compounds/trans-resveratrol/ /herbs/resveratrol/ 301
 /herbs/ashwagandha-withania-somnifera /herbs/ashwagandha/ 301
 /herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301
 /herbs/withania-somnifera /herbs/ashwagandha/ 301
@@ -169,8 +165,6 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 # serving noindex on the URL that receives the search demand.
 
 # Cross-taxonomy canonical: L-tyrosine is an amino-acid compound, not an herb.
-/herbs/tyrosine /compounds/l-tyrosine/ 301
-/herbs/tyrosine/ /compounds/l-tyrosine/ 301
 
 /safety-checker /safety-checker/ 301
 /safety /safety-checker/ 301
@@ -349,5 +343,21 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /herbs/syzygium-aromaticum/ /herbs/clove/ 301
 /herbs/tripterygium-wilfordii /herbs/thunder-god-vine/ 301
 /herbs/tripterygium-wilfordii/ /herbs/thunder-god-vine/ 301
+
+# Cross-taxonomy identity corrections: old herb URLs go directly to final compound canonicals.
+/herbs/resveratrol /compounds/resveratrol/ 301
+/herbs/resveratrol/ /compounds/resveratrol/ 301
+/compounds/trans-resveratrol /compounds/resveratrol/ 301
+/compounds/trans-resveratrol/ /compounds/resveratrol/ 301
 /herbs/citicoline /compounds/cdp-choline/ 301
 /herbs/citicoline/ /compounds/cdp-choline/ 301
+/compounds/citicoline /compounds/cdp-choline/ 301
+/compounds/citicoline/ /compounds/cdp-choline/ 301
+/herbs/quercetin /compounds/quercetin/ 301
+/herbs/quercetin/ /compounds/quercetin/ 301
+/herbs/phosphatidylserine /compounds/phosphatidylserine/ 301
+/herbs/phosphatidylserine/ /compounds/phosphatidylserine/ 301
+/herbs/tyrosine /compounds/l-tyrosine/ 301
+/herbs/tyrosine/ /compounds/l-tyrosine/ 301
+/compounds/tyrosine /compounds/l-tyrosine/ 301
+/compounds/tyrosine/ /compounds/l-tyrosine/ 301

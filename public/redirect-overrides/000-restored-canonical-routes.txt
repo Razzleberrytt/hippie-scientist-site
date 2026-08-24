@@ -1,0 +1,4 @@
+# Historical audit-rule tombstones for routes that now exist as canonical pages.
+# Keep the old audit exports intact for provenance; apply-redirect-overrides.mjs
+# suppresses matching historical sources without emitting a self-redirect.
+# @canonical-source /compounds/phosphatidylserine/

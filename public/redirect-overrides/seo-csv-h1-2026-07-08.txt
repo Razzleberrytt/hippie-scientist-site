@@ -4,7 +4,7 @@
 /compounds/taurine-sleep/ /compounds/taurine/ 301
 /compounds/aged-garlic-extract/ /herbs/garlic/ 301
 /compounds/passionflower/ /herbs/passionflower/ 301
-/compounds/trans-resveratrol/ /herbs/resveratrol/ 301
+/compounds/trans-resveratrol/ /compounds/resveratrol/ 301
 /compounds/bcaas/ /compounds/bcaa/ 301
 /compounds/methyleugenol/ /compounds/methyl-eugenol/ 301
 /compounds/passionflower-extract-standardized/ /herbs/passionflower/ 301
