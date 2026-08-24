@@ -6,7 +6,7 @@ on:
       - fix/retype-five-compounds-v2
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   measure:
@@ -30,6 +30,7 @@ jobs:
       - name: Regenerate workbook-owned runtime roots
         run: node scripts/data/build-runtime-from-workbook.mjs --out public/data
       - name: Measure semantic delta
+        id: measure
         run: |
           node --input-type=module <<'NODE'
           import fs from 'node:fs'
@@ -46,21 +47,51 @@ jobs:
             const changed = [...b.keys()].filter(k => a.has(k) && JSON.stringify(b.get(k)) !== JSON.stringify(a.get(k))).sort()
             return { before: before.length, after: after.length, removed, added, changed_count: changed.length, changed }
           }
-          const report = {
-            herbs: diff(beforeHerbs, afterHerbs),
-            compounds: diff(beforeCompounds, afterCompounds),
-          }
+          const report = { herbs: diff(beforeHerbs, afterHerbs), compounds: diff(beforeCompounds, afterCompounds) }
+          const expected = ['citicoline','phosphatidylserine','quercetin','resveratrol','tyrosine'].sort()
+          const same = (a,b) => JSON.stringify([...a].sort()) === JSON.stringify([...b].sort())
+          const safe = same(report.herbs.removed, expected)
+            && report.herbs.added.length === 0
+            && report.compounds.removed.length === 0
+            && same(report.compounds.added, expected)
+            && report.herbs.changed_count === 0
+            && report.compounds.changed_count === 0
+          report.safe_identity_only_sync = safe
           fs.writeFileSync('/tmp/runtime-root-diff-report.json', JSON.stringify(report, null, 2) + '\n')
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `safe=${safe}\n`)
           console.log(JSON.stringify(report, null, 2))
           NODE
           git diff --numstat -- public/data/herbs.json public/data/compounds.json | tee /tmp/runtime-root-numstat.txt
-      - name: Validate regenerated roots against workbook
+      - name: Validate fully regenerated roots against workbook
         run: node scripts/ci/validate-workbook-json-parity.mjs
-      - name: Upload measurement
-        uses: actions/upload-artifact@v7
-        with:
-          name: retyped-runtime-root-measurement
-          path: |
-            /tmp/runtime-root-diff-report.json
-            /tmp/runtime-root-numstat.txt
-          retention-days: 7
+      - name: Preserve only the two workbook-owned roots
+        if: steps.measure.outputs.safe == 'true'
+        run: |
+          cp public/data/herbs.json /tmp/herbs-after.json
+          cp public/data/compounds.json /tmp/compounds-after.json
+          git restore public/data
+          cp /tmp/herbs-after.json public/data/herbs.json
+          cp /tmp/compounds-after.json public/data/compounds.json
+          node scripts/ci/validate-workbook-json-parity.mjs
+      - name: Publish identity-only runtime sync
+        if: steps.measure.outputs.safe == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/measure-retyped-runtime-roots.yml
+          git add public/data/herbs.json public/data/compounds.json
+          git diff --cached --name-only
+          git commit -m 'data: synchronize retyped runtime roots'
+          git push
+      - name: Publish measurement only when regeneration has unrelated drift
+        if: steps.measure.outputs.safe != 'true'
+        run: |
+          git restore public/data
+          mkdir -p docs/enrichment
+          cp /tmp/runtime-root-diff-report.json docs/enrichment/runtime-root-measurement-4185.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/measure-retyped-runtime-roots.yml
+          git add docs/enrichment/runtime-root-measurement-4185.json
+          git commit -m 'docs: record runtime root regeneration delta for #4185'
+          git push
