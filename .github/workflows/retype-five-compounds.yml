@@ -1,0 +1,82 @@
+name: Retype five non-organism entities
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  produce-canonical-workbook:
+    name: Produce and validate corrected workbook
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --silent
+
+      - name: Verify current cells and apply identity corrections
+        shell: bash
+        run: |
+          set -euo pipefail
+          slugs=(resveratrol tyrosine citicoline quercetin phosphatidylserine)
+          : > retype-five-compounds-report.txt
+          for slug in "${slugs[@]}"; do
+            echo "=== $slug before ===" | tee -a retype-five-compounds-report.txt
+            node scripts/data/edit-entity-master-cell.mjs \
+              --slug "$slug" \
+              --column entity_type \
+              --value compound \
+              --dry-run | tee -a retype-five-compounds-report.txt
+          done
+          for slug in "${slugs[@]}"; do
+            echo "=== $slug apply ===" | tee -a retype-five-compounds-report.txt
+            node scripts/data/edit-entity-master-cell.mjs \
+              --slug "$slug" \
+              --column entity_type \
+              --value compound \
+              --in-place | tee -a retype-five-compounds-report.txt
+          done
+
+      - name: Validate workbook schema
+        run: npm run validate:workbook-schema --silent | tee -a retype-five-compounds-report.txt
+
+      - name: Verify enrichment contract against corrected workbook
+        run: npm run enrich:doctor --silent | tee -a retype-five-compounds-report.txt
+
+      - name: Rescan enrichment gaps
+        run: npm run enrich:scan --silent | tee -a retype-five-compounds-report.txt
+
+      - name: Show enrichment status
+        run: npm run enrich:status --silent | tee -a retype-five-compounds-report.txt
+
+      - name: Upload corrected workbook
+        uses: actions/upload-artifact@v7
+        with:
+          name: retyped-canonical-workbook
+          path: data-sources/herb_monograph_master.xlsx
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
+
+      - name: Upload verification report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: retype-five-compounds-report
+          path: retype-five-compounds-report.txt
+          if-no-files-found: warn
+          retention-days: 7
