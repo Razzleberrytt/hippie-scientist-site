@@ -23,6 +23,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
   verify:
@@ -34,11 +35,16 @@ jobs:
         with:
           node-version: 22
       - name: Unit and regression tests
-        run: node --test scripts/enrichment-governor/__tests__/governor.test.mjs
+        run: node --test scripts/enrichment-governor/__tests__/*.test.mjs
       - name: Fixed self-improvement benchmark
         run: node scripts/enrichment-governor/governor.mjs benchmark
-      - name: Verify persistent control-plane seed
-        run: node scripts/enrichment-governor/governor.mjs verify-state
+      - name: Validate persistent control-plane state
+        run: node scripts/enrichment-governor/validate-state.mjs
+      - name: Detect concurrent sensitive PR overlap
+        if: github.event_name == 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/enrichment-governor/pr-overlap.mjs
       - name: Smoke-test durable control commands
         run: |
           node scripts/enrichment-governor/control.mjs lease-acquire --id=ci-fixture --owner=ci --files=tmp/fixture.json --entities=herb:fixture
@@ -47,6 +53,8 @@ jobs:
           node scripts/enrichment-governor/control.mjs integrity-record --source=src_ci-fixture --status=clear --note=ci-smoke-test
           node scripts/enrichment-governor/control.mjs improvement-propose --id=imp_ci-fixture --surface=search_strategy --reason=ci-smoke-observation --benefit=verify-durable-control-path
           node scripts/enrichment-governor/control.mjs improvement-adopt --id=imp_ci-fixture
+      - name: Revalidate state after mutation smoke tests
+        run: node scripts/enrichment-governor/validate-state.mjs
       - name: Cheap repository scan
         run: node scripts/enrichment-governor/governor.mjs scan
       - name: Canary verification
