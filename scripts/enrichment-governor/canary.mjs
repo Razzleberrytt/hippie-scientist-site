@@ -1,11 +1,17 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import Ajv2020 from 'ajv/dist/2020.js'
+import addFormats from 'ajv-formats'
 
-import { buildClaimSourceGraph, buildCoverageHeatmap, contract } from './governor.mjs'
+import { buildClaimSourceGraph, buildCoverageHeatmap, contract, isPublishableEntry } from './governor.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(here, '..', '..')
+const schema = JSON.parse(fs.readFileSync(path.join(repoRoot, 'schemas', 'normalized-enrichment-entry.schema.json'), 'utf8'))
+const ajv = new Ajv2020({ allErrors: true, strict: true, strictRequired: true })
+addFormats(ajv)
+const validateEntrySchema = ajv.compile(schema)
 
 function parseJsonl(file) {
   if (!fs.existsSync(file)) return []
@@ -21,16 +27,8 @@ function loadJson(file, fallback = []) {
   return JSON.parse(fs.readFileSync(file, 'utf8'))
 }
 
-function hasRequiredEntryShape(row) {
-  return Boolean(
-    row &&
-    typeof row.enrichmentId === 'string' && row.enrichmentId &&
-    typeof row.entityType === 'string' && row.entityType &&
-    typeof row.entitySlug === 'string' && row.entitySlug &&
-    typeof row.sourceId === 'string' && row.sourceId &&
-    typeof row.claimType === 'string' && row.claimType &&
-    typeof row.evidenceClass === 'string' && row.evidenceClass
-  )
+function schemaValid(row) {
+  return validateEntrySchema(row) === true
 }
 
 function checkValue(row, check) {
@@ -44,10 +42,11 @@ function checkValue(row, check) {
 }
 
 export function verifyCanaries(entries, sourceRegistry = []) {
-  const heatmap = buildCoverageHeatmap(entries)
-  const graph = buildClaimSourceGraph(entries, sourceRegistry)
+  const publishableEntries = entries.filter(isPublishableEntry)
+  const heatmap = buildCoverageHeatmap(publishableEntries)
+  const graph = buildClaimSourceGraph(publishableEntries, sourceRegistry)
   const grouped = new Map()
-  for (const entry of entries) {
+  for (const entry of publishableEntries) {
     const key = `${entry.entityType}:${entry.entitySlug}`
     if (!grouped.has(key)) grouped.set(key, [])
     grouped.get(key).push(entry)
@@ -64,7 +63,7 @@ export function verifyCanaries(entries, sourceRegistry = []) {
       claimCount: rows.length,
       sourceLinkage: rows.length > 0 && rows.every(row => Boolean(row.sourceId)),
       evidenceClass: rows.length > 0 && rows.every(row => Boolean(row.evidenceClass)),
-      schemaValidity: rows.length > 0 && rows.every(hasRequiredEntryShape),
+      schemaValidity: rows.length > 0 && rows.every(schemaValid),
       nullVisibility: rows.some(row => row.claimType === 'efficacy_null_or_mixed' || row.claimType === 'evidence_conflict' || row.claimType === 'research_gap'),
       safetyVisibility: rows.some(row => row.claimType === 'safety_risk' || /adverse|caution|pregnancy|interaction/.test(row.topicType || '')),
       unresolvedSourceIds: unresolved,
@@ -92,22 +91,27 @@ export function verifyCanaries(entries, sourceRegistry = []) {
   const unresolvedSourceIds = [...new Set(fixed.flatMap(row => row.unresolvedSourceIds))].sort()
   const missingNullVisibilityAnchors = fixed.filter(row => row.present && !row.nullVisibility).map(row => row.slug)
   const missingSafetyVisibilityAnchors = fixed.filter(row => row.present && !row.safetyVisibility).map(row => row.slug)
+
+  const baselineDebt = contract.canaries.baselineDebt || {}
+  const allowedUnresolved = new Set(baselineDebt.allowedUnresolvedSourceIds || [])
+  const allowedMissingNull = new Set(baselineDebt.allowedMissingNullVisibilityAnchors || [])
+  const allowedMissingSafety = new Set(baselineDebt.allowedMissingSafetyVisibilityAnchors || [])
+  const unexpectedUnresolvedSourceIds = unresolvedSourceIds.filter(id => !allowedUnresolved.has(id))
+  const unexpectedMissingNullVisibilityAnchors = missingNullVisibilityAnchors.filter(slug => !allowedMissingNull.has(slug))
+  const unexpectedMissingSafetyVisibilityAnchors = missingSafetyVisibilityAnchors.filter(slug => !allowedMissingSafety.has(slug))
+
+  for (const id of unexpectedUnresolvedSourceIds) blockers.push(`new_provenance_debt:unresolved_source:${id}`)
+  for (const slug of unexpectedMissingNullVisibilityAnchors) blockers.push(`new_canary_debt:missing_null_visibility:${slug}`)
+  for (const slug of unexpectedMissingSafetyVisibilityAnchors) blockers.push(`new_canary_debt:missing_safety_visibility:${slug}`)
+
   const debt = {
     unresolvedSourceIds,
     missingNullVisibilityAnchors,
     missingSafetyVisibilityAnchors,
+    unexpectedUnresolvedSourceIds,
+    unexpectedMissingNullVisibilityAnchors,
+    unexpectedMissingSafetyVisibilityAnchors,
   }
-  const budget = contract.canaries.baselineDebtBudget || {}
-  if (unresolvedSourceIds.length > (budget.maxUnresolvedSourceIds ?? 0)) {
-    blockers.push(`baseline_debt_increased:unresolved_source_ids:${unresolvedSourceIds.length}`)
-  }
-  if (missingNullVisibilityAnchors.length > (budget.maxMissingNullVisibilityAnchors ?? 0)) {
-    blockers.push(`baseline_debt_increased:missing_null_visibility:${missingNullVisibilityAnchors.length}`)
-  }
-  if (missingSafetyVisibilityAnchors.length > (budget.maxMissingSafetyVisibilityAnchors ?? 0)) {
-    blockers.push(`baseline_debt_increased:missing_safety_visibility:${missingSafetyVisibilityAnchors.length}`)
-  }
-
   const warnings = [
     ...missingNullVisibilityAnchors.map(slug => `${slug}:baseline_debt:no_null_or_conflict_canary`),
     ...missingSafetyVisibilityAnchors.map(slug => `${slug}:baseline_debt:no_safety_canary`),
@@ -118,6 +122,8 @@ export function verifyCanaries(entries, sourceRegistry = []) {
 
   return {
     generatedAt: new Date().toISOString(),
+    evaluatedEntryCount: publishableEntries.length,
+    excludedEntryCount: entries.length - publishableEntries.length,
     fixed,
     dynamic,
     blockers,
