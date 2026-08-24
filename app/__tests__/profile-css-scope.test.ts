@@ -40,9 +40,16 @@ describe('profile CSS performance scope', () => {
     expect(polish).toContain('[data-profile-page]')
     expect(navigation).toContain('[data-profile-page]')
     expect(editorial).toContain('[data-profile-page]')
+  })
 
-    // Compare-page route discovery is a separate contract and intentionally
-    // stays out of this profile-specific atomic change.
-    expect(editorial).toContain('main:has(#compare-decision)')
+  it('uses an explicit compare-route boundary instead of root-loaded main:has discovery', () => {
+    const compareLayout = read('app/guides/compare/layout.tsx')
+    const editorial = read('styles/editorial-content-surfaces.css')
+
+    expect(compareLayout).toContain('<CompareHubAnalytics />')
+    expect(compareLayout).toContain('data-compare-page')
+    expect(editorial).not.toContain('main:has(#compare-decision)')
+    expect(editorial).not.toContain('main:has(')
+    expect(editorial).toContain('[data-compare-page]')
   })
 })
