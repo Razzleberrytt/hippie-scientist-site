@@ -15,7 +15,8 @@ permissions:
   contents: read
 
 jobs:
-  quality-gate:
+  validation:
+    name: Validation, tests, and data
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
 
@@ -25,32 +26,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Classify release impact
-        id: impact
-        if: github.event_name == 'pull_request'
-        env:
-          BASE_REF: ${{ github.base_ref }}
-        run: |
-          git fetch origin "$BASE_REF"
-          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
-          printf '%s\n' "$changed"
-          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
-
       - name: Setup Node from .nvmrc
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
-
-      - name: Cache Next.js build cache
-        uses: actions/cache@v6
-        with:
-          path: |
-            ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
-            ${{ runner.os }}-nextjs-
 
       - name: Show Node version
         run: node --version
@@ -59,7 +39,7 @@ jobs:
         run: npm --version
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --fund=false
 
       - name: Verify package metadata is unchanged after install
         run: git diff --exit-code package-lock.json package.json
@@ -119,6 +99,88 @@ jobs:
       - name: Audit cluster-member runtime trust
         run: npm run audit:cluster-member-trust:strict
 
+      - name: Run security audit gate
+        run: npm run audit:high
+
+      - name: Generate raw npm audit JSON
+        if: always()
+        run: npm audit --json > npm-audit.after.json || true
+
+      - name: Upload audit artifact
+        if: always() && hashFiles('npm-audit.after.json') != ''
+        uses: actions/upload-artifact@v7
+        with:
+          name: npm-audit-after
+          path: npm-audit.after.json
+
+      - name: Add validation summary
+        if: always()
+        run: |
+          echo "## CI validation/test lane" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Runs independently of the production build lane to shorten the critical path." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Coverage: lint, typecheck, Vitest/a11y, canonical data, workbook parity, runtime trust, and security audit." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
+
+  build-verification:
+    name: Production build, output, and SEO
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Classify release impact
+        id: impact
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          printf '%s\n' "$changed"
+          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
+
+      - name: Setup Node from .nvmrc
+        if: steps.impact.outputs.docs_only != 'true'
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Cache Next.js build cache
+        if: steps.impact.outputs.docs_only != 'true'
+        uses: actions/cache@v6
+        with:
+          path: |
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
+            ${{ runner.os }}-nextjs-
+
+      - name: Install dependencies
+        if: steps.impact.outputs.docs_only != 'true'
+        run: npm ci --no-audit --fund=false
+
+      - name: Verify package metadata is unchanged after install
+        if: steps.impact.outputs.docs_only != 'true'
+        run: git diff --exit-code package-lock.json package.json
+
+      - name: Verify Node engine
+        if: steps.impact.outputs.docs_only != 'true'
+        run: npm run check:node
+
+      - name: Validate workbook source
+        if: steps.impact.outputs.docs_only != 'true'
+        run: npm run validate:workbook-source
+
+      - name: Validate static export compatibility
+        if: steps.impact.outputs.docs_only != 'true'
+        run: npm run validate:static-export
+
       - name: Build application
         if: steps.impact.outputs.docs_only != 'true'
         env:
@@ -161,26 +223,30 @@ jobs:
         if: steps.impact.outputs.docs_only != 'true'
         run: npm run validate:route-seo
 
-      - name: Run security audit gate
-        run: npm run audit:high
-
-      - name: Generate raw npm audit JSON
-        if: always()
-        run: npm audit --json > npm-audit.after.json || true
-
-      - name: Upload audit artifact
-        if: always() && hashFiles('npm-audit.after.json') != ''
-        uses: actions/upload-artifact@v7
-        with:
-          name: npm-audit-after
-          path: npm-audit.after.json
-
-      - name: Add workflow summary
+      - name: Add build summary
         if: always()
         run: |
-          echo "## CI quality gate" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Purpose: enforce lint, typecheck, workbook/data correctness, recommendation-quality auditing, build verification, and security audit" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Branch/ref: $GITHUB_REF" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run test; npm run data:ci; npx tsx scripts/audit-related-botanicals.ts; npm run guard:source-of-truth; npm run build:deploy; npm run verify:output; npm run audit:seo-reports; npm run indexability:report; node scripts/ci/audit-internal-redirect-links.mjs; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Artifacts: vitest log; related-botanicals audit; seo-audit-reports (including indexability candidates); npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
+          echo "## CI production-build lane" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Runs in parallel with validation/tests instead of waiting for the full test/data lane." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Coverage: deploy build, full verify:output contract, SEO reports, indexability, redirects, and route SEO." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Docs-only: ${{ steps.impact.outputs.docs_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
+
+  quality-gate:
+    name: quality-gate
+    if: always() && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
+    needs: [validation, build-verification]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aggregate CI lanes
+        env:
+          VALIDATION_RESULT: ${{ needs.validation.result }}
+          BUILD_RESULT: ${{ needs.build-verification.result }}
+        run: |
+          echo "Validation/test lane: $VALIDATION_RESULT"
+          echo "Build/output lane: $BUILD_RESULT"
+          if [ "$VALIDATION_RESULT" != "success" ] || [ "$BUILD_RESULT" != "success" ]; then
+            echo "Core CI failed because at least one required lane did not succeed."
+            exit 1
+          fi
+          echo "Core CI passed: both parallel lanes succeeded."
