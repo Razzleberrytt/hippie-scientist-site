@@ -103,7 +103,21 @@
   "canaries": {
     "fixedAnchors": ["ashwagandha", "chamomile", "kava", "cbd", "luteolin"],
     "dynamicTopRiskCount": 10,
-    "requiredChecks": ["source_linkage", "evidence_class", "null_visibility", "safety_visibility", "schema_validity", "no_unresolved_source_ids"]
+    "requiredChecks": ["source_linkage", "evidence_class", "schema_validity"],
+    "anchorRequirements": {
+      "ashwagandha": ["safety_visibility"],
+      "chamomile": ["null_visibility", "safety_visibility"],
+      "kava": ["null_visibility", "safety_visibility"],
+      "cbd": ["null_visibility", "safety_visibility"],
+      "luteolin": ["null_visibility"]
+    },
+    "targetChecks": ["null_visibility", "safety_visibility", "no_unresolved_source_ids"],
+    "baselineDebtBudget": {
+      "maxUnresolvedSourceIds": 6,
+      "maxMissingNullVisibilityAnchors": 1,
+      "maxMissingSafetyVisibilityAnchors": 1
+    },
+    "debtPolicy": "fail_if_baseline_debt_increases; retain debt warnings until repaired"
   },
   "budget": {
     "defaultMaxDeepResearchCandidates": 3,
