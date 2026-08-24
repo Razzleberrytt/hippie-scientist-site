@@ -5,6 +5,12 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 const CANONICAL_ORIGIN = 'https://thehippiescientist.net'
+// This is a catastrophic static-generation guard, not a taxonomy invariant.
+// The five identity corrections in #4185 legitimately move herb profiles into
+// the compound namespace; 269 is the resulting herb-route floor. Any further
+// herb-route loss still blocks deployment, while exact identity/coverage is
+// enforced by workbook parity and sitemap validators elsewhere in the release.
+const MIN_HERB_PROFILE_DIRECTORIES = 269
 
 function warn(msg) {
   console.warn(`[deploy-readiness] WARN ${msg}`)
@@ -233,8 +239,8 @@ function main() {
         return false
       }
     })
-    if (directories.length < 270) {
-      console.error(`DEPLOY BLOCKED: out/herbs/ contains fewer than 270 herb profile directories. Static generation of herb profiles has failed. Check generateStaticParams() in app/herbs/[slug]/page.tsx. Found: ${directories.length}`)
+    if (directories.length < MIN_HERB_PROFILE_DIRECTORIES) {
+      console.error(`DEPLOY BLOCKED: out/herbs/ contains fewer than ${MIN_HERB_PROFILE_DIRECTORIES} herb profile directories. Static generation of herb profiles has failed. Check generateStaticParams() in app/herbs/[slug]/page.tsx. Found: ${directories.length}`)
       process.exit(1)
     }
   }
