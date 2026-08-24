@@ -14,6 +14,8 @@ import {
   sourceDiversity,
 } from '../governor.mjs'
 
+const publishable = entry => ({ active: true, editorialStatus: 'approved', reviewedAt: new Date().toISOString(), ...entry })
+
 test('normalizes DOI identity for deduplication', () => {
   assert.equal(
     candidateFingerprint({ doi: 'https://doi.org/10.1234/ABC.9' }),
@@ -78,23 +80,30 @@ test('opportunity score rewards high-value, low-risk work', () => {
 
 test('preclinical efficacy is not counted as human merely because another human entry exists', () => {
   const heatmap = buildCoverageHeatmap([
-    {
+    publishable({
       entityType: 'herb', entitySlug: 'fixture', sourceId: 's1',
       evidenceClass: 'human-clinical', claimType: 'mechanistic_signal', topicType: 'pathway',
-      reviewedAt: new Date().toISOString(),
-    },
-    {
+    }),
+    publishable({
       entityType: 'herb', entitySlug: 'fixture', sourceId: 's2',
       evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_signal', topicType: 'supported_use',
-      reviewedAt: new Date().toISOString(),
-    },
-    {
+    }),
+    publishable({
       entityType: 'herb', entitySlug: 'fixture', sourceId: 's3',
       evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use',
-      reviewedAt: new Date().toISOString(),
-    },
+    }),
   ])
   assert.equal(heatmap.rows[0].dimensions.human_efficacy_signal, false)
+  assert.equal(heatmap.rows[0].dimensions.null_or_mixed_human_evidence, false)
+})
+
+test('inactive and unapproved entries do not inflate coverage', () => {
+  const heatmap = buildCoverageHeatmap([
+    publishable({ entityType: 'herb', entitySlug: 'fixture', sourceId: 's1', evidenceClass: 'human-clinical', claimType: 'efficacy_signal', topicType: 'supported_use' }),
+    publishable({ entityType: 'herb', entitySlug: 'fixture', sourceId: 's2', evidenceClass: 'human-clinical', claimType: 'safety_risk', topicType: 'adverse_effect', active: false }),
+    publishable({ entityType: 'herb', entitySlug: 'fixture', sourceId: 's3', evidenceClass: 'human-clinical', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use', editorialStatus: 'needs_review' }),
+  ])
+  assert.equal(heatmap.rows[0].dimensions.safety, false)
   assert.equal(heatmap.rows[0].dimensions.null_or_mixed_human_evidence, false)
 })
 
