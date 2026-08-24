@@ -147,10 +147,10 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/maca-root-extract/ /herbs/maca/ 301
 /compounds/elderberry /herbs/elderberry/ 301
 /compounds/elderberry/ /herbs/elderberry/ 301
-/compounds/resveratrol /herbs/resveratrol/ 301
-/compounds/resveratrol/ /herbs/resveratrol/ 301
-/compounds/trans-resveratrol /herbs/resveratrol/ 301
-/compounds/trans-resveratrol/ /herbs/resveratrol/ 301
+/herbs/resveratrol /compounds/resveratrol/ 301
+/herbs/resveratrol/ /compounds/resveratrol/ 301
+/compounds/trans-resveratrol /compounds/resveratrol/ 301
+/compounds/trans-resveratrol/ /compounds/resveratrol/ 301
 /herbs/ashwagandha-withania-somnifera /herbs/ashwagandha/ 301
 /herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301
 /herbs/withania-somnifera /herbs/ashwagandha/ 301
@@ -168,6 +168,13 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 # source-backed profile; the common-name record is hidden_until_grounded and was
 # serving noindex on the URL that receives the search demand.
 
+# Cross-taxonomy canonicals: these rows are compounds, not herbs.
+/herbs/citicoline /compounds/citicoline/ 301
+/herbs/citicoline/ /compounds/citicoline/ 301
+/herbs/quercetin /compounds/quercetin/ 301
+/herbs/quercetin/ /compounds/quercetin/ 301
+/herbs/phosphatidylserine /compounds/phosphatidylserine/ 301
+/herbs/phosphatidylserine/ /compounds/phosphatidylserine/ 301
 # Cross-taxonomy canonical: L-tyrosine is an amino-acid compound, not an herb.
 /herbs/tyrosine /compounds/l-tyrosine/ 301
 /herbs/tyrosine/ /compounds/l-tyrosine/ 301
