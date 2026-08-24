@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   produce-canonical-workbook:
@@ -15,8 +15,11 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - name: Checkout repository
+      - name: Checkout PR head
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -28,20 +31,39 @@ jobs:
       - name: Install dependencies
         run: npm ci --silent
 
-      - name: Verify current cells and apply identity corrections
+      - name: Inspect current entity types
+        id: inspect
         shell: bash
         run: |
           set -euo pipefail
           slugs=(resveratrol tyrosine citicoline quercetin phosphatidylserine)
+          needs_change=false
           : > retype-five-compounds-report.txt
           for slug in "${slugs[@]}"; do
             echo "=== $slug before ===" | tee -a retype-five-compounds-report.txt
-            node scripts/data/edit-entity-master-cell.mjs \
+            output="$(node scripts/data/edit-entity-master-cell.mjs \
               --slug "$slug" \
               --column entity_type \
               --value compound \
-              --dry-run | tee -a retype-five-compounds-report.txt
+              --dry-run)"
+            printf '%s\n' "$output" | tee -a retype-five-compounds-report.txt
+            if grep -Fq 'old: "herb"' <<<"$output"; then
+              needs_change=true
+            elif grep -Fq 'old: "compound"' <<<"$output"; then
+              :
+            else
+              echo "Unexpected entity_type for $slug; refusing to write." >&2
+              exit 1
+            fi
           done
+          echo "needs_change=$needs_change" >> "$GITHUB_OUTPUT"
+
+      - name: Apply identity corrections
+        if: steps.inspect.outputs.needs_change == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          slugs=(resveratrol tyrosine citicoline quercetin phosphatidylserine)
           for slug in "${slugs[@]}"; do
             echo "=== $slug apply ===" | tee -a retype-five-compounds-report.txt
             node scripts/data/edit-entity-master-cell.mjs \
@@ -62,6 +84,18 @@ jobs:
 
       - name: Show enrichment status
         run: npm run enrich:status --silent | tee -a retype-five-compounds-report.txt
+
+      - name: Commit validated canonical workbook to PR branch
+        if: steps.inspect.outputs.needs_change == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data-sources/herb_monograph_master.xlsx
+          git diff --cached --quiet && exit 0
+          git commit -m "fix(data): retype five non-organism herbs as compounds"
+          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
 
       - name: Upload corrected workbook
         uses: actions/upload-artifact@v7
