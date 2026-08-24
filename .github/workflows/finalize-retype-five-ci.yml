@@ -1,0 +1,223 @@
+name: Finalize retype-five CI consistency
+
+on:
+  pull_request:
+    types: [synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.pull_request.number == 4185
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Apply strict consistency fixes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path, old, new):
+              p = Path(path)
+              text = p.read_text()
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected exactly one match, found {count}: {old!r}')
+              p.write_text(text.replace(old, new, 1))
+
+          replace_once(
+              'public/redirect-overrides/001-semrush-http-4xx-2026-07-08.txt',
+              '/compounds/phosphatidylserine/ /guides/focus/ 301\n',
+              '',
+          )
+          replace_once(
+              'public/redirect-overrides/seo-csv-h1-2026-07-08.txt',
+              '/compounds/trans-resveratrol/ /herbs/resveratrol/ 301',
+              '/compounds/trans-resveratrol/ /compounds/resveratrol/ 301',
+          )
+
+          helper = '''function clean(value) {
+            if (value === null || value === undefined) return ''
+            return String(value).replace(/\\s+/g, ' ').trim()
+          }
+
+          function slug(value) {
+            return clean(value)
+              .toLowerCase()
+              .normalize('NFKD')
+              .replace(/[\\u0300-\\u036f]/g, '')
+              .replace(/&/g, ' and ')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/-+/g, '-')
+              .replace(/^-+|-+$/g, '')
+          }
+
+          function first(row, keys) {
+            for (const key of keys) {
+              const value = row?.[key]
+              if (clean(value)) return value
+            }
+            return ''
+          }
+
+          function relationshipKey(row) {
+            const source = slug(first(row, ['source_slug', 'herb_slug', 'herb slug', 'herb', 'herb_name']))
+            const target = slug(first(row, ['target_slug', 'compound_slug', 'compound slug', 'compound', 'compound_name']))
+            return source && target ? `${source}|${target}` : ''
+          }
+
+          // The Aug 23 ledger is immutable provenance, but whether a candidate can
+          // become a live herb -> compound relationship depends on today's canonical
+          // Entity_Master taxonomy. Calculate that expectation independently from the
+          // parser so taxonomy corrections do not require rewriting historical counts.
+          export function countEligibleNewRuntimeRelationships(entityRows, existingRelationshipRows, ledgerRelationships) {
+            const entityTypes = new Map()
+            for (const row of entityRows) {
+              const entitySlug = slug(first(row, ['slug', 'entity_slug', 'name']))
+              const entityType = clean(first(row, ['entity_type', 'type'])).toLowerCase()
+              if (entitySlug) entityTypes.set(entitySlug, entityType)
+            }
+
+            const existingKeys = new Set(existingRelationshipRows.map(relationshipKey).filter(Boolean))
+            let additions = 0
+
+            for (const row of ledgerRelationships) {
+              const sourceSlug = slug(row.source_slug)
+              const targetSlug = slug(row.target_slug)
+              const key = relationshipKey(row)
+              if (!key || existingKeys.has(key)) continue
+              if (entityTypes.get(sourceSlug) !== 'herb' || entityTypes.get(targetSlug) !== 'compound') continue
+
+              existingKeys.add(key)
+              additions += 1
+            }
+
+            return additions
+          }
+          '''
+          Path('scripts/tests/runtime-enrichment-relationship-growth.mjs').write_text(helper)
+
+          runtime_path = Path('tests/runtime-enrichment.test.ts')
+          runtime = runtime_path.read_text()
+          old_import = "import { resolveWorkbookPath } from '../scripts/workbook-source.mjs'\n"
+          new_import = old_import + "import { countEligibleNewRuntimeRelationships } from '../scripts/tests/runtime-enrichment-relationship-growth.mjs'\n"
+          if runtime.count(old_import) != 1:
+              raise SystemExit('runtime-enrichment.test.ts: import anchor mismatch')
+          runtime = runtime.replace(old_import, new_import, 1)
+          old_relationship_assert = """    expect(enriched.Sheets.Entity_Relationships.length - raw.getSheetData('Entity_Relationships').length)
+      .toBe(manifest.counts.live_relationship_rows_new_after_dedupe)
+"""
+          new_relationship_assert = """    const expectedRelationshipGrowth = countEligibleNewRuntimeRelationships(
+      raw.getSheetData('Entity_Master'),
+      raw.getSheetData('Entity_Relationships'),
+      ledger.relationships,
+    )
+    expect(enriched.Sheets.Entity_Relationships.length - raw.getSheetData('Entity_Relationships').length)
+      .toBe(expectedRelationshipGrowth)
+"""
+          if runtime.count(old_relationship_assert) != 1:
+              raise SystemExit('runtime-enrichment.test.ts: relationship assertion anchor mismatch')
+          runtime_path.write_text(runtime.replace(old_relationship_assert, new_relationship_assert, 1))
+
+          parity_path = Path('scripts/tests/workbook-reader-parity.test.mjs')
+          parity = parity_path.read_text()
+          old_path_import = "import path from 'node:path'\n"
+          new_path_import = old_path_import + "import { gunzipSync } from 'node:zlib'\n"
+          if parity.count(old_path_import) != 1:
+              raise SystemExit('workbook-reader-parity.test.mjs: path import anchor mismatch')
+          parity = parity.replace(old_path_import, new_path_import, 1)
+
+          old_reader_import = "import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'\n"
+          new_reader_import = old_reader_import + "import { countEligibleNewRuntimeRelationships } from './runtime-enrichment-relationship-growth.mjs'\n"
+          if parity.count(old_reader_import) != 1:
+              raise SystemExit('workbook-reader-parity.test.mjs: reader import anchor mismatch')
+          parity = parity.replace(old_reader_import, new_reader_import, 1)
+
+          parity = parity.replace(
+              "return { discrepancies: allDiscrepancies, output: lines.join('\\n') }",
+              "return { discrepancies: allDiscrepancies, output: lines.join('\\n'), rawWorkbook: newWorkbook }",
+          )
+          if parity.count('rawWorkbook: newWorkbook') != 2:
+              raise SystemExit('workbook-reader-parity.test.mjs: expected two parity return sites')
+
+          old_growth_block = """    const expectedGrowth = new Map([
+      ['Evidence_Register', manifest.counts.evidence_rows_after_canonical_dedupe],
+      ['Source_Register', manifest.counts.source_rows_after_canonical_dedupe],
+      ['Entity_Relationships', manifest.counts.live_relationship_rows_new_after_dedupe],
+    ])
+
+    const result = await runParity({ log: false })
+"""
+          new_growth_block = """    const result = await runParity({ log: false })
+    const ledger = JSON.parse(
+      gunzipSync(
+        fs.readFileSync(
+          path.join(process.cwd(), 'data-sources', 'runtime-enrichment', '2026-08-23-enrichment.json.gz'),
+        ),
+      ).toString('utf8'),
+    )
+    const expectedRelationshipGrowth = countEligibleNewRuntimeRelationships(
+      result.rawWorkbook.getSheetData('Entity_Master'),
+      result.rawWorkbook.getSheetData('Entity_Relationships'),
+      ledger.relationships,
+    )
+    const expectedGrowth = new Map([
+      ['Evidence_Register', manifest.counts.evidence_rows_after_canonical_dedupe],
+      ['Source_Register', manifest.counts.source_rows_after_canonical_dedupe],
+      ['Entity_Relationships', expectedRelationshipGrowth],
+    ])
+"""
+          if parity.count(old_growth_block) != 1:
+              raise SystemExit('workbook-reader-parity.test.mjs: growth block anchor mismatch')
+          parity_path.write_text(parity.replace(old_growth_block, new_growth_block, 1))
+          PY
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run focused regression tests
+        run: npx vitest run tests/runtime-enrichment.test.ts scripts/tests/workbook-reader-parity.test.mjs app/__tests__/deprecated-compound-redirect-overrides.test.ts src/lib/__tests__/retyped-compound-canonicals.test.ts
+
+      - name: Build and lint production output
+        env:
+          COMMIT_HASH: ${{ github.sha }}
+        run: |
+          npm run build:deploy
+          node scripts/ci/production-content-lint.mjs
+
+      - name: Prove workbook and generated data remain out of the patch
+        run: |
+          git diff --exit-code -- data-sources/herb_monograph_master.xlsx
+          git restore --worktree public/data || true
+
+      - name: Publish durable fixes and self-delete
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          rm .github/workflows/finalize-retype-five-ci.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            public/redirect-overrides/001-semrush-http-4xx-2026-07-08.txt \
+            public/redirect-overrides/seo-csv-h1-2026-07-08.txt \
+            scripts/tests/runtime-enrichment-relationship-growth.mjs \
+            scripts/tests/workbook-reader-parity.test.mjs \
+            tests/runtime-enrichment.test.ts
+          git add -u .github/workflows/finalize-retype-five-ci.yml
+          echo "Durable staged files:"
+          git diff --cached --name-only
+          git commit -m "fix(ci): align retyped canonicals with runtime parity"
+          git push origin "HEAD:${HEAD_REF}"
