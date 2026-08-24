@@ -79,7 +79,7 @@ describe('ShowMeTheStudies', () => {
     expect(screen.queryByText(/Show \d+ more/)).toBeNull()
   })
 
-  it('lets visitors filter the evidence table by study class', () => {
+  it('lets visitors filter the evidence table by study class while preserving crawlable rows', () => {
     render(
       <ShowMeTheStudies
         citations={[
@@ -92,9 +92,9 @@ describe('ShowMeTheStudies', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Randomized controlled trial (2)' }))
     expect(screen.getByText('Showing 2 of 3 studies.')).toBeTruthy()
-    expect(screen.getByText('RCT one')).toBeTruthy()
-    expect(screen.getByText('RCT two')).toBeTruthy()
-    expect(screen.queryByText('Cohort one')).toBeNull()
+    expect(screen.getByText('RCT one').closest('tr')).not.toHaveAttribute('hidden')
+    expect(screen.getByText('RCT two').closest('tr')).not.toHaveAttribute('hidden')
+    expect(screen.getByText('Cohort one').closest('tr')).toHaveAttribute('hidden')
   })
 
   it('renders effect size, uncertainty, absolute difference and replication context together', () => {
