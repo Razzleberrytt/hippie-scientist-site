@@ -31,6 +31,7 @@ const aboutLinks = [
   { href: PUBLIC_ROUTES.author, label: 'Author' },
   { href: PUBLIC_ROUTES.contact, label: 'Contact' },
   { href: '/info/methodology/', label: 'Methodology' },
+  { href: '/roadmap/', label: 'Public roadmap' },
   { href: '/info/reviews/', label: 'Review history' },
   { href: '/info/research-resources-for-writers/', label: 'For writers' },
 ]
