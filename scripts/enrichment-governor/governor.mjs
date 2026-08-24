@@ -3,6 +3,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import { PUBLISH_ALLOWED_EDITORIAL_STATES } from '../enrichment/normalize-enrichment-lib.mjs'
+
 const here = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(here, '..', '..')
 const contractPath = path.join(here, 'contract.json')
@@ -74,6 +76,10 @@ export function classifyDifficulty(opportunity = {}) {
   for (const reason of contract.difficultyEscalation.hard) if (reasons.has(reason)) return 'hard'
   for (const reason of contract.difficultyEscalation.moderate) if (reasons.has(reason)) return 'moderate'
   return 'easy'
+}
+
+export function isPublishableEntry(entry = {}) {
+  return entry.active === true && PUBLISH_ALLOWED_EDITORIAL_STATES.has(entry.editorialStatus)
 }
 
 export function sourceDiversity(entries = []) {
@@ -172,7 +178,7 @@ function dimensionState(entityEntries, dimension) {
 
 export function buildCoverageHeatmap(entries = []) {
   const grouped = new Map()
-  for (const entry of entries) {
+  for (const entry of entries.filter(isPublishableEntry)) {
     const key = `${entry.entityType}:${entry.entitySlug}`
     if (!grouped.has(key)) grouped.set(key, [])
     grouped.get(key).push(entry)
@@ -256,6 +262,10 @@ export function architectureDriftCheck(root = repoRoot) {
   return { ok: missing.length === 0, missing, hashes }
 }
 
+function publishableFixture(overrides = {}) {
+  return { active: true, editorialStatus: 'approved', reviewedAt: nowIso(), ...overrides }
+}
+
 export function runBenchmark() {
   const cases = []
   const a = candidateFingerprint({ doi: 'https://doi.org/10.1000/XYZ.1' })
@@ -272,19 +282,24 @@ export function runBenchmark() {
   ])
   cases.push({ name: 'single_source_dominance_flagged', pass: diversity.flags.includes('single_source_dominance') })
   const heatmap = buildCoverageHeatmap([
-    { entityType: 'herb', entitySlug: 'fixture', sourceId: 's1', evidenceClass: 'human-clinical', claimType: 'efficacy_signal', topicType: 'supported_use', reviewedAt: nowIso() },
-    { entityType: 'herb', entitySlug: 'fixture', sourceId: 's2', evidenceClass: 'human-clinical', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use', reviewedAt: nowIso() },
-    { entityType: 'herb', entitySlug: 'fixture', sourceId: 's3', evidenceClass: 'human-clinical', claimType: 'safety_risk', topicType: 'adverse_effect', reviewedAt: nowIso() },
+    publishableFixture({ entityType: 'herb', entitySlug: 'fixture', sourceId: 's1', evidenceClass: 'human-clinical', claimType: 'efficacy_signal', topicType: 'supported_use' }),
+    publishableFixture({ entityType: 'herb', entitySlug: 'fixture', sourceId: 's2', evidenceClass: 'human-clinical', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
+    publishableFixture({ entityType: 'herb', entitySlug: 'fixture', sourceId: 's3', evidenceClass: 'human-clinical', claimType: 'safety_risk', topicType: 'adverse_effect' }),
   ])
   cases.push({ name: 'null_evidence_retained', pass: heatmap.rows[0].dimensions.null_or_mixed_human_evidence === true })
   cases.push({ name: 'safety_evidence_retained', pass: heatmap.rows[0].dimensions.safety === true })
   const mixedHeatmap = buildCoverageHeatmap([
-    { entityType: 'herb', entitySlug: 'mixed', sourceId: 's1', evidenceClass: 'human-clinical', claimType: 'mechanistic_signal', topicType: 'mechanism', reviewedAt: nowIso() },
-    { entityType: 'herb', entitySlug: 'mixed', sourceId: 's2', evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_signal', topicType: 'supported_use', reviewedAt: nowIso() },
-    { entityType: 'herb', entitySlug: 'mixed', sourceId: 's3', evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use', reviewedAt: nowIso() },
+    publishableFixture({ entityType: 'herb', entitySlug: 'mixed', sourceId: 's1', evidenceClass: 'human-clinical', claimType: 'mechanistic_signal', topicType: 'mechanism' }),
+    publishableFixture({ entityType: 'herb', entitySlug: 'mixed', sourceId: 's2', evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_signal', topicType: 'supported_use' }),
+    publishableFixture({ entityType: 'herb', entitySlug: 'mixed', sourceId: 's3', evidenceClass: 'preclinical-mechanistic', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
   ])
   cases.push({ name: 'preclinical_claim_not_counted_as_human_efficacy', pass: mixedHeatmap.rows[0].dimensions.human_efficacy_signal === false })
   cases.push({ name: 'preclinical_null_not_counted_as_human_null', pass: mixedHeatmap.rows[0].dimensions.null_or_mixed_human_evidence === false })
+  const publishabilityHeatmap = buildCoverageHeatmap([
+    publishableFixture({ entityType: 'herb', entitySlug: 'publishable', sourceId: 's1', evidenceClass: 'human-clinical', claimType: 'efficacy_signal', topicType: 'supported_use' }),
+    publishableFixture({ entityType: 'herb', entitySlug: 'publishable', sourceId: 's2', evidenceClass: 'human-clinical', claimType: 'safety_risk', topicType: 'adverse_effect', active: false }),
+  ])
+  cases.push({ name: 'inactive_entry_not_counted_in_coverage', pass: publishabilityHeatmap.rows[0].dimensions.safety === false })
   const lease1 = acquireLease({ leases: [] }, { id: 'a', files: ['x.json'], entities: ['herb:a'] }, 0)
   const lease2 = canAcquireLease(lease1.queue, { files: ['x.json'], entities: ['herb:b'] }, 1)
   cases.push({ name: 'overlapping_work_blocked', pass: lease2.ok === false })
@@ -295,13 +310,15 @@ export function runBenchmark() {
 function scanRepository({ write = false } = {}) {
   const entries = parseJsonl(path.join(repoRoot, 'public', 'data', 'enrichment-normalized.jsonl'))
   const sources = loadJson(path.join(repoRoot, 'public', 'data', 'source-registry.json'), [])
-  const graph = buildClaimSourceGraph(entries, sources)
-  const heatmap = buildCoverageHeatmap(entries)
+  const publishableEntries = entries.filter(isPublishableEntry)
+  const graph = buildClaimSourceGraph(publishableEntries, sources)
+  const heatmap = buildCoverageHeatmap(publishableEntries)
   const drift = architectureDriftCheck(repoRoot)
   const benchmark = runBenchmark()
   const result = {
     generatedAt: nowIso(),
     entryCount: entries.length,
+    publishableEntryCount: publishableEntries.length,
     graphSummary: graph.counts,
     lowestCoverage: heatmap.rows.slice(0, 15),
     architectureDrift: drift,
