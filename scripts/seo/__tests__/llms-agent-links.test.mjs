@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs'
+import { URL, fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 
-const llms = readFileSync(new URL('../../../public/llms.txt', import.meta.url), 'utf8')
+const llms = readFileSync(fileURLToPath(new URL('../../../public/llms.txt', import.meta.url)), 'utf8')
 
 describe('llms.txt agent browsing contract', () => {
   it('contains real Markdown links to canonical discovery targets', () => {
