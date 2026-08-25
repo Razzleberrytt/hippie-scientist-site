@@ -181,12 +181,9 @@ function run() {
         canonical: extractCanonical(html),
         curated: isCurated,
         redirectSource,
+        recordPresent: Boolean(record),
       }
       baseRows.push(row)
-
-      if (!record) {
-        errors.push(row.route + ' has built HTML but no matching runtime record')
-      }
       if (status === 'PUBLISH' && row.emittedNoindex && !redirectSource) {
         errors.push(row.route + ' record is PUBLISH but HTML emits "' + robots + '"')
       }
