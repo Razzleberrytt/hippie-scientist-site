@@ -30,11 +30,27 @@ test('all active approved normalized entries have publication-ready source suppo
       reason === 'missing_source_registry_reference' ||
       reason === 'source_inactive' ||
       reason === 'source_publication_status_withdrawn' ||
-      reason === 'source_publication_status_superseded'
+      reason === 'source_publication_status_superseded' ||
+      reason === 'source_publication_status_archived'
     )
   })
 
   assert.deepEqual([...new Set(blockedBySource.map(row => row.sourceId))].sort(), [])
+})
+
+test('archived source status blocks canonical publication readiness', () => {
+  const entry = {
+    active: true,
+    reviewer: 'governor-test',
+    reviewedAt: '2026-08-25T01:35:00.000Z',
+    editorialStatus: 'approved',
+    evidenceClass: 'human-clinical',
+  }
+  const source = { active: true, publicationStatus: 'archived' }
+  const readiness = evaluateEntryReadiness(entry, source)
+  assert.equal(readiness.publishable, false)
+  assert.ok(readiness.reasons.includes('source_publication_status_archived'))
+  assert.ok(readiness.criticalReasons.includes('source_publication_status_archived'))
 })
 
 test('baseline registry preserves current and historical identities without conflating readiness', () => {
@@ -169,6 +185,14 @@ test('bootstrap writes missing baseline sources, passes check mode, and rejects 
     result = spawnSync(process.execPath, [BOOTSTRAP_SCRIPT, '--check'], { cwd: tempRoot, encoding: 'utf8' })
     assert.notEqual(result.status, 0)
     assert.match(`${result.stderr}\n${result.stdout}`, /Baseline source identity conflict/)
+
+    fs.writeFileSync(registryPath, `${JSON.stringify(merged, null, 2)}\n`, 'utf8')
+    const aliasedSeed = [...seed, { sourceId: 'src_alias', pmid: '12345' }]
+    fs.writeFileSync(seedPath, `${JSON.stringify(aliasedSeed, null, 2)}\n`, 'utf8')
+
+    result = spawnSync(process.execPath, [BOOTSTRAP_SCRIPT, '--check'], { cwd: tempRoot, encoding: 'utf8' })
+    assert.notEqual(result.status, 0)
+    assert.match(`${result.stderr}\n${result.stdout}`, /cross-ID source identity collision/i)
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true })
   }
