@@ -31,7 +31,7 @@ export const EDITORIAL_STATUS = {
 
 export const PUBLISH_ALLOWED_EDITORIAL_STATES = new Set([EDITORIAL_STATUS.APPROVED, EDITORIAL_STATUS.PUBLISHED])
 const WEAK_EVIDENCE_CLASSES = new Set(['preclinical-mechanistic', 'traditional-use'])
-const CRITICAL_SOURCE_PUBLICATION_STATUSES = new Set(['withdrawn', 'superseded'])
+const CRITICAL_SOURCE_PUBLICATION_STATUSES = new Set(['withdrawn', 'superseded', 'archived'])
 
 export const TOPIC_TO_ROLLUP_FIELD = {
   supported_use: 'supportedUses',
