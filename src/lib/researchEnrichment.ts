@@ -165,6 +165,38 @@ function asClaims(value: unknown): ResearchClaim[] {
     .filter((item): item is ResearchClaim => Boolean(item))
 }
 
+function asEmbeddedConflictClaims(value: unknown): ResearchClaim[] {
+  if (!Array.isArray(value)) return []
+
+  return value
+    .map(item => {
+      if (!item || typeof item !== 'object') return null
+      const row = item as Record<string, unknown>
+      const claim = cleanText(row.conflictNote)
+      const evidenceClass = asEvidenceClass(row.evidenceClass)
+      const sourceRefIds = Array.isArray(row.sourceRefIds)
+        ? row.sourceRefIds.map(id => cleanText(id)).filter(Boolean)
+        : []
+      if (!claim || !evidenceClass || sourceRefIds.length === 0) return null
+      return {
+        claim,
+        evidenceClass,
+        sourceRefIds: Array.from(new Set(sourceRefIds)),
+      }
+    })
+    .filter((item): item is ResearchClaim => Boolean(item))
+}
+
+function dedupeClaims(claims: ResearchClaim[]): ResearchClaim[] {
+  const seen = new Set<string>()
+  return claims.filter(claim => {
+    const key = [claim.claim, claim.evidenceClass, ...claim.sourceRefIds].join('|')
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
 function asSourceRefs(value: unknown): ResearchSourceRef[] {
   if (!Array.isArray(value)) return []
 
@@ -284,6 +316,20 @@ export function normalizeResearchEnrichment(value: unknown): ResearchEnrichment 
         .filter(isNonNullable)
     : []
 
+  const embeddedConflictNotes = [
+    raw.supportedUses,
+    raw.unsupportedOrUnclearUses,
+    raw.mechanisms,
+    raw.constituents,
+    raw.interactions,
+    raw.contraindications,
+    raw.adverseEffects,
+    raw.dosageContextNotes,
+    raw.populationSpecificNotes,
+    raw.researchGaps,
+  ].flatMap(asEmbeddedConflictClaims)
+  const conflictNotes = dedupeClaims([...asClaims(raw.conflictNotes), ...embeddedConflictNotes])
+
   return {
     evidenceSummary,
     evidenceTier,
@@ -297,7 +343,7 @@ export function normalizeResearchEnrichment(value: unknown): ResearchEnrichment 
     adverseEffects: asClaims(raw.adverseEffects),
     dosageContextNotes: asClaims(raw.dosageContextNotes),
     populationSpecificNotes: asClaims(raw.populationSpecificNotes),
-    conflictNotes: asClaims(raw.conflictNotes),
+    conflictNotes,
     researchGaps: asClaims(raw.researchGaps),
     topicEvidenceJudgments,
     pageEvidenceJudgment: pageEvidenceJudgment ?? {
