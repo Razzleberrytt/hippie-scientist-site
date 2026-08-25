@@ -4,6 +4,9 @@ import RevenueImpressionTracker from './RevenueImpressionTracker'
 import WhyWeRecommend from '../src/components/monetization/WhyWeRecommend'
 import HorizontalCardRail from './ui/HorizontalCardRail'
 import { shouldSuppressProductRecommendation } from '../src/lib/product-lifecycle'
+import { revenueProductSets } from '../config/revenue-products'
+import { getCompounds, getHerbs } from '../src/lib/runtime-data'
+import { canRenderConfiguredRevenueProducts } from '../src/lib/revenue-product-governance'
 
 export type RecommendationSlot = 'budget' | 'overall' | 'premium'
 
@@ -27,6 +30,10 @@ const slotLabels: Record<RecommendationSlot, string> = {
   premium: 'Premium example',
 }
 
+const REVENUE_RUNTIME_SLUG_ALIASES: Record<string, string> = {
+  'lions-mane': 'hericium-erinaceus',
+}
+
 function isUsableOutboundUrl(value: unknown): value is string {
   return typeof value === 'string' && /^https?:\/\//i.test(value.trim())
 }
@@ -38,7 +45,35 @@ function hasUsableProductUrl(product: RecommendationProduct): boolean {
   return product.retailerLinks?.some((retailer) => isUsableOutboundUrl(retailer.url) || Object.values(retailer.regionalUrls ?? {}).some(isUsableOutboundUrl)) ?? false
 }
 
-export default function RecommendationSection({
+function configuredProductSetSlug(products: RecommendationProduct[]) {
+  for (const [slug, productSet] of Object.entries(revenueProductSets)) {
+    if (productSet.products === products) return slug
+  }
+  return null
+}
+
+async function canRenderRecommendationProducts(
+  products: RecommendationProduct[],
+  trackingProductSlug?: string,
+) {
+  const configuredSlug = configuredProductSetSlug(products) || trackingProductSlug
+  if (!configuredSlug) return true
+
+  // Restricted slugs fail closed before any runtime-data lookup. For configured
+  // catalog sets, this also makes dormant legacy entries (for example kava)
+  // impossible to surface through the shared renderer.
+  if (!canRenderConfiguredRevenueProducts(configuredSlug)) return false
+
+  const runtimeSlug = REVENUE_RUNTIME_SLUG_ALIASES[configuredSlug] || configuredSlug
+  const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
+  const record = [...herbs, ...compounds].find((item) => String(item.slug || '') === runtimeSlug)
+
+  // When a catalog/guide slug maps to a live record, the same fail-closed
+  // monetization policy used by SourcingCta owns the decision here too.
+  return canRenderConfiguredRevenueProducts(configuredSlug, record || null)
+}
+
+export default async function RecommendationSection({
   title = 'Product sourcing examples',
   description = 'Use these as sourcing starting points, not medical recommendations. Product quality, dose, and fit still need review.',
   products,
@@ -48,6 +83,7 @@ export default function RecommendationSection({
   trackingLocation = 'recommendation-section',
 }: RecommendationSectionProps) {
   if (suppressMonetization) return null
+  if (!(await canRenderRecommendationProducts(products, trackingProductSlug))) return null
 
   const availableProducts = products.filter(hasUsableProductUrl)
   if (availableProducts.length === 0) return null
