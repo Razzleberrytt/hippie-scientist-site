@@ -7,7 +7,6 @@ const read = (relativePath: string) => fs.readFileSync(path.join(root, relativeP
 
 const profileStyles = [
   'herb-profile-polish.css',
-  'profile-navigation-cleanup.css',
   'compact-safety-cautions.css',
 ]
 
@@ -23,6 +22,9 @@ describe('profile CSS performance scope', () => {
       expect(compoundLayout).toContain(stylesheet)
     }
 
+    expect(rootLayout).not.toContain('profile-navigation-cleanup.css')
+    expect(herbLayout).not.toContain('profile-navigation-cleanup.css')
+    expect(compoundLayout).not.toContain('profile-navigation-cleanup.css')
     expect(herbLayout).toContain('data-profile-page')
     expect(compoundLayout).toContain('data-profile-page')
     expect(compoundLayout).toContain('usesMdxTemplate ? children')
@@ -30,16 +32,25 @@ describe('profile CSS performance scope', () => {
 
   it('does not rediscover profile routes with large-DOM main:has selectors', () => {
     const polish = read('styles/herb-profile-polish.css')
-    const navigation = read('styles/profile-navigation-cleanup.css')
     const editorial = read('styles/editorial-content-surfaces.css')
 
     expect(polish).not.toContain('main:has(')
-    expect(navigation).not.toContain('main:has(')
     expect(editorial).not.toContain('main:has(nav[aria-label="Page sections"])')
 
     expect(polish).toContain('[data-profile-page]')
-    expect(navigation).toContain('[data-profile-page]')
     expect(editorial).toContain('[data-profile-page]')
+  })
+
+  it('does not ship the hidden legacy jump-navigation tree beside ProfileTOC', () => {
+    const herbPage = read('app/herbs/[slug]/page.tsx')
+    const compoundPage = read('app/compounds/[slug]/page.tsx')
+
+    for (const page of [herbPage, compoundPage]) {
+      expect(page).toContain('ProfileTOC')
+      expect(page).not.toContain('Jump to profile sections')
+    }
+
+    expect(fs.existsSync(path.join(root, 'styles/profile-navigation-cleanup.css'))).toBe(false)
   })
 
   it('uses an explicit compare-route boundary instead of root-loaded main:has discovery', () => {

@@ -849,25 +849,6 @@ export default async function CompoundPage({ params }: PageProps) {
             Rendered by the shared ProfileDecisionPanel so all profiles benefit. */}
         <ProfileDecisionPanel decision={profileDecision} name={displayName} />
 
-        {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
-        <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">
-          {[
-            { label: 'Quick Stats', href: '#quick-stats' },
-            { label: 'Safety', href: '#safety' },
-            ...(interactionEdges.length > 0 ? [{ label: 'Interactions', href: '#interactions' }] : []),
-            { label: 'Evidence', href: '#evidence-summary' },
-            ...(mechanismHints.length > 0 ? [{ label: 'Mechanisms', href: '#mechanisms' }] : []),
-            { label: 'Compare', href: '#compare' },
-          ].map(({ label, href }) => (
-            <a
-              key={href}
-              href={href}
-              className="rounded-full border border-brand-900/10 bg-white/70 px-3 py-1.5 text-xs font-semibold text-brand-800 transition-colors hover:bg-brand-50"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
 
         {legalStatusWarning ? (
           <section className="rounded-2xl border border-red-200 bg-red-50 p-4 sm:p-5 space-y-3">
