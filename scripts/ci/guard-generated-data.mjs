@@ -250,10 +250,8 @@ function selfTest() {
 }
 
 function main() {
-  if (process.argv.includes('--self-test')) {
-    selfTest()
-    process.exit(0)
-  }
+  selfTest()
+  if (process.argv.includes('--self-test')) process.exit(0)
 
   const base = getBaseRef()
   const changed = getChangedFiles(base)
