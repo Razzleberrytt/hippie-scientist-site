@@ -25,6 +25,7 @@ export const BUILT_COMPARE_SLUGS = [
   'berberine-vs-inositol',
   'berberine-vs-metformin',
   'caffeine-vs-caffeine-l-theanine',
+  'caffeine-vs-caffeine-plus-l-theanine',
   'caffeine-vs-l-theanine',
   'caffeine-vs-l-theanine-vs-bacopa-for-focus',
   'citicoline-vs-alpha-gpc',

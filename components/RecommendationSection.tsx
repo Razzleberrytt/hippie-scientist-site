@@ -4,6 +4,9 @@ import RevenueImpressionTracker from './RevenueImpressionTracker'
 import WhyWeRecommend from '../src/components/monetization/WhyWeRecommend'
 import HorizontalCardRail from './ui/HorizontalCardRail'
 import { shouldSuppressProductRecommendation } from '../src/lib/product-lifecycle'
+import { revenueProductSets } from '../config/revenue-products'
+import { getCompounds, getHerbs } from '../src/lib/runtime-data'
+import { canRenderConfiguredRevenueProducts } from '../src/lib/revenue-product-governance'
 
 export type RecommendationSlot = 'budget' | 'overall' | 'premium'
 
@@ -27,6 +30,10 @@ const slotLabels: Record<RecommendationSlot, string> = {
   premium: 'Premium example',
 }
 
+const REVENUE_RUNTIME_SLUG_ALIASES: Record<string, string> = {
+  'lions-mane': 'hericium-erinaceus',
+}
+
 function isUsableOutboundUrl(value: unknown): value is string {
   return typeof value === 'string' && /^https?:\/\//i.test(value.trim())
 }
@@ -38,7 +45,56 @@ function hasUsableProductUrl(product: RecommendationProduct): boolean {
   return product.retailerLinks?.some((retailer) => isUsableOutboundUrl(retailer.url) || Object.values(retailer.regionalUrls ?? {}).some(isUsableOutboundUrl)) ?? false
 }
 
-export default function RecommendationSection({
+function configuredProductSetSlug(products: RecommendationProduct[]) {
+  for (const [slug, productSet] of Object.entries(revenueProductSets)) {
+    if (productSet.products === products) return slug
+  }
+  return null
+}
+
+async function canRenderRecommendationProducts(
+  products: RecommendationProduct[],
+  trackingProductSlug?: string,
+) {
+  const configuredSlug = configuredProductSetSlug(products) || trackingProductSlug
+  if (!configuredSlug) return true
+
+  // Restricted slugs fail closed before any runtime-data lookup. For configured
+  // catalog sets, this also makes dormant legacy entries (for example kava)
+  // impossible to surface through the shared renderer.
+  if (!canRenderConfiguredRevenueProducts(configuredSlug)) return false
+
+  const runtimeSlug = REVENUE_RUNTIME_SLUG_ALIASES[configuredSlug] || configuredSlug
+  const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
+  const record = [...herbs, ...compounds].find((item) => String(item.slug || '') === runtimeSlug)
+
+  // When a catalog/guide slug maps to a live record, the same fail-closed
+  // monetization policy used by SourcingCta owns the decision here too.
+  return canRenderConfiguredRevenueProducts(configuredSlug, record || null)
+}
+
+function RecommendationUnavailable({
+  title,
+  reason,
+}: {
+  title: string
+  reason: string
+}) {
+  return (
+    <section className='card-premium p-4 sm:p-5'>
+      <div className='max-w-3xl'>
+        <p className='eyebrow-label'>Sourcing options</p>
+        <h2 className='mt-1 text-lg font-semibold text-ink'>{title}</h2>
+        <div className='mt-3 rounded-xl border border-brand-900/10 bg-brand-50/50 p-3 dark:border-white/10 dark:bg-white/5'>
+          <h3 className='text-xs font-bold uppercase tracking-[0.16em] text-muted'>Recommendation status</h3>
+          <p className='mt-1 text-sm leading-6 text-muted'>{reason}</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default async function RecommendationSection({
   title = 'Product sourcing examples',
   description = 'Use these as sourcing starting points, not medical recommendations. Product quality, dose, and fit still need review.',
   products,
@@ -49,8 +105,24 @@ export default function RecommendationSection({
 }: RecommendationSectionProps) {
   if (suppressMonetization) return null
 
+  if (!(await canRenderRecommendationProducts(products, trackingProductSlug))) {
+    return (
+      <RecommendationUnavailable
+        title={title}
+        reason='Product recommendations are not shown for this profile because the current site safety and monetization policy does not permit them.'
+      />
+    )
+  }
+
   const availableProducts = products.filter(hasUsableProductUrl)
-  if (availableProducts.length === 0) return null
+  if (availableProducts.length === 0) {
+    return (
+      <RecommendationUnavailable
+        title={title}
+        reason='Product recommendations are not currently available. The product-quality guidance below remains educational and is not a buying recommendation.'
+      />
+    )
+  }
 
   const ordered = ['budget', 'overall', 'premium'].flatMap((slot) => availableProducts.filter((product) => product.slot === slot))
 
