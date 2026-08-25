@@ -160,6 +160,18 @@ test('registered but superseded or inactive evidence remains unresolved publicat
   assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, ['src_fda-epidiolex-label-2021'])
 })
 
+test('registered archived evidence remains unresolved publication debt and blocks', () => {
+  const entries = baselineDebtEntries()
+  const registry = registryFor(entries).map(row => row.sourceId === 'src_pubmed-23348842'
+    ? { ...row, active: true, publicationStatus: 'archived' }
+    : row)
+  const result = verifyCanaries(entries, registry)
+  assert.equal(result.pass, false)
+  assert.deepEqual(result.debt.unresolvedSourceIds, ['src_pubmed-23348842'])
+  assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, ['src_pubmed-23348842'])
+  assert.ok(result.blockers.includes('new_provenance_debt:unresolved_source:src_pubmed-23348842'))
+})
+
 test('ashwagandha safety canary stays on the ashwagandha RCT and rejects the CBD label', () => {
   const entries = baselineDebtEntries()
   const safety = entries.find(row => row.entitySlug === 'ashwagandha' && row.topicType === 'adverse_effect')
