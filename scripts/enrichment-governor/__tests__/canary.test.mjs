@@ -24,6 +24,7 @@ const expectedUnresolvedWithoutRegistry = [
   'src_pubmed-29801717',
   'src_pubmed-31006899',
   'src_pubmed-31517876',
+  'src_pubmed-40046611',
   'src_pubmed-40622698',
 ]
 
@@ -66,6 +67,7 @@ function registryFor(entries) {
 function baselineDebtEntries() {
   return [
     entry('ashwagandha', 'efficacy', { sourceId: 'src_pubmed-31517876' }),
+    entry('ashwagandha', 'null', { sourceId: 'src_pubmed-31517876', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
     entry('ashwagandha', 'safety', { sourceId: 'src_pubmed-31517876', claimType: 'safety_risk', topicType: 'adverse_effect', evidenceClass: 'human-clinical' }),
     entry('chamomile', 'safety', { sourceId: 'src_pubmed-31006899', claimType: 'safety_risk', topicType: 'adverse_effect' }),
     entry('chamomile', 'null', { sourceId: 'src_pubmed-31006899', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
@@ -74,6 +76,7 @@ function baselineDebtEntries() {
     entry('cbd', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'medication_class_caution', evidenceClass: 'regulatory-monograph' }),
     entry('cbd', 'gap', { sourceId: 'src_pubmed-40622698', claimType: 'research_gap', topicType: 'research_gap' }),
     entry('luteolin', 'null', { sourceId: 'src_pubmed-29801717', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use', evidenceClass: 'preclinical-mechanistic' }),
+    entry('luteolin', 'safety', { sourceId: 'src_pubmed-40046611', claimType: 'safety_risk', topicType: 'adverse_effect', evidenceClass: 'human-clinical' }),
   ]
 }
 
@@ -127,15 +130,15 @@ test('canonical entity identities satisfy stable display anchors', () => {
   ])
 })
 
-test('remaining allowed baseline debt is limited to coverage dimensions', () => {
+test('repaired baseline debt is fully ratcheted to ideal pass', () => {
   const entries = baselineDebtEntries()
   const result = verifyCanaries(entries, registryFor(entries))
   assert.equal(result.pass, true, JSON.stringify(result, null, 2))
-  assert.equal(result.idealPass, false)
-  assert.equal(result.status, 'PASS_WITH_BASELINE_DEBT')
+  assert.equal(result.idealPass, true)
+  assert.equal(result.status, 'PASS')
   assert.deepEqual(result.debt.unresolvedSourceIds, [])
-  assert.deepEqual(result.debt.missingNullVisibilityAnchors, ['ashwagandha'])
-  assert.deepEqual(result.debt.missingSafetyVisibilityAnchors, ['luteolin'])
+  assert.deepEqual(result.debt.missingNullVisibilityAnchors, [])
+  assert.deepEqual(result.debt.missingSafetyVisibilityAnchors, [])
   assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, [])
 })
 
@@ -201,6 +204,8 @@ test('changed normalized rows reference real canonical detail entities independe
     .map(line => JSON.parse(line))
 
   const expected = new Map([
+    ['enr_ashwagandha-null-mixed-dass21-rct', ['herb', 'ashwagandha']],
+    ['enr_ashwagandha-dosage-context-shoden-rct', ['herb', 'ashwagandha']],
     ['enr_chamomile-supported-use-anxiety-review', ['herb', 'matricaria-chamomilla']],
     ['enr_chamomile-unsupported-remission', ['herb', 'matricaria-chamomilla']],
     ['enr_chamomile-adverse-effect-sedation', ['herb', 'matricaria-chamomilla']],
@@ -212,6 +217,9 @@ test('changed normalized rows reference real canonical detail entities independe
     ['enr_cbd-enzyme-cyp2c19', ['compound', 'cannabidiol']],
     ['enr_cbd-adverse-effect-transaminase', ['compound', 'cannabidiol']],
     ['enr_cbd-research-gap-non-epilepsy', ['compound', 'cannabidiol']],
+    ['enr_luteolin-short-term-tolerability-phase1', ['compound', 'luteolin']],
+    ['enr_luteolin-unsupported-oncologic-efficacy-phase1', ['compound', 'luteolin']],
+    ['enr_luteolin-dosage-context-phase1', ['compound', 'luteolin']],
   ])
 
   for (const [enrichmentId, [entityType, entitySlug]] of expected) {
