@@ -1,7 +1,7 @@
 # Growth Scoreboard
 
 **Status:** Authoritative metric definitions and reporting surface
-**Updated:** 2026-08-21
+**Updated:** 2026-08-25
 **Default reporting period:** Rolling 28 complete days compared with the preceding 28 complete days. Repository/build health uses the latest main-branch run. `Unknown` means no authorized source value was available; it does not mean zero.
 
 ## Measurement status
