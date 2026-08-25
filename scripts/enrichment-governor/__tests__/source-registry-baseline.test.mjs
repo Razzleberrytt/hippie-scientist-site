@@ -1,11 +1,14 @@
 import fs from 'node:fs'
+import os from 'node:os'
 import path from 'node:path'
+import { spawnSync } from 'node:child_process'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 
 import { evaluateEntryReadiness } from '../../enrichment/normalize-enrichment-lib.mjs'
 
 const ROOT = process.cwd()
+const BOOTSTRAP_SCRIPT = path.join(ROOT, 'scripts', 'data', 'bootstrap-enrichment-source-registry.mjs')
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'))
@@ -86,4 +89,42 @@ test('active CBD claims do not use the superseded 2021 EPIDIOLEX label', () => {
   assert.equal(cbd.find(row => row.enrichmentId === 'enr_cbd-medication-class-caution-cns-depressants')?.sourceId, 'src_fda-epidiolex-label-2026')
   assert.equal(cbd.find(row => row.enrichmentId === 'enr_cbd-enzyme-cyp2c19')?.sourceId, 'src_fda-epidiolex-label-2026')
   assert.equal(cbd.find(row => row.enrichmentId === 'enr_cbd-research-gap-non-epilepsy')?.sourceId, 'src_pubmed-36271316')
+})
+
+test('bootstrap writes missing baseline sources, passes check mode, and rejects identity conflicts', () => {
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'enrichment-source-bootstrap-'))
+  const seedPath = path.join(tempRoot, 'data-sources', 'enrichment-source-registry-baseline.json')
+  const registryPath = path.join(tempRoot, 'public', 'data', 'source-registry.json')
+
+  try {
+    fs.mkdirSync(path.dirname(seedPath), { recursive: true })
+    fs.mkdirSync(path.dirname(registryPath), { recursive: true })
+
+    const seed = [
+      { sourceId: 'src_existing', pmid: '12345' },
+      { sourceId: 'src_new', doi: '10.1000/example' },
+    ]
+    fs.writeFileSync(seedPath, `${JSON.stringify(seed, null, 2)}\n`, 'utf8')
+    fs.writeFileSync(registryPath, `${JSON.stringify([{ sourceId: 'src_existing', pmid: '12345' }], null, 2)}\n`, 'utf8')
+
+    let result = spawnSync(process.execPath, [BOOTSTRAP_SCRIPT], { cwd: tempRoot, encoding: 'utf8' })
+    assert.equal(result.status, 0, result.stderr || result.stdout)
+
+    const merged = JSON.parse(fs.readFileSync(registryPath, 'utf8'))
+    assert.deepEqual(merged.map(row => row.sourceId), ['src_existing', 'src_new'])
+    assert.equal(merged.find(row => row.sourceId === 'src_new')?.doi, '10.1000/example')
+
+    result = spawnSync(process.execPath, [BOOTSTRAP_SCRIPT, '--check'], { cwd: tempRoot, encoding: 'utf8' })
+    assert.equal(result.status, 0, result.stderr || result.stdout)
+    assert.match(result.stdout, /CHECK PASS/)
+
+    const conflicting = merged.map(row => row.sourceId === 'src_existing' ? { ...row, pmid: '54321' } : row)
+    fs.writeFileSync(registryPath, `${JSON.stringify(conflicting, null, 2)}\n`, 'utf8')
+
+    result = spawnSync(process.execPath, [BOOTSTRAP_SCRIPT, '--check'], { cwd: tempRoot, encoding: 'utf8' })
+    assert.notEqual(result.status, 0)
+    assert.match(`${result.stderr}\n${result.stdout}`, /Baseline source identity conflict/)
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true })
+  }
 })
