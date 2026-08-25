@@ -21,8 +21,8 @@ function buildExpectedRollup() {
   return rollupToResearchEnrichment(normalizedEntries, sourceById)
 }
 
-test('committed governed artifact exactly matches canonical normalized rollup', () => {
-  const expected = buildExpectedRollup()
+test('committed governed artifact exactly matches serialized canonical normalized rollup', () => {
+  const expected = JSON.parse(JSON.stringify(buildExpectedRollup()))
   const actual = JSON.parse(fs.readFileSync(GOVERNED_PATH, 'utf8'))
   assert.deepEqual(actual, expected)
 })
