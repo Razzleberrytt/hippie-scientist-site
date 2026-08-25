@@ -7,6 +7,9 @@ on:
       - 'ops/enrichment-governor/**'
       - 'public/data/enrichment-normalized.jsonl'
       - 'public/data/source-registry.json'
+      - 'scripts/enrichment/**'
+      - 'schemas/normalized-enrichment-entry.schema.json'
+      - 'schemas/source-registry.schema.json'
       - 'scripts/enrichment-pipeline/contract/**'
       - '.github/workflows/enrichment-governor.yml'
   push:
@@ -16,7 +19,11 @@ on:
       - 'ops/enrichment-governor/**'
       - 'public/data/enrichment-normalized.jsonl'
       - 'public/data/source-registry.json'
+      - 'scripts/enrichment/**'
+      - 'schemas/normalized-enrichment-entry.schema.json'
+      - 'schemas/source-registry.schema.json'
       - 'scripts/enrichment-pipeline/contract/**'
+      - '.github/workflows/enrichment-governor.yml'
   workflow_dispatch:
   schedule:
     - cron: '17 9 * * *'
@@ -37,6 +44,10 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Validate source registry
+        run: node scripts/validate-source-registry.mjs
+      - name: Validate normalized enrichment ledger
+        run: node scripts/enrichment/validate-normalized-enrichment.mjs
       - name: Unit and regression tests
         run: node --test scripts/enrichment-governor/__tests__/*.test.mjs
       - name: Fixed self-improvement benchmark
