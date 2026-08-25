@@ -101,14 +101,14 @@
     "searchIntents": ["no significant effect", "null result", "failed trial", "adverse event", "withdrawal", "retraction", "expression of concern", "contradictory meta-analysis"]
   },
   "canaries": {
-    "fixedAnchors": ["ashwagandha", "chamomile", "kava", "cbd", "luteolin"],
+    "fixedAnchors": ["ashwagandha", "chamomile", "kava", "cannabidiol", "luteolin"],
     "dynamicTopRiskCount": 10,
     "requiredChecks": ["source_linkage", "evidence_class", "schema_validity"],
     "anchorRequirements": {
       "ashwagandha": ["safety_visibility"],
       "chamomile": ["null_visibility", "safety_visibility"],
       "kava": ["null_visibility", "safety_visibility"],
-      "cbd": ["null_visibility", "safety_visibility"],
+      "cannabidiol": ["null_visibility", "safety_visibility"],
       "luteolin": ["null_visibility"]
     },
     "targetChecks": ["null_visibility", "safety_visibility", "no_unresolved_source_ids"],
