@@ -7,6 +7,7 @@ import ClickTracker from '../ClickTracker'
 const mocks = vi.hoisted(() => ({
   getConsent: vi.fn(),
   trackLeadMagnetClick: vi.fn(),
+  trackPageView: vi.fn(),
 }))
 
 vi.mock('next/navigation', () => ({
@@ -18,6 +19,8 @@ vi.mock('@/lib/analytics', () => ({
   trackAffiliateClick: vi.fn(),
   trackGuideView: vi.fn(),
   trackLeadMagnetClick: mocks.trackLeadMagnetClick,
+  trackNavigationClick: vi.fn(),
+  trackPageView: mocks.trackPageView,
 }))
 
 vi.mock('@/lib/consent', () => ({
@@ -32,12 +35,27 @@ vi.mock('@/src/lib/loadAnalytics', () => ({
 afterEach(() => {
   mocks.getConsent.mockReset()
   mocks.trackLeadMagnetClick.mockReset()
+  mocks.trackPageView.mockReset()
   vi.unstubAllGlobals()
 })
 
 describe('ClickTracker', () => {
+  it('tracks the current page once after analytics consent', () => {
+    mocks.getConsent.mockReturnValue('granted')
+    mocks.trackPageView.mockReturnValue(true)
+
+    render(<ClickTracker />)
+
+    expect(mocks.trackPageView).toHaveBeenCalledTimes(1)
+    expect(mocks.trackPageView).toHaveBeenCalledWith({ pagePath: '/guides/adhd/' })
+
+    fireEvent(window, new Event('consent-granted'))
+    expect(mocks.trackPageView).toHaveBeenCalledTimes(1)
+  })
+
   it('tracks lead-magnet clicks after analytics consent', () => {
     mocks.getConsent.mockReturnValue('granted')
+    mocks.trackPageView.mockReturnValue(true)
     render(
       <>
         <ClickTracker />
@@ -68,6 +86,7 @@ describe('ClickTracker', () => {
 
     fireEvent.click(document.querySelector('a')!)
 
+    expect(mocks.trackPageView).not.toHaveBeenCalled()
     expect(mocks.trackLeadMagnetClick).not.toHaveBeenCalled()
   })
 
@@ -100,8 +119,10 @@ describe('ClickTracker', () => {
     expect(observerConstructed).not.toHaveBeenCalled()
 
     consent = 'granted'
+    mocks.trackPageView.mockReturnValue(true)
     fireEvent(window, new Event('consent-granted'))
 
     expect(observerConstructed).toHaveBeenCalledTimes(1)
+    expect(mocks.trackPageView).toHaveBeenCalledWith({ pagePath: '/guides/adhd/' })
   })
 })
