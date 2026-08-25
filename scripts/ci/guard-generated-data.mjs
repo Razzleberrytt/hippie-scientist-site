@@ -35,6 +35,7 @@
  *
  * Usage (in CI or locally before commit/PR):
  *   node scripts/ci/guard-generated-data.mjs
+ *   node scripts/ci/guard-generated-data.mjs --self-test
  *   npm run guard:generated-data
  *
  * Exit 0 = no suspicious direct data edits detected
@@ -49,8 +50,6 @@ const REPO_ROOT = process.cwd()
 const IS_CI = String(process.env.CI || '').toLowerCase() === 'true' || Boolean(process.env.GITHUB_ACTIONS)
 const INCLUDE_WORKTREE = !IS_CI || String(process.env.GUARD_GENERATED_DATA_INCLUDE_WORKTREE || '').toLowerCase() === 'true'
 
-// Recognized "source of change" paths/globs. If any of these are touched
-// in the same diff as ordinary public/data outputs, we allow the data change.
 const SOURCE_PATHS = [
   'data/canonical/',
   'data-sources/',
@@ -59,15 +58,13 @@ const SOURCE_PATHS = [
   'scripts/build-production.mjs',
   'scripts/validate-data-files.mjs',
   'scripts/ci/validate-workbook-source.mjs',
-  'scripts/ci/guard-generated-data.mjs', // self: touched for Phase 3 schema graph consolidation
+  'scripts/ci/guard-generated-data.mjs',
   'scripts/ci/semantic-governance-check.mjs',
   'scripts/ci/report-semantic-scale-summary.mjs',
-  // Add more build entrypoints here as the pipeline evolves
-  'package.json', // if build scripts or deps change
-  'lib/navigation-config.ts', // affects nav/routes/breadcrumbs (can impact manifests indirectly)
-  'lib/decision-primitives.ts', // affects safety/evidence labels used in data postprocess
+  'package.json',
+  'lib/navigation-config.ts',
+  'lib/decision-primitives.ts',
   'lib/safety-enum.ts',
-  // Data hygiene / dupe cleanup (per validation-report + plan; allows reviewed applies of issues.csv via scripts/cleanup.js without false "suspicious" )
   'docs/internal/issues.csv',
   'scripts/cleanup.js',
   'src/types/',
@@ -76,9 +73,6 @@ const SOURCE_PATHS = [
   'app/',
 ]
 
-// These public/data files are canonical inputs for the governed enrichment
-// subsystem, not generated runtime outputs. Keep this exact rather than using a
-// broad public/data prefix so unrelated JSON files remain protected.
 const CANONICAL_PUBLIC_DATA_SOURCES = new Set([
   'public/data/source-registry.json',
 ])
@@ -93,7 +87,6 @@ const GOVERNED_ENRICHMENT_OUTPUT_FILES = new Set([
 ])
 
 function getBaseRef() {
-  // In GitHub Actions PR: GITHUB_BASE_REF
   if (process.env.GITHUB_BASE_REF) {
     const baseBranch = process.env.GITHUB_BASE_REF
     const baseRef = `origin/${baseBranch}`
@@ -109,7 +102,6 @@ function getBaseRef() {
     }
     return baseRef
   }
-  // In other CI or local: try origin/main, fallback to HEAD~1
   try {
     execSync('git rev-parse --verify origin/main', { stdio: 'ignore' })
     return 'origin/main'
@@ -122,27 +114,21 @@ function getBaseRef() {
       execSync('git rev-parse --verify origin/main', { stdio: 'ignore' })
       return 'origin/main'
     } catch {
-      // Fall through to local history fallback.
+      return 'HEAD~1'
     }
-    return 'HEAD~1'
   }
 }
 
 function getChangedFiles(base) {
   const files = new Set()
   try {
-    // Committed diff only (tree vs tree, ignore any working tree dirt / line endings in data).
-    // Use two-commit form so that large working-tree modifications to public/data/*.json
-    // (from running data build steps) do not pollute the "recently changed source files" list.
     let diffTarget = base
     try {
       const headSha = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim()
       const baseSha = execSync(`git rev-parse ${base}`, { encoding: 'utf8' }).trim()
-      if (headSha === baseSha) {
-        diffTarget = 'HEAD~1'
-      }
+      if (headSha === baseSha) diffTarget = 'HEAD~1'
     } catch {
-      // Ignore if rev-parse fails
+      // Ignore if rev-parse fails.
     }
     const out = execSync(`git diff --name-only --diff-filter=ACMR ${diffTarget}...HEAD`, {
       cwd: REPO_ROOT,
@@ -150,7 +136,7 @@ function getChangedFiles(base) {
       stdio: ['ignore', 'pipe', 'ignore'],
     })
     out.split('\n').map((s) => s.trim()).filter(Boolean).forEach(f => files.add(f))
-  } catch (e) {
+  } catch {
     try {
       const out = execSync(`git diff --name-only --diff-filter=ACMR ${base} HEAD`, {
         cwd: REPO_ROOT,
@@ -175,32 +161,22 @@ function getChangedFiles(base) {
     }
   }
 
-  if (!INCLUDE_WORKTREE) {
-    return Array.from(files)
-  }
+  if (!INCLUDE_WORKTREE) return Array.from(files)
 
   try {
-    // Local working tree (uncommitted manual edits, new files, etc.) — catches
-    // direct edits before commit. Disabled in CI because this guard runs after
-    // build steps that legitimately regenerate public/data outputs.
     const statusOut = execSync('git status --porcelain --untracked-files=all', {
       cwd: REPO_ROOT,
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     })
     statusOut.split('\n').map((s) => s.trim()).filter(Boolean).forEach(line => {
-      // lines like "?? public/data/foo.json" or " M public/data/bar.json"
       const m = line.match(/^\s*([AMDR?]+)\s+(.+)$/)
       if (m) {
         const status = m[1].trim()
         const file = m[2]
-        // If the file is modified (M), verify there's a real content diff
         if (status.includes('M')) {
           const res = spawnSync('git', ['diff', '--quiet', '--', file], { cwd: REPO_ROOT })
-          if (res.status === 0) {
-            // Content is identical (autocrlf / line endings only)
-            return
-          }
+          if (res.status === 0) return
         }
         files.add(file)
       }
@@ -215,8 +191,6 @@ function hasPrefixInList(files, prefixes) {
   return files.some((f) => prefixes.some((p) => f === p || f.startsWith(p)))
 }
 
-// Files the build pipeline regenerates on every run (commit hash, link maps, etc.).
-// These are always "dirty" after a build so they must never trigger the guard.
 const PIPELINE_GENERATED_FILES = new Set([
   'public/data/_meta/build-info.json',
   'public/data/runtime-maps/internal-link-map.json',
@@ -246,7 +220,41 @@ export function classifyGeneratedDataGuard(changed) {
   }
 }
 
+function selfTest() {
+  const governed = classifyGeneratedDataGuard([
+    'public/data/enrichment-normalized.jsonl',
+    'public/data/source-registry.json',
+    'public/data/enrichment-governed.json',
+  ])
+  if (governed.blockedGoverned || governed.blockedOrdinary) {
+    throw new Error('governed enrichment source-to-output transaction must be allowed')
+  }
+  if (governed.dataFiles.length !== 1 || governed.dataFiles[0] !== 'public/data/enrichment-governed.json') {
+    throw new Error('source registry must remain a canonical input, not a generated output')
+  }
+
+  const orphan = classifyGeneratedDataGuard(['public/data/enrichment-governed.json'])
+  if (!orphan.blockedGoverned) {
+    throw new Error('orphan governed output edit must remain blocked')
+  }
+
+  const unrelated = classifyGeneratedDataGuard([
+    'public/data/enrichment-normalized.jsonl',
+    'public/data/unrelated-generated.json',
+  ])
+  if (!unrelated.blockedOrdinary) {
+    throw new Error('governed source changes must not exempt unrelated generated outputs')
+  }
+
+  console.log('[guard-generated-data] SELF-TEST PASS')
+}
+
 function main() {
+  if (process.argv.includes('--self-test')) {
+    selfTest()
+    process.exit(0)
+  }
+
   const base = getBaseRef()
   const changed = getChangedFiles(base)
   const classification = classifyGeneratedDataGuard(changed)
