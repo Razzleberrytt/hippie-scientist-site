@@ -1,7 +1,7 @@
 # Current State
 
 **Status:** Authoritative description of the present implementation
-**Evidence cutoff:** 2026-08-21
+**Evidence cutoff:** 2026-08-25 for SEO-001 publication-parity evidence; other audited facts retain their stated dates
 **Labels:** **Verified** = reproduced from code, generated data, CI, GitHub, or live output; **Inferred** = supported but not directly measured; **Unknown** = access or evidence unavailable; **Recommended** = proposed next action, not current behavior.
 
 ## Executive summary
@@ -30,7 +30,7 @@
 
 **Verified:** Current generated profile JSON contains 359 claim-map records across 187 profiles. The citation export contains 849 studies in JSON, BibTeX, and RIS forms. The workbook safety audit read 293 herb and 588 compound rows; all rows had safety context, while 293 herb and 306 compound rows had structured flags or contraindication data. The audit also reported 51 deliberate abstentions where flags were left blank pending evidence.
 
-**Verified:** The build applies production publication invariants and uses `noindex` as a governance hold when evidence, summary, or safety contracts are not met. The fresh 2026-08-21 local production export built 847 profile pages: 68 `index,follow` and 779 `noindex` (61 indexable herbs and 7 indexable compounds). Its sitemap exposed 63 herb and 7 compound detail URLs. Those numbers are not interchangeable: one is emitted page policy and one is sitemap membership.
+**Verified:** The build applies production publication invariants and uses `noindex` as a governance hold when evidence, summary, or safety contracts are not met. SEO-001's clean hosted invariant build on 2026-08-25 reconciled 846 profile pages: 558 emitted `noindex`; 285 were finally sitemap-eligible and all 285 were included (190 herbs and 95 compounds), with zero final governed-data/HTML/redirect/sitemap mismatches. Google index coverage remains Unknown.
 
 **Verified:** A separate evidence-engine data surface for sleep, stress, focus, and anxiety currently validates zero claims and zero safety notes. It exists but is not a populated evidence source.
 
@@ -46,7 +46,7 @@
 
 **Verified differentiators:** structured monograph data, claim/source mapping, safety contracts, publication demotion rather than silent overclaiming, comparison/guide clusters, exportable citations, and evidence-first decision-page standards.
 
-**Verified limitations:** most profiles are withheld from indexing; several current release gates fail; key generated manifests disagree; commercial measurement is unverified; most configured product links are generic searches; and duplicate/thin intent surfaces remain.
+**Verified limitations:** most profiles are withheld from indexing; several current release gates fail; legacy/pre-build publication artifacts are not authoritative for final eligibility; commercial measurement is unverified; most configured product links are generic searches; and duplicate/thin intent surfaces remain.
 
 ## Technical
 
@@ -94,7 +94,7 @@ Counts below use explicit definitions because source files, generated records, b
 |---|---:|---|---|
 | Herb records | 291 generated; 293 workbook rows | `public/data` arrays and `npm run audit:safety` | Not the number indexed; live sitemap had 63 herb detail URLs |
 | Compound records | 565 generated; 588 workbook rows | `public/data` arrays and safety audit | Not the number indexed; live sitemap had 7 compound detail URLs |
-| Built profile routes | 847 in inspected CI build | Production build log | 773 were `noindex` in that run |
+| Built profile routes | 846 in SEO-001 clean hosted build | Production Content Invariants run #1746 and `reports/profile-publication-truth.json` | 558 emitted `noindex`; 285 were sitemap-eligible and all 285 were included |
 | Articles | 46 live sitemap URLs; 36 current article source files | Live sitemap family count and `content/` inventory | Includes an active legacy route family; source and route counts differ |
 | Guides | 169 live sitemap URLs | Live sitemap family count | Includes hubs and comparison/best-of pages |
 | Comparisons | 40 source pages identified by internal-link audit | `npm run audit:links` | Audit scope; comparison intent also exists outside one directory |
@@ -113,9 +113,9 @@ Counts below use explicit definitions because source files, generated records, b
 | Issue | Evidence | Likely impact | Confidence | Blocks | Recommended next action |
 |---|---|---|---|---|---|
 | The growth loop is not measurably closed | Analytics/event code exists, but GA4, GSC, affiliate, revenue, and Mailchimp reports/configuration were unavailable | Page and revenue priorities cannot be selected from outcomes; conversion failures may be invisible | High for missing baseline; Medium for production configuration inference | Measurement, revenue, agent execution | Execute `REV-001`, then import a fixed-period baseline |
-| Most generated profiles are not indexable | Fresh local output reported 779/847 profiles `noindex`; live ashwagandha and L-theanine pages were `noindex`; local/live sitemap exposed 70 profile detail URLs | Large depth layer cannot acquire organic traffic; flagships cannot support decision journeys | High | Indexing, traffic, revenue | Reconcile final manifests and repair reviewed evidence roles; never bypass the gate |
+| Most generated profiles are not indexable | SEO-001's clean hosted build reported 558/846 profiles `noindex` and 285 final sitemap-eligible/included profiles; sampled live ashwagandha and L-theanine pages were previously `noindex` | Large depth layer cannot acquire organic traffic; flagships cannot support decision journeys | High | Indexing, traffic, revenue | Repair reviewed evidence roles; never bypass the gate |
 | Current quality workflows are not all green | Full local schema policy still reports 38 blocking identity issues; prior Lighthouse workflow failed performance thresholds. The cluster-member runtime mismatch was fixed and strict-audited locally | Lower release confidence, structured-data inconsistency, and slower UX | High | Users, indexing, agent execution | Execute SEO-003 and PERF-001; confirm CI after merge |
-| Generated publication truth is inconsistent across phases/artifacts | `publication-index.json`, publication manifest, build logs, invariant reports, and sitemap counts disagree; deterministic phases produced different eligible totals | Agents can optimize against stale counts; indexability regressions are harder to detect | High | Indexing, measurement, safety, agent execution | Produce one post-invariant manifest and assert parity with robots and sitemap |
+| Legacy publication artifacts can differ from final deploy truth | Pre-build `publication-index.json` and `publication-manifest.json` counts are not the final deploy decision; SEO-001's post-invariant report reconciled final governed data, HTML, redirects, and sitemap with zero mismatches | Agents could still optimize against stale phase artifacts if they ignore the final report | High | Indexing, measurement, safety, agent execution | Treat `reports/profile-publication-truth.json` as final verification evidence and monitor count/reason drift; do not feed it back into publication decisions |
 | Duplicate intent and weak source pages remain | Content audit found four duplicate route pairs, 55 thin pages, one definite orphan, and 11 redirect-hop links | Split signals, confusing journeys, wasted crawl/internal-link equity | High for audit findings; Medium for business impact | Indexing, users | Resolve owner/redirect decisions route by route, starting with exact duplicates |
 | Commercial inventory is mostly generic Amazon searches | 246 of 276 configured affiliate destinations are search fallbacks | Lower relevance and conversion; product availability and destination quality are uncertain | High | Revenue, user trust | Validate only the selected flagship page after measurement identifies it |
 | Documentation and backlog control had fragmented | 321 docs files; stale control documents; a corrupt compressed 1,000-ticket seed; a separate 375-ticket ops backlog; old master backlog claimed completed infrastructure | Agents can select obsolete or contradictory work and overstate completion | High | Agent execution | Use the eight authoritative control docs; classify old systems as legacy |
@@ -143,4 +143,4 @@ Counts below use explicit definitions because source files, generated records, b
 
 ### Recommended
 
-Execute [CURRENT_SPRINT.md](CURRENT_SPRINT.md) in priority order. First verify production measurement, then reconcile post-build publication truth, use a 28-day baseline to select one flagship decision page, and upgrade only that measured journey while current evidence/safety gates remain mandatory.
+Execute [CURRENT_SPRINT.md](CURRENT_SPRINT.md) in priority order. First verify production measurement, then clear the remaining scoped release gates, use a 28-day baseline to select one flagship decision page, and upgrade only that measured journey while current evidence/safety gates remain mandatory.
