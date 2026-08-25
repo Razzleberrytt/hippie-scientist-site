@@ -61,7 +61,7 @@ Establish trustworthy production measurement, reconcile indexability truth, and 
 - One flagship page is selected only after evidence and measurement dependencies are satisfied.
 - No more than three product workstreams were active, and no speculative page production was added; Operations/Evidence-Governance work remains scoped to recorded owner-directed or safety/provenance exceptions.
 - AUTH-004 either passes its visual/build proof or remains In Review with the limitation recorded; it does not relax evidence, safety, accessibility, or performance gates.
-- #4238 is merged only after PR #4234's source registry and normalized ledger both validate, the ten canonical entity repairs pass source-independent detail-file proof, active approved rows have publication-ready source support with zero unresolved source debt, current source migrations are independently checked, all required governor/release gates are green, current-head review is clear, and post-merge main state is verified.
+- #4238 is complete through PR #4234 and post-merge review hardening PR #4241 only after source-registry and normalized-ledger validation, source-independent detail-file proof, zero unresolved publishable source debt, sponsor disclosure, cross-anchor DOI/PMID identity regressions, required governor/release gates, current-head review, and default-branch verification.
 
 ## Completed during the reset
 
