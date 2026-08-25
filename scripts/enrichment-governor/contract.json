@@ -102,6 +102,13 @@
   },
   "canaries": {
     "fixedAnchors": ["ashwagandha", "chamomile", "kava", "cbd", "luteolin"],
+    "anchorEntityKeys": {
+      "ashwagandha": "herb:ashwagandha",
+      "chamomile": "herb:matricaria-chamomilla",
+      "kava": "herb:piper-methysticum",
+      "cbd": "compound:cannabidiol",
+      "luteolin": "compound:luteolin"
+    },
     "dynamicTopRiskCount": 10,
     "requiredChecks": ["source_linkage", "evidence_class", "schema_validity"],
     "anchorRequirements": {
