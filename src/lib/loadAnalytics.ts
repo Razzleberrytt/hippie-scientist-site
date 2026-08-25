@@ -8,6 +8,7 @@ void PLAUSIBLE_DOMAIN
 
 let loaded = false
 let scheduled = false
+let gaBootstrapped = false
 
 function injectScript(src: string, attrs: Record<string, string> = {}) {
   if (typeof document === 'undefined') return
@@ -32,20 +33,30 @@ function injectScriptOnce(id: string, src: string, attrs: Record<string, string>
   injectScript(src, { id, ...attrs })
 }
 
+function bootstrapGaQueue() {
+  if (!GA_ID || gaBootstrapped || typeof window === 'undefined' || !canTrackAnalytics()) return
+
+  const dataLayer = (window.dataLayer = window.dataLayer || [])
+  const gtag: NonNullable<Window['gtag']> = (command, ...args) => {
+    dataLayer.push([command, ...args])
+  }
+  window.gtag = gtag
+  gtag('js', new Date())
+  gtag('config', GA_ID, { anonymize_ip: true, send_page_view: false })
+  gaBootstrapped = true
+}
+
 function loadAnalyticsNow() {
   if (loaded) return
   scheduled = false
   if (!GA_ID && !AHREFS_ANALYTICS_KEY) return
   if (!canTrackAnalytics()) return
 
+  // The local GA command queue is created synchronously after consent so events
+  // emitted before the deferred network script arrives are preserved.
+  bootstrapGaQueue()
+
   if (GA_ID) {
-    const dataLayer = (window.dataLayer = window.dataLayer || [])
-    const gtag: NonNullable<Window['gtag']> = (command, ...args) => {
-      dataLayer.push([command, ...args])
-    }
-    window.gtag = gtag
-    gtag('js', new Date())
-    gtag('config', GA_ID, { anonymize_ip: true })
     injectScriptOnce('ga4-script', `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`)
   }
 
@@ -77,6 +88,10 @@ function scheduleAnalyticsLoad() {
 export function loadAnalytics() {
   if (!GA_ID && !AHREFS_ANALYTICS_KEY) return
   if (!canTrackAnalytics()) return
+
+  // Bootstrap only the in-memory queue immediately. Network loading remains
+  // deferred for performance, and nothing is created before analytics consent.
+  bootstrapGaQueue()
   scheduleAnalyticsLoad()
 }
 

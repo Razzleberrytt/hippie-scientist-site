@@ -7,6 +7,7 @@ import {
   trackGuideView,
   trackLeadMagnetClick,
   trackNavigationClick,
+  trackPageView,
 } from '@/lib/analytics'
 import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
 import { loadAnalytics } from '../src/lib/loadAnalytics'
@@ -49,6 +50,21 @@ function affiliateMetadata(link: HTMLAnchorElement) {
 export default function ClickTracker() {
   const pathname = usePathname() || '/'
   const lastTrackedGuidePath = useRef<string | null>(null)
+  const lastTrackedPagePath = useRef<string | null>(null)
+
+  useEffect(() => {
+    const trackCurrentPage = () => {
+      if (getConsent() !== 'granted' || lastTrackedPagePath.current === pathname) return
+      loadAnalytics()
+      if (trackPageView({ pagePath: pathname })) {
+        lastTrackedPagePath.current = pathname
+      }
+    }
+
+    trackCurrentPage()
+    window.addEventListener(CONSENT_CHANGE_EVENT, trackCurrentPage)
+    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, trackCurrentPage)
+  }, [pathname])
 
   useEffect(() => {
     const guide = getGuideTrackingContext(pathname)
