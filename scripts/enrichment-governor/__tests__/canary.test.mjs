@@ -3,12 +3,13 @@ import assert from 'node:assert/strict'
 
 import { verifyCanaries } from '../canary.mjs'
 
-const anchors = ['ashwagandha', 'chamomile', 'kava', 'cannabidiol', 'luteolin']
+const anchors = ['ashwagandha', 'matricaria-chamomilla', 'piper-methysticum', 'cannabidiol', 'luteolin']
+const herbAnchors = new Set(['ashwagandha', 'matricaria-chamomilla', 'piper-methysticum'])
 
 function entry(slug, suffix, overrides = {}) {
   return {
     enrichmentId: `enr_${slug}-${suffix}`,
-    entityType: slug === 'ashwagandha' ? 'herb' : 'compound',
+    entityType: herbAnchors.has(slug) ? 'herb' : 'compound',
     entitySlug: slug,
     sourceId: `src_${slug}-${suffix}`,
     claimType: 'efficacy_signal',
@@ -36,10 +37,10 @@ function baselineDebtEntries() {
   return [
     entry('ashwagandha', 'efficacy', { sourceId: 'src_pubmed-31517876' }),
     entry('ashwagandha', 'safety', { sourceId: 'src_pubmed-31517876', claimType: 'safety_risk', topicType: 'adverse_effect', evidenceClass: 'human-clinical' }),
-    entry('chamomile', 'safety', { sourceId: 'src_pubmed-31006899', claimType: 'safety_risk', topicType: 'adverse_effect' }),
-    entry('chamomile', 'null', { sourceId: 'src_pubmed-31006899', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
-    entry('kava', 'safety', { sourceId: 'src_cochrane-cd003383', claimType: 'safety_risk', topicType: 'condition_caution' }),
-    entry('kava', 'conflict', { sourceId: 'src_cochrane-cd003383', claimType: 'evidence_conflict', topicType: 'conflict_note' }),
+    entry('matricaria-chamomilla', 'safety', { sourceId: 'src_pubmed-31006899', claimType: 'safety_risk', topicType: 'adverse_effect' }),
+    entry('matricaria-chamomilla', 'null', { sourceId: 'src_pubmed-31006899', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
+    entry('piper-methysticum', 'safety', { sourceId: 'src_cochrane-cd003383', claimType: 'safety_risk', topicType: 'condition_caution' }),
+    entry('piper-methysticum', 'conflict', { sourceId: 'src_cochrane-cd003383', claimType: 'evidence_conflict', topicType: 'conflict_note' }),
     entry('cannabidiol', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'medication_class_caution', evidenceClass: 'regulatory-monograph' }),
     entry('cannabidiol', 'gap', { sourceId: 'src_pubmed-40622698', claimType: 'research_gap', topicType: 'research_gap' }),
     entry('luteolin', 'null', { sourceId: 'src_pubmed-29801717', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use', evidenceClass: 'preclinical-mechanistic' }),
@@ -67,23 +68,23 @@ test('real normalized-entry schema rejects an invalid enum value', () => {
 
 test('inactive evidence cannot satisfy a required canary', () => {
   const entries = completeEntries()
-  const chamomileSafety = entries.find(row => row.entitySlug === 'chamomile' && row.claimType === 'safety_risk')
+  const chamomileSafety = entries.find(row => row.entitySlug === 'matricaria-chamomilla' && row.claimType === 'safety_risk')
   chamomileSafety.active = false
   const registry = entries.map(row => ({ sourceId: row.sourceId }))
   const result = verifyCanaries(entries, registry)
   assert.equal(result.pass, false)
-  assert.ok(result.blockers.includes('chamomile:anchor_requirement_failed:safety_visibility'))
+  assert.ok(result.blockers.includes('matricaria-chamomilla:anchor_requirement_failed:safety_visibility'))
   assert.equal(result.excludedEntryCount, 1)
 })
 
 test('unapproved evidence cannot satisfy a required canary', () => {
   const entries = completeEntries()
-  const kavaNull = entries.find(row => row.entitySlug === 'kava' && row.claimType === 'efficacy_null_or_mixed')
+  const kavaNull = entries.find(row => row.entitySlug === 'piper-methysticum' && row.claimType === 'efficacy_null_or_mixed')
   kavaNull.editorialStatus = 'needs_review'
   const registry = entries.map(row => ({ sourceId: row.sourceId }))
   const result = verifyCanaries(entries, registry)
   assert.equal(result.pass, false)
-  assert.ok(result.blockers.includes('kava:anchor_requirement_failed:null_visibility'))
+  assert.ok(result.blockers.includes('piper-methysticum:anchor_requirement_failed:null_visibility'))
   assert.equal(result.excludedEntryCount, 1)
 })
 
