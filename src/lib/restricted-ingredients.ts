@@ -71,13 +71,20 @@ function flagEnabled(value: unknown) {
   return /^(true|yes|y|1|blocked|restricted)$/i.test(normalized)
 }
 
+function containsNormalizedTerm(value: string, term: string) {
+  return value === term
+    || value.startsWith(`${term} `)
+    || value.endsWith(` ${term}`)
+    || value.includes(` ${term} `)
+}
+
 export function isRestrictedIngredient(value: unknown) {
   const normalized = normalize(value)
   if (!normalized) return false
 
   return RESTRICTED_TERMS.some((term) => {
     const normalizedTerm = normalize(term)
-    return normalized === normalizedTerm || normalized.includes(normalizedTerm)
+    return Boolean(normalizedTerm) && containsNormalizedTerm(normalized, normalizedTerm)
   })
 }
 
@@ -107,6 +114,11 @@ export function isRestrictedRecord(record: any) {
 
   if (RESTRICTED_STATUS_PATTERNS.some((pattern) => pattern.test(governanceStatus))) return true
 
+  // Classify a runtime record from identity/composition/commercial-target fields,
+  // not from general educational prose. A benign herb or compound may mention a
+  // restricted ingredient in an interaction, comparison, safety note, or research
+  // summary; that context must not silently turn the benign entity itself into a
+  // restricted monetization target.
   return [
     record.slug,
     record.title,
@@ -125,9 +137,6 @@ export function isRestrictedRecord(record: any) {
     record.affiliate_url,
     record.affiliateUrl,
     record.product_url,
-    record.summary,
-    record.description,
-    record.safety,
     record.active_constituents,
     record.compound_profile,
   ].some(isRestrictedIngredient)
@@ -168,8 +177,13 @@ export function goalContainsRestrictedIngredient(
 ) {
   if (!goal) return false
 
+  // Goal copy is itself the user-facing target description, so a restricted term
+  // there remains a blocking signal even though generic runtime educational prose
+  // is intentionally excluded from isRestrictedRecord().
+  if (isRestrictedIngredient(goal.description)) return true
+
   const goalRecords = [
-    { slug: goal.slug, name: goal.title, description: goal.description },
+    { slug: goal.slug, name: goal.title },
     ...(goal.quickPicks ?? []).map((pick) => ({
       slug: pick.slug,
       name: pick.option ?? pick.name,
