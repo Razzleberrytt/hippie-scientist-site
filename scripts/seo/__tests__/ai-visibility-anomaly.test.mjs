@@ -1,5 +1,4 @@
-import assert from 'node:assert/strict'
-import test from 'node:test'
+import { expect, test } from 'vitest'
 
 import {
   anomalyForDate,
@@ -8,11 +7,11 @@ import {
 } from '../ai-visibility-anomaly.mjs'
 
 test('marks only Aug 13-17, 2026 as the known corrupted AI reporting window', () => {
-  assert.equal(isCorruptedAiVisibilityDate('2026-08-12'), false)
-  assert.equal(isCorruptedAiVisibilityDate('2026-08-13'), true)
-  assert.equal(isCorruptedAiVisibilityDate('2026-08-17T12:00:00Z'), true)
-  assert.equal(isCorruptedAiVisibilityDate('2026-08-18'), false)
-  assert.equal(anomalyForDate('not-a-date'), null)
+  expect(isCorruptedAiVisibilityDate('2026-08-12')).toBe(false)
+  expect(isCorruptedAiVisibilityDate('2026-08-13')).toBe(true)
+  expect(isCorruptedAiVisibilityDate('2026-08-17T12:00:00Z')).toBe(true)
+  expect(isCorruptedAiVisibilityDate('2026-08-18')).toBe(false)
+  expect(anomalyForDate('not-a-date')).toBeNull()
 })
 
 test('partitions dated rows without dropping undated aggregates', () => {
@@ -24,7 +23,7 @@ test('partitions dated rows without dropping undated aggregates', () => {
   ]
   const result = partitionDatedRows(rows, row => row.date)
 
-  assert.deepEqual(result.excluded.map(row => row.value), [2])
-  assert.deepEqual(result.undated.map(row => row.value), [3])
-  assert.deepEqual(result.clean.map(row => row.value), [1, 3, 4])
+  expect(result.excluded.map(row => row.value)).toEqual([2])
+  expect(result.undated.map(row => row.value)).toEqual([3])
+  expect(result.clean.map(row => row.value)).toEqual([1, 3, 4])
 })
