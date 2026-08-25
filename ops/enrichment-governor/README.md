@@ -36,8 +36,9 @@ node scripts/enrichment-governor/control.mjs lease-acquire \
   --entities=herb:ashwagandha,compound:magnesium \
   --files=data-sources/workbook-patches/round-10.json
 
+# Release only the lease owned by this agent. Missing or mismatched owners are denied and audited.
 node scripts/enrichment-governor/control.mjs lease-release \
-  --id=lease-round-10 --disposition=completed
+  --id=lease-round-10 --owner=enrichment-agent --disposition=completed
 
 # Queue useful work or record outcome metrics/blockers
 node scripts/enrichment-governor/control.mjs queue-add --key=herb:ashwagandha:safety --kind=safety --score=92
@@ -70,7 +71,7 @@ The score considers evidence-gap severity, page importance, evidence quality, fr
 Run:
 
 ```bash
-node --test scripts/enrichment-governor/__tests__/governor.test.mjs
+node --test scripts/enrichment-governor/__tests__/governor.test.mjs scripts/enrichment-governor/__tests__/control-release.test.mjs
 node scripts/enrichment-governor/governor.mjs benchmark
 node scripts/enrichment-governor/governor.mjs verify-state
 node scripts/enrichment-governor/governor.mjs scan

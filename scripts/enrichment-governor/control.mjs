@@ -29,6 +29,24 @@ function event(eventName, details = {}) {
   appendJsonl(statePath('ledger.jsonl'), { event: eventName, at: nowIso(), ...details })
 }
 
+export function authorizeLeaseRelease(queue, { id, owner } = {}) {
+  if (!id) return { ok: false, reason: 'lease-release requires --id', code: 'missing_id' }
+  if (!owner) return { ok: false, reason: 'lease-release requires --owner', code: 'missing_owner' }
+
+  const existing = (queue.leases || []).find(lease => lease.id === id)
+  if (!existing) return { ok: true, released: false, lease: null }
+  if (existing.owner !== owner) {
+    return {
+      ok: false,
+      reason: `lease ${id} is owned by ${existing.owner}; release requested by ${owner}`,
+      code: 'owner_mismatch',
+      lease: existing,
+    }
+  }
+
+  return { ok: true, released: true, lease: existing }
+}
+
 function acquire(args) {
   return withWriterLock(() => {
     const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
@@ -53,13 +71,38 @@ function acquire(args) {
 
 function release(args) {
   return withWriterLock(() => {
-    if (!args.id) throw new Error('lease-release requires --id')
     const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
-    const existing = (queue.leases || []).find(lease => lease.id === args.id)
+    const decision = authorizeLeaseRelease(queue, { id: args.id, owner: args.owner })
+
+    if (!decision.ok) {
+      event('lease_release_denied', {
+        leaseId: args.id || null,
+        requestedOwner: args.owner || null,
+        actualOwner: decision.lease?.owner || null,
+        reason: decision.code,
+      })
+      return decision
+    }
+
+    if (!decision.released) {
+      event('lease_released', {
+        leaseId: args.id,
+        owner: args.owner,
+        existed: false,
+        disposition: args.disposition || 'completed',
+      })
+      return { ok: true, released: false, leaseId: args.id }
+    }
+
     const leases = (queue.leases || []).filter(lease => lease.id !== args.id)
     atomicJson(statePath('work-queue.json'), { ...queue, leases, updatedAt: nowIso() })
-    event('lease_released', { leaseId: args.id, existed: Boolean(existing), disposition: args.disposition || 'completed' })
-    return { ok: true, released: Boolean(existing), leaseId: args.id }
+    event('lease_released', {
+      leaseId: args.id,
+      owner: args.owner,
+      existed: true,
+      disposition: args.disposition || 'completed',
+    })
+    return { ok: true, released: true, leaseId: args.id }
   })
 }
 
