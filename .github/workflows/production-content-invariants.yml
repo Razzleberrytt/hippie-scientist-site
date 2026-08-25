@@ -125,6 +125,7 @@ jobs:
             reports/production-invariant-enforcement.json
             reports/production-content-invariants.json
             reports/production-visible-language.json
+            reports/profile-publication-truth.json
           if-no-files-found: warn
           retention-days: 30
 
