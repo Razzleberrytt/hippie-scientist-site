@@ -49,6 +49,9 @@ jobs:
       - name: Measure August spam-update cohorts
         run: node scripts/seo/post-spam-cohort-monitor.mjs
 
+      - name: Run anomaly-safe AI citation analytics
+        run: node scripts/seo/run-ai-citation-analytics.mjs
+
       - name: Upload opportunity and cohort reports
         if: always()
         uses: actions/upload-artifact@v7
@@ -59,6 +62,10 @@ jobs:
             ops/reports/search-opportunities.md
             ops/reports/post-spam-cohorts.json
             ops/reports/post-spam-cohorts.md
+            ops/reports/ai-visibility-anomaly.json
+            ops/reports/ai-visibility-anomaly.md
+            ops/reports/ai-citations.json
+            ops/reports/ai-citations.md
             data-sources/search-console/fetch-metadata.json
             data-sources/search-console/pages-by-date.csv
           retention-days: 60
@@ -81,4 +88,8 @@ jobs:
             cat ops/reports/post-spam-cohorts.md >> "$GITHUB_STEP_SUMMARY"
           else
             echo "- Post-spam cohort report was not generated; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f ops/reports/ai-visibility-anomaly.md ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat ops/reports/ai-visibility-anomaly.md >> "$GITHUB_STEP_SUMMARY"
           fi
