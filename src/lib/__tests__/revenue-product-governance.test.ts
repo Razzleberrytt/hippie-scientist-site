@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { revenueProductSets } from '../../../config/revenue-products'
+import { getRevenueProductSet, revenueProductSets } from '../../../config/revenue-products'
 import { canRenderAffiliateLinks } from '../affiliate'
 import { getCompounds, getHerbs } from '../runtime-data'
 import { isRestrictedIngredient } from '../restricted-ingredients'
@@ -9,9 +9,17 @@ const REVENUE_SLUG_ALIASES: Record<string, string> = {
 }
 
 describe('revenue product governance', () => {
-  it('never configures product picks for an explicitly restricted ingredient slug', () => {
-    const restricted = Object.keys(revenueProductSets).filter((slug) => isRestrictedIngredient(slug))
-    expect(restricted).toEqual([])
+  it('never exposes or monetizes an explicitly restricted configured ingredient', () => {
+    const restricted = Object.entries(revenueProductSets)
+      .filter(([slug]) => isRestrictedIngredient(slug))
+
+    for (const [slug, productSet] of restricted) {
+      expect(getRevenueProductSet(slug), `${slug} must be blocked by the public lookup`).toBeNull()
+      expect(
+        productSet.products.some((product) => Boolean(product.affiliateUrl)),
+        `${slug} must not retain an affiliate destination even if dormant config exists`,
+      ).toBe(false)
+    }
   })
 
   it('does not contradict runtime monetization policy for product sets that map to live records', async () => {
