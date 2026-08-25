@@ -44,14 +44,14 @@ export const protocolSlugs = [
   'stress-regulation',
 ]
 
-import { SEO_GUIDE_ROUTES } from '../src/lib/canonical-routes'
+import { GOAL_ROUTES, SEO_GUIDE_ROUTES } from '../src/lib/canonical-routes'
 
 export const authorityHomeLinks = [
-  { href: '/guides/anxiety', label: 'Stress Goal Hub' },
-  { href: '/guides/sleep', label: 'Sleep Goal Hub' },
+  { href: GOAL_ROUTES.stress, label: 'Stress Goal Hub' },
+  { href: GOAL_ROUTES.sleep, label: 'Sleep Goal Hub' },
   { href: SEO_GUIDE_ROUTES.sleep, label: 'Best Supplements for Sleep' },
   { href: SEO_GUIDE_ROUTES.focus, label: 'Best Supplements for Focus' },
-  { href: '/guides/compare/rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha' },
-  { href: '/guides/sleep/sleep-stack-guide', label: 'Sleep Recovery Stack' },
-  { href: '/info/methodology', label: 'Safety Basics' },
+  { href: '/guides/compare/rhodiola-vs-ashwagandha/', label: 'Rhodiola vs Ashwagandha' },
+  { href: '/guides/sleep/sleep-stack-guide/', label: 'Sleep Recovery Stack' },
+  { href: '/info/methodology/', label: 'Safety Basics' },
 ]
