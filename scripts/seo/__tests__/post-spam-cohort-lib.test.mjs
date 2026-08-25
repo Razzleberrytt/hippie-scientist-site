@@ -1,5 +1,4 @@
-import assert from 'node:assert/strict'
-import test from 'node:test'
+import { expect, test } from 'vitest'
 
 import {
   authorityProfileSignals,
@@ -28,13 +27,13 @@ function governed(overrides = {}) {
 }
 
 test('uses the requested August measurement windows', () => {
-  assert.equal(periodForDate('2026-08-04'), 'baseline')
-  assert.equal(periodForDate('2026-08-12'), 'baseline')
-  assert.equal(periodForDate('2026-08-13'), 'corrupted')
-  assert.equal(periodForDate('2026-08-17'), 'corrupted')
-  assert.equal(periodForDate('2026-08-18'), 'rollout')
-  assert.equal(periodForDate('2026-08-21'), 'rollout')
-  assert.equal(periodForDate('2026-08-22'), 'post')
+  expect(periodForDate('2026-08-04')).toBe('baseline')
+  expect(periodForDate('2026-08-12')).toBe('baseline')
+  expect(periodForDate('2026-08-13')).toBe('corrupted')
+  expect(periodForDate('2026-08-17')).toBe('corrupted')
+  expect(periodForDate('2026-08-18')).toBe('rollout')
+  expect(periodForDate('2026-08-21')).toBe('rollout')
+  expect(periodForDate('2026-08-22')).toBe('post')
 })
 
 test('separates authority, enriched, weak, editorial, research, and translated cohorts', () => {
@@ -43,11 +42,11 @@ test('separates authority, enriched, weak, editorial, research, and translated c
     ['herb:enriched', governed({ sourceRegistryIds: ['s1'] })],
   ])
 
-  assert.equal(authorityProfileSignals(map.get('herb:authority')).authority, true)
-  assert.equal(classifyCohort('/herbs/authority/', map), 'A')
-  assert.equal(classifyCohort('/herbs/enriched/', map), 'B')
-  assert.equal(classifyCohort('/herbs/weak/', map), 'C')
-  assert.equal(classifyCohort('/guides/herbs/ashwagandha/', map), 'D')
-  assert.equal(classifyCohort('/research/evidence-grading/', map), 'E')
-  assert.equal(classifyCohort('/es/herbs/ashwagandha/', map), 'F')
+  expect(authorityProfileSignals(map.get('herb:authority')).authority).toBe(true)
+  expect(classifyCohort('/herbs/authority/', map)).toBe('A')
+  expect(classifyCohort('/herbs/enriched/', map)).toBe('B')
+  expect(classifyCohort('/herbs/weak/', map)).toBe('C')
+  expect(classifyCohort('/guides/herbs/ashwagandha/', map)).toBe('D')
+  expect(classifyCohort('/research/evidence-grading/', map)).toBe('E')
+  expect(classifyCohort('/es/herbs/ashwagandha/', map)).toBe('F')
 })
