@@ -42,7 +42,7 @@ test('baseline registry preserves current and historical identities without conf
   const baseline = readJson('data-sources/enrichment-source-registry-baseline.json')
   const registryById = new Map(registry.map(row => [row.sourceId, row]))
 
-  assert.equal(baseline.length, 8)
+  assert.equal(baseline.length, 9)
   const historical = registryById.get('src_fda-epidiolex-label-2021')
   assert.ok(historical)
   assert.equal(historical.active, false)
@@ -53,6 +53,13 @@ test('baseline registry preserves current and historical identities without conf
   assert.equal(current.active, true)
   assert.equal(current.publicationStatus, 'published')
   assert.equal(current.monographId, 'SPL-8bf27097-4870-43fb-94f0-f3d0871d1eec-20260529')
+
+  const kavaSafety = registryById.get('src_pubmed-23348842')
+  assert.ok(kavaSafety)
+  assert.equal(kavaSafety.active, true)
+  assert.equal(kavaSafety.publicationStatus, 'published')
+  assert.equal(kavaSafety.pmid, '23348842')
+  assert.equal(kavaSafety.doi, '10.1002/ptr.4916')
 
   for (const expected of baseline) {
     const actual = registryById.get(expected.sourceId)
@@ -89,6 +96,36 @@ test('active CBD claims do not use the superseded 2021 EPIDIOLEX label', () => {
   assert.equal(cbd.find(row => row.enrichmentId === 'enr_cbd-medication-class-caution-cns-depressants')?.sourceId, 'src_fda-epidiolex-label-2026')
   assert.equal(cbd.find(row => row.enrichmentId === 'enr_cbd-enzyme-cyp2c19')?.sourceId, 'src_fda-epidiolex-label-2026')
   assert.equal(cbd.find(row => row.enrichmentId === 'enr_cbd-research-gap-non-epilepsy')?.sourceId, 'src_pubmed-36271316')
+})
+
+test('Kava liver safety does not borrow the anxiety review for publishable claims', () => {
+  const entries = readJsonl('public/data/enrichment-normalized.jsonl')
+  const historicalConflict = entries.find(row => row.enrichmentId === 'enr_kava-conflict-hepatotoxicity-note')
+  const historicalCaution = entries.find(row => row.enrichmentId === 'enr_kava-condition-caution-liver-disease')
+  const trialSafety = entries.find(row => row.enrichmentId === 'enr_kava-short-term-liver-tolerability-rct')
+
+  assert.equal(historicalConflict?.active, false)
+  assert.equal(historicalConflict?.editorialStatus, 'deprecated')
+  assert.equal(historicalCaution?.active, false)
+  assert.equal(historicalCaution?.editorialStatus, 'deprecated')
+  assert.equal(trialSafety?.active, true)
+  assert.equal(trialSafety?.editorialStatus, 'approved')
+  assert.equal(trialSafety?.sourceId, 'src_pubmed-23348842')
+  assert.equal(trialSafety?.targetName, 'adults with generalized anxiety disorder')
+  assert.match(trialSafety?.uncertaintyNote || '', /does not establish long-term safety/i)
+  assert.match(trialSafety?.uncertaintyNote || '', /pre-existing liver disease/i)
+})
+
+test('CBD liver-enzyme trial remains scoped to the healthy-adult study population', () => {
+  const entries = readJsonl('public/data/enrichment-normalized.jsonl')
+  const cbdLiver = entries.find(row => row.enrichmentId === 'enr_cbd-adverse-effect-transaminase')
+
+  assert.equal(cbdLiver?.sourceId, 'src_pubmed-40622698')
+  assert.equal(cbdLiver?.targetName, 'healthy adults')
+  assert.match(cbdLiver?.populationContext || '', /healthy adults/i)
+  assert.match(cbdLiver?.usageContext || '', /5 mg\/kg\/day/i)
+  assert.match(cbdLiver?.uncertaintyNote || '', /Do not transfer this risk estimate/i)
+  assert.doesNotMatch(cbdLiver?.targetName || '', /hepatic risk/i)
 })
 
 test('bootstrap writes missing baseline sources, passes check mode, and rejects identity conflicts', () => {
