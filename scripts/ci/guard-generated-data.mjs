@@ -73,6 +73,9 @@ const SOURCE_PATHS = [
   'app/',
 ]
 
+// Canonical governed-enrichment inputs live in public/data because this subsystem
+// predates the workbook-only runtime build. They are intentionally exact-file
+// exceptions; no other public/data artifact inherits their source status.
 const CANONICAL_PUBLIC_DATA_SOURCES = new Set([
   'public/data/source-registry.json',
 ])
