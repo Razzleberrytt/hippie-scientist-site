@@ -17,6 +17,15 @@ const canonical = {
   luteolin: { entityType: 'compound', entitySlug: 'luteolin' },
 }
 
+const retiredSourceDebt = [
+  'src_cochrane-cd003383',
+  'src_fda-epidiolex-label-2021',
+  'src_pubmed-29801717',
+  'src_pubmed-31006899',
+  'src_pubmed-31517876',
+  'src_pubmed-40622698',
+]
+
 function entry(anchor, suffix, overrides = {}) {
   const identity = canonical[anchor]
   return {
@@ -117,33 +126,37 @@ test('canonical entity identities satisfy stable display anchors', () => {
   ])
 })
 
-test('known baseline debt remains visible without being mislabeled as clean', () => {
+test('remaining allowed baseline debt is limited to coverage dimensions', () => {
   const entries = baselineDebtEntries()
-  const result = verifyCanaries(entries, [])
+  const result = verifyCanaries(entries, registryFor(entries))
   assert.equal(result.pass, true, JSON.stringify(result, null, 2))
   assert.equal(result.idealPass, false)
   assert.equal(result.status, 'PASS_WITH_BASELINE_DEBT')
-  assert.deepEqual(result.debt.unresolvedSourceIds, [
-    'src_cochrane-cd003383',
-    'src_fda-epidiolex-label-2021',
-    'src_pubmed-29801717',
-    'src_pubmed-31006899',
-    'src_pubmed-31517876',
-    'src_pubmed-40622698',
-  ])
+  assert.deepEqual(result.debt.unresolvedSourceIds, [])
   assert.deepEqual(result.debt.missingNullVisibilityAnchors, ['ashwagandha'])
   assert.deepEqual(result.debt.missingSafetyVisibilityAnchors, ['luteolin'])
   assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, [])
 })
 
-test('registered but superseded or inactive evidence remains unresolved publication debt', () => {
+test('retired legacy unresolved sources now block instead of remaining allowlisted', () => {
+  const result = verifyCanaries(baselineDebtEntries(), [])
+  assert.equal(result.pass, false)
+  assert.deepEqual(result.debt.unresolvedSourceIds, retiredSourceDebt)
+  assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, retiredSourceDebt)
+  for (const sourceId of retiredSourceDebt) {
+    assert.ok(result.blockers.includes(`new_provenance_debt:unresolved_source:${sourceId}`))
+  }
+})
+
+test('registered but superseded or inactive evidence remains unresolved publication debt and blocks', () => {
   const entries = baselineDebtEntries()
   const registry = registryFor(entries).map(row => row.sourceId === 'src_fda-epidiolex-label-2021'
     ? { ...row, active: false, publicationStatus: 'superseded' }
     : row)
   const result = verifyCanaries(entries, registry)
-  assert.equal(result.pass, true, JSON.stringify(result, null, 2))
+  assert.equal(result.pass, false)
   assert.deepEqual(result.debt.unresolvedSourceIds, ['src_fda-epidiolex-label-2021'])
+  assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, ['src_fda-epidiolex-label-2021'])
 })
 
 test('ashwagandha safety canary stays on the ashwagandha RCT and rejects the CBD label', () => {
@@ -152,15 +165,17 @@ test('ashwagandha safety canary stays on the ashwagandha RCT and rejects the CBD
   assert.equal(safety.sourceId, 'src_pubmed-31517876')
 
   safety.sourceId = 'src_fda-epidiolex-label-2021'
-  const result = verifyCanaries(entries, [])
+  const result = verifyCanaries(entries, registryFor(entries))
   assert.equal(result.pass, false, JSON.stringify(result, null, 2))
   assert.ok(result.blockers.some(value => value.includes('ashwagandha') && value.includes('provenance')))
 })
 
-test('canary ratchet blocks a new unresolved source even when total debt count does not grow', () => {
-  const entries = baselineDebtEntries().map(row => row.sourceId === 'src_pubmed-31517876' ? { ...row, sourceId: 'src_new-source' } : row)
-  const result = verifyCanaries(entries, [])
-  assert.equal(result.debt.unresolvedSourceIds.length, 6)
+test('canary ratchet blocks one newly unresolved source immediately', () => {
+  const entries = completeEntries()
+  const registry = registryFor(entries)
+  entries.find(row => row.entitySlug === 'ashwagandha').sourceId = 'src_new-source'
+  const result = verifyCanaries(entries, registry)
+  assert.deepEqual(result.debt.unresolvedSourceIds, ['src_new-source'])
   assert.equal(result.pass, false)
   assert.ok(result.blockers.includes('new_provenance_debt:unresolved_source:src_new-source'))
 })
