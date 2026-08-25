@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 /**
- * Guard against direct edits to generated public/data artifacts without a
- * recognized source/build change. Governed enrichment has one narrow explicit
- * exception: enrichment-normalized.jsonl + source-registry.json are canonical
- * inputs for enrichment-governed.json. Unrelated public/data outputs remain
- * protected.
+ * Guard generated public/data artifacts against direct edits without a
+ * recognized source/build change.
  *
- * Usage:
- *   node scripts/ci/guard-generated-data.mjs
- *   node scripts/ci/guard-generated-data.mjs --self-test
+ * Governed enrichment has one narrow explicit source/output relationship:
+ * - source: public/data/enrichment-normalized.jsonl
+ * - source: public/data/source-registry.json
+ * - generated: public/data/enrichment-governed.json
  *
- * Exit 0 = no suspicious generated-data edits detected.
+ * Unrelated public/data outputs remain protected.
  */
 
 import { execSync, spawnSync } from 'node:child_process'
@@ -73,6 +71,7 @@ function getBaseRef() {
     }
     return baseRef
   }
+
   try {
     execSync('git rev-parse --verify origin/main', { stdio: 'ignore' })
     return 'origin/main'
@@ -119,6 +118,7 @@ function getChangedFiles(base) {
       // ignore
     }
   }
+
   if (files.size === 0) {
     try {
       const out = execSync('git diff --name-only --diff-filter=ACMR HEAD~1 HEAD', {
@@ -141,38 +141,40 @@ function getChangedFiles(base) {
       stdio: ['ignore', 'pipe', 'ignore'],
     })
     statusOut.split('\n').map((s) => s.trim()).filter(Boolean).forEach(line => {
-      const m = line.match(/^\s*([AMDR?]+)\s+(.+)$/)
-      if (!m) return
-      const status = m[1].trim()
-      const file = m[2]
+      const match = line.match(/^\s*([AMDR?]+)\s+(.+)$/)
+      if (!match) return
+      const status = match[1].trim()
+      const file = match[2]
       if (status.includes('M')) {
-        const res = spawnSync('git', ['diff', '--quiet', '--', file], { cwd: REPO_ROOT })
-        if (res.status === 0) return
+        const result = spawnSync('git', ['diff', '--quiet', '--', file], { cwd: REPO_ROOT })
+        if (result.status === 0) return
       }
       files.add(file)
     })
   } catch {
     // ignore
   }
+
   return Array.from(files)
 }
 
 function hasPrefixInList(files, prefixes) {
-  return files.some((f) => prefixes.some((p) => f === p || f.startsWith(p)))
+  return files.some((file) => prefixes.some((prefix) => file === prefix || file.startsWith(prefix)))
 }
 
 export function classifyGeneratedDataGuard(changed) {
   const dataFiles = changed.filter(
-    (f) =>
-      f.startsWith('public/data/') &&
-      (f.endsWith('.json') || f.endsWith('.json.gz')) &&
-      !PIPELINE_GENERATED_FILES.has(f) &&
-      !CANONICAL_PUBLIC_DATA_SOURCES.has(f)
+    (file) =>
+      file.startsWith('public/data/') &&
+      (file.endsWith('.json') || file.endsWith('.json.gz')) &&
+      !PIPELINE_GENERATED_FILES.has(file) &&
+      !CANONICAL_PUBLIC_DATA_SOURCES.has(file)
   )
-  const governedOutputs = dataFiles.filter((f) => GOVERNED_ENRICHMENT_OUTPUT_FILES.has(f))
-  const ordinaryOutputs = dataFiles.filter((f) => !GOVERNED_ENRICHMENT_OUTPUT_FILES.has(f))
+
+  const governedOutputs = dataFiles.filter((file) => GOVERNED_ENRICHMENT_OUTPUT_FILES.has(file))
+  const ordinaryOutputs = dataFiles.filter((file) => !GOVERNED_ENRICHMENT_OUTPUT_FILES.has(file))
   const ordinarySourceTouched = hasPrefixInList(changed, SOURCE_PATHS)
-  const governedSourceTouched = changed.some((f) => GOVERNED_ENRICHMENT_SOURCE_FILES.has(f))
+  const governedSourceTouched = changed.some((file) => GOVERNED_ENRICHMENT_SOURCE_FILES.has(file))
 
   return {
     dataFiles,
@@ -225,13 +227,7 @@ function main() {
       ...(blockedGoverned ? governedOutputs : []),
     ]
     console.error('[guard-generated-data] BLOCKED: generated data changed without its recognized source/build change.')
-    blockedFiles.forEach((f) => console.error(`  - ${f}`))
-    if (blockedGoverned) {
-      console.error('Regenerate enrichment-governed.json only after changing the normalized enrichment ledger and/or source registry.')
-    }
-    if (blockedOrdinary) {
-      console.error('Use the canonical workbook or a recognized build-source path for ordinary generated data changes.')
-    }
+    blockedFiles.forEach((file) => console.error(`  - ${file}`))
     process.exit(1)
   }
 
