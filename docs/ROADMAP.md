@@ -8,7 +8,7 @@
 
 | Milestone | Status | Current constraint |
 |---|---|---|
-| M0 — Project Control Reset | In progress | Measurement and generated-publication truth are not yet verified end to end |
+| M0 — Project Control Reset | In progress | Production measurement remains unverified; schema identity and other scoped release-gate work remain |
 | M1 — Revenue Foundation | Not started | Requires M0 measurement visibility and quality-gate triage |
 | M2 — First Proven Organic Revenue Loop | Blocked | No GSC/GA4/affiliate revenue baseline is available |
 | M3 — Repeatable Decision-Page Engine | Not started | Requires one measured, evidence-safe flagship result |
@@ -20,7 +20,7 @@
 
 **Objective:** Establish one operational truth, a small queue, trustworthy validation, and observable growth metrics.
 
-**Success criteria:** Control documents are authoritative; no more than three workstreams are active; current release failures have scoped owners; production analytics/event configuration is verified or explicitly blocked; a reproducible post-build publication manifest matches sitemap/robots behavior.
+**Success criteria:** Control documents are authoritative; no more than three workstreams are active; current release failures have scoped owners; production analytics/event configuration is verified or explicitly blocked; a reproducible post-build publication report matches sitemap/robots behavior. The publication-parity condition was verified by SEO-001 in PR #4262.
 
 **Major deliverables:** charter, current state, roadmap, sprint, backlog, decisions, docs index, scoreboard, AGENTS rules, CI triage, measurement smoke test, publication-parity audit.
 

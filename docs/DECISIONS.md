@@ -32,7 +32,7 @@
 
 **Alternatives considered:** Replace the workbook pipeline or edit all JSON directly. Rejected because the pipeline is working and entrenched; observability should be repaired first.
 
-**Consequences:** Generated changes require validation and a production build. Stale `publication-index.json` and empty `source-registry.json` cannot be treated as current truth. **Status:** Accepted; parity work pending SEO-001.
+**Consequences:** Generated changes require validation and a production build. Stale `publication-index.json` and empty `source-registry.json` cannot be treated as current truth. **Status:** Accepted; implemented by SEO-001 in PR #4262, with the final report remaining verification evidence rather than a publication input.
 
 ## 2026-08-21 — Generated-content rules
 
