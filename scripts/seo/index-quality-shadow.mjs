@@ -3,11 +3,12 @@
  * Read-only shadow gate for published herb/compound profile quality.
  *
  * This script does not change robots, sitemap, publication decisions, or runtime
- * data. It identifies profiles that currently publish but show multiple signals
- * of low differentiated value, so enrichment can prioritize them before any
- * future publication-gate change is considered.
+ * data. It identifies profiles that actually ship as published but show multiple
+ * signals of low differentiated value, so enrichment can prioritize them before
+ * any future publication-gate change is considered.
  *
  * Usage:
+ *   npm run build && npm run audit:profile-publication
  *   node scripts/seo/index-quality-shadow.mjs
  *   node scripts/seo/index-quality-shadow.mjs --json
  */
@@ -21,6 +22,7 @@ const ROOT = path.resolve(path.dirname(__filename), '..', '..')
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const JSON_OUT = path.join(REPORTS_DIR, 'index-quality-shadow.json')
 const MD_OUT = path.join(REPORTS_DIR, 'index-quality-shadow.md')
+const PUBLICATION_TRUTH = path.join(ROOT, 'reports', 'profile-publication-truth.json')
 
 const PUBLISHED = new Set(['PUBLISH'])
 const WEAK_PROFILE = /^(partial|moderate|minimal|research_only)$/i
@@ -69,6 +71,30 @@ function loadProfiles() {
     }
   }
   return rows
+}
+
+function loadFinalPublishedKeys() {
+  const truth = loadJson(PUBLICATION_TRUTH)
+  if (!truth || !Array.isArray(truth.profiles)) {
+    throw new Error(
+      '[index-quality-shadow] missing reports/profile-publication-truth.json; run the production build and npm run audit:profile-publication first',
+    )
+  }
+
+  return new Set(
+    truth.profiles
+      .filter(
+        (row) =>
+          row &&
+          row.slug &&
+          row.kind &&
+          row.publicationReason === 'published' &&
+          row.sitemapEligible === true &&
+          row.sitemapIncluded === true &&
+          row.emittedNoindex === false,
+      )
+      .map((row) => `${row.kind}:${row.slug}`),
+  )
 }
 
 export function scoreShadowQuality(record) {
@@ -164,6 +190,7 @@ function renderMarkdown(report) {
     `Generated: ${report.generatedAt}`,
     '',
     'This report is observation-only. It does **not** change robots, sitemap inclusion, or publication decisions.',
+    `Publication truth: ${report.publicationTruth}`,
     '',
     `- Published profiles evaluated: ${report.summary.published}`,
     `- PASS: ${report.summary.pass}`,
@@ -182,10 +209,11 @@ function renderMarkdown(report) {
   return lines.join('\n')
 }
 
-export function buildShadowReport(profiles, generatedAt = new Date().toISOString()) {
-  const published = profiles
-    .map(scoreShadowQuality)
-    .filter((row) => PUBLISHED.has(row.indexabilityStatus) && row.robots !== 'noindex,nofollow' && row.sitemapIncluded)
+export function buildShadowReport(profiles, generatedAt = new Date().toISOString(), finalPublishedKeys = null) {
+  const scored = profiles.map(scoreShadowQuality)
+  const published = finalPublishedKeys
+    ? scored.filter((row) => finalPublishedKeys.has(`${row.kind}:${row.slug}`))
+    : scored.filter((row) => PUBLISHED.has(row.indexabilityStatus) && row.robots !== 'noindex,nofollow' && row.sitemapIncluded)
 
   const failures = published
     .filter((row) => row.shadow === 'FAIL_SHADOW')
@@ -197,6 +225,7 @@ export function buildShadowReport(profiles, generatedAt = new Date().toISOString
     generatedAt,
     mode: 'shadow-only',
     publicationMutation: false,
+    publicationTruth: finalPublishedKeys ? 'reports/profile-publication-truth.json' : 'provisional-record-flags',
     summary: {
       published: published.length,
       pass: pass.length,
@@ -209,7 +238,8 @@ export function buildShadowReport(profiles, generatedAt = new Date().toISOString
 }
 
 function main() {
-  const report = buildShadowReport(loadProfiles())
+  const finalPublishedKeys = loadFinalPublishedKeys()
+  const report = buildShadowReport(loadProfiles(), new Date().toISOString(), finalPublishedKeys)
   mkdirSync(REPORTS_DIR, { recursive: true })
   writeFileSync(JSON_OUT, `${JSON.stringify(report, null, 2)}\n`)
   writeFileSync(MD_OUT, renderMarkdown(report))
