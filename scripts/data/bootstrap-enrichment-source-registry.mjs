@@ -6,52 +6,99 @@ const ROOT = process.cwd()
 const SEED_PATH = path.join(ROOT, 'data-sources', 'enrichment-source-registry-baseline.json')
 const REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
 const CHECK_ONLY = process.argv.includes('--check')
-const UNIQUE_IDENTITY_FIELDS = ['pmid', 'doi', 'canonicalUrl', 'monographId']
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
 }
 
-function normalizeIdentityValue(field, value) {
-  if (typeof value !== 'string' || value.trim().length === 0) return null
-  const trimmed = value.trim()
-  if (field === 'pmid') return trimmed
-  if (field === 'doi') return trimmed.toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//u, '').replace(/^doi:\s*/u, '')
-  if (field === 'canonicalUrl') {
-    try {
-      const url = new URL(trimmed)
-      url.hash = ''
-      if (url.pathname.length > 1) url.pathname = url.pathname.replace(/\/+$/u, '')
-      return url.toString()
-    } catch {
-      return trimmed
-    }
-  }
-  return trimmed.toLowerCase()
+function isNonEmptyString(value) {
+  return typeof value === 'string' && value.trim().length > 0
 }
 
-function identityAnchors(row) {
-  return Object.fromEntries(UNIQUE_IDENTITY_FIELDS.map(field => [field, normalizeIdentityValue(field, row[field])]))
+function normalizeDoi(value) {
+  if (!isNonEmptyString(value)) return null
+  let normalized = value.trim().toLowerCase()
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//u, '')
+    .replace(/^doi:\s*/u, '')
+  try {
+    normalized = decodeURIComponent(normalized)
+  } catch {
+    // Preserve the original token when percent-decoding is invalid.
+  }
+  return normalized || null
+}
+
+function normalizePmid(value) {
+  if (!isNonEmptyString(value)) return null
+  return value.trim().replace(/^pmid:\s*/iu, '') || null
+}
+
+function normalizeCanonicalUrl(value) {
+  if (!isNonEmptyString(value)) return null
+  const trimmed = value.trim()
+  try {
+    const url = new URL(trimmed)
+    url.hash = ''
+    if (url.pathname.length > 1) url.pathname = url.pathname.replace(/\/+$/u, '')
+    return url.toString()
+  } catch {
+    return trimmed
+  }
+}
+
+function identityTokens(source) {
+  const tokens = new Set()
+  const pmid = normalizePmid(source?.pmid)
+  const doi = normalizeDoi(source?.doi)
+  if (pmid) tokens.add(`pmid:${pmid}`)
+  if (doi) tokens.add(`doi:${doi}`)
+
+  const canonicalUrl = normalizeCanonicalUrl(source?.canonicalUrl)
+  if (canonicalUrl) {
+    try {
+      const url = new URL(canonicalUrl)
+      const hostname = url.hostname.toLowerCase().replace(/^www\./u, '')
+      const pubmedPath = hostname === 'pubmed.ncbi.nlm.nih.gov'
+        ? url.pathname.match(/^\/(\d+)$/u)
+        : hostname === 'ncbi.nlm.nih.gov'
+          ? url.pathname.match(/^\/pubmed\/(\d+)$/u)
+          : null
+
+      if (hostname === 'doi.org') {
+        const canonicalDoi = normalizeDoi(url.pathname.replace(/^\//u, ''))
+        if (canonicalDoi) tokens.add(`doi:${canonicalDoi}`)
+      } else if (pubmedPath) {
+        tokens.add(`pmid:${pubmedPath[1]}`)
+      } else {
+        tokens.add(`url:${canonicalUrl}`)
+      }
+    } catch {
+      tokens.add(`url:${canonicalUrl}`)
+    }
+  }
+
+  if (isNonEmptyString(source?.monographId)) {
+    tokens.add(`monograph:${source.monographId.trim().toLowerCase()}`)
+  }
+  return [...tokens].sort()
 }
 
 function sameIdentity(left, right) {
-  return JSON.stringify(identityAnchors(left)) === JSON.stringify(identityAnchors(right))
+  return JSON.stringify(identityTokens(left)) === JSON.stringify(identityTokens(right))
 }
+
 
 function collectCrossIdIdentityConflicts(registryRows, seedRows) {
   const owners = new Map()
   const conflicts = []
 
   const register = (row, origin) => {
-    for (const field of UNIQUE_IDENTITY_FIELDS) {
-      const value = normalizeIdentityValue(field, row?.[field])
-      if (!value) continue
-      const key = `${field}:${value}`
-      const prior = owners.get(key)
+    for (const token of identityTokens(row)) {
+      const prior = owners.get(token)
       if (prior && prior.sourceId !== row.sourceId) {
-        conflicts.push(`${field}=${value} (${prior.sourceId} vs ${row.sourceId}; ${prior.origin} vs ${origin})`)
+        conflicts.push(`${token} (${prior.sourceId} vs ${row.sourceId}; ${prior.origin} vs ${origin})`)
       } else if (!prior) {
-        owners.set(key, { sourceId: row.sourceId, origin })
+        owners.set(token, { sourceId: row.sourceId, origin })
       }
     }
   }
