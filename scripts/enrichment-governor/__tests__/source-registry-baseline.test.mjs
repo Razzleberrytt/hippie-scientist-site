@@ -56,11 +56,25 @@ test('baseline registry preserves current and historical identities without conf
     assert.ok(actual, `missing baseline source ${expected.sourceId}`)
     assert.equal(actual.active, expected.active, `${expected.sourceId} active-state drift`)
     assert.equal(actual.publicationStatus, expected.publicationStatus, `${expected.sourceId} publication-status drift`)
+    assert.equal(actual.sourceClass, expected.sourceClass, `${expected.sourceId} source-class drift`)
+    assert.equal(actual.evidenceClass, expected.evidenceClass, `${expected.sourceId} evidence-class drift`)
     assert.equal(actual.doi || null, expected.doi || null, `${expected.sourceId} DOI identity drift`)
     assert.equal(actual.pmid || null, expected.pmid || null, `${expected.sourceId} PMID identity drift`)
     assert.equal(actual.canonicalUrl || null, expected.canonicalUrl || null, `${expected.sourceId} URL identity drift`)
     assert.equal(actual.monographId || null, expected.monographId || null, `${expected.sourceId} monograph identity drift`)
   }
+})
+
+test('current CBD provenance anchors remain pinned to verified source identities', () => {
+  const registry = readJson('public/data/source-registry.json')
+  const registryById = new Map(registry.map(row => [row.sourceId, row]))
+  const currentLabel = registryById.get('src_fda-epidiolex-label-2026')
+  const nonSeizureReview = registryById.get('src_pubmed-36271316')
+
+  assert.equal(currentLabel?.canonicalUrl, 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bf27097-4870-43fb-94f0-f3d0871d1eec')
+  assert.equal(currentLabel?.publicationYear, 2026)
+  assert.equal(nonSeizureReview?.pmid, '36271316')
+  assert.equal(nonSeizureReview?.doi, '10.1007/s40290-022-00446-8')
 })
 
 test('active CBD claims do not use the superseded 2021 EPIDIOLEX label', () => {
