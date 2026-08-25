@@ -46,7 +46,7 @@ describe('index quality shadow gate', () => {
       ...basePublished,
       profile_status: 'complete',
       summary_quality: 'strong',
-      summary: 'A source-backed summary that distinguishes the exact outcome, formulation, evidence strength, limitations, and safety context for readers.',
+      summary: 'A source-backed summary that distinguishes the exact outcome, formulation, evidence strength, limitations, and safety context for readers with enough detail to stand on its own.',
       description: 'A separate description with useful context rather than a duplicate summary.',
       mechanisms: ['Mechanism A', 'Mechanism B'],
       primaryActions: ['sleep', 'stress'],
