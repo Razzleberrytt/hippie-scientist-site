@@ -40,8 +40,11 @@ invariant('THS-001', 'homepage is routed through the focused V2 experience', () 
   page.includes("import HomepageV2 from '@/components/homepage-v2'") && page.includes('return <HomepageV2 />'),
 )
 invariant('THS-001', 'homepage hero has a clear promise and no more than two primary hero actions', () => {
-  const heroActionMatches = homepage.match(/className='hs-btn-(?:primary|ghost)[^']*'/g) || []
-  return homepage.includes('Feel Better') && homepage.includes('Without Guessing') && heroActionMatches.length === 2
+  const searchActions = homepage.match(/<form className='hs-home-search'/g) || []
+  const browseActions = homepage.match(/className='hs-home-browse-link'/g) || []
+  return homepage.includes('Better answers start with better') &&
+    searchActions.length === 1 &&
+    browseActions.length === 1
 })
 
 invariant('THS-002', 'primary navigation remains intentionally narrow', () =>
@@ -55,9 +58,9 @@ invariant('THS-003', 'global typography uses the Inter/Fraunces system', () =>
   includesAll(globals, ['--font-sans:', '--font-body:', '--font-display:', 'font-family: var(--font-inter)']),
 )
 
-invariant('THS-004', 'homepage spacing and material hierarchy are governed by the final editorial layer', () =>
-  includesAll(layout, ["@/styles/homepage-responsive.css", "@/styles/homepage-premium-final.css"]) &&
-  includesAll(homepageFinal, ['.hs-home .hs-hero', '.hs-home .hs-rail', '@media (max-width: 639px)']),
+invariant('THS-004', 'homepage spacing and material hierarchy are governed by the route-scoped editorial layer', () =>
+  includesAll(page, ["@/styles/homepage-structure.css", "@/styles/homepage-premium-final.css"]) &&
+  includesAll(homepageFinal, ['.hs-home {', '.hs-index-hero', '.hs-decision-section', '.hs-method-section', '@media (max-width: 767px)']),
 )
 
 invariant('THS-005', 'herb and compound profiles share core decision/evidence primitives', () =>
@@ -65,9 +68,11 @@ invariant('THS-005', 'herb and compound profiles share core decision/evidence pr
   includesAll(compoundProfile, ['ProfileDecisionPanel', 'EvidenceScoreBadge', 'MonographHeroImage']),
 )
 
-invariant('THS-006', 'both profile families expose scanning/jump-navigation surfaces', () =>
-  includesAll(herbProfile, ['ProfileTOC', 'Jump to profile sections', 'profile-quick-stats']) &&
-  includesAll(compoundProfile, ['Jump to profile sections', 'Quick Stats']),
+invariant('THS-006', 'both profile families expose one canonical scanning/jump-navigation surface with section anchors', () =>
+  includesAll(herbProfile, ['ProfileTOC', 'id="evidence"', 'id="safety"']) &&
+  includesAll(compoundProfile, ['ProfileTOC', 'id="evidence"', 'id="safety"']) &&
+  !herbProfile.includes('Jump to profile sections') &&
+  !compoundProfile.includes('Jump to profile sections'),
 )
 
 invariant('THS-007', 'evidence status is visible near the profile title on both profile families', () =>
@@ -103,12 +108,17 @@ invariant('THS-012', 'profile next actions are decision-aware and monetization c
   includesAll(compoundProfile, ['ProfileDecisionPanel', 'suppressAffiliate', 'isRestrictedRecord']),
 )
 
-invariant('THS-013', 'homepage cards are consolidated into one restrained surface treatment', () =>
+invariant('THS-013', 'homepage navigation and comparison content use the restrained shared editorial material system', () =>
   includesAll(homepageFinal, [
-    ':is(.hs-goal, .hs-specimen, .hs-vs, .hs-article)',
-    'background: var(--hs-surface) !important',
-    '--tone: var(--hs-gold)',
-  ]),
+    '--home-panel:',
+    '.hs-goal-nav {',
+    '.hs-comparison-list {',
+    '.hs-method-section {',
+    'var(--home-line-strong)',
+  ]) &&
+  !homepage.includes('hs-specimen') &&
+  !homepage.includes('hs-vs') &&
+  !homepage.includes('hs-article'),
 )
 
 invariant('THS-014', 'accessibility and theme contrast are explicit repository gates', () =>
