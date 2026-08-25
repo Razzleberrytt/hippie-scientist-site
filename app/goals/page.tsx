@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { goals } from '@/data/goals'
 import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
 
@@ -36,54 +38,59 @@ const researchGoalCards = [
 
 export default function GoalsIndexPage() {
   return (
-    <div className="container-page space-y-10 py-10">
-      <header className="max-w-3xl space-y-4">
+    <div className="mx-auto max-w-6xl space-y-6 px-4 pb-24 pt-4 sm:pt-6">
+      <Breadcrumbs
+        items={[
+          { href: '/', label: 'Home' },
+          { label: 'Goals' },
+        ]}
+      />
+
+      <header className="hero-shell rounded-[2rem] border px-5 py-6 sm:p-8">
         <p className="eyebrow-label">Goal guides</p>
-        <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-          Start from the goal, not the ingredient
-        </h1>
-        <p className="text-lg leading-8 text-muted">
-          Most supplement research starts with a product name. These guides start with the outcome
-          you are after and compare the common options by practical fit, likely onset, evidence
-          quality, and the risks worth knowing before you start. Educational context only — not
-          medical advice.
+        <h1 className="heading-premium mt-5 max-w-4xl">Start from the goal, not the ingredient</h1>
+        <p className="text-reading mt-4 max-w-3xl">
+          Most supplement research starts with a product name. These guides start with the outcome you are after and compare common options by practical fit, likely onset, evidence quality, and the risks worth knowing before you start. Educational context only — not medical advice.
         </p>
       </header>
 
-      <section>
-        <h2 className="sr-only">All goal guides</h2>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <section aria-labelledby="all-goal-guides">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">Choose a research path</p>
+          <h2 id="all-goal-guides" className="compact-heading mt-3">Compare options in the context that matters to you.</h2>
+        </div>
+
+        <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {researchGoalCards.map((goal) => (
             <li key={goal.slug}>
               <Link
                 href={`/goals/${goal.slug}/`}
-                className="card-premium block h-full p-5 transition hover:border-brand-700/20 hover:shadow-sm"
+                className="card-premium group flex h-full min-h-[13rem] flex-col p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 sm:p-6"
               >
-                <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-200">
-                  {goal.eyebrow}
-                </p>
-                <h3 className="mt-2 text-lg font-semibold text-ink">{goal.title}</h3>
-                <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted">{goal.description}</p>
-                <p className="mt-3 text-xs font-semibold text-brand-800 dark:text-brand-100">
-                  {goal.detail} →
-                </p>
+                <p className="eyebrow-label">{goal.eyebrow}</p>
+                <h3 className="mt-3 text-xl font-semibold leading-snug tracking-tight text-[color:var(--hs-ink)]">{goal.title}</h3>
+                <p className="mt-3 line-clamp-3 text-sm leading-6 text-[color:var(--hs-body)]">{goal.description}</p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-[color:var(--hs-gold-ink)]">
+                  {goal.detail}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
               </Link>
             </li>
           ))}
+
           {goals.map((goal) => (
             <li key={goal.slug}>
               <Link
                 href={`/goals/${goal.slug}/`}
-                className="card-premium block h-full p-5 transition hover:border-brand-700/20 hover:shadow-sm"
+                className="card-premium group flex h-full min-h-[13rem] flex-col p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 sm:p-6"
               >
-                <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-200">
-                  {goal.eyebrow}
-                </p>
-                <h3 className="mt-2 text-lg font-semibold text-ink">{goal.title}</h3>
-                <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted">{goal.description}</p>
-                <p className="mt-3 text-xs font-semibold text-brand-800 dark:text-brand-100">
-                  {goal.options.length} options compared →
-                </p>
+                <p className="eyebrow-label">{goal.eyebrow}</p>
+                <h3 className="mt-3 text-xl font-semibold leading-snug tracking-tight text-[color:var(--hs-ink)]">{goal.title}</h3>
+                <p className="mt-3 line-clamp-3 text-sm leading-6 text-[color:var(--hs-body)]">{goal.description}</p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-[color:var(--hs-gold-ink)]">
+                  {goal.options.length} options compared
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
               </Link>
             </li>
           ))}
