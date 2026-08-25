@@ -71,12 +71,12 @@ test('required canary checks block missing source linkage and schema validity', 
   assert.ok(result.blockers.some(value => value.includes('ashwagandha:required_check_failed:schema_validity')))
 })
 
-test('real normalized-entry schema rejects an invalid enum value', () => {
+test('real normalized-entry schema rejects an invalid enum value while retaining canonical anchor identity', () => {
   const entries = completeEntries()
-  entries.find(row => row.entitySlug === 'ashwagandha').entityType = 'plant'
+  entries.find(row => row.entitySlug === 'ashwagandha').evidenceClass = 'not-a-real-evidence-class'
   const result = verifyCanaries(entries, registryFor(entries))
   assert.equal(result.pass, false)
-  assert.ok(result.blockers.includes('ashwagandha:missing_canary') || result.blockers.includes('ashwagandha:required_check_failed:schema_validity'))
+  assert.ok(result.blockers.includes('ashwagandha:required_check_failed:schema_validity'))
 })
 
 test('inactive evidence cannot satisfy a required canary', () => {
