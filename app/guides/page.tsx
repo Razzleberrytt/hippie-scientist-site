@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { SITE_URL } from '@/lib/navigation-config'
 import { AtlasComparisonCallout } from '@/components/guides/AtlasComparisonCallout'
 import { buildTwitterMetadata } from '@/src/lib/seo'
@@ -26,82 +28,78 @@ const SECTIONS = [
     title: 'Mental Health',
     href: '/guides/mental-health/',
     desc: 'OCD, BPD, and every named DSM-5-TR personality disorder — citation-rich guides covering diagnosis, differential diagnosis, treatment, safety, and stigma.',
-    color: 'border-l-cyan-600',
   },
   {
     title: 'ADHD',
     href: '/guides/adhd/',
     desc: 'Supplements, nutrients, and strategies for attention and executive function — 22 evidence-based guides.',
-    color: 'border-l-blue-500',
   },
   {
     title: 'Sleep',
     href: '/guides/sleep/',
     desc: 'Natural sleep aids, melatonin alternatives, and sleep hygiene — 17 guides with clinical evidence.',
-    color: 'border-l-indigo-500',
   },
   {
     title: 'Stress',
     href: '/guides/stress/',
     desc: 'Evidence-aware guides for acute tension, chronic overload, burnout, adaptogens, and stress-support decisions.',
-    color: 'border-l-orange-500',
   },
   {
     title: 'Anxiety',
     href: '/guides/anxiety/',
     desc: 'Evidence-graded guides for anxious thoughts, physical tension, and calm — with safety warnings kept visible.',
-    color: 'border-l-amber-500',
   },
   {
     title: 'Focus & Cognition',
     href: '/guides/focus/',
     desc: 'Nootropics, focus stacks, and cognitive enhancement — 6 guides on getting more from your brain.',
-    color: 'border-l-emerald-500',
   },
   {
     title: 'Metabolic Health',
     href: '/guides/metabolic-health/',
     desc: 'Blood sugar, insulin sensitivity, weight-loss claims, medication context, and metabolic supplement comparisons kept tied to human evidence.',
-    color: 'border-l-lime-600',
   },
   {
     title: 'Herb Guides',
     href: '/guides/herbs/',
     desc: 'Deep-dive monographs on individual herbs — ashwagandha, kava, passionflower, rhodiola, turmeric.',
-    color: 'border-l-green-600',
   },
   {
     title: 'Comparisons',
     href: '/guides/compare/',
     desc: 'Head-to-head supplement comparisons — ashwagandha vs rhodiola, melatonin vs valerian, and more.',
-    color: 'border-l-rose-500',
   },
   {
     title: 'Best Supplements',
     href: '/guides/best/',
     desc: 'Curated recommendations for specific needs — blood pressure, fat loss, joint support, gut health.',
-    color: 'border-l-purple-500',
   },
   {
     title: 'Science Foundations',
     href: '/learn/',
     desc: 'Research literacy, neuroscience, interactions, and product quality explainers that make the rest of the library easier to evaluate.',
-    color: 'border-l-teal-600',
   },
   {
     title: 'Supplement Topic Guides',
     href: '/guides/other/',
     desc: 'Form and quality guides, popular supplement categories, goal-based routines, advanced compounds, and harm reduction — organized by the decision you are making.',
-    color: 'border-l-stone-500',
   },
 ]
 
 export default function LibraryHub() {
   return (
-    <div className="mx-auto max-w-5xl px-4 pb-24 pt-8">
-      <header className="mb-12">
-        <h1 className="text-3xl font-bold text-ink sm:text-4xl">Evidence Library</h1>
-        <p className="mt-3 max-w-2xl text-lg text-muted">
+    <div className="mx-auto max-w-6xl space-y-6 px-4 pb-24 pt-4 sm:pt-6">
+      <Breadcrumbs
+        items={[
+          { href: '/', label: 'Home' },
+          { label: 'Evidence Library' },
+        ]}
+      />
+
+      <header className="hero-shell rounded-[2rem] border px-5 py-6 sm:p-8">
+        <p className="eyebrow-label">Guides, comparisons &amp; explainers</p>
+        <h1 className="heading-premium mt-5 max-w-4xl">Evidence Library</h1>
+        <p className="text-reading mt-4 max-w-3xl">
           Guides, articles, mental health explainers, comparisons, and science foundations — organized as one connected library instead of separate content silos.
         </p>
       </header>
@@ -115,29 +113,48 @@ export default function LibraryHub() {
         secondaryCta="Check interaction risk"
       />
 
-      <div className="grid gap-0 border-y border-brand-900/10 md:grid-cols-2 md:gap-6 md:border-0">
-        {SECTIONS.map((section) => (
-          <Link
-            key={section.href}
-            href={section.href}
-            className={`border-b border-brand-900/10 py-6 transition hover:bg-brand-50/30 md:rounded-lg md:border md:border-l-4 md:bg-white md:p-6 md:hover:border-brand-700/20 ${section.color}`}
-          >
-            <h2 className="text-xl font-bold text-ink">{section.title}</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted">{section.desc}</p>
-          </Link>
-        ))}
-      </div>
+      <section aria-labelledby="evidence-library-sections">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">Browse by subject</p>
+          <h2 id="evidence-library-sections" className="compact-heading mt-3">Choose the question you are trying to answer.</h2>
+        </div>
 
-      <div className="mt-16 rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5 text-center sm:p-8">
-        <h2 className="text-xl font-bold text-ink">Browse the reference databases</h2>
-        <p className="mt-2 text-muted">
+        <div className="mt-5 grid gap-4 md:grid-cols-2 lg:gap-5">
+          {SECTIONS.map((section) => (
+            <Link
+              key={section.href}
+              href={section.href}
+              className="card-premium group flex min-h-[11rem] flex-col p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 sm:p-6"
+            >
+              <h3 className="text-xl font-semibold leading-snug tracking-tight text-[color:var(--hs-ink)]">{section.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[color:var(--hs-body)]">{section.desc}</p>
+              <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-[color:var(--hs-gold-ink)]">
+                Explore section
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-frame p-5 text-center sm:p-8" aria-labelledby="reference-databases-heading">
+        <p className="eyebrow-label">Structured reference</p>
+        <h2 id="reference-databases-heading" className="compact-heading mt-3">Browse the reference databases</h2>
+        <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-[color:var(--hs-body)] sm:text-base">
           Prefer structured profiles? Browse the published herb and compound libraries, where public eligibility rules keep source inventory separate from what readers can actually browse.
         </p>
-        <div className="mt-4 flex flex-col justify-center gap-3 sm:flex-row">
-          <Link href="/herbs/" className="rounded-full bg-brand-700 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-800">Browse Herbs →</Link>
-          <Link href="/compounds/" className="rounded-full border border-brand-700 px-6 py-2.5 text-sm font-semibold text-brand-700 transition hover:bg-brand-50">Browse Compounds →</Link>
+        <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row">
+          <Link href="/herbs/" className="button-primary inline-flex min-h-11 items-center justify-center px-6 py-2.5 text-sm font-semibold">
+            Browse Herbs
+          </Link>
+          <Link
+            href="/compounds/"
+            className="inline-flex min-h-11 items-center justify-center rounded-full border border-[color:var(--hs-hairline-strong)] bg-[color:var(--surface-card)] px-6 py-2.5 text-sm font-semibold text-[color:var(--hs-ink)] transition hover:border-[color:var(--hs-gold)] hover:text-[color:var(--hs-gold-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+          >
+            Browse Compounds
+          </Link>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
