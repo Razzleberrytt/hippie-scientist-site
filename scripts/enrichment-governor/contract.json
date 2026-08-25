@@ -120,14 +120,7 @@
     },
     "targetChecks": ["null_visibility", "safety_visibility", "no_unresolved_source_ids"],
     "baselineDebt": {
-      "allowedUnresolvedSourceIds": [
-        "src_cochrane-cd003383",
-        "src_fda-epidiolex-label-2021",
-        "src_pubmed-29801717",
-        "src_pubmed-31006899",
-        "src_pubmed-31517876",
-        "src_pubmed-40622698"
-      ],
+      "allowedUnresolvedSourceIds": [],
       "allowedMissingNullVisibilityAnchors": ["ashwagandha"],
       "allowedMissingSafetyVisibilityAnchors": ["luteolin"]
     },
