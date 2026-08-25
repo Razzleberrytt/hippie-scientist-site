@@ -1,13 +1,14 @@
 {
   "config_version": 1,
-  "description": "Deterministic ROI/risk weights and research budgets. Every signal listed here is read from data that already exists in the repository; nothing is estimated or fabricated. A signal that is absent contributes 0 and the remaining weights are renormalized.",
+  "description": "Deterministic ROI/risk weights and research budgets. Every signal listed here is read from data that already exists in the repository; nothing is estimated or fabricated. A signal that is absent contributes 0 and the remaining weights are renormalized. Unique-added-value weighting favors gaps that add differentiated evidence, safety, mechanism, or claim interpretation over commodity completeness work.",
   "weights": {
-    "runtime_visibility": 0.26,
-    "retrieval_priority": 0.16,
-    "authority_weight": 0.16,
-    "completeness_deficit": 0.14,
-    "maintenance_backlog": 0.2,
-    "curated_prominence": 0.08
+    "runtime_visibility": 0.22,
+    "retrieval_priority": 0.14,
+    "authority_weight": 0.14,
+    "completeness_deficit": 0.08,
+    "maintenance_backlog": 0.16,
+    "curated_prominence": 0.08,
+    "unique_added_value": 0.18
   },
   "signals": {
     "runtime_visibility": {
@@ -60,6 +61,22 @@
     "curated_prominence": {
       "source": "public/data/seo-priority-report.json topHerbs/topCompounds",
       "optional": true
+    },
+    "unique_added_value": {
+      "source": "weighted share of differentiated evidence/safety/mechanism fields that are still gaps in Entity_Master",
+      "field_weights": {
+        "contraindications_or_flags": 1,
+        "runtime_safety": 1,
+        "safety_notes": 0.95,
+        "primary_effects_or_targets": 0.95,
+        "mechanism_summary": 0.9,
+        "evidence_tier": 0.9,
+        "summary": 0.8,
+        "description": 0.65,
+        "keywords": 0.1,
+        "latin_name": 0.1
+      },
+      "rationale": "Missing differentiated user value should outrank filling low-information metadata gaps merely to make another profile look complete."
     }
   },
   "value_bands": {
