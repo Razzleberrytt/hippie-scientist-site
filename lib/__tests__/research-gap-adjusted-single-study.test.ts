@@ -7,7 +7,8 @@ describe('research gap adjusted single-study scoring', () => {
 
     expect(policy).toContain('topology.underlyingStudyIndependence.pseudoMultiStudyClaims')
     expect(policy).toContain('if (claim.singleStudy || pseudoMultiStudy)')
-    expect(policy).toContain('publications collapse to ${pseudoMultiStudy.underlyingStudyCount} underlying study')
+    expect(policy).toContain('approved claim(s) effectively depend on one study')
+    expect(policy).toContain('via explicit publication-lineage collapse')
     expect(policy).toContain('addApprovedClaimReasons(analysis, topology, add)')
   })
 })
