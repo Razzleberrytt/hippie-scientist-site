@@ -76,7 +76,11 @@ jobs:
             echo 'Expected overlapping lease acquisition to exit nonzero.' >&2
             exit 1
           fi
-          node scripts/enrichment-governor/control.mjs lease-release --id=ci-fixture --disposition=verified
+          if node scripts/enrichment-governor/control.mjs lease-release --id=ci-fixture --owner=other-agent --disposition=verified; then
+            echo 'Expected cross-owner lease release to exit nonzero.' >&2
+            exit 1
+          fi
+          node scripts/enrichment-governor/control.mjs lease-release --id=ci-fixture --owner=ci --disposition=verified
           node scripts/enrichment-governor/control.mjs metric --name=scansRun --delta=1
           node scripts/enrichment-governor/control.mjs integrity-record --source=src_ci-fixture --status=clear --note=ci-smoke-test
           node scripts/enrichment-governor/control.mjs improvement-propose --id=imp_ci-fixture --surface=search_strategy --reason=ci-smoke-observation --benefit=verify-durable-control-path
