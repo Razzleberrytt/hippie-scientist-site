@@ -27,7 +27,7 @@ describe('normalizeResearchEnrichment conflict disclosures', () => {
     expect(result?.conflictNotes).toEqual([
       {
         claim:
-          'Arjuna Natural Ltd funded the study and supplied the tested Shoden extract; this source does not establish independent replication of the exact formulation, dose, population, and duration.',
+          'Arjuna Natural Ltd funded the study and supplied the tested Shoden extract; this source does not establish independent replication of the exact formulation, dose, population, and duration',
         evidenceClass: 'human-clinical',
         sourceRefIds: ['src_pubmed-31517876'],
       },
@@ -35,7 +35,7 @@ describe('normalizeResearchEnrichment conflict disclosures', () => {
   })
 
   it('deduplicates a promoted conflict when a dedicated conflict claim is also present', () => {
-    const disclosure = 'The same source-backed sponsor disclosure.'
+    const disclosure = 'The same source-backed sponsor disclosure'
     const result = normalizeResearchEnrichment({
       evidenceSummary: 'One approved normalized finding.',
       evidenceTier: 'tier-3-limited',
