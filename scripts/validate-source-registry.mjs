@@ -4,11 +4,12 @@ import path from 'node:path'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 
+import { identityTokens } from './enrichment/source-identity.mjs'
+
 const ROOT = process.cwd()
 const SCHEMA_PATH = path.join(ROOT, 'schemas', 'source-registry.schema.json')
 const GOVERNANCE_PATH = path.join(ROOT, 'schemas', 'source-class-governance.json')
 const REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
-const UNIQUE_IDENTITY_FIELDS = ['pmid', 'doi', 'canonicalUrl', 'monographId']
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -16,24 +17,6 @@ function readJson(filePath) {
 
 function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0
-}
-
-function normalizeIdentityValue(field, value) {
-  if (!isNonEmptyString(value)) return null
-  const trimmed = value.trim()
-  if (field === 'pmid') return trimmed
-  if (field === 'doi') return trimmed.toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//u, '').replace(/^doi:\s*/u, '')
-  if (field === 'canonicalUrl') {
-    try {
-      const url = new URL(trimmed)
-      url.hash = ''
-      if (url.pathname.length > 1) url.pathname = url.pathname.replace(/\/+$/u, '')
-      return url.toString()
-    } catch {
-      return trimmed
-    }
-  }
-  return trimmed.toLowerCase()
 }
 
 const schema = readJson(SCHEMA_PATH)
@@ -65,15 +48,12 @@ for (const [index, source] of registry.entries()) {
   if (seenSourceIds.has(sourceId)) issues.push(`${prefix} duplicate sourceId.`)
   seenSourceIds.add(sourceId)
 
-  for (const field of UNIQUE_IDENTITY_FIELDS) {
-    const value = normalizeIdentityValue(field, source?.[field])
-    if (!value) continue
-    const key = `${field}:${value}`
-    const prior = identityOwners.get(key)
+  for (const token of identityTokens(source)) {
+    const prior = identityOwners.get(token)
     if (prior && prior.sourceId !== sourceId) {
-      issues.push(`${prefix} ${field} duplicates source identity owned by ${prior.sourceId}.`)
+      issues.push(`${prefix} source identity ${token} duplicates identity owned by ${prior.sourceId}.`)
     } else if (!prior) {
-      identityOwners.set(key, { sourceId, index })
+      identityOwners.set(token, { sourceId, index })
     }
   }
 
