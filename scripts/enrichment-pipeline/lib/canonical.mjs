@@ -1,7 +1,8 @@
 import fs from 'node:fs'
+import path from 'node:path'
 import { readWorkbookExcelJS } from '../../utils/read-workbook-exceljs.mjs'
 import { isMissingLike, normalizeStructuredText } from '../../../lib/data-quality.mjs'
-import { workbookPath as defaultWorkbookPath, publicDataDir, relative } from './paths.mjs'
+import { workbookPath as defaultWorkbookPath, publicDataDir, relative, repoRoot } from './paths.mjs'
 import { loadContract } from './contract.mjs'
 
 /**
@@ -109,23 +110,29 @@ export function canonicalFingerprint(canonical) {
   return parts.join('\u0002')
 }
 
-/** Optional generated-data signals, used only when present. Never required. */
-export function loadPublicDataSignals() {
-  const read = (name) => {
-    const filePath = `${publicDataDir}/${name}`
-    if (!fs.existsSync(filePath)) return null
-    try {
-      return JSON.parse(fs.readFileSync(filePath, 'utf8'))
-    } catch {
-      return null
-    }
+function readJson(filePath) {
+  if (!fs.existsSync(filePath)) return null
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  } catch {
+    return null
   }
+}
+
+/**
+ * Optional repository-grounded priority signals, used only when present.
+ * Generated public-data signals remain read-only. Operator-supplied search-index
+ * observations are also read-only evidence inputs and never mutate publication.
+ */
+export function loadPublicDataSignals() {
+  const readPublic = (name) => readJson(path.join(publicDataDir, name))
   return {
-    herbs: read('herbs.json'),
-    compounds: read('compounds.json'),
-    canonicalMechanisms: read('canonical-mechanisms.json'),
-    seoPriority: read('seo-priority-report.json'),
-    indexableHerbs: read('indexable-herbs.json'),
-    indexableCompounds: read('indexable-compounds.json'),
+    herbs: readPublic('herbs.json'),
+    compounds: readPublic('compounds.json'),
+    canonicalMechanisms: readPublic('canonical-mechanisms.json'),
+    seoPriority: readPublic('seo-priority-report.json'),
+    indexableHerbs: readPublic('indexable-herbs.json'),
+    indexableCompounds: readPublic('indexable-compounds.json'),
+    searchIndexObservations: readJson(path.join(repoRoot, 'data-sources', 'search-index-observations.json')),
   }
 }

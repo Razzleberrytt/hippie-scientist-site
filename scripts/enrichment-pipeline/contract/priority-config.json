@@ -1,14 +1,15 @@
 {
   "config_version": 1,
-  "description": "Deterministic ROI/risk weights and research budgets. Every signal listed here is read from data that already exists in the repository; nothing is estimated or fabricated. A signal that is absent contributes 0 and the remaining weights are renormalized. Unique-added-value weighting favors gaps that add differentiated evidence, safety, mechanism, or claim interpretation over commodity completeness work.",
+  "description": "Deterministic ROI/risk weights and research budgets. Every signal listed here is read from data that already exists in the repository; nothing is estimated or fabricated. A signal that is absent contributes 0 and the remaining weights are renormalized. Unique-added-value weighting favors gaps that add differentiated evidence, safety, mechanism, or claim interpretation over commodity completeness work. Search-index feedback is observation-only evidence that raises enrichment priority for externally rejected pages without changing publication state. The legacy signal weights are uniformly scaled by 0.92, so entities without search-index feedback retain the exact pre-feedback weight ratios after renormalization.",
   "weights": {
-    "runtime_visibility": 0.22,
-    "retrieval_priority": 0.14,
-    "authority_weight": 0.14,
-    "completeness_deficit": 0.08,
-    "maintenance_backlog": 0.16,
-    "curated_prominence": 0.08,
-    "unique_added_value": 0.18
+    "runtime_visibility": 0.2024,
+    "retrieval_priority": 0.1288,
+    "authority_weight": 0.1288,
+    "completeness_deficit": 0.0736,
+    "maintenance_backlog": 0.1472,
+    "curated_prominence": 0.0736,
+    "unique_added_value": 0.1656,
+    "search_index_feedback": 0.08
   },
   "signals": {
     "runtime_visibility": {
@@ -77,6 +78,17 @@
         "latin_name": 0.1
       },
       "rationale": "Missing differentiated user value should outrank filling low-information metadata gaps merely to make another profile look complete."
+    },
+    "search_index_feedback": {
+      "source": "data-sources/search-index-observations.json latest active observation per entity slug",
+      "optional": true,
+      "status_weights": {
+        "content_quality": 1,
+        "discovered_but_not_in_index": 0.8,
+        "not_yet_crawled": 0.35,
+        "indexed": 0
+      },
+      "rationale": "External index-selection rejection is useful evidence that a published page needs more differentiated value or stronger crawl prominence. It changes enrichment priority only and can never directly change publication state."
     }
   },
   "value_bands": {
