@@ -1,6 +1,9 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
+import GooglePreferredSourceButton from './seo/GooglePreferredSourceButton'
 import NewsletterSignup from './NewsletterSignup'
+import { shouldShowPreferredSource } from '@/lib/preferred-source-eligibility'
 
 type EmailCaptureProps = {
   headline?: string
@@ -18,13 +21,19 @@ export default function EmailCapture({
   className = '',
   location = 'email-capture',
 }: EmailCaptureProps) {
+  const pathname = usePathname() || '/'
+  const showPreferredSource = shouldShowPreferredSource(pathname)
+
   return (
-    <NewsletterSignup
-      title={headline}
-      description={description}
-      ctaLabel={ctaLabel}
-      location={location}
-      className={`mb-20 md:mb-0 ${className}`}
-    />
+    <>
+      <NewsletterSignup
+        title={headline}
+        description={description}
+        ctaLabel={ctaLabel}
+        location={location}
+        className={`${showPreferredSource ? 'mb-4' : 'mb-20 md:mb-0'} ${className}`}
+      />
+      {showPreferredSource ? <GooglePreferredSourceButton className='mb-20 md:mb-0' /> : null}
+    </>
   )
 }
