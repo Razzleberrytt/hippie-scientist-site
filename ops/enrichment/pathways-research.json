@@ -1,0 +1,632 @@
+{
+  "research_version": 1,
+  "field": "canonical_pathways",
+  "vocabulary": "public/data/canonical-mechanisms.json canonical_label values",
+  "note": "Sources were found with the PubMed E-utilities MCP server. Every `set` entry names one PubMed-indexed article whose abstract reports the pathway being claimed; where the article reported something narrower than the entity's mechanism_summary, the label was narrowed to what the source actually shows rather than the other way round. A `noop` is a real answer: it records that the field was researched and nothing of an accepted source class supported a vocabulary label, so a rescan does not send anyone over the same ground.",
+  "batches": {
+    "batch-1": {
+      "worker": "pathways-1",
+      "created_at": "2026-08-25T03:00:00.000Z",
+      "entries": {
+        "astragalus": {
+          "pathways": [
+            "NF-kB inhibition",
+            "Antioxidant"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "42456909",
+            "doi": "10.1016/j.jep.2026.122166",
+            "title": "Integrating network pharmacology and transcriptomics reveals the mechanism by which AS-IV prevents ethanol-induced acute gastric injury in rats",
+            "journal": "Journal of Ethnopharmacology",
+            "year": 2026,
+            "authors": "Wang S"
+          },
+          "rationale": "Astragaloside IV, the principal characterised constituent of Astragalus membranaceus, inhibited the EGFR-driven PI3K/Akt/NF-κB axis and reduced oxidative-stress markers in rat gastric mucosa and GES-1 cells."
+        },
+        "coleus-forskohlii": {
+          "pathways": [
+            "Neuroprotective activity"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "40457879",
+            "doi": "10.1002/jnr.70049",
+            "title": "Adenylyl Cyclase Activator: Forskolin Mediates CREB ser133 Phosphorylation in the Hippocampus, Alleviates Autism-Like Deficits in a Valproic Acid Model of Wistar Rats",
+            "journal": "Journal of Neuroscience Research",
+            "year": 2025,
+            "authors": "Jain A"
+          },
+          "rationale": "Forskolin, the diterpene Coleus forskohlii is standardised for, raised hippocampal CREB ser133 phosphorylation and reduced neuronal damage in the prefrontal cortex, hippocampus and cerebellum. The adenylyl-cyclase/cAMP step itself has no label in the vocabulary; the demonstrated downstream effect does."
+        },
+        "lavandula-angustifolia": {
+          "pathways": [
+            "Serotonin modulation",
+            "Anxiolytic"
+          ],
+          "confidence": "high",
+          "evidence_level": "human-clinical",
+          "source": {
+            "pmid": "25522403",
+            "doi": "10.1093/ijnp/pyu063",
+            "title": "Effects of Silexan on the serotonin-1A receptor and microstructure of the human brain: a randomized, placebo-controlled, double-blind, cross-over study with molecular and structural neuroimaging",
+            "journal": "International Journal of Neuropsychopharmacology",
+            "year": 2014,
+            "authors": "Baldinger P",
+            "class": "randomized-human-trial"
+          },
+          "rationale": "Randomised placebo-controlled PET cross-over in 17 healthy men: 160 mg/day Silexan, an essential oil from Lavandula angustifolia flowers, significantly reduced 5-HT1A receptor binding potential in temporal, fusiform, hippocampal, insular and anterior cingulate clusters. The study reports receptor-level engagement, not a clinical outcome."
+        },
+        "hericium-erinaceus": {
+          "pathways": [
+            "Neuroprotective activity"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "29780164",
+            "doi": "10.1038/s41429-018-0065-8",
+            "title": "Three new cyathane diterpenes with neurotrophic activity from the liquid cultures of Hericium erinaceus",
+            "journal": "The Journal of Antibiotics",
+            "year": 2018,
+            "authors": "Zhang Y"
+          },
+          "rationale": "Cyathane diterpenes isolated from H. erinaceus liquid culture promoted neurite outgrowth in PC12 cells at 2.5-10 μM."
+        },
+        "ginkgo-biloba": {
+          "pathways": [
+            "Nrf2 activation",
+            "Vascular function support"
+          ],
+          "confidence": "high",
+          "source": {
+            "pmid": "21144518",
+            "doi": "10.1016/j.atherosclerosis.2010.11.010",
+            "title": "Nrf-2 mediated heme oxygenase-1 expression, an antioxidant-independent mechanism, contributes to anti-atherogenesis and vascular protective effects of Ginkgo biloba extract",
+            "journal": "Atherosclerosis",
+            "year": 2010,
+            "authors": "Chen JS"
+          },
+          "rationale": "Ginkgo biloba extract activated Nrf2 translocation and ARE binding, induced HO-1, and reduced cytokine-induced endothelial adhesiveness in human aortic endothelial cells and injured arteries in vivo. Antioxidant is deliberately NOT claimed: the paper's own finding is that the effect is antioxidant-independent and PEG-SOD did not alter it."
+        },
+        "matricaria-chamomilla": {
+          "pathways": [
+            "GABA modulation",
+            "Anxiolytic"
+          ],
+          "confidence": "high",
+          "source": {
+            "pmid": "7617761",
+            "doi": "10.1055/s-2006-958058",
+            "title": "Apigenin, a component of Matricaria recutita flowers, is a central benzodiazepine receptors-ligand with anxiolytic effects",
+            "journal": "Planta Medica",
+            "year": 1995,
+            "authors": "Viola H"
+          },
+          "rationale": "Apigenin, isolated from the aqueous extract of M. recutita flower heads, competitively inhibited flunitrazepam binding at the central benzodiazepine site of the GABA-A receptor (Ki 4 μM) and was anxiolytic in the elevated plus-maze without sedation or myorelaxation at comparable doses."
+        },
+        "electrolyte-mix": {
+          "noop": "Not a defined substance. `electrolyte-mix` is a category placeholder whose composition varies by product, so any pathway label would generalise across formulations the evidence does not match — prohibited by the pipeline's immutable invariants. The entity needs a composition before a mechanism can be attributed to it."
+        },
+        "lemongrass": {
+          "pathways": [
+            "Antioxidant"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "18853256",
+            "doi": "10.1007/s11064-008-9861-z",
+            "title": "Antioxidant effects of different extracts from Melissa officinalis, Matricaria recutita and Cymbopogon citratus",
+            "journal": "Neurochemical Research",
+            "year": 2008,
+            "authors": "Pereira RP"
+          },
+          "rationale": "Cymbopogon citratus extracts reduced brain lipid peroxidation (TBARS) induced by three different pro-oxidants and scavenged DPPH radicals. Melissa officinalis was the strongest of the three plants tested; the C. citratus effect is real but not the paper's headline."
+        },
+        "hibiscus-sabdariffa": {
+          "pathways": [
+            "Lipid metabolism support",
+            "Vascular function support"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "23734849",
+            "doi": "10.3109/10641963.2013.789046",
+            "title": "Modification of the liver fatty acids by Hibiscus sabdariffa Linnaeus (Malvaceae) infusion, its possible effect on vascular reactivity in a metabolic syndrome model",
+            "journal": "Clinical and Experimental Hypertension",
+            "year": 2013,
+            "authors": "Pérez-Torres I"
+          },
+          "rationale": "H. sabdariffa infusion altered the hepatic fatty-acid profile and desaturase activity in metabolic-syndrome rats and improved the impaired vascular reactivity that accompanied it."
+        },
+        "glycyrrhiza-glabra": {
+          "pathways": [
+            "NF-kB inhibition",
+            "Vascular function support",
+            "Gut microbiome modulation"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "42589351",
+            "doi": "10.3390/ijms27156694",
+            "title": "Glycyrrhizic Acid Alleviates Atherosclerosis in Mice via Microbial Indole-3-Lactic Acid-Mediated AhR-p65 Interaction in the Endothelium",
+            "journal": "International Journal of Molecular Sciences",
+            "year": 2026,
+            "authors": "Shen H"
+          },
+          "rationale": "Glycyrrhizic acid reversed gut dysbiosis and shifted microbial tryptophan metabolism; the resulting indole-3-lactic acid activated AhR, which bound NF-κB p65 and blocked its nuclear translocation, suppressing endothelial adhesion-molecule expression. Antibiotic depletion and faecal transplant established the microbiota dependence."
+        },
+        "butterbur": {
+          "pathways": [
+            "LOX inhibition",
+            "Anti-inflammatory"
+          ],
+          "confidence": "high",
+          "source": {
+            "pmid": "11529903",
+            "doi": "10.1046/j.1365-2222.2001.01158.x",
+            "title": "Differential inhibition of inflammatory effector functions by petasin, isopetasin and neopetasin in human eosinophils",
+            "journal": "Clinical and Experimental Allergy",
+            "year": 2001,
+            "authors": "Thomet OA"
+          },
+          "rationale": "All three petasins from Petasites hybridus inhibited leukotriene synthesis in primed human eosinophils; petasin additionally prevented 5-lipoxygenase translocation to the nuclear envelope and blocked ECP release. The calcium effect is not claimed as Calcium-channel modulation: the authors attribute it to signalling at or proximal to PLCβ, not to channel block."
+        },
+        "boswellia-serrata": {
+          "pathways": [
+            "NF-kB inhibition",
+            "Antioxidant"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "29079998",
+            "doi": "10.1007/s12035-017-0801-2",
+            "title": "Role of 3-Acetyl-11-Keto-Beta-Boswellic Acid in Counteracting LPS-Induced Neuroinflammation via Modulation of miRNA-155",
+            "journal": "Molecular Neurobiology",
+            "year": 2017,
+            "authors": "Sayed AS"
+          },
+          "rationale": "AKBA, the boswellic acid Boswellia serrata gum resin is standardised for, lowered phosphorylated IκB-α (the NF-κB activation step) and carbonyl protein content in LPS-treated mice. 5-LO inhibition is stated as background in this paper rather than measured, so LOX inhibition is not claimed from it."
+        },
+        "fennel": {
+          "pathways": [
+            "NF-kB inhibition"
+          ],
+          "confidence": "low",
+          "source": {
+            "pmid": "21212515",
+            "doi": "10.1248/bpb.34.41",
+            "title": "Anethole exerts antimetastatic activity via inhibition of matrix metalloproteinase 2/9 and AKT/mitogen-activated kinase/nuclear factor kappa B signaling pathways",
+            "journal": "Biological & Pharmaceutical Bulletin",
+            "year": 2011,
+            "authors": "Choo EJ"
+          },
+          "rationale": "Anethole, the principal constituent of fennel volatile oil, suppressed NF-κB phosphorylation alongside AKT, ERK and p38 in HT-1080 cells. Confidence is low because the evidence is for the isolated constituent in a tumour-cell model, not for a fennel preparation."
+        },
+        "probiotic-strain-bifidobacterium": {
+          "noop": "Genus-level placeholder, not a strain. Probiotic effects are strain-specific and the pipeline's invariants forbid generalising across unmatched preparations, so no mechanism can be attributed to `Bifidobacterium` as such. The entity needs a named strain before this field can be filled."
+        },
+        "uc-ii-collagen": {
+          "pathways": [
+            "Immune modulation",
+            "Anti-inflammatory"
+          ],
+          "confidence": "moderate",
+          "evidence_level": "systematic-review",
+          "source": {
+            "pmid": "40253594",
+            "doi": "10.1080/07853890.2025.2493306",
+            "title": "Undenatured type II collagen for knee osteoarthritis",
+            "journal": "Annals of Medicine",
+            "year": 2025,
+            "authors": "Gupta A",
+            "class": "systematic-review-meta-analysis"
+          },
+          "rationale": "PRISMA-guided review of twelve pre-clinical and clinical UC-2 studies: the mechanism reported is oral tolerance, a specific immune-mediated route, with downstream reduction in joint inflammation."
+        },
+        "capsicum-annuum": {
+          "pathways": [
+            "TRPV1 modulation"
+          ],
+          "confidence": "high",
+          "source": {
+            "pmid": "9349813",
+            "doi": "10.1038/39807",
+            "title": "The capsaicin receptor: a heat-activated ion channel in the pain pathway",
+            "journal": "Nature",
+            "year": 1997,
+            "authors": "Caterina MJ"
+          },
+          "rationale": "Expression cloning of the capsaicin receptor from sensory neurons: capsaicin, the pungent principle of Capsicum, selectively activates this non-selective cation channel of the TRP family. Metabolic Regulation, the entity's current mechanism_summary, is not claimed here — the retrievable thermogenesis evidence is in reviews rather than the primary literature this field accepts."
+        },
+        "peppermint": {
+          "pathways": [
+            "Calcium-channel modulation"
+          ],
+          "confidence": "high",
+          "source": {
+            "pmid": "25046841",
+            "doi": "10.1016/j.ejphar.2014.07.018",
+            "title": "Effects of menthol on circular smooth muscle of human colon: analysis of the mechanism of action",
+            "journal": "European Journal of Pharmacology",
+            "year": 2014,
+            "authors": "Amato A"
+          },
+          "rationale": "Menthol reduced spontaneous contractions of human distal colon circular muscle; nifedipine attenuated the effect and the response survived TRPM8 antagonism, neural blockade, guanylyl-cyclase inhibition and K+-channel block. TRPV1/TRPM8 activation, which the entity's mechanism_summary names, is specifically what this paper rules out as the spasmolytic route."
+        },
+        "collagen-peptides": {
+          "noop": "The retrievable mechanistic literature on hydrolysed collagen peptides reports stimulation of type I procollagen expression in fibroblasts, which the canonical mechanism vocabulary has no label for; the entity's own mechanism_summary (Inflammatory Signaling Modulation) is not what that literature shows. Filling this needs an extracellular-matrix / collagen-synthesis mechanism in the taxonomy first."
+        },
+        "beta-alanine": {
+          "noop": "Beta-alanine's mechanism is carnosine-mediated intracellular pH buffering in skeletal muscle. The canonical mechanism vocabulary has no label for acid-base buffering, and Metabolic regulation would describe it so loosely as to be useless for retrieval. Needs a vocabulary term, not a source."
+        },
+        "probiotic-strain-lactobacillus": {
+          "noop": "Genus-level placeholder, not a strain — same reasoning as probiotic-strain-bifidobacterium. Probiotic mechanisms are strain-specific and cannot be attributed to `Lactobacillus` as a whole."
+        },
+        "jatamansi": {
+          "pathways": [
+            "Antioxidant",
+            "Neuroprotective activity"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "35973611",
+            "doi": "10.1016/j.phytochem.2022.113375",
+            "title": "Stability of valeriana-type iridoid glycosides from rhizomes of Nardostachys jatamansi and their protection against H2O2-induced oxidative stress in SH-SY5Y cells",
+            "journal": "Phytochemistry",
+            "year": 2022,
+            "authors": "Ngo TH"
+          },
+          "rationale": "Crude extracts, solvent partitions and isolated valeriana-type iridoid glycosides from N. jatamansi rhizome all protected SH-SY5Y neuroblastoma cells against hydrogen-peroxide toxicity on viability and antioxidation assays."
+        },
+        "peppermint-oil": {
+          "pathways": [
+            "Calcium-channel modulation"
+          ],
+          "confidence": "high",
+          "shared_value_acknowledged": "Same value as `peppermint`, from the same source. Peppermint oil is the preparation the menthol evidence was generated from, so the mechanism is identical by construction; the two entities are a whole-herb / preparation split, not a duplicate.",
+          "source": {
+            "pmid": "25046841",
+            "doi": "10.1016/j.ejphar.2014.07.018",
+            "title": "Effects of menthol on circular smooth muscle of human colon: analysis of the mechanism of action",
+            "journal": "European Journal of Pharmacology",
+            "year": 2014,
+            "authors": "Amato A"
+          },
+          "rationale": "Menthol, the major constituent of peppermint oil, inhibited human colonic circular-muscle contractility through block of L-type Ca2+ influx; the effect was nifedipine-sensitive and TRPM8-independent."
+        },
+        "shankhpushpi": {
+          "pathways": [
+            "Cholinesterase inhibition",
+            "Antioxidant"
+          ],
+          "confidence": "low",
+          "source": {
+            "pmid": "29530454",
+            "doi": "10.1016/j.jaim.2017.08.012",
+            "title": "Neuropharmacological evaluation on four traditional herbs used as nervine tonic and commonly available as Shankhpushpi in India",
+            "journal": "Journal of Ayurveda and Integrative Medicine",
+            "year": 2018,
+            "authors": "Sethiya NK"
+          },
+          "rationale": "All four botanicals sold as Shankhpushpi were assayed for acetylcholinesterase inhibition, antioxidant capacity and 5-LOX inhibition. Confidence is low deliberately: activity was strongly variety-dependent, with Evolvulus alsinoides clearly superior and Convolvulus pluricaulis among the weakest, and the trade name does not fix which species is in a given product."
+        },
+        "atractylodes": {
+          "pathways": [
+            "Immune modulation",
+            "Cytokine modulation"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "31931060",
+            "doi": "10.1016/j.ijbiomac.2020.01.081",
+            "title": "Molecular mechanisms associated with macrophage activation by Rhizoma Atractylodis Macrocephalae polysaccharides",
+            "journal": "International Journal of Biological Macromolecules",
+            "year": 2020,
+            "authors": "Xu W"
+          },
+          "rationale": "Total polysaccharides from Rhizoma Atractylodis Macrocephalae activated RAW 264.7 macrophages, raising NO, ROS, cytokine and chemokine output through NF-κB and JAK-STAT. NF-kB inhibition is explicitly NOT claimed: here NF-κB translocation is the activating event, the opposite direction."
+        }
+      }
+    },
+    "batch-2": {
+      "worker": "pathways-2",
+      "created_at": "2026-08-25T04:00:00.000Z",
+      "entries": {
+        "agarikon": {
+          "noop": "The retrievable Fomitopsis officinalis literature is antimicrobial/antiviral and consists of reviews of highly variable crude-extract preparations. Antimicrobial activity has no label in the canonical mechanism vocabulary, and no primary mechanistic study of an accepted class was found."
+        },
+        "isatis": {
+          "pathways": [
+            "LOX inhibition"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "15893435",
+            "doi": "10.1016/j.fitote.2005.03.002",
+            "title": "HPLC based activity profiling for 5-lipoxygenase inhibitory activity in Isatis tinctoria leaf extracts",
+            "journal": "Fitoterapia",
+            "year": 2005,
+            "authors": "Oberthür C"
+          },
+          "rationale": "HPLC-based activity profiling of lipophilic Isatis tinctoria leaf extracts localised 5-lipoxygenase inhibition to two fractions — one coinciding with tryptanthrin, the major one with α-linolenic acid."
+        },
+        "clove": {
+          "pathways": [
+            "Nrf2 activation",
+            "NF-kB inhibition",
+            "Antioxidant"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "42388013",
+            "doi": "10.1002/jbt.71014",
+            "title": "Hepatoprotective Potential of Eugenol Against Pesticide Glyphosate-Induced Liver Injury via Nrf2/HO-1 Signaling and Modulation of Apoptosis and Inflammation in Rats",
+            "journal": "Journal of Biochemical and Molecular Toxicology",
+            "year": 2026,
+            "authors": "Aktas Senocak E"
+          },
+          "rationale": "Eugenol, the predominant constituent of clove oil (Syzygium aromaticum), activated Nrf2/HO-1 signalling, raised SOD and reduced glutathione, and suppressed COX-2, NF-κB, IL-6, TNF-α and IL-1β expression in glyphosate-exposed rat liver."
+        },
+        "galangal": {
+          "pathways": [
+            "NF-kB inhibition",
+            "Cytokine modulation"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "36617832",
+            "doi": "10.15586/aei.v51i1.741",
+            "title": "Galangin inhibits lipopolysaccharide-induced inflammation and stimulates osteogenic differentiation of bone marrow mesenchymal stem cells via regulation of AKT/mTOR signaling",
+            "journal": "Allergologia et Immunopathologia",
+            "year": 2023,
+            "authors": "Wang X"
+          },
+          "rationale": "Galangin, the flavonoid galangal is named for, lowered TNF-α, IL-1β and IL-6 in LPS-stimulated rat bone-marrow mesenchymal stem cells through down-regulation of NF-κB phosphorylation."
+        },
+        "punarnava": {
+          "pathways": [
+            "COX inhibition",
+            "Anti-inflammatory"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "23914900",
+            "doi": "10.1021/np300899w",
+            "title": "Rotenoids from Boerhaavia diffusa as potential anti-inflammatory agents",
+            "journal": "Journal of Natural Products",
+            "year": 2013,
+            "authors": "Bairwa K"
+          },
+          "rationale": "Nine rotenoids isolated from Boerhaavia diffusa roots were assayed for COX-1 and COX-2 inhibition; boeravinone B was additionally anti-inflammatory in the carrageenan-induced rat paw model."
+        },
+        "houttuynia": {
+          "pathways": [
+            "NF-kB inhibition",
+            "Mast-cell stabilization",
+            "Cytokine modulation"
+          ],
+          "confidence": "high",
+          "source": {
+            "pmid": "19394399",
+            "doi": "10.1016/j.fct.2009.04.025",
+            "title": "Houttuynia cordata water extract suppresses anaphylactic reaction and IgE-mediated allergic response by inhibiting multiple steps of FcepsilonRI signaling in mast cells",
+            "journal": "Food and Chemical Toxicology",
+            "year": 2009,
+            "authors": "Han EH"
+          },
+          "rationale": "H. cordata water extract blocked antigen-induced degranulation (β-hexosaminidase, histamine) in IgE-sensitised RBL-2H3 mast cells, inhibited NF-κB activation and IκB-α degradation, and suppressed IL-4 and TNF-α, with in vivo confirmation in passive cutaneous anaphylaxis."
+        },
+        "pau-d-arco": {
+          "pathways": [
+            "NF-kB inhibition",
+            "Nrf2 activation",
+            "Cytokine modulation"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "26173397",
+            "doi": "10.1186/s12974-015-0355-z",
+            "title": "β-Lapachone suppresses neuroinflammation by modulating the expression of cytokines and matrix metalloproteinases in activated microglia",
+            "journal": "Journal of Neuroinflammation",
+            "year": 2015,
+            "authors": "Lee EJ"
+          },
+          "rationale": "β-Lapachone, the naphthoquinone from the lapacho tree (Tabebuia / Handroanthus), inhibited NF-κB/AP-1 signalling and proinflammatory cytokine expression in LPS-stimulated microglia and raised HO-1 and NQO1 through the Nrf2/ARE pathway."
+        },
+        "anise-hyssop": {
+          "pathways": [
+            "Antioxidant"
+          ],
+          "confidence": "low",
+          "source": {
+            "pmid": "34775034",
+            "doi": "10.1016/j.jep.2021.114814",
+            "title": "Anti-oxidative and anti-hyperglycemic properties of Agastache foeniculum essential oil and oily fraction in hyperglycemia-stimulated and lipopolysaccharide-stimulated macrophage cells",
+            "journal": "Journal of Ethnopharmacology",
+            "year": 2021,
+            "authors": "Najafi F"
+          },
+          "rationale": "Agastache foeniculum essential oil and oily fraction lowered NADPH-oxidase activity and raised superoxide dismutase and catalase activity and expression in stimulated J774.A1 macrophages. Endocannabinoid modulation, which this entity's mechanism_summary claims, is not supported by this or any retrieved source."
+        },
+        "gastrodia": {
+          "pathways": [
+            "Glutamate modulation",
+            "GABA modulation"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "17409525",
+            "doi": "10.1248/bpb.30.801",
+            "title": "A microdialysis study of effects of gastrodin on neurochemical changes in the ischemic/reperfused rat cerebral hippocampus",
+            "journal": "Biological & Pharmaceutical Bulletin",
+            "year": 2007,
+            "authors": "Zeng X"
+          },
+          "rationale": "Hippocampal microdialysis in rats: gastrodin, from the rhizome of Gastrodia elata, blunted the ischaemia-induced rise in extracellular glutamate and increased extracellular GABA during reperfusion, lowering the glutamate/GABA ratio."
+        },
+        "pueraria-mirifica": {
+          "pathways": [
+            "Estrogen receptor modulation",
+            "Lipid metabolism support"
+          ],
+          "confidence": "high",
+          "evidence_level": "human-clinical",
+          "source": {
+            "pmid": "19060449",
+            "doi": "10.1620/tjem.216.341",
+            "title": "Pueraria mirifica phytoestrogens improve dyslipidemia in postmenopausal women probably by activating estrogen receptor subtypes",
+            "journal": "Tohoku Journal of Experimental Medicine",
+            "year": 2008,
+            "authors": "Okamura S",
+            "class": "randomized-human-trial"
+          },
+          "rationale": "Randomised, double-blind, placebo-controlled trial in 19 postmenopausal women showed HDL and apoA-1 rises and LDL and apoB falls; paired reporter-gene assays showed miroestrol and coumestrol enhance both ERα- and ERβ-mediated transactivation."
+        },
+        "angelica-pubescens": {
+          "pathways": [
+            "NF-kB inhibition",
+            "Cytokine modulation",
+            "Anti-inflammatory"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "35793972",
+            "doi": "10.5650/jos.ess22031",
+            "title": "Anti-inflammatory Study on the Constituents of Angelica sinensis, Angelica dahurica, Angelica pubescens and Foeniculum vulgare Essential Oils",
+            "journal": "Journal of Oleo Science",
+            "year": 2022,
+            "authors": "Li C"
+          },
+          "rationale": "In the TPA-induced mouse ear oedema model, Angelica pubescens essential oil (44.6% osthole) reduced TNF-α, COX-2, IL-6 and RelA/p65 levels in skin by immunohistochemistry."
+        },
+        "hops": {
+          "pathways": [
+            "Estrogen receptor modulation"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "34965452",
+            "doi": "10.1016/j.mce.2021.111540",
+            "title": "AHR agonistic effects of 6-PN contribute to potential beneficial effects of Hops extract",
+            "journal": "Molecular and Cellular Endocrinology",
+            "year": 2021,
+            "authors": "Zanardi MV"
+          },
+          "rationale": "Hops extract and its prenylflavanones 8-PN and 6-PN showed estrogenic activity and activated ERα signalling in human endometrial cells. Stress Response Modulation, the entity's current mechanism_summary, is not what this source shows."
+        },
+        "polygala": {
+          "pathways": [
+            "Glutamate modulation"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "24520403",
+            "doi": "10.1371/journal.pone.0088617",
+            "title": "Preclinical evidence of rapid-onset antidepressant-like effect in Radix Polygalae extract",
+            "journal": "PLoS One",
+            "year": 2014,
+            "authors": "Shin IJ"
+          },
+          "rationale": "The antidepressant-like effect of Radix Polygalae in mice was blocked by the AMPA antagonist NBQX and accompanied by decreased hippocampal GluR1 ser845 phosphorylation, a ketamine-like glutamatergic signature. BDNF induction is cited from prior work rather than measured here, so it is not claimed."
+        },
+        "poria": {
+          "pathways": [
+            "NF-kB inhibition",
+            "Nrf2 activation",
+            "COX inhibition"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "35347990",
+            "doi": "10.1021/acs.jafc.2c00823",
+            "title": "New Lanostane-Type Triterpenes with Anti-Inflammatory Activity from the Epidermis of Wolfiporia cocos",
+            "journal": "Journal of Agricultural and Food Chemistry",
+            "year": 2022,
+            "authors": "Bao TR"
+          },
+          "rationale": "Poricoic acid GM from the epidermis of Wolfiporia cocos suppressed IκB-α phosphorylation and NF-κB nuclear entry, blocked Keap1–Nrf2 dissociation to drive Nrf2 into the nucleus, and inhibited iNOS and COX-2 protein expression in LPS-induced RAW264.7 macrophages."
+        },
+        "taurine-blend": {
+          "noop": "Not a defined substance. A blend has no fixed composition, so attributing a mechanism to it would generalise across formulations the evidence does not match."
+        },
+        "eucommia": {
+          "pathways": [
+            "Nitric oxide modulation",
+            "Vascular function support"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "29136955",
+            "doi": "10.1016/j.biopha.2017.11.035",
+            "title": "Eucommia ulmoides leaf (EUL) extract enhances NO production in ox-LDL-treated human endothelial cells",
+            "journal": "Biomedicine & Pharmacotherapy",
+            "year": 2017,
+            "authors": "Lee GH"
+          },
+          "rationale": "Eucommia ulmoides leaf aqueous extract and its iridoid aucubin restored nitric oxide levels, cut superoxide production and recovered phospho-eNOS Thr495 in ox-LDL-exposed HUVECs — that is, reversed eNOS uncoupling."
+        },
+        "maral-root": {
+          "noop": "Rhaponticum carthamoides is described as adaptogenic in the retrieved literature, but the hits are phytochemistry and extraction-method papers that demonstrate no pharmacological mechanism. No primary study of an accepted class supported a vocabulary label."
+        },
+        "notoginseng": {
+          "pathways": [
+            "NF-kB inhibition"
+          ],
+          "confidence": "low",
+          "source": {
+            "pmid": "34390798",
+            "doi": "10.1016/j.jep.2021.114438",
+            "title": "Compound Danshen Dripping Pill ameliorates post ischemic myocardial inflammation through synergistically regulating MAPK, PI3K/AKT and PPAR signaling pathways",
+            "journal": "Journal of Ethnopharmacology",
+            "year": 2021,
+            "authors": "Lei W"
+          },
+          "rationale": "A dual-luciferase NF-κB reporter screen identified notoginsenoside R1, a saponin specific to Panax notoginseng, as one of four pivotal anti-inflammatory ingredients, with PI3K as its docked target. Confidence is low because the in vivo work is on the three-herb CDDP formula rather than on notoginseng alone."
+        },
+        "ashitaba-extract": {
+          "pathways": [
+            "AMPK activation",
+            "Lipid metabolism support"
+          ],
+          "confidence": "moderate",
+          "source": {
+            "pmid": "23681764",
+            "doi": "10.1002/mnfr.201300020",
+            "title": "4-Hydroxyderricin and xanthoangelol from Ashitaba (Angelica keiskei) suppress differentiation of preadipocytes to adipocytes via AMPK and MAPK pathways",
+            "journal": "Molecular Nutrition & Food Research",
+            "year": 2013,
+            "authors": "Zhang T"
+          },
+          "rationale": "The Ashitaba chalcones 4-hydroxyderricin and xanthoangelol promoted AMPK and acetyl-CoA-carboxylase phosphorylation in differentiating 3T3-L1 adipocytes, cut glycerol-3-phosphate acyltransferase-1 and raised carnitine palmitoyltransferase-1. PPAR activation is not claimed: PPAR-γ was down-expressed here."
+        },
+        "ocotea-odorifera": {
+          "noop": "The retrievable Ocotea odorifera literature concerns its safrole-rich essential oil as an antibacterial and bacterial efflux-pump inhibitor. Neither antimicrobial action nor efflux-pump inhibition has a label in the canonical mechanism vocabulary."
+        },
+        "probiotics": {
+          "noop": "Category placeholder covering every probiotic preparation. Probiotic mechanisms are strain-specific, so no mechanism can be attributed to probiotics as a class without generalising across unmatched preparations."
+        },
+        "juniper": {
+          "noop": "The entity's mechanism_summary (digestive, urinary and aromatic support) has no counterpart in the canonical mechanism vocabulary, and the retrieved Juniperus communis hits are reviews of essential-oil constituents rather than primary mechanistic studies of an accepted class."
+        },
+        "eucalyptus": {
+          "pathways": [
+            "NF-kB inhibition"
+          ],
+          "confidence": "high",
+          "source": {
+            "pmid": "23872422",
+            "doi": "10.1016/j.bbamcr.2013.07.001",
+            "title": "1,8-Cineol inhibits nuclear translocation of NF-κB p65 and NF-κB-dependent transcriptional activity",
+            "journal": "Biochimica et Biophysica Acta",
+            "year": 2013,
+            "authors": "Greiner JF"
+          },
+          "rationale": "1,8-Cineol (eucalyptol), the principal constituent of eucalyptus oil, reduced NF-κB p65 nuclear translocation and NF-κB-dependent transcription in LPS-stimulated human cell lines and in peripheral blood mononuclear cells, acting through IκB-α in an IKK-independent way."
+        },
+        "milk-oats": {
+          "noop": "Researched and deliberately left empty. The best available human evidence for wild green oat (Avena sativa) extract is a 12-week randomised, double-blind, placebo-controlled cross-over trial in 37 older adults that found no effect on any cognitive measure (PMID 22690320, doi 10.3390/nu4050331). No mechanistic study of an accepted class supported a vocabulary label, and a pathway label here would imply an activity the human evidence does not show."
+        }
+      }
+    }
+  }
+}
