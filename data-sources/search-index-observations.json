@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "description": "Operator-supplied search-engine index-selection observations. These are evidence inputs for enrichment prioritization and diagnostics only; they never directly change robots, sitemap inclusion, canonicals, or publication status.",
+  "observations": [
+    {
+      "engine": "bing",
+      "status": "content_quality",
+      "url": "https://thehippiescientist.net/herbs/fennel/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "discovered_but_not_in_index",
+      "url": "https://thehippiescientist.net/goals/pain/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "discovered_but_not_in_index",
+      "url": "https://thehippiescientist.net/herbs/epimedium/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "discovered_but_not_in_index",
+      "url": "https://thehippiescientist.net/herbs/ocotea-odorifera/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "discovered_but_not_in_index",
+      "url": "https://thehippiescientist.net/compounds/quercetin/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "discovered_but_not_in_index",
+      "url": "https://thehippiescientist.net/herbs/embelia-ribes/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "discovered_but_not_in_index",
+      "url": "https://thehippiescientist.net/herbs/commiphora-mukul/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "discovered_but_not_in_index",
+      "url": "https://thehippiescientist.net/herbs/eucommia/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "discovered_but_not_in_index",
+      "url": "https://thehippiescientist.net/herbs/punarnava/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "discovered_but_not_in_index",
+      "url": "https://thehippiescientist.net/herbs/sophora-flavescens/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "not_yet_crawled",
+      "url": "https://thehippiescientist.net/herbs/jujube/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "not_yet_crawled",
+      "url": "https://thehippiescientist.net/herbs/sage/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    },
+    {
+      "engine": "bing",
+      "status": "not_yet_crawled",
+      "url": "https://thehippiescientist.net/guides/compare/oregano-vs-thyme/",
+      "observed_at": "2026-08-25",
+      "source": "bing-webmaster-tools",
+      "active": true
+    }
+  ]
+}
