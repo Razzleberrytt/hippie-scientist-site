@@ -12,7 +12,7 @@
  *   node scripts/seo/index-quality-shadow.mjs --json
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -46,25 +46,19 @@ function loadJson(file) {
 
 function loadProfiles() {
   const dirs = [
-    ['herb', path.join(ROOT, 'public', 'data', 'herbs-detail')],
-    ['compound', path.join(ROOT, 'public', 'data', 'compounds-detail')],
+    ['herb', path.join(ROOT, 'public', 'data', 'herbs-detail'), path.join(ROOT, 'public', 'data', 'herb-index.json')],
+    ['compound', path.join(ROOT, 'public', 'data', 'compounds-detail'), path.join(ROOT, 'public', 'data', 'compound-index.json')],
   ]
   const rows = []
-  for (const [kind, dir] of dirs) {
+  for (const [kind, dir, indexFile] of dirs) {
     if (!existsSync(dir)) continue
-    const manifest = kind === 'herb'
-      ? loadJson(path.join(ROOT, 'public', 'data', 'herb-index.json'))
-      : loadJson(path.join(ROOT, 'public', 'data', 'compound-index.json'))
+    const manifest = loadJson(indexFile)
     const indexRows = Array.isArray(manifest) ? manifest : manifest?.items || manifest?.data || []
-    const slugs = indexRows.length
-      ? indexRows.map((row) => row.slug).filter(Boolean)
-      : []
+    const slugs = indexRows.map((row) => row.slug).filter(Boolean)
 
-    // Fallback to the detail directory when an index is unavailable in a local
-    // checkout; report generation must remain read-only and deterministic.
+    // Fallback to the detail directory when a generated index is unavailable.
     if (!slugs.length) {
-      const fs = awaitImportFs()
-      slugs.push(...fs.readdirSync(dir).filter((name) => name.endsWith('.json')).map((name) => name.replace(/\.json$/, '')))
+      slugs.push(...readdirSync(dir).filter((name) => name.endsWith('.json')).map((name) => name.replace(/\.json$/, '')))
     }
 
     for (const slug of slugs) {
@@ -77,21 +71,7 @@ function loadProfiles() {
   return rows
 }
 
-// Avoid a top-level readdir import solely for the fallback path above.
-let fsModule
-function awaitImportFs() {
-  if (!fsModule) {
-    // eslint-disable-next-line global-require
-    fsModule = { readdirSync: (dir) => {
-      const entries = []
-      for (const name of readFileSync(path.join(dir, '.index'), 'utf8').split('\n')) entries.push(name)
-      return entries
-    } }
-  }
-  return fsModule
-}
-
-function summarize(record) {
+export function scoreShadowQuality(record) {
   const summary = text(record.summary || record.description || record.short_description)
   const description = text(record.description || record.summary || record.short_description)
   const profileStatus = text(record.profileStatus || record.profile_status)
@@ -202,10 +182,9 @@ function renderMarkdown(report) {
   return lines.join('\n')
 }
 
-function main() {
-  const profiles = loadProfiles()
+export function buildShadowReport(profiles, generatedAt = new Date().toISOString()) {
   const published = profiles
-    .map(summarize)
+    .map(scoreShadowQuality)
     .filter((row) => PUBLISHED.has(row.indexabilityStatus) && row.robots !== 'noindex,nofollow' && row.sitemapIncluded)
 
   const failures = published
@@ -214,8 +193,8 @@ function main() {
   const watch = published.filter((row) => row.shadow === 'WATCH')
   const pass = published.filter((row) => row.shadow === 'PASS')
 
-  const report = {
-    generatedAt: new Date().toISOString(),
+  return {
+    generatedAt,
     mode: 'shadow-only',
     publicationMutation: false,
     summary: {
@@ -227,16 +206,19 @@ function main() {
     failures,
     watch,
   }
+}
 
+function main() {
+  const report = buildShadowReport(loadProfiles())
   mkdirSync(REPORTS_DIR, { recursive: true })
   writeFileSync(JSON_OUT, `${JSON.stringify(report, null, 2)}\n`)
   writeFileSync(MD_OUT, renderMarkdown(report))
 
   if (process.argv.includes('--json')) console.log(JSON.stringify(report, null, 2))
   else {
-    console.log(`Index quality shadow: ${published.length} published | ${pass.length} PASS | ${watch.length} WATCH | ${failures.length} FAIL_SHADOW`)
+    console.log(`Index quality shadow: ${report.summary.published} published | ${report.summary.pass} PASS | ${report.summary.watch} WATCH | ${report.summary.failShadow} FAIL_SHADOW`)
     console.log(`Report: ${path.relative(ROOT, JSON_OUT)}`)
   }
 }
 
-main()
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) main()
