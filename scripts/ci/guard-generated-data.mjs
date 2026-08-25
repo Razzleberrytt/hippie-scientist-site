@@ -221,10 +221,7 @@ const PIPELINE_GENERATED_FILES = new Set([
   'public/data/runtime-maps/topic-clusters.json',
 ])
 
-function main() {
-  const base = getBaseRef()
-  const changed = getChangedFiles(base)
-
+export function classifyGeneratedDataGuard(changed) {
   const dataFiles = changed.filter(
     (f) =>
       f.startsWith('public/data/') &&
@@ -233,18 +230,30 @@ function main() {
       !CANONICAL_PUBLIC_DATA_SOURCES.has(f)
   )
 
-  if (dataFiles.length === 0) {
-    console.log('[guard-generated-data] No generated public/data JSON changes in this diff. OK.')
-    process.exit(0)
-  }
-
   const governedOutputs = dataFiles.filter((f) => GOVERNED_ENRICHMENT_OUTPUT_FILES.has(f))
   const ordinaryOutputs = dataFiles.filter((f) => !GOVERNED_ENRICHMENT_OUTPUT_FILES.has(f))
   const ordinarySourceTouched = hasPrefixInList(changed, SOURCE_PATHS)
   const governedSourceTouched = changed.some((f) => GOVERNED_ENRICHMENT_SOURCE_FILES.has(f))
 
-  const blockedOrdinary = ordinaryOutputs.length > 0 && !ordinarySourceTouched
-  const blockedGoverned = governedOutputs.length > 0 && !governedSourceTouched
+  return {
+    dataFiles,
+    governedOutputs,
+    ordinaryOutputs,
+    blockedOrdinary: ordinaryOutputs.length > 0 && !ordinarySourceTouched,
+    blockedGoverned: governedOutputs.length > 0 && !governedSourceTouched,
+  }
+}
+
+function main() {
+  const base = getBaseRef()
+  const changed = getChangedFiles(base)
+  const classification = classifyGeneratedDataGuard(changed)
+  const { dataFiles, governedOutputs, ordinaryOutputs, blockedOrdinary, blockedGoverned } = classification
+
+  if (dataFiles.length === 0) {
+    console.log('[guard-generated-data] No generated public/data JSON changes in this diff. OK.')
+    process.exit(0)
+  }
 
   if (blockedOrdinary || blockedGoverned) {
     console.warn('╔════════════════════════════════════════════════════════════════╗')
@@ -280,4 +289,6 @@ function main() {
   process.exit(0)
 }
 
-main()
+if (process.argv[1] && new URL(import.meta.url).pathname === new URL(`file://${process.argv[1]}`).pathname) {
+  main()
+}
