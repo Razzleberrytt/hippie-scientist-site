@@ -36,7 +36,8 @@ const TIER_QUERY: Record<string, string> = {
 
 /* Tier badges follow the site evidence palette (strong=green, moderate=blue,
    limited=amber, mechanism-only=slate) using color families the dark-mode
-   overrides in globals.css already remap. */
+   overrides in globals.css already remap. These colors are semantic evidence
+   signals and intentionally remain distinct from the neutral control surfaces. */
 const TIER_BADGE: Record<string, string> = {
   'Strong Human Evidence': 'bg-emerald-50 border-emerald-200 text-emerald-800',
   'Moderate Human Evidence': 'bg-blue-50 border-blue-200 text-blue-800',
@@ -51,13 +52,16 @@ const TIER_CHIP_ACTIVE: Record<string, string> = {
   'Mechanistic Evidence': 'border-slate-500/40 bg-slate-50 text-slate-700',
 }
 
+const neutralChip =
+  'border-[color:var(--hs-hairline)] bg-[color:var(--surface-card)] text-[color:var(--hs-body)] hover:border-[color:var(--hs-gold)] hover:text-[color:var(--hs-ink)]'
+
 function CompoundRow({ compound }: { compound: LookupCompound }) {
   return (
     <Link
       href={`/compounds/${compound.slug}/`}
-      className="flex min-h-11 items-center justify-between gap-4 rounded-xl border border-brand-900/10 bg-white/70 px-4 py-2.5 transition hover:border-brand-700/30 hover:bg-white"
+      className="flex min-h-12 items-center justify-between gap-4 rounded-xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-card)] px-4 py-2.5 transition hover:border-[color:var(--hs-hairline-strong)] hover:bg-[color:var(--surface-card-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
     >
-      <span className="truncate text-sm font-medium text-ink">{compound.name}</span>
+      <span className="truncate text-sm font-semibold text-[color:var(--hs-ink)]">{compound.name}</span>
       <span
         className={`shrink-0 rounded-full border px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.06em] ${
           TIER_BADGE[compound.evidence_tier] || 'bg-slate-50 border-slate-200 text-slate-700'
@@ -133,7 +137,7 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
   }
 
   return (
-    <div className="max-w-3xl space-y-6">
+    <div className="max-w-4xl space-y-6">
       <div className="space-y-3">
         <label htmlFor="evidence-lookup-search" className="sr-only">
           Search compounds by name
@@ -144,17 +148,17 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search compounds by name…"
-          className="w-full rounded-xl border border-brand-900/15 bg-white px-4 py-3 text-sm text-ink shadow-sm placeholder:text-muted"
+          className="min-h-12 w-full rounded-xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--surface-card)] px-4 py-3 text-base text-[color:var(--hs-ink)] outline-none placeholder:text-[color:var(--hs-body)] focus:border-[color:var(--hs-gold)] focus:ring-2 focus:ring-[color:color-mix(in_srgb,var(--hs-gold)_28%,transparent)]"
         />
         <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by evidence tier">
           <button
             type="button"
             onClick={() => setTier(null)}
             aria-pressed={tier === null}
-            className={`min-h-9 rounded-full border px-3.5 py-1 text-xs font-semibold transition ${
+            className={`min-h-10 rounded-full border px-3.5 py-1 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 ${
               tier === null
-                ? 'border-brand-700/40 bg-brand-50 text-brand-800'
-                : 'border-brand-900/10 bg-white/70 text-muted hover:border-brand-700/25 hover:text-ink'
+                ? 'border-[color:var(--hs-gold)] bg-[color:var(--hs-gold-soft)] text-[color:var(--hs-gold-ink)]'
+                : neutralChip
             }`}
           >
             All ({compounds.length})
@@ -165,10 +169,8 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
               type="button"
               onClick={() => setTier((current) => (current === t ? null : t))}
               aria-pressed={tier === t}
-              className={`min-h-9 rounded-full border px-3.5 py-1 text-xs font-semibold transition ${
-                tier === t
-                  ? TIER_CHIP_ACTIVE[t]
-                  : 'border-brand-900/10 bg-white/70 text-muted hover:border-brand-700/25 hover:text-ink'
+              className={`min-h-10 rounded-full border px-3.5 py-1 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 ${
+                tier === t ? TIER_CHIP_ACTIVE[t] : neutralChip
               }`}
             >
               {TIER_SHORT[t]} ({tierCounts[t] || 0})
@@ -179,7 +181,7 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
 
       {filtering ? (
         <section aria-label="Search results" className="space-y-3">
-          <p className="text-sm text-muted" role="status">
+          <p className="text-sm text-[color:var(--hs-body)]" role="status">
             {matches.length} of {compounds.length} compounds
             {normalizedQuery ? ` matching “${query.trim()}”` : ''}
             {tier ? ` with ${TIER_SHORT[tier].toLowerCase()} evidence` : ''}.
@@ -191,7 +193,7 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
               ))}
             </div>
           ) : (
-            <div className="rounded-xl border border-brand-900/10 bg-white/70 px-4 py-6 text-sm text-muted">
+            <div className="rounded-xl border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] px-4 py-6 text-sm text-[color:var(--hs-body)]">
               No compounds match. Try a shorter name fragment or clear the tier filter.
             </div>
           )}
@@ -204,7 +206,7 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
                 key={letter}
                 href={`#letter-${letter}`}
                 onClick={() => openLetter(letter)}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-brand-900/10 bg-white text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-brand-50"
+                className="chip-readable flex h-10 w-10 items-center justify-center text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
               >
                 {letter}
               </a>
@@ -221,20 +223,20 @@ export default function EvidenceLookupClient({ compounds }: { compounds: LookupC
                   id={`letter-${letter}`}
                   open={isOpen}
                   onToggle={(event) => toggleLetter(letter, (event.target as HTMLDetailsElement).open)}
-                  className="scroll-mt-24"
+                  className="scroll-mt-24 border-b border-[color:var(--hs-hairline)] pb-3"
                 >
-                  <summary className="flex items-center justify-between gap-4">
-                    <span>
+                  <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-4 text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2">
+                    <span className="font-semibold">
                       {letter}
-                      <span className="ml-2 text-sm font-normal text-muted">
+                      <span className="ml-2 text-sm font-normal text-[color:var(--hs-body)]">
                         ({group.length} compound{group.length !== 1 ? 's' : ''})
                       </span>
                     </span>
-                    <span aria-hidden="true" className={`text-muted transition-transform ${isOpen ? 'rotate-180' : ''}`}>
+                    <span aria-hidden="true" className={`text-[color:var(--hs-body)] transition-transform ${isOpen ? 'rotate-180' : ''}`}>
                       v
                     </span>
                   </summary>
-                  <div className="space-y-2">
+                  <div className="mt-2 space-y-2">
                     {group.map((compound) => (
                       <CompoundRow key={compound.slug} compound={compound} />
                     ))}
