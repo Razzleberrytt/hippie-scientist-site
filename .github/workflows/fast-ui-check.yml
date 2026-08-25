@@ -19,6 +19,8 @@ on:
       - 'scripts/data/quarantine-unverifiable-citations.mjs'
       - 'scripts/data/canonical/citation-export.mjs'
       - 'scripts/ci/validate-citation-integrity.mjs'
+      - 'scripts/ci/audit-accessibility-patterns.mjs'
+      - 'scripts/ci/validate-accessibility-baseline.mjs'
       - 'ops/cache/pubmed-metadata.json'
       - '.github/workflows/fast-ui-check.yml'
   workflow_dispatch:
@@ -39,6 +41,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          # The accessibility ratchet compares the checked PR merge against the
+          # exact PR base SHA, so both histories must be locally available.
+          fetch-depth: 0
 
       - name: Setup Node 22
         uses: actions/setup-node@v7
@@ -63,3 +69,12 @@ jobs:
 
       - name: Run UI checks
         run: npm run check:ui
+
+      - name: Validate accessibility baseline
+        run: node scripts/ci/validate-accessibility-baseline.mjs
+
+      - name: Block new accessibility anti-patterns
+        run: node scripts/ci/audit-accessibility-patterns.mjs --strict --baseline-ref="${{ github.event.pull_request.base.sha || github.sha }}"
+
+      - name: Run accessibility component tests
+        run: npm run test:a11y
