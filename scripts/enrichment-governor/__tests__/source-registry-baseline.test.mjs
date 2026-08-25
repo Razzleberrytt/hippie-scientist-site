@@ -198,8 +198,8 @@ test('registry validator rejects PMID and DOI aliases expressed only as canonica
     assert.ok(original)
 
     for (const [sourceId, canonicalUrl] of [
-      ['src_alias_pubmed_url', `https://pubmed.ncbi.nlm.nih.gov/${original.pmid}/`],
-      ['src_alias_doi_url', `https://doi.org/${original.doi}`],
+      ['src_alias-pubmed-url', `https://pubmed.ncbi.nlm.nih.gov/${original.pmid}/`],
+      ['src_alias-doi-url', `https://doi.org/${original.doi}`],
     ]) {
       const alias = { ...original, sourceId, canonicalUrl }
       delete alias.pmid
@@ -251,8 +251,8 @@ test('bootstrap writes missing baseline sources, passes check mode, and rejects 
 
     fs.writeFileSync(registryPath, `${JSON.stringify(merged, null, 2)}\n`, 'utf8')
     for (const alias of [
-      { sourceId: 'src_alias_pubmed_url', canonicalUrl: 'https://pubmed.ncbi.nlm.nih.gov/12345/' },
-      { sourceId: 'src_alias_doi_url', canonicalUrl: 'https://doi.org/10.1000/example' },
+      { sourceId: 'src_alias-pubmed-url', canonicalUrl: 'https://pubmed.ncbi.nlm.nih.gov/12345/' },
+      { sourceId: 'src_alias-doi-url', canonicalUrl: 'https://doi.org/10.1000/example' },
     ]) {
       const aliasedSeed = [...seed, alias]
       fs.writeFileSync(seedPath, `${JSON.stringify(aliasedSeed, null, 2)}\n`, 'utf8')
