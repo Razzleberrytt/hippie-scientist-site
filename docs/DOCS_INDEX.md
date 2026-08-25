@@ -1,7 +1,7 @@
 # Documentation Index
 
 **Status:** Authoritative documentation map
-**Updated:** 2026-08-21
+**Updated:** 2026-08-25
 **Inventory scope:** All 321 files found under `docs/` during the 2026-08-21 archaeology pass. Classification is intentionally rule-based so this index does not become a second 321-row maintenance burden.
 
 ## Required reading order
@@ -14,6 +14,7 @@
 6. [`docs/MASTER_BACKLOG.md`](MASTER_BACKLOG.md) — ranked future work
 7. [`docs/DECISIONS.md`](DECISIONS.md) — durable choices and rationale
 8. [`docs/SCOREBOARD.md`](SCOREBOARD.md) — metric definitions and current values
+9. [`docs/SWARM-UPDATES.md`](SWARM-UPDATES.md) — durable merged-update history and Integration reconciliation contract
 
 ## Authority levels
 
@@ -38,9 +39,10 @@ When documents conflict, current code/configuration/tests/deployment evidence es
 | [`MASTER_BACKLOG.md`](MASTER_BACKLOG.md) | Prioritized Now/Next/Later/Blocked/Completed system | Project control | When evidence, priority, dependencies, or proof changes |
 | [`DECISIONS.md`](DECISIONS.md) | Dated architectural/editorial/business decisions | Everyone | Append/supersede when a durable choice is made |
 | [`SCOREBOARD.md`](SCOREBOARD.md) | Growth-loop metric definitions, values, sources, owners | Growth/product/engineering | Fixed reporting cadence with source/date; Unknown is valid |
+| [`SWARM-UPDATES.md`](SWARM-UPDATES.md) | Auditable roll-up of completed five-lane swarm merges; Integration-owned reconciliation ledger | Agents, maintainers, stakeholders | Integration reconciles against merged PR history at the start/end of each run and after verified merges; lanes 1–4 do not edit directly |
 | [`DOCS_INDEX.md`](DOCS_INDEX.md) | Authority and disposition of every docs category | Everyone | When documents or categories change |
 
-`AGENTS.md` is outside `docs/` but is the highest-priority operating rule set.
+`AGENTS.md` is outside `docs/` but is the highest-priority operating rule set. Because its required operating sequence delegates reading order to this index, every fresh agent must discover `SWARM-UPDATES.md`; Integration must additionally follow that file's reconciliation/ownership contract.
 
 ## Supporting documents
 
@@ -86,7 +88,7 @@ The rules below classify every remaining docs file. First matching rule wins. Th
 |---|---|---|---|
 | `audits/**`, `audit/**`, `site-audit-*`, `post-fix-audit.md`, `audit-remediation-handoff.md`, `blog-*-audit.md`, `compound-quality-gate-audit.md`, `workbook-import-audit.md`, `spec-*-audit.md`, `production-audit-*` | Historical | Point-in-time findings for investigators | Do not update findings; rerun and create current proof/ticket |
 | `merge-report-*`, `zip-part-*-report.md`, `*-completion-*`, `*-discovery-*`, `*-batch-*`, `high-roi-content-pass-*` | Historical | Merge/batch evidence and implementation chronology | Retain unchanged unless correcting provenance |
-| `PROGRESS_LOG.md`, `LOOP_NOTES.md`, `site-update-log.md`, `update-log.md`, `UPDATES.md`, `codex-changelog.md`, migration/upgrade/repair pass docs | Historical | Development chronology | Not current status; add new durable facts to `CURRENT_STATE.md` |
+| `PROGRESS_LOG.md`, `LOOP_NOTES.md`, `site-update-log.md`, `update-log.md`, `UPDATES.md`, `codex-changelog.md`, migration/upgrade/repair pass docs | Historical | Development chronology | Not current status; add new durable facts to `CURRENT_STATE.md` unless the file is explicitly listed above as authoritative, such as `SWARM-UPDATES.md` |
 | `sprint-001-technical-health.md`, `next-work-checklist-*`, `IMPLEMENTATION-CHECKLIST.md`, `top25-expansion-roadmap.md`, `expansion-*`, `magnificent-10.md` | Legacy plan | Previous queues/expansion plans | Never execute directly; revalidate and promote a ticket |
 | `CONTENT_STRATEGY.md`, `DIFFERENTIATION_STRATEGY.md`, `MASTER_CONTENT_MAP.md`, `content-command-center.md`, `content-priority-scoreboard.md`, `business/**`, `roi/**`, `strategy/**` | Legacy strategy/control | Prior strategy, prioritization, and commercial assumptions | Context only; charter/roadmap/backlog/scoreboard now govern |
 | `marketing/weekly-cro-tracker.md`, `revenue-activation-report.md` | Legacy measurement | Placeholder or point-in-time revenue/CRO records | Values are unverified unless linked to a source export; use `SCOREBOARD.md` |
@@ -103,4 +105,4 @@ The rules below classify every remaining docs file. First matching rule wins. Th
 
 ## Audit disposition summary
 
-This reset created the eight authoritative documents, retained detailed standards and runbooks, classified old audits/merge reports/plans as historical or legacy, and retained generated aids with freshness warnings. No bulk deletion or route/content migration was justified. `docs/marketing/weekly-cro-tracker.md` and `docs/CONTENT_STRATEGY.md` now carry explicit legacy warnings; `docs/README.md` points here.
+This reset created the authoritative control documents above, retained detailed standards and runbooks, classified old audits/merge reports/plans as historical or legacy, and retained generated aids with freshness warnings. No bulk deletion or route/content migration was justified. `docs/marketing/weekly-cro-tracker.md` and `docs/CONTENT_STRATEGY.md` now carry explicit legacy warnings; `docs/README.md` points here.
