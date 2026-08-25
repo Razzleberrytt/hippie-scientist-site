@@ -41,6 +41,7 @@ const {
   effectCertainty,
   directionalConsistency,
   selectiveOutcomeReporting,
+  outcomeReviewQueue,
   claimLanguageCalibration: languageCalibration,
   crossProfileStudyLoad,
   systemicLoadBearingStudies,
@@ -122,6 +123,7 @@ results.unshift({
     `directionalFindings=${directionalConsistency.summary.findings}`,
     `selectiveOutcomeFindings=${selectiveOutcomeReporting.summary.findings}`,
     `explicitOutcomeSwitchRisks=${selectiveOutcomeReporting.summary.explicitOutcomeSwitchRisks}`,
+    `outcomeReviewItems=${outcomeReviewQueue.summary.items}`,
     `causalWithoutControlled=${languageCalibration.summary.causalWithoutControlledSupport}`,
     `pseudoMultiSource=${edgeCardinality.summary.pseudoMultiSourceClaims}`,
     `sameTrialReuse=${trialRegistrationIndependence.summary.sameTrialReuseClaims}`,
@@ -192,6 +194,7 @@ const coreSummary = {
   effectCertainty: effectCertainty.summary,
   directionalConsistency: directionalConsistency.summary,
   selectiveOutcomeReporting: selectiveOutcomeReporting.summary,
+  outcomeReviewQueue: outcomeReviewQueue.summary,
   claimLanguageCalibration: languageCalibration.summary,
   claimCitationMetadata: claimCitationMetadata.summary,
   edgeCardinality: edgeCardinality.summary,
@@ -233,7 +236,7 @@ const coreSummary = {
 
 fs.mkdirSync(REPORT_DIR, { recursive: true })
 fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
-  schemaVersion: 29,
+  schemaVersion: 30,
   generatedAt: new Date().toISOString(),
   passed: !failed,
   source: {
@@ -251,6 +254,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
     effectCertainty: 'lib/research-effect-certainty.ts',
     directionalConsistency: 'lib/research-directional-consistency.ts',
     selectiveOutcomeReporting: 'lib/research-selective-outcome-reporting.ts',
+    outcomeReviewQueue: 'lib/research-outcome-review-queue.ts',
   },
   coreSummary,
   structuralFailures: gate.structuralFailures,
@@ -290,6 +294,13 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
     findings: selectiveOutcomeReporting.findings.slice(0, 150),
     highConfidenceFindings: selectiveOutcomeReporting.highConfidenceFindings.slice(0, 100),
     assessableClaims: selectiveOutcomeReporting.claims.slice(0, 200),
+  },
+  outcomeReviewQueue: {
+    summary: outcomeReviewQueue.summary,
+    urgent: outcomeReviewQueue.urgent.slice(0, 100),
+    high: outcomeReviewQueue.high.slice(0, 100),
+    metadataBackfill: outcomeReviewQueue.metadataBackfill.slice(0, 150),
+    items: outcomeReviewQueue.items.slice(0, 250),
   },
   claimLanguageCalibration: {
     summary: languageCalibration.summary,
@@ -351,6 +362,7 @@ fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
   highConfidenceLegacyOnlyClaims: highConfidenceLegacyOnlyClaims.slice(0, 100),
   topLegacyOnlyClaims: legacyOnlyClaims.slice(0, 100),
   topResearchGaps: researchGapQueue.slice(0, 50),
+  topOutcomeReviewRemediation: outcomeReviewQueue.items.slice(0, 100),
   topAiCitationRemediation: aiCitationReadiness.profiles.slice(0, 50),
   checks: results,
   contentIntegritySummary: contentIntegrity.summary,
@@ -363,6 +375,7 @@ console.log(`Claim breadth: ${claimBreadth.summary.overbroadClaims} overbroad cl
 console.log(`Effect/certainty: ${effectCertainty.summary.findings} overstatement finding(s) · ${effectCertainty.summary.highConfidenceFindings} high-confidence · magnitude ${effectCertainty.summary.magnitudeOverstatements} · clinical importance ${effectCertainty.summary.clinicalImportanceOverstatements} · certainty ${effectCertainty.summary.certaintyOverstatements}`)
 console.log(`Directional consistency: ${directionalConsistency.summary.findings} finding(s) · ${directionalConsistency.summary.highConfidenceFindings} high-confidence · endpoint cherry-pick ${directionalConsistency.summary.endpointCherryPickRisks} · heterogeneous ${directionalConsistency.summary.directionalHeterogeneityClaims} · uniformly-positive overstatement ${directionalConsistency.summary.uniformlyPositiveOverstatements}`)
 console.log(`Selective outcome reporting: ${selectiveOutcomeReporting.summary.findings} finding(s) · ${selectiveOutcomeReporting.summary.highConfidenceFindings} high-confidence · selective-risk ${selectiveOutcomeReporting.summary.selectiveOutcomeRisks} · explicit switch/non-reporting ${selectiveOutcomeReporting.summary.explicitOutcomeSwitchRisks} · assessable ${selectiveOutcomeReporting.summary.assessableClaims}/${selectiveOutcomeReporting.summary.approvedOutcomeClaims} approved outcome claim(s)`)
+console.log(`Outcome review queue: ${outcomeReviewQueue.summary.items} item(s) · ${outcomeReviewQueue.summary.urgent} urgent · ${outcomeReviewQueue.summary.high} high · ${outcomeReviewQueue.summary.metadataBackfill} metadata backfill`)
 console.log(`Language calibration: ${languageCalibration.summary.causalWithoutControlledSupport} unsupported direct-causal claim(s)`)
 console.log(`Edge cardinality: ${edgeCardinality.summary.pseudoMultiSourceClaims} pseudo-multi-source · ${edgeCardinality.summary.aliasCollapsedClaims} alias-collapsed · ${edgeCardinality.summary.duplicateEdges} duplicate edge(s)`)
 console.log(`Underlying-study reuse: ${trialRegistrationIndependence.summary.sameTrialReuseClaims} same-trial claim(s) · ${evidenceLineage.summary.sharedNonRegistryLineageClaims} shared lineage claim(s)`)
