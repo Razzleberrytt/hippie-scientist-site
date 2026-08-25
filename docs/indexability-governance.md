@@ -70,3 +70,22 @@ Avoid changing static education pages until those route classes have governed fi
 - Do not index thin or generated pages just because they exist.
 - Do not manually edit `public/data` JSON.
 - Do not commit generated churn unless it is intentionally part of a data update.
+
+## Post-build publication truth
+
+Run the final profile reconciliation only after the production build has written
+`out/sitemap.xml` and `out/_redirects`:
+
+```bash
+npm run audit:profile-publication
+```
+
+The audit writes `reports/profile-publication-truth.json`. Each built herb and
+compound row records the rendered robots directive, rendered canonical, actual
+sitemap inclusion, final sitemap eligibility, and a deterministic publication or
+exclusion reason. The command fails when final HTML, redirects, or sitemap
+inclusion disagree.
+
+This report is verification evidence, not a publication input. Workbook-derived
+runtime governance remains authoritative; never feed the report back into the
+data pipeline or use it to bypass an evidence or safety hold.
