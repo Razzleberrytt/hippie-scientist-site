@@ -1,14 +1,14 @@
 # Growth Scoreboard
 
 **Status:** Authoritative metric definitions and reporting surface
-**Updated:** 2026-08-21
+**Updated:** 2026-08-25
 **Default reporting period:** Rolling 28 complete days compared with the preceding 28 complete days. Repository/build health uses the latest main-branch run. `Unknown` means no authorized source value was available; it does not mean zero.
 
 ## Measurement status
 
-**Verified:** Consent-gated analytics and affiliate-event code exists.
+**Verified:** Consent-gated analytics and affiliate-event code exists. PR #4269 merged as `ac20330`, preserving first consented GA events during deferred loading and assigning explicit initial/client-route page views to one owner.
 **Unknown:** Production property configuration/event receipt and all business performance values.
-**Next:** Complete REV-001, then import read-only GSC, GA4, Amazon Associates, and Mailchimp reports with matching date ranges. Never commit credentials or person-level data.
+**Next:** Resolve the authorized production receipt blocker in issue #4280, then import read-only GSC, GA4, Amazon Associates, and Mailchimp reports with matching date ranges. Never commit credentials or person-level data.
 
 ## Search
 
@@ -68,7 +68,7 @@
 | Metadata errors | Missing/invalid title/description/robots/canonical in fresh built scope | Latest current CI metadata audit passed; source audit found one missing metadata source | CI + `audit:content` | 2026-08-21 | SEO engineer | Confirm in final local build and resolve duplicate article route | Stale local `out/` produced false signals during archaeology |
 | Canonical errors | Built/live pages with missing, non-self, or wrong-host canonical | 0 in sampled live core routes; sitewide value Unknown | Live sample | 2026-08-21 | SEO engineer | Full fresh-output canonical audit | Sample success is not a sitewide zero |
 | Orphan pages | Canonical pages with no qualifying internal links under audit definition | 1 definite source orphan; latest full CI reported 16 non-blocking orphans | Source/full link audits | 2026-08-21 | Content SEO | Reconcile audit definitions and review high-value pages | Pagination/tooling can create false positives |
-| Analytics failures | Missing/duplicate/consent-violating production events | Unknown | Network + analytics DebugView | Current | Analytics engineer | Execute REV-001 | No production receipt evidence was available |
+| Analytics failures | Missing/duplicate/consent-violating production events | Unknown; code-readiness fix merged in PR #4269, but production receipt is unobserved | Network + analytics DebugView | Current | Analytics engineer | Resolve issue #4280 with authorized pre/post-consent network and timestamped receipt evidence | GitHub code and CI cannot prove production property configuration or receipt |
 | Affiliate tracking failures | Recognized outbound clicks not recorded once, with required context | Unknown | Network/event report | Current | Analytics engineer | Execute REV-001 and compare controlled click to receipt | Do not click live affiliate links excessively |
 | Publication parity failures | Profiles whose final governed-data eligibility, rendered robots/canonical/redirect state, and sitemap membership disagree | 0 across 846 built profiles; 285 sitemap-eligible and 285 included | `reports/profile-publication-truth.json`; Production Content Invariants run #1746; PR #4262 | 2026-08-25 clean build | Data/SEO engineer | Monitor the retained CI artifact for count or reason drift | This proves final deploy-surface parity, not parity with legacy/pre-build manifests or Google index coverage |
 
