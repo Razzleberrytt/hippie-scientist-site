@@ -22,6 +22,7 @@ const SOURCE_READINESS_REASONS = new Set([
   'source_inactive',
   'source_publication_status_withdrawn',
   'source_publication_status_superseded',
+  'source_publication_status_archived',
 ])
 
 function parseJsonl(file) {
