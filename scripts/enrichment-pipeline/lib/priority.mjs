@@ -59,9 +59,63 @@ function clamp01(value) {
   return Math.min(1, Math.max(0, value))
 }
 
+function searchObservationSlug(observation) {
+  try {
+    const pathname = new URL(String(observation?.url ?? ''), 'https://thehippiescientist.net').pathname
+    const match = pathname.match(/^\/(?:herbs|compounds)\/([^/]+)\/?$/i)
+    if (!match) return ''
+
+    const urlSlug = match[1].toLowerCase()
+    const explicit = String(observation?.slug ?? '').trim().toLowerCase()
+    return explicit && explicit !== urlSlug ? '' : urlSlug
+  } catch {
+    return ''
+  }
+}
+
 /**
- * Corpus-level context computed once per scan: normalization maxima and the
- * open-maintenance-backlog index. Passing this in keeps per-job scoring pure.
+ * Latest active search-engine observation per profile slug. Equal-date
+ * observations resolve to the stronger rejection score, which keeps the result
+ * deterministic and conservative without inventing recency decay.
+ */
+function buildSearchIndexFeedback(publicSignals, config) {
+  const rows = publicSignals?.searchIndexObservations?.observations
+  const weights = config.signals.search_index_feedback?.status_weights
+  if (!Array.isArray(rows) || !weights) return new Map()
+
+  const feedback = new Map()
+  for (const observation of rows) {
+    if (!observation || observation.active === false) continue
+    const slug = searchObservationSlug(observation)
+    if (!slug) continue
+    const score = lookup(weights, observation.status)
+    if (typeof score !== 'number' || !Number.isFinite(score)) continue
+
+    const observedAt = String(observation.observed_at ?? '').trim()
+    const entry = {
+      slug,
+      score: clamp01(score),
+      status: String(observation.status ?? '').trim().toLowerCase(),
+      engine: String(observation.engine ?? '').trim().toLowerCase(),
+      observedAt,
+      source: String(observation.source ?? '').trim(),
+    }
+    const previous = feedback.get(slug)
+    if (
+      !previous ||
+      observedAt > previous.observedAt ||
+      (observedAt === previous.observedAt && entry.score > previous.score)
+    ) {
+      feedback.set(slug, entry)
+    }
+  }
+  return feedback
+}
+
+/**
+ * Corpus-level context computed once per scan: normalization maxima, the
+ * open-maintenance-backlog index, and optional external index-selection evidence.
+ * Passing this in keeps per-job scoring pure.
  */
 export function buildPriorityContext(canonical, publicSignals = {}, config = loadPriorityConfig()) {
   const authorityColumns = config.signals.authority_weight.columns
@@ -105,7 +159,9 @@ export function buildPriorityContext(canonical, publicSignals = {}, config = loa
     }
   }
 
-  return { maxima, backlog, curated, config }
+  const searchIndexFeedback = buildSearchIndexFeedback(publicSignals, config)
+
+  return { maxima, backlog, curated, searchIndexFeedback, config }
 }
 
 function signalRuntimeVisibility(row, config) {
@@ -140,6 +196,11 @@ function signalMaintenanceBacklog(slug, context) {
   if (!entry) return 0
   const saturation = context.config.signals.maintenance_backlog.saturation_rows || 8
   return clamp01(entry.weight / saturation)
+}
+
+function signalSearchIndexFeedback(slug, context) {
+  const entry = context.searchIndexFeedback?.get(String(slug ?? '').trim().toLowerCase())
+  return entry ? entry.score : null
 }
 
 /**
@@ -179,6 +240,7 @@ export function scoreEntity({ row, slug, completenessDeficit }, context) {
     maintenance_backlog: signalMaintenanceBacklog(slug, context),
     curated_prominence: context.curated.has(slug) ? 1 : 0,
     unique_added_value: signalUniqueAddedValue(row, config),
+    search_index_feedback: signalSearchIndexFeedback(slug, context),
   }
 
   let available = 0
