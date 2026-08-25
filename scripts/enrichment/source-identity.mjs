@@ -51,7 +51,7 @@ export function identityTokens(source) {
           ? url.pathname.match(/^\/pubmed\/(\d+)$/u)
           : null
 
-      if (hostname === 'doi.org') {
+      if (hostname === 'doi.org' || hostname === 'dx.doi.org') {
         const canonicalDoi = normalizeDoi(url.pathname.replace(/^\//u, ''))
         if (canonicalDoi) tokens.add(`doi:${canonicalDoi}`)
       } else if (pubmedPath) {
