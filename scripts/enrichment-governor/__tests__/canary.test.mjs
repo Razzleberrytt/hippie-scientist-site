@@ -17,9 +17,10 @@ const canonical = {
   luteolin: { entityType: 'compound', entitySlug: 'luteolin' },
 }
 
-const retiredSourceDebt = [
+const expectedUnresolvedWithoutRegistry = [
   'src_cochrane-cd003383',
   'src_fda-epidiolex-label-2021',
+  'src_pubmed-23348842',
   'src_pubmed-29801717',
   'src_pubmed-31006899',
   'src_pubmed-31517876',
@@ -68,7 +69,7 @@ function baselineDebtEntries() {
     entry('ashwagandha', 'safety', { sourceId: 'src_pubmed-31517876', claimType: 'safety_risk', topicType: 'adverse_effect', evidenceClass: 'human-clinical' }),
     entry('chamomile', 'safety', { sourceId: 'src_pubmed-31006899', claimType: 'safety_risk', topicType: 'adverse_effect' }),
     entry('chamomile', 'null', { sourceId: 'src_pubmed-31006899', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
-    entry('kava', 'safety', { sourceId: 'src_cochrane-cd003383', claimType: 'safety_risk', topicType: 'condition_caution' }),
+    entry('kava', 'safety', { sourceId: 'src_pubmed-23348842', claimType: 'safety_risk', topicType: 'adverse_effect' }),
     entry('kava', 'conflict', { sourceId: 'src_cochrane-cd003383', claimType: 'evidence_conflict', topicType: 'conflict_note' }),
     entry('cbd', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'medication_class_caution', evidenceClass: 'regulatory-monograph' }),
     entry('cbd', 'gap', { sourceId: 'src_pubmed-40622698', claimType: 'research_gap', topicType: 'research_gap' }),
@@ -138,12 +139,12 @@ test('remaining allowed baseline debt is limited to coverage dimensions', () => 
   assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, [])
 })
 
-test('retired legacy unresolved sources now block instead of remaining allowlisted', () => {
+test('all current fixture sources block when registry support is absent', () => {
   const result = verifyCanaries(baselineDebtEntries(), [])
   assert.equal(result.pass, false)
-  assert.deepEqual(result.debt.unresolvedSourceIds, retiredSourceDebt)
-  assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, retiredSourceDebt)
-  for (const sourceId of retiredSourceDebt) {
+  assert.deepEqual(result.debt.unresolvedSourceIds, expectedUnresolvedWithoutRegistry)
+  assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, expectedUnresolvedWithoutRegistry)
+  for (const sourceId of expectedUnresolvedWithoutRegistry) {
     assert.ok(result.blockers.includes(`new_provenance_debt:unresolved_source:${sourceId}`))
   }
 })
@@ -194,6 +195,7 @@ test('changed normalized rows reference real canonical detail entities independe
     ['enr_kava-supported-use-anxiety-review', ['herb', 'piper-methysticum']],
     ['enr_kava-conflict-hepatotoxicity-note', ['herb', 'piper-methysticum']],
     ['enr_kava-condition-caution-liver-disease', ['herb', 'piper-methysticum']],
+    ['enr_kava-short-term-liver-tolerability-rct', ['herb', 'piper-methysticum']],
     ['enr_cbd-medication-class-caution-cns-depressants', ['compound', 'cannabidiol']],
     ['enr_cbd-enzyme-cyp2c19', ['compound', 'cannabidiol']],
     ['enr_cbd-adverse-effect-transaminase', ['compound', 'cannabidiol']],
