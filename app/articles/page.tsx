@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { allArticleMonographs, allBlogPosts } from '../../.content-collections/generated'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { SITE_URL, buildTwitterMetadata } from '../../src/lib/seo'
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function ArticlesIndexPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 pb-20 pt-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl space-y-6 px-4 py-4 sm:py-6">
       <Breadcrumbs
         items={[
           { href: '/', label: 'Home' },
@@ -37,38 +38,44 @@ export default function ArticlesIndexPage() {
         ]}
       />
 
-      <header className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
-        <p className="text-xs font-bold uppercase tracking-wider text-brand-800">Research &amp; evidence reviews</p>
-        <h1 className="mt-3 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
-          Articles
-        </h1>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
-          Research notes, evidence reviews, regulatory updates, and editorial deep dives on herbs, compounds, and emerging psychoactive substances.
+      <header className="hero-shell rounded-[2rem] border px-5 py-6 sm:p-8">
+        <p className="eyebrow-label">Research &amp; evidence reviews</p>
+        <h1 className="heading-premium mt-5 max-w-4xl">Articles</h1>
+        <p className="text-reading mt-4 max-w-3xl">
+          Research notes, evidence reviews, regulatory updates, and editorial deep dives. Browse {articlePages.length} published pieces with the same evidence-first, safety-aware approach used across the profile library.
         </p>
       </header>
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-2" aria-label="Articles">
+      <section className="grid gap-4 sm:grid-cols-2 lg:gap-5" aria-label="Articles">
         {articlePages.map((page) => (
           <Link
             key={page.slug}
             href={page.url}
-            className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm transition hover:border-brand-700/30 hover:bg-brand-50/40"
+            className="card-premium group flex min-h-[13rem] flex-col p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 sm:p-6"
           >
             <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold uppercase tracking-wider text-muted">
+              <span className="rounded-full border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-[color:var(--hs-body)]">
                 {page.category}
               </span>
               {page.evidenceGrade ? (
-                <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
+                <span className="rounded-full border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] px-2.5 py-1 font-semibold text-[color:var(--hs-body)]">
                   Evidence: {page.evidenceGrade}
                 </span>
               ) : null}
-              <time dateTime={page.lastUpdated} className="text-muted">
+              <time dateTime={page.lastUpdated} className="text-[color:var(--hs-body)]">
                 {page.lastUpdated}
               </time>
             </div>
-            <h2 className="mt-3 text-lg font-bold leading-snug text-ink">{page.title}</h2>
-            <p className="mt-2 text-sm leading-6 text-muted">{page.description}</p>
+
+            <h2 className="mt-4 text-xl font-semibold leading-snug tracking-tight text-[color:var(--hs-ink)] sm:text-[1.35rem]">
+              {page.title}
+            </h2>
+            <p className="mt-3 line-clamp-3 text-sm leading-6 text-[color:var(--hs-body)]">{page.description}</p>
+
+            <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-[color:var(--hs-gold-ink)]">
+              Read article
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </span>
           </Link>
         ))}
       </section>
