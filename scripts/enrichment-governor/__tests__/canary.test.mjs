@@ -3,12 +3,12 @@ import assert from 'node:assert/strict'
 
 import { verifyCanaries } from '../canary.mjs'
 
-const anchors = ['ashwagandha', 'chamomile', 'kava', 'cbd', 'luteolin']
+const anchors = ['ashwagandha', 'chamomile', 'kava', 'cannabidiol', 'luteolin']
 
 function entry(slug, suffix, overrides = {}) {
   return {
     enrichmentId: `enr_${slug}-${suffix}`,
-    entityType: slug === 'cbd' || slug === 'luteolin' ? 'compound' : 'herb',
+    entityType: slug === 'ashwagandha' ? 'herb' : 'compound',
     entitySlug: slug,
     sourceId: `src_${slug}-${suffix}`,
     claimType: 'efficacy_signal',
@@ -40,8 +40,8 @@ function baselineDebtEntries() {
     entry('chamomile', 'null', { sourceId: 'src_pubmed-31006899', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
     entry('kava', 'safety', { sourceId: 'src_cochrane-cd003383', claimType: 'safety_risk', topicType: 'condition_caution' }),
     entry('kava', 'conflict', { sourceId: 'src_cochrane-cd003383', claimType: 'evidence_conflict', topicType: 'conflict_note' }),
-    entry('cbd', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'medication_class_caution', evidenceClass: 'regulatory-monograph' }),
-    entry('cbd', 'gap', { sourceId: 'src_pubmed-40622698', claimType: 'research_gap', topicType: 'research_gap' }),
+    entry('cannabidiol', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'medication_class_caution', evidenceClass: 'regulatory-monograph' }),
+    entry('cannabidiol', 'gap', { sourceId: 'src_pubmed-40622698', claimType: 'research_gap', topicType: 'research_gap' }),
     entry('luteolin', 'null', { sourceId: 'src_pubmed-29801717', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use', evidenceClass: 'preclinical-mechanistic' }),
   ]
 }
