@@ -9,6 +9,7 @@ import { evaluateEntryReadiness } from '../../enrichment/normalize-enrichment-li
 
 const ROOT = process.cwd()
 const BOOTSTRAP_SCRIPT = path.join(ROOT, 'scripts', 'data', 'bootstrap-enrichment-source-registry.mjs')
+const REGISTRY_VALIDATOR = path.join(ROOT, 'scripts', 'validate-source-registry.mjs')
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'))
@@ -120,6 +121,8 @@ test('Ashwagandha efficacy stays limited to the statistically supported endpoint
 
   assert.equal(efficacy?.sourceId, 'src_pubmed-31517876')
   assert.equal(efficacy?.strengthLabel, 'limited')
+  assert.match(efficacy?.conflictNote || '', /Arjuna Natural Ltd funded the study and supplied the tested Shoden extract/i)
+  assert.match(efficacy?.conflictNote || '', /lacks established independent replication/i)
   assert.match(efficacy?.findingTextNormalized || '', /HAM-A/i)
   assert.match(efficacy?.findingTextNormalized || '', /P = \.040/)
   assert.match(efficacy?.findingTextNormalized || '', /DASS-21/i)
@@ -219,6 +222,52 @@ test('bootstrap writes missing baseline sources, passes check mode, and rejects 
     result = spawnSync(process.execPath, [BOOTSTRAP_SCRIPT, '--check'], { cwd: tempRoot, encoding: 'utf8' })
     assert.notEqual(result.status, 0)
     assert.match(`${result.stderr}\n${result.stdout}`, /cross-ID source identity collision/i)
+
+    const crossAnchorAliases = [
+      ...seed,
+      { sourceId: 'src_doi_url_alias', canonicalUrl: 'https://doi.org/10.1000/example' },
+      { sourceId: 'src_pubmed_url_alias', canonicalUrl: 'https://pubmed.ncbi.nlm.nih.gov/12345/?alias=1' },
+    ]
+    fs.writeFileSync(seedPath, `${JSON.stringify(crossAnchorAliases, null, 2)}\n`, 'utf8')
+    result = spawnSync(process.execPath, [BOOTSTRAP_SCRIPT, '--check'], { cwd: tempRoot, encoding: 'utf8' })
+    assert.notEqual(result.status, 0)
+    assert.match(`${result.stderr}\n${result.stdout}`, /doi:10\.1000\/example/i)
+    assert.match(`${result.stderr}\n${result.stdout}`, /pmid:12345/i)
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true })
+  }
+})
+
+
+test('persisted registry validator rejects DOI and PubMed URL aliases across source IDs', () => {
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'enrichment-source-validator-'))
+  const schemaDir = path.join(tempRoot, 'schemas')
+  const registryDir = path.join(tempRoot, 'public', 'data')
+  try {
+    fs.mkdirSync(schemaDir, { recursive: true })
+    fs.mkdirSync(registryDir, { recursive: true })
+    fs.copyFileSync(path.join(ROOT, 'schemas', 'source-registry.schema.json'), path.join(schemaDir, 'source-registry.schema.json'))
+    fs.copyFileSync(path.join(ROOT, 'schemas', 'source-class-governance.json'), path.join(schemaDir, 'source-class-governance.json'))
+    const registry = readJson('public/data/source-registry.json')
+    const doiSource = registry.find(row => row.doi)
+    const pmidSource = registry.find(row => row.pmid && row.sourceId !== doiSource?.sourceId)
+    assert.ok(doiSource?.doi)
+    assert.ok(pmidSource?.pmid)
+    const asUrlAlias = (source, sourceId, canonicalUrl) => {
+      const { doi: _doi, pmid: _pmid, monographId: _monographId, ...rest } = source
+      return { ...rest, sourceId, canonicalUrl }
+    }
+    registry.push(
+      asUrlAlias(doiSource, 'src_doi_url_alias', `https://doi.org/${doiSource.doi}`),
+      asUrlAlias(pmidSource, 'src_pubmed_url_alias', `https://pubmed.ncbi.nlm.nih.gov/${pmidSource.pmid}/?alias=1`),
+    )
+    fs.writeFileSync(path.join(registryDir, 'source-registry.json'), `${JSON.stringify(registry, null, 2)}\n`, 'utf8')
+    const result = spawnSync(process.execPath, [REGISTRY_VALIDATOR], { cwd: tempRoot, encoding: 'utf8' })
+    assert.notEqual(result.status, 0)
+    const output = `${result.stderr}\n${result.stdout}`
+    assert.match(output, /doi:/i)
+    assert.match(output, /pmid:/i)
+    assert.match(output, /duplicates source identity/i)
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true })
   }
