@@ -90,6 +90,30 @@ html .library-content-card:focus-within {
   border-color: var(--border-strong);
 }
 
+/* Responsive geometry for the canonical aliases lives here as well. Legacy
+ * global/profile layers may control page spacing around these surfaces, but
+ * they must not silently change the reusable surface material or shape. */
+@media (max-width: 640px) {
+  html .card-premium,
+  html .section-frame,
+  html .surface-subtle,
+  html .surface-depth {
+    border-radius: 1rem;
+  }
+
+  html .scientific-card {
+    border-radius: 0.9rem;
+  }
+
+  html .section-frame {
+    padding: 1rem;
+  }
+
+  html .scientific-card {
+    padding: 0.75rem;
+  }
+}
+
 html .chip-readable {
   border: 1px solid var(--border-soft);
   border-radius: 999px;
