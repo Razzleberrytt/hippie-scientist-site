@@ -253,10 +253,10 @@ describe('buildHerbArticleSchema', () => {
   it('serializes without XSS vectors', () => {
     const schema = buildHerbArticleSchema({
       ...base,
-      headline: '\"><script>alert(1)</script>',
+      headline: '"><script>alert(1)</script>',
     })
     const serialized = serializeJsonLd(schema)
     expect(serialized).not.toContain('<script>')
-    expect(serialized).not.toContain('\">')
+    expect(serialized).not.toContain('">')
   })
 })
