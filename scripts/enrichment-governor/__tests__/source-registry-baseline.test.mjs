@@ -9,6 +9,7 @@ import { evaluateEntryReadiness } from '../../enrichment/normalize-enrichment-li
 
 const ROOT = process.cwd()
 const BOOTSTRAP_SCRIPT = path.join(ROOT, 'scripts', 'data', 'bootstrap-enrichment-source-registry.mjs')
+const VALIDATOR_SCRIPT = path.join(ROOT, 'scripts', 'validate-source-registry.mjs')
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'))
@@ -126,6 +127,8 @@ test('Ashwagandha efficacy stays limited to the statistically supported endpoint
   assert.match(efficacy?.findingTextNormalized || '', /P = \.096/)
   assert.match(efficacy?.findingTextNormalized || '', /not statistically significant/i)
   assert.doesNotMatch(efficacy?.findingTextNormalized || '', /reduced validated stress and anxiety symptom scores versus placebo/i)
+  assert.match(efficacy?.conflictNote || '', /Arjuna Natural Ltd funded the study/i)
+  assert.match(efficacy?.conflictNote || '', /does not establish independent replication/i)
 })
 
 test('Chamomile safety stays within adverse events actually reported by the review', () => {
@@ -178,6 +181,40 @@ test('CBD liver-enzyme trial remains scoped to the healthy-adult study populatio
   assert.doesNotMatch(cbdLiver?.targetName || '', /hepatic risk/i)
 })
 
+test('registry validator rejects PMID and DOI aliases expressed only as canonical URLs', () => {
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'enrichment-source-validator-'))
+  const schemaDir = path.join(tempRoot, 'schemas')
+  const registryPath = path.join(tempRoot, 'public', 'data', 'source-registry.json')
+
+  try {
+    fs.mkdirSync(schemaDir, { recursive: true })
+    fs.mkdirSync(path.dirname(registryPath), { recursive: true })
+    for (const schemaName of ['source-registry.schema.json', 'source-class-governance.json']) {
+      fs.copyFileSync(path.join(ROOT, 'schemas', schemaName), path.join(schemaDir, schemaName))
+    }
+
+    const registry = readJson('public/data/source-registry.json')
+    const original = registry.find(row => row.sourceId === 'src_pubmed-31517876')
+    assert.ok(original)
+
+    for (const [sourceId, canonicalUrl] of [
+      ['src_alias_pubmed_url', `https://pubmed.ncbi.nlm.nih.gov/${original.pmid}/`],
+      ['src_alias_doi_url', `https://doi.org/${original.doi}`],
+    ]) {
+      const alias = { ...original, sourceId, canonicalUrl }
+      delete alias.pmid
+      delete alias.doi
+      fs.writeFileSync(registryPath, `${JSON.stringify([original, alias], null, 2)}\n`, 'utf8')
+
+      const result = spawnSync(process.execPath, [VALIDATOR_SCRIPT], { cwd: tempRoot, encoding: 'utf8' })
+      assert.notEqual(result.status, 0)
+      assert.match(`${result.stderr}\n${result.stdout}`, /duplicates identity owned by src_pubmed-31517876/i)
+    }
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true })
+  }
+})
+
 test('bootstrap writes missing baseline sources, passes check mode, and rejects identity conflicts', () => {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'enrichment-source-bootstrap-'))
   const seedPath = path.join(tempRoot, 'data-sources', 'enrichment-source-registry-baseline.json')
@@ -213,12 +250,17 @@ test('bootstrap writes missing baseline sources, passes check mode, and rejects 
     assert.match(`${result.stderr}\n${result.stdout}`, /Baseline source identity conflict/)
 
     fs.writeFileSync(registryPath, `${JSON.stringify(merged, null, 2)}\n`, 'utf8')
-    const aliasedSeed = [...seed, { sourceId: 'src_alias', pmid: '12345' }]
-    fs.writeFileSync(seedPath, `${JSON.stringify(aliasedSeed, null, 2)}\n`, 'utf8')
+    for (const alias of [
+      { sourceId: 'src_alias_pubmed_url', canonicalUrl: 'https://pubmed.ncbi.nlm.nih.gov/12345/' },
+      { sourceId: 'src_alias_doi_url', canonicalUrl: 'https://doi.org/10.1000/example' },
+    ]) {
+      const aliasedSeed = [...seed, alias]
+      fs.writeFileSync(seedPath, `${JSON.stringify(aliasedSeed, null, 2)}\n`, 'utf8')
 
-    result = spawnSync(process.execPath, [BOOTSTRAP_SCRIPT, '--check'], { cwd: tempRoot, encoding: 'utf8' })
-    assert.notEqual(result.status, 0)
-    assert.match(`${result.stderr}\n${result.stdout}`, /cross-ID source identity collision/i)
+      result = spawnSync(process.execPath, [BOOTSTRAP_SCRIPT, '--check'], { cwd: tempRoot, encoding: 'utf8' })
+      assert.notEqual(result.status, 0)
+      assert.match(`${result.stderr}\n${result.stdout}`, /cross-ID source identity collision/i)
+    }
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true })
   }
