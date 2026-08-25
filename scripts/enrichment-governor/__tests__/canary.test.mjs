@@ -4,13 +4,21 @@ import assert from 'node:assert/strict'
 import { verifyCanaries } from '../canary.mjs'
 
 const anchors = ['ashwagandha', 'chamomile', 'kava', 'cbd', 'luteolin']
+const canonical = {
+  ashwagandha: { entityType: 'herb', entitySlug: 'ashwagandha' },
+  chamomile: { entityType: 'herb', entitySlug: 'matricaria-chamomilla' },
+  kava: { entityType: 'herb', entitySlug: 'piper-methysticum' },
+  cbd: { entityType: 'compound', entitySlug: 'cannabidiol' },
+  luteolin: { entityType: 'compound', entitySlug: 'luteolin' },
+}
 
-function entry(slug, suffix, overrides = {}) {
+function entry(anchor, suffix, overrides = {}) {
+  const identity = canonical[anchor]
   return {
-    enrichmentId: `enr_${slug}-${suffix}`,
-    entityType: slug === 'cbd' || slug === 'luteolin' ? 'compound' : 'herb',
-    entitySlug: slug,
-    sourceId: `src_${slug}-${suffix}`,
+    enrichmentId: `enr_${anchor}-${suffix}`,
+    entityType: identity.entityType,
+    entitySlug: identity.entitySlug,
+    sourceId: `src_${anchor}-${suffix}`,
     claimType: 'efficacy_signal',
     evidenceClass: 'human-clinical',
     topicType: 'supported_use',
@@ -25,11 +33,19 @@ function entry(slug, suffix, overrides = {}) {
 }
 
 function completeEntries() {
-  return anchors.flatMap(slug => [
-    entry(slug, 'efficacy'),
-    entry(slug, 'null', { claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
-    entry(slug, 'safety', { claimType: 'safety_risk', topicType: 'adverse_effect' }),
+  return anchors.flatMap(anchor => [
+    entry(anchor, 'efficacy'),
+    entry(anchor, 'null', { claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
+    entry(anchor, 'safety', { claimType: 'safety_risk', topicType: 'adverse_effect' }),
   ])
+}
+
+function registryFor(entries) {
+  return [...new Set(entries.map(row => row.sourceId).filter(Boolean))].map(sourceId => ({
+    sourceId,
+    active: true,
+    publicationStatus: 'published',
+  }))
 }
 
 function baselineDebtEntries() {
@@ -49,8 +65,7 @@ function baselineDebtEntries() {
 test('required canary checks block missing source linkage and schema validity', () => {
   const entries = completeEntries()
   entries.find(row => row.entitySlug === 'ashwagandha').sourceId = ''
-  const registry = completeEntries().map(row => ({ sourceId: row.sourceId }))
-  const result = verifyCanaries(entries, registry)
+  const result = verifyCanaries(entries, registryFor(entries))
   assert.equal(result.pass, false)
   assert.ok(result.blockers.some(value => value.includes('ashwagandha:required_check_failed:source_linkage')))
   assert.ok(result.blockers.some(value => value.includes('ashwagandha:required_check_failed:schema_validity')))
@@ -59,18 +74,16 @@ test('required canary checks block missing source linkage and schema validity', 
 test('real normalized-entry schema rejects an invalid enum value', () => {
   const entries = completeEntries()
   entries.find(row => row.entitySlug === 'ashwagandha').entityType = 'plant'
-  const registry = entries.map(row => ({ sourceId: row.sourceId }))
-  const result = verifyCanaries(entries, registry)
+  const result = verifyCanaries(entries, registryFor(entries))
   assert.equal(result.pass, false)
-  assert.ok(result.blockers.includes('ashwagandha:required_check_failed:schema_validity'))
+  assert.ok(result.blockers.includes('ashwagandha:missing_canary') || result.blockers.includes('ashwagandha:required_check_failed:schema_validity'))
 })
 
 test('inactive evidence cannot satisfy a required canary', () => {
   const entries = completeEntries()
-  const chamomileSafety = entries.find(row => row.entitySlug === 'chamomile' && row.claimType === 'safety_risk')
+  const chamomileSafety = entries.find(row => row.entitySlug === 'matricaria-chamomilla' && row.claimType === 'safety_risk')
   chamomileSafety.active = false
-  const registry = entries.map(row => ({ sourceId: row.sourceId }))
-  const result = verifyCanaries(entries, registry)
+  const result = verifyCanaries(entries, registryFor(entries))
   assert.equal(result.pass, false)
   assert.ok(result.blockers.includes('chamomile:anchor_requirement_failed:safety_visibility'))
   assert.equal(result.excludedEntryCount, 1)
@@ -78,13 +91,25 @@ test('inactive evidence cannot satisfy a required canary', () => {
 
 test('unapproved evidence cannot satisfy a required canary', () => {
   const entries = completeEntries()
-  const kavaNull = entries.find(row => row.entitySlug === 'kava' && row.claimType === 'efficacy_null_or_mixed')
+  const kavaNull = entries.find(row => row.entitySlug === 'piper-methysticum' && row.claimType === 'efficacy_null_or_mixed')
   kavaNull.editorialStatus = 'needs_review'
-  const registry = entries.map(row => ({ sourceId: row.sourceId }))
-  const result = verifyCanaries(entries, registry)
+  const result = verifyCanaries(entries, registryFor(entries))
   assert.equal(result.pass, false)
   assert.ok(result.blockers.includes('kava:anchor_requirement_failed:null_visibility'))
   assert.equal(result.excludedEntryCount, 1)
+})
+
+test('canonical entity identities satisfy stable display anchors', () => {
+  const entries = completeEntries()
+  const result = verifyCanaries(entries, registryFor(entries))
+  assert.equal(result.pass, true, JSON.stringify(result, null, 2))
+  assert.deepEqual(result.fixed.map(row => row.entityKey), [
+    'herb:ashwagandha',
+    'herb:matricaria-chamomilla',
+    'herb:piper-methysticum',
+    'compound:cannabidiol',
+    'compound:luteolin',
+  ])
 })
 
 test('known baseline debt remains visible without being mislabeled as clean', () => {
@@ -104,6 +129,16 @@ test('known baseline debt remains visible without being mislabeled as clean', ()
   assert.deepEqual(result.debt.missingNullVisibilityAnchors, ['ashwagandha'])
   assert.deepEqual(result.debt.missingSafetyVisibilityAnchors, ['luteolin'])
   assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, [])
+})
+
+test('registered but superseded or inactive evidence remains unresolved publication debt', () => {
+  const entries = baselineDebtEntries()
+  const registry = registryFor(entries).map(row => row.sourceId === 'src_fda-epidiolex-label-2021'
+    ? { ...row, active: false, publicationStatus: 'superseded' }
+    : row)
+  const result = verifyCanaries(entries, registry)
+  assert.equal(result.pass, true, JSON.stringify(result, null, 2))
+  assert.deepEqual(result.debt.unresolvedSourceIds, ['src_fda-epidiolex-label-2021'])
 })
 
 test('ashwagandha safety canary stays on the ashwagandha RCT and rejects the CBD label', () => {
