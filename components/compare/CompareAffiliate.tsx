@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { CompareItem } from '@/lib/compare'
-import { revenueProductSets } from '@/config/revenue-products'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 
 interface CompareAffiliateProps {
@@ -12,8 +12,8 @@ interface CompareAffiliateProps {
 export default function CompareAffiliate({ item1, item2, isHR }: CompareAffiliateProps) {
   if (isHR) return null
 
-  const set1 = item1.doNotMonetize ? undefined : revenueProductSets[item1.slug]
-  const set2 = item2.doNotMonetize ? undefined : revenueProductSets[item2.slug]
+  const set1 = item1.doNotMonetize ? null : getRevenueProductSet(item1.slug)
+  const set2 = item2.doNotMonetize ? null : getRevenueProductSet(item2.slug)
 
   if (!set1 && !set2) return null
 
