@@ -2,43 +2,10 @@
 /**
  * Advisory check for direct edits to generated public/data artifacts.
  *
- * This is a preflight/CI notice. Direct edits to public/data and to the
- * workbook are allowed; if public/data/*.json files were hand-edited without
- * touching a recognized source/build path, it prints a notice suggesting the
- * workbook/build route.
- *
- * Conservative / safe:
- * - Legitimate committed changes produced by running the build scripts are
- *   allowed *if* the PR/commit also touches at least one recognized source/build file.
- * - Governed enrichment has an explicit source/output boundary: the normalized
- *   ledger and source registry are source inputs, while enrichment-governed.json
- *   is generated. That narrow relationship is recognized without exempting
- *   unrelated public/data artifacts.
- * - In CI, this guard only inspects committed diffs. It intentionally ignores
- *   working-tree dirt because `check:full` runs after build steps that regenerate
- *   public/data artifacts.
- * - Locally, working-tree checks remain enabled by default so manual edits can
- *   be caught before commit.
- * - Does not inspect content diffs (would be fragile); only presence of changes.
- * - Does not block changes that touch BOTH data outputs AND build sources.
- *
- * Limitations (documented):
- * - Relies on git diff vs base (origin/main or CI merge-base). Shallow clones
- *   or force-pushes may affect detection.
- * - Reformats or trivial json changes without source touch will be flagged
- *   (intentional - encourages running the build instead of hand edits).
- * - If a build script change affects output in a way that doesn't touch the
- *   "recognized source" list, it may false-positive (add the script path below).
- * - Not a substitute for `validate-workbook-source` or `verify-workbook-only-path`.
- * - Extended to support docs/internal/issues.csv + scripts/cleanup.js for controlled
- *   dupe hygiene (dry-run review + --reviewed --apply only; see validation-report.md).
- *
- * Usage (in CI or locally before commit/PR):
- *   node scripts/ci/guard-generated-data.mjs
- *   node scripts/ci/guard-generated-data.mjs --self-test
- *   npm run guard:generated-data
- *
- * Exit 0 = no suspicious direct data edits detected
+ * Governed enrichment has an explicit source/output boundary: the normalized
+ * ledger and source registry are source inputs, while enrichment-governed.json
+ * is generated. That narrow relationship is recognized without exempting
+ * unrelated public/data artifacts.
  */
 
 import { execSync, spawnSync } from 'node:child_process'
@@ -73,20 +40,19 @@ const SOURCE_PATHS = [
   'app/',
 ]
 
-// Canonical governed-enrichment inputs live in public/data because this subsystem
-// predates the workbook-only runtime build. They are intentionally exact-file
-// exceptions; no other public/data artifact inherits their source status.
-const CANONICAL_PUBLIC_DATA_SOURCES = new Set([
-  'public/data/source-registry.json',
-])
-
+// Exact governed-enrichment input/output classification. The source registry is
+// a canonical enrichment input even though it lives under public/data.
+const CANONICAL_PUBLIC_DATA_SOURCES = new Set(['public/data/source-registry.json'])
 const GOVERNED_ENRICHMENT_SOURCE_FILES = new Set([
   'public/data/enrichment-normalized.jsonl',
   'public/data/source-registry.json',
 ])
+const GOVERNED_ENRICHMENT_OUTPUT_FILES = new Set(['public/data/enrichment-governed.json'])
 
-const GOVERNED_ENRICHMENT_OUTPUT_FILES = new Set([
-  'public/data/enrichment-governed.json',
+const PIPELINE_GENERATED_FILES = new Set([
+  'public/data/_meta/build-info.json',
+  'public/data/runtime-maps/internal-link-map.json',
+  'public/data/runtime-maps/topic-clusters.json',
 ])
 
 function getBaseRef() {
@@ -194,12 +160,6 @@ function hasPrefixInList(files, prefixes) {
   return files.some((f) => prefixes.some((p) => f === p || f.startsWith(p)))
 }
 
-const PIPELINE_GENERATED_FILES = new Set([
-  'public/data/_meta/build-info.json',
-  'public/data/runtime-maps/internal-link-map.json',
-  'public/data/runtime-maps/topic-clusters.json',
-])
-
 export function classifyGeneratedDataGuard(changed) {
   const dataFiles = changed.filter(
     (f) =>
@@ -258,8 +218,7 @@ function main() {
 
   const base = getBaseRef()
   const changed = getChangedFiles(base)
-  const classification = classifyGeneratedDataGuard(changed)
-  const { dataFiles, governedOutputs, ordinaryOutputs, blockedOrdinary, blockedGoverned } = classification
+  const { dataFiles, governedOutputs, ordinaryOutputs, blockedOrdinary, blockedGoverned } = classifyGeneratedDataGuard(changed)
 
   if (dataFiles.length === 0) {
     console.log('[guard-generated-data] No generated public/data JSON changes in this diff. OK.')
@@ -267,26 +226,12 @@ function main() {
   }
 
   if (blockedOrdinary || blockedGoverned) {
-    console.warn('╔════════════════════════════════════════════════════════════════╗')
-    console.warn('║  NOTICE: public/data edited without a source/build change      ║')
-    console.warn('╚════════════════════════════════════════════════════════════════╝')
-    console.warn('')
     console.warn('Generated public/data JSON files were modified without their recognized source path:')
-    console.warn('')
     const blockedFiles = [
       ...(blockedOrdinary ? ordinaryOutputs : []),
       ...(blockedGoverned ? governedOutputs : []),
     ]
-    blockedFiles.slice(0, 10).forEach((f) => console.warn(`  - ${f}`))
-    if (blockedFiles.length > 10) console.warn(`  ... and ${blockedFiles.length - 10} more`)
-    console.warn('')
-    if (blockedGoverned) {
-      console.warn('For governed enrichment output, change the normalized ledger and/or source registry, then regenerate enrichment-governed.json with the canonical generator.')
-    }
-    if (blockedOrdinary) {
-      console.warn('For ordinary generated data, prefer the workbook or recognized build-source path and regenerate outputs.')
-    }
-    console.warn('')
+    blockedFiles.forEach((f) => console.warn(`  - ${f}`))
     console.error('[guard-generated-data] BLOCKED: generated data changed without its recognized source/build change.')
     process.exit(1)
   }
