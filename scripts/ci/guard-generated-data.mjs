@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 /**
- * Advisory check for direct edits to generated public/data artifacts.
+ * Guard against direct edits to generated public/data artifacts without a
+ * recognized source/build change. Governed enrichment has one narrow explicit
+ * exception: enrichment-normalized.jsonl + source-registry.json are canonical
+ * inputs for enrichment-governed.json. Unrelated public/data outputs remain
+ * protected.
  *
- * Governed enrichment has an explicit source/output boundary: the normalized
- * ledger and source registry are source inputs, while enrichment-governed.json
- * is generated. That narrow relationship is recognized without exempting
- * unrelated public/data artifacts.
+ * Usage:
+ *   node scripts/ci/guard-generated-data.mjs
+ *   node scripts/ci/guard-generated-data.mjs --self-test
+ *
+ * Exit 0 = no suspicious generated-data edits detected.
  */
 
 import { execSync, spawnSync } from 'node:child_process'
@@ -40,15 +45,12 @@ const SOURCE_PATHS = [
   'app/',
 ]
 
-// Exact governed-enrichment input/output classification. The source registry is
-// a canonical enrichment input even though it lives under public/data.
 const CANONICAL_PUBLIC_DATA_SOURCES = new Set(['public/data/source-registry.json'])
 const GOVERNED_ENRICHMENT_SOURCE_FILES = new Set([
   'public/data/enrichment-normalized.jsonl',
   'public/data/source-registry.json',
 ])
 const GOVERNED_ENRICHMENT_OUTPUT_FILES = new Set(['public/data/enrichment-governed.json'])
-
 const PIPELINE_GENERATED_FILES = new Set([
   'public/data/_meta/build-info.json',
   'public/data/runtime-maps/internal-link-map.json',
@@ -97,7 +99,7 @@ function getChangedFiles(base) {
       const baseSha = execSync(`git rev-parse ${base}`, { encoding: 'utf8' }).trim()
       if (headSha === baseSha) diffTarget = 'HEAD~1'
     } catch {
-      // Ignore if rev-parse fails.
+      // ignore
     }
     const out = execSync(`git diff --name-only --diff-filter=ACMR ${diffTarget}...HEAD`, {
       cwd: REPO_ROOT,
@@ -114,7 +116,7 @@ function getChangedFiles(base) {
       })
       out.split('\n').map((s) => s.trim()).filter(Boolean).forEach(f => files.add(f))
     } catch {
-      // Fall through to local-history fallback.
+      // ignore
     }
   }
   if (files.size === 0) {
@@ -140,15 +142,14 @@ function getChangedFiles(base) {
     })
     statusOut.split('\n').map((s) => s.trim()).filter(Boolean).forEach(line => {
       const m = line.match(/^\s*([AMDR?]+)\s+(.+)$/)
-      if (m) {
-        const status = m[1].trim()
-        const file = m[2]
-        if (status.includes('M')) {
-          const res = spawnSync('git', ['diff', '--quiet', '--', file], { cwd: REPO_ROOT })
-          if (res.status === 0) return
-        }
-        files.add(file)
+      if (!m) return
+      const status = m[1].trim()
+      const file = m[2]
+      if (status.includes('M')) {
+        const res = spawnSync('git', ['diff', '--quiet', '--', file], { cwd: REPO_ROOT })
+        if (res.status === 0) return
       }
+      files.add(file)
     })
   } catch {
     // ignore
@@ -168,7 +169,6 @@ export function classifyGeneratedDataGuard(changed) {
       !PIPELINE_GENERATED_FILES.has(f) &&
       !CANONICAL_PUBLIC_DATA_SOURCES.has(f)
   )
-
   const governedOutputs = dataFiles.filter((f) => GOVERNED_ENRICHMENT_OUTPUT_FILES.has(f))
   const ordinaryOutputs = dataFiles.filter((f) => !GOVERNED_ENRICHMENT_OUTPUT_FILES.has(f))
   const ordinarySourceTouched = hasPrefixInList(changed, SOURCE_PATHS)
@@ -189,25 +189,19 @@ function selfTest() {
     'public/data/source-registry.json',
     'public/data/enrichment-governed.json',
   ])
-  if (governed.blockedGoverned || governed.blockedOrdinary) {
-    throw new Error('governed enrichment source-to-output transaction must be allowed')
-  }
+  if (governed.blockedGoverned || governed.blockedOrdinary) throw new Error('governed enrichment transaction must be allowed')
   if (governed.dataFiles.length !== 1 || governed.dataFiles[0] !== 'public/data/enrichment-governed.json') {
-    throw new Error('source registry must remain a canonical input, not a generated output')
+    throw new Error('source registry must remain a canonical input')
   }
 
   const orphan = classifyGeneratedDataGuard(['public/data/enrichment-governed.json'])
-  if (!orphan.blockedGoverned) {
-    throw new Error('orphan governed output edit must remain blocked')
-  }
+  if (!orphan.blockedGoverned) throw new Error('orphan governed output edit must remain blocked')
 
   const unrelated = classifyGeneratedDataGuard([
     'public/data/enrichment-normalized.jsonl',
     'public/data/unrelated-generated.json',
   ])
-  if (!unrelated.blockedOrdinary) {
-    throw new Error('governed source changes must not exempt unrelated generated outputs')
-  }
+  if (!unrelated.blockedOrdinary) throw new Error('governed source changes must not exempt unrelated outputs')
 
   console.log('[guard-generated-data] SELF-TEST PASS')
 }
@@ -226,13 +220,12 @@ function main() {
   }
 
   if (blockedOrdinary || blockedGoverned) {
-    console.warn('Generated public/data JSON files were modified without their recognized source path:')
     const blockedFiles = [
       ...(blockedOrdinary ? ordinaryOutputs : []),
       ...(blockedGoverned ? governedOutputs : []),
     ]
-    blockedFiles.forEach((f) => console.warn(`  - ${f}`))
     console.error('[guard-generated-data] BLOCKED: generated data changed without its recognized source/build change.')
+    blockedFiles.forEach((f) => console.error(`  - ${f}`))
     process.exit(1)
   }
 
