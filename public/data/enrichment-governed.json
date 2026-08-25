@@ -253,9 +253,10 @@
     "entityType": "compound",
     "entitySlug": "luteolin",
     "researchEnrichment": {
-      "evidenceSummary": "5 approved normalized findings across 5 topic types.",
-      "evidenceTier": "tier-4-insufficient",
+      "evidenceSummary": "8 approved normalized findings across 7 topic types.",
+      "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
+        "human-clinical",
         "preclinical-mechanistic"
       ],
       "supportedUses": [],
@@ -267,6 +268,16 @@
             "src_pubmed-29801717"
           ],
           "uncertaintyNote": "Most available data are mechanistic or preclinical and cannot independently confirm clinical benefit.",
+          "strengthNote": "insufficient"
+        },
+        {
+          "claim": "In the single-arm phase I study of five men under active surveillance, protocol-biopsy outcomes after 180 days of 50 mg/day oral luteolin were mixed: two favorable responses, one stable disease, and two disease progressions; without a control group, these observations do not establish luteolin efficacy.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-40046611"
+          ],
+          "uncertaintyNote": "This uncontrolled n=5 phase-I study was designed primarily for safety and cannot support general efficacy claims; preserve the exact disease population, product exposure, and 180-day duration.",
+          "conflictNote": "The authors declared no conflicts of interest; DHC Corporation supplied the dispensed 50 mg luteolin supplements.",
           "strengthNote": "insufficient"
         }
       ],
@@ -303,8 +314,30 @@
       ],
       "interactions": [],
       "contraindications": [],
-      "adverseEffects": [],
-      "dosageContextNotes": [],
+      "adverseEffects": [
+        {
+          "claim": "In five men with low/intermediate-risk localized prostate cancer under active surveillance who took 50 mg oral luteolin daily for 180 days, no symptomatic adverse events and no significant changes in hematologic parameters or serum chemistries were observed during the study.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-40046611"
+          ],
+          "targetType": "population",
+          "targetName": "men with localized prostate cancer under active surveillance",
+          "uncertaintyNote": "Single-arm n=5 disease-specific study over 180 days; absence of observed adverse events does not establish general or long-term safety, safety in other populations, or safety at other doses or formulations, and the mixed oncologic outcomes do not establish efficacy.",
+          "conflictNote": "The authors declared no conflicts of interest; DHC Corporation supplied the dispensed 50 mg luteolin supplements."
+        }
+      ],
+      "dosageContextNotes": [
+        {
+          "claim": "The single-arm phase I study administered 50 mg oral luteolin once daily for 180 days to five men with low/intermediate-risk localized prostate cancer under active surveillance; this records the studied exposure only and is not a general dosing recommendation.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-40046611"
+          ],
+          "uncertaintyNote": "Do not extrapolate this studied exposure to other populations, products, doses, treatment durations, or clinical purposes.",
+          "conflictNote": "The authors declared no conflicts of interest; DHC Corporation supplied the dispensed 50 mg luteolin supplements."
+        }
+      ],
       "populationSpecificNotes": [
         {
           "claim": "Pregnancy and lactation use should remain cautious for concentrated luteolin products because direct controlled human safety datasets are limited.",
@@ -328,14 +361,62 @@
       ],
       "researchGaps": [],
       "safetyProfile": {
-        "safetyEntries": [],
+        "safetyEntries": [
+          {
+            "safetyEntryId": "senr_luteolin-short-term-tolerability-phase1",
+            "sourceId": "src_pubmed-40046611",
+            "safetyTopicType": "adverse_effect",
+            "targetType": "population",
+            "targetName": "men with localized prostate cancer under active surveillance",
+            "severityLabel": "none_known",
+            "urgencyLabel": "routine",
+            "evidenceClass": "human-clinical",
+            "findingTextShort": "No symptomatic adverse events or significant laboratory changes were observed in this five-person phase-I study.",
+            "findingTextNormalized": "In five men with low/intermediate-risk localized prostate cancer under active surveillance who took 50 mg oral luteolin daily for 180 days, no symptomatic adverse events and no significant changes in hematologic parameters or serum chemistries were observed during the study.",
+            "mechanismKnown": false,
+            "populationContext": "Five men with low/intermediate-risk localized prostate cancer under active surveillance",
+            "uncertaintyNote": "Single-arm n=5 disease-specific study over 180 days; absence of observed adverse events does not establish general or long-term safety, safety in other populations, or safety at other doses or formulations, and the mixed oncologic outcomes do not establish efficacy.",
+            "conflictNote": "The authors declared no conflicts of interest; DHC Corporation supplied the dispensed 50 mg luteolin supplements.",
+            "reviewer": "enrichment-governor",
+            "reviewedAt": "2026-08-25T05:07:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
+          }
+        ],
         "summary": {
-          "total": 0,
-          "byTopicType": {},
-          "bySeverity": {}
+          "total": 1,
+          "byTopicType": {
+            "adverse_effect": 1
+          },
+          "bySeverity": {
+            "none_known": 1
+          }
         }
       },
       "topicEvidenceJudgments": {
+        "adverse_effect": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 4,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-c",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 12
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
         "conflict_note": {
           "evidenceLabel": "mixed_or_uncertain",
           "grading": {
@@ -383,6 +464,29 @@
             "One or more findings carry explicit uncertainty notes from editorial review.",
             "Evidence is sourced from a single source record; replication depth is limited.",
             "No direct human evidence was identified for this topic."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "dosage_context": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 4,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-c",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 12
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
           ],
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         },
@@ -438,23 +542,22 @@
           "evidenceLabel": "mixed_or_uncertain",
           "grading": {
             "evidenceClass": [
+              "human-clinical",
               "preclinical-mechanistic"
             ],
-            "studyDesignWeight": 2,
-            "humanRelevance": "preclinical-proxy",
-            "directnessToClaim": "indirect",
-            "replicationDepth": 1,
+            "studyDesignWeight": 4,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 2,
             "sourceReliabilityTier": "tier-b",
-            "recencyWeight": 1,
-            "editorialConfidence": "low",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 7
+            "confidenceIndex": 14
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
-            "One or more findings carry explicit uncertainty notes from editorial review.",
-            "Evidence is sourced from a single source record; replication depth is limited.",
-            "No direct human evidence was identified for this topic."
+            "One or more findings carry explicit uncertainty notes from editorial review."
           ],
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         }
@@ -463,25 +566,24 @@
         "evidenceLabel": "mixed_or_uncertain",
         "grading": {
           "evidenceClass": [
+            "human-clinical",
             "preclinical-mechanistic"
           ],
-          "studyDesignWeight": 2,
-          "humanRelevance": "preclinical-proxy",
-          "directnessToClaim": "indirect",
-          "replicationDepth": 1,
+          "studyDesignWeight": 4,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 2,
           "sourceReliabilityTier": "tier-b",
-          "recencyWeight": 1,
-          "editorialConfidence": "low",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
           "conflictState": "mixed_or_uncertain",
-          "confidenceIndex": 7
+          "confidenceIndex": 14
         },
         "conflictNotes": [
           "Source-backed conflict notes are present for this topic."
         ],
         "uncertaintyNotes": [
-          "One or more findings carry explicit uncertainty notes from editorial review.",
-          "Evidence is sourced from a single source record; replication depth is limited.",
-          "No direct human evidence was identified for this topic."
+          "One or more findings carry explicit uncertainty notes from editorial review."
         ],
         "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
       },
@@ -492,9 +594,10 @@
         "weakEvidenceClaimsLabeled": true
       },
       "sourceRegistryIds": [
-        "src_pubmed-29801717"
+        "src_pubmed-29801717",
+        "src_pubmed-40046611"
       ],
-      "lastReviewedAt": "2026-03-30T18:35:00.000Z",
+      "lastReviewedAt": "2026-08-25T05:07:00.000Z",
       "reviewedBy": "normalized-enrichment-pipeline",
       "editorialStatus": "approved"
     }
@@ -503,7 +606,7 @@
     "entityType": "herb",
     "entitySlug": "ashwagandha",
     "researchEnrichment": {
-      "evidenceSummary": "4 approved normalized findings across 4 topic types.",
+      "evidenceSummary": "6 approved normalized findings across 6 topic types.",
       "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
         "human-clinical"
@@ -520,7 +623,18 @@
           "strengthNote": "limited"
         }
       ],
-      "unsupportedOrUnclearUses": [],
+      "unsupportedOrUnclearUses": [
+        {
+          "claim": "In the 60-day randomized double-blind placebo-controlled trial of 60 stressed healthy adults receiving 240 mg once-daily standardized Shoden Ashwagandha extract, the DASS-21 between-group result did not reach statistical significance (P = .096), even though the HAM-A endpoint favored Ashwagandha.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-31517876"
+          ],
+          "uncertaintyNote": "This null/mixed endpoint must remain visible alongside the statistically significant HAM-A result and must not be generalized across other extracts, doses, populations, or durations.",
+          "conflictNote": "Arjuna Natural Ltd funded the study and supplied the tested Shoden extract; this source does not establish independent replication of the exact formulation, dose, population, and duration.",
+          "strengthNote": "insufficient"
+        }
+      ],
       "mechanisms": [
         {
           "claim": "Human trial context supports a hypothesis that ashwagandha may modulate stress-response pathway signaling relevant to cortisol-associated symptom burden.",
@@ -553,7 +667,17 @@
           "conflictNote": "The study acknowledges Arjuna Natural Ltd for funding the project and supplying the Shoden extract; interpret this small trial's null adverse-event finding with that commercial sponsorship in view."
         }
       ],
-      "dosageContextNotes": [],
+      "dosageContextNotes": [
+        {
+          "claim": "The randomized trial studied 240 mg of standardized Shoden Ashwagandha extract once daily for 60 days in stressed healthy adults; this records the studied exposure only and is not a general dosing recommendation.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-31517876"
+          ],
+          "uncertaintyNote": "Do not extrapolate this studied exposure to other extracts, doses, durations, populations, pregnancy, breastfeeding, or long-term use.",
+          "conflictNote": "Arjuna Natural Ltd funded the study and supplied the tested Shoden extract; this source does not establish independent replication of the exact formulation, dose, population, and duration."
+        }
+      ],
       "populationSpecificNotes": [],
       "conflictNotes": [
         {
@@ -648,6 +772,29 @@
           ],
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         },
+        "dosage_context": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 1,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 13
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
         "pathway": {
           "evidenceLabel": "mixed_or_uncertain",
           "grading": {
@@ -693,10 +840,33 @@
             "Evidence is sourced from a single source record; replication depth is limited."
           ],
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "unsupported_or_unclear_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 1,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 13
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         }
       },
       "pageEvidenceJudgment": {
-        "evidenceLabel": "mixed_or_uncertain",
+        "evidenceLabel": "conflicting_evidence",
         "grading": {
           "evidenceClass": [
             "human-clinical"
@@ -708,17 +878,18 @@
           "sourceReliabilityTier": "tier-b",
           "recencyWeight": 1,
           "editorialConfidence": "medium",
-          "conflictState": "mixed_or_uncertain",
-          "confidenceIndex": 13
+          "conflictState": "conflicting_evidence",
+          "confidenceIndex": 11
         },
         "conflictNotes": [
+          "Human evidence includes both efficacy-supporting and null/mixed findings.",
           "Source-backed conflict notes are present for this topic."
         ],
         "uncertaintyNotes": [
           "One or more findings carry explicit uncertainty notes from editorial review.",
           "Evidence is sourced from a single source record; replication depth is limited."
         ],
-        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        "toneGuidance": "Lead with disagreement across sources and avoid directional conclusions."
       },
       "editorialReadiness": {
         "publishable": true,
@@ -729,7 +900,7 @@
       "sourceRegistryIds": [
         "src_pubmed-31517876"
       ],
-      "lastReviewedAt": "2026-08-25T03:58:00.000Z",
+      "lastReviewedAt": "2026-08-25T05:07:00.000Z",
       "reviewedBy": "normalized-enrichment-pipeline",
       "editorialStatus": "approved"
     }

@@ -24,14 +24,12 @@ describe('normalizeResearchEnrichment conflict disclosures', () => {
     })
 
     expect(result).not.toBeNull()
-    expect(result?.conflictNotes).toEqual([
-      {
-        claim:
-          'Arjuna Natural Ltd funded the study and supplied the tested Shoden extract; this source does not establish independent replication of the exact formulation, dose, population, and duration',
-        evidenceClass: 'human-clinical',
-        sourceRefIds: ['src_pubmed-31517876'],
-      },
-    ])
+    expect(result?.conflictNotes).toHaveLength(1)
+    expect(result?.conflictNotes[0]?.claim).toBe(
+      'Arjuna Natural Ltd funded the study and supplied the tested Shoden extract; this source does not establish independent replication of the exact formulation, dose, population, and duration',
+    )
+    expect(result?.conflictNotes[0]?.evidenceClass).toBe('human-clinical')
+    expect(result?.conflictNotes[0]?.sourceRefIds).toEqual(['src_pubmed-31517876'])
   })
 
   it('deduplicates a promoted conflict when a dedicated conflict claim is also present', () => {

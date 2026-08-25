@@ -176,6 +176,27 @@
     "active": true
   },
   {
+    "sourceId": "src_pubmed-40046611",
+    "title": "Preliminary Evidence on Safety and Clinical Efficacy of Luteolin for Patients With Prostate Cancer Under Active Surveillance",
+    "shortTitle": "Luteolin phase-I prostate active-surveillance study",
+    "sourceType": "journal-article",
+    "sourceClass": "non-randomized-human-study",
+    "publicationYear": 2025,
+    "citationText": "Naiki T, et al. Preliminary Evidence on Safety and Clinical Efficacy of Luteolin for Patients With Prostate Cancer Under Active Surveillance. Prostate Cancer. 2025;2025:8165686.",
+    "doi": "10.1155/proc/8165686",
+    "pmid": "40046611",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/40046611/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "non-randomized-trial",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-c",
+    "reviewer": "enrichment-governor",
+    "reviewedAt": "2026-08-25T05:06:00.000Z",
+    "notes": "Single-arm phase I study in five men with low/intermediate-risk localized prostate cancer under active surveillance using 50 mg oral luteolin daily for 180 days. Primary endpoint was safety; no symptomatic adverse events and no significant hematologic or serum-chemistry changes were reported. Oncologic outcomes were mixed (2 favorable, 1 stable, 2 progressed), so this source must not be generalized into efficacy or broad safety. Authors declared no conflicts; DHC Corporation supplied the 50 mg luteolin supplements. Funding was listed from JSPS KAKENHI, the Nitto Foundation, and the Aichi Health Promotion Foundation.",
+    "active": true
+  },
+  {
     "sourceId": "src_pubmed-40622698",
     "title": "Cannabidiol and Liver Enzyme Level Elevations in Healthy Adults: A Randomized Clinical Trial",
     "shortTitle": "CBD liver enzyme randomized trial",
