@@ -42,6 +42,8 @@
 
 import { execSync, spawnSync } from 'node:child_process'
 import process from 'node:process'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const REPO_ROOT = process.cwd()
 const IS_CI = String(process.env.CI || '').toLowerCase() === 'true' || Boolean(process.env.GITHUB_ACTIONS)
@@ -289,6 +291,6 @@ function main() {
   process.exit(0)
 }
 
-if (process.argv[1] && new URL(import.meta.url).pathname === new URL(`file://${process.argv[1]}`).pathname) {
-  main()
-}
+const thisFile = path.resolve(fileURLToPath(import.meta.url))
+const invokedFile = process.argv[1] ? path.resolve(process.argv[1]) : null
+if (invokedFile === thisFile) main()
