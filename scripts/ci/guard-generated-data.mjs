@@ -10,6 +10,10 @@
  * Conservative / safe:
  * - Legitimate committed changes produced by running the build scripts are
  *   allowed *if* the PR/commit also touches at least one recognized source/build file.
+ * - Governed enrichment has an explicit source/output boundary: the normalized
+ *   ledger and source registry are source inputs, while enrichment-governed.json
+ *   is generated. That narrow relationship is recognized without exempting
+ *   unrelated public/data artifacts.
  * - In CI, this guard only inspects committed diffs. It intentionally ignores
  *   working-tree dirt because `check:full` runs after build steps that regenerate
  *   public/data artifacts.
@@ -44,7 +48,7 @@ const IS_CI = String(process.env.CI || '').toLowerCase() === 'true' || Boolean(p
 const INCLUDE_WORKTREE = !IS_CI || String(process.env.GUARD_GENERATED_DATA_INCLUDE_WORKTREE || '').toLowerCase() === 'true'
 
 // Recognized "source of change" paths/globs. If any of these are touched
-// in the same diff as public/data, we allow the data change (build produced it).
+// in the same diff as ordinary public/data outputs, we allow the data change.
 const SOURCE_PATHS = [
   'data/canonical/',
   'data-sources/',
@@ -69,6 +73,22 @@ const SOURCE_PATHS = [
   'lib/',
   'app/',
 ]
+
+// These public/data files are canonical inputs for the governed enrichment
+// subsystem, not generated runtime outputs. Keep this exact rather than using a
+// broad public/data prefix so unrelated JSON files remain protected.
+const CANONICAL_PUBLIC_DATA_SOURCES = new Set([
+  'public/data/source-registry.json',
+])
+
+const GOVERNED_ENRICHMENT_SOURCE_FILES = new Set([
+  'public/data/enrichment-normalized.jsonl',
+  'public/data/source-registry.json',
+])
+
+const GOVERNED_ENRICHMENT_OUTPUT_FILES = new Set([
+  'public/data/enrichment-governed.json',
+])
 
 function getBaseRef() {
   // In GitHub Actions PR: GITHUB_BASE_REF
@@ -209,37 +229,54 @@ function main() {
     (f) =>
       f.startsWith('public/data/') &&
       (f.endsWith('.json') || f.endsWith('.json.gz')) &&
-      !PIPELINE_GENERATED_FILES.has(f)
+      !PIPELINE_GENERATED_FILES.has(f) &&
+      !CANONICAL_PUBLIC_DATA_SOURCES.has(f)
   )
 
   if (dataFiles.length === 0) {
-    console.log('[guard-generated-data] No public/data JSON changes in this diff. OK.')
+    console.log('[guard-generated-data] No generated public/data JSON changes in this diff. OK.')
     process.exit(0)
   }
 
-  const sourceTouched = hasPrefixInList(changed, SOURCE_PATHS)
+  const governedOutputs = dataFiles.filter((f) => GOVERNED_ENRICHMENT_OUTPUT_FILES.has(f))
+  const ordinaryOutputs = dataFiles.filter((f) => !GOVERNED_ENRICHMENT_OUTPUT_FILES.has(f))
+  const ordinarySourceTouched = hasPrefixInList(changed, SOURCE_PATHS)
+  const governedSourceTouched = changed.some((f) => GOVERNED_ENRICHMENT_SOURCE_FILES.has(f))
 
-  if (!sourceTouched) {
+  const blockedOrdinary = ordinaryOutputs.length > 0 && !ordinarySourceTouched
+  const blockedGoverned = governedOutputs.length > 0 && !governedSourceTouched
+
+  if (blockedOrdinary || blockedGoverned) {
     console.warn('╔════════════════════════════════════════════════════════════════╗')
     console.warn('║  NOTICE: public/data edited without a source/build change      ║')
     console.warn('╚════════════════════════════════════════════════════════════════╝')
     console.warn('')
-    console.warn('public/data JSON files were modified directly in this change:')
+    console.warn('Generated public/data JSON files were modified without their recognized source path:')
     console.warn('')
-    dataFiles.slice(0, 10).forEach((f) => console.warn(`  - ${f}`))
-    if (dataFiles.length > 10) console.warn(`  ... and ${dataFiles.length - 10} more`)
+    const blockedFiles = [
+      ...(blockedOrdinary ? ordinaryOutputs : []),
+      ...(blockedGoverned ? governedOutputs : []),
+    ]
+    blockedFiles.slice(0, 10).forEach((f) => console.warn(`  - ${f}`))
+    if (blockedFiles.length > 10) console.warn(`  ... and ${blockedFiles.length - 10} more`)
     console.warn('')
-    console.warn('Direct edits to generated data and to the workbook are allowed.')
-    console.warn('If this edit should instead flow through the build, prefer:')
-    console.warn('  1. Edit data-sources/herb_monograph_master.xlsx (source of truth), OR')
-    console.warn('  2. Edit the build scripts under scripts/data/, THEN')
-    console.warn('  3. Run npm run data:build to regenerate outputs.')
+    if (blockedGoverned) {
+      console.warn('For governed enrichment output, change the normalized ledger and/or source registry, then regenerate enrichment-governed.json with the canonical generator.')
+    }
+    if (blockedOrdinary) {
+      console.warn('For ordinary generated data, prefer the workbook or recognized build-source path and regenerate outputs.')
+    }
     console.warn('')
-    console.error('[guard-generated-data] BLOCKED: direct edit to generated data detected without accompanying source/build changes.')
+    console.error('[guard-generated-data] BLOCKED: generated data changed without its recognized source/build change.')
     process.exit(1)
   }
 
-  console.log(`[guard-generated-data] ${dataFiles.length} public/data file(s) changed, accompanied by source/build changes. OK.`)
+  if (governedOutputs.length > 0) {
+    console.log(`[guard-generated-data] ${governedOutputs.length} governed enrichment output file(s) changed with canonical governed source input(s). OK.`)
+  }
+  if (ordinaryOutputs.length > 0) {
+    console.log(`[guard-generated-data] ${ordinaryOutputs.length} ordinary public/data file(s) changed, accompanied by source/build changes. OK.`)
+  }
   process.exit(0)
 }
 
