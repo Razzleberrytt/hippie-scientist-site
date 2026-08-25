@@ -10,7 +10,7 @@ export const AI_VISIBILITY_ANOMALIES = [
 ]
 
 export function normalizeDate(value) {
-  const match = String(value ?? '').match(/\b(\d{4}-\d{2}-\d{2})\b/)
+  const match = String(value ?? '').trim().match(/^(\d{4}-\d{2}-\d{2})(?:$|[T\s])/)
   return match?.[1] || ''
 }
 
