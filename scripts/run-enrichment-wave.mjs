@@ -7,7 +7,7 @@ import { normalizeRouteSlug } from '../lib/entity-identity.mjs'
 const ROOT = process.cwd()
 const VALID_MODES = new Set(['full', 'source-review', 'authoring', 'submission-review', 'rollup-refresh'])
 const PHASES = {
-  'source-review': { command: 'npx', args: ['tsx', 'scripts/report-source-wave-review.ts'] },
+  'source-review': { command: process.execPath, args: ['scripts/run-source-wave-review-authorized.mjs'] },
   authoring: { command: 'npx', args: ['tsx', 'scripts/report-enrichment-wave-authoring.ts'] },
   'submission-review': { command: 'npx', args: ['tsx', 'scripts/report-enrichment-submission-review.ts'] },
   'rollup-refresh': { command: process.execPath, args: ['scripts/report-enrichment-wave-rollup.mjs'] },
