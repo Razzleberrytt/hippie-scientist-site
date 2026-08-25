@@ -15,6 +15,7 @@ type Gtag = (
     | 'guide_view'
     | 'lead_magnet_click'
     | 'navigation_click'
+    | 'page_view'
     | 'profile_feedback'
     | 'research_suggestion',
   params: Record<string, string | number | boolean | undefined>,
@@ -72,6 +73,23 @@ function getCurrentPagePath(explicitPath?: string): string {
   if (explicitPath) return normalizePagePath(explicitPath)
   if (typeof window === 'undefined') return '/'
   return normalizePagePath(window.location.pathname)
+}
+
+export function trackPageView(params: { pagePath?: string }): boolean {
+  try {
+    const gtag = getGtag()
+    if (!gtag) return false
+
+    const pagePath = getCurrentPagePath(params.pagePath)
+    gtag('event', 'page_view', {
+      page_path: pagePath,
+      page_location: typeof window !== 'undefined' ? window.location.href : undefined,
+      page_title: typeof document !== 'undefined' ? document.title : undefined,
+    })
+    return true
+  } catch {
+    return false
+  }
 }
 
 export function trackAffiliateClick(params: { itemName: string; program: string; asin?: string }): void {
