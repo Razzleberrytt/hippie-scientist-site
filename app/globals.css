@@ -762,8 +762,6 @@ html.dark :is(
 }
 
 html.dark :is(
-  .surface-depth,
-  .section-frame,
   .hero-shell,
   [class~="bg-white/90"],
   [class~="bg-white/95"]
