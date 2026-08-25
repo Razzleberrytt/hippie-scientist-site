@@ -112,17 +112,17 @@
     "dynamicTopRiskCount": 10,
     "requiredChecks": ["source_linkage", "evidence_class", "schema_validity"],
     "anchorRequirements": {
-      "ashwagandha": ["safety_visibility"],
+      "ashwagandha": ["null_visibility", "safety_visibility"],
       "chamomile": ["null_visibility", "safety_visibility"],
       "kava": ["null_visibility", "safety_visibility"],
       "cbd": ["null_visibility", "safety_visibility"],
-      "luteolin": ["null_visibility"]
+      "luteolin": ["null_visibility", "safety_visibility"]
     },
     "targetChecks": ["null_visibility", "safety_visibility", "no_unresolved_source_ids"],
     "baselineDebt": {
       "allowedUnresolvedSourceIds": [],
-      "allowedMissingNullVisibilityAnchors": ["ashwagandha"],
-      "allowedMissingSafetyVisibilityAnchors": ["luteolin"]
+      "allowedMissingNullVisibilityAnchors": [],
+      "allowedMissingSafetyVisibilityAnchors": []
     },
     "debtPolicy": "fail_on_any_new_debt_identity; retain known baseline debt warnings until repaired"
   },
