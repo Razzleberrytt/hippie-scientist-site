@@ -141,7 +141,7 @@
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         },
         "enzyme_interaction": {
-          "evidenceLabel": "limited_human_support",
+          "evidenceLabel": "insufficient_evidence",
           "grading": {
             "evidenceClass": [
               "regulatory-monograph"
@@ -152,7 +152,7 @@
             "replicationDepth": 1,
             "sourceReliabilityTier": "tier-a",
             "recencyWeight": 2,
-            "editorialConfidence": "medium",
+            "editorialConfidence": "high",
             "conflictState": "none",
             "confidenceIndex": 13
           },
@@ -163,7 +163,7 @@
           "toneGuidance": "State that evidence is insufficient and avoid efficacy implications."
         },
         "medication_class_caution": {
-          "evidenceLabel": "limited_human_support",
+          "evidenceLabel": "insufficient_evidence",
           "grading": {
             "evidenceClass": [
               "regulatory-monograph"
@@ -174,7 +174,7 @@
             "replicationDepth": 1,
             "sourceReliabilityTier": "tier-a",
             "recencyWeight": 2,
-            "editorialConfidence": "medium",
+            "editorialConfidence": "high",
             "conflictState": "none",
             "confidenceIndex": 13
           },
@@ -209,7 +209,7 @@
         }
       },
       "pageEvidenceJudgment": {
-        "evidenceLabel": "mixed_or_uncertain",
+        "evidenceLabel": "conflicting_evidence",
         "grading": {
           "evidenceClass": [
             "human-clinical",
@@ -222,14 +222,16 @@
           "sourceReliabilityTier": "tier-a",
           "recencyWeight": 2,
           "editorialConfidence": "medium",
-          "conflictState": "mixed_or_uncertain",
-          "confidenceIndex": 17
+          "conflictState": "conflicting_evidence",
+          "confidenceIndex": 15
         },
-        "conflictNotes": [],
+        "conflictNotes": [
+          "Regulatory or monograph guidance is directionally mixed across cited sources."
+        ],
         "uncertaintyNotes": [
           "One or more findings carry explicit uncertainty notes from editorial review."
         ],
-        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        "toneGuidance": "Lead with disagreement across sources and avoid directional conclusions."
       },
       "editorialReadiness": {
         "publishable": false,
@@ -348,7 +350,7 @@
             "recencyWeight": 1,
             "editorialConfidence": "low",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 5
+            "confidenceIndex": 7
           },
           "conflictNotes": [
             "Source-backed conflict notes are present for this topic."
@@ -374,7 +376,7 @@
             "recencyWeight": 1,
             "editorialConfidence": "low",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 5
+            "confidenceIndex": 7
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
@@ -398,7 +400,7 @@
             "recencyWeight": 1,
             "editorialConfidence": "low",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 5
+            "confidenceIndex": 7
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
@@ -422,7 +424,7 @@
             "recencyWeight": 1,
             "editorialConfidence": "low",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 5
+            "confidenceIndex": 7
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
@@ -446,7 +448,7 @@
             "recencyWeight": 1,
             "editorialConfidence": "low",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 5
+            "confidenceIndex": 7
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
@@ -471,7 +473,7 @@
           "recencyWeight": 1,
           "editorialConfidence": "low",
           "conflictState": "mixed_or_uncertain",
-          "confidenceIndex": 5
+          "confidenceIndex": 7
         },
         "conflictNotes": [
           "Source-backed conflict notes are present for this topic."
