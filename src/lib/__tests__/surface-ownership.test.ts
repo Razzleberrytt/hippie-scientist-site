@@ -16,6 +16,8 @@ const CANONICAL_SURFACE_ALIASES = [
   'mobile-reading-card',
 ]
 
+const CONDITIONAL_AT_RULE = /^@(media|supports|container|document|starting-style)\b/i
+
 function walkCss(dir: string): string[] {
   if (!fs.existsSync(dir)) return []
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -29,10 +31,51 @@ function stripComments(source: string) {
   return source.replace(/\/\*[\s\S]*?\*\//g, '')
 }
 
-function selectorBlocks(source: string, className: string) {
-  const escaped = className.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const pattern = new RegExp(`([^{}]*\\.${escaped}(?![A-Za-z0-9_-])[^{}]*)\\{`, 'g')
-  return [...stripComments(source).matchAll(pattern)].map((match) => match[1].replace(/\s+/g, ' ').trim())
+/**
+ * Return only unconditional base-rule redefinitions of a canonical alias.
+ * Descendant/state selectors and responsive/support/container refinements are
+ * legitimate consumers of the canonical surface and are not ownership claims.
+ * Rules nested in non-conditional grouping at-rules (for example @layer) still
+ * count as base ownership and remain guarded.
+ */
+function baseSelectorBlocks(source: string, className: string) {
+  const clean = stripComments(source)
+  const contexts: string[] = []
+  const matches: string[] = []
+  let tokenStart = 0
+
+  for (let index = 0; index < clean.length; index += 1) {
+    const char = clean[index]
+
+    if (char === ';') {
+      tokenStart = index + 1
+      continue
+    }
+
+    if (char === '{') {
+      const header = clean.slice(tokenStart, index).replace(/\s+/g, ' ').trim()
+      const insideConditionalRule = contexts.some((context) => CONDITIONAL_AT_RULE.test(context))
+
+      if (header && !header.startsWith('@') && !insideConditionalRule) {
+        const ownsAlias = header.split(',').some((selector) => {
+          const normalized = selector.trim()
+          return normalized === `.${className}` || normalized === `html .${className}`
+        })
+        if (ownsAlias) matches.push(header)
+      }
+
+      contexts.push(header)
+      tokenStart = index + 1
+      continue
+    }
+
+    if (char === '}') {
+      contexts.pop()
+      tokenStart = index + 1
+    }
+  }
+
+  return matches
 }
 
 describe('canonical card/surface ownership', () => {
@@ -45,7 +88,16 @@ describe('canonical card/surface ownership', () => {
     }
   })
 
-  it('does not redefine canonical surface aliases outside premium-surfaces.css', () => {
+  it('distinguishes duplicate base ownership from legitimate contextual refinements', () => {
+    expect(baseSelectorBlocks('.card-premium { border: 0; }', 'card-premium')).toEqual(['.card-premium'])
+    expect(baseSelectorBlocks('@layer components { .card-premium { border: 0; } }', 'card-premium')).toEqual(['.card-premium'])
+    expect(baseSelectorBlocks('@media (max-width: 640px) { .card-premium { padding: 1rem; } }', 'card-premium')).toEqual([])
+    expect(baseSelectorBlocks('.card-premium:hover { transform: none; }', 'card-premium')).toEqual([])
+    expect(baseSelectorBlocks('.card-premium h2 { margin: 0; }', 'card-premium')).toEqual([])
+    expect(baseSelectorBlocks('html.dark .card-premium { box-shadow: none; }', 'card-premium')).toEqual([])
+  })
+
+  it('does not redefine canonical surface base aliases outside premium-surfaces.css', () => {
     const cssFiles = [
       ...walkCss(path.join(ROOT, 'app')),
       ...walkCss(path.join(ROOT, 'styles')),
@@ -55,7 +107,7 @@ describe('canonical card/surface ownership', () => {
     for (const file of cssFiles) {
       const source = fs.readFileSync(file, 'utf8')
       for (const alias of CANONICAL_SURFACE_ALIASES) {
-        for (const selector of selectorBlocks(source, alias)) {
+        for (const selector of baseSelectorBlocks(source, alias)) {
           violations.push({
             file: path.relative(ROOT, file).replaceAll(path.sep, '/'),
             alias,
