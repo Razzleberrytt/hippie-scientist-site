@@ -103,6 +103,7 @@ test('Kava liver safety does not borrow the anxiety review for publishable claim
   const historicalConflict = entries.find(row => row.enrichmentId === 'enr_kava-conflict-hepatotoxicity-note')
   const historicalCaution = entries.find(row => row.enrichmentId === 'enr_kava-condition-caution-liver-disease')
   const trialSafety = entries.find(row => row.enrichmentId === 'enr_kava-short-term-liver-tolerability-rct')
+  const longTermGap = entries.find(row => row.enrichmentId === 'enr_kava-research-gap-long-term-safety')
 
   assert.equal(historicalConflict?.active, false)
   assert.equal(historicalConflict?.editorialStatus, 'deprecated')
@@ -114,6 +115,13 @@ test('Kava liver safety does not borrow the anxiety review for publishable claim
   assert.equal(trialSafety?.targetName, 'adults with generalized anxiety disorder')
   assert.match(trialSafety?.uncertaintyNote || '', /does not establish long-term safety/i)
   assert.match(trialSafety?.uncertaintyNote || '', /pre-existing liver disease/i)
+
+  assert.equal(longTermGap?.active, true)
+  assert.equal(longTermGap?.editorialStatus, 'approved')
+  assert.equal(longTermGap?.claimType, 'research_gap')
+  assert.equal(longTermGap?.sourceId, 'src_cochrane-cd003383')
+  assert.match(longTermGap?.findingTextNormalized || '', /long-term safety profile/i)
+  assert.match(longTermGap?.uncertaintyNote || '', /does not establish or quantify hepatotoxicity/i)
 })
 
 test('CBD liver-enzyme trial remains scoped to the healthy-adult study population', () => {
