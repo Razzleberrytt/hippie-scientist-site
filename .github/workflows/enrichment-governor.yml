@@ -13,6 +13,7 @@ on:
       - 'scripts/enrichment/**'
       - 'schemas/normalized-enrichment-entry.schema.json'
       - 'schemas/source-registry.schema.json'
+      - 'schemas/source-class-governance.json'
       - 'scripts/enrichment-pipeline/contract/**'
       - '.github/workflows/enrichment-governor.yml'
   push:
@@ -28,6 +29,7 @@ on:
       - 'scripts/enrichment/**'
       - 'schemas/normalized-enrichment-entry.schema.json'
       - 'schemas/source-registry.schema.json'
+      - 'schemas/source-class-governance.json'
       - 'scripts/enrichment-pipeline/contract/**'
       - '.github/workflows/enrichment-governor.yml'
   workflow_dispatch:
