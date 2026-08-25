@@ -1,0 +1,318 @@
+{
+  "patch_version": 1,
+  "id": "enrich-batch-2-2026-08-25-e0217adb71",
+  "status": "approved",
+  "generated_by": "scripts/enrichment-pipeline",
+  "job_ids": [
+    "job_0d62ce024033a255",
+    "job_0e9e67c3fee7e6ff",
+    "job_1db59ace6705ac07",
+    "job_20ab1ff71bf12c85",
+    "job_220df04c66c61dfc",
+    "job_30ae0b20971c9188",
+    "job_5782ef4d4862dbb2",
+    "job_7ba446d1824ec64c",
+    "job_9e7b533a2cb931fe",
+    "job_a09e0c8cc821c62f",
+    "job_ac63c5150dba078d",
+    "job_d13d3486b5ca1db7",
+    "job_d1e3bad4e93ade5b",
+    "job_dc17f18879bed983",
+    "job_dd7cbb82ab77c9c6",
+    "job_fab2139893c38957",
+    "job_fccd00a270fa2b44"
+  ],
+  "sources": [
+    {
+      "id": "pmid-15893435",
+      "title": "HPLC based activity profiling for 5-lipoxygenase inhibitory activity in Isatis tinctoria leaf extracts",
+      "year": 2005,
+      "doi": "10.1016/j.fitote.2005.03.002"
+    },
+    {
+      "id": "pmid-17409525",
+      "title": "A microdialysis study of effects of gastrodin on neurochemical changes in the ischemic/reperfused rat cerebral hippocampus",
+      "year": 2007,
+      "doi": "10.1248/bpb.30.801"
+    },
+    {
+      "id": "pmid-19060449",
+      "title": "Pueraria mirifica phytoestrogens improve dyslipidemia in postmenopausal women probably by activating estrogen receptor subtypes",
+      "year": 2008,
+      "doi": "10.1620/tjem.216.341"
+    },
+    {
+      "id": "pmid-19394399",
+      "title": "Houttuynia cordata water extract suppresses anaphylactic reaction and IgE-mediated allergic response by inhibiting multiple steps of FcepsilonRI signaling in mast cells",
+      "year": 2009,
+      "doi": "10.1016/j.fct.2009.04.025"
+    },
+    {
+      "id": "pmid-23681764",
+      "title": "4-Hydroxyderricin and xanthoangelol from Ashitaba (Angelica keiskei) suppress differentiation of preadipocytes to adipocytes via AMPK and MAPK pathways",
+      "year": 2013,
+      "doi": "10.1002/mnfr.201300020"
+    },
+    {
+      "id": "pmid-23872422",
+      "title": "1,8-Cineol inhibits nuclear translocation of NF-κB p65 and NF-κB-dependent transcriptional activity",
+      "year": 2013,
+      "doi": "10.1016/j.bbamcr.2013.07.001"
+    },
+    {
+      "id": "pmid-23914900",
+      "title": "Rotenoids from Boerhaavia diffusa as potential anti-inflammatory agents",
+      "year": 2013,
+      "doi": "10.1021/np300899w"
+    },
+    {
+      "id": "pmid-24520403",
+      "title": "Preclinical evidence of rapid-onset antidepressant-like effect in Radix Polygalae extract",
+      "year": 2014,
+      "doi": "10.1371/journal.pone.0088617"
+    },
+    {
+      "id": "pmid-26173397",
+      "title": "β-Lapachone suppresses neuroinflammation by modulating the expression of cytokines and matrix metalloproteinases in activated microglia",
+      "year": 2015,
+      "doi": "10.1186/s12974-015-0355-z"
+    },
+    {
+      "id": "pmid-29136955",
+      "title": "Eucommia ulmoides leaf (EUL) extract enhances NO production in ox-LDL-treated human endothelial cells",
+      "year": 2017,
+      "doi": "10.1016/j.biopha.2017.11.035"
+    },
+    {
+      "id": "pmid-34390798",
+      "title": "Compound Danshen Dripping Pill ameliorates post ischemic myocardial inflammation through synergistically regulating MAPK, PI3K/AKT and PPAR signaling pathways",
+      "year": 2021,
+      "doi": "10.1016/j.jep.2021.114438"
+    },
+    {
+      "id": "pmid-34775034",
+      "title": "Anti-oxidative and anti-hyperglycemic properties of Agastache foeniculum essential oil and oily fraction in hyperglycemia-stimulated and lipopolysaccharide-stimulated macrophage cells",
+      "year": 2021,
+      "doi": "10.1016/j.jep.2021.114814"
+    },
+    {
+      "id": "pmid-34965452",
+      "title": "AHR agonistic effects of 6-PN contribute to potential beneficial effects of Hops extract",
+      "year": 2021,
+      "doi": "10.1016/j.mce.2021.111540"
+    },
+    {
+      "id": "pmid-35347990",
+      "title": "New Lanostane-Type Triterpenes with Anti-Inflammatory Activity from the Epidermis of Wolfiporia cocos",
+      "year": 2022,
+      "doi": "10.1021/acs.jafc.2c00823"
+    },
+    {
+      "id": "pmid-35793972",
+      "title": "Anti-inflammatory Study on the Constituents of Angelica sinensis, Angelica dahurica, Angelica pubescens and Foeniculum vulgare Essential Oils",
+      "year": 2022,
+      "doi": "10.5650/jos.ess22031"
+    },
+    {
+      "id": "pmid-36617832",
+      "title": "Galangin inhibits lipopolysaccharide-induced inflammation and stimulates osteogenic differentiation of bone marrow mesenchymal stem cells via regulation of AKT/mTOR signaling",
+      "year": 2023,
+      "doi": "10.15586/aei.v51i1.741"
+    },
+    {
+      "id": "pmid-42388013",
+      "title": "Hepatoprotective Potential of Eugenol Against Pesticide Glyphosate-Induced Liver Injury via Nrf2/HO-1 Signaling and Modulation of Apoptosis and Inflammation in Rats",
+      "year": 2026,
+      "doi": "10.1002/jbt.71014"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "angelica-pubescens",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "NF-kB inhibition; Cytokine modulation; Anti-inflammatory",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-35793972"
+      ],
+      "rationale": "In the TPA-induced mouse ear oedema model, Angelica pubescens essential oil (44.6% osthole) reduced TNF-α, COX-2, IL-6 and RelA/p65 levels in skin by immunohistochemistry. [enrichment-pipeline job job_30ae0b20971c9188, candidate cand_6f840dc5095c8d58]"
+    },
+    {
+      "slug": "anise-hyssop",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "Antioxidant",
+      "confidence": "low",
+      "source_ids": [
+        "pmid-34775034"
+      ],
+      "rationale": "Agastache foeniculum essential oil and oily fraction lowered NADPH-oxidase activity and raised superoxide dismutase and catalase activity and expression in stimulated J774.A1 macrophages. Endocannabinoid modulation, which this entity's mechanism_summary claims, is not supported by this or any retrieved source. [enrichment-pipeline job job_fab2139893c38957, candidate cand_f6ebb94005f3f991]"
+    },
+    {
+      "slug": "ashitaba-extract",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "AMPK activation; Lipid metabolism support",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-23681764"
+      ],
+      "rationale": "The Ashitaba chalcones 4-hydroxyderricin and xanthoangelol promoted AMPK and acetyl-CoA-carboxylase phosphorylation in differentiating 3T3-L1 adipocytes, cut glycerol-3-phosphate acyltransferase-1 and raised carnitine palmitoyltransferase-1. PPAR activation is not claimed: PPAR-γ was down-expressed here. [enrichment-pipeline job job_fccd00a270fa2b44, candidate cand_2084651fc90b62d7]"
+    },
+    {
+      "slug": "clove",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "Nrf2 activation; NF-kB inhibition; Antioxidant",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-42388013"
+      ],
+      "rationale": "Eugenol, the predominant constituent of clove oil (Syzygium aromaticum), activated Nrf2/HO-1 signalling, raised SOD and reduced glutathione, and suppressed COX-2, NF-κB, IL-6, TNF-α and IL-1β expression in glyphosate-exposed rat liver. [enrichment-pipeline job job_dd7cbb82ab77c9c6, candidate cand_c9aab16d00028f2c]"
+    },
+    {
+      "slug": "eucalyptus",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "NF-kB inhibition",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-23872422"
+      ],
+      "rationale": "1,8-Cineol (eucalyptol), the principal constituent of eucalyptus oil, reduced NF-κB p65 nuclear translocation and NF-κB-dependent transcription in LPS-stimulated human cell lines and in peripheral blood mononuclear cells, acting through IκB-α in an IKK-independent way. [enrichment-pipeline job job_1db59ace6705ac07, candidate cand_d844db9fa9d39571]"
+    },
+    {
+      "slug": "eucommia",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "Nitric oxide modulation; Vascular function support",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-29136955"
+      ],
+      "rationale": "Eucommia ulmoides leaf aqueous extract and its iridoid aucubin restored nitric oxide levels, cut superoxide production and recovered phospho-eNOS Thr495 in ox-LDL-exposed HUVECs — that is, reversed eNOS uncoupling. [enrichment-pipeline job job_5782ef4d4862dbb2, candidate cand_4873edaa6de6a00c]"
+    },
+    {
+      "slug": "galangal",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "NF-kB inhibition; Cytokine modulation",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-36617832"
+      ],
+      "rationale": "Galangin, the flavonoid galangal is named for, lowered TNF-α, IL-1β and IL-6 in LPS-stimulated rat bone-marrow mesenchymal stem cells through down-regulation of NF-κB phosphorylation. [enrichment-pipeline job job_d1e3bad4e93ade5b, candidate cand_f137735725da6dfa]"
+    },
+    {
+      "slug": "gastrodia",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "Glutamate modulation; GABA modulation",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-17409525"
+      ],
+      "rationale": "Hippocampal microdialysis in rats: gastrodin, from the rhizome of Gastrodia elata, blunted the ischaemia-induced rise in extracellular glutamate and increased extracellular GABA during reperfusion, lowering the glutamate/GABA ratio. [enrichment-pipeline job job_220df04c66c61dfc, candidate cand_1a0fbf94a91d24e1]"
+    },
+    {
+      "slug": "hops",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "Estrogen receptor modulation",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-34965452"
+      ],
+      "rationale": "Hops extract and its prenylflavanones 8-PN and 6-PN showed estrogenic activity and activated ERα signalling in human endometrial cells. Stress Response Modulation, the entity's current mechanism_summary, is not what this source shows. [enrichment-pipeline job job_7ba446d1824ec64c, candidate cand_ae16cf8dd5a76a12]"
+    },
+    {
+      "slug": "houttuynia",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "NF-kB inhibition; Mast-cell stabilization; Cytokine modulation",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-19394399"
+      ],
+      "rationale": "H. cordata water extract blocked antigen-induced degranulation (β-hexosaminidase, histamine) in IgE-sensitised RBL-2H3 mast cells, inhibited NF-κB activation and IκB-α degradation, and suppressed IL-4 and TNF-α, with in vivo confirmation in passive cutaneous anaphylaxis. [enrichment-pipeline job job_d13d3486b5ca1db7, candidate cand_433f25e65c5f2e18]"
+    },
+    {
+      "slug": "isatis",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "LOX inhibition",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-15893435"
+      ],
+      "rationale": "HPLC-based activity profiling of lipophilic Isatis tinctoria leaf extracts localised 5-lipoxygenase inhibition to two fractions — one coinciding with tryptanthrin, the major one with α-linolenic acid. [enrichment-pipeline job job_9e7b533a2cb931fe, candidate cand_867728a9ffb2cbf6]"
+    },
+    {
+      "slug": "notoginseng",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "NF-kB inhibition",
+      "confidence": "low",
+      "source_ids": [
+        "pmid-34390798"
+      ],
+      "rationale": "A dual-luciferase NF-κB reporter screen identified notoginsenoside R1, a saponin specific to Panax notoginseng, as one of four pivotal anti-inflammatory ingredients, with PI3K as its docked target. Confidence is low because the in vivo work is on the three-herb CDDP formula rather than on notoginseng alone. [enrichment-pipeline job job_dc17f18879bed983, candidate cand_dd5333e0a21c82fb]"
+    },
+    {
+      "slug": "pau-d-arco",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "NF-kB inhibition; Nrf2 activation; Cytokine modulation",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-26173397"
+      ],
+      "rationale": "β-Lapachone, the naphthoquinone from the lapacho tree (Tabebuia / Handroanthus), inhibited NF-κB/AP-1 signalling and proinflammatory cytokine expression in LPS-stimulated microglia and raised HO-1 and NQO1 through the Nrf2/ARE pathway. [enrichment-pipeline job job_0e9e67c3fee7e6ff, candidate cand_9318dc421e3e5e19]"
+    },
+    {
+      "slug": "polygala",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "Glutamate modulation",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-24520403"
+      ],
+      "rationale": "The antidepressant-like effect of Radix Polygalae in mice was blocked by the AMPA antagonist NBQX and accompanied by decreased hippocampal GluR1 ser845 phosphorylation, a ketamine-like glutamatergic signature. BDNF induction is cited from prior work rather than measured here, so it is not claimed. [enrichment-pipeline job job_0d62ce024033a255, candidate cand_cbb3e81b6b8d73d0]"
+    },
+    {
+      "slug": "poria",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "NF-kB inhibition; Nrf2 activation; COX inhibition",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-35347990"
+      ],
+      "rationale": "Poricoic acid GM from the epidermis of Wolfiporia cocos suppressed IκB-α phosphorylation and NF-κB nuclear entry, blocked Keap1–Nrf2 dissociation to drive Nrf2 into the nucleus, and inhibited iNOS and COX-2 protein expression in LPS-induced RAW264.7 macrophages. [enrichment-pipeline job job_20ab1ff71bf12c85, candidate cand_082e237a1fd7d358]"
+    },
+    {
+      "slug": "pueraria-mirifica",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "Estrogen receptor modulation; Lipid metabolism support",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-19060449"
+      ],
+      "rationale": "Randomised, double-blind, placebo-controlled trial in 19 postmenopausal women showed HDL and apoA-1 rises and LDL and apoB falls; paired reporter-gene assays showed miroestrol and coumestrol enhance both ERα- and ERβ-mediated transactivation. [enrichment-pipeline job job_a09e0c8cc821c62f, candidate cand_75f6031818c60027]"
+    },
+    {
+      "slug": "punarnava",
+      "column": "canonical_pathways",
+      "expected_old_value": "",
+      "new_value": "COX inhibition; Anti-inflammatory",
+      "confidence": "moderate",
+      "source_ids": [
+        "pmid-23914900"
+      ],
+      "rationale": "Nine rotenoids isolated from Boerhaavia diffusa roots were assayed for COX-1 and COX-2 inhibition; boeravinone B was additionally anti-inflammatory in the carrageenan-induced rat paw model. [enrichment-pipeline job job_ac63c5150dba078d, candidate cand_c1fe9281774eaac1]"
+    }
+  ]
+}

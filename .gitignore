@@ -149,3 +149,9 @@ agent/cache/
 # proposal in data-sources/workbook-patches.
 ops/enrichment/*
 !ops/enrichment/README.md
+# Batch workers and their research records are hand-authored inputs, not
+# generated state — `scan` cannot reproduce them. They are the only place a
+# no-op's reason is written down, which is what stops a later pass re-covering
+# ground that was already researched and found empty.
+!ops/enrichment/*-work.mjs
+!ops/enrichment/*-research.json
