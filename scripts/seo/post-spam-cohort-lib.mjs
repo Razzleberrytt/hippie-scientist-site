@@ -97,7 +97,17 @@ export function authorityProfileSignals(row) {
   }
   const score = Object.values(signals).filter(Boolean).length
 
-  return { authority: score >= 5, score, signals, sourceCount, claimCount, safetyCount, mechanismCount }
+  // Authority is deliberately stricter than generic enrichment: deep sourcing
+  // is mandatory, then the page must satisfy nearly all remaining value signals.
+  return {
+    authority: signals.sourceDepth && score >= 5,
+    score,
+    signals,
+    sourceCount,
+    claimCount,
+    safetyCount,
+    mechanismCount,
+  }
 }
 
 export function classifyCohort(pathname, governedByKey = new Map()) {
