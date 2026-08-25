@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 
+import { evaluateEntryReadiness } from '../enrichment/normalize-enrichment-lib.mjs'
 import { buildClaimSourceGraph, buildCoverageHeatmap, contract, isPublishableEntry } from './governor.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
@@ -15,6 +16,12 @@ const validateEntrySchema = ajv.compile(schema)
 
 const incompatibleEntitySources = new Map([
   ['herb:ashwagandha', new Set(['src_fda-epidiolex-label-2021'])],
+])
+const SOURCE_READINESS_REASONS = new Set([
+  'missing_source_registry_reference',
+  'source_inactive',
+  'source_publication_status_withdrawn',
+  'source_publication_status_superseded',
 ])
 
 function parseJsonl(file) {
@@ -45,10 +52,16 @@ function checkValue(row, check) {
   throw new Error(`Unknown canary check: ${check}`)
 }
 
+function sourceSupportUnresolved(entry, source) {
+  const readiness = evaluateEntryReadiness(entry, source)
+  return readiness.reasons.some(reason => SOURCE_READINESS_REASONS.has(reason))
+}
+
 export function verifyCanaries(entries, sourceRegistry = []) {
   const publishableEntries = entries.filter(isPublishableEntry)
   const heatmap = buildCoverageHeatmap(publishableEntries)
   const graph = buildClaimSourceGraph(publishableEntries, sourceRegistry)
+  const sourceById = new Map(sourceRegistry.map(source => [source.sourceId || source.id, source]))
   const grouped = new Map()
   for (const entry of publishableEntries) {
     const key = `${entry.entityType}:${entry.entitySlug}`
@@ -56,13 +69,22 @@ export function verifyCanaries(entries, sourceRegistry = []) {
     grouped.get(key).push(entry)
   }
 
+  const globallyUnresolvedSourceIds = [...new Set(
+    publishableEntries
+      .filter(entry => sourceSupportUnresolved(entry, sourceById.get(entry.sourceId) ?? null))
+      .map(entry => entry.sourceId)
+      .filter(Boolean),
+  )].sort()
+  const globallyUnresolved = new Set(globallyUnresolvedSourceIds)
+
   const fixed = contract.canaries.fixedAnchors.map(slug => {
-    const matches = [...grouped.entries()].filter(([key]) => key.endsWith(`:${slug}`))
-    const rows = matches.flatMap(([, values]) => values)
+    const entityKey = contract.canaries.anchorEntityKeys?.[slug] ?? null
+    const rows = entityKey ? (grouped.get(entityKey) || []) : []
     const sourceIds = [...new Set(rows.map(row => row.sourceId).filter(Boolean))]
-    const unresolved = sourceIds.filter(id => !graph.nodes.sources[id]?.resolvedInRegistry)
+    const unresolved = sourceIds.filter(id => globallyUnresolved.has(id))
     return {
       slug,
+      entityKey,
       present: rows.length > 0,
       claimCount: rows.length,
       sourceLinkage: rows.length > 0 && rows.every(row => Boolean(row.sourceId)),
@@ -98,7 +120,7 @@ export function verifyCanaries(entries, sourceRegistry = []) {
     }
   }
 
-  const unresolvedSourceIds = [...new Set(fixed.flatMap(row => row.unresolvedSourceIds))].sort()
+  const unresolvedSourceIds = globallyUnresolvedSourceIds
   const missingNullVisibilityAnchors = fixed.filter(row => row.present && !row.nullVisibility).map(row => row.slug)
   const missingSafetyVisibilityAnchors = fixed.filter(row => row.present && !row.safetyVisibility).map(row => row.slug)
 
@@ -142,6 +164,7 @@ export function verifyCanaries(entries, sourceRegistry = []) {
     pass,
     idealPass,
     status: !pass ? 'BLOCKED' : idealPass ? 'PASS' : 'PASS_WITH_BASELINE_DEBT',
+    graphSummary: graph.counts,
   }
 }
 
