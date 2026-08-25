@@ -35,12 +35,12 @@ function completeEntries() {
 function baselineDebtEntries() {
   return [
     entry('ashwagandha', 'efficacy', { sourceId: 'src_pubmed-31517876' }),
-    entry('ashwagandha', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'pregnancy_note' }),
+    entry('ashwagandha', 'safety', { sourceId: 'src_pubmed-31517876', claimType: 'safety_risk', topicType: 'adverse_effect', evidenceClass: 'human-clinical' }),
     entry('chamomile', 'safety', { sourceId: 'src_pubmed-31006899', claimType: 'safety_risk', topicType: 'adverse_effect' }),
     entry('chamomile', 'null', { sourceId: 'src_pubmed-31006899', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use' }),
     entry('kava', 'safety', { sourceId: 'src_cochrane-cd003383', claimType: 'safety_risk', topicType: 'condition_caution' }),
     entry('kava', 'conflict', { sourceId: 'src_cochrane-cd003383', claimType: 'evidence_conflict', topicType: 'conflict_note' }),
-    entry('cbd', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'medication_class_caution' }),
+    entry('cbd', 'safety', { sourceId: 'src_fda-epidiolex-label-2021', claimType: 'safety_risk', topicType: 'medication_class_caution', evidenceClass: 'regulatory-monograph' }),
     entry('cbd', 'gap', { sourceId: 'src_pubmed-40622698', claimType: 'research_gap', topicType: 'research_gap' }),
     entry('luteolin', 'null', { sourceId: 'src_pubmed-29801717', claimType: 'efficacy_null_or_mixed', topicType: 'unsupported_or_unclear_use', evidenceClass: 'preclinical-mechanistic' }),
   ]
@@ -104,6 +104,17 @@ test('known baseline debt remains visible without being mislabeled as clean', ()
   assert.deepEqual(result.debt.missingNullVisibilityAnchors, ['ashwagandha'])
   assert.deepEqual(result.debt.missingSafetyVisibilityAnchors, ['luteolin'])
   assert.deepEqual(result.debt.unexpectedUnresolvedSourceIds, [])
+})
+
+test('ashwagandha safety canary stays on the ashwagandha RCT and rejects the CBD label', () => {
+  const entries = baselineDebtEntries()
+  const safety = entries.find(row => row.entitySlug === 'ashwagandha' && row.topicType === 'adverse_effect')
+  assert.equal(safety.sourceId, 'src_pubmed-31517876')
+
+  safety.sourceId = 'src_fda-epidiolex-label-2021'
+  const result = verifyCanaries(entries, [])
+  assert.equal(result.pass, false, JSON.stringify(result, null, 2))
+  assert.ok(result.blockers.some(value => value.includes('ashwagandha') && value.includes('provenance')))
 })
 
 test('canary ratchet blocks a new unresolved source even when total debt count does not grow', () => {
