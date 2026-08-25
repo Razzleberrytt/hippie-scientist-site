@@ -114,6 +114,32 @@ test('active CBD claims do not use the superseded 2021 EPIDIOLEX label', () => {
   assert.equal(cbd.find(row => row.enrichmentId === 'enr_cbd-research-gap-non-epilepsy')?.sourceId, 'src_pubmed-36271316')
 })
 
+test('Ashwagandha efficacy stays limited to the statistically supported endpoint', () => {
+  const entries = readJsonl('public/data/enrichment-normalized.jsonl')
+  const efficacy = entries.find(row => row.enrichmentId === 'enr_ashwagandha-supported-use-stress-rct')
+
+  assert.equal(efficacy?.sourceId, 'src_pubmed-31517876')
+  assert.equal(efficacy?.strengthLabel, 'limited')
+  assert.match(efficacy?.findingTextNormalized || '', /HAM-A/i)
+  assert.match(efficacy?.findingTextNormalized || '', /P = \.040/)
+  assert.match(efficacy?.findingTextNormalized || '', /DASS-21/i)
+  assert.match(efficacy?.findingTextNormalized || '', /P = \.096/)
+  assert.match(efficacy?.findingTextNormalized || '', /not statistically significant/i)
+  assert.doesNotMatch(efficacy?.findingTextNormalized || '', /reduced validated stress and anxiety symptom scores versus placebo/i)
+})
+
+test('Chamomile safety stays within adverse events actually reported by the review', () => {
+  const entries = readJsonl('public/data/enrichment-normalized.jsonl')
+  const safety = entries.find(row => row.enrichmentId === 'enr_chamomile-adverse-effect-sedation')
+
+  assert.equal(safety?.sourceId, 'src_pubmed-31006899')
+  assert.equal(safety?.mechanismKnown, false)
+  assert.equal(safety?.targetName, 'participants in reviewed chamomile trials')
+  assert.match(safety?.findingTextNormalized || '', /mild adverse events were reported by three trials/i)
+  assert.match(safety?.uncertaintyNote || '', /does not establish that co-sedative exposure increases adverse-event risk/i)
+  assert.doesNotMatch(safety?.findingTextNormalized || '', /especially when combined with other sedating exposures/i)
+})
+
 test('Kava liver safety does not borrow the anxiety review for publishable claims', () => {
   const entries = readJsonl('public/data/enrichment-normalized.jsonl')
   const historicalConflict = entries.find(row => row.enrichmentId === 'enr_kava-conflict-hepatotoxicity-note')
