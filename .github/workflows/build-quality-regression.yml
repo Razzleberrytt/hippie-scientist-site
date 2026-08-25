@@ -1,0 +1,75 @@
+name: Build quality regression
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  compare-generated-quality:
+    name: Compare generated quality with base
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository with history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch base branch without losing merge history
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          git merge-base "origin/$BASE_REF" HEAD >/dev/null
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies once
+        run: npm ci
+
+      - name: Extract major automated change explanation
+        id: explanation
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const body = process.env.PR_BODY || ''
+          const headingPattern = /^##\s+Major automated change explanation\s*$/im
+          const match = headingPattern.exec(body)
+          let reason = ''
+          if (match) {
+            const remainder = body.slice(match.index + match[0].length)
+            const nextHeading = remainder.search(/^##\s+/m)
+            reason = (nextHeading >= 0 ? remainder.slice(0, nextHeading) : remainder).trim()
+          }
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `reason<<EOF\n${reason}\nEOF\n`)
+          NODE
+
+      - name: Compare build-quality signals
+        env:
+          QUALITY_CHANGE_REASON: ${{ steps.explanation.outputs.reason }}
+        run: node scripts/ci/compare-build-quality.mjs --base="origin/${{ github.base_ref }}" --require-base
+
+      - name: Regenerate and compare internal-link graphs
+        run: node scripts/ci/compare-internal-link-quality.mjs --base="origin/${{ github.base_ref }}" --strict
+
+      - name: Upload human-readable quality diffs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-quality-diff-${{ github.run_id }}
+          if-no-files-found: ignore
+          retention-days: 30
+          path: |
+            public/data/reports/build-quality-diff.md
+            public/data/reports/build-quality-diff.json
+            public/data/reports/internal-link-quality-diff.md
+            public/data/reports/internal-link-quality-diff.json
