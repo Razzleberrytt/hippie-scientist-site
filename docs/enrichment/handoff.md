@@ -189,11 +189,24 @@ substance. `cdp-choline` is already a live compound route, so retyping
 audit cannot see it, because neither carries a `latin_name`. One of the two
 should redirect to the other.
 
-The next enrichment field. `canonical_pathways` (119 gaps) is the
-best candidate: it is `only-if-empty`, has a controlled vocabulary in
-`public/data/canonical-mechanisms.json`, and accepts preclinical sources because
-a pathway label is explicitly mechanistic rather than a clinical outcome. It
-needs a new readiness record — the current one authorises `latin_name` only.
+**The next enrichment field is `canonical_pathways`, and it is underway.** Gate
+G15 supersedes G14 and adds it to the readiness scope. Batches 1 and 2 are
+researched and staged as approved patches — 48 of 119 jobs, 36 filled, 12 no-ops
+with reasons — but **not yet written to the workbook**: the apply step is blocked
+in the environment they were produced in. See
+`docs/enrichment/canonical-pathways.md` for results, the vocabulary decision, and
+the exact commands to apply them.
+
+Two things that work discovered are worth carrying forward regardless of field:
+
+- `canonical_pathways` feeds `normalizeMechanisms()` via `site-export.mjs`, so a
+  label the taxonomy cannot resolve is silently worth nothing. Write
+  `canonical_label` values from `public/data/canonical-mechanisms.json`, which
+  are guaranteed to map, rather than the shorthand older rows use.
+- `enrich export` exports **every** candidate file on disk, not the current
+  batch. Archive each batch's candidates to
+  `ops/enrichment/candidates/archive/<batch>/` after exporting, or the next
+  export re-proposes changes that are already in a patch.
 
 Avoid `secondary_effects` (873 gaps) until there is appetite for the review load:
 it is claim-bearing, requires human evidence, and every candidate routes to a
