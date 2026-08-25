@@ -80,5 +80,6 @@ jobs:
           name: crawl-governance-${{ github.run_number }}
           path: |
             reports/*robots*.json
+            reports/profile-publication-truth.json
             reports/static-crawl-surface.json
           retention-days: 30

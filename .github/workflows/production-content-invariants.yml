@@ -108,6 +108,10 @@ jobs:
         if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/seo/apply-redirect-overrides.mjs
 
+      - name: Reconcile final sitemap after redirect overrides
+        if: steps.impact.outputs.docs_only != 'true'
+        run: node scripts/seo/write-static-sitemap.mjs
+
       - name: Prove placeholders and dev language are absent from visible HTML
         if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/audit-production-visible-language.mjs
@@ -125,6 +129,7 @@ jobs:
             reports/production-invariant-enforcement.json
             reports/production-content-invariants.json
             reports/production-visible-language.json
+            reports/profile-publication-truth.json
           if-no-files-found: warn
           retention-days: 30
 

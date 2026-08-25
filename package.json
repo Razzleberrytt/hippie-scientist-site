@@ -149,6 +149,7 @@
     "verify:core-routes": "node scripts/verify-core-routes.mjs",
     "verify:redirects": "node scripts/verify-redirects.mjs",
     "audit:profile-robots": "node scripts/ci/audit-profile-robots.mjs",
+    "audit:profile-publication": "node scripts/ci/audit-profile-robots.mjs",
     "redirects:normalize": "node scripts/ci/normalize-redirects.mjs",
     "validate:redirects-canonical": "node scripts/ci/normalize-redirects.mjs --check",
     "validate:deploy-readiness": "node scripts/ci/validate-deploy-readiness.mjs",
