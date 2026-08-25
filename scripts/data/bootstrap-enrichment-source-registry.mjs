@@ -6,22 +6,59 @@ const ROOT = process.cwd()
 const SEED_PATH = path.join(ROOT, 'data-sources', 'enrichment-source-registry-baseline.json')
 const REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
 const CHECK_ONLY = process.argv.includes('--check')
+const UNIQUE_IDENTITY_FIELDS = ['pmid', 'doi', 'canonicalUrl', 'monographId']
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
 }
 
-function identityAnchors(row) {
-  return {
-    doi: row.doi || null,
-    pmid: row.pmid || null,
-    canonicalUrl: row.canonicalUrl || null,
-    monographId: row.monographId || null,
+function normalizeIdentityValue(field, value) {
+  if (typeof value !== 'string' || value.trim().length === 0) return null
+  const trimmed = value.trim()
+  if (field === 'pmid') return trimmed
+  if (field === 'doi') return trimmed.toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//u, '').replace(/^doi:\s*/u, '')
+  if (field === 'canonicalUrl') {
+    try {
+      const url = new URL(trimmed)
+      url.hash = ''
+      if (url.pathname.length > 1) url.pathname = url.pathname.replace(/\/+$/u, '')
+      return url.toString()
+    } catch {
+      return trimmed
+    }
   }
+  return trimmed.toLowerCase()
+}
+
+function identityAnchors(row) {
+  return Object.fromEntries(UNIQUE_IDENTITY_FIELDS.map(field => [field, normalizeIdentityValue(field, row[field])]))
 }
 
 function sameIdentity(left, right) {
   return JSON.stringify(identityAnchors(left)) === JSON.stringify(identityAnchors(right))
+}
+
+function collectCrossIdIdentityConflicts(registryRows, seedRows) {
+  const owners = new Map()
+  const conflicts = []
+
+  const register = (row, origin) => {
+    for (const field of UNIQUE_IDENTITY_FIELDS) {
+      const value = normalizeIdentityValue(field, row?.[field])
+      if (!value) continue
+      const key = `${field}:${value}`
+      const prior = owners.get(key)
+      if (prior && prior.sourceId !== row.sourceId) {
+        conflicts.push(`${field}=${value} (${prior.sourceId} vs ${row.sourceId}; ${prior.origin} vs ${origin})`)
+      } else if (!prior) {
+        owners.set(key, { sourceId: row.sourceId, origin })
+      }
+    }
+  }
+
+  registryRows.forEach(row => register(row, 'registry'))
+  seedRows.forEach(row => register(row, 'seed'))
+  return [...new Set(conflicts)].sort()
 }
 
 const seed = readJson(SEED_PATH)
@@ -35,6 +72,11 @@ for (const row of seed) {
   if (!row?.sourceId) throw new Error('Every baseline source requires sourceId.')
   if (seedIds.has(row.sourceId)) throw new Error(`Duplicate baseline sourceId: ${row.sourceId}`)
   seedIds.add(row.sourceId)
+}
+
+const crossIdConflicts = collectCrossIdIdentityConflicts(registry, seed)
+if (crossIdConflicts.length > 0) {
+  throw new Error(`Baseline cross-ID source identity collision(s): ${crossIdConflicts.join('; ')}`)
 }
 
 const byId = new Map(registry.map(row => [row.sourceId, row]))
