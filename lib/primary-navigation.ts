@@ -27,7 +27,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Ingredients',
     href: '/herbs',
     description: 'Look up herbs, nutrients, active compounds, extracts, evidence, and safety',
-    activePrefixes: ['/compounds'],
+    activePrefixes: ['/herbs', '/compounds'],
     children: [
       { label: 'Herb database', href: '/herbs' },
       { label: 'Compound database', href: '/compounds' },
@@ -47,7 +47,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Safety',
     href: '/safety-checker',
     description: 'Check interaction signals, contraindication context, and uncertainty before combining products',
-    activePrefixes: ['/info/supplement-safety-checklist', '/guides/other/supplement-stacking-safety', '/novel-psychoactive-substances'],
+    activePrefixes: ['/safety-checker', '/info/supplement-safety-checklist', '/guides/other/supplement-stacking-safety', '/novel-psychoactive-substances'],
     children: [
       { label: 'Safety Checker', href: '/safety-checker' },
       { label: 'Supplement safety checklist', href: '/info/supplement-safety-checklist' },
