@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { authorityHomeLinks, bestForSlugs } from '@/app/authority-links'
-import { SEO_GUIDE_ROUTES } from '../../src/lib/canonical-routes'
+import { GOAL_ROUTES, SEO_GUIDE_ROUTES } from '../../src/lib/canonical-routes'
 
 const rootDir = process.cwd()
 const redirectsPath = path.join(rootDir, 'public', '_redirects')
@@ -32,16 +32,24 @@ describe('route consolidation guardrails', () => {
     expect(redirectedSources).not.toContain('/goals/:slug')
   })
 
+  it('keeps shared canonical route helpers on trailing-slash URLs', () => {
+    for (const href of [...Object.values(GOAL_ROUTES), ...Object.values(SEO_GUIDE_ROUTES)]) {
+      expect(href).toMatch(/^\/.+\/$/)
+    }
+  })
+
   it('keeps authority home links on live canonical routes', () => {
     expect(authorityHomeLinks).toEqual([
-      { href: '/guides/anxiety', label: 'Stress Goal Hub' },
-      { href: '/guides/sleep', label: 'Sleep Goal Hub' },
+      { href: GOAL_ROUTES.stress, label: 'Stress Goal Hub' },
+      { href: GOAL_ROUTES.sleep, label: 'Sleep Goal Hub' },
       { href: SEO_GUIDE_ROUTES.sleep, label: 'Best Supplements for Sleep' },
       { href: SEO_GUIDE_ROUTES.focus, label: 'Best Supplements for Focus' },
-      { href: '/guides/compare/rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha' },
-      { href: '/guides/sleep/sleep-stack-guide', label: 'Sleep Recovery Stack' },
-      { href: '/info/methodology', label: 'Safety Basics' },
+      { href: '/guides/compare/rhodiola-vs-ashwagandha/', label: 'Rhodiola vs Ashwagandha' },
+      { href: '/guides/sleep/sleep-stack-guide/', label: 'Sleep Recovery Stack' },
+      { href: '/info/methodology/', label: 'Safety Basics' },
     ])
+
+    expect(authorityHomeLinks.every(({ href }) => href.endsWith('/'))).toBe(true)
   })
 
   it('includes expanded best route slugs without redirecting best routes away', () => {
