@@ -226,6 +226,12 @@ function main() {
     ]
     console.error('[guard-generated-data] BLOCKED: generated data changed without its recognized source/build change.')
     blockedFiles.forEach((f) => console.error(`  - ${f}`))
+    if (blockedGoverned) {
+      console.error('Regenerate enrichment-governed.json only after changing the normalized enrichment ledger and/or source registry.')
+    }
+    if (blockedOrdinary) {
+      console.error('Use the canonical workbook or a recognized build-source path for ordinary generated data changes.')
+    }
     process.exit(1)
   }
 
