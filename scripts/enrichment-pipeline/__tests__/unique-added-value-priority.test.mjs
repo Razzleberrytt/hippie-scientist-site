@@ -1,5 +1,4 @@
-import assert from 'node:assert/strict'
-import test from 'node:test'
+import { expect, test } from 'vitest'
 
 import {
   buildPriorityContext,
@@ -52,12 +51,12 @@ test('differentiated evidence and safety gaps outrank commodity metadata gaps', 
     latin_name: '',
   }))
 
-  assert.ok(differentiated.signals.unique_added_value > commodity.signals.unique_added_value)
-  assert.ok(differentiated.score > commodity.score)
-  assert.ok(differentiated.signalsUsed.includes('unique_added_value'))
+  expect(differentiated.signals.unique_added_value).toBeGreaterThan(commodity.signals.unique_added_value)
+  expect(differentiated.score).toBeGreaterThan(commodity.score)
+  expect(differentiated.signalsUsed).toContain('unique_added_value')
 })
 
 test('fully covered differentiated fields contribute zero unique-added-value deficit', () => {
   const result = score(baseRow())
-  assert.equal(result.signals.unique_added_value, 0)
+  expect(result.signals.unique_added_value).toBe(0)
 })
