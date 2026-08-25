@@ -1,8 +1,13 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import { verifyCanaries } from '../canary.mjs'
 
+const here = path.dirname(fileURLToPath(import.meta.url))
+const repoRoot = path.resolve(here, '..', '..', '..')
 const anchors = ['ashwagandha', 'chamomile', 'kava', 'cbd', 'luteolin']
 const canonical = {
   ashwagandha: { entityType: 'herb', entitySlug: 'ashwagandha' },
@@ -158,4 +163,36 @@ test('canary ratchet blocks a new unresolved source even when total debt count d
   assert.equal(result.debt.unresolvedSourceIds.length, 6)
   assert.equal(result.pass, false)
   assert.ok(result.blockers.includes('new_provenance_debt:unresolved_source:src_new-source'))
+})
+
+test('changed normalized rows reference real canonical detail entities independent of source readiness', () => {
+  const rows = fs.readFileSync(path.join(repoRoot, 'public', 'data', 'enrichment-normalized.jsonl'), 'utf8')
+    .split(/\r?\n/)
+    .map(line => line.trim())
+    .filter(Boolean)
+    .map(line => JSON.parse(line))
+
+  const expected = new Map([
+    ['enr_chamomile-supported-use-anxiety-review', ['herb', 'matricaria-chamomilla']],
+    ['enr_chamomile-unsupported-remission', ['herb', 'matricaria-chamomilla']],
+    ['enr_chamomile-adverse-effect-sedation', ['herb', 'matricaria-chamomilla']],
+    ['enr_kava-supported-use-anxiety-review', ['herb', 'piper-methysticum']],
+    ['enr_kava-conflict-hepatotoxicity-note', ['herb', 'piper-methysticum']],
+    ['enr_kava-condition-caution-liver-disease', ['herb', 'piper-methysticum']],
+    ['enr_cbd-medication-class-caution-cns-depressants', ['compound', 'cannabidiol']],
+    ['enr_cbd-enzyme-cyp2c19', ['compound', 'cannabidiol']],
+    ['enr_cbd-adverse-effect-transaminase', ['compound', 'cannabidiol']],
+    ['enr_cbd-research-gap-non-epilepsy', ['compound', 'cannabidiol']],
+  ])
+
+  for (const [enrichmentId, [entityType, entitySlug]] of expected) {
+    const row = rows.find(candidate => candidate.enrichmentId === enrichmentId)
+    assert.ok(row, `missing normalized row ${enrichmentId}`)
+    assert.equal(row.entityType, entityType, `${enrichmentId} entityType`)
+    assert.equal(row.entitySlug, entitySlug, `${enrichmentId} entitySlug`)
+
+    const detailDir = entityType === 'herb' ? 'herbs-detail' : 'compounds-detail'
+    const detailPath = path.join(repoRoot, 'public', 'data', detailDir, `${entitySlug}.json`)
+    assert.equal(fs.existsSync(detailPath), true, `${enrichmentId} missing canonical detail file ${detailPath}`)
+  }
 })
