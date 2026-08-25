@@ -46,7 +46,10 @@ jobs:
       - name: Rank search opportunities
         run: npm run seo:opportunities
 
-      - name: Upload opportunity report
+      - name: Measure August spam-update cohorts
+        run: node scripts/seo/post-spam-cohort-monitor.mjs
+
+      - name: Upload opportunity and cohort reports
         if: always()
         uses: actions/upload-artifact@v7
         with:
@@ -54,7 +57,10 @@ jobs:
           path: |
             ops/reports/search-opportunities.json
             ops/reports/search-opportunities.md
+            ops/reports/post-spam-cohorts.json
+            ops/reports/post-spam-cohorts.md
             data-sources/search-console/fetch-metadata.json
+            data-sources/search-console/pages-by-date.csv
           retention-days: 60
           if-no-files-found: ignore
 
@@ -68,5 +74,11 @@ jobs:
             echo "" >> "$GITHUB_STEP_SUMMARY"
             cat ops/reports/search-opportunities.md >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "- Report was not generated; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
+            echo "- Search opportunity report was not generated; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f ops/reports/post-spam-cohorts.md ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat ops/reports/post-spam-cohorts.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Post-spam cohort report was not generated; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
           fi
