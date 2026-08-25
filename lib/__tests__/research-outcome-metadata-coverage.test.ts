@@ -4,7 +4,7 @@ import { analyzeOutcomeMetadataCoverage } from '@/lib/research-outcome-metadata-
 import type { OutcomeMetadataAnalysis } from '@/lib/research-outcome-metadata'
 import type { ResearchQualityAnalysis } from '@/lib/research-quality-analysis'
 
-function analysis(): ResearchQualityAnalysis {
+function analysis(predicate = 'supports_outcome'): ResearchQualityAnalysis {
   return {
     cache: {},
     profiles: [{
@@ -20,7 +20,7 @@ function analysis(): ResearchQualityAnalysis {
         ],
         claimMap: [{
           id: 'claim-1',
-          predicate: 'supports_outcome',
+          predicate,
           confidence: 0.9,
           reviewStatus: 'approved',
           sourceRefIds: ['s1', 's2'],
@@ -108,5 +108,14 @@ describe('outcome metadata coverage', () => {
     expect(result.profiles[0].primaryHumanStudies).toBe(0)
     expect(result.profiles[0].lowOutcomeMetadataCoverage).toBe(false)
     expect(result.claims).toHaveLength(0)
+  })
+
+  it('does not widen canonical outcome eligibility to benefit-like predicates', () => {
+    const result = analyzeOutcomeMetadataCoverage({ analysis: analysis('benefit'), outcomeMetadata: metadata() })
+
+    expect(result.profiles[0].primaryHumanStudies).toBe(3)
+    expect(result.summary.approvedOutcomeClaimsWithPrimaryHumanEvidence).toBe(0)
+    expect(result.claims).toEqual([])
+    expect(result.claimCoverageGaps).toEqual([])
   })
 })

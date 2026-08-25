@@ -10,6 +10,7 @@ import type { ResearchQualityAnalysis } from './research-quality-analysis'
 import type { ResearchQualityGate } from './research-quality-gate'
 import type { ResearchGapItem } from './research-quality-policy'
 import type { ResearchQualityTopology } from './research-quality-topology'
+import { validateSelectiveOutcomeReportingSnapshotInvariants } from './research-selective-outcome-reporting-snapshot-invariants'
 import type { ResearchSourceIntegrity } from './research-source-integrity'
 import { validateUnderlyingStudySnapshotInvariants } from './research-underlying-study-snapshot-invariants'
 
@@ -83,7 +84,6 @@ export function validateResearchQualitySnapshotInvariants(
   const canonicalStudyPages = new Map<string, Set<string>>()
   const globalStudyIdentities = crossProfileStudyIdentityMap(analysis.profiles)
   let rawSourceCount = 0
-  let approvedOutcomeClaimCount = 0
 
   const add = (kind: string, detail: string) => failures.push({ kind, detail })
   const requireProfile = (kind: string, url: string, detail: string) => {
@@ -97,14 +97,7 @@ export function validateResearchQualitySnapshotInvariants(
     const claims = Array.isArray(profile.record.claimMap) ? profile.record.claimMap : []
     const seenClaims = new Set<string>()
     for (let index = 0; index < claims.length; index += 1) {
-      const claim = claims[index]
-      if (
-        String(claim?.reviewStatus ?? '').toLowerCase() === 'approved'
-        && /supports_outcome|benefit|efficacy/i.test(text(claim?.predicate))
-      ) {
-        approvedOutcomeClaimCount += 1
-      }
-      const id = text(claim?.id)
+      const id = text(claims[index]?.id)
       if (!id) {
         add('missing-claim-id', `${profile.url} · claimMap[${index}]`)
         continue
@@ -157,41 +150,7 @@ export function validateResearchQualitySnapshotInvariants(
   }
   for (const invariant of validateEffectCertaintySnapshotInvariants(analysis, topology)) add(invariant.kind, invariant.detail)
   for (const invariant of validateDirectionalConsistencySnapshotInvariants(analysis, topology)) add(invariant.kind, invariant.detail)
-
-  const selectiveOutcome = topology.selectiveOutcomeReporting
-  if (selectiveOutcome.summary.approvedOutcomeClaims !== approvedOutcomeClaimCount) {
-    add('selective-outcome-approved-count-mismatch', `summary=${selectiveOutcome.summary.approvedOutcomeClaims}; analysis=${approvedOutcomeClaimCount}`)
-  }
-  if (selectiveOutcome.summary.assessableClaims !== selectiveOutcome.claims.length) {
-    add('selective-outcome-assessable-count-mismatch', `summary=${selectiveOutcome.summary.assessableClaims}; rows=${selectiveOutcome.claims.length}`)
-  }
-  if (selectiveOutcome.summary.findings !== selectiveOutcome.findings.length) {
-    add('selective-outcome-finding-count-mismatch', `summary=${selectiveOutcome.summary.findings}; rows=${selectiveOutcome.findings.length}`)
-  }
-  if (selectiveOutcome.summary.highConfidenceFindings !== selectiveOutcome.highConfidenceFindings.length) {
-    add('selective-outcome-high-confidence-count-mismatch', `summary=${selectiveOutcome.summary.highConfidenceFindings}; rows=${selectiveOutcome.highConfidenceFindings.length}`)
-  }
-  const computedSelectiveOutcomeRisks = selectiveOutcome.findings.filter((claim) => claim.selectiveOutcomeRisk).length
-  if (selectiveOutcome.summary.selectiveOutcomeRisks !== computedSelectiveOutcomeRisks) {
-    add('selective-outcome-risk-count-mismatch', `summary=${selectiveOutcome.summary.selectiveOutcomeRisks}; computed=${computedSelectiveOutcomeRisks}`)
-  }
-  const computedOutcomeSwitchRisks = selectiveOutcome.findings.filter((claim) => claim.explicitOutcomeSwitchRisk).length
-  if (selectiveOutcome.summary.explicitOutcomeSwitchRisks !== computedOutcomeSwitchRisks) {
-    add('selective-outcome-switch-count-mismatch', `summary=${selectiveOutcome.summary.explicitOutcomeSwitchRisks}; computed=${computedOutcomeSwitchRisks}`)
-  }
-  const selectiveOutcomeClaimKeys = new Set(selectiveOutcome.claims.map((claim) => claimKey(claim.url, claim.claimId)))
-  for (const finding of selectiveOutcome.findings) {
-    if (!selectiveOutcomeClaimKeys.has(claimKey(finding.url, finding.claimId))) {
-      add('selective-outcome-finding-not-assessable', `${finding.url}::${finding.claimId}`)
-    }
-  }
-  for (const finding of selectiveOutcome.highConfidenceFindings) {
-    const key = claimKey(finding.url, finding.claimId)
-    if (!selectiveOutcomeClaimKeys.has(key)) add('selective-outcome-high-confidence-not-assessable', `${finding.url}::${finding.claimId}`)
-    if (!selectiveOutcome.findings.some((candidate) => claimKey(candidate.url, candidate.claimId) === key)) {
-      add('selective-outcome-high-confidence-not-finding', `${finding.url}::${finding.claimId}`)
-    }
-  }
+  for (const invariant of validateSelectiveOutcomeReportingSnapshotInvariants(analysis, topology)) add(invariant.kind, invariant.detail)
 
   if (topology.edgeCardinality.summary.claims !== analysis.structuredClaimAnalyses.length) {
     add('edge-cardinality-claim-count-mismatch', `edgeCardinality=${topology.edgeCardinality.summary.claims}; analysis=${analysis.structuredClaimAnalyses.length}`)
@@ -222,7 +181,7 @@ export function validateResearchQualitySnapshotInvariants(
     requireProfile('claim-breadth-unknown-profile', claim.url, claim.claimId)
     requireApprovedClaim('claim-breadth-unknown-claim', claim.url, claim.claimId)
   }
-  for (const claim of selectiveOutcome.claims) {
+  for (const claim of topology.selectiveOutcomeReporting.claims) {
     requireProfile('selective-outcome-unknown-profile', claim.url, claim.claimId)
     requireApprovedClaim('selective-outcome-unknown-claim', claim.url, claim.claimId)
   }
