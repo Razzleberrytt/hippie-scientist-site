@@ -143,6 +143,28 @@ function signalMaintenanceBacklog(slug, context) {
 }
 
 /**
+ * Prefer work that adds differentiated user value instead of simply increasing
+ * the count of populated cells. The field weights live in the contract so this
+ * remains deterministic, auditable, and benchmarkable.
+ */
+function signalUniqueAddedValue(row, config) {
+  const fieldWeights = config.signals.unique_added_value?.field_weights
+  if (!fieldWeights || typeof fieldWeights !== 'object') return null
+
+  let availableWeight = 0
+  let missingValueWeight = 0
+  for (const [field, rawWeight] of Object.entries(fieldWeights)) {
+    if (!Object.prototype.hasOwnProperty.call(row, field)) continue
+    const weight = Number(rawWeight)
+    if (!Number.isFinite(weight) || weight <= 0) continue
+    availableWeight += weight
+    if (isGap(row[field])) missingValueWeight += weight
+  }
+
+  return availableWeight > 0 ? clamp01(missingValueWeight / availableWeight) : null
+}
+
+/**
  * Weighted score over available signals only. Weights for absent signals are
  * redistributed proportionally across the signals that did resolve, so the
  * result stays on a 0..100 scale without inventing a value for missing data.
@@ -156,6 +178,7 @@ export function scoreEntity({ row, slug, completenessDeficit }, context) {
     completeness_deficit: typeof completenessDeficit === 'number' ? clamp01(completenessDeficit) : null,
     maintenance_backlog: signalMaintenanceBacklog(slug, context),
     curated_prominence: context.curated.has(slug) ? 1 : 0,
+    unique_added_value: signalUniqueAddedValue(row, config),
   }
 
   let available = 0

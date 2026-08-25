@@ -135,9 +135,16 @@ function csvEscape(value) {
   return `"${text.replaceAll('"', '""')}"`
 }
 
+function dimensionHeader(dimension) {
+  if (dimension === 'query') return 'Query'
+  if (dimension === 'page') return 'Page'
+  if (dimension === 'date') return 'Date'
+  return dimension
+}
+
 function rowsToCsv(rows, dimensions) {
   const headers = [
-    ...dimensions.map((dimension) => dimension === 'query' ? 'Query' : dimension === 'page' ? 'Page' : dimension),
+    ...dimensions.map(dimensionHeader),
     'Clicks',
     'Impressions',
     'CTR',
@@ -174,6 +181,9 @@ async function main() {
     { filename: 'Queries.csv', dimensions: ['query'] },
     { filename: 'Pages.csv', dimensions: ['page'] },
     { filename: 'queries-by-page.csv', dimensions: ['query', 'page'] },
+    // Daily page data is retained separately so algorithm-update analysis can
+    // compare matched cohorts instead of guessing from a rolling aggregate.
+    { filename: 'pages-by-date.csv', dimensions: ['date', 'page'] },
   ]
 
   mkdirSync(OUTPUT_DIR, { recursive: true })
