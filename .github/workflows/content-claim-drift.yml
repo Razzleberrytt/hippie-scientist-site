@@ -52,6 +52,9 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Run claim-drift regression tests
+        run: node --test scripts/content/__tests__/audit-claim-drift.test.mjs
+
       - name: Run full corpus audit
         run: |
           node scripts/content/audit-claim-drift.mjs
