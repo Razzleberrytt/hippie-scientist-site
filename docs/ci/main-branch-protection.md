@@ -12,10 +12,9 @@ GitHub currently reports branch protection disabled for `main`. Repository quali
 
 Normal agent/user workflows should not be able to write directly to `main`. Changes should arrive through pull requests, and force pushes plus branch deletion should be blocked.
 
-The protection/ruleset should require the universally applicable release gates that are expected to exist on every merge candidate. At minimum, keep these canonical checks required while their workflow names remain current:
+The protection/ruleset should require only universally applicable release gates that are expected to exist on every merge candidate. At minimum, keep these canonical checks required while their workflow names remain current:
 
 - `CI`
-- `Build Check`
 - `Site Health Check`
 - `Atomic upgrade gate`
 - `Production Content Lint`
@@ -23,6 +22,7 @@ The protection/ruleset should require the universally applicable release gates t
 
 Additional scoped checks remain mandatory when triggered by the affected change class and must never be bypassed merely because they are not universal branch-protection contexts. Current examples include:
 
+- `Build Check` — path-filtered; do not make it a static universal required context unless the workflow is changed to run for every PR with a safe no-op path.
 - `Production Content Invariants`
 - `Lighthouse CI`
 - `Fast UI Check`
@@ -54,11 +54,12 @@ After configuration, verify all of the following without weakening any gate:
 2. A deliberately failing test PR cannot merge through the normal path.
 3. A direct non-administrator push to `main` is rejected.
 4. A green PR with required checks can merge normally.
-5. The required-check/workflow configuration is re-verified after any workflow rename, split, or retirement.
+5. A docs-only PR can merge without waiting forever on any path-filtered static required context.
+6. The required-check/workflow configuration is re-verified after any workflow rename, split, path-filter change, or retirement.
 
 ## Change-management rule
 
-Workflow renames can silently break static required-check configuration. Any PR that renames, replaces, or retires a required workflow must treat branch-protection reconciliation as part of the rollout and leave issue #4014 open until GitHub enforcement itself is verified.
+Workflow renames or trigger/path-filter changes can silently break static required-check configuration. Any PR that renames, replaces, retires, or materially changes the trigger scope of a required workflow must treat branch-protection reconciliation as part of the rollout and leave issue #4014 open until GitHub enforcement itself is verified.
 
 ## Boundaries
 
