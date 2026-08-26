@@ -26,19 +26,22 @@ describe('profile CSS performance scope', () => {
     expect(herbLayout).not.toContain('profile-navigation-cleanup.css')
     expect(compoundLayout).not.toContain('profile-navigation-cleanup.css')
     expect(herbLayout).toContain('data-profile-page')
-    expect(compoundLayout).toContain('data-profile-page')
+    expect(compoundLayout).toContain('data-profile-page="compound"')
     expect(compoundLayout).toContain('usesMdxTemplate ? children')
   })
 
-  it('does not rediscover profile routes with large-DOM main:has selectors', () => {
+  it('does not rediscover profile routes with large-DOM relational selectors', () => {
     const polish = read('styles/herb-profile-polish.css')
     const editorial = read('styles/editorial-content-surfaces.css')
+    const renderingPerformance = read('styles/profile-rendering-performance.css')
 
     expect(polish).not.toContain('main:has(')
     expect(editorial).not.toContain('main:has(nav[aria-label="Page sections"])')
+    expect(renderingPerformance).not.toContain(':has(')
 
     expect(polish).toContain('[data-profile-page]')
     expect(editorial).toContain('[data-profile-page]')
+    expect(renderingPerformance).toContain("[data-profile-page='compound'] .flex.gap-8.items-start")
   })
 
   it('does not ship the hidden legacy jump-navigation tree beside ProfileTOC', () => {
