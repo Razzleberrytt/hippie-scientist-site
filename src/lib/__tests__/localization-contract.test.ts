@@ -13,6 +13,7 @@ import {
   type TranslationLocale,
 } from '../international-seo'
 import { LOCALIZED_CHROME } from '../localized-chrome'
+import { DARK_MODE_COPY } from '../localized-theme-copy'
 
 const translationLocales = SUPPORTED_LOCALES.filter(
   (locale): locale is TranslationLocale => locale !== DEFAULT_LOCALE,
@@ -23,20 +24,29 @@ function localeDirectory(locale: TranslationLocale) {
 }
 
 describe('localization integration contract', () => {
-  it('keeps locale metadata complete and path prefixes unique', () => {
+  it('keeps locale metadata, chrome, and theme copy complete with unique prefixes', () => {
     const prefixes = SUPPORTED_LOCALES.map((locale) => LOCALE_CONFIG[locale].pathPrefix)
     expect(new Set(prefixes).size).toBe(prefixes.length)
 
     for (const locale of SUPPORTED_LOCALES) {
       const config = LOCALE_CONFIG[locale]
+      const chrome = LOCALIZED_CHROME[locale]
+      const theme = DARK_MODE_COPY[locale]
+
       expect(config.language.trim()).not.toBe('')
       expect(config.openGraphLocale.trim()).not.toBe('')
       expect(config.languageLabel.trim()).not.toBe('')
       expect(config.shortLabel.trim().length).toBeGreaterThanOrEqual(2)
       expect(config.pathPrefix.startsWith('/')).toBe(true)
       expect(config.pathPrefix.endsWith('/')).toBe(true)
-      expect(LOCALIZED_CHROME[locale].languageLabel).toBe(config.languageLabel)
-      expect(LOCALIZED_CHROME[locale].homeHref).toBe(config.pathPrefix)
+      expect(chrome.languageLabel).toBe(config.languageLabel)
+      expect(chrome.homeHref).toBe(config.pathPrefix)
+      expect(chrome.languagesAriaLabel.trim()).not.toBe('')
+      expect(chrome.skipLabel.trim()).not.toBe('')
+      expect(theme.toLight.trim()).not.toBe('')
+      expect(theme.toDark.trim()).not.toBe('')
+      expect(theme.light.trim()).not.toBe('')
+      expect(theme.dark.trim()).not.toBe('')
     }
   })
 
