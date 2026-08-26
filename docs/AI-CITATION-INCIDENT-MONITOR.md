@@ -21,6 +21,14 @@ The preferred source order is:
 
 Known corrupted reporting dates are excluded through `ai-visibility-anomaly.mjs` before baselines are calculated.
 
+### Data acquisition boundary
+
+Bing's AI Performance documentation currently exposes CSV/Excel export from the authenticated dashboard. The general Bing Webmaster API documentation covers search/index webmaster data but does not document an AI Performance retrieval endpoint.
+
+For that reason this system does not scrape the dashboard or invent an unsupported API integration. Raw AI Performance exports remain ignored by Git by default. When a fresh export is available locally or is otherwise injected into a run, the monitor analyzes it; when it is absent, the monitor emits an explicit waiting-state report rather than treating missing input as a citation collapse.
+
+The durable intake instructions live in `data-sources/ai-performance/README.md`.
+
 ## Incident rule
 
 The default detector evaluates only reporting dates that are at least **2 days old** so a partially processed Bing day does not trigger a false alarm.
@@ -61,9 +69,11 @@ These are catastrophic-regression guards, not a substitute for the stricter craw
 
 ### SEO-sensitive changes
 
-The monitor examines git history during the baseline-to-incident window and surfaces changes to high-risk SEO ownership paths such as sitemap/robots, redirects, indexability summaries, runtime manifests, and IndexNow/index-quality code.
+The monitor examines available git history during the baseline-to-incident window and surfaces changes to high-risk SEO ownership paths such as sitemap/robots, redirects, indexability summaries, runtime manifests, and IndexNow/index-quality code.
 
-The weekly workflow checks out enough history for this comparison. A sensitive change lowers confidence in an external-event classification, but it is not treated as proof of causation.
+The weekly workflow checks out recent history for this comparison. If the checkout is still shallow, the monitor marks the change evidence incomplete and downgrades an otherwise high-confidence external-event classification rather than pretending no relevant change happened.
+
+A sensitive change lowers confidence in an external-event classification, but it is not treated as proof of causation.
 
 ## Diagnoses
 
@@ -99,7 +109,7 @@ When a full synchronized incident exists it also writes a dated forensic snapsho
 ops/ai-citations/incidents/YYYY-MM-DD.json
 ```
 
-The weekly Search Console workflow uploads these as retained workflow artifacts and includes the Markdown diagnosis in the GitHub Actions summary.
+The weekly Search Console workflow runs the detector, uploads any generated reports as retained workflow artifacts, and includes the Markdown diagnosis in the GitHub Actions summary. If the workflow does not receive a fresh AI Performance export, the report clearly says the AI feed is waiting while the independent Search Console pipeline continues normally.
 
 ## Manual run
 
