@@ -2,21 +2,19 @@ import { execSync } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 
+import { cleanProductionBuildArtifacts } from './lib/clean-next-build-artifacts.mjs'
+
 const pagesPath = path.join(process.cwd(), 'src/pages')
 const tempPagesPath = path.join(process.cwd(), 'src/pages-temp')
 
 let pagesMoved = false
 let exitCode = 0
 
-// Clean stale build artifacts before building to prevent Windows file-locking
-// write errors when overwriting a prior out/ directory mid-export.
-const outPath = path.join(process.cwd(), 'out')
-const nextPath = path.join(process.cwd(), '.next')
-for (const dir of [outPath, nextPath]) {
-  if (fs.existsSync(dir)) {
-    fs.rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })
-  }
-}
+// Clean stale build/export artifacts while preserving .next/cache. The cache is
+// safe incremental state restored by CI; deleting it here would turn the cache
+// action into pure transfer/storage overhead. Everything else remains clean so
+// stale output cannot masquerade as a successful production build.
+cleanProductionBuildArtifacts()
 
 function validateResponsiveImageContract() {
   console.log('[build] Validating responsive image production contract...')
