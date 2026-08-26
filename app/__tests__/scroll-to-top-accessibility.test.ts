@@ -14,6 +14,14 @@ describe('scroll-to-top accessibility contract', () => {
     expect(source).toContain("visible ? 'opacity-100' : 'pointer-events-none opacity-0'")
   })
 
+  it('releases focus before activation can hide the control', () => {
+    const source = read('src/components/ScrollToTopButton.tsx')
+
+    expect(source).toContain('const scrollToTop = (event: React.MouseEvent<HTMLButtonElement>) => {')
+    expect(source).toContain('event.currentTarget.blur()')
+    expect(source.indexOf('event.currentTarget.blur()')).toBeLessThan(source.indexOf('window.scrollTo({ top: 0'))
+  })
+
   it('preserves the localized label, touch target, and reduced-motion behavior', () => {
     const source = read('src/components/ScrollToTopButton.tsx')
 
