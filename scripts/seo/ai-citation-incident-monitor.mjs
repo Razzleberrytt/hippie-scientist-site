@@ -105,10 +105,11 @@ function collectChangeSignals(startDate, endDate) {
     )
     const files = [...new Set(output.split(/\r?\n/).map(line => line.trim()).filter(Boolean))].sort()
     const sensitiveFiles = files.filter(file => SENSITIVE_PATH_RE.test(file))
+    const shallowPath = path.join(ROOT, '.git', 'shallow')
     return {
       available: true,
       historyCommitsVisible: count,
-      historyLikelyShallow: count < 10,
+      historyLikelyShallow: existsSync(shallowPath),
       changedFileCount: files.length,
       sensitiveFileCount: sensitiveFiles.length,
       sensitiveFiles: sensitiveFiles.slice(0, 50),
@@ -116,6 +117,23 @@ function collectChangeSignals(startDate, endDate) {
   } catch (error) {
     return { available: false, reason: error.message, sensitiveFileCount: 0, sensitiveFiles: [] }
   }
+}
+
+function temperDiagnosisForHistory(diagnosis, changes) {
+  if (
+    diagnosis?.classification === 'probable-bing-ai-reporting-or-grounding-event'
+    && diagnosis.confidence === 'high'
+    && (changes?.historyLikelyShallow || changes?.available === false)
+  ) {
+    return {
+      ...diagnosis,
+      confidence: 'medium',
+      confidenceNote: changes?.historyLikelyShallow
+        ? 'Repository history is shallow, so the no-sensitive-change cross-check is incomplete.'
+        : 'Repository change history was unavailable, so the no-sensitive-change cross-check is incomplete.',
+    }
+  }
+  return diagnosis
 }
 
 function writeReports(report) {
@@ -165,6 +183,10 @@ function renderMarkdown(report) {
     `AI source: \`${report.dataFeed.sourceFile}\` (${report.dataFeed.kind}) · ${report.dataFeed.days} dated rows · ${report.dataFeed.cleanMatureDays} mature clean days.`,
     '',
   )
+
+  if (report.diagnosis.confidenceNote) {
+    lines.push(`> Confidence note: ${report.diagnosis.confidenceNote}`, '')
+  }
 
   if (incident?.current) {
     lines.push(
@@ -249,9 +271,12 @@ function main() {
   const searchConsole = assessSearchConsoleStability(searchSeries, incident.incidentDate, { lookbackDays: LOOKBACK_DAYS })
   const baselineStart = incident.baseline?.dates?.[0] ?? incident.incidentDate
   const repositoryChanges = collectChangeSignals(baselineStart, incident.incidentDate)
-  const diagnosis = classifyCitationIncident({ incident, search: searchConsole, technical, changes: repositoryChanges })
+  const baseDiagnosis = classifyCitationIncident({ incident, search: searchConsole, technical, changes: repositoryChanges })
+  const diagnosis = temperDiagnosisForHistory(baseDiagnosis, repositoryChanges)
 
-  const cleanMatureDays = selected.series.filter(row => row.date <= incident.incidentDate && !isCorruptedAiVisibilityDate(row.date)).length
+  const cleanMatureDays = incident.incidentDate
+    ? selected.series.filter(row => row.date <= incident.incidentDate && !isCorruptedAiVisibilityDate(row.date)).length
+    : 0
   const report = {
     generatedAt: new Date().toISOString(),
     inputDir: path.relative(ROOT, AI_INPUT_DIR),
