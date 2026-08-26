@@ -131,7 +131,9 @@ export function buildOutcomeReviewQueue(input: {
       studiesWithOutcomeMetadata: coverage?.studiesWithOutcomeMetadata ?? 0,
       studiesWithNamedAlignmentData: coverage?.studiesWithNamedAlignmentData ?? 0,
       namedAlignmentCoverage: coverage?.namedAlignmentCoverage ?? 0,
-      affectedStudyIds: integrity?.affectedStudyIds ?? coverage?.linkedPrimaryHumanStudyIds ?? [],
+      affectedStudyIds: integrity?.affectedStudyIds
+        ?? coverage?.linkedPrimaryHumanStudyIdsNeedingOutcomeMetadataBackfill
+        ?? [],
       reasons,
     })
   }
