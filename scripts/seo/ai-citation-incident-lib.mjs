@@ -148,6 +148,8 @@ function aiCandidateFromFile(file) {
     kind,
     score,
     series,
+    earliestDate: series[0].date,
+    latestDate: series.at(-1).date,
     hasReportedCitedPages: citedPageIndex >= 0,
   }
 }
@@ -155,18 +157,17 @@ function aiCandidateFromFile(file) {
 /**
  * Bing exports several views of the same AI Performance dataset. We deliberately
  * select one dated source instead of adding all CSVs together, which would
- * double-count the same citations. Overview-by-date wins; page-by-date is the
- * fallback because it can reconstruct unique cited-page breadth.
+ * double-count the same citations. Freshness is the primary selector so an old,
+ * richer overview cannot mask a newer reporting cycle. Source quality breaks
+ * ties only among candidates ending on the same date.
  */
 export function buildAiDailySeries(files) {
   const candidates = files
     .map(aiCandidateFromFile)
     .filter(Boolean)
     .sort((a, b) => {
+      if (a.latestDate !== b.latestDate) return b.latestDate.localeCompare(a.latestDate)
       if (b.score !== a.score) return b.score - a.score
-      const latestA = a.series.at(-1)?.date || ''
-      const latestB = b.series.at(-1)?.date || ''
-      if (latestA !== latestB) return latestB.localeCompare(latestA)
       return b.series.length - a.series.length
     })
 
@@ -182,26 +183,27 @@ export function matureAiSeries(series, { now = new Date(), lagDays = 2, isExclud
   return series.filter(row => row.date <= cutoffDate && !isExcludedDate(row.date))
 }
 
-export function detectAiCitationIncident(series, {
-  now = new Date(),
-  lagDays = 2,
+function evaluateIncidentAt(mature, currentIndex, {
   lookbackDays = 7,
   minBaselineDays = 3,
   citationDropThresholdPct = 50,
   breadthDropThresholdPct = 35,
   minBaselineCitations = 100,
   minBaselinePages = 10,
-  isExcludedDate = () => false,
+  lagDays = 2,
 } = {}) {
-  const mature = matureAiSeries(series, { now, lagDays, isExcludedDate })
-  if (mature.length < minBaselineDays + 1) {
-    return { status: 'insufficient-data', reason: 'not-enough-mature-clean-days', matureDays: mature.length }
-  }
+  const current = mature[currentIndex]
+  if (!current) return { status: 'insufficient-data', reason: 'missing-current-row' }
 
-  const current = mature.at(-1)
-  const baselineRows = mature.slice(Math.max(0, mature.length - 1 - lookbackDays), -1)
+  const baselineRows = mature.slice(Math.max(0, currentIndex - lookbackDays), currentIndex)
   if (baselineRows.length < minBaselineDays) {
-    return { status: 'insufficient-data', reason: 'not-enough-baseline-days', matureDays: mature.length }
+    return {
+      status: 'insufficient-data',
+      reason: 'not-enough-baseline-days',
+      incidentDate: current.date,
+      current,
+      matureDays: mature.length,
+    }
   }
 
   const baselineCitations = median(baselineRows.map(row => row.citations))
@@ -216,8 +218,9 @@ export function detectAiCitationIncident(series, {
     return {
       status: 'insufficient-data',
       reason: 'baseline-too-small',
+      incidentDate: current.date,
       current,
-      baseline: { citations: baselineCitations, citedPages: baselinePages, dates: baselineRows.map(row => row.date) },
+      baseline: { citations: baselineCitations, citedPages: baselinePages, dates: baselineRows.map(row => row.date), days: baselineRows.length },
     }
   }
 
@@ -260,6 +263,81 @@ export function detectAiCitationIncident(series, {
       breadthTriggered,
     },
   }
+}
+
+export function detectAiCitationIncidents(series, {
+  now = new Date(),
+  lagDays = 2,
+  lookbackDays = 7,
+  scanDays = 8,
+  minBaselineDays = 3,
+  citationDropThresholdPct = 50,
+  breadthDropThresholdPct = 35,
+  minBaselineCitations = 100,
+  minBaselinePages = 10,
+  isExcludedDate = () => false,
+} = {}) {
+  const mature = matureAiSeries(series, { now, lagDays, isExcludedDate })
+  if (mature.length < minBaselineDays + 1) {
+    return {
+      status: 'insufficient-data',
+      reason: 'not-enough-mature-clean-days',
+      matureDays: mature.length,
+      evaluations: [],
+      incidents: [],
+      citationDrops: [],
+      latest: null,
+      mostRecentIncident: null,
+    }
+  }
+
+  const firstIndex = Math.max(minBaselineDays, mature.length - Math.max(1, scanDays))
+  const options = {
+    lookbackDays,
+    minBaselineDays,
+    citationDropThresholdPct,
+    breadthDropThresholdPct,
+    minBaselineCitations,
+    minBaselinePages,
+    lagDays,
+  }
+  const evaluations = []
+  for (let index = firstIndex; index < mature.length; index += 1) {
+    evaluations.push(evaluateIncidentAt(mature, index, options))
+  }
+
+  const incidents = evaluations.filter(result => result.status === 'incident')
+  const citationDrops = evaluations.filter(result => result.status === 'citation-drop-only')
+  const latest = evaluations.at(-1) ?? null
+  const mostRecentIncident = incidents.at(-1) ?? null
+
+  return {
+    status: incidents.length ? 'incident' : (latest?.status ?? 'insufficient-data'),
+    matureDays: mature.length,
+    evaluatedDays: evaluations.length,
+    evaluations,
+    incidents,
+    citationDrops,
+    latest,
+    mostRecentIncident,
+  }
+}
+
+export function detectAiCitationIncident(series, options = {}) {
+  const mature = matureAiSeries(series, options)
+  const minBaselineDays = options.minBaselineDays ?? 3
+  if (mature.length < minBaselineDays + 1) {
+    return { status: 'insufficient-data', reason: 'not-enough-mature-clean-days', matureDays: mature.length }
+  }
+  return evaluateIncidentAt(mature, mature.length - 1, {
+    lookbackDays: options.lookbackDays ?? 7,
+    minBaselineDays,
+    citationDropThresholdPct: options.citationDropThresholdPct ?? 50,
+    breadthDropThresholdPct: options.breadthDropThresholdPct ?? 35,
+    minBaselineCitations: options.minBaselineCitations ?? 100,
+    minBaselinePages: options.minBaselinePages ?? 10,
+    lagDays: options.lagDays ?? 2,
+  })
 }
 
 export function buildSearchConsoleDailySeries(content) {
