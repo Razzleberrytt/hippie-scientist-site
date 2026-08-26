@@ -6,6 +6,7 @@ import {
   buildSearchConsoleDailySeries,
   classifyCitationIncident,
   detectAiCitationIncident,
+  detectAiCitationIncidents,
 } from '../ai-citation-incident-lib.mjs'
 
 const corrupted = date => date >= '2026-08-13' && date <= '2026-08-17'
@@ -29,6 +30,22 @@ test('selects one dated Bing export instead of double-counting overlapping views
     { date: '2026-08-20', citations: 748, citedPages: 54, rowCount: 1 },
     { date: '2026-08-21', citations: 197, citedPages: 25, rowCount: 1 },
   ])
+})
+
+test('prefers a newer usable export over an older richer overview export', () => {
+  const selected = buildAiDailySeries([
+    {
+      name: 'older-overview.csv',
+      content: 'Date,Citations,Cited Pages\n2026-08-20,748,54\n2026-08-21,730,52\n',
+    },
+    {
+      name: 'newer-pages.csv',
+      content: 'Date,URL,Citations\n2026-08-22,https://thehippiescientist.net/herbs/a/,210\n2026-08-22,https://thehippiescientist.net/herbs/b/,180\n',
+    },
+  ])
+
+  expect(selected.sourceFile).toBe('newer-pages.csv')
+  expect(selected.latestDate).toBe('2026-08-22')
 })
 
 test('accepts Bing overview-style Total Citations headers and quoted thousands', () => {
@@ -71,6 +88,25 @@ test('detects the synchronized Aug 21 citation and cited-page cliff after exclud
   expect(result.changes.citationDropPct).toBeGreaterThan(70)
   expect(result.changes.breadthDropPct).toBeGreaterThan(50)
   expect(result.baseline.dates).not.toContain('2026-08-13')
+})
+
+test('keeps a recovered intra-week cliff visible on the next operator run', () => {
+  const result = detectAiCitationIncidents([
+    { date: '2026-08-18', citations: 700, citedPages: 50 },
+    { date: '2026-08-19', citations: 720, citedPages: 52 },
+    { date: '2026-08-20', citations: 740, citedPages: 51 },
+    { date: '2026-08-21', citations: 180, citedPages: 24 },
+    { date: '2026-08-22', citations: 735, citedPages: 50 },
+    { date: '2026-08-23', citations: 742, citedPages: 52 },
+  ], {
+    now: '2026-08-25',
+    lagDays: 2,
+  })
+
+  expect(result.status).toBe('incident')
+  expect(result.mostRecentIncident?.incidentDate).toBe('2026-08-21')
+  expect(result.latest?.incidentDate).toBe('2026-08-23')
+  expect(result.latest?.status).toBe('healthy')
 })
 
 test('does not call citation volatility a full incident when cited-page breadth holds', () => {
