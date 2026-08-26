@@ -1,48 +1,47 @@
 import { describe, expect, it } from 'vitest'
 import {
   DEFAULT_LOCALE,
-  FRENCH_LOCALE,
-  GERMAN_LOCALE,
-  PORTUGUESE_LOCALE,
-  SPANISH_LOCALE,
+  LOCALE_CONFIG,
+  SUPPORTED_LOCALES,
   getCurrentLocaleAlternates,
   getLocalizedRoute,
+  type TranslationLocale,
 } from '@/src/lib/international-seo'
 
+const translationLocales = SUPPORTED_LOCALES.filter(
+  (locale): locale is TranslationLocale => locale !== DEFAULT_LOCALE,
+)
+
 describe('multilingual international SEO registry', () => {
-  it('resolves the same route family across every published locale', () => {
+  it('resolves the sleep route family across every published core locale', () => {
     expect(getLocalizedRoute('/goals/sleep/', DEFAULT_LOCALE)).toBe('/goals/sleep/')
-    expect(getLocalizedRoute('/goals/sleep/', SPANISH_LOCALE)).toBe('/es/objetivos/sueno/')
-    expect(getLocalizedRoute('/es/objetivos/sueno/', PORTUGUESE_LOCALE)).toBe('/pt/objetivos/sono/')
-    expect(getLocalizedRoute('/pt/objetivos/sono/', FRENCH_LOCALE)).toBe('/fr/objectifs/sommeil/')
-    expect(getLocalizedRoute('/fr/objectifs/sommeil/', GERMAN_LOCALE)).toBe('/de/ziele/schlaf/')
+
+    for (const locale of translationLocales) {
+      const localized = getLocalizedRoute('/goals/sleep/', locale)
+      expect(localized, `${locale} must publish the sleep core route`).not.toBeNull()
+      expect(localized?.startsWith(LOCALE_CONFIG[locale].pathPrefix)).toBe(true)
+      expect(getLocalizedRoute(localized as string, DEFAULT_LOCALE)).toBe('/goals/sleep/')
+    }
   })
 
-  it('emits all published alternates plus x-default', () => {
-    const alternates = getCurrentLocaleAlternates('/de/ziele/schlaf/')
+  it('emits every supported locale plus x-default for a fully translated core route', () => {
+    const alternates = getCurrentLocaleAlternates('/goals/sleep/')
     expect(alternates.map((item) => item.locale)).toEqual([
-      DEFAULT_LOCALE,
-      SPANISH_LOCALE,
-      PORTUGUESE_LOCALE,
-      FRENCH_LOCALE,
-      GERMAN_LOCALE,
+      ...SUPPORTED_LOCALES,
       'x-default',
     ])
   })
 
-  it('exposes reciprocal alternates for translated scientific profiles', () => {
-    expect(getLocalizedRoute('/compounds/l-theanine/', SPANISH_LOCALE)).toBe('/es/compuestos/l-theanine/')
-    expect(getLocalizedRoute('/es/compuestos/l-theanine/', PORTUGUESE_LOCALE)).toBe('/pt/compostos/l-theanine/')
-    expect(getLocalizedRoute('/pt/compostos/l-theanine/', FRENCH_LOCALE)).toBe('/fr/composes/l-theanine/')
-    expect(getLocalizedRoute('/fr/composes/l-theanine/', GERMAN_LOCALE)).toBe('/de/wirkstoffe/l-theanine/')
+  it('keeps translated scientific-profile alternates narrower than core locale coverage', () => {
+    const expectedProfileLocales = [DEFAULT_LOCALE, 'es', 'pt-BR', 'fr', 'de', 'x-default']
+    const alternates = getCurrentLocaleAlternates('/compounds/l-theanine/')
+    expect(alternates.map((item) => item.locale)).toEqual(expectedProfileLocales)
 
-    expect(getCurrentLocaleAlternates('/de/wirkstoffe/l-theanine/').map((item) => item.locale)).toEqual([
-      DEFAULT_LOCALE,
-      SPANISH_LOCALE,
-      PORTUGUESE_LOCALE,
-      FRENCH_LOCALE,
-      GERMAN_LOCALE,
-      'x-default',
-    ])
+    for (const locale of ['es', 'pt-BR', 'fr', 'de'] as const) {
+      expect(getLocalizedRoute('/compounds/l-theanine/', locale)).not.toBeNull()
+    }
+    for (const locale of ['it', 'nl', 'pl', 'ja', 'ko'] as const) {
+      expect(getLocalizedRoute('/compounds/l-theanine/', locale)).toBeNull()
+    }
   })
 })
