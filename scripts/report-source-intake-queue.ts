@@ -199,7 +199,7 @@ const GAP_WHY_MATTERS: Partial<Record<SourceGapType, string>> = {
 const TOPIC_CLASS_FALLBACKS: Record<TopicType, { pass2: SourceClass[]; pass3: SourceClass[] }> = {
   safety: {
     pass2: ['regulatory-agency-monograph-guidance', 'systematic-review-meta-analysis'],
-    pass3: ['reference-database-authority', 'observational-human-evidence'],
+    pass3: ['reference-database-authority', 'observational-human-evidence', 'non-randomized-human-study'],
   },
   evidence: {
     pass2: ['systematic-review-meta-analysis', 'randomized-human-trial'],
