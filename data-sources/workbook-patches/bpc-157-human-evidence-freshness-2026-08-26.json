@@ -1,0 +1,49 @@
+{
+  "patch_version": 1,
+  "id": "bpc-157-human-evidence-freshness-2026-08-26",
+  "status": "proposal",
+  "generated_by": "lane-2-scientific-integrity",
+  "sources": [
+    {
+      "id": "pmid-42198317",
+      "title": "BPC-157 as an Investigational Peptide Therapeutic: Biopharmaceutical Challenges, Formulation Strategies, and Translational Development Barriers",
+      "year": 2026,
+      "doi": "10.3390/pharmaceutics18050625"
+    },
+    {
+      "id": "fda-pcac-bpc157-2026",
+      "title": "FDA Briefing Document for BPC-157-Related Bulk Drug Substances (BPC-157 free base and BPC-157 acetate), Pharmacy Compounding Advisory Committee, July 23-24, 2026",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://www.fda.gov/media/193343/download"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "bpc-157",
+      "column": "summary",
+      "expected_old_value": "BPC-157 is a synthetic 15-amino-acid peptide studied mainly in animal models for gut healing, tendon and ligament repair, and inflammation modulation; human clinical trial data is essentially absent and its FDA compounding status is unresolved pending a July 2026 PCAC review.",
+      "new_value": "BPC-157 is a synthetic 15-amino-acid peptide studied mainly in animal models for tissue repair and inflammation. FDA identified five small human clinical studies in its 2026 review, but the evidence is short-duration, heterogeneous, and insufficient to establish clinical efficacy or long-term safety; BPC-157 is not FDA-approved.",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-42198317",
+        "fda-pcac-bpc157-2026"
+      ],
+      "requires_human_review": true,
+      "rationale": "The current summary is stale and too absolute: FDA's 2026 review identified five clinical studies involving BPC-157, while the 2026 Pharmaceutics translational review describes the published clinical evidence as only three uncontrolled pilot studies totaling fewer than 30 subjects and states that no approved formulation, validated dosing regimen, or completed Phase II program exists. The replacement acknowledges real human exposure data without upgrading efficacy or safety certainty, and removes the now-stale wording that the July 2026 PCAC review is still pending."
+    },
+    {
+      "slug": "bpc-157",
+      "column": "description",
+      "expected_old_value": "BPC-157 (Body Protection Compound-157) is a synthetic peptide derived from a partial sequence found in human gastric juice, widely discussed in the recovery and longevity space for tendon, ligament, and gut-lining repair. Preclinical rodent and in vitro studies point to angiogenesis promotion, nitric oxide pathway modulation, and anti-inflammatory signaling, but almost no controlled human trial data exists. It is not FDA-approved as a finished drug product; products sold online are labeled research use only (RUO) and are not legally intended for human consumption.",
+      "new_value": "BPC-157 (Body Protection Compound-157) is a synthetic peptide derived from a partial sequence found in human gastric juice and widely discussed for tendon, ligament, gut-lining, and recovery claims. Preclinical rodent and in vitro studies dominate the evidence base. FDA's 2026 review identified five human clinical studies, including two older rectal-enema studies and three very small modern reports; these data document human exposure but do not establish replicated clinical efficacy, an approved dosing strategy, or long-term safety. BPC-157 is not FDA-approved as a finished drug product.",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-42198317",
+        "fda-pcac-bpc157-2026"
+      ],
+      "requires_human_review": true,
+      "rationale": "The current description says almost no controlled human trial data exists, which obscures the human exposure literature now enumerated by FDA. FDA identified five clinical studies but characterized them as short, small, and exploratory with limited safety reporting. The DOI-backed 2026 review likewise concludes that available clinical evidence is extremely small and does not support clinical recommendations. The replacement distinguishes existence of human data from adequacy of efficacy/safety evidence and preserves the unapproved status."
+    }
+  ]
+}
