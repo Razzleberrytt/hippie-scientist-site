@@ -85,6 +85,9 @@ export default function HomepageV2() {
               name='q'
               type='search'
               autoComplete='off'
+              autoCapitalize='none'
+              autoCorrect='off'
+              spellCheck={false}
               enterKeyHint='search'
               placeholder='Search herbs, compounds, or questions'
             />
