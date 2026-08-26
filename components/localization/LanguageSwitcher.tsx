@@ -13,6 +13,9 @@ const LABELS: Record<SupportedLocale, { short: string; name: string }> = {
   'pt-BR': { short: 'PT', name: 'Português' },
   fr: { short: 'FR', name: 'Français' },
   de: { short: 'DE', name: 'Deutsch' },
+  it: { short: 'IT', name: 'Italiano' },
+  nl: { short: 'NL', name: 'Nederlands' },
+  pl: { short: 'PL', name: 'Polski' },
 }
 
 function localeFromPath(path: string): SupportedLocale {
@@ -20,6 +23,9 @@ function localeFromPath(path: string): SupportedLocale {
   if (path.startsWith('/pt/')) return 'pt-BR'
   if (path.startsWith('/fr/')) return 'fr'
   if (path.startsWith('/de/')) return 'de'
+  if (path.startsWith('/it/')) return 'it'
+  if (path.startsWith('/nl/')) return 'nl'
+  if (path.startsWith('/pl/')) return 'pl'
   return DEFAULT_LOCALE
 }
 
