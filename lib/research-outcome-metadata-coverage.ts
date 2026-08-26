@@ -35,6 +35,7 @@ export type ClaimOutcomeMetadataCoverage = OutcomeMetadataCoverageCounts & {
   claimId: string
   predicate: string
   confidence: number
+  linkedPrimaryHumanStudyIds: string[]
   outcomeMetadataCoverage: number
   namedAlignmentCoverage: number
   outcomeMetadataGap: boolean
@@ -152,6 +153,7 @@ export function analyzeOutcomeMetadataCoverage(input: {
         claimId: text(claim.id) || 'unknown-claim',
         predicate: text(claim.predicate),
         confidence,
+        linkedPrimaryHumanStudyIds: linkedStudyIds,
         ...claimCounts,
         outcomeMetadataCoverage: claimCoverage.outcomeMetadataCoverage,
         namedAlignmentCoverage: claimCoverage.namedAlignmentCoverage,
