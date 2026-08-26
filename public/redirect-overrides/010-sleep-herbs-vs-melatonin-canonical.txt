@@ -1,0 +1,11 @@
+# Canonical-owner consolidation (2026-08-26)
+#
+# The former /guides/sleep/ owner duplicated the same search intent as the
+# evidence-reviewed /guides/compare/ page and contained older deterministic
+# dose/onset/symptom-matching language. Retire every known alias directly to the
+# governed comparison owner. The build redirect merger generates slash variants,
+# flattens pre-existing aliases to this final target, and rewrites exported
+# internal hrefs away from redirecting sources.
+/guides/sleep/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
+/guides/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
+/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
