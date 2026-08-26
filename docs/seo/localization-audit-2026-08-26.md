@@ -64,7 +64,18 @@ Added `src/lib/__tests__/localization-contract.test.ts` to fail closed when a su
 - resolvable localized navigation links
 - registry-driven locale detection
 
-### 5. Scientific-profile expansion remains deliberately gated
+### 5. Latin display typography leaked into CJK pages
+
+The global editorial system uses a Latin display font with tight negative tracking and compact heading line-height. Japanese and Korean glyphs would fall back to system fonts, but the Latin spacing rules would still apply.
+
+Fix:
+
+- Added locale-scoped Japanese/Korean heading font fallback rules.
+- Relaxed CJK heading line-height and tracking.
+- Disabled Latin uppercase transformation for CJK editorial labels.
+- Added strict CJK line-breaking behavior while preserving the existing Latin typography system for other locales.
+
+### 6. Scientific-profile expansion remains deliberately gated
 
 Japanese and Korean detailed profiles are **not** advertised in hreflang until claim-level translations are complete and reviewed. The audit explicitly tests that Ashwagandha and L-theanine remain absent from the Japanese/Korean detailed-profile clusters.
 
