@@ -1,5 +1,5 @@
-import { isRedirectedCompoundDuplicate } from '@/lib/deprecated-compound-canonicals'
-import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
+import { loadPublishedCompounds } from '@/app/compounds/library-data'
+import { loadPublishedHerbs } from '@/app/herbs/library-data'
 import {
   getPublicEvidenceDataset,
   type PublicEvidenceDataset,
@@ -14,26 +14,24 @@ export type PublicSiteMetrics = {
   humanTrials: number
 }
 
+export type PublishedProfileCounts = {
+  publishedHerbs: number
+  publishedCompounds: number
+}
+
 /**
  * Canonical public-facing coverage metrics.
  *
- * The evidence dataset is the shared source for study/source metrics. Profile
- * counts additionally suppress known redirect-only herb/compound aliases so a
- * public count cannot claim more published profiles than the browse libraries
- * actually expose as canonical pages.
+ * Study/source metrics come from the shared public evidence dataset. Published
+ * profile counts are supplied by the same final library selectors that drive
+ * the public /herbs and /compounds inventories, so homepage totals cannot
+ * outrun what readers can actually browse.
  */
-export function buildPublicSiteMetrics(dataset: PublicEvidenceDataset): PublicSiteMetrics {
-  const herbs = dataset.ingredients.filter((ingredient) => ingredient.type === 'herb')
-  const compounds = dataset.ingredients.filter((ingredient) => ingredient.type === 'compound')
-  const herbSlugs = new Set(herbs.map((ingredient) => ingredient.slug))
-  const compoundSlugs = new Set(compounds.map((ingredient) => ingredient.slug))
-
-  const publishedHerbs = herbs.filter(
-    (ingredient) => !isRedirectedDuplicate(ingredient.slug, herbSlugs),
-  ).length
-  const publishedCompounds = compounds.filter(
-    (ingredient) => !isRedirectedCompoundDuplicate(ingredient.slug, compoundSlugs),
-  ).length
+export function buildPublicSiteMetrics(
+  dataset: PublicEvidenceDataset,
+  profileCounts: PublishedProfileCounts,
+): PublicSiteMetrics {
+  const { publishedHerbs, publishedCompounds } = profileCounts
 
   return {
     publishedHerbs,
@@ -46,5 +44,14 @@ export function buildPublicSiteMetrics(dataset: PublicEvidenceDataset): PublicSi
 }
 
 export async function getPublicSiteMetrics(): Promise<PublicSiteMetrics> {
-  return buildPublicSiteMetrics(await getPublicEvidenceDataset())
+  const [dataset, herbs, compounds] = await Promise.all([
+    getPublicEvidenceDataset(),
+    loadPublishedHerbs(),
+    loadPublishedCompounds(),
+  ])
+
+  return buildPublicSiteMetrics(dataset, {
+    publishedHerbs: herbs.length,
+    publishedCompounds: compounds.length,
+  })
 }
