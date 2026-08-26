@@ -24,8 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          # The AI incident monitor inspects changes between the baseline window
-          # and the detected dip. Keep enough history for that forensic check.
+          # Give the AI incident monitor recent repository history for its
+          # change cross-check. If this remains shallow, the monitor explicitly
+          # downgrades confidence instead of pretending the history is complete.
           fetch-depth: 60
 
       - name: Setup Node
