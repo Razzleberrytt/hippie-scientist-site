@@ -3,11 +3,7 @@
 import { usePathname } from 'next/navigation'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { generateDynamicBreadcrumbs, BreadcrumbItem } from '@/lib/navigation-config'
-
-export function isCompoundDetailPath(pathname: string): boolean {
-  const segments = pathname.split('/').filter(Boolean)
-  return segments.length === 2 && segments[0] === 'compounds'
-}
+import { hasLocalBreadcrumbOwner } from '@/lib/breadcrumb-ownership'
 
 export function Breadcrumbs({ customTrail, showOnHome = false }: { customTrail?: BreadcrumbItem[]; showOnHome?: boolean } = {}) {
   const pathname = usePathname() || '/'
@@ -18,7 +14,7 @@ export function Breadcrumbs({ customTrail, showOnHome = false }: { customTrail?:
   // Compound detail pages own their breadcrumb inside the profile template.
   // Rendering the root-level trail here as well creates two consecutive
   // Breadcrumb navigation landmarks on every compound profile.
-  if (isCompoundDetailPath(normalizedPathname)) return null
+  if (hasLocalBreadcrumbOwner(normalizedPathname)) return null
 
   const breadcrumbs = generateDynamicBreadcrumbs(normalizedPathname, customTrail)
 
