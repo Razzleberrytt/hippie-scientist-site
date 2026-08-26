@@ -11,6 +11,9 @@ const WORKFLOWS = [
   '.github/workflows/ai-entity-enrichment-check.yml',
   '.github/workflows/botanical-atlas-coverage.yml',
   '.github/workflows/research-distribution.yml',
+  '.github/workflows/backlog-integrity.yml',
+  '.github/workflows/experience-backlog-contract.yml',
+  '.github/workflows/enrichment-governor.yml',
 ]
 
 function read(relativePath: string) {

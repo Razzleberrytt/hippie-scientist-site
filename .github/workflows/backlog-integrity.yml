@@ -15,6 +15,10 @@ on:
       - 'scripts/ci/validate-master-backlog.mjs'
       - '.github/workflows/backlog-integrity.yml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
