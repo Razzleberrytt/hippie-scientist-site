@@ -8,6 +8,8 @@ export type SeoCollection = {
   }
 }
 
+// Historical reporting scripts still branch on the former `combo` discriminator.
+// Preserve that read contract without introducing a second collection registry.
 export type LegacySeoCollection = Omit<SeoCollection, 'itemType'> & {
   itemType: 'herb' | 'compound' | 'combo'
 }
