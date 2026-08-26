@@ -79,6 +79,18 @@ Fix:
 
 Japanese and Korean detailed profiles are **not** advertised in hreflang until claim-level translations are complete and reviewed. The audit explicitly tests that Ashwagandha and L-theanine remain absent from the Japanese/Korean detailed-profile clusters.
 
+### 7. Open Graph locale alternates could drift from hreflang
+
+Localized core pages and reviewed scientific-profile routes previously supplied a narrower, separately maintained Open Graph alternate-locale list even when more real reciprocal language routes existed.
+
+Fix:
+
+- Core localized metadata now derives `og:locale:alternate` from `getCurrentLocaleAlternates()` and the canonical locale registry.
+- Reviewed localized scientific profiles use the same derivation, so only real profile translations appear as social alternates.
+- Added `localized-metadata.test.ts` to enforce Open Graph/hreflang parity on the Japanese core route cluster.
+
+Result: HTML hreflang, localized sitemap alternates, language navigation, and Open Graph locale metadata now share the same route truth instead of maintaining separate language inventories.
+
 ## Current core localization matrix
 
 | Locale | Core pages | Ashwagandha profile | L-theanine profile |
@@ -99,6 +111,7 @@ Japanese and Korean detailed profiles are **not** advertised in hreflang until c
 - Hreflang is emitted only for real reciprocal pages.
 - Published localized pages remain self-canonical and indexable.
 - Localized sitemap entries are sourced from the same route registry as metadata and UI switching.
+- Open Graph locale alternates are derived from the same reciprocal route registry.
 - Detailed scientific profile translation coverage may be narrower than core-page coverage.
 - Language locale and commerce marketplace remain separate concepts.
 
