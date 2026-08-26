@@ -85,9 +85,10 @@ export default function HomepageV2() {
               name='q'
               type='search'
               autoComplete='off'
-              placeholder='Search by name'
+              enterKeyHint='search'
+              placeholder='Search herbs, compounds, or questions'
             />
-            <button type='submit' aria-label='Submit search'>
+            <button type='submit' aria-label='Search the research library'>
               <ArrowRight aria-hidden='true' />
             </button>
           </form>
