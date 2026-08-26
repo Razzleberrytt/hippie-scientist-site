@@ -49,7 +49,10 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Run full corpus audit
-        run: node scripts/content/audit-claim-drift.mjs
+        run: |
+          node scripts/content/audit-claim-drift.mjs
+          cp reports/content-claim-drift.json reports/content-claim-drift.full.json
+          cp reports/content-claim-drift.md reports/content-claim-drift.full.md
 
       - name: Enforce critical rules on changed PR content
         if: github.event_name == 'pull_request'
@@ -67,6 +70,8 @@ jobs:
           path: |
             reports/content-claim-drift.json
             reports/content-claim-drift.md
+            reports/content-claim-drift.full.json
+            reports/content-claim-drift.full.md
           if-no-files-found: warn
           retention-days: 30
 
@@ -77,14 +82,17 @@ jobs:
           if [ -f reports/content-claim-drift.json ]; then
             node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
           const fs = require('fs')
-          const r = JSON.parse(fs.readFileSync('reports/content-claim-drift.json', 'utf8'))
-          console.log(`- Mode: ${r.mode}`)
-          console.log(`- Scanned files: ${r.scannedFiles}/${r.inventoryFiles}`)
-          console.log(`- Static pages inventoried: ${r.staticPagesInventoried}`)
-          console.log(`- Critical: ${r.counts.critical}`)
-          console.log(`- High: ${r.counts.high}`)
-          console.log(`- Medium: ${r.counts.medium}`)
-          console.log(`- Low: ${r.counts.low}`)
+          const changed = JSON.parse(fs.readFileSync('reports/content-claim-drift.json', 'utf8'))
+          const fullPath = 'reports/content-claim-drift.full.json'
+          const full = fs.existsSync(fullPath) ? JSON.parse(fs.readFileSync(fullPath, 'utf8')) : changed
+          console.log(`- Changed-scope mode: ${changed.mode}`)
+          console.log(`- Changed-scope critical: ${changed.counts.critical}`)
+          console.log(`- Changed-scope high: ${changed.counts.high}`)
+          console.log(`- Full corpus static pages inventoried: ${full.staticPagesInventoried}`)
+          console.log(`- Full corpus critical: ${full.counts.critical}`)
+          console.log(`- Full corpus high: ${full.counts.high}`)
+          console.log(`- Full corpus medium: ${full.counts.medium}`)
+          console.log(`- Full corpus low: ${full.counts.low}`)
           NODE
           fi
           echo '- Full runs create a prioritized content-debt queue; pull requests block only newly introduced critical dose/safety drift.' >> "$GITHUB_STEP_SUMMARY"
