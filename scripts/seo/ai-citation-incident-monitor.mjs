@@ -11,7 +11,7 @@ import {
   buildAiDailySeries,
   buildSearchConsoleDailySeries,
   classifyCitationIncident,
-  detectAiCitationIncident,
+  detectAiCitationIncidents,
 } from './ai-citation-incident-lib.mjs'
 
 const argv = process.argv.slice(2)
@@ -181,6 +181,7 @@ function renderMarkdown(report) {
     `**Classification:** ${report.diagnosis.classification} (${report.diagnosis.confidence} confidence)`,
     '',
     `AI source: \`${report.dataFeed.sourceFile}\` (${report.dataFeed.kind}) · ${report.dataFeed.days} dated rows · ${report.dataFeed.cleanMatureDays} mature clean days.`,
+    `Scanned mature dates: ${report.scan?.evaluatedDays ?? 0}; detected full incidents: ${report.scan?.incidentCount ?? 0}.`,
     '',
   )
 
@@ -192,7 +193,7 @@ function renderMarkdown(report) {
     lines.push(
       '## AI signal',
       '',
-      `- Evaluated date: **${incident.incidentDate}** (latest date older than the ${report.policy.processingLagDays}-day processing guard).`,
+      `- Evaluated date: **${incident.incidentDate}** (within the mature dates older than the ${report.policy.processingLagDays}-day processing guard).`,
       `- Citations: ${incident.current.citations} vs trailing median ${incident.baseline?.citations ?? '—'} → **${renderPct(incident.changes?.citationDropPct)} drop**.`,
       `- Cited-page breadth: ${incident.current.citedPages ?? '—'} vs trailing median ${incident.baseline?.citedPages ?? '—'} → **${renderPct(incident.changes?.breadthDropPct)} drop**.`,
       `- Detector state: **${incident.status}**${incident.severity && incident.severity !== 'none' ? ` / ${incident.severity}` : ''}.`,
@@ -224,6 +225,7 @@ function renderMarkdown(report) {
     '- If technical/indexability checks fail, fix the underlying site issue first; normal deploy-time IndexNow will notify only changed URLs.',
     '- If search visibility and technical health remain stable while AI citations and cited-page breadth collapse together, preserve the site and observe the next finalized Bing reporting window before making broad SEO changes.',
     '- Known corrupted AI reporting dates are excluded before the detector computes baselines.',
+    '- The monitor scans multiple mature dates so a cliff that recovers before the next operator run is still surfaced.',
     '',
   )
 
@@ -241,6 +243,7 @@ function main() {
       inputDir: path.relative(ROOT, AI_INPUT_DIR),
       dataFeed: { available: false, csvFilesFound: aiFiles.length },
       incident: { status: 'insufficient-data', reason: aiFiles.length ? 'no-usable-dated-ai-series' : 'no-ai-csv-files' },
+      scan: { evaluatedDays: 0, incidentCount: 0 },
       searchConsole: { status: 'unavailable', reason: 'no-ai-incident-date' },
       technical,
       repositoryChanges: { available: false, reason: 'no-ai-incident-date', sensitiveFileCount: 0, sensitiveFiles: [] },
@@ -258,12 +261,16 @@ function main() {
     return
   }
 
-  const incident = detectAiCitationIncident(selected.series, {
+  const scan = detectAiCitationIncidents(selected.series, {
     now: NOW,
     lagDays: LAG_DAYS,
     lookbackDays: LOOKBACK_DAYS,
     isExcludedDate: isCorruptedAiVisibilityDate,
   })
+  const incident = scan.mostRecentIncident ?? scan.latest ?? {
+    status: scan.status,
+    reason: scan.reason ?? 'no-evaluable-mature-date',
+  }
 
   const searchSeries = existsSync(SEARCH_CONSOLE_PATH)
     ? buildSearchConsoleDailySeries(readFileSync(SEARCH_CONSOLE_PATH, 'utf8'))
@@ -287,6 +294,14 @@ function main() {
       days: selected.series.length,
       cleanMatureDays,
       alternativesIgnoredToPreventDoubleCounting: Math.max(0, aiFiles.length - 1),
+    },
+    scan: {
+      status: scan.status,
+      evaluatedDays: scan.evaluatedDays ?? scan.evaluations?.length ?? 0,
+      incidentCount: scan.incidents?.length ?? 0,
+      citationDropCount: scan.citationDrops?.length ?? 0,
+      mostRecentIncidentDate: scan.mostRecentIncident?.incidentDate ?? null,
+      latestEvaluatedDate: scan.latest?.incidentDate ?? null,
     },
     incident,
     searchConsole,
