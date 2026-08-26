@@ -57,21 +57,12 @@ function resolveFinalTarget(route, redirects) {
   return current
 }
 
-function* walkHtml(dir) {
-  if (!fs.existsSync(dir)) return
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name === '_next' || entry.name === 'pagefind') continue
-    const fullPath = path.join(dir, entry.name)
-    if (entry.isDirectory()) yield* walkHtml(fullPath)
-    else if (entry.isFile() && entry.name.endsWith('.html')) yield fullPath
-  }
-}
-
 function preserveSuffix(original, finalTarget) {
   const suffixMatch = original.match(/([?#].*)$/)
   const suffix = suffixMatch ? suffixMatch[1] : ''
-  const hadTrailingSlash = original.split(/[?#]/)[0].endsWith('/')
-  const target = finalTarget === '/' ? '/' : `${finalTarget}${hadTrailingSlash ? '/' : ''}`
+  const lastSegment = finalTarget.split('/').filter(Boolean).pop() || ''
+  const isFileLike = lastSegment.includes('.')
+  const target = finalTarget === '/' || isFileLike ? finalTarget : `${finalTarget}/`
   return `${target}${suffix}`
 }
 
@@ -122,3 +113,13 @@ fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`)
 console.log(
   `[canonicalize-internal-redirect-links] PASS: rewrote ${linksRewritten} link(s) across ${filesChanged} HTML file(s).`,
 )
+
+function* walkHtml(dir) {
+  if (!fs.existsSync(dir)) return
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name === '_next' || entry.name === 'pagefind') continue
+    const fullPath = path.join(dir, entry.name)
+    if (entry.isDirectory()) yield* walkHtml(fullPath)
+    else if (entry.isFile() && entry.name.endsWith('.html')) yield fullPath
+  }
+}
