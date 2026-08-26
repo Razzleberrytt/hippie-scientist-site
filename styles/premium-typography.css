@@ -27,6 +27,36 @@ html main :is(h3, h4) {
   line-height: 1.18;
 }
 
+/* Japanese and Korean glyphs fall through the Latin display-font stack. Keep
+ * that fallback intentional and remove Latin-specific compression that can make
+ * CJK headings feel crowded. Both selector forms matter: the locale layout
+ * wrapper exists in SSR markup inside <main>, while html[data-locale] is synced
+ * by localized navigation after hydration. */
+html main :is([data-locale='ja'], [data-locale='ko']) :is(h1, h2, h3, h4),
+html:is([data-locale='ja'], [data-locale='ko']) main :is(h1, h2, h3, h4) {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+  line-break: strict;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+html main :is([data-locale='ja'], [data-locale='ko']) h1,
+html:is([data-locale='ja'], [data-locale='ko']) main h1 {
+  line-height: 1.18;
+}
+
+html main :is([data-locale='ja'], [data-locale='ko']) h2,
+html:is([data-locale='ja'], [data-locale='ko']) main h2 {
+  line-height: 1.24;
+}
+
+html main :is([data-locale='ja'], [data-locale='ko']) :is(h3, h4),
+html:is([data-locale='ja'], [data-locale='ko']) main :is(h3, h4) {
+  line-height: 1.3;
+}
+
 /* Canonical editorial labels keep section hierarchy consistent on pages that
  * have migrated from route-specific brand colors. Hero-specific selectors may
  * refine these values with greater specificity. */
@@ -37,6 +67,12 @@ html main :is(.eyebrow-label, .section-label, .identity-kicker) {
   letter-spacing: 0.14em;
   line-height: 1.4;
   text-transform: uppercase;
+}
+
+html main :is([data-locale='ja'], [data-locale='ko']) :is(.eyebrow-label, .section-label, .identity-kicker),
+html:is([data-locale='ja'], [data-locale='ko']) main :is(.eyebrow-label, .section-label, .identity-kicker) {
+  letter-spacing: 0.06em;
+  text-transform: none;
 }
 
 html.dark main :is(.eyebrow-label, .section-label, .identity-kicker) {

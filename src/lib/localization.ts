@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getCurrentLocaleAlternates, LOCALE_CONFIG, type SupportedLocale } from './international-seo'
 import { buildPageMetadata } from './seo'
 
 export type LocalizedLink = {
@@ -48,13 +49,22 @@ export function buildLocalizedPageMetadata(
     openGraphType: 'website',
   })
 
+  const reciprocalOpenGraphLocales = getCurrentLocaleAlternates(page.path)
+    .filter((alternate): alternate is { locale: SupportedLocale; url: string } => alternate.locale !== 'x-default')
+    .map((alternate) => LOCALE_CONFIG[alternate.locale].openGraphLocale)
+    .filter((locale) => locale !== config.openGraphLocale)
+  const alternateLocale = [...new Set([
+    ...reciprocalOpenGraphLocales,
+    ...(config.alternateOpenGraphLocales ?? []),
+  ])]
+
   return {
     ...metadata,
     openGraph: metadata.openGraph
       ? {
           ...metadata.openGraph,
           locale: config.openGraphLocale,
-          alternateLocale: [...(config.alternateOpenGraphLocales ?? [])],
+          alternateLocale,
         }
       : metadata.openGraph,
   }

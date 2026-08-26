@@ -10,6 +10,7 @@ import {
   SUPPORTED_LOCALES,
   buildDefaultLocaleUrl,
   getCurrentLocaleAlternates,
+  getLocaleFromPathname,
   getLocaleMetadata,
   getLocalizedRoute,
   normalizeInternationalPath,
@@ -23,12 +24,20 @@ describe('international SEO helpers', () => {
     expect(DEFAULT_REGION).toBe('US')
     expect(LOCALE_TEXT_DIRECTION).toBe('ltr')
     expect(SPANISH_LOCALE).toBe('es')
-    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es', 'pt-BR', 'fr', 'de', 'it', 'nl', 'pl'])
+    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es', 'pt-BR', 'fr', 'de', 'it', 'nl', 'pl', 'ja', 'ko'])
   })
 
   it('normalizes paths for locale alternates without query strings', () => {
     expect(normalizeInternationalPath('/guides/sleep?utm_source=test')).toBe('/guides/sleep/')
     expect(normalizeInternationalPath('/robots.txt')).toBe('/robots.txt')
+  })
+
+  it('detects locale prefixes from the canonical locale registry', () => {
+    expect(getLocaleFromPathname('/')).toBe('en-US')
+    expect(getLocaleFromPathname('/pt')).toBe('pt-BR')
+    expect(getLocaleFromPathname('/ja/goals/sleep/')).toBe('ja')
+    expect(getLocaleFromPathname('/ko/safety/')).toBe('ko')
+    expect(getLocaleFromPathname('/herbs/ashwagandha/')).toBe('en-US')
   })
 
   it('builds translated hreflang pairs only for routes that have published equivalents', () => {
@@ -41,16 +50,15 @@ describe('international SEO helpers', () => {
       { locale: 'it', url: 'https://thehippiescientist.net/it/erbe/' },
       { locale: 'nl', url: 'https://thehippiescientist.net/nl/kruiden/' },
       { locale: 'pl', url: 'https://thehippiescientist.net/pl/ziola/' },
+      { locale: 'ja', url: 'https://thehippiescientist.net/ja/herbs/' },
+      { locale: 'ko', url: 'https://thehippiescientist.net/ko/herbs/' },
       { locale: 'x-default', url: 'https://thehippiescientist.net/herbs/' },
     ])
 
-    // Detailed profiles are not advertised for a locale until a complete reviewed
-    // claim-level translation exists for that profile.
     expect(getCurrentLocaleAlternates('/herbs/ashwagandha/').map((alternate) => alternate.locale)).toEqual([
       'en-US', 'es', 'pt-BR', 'fr', 'de', 'x-default',
     ])
 
-    // An untranslated profile must not advertise alternates that do not exist.
     expect(getCurrentLocaleAlternates('/herbs/turmeric/')).toEqual([
       { locale: 'en-US', url: 'https://thehippiescientist.net/herbs/turmeric/' },
       { locale: 'x-default', url: 'https://thehippiescientist.net/herbs/turmeric/' },
@@ -64,9 +72,11 @@ describe('international SEO helpers', () => {
     expect(getLocalizedRoute('/herbs/', 'it')).toBe('/it/erbe/')
     expect(getLocalizedRoute('/nl/doelen/slaap/', 'en-US')).toBe('/goals/sleep/')
     expect(getLocalizedRoute('/goals/anxiety/', 'pl')).toBe('/pl/cele/lek/')
+    expect(getLocalizedRoute('/goals/focus/', 'ja')).toBe('/ja/goals/focus/')
+    expect(getLocalizedRoute('/ko/goals/sleep/', 'en-US')).toBe('/goals/sleep/')
     expect(getLocalizedRoute('/herbs/ashwagandha/', 'it')).toBeNull()
-    expect(getLocalizedRoute('/compounds/l-theanine/', 'nl')).toBeNull()
-    expect(getLocalizedRoute('/herbs/ashwagandha/', 'pl')).toBeNull()
+    expect(getLocalizedRoute('/compounds/l-theanine/', 'ja')).toBeNull()
+    expect(getLocalizedRoute('/herbs/ashwagandha/', 'ko')).toBeNull()
   })
 
   it('builds the default locale homepage URL', () => {
@@ -74,14 +84,14 @@ describe('international SEO helpers', () => {
   })
 
   it('exposes locale metadata for every language version', () => {
-    // One entry per supported locale plus x-default on the homepage, which has
-    // a real published equivalent in every supported locale.
     expect(getLocaleMetadata('/').alternates).toHaveLength(SUPPORTED_LOCALES.length + 1)
     expect(getLocaleMetadata('/').openGraphLocale).toBe('en_US')
     expect(getLocaleMetadata('/es/', 'es').openGraphLocale).toBe('es_ES')
     expect(getLocaleMetadata('/it/', 'it').openGraphLocale).toBe('it_IT')
     expect(getLocaleMetadata('/nl/', 'nl').openGraphLocale).toBe('nl_NL')
     expect(getLocaleMetadata('/pl/', 'pl').openGraphLocale).toBe('pl_PL')
+    expect(getLocaleMetadata('/ja/', 'ja').openGraphLocale).toBe('ja_JP')
+    expect(getLocaleMetadata('/ko/', 'ko').openGraphLocale).toBe('ko_KR')
   })
 
   it('keeps every published translation indexable, in every locale', () => {
