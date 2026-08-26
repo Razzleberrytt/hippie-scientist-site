@@ -31,6 +31,18 @@ test('selects one dated Bing export instead of double-counting overlapping views
   ])
 })
 
+test('accepts Bing overview-style Total Citations headers and quoted thousands', () => {
+  const selected = buildAiDailySeries([
+    {
+      name: 'AIPerformanceOverviewStats.csv',
+      content: 'Date,Total Citations,Cited Pages\n2026-08-20,"1,248",54\n2026-08-21,197,25\n',
+    },
+  ])
+
+  expect(selected.kind).toBe('overview')
+  expect(selected.series[0]).toMatchObject({ date: '2026-08-20', citations: 1248, citedPages: 54 })
+})
+
 test('detects the synchronized Aug 21 citation and cited-page cliff after excluding corrupted dates', () => {
   const series = [
     { date: '2026-08-12', citations: 700, citedPages: 50 },
