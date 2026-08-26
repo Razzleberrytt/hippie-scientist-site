@@ -18,7 +18,8 @@ export default function ScrollToTopButton() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const scrollToTop = () => {
+  const scrollToTop = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.currentTarget.blur()
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' })
   }
