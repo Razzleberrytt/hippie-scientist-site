@@ -7,11 +7,9 @@ import {
   getCompoundProfileTranslationSlugs,
 } from './compound-profile-translations'
 import {
-  DEFAULT_OG_LOCALE,
-  FRENCH_OG_LOCALE,
-  GERMAN_OG_LOCALE,
-  PORTUGUESE_OG_LOCALE,
-  SPANISH_OG_LOCALE,
+  getCurrentLocaleAlternates,
+  LOCALE_CONFIG,
+  type SupportedLocale,
 } from './international-seo'
 import {
   loadCanonicalLocalizedProfile,
@@ -35,13 +33,6 @@ type RouteConfig = {
 }
 
 type PageProps = { params: Promise<{ slug: string }> }
-
-const OG_LOCALE: Record<ProfileTranslationLocale, string> = {
-  es: SPANISH_OG_LOCALE,
-  'pt-BR': PORTUGUESE_OG_LOCALE,
-  fr: FRENCH_OG_LOCALE,
-  de: GERMAN_OG_LOCALE,
-}
 
 function translationFor(locale: ProfileTranslationLocale, kind: LocalizedProfileKind, slug: string) {
   return kind === 'compound'
@@ -88,11 +79,18 @@ export function createLocalizedProfileRoute(config: RouteConfig) {
       path: translation.path,
       openGraphType: 'profile',
     })
+    const currentOgLocale = LOCALE_CONFIG[config.locale].openGraphLocale
+    const alternateLocale = [...new Set(
+      getCurrentLocaleAlternates(translation.path)
+        .filter((alternate): alternate is { locale: SupportedLocale; url: string } => alternate.locale !== 'x-default')
+        .map((alternate) => LOCALE_CONFIG[alternate.locale].openGraphLocale)
+        .filter((locale) => locale !== currentOgLocale),
+    )]
 
     return {
       ...metadata,
       openGraph: metadata.openGraph
-        ? { ...metadata.openGraph, locale: OG_LOCALE[config.locale], alternateLocale: [DEFAULT_OG_LOCALE] }
+        ? { ...metadata.openGraph, locale: currentOgLocale, alternateLocale }
         : metadata.openGraph,
     }
   }

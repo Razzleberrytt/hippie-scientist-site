@@ -10,19 +10,21 @@ import {
 export const dynamic = 'force-static'
 
 function languageAlternates(route: (typeof LOCALIZED_ROUTES)[number]) {
+  const englishUrl = buildLocaleUrl(route.english)
   const languages: Record<string, string> = {
-    [DEFAULT_LOCALE]: buildLocaleUrl(route.english),
+    [DEFAULT_LOCALE]: englishUrl,
   }
 
   for (const [locale, path] of Object.entries(route.translations) as [TranslationLocale, string | undefined][]) {
     if (path) languages[locale] = buildLocaleUrl(path)
   }
 
+  languages['x-default'] = englishUrl
   return languages
 }
 
 /**
- * Dedicated sitemap for substantive translated core pages.
+ * Dedicated sitemap for substantive translated pages.
  *
  * The canonical multilingual route registry is the sole source of truth, so a
  * translation cannot be advertised here unless it is also part of the same

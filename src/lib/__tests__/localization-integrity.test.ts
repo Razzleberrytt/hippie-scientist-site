@@ -4,17 +4,21 @@ import { describe, expect, it } from 'vitest'
 import { FRENCH_PAGES } from '../french-content'
 import { GERMAN_PAGES } from '../german-content'
 import { DUTCH_PAGES, ITALIAN_PAGES, POLISH_PAGES } from '../expanded-language-content'
+import { JAPANESE_PAGES, KOREAN_PAGES } from '../asian-language-content'
 import {
   DEFAULT_LOCALE,
   DUTCH_LOCALE,
   FRENCH_LOCALE,
   GERMAN_LOCALE,
   ITALIAN_LOCALE,
+  JAPANESE_LOCALE,
+  KOREAN_LOCALE,
   LOCALIZED_ROUTES,
   POLISH_LOCALE,
   PORTUGUESE_LOCALE,
   SPANISH_LOCALE,
   getCurrentLocaleAlternates,
+  getLocalePathPrefix,
   getLocalizedRoute,
   normalizeInternationalPath,
   type TranslationLocale,
@@ -34,6 +38,8 @@ const PACKS: Record<TranslationLocale, readonly LocalizedPageData[]> = {
   [ITALIAN_LOCALE]: Object.values(ITALIAN_PAGES),
   [DUTCH_LOCALE]: Object.values(DUTCH_PAGES),
   [POLISH_LOCALE]: Object.values(POLISH_PAGES),
+  [JAPANESE_LOCALE]: Object.values(JAPANESE_PAGES),
+  [KOREAN_LOCALE]: Object.values(KOREAN_PAGES),
 }
 
 function pageLinks(page: LocalizedPageData): string[] {
@@ -45,8 +51,7 @@ function pageLinks(page: LocalizedPageData): string[] {
 }
 
 function localePrefix(locale: TranslationLocale) {
-  if (locale === PORTUGUESE_LOCALE) return '/pt/'
-  return `/${locale}/`
+  return getLocalePathPrefix(locale)
 }
 
 function localeDirectory(locale: TranslationLocale) {
@@ -66,8 +71,7 @@ function compoundProfileTranslations(locale: TranslationLocale) {
 /**
  * Everything this locale actually publishes. Some locales intentionally ship
  * core editorial pages before claim-level scientific profile translations.
- * Hreflang must therefore match the real artifacts for each locale rather than
- * assuming every locale has the same profile coverage.
+ * Hreflang must therefore match real artifacts rather than assumed parity.
  */
 function publishedPaths(locale: TranslationLocale) {
   const core = PACKS[locale].map((page) => normalizeInternationalPath(page.path))
@@ -101,10 +105,7 @@ describe('multilingual localization integrity', () => {
         expect(page.sections.length, `${page.path} must contain substantive editorial sections`).toBeGreaterThan(0)
       }
 
-      for (const profile of [
-        ...herbProfileTranslations(locale),
-        ...compoundProfileTranslations(locale),
-      ]) {
+      for (const profile of [...herbProfileTranslations(locale), ...compoundProfileTranslations(locale)]) {
         expect(profile.title.trim().length, `${profile.path} must have a title`).toBeGreaterThan(12)
         expect(profile.summary.trim().length, `${profile.path} must have a substantive summary`).toBeGreaterThan(80)
         const canonical = loadCanonicalLocalizedProfile(profile.kind, profile.slug)
@@ -130,11 +131,7 @@ describe('multilingual localization integrity', () => {
 
   it('keeps hreflang alternates reciprocal for every localized route', () => {
     for (const route of LOCALIZED_ROUTES) {
-      const expectedLocales = [
-        DEFAULT_LOCALE,
-        ...Object.keys(route.translations),
-        'x-default',
-      ].sort()
+      const expectedLocales = [DEFAULT_LOCALE, ...Object.keys(route.translations), 'x-default'].sort()
       const paths = [route.english, ...Object.values(route.translations).filter((path): path is string => Boolean(path))]
 
       for (const path of paths) {
