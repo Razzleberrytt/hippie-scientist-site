@@ -41,6 +41,7 @@ function coverage(): OutcomeMetadataCoverageAnalysis {
     predicate: 'supports_outcome',
     confidence: 0.9,
     linkedPrimaryHumanStudyIds: ['pmid:1', 'pmid:2'],
+    linkedPrimaryHumanStudyIdsNeedingOutcomeMetadataBackfill: ['pmid:2'],
     primaryHumanStudies: 2,
     studiesWithOutcomeMetadata: 1,
     studiesWithRegistryIds: 1,
@@ -57,6 +58,7 @@ function coverage(): OutcomeMetadataCoverageAnalysis {
     claimId: 'claim-2',
     confidence: 0.85,
     linkedPrimaryHumanStudyIds: ['pmid:3', 'nct:00000004'],
+    linkedPrimaryHumanStudyIdsNeedingOutcomeMetadataBackfill: ['nct:00000004'],
     studiesWithNamedAlignmentData: 0,
     namedAlignmentCoverage: 0,
     outcomeMetadataGap: true,
@@ -109,7 +111,7 @@ describe('outcome review queue', () => {
       highConfidenceOutcomeMetadataGap: true,
     })
     expect(backfill?.risks).toEqual([])
-    expect(backfill?.affectedStudyIds).toEqual(['pmid:3', 'nct:00000004'])
+    expect(backfill?.affectedStudyIds).toEqual(['nct:00000004'])
     expect(result.summary.metadataBackfill).toBe(1)
   })
 })
