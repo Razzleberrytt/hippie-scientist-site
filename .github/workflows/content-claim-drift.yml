@@ -10,7 +10,7 @@ on:
       - 'config/profile-verdicts.ts'
       - 'lib/public-site-metrics.ts'
       - 'public/redirect-overrides/**'
-      - 'scripts/content/audit-claim-drift.mjs'
+      - 'scripts/content/**'
       - 'scripts/verify-redirects.mjs'
       - '.github/workflows/content-claim-drift.yml'
   push:
@@ -22,7 +22,7 @@ on:
       - 'config/profile-verdicts.ts'
       - 'lib/public-site-metrics.ts'
       - 'public/redirect-overrides/**'
-      - 'scripts/content/audit-claim-drift.mjs'
+      - 'scripts/content/**'
       - 'scripts/verify-redirects.mjs'
       - '.github/workflows/content-claim-drift.yml'
   schedule:
