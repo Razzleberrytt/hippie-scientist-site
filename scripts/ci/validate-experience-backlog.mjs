@@ -46,6 +46,16 @@ invariant('THS-001', 'homepage hero has a clear promise and no more than two pri
     searchActions.length === 1 &&
     browseActions.length === 1
 })
+invariant('THS-001', 'homepage scientific search protects mobile ingredient terms from keyboard rewriting', () =>
+  includesAll(homepage, [
+    "type='search'",
+    "autoCapitalize='none'",
+    "autoCorrect='off'",
+    'spellCheck={false}',
+    "enterKeyHint='search'",
+    "placeholder='Search herbs, compounds, or questions'",
+  ]),
+)
 
 invariant('THS-002', 'primary navigation remains intentionally narrow', () =>
   includesAll(primaryNavigation, ["label: 'Goals'", "label: 'Ingredients'", "label: 'Compare'", "label: 'Safety'", "label: 'Research'"]) &&
