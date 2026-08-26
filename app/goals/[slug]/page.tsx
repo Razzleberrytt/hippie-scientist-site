@@ -13,7 +13,13 @@ import { getGoalHubLinks } from '@/src/lib/goal-hub-links'
 import { getPublicGoal, getPublicGoalContentExtension } from '@/src/lib/goal-public-copy'
 import SchemaOrg from '@/components/SchemaOrg'
 import Disclaimer from '@/src/components/Disclaimer'
-import { SITE_URL, breadcrumbJsonLd, buildTwitterMetadata, faqPageJsonLd } from '@/src/lib/seo'
+import {
+  SITE_URL,
+  breadcrumbJsonLd,
+  buildTwitterMetadata,
+  faqPageJsonLd,
+  isMeaningfulFaqAnswer,
+} from '@/src/lib/seo'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -73,10 +79,13 @@ export default async function GoalPage({ params }: PageProps) {
     { name: 'Goals', url: `${SITE_URL}/goals/` },
     { name: goal.title, url: `${SITE_URL}${goalPath}` },
   ])
-  const faq = extension?.faqItems.length
+  const meaningfulFaqItems = extension?.faqItems.filter((item) =>
+    isMeaningfulFaqAnswer(item.answer),
+  ) ?? []
+  const faq = meaningfulFaqItems.length >= 2
     ? faqPageJsonLd({
         pagePath: goalPath,
-        questions: extension.faqItems.map((item) => ({
+        questions: meaningfulFaqItems.map((item) => ({
           question: item.question,
           answer: item.answer,
         })),
