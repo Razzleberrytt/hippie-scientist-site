@@ -14,7 +14,6 @@ concurrency:
 
 jobs:
   apply:
-    if: github.event.head_commit.message == 'chore(ci): add temporary BPC-157 patch applicator'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -24,7 +23,23 @@ jobs:
           ref: fix/bpc157-human-evidence-apply
           fetch-depth: 2
 
+      - name: Decide whether application is needed
+        id: gate
+        shell: bash
+        run: |
+          status=$(node -e "const p=require('./data-sources/workbook-patches/bpc-157-human-evidence-freshness-2026-08-26.json'); process.stdout.write(p.status)")
+          echo "status=$status"
+          if [[ "$status" == "approved" ]]; then
+            echo 'apply=true' >> "$GITHUB_OUTPUT"
+          elif [[ "$status" == "applied" ]]; then
+            echo 'apply=false' >> "$GITHUB_OUTPUT"
+          else
+            echo "Unexpected patch status: $status" >&2
+            exit 1
+          fi
+
       - name: Setup Node.js
+        if: steps.gate.outputs.apply == 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
@@ -32,9 +47,11 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
+        if: steps.gate.outputs.apply == 'true'
         run: npm ci --silent
 
       - name: Verify exact approved patch
+        if: steps.gate.outputs.apply == 'true'
         shell: bash
         run: |
           node <<'NODE'
@@ -51,6 +68,7 @@ jobs:
             --patch data-sources/workbook-patches/bpc-157-human-evidence-freshness-2026-08-26.json
 
       - name: Apply approved patch to canonical workbook
+        if: steps.gate.outputs.apply == 'true'
         run: |
           node scripts/data/apply-workbook-patch.mjs \
             --patch data-sources/workbook-patches/bpc-157-human-evidence-freshness-2026-08-26.json \
@@ -59,6 +77,7 @@ jobs:
             --in-place
 
       - name: Mark patch applied and verify workbook
+        if: steps.gate.outputs.apply == 'true'
         shell: bash
         run: |
           node <<'NODE'
@@ -73,6 +92,7 @@ jobs:
           npm run workbook:roundtrip-test --silent
 
       - name: Enforce atomic diff
+        if: steps.gate.outputs.apply == 'true'
         shell: bash
         run: |
           mapfile -t changed < <(git status --porcelain | sed -E 's/^.. //' | sort)
@@ -88,6 +108,7 @@ jobs:
           fi
 
       - name: Commit applied workbook transaction
+        if: steps.gate.outputs.apply == 'true'
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
