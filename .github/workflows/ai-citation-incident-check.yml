@@ -1,0 +1,96 @@
+name: AI Citation Incident Check
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/seo/ai-citation-incident-*.mjs'
+      - 'scripts/seo/__tests__/ai-citation-incident-lib.test.mjs'
+      - 'docs/AI-CITATION-INCIDENT-MONITOR.md'
+      - 'data-sources/ai-performance/README.md'
+      - '.github/workflows/ai-citation-incident-check.yml'
+      - '.github/workflows/search-console-opportunities-weekly.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ai-citation-incident-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  incident-monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 60
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run incident detector unit regressions
+        run: npx vitest run scripts/seo/__tests__/ai-citation-incident-lib.test.mjs
+
+      - name: Exercise waiting-state behavior without private Bing exports
+        run: |
+          rm -rf "$RUNNER_TEMP/empty-ai"
+          mkdir -p "$RUNNER_TEMP/empty-ai"
+          node scripts/seo/ai-citation-incident-monitor.mjs \
+            --dir="$RUNNER_TEMP/empty-ai" \
+            --search-console="$RUNNER_TEMP/missing-gsc.csv" \
+            --now=2026-08-26
+          node -e "const r=require('./ops/reports/ai-citation-incident.json'); if(r.incident.status!=='insufficient-data'||r.dataFeed.available!==false) process.exit(1)"
+
+      - name: Exercise synchronized-cliff diagnosis end to end
+        shell: bash
+        run: |
+          set -euo pipefail
+          fixture="$RUNNER_TEMP/ai-incident-fixture"
+          rm -rf "$fixture"
+          mkdir -p "$fixture/ai"
+
+          cat > "$fixture/ai/overview.csv" <<'CSV'
+          Date,Total Citations,Cited Pages
+          2026-08-12,700,50
+          2026-08-18,720,52
+          2026-08-19,740,53
+          2026-08-20,748,54
+          2026-08-21,197,25
+          CSV
+
+          cat > "$fixture/gsc.csv" <<'CSV'
+          Date,Page,Clicks,Impressions
+          2026-08-18,/a/,10,1000
+          2026-08-19,/a/,11,1020
+          2026-08-20,/a/,9,980
+          2026-08-21,/a/,10,990
+          CSV
+
+          node scripts/seo/ai-citation-incident-monitor.mjs \
+            --dir="$fixture/ai" \
+            --search-console="$fixture/gsc.csv" \
+            --now=2026-08-23
+
+          node <<'NODE'
+          const report = require('./ops/reports/ai-citation-incident.json')
+          if (report.incident.status !== 'incident') throw new Error(`Expected incident, got ${report.incident.status}`)
+          if (report.incident.severity !== 'critical') throw new Error(`Expected critical, got ${report.incident.severity}`)
+          if (report.searchConsole.status !== 'stable') throw new Error(`Expected stable GSC, got ${report.searchConsole.status}`)
+          if (report.diagnosis.classification !== 'probable-bing-ai-reporting-or-grounding-event') {
+            throw new Error(`Unexpected diagnosis: ${report.diagnosis.classification}`)
+          }
+          NODE
+
+      - name: Publish detector report summary
+        if: always() && hashFiles('ops/reports/ai-citation-incident.md') != ''
+        run: cat ops/reports/ai-citation-incident.md >> "$GITHUB_STEP_SUMMARY"

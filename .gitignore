@@ -113,6 +113,12 @@ data-sources/*
 !data-sources/runtime-enrichment/*.json
 !data-sources/runtime-enrichment/*.json.gz
 !data-sources/runtime-enrichment/README.md
+# Bing AI Performance exports remain local/private by default. Track only the
+# instructions so the monitor has a durable intake contract without publishing
+# page/query analytics in the repository.
+!data-sources/ai-performance/
+data-sources/ai-performance/*
+!data-sources/ai-performance/README.md
 data-sources/*.csv
 data-sources/*.json
 
