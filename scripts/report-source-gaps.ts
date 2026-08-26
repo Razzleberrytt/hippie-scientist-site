@@ -85,10 +85,12 @@ type SourceGapReport = {
   gapItems: GapItem[]
 }
 
+type CompoundManifestRow = string | { slug: string }
+
 type Manifest = {
   entities?: {
     herbs?: Array<{ slug: string }>
-    compounds?: Array<{ slug: string }>
+    compounds?: CompoundManifestRow[]
   }
 }
 
@@ -163,6 +165,10 @@ function dedupe<T>(values: T[]): T[] {
   return Array.from(new Set(values))
 }
 
+function compoundManifestSlug(row: CompoundManifestRow): string {
+  return typeof row === 'string' ? row : row.slug
+}
+
 function run() {
   const workpacks = readJson<WorkpackReport>(WORKPACKS_PATH)
   const sourceRegistry = readJson<SourceRegistryRow[]>(SOURCE_REGISTRY_PATH)
@@ -171,7 +177,7 @@ function run() {
   const sourceById = new Map(sourceRegistry.map(source => [source.sourceId, source]))
   const indexableEntities = new Set<string>([
     ...(manifest.entities?.herbs || []).map(row => `herb:${row.slug.toLowerCase()}`),
-    ...(manifest.entities?.compounds || []).map(row => `compound:${row.slug.toLowerCase()}`),
+    ...(manifest.entities?.compounds || []).map(row => `compound:${compoundManifestSlug(row).toLowerCase()}`),
   ])
 
   const gapItems: GapItem[] = []

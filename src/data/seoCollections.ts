@@ -8,6 +8,12 @@ export type SeoCollection = {
   }
 }
 
+// Historical reporting scripts still branch on the former `combo` discriminator.
+// Preserve that read contract without introducing a second collection registry.
+export type LegacySeoCollection = Omit<SeoCollection, 'itemType'> & {
+  itemType: 'herb' | 'compound' | 'combo'
+}
+
 export const seoCollections: SeoCollection[] = [
   {
     slug: 'stress-support-herbs',
@@ -37,3 +43,7 @@ export const seoCollections: SeoCollection[] = [
     }
   }
 ]
+
+// Backward-compatible contract for existing reporting and verification scripts.
+// Keep both exports sourced from the same canonical collection registry.
+export const SEO_COLLECTIONS: LegacySeoCollection[] = seoCollections
