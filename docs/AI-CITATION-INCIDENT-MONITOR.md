@@ -12,12 +12,7 @@ data-sources/ai-performance/
 
 It accepts multiple Bing AI Performance exports at once, but deliberately selects **one dated source** instead of summing overlapping Overview / Page / Query reports. This prevents the same citations from being counted more than once.
 
-The preferred source order is:
-
-1. dated Overview data with both citations and cited-page breadth;
-2. dated Overview data with citations;
-3. dated Page data, where unique URLs can reconstruct cited-page breadth;
-4. dated Query data only as a last-resort citation signal.
+Selection is **freshness first**: the candidate with the newest dated row wins. Source richness breaks ties only among candidates ending on the same date, preferring Overview data with cited-page breadth, then other usable Overview/Page/Query data. An older richer export may never outrank a newer usable export.
 
 Known corrupted reporting dates are excluded through `ai-visibility-anomaly.mjs` before baselines are calculated.
 
@@ -25,7 +20,9 @@ Known corrupted reporting dates are excluded through `ai-visibility-anomaly.mjs`
 
 Bing's AI Performance documentation currently exposes CSV/Excel export from the authenticated dashboard. The general Bing Webmaster API documentation covers search/index webmaster data but does not document an AI Performance retrieval endpoint.
 
-For that reason this system does not scrape the dashboard or invent an unsupported API integration. Raw AI Performance exports remain ignored by Git by default. When a fresh export is available locally or is otherwise injected into a run, the monitor analyzes it; when it is absent, the monitor emits an explicit waiting-state report rather than treating missing input as a citation collapse.
+For that reason this system does not scrape the dashboard or invent an unsupported API integration. Raw AI Performance exports remain ignored by Git by default. When a fresh export is available locally or is otherwise intentionally injected into a run, the monitor analyzes it; when it is absent, the monitor emits an explicit waiting-state report rather than treating missing input as a citation collapse.
+
+**The unattended weekly Search Console workflow does not run this monitor.** That workflow has no supported way to acquire a fresh authenticated Bing AI Performance export, so scheduling the detector there would create a false sense of monitoring while every clean runner merely entered the waiting state. Run the detector only in a checkout/run that actually has a fresh Bing export. If Bing later exposes a supported retrieval API or an authorized artifact feed is added, scheduled invocation can be reviewed separately.
 
 The durable intake instructions live in `data-sources/ai-performance/README.md`.
 
@@ -33,12 +30,14 @@ The durable intake instructions live in `data-sources/ai-performance/README.md`.
 
 The default detector evaluates only reporting dates that are at least **2 days old** so a partially processed Bing day does not trigger a false alarm.
 
-A full incident requires both of these signals on the latest mature clean day:
+A full incident requires both of these signals on a mature clean day:
 
 - citations fall at least **50%** below the trailing 7-day median;
 - cited-page breadth falls at least **35%** below the trailing median.
 
 The baseline must contain at least three usable days, at least 100 median citations, and at least 10 median cited pages before the synchronized detector is trusted.
+
+The monitor scans the recent mature window rather than inspecting only the latest day. If citations collapse on Tuesday and recover by Friday, the Tuesday incident remains visible on the next operator run instead of disappearing because the newest date is healthy.
 
 A citation drop without a cited-page breadth collapse is classified separately as `citation-drop-only` and does not trigger the stronger incident diagnosis.
 
@@ -71,7 +70,7 @@ These are catastrophic-regression guards, not a substitute for the stricter craw
 
 The monitor examines available git history during the baseline-to-incident window and surfaces changes to high-risk SEO ownership paths such as sitemap/robots, redirects, indexability summaries, runtime manifests, and IndexNow/index-quality code.
 
-The weekly workflow checks out recent history for this comparison. If the checkout is still shallow, the monitor marks the change evidence incomplete and downgrades an otherwise high-confidence external-event classification rather than pretending no relevant change happened.
+If the checkout is shallow or history is unavailable, the monitor marks the change evidence incomplete and downgrades an otherwise high-confidence external-event classification rather than pretending no relevant change happened.
 
 A sensitive change lowers confidence in an external-event classification, but it is not treated as proof of causation.
 
@@ -109,9 +108,9 @@ When a full synchronized incident exists it also writes a dated forensic snapsho
 ops/ai-citations/incidents/YYYY-MM-DD.json
 ```
 
-The weekly Search Console workflow runs the detector, uploads any generated reports as retained workflow artifacts, and includes the Markdown diagnosis in the GitHub Actions summary. If the workflow does not receive a fresh AI Performance export, the report clearly says the AI feed is waiting while the independent Search Console pipeline continues normally.
+These outputs are produced only when the monitor is explicitly run. The existing weekly Search Console workflow remains focused on its supported Search Console and anomaly-safe analytics inputs and does not pretend to have Bing AI Performance data that it cannot acquire.
 
-## Manual run
+## Manual or injected-data run
 
 ```bash
 node scripts/seo/ai-citation-incident-monitor.mjs
