@@ -5,10 +5,11 @@ import path from 'node:path'
  * Guards the editorial verdict overlay (config/profile-verdicts.ts).
  *
  * Every route the overlay links to — betterAlternative.href and each
- * comparisons[].href — must resolve to a real page, and every keyed profile
- * must exist in the workbook export. This enforces the overlay's core rule:
- * only surface routes and profiles that actually exist. Run in CI so a curated
- * verdict can never ship a dead link.
+ * comparisons[].href — must resolve to a real page (directly or through a
+ * governed permanent redirect), and every keyed profile must exist in the
+ * workbook export. Redirect acceptance mirrors production behavior: the build
+ * rewrites redirecting internal hrefs to their final canonical destination, so
+ * a declared alias is valid only when its redirect target is itself live.
  */
 
 const ROOT = process.cwd()
@@ -23,8 +24,16 @@ const slugSet = (file) => {
 const herbSlugs = slugSet('public/data/herbs.json')
 const compoundSlugs = slugSet('public/data/compounds.json')
 
-const routeExists = (href) => {
-  const clean = href.replace(/^\/+|\/+$/g, '') // strip leading/trailing slashes
+const normalizeRoute = (href) => {
+  if (!href?.startsWith('/')) return href
+  const [pathname] = href.split(/[?#]/, 1)
+  const clean = pathname.replace(/\/{2,}/g, '/').replace(/\/+$/, '') || '/'
+  return clean
+}
+
+const routeExistsDirectly = (href) => {
+  const normalized = normalizeRoute(href)
+  const clean = normalized.replace(/^\/+|\/+$/g, '') // strip leading/trailing slashes
   const m = clean.match(/^(herbs|compounds)\/(.+)$/)
   if (m) {
     const [, kind, slug] = m
@@ -38,7 +47,53 @@ const routeExists = (href) => {
   )
 }
 
+const parseRedirectLines = (text, map) => {
+  for (const rawLine of text.split(/\r?\n/)) {
+    const line = rawLine.trim()
+    if (!line || line.startsWith('#')) continue
+    const [source, target, status = ''] = line.split(/\s+/)
+    if (!source?.startsWith('/') || !target?.startsWith('/')) continue
+    if (!/^30[1278]$/.test(status)) continue
+    if (source.includes('*') || target.includes(':')) continue
+
+    const normalizedSource = normalizeRoute(source)
+    // Production redirect precedence is first rule wins. Keep the first exact
+    // source we encounter; override files are loaded before the base file.
+    if (!map.has(normalizedSource)) map.set(normalizedSource, normalizeRoute(target))
+  }
+}
+
+const permanentRedirects = new Map()
+const overrideDir = path.join(ROOT, 'public/redirect-overrides')
+if (fs.existsSync(overrideDir)) {
+  for (const name of fs.readdirSync(overrideDir).filter((name) => name.endsWith('.txt')).sort()) {
+    parseRedirectLines(fs.readFileSync(path.join(overrideDir, name), 'utf8'), permanentRedirects)
+  }
+}
+const baseRedirects = path.join(ROOT, 'public/_redirects')
+if (fs.existsSync(baseRedirects)) {
+  parseRedirectLines(fs.readFileSync(baseRedirects, 'utf8'), permanentRedirects)
+}
+
+const resolveGovernedRoute = (href) => {
+  let current = normalizeRoute(href)
+  const seen = new Set()
+
+  for (let hop = 0; hop < 12; hop += 1) {
+    if (routeExistsDirectly(current)) return { ok: true, final: current, hops: hop }
+    if (seen.has(current)) return { ok: false, final: current, hops: hop, reason: 'redirect loop' }
+    seen.add(current)
+
+    const next = permanentRedirects.get(current)
+    if (!next) return { ok: false, final: current, hops: hop, reason: 'no live route or permanent redirect' }
+    current = next
+  }
+
+  return { ok: false, final: current, hops: 12, reason: 'redirect depth exceeded' }
+}
+
 const errors = []
+const redirectedOverlayLinks = []
 
 // Validate every keyed profile exists in the workbook export.
 for (const [, key] of src.matchAll(/^\s{2}'?([a-z0-9-]+)'?:\s*\{$/gm)) {
@@ -47,15 +102,30 @@ for (const [, key] of src.matchAll(/^\s{2}'?([a-z0-9-]+)'?:\s*\{$/gm)) {
   }
 }
 
-// Validate every linked route resolves.
+// Validate every linked route resolves. A source-level legacy alias is allowed
+// only when an explicit permanent redirect reaches a live canonical page. The
+// export pipeline rewrites that href to the final target before deployment.
 for (const [, href] of src.matchAll(/href:\s*'([^']+)'/g)) {
   if (!href.startsWith('/')) continue // external / anchor links are out of scope
-  if (!routeExists(href)) errors.push(`Dead route in overlay: ${href}`)
+  const result = resolveGovernedRoute(href)
+  if (!result.ok) {
+    errors.push(`Dead route in overlay: ${href} (${result.reason}; stopped at ${result.final})`)
+  } else if (result.hops > 0) {
+    redirectedOverlayLinks.push(`${href} -> ${result.final}`)
+  }
 }
 
 if (errors.length) {
   console.error('validate-profile-verdicts: FAILED\n - ' + errors.join('\n - '))
   process.exit(1)
+}
+
+if (redirectedOverlayLinks.length) {
+  const unique = [...new Set(redirectedOverlayLinks)]
+  console.log(
+    `validate-profile-verdicts: ${redirectedOverlayLinks.length} overlay link(s) use ${unique.length} governed redirect alias(es); export rewrite will canonicalize them`,
+  )
+  for (const redirect of unique) console.log(` - ${redirect}`)
 }
 
 console.log('validate-profile-verdicts: OK (all keyed profiles and linked routes resolve)')

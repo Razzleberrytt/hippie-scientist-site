@@ -1,0 +1,106 @@
+name: Content Claim Drift
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'content/**'
+      - 'config/profile-verdicts.ts'
+      - 'lib/public-site-metrics.ts'
+      - 'public/redirect-overrides/**'
+      - 'scripts/content/**'
+      - 'scripts/verify-redirects.mjs'
+      - '.github/workflows/content-claim-drift.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'content/**'
+      - 'config/profile-verdicts.ts'
+      - 'lib/public-site-metrics.ts'
+      - 'public/redirect-overrides/**'
+      - 'scripts/content/**'
+      - 'scripts/verify-redirects.mjs'
+      - '.github/workflows/content-claim-drift.yml'
+  schedule:
+    - cron: '17 14 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: content-claim-drift-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Run claim-drift regression tests
+        run: node --test scripts/content/__tests__/audit-claim-drift.test.mjs
+
+      - name: Run full corpus audit
+        run: |
+          node scripts/content/audit-claim-drift.mjs
+          cp reports/content-claim-drift.json reports/content-claim-drift.full.json
+          cp reports/content-claim-drift.md reports/content-claim-drift.full.md
+
+      - name: Enforce critical rules on changed PR content
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          node scripts/content/audit-claim-drift.mjs --changed-from="origin/$BASE_REF" --fail-on-critical
+
+      - name: Upload content-debt reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: content-claim-drift-${{ github.run_number }}
+          path: |
+            reports/content-claim-drift.json
+            reports/content-claim-drift.md
+            reports/content-claim-drift.full.json
+            reports/content-claim-drift.full.md
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Summary
+        if: always()
+        run: |
+          echo '## Content claim-drift audit' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/content-claim-drift.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const changed = JSON.parse(fs.readFileSync('reports/content-claim-drift.json', 'utf8'))
+          const fullPath = 'reports/content-claim-drift.full.json'
+          const full = fs.existsSync(fullPath) ? JSON.parse(fs.readFileSync(fullPath, 'utf8')) : changed
+          console.log(`- Changed-scope mode: ${changed.mode}`)
+          console.log(`- Changed-scope critical findings: ${changed.counts.critical}`)
+          console.log(`- Newly introduced blocking critical findings: ${changed.blockingCriticalCount ?? changed.counts.critical}`)
+          console.log(`- Changed-scope high: ${changed.counts.high}`)
+          console.log(`- Full corpus static pages inventoried: ${full.staticPagesInventoried}`)
+          console.log(`- Full corpus critical: ${full.counts.critical}`)
+          console.log(`- Full corpus high: ${full.counts.high}`)
+          console.log(`- Full corpus medium: ${full.counts.medium}`)
+          console.log(`- Full corpus low: ${full.counts.low}`)
+          NODE
+          fi
+          echo '- Full runs create a prioritized content-debt queue; pull requests block only newly introduced critical dose/safety drift.' >> "$GITHUB_STEP_SUMMARY"

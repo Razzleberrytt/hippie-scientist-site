@@ -21,7 +21,7 @@ const requiredRedirects = [
   '/atom.xml /feed.xml 301',
   '/natural-anxiolytics-beyond-ashwagandha /guides/anxiety/best-herbs-for-anxiety/ 301',
   '/psychedelic-adjacent-herbs /guides/other/psychedelic-adjacent-herbs/ 301',
-  '/sleep-herbs-vs-melatonin /guides/sleep/sleep-herbs-vs-melatonin/ 301',
+  '/sleep-herbs-vs-melatonin /guides/compare/sleep-herbs-vs-melatonin/ 301',
   '/compounds/coq10 /compounds/coenzyme-q10/ 301',
   '/compounds/coenzyme-q10-ubiquinol /compounds/coenzyme-q10/ 301',
   '/compounds/theanine /compounds/l-theanine/ 301',
