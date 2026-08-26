@@ -23,7 +23,7 @@ describe('international SEO helpers', () => {
     expect(DEFAULT_REGION).toBe('US')
     expect(LOCALE_TEXT_DIRECTION).toBe('ltr')
     expect(SPANISH_LOCALE).toBe('es')
-    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es', 'pt-BR', 'fr', 'de'])
+    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es', 'pt-BR', 'fr', 'de', 'it', 'nl', 'pl'])
   })
 
   it('normalizes paths for locale alternates without query strings', () => {
@@ -38,7 +38,16 @@ describe('international SEO helpers', () => {
       { locale: 'pt-BR', url: 'https://thehippiescientist.net/pt/ervas/' },
       { locale: 'fr', url: 'https://thehippiescientist.net/fr/plantes/' },
       { locale: 'de', url: 'https://thehippiescientist.net/de/kraeuter/' },
+      { locale: 'it', url: 'https://thehippiescientist.net/it/erbe/' },
+      { locale: 'nl', url: 'https://thehippiescientist.net/nl/kruiden/' },
+      { locale: 'pl', url: 'https://thehippiescientist.net/pl/ziola/' },
       { locale: 'x-default', url: 'https://thehippiescientist.net/herbs/' },
+    ])
+
+    // Detailed profiles are not advertised for a locale until a complete reviewed
+    // claim-level translation exists for that profile.
+    expect(getCurrentLocaleAlternates('/herbs/ashwagandha/').map((alternate) => alternate.locale)).toEqual([
+      'en-US', 'es', 'pt-BR', 'fr', 'de', 'x-default',
     ])
 
     // An untranslated profile must not advertise alternates that do not exist.
@@ -52,6 +61,9 @@ describe('international SEO helpers', () => {
     expect(getLocalizedRoute('/herbs/', 'es')).toBe('/es/hierbas/')
     expect(getLocalizedRoute('/es/hierbas/', 'en-US')).toBe('/herbs/')
     expect(getLocalizedRoute('/goals/sleep', 'es')).toBe('/es/objetivos/sueno/')
+    expect(getLocalizedRoute('/herbs/', 'it')).toBe('/it/erbe/')
+    expect(getLocalizedRoute('/nl/doelen/slaap/', 'en-US')).toBe('/goals/sleep/')
+    expect(getLocalizedRoute('/goals/anxiety/', 'pl')).toBe('/pl/cele/lek/')
   })
 
   it('builds the default locale homepage URL', () => {
@@ -59,15 +71,17 @@ describe('international SEO helpers', () => {
   })
 
   it('exposes locale metadata for every language version', () => {
-    // One entry per supported locale plus x-default.
+    // One entry per supported locale plus x-default on the homepage, which has
+    // a real published equivalent in every supported locale.
     expect(getLocaleMetadata('/').alternates).toHaveLength(SUPPORTED_LOCALES.length + 1)
     expect(getLocaleMetadata('/').openGraphLocale).toBe('en_US')
     expect(getLocaleMetadata('/es/', 'es').openGraphLocale).toBe('es_ES')
+    expect(getLocaleMetadata('/it/', 'it').openGraphLocale).toBe('it_IT')
+    expect(getLocaleMetadata('/nl/', 'nl').openGraphLocale).toBe('nl_NL')
+    expect(getLocaleMetadata('/pl/', 'pl').openGraphLocale).toBe('pl_PL')
   })
 
   it('keeps every published translation indexable, in every locale', () => {
-    // Not just Spanish: a translation the site publishes and links with hreflang
-    // must not be told noindex by the indexability policy.
     for (const route of LOCALIZED_ROUTES) {
       for (const translated of Object.values(route.translations)) {
         if (!translated) continue
