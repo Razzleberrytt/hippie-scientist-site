@@ -14,7 +14,7 @@ const failOnCritical = args.has('--fail-on-critical')
 const changedFromArg = [...args].find((arg) => arg.startsWith('--changed-from='))
 const changedFrom = changedFromArg?.slice('--changed-from='.length) || null
 
-const SCAN_ROOTS = ['app', 'content']
+const SCAN_ROOTS = ['app', 'components', 'content']
 const CONTENT_EXTENSIONS = new Set(['.tsx', '.ts', '.md', '.mdx'])
 const EXCLUDED_SEGMENTS = new Set([
   '__tests__',
@@ -116,6 +116,49 @@ function changedFilesSince(ref) {
   }
 }
 
+function addedLinesSince(ref) {
+  if (!ref) return null
+  try {
+    const output = execFileSync(
+      'git',
+      ['diff', '--unified=0', '--diff-filter=ACMR', `${ref}...HEAD`, '--', ...SCAN_ROOTS],
+      { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+    )
+    const added = new Map()
+    let currentFile = null
+    let newLine = null
+
+    for (const line of output.split(/\r?\n/)) {
+      if (line.startsWith('+++ b/')) {
+        currentFile = line.slice('+++ b/'.length)
+        if (!added.has(currentFile)) added.set(currentFile, new Set())
+        continue
+      }
+
+      const hunk = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/)
+      if (hunk) {
+        newLine = Number(hunk[1])
+        continue
+      }
+
+      if (!currentFile || newLine == null) continue
+      if (line.startsWith('+') && !line.startsWith('+++')) {
+        added.get(currentFile).add(newLine)
+        newLine += 1
+      } else if (line.startsWith('-') && !line.startsWith('---')) {
+        // Removed lines do not advance the new-file line counter.
+      } else if (line.startsWith(' ')) {
+        newLine += 1
+      }
+    }
+
+    return added
+  } catch (error) {
+    console.warn(`[claim-drift] Could not resolve added lines from ${ref}: ${error.message}`)
+    return null
+  }
+}
+
 function staticRouteForFile(relativeFile) {
   if (!relativeFile.startsWith('app/') || !relativeFile.endsWith('/page.tsx')) return null
   const route = relativeFile.slice('app'.length, -'/page.tsx'.length) || '/'
@@ -171,6 +214,13 @@ const allFiles = SCAN_ROOTS.flatMap((dir) => walk(path.join(ROOT, dir)))
   .map((file) => normalizePath(path.relative(ROOT, file)))
   .sort()
 const changedSet = changedFilesSince(changedFrom)
+const addedLineMap = addedLinesSince(changedFrom)
+
+if (changedFrom && failOnCritical && (!changedSet || !addedLineMap)) {
+  console.error(`[claim-drift] FAIL: cannot prove newly introduced critical lines against ${changedFrom}`)
+  process.exit(1)
+}
+
 const scanSet = changedSet ? new Set([...changedSet].filter((file) => allFiles.includes(file))) : new Set(allFiles)
 const findings = []
 const pageInventory = []
@@ -196,13 +246,15 @@ for (const relativeFile of allFiles) {
     for (const match of text.matchAll(rule.pattern)) {
       const context = nearbyContext(text, match.index)
       if (rule.qualification?.test(context)) continue
+      const line = lineNumberAt(text, match.index)
       findings.push({
         severity: rule.severity,
         rule: rule.id,
         description: rule.description,
         file: relativeFile,
         route,
-        line: lineNumberAt(text, match.index),
+        line,
+        introduced: !changedFrom || Boolean(addedLineMap?.get(relativeFile)?.has(line)),
         excerpt: excerptAround(text, match.index),
       })
     }
@@ -221,6 +273,7 @@ for (const relativeFile of allFiles) {
         file: relativeFile,
         route,
         line: 1,
+        introduced: !changedFrom,
         excerpt: `${sourceCount} recognized external research source${sourceCount === 1 ? '' : 's'} in source file.`,
       })
     }
@@ -234,6 +287,7 @@ for (const relativeFile of allFiles) {
         file: relativeFile,
         route,
         line: 1,
+        introduced: !changedFrom,
         excerpt: `Newest explicit year found: ${newestYear}.`,
       })
     }
@@ -272,6 +326,7 @@ for (const [key, pages] of groups) {
     file: uniqueRoutes.map((page) => page.file).join(', '),
     route: uniqueRoutes.map((page) => page.route).join(' ↔ '),
     line: 1,
+    introduced: false,
     excerpt: uniqueRoutes.map((page) => `${page.route}${page.title ? ` — ${page.title}` : ''}`).join(' | '),
   })
 }
@@ -285,6 +340,9 @@ findings.sort((a, b) =>
 
 const counts = { critical: 0, high: 0, medium: 0, low: 0 }
 for (const finding of findings) counts[finding.severity] += 1
+const blockingCriticalCount = findings.filter(
+  (finding) => finding.severity === 'critical' && finding.introduced,
+).length
 
 const report = {
   schemaVersion: 1,
@@ -295,12 +353,16 @@ const report = {
   inventoryFiles: allFiles.length,
   staticPagesInventoried: pageInventory.length,
   counts,
+  blockingCriticalCount,
   rules: RULES.map(({ id, severity, description }) => ({ id, severity, description })),
   findings,
   notes: [
     'This is a prioritization audit, not a medical-truth engine; findings require editorial review.',
     'Source-recency findings are queue signals only. CI does not infer that an older source has been superseded.',
     'Duplicate-intent findings are conservative candidates; redirects still require checking historical traffic and page purpose.',
+    changedFrom
+      ? 'PR blocking is diff-aware: only critical findings whose match begins on a newly added line count toward blockingCriticalCount.'
+      : 'Full-corpus runs are report-only unless an operator explicitly supplies --fail-on-critical.',
   ],
 }
 
@@ -314,12 +376,13 @@ const md = [
   `- Scanned files: **${report.scannedFiles}** (inventory: ${report.inventoryFiles})`,
   `- Static pages inventoried: **${report.staticPagesInventoried}**`,
   `- Critical: **${counts.critical}** · High: **${counts.high}** · Medium: **${counts.medium}** · Low: **${counts.low}**`,
+  `- Newly introduced blocking critical: **${blockingCriticalCount}**`,
   '',
   '## Findings',
   '',
   ...(findings.length
     ? findings.map((finding) =>
-        `- **${finding.severity.toUpperCase()} · ${finding.rule}** — \`${finding.file}:${finding.line}\`${finding.route ? ` (${finding.route})` : ''}\n  - ${finding.description}\n  - ${finding.excerpt}`,
+        `- **${finding.severity.toUpperCase()} · ${finding.rule}** — \`${finding.file}:${finding.line}\`${finding.route ? ` (${finding.route})` : ''}${changedFrom ? ` · ${finding.introduced ? 'new line' : 'pre-existing in changed file'}` : ''}\n  - ${finding.description}\n  - ${finding.excerpt}`,
       )
     : ['No findings in this audit scope.']),
   '',
@@ -327,15 +390,16 @@ const md = [
   '',
   '- Findings are review candidates, not automatic medical or SEO conclusions.',
   '- Precise dose and absolute-safety findings are the only default blocking class when `--fail-on-critical` is used.',
-  '- Run the full audit on a schedule to maintain a content-debt queue; use changed-file mode on pull requests to avoid making historical debt block unrelated work.',
+  '- Pull-request blocking is restricted to critical matches that begin on newly added diff lines; historical debt in an edited file remains visible but does not block unrelated edits.',
+  '- Run the full audit on a schedule to maintain a content-debt queue.',
   '',
 ]
 fs.writeFileSync(MD_REPORT, `${md.join('\n')}\n`)
 
-console.log(`[claim-drift] scanned ${scanSet.size}/${allFiles.length} files; critical=${counts.critical} high=${counts.high} medium=${counts.medium} low=${counts.low}`)
+console.log(`[claim-drift] scanned ${scanSet.size}/${allFiles.length} files; critical=${counts.critical} high=${counts.high} medium=${counts.medium} low=${counts.low}; blockingCritical=${blockingCriticalCount}`)
 console.log(`[claim-drift] wrote ${path.relative(ROOT, JSON_REPORT)} and ${path.relative(ROOT, MD_REPORT)}`)
 
-if (failOnCritical && counts.critical > 0) {
-  console.error(`[claim-drift] FAIL: ${counts.critical} critical finding(s) in changed scope`)
+if (failOnCritical && blockingCriticalCount > 0) {
+  console.error(`[claim-drift] FAIL: ${blockingCriticalCount} newly introduced critical finding(s)`)
   process.exit(1)
 }
