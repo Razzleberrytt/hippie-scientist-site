@@ -2,7 +2,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { blogJsonLd, breadcrumbJsonLd, buildPageMetadata, faqPageJsonLd, SITE_URL } from '../../src/lib/seo'
+import {
+  blogJsonLd,
+  breadcrumbJsonLd,
+  buildPageMetadata,
+  faqPageJsonLd,
+  isMeaningfulFaqAnswer,
+  SITE_URL,
+} from '../../src/lib/seo'
 import { getGoalArticle, getGoalCluster, getRelatedGoalArticles } from '@/lib/goal-clusters'
 import { getSleepArticleContent } from '@/lib/sleep-cluster-content'
 import {
@@ -71,7 +78,10 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
   const relatedArticles = getRelatedGoalArticles(slug, 5)
   const articlePath = canonicalPath ?? `/articles/${article.slug}/`
   const canonicalUrl = `${SITE_URL}${articlePath}`
-  const faqSchema = faqPageJsonLd({ pagePath: articlePath, questions: content.faq })
+  const meaningfulFaq = content.faq.filter((item) => isMeaningfulFaqAnswer(item.answer))
+  const faqSchema = meaningfulFaq.length >= 2
+    ? faqPageJsonLd({ pagePath: articlePath, questions: meaningfulFaq })
+    : null
   const sourceRefs = content.references.map((reference, index) => ({
     n: index + 1,
     title: reference.label,
