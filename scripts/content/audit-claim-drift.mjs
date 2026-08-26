@@ -15,6 +15,8 @@ const changedFromArg = [...args].find((arg) => arg.startsWith('--changed-from=')
 const changedFrom = changedFromArg?.slice('--changed-from='.length) || null
 
 const SCAN_ROOTS = ['app', 'components', 'content']
+const EXTRA_SCAN_FILES = ['config/profile-verdicts.ts']
+const SCAN_PATHS = [...SCAN_ROOTS, ...EXTRA_SCAN_FILES]
 const CONTENT_EXTENSIONS = new Set(['.tsx', '.ts', '.md', '.mdx'])
 const EXCLUDED_SEGMENTS = new Set([
   '__tests__',
@@ -121,7 +123,7 @@ function addedLinesSince(ref) {
   try {
     const output = execFileSync(
       'git',
-      ['diff', '--unified=0', '--diff-filter=ACMR', `${ref}...HEAD`, '--', ...SCAN_ROOTS],
+      ['diff', '--unified=0', '--diff-filter=ACMR', `${ref}...HEAD`, '--', ...SCAN_PATHS],
       { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
     )
     const added = new Map()
@@ -210,7 +212,12 @@ function newestExplicitSourceYear(text) {
   return years.length ? Math.max(...years) : null
 }
 
-const allFiles = SCAN_ROOTS.flatMap((dir) => walk(path.join(ROOT, dir)))
+const allFiles = [
+  ...SCAN_ROOTS.flatMap((dir) => walk(path.join(ROOT, dir))),
+  ...EXTRA_SCAN_FILES
+    .map((file) => path.join(ROOT, file))
+    .filter((file) => fs.existsSync(file) && shouldScanFile(file)),
+]
   .map((file) => normalizePath(path.relative(ROOT, file)))
   .sort()
 const changedSet = changedFilesSince(changedFrom)
@@ -253,6 +260,36 @@ for (const relativeFile of allFiles) {
         description: rule.description,
         file: relativeFile,
         route,
+        line,
+        introduced: !changedFrom || Boolean(addedLineMap?.get(relativeFile)?.has(line)),
+        excerpt: excerptAround(text, match.index),
+      })
+    }
+  }
+
+  if (relativeFile === 'config/profile-verdicts.ts') {
+    for (const match of text.matchAll(/\bbestFor\s*:\s*\[/g)) {
+      const line = lineNumberAt(text, match.index)
+      findings.push({
+        severity: 'medium',
+        rule: 'profile-verdict-best-for',
+        description: 'Profile verdict bestFor fields are strong reader-routing claims; review them against evidence strength and the canonical profile.',
+        file: relativeFile,
+        route: null,
+        line,
+        introduced: !changedFrom || Boolean(addedLineMap?.get(relativeFile)?.has(line)),
+        excerpt: excerptAround(text, match.index),
+      })
+    }
+
+    for (const match of text.matchAll(/\bevaluationWindow\s*:\s*['"`][^'"`\n]{0,80}\b\d+(?:\s*(?:-|–|to)\s*\d+)?\s*(?:minutes?|hours?|days?|weeks?|months?)\b/gi)) {
+      const line = lineNumberAt(text, match.index)
+      findings.push({
+        severity: 'medium',
+        rule: 'profile-verdict-evaluation-window',
+        description: 'Profile verdict evaluation windows are precise decision guidance; verify they reflect studied duration rather than a universal recommendation.',
+        file: relativeFile,
+        route: null,
         line,
         introduced: !changedFrom || Boolean(addedLineMap?.get(relativeFile)?.has(line)),
         excerpt: excerptAround(text, match.index),
@@ -360,6 +397,7 @@ const report = {
     'This is a prioritization audit, not a medical-truth engine; findings require editorial review.',
     'Source-recency findings are queue signals only. CI does not infer that an older source has been superseded.',
     'Duplicate-intent findings are conservative candidates; redirects still require checking historical traffic and page purpose.',
+    'Profile-verdict bestFor and evaluationWindow fields are explicitly inventoried because they are user-facing decision claims outside ordinary page/content roots.',
     changedFrom
       ? 'PR blocking is diff-aware: only critical findings whose match begins on a newly added line count toward blockingCriticalCount.'
       : 'Full-corpus runs are report-only unless an operator explicitly supplies --fail-on-critical.',
