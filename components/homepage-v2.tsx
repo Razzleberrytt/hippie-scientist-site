@@ -10,7 +10,7 @@ import {
   Zap,
 } from 'lucide-react'
 import { coreGoals } from '@/lib/core-goals'
-import buildReport from '@/public/data/build-report.json'
+import { getPublicSiteMetrics } from '@/lib/public-site-metrics'
 
 const goalDetails = {
   sleep: { icon: Moon, label: 'Sleep', href: '/guides/sleep/' },
@@ -57,15 +57,14 @@ const principles = [
   },
 ]
 
-const counts = buildReport.counts
+export default async function HomepageV2() {
+  const metrics = await getPublicSiteMetrics()
+  const stats = [
+    { value: metrics.publishedHerbs, label: 'Published herbs' },
+    { value: metrics.publishedCompounds, label: 'Published compounds' },
+    { value: metrics.structuredStudies, label: 'Structured studies' },
+  ]
 
-const stats = [
-  { value: counts.herbs, label: 'Herbs' },
-  { value: counts.compounds, label: 'Compounds' },
-  { value: counts.claims, label: 'Sourced claims' },
-]
-
-export default function HomepageV2() {
   return (
     <div className='hs-home'>
       <div className='hs-home-shell'>
