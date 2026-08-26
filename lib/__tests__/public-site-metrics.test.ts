@@ -29,8 +29,11 @@ function dataset(): PublicEvidenceDataset {
 }
 
 describe('public site metrics', () => {
-  it('uses the evidence dataset for study metrics and suppresses redirect-only profile aliases', () => {
-    const metrics = buildPublicSiteMetrics(dataset())
+  it('uses final public-library inventory counts while preserving evidence-dataset study metrics', () => {
+    const metrics = buildPublicSiteMetrics(dataset(), {
+      publishedHerbs: 1,
+      publishedCompounds: 2,
+    })
 
     expect(metrics).toEqual({
       publishedHerbs: 1,
