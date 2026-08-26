@@ -35,6 +35,8 @@ export type ClaimOutcomeMetadataCoverage = OutcomeMetadataCoverageCounts & {
   claimId: string
   predicate: string
   confidence: number
+  linkedPrimaryHumanStudyIds: string[]
+  linkedPrimaryHumanStudyIdsNeedingOutcomeMetadataBackfill: string[]
   outcomeMetadataCoverage: number
   namedAlignmentCoverage: number
   outcomeMetadataGap: boolean
@@ -90,6 +92,20 @@ function countsForStudyIds(
       row!.registeredPrimaryOutcomes.length > 0 && row!.reportedPrimaryOutcomes.length > 0,
     ).length,
   }
+}
+
+function studyIdsNeedingOutcomeMetadataBackfill(
+  url: string,
+  studyIds: readonly string[],
+  metadataByStudy: Map<string, OutcomeMetadataAnalysis['studies'][number]>,
+): string[] {
+  return studyIds.filter((studyId) => {
+    const row = metadataByStudy.get(`${url}::${studyId}`)
+    return !row
+      || !row.hasOutcomeMetadata
+      || row.registeredPrimaryOutcomes.length === 0
+      || row.reportedPrimaryOutcomes.length === 0
+  })
 }
 
 function coverageFields(counts: OutcomeMetadataCoverageCounts) {
@@ -152,6 +168,12 @@ export function analyzeOutcomeMetadataCoverage(input: {
         claimId: text(claim.id) || 'unknown-claim',
         predicate: text(claim.predicate),
         confidence,
+        linkedPrimaryHumanStudyIds: linkedStudyIds,
+        linkedPrimaryHumanStudyIdsNeedingOutcomeMetadataBackfill: studyIdsNeedingOutcomeMetadataBackfill(
+          url,
+          linkedStudyIds,
+          metadataByStudy,
+        ),
         ...claimCounts,
         outcomeMetadataCoverage: claimCoverage.outcomeMetadataCoverage,
         namedAlignmentCoverage: claimCoverage.namedAlignmentCoverage,

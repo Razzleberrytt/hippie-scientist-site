@@ -98,6 +98,21 @@ describe('outcome metadata coverage', () => {
     expect(result.summary.highConfidenceClaimCoverageGaps).toBe(1)
   })
 
+  it('targets only linked primary-human studies that still need outcome metadata backfill', () => {
+    const input = analysis()
+    input.profiles[0].record.claimMap![0].sourceRefIds = ['s1', 's2', 's3']
+    const outcomeMetadata = metadata()
+    outcomeMetadata.studies[0].reportedPrimaryOutcomes = ['ISI']
+
+    const result = analyzeOutcomeMetadataCoverage({ analysis: input, outcomeMetadata })
+
+    expect(result.claims[0]).toMatchObject({
+      linkedPrimaryHumanStudyIds: ['pmid:1', 'pmid:2', 'pmid:3'],
+      linkedPrimaryHumanStudyIdsNeedingOutcomeMetadataBackfill: ['pmid:2', 'pmid:3'],
+      outcomeMetadataGap: true,
+    })
+  })
+
   it('does not confuse absence of primary-human evidence with an outcome metadata gap', () => {
     const input = analysis()
     input.profiles[0].record.sources = [{ id: 's1', pmid: '1', studyClass: 'systematic-review' }]
