@@ -1,0 +1,98 @@
+name: Temporary apply approved BPC-157 workbook patch
+
+on:
+  push:
+    branches:
+      - fix/bpc157-human-evidence-apply
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tmp-apply-bpc157-approved-patch
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: github.event.head_commit.message == 'chore(ci): add temporary BPC-157 patch applicator'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v7
+        with:
+          ref: fix/bpc157-human-evidence-apply
+          fetch-depth: 2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --silent
+
+      - name: Verify exact approved patch
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const path = 'data-sources/workbook-patches/bpc-157-human-evidence-freshness-2026-08-26.json'
+          const patch = JSON.parse(fs.readFileSync(path, 'utf8'))
+          if (patch.id !== 'bpc-157-human-evidence-freshness-2026-08-26') throw new Error('Unexpected patch id')
+          if (patch.status !== 'approved') throw new Error(`Patch must be approved, got ${patch.status}`)
+          if (!Array.isArray(patch.changes) || patch.changes.length !== 2) throw new Error('Expected exactly two changes')
+          const targets = patch.changes.map(c => `${c.slug}:${c.column}`).sort().join(',')
+          if (targets !== 'bpc-157:description,bpc-157:summary') throw new Error(`Unexpected targets: ${targets}`)
+          NODE
+          node scripts/data/apply-workbook-patch.mjs \
+            --patch data-sources/workbook-patches/bpc-157-human-evidence-freshness-2026-08-26.json
+
+      - name: Apply approved patch to canonical workbook
+        run: |
+          node scripts/data/apply-workbook-patch.mjs \
+            --patch data-sources/workbook-patches/bpc-157-human-evidence-freshness-2026-08-26.json \
+            --apply \
+            --approve-human-review \
+            --in-place
+
+      - name: Mark patch applied and verify workbook
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const path = 'data-sources/workbook-patches/bpc-157-human-evidence-freshness-2026-08-26.json'
+          const patch = JSON.parse(fs.readFileSync(path, 'utf8'))
+          if (patch.status !== 'approved') throw new Error(`Expected approved before transition, got ${patch.status}`)
+          patch.status = 'applied'
+          fs.writeFileSync(path, `${JSON.stringify(patch, null, 2)}\n`, 'utf8')
+          NODE
+          node scripts/ci/validate-workbook-patches.mjs
+          npm run workbook:roundtrip-test --silent
+
+      - name: Enforce atomic diff
+        shell: bash
+        run: |
+          mapfile -t changed < <(git status --porcelain | sed -E 's/^.. //' | sort)
+          printf 'Changed files:\n%s\n' "${changed[*]}"
+          expected=(
+            'data-sources/herb_monograph_master.xlsx'
+            'data-sources/workbook-patches/bpc-157-human-evidence-freshness-2026-08-26.json'
+          )
+          if [[ "${changed[*]}" != "${expected[*]}" ]]; then
+            echo 'Unexpected worktree drift; refusing to commit.' >&2
+            git status --short
+            exit 1
+          fi
+
+      - name: Commit applied workbook transaction
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data-sources/herb_monograph_master.xlsx \
+            data-sources/workbook-patches/bpc-157-human-evidence-freshness-2026-08-26.json
+          git commit -m 'fix(data): apply approved BPC-157 evidence wording'
+          git push origin HEAD:fix/bpc157-human-evidence-apply
