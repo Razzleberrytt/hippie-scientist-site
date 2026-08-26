@@ -106,10 +106,6 @@ type SourceRegistryRow = {
   active: boolean
 }
 
-type SourceWaveTargetsReport = {
-  targets: Array<{ entityType: EntityType; entitySlug: string }>
-}
-
 type Workpack = {
   workpackId: string
   itemType: WorkpackItemType
@@ -139,7 +135,6 @@ const BACKLOG_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-backlog.json'
 const REVIEW_CYCLE_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-review-cycle.json')
 const GOVERNED_PATH = path.join(ROOT, 'public', 'data', 'enrichment-governed.json')
 const SOURCE_REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
-const SOURCE_WAVE_TARGETS_PATH = path.join(ROOT, 'ops', 'reports', 'source-wave-1-targets.json')
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'enrichment-workpacks.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'enrichment-workpacks.md')
 
@@ -414,10 +409,11 @@ function run() {
   const reviewCycle = readJson<ReviewCycleReport>(REVIEW_CYCLE_PATH)
   const governed = readJson<GovernedRow[]>(GOVERNED_PATH)
   const sourceRegistry = readJson<SourceRegistryRow[]>(SOURCE_REGISTRY_PATH)
-  const sourceWaveTargets = readJson<SourceWaveTargetsReport>(SOURCE_WAVE_TARGETS_PATH)
-  const sourceWaveTargetKeys = new Set(
-    sourceWaveTargets.targets.map(target => entityKey(target.entityType, target.entitySlug)),
-  )
+  const backlogEntityKeys = new Set<string>()
+  for (const item of backlog.items) {
+    if (item.itemType !== 'entity' || !item.entityType || !item.entitySlug) continue
+    backlogEntityKeys.add(entityKey(item.entityType, item.entitySlug))
+  }
 
   const reviewByKey = new Map<string, ReviewCycleItem>()
   for (const item of reviewCycle.items) {
@@ -434,7 +430,7 @@ function run() {
   }
   for (const source of sourceRegistry) {
     const key = promotedSourceEntityKey(source)
-    if (!key || !sourceWaveTargetKeys.has(key)) continue
+    if (!key || !backlogEntityKeys.has(key)) continue
     const existing = sourceIdsByEntity.get(key) || []
     if (!existing.includes(source.sourceId)) sourceIdsByEntity.set(key, [...existing, source.sourceId].sort())
   }
@@ -579,7 +575,7 @@ function run() {
     '',
     '## Contractor queue (top 30)',
     '| workpackId | itemType | target | bucket | priority | action | missing/stale | sources | review state |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ]
 
   for (const workpack of workpacks.slice(0, 30)) {
