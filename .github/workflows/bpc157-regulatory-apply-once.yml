@@ -1,0 +1,75 @@
+name: BPC-157 regulatory patch apply once
+
+on:
+  push:
+    branches:
+      - fix/bpc157-human-evidence-apply
+    paths:
+      - 'data-sources/workbook-patches/bpc-157-post-pcac-regulatory-freshness-2026-08-26.json'
+      - '.github/workflows/bpc157-regulatory-apply-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v7
+        with:
+          ref: fix/bpc157-human-evidence-apply
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --silent
+
+      - name: Apply approved canonical patch
+        id: apply_patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          PATCH='data-sources/workbook-patches/bpc-157-post-pcac-regulatory-freshness-2026-08-26.json'
+          STATUS="$(node -p "JSON.parse(require('fs').readFileSync('$PATCH','utf8')).status")"
+          if [ "$STATUS" = 'applied' ]; then
+            echo 'already_applied=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          test "$STATUS" = 'approved'
+          node scripts/data/apply-workbook-patch.mjs \
+            --patch "$PATCH" \
+            --apply \
+            --in-place \
+            --approve-human-review
+          node - <<'NODE'
+          const fs = require('fs')
+          const path = 'data-sources/workbook-patches/bpc-157-post-pcac-regulatory-freshness-2026-08-26.json'
+          const patch = JSON.parse(fs.readFileSync(path, 'utf8'))
+          patch.status = 'applied'
+          fs.writeFileSync(path, `${JSON.stringify(patch, null, 2)}\n`)
+          NODE
+          node scripts/ci/validate-workbook-patches.mjs
+          npm run workbook:roundtrip-test --silent
+          echo 'already_applied=false' >> "$GITHUB_OUTPUT"
+
+      - name: Commit canonical workbook and remove one-time helper
+        if: steps.apply_patch.outputs.already_applied != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/bpc157-regulatory-apply-once.yml
+          git add data-sources/herb_monograph_master.xlsx \
+            data-sources/workbook-patches/bpc-157-post-pcac-regulatory-freshness-2026-08-26.json
+          git diff --cached --check
+          git commit -m 'fix(data): apply post-PCAC BPC-157 regulatory freshness'
+          git push origin HEAD:fix/bpc157-human-evidence-apply
