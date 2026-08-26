@@ -575,7 +575,7 @@ function run() {
     '',
     '## Contractor queue (top 30)',
     '| workpackId | itemType | target | bucket | priority | action | missing/stale | sources | review state |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ]
 
   for (const workpack of workpacks.slice(0, 30)) {
