@@ -481,15 +481,11 @@ export default function BerberineVsMetforminPage() {
             href: '/compounds/berberine/',
           },
           {
-            // Was a self-link titled "Berberine vs Inositol" — no such page
-            // exists, so the card promised a comparison and delivered the page
-            // the reader was already on. Point at the inositol profile, which is
-            // the real destination for that intent, and label it honestly.
-            type: 'compound',
-            label: 'Compound',
-            title: 'Inositol',
-            description: 'Evidence profile for inositol: insulin-sensitizing mechanism, PCOS and metabolic data, dosing, and safety.',
-            href: '/compounds/inositol/',
+            type: 'comparison',
+            label: 'Comparison',
+            title: 'Berberine vs Inositol',
+            description: 'Compare evidence, safety, interaction burden, and metabolic fit for berberine and inositol.',
+            href: '/guides/compare/berberine-vs-inositol/',
           },
           {
             type: 'guide',
@@ -525,8 +521,7 @@ export default function BerberineVsMetforminPage() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/guides/compare/berberine-vs-metformin/" className="chip-readable">Berberine vs Inositol</Link>
-        <Link href="/guides/compare/berberine-vs-metformin/" className="chip-readable">Berberine vs Psyllium</Link>
+        <Link href="/guides/compare/berberine-vs-inositol/" className="chip-readable">Berberine vs Inositol</Link>
         <Link href="/guides/best/supplements-for-gut-health/" className="chip-readable">Gut Health Goals</Link>
         <Link href="/guides/best/supplements-for-fat-loss/" className="chip-readable">Fat Loss Goals</Link>
         <Link href="/guides/compare/" className="chip-readable">All Comparisons</Link>
