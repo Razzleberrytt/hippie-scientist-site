@@ -5,6 +5,7 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - 'app/**'
+      - 'components/**'
       - 'content/**'
       - 'lib/public-site-metrics.ts'
       - 'public/redirect-overrides/**'
@@ -15,6 +16,7 @@ on:
     branches: [main]
     paths:
       - 'app/**'
+      - 'components/**'
       - 'content/**'
       - 'lib/public-site-metrics.ts'
       - 'public/redirect-overrides/**'
@@ -86,7 +88,8 @@ jobs:
           const fullPath = 'reports/content-claim-drift.full.json'
           const full = fs.existsSync(fullPath) ? JSON.parse(fs.readFileSync(fullPath, 'utf8')) : changed
           console.log(`- Changed-scope mode: ${changed.mode}`)
-          console.log(`- Changed-scope critical: ${changed.counts.critical}`)
+          console.log(`- Changed-scope critical findings: ${changed.counts.critical}`)
+          console.log(`- Newly introduced blocking critical findings: ${changed.blockingCriticalCount ?? changed.counts.critical}`)
           console.log(`- Changed-scope high: ${changed.counts.high}`)
           console.log(`- Full corpus static pages inventoried: ${full.staticPagesInventoried}`)
           console.log(`- Full corpus critical: ${full.counts.critical}`)
