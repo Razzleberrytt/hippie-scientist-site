@@ -43,6 +43,15 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - name: Restore Next.js build cache
+        if: steps.impact.outputs.docs_only != 'true'
+        uses: actions/cache@v6
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('app/**/*', 'src/**/*', 'lib/**/*', 'components/**/*', 'public/data/**/*', 'data/**/*', 'data-sources/**/*', 'content/**/*', 'scripts/**/*', 'next.config.*', 'tailwind.config.*', 'postcss.config.*') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
+
       - name: Install dependencies
         if: steps.impact.outputs.docs_only != 'true'
         run: npm ci
