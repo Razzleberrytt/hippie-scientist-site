@@ -1,0 +1,49 @@
+{
+  "patch_version": 1,
+  "id": "bpc-157-post-pcac-regulatory-freshness-2026-08-26",
+  "status": "applied",
+  "generated_by": "lane-2-scientific-integrity",
+  "sources": [
+    {
+      "id": "pmid-42198317",
+      "title": "BPC-157 as an Investigational Peptide Therapeutic: Biopharmaceutical Challenges, Formulation Strategies, and Translational Development Barriers",
+      "year": 2026,
+      "doi": "10.3390/pharmaceutics18050625"
+    },
+    {
+      "id": "fda-pcac-meeting-2026",
+      "title": "July 23-24, 2026 Meeting of the Pharmacy Compounding Advisory Committee",
+      "year": 2026,
+      "source_type": "authority-reference",
+      "url": "https://www.fda.gov/advisory-committees/advisory-committee-calendar/july-23-24-2026-meeting-pharmacy-compounding-advisory-committee-07232026"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "bpc-157",
+      "column": "last_regulatory_check",
+      "expected_old_value": "2026-06-30",
+      "new_value": "2026-08-26",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-42198317",
+        "fda-pcac-meeting-2026"
+      ],
+      "requires_human_review": true,
+      "rationale": "The public regulatory card exposes this date. The July 23-24 PCAC meeting has occurred, so retaining a June 30 check date alongside post-meeting copy would misstate freshness. The review was refreshed on August 26, 2026 against FDA meeting materials and the current evidence review."
+    },
+    {
+      "slug": "bpc-157",
+      "column": "regulatory_changelog",
+      "expected_old_value": "2023-04/2026: FDA Category 2 restricted (503A bulk substances). 2026-04-22: Removed from Category 2 (gray zone, not Category 1 approved). 2026-07-23/24: FDA PCAC scheduled to review for 503A compounding eligibility, alongside KPV, TB-500, and MOTS-C.",
+      "new_value": "2023-04/2026: FDA Category 2 restricted (503A bulk substances). 2026-04-22: Removed from Category 2 after nomination withdrawals; this did not place BPC-157 on the 503A Bulks List. 2026-07-23: FDA PCAC voted to recommend BPC-157-related bulk drug substances for the 503A Bulks List. The advisory recommendation is non-binding and did not itself create a final 503A rule; as of 2026-08-26, no final FDA rule adding BPC-157 was located.",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-42198317",
+        "fda-pcac-meeting-2026"
+      ],
+      "requires_human_review": true,
+      "rationale": "The existing changelog is chronologically false because the July 23 PCAC review has occurred. The committee voted 8-6 with one abstention to recommend inclusion. The replacement records that recommendation while preserving the essential regulatory boundary: advisory-committee recommendations are non-binding, the vote was not FDA drug approval, and the August 26 review did not locate a final 503A rule adding BPC-157."
+    }
+  ]
+}
