@@ -3,11 +3,15 @@ import { describe, expect, it } from 'vitest'
 
 import { FRENCH_PAGES } from '../french-content'
 import { GERMAN_PAGES } from '../german-content'
+import { DUTCH_PAGES, ITALIAN_PAGES, POLISH_PAGES } from '../expanded-language-content'
 import {
   DEFAULT_LOCALE,
+  DUTCH_LOCALE,
   FRENCH_LOCALE,
   GERMAN_LOCALE,
+  ITALIAN_LOCALE,
   LOCALIZED_ROUTES,
+  POLISH_LOCALE,
   PORTUGUESE_LOCALE,
   SPANISH_LOCALE,
   getCurrentLocaleAlternates,
@@ -27,6 +31,9 @@ const PACKS: Record<TranslationLocale, readonly LocalizedPageData[]> = {
   [PORTUGUESE_LOCALE]: Object.values(PORTUGUESE_PAGES),
   [FRENCH_LOCALE]: Object.values(FRENCH_PAGES),
   [GERMAN_LOCALE]: Object.values(GERMAN_PAGES),
+  [ITALIAN_LOCALE]: Object.values(ITALIAN_PAGES),
+  [DUTCH_LOCALE]: Object.values(DUTCH_PAGES),
+  [POLISH_LOCALE]: Object.values(POLISH_PAGES),
 }
 
 function pageLinks(page: LocalizedPageData): string[] {
@@ -46,20 +53,26 @@ function localeDirectory(locale: TranslationLocale) {
   return localePrefix(locale).replace(/\//g, '')
 }
 
+function herbProfileTranslations(locale: TranslationLocale) {
+  if (!(locale in PROFILE_TRANSLATIONS)) return []
+  return PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale]
+}
+
+function compoundProfileTranslations(locale: TranslationLocale) {
+  if (!(locale in COMPOUND_PROFILE_TRANSLATIONS)) return []
+  return COMPOUND_PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale]
+}
+
 /**
- * Everything this locale actually publishes. Translated profiles live in two
- * registries - herbs in PROFILE_TRANSLATIONS, compounds in
- * COMPOUND_PROFILE_TRANSLATIONS - and reading only the first made every
- * `/<locale>/<compounds>/l-theanine/` look unpublished when it ships.
- *
- * The locale homepage is a route of its own (app/es/page.tsx and siblings)
- * rather than a content-pack entry; Spanish keeps it only there, the other
- * locales also list it in their pack, so it is added once when missing.
+ * Everything this locale actually publishes. Some locales intentionally ship
+ * core editorial pages before claim-level scientific profile translations.
+ * Hreflang must therefore match the real artifacts for each locale rather than
+ * assuming every locale has the same profile coverage.
  */
 function publishedPaths(locale: TranslationLocale) {
   const core = PACKS[locale].map((page) => normalizeInternationalPath(page.path))
-  const profiles = PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale].map((profile) => normalizeInternationalPath(profile.path))
-  const compounds = COMPOUND_PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale].map((profile) => normalizeInternationalPath(profile.path))
+  const profiles = herbProfileTranslations(locale).map((profile) => normalizeInternationalPath(profile.path))
+  const compounds = compoundProfileTranslations(locale).map((profile) => normalizeInternationalPath(profile.path))
 
   const paths = [...core, ...profiles, ...compounds]
   const home = normalizeInternationalPath(localePrefix(locale))
@@ -89,8 +102,8 @@ describe('multilingual localization integrity', () => {
       }
 
       for (const profile of [
-        ...PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale],
-        ...COMPOUND_PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale],
+        ...herbProfileTranslations(locale),
+        ...compoundProfileTranslations(locale),
       ]) {
         expect(profile.title.trim().length, `${profile.path} must have a title`).toBeGreaterThan(12)
         expect(profile.summary.trim().length, `${profile.path} must have a substantive summary`).toBeGreaterThan(80)

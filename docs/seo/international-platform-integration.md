@@ -1,12 +1,16 @@
 # International Platform Integration
 
-This document defines the first safe implementation layer for regional shopping and commerce links.
+This document defines the safe implementation layer for regional shopping and commerce links. Language localization and commerce-region routing are related user experiences, but they remain separate systems with separate sources of truth.
 
-## Current priority
+## Current localization context
 
-The business goal is to make international visitors more useful without creating fake translated pages first.
+The site currently publishes English, Spanish, Brazilian Portuguese, French, German, Italian, Dutch, and Polish localized routes. Locale availability does **not** imply that a matching regional commerce destination exists, and regional commerce support does **not** justify creating a translated page.
 
-The first supported regions are:
+## Current commerce priority
+
+The business goal is to make international visitors more useful without guessing product-marketplace equivalence.
+
+The first supported commerce regions are:
 
 - United States (`US`)
 - United Kingdom (`UK`)
@@ -19,6 +23,8 @@ The first platform modeled is Amazon, because many current product links use Ama
 Regional links must be explicit.
 
 Do not guess that a US product URL, ASIN, search URL, or product detail page automatically maps cleanly to the same product in another country. Product availability, listing IDs, pricing, and compliance can differ by marketplace.
+
+Likewise, do not create or advertise locale-specific content merely to match a commerce region. Hreflang remains controlled by `src/lib/international-seo.ts` and requires a real equivalent localized page.
 
 ## Safe fallback order
 
@@ -37,13 +43,15 @@ This preserves current monetization behavior while allowing regional upgrades on
 - Keeps US as the default fallback.
 - Keeps outbound link `rel` behavior explicit.
 - Adds tests for fallback behavior.
+- Coexists with the multilingual routing system without coupling locale to marketplace.
 
 ## What this foundation intentionally does not do
 
 - It does not auto-redirect by IP address.
 - It does not auto-redirect by browser language.
-- It does not create Spanish/French/etc. translated pages.
-- It does not add `hreflang` for pages that do not exist.
+- It does not infer marketplace from locale alone.
+- It does not add `hreflang`; localization owns that separately.
+- It does not create translations solely for commerce coverage.
 - It does not rewrite every product card yet.
 - It does not assume Amazon OneLink is enabled.
 - It does not reuse a US tracking ID for UK or Canada.
