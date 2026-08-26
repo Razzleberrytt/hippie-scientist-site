@@ -7,6 +7,11 @@ const retiredPage = path.join(root, 'app/guides/sleep/sleep-herbs-vs-melatonin/p
 const canonicalPage = path.join(root, 'app/guides/compare/sleep-herbs-vs-melatonin/page.tsx')
 const overrideFile = path.join(root, 'public/redirect-overrides/010-sleep-herbs-vs-melatonin-canonical.txt')
 const winner = '/guides/compare/sleep-herbs-vs-melatonin/'
+const cloudflareFunctionFiles = [
+  'functions/guides/sleep/sleep-herbs-vs-melatonin.ts',
+  'functions/guides/sleep-herbs-vs-melatonin.ts',
+  'functions/sleep-herbs-vs-melatonin.ts',
+]
 
 describe('sleep herbs vs melatonin canonical ownership', () => {
   it('keeps one indexable page owner and redirects every retired alias to it', () => {
@@ -17,5 +22,14 @@ describe('sleep herbs vs melatonin canonical ownership', () => {
     expect(redirects).toContain(`/guides/sleep/sleep-herbs-vs-melatonin/ ${winner} 301`)
     expect(redirects).toContain(`/guides/sleep-herbs-vs-melatonin/ ${winner} 301`)
     expect(redirects).toContain(`/sleep-herbs-vs-melatonin/ ${winner} 301`)
+
+    for (const functionFile of cloudflareFunctionFiles) {
+      const absolutePath = path.join(root, functionFile)
+      expect(fs.existsSync(absolutePath)).toBe(true)
+
+      const source = fs.readFileSync(absolutePath, 'utf8')
+      expect(source).toContain(`const TARGET_PATH = '${winner}'`)
+      expect(source).toContain('Response.redirect(url.toString(), 301)')
+    }
   })
 })
