@@ -29,6 +29,7 @@ export default function ScrollToTopButton() {
       onClick={scrollToTop}
       className={`fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 z-[85] inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-brand-900/15 bg-[var(--surface-card-strong)] p-2 text-brand-800 shadow-sm backdrop-blur transition-all motion-safe:hover:scale-105 md:bottom-8 md:right-6 ${visible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
       aria-label={label}
+      aria-hidden={!visible}
       lang={locale}
       tabIndex={visible ? 0 : -1}
     >
