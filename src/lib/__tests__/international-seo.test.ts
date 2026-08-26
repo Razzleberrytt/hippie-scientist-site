@@ -57,13 +57,16 @@ describe('international SEO helpers', () => {
     ])
   })
 
-  it('resolves translated routes in both directions', () => {
+  it('resolves translated routes in both directions and fails closed for unpublished profile locales', () => {
     expect(getLocalizedRoute('/herbs/', 'es')).toBe('/es/hierbas/')
     expect(getLocalizedRoute('/es/hierbas/', 'en-US')).toBe('/herbs/')
     expect(getLocalizedRoute('/goals/sleep', 'es')).toBe('/es/objetivos/sueno/')
     expect(getLocalizedRoute('/herbs/', 'it')).toBe('/it/erbe/')
     expect(getLocalizedRoute('/nl/doelen/slaap/', 'en-US')).toBe('/goals/sleep/')
     expect(getLocalizedRoute('/goals/anxiety/', 'pl')).toBe('/pl/cele/lek/')
+    expect(getLocalizedRoute('/herbs/ashwagandha/', 'it')).toBeNull()
+    expect(getLocalizedRoute('/compounds/l-theanine/', 'nl')).toBeNull()
+    expect(getLocalizedRoute('/herbs/ashwagandha/', 'pl')).toBeNull()
   })
 
   it('builds the default locale homepage URL', () => {
