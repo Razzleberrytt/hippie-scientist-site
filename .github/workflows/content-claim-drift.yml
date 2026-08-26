@@ -1,0 +1,90 @@
+name: Content Claim Drift
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'app/**'
+      - 'content/**'
+      - 'lib/public-site-metrics.ts'
+      - 'public/redirect-overrides/**'
+      - 'scripts/content/audit-claim-drift.mjs'
+      - 'scripts/verify-redirects.mjs'
+      - '.github/workflows/content-claim-drift.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'content/**'
+      - 'lib/public-site-metrics.ts'
+      - 'public/redirect-overrides/**'
+      - 'scripts/content/audit-claim-drift.mjs'
+      - 'scripts/verify-redirects.mjs'
+      - '.github/workflows/content-claim-drift.yml'
+  schedule:
+    - cron: '17 14 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: content-claim-drift-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Run full corpus audit
+        run: node scripts/content/audit-claim-drift.mjs
+
+      - name: Enforce critical rules on changed PR content
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          node scripts/content/audit-claim-drift.mjs --changed-from="origin/$BASE_REF" --fail-on-critical
+
+      - name: Upload content-debt reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: content-claim-drift-${{ github.run_number }}
+          path: |
+            reports/content-claim-drift.json
+            reports/content-claim-drift.md
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Summary
+        if: always()
+        run: |
+          echo '## Content claim-drift audit' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/content-claim-drift.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('reports/content-claim-drift.json', 'utf8'))
+          console.log(`- Mode: ${r.mode}`)
+          console.log(`- Scanned files: ${r.scannedFiles}/${r.inventoryFiles}`)
+          console.log(`- Static pages inventoried: ${r.staticPagesInventoried}`)
+          console.log(`- Critical: ${r.counts.critical}`)
+          console.log(`- High: ${r.counts.high}`)
+          console.log(`- Medium: ${r.counts.medium}`)
+          console.log(`- Low: ${r.counts.low}`)
+          NODE
+          fi
+          echo '- Full runs create a prioritized content-debt queue; pull requests block only newly introduced critical dose/safety drift.' >> "$GITHUB_STEP_SUMMARY"
