@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { generateDynamicBreadcrumbs, BreadcrumbItem } from '@/lib/navigation-config'
 
-function isCompoundDetailPath(pathname: string): boolean {
+export function isCompoundDetailPath(pathname: string): boolean {
   const segments = pathname.split('/').filter(Boolean)
   return segments.length === 2 && segments[0] === 'compounds'
 }
