@@ -23,6 +23,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # The AI incident monitor inspects changes between the baseline window
+          # and the detected dip. Keep enough history for that forensic check.
+          fetch-depth: 60
 
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -52,6 +56,9 @@ jobs:
       - name: Run anomaly-safe AI citation analytics
         run: node scripts/seo/run-ai-citation-analytics.mjs
 
+      - name: Diagnose Bing AI citation incidents
+        run: node scripts/seo/ai-citation-incident-monitor.mjs
+
       - name: Upload opportunity and cohort reports
         if: always()
         uses: actions/upload-artifact@v7
@@ -66,6 +73,9 @@ jobs:
             ops/reports/ai-visibility-anomaly.md
             ops/reports/ai-citations.json
             ops/reports/ai-citations.md
+            ops/reports/ai-citation-incident.json
+            ops/reports/ai-citation-incident.md
+            ops/ai-citations/incidents/*.json
             data-sources/search-console/fetch-metadata.json
             data-sources/search-console/pages-by-date.csv
           retention-days: 60
@@ -92,4 +102,8 @@ jobs:
           if [ -f ops/reports/ai-visibility-anomaly.md ]; then
             echo "" >> "$GITHUB_STEP_SUMMARY"
             cat ops/reports/ai-visibility-anomaly.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f ops/reports/ai-citation-incident.md ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat ops/reports/ai-citation-incident.md >> "$GITHUB_STEP_SUMMARY"
           fi
