@@ -11,6 +11,9 @@ const workflows = [
   '.github/workflows/ai-entity-enrichment-check.yml',
   '.github/workflows/botanical-atlas-coverage.yml',
   '.github/workflows/research-distribution.yml',
+  '.github/workflows/backlog-integrity.yml',
+  '.github/workflows/experience-backlog-contract.yml',
+  '.github/workflows/enrichment-governor.yml',
 ]
 
 const concurrencyContract = /\nconcurrency:\s*\n\s+group:\s*\$\{\{\s*github\.workflow\s*\}\}-\$\{\{\s*github\.ref\s*\}\}\s*\n\s+cancel-in-progress:\s*true\b/
