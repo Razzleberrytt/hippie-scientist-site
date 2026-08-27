@@ -200,6 +200,9 @@ describe('distribution pack v1 contract', () => {
       'Take four pills daily for sleep.',
       'Take two gummies daily for sleep.',
       'Use one softgel nightly.',
+      'Take 1/2 teaspoon daily.',
+      'Take half a teaspoon daily.',
+      'Begin with 1/4 teaspoon.',
       'Use one capsule nightly.',
       'Start with 300 mg before bed.',
       'Begin with 2 capsules.',
@@ -213,7 +216,7 @@ describe('distribution pack v1 contract', () => {
     }
   })
 
-  it('keeps preclinical findings explicit and requires every human-directed clause to be bounded', () => {
+  it('keeps preclinical findings explicitly preclinical and entirely non-human-directed in v1', () => {
     for (const projected of [
       'Animal evidence suggests this pathway may change, showing efficacy in humans.',
       'Animal evidence suggests people may experience better memory.',
@@ -221,11 +224,12 @@ describe('distribution pack v1 contract', () => {
       'Animal studies suggest you may sleep better.',
       'Animal studies do not establish benefits in humans, but they prove efficacy for patients.',
       'Animal studies do not establish benefits in humans and prove efficacy for patients.',
-      'Animal studies do not establish benefits in humans while showing efficacy for patients.',
+      'Animal studies do not establish benefits in humans, proving efficacy for patients.',
+      'Animal studies do not establish benefits in humans.',
     ]) {
       const unsafeObject = { ...canonicalHumanObject, evidenceType: 'preclinical', finding: projected }
       const result = messages(packForResearchObject(unsafeObject), [unsafeObject])
-      expect(result.some((message) => message.includes('cannot be projected as a human or second-person benefit')), projected).toBe(true)
+      expect(result.some((message) => message.includes('may not contain human- or second-person-directed language')), projected).toBe(true)
     }
 
     const unlabeledObject = {
@@ -238,7 +242,7 @@ describe('distribution pack v1 contract', () => {
     const boundedObject = {
       ...canonicalHumanObject,
       evidenceType: 'preclinical',
-      finding: 'Animal evidence suggests a signaling change; it does not establish benefits in humans.',
+      finding: 'Animal evidence suggests a signaling change; clinical relevance remains uncertain.',
     }
     expect(messages(packForResearchObject(boundedObject), [boundedObject])).toEqual([])
   })
