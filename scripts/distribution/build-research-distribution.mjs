@@ -142,6 +142,15 @@ const prepared = objects.map((object) => {
   return { object, mediaPack, mediaPackArtifact, packageData }
 })
 
+const packIds = new Map()
+for (const { object, mediaPack } of prepared) {
+  const priorObjectId = packIds.get(mediaPack.packId)
+  if (priorObjectId) {
+    throw new Error(`derived distribution packId collision: ${mediaPack.packId} maps both ${priorObjectId} and ${object.id}`)
+  }
+  packIds.set(mediaPack.packId, object.id)
+}
+
 fs.mkdirSync(outDir, { recursive: true })
 const manifest = []
 
