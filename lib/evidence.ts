@@ -10,6 +10,8 @@ type EvidenceTier = 'strong' | 'moderate' | 'limited' | 'preliminary' | 'traditi
 
 type EvidenceColor = 'emerald' | 'blue' | 'amber' | 'sand' | 'violet' | 'slate'
 
+const UNBACKED_PUBLIC_LABEL = 'Editorial grade not demonstrated by recorded studies'
+
 function readPath(record: unknown, path: string[]): unknown {
   return path.reduce(
     (value, key) => (value && typeof value === 'object' ? (value as Record<string, unknown>)[key] : undefined),
@@ -36,6 +38,10 @@ function list(value: unknown): unknown[] {
       .map(item => item.trim())
       .filter(Boolean)
   return value ? [value] : []
+}
+
+function gradeBackingExplicitlyFails(record: RuntimeRecord): boolean {
+  return (record as Record<string, unknown>)?.evidence_grade_backed === false
 }
 
 export function evidenceText(record: RuntimeRecord): string {
@@ -110,6 +116,12 @@ export function isPreliminaryResearch(record: RuntimeRecord): boolean {
 }
 
 export function getEvidenceTier(record: RuntimeRecord): EvidenceTier {
+  // An authored A/B grade may legitimately reflect literature wider than the
+  // repository, but once the pipeline explicitly records that our studies do
+  // not demonstrate it, public strength helpers must not restate it as settled
+  // strong/moderate evidence. The authored letter remains available separately.
+  if (gradeBackingExplicitlyFails(record)) return 'review'
+
   const authored = authoredEvidenceSignals(record)
   if (authored.present) {
     const reconciled = reconcileEvidenceGrade(authored.rawGrade, authored.rawTier)
@@ -142,6 +154,8 @@ export function getEvidenceTier(record: RuntimeRecord): EvidenceTier {
 }
 
 export function getEvidenceLabel(record: RuntimeRecord): string {
+  if (gradeBackingExplicitlyFails(record)) return UNBACKED_PUBLIC_LABEL
+
   const labels: Record<EvidenceTier, string> = {
     strong: 'Strong evidence',
     moderate: 'Moderate evidence',
