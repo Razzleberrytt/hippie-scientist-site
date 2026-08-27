@@ -18,7 +18,10 @@ const HIGH_RISK_PATTERNS = [
   /^\.github\/workflows\//,
   /^scripts\/ci\//,
   /^scripts\/data\//,
+  /^scripts\/(?:enrichment-governor|enrichment|evidence|governance)\//,
+  /^scripts\/[^/]*(?:data|evidence|citation|safety|runtime|content)[^/]*\.(?:mjs|js|ts)$/i,
   /^public\/data\//,
+  /^data-sources\//,
   /^data\//,
   /^content\//,
   /(?:^|\/)(?:evidence|citation|safety|dose|interaction|contraindication|regulatory)(?:[./_-]|$)/i,
@@ -135,7 +138,7 @@ async function getPr(repo, number) {
 
 async function getPrFiles(repo, number) {
   const files = []
-  for (let page = 1; page <= 4; page += 1) {
+  for (let page = 1; ; page += 1) {
     const payload = await github(`/repos/${repo}/pulls/${number}/files?per_page=100&page=${page}`)
     files.push(...payload.map((file) => file.filename).filter(Boolean))
     if (payload.length < 100) break
