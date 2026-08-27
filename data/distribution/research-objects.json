@@ -11,6 +11,8 @@
     "doseContext": "Trials used different ashwagandha extracts and dosing regimens; any dose values in the underlying studies are study context only and are not consumer dosing instructions.",
     "formulationContext": "The cited evidence includes heterogeneous ashwagandha extracts, so findings from one preparation should not be generalized to all ashwagandha products.",
     "populationContext": "Adults represented in randomized trials included in the cited systematic review and meta-analysis.",
+    "safetyClaimId": "clm_9318758bf577",
+    "safetyStatement": "Avoid ashwagandha during pregnancy unless specifically directed by a qualified clinician, and use extra caution with thyroid disease or thyroid medication, sedatives, antihypertensive or antidiabetic drugs, and immunosuppressants because human safety data and interaction evidence are limited and thyroid stimulation or additive effects are plausible.",
     "series": "evidence-to-distribution-mvp",
     "tags": [
       "ashwagandha",
