@@ -9,7 +9,7 @@ on:
       - 'public/_redirects'
       - 'src/lib/index-allowlist.ts'
       - 'src/lib/seo.ts'
-      - 'src/lib/sitemap-route-visibility.ts'
+      - 'lib/sitemap-route-visibility.ts'
       - 'app/herbs/**'
       - 'app/sitemap.ts'
       - 'functions/herbs/_middleware.ts'
@@ -25,7 +25,7 @@ on:
       - 'public/_redirects'
       - 'src/lib/index-allowlist.ts'
       - 'src/lib/seo.ts'
-      - 'src/lib/sitemap-route-visibility.ts'
+      - 'lib/sitemap-route-visibility.ts'
       - 'app/herbs/**'
       - 'app/sitemap.ts'
 
