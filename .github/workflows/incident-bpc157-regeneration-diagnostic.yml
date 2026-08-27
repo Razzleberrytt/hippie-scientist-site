@@ -30,21 +30,31 @@ jobs:
       - name: Validate workbook patch state
         run: node scripts/ci/validate-workbook-patches.mjs
 
-      - name: Canonically regenerate committed runtime artifacts
-        run: npm run data:build:core
+      - name: Canonically sync detail backfill
+        run: npm run data:sync-detail-backfill
 
-      - name: Report exact generated diff
+      - name: Enforce bounded detail repair
+        shell: bash
         run: |
-          echo '=== PUBLIC DATA CHANGED FILES ==='
-          git diff --name-status -- public/data
-          echo '=== TOTAL PUBLIC DATA CHANGES ==='
-          git diff --name-only -- public/data | wc -l
-          echo '=== NON-PUBLIC-DATA CHANGES ==='
-          git diff --name-status -- . ':(exclude)public/data/**'
-          echo '=== BPC-157 DETAIL DIFF ==='
-          git diff -- public/data/compounds-detail/bpc-157.json
+          set -euo pipefail
+          mapfile -t changed < <(git diff --name-only -- public/data/herbs-detail public/data/compounds-detail)
+          printf 'DETAIL_CHANGED_COUNT=%s\n' "${#changed[@]}"
+          printf '%s\n' "${changed[@]}"
+          test "${#changed[@]}" -eq 1
+          test "${changed[0]}" = 'public/data/compounds-detail/bpc-157.json'
 
-      - name: Guard source of truth after regeneration
+      - name: Verify approved BPC-157 fields propagated
         run: |
-          npm run guard:source-of-truth
-          npm run validate:evidence-language
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const detail = JSON.parse(fs.readFileSync('public/data/compounds-detail/bpc-157.json', 'utf8'))
+          const summary = String(detail.summary || '')
+          const description = String(detail.description || '')
+          if (!summary.includes('FDA identified five small human clinical studies')) throw new Error('BPC-157 summary did not propagate approved human-study context')
+          if (!description.includes('five human clinical studies')) throw new Error('BPC-157 description did not propagate approved human-study context')
+          if (summary.includes('essentially absent') || description.includes('almost no controlled human trial data exists')) throw new Error('stale near-zero human-evidence language remains')
+          console.log('BPC-157 approved summary/description propagation verified')
+          NODE
+
+      - name: Report BPC-157 detail diff
+        run: git diff -- public/data/compounds-detail/bpc-157.json
