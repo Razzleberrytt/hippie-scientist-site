@@ -45,7 +45,7 @@ test('renders a deterministic exact-30-second vertical video package with proven
     expect(first.renderer).toBe('vertical-video-package-v1')
     expect(first.durationSeconds).toBe(30)
     expect(first.sourceContentHash).toBe(mediaPack.source.contentHash)
-    expect(first.assets.length).toBeGreaterThanOrEqual(6)
+    expect(first.assets.length).toBeGreaterThanOrEqual(7)
 
     const timelineBytes = fs.readFileSync(path.join(dir, first.timeline.file), 'utf8')
     const timeline = JSON.parse(timelineBytes)
@@ -59,6 +59,10 @@ test('renders a deterministic exact-30-second vertical video package with proven
       expect(timeline.scenes[index - 1].end).toBe(timeline.scenes[index].start)
     }
 
+    const sourceScenes = first.assets.filter((asset) => asset.role === 'source')
+    expect(sourceScenes).toHaveLength(1)
+    expect(sourceScenes[0].duration).toBeGreaterThanOrEqual(3)
+
     for (const asset of first.assets) {
       const bytes = fs.readFileSync(path.join(dir, asset.file), 'utf8')
       expect(asset.sha256).toBe(digest(bytes))
@@ -67,12 +71,20 @@ test('renders a deterministic exact-30-second vertical video package with proven
       expect(bytes).toContain(mediaPack.source.contentHash)
       expect(bytes).toContain('vertical-video-package-v1')
       expect(bytes).toContain('Educational content')
-      expect(bytes).toContain('font-size="44"')
       const metadata = parseSvgMetadata(bytes)
       expect(metadata.safeArea.right).toBe(860)
       expect(metadata.safeArea.width).toBe(764)
       expect(metadata.sourceUrl).toBe(mediaPack.source.url)
       expect(metadata.contentHash).toBe(mediaPack.source.contentHash)
+
+      if (asset.role === 'source') {
+        expect(bytes).toContain('font-size="32"')
+        expect(metadata.sourceDisplayText).toBe(mediaPack.source.url)
+        expect(metadata.sourceMinimumPxAt1080).toBeGreaterThanOrEqual(32)
+      } else {
+        expect(bytes).toContain('font-size="44"')
+        expect(metadata.sourceDisplayText).toBeNull()
+      }
     }
   } finally { fs.rmSync(dir, { recursive: true, force: true }) }
 })
@@ -99,7 +111,7 @@ test('preserves governed finding and limitation text losslessly in caption paylo
   } finally { fs.rmSync(dir, { recursive: true, force: true }) }
 })
 
-test('fails closed on unsafe creative state, mismatched source identity, or missing lossless continuation pages', () => {
+test('fails closed on unsafe creative state, mismatched source identity, missing lossless pages, or invalid source legibility', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-video-'))
   try {
     expect(() => renderVerticalVideoPackage({
@@ -128,5 +140,20 @@ test('fails closed on unsafe creative state, mismatched source identity, or miss
       },
       outputDir: dir,
     })).toThrow(/finding\.pages is required/)
+
+    expect(() => renderVerticalVideoPackage({
+      mediaPack,
+      creativeSpec: {
+        ...creativeSpec,
+        verticalVideo: {
+          ...creativeSpec.verticalVideo,
+          sourceLegibility: {
+            ...creativeSpec.verticalVideo.sourceLegibility,
+            canonicalUrl: 'https://thehippiescientist.net/herbs/not-the-source/',
+          },
+        },
+      },
+      outputDir: dir,
+    })).toThrow(/exact canonical source URL/)
   } finally { fs.rmSync(dir, { recursive: true, force: true }) }
 })
