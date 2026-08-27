@@ -11,7 +11,7 @@ afterEach(() => {
 })
 
 describe('research distribution claim-safety boundary', () => {
-  it('blocks lossy creative/X compression while preserving governed factual text', () => {
+  it('preserves long governed creative copy losslessly while still blocking lossy X compression', () => {
     const root = process.cwd()
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-distribution-claim-safety-'))
     tempDirs.push(tempDir)
@@ -47,12 +47,14 @@ describe('research distribution claim-safety boundary', () => {
     expect(artifact.sharedFacts.limitation).toBe(limitation)
     expect(artifact.shortVideo).toContain(finding)
     expect(artifact.shortVideo).toContain(limitation)
-    expect(artifact.creativeSpec.claimSafetyStatus).toBe('blocked-unsafe-truncation')
-    expect(artifact.creativeSpec.blockedFields).toEqual(expect.arrayContaining(['finding', 'limitation']))
+    expect(artifact.creativeSpec.claimSafetyStatus).toBe('validated-lossless')
+    expect(artifact.creativeSpec.guardrails.losslessGovernedCopyRequired).toBe(true)
+    expect(artifact.creativeSpec.guardrails.continuationPagesMayNotBeDropped).toBe(true)
+    expect(artifact.creativeSpec.verticalVideo.rendererContract.factualScenesMustBeDerivedFromLosslessCopyPlan).toBe(true)
     expect(artifact.x).toBeNull()
     expect(artifact.xStatus.status).toBe('blocked-over-limit')
     expect(manifest.objects[0]).toMatchObject({
-      creativeSpecStatus: 'blocked-unsafe-truncation',
+      creativeSpecStatus: 'validated-lossless',
       xStatus: 'blocked-over-limit',
       mediaPackStatus: 'validated',
     })
