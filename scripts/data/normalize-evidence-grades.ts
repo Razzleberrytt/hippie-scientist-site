@@ -38,6 +38,7 @@ const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = path.resolve(ROOT, dataDirArg ? dataDirArg.split('=')[1] : 'public/data')
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORTS_DIR, 'evidence-grade-migration.json')
+const UNBACKED_PUBLIC_TIER = 'Editorial grade not demonstrated by recorded studies'
 
 const PROFILE_SYNC_FIELDS = [
   'summary',
@@ -221,15 +222,21 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       })
     }
 
-    // The resolved band is the only public tier. The workbook's authored tier
-    // remains available in evidence_tier_source for audit/reconciliation. This
-    // prevents a corrected Grade C/D record from simultaneously publishing a
-    // stale "Strong Human Evidence" tier.
+    // The resolved band is the public tier only when our recorded evidence can
+    // demonstrate the grade. If it cannot, preserve the authored grade/band for
+    // provenance but publish a qualified state instead of "Strong/Moderate
+    // evidence". This does not claim that wider literature is absent.
+    const publicTier = !backing.backed
+      ? UNBACKED_PUBLIC_TIER
+      : result.band
+        ? BAND_LABEL[result.band]
+        : ''
+
     const enriched = {
       ...row,
       evidence_grade: result.grade,
       evidence_grade_source: String(authoredGrade ?? ''),
-      evidence_tier: result.band ? BAND_LABEL[result.band] : '',
+      evidence_tier: publicTier,
       evidence_tier_source: String(authoredTier ?? ''),
       evidence_grade_band: result.band,
       evidence_grade_reason: result.reason,
@@ -248,7 +255,10 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       evidence_grade_backing_gap: backing.reason,
     }
 
-    if (isPlaceholderSummary(enriched.summary)) {
+    // Recompose only machine-owned summaries. Authored prose remains untouched;
+    // prior composed summaries must be refreshed when backing status changes so
+    // stale "Grade A — strong evidence" sentences cannot survive normalization.
+    if (isPlaceholderSummary(enriched.summary) || String(row.summary_source ?? '') === 'composed-from-record') {
       const composed = buildProfileSummary(enriched)
       if (composed) {
         summariesWritten += 1
@@ -298,7 +308,7 @@ function normalizeClaims() {
     else bySlug.set(slug, [row])
   }
 
-  return { total: rows.length, classes, bySlug }
+  return { total: next.length, classes, bySlug }
 }
 
 function main() {
