@@ -17,7 +17,7 @@ The current manifest intentionally starts as `pending_registry`. The exact 97-UR
 
 ## Edge telemetry
 
-`functions/_middleware.ts` observes responses after they are generated. It:
+`functions/herbs/_middleware.ts` observes responses for `/herbs/*` after they are generated. Scoping the middleware to herb routes captures the complete experiment surface without imposing a Pages Function invocation on unrelated site traffic. It:
 
 1. ignores non-Googlebot-looking user agents;
 2. ignores non-HTML responses;
@@ -51,7 +51,7 @@ node scripts/seo/build-crawl-experiment-manifest.mjs --input path/to/eligible-97
 node scripts/ci/validate-crawl-experiment.mjs
 ```
 
-The importer accepts CSV or JSON and refuses to arm unless it receives exactly 97 unique canonical `/herbs/<slug>` paths that exist in current herb data. It snapshots current content hashes and lastmod values, deterministically samples 40 pages using the committed seed, and block-balances the 20/20 arm assignment using lastmod-age blocks.
+The importer accepts CSV or JSON and refuses to arm unless it receives exactly 97 unique canonical `/herbs/<slug>` paths that exist in current herb data **and are currently sitemap/indexability eligible**. It snapshots current content hashes and lastmod values, deterministically samples 40 pages using the committed seed, block-balances the 20/20 arm assignment using lastmod-age blocks, and fingerprints the route-policy surface that controls herb canonical/indexability behavior.
 
 Do **not** hand-pick or replace missing URLs after seeing assignments. If eligibility changes before activation, rebuild the entire registry from the pre-specified eligibility rule and record the new seed/version.
 
@@ -66,6 +66,8 @@ The 40 randomized pages are frozen for 28 days:
 
 The other 57 pages are not frozen by the causal protocol and may continue to evolve with the site.
 
+At activation, the manifest records a SHA-256 fingerprint of the route-policy files controlling the herb page, sitemap eligibility, canonical/indexability rules, and redirects. This is intentionally conservative: if that policy surface changes during the 28-day window, CI stops the change so it can be evaluated as experimental contamination rather than silently merged.
+
 `crawl-experiment-guard.yml` runs on relevant PRs. Once the manifest is active it fails if:
 
 - counts differ from 20/20/57;
@@ -73,6 +75,7 @@ The other 57 pages are not frozen by the causal protocol and may continue to evo
 - an experiment URL loses current sitemap/indexability eligibility;
 - a treatment/control record's content fingerprint changes;
 - a treatment/control lastmod changes;
+- canonical/indexability/redirect policy differs from the activation snapshot;
 - the freeze window is not exactly 28 days.
 
 ## Crawl Stats baseline
