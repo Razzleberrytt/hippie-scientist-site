@@ -7,6 +7,14 @@ const MANIFEST_PATH = path.resolve('experiments/crawl-request-indexing/manifest.
 const HERBS_PATH = path.resolve('public/data/herbs.json')
 const ALLOWLIST_PATH = path.resolve('src/lib/index-allowlist.ts')
 const EXPECTED = { treatment: 20, control: 20, observational: 57 }
+const FREEZE_POLICY_PATHS = [
+  'app/herbs/[slug]/page.tsx',
+  'app/sitemap.ts',
+  'src/lib/seo.ts',
+  'src/lib/index-allowlist.ts',
+  'lib/sitemap-route-visibility.ts',
+  'public/_redirects',
+]
 const VOLATILE_KEYS = new Set([
   'lastUpdated', 'updatedAt', 'last_updated', 'last_reviewed', 'updated_at', 'reviewedAt',
   'dateModified', 'generated_at', 'generatedAt', 'build_timestamp', 'buildTimestamp',
@@ -32,6 +40,17 @@ function contentHash(record) {
   return createHash('sha256').update(JSON.stringify(stableContent(record))).digest('hex')
 }
 
+function freezePolicyHash() {
+  const hash = createHash('sha256')
+  for (const relativePath of FREEZE_POLICY_PATHS) {
+    hash.update(relativePath)
+    hash.update('\0')
+    hash.update(readFileSync(path.resolve(relativePath)))
+    hash.update('\0')
+  }
+  return hash.digest('hex')
+}
+
 function normalizeDate(value) {
   if (!value) return null
   const timestamp = Date.parse(value)
@@ -48,7 +67,7 @@ function recordLastmod(record) {
 
 function curatedSlugs(source) {
   const match = source.match(/CURATED_INDEXABLE_HERB_SLUGS\s*=\s*\[([\s\S]*?)\]\s*as const/)
-  if (!match) return new Set()
+  if (!match) throw new Error('Unable to parse CURATED_INDEXABLE_HERB_SLUGS')
   return new Set([...match[1].matchAll(/['"]([^'"]+)['"]/g)].map((entry) => entry[1]))
 }
 
@@ -56,6 +75,7 @@ const manifest = JSON.parse(readFileSync(MANIFEST_PATH, 'utf8'))
 const entries = Array.isArray(manifest.entries) ? manifest.entries : []
 
 if (manifest.schema_version !== 1) fail('schema_version must be 1')
+if (!['pending_registry', 'active'].includes(manifest.status)) fail(`unsupported status: ${manifest.status}`)
 if (manifest.registry_source?.expected_total !== 97) fail('registry_source.expected_total must be 97')
 if (manifest.design?.treatment_n !== 20 || manifest.design?.control_n !== 20 || manifest.design?.observational_n !== 57) {
   fail('design must remain 20 treatment / 20 randomized control / 57 observational')
@@ -72,7 +92,7 @@ for (const pathname of pathnames) {
 if (manifest.status !== 'active') {
   const causalAssignments = entries.filter((entry) => entry.arm === 'treatment' || entry.arm === 'control')
   if (causalAssignments.length > 0) fail('pending manifest must not contain treatment/control assignments')
-  console.log(`[crawl-experiment] PASS (unarmed): telemetry may run; causal experiment remains disabled until exact 97-URL registry is imported.`)
+  console.log('[crawl-experiment] PASS (unarmed): telemetry may run; causal experiment remains disabled until exact 97-URL registry is imported.')
   process.exit(process.exitCode ?? 0)
 }
 
@@ -92,6 +112,19 @@ if (!Number.isFinite(freezeStart) || !Number.isFinite(freezeEnd)) {
 } else {
   const durationDays = (freezeEnd - freezeStart) / 86_400_000
   if (Math.abs(durationDays - 28) > 0.001) fail(`freeze window must be exactly 28 days; found ${durationDays}`)
+}
+
+const configuredPolicyPaths = Array.isArray(manifest.freeze?.policy_paths) ? manifest.freeze.policy_paths : []
+if (JSON.stringify(configuredPolicyPaths) !== JSON.stringify(FREEZE_POLICY_PATHS)) {
+  fail('freeze policy_paths differ from the pre-specified route-policy surface')
+}
+if (!manifest.freeze?.policy_sha256) {
+  fail('active manifest requires freeze.policy_sha256')
+} else {
+  const currentPolicyHash = freezePolicyHash()
+  if (currentPolicyHash !== manifest.freeze.policy_sha256) {
+    fail('canonical/indexability route-policy freeze violated')
+  }
 }
 
 const herbRows = JSON.parse(readFileSync(HERBS_PATH, 'utf8'))
@@ -125,5 +158,5 @@ for (const entry of entries) {
 }
 
 if (!process.exitCode) {
-  console.log('[crawl-experiment] PASS: active registry is 20 treatment / 20 randomized control / 57 observational; freeze and indexability guards hold.')
+  console.log('[crawl-experiment] PASS: active registry is 20 treatment / 20 randomized control / 57 observational; content, lastmod, indexability, and route-policy freezes hold.')
 }
