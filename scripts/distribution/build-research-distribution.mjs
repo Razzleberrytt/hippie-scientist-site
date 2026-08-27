@@ -7,7 +7,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import { buildCreativeSpec } from './creative-spec.mjs'
+import { buildLosslessCreativeSpec } from './creative-spec-lossless.mjs'
 import { buildDistributionPackFromResearchObject } from './build-distribution-pack.mjs'
 import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
 
@@ -56,7 +56,7 @@ function core(o) {
 }
 
 function buildClaimSafeCreativeSpec(object) {
-  const spec = buildCreativeSpec(object)
+  const spec = buildLosslessCreativeSpec(object)
   const serialized = JSON.stringify(spec)
   const requiredFactualText = {
     finding: sentence(object.finding),
