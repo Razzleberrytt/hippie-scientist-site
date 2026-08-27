@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import fs from 'node:fs'
 import test from 'node:test'
 
 import { classifyRisk, evaluateReadiness } from './autonomous-merge-controller.mjs'
@@ -36,8 +37,22 @@ const mediumRequired = [
 ]
 
 test('scientific and governance paths are high risk', () => {
-  assert.equal(classifyRisk({ pr, changedFiles: ['public/data/herbs/foo.json'] }), 'high')
-  assert.equal(classifyRisk({ pr, changedFiles: ['scripts/ci/example.mjs'] }), 'high')
+  for (const changedFile of [
+    'public/data/herbs/foo.json',
+    'scripts/ci/example.mjs',
+    'data-sources/herb_monograph_master.xlsx',
+    'data-sources/workbook-patches/example.json',
+    'scripts/build-runtime-data.mjs',
+    'scripts/enrichment-governor/control.mjs',
+  ]) {
+    assert.equal(classifyRisk({ pr, changedFiles: [changedFile] }), 'high', changedFile)
+  }
+})
+
+test('changed-file pagination has no four-page truncation', () => {
+  const source = fs.readFileSync(new URL('./autonomous-merge-controller.mjs', import.meta.url), 'utf8')
+  assert.match(source, /for \(let page = 1; ; page \+= 1\)/)
+  assert.doesNotMatch(source, /page\s*<=\s*4/)
 })
 
 test('test/docs-only changes are low risk', () => {
