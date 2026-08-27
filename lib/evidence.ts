@@ -70,13 +70,6 @@ function authoredEvidenceSignals(record: RuntimeRecord) {
   return { rawGrade, rawTier, present: Boolean(text(rawGrade) || text(rawTier)) }
 }
 
-/**
- * Resolve direct human-evidence presence from normalized structured citations.
- * `null` means the record has no classifiable structured citation evidence and
- * may use the conservative legacy text fallback. Once at least one citation is
- * explicitly classified, non-human classes are authoritative rather than being
- * overridden by grade adjectives or raw source cardinality.
- */
 function structuredHumanEvidence(record: RuntimeRecord): boolean | null {
   const citations = extractCitationsFromRecord(record as Record<string, unknown>)
   const classified = citations.flatMap(citation =>
@@ -91,13 +84,7 @@ export function hasHumanEvidence(record: RuntimeRecord): boolean {
   if (structured !== null) return structured
 
   const evidence = evidenceText(record)
-  if (/\b(no|none|theoretical|traditional|preclinical|in\s*vitro|animal)\b/.test(evidence)) {
-    return false
-  }
-
-  // Legacy fallback is deliberately explicit about human research. Generic
-  // strength words ("strong", "moderate") and source counts are not evidence
-  // that any cited research actually involved humans.
+  if (/\b(no|none|theoretical|traditional|preclinical|in\s*vitro|animal)\b/.test(evidence)) return false
   return /\b(human|clinical|trial|rct|randomi[sz]ed|meta-analysis|meta analysis|systematic review)\b/.test(evidence)
 }
 
@@ -109,17 +96,10 @@ export function hasMechanismEvidence(record: RuntimeRecord): boolean {
 
 export function isPreliminaryResearch(record: RuntimeRecord): boolean {
   const evidence = evidenceText(record)
-
-  return /\b(preliminary|emerging|limited|low|weak|partial|draft|none|preclinical|animal|in\s*vitro|theoretical|grade\s*[cd]|tier\s*[cd])\b/.test(
-    evidence,
-  )
+  return /\b(preliminary|emerging|limited|low|weak|partial|draft|none|preclinical|animal|in\s*vitro|theoretical|grade\s*[cd]|tier\s*[cd])\b/.test(evidence)
 }
 
 export function getEvidenceTier(record: RuntimeRecord): EvidenceTier {
-  // An authored A/B grade may legitimately reflect literature wider than the
-  // repository, but once the pipeline explicitly records that our studies do
-  // not demonstrate it, public strength helpers must not restate it as settled
-  // strong/moderate evidence. The authored letter remains available separately.
   if (gradeBackingExplicitlyFails(record)) return 'review'
 
   const authored = authoredEvidenceSignals(record)
@@ -128,12 +108,8 @@ export function getEvidenceTier(record: RuntimeRecord): EvidenceTier {
     const rawTierText = text(authored.rawTier).toLowerCase()
     if (reconciled.grade === 'A') return 'strong'
     if (reconciled.grade === 'B') return 'moderate'
-    if (reconciled.grade === 'C') {
-      return /\b(mixed|conflict|inconsistent|equivocal)\b/.test(rawTierText) ? 'mixed' : 'limited'
-    }
-    if (reconciled.grade === 'D') {
-      return /\b(traditional|ethnobotanical|historical)\b/.test(rawTierText) ? 'traditional' : 'preliminary'
-    }
+    if (reconciled.grade === 'C') return /\b(mixed|conflict|inconsistent|equivocal)\b/.test(rawTierText) ? 'mixed' : 'limited'
+    if (reconciled.grade === 'D') return /\b(traditional|ethnobotanical|historical)\b/.test(rawTierText) ? 'traditional' : 'preliminary'
     if (reconciled.grade === 'Avoid/Insufficient') return 'insufficient'
     return 'review'
   }
@@ -149,96 +125,47 @@ export function getEvidenceTier(record: RuntimeRecord): EvidenceTier {
   if (isPreliminaryResearch(record)) return 'preliminary'
   if (hasHumanEvidence(record)) return 'moderate'
   if (hasMechanismEvidence(record)) return 'limited'
-
   return 'limited'
 }
 
 export function getEvidenceLabel(record: RuntimeRecord): string {
   if (gradeBackingExplicitlyFails(record)) return UNBACKED_PUBLIC_LABEL
-
   const labels: Record<EvidenceTier, string> = {
-    strong: 'Strong evidence',
-    moderate: 'Moderate evidence',
-    limited: 'Limited evidence',
-    preliminary: 'Preliminary evidence',
-    traditional: 'Traditional use',
-    mixed: 'Mixed evidence',
-    insufficient: 'Insufficient evidence',
-    review: 'Needs review',
+    strong: 'Strong evidence', moderate: 'Moderate evidence', limited: 'Limited evidence', preliminary: 'Preliminary evidence', traditional: 'Traditional use', mixed: 'Mixed evidence', insufficient: 'Insufficient evidence', review: 'Needs review',
   }
-
   return labels[getEvidenceTier(record)]
 }
 
 export function getEvidenceColor(record: RuntimeRecord): EvidenceColor {
   const colors: Record<EvidenceTier, EvidenceColor> = {
-    strong: 'emerald',
-    moderate: 'blue',
-    limited: 'slate',
-    preliminary: 'amber',
-    traditional: 'sand',
-    mixed: 'violet',
-    insufficient: 'slate',
-    review: 'slate',
+    strong: 'emerald', moderate: 'blue', limited: 'slate', preliminary: 'amber', traditional: 'sand', mixed: 'violet', insufficient: 'slate', review: 'slate',
   }
-
   return colors[getEvidenceTier(record)]
 }
 
-/** Compatibility name retained for UI/data callers. */
 export type EvidenceLetterGrade = CanonicalEvidenceGrade | 'Unassigned'
 
-/**
- * Resolve a record through the canonical evidence-grade reconciliation contract.
- * Conflicting grade/tier signals resolve downward. Outcome-dependent,
- * not-applicable, or otherwise unresolved records remain `Unassigned`; they are
- * never converted into an invented single grade by heuristic fallback.
- *
- * Records with no authored grade/tier at all retain the historical tier-derived
- * compatibility fallback so older runtime-only content does not disappear.
- */
 export function getEvidenceLetterGrade(record: RuntimeRecord): EvidenceLetterGrade {
+  // Letter badges translate A/B directly into Strong/Moderate semantics. Once
+  // the recorded evidence explicitly fails to back that grade, the public
+  // badge must fail closed while the authored grade remains in *_source.
+  if (gradeBackingExplicitlyFails(record)) return 'Unassigned'
+
   const authored = authoredEvidenceSignals(record)
   if (authored.present) {
     const reconciled = reconcileEvidenceGrade(authored.rawGrade, authored.rawTier)
     return reconciled.grade ?? 'Unassigned'
   }
-
   const tierMap: Record<EvidenceTier, EvidenceLetterGrade> = {
-    strong: 'A',
-    moderate: 'B',
-    limited: 'C',
-    mixed: 'C',
-    preliminary: 'D',
-    traditional: 'D',
-    insufficient: 'Avoid/Insufficient',
-    review: 'Unassigned',
+    strong: 'A', moderate: 'B', limited: 'C', mixed: 'C', preliminary: 'D', traditional: 'D', insufficient: 'Avoid/Insufficient', review: 'Unassigned',
   }
-
   return tierMap[getEvidenceTier(record)]
 }
 
 export function hasStrongSafetyProfile(record: RuntimeRecord): boolean {
-  const safety = [
-    record?.safety,
-    record?.safetyNotes,
-    record?.safety_notes,
-    record?.contraindications,
-    record?.interactions,
-  ]
-    .map(text)
-    .filter(Boolean)
-    .join(' ')
-    .toLowerCase()
-  const confidence = text(
-    readPath(record, ['safety', 'confidence']) || record?.confidenceTier,
-  ).toLowerCase()
-
-  if (
-    /\b(avoid|contraindicat|caution|interaction|pregnan|liver|kidney|risk|toxic)\b/.test(safety)
-  ) {
-    return false
-  }
-
+  const safety = [record?.safety, record?.safetyNotes, record?.safety_notes, record?.contraindications, record?.interactions]
+    .map(text).filter(Boolean).join(' ').toLowerCase()
+  const confidence = text(readPath(record, ['safety', 'confidence']) || record?.confidenceTier).toLowerCase()
+  if (/\b(avoid|contraindicat|caution|interaction|pregnan|liver|kidney|risk|toxic)\b/.test(safety)) return false
   return /\b(strong|high|safe|well\s*tolerated|low\s*risk)\b/.test(`${safety} ${confidence}`)
 }

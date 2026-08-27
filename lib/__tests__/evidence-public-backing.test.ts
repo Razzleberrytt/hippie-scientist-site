@@ -7,12 +7,15 @@ describe('public evidence backing semantics', () => {
   const unbacked = {
     slug: 'berberis',
     evidence_grade: 'A',
+    evidence_grade_source: 'A',
     evidence_tier: 'Strong Evidence',
+    evidence_tier_source: 'Strong Evidence',
     evidence_grade_backed: false,
   } as RuntimeRecord
 
-  it('preserves the authored grade for provenance', () => {
-    expect(getEvidenceLetterGrade(unbacked)).toBe('A')
+  it('fails the public letter badge closed while preserving authored provenance separately', () => {
+    expect(getEvidenceLetterGrade(unbacked)).toBe('Unassigned')
+    expect(unbacked.evidence_grade_source).toBe('A')
   })
 
   it('does not publish an explicitly unbacked grade as settled strength', () => {
