@@ -1,6 +1,15 @@
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from './decision-primitives'
 
+const UNBACKED_EDITORIAL_TIER = 'editorial grade not demonstrated by recorded studies'
+
 export function normalizeEvidenceLevel(value?: string) {
+  const normalized = String(value ?? '')
+    .trim()
+    .toLowerCase()
+    .replace(/[_-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+
+  if (normalized === UNBACKED_EDITORIAL_TIER) return 'Needs review'
   return normalizeDecisionEvidence(value)
 }
 
