@@ -54,10 +54,37 @@ function core(o) {
     destination: clean(o.sourceUrl),
   }
 }
+
+function buildClaimSafeCreativeSpec(object) {
+  const spec = buildCreativeSpec(object)
+  const serialized = JSON.stringify(spec)
+  const requiredFactualText = {
+    finding: sentence(object.finding),
+    limitation: sentence(object.limitation),
+  }
+  const missing = Object.entries(requiredFactualText)
+    .filter(([, value]) => !serialized.includes(value))
+    .map(([field]) => field)
+
+  if (!missing.length) {
+    return { ...spec, claimSafetyStatus: 'validated-lossless' }
+  }
+
+  return {
+    status: 'blocked-unsafe-truncation',
+    claimSafetyStatus: 'blocked-unsafe-truncation',
+    sourceIdentity: { id: clean(object.id), sourceUrl: clean(object.sourceUrl) },
+    blockedFields: missing,
+    reason: `Creative rendering would omit governed ${missing.join(' and ')} text under current copy limits.`,
+    requiredAction: 'Split or budget governed factual text losslessly before rendering; do not paraphrase, strengthen, or truncate factual claims.',
+  }
+}
+
 function buildChannels(o, seriesById) {
   const c = core(o)
   const series = seriesById.get(o.series)?.name || 'What the evidence actually says'
   const xBody = `${o.title}: ${c.finding} ${c.evidence} ${c.limitation} ${c.destination}`
+  const xFits = xBody.length <= 280
   const caption = `${o.title}\n\n${c.finding}\n\n${c.evidence}\n${c.limitation}${c.dose ? `\n${c.dose}` : ''}\n\nRead the evidence page: ${c.destination}`
   const video = [
     `HOOK: ${truncate(o.title, 90)}`,
@@ -86,7 +113,15 @@ function buildChannels(o, seriesById) {
       lastVerified: o.lastVerified,
       tags: Array.isArray(o.tags) ? o.tags : [],
     },
-    x: truncate(xBody, 280),
+    x: xFits ? xBody : null,
+    xStatus: xFits
+      ? { status: 'ready', characterCount: xBody.length, characterLimit: 280 }
+      : {
+          status: 'blocked-over-limit',
+          characterCount: xBody.length,
+          characterLimit: 280,
+          reason: 'The governed finding, evidence grade, limitation, and source do not fit losslessly in one X post. Manual compression requires a separately governed rewrite.',
+        },
     instagram: caption,
     shortVideo: video,
     youtubeShort: video,
@@ -137,7 +172,7 @@ const prepared = objects.map((object) => {
       status: 'validated',
     },
     ...buildChannels(object, seriesById),
-    creativeSpec: buildCreativeSpec(object),
+    creativeSpec: buildClaimSafeCreativeSpec(object),
   }
   return { object, mediaPack, mediaPackArtifact, packageData }
 })
@@ -159,7 +194,8 @@ for (const { object, mediaPack, mediaPackArtifact, packageData } of prepared) {
 
   const jsonPath = path.join(outDir, `${object.id}.json`)
   fs.writeFileSync(jsonPath, `${JSON.stringify(packageData, null, 2)}\n`)
-  const md = `# ${object.title}\n\n**Status:** review required  \n**Series:** ${packageData.sharedFacts.series}  \n**Source:** ${object.sourceUrl}\n**Validated media pack:** ${mediaPackArtifact}\n\n## X\n\n${packageData.x}\n\n## Instagram\n\n${packageData.instagram}\n\n## Short video / YouTube Short\n\n${packageData.shortVideo}\n\n## Reddit contribution draft\n\n${packageData.reddit.guidance}\n\n${packageData.reddit.draft}\n\n## Email section\n\n${packageData.email.section}\n\n## Article brief\n\n${packageData.articleBrief.directAnswer}\n`
+  const xSection = packageData.x || `BLOCKED: ${packageData.xStatus.reason}`
+  const md = `# ${object.title}\n\n**Status:** review required  \n**Series:** ${packageData.sharedFacts.series}  \n**Source:** ${object.sourceUrl}\n**Validated media pack:** ${mediaPackArtifact}\n\n## X\n\n${xSection}\n\n## Instagram\n\n${packageData.instagram}\n\n## Short video / YouTube Short\n\n${packageData.shortVideo}\n\n## Reddit contribution draft\n\n${packageData.reddit.guidance}\n\n${packageData.reddit.draft}\n\n## Email section\n\n${packageData.email.section}\n\n## Article brief\n\n${packageData.articleBrief.directAnswer}\n`
   fs.writeFileSync(path.join(outDir, `${object.id}.md`), md)
   manifest.push({
     id: object.id,
@@ -169,6 +205,8 @@ for (const { object, mediaPack, mediaPackArtifact, packageData } of prepared) {
     mediaPack: mediaPackArtifact,
     mediaPackId: mediaPack.packId,
     mediaPackStatus: 'validated',
+    creativeSpecStatus: packageData.creativeSpec.claimSafetyStatus,
+    xStatus: packageData.xStatus.status,
     status: 'review-required',
   })
 }

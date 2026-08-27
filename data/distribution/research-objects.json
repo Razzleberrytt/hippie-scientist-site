@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": "ashwagandha-stress-evidence",
+    "title": "Ashwagandha and stress/anxiety outcomes in randomized human trials",
+    "finding": "Systematic reviews of randomized trials suggest that some ashwagandha extracts may reduce perceived stress and anxiety symptoms in adults, but the evidence should be interpreted cautiously because formulations, doses, study populations, and outcome measures vary across trials.",
+    "evidenceType": "meta-analysis",
+    "evidenceGrade": "B",
+    "limitation": "The clinical evidence base remains limited by small trials, heterogeneous extracts and dosing regimens, variable outcome measures, and risk-of-bias concerns, so results from one preparation should not be generalized to all ashwagandha products.",
+    "sourceUrl": "https://thehippiescientist.net/herbs/ashwagandha/",
+    "primarySourceUrl": "https://doi.org/10.1002/ptr.7598",
+    "doseContext": "Trials used different ashwagandha extracts and dosing regimens; any dose values in the underlying studies are study context only and are not consumer dosing instructions.",
+    "populationContext": "Adults represented in randomized trials included in the cited systematic review and meta-analysis.",
+    "series": "evidence-to-distribution-mvp",
+    "tags": [
+      "ashwagandha",
+      "stress",
+      "anxiety",
+      "human-evidence",
+      "meta-analysis"
+    ],
+    "lastVerified": "2026-08-27"
+  }
+]
