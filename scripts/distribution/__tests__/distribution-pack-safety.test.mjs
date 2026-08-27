@@ -10,6 +10,7 @@ const researchObjects = JSON.parse(fs.readFileSync(path.join(root, 'data/distrib
 const ashwagandha = JSON.parse(fs.readFileSync(path.join(root, 'public/data/herbs-detail/ashwagandha.json'), 'utf8'))
 const object = researchObjects.find(({ id }) => id === 'ashwagandha-stress-evidence')
 
+// Executable validation anchor: governed safety must always resolve back to approved canonical claim ownership.
 describe('governed distribution safety projection', () => {
   it('binds the Ashwagandha safety payload to an approved canonical safety claim', () => {
     const canonicalClaim = ashwagandha.claimMap.find(({ id }) => id === object.safetyClaimId)
