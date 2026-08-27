@@ -1,0 +1,32 @@
+name: Crawl experiment guard
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/crawl-request-indexing/**'
+      - 'public/data/herbs.json'
+      - 'src/lib/index-allowlist.ts'
+      - 'functions/_middleware.ts'
+      - 'functions/_shared/googlebot-verification.ts'
+      - 'scripts/ci/validate-crawl-experiment.mjs'
+      - 'scripts/seo/build-crawl-experiment-manifest.mjs'
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/crawl-request-indexing/**'
+      - 'public/data/herbs.json'
+      - 'src/lib/index-allowlist.ts'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate crawl experiment
+        run: node scripts/ci/validate-crawl-experiment.mjs
