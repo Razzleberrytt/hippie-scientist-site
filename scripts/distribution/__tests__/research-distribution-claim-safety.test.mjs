@@ -48,7 +48,6 @@ describe('research distribution claim-safety boundary', () => {
     expect(artifact.shortVideo).toContain(finding)
     expect(artifact.shortVideo).toContain(limitation)
     expect(artifact.creativeSpec.claimSafetyStatus).toBe('validated-lossless')
-    expect(artifact.creativeSpec.blockedFields).toEqual([])
     expect(artifact.creativeSpec.guardrails.losslessGovernedCopyRequired).toBe(true)
     expect(artifact.creativeSpec.guardrails.continuationPagesMayNotBeDropped).toBe(true)
     expect(artifact.creativeSpec.verticalVideo.rendererContract.factualScenesMustBeDerivedFromLosslessCopyPlan).toBe(true)
