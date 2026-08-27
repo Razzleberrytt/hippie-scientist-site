@@ -9,6 +9,7 @@
     "sourceUrl": "https://thehippiescientist.net/herbs/ashwagandha/",
     "primarySourceUrl": "https://doi.org/10.1002/ptr.7598",
     "doseContext": "Trials used different ashwagandha extracts and dosing regimens; any dose values in the underlying studies are study context only and are not consumer dosing instructions.",
+    "formulationContext": "The cited evidence includes heterogeneous ashwagandha extracts, so findings from one preparation should not be generalized to all ashwagandha products.",
     "populationContext": "Adults represented in randomized trials included in the cited systematic review and meta-analysis.",
     "series": "evidence-to-distribution-mvp",
     "tags": [
