@@ -4,15 +4,46 @@ import path from 'node:path'
 import sharp from 'sharp'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
+const CANONICAL_SVG_FILE = /^carousel-\d{2,}\.svg$/
 
-function assertSvgParent(asset, outputDir) {
+function decodeXml(value) {
+  return value.replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+}
+
+function embeddedProvenance(bytes) {
+  const svg = bytes.toString('utf8')
+  const match = svg.match(/<metadata>([\s\S]*?)<\/metadata>/)
+  if (!match) throw new Error('SVG parent is missing authenticated provenance metadata')
+  let metadata
+  try { metadata = JSON.parse(decodeXml(match[1])) } catch { throw new Error('SVG parent provenance metadata is invalid') }
+  if (metadata?.renderer !== 'carousel-svg-v1' || !metadata?.contentHash || !metadata?.sourceUrl) {
+    throw new Error('SVG parent provenance metadata is incomplete')
+  }
+  return metadata
+}
+
+function canonicalAssetPath(outputDir, file) {
+  if (typeof file !== 'string' || !CANONICAL_SVG_FILE.test(file) || path.basename(file) !== file) {
+    throw new Error(`noncanonical SVG parent filename: ${String(file)}`)
+  }
+  const root = path.resolve(outputDir)
+  const resolved = path.resolve(root, file)
+  if (path.dirname(resolved) !== root) throw new Error(`SVG parent escapes output directory: ${file}`)
+  return resolved
+}
+
+function assertSvgParent(asset, outputDir, manifest) {
   if (asset?.type !== 'carousel-slide' || asset?.format !== 'svg' || !asset?.file || !asset?.sha256) {
     throw new Error('raster exporter requires canonical SVG carousel assets')
   }
-  const svgPath = path.resolve(outputDir, asset.file)
+  const svgPath = canonicalAssetPath(outputDir, asset.file)
   if (!fs.existsSync(svgPath)) throw new Error(`missing SVG parent: ${asset.file}`)
   const bytes = fs.readFileSync(svgPath)
   if (sha256(bytes) !== asset.sha256) throw new Error(`SVG parent hash mismatch: ${asset.file}`)
+  const provenance = embeddedProvenance(bytes)
+  if (provenance.contentHash !== manifest.sourceContentHash || provenance.contentHash !== asset.sourceContentHash || provenance.sourceUrl !== asset.sourceUrl) {
+    throw new Error(`SVG parent provenance mismatch: ${asset.file}`)
+  }
   return { svgPath, bytes }
 }
 
@@ -46,11 +77,13 @@ export async function renderCarouselRasterAssets({ manifest, outputDir, formats 
   const assets = []
 
   for (const parent of manifest.assets) {
-    const { bytes: svgBytes } = assertSvgParent(parent, dir)
+    const { bytes: svgBytes } = assertSvgParent(parent, dir, manifest)
     for (const format of uniqueFormats) {
       const rasterBytes = await rasterize(svgBytes, format)
       const file = parent.file.replace(/\.svg$/i, `.${format}`)
-      fs.writeFileSync(path.join(dir, file), rasterBytes)
+      const outputPath = path.resolve(dir, file)
+      if (path.dirname(outputPath) !== dir) throw new Error(`raster output escapes output directory: ${file}`)
+      fs.writeFileSync(outputPath, rasterBytes)
       assets.push({
         id: `${parent.id}-${format}`,
         type: 'carousel-slide-raster',
