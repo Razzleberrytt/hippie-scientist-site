@@ -9,14 +9,27 @@ const schema = JSON.parse(readFileSync(path.join(root, 'schemas/distribution-pac
 const validatorSource = readFileSync(path.join(root, 'scripts/distribution/distribution-pack-contract.mjs'), 'utf8')
 
 describe('distribution pack schema/validator parity', () => {
-  it('keeps the render-type and evidence-context contracts synchronized', () => {
-    const assetTypes = schema.properties.assetIntents.items.properties.type.enum
-    const contexts = schema.$defs.claim.properties.evidenceContext.enum
-
-    for (const value of assetTypes) expect(validatorSource).toContain(`'${value}'`)
-    for (const value of contexts) expect(validatorSource).toContain(`'${value}'`)
+  it('uses the published v1 JSON Schema as the runtime structural validator', () => {
+    expect(schema.properties.assetIntents.items.properties.type.enum).toEqual([
+      'infographic',
+      'carousel',
+      'short-video',
+      'social-card',
+      'pinterest',
+    ])
+    expect(schema.$defs.claim.properties.evidenceContext.enum).toEqual([
+      'human',
+      'preclinical',
+      'mixed',
+      'mechanistic',
+      'regulatory',
+      'safety',
+      'editorial',
+    ])
     expect(schema.$defs.sourceReference.properties.kind.const).toBe('research-object')
-    expect(validatorSource).toContain("source.kind !== 'research-object'")
+    expect(validatorSource).toContain("const distributionPackSchema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'))")
+    expect(validatorSource).toContain('const validateSchema = ajv.compile(distributionPackSchema)')
+    expect(validatorSource).toContain('if (!validateSchema(pack))')
   })
 
   it('keeps v1 no-rewrite and no-consumer-instruction invariants explicit in both layers', () => {
