@@ -61,6 +61,12 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
   const formulation = clean(researchObject.formulationContext) || null
   const dose = clean(researchObject.doseContext) || null
   const duration = clean(researchObject.durationContext) || null
+  const safetyClaimId = clean(researchObject.safetyClaimId) || null
+  const safetyStatement = clean(researchObject.safetyStatement) || null
+  if ((safetyClaimId === null) !== (safetyStatement === null)) {
+    throw new Error('research object safetyClaimId and safetyStatement must be provided together')
+  }
+
   const provenanceReceipts = [
     provenanceReceipt('$.claims[0].sourceStatement', 'finding', finding),
     provenanceReceipt('$.claims[0].publicSafeStatement', 'finding', finding),
@@ -76,6 +82,9 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
       const target = field.replace('Context', '')
       provenanceReceipts.push(provenanceReceipt(`$.claims[0].studyContext.${target}`, field, value))
     }
+  }
+  if (safetyStatement !== null) {
+    provenanceReceipts.push(provenanceReceipt('$.safety[0].statement', 'safetyStatement', safetyStatement))
   }
 
   const pack = {
@@ -111,7 +120,12 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
       url: sourceUrl,
     }],
     provenanceReceipts,
-    safety: [],
+    safety: safetyStatement === null ? [] : [{
+      id: 'SAFETY_001',
+      canonicalClaimId: safetyClaimId,
+      statement: safetyStatement,
+      sourceRefs: ['RESEARCH_OBJECT_001'],
+    }],
     uncertainties: [{
       id: 'UNCERTAINTY_001',
       statement: limitation,
