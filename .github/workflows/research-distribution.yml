@@ -41,6 +41,9 @@ jobs:
       - name: Generate channel packages from canonical research objects
         run: node scripts/distribution/build-research-distribution.mjs
 
+      - name: Select highest-value governed distribution opportunity
+        run: node scripts/distribution/build-opportunity-selection.mjs
+
       - name: Generate privacy-safe monthly first-party trends
         run: node scripts/distribution/build-first-party-trends.mjs
 
@@ -64,6 +67,14 @@ jobs:
           const fs = require('fs')
           const r = JSON.parse(fs.readFileSync('artifacts/distribution/manifest.json', 'utf8'))
           console.log(`- Canonical research objects packaged: ${r.count}`)
+          NODE
+          fi
+          if [ -f artifacts/distribution/opportunity-selection.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('artifacts/distribution/opportunity-selection.json', 'utf8'))
+          console.log(`- Distribution opportunity status: ${r.status}`)
+          if (r.selected) console.log(`- Selected: ${r.selected.id} -> ${r.selected.platform} (score ${r.selected.score})`)
           NODE
           fi
           PERIOD=$(date -u +%Y-%m)
