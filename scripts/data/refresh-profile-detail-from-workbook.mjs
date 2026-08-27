@@ -39,7 +39,9 @@ function readListRecord(file, slug) {
   const raw = JSON.parse(fs.readFileSync(file, 'utf8'))
   const rows = Array.isArray(raw) ? raw : raw?.items || raw?.data || []
   const matches = rows.filter((row) => row?.slug === slug)
-  if (matches.length !== 1) die(`expected exactly one canonical runtime record for ${slug}; found ${matches.length}`)
+  if (matches.length !== 1) {
+    throw new Error(`expected exactly one canonical runtime record for ${slug}; found ${matches.length}`)
+  }
   return matches[0]
 }
 
