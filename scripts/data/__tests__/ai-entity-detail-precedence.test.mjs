@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+
 import { describe, expect, it } from 'vitest'
 
 import { mergeSummaryWithDetail } from '../ai-entity-artifacts.mjs'
@@ -40,5 +42,18 @@ describe('AI entity canonical detail precedence', () => {
       summary: 'Reviewed list summary with substantive evidence context.',
       description: 'Reviewed list description.',
     })
+  })
+
+  it('keeps the committed BPC-157 AI entity synchronized with reviewed detail text', () => {
+    const detail = JSON.parse(fs.readFileSync('public/data/compounds-detail/bpc-157.json', 'utf8'))
+    const artifact = JSON.parse(fs.readFileSync('public/data/ai-entities/compound/bpc-157.json', 'utf8'))
+    const entityNode = artifact['@graph'].find((node) => node['@id']?.endsWith('/#entity'))
+    const evidenceNode = artifact['@graph'].find((node) => node['@id']?.endsWith('/#evidence-data'))
+
+    expect(detail.summary).toContain('five small human clinical studies')
+    expect(entityNode?.description).toBe(detail.summary)
+    expect(evidenceNode?.description).toBe(detail.summary)
+    expect(entityNode?.description).not.toMatch(/human clinical trial data is essentially absent/i)
+    expect(evidenceNode?.description).not.toMatch(/pending a July 2026 PCAC review/i)
   })
 })
