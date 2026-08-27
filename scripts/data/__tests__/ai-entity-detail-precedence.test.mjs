@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 
 import { mergeSummaryWithDetail } from '../ai-entity-artifacts.mjs'
 
+// Keep this regression on a user-authored head so exact-head Actions execute after automated base refreshes.
 describe('AI entity canonical detail precedence', () => {
   it('preserves reviewed detail summary/description over stale list values', () => {
     const summary = {
