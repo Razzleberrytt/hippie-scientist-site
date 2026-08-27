@@ -50,6 +50,7 @@ describe('distribution opportunity engine', () => {
     expect(candidate.discoverability.canonicalSource).toBe(object.sourceUrl)
   })
 
+  // Cohort identity must follow the exact creative angle, not just the topic/platform pair.
   it('gives changed creative angles distinct experiment attribution without changing the canonical destination', () => {
     const first = scoreDistributionCandidate(governed(), {}, { now: NOW })
     const second = scoreDistributionCandidate(governed({ title: 'Sleep evidence, updated framing' }), {}, { now: NOW })
