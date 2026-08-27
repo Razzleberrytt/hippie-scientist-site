@@ -1,5 +1,6 @@
 import { buildCreativeSpec, CREATIVE_BRAND_TOKENS } from './creative-spec.mjs'
 import { buildLosslessCreativeCopyPlan } from './creative-copy-pagination.mjs'
+import { buildSourceLegibilityContract, validateSourceLegibilityContract } from './creative-source-legibility.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
@@ -53,40 +54,61 @@ export function buildLosslessCreativeSpec(input) {
     { colorTreatment: 'primaryLight' },
   )
 
+  const sourceLegibility = buildSourceLegibilityContract({
+    sourceUrl: base.sourceIdentity.sourceUrl,
+    sourceSlide,
+    platformSafeArea: base.carousel.accessibility.platformSafeArea,
+  })
+  const sourceLegibilityErrors = validateSourceLegibilityContract(sourceLegibility)
+  if (sourceLegibilityErrors.length) {
+    throw new Error(`Invalid source-card legibility contract: ${sourceLegibilityErrors.join('; ')}`)
+  }
+
   const carousel = {
     ...base.carousel,
     slides: [hookSlide, ...findingSlides, ...limitationSlides, sourceSlide].filter(Boolean),
     losslessCopy: copyPlan,
+    sourceLegibility,
     rendererContract: {
       ...copyPlan.rendererContract,
       everyContinuationSlideRequiresCitation: true,
       everyContinuationSlideMustUseApprovedColorTreatment: true,
       everyContinuationSlideMustStayInsidePlatformSafeArea: true,
+      sourceCardMustSatisfyLegibilityContract: true,
+      sourceUrlMustRenderExactly: true,
     },
   }
 
   return {
     ...base,
-    version: 5,
+    version: 6,
     carousel,
     verticalVideo: {
       ...base.verticalVideo,
       losslessCopy: copyPlan,
+      sourceLegibility,
       rendererContract: {
         ...copyPlan.rendererContract,
         factualScenesMustBeDerivedFromLosslessCopyPlan: true,
         legacyTruncatedFactualScenesMayNotBePublishedWhenContinuationIsRequired: true,
+        dedicatedSourceSceneRequired: true,
+        sourceSceneMinimumVisibleSeconds: sourceLegibility.video.minimumVisibleSeconds,
+        sourceUrlMustRenderExactly: true,
       },
     },
     delivery: {
       ...base.delivery,
       factualTextPolicy: 'Finding and limitation copy must be rendered from losslessCopy pages verbatim and in order. Continuation pages/scenes may expand presentation length/count but may never truncate, paraphrase, or drop governed factual text.',
+      sourcePresentationPolicy: 'The canonical source URL must remain fully legible, untruncated, inside the platform safe area, and visible on a dedicated video source scene for at least three seconds. A CTA or disclosure may never replace or cover the source.',
     },
     guardrails: {
       ...base.guardrails,
       losslessGovernedCopyRequired: true,
       continuationPagesMayNotBeDropped: true,
       governedCopyReconstructionMustMatchExactly: true,
+      sourceCardLegibilityRequired: true,
+      sourceUrlMayNotBeTruncatedOrRewritten: true,
+      dedicatedVideoSourceSceneRequired: true,
     },
   }
 }
