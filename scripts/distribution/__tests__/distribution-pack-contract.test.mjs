@@ -110,11 +110,23 @@ describe('distribution pack v1 contract', () => {
     expect(validateDistributionPack(validPack)).toEqual([])
   })
 
+  it('enforces the declared JSON schema before semantic validation', () => {
+    const wrongStudyContext = messages(mutate((pack) => {
+      pack.claims[0].studyContext = 'Take 600 mg daily'
+    }))
+    expect(wrongStudyContext.some((message) => message.includes('schema:'))).toBe(true)
+
+    const undeclaredProperty = messages(mutate((pack) => {
+      pack.claims[0].secretInstruction = 'Take 600 mg daily'
+    }))
+    expect(undeclaredProperty.some((message) => message.includes('schema:'))).toBe(true)
+  })
+
   it('requires every pack and claim to retain canonical research-object lineage', () => {
     const noPackLineage = messages(mutate((pack) => {
       pack.researchObjectIds = []
     }))
-    expect(noPackLineage.some((message) => message.includes('canonical research distribution object'))).toBe(true)
+    expect(noPackLineage.some((message) => message.includes('schema:'))).toBe(true)
 
     const missingDeclaredSource = messages(mutate((pack) => {
       pack.sources = pack.sources.filter((source) => source.kind !== 'research-object')
@@ -133,7 +145,7 @@ describe('distribution pack v1 contract', () => {
     const result = messages(mutate((pack) => {
       pack.claims[0].strengthDelta = 'stronger'
     }))
-    expect(result.some((message) => message.includes('strengthening is never allowed'))).toBe(true)
+    expect(result.some((message) => message.includes('schema:'))).toBe(true)
   })
 
   it('rejects unknown citation bindings', () => {
@@ -143,37 +155,58 @@ describe('distribution pack v1 contract', () => {
     expect(result.some((message) => message.includes('references unknown source SRC_MISSING'))).toBe(true)
   })
 
-  it('rejects directive consumer-dose language', () => {
-    const result = messages(mutate((pack) => {
-      pack.claims[0].publicSafeStatement = 'Take 600 mg daily for stress.'
-    }))
-    expect(result.some((message) => message.includes('directive consumer-dose language'))).toBe(true)
+  it('rejects common directive consumer-dose language', () => {
+    for (const directive of [
+      'Take 600 mg daily for stress.',
+      'Use 600 mg daily for stress.',
+      'Take one 600 mg capsule daily.',
+      'Use one capsule nightly.',
+      'Start with 300 mg before bed.',
+      'You should use this supplement before bed.',
+    ]) {
+      const result = messages(mutate((pack) => {
+        pack.claims[0].publicSafeStatement = directive
+      }))
+      expect(result.some((message) => message.includes('directive consumer-dose language')), directive).toBe(true)
+    }
   })
 
-  it('keeps preclinical claims explicitly preclinical', () => {
+  it('keeps preclinical claims explicitly preclinical and blocks human-benefit projection', () => {
     const unlabeled = messages(mutate((pack) => {
       pack.claims[0].evidenceContext = 'preclinical'
       pack.claims[0].publicSafeStatement = 'The compound changed this signaling pathway.'
     }))
     expect(unlabeled.some((message) => message.includes('must remain explicitly labeled'))).toBe(true)
 
-    const humanProjection = messages(mutate((pack) => {
+    for (const projected of [
+      'Animal evidence suggests this pathway may change, showing efficacy in humans.',
+      'Animal evidence suggests people may experience better memory.',
+      'Preclinical research suggests adults could benefit from better sleep.',
+    ]) {
+      const result = messages(mutate((pack) => {
+        pack.claims[0].evidenceContext = 'preclinical'
+        pack.claims[0].publicSafeStatement = projected
+      }))
+      expect(result.some((message) => message.includes('cannot be projected as a human benefit')), projected).toBe(true)
+    }
+
+    const bounded = messages(mutate((pack) => {
       pack.claims[0].evidenceContext = 'preclinical'
-      pack.claims[0].publicSafeStatement = 'Animal evidence suggests this pathway may change, showing efficacy in humans.'
+      pack.claims[0].publicSafeStatement = 'Animal evidence suggests a signaling change; it does not establish benefits in humans.'
     }))
-    expect(humanProjection.some((message) => message.includes('cannot be projected as human efficacy'))).toBe(true)
+    expect(bounded).toEqual([])
   })
 
   it('rejects stale/untraceable source identity inputs', () => {
     const badUrl = messages(mutate((pack) => {
       pack.source.url = 'https://example.com/ashwagandha'
     }))
-    expect(badUrl.some((message) => message.includes('canonical TheHippieScientist page URL'))).toBe(true)
+    expect(badUrl.some((message) => message.includes('schema:') || message.includes('canonical TheHippieScientist page URL'))).toBe(true)
 
     const badHash = messages(mutate((pack) => {
       pack.source.contentHash = 'not-a-sha'
     }))
-    expect(badHash.some((message) => message.includes('SHA-256'))).toBe(true)
+    expect(badHash.some((message) => message.includes('schema:') || message.includes('SHA-256'))).toBe(true)
   })
 
   it('rejects asset intents that reference missing or duplicate claim IDs', () => {
@@ -185,7 +218,7 @@ describe('distribution pack v1 contract', () => {
     const duplicate = messages(mutate((pack) => {
       pack.assetIntents[0].claimIds = ['CLM_STRESS_001', 'CLM_STRESS_001']
     }))
-    expect(duplicate.some((message) => message.includes('must not duplicate a claim ID'))).toBe(true)
+    expect(duplicate.some((message) => message.includes('schema:') || message.includes('must not duplicate a claim ID'))).toBe(true)
   })
 
   it('requires globally unique IDs for unambiguous provenance', () => {
