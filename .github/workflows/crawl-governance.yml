@@ -9,6 +9,12 @@ on:
       - 'lib/**'
       - 'src/lib/**'
       - 'public/_redirects'
+      - 'functions/**'
+      - 'ops/seo/crawl-experiment/**'
+      - 'scripts/seo/crawl-experiment-core.mjs'
+      - 'scripts/seo/initialize-crawl-experiment.mjs'
+      - 'scripts/seo/refresh-google-crawler-ranges.mjs'
+      - 'scripts/seo/validate-crawl-experiment.mjs'
       - 'scripts/ci/audit-page-category-robots.mjs'
       - 'scripts/ci/audit-profile-robots.mjs'
       - 'scripts/ci/audit-static-crawl-surface.mjs'
@@ -23,6 +29,12 @@ on:
       - 'lib/**'
       - 'src/lib/**'
       - 'public/_redirects'
+      - 'functions/**'
+      - 'ops/seo/crawl-experiment/**'
+      - 'scripts/seo/crawl-experiment-core.mjs'
+      - 'scripts/seo/initialize-crawl-experiment.mjs'
+      - 'scripts/seo/refresh-google-crawler-ranges.mjs'
+      - 'scripts/seo/validate-crawl-experiment.mjs'
       - 'scripts/ci/audit-page-category-robots.mjs'
       - 'scripts/ci/audit-profile-robots.mjs'
       - 'scripts/ci/audit-static-crawl-surface.mjs'
@@ -72,6 +84,9 @@ jobs:
 
       - name: Verify pagination and static crawl surface
         run: node scripts/ci/audit-static-crawl-surface.mjs
+
+      - name: Verify active crawl-experiment rendered freeze
+        run: node scripts/seo/validate-crawl-experiment.mjs --out-dir=out
 
       - name: Upload crawl-governance reports
         if: always()
