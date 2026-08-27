@@ -1,10 +1,9 @@
-import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-import test from 'node:test'
 import { fileURLToPath } from 'node:url'
+import { expect, test } from 'vitest'
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
 import { CREATIVE_BRAND_TOKENS } from '../creative-spec.mjs'
 import { renderCarouselAssets, renderCarouselSlideSvg } from '../render-carousel-svg.mjs'
@@ -32,16 +31,16 @@ test('renders deterministic SVG assets tied to canonical source hash and exact f
   try {
     const first = renderCarouselAssets({ mediaPack, creativeSpec, outputDir: dir })
     const second = renderCarouselAssets({ mediaPack, creativeSpec, outputDir: dir })
-    assert.deepEqual(first, second)
-    assert.equal(first.sourceContentHash, mediaPack.source.contentHash)
-    assert.equal(first.assets.length, 3)
+    expect(first).toEqual(second)
+    expect(first.sourceContentHash).toBe(mediaPack.source.contentHash)
+    expect(first.assets).toHaveLength(3)
     for (const asset of first.assets) {
-      assert.equal(asset.sourceContentHash, mediaPack.source.contentHash)
+      expect(asset.sourceContentHash).toBe(mediaPack.source.contentHash)
       const bytes = fs.readFileSync(path.join(dir, asset.file), 'utf8')
-      assert.match(bytes, /validated-distribution-pack/)
-      assert.match(bytes, new RegExp(mediaPack.source.contentHash))
-      assert.match(bytes, /Educational content/)
-      assert.equal(asset.sha256, digest(bytes))
+      expect(bytes).toMatch(/validated-distribution-pack/)
+      expect(bytes).toMatch(new RegExp(mediaPack.source.contentHash))
+      expect(bytes).toMatch(/Educational content/)
+      expect(asset.sha256).toBe(digest(bytes))
     }
   } finally { fs.rmSync(dir, { recursive: true, force: true }) }
 })
@@ -52,7 +51,7 @@ test('losslessly wraps a canonical source URL instead of rejecting the real sour
     contentHash: mediaPack.source.contentHash,
     disclosure,
   })
-  assert.match(rendered.svg, /thehippiescientist\.net\/herbs\/ashwagandha\//)
+  expect(rendered.svg).toMatch(/thehippiescientist\.net\/herbs\/ashwagandha\//)
 })
 
 test('keeps disclosure and provenance text inside the portrait safe-area bottom edge', () => {
@@ -63,23 +62,23 @@ test('keeps disclosure and provenance text inside the portrait safe-area bottom 
   })
   const safeBottomY = CREATIVE_BRAND_TOKENS.canvas.portrait.height - CREATIVE_BRAND_TOKENS.canvas.portrait.safeBottom
   const yValues = [...rendered.svg.matchAll(/<text x="80" y="(\d+)"[^>]*>(?:Educational content|The Hippie Scientist)/g)].map((match) => Number(match[1]))
-  assert.equal(yValues.length, 2)
-  assert.ok(yValues.every((value) => value <= safeBottomY))
+  expect(yValues).toHaveLength(2)
+  expect(yValues.every((value) => value <= safeBottomY)).toBe(true)
 })
 
 test('refuses unsafe, unproven, or mismatched provenance state', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-svg-'))
   try {
-    assert.throws(() => renderCarouselAssets({ mediaPack, creativeSpec: { ...creativeSpec, claimSafetyStatus: 'blocked-unsafe-truncation' }, outputDir: dir }), /validated-lossless/)
-    assert.throws(() => renderCarouselAssets({ mediaPack: { packId: 'x', source: {} }, creativeSpec, outputDir: dir }), /Invalid distribution pack|schema|researchObjectIds/i)
-    assert.throws(() => renderCarouselAssets({ mediaPack, creativeSpec: { ...creativeSpec, sourceIdentity: { ...creativeSpec.sourceIdentity, id: 'different-object' } }, outputDir: dir }), /source identity must match/)
-    assert.throws(() => renderCarouselAssets({ mediaPack, creativeSpec: { ...creativeSpec, sourceIdentity: { ...creativeSpec.sourceIdentity, sourceUrl: 'https://thehippiescientist.net/herbs/other/' } }, outputDir: dir }), /source URL must match/)
+    expect(() => renderCarouselAssets({ mediaPack, creativeSpec: { ...creativeSpec, claimSafetyStatus: 'blocked-unsafe-truncation' }, outputDir: dir })).toThrow(/validated-lossless/)
+    expect(() => renderCarouselAssets({ mediaPack: { packId: 'x', source: {} }, creativeSpec, outputDir: dir })).toThrow(/Invalid distribution pack|schema|researchObjectIds/i)
+    expect(() => renderCarouselAssets({ mediaPack, creativeSpec: { ...creativeSpec, sourceIdentity: { ...creativeSpec.sourceIdentity, id: 'different-object' } }, outputDir: dir })).toThrow(/source identity must match/)
+    expect(() => renderCarouselAssets({ mediaPack, creativeSpec: { ...creativeSpec, sourceIdentity: { ...creativeSpec.sourceIdentity, sourceUrl: 'https://thehippiescientist.net/herbs/other/' } }, outputDir: dir })).toThrow(/source URL must match/)
   } finally { fs.rmSync(dir, { recursive: true, force: true }) }
 })
 
 test('refuses renderer-level factual truncation for non-URL tokens', () => {
-  assert.throws(() => renderCarouselSlideSvg(
+  expect(() => renderCarouselSlideSvg(
     { role: 'finding', eyebrow: 'Evidence', headline: 'x'.repeat(40), colorTreatment: 'evidence' },
     { sourceUrl: mediaPack.source.url, contentHash: mediaPack.source.contentHash, disclosure },
-  ), /losslessly wrap token/)
+  )).toThrow(/losslessly wrap token/)
 })
