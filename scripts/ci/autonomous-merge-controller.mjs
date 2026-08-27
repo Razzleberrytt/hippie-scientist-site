@@ -113,6 +113,15 @@ async function retryTransientRuns(repo, runs) {
   return retried
 }
 
+async function syncPrBranch(repo, number, expectedHeadSha) {
+  const result = await github(`/repos/${repo}/pulls/${number}/update-branch`, {
+    method: 'PUT',
+    body: { expected_head_sha: expectedHeadSha },
+  })
+  console.log(`Updated PR #${number} with latest base: ${result?.message || 'update accepted'}`)
+  return result
+}
+
 export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha, controllerRunId }) {
   if (pr.state !== 'open') return { action: 'stop', reason: `PR is ${pr.state}` }
   if (pr.draft) return { action: 'stop', reason: 'PR is draft' }
@@ -123,8 +132,16 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   const hold = [...HOLD_LABELS].find((label) => labels.has(label))
   if (hold) return { action: 'stop', reason: `explicit merge hold label present: ${hold}` }
 
+  if (pr.mergeable === null || pr.mergeable_state === 'unknown') {
+    return { action: 'wait', reason: 'GitHub is still calculating mergeability' }
+  }
+
   if (pr.mergeable === false || pr.mergeable_state === 'dirty') {
     return { action: 'blocked', reason: `PR is not cleanly mergeable (${pr.mergeable_state || 'unknown'})` }
+  }
+
+  if (pr.mergeable_state === 'behind') {
+    return { action: 'sync', reason: 'PR base is behind main; update branch and revalidate exact head' }
   }
 
   const latestWorkflows = newestBy(workflowRuns, (run) => run.name, runScore)
@@ -204,6 +221,11 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
     expectedHeadSha: currentHeadSha,
     controllerRunId,
   })
+
+  if (verdict.action === 'sync') {
+    await syncPrBranch(repo, number, currentHeadSha)
+    return { action: 'stop', reason: 'base refresh requested; synchronize event will own the new exact head', headSha: currentHeadSha }
+  }
 
   if (verdict.action === 'failed' && allowRetry) {
     const retried = await retryTransientRuns(repo, verdict.failedWorkflows || [])
