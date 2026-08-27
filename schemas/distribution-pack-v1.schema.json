@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://thehippiescientist.net/schemas/distribution-pack-v1.schema.json",
   "title": "The Hippie Scientist Distribution Pack v1",
-  "description": "Downstream rendering contract derived from the existing governed research-distribution objects. This schema is not a scientific source of truth; it carries traceable projections for visual and video production.",
+  "description": "Downstream rendering contract derived from exactly one existing governed research-distribution object. V1 permits no free-form factual rewrite: the public factual statement must equal the canonical research-object finding.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "packId", "researchObjectIds", "source", "audience", "angle", "claims", "sources", "safety", "uncertainties", "forbiddenExtrapolations", "assetIntents"],
@@ -12,6 +12,7 @@
     "researchObjectIds": {
       "type": "array",
       "minItems": 1,
+      "maxItems": 1,
       "uniqueItems": true,
       "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" }
     },
@@ -27,17 +28,17 @@
     },
     "audience": { "type": "string", "minLength": 1, "maxLength": 240 },
     "angle": { "type": "string", "minLength": 1, "maxLength": 240 },
-    "claims": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/claim" } },
-    "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceReference" } },
+    "claims": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/claim" } },
+    "sources": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/sourceReference" } },
     "safety": { "type": "array", "items": { "$ref": "#/$defs/boundaryStatement" } },
-    "uncertainties": { "type": "array", "items": { "$ref": "#/$defs/boundaryStatement" } },
-    "forbiddenExtrapolations": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 500 } },
+    "uncertainties": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/boundaryStatement" } },
+    "forbiddenExtrapolations": { "type": "array", "minItems": 3, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 500 } },
     "cta": {
       "type": ["object", "null"],
       "additionalProperties": false,
       "required": ["label", "destinationUrl"],
       "properties": {
-        "label": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "label": { "const": "Read the evidence" },
         "destinationUrl": { "type": "string", "pattern": "^https://thehippiescientist\\.net/.+/$" }
       }
     },
@@ -51,7 +52,7 @@
         "properties": {
           "type": { "enum": ["infographic", "carousel", "short-video", "social-card", "pinterest"] },
           "objective": { "type": "string", "minLength": 1, "maxLength": 240 },
-          "claimIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" } }
+          "claimIds": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" } }
         }
       }
     }
@@ -60,22 +61,23 @@
     "claim": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "sourceStatement", "publicSafeStatement", "strengthDelta", "evidenceContext", "sourceRefs", "consumerInstruction"],
+      "required": ["id", "sourceStatement", "publicSafeStatement", "strengthDelta", "evidenceContext", "sourceRefs", "consumerInstruction", "studyContext"],
       "properties": {
         "id": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" },
         "sourceStatement": { "type": "string", "minLength": 1, "maxLength": 1500 },
-        "publicSafeStatement": { "type": "string", "minLength": 1, "maxLength": 600 },
-        "strengthDelta": { "enum": ["none", "weaker"] },
-        "evidenceContext": { "enum": ["human", "preclinical", "mixed", "mechanistic", "regulatory", "safety", "editorial"] },
-        "sourceRefs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" } },
+        "publicSafeStatement": { "type": "string", "minLength": 1, "maxLength": 800 },
+        "strengthDelta": { "const": "none" },
+        "evidenceContext": { "enum": ["human", "preclinical", "mixed"] },
+        "sourceRefs": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" } },
         "consumerInstruction": { "const": false },
         "studyContext": {
-          "type": ["object", "null"],
+          "type": "object",
           "additionalProperties": false,
+          "required": ["population", "formulation", "dose", "duration"],
           "properties": {
-            "population": { "type": ["string", "null"], "maxLength": 300 },
+            "population": { "type": ["string", "null"], "maxLength": 400 },
             "formulation": { "type": ["string", "null"], "maxLength": 300 },
-            "dose": { "type": ["string", "null"], "maxLength": 160 },
+            "dose": { "type": ["string", "null"], "maxLength": 400 },
             "duration": { "type": ["string", "null"], "maxLength": 160 }
           }
         }
@@ -84,12 +86,12 @@
     "sourceReference": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "kind", "identifier"],
+      "required": ["id", "kind", "identifier", "url"],
       "properties": {
         "id": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" },
-        "kind": { "enum": ["research-object", "pmid", "doi", "regulatory", "site-citation", "site-evidence-record"] },
-        "identifier": { "type": "string", "minLength": 1, "maxLength": 300 },
-        "url": { "type": ["string", "null"], "maxLength": 1000 }
+        "kind": { "const": "research-object" },
+        "identifier": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
+        "url": { "type": "string", "pattern": "^https://thehippiescientist\\.net/.+/$" }
       }
     },
     "boundaryStatement": {
@@ -99,7 +101,7 @@
       "properties": {
         "id": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" },
         "statement": { "type": "string", "minLength": 1, "maxLength": 600 },
-        "sourceRefs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" } }
+        "sourceRefs": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" } }
       }
     }
   }
