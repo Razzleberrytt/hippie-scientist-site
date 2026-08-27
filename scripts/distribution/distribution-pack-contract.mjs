@@ -9,15 +9,16 @@ const DOSE_UNIT = '(?:mcg|mg|g|ml|iu|units?)'
 const DOSAGE_FORM = '(?:capsule|capsules|tablet|tablets|pill|pills|gummy|gummies|softgel|softgels|scoop|scoops|drop|drops|dose|doses|serving|servings|packet|packets|chew|chews|chewable|chewables|teaspoon|teaspoons|tablespoon|tablespoons)'
 const QUANTITY = '(?:\\d+(?:\\.\\d+)?|\\d+\\s*\\/\\s*\\d+|[a-z]+(?:-[a-z]+)?(?:\\s+(?:a|an))?)'
 const FREQUENCY = '(?:daily|per day|each day|nightly|before bed|once daily|twice daily)'
+const DIRECTIVE_VERB = '(?:take|consume|try|use(?!\\s+of\\b)|administer|swallow|ingest)'
 const DIRECTIVE_DOSE_PATTERNS = [
-  new RegExp(`(?:^|[.!?;]\\s*)(?:take|consume|try|use(?!\\s+of\\b)|start with|begin with|increase to|decrease to)\\b[^.!?;\\n]{0,120}\\b(?:${DOSE_UNIT}|${DOSAGE_FORM})\\b`, 'i'),
-  new RegExp(`\\b(?:take|use|consume|try)\\s+(?:${QUANTITY}\\s+)?\\d+(?:\\.\\d+)?\\s*${DOSE_UNIT}(?:\\s+${DOSAGE_FORM})?(?:\\s+${FREQUENCY})?\\b`, 'i'),
-  new RegExp(`\\b(?:take|use|consume|try)\\s+${QUANTITY}\\s+${DOSAGE_FORM}(?:\\s+${FREQUENCY})?\\b`, 'i'),
+  new RegExp(`(?:^|[.!?;]\\s*)(?:${DIRECTIVE_VERB}|start with|begin with|increase to|decrease to)\\b[^.!?;\\n]{0,120}\\b(?:${DOSE_UNIT}|${DOSAGE_FORM})\\b`, 'i'),
+  new RegExp(`\\b${DIRECTIVE_VERB}\\s+(?:${QUANTITY}\\s+)?\\d+(?:\\.\\d+)?\\s*${DOSE_UNIT}(?:\\s+${DOSAGE_FORM})?(?:\\s+${FREQUENCY})?\\b`, 'i'),
+  new RegExp(`\\b${DIRECTIVE_VERB}\\s+${QUANTITY}\\s+${DOSAGE_FORM}(?:\\s+${FREQUENCY})?\\b`, 'i'),
   new RegExp(`\\b(?:start with|begin with|increase to|decrease to)\\s+${QUANTITY}(?:\\s*${DOSE_UNIT}|\\s+${DOSAGE_FORM})\\b`, 'i'),
-  /\byou should\s+(?:take|use|consume|try)\b/i,
-  new RegExp(`\\b(?:take|use|consume|try)\\s+(?:this|the|your|a|an)\\s+(?:supplement|product|extract|${DOSAGE_FORM})\\b`, 'i'),
+  new RegExp(`\\byou should\\s+${DIRECTIVE_VERB}\\b`, 'i'),
+  new RegExp(`\\b${DIRECTIVE_VERB}\\s+(?:this|the|your|a|an)\\s+(?:supplement|product|extract|${DOSAGE_FORM})\\b`, 'i'),
 ]
-const HUMAN_DIRECTED_RE = /\b(?:humans?|people|patients?|adults?|children|men|women|users?|you|your|yours)\b/i
+const HUMAN_DIRECTED_RE = /\b(?:humans?|people|persons?|patients?|participants?|volunteers?|subjects?|individuals?|adults?|adolescents?|teens?|teenagers?|children|youth|seniors?|elderly|men|women|users?|consumers?|you|your|yours)\b/i
 const HUMAN_EVIDENCE_TYPES = new Set(['meta-analysis', 'systematic-review', 'RCT', 'controlled-trial', 'observational', 'case-report'])
 const MIXED_EVIDENCE_TYPES = new Set(['mixed', 'narrative-review'])
 const REQUIRED_FORBIDDEN_EXTRAPOLATIONS = Object.freeze([
