@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { hashResearchObject, validateDistributionPack } from '../distribution-pack-contract.mjs'
+import { hashCanonicalField, hashResearchObject, validateDistributionPack } from '../distribution-pack-contract.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const schemaPath = path.resolve(path.dirname(__filename), '../../../schemas/distribution-pack-v1.schema.json')
@@ -36,6 +36,25 @@ function evidenceContextFor(object) {
   return 'human'
 }
 
+function provenanceReceiptsFor(object) {
+  const receipts = [
+    { targetPath: '$.claims[0].sourceStatement', canonicalField: 'finding', sourceRef: 'RESEARCH_OBJECT_001', fieldHash: hashCanonicalField(object.finding) },
+    { targetPath: '$.claims[0].publicSafeStatement', canonicalField: 'finding', sourceRef: 'RESEARCH_OBJECT_001', fieldHash: hashCanonicalField(object.finding) },
+    { targetPath: '$.uncertainties[0].statement', canonicalField: 'limitation', sourceRef: 'RESEARCH_OBJECT_001', fieldHash: hashCanonicalField(object.limitation) },
+  ]
+  for (const [canonicalField, targetPath] of [
+    ['populationContext', '$.claims[0].studyContext.population'],
+    ['formulationContext', '$.claims[0].studyContext.formulation'],
+    ['doseContext', '$.claims[0].studyContext.dose'],
+    ['durationContext', '$.claims[0].studyContext.duration'],
+  ]) {
+    if (String(object[canonicalField] ?? '').trim()) {
+      receipts.push({ targetPath, canonicalField, sourceRef: 'RESEARCH_OBJECT_001', fieldHash: hashCanonicalField(object[canonicalField]) })
+    }
+  }
+  return receipts
+}
+
 function packForResearchObject(object) {
   const sourceUrl = object.sourceUrl.endsWith('/') ? object.sourceUrl : `${object.sourceUrl}/`
   return {
@@ -60,9 +79,9 @@ function packForResearchObject(object) {
         consumerInstruction: false,
         studyContext: {
           population: object.populationContext ?? null,
-          formulation: null,
+          formulation: object.formulationContext ?? null,
           dose: object.doseContext ?? null,
-          duration: null,
+          duration: object.durationContext ?? null,
         },
       },
     ],
@@ -74,6 +93,7 @@ function packForResearchObject(object) {
         url: sourceUrl,
       },
     ],
+    provenanceReceipts: provenanceReceiptsFor(object),
     safety: [],
     uncertainties: [
       {
@@ -121,6 +141,7 @@ describe('distribution pack v1 contract', () => {
     expect(schema.$defs.claim.properties.consumerInstruction.const).toBe(false)
     expect(schema.properties.safety.maxItems).toBe(0)
     expect(schema.properties.assetIntents.items.properties.type.enum).toContain('short-video')
+    expect(schema.required).toContain('provenanceReceipts')
   })
 
   it('accepts a deterministic projection of a canonical research object', () => {
