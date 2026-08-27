@@ -39,6 +39,23 @@ function wrapTextLosslessly(value, maxChars = 26, maxLines = 8) {
   return lines
 }
 
+function wrapSourceUrlLosslessly(value, maxChars = 38, maxLines = 4) {
+  const sourceUrl = clean(value)
+  const lines = []
+  let remaining = sourceUrl
+  while (remaining.length > maxChars) {
+    let cut = remaining.lastIndexOf('/', maxChars)
+    if (cut <= 0) cut = maxChars
+    else cut += 1
+    lines.push(remaining.slice(0, cut))
+    remaining = remaining.slice(cut)
+  }
+  if (remaining) lines.push(remaining)
+  if (lines.length > maxLines) throw new Error(`canonical source URL cannot fit losslessly inside the ${maxLines}-line source-scene contract`)
+  if (lines.join('') !== sourceUrl) throw new Error('canonical source URL wrapping must reconstruct exactly')
+  return lines
+}
+
 function formatSrtTime(seconds) {
   const milliseconds = Math.round(seconds * 1000)
   const hours = Math.floor(milliseconds / 3_600_000)
@@ -111,6 +128,20 @@ function validateIdentity(mediaPack, creativeSpec) {
   if (!video || Number(video.durationSeconds) !== 30 || clean(video.format) !== '1080x1920') throw new Error('vertical video creative spec must define the canonical 30-second 1080x1920 profile')
   const canvas = video.canvas ?? CREATIVE_BRAND_TOKENS.canvas.vertical
   if (Number(canvas.width) !== 1080 || Number(canvas.height) !== 1920) throw new Error('vertical video canvas must be 1080x1920')
+
+  const sourceLegibility = video.sourceLegibility
+  if (!sourceLegibility || clean(sourceLegibility.canonicalUrl) !== mediaPack.source.url) {
+    throw new Error('vertical video source-legibility contract must bind the exact canonical source URL')
+  }
+  if (video.rendererContract?.dedicatedSourceSceneRequired !== true || sourceLegibility.video?.dedicatedSourceSceneRequired !== true) {
+    throw new Error('vertical video requires a dedicated source scene')
+  }
+  if (Number(video.rendererContract?.sourceSceneMinimumVisibleSeconds ?? 0) < 3 || Number(sourceLegibility.video?.minimumVisibleSeconds ?? 0) < 3) {
+    throw new Error('vertical video source scene must remain visible for at least three seconds')
+  }
+  if (Number(sourceLegibility.typography?.minimumPxAt1080 ?? 0) < 32 || sourceLegibility.typography?.ellipsisAllowed !== false || sourceLegibility.typography?.urlRewriteAllowed !== false) {
+    throw new Error('vertical video source URL must remain exact, untruncated, and at least 32px at 1080-wide output')
+  }
 }
 
 function buildTimeline(mediaPack, creativeSpec) {
@@ -136,11 +167,17 @@ function buildTimeline(mediaPack, creativeSpec) {
     ...limitationPages.map((page) => ({ role: 'limitation', onScreenText: page.content, voiceover: page.content, factualAuthority: page.factualAuthority, colorTreatment: 'primaryLight', continuation: { index: page.continuationIndex, total: page.continuationTotal } })),
   ]
 
-  if (factual.length < 3 || factual.length > 9) throw new Error('lossless vertical video package supports 3-9 factual scenes inside the canonical 30-second timing budget')
-  const factualDuration = Math.min(7, 23 / factual.length)
-  if (factualDuration < 2.5) throw new Error('lossless factual scene count exceeds the canonical minimum scene duration')
+  // The source-legibility contract reserves three seconds for an independent
+  // source scene. Eight factual scenes is therefore the largest lossless plan
+  // that can still honor the global 2.5-second minimum for context and CTA.
+  if (factual.length < 3 || factual.length > 8) throw new Error('lossless vertical video package supports 3-8 factual scenes with the required dedicated source scene')
+  const sourceDuration = Number(video.sourceLegibility.video.minimumVisibleSeconds)
+  if (sourceDuration < 3 || sourceDuration > 7) throw new Error('source-scene duration violates canonical timing guardrails')
+  const factualBudget = 30 - 2 - sourceDuration - 5
+  const factualDuration = factualBudget / factual.length
+  if (factualDuration < 2.5 || factualDuration > 7) throw new Error('lossless factual scene count exceeds the canonical timing budget')
   const factualTotal = factualDuration * factual.length
-  const outroDuration = (28 - factualTotal) / 2
+  const outroDuration = (30 - 2 - sourceDuration - factualTotal) / 2
   if (outroDuration < 2.5 || outroDuration > 7) throw new Error('canonical 30-second timing budget cannot satisfy scene-duration guardrails')
 
   const scenes = [{
@@ -153,6 +190,16 @@ function buildTimeline(mediaPack, creativeSpec) {
     cursor += factualDuration
     scenes.push({ ...scene, start, end: roundMillis(cursor) })
   }
+
+  const sourceStart = roundMillis(cursor)
+  cursor += sourceDuration
+  scenes.push({
+    role: 'source', start: sourceStart, end: roundMillis(cursor),
+    onScreenText: mediaPack.source.url, voiceover: '',
+    factualAuthority: 'canonical-source', colorTreatment: 'source',
+    sourceLegibility: video.sourceLegibility,
+  })
+
   const contextStart = roundMillis(cursor)
   cursor += outroDuration
   scenes.push({
@@ -199,12 +246,25 @@ function verticalPlatformIntersection() {
 export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const canvas = CREATIVE_BRAND_TOKENS.canvas.vertical
   const { foreground, background } = treatment(scene.colorTreatment)
-  const fontSize = Math.max(CREATIVE_BRAND_TOKENS.typography.minimumBodyPxAt1080, Number(options.fontSize ?? 44))
-  const lines = wrapTextLosslessly(scene.onScreenText, options.maxChars ?? 26)
   const sourceUrl = clean(options.sourceUrl)
   const contentHash = clean(options.contentHash)
   const disclosure = clean(options.disclosure)
   if (!sourceUrl || !contentHash || !disclosure) throw new Error('sourceUrl, contentHash, and disclosure are required for video scene provenance')
+
+  const sourceScene = scene.role === 'source'
+  const sourceLegibility = scene.sourceLegibility ?? options.sourceLegibility
+  const fontSize = sourceScene
+    ? Math.max(32, Number(sourceLegibility?.typography?.minimumPxAt1080 ?? 0))
+    : Math.max(CREATIVE_BRAND_TOKENS.typography.minimumBodyPxAt1080, Number(options.fontSize ?? 44))
+  const lines = sourceScene
+    ? wrapSourceUrlLosslessly(
+      scene.onScreenText,
+      options.sourceMaxChars ?? 38,
+      Number(sourceLegibility?.typography?.maximumLines ?? 4),
+    )
+    : wrapTextLosslessly(scene.onScreenText, options.maxChars ?? 26)
+  if (sourceScene && lines.join('') !== sourceUrl) throw new Error('dedicated source scene must render the exact canonical URL')
+
   const safe = verticalPlatformIntersection()
   const x = safe.left
   const safeRight = canvas.width - safe.right
@@ -216,6 +276,8 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const provenanceY = canvas.height - safe.bottom - 26
   const metadata = JSON.stringify({
     sourceUrl,
+    sourceDisplayText: sourceScene ? lines.join('') : null,
+    sourceMinimumPxAt1080: sourceScene ? fontSize : null,
     contentHash,
     factualAuthority: scene.factualAuthority,
     renderer: 'vertical-video-package-v1',
@@ -239,6 +301,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       sourceUrl: mediaPack.source.url,
       contentHash: mediaPack.source.contentHash,
       disclosure,
+      sourceLegibility: creativeSpec.verticalVideo.sourceLegibility,
     })
     const file = `video-scene-${String(index + 1).padStart(2, '0')}.svg`
     const bytes = `${rendered.svg}\n`
