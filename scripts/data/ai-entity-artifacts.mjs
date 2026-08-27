@@ -10,6 +10,13 @@ const AUTHOR_NAME = 'Willie B. Randolph III'
 const AUTHOR_URL = `${SITE_URL}/info/author/`
 const AUTHOR_ID = `${AUTHOR_URL}#person`
 const DETAIL_OWNED_FACTUAL_FIELDS = new Set(['summary', 'description'])
+const DETAIL_PLACEHOLDER_RE = /^(?:no\s+(?:summary|description)\s+available(?:\s+yet)?\.?|bulk-ingested\s+support\s+row\b|placeholder\b|pipeline\s+(?:note|placeholder)\b|todo\b|tbd\b)/i
+
+function hasReviewedDetailText(value) {
+  if (!hasUsefulStructuredValue(value)) return false
+  if (typeof value !== 'string') return true
+  return !DETAIL_PLACEHOLDER_RE.test(value.trim())
+}
 
 function schemaTypes(value) {
   const raw = value?.['@type']
@@ -95,7 +102,7 @@ export function mergeSummaryWithDetail(summary, detail) {
 
   const merged = { ...detail }
   for (const [key, value] of Object.entries(summary || {})) {
-    if (DETAIL_OWNED_FACTUAL_FIELDS.has(key) && hasUsefulStructuredValue(merged[key])) continue
+    if (DETAIL_OWNED_FACTUAL_FIELDS.has(key) && hasReviewedDetailText(merged[key])) continue
     if (hasUsefulStructuredValue(value) || !hasUsefulStructuredValue(merged[key])) {
       merged[key] = value
     }
