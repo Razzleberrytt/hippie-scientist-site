@@ -1,7 +1,7 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-08-21
+**Updated:** 2026-08-26
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
 ## 2026-08-21 — Control-document authority
@@ -125,3 +125,13 @@
 **Alternatives considered:** Ignore/re-run indefinitely, disable scanning services, or rewrite the data pipeline. Rejected as unreliable, environment-invasive, or disproportionate.
 
 **Consequences:** Local and CI data writes remain fail-closed for real errors while tolerating short file locks. **Status:** Accepted and validated.
+
+## 2026-08-26 — Owner-directed autonomous merge/deploy lifecycle
+
+**Decision:** Issue #4348 is an owner-directed Operations maintenance exception because repeated interactive prompting between already-automatable CI, merge, deployment, and production-verification stages prevents reliable agent execution. Extend the existing GitHub Actions control plane rather than replacing the static-export/Cloudflare architecture. Eligible same-repository PRs may be merged automatically only after the current exact head is up to date with `main`, the universal workflow set is present and green, and every other triggered exact-head check is terminal-green. Forks, drafts, conflicts, moved heads, explicit merge holds, missing required workflows, and semantic failures remain fail-closed. Only clearly non-semantic workflow outcomes may receive one bounded retry. The production deploy remains direct from `main`; autonomous merges must still enter that deploy lifecycle, and deploy success requires the canonical site to expose an exact commit receipt.
+
+**Rationale:** The technical work was already automated, but lifecycle transitions still depended on the user repeatedly prompting chat. That orchestration gap added delay without adding scientific, safety, provenance, or release-quality review. GitHub-native coordination can remove the manual handoff while preserving the existing gates as the authority.
+
+**Alternatives considered:** Continue manual/chat-driven merging; rely only on GitHub auto-merge despite branch protection being disabled; replace the deployment architecture; or weaken/skip slow gates. Rejected because they either preserve the bottleneck, provide insufficient fail-closed enforcement, create unnecessary architecture churn, or reduce quality assurance.
+
+**Consequences:** GitHub becomes the routine lifecycle owner from PR validation through merge and exact production receipt. Chat becomes an observation/steering surface rather than a required trigger. The controller must never execute untrusted PR-head code, must refresh behind branches and revalidate, must not convert generic failures into transient success, and must preserve all scientific, safety, evidence, provenance, source-of-truth, publication, SEO, accessibility, performance, security, and commercial gates. Rollback restores manual merging and the existing direct-main deploy path. **Status:** Accepted; implementation tracked by issue #4348 / PR #4349 and not considered operationally complete until merged and exact production receipt is verified.
