@@ -67,7 +67,7 @@ describe('autonomous merge controller contract', () => {
 
     expect(controller).toContain("pr.mergeable_state === 'behind'")
     expect(controller).toContain('update branch and revalidate exact head')
-    expect(controller).toContain(`/pulls/${number}/update-branch`)
+    expect(controller).toContain('/pulls/${number}/update-branch')
     expect(controller).toContain('expected_head_sha: expectedHeadSha')
     expect(controller).toContain('synchronize event will own the new exact head')
   })
