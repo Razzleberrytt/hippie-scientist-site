@@ -18,6 +18,18 @@ function hasReviewedDetailText(value) {
   return !DETAIL_PLACEHOLDER_RE.test(value.trim())
 }
 
+function isIsoDate(value) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(String(value || '').trim())
+}
+
+function newestReviewedDate(...values) {
+  return values
+    .map((value) => String(value || '').trim())
+    .filter(isIsoDate)
+    .sort()
+    .at(-1) || ''
+}
+
 function schemaTypes(value) {
   const raw = value?.['@type']
   return Array.isArray(raw) ? raw.map(String) : raw ? [String(raw)] : []
@@ -107,6 +119,20 @@ export function mergeSummaryWithDetail(summary, detail) {
       merged[key] = value
     }
   }
+
+  // A machine-facing artifact must never claim a review date older than a
+  // canonical detail-level regulatory review whose findings are reflected in
+  // the reviewed summary/description. Preserve the summary-list field name the
+  // downstream artifact builder already consumes, but derive it from governed
+  // detail provenance when that date is newer.
+  const reviewedDate = newestReviewedDate(
+    merged.last_reviewed,
+    merged.lastReviewed,
+    merged.lastReviewedAt,
+    detail.last_regulatory_check,
+  )
+  if (reviewedDate) merged.last_reviewed = reviewedDate
+
   return merged
 }
 
