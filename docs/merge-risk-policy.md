@@ -15,3 +15,5 @@ Ordinary product-code changes require CI, Site Health Check, Atomic upgrade gate
 Scientific/YMYL evidence and safety data, citation/evidence pipelines, crawl/indexing/canonical/redirect behavior, deploy infrastructure, data generators, and CI/governance changes remain fail-closed: every triggered exact-head workflow/check must reach a successful terminal state before merge.
 
 The controller also preserves exact-head/base freshness, clean mergeability, fork restrictions, explicit hold labels, bounded transient retries, and serialized merge revalidation.
+
+A GitHub Actions `action_required` result with no executed jobs is never treated as validation success; the branch must acquire a new executable exact-head validation cycle before merge.
