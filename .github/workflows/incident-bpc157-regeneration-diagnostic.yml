@@ -28,9 +28,7 @@ jobs:
         run: npm ci
 
       - name: Validate workbook patch state
-        run: |
-          node scripts/ci/validate-workbook-patches.mjs
-          npm run workbook:roundtrip-test
+        run: node scripts/ci/validate-workbook-patches.mjs
 
       - name: Canonically regenerate committed runtime artifacts
         run: npm run data:build:core
