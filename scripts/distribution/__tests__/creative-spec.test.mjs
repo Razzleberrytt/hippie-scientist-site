@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { buildCreativeSpec, CREATIVE_BRAND_TOKENS, validateCreativeInput } from '../creative-spec.mjs'
+import {
+  buildCreativeSpec,
+  CREATIVE_BRAND_TOKENS,
+  getContrastRatio,
+  validateCreativeContrast,
+  validateCreativeInput,
+} from '../creative-spec.mjs'
 
 const fixture = {
   id: 'test-object',
@@ -46,7 +52,7 @@ describe('creative distribution spec', () => {
 
   it('emits deterministic caption cues, SRT, transcript, and canonical CTA delivery metadata', () => {
     const spec = buildCreativeSpec(fixture)
-    expect(spec.version).toBe(2)
+    expect(spec.version).toBe(3)
     expect(spec.delivery.landingUrl).toBe(fixture.sourceUrl)
     expect(spec.delivery.exportProfiles.map((profile) => profile.id)).toEqual([
       'vertical-video',
@@ -63,7 +69,46 @@ describe('creative distribution spec', () => {
     expect(spec.guardrails.socialClickDestinationMustMatchCanonicalSource).toBe(true)
   })
 
-  it('keeps creative experiments away from scientific truth fields', () => {
+  it('ships a deterministic accessible palette and semantic color treatments', () => {
+    const spec = buildCreativeSpec(fixture)
+    const { color } = CREATIVE_BRAND_TOKENS
+    expect(validateCreativeContrast()).toEqual([])
+    expect(color.minimumTextContrast).toBeGreaterThanOrEqual(4.5)
+    expect(color.decorativeOnly).toContain('terracotta')
+    expect(spec.delivery.colorPolicy.rendererMustUseApprovedTreatment).toBe(true)
+    expect(spec.guardrails.deterministicAccessibleColorSystem).toBe(true)
+    expect(spec.guardrails.allTextTreatmentsMeetWcagAaContrast).toBe(true)
+
+    for (const treatment of Object.values(color.treatments)) {
+      const foreground = color.palette[treatment.foreground]
+      const background = color.palette[treatment.background]
+      expect(getContrastRatio(foreground, background)).toBeGreaterThanOrEqual(color.minimumTextContrast)
+    }
+
+    for (const slide of spec.carousel.slides) {
+      expect(spec.delivery.colorPolicy.approvedTreatments).toContain(slide.colorTreatment)
+    }
+    for (const scene of spec.verticalVideo.scenes) {
+      expect(spec.delivery.colorPolicy.approvedTreatments).toContain(scene.colorTreatment)
+    }
+    expect(spec.delivery.colorPolicy.approvedTreatments).toContain(spec.verticalVideo.captions.colorTreatment)
+  })
+
+  it('fails closed when an approved semantic treatment loses accessible contrast', () => {
+    const unsafe = {
+      ...CREATIVE_BRAND_TOKENS.color,
+      palette: { ...CREATIVE_BRAND_TOKENS.color.palette, ink: '#777777', parchment: '#888888' },
+      treatments: {
+        ...CREATIVE_BRAND_TOKENS.color.treatments,
+        primaryLight: { foreground: 'ink', background: 'parchment' },
+      },
+    }
+    expect(validateCreativeContrast(unsafe)).toEqual(expect.arrayContaining([
+      expect.stringMatching(/primaryLight contrast .* below 4\.5:1/),
+    ]))
+  })
+
+  it('keeps creative experiments away from scientific truth and accessibility threshold fields', () => {
     const spec = buildCreativeSpec(fixture)
     expect(spec.experimentContract.mutableFields).toContain('hook-layout')
     expect(spec.experimentContract.mutableFields).not.toContain('factual-text')
@@ -74,8 +119,10 @@ describe('creative distribution spec', () => {
       'source-url',
       'disclosure',
       'cta-destination',
+      'minimum-contrast-threshold',
     ]))
     expect(spec.experimentContract.primaryMetric).toBe('qualified-social-to-site-clickthrough')
+    expect(spec.experimentContract.guardrailMetrics).toContain('creative-contrast-pass-rate')
   })
 
   it('fails closed on missing provenance, homepage/external URLs, or invented grades', () => {

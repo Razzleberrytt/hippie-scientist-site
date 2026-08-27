@@ -15,6 +15,28 @@ export const CREATIVE_BRAND_TOKENS = Object.freeze({
     minimumBodyPxAt1080: 42,
     minimumCaptionPxAt1080: 44,
   },
+  color: {
+    palette: {
+      ink: '#15211B',
+      parchment: '#F7F3E8',
+      forest: '#1F4A3A',
+      cream: '#FFFDF7',
+      sageMist: '#EEF3EC',
+      charcoal: '#2B2F2C',
+      clayMist: '#E8D8C9',
+      terracotta: '#C66A3D',
+    },
+    minimumTextContrast: 4.5,
+    preferredBodyContrast: 7,
+    treatments: {
+      primaryLight: { foreground: 'ink', background: 'parchment' },
+      primaryDark: { foreground: 'cream', background: 'forest' },
+      evidence: { foreground: 'ink', background: 'sageMist' },
+      disclosure: { foreground: 'cream', background: 'charcoal' },
+      source: { foreground: 'ink', background: 'clayMist' },
+    },
+    decorativeOnly: ['terracotta'],
+  },
   timing: {
     totalSeconds: 30,
     hookSeconds: 2,
@@ -41,6 +63,44 @@ const truncate = (value, max) => {
   if (text.length <= max) return text
   const clipped = text.slice(0, Math.max(1, max - 1)).replace(/\s+\S*$/, '')
   return `${clipped || text.slice(0, max - 1)}…`
+}
+
+function hexToRgb(value) {
+  const hex = String(value ?? '').replace(/^#/, '')
+  if (!/^[0-9a-f]{6}$/i.test(hex)) throw new Error(`Invalid brand color: ${value}`)
+  return [0, 2, 4].map((index) => Number.parseInt(hex.slice(index, index + 2), 16) / 255)
+}
+
+function relativeLuminance(value) {
+  const [red, green, blue] = hexToRgb(value).map((channel) => (
+    channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4
+  ))
+  return (0.2126 * red) + (0.7152 * green) + (0.0722 * blue)
+}
+
+export function getContrastRatio(foreground, background) {
+  const foregroundLuminance = relativeLuminance(foreground)
+  const backgroundLuminance = relativeLuminance(background)
+  const lighter = Math.max(foregroundLuminance, backgroundLuminance)
+  const darker = Math.min(foregroundLuminance, backgroundLuminance)
+  return (lighter + 0.05) / (darker + 0.05)
+}
+
+export function validateCreativeContrast(tokens = CREATIVE_BRAND_TOKENS.color) {
+  const errors = []
+  const palette = tokens?.palette ?? {}
+  const minimum = Number(tokens?.minimumTextContrast ?? 4.5)
+  for (const [name, treatment] of Object.entries(tokens?.treatments ?? {})) {
+    const foreground = palette[treatment.foreground]
+    const background = palette[treatment.background]
+    if (!foreground || !background) {
+      errors.push(`${name} references an unknown color token`)
+      continue
+    }
+    const ratio = getContrastRatio(foreground, background)
+    if (ratio < minimum) errors.push(`${name} contrast ${ratio.toFixed(2)} is below ${minimum}:1`)
+  }
+  return errors
 }
 
 function isCanonicalEvidencePage(value) {
@@ -118,7 +178,7 @@ export function validateCreativeInput(input) {
 }
 
 export function buildCreativeSpec(input) {
-  const errors = validateCreativeInput(input)
+  const errors = [...validateCreativeInput(input), ...validateCreativeContrast()]
   if (errors.length) throw new Error(`Invalid creative input: ${errors.join('; ')}`)
 
   const title = truncate(input.title, CREATIVE_BRAND_TOKENS.typography.hookMaxChars)
@@ -132,14 +192,16 @@ export function buildCreativeSpec(input) {
     format: '1080x1350',
     canvas: CREATIVE_BRAND_TOKENS.canvas.portrait,
     slides: [
-      { role: 'hook', eyebrow: 'Evidence snapshot', headline: title, body: null, citationRequired: false },
-      { role: 'finding', eyebrow: 'What the evidence says', headline: finding, body: evidence, citationRequired: true },
-      { role: 'limitation', eyebrow: 'What to keep in mind', headline: limitation, body: null, citationRequired: true },
-      { role: 'source', eyebrow: 'Source trail', headline: CREATIVE_BRAND_TOKENS.treatment.cta, body: truncate(source, CREATIVE_BRAND_TOKENS.typography.sourceCardMaxChars), citationRequired: true },
+      { role: 'hook', eyebrow: 'Evidence snapshot', headline: title, body: null, citationRequired: false, colorTreatment: 'primaryDark' },
+      { role: 'finding', eyebrow: 'What the evidence says', headline: finding, body: evidence, citationRequired: true, colorTreatment: 'evidence' },
+      { role: 'limitation', eyebrow: 'What to keep in mind', headline: limitation, body: null, citationRequired: true, colorTreatment: 'primaryLight' },
+      { role: 'source', eyebrow: 'Source trail', headline: CREATIVE_BRAND_TOKENS.treatment.cta, body: truncate(source, CREATIVE_BRAND_TOKENS.typography.sourceCardMaxChars), citationRequired: true, colorTreatment: 'source' },
     ],
     accessibility: {
       minimumBodyPxAt1080: CREATIVE_BRAND_TOKENS.typography.minimumBodyPxAt1080,
       contrastTarget: 'WCAG AA minimum; prefer AAA for body text',
+      minimumContrastRatio: CREATIVE_BRAND_TOKENS.color.minimumTextContrast,
+      approvedColorTreatments: Object.keys(CREATIVE_BRAND_TOKENS.color.treatments),
       noTextOverUncontrolledImagery: true,
       preserveSafeArea: true,
       altText: truncate(`Evidence snapshot: ${title}. Finding: ${finding} Limitation: ${limitation} Source: ${source}`, CREATIVE_BRAND_TOKENS.typography.altTextMaxChars),
@@ -147,17 +209,17 @@ export function buildCreativeSpec(input) {
   }
 
   const scenes = [
-    { start: 0, end: 2, role: 'hook', onScreenText: title, voiceover: title, factualAuthority: 'canonical-input' },
-    { start: 2, end: 9, role: 'finding', onScreenText: finding, voiceover: finding, factualAuthority: 'canonical-input' },
-    { start: 9, end: 15, role: 'evidence', onScreenText: evidence, voiceover: evidence, factualAuthority: 'canonical-input' },
-    { start: 15, end: 22, role: 'limitation', onScreenText: limitation, voiceover: limitation, factualAuthority: 'canonical-input' },
-    { start: 22, end: 27, role: 'context', onScreenText: disclosure, voiceover: 'Context matters, and this is an evidence summary rather than personal medical advice.', factualAuthority: 'fixed-disclosure' },
-    { start: 27, end: 30, role: 'cta', onScreenText: CREATIVE_BRAND_TOKENS.treatment.cta, voiceover: 'Read the full evidence and source trail.', factualAuthority: 'fixed-cta' },
+    { start: 0, end: 2, role: 'hook', onScreenText: title, voiceover: title, factualAuthority: 'canonical-input', colorTreatment: 'primaryDark' },
+    { start: 2, end: 9, role: 'finding', onScreenText: finding, voiceover: finding, factualAuthority: 'canonical-input', colorTreatment: 'evidence' },
+    { start: 9, end: 15, role: 'evidence', onScreenText: evidence, voiceover: evidence, factualAuthority: 'canonical-input', colorTreatment: 'evidence' },
+    { start: 15, end: 22, role: 'limitation', onScreenText: limitation, voiceover: limitation, factualAuthority: 'canonical-input', colorTreatment: 'primaryLight' },
+    { start: 22, end: 27, role: 'context', onScreenText: disclosure, voiceover: 'Context matters, and this is an evidence summary rather than personal medical advice.', factualAuthority: 'fixed-disclosure', colorTreatment: 'disclosure' },
+    { start: 27, end: 30, role: 'cta', onScreenText: CREATIVE_BRAND_TOKENS.treatment.cta, voiceover: 'Read the full evidence and source trail.', factualAuthority: 'fixed-cta', colorTreatment: 'primaryDark' },
   ]
   const captionTrack = buildCaptionTrack(scenes)
 
   return {
-    version: 2,
+    version: 3,
     sourceIdentity: { id: clean(input.id), sourceUrl: source },
     brandTokens: CREATIVE_BRAND_TOKENS,
     delivery: {
@@ -170,6 +232,12 @@ export function buildCreativeSpec(input) {
         { id: 'square-social', width: 1080, height: 1080, purpose: 'social-card', preserveSafeArea: true },
         { id: 'pinterest', width: 1000, height: 1500, purpose: 'pinterest-pin', preserveSafeArea: true },
       ],
+      colorPolicy: {
+        approvedTreatments: Object.keys(CREATIVE_BRAND_TOKENS.color.treatments),
+        decorativeOnlyTokens: CREATIVE_BRAND_TOKENS.color.decorativeOnly,
+        minimumTextContrast: CREATIVE_BRAND_TOKENS.color.minimumTextContrast,
+        rendererMustUseApprovedTreatment: true,
+      },
       factualTextPolicy: 'Use generated strings verbatim for factual text. Visual treatments may vary, but claims, grades, limitations, disclosure, CTA destination, and citations are not creative-edit fields.',
     },
     carousel,
@@ -184,29 +252,32 @@ export function buildCreativeSpec(input) {
         maxLines: CREATIVE_BRAND_TOKENS.typography.captionMaxLines,
         minimumPxAt1080: CREATIVE_BRAND_TOKENS.typography.minimumCaptionPxAt1080,
         position: 'lower-middle-safe-area',
+        colorTreatment: 'disclosure',
         cues: captionTrack.cues,
         srt: captionTrack.srt,
       },
       accessibility: {
         captionsRequired: true,
         noAutoGeneratedCaptionsAsSoleDelivery: true,
+        minimumContrastRatio: CREATIVE_BRAND_TOKENS.color.minimumTextContrast,
         transcript: scenes.map((scene) => scene.voiceover).join(' '),
       },
       bRollPolicy: 'Generative imagery/video may illustrate mood or context only. It must not add factual text, numbers, charts, labels, or implied clinical outcomes.',
     },
     thumbnailVariants: [
-      { id: 'evidence-snapshot', text: title, badge: `Grade ${clean(input.evidenceGrade)}`, landingUrl: source },
-      { id: 'caveat-led', text: truncate(`The evidence — and the catch: ${input.title}`, CREATIVE_BRAND_TOKENS.typography.hookMaxChars), badge: 'Evidence + limitation', landingUrl: source },
+      { id: 'evidence-snapshot', text: title, badge: `Grade ${clean(input.evidenceGrade)}`, landingUrl: source, colorTreatment: 'primaryDark' },
+      { id: 'caveat-led', text: truncate(`The evidence — and the catch: ${input.title}`, CREATIVE_BRAND_TOKENS.typography.hookMaxChars), badge: 'Evidence + limitation', landingUrl: source, colorTreatment: 'primaryLight' },
     ],
     experimentContract: {
       mutableFields: ['background-treatment', 'b-roll', 'transition-style', 'hook-layout', 'thumbnail-layout'],
-      immutableFields: ['factual-text', 'evidence-grade', 'limitation', 'source-url', 'disclosure', 'cta-destination', 'caption-meaning'],
+      immutableFields: ['factual-text', 'evidence-grade', 'limitation', 'source-url', 'disclosure', 'cta-destination', 'caption-meaning', 'minimum-contrast-threshold'],
       primaryMetric: 'qualified-social-to-site-clickthrough',
-      guardrailMetrics: ['source-card-legibility', 'caption-completion', 'disclosure-visibility', 'creative-safe-area-pass-rate'],
+      guardrailMetrics: ['source-card-legibility', 'caption-completion', 'disclosure-visibility', 'creative-safe-area-pass-rate', 'creative-contrast-pass-rate'],
       attributionRisk: 'Platform distribution and audience mix can dominate creative-level differences; compare variants within the same platform and similar publication windows.',
     },
     guardrails: {
       deterministicFactualText: true,
+      deterministicAccessibleColorSystem: true,
       generativeMediaIsNeverFactualAuthority: true,
       citationsOnFindingEvidenceLimitationAndSourceCards: true,
       noUnsupportedRankingLanguage: true,
@@ -214,6 +285,7 @@ export function buildCreativeSpec(input) {
       noDeceptiveUrgency: true,
       captionMeaningMustMatchVoiceover: true,
       socialClickDestinationMustMatchCanonicalSource: true,
+      allTextTreatmentsMeetWcagAaContrast: true,
     },
   }
 }
