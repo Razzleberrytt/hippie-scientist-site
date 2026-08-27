@@ -23,7 +23,7 @@ describe('lossless creative presentation adapter', () => {
     const findings = spec.carousel.slides.filter((slide) => slide.role === 'finding')
     const limitations = spec.carousel.slides.filter((slide) => slide.role === 'limitation')
 
-    expect(spec.version).toBe(5)
+    expect(spec.version).toBe(6)
     expect(findings.length).toBeGreaterThan(1)
     expect(limitations.length).toBeGreaterThan(1)
     expect(findings.every((slide) => slide.citationRequired && slide.truncationAllowed === false)).toBe(true)
@@ -44,6 +44,21 @@ describe('lossless creative presentation adapter', () => {
     expect(spec.verticalVideo.rendererContract.legacyTruncatedFactualScenesMayNotBePublishedWhenContinuationIsRequired).toBe(true)
     expect(spec.guardrails.losslessGovernedCopyRequired).toBe(true)
     expect(spec.guardrails.continuationPagesMayNotBeDropped).toBe(true)
+  })
+
+  it('binds source cards and video source scenes to an explicit mobile-legibility contract', () => {
+    const spec = buildLosslessCreativeSpec(fixture)
+    const sourceSlide = spec.carousel.slides.find((slide) => slide.role === 'source')
+
+    expect(sourceSlide.body).toBe(fixture.sourceUrl)
+    expect(spec.carousel.sourceLegibility.canonicalUrl).toBe(fixture.sourceUrl)
+    expect(spec.carousel.sourceLegibility.typography.minimumPxAt1080).toBeGreaterThanOrEqual(32)
+    expect(spec.carousel.sourceLegibility.typography.ellipsisAllowed).toBe(false)
+    expect(spec.carousel.sourceLegibility.placement.safeAreaRequired).toBe(true)
+    expect(spec.carousel.rendererContract.sourceCardMustSatisfyLegibilityContract).toBe(true)
+    expect(spec.verticalVideo.rendererContract.dedicatedSourceSceneRequired).toBe(true)
+    expect(spec.verticalVideo.rendererContract.sourceSceneMinimumVisibleSeconds).toBeGreaterThanOrEqual(3)
+    expect(spec.guardrails.sourceUrlMayNotBeTruncatedOrRewritten).toBe(true)
   })
 
   it('fails closed when governed copy cannot fit the lossless page budget', () => {
