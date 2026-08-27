@@ -2,13 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://thehippiescientist.net/schemas/distribution-pack-v1.schema.json",
   "title": "The Hippie Scientist Distribution Pack v1",
-  "description": "Downstream rendering contract derived from exactly one existing governed research-distribution object. V1 permits no free-form factual rewrite: the public factual statement must equal the canonical research-object finding.",
+  "description": "Deterministic downstream rendering contract derived from exactly one existing governed research-distribution object. V1 permits no free-form factual rewrite or new safety/source assertions.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "packId", "researchObjectIds", "source", "audience", "angle", "claims", "sources", "safety", "uncertainties", "forbiddenExtrapolations", "assetIntents"],
+  "required": ["schemaVersion", "packId", "researchObjectIds", "source", "audience", "angle", "claims", "sources", "safety", "uncertainties", "forbiddenExtrapolations", "cta", "assetIntents"],
   "properties": {
     "schemaVersion": { "const": "1.0.0" },
-    "packId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+    "packId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,99}$" },
     "researchObjectIds": {
       "type": "array",
       "minItems": 1,
@@ -26,15 +26,21 @@
         "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
       }
     },
-    "audience": { "type": "string", "minLength": 1, "maxLength": 240 },
-    "angle": { "type": "string", "minLength": 1, "maxLength": 240 },
+    "audience": { "const": "General educational audience" },
+    "angle": { "const": "What the evidence actually says" },
     "claims": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/claim" } },
     "sources": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/sourceReference" } },
-    "safety": { "type": "array", "items": { "$ref": "#/$defs/boundaryStatement" } },
-    "uncertainties": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/boundaryStatement" } },
-    "forbiddenExtrapolations": { "type": "array", "minItems": 3, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 500 } },
+    "safety": { "type": "array", "maxItems": 0 },
+    "uncertainties": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/boundaryStatement" } },
+    "forbiddenExtrapolations": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 500 }
+    },
     "cta": {
-      "type": ["object", "null"],
+      "type": "object",
       "additionalProperties": false,
       "required": ["label", "destinationUrl"],
       "properties": {
@@ -51,8 +57,8 @@
         "required": ["type", "objective", "claimIds"],
         "properties": {
           "type": { "enum": ["infographic", "carousel", "short-video", "social-card", "pinterest"] },
-          "objective": { "type": "string", "minLength": 1, "maxLength": 240 },
-          "claimIds": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" } }
+          "objective": { "const": "Render the canonical finding without factual rewriting." },
+          "claimIds": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "const": "CLAIM_001" } }
         }
       }
     }
@@ -63,12 +69,12 @@
       "additionalProperties": false,
       "required": ["id", "sourceStatement", "publicSafeStatement", "strengthDelta", "evidenceContext", "sourceRefs", "consumerInstruction", "studyContext"],
       "properties": {
-        "id": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" },
-        "sourceStatement": { "type": "string", "minLength": 1, "maxLength": 1500 },
+        "id": { "const": "CLAIM_001" },
+        "sourceStatement": { "type": "string", "minLength": 1, "maxLength": 800 },
         "publicSafeStatement": { "type": "string", "minLength": 1, "maxLength": 800 },
         "strengthDelta": { "const": "none" },
         "evidenceContext": { "enum": ["human", "preclinical", "mixed"] },
-        "sourceRefs": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" } },
+        "sourceRefs": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "const": "RESEARCH_OBJECT_001" } },
         "consumerInstruction": { "const": false },
         "studyContext": {
           "type": "object",
@@ -76,9 +82,9 @@
           "required": ["population", "formulation", "dose", "duration"],
           "properties": {
             "population": { "type": ["string", "null"], "maxLength": 400 },
-            "formulation": { "type": ["string", "null"], "maxLength": 300 },
+            "formulation": { "type": "null" },
             "dose": { "type": ["string", "null"], "maxLength": 400 },
-            "duration": { "type": ["string", "null"], "maxLength": 160 }
+            "duration": { "type": "null" }
           }
         }
       }
@@ -88,7 +94,7 @@
       "additionalProperties": false,
       "required": ["id", "kind", "identifier", "url"],
       "properties": {
-        "id": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" },
+        "id": { "const": "RESEARCH_OBJECT_001" },
         "kind": { "const": "research-object" },
         "identifier": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
         "url": { "type": "string", "pattern": "^https://thehippiescientist\\.net/.+/$" }
@@ -99,9 +105,9 @@
       "additionalProperties": false,
       "required": ["id", "statement", "sourceRefs"],
       "properties": {
-        "id": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" },
+        "id": { "const": "UNCERTAINTY_001" },
         "statement": { "type": "string", "minLength": 1, "maxLength": 600 },
-        "sourceRefs": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{2,79}$" } }
+        "sourceRefs": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "const": "RESEARCH_OBJECT_001" } }
       }
     }
   }
