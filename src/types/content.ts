@@ -108,7 +108,7 @@ export interface Herb {
   evidence_consistency?: string
   evidence_rationale?: string
   trial_design_insight?: string
-  evidence_grade?: string
+  evidence_grade?: string | null
   evidence_summary?: string
   [key: string]: unknown
 }
@@ -131,7 +131,7 @@ export interface Compound {
   evidence_consistency?: string
   evidence_rationale?: string
   trial_design_insight?: string
-  evidence_grade?: string
+  evidence_grade?: string | null
   evidence_summary?: string
   [key: string]: unknown
 }
@@ -227,7 +227,7 @@ export interface RuntimeRecord {
   pathways?: string[] | string
   evidence_tier?: string
   evidenceTier?: string
-  evidence_grade?: string
+  evidence_grade?: string | null
   summary_quality?: string
   tier_level?: string
   summary?: string
