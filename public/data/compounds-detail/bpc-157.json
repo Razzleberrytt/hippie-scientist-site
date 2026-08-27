@@ -2,8 +2,8 @@
   "id": "bpc-157",
   "slug": "bpc-157",
   "name": "BPC-157",
-  "summary": "BPC-157 is a synthetic 15-amino-acid peptide studied mainly in animal models for gut healing, tendon and ligament repair, and inflammation modulation; human clinical trial data is essentially absent and its FDA compounding status is unresolved pending a July 2026 PCAC review.",
-  "description": "BPC-157 (Body Protection Compound-157) is a synthetic peptide derived from a partial sequence found in human gastric juice, widely discussed in the recovery and longevity space for tendon, ligament, and gut-lining repair. Preclinical rodent and in vitro studies point to angiogenesis promotion, nitric oxide pathway modulation, and anti-inflammatory signaling, but almost no controlled human trial data exists. It is not FDA-approved as a finished drug product; products sold online are labeled research use only (RUO) and are not legally intended for human consumption.",
+  "summary": "BPC-157 is a synthetic 15-amino-acid peptide studied mainly in animal models for tissue repair and inflammation. FDA identified five small human clinical studies in its 2026 review, but the evidence is short-duration, heterogeneous, and insufficient to establish clinical efficacy or long-term safety; BPC-157 is not FDA-approved.",
+  "description": "BPC-157 (Body Protection Compound-157) is a synthetic peptide derived from a partial sequence found in human gastric juice and widely discussed for tendon, ligament, gut-lining, and recovery claims. Preclinical rodent and in vitro studies dominate the evidence base. FDA's 2026 review identified five human clinical studies, including two older rectal-enema studies and three very small modern reports; these data document human exposure but do not establish replicated clinical efficacy, an approved dosing strategy, or long-term safety. BPC-157 is not FDA-approved as a finished drug product.",
   "compoundClass": "Synthetic peptide (gastric-derived sequence)",
   "mechanisms": [
     "Angiogenesis Promotion (VEGFR2 Upregulation)",
@@ -68,5 +68,7 @@
     "unsupervised RUO product use without physician oversight",
     "No established pharmacokinetic drug-interaction data exists",
     "theoretical caution combining with other growth-promoting or angiogenic peptides."
-  ]
+  ],
+  "last_regulatory_check": "2026-08-26",
+  "regulatory_changelog": "2023-04/2026: FDA Category 2 restricted (503A bulk substances). 2026-04-22: Removed from Category 2 after nomination withdrawals; this did not place BPC-157 on the 503A Bulks List. 2026-07-23: FDA PCAC voted to recommend BPC-157-related bulk drug substances for the 503A Bulks List. The advisory recommendation is non-binding and did not itself create a final 503A rule; as of 2026-08-26, no final FDA rule adding BPC-157 was located."
 }
