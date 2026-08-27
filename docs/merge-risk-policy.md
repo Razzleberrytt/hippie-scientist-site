@@ -16,4 +16,4 @@ Scientific/YMYL evidence and safety data, citation/evidence pipelines, crawl/ind
 
 The controller also preserves exact-head/base freshness, clean mergeability, fork restrictions, explicit hold labels, bounded transient retries, and serialized merge revalidation.
 
-A GitHub Actions `action_required` result with no executed jobs is never treated as validation success; the branch must acquire a new executable exact-head validation cycle before merge.
+A GitHub Actions `action_required` result with no executed jobs is never treated as validation success; the branch must acquire a new executable exact-head validation cycle before merge. Empty workflow runs are infrastructure evidence only and never authorize a manual or automated merge bypass.
