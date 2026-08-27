@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 import { classifyRisk, evaluateReadiness } from './autonomous-merge-controller.mjs'
@@ -50,7 +51,7 @@ describe('risk-tiered autonomous merge controller', () => {
   })
 
   it('has no four-page changed-file truncation', () => {
-    const source = fs.readFileSync(new URL('./autonomous-merge-controller.mjs', import.meta.url), 'utf8')
+    const source = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/autonomous-merge-controller.mjs'), 'utf8')
     expect(source).toMatch(/for \(let page = 1; ; page \+= 1\)/)
     expect(source).not.toMatch(/page\s*<=\s*4/)
   })
