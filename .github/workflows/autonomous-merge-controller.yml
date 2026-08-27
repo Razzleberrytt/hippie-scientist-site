@@ -43,12 +43,18 @@ jobs:
       - name: Follow exact-head checks and merge when green
         run: node scripts/ci/autonomous-merge-controller.mjs
 
-      - name: Ensure latest main enters deploy lifecycle
+      - name: Ensure merged PR enters deploy lifecycle
         if: success()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          merged="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.merged')"
+          if [ "$merged" != "true" ]; then
+            echo "PR #$PR_NUMBER was not merged by this controller run; no deploy handoff needed."
+            exit 0
+          fi
+
           sleep 10
           main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
           deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100" --jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length')"
@@ -68,8 +74,9 @@ jobs:
             echo "- Expected head: ${EXPECTED_HEAD_SHA}"
             echo '- Security: trusted main-branch controller; PR code is never checked out or executed here.'
             echo '- Merge rule: universal workflows plus every triggered exact-head check must be terminal-green.'
+            echo '- Base drift: behind branches are updated from main and must pass a fresh exact-head cycle.'
             echo '- Failure rule: semantic failures fail closed; only bounded transient workflow outcomes may retry once.'
-            echo '- Deploy handoff: normal main push remains primary; workflow_dispatch is used only if no deploy run registered for latest main.'
+            echo '- Deploy handoff: normal main push remains primary; workflow_dispatch is used only after a controller merge when no deploy run registered for latest main.'
             echo '- Fallback: scheduled sweep revisits open PRs every 10 minutes.'
           } >> "$GITHUB_STEP_SUMMARY"
 
