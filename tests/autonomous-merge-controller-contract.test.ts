@@ -29,7 +29,7 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).not.toContain('deployments: write')
   })
 
-  it('requires the universal workflow set and every triggered exact-head check to be green', () => {
+  it('requires the universal workflow set and every triggered exact-head check to be green against current base', () => {
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
 
     for (const workflowName of [
@@ -43,11 +43,13 @@ describe('autonomous merge controller contract', () => {
     }
 
     expect(controller).toContain('required workflows not registered yet')
+    expect(controller).toContain('required workflow base proof missing')
+    expect(controller).toContain('workflow evidence targets stale base')
     expect(controller).toContain('workflow runs pending')
     expect(controller).toContain('workflow runs failed')
     expect(controller).toContain('checks pending')
     expect(controller).toContain('checks failed')
-    expect(controller).toContain('all universal workflows and every triggered exact-head check are terminal-green')
+    expect(controller).toContain('terminal-green against current base')
   })
 
   it('fails closed for drafts, forks, conflicts, moved heads, and explicit holds', () => {
@@ -62,14 +64,29 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain("'manual-merge'")
   })
 
-  it('refreshes a behind PR from main and requires a new exact-head validation cycle', () => {
+  it('refreshes a behind or stale-base PR and requires a new exact-head validation cycle', () => {
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
 
     expect(controller).toContain("pr.mergeable_state === 'behind'")
+    expect(controller).toContain('pr.base.sha !== currentBaseSha')
     expect(controller).toContain('update branch and revalidate exact head')
     expect(controller).toContain('/pulls/${number}/update-branch')
     expect(controller).toContain('expected_head_sha: expectedHeadSha')
     expect(controller).toContain('synchronize event will own the new exact head')
+  })
+
+  it('serializes the mutation step and rechecks base immediately before merge', () => {
+    const workflow = read('.github/workflows/autonomous-merge-controller.yml')
+    const controller = read('scripts/ci/autonomous-merge-controller.mjs')
+
+    expect(workflow).toContain('name: merge-controller-monitor')
+    expect(workflow).toContain("CHECK_ONLY: 'true'")
+    expect(workflow).toContain("needs.merge-controller.outputs.ready == 'true'")
+    expect(workflow).toContain('group: autonomous-merge-commit')
+    expect(workflow).toContain('cancel-in-progress: false')
+    expect(controller).toContain('mergeIfStillCurrent')
+    expect(controller).toContain('base advanced from')
+    expect(controller).toContain('validatedBaseSha')
   })
 
   it('retries only bounded non-semantic workflow outcomes and never generic failures', () => {
@@ -83,7 +100,7 @@ describe('autonomous merge controller contract', () => {
     expect(controller).not.toContain("TRANSIENT_CONCLUSIONS = new Set(['failure'")
   })
 
-  it('continues without chat through a long-running controller and scheduled fallback sweep', () => {
+  it('continues without chat through a long-running monitor and scheduled fallback sweep', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
 
