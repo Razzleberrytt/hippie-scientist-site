@@ -35,6 +35,20 @@ describe('distribution opportunity engine', () => {
     expect(first.selected.successCriteria.measurementWindowDays).toBe(28)
   })
 
+  it('lets positive discoverability evidence influence rank when core dimensions are not manually supplied', () => {
+    const high = governed({ id: 'high-discovery', title: 'High discovery evidence', sourceUrl: 'https://thehippiescientist.net/evidence/high-discovery/' })
+    const low = governed({ id: 'low-discovery', title: 'Low discovery evidence', sourceUrl: 'https://thehippiescientist.net/evidence/low-discovery/' })
+    const signals = {
+      'high-discovery': { searchOpportunity: 10, aiCitationOpportunity: 9, socialSuitability: 9, commercialValue: 8, informationUniqueness: 10, evergreenValue: 9 },
+      'low-discovery': { searchOpportunity: 2, aiCitationOpportunity: 2, socialSuitability: 3, commercialValue: 2, informationUniqueness: 3, evergreenValue: 3 },
+    }
+    const result = selectDistributionOpportunity([low, high], signals, { now: NOW })
+    expect(result.selected.id).toBe('high-discovery')
+    const highScore = result.candidates.find((candidate) => candidate.id === 'high-discovery').score
+    const lowScore = result.candidates.find((candidate) => candidate.id === 'low-discovery').score
+    expect(highScore).toBeGreaterThan(lowScore)
+  })
+
   it('emits deterministic canonical attribution and lossless discoverability metadata', () => {
     const object = governed()
     const candidate = scoreDistributionCandidate(object, {}, { now: NOW })
