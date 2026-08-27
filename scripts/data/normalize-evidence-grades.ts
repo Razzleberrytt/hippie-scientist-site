@@ -207,7 +207,7 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
 
     const enriched = {
       ...row,
-      evidence_grade: publicGrade ?? '',
+      evidence_grade: publicGrade,
       evidence_grade_source: String(authoredGrade ?? ''),
       evidence_tier: publicBand ? BAND_LABEL[publicBand] : '',
       evidence_tier_source: String(authoredTier ?? ''),
