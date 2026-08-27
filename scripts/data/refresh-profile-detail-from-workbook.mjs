@@ -63,12 +63,11 @@ try {
 
   if (!changedFields.length) {
     console.log(`[refresh-profile-detail] ${slug}: already aligned; no file write`)
-    process.exit(0)
+  } else {
+    fs.writeFileSync(detailPath, `${JSON.stringify(detailDocument, null, 2)}\n`)
+    console.log(`[refresh-profile-detail] ${slug}: refreshed ${changedFields.join(', ')}`)
+    console.log(`[refresh-profile-detail] wrote only ${path.relative(ROOT, detailPath)}`)
   }
-
-  fs.writeFileSync(detailPath, `${JSON.stringify(detailDocument, null, 2)}\n`)
-  console.log(`[refresh-profile-detail] ${slug}: refreshed ${changedFields.join(', ')}`)
-  console.log(`[refresh-profile-detail] wrote only ${path.relative(ROOT, detailPath)}`)
 } finally {
   fs.rmSync(tempDir, { recursive: true, force: true })
 }
