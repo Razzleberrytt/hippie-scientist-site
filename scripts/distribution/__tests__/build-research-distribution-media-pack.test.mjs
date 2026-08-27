@@ -1,9 +1,8 @@
-import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
-import test from 'node:test'
+import { expect, test } from 'vitest'
 
 import { validateDistributionPack } from '../distribution-pack-contract.mjs'
 
@@ -44,35 +43,35 @@ test('canonical research object emits a deterministic validated media pack befor
   fs.writeFileSync(inputPath, `${JSON.stringify([object], null, 2)}\n`)
 
   const firstRun = runBuilder(inputPath, outDir)
-  assert.equal(firstRun.status, 0, firstRun.stderr || firstRun.stdout)
+  expect(firstRun.status, firstRun.stderr || firstRun.stdout).toBe(0)
 
   const packPath = path.join(outDir, `${object.id}.media-pack.json`)
   const packagePath = path.join(outDir, `${object.id}.json`)
   const manifestPath = path.join(outDir, 'manifest.json')
-  assert.equal(fs.existsSync(packPath), true)
-  assert.equal(fs.existsSync(packagePath), true)
-  assert.equal(fs.existsSync(manifestPath), true)
+  expect(fs.existsSync(packPath)).toBe(true)
+  expect(fs.existsSync(packagePath)).toBe(true)
+  expect(fs.existsSync(manifestPath)).toBe(true)
 
   const firstPackBytes = fs.readFileSync(packPath, 'utf8')
   const pack = JSON.parse(firstPackBytes)
-  assert.deepEqual(validateDistributionPack(pack, { researchObjects: [object] }), [])
-  assert.deepEqual(pack.researchObjectIds, [object.id])
-  assert.deepEqual(pack.assetIntents.map((intent) => intent.type), ['carousel', 'short-video'])
-  assert.equal(pack.claims[0].publicSafeStatement, object.finding)
-  assert.equal(pack.uncertainties[0].statement, object.limitation)
+  expect(validateDistributionPack(pack, { researchObjects: [object] })).toEqual([])
+  expect(pack.researchObjectIds).toEqual([object.id])
+  expect(pack.assetIntents.map((intent) => intent.type)).toEqual(['carousel', 'short-video'])
+  expect(pack.claims[0].publicSafeStatement).toBe(object.finding)
+  expect(pack.uncertainties[0].statement).toBe(object.limitation)
 
   const packageData = JSON.parse(fs.readFileSync(packagePath, 'utf8'))
-  assert.equal(packageData.mediaPack.packId, pack.packId)
-  assert.equal(packageData.mediaPack.contentHash, pack.source.contentHash)
-  assert.equal(packageData.mediaPack.status, 'validated')
+  expect(packageData.mediaPack.packId).toBe(pack.packId)
+  expect(packageData.mediaPack.contentHash).toBe(pack.source.contentHash)
+  expect(packageData.mediaPack.status).toBe('validated')
 
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
-  assert.equal(manifest.objects[0].mediaPack, `${object.id}.media-pack.json`)
-  assert.equal(manifest.objects[0].mediaPackStatus, 'validated')
+  expect(manifest.objects[0].mediaPack).toBe(`${object.id}.media-pack.json`)
+  expect(manifest.objects[0].mediaPackStatus).toBe('validated')
 
   const secondRun = runBuilder(inputPath, outDir)
-  assert.equal(secondRun.status, 0, secondRun.stderr || secondRun.stdout)
-  assert.equal(fs.readFileSync(packPath, 'utf8'), firstPackBytes)
+  expect(secondRun.status, secondRun.stderr || secondRun.stdout).toBe(0)
+  expect(fs.readFileSync(packPath, 'utf8')).toBe(firstPackBytes)
 })
 
 test('unsafe canonical mapping fails before any artifact directory is written', () => {
@@ -88,9 +87,9 @@ test('unsafe canonical mapping fails before any artifact directory is written', 
   fs.writeFileSync(inputPath, `${JSON.stringify([object], null, 2)}\n`)
 
   const result = runBuilder(inputPath, outDir)
-  assert.notEqual(result.status, 0)
-  assert.match(`${result.stderr}\n${result.stdout}`, /Invalid distribution pack|preclinical/i)
-  assert.equal(fs.existsSync(outDir), false)
+  expect(result.status).not.toBe(0)
+  expect(`${result.stderr}\n${result.stdout}`).toMatch(/Invalid distribution pack|preclinical/i)
+  expect(fs.existsSync(outDir)).toBe(false)
 })
 
 test('derived pack id collisions fail before any artifact directory is written', () => {
@@ -102,7 +101,7 @@ test('derived pack id collisions fail before any artifact directory is written',
   fs.writeFileSync(inputPath, `${JSON.stringify([first, second], null, 2)}\n`)
 
   const result = runBuilder(inputPath, outDir)
-  assert.notEqual(result.status, 0)
-  assert.match(`${result.stderr}\n${result.stdout}`, /packId collision.*foo-bar-media-v1/i)
-  assert.equal(fs.existsSync(outDir), false)
+  expect(result.status).not.toBe(0)
+  expect(`${result.stderr}\n${result.stdout}`).toMatch(/packId collision.*foo-bar-media-v1/i)
+  expect(fs.existsSync(outDir)).toBe(false)
 })
