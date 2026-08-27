@@ -24,6 +24,18 @@ function parseSrtPayloads(value) {
   })
 }
 
+function parseSvgMetadata(value) {
+  const match = String(value).match(/<metadata>(.*?)<\/metadata>/)
+  if (!match) throw new Error('SVG metadata is required')
+  const decoded = match[1]
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+  return JSON.parse(decoded)
+}
+
 test('renders a deterministic exact-30-second vertical video package with provenance-bound scene assets', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-video-'))
   try {
@@ -55,8 +67,12 @@ test('renders a deterministic exact-30-second vertical video package with proven
       expect(bytes).toContain(mediaPack.source.contentHash)
       expect(bytes).toContain('vertical-video-package-v1')
       expect(bytes).toContain('Educational content')
-      expect(bytes).toContain('"right":860')
       expect(bytes).toContain('font-size="44"')
+      const metadata = parseSvgMetadata(bytes)
+      expect(metadata.safeArea.right).toBe(860)
+      expect(metadata.safeArea.width).toBe(764)
+      expect(metadata.sourceUrl).toBe(mediaPack.source.url)
+      expect(metadata.contentHash).toBe(mediaPack.source.contentHash)
     }
   } finally { fs.rmSync(dir, { recursive: true, force: true }) }
 })
