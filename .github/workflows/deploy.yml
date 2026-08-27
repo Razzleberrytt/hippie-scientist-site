@@ -162,6 +162,11 @@ jobs:
             echo "ℹ️ public/_redirects not present; $STATIC_OUTPUT_DIR/_redirects not required"
           fi
 
+      - name: Write exact deployment receipt
+        env:
+          DEPLOY_RECEIPT_PATH: ${{ env.STATIC_OUTPUT_DIR }}/.well-known/deployment.json
+        run: node scripts/ci/deployment-receipt.mjs write
+
       - name: Deployment summary
         env:
           CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
@@ -177,6 +182,11 @@ jobs:
               echo "- out/index.html exists: yes"
             else
               echo "- out/index.html exists: no"
+            fi
+            if [ -f "$STATIC_OUTPUT_DIR/.well-known/deployment.json" ]; then
+              echo "- exact deployment receipt generated: yes"
+            else
+              echo "- exact deployment receipt generated: no"
             fi
             if [ -f "public/_headers" ]; then
               if [ -f "$STATIC_OUTPUT_DIR/_headers" ]; then
@@ -205,6 +215,13 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
         run: npx --no-install wrangler pages deploy out --project-name "$CLOUDFLARE_PAGES_PROJECT" --branch "${DEPLOY_BRANCH:-main}" --commit-hash "${DEPLOY_SHA:-$GITHUB_SHA}"
+
+      - name: Verify exact production receipt
+        env:
+          PRODUCTION_ORIGIN: https://thehippiescientist.net
+          DEPLOY_RECEIPT_ATTEMPTS: '30'
+          DEPLOY_RECEIPT_INTERVAL_SECONDS: '10'
+        run: node scripts/ci/deployment-receipt.mjs verify
 
       - name: Notify IndexNow of changed URLs
         continue-on-error: true

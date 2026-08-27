@@ -1,0 +1,151 @@
+name: Autonomous merge controller
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review, edited]
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: autonomous-merge-${{ github.event.pull_request.number || 'fallback' }}
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  checks: read
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge-controller:
+    name: merge-controller-monitor
+    if: >-
+      github.event_name == 'pull_request_target' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    outputs:
+      ready: ${{ steps.monitor.outputs.ready }}
+      head_sha: ${{ steps.monitor.outputs.head_sha }}
+      base_sha: ${{ steps.monitor.outputs.base_sha }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      EXPECTED_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      CONTROLLER_RUN_ID: ${{ github.run_id }}
+      CHECK_ONLY: 'true'
+      MERGE_POLL_SECONDS: '30'
+      MERGE_MAX_WAIT_MINUTES: '165'
+    steps:
+      - name: Checkout trusted controller from main
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
+      - name: Follow exact-head checks until merge-ready
+        id: monitor
+        run: node scripts/ci/autonomous-merge-controller.mjs
+
+      - name: Monitor summary
+        if: always()
+        run: |
+          {
+            echo '## Autonomous merge monitor'
+            echo "- PR: #${PR_NUMBER}"
+            echo "- Expected head: ${EXPECTED_HEAD_SHA}"
+            echo "- Ready for serialized merge: ${{ steps.monitor.outputs.ready || 'false' }}"
+            echo '- Security: trusted main-branch controller; PR code is never checked out or executed here.'
+            echo '- Merge rule: universal workflows plus every triggered exact-head check must be terminal-green against the current base.'
+            echo '- Base drift: stale branches or stale-base workflow evidence are refreshed and must pass a fresh exact-head cycle.'
+            echo '- Failure rule: semantic failures fail closed; only bounded transient workflow outcomes may retry once.'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  merge-commit:
+    name: merge-commit
+    needs: merge-controller
+    if: needs.merge-controller.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: autonomous-merge-commit
+      cancel-in-progress: false
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      EXPECTED_HEAD_SHA: ${{ needs.merge-controller.outputs.head_sha }}
+      CONTROLLER_RUN_ID: ${{ github.run_id }}
+      MERGE_POLL_SECONDS: '10'
+      MERGE_MAX_WAIT_MINUTES: '5'
+    steps:
+      - name: Checkout trusted controller from main
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
+      - name: Revalidate current base and merge
+        run: node scripts/ci/autonomous-merge-controller.mjs
+
+      - name: Ensure merged PR enters deploy lifecycle
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          merged="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.merged')"
+          if [ "$merged" != "true" ]; then
+            echo "PR #$PR_NUMBER was not merged after serialized revalidation; no deploy handoff needed."
+            exit 0
+          fi
+
+          sleep 10
+          main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
+          deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100" --jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length')"
+          if [ "$deploy_count" -eq 0 ]; then
+            echo "No deploy run registered for latest main $main_sha; dispatching deploy.yml fallback."
+            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches" -f ref=main
+          else
+            echo "Deploy lifecycle already registered for latest main $main_sha."
+          fi
+
+  fallback-sweep:
+    name: fallback-sweep
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: autonomous-merge-commit
+      cancel-in-progress: false
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+      CONTROLLER_RUN_ID: ${{ github.run_id }}
+      SWEEP_OPEN_PRS: 'true'
+    steps:
+      - name: Checkout trusted controller from main
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
+      - name: Reconcile one open PR without bypassing gates
+        run: node scripts/ci/autonomous-merge-controller.mjs
+
+      - name: Ensure latest main enters deploy lifecycle
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          sleep 10
+          main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
+          deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100" --jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length')"
+          if [ "$deploy_count" -eq 0 ]; then
+            echo "No deploy run registered for latest main $main_sha; dispatching deploy.yml fallback."
+            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches" -f ref=main
+          else
+            echo "Deploy lifecycle already registered for latest main $main_sha."
+          fi
