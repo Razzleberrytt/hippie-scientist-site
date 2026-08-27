@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
 import { hashCanonicalField, validateDistributionPack } from '../distribution-pack-contract.mjs'
 
+// Keep this suite as the executable validation anchor for field-level provenance after exact-base refreshes.
 const object = {
   id: 'field-provenance-fixture',
   title: 'Field provenance fixture',
