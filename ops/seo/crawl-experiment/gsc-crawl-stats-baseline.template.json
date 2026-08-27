@@ -1,0 +1,30 @@
+{
+  "captured_at": null,
+  "source": "Google Search Console > Settings > Crawl stats",
+  "notes": "Example URLs are samples only; do not extrapolate historical URL waste counts from them.",
+  "windows": {
+    "28d": {
+      "total_crawl_requests": null,
+      "html_crawl_requests": null,
+      "refresh_crawls": null,
+      "discovery_crawls": null,
+      "response_percent": { "200": null, "301": null, "404": null },
+      "smartphone_googlebot_share_percent": null,
+      "average_response_time_ms": null,
+      "median_response_time_ms_optional_external_calculation": null,
+      "host_status": null
+    },
+    "90d": {
+      "total_crawl_requests": null,
+      "html_crawl_requests": null,
+      "refresh_crawls": null,
+      "discovery_crawls": null,
+      "response_percent": { "200": null, "301": null, "404": null },
+      "smartphone_googlebot_share_percent": null,
+      "average_response_time_ms": null,
+      "median_response_time_ms_optional_external_calculation": null,
+      "host_status": null
+    }
+  },
+  "daily_trend": []
+}
