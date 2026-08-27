@@ -65,6 +65,26 @@ describe('AI entity canonical detail precedence', () => {
     })
   })
 
+  it('never moves machine review freshness backward when detail provenance is older', () => {
+    expect(mergeSummaryWithDetail(
+      {
+        summary: 'current list summary',
+        description: 'current list description',
+        last_reviewed: '2026-08-26',
+      },
+      {
+        summary: 'reviewed detail summary',
+        description: 'reviewed detail description',
+        last_regulatory_check: '2026-06-30',
+      },
+    )).toEqual({
+      summary: 'reviewed detail summary',
+      description: 'reviewed detail description',
+      last_regulatory_check: '2026-06-30',
+      last_reviewed: '2026-08-26',
+    })
+  })
+
   it('keeps the committed BPC-157 AI entity synchronized with reviewed detail text and freshness', () => {
     const detail = JSON.parse(fs.readFileSync('public/data/compounds-detail/bpc-157.json', 'utf8'))
     const artifact = JSON.parse(fs.readFileSync('public/data/ai-entities/compound/bpc-157.json', 'utf8'))
