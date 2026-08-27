@@ -11,27 +11,38 @@ function lookupRegistry(pathname) {
 }
 
 function writeEvent(env, event) {
-  const analytics = env?.CRAWL_EXPERIMENT_ANALYTICS
-  if (analytics && typeof analytics.writeDataPoint === 'function') {
-    analytics.writeDataPoint({
-      indexes: [CRAWL_EXPERIMENT_ID],
-      blobs: [
-        event.timestamp,
-        event.pathname,
-        String(event.http_status),
-        event.googlebot_type,
-        event.verification_method,
-        event.experiment_arm,
-        event.lastmod_block || '',
-        event.baseline_last_crawled || '',
-        event.baseline_lastmod || '',
-        event.cf_ray || '',
-      ],
-      doubles: [event.http_status],
-    })
-    return
+  try {
+    const analytics = env?.CRAWL_EXPERIMENT_ANALYTICS
+    if (analytics && typeof analytics.writeDataPoint === 'function') {
+      analytics.writeDataPoint({
+        indexes: [CRAWL_EXPERIMENT_ID],
+        blobs: [
+          event.timestamp,
+          event.pathname,
+          String(event.http_status),
+          event.googlebot_type,
+          event.verification_method,
+          event.experiment_arm,
+          event.lastmod_block || '',
+          event.baseline_last_crawled || '',
+          event.baseline_lastmod || '',
+          event.cf_ray || '',
+        ],
+        doubles: [event.http_status],
+      })
+      return
+    }
+    console.log(JSON.stringify({ event: 'verified_googlebot_html_crawl', experiment_id: CRAWL_EXPERIMENT_ID, ...event }))
+  } catch (error) {
+    try {
+      console.warn(JSON.stringify({
+        event: 'crawl_experiment_log_failure',
+        experiment_id: CRAWL_EXPERIMENT_ID,
+        pathname: event.pathname,
+        message: error instanceof Error ? error.message : String(error),
+      }))
+    } catch {}
   }
-  console.log(JSON.stringify({ event: 'verified_googlebot_html_crawl', experiment_id: CRAWL_EXPERIMENT_ID, ...event }))
 }
 
 export async function onRequest(context) {
