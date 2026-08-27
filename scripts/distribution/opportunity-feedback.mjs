@@ -1,4 +1,5 @@
 const DAY_MS = 86400000
+const MIN_PERFORMANCE_REWARD_VIEWS = 250
 
 function clamp(value, min, max) {
   const number = Number(value)
@@ -52,11 +53,12 @@ export function assessDistributionFeedback(candidate, history = [], { now = new 
   const qualifiedVisitRate = views > 0 ? visits / views : 0
   const avgCompletionRate = measured.length ? measured.reduce((sum, entry) => sum + entry.completionRate, 0) / measured.length : 0
   const avgSaveRate = measured.length ? measured.reduce((sum, entry) => sum + entry.saveRate, 0) / measured.length : 0
+  const rewardSampleSufficient = views >= MIN_PERFORMANCE_REWARD_VIEWS
 
   const duplicatePenalty = Math.min(10, duplicateAngleCount * 6)
   const saturationPenalty = Math.min(8, Math.max(0, saturationCount - duplicateAngleCount) * 2)
   const poorPerformancePenalty = views >= 100 && qualifiedVisitRate < 0.005 ? 4 : 0
-  const performanceReward = measured.length
+  const performanceReward = rewardSampleSufficient
     ? Math.min(8, Math.round(qualifiedVisitRate * 100 + avgCompletionRate * 4 + avgSaveRate * 20))
     : 0
   const adjustment = clamp(performanceReward - duplicatePenalty - saturationPenalty - poorPerformancePenalty, -20, 8)
@@ -65,7 +67,8 @@ export function assessDistributionFeedback(candidate, history = [], { now = new 
   if (duplicateAngleCount) reasons.push(`${duplicateAngleCount} matching angle/platform asset(s) published within 42 days`)
   if (saturationCount > duplicateAngleCount) reasons.push(`${saturationCount} recent asset(s) already used this topic/platform`)
   if (poorPerformancePenalty) reasons.push('recent measured assets produced fewer than 0.5 qualified visits per 100 views')
-  if (performanceReward) reasons.push('bounded reward from measured qualified visits, completion, and saves')
+  if (measured.length && !rewardSampleSufficient) reasons.push(`positive performance reward withheld until at least ${MIN_PERFORMANCE_REWARD_VIEWS} measured views`)
+  if (performanceReward) reasons.push('bounded reward from sufficiently exposed measured qualified visits, completion, and saves')
 
   return {
     angleKey: key,
@@ -83,6 +86,8 @@ export function assessDistributionFeedback(candidate, history = [], { now = new 
       qualifiedVisitRate,
       averageCompletionRate: avgCompletionRate,
       averageSaveRate: avgSaveRate,
+      rewardSampleSufficient,
+      minimumRewardViews: MIN_PERFORMANCE_REWARD_VIEWS,
       windowDays: 28,
     },
     reasons,
