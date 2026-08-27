@@ -14,6 +14,10 @@
     "sourceUrl",
     "lastVerified"
   ],
+  "dependentRequired": {
+    "safetyClaimId": ["safetyStatement"],
+    "safetyStatement": ["safetyClaimId"]
+  },
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
     "title": { "type": "string", "minLength": 8, "maxLength": 180 },
@@ -30,6 +34,10 @@
     "participants": { "type": "integer", "minimum": 0 },
     "doseContext": { "type": "string", "maxLength": 400 },
     "populationContext": { "type": "string", "maxLength": 400 },
+    "formulationContext": { "type": "string", "maxLength": 400 },
+    "durationContext": { "type": "string", "maxLength": 400 },
+    "safetyClaimId": { "type": "string", "pattern": "^clm_[a-f0-9]+$" },
+    "safetyStatement": { "type": "string", "minLength": 20, "maxLength": 800 },
     "series": { "type": "string" },
     "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
     "lastVerified": { "type": "string", "format": "date" }
