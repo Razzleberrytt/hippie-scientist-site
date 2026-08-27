@@ -40,5 +40,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Syntax-check experiment scripts
+        run: |
+          node --check scripts/seo/build-crawl-experiment-manifest.mjs
+          node --check scripts/ci/validate-crawl-experiment.mjs
       - name: Validate crawl experiment
         run: node scripts/ci/validate-crawl-experiment.mjs
