@@ -1,0 +1,59 @@
+name: Crawl Experiment Integrity
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'public/data/**'
+      - 'functions/**'
+      - 'ops/seo/crawl-experiment/**'
+      - 'scripts/seo/crawl-experiment-core.mjs'
+      - 'scripts/seo/initialize-crawl-experiment.mjs'
+      - 'scripts/seo/refresh-google-crawler-ranges.mjs'
+      - 'scripts/seo/validate-crawl-experiment.mjs'
+      - 'scripts/seo/__tests__/crawl-experiment-core.test.mjs'
+      - '.github/workflows/crawl-experiment.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'public/data/**'
+      - 'functions/**'
+      - 'ops/seo/crawl-experiment/**'
+      - 'scripts/seo/crawl-experiment-core.mjs'
+      - 'scripts/seo/initialize-crawl-experiment.mjs'
+      - 'scripts/seo/refresh-google-crawler-ranges.mjs'
+      - 'scripts/seo/validate-crawl-experiment.mjs'
+      - 'scripts/seo/__tests__/crawl-experiment-core.test.mjs'
+      - '.github/workflows/crawl-experiment.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Test deterministic experiment contracts
+        run: node --test scripts/seo/__tests__/crawl-experiment-core.test.mjs
+
+      - name: Validate experiment structure and active freeze
+        run: node scripts/seo/validate-crawl-experiment.mjs --structure-only
+
+      - name: Syntax-check edge middleware
+        run: |
+          node --check functions/_middleware.js
+          node --check functions/_shared/googlebot-verification.mjs
+          node --check scripts/seo/initialize-crawl-experiment.mjs
+          node --check scripts/seo/refresh-google-crawler-ranges.mjs
+          node --check scripts/seo/validate-crawl-experiment.mjs
