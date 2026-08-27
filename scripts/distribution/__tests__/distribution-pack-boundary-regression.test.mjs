@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { hashResearchObject, validateDistributionPack } from '../distribution-pack-contract.mjs'
+import { hashCanonicalField, hashResearchObject, validateDistributionPack } from '../distribution-pack-contract.mjs'
 
 const FIXED_BOUNDARIES = [
   'Do not strengthen the canonical research finding.',
@@ -26,12 +26,17 @@ function packFor(object) {
       consumerInstruction: false,
       studyContext: {
         population: object.populationContext ?? null,
-        formulation: null,
+        formulation: object.formulationContext ?? null,
         dose: object.doseContext ?? null,
-        duration: null,
+        duration: object.durationContext ?? null,
       },
     }],
     sources: [{ id: 'RESEARCH_OBJECT_001', kind: 'research-object', identifier: object.id, url: sourceUrl }],
+    provenanceReceipts: [
+      { targetPath: '$.claims[0].sourceStatement', canonicalField: 'finding', sourceRef: 'RESEARCH_OBJECT_001', fieldHash: hashCanonicalField(object.finding) },
+      { targetPath: '$.claims[0].publicSafeStatement', canonicalField: 'finding', sourceRef: 'RESEARCH_OBJECT_001', fieldHash: hashCanonicalField(object.finding) },
+      { targetPath: '$.uncertainties[0].statement', canonicalField: 'limitation', sourceRef: 'RESEARCH_OBJECT_001', fieldHash: hashCanonicalField(object.limitation) },
+    ],
     safety: [],
     uncertainties: [{ id: 'UNCERTAINTY_001', statement: object.limitation, sourceRefs: ['RESEARCH_OBJECT_001'] }],
     forbiddenExtrapolations: [...FIXED_BOUNDARIES],
