@@ -72,6 +72,11 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(classifyRisk({ pr, changedFiles: ['src/components/SearchBox.tsx'] })).toBe('medium')
   })
 
+  it('uses the exact-head validation job instead of the whole CI workflow for low risk', () => {
+    expect(requiredWorkflowsFor('low', ['docs/merge-policy.md'])).toEqual([])
+    expect(requiredChecksFor('low')).toEqual(['Validation, tests, and data'])
+  })
+
   it('requires targeted distribution workflows for a medium renderer but not the whole CI workflow', () => {
     expect(requiredWorkflowsFor('medium', ['scripts/distribution/render-carousel-svg.mjs'])).toEqual([
       'Atomic upgrade gate',
@@ -88,6 +93,23 @@ describe('risk-tiered autonomous merge controller', () => {
       'Site Health Check',
       'Production Content Lint',
     ])
+  })
+
+  it('lets a low-risk docs PR merge after validation while the CI production job remains pending', () => {
+    const verdict = evaluateReadiness({
+      pr,
+      workflowRuns: [run('CI', 'in_progress', null), run('Lighthouse CI', 'in_progress', null)],
+      checkRuns: [
+        check('Validation, tests, and data', 'completed', 'success', 10),
+        check('Production build, output, and SEO', 'in_progress', null, 11),
+      ],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'low',
+      changedFiles: ['docs/merge-policy.md'],
+    })
+    expect(verdict.action).toBe('merge')
   })
 
   it('lets a medium renderer merge after validation while CI production build and content lint remain pending', () => {
@@ -112,6 +134,41 @@ describe('risk-tiered autonomous merge controller', () => {
       changedFiles: ['scripts/distribution/render-carousel-svg.mjs'],
     })
     expect(verdict.action).toBe('merge')
+  })
+
+  it('ignores an optional action-required workflow shell for medium risk once required evidence is green', () => {
+    const verdict = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        ...mediumCore,
+        run('Research Distribution'),
+        run('Lighthouse CI', 'completed', 'action_required'),
+      ],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'medium',
+      changedFiles: ['scripts/distribution/render-carousel-svg.mjs'],
+    })
+    expect(verdict.action).toBe('merge')
+  })
+
+  it('does not ignore action-required on a required medium workflow', () => {
+    const verdict = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        ...mediumCore,
+        run('Research Distribution', 'completed', 'action_required'),
+      ],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'medium',
+      changedFiles: ['scripts/distribution/render-carousel-svg.mjs'],
+    })
+    expect(verdict.action).toBe('failed')
   })
 
   it('waits for the validation job on medium risk even when targeted workflows are green', () => {
@@ -206,19 +263,5 @@ describe('risk-tiered autonomous merge controller', () => {
       changedFiles: ['scripts/ci/autonomous-merge-controller.mjs'],
     })
     expect(verdict.action).toBe('wait')
-  })
-
-  it('lets low risk wait only for CI while unrelated checks remain pending', () => {
-    const verdict = evaluateReadiness({
-      pr,
-      workflowRuns: [run('CI'), run('Lighthouse CI', 'in_progress', null)],
-      checkRuns: [{ id: 5, name: 'optional-check', status: 'in_progress', conclusion: null, app: { slug: 'github-actions' } }],
-      expectedHeadSha: headSha,
-      currentBaseSha: baseSha,
-      controllerRunId: 'controller',
-      riskTier: 'low',
-      changedFiles: ['docs/merge-policy.md'],
-    })
-    expect(verdict.action).toBe('merge')
   })
 })
