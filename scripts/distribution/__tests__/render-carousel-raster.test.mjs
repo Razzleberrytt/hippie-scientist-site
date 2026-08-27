@@ -24,7 +24,6 @@ const creativeSpec = {
 }
 const digest = (value) => crypto.createHash('sha256').update(value).digest('hex')
 
-// This file also serves as the exact-head validation anchor after automated base synchronization.
 async function withRenderedAssets(run) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-raster-'))
   try {
@@ -59,6 +58,26 @@ test('fails closed when an SVG parent is tampered after manifest creation', asyn
   await withRenderedAssets(async ({ dir, svgManifest }) => {
     fs.appendFileSync(path.join(dir, svgManifest.assets[0].file), '<!-- tampered -->')
     await expect(renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir })).rejects.toThrow(/hash mismatch/)
+  })
+})
+
+test('binds declared provenance to the provenance embedded in hashed SVG bytes', async () => {
+  await withRenderedAssets(async ({ dir, svgManifest }) => {
+    const substituted = 'f'.repeat(64)
+    const tampered = {
+      ...svgManifest,
+      sourceContentHash: substituted,
+      assets: svgManifest.assets.map((asset) => ({ ...asset, sourceContentHash: substituted, sourceUrl: 'https://example.invalid/substituted' })),
+    }
+    await expect(renderCarouselRasterAssets({ manifest: tampered, outputDir: dir })).rejects.toThrow(/provenance mismatch/)
+  })
+})
+
+test('rejects parent paths that can escape the output directory', async () => {
+  await withRenderedAssets(async ({ dir, svgManifest }) => {
+    const parent = svgManifest.assets[0]
+    const escaped = { ...svgManifest, assets: [{ ...parent, file: `../${parent.file}` }] }
+    await expect(renderCarouselRasterAssets({ manifest: escaped, outputDir: dir })).rejects.toThrow(/noncanonical SVG parent filename/)
   })
 })
 
