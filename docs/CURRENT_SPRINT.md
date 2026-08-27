@@ -1,74 +1,117 @@
 # Current Sprint
 
 **Status:** Authoritative immediate execution queue
-**Sprint:** Revenue Foundation Baseline
-**Updated:** 2026-08-26
-**WIP limit:** Maximum three concurrent workstreams; within each workstream, activate one ticket at a time. An agent works one scoped ticket and stops after proof and record updates.
+**Sprint:** Governed Distribution MVP + Measurement Foundation
+**Updated:** 2026-08-27
+**WIP limit:** Maximum three concurrent implementation tickets. The Evidence → Distribution initiative may use separate lanes only when scopes are orthogonal and one ticket per lane is active.
 
 ## Sprint objective
 
-Establish trustworthy production measurement, reconcile indexability truth, and prepare exactly one evidence-safe commercial journey for improvement. The sprint does not authorize broad content creation, robot overrides, redesign, or infrastructure replacement. **Exception:** on 2026-08-22 the project owner directly authorized one scoped visual-system refinement (`AUTH-004`), then explicitly asked that the refinement continue through the primary library browse experience; it must preserve routes, evidence/safety semantics, canonical CSS ownership, accessibility, and performance gates and does not authorize a second redesign system. **Exception:** on 2026-08-24 the project owner directly authorized issue `#4182`, a scoped Discovery/SEO identity correction for five records misclassified as herbs; it must preserve all newer canonical-workbook work including #4184 and #4186, stable URLs through direct redirects, evidence/safety/governance semantics, and generated-data ownership. **Exception:** on 2026-08-24 the project owner directly authorized issue `#4223`, a cross-cutting Operations/Evidence-Governance control-plane ticket above the existing enrichment pipeline; it must not create a second source of truth, weaken scientific/safety/provenance gates, or mutate canonical workbook data outside the governed patch/import path. This maintenance exception does not authorize unrelated Operations work or a fourth product workstream. **Exception:** on 2026-08-26 the project owner directly authorized the scoped `SEO-005` Bing AI citation-incident diagnostic in PR #4331 and instructed that necessary blockers be repaired before merge; it must remain file-fed until a supported Bing AI Performance acquisition path exists, scan recovered intra-window incidents, prefer fresh exports, preserve IndexNow restraint, and make no broad content/indexability changes in response to dashboard volatility alone. **Exception:** on 2026-08-26 the project owner directly authorized issue `#4333` / `I18N-001`, a scoped Japanese/Korean expansion of the existing core localization system; it may add the ten established core route families for `ja` and `ko`, but detailed scientific profiles must remain fail-closed until governed claim-level translations preserve evidence, safety, dose context, and citation relationships. **Exception:** on 2026-08-26 the project owner directly authorized `REV-005` / issue `#4357`, the first scoped foundation of an evidence→distribution media system. It must extend the existing `data/distribution/research-object.schema.json` / `research-objects.json` / `build-research-distribution.mjs` control path rather than create a second distribution-facts plane; the current ticket is limited to a downstream validated media-pack contract, must preserve research-object lineage, forbid claim strengthening, consumer-dose directives, and preclinical→human projection, and must not render, publish, or auto-post media yet. **Safety/provenance incident:** on 2026-08-24 the merged governor's first cheap scan found issue `#4232`, an approved Ashwagandha pregnancy entry citing the CBD-specific EPIDIOLEX label. The narrow #4232 repair was merged in PR #4233: the cross-entity claim was withdrawn while audit history was preserved and canary-visible Ashwagandha short-term tolerability was tied only to exact trial-scoped Ashwagandha evidence. **Recorded continuation:** issue `#4238`, implemented by PR `#4234`, is the separate provenance-restoration continuation. It supersedes closed unmerged #4237/#4235 work, restores a governed normalized source baseline, canonicalizes the ten Chamomile/Kava/CBD entity references, replaces active use of the superseded 2021 EPIDIOLEX label with current May 2026 labeling where source-compatible, migrates the non-seizure CBD research-gap source to PMID 36271316, and strengthens governor CI to require source-registry plus normalized-ledger validation. It may retire the six-source baseline-debt allowlist only if the real validators, source-independent identity regression, canaries, review, and release gates prove unresolved publishable source debt is actually zero.
+Finish the smallest trustworthy Evidence → Distribution loop that can produce a governed asset, preserve exact factual provenance through presentation/rendering, move it through an idempotent dry-run publishing lifecycle, and accept attributable outcome observations for deterministic feedback.
 
-## Queue rules
+This sprint is an **acceleration track inside M1**, not a declaration that the Revenue Foundation is complete. GA4/GSC/affiliate alignment and production analytics receipt remain blocked by authorized external access. Those blockers stay visible, but they do not freeze unrelated governed distribution work.
 
-- Start the highest-priority unblocked ticket in a workstream.
-- `Ready` means dependencies are satisfied; `Blocked` names the missing dependency.
-- A direct owner instruction may temporarily displace queue order when the exception is recorded here before completion and remains within an existing workstream/WIP limit.
-- Completion requires the acceptance criteria and proof below, relevant tests, and the production build unless the ticket is explicitly access-only.
-- Analytics values remain `Unknown` until exported from an authorized source.
+The sprint does **not** authorize broad/high-volume auto-posting, scientific rewriting, evidence-grade mutation, invented safety language, consumer-dose directives, a second factual dataset, speculative content volume, or milestone completion without proof.
 
-## 1. Discovery / SEO
+## Execution rules
 
-| ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
-|---|---|---|---|---|---|---|---|---|---|---|
-| #4182 | Correct five herb/compound identities and preserve canonical URLs | P0 owner-directed | Data/SEO engineer | Direct owner instruction 2026-08-24; preserve #4184 latin-name resolutions and #4186 duplicate-organism retirement state | Retype only resveratrol, tyrosine, citicoline, quercetin, and phosphatidylserine as compounds; preserve newer retirement/governance cells; consolidate tyrosine → l-tyrosine and citicoline → cdp-choline; preserve legacy URLs with direct 301s; commit no generated runtime payloads | Workbook schema; all historical workbook patches; regenerated workbook↔runtime parity; enrichment doctor; canonical/redirect regressions; standard release gates | `data-sources/herb_monograph_master.xlsx`, canonical maps, `public/_redirects`, redirect verifier, focused tests | In Review | S | Removes taxonomy and canonical-URL identity defects without rolling back newer enrichment or duplicate-resolution work |
-| SEO-001 | Reconcile post-build profile publication truth | P0 | Data/SEO engineer | None | One post-invariant artifact reports every profile's final robots, sitemap eligibility, and reason; counts match built HTML and sitemap in a clean production build | Issue #4261; PR #4262; merge `d368e61`; Production Content Invariants run #1746 reconciled 846 built profiles with 285 eligible, 285 included, and zero mismatches | `scripts/`, post-build publication report, sitemap/robots builders | Completed | M (1–2 d) | Restores reliable indexing decisions and prevents unsafe robot overrides |
-| SEO-002 | Recover reviewed flagship profile source roles | P0 | Evidence/content engineer | SEO-001; review PR #4089 before duplicating work | Ashwagandha and L-theanine evidence roles are reviewed against sources; valid roles survive regeneration; pages index only if all existing gates pass | Source-review record, regenerated diff, route-specific tests, final HTML robots/sitemap proof | Workbook, source registry/overlays, `/herbs/ashwagandha/`, `/compounds/l-theanine/` | Blocked | L (2–4 d) | Can restore two high-value depth pages without weakening governance |
-| SEO-003 | Clear current schema identity gate | P1 | SEO engineer | Reproduce latest workflow; coordinate open PRs | All first-party Person/Organization IDs are consistent on affected ADHD guides; full schema policy and regression suite pass | Failing/passing report, fixture or route tests, production build | JSON-LD helpers, `/guides/adhd/*`, schema workflows | Ready: full local policy reproduces 38 violations | M | Restores a current release gate and entity consistency |
-| SEO-004 | Import 28-day GSC opportunity baseline | P0 | Growth analyst | Search Console access/service account | Scoreboard contains 28-day impressions, clicks, CTR, position, top landing pages, pages near top 20/top 10, and gainers/losers with exact dates | Read-only export/query, saved aggregate with no secrets, scoreboard update | Search Console, `scripts/seo/fetch-search-console.mjs` | Blocked: credentials | S | Replaces speculative SEO priorities with observed demand |
-| SEO-005 | Diagnose Bing AI citation cliffs without destructive response | P1 owner-directed | SEO/measurement engineer | Direct owner instruction 2026-08-26; fresh Bing AI Performance export must be supplied explicitly because no supported retrieval API is documented | Select the freshest usable dated export without double counting; exclude known reporting anomalies; scan multiple mature dates so recovered cliffs remain visible; cross-check Search Console, technical corpus health, and relevant git history; never mass-submit IndexNow solely for an AI-dashboard dip; do not schedule unattended detection until a supported export feed exists | PR #4331 diff; fresh-vs-rich and recovered-cliff regressions; manual/file-fed waiting-state proof; exact-head repository checks; post-merge operator run with a real export when available | `scripts/seo/ai-citation-incident-*`, `data-sources/ai-performance/`, incident reports/docs; no content/publication mutation | In Review | S–M | Prevents overreaction to AI citation volatility while making genuine synchronized cliffs diagnosable and auditable |
-| I18N-001 | Expand Japanese/Korean core locales with fail-closed scientific translation governance | P1 owner-directed | SEO/localization engineer | Direct owner instruction 2026-08-26; issue #4333; reuse existing locale/route registry and scientific translation gates | Add `ja` and `ko` once to the locale registry; publish the ten established core localized route families for each; keep switchers/theme copy/hreflang/sitemap/OG alternates registry-driven; ensure CJK typography applies from SSR markup; advertise no detailed profile alternate until governed claim-level translations preserve evidence limitations, safety, dose context and citation relationships | Issue #4333; PR #4332; localization integration/registry tests; sitemap/hreflang/OG parity; production build; exact-head required gates; review resolution | Shared locale registry/chrome/SEO helpers, `/ja/*`, `/ko/*`, CJK typography; no canonical scientific profile mutation | In Review | M | Expands international discovery on safe core surfaces while preventing partial scientific translations from becoming canonical alternates |
+- Start only tickets listed under `Active` or `Ready next` below.
+- GitHub issue/PR state outranks stale document wording.
+- When a ticket merges/closes, remove it from `Active` on the next control sync.
+- One lane may not edit another lane's source-of-truth surface merely to move faster.
+- L1 owns rendering/media infrastructure; L2 factual/provenance; L3 opportunity/measurement; L4 presentation/experiments; L5 lifecycle/publishing.
+- Canonical research objects and governed upstream evidence remain factual authority.
+- Every distribution asset must retain canonical source URL/content hash and the exact approved factual/limitation boundary.
+- Missing production/external metrics remain `Unknown`, never zero and never inferred success.
+- Positive performance feedback must preserve the existing minimum-exposure threshold and may re-rank only already-eligible opportunities.
+- Deterministic failures found inside scope are repaired before merge. Merge only on exact intended head when required gates are green and no blocking review/governance defect remains.
 
-## 2. Revenue / Conversion
+## Active — WIP 3/3
 
-| ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
-|---|---|---|---|---|---|---|---|---|---|---|
-| REV-005 | Establish governed research-object→media pack contract | P0 owner-directed | Growth/distribution engineer | Direct owner instruction 2026-08-26; issue #4357; reuse the existing research-distribution object/builder/workflow; no other active Revenue ticket is unblocked | Add one downstream v1 media-pack schema and fail-closed validator; every pack names canonical research-object IDs and every factual claim retains research-object lineage; structural schema is enforced at runtime; claim strengthening, consumer-dose directives, unresolved references, and preclinical→human benefit projection fail closed; no rendering/publishing or scientific/runtime mutation in this ticket | Issue #4357; PR #4358 exact-head diff; focused schema/semantic regression suite; existing Research Distribution workflow; production build/release gates; fresh current-head Codex review and resolved blocking threads | `schemas/distribution-pack-v1.schema.json`, `scripts/distribution/`, `docs/distribution-engine.md`; existing `data/distribution/*` remains authoritative and unmodified | In Review | S–M | Creates the safe bridge from governed research facts to future infographic/carousel/video rendering without opening a second factual control plane |
-| REV-001 | Verify production analytics and governed funnel events | P0 | Analytics engineer | Authorized GA4/Ahrefs property access and production environment visibility | Confirm identifiers load after consent, not before; preserve first consented events while network loading stays deferred; emit one explicit page view for initial and client-side route changes; verify page/guide view and affiliate-click events with page/CTA/destination context; document missing production receipt configuration without inventing values | Issue #4268; merged PR #4269 / `ac20330`; 13 green exact-head checks; blocker issue #4280; network/DebugView screenshots or timestamped event log, consent test, env-name checklist, no secret values for final production receipt | `src/lib/loadAnalytics.ts`, `components/ClickTracker.tsx`, `lib/analytics.ts`, consent provider, live site | Blocked: code fix merged; production configuration and event receipt require authorized property/environment access unavailable through the GitHub connector | S (≤1 d) | Prevents consented funnel events from being silently dropped and establishes reliable SPA page-view ownership; measured production receipt remains Unknown |
-| REV-002 | Establish aligned funnel and revenue baseline | P0 | Growth analyst | REV-001; GA4, Amazon, Mailchimp access | Fixed 28-day sessions, landing engagement, affiliate clicks, CTR, revenue, RPM, and email signups are imported with source and date range; unavailable metrics remain explicitly Unknown | Read-only exports and reconciliation notes; scoreboard update | GA4, Amazon Associates, Mailchimp, `docs/SCOREBOARD.md` | Blocked: REV-001/access | S | Creates the first honest business baseline |
-| REV-003 | Select one flagship commercial decision page | P1 | Product/growth lead | SEO-004 and REV-002 | One existing indexable page is selected using demand, intent, evidence completeness, safety, and conversion data; alternatives and non-selection reasons recorded | Scored shortlist and dated decision entry | Existing `/guides/compare/*`, `/guides/best/*`, `/guides/sleep/*` | Blocked | S | Focuses conversion work on the highest-confidence existing opportunity |
-| REV-004 | Validate flagship disclosure and destinations | P1 | Commerce/editorial reviewer | REV-003 | Disclosure occurs before first affiliate link; every destination resolves to the intended product/form/market; search fallbacks are retained or replaced only with documented reason | Link audit, live screenshots, source diff, affiliate-tag audit | Selected route, `config/revenue-products.ts`, disclosure components | Blocked | S–M | Improves trust and reduces broken or low-relevance commercial exits |
+| Lane | Issue / PR | Ticket | Status | Must prove before merge |
+|---|---|---|---|---|
+| L1 Rendering | #4389 / PR #4388 | Deterministic provenance-bound SVG carousel renderer | In Review | Identical validated inputs → byte-stable SVGs/manifest hashes; source URL/content hash retained; no factual rewrite/truncation; oversized copy fails closed; Research Distribution + release gates green |
+| L2 Provenance | #4400 / PR #4401 | Field-level factual provenance receipts | In Review | Finding/limitation and canonically owned study context map to exact canonical field/hash; null context is not fabricated; tampering fails; whole-object stale invalidation remains intact |
+| L4 Presentation | #4404 / PR #4405 | Lossless creative presentation adapter | In Review | Ordered continuation slides reconstruct governed factual copy exactly; citations/color/safe-area metadata survive every continuation; no ellipsis, drop, reorder, paraphrase, or rewrite |
 
-## 3. Authority / Content
+## Ready next — strict dependency order
 
-| ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
-|---|---|---|---|---|---|---|---|---|---|---|
-| AUTH-004 | Refine canonical visual system across flagship and primary browse surfaces | P0 owner-directed | UI/experience engineer | Direct owner requests 2026-08-22; avoid active Research PR overlap | Shared canvas, surfaces, typography, controls, chrome, homepage composition, and primary Herbs/Compounds browse journeys feel materially more coherent and premium; mobile goal navigation is balanced; library loading/filter/card/pagination states share one visual language; routes, content meaning, evidence/safety semantic colors, dark mode, reduced motion, and canonical ownership remain intact | Source diff, visual-system and library-browse regression tests, relevant UI checks, production build, rendered light/dark mobile/desktop review when available | Canonical premium CSS owners, homepage route-scoped CSS, shared decision/pagination components, `/herbs`, `/compounds` | In Review | M | Raises perceived authority and coherence across the highest-visibility discovery surfaces without creating redesign debt |
-| AUTH-001 | Resolve four verified duplicate-intent route pairs | P1 | Content SEO editor | Inspect traffic/canonical/link evidence before deciding | Each pair has a documented canonical owner; content is differentiated or consolidated; any removed URL has a redirect; exact regressions pass | Intent matrix, GSC evidence or Unknown label, redirect/internal-link tests, build | Four pairs listed in `CURRENT_STATE.md`, `public/_redirects` | Ready | M | Concentrates relevance and removes misleading duplicate surfaces |
-| AUTH-002 | Strengthen links to the selected flagship | P1 | Content editor | REV-003; link audit | Only contextually relevant existing pages link to the flagship with descriptive anchors; no redirect-hop or orphan regression | Before/after link graph, changed-route list, full link audit, build | Selected cluster and related monographs/guides | Blocked | M | Improves discovery and user journeys without new content volume |
-| AUTH-003 | Upgrade the selected existing decision page | P1 | Evidence-first content editor | REV-003, REV-004; evidence review | Page meets the decision-page standard, separates outcomes, includes contrary/null evidence and safety/directness boundaries, and improves CTA clarity without ranking by commission | Claim-source review, route-specific regressions, disclosure/link audit, visual check, build | Selected flagship route and evidence sources | Blocked | L | Creates the first measurable evidence-safe revenue-loop experiment |
+A free slot should take the highest item whose dependencies are actually satisfied.
 
-## 4. Operations / Evidence Governance — owner-directed maintenance exception
+### 1. L5 — #4406 governed ready → publish → measured lifecycle
 
-| ID | Ticket | Priority | Owner | Dependencies | Acceptance criteria | Proof required | Relevant scope | Status | Effort | Expected impact |
-|---|---|---|---|---|---|---|---|---|---|---|
-| #4238 | Restore normalized source registry baseline and retire provenance debt | P0 safety/provenance continuation | Evidence operations engineer | #4233 merged; supersedes closed unmerged #4237/#4235 identity-only path; no overlapping enrichment-sensitive PR | Restore exactly the reviewed governed source baseline needed by the normalized ledger; retain the 2021 EPIDIOLEX label only as inactive superseded audit provenance; migrate active CBD CNS-depressant/CYP2C19 claims to current May 2026 labeling; migrate the non-seizure CBD research-gap claim to PMID 36271316; canonicalize exactly 10 Chamomile/Kava/CBD entity references; require source-registry and normalized-ledger validators in governor CI; retire the six-source unresolved-debt allowlist only when unresolved publishable source debt validates at zero; change no unrelated claims or workbook data | Issue #4238; PR #4234 current-head diff; independent source verification; source-registry validator; real normalized-ledger validator; source-independent canonical-detail regression; governor unit/regression tests, benchmark, overlap, canaries and daily dry run; standard CI/build/release gates; current-head Codex review; post-merge main verification | `data-sources/enrichment-source-registry-baseline.json`, `public/data/source-registry.json`, `public/data/enrichment-normalized.jsonl`, governor workflow/canary/contract/tests; no canonical workbook mutation | In Review | S–M | Converts six visible baseline provenance debts into governed source support, preserves historical label auditability, removes active use of superseded CBD labeling, and strengthens fail-closed validation |
-| #4232 | Repair normalized enrichment provenance and cross-entity Ashwagandha safety source | P0 safety/provenance incident | Evidence operations engineer | First governed cheap scan after #4223 merge | Deprecate and deactivate the misattributed Ashwagandha pregnancy entry while preserving audit history; add a separately identified Ashwagandha short-term tolerability entry sourced to PMID 31517876 and scoped exactly to 240 mg/day standardized Shoden extract for 60 days in stressed healthy adults; explicitly prohibit pregnancy, breastfeeding, dose, formulation, population, and long-term generalization; preserve valid CBD uses and leave the six pre-existing unresolved source IDs visible for a separate governed follow-up | Issue #4232 investigation; merged PR #4233 focused diff; governor regression/benchmark/canaries; generated-data guard; required CI/build/release gates; current-head review; post-merge main-state verification | `public/data/enrichment-normalized.jsonl`, governor canary regression, governance docs; source registry unchanged by this narrow ticket | Completed | S | Removed the material cross-entity safety provenance error without inventing a registry path; the separate source-baseline debt is owned by #4238 |
-| #4223 | Add governed autonomous enrichment control plane | P0 owner-directed | Evidence operations engineer | Direct owner instruction 2026-08-24; existing canonical enrichment pipeline and workbook governance remain authoritative | Coordinate non-overlapping enrichment work; persist auditable state/learning/quarantine; prioritize with cheap-scan/deep-work gates; track source diversity, negative evidence, coverage, canaries, integrity rechecks and architecture drift; self-improvement is benchmark-gated; all scientific/safety/provenance/validation gates remain fail-closed | PR #4222 diff and review resolution; governor unit/regression tests; benchmark; state validator; overlap/lease CLI smoke test; canary and daily-consolidation checks; standard CI, Site Health, Build Check, Production Content Lint, Lighthouse and Atomic gate; post-merge main verification | `scripts/enrichment-governor/`, `ops/enrichment-governor/`, `.github/workflows/enrichment-governor.yml`; no canonical workbook mutation | Completed | M | Adds persistent coordination and learning above the existing pipeline without creating a second source of truth |
+**Start when:** the renderer and presentation boundaries it consumes are merged/stable enough to bind exact asset identity.
+
+**Required result:**
+
+- one canonical lifecycle for generated/validated/ready/scheduled/published/measured (or the smallest equivalent compatible state model);
+- state transitions bound to exact upstream research-object, pack, creative, render-manifest, destination, platform/format, and attribution identity;
+- stale assets fail closed;
+- idempotent scheduling/publishing with durable receipts;
+- duplicate attempts cannot create duplicate publication;
+- partial/external failures are explicit and retry-safe;
+- pause/stop/rollback semantics exist before scale;
+- dry-run is the default; absent provider credentials/support yields a waiting state, not fake success;
+- no scientific or canonical-site mutation.
+
+### 2. L3 — #4407 attributable outcome ingestion
+
+**Start when:** #4406 provides a stable publication/asset receipt identity.
+
+**Required result:**
+
+- canonical observation schema keyed to campaign/asset/platform/format/source/hash/receipt/window;
+- deterministic normalization and replay;
+- missing/stale/mismatched/duplicate observations remain Unknown/rejected;
+- platform results stay attribution-separated;
+- existing anti-saturation and duplicate-angle penalties continue to work without performance data;
+- positive rewards remain impossible below the existing ≥250 measured-view threshold;
+- performance feedback cannot alter scientific eligibility, claims, evidence grades, limitations, safety, or canonical content.
+
+### 3. First bounded pilot package
+
+**Start when:** L1/L2/L4 + #4406 + #4407 boundaries are proven.
+
+The first pilot should use already-governed research, deterministic assets, tagged destinations, durable lifecycle receipts, and an explicit observation window. It may be published only through a supported, attributable, policy-compliant path. If no provider integration/credentials are available, the sprint may complete the end-to-end dry-run and record the external execution blocker rather than inventing a live result.
+
+## External blockers preserved from M0/M1
+
+| ID | Blocker | Current truth | Next legal action |
+|---|---|---|---|
+| REV-001 / #4280 | Production analytics receipt | Code readiness merged; production GA4/Ahrefs configuration/event receipt remains Unknown | Obtain authorized environment/property/network/DebugView evidence without exposing secrets |
+| SEO-004 | 28-day GSC baseline | No authorized fixed-window export in repo | Supply authorized Search Console access/export and record exact dates |
+| REV-002 | Aligned funnel/revenue baseline | Cross-source baseline incomplete | Reconcile GA4/GSC/Amazon/Mailchimp once source access exists; partial source-level observations remain explicitly partial |
+| #4014 | `main` branch protection/ruleset | Repository enforcement is not proven | Apply/verify required settings with authorized repository-settings access |
+| #4341 | Recurring Cloudflare production failure class | Repository-side checks do not expose root-cause logs | Inspect failed production deployment logs; repair only if a deterministic repository/config cause is identified |
+
+## Highest-value fallback work if the distribution dependency chain is blocked
+
+These items are **not active while WIP is full**. Promote one only after checking overlap and current exact-main state.
+
+1. **SEO-003** — reproduce and clear the current schema identity gate.
+2. **AUTH-001** — resolve verified duplicate-intent owners using current route/query evidence.
+3. **#4227** — reduce duplicated full production exports without weakening exact-SHA fail-closed validation.
+4. **#4266 / #4260** — governed recent-evidence enrichment under the existing governor/lease/provenance contract.
 
 ## Sprint exit conditions
 
-- REV-001 and SEO-001 are complete or have precise external-access blockers.
-- REV-005 either passes its scoped contract/research-object-lineage/build/review proof or remains In Review with a precise blocker; it does not authorize rendering, publishing, or a second distribution-facts plane.
-- The current schema and safety/runtime failures have owners and reproducible proof.
-- A fixed-period search and business baseline exists, or every unavailable field has an owner and acquisition step.
-- One flagship page is selected only after evidence and measurement dependencies are satisfied.
-- No more than three product workstreams were active, and no speculative page production was added; Operations/Evidence-Governance work remains scoped to recorded owner-directed or safety/provenance exceptions.
-- AUTH-004 either passes its visual/build proof or remains In Review with the limitation recorded; it does not relax evidence, safety, accessibility, or performance gates.
-- #4238 is complete through PR #4234 and post-merge review hardening PR #4241 only after source-registry and normalized-ledger validation, source-independent detail-file proof, zero unresolved publishable source debt, sponsor disclosure, cross-anchor DOI/PMID identity regressions, required governor/release gates, current-head review, and default-branch verification.
+The sprint exits only when all of the following are true or have a precise external blocker:
 
-## Completed during the reset
+- PRs #4388, #4401, and #4405 are merged or explicitly blocked with exact failing proof; no stale active status remains in control docs.
+- The governed research object → validated pack → lossless creative plan → deterministic rendered asset chain is reproducible and provenance-bound.
+- #4406 proves an idempotent dry-run lifecycle with stale-asset rejection, durable receipts, retry safety, and rollback/stop semantics.
+- #4407 proves deterministic attributable observation ingestion, Unknown handling, replay, cross-platform isolation, and the existing minimum-exposure guard.
+- A bounded pilot package can be generated end-to-end and is measurement-ready; live publication is optional only if a supported/authorized provider path exists.
+- No broad auto-publishing or high-volume scheduling is enabled merely because the technical chain exists.
+- Revenue/GSC/analytics blockers remain honestly labeled and do not silently satisfy M1/M2 exits.
+- Backlog and sprint agree with current GitHub state: no completed issue or merged PR occupies an active slot.
+- Required scientific, provenance, safety, accessibility, release, and exact-head validation gates remain intact.
 
-- **SAFE-001:** Search interaction flags now honor generated interaction edges; the runtime regression and strict four-profile trust audit pass with zero actionable findings.
-- **OPS-002:** Generated-data governance and citation writes retry bounded transient Windows file locks, while non-transient failures such as `ENOSPC` still fail immediately. Unit tests and the production build pass.
-- **SEO-001:** PR #4262 merged as `d368e61`; the final post-invariant report reconciled 846 built profiles with 285 sitemap-eligible, 285 included, and zero mismatches while preserving workbook-derived publication governance.
+## Recently retired from this sprint
+
+- **#4182:** closed/completed; five herb/compound identity correction is no longer active.
+- **#4238:** closed/completed; normalized source-registry provenance continuation is no longer active.
+- **AUTH-004 / PR #4145:** merged; visual browse refinement is no longer active.
+- **SEO-005 / PR #4331:** merged; monitor remains file-fed until a supported Bing AI Performance acquisition path exists.
+- **I18N-001 / PR #4332:** merged; Japanese/Korean core localization is live while detailed scientific profiles remain fail-closed.
+- **REV-005 / PR #4358:** merged; the validated media-pack foundation is now upstream infrastructure for this sprint.
