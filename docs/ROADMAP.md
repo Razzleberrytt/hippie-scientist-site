@@ -2,6 +2,7 @@
 
 **Status:** Authoritative milestone plan
 **Last updated:** 2026-08-27
+**Change tracking:** #4403
 **Planning rule:** A milestone is complete only when every exit condition has reproducible proof. Dates are intentionally omitted until dependencies and throughput are measured.
 **Scaling rule:** Once verified user or commercial outcomes exist, observed attributable behavior outranks speculative opportunity. Evidence, safety, disclosure, provenance, publication, and release gates remain non-negotiable and cannot be overridden by traffic or revenue.
 
