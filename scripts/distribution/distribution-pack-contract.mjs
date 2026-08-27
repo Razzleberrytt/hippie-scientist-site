@@ -72,6 +72,37 @@ function canonicalSitePageUrl(value) {
   }
 }
 
+function loadCanonicalSourcePage(sourceUrl) {
+  const canonicalUrl = canonicalSitePageUrl(sourceUrl)
+  if (!canonicalUrl) throw new Error('sourceUrl is not a canonical Hippie Scientist evidence page')
+  const match = new URL(canonicalUrl).pathname.match(/^\/(herbs|compounds)\/([a-z0-9-]+)\/$/)
+  if (!match) throw new Error('sourceUrl must resolve to a canonical herb or compound detail page')
+  const detailDir = match[1] === 'herbs' ? 'herbs-detail' : 'compounds-detail'
+  const file = path.resolve(moduleDir, `../../public/data/${detailDir}/${match[2]}.json`)
+  if (!fs.existsSync(file)) throw new Error(`canonical source detail file is missing for ${canonicalUrl}`)
+  const page = JSON.parse(fs.readFileSync(file, 'utf8'))
+  if (!page || clean(page.slug) !== match[2] || !Array.isArray(page.claimMap)) {
+    throw new Error(`canonical source detail is not claim-addressable for ${canonicalUrl}`)
+  }
+  return page
+}
+
+function assertCanonicalSafetyOwnership(researchObject) {
+  const safetyClaimId = expectedContext(researchObject.safetyClaimId)
+  const safetyStatement = expectedContext(researchObject.safetyStatement)
+  if (safetyClaimId === null) return
+  const page = loadCanonicalSourcePage(researchObject.sourceUrl)
+  const matches = page.claimMap.filter(({ id }) => clean(id) === safetyClaimId)
+  if (matches.length !== 1) throw new Error(`safetyClaimId ${safetyClaimId} must resolve exactly once on the canonical source page`)
+  const claim = matches[0]
+  if (clean(claim.predicate) !== 'has_safety_warning' || clean(claim.reviewStatus) !== 'approved') {
+    throw new Error(`safetyClaimId ${safetyClaimId} must resolve to an approved has_safety_warning claim`)
+  }
+  if (clean(claim.claim) !== safetyStatement) {
+    throw new Error(`safetyStatement must exactly equal approved canonical claim ${safetyClaimId}`)
+  }
+}
+
 function expectedPackId(researchObjectId) {
   return `${researchObjectId.replace(/[._]+/g, '-').replace(/-+/g, '-')}-media-v1`
 }
@@ -167,6 +198,14 @@ function buildCanonicalRegistry(objects, errors) {
     if (safetyClaimId !== null && !/^clm_[a-f0-9]+$/.test(safetyClaimId)) {
       addError(errors, '$.researchObjectIds', `canonical research object ${id} has invalid safetyClaimId`)
       continue
+    }
+    if (safetyClaimId !== null) {
+      try {
+        assertCanonicalSafetyOwnership(object)
+      } catch (error) {
+        addError(errors, '$.researchObjectIds', `canonical research object ${id} has invalid safety ownership: ${error instanceof Error ? error.message : String(error)}`)
+        continue
+      }
     }
     if (registry.has(id)) {
       addError(errors, '$.researchObjectIds', `canonical research-object registry contains duplicate id ${id}`)
