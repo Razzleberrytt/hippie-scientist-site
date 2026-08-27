@@ -48,6 +48,7 @@ const DOMAIN_REQUIRED_WORKFLOWS = [
       /^pages\//,
       /^components\//,
       /^public\//,
+      /^lib\//,
       /^content\//,
       /^next\.config\./,
       /^middleware\./,
@@ -296,7 +297,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   if (pendingRequiredChecks.length) return { action: 'wait', reason: `required checks pending: ${pendingRequiredChecks.map(summarizeCheck).join('; ')}` }
 
   const failedCompletedChecks = relevantChecks.filter((check) => check.status === 'completed' && !isGood(check.conclusion))
-  if (failedCompletedChecks.length) return { action: 'failed', reason: `known check failure: ${failedCompletedChecks.map(summarizeCheck).join('; ')}` }
+  if (failedCompletedChecks.length) return { action: 'failed', reason: `known check failure: ${failedCompletedChecks.map(summarizeCheck).join('; ')}`, failedChecks: failedCompletedChecks }
 
   if (riskTier === 'high') {
     const pendingChecks = relevantChecks.filter((check) => check.status !== 'completed')
