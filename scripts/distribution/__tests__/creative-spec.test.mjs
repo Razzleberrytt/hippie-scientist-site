@@ -37,6 +37,41 @@ describe('creative distribution spec', () => {
     expect(spec.carousel.slides[1].headline.length).toBeLessThanOrEqual(CREATIVE_BRAND_TOKENS.typography.bodyMaxChars)
     expect(spec.verticalVideo.captions.maxCharsPerLine).toBeLessThanOrEqual(42)
     expect(spec.verticalVideo.captions.maxLines).toBe(2)
+    expect(spec.carousel.accessibility.altText.length).toBeLessThanOrEqual(CREATIVE_BRAND_TOKENS.typography.altTextMaxChars)
+  })
+
+  it('emits deterministic caption cues, SRT, transcript, and canonical CTA delivery metadata', () => {
+    const spec = buildCreativeSpec(fixture)
+    expect(spec.version).toBe(2)
+    expect(spec.delivery.landingUrl).toBe(fixture.sourceUrl)
+    expect(spec.delivery.exportProfiles.map((profile) => profile.id)).toEqual([
+      'vertical-video',
+      'portrait-carousel',
+      'square-social',
+      'pinterest',
+    ])
+    expect(spec.verticalVideo.captions.cues).toHaveLength(spec.verticalVideo.scenes.length)
+    expect(spec.verticalVideo.captions.srt).toContain('00:00:00,000 --> 00:00:02,000')
+    expect(spec.verticalVideo.captions.srt).toContain(spec.verticalVideo.captions.cues[0].text)
+    expect(spec.verticalVideo.accessibility.transcript).toContain('Read the full evidence and source trail.')
+    expect(spec.verticalVideo.accessibility.captionsRequired).toBe(true)
+    expect(spec.thumbnailVariants.every((variant) => variant.landingUrl === fixture.sourceUrl)).toBe(true)
+    expect(spec.guardrails.socialClickDestinationMustMatchCanonicalSource).toBe(true)
+  })
+
+  it('keeps creative experiments away from scientific truth fields', () => {
+    const spec = buildCreativeSpec(fixture)
+    expect(spec.experimentContract.mutableFields).toContain('hook-layout')
+    expect(spec.experimentContract.mutableFields).not.toContain('factual-text')
+    expect(spec.experimentContract.immutableFields).toEqual(expect.arrayContaining([
+      'factual-text',
+      'evidence-grade',
+      'limitation',
+      'source-url',
+      'disclosure',
+      'cta-destination',
+    ]))
+    expect(spec.experimentContract.primaryMetric).toBe('qualified-social-to-site-clickthrough')
   })
 
   it('fails closed on missing provenance, homepage/external URLs, or invented grades', () => {
