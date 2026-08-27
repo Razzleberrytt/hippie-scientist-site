@@ -69,9 +69,9 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
       consumerInstruction: false,
       studyContext: {
         population: clean(researchObject.populationContext) || null,
-        formulation: null,
+        formulation: clean(researchObject.formulationContext) || null,
         dose: clean(researchObject.doseContext) || null,
-        duration: null,
+        duration: clean(researchObject.durationContext) || null,
       },
     }],
     sources: [{
