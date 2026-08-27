@@ -8,6 +8,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { buildCreativeSpec } from './creative-spec.mjs'
+import { buildDistributionPackFromResearchObject } from './build-distribution-pack.mjs'
+import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
 
 const root = process.cwd()
 const inputPath = path.resolve(process.argv[2] || 'data/distribution/research-objects.json')
@@ -117,23 +119,59 @@ if (errors.length) {
 }
 
 const seriesById = new Map((Array.isArray(series) ? series : []).map((item) => [item.id, item]))
-fs.mkdirSync(outDir, { recursive: true })
-const manifest = []
 
-for (const object of objects) {
+// Build and validate every canonical media pack before writing anything. This
+// keeps unsafe/ambiguous objects from leaving a partially updated artifact set.
+const prepared = objects.map((object) => {
+  const mediaPack = buildDistributionPackFromResearchObject(object, { researchObjects: objects })
+  assertValidDistributionPack(mediaPack, { researchObjects: objects })
+  const mediaPackArtifact = `${object.id}.media-pack.json`
   const packageData = {
     generatedAt: new Date().toISOString(),
     status: 'review-required',
     rule: 'All channel variants inherit facts from sharedFacts. Edit the canonical research object, then regenerate; do not manually fork scientific facts across channels.',
+    mediaPack: {
+      packId: mediaPack.packId,
+      contentHash: mediaPack.source.contentHash,
+      artifact: mediaPackArtifact,
+      status: 'validated',
+    },
     ...buildChannels(object, seriesById),
     creativeSpec: buildCreativeSpec(object),
   }
+  return { object, mediaPack, mediaPackArtifact, packageData }
+})
+
+const packIds = new Map()
+for (const { object, mediaPack } of prepared) {
+  const priorObjectId = packIds.get(mediaPack.packId)
+  if (priorObjectId) {
+    throw new Error(`derived distribution packId collision: ${mediaPack.packId} maps both ${priorObjectId} and ${object.id}`)
+  }
+  packIds.set(mediaPack.packId, object.id)
+}
+
+fs.mkdirSync(outDir, { recursive: true })
+const manifest = []
+
+for (const { object, mediaPack, mediaPackArtifact, packageData } of prepared) {
+  fs.writeFileSync(path.join(outDir, mediaPackArtifact), `${JSON.stringify(mediaPack, null, 2)}\n`)
+
   const jsonPath = path.join(outDir, `${object.id}.json`)
   fs.writeFileSync(jsonPath, `${JSON.stringify(packageData, null, 2)}\n`)
-  const md = `# ${object.title}\n\n**Status:** review required  \n**Series:** ${packageData.sharedFacts.series}  \n**Source:** ${object.sourceUrl}\n\n## X\n\n${packageData.x}\n\n## Instagram\n\n${packageData.instagram}\n\n## Short video / YouTube Short\n\n${packageData.shortVideo}\n\n## Reddit contribution draft\n\n${packageData.reddit.guidance}\n\n${packageData.reddit.draft}\n\n## Email section\n\n${packageData.email.section}\n\n## Article brief\n\n${packageData.articleBrief.directAnswer}\n` 
+  const md = `# ${object.title}\n\n**Status:** review required  \n**Series:** ${packageData.sharedFacts.series}  \n**Source:** ${object.sourceUrl}\n**Validated media pack:** ${mediaPackArtifact}\n\n## X\n\n${packageData.x}\n\n## Instagram\n\n${packageData.instagram}\n\n## Short video / YouTube Short\n\n${packageData.shortVideo}\n\n## Reddit contribution draft\n\n${packageData.reddit.guidance}\n\n${packageData.reddit.draft}\n\n## Email section\n\n${packageData.email.section}\n\n## Article brief\n\n${packageData.articleBrief.directAnswer}\n`
   fs.writeFileSync(path.join(outDir, `${object.id}.md`), md)
-  manifest.push({ id: object.id, sourceUrl: object.sourceUrl, json: `${object.id}.json`, markdown: `${object.id}.md`, status: 'review-required' })
+  manifest.push({
+    id: object.id,
+    sourceUrl: object.sourceUrl,
+    json: `${object.id}.json`,
+    markdown: `${object.id}.md`,
+    mediaPack: mediaPackArtifact,
+    mediaPackId: mediaPack.packId,
+    mediaPackStatus: 'validated',
+    status: 'review-required',
+  })
 }
 
 fs.writeFileSync(path.join(outDir, 'manifest.json'), `${JSON.stringify({ generatedAt: new Date().toISOString(), input: path.relative(root, inputPath), count: manifest.length, objects: manifest }, null, 2)}\n`)
-console.log(`[distribution] generated ${manifest.length} review-only distribution package(s) from ${path.relative(root, inputPath)}`)
+console.log(`[distribution] generated ${manifest.length} review-only distribution package(s) with validated media packs from ${path.relative(root, inputPath)}`)

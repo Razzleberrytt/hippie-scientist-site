@@ -33,6 +33,10 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install validator dependencies
+        run: npm ci --no-audit --fund=false
 
       - name: Generate channel packages from canonical research objects
         run: node scripts/distribution/build-research-distribution.mjs
