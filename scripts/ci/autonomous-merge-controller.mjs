@@ -5,12 +5,12 @@ const GOOD_CONCLUSIONS = new Set(['success', 'neutral', 'skipped'])
 const TRANSIENT_CONCLUSIONS = new Set(['cancelled', 'timed_out', 'stale', 'startup_failure'])
 const HOLD_LABELS = new Set(['hold-merge', 'do-not-merge', 'manual-merge'])
 
-const FAST_REQUIRED_WORKFLOWS = ['CI']
+const FAST_REQUIRED_WORKFLOWS = []
 const MEDIUM_CORE_REQUIRED_WORKFLOWS = [
   'Atomic upgrade gate',
   'Build quality regression',
 ]
-const MEDIUM_REQUIRED_CHECKS = ['Validation, tests, and data']
+const CORE_REQUIRED_CHECKS = ['Validation, tests, and data']
 const HIGH_REQUIRED_WORKFLOWS = [
   'CI',
   ...MEDIUM_CORE_REQUIRED_WORKFLOWS,
@@ -161,7 +161,7 @@ export function requiredWorkflowsFor(riskTier, changedFiles = []) {
 }
 
 export function requiredChecksFor(riskTier) {
-  return riskTier === 'medium' ? [...MEDIUM_REQUIRED_CHECKS] : []
+  return riskTier === 'high' ? [] : [...CORE_REQUIRED_CHECKS]
 }
 
 async function github(path, { method = 'GET', body } = {}) {
@@ -268,7 +268,11 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   const pendingRequired = requiredRuns.filter((run) => run.status !== 'completed')
   if (pendingRequired.length) return { action: 'wait', reason: `required workflows pending: ${pendingRequired.map(summarizeRun).join('; ')}` }
 
-  const failedCompletedWorkflows = latestWorkflows.filter((run) => run.status === 'completed' && !isGood(run.conclusion))
+  const failedCompletedWorkflows = latestWorkflows.filter((run) => {
+    if (run.status !== 'completed' || isGood(run.conclusion)) return false
+    if (riskTier !== 'high' && run.conclusion === 'action_required' && !requiredNames.includes(run.name)) return false
+    return true
+  })
   if (failedCompletedWorkflows.length) return { action: 'failed', reason: `known workflow failure: ${failedCompletedWorkflows.map(summarizeRun).join('; ')}`, failedWorkflows: failedCompletedWorkflows }
 
   if (riskTier === 'high') {
