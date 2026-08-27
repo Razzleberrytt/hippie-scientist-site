@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
 import { buildLosslessCreativeSpec } from '../creative-spec-lossless.mjs'
+import { CREATIVE_BRAND_TOKENS } from '../creative-spec.mjs'
 import { renderVerticalVideoPackage } from '../render-vertical-video-package.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -15,6 +16,13 @@ const mediaPack = buildDistributionPackFromResearchObject(researchObject, { rese
 const creativeSpec = { ...buildLosslessCreativeSpec(researchObject), claimSafetyStatus: 'validated-lossless' }
 const digest = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const normalized = (value) => String(value).trim().replace(/\s+/g, ' ')
+
+function parseSrtPayloads(value) {
+  return String(value).trim().split(/\n\n+/).map((block) => {
+    const lines = block.split('\n')
+    return lines.slice(2)
+  })
+}
 
 test('renders a deterministic exact-30-second vertical video package with provenance-bound scene assets', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-video-'))
@@ -47,19 +55,31 @@ test('renders a deterministic exact-30-second vertical video package with proven
       expect(bytes).toContain(mediaPack.source.contentHash)
       expect(bytes).toContain('vertical-video-package-v1')
       expect(bytes).toContain('Educational content')
+      expect(bytes).toContain('"right":860')
+      expect(bytes).toContain('font-size="44"')
     }
   } finally { fs.rmSync(dir, { recursive: true, force: true }) }
 })
 
-test('preserves governed finding and limitation text losslessly in the caption package', () => {
+test('preserves governed finding and limitation text losslessly in caption payloads while respecting caption limits', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-video-'))
   try {
     const manifest = renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir: dir })
     const captions = fs.readFileSync(path.join(dir, manifest.captions.file), 'utf8')
     expect(manifest.captions.lossless).toBe(true)
     expect(manifest.captions.sha256).toBe(digest(captions))
-    expect(normalized(captions)).toContain(normalized(researchObject.finding))
-    expect(normalized(captions)).toContain(normalized(researchObject.limitation))
+
+    const payloads = parseSrtPayloads(captions)
+    const reconstructed = normalized(payloads.flat().join(' '))
+    expect(reconstructed).toContain(normalized(researchObject.finding))
+    expect(reconstructed).toContain(normalized(researchObject.limitation))
+
+    for (const payload of payloads) {
+      expect(payload.length).toBeLessThanOrEqual(CREATIVE_BRAND_TOKENS.typography.captionMaxLines)
+      for (const line of payload) {
+        expect(line.length).toBeLessThanOrEqual(CREATIVE_BRAND_TOKENS.typography.captionMaxCharsPerLine)
+      }
+    }
   } finally { fs.rmSync(dir, { recursive: true, force: true }) }
 })
 
