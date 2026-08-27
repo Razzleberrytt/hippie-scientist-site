@@ -38,6 +38,11 @@ function list(value: unknown): unknown[] {
   return value ? [value] : []
 }
 
+function publicEvidenceBacked(record: RuntimeRecord): boolean {
+  const value = record?.evidence_grade_backed
+  return value !== false && String(value ?? '').toLowerCase() !== 'false'
+}
+
 export function evidenceText(record: RuntimeRecord): string {
   return [
     readPath(record, ['safety', 'confidence']),
@@ -89,9 +94,6 @@ export function hasHumanEvidence(record: RuntimeRecord): boolean {
     return false
   }
 
-  // Legacy fallback is deliberately explicit about human research. Generic
-  // strength words ("strong", "moderate") and source counts are not evidence
-  // that any cited research actually involved humans.
   return /\b(human|clinical|trial|rct|randomi[sz]ed|meta-analysis|meta analysis|systematic review)\b/.test(evidence)
 }
 
@@ -110,6 +112,11 @@ export function isPreliminaryResearch(record: RuntimeRecord): boolean {
 }
 
 export function getEvidenceTier(record: RuntimeRecord): EvidenceTier {
+  // `evidence_grade_backed=false` means the authored A/B judgment is retained
+  // only as provenance. No UI/search/schema consumer may reconstruct a settled
+  // Strong/Moderate public claim from those source fields.
+  if (!publicEvidenceBacked(record)) return 'review'
+
   const authored = authoredEvidenceSignals(record)
   if (authored.present) {
     const reconciled = reconcileEvidenceGrade(authored.rawGrade, authored.rawTier)
@@ -184,6 +191,8 @@ export type EvidenceLetterGrade = CanonicalEvidenceGrade | 'Unassigned'
  * compatibility fallback so older runtime-only content does not disappear.
  */
 export function getEvidenceLetterGrade(record: RuntimeRecord): EvidenceLetterGrade {
+  if (!publicEvidenceBacked(record)) return 'Unassigned'
+
   const authored = authoredEvidenceSignals(record)
   if (authored.present) {
     const reconciled = reconcileEvidenceGrade(authored.rawGrade, authored.rawTier)

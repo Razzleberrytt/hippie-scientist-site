@@ -1,18 +1,10 @@
 /**
  * Pipeline step: collapse authored evidence signals into the canonical contract.
  *
- * The workbook carries two independently hand-filled columns — `evidence_grade`
- * (33 distinct spellings across 856 records) and `evidence_tier` — plus a
- * free-text study design on every claim (~140 spellings of ~12 designs). Every
- * downstream consumer, from the evidence badge to the search index, reads these
- * fields, so they are normalized once here rather than reinterpreted by each
- * template.
- *
- * This runs immediately after the workbook parse so that summary indexes,
- * export batches, and the search index are all built from canonical values.
- * It is idempotent: the authored grade and tier are preserved in
- * `evidence_grade_source` / `evidence_tier_source`, and every rerun reconciles
- * from those authored values rather than from its own normalized output.
+ * Authored grade/tier values are preserved in `*_source`. Public grade/tier
+ * values are additionally gated by the recorded study evidence: an authored A
+ * or B that the repository's recorded studies cannot demonstrate is retained as
+ * provenance but withheld from settled public presentation.
  *
  * Usage: tsx scripts/data/normalize-evidence-grades.ts [--data-dir=public/data]
  */
@@ -97,15 +89,6 @@ function syncDetailRecord(indexFile: string, row: Row): void {
   writeFileSync(detailPath, `${JSON.stringify(nextDetail, null, 2)}\n`)
 }
 
-/**
- * Study designs for each profile's cited literature, taken from PubMed.
- *
- * `claims.json` reaches only 142 indexable profiles, and 201 of its 512 rows
- * record no design at all. The cited sources reach 318, and since
- * `fetch-pubmed-metadata.mjs` they carry PubMed's own publication types, which
- * are authoritative rather than inferred from a title. Combining both raises
- * the profiles that can show a rationale from 142 to 341.
- */
 function loadSourceDesignsBySlug(): Map<string, Row[]> {
   const cachePath = path.join(ROOT, 'ops', 'cache', 'pubmed-metadata.json')
   if (!existsSync(cachePath)) return new Map()
@@ -129,8 +112,6 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
         const meta = records[pmid]
         if (!meta?.publicationTypes?.length) continue
 
-        // PubMed tags nearly every record "Journal Article", which says nothing
-        // about design; the specific tags alongside it carry the information.
         const classes = meta.publicationTypes
           .filter((type) => !/^journal article$/i.test(type))
           .map((type) => normalizeStudyClass(type))
@@ -150,7 +131,6 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
   return bySlug
 }
 
-/** Reconcile from authored values so reruns cannot ratchet evidence downward. */
 function sourceGrade(row: Row): unknown {
   return row.evidence_grade_source ?? row.evidence_grade
 }
@@ -187,21 +167,6 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
     const result: EvidenceReconciliation = reconcileEvidenceGrade(authoredGrade, authoredTier)
     reasons[result.reason] = (reasons[result.reason] ?? 0) + 1
 
-    if (result.adjusted) {
-      adjusted += 1
-      changes.push({
-        slug: row.slug,
-        indexable: String(row.indexability_status ?? '').toUpperCase() === 'PUBLISH',
-        authoredGrade: String(authoredGrade ?? ''),
-        authoredTier: String(authoredTier ?? ''),
-        publishedGrade: result.grade,
-        publishedTier: result.band ? BAND_LABEL[result.band] : null,
-        reason: result.reason,
-      })
-    }
-
-    // Claims and cited sources are separate records of the same literature, so
-    // both feed the rationale; sources reach more than twice as many profiles.
     const evidenceInputs = [
       ...(claimsBySlug.get(String(row.slug)) ?? []),
       ...(sourcesBySlug.get(String(row.slug)) ?? []),
@@ -210,33 +175,48 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
     if (rationale.designMatch) rationaleCards += 1
 
     const backing = gradeIsBackedByEvidence(result.grade, rationale)
+    const publicGrade = backing.backed ? result.grade : null
+    const publicBand = backing.backed ? result.band : null
+    const publicAdjusted = result.adjusted || !backing.backed
+
+    if (publicAdjusted) {
+      adjusted += 1
+      changes.push({
+        slug: row.slug,
+        indexable: String(row.indexability_status ?? '').toUpperCase() === 'PUBLISH',
+        authoredGrade: String(authoredGrade ?? ''),
+        authoredTier: String(authoredTier ?? ''),
+        publishedGrade: publicGrade,
+        publishedTier: publicBand ? BAND_LABEL[publicBand] : null,
+        reason: backing.backed ? result.reason : backing.reason,
+      })
+    }
+
     if (!backing.backed) {
       unbacked.push({
         slug: row.slug,
         indexable: String(row.indexability_status ?? '').toUpperCase() === 'PUBLISH',
         grade: result.grade,
+        publicGrade: null,
+        publicPresentation: 'withheld-pending-recorded-evidence',
         reason: backing.reason,
         humanStudyCount: rationale.humanStudyCount,
         claimCount: rationale.totalClaimCount,
       })
     }
 
-    // The resolved band is the only public tier. The workbook's authored tier
-    // remains available in evidence_tier_source for audit/reconciliation. This
-    // prevents a corrected Grade C/D record from simultaneously publishing a
-    // stale "Strong Human Evidence" tier.
     const enriched = {
       ...row,
-      evidence_grade: result.grade,
+      evidence_grade: publicGrade ?? '',
       evidence_grade_source: String(authoredGrade ?? ''),
-      evidence_tier: result.band ? BAND_LABEL[result.band] : '',
+      evidence_tier: publicBand ? BAND_LABEL[publicBand] : '',
       evidence_tier_source: String(authoredTier ?? ''),
-      evidence_grade_band: result.band,
+      evidence_grade_band: publicBand,
       evidence_grade_reason: result.reason,
-      evidence_grade_explanation: result.explanation,
-      evidence_grade_adjusted: result.adjusted,
-      // Rationale card fields. Null means "not assessed" and must render as
-      // such — an absent signal is not a clean bill of health.
+      evidence_grade_explanation: backing.backed
+        ? result.explanation
+        : 'The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.',
+      evidence_grade_adjusted: publicAdjusted,
       evidence_design_match: rationale.designMatch,
       evidence_risk_of_bias: rationale.riskOfBias,
       evidence_consistency: rationale.consistency,
@@ -248,7 +228,7 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       evidence_grade_backing_gap: backing.reason,
     }
 
-    if (isPlaceholderSummary(enriched.summary)) {
+    if (isPlaceholderSummary(enriched.summary) || enriched.summary_source === 'composed-from-record') {
       const composed = buildProfileSummary(enriched)
       if (composed) {
         summariesWritten += 1
@@ -287,8 +267,6 @@ function normalizeClaims() {
 
   writeJson('claims.json', next)
 
-  // Profiles read the classified claims, so group them here rather than
-  // re-deriving the classification per profile.
   const bySlug = new Map<string, Row[]>()
   for (const row of next) {
     const slug = String(row.profile_slug ?? '')
@@ -302,7 +280,6 @@ function normalizeClaims() {
 }
 
 function main() {
-  // Claims first: their canonical study class feeds the profile rationale.
   const claims = normalizeClaims()
   const claimsBySlug = claims.bySlug ?? new Map<string, Row[]>()
   const sourcesBySlug = loadSourceDesignsBySlug()
@@ -346,7 +323,7 @@ function main() {
   console.log(`\nRationale cards       ${totals.rationaleCards}`)
   console.log(`Summaries composed    ${totals.summariesWritten}`)
   const unbackedIndexable = unbacked.filter((row) => row.indexable)
-  console.log(`A/B grades unbacked   ${unbacked.length} (${unbackedIndexable.length} indexable)`)
+  console.log(`A/B source grades unbacked ${unbacked.length} (${unbackedIndexable.length} indexable; public presentation withheld)`)
   const gapCounts: Record<string, number> = {}
   for (const row of unbackedIndexable) {
     const reason = String(row.reason)
