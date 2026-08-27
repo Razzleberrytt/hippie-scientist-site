@@ -43,6 +43,22 @@ jobs:
       - name: Follow exact-head checks and merge when green
         run: node scripts/ci/autonomous-merge-controller.mjs
 
+      - name: Ensure latest main enters deploy lifecycle
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          sleep 10
+          main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
+          deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100" --jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length')"
+          if [ "$deploy_count" -eq 0 ]; then
+            echo "No deploy run registered for latest main $main_sha; dispatching deploy.yml fallback."
+            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches" -f ref=main
+          else
+            echo "Deploy lifecycle already registered for latest main $main_sha."
+          fi
+
       - name: Controller summary
         if: always()
         run: |
@@ -53,6 +69,7 @@ jobs:
             echo '- Security: trusted main-branch controller; PR code is never checked out or executed here.'
             echo '- Merge rule: universal workflows plus every triggered exact-head check must be terminal-green.'
             echo '- Failure rule: semantic failures fail closed; only bounded transient workflow outcomes may retry once.'
+            echo '- Deploy handoff: normal main push remains primary; workflow_dispatch is used only if no deploy run registered for latest main.'
             echo '- Fallback: scheduled sweep revisits open PRs every 10 minutes.'
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -75,3 +92,18 @@ jobs:
 
       - name: Reconcile open PRs without bypassing gates
         run: node scripts/ci/autonomous-merge-controller.mjs
+
+      - name: Ensure latest main enters deploy lifecycle
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          sleep 10
+          main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
+          deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100" --jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length')"
+          if [ "$deploy_count" -eq 0 ]; then
+            echo "No deploy run registered for latest main $main_sha; dispatching deploy.yml fallback."
+            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches" -f ref=main
+          else
+            echo "Deploy lifecycle already registered for latest main $main_sha."
+          fi
