@@ -9,20 +9,23 @@ const schema = JSON.parse(readFileSync(path.join(root, 'schemas/distribution-pac
 const validatorSource = readFileSync(path.join(root, 'scripts/distribution/distribution-pack-contract.mjs'), 'utf8')
 
 describe('distribution pack schema/validator parity', () => {
-  it('keeps safety-critical enum contracts synchronized', () => {
+  it('keeps the render-type and evidence-context contracts synchronized', () => {
     const assetTypes = schema.properties.assetIntents.items.properties.type.enum
     const contexts = schema.$defs.claim.properties.evidenceContext.enum
-    const sourceKinds = schema.$defs.sourceReference.properties.kind.enum
 
     for (const value of assetTypes) expect(validatorSource).toContain(`'${value}'`)
     for (const value of contexts) expect(validatorSource).toContain(`'${value}'`)
-    for (const value of sourceKinds) expect(validatorSource).toContain(`'${value}'`)
+    expect(schema.$defs.sourceReference.properties.kind.const).toBe('research-object')
+    expect(validatorSource).toContain("source.kind !== 'research-object'")
   })
 
-  it('keeps the non-strengthening and no-consumer-instruction invariants explicit in both layers', () => {
-    expect(schema.$defs.claim.properties.strengthDelta.enum).toEqual(['none', 'weaker'])
+  it('keeps v1 no-rewrite and no-consumer-instruction invariants explicit in both layers', () => {
+    expect(schema.$defs.claim.properties.strengthDelta.const).toBe('none')
     expect(schema.$defs.claim.properties.consumerInstruction.const).toBe(false)
-    expect(validatorSource).toContain("['none', 'weaker']")
-    expect(validatorSource).toContain('consumerInstruction !== false')
+    expect(schema.properties.safety.maxItems).toBe(0)
+    expect(schema.properties.assetIntents.items.properties.objective.const).toBe('Render the canonical finding without factual rewriting.')
+    expect(validatorSource).toContain("claim.strengthDelta !== 'none'")
+    expect(validatorSource).toContain('distribution packs never authorize consumer instructions')
+    expect(validatorSource).toContain('v1 forbids free-form factual rewriting')
   })
 })
