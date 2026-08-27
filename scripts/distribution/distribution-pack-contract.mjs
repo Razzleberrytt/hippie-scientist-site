@@ -6,13 +6,13 @@ import Ajv2020 from 'ajv/dist/2020.js'
 
 const SITE_ORIGIN = 'https://thehippiescientist.net'
 const DOSE_UNIT = '(?:mcg|mg|g|ml|iu|units?)'
-const DOSAGE_FORM = '(?:capsule|capsules|tablet|tablets|scoop|scoops|drop|drops|dose|doses)'
-const NUMBER_WORD = '(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|half|quarter|a|an)'
+const DOSAGE_FORM = '(?:capsule|capsules|tablet|tablets|pill|pills|gummy|gummies|softgel|softgels|scoop|scoops|drop|drops|dose|doses|serving|servings|packet|packets|chew|chews|chewable|chewables|teaspoon|teaspoons|tablespoon|tablespoons)'
+const QUANTITY = '(?:\\d+(?:\\.\\d+)?|[a-z]+(?:-[a-z]+)?)'
 const FREQUENCY = '(?:daily|per day|each day|nightly|before bed|once daily|twice daily)'
 const DIRECTIVE_DOSE_PATTERNS = [
-  new RegExp(`\\b(?:take|use|consume|try)\\s+(?:${NUMBER_WORD}\\s+)?\\d+(?:\\.\\d+)?\\s*${DOSE_UNIT}(?:\\s+${DOSAGE_FORM})?(?:\\s+${FREQUENCY})?\\b`, 'i'),
-  new RegExp(`\\b(?:take|use|consume|try)\\s+(?:\\d+(?:\\.\\d+)?|${NUMBER_WORD})\\s+${DOSAGE_FORM}(?:\\s+${FREQUENCY})?\\b`, 'i'),
-  new RegExp(`\\b(?:start with|begin with|increase to|decrease to)\\s+(?:(?:\\d+(?:\\.\\d+)?)|${NUMBER_WORD})(?:\\s*${DOSE_UNIT}|\\s+${DOSAGE_FORM})\\b`, 'i'),
+  new RegExp(`\\b(?:take|use|consume|try)\\s+(?:${QUANTITY}\\s+)?\\d+(?:\\.\\d+)?\\s*${DOSE_UNIT}(?:\\s+${DOSAGE_FORM})?(?:\\s+${FREQUENCY})?\\b`, 'i'),
+  new RegExp(`\\b(?:take|use|consume|try)\\s+${QUANTITY}\\s+${DOSAGE_FORM}(?:\\s+${FREQUENCY})?\\b`, 'i'),
+  new RegExp(`\\b(?:start with|begin with|increase to|decrease to)\\s+${QUANTITY}(?:\\s*${DOSE_UNIT}|\\s+${DOSAGE_FORM})\\b`, 'i'),
   /\byou should\s+(?:take|use|consume|try)\b/i,
   new RegExp(`\\b(?:take|use|consume|try)\\s+(?:this|the|your|a|an)\\s+(?:supplement|product|extract|${DOSAGE_FORM})\\b`, 'i'),
 ]
@@ -95,7 +95,7 @@ function schemaErrorPath(error) {
 
 function splitClaimClauses(statement) {
   return String(statement ?? '')
-    .split(/(?:[.!?;]+\s*|\b(?:but|however|yet|although)\b)/gi)
+    .split(/(?:[.!?;]+\s*|\b(?:but|however|yet|although|and|while|whereas)\b)/gi)
     .map(clean)
     .filter(Boolean)
 }
