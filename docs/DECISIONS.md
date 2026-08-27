@@ -1,7 +1,7 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-08-26
+**Updated:** 2026-08-27
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
 ## 2026-08-21 — Control-document authority
@@ -135,3 +135,13 @@
 **Alternatives considered:** Continue manual/chat-driven merging; rely only on GitHub auto-merge despite branch protection being disabled; replace the deployment architecture; or weaken/skip slow gates. Rejected because they either preserve the bottleneck, provide insufficient fail-closed enforcement, create unnecessary architecture churn, or reduce quality assurance.
 
 **Consequences:** GitHub becomes the routine lifecycle owner from PR validation through merge and exact production receipt. Chat becomes an observation/steering surface rather than a required trigger. The controller must never execute untrusted PR-head code, must refresh behind branches and revalidate, must not convert generic failures into transient success, and must preserve all scientific, safety, evidence, provenance, source-of-truth, publication, SEO, accessibility, performance, security, and commercial gates. Rollback restores manual merging and the existing direct-main deploy path. **Status:** Accepted; implementation tracked by issue #4348 / PR #4349 and not considered operationally complete until merged and exact production receipt is verified.
+
+## 2026-08-27 — Observed-outcome scaling and early distribution learning
+
+**Decision:** Scale the measured decision-and-revenue flywheel rather than page count. Keep the existing backlog score as the single prioritization formula; verified demand, qualified engagement, network-reported orders, and attributable revenue should refine its Business Impact, User Value, Traffic Potential, Strategic Leverage, and Confidence inputs according to sample size and repeatability. Record trustworthy source-level metrics as partial baselines immediately even when other required sources remain inaccessible, while keeping the missing portions explicitly `Unknown`. A partial affiliate observation must not be treated as proof of an organic revenue loop without the required traffic and attribution evidence. Bounded distribution pilots may begin during M1–M4 around already-governed research/decision assets when claim lineage, evidence/safety gates, attribution, rollback, and channel policy are preserved; full multi-channel scaling and high-volume auto-publishing remain gated to later proof.
+
+**Rationale:** Waiting for every analytics source before learning from a trustworthy source discards useful information, while treating isolated purchases as proven economics overfits noise. Similarly, postponing all distribution until authority expansion leaves acquisition learning unnecessarily late. The scalable system needs a continuous loop from measured demand → decision journey → qualified action → reported outcome → reprioritization → cluster/distribution compounding.
+
+**Alternatives considered:** Add a second revenue-only multiplier to the backlog formula; treat any order as a proven revenue loop; ignore partial commercial observations until GA4/GSC/affiliate/email are fully aligned; or defer all social/media/email distribution to M5. Rejected because these approaches either create competing priority systems, overfit small samples, discard real evidence, or delay acquisition learning.
+
+**Consequences:** The roadmap now defines a cross-cutting scaling flywheel, commercial-efficiency metrics, partial-baseline rules, stop/pivot conditions, and a controlled distribution acceleration track. Revenue can increase confidence only within the existing scoring system and can never override evidence, safety, provenance, disclosure, publication, accessibility, security, or editorial-independence gates. Routine approval should not become a scale bottleneck when equivalent automated governance is proven, but high-risk factual transformations must remain fail-closed. **Status:** Accepted.
