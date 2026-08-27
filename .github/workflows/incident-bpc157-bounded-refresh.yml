@@ -1,0 +1,61 @@
+name: Incident BPC157 Bounded Detail Refresh
+
+on:
+  push:
+    branches:
+      - fix/bounded-profile-detail-refresh-4350
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Run helper regression
+        run: npx vitest run scripts/data/__tests__/profile-detail-refresh.test.mjs
+      - name: Validate approved workbook patches
+        run: node scripts/ci/validate-workbook-patches.mjs
+      - name: Refresh BPC-157 from canonical workbook into one detail file
+        run: node scripts/data/refresh-profile-detail-from-workbook.mjs --slug bpc-157
+      - name: Enforce one-file generated diff
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t changed < <(git diff --name-only)
+          printf 'CHANGED_COUNT=%s\n' "${#changed[@]}"
+          printf '%s\n' "${changed[@]}"
+          test "${#changed[@]}" -eq 1
+          test "${changed[0]}" = 'public/data/compounds-detail/bpc-157.json'
+      - name: Verify approved BPC-157 values and preserved boundaries
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const detail = JSON.parse(fs.readFileSync('public/data/compounds-detail/bpc-157.json', 'utf8'))
+          if (!String(detail.summary || '').includes('FDA identified five small human clinical studies')) throw new Error('approved summary missing')
+          if (!String(detail.description || '').includes('five human clinical studies')) throw new Error('approved description missing')
+          if (detail.last_regulatory_check !== '2026-08-26') throw new Error('regulatory freshness missing')
+          if (!String(detail.regulatory_changelog || '').includes('FDA PCAC voted to recommend')) throw new Error('post-PCAC changelog missing')
+          if (String(detail.summary || '').includes('essentially absent')) throw new Error('stale summary remains')
+          if (String(detail.description || '').includes('almost no controlled human trial data exists')) throw new Error('stale description remains')
+          if (detail.evidence_grade !== 'D') throw new Error(`evidence grade changed unexpectedly: ${detail.evidence_grade}`)
+          NODE
+      - name: Commit deterministic incident repair and self-delete workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Integration Lane'
+          git config user.email 'actions@users.noreply.github.com'
+          git rm .github/workflows/incident-bpc157-bounded-refresh.yml
+          git add public/data/compounds-detail/bpc-157.json
+          git commit -m 'fix(data): refresh BPC-157 canonical detail runtime'
+          git push origin HEAD
