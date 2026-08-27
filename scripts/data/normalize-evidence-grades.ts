@@ -209,7 +209,7 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       ...row,
       evidence_grade: publicGrade,
       evidence_grade_source: String(authoredGrade ?? ''),
-      evidence_tier: publicBand ? BAND_LABEL[publicBand] : '',
+      evidence_tier: publicBand ? BAND_LABEL[publicBand] : null,
       evidence_tier_source: String(authoredTier ?? ''),
       evidence_grade_band: publicBand,
       evidence_grade_reason: result.reason,
