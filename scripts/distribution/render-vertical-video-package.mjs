@@ -21,7 +21,7 @@ function treatment(name) {
   }
 }
 
-function wrapTextLosslessly(value, maxChars = 34) {
+function wrapTextLosslessly(value, maxChars = 26, maxLines = 8) {
   const words = clean(value).split(' ').filter(Boolean)
   const lines = []
   let line = ''
@@ -35,7 +35,7 @@ function wrapTextLosslessly(value, maxChars = 34) {
     }
   }
   if (line) lines.push(line)
-  if (lines.length > 8) throw new Error('vertical video renderer requires upstream lossless pagination for copy exceeding eight lines')
+  if (lines.length > maxLines) throw new Error(`vertical video renderer requires upstream lossless pagination for copy exceeding ${maxLines} lines`)
   return lines
 }
 
@@ -48,11 +48,34 @@ function formatSrtTime(seconds) {
   return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')},${String(millis).padStart(3, '0')}`
 }
 
+function splitCaptionPayloadLosslessly(value) {
+  const maxCharsPerLine = CREATIVE_BRAND_TOKENS.typography.captionMaxCharsPerLine
+  const maxLines = CREATIVE_BRAND_TOKENS.typography.captionMaxLines
+  const lines = wrapTextLosslessly(value, maxCharsPerLine, Number.POSITIVE_INFINITY)
+  const chunks = []
+  for (let index = 0; index < lines.length; index += maxLines) {
+    chunks.push(lines.slice(index, index + maxLines))
+  }
+  return chunks
+}
+
 function buildSrt(scenes) {
-  const cues = scenes
-    .filter((scene) => clean(scene.voiceover))
-    .map((scene, index) => `${index + 1}\n${formatSrtTime(scene.start)} --> ${formatSrtTime(scene.end)}\n${clean(scene.voiceover)}`)
-  return `${cues.join('\n\n')}\n`
+  const cues = []
+  for (const scene of scenes) {
+    const voiceover = clean(scene.voiceover)
+    if (!voiceover) continue
+    const chunks = splitCaptionPayloadLosslessly(voiceover)
+    const sceneDuration = scene.end - scene.start
+    chunks.forEach((lines, chunkIndex) => {
+      const start = roundMillis(scene.start + (sceneDuration * chunkIndex / chunks.length))
+      const end = chunkIndex === chunks.length - 1
+        ? scene.end
+        : roundMillis(scene.start + (sceneDuration * (chunkIndex + 1) / chunks.length))
+      cues.push({ start, end, text: lines.join('\n') })
+    })
+  }
+  const rendered = cues.map((cue, index) => `${index + 1}\n${formatSrtTime(cue.start)} --> ${formatSrtTime(cue.end)}\n${cue.text}`)
+  return `${rendered.join('\n\n')}\n`
 }
 
 function canonicalLosslessPages(section, name) {
@@ -162,19 +185,33 @@ function buildTimeline(mediaPack, creativeSpec) {
   return scenes
 }
 
+function verticalPlatformIntersection() {
+  const zones = Object.values(CREATIVE_BRAND_TOKENS.platformSafeZones)
+    .filter((zone) => zone.format === 'vertical')
+  return {
+    top: Math.max(...zones.map((zone) => zone.top)),
+    bottom: Math.max(...zones.map((zone) => zone.bottom)),
+    left: Math.max(...zones.map((zone) => zone.left)),
+    right: Math.max(...zones.map((zone) => zone.right)),
+  }
+}
+
 export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const canvas = CREATIVE_BRAND_TOKENS.canvas.vertical
   const { foreground, background } = treatment(scene.colorTreatment)
-  const lines = wrapTextLosslessly(scene.onScreenText, options.maxChars ?? 32)
+  const fontSize = Math.max(CREATIVE_BRAND_TOKENS.typography.minimumBodyPxAt1080, Number(options.fontSize ?? 44))
+  const lines = wrapTextLosslessly(scene.onScreenText, options.maxChars ?? 26)
   const sourceUrl = clean(options.sourceUrl)
   const contentHash = clean(options.contentHash)
   const disclosure = clean(options.disclosure)
   if (!sourceUrl || !contentHash || !disclosure) throw new Error('sourceUrl, contentHash, and disclosure are required for video scene provenance')
-  const safe = CREATIVE_BRAND_TOKENS.platformSafeZones.youtubeShorts
+  const safe = verticalPlatformIntersection()
   const x = safe.left
+  const safeRight = canvas.width - safe.right
+  const safeWidth = safeRight - x
   const contentTop = safe.top + 160
-  const lineHeight = 82
-  const headline = lines.map((line, index) => `<text x="${x}" y="${contentTop + (index * lineHeight)}" font-size="58" font-weight="700" fill="${foreground}">${escapeXml(line)}</text>`).join('')
+  const lineHeight = Math.ceil(fontSize * 1.42)
+  const headline = lines.map((line, index) => `<text x="${x}" y="${contentTop + (index * lineHeight)}" font-size="${fontSize}" font-weight="700" fill="${foreground}">${escapeXml(line)}</text>`).join('')
   const disclosureY = canvas.height - safe.bottom - 70
   const provenanceY = canvas.height - safe.bottom - 26
   const metadata = JSON.stringify({
@@ -185,8 +222,9 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     role: scene.role,
     start: scene.start,
     end: scene.end,
+    safeArea: { x, right: safeRight, width: safeWidth, top: safe.top, bottom: canvas.height - safe.bottom },
   })
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/><text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/><text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
