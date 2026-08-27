@@ -47,7 +47,27 @@ describe('distribution opportunity feedback', () => {
     expect(first.feedback.reasons.join('\n')).toMatch(/matching angle\/platform/i)
   })
 
-  it('rewards measured performance only within a bounded adjustment', () => {
+  it('withholds positive reward from high-rate but underexposed telemetry', () => {
+    const subject = candidate({ platform: 'short-video' })
+    const feedback = assessDistributionFeedback(subject, [{
+      candidateId: subject.id,
+      platform: subject.platform,
+      angleKey: 'different-angle',
+      publishedAt: '2026-08-24T12:00:00Z',
+      assetViews: 24,
+      qualifiedVisits: 12,
+      completionRate: 1,
+      saveRate: 0.5,
+    }], { now: NOW })
+
+    expect(feedback.measured.assetViews).toBe(24)
+    expect(feedback.measured.rewardSampleSufficient).toBe(false)
+    expect(feedback.measured.minimumRewardViews).toBe(250)
+    expect(feedback.performanceReward).toBe(0)
+    expect(feedback.reasons.join('\n')).toMatch(/reward withheld until at least 250 measured views/i)
+  })
+
+  it('rewards sufficiently measured performance only within a bounded adjustment', () => {
     const subject = candidate({ platform: 'short-video' })
     const history = [{
       candidateId: subject.id,
@@ -62,6 +82,7 @@ describe('distribution opportunity feedback', () => {
 
     const feedback = assessDistributionFeedback(subject, history, { now: NOW })
 
+    expect(feedback.measured.rewardSampleSufficient).toBe(true)
     expect(feedback.performanceReward).toBeGreaterThan(0)
     expect(feedback.adjustment).toBeLessThanOrEqual(8)
     expect(feedback.measured.qualifiedVisitRate).toBeCloseTo(0.06)
