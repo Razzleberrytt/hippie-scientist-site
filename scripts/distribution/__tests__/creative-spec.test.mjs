@@ -38,6 +38,10 @@ describe('creative distribution spec', () => {
     expect(spec.verticalVideo.captions.maxCharsPerLine).toBeLessThanOrEqual(42)
     expect(spec.verticalVideo.captions.maxLines).toBe(2)
     expect(spec.carousel.accessibility.altText.length).toBeLessThanOrEqual(CREATIVE_BRAND_TOKENS.typography.altTextMaxChars)
+    for (const cue of spec.verticalVideo.captions.cues) {
+      expect(cue.text.split('\n').length).toBeLessThanOrEqual(CREATIVE_BRAND_TOKENS.typography.captionMaxLines)
+      expect(cue.text.split('\n').every((line) => line.length <= CREATIVE_BRAND_TOKENS.typography.captionMaxCharsPerLine)).toBe(true)
+    }
   })
 
   it('emits deterministic caption cues, SRT, transcript, and canonical CTA delivery metadata', () => {
