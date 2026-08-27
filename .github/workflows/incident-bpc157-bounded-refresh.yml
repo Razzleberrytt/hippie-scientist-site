@@ -39,15 +39,25 @@ jobs:
       - name: Verify approved BPC-157 values and preserved boundaries
         run: |
           node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict'
+          import { execFileSync } from 'node:child_process'
           import fs from 'node:fs'
-          const detail = JSON.parse(fs.readFileSync('public/data/compounds-detail/bpc-157.json', 'utf8'))
+          const file = 'public/data/compounds-detail/bpc-157.json'
+          const detail = JSON.parse(fs.readFileSync(file, 'utf8'))
+          const before = JSON.parse(execFileSync('git', ['show', `HEAD:${file}`], { encoding: 'utf8' }))
           if (!String(detail.summary || '').includes('FDA identified five small human clinical studies')) throw new Error('approved summary missing')
           if (!String(detail.description || '').includes('five human clinical studies')) throw new Error('approved description missing')
           if (detail.last_regulatory_check !== '2026-08-26') throw new Error('regulatory freshness missing')
           if (!String(detail.regulatory_changelog || '').includes('FDA PCAC voted to recommend')) throw new Error('post-PCAC changelog missing')
           if (String(detail.summary || '').includes('essentially absent')) throw new Error('stale summary remains')
           if (String(detail.description || '').includes('almost no controlled human trial data exists')) throw new Error('stale description remains')
-          if (detail.evidence_grade !== 'D') throw new Error(`evidence grade changed unexpectedly: ${detail.evidence_grade}`)
+          const allowed = ['summary', 'description', 'last_regulatory_check', 'regulatory_changelog']
+          for (const key of allowed) {
+            delete before[key]
+            delete detail[key]
+          }
+          assert.deepStrictEqual(detail, before, 'fields outside the bounded canonical mirror changed')
+          console.log('BPC-157 bounded canonical detail parity verified')
           NODE
       - name: Commit deterministic incident repair and self-delete workflow
         shell: bash
