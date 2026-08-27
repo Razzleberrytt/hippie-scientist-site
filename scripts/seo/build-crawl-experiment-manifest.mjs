@@ -8,6 +8,15 @@ const TREATMENT_N = 20
 const CONTROL_N = 20
 const DEFAULT_SEED = 'request-indexing-rct-2026-08-27-v1'
 const DEFAULT_OUTPUT = 'experiments/crawl-request-indexing/manifest.json'
+const ALLOWLIST_PATH = 'src/lib/index-allowlist.ts'
+const FREEZE_POLICY_PATHS = [
+  'app/herbs/[slug]/page.tsx',
+  'app/sitemap.ts',
+  'src/lib/seo.ts',
+  'src/lib/index-allowlist.ts',
+  'lib/sitemap-route-visibility.ts',
+  'public/_redirects',
+]
 
 function parseArgs(argv) {
   const args = {}
@@ -119,6 +128,23 @@ function loadHerbRecords() {
   return new Map(parsed.filter((row) => row && row.slug).map((row) => [String(row.slug), row]))
 }
 
+function curatedSlugs(source) {
+  const match = source.match(/CURATED_INDEXABLE_HERB_SLUGS\s*=\s*\[([\s\S]*?)\]\s*as const/)
+  if (!match) throw new Error('Unable to parse CURATED_INDEXABLE_HERB_SLUGS')
+  return new Set([...match[1].matchAll(/['"]([^'"]+)['"]/g)].map((entry) => entry[1]))
+}
+
+function freezePolicyHash() {
+  const hash = createHash('sha256')
+  for (const relativePath of FREEZE_POLICY_PATHS) {
+    hash.update(relativePath)
+    hash.update('\0')
+    hash.update(readFileSync(path.resolve(relativePath)))
+    hash.update('\0')
+  }
+  return hash.digest('hex')
+}
+
 const VOLATILE_KEYS = new Set([
   'lastUpdated', 'updatedAt', 'last_updated', 'last_reviewed', 'updated_at', 'reviewedAt',
   'dateModified', 'generated_at', 'generatedAt', 'build_timestamp', 'buildTimestamp',
@@ -190,6 +216,7 @@ if (!args.input) {
 const seed = args.seed || DEFAULT_SEED
 const rows = parseInput(path.resolve(args.input))
 const herbs = loadHerbRecords()
+const curated = curatedSlugs(readFileSync(path.resolve(ALLOWLIST_PATH), 'utf8'))
 const normalized = rows.map((row) => {
   const rawUrl = typeof row === 'string' ? row : pick(row, ['url', 'URL', 'inspectionUrl', 'inspection_url', 'pathname', 'Path'])
   const pathname = normalizePathname(rawUrl)
@@ -199,6 +226,9 @@ const normalized = rows.map((row) => {
   const slug = pathname.split('/').filter(Boolean).at(-1)
   const record = herbs.get(slug)
   if (!record) throw new Error(`No current herb record for ${pathname}`)
+  if (!curated.has(slug) && record.indexability_status !== 'PUBLISH') {
+    throw new Error(`Registry URL is not currently sitemap/indexability eligible: ${pathname}`)
+  }
 
   const suppliedLastmod = typeof row === 'string' ? null : pick(row, ['baseline_lastmod', 'lastmod', 'Lastmod', 'last_mod'])
   const baselineLastmod = normalizeDate(suppliedLastmod) ?? deriveRecordLastmod(record)
@@ -252,6 +282,8 @@ const output = {
     rules: ['no_substantive_edits', 'no_canonical_owner_changes', 'no_indexability_changes', 'no_legitimate_lastmod_changes'],
     starts_at: start.toISOString(),
     ends_at: end.toISOString(),
+    policy_sha256: freezePolicyHash(),
+    policy_paths: FREEZE_POLICY_PATHS,
   },
   entries: normalized.sort((a, b) => a.pathname.localeCompare(b.pathname)),
 }
