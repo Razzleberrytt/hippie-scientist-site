@@ -77,6 +77,7 @@ export function buildProfileSummary(record: Record<string, unknown> | null | und
   const scientificName = text(record.scientific_name || record.latin_name || record.botanical_name)
   const grade = text(record.evidence_grade)
   const gradeLabel = CANONICAL_GRADE_LABEL[grade as CanonicalEvidenceGrade]
+  const gradeBacked = record.evidence_grade_backed !== false
   const rationale = clause(record.evidence_rationale)
   const mechanisms = list(record.mechanisms, 3)
   const effects = list(Array.isArray(record.effects) && record.effects.length ? record.effects : record.primary_effects, 3)
@@ -94,17 +95,23 @@ export function buildProfileSummary(record: Record<string, unknown> | null | und
 
   const sentences: string[] = []
 
-  // 1. Identity and where the evidence stands.
+  // 1. Identity and where the evidence stands. Preserve the editorial grade
+  // when the repository cannot demonstrate it, but do not translate that grade
+  // into a settled strength claim such as "strong evidence".
   const subject = scientificName ? `${name} (${scientificName})` : name
   if (gradeLabel) {
-    // "Grade C: Limited Evidence" reads badly inline; split the label so the
-    // rating and its meaning become one natural clause.
     const [ratingPart, meaningPart] = gradeLabel.split(/:\s*/)
-    sentences.push(
-      meaningPart
-        ? `${subject} carries a ${ratingPart} rating — ${humanizePhrase(meaningPart).toLowerCase()}.`
-        : `${subject} carries a ${ratingPart} rating.`,
-    )
+    if (!gradeBacked) {
+      sentences.push(
+        `${subject} carries an editorial ${ratingPart} rating, but the studies recorded on this profile do not demonstrate that grade.`,
+      )
+    } else {
+      sentences.push(
+        meaningPart
+          ? `${subject} carries a ${ratingPart} rating — ${humanizePhrase(meaningPart).toLowerCase()}.`
+          : `${subject} carries a ${ratingPart} rating.`,
+      )
+    }
   } else {
     sentences.push(`${subject} has no evidence grade assigned in our dataset.`)
   }
