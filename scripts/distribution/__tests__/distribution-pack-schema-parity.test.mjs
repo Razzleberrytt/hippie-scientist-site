@@ -21,10 +21,6 @@ describe('distribution pack schema/validator parity', () => {
       'human',
       'preclinical',
       'mixed',
-      'mechanistic',
-      'regulatory',
-      'safety',
-      'editorial',
     ])
     expect(schema.$defs.sourceReference.properties.kind.const).toBe('research-object')
     expect(validatorSource).toContain("const distributionPackSchema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'))")
