@@ -43,7 +43,7 @@ describe('research distribution claim-safety boundary', () => {
     const artifact = JSON.parse(fs.readFileSync(path.join(outDir, 'claim-safety-fixture.json'), 'utf8'))
     const manifest = JSON.parse(fs.readFileSync(path.join(outDir, 'manifest.json'), 'utf8'))
 
-    expect(artifact.sharedFacts.finding).toBe(`${finding}.`)
+    expect(artifact.sharedFacts.finding).toBe(finding)
     expect(artifact.sharedFacts.limitation).toBe(limitation)
     expect(artifact.shortVideo).toContain(finding)
     expect(artifact.shortVideo).toContain(limitation)
