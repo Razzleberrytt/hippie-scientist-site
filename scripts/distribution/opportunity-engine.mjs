@@ -26,6 +26,46 @@ function daysSince(date, now = new Date()) {
   return Math.max(0, Math.floor((now.getTime() - parsed.getTime()) / 86400000))
 }
 
+function stableToken(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+function buildDestination(object, platform) {
+  const canonicalUrl = String(object.sourceUrl)
+  const tagged = new URL(canonicalUrl)
+  tagged.searchParams.set('utm_source', 'distribution-engine')
+  tagged.searchParams.set('utm_medium', 'organic')
+  tagged.searchParams.set('utm_campaign', 'evidence-to-distribution')
+  tagged.searchParams.set('utm_content', `${stableToken(object.id)}-${stableToken(platform)}`)
+  return {
+    canonicalUrl,
+    taggedUrl: tagged.toString(),
+    attribution: {
+      source: 'distribution-engine',
+      medium: 'organic',
+      campaign: 'evidence-to-distribution',
+      content: `${stableToken(object.id)}-${stableToken(platform)}`,
+    },
+  }
+}
+
+function buildDiscoverability(object, platform) {
+  const title = `${object.title} | Evidence snapshot`
+  const description = `${object.finding} Key limitation: ${object.limitation}`
+  const caption = `${object.finding}\n\nKey limitation: ${object.limitation}\n\nSource: ${object.sourceUrl}`
+  return {
+    title,
+    description,
+    caption,
+    assetFormat: platform,
+    canonicalSource: object.sourceUrl,
+    policy: 'Lossless governed copy only; distribution metadata must not strengthen, shorten away, or reinterpret scientific claims.',
+  }
+}
+
 export function assessEligibility(object, { now = new Date() } = {}) {
   const reasons = []
   if (!object || typeof object !== 'object') reasons.push('candidate must be an object')
@@ -100,6 +140,8 @@ export function scoreDistributionCandidate(object, signals = {}, options = {}) {
     platform: platform.platform,
     platformScore: platform.score,
     angle: object ? buildAngle(object, platform.platform) : null,
+    destination: object ? buildDestination(object, platform.platform) : null,
+    discoverability: object ? buildDiscoverability(object, platform.platform) : null,
     metrics,
     guardrails: [
       'Use only the governed finding/public-safe claim from the validated media pack.',
