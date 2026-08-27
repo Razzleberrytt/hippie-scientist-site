@@ -28,6 +28,8 @@ export const CREATIVE_BRAND_TOKENS = Object.freeze({
   },
 })
 
+const SITE_ORIGIN = 'https://thehippiescientist.net'
+const GOVERNED_EVIDENCE_GRADES = new Set(['A', 'B', 'C', 'D', 'Avoid/Insufficient'])
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
   const text = clean(value)
@@ -40,13 +42,25 @@ const truncate = (value, max) => {
   return `${clipped || text.slice(0, max - 1)}…`
 }
 
+function isCanonicalEvidencePage(value) {
+  try {
+    const url = new URL(String(value ?? ''))
+    return url.origin === SITE_ORIGIN && url.pathname !== '/' && !url.search && !url.hash
+  } catch {
+    return false
+  }
+}
+
 export function validateCreativeInput(input) {
   const errors = []
   for (const field of ['id', 'title', 'finding', 'evidenceType', 'evidenceGrade', 'limitation', 'sourceUrl']) {
     if (!clean(input?.[field])) errors.push(`${field} is required`)
   }
-  if (input?.sourceUrl && !String(input.sourceUrl).startsWith('https://thehippiescientist.net/')) {
-    errors.push('sourceUrl must be a canonical Hippie Scientist URL')
+  if (input?.evidenceGrade && !GOVERNED_EVIDENCE_GRADES.has(clean(input.evidenceGrade))) {
+    errors.push('evidenceGrade must use the governed distribution vocabulary')
+  }
+  if (input?.sourceUrl && !isCanonicalEvidencePage(input.sourceUrl)) {
+    errors.push('sourceUrl must be a canonical Hippie Scientist evidence page, never the homepage')
   }
   return errors
 }
