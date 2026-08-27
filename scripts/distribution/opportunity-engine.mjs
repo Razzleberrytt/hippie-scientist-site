@@ -33,13 +33,24 @@ function stableToken(value) {
     .replace(/^-+|-+$/g, '')
 }
 
-function buildDestination(object, platform) {
+function stableFingerprint(value) {
+  let hash = 2166136261
+  for (const char of String(value || '')) {
+    hash ^= char.codePointAt(0)
+    hash = Math.imul(hash, 16777619)
+  }
+  return (hash >>> 0).toString(36)
+}
+
+function buildDestination(object, platform, angle) {
   const canonicalUrl = String(object.sourceUrl)
+  const cohort = stableFingerprint(`${object.id}|${platform}|${angle}`)
+  const content = `${stableToken(object.id)}-${stableToken(platform)}-${cohort}`
   const tagged = new URL(canonicalUrl)
   tagged.searchParams.set('utm_source', 'distribution-engine')
   tagged.searchParams.set('utm_medium', 'organic')
   tagged.searchParams.set('utm_campaign', 'evidence-to-distribution')
-  tagged.searchParams.set('utm_content', `${stableToken(object.id)}-${stableToken(platform)}`)
+  tagged.searchParams.set('utm_content', content)
   return {
     canonicalUrl,
     taggedUrl: tagged.toString(),
@@ -47,7 +58,8 @@ function buildDestination(object, platform) {
       source: 'distribution-engine',
       medium: 'organic',
       campaign: 'evidence-to-distribution',
-      content: `${stableToken(object.id)}-${stableToken(platform)}`,
+      content,
+      cohort,
     },
   }
 }
@@ -106,56 +118,19 @@ export function scoreDistributionCandidate(object, signals = {}, options = {}) {
   const evidenceStrength = clamp(GRADE_SCORE[object?.evidenceGrade] ?? 0)
   const freshness = clamp(10 - Math.floor((eligibility.staleDays || 0) / 45))
   const metrics = {
-    impact: signal(signals, object?.id, 'impact', 7),
-    urgency: signal(signals, object?.id, 'urgency', 5),
-    breadth: signal(signals, object?.id, 'breadth', 6),
-    confidence: signal(signals, object?.id, 'confidence', evidenceStrength),
-    compoundingLeverage: signal(signals, object?.id, 'compoundingLeverage', 8),
-    opportunityAge: signal(signals, object?.id, 'opportunityAge', 3),
-    reversibility: signal(signals, object?.id, 'reversibility', 10),
-    technicalDebtInterest: signal(signals, object?.id, 'technicalDebtInterest', 4),
-    effort: signal(signals, object?.id, 'effort', 3),
-    regressionRisk: signal(signals, object?.id, 'regressionRisk', 2),
-    blastRadius: signal(signals, object?.id, 'blastRadius', 2),
-    searchOpportunity: signal(signals, object?.id, 'searchOpportunity', 5),
-    aiCitationOpportunity: signal(signals, object?.id, 'aiCitationOpportunity', 5),
-    socialSuitability: signal(signals, object?.id, 'socialSuitability', 6),
-    commercialValue: signal(signals, object?.id, 'commercialValue', 4),
-    informationUniqueness: signal(signals, object?.id, 'informationUniqueness', 6),
-    existingAssetSaturation: signal(signals, object?.id, 'existingAssetSaturation', 0),
-    cannibalizationRisk: signal(signals, object?.id, 'cannibalizationRisk', 1),
-    productionCost: signal(signals, object?.id, 'productionCost', 3),
-    evergreenValue: signal(signals, object?.id, 'evergreenValue', 7),
-    freshness,
-    evidenceStrength,
+    impact: signal(signals, object?.id, 'impact', 7), urgency: signal(signals, object?.id, 'urgency', 5), breadth: signal(signals, object?.id, 'breadth', 6), confidence: signal(signals, object?.id, 'confidence', evidenceStrength), compoundingLeverage: signal(signals, object?.id, 'compoundingLeverage', 8), opportunityAge: signal(signals, object?.id, 'opportunityAge', 3), reversibility: signal(signals, object?.id, 'reversibility', 10), technicalDebtInterest: signal(signals, object?.id, 'technicalDebtInterest', 4), effort: signal(signals, object?.id, 'effort', 3), regressionRisk: signal(signals, object?.id, 'regressionRisk', 2), blastRadius: signal(signals, object?.id, 'blastRadius', 2), searchOpportunity: signal(signals, object?.id, 'searchOpportunity', 5), aiCitationOpportunity: signal(signals, object?.id, 'aiCitationOpportunity', 5), socialSuitability: signal(signals, object?.id, 'socialSuitability', 6), commercialValue: signal(signals, object?.id, 'commercialValue', 4), informationUniqueness: signal(signals, object?.id, 'informationUniqueness', 6), existingAssetSaturation: signal(signals, object?.id, 'existingAssetSaturation', 0), cannibalizationRisk: signal(signals, object?.id, 'cannibalizationRisk', 1), productionCost: signal(signals, object?.id, 'productionCost', 3), evergreenValue: signal(signals, object?.id, 'evergreenValue', 7), freshness, evidenceStrength,
   }
   const score = 3 * metrics.impact + 2 * metrics.urgency + 2 * metrics.breadth + 2 * metrics.confidence + 2 * metrics.compoundingLeverage + metrics.opportunityAge + metrics.reversibility + metrics.technicalDebtInterest - metrics.effort - 2 * metrics.regressionRisk - metrics.blastRadius - metrics.existingAssetSaturation - metrics.cannibalizationRisk - eligibility.claimRisk
   const platform = choosePlatform(metrics)
+  const angle = object ? buildAngle(object, platform.platform) : null
   return {
-    id: object?.id || null,
-    eligible: eligibility.eligible,
-    ineligibleReasons: eligibility.reasons,
-    score,
-    sourceUrl: object?.sourceUrl || null,
-    platform: platform.platform,
-    platformScore: platform.score,
-    angle: object ? buildAngle(object, platform.platform) : null,
-    destination: object ? buildDestination(object, platform.platform) : null,
+    id: object?.id || null, eligible: eligibility.eligible, ineligibleReasons: eligibility.reasons, score, sourceUrl: object?.sourceUrl || null, platform: platform.platform, platformScore: platform.score,
+    angle,
+    destination: object ? buildDestination(object, platform.platform, angle) : null,
     discoverability: object ? buildDiscoverability(object, platform.platform) : null,
     metrics,
-    guardrails: [
-      'Use only the governed finding/public-safe claim from the validated media pack.',
-      'Preserve the governed limitation in every complete caption/script and on-screen where factual interpretation depends on it.',
-      'Do not convert study dose/form context into consumer dosing instructions.',
-      'Do not strengthen preclinical evidence into human benefit language.',
-      'Canonical destination must remain the governed sourceUrl.',
-    ],
-    successCriteria: {
-      primaryMetric: 'qualified visits to canonical evidence page from tagged distribution links',
-      secondaryMetrics: ['asset completion/save rate', 'search impressions/clicks for destination page', 'AI citation/mention visibility'],
-      measurementWindowDays: 28,
-      attributionRisk: 'medium',
-    },
+    guardrails: ['Use only the governed finding/public-safe claim from the validated media pack.', 'Preserve the governed limitation in every complete caption/script and on-screen where factual interpretation depends on it.', 'Do not convert study dose/form context into consumer dosing instructions.', 'Do not strengthen preclinical evidence into human benefit language.', 'Canonical destination must remain the governed sourceUrl.'],
+    successCriteria: { primaryMetric: 'qualified visits to canonical evidence page from tagged distribution links', secondaryMetrics: ['asset completion/save rate', 'search impressions/clicks for destination page', 'AI citation/mention visibility'], measurementWindowDays: 28, attributionRisk: 'medium' },
   }
 }
 
@@ -163,10 +138,5 @@ export function selectDistributionOpportunity(objects, signals = {}, options = {
   const candidates = (Array.isArray(objects) ? objects : []).map((object) => scoreDistributionCandidate(object, signals, options))
   const eligible = candidates.filter((candidate) => candidate.eligible)
   eligible.sort((a, b) => b.score - a.score || b.platformScore - a.platformScore || String(a.id).localeCompare(String(b.id)))
-  return {
-    schemaVersion: '1.0.0',
-    status: eligible.length ? 'selected' : 'waiting-for-governed-object',
-    selected: eligible[0] || null,
-    candidates,
-  }
+  return { schemaVersion: '1.0.0', status: eligible.length ? 'selected' : 'waiting-for-governed-object', selected: eligible[0] || null, candidates }
 }
