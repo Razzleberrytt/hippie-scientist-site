@@ -92,3 +92,17 @@ test('unsafe canonical mapping fails before any artifact directory is written', 
   assert.match(`${result.stderr}\n${result.stdout}`, /Invalid distribution pack|preclinical/i)
   assert.equal(fs.existsSync(outDir), false)
 })
+
+test('derived pack id collisions fail before any artifact directory is written', () => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-pack-builder-collision-'))
+  const inputPath = path.join(temp, 'research-objects.json')
+  const outDir = path.join(temp, 'artifacts')
+  const first = fixture({ id: 'foo.bar', title: 'First identity' })
+  const second = fixture({ id: 'foo-bar', title: 'Second identity' })
+  fs.writeFileSync(inputPath, `${JSON.stringify([first, second], null, 2)}\n`)
+
+  const result = runBuilder(inputPath, outDir)
+  assert.notEqual(result.status, 0)
+  assert.match(`${result.stderr}\n${result.stdout}`, /packId collision.*foo-bar-media-v1/i)
+  assert.equal(fs.existsSync(outDir), false)
+})
