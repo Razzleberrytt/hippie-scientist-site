@@ -197,6 +197,9 @@ describe('distribution pack v1 contract', () => {
       'Use 3 tablets nightly.',
       'Take four capsules daily.',
       'Use twelve drops nightly.',
+      'Take four pills daily for sleep.',
+      'Take two gummies daily for sleep.',
+      'Use one softgel nightly.',
       'Use one capsule nightly.',
       'Start with 300 mg before bed.',
       'Begin with 2 capsules.',
@@ -217,6 +220,8 @@ describe('distribution pack v1 contract', () => {
       'Preclinical research suggests adults could benefit from better sleep.',
       'Animal studies suggest you may sleep better.',
       'Animal studies do not establish benefits in humans, but they prove efficacy for patients.',
+      'Animal studies do not establish benefits in humans and prove efficacy for patients.',
+      'Animal studies do not establish benefits in humans while showing efficacy for patients.',
     ]) {
       const unsafeObject = { ...canonicalHumanObject, evidenceType: 'preclinical', finding: projected }
       const result = messages(packForResearchObject(unsafeObject), [unsafeObject])
