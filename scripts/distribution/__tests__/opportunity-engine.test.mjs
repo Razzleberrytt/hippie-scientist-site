@@ -37,6 +37,27 @@ describe('distribution opportunity engine', () => {
     expect(first.selected.successCriteria.measurementWindowDays).toBe(28)
   })
 
+  it('emits deterministic canonical attribution and lossless discoverability metadata', () => {
+    const object = governed()
+    const candidate = scoreDistributionCandidate(object, {}, { now: NOW })
+
+    expect(candidate.destination.canonicalUrl).toBe(object.sourceUrl)
+    expect(candidate.destination.taggedUrl).toBe('https://thehippiescientist.net/evidence/sleep-intervention/?utm_source=distribution-engine&utm_medium=organic&utm_campaign=evidence-to-distribution&utm_content=sleep-human-trial-carousel')
+    expect(candidate.destination.attribution).toEqual({
+      source: 'distribution-engine',
+      medium: 'organic',
+      campaign: 'evidence-to-distribution',
+      content: 'sleep-human-trial-carousel',
+    })
+    expect(candidate.discoverability.title).toContain(object.title)
+    expect(candidate.discoverability.description).toContain(object.finding)
+    expect(candidate.discoverability.description).toContain(object.limitation)
+    expect(candidate.discoverability.caption).toContain(object.finding)
+    expect(candidate.discoverability.caption).toContain(object.limitation)
+    expect(candidate.discoverability.caption).toContain(object.sourceUrl)
+    expect(candidate.discoverability.canonicalSource).toBe(object.sourceUrl)
+  })
+
   it('uses the swarm scoring formula and subtracts growth risks rather than overriding safety', () => {
     const candidate = scoreDistributionCandidate(governed(), {
       'sleep-human-trial': {
