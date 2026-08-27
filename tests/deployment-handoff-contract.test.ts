@@ -53,4 +53,22 @@ describe('production deployment handoff contract', () => {
       expect(workflow).toContain(command)
     }
   })
+
+  it('publishes and verifies an exact-SHA production receipt before deploy success', () => {
+    const workflow = read('.github/workflows/deploy.yml')
+    const verifier = read('scripts/ci/deployment-receipt.mjs')
+
+    expect(workflow).toContain('Write exact deployment receipt')
+    expect(workflow).toContain('out/.well-known/deployment.json')
+    expect(workflow).toContain('node scripts/ci/deployment-receipt.mjs write')
+    expect(workflow).toContain('Deploy to Cloudflare Pages')
+    expect(workflow).toContain('Verify exact production receipt')
+    expect(workflow).toContain('PRODUCTION_ORIGIN: https://thehippiescientist.net')
+    expect(workflow).toContain('node scripts/ci/deployment-receipt.mjs verify')
+
+    expect(verifier).toContain('receipt.commit === expectedCommit')
+    expect(verifier).toContain('/.well-known/deployment.json')
+    expect(verifier).toContain("cache: 'no-store'")
+    expect(verifier).toContain('throw new Error(`Production did not expose exact deploy receipt')
+  })
 })
