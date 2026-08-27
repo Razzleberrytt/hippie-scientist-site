@@ -191,11 +191,13 @@ export function validateDistributionPack(pack, options = {}) {
   if (claim.consumerInstruction !== false) addError(errors, '$.claims[0].consumerInstruction', 'distribution packs never authorize consumer instructions')
 
   const expectedPopulation = expectedContext(researchObject.populationContext)
+  const expectedFormulation = expectedContext(researchObject.formulationContext)
   const expectedDose = expectedContext(researchObject.doseContext)
+  const expectedDuration = expectedContext(researchObject.durationContext)
   if (claim.studyContext.population !== expectedPopulation) addError(errors, '$.claims[0].studyContext.population', 'must equal canonical populationContext or null')
+  if (claim.studyContext.formulation !== expectedFormulation) addError(errors, '$.claims[0].studyContext.formulation', 'must equal canonical formulationContext or null')
   if (claim.studyContext.dose !== expectedDose) addError(errors, '$.claims[0].studyContext.dose', 'must equal canonical doseContext or null')
-  if (claim.studyContext.formulation !== null) addError(errors, '$.claims[0].studyContext.formulation', 'must remain null until formulation has a canonical research-object field')
-  if (claim.studyContext.duration !== null) addError(errors, '$.claims[0].studyContext.duration', 'must remain null until duration has a canonical research-object field')
+  if (claim.studyContext.duration !== expectedDuration) addError(errors, '$.claims[0].studyContext.duration', 'must equal canonical durationContext or null')
 
   for (const pattern of DIRECTIVE_DOSE_PATTERNS) {
     if (pattern.test(claim.publicSafeStatement)) {

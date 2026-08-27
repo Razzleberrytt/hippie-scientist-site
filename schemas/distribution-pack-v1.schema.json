@@ -82,9 +82,9 @@
           "required": ["population", "formulation", "dose", "duration"],
           "properties": {
             "population": { "type": ["string", "null"], "maxLength": 400 },
-            "formulation": { "type": "null" },
+            "formulation": { "type": ["string", "null"], "maxLength": 400 },
             "dose": { "type": ["string", "null"], "maxLength": 400 },
-            "duration": { "type": "null" }
+            "duration": { "type": ["string", "null"], "maxLength": 400 }
           }
         }
       }
