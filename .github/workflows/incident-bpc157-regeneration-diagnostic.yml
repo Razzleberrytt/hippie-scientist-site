@@ -1,0 +1,52 @@
+name: Incident BPC157 Regeneration Diagnostic
+
+on:
+  push:
+    branches:
+      - integration/bpc157-runtime-regeneration-incident
+
+permissions:
+  contents: read
+
+jobs:
+  regenerate-diff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate workbook patch state
+        run: |
+          node scripts/ci/validate-workbook-patches.mjs
+          npm run workbook:roundtrip-test
+
+      - name: Canonically regenerate committed runtime artifacts
+        run: npm run data:build:core
+
+      - name: Report exact generated diff
+        run: |
+          echo '=== PUBLIC DATA CHANGED FILES ==='
+          git diff --name-status -- public/data
+          echo '=== TOTAL PUBLIC DATA CHANGES ==='
+          git diff --name-only -- public/data | wc -l
+          echo '=== NON-PUBLIC-DATA CHANGES ==='
+          git diff --name-status -- . ':(exclude)public/data/**'
+          echo '=== BPC-157 DETAIL DIFF ==='
+          git diff -- public/data/compounds-detail/bpc-157.json
+
+      - name: Guard source of truth after regeneration
+        run: |
+          npm run guard:source-of-truth
+          npm run validate:evidence-language
