@@ -4,9 +4,15 @@ on:
   pull_request:
     paths:
       - 'experiments/crawl-request-indexing/**'
+      - 'data-sources/herb_monograph_master.xlsx'
       - 'public/data/herbs.json'
+      - 'public/_redirects'
       - 'src/lib/index-allowlist.ts'
-      - 'functions/_middleware.ts'
+      - 'src/lib/seo.ts'
+      - 'src/lib/sitemap-route-visibility.ts'
+      - 'app/herbs/**'
+      - 'app/sitemap.ts'
+      - 'functions/herbs/_middleware.ts'
       - 'functions/_shared/googlebot-verification.ts'
       - 'scripts/ci/validate-crawl-experiment.mjs'
       - 'scripts/seo/build-crawl-experiment-manifest.mjs'
@@ -14,8 +20,14 @@ on:
     branches: [main]
     paths:
       - 'experiments/crawl-request-indexing/**'
+      - 'data-sources/herb_monograph_master.xlsx'
       - 'public/data/herbs.json'
+      - 'public/_redirects'
       - 'src/lib/index-allowlist.ts'
+      - 'src/lib/seo.ts'
+      - 'src/lib/sitemap-route-visibility.ts'
+      - 'app/herbs/**'
+      - 'app/sitemap.ts'
 
 permissions:
   contents: read
