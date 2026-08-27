@@ -2,6 +2,7 @@ const SITE_ORIGIN = 'https://thehippiescientist.net'
 const SHA256_RE = /^[a-f0-9]{64}$/
 const ID_RE = /^[A-Z0-9][A-Z0-9_-]{2,79}$/
 const PACK_ID_RE = /^[a-z0-9][a-z0-9-]{2,79}$/
+const RESEARCH_OBJECT_ID_RE = /^[a-z0-9][a-z0-9._-]+$/
 const ASSET_TYPES = new Set(['infographic', 'carousel', 'short-video', 'social-card', 'pinterest'])
 const EVIDENCE_CONTEXTS = new Set([
   'human',
@@ -12,7 +13,7 @@ const EVIDENCE_CONTEXTS = new Set([
   'safety',
   'editorial',
 ])
-const SOURCE_KINDS = new Set(['pmid', 'doi', 'regulatory', 'site-citation', 'site-evidence-record'])
+const SOURCE_KINDS = new Set(['research-object', 'pmid', 'doi', 'regulatory', 'site-citation', 'site-evidence-record'])
 const DIRECTIVE_DOSE_PATTERNS = [
   /\b(?:take|consume|start with|increase to|decrease to)\s+\d+(?:\.\d+)?\s*(?:mcg|mg|g|ml)\b/i,
   /\byou should\s+(?:take|use|consume)\b/i,
@@ -65,6 +66,20 @@ export function validateDistributionPack(pack) {
   if (pack.schemaVersion !== '1.0.0') addError(errors, '$.schemaVersion', 'must equal 1.0.0')
   if (!PACK_ID_RE.test(pack.packId ?? '')) addError(errors, '$.packId', 'must be a stable lowercase pack ID')
 
+  const researchObjectIds = new Set()
+  if (!Array.isArray(pack.researchObjectIds) || pack.researchObjectIds.length === 0) {
+    addError(errors, '$.researchObjectIds', 'must identify at least one canonical research distribution object')
+  } else {
+    for (const [index, researchObjectId] of pack.researchObjectIds.entries()) {
+      if (!RESEARCH_OBJECT_ID_RE.test(researchObjectId ?? '')) {
+        addError(errors, `$.researchObjectIds[${index}]`, 'must match the existing research-object ID contract')
+        continue
+      }
+      if (researchObjectIds.has(researchObjectId)) addError(errors, `$.researchObjectIds[${index}]`, 'must not duplicate a research-object ID')
+      researchObjectIds.add(researchObjectId)
+    }
+  }
+
   if (!isPlainObject(pack.source)) {
     addError(errors, '$.source', 'must be an object')
   } else {
@@ -78,6 +93,8 @@ export function validateDistributionPack(pack) {
   if (!Array.isArray(pack.sources) || pack.sources.length === 0) addError(errors, '$.sources', 'must contain at least one source reference')
 
   const knownSourceIds = new Set()
+  const sourceById = new Map()
+  const linkedResearchObjectIds = new Set()
   const globalIds = new Set()
   for (const [index, source] of (Array.isArray(pack.sources) ? pack.sources : []).entries()) {
     const path = `$.sources[${index}]`
@@ -90,10 +107,29 @@ export function validateDistributionPack(pack) {
     if (globalIds.has(source.id)) addError(errors, `${path}.id`, 'must be globally unique within the pack')
     if (ID_RE.test(source.id ?? '')) {
       knownSourceIds.add(source.id)
+      sourceById.set(source.id, source)
       globalIds.add(source.id)
     }
     if (!SOURCE_KINDS.has(source.kind)) addError(errors, `${path}.kind`, 'uses an unsupported source kind')
     if (!isNonEmptyString(source.identifier)) addError(errors, `${path}.identifier`, 'must be non-empty')
+    if (source.kind === 'research-object') {
+      if (!RESEARCH_OBJECT_ID_RE.test(source.identifier ?? '')) {
+        addError(errors, `${path}.identifier`, 'must match the existing research-object ID contract')
+      } else {
+        linkedResearchObjectIds.add(source.identifier)
+      }
+    }
+  }
+
+  for (const researchObjectId of researchObjectIds) {
+    if (!linkedResearchObjectIds.has(researchObjectId)) {
+      addError(errors, '$.sources', `must declare a research-object source for ${researchObjectId}`)
+    }
+  }
+  for (const linkedResearchObjectId of linkedResearchObjectIds) {
+    if (!researchObjectIds.has(linkedResearchObjectId)) {
+      addError(errors, '$.sources', `research-object source ${linkedResearchObjectId} is not declared in researchObjectIds`)
+    }
   }
 
   if (!Array.isArray(pack.claims) || pack.claims.length === 0) addError(errors, '$.claims', 'must contain at least one governed claim')
@@ -118,6 +154,10 @@ export function validateDistributionPack(pack) {
     if (!EVIDENCE_CONTEXTS.has(claim.evidenceContext)) addError(errors, `${path}.evidenceContext`, 'uses an unsupported evidence context')
     if (claim.consumerInstruction !== false) addError(errors, `${path}.consumerInstruction`, 'must be false; distribution packs do not authorize consumer instructions')
     validateRefList(errors, `${path}.sourceRefs`, claim.sourceRefs, knownSourceIds)
+
+    if (Array.isArray(claim.sourceRefs) && !claim.sourceRefs.some((sourceId) => sourceById.get(sourceId)?.kind === 'research-object')) {
+      addError(errors, `${path}.sourceRefs`, 'must retain lineage to at least one canonical research distribution object')
+    }
 
     if (isNonEmptyString(claim.publicSafeStatement)) {
       for (const pattern of DIRECTIVE_DOSE_PATTERNS) {
