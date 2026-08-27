@@ -39,8 +39,10 @@ describe('creative distribution spec', () => {
     expect(spec.verticalVideo.captions.maxLines).toBe(2)
   })
 
-  it('fails closed on missing provenance or external source URLs', () => {
-    expect(validateCreativeInput({ ...fixture, sourceUrl: 'https://example.com/study' })).toContain('sourceUrl must be a canonical Hippie Scientist URL')
+  it('fails closed on missing provenance, homepage/external URLs, or invented grades', () => {
+    expect(validateCreativeInput({ ...fixture, sourceUrl: 'https://example.com/study' })).toContain('sourceUrl must be a canonical Hippie Scientist evidence page, never the homepage')
+    expect(validateCreativeInput({ ...fixture, sourceUrl: 'https://thehippiescientist.net/' })).toContain('sourceUrl must be a canonical Hippie Scientist evidence page, never the homepage')
+    expect(validateCreativeInput({ ...fixture, evidenceGrade: 'NOT-A-GRADE' })).toContain('evidenceGrade must use the governed distribution vocabulary')
     expect(() => buildCreativeSpec({ ...fixture, limitation: '' })).toThrow(/limitation is required/)
   })
 })
