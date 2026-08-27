@@ -6,12 +6,54 @@ const TRANSIENT_CONCLUSIONS = new Set(['cancelled', 'timed_out', 'stale', 'start
 const HOLD_LABELS = new Set(['hold-merge', 'do-not-merge', 'manual-merge'])
 
 const FAST_REQUIRED_WORKFLOWS = ['CI']
-const MEDIUM_REQUIRED_WORKFLOWS = [
-  'CI',
-  'Site Health Check',
+const MEDIUM_CORE_REQUIRED_WORKFLOWS = [
   'Atomic upgrade gate',
-  'Production Content Lint',
   'Build quality regression',
+]
+const MEDIUM_REQUIRED_CHECKS = ['Validation, tests, and data']
+const HIGH_REQUIRED_WORKFLOWS = [
+  'CI',
+  ...MEDIUM_CORE_REQUIRED_WORKFLOWS,
+  'Site Health Check',
+  'Production Content Lint',
+]
+
+const DOMAIN_REQUIRED_WORKFLOWS = [
+  {
+    workflow: 'Research Distribution',
+    patterns: [
+      /^scripts\/distribution\//,
+      /^schemas\/distribution(?:\/|[-_.])/,
+      /^docs\/distribution-engine\.md$/,
+    ],
+  },
+  {
+    workflow: 'Site Health Check',
+    patterns: [
+      /^src\//,
+      /^app\//,
+      /^pages\//,
+      /^components\//,
+      /^public\//,
+      /^lib\//,
+      /^next\.config\./,
+      /^middleware\./,
+    ],
+  },
+  {
+    workflow: 'Production Content Lint',
+    patterns: [
+      /^src\//,
+      /^app\//,
+      /^pages\//,
+      /^components\//,
+      /^public\//,
+      /^content\//,
+      /^next\.config\./,
+      /^middleware\./,
+      /^scripts\/(?:build|generate)[^/]*\.(?:mjs|js|ts)$/i,
+    ],
+  },
 ]
 
 const HIGH_RISK_PATTERNS = [
@@ -107,8 +149,19 @@ export function classifyRisk({ pr, changedFiles = [] }) {
   return 'medium'
 }
 
-function requiredWorkflowsFor(riskTier) {
-  return riskTier === 'low' ? FAST_REQUIRED_WORKFLOWS : MEDIUM_REQUIRED_WORKFLOWS
+export function requiredWorkflowsFor(riskTier, changedFiles = []) {
+  if (riskTier === 'low') return [...FAST_REQUIRED_WORKFLOWS]
+  if (riskTier === 'high') return [...HIGH_REQUIRED_WORKFLOWS]
+
+  const required = new Set(MEDIUM_CORE_REQUIRED_WORKFLOWS)
+  for (const { workflow, patterns } of DOMAIN_REQUIRED_WORKFLOWS) {
+    if (changedFiles.some((path) => patterns.some((pattern) => pattern.test(path)))) required.add(workflow)
+  }
+  return [...required]
+}
+
+export function requiredChecksFor(riskTier) {
+  return riskTier === 'medium' ? [...MEDIUM_REQUIRED_CHECKS] : []
 }
 
 async function github(path, { method = 'GET', body } = {}) {
@@ -182,7 +235,7 @@ async function syncPrBranch(repo, number, expectedHeadSha) {
   return result
 }
 
-export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha, currentBaseSha, controllerRunId, riskTier = 'high' }) {
+export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha, currentBaseSha, controllerRunId, riskTier = 'high', changedFiles = [] }) {
   if (pr.state !== 'open') return { action: 'stop', reason: `PR is ${pr.state}` }
   if (pr.draft) return { action: 'stop', reason: 'PR is draft' }
   if (pr.head?.sha !== expectedHeadSha) return { action: 'stop', reason: 'PR head moved; newer controller owns it' }
@@ -198,7 +251,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
 
   const latestWorkflows = newestBy(workflowRuns, (run) => run.name, runScore)
   const workflowsByName = new Map(latestWorkflows.map((run) => [run.name, run]))
-  const requiredNames = requiredWorkflowsFor(riskTier)
+  const requiredNames = requiredWorkflowsFor(riskTier, changedFiles)
   const missingRequired = requiredNames.filter((name) => !workflowsByName.has(name))
   if (missingRequired.length) return { action: 'wait', reason: `${riskTier}-risk required workflows not registered yet: ${missingRequired.join(', ')}` }
 
@@ -228,6 +281,15 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
     (check) => `${check.app?.slug || 'unknown'}:${check.name}`,
     checkScore,
   )
+  const checksByName = new Map(relevantChecks.map((check) => [check.name, check]))
+  const requiredCheckNames = requiredChecksFor(riskTier)
+  const missingRequiredChecks = requiredCheckNames.filter((name) => !checksByName.has(name))
+  if (missingRequiredChecks.length) return { action: 'wait', reason: `${riskTier}-risk required checks not registered yet: ${missingRequiredChecks.join(', ')}` }
+
+  const pendingRequiredChecks = requiredCheckNames
+    .map((name) => checksByName.get(name))
+    .filter((check) => check && check.status !== 'completed')
+  if (pendingRequiredChecks.length) return { action: 'wait', reason: `required checks pending: ${pendingRequiredChecks.map(summarizeCheck).join('; ')}` }
 
   const failedCompletedChecks = relevantChecks.filter((check) => check.status === 'completed' && !isGood(check.conclusion))
   if (failedCompletedChecks.length) return { action: 'failed', reason: `known check failure: ${failedCompletedChecks.map(summarizeCheck).join('; ')}` }
@@ -241,7 +303,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
     action: 'merge',
     reason: riskTier === 'high'
       ? 'high-risk exact head is fully terminal-green against current base'
-      : `${riskTier}-risk required gates are green; unrelated pending checks are non-blocking`,
+      : `${riskTier}-risk changed-file-relevant gates are green; unrelated pending checks are non-blocking`,
     baseSha: currentBaseSha,
     riskTier,
   }
@@ -270,7 +332,7 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
     getPrFiles(repo, number),
   ])
   const riskTier = classifyRisk({ pr, changedFiles })
-  const verdict = evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha: currentHeadSha, currentBaseSha, controllerRunId, riskTier })
+  const verdict = evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha: currentHeadSha, currentBaseSha, controllerRunId, riskTier, changedFiles })
 
   if (verdict.action === 'sync') {
     await syncPrBranch(repo, number, currentHeadSha)
