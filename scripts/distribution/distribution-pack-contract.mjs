@@ -51,6 +51,10 @@ export function hashResearchObject(object) {
   return crypto.createHash('sha256').update(JSON.stringify(stableValue(object))).digest('hex')
 }
 
+export function hashCanonicalField(value) {
+  return crypto.createHash('sha256').update(clean(value)).digest('hex')
+}
+
 function loadCanonicalResearchObjects() {
   const value = JSON.parse(fs.readFileSync(canonicalResearchObjectsPath, 'utf8'))
   if (!Array.isArray(value)) throw new Error('canonical research-object registry must be an array')
@@ -85,6 +89,30 @@ function expectedContext(value) {
   return normalized || null
 }
 
+function expectedProvenanceReceipts(researchObject) {
+  const receipts = [
+    ['$.claims[0].sourceStatement', 'finding', researchObject.finding],
+    ['$.claims[0].publicSafeStatement', 'finding', researchObject.finding],
+    ['$.uncertainties[0].statement', 'limitation', researchObject.limitation],
+  ]
+  for (const [field, targetPath] of [
+    ['populationContext', '$.claims[0].studyContext.population'],
+    ['formulationContext', '$.claims[0].studyContext.formulation'],
+    ['doseContext', '$.claims[0].studyContext.dose'],
+    ['durationContext', '$.claims[0].studyContext.duration'],
+  ]) {
+    if (expectedContext(researchObject[field]) !== null) {
+      receipts.push([targetPath, field, researchObject[field]])
+    }
+  }
+  return receipts.map(([targetPath, canonicalField, value]) => ({
+    targetPath,
+    canonicalField,
+    sourceRef: 'RESEARCH_OBJECT_001',
+    fieldHash: hashCanonicalField(value),
+  }))
+}
+
 function addError(errors, path, message) {
   errors.push({ path, message })
 }
@@ -97,6 +125,13 @@ function arraysEqualAsSets(left, right) {
   if (left.length !== right.length) return false
   const expected = new Set(right)
   return left.every((value) => expected.has(value))
+}
+
+function receiptsEqual(left, right) {
+  if (left.length !== right.length) return false
+  const key = (receipt) => `${receipt.targetPath}\u0000${receipt.canonicalField}\u0000${receipt.sourceRef}\u0000${receipt.fieldHash}`
+  const expected = new Set(right.map(key))
+  return left.every((receipt) => expected.has(key(receipt)))
 }
 
 function buildCanonicalRegistry(objects, errors) {
@@ -180,6 +215,11 @@ export function validateDistributionPack(pack, options = {}) {
   if (source.id !== expectedSourceId || source.kind !== 'research-object') addError(errors, '$.sources[0]', 'must be the canonical research-object source binding')
   if (source.identifier !== researchObjectId) addError(errors, '$.sources[0].identifier', `must resolve to canonical research object ${researchObjectId}`)
   if (source.url !== canonicalSourceUrl) addError(errors, '$.sources[0].url', 'must equal the canonical research-object sourceUrl')
+
+  const expectedReceipts = expectedProvenanceReceipts(researchObject)
+  if (!receiptsEqual(pack.provenanceReceipts, expectedReceipts)) {
+    addError(errors, '$.provenanceReceipts', 'must exactly bind each factual payload to its canonical research-object field and deterministic field hash')
+  }
 
   const claim = pack.claims[0]
   if (claim.id !== expectedClaimId) addError(errors, '$.claims[0].id', `must equal ${expectedClaimId}`)
