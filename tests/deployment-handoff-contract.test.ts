@@ -59,7 +59,7 @@ describe('production deployment handoff contract', () => {
     const verifier = read('scripts/ci/deployment-receipt.mjs')
 
     expect(workflow).toContain('Write exact deployment receipt')
-    expect(workflow).toContain('out/.well-known/deployment.json')
+    expect(workflow).toContain('DEPLOY_RECEIPT_PATH: ${{ env.STATIC_OUTPUT_DIR }}/.well-known/deployment.json')
     expect(workflow).toContain('node scripts/ci/deployment-receipt.mjs write')
     expect(workflow).toContain('Deploy to Cloudflare Pages')
     expect(workflow).toContain('Verify exact production receipt')
