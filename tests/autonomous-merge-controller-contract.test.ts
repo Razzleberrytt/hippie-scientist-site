@@ -18,7 +18,7 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).not.toContain('github.event.pull_request.head.ref')
   })
 
-  it('has only the permissions needed to inspect checks, retry transient actions, merge, and dispatch deploy fallback', () => {
+  it('has only the permissions needed to inspect checks, retry transient actions, refresh/merge, and dispatch deploy fallback', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
 
     expect(workflow).toContain('actions: write')
@@ -62,6 +62,16 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain("'manual-merge'")
   })
 
+  it('refreshes a behind PR from main and requires a new exact-head validation cycle', () => {
+    const controller = read('scripts/ci/autonomous-merge-controller.mjs')
+
+    expect(controller).toContain("pr.mergeable_state === 'behind'")
+    expect(controller).toContain('update branch and revalidate exact head')
+    expect(controller).toContain(`/pulls/${number}/update-branch`)
+    expect(controller).toContain('expected_head_sha: expectedHeadSha')
+    expect(controller).toContain('synchronize event will own the new exact head')
+  })
+
   it('retries only bounded non-semantic workflow outcomes and never generic failures', () => {
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
 
@@ -85,14 +95,16 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain('fallback sweep will continue ownership')
   })
 
-  it('preserves direct-main deploy as primary and dispatches only when latest main has no deploy run', () => {
+  it('preserves direct-main deploy as primary and dispatches only when a controller merge lacks a deploy run', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const deploy = read('.github/workflows/deploy.yml')
 
     expect(deploy).toContain('push:')
     expect(deploy).toContain('- main')
     expect(deploy).toContain('workflow_dispatch:')
-    expect(workflow).toContain('Ensure latest main enters deploy lifecycle')
+    expect(workflow).toContain('Ensure merged PR enters deploy lifecycle')
+    expect(workflow).toContain('pulls/$PR_NUMBER')
+    expect(workflow).toContain('if [ "$merged" != "true" ]')
     expect(workflow).toContain('actions/runs?head_sha=$main_sha')
     expect(workflow).toContain('select(.name == "Deploy to Cloudflare Pages")')
     expect(workflow).toContain('actions/workflows/deploy.yml/dispatches')
