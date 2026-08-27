@@ -7,18 +7,18 @@ import Ajv2020 from 'ajv/dist/2020.js'
 const SITE_ORIGIN = 'https://thehippiescientist.net'
 const DOSE_UNIT = '(?:mcg|mg|g|ml|iu|units?)'
 const DOSAGE_FORM = '(?:capsule|capsules|tablet|tablets|scoop|scoops|drop|drops|dose|doses)'
+const NUMBER_WORD = '(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|half|quarter|a|an)'
 const FREQUENCY = '(?:daily|per day|each day|nightly|before bed|once daily|twice daily)'
 const DIRECTIVE_DOSE_PATTERNS = [
-  new RegExp(`\\b(?:take|use|consume|try)\\s+(?:(?:one|two|three|a|an)\\s+)?\\d+(?:\\.\\d+)?\\s*${DOSE_UNIT}(?:\\s+${DOSAGE_FORM})?(?:\\s+${FREQUENCY})?\\b`, 'i'),
-  new RegExp(`\\b(?:take|use|consume|try)\\s+\\d+(?:\\.\\d+)?\\s+${DOSAGE_FORM}(?:\\s+${FREQUENCY})?\\b`, 'i'),
-  new RegExp(`\\b(?:take|use|consume|try)\\s+(?:one|two|three|a|an)\\s+${DOSAGE_FORM}(?:\\s+${FREQUENCY})?\\b`, 'i'),
-  new RegExp(`\\b(?:start with|begin with|increase to|decrease to)\\s+(?:(?:one|two|three|a|an)\\s+)?(?:\\d+(?:\\.\\d+)?\\s*)?(?:${DOSE_UNIT}|${DOSAGE_FORM})\\b`, 'i'),
+  new RegExp(`\\b(?:take|use|consume|try)\\s+(?:${NUMBER_WORD}\\s+)?\\d+(?:\\.\\d+)?\\s*${DOSE_UNIT}(?:\\s+${DOSAGE_FORM})?(?:\\s+${FREQUENCY})?\\b`, 'i'),
+  new RegExp(`\\b(?:take|use|consume|try)\\s+(?:\\d+(?:\\.\\d+)?|${NUMBER_WORD})\\s+${DOSAGE_FORM}(?:\\s+${FREQUENCY})?\\b`, 'i'),
+  new RegExp(`\\b(?:start with|begin with|increase to|decrease to)\\s+(?:(?:\\d+(?:\\.\\d+)?)|${NUMBER_WORD})(?:\\s*${DOSE_UNIT}|\\s+${DOSAGE_FORM})\\b`, 'i'),
   /\byou should\s+(?:take|use|consume|try)\b/i,
   new RegExp(`\\b(?:take|use|consume|try)\\s+(?:this|the|your|a|an)\\s+(?:supplement|product|extract|${DOSAGE_FORM})\\b`, 'i'),
 ]
 const HUMAN_POPULATION_RE = /\b(?:humans?|people|patients?|adults?|children|men|women|users?)\b/i
 const SECOND_PERSON_RE = /\b(?:you|your|yours)\b/i
-const EXPLICIT_NO_HUMAN_INFERENCE_RE = /\b(?:does not|do not|cannot|can't|doesn't|not enough to)\b[^.!?\n]{0,100}\b(?:establish|show|demonstrate|prove|support|predict|mean|translate)\b[^.!?\n]{0,80}\b(?:effects?|benefits?|efficacy|outcomes?|results?)?(?:\s+(?:in|for|to))?\s+(?:humans?|people|patients?|adults?|children|men|women)\b/i
+const EXPLICIT_NO_HUMAN_INFERENCE_RE = /\b(?:does not|do not|cannot|can't|doesn't|not enough to)\b[^.!?;\n]{0,100}\b(?:establish|show|demonstrate|prove|support|predict|mean|translate)\b[^.!?;\n]{0,80}\b(?:effects?|benefits?|efficacy|outcomes?|results?)?(?:\s+(?:in|for|to))?\s+(?:humans?|people|patients?|adults?|children|men|women)\b/i
 const HUMAN_EVIDENCE_TYPES = new Set(['meta-analysis', 'systematic-review', 'RCT', 'controlled-trial', 'observational', 'case-report'])
 const MIXED_EVIDENCE_TYPES = new Set(['mixed', 'narrative-review'])
 const REQUIRED_FORBIDDEN_EXTRAPOLATIONS = Object.freeze([
@@ -93,10 +93,17 @@ function schemaErrorPath(error) {
   return error.instancePath ? `$${error.instancePath}` : '$'
 }
 
+function splitClaimClauses(statement) {
+  return String(statement ?? '')
+    .split(/(?:[.!?;]+\s*|\b(?:but|however|yet|although)\b)/gi)
+    .map(clean)
+    .filter(Boolean)
+}
+
 function preclinicalProjectsToHumans(statement) {
   if (SECOND_PERSON_RE.test(statement)) return true
-  if (!HUMAN_POPULATION_RE.test(statement)) return false
-  return !EXPLICIT_NO_HUMAN_INFERENCE_RE.test(statement)
+  const humanClauses = splitClaimClauses(statement).filter((clause) => HUMAN_POPULATION_RE.test(clause))
+  return humanClauses.some((clause) => !EXPLICIT_NO_HUMAN_INFERENCE_RE.test(clause))
 }
 
 function arraysEqualAsSets(left, right) {
