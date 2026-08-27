@@ -21,6 +21,7 @@ const UNBACKED_PUBLIC_TIER = 'Editorial grade not demonstrated by recorded studi
 
 const PROFILE_SYNC_FIELDS = [
   'summary', 'summary_source', 'evidence_grade', 'evidence_grade_source', 'evidence_tier', 'evidence_tier_source',
+  'evidenceLevel', 'evidenceTier',
   'evidence_grade_band', 'evidence_grade_reason', 'evidence_grade_explanation', 'evidence_grade_adjusted',
   'evidence_design_match', 'evidence_risk_of_bias', 'evidence_consistency', 'evidence_rationale',
   'evidence_human_study_count', 'evidence_recorded_study_count', 'evidence_strongest_design',
@@ -150,6 +151,11 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       evidence_grade_source: String(authoredGrade ?? ''),
       evidence_tier: publicTier,
       evidence_tier_source: String(authoredTier ?? ''),
+      // These camelCase aliases are public runtime fields consumed by older
+      // profile templates. Keep them aligned with the canonical public tier so
+      // a stale Strong/Moderate alias cannot bypass an explicit backing failure.
+      evidenceLevel: publicTier,
+      evidenceTier: publicTier,
       evidence_grade_band: publicBand,
       evidence_grade_reason: result.reason,
       evidence_grade_explanation: backing.backed
