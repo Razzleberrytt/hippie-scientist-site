@@ -19,3 +19,5 @@ The controller also preserves exact-head/base freshness, clean mergeability, for
 A GitHub Actions `action_required` result with no executed jobs is never treated as validation success; the branch must acquire a new executable exact-head validation cycle before merge. Empty workflow runs are infrastructure evidence only and never authorize a manual or automated merge bypass.
 
 When `main` advances during validation, the refreshed head must prove itself again against the new base; stale-base evidence is never reused merely to shorten queue time.
+
+If an automated base refresh itself produces zero-job `action_required` runs, those runs are discarded as non-validation and a new executable exact-head cycle must be triggered before the PR can become merge-ready.
