@@ -5,6 +5,7 @@ import {
   getContrastRatio,
   validateCreativeContrast,
   validateCreativeInput,
+  validatePlatformSafeZones,
 } from '../creative-spec.mjs'
 
 const fixture = {
@@ -52,7 +53,7 @@ describe('creative distribution spec', () => {
 
   it('emits deterministic caption cues, SRT, transcript, and canonical CTA delivery metadata', () => {
     const spec = buildCreativeSpec(fixture)
-    expect(spec.version).toBe(3)
+    expect(spec.version).toBe(4)
     expect(spec.delivery.landingUrl).toBe(fixture.sourceUrl)
     expect(spec.delivery.exportProfiles.map((profile) => profile.id)).toEqual([
       'vertical-video',
@@ -67,6 +68,39 @@ describe('creative distribution spec', () => {
     expect(spec.verticalVideo.accessibility.captionsRequired).toBe(true)
     expect(spec.thumbnailVariants.every((variant) => variant.landingUrl === fixture.sourceUrl)).toBe(true)
     expect(spec.guardrails.socialClickDestinationMustMatchCanonicalSource).toBe(true)
+  })
+
+  it('ships platform-specific safe areas for TikTok, Reels, Shorts, feed, square, and Pinterest', () => {
+    const spec = buildCreativeSpec(fixture)
+    expect(validatePlatformSafeZones()).toEqual([])
+    expect(Object.keys(spec.delivery.platformSafeAreas)).toEqual([
+      'tiktok',
+      'instagramReels',
+      'youtubeShorts',
+      'instagramFeed',
+      'squareSocial',
+      'pinterest',
+    ])
+    expect(spec.verticalVideo.platformSafeAreas.tiktok.exclusions.right).toBeGreaterThan(CREATIVE_BRAND_TOKENS.canvas.vertical.safeSide)
+    expect(spec.verticalVideo.platformSafeAreas.instagramReels.exclusions.bottom).toBeGreaterThanOrEqual(CREATIVE_BRAND_TOKENS.canvas.vertical.safeBottom)
+    expect(spec.carousel.accessibility.platformSafeArea.format).toBe('portrait')
+    expect(spec.verticalVideo.captions.mustFitPlatformSafeArea).toBe(true)
+    expect(spec.guardrails.deterministicPlatformSafeAreas).toBe(true)
+    expect(spec.guardrails.factualUiMustStayInsidePlatformSafeArea).toBe(true)
+    expect(spec.experimentContract.immutableFields).toContain('platform-safe-area')
+  })
+
+  it('fails closed when a platform safe zone is smaller than canonical margins or consumes the canvas', () => {
+    expect(validatePlatformSafeZones({
+      unsafePlatform: { format: 'vertical', top: 0, bottom: 320, left: 96, right: 96 },
+    })).toEqual(expect.arrayContaining([
+      expect.stringContaining('unsafePlatform.top is smaller'),
+    ]))
+    expect(validatePlatformSafeZones({
+      unsafePlatform: { format: 'square', top: 600, bottom: 600, left: 80, right: 80 },
+    })).toEqual(expect.arrayContaining([
+      'unsafePlatform vertical safe-zone exclusions consume the canvas',
+    ]))
   })
 
   it('ships a deterministic accessible palette and semantic color treatments', () => {
@@ -120,9 +154,11 @@ describe('creative distribution spec', () => {
       'disclosure',
       'cta-destination',
       'minimum-contrast-threshold',
+      'platform-safe-area',
     ]))
     expect(spec.experimentContract.primaryMetric).toBe('qualified-social-to-site-clickthrough')
     expect(spec.experimentContract.guardrailMetrics).toContain('creative-contrast-pass-rate')
+    expect(spec.experimentContract.guardrailMetrics).toContain('creative-safe-area-pass-rate')
   })
 
   it('fails closed on missing provenance, homepage/external URLs, or invented grades', () => {
