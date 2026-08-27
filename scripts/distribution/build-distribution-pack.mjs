@@ -1,4 +1,4 @@
-import { assertValidDistributionPack, hashResearchObject } from './distribution-pack-contract.mjs'
+import { assertValidDistributionPack, hashCanonicalField, hashResearchObject } from './distribution-pack-contract.mjs'
 
 const SITE_ORIGIN = 'https://thehippiescientist.net'
 const HUMAN_EVIDENCE_TYPES = new Set(['meta-analysis', 'systematic-review', 'RCT', 'controlled-trial', 'observational', 'case-report'])
@@ -33,6 +33,15 @@ function packIdFromResearchObjectId(id) {
   return `${id.replace(/[._]+/g, '-').replace(/-+/g, '-')}-media-v1`
 }
 
+function provenanceReceipt(targetPath, canonicalField, value) {
+  return {
+    targetPath,
+    canonicalField,
+    sourceRef: 'RESEARCH_OBJECT_001',
+    fieldHash: hashCanonicalField(value),
+  }
+}
+
 export function buildDistributionPackFromResearchObject(researchObject, options = {}) {
   if (!researchObject || typeof researchObject !== 'object' || Array.isArray(researchObject)) {
     throw new Error('research object must be an object')
@@ -48,6 +57,27 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
 
   const sourceUrl = canonicalPageUrl(researchObject.sourceUrl)
   const context = evidenceContext(researchObject.evidenceType)
+  const population = clean(researchObject.populationContext) || null
+  const formulation = clean(researchObject.formulationContext) || null
+  const dose = clean(researchObject.doseContext) || null
+  const duration = clean(researchObject.durationContext) || null
+  const provenanceReceipts = [
+    provenanceReceipt('$.claims[0].sourceStatement', 'finding', finding),
+    provenanceReceipt('$.claims[0].publicSafeStatement', 'finding', finding),
+    provenanceReceipt('$.uncertainties[0].statement', 'limitation', limitation),
+  ]
+  for (const [field, value] of Object.entries({
+    populationContext: population,
+    formulationContext: formulation,
+    doseContext: dose,
+    durationContext: duration,
+  })) {
+    if (value !== null) {
+      const target = field.replace('Context', '')
+      provenanceReceipts.push(provenanceReceipt(`$.claims[0].studyContext.${target}`, field, value))
+    }
+  }
+
   const pack = {
     schemaVersion: '1.0.0',
     packId: packIdFromResearchObjectId(id),
@@ -68,10 +98,10 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
       sourceRefs: ['RESEARCH_OBJECT_001'],
       consumerInstruction: false,
       studyContext: {
-        population: clean(researchObject.populationContext) || null,
-        formulation: clean(researchObject.formulationContext) || null,
-        dose: clean(researchObject.doseContext) || null,
-        duration: clean(researchObject.durationContext) || null,
+        population,
+        formulation,
+        dose,
+        duration,
       },
     }],
     sources: [{
@@ -80,6 +110,7 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
       identifier: id,
       url: sourceUrl,
     }],
+    provenanceReceipts,
     safety: [],
     uncertainties: [{
       id: 'UNCERTAINTY_001',
