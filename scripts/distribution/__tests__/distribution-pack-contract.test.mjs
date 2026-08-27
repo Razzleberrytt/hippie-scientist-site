@@ -195,9 +195,12 @@ describe('distribution pack v1 contract', () => {
       'Take one 600 mg capsule daily.',
       'Take 2 capsules daily.',
       'Use 3 tablets nightly.',
+      'Take four capsules daily.',
+      'Use twelve drops nightly.',
       'Use one capsule nightly.',
       'Start with 300 mg before bed.',
       'Begin with 2 capsules.',
+      'Begin with four capsules.',
       'You should use this supplement before bed.',
       'Use this supplement daily.',
     ]) {
@@ -207,12 +210,13 @@ describe('distribution pack v1 contract', () => {
     }
   })
 
-  it('keeps preclinical findings explicit and blocks population or second-person benefit projection', () => {
+  it('keeps preclinical findings explicit and requires every human-directed clause to be bounded', () => {
     for (const projected of [
       'Animal evidence suggests this pathway may change, showing efficacy in humans.',
       'Animal evidence suggests people may experience better memory.',
       'Preclinical research suggests adults could benefit from better sleep.',
       'Animal studies suggest you may sleep better.',
+      'Animal studies do not establish benefits in humans, but they prove efficacy for patients.',
     ]) {
       const unsafeObject = { ...canonicalHumanObject, evidenceType: 'preclinical', finding: projected }
       const result = messages(packForResearchObject(unsafeObject), [unsafeObject])
