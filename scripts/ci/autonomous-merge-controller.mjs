@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+
 const API_ROOT = process.env.GITHUB_API_URL || 'https://api.github.com'
 
 const GOOD_CONCLUSIONS = new Set(['success', 'neutral', 'skipped'])
@@ -44,7 +46,7 @@ function isGood(conclusion) {
 }
 
 function isControllerCheck(check, controllerRunId) {
-  if (check.name === 'merge-controller' || check.name === 'fallback-sweep') return true
+  if (['merge-controller-monitor', 'merge-commit', 'fallback-sweep'].includes(check.name)) return true
   return Boolean(controllerRunId && String(check.details_url || '').includes(`/actions/runs/${controllerRunId}`))
 }
 
@@ -59,6 +61,16 @@ function summarizeRun(run) {
 function summarizeCheck(check) {
   const app = check.app?.slug ? `${check.app.slug}/` : ''
   return `${app}${check.name}: ${check.status}/${check.conclusion || 'pending'}`
+}
+
+function associatedPr(run, prNumber) {
+  return (run.pull_requests || []).find((candidate) => Number(candidate.number) === Number(prNumber)) || null
+}
+
+function writeOutput(name, value) {
+  const output = process.env.GITHUB_OUTPUT
+  if (!output) return
+  fs.appendFileSync(output, `${name}=${String(value)}\n`, 'utf8')
 }
 
 async function github(path, { method = 'GET', body } = {}) {
@@ -86,6 +98,11 @@ async function github(path, { method = 'GET', body } = {}) {
 
 async function getPr(repo, number) {
   return github(`/repos/${repo}/pulls/${number}`)
+}
+
+async function getBranchSha(repo, branch) {
+  const payload = await github(`/repos/${repo}/branches/${encodeURIComponent(branch)}`)
+  return payload?.commit?.sha || null
 }
 
 async function getWorkflowRuns(repo, sha) {
@@ -122,7 +139,7 @@ async function syncPrBranch(repo, number, expectedHeadSha) {
   return result
 }
 
-export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha, controllerRunId }) {
+export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha, currentBaseSha, controllerRunId }) {
   if (pr.state !== 'open') return { action: 'stop', reason: `PR is ${pr.state}` }
   if (pr.draft) return { action: 'stop', reason: 'PR is draft' }
   if (pr.head?.sha !== expectedHeadSha) return { action: 'stop', reason: 'PR head moved; newer controller owns it' }
@@ -132,6 +149,8 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   const hold = [...HOLD_LABELS].find((label) => labels.has(label))
   if (hold) return { action: 'stop', reason: `explicit merge hold label present: ${hold}` }
 
+  if (!currentBaseSha) return { action: 'wait', reason: 'current base SHA is not observable yet' }
+
   if (pr.mergeable === null || pr.mergeable_state === 'unknown') {
     return { action: 'wait', reason: 'GitHub is still calculating mergeability' }
   }
@@ -140,7 +159,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
     return { action: 'blocked', reason: `PR is not cleanly mergeable (${pr.mergeable_state || 'unknown'})` }
   }
 
-  if (pr.mergeable_state === 'behind') {
+  if (pr.mergeable_state === 'behind' || (pr.base?.sha && pr.base.sha !== currentBaseSha)) {
     return { action: 'sync', reason: 'PR base is behind main; update branch and revalidate exact head' }
   }
 
@@ -149,6 +168,25 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   const missingRequired = REQUIRED_WORKFLOWS.filter((name) => !workflowsByName.has(name))
   if (missingRequired.length) {
     return { action: 'wait', reason: `required workflows not registered yet: ${missingRequired.join(', ')}` }
+  }
+
+  const unverifiableRequired = REQUIRED_WORKFLOWS.filter((name) => {
+    const run = workflowsByName.get(name)
+    return !associatedPr(run, pr.number)?.base?.sha
+  })
+  if (unverifiableRequired.length) {
+    return { action: 'wait', reason: `required workflow base proof missing: ${unverifiableRequired.join(', ')}` }
+  }
+
+  const staleBaseRuns = latestWorkflows.filter((run) => {
+    const association = associatedPr(run, pr.number)
+    return association?.base?.sha && association.base.sha !== currentBaseSha
+  })
+  if (staleBaseRuns.length) {
+    return {
+      action: 'sync',
+      reason: `workflow evidence targets stale base; refresh required: ${staleBaseRuns.map((run) => run.name).join(', ')}`,
+    }
   }
 
   const pendingWorkflows = latestWorkflows.filter((run) => run.status !== 'completed')
@@ -174,6 +212,14 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
     checkScore,
   )
 
+  const staleBaseChecks = relevantChecks.filter((check) => {
+    const association = associatedPr(check, pr.number)
+    return association?.base?.sha && association.base.sha !== currentBaseSha
+  })
+  if (staleBaseChecks.length) {
+    return { action: 'sync', reason: 'triggered check evidence targets stale base; refresh required' }
+  }
+
   const pendingChecks = relevantChecks.filter((check) => check.status !== 'completed')
   if (pendingChecks.length) {
     return { action: 'wait', reason: `checks pending: ${pendingChecks.map(summarizeCheck).join('; ')}` }
@@ -184,7 +230,11 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
     return { action: 'failed', reason: `checks failed: ${failedChecks.map(summarizeCheck).join('; ')}` }
   }
 
-  return { action: 'merge', reason: 'all universal workflows and every triggered exact-head check are terminal-green' }
+  return {
+    action: 'merge',
+    reason: 'all universal workflows and every triggered exact-head check are terminal-green against current base',
+    baseSha: currentBaseSha,
+  }
 }
 
 async function mergePr(repo, number, expectedHeadSha) {
@@ -209,9 +259,10 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
     return { action: 'stop', reason: `head moved from ${expectedHeadSha} to ${currentHeadSha}` }
   }
 
-  const [workflowRuns, checkRuns] = await Promise.all([
+  const [workflowRuns, checkRuns, currentBaseSha] = await Promise.all([
     getWorkflowRuns(repo, currentHeadSha),
     getCheckRuns(repo, currentHeadSha),
+    getBranchSha(repo, pr.base.ref),
   ])
 
   const verdict = evaluateReadiness({
@@ -219,12 +270,18 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
     workflowRuns,
     checkRuns,
     expectedHeadSha: currentHeadSha,
+    currentBaseSha,
     controllerRunId,
   })
 
   if (verdict.action === 'sync') {
     await syncPrBranch(repo, number, currentHeadSha)
-    return { action: 'stop', reason: 'base refresh requested; synchronize event will own the new exact head', headSha: currentHeadSha }
+    return {
+      action: 'stop',
+      reason: 'base refresh requested; synchronize event will own the new exact head',
+      headSha: currentHeadSha,
+      baseSha: currentBaseSha,
+    }
   }
 
   if (verdict.action === 'failed' && allowRetry) {
@@ -232,7 +289,25 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
     if (retried) return { action: 'wait', reason: 'bounded transient retry triggered' }
   }
 
-  return { ...verdict, headSha: currentHeadSha }
+  return { ...verdict, headSha: currentHeadSha, baseSha: verdict.baseSha || currentBaseSha }
+}
+
+async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha }) {
+  const pr = await getPr(repo, number)
+  if (pr.head?.sha !== headSha) {
+    console.log(`PR #${number} head moved before serialized merge; newer controller owns it.`)
+    return false
+  }
+
+  const latestBaseSha = await getBranchSha(repo, pr.base.ref)
+  if (latestBaseSha !== validatedBaseSha) {
+    console.log(`PR #${number} base advanced from ${validatedBaseSha} to ${latestBaseSha}; refreshing before merge.`)
+    await syncPrBranch(repo, number, headSha)
+    return false
+  }
+
+  await mergePr(repo, number, headSha)
+  return true
 }
 
 async function followOnePr() {
@@ -240,10 +315,14 @@ async function followOnePr() {
   const number = Number(requiredEnv('PR_NUMBER'))
   const initialHeadSha = requiredEnv('EXPECTED_HEAD_SHA')
   const controllerRunId = process.env.CONTROLLER_RUN_ID || ''
+  const checkOnly = process.env.CHECK_ONLY === 'true'
   const intervalMs = Math.max(10, Number(process.env.MERGE_POLL_SECONDS || 30)) * 1000
   const maxWaitMs = Math.max(1, Number(process.env.MERGE_MAX_WAIT_MINUTES || 165)) * 60 * 1000
   const deadline = Date.now() + maxWaitMs
   let lastReason = ''
+
+  writeOutput('ready', 'false')
+  writeOutput('head_sha', initialHeadSha)
 
   while (Date.now() < deadline) {
     const verdict = await evaluateOnce({
@@ -260,7 +339,19 @@ async function followOnePr() {
     }
 
     if (verdict.action === 'merge') {
-      await mergePr(repo, number, initialHeadSha)
+      if (checkOnly) {
+        writeOutput('ready', 'true')
+        writeOutput('head_sha', verdict.headSha)
+        writeOutput('base_sha', verdict.baseSha)
+        console.log(`[PR #${number}] exact head is ready for serialized merge against base ${verdict.baseSha}`)
+        return
+      }
+      await mergeIfStillCurrent({
+        repo,
+        number,
+        headSha: verdict.headSha,
+        validatedBaseSha: verdict.baseSha,
+      })
       return
     }
     if (verdict.action === 'stop') return
@@ -291,9 +382,16 @@ async function fallbackSweep() {
     })
     console.log(`[fallback PR #${pr.number}] ${verdict.action}: ${verdict.reason}`)
     if (verdict.action === 'merge') {
-      await mergePr(repo, pr.number, pr.head.sha)
-      merged += 1
+      const didMerge = await mergeIfStillCurrent({
+        repo,
+        number: pr.number,
+        headSha: verdict.headSha,
+        validatedBaseSha: verdict.baseSha,
+      })
+      if (didMerge) merged += 1
+      break
     }
+    if (verdict.action === 'stop' && verdict.reason.startsWith('base refresh requested')) break
   }
 
   console.log(`Fallback sweep complete; merged ${merged} PR(s)`)
