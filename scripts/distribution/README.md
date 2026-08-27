@@ -17,4 +17,12 @@ V1 deliberately permits:
 
 It rejects fabricated research-object IDs, stale hashes, extra sources, free-form claim rewrites, consumer-dose directives (including numeric dosage forms), preclinical human/second-person benefit projection, altered study context, weakened limitations/guardrails, and schema-invalid fields.
 
-This layer does not yet render or publish media. The next legal milestone is to extend the existing `build-research-distribution.mjs` path to emit this deterministic pack from a canonical research object; it must not create a second distribution generator or facts dataset.
+## Canonical builder integration
+
+`build-distribution-pack.mjs` deterministically projects one canonical research object into the v1 pack and immediately validates it against the same canonical research-object registry.
+
+`build-research-distribution.mjs` remains the single distribution generator. It now prepares and validates every media pack before creating the output directory or writing any artifact. A failed or ambiguous pack therefore aborts the run without leaving a partially updated artifact set.
+
+For each valid research object, the existing `artifacts/distribution` family gains `<id>.media-pack.json`. The existing review-only channel package and manifest reference that validated pack by `packId`, content hash, artifact name, and `validated` state. Existing X/Instagram/video/email/article outputs remain review-only; no publishing automation is activated.
+
+The next legal downstream milestone is deterministic creative rendering from validated pack state. Creative/presentation code may not become a second factual authority, and generative media remains non-authoritative visual input only.
