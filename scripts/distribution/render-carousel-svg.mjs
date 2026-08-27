@@ -3,6 +3,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { CREATIVE_BRAND_TOKENS, validateCreativeContrast } from './creative-spec.mjs'
 
+// Presentation-only boundary: factual authority remains the validated media pack and
+// validated-lossless creative spec. This renderer may wrap/layout text, never rewrite it.
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const escapeXml = (value) => clean(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[char])
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
