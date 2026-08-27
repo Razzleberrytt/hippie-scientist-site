@@ -7,6 +7,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { buildCreativeSpec } from './creative-spec.mjs'
 
 const root = process.cwd()
 const inputPath = path.resolve(process.argv[2] || 'data/distribution/research-objects.json')
@@ -125,6 +126,7 @@ for (const object of objects) {
     status: 'review-required',
     rule: 'All channel variants inherit facts from sharedFacts. Edit the canonical research object, then regenerate; do not manually fork scientific facts across channels.',
     ...buildChannels(object, seriesById),
+    creativeSpec: buildCreativeSpec(object),
   }
   const jsonPath = path.join(outDir, `${object.id}.json`)
   fs.writeFileSync(jsonPath, `${JSON.stringify(packageData, null, 2)}\n`)

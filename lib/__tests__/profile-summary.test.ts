@@ -40,6 +40,26 @@ describe('buildProfileSummary', () => {
     expect(summary).not.toContain('strong evidence')
   })
 
+  it.each([
+    ['a', 'Grade A'],
+    ['b', 'Grade B'],
+    ['high', 'Grade A'],
+    ['moderate', 'Grade B'],
+  ])('canonicalizes legacy authored grade %s before qualifying it', (sourceGrade, expectedGrade) => {
+    const summary = buildProfileSummary({
+      name: 'Legacy profile',
+      evidence_grade: null,
+      evidence_grade_source: sourceGrade,
+      evidence_grade_backed: false,
+    })
+
+    expect(summary).toContain(`editorial ${expectedGrade} rating`)
+    expect(summary).toContain('studies recorded on this profile do not demonstrate that grade')
+    expect(summary).not.toContain('no evidence grade assigned')
+    expect(summary).not.toContain('strong evidence')
+    expect(summary).not.toContain('moderate evidence')
+  })
+
   it('labels mechanism as mechanism, never as benefit', () => {
     // A pathway listed without this qualifier is how a target gets read as a
     // health outcome.

@@ -9,6 +9,14 @@ const ORGANIZATION_ID = `${SITE_URL}/#organization`
 const AUTHOR_NAME = 'Willie B. Randolph III'
 const AUTHOR_URL = `${SITE_URL}/info/author/`
 const AUTHOR_ID = `${AUTHOR_URL}#person`
+const DETAIL_OWNED_FACTUAL_FIELDS = new Set(['summary', 'description'])
+const DETAIL_PLACEHOLDER_RE = /^(?:no\s+(?:summary|description)\s+available(?:\s+yet)?\.?|bulk-ingested\s+support\s+row\b|placeholder\b|pipeline\s+(?:note|placeholder)\b|todo\b|tbd\b)/i
+
+function hasReviewedDetailText(value) {
+  if (!hasUsefulStructuredValue(value)) return false
+  if (typeof value !== 'string') return true
+  return !DETAIL_PLACEHOLDER_RE.test(value.trim())
+}
 
 function schemaTypes(value) {
   const raw = value?.['@type']
@@ -38,10 +46,6 @@ function normalizeArtifactSchema(value, relationship = '') {
   const isFirstPartyOrganization = types.includes('Organization') && normalized.name === SITE_NAME
   const isFirstPartyPerson = types.includes('Person') && normalized.name === AUTHOR_NAME
 
-  // AI entity shards bypass the React/HTML serializer, so normalize their
-  // first-party identities here at the publication boundary. For editorial
-  // authorship, convert the historical organizational author object into the
-  // canonical Person; publisher/reviewer Organization roles remain organizations.
   if (relationship === 'author' && isFirstPartyOrganization) {
     return {
       ...normalized,
@@ -93,11 +97,12 @@ async function normalizeArtifactDirectory(directory) {
     }))
 }
 
-function mergeSummaryWithDetail(summary, detail) {
+export function mergeSummaryWithDetail(summary, detail) {
   if (!detail || typeof detail !== 'object' || Array.isArray(detail)) return summary
 
   const merged = { ...detail }
   for (const [key, value] of Object.entries(summary || {})) {
+    if (DETAIL_OWNED_FACTUAL_FIELDS.has(key) && hasReviewedDetailText(merged[key])) continue
     if (hasUsefulStructuredValue(value) || !hasUsefulStructuredValue(merged[key])) {
       merged[key] = value
     }

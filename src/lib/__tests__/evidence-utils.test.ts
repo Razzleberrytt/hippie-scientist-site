@@ -7,6 +7,11 @@ describe('normalizeEvidenceLevel', () => {
     expect(normalizeEvidenceLevel('preclinical/animal only')).toBe('Preliminary evidence')
   })
 
+  it('keeps an explicitly unbacked editorial tier in the review state', () => {
+    expect(normalizeEvidenceLevel('Editorial grade not demonstrated by recorded studies')).toBe('Needs review')
+    expect(normalizeEvidenceLevel('editorial_grade_not_demonstrated_by_recorded_studies')).toBe('Needs review')
+  })
+
   it('falls back to "Limited evidence" when no value is given', () => {
     expect(normalizeEvidenceLevel(undefined)).toBe('Limited evidence')
   })
@@ -55,7 +60,8 @@ describe('getSources', () => {
   })
 
   it('parses a delimited string of sources', () => {
-    expect(getSources({ sources: 'pmid1; pmid2, pmid3' })).toEqual(['pmid1', 'pmid2', 'pmid3'])
+    const row = { sources: 'pmid1; pmid2, pmid3' }
+    expect(getSources(row)).toEqual(['pmid1', 'pmid2', 'pmid3'])
   })
 
   it('returns an empty array when nothing is documented', () => {

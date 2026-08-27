@@ -2,7 +2,7 @@
  * Compose a profile summary from the record's own verified fields.
  */
 
-import { CANONICAL_GRADE_LABEL, type CanonicalEvidenceGrade } from './evidence-grade'
+import { CANONICAL_GRADE_LABEL, normalizeEvidenceGrade } from './evidence-grade'
 
 const text = (value: unknown): string => String(value ?? '').replace(/\s+/g, ' ').trim()
 
@@ -29,10 +29,10 @@ export function buildProfileSummary(record: Record<string, unknown> | null | und
 
   const scientificName = text(record.scientific_name || record.latin_name || record.botanical_name)
   const gradeBacked = record.evidence_grade_backed !== false
-  const publicGrade = text(record.evidence_grade)
-  const authoredGrade = text(record.evidence_grade_source || record.evidence_grade)
+  const publicGrade = normalizeEvidenceGrade(record.evidence_grade).grade
+  const authoredGrade = normalizeEvidenceGrade(record.evidence_grade_source || record.evidence_grade).grade
   const grade = gradeBacked ? publicGrade : authoredGrade
-  const gradeLabel = CANONICAL_GRADE_LABEL[grade as CanonicalEvidenceGrade]
+  const gradeLabel = grade ? CANONICAL_GRADE_LABEL[grade] : undefined
   const rationale = clause(record.evidence_rationale)
   const mechanisms = list(record.mechanisms, 3)
   const effects = list(Array.isArray(record.effects) && record.effects.length ? record.effects : record.primary_effects, 3)
