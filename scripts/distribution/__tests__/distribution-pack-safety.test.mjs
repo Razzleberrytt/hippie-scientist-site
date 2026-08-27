@@ -55,13 +55,9 @@ describe('governed distribution safety projection', () => {
     const fabricated = structuredClone(object)
     fabricated.safetyClaimId = 'clm_deadbeef'
     fabricated.safetyStatement = 'Avoid this herb in every population because severe interactions are established.'
-    const pack = buildDistributionPackFromResearchObject(fabricated, { researchObjects: [fabricated] })
-    const errors = validateDistributionPack(pack, { researchObjects: [fabricated] })
 
-    expect(errors).toContainEqual(expect.objectContaining({
-      path: '$.researchObjectIds',
-      message: expect.stringContaining('must resolve exactly once on the canonical source page'),
-    }))
+    expect(() => buildDistributionPackFromResearchObject(fabricated, { researchObjects: [fabricated] }))
+      .toThrow('must resolve exactly once on the canonical source page')
   })
 
   it('does not invent safety when the canonical research object owns none', () => {
