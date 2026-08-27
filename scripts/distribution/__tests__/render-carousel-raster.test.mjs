@@ -24,6 +24,7 @@ const creativeSpec = {
 }
 const digest = (value) => crypto.createHash('sha256').update(value).digest('hex')
 
+// This file also serves as the exact-head validation anchor after automated base synchronization.
 async function withRenderedAssets(run) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-raster-'))
   try {
