@@ -31,4 +31,14 @@ describe('AI entity canonical detail precedence', () => {
       { summary: '', description: null },
     )).toEqual({ summary: 'list summary', description: 'list description' })
   })
+
+  it('falls back to substantive list text when detail text is a placeholder or pipeline note', () => {
+    expect(mergeSummaryWithDetail(
+      { summary: 'Reviewed list summary with substantive evidence context.', description: 'Reviewed list description.' },
+      { summary: 'No summary available yet.', description: 'Bulk-ingested support row awaiting editorial review.' },
+    )).toEqual({
+      summary: 'Reviewed list summary with substantive evidence context.',
+      description: 'Reviewed list description.',
+    })
+  })
 })
