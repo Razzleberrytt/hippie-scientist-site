@@ -18,7 +18,7 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).not.toContain('github.event.pull_request.head.ref')
   })
 
-  it('has only the permissions needed to inspect checks, retry transient actions, and merge', () => {
+  it('has only the permissions needed to inspect checks, retry transient actions, merge, and dispatch deploy fallback', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
 
     expect(workflow).toContain('actions: write')
@@ -83,5 +83,19 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).toContain("SWEEP_OPEN_PRS: 'true'")
     expect(controller).toContain('Fallback sweep complete')
     expect(controller).toContain('fallback sweep will continue ownership')
+  })
+
+  it('preserves direct-main deploy as primary and dispatches only when latest main has no deploy run', () => {
+    const workflow = read('.github/workflows/autonomous-merge-controller.yml')
+    const deploy = read('.github/workflows/deploy.yml')
+
+    expect(deploy).toContain('push:')
+    expect(deploy).toContain('- main')
+    expect(deploy).toContain('workflow_dispatch:')
+    expect(workflow).toContain('Ensure latest main enters deploy lifecycle')
+    expect(workflow).toContain('actions/runs?head_sha=$main_sha')
+    expect(workflow).toContain('select(.name == "Deploy to Cloudflare Pages")')
+    expect(workflow).toContain('actions/workflows/deploy.yml/dispatches')
+    expect(workflow).toContain('if [ "$deploy_count" -eq 0 ]')
   })
 })
