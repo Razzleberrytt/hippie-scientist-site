@@ -29,7 +29,7 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).not.toContain('deployments: write')
   })
 
-  it('requires the universal workflow set and every triggered exact-head check to be green against current base', () => {
+  it('keeps high-risk workflow/check evidence fail-closed against current base', () => {
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
 
     for (const workflowName of [
@@ -45,11 +45,12 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain('required workflows not registered yet')
     expect(controller).toContain('required workflow base proof missing')
     expect(controller).toContain('workflow evidence targets stale base')
-    expect(controller).toContain('workflow runs pending')
-    expect(controller).toContain('workflow runs failed')
-    expect(controller).toContain('checks pending')
-    expect(controller).toContain('checks failed')
-    expect(controller).toContain('terminal-green against current base')
+    expect(controller).toContain('required workflows pending')
+    expect(controller).toContain('known workflow failure')
+    expect(controller).toContain('high-risk workflows pending')
+    expect(controller).toContain('known check failure')
+    expect(controller).toContain('high-risk checks pending')
+    expect(controller).toContain('high-risk exact head is fully terminal-green against current base')
   })
 
   it('fails closed for drafts, forks, conflicts, moved heads, and explicit holds', () => {
@@ -85,7 +86,9 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).toContain('group: autonomous-merge-commit')
     expect(workflow).toContain('cancel-in-progress: false')
     expect(controller).toContain('mergeIfStillCurrent')
-    expect(controller).toContain('base advanced from')
+    expect(controller).toContain('latestBaseSha !== validatedBaseSha')
+    expect(controller).toContain('await syncPrBranch(repo, number, headSha)')
+    expect(controller).toContain('await mergePr(repo, number, headSha)')
     expect(controller).toContain('validatedBaseSha')
   })
 

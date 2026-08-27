@@ -231,22 +231,3 @@ jobs:
           echo "- Coverage: deploy build, full verify:output contract, SEO reports, indexability, redirects, and route SEO." >> "$GITHUB_STEP_SUMMARY"
           echo "- Docs-only: ${{ steps.impact.outputs.docs_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
-
-  quality-gate:
-    name: quality-gate
-    if: always() && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
-    needs: [validation, build-verification]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Aggregate CI lanes
-        env:
-          VALIDATION_RESULT: ${{ needs.validation.result }}
-          BUILD_RESULT: ${{ needs.build-verification.result }}
-        run: |
-          echo "Validation/test lane: $VALIDATION_RESULT"
-          echo "Build/output lane: $BUILD_RESULT"
-          if [ "$VALIDATION_RESULT" != "success" ] || [ "$BUILD_RESULT" != "success" ]; then
-            echo "Core CI failed because at least one required lane did not succeed."
-            exit 1
-          fi
-          echo "Core CI passed: both parallel lanes succeeded."
