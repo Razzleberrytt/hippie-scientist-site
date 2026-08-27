@@ -33,6 +33,8 @@ function loadRecords(file, kind, routeBase) {
     sourceGrade: record.evidence_grade_source ?? '',
     band: record.evidence_grade_band ?? '',
     tier: record.evidence_tier ?? '',
+    legacyLevel: record.evidenceLevel ?? '',
+    legacyTier: record.evidenceTier ?? '',
     summary: record.summary ?? '',
     summarySource: record.summary_source ?? '',
     backed: record.evidence_grade_backed,
@@ -61,6 +63,8 @@ for (const record of unbacked) {
     SETTLED_PUBLIC_GRADE.test(String(record.grade))
     || SETTLED_PUBLIC_BAND.test(String(record.band))
     || SETTLED_PUBLIC_TIER.test(String(record.tier))
+    || SETTLED_PUBLIC_TIER.test(String(record.legacyLevel))
+    || SETTLED_PUBLIC_TIER.test(String(record.legacyTier))
     || (String(record.summarySource) === 'composed-from-record' && SETTLED_COMPOSED_SUMMARY.test(String(record.summary)))
   ) contradictoryData.push(record)
 
@@ -85,7 +89,7 @@ console.log('  assert the grade with no qualification'.padEnd(56), String(silent
 if (contradictoryData.length || silent.length) {
   console.log('\nBy source grade:', JSON.stringify(byGrade))
   for (const record of contradictoryData.slice(0, 40)) {
-    console.log(`  ${record.kind}/${record.slug} sourceGrade=${record.sourceGrade} publicGrade=${record.grade} band=${record.band} tier=${JSON.stringify(record.tier)} gap=${record.gap}`)
+    console.log(`  ${record.kind}/${record.slug} sourceGrade=${record.sourceGrade} publicGrade=${record.grade} band=${record.band} tier=${JSON.stringify(record.tier)} legacyLevel=${JSON.stringify(record.legacyLevel)} legacyTier=${JSON.stringify(record.legacyTier)} gap=${record.gap}`)
   }
   for (const record of silent.slice(0, 40)) {
     console.log(`  undisclosed ${record.kind}/${record.slug} sourceGrade=${record.sourceGrade} gap=${record.gap}`)
