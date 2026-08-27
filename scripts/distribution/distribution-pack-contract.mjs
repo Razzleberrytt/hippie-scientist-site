@@ -7,18 +7,17 @@ import Ajv2020 from 'ajv/dist/2020.js'
 const SITE_ORIGIN = 'https://thehippiescientist.net'
 const DOSE_UNIT = '(?:mcg|mg|g|ml|iu|units?)'
 const DOSAGE_FORM = '(?:capsule|capsules|tablet|tablets|pill|pills|gummy|gummies|softgel|softgels|scoop|scoops|drop|drops|dose|doses|serving|servings|packet|packets|chew|chews|chewable|chewables|teaspoon|teaspoons|tablespoon|tablespoons)'
-const QUANTITY = '(?:\\d+(?:\\.\\d+)?|[a-z]+(?:-[a-z]+)?)'
+const QUANTITY = '(?:\\d+(?:\\.\\d+)?|\\d+\\s*\\/\\s*\\d+|[a-z]+(?:-[a-z]+)?(?:\\s+(?:a|an))?)'
 const FREQUENCY = '(?:daily|per day|each day|nightly|before bed|once daily|twice daily)'
 const DIRECTIVE_DOSE_PATTERNS = [
+  new RegExp(`(?:^|[.!?;]\\s*)(?:take|consume|try|use(?!\\s+of\\b)|start with|begin with|increase to|decrease to)\\b[^.!?;\\n]{0,120}\\b(?:${DOSE_UNIT}|${DOSAGE_FORM})\\b`, 'i'),
   new RegExp(`\\b(?:take|use|consume|try)\\s+(?:${QUANTITY}\\s+)?\\d+(?:\\.\\d+)?\\s*${DOSE_UNIT}(?:\\s+${DOSAGE_FORM})?(?:\\s+${FREQUENCY})?\\b`, 'i'),
   new RegExp(`\\b(?:take|use|consume|try)\\s+${QUANTITY}\\s+${DOSAGE_FORM}(?:\\s+${FREQUENCY})?\\b`, 'i'),
   new RegExp(`\\b(?:start with|begin with|increase to|decrease to)\\s+${QUANTITY}(?:\\s*${DOSE_UNIT}|\\s+${DOSAGE_FORM})\\b`, 'i'),
   /\byou should\s+(?:take|use|consume|try)\b/i,
   new RegExp(`\\b(?:take|use|consume|try)\\s+(?:this|the|your|a|an)\\s+(?:supplement|product|extract|${DOSAGE_FORM})\\b`, 'i'),
 ]
-const HUMAN_POPULATION_RE = /\b(?:humans?|people|patients?|adults?|children|men|women|users?)\b/i
-const SECOND_PERSON_RE = /\b(?:you|your|yours)\b/i
-const EXPLICIT_NO_HUMAN_INFERENCE_RE = /\b(?:does not|do not|cannot|can't|doesn't|not enough to)\b[^.!?;\n]{0,100}\b(?:establish|show|demonstrate|prove|support|predict|mean|translate)\b[^.!?;\n]{0,80}\b(?:effects?|benefits?|efficacy|outcomes?|results?)?(?:\s+(?:in|for|to))?\s+(?:humans?|people|patients?|adults?|children|men|women)\b/i
+const HUMAN_DIRECTED_RE = /\b(?:humans?|people|patients?|adults?|children|men|women|users?|you|your|yours)\b/i
 const HUMAN_EVIDENCE_TYPES = new Set(['meta-analysis', 'systematic-review', 'RCT', 'controlled-trial', 'observational', 'case-report'])
 const MIXED_EVIDENCE_TYPES = new Set(['mixed', 'narrative-review'])
 const REQUIRED_FORBIDDEN_EXTRAPOLATIONS = Object.freeze([
@@ -91,19 +90,6 @@ function addError(errors, path, message) {
 
 function schemaErrorPath(error) {
   return error.instancePath ? `$${error.instancePath}` : '$'
-}
-
-function splitClaimClauses(statement) {
-  return String(statement ?? '')
-    .split(/(?:[.!?;]+\s*|\b(?:but|however|yet|although|and|while|whereas)\b)/gi)
-    .map(clean)
-    .filter(Boolean)
-}
-
-function preclinicalProjectsToHumans(statement) {
-  if (SECOND_PERSON_RE.test(statement)) return true
-  const humanClauses = splitClaimClauses(statement).filter((clause) => HUMAN_POPULATION_RE.test(clause))
-  return humanClauses.some((clause) => !EXPLICIT_NO_HUMAN_INFERENCE_RE.test(clause))
 }
 
 function arraysEqualAsSets(left, right) {
@@ -220,7 +206,7 @@ export function validateDistributionPack(pack, options = {}) {
   if (claim.evidenceContext === 'preclinical') {
     const explicitlyPreclinical = /\b(?:preclinical|animal|animals|cell|cells|laboratory|lab)\b/i.test(claim.publicSafeStatement)
     if (!explicitlyPreclinical) addError(errors, '$.claims[0].publicSafeStatement', 'preclinical finding must remain explicitly labeled as preclinical/animal/cell evidence')
-    if (preclinicalProjectsToHumans(claim.publicSafeStatement)) addError(errors, '$.claims[0].publicSafeStatement', 'preclinical-only evidence cannot be projected as a human or second-person benefit claim')
+    if (HUMAN_DIRECTED_RE.test(claim.publicSafeStatement)) addError(errors, '$.claims[0].publicSafeStatement', 'v1 preclinical findings may not contain human- or second-person-directed language; keep human inference boundaries outside the canonical finding')
   }
 
   if (pack.safety.length !== 0) addError(errors, '$.safety', 'v1 cannot invent safety claims because research objects do not own a safety field')
