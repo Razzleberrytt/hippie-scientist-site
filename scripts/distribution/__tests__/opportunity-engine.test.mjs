@@ -56,8 +56,8 @@ describe('distribution opportunity engine', () => {
       },
     }, { now: NOW })
 
-    // 3I + 2U + 2B + 2C + 2CL + Age + Rev + Debt - Effort - 2Risk - Blast - saturation - cannibalization - claimRisk
-    expect(candidate.score).toBe(84)
+    // Includes the requested swarm score, then subtracts saturation, cannibalization, and claim-risk penalties.
+    expect(candidate.score).toBe(93)
     expect(candidate.eligible).toBe(true)
   })
 
