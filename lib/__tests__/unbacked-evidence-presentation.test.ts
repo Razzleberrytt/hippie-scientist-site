@@ -7,9 +7,9 @@ import type { RuntimeRecord } from '@/src/types/content'
 const unbackedGradeA = {
   slug: 'berberis',
   name: 'Berberis',
-  evidence_grade: '',
+  evidence_grade: null,
   evidence_grade_source: 'A',
-  evidence_tier: '',
+  evidence_tier: null,
   evidence_tier_source: 'Strong Evidence',
   evidence_grade_backed: false,
   evidence_grade_backing_gap: 'no-human-study-recorded',
@@ -21,6 +21,11 @@ describe('unbacked evidence presentation contract', () => {
     expect(getEvidenceTier(unbackedGradeA)).toBe('review')
     expect(getEvidenceLabel(unbackedGradeA)).toBe('Needs review')
     expect(getEvidenceLetterGrade(unbackedGradeA)).toBe('Unassigned')
+  })
+
+  it('uses the canonical null state when the settled public grade is withheld', () => {
+    expect(unbackedGradeA.evidence_grade).toBeNull()
+    expect(unbackedGradeA.evidence_tier).toBeNull()
   })
 
   it('does not reconstruct strong evidence from preserved authored provenance', () => {
