@@ -11,6 +11,7 @@ const schema = JSON.parse(readFileSync(schemaPath, 'utf8'))
 const validPack = {
   schemaVersion: '1.0.0',
   packId: 'ashwagandha-stress-evidence-v1',
+  researchObjectIds: ['ashwagandha-stress-evidence'],
   source: {
     url: 'https://thehippiescientist.net/herbs/ashwagandha/',
     title: 'Ashwagandha',
@@ -25,7 +26,7 @@ const validPack = {
       publicSafeStatement: 'Some human studies report changes in stress-related outcomes, but the evidence does not establish a universal effect.',
       strengthDelta: 'weaker',
       evidenceContext: 'human',
-      sourceRefs: ['SRC_001'],
+      sourceRefs: ['SRC_RESEARCH_OBJECT', 'SRC_001'],
       consumerInstruction: false,
       studyContext: {
         population: 'Adults enrolled in the cited human study',
@@ -37,6 +38,12 @@ const validPack = {
   ],
   sources: [
     {
+      id: 'SRC_RESEARCH_OBJECT',
+      kind: 'research-object',
+      identifier: 'ashwagandha-stress-evidence',
+      url: 'https://thehippiescientist.net/herbs/ashwagandha/',
+    },
+    {
       id: 'SRC_001',
       kind: 'site-evidence-record',
       identifier: 'ashwagandha-human-stress-record',
@@ -47,14 +54,14 @@ const validPack = {
     {
       id: 'SAFE_001',
       statement: 'Safety considerations and interactions remain part of the source-page context.',
-      sourceRefs: ['SRC_001'],
+      sourceRefs: ['SRC_RESEARCH_OBJECT'],
     },
   ],
   uncertainties: [
     {
       id: 'UNC_001',
       statement: 'Results should not be generalized beyond the populations and formulations represented by the evidence.',
-      sourceRefs: ['SRC_001'],
+      sourceRefs: ['SRC_RESEARCH_OBJECT'],
     },
   ],
   forbiddenExtrapolations: [
@@ -92,6 +99,8 @@ function messages(pack) {
 describe('distribution pack v1 contract', () => {
   it('keeps the JSON schema aligned with the fail-closed v1 boundaries', () => {
     expect(schema.properties.schemaVersion.const).toBe('1.0.0')
+    expect(schema.properties.researchObjectIds.minItems).toBe(1)
+    expect(schema.$defs.sourceReference.properties.kind.enum).toContain('research-object')
     expect(schema.$defs.claim.properties.strengthDelta.enum).toEqual(['none', 'weaker'])
     expect(schema.$defs.claim.properties.consumerInstruction.const).toBe(false)
     expect(schema.properties.assetIntents.items.properties.type.enum).toContain('short-video')
@@ -99,6 +108,25 @@ describe('distribution pack v1 contract', () => {
 
   it('accepts a traceable claim-safe distribution pack', () => {
     expect(validateDistributionPack(validPack)).toEqual([])
+  })
+
+  it('requires every pack and claim to retain canonical research-object lineage', () => {
+    const noPackLineage = messages(mutate((pack) => {
+      pack.researchObjectIds = []
+    }))
+    expect(noPackLineage.some((message) => message.includes('canonical research distribution object'))).toBe(true)
+
+    const missingDeclaredSource = messages(mutate((pack) => {
+      pack.sources = pack.sources.filter((source) => source.kind !== 'research-object')
+      pack.claims[0].sourceRefs = ['SRC_001']
+    }))
+    expect(missingDeclaredSource.some((message) => message.includes('must declare a research-object source'))).toBe(true)
+    expect(missingDeclaredSource.some((message) => message.includes('must retain lineage'))).toBe(true)
+
+    const undeclaredResearchSource = messages(mutate((pack) => {
+      pack.sources[0].identifier = 'different-research-object'
+    }))
+    expect(undeclaredResearchSource.some((message) => message.includes('not declared in researchObjectIds'))).toBe(true)
   })
 
   it('rejects claim strengthening', () => {
@@ -110,7 +138,7 @@ describe('distribution pack v1 contract', () => {
 
   it('rejects unknown citation bindings', () => {
     const result = messages(mutate((pack) => {
-      pack.claims[0].sourceRefs = ['SRC_MISSING']
+      pack.claims[0].sourceRefs = ['SRC_RESEARCH_OBJECT', 'SRC_MISSING']
     }))
     expect(result.some((message) => message.includes('references unknown source SRC_MISSING'))).toBe(true)
   })
