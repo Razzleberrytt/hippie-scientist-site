@@ -34,7 +34,16 @@
       "no_legitimate_lastmod_changes"
     ],
     "starts_at": null,
-    "ends_at": null
+    "ends_at": null,
+    "policy_sha256": null,
+    "policy_paths": [
+      "app/herbs/[slug]/page.tsx",
+      "app/sitemap.ts",
+      "src/lib/seo.ts",
+      "src/lib/index-allowlist.ts",
+      "lib/sitemap-route-visibility.ts",
+      "public/_redirects"
+    ]
   },
   "entries": []
 }
