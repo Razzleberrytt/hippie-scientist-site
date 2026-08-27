@@ -32,9 +32,13 @@ Only clearly non-semantic workflow conclusions (`cancelled`, `timed_out`, `stale
 
 The event-driven controller may remain active for up to 165 minutes. A scheduled fallback sweep runs every 10 minutes so a PR whose controller window expires, or whose event was missed, can still advance after its exact-head checks become green without user prompting.
 
-### Production receipt
+### Merge → deploy handoff
 
-`deploy.yml` remains triggered directly by `push` to `main`; it does not use a `workflow_run` handoff.
+`deploy.yml` remains triggered directly by `push` to `main`; it does not use a `workflow_run` handoff. Direct-main push is the primary deployment path.
+
+GitHub intentionally suppresses most recursive workflow events caused by actions authenticated with the repository `GITHUB_TOKEN`. Because the autonomous controller may perform the merge with that token, the controller waits for GitHub to register a normal `Deploy to Cloudflare Pages` run for the latest `main` SHA. If and only if no deploy run exists for that SHA, it invokes the deploy workflow's existing `workflow_dispatch` entry point. This fallback does not alter the deploy workflow, bypass its validation, or accept provider state as proof.
+
+### Production receipt
 
 Before upload, the deployment writes `out/.well-known/deployment.json` containing the exact `DEPLOY_SHA`, repository, and workflow run ID. After Wrangler uploads the static export, the same deploy job polls the canonical production origin (`https://thehippiescientist.net`) with cache bypassing and requires that exact SHA to be observable from `/.well-known/deployment.json`.
 
@@ -46,12 +50,12 @@ A deployment therefore cannot report success merely because the provider upload 
 - Fork PRs never receive privileged automatic merge behavior.
 - The controller cannot turn semantic workflow failures into success.
 - Existing scientific, safety, evidence, provenance, source-of-truth, publication, SEO, accessibility, performance, security, and affiliate release gates are unchanged.
-- Direct-main deployment validation remains intact.
+- Direct-main deployment validation remains intact; the dispatch path is only a missing-push-run fallback.
 - Explicit merge-hold labels remain available as an emergency/operator stop.
 
 ## Proof / regression contract
 
-- `tests/autonomous-merge-controller-contract.test.ts` locks trusted checkout, permissions, required workflow set, fail-closed conditions, bounded transient retry, and fallback ownership.
+- `tests/autonomous-merge-controller-contract.test.ts` locks trusted checkout, permissions, required workflow set, fail-closed conditions, bounded transient retry, fallback ownership, and the missing-push-run deploy dispatch.
 - `tests/deployment-handoff-contract.test.ts` continues to lock direct-main deployment and now requires the exact production receipt write/verify steps.
 - `scripts/ci/deployment-receipt.mjs` requires exact commit equality; it does not accept approximate timestamps, branch names, or provider success as production proof.
 
