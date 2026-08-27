@@ -5,6 +5,14 @@ export const CREATIVE_BRAND_TOKENS = Object.freeze({
     square: { width: 1080, height: 1080, safeTop: 96, safeBottom: 120, safeSide: 80 },
     pinterest: { width: 1000, height: 1500, safeTop: 120, safeBottom: 160, safeSide: 72 },
   },
+  platformSafeZones: {
+    tiktok: { format: 'vertical', top: 220, bottom: 360, left: 96, right: 220 },
+    instagramReels: { format: 'vertical', top: 220, bottom: 340, left: 96, right: 180 },
+    youtubeShorts: { format: 'vertical', top: 220, bottom: 320, left: 96, right: 180 },
+    instagramFeed: { format: 'portrait', top: 120, bottom: 160, left: 80, right: 80 },
+    squareSocial: { format: 'square', top: 96, bottom: 120, left: 80, right: 80 },
+    pinterest: { format: 'pinterest', top: 120, bottom: 160, left: 72, right: 72 },
+  },
   typography: {
     hookMaxChars: 72,
     bodyMaxChars: 150,
@@ -103,6 +111,47 @@ export function validateCreativeContrast(tokens = CREATIVE_BRAND_TOKENS.color) {
   return errors
 }
 
+export function validatePlatformSafeZones(
+  zones = CREATIVE_BRAND_TOKENS.platformSafeZones,
+  canvases = CREATIVE_BRAND_TOKENS.canvas,
+) {
+  const errors = []
+  for (const [platform, zone] of Object.entries(zones ?? {})) {
+    const canvas = canvases?.[zone?.format]
+    if (!canvas) {
+      errors.push(`${platform} references an unknown canvas format`)
+      continue
+    }
+    for (const edge of ['top', 'bottom', 'left', 'right']) {
+      if (!Number.isFinite(zone?.[edge]) || zone[edge] < 0) errors.push(`${platform}.${edge} must be a non-negative number`)
+    }
+    const horizontal = Number(zone?.left ?? 0) + Number(zone?.right ?? 0)
+    const vertical = Number(zone?.top ?? 0) + Number(zone?.bottom ?? 0)
+    if (horizontal >= canvas.width) errors.push(`${platform} horizontal safe-zone exclusions consume the canvas`)
+    if (vertical >= canvas.height) errors.push(`${platform} vertical safe-zone exclusions consume the canvas`)
+    if (zone.top < canvas.safeTop) errors.push(`${platform}.top is smaller than the canonical ${zone.format} safeTop`)
+    if (zone.bottom < canvas.safeBottom) errors.push(`${platform}.bottom is smaller than the canonical ${zone.format} safeBottom`)
+    if (zone.left < canvas.safeSide || zone.right < canvas.safeSide) {
+      errors.push(`${platform} side exclusions are smaller than the canonical ${zone.format} safeSide`)
+    }
+  }
+  return errors
+}
+
+function buildPlatformSafeAreas() {
+  return Object.fromEntries(Object.entries(CREATIVE_BRAND_TOKENS.platformSafeZones).map(([platform, zone]) => {
+    const canvas = CREATIVE_BRAND_TOKENS.canvas[zone.format]
+    return [platform, {
+      format: zone.format,
+      x: zone.left,
+      y: zone.top,
+      width: canvas.width - zone.left - zone.right,
+      height: canvas.height - zone.top - zone.bottom,
+      exclusions: { top: zone.top, bottom: zone.bottom, left: zone.left, right: zone.right },
+    }]
+  }))
+}
+
 function isCanonicalEvidencePage(value) {
   try {
     const url = new URL(String(value ?? ''))
@@ -178,7 +227,11 @@ export function validateCreativeInput(input) {
 }
 
 export function buildCreativeSpec(input) {
-  const errors = [...validateCreativeInput(input), ...validateCreativeContrast()]
+  const errors = [
+    ...validateCreativeInput(input),
+    ...validateCreativeContrast(),
+    ...validatePlatformSafeZones(),
+  ]
   if (errors.length) throw new Error(`Invalid creative input: ${errors.join('; ')}`)
 
   const title = truncate(input.title, CREATIVE_BRAND_TOKENS.typography.hookMaxChars)
@@ -187,6 +240,7 @@ export function buildCreativeSpec(input) {
   const evidence = truncate(`Evidence: ${clean(input.evidenceType)} · grade ${clean(input.evidenceGrade)}.`, CREATIVE_BRAND_TOKENS.typography.bodyMaxChars)
   const source = clean(input.sourceUrl)
   const disclosure = CREATIVE_BRAND_TOKENS.treatment.disclosure
+  const platformSafeAreas = buildPlatformSafeAreas()
 
   const carousel = {
     format: '1080x1350',
@@ -204,6 +258,7 @@ export function buildCreativeSpec(input) {
       approvedColorTreatments: Object.keys(CREATIVE_BRAND_TOKENS.color.treatments),
       noTextOverUncontrolledImagery: true,
       preserveSafeArea: true,
+      platformSafeArea: platformSafeAreas.instagramFeed,
       altText: truncate(`Evidence snapshot: ${title}. Finding: ${finding} Limitation: ${limitation} Source: ${source}`, CREATIVE_BRAND_TOKENS.typography.altTextMaxChars),
     },
   }
@@ -219,7 +274,7 @@ export function buildCreativeSpec(input) {
   const captionTrack = buildCaptionTrack(scenes)
 
   return {
-    version: 3,
+    version: 4,
     sourceIdentity: { id: clean(input.id), sourceUrl: source },
     brandTokens: CREATIVE_BRAND_TOKENS,
     delivery: {
@@ -232,6 +287,8 @@ export function buildCreativeSpec(input) {
         { id: 'square-social', width: 1080, height: 1080, purpose: 'social-card', preserveSafeArea: true },
         { id: 'pinterest', width: 1000, height: 1500, purpose: 'pinterest-pin', preserveSafeArea: true },
       ],
+      platformSafeAreas,
+      safeAreaPolicy: 'All factual text, captions, citations, disclosures, logos, and CTAs must remain fully inside the selected platform safe area. Decorative media may bleed outside it.',
       colorPolicy: {
         approvedTreatments: Object.keys(CREATIVE_BRAND_TOKENS.color.treatments),
         decorativeOnlyTokens: CREATIVE_BRAND_TOKENS.color.decorativeOnly,
@@ -246,6 +303,11 @@ export function buildCreativeSpec(input) {
       canvas: CREATIVE_BRAND_TOKENS.canvas.vertical,
       durationSeconds: 30,
       firstTwoSecondHook: title,
+      platformSafeAreas: {
+        tiktok: platformSafeAreas.tiktok,
+        instagramReels: platformSafeAreas.instagramReels,
+        youtubeShorts: platformSafeAreas.youtubeShorts,
+      },
       scenes,
       captions: {
         maxCharsPerLine: CREATIVE_BRAND_TOKENS.typography.captionMaxCharsPerLine,
@@ -253,6 +315,7 @@ export function buildCreativeSpec(input) {
         minimumPxAt1080: CREATIVE_BRAND_TOKENS.typography.minimumCaptionPxAt1080,
         position: 'lower-middle-safe-area',
         colorTreatment: 'disclosure',
+        mustFitPlatformSafeArea: true,
         cues: captionTrack.cues,
         srt: captionTrack.srt,
       },
@@ -270,7 +333,7 @@ export function buildCreativeSpec(input) {
     ],
     experimentContract: {
       mutableFields: ['background-treatment', 'b-roll', 'transition-style', 'hook-layout', 'thumbnail-layout'],
-      immutableFields: ['factual-text', 'evidence-grade', 'limitation', 'source-url', 'disclosure', 'cta-destination', 'caption-meaning', 'minimum-contrast-threshold'],
+      immutableFields: ['factual-text', 'evidence-grade', 'limitation', 'source-url', 'disclosure', 'cta-destination', 'caption-meaning', 'minimum-contrast-threshold', 'platform-safe-area'],
       primaryMetric: 'qualified-social-to-site-clickthrough',
       guardrailMetrics: ['source-card-legibility', 'caption-completion', 'disclosure-visibility', 'creative-safe-area-pass-rate', 'creative-contrast-pass-rate'],
       attributionRisk: 'Platform distribution and audience mix can dominate creative-level differences; compare variants within the same platform and similar publication windows.',
@@ -278,6 +341,7 @@ export function buildCreativeSpec(input) {
     guardrails: {
       deterministicFactualText: true,
       deterministicAccessibleColorSystem: true,
+      deterministicPlatformSafeAreas: true,
       generativeMediaIsNeverFactualAuthority: true,
       citationsOnFindingEvidenceLimitationAndSourceCards: true,
       noUnsupportedRankingLanguage: true,
@@ -286,6 +350,7 @@ export function buildCreativeSpec(input) {
       captionMeaningMustMatchVoiceover: true,
       socialClickDestinationMustMatchCanonicalSource: true,
       allTextTreatmentsMeetWcagAaContrast: true,
+      factualUiMustStayInsidePlatformSafeArea: true,
     },
   }
 }
