@@ -27,6 +27,19 @@ describe('buildProfileSummary', () => {
     expect(summary).toContain('kidney stone risk')
   })
 
+  it('preserves an unbacked editorial grade without publishing its strength as settled', () => {
+    const summary = buildProfileSummary({
+      name: 'Berberis',
+      evidence_grade: 'A',
+      evidence_grade_backed: false,
+      evidence_rationale: 'Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people.',
+    })
+
+    expect(summary).toContain('editorial Grade A rating')
+    expect(summary).toContain('studies recorded on this profile do not demonstrate that grade')
+    expect(summary).not.toContain('strong evidence')
+  })
+
   it('labels mechanism as mechanism, never as benefit', () => {
     // A pathway listed without this qualifier is how a target gets read as a
     // health outcome.
