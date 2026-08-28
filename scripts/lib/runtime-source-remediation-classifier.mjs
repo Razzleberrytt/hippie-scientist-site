@@ -141,6 +141,14 @@ function conflictingLocalIdentity(localSources) {
   return dois.length > 1 || pmids.length > 1 || urls.length > 1
 }
 
+function malformedIdentity(localSources) {
+  return localSources.some(source => {
+    const rawDoi = normalizeLower(source?.doi)
+    const rawPmid = normalize(source?.pmid || source?.pubmedId || source?.pubmed_id)
+    return (rawDoi && !DOI_RE.test(rawDoi)) || (rawPmid && !PMID_RE.test(rawPmid))
+  })
+}
+
 function candidateIdentity(candidate) {
   return sourceIdentity({
     doi: candidate?.doi,
@@ -199,6 +207,13 @@ function classifyOne({ localSources, candidates, reconciliationByCandidate }) {
     }
   }
 
+  if (malformedIdentity(localSources)) {
+    return {
+      remediationClass: 'quarantine_unverifiable',
+      reason: 'Profile-local source metadata contains malformed DOI or PMID identity fields.',
+    }
+  }
+
   const localIdentities = localSources.map(sourceIdentity)
   const matchedCandidates = candidates.filter(candidate => candidateMatches(localIdentities, candidate))
   const contradictoryCandidate = matchedCandidates.find(candidate => candidateContradicts(localIdentities, candidate))
@@ -231,18 +246,6 @@ function classifyOne({ localSources, candidates, reconciliationByCandidate }) {
       remediationClass: 'recoverable_verified_identity',
       reason: 'Profile-local provenance contains a valid DOI, PMID, or primary PubMed/DOI canonical identity suitable for governed attestation.',
       identityAnchor: identityKey(recoverableIdentity),
-    }
-  }
-
-  const malformedIdentity = localSources.some(source => {
-    const rawDoi = normalizeLower(source?.doi)
-    const rawPmid = normalize(source?.pmid || source?.pubmedId || source?.pubmed_id)
-    return (rawDoi && !DOI_RE.test(rawDoi)) || (rawPmid && !PMID_RE.test(rawPmid))
-  })
-  if (malformedIdentity) {
-    return {
-      remediationClass: 'quarantine_unverifiable',
-      reason: 'Profile-local source metadata contains malformed DOI or PMID identity fields.',
     }
   }
 
