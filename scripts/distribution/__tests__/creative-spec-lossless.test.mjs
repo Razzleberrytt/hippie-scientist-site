@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { buildLosslessCreativeSpec } from '../creative-spec-lossless.mjs'
 import { CREATIVE_BRAND_TOKENS } from '../creative-spec.mjs'
+import { buildCtaContract } from '../creative-cta-contract.mjs'
 
 const fixture = {
   id: 'lossless-test-object',
@@ -23,7 +24,7 @@ describe('lossless creative presentation adapter', () => {
     const findings = spec.carousel.slides.filter((slide) => slide.role === 'finding')
     const limitations = spec.carousel.slides.filter((slide) => slide.role === 'limitation')
 
-    expect(spec.version).toBe(7)
+    expect(spec.version).toBe(8)
     expect(findings.length).toBeGreaterThan(1)
     expect(limitations.length).toBeGreaterThan(1)
     expect(findings.every((slide) => slide.citationRequired && slide.truncationAllowed === false)).toBe(true)
@@ -71,6 +72,38 @@ describe('lossless creative presentation adapter', () => {
     expect(spec.verticalVideo.hook.trust.ctaAllowedDuringHook).toBe(false)
     expect(spec.verticalVideo.rendererContract.firstTwoSecondsMustSatisfyHookContract).toBe(true)
     expect(spec.guardrails.unsupportedHookCertaintyForbidden).toBe(true)
+  })
+
+  it('binds the CTA to the canonical evidence destination and final three-second window', () => {
+    const spec = buildLosslessCreativeSpec(fixture)
+    expect(spec.delivery.ctaContract.text).toBe('Read the evidence')
+    expect(spec.delivery.ctaContract.destination.landingUrl).toBe(fixture.sourceUrl)
+    expect(spec.delivery.ctaContract.destination.canonicalSourceUrl).toBe(fixture.sourceUrl)
+    expect(spec.delivery.ctaContract.destination.exactMatchRequired).toBe(true)
+    expect(spec.verticalVideo.cta.timing.startSeconds).toBe(27)
+    expect(spec.verticalVideo.cta.timing.endSeconds).toBe(30)
+    expect(spec.verticalVideo.cta.typography.minimumPxAt1080).toBeGreaterThanOrEqual(44)
+    expect(spec.verticalVideo.cta.placement.safeAreaRequired).toBe(true)
+    expect(spec.verticalVideo.cta.placement.sourceMayNotBeCovered).toBe(true)
+    expect(spec.verticalVideo.cta.placement.disclosureMayNotBeCovered).toBe(true)
+    expect(spec.verticalVideo.rendererContract.finalThreeSecondsMustSatisfyCtaContract).toBe(true)
+    expect(spec.guardrails.manipulativeCtaUrgencyForbidden).toBe(true)
+  })
+
+  it('rejects CTA urgency and canonical-destination drift', () => {
+    const platformSafeArea = { instagramReels: { x: 96, y: 220, width: 804, height: 1360 } }
+    expect(() => buildCtaContract({
+      ctaText: 'Act now — click now',
+      landingUrl: fixture.sourceUrl,
+      sourceUrl: fixture.sourceUrl,
+      platformSafeArea,
+    })).toThrow(/manipulative urgency/)
+    expect(() => buildCtaContract({
+      ctaText: 'Read the evidence',
+      landingUrl: 'https://thehippiescientist.net/',
+      sourceUrl: fixture.sourceUrl,
+      platformSafeArea,
+    })).toThrow(/exactly match the canonical evidence source URL/)
   })
 
   it('rejects hook language that visually or verbally overstates the evidence', () => {
