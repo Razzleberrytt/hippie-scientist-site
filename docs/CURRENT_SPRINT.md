@@ -54,7 +54,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
-| Control | #4412 | Machine reconciliation | In Progress | Read-only exact-revision GitHub reconciliation; stale/duplicate/WIP/dependency/milestone/offline fixtures; hosted tests and production build |
+| Control | #4412 / PR #4446 | Machine reconciliation | In Review | Read-only exact-revision GitHub reconciliation; stale/duplicate/WIP/dependency/milestone/offline fixtures; hosted tests and production build |
 | L2 Provenance | #4439 / PR #4440 | Bind claims to canonical study sources | In Review | Exact claim/source identity, direct source linkage and URL; substitution fails closed; canonical science unchanged |
 | L4 Presentation | PR #4445 | First-two-second hook trust contract | In Review | 0–2s hook, safe area, mobile typography, opening CTA exclusion, unsupported certainty rejection; existing lossless factual contract preserved |
 

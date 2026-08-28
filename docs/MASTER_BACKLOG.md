@@ -51,7 +51,7 @@ Three implementation tickets are active. Admission is closed at the normal cap; 
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4412 | Machine-reconcile roadmap, sprint, and backlog against GitHub state | O / control | In Progress | P0 control | 4/4/3/5/1/2 | 120.0 | Merged #4411; exact GitHub state | Read-only stale/duplicate/WIP/dependency/milestone/offline reconciliation, fixtures, hosted tests/build; unknown never becomes PASS |
+| #4412 / PR #4446 | Machine-reconcile roadmap, sprint, and backlog against GitHub state | O / control | In Review | P0 control | 4/4/3/5/1/2 | 120.0 | Merged #4411; exact GitHub state | Read-only stale/duplicate/WIP/dependency/milestone/offline reconciliation, fixtures, hosted tests/build; unknown never becomes PASS |
 | #4439 / PR #4440 | Bind claims to canonical study sources | R / L2 | In Review | P0 provenance | — | — | Approved canonical claim/source identities | Reject wrong source substitutions without new factual authority |
 | PR #4445 | First-two-second hook trust contract | R / L4 | In Review | P0 trust | — | — | Validated-lossless creative spec | 0–2s timing, safe area, typography and CTA/overclaim guards; no factual rewriting |
 

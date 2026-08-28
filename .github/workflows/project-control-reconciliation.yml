@@ -2,6 +2,7 @@ name: Project control reconciliation
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - 'docs/CURRENT_SPRINT.md'
       - 'docs/MASTER_BACKLOG.md'
