@@ -30,6 +30,7 @@ assert.deepEqual(Object.keys(result.countsByClass), RUNTIME_SOURCE_REMEDIATION_S
 assert.equal(result.countsByClass.attestation_ready_identity, 2)
 assert.equal(result.countsByClass.historical_identity_recovery, 1)
 assert.equal(result.countsByClass.candidate_reconciliation_required, 1)
+assert.equal(result.countsByClass.derived_reference_reconciliation, 0)
 assert.equal(result.countsByClass.identity_metadata_insufficient, 1)
 assert.equal(result.countsByClass.quarantine_unverifiable, 1)
 
@@ -50,6 +51,13 @@ assert.deepEqual(result.sourceIdFanout[0], { sourceId: 'src_recoverable', fanout
 
 const missingLocal = buildRuntimeSourceRemediationQueue({ orphanRows: [{ kind: 'herb', slug: 'missing-local', sourceId: 'src_missing', url: '/herbs/missing-local/' }], entries: [{ kind: 'herb', record: { slug: 'missing-local', sources: [], claimMap: [] } }] })
 assert.equal(missingLocal.queue[0].remediationClass, 'identity_metadata_insufficient')
+
+const derivedOnly = buildRuntimeSourceRemediationQueue({
+  orphanRows: [{ kind: 'compound', slug: 'withdrawal-residue', sourceId: 'src_withdrawn', url: '/compounds/withdrawal-residue/' }],
+  entries: [{ kind: 'compound', record: { slug: 'withdrawal-residue', evidence: { sourceIds: ['src_withdrawn'], sourceCount: 1 }, sources: [], claimMap: [] } }],
+})
+assert.equal(derivedOnly.queue[0].remediationClass, 'derived_reference_reconciliation')
+assert.match(derivedOnly.queue[0].reason, /derived evidence summary/iu)
 
 const malformed = buildRuntimeSourceRemediationQueue({ orphanRows: [{ kind: 'herb', slug: 'malformed', sourceId: 'src_bad', url: '/herbs/malformed/' }], entries: [{ kind: 'herb', record: { slug: 'malformed', sources: [{ id: 'src_bad', doi: 'not-a-doi' }], claimMap: [] } }] })
 assert.equal(malformed.queue[0].remediationClass, 'quarantine_unverifiable')
