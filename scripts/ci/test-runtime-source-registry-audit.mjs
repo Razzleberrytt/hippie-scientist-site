@@ -21,6 +21,7 @@ const orphanFindings = evaluateRuntimeSourceRegistryReferences(orphan, 'herb', r
 assert.equal(orphanFindings.length, 1)
 assert.equal(orphanFindings[0].code, ORPHANED_CANONICAL_SOURCE_REFERENCE)
 assert.equal(orphanFindings[0].blocking, false)
+assert.equal(orphanFindings[0].sourceId, 'src_orphan')
 assert.match(orphanFindings[0].detail, /src_orphan/u)
 
 const localOnly = structuredClone(base)
@@ -35,6 +36,10 @@ mixed.claimMap = [
   { id: 'c5', sourceRefIds: ['src_second_orphan'] },
 ]
 const mixedFindings = evaluateRuntimeSourceRegistryReferences(mixed, 'herb', registered)
+assert.deepEqual(mixedFindings.map(finding => finding.sourceId), [
+  'src_orphan',
+  'src_second_orphan',
+])
 assert.deepEqual(mixedFindings.map(finding => finding.detail), [
   'Runtime source reference src_orphan is absent from public/data/source-registry.json',
   'Runtime source reference src_second_orphan is absent from public/data/source-registry.json',
