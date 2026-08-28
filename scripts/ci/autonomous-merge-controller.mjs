@@ -430,7 +430,10 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
     getPrFiles(repo, number),
   ])
   const riskTier = classifyRisk({ pr, changedFiles })
-  const verdict = evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha: currentHeadSha, currentBaseSha, controllerRunId, riskTier, changedFiles })
+  const containsCurrentBase = currentBaseSha ? await headContainsBase(repo, currentBaseSha, currentHeadSha) : false
+  const verdict = currentBaseSha && !containsCurrentBase
+    ? { action: 'sync', reason: 'PR head does not contain current base; update branch and revalidate exact head' }
+    : evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha: currentHeadSha, currentBaseSha, controllerRunId, riskTier, changedFiles })
 
   if (verdict.action === 'sync') {
     const refreshed = await refreshPrAndDispatch({ repo, pr, workflowRuns, currentBaseSha })
@@ -449,7 +452,7 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha }) 
   const pr = await getPr(repo, number)
   if (pr.head?.sha !== headSha) return false
   const latestBaseSha = await getBranchSha(repo, pr.base.ref)
-  if (latestBaseSha !== validatedBaseSha) {
+  if (latestBaseSha !== validatedBaseSha || !(await headContainsBase(repo, latestBaseSha, headSha))) {
     const workflowRuns = await getWorkflowRuns(repo, headSha)
     await refreshPrAndDispatch({ repo, pr, workflowRuns, currentBaseSha: latestBaseSha })
     return false
