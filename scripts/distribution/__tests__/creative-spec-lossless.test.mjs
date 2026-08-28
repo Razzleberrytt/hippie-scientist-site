@@ -26,7 +26,7 @@ describe('lossless creative presentation adapter', () => {
     const findings = spec.carousel.slides.filter((slide) => slide.role === 'finding')
     const limitations = spec.carousel.slides.filter((slide) => slide.role === 'limitation')
 
-    expect(spec.version).toBe(10)
+    expect(spec.version).toBe(11)
     expect(findings.length).toBeGreaterThan(1)
     expect(limitations.length).toBeGreaterThan(1)
     expect(findings.every((slide) => slide.citationRequired && slide.truncationAllowed === false)).toBe(true)
@@ -118,6 +118,25 @@ describe('lossless creative presentation adapter', () => {
     expect(spec.verticalVideo.rendererContract.thumbnailVariantsMayVaryCompositionOnly).toBe(true)
     expect(spec.guardrails.thumbnailHookRewriteForbidden).toBe(true)
     expect(spec.guardrails.thumbnailCropResilienceRequired).toBe(true)
+  })
+
+  it('produces a stable deterministic visual-regression fingerprint over layout-critical contracts', () => {
+    const first = buildLosslessCreativeSpec(fixture)
+    const second = buildLosslessCreativeSpec({ ...fixture })
+
+    expect(first.visualRegression.version).toBe(1)
+    expect(first.visualRegression.algorithm).toBe('sha256')
+    expect(first.visualRegression.fingerprint).toMatch(/^[a-f0-9]{64}$/)
+    expect(second.visualRegression.fingerprint).toBe(first.visualRegression.fingerprint)
+    expect(first.carousel.visualRegressionFingerprint).toBe(first.visualRegression.fingerprint)
+    expect(first.verticalVideo.visualRegressionFingerprint).toBe(first.visualRegression.fingerprint)
+    expect(first.delivery.visualRegressionContract.fingerprint).toBe(first.visualRegression.fingerprint)
+    expect(first.visualRegression.fingerprintInput.carousel.sourceMinimumPxAt1080).toBeGreaterThanOrEqual(32)
+    expect(first.visualRegression.fingerprintInput.verticalVideo.hook.minimumPxAt1080).toBeGreaterThanOrEqual(56)
+    expect(first.visualRegression.fingerprintInput.verticalVideo.captions.minimumPxAt1080).toBeGreaterThanOrEqual(44)
+    expect(first.visualRegression.fingerprintInput.thumbnails.requiredCrops).toEqual(expect.arrayContaining(['4:5', '1:1']))
+    expect(first.visualRegression.excludesGenerativeImageryAsAuthority).toBe(true)
+    expect(first.guardrails.visualRegressionDriftRequiresExplicitReview).toBe(true)
   })
 
   it('binds the CTA to the canonical evidence destination and final three-second window', () => {
