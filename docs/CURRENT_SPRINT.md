@@ -3,9 +3,9 @@
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
 **Updated:** 2026-08-28
-**Normal WIP limit:** Maximum three concurrent implementation tickets. The Evidence → Distribution initiative may use separate lanes only when scopes are orthogonal and one ticket per lane is active.
+**Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Closed at the normal three-ticket cap. GitHub snapshot at 2026-08-28T13:07Z: #4413 / PR #4469, #4476 / PR #4475, and #4477 / PR #4478 are active. Revalidate live ownership before any admission; this documentation-only sync opens no implementation lane.
+**Current admission:** Blocked by a workstream-policy conflict, not merely the numeric cap. GitHub snapshot at 2026-08-28T13:07Z: #4413 / PR #4469, #4476 / PR #4475, and #4477 / PR #4478 are active. Revalidate live ownership before any admission; this documentation-only sync opens no implementation lane.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -26,7 +26,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 - When a ticket merges/closes, remove it from `Active` on the next control sync.
 - The normal WIP cap remains three. A temporary incident/control overflow must be explicitly documented and blocks admission of further work until active WIP is below the cap.
 - One lane may not edit another lane's source-of-truth surface merely to move faster.
-- L1 owns rendering/media infrastructure; L2 factual/provenance; L3 opportunity/measurement; L4 presentation/experiments; L5 lifecycle/publishing.
+- L1 owns rendering/media infrastructure; L2 factual/provenance; L3 opportunity/measurement; L4 presentation/experiments; L5 lifecycle/publishing. These surface owners do not override the one-ticket-per-workstream limit.
 - Canonical research objects and governed upstream evidence remain factual authority.
 - Every distribution asset must retain canonical source URL/content hash and the exact approved factual/limitation boundary.
 - Missing production/external metrics remain `Unknown`, never zero and never inferred success.
@@ -49,7 +49,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — WIP 3/3, admission closed
+## Active — observed WIP 3/3; policy conflict, admission closed
+
+**Unresolved governance blocker:** The rows below report live GitHub ownership, not an authorized or compliant roster. PRs #4475 and #4478 occupy Revenue/Conversion simultaneously; Operations PR #4469 has no normal workstream under `AGENTS.md`. The existing reconciler checks numeric WIP, not workstream eligibility, so its PASS cannot certify this roster. No permitted interruption is established by this sync. Resolve ownership through the existing owners or an explicitly authorized interruption before describing concurrency as compliant; do not silently close, relabel, or retire live work.
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|

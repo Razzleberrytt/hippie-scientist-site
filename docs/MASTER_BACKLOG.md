@@ -15,7 +15,7 @@ Business impact, user value, traffic potential, strategic leverage, and effort u
 
 The formula remains singular. **Strategic Leverage explicitly includes dependency-unlock value**: shared infrastructure, recurring throughput unlocked, and the number/importance of otherwise blocked high-value items may raise that existing input. **Confidence is freshness-sensitive**: when a ranked item's score depends on external demand, production state, analytics, platform behavior, or an unresolved technical assumption, the item must carry a current `last_verified` date/scope before promotion. Stale assumptions lower Confidence or force revalidation; they do not receive a hidden bonus or a second score. Safety, scientific correctness, production incidents, accessibility blockers, and other hard gates are never weakened by freshness mechanics.
 
-Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authority/Content, and **O** Operations. The Evidence → Distribution initiative is one Revenue/Growth initiative with five orthogonal implementation lanes: **L1 rendering/media infrastructure, L2 factual/provenance, L3 opportunity/measurement, L4 presentation/experiments, L5 lifecycle/publishing**. One active ticket per lane is allowed only when scopes are demonstrably non-overlapping and the overall sprint WIP limit is respected.
+Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conversion, and **A** Authority/Content, with one active ticket per workstream. **O** Operations remains a classification, not a fourth normal workstream. The Evidence → Distribution surfaces—**L1 rendering/media infrastructure, L2 factual/provenance, L3 opportunity/measurement, L4 presentation/experiments, L5 lifecycle/publishing**—describe ownership, not permission for concurrent Revenue/Conversion tickets.
 
 ### Backlog hygiene rules
 
@@ -46,7 +46,9 @@ Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authorit
 
 ## Now — active exact work
 
-Three implementation PRs are active at the 2026-08-28T13:07Z GitHub snapshot. Admission is closed at the normal cap; revalidate live ownership before starting work. This documentation-only sync opens no implementation lane.
+Three implementation PRs are active at the 2026-08-28T13:07Z GitHub snapshot. Admission is blocked by conflicting workstream ownership as well as the numeric cap; revalidate live ownership before starting work. This documentation-only sync opens no implementation lane.
+
+**Unresolved governance blocker:** This is observed ownership, not a compliant admission decision. PRs #4475 and #4478 simultaneously occupy Revenue/Conversion; Operations PR #4469 has no normal workstream under `AGENTS.md`. Numeric reconciliation PASS does not validate workstream eligibility. No authorized interruption is recorded here. Existing owners must resolve the conflict or obtain explicit interruption authority; this sync does not close, relabel, or retire their live work.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
