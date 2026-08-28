@@ -102,7 +102,7 @@ export function buildLosslessCreativeSpec(input) {
 
   const thumbnails = buildThumbnailContract({
     hookText: hook.text,
-    platformSafeAreas: base.verticalVideo.platformSafeAreas,
+    platformSafeAreas: base.delivery.platformSafeAreas,
   })
   const thumbnailErrors = validateThumbnailContract(thumbnails, hook.text)
   if (thumbnailErrors.length) {
