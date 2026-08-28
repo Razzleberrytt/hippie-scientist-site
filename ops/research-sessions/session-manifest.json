@@ -1,0 +1,28 @@
+{
+  "manifestVersion": 1,
+  "modelVersion": "parallel-research-sessions-v1",
+  "shardCount": 8,
+  "assignmentRule": "existing enrichment job_id -> scripts/enrichment-pipeline/lib/ids.mjs shardOf(job_id, shardCount)",
+  "submissionMode": "append-only-session-fragments",
+  "sessions": [
+    { "sessionId": "A", "workerId": "research-session-a", "shard": 0, "enabled": true },
+    { "sessionId": "B", "workerId": "research-session-b", "shard": 1, "enabled": true },
+    { "sessionId": "C", "workerId": "research-session-c", "shard": 2, "enabled": true },
+    { "sessionId": "D", "workerId": "research-session-d", "shard": 3, "enabled": true },
+    { "sessionId": "E", "workerId": "research-session-e", "shard": 4, "enabled": true },
+    { "sessionId": "F", "workerId": "research-session-f", "shard": 5, "enabled": true },
+    { "sessionId": "G", "workerId": "research-session-g", "shard": 6, "enabled": true },
+    { "sessionId": "H", "workerId": "research-session-h", "shard": 7, "enabled": true }
+  ],
+  "rules": {
+    "researchOnlyByDefault": true,
+    "reuseExistingSourcesFirst": true,
+    "preserveNegativeNullAndContradictoryFindings": true,
+    "wholeEntityRewritesForbidden": true,
+    "crossShardWorkForbidden": true,
+    "sharedSubmissionBlobWritesForbidden": true,
+    "sessionFragmentDirectory": "ops/enrichment-submissions/sessions",
+    "legacySubmissionFile": "ops/enrichment-submissions.json",
+    "legacySubmissionFileReadOnlyForParallelSessions": true
+  }
+}
