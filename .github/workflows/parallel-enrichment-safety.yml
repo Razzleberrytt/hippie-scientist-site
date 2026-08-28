@@ -1,6 +1,7 @@
 name: Parallel enrichment safety
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'ops/research-sessions/**'
@@ -10,6 +11,7 @@ on:
       - 'schemas/enrichment-submission.schema.json'
       - 'scripts/ci/validate-enrichment-session-safety.mjs'
       - 'scripts/enrichment-pipeline/lib/ids.mjs'
+      - '.github/workflows/parallel-enrichment-safety.yml'
   push:
     branches: [main]
     paths:
@@ -20,6 +22,7 @@ on:
       - 'schemas/enrichment-submission.schema.json'
       - 'scripts/ci/validate-enrichment-session-safety.mjs'
       - 'scripts/enrichment-pipeline/lib/ids.mjs'
+      - '.github/workflows/parallel-enrichment-safety.yml'
 
 permissions:
   contents: read

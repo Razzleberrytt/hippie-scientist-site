@@ -1,6 +1,7 @@
 name: Crawl experiment guard
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'experiments/crawl-request-indexing/**'
