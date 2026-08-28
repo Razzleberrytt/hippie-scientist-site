@@ -6,6 +6,9 @@ on:
       - 'experiments/crawl-request-indexing/**'
       - 'data-sources/herb_monograph_master.xlsx'
       - 'public/data/herbs.json'
+      - 'public/data/herbs-summary.json'
+      - 'public/data/summary-indexes/herbs-summary.json'
+      - 'public/data/herbs-detail/**'
       - 'public/_redirects'
       - 'src/lib/index-allowlist.ts'
       - 'src/lib/seo.ts'
@@ -16,18 +19,27 @@ on:
       - 'functions/_shared/googlebot-verification.ts'
       - 'scripts/ci/validate-crawl-experiment.mjs'
       - 'scripts/seo/build-crawl-experiment-manifest.mjs'
+      - '.github/workflows/crawl-experiment-guard.yml'
   push:
     branches: [main]
     paths:
       - 'experiments/crawl-request-indexing/**'
       - 'data-sources/herb_monograph_master.xlsx'
       - 'public/data/herbs.json'
+      - 'public/data/herbs-summary.json'
+      - 'public/data/summary-indexes/herbs-summary.json'
+      - 'public/data/herbs-detail/**'
       - 'public/_redirects'
       - 'src/lib/index-allowlist.ts'
       - 'src/lib/seo.ts'
       - 'lib/sitemap-route-visibility.ts'
       - 'app/herbs/**'
       - 'app/sitemap.ts'
+      - 'functions/herbs/_middleware.ts'
+      - 'functions/_shared/googlebot-verification.ts'
+      - 'scripts/ci/validate-crawl-experiment.mjs'
+      - 'scripts/seo/build-crawl-experiment-manifest.mjs'
+      - '.github/workflows/crawl-experiment-guard.yml'
 
 permissions:
   contents: read
@@ -35,14 +47,39 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version-file: .nvmrc
+          cache: npm
+
       - name: Syntax-check experiment scripts
         run: |
           node --check scripts/seo/build-crawl-experiment-manifest.mjs
           node --check scripts/ci/validate-crawl-experiment.mjs
-      - name: Validate crawl experiment
+
+      - name: Validate manifest and page-specific source freeze
         run: node scripts/ci/validate-crawl-experiment.mjs
+
+      - name: Detect active experiment
+        id: experiment
+        shell: bash
+        run: |
+          node -e "const fs=require('node:fs'); const m=require('./experiments/crawl-request-indexing/manifest.json'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'active=' + String(m.status === 'active') + '\n')"
+
+      - name: Install dependencies for rendered-output verification
+        if: steps.experiment.outputs.active == 'true'
+        run: npm ci
+
+      - name: Build static export for rendered-output verification
+        if: steps.experiment.outputs.active == 'true'
+        env:
+          COMMIT_HASH: ${{ github.sha }}
+        run: npm run build:deploy
+
+      - name: Validate frozen canonical, indexability, and actual sitemap lastmod
+        if: steps.experiment.outputs.active == 'true'
+        run: node scripts/ci/validate-crawl-experiment.mjs --out-dir=out
