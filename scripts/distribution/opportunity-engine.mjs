@@ -33,6 +33,16 @@ function hasFiniteSignal(signals, id, key) {
   return value !== null && value !== '' && Number.isFinite(Number(value))
 }
 
+function platformSignal(signals, id, key, platform, fallback) {
+  const value = signals?.[id]?.[key]?.[platform]
+  return value !== null && value !== '' && Number.isFinite(Number(value)) ? clamp(value) : clamp(fallback)
+}
+
+function hasFinitePlatformSignal(signals, id, key, platform) {
+  const value = signals?.[id]?.[key]?.[platform]
+  return value !== null && value !== '' && Number.isFinite(Number(value))
+}
+
 function mean(values) {
   return values.reduce((total, value) => total + clamp(value), 0) / values.length
 }
@@ -117,10 +127,23 @@ export function assessEligibility(object, { now = new Date() } = {}) {
   return { eligible: reasons.length === 0, reasons, staleDays, claimRisk }
 }
 
-function choosePlatform(metrics) {
+function choosePlatform(metrics, signals, id) {
   const scored = Object.entries(PLATFORM_WEIGHTS).map(([platform, weights]) => {
-    const score = Object.entries(weights).reduce((total, [key, weight]) => total + clamp(metrics[key]) * weight, 0)
-    return { platform, score }
+    const productionCost = platformSignal(signals, id, 'platformProductionCost', platform, metrics.productionCost)
+    const platformFit = platformSignal(signals, id, 'platformFit', platform, 5)
+    const effectiveMetrics = { ...metrics, productionCost }
+    const weightedScore = Object.entries(weights).reduce((total, [key, weight]) => total + clamp(effectiveMetrics[key]) * weight, 0)
+    const score = weightedScore + 2 * platformFit
+    return {
+      platform,
+      score,
+      platformFit,
+      productionCost,
+      evidence: {
+        platformFitObserved: hasFinitePlatformSignal(signals, id, 'platformFit', platform),
+        productionCostObserved: hasFinitePlatformSignal(signals, id, 'platformProductionCost', platform),
+      },
+    }
   })
   scored.sort((a, b) => b.score - a.score || a.platform.localeCompare(b.platform))
   return scored[0]
@@ -186,7 +209,7 @@ export function scoreDistributionCandidate(object, signals = {}, options = {}) {
     impact: signal(signals, id, 'impact', coreDefaults.impact), urgency: signal(signals, id, 'urgency', 5), breadth: signal(signals, id, 'breadth', coreDefaults.breadth), confidence: signal(signals, id, 'confidence', coreDefaults.confidence), compoundingLeverage: signal(signals, id, 'compoundingLeverage', coreDefaults.compoundingLeverage), opportunityAge: signal(signals, id, 'opportunityAge', 3), reversibility: signal(signals, id, 'reversibility', 10), technicalDebtInterest: signal(signals, id, 'technicalDebtInterest', 4), effort: signal(signals, id, 'effort', 3), regressionRisk: signal(signals, id, 'regressionRisk', 2), blastRadius: signal(signals, id, 'blastRadius', 2), searchOpportunity: observed.searchOpportunity, aiCitationOpportunity: observed.aiCitationOpportunity, socialSuitability: observed.socialSuitability, commercialValue: observed.commercialValue, informationUniqueness: observed.informationUniqueness, existingAssetSaturation: signal(signals, id, 'existingAssetSaturation', 0), cannibalizationRisk: signal(signals, id, 'cannibalizationRisk', 1), productionCost: signal(signals, id, 'productionCost', 3), evergreenValue: observed.evergreenValue, freshness, evidenceStrength,
   }
   const score = 3 * metrics.impact + 2 * metrics.urgency + 2 * metrics.breadth + 2 * metrics.confidence + 2 * metrics.compoundingLeverage + metrics.opportunityAge + metrics.reversibility + metrics.technicalDebtInterest - metrics.effort - 2 * metrics.regressionRisk - metrics.blastRadius - metrics.existingAssetSaturation - metrics.cannibalizationRisk - eligibility.claimRisk
-  const platform = choosePlatform(metrics)
+  const platform = choosePlatform(metrics, signals, id)
   const angle = object ? buildAngle(object, platform.platform) : null
   const destination = object ? buildDestination(object, platform.platform, angle) : null
   const existingAngleCohorts = normalizeInventoryCohorts(signals?.[id]?.existingAngleCohorts)
@@ -194,11 +217,17 @@ export function scoreDistributionCandidate(object, signals = {}, options = {}) {
   const distributionBlockedReasons = duplicateAngle ? ['exact page/platform/angle cohort already exists in distribution inventory'] : []
   return {
     id: object?.id || null, eligible: eligibility.eligible, ineligibleReasons: eligibility.reasons, selectable: eligibility.eligible && !duplicateAngle, distributionBlockedReasons, duplicateAngle, existingAngleCohorts, score, sourceUrl: object?.sourceUrl || null, platform: platform.platform, platformScore: platform.score,
+    platformDecision: {
+      fit: platform.platformFit,
+      productionCost: platform.productionCost,
+      evidence: platform.evidence,
+      policy: 'Platform-specific fit and production-cost signals may choose a format but cannot alter scientific eligibility, claims, limitations, or canonical destination.',
+    },
     angle,
     destination,
     discoverability: object ? buildDiscoverability(object, platform.platform) : null,
     metrics,
-    guardrails: ['Use only the governed finding/public-safe claim from the validated media pack.', 'Preserve the governed limitation in every complete caption/script and on-screen where factual interpretation depends on it.', 'Do not convert study dose/form context into consumer dosing instructions.', 'Do not strengthen preclinical evidence into human benefit language.', 'Canonical destination must remain the governed sourceUrl.', 'Do not autonomously recommend an exact page/platform/angle cohort already present in the distribution inventory.'],
+    guardrails: ['Use only the governed finding/public-safe claim from the validated media pack.', 'Preserve the governed limitation in every complete caption/script and on-screen where factual interpretation depends on it.', 'Do not convert study dose/form context into consumer dosing instructions.', 'Do not strengthen preclinical evidence into human benefit language.', 'Canonical destination must remain the governed sourceUrl.', 'Do not autonomously recommend an exact page/platform/angle cohort already present in the distribution inventory.', 'Platform-fit or production-cost signals may choose presentation format only; they cannot make an ineligible scientific candidate distributable.'],
     successCriteria: { primaryMetric: 'qualified visits to canonical evidence page from tagged distribution links', secondaryMetrics: ['asset completion/save rate', 'search impressions/clicks for destination page', 'AI citation/mention visibility'], measurementWindowDays: 28, attributionRisk: 'medium' },
   }
 }
@@ -209,5 +238,5 @@ export function selectDistributionOpportunity(objects, signals = {}, options = {
   selectable.sort((a, b) => b.score - a.score || b.platformScore - a.platformScore || String(a.id).localeCompare(String(b.id)))
   const eligible = candidates.filter((candidate) => candidate.eligible)
   const status = selectable.length ? 'selected' : eligible.length ? 'waiting-for-unsaturated-angle' : 'waiting-for-governed-object'
-  return { schemaVersion: '1.1.0', status, selected: selectable[0] || null, candidates }
+  return { schemaVersion: '1.2.0', status, selected: selectable[0] || null, candidates }
 }
