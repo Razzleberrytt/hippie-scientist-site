@@ -70,7 +70,8 @@ function claimPreview(patch, operation) {
     predicate,
     claim: String(operation.value || operation.field || '').trim(),
     confidence: operation.confidence ?? patch.confidence ?? 0.5,
-    evidence_level: operation.evidence_level || (patch.sources?.length ? 'human_obs' : 'none'),
+    // Traceable source identity does not establish human study population.
+    evidence_level: operation.evidence_level || 'none',
     source_count: patch.sources?.length || 0,
   }
 }
