@@ -10,6 +10,9 @@ on:
       - 'data/distribution/**'
       - 'data/analytics/research-activity.json'
       - 'scripts/distribution/**'
+      - 'schemas/distribution*'
+      - 'schemas/distribution/**'
+      - 'docs/distribution-engine.md'
       - 'app/evidence/research-trends/**'
       - '.github/workflows/research-distribution.yml'
 
