@@ -36,6 +36,7 @@ export function evaluateRuntimeSourceRegistryReferences(record, kind, sourceRegi
       blocking: false,
       kind,
       slug: String(record?.slug || ''),
+      sourceId,
       url: record?.slug ? `/${kind === 'herb' ? 'herbs' : 'compounds'}/${record.slug}/` : '',
       detail: `Runtime source reference ${sourceId} is absent from public/data/source-registry.json`,
     }))
