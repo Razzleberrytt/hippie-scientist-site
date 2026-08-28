@@ -19,6 +19,9 @@ on:
       - 'functions/_shared/googlebot-verification.ts'
       - 'scripts/ci/validate-crawl-experiment.mjs'
       - 'scripts/seo/build-crawl-experiment-manifest.mjs'
+      - 'scripts/seo/crawl-experiment-build-snapshot.mjs'
+      - 'scripts/seo/record-crawl-experiment-treatment.mjs'
+      - 'scripts/seo/complete-crawl-experiment.mjs'
       - '.github/workflows/crawl-experiment-guard.yml'
   push:
     branches: [main]
@@ -39,6 +42,9 @@ on:
       - 'functions/_shared/googlebot-verification.ts'
       - 'scripts/ci/validate-crawl-experiment.mjs'
       - 'scripts/seo/build-crawl-experiment-manifest.mjs'
+      - 'scripts/seo/crawl-experiment-build-snapshot.mjs'
+      - 'scripts/seo/record-crawl-experiment-treatment.mjs'
+      - 'scripts/seo/complete-crawl-experiment.mjs'
       - '.github/workflows/crawl-experiment-guard.yml'
 
 permissions:
@@ -59,27 +65,37 @@ jobs:
       - name: Syntax-check experiment scripts
         run: |
           node --check scripts/seo/build-crawl-experiment-manifest.mjs
+          node --check scripts/seo/crawl-experiment-build-snapshot.mjs
+          node --check scripts/seo/record-crawl-experiment-treatment.mjs
+          node --check scripts/seo/complete-crawl-experiment.mjs
           node --check scripts/ci/validate-crawl-experiment.mjs
 
-      - name: Validate manifest and page-specific source freeze
-        run: node scripts/ci/validate-crawl-experiment.mjs
+      - name: Validate experiment structure and lifecycle
+        run: node scripts/ci/validate-crawl-experiment.mjs --structural-only
 
-      - name: Detect active experiment
+      - name: Detect whether rendered freeze verification is required
         id: experiment
         shell: bash
         run: |
-          node -e "const fs=require('node:fs'); const m=require('./experiments/crawl-request-indexing/manifest.json'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'active=' + String(m.status === 'active') + '\n')"
+          node - <<'NODE'
+          const fs = require('node:fs')
+          const manifest = require('./experiments/crawl-request-indexing/manifest.json')
+          const freezeEnd = Date.parse(manifest.freeze?.ends_at ?? '')
+          const freezeExpired = manifest.status === 'active' && Number.isFinite(freezeEnd) && Date.now() >= freezeEnd
+          const requiresBuild = ['prepared', 'activating', 'active'].includes(manifest.status) && !freezeExpired
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `requires_build=${String(requiresBuild)}\n`)
+          NODE
 
       - name: Install dependencies for rendered-output verification
-        if: steps.experiment.outputs.active == 'true'
+        if: steps.experiment.outputs.requires_build == 'true'
         run: npm ci
 
       - name: Build static export for rendered-output verification
-        if: steps.experiment.outputs.active == 'true'
+        if: steps.experiment.outputs.requires_build == 'true'
         env:
           COMMIT_HASH: ${{ github.sha }}
         run: npm run build:deploy
 
-      - name: Validate frozen canonical, indexability, and actual sitemap lastmod
-        if: steps.experiment.outputs.active == 'true'
-        run: node scripts/ci/validate-crawl-experiment.mjs --out-dir=out
+      - name: Validate randomized-page content, canonical, indexability, and sitemap lastmod freeze
+        if: steps.experiment.outputs.requires_build == 'true'
+        run: node scripts/ci/validate-crawl-experiment.mjs --build-dir=out
