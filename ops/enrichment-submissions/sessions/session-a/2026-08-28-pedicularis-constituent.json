@@ -1,0 +1,28 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "pedicularis-constituent-20260828",
+  "createdAt": "2026-08-28T12:45:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-pedicularis-constituent-profile-20260828",
+      "authoringPackId": "ap_bp_wp_herb_pedicularis_groenlandica_src_doi_10_1002_jemt_23847",
+      "workpackId": "wp_herb_pedicularis_groenlandica",
+      "entityType": "herb",
+      "entitySlug": "pedicularis-groenlandica",
+      "sourceId": "src_doi-10-1002-jemt-23847",
+      "topicType": "constituent",
+      "claimType": "constituent_profile",
+      "evidenceClass": "preclinical-mechanistic",
+      "findingTextShort": "Pedicularis groenlandica extracts contain measurable phenolic and flavonoid fractions.",
+      "findingTextNormalized": "Preclinical extract profiling of Pedicularis groenlandica found measurable total phenolic and flavonoid content; the methanol extract had the highest reported totals at 95.78 mg GAE/g phenolics and 66.90 mg QE/g flavonoids, while the study did not isolate individual clinically active compounds.",
+      "strengthLabel": "limited",
+      "mechanismContext": "Preclinical phytochemical extract characterization; bulk phenolic and flavonoid assays rather than isolated constituent identification.",
+      "uncertaintyNote": "These are extract-level laboratory measurements and do not establish human efficacy, clinical dosing, or the identity and contribution of individual active compounds.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
