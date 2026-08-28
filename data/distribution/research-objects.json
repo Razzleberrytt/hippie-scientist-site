@@ -7,6 +7,8 @@
     "evidenceGrade": "B",
     "limitation": "The clinical evidence base remains limited by small trials, heterogeneous extracts and dosing regimens, variable outcome measures, and risk-of-bias concerns, so results from one preparation should not be generalized to all ashwagandha products.",
     "sourceUrl": "https://thehippiescientist.net/herbs/ashwagandha/",
+    "findingClaimId": "clm_78af0b376bf1",
+    "primarySourceId": "src_45e522e1601f",
     "primarySourceUrl": "https://doi.org/10.1002/ptr.7598",
     "doseContext": "Trials used different ashwagandha extracts and dosing regimens; any dose values in the underlying studies are study context only and are not consumer dosing instructions.",
     "formulationContext": "The cited evidence includes heterogeneous ashwagandha extracts, so findings from one preparation should not be generalized to all ashwagandha products.",

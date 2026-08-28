@@ -28,7 +28,6 @@ describe('research distribution claim-safety boundary', () => {
       evidenceGrade: 'B',
       limitation,
       sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
-      primarySourceUrl: 'https://doi.org/10.1002/ptr.7598',
       doseContext: 'Study-context only; not consumer dosing advice.',
       populationContext: 'Adults represented in the cited randomized trials.',
       lastVerified: '2026-08-27',

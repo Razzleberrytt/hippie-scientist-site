@@ -18,7 +18,6 @@ function fixture(overrides = {}) {
     evidenceGrade: 'B',
     limitation: 'The fixture represents one study and does not establish a universal effect.',
     sourceUrl: 'https://thehippiescientist.net/guides/compare/sleep-herbs-vs-melatonin/',
-    primarySourceUrl: 'https://pubmed.ncbi.nlm.nih.gov/12345678/',
     populationContext: 'Adults enrolled in the recorded randomized trial',
     doseContext: 'Study-specific intervention exposure; not a consumer instruction',
     lastVerified: '2026-08-27',
