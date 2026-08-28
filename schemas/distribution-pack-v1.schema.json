@@ -20,10 +20,18 @@
       "type": "object",
       "additionalProperties": false,
       "required": ["url", "title", "contentHash"],
+      "dependentRequired": {
+        "findingClaimId": ["primarySourceId", "primarySourceUrl"],
+        "primarySourceId": ["findingClaimId", "primarySourceUrl"],
+        "primarySourceUrl": ["findingClaimId", "primarySourceId"]
+      },
       "properties": {
         "url": { "type": "string", "pattern": "^https://thehippiescientist\\.net/.+/$" },
         "title": { "type": "string", "minLength": 1, "maxLength": 240 },
-        "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "findingClaimId": { "type": "string", "pattern": "^clm_[a-f0-9]+$" },
+        "primarySourceId": { "type": "string", "pattern": "^src_[a-f0-9]+$" },
+        "primarySourceUrl": { "type": "string", "pattern": "^https://[^\\s]+$" }
       }
     },
     "audience": { "const": "General educational audience" },

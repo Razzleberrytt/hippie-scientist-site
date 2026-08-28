@@ -1,4 +1,5 @@
 import { assertValidDistributionPack, hashCanonicalField, hashResearchObject } from './distribution-pack-contract.mjs'
+import { assertDistributionCitationBinding } from './distribution-citation-binding.mjs'
 
 const SITE_ORIGIN = 'https://thehippiescientist.net'
 const HUMAN_EVIDENCE_TYPES = new Set(['meta-analysis', 'systematic-review', 'RCT', 'controlled-trial', 'observational', 'case-report'])
@@ -55,6 +56,16 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
     throw new Error('research object must include id, title, finding, and limitation')
   }
 
+  const findingClaimId = clean(researchObject.findingClaimId) || null
+  const primarySourceId = clean(researchObject.primarySourceId) || null
+  const primarySourceUrl = clean(researchObject.primarySourceUrl) || null
+  const citationValues = [findingClaimId, primarySourceId, primarySourceUrl]
+  const citationCount = citationValues.filter((value) => value !== null).length
+  if (citationCount !== 0 && citationCount !== citationValues.length) {
+    throw new Error('research object findingClaimId, primarySourceId, and primarySourceUrl must be provided together')
+  }
+  const hasCitationBinding = citationCount === citationValues.length
+
   const sourceUrl = canonicalPageUrl(researchObject.sourceUrl)
   const context = evidenceContext(researchObject.evidenceType)
   const population = clean(researchObject.populationContext) || null
@@ -87,15 +98,22 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
     provenanceReceipts.push(provenanceReceipt('$.safety[0].statement', 'safetyStatement', safetyStatement))
   }
 
+  const source = {
+    url: sourceUrl,
+    title,
+    contentHash: hashResearchObject(researchObject),
+  }
+  if (hasCitationBinding) {
+    source.findingClaimId = findingClaimId
+    source.primarySourceId = primarySourceId
+    source.primarySourceUrl = primarySourceUrl
+  }
+
   const pack = {
     schemaVersion: '1.0.0',
     packId: packIdFromResearchObjectId(id),
     researchObjectIds: [id],
-    source: {
-      url: sourceUrl,
-      title,
-      contentHash: hashResearchObject(researchObject),
-    },
+    source,
     audience: 'General educational audience',
     angle: 'What the evidence actually says',
     claims: [{
@@ -150,7 +168,8 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
     ],
   }
 
-  return assertValidDistributionPack(pack, {
+  const validated = assertValidDistributionPack(pack, {
     researchObjects: options.researchObjects ?? [researchObject],
   })
+  return hasCitationBinding ? assertDistributionCitationBinding(validated, researchObject) : validated
 }

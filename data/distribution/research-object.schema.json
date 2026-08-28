@@ -16,7 +16,10 @@
   ],
   "dependentRequired": {
     "safetyClaimId": ["safetyStatement"],
-    "safetyStatement": ["safetyClaimId"]
+    "safetyStatement": ["safetyClaimId"],
+    "findingClaimId": ["primarySourceId", "primarySourceUrl"],
+    "primarySourceId": ["findingClaimId", "primarySourceUrl"],
+    "primarySourceUrl": ["findingClaimId", "primarySourceId"]
   },
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
@@ -29,6 +32,8 @@
     "evidenceGrade": { "type": "string", "enum": ["A", "B", "C", "D", "Avoid/Insufficient"] },
     "limitation": { "type": "string", "minLength": 12, "maxLength": 600 },
     "sourceUrl": { "type": "string", "pattern": "^https://thehippiescientist\\.net/.+" },
+    "findingClaimId": { "type": "string", "pattern": "^clm_[a-f0-9]+$" },
+    "primarySourceId": { "type": "string", "pattern": "^src_[a-f0-9]+$" },
     "primarySourceUrl": { "type": "string", "format": "uri" },
     "trialCount": { "type": "integer", "minimum": 0 },
     "participants": { "type": "integer", "minimum": 0 },
