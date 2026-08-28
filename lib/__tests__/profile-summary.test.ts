@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { buildProfileSummary, isPlaceholderSummary } from '@/lib/profile-summary'
+import { buildProfileSummary, isPlaceholderSummary, shouldRecomposeUnclassifiedSummary } from '@/lib/profile-summary'
 
 /**
  * This text becomes the summary on live pages and the basis of meta
@@ -27,16 +27,17 @@ describe('buildProfileSummary', () => {
     expect(summary).toContain('kidney stone risk')
   })
 
-  it('preserves an unbacked editorial grade without publishing its strength as settled', () => {
+  it('preserves an unbacked authored grade in provenance without publishing the grade label', () => {
     const summary = buildProfileSummary({
       name: 'Berberis',
-      evidence_grade: 'A',
+      evidence_grade: null,
+      evidence_grade_source: 'A',
       evidence_grade_backed: false,
       evidence_rationale: 'Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people.',
     })
 
-    expect(summary).toContain('editorial Grade A rating')
-    expect(summary).toContain('studies recorded on this profile do not demonstrate that grade')
+    expect(summary).toContain('no settled public evidence rating')
+    expect(summary).not.toContain('Grade A')
     expect(summary).not.toContain('strong evidence')
   })
 
@@ -45,7 +46,7 @@ describe('buildProfileSummary', () => {
     ['b', 'Grade B'],
     ['high', 'Grade A'],
     ['moderate', 'Grade B'],
-  ])('canonicalizes legacy authored grade %s before qualifying it', (sourceGrade, expectedGrade) => {
+  ])('does not leak legacy authored grade %s into an unbacked public summary', (sourceGrade, forbiddenGrade) => {
     const summary = buildProfileSummary({
       name: 'Legacy profile',
       evidence_grade: null,
@@ -53,9 +54,8 @@ describe('buildProfileSummary', () => {
       evidence_grade_backed: false,
     })
 
-    expect(summary).toContain(`editorial ${expectedGrade} rating`)
-    expect(summary).toContain('studies recorded on this profile do not demonstrate that grade')
-    expect(summary).not.toContain('no evidence grade assigned')
+    expect(summary).toContain('no settled public evidence rating')
+    expect(summary).not.toContain(forbiddenGrade)
     expect(summary).not.toContain('strong evidence')
     expect(summary).not.toContain('moderate evidence')
   })
@@ -111,6 +111,33 @@ describe('buildProfileSummary', () => {
   it('returns empty for an unusable record rather than a stub', () => {
     expect(buildProfileSummary(null)).toBe('')
     expect(buildProfileSummary({})).toBe('')
+  })
+})
+
+describe('shouldRecomposeUnclassifiedSummary', () => {
+  it('replaces authored efficacy prose when the surviving graph has no classified evidence', () => {
+    expect(shouldRecomposeUnclassifiedSummary({
+      summary: 'Huperzine A is best framed around memory-support research.',
+      evidence_grade_backed: false,
+      evidence_recorded_study_count: 0,
+    })).toBe(true)
+  })
+
+  it('leaves a summary alone when classified surviving evidence remains', () => {
+    expect(shouldRecomposeUnclassifiedSummary({
+      summary: 'A carefully authored evidence summary.',
+      evidence_grade_backed: false,
+      evidence_recorded_study_count: 2,
+    })).toBe(false)
+  })
+
+  it('is idempotent for summaries already composed from the record', () => {
+    expect(shouldRecomposeUnclassifiedSummary({
+      summary: 'No settled public evidence rating.',
+      summary_source: 'composed-from-record',
+      evidence_grade_backed: false,
+      evidence_recorded_study_count: 0,
+    })).toBe(false)
   })
 })
 
