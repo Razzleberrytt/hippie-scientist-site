@@ -61,6 +61,15 @@ describe('creative layout-fit contract', () => {
     expect(result.reasons.join(' ')).toMatch(/source/i)
   })
 
+  it('rejects validation drift that weakens reserved trust-region guardrails', () => {
+    const result = measureCreativeLayoutFit({ profileId: 'vertical-video', blocks: trustBlocks })
+    const weakened = {
+      ...result,
+      guardrails: { ...result.guardrails, sourceRegionReserved: false },
+    }
+    expect(validateCreativeLayoutFit(weakened)).toContain('source and disclosure regions must remain reserved')
+  })
+
   it('refuses typography below the canonical accessible minimum', () => {
     expect(() => measureCreativeLayoutFit({
       profileId: 'vertical-video',
