@@ -36,6 +36,13 @@ execFileSync(
   { cwd: root, stdio: 'inherit', env: process.env },
 )
 
+console.log('[prepare-production-evidence-provenance] replacing authored summaries left without classified surviving evidence')
+execFileSync(
+  'npx',
+  ['tsx', 'scripts/data/recompose-unclassified-summaries.ts', `--data-dir=${dataDir}`],
+  { cwd: root, stdio: 'inherit', env: process.env },
+)
+
 const DOSE_RE = /\b\d+(?:\.\d+)?\s*(?:mg|g|mcg|µg|ug|ml|iu)(?:\s*\/\s*(?:day|d))?\b/i
 
 function readJson(file, fallback) {
