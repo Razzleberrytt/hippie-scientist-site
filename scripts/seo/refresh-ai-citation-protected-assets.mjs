@@ -34,6 +34,26 @@ const policy = {
   maxAssets: Number(flag('max-assets', DEFAULT_AI_CITATION_PROTECTION_POLICY.maxAssets)),
 }
 
+function validatePolicy(candidate) {
+  const failures = []
+  if (!Number.isFinite(candidate.minCitations) || candidate.minCitations < 0) {
+    failures.push('minCitations must be a finite number >= 0')
+  }
+  if (
+    !Number.isFinite(candidate.cumulativeCitationShare) ||
+    candidate.cumulativeCitationShare <= 0 ||
+    candidate.cumulativeCitationShare > 1
+  ) {
+    failures.push('cumulativeCitationShare must be > 0 and <= 1')
+  }
+  if (!Number.isInteger(candidate.maxAssets) || candidate.maxAssets < 1) {
+    failures.push('maxAssets must be an integer >= 1')
+  }
+  if (failures.length) {
+    throw new Error(`Invalid AI citation protection policy: ${failures.join('; ')}`)
+  }
+}
+
 function parseCsv(content) {
   const rows = []
   let row = []
@@ -150,6 +170,8 @@ function rounded(value) {
 }
 
 function main() {
+  validatePolicy(policy)
+
   const latest = latestPageStatsExport(INPUT_DIR)
   if (!latest) {
     console.log(`[ai-citation-assets] no page-stats CSV found in ${path.relative(ROOT, INPUT_DIR)}`)
@@ -167,6 +189,11 @@ function main() {
   let readyIdentities = 0
   let retainedIdentities = 0
   const assets = selection.assets.map((asset) => {
+    const ownership = resolveSourceOwnership(asset.url)
+    if (!ownership.sourcePath) {
+      throw new Error(`Cannot protect ${asset.url}: canonical source ownership could not be resolved`)
+    }
+
     const htmlPath = outputHtmlPath(OUT_DIR, asset.url)
     let identity
     if (fs.existsSync(htmlPath)) {
@@ -187,7 +214,7 @@ function main() {
 
     return {
       url: asset.url,
-      ...resolveSourceOwnership(asset.url),
+      ...ownership,
       citations: asset.citations,
       share: rounded(asset.share),
       cumulativeShare: rounded(asset.cumulativeShare),
