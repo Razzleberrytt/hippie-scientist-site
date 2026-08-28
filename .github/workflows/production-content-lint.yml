@@ -6,6 +6,12 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      recovery_pr_number:
+        description: PR number for exact-head recovery validation
+        required: true
+        type: string
 
 concurrency:
   group: production-content-lint-${{ github.ref }}
@@ -14,6 +20,7 @@ concurrency:
 permissions:
   contents: read
   actions: read
+  pull-requests: read
 
 jobs:
   production-content-lint:
@@ -86,11 +93,25 @@ jobs:
             echo 'Latest successful main run predates the baseline artifact; comparison will bootstrap after the next main run.'
           fi
 
+      - name: Resolve recovery PR body
+        id: pr-context
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RECOVERY_PR_NUMBER: ${{ inputs.recovery_pr_number }}
+        run: |
+          body="$(gh api "repos/${{ github.repository }}/pulls/$RECOVERY_PR_NUMBER" --jq '.body // ""')"
+          {
+            echo 'body<<EOF'
+            printf '%s\n' "$body"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
       - name: Compare against latest main production snapshot
         if: steps.impact.outputs.docs_only != 'true'
         env:
-          PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
-          REQUIRE_QUALITY_CHANGE_EXPLANATION: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
+          PULL_REQUEST_BODY: ${{ github.event.pull_request.body || steps.pr-context.outputs.body }}
+          REQUIRE_QUALITY_CHANGE_EXPLANATION: ${{ (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') && 'true' || 'false' }}
         run: node scripts/ci/compare-production-quality-snapshot.mjs
 
       - name: Publish main production quality baseline
