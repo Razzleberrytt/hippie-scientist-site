@@ -5,7 +5,7 @@
 **Updated:** 2026-08-28
 **Normal WIP limit:** Maximum three concurrent implementation tickets. The Evidence → Distribution initiative may use separate lanes only when scopes are orthogonal and one ticket per lane is active.
 **WIP cap:** 3
-**Current admission:** One implementation ticket is active (#4412 / PR #4446). Two implementation slots are available, subject to dependency and lane-ownership checks.
+**Current admission:** One implementation PR is active (PR #4457 in L2 factual/provenance). Two implementation slots are available, subject to dependency, lane-ownership, and incident checks.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,18 +53,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
-| Control | #4412 / PR #4446 | Machine reconciliation | In Review | Read-only exact-revision GitHub reconciliation; stale/duplicate/WIP/dependency/milestone/offline fixtures; hosted tests and production build |
-
-### #4412 implementation boundary
-
-**Required result:**
-
-- deterministic comparison of active/ready control-doc issue/PR identifiers against exact GitHub state;
-- merged/closed active work, duplicate ownership, WIP overflow, and cross-document contradictions are surfaced as failures/drift;
-- temporary WIP exceptions must be explicit and admission-blocking;
-- unavailable GitHub state yields `Unknown/waiting`, never fake PASS;
-- the checker is read-only with respect to GitHub/scientific/public data;
-- current exact-main control documents reconcile cleanly after intentional exceptions are represented.
+| L2 factual/provenance | PR #4457 | Preserve all approved canonical safety warnings | In Review | Complete canonical safety projection, exact claim/text identity, deterministic provenance, omission/mutation rejection, hosted governance gates |
 
 ## Ready next — strict dependency order
 
@@ -142,7 +131,7 @@ The sprint exits only when all of the following are true or have a precise exter
 
 - PRs #4388, #4401, and #4405 are merged or explicitly blocked with exact failing proof; no stale active status remains in control docs.
 - PR #4411 / #4410 is merged or explicitly blocked, and active implementation WIP is within the normal three-ticket cap.
-- #4412 either proves machine reconciliation or has a precise blocker/queued continuation that does not leave known stale active state unresolved.
+- #4412 has proven machine reconciliation and merged; known stale active state must still be reconciled rather than suppressed.
 - The governed research object → validated pack → lossless creative plan → deterministic rendered asset chain is reproducible and provenance-bound.
 - #4406 has proven an idempotent dry-run lifecycle with stale-asset rejection, durable receipts, retry safety, and rollback/stop semantics.
 - #4407 proves deterministic attributable observation ingestion, Unknown handling, replay, cross-platform isolation, and the existing minimum-exposure guard.
@@ -155,6 +144,9 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#4412 / PR #4446:** completed/merged as `96a07976dee22cf7b91c337c820cc83ff7e6b860`; machine reconciliation is on main and no longer occupies active WIP.
+- **#4463:** completed/merged as `f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1`; trust-safe thumbnail variants are on main and no longer occupy active WIP.
+- **#4460:** completed/merged as `48bebb81e35c4bd605dedbfc15156cabeb915b06`; duplicate-angle suppression is on main and no longer occupies active WIP.
 - **#4406:** completed; the governed ready → publish → measured lifecycle is merged and no longer occupies the ready queue.
 - **#4439 / PR #4440:** completed/merged; canonical claim/source binding no longer occupies an active slot.
 - **PR #4448:** closed unmerged; vertical MP4 implementation is preserved for later legal reuse and does not occupy active WIP.
@@ -162,9 +154,9 @@ The sprint exits only when all of the following are true or have a precise exter
 - **#4410 / PR #4411:** merged; scoped changed-file-relevant gates are on main. The temporary overflow exception is retired.
 - **PRs #4388, #4401, #4405:** merged; renderer, provenance-receipt, and lossless-presentation implementation no longer occupy active slots.
 - **PR #4408 / #4409:** merged/closed; roadmap, sprint, and master backlog synchronized to exact GitHub state on 2026-08-27.
-- **#4182:** closed/completed; five herb/compound identity correction is no longer active.
-- **#4238:** closed/completed; normalized source-registry baseline/provenance continuation is no longer active.
-- **AUTH-004 / PR #4145:** merged; visual browse refinement is no longer active.
+- **#4182:** closed/completed; five herb/compound identity correction no longer active.
+- **#4238:** closed/completed; normalized source-registry baseline/provenance continuation no longer active.
+- **AUTH-004 / PR #4145:** merged; visual browse refinement no longer active.
 - **SEO-005 / PR #4331:** merged; monitor remains file-fed until a supported Bing AI Performance acquisition path exists.
 - **I18N-001 / PR #4332:** merged; Japanese/Korean core locale expansion is live while detailed scientific profiles remain fail-closed.
 - **REV-005 / PR #4358:** merged; the validated media-pack foundation is now upstream infrastructure for this sprint.
