@@ -22,6 +22,19 @@ type OutcomeCategory =
   | 'low_value_non_qualifying'
   | 'wrong_source_class_for_intended_gap'
 
+type PromotionReconciliationState = 'approved_not_promoted' | 'promotion_history_unresolved'
+
+type PromotionReconciliation = {
+  candidateSourceId: string
+  doi?: string
+  pmid?: string
+  correctedPromotionState: PromotionReconciliationState
+  effectiveApprovalNote: string
+  evidenceBoundary: string
+  reason: string
+  issue: number
+}
+
 type SourceIntakeTask = {
   intakeTaskId: string
   recommendedSourceClasses: string[]
@@ -87,6 +100,10 @@ type CandidateAssessment = {
   wrongClassForGap: boolean
   lowValueFlags: string[]
   proposedRegistrySourceId?: string
+  promotionReconciliation?: {
+    correctedPromotionState: PromotionReconciliationState
+    effectiveApprovalNote: string
+  }
 }
 
 type CandidateReviewReport = {
@@ -97,6 +114,7 @@ type CandidateReviewReport = {
     sourceRegistry: string
     candidateQueue: string
     candidateSchema: string
+    promotionReconciliations: string
   }
   workflowStates: ReviewStatus[]
   intakeToRegistryRequirements: string[]
@@ -121,6 +139,7 @@ const INTAKE_PATH = path.join(ROOT, 'ops', 'reports', 'source-intake-queue.json'
 const REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
 const CANDIDATE_PATH = path.join(ROOT, 'ops', 'source-candidates.json')
 const CANDIDATE_SCHEMA_PATH = path.join(ROOT, 'schemas', 'source-candidate.schema.json')
+const PROMOTION_RECONCILIATION_PATH = path.join(ROOT, 'ops', 'source-candidate-promotion-reconciliations.json')
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'source-candidate-review.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'source-candidate-review.md')
 
@@ -130,6 +149,10 @@ function readJson<T>(filePath: string): T {
 
 function isNonEmpty(value: unknown): value is string {
   return typeof value === 'string' && value.trim().length > 0
+}
+
+function normalizeAnchor(value: unknown): string {
+  return isNonEmpty(value) ? value.trim().toLowerCase() : ''
 }
 
 function slugify(value: string): string {
@@ -184,6 +207,15 @@ function run() {
   const registry = readJson<SourceRegistryRecord[]>(REGISTRY_PATH)
   const candidates = fs.existsSync(CANDIDATE_PATH) ? readJson<SourceCandidate[]>(CANDIDATE_PATH) : []
   const candidateSchema = readJson(CANDIDATE_SCHEMA_PATH)
+  const reconciliations = fs.existsSync(PROMOTION_RECONCILIATION_PATH)
+    ? readJson<PromotionReconciliation[]>(PROMOTION_RECONCILIATION_PATH)
+    : []
+
+  const reconciliationIds = reconciliations.map(row => row.candidateSourceId)
+  if (new Set(reconciliationIds).size !== reconciliationIds.length) {
+    throw new Error('Duplicate source-candidate promotion reconciliation entries are not allowed.')
+  }
+  const reconciliationByCandidate = new Map(reconciliations.map(row => [row.candidateSourceId, row]))
 
   const ajv = new Ajv2020({ allErrors: true, strict: true, strictRequired: true })
   addFormats(ajv)
@@ -235,12 +267,24 @@ function run() {
   const assessments: CandidateAssessment[] = []
   const insertions: SourceRegistryRecord[] = []
   const blocked: Array<{ candidateSourceId: string; reasons: string[] }> = []
-
   const takenSourceIds = new Set(registry.map(row => row.sourceId))
 
   for (const candidate of candidates) {
     byDeclaredStatus[candidate.reviewStatus] += 1
     const intakeTask = intakeById.get(candidate.intakeTaskId)
+    const reconciliation = reconciliationByCandidate.get(candidate.candidateSourceId)
+
+    if (reconciliation) {
+      if (normalizeAnchor(reconciliation.doi) !== normalizeAnchor(candidate.doi)) {
+        throw new Error(`Promotion reconciliation DOI drift for ${candidate.candidateSourceId}.`)
+      }
+      if (normalizeAnchor(reconciliation.pmid) !== normalizeAnchor(candidate.pmid)) {
+        throw new Error(`Promotion reconciliation PMID drift for ${candidate.candidateSourceId}.`)
+      }
+      if (!['approved_not_promoted', 'promotion_history_unresolved'].includes(reconciliation.correctedPromotionState)) {
+        throw new Error(`Unsupported promotion reconciliation state for ${candidate.candidateSourceId}.`)
+      }
+    }
 
     const metadataIssues: string[] = []
     const lowValueFlags: string[] = []
@@ -359,7 +403,8 @@ function run() {
     }
 
     const disallowedStatuses = new Set<ReviewStatus>(['rejected', 'duplicate_of_existing', 'deprecated_candidate', 'needs_metadata'])
-    const promotable = !disallowedStatuses.has(derivedReviewStatus)
+    const statusPromotable = !disallowedStatuses.has(derivedReviewStatus)
+    const promotable = statusPromotable && !reconciliation
 
     if (derivedReviewStatus !== candidate.reviewStatus) {
       promotionBlockedReasons.push(
@@ -367,8 +412,14 @@ function run() {
       )
     }
 
-    if (!promotable) {
+    if (!statusPromotable) {
       promotionBlockedReasons.push(`Candidates in state ${derivedReviewStatus} cannot be promoted.`)
+    }
+
+    if (reconciliation) {
+      promotionBlockedReasons.push(
+        `Promotion reconciliation ${reconciliation.correctedPromotionState}: ${reconciliation.effectiveApprovalNote}`,
+      )
     }
 
     if (wrongClassForGap) {
@@ -441,6 +492,12 @@ function run() {
       wrongClassForGap,
       lowValueFlags,
       proposedRegistrySourceId,
+      promotionReconciliation: reconciliation
+        ? {
+            correctedPromotionState: reconciliation.correctedPromotionState,
+            effectiveApprovalNote: reconciliation.effectiveApprovalNote,
+          }
+        : undefined,
     })
   }
 
@@ -454,6 +511,7 @@ function run() {
       sourceRegistry: path.relative(ROOT, REGISTRY_PATH),
       candidateQueue: path.relative(ROOT, CANDIDATE_PATH),
       candidateSchema: path.relative(ROOT, CANDIDATE_SCHEMA_PATH),
+      promotionReconciliations: path.relative(ROOT, PROMOTION_RECONCILIATION_PATH),
     },
     workflowStates: [
       'draft_candidate',
@@ -471,6 +529,7 @@ function run() {
       'Duplicate detection is run against active registry sources using DOI/PMID/canonical URL matching.',
       'An explicit duplicateOfSourceId must resolve to a canonical source-registry record before it counts as duplicate evidence.',
       'Candidates in rejected, duplicate_of_existing, needs_metadata, or deprecated_candidate states are not promotable.',
+      'A governed promotion reconciliation blocks promotion preview until historical promotion state is resolved or a separate governed registry action supersedes it.',
       'Promotion preview creates stable sourceIds and writes intakeTaskId/candidateSourceId traceability into notes.',
     ],
     summary: {
