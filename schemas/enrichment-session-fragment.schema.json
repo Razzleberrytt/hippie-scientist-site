@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hippiescientist.app/schemas/enrichment-session-fragment.schema.json",
+  "title": "Parallel enrichment session fragment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["fragmentVersion", "sessionId", "shard", "batchId", "createdAt", "submissions"],
+  "properties": {
+    "fragmentVersion": { "const": 1 },
+    "sessionId": { "type": "string", "pattern": "^[A-H]$" },
+    "shard": { "type": "integer", "minimum": 0, "maximum": 7 },
+    "batchId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "submissions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "enrichment-submission.schema.json#/items" }
+    }
+  }
+}
