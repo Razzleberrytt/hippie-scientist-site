@@ -44,6 +44,21 @@ function routeFromFile(filePath) {
   return `/${rel.replace(/\/index\.html$/, '').replace(/\.html$/, '')}`.replace(/\/+/g, '/')
 }
 
+function walkHtml(dir) {
+  if (!fs.existsSync(dir)) return []
+  const files = []
+  const walk = (current) => {
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      if (entry.name === '_next') continue
+      const filePath = path.join(current, entry.name)
+      if (entry.isDirectory()) walk(filePath)
+      else if (entry.isFile() && entry.name.endsWith('.html')) files.push(filePath)
+    }
+  }
+  walk(dir)
+  return files
+}
+
 /**
  * The canonical this page declares, when it points at a different URL.
  *
@@ -100,21 +115,6 @@ function auditH1Uniqueness() {
     .sort((a, b) => b.length - a.length || a[0].h1.localeCompare(b[0].h1))
 
   return { passed: missing.length === 0 && multiple.length === 0 && duplicates.length === 0, missing, multiple, duplicates }
-}
-
-function walkHtml(dir) {
-  if (!fs.existsSync(dir)) return []
-  const files = []
-  const walk = (current) => {
-    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
-      if (entry.name === '_next') continue
-      const filePath = path.join(current, entry.name)
-      if (entry.isDirectory()) walk(filePath)
-      else if (entry.isFile() && entry.name.endsWith('.html')) files.push(filePath)
-    }
-  }
-  walk(dir)
-  return files
 }
 
 function runCheck(check) {
