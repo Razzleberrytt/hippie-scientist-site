@@ -118,6 +118,7 @@ export function parseRenderedPageIdentity(html, routePath) {
   const metaTags = source.match(/<meta\b[^>]*>/gi) ?? []
   const robotsTag = metaTags.find((tag) => attributeValue(tag, 'name').toLowerCase() === 'robots')
   const robots = robotsTag ? attributeValue(robotsTag, 'content').toLowerCase() : ''
+  const noindex = /(^|[\s,])noindex($|[\s,])/.test(robots)
 
   return {
     status: 'ready',
@@ -125,7 +126,7 @@ export function parseRenderedPageIdentity(html, routePath) {
     title: firstTagContent(source, 'title'),
     h1: firstTagContent(source, 'h1'),
     canonical: canonicalTag ? normalizeCanonicalUrl(attributeValue(canonicalTag, 'href')) : '',
-    indexable: !robots.split(',').map((token) => token.trim()).includes('noindex'),
+    indexable: !noindex,
   }
 }
 
@@ -141,20 +142,20 @@ export function identityFingerprint(identity) {
   return crypto.createHash('sha256').update(JSON.stringify(stable)).digest('hex')
 }
 
+function normalizedIdentityValue(identity, field) {
+  if (field === 'canonical') return normalizeCanonicalUrl(identity?.[field])
+  if (field === 'redirectTarget') {
+    return identity?.[field] ? normalizeUrlPath(identity[field]) : null
+  }
+  return identity?.[field]
+}
+
 export function compareProtectedPageIdentity(expected, actual) {
   const fields = ['title', 'h1', 'canonical', 'indexable', 'redirectTarget']
   const failures = []
   for (const field of fields) {
-    const left = field === 'canonical'
-      ? normalizeCanonicalUrl(expected?.[field])
-      : field === 'redirectTarget'
-        ? expected?.[field] ? normalizeUrlPath(expected[field]) : null
-        : expected?.[field]
-    const right = field === 'canonical'
-      ? normalizeCanonicalUrl(actual?.[field])
-      : field === 'redirectTarget'
-        ? actual?.[field] ? normalizeUrlPath(actual[field]) : null
-        : actual?.[field]
+    const left = normalizedIdentityValue(expected, field)
+    const right = normalizedIdentityValue(actual, field)
     if (left !== right) failures.push({ field, expected: left, actual: right })
   }
   return failures
@@ -167,7 +168,6 @@ export function parseRedirectMap(content) {
     if (!line || line.startsWith('#')) continue
     const [source, target] = line.split(/\s+/)
     if (!source || !target || !source.startsWith('/') || source.startsWith('//')) continue
-    if (/^https?:\/\//i.test(source)) continue
     redirects.set(normalizeUrlPath(source), target.startsWith('/') ? normalizeUrlPath(target) : target)
   }
   return redirects
