@@ -107,6 +107,7 @@ const orphanFindings = evaluateRuntimeSourceRegistryReferences(registryOrphan, '
 assert.equal(orphanFindings.length, 1)
 assert.equal(orphanFindings[0].code, ORPHANED_CANONICAL_SOURCE_REFERENCE)
 assert.equal(orphanFindings[0].blocking, false)
+assert.equal(orphanFindings[0].sourceId, 'src_orphan')
 
 const localOnly = structuredClone(base)
 localOnly.evidence = { sourceIds: ['profile-local-source'] }
