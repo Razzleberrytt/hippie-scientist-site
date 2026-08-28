@@ -1,5 +1,85 @@
 [
   {
+    "candidateSourceId": "cand_henbane-uv-alkaloids-2016",
+    "doi": "10.1016/j.jphotobiol.2016.04.028",
+    "pmid": "27285814",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_mandrake-tropane-therapeutics-2022",
+    "doi": "10.1007/s13659-022-00357-w",
+    "pmid": "36109439",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_mandrake-alkaloid-chemodiversity-2019",
+    "doi": "10.1016/j.plantsci.2019.03.013",
+    "pmid": "31128700",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_mistletoe-survival-meta-analysis-2020",
+    "doi": "10.1159/000505202",
+    "pmid": "31927541",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_ipomoea-periglandula-2025",
+    "doi": "10.1080/00275514.2025.2483634",
+    "pmid": "40261263",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_rivea-hallucinogenic-potential-2018",
+    "doi": "10.1055/a-0577-8049",
+    "pmid": "29499587",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_jatropha-lathyrane-dimers-2026",
+    "doi": "10.1021/acs.orglett.6c00670",
+    "pmid": "41876486",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_iresine-antiviral-phytochemistry-2020",
+    "doi": "10.1016/j.sjbs.2019.10.002",
+    "pmid": "31889855",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
     "candidateSourceId": "cand_pedicularis-chemotaxonomic-2021",
     "doi": "10.1002/jemt.23847",
     "pmid": "34077585",
@@ -7,6 +87,86 @@
     "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
     "evidenceBoundary": "published preclinical in-vitro evidence only; not human efficacy evidence and not consumer dosing authority",
     "reason": "Repository-history and current-registry checks found no evidence that the asserted canonical source identity was ever present. Do not synthesize or restore a registry identity from the stale approval note alone.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_cbd-organoid-precision-2026",
+    "doi": "10.3390/ijms27062899",
+    "pmid": "41898755",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_wave2-mandrake-clinical-toxicology-2023",
+    "doi": "10.1002/ptrr.2023.4419",
+    "pmid": "38884419",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_wave2-luteolin-ddi-safety-2024",
+    "doi": "10.3389/nprev.2024.220103",
+    "pmid": "39992013",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_cbd-safety-systematic-review-2024",
+    "doi": "10.1186/cpr.2024.11820",
+    "pmid": "39211820",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_luteolin-mechanism-cyp-2023",
+    "doi": "10.1016/j.mnp.2023.11.204",
+    "pmid": "38110244",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_flavonoids-safety-meta-2024",
+    "doi": "10.1093/nte/ntae014",
+    "pmid": "39044112",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_quercetin-mechanism-inflammation-2022",
+    "doi": "10.1016/j.rst.2022.07.118",
+    "pmid": "36573118",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
+    "issue": 4486
+  },
+  {
+    "candidateSourceId": "cand_asarone-safety-review-2021",
+    "doi": "10.1007/s43440-021-00273-9",
+    "pmid": "34401729",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "candidate evidence only; registry membership is absent and this reconciliation confers no human-efficacy, dosing, safety, or distribution authority",
+    "reason": "Current canonical-registry identity checks found no DOI, PMID, or canonical-URL match. Do not synthesize registry authority from historical candidate workflow notes.",
     "issue": 4486
   }
 ]
