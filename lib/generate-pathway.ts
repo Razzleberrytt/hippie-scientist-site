@@ -99,7 +99,7 @@ export function generatePathwayDiagram(record: GeneratorRecord): PathwayDiagramD
   // ── Resolve target node ──────────────────────────────────────────────────────
   const targetSystemKey = targetSystemsRaw[0] ?? ''
   const targetDisplay = TARGET_SYSTEM_DISPLAY[targetSystemKey]
-  const targetLabel = targetDisplay?.label ?? formatDisplayLabel(targetSystemKey) ?? 'Biological Target'
+  const targetLabel = targetDisplay?.label || formatDisplayLabel(targetSystemKey) || 'Biological Target'
   const targetSublabel = targetDisplay?.sublabel ?? 'Biological pathway'
 
   // ── Resolve mechanism node ───────────────────────────────────────────────────
