@@ -7,7 +7,7 @@
 **WIP cap:** 3
 **Current admission:** Two implementation PRs are active (PR #4457 in L2 factual/provenance and PR #4460 in L3 opportunity/measurement). One implementation slot is available, subject to dependency, lane-ownership, and incident checks.
 
-**Control dependencies:** #4412 <- #4411 (completed); #4406 <- #4388, #4401, #4405 (completed); #4407 <- #4406
+**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
 ## Sprint objective
 
