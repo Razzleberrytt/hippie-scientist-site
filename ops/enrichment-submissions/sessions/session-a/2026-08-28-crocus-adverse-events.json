@@ -1,0 +1,28 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "crocus-adverse-events-20260828",
+  "createdAt": "2026-08-28T20:39:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-crocus-adverse-events-review-20260828",
+      "authoringPackId": "ap_bp_wp_herb_crocus_sativus_src_doi_10_1002_hsr2_72212",
+      "workpackId": "wp_herb_crocus_sativus",
+      "entityType": "herb",
+      "entitySlug": "crocus-sativus",
+      "sourceId": "src_doi-10-1002-hsr2-72212",
+      "topicType": "adverse_effect",
+      "claimType": "safety_risk",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Saffron is generally tolerated in trials, but adverse events are not rare and gastrointestinal effects are the most commonly reported.",
+      "findingTextNormalized": "A 2026 systematic review of 102 clinical trials and one case report found that about 78% of saffron monopreparation trials addressed safety, about 56% reported one or more adverse effects, and the review estimated adverse events related to saffron consumption at roughly 17.5%; gastrointestinal effects were most frequent and usually minor and self-limiting, while the authors cautioned about potentially significant events with higher doses or prolonged medicinal use.",
+      "strengthLabel": "moderate",
+      "safetyContext": "Human saffron monopreparation safety evidence across clinical trials and one case report; gastrointestinal complaints were the most frequent reported adverse effects.",
+      "uncertaintyNote": "The 17.5% figure is a review-derived estimate across heterogeneous included studies and should not be treated as population incidence. Trial durations, preparations, doses, and adverse-event reporting varied, and long-term higher-dose safety remains less certain. The source must complete registry governance before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
