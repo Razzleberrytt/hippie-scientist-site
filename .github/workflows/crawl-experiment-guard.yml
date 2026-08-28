@@ -21,6 +21,7 @@ on:
       - 'scripts/seo/build-crawl-experiment-manifest.mjs'
       - 'scripts/seo/crawl-experiment-build-snapshot.mjs'
       - 'scripts/seo/record-crawl-experiment-treatment.mjs'
+      - 'scripts/seo/record-crawl-experiment-contamination.mjs'
       - 'scripts/seo/complete-crawl-experiment.mjs'
       - '.github/workflows/crawl-experiment-guard.yml'
   push:
@@ -44,6 +45,7 @@ on:
       - 'scripts/seo/build-crawl-experiment-manifest.mjs'
       - 'scripts/seo/crawl-experiment-build-snapshot.mjs'
       - 'scripts/seo/record-crawl-experiment-treatment.mjs'
+      - 'scripts/seo/record-crawl-experiment-contamination.mjs'
       - 'scripts/seo/complete-crawl-experiment.mjs'
       - '.github/workflows/crawl-experiment-guard.yml'
 
@@ -67,6 +69,7 @@ jobs:
           node --check scripts/seo/build-crawl-experiment-manifest.mjs
           node --check scripts/seo/crawl-experiment-build-snapshot.mjs
           node --check scripts/seo/record-crawl-experiment-treatment.mjs
+          node --check scripts/seo/record-crawl-experiment-contamination.mjs
           node --check scripts/seo/complete-crawl-experiment.mjs
           node --check scripts/ci/validate-crawl-experiment.mjs
 
