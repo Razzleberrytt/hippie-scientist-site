@@ -19,6 +19,7 @@ const checks = [
   { id: 'sitemap', label: 'Sitemap validity', command: nodeCommand, args: ['scripts/ci/validate-sitemap.mjs', '--require-built'] },
   { id: 'sitemap-completeness', label: 'Sitemap completeness', command: nodeCommand, args: ['scripts/ci/validate-sitemap-completeness.mjs', '--require-built'] },
   { id: 'robots', label: 'Robots/index directives', command: nodeCommand, args: ['scripts/ci/validate-robots.mjs', '--require-built'] },
+  { id: 'ai-citation-assets', label: 'Protected AI citation asset identity', command: nodeCommand, args: ['scripts/ci/validate-ai-citation-protected-assets.mjs'] },
   { id: 'a11y', label: 'Accessibility basics', command: npmCommand, args: ['run', '-s', 'test:a11y'] },
 ]
 
@@ -41,21 +42,6 @@ function routeFromFile(filePath) {
   const rel = path.relative(outDir, filePath).replace(/\\/g, '/')
   if (rel === 'index.html') return '/'
   return `/${rel.replace(/\/index\.html$/, '').replace(/\.html$/, '')}`.replace(/\/+/g, '/')
-}
-
-function walkHtml(dir) {
-  if (!fs.existsSync(dir)) return []
-  const files = []
-  const walk = (current) => {
-    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
-      if (entry.name === '_next') continue
-      const filePath = path.join(current, entry.name)
-      if (entry.isDirectory()) walk(filePath)
-      else if (entry.isFile() && entry.name.endsWith('.html')) files.push(filePath)
-    }
-  }
-  walk(dir)
-  return files
 }
 
 /**
@@ -116,6 +102,21 @@ function auditH1Uniqueness() {
   return { passed: missing.length === 0 && multiple.length === 0 && duplicates.length === 0, missing, multiple, duplicates }
 }
 
+function walkHtml(dir) {
+  if (!fs.existsSync(dir)) return []
+  const files = []
+  const walk = (current) => {
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      if (entry.name === '_next') continue
+      const filePath = path.join(current, entry.name)
+      if (entry.isDirectory()) walk(filePath)
+      else if (entry.isFile() && entry.name.endsWith('.html')) files.push(filePath)
+    }
+  }
+  walk(dir)
+  return files
+}
+
 function runCheck(check) {
   const started = Date.now()
   const result = spawnSync(check.command, check.args, {
@@ -141,7 +142,7 @@ function markdown(report) {
   const h1Line = h1.passed
     ? '✅ H1 uniqueness: no missing, multiple, or exact duplicate H1s on indexable built pages.'
     : `❌ H1 uniqueness: ${h1.missing.length} missing, ${h1.multiple.length} multiple-H1 pages, ${h1.duplicates.length} duplicate H1 groups.`
-  return `## Production content quality summary\n\nStatus: **${report.passed ? 'PASS' : 'FAIL'}**  \nGenerated: ${report.generatedAt}\n\n| Status | Check | Duration |\n|---|---|---:|\n${rows}\n\n${h1Line}\n\nThis consolidated gate reuses the repository's existing metadata, canonical, indexability, link, redirect, sitemap, structured-data, robots, and accessibility validators rather than maintaining parallel rules.\n`
+  return `## Production content quality summary\n\nStatus: **${report.passed ? 'PASS' : 'FAIL'}**  \nGenerated: ${report.generatedAt}\n\n| Status | Check | Duration |\n|---|---|---:|\n${rows}\n\n${h1Line}\n\nThis consolidated gate reuses the repository's existing metadata, canonical, indexability, link, redirect, sitemap, structured-data, robots, accessibility, and protected AI-citation asset validators rather than maintaining parallel rules.\n`
 }
 
 function main() {
