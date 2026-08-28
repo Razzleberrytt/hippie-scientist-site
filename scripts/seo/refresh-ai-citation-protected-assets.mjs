@@ -10,6 +10,7 @@ import {
   parseRedirectMap,
   parseRenderedPageIdentity,
   selectProtectedCitationAssets,
+  validateProtectionPolicy,
 } from './ai-citation-protected-assets.mjs'
 
 const ROOT = process.cwd()
@@ -32,26 +33,6 @@ const policy = {
     flag('cumulative-share', DEFAULT_AI_CITATION_PROTECTION_POLICY.cumulativeCitationShare),
   ),
   maxAssets: Number(flag('max-assets', DEFAULT_AI_CITATION_PROTECTION_POLICY.maxAssets)),
-}
-
-function validatePolicy(candidate) {
-  const failures = []
-  if (!Number.isFinite(candidate.minCitations) || candidate.minCitations < 0) {
-    failures.push('minCitations must be a finite number >= 0')
-  }
-  if (
-    !Number.isFinite(candidate.cumulativeCitationShare) ||
-    candidate.cumulativeCitationShare <= 0 ||
-    candidate.cumulativeCitationShare > 1
-  ) {
-    failures.push('cumulativeCitationShare must be > 0 and <= 1')
-  }
-  if (!Number.isInteger(candidate.maxAssets) || candidate.maxAssets < 1) {
-    failures.push('maxAssets must be an integer >= 1')
-  }
-  if (failures.length) {
-    throw new Error(`Invalid AI citation protection policy: ${failures.join('; ')}`)
-  }
 }
 
 function parseCsv(content) {
@@ -97,10 +78,10 @@ function loadPageStats(file) {
   const citationIndex = header.findIndex((value) => ['citations', 'ai citations', 'citation count'].includes(value))
   if (pageIndex < 0 || citationIndex < 0) return null
   const rows = parsed.slice(1).map((cells) => ({
-    url: normalizeUrlPath(cells[pageIndex]),
+    url: String(cells[pageIndex] ?? '').trim(),
     citations: Number.parseFloat(String(cells[citationIndex] ?? '').replace(/[^0-9.-]/g, '')) || 0,
   }))
-  return rows.some((row) => row.citations > 0) ? rows : null
+  return rows.some((row) => row.url && row.citations > 0) ? rows : null
 }
 
 function latestPageStatsExport(dir) {
@@ -170,7 +151,7 @@ function rounded(value) {
 }
 
 function main() {
-  validatePolicy(policy)
+  validateProtectionPolicy(policy)
 
   const latest = latestPageStatsExport(INPUT_DIR)
   if (!latest) {
@@ -180,6 +161,10 @@ function main() {
 
   const rows = loadPageStats(latest.file)
   const selection = selectProtectedCitationAssets(rows, policy)
+  if (selection.assets.length === 0) {
+    throw new Error(`Page-stats export ${latest.name} produced no valid first-party protected assets`)
+  }
+
   const existing = loadExistingLedger()
   const existingByUrl = new Map((existing?.assets ?? []).map((asset) => [normalizeUrlPath(asset.url), asset]))
   const redirects = fs.existsSync(REDIRECTS_PATH)
