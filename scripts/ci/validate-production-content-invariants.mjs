@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { evaluateCorpus, recordIsPublished } from '../lib/production-content-invariants.mjs'
+import { evaluateRuntimeSourceRegistryReferences } from '../lib/runtime-source-registry-audit.mjs'
 
 const root = process.cwd()
 const dataDir = path.resolve(root, process.argv.find((arg) => arg.startsWith('--data-dir='))?.slice(11) || 'public/data')
@@ -22,7 +23,12 @@ function entriesFor(kind) {
 }
 
 const entries = [...entriesFor('herb'), ...entriesFor('compound')]
-const issues = evaluateCorpus(entries)
+const sourceRegistryRaw = readJson(path.join(dataDir, 'source-registry.json'))
+const sourceRegistry = Array.isArray(sourceRegistryRaw) ? sourceRegistryRaw : []
+const issues = [
+  ...evaluateCorpus(entries),
+  ...entries.flatMap(({ kind, record }) => evaluateRuntimeSourceRegistryReferences(record, kind, sourceRegistry)),
+]
 const publishedKeys = new Set(entries.filter(({ record }) => recordIsPublished(record)).map(({ kind, record }) => `${kind}:${record.slug}`))
 
 const alwaysBlocking = new Set([
@@ -52,6 +58,7 @@ const report = {
   generatedAt: new Date().toISOString(),
   profilesScanned: entries.length,
   publishedProfiles: publishedKeys.size,
+  sourceRegistryEntries: sourceRegistry.length,
   findings: issues.length,
   blockingFindings: blocking.length,
   counts,
@@ -59,12 +66,13 @@ const report = {
   policy: {
     publishedClaims: 'A-grade, human-evidence, safety and dose claims must be backed by the required evidence class before indexation.',
     corpusIntegrity: 'Broken source references, malformed citation destinations, placeholders, duplicate canonical IDs, malformed scientific names and internal-development language are forbidden in the generated profile corpus.',
+    runtimeRegistryIntegrity: 'Canonical-looking runtime source references are inventoried against the source registry. Missing registry identities are reported non-blocking until the legacy baseline is reconciled.',
   },
 }
 fs.mkdirSync(path.dirname(reportPath), { recursive: true })
 fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`)
 
-console.log(`[production-content-invariants] profiles=${report.profilesScanned}; published=${report.publishedProfiles}; findings=${report.findings}; blocking=${report.blockingFindings}`)
+console.log(`[production-content-invariants] profiles=${report.profilesScanned}; published=${report.publishedProfiles}; registry=${report.sourceRegistryEntries}; findings=${report.findings}; blocking=${report.blockingFindings}`)
 for (const [code, count] of Object.entries(counts).sort((a, b) => b[1] - a[1])) console.log(`[production-content-invariants] ${code}: ${count}`)
 console.log(`[production-content-invariants] report: ${path.relative(root, reportPath)}`)
 
