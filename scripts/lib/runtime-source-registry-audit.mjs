@@ -1,17 +1,23 @@
 export const ORPHANED_CANONICAL_SOURCE_REFERENCE = 'ORPHANED_CANONICAL_SOURCE_REFERENCE'
 
-function sourceRefIds(claim) {
-  const refs = claim?.sourceRefIds || claim?.sourceIds || claim?.source_ids || claim?.sources || []
-  return (Array.isArray(refs) ? refs : [refs])
+function normalizeRefs(raw) {
+  return (Array.isArray(raw) ? raw : raw == null ? [] : [raw])
     .map(value => typeof value === 'string' ? value.trim() : String(value?.id || value?.sourceId || '').trim())
     .filter(Boolean)
 }
 
+function sourceRefIds(claim) {
+  const refs = new Set()
+  for (const raw of [claim?.sourceRefIds, claim?.sourceIds, claim?.source_ids, claim?.sources]) {
+    for (const ref of normalizeRefs(raw)) refs.add(ref)
+  }
+  return [...refs]
+}
+
 function runtimeCanonicalRefs(record) {
   const refs = new Set()
-  const evidenceRefs = Array.isArray(record?.evidence?.sourceIds) ? record.evidence.sourceIds : []
-  for (const ref of evidenceRefs) {
-    const value = String(ref || '').trim()
+  const evidenceRefs = normalizeRefs(record?.evidence?.sourceIds)
+  for (const value of evidenceRefs) {
     if (/^src_/u.test(value)) refs.add(value)
   }
   for (const claim of Array.isArray(record?.claimMap) ? record.claimMap : []) {
