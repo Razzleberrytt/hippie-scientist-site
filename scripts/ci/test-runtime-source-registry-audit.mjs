@@ -45,4 +45,20 @@ assert.deepEqual(mixedFindings.map(finding => finding.detail), [
   'Runtime source reference src_second_orphan is absent from public/data/source-registry.json',
 ])
 
+const aliasFallback = structuredClone(base)
+aliasFallback.evidence.sourceIds = ['src_registered']
+aliasFallback.claimMap = [{
+  id: 'c6',
+  sourceRefIds: [],
+  sourceIds: ['src_alias_orphan'],
+  source_ids: ['src_second_alias_orphan'],
+  sources: [{ id: 'src_object_alias_orphan' }],
+}]
+const aliasFindings = evaluateRuntimeSourceRegistryReferences(aliasFallback, 'herb', registered)
+assert.deepEqual(aliasFindings.map(finding => finding.sourceId), [
+  'src_alias_orphan',
+  'src_object_alias_orphan',
+  'src_second_alias_orphan',
+])
+
 console.log('[runtime-source-registry-audit-tests] PASS')
