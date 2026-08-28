@@ -1,0 +1,31 @@
+name: Marginal economics contract
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/measurement/marginal-economics.mjs'
+      - 'tests/marginal-economics.test.mjs'
+      - '.github/workflows/marginal-economics.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/measurement/marginal-economics.mjs'
+      - 'tests/marginal-economics.test.mjs'
+      - '.github/workflows/marginal-economics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx vitest run tests/marginal-economics.test.mjs
