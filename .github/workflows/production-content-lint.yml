@@ -78,7 +78,7 @@ jobs:
         run: node scripts/ci/build-production-quality-snapshot.mjs
 
       - name: Download latest successful main quality baseline
-        if: github.event_name == 'pull_request' && steps.impact.outputs.docs_only != 'true'
+        if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') && steps.impact.outputs.docs_only != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -86,7 +86,7 @@ jobs:
           mkdir -p .quality-baseline
           run_id="$(gh run list --workflow 'Production Content Lint' --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId // empty')"
           if [ -z "$run_id" ]; then
-            echo 'No successful main baseline run exists yet; this PR will bootstrap comparison coverage.'
+            echo 'No successful main baseline run exists yet; this validation will bootstrap comparison coverage.'
             exit 0
           fi
           if ! gh run download "$run_id" --name production-quality-baseline --dir .quality-baseline; then
