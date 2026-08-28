@@ -11,6 +11,13 @@ import {
 const MANIFEST_PATH = path.resolve('experiments/crawl-request-indexing/manifest.json')
 const EXPECTED = { treatment: 20, control: 20, observational: 57 }
 const RANDOMIZED_ARMS = new Set(['treatment', 'control'])
+const CONTAMINATION_REASON_CODES = new Set([
+  'safety_critical',
+  'scientific_integrity',
+  'legal_compliance',
+  'security',
+  'emergency_operational',
+])
 
 function parseArgs(argv) {
   const args = {}
@@ -33,6 +40,10 @@ function fail(message) {
   process.exitCode = 1
 }
 
+function warn(message) {
+  console.warn(`[crawl-experiment] WARN: ${message}`)
+}
+
 function timestamp(value) {
   const parsed = Date.parse(value ?? '')
   return Number.isFinite(parsed) ? parsed : null
@@ -40,6 +51,33 @@ function timestamp(value) {
 
 function sameNullable(a, b) {
   return (a ?? null) === (b ?? null)
+}
+
+function validContamination(entry) {
+  const contamination = entry?.contamination
+  if (contamination == null) return false
+  let valid = true
+  if (!RANDOMIZED_ARMS.has(entry.arm)) {
+    fail(`only randomized entries may be marked contaminated: ${entry.pathname}`)
+    valid = false
+  }
+  if (timestamp(contamination.recorded_at) === null) {
+    fail(`contamination missing valid recorded_at: ${entry.pathname}`)
+    valid = false
+  }
+  if (!CONTAMINATION_REASON_CODES.has(contamination.reason_code)) {
+    fail(`contamination has unsupported reason_code for ${entry.pathname}: ${contamination.reason_code}`)
+    valid = false
+  }
+  if (typeof contamination.reason !== 'string' || !contamination.reason.trim()) {
+    fail(`contamination missing reason: ${entry.pathname}`)
+    valid = false
+  }
+  if (contamination.excluded_from_causal_analysis !== true) {
+    fail(`contamination must set excluded_from_causal_analysis=true: ${entry.pathname}`)
+    valid = false
+  }
+  return valid
 }
 
 const args = parseArgs(process.argv.slice(2))
@@ -79,17 +117,22 @@ for (const [arm, expected] of Object.entries(EXPECTED)) {
 
 const pairs = new Map()
 for (const entry of entries) {
+  const contaminationValid = validContamination(entry)
   if (entry.arm === 'observational') {
     if (entry.pair_id !== null) fail(`observational entry must not have pair_id: ${entry.pathname}`)
     if (entry.experiment_t0 !== null || entry.treatment_requested_at !== null) {
       fail(`observational entry must not have treatment timing: ${entry.pathname}`)
     }
+    if (entry.contamination != null) fail(`observational entry may not be marked contaminated: ${entry.pathname}`)
     continue
   }
 
   if (!entry.pair_id || !/^pair-\d{2}$/.test(entry.pair_id)) fail(`randomized entry missing valid pair_id: ${entry.pathname}`)
   if (!entry.baseline_rendered_sha256 || !/^[0-9a-f]{64}$/.test(entry.baseline_rendered_sha256)) {
     fail(`randomized entry missing baseline_rendered_sha256: ${entry.pathname}`)
+  }
+  if (entry.contamination != null && !contaminationValid) {
+    fail(`invalid contamination record: ${entry.pathname}`)
   }
   const pair = pairs.get(entry.pair_id) ?? {}
   if (pair[entry.arm]) fail(`duplicate ${entry.arm} in ${entry.pair_id}`)
@@ -160,14 +203,15 @@ const freezeExpired = manifest.status === 'active' && freezeEnd !== null && Date
 const enforceFreeze = ['prepared', 'activating'].includes(manifest.status) || (manifest.status === 'active' && !freezeExpired)
 
 if (args['structural-only'] || !enforceFreeze) {
+  const contaminatedCount = entries.filter((entry) => entry.contamination != null).length
   const suffix = freezeExpired ? ' (28-day freeze elapsed; content lock released)' : ''
-  if (!process.exitCode) console.log(`[crawl-experiment] PASS structural: status=${manifest.status}, treatment=${recordedCount}/20${suffix}`)
+  if (!process.exitCode) console.log(`[crawl-experiment] PASS structural: status=${manifest.status}, treatment=${recordedCount}/20, contaminated=${contaminatedCount}${suffix}`)
   process.exit(process.exitCode ?? 0)
 }
 
 const currentPolicyHash = freezePolicyHash()
 if (currentPolicyHash !== manifest.freeze.policy_sha256) {
-  console.warn('[crawl-experiment] NOTE: route-policy source changed; final built randomized-page outcomes will decide whether this contaminates the experiment.')
+  warn('route-policy source changed; final built randomized-page outcomes will decide whether this contaminates the experiment.')
 }
 
 const buildDir = path.resolve(args['build-dir'] || 'out')
@@ -180,20 +224,33 @@ try {
 
 if (sitemap) {
   for (const entry of entries.filter((candidate) => RANDOMIZED_ARMS.has(candidate.arm))) {
+    const contaminated = validContamination(entry)
     try {
       const snapshot = snapshotBuiltHerb(entry.pathname, buildDir, sitemap)
-      if (snapshot.rendered_sha256 !== entry.baseline_rendered_sha256) {
-        fail(`28-day rendered-content freeze violated: ${entry.pathname}`)
-      }
-      if (!sameNullable(snapshot.baseline_lastmod, entry.baseline_lastmod)) {
-        fail(`lastmod freeze violated for ${entry.pathname}: baseline=${entry.baseline_lastmod ?? 'null'} current=${snapshot.baseline_lastmod ?? 'null'}`)
+      const renderedChanged = snapshot.rendered_sha256 !== entry.baseline_rendered_sha256
+      const lastmodChanged = !sameNullable(snapshot.baseline_lastmod, entry.baseline_lastmod)
+      if (renderedChanged || lastmodChanged) {
+        const changed = [
+          renderedChanged ? 'rendered content' : null,
+          lastmodChanged ? 'lastmod' : null,
+        ].filter(Boolean).join(' + ')
+        if (contaminated) {
+          warn(`excluded contaminated randomized unit changed (${changed}): ${entry.pathname}`)
+        } else {
+          fail(`28-day randomized-page freeze violated (${changed}): ${entry.pathname}`)
+        }
       }
     } catch (error) {
-      fail(error instanceof Error ? error.message : String(error))
+      if (contaminated) {
+        warn(`excluded contaminated randomized unit no longer satisfies canonical/indexability/sitemap eligibility: ${entry.pathname} (${error instanceof Error ? error.message : String(error)})`)
+      } else {
+        fail(error instanceof Error ? error.message : String(error))
+      }
     }
   }
 }
 
 if (!process.exitCode) {
-  console.log(`[crawl-experiment] PASS: status=${manifest.status}, treatment=${recordedCount}/20; 40 randomized pages remain self-canonical, indexable, sitemap-eligible, lastmod-stable, and rendered-content-stable.`)
+  const contaminatedCount = entries.filter((entry) => entry.contamination != null).length
+  console.log(`[crawl-experiment] PASS: status=${manifest.status}, treatment=${recordedCount}/20; uncontaminated randomized pages remain self-canonical, indexable, sitemap-eligible, lastmod-stable, and rendered-content-stable; contaminated randomized units excluded=${contaminatedCount}.`)
 }
