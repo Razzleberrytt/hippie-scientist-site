@@ -15,7 +15,7 @@ Business impact, user value, traffic potential, strategic leverage, and effort u
 
 The formula remains singular. **Strategic Leverage explicitly includes dependency-unlock value**: shared infrastructure, recurring throughput unlocked, and the number/importance of otherwise blocked high-value items may raise that existing input. **Confidence is freshness-sensitive**: when a ranked item's score depends on external demand, production state, analytics, platform behavior, or an unresolved technical assumption, the item must carry a current `last_verified` date/scope before promotion. Stale assumptions lower Confidence or force revalidation; they do not receive a hidden bonus or a second score. Safety, scientific correctness, production incidents, accessibility blockers, and other hard gates are never weakened by freshness mechanics.
 
-Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authority/Content, and **O** Operations. The Evidence → Distribution initiative is one Revenue/Growth initiative with five orthogonal implementation lanes: **L1 rendering/media infrastructure, L2 factual/provenance, L3 opportunity/measurement, L4 presentation/experiments, L5 lifecycle/publishing**. One active ticket per lane is allowed only when scopes are demonstrably non-overlapping and the overall sprint WIP limit is respected.
+Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conversion, and **A** Authority/Content, with one active ticket per workstream. **O** Operations remains a classification, not a fourth normal workstream. The Evidence → Distribution surfaces—**L1 rendering/media infrastructure, L2 factual/provenance, L3 opportunity/measurement, L4 presentation/experiments, L5 lifecycle/publishing**—describe ownership, not permission for concurrent Revenue/Conversion tickets.
 
 ### Backlog hygiene rules
 
@@ -46,11 +46,13 @@ Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authorit
 
 ## Now — active exact work
 
-One implementation PR is active. Two slots remain available, subject to dependency, freshness, lane ownership, and incident overrides.
+One implementation PR is active at the 2026-08-28T15:04Z GitHub snapshot: #4477 / PR #4478 in Revenue/Conversion. Only eligible Discovery/SEO or Authority/Content work may fill the remaining normal slots. Another Revenue ticket must wait; this documentation-only sync admits no implementation.
+
+**Governance check:** Verified merges of #4475 and #4469 cleared the former overlap without creating a fourth workstream or an exception. Numeric reconciliation PASS does not certify workstream eligibility; `AGENTS.md` still governs admission.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| PR #4457 | Preserve all approved canonical safety warnings | R / L2 | In Review | P0 provenance | — | — | Canonical safety claimMap | Complete canonical safety projection; exact claim/text identity and deterministic provenance; omissions/mutations fail closed |
+| #4477 / PR #4478 | Evidence-safe creative template catalog | R / L4 | In Review | P1 trust | — | — | Governed distribution fields | Citation/disclosure preservation; missing-fact blocking; no factual inference; deterministic template regressions |
 
 ## Next — ordered dependency queue
 
@@ -58,8 +60,6 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Ready after lifecycle receipt contract | P0 | 5/4/5/5/.75/2 | 187.5 | Merged #4406 receipt identity + existing feedback engine | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
-| #4413 | Make prioritization freshness- and unlock-aware without a second score | O / control | Planned | P1 compounding | 3/3/3/5/1/2 | 67.5 | Merged #4412; revalidate exact-main assumptions at start | Strategic Leverage explicitly carries unlock value; externally contingent items expose `last_verified`; stale evidence reduces Confidence/forces revalidation; replayed inputs produce the same queue |
 | #4414 | Add durable experiment-learning ledger and anti-repeat guard | R/O / L4 learning | Planned | P1 learning | 3/4/3/4/.75/2 | 54.0 | #4407 observations preferred; current experiment contracts | Stable experiment identity; positive/negative/null/underpowered/invalid/Unknown states; prior-test detection; legitimate retest requires changed assumption; scientific authority remains separate |
 | #4415 | Add marginal outcome-per-effort economics to scaling decisions | R/O measurement | Planned | P1 scale economics | 4/4/4/5/.75/3 | 80.0 | #4227 and/or #4407 observations; REV data when available | Reproducible qualified-outcome/resource ratios with named inputs/windows; missing values Unknown; gross throughput cannot justify scale when marginal efficiency/trust deteriorates |
 | #4227 | Deduplicate uncached production exports across PR workflows | O | Planned | P1 compounding | 3/3/2/5/1/2 | 45.0 | Preserve fail-closed exact-SHA validation; `last_verified` at promotion | Quantify duplicated runner minutes; exact-SHA reusable artifact/cache or equivalent; cache miss performs full governed build; no quality thresholds weakened |
@@ -67,7 +67,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | AUTH-001 | Resolve verified duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Revalidate current route/query evidence before promotion | Each pair has one owner or a genuinely distinct user job; removed owners get direct redirects; internal links/canonicals point to winner |
 | #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + provenance/source review; revalidate source status at start | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
 | #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
-| DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous maintenance until #4412 replaces manual detection | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
+| DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
 
@@ -102,6 +102,11 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4407 / PR #4484 | Merged as 6fba155c6f241af7cee38981c413bde710d56c1b — attributable outcome ingestion; final-head checks passed; real performance observations remain unverified |
+| #4413 / PR #4469 | Merged as d0936fbe7d41c84c753a8374f2a7b25047322339 — freshness/unlock-aware prioritization; retired from active ownership |
+| #4476 / PR #4475 | Merged as 65605fd2f4e9cfd85af63c14bd2a583471551bf2 — canonical evidence-grade binding; retired from active ownership |
+| #4482 / PR #4481 | Research draft staging merged as d6934eacff95b4b9dc1c3c5be2f0c8a91e9bc4a1; not scientific-promotion approval or resolution of its recorded registry blocker |
+| PR #4457 | Completed/merged as 95ec9ba285f06c947f2844a2f81abce031b9e437 — complete canonical safety-warning preservation; removed from `Now` |
 | #4412 / PR #4446 | Completed/merged as 96a07976dee22cf7b91c337c820cc83ff7e6b860 — machine reconciliation is on main; removed from `Now` |
 | #4463 | Completed/merged as f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1 — trust-safe thumbnail variants are on main; removed from `Now` |
 | #4460 | Completed/merged as 48bebb81e35c4bd605dedbfc15156cabeb915b06 — duplicate-angle suppression is on main; removed from `Now` |
