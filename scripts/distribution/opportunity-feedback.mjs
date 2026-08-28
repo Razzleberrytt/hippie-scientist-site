@@ -1,5 +1,5 @@
 const DAY_MS = 86400000
-const MIN_PERFORMANCE_REWARD_VIEWS = 250
+export const MIN_PERFORMANCE_REWARD_VIEWS = 250
 
 function clamp(value, min, max) {
   const number = Number(value)
