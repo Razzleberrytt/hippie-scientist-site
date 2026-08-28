@@ -10,7 +10,7 @@ export const RUNTIME_SOURCE_REMEDIATION_STATES = [
 
 const DOI_RE = /^10\.\d{4,9}\/\S+$/iu
 const PMID_RE = /^\d{5,9}$/u
-const HUMAN_RE = /\b(?:human|randomi[sz]ed|rct|clinical trial|controlled trial|meta-analysis|systematic review|cohort|observational|participants?|patients?|adults?|subjects?)\b/iu
+const HUMAN_CONTEXT_RE = /\b(?:human|randomi[sz]ed|rct|clinical trial|controlled trial|cohort|observational|participants?|patients?|adults?|subjects?)\b/iu
 const SAFETY_RE = /\b(?:safe|safety|adverse|side effect|interaction|contraindicat|avoid|pregnan|breastfeed|liver|bleed|sedat|toxicity|toxic|tolerab)\b/iu
 
 function text(value) {
@@ -104,12 +104,45 @@ function claimRefs(claim) {
   return [...refs]
 }
 
+function explicitHumanClass(value) {
+  const normalized = normalizeLower(value)
+  return /\bhuman\b/iu.test(normalized) || /^(?:randomized-human-trial|non-randomized-human-study|observational-human-evidence)$/u.test(normalized)
+}
+
 function claimSignals(record, orphanSourceId) {
   const claims = (Array.isArray(record?.claimMap) ? record.claimMap : []).filter(claim => claimRefs(claim).includes(orphanSourceId))
   const claimText = claims.map(claim => text([claim?.claim, claim?.notes, claim?.predicate, claim?.evidenceLevel, claim?.evidence_level, claim?.qualifiers])).join(' ')
   return {
     safetyRelevant: SAFETY_RE.test(claimText),
-    humanEvidenceRelevant: HUMAN_RE.test(claimText) || claims.some(claim => /human/iu.test(normalize(claim?.evidenceLevel || claim?.evidence_level))),
+    humanEvidenceRelevant: HUMAN_CONTEXT_RE.test(claimText) || claims.some(claim => explicitHumanClass(claim?.evidenceLevel || claim?.evidence_level)),
+  }
+}
+
+function sourceSignals(localSources) {
+  const sourceText = localSources.map(source => text([
+    source?.title,
+    source?.shortTitle,
+    source?.citation,
+    source?.citationText,
+    source?.note,
+    source?.notes,
+    source?.studyType,
+    source?.studyClass,
+    source?.study_type,
+    source?.study_class,
+    source?.sourceType,
+    source?.sourceClass,
+    source?.evidenceClass,
+    source?.evidence_class,
+    source?.design,
+    source?.publicationType,
+    source?.publication_type,
+  ])).join(' ')
+  return {
+    safetyRelevant: SAFETY_RE.test(sourceText),
+    humanEvidenceRelevant: HUMAN_CONTEXT_RE.test(sourceText) || localSources.some(source =>
+      explicitHumanClass(source?.evidenceClass || source?.evidence_class) || explicitHumanClass(source?.sourceClass || source?.source_class),
+    ),
   }
 }
 
@@ -225,7 +258,12 @@ export function buildRuntimeSourceRemediationQueue({ orphanRows, entries, source
   const queue = rows.map(row => {
     const record = recordByKey.get(`${row.kind}:${row.slug}`) || {}
     const localSources = (Array.isArray(record?.sources) ? record.sources : []).filter(source => sourceId(source) === row.sourceId)
-    const signals = claimSignals(record, row.sourceId)
+    const claimSignal = claimSignals(record, row.sourceId)
+    const sourceSignal = sourceSignals(localSources)
+    const signals = {
+      safetyRelevant: claimSignal.safetyRelevant || sourceSignal.safetyRelevant,
+      humanEvidenceRelevant: claimSignal.humanEvidenceRelevant || sourceSignal.humanEvidenceRelevant,
+    }
     const classification = classifyOne({ localSources, candidates, reconciliationByCandidate })
     const published = recordIsPublished(record)
     const fanout = fanoutBySourceId.get(row.sourceId) || 1
