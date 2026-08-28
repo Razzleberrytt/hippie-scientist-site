@@ -120,7 +120,7 @@ export function validateLosslessCaptionContract(contract, scenes) {
   const sourceScenes = Array.isArray(scenes) ? scenes : []
 
   if (Number(contract?.minimumPxAt1080) < 44) errors.push('caption typography must be at least 44px at 1080-wide output')
-  if (contract?.ellipsisAllowed !== false || contract?.truncationAllowed !== false) errors.push('caption truncation and ellipses must be forbidden')
+  if (contract?.ellipsisAllowed !== false || contract?.truncationAllowed !== false) errors.push('caption truncation and presentation-added ellipses must be forbidden')
   if (!contract?.mustFitPlatformSafeArea || !contract?.platformSafeAreas) errors.push('captions must be bound to platform safe areas')
   if (!cues.length) errors.push('caption cues are required')
 
@@ -128,7 +128,6 @@ export function validateLosslessCaptionContract(contract, scenes) {
     const lines = String(cue?.text ?? '').split('\n')
     if (lines.length > Number(contract?.maxLines ?? 0)) errors.push(`cue ${cue.index} exceeds the line-count budget`)
     if (lines.some((line) => line.length > Number(contract?.maxCharsPerLine ?? 0))) errors.push(`cue ${cue.index} exceeds the line-length budget`)
-    if (String(cue?.text ?? '').includes('…')) errors.push(`cue ${cue.index} contains a presentation-added ellipsis`)
     if (!(Number(cue?.end) > Number(cue?.start))) errors.push(`cue ${cue.index} has invalid timing`)
     if ((Number(cue?.end) - Number(cue?.start)) + 1e-9 < Number(contract?.minimumCueSeconds ?? 0)) errors.push(`cue ${cue.index} is too brief`)
   }
@@ -136,7 +135,9 @@ export function validateLosslessCaptionContract(contract, scenes) {
   for (const [sceneIndex, scene] of sourceScenes.entries()) {
     const sceneCues = cues.filter((cue) => cue.sceneIndex === sceneIndex + 1)
     const reconstructed = clean(sceneCues.map(cueText).join(' '))
-    if (reconstructed !== clean(scene?.voiceover)) errors.push(`scene ${sceneIndex + 1} caption text does not reconstruct voiceover exactly`)
+    const sourceVoiceover = clean(scene?.voiceover)
+    if (reconstructed !== sourceVoiceover) errors.push(`scene ${sceneIndex + 1} caption text does not reconstruct voiceover exactly`)
+    if (sceneCues.some((cue) => clean(cue?.sourceVoiceover) !== sourceVoiceover)) errors.push(`scene ${sceneIndex + 1} caption source voiceover drifted`)
     if (sceneCues.length && Number(sceneCues[0].start) !== Number(scene.start)) errors.push(`scene ${sceneIndex + 1} captions do not start with the scene`)
     if (sceneCues.length && Number(sceneCues.at(-1).end) !== Number(scene.end)) errors.push(`scene ${sceneIndex + 1} captions do not end with the scene`)
   }
