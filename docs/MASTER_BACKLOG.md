@@ -4,7 +4,7 @@
 **Updated:** 2026-08-28
 **WIP cap:** 3
 
-**Control dependencies:** #4412 <- #4411; #4407 <- #4406
+**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 **Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync.
 
 ## Scoring and gates
