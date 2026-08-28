@@ -28,6 +28,24 @@ describe('AI citation protected asset selection', () => {
     expect(result.protectedCitationShare).toBeCloseTo(0.8)
   })
 
+  it('aggregates duplicate URL rows before ranking', () => {
+    const result = selectProtectedCitationAssets(
+      [
+        { url: '/same/', citations: 180 },
+        { url: 'https://thehippiescientist.net/same/', citations: 170 },
+        { url: '/other/', citations: 300 },
+        { url: '/tail/', citations: 50 },
+      ],
+      { minCitations: 250, cumulativeCitationShare: 0.5, maxAssets: 10 },
+    )
+
+    expect(result.totalCitations).toBe(700)
+    expect(result.assets.map((asset) => [asset.url, asset.citations])).toEqual([
+      ['/same/', 350],
+      ['/other/', 300],
+    ])
+  })
+
   it('selects the measured 2026-08-28 top nine under the default policy', () => {
     const head = [3575, 2217, 497, 471, 322, 299, 259, 253, 251, 207, 179, 167]
     const tail = [...Array(10).fill(200), 161]
