@@ -17,13 +17,32 @@ const signals = readJson(signalsPath, {})
 if (!Array.isArray(objects)) throw new Error('research objects input must be an array')
 if (!signals || Array.isArray(signals) || typeof signals !== 'object') throw new Error('opportunity signals must be an object keyed by governed research-object id')
 
+const signalIds = Object.keys(signals).sort()
+const governedIds = objects.map((object) => String(object?.id || '')).filter(Boolean)
+const coveredGovernedIds = governedIds.filter((id) => Object.prototype.hasOwnProperty.call(signals, id)).sort()
+const signalCoverage = governedIds.length ? coveredGovernedIds.length / governedIds.length : 0
+const signalEvidence = {
+  mode: fs.existsSync(signalsPath) ? 'observed-signals' : 'fallback-defaults',
+  source: fs.existsSync(signalsPath) ? path.relative(root, signalsPath) : null,
+  governedCandidateCount: governedIds.length,
+  signalRecordCount: signalIds.length,
+  coveredGovernedCandidateCount: coveredGovernedIds.length,
+  coverageRatio: Number(signalCoverage.toFixed(4)),
+  coveredGovernedIds,
+  warning: signalCoverage < 1
+    ? 'Opportunity ranking is partially or wholly fallback-driven; do not describe fallback scores as observed search, AI-search, or social demand.'
+    : null,
+}
+
 const result = selectDistributionOpportunity(objects, signals)
 const output = {
   authority: path.relative(root, objectsPath),
-  signals: fs.existsSync(signalsPath) ? path.relative(root, signalsPath) : null,
+  signals: signalEvidence.source,
+  signalEvidence,
   rule: 'Growth signals may rank eligible governed research objects but cannot make an ineligible scientific claim distributable.',
   ...result,
 }
 fs.mkdirSync(outDir, { recursive: true })
 fs.writeFileSync(path.join(outDir, 'opportunity-selection.json'), `${JSON.stringify(output, null, 2)}\n`)
 console.log(`[distribution] opportunity selection: ${result.status}${result.selected ? ` -> ${result.selected.id} (${result.selected.platform}, score ${result.selected.score})` : ''}`)
+console.log(`[distribution] opportunity signal coverage: ${coveredGovernedIds.length}/${governedIds.length} (${signalEvidence.mode})`)
