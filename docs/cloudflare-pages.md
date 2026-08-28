@@ -63,3 +63,20 @@ Production fail-closed responses:
 Local development (no `ENVIRONMENT=production`) remains permissive when KV/Turnstile are
 absent so the form can be exercised without the full production stack. Fail-closed behavior
 is covered by `app/__tests__/subscribe.test.ts`.
+
+## Pages Function environment (crawl experiment / `functions/herbs/_middleware.ts`)
+
+Verified Googlebot HTML telemetry for the Request Indexing experiment is scoped to `/herbs/*`.
+The middleware verifies Googlebot-looking requests against Google's published common-crawler
+CIDR feed and never stores the source IP.
+
+Optional KV binding (**Settings → Functions → KV namespace bindings**):
+
+| Binding | Required in prod | Purpose / behavior if missing |
+|---------|------------------|-------------------------------|
+| `CRAWL_EXPERIMENT_KV` | No | Durable 90-day storage for verified crawl events. If unbound, events still go to Cloudflare Function logs; page delivery and bot verification remain unaffected. |
+
+The crawl telemetry path is deliberately **fail open**: CIDR-fetch or telemetry-write failures
+must never change crawler-visible status, content, canonical behavior, or response availability.
+See `experiments/crawl-request-indexing/README.md` for the manifest, randomization, freeze, and
+analysis contract.
