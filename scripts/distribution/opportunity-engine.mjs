@@ -59,6 +59,11 @@ function stableFingerprint(value) {
   return (hash >>> 0).toString(36)
 }
 
+function normalizeInventoryCohorts(value) {
+  if (!Array.isArray(value)) return []
+  return [...new Set(value.map((item) => String(item || '').trim()).filter(Boolean))].sort()
+}
+
 function buildDestination(object, platform, angle) {
   const canonicalUrl = String(object.sourceUrl)
   const cohort = stableFingerprint(`${object.id}|${platform}|${angle}`)
@@ -183,20 +188,26 @@ export function scoreDistributionCandidate(object, signals = {}, options = {}) {
   const score = 3 * metrics.impact + 2 * metrics.urgency + 2 * metrics.breadth + 2 * metrics.confidence + 2 * metrics.compoundingLeverage + metrics.opportunityAge + metrics.reversibility + metrics.technicalDebtInterest - metrics.effort - 2 * metrics.regressionRisk - metrics.blastRadius - metrics.existingAssetSaturation - metrics.cannibalizationRisk - eligibility.claimRisk
   const platform = choosePlatform(metrics)
   const angle = object ? buildAngle(object, platform.platform) : null
+  const destination = object ? buildDestination(object, platform.platform, angle) : null
+  const existingAngleCohorts = normalizeInventoryCohorts(signals?.[id]?.existingAngleCohorts)
+  const duplicateAngle = Boolean(destination?.attribution?.cohort && existingAngleCohorts.includes(destination.attribution.cohort))
+  const distributionBlockedReasons = duplicateAngle ? ['exact page/platform/angle cohort already exists in distribution inventory'] : []
   return {
-    id: object?.id || null, eligible: eligibility.eligible, ineligibleReasons: eligibility.reasons, score, sourceUrl: object?.sourceUrl || null, platform: platform.platform, platformScore: platform.score,
+    id: object?.id || null, eligible: eligibility.eligible, ineligibleReasons: eligibility.reasons, selectable: eligibility.eligible && !duplicateAngle, distributionBlockedReasons, duplicateAngle, existingAngleCohorts, score, sourceUrl: object?.sourceUrl || null, platform: platform.platform, platformScore: platform.score,
     angle,
-    destination: object ? buildDestination(object, platform.platform, angle) : null,
+    destination,
     discoverability: object ? buildDiscoverability(object, platform.platform) : null,
     metrics,
-    guardrails: ['Use only the governed finding/public-safe claim from the validated media pack.', 'Preserve the governed limitation in every complete caption/script and on-screen where factual interpretation depends on it.', 'Do not convert study dose/form context into consumer dosing instructions.', 'Do not strengthen preclinical evidence into human benefit language.', 'Canonical destination must remain the governed sourceUrl.'],
+    guardrails: ['Use only the governed finding/public-safe claim from the validated media pack.', 'Preserve the governed limitation in every complete caption/script and on-screen where factual interpretation depends on it.', 'Do not convert study dose/form context into consumer dosing instructions.', 'Do not strengthen preclinical evidence into human benefit language.', 'Canonical destination must remain the governed sourceUrl.', 'Do not autonomously recommend an exact page/platform/angle cohort already present in the distribution inventory.'],
     successCriteria: { primaryMetric: 'qualified visits to canonical evidence page from tagged distribution links', secondaryMetrics: ['asset completion/save rate', 'search impressions/clicks for destination page', 'AI citation/mention visibility'], measurementWindowDays: 28, attributionRisk: 'medium' },
   }
 }
 
 export function selectDistributionOpportunity(objects, signals = {}, options = {}) {
   const candidates = (Array.isArray(objects) ? objects : []).map((object) => scoreDistributionCandidate(object, signals, options))
+  const selectable = candidates.filter((candidate) => candidate.selectable)
+  selectable.sort((a, b) => b.score - a.score || b.platformScore - a.platformScore || String(a.id).localeCompare(String(b.id)))
   const eligible = candidates.filter((candidate) => candidate.eligible)
-  eligible.sort((a, b) => b.score - a.score || b.platformScore - a.platformScore || String(a.id).localeCompare(String(b.id)))
-  return { schemaVersion: '1.0.0', status: eligible.length ? 'selected' : 'waiting-for-governed-object', selected: eligible[0] || null, candidates }
+  const status = selectable.length ? 'selected' : eligible.length ? 'waiting-for-unsaturated-angle' : 'waiting-for-governed-object'
+  return { schemaVersion: '1.1.0', status, selected: selectable[0] || null, candidates }
 }
