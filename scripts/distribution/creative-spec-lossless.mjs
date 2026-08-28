@@ -4,6 +4,7 @@ import { buildSourceLegibilityContract, validateSourceLegibilityContract } from 
 import { buildHookContract, validateHookContract } from './creative-hook-contract.mjs'
 import { buildCtaContract, validateCtaContract } from './creative-cta-contract.mjs'
 import { buildLosslessCaptionContract, validateLosslessCaptionContract } from './creative-caption-contract.mjs'
+import { buildThumbnailContract, validateThumbnailContract } from './creative-thumbnail-contract.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
@@ -99,6 +100,15 @@ export function buildLosslessCreativeSpec(input) {
     throw new Error(`Invalid lossless caption contract: ${captionErrors.join('; ')}`)
   }
 
+  const thumbnails = buildThumbnailContract({
+    hookText: hook.text,
+    platformSafeAreas: base.delivery.platformSafeAreas,
+  })
+  const thumbnailErrors = validateThumbnailContract(thumbnails, hook.text)
+  if (thumbnailErrors.length) {
+    throw new Error(`Invalid thumbnail presentation contract: ${thumbnailErrors.join('; ')}`)
+  }
+
   const carousel = {
     ...base.carousel,
     slides: [hookSlide, ...findingSlides, ...limitationSlides, sourceSlide].filter(Boolean),
@@ -119,7 +129,8 @@ export function buildLosslessCreativeSpec(input) {
 
   return {
     ...base,
-    version: 9,
+    version: 10,
+    thumbnails,
     carousel,
     verticalVideo: {
       ...base.verticalVideo,
@@ -128,10 +139,12 @@ export function buildLosslessCreativeSpec(input) {
       sourceLegibility,
       hook,
       cta,
+      thumbnails,
       accessibility: {
         ...base.verticalVideo.accessibility,
         losslessDeterministicCaptionsRequired: true,
         captionVoiceoverReconstructionRequired: true,
+        cropResilientThumbnailHeadlineRequired: true,
       },
       rendererContract: {
         ...copyPlan.rendererContract,
@@ -148,17 +161,22 @@ export function buildLosslessCreativeSpec(input) {
         captionsMustSatisfyLosslessContract: true,
         captionsMayNotTruncateOrAddEllipses: true,
         captionCuesMustReconstructSceneVoiceoverExactly: true,
+        thumbnailsMustSatisfyTrustContract: true,
+        thumbnailVariantsMustPreserveExactHookText: true,
+        thumbnailVariantsMayVaryCompositionOnly: true,
       },
     },
     delivery: {
       ...base.delivery,
       ctaContract: cta,
       captionContract: captions,
+      thumbnailContract: thumbnails,
       factualTextPolicy: 'Finding and limitation copy must be rendered from losslessCopy pages verbatim and in order. Continuation pages/scenes may expand presentation length/count but may never truncate, paraphrase, or drop governed factual text.',
       sourcePresentationPolicy: 'The canonical source URL must remain fully legible, untruncated, inside the platform safe area, and visible on a dedicated video source scene for at least three seconds. A CTA or disclosure may never replace or cover the source.',
       hookPresentationPolicy: 'The opening hook must occupy the first two seconds, remain readable inside the vertical safe area, avoid unsupported certainty or ranking language, and may not compete with a CTA.',
       ctaPresentationPolicy: 'The CTA must use the fixed evidence-first wording, link exactly to the canonical evidence page, remain readable inside the platform safe area during the final three seconds, preserve source/disclosure visibility, and never use urgency or scarcity pressure.',
       captionPresentationPolicy: 'Captions must preserve scene voiceover exactly after whitespace normalization, split only at word boundaries, stay within the two-line readability budget and platform safe areas, and fail closed rather than truncate or add ellipses.',
+      thumbnailPresentationPolicy: 'Thumbnail experiments must preserve the exact governed hook text across every stable variant, keep the headline/logo/disclosure crop-safe for 9:16, 4:5, and 1:1 surfaces, use at least 64px headline typography at 1080-wide output, contain no CTA, and vary composition only.',
     },
     guardrails: {
       ...base.guardrails,
@@ -177,6 +195,10 @@ export function buildLosslessCreativeSpec(input) {
       losslessCaptionContractRequired: true,
       captionTruncationForbidden: true,
       captionVoiceoverReconstructionRequired: true,
+      trustSafeThumbnailContractRequired: true,
+      thumbnailHookRewriteForbidden: true,
+      thumbnailCtaForbidden: true,
+      thumbnailCropResilienceRequired: true,
     },
   }
 }
