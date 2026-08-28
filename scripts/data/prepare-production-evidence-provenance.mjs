@@ -8,12 +8,18 @@
  * linked source: doing so makes the later source-backed invariant circular
  * (claim says human -> source gets "human evidence" -> human-source gate passes).
  *
- * The only mutation retained here is fail-closed dosage suppression. Numeric
- * profile-level dose fields are removed when no source record independently
- * carries dose information. The workbook remains the research source of truth;
- * this narrows only what production may publish.
+ * Final citation quarantine runs after the early workbook evidence-grade pass.
+ * Re-derive grades/rationales/summaries here from the surviving evidence graph
+ * so a quarantined source cannot leave a stale Grade A sentence behind and
+ * trigger a disproportionate profile-level demotion.
+ *
+ * The remaining mutation is fail-closed dosage suppression. Numeric profile-
+ * level dose fields are removed when no source record independently carries
+ * dose information. The workbook remains the research source of truth; this
+ * narrows only what production may publish.
  */
 
+import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -21,6 +27,13 @@ const root = process.cwd()
 const dataDir = path.resolve(
   root,
   process.argv.find((arg) => arg.startsWith('--data-dir='))?.slice(11) || 'public/data',
+)
+
+console.log('[prepare-production-evidence-provenance] re-deriving evidence grades after final citation quarantine')
+execFileSync(
+  'npx',
+  ['tsx', 'scripts/data/normalize-evidence-grades.ts', `--data-dir=${dataDir}`],
+  { cwd: root, stdio: 'inherit', env: process.env },
 )
 
 const DOSE_RE = /\b\d+(?:\.\d+)?\s*(?:mg|g|mcg|µg|ug|ml|iu)(?:\s*\/\s*(?:day|d))?\b/i
