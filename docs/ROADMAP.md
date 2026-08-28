@@ -20,7 +20,7 @@
 | M5 — Growth Engine | Not started | Full multi-channel scaling requires proven acquisition/conversion economics; bounded attributable distribution learning may begin earlier |
 | M6 — Scale | Not started | Requires stable quality controls, repeatable growth, self-correcting prioritization, experiment memory, and evidence that increased throughput still produces positive marginal qualified outcomes |
 
-## Current execution emphasis — 2026-08-27
+## Current execution emphasis — 2026-08-28
 
 The highest-leverage unblocked work is completing the governed Evidence → Distribution MVP while hardening the autonomous control plane enough that increased throughput does not create stale queues or irrelevant merge waits.
 
@@ -38,10 +38,12 @@ The highest-leverage unblocked work is completing the governed Evidence → Dist
 1. **#4410 / PR #4411 — changed-file-relevant medium-risk merge gates:** remove unrelated full-site wait states for subsystem-isolated work while preserving targeted distribution validation, site/content gates where relevant, high-risk full-gate behavior, exact-head/current-base checks, and known-failure blocking.
 2. **#4412 — machine reconciliation:** deterministically compare the sprint/backlog identifiers and milestone projection against exact GitHub issue/PR state; detect stale active work, duplicate ownership, WIP overflow, and cross-document contradiction; offline state remains Unknown rather than fake PASS.
 3. **#4413 — freshness/unlock-aware prioritization:** preserve the single backlog formula while making dependency-unlock value explicit inside Strategic Leverage and stale external assumptions explicit through Confidence/revalidation and `last_verified` scope/date.
-4. **#4414 — durable experiment learning:** preserve a machine-readable history of what was tried, observation quality, confidence, decision, and retest conditions so autonomous runs do not unknowingly repeat failed, invalid, or underpowered experiments.
-5. **#4415 — marginal-resource economics:** connect qualified outcomes to real resource denominators where available so gross output never substitutes for marginal efficiency.
+4. **#4414 / PR #4490 — merged durable experiment learning:** preserve a machine-readable history of what was tried, observation quality, confidence, decision, and retest conditions so autonomous runs do not unknowingly repeat failed, invalid, or underpowered experiments.
+5. **#4415 / PR #4492 — merged marginal-resource economics:** connect qualified outcomes to real resource denominators where available so gross output never substitutes for marginal efficiency.
 
 PR #4411 and #4412 / PR #4446 have merged; their implementation no longer occupies active WIP. #4412 merged as `96a07976dee22cf7b91c337c820cc83ff7e6b860`, with 18 reconciliation regressions and production build/output/SEO passing on the final PR head. PR #4440 merged; PR #4448 closed unmerged. The renderer/provenance/presentation foundations (#4388, #4401, #4405) and #4406 lifecycle are merged. Current ownership and admission belong to the live GitHub state reconciled in `CURRENT_SPRINT.md` / `MASTER_BACKLOG.md`, not a second active roster here. The dependency chain above preserves durable ordering.
+
+#4414 / PR #4490 merged as `2e67f9e55f4d96dc7d82a683a829a29b4e2298f1`; #4415 / PR #4492 merged as `23dc2485720ff6b31043413b2b9295c4886944cb`. The latter passed 42 focused regressions, 2,866 total tests and real production build/output/SEO on its final head. Its positive scaling path requires comparable observed metrics, explicit attribution/quality-debt states, and source-bound exposure at the existing 250-view floor in both periods. Gross code throughput and estimates remain diagnostics, not scaling authority. Real supplied observations and repeatable outcomes remain unverified.
 
 Neither path advances M1 or M2 by itself. Together they establish a controlled acquisition-learning capability and a more self-correcting execution system that can generate trustworthy evidence for later milestone decisions.
 
@@ -83,7 +85,7 @@ The existing backlog formula remains authoritative:
 Verified outcomes refine its inputs instead of creating a second score:
 
 - **Strategic Leverage** includes dependency-unlock value: shared infrastructure, recurring throughput, and important otherwise-blocked downstream work may raise this existing input.
-- **Confidence is freshness-sensitive.** Externally contingent ranked work must expose a current `last_verified` scope/date before promotion once #4413 lands; stale evidence lowers Confidence or forces revalidation.
+- **Confidence is freshness-sensitive.** Externally contingent ranked work must expose a current `last_verified` scope/date before promotion under merged #4413; stale evidence lowers Confidence or forces revalidation.
 - Attributable orders/revenue may raise confidence only to the extent justified by sample size and repeatability.
 - Strong qualified engagement without purchase can raise user-value or traffic confidence while leaving commercial confidence limited.
 - Repeated null results reduce confidence and can trigger a pivot even when theoretical traffic potential is high.
@@ -98,7 +100,7 @@ The roadmap should increasingly behave as a validated projection of reality rath
 
 - GitHub issue/PR state remains execution-state truth; the roadmap/sprint/backlog are its human-readable planning projection.
 - Merged #4412 makes stale merged/closed active entries, duplicate ownership, WIP overflow, and cross-document contradictions machine-detectable; subsequent drift still requires record updates, not suppression.
-- A temporary WIP exception must be explicit, bounded, and admission-blocking. It may not silently redefine normal capacity or override `AGENTS.md` workstream eligibility. The numeric reconciler does not certify workstream eligibility; the sprint/backlog must also verify one active ticket per normal workstream. The former Revenue/Operations overlap cleared through verified merges of #4475 and #4469, not a policy exception.
+- A temporary WIP exception must be explicit, bounded, and admission-blocking. It may not silently redefine normal capacity or override `AGENTS.md` workstream eligibility. The numeric reconciler does not certify workstream eligibility; the sprint/backlog must also verify one active ticket per normal workstream. The earlier overlap cleared through verified merges of #4475 and #4469, not a policy exception. The current sprint/backlog record a newer Revenue overlap between existing PRs #4487 and #4494 and freeze further admission until ownership is reconciled; recording it does not authorize it.
 - Offline/unavailable connector state is `Unknown/waiting`, never PASS.
 - Reconciliation is initially read-only. Automatic prose rewriting is not required until deterministic detection is proven and rollback is straightforward.
 - Closed/merged work may remain only in history/completed sections.
@@ -108,7 +110,7 @@ The roadmap should increasingly behave as a validated projection of reality rath
 
 Experiments should accumulate institutional memory instead of isolated PR anecdotes.
 
-Once #4414 lands, every governed experiment should preserve stable identity, baseline, hypothesis, intervention, primary metric, guardrails, minimum evidence requirement, observation window, sample/exposure, attribution/confounders, result state, confidence, decision, rollback/stop status, meaningful lesson, and retest conditions.
+With #4414 merged, every governed experiment should preserve stable identity, baseline, hypothesis, intervention, primary metric, guardrails, minimum evidence requirement, observation window, sample/exposure, attribution/confounders, result state, confidence, decision, rollback/stop status, meaningful lesson, and retest conditions.
 
 Result states must distinguish **positive, negative, null, underpowered, invalid, and Unknown**. Missing observations are never converted into null or negative results. A repeat is legal when material conditions changed and the changed assumption is recorded; it is not legal merely because a later autonomous run forgot the first test.
 

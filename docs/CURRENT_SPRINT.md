@@ -5,7 +5,7 @@
 **Updated:** 2026-08-28
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** GitHub snapshot at 2026-08-28T15:04Z: only #4477 / PR #4478 is active in Revenue/Conversion. Discovery/SEO and Authority/Content may admit one eligible ticket each after dependency/freshness checks; another Revenue ticket must wait. This documentation-only sync admits no implementation.
+**Current admission:** Frozen pending ownership reconciliation at the 2026-08-28T18:04Z GitHub snapshot. Existing PRs #4487 and #4494 both concern Revenue/Conversion; their separate distribution lanes do not satisfy the one-ticket-per-workstream rule. This record reports that overlap, does not authorize it, and admits no new implementation. Completed #4415 / PR #4492, #4414 / PR #4490, and #4477 / PR #4478 are retired below.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -13,7 +13,7 @@
 
 Finish the smallest trustworthy Evidence → Distribution loop that can produce a governed asset, preserve exact factual provenance through presentation/rendering, move it through an idempotent dry-run publishing lifecycle, and accept attributable outcome observations for deterministic feedback.
 
-At the same time, finish the smallest control-plane hardening needed to keep autonomous execution trustworthy as throughput increases: changed-file-relevant merge gates first (#4410/#4411), then machine reconciliation of GitHub state against the planning docs (#4412). Freshness/unlock-aware prioritization (#4413) is merged; durable experiment memory (#4414) and marginal-resource economics (#4415) remain queued hardening improvements and must not displace higher-value incident/scientific work merely because they are easy to implement.
+At the same time, finish the smallest control-plane hardening needed to keep autonomous execution trustworthy as throughput increases: changed-file-relevant merge gates first (#4410/#4411), then machine reconciliation of GitHub state against the planning docs (#4412). Freshness/unlock-aware prioritization (#4413), durable experiment memory (#4414), and marginal-resource economics (#4415) are merged. Their implementation is not ready work; using them with real observations remains subject to evidence and admission gates.
 
 This sprint is an **acceleration track inside M1**, not a declaration that the Revenue Foundation is complete. GA4/GSC/affiliate alignment and production analytics receipt remain blocked by authorized external access. Those blockers stay visible, but they do not freeze unrelated governed distribution work.
 
@@ -21,7 +21,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Execution rules
 
-- Start only tickets listed under `Active`, `Ready next`, or `Control hardening queue` below, and only when a real WIP slot exists.
+- Start only tickets listed under `Active` or `Ready next` below, and only when a real WIP slot exists. Merged control-hardening implementations are history, not admission candidates.
 - GitHub issue/PR state outranks stale document wording.
 - When a ticket merges/closes, remove it from `Active` on the next control sync.
 - The normal WIP cap remains three. A temporary incident/control overflow must be explicitly documented and blocks admission of further work until active WIP is below the cap.
@@ -33,7 +33,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 - Positive performance feedback must preserve the existing minimum-exposure threshold and may re-rank only already-eligible opportunities.
 - The backlog keeps exactly one score formula. Dependency-unlock value belongs inside Strategic Leverage; stale external assumptions reduce Confidence or force revalidation before promotion.
 - Externally contingent work must expose a current `last_verified` date/scope at promotion time under merged #4413; stale hypotheses may not remain perpetually `Ready` by inertia.
-- Before repeating a governed experiment once #4414 lands, check durable experiment history; a materially equivalent prior test requires a named changed assumption/retest condition.
+- Before repeating a governed experiment using merged #4414, check durable experiment history; a materially equivalent prior test requires a named changed assumption/retest condition.
 - When comparable resource observations exist, scale based on marginal qualified outcomes per incremental resource, not gross output alone. Missing resource/outcome data remains `Unknown`.
 - Deterministic failures found inside scope are repaired before merge. Merge only on exact intended head when required gates are green and no blocking review/governance defect remains.
 
@@ -49,13 +49,14 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — WIP 1/3; Revenue occupied
+## Active — observed WIP 2/3; admission frozen
 
-**Governance check:** The former overlap cleared through verified merges of #4475 and #4469, not a new exception or workstream. Numeric reconciliation does not enforce workstream eligibility; admission must also satisfy `AGENTS.md`.
+**Governance check:** Two existing Revenue/Conversion tickets overlap. Numeric reconciliation may report capacity, but it does not enforce workstream eligibility. No exception or fourth workstream is authorized; existing owners must reconcile the overlap before another implementation starts. Recording existing PRs here is not approval of their admission.
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
-| L4 presentation/experiments | #4477 / PR #4478 | Evidence-safe creative template catalog | In Review | Governed-field requirements, citation/disclosure preservation, no factual inference, deterministic template regressions, hosted gates |
+| R / L3 opportunity selection | #4489 / PR #4487 | Platform-fit/cost selection | In Review | Observed/fallback provenance; unchanged scientific eligibility and source-page ranking; scoped regressions and hosted gates |
+| R / L4 presentation | #4493 / PR #4494 | Lossless creative layout-fit guard | In Review | Governed text preserved; bounded pagination; source/disclosure capacity; accessible type floors; scoped regressions and hosted gates |
 
 ## Ready next — strict dependency order
 
@@ -63,30 +64,18 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ### First bounded pilot package
 
-**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven and Revenue/Conversion is free. PR #4478 currently occupies Revenue; numeric capacity does not authorize a second Revenue ticket.
+**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven and Revenue/Conversion is free. Existing PRs #4487 and #4494 still overlap in Revenue; numeric capacity does not authorize another Revenue ticket.
 
 The first pilot should use already-governed research, deterministic assets, tagged destinations, durable lifecycle receipts, and an explicit observation window. It may be published only through a supported, attributable, policy-compliant path. If no provider integration/credentials are available, the sprint may complete the end-to-end dry-run and record the external execution blocker rather than inventing a live result.
 
-## Control hardening queue — after the immediate chain or when dependency-safe
+## Control hardening — merged implementation, observed use still gated
 
-These are durable second-order improvements, not reasons to block scientific/production incidents or invent a fourth permanent workstream.
+#4413 / PR #4469, #4414 / PR #4490, and #4415 / PR #4492 are merged and retired below. Do not recreate them from an older queue.
 
-#4413 / PR #4469 is merged and retired below; do not start a second implementation. Operations labels in future work are classifications, not additional normal workstreams.
-
-### #4414 — durable experiment-learning ledger
-
-- Stable experiment identity and append-only/auditable history.
-- Distinguish positive, negative, null, underpowered, invalid, and Unknown.
-- Detect materially equivalent prior experiments before promotion.
-- Retest requires a named changed assumption and fresh baseline.
-- The ledger is experiment history only, never scientific authority or a second score.
-
-### #4415 — marginal resource economics
-
-- Connect qualified outcomes to real resource denominators where available: engineering/operator time, CI runner minutes, asset count, maintained surfaces, or supplied tool spend.
-- Every ratio names source, numerator/denominator definitions, scope, and window.
-- Missing labor/cost/outcome values remain Unknown unless explicitly labeled estimates.
-- Sustained deterioration in marginal qualified outcomes, attribution, or trust/maintenance cost triggers stop/pivot rather than automatic scaling.
+- Consult the durable experiment-learning ledger before repeating an equivalent experiment; a retest requires a changed assumption and fresh evidence. Ledger capability does not prove that every producer already emits history.
+- The economics contract derives ratios from named observations; missing values remain Unknown. Comparable metric definitions, scope, attribution boundary and window duration are required.
+- Positive scale eligibility requires explicit attribution/quality-debt observations and source-bound exposure at the unchanged 250-view floor in both periods. Estimates and merged-code throughput cannot authorize scaling; other domain-specific sufficiency policies are not invented.
+- Real CI/resource and attributable growth ratios remain waiting until their supplying observations exist. Neither merge advances M1/M2 or proves business impact.
 
 ## External blockers preserved from M0/M1
 
@@ -118,13 +107,18 @@ The sprint exits only when all of the following are true or have a precise exter
 - #4406 has proven an idempotent dry-run lifecycle with stale-asset rejection, durable receipts, retry safety, and rollback/stop semantics.
 - #4407 proves deterministic attributable observation ingestion, Unknown handling, replay, cross-platform isolation, and the existing minimum-exposure guard.
 - A bounded pilot package can be generated end-to-end and is measurement-ready; live publication is optional only if a supported/authorized provider path exists.
-- #4413 is merged and #4414/#4415 remain durably queued with their single-formula/freshness, experiment-memory, and marginal-efficiency boundaries preserved; they do not substitute for distribution MVP proof.
+- #4413/#4414/#4415 implementations are merged, and their single-formula/freshness, experiment-memory, and marginal-efficiency boundaries remain preserved in actual use; their merges do not substitute for distribution MVP or observed-outcome proof.
 - No broad auto-publishing or high-volume scheduling is enabled merely because the technical chain exists.
 - Revenue/GSC/analytics blockers remain honestly labeled and do not silently satisfy M1/M2 exits.
 - Backlog and sprint agree with current GitHub state: no completed issue or merged PR occupies an active slot.
 - Required scientific, provenance, safety, accessibility, release, and exact-head validation gates remain intact.
 
 ## Recently retired from this sprint
+
+- **#4415 / PR #4492:** merged as `23dc2485720ff6b31043413b2b9295c4886944cb`. Final-head CI passed 2,866 tests across 593 files, real production build/output/SEO, and 42 focused economics regressions ([CI proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431644), [focused proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431712)). Repaired files verified on main; four review findings resolved after evidence review. Real efficiency observations remain Unknown.
+- **#4414 / PR #4490:** merged as `2e67f9e55f4d96dc7d82a683a829a29b4e2298f1`; durable experiment-learning capability is no longer queued. Recorded outcomes and producer integration require their own evidence.
+- **#4477 / PR #4478:** merged as `2b25ae9beed63afe1e6c045491828e3f096037e4`; the template catalog no longer occupies active WIP.
+- **PR #4491:** merged as `d726f81bc5ababbb024b86782da2e94fbc15989e`; governed safety-line preservation is no longer active.
 
 - **#4407 / PR #4484:** merged as `6fba155c6f241af7cee38981c413bde710d56c1b`; attributable outcome ingestion is no longer ready work. Final-head checks passed; this is implementation proof, not evidence of real observed performance or an executed pilot.
 
