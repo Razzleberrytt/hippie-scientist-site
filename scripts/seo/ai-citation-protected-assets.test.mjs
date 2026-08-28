@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import {
   compareProtectedPageIdentity,
   identityFingerprint,
+  normalizeCitationAssetUrl,
   normalizeUrlPath,
   outputHtmlPath,
   parseRedirectMap,
@@ -44,6 +45,25 @@ describe('AI citation protected asset selection', () => {
       ['/same/', 350],
       ['/other/', 300],
     ])
+  })
+
+  it('rejects malformed, blank, non-http and foreign URLs before ranking', () => {
+    const result = selectProtectedCitationAssets(
+      [
+        { url: '', citations: 9999 },
+        { url: 'not a URL', citations: 9999 },
+        { url: 'ftp://thehippiescientist.net/private/', citations: 9999 },
+        { url: 'https://example.com/winner/', citations: 9999 },
+        { url: 'https://www.thehippiescientist.net/real/', citations: 300 },
+        { url: '/relative/', citations: 200 },
+      ],
+      { minCitations: 250, cumulativeCitationShare: 0.75, maxAssets: 10 },
+    )
+
+    expect(result.totalCitations).toBe(500)
+    expect(result.assets.map((asset) => asset.url)).toEqual(['/real/', '/relative/'])
+    expect(normalizeCitationAssetUrl('https://example.com/nope/')).toBeNull()
+    expect(normalizeCitationAssetUrl('')).toBeNull()
   })
 
   it('selects the measured 2026-08-28 top nine under the default policy', () => {
