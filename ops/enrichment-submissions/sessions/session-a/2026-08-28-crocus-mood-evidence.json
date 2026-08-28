@@ -1,0 +1,47 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "crocus-mood-evidence-20260828",
+  "createdAt": "2026-08-28T20:34:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-crocus-mood-outcome-conflict-20260828",
+      "authoringPackId": "ap_bp_wp_herb_crocus_sativus_src_doi_10_1080_1028415x_2025_2602153",
+      "workpackId": "wp_herb_crocus_sativus",
+      "entityType": "herb",
+      "entitySlug": "crocus-sativus",
+      "sourceId": "src_doi-10-1080-1028415x-2025-2602153",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Saffron mood evidence differs by outcome scale, with self-reported benefits not reproduced on several clinician-rated measures.",
+      "findingTextNormalized": "A 2026 GRADE-assessed meta-analysis of 34 randomized trials in 1,769 adults found significant improvement on self-reported Beck depression and anxiety scales, but no significant effects on the clinician-rated Hamilton depression or anxiety scales or on POMS; certainty was rated moderate and heterogeneity for the Beck outcomes was very high.",
+      "strengthLabel": "moderate",
+      "populationContext": "Adults in 34 randomized controlled trials of saffron supplementation lasting at least four weeks; 1,769 participants total.",
+      "uncertaintyNote": "Outcome-scale discordance and very high heterogeneity limit broad efficacy claims. The finding should preserve both the supportive self-report signal and the null clinician-rated outcomes. The source must complete registry governance before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-a-crocus-ssri-comparison-mixed-20260828",
+      "authoringPackId": "ap_bp_wp_herb_crocus_sativus_src_doi_10_1093_nutrit_nuae076",
+      "workpackId": "wp_herb_crocus_sativus",
+      "entityType": "herb",
+      "entitySlug": "crocus-sativus",
+      "sourceId": "src_doi-10-1093-nutrit-nuae076",
+      "topicType": "unsupported_or_unclear_use",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Saffron and SSRIs showed no significant difference in pooled depression or anxiety symptom change, which does not establish treatment equivalence.",
+      "findingTextNormalized": "A 2025 meta-analysis of randomized trials comparing saffron with SSRIs found no statistically significant difference in pooled depressive symptoms across eight studies or anxiety symptoms across four studies; this absence of a detected difference should not be interpreted as proof that saffron is clinically equivalent or interchangeable with SSRIs.",
+      "strengthLabel": "limited",
+      "populationContext": "Adults with depression or anxiety enrolled in randomized controlled trials directly comparing saffron interventions with selective serotonin reuptake inhibitors.",
+      "uncertaintyNote": "The review called for larger studies and more diverse populations. A nonsignificant between-group difference is not an equivalence or noninferiority finding unless the trials were designed and powered for that inference. The source must complete registry governance before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
