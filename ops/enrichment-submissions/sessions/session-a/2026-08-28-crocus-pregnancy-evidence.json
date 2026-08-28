@@ -1,0 +1,29 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "crocus-pregnancy-evidence-20260828",
+  "createdAt": "2026-08-28T20:41:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-crocus-pregnancy-context-20260828",
+      "authoringPackId": "ap_bp_wp_herb_crocus_sativus_src_doi_10_1177_2515690x261455162",
+      "workpackId": "wp_herb_crocus_sativus",
+      "entityType": "herb",
+      "entitySlug": "crocus-sativus",
+      "sourceId": "src_doi-10-1177-2515690x261455162",
+      "topicType": "pregnancy_note",
+      "claimType": "population_note",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Pregnancy evidence for saffron is exposure-dependent and remains insufficient for broad safety conclusions across gestation.",
+      "findingTextNormalized": "A 2026 integrative review of 12 studies found that controlled low-exposure studies conducted at term and reports of higher-dose or occupational exposure represent materially different pregnancy contexts; higher exposure was linked to uterine stimulation and increased miscarriage risk, while the authors concluded that maternal and fetal safety evidence remains limited and that standardized preparations and long-term data are needed before clinical recommendations can be made.",
+      "strengthLabel": "limited",
+      "populationContext": "Pregnancy and childbirth evidence synthesized from clinical trials, observational studies, systematic reviews, and cultural-use literature; controlled studies were concentrated around term pregnancy rather than all gestational stages.",
+      "safetyContext": "Higher-dose or occupational exposure was associated in the reviewed literature with uterine stimulation and increased miscarriage risk; controlled at-term exposure cannot be generalized to earlier pregnancy or unstandardized use.",
+      "uncertaintyNote": "This finding records evidence boundaries and does not define a safe pregnancy dose or recommend saffron use. Maternal-fetal pharmacokinetics, standardized dosing across trimesters, and long-term maternal/neonatal outcomes remain insufficiently characterized. The source must complete registry governance before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
