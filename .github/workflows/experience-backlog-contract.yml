@@ -1,6 +1,7 @@
 name: Experience backlog contract
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'app/**'
