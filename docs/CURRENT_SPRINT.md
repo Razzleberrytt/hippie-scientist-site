@@ -61,23 +61,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 **A free slot exists only when the candidate's dependencies and lane ownership are current and no higher-risk incident overrides admission.**
 
-### 3. L3 — #4407 attributable outcome ingestion
+### First bounded pilot package
 
-**Start when:** the merged #4406 lifecycle receipt contract remains stable and Revenue/Conversion has no other active ticket. Numeric capacity alone is insufficient while #4477 / PR #4478 occupies Revenue.
-
-**Required result:**
-
-- canonical observation schema keyed to campaign/asset/platform/format/source/hash/receipt/window;
-- deterministic normalization and replay;
-- missing/stale/mismatched/duplicate observations remain Unknown/rejected;
-- platform results stay attribution-separated;
-- existing anti-saturation and duplicate-angle penalties continue to work without performance data;
-- positive rewards remain impossible below the existing ≥250 measured-view threshold;
-- performance feedback cannot alter scientific eligibility, claims, evidence grades, limitations, safety, or canonical content.
-
-### 4. First bounded pilot package
-
-**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven.
+**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven and Revenue/Conversion is free. PR #4478 currently occupies Revenue; numeric capacity does not authorize a second Revenue ticket.
 
 The first pilot should use already-governed research, deterministic assets, tagged destinations, durable lifecycle receipts, and an explicit observation window. It may be published only through a supported, attributable, policy-compliant path. If no provider integration/credentials are available, the sprint may complete the end-to-end dry-run and record the external execution blocker rather than inventing a live result.
 
@@ -139,6 +125,8 @@ The sprint exits only when all of the following are true or have a precise exter
 - Required scientific, provenance, safety, accessibility, release, and exact-head validation gates remain intact.
 
 ## Recently retired from this sprint
+
+- **#4407 / PR #4484:** merged as `6fba155c6f241af7cee38981c413bde710d56c1b`; attributable outcome ingestion is no longer ready work. Final-head checks passed; this is implementation proof, not evidence of real observed performance or an executed pilot.
 
 - **#4413 / PR #4469:** merged as `d0936fbe7d41c84c753a8374f2a7b25047322339`; freshness/unlock-aware prioritization no longer occupies active WIP.
 - **#4476 / PR #4475:** merged as `65605fd2f4e9cfd85af63c14bd2a583471551bf2`; canonical evidence-grade binding no longer occupies active WIP.
