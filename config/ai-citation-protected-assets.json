@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "snapshotLabel": "2026-08-28",
+  "sourceExport": "thehippiescientist.net_AIPageStatsReport_8_28_2026.csv",
+  "totalCitations": 10858,
+  "policy": {
+    "minCitations": 250,
+    "cumulativeCitationShare": 0.75,
+    "maxAssets": 25
+  },
+  "protectedCitations": 8144,
+  "protectedCitationShare": 0.750046,
+  "assets": [
+    {
+      "url": "/guides/sleep/best-natural-sleep-aids-that-work/",
+      "sourcePath": "app/guides/sleep/best-natural-sleep-aids-that-work/page.tsx",
+      "citations": 3575,
+      "share": 0.32925,
+      "cumulativeShare": 0.32925,
+      "protectionReason": ["min_citations", "cumulative_coverage"],
+      "identity": { "status": "pending_render_fingerprint" }
+    },
+    {
+      "url": "/guides/best/supplements-for-stress/",
+      "routeSourcePath": "app/guides/best/supplements-for-stress/page.tsx",
+      "sourcePath": "app/guides/anxiety/best-supplements-for-stress/page.tsx",
+      "citations": 2217,
+      "share": 0.204181,
+      "cumulativeShare": 0.533432,
+      "protectionReason": ["min_citations", "cumulative_coverage"],
+      "identity": { "status": "pending_render_fingerprint" }
+    },
+    {
+      "url": "/guides/anxiety/best-herbs-for-anxiety/",
+      "sourcePath": "app/guides/anxiety/best-herbs-for-anxiety/page.tsx",
+      "citations": 497,
+      "share": 0.045773,
+      "cumulativeShare": 0.579204,
+      "protectionReason": ["min_citations", "cumulative_coverage"],
+      "identity": { "status": "pending_render_fingerprint" }
+    },
+    {
+      "url": "/articles/mushroom-coffee-benefits-review/",
+      "sourcePath": "content/articles/mushroom-coffee-benefits-review.md",
+      "citations": 471,
+      "share": 0.043378,
+      "cumulativeShare": 0.622582,
+      "protectionReason": ["min_citations", "cumulative_coverage"],
+      "identity": { "status": "pending_render_fingerprint" }
+    },
+    {
+      "url": "/articles/valerian-root/",
+      "sourcePath": "content/articles/valerian-root.md",
+      "citations": 322,
+      "share": 0.029656,
+      "cumulativeShare": 0.652238,
+      "protectionReason": ["min_citations", "cumulative_coverage"],
+      "identity": { "status": "pending_render_fingerprint" }
+    },
+    {
+      "url": "/guides/sleep/best-herbs-for-sleep/",
+      "sourcePath": "app/guides/sleep/best-herbs-for-sleep/page.tsx",
+      "citations": 299,
+      "share": 0.027537,
+      "cumulativeShare": 0.679775,
+      "protectionReason": ["min_citations", "cumulative_coverage"],
+      "identity": { "status": "pending_render_fingerprint" }
+    },
+    {
+      "url": "/guides/anxiety/best-supplements-for-overthinking/",
+      "sourcePath": "app/guides/anxiety/best-supplements-for-overthinking/page.tsx",
+      "citations": 259,
+      "share": 0.023853,
+      "cumulativeShare": 0.703629,
+      "protectionReason": ["min_citations", "cumulative_coverage"],
+      "identity": { "status": "pending_render_fingerprint" }
+    },
+    {
+      "url": "/guides/sleep/best-supplements-for-sleep/",
+      "sourcePath": "app/guides/sleep/best-supplements-for-sleep/page.tsx",
+      "citations": 253,
+      "share": 0.023301,
+      "cumulativeShare": 0.726929,
+      "protectionReason": ["min_citations", "cumulative_coverage"],
+      "identity": { "status": "pending_render_fingerprint" }
+    },
+    {
+      "url": "/articles/2c-b-effects/",
+      "routeSourcePath": "app/articles/[slug]/page.tsx",
+      "sourcePath": "content/blog/2c-b-effects.mdx",
+      "citations": 251,
+      "share": 0.023117,
+      "cumulativeShare": 0.750046,
+      "protectionReason": ["min_citations", "cumulative_coverage"],
+      "identity": { "status": "pending_render_fingerprint" }
+    }
+  ]
+}
