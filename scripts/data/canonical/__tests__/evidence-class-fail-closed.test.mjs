@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 
+import { buildEvidenceRationale } from '../../../../lib/evidence-rationale'
 import { applyBatch } from '../apply.mjs'
 import { buildEvidenceReview } from '../evidence-finalize.mjs'
 import { entityId } from '../ids.mjs'
@@ -78,6 +79,28 @@ describe('canonical evidence classification fails closed', () => {
   it('keeps evidence-review previews unclassified when the patch omits evidence class', () => {
     const review = buildEvidenceReview({ slug: 'test-compound', patches: [patch()], dataset: dataset() })
     expect(review.report.proposed_claims[0].evidence_level).toBe('none')
+  })
+})
+
+describe('source-derived rationale population is fail closed', () => {
+  it('does not count a generic systematic review as human when source attestation says population is unknown/nonhuman', () => {
+    const rationale = buildEvidenceRationale([{
+      study_class: 'systematic-review',
+      study_class_source: 'Systematic Review',
+      study_class_human: false,
+    }])
+    expect(rationale.classifiedStudyCount).toBe(1)
+    expect(rationale.humanStudyCount).toBe(0)
+  })
+
+  it('counts a review when independent source metadata establishes a human population', () => {
+    const rationale = buildEvidenceRationale([{
+      study_class: 'meta-analysis',
+      study_class_source: 'Meta-Analysis of randomized trials in adults',
+      study_class_human: true,
+    }])
+    expect(rationale.classifiedStudyCount).toBe(1)
+    expect(rationale.humanStudyCount).toBe(1)
   })
 })
 
