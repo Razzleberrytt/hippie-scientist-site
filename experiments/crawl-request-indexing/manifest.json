@@ -1,0 +1,54 @@
+{
+  "schema_version": 2,
+  "experiment_id": "request-indexing-rct-2026-08",
+  "status": "pending_registry",
+  "site": "https://thehippiescientist.net",
+  "created_at": "2026-08-27",
+  "prepared_at": null,
+  "activated_at": null,
+  "fully_activated_at": null,
+  "completed_at": null,
+  "registry_source": {
+    "kind": "gsc_eligible_herb_registry",
+    "expected_total": 97,
+    "note": "The previously discussed 97-URL manifest was not present in the supplied text or repository. Keep the causal experiment unarmed until the exact registry is imported and validated; do not substitute the current curated herb allowlist."
+  },
+  "design": {
+    "treatment": "request_indexing",
+    "treatment_n": 20,
+    "control": "randomized_no_request",
+    "control_n": 20,
+    "observational": "untouched_background_surveillance",
+    "observational_n": 57,
+    "causal_control": "control",
+    "primary_outcome": "time_from_pair_experiment_t0_to_first_verified_googlebot_html_recrawl",
+    "followup_days": 28
+  },
+  "randomization": {
+    "algorithm": "sha256_rank_then_lastmod_block_balanced_pairing_v2",
+    "seed": "request-indexing-rct-2026-08-27-v1"
+  },
+  "freeze": {
+    "duration_days": 28,
+    "applies_to_arms": ["treatment", "control"],
+    "rules": [
+      "no_substantive_edits",
+      "no_canonical_owner_changes",
+      "no_indexability_changes",
+      "no_legitimate_lastmod_changes"
+    ],
+    "baseline_captured_at": null,
+    "starts_at": null,
+    "ends_at": null,
+    "policy_sha256": null,
+    "policy_paths": [
+      "app/herbs/[slug]/page.tsx",
+      "app/sitemap.ts",
+      "src/lib/seo.ts",
+      "src/lib/index-allowlist.ts",
+      "lib/sitemap-route-visibility.ts",
+      "public/_redirects"
+    ]
+  },
+  "entries": []
+}
