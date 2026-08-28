@@ -250,6 +250,15 @@ export function buildRuntimeSourceRemediationQueue({ orphanRows, entries, source
   const rowKeys = rows.map(row => `${row.kind}:${row.slug}:${row.sourceId}`)
   if (new Set(rowKeys).size !== rowKeys.length) throw new Error('Duplicate runtime registry orphan rows are not allowed in the remediation queue input.')
 
+  const recordKeys = records.map(entry => `${entry.kind}:${entry.record?.slug}`)
+  if (new Set(recordKeys).size !== recordKeys.length) throw new Error('Duplicate production-content entry keys are not allowed in the remediation queue input.')
+
+  const candidateIds = candidates.map(candidate => normalize(candidate?.candidateSourceId)).filter(Boolean)
+  if (new Set(candidateIds).size !== candidateIds.length) throw new Error('Duplicate source-candidate IDs are not allowed in the remediation queue input.')
+
+  const reconciliationIds = reconciliations.map(row => normalize(row?.candidateSourceId)).filter(Boolean)
+  if (new Set(reconciliationIds).size !== reconciliationIds.length) throw new Error('Duplicate promotion-reconciliation candidate IDs are not allowed in the remediation queue input.')
+
   const recordByKey = new Map(records.map(entry => [`${entry.kind}:${entry.record?.slug}`, entry.record]))
   const fanoutBySourceId = new Map()
   for (const row of rows) fanoutBySourceId.set(row.sourceId, (fanoutBySourceId.get(row.sourceId) || 0) + 1)
