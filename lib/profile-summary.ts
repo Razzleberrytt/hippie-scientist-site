@@ -30,9 +30,7 @@ export function buildProfileSummary(record: Record<string, unknown> | null | und
   const scientificName = text(record.scientific_name || record.latin_name || record.botanical_name)
   const gradeBacked = record.evidence_grade_backed !== false
   const publicGrade = normalizeEvidenceGrade(record.evidence_grade).grade
-  const authoredGrade = normalizeEvidenceGrade(record.evidence_grade_source || record.evidence_grade).grade
-  const grade = gradeBacked ? publicGrade : authoredGrade
-  const gradeLabel = grade ? CANONICAL_GRADE_LABEL[grade] : undefined
+  const gradeLabel = publicGrade ? CANONICAL_GRADE_LABEL[publicGrade] : undefined
   const rationale = clause(record.evidence_rationale)
   const mechanisms = list(record.mechanisms, 3)
   const effects = list(Array.isArray(record.effects) && record.effects.length ? record.effects : record.primary_effects, 3)
@@ -45,15 +43,17 @@ export function buildProfileSummary(record: Record<string, unknown> | null | und
   const sentences: string[] = []
   const subject = scientificName ? `${name} (${scientificName})` : name
 
-  if (gradeLabel) {
+  if (!gradeBacked) {
+    // Keep the authored grade in evidence_grade_source for provenance, but do
+    // not repeat an unsupported Grade A/B/etc. label in crawler/user-facing
+    // prose. A negative qualifier around a strong grade is still easy for
+    // downstream snippets and simple classifiers to misread as settled.
+    sentences.push(`${subject} has no settled public evidence rating in the current dataset.`)
+  } else if (gradeLabel) {
     const [ratingPart, meaningPart] = gradeLabel.split(/:\s*/)
-    if (!gradeBacked) {
-      sentences.push(`${subject} carries an editorial ${ratingPart} rating, but the studies recorded on this profile do not demonstrate that grade.`)
-    } else {
-      sentences.push(meaningPart
-        ? `${subject} carries a ${ratingPart} rating — ${humanizePhrase(meaningPart).toLowerCase()}.`
-        : `${subject} carries a ${ratingPart} rating.`)
-    }
+    sentences.push(meaningPart
+      ? `${subject} carries a ${ratingPart} rating — ${humanizePhrase(meaningPart).toLowerCase()}.`
+      : `${subject} carries a ${ratingPart} rating.`)
   } else {
     sentences.push(`${subject} has no evidence grade assigned in our dataset.`)
   }
@@ -67,6 +67,20 @@ export function buildProfileSummary(record: Record<string, unknown> | null | und
   if (contraindications.length) sentences.push(`Noted cautions include ${joinNatural(contraindications.map(lowerFirst))}.`)
   else if (safety) sentences.push(`${safety}.`)
   return sentences.join(' ')
+}
+
+/**
+ * A final source-only evidence pass may discover that an authored summary no
+ * longer has any classified surviving study behind it. In that case the
+ * summary must be regenerated from the fail-closed public evidence fields.
+ * Generated summaries are already idempotent and are left alone.
+ */
+export function shouldRecomposeUnclassifiedSummary(record: Record<string, unknown> | null | undefined): boolean {
+  if (!record || typeof record !== 'object') return false
+  if (record.evidence_grade_backed !== false) return false
+  if (Number(record.evidence_recorded_study_count ?? 0) !== 0) return false
+  if (!text(record.summary)) return false
+  return text(record.summary_source).toLowerCase() !== 'composed-from-record'
 }
 
 const PLACEHOLDER_SUMMARY = [
