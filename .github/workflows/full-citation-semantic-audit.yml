@@ -1,0 +1,43 @@
+name: Full citation semantic audit
+
+on:
+  push:
+    branches:
+      - audit/full-citation-semantic-integrity-2026-08-27
+    paths:
+      - 'scripts/audit/full-citation-semantic-audit.mjs'
+      - '.github/workflows/full-citation-semantic-audit.yml'
+      - 'public/data/herbs-detail/**'
+      - 'public/data/compounds-detail/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-citation-semantic-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout exact audit head
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run existing deterministic citation integrity baseline
+        run: node scripts/ci/validate-citation-integrity.mjs
+
+      - name: Resolve every PMID and screen every claim-source edge
+        run: node scripts/audit/full-citation-semantic-audit.mjs
+
+      - name: Upload complete semantic audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-citation-semantic-audit
+          path: ops/reports/full-citation-semantic-audit.json
+          if-no-files-found: warn
+          retention-days: 30
