@@ -9,6 +9,7 @@ const root = process.cwd()
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-signal-provenance-'))
 const objectsPath = path.join(tmp, 'research-objects.json')
 const objectId = 'signal-provenance-fixture'
+// Coverage is field-based so metadata-only records must remain fallback-driven.
 fs.writeFileSync(objectsPath, `${JSON.stringify([{
   id: objectId,
   title: 'Signal provenance fixture',
