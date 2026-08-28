@@ -101,6 +101,10 @@ const preclinicalReview = buildRuntimeSourceRemediationQueue({
 assert.equal(preclinicalReview.queue[0].humanEvidenceRelevant, false)
 
 assert.throws(() => buildRuntimeSourceRemediationQueue({ orphanRows: [orphanRows[0], orphanRows[0]], entries }), /Duplicate runtime registry orphan rows/u)
+assert.throws(() => buildRuntimeSourceRemediationQueue({ orphanRows: [orphanRows[0]], entries: [entries[0], entries[0]] }), /Duplicate production-content entry keys/u)
+assert.throws(() => buildRuntimeSourceRemediationQueue({ orphanRows: [orphanRows[0]], entries: [entries[0]], sourceCandidates: [sourceCandidates[0], sourceCandidates[0]] }), /Duplicate source-candidate IDs/u)
+assert.throws(() => buildRuntimeSourceRemediationQueue({ orphanRows: [orphanRows[0]], entries: [entries[0]], promotionReconciliations: [{ candidateSourceId: 'cand_x' }, { candidateSourceId: 'cand_x' }] }), /Duplicate promotion-reconciliation candidate IDs/u)
+
 const rerun = buildRuntimeSourceRemediationQueue({ orphanRows, entries, sourceCandidates, promotionReconciliations: [] })
 assert.deepEqual(rerun, result)
 
