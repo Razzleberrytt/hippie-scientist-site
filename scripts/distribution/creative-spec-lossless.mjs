@@ -1,6 +1,7 @@
 import { buildCreativeSpec, CREATIVE_BRAND_TOKENS } from './creative-spec.mjs'
 import { buildLosslessCreativeCopyPlan } from './creative-copy-pagination.mjs'
 import { buildSourceLegibilityContract, validateSourceLegibilityContract } from './creative-source-legibility.mjs'
+import { buildHookContract, validateHookContract } from './creative-hook-contract.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
@@ -64,6 +65,15 @@ export function buildLosslessCreativeSpec(input) {
     throw new Error(`Invalid source-card legibility contract: ${sourceLegibilityErrors.join('; ')}`)
   }
 
+  const hook = buildHookContract({
+    hookText: hookSlide?.headline,
+    platformSafeArea: base.verticalVideo.platformSafeAreas,
+  })
+  const hookErrors = validateHookContract(hook)
+  if (hookErrors.length) {
+    throw new Error(`Invalid first-two-second hook contract: ${hookErrors.join('; ')}`)
+  }
+
   const carousel = {
     ...base.carousel,
     slides: [hookSlide, ...findingSlides, ...limitationSlides, sourceSlide].filter(Boolean),
@@ -81,12 +91,13 @@ export function buildLosslessCreativeSpec(input) {
 
   return {
     ...base,
-    version: 6,
+    version: 7,
     carousel,
     verticalVideo: {
       ...base.verticalVideo,
       losslessCopy: copyPlan,
       sourceLegibility,
+      hook,
       rendererContract: {
         ...copyPlan.rendererContract,
         factualScenesMustBeDerivedFromLosslessCopyPlan: true,
@@ -94,12 +105,15 @@ export function buildLosslessCreativeSpec(input) {
         dedicatedSourceSceneRequired: true,
         sourceSceneMinimumVisibleSeconds: sourceLegibility.video.minimumVisibleSeconds,
         sourceUrlMustRenderExactly: true,
+        firstTwoSecondsMustSatisfyHookContract: true,
+        ctaMayNotCompeteWithOpeningHook: true,
       },
     },
     delivery: {
       ...base.delivery,
       factualTextPolicy: 'Finding and limitation copy must be rendered from losslessCopy pages verbatim and in order. Continuation pages/scenes may expand presentation length/count but may never truncate, paraphrase, or drop governed factual text.',
       sourcePresentationPolicy: 'The canonical source URL must remain fully legible, untruncated, inside the platform safe area, and visible on a dedicated video source scene for at least three seconds. A CTA or disclosure may never replace or cover the source.',
+      hookPresentationPolicy: 'The opening hook must occupy the first two seconds, remain readable inside the vertical safe area, avoid unsupported certainty or ranking language, and may not compete with a CTA.',
     },
     guardrails: {
       ...base.guardrails,
@@ -109,6 +123,8 @@ export function buildLosslessCreativeSpec(input) {
       sourceCardLegibilityRequired: true,
       sourceUrlMayNotBeTruncatedOrRewritten: true,
       dedicatedVideoSourceSceneRequired: true,
+      firstTwoSecondHookContractRequired: true,
+      unsupportedHookCertaintyForbidden: true,
     },
   }
 }
