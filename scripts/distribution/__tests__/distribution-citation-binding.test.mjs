@@ -12,6 +12,7 @@ const object = researchObjects.find(({ id }) => id === 'ashwagandha-stress-evide
 // Validation anchor: canonical claim identity, direct source linkage, and DOI URL must remain exact after base refreshes.
 // Keep this suite user-authored so exact-head workflows execute after automated main refreshes.
 // This anchor intentionally changes no scientific or citation semantics.
+// Re-anchor after exact-main refreshes so governance executes the real scientific/provenance gates.
 describe('distribution canonical claim-to-study citation binding', () => {
   it('projects the approved Ashwagandha finding claim and DOI source into the pack', () => {
     const pack = buildDistributionPackFromResearchObject(object, { researchObjects })
