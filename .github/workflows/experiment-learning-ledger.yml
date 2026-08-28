@@ -1,0 +1,38 @@
+name: Experiment learning ledger
+
+on:
+  pull_request:
+    paths:
+      - 'ops/experiments/**'
+      - 'schemas/experiment-learning-entry.schema.json'
+      - 'scripts/ci/experiment-learning-ledger.mjs'
+      - 'tests/experiment-learning-ledger.test.mjs'
+      - '.github/workflows/experiment-learning-ledger.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'ops/experiments/**'
+      - 'schemas/experiment-learning-entry.schema.json'
+      - 'scripts/ci/experiment-learning-ledger.mjs'
+      - 'tests/experiment-learning-ledger.test.mjs'
+      - '.github/workflows/experiment-learning-ledger.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-learning-ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate append-only learning records
+        run: node scripts/ci/experiment-learning-ledger.mjs
+      - name: Replay anti-repeat fixtures
+        run: npx vitest run tests/experiment-learning-ledger.test.mjs
