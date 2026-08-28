@@ -1,0 +1,48 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "hyoscyamus-safety-20260828",
+  "createdAt": "2026-08-28T20:27:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-hyoscyamus-pediatric-toxicity-20260828",
+      "authoringPackId": "ap_bp_wp_herb_hyoscyamus_niger_src_doi_10_1080_15563650_2026_2655383",
+      "workpackId": "wp_herb_hyoscyamus_niger",
+      "entityType": "herb",
+      "entitySlug": "hyoscyamus-niger",
+      "sourceId": "src_doi-10-1080-15563650-2026-2655383",
+      "topicType": "pediatric_note",
+      "claimType": "population_note",
+      "evidenceClass": "human-observational",
+      "findingTextShort": "Pediatric henbane poisoning can produce severe antimuscarinic toxicity including seizures and acute kidney injury.",
+      "findingTextNormalized": "In a retrospective single-center series of 68 pediatric Hyoscyamus niger poisonings, severe cases had more seizures, sedation requirements, and acute kidney injury than non-severe cases; all patients recovered. This evidence characterizes poisoning risk and does not support therapeutic use.",
+      "strengthLabel": "limited",
+      "populationContext": "68 patients aged one month to 18 years treated for Hyoscyamus niger poisoning in a pediatric intensive care unit in Türkiye; cases occurred from January 2018 through April 2023.",
+      "safetyContext": "Severe poisonings were associated with seizures, need for sedation, and acute kidney injury; agitation and mydriasis were common findings.",
+      "uncertaintyNote": "Retrospective single-center observational evidence cannot establish incidence in the general population, dose-response thresholds, or comparative treatment effectiveness. The source must complete registry governance before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-a-hyoscyamus-accidental-ingestion-20260828",
+      "authoringPackId": "ap_bp_wp_herb_hyoscyamus_niger_src_doi_10_1016_j_toxicon_2020_02_005",
+      "workpackId": "wp_herb_hyoscyamus_niger",
+      "entityType": "herb",
+      "entitySlug": "hyoscyamus-niger",
+      "sourceId": "src_doi-10-1016-j-toxicon-2020-02-005",
+      "topicType": "adverse_effect",
+      "claimType": "safety_risk",
+      "evidenceClass": "human-observational",
+      "findingTextShort": "Henbane intoxication is linked to tropane-anticholinergic toxicity and often follows mistaken plant identification.",
+      "findingTextNormalized": "A review of reported anticholinergic Solanaceae intoxications from 1966 through 2018 found Hyoscyamus niger poisonings were commonly associated with the plant being mistaken for other plants; its tropane alkaloids hyoscyamine or atropine and scopolamine produce central and peripheral anticholinergic toxicity.",
+      "strengthLabel": "limited",
+      "safetyContext": "Accidental ingestion through mistaken plant identification is a recurring exposure pattern; reported toxicity includes anticholinergic neurologic, cardiovascular, and autonomic manifestations.",
+      "uncertaintyNote": "The review is based on heterogeneous published intoxication reports, many of which have incomplete case detail. It supports hazard characterization, not an incidence estimate. The source must complete registry governance before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
