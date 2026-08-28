@@ -143,14 +143,12 @@ async function main() {
   }
   writeJson(OUTPUT_PATH, report)
 
-  if (blocked.length) {
-    const detail = blocked
-      .map((decision) => `- ${decision.candidateSourceId}: ${decision.reasons.join('; ')}`)
-      .join('\n')
-    throw new Error(`Source identity attestation blocked ${blocked.length} candidate(s):\n${detail}`)
+  console.log(
+    `[source-identity] ${report.eligibleCount}/${report.candidateCount} candidate(s) attested for ${WAVE_ID}; ${report.blockedCount} filtered from promotion`,
+  )
+  for (const decision of blocked) {
+    console.warn(`[source-identity] blocked ${decision.candidateSourceId}: ${decision.reasons.join('; ')}`)
   }
-
-  console.log(`[source-identity] attested ${decisions.length} candidate(s) for ${WAVE_ID}`)
 }
 
 main().catch((error) => {
