@@ -10,6 +10,7 @@ import {
   outputHtmlPath,
   parseRedirectMap,
   parseRenderedPageIdentity,
+  validateProtectionPolicy,
 } from '../seo/ai-citation-protected-assets.mjs'
 
 const ROOT = process.cwd()
@@ -74,6 +75,28 @@ function main() {
   let checked = 0
   let citationSum = 0
 
+  try {
+    validateProtectionPolicy(ledger.policy)
+  } catch (error) {
+    failures.push(error.message)
+  }
+
+  const totalCitations = Number(ledger.totalCitations)
+  const protectedCitations = Number(ledger.protectedCitations)
+  const protectedCitationShare = Number(ledger.protectedCitationShare)
+  if (!Number.isFinite(totalCitations) || totalCitations <= 0) {
+    failures.push('ledger totalCitations must be a finite number > 0')
+  }
+  if (!Number.isFinite(protectedCitations) || protectedCitations <= 0) {
+    failures.push('ledger protectedCitations must be a finite number > 0')
+  }
+  if (!Number.isFinite(protectedCitationShare) || protectedCitationShare <= 0 || protectedCitationShare > 1) {
+    failures.push('ledger protectedCitationShare must be > 0 and <= 1')
+  }
+  if (Number.isFinite(totalCitations) && Number.isFinite(protectedCitations) && protectedCitations > totalCitations) {
+    failures.push('ledger protectedCitations cannot exceed totalCitations')
+  }
+
   for (const asset of ledger.assets) {
     const url = normalizeCitationAssetUrl(asset.url)
     if (!url) {
@@ -115,10 +138,9 @@ function main() {
       continue
     }
 
-    for (const problem of readyIdentityContractFailures(asset.identity)) {
-      failures.push(`${url}: invalid ready identity: ${problem}`)
-    }
-    if (readyIdentityContractFailures(asset.identity).length > 0) continue
+    const identityProblems = readyIdentityContractFailures(asset.identity)
+    for (const problem of identityProblems) failures.push(`${url}: invalid ready identity: ${problem}`)
+    if (identityProblems.length > 0) continue
 
     if (normalizeUrlPath(asset.identity.routePath) !== url) {
       failures.push(`${url}: baseline routePath does not match protected URL: ${asset.identity.routePath}`)
@@ -146,8 +168,21 @@ function main() {
     checked += 1
   }
 
-  if (Number.isFinite(Number(ledger.protectedCitations)) && citationSum !== Number(ledger.protectedCitations)) {
+  if (Number.isFinite(protectedCitations) && citationSum !== protectedCitations) {
     failures.push(`ledger protectedCitations=${ledger.protectedCitations} does not equal asset citation sum=${citationSum}`)
+  }
+  if (
+    Number.isFinite(totalCitations) &&
+    totalCitations > 0 &&
+    Number.isFinite(protectedCitations) &&
+    Number.isFinite(protectedCitationShare)
+  ) {
+    const expectedShare = protectedCitations / totalCitations
+    if (Math.abs(expectedShare - protectedCitationShare) > 0.000001) {
+      failures.push(
+        `ledger protectedCitationShare=${protectedCitationShare} does not match protected/total=${expectedShare.toFixed(6)}`,
+      )
+    }
   }
 
   if (pending.length > 0) {
