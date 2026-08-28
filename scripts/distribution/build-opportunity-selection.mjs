@@ -19,7 +19,6 @@ if (!signals || Array.isArray(signals) || typeof signals !== 'object') throw new
 
 const result = selectDistributionOpportunity(objects, signals)
 const output = {
-  generatedAt: new Date().toISOString(),
   authority: path.relative(root, objectsPath),
   signals: fs.existsSync(signalsPath) ? path.relative(root, signalsPath) : null,
   rule: 'Growth signals may rank eligible governed research objects but cannot make an ineligible scientific claim distributable.',
