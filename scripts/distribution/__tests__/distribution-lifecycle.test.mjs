@@ -26,6 +26,15 @@ function advanceToReady(record) {
   return transitionDistributionLifecycle(record, 'ready', { currentIdentity: identity })
 }
 
+function advanceToPublished(record) {
+  record = advanceToReady(record)
+  record = transitionDistributionLifecycle(record, 'scheduled', { currentIdentity: identity })
+  return transitionDistributionLifecycle(record, 'published', {
+    currentIdentity: identity,
+    externalId: 'dry-run-post',
+  })
+}
+
 describe('governed distribution lifecycle', () => {
   it('derives stable campaign/asset identity and starts dry-run only', () => {
     expect(buildDistributionIdentity(identity)).toEqual(buildDistributionIdentity({ ...identity }))
@@ -80,18 +89,33 @@ describe('governed distribution lifecycle', () => {
   })
 
   it('records measured outcomes as observation-only and never changes scientific identity', () => {
-    let record = advanceToReady(createDistributionLifecycle(identity))
-    record = transitionDistributionLifecycle(record, 'scheduled', { currentIdentity: identity })
-    record = transitionDistributionLifecycle(record, 'published', {
-      currentIdentity: identity,
-      externalId: 'dry-run-post',
-    })
+    let record = advanceToPublished(createDistributionLifecycle(identity))
     record = transitionDistributionLifecycle(record, 'measured', {
       currentIdentity: identity,
       measurement: { views: 1200, qualifiedClicks: 18, windowDays: 7 },
     })
     expect(record.measurements[0]).toMatchObject({ observationOnly: true, views: 1200, qualifiedClicks: 18 })
     expect(record.identity).toEqual(buildDistributionIdentity(identity))
+  })
+
+  it('fails closed when a measurement payload tries to overwrite lifecycle authority metadata', () => {
+    const published = advanceToPublished(createDistributionLifecycle(identity))
+    for (const field of ['observationOnly', 'identityFingerprint', 'at', 'state', 'provider', 'idempotencyKey']) {
+      expect(() => transitionDistributionLifecycle(published, 'measured', {
+        currentIdentity: identity,
+        measurement: { views: 1200, [field]: 'attacker-controlled' },
+      })).toThrow(/reserved lifecycle fields/i)
+    }
+  })
+
+  it('rejects null, scalar, and array measurement payloads', () => {
+    const published = advanceToPublished(createDistributionLifecycle(identity))
+    for (const measurement of [null, 'views=1200', 1200, ['views', 1200]]) {
+      expect(() => transitionDistributionLifecycle(published, 'measured', {
+        currentIdentity: identity,
+        measurement,
+      })).toThrow(/requires an observation payload/i)
+    }
   })
 
   it('supports explicit pause and withdrawal while blocking ordinary publishability', () => {
