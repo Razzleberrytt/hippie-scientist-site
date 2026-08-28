@@ -14,6 +14,8 @@ on:
       - 'src/**'
       - 'scripts/data/**'
       - 'scripts/lib/production-content-invariants.mjs'
+      - 'scripts/lib/runtime-source-registry-audit.mjs'
+      - 'scripts/ci/test-runtime-source-registry-audit.mjs'
       - 'scripts/ci/*production*'
       - '.github/workflows/production-content-invariants.yml'
   push:
@@ -29,6 +31,8 @@ on:
       - 'src/**'
       - 'scripts/data/**'
       - 'scripts/lib/production-content-invariants.mjs'
+      - 'scripts/lib/runtime-source-registry-audit.mjs'
+      - 'scripts/ci/test-runtime-source-registry-audit.mjs'
       - 'scripts/ci/*production*'
       - '.github/workflows/production-content-invariants.yml'
   workflow_dispatch:
@@ -84,7 +88,9 @@ jobs:
 
       - name: Exercise every invariant with deterministic fixtures
         if: steps.impact.outputs.docs_only != 'true'
-        run: node scripts/ci/test-production-content-invariants.mjs
+        run: |
+          node scripts/ci/test-production-content-invariants.mjs
+          node scripts/ci/test-runtime-source-registry-audit.mjs
 
       # Start from the same governed corpus production deploys. Enforcing on raw
       # workbook output skips post-processing, citation quarantine, governance
@@ -149,6 +155,7 @@ jobs:
           echo '- A-grade criteria, human-source, safety-source, dose-source, citation resolution, placeholders, canonical duplicates, scientific names and internal-development language are covered.' >> "$GITHUB_STEP_SUMMARY"
           echo '- The workflow evaluates the same governed runtime corpus as production deployment; raw workbook output is never treated as the final publication contract.' >> "$GITHUB_STEP_SUMMARY"
           echo '- Explicit claim-to-source provenance is normalized before enforcement; unsupported numeric dosage is suppressed rather than allowed to create a false page-level indexability failure.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Canonical-looking runtime source references are audited against the source registry, including fallback claim source-reference aliases.' >> "$GITHUB_STEP_SUMMARY"
           if [ -f reports/production-invariant-enforcement.json ]; then
             node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
           const fs = require('fs')
@@ -156,6 +163,13 @@ jobs:
           console.log(`- Profiles scanned: ${r.scannedProfiles}`)
           console.log(`- Profiles scrubbed: ${r.scrubbedProfiles}`)
           console.log(`- Profiles demoted to NEEDS_REVIEW/noindex: ${r.demotedProfiles}`)
+          NODE
+          fi
+          if [ -f reports/production-content-invariants.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('reports/production-content-invariants.json', 'utf8'))
+          console.log(`- Runtime registry orphan references: ${r.runtimeRegistryOrphans?.length ?? 0}`)
           NODE
           fi
           echo '- Invalid profiles remain research-accessible but cannot stay indexable.' >> "$GITHUB_STEP_SUMMARY"
