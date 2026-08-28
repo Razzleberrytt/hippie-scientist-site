@@ -153,7 +153,9 @@ function applyOperation(draft, index, entity, op, patch, opts) {
         object_literal: cleanString(op.value) || cleanString(op.field) || 'unspecified',
         qualifiers: {},
         source_ids: sourceIds,
-        evidence_level: op.evidence_level || (sourceIds.length ? 'human_obs' : 'none'),
+        // A citation proves traceability, not study population. Missing evidence
+        // class must fail closed rather than silently becoming human evidence.
+        evidence_level: op.evidence_level || 'none',
         confidence: typeof op.confidence === 'number' ? op.confidence : 0.5,
         review_status: sourceIds.length ? 'pending' : 'needs_review',
         notes: op.notes || '',
