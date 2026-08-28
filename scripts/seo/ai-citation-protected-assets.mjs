@@ -7,6 +7,25 @@ export const DEFAULT_AI_CITATION_PROTECTION_POLICY = Object.freeze({
   maxAssets: 25,
 })
 
+export function validateProtectionPolicy(candidate) {
+  const failures = []
+  if (!Number.isFinite(candidate?.minCitations) || candidate.minCitations < 0) {
+    failures.push('minCitations must be a finite number >= 0')
+  }
+  if (
+    !Number.isFinite(candidate?.cumulativeCitationShare) ||
+    candidate.cumulativeCitationShare <= 0 ||
+    candidate.cumulativeCitationShare > 1
+  ) {
+    failures.push('cumulativeCitationShare must be > 0 and <= 1')
+  }
+  if (!Number.isInteger(candidate?.maxAssets) || candidate.maxAssets < 1) {
+    failures.push('maxAssets must be an integer >= 1')
+  }
+  if (failures.length) throw new Error(`Invalid AI citation protection policy: ${failures.join('; ')}`)
+  return candidate
+}
+
 export function normalizeUrlPath(value) {
   if (!value) return '/'
   let pathname = String(value).trim()
@@ -21,6 +40,8 @@ export function normalizeUrlPath(value) {
 }
 
 export function selectProtectedCitationAssets(rows, policy = DEFAULT_AI_CITATION_PROTECTION_POLICY) {
+  validateProtectionPolicy(policy)
+
   const byUrl = new Map()
   for (const row of rows) {
     const url = normalizeUrlPath(row.url ?? row.Page ?? row.page)
