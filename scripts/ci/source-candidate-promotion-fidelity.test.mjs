@@ -50,10 +50,16 @@ describe('source-candidate promotion provenance fidelity', () => {
     expect(invalid, `Stale promotion claims without canonical registry identity: ${invalid.join(', ')}`).toEqual([])
   })
 
-  it('keeps reconciliations anchor-bound and prevents invented registry authority', () => {
+  it('keeps reconciliations unique, necessary, anchor-bound, and unable to invent registry authority', () => {
+    const reconciliationIds = reconciliations.map(row => row.candidateSourceId)
+    expect(new Set(reconciliationIds).size, 'Duplicate source-candidate promotion reconciliations').toBe(
+      reconciliationIds.length,
+    )
+
     for (const reconciliation of reconciliations) {
       const candidate = candidates.find(row => row.candidateSourceId === reconciliation.candidateSourceId)
       expect(candidate, reconciliation.candidateSourceId).toBeTruthy()
+      expect(claimsCompletedPromotion(candidate)).toBe(true)
       expect(normalize(reconciliation.doi)).toBe(normalize(candidate.doi))
       expect(normalize(reconciliation.pmid)).toBe(normalize(candidate.pmid))
       expect(reconciliation.correctedPromotionState).toBe('approved_not_promoted')
