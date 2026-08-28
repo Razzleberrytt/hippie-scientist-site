@@ -46,11 +46,15 @@ Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authorit
 
 ## Now — active exact work
 
-One implementation PR is active. Two slots remain available, subject to dependency, freshness, lane ownership, and incident overrides.
+Three implementation PRs are active at the 2026-08-28T13:07Z GitHub snapshot. Admission is closed at the normal cap; revalidate live ownership before starting work. This documentation-only sync opens no implementation lane.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| PR #4457 | Preserve all approved canonical safety warnings | R / L2 | In Review | P0 provenance | — | — | Canonical safety claimMap | Complete canonical safety projection; exact claim/text identity and deterministic provenance; omissions/mutations fail closed |
+| #4413 / PR #4469 | Make prioritization freshness- and unlock-aware without a second score | O / control | In Review | P1 compounding | 3/3/3/5/1/2 | 67.5 | Merged #4412 | Single formula; leverage evidence; current verification scope/date; stale promotion blocking; deterministic replay |
+| #4476 / PR #4475 | Bind canonical evidence grade into claims | R / L2 | In Review | P0 provenance | — | — | Canonical research-object grade | Exact projection; wrong-grade substitution rejection; existing safety/provenance regressions; hosted gates |
+| #4477 / PR #4478 | Evidence-safe creative template catalog | R / L4 | In Review | P1 trust | — | — | Governed distribution fields | Citation/disclosure preservation; missing-fact blocking; no factual inference; deterministic template regressions |
+
+PR #4481 / #4482 is research-only draft staging with an unresolved source-registry provenance blocker, not runtime implementation or approved public content. It grants no spare implementation slot or promotion authority.
 
 ## Next — ordered dependency queue
 
@@ -59,7 +63,6 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
 | #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Ready after lifecycle receipt contract | P0 | 5/4/5/5/.75/2 | 187.5 | Merged #4406 receipt identity + existing feedback engine | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
-| #4413 | Make prioritization freshness- and unlock-aware without a second score | O / control | Planned | P1 compounding | 3/3/3/5/1/2 | 67.5 | Merged #4412; revalidate exact-main assumptions at start | Strategic Leverage explicitly carries unlock value; externally contingent items expose `last_verified`; stale evidence reduces Confidence/forces revalidation; replayed inputs produce the same queue |
 | #4414 | Add durable experiment-learning ledger and anti-repeat guard | R/O / L4 learning | Planned | P1 learning | 3/4/3/4/.75/2 | 54.0 | #4407 observations preferred; current experiment contracts | Stable experiment identity; positive/negative/null/underpowered/invalid/Unknown states; prior-test detection; legitimate retest requires changed assumption; scientific authority remains separate |
 | #4415 | Add marginal outcome-per-effort economics to scaling decisions | R/O measurement | Planned | P1 scale economics | 4/4/4/5/.75/3 | 80.0 | #4227 and/or #4407 observations; REV data when available | Reproducible qualified-outcome/resource ratios with named inputs/windows; missing values Unknown; gross throughput cannot justify scale when marginal efficiency/trust deteriorates |
 | #4227 | Deduplicate uncached production exports across PR workflows | O | Planned | P1 compounding | 3/3/2/5/1/2 | 45.0 | Preserve fail-closed exact-SHA validation; `last_verified` at promotion | Quantify duplicated runner minutes; exact-SHA reusable artifact/cache or equivalent; cache miss performs full governed build; no quality thresholds weakened |
@@ -67,7 +70,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | AUTH-001 | Resolve verified duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Revalidate current route/query evidence before promotion | Each pair has one owner or a genuinely distinct user job; removed owners get direct redirects; internal links/canonicals point to winner |
 | #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + provenance/source review; revalidate source status at start | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
 | #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
-| DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous maintenance until #4412 replaces manual detection | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
+| DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
 
@@ -102,6 +105,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| PR #4457 | Completed/merged as 95ec9ba285f06c947f2844a2f81abce031b9e437 — complete canonical safety-warning preservation; removed from `Now` |
 | #4412 / PR #4446 | Completed/merged as 96a07976dee22cf7b91c337c820cc83ff7e6b860 — machine reconciliation is on main; removed from `Now` |
 | #4463 | Completed/merged as f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1 — trust-safe thumbnail variants are on main; removed from `Now` |
 | #4460 | Completed/merged as 48bebb81e35c4bd605dedbfc15156cabeb915b06 — duplicate-angle suppression is on main; removed from `Now` |

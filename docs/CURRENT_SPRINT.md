@@ -5,7 +5,7 @@
 **Updated:** 2026-08-28
 **Normal WIP limit:** Maximum three concurrent implementation tickets. The Evidence → Distribution initiative may use separate lanes only when scopes are orthogonal and one ticket per lane is active.
 **WIP cap:** 3
-**Current admission:** One implementation PR is active (PR #4457 in L2 factual/provenance). Two implementation slots are available, subject to dependency, lane-ownership, and incident checks.
+**Current admission:** Closed at the normal three-ticket cap. GitHub snapshot at 2026-08-28T13:07Z: #4413 / PR #4469, #4476 / PR #4475, and #4477 / PR #4478 are active. Revalidate live ownership before any admission; this documentation-only sync opens no implementation lane.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,11 +49,15 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — WIP 1/3, admission open
+## Active — WIP 3/3, admission closed
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
-| L2 factual/provenance | PR #4457 | Preserve all approved canonical safety warnings | In Review | Complete canonical safety projection, exact claim/text identity, deterministic provenance, omission/mutation rejection, hosted governance gates |
+| O / control | #4413 / PR #4469 | Freshness- and unlock-aware prioritization | In Review | Single score formula, freshness/revalidation, deterministic replay, hard safety overrides, exact-head hosted gates |
+| L2 factual/provenance | #4476 / PR #4475 | Bind canonical evidence grade into claims | In Review | Exact canonical grade projection, substitution rejection, existing safety/provenance regressions, hosted gates |
+| L4 presentation/experiments | #4477 / PR #4478 | Evidence-safe creative template catalog | In Review | Governed-field requirements, citation/disclosure preservation, no factual inference, deterministic template regressions, hosted gates |
+
+PR #4481 / #4482 is separately staged research-only draft input, not a runtime implementation or approved public content. Its source-registry provenance blocker remains explicit. It does not create spare implementation capacity or authorize scientific promotion.
 
 ## Ready next — strict dependency order
 
@@ -83,13 +87,7 @@ The first pilot should use already-governed research, deterministic assets, tagg
 
 These are durable second-order improvements, not reasons to block scientific/production incidents or invent a fourth permanent workstream.
 
-### #4413 — freshness- and unlock-aware prioritization
-
-- Keep the existing backlog formula unchanged.
-- Define dependency-unlock value inside Strategic Leverage.
-- Require current verification scope/date for externally contingent ranked assumptions.
-- Stale evidence lowers Confidence or requires revalidation before promotion.
-- Replay of identical inputs must produce identical queue order.
+#4413 is already owned by PR #4469 in `Active`; do not start a second implementation.
 
 ### #4414 — durable experiment-learning ledger
 
@@ -144,7 +142,9 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
-- **#4412 / PR #4446:** completed/merged as `96a07976dee22cf7b91c337c820cc83ff7e6b860`; machine reconciliation is on main and no longer occupies active WIP.
+- **PR #4457:** completed/merged as `95ec9ba285f06c947f2844a2f81abce031b9e437`; complete canonical safety-warning preservation no longer occupies active WIP.
+
+- **#4412 / PR #4446:** completed/merged as `96a07976dee22cf7b91c337c820cc83ff7e6b860`; machine reconciliation is on main and no longer occupies active WIP. Final-head hosted CI passed all 18 reconciliation cases and 2,785 tests across 587 files; production build/output/SEO passed in [run 33148069222](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33148069222). Both review findings are verified/resolved. This is implementation proof, not a claim that later planning snapshots or business outcomes are healthy.
 - **#4463:** completed/merged as `f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1`; trust-safe thumbnail variants are on main and no longer occupy active WIP.
 - **#4460:** completed/merged as `48bebb81e35c4bd605dedbfc15156cabeb915b06`; duplicate-angle suppression is on main and no longer occupies active WIP.
 - **#4406:** completed; the governed ready → publish → measured lifecycle is merged and no longer occupies the ready queue.
