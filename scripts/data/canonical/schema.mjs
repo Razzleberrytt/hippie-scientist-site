@@ -202,6 +202,10 @@ export const patchOperationSchema = z
     value: z.unknown().optional(),
     payload: z.record(z.string(), z.unknown()).default({}),
     confidence: z.number().min(0).max(1).optional(),
+    // Evidence class belongs to the operation that creates/updates the claim or
+    // edge. It must survive normalized-patch validation instead of being dropped
+    // and later guessed from the mere presence of a source.
+    evidence_level: z.enum(EVIDENCE_LEVELS).optional(),
     notes: z.string().optional(),
   })
   .strict()
