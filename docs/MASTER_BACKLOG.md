@@ -26,7 +26,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 - External-access blockers stay explicit; they do not become fake PASS states and do not freeze unrelated legal work.
 - Externally contingent ranked work must expose a current `last_verified` scope/date before promotion. Stale evidence lowers Confidence or requires revalidation.
 - Strategic Leverage may reflect dependency-unlock value; no separate unlock score is permitted.
-- Before promoting an experiment, check the durable experiment-learning history once #4414 lands. A materially equivalent prior test requires an explicit changed assumption/retest condition.
+- Before promoting an experiment, check the durable experiment-learning history from merged #4414. A materially equivalent prior test requires an explicit changed assumption/retest condition.
 - Observed attributable outcomes may update Business Impact, Traffic Potential, Strategic Leverage, or Confidence; they do not create a second scoring formula.
 - Scale decisions should prefer **marginal qualified outcome per incremental resource** over gross output when the required observations exist. Missing effort/cost/outcome data remains `Unknown`, never invented.
 - Safety/scientific correctness, publication integrity, production incidents, security, accessibility blockers, and crawl/indexing regressions may override numeric ordering.
@@ -46,13 +46,14 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-One implementation PR is active at the 2026-08-28T15:04Z GitHub snapshot: #4477 / PR #4478 in Revenue/Conversion. Only eligible Discovery/SEO or Authority/Content work may fill the remaining normal slots. Another Revenue ticket must wait; this documentation-only sync admits no implementation.
+At the 2026-08-28T18:04Z GitHub snapshot, two existing implementation PRs remain: #4487 and #4494. Both concern Revenue/Conversion. This is an observed workstream conflict, not compliant new admission: freeze additional implementation until existing ownership is reconciled. The documentation-only closeout of merged #4415 admits no implementation.
 
-**Governance check:** Verified merges of #4475 and #4469 cleared the former overlap without creating a fourth workstream or an exception. Numeric reconciliation PASS does not certify workstream eligibility; `AGENTS.md` still governs admission.
+**Governance check:** `AGENTS.md` permits one ticket per D/R/A workstream; distribution lanes are not separate workstreams. Numeric reconciliation does not enforce that rule and cannot authorize the overlap.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4477 / PR #4478 | Evidence-safe creative template catalog | R / L4 | In Review | P1 trust | — | — | Governed distribution fields | Citation/disclosure preservation; missing-fact blocking; no factual inference; deterministic template regressions |
+| #4489 / PR #4487 | Platform-fit/cost selection | R / L3 | In Review | Existing review | — | — | Governed opportunity inputs | Observed/fallback provenance; unchanged scientific eligibility and source-page ranking; scoped regressions and hosted gates |
+| #4493 / PR #4494 | Lossless creative layout-fit guard | R / L4 | In Review | Existing review | — | — | Governed templates and content | Exact text preservation; bounded pagination; source/disclosure capacity; accessible type floors; scoped regressions and hosted gates |
 
 ## Next — ordered dependency queue
 
@@ -60,8 +61,6 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4414 | Add durable experiment-learning ledger and anti-repeat guard | R/O / L4 learning | Planned | P1 learning | 3/4/3/4/.75/2 | 54.0 | #4407 observations preferred; current experiment contracts | Stable experiment identity; positive/negative/null/underpowered/invalid/Unknown states; prior-test detection; legitimate retest requires changed assumption; scientific authority remains separate |
-| #4415 | Add marginal outcome-per-effort economics to scaling decisions | R/O measurement | Planned | P1 scale economics | 4/4/4/5/.75/3 | 80.0 | #4227 and/or #4407 observations; REV data when available | Reproducible qualified-outcome/resource ratios with named inputs/windows; missing values Unknown; gross throughput cannot justify scale when marginal efficiency/trust deteriorates |
 | #4227 | Deduplicate uncached production exports across PR workflows | O | Planned | P1 compounding | 3/3/2/5/1/2 | 45.0 | Preserve fail-closed exact-SHA validation; `last_verified` at promotion | Quantify duplicated runner minutes; exact-SHA reusable artifact/cache or equivalent; cache miss performs full governed build; no quality thresholds weakened |
 | SEO-003 | Clear current schema identity gate | D | Ready | P1 | 4/4/4/4/1/2 | 128.0 | Reproduce current exact-main failure immediately before promotion | First-party identity IDs are consistent and full schema policy passes; route/schema regressions and production build prove the fix |
 | AUTH-001 | Resolve verified duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Revalidate current route/query evidence before promotion | Each pair has one owner or a genuinely distinct user job; removed owners get direct redirects; internal links/canonicals point to winner |
@@ -102,6 +101,10 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4415 / PR #4492 | Merged as 23dc2485720ff6b31043413b2b9295c4886944cb — comparable, explicitly guarded, exposure-bound economics; 42 focused and 2,866 total tests plus real production build/output/SEO passed; actual efficiency observations remain Unknown |
+| #4414 / PR #4490 | Merged as 2e67f9e55f4d96dc7d82a683a829a29b4e2298f1 — durable experiment-learning capability; no longer queued; populated history/producer adoption still requires evidence |
+| #4477 / PR #4478 | Merged as 2b25ae9beed63afe1e6c045491828e3f096037e4 — creative template catalog; no longer active |
+| PR #4491 | Merged as d726f81bc5ababbb024b86782da2e94fbc15989e — governed safety-line preservation; no longer active |
 | #4407 / PR #4484 | Merged as 6fba155c6f241af7cee38981c413bde710d56c1b — attributable outcome ingestion; final-head checks passed; real performance observations remain unverified |
 | #4413 / PR #4469 | Merged as d0936fbe7d41c84c753a8374f2a7b25047322339 — freshness/unlock-aware prioritization; retired from active ownership |
 | #4476 / PR #4475 | Merged as 65605fd2f4e9cfd85af63c14bd2a583471551bf2 — canonical evidence-grade binding; retired from active ownership |
