@@ -14,7 +14,9 @@ on:
       - 'src/**'
       - 'scripts/data/**'
       - 'scripts/lib/production-content-invariants.mjs'
+      - 'scripts/lib/runtime-source-*'
       - 'scripts/ci/*production*'
+      - 'scripts/ci/*runtime-source*'
       - '.github/workflows/production-content-invariants.yml'
   push:
     branches: [main]
@@ -29,7 +31,9 @@ on:
       - 'src/**'
       - 'scripts/data/**'
       - 'scripts/lib/production-content-invariants.mjs'
+      - 'scripts/lib/runtime-source-*'
       - 'scripts/ci/*production*'
+      - 'scripts/ci/*runtime-source*'
       - '.github/workflows/production-content-invariants.yml'
   workflow_dispatch:
 
@@ -86,6 +90,10 @@ jobs:
         if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/test-production-content-invariants.mjs
 
+      - name: Exercise runtime source remediation classifier
+        if: steps.impact.outputs.docs_only != 'true'
+        run: node scripts/ci/test-runtime-source-remediation-classifier.mjs
+
       # Start from the same governed corpus production deploys. Enforcing on raw
       # workbook output skips post-processing, citation quarantine, governance
       # overlay, and PubMed enrichment, which falsely demoted valid profiles.
@@ -137,6 +145,7 @@ jobs:
           path: |
             reports/production-invariant-enforcement.json
             reports/production-content-invariants.json
+            reports/runtime-source-remediation-queue.json
             reports/production-visible-language.json
             reports/profile-publication-truth.json
           if-no-files-found: warn
@@ -158,4 +167,15 @@ jobs:
           console.log(`- Profiles demoted to NEEDS_REVIEW/noindex: ${r.demotedProfiles}`)
           NODE
           fi
+          if [ -f reports/runtime-source-remediation-queue.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('reports/runtime-source-remediation-queue.json', 'utf8'))
+          console.log(`- Runtime registry orphan rows queued: ${r.orphanRows}`)
+          console.log(`- Unique orphan source IDs: ${r.uniqueOrphanSourceIds}`)
+          console.log(`- Published-profile orphan rows: ${r.publishedRows}`)
+          console.log(`- Remediation classes: ${Object.entries(r.countsByClass || {}).map(([k, v]) => `${k}=${v}`).join(', ')}`)
+          NODE
+          fi
+          echo '- Orphan remediation classification is informational only; registry membership, claims and indexability are unchanged by classification.' >> "$GITHUB_STEP_SUMMARY"
           echo '- Invalid profiles remain research-accessible but cannot stay indexable.' >> "$GITHUB_STEP_SUMMARY"
