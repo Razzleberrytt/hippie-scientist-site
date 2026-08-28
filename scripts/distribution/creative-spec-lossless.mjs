@@ -2,6 +2,7 @@ import { buildCreativeSpec, CREATIVE_BRAND_TOKENS } from './creative-spec.mjs'
 import { buildLosslessCreativeCopyPlan } from './creative-copy-pagination.mjs'
 import { buildSourceLegibilityContract, validateSourceLegibilityContract } from './creative-source-legibility.mjs'
 import { buildHookContract, validateHookContract } from './creative-hook-contract.mjs'
+import { buildCtaContract, validateCtaContract } from './creative-cta-contract.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
@@ -74,11 +75,23 @@ export function buildLosslessCreativeSpec(input) {
     throw new Error(`Invalid first-two-second hook contract: ${hookErrors.join('; ')}`)
   }
 
+  const cta = buildCtaContract({
+    ctaText: base.delivery.cta,
+    landingUrl: base.delivery.landingUrl,
+    sourceUrl: base.sourceIdentity.sourceUrl,
+    platformSafeArea: base.verticalVideo.platformSafeAreas,
+  })
+  const ctaErrors = validateCtaContract(cta)
+  if (ctaErrors.length) {
+    throw new Error(`Invalid CTA presentation contract: ${ctaErrors.join('; ')}`)
+  }
+
   const carousel = {
     ...base.carousel,
     slides: [hookSlide, ...findingSlides, ...limitationSlides, sourceSlide].filter(Boolean),
     losslessCopy: copyPlan,
     sourceLegibility,
+    cta,
     rendererContract: {
       ...copyPlan.rendererContract,
       everyContinuationSlideRequiresCitation: true,
@@ -86,18 +99,21 @@ export function buildLosslessCreativeSpec(input) {
       everyContinuationSlideMustStayInsidePlatformSafeArea: true,
       sourceCardMustSatisfyLegibilityContract: true,
       sourceUrlMustRenderExactly: true,
+      ctaMustSatisfyTrustContract: true,
+      ctaDestinationMustEqualCanonicalEvidenceUrl: true,
     },
   }
 
   return {
     ...base,
-    version: 7,
+    version: 8,
     carousel,
     verticalVideo: {
       ...base.verticalVideo,
       losslessCopy: copyPlan,
       sourceLegibility,
       hook,
+      cta,
       rendererContract: {
         ...copyPlan.rendererContract,
         factualScenesMustBeDerivedFromLosslessCopyPlan: true,
@@ -107,13 +123,18 @@ export function buildLosslessCreativeSpec(input) {
         sourceUrlMustRenderExactly: true,
         firstTwoSecondsMustSatisfyHookContract: true,
         ctaMayNotCompeteWithOpeningHook: true,
+        finalThreeSecondsMustSatisfyCtaContract: true,
+        ctaDestinationMustEqualCanonicalEvidenceUrl: true,
+        ctaMayNotCoverSourceOrDisclosure: true,
       },
     },
     delivery: {
       ...base.delivery,
+      ctaContract: cta,
       factualTextPolicy: 'Finding and limitation copy must be rendered from losslessCopy pages verbatim and in order. Continuation pages/scenes may expand presentation length/count but may never truncate, paraphrase, or drop governed factual text.',
       sourcePresentationPolicy: 'The canonical source URL must remain fully legible, untruncated, inside the platform safe area, and visible on a dedicated video source scene for at least three seconds. A CTA or disclosure may never replace or cover the source.',
       hookPresentationPolicy: 'The opening hook must occupy the first two seconds, remain readable inside the vertical safe area, avoid unsupported certainty or ranking language, and may not compete with a CTA.',
+      ctaPresentationPolicy: 'The CTA must use the fixed evidence-first wording, link exactly to the canonical evidence page, remain readable inside the platform safe area during the final three seconds, preserve source/disclosure visibility, and never use urgency or scarcity pressure.',
     },
     guardrails: {
       ...base.guardrails,
@@ -125,6 +146,10 @@ export function buildLosslessCreativeSpec(input) {
       dedicatedVideoSourceSceneRequired: true,
       firstTwoSecondHookContractRequired: true,
       unsupportedHookCertaintyForbidden: true,
+      trustSafeCtaContractRequired: true,
+      ctaDestinationDriftForbidden: true,
+      manipulativeCtaUrgencyForbidden: true,
+      ctaMayNotObscureDisclosureOrSource: true,
     },
   }
 }
