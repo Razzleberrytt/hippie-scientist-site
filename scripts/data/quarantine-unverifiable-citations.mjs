@@ -1,23 +1,18 @@
 #!/usr/bin/env node
 /**
- * Remove citations a reader could never check, and citations confirmed wrong.
+ * Quarantine citations that cannot safely remain in the published evidence graph.
  *
- * Two rules, both conservative, neither of them guessing:
+ * Bibliographic validity and semantic validity are separate. A PMID can be real
+ * while still naming the wrong paper for a profile or claim. Semantic decisions
+ * therefore live as explicit, auditable receipts in
+ * `ops/citation-semantic-attestations.json`; this script never guesses from
+ * title similarity.
  *
- * 1. UNVERIFIABLE — a citation with no PMID, no DOI and no URL. There is
- *    nothing to follow and nothing to check; several carry a pipeline status
- *    note where the study title belongs ("Requires manual source normalization
- *    to PMID, DOI, PMC, or a stable URL"). Publishing these as evidence
- *    overstates the evidence base, so they are withdrawn to an internal report
- *    where the underlying research note is preserved for a human to resolve.
- *
- * 2. MISATTRIBUTED — a citation checked against PubMed by hand and found to be
- *    about something else entirely. This list is explicit and hand-verified,
- *    never inferred: the script will not remove a citation because a heuristic
- *    disliked it. Adding an entry here means someone read the paper.
- *
- * Nothing is ever *reassigned*. A citation is either kept as it is or
- * withdrawn; moving a paper to a different supplement requires reading it.
+ * Source-scoped rejected/held decisions remove the source from the generated
+ * public profile. Claim-edge decisions remove only that source→claim edge. A
+ * claim that loses all of its source refs is withdrawn. Evidence counters are
+ * rebuilt from the surviving graph so removed citations cannot keep inflating
+ * the public evidence state.
  *
  * Usage: node scripts/data/quarantine-unverifiable-citations.mjs [--data-dir=public/data] [--dry-run]
  */
@@ -31,27 +26,26 @@ const dirArg = args.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = path.resolve(ROOT, dirArg ? dirArg.split('=')[1] : 'public/data')
 const DRY_RUN = args.includes('--dry-run')
 const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'quarantined-citations.json')
+const ATTESTATION_PATH = path.join(ROOT, 'ops', 'citation-semantic-attestations.json')
 
-/**
- * Citations verified against PubMed and found to be about a different subject.
- * `verifiedAgainst` records what was actually read, so the decision can be
- * re-checked rather than taken on trust.
- *
- * @type {{ profile: string, pmid: string, reason: string, verifiedAgainst: string }[]}
- */
-const CONFIRMED_MISATTRIBUTIONS = [
+const PMID_PATTERN = /^[1-9]\d{0,8}$/
+const BLOCKED_STATUSES = new Set(['rejected', 'held'])
+
+const LEGACY_CONFIRMED_MISATTRIBUTIONS = [
   {
     profile: 'curcumin',
     pmid: '27403209',
-    reason:
-      'Study is a pilot of an art-gallery engagement programme for people with dementia. It does not involve curcumin, turmeric, or any supplement.',
-    verifiedAgainst:
-      "PubMed 27403209 — \"Impact of the 'Artful Moments' Intervention on Persons with Dementia and Their Care Partners: a Pilot Study\", Can Geriatr J 2016, doi:10.5770/cgj.19.220",
+    scope: 'source',
+    status: 'rejected',
+    reasonCode: 'WRONG_ENTITY_OR_INTERVENTION',
+    verifiedTitle: "Impact of the 'Artful Moments' Intervention on Persons with Dementia and Their Care Partners: a Pilot Study",
+    provenance: 'citation-integrity-2026-08-21',
   },
 ]
 
-const quarantined = []
-const quarantinedClaims = []
+function normalizePmid(value) {
+  return String(value ?? '').trim()
+}
 
 function sourceId(source) {
   return String(source?.id ?? source?.sourceId ?? source?.source_id ?? '').trim()
@@ -64,21 +58,74 @@ function claimSourceIds(claim) {
     .filter(Boolean)
 }
 
+function sourceIdentifiers(source) {
+  return {
+    pmid: normalizePmid(source?.pmid ?? source?.pubmedId),
+    doi: String(source?.doi ?? '').trim(),
+    url: String(source?.url ?? '').trim(),
+  }
+}
+
+function loadSemanticDecisions() {
+  if (!fs.existsSync(ATTESTATION_PATH)) return LEGACY_CONFIRMED_MISATTRIBUTIONS
+  const parsed = JSON.parse(fs.readFileSync(ATTESTATION_PATH, 'utf8'))
+  const decisions = Array.isArray(parsed?.decisions) ? parsed.decisions : []
+  return [...LEGACY_CONFIRMED_MISATTRIBUTIONS, ...decisions]
+    .filter((decision) => BLOCKED_STATUSES.has(String(decision?.status ?? '').toLowerCase()))
+    .map((decision) => ({
+      ...decision,
+      profile: String(decision.profile ?? '').trim(),
+      pmid: normalizePmid(decision.pmid),
+      scope: String(decision.scope ?? 'source').trim(),
+      claimId: decision.claimId ? String(decision.claimId).trim() : null,
+      status: String(decision.status ?? '').toLowerCase(),
+      provenance: decision.provenance ?? 'semantic-citation-attestation-v1',
+    }))
+}
+
+function semanticDecisionIndex(decisions) {
+  const source = new Map()
+  const edge = new Map()
+  for (const decision of decisions) {
+    if (!decision.profile || !PMID_PATTERN.test(decision.pmid)) continue
+    if (decision.scope === 'claim-edge') {
+      if (!decision.claimId) continue
+      edge.set(`${decision.profile}::${decision.claimId}::${decision.pmid}`, decision)
+    } else if (decision.scope === 'source') {
+      source.set(`${decision.profile}::${decision.pmid}`, decision)
+    }
+  }
+  return { source, edge }
+}
+
+function recomputeEvidence(record, sources, claims) {
+  if (!record.evidence || typeof record.evidence !== 'object' || Array.isArray(record.evidence)) return record.evidence
+  return {
+    ...record.evidence,
+    sourceCount: sources.length,
+    sourceIds: sources.map(sourceId).filter(Boolean),
+    claimCount: claims.length,
+    claimIds: claims.map((claim) => String(claim?.id ?? '').trim()).filter(Boolean),
+  }
+}
+
 function main() {
   if (!fs.existsSync(DATA_DIR)) {
     console.error(`[quarantine-citations] FAILED — no data directory at ${path.relative(ROOT, DATA_DIR)}`)
     process.exit(1)
   }
 
-  const misattributionKeys = new Set(
-    CONFIRMED_MISATTRIBUTIONS.map((entry) => `${entry.profile}::${entry.pmid}`),
-  )
-  const misattributionsSeen = new Set()
+  const decisions = loadSemanticDecisions()
+  const decisionIndex = semanticDecisionIndex(decisions)
+  const quarantined = []
+  const quarantinedClaims = []
+  const changedProfiles = []
   const observedPmidProfiles = new Map()
-
-  let filesChanged = 0
+  const legacySeen = new Set()
   let profilesInspected = 0
   let profilesWithCitations = 0
+  let sourcesInspected = 0
+  let claimsInspected = 0
   let claimsDereferenced = 0
 
   for (const [kind, dir] of [['herb', 'herbs-detail'], ['compound', 'compounds-detail']]) {
@@ -90,164 +137,196 @@ function main() {
       const filePath = path.join(full, file)
       const raw = fs.readFileSync(filePath, 'utf8')
       const record = JSON.parse(raw)
+      const slug = String(record.slug ?? record.id ?? file.replace(/\.json$/, '')).trim()
+      const originalSources = Array.isArray(record.sources) ? record.sources : []
+      const originalClaims = Array.isArray(record.claimMap) ? record.claimMap : []
       profilesInspected += 1
-      if (!Array.isArray(record.sources) || record.sources.length === 0) continue
-      profilesWithCitations += 1
+      sourcesInspected += originalSources.length
+      claimsInspected += originalClaims.length
+      if (originalSources.length) profilesWithCitations += 1
 
-      const slug = String(record.slug ?? file.replace(/\.json$/, ''))
-      const kept = []
       const removedSourceIds = new Set()
+      const keptSources = []
 
-      for (const source of record.sources) {
-        const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
-        const doi = String(source.doi ?? '').trim()
-        const url = String(source.url ?? '').trim()
-
+      for (const source of originalSources) {
+        const id = sourceId(source)
+        const { pmid, doi, url } = sourceIdentifiers(source)
         if (pmid) {
           if (!observedPmidProfiles.has(pmid)) observedPmidProfiles.set(pmid, new Set())
           observedPmidProfiles.get(pmid).add(slug)
         }
 
-        if (!pmid && !doi && !url) {
-          if (sourceId(source)) removedSourceIds.add(sourceId(source))
-          quarantined.push({
-            profile: slug,
-            kind,
-            classification: 'BROKEN_IDENTIFIER',
-            reason: 'no PMID, DOI or URL — a reader cannot check this citation',
-            source,
-          })
+        const semantic = pmid ? decisionIndex.source.get(`${slug}::${pmid}`) : null
+        const noIdentifier = !pmid && !doi && !url
+        if (!semantic && !noIdentifier) {
+          keptSources.push(source)
           continue
         }
 
-        const key = `${slug}::${pmid}`
-        if (pmid && misattributionKeys.has(key)) {
-          if (sourceId(source)) removedSourceIds.add(sourceId(source))
-          const entry = CONFIRMED_MISATTRIBUTIONS.find((item) => `${item.profile}::${item.pmid}` === key)
-          misattributionsSeen.add(key)
-          quarantined.push({
-            profile: slug,
-            kind,
-            classification: 'CLEARLY_MISATTRIBUTED',
-            reason: entry.reason,
-            verifiedAgainst: entry.verifiedAgainst,
-            source,
-          })
-          continue
-        }
-
-        kept.push(source)
+        if (id) removedSourceIds.add(id)
+        if (semantic?.provenance === 'citation-integrity-2026-08-21') legacySeen.add(`${slug}::${pmid}`)
+        quarantined.push({
+          profile: slug,
+          kind,
+          scope: 'source',
+          claimId: null,
+          sourceId: id || null,
+          pmid: pmid || null,
+          doi: doi || null,
+          url: url || null,
+          title: String(source?.title ?? '').trim() || null,
+          classification: semantic ? 'SEMANTIC_ATTESTATION_BLOCK' : 'BROKEN_IDENTIFIER',
+          status: semantic?.status ?? 'rejected',
+          reasonCode: semantic?.reasonCode ?? 'NO_VERIFIABLE_IDENTIFIER',
+          verifiedTitle: semantic?.verifiedTitle ?? null,
+          provenance: semantic?.provenance ?? 'identifier-integrity',
+          source,
+        })
       }
 
-      if (kept.length === record.sources.length) continue
-      filesChanged += 1
-      record.sources = kept
-      // A claim that cited a withdrawn source keeps its other sources. Only a
-      // claim left with *no* remaining support is withdrawn: deleting a
-      // well-evidenced claim because one of its three citations lacked a DOI
-      // would destroy curated science to fix a bookkeeping problem.
-      if (Array.isArray(record.claimMap) && removedSourceIds.size > 0) {
-        record.claimMap = record.claimMap.filter((claim) => {
-          const refs = claimSourceIds(claim)
-          const removedRefs = refs.filter((id) => removedSourceIds.has(id))
-          if (removedRefs.length === 0) return true
+      const sourceById = new Map(originalSources.filter((source) => sourceId(source)).map((source) => [sourceId(source), source]))
+      const keptClaims = []
 
-          const survivingRefs = refs.filter((id) => !removedSourceIds.has(id))
-          if (survivingRefs.length > 0) {
-            // Drop only the dangling reference, so the claim no longer points
-            // at a citation the reader cannot see.
-            if (Array.isArray(claim.sourceRefIds)) claim.sourceRefIds = survivingRefs
-            claimsDereferenced += 1
-            return true
+      for (const claim of originalClaims) {
+        const claimId = String(claim?.id ?? '').trim()
+        const refs = claimSourceIds(claim)
+        if (!refs.length) {
+          keptClaims.push(claim)
+          continue
+        }
+
+        const survivingRefs = []
+        for (const ref of refs) {
+          if (removedSourceIds.has(ref)) continue
+          const source = sourceById.get(ref)
+          const pmid = source ? normalizePmid(source.pmid ?? source.pubmedId) : ''
+          const semanticEdge = claimId && pmid
+            ? decisionIndex.edge.get(`${slug}::${claimId}::${pmid}`)
+            : null
+
+          if (!semanticEdge) {
+            survivingRefs.push(ref)
+            continue
           }
 
+          quarantined.push({
+            profile: slug,
+            kind,
+            scope: 'claim-edge',
+            claimId: claimId || null,
+            sourceId: ref,
+            pmid: pmid || null,
+            doi: source ? String(source.doi ?? '').trim() || null : null,
+            url: source ? String(source.url ?? '').trim() || null : null,
+            title: source ? String(source.title ?? '').trim() || null : null,
+            classification: 'SEMANTIC_ATTESTATION_BLOCK',
+            status: semanticEdge.status,
+            reasonCode: semanticEdge.reasonCode,
+            verifiedTitle: semanticEdge.verifiedTitle ?? null,
+            provenance: semanticEdge.provenance,
+          })
+        }
+
+        if (!survivingRefs.length) {
           quarantinedClaims.push({
             profile: slug,
             kind,
             classification: 'SOURCE_WITHDRAWN',
-            reason: 'claim had no remaining source after its only citation was withdrawn',
-            removedSourceIds: removedRefs,
+            reason: 'claim had no remaining source after rejected/held citation evidence was quarantined',
+            removedSourceIds: refs,
             claim,
           })
-          return false
-        })
+          continue
+        }
+
+        if (survivingRefs.length !== refs.length) claimsDereferenced += 1
+        keptClaims.push(
+          Array.isArray(claim.sourceRefIds) && survivingRefs.length !== refs.length
+            ? { ...claim, sourceRefIds: survivingRefs }
+            : claim,
+        )
       }
+
+      const nextEvidence = recomputeEvidence(record, keptSources, keptClaims)
+      const nextRecord = {
+        ...record,
+        sources: keptSources,
+        claimMap: keptClaims,
+        ...(nextEvidence ? { evidence: nextEvidence } : {}),
+      }
+
+      if (JSON.stringify(record) === JSON.stringify(nextRecord)) continue
+      changedProfiles.push({
+        kind,
+        profile: slug,
+        removedSources: originalSources.length - keptSources.length,
+        removedClaims: originalClaims.length - keptClaims.length,
+        survivingSources: keptSources.length,
+        survivingClaims: keptClaims.length,
+      })
+
       if (!DRY_RUN) {
         const pretty = /\n\s+"/.test(raw.slice(0, 4096))
-        const serialized = pretty ? JSON.stringify(record, null, 2) : JSON.stringify(record)
+        const serialized = pretty ? JSON.stringify(nextRecord, null, 2) : JSON.stringify(nextRecord)
         fs.writeFileSync(filePath, raw.endsWith('\n') ? `${serialized}\n` : serialized, 'utf8')
       }
     }
   }
 
-  // Guard against running on a missing or half-built corpus. This counts
-  // profiles *read*, not profiles that still hold citations — withdrawing an
-  // unverifiable citation can legitimately leave a profile with none, and the
-  // count must not shrink just because the script did its job.
   if (profilesInspected < 400) {
-    console.error(
-      `[quarantine-citations] FAILED — only ${profilesInspected} profiles were readable; the corpus looks ` +
-        'incomplete. Run `npm run data:build` first.',
-    )
+    console.error(`[quarantine-citations] FAILED — only ${profilesInspected} profiles were readable; corpus is incomplete.`)
     process.exit(1)
   }
 
-  // A confirmed bad citation being absent is the desired steady state and must
-  // pass on a clean checkout. The old implementation depended on a gitignored
-  // previous-run report to prove prior withdrawal, so a deterministic rebuild
-  // failed even when the corpus was already clean. Preserve the useful drift
-  // guard instead: if the same hand-verified PMID reappears under a different
-  // profile, fail rather than silently treating the denylist entry as stale.
-  const movedMisattributions = []
-  for (const entry of CONFIRMED_MISATTRIBUTIONS) {
+  // Preserve the original Curcumin drift guard. Other semantic receipts are
+  // profile-scoped: the same PMID can be legitimate elsewhere and must not be
+  // globally denied without a separate attestation.
+  const movedLegacy = []
+  for (const entry of LEGACY_CONFIRMED_MISATTRIBUTIONS) {
     const key = `${entry.profile}::${entry.pmid}`
-    if (misattributionsSeen.has(key)) continue
-    const profiles = [...(observedPmidProfiles.get(entry.pmid) || [])]
-      .filter((profile) => profile !== entry.profile)
-      .sort()
-    if (profiles.length) {
-      movedMisattributions.push({
-        expectedProfile: entry.profile,
-        pmid: entry.pmid,
-        observedProfiles: profiles,
-      })
-    }
+    if (legacySeen.has(key)) continue
+    const profiles = [...(observedPmidProfiles.get(entry.pmid) || [])].filter((profile) => profile !== entry.profile).sort()
+    if (profiles.length) movedLegacy.push({ expectedProfile: entry.profile, pmid: entry.pmid, observedProfiles: profiles })
+  }
+  if (movedLegacy.length) {
+    console.error('\n[quarantine-citations] FAILED — legacy confirmed bad PMID reappeared under a different profile:')
+    for (const row of movedLegacy) console.error(`  PMID ${row.pmid}: ${row.observedProfiles.join(', ')}`)
+    process.exit(1)
   }
 
-  if (!DRY_RUN && quarantined.length) {
+  if (!DRY_RUN && (quarantined.length || changedProfiles.length)) {
     fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true })
-    fs.writeFileSync(
-      REPORT_PATH,
-      `${JSON.stringify({ count: quarantined.length, claimCount: quarantinedClaims.length, citations: quarantined, claims: quarantinedClaims }, null, 2)}\n`,
-      'utf8',
-    )
+    fs.writeFileSync(REPORT_PATH, `${JSON.stringify({
+      schemaVersion: 2,
+      policy: 'identifier-and-semantic-citation-quarantine-v2',
+      count: quarantined.length,
+      claimCount: quarantinedClaims.length,
+      semanticDecisionsLoaded: decisions.length,
+      profilesChanged: changedProfiles.length,
+      changedProfiles,
+      citations: quarantined,
+      claims: quarantinedClaims,
+    }, null, 2)}\n`, 'utf8')
   }
 
-  const byClass = quarantined.reduce((acc, entry) => {
-    acc[entry.classification] = (acc[entry.classification] ?? 0) + 1
+  const byStatus = quarantined.reduce((acc, entry) => {
+    acc[entry.status] = (acc[entry.status] ?? 0) + 1
     return acc
   }, {})
 
   console.log(`\nCitations quarantined${DRY_RUN ? ' (dry run)' : ''}`)
   console.log('='.repeat(66))
-  console.log(`Profiles inspected  ${profilesInspected}`)
-  console.log(`  with citations    ${profilesWithCitations}`)
-  console.log(`Files changed       ${filesChanged}`)
-  for (const [classification, count] of Object.entries(byClass)) {
-    console.log(`  ${classification}: ${count}`)
-  }
-  console.log(`Claims withdrawn    ${quarantinedClaims.length}  (no source left)`)
-  console.log(`Claims dereferenced ${claimsDereferenced}  (kept, dangling ref dropped)`)
-  if (quarantined.length && !DRY_RUN) console.log(`\nReport: ${path.relative(ROOT, REPORT_PATH)}`)
-
-  if (movedMisattributions.length) {
-    console.error('\n[quarantine-citations] FAILED — confirmed bad PMID reappeared under a different profile:')
-    for (const row of movedMisattributions) {
-      console.error(`  PMID ${row.pmid}: expected denylist profile ${row.expectedProfile}; observed under ${row.observedProfiles.join(', ')}`)
-    }
-    console.error('Re-verify the moved citation before changing the denylist.')
-    process.exit(1)
-  }
+  console.log(`Profiles inspected   ${profilesInspected}`)
+  console.log(`  with citations     ${profilesWithCitations}`)
+  console.log(`Sources inspected    ${sourcesInspected}`)
+  console.log(`Claims inspected     ${claimsInspected}`)
+  console.log(`Semantic decisions   ${decisions.length}`)
+  console.log(`Profiles changed     ${changedProfiles.length}`)
+  console.log(`Quarantine receipts  ${quarantined.length}`)
+  for (const [status, count] of Object.entries(byStatus)) console.log(`  ${status}: ${count}`)
+  console.log(`Claims withdrawn     ${quarantinedClaims.length}`)
+  console.log(`Claims dereferenced  ${claimsDereferenced}`)
+  if ((quarantined.length || changedProfiles.length) && !DRY_RUN) console.log(`Report: ${path.relative(ROOT, REPORT_PATH)}`)
 }
 
 main()
