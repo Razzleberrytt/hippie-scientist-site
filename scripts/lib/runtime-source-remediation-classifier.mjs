@@ -1,7 +1,7 @@
 import { recordIsPublished } from './production-content-invariants.mjs'
 
 export const RUNTIME_SOURCE_REMEDIATION_STATES = [
-  'recoverable_verified_identity',
+  'attestation_ready_identity',
   'historical_identity_recovery',
   'candidate_reconciliation_required',
   'identity_metadata_insufficient',
@@ -78,9 +78,7 @@ function canonicalPrimaryUrl(source) {
     if (!normalized) continue
     try {
       const url = new URL(normalized)
-      if (/pubmed\.ncbi\.nlm\.nih\.gov$/iu.test(url.hostname) || /^(?:dx\.)?doi\.org$/iu.test(url.hostname)) {
-        return normalized
-      }
+      if (/pubmed\.ncbi\.nlm\.nih\.gov$/iu.test(url.hostname) || /^(?:dx\.)?doi\.org$/iu.test(url.hostname)) return normalized
     } catch {
       // normalizeUrl already validated; keep fail-closed behavior.
     }
@@ -91,13 +89,7 @@ function canonicalPrimaryUrl(source) {
 function sourceIdentity(source) {
   const doi = normalizeLower(source?.doi) || doiFromUrl(source?.url) || doiFromUrl(source?.canonicalUrl)
   const pmid = normalize(source?.pmid || source?.pubmedId || source?.pubmed_id) || pmidFromUrl(source?.url) || pmidFromUrl(source?.canonicalUrl)
-  return {
-    doi,
-    pmid,
-    canonicalUrl: canonicalPrimaryUrl(source),
-    hasValidDoi: DOI_RE.test(doi),
-    hasValidPmid: PMID_RE.test(pmid),
-  }
+  return { doi, pmid, canonicalUrl: canonicalPrimaryUrl(source), hasValidDoi: DOI_RE.test(doi), hasValidPmid: PMID_RE.test(pmid) }
 }
 
 function claimRefs(claim) {
@@ -113,8 +105,7 @@ function claimRefs(claim) {
 }
 
 function claimSignals(record, orphanSourceId) {
-  const claims = (Array.isArray(record?.claimMap) ? record.claimMap : [])
-    .filter(claim => claimRefs(claim).includes(orphanSourceId))
+  const claims = (Array.isArray(record?.claimMap) ? record.claimMap : []).filter(claim => claimRefs(claim).includes(orphanSourceId))
   const claimText = claims.map(claim => text([claim?.claim, claim?.notes, claim?.predicate, claim?.evidenceLevel, claim?.evidence_level, claim?.qualifiers])).join(' ')
   return {
     safetyRelevant: SAFETY_RE.test(claimText),
@@ -190,7 +181,6 @@ function requiresCandidateReconciliation(candidate, reconciliationByCandidate) {
 
 function classifyOne({ localSources, candidates, reconciliationByCandidate }) {
   if (!localSources.length) return { remediationClass: 'identity_metadata_insufficient', reason: 'Runtime reference has no matching profile-local source metadata.' }
-
   if (conflictingLocalIdentity(localSources)) return { remediationClass: 'quarantine_unverifiable', reason: 'The same runtime source ID resolves to conflicting local DOI, PMID, or canonical identity metadata.' }
   if (malformedIdentity(localSources)) return { remediationClass: 'quarantine_unverifiable', reason: 'Profile-local source metadata contains malformed DOI or PMID identity fields.' }
 
@@ -210,8 +200,8 @@ function classifyOne({ localSources, candidates, reconciliationByCandidate }) {
 
   const recoverableIdentity = localIdentities.find(identity => identity.hasValidDoi || identity.hasValidPmid || identity.canonicalUrl)
   if (recoverableIdentity) return {
-    remediationClass: 'recoverable_verified_identity',
-    reason: 'Profile-local provenance contains a valid DOI, PMID, or primary PubMed/DOI canonical identity suitable for governed attestation.',
+    remediationClass: 'attestation_ready_identity',
+    reason: 'Profile-local provenance contains a syntactically valid DOI, PMID, or primary PubMed/DOI identity anchor ready for governed external attestation; it is not yet verified by this classifier.',
     identityAnchor: identityKey(recoverableIdentity),
   }
 
@@ -261,7 +251,7 @@ export function buildRuntimeSourceRemediationQueue({ orphanRows, entries, source
     policy: {
       authority: 'public/data/source-registry.json remains the sole authority for current registry membership.',
       mutation: 'Classification is informational only and never creates registry records, changes claims, changes evidence grades, or changes indexability.',
-      recovery: 'Recoverable classification means sufficient local identity metadata exists for governed attestation; it is not automatic verification or promotion.',
+      recovery: 'Attestation-ready classification means syntactically sufficient local identity metadata exists for governed external verification; it is not verification or promotion.',
     },
   }
 }
