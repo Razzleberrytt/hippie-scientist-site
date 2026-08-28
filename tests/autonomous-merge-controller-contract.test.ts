@@ -70,6 +70,8 @@ describe('autonomous merge controller contract', () => {
 
     expect(controller).toContain("pr.mergeable_state === 'behind'")
     expect(controller).toContain('pr.base.sha !== currentBaseSha')
+    expect(controller).toContain('PR head does not contain current base; update branch and revalidate exact head')
+    expect(controller).toContain('await headContainsBase(repo, currentBaseSha, currentHeadSha)')
     expect(controller).toContain('update branch and revalidate exact head')
     expect(controller).toContain('/pulls/${number}/update-branch')
     expect(controller).toContain('expected_head_sha: expectedHeadSha')
@@ -115,7 +117,7 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain('zero-job control-plane failure recovered through canonical workflow dispatch')
   })
 
-  it('serializes the mutation step and rechecks base immediately before merge', () => {
+  it('serializes the mutation step and rechecks exact-base ancestry immediately before merge', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
 
@@ -126,6 +128,7 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).toContain('cancel-in-progress: false')
     expect(controller).toContain('mergeIfStillCurrent')
     expect(controller).toContain('latestBaseSha !== validatedBaseSha')
+    expect(controller).toContain('headContainsBase(repo, latestBaseSha, headSha)')
     expect(controller).toContain('refreshPrAndDispatch')
     expect(controller).toContain('await mergePr(repo, number, headSha)')
     expect(controller).toContain('validatedBaseSha')
