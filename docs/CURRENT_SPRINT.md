@@ -5,7 +5,7 @@
 **Updated:** 2026-08-28
 **Normal WIP limit:** Maximum three concurrent implementation tickets. The Evidence → Distribution initiative may use separate lanes only when scopes are orthogonal and one ticket per lane is active.
 **WIP cap:** 3
-**Current admission:** Two implementation PRs are active (PR #4457 in L2 factual/provenance and PR #4463 in L4 presentation/experiments). One implementation slot is available, subject to dependency, lane-ownership, and incident checks.
+**Current admission:** One implementation PR is active (PR #4457 in L2 factual/provenance). Two implementation slots are available, subject to dependency, lane-ownership, and incident checks.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,12 +49,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — WIP 2/3, admission open
+## Active — WIP 1/3, admission open
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
 | L2 factual/provenance | PR #4457 | Preserve all approved canonical safety warnings | In Review | Complete canonical safety projection, exact claim/text identity, deterministic provenance, omission/mutation rejection, hosted governance gates |
-| L4 presentation/experiments | PR #4463 | Add trust-safe thumbnail variants | In Review | Exact governed hook identity, deterministic variant IDs, crop-safe geometry, CTA prohibition, hosted governance gates |
 
 ## Ready next — strict dependency order
 
@@ -146,6 +145,7 @@ The sprint exits only when all of the following are true or have a precise exter
 ## Recently retired from this sprint
 
 - **#4412 / PR #4446:** completed/merged as `96a07976dee22cf7b91c337c820cc83ff7e6b860`; machine reconciliation is on main and no longer occupies active WIP.
+- **#4463:** completed/merged as `f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1`; trust-safe thumbnail variants are on main and no longer occupy active WIP.
 - **#4460:** completed/merged as `48bebb81e35c4bd605dedbfc15156cabeb915b06`; duplicate-angle suppression is on main and no longer occupies active WIP.
 - **#4406:** completed; the governed ready → publish → measured lifecycle is merged and no longer occupies the ready queue.
 - **#4439 / PR #4440:** completed/merged; canonical claim/source binding no longer occupies an active slot.
