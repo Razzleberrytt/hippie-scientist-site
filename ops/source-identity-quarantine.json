@@ -1,0 +1,23 @@
+{
+  "modelVersion": "source-identity-quarantine-v1",
+  "entries": [
+    {
+      "candidateSourceId": "cand_cbd-safety-systematic-review-2024",
+      "reason": "Confirmed bibliographic identity mismatch: PMID 39211820 resolves to a discrimination/cognitive-function paper with DOI 10.18865/EthnDis-2023-42, not the claimed CBD review.",
+      "confirmedAt": "2026-08-28",
+      "session": "research-session-f"
+    },
+    {
+      "candidateSourceId": "cand_wave2-cbd-pharmacology-atlas-2025",
+      "reason": "Confirmed bibliographic identity mismatch: PMID 40621044 resolves to an ACS Omega catalysis paper with DOI 10.1021/acsomega.5c01797, not the claimed CBD pharmacology review.",
+      "confirmedAt": "2026-08-28",
+      "session": "research-session-f"
+    },
+    {
+      "candidateSourceId": "cand_flavonoids-safety-meta-2024",
+      "reason": "Confirmed bibliographic identity mismatch: PMID 39044112 resolves to an Academic Psychiatry medication-teaching-clinic paper with DOI 10.1007/s40596-024-02016-3, not the claimed flavonoids safety meta-analysis.",
+      "confirmedAt": "2026-08-28",
+      "session": "research-session-f"
+    }
+  ]
+}
