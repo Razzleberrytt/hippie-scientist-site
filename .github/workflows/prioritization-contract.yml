@@ -1,0 +1,45 @@
+name: Prioritization contract
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'scripts/ci/prioritization-contract.mjs'
+      - 'scripts/ci/validate-prioritization-contract.mjs'
+      - 'scripts/ci/fixtures/prioritization-contract.json'
+      - '.github/workflows/prioritization-contract.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/ci/prioritization-contract.mjs'
+      - 'scripts/ci/validate-prioritization-contract.mjs'
+      - 'scripts/ci/fixtures/prioritization-contract.json'
+      - '.github/workflows/prioritization-contract.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate freshness/unlock prioritization
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check module syntax
+        run: |
+          node --check scripts/ci/prioritization-contract.mjs
+          node --check scripts/ci/validate-prioritization-contract.mjs
+      - name: Run deterministic fixtures
+        run: node scripts/ci/validate-prioritization-contract.mjs
