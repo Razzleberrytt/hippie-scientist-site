@@ -26,7 +26,7 @@ describe('lossless creative presentation adapter', () => {
     const findings = spec.carousel.slides.filter((slide) => slide.role === 'finding')
     const limitations = spec.carousel.slides.filter((slide) => slide.role === 'limitation')
 
-    expect(spec.version).toBe(9)
+    expect(spec.version).toBe(10)
     expect(findings.length).toBeGreaterThan(1)
     expect(limitations.length).toBeGreaterThan(1)
     expect(findings.every((slide) => slide.citationRequired && slide.truncationAllowed === false)).toBe(true)
@@ -99,6 +99,25 @@ describe('lossless creative presentation adapter', () => {
     expect(spec.verticalVideo.hook.trust.ctaAllowedDuringHook).toBe(false)
     expect(spec.verticalVideo.rendererContract.firstTwoSecondsMustSatisfyHookContract).toBe(true)
     expect(spec.guardrails.unsupportedHookCertaintyForbidden).toBe(true)
+  })
+
+  it('creates stable crop-safe thumbnail variants without changing governed hook text', () => {
+    const spec = buildLosslessCreativeSpec(fixture)
+    const thumbnails = spec.thumbnails
+
+    expect(thumbnails.master).toEqual({ width: 1080, height: 1920, format: '9:16' })
+    expect(thumbnails.cropResilience.requiredCrops).toEqual(expect.arrayContaining(['4:5', '1:1']))
+    expect(thumbnails.typography.minimumHeadlinePxAt1080).toBeGreaterThanOrEqual(64)
+    expect(thumbnails.typography.rewriteAllowed).toBe(false)
+    expect(thumbnails.typography.truncationAllowed).toBe(false)
+    expect(thumbnails.trust.ctaAllowed).toBe(false)
+    expect(thumbnails.variants).toHaveLength(3)
+    expect(new Set(thumbnails.variants.map((variant) => variant.id)).size).toBe(3)
+    expect(thumbnails.variants.every((variant) => variant.headline === fixture.title)).toBe(true)
+    expect(thumbnails.variants.every((variant) => variant.ctaAllowed === false)).toBe(true)
+    expect(spec.verticalVideo.rendererContract.thumbnailVariantsMayVaryCompositionOnly).toBe(true)
+    expect(spec.guardrails.thumbnailHookRewriteForbidden).toBe(true)
+    expect(spec.guardrails.thumbnailCropResilienceRequired).toBe(true)
   })
 
   it('binds the CTA to the canonical evidence destination and final three-second window', () => {
