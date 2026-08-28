@@ -108,12 +108,14 @@ describe('governed distribution lifecycle', () => {
     }
   })
 
-  it('rejects non-object measurement payloads', () => {
+  it('rejects null, scalar, and array measurement payloads', () => {
     const published = advanceToPublished(createDistributionLifecycle(identity))
-    expect(() => transitionDistributionLifecycle(published, 'measured', {
-      currentIdentity: identity,
-      measurement: ['views', 1200],
-    })).toThrow(/requires an observation payload/i)
+    for (const measurement of [null, 'views=1200', 1200, ['views', 1200]]) {
+      expect(() => transitionDistributionLifecycle(published, 'measured', {
+        currentIdentity: identity,
+        measurement,
+      })).toThrow(/requires an observation payload/i)
+    }
   })
 
   it('supports explicit pause and withdrawal while blocking ordinary publishability', () => {
