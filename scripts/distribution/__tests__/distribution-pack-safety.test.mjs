@@ -10,7 +10,7 @@ const researchObjects = JSON.parse(fs.readFileSync(path.join(root, 'data/distrib
 const ashwagandha = JSON.parse(fs.readFileSync(path.join(root, 'public/data/herbs-detail/ashwagandha.json'), 'utf8'))
 const object = researchObjects.find(({ id }) => id === 'ashwagandha-stress-evidence')
 
-// Executable validation anchor: governed safety must preserve every approved canonical warning with claim identity intact.
+// #4457 exact-head validation anchor: governed safety must preserve every approved canonical warning with claim identity intact.
 describe('governed distribution safety projection', () => {
   it('preserves all approved Ashwagandha safety warnings with deterministic provenance', () => {
     const canonicalClaims = ashwagandha.claimMap.filter(({ predicate, reviewStatus }) => (
