@@ -13,8 +13,16 @@
     "doseContext": "Trials used different ashwagandha extracts and dosing regimens; any dose values in the underlying studies are study context only and are not consumer dosing instructions.",
     "formulationContext": "The cited evidence includes heterogeneous ashwagandha extracts, so findings from one preparation should not be generalized to all ashwagandha products.",
     "populationContext": "Adults represented in randomized trials included in the cited systematic review and meta-analysis.",
-    "safetyClaimId": "clm_9318758bf577",
-    "safetyStatement": "Avoid ashwagandha during pregnancy unless specifically directed by a qualified clinician, and use extra caution with thyroid disease or thyroid medication, sedatives, antihypertensive or antidiabetic drugs, and immunosuppressants because human safety data and interaction evidence are limited and thyroid stimulation or additive effects are plausible.",
+    "safetyWarnings": [
+      {
+        "claimId": "clm_9318758bf577",
+        "statement": "Avoid ashwagandha during pregnancy unless specifically directed by a qualified clinician, and use extra caution with thyroid disease or thyroid medication, sedatives, antihypertensive or antidiabetic drugs, and immunosuppressants because human safety data and interaction evidence are limited and thyroid stimulation or additive effects are plausible."
+      },
+      {
+        "claimId": "clm_d6711d6cd0c9",
+        "statement": "Rare cases and case series of clinically significant liver injury have been associated with ashwagandha products, often with cholestatic or mixed patterns; discontinue use and seek medical evaluation if jaundice, dark urine, marked itching, or persistent upper-abdominal symptoms develop."
+      }
+    ],
     "series": "evidence-to-distribution-mvp",
     "tags": [
       "ashwagandha",
