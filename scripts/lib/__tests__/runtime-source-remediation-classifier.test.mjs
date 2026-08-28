@@ -38,6 +38,16 @@ describe('runtime source remediation classifier', () => {
     expect(row.humanEvidenceClaim).toBe(true)
   })
 
+  it('preserves safety and human priority signals across fallback claim source aliases', () => {
+    const aliasProfile = profile({ doi: '10.1000/fixture' }, {
+      sourceRefIds: [],
+      sourceIds: ['src_fixture'],
+    })
+    const row = classifyRuntimeSourceOrphan(orphan, { profile: aliasProfile })
+    expect(row.safetyClaim).toBe(true)
+    expect(row.humanEvidenceClaim).toBe(true)
+  })
+
   it('keeps missing or anchorless local metadata unresolved', () => {
     const missing = classifyRuntimeSourceOrphan(orphan, { profile: profile(null) })
     expect(missing.remediationState).toBe('identity_metadata_insufficient')
