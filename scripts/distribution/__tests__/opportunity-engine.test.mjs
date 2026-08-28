@@ -29,6 +29,7 @@ describe('distribution opportunity engine', () => {
     const first = selectDistributionOpportunity([b, a], signals, { now: NOW })
     const second = selectDistributionOpportunity([b, a], signals, { now: NOW })
     expect(first.status).toBe('selected')
+    expect(first.schemaVersion).toBe('1.1.0')
     expect(first.selected.id).toBe('sleep-human-trial')
     expect(first).toEqual(second)
     expect(first.selected.sourceUrl).toBe(a.sourceUrl)
@@ -64,7 +65,6 @@ describe('distribution opportunity engine', () => {
     expect(candidate.discoverability.canonicalSource).toBe(object.sourceUrl)
   })
 
-  // Cohort identity must follow the exact creative angle, not just the topic/platform pair.
   it('gives changed creative angles distinct experiment attribution without changing the canonical destination', () => {
     const first = scoreDistributionCandidate(governed(), {}, { now: NOW })
     const second = scoreDistributionCandidate(governed({ title: 'Sleep evidence, updated framing' }), {}, { now: NOW })
@@ -72,6 +72,42 @@ describe('distribution opportunity engine', () => {
     expect(first.destination.attribution.cohort).not.toBe(second.destination.attribution.cohort)
     expect(first.destination.attribution.content).not.toBe(second.destination.attribution.content)
     expect(first.destination.taggedUrl).not.toBe(second.destination.taggedUrl)
+  })
+
+  it('blocks an exact page/platform/angle cohort already present in distribution inventory', () => {
+    const object = governed()
+    const baseline = scoreDistributionCandidate(object, {}, { now: NOW })
+    const cohort = baseline.destination.attribution.cohort
+    const candidate = scoreDistributionCandidate(object, { 'sleep-human-trial': { existingAngleCohorts: [cohort, cohort, 'older-cohort'] } }, { now: NOW })
+    expect(candidate.eligible).toBe(true)
+    expect(candidate.selectable).toBe(false)
+    expect(candidate.duplicateAngle).toBe(true)
+    expect(candidate.existingAngleCohorts).toEqual(['older-cohort', cohort].sort())
+    expect(candidate.distributionBlockedReasons).toEqual(['exact page/platform/angle cohort already exists in distribution inventory'])
+  })
+
+  it('falls through to the next eligible opportunity when the top-scoring creative angle is already saturated', () => {
+    const top = governed({ id: 'top', title: 'Top evidence', sourceUrl: 'https://thehippiescientist.net/evidence/top/' })
+    const next = governed({ id: 'next', title: 'Next evidence', sourceUrl: 'https://thehippiescientist.net/evidence/next/' })
+    const topBaseline = scoreDistributionCandidate(top, { top: { impact: 10 } }, { now: NOW })
+    const signals = {
+      top: { impact: 10, existingAngleCohorts: [topBaseline.destination.attribution.cohort] },
+      next: { impact: 8 },
+    }
+    const result = selectDistributionOpportunity([top, next], signals, { now: NOW })
+    expect(result.status).toBe('selected')
+    expect(result.selected.id).toBe('next')
+    expect(result.candidates.find((candidate) => candidate.id === 'top').duplicateAngle).toBe(true)
+  })
+
+  it('returns an explicit unsaturated-angle waiting state when every otherwise eligible angle already exists', () => {
+    const object = governed()
+    const baseline = scoreDistributionCandidate(object, {}, { now: NOW })
+    const result = selectDistributionOpportunity([object], { 'sleep-human-trial': { existingAngleCohorts: [baseline.destination.attribution.cohort] } }, { now: NOW })
+    expect(result.status).toBe('waiting-for-unsaturated-angle')
+    expect(result.selected).toBeNull()
+    expect(result.candidates[0].eligible).toBe(true)
+    expect(result.candidates[0].selectable).toBe(false)
   })
 
   it('uses the swarm scoring formula and subtracts growth risks rather than overriding safety', () => {
@@ -95,6 +131,6 @@ describe('distribution opportunity engine', () => {
   })
 
   it('returns an explicit waiting state when the governed research-object set is empty', () => {
-    expect(selectDistributionOpportunity([], {}, { now: NOW })).toEqual({ schemaVersion: '1.0.0', status: 'waiting-for-governed-object', selected: null, candidates: [] })
+    expect(selectDistributionOpportunity([], {}, { now: NOW })).toEqual({ schemaVersion: '1.1.0', status: 'waiting-for-governed-object', selected: null, candidates: [] })
   })
 })
