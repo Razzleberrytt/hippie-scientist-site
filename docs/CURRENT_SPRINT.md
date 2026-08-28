@@ -7,7 +7,7 @@
 **WIP cap:** 3
 **Current admission:** One implementation ticket is active (#4412 / PR #4446). Two implementation slots are available, subject to dependency and lane-ownership checks.
 
-**Control dependencies:** #4412 <- #4411; #4407 <- #4406
+**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
 ## Sprint objective
 
