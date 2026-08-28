@@ -1,6 +1,7 @@
 name: Backlog integrity
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'ops/backlog/**'
