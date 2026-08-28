@@ -2,7 +2,11 @@
   "manifestVersion": 1,
   "modelVersion": "parallel-research-sessions-v1",
   "shardCount": 8,
-  "assignmentRule": "existing enrichment job_id -> scripts/enrichment-pipeline/lib/ids.mjs shardOf(job_id, shardCount)",
+  "assignmentRules": {
+    "pipelineJobs": "shardOf(job_id, shardCount)",
+    "researchWorkpacks": "shardOf(workpackId, shardCount)",
+    "implementation": "scripts/enrichment-pipeline/lib/ids.mjs#shardOf"
+  },
   "submissionMode": "append-only-session-fragments",
   "sessions": [
     { "sessionId": "A", "workerId": "research-session-a", "shard": 0, "enabled": true },
