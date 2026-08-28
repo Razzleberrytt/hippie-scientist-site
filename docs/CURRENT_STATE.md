@@ -1,7 +1,7 @@
 # Current State
 
 **Status:** Authoritative description of the present implementation
-**Evidence cutoff:** 2026-08-25 for SEO-001 publication-parity and current CI/deploy status; other audited facts retain their stated dates
+**Evidence cutoff:** 2026-08-28 for the scoped #4415 economics proof below; 2026-08-25 for SEO-001 publication-parity and the earlier CI/deploy snapshot; other audited facts retain their stated dates
 **Labels:** **Verified** = reproduced from code, generated data, CI, GitHub, or live output; **Inferred** = supported but not directly measured; **Unknown** = access or evidence unavailable; **Recommended** = proposed next action, not current behavior.
 
 ## Executive summary
@@ -85,6 +85,14 @@
 **Verified:** Analytics loading is consent-gated and controlled by `NEXT_PUBLIC_GA4_ID` and/or an Ahrefs key. Affiliate and funnel events are instrumented in code.
 
 **Unknown:** Whether those identifiers are set in the production build and whether events reach a reporting property. Search Console service-account credentials were unavailable; repository scripts could not fetch a baseline. Cloudflare environment values, analytics-property access, Amazon reports, Mailchimp reports, and a reliable revenue baseline were unavailable.
+
+### Derived resource economics — verified 2026-08-28
+
+**Verified:** #4415 / PR #4492 merged as `23dc2485720ff6b31043413b2b9295c4886944cb`. The contract derives efficiency ratios from named numerator/denominator observations; comparison checks metric types, definitions, scope, attribution boundary and equal-duration periods. Missing observations/guardrails wait; explicit adverse guardrails stop. Positive eligibility requires source/scope/window-bound measured exposure at the unchanged 250-view distribution floor in both periods. Estimates and merged-code throughput cannot authorize scaling. Other release gates remain independent.
+
+**Validation:** The final repaired head passed [42 focused regressions](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431712), [2,866 tests across 593 files and real production build/output/SEO](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431644). The three repaired files were verified unchanged on main, and the four review findings were resolved with that evidence. These checks prove implementation behavior, not a measured growth or revenue result.
+
+**Unknown:** Real CI/resource and attributable growth observations sufficient for the ticket's example ratios have not been supplied or verified here. No new telemetry collection, external provider, publishing authorization, scientific authority, or generalized non-distribution sufficiency policy is introduced.
 
 ## Content inventory
 
