@@ -3,6 +3,7 @@ import path from 'node:path'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 import { getSourceClassRule } from './lib/source-class-governance'
+import { assessExplicitDuplicateTarget } from './lib/source-candidate-registry-integrity'
 import type { SourceRegistryRecord } from './lib/source-registry-record'
 
 type ReviewStatus =
@@ -193,6 +194,7 @@ function run() {
   }
 
   const intakeById = new Map(intake.tasks.map(task => [task.intakeTaskId, task]))
+  const registryById = new Map(registry.map(source => [source.sourceId, source]))
   const activeRegistry = registry.filter(source => source.active)
   const activeByDoi = new Map(activeRegistry.filter(s => isNonEmpty(s.doi)).map(s => [s.doi!.toLowerCase(), s]))
   const activeByPmid = new Map(activeRegistry.filter(s => isNonEmpty(s.pmid)).map(s => [s.pmid!, s]))
@@ -305,6 +307,9 @@ function run() {
       lowValueFlags.push('proposedReliabilityTier=tier-d')
     }
 
+    const explicitDuplicateTarget = assessExplicitDuplicateTarget(candidate, registryById)
+    if (explicitDuplicateTarget.metadataIssue) metadataIssues.push(explicitDuplicateTarget.metadataIssue)
+
     if (isNonEmpty(candidate.doi)) {
       const match = activeByDoi.get(candidate.doi.toLowerCase())
       if (match) duplicateMatches.push({ sourceId: match.sourceId, matchType: 'doi' })
@@ -323,8 +328,11 @@ function run() {
       intakeTask && intakeTask.recommendedSourceClasses.length > 0 && !intakeTask.recommendedSourceClasses.includes(candidate.sourceClass),
     )
 
+    const legacyKnownDuplicateWithoutExplicitTarget =
+      candidate.duplicateRisk === 'known-duplicate' && !explicitDuplicateTarget.hasExplicitTarget
+
     let outcomeCategory: OutcomeCategory = 'approved_new_source'
-    if (duplicateMatches.length > 0 || candidate.duplicateRisk === 'known-duplicate' || isNonEmpty(candidate.duplicateOfSourceId)) {
+    if (duplicateMatches.length > 0 || explicitDuplicateTarget.targetResolves || legacyKnownDuplicateWithoutExplicitTarget) {
       outcomeCategory = 'duplicate_of_existing'
     } else if (metadataIssues.length > 0) {
       outcomeCategory = 'insufficient_metadata'
@@ -461,6 +469,7 @@ function run() {
       'Candidate metadata must pass source-candidate schema + deterministic class/evidence/sourceType consistency checks.',
       'Candidate must provide valid citation anchors appropriate to source class (doi/pmid/url or monograph-specific fields).',
       'Duplicate detection is run against active registry sources using DOI/PMID/canonical URL matching.',
+      'An explicit duplicateOfSourceId must resolve to a canonical source-registry record before it counts as duplicate evidence.',
       'Candidates in rejected, duplicate_of_existing, needs_metadata, or deprecated_candidate states are not promotable.',
       'Promotion preview creates stable sourceIds and writes intakeTaskId/candidateSourceId traceability into notes.',
     ],
@@ -496,8 +505,8 @@ function run() {
     '',
     '## Outcome handling',
     '- approved_new_source: candidate is metadata-complete, non-duplicate, class-consistent, and review-complete.',
-    '- duplicate_of_existing: candidate collides with existing active source identifier(s) and cannot be promoted.',
-    '- insufficient_metadata: candidate is missing required metadata/anchors for deterministic governance checks.',
+    '- duplicate_of_existing: candidate collides with existing active source identifier(s) or a resolved explicit duplicate target and cannot be promoted.',
+    '- insufficient_metadata: candidate is missing required metadata/anchors or has an unresolved explicit duplicate target.',
     '- low_value_non_qualifying: candidate is weak (withdrawn/superseded/tier-d) and should be rejected.',
     '- wrong_source_class_for_intended_gap: candidate class does not satisfy intake task gap recommendation.',
     '',
