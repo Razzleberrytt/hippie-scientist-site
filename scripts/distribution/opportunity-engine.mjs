@@ -9,6 +9,14 @@ const PLATFORM_WEIGHTS = Object.freeze({
 const GRADE_SCORE = Object.freeze({ A: 10, B: 8, C: 5, D: 2, 'Avoid/Insufficient': 0 })
 const HUMAN_CONTEXT = /human|randomi[sz]ed|clinical|trial/i
 const PRECLINICAL_CONTEXT = /animal|mouse|mice|rat|preclinical|in vitro|cell/i
+const DISCOVERABILITY_SIGNAL_KEYS = Object.freeze([
+  'searchOpportunity',
+  'aiCitationOpportunity',
+  'socialSuitability',
+  'commercialValue',
+  'informationUniqueness',
+  'evergreenValue',
+])
 
 function clamp(value, min = 0, max = 10) {
   const number = Number(value)
@@ -18,6 +26,15 @@ function clamp(value, min = 0, max = 10) {
 
 function signal(signals, id, key, fallback = 0) {
   return clamp(signals?.[id]?.[key] ?? fallback)
+}
+
+function hasFiniteSignal(signals, id, key) {
+  const value = signals?.[id]?.[key]
+  return value !== null && value !== '' && Number.isFinite(Number(value))
+}
+
+function mean(values) {
+  return values.reduce((total, value) => total + clamp(value), 0) / values.length
 }
 
 function daysSince(date, now = new Date()) {
@@ -113,12 +130,55 @@ function buildAngle(object, platform) {
   return `${object.title}: evidence update with finding, limitation, grade ${grade}, and source trail`
 }
 
+function deriveCoreDefaults(signals, id, observed, evidenceStrength, freshness) {
+  const hasDiscoverabilityEvidence = DISCOVERABILITY_SIGNAL_KEYS.some((key) => hasFiniteSignal(signals, id, key))
+  if (!hasDiscoverabilityEvidence) {
+    return { impact: 7, breadth: 6, confidence: evidenceStrength, compoundingLeverage: 8 }
+  }
+
+  return {
+    impact: mean([
+      observed.searchOpportunity,
+      observed.aiCitationOpportunity,
+      observed.socialSuitability,
+      observed.commercialValue,
+      observed.informationUniqueness,
+    ]),
+    breadth: mean([
+      observed.searchOpportunity,
+      observed.aiCitationOpportunity,
+      observed.socialSuitability,
+    ]),
+    confidence: mean([
+      evidenceStrength,
+      freshness,
+      observed.informationUniqueness,
+    ]),
+    compoundingLeverage: mean([
+      observed.searchOpportunity,
+      observed.aiCitationOpportunity,
+      observed.informationUniqueness,
+      observed.evergreenValue,
+    ]),
+  }
+}
+
 export function scoreDistributionCandidate(object, signals = {}, options = {}) {
   const eligibility = assessEligibility(object, options)
   const evidenceStrength = clamp(GRADE_SCORE[object?.evidenceGrade] ?? 0)
   const freshness = clamp(10 - Math.floor((eligibility.staleDays || 0) / 45))
+  const id = object?.id
+  const observed = {
+    searchOpportunity: signal(signals, id, 'searchOpportunity', 5),
+    aiCitationOpportunity: signal(signals, id, 'aiCitationOpportunity', 5),
+    socialSuitability: signal(signals, id, 'socialSuitability', 6),
+    commercialValue: signal(signals, id, 'commercialValue', 4),
+    informationUniqueness: signal(signals, id, 'informationUniqueness', 6),
+    evergreenValue: signal(signals, id, 'evergreenValue', 7),
+  }
+  const coreDefaults = deriveCoreDefaults(signals, id, observed, evidenceStrength, freshness)
   const metrics = {
-    impact: signal(signals, object?.id, 'impact', 7), urgency: signal(signals, object?.id, 'urgency', 5), breadth: signal(signals, object?.id, 'breadth', 6), confidence: signal(signals, object?.id, 'confidence', evidenceStrength), compoundingLeverage: signal(signals, object?.id, 'compoundingLeverage', 8), opportunityAge: signal(signals, object?.id, 'opportunityAge', 3), reversibility: signal(signals, object?.id, 'reversibility', 10), technicalDebtInterest: signal(signals, object?.id, 'technicalDebtInterest', 4), effort: signal(signals, object?.id, 'effort', 3), regressionRisk: signal(signals, object?.id, 'regressionRisk', 2), blastRadius: signal(signals, object?.id, 'blastRadius', 2), searchOpportunity: signal(signals, object?.id, 'searchOpportunity', 5), aiCitationOpportunity: signal(signals, object?.id, 'aiCitationOpportunity', 5), socialSuitability: signal(signals, object?.id, 'socialSuitability', 6), commercialValue: signal(signals, object?.id, 'commercialValue', 4), informationUniqueness: signal(signals, object?.id, 'informationUniqueness', 6), existingAssetSaturation: signal(signals, object?.id, 'existingAssetSaturation', 0), cannibalizationRisk: signal(signals, object?.id, 'cannibalizationRisk', 1), productionCost: signal(signals, object?.id, 'productionCost', 3), evergreenValue: signal(signals, object?.id, 'evergreenValue', 7), freshness, evidenceStrength,
+    impact: signal(signals, id, 'impact', coreDefaults.impact), urgency: signal(signals, id, 'urgency', 5), breadth: signal(signals, id, 'breadth', coreDefaults.breadth), confidence: signal(signals, id, 'confidence', coreDefaults.confidence), compoundingLeverage: signal(signals, id, 'compoundingLeverage', coreDefaults.compoundingLeverage), opportunityAge: signal(signals, id, 'opportunityAge', 3), reversibility: signal(signals, id, 'reversibility', 10), technicalDebtInterest: signal(signals, id, 'technicalDebtInterest', 4), effort: signal(signals, id, 'effort', 3), regressionRisk: signal(signals, id, 'regressionRisk', 2), blastRadius: signal(signals, id, 'blastRadius', 2), searchOpportunity: observed.searchOpportunity, aiCitationOpportunity: observed.aiCitationOpportunity, socialSuitability: observed.socialSuitability, commercialValue: observed.commercialValue, informationUniqueness: observed.informationUniqueness, existingAssetSaturation: signal(signals, id, 'existingAssetSaturation', 0), cannibalizationRisk: signal(signals, id, 'cannibalizationRisk', 1), productionCost: signal(signals, id, 'productionCost', 3), evergreenValue: observed.evergreenValue, freshness, evidenceStrength,
   }
   const score = 3 * metrics.impact + 2 * metrics.urgency + 2 * metrics.breadth + 2 * metrics.confidence + 2 * metrics.compoundingLeverage + metrics.opportunityAge + metrics.reversibility + metrics.technicalDebtInterest - metrics.effort - 2 * metrics.regressionRisk - metrics.blastRadius - metrics.existingAssetSaturation - metrics.cannibalizationRisk - eligibility.claimRisk
   const platform = choosePlatform(metrics)

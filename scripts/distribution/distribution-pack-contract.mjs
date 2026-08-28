@@ -72,6 +72,37 @@ function canonicalSitePageUrl(value) {
   }
 }
 
+function loadCanonicalSourcePage(sourceUrl) {
+  const canonicalUrl = canonicalSitePageUrl(sourceUrl)
+  if (!canonicalUrl) throw new Error('sourceUrl is not a canonical Hippie Scientist evidence page')
+  const match = new URL(canonicalUrl).pathname.match(/^\/(herbs|compounds)\/([a-z0-9-]+)\/$/)
+  if (!match) throw new Error('sourceUrl must resolve to a canonical herb or compound detail page')
+  const detailDir = match[1] === 'herbs' ? 'herbs-detail' : 'compounds-detail'
+  const file = path.resolve(moduleDir, `../../public/data/${detailDir}/${match[2]}.json`)
+  if (!fs.existsSync(file)) throw new Error(`canonical source detail file is missing for ${canonicalUrl}`)
+  const page = JSON.parse(fs.readFileSync(file, 'utf8'))
+  if (!page || clean(page.slug) !== match[2] || !Array.isArray(page.claimMap)) {
+    throw new Error(`canonical source detail is not claim-addressable for ${canonicalUrl}`)
+  }
+  return page
+}
+
+function assertCanonicalSafetyOwnership(researchObject) {
+  const safetyClaimId = expectedContext(researchObject.safetyClaimId)
+  const safetyStatement = expectedContext(researchObject.safetyStatement)
+  if (safetyClaimId === null) return
+  const page = loadCanonicalSourcePage(researchObject.sourceUrl)
+  const matches = page.claimMap.filter(({ id }) => clean(id) === safetyClaimId)
+  if (matches.length !== 1) throw new Error(`safetyClaimId ${safetyClaimId} must resolve exactly once on the canonical source page`)
+  const claim = matches[0]
+  if (clean(claim.predicate) !== 'has_safety_warning' || clean(claim.reviewStatus) !== 'approved') {
+    throw new Error(`safetyClaimId ${safetyClaimId} must resolve to an approved has_safety_warning claim`)
+  }
+  if (clean(claim.claim) !== safetyStatement) {
+    throw new Error(`safetyStatement must exactly equal approved canonical claim ${safetyClaimId}`)
+  }
+}
+
 function expectedPackId(researchObjectId) {
   return `${researchObjectId.replace(/[._]+/g, '-').replace(/-+/g, '-')}-media-v1`
 }
@@ -104,6 +135,9 @@ function expectedProvenanceReceipts(researchObject) {
     if (expectedContext(researchObject[field]) !== null) {
       receipts.push([targetPath, field, researchObject[field]])
     }
+  }
+  if (expectedContext(researchObject.safetyStatement) !== null) {
+    receipts.push(['$.safety[0].statement', 'safetyStatement', researchObject.safetyStatement])
   }
   return receipts.map(([targetPath, canonicalField, value]) => ({
     targetPath,
@@ -154,6 +188,24 @@ function buildCanonicalRegistry(objects, errors) {
     if (!expectedEvidenceContext(object)) {
       addError(errors, '$.researchObjectIds', `canonical research object ${id} has unsupported evidenceType ${clean(object.evidenceType)}`)
       continue
+    }
+    const safetyClaimId = expectedContext(object.safetyClaimId)
+    const safetyStatement = expectedContext(object.safetyStatement)
+    if ((safetyClaimId === null) !== (safetyStatement === null)) {
+      addError(errors, '$.researchObjectIds', `canonical research object ${id} must provide safetyClaimId and safetyStatement together`)
+      continue
+    }
+    if (safetyClaimId !== null && !/^clm_[a-f0-9]+$/.test(safetyClaimId)) {
+      addError(errors, '$.researchObjectIds', `canonical research object ${id} has invalid safetyClaimId`)
+      continue
+    }
+    if (safetyClaimId !== null) {
+      try {
+        assertCanonicalSafetyOwnership(object)
+      } catch (error) {
+        addError(errors, '$.researchObjectIds', `canonical research object ${id} has invalid safety ownership: ${error instanceof Error ? error.message : String(error)}`)
+        continue
+      }
     }
     if (registry.has(id)) {
       addError(errors, '$.researchObjectIds', `canonical research-object registry contains duplicate id ${id}`)
@@ -252,7 +304,21 @@ export function validateDistributionPack(pack, options = {}) {
     if (HUMAN_DIRECTED_RE.test(claim.publicSafeStatement)) addError(errors, '$.claims[0].publicSafeStatement', 'v1 preclinical findings may not contain human- or second-person-directed language; keep human inference boundaries outside the canonical finding')
   }
 
-  if (pack.safety.length !== 0) addError(errors, '$.safety', 'v1 cannot invent safety claims because research objects do not own a safety field')
+  const expectedSafetyStatement = expectedContext(researchObject.safetyStatement)
+  const expectedSafetyClaimId = expectedContext(researchObject.safetyClaimId)
+  if (expectedSafetyStatement === null) {
+    if (pack.safety.length !== 0) addError(errors, '$.safety', 'must remain empty when the canonical research object owns no safety statement')
+  } else {
+    if (pack.safety.length !== 1) {
+      addError(errors, '$.safety', 'must contain exactly one canonical safety statement when the research object owns one')
+    } else {
+      const safety = pack.safety[0]
+      if (safety.id !== 'SAFETY_001') addError(errors, '$.safety[0].id', 'must equal SAFETY_001')
+      if (safety.canonicalClaimId !== expectedSafetyClaimId) addError(errors, '$.safety[0].canonicalClaimId', 'must equal canonical research-object safetyClaimId')
+      if (clean(safety.statement) !== expectedSafetyStatement) addError(errors, '$.safety[0].statement', 'must equal the canonical research-object safetyStatement without rewriting')
+      if (safety.sourceRefs.length !== 1 || safety.sourceRefs[0] !== expectedSourceId) addError(errors, '$.safety[0].sourceRefs', 'must reference only the canonical research object')
+    }
+  }
 
   const uncertainty = pack.uncertainties[0]
   if (uncertainty.id !== 'UNCERTAINTY_001') addError(errors, '$.uncertainties[0].id', 'must equal UNCERTAINTY_001')

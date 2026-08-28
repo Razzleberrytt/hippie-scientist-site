@@ -28,13 +28,17 @@ describe('distribution pack schema/validator parity', () => {
     expect(validatorSource).toContain('if (!validateSchema(pack))')
   })
 
-  it('keeps v1 no-rewrite and no-consumer-instruction invariants explicit in both layers', () => {
+  it('keeps v1 no-rewrite, governed-safety, and no-consumer-instruction invariants explicit in both layers', () => {
     expect(schema.$defs.claim.properties.strengthDelta.const).toBe('none')
     expect(schema.$defs.claim.properties.consumerInstruction.const).toBe(false)
-    expect(schema.properties.safety.maxItems).toBe(0)
+    expect(schema.properties.safety.maxItems).toBe(1)
+    expect(schema.$defs.safetyStatement.required).toEqual(['id', 'canonicalClaimId', 'statement', 'sourceRefs'])
     expect(schema.properties.assetIntents.items.properties.objective.const).toBe('Render the canonical finding without factual rewriting.')
     expect(validatorSource).toContain("claim.strengthDelta !== 'none'")
     expect(validatorSource).toContain('distribution packs never authorize consumer instructions')
     expect(validatorSource).toContain('v1 forbids free-form factual rewriting')
+    expect(validatorSource).toContain('must resolve exactly once on the canonical source page')
+    expect(validatorSource).toContain('must resolve to an approved has_safety_warning claim')
+    expect(validatorSource).toContain('safetyStatement must exactly equal approved canonical claim')
   })
 })

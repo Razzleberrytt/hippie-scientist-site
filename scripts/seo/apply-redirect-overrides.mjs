@@ -143,9 +143,10 @@ function canonicalComparisonRoute(route) {
   const slug = match[1]
   if (builtCompareSlugs.has(slug)) return `/guides/compare/${slug}`
 
-  // Configured/generated comparisons are not guaranteed to have static pages.
-  // Send those stale crawl paths to the real comparison hub rather than
-  // publishing a hard 404 from a generated related-link card.
+  // Internal links should never keep pointing at the retired combinatorial
+  // comparison namespace. Sending a rendered internal link to the curated hub
+  // is acceptable; redirecting a crawled legacy URL there is not (see the
+  // redirect-table pruning below).
   return '/guides/compare'
 }
 
@@ -211,6 +212,60 @@ function targetPathname(target) {
   } catch {
     return null
   }
+}
+
+/**
+ * Retired combinatorial comparison pages have no one-to-one replacement. A
+ * redirect from `/compare/foo-vs-bar` to the comparison hub is therefore a
+ * soft-404 signal, not recovery. Remove those rules from the deployed table.
+ *
+ * If a formerly generated pair now has a curated static page, repair the rule
+ * to that exact canonical instead of dropping it. This keeps the redirect
+ * policy aligned automatically as the curated comparison set changes.
+ */
+function pruneComparisonHubSoft404s(contents) {
+  let removedCount = 0
+  let repairedCount = 0
+
+  const lines = []
+  for (const line of contents.split(/\r?\n/)) {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith('#')) {
+      lines.push(line)
+      continue
+    }
+
+    const [source, target, status = '301'] = trimmed.split(/\s+/)
+    if (!source || !target || !/^30[1278]$/.test(status)) {
+      lines.push(line)
+      continue
+    }
+
+    const sourcePath = targetPathname(source)
+    const targetPath = targetPathname(target)
+    const compareMatch = sourcePath?.match(/^\/compare\/([^/]+)$/)
+
+    if (!compareMatch || targetPath !== '/guides/compare') {
+      lines.push(line)
+      continue
+    }
+
+    const slug = compareMatch[1]
+    if (!builtCompareSlugs.has(slug)) {
+      removedCount += 1
+      continue
+    }
+
+    const repairedPath = canonicalHref(`/guides/compare/${slug}`)
+    const repairedTarget = target.startsWith('/')
+      ? repairedPath
+      : new URL(repairedPath, `https://${CANONICAL_HOST}`).toString()
+
+    lines.push(`${source} ${repairedTarget} ${status}`)
+    repairedCount += 1
+  }
+
+  return { contents: lines.join('\n'), removedCount, repairedCount }
 }
 
 /**
@@ -308,13 +363,14 @@ function rewriteRedirectingInternalLinks(redirectMap) {
   return { touchedFiles, rewrittenLinks, repairedCompareLinks, collapsedUnbuiltCompareLinks }
 }
 
-const exactRedirectMap = parseExactRedirects(mergedRedirects)
-const flattenResult = flattenRedirectRules(mergedRedirects, exactRedirectMap)
+const comparisonPruneResult = pruneComparisonHubSoft404s(mergedRedirects)
+const exactRedirectMap = parseExactRedirects(comparisonPruneResult.contents)
+const flattenResult = flattenRedirectRules(comparisonPruneResult.contents, exactRedirectMap)
 
 fs.writeFileSync(redirectsPath, flattenResult.contents)
 
 const repairResult = rewriteRedirectingInternalLinks(exactRedirectMap)
 
 console.log(
-  `[redirect-overrides] Prepended ${rules.length} redirect override rules, suppressed ${canonicalOverrideSources.size} restored canonical source variants, flattened ${flattenResult.flattenedCount} multi-hop redirect rules, rewrote ${repairResult.rewrittenLinks} internal redirect links, repaired ${repairResult.repairedCompareLinks} stale comparison links (${repairResult.collapsedUnbuiltCompareLinks} unbuilt pairs sent to the comparison hub), and touched ${repairResult.touchedFiles} HTML files.`,
+  `[redirect-overrides] Prepended ${rules.length} redirect override rules, suppressed ${canonicalOverrideSources.size} restored canonical source variants, pruned ${comparisonPruneResult.removedCount} unbuilt comparison soft-404 redirects, repaired ${comparisonPruneResult.repairedCount} comparison redirects to curated pages, flattened ${flattenResult.flattenedCount} multi-hop redirect rules, rewrote ${repairResult.rewrittenLinks} internal redirect links, repaired ${repairResult.repairedCompareLinks} stale comparison links (${repairResult.collapsedUnbuiltCompareLinks} unbuilt pairs sent to the comparison hub), and touched ${repairResult.touchedFiles} HTML files.`,
 )
