@@ -18,13 +18,15 @@ const normalizedSentence = (value) => {
   return /[.!?]$/.test(text) ? text : `${text}.`
 }
 
+const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
+
 describe('lossless creative presentation adapter', () => {
   it('expands long governed copy into ordered cited continuation slides without ellipsis', () => {
     const spec = buildLosslessCreativeSpec(fixture)
     const findings = spec.carousel.slides.filter((slide) => slide.role === 'finding')
     const limitations = spec.carousel.slides.filter((slide) => slide.role === 'limitation')
 
-    expect(spec.version).toBe(8)
+    expect(spec.version).toBe(9)
     expect(findings.length).toBeGreaterThan(1)
     expect(limitations.length).toBeGreaterThan(1)
     expect(findings.every((slide) => slide.citationRequired && slide.truncationAllowed === false)).toBe(true)
@@ -45,6 +47,31 @@ describe('lossless creative presentation adapter', () => {
     expect(spec.verticalVideo.rendererContract.legacyTruncatedFactualScenesMayNotBePublishedWhenContinuationIsRequired).toBe(true)
     expect(spec.guardrails.losslessGovernedCopyRequired).toBe(true)
     expect(spec.guardrails.continuationPagesMayNotBeDropped).toBe(true)
+  })
+
+  it('renders deterministic captions without dropping or adding ellipses to scene voiceover', () => {
+    const spec = buildLosslessCreativeSpec(fixture)
+    const captions = spec.verticalVideo.captions
+
+    expect(captions.minimumPxAt1080).toBeGreaterThanOrEqual(44)
+    expect(captions.maxCharsPerLine).toBeLessThanOrEqual(42)
+    expect(captions.maxLines).toBeLessThanOrEqual(2)
+    expect(captions.truncationAllowed).toBe(false)
+    expect(captions.ellipsisAllowed).toBe(false)
+    expect(captions.mustFitPlatformSafeArea).toBe(true)
+    expect(captions.cues.every((cue) => cue.text.split('\n').length <= 2)).toBe(true)
+    expect(captions.cues.every((cue) => cue.text.split('\n').every((line) => line.length <= 42))).toBe(true)
+
+    for (const [index, scene] of spec.verticalVideo.scenes.entries()) {
+      const sceneCues = captions.cues.filter((cue) => cue.sceneIndex === index + 1)
+      const reconstructed = clean(sceneCues.map((cue) => cue.text.replace(/\n/g, ' ')).join(' '))
+      expect(reconstructed).toBe(clean(scene.voiceover))
+      expect(sceneCues.every((cue) => clean(cue.sourceVoiceover) === clean(scene.voiceover))).toBe(true)
+    }
+
+    expect(spec.verticalVideo.rendererContract.captionsMustSatisfyLosslessContract).toBe(true)
+    expect(spec.guardrails.captionTruncationForbidden).toBe(true)
+    expect(spec.guardrails.captionVoiceoverReconstructionRequired).toBe(true)
   })
 
   it('binds source cards and video source scenes to an explicit mobile-legibility contract', () => {

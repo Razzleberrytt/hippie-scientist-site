@@ -22,9 +22,19 @@ function run(name, status = 'completed', conclusion = 'success') {
     name,
     status,
     conclusion,
+    event: 'pull_request',
+    head_sha: headSha,
     run_number: 1,
     run_attempt: 1,
     pull_requests: [{ number: 1, base: { sha: baseSha } }],
+  }
+}
+
+function dispatchedRun(name, status = 'completed', conclusion = 'success') {
+  return {
+    ...run(name, status, conclusion),
+    event: 'workflow_dispatch',
+    pull_requests: [],
   }
 }
 
@@ -134,6 +144,48 @@ describe('risk-tiered autonomous merge controller', () => {
       changedFiles: ['scripts/distribution/render-carousel-svg.mjs'],
     })
     expect(verdict.action).toBe('merge')
+  })
+
+  it('accepts canonical workflow_dispatch evidence on the exact current head with base freshness proven separately', () => {
+    const verdict = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        dispatchedRun('CI'),
+        dispatchedRun('Atomic upgrade gate'),
+        dispatchedRun('Build quality regression'),
+        dispatchedRun('Site Health Check'),
+        dispatchedRun('Production Content Lint'),
+      ],
+      checkRuns: [],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'high',
+      changedFiles: ['scripts/ci/autonomous-merge-controller.mjs'],
+    })
+    expect(verdict.action).toBe('merge')
+  })
+
+  it('rejects dispatched evidence from a different head', () => {
+    const wrongHeadRun = { ...dispatchedRun('CI'), head_sha: 'other-head' }
+    const verdict = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        wrongHeadRun,
+        dispatchedRun('Atomic upgrade gate'),
+        dispatchedRun('Build quality regression'),
+        dispatchedRun('Site Health Check'),
+        dispatchedRun('Production Content Lint'),
+      ],
+      checkRuns: [],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'high',
+      changedFiles: ['scripts/ci/autonomous-merge-controller.mjs'],
+    })
+    expect(verdict.action).toBe('wait')
+    expect(verdict.reason).toContain('required workflow base proof missing')
   })
 
   it('ignores an optional action-required workflow shell for medium risk once required evidence is green', () => {
