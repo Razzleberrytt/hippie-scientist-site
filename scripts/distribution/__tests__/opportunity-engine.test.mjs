@@ -29,7 +29,7 @@ describe('distribution opportunity engine', () => {
     const first = selectDistributionOpportunity([b, a], signals, { now: NOW })
     const second = selectDistributionOpportunity([b, a], signals, { now: NOW })
     expect(first.status).toBe('selected')
-    expect(first.schemaVersion).toBe('1.1.0')
+    expect(first.schemaVersion).toBe('1.2.0')
     expect(first.selected.id).toBe('sleep-human-trial')
     expect(first).toEqual(second)
     expect(first.selected.sourceUrl).toBe(a.sourceUrl)
@@ -48,6 +48,37 @@ describe('distribution opportunity engine', () => {
     const highScore = result.candidates.find((candidate) => candidate.id === 'high-discovery').score
     const lowScore = result.candidates.find((candidate) => candidate.id === 'low-discovery').score
     expect(highScore).toBeGreaterThan(lowScore)
+  })
+
+  it('uses platform-specific fit and cost to choose the best format without changing page rank', () => {
+    const object = governed()
+    const baseline = scoreDistributionCandidate(object, {}, { now: NOW })
+    const fitted = scoreDistributionCandidate(object, {
+      'sleep-human-trial': {
+        platformFit: { 'short-video': 10, carousel: 1, infographic: 1, pinterest: 1, newsletter: 1 },
+        platformProductionCost: { 'short-video': 1, carousel: 8, infographic: 8, pinterest: 8, newsletter: 8 },
+      },
+    }, { now: NOW })
+
+    expect(baseline.platform).toBe('carousel')
+    expect(fitted.platform).toBe('short-video')
+    expect(fitted.score).toBe(baseline.score)
+    expect(fitted.platformDecision).toMatchObject({
+      fit: 10,
+      productionCost: 1,
+      evidence: { platformFitObserved: true, productionCostObserved: true },
+    })
+    expect(fitted.destination.canonicalUrl).toBe(object.sourceUrl)
+  })
+
+  it('marks fallback platform-fit evidence explicitly when platform-specific signals are absent', () => {
+    const candidate = scoreDistributionCandidate(governed(), {}, { now: NOW })
+    expect(candidate.platformDecision.evidence).toEqual({
+      platformFitObserved: false,
+      productionCostObserved: false,
+    })
+    expect(candidate.platformDecision.fit).toBe(5)
+    expect(candidate.platformDecision.productionCost).toBe(candidate.metrics.productionCost)
   })
 
   it('emits deterministic canonical attribution and lossless discoverability metadata', () => {
@@ -125,12 +156,24 @@ describe('distribution opportunity engine', () => {
     expect(result.candidates[0].ineligibleReasons.join('\n')).toMatch(/preclinical-only/i)
   })
 
+  it('platform fit cannot make a scientifically ineligible candidate distributable', () => {
+    const object = governed({ id: 'preclinical-platform-max', evidenceType: 'mouse preclinical study', sourceUrl: 'https://thehippiescientist.net/evidence/preclinical-platform-max/' })
+    const result = selectDistributionOpportunity([object], {
+      'preclinical-platform-max': {
+        platformFit: { 'short-video': 10, carousel: 10, infographic: 10, pinterest: 10, newsletter: 10 },
+        platformProductionCost: { 'short-video': 0, carousel: 0, infographic: 0, pinterest: 0, newsletter: 0 },
+      },
+    }, { now: NOW })
+    expect(result.status).toBe('waiting-for-governed-object')
+    expect(result.selected).toBeNull()
+  })
+
   it('fails closed on stale or non-first-party evidence pages', () => {
     expect(assessEligibility(governed({ lastVerified: '2024-01-01' }), { now: NOW }).eligible).toBe(false)
     expect(assessEligibility(governed({ sourceUrl: 'https://example.com/evidence' }), { now: NOW }).eligible).toBe(false)
   })
 
   it('returns an explicit waiting state when the governed research-object set is empty', () => {
-    expect(selectDistributionOpportunity([], {}, { now: NOW })).toEqual({ schemaVersion: '1.1.0', status: 'waiting-for-governed-object', selected: null, candidates: [] })
+    expect(selectDistributionOpportunity([], {}, { now: NOW })).toEqual({ schemaVersion: '1.2.0', status: 'waiting-for-governed-object', selected: null, candidates: [] })
   })
 })
