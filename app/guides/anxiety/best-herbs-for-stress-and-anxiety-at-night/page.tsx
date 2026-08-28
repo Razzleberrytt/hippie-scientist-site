@@ -12,24 +12,24 @@ import EmailCapture from '@/components/EmailCapture'
 import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night`
-const DATE = '2026-08-11'
+const DATE = '2026-08-28'
 
 export const metadata: Metadata = {
   title: 'Best Herbs for Stress and Anxiety at Night: Evidence & Safety',
   description:
-    'An evidence-first guide to nighttime stress and anxiety: what current research says about L-theanine, passionflower, ashwagandha, valerian, sleep routines, and when supplements are the wrong tool.',
+    'Evidence-first guide to sleep aids for stress, racing thoughts, and nighttime anxiety: L-theanine, passionflower, ashwagandha, valerian, sleep-onset vs sleep-maintenance problems, and safety.',
   alternates: { canonical: '/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/' },
   openGraph: {
     title: 'Best Herbs for Stress and Anxiety at Night: Evidence & Safety',
     description:
-      'Separate same-night claims from repeated-dose evidence, compare safety limits, and learn when chronic insomnia or anxiety deserves a stronger approach than supplements.',
+      'Separate same-night claims from repeated-dose evidence, compare stress-driven sleep onset with sleep-maintenance problems, and learn when chronic insomnia or anxiety needs a stronger approach than supplements.',
     url: '/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
   twitter: buildTwitterMetadata({
     title: 'Best Herbs for Stress and Anxiety at Night: Evidence & Safety',
-    description: 'Separate same-night claims from repeated-dose evidence, compare safety limits, and learn when chronic insomnia or anxiety deserves a stronger approach than supplements.',
+    description: 'Evidence-first guide to nighttime stress, racing thoughts, sleep-onset problems, calming herbs, and safety.',
   }),
 }
 
@@ -38,6 +38,11 @@ const FAQS = [
     question: 'What herb works fastest for nighttime anxiety?',
     answer:
       'Current evidence does not establish a reliably fast herbal treatment for nighttime anxiety. L-theanine is often studied 30–60 minutes before cognitive testing, but a 2026 meta-analysis found its strongest acute signal in attention while anxiety outcomes were inconsistent. Study timing should not be converted into a guaranteed anxiety-relief onset.',
+  },
+  {
+    question: 'What sleep aid is best when stress or racing thoughts keep me awake?',
+    answer:
+      'There is no proven universal best sleep aid for stress or racing thoughts. If stress is the main driver, repeated-dose evidence is stronger for some standardized ashwagandha extracts than for a same-night herbal sedative, while L-theanine has mixed anxiety findings and developing sleep evidence. If the problem is chronic insomnia, CBT-I has stronger guideline support than supplements. Matching the intervention to stress, sleep onset, sleep maintenance, or circadian timing is more evidence-aligned than choosing the most sedating product.',
   },
   {
     question: 'Is passionflower a reliable bedtime anxiety remedy?',
@@ -63,6 +68,7 @@ const FAQS = [
 
 const HEADINGS: Heading[] = [
   { id: 'bottom-line', text: 'Bottom line', level: 2 },
+  { id: 'problem-match', text: 'Stress, sleep onset, or sleep maintenance?', level: 2 },
   { id: 'bigger-question', text: 'Nighttime anxiety or chronic insomnia?', level: 2 },
   { id: 'evidence', text: 'Evidence by ingredient', level: 2 },
   { id: 'routine', text: 'What to prioritize tonight', level: 2 },
@@ -113,7 +119,7 @@ export default function Page() {
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Best Herbs for Stress and Anxiety at Night: Evidence & Safety"
-        description="Evidence-first guide to nighttime stress and anxiety, including L-theanine, passionflower, ashwagandha, valerian, sleep routines, and safety."
+        description="Evidence-first guide to nighttime stress, racing thoughts, sleep-onset problems, calming herbs, and safety."
         datePublished="2026-06-18"
         dateModified={DATE}
         faqs={FAQS}
@@ -138,7 +144,7 @@ export default function Page() {
             <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">
               Willie B. Randolph III
             </Link>{' '}
-            · Last evidence review August 11, 2026
+            · Last evidence review August 28, 2026
           </p>
           <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
             Nighttime stress, racing thoughts, and insomnia overlap, but they are not the same outcome.
@@ -191,6 +197,52 @@ export default function Page() {
               weeks rather than a same-night bedtime effect.
             </p>
           </div>
+        </section>
+
+        <section id="problem-match" className="card-premium scroll-mt-20 space-y-4 p-6">
+          <p className="eyebrow-label">Match the actual sleep problem</p>
+          <h2 className="text-2xl font-semibold text-ink">Stress-driven sleep onset is not the same as sleep maintenance</h2>
+          <p className="text-sm leading-7 text-muted">
+            “Best sleep aid for stress” is really several questions. The evidence changes depending on whether
+            stress or racing thoughts are delaying sleep, whether you fall asleep but wake repeatedly, or whether
+            your sleep timing is shifted. A useful comparison starts with the target problem rather than the most
+            sedating ingredient.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="font-semibold text-ink">Stress or racing thoughts before sleep</h3>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Evidence for a dependable same-night herbal anxiolytic is weak. Ashwagandha has better repeated-dose
+                stress evidence than acute bedtime evidence; L-theanine has mixed anxiety findings and developing
+                sleep evidence. Treat persistent anxiety as its own problem rather than only as a sleep symptom.
+              </p>
+            </div>
+            <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="font-semibold text-ink">Difficulty falling asleep</h3>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Sleep-onset difficulty can reflect stress, conditioned insomnia, circadian timing, stimulants, or
+                other causes. Melatonin is more directly tied to circadian timing than to generalized stress, while
+                chronic insomnia has stronger guideline support for CBT-I than for supplements.
+              </p>
+            </div>
+            <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="font-semibold text-ink">Waking during the night</h3>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Do not assume an ingredient that helps sleep onset also improves sleep maintenance. Trial outcomes
+                differ by awakenings, total sleep time, subjective quality, and objective sleep measures, so the
+                specific endpoint matters.
+              </p>
+            </div>
+          </div>
+          <p className="text-sm leading-7 text-muted">
+            For a broader ingredient-by-ingredient comparison, use the{' '}
+            <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="font-semibold text-brand-700 hover:underline">
+              evidence-ranked natural sleep aids guide
+            </Link>. For daytime and repeated-dose stress evidence, compare the{' '}
+            <Link href="/guides/best/supplements-for-stress/" className="font-semibold text-brand-700 hover:underline">
+              evidence-ranked stress supplement guide
+            </Link>.
+          </p>
         </section>
 
         <section id="bigger-question" className="card-premium scroll-mt-20 space-y-4 p-6">
@@ -355,6 +407,7 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-ink">Related evidence guides</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Sleep Aids: Evidence & Safety →</Link>
+            <Link href="/guides/best/supplements-for-stress/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Stress →</Link>
             <Link href="/guides/anxiety/natural-anxiety-relief/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiety Relief: Current Evidence →</Link>
             <Link href="/guides/anxiety/l-theanine-for-anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">L-Theanine for Anxiety →</Link>
             <Link href="/guides/anxiety/ashwagandha-for-anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha for Anxiety →</Link>
