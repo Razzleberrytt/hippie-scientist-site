@@ -1,3 +1,5 @@
+import { MIN_PERFORMANCE_REWARD_VIEWS } from '../distribution/opportunity-feedback.mjs';
+
 const UNKNOWN = 'Unknown';
 
 const ALLOWED_DENOMINATORS = new Set([
@@ -34,6 +36,9 @@ function normalizeObservation(observation, role, allowedTypes) {
   const scope = requireText(observation.scope, `${role}.scope`);
   const windowStart = requireText(observation.window?.start, `${role}.window.start`);
   const windowEnd = requireText(observation.window?.end, `${role}.window.end`);
+  if (!Number.isFinite(Date.parse(windowStart)) || !Number.isFinite(Date.parse(windowEnd)) || Date.parse(windowEnd) < Date.parse(windowStart)) {
+    throw new Error(`${role}.window must contain valid ordered dates`);
+  }
   const definition = requireText(observation.definition, `${role}.definition`);
   const confidence = requireText(observation.confidence, `${role}.confidence`);
 
@@ -46,7 +51,7 @@ function normalizeObservation(observation, role, allowedTypes) {
   return { type, value: observation.value, source, scope, window: { start: windowStart, end: windowEnd }, definition, confidence };
 }
 
-export function deriveEfficiencyRatio({ id, numerator, denominator, attributionBoundary, estimate = false }) {
+export function deriveEfficiencyRatio({ id, numerator, denominator, attributionBoundary, estimate = false, exposure }) {
   const normalizedNumerator = normalizeObservation(numerator, 'numerator', ALLOWED_OUTCOMES);
   const normalizedDenominator = normalizeObservation(denominator, 'denominator', ALLOWED_DENOMINATORS);
   const ratioId = requireText(id, 'id');
@@ -57,6 +62,18 @@ export function deriveEfficiencyRatio({ id, numerator, denominator, attributionB
   }
   if (normalizedNumerator.window.start !== normalizedDenominator.window.start || normalizedNumerator.window.end !== normalizedDenominator.window.end) {
     throw new Error('numerator and denominator observation windows must match');
+  }
+
+  const normalizedExposure = exposure == null ? null : normalizeObservation(exposure, 'exposure', new Set(['measured_views']));
+  if (normalizedExposure) {
+    if (normalizedExposure.scope !== normalizedNumerator.scope
+      || normalizedExposure.window.start !== normalizedNumerator.window.start
+      || normalizedExposure.window.end !== normalizedNumerator.window.end) {
+      throw new Error('exposure scope and window must match the ratio');
+    }
+    if (normalizedExposure.value !== UNKNOWN && !Number.isSafeInteger(normalizedExposure.value)) {
+      throw new Error('exposure.value must be an integer view count or Unknown');
+    }
   }
 
   const unknown = normalizedNumerator.value === UNKNOWN || normalizedDenominator.value === UNKNOWN;
@@ -72,22 +89,54 @@ export function deriveEfficiencyRatio({ id, numerator, denominator, attributionB
     unit: `${normalizedNumerator.type}_per_${normalizedDenominator.type}`,
     attributionBoundary: boundary,
     estimate: Boolean(estimate),
+    exposure: normalizedExposure,
     scaleSignal: value === UNKNOWN ? 'WAIT' : 'OBSERVED',
   });
 }
 
-export function evaluateMarginalScale({ current, prior, deteriorationThreshold = 0.15, qualityDebtRising = false, attributionReliable = true }) {
+export function evaluateMarginalScale({ current, prior, deteriorationThreshold = 0.15, qualityDebtRising, attributionReliable }) {
   if (!current || !prior) throw new Error('current and prior ratios are required');
-  if (current.value === UNKNOWN || prior.value === UNKNOWN || prior.value === 0) {
+  if (!Number.isFinite(deteriorationThreshold) || deteriorationThreshold <= 0 || deteriorationThreshold > 1) {
+    throw new Error('deteriorationThreshold must be greater than zero and at most one');
+  }
+  // Known adverse guardrails stop scaling even when outcome observations are missing.
+  if (attributionReliable === false) return { decision: 'STOP_OR_PIVOT', reason: 'attribution unreliable' };
+  if (qualityDebtRising === true) return { decision: 'STOP_OR_PIVOT', reason: 'quality or maintenance debt rising' };
+  if (attributionReliable !== true || qualityDebtRising !== false) {
+    return { decision: 'WAIT', reason: 'explicit attribution and quality-debt observations required' };
+  }
+
+  // Recompute from named observations; a caller-supplied value/unit is not authority.
+  current = deriveEfficiencyRatio(current);
+  prior = deriveEfficiencyRatio(prior);
+  const sameMetric = ['numerator', 'denominator'].every((role) =>
+    ['type', 'scope', 'definition'].every((field) => current[role][field] === prior[role][field]));
+  const duration = (ratio) => Date.parse(ratio.numerator.window.end) - Date.parse(ratio.numerator.window.start);
+  if (!sameMetric || current.attributionBoundary !== prior.attributionBoundary || duration(current) !== duration(prior)) {
+    return { decision: 'WAIT', reason: 'incompatible metric, scope, definition, attribution boundary, or window duration' };
+  }
+  if (current.numerator.type === 'merged_changes') {
+    return { decision: 'WAIT', reason: 'operational throughput is diagnostic, not a qualified user outcome' };
+  }
+  if (current.estimate || prior.estimate) {
+    return { decision: 'WAIT', reason: 'estimates cannot authorize scaling' };
+  }
+  if (!Number.isFinite(current.value) || !Number.isFinite(prior.value) || prior.value === 0) {
     return { decision: 'WAIT', reason: 'insufficient comparable observations' };
   }
+  // Positive eligibility currently requires source-bound distribution exposure in both periods.
+  // Other efficiency ratios remain useful diagnostics, not permission to scale.
+  if ([current, prior].some((ratio) => !Number.isSafeInteger(ratio.exposure?.value)
+    || ratio.exposure.value < MIN_PERFORMANCE_REWARD_VIEWS
+    || [ratio.numerator, ratio.denominator, ratio.exposure].some((observation) => observation.confidence.toLowerCase() === 'unknown'))) {
+    return { decision: 'WAIT', reason: 'sufficient observed exposure required in both comparison periods' };
+  }
   const change = (current.value - prior.value) / prior.value;
-  if (!attributionReliable) return { decision: 'STOP_OR_PIVOT', reason: 'attribution unreliable', change };
-  if (qualityDebtRising) return { decision: 'STOP_OR_PIVOT', reason: 'quality or maintenance debt rising', change };
-  if (change <= -Math.abs(deteriorationThreshold)) {
+  if (!Number.isFinite(change)) return { decision: 'WAIT', reason: 'insufficient comparable observations' };
+  if (change <= -deteriorationThreshold) {
     return { decision: 'STOP_OR_PIVOT', reason: 'marginal qualified outcome deteriorated materially', change };
   }
-  return { decision: 'ELIGIBLE_TO_SCALE', reason: 'marginal efficiency sustained or improved', change };
+  return { decision: 'ELIGIBLE_TO_SCALE', reason: 'marginal efficiency sustained or improved; other release gates still apply', change };
 }
 
 export { UNKNOWN, ALLOWED_DENOMINATORS, ALLOWED_OUTCOMES };
