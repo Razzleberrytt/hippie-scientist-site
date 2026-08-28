@@ -1,0 +1,159 @@
+import crypto from 'node:crypto'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { expect, test } from 'vitest'
+import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
+import { buildLosslessCreativeSpec } from '../creative-spec-lossless.mjs'
+import { CREATIVE_BRAND_TOKENS } from '../creative-spec.mjs'
+import { renderVerticalVideoPackage } from '../render-vertical-video-package.mjs'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const researchObjects = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../../data/distribution/research-objects.json'), 'utf8'))
+const researchObject = researchObjects[0]
+const mediaPack = buildDistributionPackFromResearchObject(researchObject, { researchObjects })
+const creativeSpec = { ...buildLosslessCreativeSpec(researchObject), claimSafetyStatus: 'validated-lossless' }
+const digest = (value) => crypto.createHash('sha256').update(value).digest('hex')
+const normalized = (value) => String(value).trim().replace(/\s+/g, ' ')
+
+function parseSrtPayloads(value) {
+  return String(value).trim().split(/\n\n+/).map((block) => {
+    const lines = block.split('\n')
+    return lines.slice(2)
+  })
+}
+
+function parseSvgMetadata(value) {
+  const match = String(value).match(/<metadata>(.*?)<\/metadata>/)
+  if (!match) throw new Error('SVG metadata is required')
+  const decoded = match[1]
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+  return JSON.parse(decoded)
+}
+
+test('renders a deterministic exact-30-second vertical video package with provenance-bound scene assets', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-video-'))
+  try {
+    const first = renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir: dir })
+    const second = renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir: dir })
+    expect(first).toEqual(second)
+    expect(first.renderer).toBe('vertical-video-package-v1')
+    expect(first.durationSeconds).toBe(30)
+    expect(first.sourceContentHash).toBe(mediaPack.source.contentHash)
+    expect(first.assets.length).toBeGreaterThanOrEqual(7)
+
+    const timelineBytes = fs.readFileSync(path.join(dir, first.timeline.file), 'utf8')
+    const timeline = JSON.parse(timelineBytes)
+    expect(first.timeline.sha256).toBe(digest(timelineBytes))
+    expect(timeline.durationSeconds).toBe(30)
+    expect(timeline.width).toBe(1080)
+    expect(timeline.height).toBe(1920)
+    expect(timeline.scenes[0].start).toBe(0)
+    expect(timeline.scenes.at(-1).end).toBe(30)
+    for (let index = 1; index < timeline.scenes.length; index += 1) {
+      expect(timeline.scenes[index - 1].end).toBe(timeline.scenes[index].start)
+    }
+
+    const sourceScenes = first.assets.filter((asset) => asset.role === 'source')
+    expect(sourceScenes).toHaveLength(1)
+    expect(sourceScenes[0].duration).toBeGreaterThanOrEqual(3)
+
+    for (const asset of first.assets) {
+      const bytes = fs.readFileSync(path.join(dir, asset.file), 'utf8')
+      expect(asset.sha256).toBe(digest(bytes))
+      expect(asset.sourceContentHash).toBe(mediaPack.source.contentHash)
+      expect(asset.sourceUrl).toBe(mediaPack.source.url)
+      expect(bytes).toContain(mediaPack.source.contentHash)
+      expect(bytes).toContain('vertical-video-package-v1')
+      expect(bytes).toContain('Educational content')
+      const metadata = parseSvgMetadata(bytes)
+      expect(metadata.safeArea.right).toBe(860)
+      expect(metadata.safeArea.width).toBe(764)
+      expect(metadata.sourceUrl).toBe(mediaPack.source.url)
+      expect(metadata.contentHash).toBe(mediaPack.source.contentHash)
+
+      if (asset.role === 'source') {
+        expect(bytes).toContain('font-size="32"')
+        expect(metadata.sourceDisplayText).toBe(mediaPack.source.url)
+        expect(metadata.sourceMinimumPxAt1080).toBeGreaterThanOrEqual(32)
+      } else {
+        expect(bytes).toContain('font-size="44"')
+        expect(metadata.sourceDisplayText).toBeNull()
+      }
+    }
+  } finally { fs.rmSync(dir, { recursive: true, force: true }) }
+})
+
+test('preserves governed finding and limitation text losslessly in caption payloads while respecting caption limits', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-video-'))
+  try {
+    const manifest = renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir: dir })
+    const captions = fs.readFileSync(path.join(dir, manifest.captions.file), 'utf8')
+    expect(manifest.captions.lossless).toBe(true)
+    expect(manifest.captions.sha256).toBe(digest(captions))
+
+    const payloads = parseSrtPayloads(captions)
+    const reconstructed = normalized(payloads.flat().join(' '))
+    expect(reconstructed).toContain(normalized(researchObject.finding))
+    expect(reconstructed).toContain(normalized(researchObject.limitation))
+
+    for (const payload of payloads) {
+      expect(payload.length).toBeLessThanOrEqual(CREATIVE_BRAND_TOKENS.typography.captionMaxLines)
+      for (const line of payload) {
+        expect(line.length).toBeLessThanOrEqual(CREATIVE_BRAND_TOKENS.typography.captionMaxCharsPerLine)
+      }
+    }
+  } finally { fs.rmSync(dir, { recursive: true, force: true }) }
+})
+
+test('fails closed on unsafe creative state, mismatched source identity, missing lossless pages, or invalid source legibility', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'distribution-video-'))
+  try {
+    expect(() => renderVerticalVideoPackage({
+      mediaPack,
+      creativeSpec: { ...creativeSpec, claimSafetyStatus: 'blocked-unsafe-truncation' },
+      outputDir: dir,
+    })).toThrow(/validated-lossless/)
+
+    expect(() => renderVerticalVideoPackage({
+      mediaPack,
+      creativeSpec: { ...creativeSpec, sourceIdentity: { ...creativeSpec.sourceIdentity, id: 'different-object' } },
+      outputDir: dir,
+    })).toThrow(/source identity must match/)
+
+    expect(() => renderVerticalVideoPackage({
+      mediaPack,
+      creativeSpec: {
+        ...creativeSpec,
+        verticalVideo: {
+          ...creativeSpec.verticalVideo,
+          losslessCopy: {
+            ...creativeSpec.verticalVideo.losslessCopy,
+            finding: { ...creativeSpec.verticalVideo.losslessCopy.finding, pages: [] },
+          },
+        },
+      },
+      outputDir: dir,
+    })).toThrow(/finding\.pages is required/)
+
+    expect(() => renderVerticalVideoPackage({
+      mediaPack,
+      creativeSpec: {
+        ...creativeSpec,
+        verticalVideo: {
+          ...creativeSpec.verticalVideo,
+          sourceLegibility: {
+            ...creativeSpec.verticalVideo.sourceLegibility,
+            canonicalUrl: 'https://thehippiescientist.net/herbs/not-the-source/',
+          },
+        },
+      },
+      outputDir: dir,
+    })).toThrow(/exact canonical source URL/)
+  } finally { fs.rmSync(dir, { recursive: true, force: true }) }
+})
