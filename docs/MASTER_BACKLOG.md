@@ -4,7 +4,7 @@
 **Updated:** 2026-08-28
 **WIP cap:** 3
 
-**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
+**Control dependencies:** #4412 <- #4411 (completed); #4406 <- #4388, #4401, #4405 (completed); #4407 <- #4406
 **Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync.
 
 ## Scoring and gates
@@ -46,11 +46,12 @@ Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authorit
 
 ## Now — active exact work
 
-One implementation ticket is active. Two slots are available, subject to dependency, freshness, lane ownership, and incident overrides.
+Two implementation PRs are active. One slot remains available, subject to dependency, freshness, lane ownership, and incident overrides.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4412 / PR #4446 | Machine-reconcile roadmap, sprint, and backlog against GitHub state | O / control | In Review | P0 control | 4/4/3/5/1/2 | 120.0 | Merged #4411; exact GitHub state | Read-only stale/duplicate/WIP/dependency/milestone/offline reconciliation, fixtures, hosted tests/build; unknown never becomes PASS |
+| PR #4457 | Preserve all approved canonical safety warnings | R / L2 | In Review | P0 provenance | — | — | Canonical safety claimMap | Complete canonical safety projection; exact claim/text identity and deterministic provenance; omissions/mutations fail closed |
+| PR #4460 | Block duplicate creative-angle reuse | R / L3 | In Review | P1 growth integrity | — | — | Existing opportunity-selection inventory | Exact cohort duplicate suppression with deterministic fallback/waiting; scientific eligibility and attribution remain unchanged |
 
 ## Next — ordered dependency queue
 
@@ -58,8 +59,8 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Ready after lifecycle receipt contract | P0 | 5/4/5/5/.75/2 | 187.5 | Merged #4406 receipt identity + existing feedback engine | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
-| #4413 | Make prioritization freshness- and unlock-aware without a second score | O / control | Planned | P1 compounding | 3/3/3/5/1/2 | 67.5 | #4412 preferred; revalidate exact-main assumptions at start | Strategic Leverage explicitly carries unlock value; externally contingent items expose `last_verified`; stale evidence reduces Confidence/forces revalidation; replayed inputs produce the same queue |
+| #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Ready after lifecycle receipt contract | P0 | 5/4/5/5/.75/2 | 187.5 | Merged #4406 receipt identity + existing feedback engine; do not duplicate active PR #4460 | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
+| #4413 | Make prioritization freshness- and unlock-aware without a second score | O / control | Planned | P1 compounding | 3/3/3/5/1/2 | 67.5 | Merged #4412; revalidate exact-main assumptions at start | Strategic Leverage explicitly carries unlock value; externally contingent items expose `last_verified`; stale evidence reduces Confidence/forces revalidation; replayed inputs produce the same queue |
 | #4414 | Add durable experiment-learning ledger and anti-repeat guard | R/O / L4 learning | Planned | P1 learning | 3/4/3/4/.75/2 | 54.0 | #4407 observations preferred; current experiment contracts | Stable experiment identity; positive/negative/null/underpowered/invalid/Unknown states; prior-test detection; legitimate retest requires changed assumption; scientific authority remains separate |
 | #4415 | Add marginal outcome-per-effort economics to scaling decisions | R/O measurement | Planned | P1 scale economics | 4/4/4/5/.75/3 | 80.0 | #4227 and/or #4407 observations; REV data when available | Reproducible qualified-outcome/resource ratios with named inputs/windows; missing values Unknown; gross throughput cannot justify scale when marginal efficiency/trust deteriorates |
 | #4227 | Deduplicate uncached production exports across PR workflows | O | Planned | P1 compounding | 3/3/2/5/1/2 | 45.0 | Preserve fail-closed exact-SHA validation; `last_verified` at promotion | Quantify duplicated runner minutes; exact-SHA reusable artifact/cache or equivalent; cache miss performs full governed build; no quality thresholds weakened |
@@ -102,6 +103,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4412 / PR #4446 | Completed/merged as 96a07976dee22cf7b91c337c820cc83ff7e6b860 — machine reconciliation is on main; removed from `Now` |
 | #4406 | Completed — governed ready → publish → measured lifecycle merged; removed from `Next` |
 | #4439 / PR #4440 | Completed/merged — canonical claim/source binding; removed from `Now` |
 | PR #4448 | Closed unmerged — provenance-bound vertical MP4 implementation preserved for later legal reuse; removed from `Now` |
