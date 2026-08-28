@@ -1,0 +1,124 @@
+{
+  "now": "2026-08-28",
+  "cases": [
+    {
+      "name": "tiny unlock outranks isolated polish through Strategic Leverage",
+      "items": [
+        {
+          "id": "unlock",
+          "businessImpact": 2,
+          "userValue": 2,
+          "trafficPotential": 2,
+          "strategicLeverage": 5,
+          "confidence": 1,
+          "effort": 1,
+          "leverageEvidence": [{"type":"dependency-unlock","detail":"Unblocks multiple already-ranked downstream tickets"}]
+        },
+        {
+          "id": "polish",
+          "businessImpact": 3,
+          "userValue": 3,
+          "trafficPotential": 2,
+          "strategicLeverage": 1,
+          "confidence": 1,
+          "effort": 1,
+          "leverageEvidence": [{"type":"isolated","detail":"No shared or downstream unlock"}]
+        }
+      ],
+      "expectedOrder": ["unlock", "polish"]
+    },
+    {
+      "name": "stale high-traffic hypothesis cannot remain Ready",
+      "items": [
+        {
+          "id": "stale-demand",
+          "businessImpact": 5,
+          "userValue": 5,
+          "trafficPotential": 5,
+          "strategicLeverage": 3,
+          "confidence": 1,
+          "effort": 2,
+          "contingencies": ["external-demand"],
+          "lastVerified": "2026-05-01",
+          "verificationScope": "Search-demand hypothesis",
+          "leverageEvidence": [{"type":"shared-infrastructure","detail":"Reusable demand-discovery surface"}]
+        },
+        {
+          "id": "current-lower-volume",
+          "businessImpact": 3,
+          "userValue": 4,
+          "trafficPotential": 3,
+          "strategicLeverage": 3,
+          "confidence": 1,
+          "effort": 2,
+          "contingencies": ["analytics"],
+          "lastVerified": "2026-08-20",
+          "verificationScope": "Current attributable observation",
+          "leverageEvidence": [{"type":"recurring-throughput","detail":"Feeds repeated measured decisions"}]
+        }
+      ],
+      "expectedOrder": ["current-lower-volume", "stale-demand"],
+      "expectedFreshness": {"stale-demand":"STALE"}
+    },
+    {
+      "name": "recently verified null result lowers confidence without a second score",
+      "items": [
+        {
+          "id": "null-result",
+          "businessImpact": 4,
+          "userValue": 4,
+          "trafficPotential": 4,
+          "strategicLeverage": 3,
+          "confidence": 0.5,
+          "effort": 2,
+          "contingencies": ["analytics"],
+          "lastVerified": "2026-08-27",
+          "verificationScope": "Fixed-window null outcome",
+          "leverageEvidence": [{"type":"recurring-throughput","detail":"Reusable measurement surface despite null result"}]
+        },
+        {
+          "id": "supported-result",
+          "businessImpact": 3,
+          "userValue": 4,
+          "trafficPotential": 3,
+          "strategicLeverage": 3,
+          "confidence": 1,
+          "effort": 2,
+          "contingencies": ["analytics"],
+          "lastVerified": "2026-08-27",
+          "verificationScope": "Fixed-window supported outcome",
+          "leverageEvidence": [{"type":"recurring-throughput","detail":"Reusable measurement surface"}]
+        }
+      ],
+      "expectedOrder": ["supported-result", "null-result"]
+    },
+    {
+      "name": "safety incident overrides numeric order",
+      "items": [
+        {
+          "id": "safety-incident",
+          "businessImpact": 1,
+          "userValue": 1,
+          "trafficPotential": 1,
+          "strategicLeverage": 1,
+          "confidence": 1,
+          "effort": 5,
+          "override": true,
+          "overrideReason": "Scientific/safety hard gate",
+          "leverageEvidence": [{"type":"isolated","detail":"Hard-gate incident; numeric leverage is irrelevant"}]
+        },
+        {
+          "id": "growth-work",
+          "businessImpact": 5,
+          "userValue": 5,
+          "trafficPotential": 5,
+          "strategicLeverage": 5,
+          "confidence": 1,
+          "effort": 1,
+          "leverageEvidence": [{"type":"recurring-throughput","detail":"High-value growth work"}]
+        }
+      ],
+      "expectedOrder": ["safety-incident", "growth-work"]
+    }
+  ]
+}
