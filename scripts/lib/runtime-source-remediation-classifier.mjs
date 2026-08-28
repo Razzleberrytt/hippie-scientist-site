@@ -4,6 +4,7 @@ export const RUNTIME_SOURCE_REMEDIATION_STATES = [
   'attestation_ready_identity',
   'historical_identity_recovery',
   'candidate_reconciliation_required',
+  'derived_reference_reconciliation',
   'identity_metadata_insufficient',
   'quarantine_unverifiable',
 ]
@@ -102,6 +103,22 @@ function claimRefs(claim) {
     }
   }
   return [...refs]
+}
+
+function evidenceSummaryRefs(record) {
+  const refs = new Set()
+  for (const raw of [record?.evidence?.sourceIds, record?.evidence?.source_ids, record?.evidence?.sources]) {
+    const values = Array.isArray(raw) ? raw : raw == null ? [] : [raw]
+    for (const value of values) {
+      const ref = typeof value === 'string' ? normalize(value) : sourceId(value)
+      if (ref) refs.add(ref)
+    }
+  }
+  return [...refs]
+}
+
+function recordHasClaimRef(record, orphanSourceId) {
+  return (Array.isArray(record?.claimMap) ? record.claimMap : []).some(claim => claimRefs(claim).includes(orphanSourceId))
 }
 
 function explicitHumanClass(value) {
@@ -212,7 +229,13 @@ function requiresCandidateReconciliation(candidate, reconciliationByCandidate) {
   return /promoted to source registry/iu.test(normalize(candidate?.approvalNotes))
 }
 
-function classifyOne({ localSources, candidates, reconciliationByCandidate }) {
+function classifyOne({ record, orphanSourceId, localSources, candidates, reconciliationByCandidate }) {
+  if (!localSources.length && evidenceSummaryRefs(record).includes(orphanSourceId) && !recordHasClaimRef(record, orphanSourceId)) {
+    return {
+      remediationClass: 'derived_reference_reconciliation',
+      reason: 'The orphan identity survives only in the derived evidence summary; no matching local source or claim reference remains. Reconcile derived fields before any source-recovery decision.',
+    }
+  }
   if (!localSources.length) return { remediationClass: 'identity_metadata_insufficient', reason: 'Runtime reference has no matching profile-local source metadata.' }
   if (conflictingLocalIdentity(localSources)) return { remediationClass: 'quarantine_unverifiable', reason: 'The same runtime source ID resolves to conflicting local DOI, PMID, or canonical identity metadata.' }
   if (malformedIdentity(localSources)) return { remediationClass: 'quarantine_unverifiable', reason: 'Profile-local source metadata contains malformed DOI or PMID identity fields.' }
@@ -273,7 +296,7 @@ export function buildRuntimeSourceRemediationQueue({ orphanRows, entries, source
       safetyRelevant: claimSignal.safetyRelevant || sourceSignal.safetyRelevant,
       humanEvidenceRelevant: claimSignal.humanEvidenceRelevant || sourceSignal.humanEvidenceRelevant,
     }
-    const classification = classifyOne({ localSources, candidates, reconciliationByCandidate })
+    const classification = classifyOne({ record, orphanSourceId: row.sourceId, localSources, candidates, reconciliationByCandidate })
     const published = recordIsPublished(record)
     const fanout = fanoutBySourceId.get(row.sourceId) || 1
     const priorityScore = (published ? 100 : 0) + (signals.safetyRelevant ? 50 : 0) + (signals.humanEvidenceRelevant ? 40 : 0) + Math.min(fanout, 20) * 5
@@ -298,7 +321,7 @@ export function buildRuntimeSourceRemediationQueue({ orphanRows, entries, source
     policy: {
       authority: 'public/data/source-registry.json remains the sole authority for current registry membership.',
       mutation: 'Classification is informational only and never creates registry records, changes claims, changes evidence grades, or changes indexability.',
-      recovery: 'Attestation-ready classification means syntactically sufficient local identity metadata exists for governed external verification; it is not verification or promotion.',
+      recovery: 'Attestation-ready classification means syntactically sufficient local identity metadata exists for governed external verification; it is not verification or promotion. Derived-reference reconciliation means the source/claim payload must be reconciled before any identity recovery is attempted.',
     },
   }
 }
