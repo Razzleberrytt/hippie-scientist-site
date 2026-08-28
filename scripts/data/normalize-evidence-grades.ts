@@ -10,14 +10,18 @@ import path from 'node:path'
 import { BAND_LABEL, reconcileEvidenceGrade, type EvidenceReconciliation } from '../../lib/evidence-grade'
 import { buildEvidenceRationale, gradeIsBackedByEvidence, type EvidenceRationale } from '../../lib/evidence-rationale'
 import { buildProfileSummary, isPlaceholderSummary } from '../../lib/profile-summary'
-import { normalizeStudyClass, strongestStudyClass, STUDY_CLASS_INFO } from '../../lib/study-class'
+import { normalizeStudyClass, strongestStudyClass, STUDY_CLASS_INFO, type StudyClass } from '../../lib/study-class'
 
 const ROOT = process.cwd()
 const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = path.resolve(ROOT, dataDirArg ? dataDirArg.split('=')[1] : 'public/data')
+const POST_QUARANTINE_SOURCE_ONLY = process.argv.includes('--post-quarantine-source-only')
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORTS_DIR, 'evidence-grade-migration.json')
 const UNBACKED_PUBLIC_TIER = 'Editorial grade not demonstrated by recorded studies'
+const HUMAN_REVIEW_SIGNAL = /\b(?:human|randomi[sz]ed|rct|clinical trial|controlled trial|participants?|patients?|adults?|subjects?)\b/i
+const NONHUMAN_SIGNAL = /\b(?:preclinical|non[- ]?clinical|animal|rodent|mouse|mice|rat|in[ -]?vitro|cell(?:ular)?|mechanistic nonclinical)\b/i
+const HUMAN_BY_DESIGN = new Set<StudyClass>(['rct', 'controlled-trial', 'uncontrolled-trial', 'observational', 'case-report'])
 
 const PROFILE_SYNC_FIELDS = [
   'summary', 'summary_source', 'evidence_grade', 'evidence_grade_source', 'evidence_tier', 'evidence_tier_source',
@@ -55,6 +59,36 @@ function syncDetailRecord(indexFile: string, row: Row): void {
   writeFileSync(detailPath, `${JSON.stringify(nextDetail, null, 2)}\n`)
 }
 
+function sourceIdentity(source: Row): string {
+  const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
+  if (pmid) return `pmid:${pmid}`
+  const doi = String(source.doi ?? '').trim().toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//, '')
+  if (doi) return `doi:${doi}`
+  const title = String(source.title ?? '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+  return title ? `title:${title}` : ''
+}
+
+function sourcePopulationIsHuman(source: Row, studyClass: StudyClass): boolean {
+  if (studyClass === 'animal' || studyClass === 'in-vitro' || studyClass === 'narrative-review' || studyClass === 'regulatory-guidance' || studyClass === 'unclassified') return false
+  if (HUMAN_BY_DESIGN.has(studyClass)) return true
+  const sourceText = [
+    source.title,
+    source.citation,
+    source.note,
+    source.notes,
+    source.studyType,
+    source.study_type,
+    source.design,
+    source.usedFor,
+    source.used_for,
+  ].map((value) => String(value ?? '')).join(' ')
+  if (NONHUMAN_SIGNAL.test(sourceText)) return false
+  // Review/meta-analysis design alone does not establish population. Require an
+  // independent human signal from the source record itself.
+  if (studyClass === 'meta-analysis' || studyClass === 'systematic-review') return HUMAN_REVIEW_SIGNAL.test(sourceText)
+  return false
+}
+
 function loadSourceDesignsBySlug(): Map<string, Row[]> {
   const cachePath = path.join(ROOT, 'ops', 'cache', 'pubmed-metadata.json')
   if (!existsSync(cachePath)) return new Map()
@@ -69,16 +103,31 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
       const detail = JSON.parse(readFileSync(path.join(full, file), 'utf8'))
       const slug = String(detail.slug ?? file.replace(/\.json$/, ''))
       const designs: Row[] = []
+      const seen = new Set<string>()
       for (const source of Array.isArray(detail.sources) ? detail.sources : []) {
+        const identity = sourceIdentity(source)
+        if (identity && seen.has(identity)) continue
         const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
         const meta = records[pmid]
-        if (!meta?.publicationTypes?.length) continue
-        const classes = meta.publicationTypes
-          .filter((type) => !/^journal article$/i.test(type))
-          .map((type) => normalizeStudyClass(type))
-          .filter((studyClass) => studyClass !== 'unclassified')
-        if (!classes.length) continue
-        designs.push({ study_class: strongestStudyClass(classes), study_class_source: meta.publicationTypes.join('; ') })
+        let studyClass = normalizeStudyClass(source.studyClass ?? source.study_class ?? source.studyType ?? source.study_type ?? source.design)
+        let studyClassSource = String(source.studyClass ?? source.study_class ?? source.studyType ?? source.study_type ?? source.design ?? '')
+        if (meta?.publicationTypes?.length) {
+          const classes = meta.publicationTypes
+            .filter((type) => !/^journal article$/i.test(type))
+            .map((type) => normalizeStudyClass(type))
+            .filter((candidate) => candidate !== 'unclassified')
+          if (classes.length) {
+            studyClass = strongestStudyClass(classes)
+            studyClassSource = meta.publicationTypes.join('; ')
+          }
+        }
+        if (studyClass === 'unclassified') continue
+        if (identity) seen.add(identity)
+        designs.push({
+          study_class: studyClass,
+          study_class_source: studyClassSource,
+          study_class_human: sourcePopulationIsHuman(source, studyClass),
+        })
       }
       if (designs.length) bySlug.set(slug, designs)
     }
@@ -88,6 +137,9 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
 
 function sourceGrade(row: Row): unknown { return row.evidence_grade_source ?? row.evidence_grade }
 function sourceTier(row: Row): unknown { return row.evidence_tier_source ?? row.evidence_tier }
+function hasStaleGradeLanguage(value: unknown): boolean {
+  return /\b(?:evidence\s+)?grade\s+[A-F]\b/i.test(String(value ?? ''))
+}
 
 function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourcesBySlug: Map<string, Row[]>) {
   const rows = readJson(file)
@@ -106,7 +158,10 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
     const result: EvidenceReconciliation = reconcileEvidenceGrade(authoredGrade, authoredTier)
     reasons[result.reason] = (reasons[result.reason] ?? 0) + 1
 
-    const evidenceInputs = [...(claimsBySlug.get(String(row.slug)) ?? []), ...(sourcesBySlug.get(String(row.slug)) ?? [])]
+    const sourceInputs = sourcesBySlug.get(String(row.slug)) ?? []
+    const evidenceInputs = POST_QUARANTINE_SOURCE_ONLY
+      ? sourceInputs
+      : [...(claimsBySlug.get(String(row.slug)) ?? []), ...sourceInputs]
     const rationale: EvidenceRationale = buildEvidenceRationale(evidenceInputs)
     if (rationale.designMatch) rationaleCards += 1
     const backing = gradeIsBackedByEvidence(result.grade, rationale)
@@ -151,9 +206,6 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       evidence_grade_source: String(authoredGrade ?? ''),
       evidence_tier: publicTier,
       evidence_tier_source: String(authoredTier ?? ''),
-      // These camelCase aliases are public runtime fields consumed by older
-      // profile templates. Keep them aligned with the canonical public tier so
-      // a stale Strong/Moderate alias cannot bypass an explicit backing failure.
       evidenceLevel: publicTier,
       evidenceTier: publicTier,
       evidence_grade_band: publicBand,
@@ -173,7 +225,8 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       evidence_grade_backing_gap: backing.reason,
     }
 
-    if (isPlaceholderSummary(enriched.summary) || String(row.summary_source ?? '') === 'composed-from-record') {
+    const staleGradeSummary = publicAdjusted && hasStaleGradeLanguage(row.summary)
+    if (isPlaceholderSummary(enriched.summary) || String(row.summary_source ?? '') === 'composed-from-record' || staleGradeSummary) {
       const composed = buildProfileSummary(enriched)
       if (composed) {
         summariesWritten += 1
@@ -212,9 +265,10 @@ function normalizeClaims() {
 
 function main() {
   const claims = normalizeClaims()
+  const sourceDesigns = loadSourceDesignsBySlug()
   const profiles = [
-    normalizeProfiles('herbs.json', claims.bySlug ?? new Map<string, Row[]>(), loadSourceDesignsBySlug()),
-    normalizeProfiles('compounds.json', claims.bySlug ?? new Map<string, Row[]>(), loadSourceDesignsBySlug()),
+    normalizeProfiles('herbs.json', claims.bySlug ?? new Map<string, Row[]>(), sourceDesigns),
+    normalizeProfiles('compounds.json', claims.bySlug ?? new Map<string, Row[]>(), sourceDesigns),
   ]
   const totals = {
     profiles: profiles.reduce((sum, p) => sum + p.total, 0),
@@ -222,6 +276,7 @@ function main() {
     rationaleCards: profiles.reduce((sum, p) => sum + p.rationaleCards, 0),
     summariesWritten: profiles.reduce((sum, p) => sum + p.summariesWritten, 0),
     claims: claims.total,
+    sourceOnly: POST_QUARANTINE_SOURCE_ONLY,
   }
   const unbacked = profiles.flatMap((p) => p.unbacked)
   const reasons: Record<string, number> = {}
@@ -234,6 +289,7 @@ function main() {
   console.log('='.repeat(66))
   console.log(`Profiles normalized   ${totals.profiles}`)
   console.log(`Grades adjusted down  ${totals.adjusted}`)
+  console.log(`Evidence inputs       ${POST_QUARANTINE_SOURCE_ONLY ? 'surviving unique sources only' : 'claims plus sources'}`)
   for (const [reason, count] of Object.entries(reasons).sort((a, b) => b[1] - a[1])) console.log(`  ${String(count).padStart(5)}  ${reason}`)
   console.log(`\nRationale cards       ${totals.rationaleCards}`)
   console.log(`Summaries composed    ${totals.summariesWritten}`)
