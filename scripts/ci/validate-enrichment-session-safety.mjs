@@ -4,11 +4,13 @@ import path from 'node:path'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 import { shardOf } from '../enrichment-pipeline/lib/ids.mjs'
+import { rollupSourceEligibilityError } from './enrichment-session-source-policy.mjs'
 
 const ROOT = process.cwd()
 const MANIFEST_PATH = path.join(ROOT, 'ops', 'research-sessions', 'session-manifest.json')
 const LEGACY_PATH = path.join(ROOT, 'ops', 'enrichment-submissions.json')
 const FRAGMENT_ROOT = path.join(ROOT, 'ops', 'enrichment-submissions', 'sessions')
+const SOURCE_REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
 const SUBMISSION_SCHEMA_PATH = path.join(ROOT, 'schemas', 'enrichment-submission.schema.json')
 const FRAGMENT_SCHEMA_PATH = path.join(ROOT, 'schemas', 'enrichment-session-fragment.schema.json')
 
@@ -94,6 +96,14 @@ const validateFragment = ajv.compile(fragmentSchema)
 const legacy = fs.existsSync(LEGACY_PATH) ? readJson(LEGACY_PATH) : []
 if (!Array.isArray(legacy)) errors.push('ops/enrichment-submissions.json must remain an array')
 
+const sourceRegistry = fs.existsSync(SOURCE_REGISTRY_PATH) ? readJson(SOURCE_REGISTRY_PATH) : []
+if (!Array.isArray(sourceRegistry)) errors.push('public/data/source-registry.json must remain an array')
+const sourceById = new Map(
+  (Array.isArray(sourceRegistry) ? sourceRegistry : [])
+    .filter(source => typeof source?.sourceId === 'string')
+    .map(source => [source.sourceId, source]),
+)
+
 const knownSubmissionIds = new Map()
 const knownFingerprints = new Map()
 for (const submission of Array.isArray(legacy) ? legacy : []) {
@@ -145,6 +155,11 @@ for (const filePath of listJsonFiles(FRAGMENT_ROOT)) {
       )
     }
 
+    const sourceEligibilityError = rollupSourceEligibilityError(submission, sourceById)
+    if (sourceEligibilityError) {
+      errors.push(`${relative} submission ${submission.submissionId} cannot be approved_for_rollup: ${sourceEligibilityError}`)
+    }
+
     const previousIdOwner = knownSubmissionIds.get(submission.submissionId)
     if (previousIdOwner) {
       errors.push(`${relative} reuses submissionId ${submission.submissionId} already owned by ${previousIdOwner}`)
@@ -172,6 +187,7 @@ if (errors.length) {
   console.log('Parallel enrichment session coordination is safe.')
   console.log(`  sessions: ${sessionById.size}`)
   console.log(`  shards: ${manifest.shardCount}`)
+  console.log(`  source registry entries: ${sourceById.size}`)
   console.log(`  fragment files: ${fragmentCount}`)
   console.log(`  parallel submissions: ${parallelSubmissionCount}`)
   console.log(`  legacy submissions checked: ${Array.isArray(legacy) ? legacy.length : 0}`)
