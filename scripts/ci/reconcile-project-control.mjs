@@ -38,6 +38,8 @@ export function parseControlDocument(path, text) {
             if (section === 'active') active.push(record)
             else ready.push(record)
           }
+        } else if (section === 'active' && /^(in progress|in review|active|blocked)\b/i.test(row[3] || '')) {
+          errors.push('active row is missing a ticket identifier')
         }
       }
     }
@@ -171,7 +173,7 @@ export function reconcile({ documents, snapshot, repository, revision, now }) {
   }
   Object.keys(roadmap.dependencies).forEach(visit)
   const refs = requiredReferences(documents)
-  const available = snapshot?.available === true && snapshot.version === 1 && snapshot.repository === repository && snapshot.revision === revision &&
+  const available = /^[\w.-]+\/[\w.-]+$/.test(repository || '') && /^[a-f0-9]{40}$/.test(revision || '') && snapshot?.available === true && snapshot.version === 1 && snapshot.repository === repository && snapshot.revision === revision &&
     Array.isArray(snapshot.openPulls) && snapshot.openPulls.every((p) => Number.isInteger(p.number) && Array.isArray(p.closes) && p.closes.every(Number.isInteger)) &&
     refs.every((ref) => {
       const record = snapshot.records?.[ref]
@@ -200,6 +202,9 @@ export function reconcile({ documents, snapshot, repository, revision, now }) {
       const prior = owners.get(issue)
       if (prior && prior !== pr.number) fail('Duplicate open PR ownership of #' + issue + ': #' + prior + ', #' + pr.number)
       owners.set(issue, pr.number)
+    }
+    for (const ticket of sprint.ready) {
+      for (const ref of ticket.refs) if (owners.has(ref)) fail('Queued #' + ref + ' already has owning PR #' + owners.get(ref))
     }
     for (const ticket of sprint.active) {
       const issue = ticket.refs.find((ref) => snapshot.records[ref]?.kind === 'issue')

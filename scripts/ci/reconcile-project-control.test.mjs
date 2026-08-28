@@ -121,6 +121,23 @@ describe('authoritative project-control reconciliation', () => {
       expect(report.waiting.join(' ')).toContain('Unknown/waiting')
     }
   })
+  it('requires an explicit repository/revision binding even for offline snapshots', () => {
+    const input = fixture()
+    input.repository = undefined
+    input.revision = undefined
+    input.snapshot.repository = undefined
+    input.snapshot.revision = undefined
+    expect(reconcile(input).state).toBe('UNKNOWN')
+  })
+  it('rejects malformed active identifiers and already-owned queued work', () => {
+    const input = fixture()
+    input.documents[0] = parseControlDocument(CONTROL_PATHS[0],
+      '**WIP cap:** 3\n' + milestones + '\n' + chain + '\n## Active\n| O | missing-id | Task | In Review |\n## Ready next\n### #20 Next')
+    expect(reconcile(input).findings.join(' ')).toContain('missing a ticket identifier')
+    const owned = fixture()
+    owned.snapshot.openPulls.push({ number: 21, closes: [20] })
+    expect(reconcile(owned).findings.join(' ')).toContain('Queued #20 already has owning PR #21')
+  })
   it('fails malformed/missing control sections rather than parsing an empty queue as healthy', () => {
     const input = fixture()
     input.documents[0] = parseControlDocument(CONTROL_PATHS[0], '# Empty document')

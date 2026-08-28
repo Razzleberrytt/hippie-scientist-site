@@ -61,7 +61,6 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-
 | #4406 | Add governed ready → publish → measured lifecycle | R / L5 | Ready after renderer/creative integration | P0 | 5/4/5/5/1/2 | 250.0 | Validated pack, creative spec, asset manifest, attribution identity | One idempotent provenance-bound lifecycle; stale assets rejected; dry-run default; durable publish receipts; retry/partial-failure/rollback semantics; no broad auto-posting |
 | #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Ready after lifecycle receipt contract | P0 | 5/4/5/5/.75/2 | 187.5 | #4406 receipt identity + existing feedback engine | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
 | #4413 | Make prioritization freshness- and unlock-aware without a second score | O / control | Planned | P1 compounding | 3/3/3/5/1/2 | 67.5 | #4412 preferred; revalidate exact-main assumptions at start | Strategic Leverage explicitly carries unlock value; externally contingent items expose `last_verified`; stale evidence reduces Confidence/forces revalidation; replayed inputs produce the same queue |
