@@ -25,4 +25,16 @@ It rejects fabricated research-object IDs, stale hashes, extra sources, free-for
 
 For each valid research object, the existing `artifacts/distribution` family gains `<id>.media-pack.json`. The existing review-only channel package and manifest reference that validated pack by `packId`, content hash, artifact name, and `validated` state. Existing X/Instagram/video/email/article outputs remain review-only; no publishing automation is activated.
 
-The next legal downstream milestone is deterministic creative rendering from validated pack state. Creative/presentation code may not become a second factual authority, and generative media remains non-authoritative visual input only.
+Creative/presentation code may not become a second factual authority, and generative media remains non-authoritative visual input only.
+
+## Governed asset lifecycle
+
+`distribution-lifecycle.mjs` is the Lane-5 orchestration boundary after validated rendering. It does not publish by itself and does not duplicate factual, creative, rendering, opportunity, or measurement authority.
+
+A lifecycle identity is bound to the exact research-object hash, validated pack/content hash, creative-spec hash, rendered asset-manifest hash, canonical source URL, tagged destination, platform, format, and campaign ID. Any upstream identity drift invalidates the record and requires regeneration before another transition.
+
+The v1 state contract is `generated → validated → ready → scheduled → published → measured`, with explicit `paused` and `withdrawn` stop paths. Transitions fail closed when skipped or stale. Scheduling/publishing is dry-run by default. Real provider transitions must name the provider, and a real publish cannot be recorded as successful without a confirmed provider `externalId`; dispatch/request IDs alone are not success.
+
+Every publication transition carries the deterministic idempotency key and upstream identity fingerprint so retries cannot silently mint a second campaign identity. Measurements are recorded as observation-only lifecycle data and cannot modify scientific claims, evidence grades, limitations, source identity, safety truth, or canonical content.
+
+Broad/high-volume autopublishing remains unauthorized. Provider adapters and bounded live pilots are separate opt-in work after this lifecycle contract, exact-head validation, credential/provider configuration, and rollback proof.
