@@ -5,6 +5,7 @@ import { buildHookContract, validateHookContract } from './creative-hook-contrac
 import { buildCtaContract, validateCtaContract } from './creative-cta-contract.mjs'
 import { buildLosslessCaptionContract, validateLosslessCaptionContract } from './creative-caption-contract.mjs'
 import { buildThumbnailContract, validateThumbnailContract } from './creative-thumbnail-contract.mjs'
+import { buildCreativeVisualRegressionContract, validateCreativeVisualRegressionContract } from './creative-visual-regression-contract.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
@@ -127,56 +128,84 @@ export function buildLosslessCreativeSpec(input) {
     },
   }
 
+  const verticalVideo = {
+    ...base.verticalVideo,
+    captions,
+    losslessCopy: copyPlan,
+    sourceLegibility,
+    hook,
+    cta,
+    thumbnails,
+    accessibility: {
+      ...base.verticalVideo.accessibility,
+      losslessDeterministicCaptionsRequired: true,
+      captionVoiceoverReconstructionRequired: true,
+      cropResilientThumbnailHeadlineRequired: true,
+      deterministicVisualRegressionFingerprintRequired: true,
+    },
+    rendererContract: {
+      ...copyPlan.rendererContract,
+      factualScenesMustBeDerivedFromLosslessCopyPlan: true,
+      legacyTruncatedFactualScenesMayNotBePublishedWhenContinuationIsRequired: true,
+      dedicatedSourceSceneRequired: true,
+      sourceSceneMinimumVisibleSeconds: sourceLegibility.video.minimumVisibleSeconds,
+      sourceUrlMustRenderExactly: true,
+      firstTwoSecondsMustSatisfyHookContract: true,
+      ctaMayNotCompeteWithOpeningHook: true,
+      finalThreeSecondsMustSatisfyCtaContract: true,
+      ctaDestinationMustEqualCanonicalEvidenceUrl: true,
+      ctaMayNotCoverSourceOrDisclosure: true,
+      captionsMustSatisfyLosslessContract: true,
+      captionsMayNotTruncateOrAddEllipses: true,
+      captionCuesMustReconstructSceneVoiceoverExactly: true,
+      thumbnailsMustSatisfyTrustContract: true,
+      thumbnailVariantsMustPreserveExactHookText: true,
+      thumbnailVariantsMayVaryCompositionOnly: true,
+      visualRegressionFingerprintMustMatchValidatedPresentationContract: true,
+    },
+  }
+
+  const delivery = {
+    ...base.delivery,
+    ctaContract: cta,
+    captionContract: captions,
+    thumbnailContract: thumbnails,
+    factualTextPolicy: 'Finding and limitation copy must be rendered from losslessCopy pages verbatim and in order. Continuation pages/scenes may expand presentation length/count but may never truncate, paraphrase, or drop governed factual text.',
+    sourcePresentationPolicy: 'The canonical source URL must remain fully legible, untruncated, inside the platform safe area, and visible on a dedicated video source scene for at least three seconds. A CTA or disclosure may never replace or cover the source.',
+    hookPresentationPolicy: 'The opening hook must occupy the first two seconds, remain readable inside the vertical safe area, avoid unsupported certainty or ranking language, and may not compete with a CTA.',
+    ctaPresentationPolicy: 'The CTA must use the fixed evidence-first wording, link exactly to the canonical evidence page, remain readable inside the platform safe area during the final three seconds, preserve source/disclosure visibility, and never use urgency or scarcity pressure.',
+    captionPresentationPolicy: 'Captions must preserve scene voiceover exactly after whitespace normalization, split only at word boundaries, stay within the two-line readability budget and platform safe areas, and fail closed rather than truncate or add ellipses.',
+    thumbnailPresentationPolicy: 'Thumbnail experiments must preserve the exact governed hook text across every stable variant, keep the headline/logo/disclosure crop-safe for 9:16, 4:5, and 1:1 surfaces, use at least 64px headline typography at 1080-wide output, contain no CTA, and vary composition only.',
+    visualRegressionPolicy: 'Deterministic layout-critical presentation fields must produce a stable SHA-256 fingerprint. Fingerprint drift requires explicit review; generated imagery or B-roll is never treated as factual authority.',
+  }
+
+  const visualRegression = buildCreativeVisualRegressionContract({
+    carousel,
+    verticalVideo,
+    thumbnails,
+    delivery,
+  })
+  const visualRegressionErrors = validateCreativeVisualRegressionContract(visualRegression)
+  if (visualRegressionErrors.length) {
+    throw new Error(`Invalid creative visual-regression contract: ${visualRegressionErrors.join('; ')}`)
+  }
+
   return {
     ...base,
-    version: 10,
+    version: 11,
     thumbnails,
-    carousel,
+    visualRegression,
+    carousel: {
+      ...carousel,
+      visualRegressionFingerprint: visualRegression.fingerprint,
+    },
     verticalVideo: {
-      ...base.verticalVideo,
-      captions,
-      losslessCopy: copyPlan,
-      sourceLegibility,
-      hook,
-      cta,
-      thumbnails,
-      accessibility: {
-        ...base.verticalVideo.accessibility,
-        losslessDeterministicCaptionsRequired: true,
-        captionVoiceoverReconstructionRequired: true,
-        cropResilientThumbnailHeadlineRequired: true,
-      },
-      rendererContract: {
-        ...copyPlan.rendererContract,
-        factualScenesMustBeDerivedFromLosslessCopyPlan: true,
-        legacyTruncatedFactualScenesMayNotBePublishedWhenContinuationIsRequired: true,
-        dedicatedSourceSceneRequired: true,
-        sourceSceneMinimumVisibleSeconds: sourceLegibility.video.minimumVisibleSeconds,
-        sourceUrlMustRenderExactly: true,
-        firstTwoSecondsMustSatisfyHookContract: true,
-        ctaMayNotCompeteWithOpeningHook: true,
-        finalThreeSecondsMustSatisfyCtaContract: true,
-        ctaDestinationMustEqualCanonicalEvidenceUrl: true,
-        ctaMayNotCoverSourceOrDisclosure: true,
-        captionsMustSatisfyLosslessContract: true,
-        captionsMayNotTruncateOrAddEllipses: true,
-        captionCuesMustReconstructSceneVoiceoverExactly: true,
-        thumbnailsMustSatisfyTrustContract: true,
-        thumbnailVariantsMustPreserveExactHookText: true,
-        thumbnailVariantsMayVaryCompositionOnly: true,
-      },
+      ...verticalVideo,
+      visualRegressionFingerprint: visualRegression.fingerprint,
     },
     delivery: {
-      ...base.delivery,
-      ctaContract: cta,
-      captionContract: captions,
-      thumbnailContract: thumbnails,
-      factualTextPolicy: 'Finding and limitation copy must be rendered from losslessCopy pages verbatim and in order. Continuation pages/scenes may expand presentation length/count but may never truncate, paraphrase, or drop governed factual text.',
-      sourcePresentationPolicy: 'The canonical source URL must remain fully legible, untruncated, inside the platform safe area, and visible on a dedicated video source scene for at least three seconds. A CTA or disclosure may never replace or cover the source.',
-      hookPresentationPolicy: 'The opening hook must occupy the first two seconds, remain readable inside the vertical safe area, avoid unsupported certainty or ranking language, and may not compete with a CTA.',
-      ctaPresentationPolicy: 'The CTA must use the fixed evidence-first wording, link exactly to the canonical evidence page, remain readable inside the platform safe area during the final three seconds, preserve source/disclosure visibility, and never use urgency or scarcity pressure.',
-      captionPresentationPolicy: 'Captions must preserve scene voiceover exactly after whitespace normalization, split only at word boundaries, stay within the two-line readability budget and platform safe areas, and fail closed rather than truncate or add ellipses.',
-      thumbnailPresentationPolicy: 'Thumbnail experiments must preserve the exact governed hook text across every stable variant, keep the headline/logo/disclosure crop-safe for 9:16, 4:5, and 1:1 surfaces, use at least 64px headline typography at 1080-wide output, contain no CTA, and vary composition only.',
+      ...delivery,
+      visualRegressionContract: visualRegression,
     },
     guardrails: {
       ...base.guardrails,
@@ -199,6 +228,9 @@ export function buildLosslessCreativeSpec(input) {
       thumbnailHookRewriteForbidden: true,
       thumbnailCtaForbidden: true,
       thumbnailCropResilienceRequired: true,
+      deterministicVisualRegressionFingerprintRequired: true,
+      visualRegressionDriftRequiresExplicitReview: true,
+      generativeImageryMayNotDefineFactualAuthority: true,
     },
   }
 }
