@@ -29,15 +29,19 @@ describe('AI citation protected asset selection', () => {
   })
 
   it('selects the measured 2026-08-28 top nine under the default policy', () => {
-    const citations = [3575, 2217, 497, 471, 322, 299, 259, 253, 251, 207, 179, 167]
+    const head = [3575, 2217, 497, 471, 322, 299, 259, 253, 251, 207, 179, 167]
+    const tail = [...Array(10).fill(200), 161]
+    const citations = [...head, ...tail]
     const result = selectProtectedCitationAssets(
       citations.map((count, index) => ({ url: `/asset-${index + 1}/`, citations: count })),
       { minCitations: 250, cumulativeCitationShare: 0.75, maxAssets: 25 },
     )
 
+    expect(result.totalCitations).toBe(10858)
     expect(result.assets).toHaveLength(9)
     expect(result.assets.at(-1).citations).toBe(251)
-    expect(result.assets.at(-1).protectionReason).toContain('cumulative_coverage')
+    expect(result.assets.at(-1).protectionReason).toEqual(['min_citations', 'cumulative_coverage'])
+    expect(result.protectedCitationShare).toBeCloseTo(0.750046, 6)
   })
 })
 
@@ -89,7 +93,7 @@ describe('rendered identity protection', () => {
         'https://thehippiescientist.net/guides/sleep/new-owner/',
       ),
     ],
-    ['indexable', baselineHtml.replace('content="index,follow"', 'content="noindex,follow"')],
+    ['indexable', baselineHtml.replace('content="index,follow"', 'content="noindex follow"')],
   ])('detects %s drift', (field, html) => {
     const actual = { ...parseRenderedPageIdentity(html, route), redirectTarget: null }
     expect(compareProtectedPageIdentity(expected, actual).map((item) => item.field)).toContain(field)
