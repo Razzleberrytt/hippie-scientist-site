@@ -17,6 +17,12 @@ export function buildCreativeVisualRegressionContract({ carousel, verticalVideo,
       platformSafeArea: carousel?.accessibility?.platformSafeArea ?? null,
       sourceMinimumPxAt1080: carousel?.sourceLegibility?.typography?.minimumPxAt1080 ?? null,
       sourceExactUrlRequired: carousel?.sourceLegibility?.typography?.exactUrlRequired ?? true,
+      accessibilityDescription: {
+        losslessRequired: carousel?.accessibility?.accessibilityDescription?.integrity?.exactNormalizedMatch ?? null,
+        truncationAllowed: carousel?.accessibility?.accessibilityDescription?.segmentBudget?.truncationAllowed ?? null,
+        paraphraseAllowed: carousel?.accessibility?.accessibilityDescription?.segmentBudget?.paraphraseAllowed ?? null,
+        maxSegmentChars: carousel?.accessibility?.accessibilityDescription?.segmentBudget?.maxChars ?? null,
+      },
     },
     verticalVideo: {
       platformSafeAreas: verticalVideo?.platformSafeAreas ?? null,
@@ -47,6 +53,7 @@ export function buildCreativeVisualRegressionContract({ carousel, verticalVideo,
       platformSafeAreas: delivery?.platformSafeAreas ?? null,
       ctaText: delivery?.ctaContract?.text ?? delivery?.cta ?? null,
       ctaDestinationExactMatchRequired: delivery?.ctaContract?.destination?.exactMatchRequired ?? null,
+      accessibilityDescriptionFailClosed: delivery?.accessibilityDescriptionContract?.platformPolicy?.publishOnlyIfFullDescriptionCanBeRepresentedLosslessly ?? null,
     },
   }
 
@@ -78,6 +85,10 @@ export function validateCreativeVisualRegressionContract(contract) {
   const input = contract?.fingerprintInput
   if (!Array.isArray(input?.carousel?.slideRoles) || !input.carousel.slideRoles.includes('source')) errors.push('visual regression contract must cover the carousel source card')
   if (input?.carousel?.sourceMinimumPxAt1080 < 32) errors.push('visual regression contract must preserve source-card minimum typography')
+  if (input?.carousel?.accessibilityDescription?.losslessRequired !== true) errors.push('visual regression contract must preserve lossless accessibility descriptions')
+  if (input?.carousel?.accessibilityDescription?.truncationAllowed !== false) errors.push('visual regression contract must preserve accessibility-description truncation prohibition')
+  if (input?.carousel?.accessibilityDescription?.paraphraseAllowed !== false) errors.push('visual regression contract must preserve accessibility-description paraphrase prohibition')
+  if (input?.carousel?.accessibilityDescription?.maxSegmentChars < 80) errors.push('visual regression contract must preserve an accessibility-description segment budget')
   if (input?.verticalVideo?.hook?.minimumPxAt1080 < 56) errors.push('visual regression contract must preserve hook minimum typography')
   if (input?.verticalVideo?.captions?.minimumPxAt1080 < 44) errors.push('visual regression contract must preserve caption minimum typography')
   if (input?.verticalVideo?.cta?.minimumPxAt1080 < 44) errors.push('visual regression contract must preserve CTA minimum typography')
@@ -86,6 +97,7 @@ export function validateCreativeVisualRegressionContract(contract) {
   if (input?.thumbnails?.logoRequired !== true || input?.thumbnails?.disclosureRequired !== true) errors.push('visual regression contract must preserve thumbnail logo and disclosure requirements')
   if (!['4:5', '1:1'].every((crop) => input?.thumbnails?.requiredCrops?.includes(crop))) errors.push('visual regression contract must preserve portrait and square crop coverage')
   if (!Array.isArray(input?.thumbnails?.variants) || input.thumbnails.variants.length < 3) errors.push('visual regression contract must preserve deterministic thumbnail variants')
+  if (input?.delivery?.accessibilityDescriptionFailClosed !== true) errors.push('visual regression contract must preserve fail-closed accessibility-description delivery')
 
   if (!errors.length) {
     const expectedCanonical = canonicalJson(input)
