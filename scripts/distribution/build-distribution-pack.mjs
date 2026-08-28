@@ -101,7 +101,6 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
   const provenanceReceipts = [
     provenanceReceipt('$.claims[0].sourceStatement', 'finding', finding),
     provenanceReceipt('$.claims[0].publicSafeStatement', 'finding', finding),
-    provenanceReceipt('$.claims[0].evidenceGrade', 'evidenceGrade', evidenceGrade),
     provenanceReceipt('$.uncertainties[0].statement', 'limitation', limitation),
   ]
   for (const [field, value] of Object.entries({
