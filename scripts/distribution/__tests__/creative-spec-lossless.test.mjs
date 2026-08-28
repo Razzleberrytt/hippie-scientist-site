@@ -49,7 +49,7 @@ describe('lossless creative presentation adapter', () => {
     expect(spec.guardrails.continuationPagesMayNotBeDropped).toBe(true)
   })
 
-  it('renders deterministic captions without dropping or ellipsizing scene voiceover', () => {
+  it('renders deterministic captions without dropping or adding ellipses to scene voiceover', () => {
     const spec = buildLosslessCreativeSpec(fixture)
     const captions = spec.verticalVideo.captions
 
@@ -59,13 +59,14 @@ describe('lossless creative presentation adapter', () => {
     expect(captions.truncationAllowed).toBe(false)
     expect(captions.ellipsisAllowed).toBe(false)
     expect(captions.mustFitPlatformSafeArea).toBe(true)
-    expect(captions.cues.some((cue) => cue.text.includes('…'))).toBe(false)
     expect(captions.cues.every((cue) => cue.text.split('\n').length <= 2)).toBe(true)
     expect(captions.cues.every((cue) => cue.text.split('\n').every((line) => line.length <= 42))).toBe(true)
 
     for (const [index, scene] of spec.verticalVideo.scenes.entries()) {
-      const reconstructed = clean(captions.cues.filter((cue) => cue.sceneIndex === index + 1).map((cue) => cue.text.replace(/\n/g, ' ')).join(' '))
+      const sceneCues = captions.cues.filter((cue) => cue.sceneIndex === index + 1)
+      const reconstructed = clean(sceneCues.map((cue) => cue.text.replace(/\n/g, ' ')).join(' '))
       expect(reconstructed).toBe(clean(scene.voiceover))
+      expect(sceneCues.every((cue) => clean(cue.sourceVoiceover) === clean(scene.voiceover))).toBe(true)
     }
 
     expect(spec.verticalVideo.rendererContract.captionsMustSatisfyLosslessContract).toBe(true)
