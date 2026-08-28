@@ -5,6 +5,7 @@ import { buildHookContract, validateHookContract } from './creative-hook-contrac
 import { buildCtaContract, validateCtaContract } from './creative-cta-contract.mjs'
 import { buildLosslessCaptionContract, validateLosslessCaptionContract } from './creative-caption-contract.mjs'
 import { buildThumbnailContract, validateThumbnailContract } from './creative-thumbnail-contract.mjs'
+import { buildLosslessAccessibilityDescriptionContract, validateLosslessAccessibilityDescriptionContract } from './creative-accessibility-description-contract.mjs'
 import { buildCreativeVisualRegressionContract, validateCreativeVisualRegressionContract } from './creative-visual-regression-contract.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
@@ -110,12 +111,27 @@ export function buildLosslessCreativeSpec(input) {
     throw new Error(`Invalid thumbnail presentation contract: ${thumbnailErrors.join('; ')}`)
   }
 
+  const accessibilityDescription = buildLosslessAccessibilityDescriptionContract(input, {
+    maxSegmentChars: CREATIVE_BRAND_TOKENS.typography.altTextMaxChars,
+  })
+  const accessibilityDescriptionErrors = validateLosslessAccessibilityDescriptionContract(accessibilityDescription, input)
+  if (accessibilityDescriptionErrors.length) {
+    throw new Error(`Invalid lossless accessibility-description contract: ${accessibilityDescriptionErrors.join('; ')}`)
+  }
+
   const carousel = {
     ...base.carousel,
     slides: [hookSlide, ...findingSlides, ...limitationSlides, sourceSlide].filter(Boolean),
     losslessCopy: copyPlan,
     sourceLegibility,
     cta,
+    accessibility: {
+      ...base.carousel.accessibility,
+      altText: accessibilityDescription.fullText,
+      accessibilityDescription,
+      truncatedAltTextForbidden: true,
+      platformTruncationMustFailClosed: true,
+    },
     rendererContract: {
       ...copyPlan.rendererContract,
       everyContinuationSlideRequiresCitation: true,
@@ -125,6 +141,8 @@ export function buildLosslessCreativeSpec(input) {
       sourceUrlMustRenderExactly: true,
       ctaMustSatisfyTrustContract: true,
       ctaDestinationMustEqualCanonicalEvidenceUrl: true,
+      accessibilityDescriptionMustReconstructGovernedContentExactly: true,
+      accessibilityDescriptionMayNotTruncateOrParaphrase: true,
     },
   }
 
@@ -136,12 +154,14 @@ export function buildLosslessCreativeSpec(input) {
     hook,
     cta,
     thumbnails,
+    accessibilityDescription,
     accessibility: {
       ...base.verticalVideo.accessibility,
       losslessDeterministicCaptionsRequired: true,
       captionVoiceoverReconstructionRequired: true,
       cropResilientThumbnailHeadlineRequired: true,
       deterministicVisualRegressionFingerprintRequired: true,
+      losslessAccessibilityDescriptionRequired: true,
     },
     rendererContract: {
       ...copyPlan.rendererContract,
@@ -161,6 +181,8 @@ export function buildLosslessCreativeSpec(input) {
       thumbnailsMustSatisfyTrustContract: true,
       thumbnailVariantsMustPreserveExactHookText: true,
       thumbnailVariantsMayVaryCompositionOnly: true,
+      accessibilityDescriptionMustReconstructGovernedContentExactly: true,
+      accessibilityDescriptionMayNotTruncateOrParaphrase: true,
       visualRegressionFingerprintMustMatchValidatedPresentationContract: true,
     },
   }
@@ -170,12 +192,14 @@ export function buildLosslessCreativeSpec(input) {
     ctaContract: cta,
     captionContract: captions,
     thumbnailContract: thumbnails,
+    accessibilityDescriptionContract: accessibilityDescription,
     factualTextPolicy: 'Finding and limitation copy must be rendered from losslessCopy pages verbatim and in order. Continuation pages/scenes may expand presentation length/count but may never truncate, paraphrase, or drop governed factual text.',
     sourcePresentationPolicy: 'The canonical source URL must remain fully legible, untruncated, inside the platform safe area, and visible on a dedicated video source scene for at least three seconds. A CTA or disclosure may never replace or cover the source.',
     hookPresentationPolicy: 'The opening hook must occupy the first two seconds, remain readable inside the vertical safe area, avoid unsupported certainty or ranking language, and may not compete with a CTA.',
     ctaPresentationPolicy: 'The CTA must use the fixed evidence-first wording, link exactly to the canonical evidence page, remain readable inside the platform safe area during the final three seconds, preserve source/disclosure visibility, and never use urgency or scarcity pressure.',
     captionPresentationPolicy: 'Captions must preserve scene voiceover exactly after whitespace normalization, split only at word boundaries, stay within the two-line readability budget and platform safe areas, and fail closed rather than truncate or add ellipses.',
     thumbnailPresentationPolicy: 'Thumbnail experiments must preserve the exact governed hook text across every stable variant, keep the headline/logo/disclosure crop-safe for 9:16, 4:5, and 1:1 surfaces, use at least 64px headline typography at 1080-wide output, contain no CTA, and vary composition only.',
+    accessibilityDescriptionPolicy: 'Accessibility descriptions must preserve the governed finding, evidence grade, limitation, and canonical source losslessly. Platform character limits may be satisfied by deterministic word-boundary segmentation only; truncation, ellipsis insertion, paraphrase, or silent omission must fail closed.',
     visualRegressionPolicy: 'Deterministic layout-critical presentation fields must produce a stable SHA-256 fingerprint. Fingerprint drift requires explicit review; generated imagery or B-roll is never treated as factual authority.',
   }
 
@@ -192,8 +216,9 @@ export function buildLosslessCreativeSpec(input) {
 
   return {
     ...base,
-    version: 11,
+    version: 12,
     thumbnails,
+    accessibilityDescription,
     visualRegression,
     carousel: {
       ...carousel,
@@ -228,6 +253,10 @@ export function buildLosslessCreativeSpec(input) {
       thumbnailHookRewriteForbidden: true,
       thumbnailCtaForbidden: true,
       thumbnailCropResilienceRequired: true,
+      losslessAccessibilityDescriptionRequired: true,
+      accessibilityDescriptionTruncationForbidden: true,
+      accessibilityDescriptionParaphraseForbidden: true,
+      accessibilityDescriptionMustPreserveLimitationAndSource: true,
       deterministicVisualRegressionFingerprintRequired: true,
       visualRegressionDriftRequiresExplicitReview: true,
       generativeImageryMayNotDefineFactualAuthority: true,
