@@ -3,6 +3,16 @@ name: Atomic upgrade gate
 on:
   pull_request:
     types: [opened, synchronize, reopened, edited, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      recovery_pr_number:
+        description: PR number for exact-head recovery validation
+        required: true
+        type: string
+      recovery_base_ref:
+        description: Exact target base branch name
+        required: true
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -10,15 +20,34 @@ concurrency:
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
   atomic-contract:
     name: Atomic issue and measurement contract
     runs-on: ubuntu-latest
     steps:
+      - name: Resolve PR body
+        id: pr-context
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_BODY: ${{ github.event.pull_request.body }}
+          RECOVERY_PR_NUMBER: ${{ inputs.recovery_pr_number }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            body="$(gh api "repos/${{ github.repository }}/pulls/$RECOVERY_PR_NUMBER" --jq '.body // ""')"
+          else
+            body="$EVENT_BODY"
+          fi
+          {
+            echo 'body<<EOF'
+            printf '%s\n' "$body"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
       - name: Validate PR contract
         env:
-          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_BODY: ${{ steps.pr-context.outputs.body }}
         run: |
           node <<'NODE'
           const body = process.env.PR_BODY || '';
@@ -47,8 +76,9 @@ jobs:
       - name: Classify release impact
         id: impact
         env:
-          BASE_REF: ${{ github.base_ref }}
+          BASE_REF: ${{ github.base_ref || inputs.recovery_base_ref }}
         run: |
+          test -n "$BASE_REF"
           git fetch origin "$BASE_REF"
           changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
           printf '%s\n' "$changed"
