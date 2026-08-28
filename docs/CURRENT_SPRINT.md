@@ -5,9 +5,9 @@
 **Updated:** 2026-08-28
 **Normal WIP limit:** Maximum three concurrent implementation tickets. The Evidence → Distribution initiative may use separate lanes only when scopes are orthogonal and one ticket per lane is active.
 **WIP cap:** 3
-**Current admission:** Three implementation tickets are active after admitting #4412. No additional implementation may start until active WIP falls below three.
+**Current admission:** One implementation ticket is active (#4412 / PR #4446). Two implementation slots are available, subject to dependency and lane-ownership checks.
 
-**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
+**Control dependencies:** #4412 <- #4411; #4407 <- #4406
 
 ## Sprint objective
 
@@ -37,7 +37,6 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 - When comparable resource observations exist, scale based on marginal qualified outcomes per incremental resource, not gross output alone. Missing resource/outcome data remains `Unknown`.
 - Deterministic failures found inside scope are repaired before merge. Merge only on exact intended head when required gates are green and no blocking review/governance defect remains.
 
-
 ## Milestone projection
 
 | Milestone | Status |
@@ -50,13 +49,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — WIP 3/3, admission closed
+## Active — WIP 1/3, admission open
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
 | Control | #4412 / PR #4446 | Machine reconciliation | In Review | Read-only exact-revision GitHub reconciliation; stale/duplicate/WIP/dependency/milestone/offline fixtures; hosted tests and production build |
-| L2 Provenance | #4439 / PR #4440 | Bind claims to canonical study sources | In Review | Exact claim/source identity, direct source linkage and URL; substitution fails closed; canonical science unchanged |
-| L1 Rendering | PR #4448 | Provenance-bound vertical MP4 renderer | In Review | Reverify parent/scene provenance and canonical paths; fixed encoding profile and version-bound output receipt; no factual authority or publishing mutation |
 
 ### #4412 implementation boundary
 
@@ -71,27 +68,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Ready next — strict dependency order
 
-**Do not start any item below while active WIP is 3 or more.** A free slot exists only after active WIP falls to two or fewer.
-
-### 2. L5 — #4406 governed ready → publish → measured lifecycle
-
-**Start when:** the renderer and presentation boundaries it consumes are merged/stable enough to bind exact asset identity, and a true WIP slot exists.
-
-**Required result:**
-
-- one canonical lifecycle for generated/validated/ready/scheduled/published/measured (or the smallest equivalent compatible state model);
-- state transitions bound to exact upstream research-object, pack, creative, render-manifest, destination, platform/format, and attribution identity;
-- stale assets fail closed;
-- idempotent scheduling/publishing with durable receipts;
-- duplicate attempts cannot create duplicate publication;
-- partial/external failures are explicit and retry-safe;
-- pause/stop/rollback semantics exist before scale;
-- dry-run is the default; absent provider credentials/support yields a waiting state, not fake success;
-- no scientific or canonical-site mutation.
+**A free slot exists only when the candidate's dependencies and lane ownership are current and no higher-risk incident overrides admission.**
 
 ### 3. L3 — #4407 attributable outcome ingestion
 
-**Start when:** #4406 provides a stable publication/asset receipt identity and a true WIP slot exists.
+**Start when:** the merged #4406 lifecycle receipt contract remains stable and a true WIP slot exists.
 
 **Required result:**
 
@@ -105,7 +86,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ### 4. First bounded pilot package
 
-**Start when:** L1/L2/L4 + #4406 + #4407 boundaries are proven.
+**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven.
 
 The first pilot should use already-governed research, deterministic assets, tagged destinations, durable lifecycle receipts, and an explicit observation window. It may be published only through a supported, attributable, policy-compliant path. If no provider integration/credentials are available, the sprint may complete the end-to-end dry-run and record the external execution blocker rather than inventing a live result.
 
@@ -148,7 +129,7 @@ These are durable second-order improvements, not reasons to block scientific/pro
 
 ## Highest-value fallback work if the distribution/control dependency chain is blocked
 
-These items are **not active while WIP is full/overflowing**. Promote one only after checking overlap, current exact-main state, and freshness of the evidence supporting promotion.
+Promote one only after checking overlap, current exact-main state, and freshness of the evidence supporting promotion.
 
 1. **#4227** — reduce duplicated full production exports without weakening exact-SHA fail-closed validation; also supplies resource observations useful to #4415.
 2. **SEO-003** — reproduce and clear the current schema identity gate.
@@ -160,10 +141,10 @@ These items are **not active while WIP is full/overflowing**. Promote one only a
 The sprint exits only when all of the following are true or have a precise external blocker:
 
 - PRs #4388, #4401, and #4405 are merged or explicitly blocked with exact failing proof; no stale active status remains in control docs.
-- PR #4411 / #4410 is merged or explicitly blocked, and active implementation WIP is again within the normal three-ticket cap.
+- PR #4411 / #4410 is merged or explicitly blocked, and active implementation WIP is within the normal three-ticket cap.
 - #4412 either proves machine reconciliation or has a precise blocker/queued continuation that does not leave known stale active state unresolved.
 - The governed research object → validated pack → lossless creative plan → deterministic rendered asset chain is reproducible and provenance-bound.
-- #4406 proves an idempotent dry-run lifecycle with stale-asset rejection, durable receipts, retry safety, and rollback/stop semantics.
+- #4406 has proven an idempotent dry-run lifecycle with stale-asset rejection, durable receipts, retry safety, and rollback/stop semantics.
 - #4407 proves deterministic attributable observation ingestion, Unknown handling, replay, cross-platform isolation, and the existing minimum-exposure guard.
 - A bounded pilot package can be generated end-to-end and is measurement-ready; live publication is optional only if a supported/authorized provider path exists.
 - #4413, #4414, and #4415 are durably queued with their single-formula/freshness, experiment-memory, and marginal-efficiency boundaries preserved; they are not required to fake completion of the distribution MVP.
@@ -174,15 +155,16 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#4406:** completed; the governed ready → publish → measured lifecycle is merged and no longer occupies the ready queue.
+- **#4439 / PR #4440:** completed/merged; canonical claim/source binding no longer occupies an active slot.
+- **PR #4448:** closed unmerged; vertical MP4 implementation is preserved for later legal reuse and does not occupy active WIP.
 - **#4447 / PR #4445:** merged as `692d85d1a496188b4bc48113f8f64b5e94c82098`; the hook trust contract no longer occupies an active slot.
-
 - **#4410 / PR #4411:** merged; scoped changed-file-relevant gates are on main. The temporary overflow exception is retired.
 - **PRs #4388, #4401, #4405:** merged; renderer, provenance-receipt, and lossless-presentation implementation no longer occupy active slots.
-
 - **PR #4408 / #4409:** merged/closed; roadmap, sprint, and master backlog synchronized to exact GitHub state on 2026-08-27.
 - **#4182:** closed/completed; five herb/compound identity correction is no longer active.
-- **#4238:** closed/completed; normalized source-registry provenance continuation is no longer active.
+- **#4238:** closed/completed; normalized source-registry baseline/provenance continuation is no longer active.
 - **AUTH-004 / PR #4145:** merged; visual browse refinement is no longer active.
 - **SEO-005 / PR #4331:** merged; monitor remains file-fed until a supported Bing AI Performance acquisition path exists.
-- **I18N-001 / PR #4332:** merged; Japanese/Korean core localization is live while detailed scientific profiles remain fail-closed.
+- **I18N-001 / PR #4332:** merged; Japanese/Korean core locale expansion is live while detailed scientific profiles remain fail-closed.
 - **REV-005 / PR #4358:** merged; the validated media-pack foundation is now upstream infrastructure for this sprint.
