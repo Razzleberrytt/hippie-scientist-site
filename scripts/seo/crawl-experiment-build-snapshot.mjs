@@ -4,6 +4,7 @@ import path from 'node:path'
 
 export const SITE_ORIGIN = 'https://thehippiescientist.net'
 export const FREEZE_POLICY_PATHS = [
+  'app/herbs/[slug]/page.tsx',
   'app/sitemap.ts',
   'src/lib/seo.ts',
   'src/lib/index-allowlist.ts',
@@ -197,6 +198,9 @@ export function snapshotBuiltHerb(pathname, buildDir = 'out', sitemap = readBuil
     throw new Error(`Built HTML is noindex for ${normalizedPath}`)
   }
 
+  // Hash only SEO/substantive rendered signals, not raw HTML, asset hashes, styles,
+  // or other build noise. This keeps the causal freeze strict without blocking
+  // unrelated site evolution that does not change a randomized page's substance.
   const renderedPayload = {
     title: titleFromHtml(html),
     description: descriptionFromHtml(html),
