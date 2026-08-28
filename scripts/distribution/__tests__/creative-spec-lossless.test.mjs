@@ -23,7 +23,7 @@ describe('lossless creative presentation adapter', () => {
     const findings = spec.carousel.slides.filter((slide) => slide.role === 'finding')
     const limitations = spec.carousel.slides.filter((slide) => slide.role === 'limitation')
 
-    expect(spec.version).toBe(6)
+    expect(spec.version).toBe(7)
     expect(findings.length).toBeGreaterThan(1)
     expect(limitations.length).toBeGreaterThan(1)
     expect(findings.every((slide) => slide.citationRequired && slide.truncationAllowed === false)).toBe(true)
@@ -59,6 +59,22 @@ describe('lossless creative presentation adapter', () => {
     expect(spec.verticalVideo.rendererContract.dedicatedSourceSceneRequired).toBe(true)
     expect(spec.verticalVideo.rendererContract.sourceSceneMinimumVisibleSeconds).toBeGreaterThanOrEqual(3)
     expect(spec.guardrails.sourceUrlMayNotBeTruncatedOrRewritten).toBe(true)
+  })
+
+  it('requires a readable trust-safe hook throughout the first two seconds', () => {
+    const spec = buildLosslessCreativeSpec(fixture)
+    expect(spec.verticalVideo.hook.text).toBe(fixture.title)
+    expect(spec.verticalVideo.hook.timing.startSeconds).toBe(0)
+    expect(spec.verticalVideo.hook.timing.endSeconds).toBe(2)
+    expect(spec.verticalVideo.hook.typography.minimumPxAt1080).toBeGreaterThanOrEqual(56)
+    expect(spec.verticalVideo.hook.placement.safeAreaRequired).toBe(true)
+    expect(spec.verticalVideo.hook.trust.ctaAllowedDuringHook).toBe(false)
+    expect(spec.verticalVideo.rendererContract.firstTwoSecondsMustSatisfyHookContract).toBe(true)
+    expect(spec.guardrails.unsupportedHookCertaintyForbidden).toBe(true)
+  })
+
+  it('rejects hook language that visually or verbally overstates the evidence', () => {
+    expect(() => buildLosslessCreativeSpec({ ...fixture, title: 'The proven best cure for stress' })).toThrow(/unsupported certainty or superiority/)
   })
 
   it('fails closed when governed copy cannot fit the lossless page budget', () => {
