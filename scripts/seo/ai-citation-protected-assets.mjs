@@ -21,12 +21,16 @@ export function normalizeUrlPath(value) {
 }
 
 export function selectProtectedCitationAssets(rows, policy = DEFAULT_AI_CITATION_PROTECTION_POLICY) {
-  const normalized = rows
-    .map((row) => ({
-      url: normalizeUrlPath(row.url ?? row.Page ?? row.page),
-      citations: Number(row.citations ?? row.Citations ?? 0),
-    }))
-    .filter((row) => row.url && Number.isFinite(row.citations) && row.citations > 0)
+  const byUrl = new Map()
+  for (const row of rows) {
+    const url = normalizeUrlPath(row.url ?? row.Page ?? row.page)
+    const citations = Number(row.citations ?? row.Citations ?? 0)
+    if (!url || !Number.isFinite(citations) || citations <= 0) continue
+    byUrl.set(url, (byUrl.get(url) ?? 0) + citations)
+  }
+
+  const normalized = [...byUrl.entries()]
+    .map(([url, citations]) => ({ url, citations }))
     .sort((a, b) => b.citations - a.citations || a.url.localeCompare(b.url))
 
   const totalCitations = normalized.reduce((sum, row) => sum + row.citations, 0)
