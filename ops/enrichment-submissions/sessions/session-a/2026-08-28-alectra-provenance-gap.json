@@ -1,0 +1,28 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "alectra-provenance-gap-20260828",
+  "createdAt": "2026-08-28T20:37:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-alectra-endophyte-scope-gap-20260828",
+      "authoringPackId": "ap_bp_wp_herb_alectra_sessiliflora_src_doi_10_3389_fmicb_2022_870821",
+      "workpackId": "wp_herb_alectra_sessiliflora",
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "sourceId": "src_doi-10-3389-fmicb-2022-870821",
+      "topicType": "research_gap",
+      "claimType": "research_gap",
+      "evidenceClass": "preclinical-mechanistic",
+      "findingTextShort": "The verified 2022 Alectra paper studies bacterial endophytes, not direct Alectra plant-tissue phytochemistry.",
+      "findingTextNormalized": "The verified 2022 Alectra sessiliflora paper isolated bacterial endophytes from the plant and tested crude extracts produced by those microbes; it does not directly characterize Alectra plant-tissue constituents or establish a plant-level mechanism, so it cannot by itself close the herb mechanism or constituent evidence gap.",
+      "strengthLabel": "moderate",
+      "mechanismContext": "Microbial endophyte secondary-metabolite extracts associated with Alectra sessiliflora, not direct plant extract or plant-tissue constituent characterization.",
+      "uncertaintyNote": "This is a source-scope boundary, not evidence that Alectra sessiliflora lacks bioactive plant constituents. Direct plant-tissue phytochemistry and mechanism remain unresolved. The verified source must complete registry governance before promotion, and the currently misattributed candidate PMID 36440008 must not be used as Alectra evidence.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
