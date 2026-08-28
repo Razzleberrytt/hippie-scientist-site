@@ -1,0 +1,59 @@
+name: Project control reconciliation
+
+on:
+  pull_request:
+    paths:
+      - 'docs/CURRENT_SPRINT.md'
+      - 'docs/MASTER_BACKLOG.md'
+      - 'docs/ROADMAP.md'
+      - 'scripts/ci/reconcile-project-control*'
+      - '.github/workflows/project-control-reconciliation.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/CURRENT_SPRINT.md'
+      - 'docs/MASTER_BACKLOG.md'
+      - 'docs/ROADMAP.md'
+      - 'scripts/ci/reconcile-project-control*'
+      - '.github/workflows/project-control-reconciliation.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  reconcile:
+    name: Reconcile authoritative project control
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check module syntax
+        run: node --check scripts/ci/reconcile-project-control.mjs
+      - name: Reconcile exact-revision planning records
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -o pipefail
+          node scripts/ci/reconcile-project-control.mjs --github | tee project-control-report.json
+      - name: Retain reconciliation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-control-${{ github.event.pull_request.head.sha || github.sha }}
+          path: project-control-report.json
+          if-no-files-found: error
+          retention-days: 14

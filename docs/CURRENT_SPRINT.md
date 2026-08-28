@@ -2,9 +2,12 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-08-27
+**Updated:** 2026-08-28
 **Normal WIP limit:** Maximum three concurrent implementation tickets. The Evidence → Distribution initiative may use separate lanes only when scopes are orthogonal and one ticket per lane is active.
-**Temporary exception:** PR #4411 / issue #4410 is a scoped CI/control throughput repair opened after three distribution tickets were already active. Current implementation WIP is therefore **4/3**. This does not change the permanent cap: **admission is frozen; no fifth implementation ticket may start, and no slot is refilled until active WIP falls below three.**
+**WIP cap:** 3
+**Current admission:** Three implementation tickets are active after admitting #4412. No additional implementation may start until active WIP falls below three.
+
+**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
 ## Sprint objective
 
@@ -34,22 +37,28 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 - When comparable resource observations exist, scale based on marginal qualified outcomes per incremental resource, not gross output alone. Missing resource/outcome data remains `Unknown`.
 - Deterministic failures found inside scope are repaired before merge. Merge only on exact intended head when required gates are green and no blocking review/governance defect remains.
 
-## Active — temporary WIP 4/3, admission frozen
+
+## Milestone projection
+
+| Milestone | Status |
+|---|---|
+| M0 | In progress |
+| M1 | In progress |
+| M2 | Blocked |
+| M3 | Not started |
+| M4 | Not started |
+| M5 | Not started |
+| M6 | Not started |
+
+## Active — WIP 3/3, admission closed
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
-| Control / CI | #4410 / PR #4411 | Changed-file-relevant medium-risk merge gates | In Review — temporary WIP exception | Medium-risk distribution/media requires targeted Research Distribution + core validation; public-site changes retain site/content gates; high-risk work remains full-gate; any known completed failure still blocks; exact-head/current-base proof remains mandatory |
-| L1 Rendering | #4389 / PR #4388 | Deterministic provenance-bound SVG carousel renderer | In Review | Identical validated inputs → byte-stable SVGs/manifest hashes; source URL/content hash retained; no factual rewrite/truncation; oversized copy fails closed; Research Distribution + release gates green |
-| L2 Provenance | #4400 / PR #4401 | Field-level factual provenance receipts | In Review | Finding/limitation and canonically owned study context map to exact canonical field/hash; null context is not fabricated; tampering fails; whole-object stale invalidation remains intact |
-| L4 Presentation | #4404 / PR #4405 | Lossless creative presentation adapter | In Review | Ordered continuation slides reconstruct governed factual copy exactly; citations/color/safe-area metadata survive every continuation; no ellipsis, drop, reorder, paraphrase, or rewrite |
+| Control | #4412 | Machine reconciliation | In Progress | Read-only exact-revision GitHub reconciliation; stale/duplicate/WIP/dependency/milestone/offline fixtures; hosted tests and production build |
+| L2 Provenance | #4439 / PR #4440 | Bind claims to canonical study sources | In Review | Exact claim/source identity, direct source linkage and URL; substitution fails closed; canonical science unchanged |
+| L4 Presentation | PR #4445 | First-two-second hook trust contract | In Review | 0–2s hook, safe area, mobile typography, opening CTA exclusion, unsupported certainty rejection; existing lossless factual contract preserved |
 
-## Ready next — strict dependency order
-
-**Do not start any item below while active WIP is 3 or more.** A free slot exists only after active WIP falls to two or fewer.
-
-### 1. O/control — #4412 machine reconciliation
-
-**Start when:** #4411 is merged/stable and a true WIP slot exists.
+### #4412 implementation boundary
 
 **Required result:**
 
@@ -59,6 +68,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 - unavailable GitHub state yields `Unknown/waiting`, never fake PASS;
 - the checker is read-only with respect to GitHub/scientific/public data;
 - current exact-main control documents reconcile cleanly after intentional exceptions are represented.
+
+## Ready next — strict dependency order
+
+**Do not start any item below while active WIP is 3 or more.** A free slot exists only after active WIP falls to two or fewer.
 
 ### 2. L5 — #4406 governed ready → publish → measured lifecycle
 
@@ -160,6 +173,9 @@ The sprint exits only when all of the following are true or have a precise exter
 - Required scientific, provenance, safety, accessibility, release, and exact-head validation gates remain intact.
 
 ## Recently retired from this sprint
+
+- **#4410 / PR #4411:** merged; scoped changed-file-relevant gates are on main. The temporary overflow exception is retired.
+- **PRs #4388, #4401, #4405:** merged; renderer, provenance-receipt, and lossless-presentation implementation no longer occupy active slots.
 
 - **PR #4408 / #4409:** merged/closed; roadmap, sprint, and master backlog synchronized to exact GitHub state on 2026-08-27.
 - **#4182:** closed/completed; five herb/compound identity correction is no longer active.

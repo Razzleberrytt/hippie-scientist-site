@@ -1,7 +1,10 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-08-27
+**Updated:** 2026-08-28
+**WIP cap:** 3
+
+**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 **Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync.
 
 ## Scoring and gates
@@ -29,24 +32,36 @@ Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authorit
 - Safety/scientific correctness, publication integrity, production incidents, security, accessibility blockers, and crawl/indexing regressions may override numeric ordering.
 - No broad auto-publishing is authorized until factual fidelity, attribution, lifecycle receipts, rollback, measurement quality, and channel-policy checks are proven.
 
+
+## Milestone projection
+
+| Milestone | Status |
+|---|---|
+| M0 | In progress |
+| M1 | In progress |
+| M2 | Blocked |
+| M3 | Not started |
+| M4 | Not started |
+| M5 | Not started |
+| M6 | Not started |
+
 ## Now — active exact work
 
-**Temporary WIP exception: 4/3. Admission is frozen.** PR #4411 is a scoped CI/control throughput repair opened after the three distribution lanes were already active. It does not raise the normal cap. No fifth implementation ticket may start; after any active ticket merges/closes, do not refill a slot until active WIP is below three.
+Three implementation tickets are active. Admission is closed at the normal cap; the former #4411 temporary exception is retired.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4410 / PR #4411 | Make medium-risk merge gates changed-file relevant | O / control | In Review — temporary WIP exception | P0 throughput | 4/4/3/5/1/2 | 120.0 | Existing autonomous merge controller + exact-head workflow evidence | Distribution/media changes wait for targeted Research Distribution/core validation, public-site changes retain site/content gates, high-risk work remains full-gate, and any known completed failure still blocks |
-| #4389 / PR #4388 | Render deterministic provenance-bound SVG carousels | R / L1 | In Review | P0 | 5/5/5/5/1/3 | 208.3 | Validated media pack + validated-lossless creative spec | Deterministic SVG bytes/manifest hashes; canonical source/content-hash provenance on every asset; no renderer rewrite/truncation; exact-head Research Distribution and release gates green |
-| #4400 / PR #4401 | Add field-level factual provenance receipts | R / L2 | In Review | P0 | 4/5/4/5/1/2 | 200.0 | Canonical research object + Distribution Pack v1 | Every factual payload maps to the exact owned canonical field/hash; null context remains null; tampering fails closed; no new factual authority |
-| #4404 / PR #4405 | Wire lossless pagination into creative presentation output | R / L4 | In Review | P0 trust | 4/5/4/5/1/2 | 200.0 | Merged lossless pagination contract | Long finding/limitation copy reconstructs exactly across ordered continuations; citations/safe areas/color contracts survive; no ellipsis/paraphrase/drop of factual copy |
+| #4412 | Machine-reconcile roadmap, sprint, and backlog against GitHub state | O / control | In Progress | P0 control | 4/4/3/5/1/2 | 120.0 | Merged #4411; exact GitHub state | Read-only stale/duplicate/WIP/dependency/milestone/offline reconciliation, fixtures, hosted tests/build; unknown never becomes PASS |
+| #4439 / PR #4440 | Bind claims to canonical study sources | R / L2 | In Review | P0 provenance | — | — | Approved canonical claim/source identities | Reject wrong source substitutions without new factual authority |
+| PR #4445 | First-two-second hook trust contract | R / L4 | In Review | P0 trust | — | — | Validated-lossless creative spec | 0–2s timing, safe area, typography and CTA/overclaim guards; no factual rewriting |
 
 ## Next — ordered dependency queue
 
-Start the highest legal item only after the temporary WIP overflow has cleared and a real slot exists. Do not bypass a dependency merely because a lower-level implementation is easy.
+Start the highest legal item only when a real WIP slot exists. Do not bypass a dependency merely because a lower-level implementation is easy.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4412 | Machine-reconcile roadmap, sprint, and backlog against GitHub state | O / control | Ready after #4411 + WIP slot | P0 control | 4/4/3/5/1/2 | 120.0 | #4411 stable; current GitHub state | Deterministically detect merged/closed active work, duplicate ownership, WIP overflow, cross-doc contradictions, and offline/Unknown state without mutating GitHub or scientific/public data |
+
 | #4406 | Add governed ready → publish → measured lifecycle | R / L5 | Ready after renderer/creative integration | P0 | 5/4/5/5/1/2 | 250.0 | Validated pack, creative spec, asset manifest, attribution identity | One idempotent provenance-bound lifecycle; stale assets rejected; dry-run default; durable publish receipts; retry/partial-failure/rollback semantics; no broad auto-posting |
 | #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Ready after lifecycle receipt contract | P0 | 5/4/5/5/.75/2 | 187.5 | #4406 receipt identity + existing feedback engine | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
 | #4413 | Make prioritization freshness- and unlock-aware without a second score | O / control | Planned | P1 compounding | 3/3/3/5/1/2 | 67.5 | #4412 preferred; revalidate exact-main assumptions at start | Strategic Leverage explicitly carries unlock value; externally contingent items expose `last_verified`; stale evidence reduces Confidence/forces revalidation; replayed inputs produce the same queue |
@@ -92,6 +107,8 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4410 / PR #4411 | Merged — changed-file-relevant merge gates; temporary overflow exception retired |
+| PRs #4388, #4401, #4405 | Merged — renderer, factual receipts, and lossless presentation; no longer active |
 | PR #4408 / #4409 | Merged/closed — roadmap, sprint, and backlog synchronized to exact GitHub state on 2026-08-27 |
 | REV-005 / PR #4358 | Merged — governed media-pack contract established |
 | PR #4371 | Merged — canonical research-distribution builder emits validated media packs |
