@@ -67,12 +67,18 @@ export function parseNumber(value) {
 }
 
 // Map a workbook evidence descriptor to a canonical evidence_level enum.
+//
+// Order is safety-critical. Terms such as "preclinical" and "nonclinical"
+// contain the substring "clinical"; checking the human branch first turns
+// explicitly non-human evidence into `human_obs`. Classify translational/non-
+// human evidence before human descriptors and fail closed to `none` when the
+// descriptor is not recognized.
 export function normalizeEvidenceLevel(value) {
   const v = cleanString(value).toLowerCase()
   if (!v) return 'none'
+  if (/preclin|non[- ]?clinical|animal|in ?vitro|cell|rodent|mouse|mice|rat/.test(v)) return 'preclinical'
   if (/rct|randomi/.test(v)) return 'human_rct'
   if (/human|clinical|observ|cohort|case/.test(v)) return 'human_obs'
-  if (/preclin|animal|in ?vitro|cell|rodent|mouse|rat/.test(v)) return 'preclinical'
   if (/tradition|ethno|folk|historical/.test(v)) return 'traditional'
   if (/anecd|report|forum/.test(v)) return 'anecdotal'
   return 'none'
