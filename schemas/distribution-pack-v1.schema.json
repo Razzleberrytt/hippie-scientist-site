@@ -41,11 +41,11 @@
     "provenanceReceipts": {
       "type": "array",
       "minItems": 3,
-      "maxItems": 8,
+      "maxItems": 24,
       "uniqueItems": true,
       "items": { "$ref": "#/$defs/provenanceReceipt" }
     },
-    "safety": { "type": "array", "minItems": 0, "maxItems": 1, "items": { "$ref": "#/$defs/safetyStatement" } },
+    "safety": { "type": "array", "minItems": 0, "maxItems": 16, "items": { "$ref": "#/$defs/safetyStatement" } },
     "uncertainties": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/boundaryStatement" } },
     "forbiddenExtrapolations": {
       "type": "array",
@@ -121,19 +121,26 @@
       "required": ["targetPath", "canonicalField", "sourceRef", "fieldHash"],
       "properties": {
         "targetPath": {
-          "enum": [
-            "$.claims[0].sourceStatement",
-            "$.claims[0].publicSafeStatement",
-            "$.claims[0].studyContext.population",
-            "$.claims[0].studyContext.formulation",
-            "$.claims[0].studyContext.dose",
-            "$.claims[0].studyContext.duration",
-            "$.safety[0].statement",
-            "$.uncertainties[0].statement"
+          "anyOf": [
+            {
+              "enum": [
+                "$.claims[0].sourceStatement",
+                "$.claims[0].publicSafeStatement",
+                "$.claims[0].studyContext.population",
+                "$.claims[0].studyContext.formulation",
+                "$.claims[0].studyContext.dose",
+                "$.claims[0].studyContext.duration",
+                "$.uncertainties[0].statement"
+              ]
+            },
+            { "type": "string", "pattern": "^\\$\\.safety\\[[0-9]+\\]\\.statement$" }
           ]
         },
         "canonicalField": {
-          "enum": ["finding", "limitation", "populationContext", "formulationContext", "doseContext", "durationContext", "safetyStatement"]
+          "anyOf": [
+            { "enum": ["finding", "limitation", "populationContext", "formulationContext", "doseContext", "durationContext"] },
+            { "type": "string", "pattern": "^safetyWarnings\\[[0-9]+\\]\\.statement$" }
+          ]
         },
         "sourceRef": { "const": "RESEARCH_OBJECT_001" },
         "fieldHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
@@ -144,7 +151,7 @@
       "additionalProperties": false,
       "required": ["id", "canonicalClaimId", "statement", "sourceRefs"],
       "properties": {
-        "id": { "const": "SAFETY_001" },
+        "id": { "type": "string", "pattern": "^SAFETY_[0-9]{3}$" },
         "canonicalClaimId": { "type": "string", "pattern": "^clm_[a-f0-9]+$" },
         "statement": { "type": "string", "minLength": 20, "maxLength": 800 },
         "sourceRefs": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "const": "RESEARCH_OBJECT_001" } }
