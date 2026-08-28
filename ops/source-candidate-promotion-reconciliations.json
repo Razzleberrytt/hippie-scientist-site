@@ -1,0 +1,12 @@
+[
+  {
+    "candidateSourceId": "cand_pedicularis-chemotaxonomic-2021",
+    "doi": "10.1002/jemt.23847",
+    "pmid": "34077585",
+    "correctedPromotionState": "approved_not_promoted",
+    "effectiveApprovalNote": "Approved for registry review, but no canonical source-registry entry is present. This reconciliation supersedes the stale candidate note that claimed completed promotion.",
+    "evidenceBoundary": "published preclinical in-vitro evidence only; not human efficacy evidence and not consumer dosing authority",
+    "reason": "Repository-history and current-registry checks found no evidence that the asserted canonical source identity was ever present. Do not synthesize or restore a registry identity from the stale approval note alone.",
+    "issue": 4486
+  }
+]
