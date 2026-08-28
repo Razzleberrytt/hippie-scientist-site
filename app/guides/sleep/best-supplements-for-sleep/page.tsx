@@ -12,24 +12,24 @@ import References from '@/components/References'
 import { buildTwitterMetadata } from '@/src/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-supplements-for-sleep`
-const UPDATED_DATE = '2026-08-22'
+const UPDATED_DATE = '2026-08-28'
 
 export const metadata: Metadata = {
   title: 'Best Supplements for Sleep: Evidence-Ranked Shortlist',
   description:
-    'Compare the best-studied sleep supplements by evidence strength, directness, safety and limitations: melatonin, L-theanine, magnesium, ashwagandha, valerian and passionflower.',
+    'Compare sleep supplements by evidence, safety and best-fit problem, including sleep onset vs sleep maintenance and beginner decision guidance for melatonin, L-theanine, magnesium, ashwagandha, valerian and passionflower.',
   alternates: { canonical: '/guides/sleep/best-supplements-for-sleep/' },
   openGraph: {
     title: 'Best Supplements for Sleep: Evidence-Ranked Shortlist',
     description:
-      'A decision-focused comparison of the best-studied sleep supplements, with 18 clinical sources, safety context and clear reasons not to overrank weak evidence.',
+      'A decision-focused comparison of the best-studied sleep supplements, including sleep-onset vs sleep-maintenance distinctions, 18 clinical sources, safety context and reasons not to overrank weak evidence.',
     url: '/guides/sleep/best-supplements-for-sleep/',
     type: 'article',
     images: ['/images/guides/best-supplements-for-sleep.jpg'],
   },
   twitter: buildTwitterMetadata({
     title: 'Best Supplements for Sleep: Evidence-Ranked Shortlist',
-    description: 'A decision-focused comparison of sleep supplements by evidence strength, directness and safety.',
+    description: 'Compare sleep supplements by evidence, sleep problem, directness and safety.',
   }),
 }
 
@@ -64,6 +64,7 @@ const REFS = [
 
 const HEADINGS: Heading[] = [
   { id: 'quick-answer', text: 'Quick answer', level: 2 },
+  { id: 'problem-match', text: 'Sleep onset vs sleep maintenance', level: 2 },
   { id: 'shortlist', text: 'Evidence-ranked shortlist', level: 2 },
   { id: 'melatonin', text: 'Melatonin', level: 2 },
   { id: 'theanine', text: 'L-theanine', level: 2 },
@@ -79,6 +80,8 @@ const HEADINGS: Heading[] = [
 
 const FAQS = [
   { question: 'What is the best supplement for sleep overall?', answer: 'There is no evidence-based universal winner. Melatonin has the clearest role when circadian timing is the issue. L-theanine has promising recent sleep-quality data. Magnesium has low-certainty evidence plus one newer small-effect trial. Ashwagandha has a small positive pooled signal. Valerian and passionflower have weaker evidence. Chronic insomnia is better served by CBT-I than by ranking supplements.' },
+  { question: 'Which supplement is best for falling asleep versus staying asleep?', answer: 'The evidence does not support a clean supplement ranking by sleep onset versus sleep maintenance. Melatonin is most defensible when circadian timing is part of the problem, not as a blanket treatment for either symptom. AASM guidance did not recommend melatonin for chronic sleep-onset or sleep-maintenance insomnia. Passionflower improved total sleep time in one small trial but did not significantly improve wake-after-sleep-onset versus placebo. The specific sleep problem and trial endpoint matter more than a generic “best” label.' },
+  { question: 'What is the best sleep supplement for a beginner?', answer: 'There is no universal beginner supplement. A safer evidence-first starting point is to name the actual problem—circadian timing, trouble falling asleep, repeated waking, stress-related arousal, or chronic insomnia—then compare one transparent single-ingredient option at a time rather than beginning with a multi-ingredient stack. Persistent insomnia is better approached with evaluation and CBT-I than repeated supplement switching.' },
   { question: 'Which sleep supplement has the strongest direct evidence?', answer: 'For a clearly defined use case, melatonin has the most established circadian role. For chronic insomnia specifically, none of these supplements has evidence comparable with CBT-I. Evidence directness is more important than simply counting positive studies.' },
   { question: 'Is magnesium glycinate one of the best sleep supplements?', answer: 'The evidence is not strong enough to call it one of the best universally. A 2025 magnesium bisglycinate trial found a statistically significant but small improvement in insomnia severity, while a prior systematic review found low to very-low certainty evidence in older adults.' },
   { question: 'Is L-theanine better than melatonin?', answer: 'They answer different questions. Melatonin is a circadian signal and fits timing problems better. L-theanine has newer evidence for subjective sleep-quality outcomes but is not established as a treatment for clinical insomnia.' },
@@ -94,7 +97,7 @@ export default function BestSupplementsForSleepPage() {
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Best Supplements for Sleep: Evidence-Ranked Shortlist"
-        description="Decision-focused comparison of common sleep supplements by human evidence, directness, safety and chronic-insomnia limits."
+        description="Decision-focused comparison of common sleep supplements by human evidence, sleep-onset vs sleep-maintenance fit, directness, safety and chronic-insomnia limits."
         datePublished="2026-06-16"
         dateModified={UPDATED_DATE}
         faqs={FAQS}
@@ -114,7 +117,7 @@ export default function BestSupplementsForSleepPage() {
             <p className="mt-2 text-xs text-muted">
               Written and edited by{' '}
               <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">Willie B. Randolph III</Link>{' '}
-              · Last evidence review August 22, 2026
+              · Last evidence review August 28, 2026
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
               This is the decision page, not the encyclopedia. It compares the six most commonly considered sleep supplements
@@ -151,6 +154,49 @@ export default function BestSupplementsForSleepPage() {
                 For <strong className="text-ink">chronic insomnia</strong>, the evidence hierarchy changes completely: CBT-I is recommended as initial treatment in major guidelines.<Cite n={1} /><Cite n={2} />
               </p>
             </div>
+          </section>
+
+          <section id="problem-match" className="scroll-mt-20 space-y-4">
+            <p className="eyebrow-label">Start with the sleep problem</p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Sleep onset vs sleep maintenance: do not assume the same supplement fits both</h2>
+            <p className="text-sm leading-7 text-muted sm:text-base">
+              “I cannot fall asleep” and “I keep waking up” are different endpoints. Trials may measure sleep-onset latency,
+              total sleep time, awakenings, wake-after-sleep-onset, subjective sleep quality, or a broad insomnia score. A
+              positive result on one endpoint should not automatically be translated into a claim about another.
+            </p>
+            <div className="grid gap-4 md:grid-cols-3">
+              <article className="card-premium p-5">
+                <h3 className="font-semibold text-ink">Difficulty falling asleep</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">
+                  First ask whether circadian timing, stress-related arousal, stimulants, or chronic insomnia is driving the
+                  problem. Melatonin has the clearest conceptual fit when timing is shifted, but AASM guidance did not
+                  recommend it as a blanket treatment for chronic sleep-onset insomnia.<Cite n={4} /><Cite n={6} />
+                </p>
+              </article>
+              <article className="card-premium p-5">
+                <h3 className="font-semibold text-ink">Waking during the night</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">
+                  Evidence is even less clean for choosing a supplement by sleep maintenance. In the passionflower trial,
+                  total sleep time improved, but wake-after-sleep-onset was not significantly better than placebo.<Cite n={16} />
+                  That is exactly why endpoint-specific reading matters.
+                </p>
+              </article>
+              <article className="card-premium p-5">
+                <h3 className="font-semibold text-ink">New to sleep supplements</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">
+                  Do not begin by stacking several ingredients. Define the problem, compare one transparent single-ingredient
+                  option at a time, and give safety and medication interactions the same weight as efficacy. Persistent
+                  insomnia should move the decision toward cause-focused evaluation and CBT-I, not a larger stack.<Cite n={1} /><Cite n={2} />
+                </p>
+              </article>
+            </div>
+            <p className="text-sm leading-7 text-muted">
+              If stress or racing thoughts are the main reason you cannot fall asleep, use the{' '}
+              <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="font-semibold text-brand-700 hover:underline">
+                nighttime stress and anxiety evidence guide
+              </Link>{' '}
+              rather than assuming a generic sleep-ranking page answers the anxiety question.
+            </p>
           </section>
 
           <section id="shortlist" className="scroll-mt-20 space-y-4">
