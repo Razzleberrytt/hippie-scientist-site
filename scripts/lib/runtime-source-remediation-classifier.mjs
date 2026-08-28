@@ -85,10 +85,14 @@ function historicalSignal(localSource, candidates) {
 }
 
 function claimSourceRefs(claim = {}) {
-  const raw = claim.sourceRefIds || claim.sourceIds || claim.source_ids || claim.sources || []
-  return (Array.isArray(raw) ? raw : [raw])
-    .map(value => typeof value === 'string' ? value.trim() : sourceIdOf(value))
-    .filter(Boolean)
+  const refs = new Set()
+  for (const raw of [claim.sourceRefIds, claim.sourceIds, claim.source_ids, claim.sources]) {
+    for (const value of Array.isArray(raw) ? raw : raw == null ? [] : [raw]) {
+      const ref = typeof value === 'string' ? value.trim() : sourceIdOf(value)
+      if (ref) refs.add(ref)
+    }
+  }
+  return [...refs]
 }
 
 function claimSignals(profile, sourceId) {
