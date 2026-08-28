@@ -12,10 +12,14 @@ const PLACEHOLDER_PATTERNS = [
   /\[object Object\]/i,
 ]
 
-const HUMAN_SOURCE_RE = /\b(?:human|randomi[sz]ed|rct|clinical trial|controlled trial|meta-analysis|systematic review|cohort|observational|participants?|patients?|adults?|subjects?)\b/i
+// Review design alone does not establish study population. A systematic review
+// may synthesize animal or in-vitro work, so it cannot satisfy a human-source
+// gate unless independent source metadata also carries a human signal.
+const HUMAN_SOURCE_RE = /\b(?:human|randomi[sz]ed|rct|clinical trial|controlled trial|cohort|observational|participants?|patients?|adults?|subjects?)\b/i
+const NONHUMAN_SOURCE_RE = /\b(?:preclinical|non[- ]?clinical|animal|rodent|mouse|mice|rat|in[ -]?vitro|cell(?:ular)?|mechanistic nonclinical)\b/i
 const SAFETY_SOURCE_RE = /\b(?:safety|adverse|tolerab|toxic|hepat|liver injury|interaction|contraindicat|pregnan|breastfeed|bleed|arrhythm|withdrawal|dependence|side effects?)\b/i
 const DOSE_SOURCE_RE = /(?:\b\d+(?:\.\d+)?\s*(?:mg|g|mcg|µg|ug|ml|iu)\b|\b(?:dose|dosage|daily|per day|\/day|twice daily|once daily)\b)/i
-const HUMAN_CLAIM_RE = /\b(?:human|randomi[sz]ed|rct|clinical trial|meta-analysis|systematic review|participants?|patients?|adults?)\b/i
+const HUMAN_CLAIM_RE = /\b(?:human|randomi[sz]ed|rct|clinical trial|controlled trial|participants?|patients?|adults?)\b/i
 const SAFETY_CLAIM_RE = /\b(?:safe|safety|adverse|side effect|interaction|contraindicat|avoid|pregnan|breastfeed|liver|bleed|sedat|toxicity)\b/i
 const DOSE_CLAIM_RE = /\b\d+(?:\.\d+)?\s*(?:mg|g|mcg|µg|ug|ml|iu)(?:\s*\/\s*(?:day|d))?\b/i
 
@@ -53,9 +57,28 @@ function sourceId(source) {
 }
 
 function sourceText(source) {
-  return [source?.title, source?.citation, source?.note, source?.studyType, source?.study_type, source?.design, source?.publicationType, source?.publication_type]
+  return [
+    source?.title,
+    source?.citation,
+    source?.note,
+    source?.studyType,
+    source?.study_type,
+    source?.studyClass,
+    source?.study_class,
+    source?.design,
+    source?.publicationType,
+    source?.publication_type,
+    source?.usedFor,
+    source?.used_for,
+  ]
     .map((value) => String(value || ''))
     .join(' ')
+}
+
+function sourceIsHuman(source) {
+  const value = sourceText(source)
+  if (NONHUMAN_SOURCE_RE.test(value)) return false
+  return HUMAN_SOURCE_RE.test(value)
 }
 
 function sourceUrls(source) {
@@ -160,7 +183,7 @@ export function evaluateRecord(record, kind = 'herb') {
     const humanClaim = /human/i.test(String(claim?.evidenceLevel || claim?.evidence_level || '')) || HUMAN_CLAIM_RE.test(cText)
     const safetyClaim = SAFETY_CLAIM_RE.test(cText)
     const doseClaim = DOSE_CLAIM_RE.test(cText) || Boolean(claim?.qualifiers?.dose_or_duration)
-    if (humanClaim && !resolvedSources.some((source) => HUMAN_SOURCE_RE.test(sourceText(source)))) {
+    if (humanClaim && !resolvedSources.some((source) => sourceIsHuman(source))) {
       issues.push(issue('HUMAN_CLAIM_WITHOUT_HUMAN_SOURCE', record, kind, `Human-evidence claim ${claim?.id || ''} lacks a human-classified source`))
     }
     if (safetyClaim && !resolvedSources.some((source) => SAFETY_SOURCE_RE.test(sourceText(source)))) {
@@ -194,7 +217,7 @@ export function evaluateRecord(record, kind = 'herb') {
 
   const grade = String(record?.evidence_grade || '').trim().toUpperCase()
   if (published && grade === 'A') {
-    const humanSources = sources.filter((source) => HUMAN_SOURCE_RE.test(sourceText(source)))
+    const humanSources = sources.filter((source) => sourceIsHuman(source))
     const rubric = [record?.evidence_design_match, record?.evidence_risk_of_bias, record?.evidence_consistency]
     const tier = String(record?.evidence_tier || '')
     const failures = []
