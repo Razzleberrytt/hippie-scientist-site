@@ -55,6 +55,13 @@ function treatment(name) {
   }
 }
 
+function buildAccessibleSlideDescription(slide, { disclosure, sourceUrl }) {
+  return [slide.eyebrow, slide.headline, slide.body, disclosure, sourceUrl]
+    .map(clean)
+    .filter(Boolean)
+    .join(' — ')
+}
+
 export function renderCarouselSlideSvg(slide, options = {}) {
   const contrastErrors = validateCreativeContrast()
   if (contrastErrors.length) throw new Error(`invalid brand contrast: ${contrastErrors.join('; ')}`)
@@ -70,13 +77,17 @@ export function renderCarouselSlideSvg(slide, options = {}) {
   if (!sourceUrl || !contentHash) throw new Error('sourceUrl and contentHash are required for rendered asset provenance')
   if (!disclosure) throw new Error('governed disclosure is required for rendered assets')
 
+  const accessibleTitle = clean(slide.eyebrow || slide.role || 'Evidence slide')
+  const accessibleDescription = buildAccessibleSlideDescription(slide, { disclosure, sourceUrl })
+  if (!accessibleDescription) throw new Error('carousel renderer requires an accessible slide description')
+
   const headline = headlineLines.map((line, index) => `<text x="80" y="${360 + (index * 76)}" font-size="58" font-weight="700" fill="${foreground}">${escapeXml(line)}</text>`).join('')
   const bodyStart = 360 + (headlineLines.length * 76) + 80
   const body = bodyLines.map((line, index) => `<text x="80" y="${bodyStart + (index * 58)}" font-size="42" fill="${foreground}">${escapeXml(line)}</text>`).join('')
   const safeBottomY = canvas.height - canvas.safeBottom
   const disclosureY = safeBottomY - 58
   const provenanceY = safeBottomY - 18
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(slide.eyebrow || slide.role)}"><rect width="100%" height="100%" fill="${background}"/><text x="80" y="180" font-size="34" font-weight="600" fill="${foreground}">${escapeXml(slide.eyebrow || '')}</text>${headline}${body}<text x="80" y="${disclosureY}" font-size="24" fill="${foreground}">${escapeXml(disclosure)}</text><text x="80" y="${provenanceY}" font-size="22" fill="${foreground}">The Hippie Scientist · ${escapeXml(sourceUrl)}</text><metadata>${escapeXml(JSON.stringify({ contentHash, sourceUrl, factualAuthority: 'validated-distribution-pack', renderer: 'carousel-svg-v1' }))}</metadata></svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-labelledby="slide-title slide-description"><title id="slide-title">${escapeXml(accessibleTitle)}</title><desc id="slide-description">${escapeXml(accessibleDescription)}</desc><rect width="100%" height="100%" fill="${background}"/><text x="80" y="180" font-size="34" font-weight="600" fill="${foreground}">${escapeXml(slide.eyebrow || '')}</text>${headline}${body}<text x="80" y="${disclosureY}" font-size="24" fill="${foreground}">${escapeXml(disclosure)}</text><text x="80" y="${provenanceY}" font-size="22" fill="${foreground}">The Hippie Scientist · ${escapeXml(sourceUrl)}</text><metadata>${escapeXml(JSON.stringify({ contentHash, sourceUrl, factualAuthority: 'validated-distribution-pack', renderer: 'carousel-svg-v1' }))}</metadata></svg>`
   return { svg, hash: sha256(`${svg}\n`), width: canvas.width, height: canvas.height }
 }
 
