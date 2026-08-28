@@ -1,0 +1,116 @@
+name: Debug Postbuild F
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  postbuild-contracts:
+    if: github.head_ref == 'fix/evidence-class-fail-closed-f'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --no-audit --fund=false
+      - name: Build application
+        env:
+          COMMIT_HASH: ${{ github.sha }}
+        run: npm run build:deploy
+      - name: Verify prebuild contracts
+        id: prebuild
+        continue-on-error: true
+        run: npm run verify:prebuild
+      - name: Core routes
+        id: core
+        continue-on-error: true
+        run: node scripts/verify-core-routes.mjs
+      - name: Redirects
+        id: redirects
+        continue-on-error: true
+        run: node scripts/verify-redirects.mjs
+      - name: Profile robots
+        id: robots
+        continue-on-error: true
+        run: node scripts/ci/audit-profile-robots.mjs
+      - name: Deploy readiness
+        id: deploy
+        continue-on-error: true
+        run: node scripts/ci/validate-deploy-readiness.mjs
+      - name: Build SEO metadata
+        id: seo_metadata
+        continue-on-error: true
+        run: node scripts/ci/validate-build-seo-metadata.mjs
+      - name: Metadata duplicates
+        id: metadata_duplicates
+        continue-on-error: true
+        run: node scripts/ci/audit-metadata-duplicates.mjs
+      - name: Internal links
+        id: internal_links
+        continue-on-error: true
+        run: node scripts/ci/audit-internal-links.mjs
+      - name: Structured data
+        id: structured
+        continue-on-error: true
+        run: node scripts/ci/audit-structured-data.mjs
+      - name: SEO routes
+        id: seo_routes
+        continue-on-error: true
+        run: node scripts/ci/audit-seo-routes.mjs
+      - name: Guide FAQs
+        id: guide_faqs
+        continue-on-error: true
+        run: node scripts/ci/validate-guide-faqs.mjs
+      - name: Sitemap
+        id: sitemap
+        continue-on-error: true
+        run: node scripts/ci/validate-sitemap.mjs --require-built
+      - name: Sitemap completeness
+        id: sitemap_complete
+        continue-on-error: true
+        run: node scripts/ci/validate-sitemap-completeness.mjs --require-built
+      - name: Robots output
+        id: robots_output
+        continue-on-error: true
+        run: node scripts/ci/validate-robots.mjs --require-built
+      - name: Feed output
+        id: feed
+        continue-on-error: true
+        run: node scripts/ci/validate-feed-output.mjs
+      - name: Sitemap affiliate links
+        id: sitemap_affiliate
+        continue-on-error: true
+        run: npm run audit:sitemap-affiliate
+      - name: Pagefind body
+        id: pagefind
+        continue-on-error: true
+        run: npm run validate:pagefind-body
+      - name: Cluster member export
+        id: cluster
+        continue-on-error: true
+        run: npm run validate:cluster-member-export
+      - name: Performance budget
+        id: performance
+        continue-on-error: true
+        run: node scripts/report-performance-budget.mjs
+      - name: Fail if any postbuild contract failed
+        if: always()
+        env:
+          RESULTS: >-
+            prebuild=${{ steps.prebuild.outcome }} core=${{ steps.core.outcome }} redirects=${{ steps.redirects.outcome }} robots=${{ steps.robots.outcome }} deploy=${{ steps.deploy.outcome }} seo_metadata=${{ steps.seo_metadata.outcome }} metadata_duplicates=${{ steps.metadata_duplicates.outcome }} internal_links=${{ steps.internal_links.outcome }} structured=${{ steps.structured.outcome }} seo_routes=${{ steps.seo_routes.outcome }} guide_faqs=${{ steps.guide_faqs.outcome }} sitemap=${{ steps.sitemap.outcome }} sitemap_complete=${{ steps.sitemap_complete.outcome }} robots_output=${{ steps.robots_output.outcome }} feed=${{ steps.feed.outcome }} sitemap_affiliate=${{ steps.sitemap_affiliate.outcome }} pagefind=${{ steps.pagefind.outcome }} cluster=${{ steps.cluster.outcome }} performance=${{ steps.performance.outcome }}
+        run: |
+          echo "$RESULTS"
+          if echo "$RESULTS" | grep -q '=failure'; then
+            echo "::error title=Postbuild contract failure::$RESULTS"
+            exit 1
+          fi
