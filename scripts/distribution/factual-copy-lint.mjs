@@ -1,5 +1,6 @@
 const COMPLETE_ASSET_TYPES = new Set(['caption', 'description', 'narration', 'script'])
 const DISPLAY_ASSET_TYPES = new Set(['infographic', 'carousel', 'overlay', ...COMPLETE_ASSET_TYPES])
+const SAFETY_REQUIRED_ASSET_TYPES = new Set(['infographic', 'carousel', ...COMPLETE_ASSET_TYPES])
 
 const CONSUMER_DOSE_RE = /\b(?:take|use|consume|swallow|dose|start with|increase to)\b[^.!?\n]{0,48}\b\d+(?:\.\d+)?\s*(?:mg|mcg|g|ml|capsules?|tablets?|drops?|scoops?)\b/i
 const BENEFIT_WORD = '(?:improve|improves|boost|boosts|reduce|reduces|relieve|relieves|prevent|prevents|treat|treats|heal|heals|help|helps|work|works|benefit|benefits)'
@@ -15,6 +16,7 @@ function ensurePack(pack) {
   if (!pack || typeof pack !== 'object' || Array.isArray(pack)) throw new Error('validated distribution pack is required')
   if (!Array.isArray(pack.claims) || !pack.claims.length) throw new Error('distribution pack must contain claims')
   if (!Array.isArray(pack.uncertainties) || !pack.uncertainties.length) throw new Error('distribution pack must contain uncertainty')
+  if (!Array.isArray(pack.safety)) throw new Error('distribution pack must contain a safety array')
   return pack
 }
 
@@ -24,6 +26,10 @@ function allowedClaimMap(pack) {
 
 function allowedUncertaintyMap(pack) {
   return new Map(pack.uncertainties.map((item) => [String(item.id), clean(item.statement)]))
+}
+
+function allowedSafetyMap(pack) {
+  return new Map(pack.safety.map((item) => [String(item.id), clean(item.statement)]))
 }
 
 export function validateFactualAssetCopy(packInput, asset) {
@@ -39,8 +45,10 @@ export function validateFactualAssetCopy(packInput, asset) {
 
   const claims = allowedClaimMap(pack)
   const uncertainties = allowedUncertaintyMap(pack)
+  const safetyStatements = allowedSafetyMap(pack)
   const seenClaims = new Set()
   const seenUncertainties = new Set()
+  const seenSafety = new Set()
 
   for (const [index, line] of lines.entries()) {
     if (!line || typeof line !== 'object' || Array.isArray(line)) {
@@ -75,10 +83,16 @@ export function validateFactualAssetCopy(packInput, asset) {
       if (!allowed) errors.push(`line ${index + 1} references unknown uncertaintyId: ${uncertaintyId || '(empty)'}`)
       else if (text !== allowed) errors.push(`line ${index + 1} uncertainty text must equal the governed limitation`)
       else seenUncertainties.add(uncertaintyId)
+    } else if (role === 'safety') {
+      const safetyId = clean(line.safetyId)
+      const allowed = safetyStatements.get(safetyId)
+      if (!allowed) errors.push(`line ${index + 1} references unknown safetyId: ${safetyId || '(empty)'}`)
+      else if (text !== allowed) errors.push(`line ${index + 1} safety text must equal the governed safety statement`)
+      else seenSafety.add(safetyId)
     } else if (role === 'cta') {
       if (text !== clean(pack.cta?.label)) errors.push(`line ${index + 1} CTA must equal the governed CTA label`)
     } else if (role === 'label') {
-      if (line.factual === true) errors.push(`line ${index + 1} factual labels must be represented as governed claim or uncertainty lines`)
+      if (line.factual === true) errors.push(`line ${index + 1} factual labels must be represented as governed claim, uncertainty, or safety lines`)
     } else {
       errors.push(`line ${index + 1} has unsupported role: ${role || '(empty)'}`)
     }
@@ -90,6 +104,12 @@ export function validateFactualAssetCopy(packInput, asset) {
     }
     for (const uncertaintyId of uncertainties.keys()) {
       if (!seenUncertainties.has(uncertaintyId)) errors.push(`complete ${assetType} is missing governed uncertainty ${uncertaintyId}`)
+    }
+  }
+
+  if (SAFETY_REQUIRED_ASSET_TYPES.has(assetType)) {
+    for (const safetyId of safetyStatements.keys()) {
+      if (!seenSafety.has(safetyId)) errors.push(`${assetType} is missing governed safety statement ${safetyId}`)
     }
   }
 
