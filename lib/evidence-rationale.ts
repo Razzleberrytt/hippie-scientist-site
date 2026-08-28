@@ -4,12 +4,13 @@
  * `evidence_design_match`, `evidence_risk_of_bias`, and `evidence_consistency`
  * are read by `EvidenceGradeRationale`, but the workbook never filled them:
  * all three are empty on all 856 records, so the component renders on no page
- * at all. The information needed to compute them already exists in
- * `claims.json`, where each claim records the design of the study behind it.
+ * at all. The information needed to compute them already exists in recorded
+ * study/source design metadata.
  *
  * Every field here is computed from recorded study designs only. Where the
- * claims cannot support a judgement the value is `null` and the caller renders
- * "Not assessed" — an absent signal must never read as a clean bill of health.
+ * evidence cannot support a judgement the value is `null` and the caller
+ * renders "Not assessed" — an absent signal must never read as a clean bill of
+ * health.
  */
 
 import {
@@ -28,9 +29,9 @@ export type EvidenceRationale = {
   designMatch: string | null
   riskOfBias: RiskOfBias | null
   consistency: EvidenceConsistency | null
-  /** Claims backed by a design that measured an outcome in people. */
+  /** Recorded studies/sources independently established to measure people. */
   humanStudyCount: number
-  /** Claims carrying any recorded design at all. */
+  /** Inputs carrying any recorded design at all. */
   classifiedStudyCount: number
   totalClaimCount: number
   strongestClass: StudyClass
@@ -58,6 +59,12 @@ export type RationaleClaimInput = {
   /** Raw recorded design, used both as fallback and for finding markers. */
   study_class_source?: unknown
   evidence_tier?: unknown
+  /**
+   * Optional independently-derived population signal. Source-level production
+   * reconciliation uses this to prevent generic review/meta-analysis design
+   * labels from being treated as proof that the underlying evidence is human.
+   */
+  study_class_human?: unknown
 }
 
 function sourceText(claim: RationaleClaimInput): string {
@@ -79,6 +86,11 @@ function classOf(claim: RationaleClaimInput): StudyClass {
   return normalizeStudyClass(sourceText(claim))
 }
 
+function humanOf(claim: RationaleClaimInput, studyClass: StudyClass): boolean {
+  if (typeof claim.study_class_human === 'boolean') return claim.study_class_human
+  return isHumanStudyClass(studyClass)
+}
+
 function riskOfBiasFor(strongest: StudyClass, flaggedHighBias: boolean): RiskOfBias | null {
   if (flaggedHighBias) return 'High'
   switch (strongest) {
@@ -97,18 +109,11 @@ function riskOfBiasFor(strongest: StudyClass, flaggedHighBias: boolean): RiskOfB
     case 'in-vitro':
       return 'High'
     case 'unclassified':
-      // No recorded design is not the same as a badly designed study.
       return null
   }
 }
 
-/**
- * Build the rationale for one profile from every claim attached to it.
- *
- * Only 142 of 445 indexable profiles currently carry any claim, so an empty
- * list is the expected case rather than an error; it yields an all-null
- * rationale that the caller can render as "not assessed".
- */
+/** Build the rationale for one profile from every recorded evidence input. */
 export function buildEvidenceRationale(claims: readonly RationaleClaimInput[]): EvidenceRationale {
   const classes = claims.map(classOf)
   const classCounts: Partial<Record<StudyClass, number>> = {}
@@ -117,7 +122,7 @@ export function buildEvidenceRationale(claims: readonly RationaleClaimInput[]): 
   }
 
   const classified = classes.filter((studyClass) => studyClass !== 'unclassified')
-  const humanStudyCount = classes.filter(isHumanStudyClass).length
+  const humanStudyCount = claims.filter((claim, index) => humanOf(claim, classes[index])).length
   const strongestClass = strongestStudyClass(classes)
 
   const texts = claims.map(markerText)
@@ -175,14 +180,7 @@ function summarize({
   return `Strongest recorded design is a ${designMatch.toLowerCase()}, drawn from ${studies}, ${human}.${agreement}`
 }
 
-/**
- * Whether the recorded designs can support a grade at this strength.
- *
- * A profile graded A or B tells readers that people were studied. If no claim
- * on the record carries a human design, that grade is not backed by anything
- * in our own dataset — reported rather than silently corrected, because the
- * missing piece may be an unrecorded citation rather than a wrong grade.
- */
+/** Whether the recorded designs can support a grade at this strength. */
 export function gradeIsBackedByEvidence(
   grade: string | null | undefined,
   rationale: EvidenceRationale,
