@@ -23,11 +23,15 @@ export type SemanticRecommendationCandidate<T extends SemanticRuntimeRecord = Se
   signals: SemanticOrchestrationSignals
 }
 
-const STRONG_PATTERN = /strong|high|clinical|human|meta|systematic|rct/i
+// Evidence-strength heuristics must not treat the substring "clinical" inside
+// "preclinical" as clinical evidence. Likewise, a review design alone does not
+// erase a clearly animal/in-vitro evidence base.
+const STRONG_PATTERN = /\b(?:strong|high|robust|meta(?:[- ]analysis)?|systematic review|rct|randomi[sz]ed|clinical trial|controlled trial)\b/i
+const HUMAN_PATTERN = /\b(?:human (?:trial|study|studies|participants?)|participants?|patients?|adults?|subjects?|rct|randomi[sz]ed|clinical trial|controlled trial|cohort|observational)\b/i
 const MODERATE_PATTERN = /moderate|promising|developing|limited/i
-const WEAK_PATTERN = /sparse|early|preliminary|insufficient|minimal|research[-\s]?pending|unknown|not specified/i
+const WEAK_PATTERN = /sparse|early|preliminary|insufficient|minimal|research[-\s]?pending|unknown|not specified|not established|no (?:reliable )?(?:human|clinical) evidence/i
 const CAUTION_PATTERN = /avoid|caution|interaction|contraindication|warning|risk|pregnancy|liver|kidney|sedat|bleed/i
-const TRANSLATIONAL_PATTERN = /animal|rodent|mouse|mice|rat|in vitro|cell|preclinical|mechanistic/i
+const TRANSLATIONAL_PATTERN = /preclinical|non[- ]?clinical|animal|rodent|mouse|mice|rat|in vitro|cell|mechanistic/i
 const MIXED_PATTERN = /mixed|conflict|inconsistent|heterogeneous|variable|uncertain/i
 const SUPERNODE_PATTERN = /authority|supernode|hub|anchor|pillar|canonical|ecosystem/i
 
@@ -121,17 +125,24 @@ export function getSemanticOrchestrationSignals(record: SemanticRuntimeRecord): 
     record.authority_signals,
   )
 
-  const evidenceScore = STRONG_PATTERN.test(corpus)
-    ? 1
-    : MODERATE_PATTERN.test(corpus)
-      ? 0.68
-      : WEAK_PATTERN.test(corpus)
-        ? 0.25
-        : 0.45
+  const weakSignal = WEAK_PATTERN.test(corpus)
+  const translationalSignal = TRANSLATIONAL_PATTERN.test(corpus)
+  const humanSignal = HUMAN_PATTERN.test(corpus)
+  const strongSignal = STRONG_PATTERN.test(corpus)
+
+  const evidenceScore = weakSignal
+    ? 0.25
+    : translationalSignal && !humanSignal
+      ? 0.25
+      : strongSignal
+        ? 1
+        : MODERATE_PATTERN.test(corpus)
+          ? 0.68
+          : 0.45
 
   const safetyPenalty = CAUTION_PATTERN.test(corpus) ? 0.28 : 0
-  const translationalPenalty = TRANSLATIONAL_PATTERN.test(corpus) && !STRONG_PATTERN.test(corpus) ? 0.22 : 0
-  const uncertaintyPenalty = MIXED_PATTERN.test(corpus) ? 0.18 : WEAK_PATTERN.test(corpus) ? 0.12 : 0
+  const translationalPenalty = translationalSignal && !humanSignal ? 0.22 : 0
+  const uncertaintyPenalty = MIXED_PATTERN.test(corpus) ? 0.18 : weakSignal ? 0.12 : 0
   const mechanismDensity = densityScore(mechanisms, 6)
   const outcomeDensity = densityScore(effects, 5)
   const ecosystemDensity = densityScore(ecosystems, 6)
