@@ -43,6 +43,24 @@ function provenanceReceipt(targetPath, canonicalField, value) {
   }
 }
 
+function normalizedSafetyWarnings(researchObject) {
+  if (researchObject.safetyWarnings === undefined) return []
+  if (!Array.isArray(researchObject.safetyWarnings) || researchObject.safetyWarnings.length === 0) {
+    throw new Error('research object safetyWarnings must be a non-empty array when provided')
+  }
+  return researchObject.safetyWarnings.map((warning, index) => {
+    if (!warning || typeof warning !== 'object' || Array.isArray(warning)) {
+      throw new Error(`research object safetyWarnings[${index}] must be an object`)
+    }
+    const claimId = clean(warning.claimId)
+    const statement = clean(warning.statement)
+    if (!/^clm_[a-f0-9]+$/.test(claimId) || !statement) {
+      throw new Error(`research object safetyWarnings[${index}] must include canonical claimId and statement`)
+    }
+    return { claimId, statement }
+  })
+}
+
 export function buildDistributionPackFromResearchObject(researchObject, options = {}) {
   if (!researchObject || typeof researchObject !== 'object' || Array.isArray(researchObject)) {
     throw new Error('research object must be an object')
@@ -72,11 +90,7 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
   const formulation = clean(researchObject.formulationContext) || null
   const dose = clean(researchObject.doseContext) || null
   const duration = clean(researchObject.durationContext) || null
-  const safetyClaimId = clean(researchObject.safetyClaimId) || null
-  const safetyStatement = clean(researchObject.safetyStatement) || null
-  if ((safetyClaimId === null) !== (safetyStatement === null)) {
-    throw new Error('research object safetyClaimId and safetyStatement must be provided together')
-  }
+  const safetyWarnings = normalizedSafetyWarnings(researchObject)
 
   const provenanceReceipts = [
     provenanceReceipt('$.claims[0].sourceStatement', 'finding', finding),
@@ -94,8 +108,12 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
       provenanceReceipts.push(provenanceReceipt(`$.claims[0].studyContext.${target}`, field, value))
     }
   }
-  if (safetyStatement !== null) {
-    provenanceReceipts.push(provenanceReceipt('$.safety[0].statement', 'safetyStatement', safetyStatement))
+  for (const [index, warning] of safetyWarnings.entries()) {
+    provenanceReceipts.push(provenanceReceipt(
+      `$.safety[${index}].statement`,
+      `safetyWarnings[${index}].statement`,
+      warning.statement,
+    ))
   }
 
   const source = {
@@ -138,12 +156,12 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
       url: sourceUrl,
     }],
     provenanceReceipts,
-    safety: safetyStatement === null ? [] : [{
-      id: 'SAFETY_001',
-      canonicalClaimId: safetyClaimId,
-      statement: safetyStatement,
+    safety: safetyWarnings.map((warning, index) => ({
+      id: `SAFETY_${String(index + 1).padStart(3, '0')}`,
+      canonicalClaimId: warning.claimId,
+      statement: warning.statement,
       sourceRefs: ['RESEARCH_OBJECT_001'],
-    }],
+    })),
     uncertainties: [{
       id: 'UNCERTAINTY_001',
       statement: limitation,

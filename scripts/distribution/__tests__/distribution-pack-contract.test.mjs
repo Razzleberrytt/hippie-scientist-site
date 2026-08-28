@@ -139,7 +139,7 @@ describe('distribution pack v1 contract', () => {
     expect(schema.$defs.sourceReference.properties.kind.const).toBe('research-object')
     expect(schema.$defs.claim.properties.strengthDelta.const).toBe('none')
     expect(schema.$defs.claim.properties.consumerInstruction.const).toBe(false)
-    expect(schema.properties.safety.maxItems).toBe(1)
+    expect(schema.properties.safety.maxItems).toBe(16)
     expect(schema.$defs.safetyStatement.required).toEqual(['id', 'canonicalClaimId', 'statement', 'sourceRefs'])
     expect(schema.properties.assetIntents.items.properties.type.enum).toContain('short-video')
     expect(schema.required).toContain('provenanceReceipts')

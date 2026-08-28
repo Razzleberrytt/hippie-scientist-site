@@ -15,8 +15,6 @@
     "lastVerified"
   ],
   "dependentRequired": {
-    "safetyClaimId": ["safetyStatement"],
-    "safetyStatement": ["safetyClaimId"],
     "findingClaimId": ["primarySourceId", "primarySourceUrl"],
     "primarySourceId": ["findingClaimId", "primarySourceUrl"],
     "primarySourceUrl": ["findingClaimId", "primarySourceId"]
@@ -41,8 +39,20 @@
     "populationContext": { "type": "string", "maxLength": 400 },
     "formulationContext": { "type": "string", "maxLength": 400 },
     "durationContext": { "type": "string", "maxLength": 400 },
-    "safetyClaimId": { "type": "string", "pattern": "^clm_[a-f0-9]+$" },
-    "safetyStatement": { "type": "string", "minLength": 20, "maxLength": 800 },
+    "safetyWarnings": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claimId", "statement"],
+        "properties": {
+          "claimId": { "type": "string", "pattern": "^clm_[a-f0-9]+$" },
+          "statement": { "type": "string", "minLength": 20, "maxLength": 800 }
+        }
+      }
+    },
     "series": { "type": "string" },
     "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
     "lastVerified": { "type": "string", "format": "date" }
