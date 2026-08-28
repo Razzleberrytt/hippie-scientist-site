@@ -98,7 +98,7 @@ The roadmap should increasingly behave as a validated projection of reality rath
 
 - GitHub issue/PR state remains execution-state truth; the roadmap/sprint/backlog are its human-readable planning projection.
 - Merged #4412 makes stale merged/closed active entries, duplicate ownership, WIP overflow, and cross-document contradictions machine-detectable; subsequent drift still requires record updates, not suppression.
-- A temporary WIP exception must be explicit, bounded, and admission-blocking. It may not silently redefine normal capacity or override `AGENTS.md` workstream eligibility. The current numeric reconciler does not certify workstream eligibility; the observed Revenue/Operations concurrency conflict remains a separate blocker in the sprint/backlog.
+- A temporary WIP exception must be explicit, bounded, and admission-blocking. It may not silently redefine normal capacity or override `AGENTS.md` workstream eligibility. The numeric reconciler does not certify workstream eligibility; the sprint/backlog must also verify one active ticket per normal workstream. The former Revenue/Operations overlap cleared through verified merges of #4475 and #4469, not a policy exception.
 - Offline/unavailable connector state is `Unknown/waiting`, never PASS.
 - Reconciliation is initially read-only. Automatic prose rewriting is not required until deterministic detection is proven and rollback is straightforward.
 - Closed/merged work may remain only in history/completed sections.

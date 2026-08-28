@@ -21,6 +21,7 @@ function packFor(object) {
       sourceStatement: object.finding,
       publicSafeStatement: object.finding,
       strengthDelta: 'none',
+      evidenceGrade: object.evidenceGrade,
       evidenceContext: object.evidenceType === 'preclinical' ? 'preclinical' : 'human',
       sourceRefs: ['RESEARCH_OBJECT_001'],
       consumerInstruction: false,

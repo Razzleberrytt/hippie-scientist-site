@@ -5,7 +5,7 @@
 **Updated:** 2026-08-28
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Blocked by a workstream-policy conflict, not merely the numeric cap. GitHub snapshot at 2026-08-28T13:07Z: #4413 / PR #4469, #4476 / PR #4475, and #4477 / PR #4478 are active. Revalidate live ownership before any admission; this documentation-only sync opens no implementation lane.
+**Current admission:** GitHub snapshot at 2026-08-28T15:04Z: only #4477 / PR #4478 is active in Revenue/Conversion. Discovery/SEO and Authority/Content may admit one eligible ticket each after dependency/freshness checks; another Revenue ticket must wait. This documentation-only sync admits no implementation.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -13,7 +13,7 @@
 
 Finish the smallest trustworthy Evidence → Distribution loop that can produce a governed asset, preserve exact factual provenance through presentation/rendering, move it through an idempotent dry-run publishing lifecycle, and accept attributable outcome observations for deterministic feedback.
 
-At the same time, finish the smallest control-plane hardening needed to keep autonomous execution trustworthy as throughput increases: changed-file-relevant merge gates first (#4410/#4411), then machine reconciliation of GitHub state against the planning docs (#4412). Freshness/unlock-aware prioritization (#4413), durable experiment memory (#4414), and marginal-resource economics (#4415) are queued hardening improvements and must not displace higher-value incident/scientific work merely because they are easy to implement.
+At the same time, finish the smallest control-plane hardening needed to keep autonomous execution trustworthy as throughput increases: changed-file-relevant merge gates first (#4410/#4411), then machine reconciliation of GitHub state against the planning docs (#4412). Freshness/unlock-aware prioritization (#4413) is merged; durable experiment memory (#4414) and marginal-resource economics (#4415) remain queued hardening improvements and must not displace higher-value incident/scientific work merely because they are easy to implement.
 
 This sprint is an **acceleration track inside M1**, not a declaration that the Revenue Foundation is complete. GA4/GSC/affiliate alignment and production analytics receipt remain blocked by authorized external access. Those blockers stay visible, but they do not freeze unrelated governed distribution work.
 
@@ -32,7 +32,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 - Missing production/external metrics remain `Unknown`, never zero and never inferred success.
 - Positive performance feedback must preserve the existing minimum-exposure threshold and may re-rank only already-eligible opportunities.
 - The backlog keeps exactly one score formula. Dependency-unlock value belongs inside Strategic Leverage; stale external assumptions reduce Confidence or force revalidation before promotion.
-- Externally contingent work must expose a current `last_verified` date/scope at promotion time once #4413 lands; stale hypotheses may not remain perpetually `Ready` by inertia.
+- Externally contingent work must expose a current `last_verified` date/scope at promotion time under merged #4413; stale hypotheses may not remain perpetually `Ready` by inertia.
 - Before repeating a governed experiment once #4414 lands, check durable experiment history; a materially equivalent prior test requires a named changed assumption/retest condition.
 - When comparable resource observations exist, scale based on marginal qualified outcomes per incremental resource, not gross output alone. Missing resource/outcome data remains `Unknown`.
 - Deterministic failures found inside scope are repaired before merge. Merge only on exact intended head when required gates are green and no blocking review/governance defect remains.
@@ -49,17 +49,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed WIP 3/3; policy conflict, admission closed
+## Active — WIP 1/3; Revenue occupied
 
-**Unresolved governance blocker:** The rows below report live GitHub ownership, not an authorized or compliant roster. PRs #4475 and #4478 occupy Revenue/Conversion simultaneously; Operations PR #4469 has no normal workstream under `AGENTS.md`. The existing reconciler checks numeric WIP, not workstream eligibility, so its PASS cannot certify this roster. No permitted interruption is established by this sync. Resolve ownership through the existing owners or an explicitly authorized interruption before describing concurrency as compliant; do not silently close, relabel, or retire live work.
+**Governance check:** The former overlap cleared through verified merges of #4475 and #4469, not a new exception or workstream. Numeric reconciliation does not enforce workstream eligibility; admission must also satisfy `AGENTS.md`.
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
-| O / control | #4413 / PR #4469 | Freshness- and unlock-aware prioritization | In Review | Single score formula, freshness/revalidation, deterministic replay, hard safety overrides, exact-head hosted gates |
-| L2 factual/provenance | #4476 / PR #4475 | Bind canonical evidence grade into claims | In Review | Exact canonical grade projection, substitution rejection, existing safety/provenance regressions, hosted gates |
 | L4 presentation/experiments | #4477 / PR #4478 | Evidence-safe creative template catalog | In Review | Governed-field requirements, citation/disclosure preservation, no factual inference, deterministic template regressions, hosted gates |
-
-PR #4481 / #4482 is separately staged research-only draft input, not a runtime implementation or approved public content. Its source-registry provenance blocker remains explicit. It does not create spare implementation capacity or authorize scientific promotion.
 
 ## Ready next — strict dependency order
 
@@ -67,7 +63,7 @@ PR #4481 / #4482 is separately staged research-only draft input, not a runtime i
 
 ### 3. L3 — #4407 attributable outcome ingestion
 
-**Start when:** the merged #4406 lifecycle receipt contract remains stable and a true WIP slot exists.
+**Start when:** the merged #4406 lifecycle receipt contract remains stable and Revenue/Conversion has no other active ticket. Numeric capacity alone is insufficient while #4477 / PR #4478 occupies Revenue.
 
 **Required result:**
 
@@ -89,7 +85,7 @@ The first pilot should use already-governed research, deterministic assets, tagg
 
 These are durable second-order improvements, not reasons to block scientific/production incidents or invent a fourth permanent workstream.
 
-#4413 is already owned by PR #4469 in `Active`; do not start a second implementation.
+#4413 / PR #4469 is merged and retired below; do not start a second implementation. Operations labels in future work are classifications, not additional normal workstreams.
 
 ### #4414 — durable experiment-learning ledger
 
@@ -136,13 +132,17 @@ The sprint exits only when all of the following are true or have a precise exter
 - #4406 has proven an idempotent dry-run lifecycle with stale-asset rejection, durable receipts, retry safety, and rollback/stop semantics.
 - #4407 proves deterministic attributable observation ingestion, Unknown handling, replay, cross-platform isolation, and the existing minimum-exposure guard.
 - A bounded pilot package can be generated end-to-end and is measurement-ready; live publication is optional only if a supported/authorized provider path exists.
-- #4413, #4414, and #4415 are durably queued with their single-formula/freshness, experiment-memory, and marginal-efficiency boundaries preserved; they are not required to fake completion of the distribution MVP.
+- #4413 is merged and #4414/#4415 remain durably queued with their single-formula/freshness, experiment-memory, and marginal-efficiency boundaries preserved; they do not substitute for distribution MVP proof.
 - No broad auto-publishing or high-volume scheduling is enabled merely because the technical chain exists.
 - Revenue/GSC/analytics blockers remain honestly labeled and do not silently satisfy M1/M2 exits.
 - Backlog and sprint agree with current GitHub state: no completed issue or merged PR occupies an active slot.
 - Required scientific, provenance, safety, accessibility, release, and exact-head validation gates remain intact.
 
 ## Recently retired from this sprint
+
+- **#4413 / PR #4469:** merged as `d0936fbe7d41c84c753a8374f2a7b25047322339`; freshness/unlock-aware prioritization no longer occupies active WIP.
+- **#4476 / PR #4475:** merged as `65605fd2f4e9cfd85af63c14bd2a583471551bf2`; canonical evidence-grade binding no longer occupies active WIP.
+- **#4482 / PR #4481:** research draft staging merged as `d6934eacff95b4b9dc1c3c5be2f0c8a91e9bc4a1`; this is not approval for scientific promotion and does not resolve the recorded source-registry blocker.
 
 - **PR #4457:** completed/merged as `95ec9ba285f06c947f2844a2f81abce031b9e437`; complete canonical safety-warning preservation no longer occupies active WIP.
 

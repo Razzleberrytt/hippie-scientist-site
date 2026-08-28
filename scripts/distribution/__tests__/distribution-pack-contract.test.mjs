@@ -74,6 +74,7 @@ function packForResearchObject(object) {
         sourceStatement: object.finding,
         publicSafeStatement: object.finding,
         strengthDelta: 'none',
+        evidenceGrade: object.evidenceGrade,
         evidenceContext: evidenceContextFor(object),
         sourceRefs: ['RESEARCH_OBJECT_001'],
         consumerInstruction: false,

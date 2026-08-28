@@ -46,17 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Three implementation PRs are active at the 2026-08-28T13:07Z GitHub snapshot. Admission is blocked by conflicting workstream ownership as well as the numeric cap; revalidate live ownership before starting work. This documentation-only sync opens no implementation lane.
+One implementation PR is active at the 2026-08-28T15:04Z GitHub snapshot: #4477 / PR #4478 in Revenue/Conversion. Only eligible Discovery/SEO or Authority/Content work may fill the remaining normal slots. Another Revenue ticket must wait; this documentation-only sync admits no implementation.
 
-**Unresolved governance blocker:** This is observed ownership, not a compliant admission decision. PRs #4475 and #4478 simultaneously occupy Revenue/Conversion; Operations PR #4469 has no normal workstream under `AGENTS.md`. Numeric reconciliation PASS does not validate workstream eligibility. No authorized interruption is recorded here. Existing owners must resolve the conflict or obtain explicit interruption authority; this sync does not close, relabel, or retire their live work.
+**Governance check:** Verified merges of #4475 and #4469 cleared the former overlap without creating a fourth workstream or an exception. Numeric reconciliation PASS does not certify workstream eligibility; `AGENTS.md` still governs admission.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4413 / PR #4469 | Make prioritization freshness- and unlock-aware without a second score | O / control | In Review | P1 compounding | 3/3/3/5/1/2 | 67.5 | Merged #4412 | Single formula; leverage evidence; current verification scope/date; stale promotion blocking; deterministic replay |
-| #4476 / PR #4475 | Bind canonical evidence grade into claims | R / L2 | In Review | P0 provenance | — | — | Canonical research-object grade | Exact projection; wrong-grade substitution rejection; existing safety/provenance regressions; hosted gates |
 | #4477 / PR #4478 | Evidence-safe creative template catalog | R / L4 | In Review | P1 trust | — | — | Governed distribution fields | Citation/disclosure preservation; missing-fact blocking; no factual inference; deterministic template regressions |
-
-PR #4481 / #4482 is research-only draft staging with an unresolved source-registry provenance blocker, not runtime implementation or approved public content. It grants no spare implementation slot or promotion authority.
 
 ## Next — ordered dependency queue
 
@@ -64,7 +60,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Ready after lifecycle receipt contract | P0 | 5/4/5/5/.75/2 | 187.5 | Merged #4406 receipt identity + existing feedback engine | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
+| #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Waiting for Revenue slot | P0 | 5/4/5/5/.75/2 | 187.5 | Merged #4406 receipt identity + existing feedback engine; Revenue slot after #4477 / PR #4478 | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
 | #4414 | Add durable experiment-learning ledger and anti-repeat guard | R/O / L4 learning | Planned | P1 learning | 3/4/3/4/.75/2 | 54.0 | #4407 observations preferred; current experiment contracts | Stable experiment identity; positive/negative/null/underpowered/invalid/Unknown states; prior-test detection; legitimate retest requires changed assumption; scientific authority remains separate |
 | #4415 | Add marginal outcome-per-effort economics to scaling decisions | R/O measurement | Planned | P1 scale economics | 4/4/4/5/.75/3 | 80.0 | #4227 and/or #4407 observations; REV data when available | Reproducible qualified-outcome/resource ratios with named inputs/windows; missing values Unknown; gross throughput cannot justify scale when marginal efficiency/trust deteriorates |
 | #4227 | Deduplicate uncached production exports across PR workflows | O | Planned | P1 compounding | 3/3/2/5/1/2 | 45.0 | Preserve fail-closed exact-SHA validation; `last_verified` at promotion | Quantify duplicated runner minutes; exact-SHA reusable artifact/cache or equivalent; cache miss performs full governed build; no quality thresholds weakened |
@@ -107,6 +103,9 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4413 / PR #4469 | Merged as d0936fbe7d41c84c753a8374f2a7b25047322339 — freshness/unlock-aware prioritization; retired from active ownership |
+| #4476 / PR #4475 | Merged as 65605fd2f4e9cfd85af63c14bd2a583471551bf2 — canonical evidence-grade binding; retired from active ownership |
+| #4482 / PR #4481 | Research draft staging merged as d6934eacff95b4b9dc1c3c5be2f0c8a91e9bc4a1; not scientific-promotion approval or resolution of its recorded registry blocker |
 | PR #4457 | Completed/merged as 95ec9ba285f06c947f2844a2f81abce031b9e437 — complete canonical safety-warning preservation; removed from `Now` |
 | #4412 / PR #4446 | Completed/merged as 96a07976dee22cf7b91c337c820cc83ff7e6b860 — machine reconciliation is on main; removed from `Now` |
 | #4463 | Completed/merged as f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1 — trust-safe thumbnail variants are on main; removed from `Now` |

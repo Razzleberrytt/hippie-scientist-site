@@ -1,9 +1,11 @@
 import { assertValidDistributionPack, hashCanonicalField, hashResearchObject } from './distribution-pack-contract.mjs'
 import { assertDistributionCitationBinding } from './distribution-citation-binding.mjs'
+import { assertDistributionEvidenceGradeBinding } from './distribution-evidence-grade-binding.mjs'
 
 const SITE_ORIGIN = 'https://thehippiescientist.net'
 const HUMAN_EVIDENCE_TYPES = new Set(['meta-analysis', 'systematic-review', 'RCT', 'controlled-trial', 'observational', 'case-report'])
 const MIXED_EVIDENCE_TYPES = new Set(['mixed', 'narrative-review'])
+const EVIDENCE_GRADES = new Set(['A', 'B', 'C', 'D', 'Avoid/Insufficient'])
 const FORBIDDEN_EXTRAPOLATIONS = Object.freeze([
   'Do not strengthen the canonical research finding.',
   'Do not convert dose/form context into consumer instructions.',
@@ -70,8 +72,12 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
   const title = clean(researchObject.title)
   const finding = clean(researchObject.finding)
   const limitation = clean(researchObject.limitation)
+  const evidenceGrade = clean(researchObject.evidenceGrade)
   if (!id || !title || !finding || !limitation) {
     throw new Error('research object must include id, title, finding, and limitation')
+  }
+  if (!EVIDENCE_GRADES.has(evidenceGrade)) {
+    throw new Error(`unsupported evidenceGrade for distribution pack: ${evidenceGrade || '(empty)'}`)
   }
 
   const findingClaimId = clean(researchObject.findingClaimId) || null
@@ -140,6 +146,7 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
       publicSafeStatement: finding,
       strengthDelta: 'none',
       evidenceContext: context,
+      evidenceGrade,
       sourceRefs: ['RESEARCH_OBJECT_001'],
       consumerInstruction: false,
       studyContext: {
@@ -189,5 +196,6 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
   const validated = assertValidDistributionPack(pack, {
     researchObjects: options.researchObjects ?? [researchObject],
   })
-  return hasCitationBinding ? assertDistributionCitationBinding(validated, researchObject) : validated
+  const citationValidated = hasCitationBinding ? assertDistributionCitationBinding(validated, researchObject) : validated
+  return assertDistributionEvidenceGradeBinding(citationValidated, researchObject)
 }
