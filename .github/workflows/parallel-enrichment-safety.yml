@@ -1,6 +1,7 @@
 name: Parallel enrichment safety
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'ops/research-sessions/**'
