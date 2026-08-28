@@ -3,15 +3,28 @@ name: Build quality regression
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      recovery_pr_number:
+        description: PR number for exact-head recovery validation
+        required: true
+        type: string
+      recovery_base_ref:
+        description: Exact target base branch name
+        required: true
+        type: string
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
   compare-generated-quality:
     name: Compare generated quality with base
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      BASE_REF: ${{ github.base_ref || inputs.recovery_base_ref }}
     steps:
       - name: Check out repository with history
         uses: actions/checkout@v4
@@ -19,9 +32,8 @@ jobs:
           fetch-depth: 0
 
       - name: Fetch base branch without losing merge history
-        env:
-          BASE_REF: ${{ github.base_ref }}
         run: |
+          test -n "$BASE_REF"
           git fetch origin "$BASE_REF"
           git merge-base "origin/$BASE_REF" HEAD >/dev/null
 
@@ -34,10 +46,28 @@ jobs:
       - name: Install dependencies once
         run: npm ci
 
+      - name: Resolve PR body
+        id: pr-context
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_BODY: ${{ github.event.pull_request.body }}
+          RECOVERY_PR_NUMBER: ${{ inputs.recovery_pr_number }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            body="$(gh api "repos/${{ github.repository }}/pulls/$RECOVERY_PR_NUMBER" --jq '.body // ""')"
+          else
+            body="$EVENT_BODY"
+          fi
+          {
+            echo 'body<<EOF'
+            printf '%s\n' "$body"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
       - name: Extract major automated change explanation
         id: explanation
         env:
-          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_BODY: ${{ steps.pr-context.outputs.body }}
         run: |
           node <<'NODE'
           const fs = require('node:fs')
@@ -56,10 +86,10 @@ jobs:
       - name: Compare build-quality signals
         env:
           QUALITY_CHANGE_REASON: ${{ steps.explanation.outputs.reason }}
-        run: node scripts/ci/compare-build-quality.mjs --base="origin/${{ github.base_ref }}" --require-base
+        run: node scripts/ci/compare-build-quality.mjs --base="origin/$BASE_REF" --require-base
 
       - name: Regenerate and compare internal-link graphs
-        run: node scripts/ci/compare-internal-link-quality.mjs --base="origin/${{ github.base_ref }}" --strict
+        run: node scripts/ci/compare-internal-link-quality.mjs --base="origin/$BASE_REF" --strict
 
       - name: Upload human-readable quality diffs
         if: always()
