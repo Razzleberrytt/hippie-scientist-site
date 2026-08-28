@@ -1,7 +1,7 @@
 # Growth Scoreboard
 
 **Status:** Authoritative metric definitions and reporting surface
-**Updated:** 2026-08-25
+**Updated:** 2026-08-28 (economics definitions only; earlier measurement rows retain their dated evidence)
 **Default reporting period:** Rolling 28 complete days compared with the preceding 28 complete days. Repository/build health uses the latest main-branch run. `Unknown` means no authorized source value was available; it does not mean zero.
 
 ## Measurement status
@@ -46,6 +46,38 @@
 | Revenue per 1,000 sessions | Confirmed revenue ÷ eligible sessions × 1,000 | Unknown | Affiliate report + analytics | 28 days | Business owner | Reconcile currency, timezone, and session scope | Report attribution limitations |
 | Email signups | Confirmed new subscribed contacts, excluding tests/bots/duplicates | Unknown | Mailchimp | 28 days | Lifecycle owner | Export campaign/audience report after function verification | Form submissions are not confirmed subscribers |
 | Email conversion rate | Confirmed signups ÷ eligible form-view or landing sessions | Unknown | Mailchimp + analytics | 28 days | Lifecycle owner | Define denominator and reconcile dates | Keep denominator stable |
+
+## Marginal resource economics — #4415
+
+**Contract verified:** Merged [PR #4492](https://github.com/Razzleberrytt/hippie-scientist-site/pull/4492) supplies [ratio derivation and scale evaluation](../scripts/measurement/marginal-economics.mjs), covered by [focused regressions](../tests/marginal-economics.test.mjs). This section is the reporting surface for its definitions and future observations, not a new telemetry source. Implementation tests/builds are not observed efficiency or business outcomes.
+
+### Definitions and observation inventory
+
+An efficiency ratio is a named qualified outcome divided by a named resource quantity, with numerator and denominator covering the **same scope and exact observation window**. Missing values or a zero denominator produce `Unknown`, not zero efficiency. Missing required metadata is invalid input, not evidence.
+
+- Supported outcome types: `qualified_visits`, `deep_evidence_interactions`, `affiliate_outbound_actions`, `email_signups`, `network_reported_orders`, `network_reported_revenue`, `governed_distribution_outcomes`, and diagnostic-only `merged_changes`. Define the exact event/cohort; do not pool unlike outcomes.
+- Supported resource types: `engineering_hours`, `operator_hours`, `ci_runner_minutes`, `assets_produced`, `maintained_surfaces`, `external_tool_spend`, and `incremental_throughput`. Record the actual resource unit and source; commit timestamps are not measured labor and runner minutes are not a dollar cost.
+- Marginal change is `(current efficiency - prior efficiency) / prior efficiency`, reported as a fraction (multiply by 100 only when labeling a percentage). Unknown/non-finite ratios or a zero prior ratio cannot support comparison.
+- Use the default 28 complete days versus the preceding 28 complete days. Record exact boundaries, timezone, cohort, and any currency/unit conventions; numerator/denominator windows match within each period, and comparison periods have equal duration, metric types, definitions, scope, and attribution boundary.
+
+| Metric | Definition | Current value | Source | Period | Owner | Next measurement action | Interpretation notes |
+|---|---|---|---|---|---|---|---|
+| CI throughput efficiency | `merged_changes / ci_runner_minutes` for one explicitly linked PR/run cohort | Unknown; prior Unknown | GitHub merged-PR records and Actions job timing, including a stated retry/failure accounting rule | 28d vs prior 28d; actual boundaries Unknown | Engineering lead | Supply cohort-bound run durations and merge counts | Operational diagnostic only; cannot authorize scaling or substitute for a qualified user outcome |
+| Attributable visits per asset | `qualified_visits / assets_produced` for one campaign/platform and governed asset cohort | Unknown; prior Unknown | Governed #4407 outcome observations plus matching asset/lifecycle receipts; values not yet supplied here | 28d vs prior 28d; actual boundaries Unknown | Growth analyst | Supply aggregate tagged visits, validated asset counts and measured-view receipts | Keep platform/campaign scopes separate; generated assets alone are not observed visits |
+| Qualified actions per operator hour | One defined eligible outcome type, such as `email_signups`, divided by `operator_hours` for the same scope | Unknown; prior Unknown | Authorized outcome report plus supplied operator-time record | 28d vs prior 28d; actual boundaries Unknown | Growth analyst | Supply observed hours and the exact action definition/source | No inferred labor estimates; estimates may be labeled diagnostics but cannot authorize scaling |
+| Attributable revenue per maintained surface | `network_reported_revenue / maintained_surfaces` for one attributable surface cohort | Unknown; prior Unknown | Authorized network report and scoped maintained-surface inventory | 28d vs prior 28d; actual boundaries Unknown | Business owner | Supply network-reported revenue, currency and cohort attribution limits | Never infer revenue from clicks or count unsupported cross-surface attribution |
+| Marginal qualified efficiency change | Fractional change between two comparable qualified-outcome/resource ratios defined above | Unknown | The named current/prior source observations, not a separate analytics source | Same comparison windows as the underlying ratio | Growth analyst | Derive only after input/window/comparability checks | Gross output growth alone is not evidence of marginal qualified improvement |
+
+### Required reporting fields and scale guardrails
+
+For each supplied metric report, retain the ratio ID; each numerator/denominator's `type`, `value`, `source` receipt, `scope`, `window.start/end`, `definition` and `confidence`; `attributionBoundary`; the `estimate` flag; and both current/prior values and windows. Keep timezone, currency/unit conventions, operator/source owner, verification date and receipt links in the report notes. Store aggregates or controlled-report references only, never credentials or person-level data.
+
+**Current reporting status:** Actual numerator/denominator values, dated source receipts, windows, confidence, exposure, attribution reliability and quality-debt observations are all `Unknown` here. No supplied-input scale decision has been verified. Populate this section only from authorized observations; the default reporting period is not a fabricated dated observation.
+
+- Positive eligibility requires explicit `attributionReliable: true` and `qualityDebtRising: false`. Missing/unverified states return `WAIT`; explicit unreliable attribution or rising debt returns `STOP_OR_PIVOT`, even with missing outcome values. Retain evidence for these states, not just a favorable Boolean.
+- Both periods require source/scope/window-bound `exposure` observations of type `measured_views`, with integer counts of **at least 250 each**, reusing [the existing distribution threshold](../scripts/distribution/opportunity-feedback.mjs). Required exposure fields also include `source`, `definition` and `confidence`. Missing/underexposed/Unknown-confidence evidence waits; incompatible scope/window receipts are rejected. This is not a new general sufficiency policy for non-distribution outcomes.
+- `merged_changes` ratios and estimates remain diagnostics and return `WAIT` for scale evaluation. A valid observed ratio alone does not imply eligibility.
+- After the observation/comparability/guardrail gates, the default deterioration threshold is 0.15: relative change at or below -15% returns `STOP_OR_PIVOT`. Record any configured threshold with the report. `ELIGIBLE_TO_SCALE` is only this contract's conditional signal; scientific, safety, disclosure, privacy, accessibility, publication, channel-policy, resource authority and other release gates remain independent. It does not authorize spending or publishing.
 
 ## Content
 
