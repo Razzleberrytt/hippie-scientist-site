@@ -27,6 +27,7 @@ const INPUT_DIR = path.resolve(ROOT, String(flag('dir', 'data-sources/ai-perform
 const OUT_DIR = path.resolve(ROOT, String(flag('out-dir', 'out')))
 const LEDGER_PATH = path.resolve(ROOT, String(flag('ledger', 'config/ai-citation-protected-assets.json')))
 const REDIRECTS_PATH = path.resolve(ROOT, String(flag('redirects', 'public/_redirects')))
+const EXPLICIT_PAGE_STATS_FILE = flag('page-stats-file', null)
 const policy = {
   minCitations: Number(flag('min-citations', DEFAULT_AI_CITATION_PROTECTION_POLICY.minCitations)),
   cumulativeCitationShare: Number(
@@ -84,14 +85,34 @@ function loadPageStats(file) {
   return rows.some((row) => row.url && row.citations > 0) ? rows : null
 }
 
-function latestPageStatsExport(dir) {
+function pageStatsExport(dir) {
+  if (EXPLICIT_PAGE_STATS_FILE) {
+    const file = path.resolve(ROOT, String(EXPLICIT_PAGE_STATS_FILE))
+    if (!fs.existsSync(file)) throw new Error(`Explicit page-stats file does not exist: ${file}`)
+    if (!loadPageStats(file)) throw new Error(`Explicit page-stats file does not match the Page/Citations contract: ${file}`)
+    return { name: path.basename(file), file, stat: fs.statSync(file) }
+  }
+
   if (!fs.existsSync(dir)) return null
-  return fs
+  const candidates = fs
     .readdirSync(dir)
     .filter((name) => /\.csv$/i.test(name))
     .map((name) => ({ name, file: path.join(dir, name), stat: fs.statSync(path.join(dir, name)) }))
     .filter(({ file }) => loadPageStats(file))
-    .sort((a, b) => b.stat.mtimeMs - a.stat.mtimeMs || b.name.localeCompare(a.name))[0] ?? null
+
+  const named = candidates.filter(({ name }) => /AIPageStatsReport|page[-_ ]?stats/i.test(name))
+  const eligible = named.length > 0
+    ? named
+    : candidates.filter(({ name }) => !/query|overview/i.test(name))
+
+  if (eligible.length === 0) return null
+  if (named.length === 0 && eligible.length > 1) {
+    throw new Error(
+      `Ambiguous page-stats exports: ${eligible.map(({ name }) => name).join(', ')}. Rename one with PageStats or pass --page-stats-file=...`,
+    )
+  }
+
+  return eligible.sort((a, b) => b.stat.mtimeMs - a.stat.mtimeMs || b.name.localeCompare(a.name))[0]
 }
 
 function snapshotLabelFrom(name) {
@@ -153,9 +174,9 @@ function rounded(value) {
 function main() {
   validateProtectionPolicy(policy)
 
-  const latest = latestPageStatsExport(INPUT_DIR)
+  const latest = pageStatsExport(INPUT_DIR)
   if (!latest) {
-    console.log(`[ai-citation-assets] no page-stats CSV found in ${path.relative(ROOT, INPUT_DIR)}`)
+    console.log(`[ai-citation-assets] no unambiguous page-stats CSV found in ${path.relative(ROOT, INPUT_DIR)}`)
     process.exit(0)
   }
 
