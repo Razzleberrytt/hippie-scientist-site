@@ -4,7 +4,7 @@
 **Updated:** 2026-08-28
 **WIP cap:** 3
 
-**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
+**Control dependencies:** #4412 <- #4411; #4407 <- #4406
 **Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync.
 
 ## Scoring and gates
@@ -32,7 +32,6 @@ Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authorit
 - Safety/scientific correctness, publication integrity, production incidents, security, accessibility blockers, and crawl/indexing regressions may override numeric ordering.
 - No broad auto-publishing is authorized until factual fidelity, attribution, lifecycle receipts, rollback, measurement quality, and channel-policy checks are proven.
 
-
 ## Milestone projection
 
 | Milestone | Status |
@@ -47,13 +46,11 @@ Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authorit
 
 ## Now — active exact work
 
-Three implementation tickets are active. Admission is closed at the normal cap; the former #4411 temporary exception is retired.
+One implementation ticket is active. Two slots are available, subject to dependency, freshness, lane ownership, and incident overrides.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
 | #4412 / PR #4446 | Machine-reconcile roadmap, sprint, and backlog against GitHub state | O / control | In Review | P0 control | 4/4/3/5/1/2 | 120.0 | Merged #4411; exact GitHub state | Read-only stale/duplicate/WIP/dependency/milestone/offline reconciliation, fixtures, hosted tests/build; unknown never becomes PASS |
-| #4439 / PR #4440 | Bind claims to canonical study sources | R / L2 | In Review | P0 provenance | — | — | Approved canonical claim/source identities | Reject wrong source substitutions without new factual authority |
-| PR #4448 | Provenance-bound vertical MP4 renderer | R / L1 | In Review | P0 provenance | — | — | Validated vertical-video package | Reverify parent/scene provenance and canonical paths; fixed encoding profile and version-bound receipt; no factual or publishing mutation |
 
 ## Next — ordered dependency queue
 
@@ -61,8 +58,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4406 | Add governed ready → publish → measured lifecycle | R / L5 | Ready after renderer/creative integration | P0 | 5/4/5/5/1/2 | 250.0 | Validated pack, creative spec, asset manifest, attribution identity | One idempotent provenance-bound lifecycle; stale assets rejected; dry-run default; durable publish receipts; retry/partial-failure/rollback semantics; no broad auto-posting |
-| #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Ready after lifecycle receipt contract | P0 | 5/4/5/5/.75/2 | 187.5 | #4406 receipt identity + existing feedback engine | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
+| #4407 | Ingest attributable asset outcomes into feedback loop | R / L3 | Ready after lifecycle receipt contract | P0 | 5/4/5/5/.75/2 | 187.5 | Merged #4406 receipt identity + existing feedback engine | Deterministic observation schema/replay; Unknown instead of invented zero; cross-platform isolation; existing 250-view positive-reward threshold preserved; feedback can re-rank only already-eligible opportunities |
 | #4413 | Make prioritization freshness- and unlock-aware without a second score | O / control | Planned | P1 compounding | 3/3/3/5/1/2 | 67.5 | #4412 preferred; revalidate exact-main assumptions at start | Strategic Leverage explicitly carries unlock value; externally contingent items expose `last_verified`; stale evidence reduces Confidence/forces revalidation; replayed inputs produce the same queue |
 | #4414 | Add durable experiment-learning ledger and anti-repeat guard | R/O / L4 learning | Planned | P1 learning | 3/4/3/4/.75/2 | 54.0 | #4407 observations preferred; current experiment contracts | Stable experiment identity; positive/negative/null/underpowered/invalid/Unknown states; prior-test detection; legitimate retest requires changed assumption; scientific authority remains separate |
 | #4415 | Add marginal outcome-per-effort economics to scaling decisions | R/O measurement | Planned | P1 scale economics | 4/4/4/5/.75/3 | 80.0 | #4227 and/or #4407 observations; REV data when available | Reproducible qualified-outcome/resource ratios with named inputs/windows; missing values Unknown; gross throughput cannot justify scale when marginal efficiency/trust deteriorates |
@@ -106,6 +102,9 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4406 | Completed — governed ready → publish → measured lifecycle merged; removed from `Next` |
+| #4439 / PR #4440 | Completed/merged — canonical claim/source binding; removed from `Now` |
+| PR #4448 | Closed unmerged — provenance-bound vertical MP4 implementation preserved for later legal reuse; removed from `Now` |
 | #4447 / PR #4445 | Merged as 692d85d1a496188b4bc48113f8f64b5e94c82098 — opening hook trust contract; no longer active |
 | #4410 / PR #4411 | Merged — changed-file-relevant merge gates; temporary overflow exception retired |
 | PRs #4388, #4401, #4405 | Merged — renderer, factual receipts, and lossless presentation; no longer active |
