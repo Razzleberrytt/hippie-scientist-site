@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict'
 import { evaluateCorpus, evaluateRecord, PRODUCTION_INVARIANT_CODES } from '../lib/production-content-invariants.mjs'
+import {
+  evaluateRuntimeSourceRegistryReferences,
+  ORPHANED_CANONICAL_SOURCE_REFERENCE,
+} from '../lib/runtime-source-registry-audit.mjs'
 
 const base = {
   slug: 'fixture',
@@ -85,6 +89,31 @@ const internal = structuredClone(base)
 internal.claimMap = [{ id: 'c4', claim: 'v9.8: internal claim wording', sourceRefIds: ['human'] }]
 assert(codes(internal).has('INTERNAL_DEVELOPMENT_LANGUAGE'))
 
+// Runtime profiles may carry canonical-looking source identities that resolve
+// locally but have drifted out of the canonical source registry. Inventory that
+// state without turning the legacy baseline into an immediate blocking failure.
+const registryResolved = structuredClone(base)
+registryResolved.evidence = { sourceIds: ['src_registered'] }
+registryResolved.claimMap = [{ id: 'c5', sourceRefIds: ['src_registered'] }]
+assert.deepEqual(
+  evaluateRuntimeSourceRegistryReferences(registryResolved, 'herb', [{ sourceId: 'src_registered', active: false }]),
+  [],
+)
+
+const registryOrphan = structuredClone(base)
+registryOrphan.evidence = { sourceIds: ['src_orphan'] }
+registryOrphan.claimMap = [{ id: 'c6', sourceRefIds: ['src_orphan'] }]
+const orphanFindings = evaluateRuntimeSourceRegistryReferences(registryOrphan, 'herb', [])
+assert.equal(orphanFindings.length, 1)
+assert.equal(orphanFindings[0].code, ORPHANED_CANONICAL_SOURCE_REFERENCE)
+assert.equal(orphanFindings[0].blocking, false)
+assert.equal(orphanFindings[0].sourceId, 'src_orphan')
+
+const localOnly = structuredClone(base)
+localOnly.evidence = { sourceIds: ['profile-local-source'] }
+localOnly.claimMap = [{ id: 'c7', sourceRefIds: ['profile-local-source'] }]
+assert.deepEqual(evaluateRuntimeSourceRegistryReferences(localOnly, 'compound', []), [])
+
 const exercised = new Set([
   'A_GRADE_CRITERIA',
   'HUMAN_CLAIM_WITHOUT_HUMAN_SOURCE',
@@ -98,4 +127,4 @@ const exercised = new Set([
   'INTERNAL_DEVELOPMENT_LANGUAGE',
 ])
 assert.deepEqual([...exercised].sort(), [...PRODUCTION_INVARIANT_CODES].sort())
-console.log(`[production-invariant-tests] PASS — exercised all ${PRODUCTION_INVARIANT_CODES.length} invariant codes`)
+console.log(`[production-invariant-tests] PASS — exercised all ${PRODUCTION_INVARIANT_CODES.length} blocking invariant codes plus runtime registry orphan inventory`)
