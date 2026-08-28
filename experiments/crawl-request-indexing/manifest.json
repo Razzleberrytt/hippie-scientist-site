@@ -1,9 +1,13 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "experiment_id": "request-indexing-rct-2026-08",
   "status": "pending_registry",
   "site": "https://thehippiescientist.net",
   "created_at": "2026-08-27",
+  "prepared_at": null,
+  "activated_at": null,
+  "fully_activated_at": null,
+  "completed_at": null,
   "registry_source": {
     "kind": "gsc_eligible_herb_registry",
     "expected_total": 97,
@@ -17,11 +21,11 @@
     "observational": "untouched_background_surveillance",
     "observational_n": 57,
     "causal_control": "control",
-    "primary_outcome": "time_to_first_verified_googlebot_html_recrawl",
+    "primary_outcome": "time_from_pair_experiment_t0_to_first_verified_googlebot_html_recrawl",
     "followup_days": 28
   },
   "randomization": {
-    "algorithm": "sha256_rank_then_block_balanced_assignment_v1",
+    "algorithm": "sha256_rank_then_lastmod_block_balanced_pairing_v2",
     "seed": "request-indexing-rct-2026-08-27-v1"
   },
   "freeze": {
@@ -33,6 +37,7 @@
       "no_indexability_changes",
       "no_legitimate_lastmod_changes"
     ],
+    "baseline_captured_at": null,
     "starts_at": null,
     "ends_at": null,
     "policy_sha256": null,
