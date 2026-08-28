@@ -54,6 +54,24 @@ test('losslessly wraps a canonical source URL instead of rejecting the real sour
   expect(rendered.svg).toMatch(/thehippiescientist\.net\/herbs\/ashwagandha\//)
 })
 
+test('exposes governed visible slide content through deterministic SVG accessibility semantics', () => {
+  const slide = creativeSpec.carousel.slides[0]
+  const rendered = renderCarouselSlideSvg(slide, {
+    sourceUrl: mediaPack.source.url,
+    contentHash: mediaPack.source.contentHash,
+    disclosure,
+  })
+
+  expect(rendered.svg).toContain('role="img" aria-labelledby="slide-title slide-description"')
+  expect(rendered.svg).toContain(`<title id="slide-title">${slide.eyebrow}</title>`)
+  expect(rendered.svg).toContain('<desc id="slide-description">')
+  expect(rendered.svg).toContain(slide.headline)
+  expect(rendered.svg).toContain(slide.body)
+  expect(rendered.svg).toContain(disclosure)
+  expect(rendered.svg).toContain(mediaPack.source.url)
+  expect(rendered.svg).not.toContain(`aria-label="${slide.eyebrow}"`)
+})
+
 test('keeps disclosure and provenance text inside the portrait safe-area bottom edge', () => {
   const rendered = renderCarouselSlideSvg(creativeSpec.carousel.slides[0], {
     sourceUrl: mediaPack.source.url,
