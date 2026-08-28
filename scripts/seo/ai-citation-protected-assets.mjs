@@ -7,6 +7,8 @@ export const DEFAULT_AI_CITATION_PROTECTION_POLICY = Object.freeze({
   maxAssets: 25,
 })
 
+const SITE_HOSTS = new Set(['thehippiescientist.net', 'www.thehippiescientist.net'])
+
 export function validateProtectionPolicy(candidate) {
   const failures = []
   if (!Number.isFinite(candidate?.minCitations) || candidate.minCitations < 0) {
@@ -39,12 +41,28 @@ export function normalizeUrlPath(value) {
   return pathname
 }
 
+export function normalizeCitationAssetUrl(value) {
+  const raw = String(value ?? '').trim()
+  if (!raw) return null
+
+  if (raw.startsWith('/') && !raw.startsWith('//')) return normalizeUrlPath(raw)
+
+  try {
+    const parsed = new URL(raw)
+    if (!['http:', 'https:'].includes(parsed.protocol)) return null
+    if (!SITE_HOSTS.has(parsed.hostname.toLowerCase())) return null
+    return normalizeUrlPath(parsed.pathname)
+  } catch {
+    return null
+  }
+}
+
 export function selectProtectedCitationAssets(rows, policy = DEFAULT_AI_CITATION_PROTECTION_POLICY) {
   validateProtectionPolicy(policy)
 
   const byUrl = new Map()
   for (const row of rows) {
-    const url = normalizeUrlPath(row.url ?? row.Page ?? row.page)
+    const url = normalizeCitationAssetUrl(row.url ?? row.Page ?? row.page)
     const citations = Number(row.citations ?? row.Citations ?? 0)
     if (!url || !Number.isFinite(citations) || citations <= 0) continue
     byUrl.set(url, (byUrl.get(url) ?? 0) + citations)
