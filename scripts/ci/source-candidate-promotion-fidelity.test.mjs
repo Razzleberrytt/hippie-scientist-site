@@ -10,6 +10,7 @@ const reconciliations = JSON.parse(
 )
 
 const reconciliationByCandidate = new Map(reconciliations.map(row => [row.candidateSourceId, row]))
+const allowedReconciliationStates = new Set(['approved_not_promoted', 'promotion_history_unresolved'])
 
 function normalize(value) {
   return typeof value === 'string' ? value.trim().toLowerCase() : ''
@@ -36,7 +37,9 @@ function effectivePromotionState(candidate) {
   if (!claimsCompletedPromotion(candidate)) return 'not_claimed'
   if (hasRegistryIdentity(candidate)) return 'promoted'
   const reconciliation = reconciliationByCandidate.get(candidate.candidateSourceId)
-  if (reconciliation?.correctedPromotionState === 'approved_not_promoted') return 'approved_not_promoted'
+  if (allowedReconciliationStates.has(reconciliation?.correctedPromotionState)) {
+    return reconciliation.correctedPromotionState
+  }
   return 'invalid_stale_promotion_claim'
 }
 
@@ -62,9 +65,24 @@ describe('source-candidate promotion provenance fidelity', () => {
       expect(claimsCompletedPromotion(candidate)).toBe(true)
       expect(normalize(reconciliation.doi)).toBe(normalize(candidate.doi))
       expect(normalize(reconciliation.pmid)).toBe(normalize(candidate.pmid))
-      expect(reconciliation.correctedPromotionState).toBe('approved_not_promoted')
+      expect(allowedReconciliationStates.has(reconciliation.correctedPromotionState)).toBe(true)
       expect(hasRegistryIdentity(candidate)).toBe(false)
-      expect(reconciliation.effectiveApprovalNote).toMatch(/no canonical source-registry entry is present/i)
+
+      if (reconciliation.correctedPromotionState === 'approved_not_promoted') {
+        expect(reconciliation.reason).toMatch(/history.*found no evidence|no evidence.*ever present/i)
+      } else {
+        expect(reconciliation.effectiveApprovalNote).toMatch(/promotion history is unresolved/i)
+        expect(reconciliation.reason).toMatch(/does not prove non-promotion/i)
+      }
+    }
+  })
+
+  it('does not convert unresolved promotion history into a false never-promoted conclusion', () => {
+    const unresolved = reconciliations.filter(row => row.correctedPromotionState === 'promotion_history_unresolved')
+    expect(unresolved.length).toBeGreaterThan(0)
+    for (const reconciliation of unresolved) {
+      expect(reconciliation.effectiveApprovalNote).toMatch(/whether promotion occurred and was later removed/i)
+      expect(reconciliation.reason).toMatch(/preserve the historical promotion claim as unresolved/i)
     }
   })
 
@@ -77,6 +95,7 @@ describe('source-candidate promotion provenance fidelity', () => {
     expect(candidate?.evidenceClass).toBe('preclinical-mechanistic')
     expect(candidate?.studyDesign).toBe('in-vitro')
     expect(candidate?.publicationStatus).toBe('published')
+    expect(reconciliation?.correctedPromotionState).toBe('approved_not_promoted')
     expect(reconciliation?.evidenceBoundary).toMatch(/not human efficacy evidence/i)
     expect(reconciliation?.evidenceBoundary).toMatch(/not consumer dosing authority/i)
   })
