@@ -7,6 +7,7 @@ on:
     paths:
       - 'scripts/audit/full-citation-semantic-audit.mjs'
       - 'scripts/audit/refine-full-citation-semantic-audit.mjs'
+      - 'scripts/audit/finalize-full-citation-semantic-audit.mjs'
       - '.github/workflows/full-citation-semantic-audit.yml'
       - 'public/data/herbs-detail/**'
       - 'public/data/compounds-detail/**'
@@ -32,7 +33,7 @@ jobs:
         run: node scripts/ci/validate-citation-integrity.mjs
 
       - name: Resolve every PMID and precision-screen every claim-source edge
-        run: node scripts/audit/refine-full-citation-semantic-audit.mjs
+        run: node scripts/audit/finalize-full-citation-semantic-audit.mjs
 
       - name: Upload complete semantic audit report
         if: always()
