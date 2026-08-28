@@ -6,6 +6,7 @@ on:
       - audit/full-citation-semantic-integrity-2026-08-27
     paths:
       - 'scripts/audit/full-citation-semantic-audit.mjs'
+      - 'scripts/audit/refine-full-citation-semantic-audit.mjs'
       - '.github/workflows/full-citation-semantic-audit.yml'
       - 'public/data/herbs-detail/**'
       - 'public/data/compounds-detail/**'
@@ -30,8 +31,8 @@ jobs:
       - name: Run existing deterministic citation integrity baseline
         run: node scripts/ci/validate-citation-integrity.mjs
 
-      - name: Resolve every PMID and screen every claim-source edge
-        run: node scripts/audit/full-citation-semantic-audit.mjs
+      - name: Resolve every PMID and precision-screen every claim-source edge
+        run: node scripts/audit/refine-full-citation-semantic-audit.mjs
 
       - name: Upload complete semantic audit report
         if: always()
