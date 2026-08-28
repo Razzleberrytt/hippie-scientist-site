@@ -12,7 +12,7 @@
 
 | Milestone | Status | Current constraint |
 |---|---|---|
-| M0 — Project Control Reset | In progress | Control documents are synchronized, but machine reconciliation (#4412), production measurement, external enforcement, and logging gaps remain |
+| M0 — Project Control Reset | In progress | Machine reconciliation (#4412) is merged; current planning-state reconciliation, production measurement, external enforcement, and logging gaps still require proof |
 | M1 — Revenue Foundation | In progress | Partial source-level observations may be recorded; aligned GA4/GSC/affiliate measurement and production receipt still require authorized access; governed distribution MVP is an acceleration track inside M1 |
 | M2 — First Proven Organic Revenue Loop | Blocked | Requires an aligned attributed baseline and one evidence-safe flagship; isolated affiliate or distribution outcomes do not prove the organic loop |
 | M3 — Repeatable Decision-Page Engine | Not started | Requires one measured, evidence-safe flagship result |
@@ -41,7 +41,7 @@ The highest-leverage unblocked work is completing the governed Evidence → Dist
 4. **#4414 — durable experiment learning:** preserve a machine-readable history of what was tried, observation quality, confidence, decision, and retest conditions so autonomous runs do not unknowingly repeat failed, invalid, or underpowered experiments.
 5. **#4415 — marginal-resource economics:** connect qualified outcomes to real resource denominators where available so gross output never substitutes for marginal efficiency.
 
-PR #4411 has merged and its temporary overflow exception is retired. #4412 is now active alongside PRs #4440 and #4448; admission is closed at the normal three-ticket cap. The renderer/provenance/presentation foundations (#4388, #4401, #4405) are merged; the dependency chain above remains the durable ordering, not an active-work roster.
+PR #4411 and #4412 / PR #4446 have merged; their implementation no longer occupies active WIP. #4412 merged as `96a07976dee22cf7b91c337c820cc83ff7e6b860`, with 18 reconciliation regressions and production build/output/SEO passing on the final PR head. PR #4440 merged; PR #4448 closed unmerged. The renderer/provenance/presentation foundations (#4388, #4401, #4405) and #4406 lifecycle are merged. Current ownership and admission belong to the live GitHub state reconciled in `CURRENT_SPRINT.md` / `MASTER_BACKLOG.md`, not a second active roster here. The dependency chain above preserves durable ordering.
 
 Neither path advances M1 or M2 by itself. Together they establish a controlled acquisition-learning capability and a more self-correcting execution system that can generate trustworthy evidence for later milestone decisions.
 
@@ -97,8 +97,8 @@ Verified outcomes refine its inputs instead of creating a second score:
 The roadmap should increasingly behave as a validated projection of reality rather than a manually maintained narrative.
 
 - GitHub issue/PR state remains execution-state truth; the roadmap/sprint/backlog are its human-readable planning projection.
-- #4412 should make stale merged/closed active entries, duplicate ownership, WIP overflow, and cross-document contradictions machine-detectable.
-- A temporary WIP exception must be explicit, bounded, and admission-blocking. It may not silently redefine normal capacity.
+- Merged #4412 makes stale merged/closed active entries, duplicate ownership, WIP overflow, and cross-document contradictions machine-detectable; subsequent drift still requires record updates, not suppression.
+- A temporary WIP exception must be explicit, bounded, and admission-blocking. It may not silently redefine normal capacity or override `AGENTS.md` workstream eligibility. The numeric reconciler does not certify workstream eligibility; the sprint/backlog must also verify one active ticket per normal workstream. The former Revenue/Operations overlap cleared through verified merges of #4475 and #4469, not a policy exception.
 - Offline/unavailable connector state is `Unknown/waiting`, never PASS.
 - Reconciliation is initially read-only. Automatic prose rewriting is not required until deterministic detection is proven and rollback is straightforward.
 - Closed/merged work may remain only in history/completed sections.

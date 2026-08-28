@@ -82,13 +82,14 @@
     "claim": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "sourceStatement", "publicSafeStatement", "strengthDelta", "evidenceContext", "sourceRefs", "consumerInstruction", "studyContext"],
+      "required": ["id", "sourceStatement", "publicSafeStatement", "strengthDelta", "evidenceContext", "evidenceGrade", "sourceRefs", "consumerInstruction", "studyContext"],
       "properties": {
         "id": { "const": "CLAIM_001" },
         "sourceStatement": { "type": "string", "minLength": 1, "maxLength": 800 },
         "publicSafeStatement": { "type": "string", "minLength": 1, "maxLength": 800 },
         "strengthDelta": { "const": "none" },
         "evidenceContext": { "enum": ["human", "preclinical", "mixed"] },
+        "evidenceGrade": { "enum": ["A", "B", "C", "D", "Avoid/Insufficient"] },
         "sourceRefs": { "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": { "const": "RESEARCH_OBJECT_001" } },
         "consumerInstruction": { "const": false },
         "studyContext": {
