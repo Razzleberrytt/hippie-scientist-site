@@ -73,12 +73,16 @@ export function normalizeDecisionEvidence(value?: unknown, fallback: StandardEvi
   const text = raw.toLowerCase().replace(/[_-]+/g, ' ')
 
   if (/\b(needs? review|review needed|unknown|tbd|draft|placeholder|profile pending)\b/.test(text)) return 'Needs review'
-  if (/\b(none|no evidence|insufficient|minimal|not established)\b/.test(text)) return 'Insufficient evidence'
+  if (/\b(none|no evidence|no (?:reliable )?(?:human|clinical) evidence|insufficient|minimal|not established)\b/.test(text)) return 'Insufficient evidence'
   if (/\b(mixed|conflict|inconsistent|equivocal)\b/.test(text)) return 'Mixed evidence'
   if (/\b(traditional|ethnobotanical|historical|folk use)\b/.test(text)) return 'Traditional use'
+
+  // Population/applicability outranks review design. A systematic review of
+  // animal or in-vitro studies is still preclinical evidence, not "strong"
+  // clinical evidence. Check these tokens before meta-analysis/systematic review.
+  if (/\b(preliminary|preclinical|nonclinical|animal|rodent|mouse|mice|rat|cell|in vitro|mechanistic|theoretical|emerging|early|exploratory|grade\s*c|tier\s*c|\bc\b|grade\s*d|tier\s*d|\bd\b)\b/.test(text)) return 'Preliminary evidence'
   if (/\b(strong|high|robust|meta analysis|systematic review|grade\s*a|tier\s*a|\ba\b)\b/.test(text)) return 'Strong evidence'
   if (/\b(moderate|medium|developing|grade\s*b|tier\s*b|\bb\b)\b/.test(text)) return 'Moderate evidence'
-  if (/\b(preliminary|preclinical|animal|cell|in vitro|mechanistic|theoretical|emerging|early|exploratory|grade\s*c|tier\s*c|\bc\b|grade\s*d|tier\s*d|\bd\b)\b/.test(text)) return 'Preliminary evidence'
   if (/\b(limited|low|weak|partial|human limited)\b/.test(text)) return 'Limited evidence'
 
   return fallback
