@@ -57,6 +57,49 @@ assert.equal(malformed.queue[0].remediationClass, 'quarantine_unverifiable')
 const mixedValidMalformed = buildRuntimeSourceRemediationQueue({ orphanRows: [{ kind: 'herb', slug: 'mixed-malformed', sourceId: 'src_mixed', url: '/herbs/mixed-malformed/' }], entries: [{ kind: 'herb', record: { slug: 'mixed-malformed', sources: [{ id: 'src_mixed', doi: '10.1002/example.5', pmid: 'bad-pmid' }], claimMap: [] } }] })
 assert.equal(mixedValidMalformed.queue[0].remediationClass, 'quarantine_unverifiable')
 
+const sourceOnlySignals = buildRuntimeSourceRemediationQueue({
+  orphanRows: [{ kind: 'herb', slug: 'source-only-safety', sourceId: 'src_source_only', url: '/herbs/source-only-safety/' }],
+  entries: [{
+    kind: 'herb',
+    record: {
+      slug: 'source-only-safety',
+      governance: { indexingAllowed: true },
+      evidence: { sourceIds: ['src_source_only'] },
+      sources: [{
+        id: 'src_source_only',
+        pmid: '34567890',
+        title: 'Safety and adverse events in adults receiving a botanical intervention',
+        sourceClass: 'observational-human-evidence',
+        evidenceClass: 'human-observational',
+      }],
+      claimMap: [],
+    },
+  }],
+})
+assert.equal(sourceOnlySignals.queue[0].safetyRelevant, true)
+assert.equal(sourceOnlySignals.queue[0].humanEvidenceRelevant, true)
+assert(sourceOnlySignals.queue[0].priorityScore >= 195)
+
+const preclinicalReview = buildRuntimeSourceRemediationQueue({
+  orphanRows: [{ kind: 'compound', slug: 'preclinical-review', sourceId: 'src_preclinical_review', url: '/compounds/preclinical-review/' }],
+  entries: [{
+    kind: 'compound',
+    record: {
+      slug: 'preclinical-review',
+      evidence: { sourceIds: ['src_preclinical_review'] },
+      sources: [{
+        id: 'src_preclinical_review',
+        doi: '10.1002/example.6',
+        title: 'Systematic review of in vitro receptor assays',
+        sourceClass: 'preclinical-mechanistic-study',
+        evidenceClass: 'preclinical-mechanistic',
+      }],
+      claimMap: [],
+    },
+  }],
+})
+assert.equal(preclinicalReview.queue[0].humanEvidenceRelevant, false)
+
 assert.throws(() => buildRuntimeSourceRemediationQueue({ orphanRows: [orphanRows[0], orphanRows[0]], entries }), /Duplicate runtime registry orphan rows/u)
 const rerun = buildRuntimeSourceRemediationQueue({ orphanRows, entries, sourceCandidates, promotionReconciliations: [] })
 assert.deepEqual(rerun, result)
