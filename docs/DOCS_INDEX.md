@@ -1,7 +1,7 @@
 # Documentation Index
 
 **Status:** Authoritative documentation map
-**Updated:** 2026-08-25
+**Updated:** 2026-08-27
 **Inventory scope:** All 321 files found under `docs/` during the 2026-08-21 archaeology pass. Classification is intentionally rule-based so this index does not become a second 321-row maintenance burden.
 
 ## Required reading order
@@ -56,7 +56,7 @@ These remain valuable but cannot override the control system.
 | [`build-and-verification.md`](build-and-verification.md), [`cloudflare-pages.md`](cloudflare-pages.md), `ci/**`, `security/**`, [`RELEASE.md`](RELEASE.md), [`VALIDATION.md`](VALIDATION.md) | Build, deploy, CI, dependency, and release procedures | Engineering/operations | Operational-supporting; commands must be tested before relying on them |
 | [`agent-integration-guide.md`](agent-integration-guide.md), `agents/**`, `AGENT-*`, `agent-*`, enrichment/editorial workflow docs | Agent patch and editorial review mechanics | Agents/reviewers | Supporting; `CURRENT_SPRINT.md` still controls what may run |
 | `content/**`, `page-specs/**`, `page-expansion-specs/**`, `templates/**`, `methodology/**`, `quality/**` | Page-specific research, specifications, templates, and quality references | Content/design/evidence agents | Supporting reference; verify against current page and standard before use |
-| `product/**`, `ux/**`, `ui/**`, `design/**`, `media/**`, `performance.md` | Product/UI/UX/performance reference and prior specifications | Product/design/engineering | Supporting unless dated/completed; no redesign authority |
+| [`design/PREMIUM_VISUAL_SYSTEM.md`](design/PREMIUM_VISUAL_SYSTEM.md), [`design/BRAND_UI_IMPLEMENTATION_PLAN.md`](design/BRAND_UI_IMPLEMENTATION_PLAN.md), `product/**`, `ux/**`, `ui/**`, `design/**`, `media/**`, `performance.md` | Approved visual direction plus product/UI/UX/performance reference and implementation-gap inventory | Product/design/engineering | Supporting. The premium visual system is the approved brand/UI target, but code/current visual proof decides shipped parity; the implementation plan is not an execution queue and must defer to `CURRENT_SPRINT.md` / `MASTER_BACKLOG.md` |
 | `analytics-content-journey-events.md`, `marketing/affiliate-tracking-guide.md`, `marketing/affiliate-tracking-checklist.md` | Measurement/event definitions and implementation guides | Analytics/revenue agents | Supporting; production receipt still requires REV-001 proof |
 | `POLICY.md`, `PUBLISHING_WORKFLOW.md`, `QA_CHECKLIST.md`, `production-content-lint.md`, evidence/citation/safety/mental-health root standards | Editorial, publishing, quality, and safety practices | Content/evidence/review agents | Supporting gates; use the stricter current rule when overlap exists |
 
@@ -105,4 +105,4 @@ The rules below classify every remaining docs file. First matching rule wins. Th
 
 ## Audit disposition summary
 
-This reset created the authoritative control documents above, retained detailed standards and runbooks, classified old audits/merge reports/plans as historical or legacy, and retained generated aids with freshness warnings. No bulk deletion or route/content migration was justified. `docs/marketing/weekly-cro-tracker.md` and `docs/CONTENT_STRATEGY.md` now carry explicit legacy warnings; `docs/README.md` points here.
+This reset created the authoritative control documents above, retained detailed standards and runbooks, classified old audits/merge reports/plans as historical or legacy, and retained generated aids with freshness warnings. No bulk deletion or route/content migration was justified. `docs/marketing/weekly-cro-tracker.md` and `docs/CONTENT_STRATEGY.md` now carry explicit legacy warnings; `docs/README.md` points here. The 2026-08-27 brand/UI documentation update locks the approved identity direction while explicitly separating target-state design from shipped implementation proof.
