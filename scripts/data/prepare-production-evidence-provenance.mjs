@@ -9,9 +9,9 @@
  * (claim says human -> source gets "human evidence" -> human-source gate passes).
  *
  * Final citation quarantine runs after the early workbook evidence-grade pass.
- * Re-derive grades/rationales/summaries here from the surviving evidence graph
- * so a quarantined source cannot leave a stale Grade A sentence behind and
- * trigger a disproportionate profile-level demotion.
+ * Re-derive grades/rationales/summaries here from the surviving, unique source
+ * graph only so a withdrawn source or stale global claim cannot leave a Grade A
+ * sentence behind and trigger a disproportionate profile-level demotion.
  *
  * The remaining mutation is fail-closed dosage suppression. Numeric profile-
  * level dose fields are removed when no source record independently carries
@@ -29,10 +29,10 @@ const dataDir = path.resolve(
   process.argv.find((arg) => arg.startsWith('--data-dir='))?.slice(11) || 'public/data',
 )
 
-console.log('[prepare-production-evidence-provenance] re-deriving evidence grades after final citation quarantine')
+console.log('[prepare-production-evidence-provenance] re-deriving evidence grades from surviving sources after final citation quarantine')
 execFileSync(
   'npx',
-  ['tsx', 'scripts/data/normalize-evidence-grades.ts', `--data-dir=${dataDir}`],
+  ['tsx', 'scripts/data/normalize-evidence-grades.ts', `--data-dir=${dataDir}`, '--post-quarantine-source-only'],
   { cwd: root, stdio: 'inherit', env: process.env },
 )
 
