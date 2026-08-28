@@ -12,6 +12,19 @@ const NEXT = {
   withdrawn: new Set(),
 }
 
+const RESERVED_MEASUREMENT_FIELDS = new Set([
+  'at',
+  'identityFingerprint',
+  'observationOnly',
+  'scientificAuthority',
+  'state',
+  'provider',
+  'externalId',
+  'requestId',
+  'idempotencyKey',
+  'dryRun',
+])
+
 function clean(value) {
   return String(value ?? '').trim()
 }
@@ -86,6 +99,17 @@ function assertTransition(record, nextState) {
   }
 }
 
+function sanitizeMeasurement(measurement) {
+  if (!measurement || typeof measurement !== 'object' || Array.isArray(measurement)) {
+    throw new Error('measured transition requires an observation payload')
+  }
+  const reserved = Object.keys(measurement).filter((field) => RESERVED_MEASUREMENT_FIELDS.has(field))
+  if (reserved.length) {
+    throw new Error(`measurement payload cannot set reserved lifecycle fields: ${reserved.sort().join(', ')}`)
+  }
+  return structuredClone(measurement)
+}
+
 export function transitionDistributionLifecycle(record, nextState, {
   currentIdentity,
   now = new Date().toISOString(),
@@ -129,12 +153,12 @@ export function transitionDistributionLifecycle(record, nextState, {
   }
 
   if (nextState === 'measured') {
-    if (!measurement || typeof measurement !== 'object') throw new Error('measured transition requires an observation payload')
+    const observation = sanitizeMeasurement(measurement)
     next.measurements.push({
+      ...observation,
       at: now,
       identityFingerprint: record.identity.fingerprint,
       observationOnly: true,
-      ...structuredClone(measurement),
     })
   }
 
