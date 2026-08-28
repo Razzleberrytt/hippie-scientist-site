@@ -1,7 +1,9 @@
 # Roadmap
 
 **Status:** Authoritative milestone plan
-**Last updated:** 2026-08-27
+**Last updated:** 2026-08-28
+
+**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 **Change tracking:** #4403; execution sync 2026-08-27; post-audit hardening #4416
 **Planning rule:** A milestone is complete only when every exit condition has reproducible proof. Dates are intentionally omitted until dependencies and throughput are measured.
 **Scaling rule:** Once verified user or commercial outcomes exist, observed attributable behavior outranks speculative opportunity. Evidence, safety, disclosure, provenance, publication, accessibility, security, and release gates remain non-negotiable and cannot be overridden by traffic or revenue.
@@ -39,7 +41,7 @@ The highest-leverage unblocked work is completing the governed Evidence → Dist
 4. **#4414 — durable experiment learning:** preserve a machine-readable history of what was tried, observation quality, confidence, decision, and retest conditions so autonomous runs do not unknowingly repeat failed, invalid, or underpowered experiments.
 5. **#4415 — marginal-resource economics:** connect qualified outcomes to real resource denominators where available so gross output never substitutes for marginal efficiency.
 
-The temporary 4/3 open-implementation WIP caused by PR #4411 is an explicit exception, not a new capacity target. No additional implementation work should be admitted until active WIP falls below the normal three-ticket cap.
+PR #4411 has merged and its temporary overflow exception is retired. #4412 is now active alongside PRs #4440 and #4448; admission is closed at the normal three-ticket cap. The renderer/provenance/presentation foundations (#4388, #4401, #4405) are merged; the dependency chain above remains the durable ordering, not an active-work roster.
 
 Neither path advances M1 or M2 by itself. Together they establish a controlled acquisition-learning capability and a more self-correcting execution system that can generate trustworthy evidence for later milestone decisions.
 
