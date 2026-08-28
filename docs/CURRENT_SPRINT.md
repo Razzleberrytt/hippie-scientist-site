@@ -56,7 +56,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 |---|---|---|---|---|
 | Control | #4412 / PR #4446 | Machine reconciliation | In Review | Read-only exact-revision GitHub reconciliation; stale/duplicate/WIP/dependency/milestone/offline fixtures; hosted tests and production build |
 | L2 Provenance | #4439 / PR #4440 | Bind claims to canonical study sources | In Review | Exact claim/source identity, direct source linkage and URL; substitution fails closed; canonical science unchanged |
-| L4 Presentation | PR #4445 | First-two-second hook trust contract | In Review | 0–2s hook, safe area, mobile typography, opening CTA exclusion, unsupported certainty rejection; existing lossless factual contract preserved |
+| L1 Rendering | PR #4448 | Provenance-bound vertical MP4 renderer | In Review | Reverify parent/scene provenance and canonical paths; fixed encoding profile and version-bound output receipt; no factual authority or publishing mutation |
 
 ### #4412 implementation boundary
 
@@ -173,6 +173,8 @@ The sprint exits only when all of the following are true or have a precise exter
 - Required scientific, provenance, safety, accessibility, release, and exact-head validation gates remain intact.
 
 ## Recently retired from this sprint
+
+- **#4447 / PR #4445:** merged as `692d85d1a496188b4bc48113f8f64b5e94c82098`; the hook trust contract no longer occupies an active slot.
 
 - **#4410 / PR #4411:** merged; scoped changed-file-relevant gates are on main. The temporary overflow exception is retired.
 - **PRs #4388, #4401, #4405:** merged; renderer, provenance-receipt, and lossless-presentation implementation no longer occupy active slots.

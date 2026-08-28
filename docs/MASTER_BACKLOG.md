@@ -53,7 +53,7 @@ Three implementation tickets are active. Admission is closed at the normal cap; 
 |---|---|---|---|---|---|---:|---|---|
 | #4412 / PR #4446 | Machine-reconcile roadmap, sprint, and backlog against GitHub state | O / control | In Review | P0 control | 4/4/3/5/1/2 | 120.0 | Merged #4411; exact GitHub state | Read-only stale/duplicate/WIP/dependency/milestone/offline reconciliation, fixtures, hosted tests/build; unknown never becomes PASS |
 | #4439 / PR #4440 | Bind claims to canonical study sources | R / L2 | In Review | P0 provenance | — | — | Approved canonical claim/source identities | Reject wrong source substitutions without new factual authority |
-| PR #4445 | First-two-second hook trust contract | R / L4 | In Review | P0 trust | — | — | Validated-lossless creative spec | 0–2s timing, safe area, typography and CTA/overclaim guards; no factual rewriting |
+| PR #4448 | Provenance-bound vertical MP4 renderer | R / L1 | In Review | P0 provenance | — | — | Validated vertical-video package | Reverify parent/scene provenance and canonical paths; fixed encoding profile and version-bound receipt; no factual or publishing mutation |
 
 ## Next — ordered dependency queue
 
@@ -106,6 +106,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4447 / PR #4445 | Merged as 692d85d1a496188b4bc48113f8f64b5e94c82098 — opening hook trust contract; no longer active |
 | #4410 / PR #4411 | Merged — changed-file-relevant merge gates; temporary overflow exception retired |
 | PRs #4388, #4401, #4405 | Merged — renderer, factual receipts, and lossless presentation; no longer active |
 | PR #4408 / #4409 | Merged/closed — roadmap, sprint, and backlog synchronized to exact GitHub state on 2026-08-27 |

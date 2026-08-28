@@ -34,7 +34,7 @@ export function parseControlDocument(path, text) {
         if (refs.length || local) {
           const status = row[3] || ''
           if (!/^(completed|historical|retired)\b/i.test(status)) {
-            const record = { id: refs[0] ? '#' + refs[0] : local, refs, status }
+            const record = { id: local || '#' + refs[0], refs, status }
             if (section === 'active') active.push(record)
             else ready.push(record)
           }
@@ -141,9 +141,9 @@ export function reconcile({ documents, snapshot, repository, revision, now }) {
     if (JSON.stringify(document.dependencies) !== JSON.stringify(roadmap.dependencies)) fail(document.path + ': immediate dependency chain contradicts roadmap')
     const owners = new Set()
     for (const ticket of document.active) {
-      for (const ref of ticket.refs) {
-        if (owners.has(ref)) fail(document.path + ': duplicate active ownership #' + ref)
-        owners.add(ref)
+      for (const identity of new Set([ticket.id, ...ticket.refs.map((ref) => '#' + ref)])) {
+        if (owners.has(identity)) fail(document.path + ': duplicate active ownership ' + identity)
+        owners.add(identity)
       }
     }
     for (const ticket of document.ready) {

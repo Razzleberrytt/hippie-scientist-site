@@ -63,6 +63,29 @@ describe('authoritative project-control reconciliation', () => {
     input.snapshot.openPulls.push({ number: 12, closes: [10] })
     expect(reconcile(input).findings.join(' ')).toContain('Duplicate open PR ownership')
   })
+  it('rejects mirrored duplicate local tickets, including distinct owning PRs', () => {
+    for (const rows of [
+      ['| SEO-003 | Task | D | In Review |', '| SEO-003 | Task | A | In Review |'],
+      ['| SEO-003 / PR #11 | Task | D | In Review |', '| SEO-003 / PR #12 | Task | A | In Review |'],
+    ]) {
+      const input = fixture({ rows })
+      expect(input.documents[0].active.map((ticket) => ticket.id)).toEqual(['SEO-003', 'SEO-003'])
+      const report = reconcile(input)
+      expect(report.wip).toBe(2)
+      expect(report.state).toBe('DRIFT')
+      expect(report.admission).toBe('blocked')
+      expect(report.findings.join(' ')).toContain('duplicate active ownership SEO-003')
+    }
+  })
+  it('allows distinct local tickets below the cap without alias double-counting', () => {
+    const report = reconcile(fixture({ rows: [
+      '| SEO-003 / PR #11 | Task | D | In Review |',
+      '| AUTH-001 | Task | A | In Progress |',
+    ] }))
+    expect(report.state).toBe('PASS')
+    expect(report.admission).toBe('available')
+    expect(report.wip).toBe(2)
+  })
   it('detects an unrecorded owning PR and cross-document ownership drift', () => {
     const input = fixture()
     input.snapshot.openPulls = [{ number: 12, closes: [10] }]
