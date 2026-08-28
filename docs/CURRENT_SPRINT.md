@@ -5,7 +5,7 @@
 **Updated:** 2026-08-28
 **Normal WIP limit:** Maximum three concurrent implementation tickets. The Evidence → Distribution initiative may use separate lanes only when scopes are orthogonal and one ticket per lane is active.
 **WIP cap:** 3
-**Current admission:** Two implementation PRs are active (PR #4457 in L2 factual/provenance and PR #4460 in L3 opportunity/measurement). One implementation slot is available, subject to dependency, lane-ownership, and incident checks.
+**Current admission:** Two implementation PRs are active (PR #4457 in L2 factual/provenance and PR #4463 in L4 presentation/experiments). One implementation slot is available, subject to dependency, lane-ownership, and incident checks.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -54,7 +54,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
 | L2 factual/provenance | PR #4457 | Preserve all approved canonical safety warnings | In Review | Complete canonical safety projection, exact claim/text identity, deterministic provenance, omission/mutation rejection, hosted governance gates |
-| L3 opportunity/measurement | PR #4460 | Block duplicate creative-angle reuse | In Review | Deterministic cohort normalization/dedupe, exact duplicate suppression, fallback/waiting behavior, unchanged scientific eligibility and attribution |
+| L4 presentation/experiments | PR #4463 | Add trust-safe thumbnail variants | In Review | Exact governed hook identity, deterministic variant IDs, crop-safe geometry, CTA prohibition, hosted governance gates |
 
 ## Ready next — strict dependency order
 
@@ -62,7 +62,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ### 3. L3 — #4407 attributable outcome ingestion
 
-**Start when:** the merged #4406 lifecycle receipt contract remains stable and a true WIP slot exists. Do not duplicate active PR #4460's L3 root problem.
+**Start when:** the merged #4406 lifecycle receipt contract remains stable and a true WIP slot exists.
 
 **Required result:**
 
@@ -146,6 +146,7 @@ The sprint exits only when all of the following are true or have a precise exter
 ## Recently retired from this sprint
 
 - **#4412 / PR #4446:** completed/merged as `96a07976dee22cf7b91c337c820cc83ff7e6b860`; machine reconciliation is on main and no longer occupies active WIP.
+- **#4460:** completed/merged as `48bebb81e35c4bd605dedbfc15156cabeb915b06`; duplicate-angle suppression is on main and no longer occupies active WIP.
 - **#4406:** completed; the governed ready → publish → measured lifecycle is merged and no longer occupies the ready queue.
 - **#4439 / PR #4440:** completed/merged; canonical claim/source binding no longer occupies an active slot.
 - **PR #4448:** closed unmerged; vertical MP4 implementation is preserved for later legal reuse and does not occupy active WIP.
