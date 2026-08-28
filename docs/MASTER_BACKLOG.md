@@ -46,12 +46,11 @@ Workstreams remain **D** Discovery/SEO, **R** Revenue/Conversion, **A** Authorit
 
 ## Now — active exact work
 
-Two implementation PRs are active. One slot remains available, subject to dependency, freshness, lane ownership, and incident overrides.
+One implementation PR is active. Two slots remain available, subject to dependency, freshness, lane ownership, and incident overrides.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
 | PR #4457 | Preserve all approved canonical safety warnings | R / L2 | In Review | P0 provenance | — | — | Canonical safety claimMap | Complete canonical safety projection; exact claim/text identity and deterministic provenance; omissions/mutations fail closed |
-| PR #4463 | Add trust-safe thumbnail variants | R / L4 | In Review | P1 growth presentation | — | — | Governed hook + lossless creative contract | Exact hook identity, stable visual variant IDs, crop-safe geometry, CTA prohibition, scientific authority unchanged |
 
 ## Next — ordered dependency queue
 
@@ -104,6 +103,7 @@ These are capability proofs, not claims of business impact.
 | Item | Verified disposition |
 |---|---|
 | #4412 / PR #4446 | Completed/merged as 96a07976dee22cf7b91c337c820cc83ff7e6b860 — machine reconciliation is on main; removed from `Now` |
+| #4463 | Completed/merged as f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1 — trust-safe thumbnail variants are on main; removed from `Now` |
 | #4460 | Completed/merged as 48bebb81e35c4bd605dedbfc15156cabeb915b06 — duplicate-angle suppression is on main; removed from `Now` |
 | #4406 | Completed — governed ready → publish → measured lifecycle merged; removed from `Next` |
 | #4439 / PR #4440 | Completed/merged — canonical claim/source binding; removed from `Now` |
