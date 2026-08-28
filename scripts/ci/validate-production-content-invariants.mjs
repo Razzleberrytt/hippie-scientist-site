@@ -3,10 +3,12 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { evaluateCorpus, recordIsPublished } from '../lib/production-content-invariants.mjs'
 import { evaluateRuntimeSourceRegistryReferences, ORPHANED_CANONICAL_SOURCE_REFERENCE } from '../lib/runtime-source-registry-audit.mjs'
+import { buildRuntimeSourceRemediationQueue } from '../lib/runtime-source-remediation-classifier.mjs'
 
 const root = process.cwd()
 const dataDir = path.resolve(root, process.argv.find((arg) => arg.startsWith('--data-dir='))?.slice(11) || 'public/data')
 const reportPath = path.join(root, 'reports/production-content-invariants.json')
+const remediationReportPath = path.join(root, 'reports/runtime-source-remediation-queue.json')
 
 function readJson(file) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return {} }
@@ -56,17 +58,17 @@ for (const finding of issues) counts[finding.code] = (counts[finding.code] || 0)
 
 const runtimeRegistryOrphans = issues
   .filter((finding) => finding.code === ORPHANED_CANONICAL_SOURCE_REFERENCE)
-  .map((finding) => ({
-    kind: finding.kind,
-    slug: finding.slug,
-    sourceId: finding.sourceId,
-    url: finding.url,
-  }))
-  .sort((a, b) =>
-    String(a.kind).localeCompare(String(b.kind)) ||
-    String(a.slug).localeCompare(String(b.slug)) ||
-    String(a.sourceId).localeCompare(String(b.sourceId)),
-  )
+  .map((finding) => ({ kind: finding.kind, slug: finding.slug, sourceId: finding.sourceId, url: finding.url }))
+  .sort((a, b) => String(a.kind).localeCompare(String(b.kind)) || String(a.slug).localeCompare(String(b.slug)) || String(a.sourceId).localeCompare(String(b.sourceId)))
+
+const sourceCandidatesRaw = readJson(path.join(root, 'ops/source-candidates.json'))
+const promotionReconciliationsRaw = readJson(path.join(root, 'ops/source-candidate-promotion-reconciliations.json'))
+const remediationQueue = buildRuntimeSourceRemediationQueue({
+  orphanRows: runtimeRegistryOrphans,
+  entries,
+  sourceCandidates: Array.isArray(sourceCandidatesRaw) ? sourceCandidatesRaw : [],
+  promotionReconciliations: Array.isArray(promotionReconciliationsRaw) ? promotionReconciliationsRaw : [],
+})
 
 const report = {
   generatedAt: new Date().toISOString(),
@@ -77,20 +79,33 @@ const report = {
   blockingFindings: blocking.length,
   counts,
   runtimeRegistryOrphans,
+  runtimeRegistryRemediation: {
+    orphanRows: remediationQueue.orphanRows,
+    uniqueAffectedProfiles: remediationQueue.uniqueAffectedProfiles,
+    uniqueOrphanSourceIds: remediationQueue.uniqueOrphanSourceIds,
+    publishedRows: remediationQueue.publishedRows,
+    safetyRelevantRows: remediationQueue.safetyRelevantRows,
+    humanEvidenceRelevantRows: remediationQueue.humanEvidenceRelevantRows,
+    countsByClass: remediationQueue.countsByClass,
+  },
   blocking,
   policy: {
     publishedClaims: 'A-grade, human-evidence, safety and dose claims must be backed by the required evidence class before indexation.',
     corpusIntegrity: 'Broken source references, malformed citation destinations, placeholders, duplicate canonical IDs, malformed scientific names and internal-development language are forbidden in the generated profile corpus.',
     runtimeRegistryIntegrity: 'Canonical-looking runtime source references are inventoried against the source registry. Missing registry identities are reported non-blocking until the legacy baseline is reconciled.',
+    runtimeRegistryRemediation: 'Orphan remediation classification is informational only. It prioritizes governed recovery work and never creates registry authority or changes public claims/indexability by itself.',
   },
 }
 fs.mkdirSync(path.dirname(reportPath), { recursive: true })
 fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`)
+fs.writeFileSync(remediationReportPath, `${JSON.stringify({ generatedAt: report.generatedAt, ...remediationQueue }, null, 2)}\n`)
 
 console.log(`[production-content-invariants] profiles=${report.profilesScanned}; published=${report.publishedProfiles}; registry=${report.sourceRegistryEntries}; findings=${report.findings}; blocking=${report.blockingFindings}`)
 for (const [code, count] of Object.entries(counts).sort((a, b) => b[1] - a[1])) console.log(`[production-content-invariants] ${code}: ${count}`)
 console.log(`[production-content-invariants] runtime registry orphan inventory: ${report.runtimeRegistryOrphans.length}`)
+console.log(`[production-content-invariants] remediation classes: ${Object.entries(remediationQueue.countsByClass).map(([state, count]) => `${state}=${count}`).join(', ')}`)
 console.log(`[production-content-invariants] report: ${path.relative(root, reportPath)}`)
+console.log(`[production-content-invariants] remediation queue: ${path.relative(root, remediationReportPath)}`)
 
 if (blocking.length) {
   console.error(`\n[production-content-invariants] FAILED — ${blocking.length} blocking invariant violation(s)`)
