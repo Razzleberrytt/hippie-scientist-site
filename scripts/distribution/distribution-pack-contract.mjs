@@ -291,6 +291,7 @@ export function validateDistributionPack(pack, options = {}) {
   if (clean(claim.publicSafeStatement) !== canonicalFinding) addError(errors, '$.claims[0].publicSafeStatement', 'v1 forbids free-form factual rewriting; statement must equal the canonical research-object finding')
   if (claim.strengthDelta !== 'none') addError(errors, '$.claims[0].strengthDelta', 'v1 permits no self-attested claim transformation')
   if (claim.evidenceContext !== evidenceContext) addError(errors, '$.claims[0].evidenceContext', `must be derived from canonical evidenceType ${clean(researchObject.evidenceType)}`)
+  if (clean(claim.evidenceGrade) !== clean(researchObject.evidenceGrade)) addError(errors, '$.claims[0].evidenceGrade', `must exactly equal canonical research-object evidenceGrade ${clean(researchObject.evidenceGrade)}`)
   if (claim.sourceRefs.length !== 1 || claim.sourceRefs[0] !== expectedSourceId) addError(errors, '$.claims[0].sourceRefs', 'must reference only the canonical research object')
   if (claim.consumerInstruction !== false) addError(errors, '$.claims[0].consumerInstruction', 'distribution packs never authorize consumer instructions')
 
