@@ -7,6 +7,7 @@ const BENEFIT_WORD = '(?:improve|improves|boost|boosts|reduce|reduces|relieve|re
 const SECOND_PERSON_BENEFIT_RE = new RegExp(`(?:\\b(?:you|your)\\b[^.!?\\n]{0,80}\\b${BENEFIT_WORD}\\b|\\b${BENEFIT_WORD}\\b[^.!?\\n]{0,80}\\b(?:you|your)\\b)`, 'i')
 const ABSOLUTE_SAFETY_RE = /\b(?:completely safe|totally safe|perfectly safe|100% safe|risk[- ]?free|no side effects?|harmless)\b/i
 const HUMAN_BENEFIT_RE = /\b(?:people|humans?|patients?|adults?|children|users?)\b[^.!?\n]{0,80}\b(?:improve|improves|boost|boosts|reduce|reduces|relieve|relieves|prevent|prevents|treat|treats|heal|heals|benefit|benefits)\b/i
+const UNBOUND_FACTUAL_LABEL_RE = /(?:\b(?:clinically|scientifically)\s+proven\b|\bproven\s+(?:safe|effective|efficacious)\b|\b(?:evidence|research)\s+(?:shows?|suggests?|proves?|supports?|demonstrates?)\b|\bstud(?:y|ies)\s+(?:shows?|suggests?|proves?|supports?|found|finds?|demonstrates?)\b|\b(?:improves?|boosts?|reduces?|relieves?|prevents?|treats?|heals?)\b[^.!?\n]{0,80}\b(?:sleep|stress|anxiety|focus|pain|symptoms?|outcomes?|health|risk)\b|\b(?:safe|effective|efficacious)\s+(?:for|in)\b)/i
 
 function clean(value) {
   return String(value ?? '').trim().replace(/\s+/g, ' ')
@@ -92,7 +93,9 @@ export function validateFactualAssetCopy(packInput, asset) {
     } else if (role === 'cta') {
       if (text !== clean(pack.cta?.label)) errors.push(`line ${index + 1} CTA must equal the governed CTA label`)
     } else if (role === 'label') {
-      if (line.factual === true) errors.push(`line ${index + 1} factual labels must be represented as governed claim, uncertainty, or safety lines`)
+      if (line.factual === true || UNBOUND_FACTUAL_LABEL_RE.test(text)) {
+        errors.push(`line ${index + 1} factual labels must be represented as governed claim, uncertainty, or safety lines`)
+      }
     } else {
       errors.push(`line ${index + 1} has unsupported role: ${role || '(empty)'}`)
     }
