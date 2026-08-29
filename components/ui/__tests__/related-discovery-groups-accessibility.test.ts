@@ -2,10 +2,12 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 const source = readFileSync('components/ui/RelatedDiscoveryGroups.tsx', 'utf8')
+const primitives = readFileSync('styles/editorial-primitives.css', 'utf8')
 
 describe('RelatedDiscoveryGroups accessibility contract', () => {
   it('keeps discovery links large, focusable, and directional', () => {
-    expect(source).toContain('min-h-11')
+    expect(source).toContain('hs-linklist')
+    expect(primitives).toMatch(/\.hs-linklist a\s*\{[\s\S]*?min-height:\s*2\.75rem;/)
     expect(source).toContain('focus-visible:ring-2')
     // The ring colour moved to a design token (--hs-gold). What the contract
     // needs is that the ring has a colour and stands off the element, not which

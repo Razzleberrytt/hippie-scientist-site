@@ -64,13 +64,13 @@ export default function RelatedDiscoveryGroups({
         <h2 className="text-lg font-semibold tracking-tight text-[color:var(--hs-ink)]">{title}</h2>
       </div>
 
-      <div className="mt-4 flex overflow-x-auto border-t border-[color:var(--hs-hairline)] pb-2 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-4">
+      <div className="mt-4 grid grid-cols-1 border-t border-[color:var(--hs-hairline)] md:grid-cols-2 lg:grid-cols-4">
         {visibleGroups.map((group, groupIndex) => {
           const description = getGroupDescription(group)
           return (
             <article
               key={group.title}
-              className="w-[15rem] shrink-0 border-r border-[color:var(--hs-hairline)] px-4 py-4 first:pl-0 last:border-r-0 md:w-auto md:shrink md:border-b md:last:border-b-0 lg:border-b-0 lg:even:border-r lg:[&:nth-child(4n)]:border-r-0"
+              className="min-w-0 border-b border-[color:var(--hs-hairline)] py-4 md:px-4 md:first:pl-0 md:[&:nth-child(2n)]:border-l md:[&:nth-last-child(-n+2)]:border-b-0 lg:border-b-0 lg:border-l lg:first:border-l-0 lg:[&:nth-child(2n)]:border-l"
             >
               <div className="flex items-baseline gap-2">
                 <span className="font-display text-xs tabular-nums text-[color:var(--hs-gold)]" aria-hidden="true">
@@ -82,27 +82,28 @@ export default function RelatedDiscoveryGroups({
                 <p className="mt-1 text-xs leading-5 text-[color:var(--hs-body)]">{description}</p>
               ) : null}
 
-              <div className="mt-3 divide-y divide-[color:var(--hs-hairline)]">
+              <ul className="hs-linklist mt-3">
                 {group.links.slice(0, 4).map((item) => {
                   const context = getDiscoveryLinkContext(item)
                   return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      prefetch={false}
-                      className="group flex min-h-11 items-center justify-between gap-3 py-2 text-sm font-medium text-[color:var(--tone-ink)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
-                    >
-                      <span className="min-w-0">
-                        <span className="block group-hover:underline group-hover:underline-offset-4">{item.label}</span>
-                        {context ? (
-                          <span className="mt-0.5 block text-[11px] font-normal leading-4 text-[color:var(--hs-body)]">{context}</span>
-                        ) : null}
-                      </span>
-                      <span aria-hidden="true" className="shrink-0 text-[color:var(--hs-body)] transition group-hover:translate-x-1 group-hover:text-[color:var(--hs-gold)]">→</span>
-                    </Link>
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        prefetch={false}
+                        className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+                      >
+                        <span className="min-w-0">
+                          <span className="block group-hover:underline group-hover:underline-offset-4">{item.label}</span>
+                          {context ? (
+                            <span className="hs-linklist__note">{context}</span>
+                          ) : null}
+                        </span>
+                        <span aria-hidden="true" className="hs-linklist__arrow transition group-hover:translate-x-1">→</span>
+                      </Link>
+                    </li>
                   )
                 })}
-              </div>
+              </ul>
             </article>
           )
         })}
