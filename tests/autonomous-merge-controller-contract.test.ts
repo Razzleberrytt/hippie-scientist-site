@@ -149,6 +149,8 @@ describe('autonomous merge controller contract', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
 
+    expect(workflow).toContain('types: [opened, synchronize, reopened, ready_for_review]')
+    expect(workflow).not.toContain('ready_for_review, edited')
     expect(workflow).toContain("cron: '*/10 * * * *'")
     expect(workflow).toContain('timeout-minutes: 5')
     expect(workflow).toContain("MERGE_POLL_SECONDS: '65'")
