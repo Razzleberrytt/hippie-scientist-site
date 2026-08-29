@@ -1,0 +1,50 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-luteolin-first-human-signal-20260829",
+  "createdAt": "2026-08-29T23:28:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-luteolin-phase1-safety-20260829",
+      "authoringPackId": "ap_bp_wp_compound_luteolin_src_pubmed_40046611",
+      "workpackId": "wp_compound_luteolin",
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "sourceId": "src_pubmed-40046611",
+      "topicType": "population_specific_note",
+      "claimType": "population_note",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A five-patient phase I study reported no observed adverse events during six months of 50 mg/day oral luteolin, but it is far too small for broad safety reassurance.",
+      "findingTextNormalized": "In a single-arm phase I study, five men with low- to intermediate-risk localized prostate cancer under active surveillance took 50 mg/day oral luteolin for 180 days. All completed treatment; the investigators reported no symptomatic adverse events and no significant changes in routine hematology or serum chemistry during follow-up. This establishes only a very small, population-specific short-term tolerability observation and cannot support a general low-toxicity conclusion for oral luteolin.",
+      "strengthLabel": "insufficient",
+      "populationContext": "Five men aged 60 to 78 years with localized low- to intermediate-risk prostate cancer managed with active surveillance.",
+      "usageContext": "Oral luteolin supplement 50 mg/day for six months in a single-arm phase I study.",
+      "safetyContext": "No observed adverse events in five participants is a weak tolerability observation, not evidence that uncommon, interaction-related, hepatic, bleeding, or long-term harms are absent.",
+      "uncertaintyNote": "No control group, only five participants, and six months of exposure. DHC Corporation supplied the dispensed luteolin supplements; preserve product-supply provenance during review.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-luteolin-prostate-efficacy-uncertain-20260829",
+      "authoringPackId": "ap_bp_wp_compound_luteolin_src_pubmed_40046611",
+      "workpackId": "wp_compound_luteolin",
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "sourceId": "src_pubmed-40046611",
+      "topicType": "unsupported_or_unclear_use",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "The five-patient uncontrolled luteolin phase I study produced mixed biopsy outcomes and cannot establish prostate-cancer efficacy.",
+      "findingTextNormalized": "After six months of 50 mg/day oral luteolin in five men on active surveillance, two patients had a favorable repeat-biopsy response, one had stable disease, and two showed progression requiring subsequent surgery. PSA and PSA-density changes were not statistically significant, and the study had no untreated control group. The investigators reported biomarker changes and proposed an efficacy signal, but the design and mixed clinical outcomes do not establish that luteolin suppresses prostate-cancer progression.",
+      "strengthLabel": "insufficient",
+      "populationContext": "Five men with localized low- to intermediate-risk prostate cancer under active surveillance.",
+      "usageContext": "Single-arm oral luteolin 50 mg/day for six months; no placebo or active comparator.",
+      "uncertaintyNote": "Extremely small uncontrolled phase I evidence is hypothesis-generating. Biomarker and within-person changes must not be promoted into an anticancer treatment claim or generalized to cancer prevention.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}

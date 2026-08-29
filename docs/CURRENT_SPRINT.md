@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-08-28
+**Updated:** 2026-08-29
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Frozen pending ownership reconciliation at the 2026-08-28T18:04Z GitHub snapshot. Existing PRs #4487 and #4494 both concern Revenue/Conversion; their separate distribution lanes do not satisfy the one-ticket-per-workstream rule. This record reports that overlap, does not authorize it, and admits no new implementation. Completed #4415 / PR #4492, #4414 / PR #4490, and #4477 / PR #4478 are retired below.
+**Current admission:** Reconciled to current GitHub state. The previously recorded overlapping Revenue/Conversion reviews are complete and no longer occupy Active. Numeric capacity alone does not admit new implementation; workstream ownership, dependencies, freshness, incident/control state, and exact-head validation remain mandatory.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,14 +49,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed WIP 2/3; admission frozen
+## Active — observed implementation WIP 0/3
 
-**Governance check:** Two existing Revenue/Conversion tickets overlap. Numeric reconciliation may report capacity, but it does not enforce workstream eligibility. No exception or fourth workstream is authorized; existing owners must reconcile the overlap before another implementation starts. Recording existing PRs here is not approval of their admission.
-
-| Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
-|---|---|---|---|---|
-| R / L3 opportunity selection | #4489 / PR #4487 | Platform-fit/cost selection | In Review | Observed/fallback provenance; unchanged scientific eligibility and source-page ranking; scoped regressions and hosted gates |
-| R / L4 presentation | #4493 / PR #4494 | Lossless creative layout-fit guard | In Review | Governed text preserved; bounded pagination; source/disclosure capacity; accessible type floors; scoped regressions and hosted gates |
+No implementation ticket is currently recorded as active in this control snapshot. A numeric slot does not by itself admit work; `Ready next` dependency/workstream rules and any incident/control freeze still apply.
 
 ## Ready next — strict dependency order
 
@@ -64,7 +59,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ### First bounded pilot package
 
-**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven and Revenue/Conversion is free. Existing PRs #4487 and #4494 still overlap in Revenue; numeric capacity does not authorize another Revenue ticket.
+**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven, Revenue/Conversion is free, and current admission checks allow the pilot.
 
 The first pilot should use already-governed research, deterministic assets, tagged destinations, durable lifecycle receipts, and an explicit observation window. It may be published only through a supported, attributable, policy-compliant path. If no provider integration/credentials are available, the sprint may complete the end-to-end dry-run and record the external execution blocker rather than inventing a live result.
 
