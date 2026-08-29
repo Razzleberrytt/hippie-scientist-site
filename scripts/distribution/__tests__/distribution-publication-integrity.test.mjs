@@ -5,11 +5,12 @@ import { describe, expect, it } from 'vitest'
 
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
 import { hashResearchObject, validateDistributionPack } from '../distribution-pack-contract.mjs'
-import { validateDistributionPublicationIntegrity } from '../distribution-publication-integrity.mjs'
+import { MAX_PUBLICATION_STATUS_AGE_DAYS, validateDistributionPublicationIntegrity } from '../distribution-publication-integrity.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const researchObjects = JSON.parse(fs.readFileSync(path.resolve(here, '../../../data/distribution/research-objects.json'), 'utf8'))
 const canonical = researchObjects.find((item) => item.id === 'ashwagandha-stress-evidence')
+const FIXED_NOW = new Date('2026-08-29T12:00:00Z')
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value))
@@ -21,7 +22,7 @@ describe('distribution publication integrity', () => {
     expect(pack.source.publicationStatus).toBe('published')
     expect(pack.source.publicationStatusCheckedAt).toBe('2026-08-29')
     expect(pack.source.publicationStatusAuthorityUrl).toBe('https://onlinelibrary.wiley.com/doi/abs/10.1002/ptr.7598')
-    expect(validateDistributionPublicationIntegrity(pack, canonical)).toEqual([])
+    expect(validateDistributionPublicationIntegrity(pack, canonical, { now: FIXED_NOW })).toEqual([])
   })
 
   it.each([
@@ -41,7 +42,35 @@ describe('distribution publication integrity', () => {
   ])('rejects schema-valid drift in %s', (field, value) => {
     const pack = buildDistributionPackFromResearchObject(canonical)
     pack.source[field] = value
-    expect(validateDistributionPublicationIntegrity(pack, canonical).join('\n')).toMatch(/must equal canonical/i)
+    expect(validateDistributionPublicationIntegrity(pack, canonical, { now: FIXED_NOW }).join('\n')).toMatch(/must equal canonical/i)
+  })
+
+  it.each([
+    '2026-02-30',
+    '2026-13-01',
+  ])('rejects impossible publication verification calendar date %s', (checkedAt) => {
+    const researchObject = clone(canonical)
+    const pack = buildDistributionPackFromResearchObject(canonical)
+    researchObject.publicationStatusCheckedAt = checkedAt
+    pack.source.publicationStatusCheckedAt = checkedAt
+    expect(validateDistributionPublicationIntegrity(pack, researchObject, { now: FIXED_NOW }).join('\n')).toMatch(/real YYYY-MM-DD calendar date/i)
+  })
+
+  it('rejects future-dated publication verification', () => {
+    const researchObject = clone(canonical)
+    const pack = buildDistributionPackFromResearchObject(canonical)
+    researchObject.publicationStatusCheckedAt = '2026-08-30'
+    pack.source.publicationStatusCheckedAt = '2026-08-30'
+    expect(validateDistributionPublicationIntegrity(pack, researchObject, { now: FIXED_NOW }).join('\n')).toMatch(/future-dated/i)
+  })
+
+  it('rejects stale published verification beyond the governed freshness window', () => {
+    const researchObject = clone(canonical)
+    const pack = buildDistributionPackFromResearchObject(canonical)
+    researchObject.publicationStatusCheckedAt = '2026-05-30'
+    pack.source.publicationStatusCheckedAt = '2026-05-30'
+    expect(MAX_PUBLICATION_STATUS_AGE_DAYS).toBe(90)
+    expect(validateDistributionPublicationIntegrity(pack, researchObject, { now: FIXED_NOW }).join('\n')).toMatch(/stale/i)
   })
 
   it.each([
@@ -65,7 +94,7 @@ describe('distribution publication integrity', () => {
     const pack = buildDistributionPackFromResearchObject(canonical)
     pack.source.publicationStatus = status
 
-    expect(validateDistributionPublicationIntegrity(pack, researchObject).join('\n')).toMatch(/not eligible for distribution/i)
+    expect(validateDistributionPublicationIntegrity(pack, researchObject, { now: FIXED_NOW }).join('\n')).toMatch(/not eligible for distribution/i)
   })
 
   it.each([
