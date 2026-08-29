@@ -41,6 +41,8 @@ import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import ProfileSafetyLine from '@/components/ui/ProfileSafetyLine'
+import SafetyCautionLevel, { safetyFactorsForRecord } from '@/components/ui/SafetyCautionLevel'
+import { getSafetySensitivity } from '@/lib/safety-classification'
 import EvidenceBackingNote from '@/components/ui/EvidenceBackingNote'
 import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
 import { buildProfileDecision } from '@/lib/profile-decision'
@@ -497,11 +499,11 @@ function RegulatoryStatusSection({ compound }: { compound: Record<string, unknow
   if (!federalParagraphs.length && !stateRows.length && !stateSummary) return null
 
   return (
-    <section className="rounded-2xl border border-red-200 bg-red-50/70 p-4 sm:p-5 space-y-5" aria-labelledby="regulatory-status-heading">
+    <section className="hs-panel border-l-[3px] border-l-[color:var(--accent-danger)]" aria-labelledby="regulatory-status-heading">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-wider text-red-800">Regulatory status</p>
-          <h2 id="regulatory-status-heading" className="mt-1 text-lg font-bold text-red-950">
+          <p className="hs-label">Regulatory status</p>
+          <h2 id="regulatory-status-heading" className="mt-1 font-semibold text-ink">
             2026 federal and state regulatory context
           </h2>
         </div>
@@ -519,19 +521,19 @@ function RegulatoryStatusSection({ compound }: { compound: Record<string, unknow
       </div>
 
       {stateSummary ? (
-        <div className="rounded-xl border border-red-200 bg-white/80 p-3 text-sm leading-6 text-red-950">
-          <strong>State-level pattern:</strong> {stateSummary}
-        </div>
+        <p className="border-l-[3px] border-l-[color:var(--accent-danger)] pl-3 text-sm leading-6 text-muted">
+          <strong className="text-ink">State-level pattern:</strong> {stateSummary}
+        </p>
       ) : null}
 
       {stateRows.length ? (
         <div className="space-y-3">
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4" aria-label="Regulatory table summary">
             {getRegulatorySummaryCards(stateRows).map((item) => (
-              <div key={item.label} className="rounded-xl border border-red-200 bg-white/80 p-3">
-                <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-red-800">{item.label}</p>
-                <p className="mt-1 text-xl font-bold text-red-950">{item.value}</p>
-                <p className="mt-1 text-xs leading-5 text-red-900">{item.detail}</p>
+              <div key={item.label} className="border-t border-[color:var(--hs-hairline)] pt-2">
+                <p className="hs-label">{item.label}</p>
+                <p className="mt-1 text-lg font-semibold text-ink">{item.value}</p>
+                <p className="mt-0.5 text-xs leading-5 text-muted">{item.detail}</p>
               </div>
             ))}
           </div>
@@ -569,9 +571,9 @@ function RegulatoryStatusSection({ compound }: { compound: Record<string, unknow
       ) : null}
 
       {changelog.length ? (
-        <div className="rounded-xl border border-red-200 bg-white/80 p-3">
-          <h3 className="text-sm font-bold text-red-950">Regulatory changelog</h3>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-red-950">
+        <div className="border-t border-[color:var(--hs-hairline)] pt-3">
+          <h3 className="font-semibold text-ink">Regulatory changelog</h3>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-muted">
             {changelog.map((entry) => <li key={entry}>{entry}</li>)}
           </ul>
         </div>
@@ -717,6 +719,8 @@ export default async function CompoundPage({ params }: PageProps) {
   const trustGuidance = buildCompoundTrustGuidance(compound, avoidIf)
   const mechanismHints = getMechanismHints(compound, mechanisms)
   const safetyTone = getSafetyTone(safetySummary, avoidIf, safetyLevel)
+  const safetySensitivity = getSafetySensitivity(compound as unknown as Record<string, unknown>)
+  const safetyFactors = safetyFactorsForRecord(compound as unknown as Record<string, unknown>)
 
   const breadcrumbId = `${SITE_URL}/compounds/${compound.slug}/#breadcrumb`
 
@@ -818,12 +822,12 @@ export default async function CompoundPage({ params }: PageProps) {
         />
 
         {/* Title Header */}
-        <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-sm sm:p-8 lg:p-10">
-          <header className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
+        <div className="hs-masthead hero-shell rounded-[1.25rem] border border-brand-900/10 p-5 shadow-sm sm:p-7 lg:p-8">
+          <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center">
             <div className="space-y-3">
               <div className="space-y-1">
-                <p className="eyebrow-label">Compound Profile</p>
-                <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                <p className="hs-label">Compound Profile</p>
+                <h1 className="font-semibold tracking-tight text-ink">
                   {displayName}
                 </h1>
                 {compound.compoundClass || compound.class ? (
@@ -849,13 +853,12 @@ export default async function CompoundPage({ params }: PageProps) {
             Rendered by the shared ProfileDecisionPanel so all profiles benefit. */}
         <ProfileDecisionPanel decision={profileDecision} name={displayName} />
 
-
         {legalStatusWarning ? (
-          <section className="rounded-2xl border border-red-200 bg-red-50 p-4 sm:p-5 space-y-3">
-            <h2 className="text-lg font-bold text-red-950">{legalStatusWarning.title}</h2>
-            <p className="text-sm leading-6 text-red-900">{legalStatusWarning.body}</p>
+          <section className="hs-panel border-l-[3px] border-l-[color:var(--accent-danger)]">
+            <h2 className="font-semibold text-ink">{legalStatusWarning.title}</h2>
+            <p className="text-sm leading-6 text-muted">{legalStatusWarning.body}</p>
             {legalStatusWarning.items ? (
-              <ul className="list-disc space-y-1 pl-5 text-sm leading-6 text-red-900">
+              <ul className="list-disc space-y-1 pl-5 text-sm leading-6 text-muted">
                 {legalStatusWarning.items.map((item) => <li key={item}>{item}</li>)}
               </ul>
             ) : null}
@@ -863,28 +866,28 @@ export default async function CompoundPage({ params }: PageProps) {
         ) : null}
 
         {normalizedSlug === '7-hydroxymitragynine' ? (
-          <section className="rounded-2xl border border-red-200 bg-white p-4 shadow-sm sm:p-5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-red-800">7-OH evidence hub</p>
-            <h2 className="mt-1 text-lg font-bold text-red-950">Read the full 7-OH monograph before interpreting this profile</h2>
-            <p className="mt-2 text-sm leading-6 text-red-900">
+          <section className="hs-panel border-l-[3px] border-l-[color:var(--accent-danger)]">
+            <p className="hs-label">7-OH evidence hub</p>
+            <h2 className="mt-1 font-semibold text-ink">Read the full 7-OH monograph before interpreting this profile</h2>
+            <p className="mt-2 text-sm leading-6 text-muted">
               This profile is intentionally scannable. For the broader evidence review, including whole-leaf kratom context, human pharmacokinetics, concentrated-product safety signals, and regulatory caveats, use the long-form monograph.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
                 href="/compounds/7-hydroxymitragynine/"
-                className="rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-950 hover:bg-red-100"
+                className="button-secondary inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-semibold"
               >
                 Full evidence monograph →
               </Link>
               <Link
                 href="/guides/kratom-7oh-withdrawal-management/"
-                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+                className="inline-flex min-h-11 items-center text-sm font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
               >
                 Withdrawal management guide →
               </Link>
               <Link
                 href="/guides/other/kratom-7oh-withdrawal-management/"
-                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+                className="inline-flex min-h-11 items-center text-sm font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
               >
                 Compare mitragynine vs 7-OH →
               </Link>
@@ -893,28 +896,28 @@ export default async function CompoundPage({ params }: PageProps) {
         ) : null}
 
         {normalizedSlug === 'mitragynine' || normalizedSlug === 'kratom' ? (
-          <section className="rounded-2xl border border-amber-200 bg-white p-4 shadow-sm sm:p-5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-amber-800">Kratom alkaloid evidence hub</p>
-            <h2 className="mt-1 text-lg font-bold text-amber-950">Use the long-form evidence pages for context</h2>
-            <p className="mt-2 text-sm leading-6 text-amber-900">
+          <section className="hs-panel hs-panel--caution">
+            <p className="hs-label">Kratom alkaloid evidence hub</p>
+            <h2 className="mt-1 font-semibold text-ink">Use the long-form evidence pages for context</h2>
+            <p className="mt-2 text-sm leading-6 text-muted">
               This profile is a reference overview only. Read the monograph and comparison page for human pharmacokinetic context, 7-OH metabolism, concentrated-product risk, and regulatory caveats.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
                 href="/compounds/mitragynine/"
-                className="rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-950 hover:bg-amber-100"
+                className="button-secondary inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-semibold"
               >
                 Mitragynine monograph →
               </Link>
               <Link
                 href="/guides/other/kratom-7oh-withdrawal-management/"
-                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+                className="inline-flex min-h-11 items-center text-sm font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
               >
                 Compare mitragynine vs 7-OH →
               </Link>
               <Link
                 href="/guides/kratom-7oh-withdrawal-management/"
-                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+                className="inline-flex min-h-11 items-center text-sm font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
               >
                 Withdrawal management guide →
               </Link>
@@ -923,23 +926,23 @@ export default async function CompoundPage({ params }: PageProps) {
         ) : null}
 
         {normalizedSlug === 'nicotine' ? (
-          <section className="rounded-2xl border border-amber-200 bg-white p-4 shadow-sm sm:p-5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-amber-800">Tobacco replacement context</p>
-            <h2 className="mt-1 text-lg font-bold text-amber-950">Replacing dip is a cessation strategy, not a vascular-health shortcut</h2>
-            <p className="mt-2 text-sm leading-6 text-amber-900">
+          <section className="hs-panel hs-panel--caution">
+            <p className="hs-label">Tobacco replacement context</p>
+            <h2 className="mt-1 font-semibold text-ink">Replacing dip is a cessation strategy, not a vascular-health shortcut</h2>
+            <p className="mt-2 text-sm leading-6 text-muted">
               This nicotine profile explains the compound. For a practical, safety-first comparison of nicotine replacement therapy,
               tobacco-free pouches, non-nicotine oral substitutes, and carotid artery risk context, read the dipping tobacco alternatives guide.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
                 href="/guides/other/healthy-dipping-tobacco-alternatives/"
-                className="rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-950 hover:bg-amber-100"
+                className="button-secondary inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-semibold"
               >
                 Healthy dip alternatives guide -&gt;
               </Link>
               <Link
                 href="/learn/product-quality/"
-                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+                className="inline-flex min-h-11 items-center text-sm font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline"
               >
                 Product quality checklist -&gt;
               </Link>
@@ -950,42 +953,43 @@ export default async function CompoundPage({ params }: PageProps) {
         <RegulatoryStatusSection compound={compound} />
 
         {/* Section 1: Quick Stats */}
-        <section id="quick-stats" className="hero-shell rounded-2xl border border-brand-900/10 p-5 sm:p-6 space-y-4">
-          <h2 className="text-lg font-bold text-ink">Quick Stats</h2>
-          <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence level</p>
-              <p className="mt-1 text-sm font-semibold text-ink">{evidenceLevel || 'Mixed or uncertain'}</p>
-              {/* Shared with herb profiles so an unbacked grade is disclosed the
-                  same way on both routes. */}
-              <EvidenceBackingNote
-                backed={compound.evidence_grade_backed as boolean | null | undefined}
-                gap={compound.evidence_grade_backing_gap as string | null | undefined}
-              />
+        {/* Quick stats — hairline definition rows, matching herb profiles. */}
+        <section id="quick-stats" className="card-premium scroll-mt-24 p-4 sm:p-5">
+          <h2 className="font-semibold text-ink">Quick stats</h2>
+          <dl className="hs-defs mt-3">
+            <div>
+              <dt>Evidence level</dt>
+              <dd>
+                {evidenceLevel || 'Mixed or uncertain'}
+                {/* Shared with herb profiles so an unbacked grade is disclosed
+                    the same way on both routes. */}
+                <EvidenceBackingNote
+                  backed={compound.evidence_grade_backed as boolean | null | undefined}
+                  gap={compound.evidence_grade_backing_gap as string | null | undefined}
+                />
+              </dd>
             </div>
-            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</p>
-              <p className="mt-1 text-sm font-semibold text-ink">{timeline || 'Varies by prep'}</p>
+            <div>
+              <dt>Typical onset</dt>
+              <dd>{timeline || 'Varies by prep'}</dd>
             </div>
-            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety rating</p>
-              <p className="mt-1 text-sm font-semibold text-ink">{safetyTone}: {safetyLevel || 'Safety review pending'}</p>
+            <div>
+              <dt>Safety rating</dt>
+              <dd>{safetyTone}: {safetyLevel || 'Safety review pending'}</dd>
             </div>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
             {effects.length > 0 && (
-              <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted font-semibold">Best for</p>
-                <p className="mt-1 text-sm text-ink">{effects.slice(0, 3).join(', ')}</p>
+              <div>
+                <dt>Best for</dt>
+                <dd>{effects.slice(0, 3).join(', ')}</dd>
               </div>
             )}
             {avoidIf.length > 0 && (
-              <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900 font-semibold">Avoid / review if</p>
-                <p className="mt-1 text-sm text-amber-900">{avoidIf.slice(0, 3).join(', ')}</p>
+              <div className="hs-defs--caution">
+                <dt>Avoid / review if</dt>
+                <dd>{avoidIf.slice(0, 3).join(', ')}</dd>
               </div>
             )}
-          </div>
+          </dl>
         </section>
 
         {/* Source herbs — internal links from the curated relationship map */}
@@ -993,7 +997,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
         {canonicalNote ? (
           <section className="card-premium p-4 sm:p-5 space-y-3">
-            <h2 className="text-lg font-bold text-ink">{canonicalNote.title}</h2>
+            <h2 className="font-semibold text-ink">{canonicalNote.title}</h2>
             <p className="text-sm leading-6 text-muted">{canonicalNote.body}</p>
             {canonicalNote.items ? (
               <ul className="list-disc space-y-1 pl-5 text-sm leading-6 text-muted">
@@ -1004,31 +1008,40 @@ export default async function CompoundPage({ params }: PageProps) {
         ) : null}
 
         {/* Section 2: Safety */}
-        <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
-          <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
+        <section id="safety" className="hs-panel hs-panel--caution scroll-mt-24">
+          <div className="space-y-2">
+            <p className="hs-label">Safety</p>
+            <h2 className="font-semibold text-ink">Safety &amp; Cautions</h2>
+            {trustGuidance.evidenceLabel ? null : (
+              <p className="text-sm leading-6 text-muted">{safetySummary}</p>
+            )}
+          </div>
+
+          <SafetyCautionLevel level={safetySensitivity} factors={safetyFactors} />
+
           {trustGuidance.evidenceLabel ? (
-            <div className="space-y-3 text-sm leading-6 text-amber-950">
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="rounded-xl border border-amber-900/10 bg-white/70 p-3">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900">Safety evidence</p>
-                  <p className="mt-1 font-semibold">{trustGuidance.evidenceLabel}</p>
+            <>
+              <dl className="hs-defs">
+                <div>
+                  <dt>Safety evidence</dt>
+                  <dd>{trustGuidance.evidenceLabel}</dd>
                 </div>
-                <div className="rounded-xl border border-amber-900/10 bg-white/70 p-3">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900">Who should avoid this?</p>
-                  <p className="mt-1">{trustGuidance.avoidSummary}</p>
+                <div>
+                  <dt>Who should avoid this?</dt>
+                  <dd>{trustGuidance.avoidSummary}</dd>
                 </div>
-              </div>
-              {trustGuidance.safetyDetail ? <p>{trustGuidance.safetyDetail}</p> : null}
-              {trustGuidance.providerGuidance ? (
-                <p className="rounded-xl border border-amber-900/10 bg-amber-100/70 px-3 py-2">
-                  <strong>Talk to a healthcare professional if:</strong>{' '}
-                  {trustGuidance.providerGuidance}
-                </p>
+                {trustGuidance.providerGuidance ? (
+                  <div className="hs-defs--caution">
+                    <dt>Talk to a professional if</dt>
+                    <dd>{trustGuidance.providerGuidance}</dd>
+                  </div>
+                ) : null}
+              </dl>
+              {trustGuidance.safetyDetail ? (
+                <p className="text-sm leading-6 text-muted">{trustGuidance.safetyDetail}</p>
               ) : null}
-            </div>
-          ) : (
-            <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
-          )}
+            </>
+          ) : null}
         </section>
 
         {interactionEdges.length > 0 && (
@@ -1036,9 +1049,9 @@ export default async function CompoundPage({ params }: PageProps) {
         )}
 
         {/* Section 3: Evidence Summary */}
-        <section id="evidence" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
+        <section id="evidence" className="card-premium hs-keep-frame scroll-mt-24 p-4 sm:p-5 space-y-3.5">
           <div className="flex items-center gap-2 flex-wrap">
-            <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
+            <h2 className="font-semibold text-ink">Evidence Summary</h2>
             <EvidenceScoreBadge record={compound} size="sm" />
           </div>
           <ProfileEvidenceLens
@@ -1089,7 +1102,7 @@ export default async function CompoundPage({ params }: PageProps) {
         {/* Section 3b: Mechanism Pathway Diagram */}
         {pathwayDiagram && (
           <section className="card-premium p-4 sm:p-5 space-y-3">
-            <h2 className="text-lg font-bold text-ink">How {displayName} Works</h2>
+            <h2 className="font-semibold text-ink">How {displayName} Works</h2>
             <p className="text-xs text-muted leading-5">
               Simplified mechanism pathway based on preclinical and pharmacological evidence. Does not confirm clinical efficacy.
             </p>
@@ -1100,83 +1113,79 @@ export default async function CompoundPage({ params }: PageProps) {
         {/* Section 3c: Dosing — the TOC has always advertised this anchor, but
             the section itself was never rendered, so every compound profile
             shipped a broken jump link and no answer to "how much?". */}
-        <section id="dosing" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-3">
-          <h2 className="text-lg font-bold text-ink">Dosing</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
+        <section id="dosing" className="card-premium scroll-mt-24 p-4 sm:p-5">
+          <h2 className="font-semibold text-ink">Dosing</h2>
+          <dl className="hs-defs mt-3">
             {dosePresentation.dose ? (
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Dose guidance</p>
-                <p className="mt-1 text-sm leading-6 text-ink">{dosePresentation.dose}</p>
+              <div>
+                <dt>Dose guidance</dt>
+                <dd>{dosePresentation.dose}</dd>
               </div>
             ) : null}
             {dosePresentation.form ? (
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Common form</p>
-                <p className="mt-1 text-sm leading-6 text-ink">{dosePresentation.form}</p>
+              <div>
+                <dt>Common form</dt>
+                <dd>{dosePresentation.form}</dd>
               </div>
             ) : null}
             {dosePresentation.note ? (
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-subtle)] p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">No standardized dose</p>
-                <p className="mt-1 text-sm leading-6 text-muted">{dosePresentation.note}</p>
+              <div>
+                <dt>No standardized dose</dt>
+                <dd className="text-[color:var(--hs-body)]">{dosePresentation.note}</dd>
               </div>
             ) : null}
-          </div>
+          </dl>
         </section>
 
         {/* Section 4: Mechanisms (Collapsible) */}
         {mechanismHints.length > 0 && (
-          <section id="mechanisms" className="card-premium p-4 sm:p-5">
-            <details className="group">
-              <summary className="flex cursor-pointer items-center justify-between font-bold text-ink text-lg select-none">
-                <span>Mechanisms &amp; Biological Pathways</span>
-                <span className="text-brand-500 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <div className="mt-4 pt-4 border-t border-brand-900/10 space-y-4">
-                <p className="text-sm leading-6 text-muted">
-                  Preclinical mechanism details from scientific profiles; these represent plausible pathways but do not guarantee clinical efficacy in humans.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {mechanismHints.map(m => (
-                    <span key={m} className="chip-readable text-xs">{m}</span>
-                  ))}
-                </div>
-              </div>
-            </details>
-          </section>
+          <details id="mechanisms" className="hs-disclosure scroll-mt-24">
+            <summary>
+              <span>Mechanisms &amp; biological pathways</span>
+              <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
+            </summary>
+            <div className="space-y-3">
+              <p className="text-xs leading-5 text-muted">
+                Preclinical mechanism details from scientific profiles; these represent plausible pathways but do not guarantee clinical efficacy in humans.
+              </p>
+              <ul className="hs-chips">
+                {mechanismHints.map(m => (
+                  <li key={m}><span className="hs-chip">{m}</span></li>
+                ))}
+              </ul>
+            </div>
+          </details>
         )}
 
-        {goalLinks.length > 0 ? (
-          <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {goalLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </section>
-        ) : null}
-
-        {conditionLinks.length > 0 ? (
-          <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
-                <Link
-                  key={link.slug}
-                  href={link.href || '/guides/'}
-                  className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
-                >
-                  {link.label || formatDisplayLabel(link.slug)}
-                </Link>
-              ))}
-            </div>
+        {goalLinks.length > 0 || conditionLinks.length > 0 ? (
+          <section id="goals" className="card-premium scroll-mt-24 p-4 sm:p-5">
+            <h2 className="font-semibold text-ink">Guides that use {displayName}</h2>
+            {goalLinks.length > 0 ? (
+              <div className="mt-3">
+                <p className="hs-label">Goal guides</p>
+                <ul className="hs-chips mt-2">
+                  {goalLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="hs-chip capitalize">{link.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {conditionLinks.length > 0 ? (
+              <div id="conditions" className="mt-4 scroll-mt-24">
+                <p className="hs-label">Condition guides</p>
+                <ul className="hs-chips mt-2">
+                  {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
+                    <li key={link.slug}>
+                      <Link href={link.href || '/guides/'} className="hs-chip">
+                        {link.label || formatDisplayLabel(link.slug)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </section>
         ) : null}
 
@@ -1190,7 +1199,7 @@ export default async function CompoundPage({ params }: PageProps) {
         {/* Section 5: Compare Nearby + CTA */}
         <section id="compare" className="card-premium p-4 sm:p-5 space-y-4">
           <div className="space-y-1">
-            <h2 className="text-lg font-bold text-ink">Compare &amp; Sourcing</h2>
+            <h2 className="font-semibold text-ink">Compare &amp; Sourcing</h2>
             <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
           </div>
           {!suppressAffiliate && <SourcingCta record={compound} displayName={displayName} />}
@@ -1257,10 +1266,10 @@ export default async function CompoundPage({ params }: PageProps) {
 
         {/* Affiliate CTA right after StackRecommendationSection */}
         {affiliateCtaLink && !suppressAffiliate && (
-          <section className="bg-emerald-50/50 border border-emerald-700/10 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <section className="flex flex-col justify-between gap-3 border-t border-[color:var(--hs-hairline)] pt-3 sm:flex-row sm:items-center sm:gap-4">
             <div className="space-y-1">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800">Sourcing Options</h4>
-              <p className="text-sm text-emerald-900/80">Compare options and check trusted third-party tested formats.</p>
+              <h4 className="hs-label">Sourcing options</h4>
+              <p className="text-sm leading-6 text-muted">Compare options and check trusted third-party tested formats.</p>
               <AffiliateDisclosure variant="compact" />
             </div>
             <a
@@ -1275,15 +1284,13 @@ export default async function CompoundPage({ params }: PageProps) {
         )}
 
         {suppressAffiliate ? (
-          <div className="rounded-2xl border border-red-200 bg-red-50 p-5 space-y-3">
-            <h3 className="text-lg font-bold text-red-950 flex items-center gap-2">
-              <span role="img" aria-label="Warning">⚠️</span> Sourcing Options Disabled for Safety
-            </h3>
-            <p className="text-sm leading-relaxed text-red-900">
+          <div className="hs-panel border-l-[3px] border-l-[color:var(--accent-danger)]">
+            <h3 className="font-semibold text-ink">Sourcing options disabled for safety</h3>
+            <p className="text-sm leading-6 text-muted">
               Direct product recommendations and affiliate links are suppressed for this compound due to its high caution or needs-review safety classification.
             </p>
-            <p className="text-xs text-red-800">
-              Evaluate the safety checks, contraindications, and potential medication interactions below under clinician supervision before use.
+            <p className="text-xs leading-5 text-muted">
+              Evaluate the safety checks, contraindications, and potential medication interactions above under clinician supervision before use.
             </p>
           </div>
         ) : revenueProducts ? (
@@ -1293,21 +1300,26 @@ export default async function CompoundPage({ params }: PageProps) {
               description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
               products={revenueProducts.products}
             />
-            <div className="rounded-2xl border border-brand-900/10 bg-white/85 p-5 space-y-3 shadow-sm">
-              <h4 className="text-sm font-bold text-ink uppercase tracking-wider">Product Form &amp; Quality Guidelines</h4>
+            <details className="hs-disclosure">
+              <summary>
+                <span>Product form &amp; quality guidelines</span>
+                <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
+              </summary>
+              <div>
               <p className="text-xs leading-relaxed text-muted">
                 When sourcing {displayName}, verify the label for:
               </p>
-              <ul className="list-disc pl-5 text-xs text-muted space-y-1">
+              <ul className="mt-2 list-disc pl-5 text-xs text-muted space-y-1">
                 <li><strong>Standardized Extract:</strong> Confirm active content percentages on the supplement facts panel (e.g. standardized to specific marker compounds) rather than simple raw herb weights.</li>
                 <li><strong>Third-Party Testing:</strong> Look for independent purity labels (USP, NSF, ConsumerLab, or Eurofins) to ensure the product is free from heavy metals, solvents, and contaminants.</li>
                 <li><strong>Form Bioavailability:</strong> Ensure the form matches evidence-supported configurations (e.g. chelated bisglycinate/glycinate for magnesium, micronized monohydrate for creatine) for optimal onset and digestion tolerance.</li>
               </ul>
-            </div>
+              </div>
+            </details>
           </div>
         ) : null}
 
-        <Disclaimer className="border-amber-900/15 bg-amber-50/70 !text-amber-950 [&_p]:!text-amber-950 [&_a]:!text-brand-800 mt-6" />
+        <Disclaimer className="mt-4" />
         <AuthorCredentials />
 
         <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">

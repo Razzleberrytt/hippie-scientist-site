@@ -49,13 +49,15 @@ function loadTurnstileScript() {
   document.head.appendChild(script)
 }
 
+/* One CTA container language. Mobile stays flat (hairline + space); enclosure
+   only appears once there is room for it to read as intentional. */
 const variantClasses: Record<NonNullable<NewsletterSignupProps['variant']>, string> = {
-  card: 'border-y border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_66%,transparent)] px-4 py-6 sm:rounded-[1.5rem] sm:border sm:p-8',
-  inline: 'border-y border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_66%,transparent)] px-4 py-5 sm:rounded-[1.25rem] sm:border sm:p-5',
+  card: 'border-t border-[color:var(--hs-hairline-strong)] pt-4 sm:rounded-[var(--hs-radius)] sm:border sm:bg-[color:color-mix(in_srgb,var(--hs-surface)_66%,transparent)] sm:p-6',
+  inline: 'border-t border-[color:var(--hs-hairline-strong)] pt-4 sm:rounded-[var(--hs-radius)] sm:border sm:bg-[color:color-mix(in_srgb,var(--hs-surface)_66%,transparent)] sm:p-5',
   footer: 'rounded-xl border border-white/10 bg-white/5 p-4',
-  compact: 'rounded-2xl border border-[color:color-mix(in_srgb,var(--tone)_22%,var(--hs-hairline))] bg-[color:color-mix(in_srgb,var(--tone)_6%,var(--hs-surface))] p-4',
+  compact: 'rounded-[var(--hs-radius)] border border-[color:var(--hs-hairline-strong)] bg-[color:color-mix(in_srgb,var(--tone)_5%,var(--hs-surface))] p-4',
   editorial:
-    'rounded-[1.75rem] border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_84%,transparent)] p-5 shadow-[0_12px_32px_-26px_rgba(49,42,52,0.28)] sm:p-7',
+    'border-t border-[color:var(--hs-hairline-strong)] pt-4 sm:rounded-[var(--hs-radius)] sm:border sm:bg-[color:color-mix(in_srgb,var(--hs-surface)_84%,transparent)] sm:p-6',
 }
 
 export default function NewsletterSignup({
@@ -189,13 +191,13 @@ export default function NewsletterSignup({
 
   return (
     <section className={`${variantClasses[variant]} ${className}`} data-signup-location={resolvedLocation}>
-      <div className='grid gap-5 lg:grid-cols-[1fr_0.9fr] lg:items-center'>
+      <div className='grid gap-4 lg:grid-cols-[1fr_0.9fr] lg:items-center'>
         <div>
-          <p className={`text-xs font-bold uppercase tracking-[0.18em] ${accentTextClass}`}>
+          <p className={`text-[0.7rem] font-bold uppercase tracking-[0.13em] ${accentTextClass}`}>
             Free safety checklist
           </p>
-          <h2 className={`mt-2 text-lg font-semibold leading-tight ${textColor} sm:text-2xl`}>{title}</h2>
-          <p className={`mt-3 text-sm leading-7 ${mutedColor}`}>{description}</p>
+          <h2 className={`mt-1.5 text-[1.05rem] font-semibold leading-snug ${textColor} sm:text-xl`}>{title}</h2>
+          <p className={`mt-2 text-sm leading-6 ${mutedColor}`}>{description}</p>
           <p className={`mt-2 text-xs leading-5 ${mutedColor}`}>
             {safetyChecklistLeadMagnet.privacyNote}{' '}
             <Link href='/info/privacy/' className={linkClass}>

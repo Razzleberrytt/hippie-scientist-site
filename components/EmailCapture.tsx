@@ -31,9 +31,9 @@ export default function EmailCapture({
         description={description}
         ctaLabel={ctaLabel}
         location={location}
-        className={`${showPreferredSource ? 'mb-4' : 'mb-20 md:mb-0'} ${className}`}
+        className={`${showPreferredSource ? 'mb-4' : 'mb-6 md:mb-0'} ${className}`}
       />
-      {showPreferredSource ? <GooglePreferredSourceButton className='mb-20 md:mb-0' /> : null}
+      {showPreferredSource ? <GooglePreferredSourceButton className='mb-6 md:mb-0' /> : null}
     </>
   )
 }

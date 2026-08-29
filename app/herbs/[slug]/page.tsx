@@ -38,7 +38,7 @@ import { SourcingCta } from '../../../components/sourcing/SourcingCta'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '../../../components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
-import SafetyGaugeMeter from '@/components/ui/SafetyGaugeMeter'
+import SafetyCautionLevel, { safetyFactorsForRecord } from '@/components/ui/SafetyCautionLevel'
 import ProfileSafetyLine from '@/components/ui/ProfileSafetyLine'
 import EvidenceBackingNote from '@/components/ui/EvidenceBackingNote'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
@@ -267,12 +267,6 @@ function getSafetyTone(summary: string, avoidIf: string[], sensitivity: string) 
   return 'Standard caution'
 }
 
-function getSafetyGaugeScore(sensitivity: string): { score: number; label: string } {
-  if (/low/i.test(sensitivity)) return { score: 90, label: 'Low caution — well tolerated' }
-  if (/moderate/i.test(sensitivity)) return { score: 60, label: 'Moderate caution — review before use' }
-  return { score: 28, label: 'High caution — review carefully' }
-}
-
 function getTopUses(herb: Herb) {
   const terms = unique([...getEffects(herb), ...getTraditionalUses(herb), ...deriveResearchFocusAreas({ profile: herb })])
   const selected: string[] = []
@@ -453,7 +447,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const topUses = getTopUses(herb)
   const profileDecision = buildProfileDecision(herbRecord as Record<string, unknown>, 'herb')
   const safetyTone = getSafetyTone(safetySummary, avoidIf, safetySensitivity)
-  const safetyGaugeScore = getSafetyGaugeScore(safetySensitivity)
+  const safetyFactors = safetyFactorsForRecord(herb as unknown as Record<string, unknown>)
   const relatedHerbLinks = getRelatedLinks(relatedHerbs, 'herb')
   const revenueProducts = getRevenueProductSet(normalizedSlug)
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
@@ -553,7 +547,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
 
   return (
-    <div className="mx-auto max-w-4xl lg:max-w-6xl space-y-6 px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-4xl lg:max-w-6xl space-y-4 px-4 pb-12 pt-5 sm:space-y-5">
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
       <HerbSchemaGenerator
@@ -573,20 +567,20 @@ export default async function HerbDetailPage({ params }: PageProps) {
       ) : null}
 
       <div className="flex gap-8 items-start">
-        <div className="flex-1 min-w-0 space-y-6">
+        <div className="flex-1 min-w-0 space-y-4 sm:space-y-5">
       {/* Title Header — includes the quick-stat strip so the essentials fit in one screen */}
-      <div id="overview" className="profile-hero hero-shell scroll-mt-24 rounded-[2rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
-        <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
+      <div id="overview" className="hs-masthead hero-shell scroll-mt-24 rounded-[1.25rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
+        <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
           <div className="space-y-3">
             <div className="space-y-1">
-              <p className="eyebrow-label">Herb Profile</p>
-              <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              <p className="hs-label">Herb Profile</p>
+              <h1 className="font-semibold tracking-tight text-ink">
                 {displayName}
               </h1>
               {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
             </div>
-            <p className="text-base leading-7 text-muted">{briefSummary}</p>
-            <div className="flex flex-wrap items-center gap-3">
+            <p className="text-[0.95rem] leading-7 text-muted">{briefSummary}</p>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
               <EvidenceScoreBadge record={herbRecord} />
             </div>
@@ -596,40 +590,43 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 safety hierarchy. */}
             <ProfileSafetyLine tone={safetyTone} summary={safetySummary} />
 
-            {/* Quick stats strip */}
-            <dl className="profile-quick-stats grid gap-2 sm:grid-cols-3">
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2">
-                <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence</dt>
-                <dd className="mt-0.5 text-sm font-semibold text-ink">{evidenceStrength || 'Mixed or uncertain'}</dd>
-                {/* Where the recorded studies do not demonstrate the grade, say
-                    so here rather than only inside the collapsed study-design
-                    block, which most of these records do not render at all. */}
-                <EvidenceBackingNote
-                  backed={herb.evidence_grade_backed as boolean | null | undefined}
-                  gap={herb.evidence_grade_backing_gap as string | null | undefined}
-                />
+            {/* Quick stats — hairline definition rows rather than a grid of small
+                bordered cards, so the essentials stay scannable on a phone. */}
+            <dl className="hs-defs">
+              <div>
+                <dt>Evidence</dt>
+                <dd>
+                  {evidenceStrength || 'Mixed or uncertain'}
+                  {/* Where the recorded studies do not demonstrate the grade, say
+                      so here rather than only inside the collapsed study-design
+                      block, which most of these records do not render at all. */}
+                  <EvidenceBackingNote
+                    backed={herb.evidence_grade_backed as boolean | null | undefined}
+                    gap={herb.evidence_grade_backing_gap as string | null | undefined}
+                  />
+                </dd>
               </div>
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2">
-                <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</dt>
-                <dd className="mt-0.5 text-sm font-semibold text-ink">{timeline || 'Varies by prep'}</dd>
+              <div>
+                <dt>Typical onset</dt>
+                <dd>{timeline || 'Varies by prep'}</dd>
               </div>
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2">
-                <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety rating</dt>
-                <dd className="mt-0.5 text-sm font-semibold text-ink">{formatDisplayLabel(safetySensitivity)} caution</dd>
+              <div>
+                <dt>Safety rating</dt>
+                <dd>{formatDisplayLabel(safetySensitivity)} caution</dd>
               </div>
               {topUses.length > 0 && (
-                <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2 sm:col-span-2">
-                  <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Best for</dt>
-                  <dd className="mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-ink">
-                    <CircleCheck aria-hidden="true" className="h-4 w-4 shrink-0 text-emerald-700 dark:text-emerald-200" strokeWidth={1.75} />
-                    {topUses.slice(0, 4).join(', ')}
+                <div>
+                  <dt>Best for</dt>
+                  <dd className="flex items-baseline gap-1.5">
+                    <CircleCheck aria-hidden="true" className="h-4 w-4 shrink-0 translate-y-0.5 text-emerald-700 dark:text-emerald-200" strokeWidth={1.75} />
+                    <span>{topUses.slice(0, 4).join(', ')}</span>
                   </dd>
                 </div>
               )}
               {avoidIf.length > 0 && (
-                <div className={`rounded-xl border border-amber-600/25 bg-amber-50/60 px-3 py-2 dark:border-amber-300/20 dark:bg-amber-300/10 ${topUses.length > 0 ? '' : 'sm:col-span-2'}`}>
-                  <dt className="text-[10px] font-bold uppercase tracking-wider text-amber-900 dark:text-amber-100">Avoid / review if</dt>
-                  <dd className="mt-0.5 text-sm text-amber-900 dark:text-amber-100">{avoidIf.slice(0, 3).join(', ')}</dd>
+                <div className="hs-defs--caution">
+                  <dt>Avoid / review if</dt>
+                  <dd>{avoidIf.slice(0, 3).join(', ')}</dd>
                 </div>
               )}
             </dl>
@@ -645,41 +642,37 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       <ProfileTOC items={tocItems} variant="mobile" />
 
-
       {normalizedSlug === 'ashwagandha' && (
-        <section className="card-premium p-4 sm:p-5">
-          <details className="group">
-            <summary className="flex cursor-pointer items-center justify-between gap-4 text-lg font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
-              <span>Evidence deep dive: the stress claim</span>
-              <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
-            </summary>
-            <div className="mt-4 border-t border-brand-900/10 pt-4">
-              <AshwagandhaStressClaim />
-            </div>
-          </details>
-        </section>
+        <details className="hs-disclosure">
+          <summary>
+            <span>Evidence deep dive: the stress claim</span>
+            <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
+          </summary>
+          <div>
+            <AshwagandhaStressClaim />
+          </div>
+        </details>
       )}
 
       {expansion ? (
-        <section id="editorial-review" className="card-premium scroll-mt-24 p-4 sm:p-5">
-          <details className="group">
-            <summary className="flex cursor-pointer items-center justify-between gap-4 text-lg font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
-              <span>Expanded editorial review</span>
-              <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
-            </summary>
-            <div className="mt-5 space-y-5 border-t border-brand-900/10 pt-5">
-          <div className="space-y-2">
-            <h2 className="text-lg font-bold text-ink">What this profile is built to answer</h2>
+        <details id="editorial-review" className="hs-disclosure scroll-mt-24">
+          <summary>
+            <span>Expanded editorial review</span>
+            <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
+          </summary>
+            <div className="space-y-5">
+          <div className="space-y-1.5">
+            <h3 className="font-semibold text-ink">What this profile is built to answer</h3>
             <p className="text-sm leading-6 text-muted">{expansion.intent}</p>
           </div>
-          <div className="grid gap-3 md:grid-cols-3">
+          <ul className="hs-linklist hs-linklist--split list-none">
             {expansion.methodology.map((item) => (
-              <div key={item} className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3 text-xs leading-5 text-muted">{item}</div>
+              <li key={item} className="border-b border-[color:var(--hs-hairline)] py-2 text-xs leading-5 text-muted">{item}</li>
             ))}
-          </div>
-          <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-[var(--surface-card)]">
+          </ul>
+          <div className="overflow-x-auto rounded-[var(--profile-radius)] border border-[color:var(--hs-hairline)]">
             <table className="min-w-[760px] w-full text-left text-sm">
-              <thead className="bg-brand-50/60 text-xs font-bold uppercase tracking-wider text-muted">
+              <thead className="text-xs font-bold uppercase tracking-wider text-muted">
                 <tr>
                   <th className="px-4 py-3">Use case</th>
                   <th className="px-4 py-3">Evidence</th>
@@ -688,7 +681,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
                   <th className="px-4 py-3">Safety context</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-brand-900/5">
+              <tbody>
                 {expansion.evidenceRows.map((row) => (
                   <tr key={row.name}>
                     <td className="px-4 py-3 font-semibold text-ink">{row.name}</td>
@@ -701,70 +694,76 @@ export default async function HerbDetailPage({ params }: PageProps) {
               </tbody>
             </table>
           </div>
-          <div className="grid gap-4 lg:grid-cols-2">
-            <div className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4">
-              <h3 className="font-bold text-ink">Product and form choices</h3>
-              <div className="mt-3 space-y-3">
+          <div className="grid gap-5 lg:grid-cols-2">
+            <div>
+              <h3 className="font-semibold text-ink">Product and form choices</h3>
+              <dl className="hs-defs mt-2">
                 {expansion.comparisonRows.map((row) => (
-                  <div key={row.scenario} className="border-t border-brand-900/10 pt-3 first:border-t-0 first:pt-0">
-                    <p className="text-xs font-bold uppercase tracking-wider text-muted">{row.scenario}</p>
-                    <p className="mt-1 text-sm font-semibold text-ink">{row.firstChoice}</p>
-                    <p className="mt-1 text-xs leading-5 text-muted">{row.why}</p>
+                  <div key={row.scenario}>
+                    <dt>{row.scenario}</dt>
+                    <dd>
+                      {row.firstChoice}
+                      <span className="hs-defs__note">{row.why}</span>
+                    </dd>
                   </div>
                 ))}
-              </div>
+              </dl>
             </div>
-            <div className="rounded-2xl border border-amber-900/10 bg-amber-50/70 p-4">
-              <h3 className="font-bold text-amber-950">Safety checks</h3>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-xs leading-5 text-amber-900/90">
+            <div className="hs-panel hs-panel--caution">
+              <h3 className="font-semibold text-ink">Safety checks</h3>
+              <ul className="list-disc space-y-1.5 pl-5 text-xs leading-5 text-muted">
                 {expansion.safetyNotes.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </div>
           </div>
-          <div className="grid gap-4 lg:grid-cols-2">
-            <div className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4">
-              <h3 className="font-bold text-ink">How to choose a product</h3>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-xs leading-5 text-muted">
+          <div className="grid gap-5 lg:grid-cols-2">
+            <div>
+              <h3 className="font-semibold text-ink">How to choose a product</h3>
+              <ul className="mt-2 list-disc space-y-1.5 pl-5 text-xs leading-5 text-muted">
                 {expansion.buyerChecklist.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </div>
-            <div className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4">
-              <h3 className="font-bold text-ink">References</h3>
-              <ul className="mt-3 space-y-2 text-xs leading-5">
+            <div>
+              <h3 className="font-semibold text-ink">References</h3>
+              <ul className="hs-linklist mt-2">
                 {expansion.references.map((ref) => (
                   <li key={ref.href}>
-                    <a href={ref.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 hover:underline">{ref.label}</a>
+                    <a href={ref.href} target="_blank" rel="noopener noreferrer">
+                      <span>{ref.label}</span>
+                      <span aria-hidden="true" className="hs-linklist__arrow">↗</span>
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
             </div>
-          </details>
-        </section>
+        </details>
       ) : null}
 
-      {/* Section 2: Safety */}
-      <section id="safety" className="scroll-mt-24 rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-          <div className="flex-1 space-y-2">
-            <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
-            <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
-          </div>
-          <SafetyGaugeMeter score={safetyGaugeScore.score} label={safetyGaugeScore.label} className="shrink-0 sm:w-44" />
+      {/* Section 2: Safety — the one section that keeps a hard frame at every
+          width, because enclosure is meaningful here. */}
+      <section id="safety" className="hs-panel hs-panel--caution scroll-mt-24">
+        <div className="space-y-2">
+          <p className="hs-label">Safety</p>
+          <h2 className="font-semibold text-ink">Safety &amp; Cautions</h2>
+          <p className="text-sm leading-6 text-muted">{safetySummary}</p>
         </div>
+
+        <SafetyCautionLevel level={safetySensitivity} factors={safetyFactors} />
+
         {safetyGroups.length > 0 && (
-          <details className="group mt-4 border-t border-amber-900/10 pt-3">
-            <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-bold text-amber-950 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700/40 focus-visible:rounded">
+          <details className="hs-disclosure">
+            <summary>
               <span>Detailed safety fields</span>
-              <span aria-hidden="true" className="transition-transform group-open:rotate-180">v</span>
+              <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
             </summary>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
               {safetyGroups.map(group => (
-                <div key={group.title} className="space-y-1.5">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-amber-900 font-semibold">{group.title}</h3>
-                  <ul className="space-y-1 text-xs text-amber-900">
-                    {group.items.map(item => <li key={item}>- {item}</li>)}
+                <div key={group.title} className="space-y-1">
+                  <h3 className="hs-label">{group.title}</h3>
+                  <ul className="list-disc space-y-1 pl-4 text-xs leading-5 text-muted">
+                    {group.items.map(item => <li key={item}>{item}</li>)}
                   </ul>
                 </div>
               ))}
@@ -779,9 +778,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </div>
       )}
 
-      {/* Section 3: Evidence Summary */}
-      <section id="evidence" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
-        <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
+      {/* Section 3: Evidence Summary — the visual hero of the profile. */}
+      <section id="evidence" className="card-premium hs-keep-frame scroll-mt-24 p-4 sm:p-5 space-y-3.5">
+        <div className="space-y-1">
+          <p className="hs-label">Evidence</p>
+          <h2 className="font-semibold text-ink">Evidence Summary</h2>
+        </div>
         <ProfileEvidenceLens
           record={herbRecord}
           evidenceLevel={evidenceStrength}
@@ -791,12 +793,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
         />
 
         {(herb.evidence_design_match && herb.evidence_risk_of_bias) || herb.trial_design_insight ? (
-          <details className="group rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4">
-            <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
+          <details className="hs-disclosure">
+            <summary>
               <span>Study design details</span>
-              <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
+              <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
             </summary>
-            <div className="mt-4 space-y-4 border-t border-brand-900/10 pt-4">
+            <div className="space-y-4">
         {/* `grade` is passed raw and normalized inside the component. There is
             deliberately no `|| 'C'` fallback: defaulting asserted a
             Limited-Evidence grade the record never carried. */}
@@ -831,123 +833,110 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </section>
 
       {(dosingSummary || timeline) ? (
-        <section id="dosing" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-3">
-          <h2 className="text-lg font-bold text-ink">Dosing &amp; Timing</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
+        <section id="dosing" className="card-premium scroll-mt-24 p-4 sm:p-5">
+          <h2 className="font-semibold text-ink">Dosing &amp; Timing</h2>
+          <dl className="hs-defs mt-3">
             {dosePresentation.dose ? (
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Dose guidance</p>
-                <p className="mt-1 text-sm leading-6 text-ink">{dosePresentation.dose}</p>
+              <div>
+                <dt>Dose guidance</dt>
+                <dd>{dosePresentation.dose}</dd>
               </div>
             ) : null}
             {dosePresentation.form ? (
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Common form</p>
-                <p className="mt-1 text-sm leading-6 text-ink">{dosePresentation.form}</p>
+              <div>
+                <dt>Common form</dt>
+                <dd>{dosePresentation.form}</dd>
               </div>
             ) : null}
             {dosePresentation.note ? (
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-subtle)] p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">No standardized dose</p>
-                <p className="mt-1 text-sm leading-6 text-muted">{dosePresentation.note}</p>
+              <div>
+                <dt>No standardized dose</dt>
+                <dd className="text-[color:var(--hs-body)]">{dosePresentation.note}</dd>
               </div>
             ) : null}
             {timeline ? (
-              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Timing / onset</p>
-                <p className="mt-1 text-sm leading-6 text-ink">{timeline}</p>
+              <div>
+                <dt>Timing / onset</dt>
+                <dd>{timeline}</dd>
               </div>
             ) : null}
-          </div>
+          </dl>
         </section>
       ) : null}
 
       {/* Section 3b: Mechanism Pathway Diagram */}
       {pathwayDiagram && (
-        <section id="pathway" className="card-premium scroll-mt-24 p-4 sm:p-5">
-          <details className="group">
-            <summary className="flex cursor-pointer items-center justify-between gap-4 text-lg font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
-              <span>How {displayName} Works</span>
-              <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
-            </summary>
-            <div className="mt-4 space-y-3 border-t border-brand-900/10 pt-4">
-              <p className="text-xs text-muted leading-5">
-                Simplified mechanism pathway based on preclinical and pharmacological evidence. Does not confirm clinical efficacy.
-              </p>
-              <PathwayDiagram data={pathwayDiagram} />
-            </div>
-          </details>
-        </section>
+        <details id="pathway" className="hs-disclosure scroll-mt-24">
+          <summary>
+            <span>How {displayName} works</span>
+            <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
+          </summary>
+          <div className="space-y-3">
+            <p className="text-xs text-muted leading-5">
+              Simplified mechanism pathway based on preclinical and pharmacological evidence. Does not confirm clinical efficacy.
+            </p>
+            <PathwayDiagram data={pathwayDiagram} />
+          </div>
+        </details>
       )}
 
       {/* Section 4: Mechanisms (Collapsible) */}
       {mechanisms.length > 0 && (
-        <section id="mechanisms" className="card-premium p-4 sm:p-5">
-          <details className="group">
-            <summary className="flex cursor-pointer items-center justify-between font-bold text-ink text-lg select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
-              <span>Mechanisms &amp; Biological Pathways</span>
-              <span aria-hidden="true" className="text-brand-500 group-open:rotate-180 transition-transform">▼</span>
-            </summary>
-            <div className="mt-4 pt-4 border-t border-brand-900/10 space-y-4">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="inline-flex items-center rounded-full border border-amber-500/30 bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-800">
-                  Preclinical pathways
-                </span>
-                <p className="text-xs text-muted">
-                  Proposed mechanisms from in vitro and animal research; these do not confirm clinical outcomes in humans.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {mechanisms.map(m => (
-                  <span key={m} className="chip-readable text-xs">{m}</span>
-                ))}
-              </div>
-            </div>
-          </details>
-        </section>
+        <details id="mechanisms" className="hs-disclosure scroll-mt-24">
+          <summary>
+            <span>Mechanisms &amp; biological pathways</span>
+            <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
+          </summary>
+          <div className="space-y-3">
+            <p className="text-xs leading-5 text-muted">
+              <span className="font-semibold text-ink">Preclinical pathways.</span>{' '}
+              Proposed mechanisms from in vitro and animal research; these do not confirm clinical outcomes in humans.
+            </p>
+            <ul className="hs-chips">
+              {mechanisms.map(m => (
+                <li key={m}><span className="hs-chip">{m}</span></li>
+              ))}
+            </ul>
+          </div>
+        </details>
       )}
 
       {/* Active compounds — internal links from the curated relationship map */}
       <div id="compounds" className="scroll-mt-24"><HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} /></div>
 
       {goalLinks.length > 0 || conditionLinks.length > 0 ? (
-        <section id="goals" className="scroll-mt-24 rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5 space-y-3">
+        <section id="goals" className="card-premium scroll-mt-24 p-4 sm:p-5">
+          <h2 className="font-semibold text-ink">Guides that use {displayName}</h2>
           {goalLinks.length > 0 ? (
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
-              <div className="mt-2 flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
+            <div className="mt-3">
+              <p className="hs-label">Goal guides</p>
+              <ul className="hs-chips mt-2">
                 {goalLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="shrink-0 whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
-                  >
-                    {link.label}
-                  </Link>
+                  <li key={link.href}>
+                    <Link href={link.href} className="hs-chip capitalize">{link.label}</Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ) : null}
           {conditionLinks.length > 0 ? (
-            <div id="conditions" className="scroll-mt-24">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
-              <div className="mt-2 flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
+            <div id="conditions" className="mt-4 scroll-mt-24">
+              <p className="hs-label">Condition guides</p>
+              <ul className="hs-chips mt-2">
                 {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
-                  <Link
-                    key={link.slug}
-                    href={link.href || '/guides/'}
-                    className="shrink-0 whitespace-nowrap rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
-                  >
-                    {link.label || formatDisplayLabel(link.slug)}
-                  </Link>
+                  <li key={link.slug}>
+                    <Link href={link.href || '/guides/'} className="hs-chip">
+                      {link.label || formatDisplayLabel(link.slug)}
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ) : null}
         </section>
       ) : null}
 
-      <section id="related" className="scroll-mt-24 space-y-6">
+      <section id="related" className="scroll-mt-24 space-y-4">
         <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
 
         <RelatedDiscoveryGroups
@@ -959,43 +948,41 @@ export default async function HerbDetailPage({ params }: PageProps) {
       {/* Section 5: Compare Nearby + CTA */}
       <section id="compare" className="card-premium p-4 sm:p-5 space-y-4">
         <div className="space-y-1">
-          <h2 className="text-lg font-bold text-ink">Compare &amp; Sourcing</h2>
-          <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
+          <h2 className="font-semibold text-ink">Compare &amp; Sourcing</h2>
+          <p className="hs-sec__intro">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
         </div>
         {!suppressAffiliate && <SourcingCta record={herb} displayName={displayName} />}
 
         {suppressAffiliate ? (
-          <div className="rounded-2xl border border-red-200 bg-red-50 p-5 space-y-3">
-            <h3 className="text-lg font-bold text-red-950 flex items-center gap-2">
-              <span role="img" aria-label="Warning">⚠️</span> Sourcing Options Disabled for Safety
-            </h3>
-            <p className="text-sm leading-relaxed text-red-900">
+          <div className="hs-panel border-l-[3px] border-l-[color:var(--accent-danger)]">
+            <h3 className="font-semibold text-ink">Sourcing options disabled for safety</h3>
+            <p className="text-sm leading-6 text-muted">
               Direct product recommendations and affiliate links are suppressed for this herb due to its high caution or needs-review safety classification.
             </p>
-            <p className="text-xs text-red-800">
-              Evaluate the safety checks, contraindications, and potential medication interactions below under clinician supervision before use.
+            <p className="text-xs leading-5 text-muted">
+              Evaluate the safety checks, contraindications, and potential medication interactions above under clinician supervision before use.
             </p>
           </div>
         ) : revenueProducts ? (
-          <div className="space-y-6">
+          <div className="space-y-4">
             <RecommendationSection
               title={revenueProducts.title}
               description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
               products={revenueProducts.products}
             />
-            <details className="group rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm">
-              <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-bold uppercase tracking-wider text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
-                <span>Product Form &amp; Quality Guidelines</span>
-                <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
+            <details className="hs-disclosure">
+              <summary>
+                <span>Product form &amp; quality guidelines</span>
+                <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
               </summary>
-              <div className="mt-3 border-t border-brand-900/10 pt-3">
+              <div>
                 <p className="text-xs leading-relaxed text-muted">
                   When sourcing {displayName}, verify the label for:
                 </p>
                 <ul className="mt-2 list-disc pl-5 text-xs text-muted space-y-1">
-                  <li><strong>Standardized Extract:</strong> Confirm active content percentages on the supplement facts panel (e.g. standardized to specific marker compounds) rather than simple raw herb weights.</li>
-                  <li><strong>Third-Party Testing:</strong> Look for independent purity labels (USP, NSF, ConsumerLab, or Eurofins) to ensure the product is free from heavy metals, solvents, and contaminants.</li>
-                  <li><strong>Form Bioavailability:</strong> Ensure the form matches evidence-supported configurations (e.g. standardized active extracts like bacosides, withanolides, or curcuminoids) for optimal onset and digestion tolerance.</li>
+                  <li><strong>Standardized extract:</strong> Confirm active content percentages on the supplement facts panel (e.g. standardized to specific marker compounds) rather than simple raw herb weights.</li>
+                  <li><strong>Third-party testing:</strong> Look for independent purity labels (USP, NSF, ConsumerLab, or Eurofins) to ensure the product is free from heavy metals, solvents, and contaminants.</li>
+                  <li><strong>Form bioavailability:</strong> Ensure the form matches evidence-supported configurations (e.g. standardized active extracts like bacosides, withanolides, or curcuminoids) for optimal onset and digestion tolerance.</li>
                 </ul>
               </div>
             </details>
@@ -1007,31 +994,35 @@ export default async function HerbDetailPage({ params }: PageProps) {
           recommendations={stackRecommendations}
         />
 
-        <div className="grid gap-4 sm:grid-cols-2 pt-2">
-          {relatedHerbLinks.length > 0 && (
-            <div className="space-y-2">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-muted font-semibold">Compare herbs</h3>
-              <div className="flex flex-col gap-2">
-                {relatedHerbLinks.map(link => (
-                  <Link key={link.href} href={link.href} className="text-sm font-semibold text-brand-800 hover:underline">{link.label}</Link>
-                ))}
-              </div>
-            </div>
-          )}
-          {comparisonLinks.length > 0 && (
-            <div className="space-y-2">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-muted font-semibold">Tradeoffs</h3>
-              <div className="flex flex-col gap-2">
-                {comparisonLinks.map(link => (
-                  <Link key={link.href} href={link.href} className="text-sm font-semibold text-brand-800 hover:underline">Compare {link.label}</Link>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+        {relatedHerbLinks.length > 0 || comparisonLinks.length > 0 ? (
+          <div>
+            <p className="hs-label">Continue comparing</p>
+            <ul className="hs-linklist hs-linklist--split mt-2">
+              {relatedHerbLinks.map(link => (
+                <li key={link.href}>
+                  <Link href={link.href}>
+                    <span>{link.label}</span>
+                    <span aria-hidden="true" className="hs-linklist__arrow">→</span>
+                  </Link>
+                </li>
+              ))}
+              {comparisonLinks.map(link => (
+                <li key={link.href}>
+                  <Link href={link.href}>
+                    <span>Compare {link.label}</span>
+                    <span aria-hidden="true" className="hs-linklist__arrow">↔</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </section>
 
-      <Disclaimer className="border-amber-900/15 bg-amber-50/70 !text-amber-950 [&_p]:!text-amber-950 [&_a]:!text-brand-800 mt-6" />
+      {/* The component already carries the amber caution treatment; overriding
+          its colours per route is what produced several near-identical warm
+          surfaces on one page. */}
+      <Disclaimer className="mt-4" />
       <AuthorCredentials />
 
       <EmailCapture
@@ -1041,11 +1032,11 @@ export default async function HerbDetailPage({ params }: PageProps) {
         location={`herb-${normalizedSlug}`}
       />
 
-      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
-        <Link href="/herbs/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[color:var(--hs-hairline)] pt-4">
+        <Link href="/herbs/" className="button-secondary inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-semibold">
           ← Back to herbs library
         </Link>
-        <Link href="/safety-checker/" className="text-sm font-bold text-brand-800 hover:underline">
+        <Link href="/safety-checker/" className="inline-flex min-h-11 items-center text-sm font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline">
           Safety checker →
         </Link>
       </div>

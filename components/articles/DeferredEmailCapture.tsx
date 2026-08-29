@@ -28,26 +28,24 @@ function CapturePreview({
   const href = resourceUrl || DEFAULT_RESOURCE_URL
 
   return (
-    <aside className='my-10 rounded-3xl border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm sm:p-7'>
-      <div className='space-y-3'>
-        <p className='eyebrow-label'>{eyebrow}</p>
-        <h2 className='font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl'>{title}</h2>
-        <p className='max-w-2xl text-base leading-7 text-muted'>{description}</p>
-        <p className='text-sm leading-6 text-muted'>
-          Want to review it first?{' '}
-          <Link className='font-semibold text-brand-800 underline decoration-brand-700/35 underline-offset-4 hover:text-brand-900' href={href}>
-            Preview the resource
-          </Link>
-          .
-        </p>
+    <aside className='my-6 border-t border-[color:var(--hs-hairline-strong)] pt-4 sm:rounded-[var(--hs-radius)] sm:border sm:bg-[color:var(--surface-card)] sm:p-5'>
+      <div className='space-y-1.5'>
+        <p className='hs-label'>{eyebrow}</p>
+        <h2 className='font-display text-[1.15rem] font-semibold leading-snug tracking-tight text-ink sm:text-xl'>{title}</h2>
+        <p className='max-w-2xl text-sm leading-6 text-muted'>{description}</p>
       </div>
-      <button
-        type='button'
-        onClick={onActivate}
-        className='mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2'
-      >
-        Get the free resource
-      </button>
+      <div className='mt-3 flex flex-wrap items-center gap-x-4 gap-y-2'>
+        <button
+          type='button'
+          onClick={onActivate}
+          className='button-primary inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold'
+        >
+          Get the free resource
+        </button>
+        <Link className='inline-flex min-h-11 items-center text-sm font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline' href={href}>
+          Preview it first →
+        </Link>
+      </div>
     </aside>
   )
 }

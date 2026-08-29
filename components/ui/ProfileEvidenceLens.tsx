@@ -106,10 +106,10 @@ function SignalRow({
           : 'bg-stone-400 dark:bg-stone-300'
 
   return (
-    <div className="flex items-baseline gap-2 py-1.5">
-      <span aria-hidden="true" className={`mt-1 h-2 w-2 shrink-0 self-start rounded-full ${dotClass}`} />
+    <div className="flex items-baseline gap-2 py-1">
+      <span aria-hidden="true" className={`mt-1 h-1.5 w-1.5 shrink-0 self-start rounded-full ${dotClass}`} />
       <p className="text-xs leading-5 text-ink">
-        <span className="font-bold">{title}:</span> <span className="font-semibold">{value}</span>
+        <span className="font-semibold">{title}:</span> <span className="font-semibold">{value}</span>
         {detail ? <span className="text-muted"> — {detail}</span> : null}
       </p>
     </div>
@@ -143,25 +143,25 @@ export default function ProfileEvidenceLens({
 
   return (
     <section
-      className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/5"
+      className="rounded-[var(--hs-radius)] border border-[color:var(--hs-hairline-strong)] bg-[color:color-mix(in_srgb,var(--surface-card)_88%,transparent)] p-3.5"
       aria-labelledby="profile-evidence-lens-heading"
       data-research-maturity={maturity.maturity}
       data-research-visual-weight={maturity.visualWeight}
     >
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
         <div>
-          <h3 id="profile-evidence-lens-heading" className="text-sm font-bold leading-6 text-ink">
+          <h3 id="profile-evidence-lens-heading" className="text-sm font-semibold leading-6 text-ink">
             Evidence lens
           </h3>
           <p className="text-xs leading-5 text-muted">{meter.note}</p>
         </div>
         <div className="min-w-[11rem] flex-1 sm:max-w-[14rem]">
           <div className="flex items-center justify-between gap-3">
-            <span className="text-xs font-bold text-brand-900 dark:text-brand-100">{meter.label}</span>
+            <span className="text-xs font-bold text-ink">{meter.label}</span>
             <span className="text-[11px] font-semibold text-muted">{label}</span>
           </div>
           <div
-            className="mt-1.5 h-2 overflow-hidden rounded-full bg-brand-50 dark:bg-white/10"
+            className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-[color:var(--hs-hairline-strong)]"
             role="progressbar"
             aria-label={`Evidence strength: ${label}`}
             aria-valuemin={0}
@@ -173,7 +173,7 @@ export default function ProfileEvidenceLens({
         </div>
       </div>
 
-      <div className="mt-3 grid gap-x-6 border-t border-brand-900/10 pt-2 dark:border-white/10 md:grid-cols-2">
+      <div className="mt-2.5 grid gap-x-6 border-t border-[color:var(--hs-hairline)] pt-1.5 md:grid-cols-2">
         <SignalRow
           title="Human clinical evidence"
           value={humanSignal ? 'Present in source signals' : 'Not the primary signal'}

@@ -77,29 +77,29 @@ export default function ProfileFeedback() {
   if (!isCanonicalProfile) return null
 
   return (
-    <section aria-labelledby="profile-feedback-title" className="not-prose rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm">
+    <section aria-labelledby="profile-feedback-title" className="not-prose border-t border-[color:var(--hs-hairline)] pt-4">
       <div className="max-w-2xl">
-        <p className="eyebrow-label">Help improve this profile</p>
-        <h2 id="profile-feedback-title" className="mt-2 text-xl font-semibold text-ink">Was this useful for your research?</h2>
-        <p className="mt-2 text-sm leading-6 text-muted">
+        <p className="hs-label">Help improve this profile</p>
+        <h2 id="profile-feedback-title" className="mt-1.5 font-semibold text-ink">Was this useful for your research?</h2>
+        <p className="mt-1.5 text-xs leading-5 text-muted">
           These controls record only the page and the structured choice you make when analytics consent is enabled. Please don’t include personal medical information in research requests.
         </p>
       </div>
 
-      <div className="mt-5 grid gap-5 md:grid-cols-2">
-        <div className="space-y-2">
-          <p className="text-sm font-bold text-ink">Was this evidence summary clear?</p>
+      <div className="mt-3 grid gap-3 md:grid-cols-2">
+        <div className="space-y-1.5">
+          <p className="text-sm font-semibold text-ink">Was this evidence summary clear?</p>
           <ChoiceButtons question="evidence_clarity" value={clarity} onChoose={chooseYesNo} />
         </div>
-        <div className="space-y-2">
-          <p className="text-sm font-bold text-ink">Did you find what you were researching?</p>
+        <div className="space-y-1.5">
+          <p className="text-sm font-semibold text-ink">Did you find what you were researching?</p>
           <ChoiceButtons question="research_found" value={found} onChoose={chooseYesNo} />
         </div>
       </div>
 
       {found === 'no' ? (
-        <div className="mt-5 border-t border-brand-900/10 pt-4">
-          <p className="text-sm font-bold text-ink">What information was missing?</p>
+        <div className="mt-3 border-t border-[color:var(--hs-hairline)] pt-3">
+          <p className="text-sm font-semibold text-ink">What information was missing?</p>
           <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Missing information category">
             {missingCategories.map((category) => (
               <button
@@ -120,9 +120,9 @@ export default function ProfileFeedback() {
         </div>
       ) : null}
 
-      <div className="mt-5 flex flex-wrap items-center gap-3 text-sm">
+      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
         {recorded ? <span role="status" className="font-semibold text-brand-800">Thanks — feedback recorded.</span> : null}
-        <Link href="/info/research-roadmap/" className="font-semibold text-brand-800 underline-offset-4 hover:underline">
+        <Link href="/info/research-roadmap/" className="inline-flex min-h-11 items-center font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline">
           Suggest an ingredient, comparison, or study →
         </Link>
       </div>

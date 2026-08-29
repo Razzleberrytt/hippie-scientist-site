@@ -21,7 +21,7 @@ on:
       - 'components/editorial/ProfileDecisionPanel.tsx'
       - 'components/editorial/ScientificVerdictCard.tsx'
       - 'components/ui/EvidenceScoreBadge.tsx'
-      - 'components/ui/SafetyGaugeMeter.tsx'
+      - 'components/ui/SafetyCautionLevel.tsx'
       - 'components/editorial/LastUpdatedBadge.tsx'
       - 'components/evidence/WhatEvidenceShows.tsx'
       - 'lib/article-citation-metadata.ts'
@@ -153,7 +153,7 @@ jobs:
           components/editorial/ProfileDecisionPanel.tsx
           components/editorial/ScientificVerdictCard.tsx
           components/ui/EvidenceScoreBadge.tsx
-          components/ui/SafetyGaugeMeter.tsx
+          components/ui/SafetyCautionLevel.tsx
           components/editorial/LastUpdatedBadge.tsx
           components/evidence/WhatEvidenceShows.tsx
           lib/article-citation-metadata.ts

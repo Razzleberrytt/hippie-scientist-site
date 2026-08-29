@@ -103,11 +103,11 @@ export default async function SeeAlsoCluster({
 
       {grouped.length > 0 ? (
         <section
-          className="border-y border-[color:var(--hs-hairline-strong)] py-5"
+          className="border-t border-[color:var(--hs-hairline-strong)] pt-4"
           aria-labelledby="see-also-cluster-heading"
         >
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <p id="see-also-cluster-heading" className="eyebrow-label">
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+            <p id="see-also-cluster-heading" className="hs-label">
               Also in this cluster
             </p>
             {grouped.length === 1 ? (
@@ -117,38 +117,36 @@ export default async function SeeAlsoCluster({
             ) : null}
           </div>
 
-          <div className="mt-2 divide-y divide-[color:var(--hs-hairline)]">
-            {grouped.map((group, groupIndex) => (
-              <div key={group.clusterId} className="py-4">
+          <div className="mt-2 space-y-3">
+            {grouped.map((group) => (
+              <div key={group.clusterId}>
                 {grouped.length > 1 ? (
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-display text-xs tabular-nums text-[color:var(--hs-gold)]" aria-hidden="true">
-                        {String(groupIndex + 1).padStart(2, '0')}
-                      </span>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[color:var(--hs-body)]">
-                        {group.clusterLabel}
-                      </p>
-                    </div>
+                  <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[color:var(--hs-body)]">
+                      {group.clusterLabel}
+                    </p>
                     <Link href={group.clusterGoalHref} prefetch={false} className={guideLinkClass}>
                       Full guide →
                     </Link>
                   </div>
                 ) : null}
 
-                <div className={`${grouped.length > 1 ? 'mt-2' : ''} flex gap-4 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]`}>
+                {/* Chips wrap rather than scroll: on a 320px viewport the rail
+                    pushed later entries permanently offscreen. */}
+                <ul className={`hs-chips ${grouped.length > 1 ? 'mt-1.5' : 'mt-2'}`}>
                   {group.entries.map((entry) => (
-                    <Link
-                      key={`${entry.kind}:${entry.slug}`}
-                      href={entry.href}
-                      prefetch={false}
-                      title={entry.reason}
-                      className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap border-b border-transparent text-sm font-semibold capitalize text-[color:var(--tone-ink)] transition hover:border-[color:var(--hs-gold)] hover:text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
-                    >
-                      {entry.label} →
-                    </Link>
+                    <li key={`${entry.kind}:${entry.slug}`}>
+                      <Link
+                        href={entry.href}
+                        prefetch={false}
+                        title={entry.reason}
+                        className="hs-chip capitalize focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+                      >
+                        {entry.label}
+                      </Link>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>

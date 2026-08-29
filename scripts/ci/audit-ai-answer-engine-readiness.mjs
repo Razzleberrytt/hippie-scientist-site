@@ -9,8 +9,8 @@ const MANIFEST = path.join(ROOT, 'public', 'data', 'ai-entities', 'manifest.json
 const SCHEMA = path.join(ROOT, 'components', 'seo', 'SchemaGraphScript.tsx')
 const CITATION_SUMMARY = path.join(ROOT, 'components', 'seo', 'CitationReadySummary.tsx')
 const ANSWER_TABLE = path.join(ROOT, 'components', 'seo', 'AnswerEngineTable.tsx')
-const ARTICLE_EVIDENCE = path.join(ROOT, 'src', 'components', 'evidence', 'WhatEvidenceShows.tsx')
-const ARTICLE_CITATIONS = path.join(ROOT, 'src', 'lib', 'article-citation-metadata.ts')
+const ARTICLE_EVIDENCE = path.join(ROOT, 'components', 'evidence', 'WhatEvidenceShows.tsx')
+const ARTICLE_CITATIONS = path.join(ROOT, 'lib', 'article-citation-metadata.ts')
 const ARTICLE_PAGE = path.join(ROOT, 'app', 'articles', '[slug]', 'page.tsx')
 const MENTAL_HEALTH_ARTICLE = path.join(ROOT, 'components', 'articles', 'MentalHealthArticlePage.tsx')
 const GOAL_CLUSTER_ARTICLE = path.join(ROOT, 'components', 'articles', 'GoalClusterArticlePage.tsx')
@@ -27,10 +27,14 @@ const LEGACY_GUIDE_PAGES = [
 ]
 const REFERENCES = path.join(ROOT, 'components', 'References.tsx')
 const EVIDENCE_BADGE = path.join(ROOT, 'components', 'ui', 'EvidenceScoreBadge.tsx')
-const SAFETY_GAUGE = path.join(ROOT, 'components', 'ui', 'SafetyGaugeMeter.tsx')
+// SafetyGaugeMeter was replaced by SafetyCautionLevel, which renders named
+// caution tiers instead of a gauge. The check is unchanged in intent: a
+// qualitative safety signal must stay qualitative and must never be emitted
+// as a machine-readable clinical-looking score.
+const SAFETY_CAUTION = path.join(ROOT, 'components', 'ui', 'SafetyCautionLevel.tsx')
 const VERDICT_CARD = path.join(ROOT, 'components', 'editorial', 'ScientificVerdictCard.tsx')
 const PROFILE_DECISION = path.join(ROOT, 'components', 'editorial', 'ProfileDecisionPanel.tsx')
-const LAST_UPDATED = path.join(ROOT, 'src', 'components', 'editorial', 'LastUpdatedBadge.tsx')
+const LAST_UPDATED = path.join(ROOT, 'components', 'editorial', 'LastUpdatedBadge.tsx')
 const LICENSING_PAGE = path.join(ROOT, 'app', 'info', 'content-licensing', 'page.tsx')
 const APP = path.join(ROOT, 'app')
 const strict = process.argv.includes('--strict')
@@ -351,12 +355,14 @@ function auditProfilePrimitives() {
     ['data-evidence="true"', 'evidence marker'],
     ['data-evidence-grade={canonicalGrade}', 'canonical evidence-grade value'],
   ])
-  requireSignals(SAFETY_GAUGE, 'profile-semantics', 'SafetyGaugeMeter', [
+  requireSignals(SAFETY_CAUTION, 'profile-semantics', 'SafetyCautionLevel', [
     ['data-safety-context="true"', 'safety-context marker'],
-    ['data-safety-label={label}', 'qualitative safety label'],
+    ['data-safety-level={level}', 'qualitative safety level'],
   ])
-  if (text(SAFETY_GAUGE).includes('data-safety-score=')) {
-    add('error', 'profile-semantics', 'SafetyGaugeMeter exposes a derived visual gauge as a machine-readable clinical-looking score')
+  for (const numeric of ['data-safety-score=', 'data-safety-percent=', 'aria-valuenow']) {
+    if (text(SAFETY_CAUTION).includes(numeric)) {
+      add('error', 'profile-semantics', `SafetyCautionLevel exposes a derived caution tier as a machine-readable clinical-looking score (${numeric})`)
+    }
   }
   requireSignals(LAST_UPDATED, 'profile-semantics', 'LastUpdatedBadge', [
     ['data-editorial-provenance="true"', 'editorial-provenance marker'],

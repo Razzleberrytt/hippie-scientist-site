@@ -308,11 +308,11 @@ export default function ShowMeTheStudies({
   return (
     <details
       data-study-summaries-root
-      className="group/studies overflow-hidden rounded-2xl border-2 border-brand-900/10 bg-[var(--surface-card)] p-0 shadow-none backdrop-blur-none dark:border-white/10"
+      className="group/studies overflow-hidden rounded-[var(--hs-radius)] border border-[color:var(--hs-hairline-strong)] bg-[var(--surface-card)] p-0 shadow-none backdrop-blur-none"
     >
-      <summary className="flex cursor-pointer items-center justify-between gap-3 bg-brand-50/70 px-4 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:bg-[var(--surface-subtle)]">
+      <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-3 bg-[color:var(--surface-subtle)] px-4 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40">
         <span>
-          <span className="block text-sm font-bold text-ink">Clinical Study Summaries ({citations.length})</span>
+          <span className="block text-sm font-semibold text-ink">Clinical Study Summaries ({citations.length})</span>
           <span className="mt-0.5 block text-[11px] leading-5 text-muted">
             {metrics.humanStudies} human evidence source{metrics.humanStudies === 1 ? '' : 's'} · {metrics.humanTrials} human trial{metrics.humanTrials === 1 ? '' : 's'} · {participantLabel} · {evidenceConsistencyLabel(metrics.consistency)}
           </span>
@@ -321,7 +321,7 @@ export default function ShowMeTheStudies({
       </summary>
 
       {availableClasses.length > 1 ? (
-        <div className="border-t border-brand-900/10 bg-white/70 px-4 py-3 dark:border-white/10 dark:bg-white/5">
+        <div className="border-t border-[color:var(--hs-hairline)] px-4 py-3">
           <StudyClassFilterControls
             total={studies.length}
             classes={availableClasses.map((studyClass) => ({
@@ -336,9 +336,9 @@ export default function ShowMeTheStudies({
         </div>
       ) : null}
 
-      <div className="grid gap-3 border-t border-brand-900/10 bg-white/80 p-4 md:grid-cols-2 dark:border-white/10 dark:bg-white/5">
-        <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
-          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">What the evidence actually shows</p>
+      <div className="grid gap-4 border-t border-[color:var(--hs-hairline)] p-4 md:grid-cols-2 md:gap-6">
+        <div>
+          <p className="hs-label">What the evidence actually shows</p>
           <p className="mt-2 text-sm leading-6 text-ink">{evidenceSnapshot}</p>
           {namedExtracts.length > 0 ? (
             <p className="mt-2 text-xs leading-5 text-amber-900 dark:text-amber-100">
@@ -351,8 +351,8 @@ export default function ShowMeTheStudies({
             {confidence ? `Confidence: ${confidence}` : 'Confidence: not separately assigned'}
           </p>
         </div>
-        <div className="rounded-xl border border-brand-900/10 bg-white p-4 dark:bg-white/5">
-          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">What would change our conclusion?</p>
+        <div className="border-t border-[color:var(--hs-hairline)] pt-4 md:border-t-0 md:border-l md:pl-6 md:pt-0">
+          <p className="hs-label">What would change our conclusion?</p>
           <p className="mt-2 text-sm leading-6 text-muted">
             {whatWouldChangeConclusion || 'Larger, well-controlled human trials using comparable populations, doses, preparations, and clinically meaningful outcomes could materially strengthen or weaken this conclusion. Replication in a different population or a high-quality synthesis resolving current disagreement could also materially change confidence.'}
           </p>
@@ -360,15 +360,15 @@ export default function ShowMeTheStudies({
       </div>
 
       {hasDisagreement ? (
-        <div className="border-t border-amber-700/20 bg-amber-50 px-4 py-4 dark:bg-amber-300/10">
-          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-amber-900 dark:text-amber-100">Where studies disagree</p>
-          <p className="mt-2 text-sm leading-6 text-amber-950 dark:text-amber-50">
+        <div className="border-t border-[color:var(--hs-hairline)] border-l-[3px] border-l-amber-600/70 px-4 py-3.5">
+          <p className="hs-label">Where studies disagree</p>
+          <p className="mt-2 text-sm leading-6 text-muted">
             The structured evidence is not uniform: {metrics.supportive} source relationship{metrics.supportive === 1 ? '' : 's'} support{metrics.supportive === 1 ? 's' : ''} the conclusion, {metrics.mixed} are mixed, {metrics.contradicting} contradict it, and {metrics.noClearEffect} report no clear effect. Differences in population, dose or preparation, duration, outcome definition, and study design can produce genuinely different results; inspect the rows below rather than treating the studies as one averaged vote.
           </p>
         </div>
       ) : null}
 
-      <div className="overflow-x-auto border-t border-brand-900/10 dark:border-white/10">
+      <div className="overflow-x-auto border-t border-[color:var(--hs-hairline)]">
         <table className="w-full min-w-[1600px] border-collapse text-left text-sm">
           <thead>
             <tr className="bg-[var(--surface-card)] text-[10px] font-bold uppercase tracking-wider text-muted">

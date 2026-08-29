@@ -13,6 +13,11 @@ type HerbCompoundLinksProps = {
  * Renders active-compound links plus data-driven Botanical Activity Atlas paths.
  * The atlas links are derived from the herb's normalized chemistry, effect, and
  * safety labels, so profiles stay connected without hand-maintained mappings.
+ *
+ * Both groups use the shared editorial primitives: compound names are chips
+ * that wrap (long systematic names used to be clipped by a nowrap rail) and the
+ * atlas paths are a link list rather than tinted cards, which never met AA
+ * contrast in dark mode.
  */
 export default async function HerbCompoundLinks({ herbSlug, herbName }: HerbCompoundLinksProps) {
   const [links, herb] = await Promise.all([
@@ -26,25 +31,20 @@ export default async function HerbCompoundLinks({ herbSlug, herbName }: HerbComp
   return (
     <section className="card-premium space-y-4 p-4 sm:p-5" aria-labelledby="active-compounds-heading">
       {links.length > 0 ? (
-        <div className="space-y-3">
+        <div className="space-y-2">
           <div className="space-y-1">
-            <h2 id="active-compounds-heading" className="text-lg font-bold text-ink">
+            <h2 id="active-compounds-heading" className="font-semibold text-ink">
               Active Compounds
             </h2>
-            <p className="text-sm text-muted">
+            <p className="hs-sec__intro">
               Key constituents studied in {herbName || 'this herb'}, with full pharmacology and safety profiles.
             </p>
           </div>
-          <ul className="flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
+          <ul className="hs-chips pt-1">
             {links.map((link) => (
-              <li key={link.slug} className="shrink-0">
-                <Link
-                  href={link.href}
-                  prefetch={false}
-                  className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-4 py-2 text-sm font-semibold text-brand-800 transition hover:border-brand-700/30 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
-                >
+              <li key={link.slug}>
+                <Link href={link.href} prefetch={false} className="hs-chip">
                   {link.anchor}
-                  <span aria-hidden="true">→</span>
                 </Link>
               </li>
             ))}
@@ -53,23 +53,22 @@ export default async function HerbCompoundLinks({ herbSlug, herbName }: HerbComp
       ) : null}
 
       {atlasLinks.length > 0 ? (
-        <div className={links.length > 0 ? 'border-t border-brand-900/10 pt-4' : ''}>
+        <div className={links.length > 0 ? 'border-t border-[color:var(--hs-hairline)] pt-4' : ''}>
           <div className="space-y-1">
-            <h2 className="text-base font-bold text-ink">Compare related active botanicals</h2>
-            <p className="text-sm text-muted">
+            <h3 className="font-semibold text-ink">Compare related active botanicals</h3>
+            <p className="hs-sec__intro">
               Explore botanicals with similar chemistry, effects, or safety considerations in the Botanical Activity Atlas.
             </p>
           </div>
-          <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="hs-linklist hs-linklist--split mt-2">
             {atlasLinks.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  prefetch={false}
-                  className="group block h-full rounded-xl border border-emerald-900/10 bg-emerald-50/45 px-3.5 py-3 transition hover:border-emerald-700/30 hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2"
-                >
-                  <span className="block text-sm font-bold text-emerald-950 group-hover:underline">{link.label} →</span>
-                  <span className="mt-1 block text-xs leading-5 text-muted">{link.reason}</span>
+                <Link href={link.href} prefetch={false}>
+                  <span>
+                    {link.label}
+                    <span className="hs-linklist__note">{link.reason}</span>
+                  </span>
+                  <span aria-hidden="true" className="hs-linklist__arrow">→</span>
                 </Link>
               </li>
             ))}

@@ -123,7 +123,7 @@ export default function ComparePageScaffold({
   const schemaFaqs = isHarmReduction ? [] : safeFaqs
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 space-y-12">
+    <div className="mx-auto max-w-5xl px-4 py-7 space-y-8 sm:space-y-10">
       <SchemaGraphScript graph={schemaGraph} />
       <CompareSchema item1={item1} item2={item2} slug={slug} faqs={schemaFaqs} citationUrls={citationUrls} />
 
@@ -148,38 +148,51 @@ export default function ComparePageScaffold({
       <CompareFAQ faqs={safeFaqs} />
       <CompareCitations item1={item1} item2={item2} />
 
-      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Continue-researching navigation: compact link rows rather than three
+          peer cards, so it never competes with the comparison itself. */}
+      <section className="grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
         {relatedStack && (
-          <article className="card-premium p-5 space-y-2">
-            <h3 className="font-bold text-ink">Use in a routine</h3>
-            <p className="text-sm text-muted">A related routine is available. Review combined safety and avoid assuming that a stack is more effective than testing ingredients individually.</p>
-            <Link href={`/stacks/${relatedStack.slug}`} className="inline-block text-sm font-bold text-brand-700 hover:text-brand-900">
-              Review routine →
-            </Link>
+          <article className="min-w-0">
+            <h3 className="text-sm font-semibold text-ink">Use in a routine</h3>
+            <p className="mt-1 text-xs leading-5 text-muted">A related routine is available. Review combined safety and avoid assuming that a stack is more effective than testing ingredients individually.</p>
+            <ul className="hs-linklist mt-2">
+              <li>
+                <Link href={`/stacks/${relatedStack.slug}`}>
+                  <span>Review routine</span>
+                  <span aria-hidden="true" className="hs-linklist__arrow">→</span>
+                </Link>
+              </li>
+            </ul>
           </article>
         )}
         {runtimeComparisonLinks.length > 0 && (
-          <article className="card-premium p-5 space-y-2">
-            <h3 className="font-bold text-ink">More comparison paths</h3>
-            <div className="flex flex-col gap-2">
+          <article className="min-w-0">
+            <h3 className="text-sm font-semibold text-ink">More comparison paths</h3>
+            <ul className="hs-linklist mt-2">
               {runtimeComparisonLinks.map(item => (
-                <Link key={item.slug} href={`/guides/compare/${item.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
-                  {item.title} →
-                </Link>
+                <li key={item.slug}>
+                  <Link href={`/guides/compare/${item.slug}`}>
+                    <span>{item.title}</span>
+                    <span aria-hidden="true" className="hs-linklist__arrow">→</span>
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </article>
         )}
         {relatedBestPages.length > 0 && (
-          <article className="card-premium p-5 space-y-2">
-            <h3 className="font-bold text-ink">Best-of guides</h3>
-            <div className="flex flex-col gap-2">
+          <article className="min-w-0">
+            <h3 className="text-sm font-semibold text-ink">Best-of guides</h3>
+            <ul className="hs-linklist mt-2">
               {relatedBestPages.map(page => (
-                <Link key={page.slug} href={bestPageHref(page.slug)} className="text-sm font-semibold text-brand-850 hover:underline">
-                  {page.title} →
-                </Link>
+                <li key={page.slug}>
+                  <Link href={bestPageHref(page.slug)}>
+                    <span>{page.title}</span>
+                    <span aria-hidden="true" className="hs-linklist__arrow">→</span>
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </article>
         )}
       </section>
