@@ -11,6 +11,8 @@ const ROOT = process.cwd()
 const FRAGMENT_ROOT = path.join(ROOT, 'ops', 'enrichment-submissions', 'sessions')
 const SOURCE_REGISTRY = path.join(ROOT, 'public', 'data', 'source-registry.json')
 const MANIFEST = path.join(ROOT, 'ops', 'research-sessions', 'session-manifest.json')
+const ATTESTATIONS = path.join(ROOT, 'ops', 'enrichment-semantic-attestations.json')
+const IDENTITY_QUARANTINE = path.join(ROOT, 'ops', 'source-identity-quarantine.json')
 const OUTPUT = path.join(ROOT, 'artifacts', 'enrichment-control-plane.json')
 
 function readJson(file, fallback) {
@@ -23,10 +25,28 @@ function listJson(root) {
     return entry.isDirectory() ? listJson(full) : entry.name.endsWith('.json') ? [full] : []
   }).sort()
 }
+
+const attestationDocument = readJson(ATTESTATIONS, { entries: [] })
+const attestationBySubmission = new Map((attestationDocument.entries ?? []).map(entry => [entry.submissionId, entry]))
+const quarantineDocument = readJson(IDENTITY_QUARANTINE, { entries: [] })
+const quarantinedSourceIds = new Set((quarantineDocument.entries ?? []).flatMap(entry => [entry.sourceId, entry.candidateSourceId]).filter(Boolean))
+
 function loadSubmissions() {
   return listJson(FRAGMENT_ROOT).flatMap(file => {
     const fragment = readJson(file, null)
-    return (fragment?.submissions ?? []).map(submission => ({ ...submission, sessionId: fragment.sessionId, shard: fragment.shard }))
+    return (fragment?.submissions ?? []).map(submission => {
+      const sidecar = attestationBySubmission.get(submission.submissionId)
+      return {
+        ...submission,
+        semanticAttestation: sidecar?.attestation ?? submission.semanticAttestation,
+        sourceIdentityStatus: quarantinedSourceIds.has(submission.sourceId)
+          ? 'mismatch'
+          : sidecar?.sourceIdentityStatus ?? 'verified',
+        promotionStatus: sidecar?.promotionStatus ?? submission.promotionStatus,
+        sessionId: fragment.sessionId,
+        shard: fragment.shard,
+      }
+    })
   })
 }
 
@@ -37,30 +57,51 @@ const sourceById = new Map(sources.map(source => [source.sourceId, source]))
 const manifest = readJson(MANIFEST, { shardCount: 8, sessions: [] })
 
 if (command === 'report' || command === 'validate') {
-  const promotion = submissions.map(submission => ({
-    submissionId: submission.submissionId,
-    ...promotionDecision(submission, sourceById.get(submission.sourceId)),
-  }))
+  const promotion = submissions.map(submission => {
+    const source = sourceById.get(submission.sourceId)
+    const effectiveSource = source && submission.sourceIdentityStatus === 'mismatch'
+      ? { ...source, identityAttestation: { status: 'mismatch' } }
+      : source
+    return { submissionId: submission.submissionId, ...promotionDecision(submission, effectiveSource) }
+  })
+  const prioritized = prioritizeSubmissions(submissions)
   const report = {
     generatedAt: new Date().toISOString(),
+    modelVersion: 'enrichment-control-plane-v1',
     summary: computeSessionYield(submissions),
     routes: Object.groupBy
-      ? Object.groupBy(prioritizeSubmissions(submissions), item => item.route)
-      : prioritizeSubmissions(submissions).reduce((acc, item) => ((acc[item.route] ??= []).push(item), acc), {}),
+      ? Object.groupBy(prioritized, item => item.route)
+      : prioritized.reduce((acc, item) => ((acc[item.route] ??= []).push(item), acc), {}),
     promotion: {
       eligible: promotion.filter(item => item.eligible).length,
       blocked: promotion.filter(item => !item.eligible).length,
       decisions: promotion,
     },
+    semanticAttestations: {
+      total: attestationBySubmission.size,
+      coveredSubmissions: submissions.filter(s => s.semanticAttestation).length,
+      missing: submissions.filter(s => !s.semanticAttestation).map(s => s.submissionId).sort(),
+    },
+    identityQuarantine: [...quarantinedSourceIds].sort(),
     sessions: Object.fromEntries((manifest.sessions ?? []).map(session => [session.sessionId,
       computeSessionYield(submissions.filter(s => s.sessionId === session.sessionId))
     ])),
-    fanout: sources.flatMap(source => fanoutCandidates(source, submissions).map(candidate => ({ sourceId: source.sourceId, ...candidate }))),
+    fanout: sources.flatMap(source => fanoutCandidates(source, submissions).map(candidate => ({
+      sourceId: source.sourceId, ...candidate, requiresSemanticAttestation: true,
+    }))),
   }
   if (command === 'validate') {
     const unsafe = promotion.filter(item => item.eligible && (item.semantic !== 'verified' || item.route === 'source_quarantine'))
-    if (unsafe.length) {
-      console.error(JSON.stringify({ unsafe }, null, 2)); process.exitCode = 1
+    const duplicateAttestations = (attestationDocument.entries ?? [])
+      .map(entry => entry.submissionId)
+      .filter((id, index, all) => all.indexOf(id) !== index)
+    const unknownAttestations = [...attestationBySubmission.keys()].filter(id => !submissions.some(s => s.submissionId === id))
+    const errors = []
+    if (unsafe.length) errors.push({ unsafePromotion: unsafe })
+    if (duplicateAttestations.length) errors.push({ duplicateAttestations: [...new Set(duplicateAttestations)] })
+    if (unknownAttestations.length) errors.push({ unknownAttestations })
+    if (errors.length) {
+      console.error(JSON.stringify({ errors }, null, 2)); process.exitCode = 1
     } else console.log('Enrichment control-plane invariants are safe.')
   } else {
     fs.mkdirSync(path.dirname(OUTPUT), { recursive: true })
