@@ -9,8 +9,10 @@ function read(relativePath: string) {
 const PRODUCTION_INPUTS = [
   "- 'app/**'",
   "- 'components/**'",
-  "- 'src/**'",
+  // 'src/**' was here until the src/ tree was removed. components/**, lib/**
+  // and types/** now cover everything it used to match.
   "- 'lib/**'",
+  "- 'types/**'",
   "- 'public/**'",
   "- 'data/**'",
   "- 'scripts/**'",

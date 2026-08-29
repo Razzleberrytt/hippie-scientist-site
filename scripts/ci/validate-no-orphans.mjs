@@ -41,11 +41,12 @@ const SKIP_ROOTS = new Set([
 ])
 
 /**
- * A ratchet, not an allowlist. config/orphan-baseline.json records the orphans
- * that already existed when this gate was introduced. 120 of the 121 predate
- * the src/ amputation entirely and live in the root tree, which had simply
- * never been measured. The gate fails on any orphan NOT in that file, so the
- * number can fall but never rise.
+ * A ratchet. config/orphan-baseline.json records the orphans that are tolerated;
+ * the gate fails on any orphan not in that file, so the number can fall but
+ * never rise. It was introduced holding 121 entries — 120 of them pre-existing
+ * root-tree dead code that had simply never been measured — and those were
+ * verified and deleted, so the list is now empty and this is a strict
+ * zero-check.
  */
 const BASELINE_PATH = path.join(ROOT, 'config', 'orphan-baseline.json')
 const baseline = new Set(JSON.parse(fs.readFileSync(BASELINE_PATH, 'utf8')).orphans)
