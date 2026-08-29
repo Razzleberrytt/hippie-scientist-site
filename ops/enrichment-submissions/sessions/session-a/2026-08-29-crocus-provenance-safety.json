@@ -2,7 +2,7 @@
   "fragmentVersion": 1,
   "sessionId": "A",
   "shard": 0,
-  "batchId": "crocus-provenance-safety-20260829",
+  "batchId": "crocus-provenance-normalization-20260829",
   "createdAt": "2026-08-29T23:52:00.000Z",
   "submissions": [
     {
@@ -21,26 +21,6 @@
       "populationContext": "Healthy participants and people with neurological or psychiatric conditions across 46 randomized controlled trials lasting 4 to 48 weeks.",
       "usageContext": "Saffron or saffron extracts used alone or in combination with conventional drugs; pooled findings should remain indication-, preparation-, comparator-, and duration-specific.",
       "uncertaintyNote": "The review pools multiple disorders, formulations, comparators, and treatment contexts. Its favorable estimates do not imply that every saffron preparation is equivalent, and adjunctive trials must not be reframed as saffron-monotherapy evidence. Source-registry and semantic-attestation governance remain required before promotion.",
-      "reviewStatus": "draft_submission",
-      "editorialStatus": "draft",
-      "active": true
-    },
-    {
-      "submissionId": "sub_session-a-crocus-safety-review-20260829",
-      "authoringPackId": "ap_bp_wp_herb_crocus_sativus_src_doi_10_1002_hsr2_72212",
-      "workpackId": "wp_herb_crocus_sativus",
-      "entityType": "herb",
-      "entitySlug": "crocus-sativus",
-      "sourceId": "src_doi-10-1002-hsr2-72212",
-      "topicType": "adverse_effect",
-      "claimType": "safety_risk",
-      "evidenceClass": "human-clinical",
-      "findingTextShort": "A 2026 systematic review found saffron monopreparations generally well tolerated but documented adverse events, most often gastrointestinal, and cautioned about higher-dose or prolonged medicinal use.",
-      "findingTextNormalized": "A 2026 systematic review of human Crocus sativus monopreparations included 102 clinical trials and one case report. About 78% of trials reported safety information, about 56% reported one or more adverse effects, and the review estimated an adverse-event incidence around 17.5%; gastrointestinal problems were the most frequently reported and were usually minor and self-limiting. The authors nevertheless identified potentially significant adverse events associated with medicinal use at higher doses or for prolonged periods and recommended clinical monitoring in those contexts.",
-      "strengthLabel": "moderate",
-      "populationContext": "Human clinical-trial and case-report evidence involving saffron monopreparations, including stigma powder and extracts, synthesized through searches to August 2024.",
-      "safetyContext": "Supports a generally tolerated-but-not-risk-free safety framing for medicinal saffron monopreparations; adverse-event reporting was incomplete across the trial literature and higher-dose/prolonged-use concerns remain relevant.",
-      "uncertaintyNote": "The review's incidence estimate depends on heterogeneous trials and incomplete adverse-event reporting, so it should not be treated as a precise universal rate or proof of safety across all products, doses, populations, or durations. Source-registry and semantic-attestation governance remain required before promotion.",
       "reviewStatus": "draft_submission",
       "editorialStatus": "draft",
       "active": true
