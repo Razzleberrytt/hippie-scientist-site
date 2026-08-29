@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
+import { hashResearchObject, validateDistributionPack } from '../distribution-pack-contract.mjs'
 import { validateDistributionPublicationIntegrity } from '../distribution-publication-integrity.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
@@ -65,5 +66,19 @@ describe('distribution publication integrity', () => {
     pack.source.publicationStatus = status
 
     expect(validateDistributionPublicationIntegrity(pack, researchObject).join('\n')).toMatch(/not eligible for distribution/i)
+  })
+
+  it.each([
+    'expression-of-concern',
+    'retracted',
+    'withdrawn',
+  ])('rejects canonical %s evidence at the shared pack-consumption boundary', (status) => {
+    const researchObject = clone(canonical)
+    researchObject.publicationStatus = status
+    const pack = buildDistributionPackFromResearchObject(canonical)
+    pack.source.publicationStatus = status
+    pack.source.contentHash = hashResearchObject(researchObject)
+
+    expect(validateDistributionPack(pack, { researchObjects: [researchObject] }).map(({ message }) => message).join('\n')).toMatch(/not eligible for distribution/i)
   })
 })
