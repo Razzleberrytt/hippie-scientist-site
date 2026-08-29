@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
+import { buildGuideHubSchemaGraph } from '../../../lib/schema-graph'
 
 export const metadata: Metadata = {
   title: 'Herb Deep-Dive Guides',

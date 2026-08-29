@@ -1,4 +1,4 @@
-import { buildPageMetadata } from '../../../../src/lib/seo'
+import { buildPageMetadata } from '../../../../lib/seo'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import Link from 'next/link'

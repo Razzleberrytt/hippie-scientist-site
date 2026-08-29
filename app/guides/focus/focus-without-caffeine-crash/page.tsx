@@ -10,7 +10,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
-import { buildTwitterMetadata } from '@/src/lib/seo'
+import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/focus/focus-without-caffeine-crash`
 

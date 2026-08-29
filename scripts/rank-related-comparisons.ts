@@ -1,10 +1,10 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
-import { buildRelatedBotanicalPerformance, type AtlasAnalyticsEvent } from '../src/lib/atlasAnalyticsReport'
-import { getBotanicalAtlasRecords } from '../src/lib/botanical-atlas-data'
-import { buildComparisonAgentWorkPacket } from '../src/lib/comparison-agent-work-queue'
-import { classifyObservedDemand, observedDemandRank, recommendEditorialAction } from '../src/lib/comparison-demand-tier'
-import { buildComparisonShortlist } from '../src/lib/comparison-shortlist'
+import { buildRelatedBotanicalPerformance, type AtlasAnalyticsEvent } from '../lib/atlasAnalyticsReport'
+import { getBotanicalAtlasRecords } from '../lib/botanical-atlas-data'
+import { buildComparisonAgentWorkPacket } from '../lib/comparison-agent-work-queue'
+import { classifyObservedDemand, observedDemandRank, recommendEditorialAction } from '../lib/comparison-demand-tier'
+import { buildComparisonShortlist } from '../lib/comparison-shortlist'
 
 const outputDir = path.resolve(process.cwd(), 'reports/related-botanicals')
 const limit = Math.max(1, Number(process.env.COMPARISON_SHORTLIST_LIMIT ?? 30) || 30)

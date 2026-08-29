@@ -20,7 +20,7 @@ const toSet = value => new Set(Array.isArray(value) ? value : [])
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value))
 
 function parseSeoCollections() {
-  const file = readText('src/data/seoCollections.ts')
+  const file = readText('data/seoCollections.ts')
   if (!file) return { collections: [], featuredSlugs: [] }
 
   const collectionsMatch = file.match(/export const SEO_COLLECTIONS:\s*SeoCollection\[\]\s*=\s*(\[[\s\S]*?\n\])/)

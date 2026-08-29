@@ -3,7 +3,7 @@ import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../lib/seo'
 import { getPublicEvidenceDataset } from '@/lib/public-evidence-dataset'
 import CitationExplorerClient from './CitationExplorerClient'
 

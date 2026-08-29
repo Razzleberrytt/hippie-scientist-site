@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import SchemaOrg from '@/components/SchemaOrg'
 import PrintChecklistButton from '@/components/lead-magnets/PrintChecklistButton'
-import { buildPageMetadata, SITE_URL } from '@/src/lib/seo'
+import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 
 const PATH = '/lead-magnets/adhd-supplement-starter-checklist'
 const TITLE = 'ADHD Supplement Starter Checklist'

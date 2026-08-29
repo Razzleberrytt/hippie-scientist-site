@@ -25,8 +25,8 @@ import {
   getCompounds,
   getHerbBySlug,
   getHerbs,
-} from '@/src/lib/runtime-data'
-import type { RuntimeRecord } from '@/src/types/content'
+} from '@/lib/runtime-data'
+import type { RuntimeRecord } from '@/types/content'
 
 export const PUBLIC_EVIDENCE_DATASET_VERSION = '2026.08.16'
 export const PUBLIC_EVIDENCE_DATASET_TITLE = 'The Hippie Scientist Public Evidence Dataset 2026'

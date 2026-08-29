@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
+import { getHerbs, getCompounds } from '../../../lib/runtime-data'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import { SearchSkeleton } from '@/components/skeletons'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../lib/seo'
 
 const PathwayExplorerClient = dynamic(
-  () => import('../../../src/components/pathways/PathwayExplorerClient'),
+  () => import('../../../components/pathways/PathwayExplorerClient'),
   { loading: () => <SearchSkeleton /> }
 )
 

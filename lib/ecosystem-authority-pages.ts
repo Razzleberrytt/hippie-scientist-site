@@ -1,9 +1,9 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { buildSemanticLinkSuggestions } from '@/lib/semantic-internal-linking'
 import { slugify } from '@/lib/slug-utils'
-import { buildResearchKnowledgeReport } from '../src/lib/research-knowledge-layer'
+import { buildResearchKnowledgeReport } from './research-knowledge-layer'
 import { buildProgrammaticTopicClusters } from '@/lib/programmatic-topic-clusters'
-import type { RuntimeRecord } from '../src/types/content'
+import type { RuntimeRecord } from '../types/content'
 
 export type EcosystemAuthorityPage = {
   slug: string

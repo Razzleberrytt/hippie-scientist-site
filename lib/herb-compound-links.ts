@@ -4,7 +4,7 @@ import { cache } from 'react'
 import { formatDisplayLabel } from '@/lib/display-utils'
 import { getRuntimeVisibility } from './runtime-visibility'
 import { canonicalProfileHref } from './canonical-profile-href'
-import { getCompoundSummaryIndex, getHerbSummaryIndex } from '../src/lib/runtime-summary-indexes'
+import { getCompoundSummaryIndex, getHerbSummaryIndex } from './runtime-summary-indexes'
 
 /**
  * Renders the curated herb <-> compound relationship graph

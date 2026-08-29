@@ -7,14 +7,14 @@ import {
   breadcrumbJsonLd,
   faqPageJsonLd,
   compactMetaTitle,
-} from '../../../../src/lib/seo'
+} from '../../../../lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
-import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
+import LastUpdatedBadge from '../../../../components/editorial/LastUpdatedBadge'
 
 const SLUG = 'natural-anxiety-relief'
 const TITLE = 'Natural Anxiety Relief: What the Evidence Supports in 2026'

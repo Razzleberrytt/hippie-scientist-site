@@ -1,4 +1,4 @@
-// Generates one MDX blog post and saves to src/content/blog/YYYY-MM-DD-slug.mdx
+// Generates one MDX blog post and saves to content/drafts/blog/YYYY-MM-DD-slug.mdx
 import fs from "fs";
 import path from "path";
 import { normalizeRouteSlug } from "../lib/entity-identity.mjs";
@@ -15,7 +15,7 @@ if (!haveAiSecrets()) {
 }
 
 const HERBS_PATH = "src/data/herbs/herbs.normalized.json";
-const OUT_DIR = "src/content/blog";
+const OUT_DIR = "content/drafts/blog";
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -23,7 +23,7 @@ function today(){ return new Date().toISOString().slice(0,10); }
 
 function pickTopic(){
   // Prefer queued topics if present; else rotate herbs dataset.
-  const queueFile = "src/content/queue/topics.json";
+  const queueFile = "content/drafts/queue/topics.json";
   if (fs.existsSync(queueFile)) {
     const q = JSON.parse(fs.readFileSync(queueFile,"utf-8"));
     if (Array.isArray(q) && q.length) return { kind:"custom", topic:q.shift(), postQueue:q };
@@ -38,7 +38,7 @@ function pickTopic(){
 
 const picked = pickTopic();
 if (picked.postQueue) {
-  fs.writeFileSync("src/content/queue/topics.json", JSON.stringify(picked.postQueue, null, 2));
+  fs.writeFileSync("content/drafts/queue/topics.json", JSON.stringify(picked.postQueue, null, 2));
 }
 
 const topic = picked.topic;

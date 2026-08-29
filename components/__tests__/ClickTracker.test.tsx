@@ -28,7 +28,7 @@ vi.mock('@/lib/consent', () => ({
   getConsent: mocks.getConsent,
 }))
 
-vi.mock('@/src/lib/loadAnalytics', () => ({
+vi.mock('@/lib/loadAnalytics', () => ({
   loadAnalytics: vi.fn(),
 }))
 

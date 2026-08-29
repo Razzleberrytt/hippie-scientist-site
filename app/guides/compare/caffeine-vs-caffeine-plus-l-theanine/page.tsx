@@ -4,8 +4,8 @@ import Link from 'next/link'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import References from '@/components/References'
 import CitationReadySummary from '@/components/seo/CitationReadySummary'
-import Disclaimer from '@/src/components/Disclaimer'
-import { buildPageMetadata } from '@/src/lib/seo'
+import Disclaimer from '@/components/Disclaimer'
+import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Caffeine vs Caffeine + L-Theanine: Focus & Jitters',

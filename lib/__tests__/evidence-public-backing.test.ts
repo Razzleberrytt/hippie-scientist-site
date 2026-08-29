@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { getEvidenceColor, getEvidenceLabel, getEvidenceLetterGrade, getEvidenceTier } from '@/lib/evidence'
-import type { RuntimeRecord } from '@/src/types/content'
+import type { RuntimeRecord } from '@/types/content'
 
 const incidentClasses = [
   ['no-claims-recorded', 0],

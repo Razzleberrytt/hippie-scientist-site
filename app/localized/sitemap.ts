@@ -5,7 +5,7 @@ import {
   LOCALIZED_ROUTES,
   buildLocaleUrl,
   type TranslationLocale,
-} from '@/src/lib/international-seo'
+} from '@/lib/international-seo'
 
 export const dynamic = 'force-static'
 

@@ -1,4 +1,4 @@
-import { compactMetaTitle } from '../src/lib/seo'
+import { compactMetaTitle } from './seo'
 
 export type GoalCategory = 'sleep' | 'energy' | 'mood' | 'immune' | 'memory'
 

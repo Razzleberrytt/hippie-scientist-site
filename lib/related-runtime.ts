@@ -4,8 +4,8 @@ import { safeArray, safeScore, safeSlug } from '@/lib/search-safe'
 import {
   getRuntimeMapEntries,
   getRuntimeMapEntriesForSlugs,
-} from '../src/lib/runtime-related-maps'
-import type { RuntimeRecord } from '../src/types/content'
+} from './runtime-related-maps'
+import type { RuntimeRecord } from '../types/content'
 
 const MAX_RELATED_PROFILES = 8
 const MAX_COMPARISON_CANDIDATES = 8

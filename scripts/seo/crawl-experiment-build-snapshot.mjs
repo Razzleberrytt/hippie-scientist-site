@@ -6,8 +6,8 @@ export const SITE_ORIGIN = 'https://thehippiescientist.net'
 export const FREEZE_POLICY_PATHS = [
   'app/herbs/[slug]/page.tsx',
   'app/sitemap.ts',
-  'src/lib/seo.ts',
-  'src/lib/index-allowlist.ts',
+  'lib/seo.ts',
+  'lib/index-allowlist.ts',
   'lib/sitemap-route-visibility.ts',
   'public/_redirects',
 ]

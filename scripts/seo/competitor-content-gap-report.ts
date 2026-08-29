@@ -7,7 +7,7 @@ import {
   renderCompetitorGapMarkdown,
   type CompetitorCoverageDataset,
   type RouteManifestEntry,
-} from '../../src/lib/competitor-gap-reporting'
+} from '../../lib/competitor-gap-reporting'
 
 function arg(name: string, fallback: string): string {
   const prefix = `--${name}=`

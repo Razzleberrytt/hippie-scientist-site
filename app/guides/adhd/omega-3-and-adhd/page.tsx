@@ -1,6 +1,6 @@
 import FocusAdhdArticlePage from '@/components/articles/FocusAdhdArticlePage'
 import { Omega3AdhdSeoAppendix } from '@/components/articles/AdhdSeoIdeaAppendix'
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 const SLUG = 'omega-3-and-adhd'
 

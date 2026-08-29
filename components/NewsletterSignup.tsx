@@ -6,7 +6,7 @@ import { type FormEvent, useEffect, useId, useRef, useState } from 'react'
 import { safetyChecklistLeadMagnet } from '@/lib/lead-magnet'
 import { mailchimpSignupConfig } from '@/lib/mailchimp-integration'
 import { trackEmailSignup, trackExperimentConversion } from '@/lib/analytics'
-import { trackRevenueEvent } from '@/src/lib/revenue-tracking'
+import { trackRevenueEvent } from '@/lib/revenue-tracking'
 
 type TurnstileApi = {
   render: (element: HTMLElement, options: { sitekey: string; size?: 'normal' | 'flexible' | 'compact'; callback: (token: string) => void; 'expired-callback': () => void; 'error-callback': () => void }) => string

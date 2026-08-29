@@ -1,12 +1,12 @@
 import JsonLd from './seo/JsonLd'
-import { SITE_URL } from '@/src/lib/site'
+import { SITE_URL } from '@/lib/site'
 import {
   AUTHOR_NAME,
   AUTHOR_SCHEMA_ID,
   AUTHOR_URL,
   WEBSITE_SCHEMA_ID,
   organizationSchemaIdentity,
-} from '@/src/lib/schema-identities'
+} from '@/lib/schema-identities'
 
 const MIN_FAQ_SCHEMA_ITEMS = 2
 

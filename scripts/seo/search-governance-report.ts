@@ -7,8 +7,8 @@ import {
   renderSearchGovernanceMarkdown,
   type QueryIntentMap,
   type SearchOpportunityReport,
-} from '../../src/lib/search-opportunity-governance'
-import type { MetadataExperiment } from '../../src/lib/search-intent-routing'
+} from '../../lib/search-opportunity-governance'
+import type { MetadataExperiment } from '../../lib/search-intent-routing'
 
 function arg(name: string, fallback = ''): string {
   const prefix = `--${name}=`

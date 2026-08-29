@@ -16,14 +16,14 @@ import {
   normalizeArticleReferences,
   normalizeCitationMetadata,
   resolveRelatedArticles,
-} from '@/src/lib/article-citation-metadata'
+} from '@/lib/article-citation-metadata'
 import {
   AUTHOR_NAME,
   AUTHOR_SCHEMA_ID,
   AUTHOR_URL,
   ORGANIZATION_SCHEMA_ID,
-} from '@/src/lib/schema-identities'
-import { SITE_URL, buildTwitterMetadata, compactMetaTitle } from '@/src/lib/seo'
+} from '@/lib/schema-identities'
+import { SITE_URL, buildTwitterMetadata, compactMetaTitle } from '@/lib/seo'
 
 const page = allConceptPages.find((item) => item.slug === 'rhabdomyolysis')!
 const canonicalUrl = `${SITE_URL}${page.url}/`

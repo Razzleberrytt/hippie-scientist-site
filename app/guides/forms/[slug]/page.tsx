@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import Disclaimer from '@/src/components/Disclaimer'
-import { buildPageMetadata } from '@/src/lib/seo'
+import Disclaimer from '@/components/Disclaimer'
+import { buildPageMetadata } from '@/lib/seo'
 import {
   cleanFormValue,
   formValueToText,

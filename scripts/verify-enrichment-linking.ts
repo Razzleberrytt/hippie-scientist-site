@@ -6,12 +6,12 @@ import {
   buildEnrichmentRecommendations,
   buildEnrichmentRecommendationsFromRows,
   type GovernedRecommendationRow,
-} from '../src/lib/enrichmentRecommendations'
+} from '../lib/enrichmentRecommendations'
 import {
   getPublishableGovernedEntries,
   isPublishableGovernedEnrichment,
-} from '../src/lib/governedResearch'
-import type { ResearchEnrichment } from '../src/types/researchEnrichment'
+} from '../lib/governedResearch'
+import type { ResearchEnrichment } from '../types/researchEnrichment'
 
 const ROOT = process.cwd()
 const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-linking-summary.json')

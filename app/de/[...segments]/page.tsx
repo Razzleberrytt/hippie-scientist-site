@@ -6,12 +6,12 @@ import {
   GERMAN_ROUTE_KEYS,
   GERMAN_UI,
   buildGermanPageMetadata,
-} from '@/src/lib/german-content'
+} from '@/lib/german-content'
 import {
   generateLocalizedStaticParams,
   resolveLocalizedPage,
   type LocalizedRouteParams,
-} from '@/src/lib/localized-route-runtime'
+} from '@/lib/localized-route-runtime'
 
 type PageProps = { params: LocalizedRouteParams }
 export const dynamicParams = false

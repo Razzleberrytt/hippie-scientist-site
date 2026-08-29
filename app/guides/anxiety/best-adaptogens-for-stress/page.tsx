@@ -7,7 +7,7 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import References from '@/components/References'
 import EmailCapture from '@/components/EmailCapture'
-import { buildTwitterMetadata } from '@/src/lib/seo'
+import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-adaptogens-for-stress`
 

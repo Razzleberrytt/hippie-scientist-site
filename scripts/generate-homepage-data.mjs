@@ -12,8 +12,8 @@ const governedPath = path.join(root, 'public/data/enrichment-governed.json')
 const wave2bReportPath = path.join(root, 'ops/reports/enrichment-wave-2b.json')
 const healthReportPath = path.join(root, 'ops/reports/enrichment-health.json')
 const backlogReportPath = path.join(root, 'ops/reports/enrichment-backlog.json')
-const siteCountsPath = path.join(root, 'src/generated/site-counts.json')
-const outPath = path.join(root, 'src/generated/homepage-data.json')
+const siteCountsPath = path.join(root, 'generated/site-counts.json')
+const outPath = path.join(root, 'generated/homepage-data.json')
 const reportJsonPath = path.join(root, 'ops/reports/homepage-enrichment-refresh.json')
 const reportMdPath = path.join(root, 'ops/reports/homepage-enrichment-refresh.md')
 
@@ -622,7 +622,7 @@ function buildRefreshReport({ beforePayload, afterPayload, diagnostics }) {
     deterministicModelVersion: 'homepage-enrichment-refresh-v1',
     canonicalGovernedArtifacts: afterPayload.governance.sourcePaths,
     inputs: {
-      previousHomepageArtifact: 'src/generated/homepage-data.json',
+      previousHomepageArtifact: 'generated/homepage-data.json',
       latestGovernedWaves: diagnostics.reportInputs,
       publicationManifestGeneratedAt: diagnostics.publicationManifestGeneratedAt,
     },

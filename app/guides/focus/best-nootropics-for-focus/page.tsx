@@ -7,7 +7,7 @@ import type { Heading } from '@/components/articles'
 import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { buildPageMetadata, SITE_URL } from '@/src/lib/seo'
+import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 
 const PATH = '/guides/focus/best-nootropics-for-focus'
 const TITLE = 'Best Nootropics for Focus: Evidence by Goal'

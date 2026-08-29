@@ -179,7 +179,7 @@ async function main() {
     console.error('[optimize-images] FAILED: no images were optimized.')
     process.exit(1)
   }
-  // `src/lib/cloudflare-image-loader.ts` rewrites every supported image under
+  // `lib/cloudflare-image-loader.ts` rewrites every supported image under
   // `public/images/` to its WebP variant by convention rather than by consulting
   // a manifest, because shipping that manifest to the browser cost ~17KB of
   // duplicated JSON per chunk. That convention is only safe if this step is

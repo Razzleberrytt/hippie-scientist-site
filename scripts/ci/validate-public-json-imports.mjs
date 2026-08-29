@@ -12,7 +12,7 @@ const CLIENT_FACING_ROOTS = [
 ]
 
 const ALLOWED_SERVER_STATIC_FILES = new Set([
-  path.normalize('src/lib/runtime-data.ts'),
+  path.normalize('lib/runtime-data.ts'),
 ])
 
 const SOURCE_EXTENSIONS = new Set([

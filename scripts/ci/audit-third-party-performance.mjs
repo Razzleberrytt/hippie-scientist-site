@@ -81,7 +81,7 @@ for (const file of walk(outDir)) {
 }
 
 const sourceAudits = [
-  'src/lib/loadAnalytics.ts',
+  'lib/loadAnalytics.ts',
   'components',
   'src/components',
 ]

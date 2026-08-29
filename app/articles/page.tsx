@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { allArticleMonographs, allBlogPosts } from '../../.content-collections/generated'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
-import { SITE_URL, buildTwitterMetadata } from '../../src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '../../lib/seo'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts].sort((a, b) =>
   b.lastUpdated.localeCompare(a.lastUpdated)

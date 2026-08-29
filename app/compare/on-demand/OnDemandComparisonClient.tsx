@@ -7,7 +7,7 @@ import {
   parseComparisonKey,
   type ResearchSearchItem,
 } from '@/lib/search/search-experience'
-import { isRestrictedRecord } from '@/src/lib/restricted-ingredients'
+import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 import { publicSafetyLabel } from '@/lib/decision-primitives'
 
 type LoadState = 'loading' | 'ready' | 'invalid' | 'missing'

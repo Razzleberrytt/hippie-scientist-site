@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
-import type { RuntimeRecord } from '../../src/types/content'
+import type { RuntimeRecord } from '../../types/content'
 
 type FilterOption = {
   label: string

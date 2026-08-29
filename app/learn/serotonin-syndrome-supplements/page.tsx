@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: '18 Supplements That Can Trigger Serotonin Syndrome',

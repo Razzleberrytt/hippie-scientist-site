@@ -4,7 +4,7 @@ import {
   getForms,
   selectIndexableFormIngredients,
 } from '../app/guides/forms/form-data'
-import type { RuntimeRecord } from '../src/types/content'
+import type { RuntimeRecord } from '../types/content'
 
 describe('form guide publication gate', () => {
   it('publishes only indexable records with at least two distinct forms', () => {

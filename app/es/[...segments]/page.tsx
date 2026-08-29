@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import SpanishCorePage from '@/components/localization/SpanishCorePage'
-import { SPANISH_PAGES, buildSpanishPageMetadata } from '@/src/lib/spanish-content'
-import { SPANISH_ROUTE_KEYS } from '@/src/lib/spanish-routes'
+import { SPANISH_PAGES, buildSpanishPageMetadata } from '@/lib/spanish-content'
+import { SPANISH_ROUTE_KEYS } from '@/lib/spanish-routes'
 import {
   generateLocalizedStaticParams,
   resolveLocalizedPage,
   type LocalizedRouteParams,
-} from '@/src/lib/localized-route-runtime'
+} from '@/lib/localized-route-runtime'
 
 type PageProps = { params: LocalizedRouteParams }
 export const dynamicParams = false

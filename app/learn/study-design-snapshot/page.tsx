@@ -4,7 +4,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import StudyDesignSnapshot from '@/components/evidence/StudyDesignSnapshot'
 import References from '@/components/References'
-import { buildTwitterMetadata } from '@/src/lib/seo'
+import { buildTwitterMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Study Design Snapshots: Reading an Evidence Grade',

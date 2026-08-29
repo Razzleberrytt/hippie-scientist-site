@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { passesGeneratedProfileQualityGate, shouldIndexRoute } from '../src/lib/seo';
+import { passesGeneratedProfileQualityGate, shouldIndexRoute } from '../lib/seo';
 
 const herbsPath = path.join(process.cwd(), 'public/data/herbs.json');
 const compoundsPath = path.join(process.cwd(), 'public/data/compounds.json');

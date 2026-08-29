@@ -7,7 +7,7 @@ const files = {
   navigation: 'components/Navigation.tsx',
   skipLink: 'components/localization/LocalizedSkipLink.tsx',
   evidenceLookup: 'app/evidence/evidence-checker/EvidenceLookupClient.tsx',
-  atlas: 'src/components/atlas/BotanicalActivityAtlasClient.tsx',
+  atlas: 'components/atlas/BotanicalActivityAtlasClient.tsx',
 }
 
 const source = Object.fromEntries(

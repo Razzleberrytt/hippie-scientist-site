@@ -3,7 +3,7 @@ import Link from 'next/link'
 import fs from 'node:fs'
 import path from 'node:path'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../lib/seo'
 import EvidenceLookupClient, { type LookupCompound } from './EvidenceLookupClient'
 
 export const metadata: Metadata = buildPageMetadata({

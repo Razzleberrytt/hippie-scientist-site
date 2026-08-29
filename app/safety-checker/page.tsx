@@ -2,19 +2,19 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
+import { getHerbs, getCompounds } from '../../lib/runtime-data'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { WizardSkeleton } from '@/components/skeletons'
-import { buildToolPageSchemaGraph } from '../../src/lib/schema-graph'
-import { buildPageMetadata, SITE_URL } from '../../src/lib/seo'
-import { toSafetyToolRecord } from '../../src/lib/tool-page-payloads'
-import type { RuntimeRecord } from '../../src/types/content'
+import { buildToolPageSchemaGraph } from '../../lib/schema-graph'
+import { buildPageMetadata, SITE_URL } from '../../lib/seo'
+import { toSafetyToolRecord } from '../../lib/tool-page-payloads'
+import type { RuntimeRecord } from '../../types/content'
 import { canonicalizeSafetyToolItems } from '@/lib/safety-checker-engine'
 
 const SafetyCheckerClient = dynamic(
-  () => import('../../src/components/safety/SafetyCheckerClient'),
+  () => import('../../components/safety/SafetyCheckerClient'),
   { loading: () => <WizardSkeleton /> },
 )
 

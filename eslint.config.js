@@ -67,10 +67,6 @@ export default [
       'app/**/*.{js,jsx,ts,tsx}',
       'components/**/*.{js,jsx,ts,tsx}',
       'lib/**/*.{js,jsx,ts,tsx}',
-      'src/components/explore/**/*.{js,jsx,ts,tsx}',
-      'src/components/runtime/**/*.{js,jsx,ts,tsx}',
-      'src/components/mobile-bottom-nav.tsx',
-      'src/lib/runtime-*.ts',
     ],
     rules: {
       'jsx-a11y/alt-text': 'error',
@@ -102,13 +98,6 @@ export default [
     files: ['app/blog/**/*.{js,jsx,ts,tsx}'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'error',
-    },
-  },
-  {
-    files: ['src/**/*.{js,jsx,ts,tsx}'],
-    rules: {
-      'no-console': 'error',
-      'no-debugger': 'error',
     },
   },
   {

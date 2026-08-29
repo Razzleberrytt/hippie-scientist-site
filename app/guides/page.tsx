@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { SITE_URL } from '@/lib/navigation-config'
 import { AtlasComparisonCallout } from '@/components/guides/AtlasComparisonCallout'
-import { buildTwitterMetadata } from '@/src/lib/seo'
+import { buildTwitterMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Evidence Library — Supplements, Science & Mental Health',

@@ -19,7 +19,7 @@ describe('responsive image production contract', () => {
   })
 
   it('keeps the local image loader mapped to generated 400/800/1200 WebP variants', () => {
-    const loader = read('src/lib/cloudflare-image-loader.ts')
+    const loader = read('lib/cloudflare-image-loader.ts')
 
     expect(loader).toContain('const WIDTHS = [400, 800, 1200]')
     expect(loader).toContain('/images/optimized')

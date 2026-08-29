@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getEvidenceDigestEdition } from '@/content/evidenceDigest'
-import { buildPageMetadata, SITE_URL } from '@/src/lib/seo'
+import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 
 const SLUG = '2026-08-evidence-literacy'

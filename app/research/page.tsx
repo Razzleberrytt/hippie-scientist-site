@@ -6,7 +6,7 @@ import {
   getPublicEvidenceDataset,
   type PublicStudyEntity,
 } from '@/lib/public-evidence-dataset'
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Research Library | Studies, Trials & Evidence Sources',

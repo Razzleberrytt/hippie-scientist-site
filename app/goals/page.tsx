@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { goals } from '@/data/goals'
-import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Supplement Goals: Compare Options by What You Want to Fix',

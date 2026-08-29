@@ -1,6 +1,6 @@
-import type { RuntimeRecord } from '../../src/types/content'
+import type { RuntimeRecord } from '../../types/content'
 
-import { getHerbSummaryIndex } from '../../src/lib/runtime-summary-indexes'
+import { getHerbSummaryIndex } from '../../lib/runtime-summary-indexes'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { formatDisplayLabel } from '@/lib/display-utils'
 import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'

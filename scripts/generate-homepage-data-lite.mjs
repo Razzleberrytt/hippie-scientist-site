@@ -5,7 +5,7 @@ import path from 'node:path'
 
 const root = process.cwd()
 const dataDir = path.join(root, 'public/data')
-const generatedDir = path.join(root, 'src/generated')
+const generatedDir = path.join(root, 'generated')
 const reportsDir = path.join(root, 'ops/reports')
 
 const herbsPath = path.join(dataDir, 'herbs.json')

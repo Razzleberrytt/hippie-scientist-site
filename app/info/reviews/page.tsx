@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { editorialReviewEvents } from '@/data/editorial/reviews'
 import { validateReviewLedger } from '@/lib/editorial-provenance'
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Editorial Review History',

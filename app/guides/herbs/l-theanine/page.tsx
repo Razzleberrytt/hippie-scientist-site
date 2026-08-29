@@ -7,14 +7,14 @@ import {
   breadcrumbJsonLd,
   faqPageJsonLd,
   compactMetaTitle,
-} from '../../../../src/lib/seo'
+} from '../../../../lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
-import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
+import LastUpdatedBadge from '../../../../components/editorial/LastUpdatedBadge'
 
 const SLUG = 'l-theanine'
 const TITLE = 'L-Theanine: What the Evidence Supports for Focus, Stress, Anxiety, and Sleep'

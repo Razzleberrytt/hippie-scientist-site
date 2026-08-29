@@ -1,4 +1,4 @@
-import type { GraphRuntime, GraphNode, GraphRelationship } from '../src/types/graph'
+import type { GraphRuntime, GraphNode, GraphRelationship } from '../types/graph'
 import { loadRuntimeGraph } from './runtime-graph'
 
 export type CompareGroup = {

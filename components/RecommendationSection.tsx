@@ -1,12 +1,12 @@
 import AffiliateDisclosure from './AffiliateDisclosure'
 import AffiliateProductCard, { type AffiliateProduct } from './AffiliateProductCard'
 import RevenueImpressionTracker from './RevenueImpressionTracker'
-import WhyWeRecommend from '../src/components/monetization/WhyWeRecommend'
+import WhyWeRecommend from './monetization/WhyWeRecommend'
 import HorizontalCardRail from './ui/HorizontalCardRail'
-import { shouldSuppressProductRecommendation } from '../src/lib/product-lifecycle'
+import { shouldSuppressProductRecommendation } from '../lib/product-lifecycle'
 import { revenueProductSets } from '../config/revenue-products'
-import { getCompounds, getHerbs } from '../src/lib/runtime-data'
-import { canRenderConfiguredRevenueProducts } from '../src/lib/revenue-product-governance'
+import { getCompounds, getHerbs } from '../lib/runtime-data'
+import { canRenderConfiguredRevenueProducts } from '../lib/revenue-product-governance'
 
 export type RecommendationSlot = 'budget' | 'overall' | 'premium'
 

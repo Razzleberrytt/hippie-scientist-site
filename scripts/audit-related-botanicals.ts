@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
-import { getBotanicalAtlasRecords } from '../src/lib/botanical-atlas-data'
-import { getRelatedBotanicals } from '../src/lib/related-botanicals'
+import { getBotanicalAtlasRecords } from '../lib/botanical-atlas-data'
+import { getRelatedBotanicals } from '../lib/related-botanicals'
 
 const outputDir = path.resolve(process.cwd(), 'reports/related-botanicals')
 const topN = Math.max(1, Number(process.env.RELATED_BOTANICALS_TOP_N ?? 5) || 5)

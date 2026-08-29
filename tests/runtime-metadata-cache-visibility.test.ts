@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { buildRenderableMetadataMap } from '../src/lib/runtime-metadata-cache'
-import type { RuntimeRecord } from '../src/types/content'
+import { buildRenderableMetadataMap } from '../lib/runtime-metadata-cache'
+import type { RuntimeRecord } from '../types/content'
 
 describe('runtime metadata cache visibility', () => {
   it('keeps publish and noindex profiles while excluding hidden records', () => {

@@ -3,8 +3,8 @@ import path from 'node:path'
 
 const IGNORED_FILES = [
   'config/affiliate.ts',
-  'src/lib/affiliate-registry.ts',
-  'src/lib/affiliate.ts',
+  'lib/affiliate-registry.ts',
+  'lib/affiliate.ts',
 ]
 
 const TARGET_DIRS = [

@@ -33,7 +33,7 @@ describe('Evidence Digest integrity reset', () => {
   })
 
   it('removes the withdrawn digest from the core index allowlist', () => {
-    const allowlist = read('src/lib/index-allowlist.ts')
+    const allowlist = read('lib/index-allowlist.ts')
 
     expect(allowlist).not.toContain("'/evidence/evidence-digest',")
   })

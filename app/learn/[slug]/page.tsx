@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getLearnPost, learnPosts } from '../data'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
-import { compactMetaTitle } from '../../../src/lib/seo'
+import { compactMetaTitle } from '../../../lib/seo'
 
 type LearnRouteParams = Promise<{ slug: string }>
 

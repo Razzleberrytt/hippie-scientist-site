@@ -1,4 +1,4 @@
-import Skeleton from '../../src/components/ui/Skeleton'
+import Skeleton from '../ui/Skeleton'
 
 export default function GoalHeroSkeleton() {
   return (

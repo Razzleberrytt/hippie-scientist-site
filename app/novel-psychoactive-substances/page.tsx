@@ -5,7 +5,7 @@ import { allNovelPsychoactiveSubstancePages } from '../../.content-collections/g
 
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
-import { SITE_URL, buildTwitterMetadata } from '../../src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '../../lib/seo'
 
 const sectionPage = allNovelPsychoactiveSubstancePages.find((page) => page.slug === 'index')
 const articlePages = allNovelPsychoactiveSubstancePages.filter((page) => page.slug !== 'index')
