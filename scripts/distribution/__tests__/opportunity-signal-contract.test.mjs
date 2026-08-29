@@ -48,6 +48,28 @@ describe('opportunity signal provenance contract', () => {
     ]))
   })
 
+  it('rejects coercible nonnumeric observed demand instead of treating it as ranking evidence', () => {
+    const provenance = {
+      source: 'google-search-console',
+      observedThrough: '2026-08-29',
+      denominator: 417,
+      method: '28-day page impressions normalized to 0-10',
+      fields: ['searchOpportunity', 'aiCitationOpportunity', 'socialSuitability'],
+    }
+    const result = validateOpportunitySignals({ herb: {
+      searchOpportunity: true,
+      aiCitationOpportunity: [],
+      socialSuitability: '8',
+      provenance,
+    } })
+    expect(result.valid).toBe(false)
+    expect(result.errors).toEqual(expect.arrayContaining([
+      'herb: searchOpportunity must be a finite number between 0 and 10',
+      'herb: aiCitationOpportunity must be a finite number between 0 and 10',
+      'herb: socialSuitability must be a finite number between 0 and 10',
+    ]))
+  })
+
   it('accepts observed demand only with auditable provenance', () => {
     expect(validateOpportunitySignals({ herb: {
       searchOpportunity: 8,
