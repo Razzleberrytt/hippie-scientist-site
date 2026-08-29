@@ -52,8 +52,8 @@ At the 2026-08-28T18:04Z GitHub snapshot, two existing implementation PRs remain
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4489 / PR #4487 | Platform-fit/cost selection | R / L3 | In Review | Existing review | — | — | Governed opportunity inputs | Observed/fallback provenance; unchanged scientific eligibility and source-page ranking; scoped regressions and hosted gates |
-| #4493 / PR #4494 | Lossless creative layout-fit guard | R / L4 | In Review | Existing review | — | — | Governed templates and content | Exact text preservation; bounded pagination; source/disclosure capacity; accessible type floors; scoped regressions and hosted gates |
+| #4489 / PR #4487 | Platform-fit/cost selection | R / L3 | Completed | Existing review | — | — | Governed opportunity inputs | Observed/fallback provenance; unchanged scientific eligibility and source-page ranking; scoped regressions and hosted gates |
+| #4493 / PR #4494 | Lossless creative layout-fit guard | R / L4 | Completed | Existing review | — | — | Governed templates and content | Exact text preservation; bounded pagination; source/disclosure capacity; accessible type floors; scoped regressions and hosted gates |
 
 ## Next — ordered dependency queue
 
@@ -64,7 +64,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | #4227 | Deduplicate uncached production exports across PR workflows | O | Planned | P1 compounding | 3/3/2/5/1/2 | 45.0 | Preserve fail-closed exact-SHA validation; `last_verified` at promotion | Quantify duplicated runner minutes; exact-SHA reusable artifact/cache or equivalent; cache miss performs full governed build; no quality thresholds weakened |
 | SEO-003 | Clear current schema identity gate | D | Ready | P1 | 4/4/4/4/1/2 | 128.0 | Reproduce current exact-main failure immediately before promotion | First-party identity IDs are consistent and full schema policy passes; route/schema regressions and production build prove the fix |
 | AUTH-001 | Resolve verified duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Revalidate current route/query evidence before promotion | Each pair has one owner or a genuinely distinct user job; removed owners get direct redirects; internal links/canonicals point to winner |
-| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | O/A evidence | In Review (research staging PR #4631) | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + provenance/source review; revalidate source status at start | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
+| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | O/A evidence | In Review (research staging PR #4644) | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + provenance/source review; revalidate source status at start | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
 | #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
@@ -112,7 +112,7 @@ These are capability proofs, not claims of business impact.
 | PR #4457 | Completed/merged as 95ec9ba285f06c947f2844a2f81abce031b9e437 — complete canonical safety-warning preservation; removed from `Now` |
 | #4412 / PR #4446 | Completed/merged as 96a07976dee22cf7b91c337c820cc83ff7e6b860 — machine reconciliation is on main; removed from `Now` |
 | #4463 | Completed/merged as f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1 — trust-safe thumbnail variants are on main; removed from `Now` |
-| #4460 | Completed/merged as 48bebb81e35c4bd605dedbfc15156cabeb915b06 — duplicate-angle suppression is on main; removed from `Now` |
+| #4460 | Completed/merged as 48bebb81e35c4bd8c0993725bd425b1 — duplicate-angle suppression is on main; removed from `Now` |
 | #4406 | Completed — governed ready → publish → measured lifecycle merged; removed from `Next` |
 | #4439 / PR #4440 | Completed/merged — canonical claim/source binding; removed from `Now` |
 | PR #4448 | Closed unmerged — provenance-bound vertical MP4 implementation preserved for later legal reuse and does not occupy active WIP |
