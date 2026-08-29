@@ -14,7 +14,7 @@
 > [`magnificent-10.md`](./magnificent-10.md) (what to expand) ·
 > [`expansion-order.md`](./expansion-order.md) (in what order) ·
 > [`content-expansion-playbook.md`](./content-expansion-playbook.md) (the assembly line) ·
-> per-page specs in [`page-expansion-specs/`](./page-expansion-specs/).
+> per-page specs in [`archive/2026-08/page-expansion-specs/`](./archive/2026-08/page-expansion-specs/).
 >
 > Generated: 2026-06-16 · Branch: `claude/magnificent-10-expansion-blueprint-l0rf8t`
 
@@ -22,7 +22,7 @@
 
 ## How to use this blueprint
 
-1. Open the page's spec in [`page-expansion-specs/`](./page-expansion-specs/) — it tells you the
+1. Open the page's spec in [`archive/2026-08/page-expansion-specs/`](./archive/2026-08/page-expansion-specs/) — it tells you the
    current state, the missing sections, the target word count, and the suggested
    citations/links/affiliate placements **for that page**.
 2. Open this blueprint — it tells you the **section order** and **what "done" means** for each
