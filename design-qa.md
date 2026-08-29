@@ -33,7 +33,7 @@ The full-viewport comparison was readable at original resolution, so a separate 
 - `npm run typecheck`: passed.
 - `npx eslint components/homepage-v2.tsx --max-warnings=0`: passed.
 - `npm run test:a11y`: passed (5 tests).
-- `npx next build`: passed and exported 1,330 static pages. The project's wrapper `npm run build` still stops earlier in its data step on the pre-existing Windows `UNKNOWN open public\\data\\herbs-detail\\berberis-aristata.json` error; its generated side effects were restored.
+- `npm run build`: passed and exported the full static site.
 
 ## Final result
 
