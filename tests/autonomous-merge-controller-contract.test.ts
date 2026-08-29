@@ -145,14 +145,17 @@ describe('autonomous merge controller contract', () => {
     expect(controller).not.toContain("TRANSIENT_CONCLUSIONS = new Set(['failure'")
   })
 
-  it('continues without chat through a long-running monitor and scheduled fallback sweep', () => {
+  it('releases PR-event monitor runners quickly while the scheduled sweep preserves autonomous ownership', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
 
     expect(workflow).toContain("cron: '*/10 * * * *'")
-    expect(workflow).toContain('timeout-minutes: 180')
-    expect(workflow).toContain("MERGE_MAX_WAIT_MINUTES: '165'")
+    expect(workflow).toContain('timeout-minutes: 5')
+    expect(workflow).toContain("MERGE_POLL_SECONDS: '65'")
+    expect(workflow).toContain("MERGE_MAX_WAIT_MINUTES: '1'")
     expect(workflow).toContain("SWEEP_OPEN_PRS: 'true'")
+    expect(workflow).toContain('one-minute observation window')
+    expect(workflow).not.toContain("MERGE_MAX_WAIT_MINUTES: '165'")
     expect(controller).toContain('Fallback sweep complete')
     expect(controller).toContain('fallback sweep will continue ownership')
   })
