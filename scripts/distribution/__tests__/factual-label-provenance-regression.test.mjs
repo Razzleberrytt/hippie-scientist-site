@@ -31,6 +31,9 @@ describe('distribution factual-label provenance regression', () => {
     'Improving sleep quality.',
     'Reduced anxiety symptoms.',
     'Reducing anxiety symptoms.',
+    'Sleep quality improved.',
+    'Anxiety symptoms were reduced.',
+    'Focus is improving.',
     'Effective for anxiety.',
     'In the recorded randomized trial, the intervention improved the prespecified sleep outcome versus control.',
   ])('rejects unbound factual label: %s', (text) => {
