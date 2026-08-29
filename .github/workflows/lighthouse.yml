@@ -34,24 +34,54 @@ on:
   schedule:
     - cron: '41 10 * * 2'
   workflow_dispatch:
+    inputs:
+      producer_run_id:
+        description: CI run containing the governed static export artifact
+        required: false
+        type: string
+      producer_sha:
+        description: Exact PR head SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_base_sha:
+        description: Exact PR base SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_pr_number:
+        description: PR number that produced the governed static export
+        required: false
+        type: string
 
 concurrency:
   group: lighthouse-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
   lighthouse:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]'
     name: Lighthouse audit
     runs-on: ubuntu-latest
     timeout-minutes: 35
 
     steps:
+      - name: Reject stale producer dispatch
+        if: inputs.producer_sha != ''
+        env:
+          PRODUCER_SHA: ${{ inputs.producer_sha }}
+        run: |
+          if [ "$GITHUB_SHA" != "$PRODUCER_SHA" ]; then
+            echo "Producer dispatch is stale: workflow head=$GITHUB_SHA producer=$PRODUCER_SHA"
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.producer_sha || github.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -74,7 +104,7 @@ jobs:
       - name: Select Lighthouse matrix
         id: matrix
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
+          if [ -n "${{ inputs.producer_pr_number }}" ]; then
             echo "perf=.lighthouserc.pr.json" >> "$GITHUB_OUTPUT"
             echo "a11y=.lighthouserc.a11y.pr.json" >> "$GITHUB_OUTPUT"
             echo "label=PR representative matrix (9 browser audits + 3 desktop performance audits)" >> "$GITHUB_OUTPUT"
@@ -95,10 +125,36 @@ jobs:
           node scripts/ci/audit-client-runtime-size.mjs
           node scripts/ci/audit-css-component-surface.mjs
 
-      - name: Build static export
+      - name: Download governed static export
+        id: governed-download
+        if: inputs.producer_run_id != '' && inputs.producer_sha != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v7
+        with:
+          name: governed-static-export-${{ inputs.producer_sha }}
+          path: .
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.producer_run_id }}
+
+      - name: Verify governed static export receipt
+        id: governed-verify
+        if: steps.governed-download.outcome == 'success'
+        continue-on-error: true
+        run: >-
+          node scripts/ci/governed-static-export.mjs verify
+          --source-sha "${{ inputs.producer_sha }}"
+          --base-sha "${{ inputs.producer_base_sha }}"
+
+      - name: Build static export fallback
+        if: steps.governed-verify.outcome != 'success'
         env:
-          COMMIT_HASH: ${{ github.sha }}
-        run: npm run build:deploy
+          COMMIT_HASH: ${{ inputs.producer_sha || github.sha }}
+        run: |
+          rm -rf out .governed-static-export.json
+          npm run build:deploy
+
+      - name: Verify production output
+        run: npm run verify:output
 
       - name: Enforce bundle and data budgets
         run: node scripts/report-performance-budget.mjs
@@ -139,10 +195,6 @@ jobs:
           npx @lhci/cli@0.14 assert --config="$A11Y_CONFIG" || A11Y_STATUS=$?
           rm -rf .lighthouseci
 
-          # Accessibility is a gate; performance is a trend.
-          # Performance budgets remain unchanged, but shared-runner variance makes
-          # them unsuitable as a hard PR failure. Deterministic build-correctness
-          # assertions in both performance configs remain hard errors.
           if [ "$PERF_STATUS" -ne 0 ] || [ "$DESKTOP_STATUS" -ne 0 ]; then
             echo "::notice title=Lighthouse performance::Mobile or desktop budgets exceeded on this run. Reported as a trend, not a gate -- see the job summary and uploaded reports."
           fi
@@ -157,7 +209,7 @@ jobs:
         run: node scripts/ci/report-lighthouse-trend.mjs --dir=.lighthouseci-performance
 
       - name: Monitor production cache behavior
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.producer_run_id == '')
         run: node scripts/monitor/production-cache-health.mjs
 
       - name: Upload performance and accessibility results
@@ -181,6 +233,9 @@ jobs:
         run: |
           echo "## Performance & Accessibility Governance" >> "$GITHUB_STEP_SUMMARY"
           echo "- Audit matrix: ${{ steps.matrix.outputs.label }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Governed static export receipt verified: ${{ steps.governed-verify.outcome == 'success' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Same-repository pull-request runs are registration-only; exact-head audits are dispatched by the successful CI producer." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Fork and Dependabot pull requests run a complete self-built validation path because dispatch permissions are unavailable." >> "$GITHUB_STEP_SUMMARY"
           echo "- PR matrix keeps homepage/herb/compound mobile performance checks plus matching desktop representative checks and hard accessibility checks on homepage, herb, compound, compare, safety-checker, and activity-atlas route archetypes." >> "$GITHUB_STEP_SUMMARY"
           echo "- Main/scheduled/manual runs retain the existing full mobile/accessibility matrix plus the three representative desktop checks." >> "$GITHUB_STEP_SUMMARY"
           echo "- Lighthouse performance target: ≥ 82 mobile; ≥ 85 representative desktop (tracked, not gated)" >> "$GITHUB_STEP_SUMMARY"
@@ -188,6 +243,5 @@ jobs:
           echo "- Hard accessibility gate: ≥ 90" >> "$GITHUB_STEP_SUMMARY"
           echo "- Hard build-correctness gates: unminified JS/CSS, unsized images" >> "$GITHUB_STEP_SUMMARY"
           echo "- Client-boundary source budget: warn at 18KB, fail at 45KB" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Global CSS and likely-unused component surface is reported on every run" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Weekly production cache monitor verifies explicit cache policy and immutable Next static assets" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Missing/stale/tampered governed artifacts fall back to a complete build; no audit threshold is weakened." >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"

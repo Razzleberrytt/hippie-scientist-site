@@ -94,26 +94,26 @@ describe('workflow release-impact contract', () => {
 
   it.each([
     ['.github/workflows/ci.yml', 'npm run build:deploy'],
-    ['.github/workflows/production-content-lint.yml', 'npm run build:deploy'],
     ['.github/workflows/production-content-invariants.yml', 'node scripts/build-production.mjs'],
   ])('%s skips its production build on docs-only PRs', (workflow, heavyCommand) => {
-    // Nine workflows each ran their own `build:deploy`. A PR that changed only
-    // prose still paid for every one of them, which is what made docs-only PRs
-    // take ~25 minutes.
     const yaml = fs.readFileSync(path.join(process.cwd(), workflow), 'utf8')
     expect(yaml).toContain(classifierCommand)
     expect(yaml).toContain(heavyCommand)
     expect(yaml).toContain("steps.impact.outputs.docs_only != 'true'")
   })
 
+  it('keeps production-content-lint as a governed artifact consumer with a full self-build fallback', () => {
+    const yaml = fs.readFileSync(path.join(process.cwd(), '.github/workflows/production-content-lint.yml'), 'utf8')
+    expect(yaml).toContain('governed-static-export-${{ inputs.producer_sha }}')
+    expect(yaml).toContain("if: steps.governed-verify.outcome != 'success'")
+    expect(yaml).toContain('npm run build:deploy')
+    expect(yaml).toContain("github.event.pull_request.head.repo.full_name != github.repository")
+    expect(yaml).toContain("github.actor == 'dependabot[bot]'")
+  })
+
   it('gives the classifier the history it needs to diff against the base ref', () => {
-    // `git diff origin/$BASE_REF...HEAD` returns nothing useful on a shallow
-    // clone, and an empty diff classifies as not-docs-only — so a missing
-    // fetch-depth degrades to running everything rather than skipping wrongly,
-    // but it also silently defeats the optimization.
     for (const workflow of [
       '.github/workflows/ci.yml',
-      '.github/workflows/production-content-lint.yml',
       '.github/workflows/production-content-invariants.yml',
       '.github/workflows/check.yml',
     ]) {
@@ -156,23 +156,16 @@ describe('docs-only classification', () => {
   })
 
   it('is not docs-only when a single source file rides along', () => {
-    // The whole point: one component change must still run the full suite,
-    // even though `components/` is not release-sensitive.
     const result = classifyReleaseImpact(['docs/a.md', 'components/Navigation.tsx'])
     expect(result.docsOnly).toBe(false)
   })
 
   it('is not docs-only for an empty diff', () => {
-    // With nothing to inspect the safe answer is to run everything.
     expect(classifyReleaseImpact([]).docsOnly).toBe(false)
   })
 })
 
 describe('CLI writes both signals to $GITHUB_OUTPUT', () => {
-  // The workflow guards read `steps.impact.outputs.docs_only`. An unwritten
-  // output reads as empty, which passes `!= 'true'` and silently runs
-  // everything -- safe, but it would defeat the optimization without failing
-  // anything, so it has to be asserted rather than assumed.
   function run(files) {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'release-impact-'))
     const outputPath = path.join(dir, 'github-output')
@@ -213,9 +206,6 @@ describe('CLI writes both signals to $GITHUB_OUTPUT', () => {
 
 describe('workbook patch proposals stay validated', () => {
   it('never gates the patch validator on docs_only', () => {
-    // `data-sources/workbook-patches/*.json` is classified docs-only, which is
-    // safe only because the patch schema is still enforced. If that gate ever
-    // learned to skip, proposals would merge unvalidated.
     const workflows = fs
       .readdirSync(path.join(process.cwd(), '.github', 'workflows'))
       .filter((name) => name.endsWith('.yml'))
