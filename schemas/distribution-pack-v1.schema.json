@@ -19,7 +19,7 @@
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["url", "title", "contentHash"],
+      "required": ["url", "title", "contentHash", "findingClaimId", "primarySourceId", "primarySourceUrl"],
       "dependentRequired": {
         "findingClaimId": ["primarySourceId", "primarySourceUrl"],
         "primarySourceId": ["findingClaimId", "primarySourceUrl"],

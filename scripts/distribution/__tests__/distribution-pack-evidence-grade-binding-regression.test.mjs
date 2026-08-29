@@ -9,6 +9,9 @@ const researchObject = {
   evidenceGrade: 'B',
   limitation: 'This fixture does not establish a universal effect.',
   sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
+  findingClaimId: 'clm_abcdef123456',
+  primarySourceId: 'src_abcdef123456',
+  primarySourceUrl: 'https://example.org/study/fixture-grade-binding',
 }
 
 function pack(grade = researchObject.evidenceGrade) {
@@ -21,6 +24,9 @@ function pack(grade = researchObject.evidenceGrade) {
       url: sourceUrl,
       title: researchObject.title,
       contentHash: hashResearchObject(researchObject),
+      findingClaimId: researchObject.findingClaimId,
+      primarySourceId: researchObject.primarySourceId,
+      primarySourceUrl: researchObject.primarySourceUrl,
     },
     audience: 'General educational audience',
     angle: 'What the evidence actually says',
