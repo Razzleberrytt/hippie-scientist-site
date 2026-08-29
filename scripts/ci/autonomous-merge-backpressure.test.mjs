@@ -18,7 +18,7 @@ describe('autonomous merge backpressure contract', () => {
     expect(monitor).toContain("method: 'GET'")
     expect(monitor).not.toContain('/update-branch')
     expect(monitor).not.toContain('/dispatches')
-    expect(monitor).not.toMatch(/method:\s*['\"](?:POST|PUT|PATCH|DELETE)['\"]/u)
+    expect(monitor).not.toMatch(/method:\s*['"](?:POST|PUT|PATCH|DELETE)['"]/u)
     expect(monitor).toContain('base drift is owned by the serialized fallback sweep')
     expect(monitor).not.toContain('while (')
   })
