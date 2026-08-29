@@ -8,17 +8,16 @@ import { validateDistributionPack } from '../distribution-pack-contract.mjs'
 
 const root = process.cwd()
 const script = path.join(root, 'scripts', 'distribution', 'build-research-distribution.mjs')
+const researchObjects = JSON.parse(fs.readFileSync(path.join(root, 'data/distribution/research-objects.json'), 'utf8'))
+const canonical = researchObjects.find(({ id }) => id === 'ashwagandha-stress-evidence')
 
 function fixture(overrides = {}) {
   return {
+    ...canonical,
     id: 'sleep-rct-fixture',
     title: 'Sleep evidence fixture',
-    finding: 'In the recorded randomized trial, the intervention improved the prespecified sleep outcome versus control.',
-    evidenceType: 'RCT',
-    evidenceGrade: 'B',
-    limitation: 'The fixture represents one study and does not establish a universal effect.',
-    sourceUrl: 'https://thehippiescientist.net/guides/compare/sleep-herbs-vs-melatonin/',
-    populationContext: 'Adults enrolled in the recorded randomized trial',
+    limitation: 'The fixture represents one governed evidence unit and does not establish a universal effect.',
+    populationContext: 'Adults represented in the cited randomized trials',
     doseContext: 'Study-specific intervention exposure; not a consumer instruction',
     lastVerified: '2026-08-27',
     tags: ['fixture'],

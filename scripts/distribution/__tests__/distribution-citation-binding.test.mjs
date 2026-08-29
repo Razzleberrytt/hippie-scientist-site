@@ -24,6 +24,19 @@ describe('distribution canonical claim-to-study citation binding', () => {
     expect(validateDistributionCitationBinding(pack, object)).toEqual([])
   })
 
+  it.each([
+    ['all citation fields', ['findingClaimId', 'primarySourceId', 'primarySourceUrl']],
+    ['finding claim identity', ['findingClaimId']],
+    ['primary source identity', ['primarySourceId']],
+    ['primary source URL', ['primarySourceUrl']],
+    ['claim and source identity', ['findingClaimId', 'primarySourceId']],
+  ])('fails closed before pack generation when %s are missing', (_label, removedFields) => {
+    const changed = structuredClone(object)
+    for (const field of removedFields) delete changed[field]
+    expect(() => buildDistributionPackFromResearchObject(changed, { researchObjects: [changed] }))
+      .toThrow(/must include findingClaimId, primarySourceId, and primarySourceUrl/i)
+  })
+
   it('fails closed when a different approved source is substituted for the finding', () => {
     const changed = structuredClone(object)
     changed.primarySourceId = 'src_05c07be46c26'
