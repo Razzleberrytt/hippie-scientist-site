@@ -1,0 +1,483 @@
+/*
+  Editorial primitives — the shared component vocabulary.
+
+  Loaded globally so every template composes from the same small set instead of
+  inventing one-off card/pill/panel treatments. Values come from the canonical
+  tokens in visual-token-hardening.css; controls come from premium-controls.css.
+
+  The vocabulary is deliberately short:
+
+    .hs-label       eyebrow / metadata label
+    .hs-sec         flat editorial section (hairline + space, no card)
+    .hs-panel       the single enclosure treatment (+ --caution, --quiet)
+    .hs-defs        definition rows, replacing grids of small stat cards
+    .hs-linklist    compact navigation link rows
+    .hs-chips       wrapping chip row (+ .hs-chip)
+    .hs-disclosure  the one accordion treatment
+    .hs-caution     qualitative safety band
+
+  Primary and secondary actions stay .button-primary / .button-secondary.
+*/
+
+:root {
+  --hs-radius: 1rem;
+  --hs-radius-inline: 0.625rem;
+  --hs-rule: 1px solid var(--hs-hairline);
+  --hs-rule-strong: 1px solid var(--hs-hairline-strong);
+  --hs-block-gap: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --hs-block-gap: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Label
+-------------------------------------------------------------------------- */
+
+.hs-label {
+  display: block;
+  margin: 0;
+  color: var(--hs-gold-ink);
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 780;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+html.dark .hs-label {
+  color: var(--hs-gold-bright);
+}
+
+/* --------------------------------------------------------------------------
+   Masthead
+
+   The page-opening block. On phones it dissolves into the page: the surrounding
+   chrome is what made the first screen read as a card rather than a title.
+-------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .hs-masthead {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section
+-------------------------------------------------------------------------- */
+
+.hs-sec {
+  border-top: var(--hs-rule);
+  padding-top: 1.15rem;
+}
+
+.hs-sec > * + * {
+  margin-top: var(--hs-block-gap);
+}
+
+.hs-sec__head > * + * {
+  margin-top: 0.35rem;
+}
+
+.hs-sec__intro {
+  max-width: 62ch;
+  color: var(--hs-body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Panel — the one enclosure treatment
+-------------------------------------------------------------------------- */
+
+.hs-panel {
+  border: var(--hs-rule-strong);
+  border-radius: var(--hs-radius);
+  background: color-mix(in srgb, var(--surface-card) 88%, transparent);
+  padding: 0.95rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .hs-panel {
+    padding: 1.15rem 1.25rem;
+  }
+}
+
+.hs-panel > * + * {
+  margin-top: 0.75rem;
+}
+
+.hs-panel--caution {
+  border-color: color-mix(in srgb, var(--accent-warning) 34%, var(--hs-hairline-strong));
+  border-left-width: 3px;
+  background: color-mix(in srgb, var(--accent-warning) 6%, var(--surface-card));
+}
+
+.hs-panel--quiet {
+  border-color: var(--hs-hairline);
+  background: color-mix(in srgb, var(--surface-subtle) 70%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Definition rows
+-------------------------------------------------------------------------- */
+
+.hs-defs {
+  display: grid;
+  gap: 0;
+  border-top: var(--hs-rule);
+}
+
+.hs-defs > div {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+  border-bottom: var(--hs-rule);
+  padding: 0.6rem 0;
+}
+
+.hs-defs dt {
+  color: var(--hs-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hs-defs dd {
+  margin: 0;
+  min-width: 0;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.hs-defs__note {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--hs-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.hs-defs > div.hs-defs--caution {
+  border-left: 3px solid color-mix(in srgb, var(--accent-warning) 55%, transparent);
+  padding-left: 0.7rem;
+}
+
+/* The selected option in a set of alternatives. */
+.hs-defs > div.hs-defs--active {
+  border-left: 3px solid #3f7c4a;
+  padding-left: 0.7rem;
+}
+
+html.dark .hs-defs > div.hs-defs--active {
+  border-left-color: #7fb98c;
+}
+
+.hs-defs > div.hs-defs--active dt {
+  color: var(--text-primary);
+}
+
+@media (min-width: 560px) {
+  .hs-defs > div {
+    grid-template-columns: 10.5rem minmax(0, 1fr);
+    gap: 0 1rem;
+    align-items: baseline;
+  }
+
+  .hs-defs > div.hs-defs--caution,
+  .hs-defs > div.hs-defs--active {
+    grid-template-columns: calc(10.5rem - 0.7rem) minmax(0, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Navigation link list
+-------------------------------------------------------------------------- */
+
+.hs-linklist {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: var(--hs-rule);
+  list-style: none;
+}
+
+.hs-linklist > li {
+  margin: 0;
+  min-width: 0;
+  line-height: inherit;
+}
+
+.hs-linklist a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+  min-width: 0;
+  border-bottom: var(--hs-rule);
+  padding: 0.6rem 0;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.hs-linklist a:hover {
+  color: var(--hs-gold-ink);
+}
+
+html.dark .hs-linklist a:hover {
+  color: var(--hs-gold-bright);
+}
+
+.hs-linklist__note {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--hs-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.hs-linklist__arrow {
+  flex: none;
+  color: var(--hs-gold-ink);
+  font-size: 0.85rem;
+}
+
+html.dark .hs-linklist__arrow {
+  color: var(--hs-gold-bright);
+}
+
+@media (min-width: 768px) {
+  .hs-linklist--split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.25rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Chips — always wrap, never crop
+-------------------------------------------------------------------------- */
+
+.hs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  /* Gap is part of the target-size contract: it keeps adjacent chips from
+     sharing an edge, which is what SC 2.5.8 asks for at this height. */
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hs-chips > li {
+  margin: 0;
+  max-width: 100%;
+  line-height: inherit;
+}
+
+.hs-chip {
+  display: inline-flex;
+  align-items: center;
+  /* 40px: comfortably past the 24px AA minimum, and the row gap above supplies
+     the separation the spacing exception relies on. Link rows below use the
+     full 44px because they are the primary navigation affordance. */
+  min-height: 2.5rem;
+  max-width: 100%;
+  border: var(--hs-rule-strong);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+a.hs-chip:hover {
+  border-color: color-mix(in srgb, var(--hs-gold) 46%, var(--hs-hairline-strong));
+  background: color-mix(in srgb, var(--hs-gold) 8%, transparent);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Disclosure — one accordion treatment
+
+   Unlayered element selectors so these override the @layer base `details`
+   defaults (which paint a white card background in every theme).
+-------------------------------------------------------------------------- */
+
+details.hs-disclosure {
+  border: 0;
+  border-top: var(--hs-rule);
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+details.hs-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2.75rem;
+  padding: 0.7rem 0;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+details.hs-disclosure > summary::after,
+details.hs-disclosure[open] > summary::after {
+  content: none;
+}
+
+details.hs-disclosure > summary + * {
+  margin-top: 0;
+  padding-bottom: 1rem;
+}
+
+.hs-disclosure__marker {
+  flex: none;
+  color: var(--hs-gold-ink);
+  font-size: 0.75rem;
+  transition: transform 180ms ease;
+}
+
+html.dark .hs-disclosure__marker {
+  color: var(--hs-gold-bright);
+}
+
+details[open] > summary .hs-disclosure__marker {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-disclosure__marker {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Caution band (SafetyCautionLevel)
+-------------------------------------------------------------------------- */
+
+.hs-caution {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.hs-caution__label {
+  margin: 0;
+}
+
+.hs-caution__tier {
+  color: var(--text-primary);
+  font-size: 0.7rem;
+  font-weight: 780;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.hs-caution__band {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hs-caution__step {
+  margin: 0;
+  padding-top: 0.4rem;
+  border-top: 3px solid var(--hs-hairline-strong);
+  color: var(--hs-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.hs-caution__step[data-state="below"] {
+  border-top-color: color-mix(in srgb, var(--text-secondary) 42%, transparent);
+}
+
+.hs-caution__step[data-state="active"] {
+  color: var(--text-primary);
+}
+
+.hs-caution__step[data-state="active"][data-tier="low"] {
+  border-top-color: #3f7c4a;
+}
+
+html.dark .hs-caution__step[data-state="active"][data-tier="low"] {
+  border-top-color: #7fb98c;
+}
+
+.hs-caution__step[data-state="active"][data-tier="moderate"] {
+  border-top-color: var(--accent-warning);
+}
+
+.hs-caution__step[data-state="active"][data-tier="high"] {
+  border-top-color: var(--accent-danger);
+}
+
+.hs-caution__summary {
+  margin: 0;
+  color: var(--hs-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.hs-caution__factors {
+  display: grid;
+  gap: 0;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  border-top: var(--hs-rule);
+  list-style: none;
+}
+
+.hs-caution__factors > li {
+  margin: 0;
+  border-bottom: var(--hs-rule);
+  padding: 0.5rem 0;
+}
+
+.hs-caution__factor-name {
+  display: block;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.hs-caution__factor-note {
+  display: block;
+  margin-top: 0.1rem;
+  color: var(--hs-body);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}

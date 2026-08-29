@@ -78,9 +78,9 @@ export default async function GuidePage({ params }: Props) {
       ) : null}
 
       <div className="space-y-9 sm:space-y-10">
-        <header className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
+        <header className="hs-masthead hero-shell rounded-[1.25rem] border p-5 sm:p-8 lg:p-9">
           <p className="eyebrow-label">Evidence guide</p>
-          <h1 className="heading-premium mt-5 max-w-4xl">{guide.title}</h1>
+          <h1 className="heading-premium mt-4 max-w-4xl">{guide.title}</h1>
           <p className="text-reading mt-4 max-w-3xl">{guide.description}</p>
           {(guide.publishDate || guide.lastUpdated) ? (
             <div className="mt-5 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.11em] text-[color:var(--hs-body)]">
@@ -103,13 +103,12 @@ export default async function GuidePage({ params }: Props) {
         ) : null}
 
         {atlasGuide ? (
-          <aside className="relative overflow-hidden rounded-[1.6rem] border border-[color:color-mix(in_srgb,var(--tone)_22%,var(--hs-hairline))] bg-[color:color-mix(in_srgb,var(--tone)_6%,var(--hs-surface))] p-5 sm:p-6">
-            <div aria-hidden="true" className="absolute -right-12 -top-12 h-32 w-32 rounded-full border border-[color:color-mix(in_srgb,var(--hs-gold)_20%,transparent)]" />
-            <div className="relative max-w-2xl">
-              <p className="section-label">Botanical Activity Atlas</p>
-              <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]">{atlasGuide.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-[color:var(--hs-body)]">{atlasGuide.description}</p>
-              <Link href={atlasGuide.href} className="button-primary mt-5 inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold">
+          <aside className="hs-panel">
+            <div className="max-w-2xl">
+              <p className="hs-label">Botanical Activity Atlas</p>
+              <h2 className="mt-1.5 font-display text-xl font-semibold tracking-[-0.02em] text-[color:var(--hs-ink)]">{atlasGuide.title}</h2>
+              <p className="mt-2 text-sm leading-6 text-[color:var(--hs-body)]">{atlasGuide.description}</p>
+              <Link href={atlasGuide.href} className="button-primary mt-3 inline-flex min-h-11 items-center rounded-full px-5 py-2.5 text-sm font-semibold">
                 Open evidence-sorted comparison →
               </Link>
             </div>

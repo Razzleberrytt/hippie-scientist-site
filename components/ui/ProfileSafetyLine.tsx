@@ -43,24 +43,24 @@ export default function ProfileSafetyLine({ tone, summary, href = '#safety' }: P
 
   const neutral = tone === NEUTRAL_TONE
 
+  /* A left rule rather than a filled pill: tone still reads at a glance, but the
+     hero keeps one surface instead of stacking a coloured panel inside it. */
   return (
     <div
-      className={`rounded-xl border px-3 py-2 ${
-        neutral
-          ? 'border-emerald-600/30 bg-emerald-50/70 dark:border-emerald-300/20 dark:bg-emerald-300/10'
-          : 'border-amber-600/30 bg-amber-50/70 dark:border-amber-300/20 dark:bg-amber-300/10'
+      className={`border-l-[3px] py-0.5 pl-3 ${
+        neutral ? 'border-emerald-700/60 dark:border-emerald-300/50' : 'border-amber-600/70 dark:border-amber-300/60'
       }`}
     >
-      <p className="text-sm leading-6 text-ink">
+      <p className="text-sm leading-6 text-muted">
         <span
-          className={`font-bold ${
-            neutral ? 'text-emerald-800 dark:text-emerald-100' : 'text-amber-800 dark:text-amber-100'
+          className={`font-semibold ${
+            neutral ? 'text-emerald-800 dark:text-emerald-200' : 'text-amber-800 dark:text-amber-200'
           }`}
         >
           {tone}
         </span>{' '}
         — {text}{' '}
-        <a href={href} className="font-semibold text-brand-800 hover:underline dark:text-brand-100">
+        <a href={href} className="font-semibold text-[color:var(--tone-ink)] underline-offset-4 hover:underline">
           Details
         </a>
       </p>

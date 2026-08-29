@@ -44,10 +44,10 @@ export function SourcingCta({ record, displayName }: SourcingCtaProps) {
   const finalUrl = getUrl()
 
   return (
-    <div className="rounded-2xl border border-brand-900/10 bg-white/95 p-4 shadow-sm space-y-3">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div className="flex-1 min-w-[280px]">
-          <h3 className="text-base font-semibold text-ink">
+    <div className="border-t border-[color:var(--hs-hairline)] pt-3 space-y-2.5">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+        <div className="min-w-[15rem] flex-1">
+          <h3 className="font-semibold text-ink">
             Review available sources for {displayName}
           </h3>
           <p className="mt-0.5 text-xs leading-5 text-muted">
@@ -62,7 +62,7 @@ export function SourcingCta({ record, displayName }: SourcingCtaProps) {
             rel="nofollow sponsored noopener noreferrer"
             data-ingredient={profileSlug || undefined}
             data-tracking-location="sourcing-cta-fallback"
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#358f52] hover:bg-[#2d7a46] px-5 py-3 text-sm font-bold text-white shadow-sm transition motion-safe:hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+            className="button-primary inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold"
           >
             <span>Check sourcing options</span>
             <svg
@@ -78,18 +78,16 @@ export function SourcingCta({ record, displayName }: SourcingCtaProps) {
           </a>
         ) : (
           /* 3. Fallback when no URL exists */
-          <div className="rounded-2xl border border-brand-900/10 bg-brand-50/50 p-4 text-xs text-muted max-w-sm">
+          <p className="max-w-sm text-xs leading-5 text-muted">
             <span className="font-semibold text-ink">No direct source verified.</span> When shopping independently, look for third-party lab testing certificates (COA), GMP facility stamps, and standardized extract specifications.
-          </div>
+          </p>
         )}
       </div>
 
       {/* 4. Clear disclosure language */}
-      <div className="border-t border-brand-900/5 pt-2 text-[11px] leading-relaxed text-muted">
-        <p>
-          <strong>Affiliate Disclosure:</strong> Shopping links may earn this site a commission at no cost to you. Links are chosen on quality and availability, never commission tiers; safety warnings and evidence ratings stay independent.
-        </p>
-      </div>
+      <p className="text-[11px] leading-relaxed text-muted">
+        <strong>Affiliate disclosure:</strong> Shopping links may earn this site a commission at no cost to you. Links are chosen on quality and availability, never commission tiers; safety warnings and evidence ratings stay independent.
+      </p>
     </div>
   )
 }

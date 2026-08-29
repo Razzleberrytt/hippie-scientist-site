@@ -1,240 +1,188 @@
 /*
-  Herb profile premium polish.
-  Targets rendered profile sections without changing workbook/generated data.
-  Palette ownership comes from the canonical theme tokens; this layer owns
-  profile-specific hierarchy, density, table affordances, and responsive rhythm.
+  Profile composition — herb and compound monographs.
 
-  Profile routes provide the explicit [data-profile-page] boundary. Keep this
-  stylesheet scoped to that marker rather than rediscovering the route by
-  repeatedly evaluating a large-DOM :has() selector.
+  The shared component vocabulary lives in editorial-primitives.css. This layer
+  owns only what is specific to profile routes: density tokens, the responsive
+  heading scale, and reconciling the legacy card markup these large templates
+  still carry so the page reads as one editorial column instead of a stack of
+  peer cards.
+
+  Profile routes provide the explicit [data-profile-page] boundary so none of
+  this needs a large-DOM :has() lookup.
 */
+
+[data-profile-page] {
+  --profile-gutter: 1.15rem;
+  --profile-radius: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  [data-profile-page] {
+    --profile-gutter: 1.5rem;
+    --profile-radius: 1rem;
+  }
+}
 
 [data-profile-page] > div.mx-auto {
   max-width: 1180px;
 }
 
-#ashwagandha-stress-claim,
-[data-profile-page] #quick-stats,
-[data-profile-page] #compare,
-[data-profile-page] section.rounded-2xl {
-  border-color: var(--border-soft);
-  background: var(--surface-card);
-  box-shadow: var(--hs-lift);
+/* ---------------------------------------------------------------------------
+   Responsive heading scale
+
+   Section headings stay distinctive without consuming half a phone viewport.
+   These are element rules in an unlayered sheet, so they intentionally beat the
+   per-template Tailwind size utilities and keep one scale across every profile
+   rather than one per section.
+--------------------------------------------------------------------------- */
+
+[data-profile-page] h1 {
+  max-width: 20ch;
+  font-size: clamp(1.8rem, 6.2vw, 2.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.024em;
 }
 
-[data-profile-page] h1,
-[data-profile-page] h2,
-[data-profile-page] h3,
-#ashwagandha-stress-claim h2,
-#ashwagandha-stress-claim h3,
-#ashwagandha-stress-claim .text-ink {
+[data-profile-page] h2 {
+  max-width: 30ch;
+  font-size: clamp(1.2rem, 3.4vw, 1.4rem);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+}
+
+[data-profile-page] h3 {
+  max-width: 38ch;
+  font-size: clamp(0.98rem, 2.6vw, 1.05rem);
+  line-height: 1.35;
+  letter-spacing: -0.008em;
+}
+
+[data-profile-page] h4 {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Utility/label headings opt out of the display scale entirely. */
+[data-profile-page] :is(h2, h3, h4).hs-label,
+[data-profile-page] :is(h2, h3, h4)[class*="uppercase"] {
+  max-width: none;
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  letter-spacing: 0.13em;
+}
+
+[data-profile-page] :is(h1, h2, h3, h4) {
   color: var(--text-primary);
 }
 
 [data-profile-page] p,
 [data-profile-page] li,
-[data-profile-page] dd,
-#ashwagandha-stress-claim p,
-#ashwagandha-stress-claim li,
-#ashwagandha-stress-claim dd,
-#ashwagandha-stress-claim .text-muted,
-#ashwagandha-stress-claim .text-\[\#46574d\],
-#ashwagandha-stress-claim .text-\[\#5f4a24\] {
+[data-profile-page] dd {
   color: var(--text-secondary);
 }
 
-#ashwagandha-stress-claim dt {
-  color: var(--hs-gold-ink);
+[data-profile-page] a {
+  text-underline-offset: 0.22em;
 }
 
-/* Inner stat cards and dense evidence cards. */
-[data-profile-page] .hero-shell .rounded-xl,
-[data-profile-page] #quick-stats .rounded-xl,
-#ashwagandha-stress-claim .rounded-xl,
-#ashwagandha-stress-claim article,
-#ashwagandha-stress-claim table,
-[data-profile-page] table {
-  border-color: var(--border-soft);
-  background: var(--surface-card-strong);
+/* Long scientific names, hyphenated compounds, and URLs must never push the
+   page into horizontal scroll at 320px. */
+[data-profile-page] :is(p, li, dt, dd, a, span, td, th) {
+  overflow-wrap: anywhere;
+}
+
+[data-profile-page] :is(h1, h2, h3, h4) {
+  overflow-wrap: break-word;
+}
+
+/* ---------------------------------------------------------------------------
+   Legacy surface reconciliation
+
+   Templates still carry .card-premium sections. Rather than let every one of
+   them read as a peer card, quiet them down and let the primitives carry
+   hierarchy. .hs-keep-frame opts a section back into real enclosure.
+--------------------------------------------------------------------------- */
+
+[data-profile-page] .card-premium {
+  border-color: var(--hs-hairline);
+  border-radius: var(--profile-radius);
+  background: color-mix(in srgb, var(--surface-card) 84%, transparent);
   box-shadow: none;
 }
 
-#ashwagandha-stress-claim > header {
-  border-radius: 1.35rem;
+[data-profile-page] .card-premium:hover {
+  transform: none;
+  border-color: var(--hs-hairline-strong);
+  box-shadow: none;
 }
 
-#ashwagandha-stress-claim > header h2 {
-  max-width: 18ch;
-  line-height: 0.98;
+[data-profile-page] .hs-panel :is(.rounded-xl, .rounded-2xl, .rounded-3xl) {
+  box-shadow: none;
 }
 
-#ashwagandha-stress-claim > section,
-#ashwagandha-stress-claim > header,
-[data-profile-page] #quick-stats,
-[data-profile-page] #compare {
-  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+[data-profile-page] table {
+  border-color: var(--hs-hairline);
 }
 
-#ashwagandha-stress-claim > section:hover,
-[data-profile-page] #quick-stats:hover,
-[data-profile-page] #compare:hover {
-  transform: translateY(-1px);
-  border-color: var(--border-strong);
-  box-shadow: var(--hs-lift-hover);
-}
-
-#ashwagandha-stress-claim table thead,
 [data-profile-page] table thead {
   background: var(--surface-subtle);
 }
 
-#ashwagandha-stress-claim table th,
-#ashwagandha-stress-claim table td,
-[data-profile-page] table th,
-[data-profile-page] table td {
-  border-color: var(--border-soft);
+[data-profile-page] table :is(th, td) {
+  border-color: var(--hs-hairline);
+  vertical-align: top;
+  line-height: 1.5;
 }
 
-/* Warning/safety blocks keep amber because that color carries meaning. */
-#ashwagandha-stress-claim .bg-amber-50\/75,
-#ashwagandha-stress-claim .bg-amber-50\/80 {
-  border-color: color-mix(in srgb, #f59e0b 28%, var(--border-soft));
-  background: var(--surface-warning);
+[data-profile-page] table tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--surface-subtle) 50%, transparent);
 }
 
-/* Bottom product / sourcing areas on herb profiles. */
-[data-profile-page] [id="compare"] .rounded-2xl,
-[data-profile-page] [id="compare"] article {
-  border-color: var(--border-soft);
-  background: var(--surface-card);
-}
-
-/* Make large evidence tables feel intentional instead of tiny on mobile. */
-#ashwagandha-stress-claim .overflow-x-auto,
 [data-profile-page] .overflow-x-auto {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
 }
 
-#ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
-[data-profile-page] .overflow-x-auto:has(table)::after {
-  content: 'Swipe table →';
-  display: none;
-  padding: 0.7rem 0.85rem;
-  border-top: 1px solid var(--border-soft);
-  color: var(--text-muted);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
+/* ---------------------------------------------------------------------------
+   Mobile composition
 
-#ashwagandha-stress-claim table th,
-#ashwagandha-stress-claim table td,
-[data-profile-page] table th,
-[data-profile-page] table td {
-  vertical-align: top;
-  line-height: 1.55;
-}
+   Below the md breakpoint the profile reads as one editorial column: cards
+   dissolve into hairline-separated bands and padding collapses to the page
+   gutter, so vertical rhythm comes from space rather than nested chrome.
+--------------------------------------------------------------------------- */
 
-#ashwagandha-stress-claim table tbody tr:nth-child(even),
-[data-profile-page] table tbody tr:nth-child(even) {
-  background: color-mix(in srgb, var(--surface-subtle) 54%, transparent);
-}
-
-#ashwagandha-stress-claim a,
-[data-profile-page] a {
-  text-underline-offset: 0.22em;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   [data-profile-page] > div.mx-auto {
-    padding-left: 0.9rem;
-    padding-right: 0.9rem;
+    padding-left: var(--profile-gutter);
+    padding-right: var(--profile-gutter);
   }
 
-  [data-profile-page] .hero-shell,
-  #ashwagandha-stress-claim,
-  [data-profile-page] #quick-stats,
-  [data-profile-page] #compare {
-    border-radius: 1.15rem;
-    padding: 1rem;
+  [data-profile-page] .card-premium {
+    border: 0;
+    border-top: 1px solid var(--hs-hairline);
+    border-radius: 0;
+    background: transparent;
+    padding: 1.15rem 0 0;
   }
 
-  [data-profile-page] h1,
-  #ashwagandha-stress-claim > header h2 {
-    max-width: 15ch;
-    font-size: clamp(2rem, 10vw, 2.75rem) !important;
-    line-height: 1.02 !important;
+  /* Sections that must stay enclosed keep their frame at every width. */
+  [data-profile-page] .card-premium.hs-keep-frame {
+    border: 1px solid var(--hs-hairline-strong);
+    border-radius: var(--profile-radius);
+    padding: 0.95rem 1rem;
   }
 
-  [data-profile-page] h2,
-  #ashwagandha-stress-claim h2 {
-    max-width: 16ch;
-    font-size: clamp(1.55rem, 7.8vw, 2.2rem) !important;
-    line-height: 1.08 !important;
+  [data-profile-page] details:not(.hs-disclosure) {
+    border-radius: var(--profile-radius);
+    padding: 0.9rem 1rem;
   }
 
-  [data-profile-page] h3,
-  #ashwagandha-stress-claim h3 {
-    font-size: clamp(1.05rem, 5.2vw, 1.35rem) !important;
-    line-height: 1.18 !important;
-  }
-
-  #ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
-  [data-profile-page] .overflow-x-auto:has(table)::after {
-    display: block;
-  }
-
-  #ashwagandha-stress-claim table,
   [data-profile-page] table {
     font-size: 0.8rem;
   }
 
-  #ashwagandha-stress-claim table th,
-  #ashwagandha-stress-claim table td,
-  [data-profile-page] table th,
-  [data-profile-page] table td {
-    padding: 0.7rem 0.75rem;
-  }
-
-  #ashwagandha-stress-claim .grid,
-  [data-profile-page] #quick-stats .grid,
-  [data-profile-page] #compare .grid {
-    gap: 0.7rem;
-  }
-
-  #ashwagandha-stress-claim > section + section,
-  [data-profile-page] section + section {
-    margin-top: 0.1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #ashwagandha-stress-claim > header h2 {
-    font-size: clamp(1.95rem, 10vw, 2.45rem) !important;
-    line-height: 1.02 !important;
-  }
-
-  [data-profile-page] h1 {
-    font-size: clamp(2rem, 10.5vw, 2.65rem) !important;
-    line-height: 1.02 !important;
-  }
-
-  [data-profile-page] h2 {
-    font-size: clamp(1.45rem, 7.5vw, 2rem) !important;
-  }
-
-  #ashwagandha-stress-claim .rounded-xl,
-  [data-profile-page] #quick-stats .rounded-xl,
-  [data-profile-page] #compare .rounded-2xl {
-    border-radius: 0.95rem;
-  }
-
-  #ashwagandha-stress-claim p,
-  #ashwagandha-stress-claim li,
-  [data-profile-page] p,
-  [data-profile-page] li {
-    line-height: 1.72;
+  [data-profile-page] table :is(th, td) {
+    padding: 0.6rem 0.7rem;
   }
 }

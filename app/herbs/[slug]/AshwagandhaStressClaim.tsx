@@ -208,28 +208,40 @@ const nextDecisions = [
 
 function SectionHeader({ kicker, title, children }: { kicker: string; title: string; children?: React.ReactNode }) {
   return (
-    <div className="space-y-2">
-      <p className="eyebrow-label">{kicker}</p>
-      <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{title}</h2>
-      {children ? <div className="text-sm leading-6 text-muted">{children}</div> : null}
+    <div className="space-y-1.5">
+      <p className="hs-label">{kicker}</p>
+      <h3 className="font-semibold tracking-tight text-ink">{title}</h3>
+      {children ? <div className="hs-sec__intro">{children}</div> : null}
     </div>
   )
 }
 
+/**
+ * Claim-level evidence view for the Ashwagandha stress claim.
+ *
+ * Composed from the shared editorial primitives rather than nested cards. The
+ * component already sits inside a profile disclosure, so the previous outer
+ * panel wrapping section panels wrapping tinted boxes was three levels of
+ * enclosure around what is simply a sequence of sections.
+ */
 export function AshwagandhaStressClaim() {
   return (
-    <section id="ashwagandha-stress-claim" className="space-y-6 rounded-[1.35rem] border border-emerald-900/15 bg-white/80 p-4 shadow-sm sm:p-6">
-      <header className="hero-shell rounded-[1.15rem] border border-brand-900/10 p-4 sm:p-6">
-        <div className="flex flex-wrap items-center gap-2">
-          <span data-evidence-scope="claim" className="evidence-pill-moderate">Claim evidence · {claim.evidenceLabel}</span>
-          <span className="rounded-full border border-amber-700/15 bg-amber-100/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-amber-900">{claim.safetyModifier}</span>
+    <div id="ashwagandha-stress-claim" className="space-y-5">
+      <header className="space-y-3">
+        <ul className="hs-chips">
+          <li>
+            <span data-evidence-scope="claim" className="hs-chip">Claim evidence · {claim.evidenceLabel}</span>
+          </li>
+          <li>
+            <span className="hs-chip border-l-[3px] border-l-amber-600/70">{claim.safetyModifier}</span>
+          </li>
+        </ul>
+        <div className="space-y-2">
+          <p className="hs-label">Evidence Engine proof of concept</p>
+          <h2 className="font-semibold tracking-tight text-ink">{claim.statement}</h2>
+          <p className="hs-sec__intro">A claim-level view for one practical question: does the evidence justify considering ashwagandha for perceived stress?</p>
         </div>
-        <div className="mt-5 space-y-3">
-          <p className="eyebrow-label">Evidence Engine proof of concept</p>
-          <h2 className="max-w-[26ch] text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{claim.statement}</h2>
-          <p className="max-w-3xl text-base leading-7 text-muted">A claim-level view for one practical question: does the evidence justify considering ashwagandha for perceived stress?</p>
-        </div>
-        <dl className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <dl className="hs-defs">
           {[
             ['Entity', claim.entity],
             ['Goal category', claim.goal],
@@ -237,67 +249,67 @@ export function AshwagandhaStressClaim() {
             ['Safety modifier', claim.safetyModifier],
             ['Last reviewed', claim.lastReviewed],
           ].map(([label, value]) => (
-            <div key={label} className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
-              <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">{label}</dt>
-              <dd className="mt-1 text-sm font-semibold text-ink">{value}</dd>
+            <div key={label}>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
             </div>
           ))}
         </dl>
       </header>
 
-      <section className="card-premium p-4 sm:p-5">
+      <section className="hs-sec">
         <SectionHeader kicker="Bottom line" title="Promising, short-term, and not universal" />
-        <div className="mt-4 grid gap-3">
-          {claim.bottomLine.map(item => (
-            <p key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-muted">{item}</p>
-          ))}
-        </div>
+        <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
+          {claim.bottomLine.map(item => <li key={item}>{item}</li>)}
+        </ul>
       </section>
 
-      <section className="card-premium p-4 sm:p-5">
+      <section className="hs-sec">
         <SectionHeader kicker="Decision snapshot" title="What action does the evidence support?">
           <p>The evidence supports a cautious trial only for people whose safety context fits. It does not support treating ashwagandha as risk-free or as a replacement for care.</p>
         </SectionHeader>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <dl className="hs-defs">
           {decisionStates.map(item => (
-            <div key={item.state} className={`rounded-xl border p-4 ${item.active ? 'border-emerald-700/25 bg-emerald-50/80' : 'border-brand-900/10 bg-white/75'}`}>
-              <p className={`text-sm font-bold ${item.active ? 'text-emerald-900' : 'text-ink'}`}>{item.active ? '✓ ' : ''}{item.state}</p>
-              <p className="mt-2 text-sm leading-6 text-muted">{item.note}</p>
+            <div key={item.state} className={item.active ? 'hs-defs--active' : undefined}>
+              <dt>{item.active ? '✓ ' : ''}{item.state}</dt>
+              <dd className="text-[color:var(--hs-body)]">{item.note}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </section>
 
-      <section className="card-premium p-4 sm:p-5">
+      <section className="hs-sec">
         <SectionHeader kicker="Claim evidence breakdown" title="Why this stress claim is graded moderate">
           <p>This grade applies only to the perceived-stress claim below; the profile-wide evidence grade above summarizes the ingredient across its broader evidence record.</p>
         </SectionHeader>
-        <div className="mt-4 space-y-3">
+        <dl className="hs-defs">
           {evidenceBreakdown.map(item => (
-            <div key={item.dimension} className="rounded-xl border border-brand-900/10 bg-white/80 p-4">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="text-base font-semibold text-ink">{item.dimension}</h3>
-                <span className="font-mono text-sm tracking-wider text-emerald-800" aria-label={`${item.level} evidence indicator`}>{item.indicator}</span>
-              </div>
-              <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-muted">{item.level}</p>
-              <p className="mt-2 text-sm leading-6 text-muted">{item.explanation}</p>
+            <div key={item.dimension}>
+              <dt className="flex items-center gap-2">
+                <span>{item.dimension}</span>
+                <span className="font-mono tracking-wider text-[color:var(--tone-ink)]" aria-label={`${item.level} evidence indicator`}>{item.indicator}</span>
+              </dt>
+              <dd>
+                <span className="font-semibold">{item.level}</span>
+                <span className="hs-defs__note">{item.explanation}</span>
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </section>
 
-      <section className="card-premium p-4 sm:p-5">
+      <section className="hs-sec">
         <SectionHeader kicker="Supporting evidence" title="Representative studies, not a citation dump" />
-        <div className="mt-4 overflow-x-auto rounded-xl border border-brand-900/10 bg-white/80">
+        <div className="overflow-x-auto rounded-[var(--hs-radius)] border border-[color:var(--hs-hairline)]">
           <table className="w-full min-w-[760px] text-left text-sm">
-            <thead className="bg-sand-50 text-ink">
-              <tr className="border-b border-brand-900/10">
+            <thead className="text-ink">
+              <tr>
                 {['Year', 'Type', 'Population', 'Sample', 'Duration', 'Result', 'Relevance'].map(heading => <th key={heading} className="px-3 py-3 font-semibold">{heading}</th>)}
               </tr>
             </thead>
             <tbody className="text-muted">
               {supportingStudies.map(study => (
-                <tr key={`${study.year}-${study.sampleSize}`} className="border-b border-brand-900/10 last:border-0">
+                <tr key={`${study.year}-${study.sampleSize}`}>
                   <td className="px-3 py-3 font-semibold text-ink">{study.year}</td>
                   <td className="px-3 py-3">{study.type}</td>
                   <td className="px-3 py-3">{study.population}</td>
@@ -312,22 +324,31 @@ export function AshwagandhaStressClaim() {
         </div>
       </section>
 
-      <section className="rounded-2xl border border-amber-800/15 bg-amber-50/75 p-4 sm:p-5">
+      <section className="hs-panel hs-panel--caution">
         <SectionHeader kicker="Contradictory evidence" title="What disagrees, and how much should it change confidence?" />
-        <div className="mt-4 grid gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">What disagrees</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">A 2023 trial in adults with high stress and fatigue found fatigue improvement but not a clear perceived-stress reduction versus placebo.</p></div>
-          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">Why it may disagree</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">Population, baseline fatigue, extract chemistry, dose, study duration, and outcome sensitivity can all change whether perceived stress moves.</p></div>
-          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">Confidence change</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">This keeps the claim-level label at Moderate and changes the practical state to “consider with caution,” not “strongly recommended.”</p></div>
-        </div>
+        <dl className="hs-defs">
+          <div>
+            <dt>What disagrees</dt>
+            <dd>A 2023 trial in adults with high stress and fatigue found fatigue improvement but not a clear perceived-stress reduction versus placebo.</dd>
+          </div>
+          <div>
+            <dt>Why it may disagree</dt>
+            <dd>Population, baseline fatigue, extract chemistry, dose, study duration, and outcome sensitivity can all change whether perceived stress moves.</dd>
+          </div>
+          <div>
+            <dt>Confidence change</dt>
+            <dd>This keeps the claim-level label at Moderate and changes the practical state to “consider with caution,” not “strongly recommended.”</dd>
+          </div>
+        </dl>
       </section>
 
-      <section className="rounded-2xl border border-amber-900/15 bg-amber-50/80 p-4 sm:p-5">
+      <section className="hs-panel hs-panel--caution">
         <SectionHeader kicker="Safety before sourcing" title="Who should slow down or avoid?" />
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           {safetyGroups.map(group => (
-            <div key={group.title} className="rounded-xl border border-amber-900/10 bg-white/75 p-4">
-              <h3 className="text-base font-semibold text-ink">{group.title}</h3>
-              <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-6 text-[#5f4a24]">
+            <div key={group.title}>
+              <h4 className="font-semibold text-ink">{group.title}</h4>
+              <ul className="mt-1 list-disc space-y-1 pl-5 text-sm leading-6 text-muted">
                 {group.items.map(item => <li key={item}>{item}</li>)}
               </ul>
             </div>
@@ -335,40 +356,47 @@ export function AshwagandhaStressClaim() {
         </div>
       </section>
 
-      <section className="card-premium p-4 sm:p-5">
+      <section className="hs-sec">
         <SectionHeader kicker="What we still do not know" title="The limits are part of the claim" />
-        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-          {unknowns.map(item => <li key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-muted">{item}</li>)}
+        <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
+          {unknowns.map(item => <li key={item}>{item}</li>)}
         </ul>
       </section>
 
-      <section className="card-premium p-4 sm:p-5">
+      <section className="hs-sec">
         <SectionHeader kicker="Source trail" title="How each source affects the claim" />
-        <div className="mt-4 space-y-3">
+        <div className="divide-y divide-[color:var(--hs-hairline)] border-t border-[color:var(--hs-hairline)]">
           {sources.map(source => (
-            <article key={source.citation} className="rounded-xl border border-brand-900/10 bg-white/80 p-4">
-              <h3 className="max-w-none text-base font-semibold text-ink"><a href={source.href} className="hover:underline">{source.citation}</a></h3>
-              <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-3">
-                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Study type</dt><dd className="mt-1 text-muted">{source.studyType}</dd></div>
-                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Relationship</dt><dd className="mt-1 text-muted">{source.relationship}</dd></div>
-                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Extraction note</dt><dd className="mt-1 text-muted">{source.note}</dd></div>
+            <article key={source.citation} className="py-3">
+              <h4 className="max-w-none font-semibold text-ink">
+                <a href={source.href} className="hover:underline">{source.citation}</a>
+              </h4>
+              <dl className="mt-1.5 grid gap-x-4 gap-y-1.5 sm:grid-cols-3">
+                <div><dt className="hs-label">Study type</dt><dd className="mt-0.5 text-sm leading-5 text-muted">{source.studyType}</dd></div>
+                <div><dt className="hs-label">Relationship</dt><dd className="mt-0.5 text-sm leading-5 text-muted">{source.relationship}</dd></div>
+                <div><dt className="hs-label">Extraction note</dt><dd className="mt-0.5 text-sm leading-5 text-muted">{source.note}</dd></div>
               </dl>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="card-premium p-4 sm:p-5">
+      <section className="hs-sec">
         <SectionHeader kicker="Next decisions" title="What should a skeptical reader compare next?" />
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <ul className="hs-linklist hs-linklist--split">
           {nextDecisions.map(item => (
-            <Link key={item.href} href={item.href} className="rounded-xl border border-brand-900/10 bg-white/80 p-4 hover:border-emerald-700/20 hover:bg-emerald-50/60">
-              <span className="text-sm font-semibold text-ink">{item.label}</span>
-              <span className="mt-2 block text-sm leading-6 text-muted">{item.note}</span>
-            </Link>
+            <li key={item.href}>
+              <Link href={item.href}>
+                <span>
+                  {item.label}
+                  <span className="hs-linklist__note">{item.note}</span>
+                </span>
+                <span aria-hidden="true" className="hs-linklist__arrow">→</span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
-    </section>
+    </div>
   )
 }

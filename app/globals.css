@@ -335,8 +335,13 @@ html.theme-ready body * {
     --tw-ring-color: var(--ring-brand);
   }
 
+  /* Surface comes from tokens, not a bg-white utility: the dark-mode
+     compatibility rules below match on class attributes, so an @apply'd
+     bg-white/75 stayed white in dark mode on every bare <details>. */
   details {
-    @apply border border-brand-900/10 bg-white/75 p-4 shadow-sm backdrop-blur transition-all duration-300 sm:p-5;
+    @apply border p-4 shadow-sm backdrop-blur transition-all duration-300 sm:p-5;
+    border-color: var(--border-soft);
+    background: color-mix(in srgb, var(--surface-card) 88%, transparent);
     border-radius: var(--radius-card-premium);
   }
 
@@ -371,7 +376,8 @@ html.theme-ready body * {
   }
 
   details[open] {
-    @apply border-brand-900/15 bg-white/90;
+    border-color: var(--border-strong);
+    background: var(--surface-card);
     box-shadow: var(--shadow-card-calm);
   }
 
@@ -1134,24 +1140,7 @@ html.dark .safety-disclaimer * {
   color: #fff1cf !important;
 }
 
-@media (max-width: 767px) {
-  .profile-hero {
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    padding-left: 0;
-    padding-right: 0;
-  }
 
-  .profile-quick-stats > div {
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-    background: transparent;
-  }
-}
 
 html.dark :is(
   [class~="text-red-700/80"],

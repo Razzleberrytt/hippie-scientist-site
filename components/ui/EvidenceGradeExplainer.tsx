@@ -3,7 +3,6 @@ const GRADES = [
     grade: 'A',
     label: 'Strong',
     meaning: 'Multiple RCTs, consistent direction, adequate effect size',
-    bg: 'bg-[var(--color-evidence-strong)]/10',
     text: 'text-[var(--color-evidence-strong)]',
     border: 'border-[var(--color-evidence-strong)]/20',
   },
@@ -11,7 +10,6 @@ const GRADES = [
     grade: 'B',
     label: 'Moderate',
     meaning: 'Some RCTs or consistent observational data in humans',
-    bg: 'bg-[var(--color-evidence-moderate)]/10',
     text: 'text-[var(--color-evidence-moderate)]',
     border: 'border-[var(--color-evidence-moderate)]/20',
   },
@@ -19,7 +17,6 @@ const GRADES = [
     grade: 'C',
     label: 'Preliminary / Mixed',
     meaning: 'Animal or in-vitro only, or conflicting human data',
-    bg: 'bg-[var(--color-evidence-limited)]/10',
     text: 'text-[var(--color-evidence-limited)]',
     border: 'border-[var(--color-evidence-limited)]/20',
   },
@@ -27,7 +24,6 @@ const GRADES = [
     grade: 'D',
     label: 'Traditional / Theoretical',
     meaning: 'Traditional use only; no controlled human trials',
-    bg: 'bg-[var(--color-evidence-theoretical)]/10',
     text: 'text-[var(--color-evidence-theoretical)]',
     border: 'border-[var(--color-evidence-theoretical)]/20',
   },
@@ -35,34 +31,32 @@ const GRADES = [
 
 export default function EvidenceGradeExplainer() {
   return (
-    <details className="group">
-      <summary className="flex min-h-11 cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted select-none transition-colors hover:bg-[var(--surface-subtle)] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
-        <span aria-hidden="true" className="inline-block text-brand-500 transition-transform group-open:rotate-90">▶</span>
-        How evidence grades work
+    <details className="hs-disclosure">
+      <summary>
+        <span className="text-sm">How evidence grades work</span>
+        <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
       </summary>
-      <div className="mt-3 space-y-2 rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3 dark:border-white/10">
-        <p className="text-[11px] leading-5 text-muted">
+      <div className="space-y-2">
+        <p className="text-xs leading-5 text-muted">
           Each grade reflects the strength and consistency of published human evidence — not marketing claims.
           Grades are based on study count, design quality, effect size, consistency, and recency.
         </p>
-        <div className="grid gap-1.5 sm:grid-cols-2">
-          {GRADES.map(({ grade, label, meaning, bg, text, border }) => (
-            <div
-              key={grade}
-              className={`flex items-start gap-2 rounded-lg border p-2 ${bg} ${border}`}
-            >
-              <span
-                className={`inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border bg-[var(--surface-card-strong)] ${text} ${border} text-xs font-bold`}
-              >
-                {grade}
-              </span>
-              <div>
-                <p className={`text-[11px] font-bold ${text}`}>{label}</p>
-                <p className={`text-[11px] leading-4 ${text} opacity-75`}>{meaning}</p>
-              </div>
+        <dl className="hs-defs">
+          {GRADES.map(({ grade, label, meaning, text, border }) => (
+            <div key={grade}>
+              <dt className="flex items-center gap-2">
+                <span
+                  className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border bg-[var(--surface-card-strong)] ${text} ${border} text-[0.65rem] font-bold`}
+                  aria-hidden="true"
+                >
+                  {grade}
+                </span>
+                <span>{label}</span>
+              </dt>
+              <dd className="text-xs leading-5">{meaning}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </details>
   )
