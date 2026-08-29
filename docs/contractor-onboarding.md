@@ -37,6 +37,5 @@ This repository hosts the Hippie Scientist application and workbook-only data to
 
 ## Related Docs
 
-- [SPEC-1: Hippie Scientist Rebuild](./SPEC-1-Hippie-Scientist-Rebuild.md)
 - [Generated Data Policy](./generated-data-policy.md)
 - [Import Boundaries](./import-boundaries.md)

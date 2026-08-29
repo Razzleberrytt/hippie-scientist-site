@@ -223,3 +223,26 @@ The remaining 34 were then removed in bulk and reverted. Compared like-for-like,
 Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 elements, 55 properties each — **439,890 data points**, 0.30 MB gzipped. It runs against the Chrome already installed on the machine over the DevTools Protocol using Node's native WebSocket, so it adds no dependency and downloads no browser.
 
 **Consequences:** The count cannot rise; the ceiling test fails on any increase and on any stylesheet outside the recorded set introducing one. Lowering it is expected, one declaration at a time, each with a harness run attached. The honest cost is a full build plus a capture — about eighteen minutes — per verification round, and that is why this was not batched through. The layer-folding in 2.3 was not attempted: folding sheets changes load order, which is precisely what these flags are sensitive to, and it should follow the individual removals rather than precede them. **Status:** Accepted; instrument and ceiling delivered, removal deferred with a documented method.
+
+## 2026-08-29 — Documentation consolidated; archive is retained context, not a work queue
+
+**Decision:** 92 documents moved to `docs/archive/2026-08/`, preserving their directory structure. The root holds only conventional files. `scripts/ci/validate-doc-links.mjs`, wired into `npm run check`, fails on any broken relative link outside the archive and generated output. Nothing was deleted.
+
+**Counts:** 371 markdown files classified. 74 archived as historical (past plans, audits, handoffs, experiments, dated sprint and swarm artifacts); 14 archived as superseded; 15 kept as authoritative; the rest kept as supporting or generated. 277 live files remain, with zero broken relative links.
+
+**The FLAG list and how each was resolved.** 28 documents described the `src/` tree, removed earlier the same day. They split three ways rather than one:
+
+- **12 corrected.** Their `src/` paths still resolve at the root, so 39 path references were rewritten (`src/lib/x` → `lib/x`). The documents were describing something real under an old name.
+- **7 archived as superseded.** Their `src/` paths resolve to nothing: they document code that was deleted, so there is no correct path to rewrite them to.
+- **7 archived as historical.** Dated audits whose `src/` references were accurate on the day they were written.
+- **2 annotated instead of either.** `docs/LOOP_NOTES.md` and `DEVELOPER_HEALTH_LOG.md` are running logs. Archiving them is wrong because they are still being appended to; rewriting their paths is worse, because it would falsify dated observations. Both carry a dated note recording that entries above it refer to a tree that no longer exists.
+
+**Two corrections made to the plan as scoped.** Documents were first archived with their directory nesting flattened into the filename. That broke 156 relative links inside the archive — `../expansion-blueprint.md` no longer resolved once siblings were renamed. The structure was restored and the archive is nested. Separately, the link validator initially reported 25,042 failures because it treated site routes (`/herbs/ashwagandha`) in the generated link maps as file paths; routes and script-generated documents are now excluded.
+
+**Archived material is excluded from link validation on purpose.** Its links pointed correctly where the documents used to live. Rewriting them so a linter passes would edit historical records, which is the opposite of why they were kept.
+
+**Three pre-existing broken links were repaired**, none caused by this work: two pointed at `SPEC-1-Hippie-Scientist-Rebuild.md`, which exists nowhere in the repository, and one was an absolute `file:///c:/Users/...` URL to a sibling file.
+
+**Four documents were archived and then restored.** The directory rule ran ahead of the reference check, so files under `docs/audits/` and `docs/page-specs/` that tests and `apply-governance-overlay.mjs` read by path were archived on the strength of their folder alone. One test failed immediately and named the file; the other three were found by scanning all code for every archived path. A code reference outranks a directory rule, and the rule was wrong to run first.
+
+**Consequences:** `docs/DOCS_INDEX.md` describes the live files and points at the archive and the per-file disposition rather than restating either. `docs/archive/README.md` states that archived material must not be used to select work or quote status. Ambiguous files were left in place; ambiguity is not grounds for archiving. **Status:** Accepted.

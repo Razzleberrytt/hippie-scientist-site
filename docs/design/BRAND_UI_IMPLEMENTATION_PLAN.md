@@ -25,10 +25,10 @@ The following were present in the repository during the 2026-08-27 design audit:
 - evidence matrices: `components/EvidenceMatrix.tsx`, `components/compare/EvidenceMatrix.tsx`, and `components/compare/CompareEvidenceMatrix.tsx` plus evidence-matrix logic/tests;
 - evidence-history UI: `components/evidence/EvidenceHistory.tsx`, backed by immutable evidence-history snapshots;
 - comparison tables registered in the editorial component system;
-- safety/interaction treatment: `src/components/InteractionWarnings.tsx`;
+- safety/interaction treatment: `components/InteractionWarnings.tsx`;
 - dosage-context treatment: `components/DosageBox.tsx` plus the dosing information route;
 - evidence and safety badges in more than one component namespace;
-- tooltip support: `src/components/InfoTooltip.tsx`;
+- tooltip support: `components/InfoTooltip.tsx`;
 - shared decision primitives: `components/ui/DecisionPrimitives.tsx` and `lib/decision-primitives.ts`;
 - library empty-state handling;
 - multiple skeleton/loading primitives, including search, evidence-card, comparison-table, wizard, and detail skeletons;

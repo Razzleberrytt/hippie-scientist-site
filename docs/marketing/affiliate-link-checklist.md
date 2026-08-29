@@ -4,7 +4,7 @@
 
 - `content/recommendations.ts` contains search-based Amazon affiliate sourcing paths for recommendation cards.
 - `config/revenue-products.ts` contains existing revenue product sets and is currently search-link oriented.
-- `src/lib/affiliate.ts` builds Amazon search URLs with the configured affiliate tag.
+- `lib/affiliate.ts` builds Amazon search URLs with the configured affiliate tag.
 
 ## Replacement Steps
 

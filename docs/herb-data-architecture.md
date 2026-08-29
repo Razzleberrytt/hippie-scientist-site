@@ -3,7 +3,7 @@
 ## Canonical source files
 
 - Runtime herb payload: `public/data/herbs.json`.
-- Canonical runtime loader + normalization + confidence scoring: `src/lib/herb-data.ts`.
+- Canonical runtime loader + normalization + confidence scoring: `lib/herb-data.ts`.
 - Primary UI hook: `useHerbData()` (and `useHerbDataState()` when loading/error state is needed).
 
 ## Normalization flow
@@ -34,5 +34,5 @@ The canonical normalized herb object guarantees these fields for UI use:
 
 ## Legacy compatibility
 
-- Runtime UI code should consume `useHerbData()` / `useHerbDataState()` directly from `src/lib/herb-data.ts`.
-- `src/lib/data.ts` remains only for legacy entity-index paths and still delegates herb loading to `loadHerbData()`.
+- Runtime UI code should consume `useHerbData()` / `useHerbDataState()` directly from `lib/herb-data.ts`.
+- `lib/data.ts` remains only for legacy entity-index paths and still delegates herb loading to `loadHerbData()`.

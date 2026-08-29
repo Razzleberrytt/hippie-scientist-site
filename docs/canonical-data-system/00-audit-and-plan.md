@@ -52,7 +52,7 @@ The six sheets that actually feed the runtime (per `SHEETS`/`GRAPH_SHEETS` in `b
 Runtime data is read from `public/data/**` (never from the workbook at runtime — that's a hard invariant, `verify-workbook-only-path.mjs`). Key consumers:
 
 - `lib/server/runtime-data.ts` — `getAllHerbs()`, `getAllCompounds()`, `getHerbBySlug()`, etc. Reads `herbs.json`, `compounds.json`.
-- `src/lib/runtime-data.ts`, `src/lib/runtime-summary-indexes.ts`, `src/lib/runtime-related-maps.ts`, `src/lib/herb-data.ts`, `src/lib/runtime-record-index.ts` — evidence engine, summaries, related maps.
+- `lib/runtime-data.ts`, `lib/runtime-summary-indexes.ts`, `lib/runtime-related-maps.ts`, `lib/herb-data.ts`, `lib/runtime-record-index.ts` — evidence engine, summaries, related maps.
 - `app/herbs/[slug]/`, `app/compounds/[slug]/`, `app/goals/[slug]/`, `app/stacks/[slug]/`, `app/compare/[slug]/` — depth-layer routes.
 - `app/sitemap.ts`, search (`lib/search/*`, `app/search/SearchClient.tsx` → `search-index.json`), semantic linking (`lib/semantic-runtime.ts`, `lib/graph-query.ts`, `lib/graph-links.ts`), comparisons (`lib/compare.ts`), freshness (`lib/freshness.ts`).
 

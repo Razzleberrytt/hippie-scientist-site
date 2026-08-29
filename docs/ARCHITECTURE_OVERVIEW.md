@@ -219,6 +219,6 @@ Dynamic `app/robots.ts` — allows all user agents on `/`, blocks `/api/`, `/adm
 | No Lighthouse CI workflow | High | ✅ **Fixed** — `.github/workflows/lighthouse.yml` |
 | Vitest/a11y tests not in CI | High | ✅ **Fixed** — added test step to `ci.yml` |
 | No link checker | Medium | ✅ **Fixed** — `.github/workflows/linkchecker.yml` + `scripts/check-links.mjs` |
-| Herb schema uses Article not ScholarlyArticle | Medium | ✅ **Fixed** — `src/lib/schema-injector.ts` upgraded |
+| Herb schema uses Article not ScholarlyArticle | Medium | ✅ **Fixed** — `lib/schema-injector.ts` upgraded |
 | `next.config.mjs` has no security header documentation | Low | ✅ **Documented** — comment added to config |
 | `public/_headers` has no COOP/CORP on sub-paths | Low | Tracked — defer to next security review |

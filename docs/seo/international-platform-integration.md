@@ -26,7 +26,7 @@ Regional links must be explicit.
 
 Do not guess that a US product URL, ASIN, search URL, or product detail page automatically maps cleanly to the same product in another country. Product availability, listing IDs, pricing, affiliate programs, tax treatment, and compliance can differ by marketplace.
 
-Likewise, do not create or advertise locale-specific content merely to match a commerce region. Hreflang remains controlled by `src/lib/international-seo.ts` and requires a real equivalent localized page.
+Likewise, do not create or advertise locale-specific content merely to match a commerce region. Hreflang remains controlled by `lib/international-seo.ts` and requires a real equivalent localized page.
 
 ## Safe fallback order
 
