@@ -48,6 +48,6 @@ describe('autonomous merge authorization provenance', () => {
 
     expect(monitor).not.toContain('autonomous-merge/authorized')
     expect(monitor).not.toContain('/statuses/')
-    expect(monitor).not.toMatch(/method:\s*['\"]POST['\"]/)
+    expect(monitor).not.toMatch(/method:\s*['"]POST['"]/)
   })
 })
