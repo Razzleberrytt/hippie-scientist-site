@@ -1,8 +1,10 @@
 # Documentation Index
 
 **Status:** Authoritative documentation map
-**Updated:** 2026-08-27
-**Inventory scope:** All 321 files found under `docs/` during the 2026-08-21 archaeology pass. Classification is intentionally rule-based so this index does not become a second 321-row maintenance burden.
+**Updated:** 2026-08-29
+**Inventory scope:** 274 live markdown files under `docs/` and at the repository root, after the 2026-08-29 documentation pass moved 92 documents into `docs/archive/2026-08/`. Classification stays rule-based so this index does not become a second per-file maintenance burden; the full per-file disposition is in [`generated/docs-disposition.md`](generated/docs-disposition.md).
+
+**Archive:** [`archive/`](archive/README.md) holds retained context. It must not be used to select work or quote status. `scripts/ci/validate-doc-links.mjs`, part of `npm run check`, fails on any broken relative link outside the archive and generated output.
 
 ## Required reading order
 

@@ -8,13 +8,12 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 
 | bucket | count |
 |---|---|
-| FLAG — contradicts code | 28 |
-| ARCHIVE — historical | 79 |
-| UNCERTAIN | 93 |
-| KEEP — supporting | 154 |
-| KEEP — generated | 2 |
+| FLAG — contradicts code | 2 |
+| ARCHIVE — historical | 1 |
+| KEEP — supporting | 258 |
+| KEEP — generated | 3 |
 | KEEP — authoritative | 15 |
-| **total** | **371** |
+| **total** | **279** |
 
 ## Rules applied
 
@@ -28,404 +27,307 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 - Unreferenced and undated → **UNCERTAIN**, left in place; ambiguity is not grounds for archiving.
 - Everything else with inbound references → **KEEP — supporting**.
 
-## FLAG — contradicts code — 28
+## FLAG — contradicts code — 2
 
 | file | bytes | last change | inbound | why |
 |---|---|---|---|---|
-| `ARCHITECTURE_OVERVIEW.md` | 9701 | 2026-06-23 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `CODEX_REPLACE_WITH_AUDITED_ZIP_PROMPT.md` | 4058 | unknown | 2 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `DEVELOPER_HEALTH_LOG.md` | 5431 | 2026-06-23 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/accessibility-wcag-22-audit.md` | 6158 | 2026-08-05 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/audits/deep-audit-2026-07-03-iter2.md` | 6745 | 2026-07-03 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/audits/release-audit-2026-06-07.md` | 6285 | 2026-06-07 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/canonical-data-system/00-audit-and-plan.md` | 19918 | 2026-07-11 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/codex-type-repair-pass.md` | 1456 | 2026-06-27 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/design/BRAND_UI_IMPLEMENTATION_PLAN.md` | 20292 | 2026-08-27 | 3 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/herb-data-architecture.md` | 1874 | 2026-06-27 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/LOOP_NOTES.md` | 281924 | 2026-08-08 | 11 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/marketing/affiliate-link-checklist.md` | 2296 | 2026-06-27 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/performance/public-json-payload-audit.md` | 10104 | 2026-06-27 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/promoting-profiles.md` | 6501 | 2026-07-07 | 5 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/quality/explicit-any-audit.md` | 5672 | 2026-06-27 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/quality/post-merge-verification.md` | 3367 | 2026-06-27 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/quality/react-hooks-exhaustive-deps-audit.md` | 8578 | 2026-06-27 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/quality/typescript-quarantine-audit.md` | 8467 | 2026-06-27 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/security-headers.md` | 7173 | 2026-08-14 | 11 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/seo/coverage-diagnosis-2026-06-17.md` | 7554 | 2026-06-17 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/seo/international-platform-integration.md` | 4110 | 2026-08-26 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/seo/international-seo.md` | 6086 | 2026-08-26 | 30 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/seo/localization-audit-2026-08-26.md` | 5760 | 2026-08-26 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/site-audit-2026-06.md` | 43614 | 2026-06-27 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/site-organization.md` | 2627 | 2026-06-30 | 3 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/trust-completeness-cluster-member-runtime-completion-2026-07-15.md` | 16367 | 2026-07-15 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/trust-completeness-cluster-member-runtime-discovery-2026-07-15.md` | 39778 | 2026-07-15 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/zustand-v5-migration.md` | 380 | 2026-06-27 | 0 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
+| `DEVELOPER_HEALTH_LOG.md` | 5678 | 2026-08-29 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
+| `docs/LOOP_NOTES.md` | 282171 | 2026-08-29 | 12 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
 
-## ARCHIVE — historical — 79
+## ARCHIVE — historical — 1
 
 | file | bytes | last change | inbound | why |
 |---|---|---|---|---|
-| `BACKLOG_IMPLEMENTATION_PLAYBOOK.md` | 13645 | 2026-08-16 | 1 | root-level process artifact; not a conventional root file |
-| `BEGIN_BACKLOG_PROCESS.md` | 7095 | 2026-08-16 | 0 | root-level process artifact; not a conventional root file |
-| `CODEX_IMPLEMENTATION_PROMPT.md` | 4591 | 2026-07-07 | 0 | root-level process artifact; not a conventional root file |
-| `design-qa.md` | 2421 | 2026-08-28 | 1 | root-level process artifact; not a conventional root file |
-| `docs/agents/comparison-editorial-queue.md` | 4576 | 2026-08-10 | 1 | audit/handoff/spec artifact directory |
-| `docs/audits/citation-integrity-2026-08-21.md` | 7747 | 2026-08-21 | 2 | audit/handoff/spec artifact directory |
-| `docs/audits/content-trust-consistency-audit.md` | 8629 | 2026-06-27 | 0 | audit/handoff/spec artifact directory |
-| `docs/audits/data-ownership-2026-08-21.md` | 8150 | 2026-08-21 | 1 | audit/handoff/spec artifact directory |
-| `docs/audits/deep-audit-2026-07-03.md` | 4209 | 2026-07-03 | 1 | audit/handoff/spec artifact directory |
-| `docs/audits/enrichment-datasets-2026-08-23.md` | 8819 | 2026-08-23 | 1 | audit/handoff/spec artifact directory |
-| `docs/audits/homepage-information-architecture.md` | 6893 | 2026-06-27 | 0 | audit/handoff/spec artifact directory |
-| `docs/audits/indexability-governance-2026-08-21.md` | 7208 | 2026-08-21 | 3 | audit/handoff/spec artifact directory |
-| `docs/audits/open-findings-2026-08-21.md` | 5690 | 2026-08-21 | 0 | audit/handoff/spec artifact directory |
-| `docs/audits/post-merge-ux-consistency.md` | 2771 | 2026-06-27 | 0 | audit/handoff/spec artifact directory |
-| `docs/audits/repository-archaeology-2026-08-21.md` | 6091 | 2026-08-21 | 0 | audit/handoff/spec artifact directory |
-| `docs/audits/semrush-followup-2026-07-08.md` | 3023 | 2026-07-08 | 0 | audit/handoff/spec artifact directory |
-| `docs/audits/seo-csv-issue-response-2026-07-08.md` | 4265 | 2026-07-08 | 0 | audit/handoff/spec artifact directory |
-| `docs/audits/source-backed-promotions-2026-08-22.md` | 8973 | 2026-08-23 | 1 | audit/handoff/spec artifact directory |
-| `docs/audits/thin-content-structured-data-guard-2026-07-08.md` | 4241 | 2026-07-08 | 0 | audit/handoff/spec artifact directory |
-| `docs/content-quality/adhd-magnesium-route-consolidation-2026-08-02.md` | 3071 | 2026-08-03 | 1 | dated artifact |
-| `docs/content-quality/anxiety-alternatives-route-consolidation-2026-08-10.md` | 1215 | 2026-08-10 | 0 | dated artifact |
-| `docs/content-quality/best-nootropics-focus-upgrade-2026-08-02.md` | 3809 | 2026-08-03 | 0 | dated artifact |
-| `docs/content-quality/focus-best-supplements-route-consolidation-2026-08-10.md` | 1197 | 2026-08-10 | 0 | dated artifact |
-| `docs/content-quality/overthinking-guide-calibration-2026-08-10.md` | 1466 | 2026-08-10 | 0 | dated artifact |
-| `docs/content-quality/sleep-best-supplements-route-consolidation-2026-08-10.md` | 1040 | 2026-08-10 | 0 | dated artifact |
-| `docs/content/high-potential-page-quality-pass-2026-08-02.md` | 4312 | 2026-08-02 | 0 | dated artifact |
-| `docs/high-roi-content-pass-2026-07-15.md` | 3444 | 2026-07-15 | 0 | dated artifact |
-| `docs/next-work-checklist-2026-08-02.md` | 11700 | 2026-08-02 | 0 | dated artifact |
-| `docs/page-expansion-specs/01-best-supplements-for-sleep.md` | 2010 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/02-articles-best-supplements-for-adhd.md` | 2029 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/03-articles-best-magnesium-supplement-for-adhd.md` | 1872 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/04-best-supplements-for-stress.md` | 1860 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/05-best-supplements-for-focus.md` | 1923 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/06-herbs-ashwagandha.md` | 2013 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/07-herbs-lions-mane.md` | 1761 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/08-herbs-turmeric.md` | 1807 | 2026-06-16 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/09-guides-adhd-supplements.md` | 1769 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/10-guides-best-herbs-for-anxiety.md` | 1790 | 2026-06-16 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-expansion-specs/README.md` | 2527 | 2026-06-16 | 12 | audit/handoff/spec artifact directory |
-| `docs/page-specs/articles-best-magnesium-supplement-for-adhd.md` | 2765 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/articles-best-supplements-for-adhd.md` | 3132 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/best-magnesium-supplements-for-adhd.md` | 1062 | 2026-08-03 | 15 | audit/handoff/spec artifact directory |
-| `docs/page-specs/best-supplements-for-blood-pressure.md` | 2705 | 2026-06-16 | 15 | audit/handoff/spec artifact directory |
-| `docs/page-specs/best-supplements-for-fat-loss.md` | 2667 | 2026-06-16 | 14 | audit/handoff/spec artifact directory |
-| `docs/page-specs/best-supplements-for-focus.md` | 2775 | 2026-07-02 | 41 | audit/handoff/spec artifact directory |
-| `docs/page-specs/best-supplements-for-gut-health.md` | 2507 | 2026-06-16 | 17 | audit/handoff/spec artifact directory |
-| `docs/page-specs/best-supplements-for-sleep.md` | 3023 | 2026-07-02 | 63 | audit/handoff/spec artifact directory |
-| `docs/page-specs/best-supplements-for-stress.md` | 2767 | 2026-07-02 | 34 | audit/handoff/spec artifact directory |
-| `docs/page-specs/compare-rhodiola-vs-ashwagandha.md` | 2466 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-adhd-supplements.md` | 2591 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-best-adaptogens-for-stress.md` | 2542 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-best-herbs-for-anxiety.md` | 2579 | 2026-06-16 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-best-natural-sleep-aids-that-work.md` | 2426 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-best-nootropics-for-focus.md` | 2561 | 2026-07-02 | 3 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-best-supplements-for-overthinking.md` | 2430 | 2026-07-02 | 3 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-best-supplements-for-sleep.md` | 2429 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-how-to-lower-cortisol-naturally.md` | 2540 | 2026-07-02 | 3 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-magnesium-vs-melatonin.md` | 2463 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-natural-alternatives-to-anxiety-medication.md` | 2774 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/guides-supplements-for-brain-fog-and-fatigue.md` | 2479 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/herbs-ashwagandha.md` | 2707 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/herbs-lions-mane.md` | 2532 | 2026-07-02 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/herbs-rhodiola.md` | 2533 | 2026-07-02 | 1 | audit/handoff/spec artifact directory |
-| `docs/page-specs/herbs-turmeric.md` | 2636 | 2026-06-16 | 2 | audit/handoff/spec artifact directory |
-| `docs/page-specs/README.md` | 4341 | 2026-06-16 | 12 | audit/handoff/spec artifact directory |
-| `docs/production-audits/best-supplements-for-sleep-audit.md` | 7883 | 2026-06-27 | 0 | audit/handoff/spec artifact directory |
-| `docs/qa/monetization-cro-qa-checklist.md` | 1863 | 2026-06-27 | 0 | audit/handoff/spec artifact directory |
-| `docs/roi/101-morning-or-night.md` | 388 | 2026-08-15 | 0 | audit/handoff/spec artifact directory |
-| `docs/safety-coverage-completion-batch-1-2026-07-15.md` | 8460 | 2026-07-15 | 0 | dated artifact |
-| `docs/safety-coverage-completion-batch-2-2026-07-15.md` | 5411 | 2026-07-15 | 0 | dated artifact |
-| `docs/trust-completeness-batch-1-2026-07-15.md` | 4024 | 2026-07-15 | 0 | dated artifact |
-| `docs/trust-completeness-batch-2-2026-07-15.md` | 4921 | 2026-07-15 | 0 | dated artifact |
-| `docs/trust-completeness-primary-runtime-batch-3-2026-07-15.md` | 2738 | 2026-07-15 | 0 | dated artifact |
-| `docs/trust-completeness-primary-runtime-batch-4-completion-2026-07-15.md` | 3741 | 2026-07-15 | 0 | dated artifact |
-| `docs/workbook-identity-map-cleanup-2026-04-12.md` | 7705 | 2026-06-27 | 1 | dated artifact |
-| `docs/workbook-reconciliation-run-2026-04-12.md` | 1593 | 2026-06-27 | 1 | dated artifact |
-| `NEXT-ACTIONS.md` | 7117 | 2026-06-16 | 0 | root-level process artifact; not a conventional root file |
-| `PROJECT-STATUS.md` | 6135 | 2026-06-13 | 0 | root-level process artifact; not a conventional root file |
-| `validation-report.md` | 1137 | 2026-06-03 | 8 | root-level process artifact; not a conventional root file |
+| `validation-report.md` | 1137 | 2026-06-03 | 9 | root-level process artifact; not a conventional root file |
 
-## UNCERTAIN — 93
+## KEEP — supporting — 258
 
 | file | bytes | last change | inbound | why |
 |---|---|---|---|---|
-| `docs/agent-validation-workflow.md` | 2148 | 2026-06-10 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ai-search-citation-share.md` | 6205 | 2026-08-15 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/audit/baseline-health.md` | 1335 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/blog-title-slug-audit.md` | 1434 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/canonical-enum-governance.md` | 1439 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ci/autonomous-merge-deploy-handoff.md` | 7843 | 2026-08-29 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ci/main-branch-protection.md` | 3582 | 2026-08-26 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ci/static-export-guardrails.md` | 1780 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ci/workflow-failure-policy.md` | 2177 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/citation-integrity-roadmap.md` | 1828 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/constituent-mechanism-authoring.md` | 2244 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/content/ARTICLE_SCAFFOLD_SYSTEM.md` | 909 | 2026-06-22 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/content/focus-cluster/7-hydroxymitragynine-monograph.md` | 12458 | 2026-06-14 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/data/ingredient-json-endpoints.md` | 3642 | 2026-08-15 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/decision-engine-runtime-plan.md` | 2187 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/dependency-update-policy.md` | 2245 | 2026-06-12 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/editorial-review-workflow.md` | 1671 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/editorial-runtime-batch-1-implementation.md` | 2644 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/editorial-runtime-batch-3-exporter.md` | 1217 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/editorial-runtime-payload-contract.md` | 2029 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/editorial-runtime-schema-roadmap.md` | 2172 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/enrichment/g13-readiness-evidence.md` | 10161 | 2026-08-23 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/evidence-finalize-workflow.md` | 3779 | 2026-07-11 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/exceljs-migration-parity.md` | 767 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/legacy-cleanup.md` | 992 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/marketing/welcome-email-sequence.md` | 2619 | 2026-08-15 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/mental-health-content-standard.md` | 2056 | 2026-07-13 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/mental-health-seo-standard.md` | 1269 | 2026-07-13 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-adhd-supplements.md` | 840 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-ashwagandha.md` | 775 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-adaptogens-for-stress.md` | 1914 | 2026-06-17 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-herbs-for-anxiety.md` | 848 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-magnesium-supplement-for-adhd.md` | 844 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-magnesium-supplements-for-adhd.md` | 1114 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-nootropics-for-focus.md` | 3197 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-supplements-for-adhd.md` | 847 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-supplements-for-blood-pressure.md` | 3971 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-supplements-for-fat-loss.md` | 1089 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-supplements-for-focus.md` | 874 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-supplements-for-gut-health.md` | 1087 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-supplements-for-joint-support.md` | 2105 | 2026-06-17 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-supplements-for-sleep.md` | 881 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-best-supplements-for-stress.md` | 842 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-lions-mane.md` | 794 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-natural-testosterone-boosters.md` | 1869 | 2026-06-17 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-rhodiola.md` | 3270 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/merge-report-turmeric.md` | 801 | 2026-06-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/methodology/coa-verification.md` | 1592 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/missing-import-resolution.md` | 871 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/normalized-enrichment-authoring.md` | 4711 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ops/backlog-816-weekly-content-integrity.md` | 585 | 2026-08-15 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/performance/budgets.md` | 2829 | 2026-08-01 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/performance/build-improvement-verification.md` | 8629 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/performance/cache-audit.md` | 11833 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/performance/generated-data-audit.md` | 12230 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/performance/global-search-first-interaction.md` | 487 | 2026-08-24 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/performance/next-optimization-roadmap.md` | 14139 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/product/decision-engine-simplification-audit.md` | 20277 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/product/evidence-engine-spec.md` | 38168 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/product/evidence-intelligence-1001-1100.md` | 6585 | 2026-08-15 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/product/evidence-intelligence-1101-1200.md` | 4584 | 2026-08-15 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/product/final-product-strategy.md` | 17298 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/product/one-page-strategy.md` | 2953 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/production-audit-best-supplements-for-sleep.md` | 11850 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/research-enrichment-schema.md` | 4169 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/safety-enrichment-authoring.md` | 2600 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/security-dependency-policy.md` | 630 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/security/dependency-risk-register.md` | 1816 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/security/npm-audit-remediation.md` | 2202 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/semantic-linking-architecture.md` | 2115 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/seo/commerce-link-audit.md` | 1690 | 2026-07-08 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/seo/regional-revenue-overrides.md` | 1524 | 2026-07-08 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/seo/route-and-sitemap-policy.md` | 1791 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/source-registry-entry-rules.md` | 3054 | 2026-08-16 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/spec-003-g1-audit.md` | 2770 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/specs/citation-growth-architecture.md` | 5662 | 2026-07-29 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/specs/failure-chains-case-system.md` | 11501 | 2026-07-28 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/strategy/hippie-scientist-business-audit.md` | 35602 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/tailwind-v4-migration.md` | 673 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/typescript-hardening.md` | 290 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ui/monograph_layout_template.md` | 4792 | 2026-06-30 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/upgrade-next-15-5-18.md` | 1033 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ux/compounds-index-simplification-pass.md` | 3766 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ux/decision-layer-pass-1.md` | 4322 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ux/decision-snapshot-pass.md` | 1755 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ux/herbs-index-simplification-pass.md` | 3765 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ux/metadata-badge-normalization-pass.md` | 3319 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ux/mobile-usability-polish-pass.md` | 2770 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ux/reduce-visual-fragmentation-pass.md` | 3842 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ux/search-discovery-simplification-pass.md` | 3411 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/ux/shared-decision-primitives-pass.md` | 4177 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/zip-part-1-report.md` | 1744 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-| `docs/zip-part-2-report.md` | 2296 | 2026-06-27 | 0 | nothing references it, but it is not dated or in an archive directory |
-
-## KEEP — supporting — 154
-
-| file | bytes | last change | inbound | why |
-|---|---|---|---|---|
-| `docs/agent-integration-guide.md` | 8266 | 2026-06-07 | 7 | referenced by 7 file(s) |
-| `docs/AGENT-QUICKSTART.md` | 6824 | 2026-06-07 | 2 | referenced by 2 file(s) |
-| `docs/AGENT-SYSTEM-INDEX.md` | 9167 | 2026-06-07 | 1 | referenced by 1 file(s) |
-| `docs/AI-CITATION-INCIDENT-MONITOR.md` | 7281 | 2026-08-26 | 1 | referenced by 1 file(s) |
-| `docs/ai-citation-readiness-topology.md` | 4041 | 2026-08-15 | 1 | referenced by 1 file(s) |
-| `docs/ai-claim-integrity.md` | 3077 | 2026-08-16 | 3 | referenced by 3 file(s) |
-| `docs/ai-entity-enrichment-v1.md` | 3898 | 2026-07-13 | 1 | referenced by 1 file(s) |
-| `docs/ai-search-optimization.md` | 6725 | 2026-08-15 | 1 | referenced by 1 file(s) |
-| `docs/analytics-content-journey-events.md` | 1983 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/audit-remediation-handoff.md` | 4664 | 2026-06-15 | 1 | referenced by 1 file(s) |
-| `docs/blog-content-audit.md` | 5339 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/build-and-verification.md` | 2003 | 2026-06-30 | 4 | referenced by 4 file(s) |
-| `docs/business/revenue-priority-plan.md` | 26503 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/canonical-data-system/01-foundation.md` | 3926 | 2026-07-11 | 1 | referenced by 1 file(s) |
-| `docs/canonical-data-system/02-workbook-migration.md` | 4046 | 2026-07-11 | 1 | referenced by 1 file(s) |
-| `docs/canonical-data-system/03-patch-normalization.md` | 3853 | 2026-07-11 | 1 | referenced by 1 file(s) |
-| `docs/canonical-data-system/04-patch-application.md` | 4040 | 2026-07-11 | 1 | referenced by 1 file(s) |
-| `docs/canonical-data-system/05-site-integration.md` | 5601 | 2026-07-11 | 1 | referenced by 1 file(s) |
-| `docs/canonical-data-system/06-graph-and-operations.md` | 3336 | 2026-07-11 | 1 | referenced by 1 file(s) |
-| `docs/canonical-data-system/daily-use.md` | 2271 | 2026-07-11 | 4 | referenced by 4 file(s) |
-| `docs/canonical-data-system/README.md` | 4176 | 2026-07-11 | 12 | referenced by 12 file(s) |
-| `docs/canonical-data-system/recovery.md` | 2081 | 2026-07-11 | 2 | referenced by 2 file(s) |
-| `docs/canonical-data-system/troubleshooting.md` | 2466 | 2026-07-11 | 3 | referenced by 3 file(s) |
-| `docs/canonical-page-operating-system.md` | 18337 | 2026-07-06 | 1 | referenced by 1 file(s) |
-| `docs/ci-workflow-example.md` | 7262 | 2026-06-07 | 3 | referenced by 3 file(s) |
-| `docs/citation-import-plan.md` | 6107 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/cloudflare-pages.md` | 3863 | 2026-08-27 | 2 | referenced by 2 file(s) |
-| `docs/codex-changelog.md` | 395 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/compound-quality-gate-audit.md` | 6967 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/CONTENT_STRATEGY.md` | 12602 | 2026-08-21 | 1 | referenced by 1 file(s) |
-| `docs/content-command-center.md` | 110852 | 2026-06-16 | 2 | referenced by 2 file(s) |
-| `docs/content-expansion-playbook.md` | 8570 | 2026-06-16 | 27 | referenced by 27 file(s) |
+| `docs/agent-integration-guide.md` | 8266 | 2026-06-07 | 8 | referenced by 8 file(s) |
+| `docs/AGENT-QUICKSTART.md` | 6824 | 2026-06-07 | 3 | referenced by 3 file(s) |
+| `docs/AGENT-SYSTEM-INDEX.md` | 9167 | 2026-06-07 | 2 | referenced by 2 file(s) |
+| `docs/agent-validation-workflow.md` | 2148 | 2026-06-10 | 1 | referenced by 1 file(s) |
+| `docs/AI-CITATION-INCIDENT-MONITOR.md` | 7281 | 2026-08-26 | 2 | referenced by 2 file(s) |
+| `docs/ai-citation-readiness-topology.md` | 4041 | 2026-08-15 | 2 | referenced by 2 file(s) |
+| `docs/ai-claim-integrity.md` | 3077 | 2026-08-16 | 4 | referenced by 4 file(s) |
+| `docs/ai-entity-enrichment-v1.md` | 3898 | 2026-07-13 | 2 | referenced by 2 file(s) |
+| `docs/ai-search-citation-share.md` | 6205 | 2026-08-15 | 1 | referenced by 1 file(s) |
+| `docs/ai-search-optimization.md` | 6725 | 2026-08-15 | 2 | referenced by 2 file(s) |
+| `docs/analytics-content-journey-events.md` | 1983 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/ARCHITECTURE_OVERVIEW.md` | 9697 | unknown | 2 | referenced by 2 file(s) |
+| `docs/audit-remediation-handoff.md` | 4664 | 2026-06-15 | 2 | referenced by 2 file(s) |
+| `docs/audit/baseline-health.md` | 1335 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/blog-content-audit.md` | 5339 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/blog-title-slug-audit.md` | 1434 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/build-and-verification.md` | 2003 | 2026-06-30 | 5 | referenced by 5 file(s) |
+| `docs/business/revenue-priority-plan.md` | 26503 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/canonical-data-system/00-audit-and-plan.md` | 19898 | 2026-08-29 | 2 | referenced by 2 file(s) |
+| `docs/canonical-data-system/01-foundation.md` | 3926 | 2026-07-11 | 2 | referenced by 2 file(s) |
+| `docs/canonical-data-system/02-workbook-migration.md` | 4046 | 2026-07-11 | 2 | referenced by 2 file(s) |
+| `docs/canonical-data-system/03-patch-normalization.md` | 3853 | 2026-07-11 | 2 | referenced by 2 file(s) |
+| `docs/canonical-data-system/04-patch-application.md` | 4040 | 2026-07-11 | 2 | referenced by 2 file(s) |
+| `docs/canonical-data-system/05-site-integration.md` | 5601 | 2026-07-11 | 2 | referenced by 2 file(s) |
+| `docs/canonical-data-system/06-graph-and-operations.md` | 3336 | 2026-07-11 | 2 | referenced by 2 file(s) |
+| `docs/canonical-data-system/daily-use.md` | 2271 | 2026-07-11 | 5 | referenced by 5 file(s) |
+| `docs/canonical-data-system/README.md` | 4176 | 2026-07-11 | 13 | referenced by 13 file(s) |
+| `docs/canonical-data-system/recovery.md` | 2081 | 2026-07-11 | 3 | referenced by 3 file(s) |
+| `docs/canonical-data-system/troubleshooting.md` | 2466 | 2026-07-11 | 4 | referenced by 4 file(s) |
+| `docs/canonical-enum-governance.md` | 1439 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/canonical-page-operating-system.md` | 18337 | 2026-07-06 | 2 | referenced by 2 file(s) |
+| `docs/ci-workflow-example.md` | 7262 | 2026-06-07 | 4 | referenced by 4 file(s) |
+| `docs/ci/autonomous-merge-deploy-handoff.md` | 7843 | 2026-08-29 | 1 | referenced by 1 file(s) |
+| `docs/ci/main-branch-protection.md` | 3582 | 2026-08-26 | 1 | referenced by 1 file(s) |
+| `docs/ci/static-export-guardrails.md` | 1780 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ci/workflow-failure-policy.md` | 2177 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/citation-import-plan.md` | 6107 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/citation-integrity-roadmap.md` | 1828 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/cloudflare-pages.md` | 3863 | 2026-08-27 | 3 | referenced by 3 file(s) |
+| `docs/codex-changelog.md` | 395 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/compound-quality-gate-audit.md` | 6967 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/constituent-mechanism-authoring.md` | 2244 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/CONTENT_STRATEGY.md` | 12602 | 2026-08-21 | 2 | referenced by 2 file(s) |
+| `docs/content-command-center.md` | 110852 | 2026-06-16 | 3 | referenced by 3 file(s) |
+| `docs/content-expansion-playbook.md` | 8570 | 2026-06-16 | 3 | referenced by 3 file(s) |
 | `docs/content-priority-scoreboard.md` | 10719 | 2026-06-16 | 6 | referenced by 6 file(s) |
-| `docs/content-quality/evidence-first-decision-page-standard.md` | 5906 | 2026-08-03 | 5 | referenced by 5 file(s) |
-| `docs/content/focus-cluster/adhd-blood-tests.md` | 34507 | 2026-06-27 | 16 | referenced by 16 file(s) |
-| `docs/content/focus-cluster/adhd-stack-guide-v2-content.md` | 25104 | 2026-07-02 | 1 | referenced by 1 file(s) |
+| `docs/content-quality/evidence-first-decision-page-standard.md` | 5906 | 2026-08-03 | 6 | referenced by 6 file(s) |
+| `docs/content/ARTICLE_SCAFFOLD_SYSTEM.md` | 909 | 2026-06-22 | 1 | referenced by 1 file(s) |
+| `docs/content/focus-cluster/7-hydroxymitragynine-monograph.md` | 12458 | 2026-06-14 | 1 | referenced by 1 file(s) |
+| `docs/content/focus-cluster/adhd-blood-tests.md` | 34507 | 2026-06-27 | 17 | referenced by 17 file(s) |
+| `docs/content/focus-cluster/adhd-stack-guide-v2-content.md` | 25104 | 2026-07-02 | 2 | referenced by 2 file(s) |
 | `docs/content/focus-cluster/alpha-gpc-and-adhd.md` | 13527 | 2026-07-02 | 9 | referenced by 9 file(s) |
-| `docs/content/focus-cluster/ashwagandha-for-adhd.md` | 14372 | 2026-08-15 | 15 | referenced by 15 file(s) |
-| `docs/content/focus-cluster/best-supplements-for-adhd-v2-content.md` | 32105 | 2026-07-08 | 1 | referenced by 1 file(s) |
-| `docs/content/focus-cluster/best-supplements-for-adhd.md` | 22118 | 2026-06-12 | 51 | referenced by 51 file(s) |
-| `docs/content/focus-cluster/best-supplements-for-focus-without-caffeine.md` | 11642 | 2026-07-02 | 3 | referenced by 3 file(s) |
-| `docs/content/focus-cluster/citicoline-for-adhd.md` | 16386 | 2026-07-02 | 9 | referenced by 9 file(s) |
-| `docs/content/focus-cluster/citicoline-vs-alpha-gpc-content-v1.md` | 19703 | 2026-07-08 | 1 | referenced by 1 file(s) |
-| `docs/content/focus-cluster/citicoline-vs-alpha-gpc.md` | 11320 | 2026-07-02 | 30 | referenced by 30 file(s) |
-| `docs/content/focus-cluster/iron-ferritin-and-adhd.md` | 59762 | 2026-07-02 | 20 | referenced by 20 file(s) |
-| `docs/content/focus-cluster/l-theanine-for-adhd-content-v1.md` | 25011 | 2026-08-15 | 2 | referenced by 2 file(s) |
-| `docs/content/focus-cluster/l-theanine-for-adhd.md` | 11984 | 2026-07-02 | 31 | referenced by 31 file(s) |
-| `docs/content/focus-cluster/l-theanine-vs-caffeine-for-focus-content-v1.md` | 14169 | 2026-08-12 | 2 | referenced by 2 file(s) |
-| `docs/content/focus-cluster/l-tyrosine-and-adhd.md` | 12323 | 2026-07-02 | 8 | referenced by 8 file(s) |
-| `docs/content/focus-cluster/magnesium-for-adhd-content-v1.md` | 24322 | 2026-07-02 | 1 | referenced by 1 file(s) |
-| `docs/content/focus-cluster/magnesium-for-adhd.md` | 10057 | 2026-07-02 | 26 | referenced by 26 file(s) |
-| `docs/content/focus-cluster/melatonin-for-adhd-sleep-content-v1.md` | 23446 | 2026-08-15 | 1 | referenced by 1 file(s) |
-| `docs/content/focus-cluster/nutrient-deficiencies-and-adhd-content-v1.md` | 21848 | 2026-06-11 | 1 | referenced by 1 file(s) |
-| `docs/content/focus-cluster/omega-3-and-adhd.md` | 17459 | 2026-08-15 | 23 | referenced by 23 file(s) |
-| `docs/content/focus-cluster/omega-3-for-adhd.md` | 9319 | 2026-07-02 | 6 | referenced by 6 file(s) |
-| `docs/content/focus-cluster/rhodiola-rosea-and-adhd.md` | 12222 | 2026-07-02 | 7 | referenced by 7 file(s) |
-| `docs/content/focus-cluster/sleep-and-adhd-content-v1.md` | 22708 | 2026-07-02 | 1 | referenced by 1 file(s) |
+| `docs/content/focus-cluster/ashwagandha-for-adhd.md` | 14372 | 2026-08-15 | 14 | referenced by 14 file(s) |
+| `docs/content/focus-cluster/best-supplements-for-adhd-v2-content.md` | 32105 | 2026-07-08 | 2 | referenced by 2 file(s) |
+| `docs/content/focus-cluster/best-supplements-for-adhd.md` | 22118 | 2026-06-12 | 40 | referenced by 40 file(s) |
+| `docs/content/focus-cluster/best-supplements-for-focus-without-caffeine.md` | 11642 | 2026-07-02 | 4 | referenced by 4 file(s) |
+| `docs/content/focus-cluster/citicoline-for-adhd.md` | 16386 | 2026-07-02 | 10 | referenced by 10 file(s) |
+| `docs/content/focus-cluster/citicoline-vs-alpha-gpc-content-v1.md` | 19703 | 2026-07-08 | 2 | referenced by 2 file(s) |
+| `docs/content/focus-cluster/citicoline-vs-alpha-gpc.md` | 11320 | 2026-07-02 | 27 | referenced by 27 file(s) |
+| `docs/content/focus-cluster/iron-ferritin-and-adhd.md` | 59762 | 2026-07-02 | 16 | referenced by 16 file(s) |
+| `docs/content/focus-cluster/l-theanine-for-adhd-content-v1.md` | 25011 | 2026-08-15 | 3 | referenced by 3 file(s) |
+| `docs/content/focus-cluster/l-theanine-for-adhd.md` | 11984 | 2026-07-02 | 30 | referenced by 30 file(s) |
+| `docs/content/focus-cluster/l-theanine-vs-caffeine-for-focus-content-v1.md` | 14169 | 2026-08-12 | 3 | referenced by 3 file(s) |
+| `docs/content/focus-cluster/l-tyrosine-and-adhd.md` | 12323 | 2026-07-02 | 9 | referenced by 9 file(s) |
+| `docs/content/focus-cluster/magnesium-for-adhd-content-v1.md` | 24322 | 2026-07-02 | 2 | referenced by 2 file(s) |
+| `docs/content/focus-cluster/magnesium-for-adhd.md` | 10057 | 2026-07-02 | 23 | referenced by 23 file(s) |
+| `docs/content/focus-cluster/melatonin-for-adhd-sleep-content-v1.md` | 23446 | 2026-08-15 | 2 | referenced by 2 file(s) |
+| `docs/content/focus-cluster/nutrient-deficiencies-and-adhd-content-v1.md` | 21848 | 2026-06-11 | 2 | referenced by 2 file(s) |
+| `docs/content/focus-cluster/omega-3-and-adhd.md` | 17459 | 2026-08-15 | 20 | referenced by 20 file(s) |
+| `docs/content/focus-cluster/omega-3-for-adhd.md` | 9319 | 2026-07-02 | 7 | referenced by 7 file(s) |
+| `docs/content/focus-cluster/rhodiola-rosea-and-adhd.md` | 12222 | 2026-07-02 | 8 | referenced by 8 file(s) |
+| `docs/content/focus-cluster/sleep-and-adhd-content-v1.md` | 22708 | 2026-07-02 | 2 | referenced by 2 file(s) |
 | `docs/content/focus-cluster/vitamin-d-and-adhd.md` | 22555 | 2026-07-02 | 13 | referenced by 13 file(s) |
-| `docs/content/focus-cluster/zinc-and-adhd.md` | 28118 | 2026-08-15 | 17 | referenced by 17 file(s) |
-| `docs/contractor-onboarding.md` | 987 | 2026-06-27 | 2 | referenced by 2 file(s) |
-| `docs/data-pipeline.md` | 11118 | 2026-06-27 | 7 | referenced by 7 file(s) |
-| `docs/data/mechanism-normalization-gap.md` | 8743 | 2026-08-24 | 1 | referenced by 1 file(s) |
-| `docs/design/PREMIUM_VISUAL_SYSTEM.md` | 18045 | 2026-08-27 | 4 | referenced by 4 file(s) |
-| `docs/DIFFERENTIATION_STRATEGY.md` | 9177 | 2026-06-27 | 2 | referenced by 2 file(s) |
-| `docs/distribution-engine.md` | 5018 | 2026-08-26 | 6 | referenced by 6 file(s) |
-| `docs/editorial-components.md` | 10601 | 2026-07-06 | 3 | referenced by 3 file(s) |
-| `docs/editorial-operating-system-handoff.md` | 10854 | 2026-07-06 | 2 | referenced by 2 file(s) |
-| `docs/editorial-runtime-importer.md` | 1820 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/enrichment-editorial-workflow.md` | 2535 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/enrichment-pipeline.md` | 20197 | 2026-08-23 | 21 | referenced by 21 file(s) |
-| `docs/enrichment-source-policy.md` | 4012 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/enrichment/batch-2-latin-name.md` | 6426 | 2026-08-23 | 2 | referenced by 2 file(s) |
-| `docs/enrichment/batch-3-latin-name.md` | 7174 | 2026-08-23 | 2 | referenced by 2 file(s) |
-| `docs/enrichment/canonical-pathways.md` | 8640 | 2026-08-24 | 2 | referenced by 2 file(s) |
-| `docs/enrichment/duplicate-organisms-audit.md` | 6184 | 2026-08-23 | 3 | referenced by 3 file(s) |
-| `docs/enrichment/handoff.md` | 12256 | 2026-08-24 | 4 | referenced by 4 file(s) |
-| `docs/enrichment/phase-0-baseline.md` | 9125 | 2026-08-23 | 2 | referenced by 2 file(s) |
-| `docs/enrichment/pilot-1-latin-name.md` | 9099 | 2026-08-23 | 3 | referenced by 3 file(s) |
-| `docs/evidence-and-claim-discipline.md` | 9483 | 2026-07-06 | 4 | referenced by 4 file(s) |
-| `docs/evidence-graph/identity-registry.md` | 1825 | 2026-08-06 | 2 | referenced by 2 file(s) |
-| `docs/expansion-blueprint.md` | 13522 | 2026-06-16 | 11 | referenced by 11 file(s) |
+| `docs/content/focus-cluster/zinc-and-adhd.md` | 28118 | 2026-08-15 | 14 | referenced by 14 file(s) |
+| `docs/contractor-onboarding.md` | 912 | 2026-06-27 | 3 | referenced by 3 file(s) |
+| `docs/data-pipeline.md` | 11118 | 2026-06-27 | 8 | referenced by 8 file(s) |
+| `docs/data/ingredient-json-endpoints.md` | 3642 | 2026-08-15 | 1 | referenced by 1 file(s) |
+| `docs/data/mechanism-normalization-gap.md` | 8743 | 2026-08-24 | 2 | referenced by 2 file(s) |
+| `docs/decision-engine-runtime-plan.md` | 2187 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/dependency-update-policy.md` | 2245 | 2026-06-12 | 1 | referenced by 1 file(s) |
+| `docs/design/BRAND_UI_IMPLEMENTATION_PLAN.md` | 20284 | 2026-08-29 | 4 | referenced by 4 file(s) |
+| `docs/design/PREMIUM_VISUAL_SYSTEM.md` | 18045 | 2026-08-27 | 5 | referenced by 5 file(s) |
+| `docs/DIFFERENTIATION_STRATEGY.md` | 9177 | 2026-06-27 | 3 | referenced by 3 file(s) |
+| `docs/distribution-engine.md` | 5018 | 2026-08-26 | 7 | referenced by 7 file(s) |
+| `docs/editorial-components.md` | 10601 | 2026-07-06 | 4 | referenced by 4 file(s) |
+| `docs/editorial-operating-system-handoff.md` | 10854 | 2026-07-06 | 3 | referenced by 3 file(s) |
+| `docs/editorial-review-workflow.md` | 1671 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/editorial-runtime-batch-1-implementation.md` | 2644 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/editorial-runtime-batch-3-exporter.md` | 1217 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/editorial-runtime-importer.md` | 1820 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/editorial-runtime-payload-contract.md` | 2029 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/editorial-runtime-schema-roadmap.md` | 2172 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/enrichment-editorial-workflow.md` | 2535 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/enrichment-pipeline.md` | 20197 | 2026-08-23 | 22 | referenced by 22 file(s) |
+| `docs/enrichment-source-policy.md` | 4012 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/enrichment/batch-2-latin-name.md` | 6426 | 2026-08-23 | 3 | referenced by 3 file(s) |
+| `docs/enrichment/batch-3-latin-name.md` | 7174 | 2026-08-23 | 3 | referenced by 3 file(s) |
+| `docs/enrichment/canonical-pathways.md` | 8640 | 2026-08-24 | 3 | referenced by 3 file(s) |
+| `docs/enrichment/duplicate-organisms-audit.md` | 6184 | 2026-08-23 | 4 | referenced by 4 file(s) |
+| `docs/enrichment/g13-readiness-evidence.md` | 10161 | 2026-08-23 | 1 | referenced by 1 file(s) |
+| `docs/enrichment/handoff.md` | 12256 | 2026-08-24 | 5 | referenced by 5 file(s) |
+| `docs/enrichment/phase-0-baseline.md` | 9125 | 2026-08-23 | 3 | referenced by 3 file(s) |
+| `docs/enrichment/pilot-1-latin-name.md` | 9099 | 2026-08-23 | 4 | referenced by 4 file(s) |
+| `docs/evidence-and-claim-discipline.md` | 9483 | 2026-07-06 | 5 | referenced by 5 file(s) |
+| `docs/evidence-finalize-workflow.md` | 3779 | 2026-07-11 | 1 | referenced by 1 file(s) |
+| `docs/evidence-graph/identity-registry.md` | 1825 | 2026-08-06 | 3 | referenced by 3 file(s) |
+| `docs/exceljs-migration-parity.md` | 767 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/expansion-blueprint.md` | 13522 | 2026-06-16 | 1 | referenced by 1 file(s) |
 | `docs/expansion-order.md` | 3952 | 2026-06-16 | 3 | referenced by 3 file(s) |
-| `docs/generated-data-policy.md` | 931 | 2026-06-27 | 5 | referenced by 5 file(s) |
-| `docs/global-search.md` | 4142 | 2026-06-12 | 1 | referenced by 1 file(s) |
-| `docs/grounding-noindex-profiles.md` | 7873 | 2026-07-13 | 2 | referenced by 2 file(s) |
-| `docs/IMPLEMENTATION-CHECKLIST.md` | 9737 | 2026-06-07 | 1 | referenced by 1 file(s) |
-| `docs/import-boundaries.md` | 729 | 2026-06-27 | 2 | referenced by 2 file(s) |
-| `docs/indexability-governance.md` | 4501 | 2026-08-25 | 4 | referenced by 4 file(s) |
-| `docs/internal-link-map.md` | 1509605 | 2026-08-02 | 7 | referenced by 7 file(s) |
+| `docs/generated-data-policy.md` | 931 | 2026-06-27 | 6 | referenced by 6 file(s) |
+| `docs/global-search.md` | 4142 | 2026-06-12 | 2 | referenced by 2 file(s) |
+| `docs/grounding-noindex-profiles.md` | 7873 | 2026-07-13 | 3 | referenced by 3 file(s) |
+| `docs/herb-data-architecture.md` | 1862 | 2026-08-29 | 1 | referenced by 1 file(s) |
+| `docs/IMPLEMENTATION-CHECKLIST.md` | 9737 | 2026-06-07 | 2 | referenced by 2 file(s) |
+| `docs/import-boundaries.md` | 654 | 2026-06-27 | 3 | referenced by 3 file(s) |
+| `docs/indexability-governance.md` | 4501 | 2026-08-25 | 3 | referenced by 3 file(s) |
+| `docs/internal-link-map.md` | 1509605 | 2026-08-02 | 9 | referenced by 9 file(s) |
+| `docs/legacy-cleanup.md` | 992 | 2026-06-27 | 1 | referenced by 1 file(s) |
 | `docs/magnificent-10.md` | 11887 | 2026-06-16 | 4 | referenced by 4 file(s) |
+| `docs/marketing/affiliate-link-checklist.md` | 2292 | 2026-08-29 | 1 | referenced by 1 file(s) |
 | `docs/marketing/weekly-cro-tracker.md` | 1350 | 2026-08-21 | 2 | referenced by 2 file(s) |
-| `docs/MASTER_CONTENT_MAP.md` | 8578 | 2026-06-17 | 2 | referenced by 2 file(s) |
-| `docs/media/research-graphic-review.md` | 1853 | 2026-08-15 | 1 | referenced by 1 file(s) |
-| `docs/merge-risk-policy.md` | 1775 | 2026-08-27 | 1 | referenced by 1 file(s) |
-| `docs/mobile-workflows.md` | 787 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/MOBILE.md` | 571 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/ops/prioritization-contract.md` | 2821 | 2026-08-28 | 2 | referenced by 2 file(s) |
-| `docs/ops/project-control-reconciliation.md` | 4377 | 2026-08-27 | 1 | referenced by 1 file(s) |
-| `docs/pages-needing-links.md` | 134 | 2026-06-16 | 3 | referenced by 3 file(s) |
-| `docs/performance.md` | 2335 | 2026-06-27 | 193 | referenced by 193 file(s) |
-| `docs/performance/budgets-log.md` | 409 | 2026-08-02 | 3 | referenced by 3 file(s) |
-| `docs/performance/build-bottlenecks.md` | 13718 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/performance/BUILD-PIPELINE.md` | 9512 | 2026-06-27 | 4 | referenced by 4 file(s) |
-| `docs/performance/bundle-audit.md` | 9540 | 2026-06-27 | 4 | referenced by 4 file(s) |
-| `docs/performance/client-bundle-analysis.md` | 10796 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/performance/deployment-readiness.md` | 3475 | 2026-06-27 | 3 | referenced by 3 file(s) |
-| `docs/performance/IMPLEMENTATION-SUMMARY.md` | 13360 | 2026-06-27 | 3 | referenced by 3 file(s) |
-| `docs/performance/PERFORMANCE-SUMMARY.md` | 12535 | 2026-07-01 | 1 | referenced by 1 file(s) |
-| `docs/performance/QUICK-REFERENCE.md` | 5389 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/marketing/welcome-email-sequence.md` | 2619 | 2026-08-15 | 1 | referenced by 1 file(s) |
+| `docs/MASTER_CONTENT_MAP.md` | 8578 | 2026-06-17 | 3 | referenced by 3 file(s) |
+| `docs/media/research-graphic-review.md` | 1853 | 2026-08-15 | 2 | referenced by 2 file(s) |
+| `docs/mental-health-content-standard.md` | 2056 | 2026-07-13 | 1 | referenced by 1 file(s) |
+| `docs/mental-health-seo-standard.md` | 1269 | 2026-07-13 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-adhd-supplements.md` | 840 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-ashwagandha.md` | 775 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-adaptogens-for-stress.md` | 1914 | 2026-06-17 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-herbs-for-anxiety.md` | 848 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-magnesium-supplement-for-adhd.md` | 844 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-magnesium-supplements-for-adhd.md` | 1114 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-nootropics-for-focus.md` | 3197 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-supplements-for-adhd.md` | 847 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-supplements-for-blood-pressure.md` | 3971 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-supplements-for-fat-loss.md` | 1089 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-supplements-for-focus.md` | 874 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-supplements-for-gut-health.md` | 1087 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-supplements-for-joint-support.md` | 2105 | 2026-06-17 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-supplements-for-sleep.md` | 881 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-best-supplements-for-stress.md` | 842 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-lions-mane.md` | 794 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-natural-testosterone-boosters.md` | 1869 | 2026-06-17 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-rhodiola.md` | 3270 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-report-turmeric.md` | 801 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/merge-risk-policy.md` | 1775 | 2026-08-27 | 2 | referenced by 2 file(s) |
+| `docs/methodology/coa-verification.md` | 1592 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/missing-import-resolution.md` | 871 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/mobile-workflows.md` | 787 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/MOBILE.md` | 571 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/normalized-enrichment-authoring.md` | 4711 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ops/backlog-816-weekly-content-integrity.md` | 585 | 2026-08-15 | 1 | referenced by 1 file(s) |
+| `docs/ops/prioritization-contract.md` | 2821 | 2026-08-28 | 3 | referenced by 3 file(s) |
+| `docs/ops/project-control-reconciliation.md` | 4377 | 2026-08-27 | 2 | referenced by 2 file(s) |
+| `docs/pages-needing-links.md` | 134 | 2026-06-16 | 5 | referenced by 5 file(s) |
+| `docs/performance.md` | 2335 | 2026-06-27 | 184 | referenced by 184 file(s) |
+| `docs/performance/budgets-log.md` | 409 | 2026-08-02 | 4 | referenced by 4 file(s) |
+| `docs/performance/budgets.md` | 2760 | 2026-08-01 | 1 | referenced by 1 file(s) |
+| `docs/performance/build-bottlenecks.md` | 13718 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/performance/build-improvement-verification.md` | 8629 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/performance/BUILD-PIPELINE.md` | 9512 | 2026-06-27 | 5 | referenced by 5 file(s) |
+| `docs/performance/bundle-audit.md` | 9540 | 2026-06-27 | 5 | referenced by 5 file(s) |
+| `docs/performance/cache-audit.md` | 11833 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/performance/client-bundle-analysis.md` | 10796 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/performance/deployment-readiness.md` | 3475 | 2026-06-27 | 4 | referenced by 4 file(s) |
+| `docs/performance/generated-data-audit.md` | 12230 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/performance/global-search-first-interaction.md` | 487 | 2026-08-24 | 1 | referenced by 1 file(s) |
+| `docs/performance/IMPLEMENTATION-SUMMARY.md` | 13360 | 2026-06-27 | 4 | referenced by 4 file(s) |
+| `docs/performance/next-optimization-roadmap.md` | 14139 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/performance/PERFORMANCE-SUMMARY.md` | 12535 | 2026-07-01 | 2 | referenced by 2 file(s) |
+| `docs/performance/public-json-payload-audit.md` | 10052 | 2026-08-29 | 1 | referenced by 1 file(s) |
+| `docs/performance/QUICK-REFERENCE.md` | 5389 | 2026-06-27 | 3 | referenced by 3 file(s) |
 | `docs/performance/route-inventory.md` | 9453 | 2026-06-27 | 6 | referenced by 6 file(s) |
-| `docs/performance/routes-audit.md` | 6820 | 2026-06-27 | 4 | referenced by 4 file(s) |
-| `docs/PLAYTEST.md` | 696 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/POLICY.md` | 316 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/post-fix-audit.md` | 586 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/product/goal-driven-system.md` | 31912 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/product/product-vision.md` | 23062 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/production-content-lint.md` | 3133 | 2026-08-15 | 6 | referenced by 6 file(s) |
-| `docs/PROGRESS_LOG.md` | 69 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/PUBLISHING_WORKFLOW.md` | 5159 | 2026-06-17 | 1 | referenced by 1 file(s) |
-| `docs/QA_CHECKLIST.md` | 421 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/performance/routes-audit.md` | 6820 | 2026-06-27 | 5 | referenced by 5 file(s) |
+| `docs/PLAYTEST.md` | 696 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/POLICY.md` | 316 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/post-fix-audit.md` | 586 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/product/decision-engine-simplification-audit.md` | 20277 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/product/evidence-engine-spec.md` | 38168 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/product/evidence-intelligence-1001-1100.md` | 6585 | 2026-08-15 | 1 | referenced by 1 file(s) |
+| `docs/product/evidence-intelligence-1101-1200.md` | 4584 | 2026-08-15 | 1 | referenced by 1 file(s) |
+| `docs/product/final-product-strategy.md` | 17298 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/product/goal-driven-system.md` | 31912 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/product/one-page-strategy.md` | 2953 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/product/product-vision.md` | 23062 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/production-audit-best-supplements-for-sleep.md` | 11850 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/production-content-lint.md` | 3133 | 2026-08-15 | 7 | referenced by 7 file(s) |
+| `docs/PROGRESS_LOG.md` | 69 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/promoting-profiles.md` | 6497 | 2026-08-29 | 6 | referenced by 6 file(s) |
+| `docs/PUBLISHING_WORKFLOW.md` | 5159 | 2026-06-17 | 2 | referenced by 2 file(s) |
+| `docs/QA_CHECKLIST.md` | 421 | 2026-06-27 | 2 | referenced by 2 file(s) |
 | `docs/quality/eslint-typescript-audit.md` | 5655 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/README.md` | 435 | 2026-08-21 | 12 | referenced by 12 file(s) |
-| `docs/RELEASE.md` | 1431 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/resend-setup.md` | 458 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/README.md` | 435 | 2026-08-21 | 13 | referenced by 13 file(s) |
+| `docs/RELEASE.md` | 1431 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/research-enrichment-schema.md` | 4169 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/resend-setup.md` | 458 | 2026-06-27 | 2 | referenced by 2 file(s) |
 | `docs/revenue-activation-report.md` | 943 | 2026-06-27 | 2 | referenced by 2 file(s) |
-| `docs/runtime-promotion-governance.md` | 2148 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/safety-fill-rate-report.md` | 1560 | 2026-07-15 | 1 | referenced by 1 file(s) |
-| `docs/script-inventory.md` | 956 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/security/workbook-parsing-threat-model.md` | 2170 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/security/xlsx-audit.md` | 7120 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/seo/metadata-coverage.md` | 1084 | 2026-06-27 | 9 | referenced by 9 file(s) |
-| `docs/site-update-log.md` | 764 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/source-of-truth-inventory.md` | 902 | 2026-06-27 | 2 | referenced by 2 file(s) |
-| `docs/specs/homepage-v2.md` | 28900 | 2026-06-27 | 8 | referenced by 8 file(s) |
-| `docs/specs/intake-wizard.md` | 22598 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/specs/recommendation-engine.md` | 20208 | 2026-06-27 | 5 | referenced by 5 file(s) |
-| `docs/sprint-001-technical-health.md` | 7297 | 2026-07-02 | 1 | referenced by 1 file(s) |
-| `docs/static-dynamic-boundary.md` | 4061 | 2026-06-12 | 1 | referenced by 1 file(s) |
-| `docs/templates/commercial-page-template.md` | 4346 | 2026-06-30 | 10 | referenced by 10 file(s) |
-| `docs/templates/comparison-page-template.md` | 3464 | 2026-06-30 | 4 | referenced by 4 file(s) |
-| `docs/templates/compound-authority-template.md` | 3797 | 2026-06-30 | 2 | referenced by 2 file(s) |
-| `docs/templates/expansion-checklist.md` | 3751 | 2026-06-30 | 32 | referenced by 32 file(s) |
-| `docs/templates/guide-template.md` | 3752 | 2026-06-30 | 13 | referenced by 13 file(s) |
-| `docs/templates/herb-authority-template.md` | 3897 | 2026-06-30 | 6 | referenced by 6 file(s) |
-| `docs/top25-expansion-roadmap.md` | 30102 | 2026-06-16 | 5 | referenced by 5 file(s) |
-| `docs/topic-clusters.md` | 24884 | 2026-08-02 | 4 | referenced by 4 file(s) |
-| `docs/update-log.md` | 117 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/UPDATES.md` | 189 | 2026-06-27 | 2 | referenced by 2 file(s) |
-| `docs/VALIDATION.md` | 652 | 2026-06-27 | 3 | referenced by 3 file(s) |
-| `docs/workbook-import-audit.md` | 3545 | 2026-06-27 | 2 | referenced by 2 file(s) |
-| `docs/workbook-only-data-contract.md` | 1406 | 2026-06-27 | 5 | referenced by 5 file(s) |
-| `docs/workbook-pipeline.md` | 10708 | 2026-07-07 | 4 | referenced by 4 file(s) |
-| `docs/xlsx-boundary.md` | 359 | 2026-06-27 | 10 | referenced by 10 file(s) |
-| `docs/xlsx-migration-plan.md` | 9516 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/runtime-promotion-governance.md` | 2148 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/safety-enrichment-authoring.md` | 2600 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/safety-fill-rate-report.md` | 1560 | 2026-07-15 | 2 | referenced by 2 file(s) |
+| `docs/script-inventory.md` | 956 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/security-dependency-policy.md` | 630 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/security-headers.md` | 7157 | 2026-08-29 | 8 | referenced by 8 file(s) |
+| `docs/security/dependency-risk-register.md` | 1816 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/security/npm-audit-remediation.md` | 2202 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/security/workbook-parsing-threat-model.md` | 2170 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/security/xlsx-audit.md` | 7120 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/semantic-linking-architecture.md` | 2115 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/seo/commerce-link-audit.md` | 1690 | 2026-07-08 | 1 | referenced by 1 file(s) |
+| `docs/seo/international-platform-integration.md` | 4106 | 2026-08-29 | 1 | referenced by 1 file(s) |
+| `docs/seo/international-seo.md` | 6066 | 2026-08-29 | 30 | referenced by 30 file(s) |
+| `docs/seo/metadata-coverage.md` | 1084 | 2026-06-27 | 10 | referenced by 10 file(s) |
+| `docs/seo/regional-revenue-overrides.md` | 1524 | 2026-07-08 | 1 | referenced by 1 file(s) |
+| `docs/seo/route-and-sitemap-policy.md` | 1791 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/site-organization.md` | 2623 | 2026-08-29 | 4 | referenced by 4 file(s) |
+| `docs/site-update-log.md` | 764 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/source-of-truth-inventory.md` | 902 | 2026-06-27 | 3 | referenced by 3 file(s) |
+| `docs/source-registry-entry-rules.md` | 3054 | 2026-08-16 | 1 | referenced by 1 file(s) |
+| `docs/spec-003-g1-audit.md` | 2770 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/specs/citation-growth-architecture.md` | 5662 | 2026-07-29 | 1 | referenced by 1 file(s) |
+| `docs/specs/failure-chains-case-system.md` | 11501 | 2026-07-28 | 1 | referenced by 1 file(s) |
+| `docs/specs/homepage-v2.md` | 28900 | 2026-06-27 | 7 | referenced by 7 file(s) |
+| `docs/specs/intake-wizard.md` | 22598 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/specs/recommendation-engine.md` | 20208 | 2026-06-27 | 6 | referenced by 6 file(s) |
+| `docs/sprint-001-technical-health.md` | 7297 | 2026-07-02 | 2 | referenced by 2 file(s) |
+| `docs/static-dynamic-boundary.md` | 4061 | 2026-06-12 | 2 | referenced by 2 file(s) |
+| `docs/strategy/hippie-scientist-business-audit.md` | 35602 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/tailwind-v4-migration.md` | 673 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/templates/commercial-page-template.md` | 4346 | 2026-06-30 | 3 | referenced by 3 file(s) |
+| `docs/templates/comparison-page-template.md` | 3464 | 2026-06-30 | 3 | referenced by 3 file(s) |
+| `docs/templates/compound-authority-template.md` | 3797 | 2026-06-30 | 3 | referenced by 3 file(s) |
+| `docs/templates/expansion-checklist.md` | 3751 | 2026-06-30 | 8 | referenced by 8 file(s) |
+| `docs/templates/guide-template.md` | 3752 | 2026-06-30 | 3 | referenced by 3 file(s) |
+| `docs/templates/herb-authority-template.md` | 3897 | 2026-06-30 | 3 | referenced by 3 file(s) |
+| `docs/top25-expansion-roadmap.md` | 30102 | 2026-06-16 | 6 | referenced by 6 file(s) |
+| `docs/topic-clusters.md` | 24884 | 2026-08-02 | 6 | referenced by 6 file(s) |
+| `docs/typescript-hardening.md` | 290 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ui/monograph_layout_template.md` | 4792 | 2026-06-30 | 1 | referenced by 1 file(s) |
+| `docs/update-log.md` | 117 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/UPDATES.md` | 189 | 2026-06-27 | 3 | referenced by 3 file(s) |
+| `docs/upgrade-next-15-5-18.md` | 1033 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ux/compounds-index-simplification-pass.md` | 3766 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ux/decision-layer-pass-1.md` | 4322 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ux/decision-snapshot-pass.md` | 1755 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ux/herbs-index-simplification-pass.md` | 3765 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ux/metadata-badge-normalization-pass.md` | 3319 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ux/mobile-usability-polish-pass.md` | 2770 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ux/reduce-visual-fragmentation-pass.md` | 3842 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ux/search-discovery-simplification-pass.md` | 3411 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/ux/shared-decision-primitives-pass.md` | 4177 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/VALIDATION.md` | 652 | 2026-06-27 | 4 | referenced by 4 file(s) |
+| `docs/workbook-import-audit.md` | 3545 | 2026-06-27 | 3 | referenced by 3 file(s) |
+| `docs/workbook-only-data-contract.md` | 1406 | 2026-06-27 | 6 | referenced by 6 file(s) |
+| `docs/workbook-pipeline.md` | 10708 | 2026-07-07 | 5 | referenced by 5 file(s) |
+| `docs/xlsx-boundary.md` | 359 | 2026-06-27 | 7 | referenced by 7 file(s) |
+| `docs/xlsx-migration-plan.md` | 9516 | 2026-06-27 | 2 | referenced by 2 file(s) |
+| `docs/zip-part-1-report.md` | 1744 | 2026-06-27 | 1 | referenced by 1 file(s) |
+| `docs/zip-part-2-report.md` | 2296 | 2026-06-27 | 1 | referenced by 1 file(s) |
 
-## KEEP — generated — 2
+## KEEP — generated — 3
 
 | file | bytes | last change | inbound | why |
 |---|---|---|---|---|
-| `docs/generated/css-important-audit.md` | 31550 | 2026-08-29 | 1 | produced by a script; regenerate rather than edit |
+| `docs/generated/css-important-audit.md` | 31550 | 2026-08-29 | 2 | produced by a script; regenerate rather than edit |
+| `docs/generated/docs-disposition.md` | 28118 | 2026-08-29 | 1 | produced by a script; regenerate rather than edit |
 | `docs/generated/route-inventory.md` | 53408 | 2026-08-02 | 6 | produced by a script; regenerate rather than edit |
 
 ## KEEP — authoritative — 15
 
 | file | bytes | last change | inbound | why |
 |---|---|---|---|---|
-| `AGENTS.md` | 8252 | 2026-08-21 | 16 | required reading / control document |
-| `ASSETS_LICENSE.md` | 273 | 2026-07-01 | 0 | conventional root-level file |
-| `CHANGELOG.md` | 1041 | 2026-07-01 | 1 | conventional root-level file |
-| `CLAUDE.md` | 11990 | 2026-08-29 | 10 | required reading / control document |
-| `docs/CURRENT_SPRINT.md` | 15539 | 2026-08-28 | 12 | required reading / control document |
-| `docs/CURRENT_STATE.md` | 20896 | 2026-08-29 | 5 | required reading / control document |
-| `docs/DECISIONS.md` | 33060 | 2026-08-29 | 10 | required reading / control document |
-| `docs/DOCS_INDEX.md` | 12209 | 2026-08-27 | 4 | required reading / control document |
-| `docs/MASTER_BACKLOG.md` | 15178 | 2026-08-28 | 9 | required reading / control document |
-| `docs/PROJECT_CHARTER.md` | 5157 | 2026-08-21 | 4 | required reading / control document |
-| `docs/ROADMAP.md` | 24899 | 2026-08-28 | 5 | required reading / control document |
-| `docs/SCOREBOARD.md` | 19189 | 2026-08-28 | 4 | required reading / control document |
-| `docs/SWARM-UPDATES.md` | 32994 | 2026-08-26 | 1 | required reading / control document |
-| `README.md` | 2424 | 2026-08-21 | 12 | required reading / control document |
-| `SECURITY.md` | 6706 | 2026-07-01 | 0 | required reading / control document |
+| `AGENTS.md` | 8252 | 2026-08-21 | 17 | required reading / control document |
+| `ASSETS_LICENSE.md` | 273 | 2026-07-01 | 1 | conventional root-level file |
+| `CHANGELOG.md` | 1041 | 2026-07-01 | 2 | conventional root-level file |
+| `CLAUDE.md` | 11990 | 2026-08-29 | 9 | required reading / control document |
+| `docs/CURRENT_SPRINT.md` | 15539 | 2026-08-28 | 13 | required reading / control document |
+| `docs/CURRENT_STATE.md` | 20896 | 2026-08-29 | 6 | required reading / control document |
+| `docs/DECISIONS.md` | 33060 | 2026-08-29 | 13 | required reading / control document |
+| `docs/DOCS_INDEX.md` | 12642 | 2026-08-27 | 5 | required reading / control document |
+| `docs/MASTER_BACKLOG.md` | 15178 | 2026-08-28 | 10 | required reading / control document |
+| `docs/PROJECT_CHARTER.md` | 5157 | 2026-08-21 | 5 | required reading / control document |
+| `docs/ROADMAP.md` | 24899 | 2026-08-28 | 6 | required reading / control document |
+| `docs/SCOREBOARD.md` | 19189 | 2026-08-28 | 5 | required reading / control document |
+| `docs/SWARM-UPDATES.md` | 32994 | 2026-08-26 | 2 | required reading / control document |
+| `README.md` | 2424 | 2026-08-21 | 13 | required reading / control document |
+| `SECURITY.md` | 6706 | 2026-07-01 | 1 | required reading / control document |
 
