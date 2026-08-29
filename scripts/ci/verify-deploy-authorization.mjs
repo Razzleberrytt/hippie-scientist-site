@@ -6,6 +6,7 @@ const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN
 const attempts = Number.parseInt(process.env.DEPLOY_AUTH_ATTEMPTS || '30', 10)
 const intervalMs = Number.parseInt(process.env.DEPLOY_AUTH_INTERVAL_MS || '10000', 10)
 const context = 'autonomous-merge/authorized'
+const owner = (repo || '').split('/')[0]
 
 if (!repo || !mergeSha || !token) {
   console.error('Missing GITHUB_REPOSITORY, deploy SHA, or GitHub token for deployment authorization verification.')
@@ -43,6 +44,27 @@ async function main() {
   const headSha = pr.head?.sha
   if (!headSha) throw new Error(`Associated PR #${pr.number} has no head SHA.`)
 
+  // A merge performed by the repository owner is an authorization in itself.
+  //
+  // The controller only attests PRs it merged, so before this branch existed a
+  // merge made from the GitHub UI produced a commit that could never deploy —
+  // provenance was intact and the deploy still failed closed. Accepting the
+  // owner keeps the property this gate is for (every deployed commit traces to
+  // a reviewed, merged PR) while dropping the part that only said "the bot,
+  // specifically". Direct pushes and ambiguous provenance still fail above.
+  //
+  // Checked before polling: no receipt is coming for an owner merge, so waiting
+  // five minutes for one is pure delay.
+  // `/commits/{sha}/pulls` returns a summary PR representation, which omits
+  // merged_by. It has to be read from the full object or every merge looks
+  // anonymous and the owner branch below can never match.
+  const fullPr = await api(`/pulls/${pr.number}`)
+  const mergedBy = fullPr.merged_by?.login || pr.merged_by?.login
+  if (owner && mergedBy && mergedBy.toLowerCase() === owner.toLowerCase()) {
+    console.log(`Deployment authorized: PR #${pr.number} merged by repository owner ${mergedBy}, merge ${mergeSha}.`)
+    return
+  }
+
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     const status = await api(`/commits/${headSha}/status`)
     const authorized = status.statuses?.find(item => item.context === context && item.state === 'success')
@@ -54,7 +76,7 @@ async function main() {
     if (attempt < attempts) await sleep(intervalMs)
   }
 
-  throw new Error(`No successful ${context} receipt found on exact merged PR head ${headSha} after ${attempts} attempts.`)
+  throw new Error(`No successful ${context} receipt found on exact merged PR head ${headSha} after ${attempts} attempts, and PR #${pr.number} was merged by ${mergedBy || 'an unknown account'} rather than the repository owner.`)
 }
 
 main().catch(error => {
