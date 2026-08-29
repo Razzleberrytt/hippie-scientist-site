@@ -85,10 +85,9 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
   const primarySourceUrl = clean(researchObject.primarySourceUrl) || null
   const citationValues = [findingClaimId, primarySourceId, primarySourceUrl]
   const citationCount = citationValues.filter((value) => value !== null).length
-  if (citationCount !== 0 && citationCount !== citationValues.length) {
-    throw new Error('research object findingClaimId, primarySourceId, and primarySourceUrl must be provided together')
+  if (citationCount !== citationValues.length) {
+    throw new Error('research object must include findingClaimId, primarySourceId, and primarySourceUrl before distribution-pack generation')
   }
-  const hasCitationBinding = citationCount === citationValues.length
 
   const sourceUrl = canonicalPageUrl(researchObject.sourceUrl)
   const context = evidenceContext(researchObject.evidenceType)
@@ -126,11 +125,9 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
     url: sourceUrl,
     title,
     contentHash: hashResearchObject(researchObject),
-  }
-  if (hasCitationBinding) {
-    source.findingClaimId = findingClaimId
-    source.primarySourceId = primarySourceId
-    source.primarySourceUrl = primarySourceUrl
+    findingClaimId,
+    primarySourceId,
+    primarySourceUrl,
   }
 
   const pack = {
@@ -196,6 +193,6 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
   const validated = assertValidDistributionPack(pack, {
     researchObjects: options.researchObjects ?? [researchObject],
   })
-  const citationValidated = hasCitationBinding ? assertDistributionCitationBinding(validated, researchObject) : validated
+  const citationValidated = assertDistributionCitationBinding(validated, researchObject)
   return assertDistributionEvidenceGradeBinding(citationValidated, researchObject)
 }

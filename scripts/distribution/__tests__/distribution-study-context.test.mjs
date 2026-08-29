@@ -1,16 +1,18 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
 import { validateDistributionPack } from '../distribution-pack-contract.mjs'
 
+const root = process.cwd()
+const researchObjects = JSON.parse(fs.readFileSync(path.join(root, 'data/distribution/research-objects.json'), 'utf8'))
+const canonical = researchObjects.find(({ id }) => id === 'ashwagandha-stress-evidence')
 const object = {
+  ...canonical,
   id: 'study-context-fixture',
   title: 'Governed study context fixture',
-  finding: 'Human trials report a measured outcome, but interpretation remains limited by study context.',
-  evidenceType: 'RCT',
-  evidenceGrade: 'B',
   limitation: 'Results should not be generalized beyond the studied preparation, population, or study period.',
-  sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
   populationContext: 'Adults enrolled in the cited human trial.',
   formulationContext: 'A specific standardized extract was studied; this does not establish equivalence across preparations.',
   doseContext: 'The reported dose is study context only and is not a consumer dosing instruction.',
