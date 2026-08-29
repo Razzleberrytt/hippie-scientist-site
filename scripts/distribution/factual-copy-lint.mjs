@@ -4,11 +4,12 @@ const SAFETY_REQUIRED_ASSET_TYPES = new Set(['infographic', 'carousel', ...COMPL
 
 const CONSUMER_DOSE_RE = /\b(?:take|use|consume|swallow|dose|start with|increase to)\b[^.!?\n]{0,48}\b\d+(?:\.\d+)?\s*(?:mg|mcg|g|ml|capsules?|tablets?|drops?|scoops?)\b/i
 const BENEFIT_WORD = '(?:improv(?:e|es|ed|ing)|boost(?:s|ed|ing)?|reduc(?:e|es|ed|ing)|reliev(?:e|es|ed|ing)|prevent(?:s|ed|ing)?|treat(?:s|ed|ing)?|heal(?:s|ed|ing)?|help(?:s|ed|ing)?|work(?:s|ed|ing)?|benefit(?:s|ed|ing)?)'
+const LABEL_BENEFIT_WORD = '(?:improv(?:e|es|ed|ing)|boost(?:s|ed|ing)?|reduc(?:e|es|ed|ing)|reliev(?:e|es|ed|ing)|prevent(?:s|ed|ing)?|treat(?:s|ed|ing)?|heal(?:s|ed|ing)?|help(?:s|ed|ing)?|benefit(?:s|ed|ing)?)'
 const BENEFIT_OUTCOME = '(?:sleep|stress|anxiety|focus|pain|symptoms?|outcomes?|health|risk)'
 const SECOND_PERSON_BENEFIT_RE = new RegExp(`(?:\\b(?:you|your)\\b[^.!?\\n]{0,80}\\b${BENEFIT_WORD}\\b|\\b${BENEFIT_WORD}\\b[^.!?\\n]{0,80}\\b(?:you|your)\\b)`, 'i')
 const ABSOLUTE_SAFETY_RE = /\b(?:completely safe|totally safe|perfectly safe|100% safe|risk[- ]?free|no side effects?|harmless)\b/i
 const HUMAN_BENEFIT_RE = new RegExp(`\\b(?:people|humans?|patients?|adults?|children|users?)\\b[^.!?\\n]{0,80}\\b${BENEFIT_WORD}\\b`, 'i')
-const UNBOUND_FACTUAL_LABEL_RE = new RegExp(`(?:\\b(?:clinically|scientifically)\\s+proven\\b|\\bproven\\s+(?:safe|effective|efficacious)\\b|\\b(?:evidence|research)\\s+(?:shows?|suggests?|proves?|supports?|demonstrates?)\\b|\\bstud(?:y|ies)\\s+(?:shows?|suggests?|proves?|supports?|found|finds?|demonstrates?)\\b|\\b${BENEFIT_WORD}\\b[^.!?\\n]{0,80}\\b${BENEFIT_OUTCOME}\\b|\\b${BENEFIT_OUTCOME}\\b[^.!?\\n]{0,80}\\b${BENEFIT_WORD}\\b|\\b(?:safe|effective|efficacious)\\s+(?:for|in)\\b)`, 'i')
+const UNBOUND_FACTUAL_LABEL_RE = new RegExp(`(?:\\b(?:clinically|scientifically)\\s+proven\\b|\\bproven\\s+(?:safe|effective|efficacious)\\b|\\b(?:evidence|research)\\s+(?:shows?|suggests?|proves?|supports?|demonstrates?)\\b|\\bstud(?:y|ies)\\s+(?:shows?|suggests?|proves?|supports?|found|finds?|demonstrates?)\\b|\\b${LABEL_BENEFIT_WORD}\\b[^.!?\\n]{0,80}\\b${BENEFIT_OUTCOME}\\b|\\b${BENEFIT_OUTCOME}\\b[^.!?\\n]{0,80}\\b${LABEL_BENEFIT_WORD}\\b|\\bwork(?:s|ed|ing)?\\s+(?:for|on|against)\\b[^.!?\\n]{0,40}\\b${BENEFIT_OUTCOME}\\b|\\b${BENEFIT_OUTCOME}\\b[^.!?\\n]{0,80}\\bwork(?:s|ed|ing)\\b|\\b(?:safe|effective|efficacious)\\s+(?:for|in)\\b)`, 'i')
 
 function clean(value) {
   return String(value ?? '').trim().replace(/\s+/g, ' ')
