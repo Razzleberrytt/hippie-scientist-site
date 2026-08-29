@@ -34,6 +34,12 @@ describe('research distribution claim-safety boundary', () => {
       doseContext: 'Study-context only; not consumer dosing advice.',
       populationContext: 'Adults represented in the cited randomized trials.',
       lastVerified: '2026-08-27',
+      // Required since publication-integrity binding landed. The fixture
+      // shares the primary source with data/distribution/research-objects.json,
+      // so it carries the same authority URL for that DOI.
+      publicationStatus: 'published',
+      publicationStatusCheckedAt: '2026-08-29',
+      publicationStatusAuthorityUrl: 'https://onlinelibrary.wiley.com/doi/abs/10.1002/ptr.7598',
     }], null, 2)}\n`)
 
     execFileSync(process.execPath, ['scripts/distribution/build-research-distribution.mjs', inputPath], {
