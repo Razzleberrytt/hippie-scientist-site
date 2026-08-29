@@ -9,7 +9,16 @@ const repoRoot = path.resolve(__dirname, '../..')
 // Placeholders to flag (whole words only for short strings)
 export const PLACEHOLDER_KEYWORDS = [
   { regex: /\bplaceholder\b/i, name: 'placeholder' },
-  { regex: /\bunknown\b/i, name: 'unknown' },
+  // 'unknown' is a placeholder when it stands in for missing data, and
+  // ordinary English when it modifies a noun. Matching it anywhere flagged
+  // this, which is a deliberate and correct safety caution:
+  //   "Isolated-taurine findings cannot establish the safety of unknown
+  //    co-ingredients, doses, or long-term use."
+  // Editing that copy to satisfy a linter would weaken a real warning, so the
+  // pattern is narrowed instead: it matches only where the word stands alone
+  // as a value - the whole field, after a label, or as its own sentence - and
+  // not where it qualifies something.
+  { regex: /(?:^|[:;|,]\s*|[.!?]\s+)unknown\s*(?:[.;,|]|$)/i, name: 'unknown' },
   { regex: /\btodo\b/i, name: 'todo' },
   { regex: /\btbd\b/i, name: 'tbd' },
   { regex: /\blean bulk\b/i, name: 'lean bulk' },
