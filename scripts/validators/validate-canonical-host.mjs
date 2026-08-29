@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const ROOT = process.cwd()
-const siteFile = path.join(ROOT, 'src/lib/site.ts')
+const siteFile = path.join(ROOT, 'lib/site.ts')
 const content = fs.readFileSync(siteFile, 'utf8')
 const EXPECTED = 'https://thehippiescientist.net'
 

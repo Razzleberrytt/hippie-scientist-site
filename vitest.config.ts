@@ -12,12 +12,12 @@ function workspaceAliasPlugin(): Plugin {
       const match = source.match(/^@\/(.*)$/)
       if (!match) return null
 
-      const relativePath = match[1]
-      const srcAttempt = path.resolve(ROOT, 'src', relativePath)
-      const resolvedSrc = await this.resolve(srcAttempt, importer, { skipSelf: true })
-      if (resolvedSrc) return resolvedSrc.id
-
-      const rootAttempt = path.resolve(ROOT, relativePath)
+      // '@/*' resolves to exactly one place: the repository root. This used to
+      // try ./src first and fall back to the root, which is the reverse of the
+      // tsconfig precedence ('@/*': ['./*', './src/*']). While both trees
+      // existed, a module present in each resolved to a different file under
+      // vitest than under tsc and next. There is now one tree, and one rule.
+      const rootAttempt = path.resolve(ROOT, match[1])
       const resolvedRoot = await this.resolve(rootAttempt, importer, { skipSelf: true })
       return resolvedRoot?.id ?? null
     },
@@ -79,7 +79,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
-      include: ['lib/**/*.ts', 'src/lib/**/*.ts', 'components/**/*.tsx', 'src/components/**/*.tsx'],
+      include: ['lib/**/*.ts', 'components/**/*.tsx'],
       exclude: ['**/__tests__/**', '**/*.d.ts'],
     },
   },

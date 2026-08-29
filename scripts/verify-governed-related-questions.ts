@@ -1,16 +1,16 @@
 #!/usr/bin/env tsx
 import assert from 'node:assert/strict'
 import submissions from '../ops/enrichment-submissions.json'
-import { buildGovernedFaqSectionContent } from '../src/lib/governedFaq'
+import { buildGovernedFaqSectionContent } from '../lib/governedFaq'
 import {
   buildGovernedRelatedQuestions,
   type GovernedRelatedQuestionType,
-} from '../src/lib/governedRelatedQuestions'
+} from '../lib/governedRelatedQuestions'
 import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
   type GovernedEntityType,
-} from '../src/lib/governedResearch'
+} from '../lib/governedResearch'
 
 const BLOCKED_REVIEW_STATUSES = new Set([
   'blocked',

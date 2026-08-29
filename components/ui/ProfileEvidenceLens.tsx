@@ -5,8 +5,8 @@ import {
   hasHumanEvidence,
   hasMechanismEvidence,
 } from '@/lib/evidence'
-import { policyForResearchRecord } from '@/src/lib/research-maturity'
-import type { RuntimeRecord } from '../../src/types/content'
+import { policyForResearchRecord } from '@/lib/research-maturity'
+import type { RuntimeRecord } from '../../types/content'
 
 type ProfileEvidenceLensProps = {
   record: RuntimeRecord | Record<string, unknown>

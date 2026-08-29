@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import localizedSitemap from '../localized/sitemap'
-import { DEFAULT_LOCALE, LOCALIZED_ROUTES } from '@/src/lib/international-seo'
+import { DEFAULT_LOCALE, LOCALIZED_ROUTES } from '@/lib/international-seo'
 
 describe('localized sitemap', () => {
   it('contains exactly one sitemap entry for every published translation', () => {

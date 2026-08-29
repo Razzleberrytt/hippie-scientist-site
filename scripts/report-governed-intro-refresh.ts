@@ -8,12 +8,12 @@ import {
   buildFallbackHerbIntro,
   buildGovernedDetailIntro,
   countPlaceholderSignals,
-} from '../src/lib/governedIntro'
+} from '../lib/governedIntro'
 import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
   type GovernedEntityType,
-} from '../src/lib/governedResearch'
+} from '../lib/governedResearch'
 import { calculateCompoundConfidence, calculateHerbConfidence } from '../src/utils/calculateConfidence'
 
 type EntityType = 'herb' | 'compound'

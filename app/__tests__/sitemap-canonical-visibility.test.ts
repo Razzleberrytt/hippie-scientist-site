@@ -9,10 +9,10 @@ import {
   declaresSelfCanonicalIndexable,
   normalizeVisibilityRoute,
 } from '@/lib/sitemap-route-visibility'
-import { canRenderRuntimeComparison } from '@/src/lib/runtime-comparison-resolution'
-import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index'
-import { LOCALIZED_ROUTES } from '@/src/lib/international-seo'
-import { shouldIndexRoute } from '@/src/lib/seo'
+import { canRenderRuntimeComparison } from '@/lib/runtime-comparison-resolution'
+import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
+import { LOCALIZED_ROUTES } from '@/lib/international-seo'
+import { shouldIndexRoute } from '@/lib/seo'
 
 /**
  * The sitemap must advertise a URL if and only if the page agrees it should be

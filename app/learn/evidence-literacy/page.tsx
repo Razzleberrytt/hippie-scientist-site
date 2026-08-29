@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import EducationPageLayout from '@/components/layouts/EducationPageLayout'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'

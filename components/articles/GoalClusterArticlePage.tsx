@@ -9,7 +9,7 @@ import {
   faqPageJsonLd,
   isMeaningfulFaqAnswer,
   SITE_URL,
-} from '../../src/lib/seo'
+} from '../../lib/seo'
 import { getGoalArticle, getGoalCluster, getRelatedGoalArticles } from '@/lib/goal-clusters'
 import { getSleepArticleContent } from '@/lib/sleep-cluster-content'
 import {

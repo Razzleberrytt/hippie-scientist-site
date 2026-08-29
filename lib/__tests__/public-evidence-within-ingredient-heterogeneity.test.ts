@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { buildPublicEvidenceDatasetFromRecords } from '@/lib/public-evidence-dataset'
-import type { RuntimeRecord } from '@/src/types/content'
+import type { RuntimeRecord } from '@/types/content'
 
 function record(slug: string, sources: Array<Record<string, unknown>>): RuntimeRecord {
   return {

@@ -1,12 +1,12 @@
 #!/usr/bin/env tsx
 import assert from 'node:assert/strict'
 import submissions from '../ops/enrichment-submissions.json'
-import { buildGovernedQuickCompareSection } from '../src/lib/governedQuickCompare'
+import { buildGovernedQuickCompareSection } from '../lib/governedQuickCompare'
 import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
   type GovernedEntityType,
-} from '../src/lib/governedResearch'
+} from '../lib/governedResearch'
 
 const BLOCKED_REVIEW_STATUSES = new Set([
   'blocked',

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { serializeJsonLd } from '../../src/lib/schema-injector'
+import { serializeJsonLd } from '../../lib/schema-injector'
 
 const outDir = path.join(process.cwd(), 'out')
 const JSON_LD_SCRIPT_RE = /(<script\b[^>]*type=["']application\/ld\+json["'][^>]*>)([\s\S]*?)(<\/script>)/gi

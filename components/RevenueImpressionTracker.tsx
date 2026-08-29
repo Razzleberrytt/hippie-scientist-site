@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from 'react'
 import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
-import { trackRevenueEvent } from '../src/lib/revenue-tracking'
+import { trackRevenueEvent } from '../lib/revenue-tracking'
 
 export const RECOMMENDATION_IMPRESSION_THRESHOLD = 0.5
 export const RECOMMENDATION_IMPRESSION_DELAY_MS = 1000

@@ -1,7 +1,7 @@
 import { list, text, unique } from '@/lib/display-utils'
-import { buildAffiliateRoutingDecision } from '../src/lib/affiliate-intelligence-routing'
-import { buildResearchKnowledgeReport } from '../src/lib/research-knowledge-layer'
-import { buildSemanticIntelligenceReport } from '../src/lib/semantic-intelligence-layer'
+import { buildAffiliateRoutingDecision } from './affiliate-intelligence-routing'
+import { buildResearchKnowledgeReport } from './research-knowledge-layer'
+import { buildSemanticIntelligenceReport } from './semantic-intelligence-layer'
 
 export type ProductRecommendationContext = {
   title: string

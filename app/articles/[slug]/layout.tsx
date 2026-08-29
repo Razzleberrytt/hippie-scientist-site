@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { allArticleMonographs, allBlogPosts } from '../../../.content-collections/generated'
-import { compactMetaTitle } from '../../../src/lib/seo'
+import { compactMetaTitle } from '../../../lib/seo'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts]
 

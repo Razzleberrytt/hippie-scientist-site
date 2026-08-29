@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { buildPageMetadata } from '../../../../src/lib/seo'
+import { buildPageMetadata } from '../../../../lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Ashwagandha vs L-Theanine vs Magnesium',

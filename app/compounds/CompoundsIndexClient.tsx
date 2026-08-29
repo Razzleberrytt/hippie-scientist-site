@@ -6,8 +6,8 @@ import { Suspense } from 'react'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
-import Skeleton from '@/src/components/ui/Skeleton'
-import type { RuntimeRecord } from '../../src/types/content'
+import Skeleton from '@/components/ui/Skeleton'
+import type { RuntimeRecord } from '../../types/content'
 
 type FilterOption = {
   label: string

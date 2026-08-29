@@ -5,7 +5,7 @@ import {
 } from '@/lib/decision-primitives'
 import { getSemanticTrustLabels } from '@/lib/semantic-trust-badges'
 import { getSafetyLabels } from '@/lib/safety-classification'
-import type { RuntimeRecord } from '@/src/types/content'
+import type { RuntimeRecord } from '@/types/content'
 
 type EvidenceBadgeKind =
   | 'Human Evidence'

@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRouter'
 import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
+import { buildGuideHubSchemaGraph } from '../../../lib/schema-graph'
 
 export const metadata: Metadata = {
   title: 'Sleep Supplements: Evidence, Timing & Safety',

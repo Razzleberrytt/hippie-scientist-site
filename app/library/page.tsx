@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 import { coreGoals } from '@/lib/core-goals'
 import { SITE_URL } from '@/lib/navigation-config'
-import { buildTwitterMetadata } from '@/src/lib/seo'
+import { buildTwitterMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Explore Everything — Complete Site Directory',

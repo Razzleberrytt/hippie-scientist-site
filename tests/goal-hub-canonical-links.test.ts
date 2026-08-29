@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getGoalCompareLinks, getGoalsForEntity } from '@/src/lib/goal-hub-links'
+import { getGoalCompareLinks, getGoalsForEntity } from '@/lib/goal-hub-links'
 
 describe('goal hub canonical links', () => {
   it('routes stress entities to the dedicated stress hub', () => {

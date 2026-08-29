@@ -1,8 +1,8 @@
 import { existsSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { LOCALIZED_ROUTES, SPANISH_LOCALE, getLocalizedRoute } from '../../src/lib/international-seo'
-import { SPANISH_PAGES } from '../../src/lib/spanish-content'
-import { SPANISH_ROUTE_KEYS } from '../../src/lib/spanish-routes'
+import { LOCALIZED_ROUTES, SPANISH_LOCALE, getLocalizedRoute } from '../international-seo'
+import { SPANISH_PAGES } from '../spanish-content'
+import { SPANISH_ROUTE_KEYS } from '../spanish-routes'
 
 const spanishRoutes = LOCALIZED_ROUTES
   .map((route) => route.translations[SPANISH_LOCALE])

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import Disclaimer from '@/src/components/Disclaimer'
-import { SITE_URL, breadcrumbJsonLd, buildTwitterMetadata } from '@/src/lib/seo'
+import Disclaimer from '@/components/Disclaimer'
+import { SITE_URL, breadcrumbJsonLd, buildTwitterMetadata } from '@/lib/seo'
 import SchemaOrg from '@/components/SchemaOrg'
 
 const PAGE_PATH = '/goals/metabolic-health/'

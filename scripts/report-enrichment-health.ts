@@ -1,14 +1,14 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { SEO_COLLECTIONS } from '../src/data/seoCollections'
-import { filterCompoundByCollection, filterHerbByCollection } from '../src/lib/collectionQuality'
-import { buildGovernedCollectionSummary } from '../src/lib/collectionEnrichment'
+import { SEO_COLLECTIONS } from '../data/seoCollections'
+import { filterCompoundByCollection, filterHerbByCollection } from '../lib/collectionQuality'
+import { buildGovernedCollectionSummary } from '../lib/collectionEnrichment'
 import {
   buildEnrichmentRecommendations,
   type RecommendationSignalType,
-} from '../src/lib/enrichmentRecommendations'
-import { isPublishableGovernedEnrichment } from '../src/lib/governedResearch'
-import type { ResearchEnrichment } from '../src/types/researchEnrichment'
+} from '../lib/enrichmentRecommendations'
+import { isPublishableGovernedEnrichment } from '../lib/governedResearch'
+import type { ResearchEnrichment } from '../types/researchEnrichment'
 
 type EntityType = 'herb' | 'compound'
 type HealthState =

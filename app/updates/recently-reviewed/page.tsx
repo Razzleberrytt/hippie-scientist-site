@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import ResearchUpdateList from '@/components/updates/ResearchUpdateList'
 import { getRecentlyReviewedUpdates } from '@/lib/research-updates'
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Recently Reviewed Research Pages',

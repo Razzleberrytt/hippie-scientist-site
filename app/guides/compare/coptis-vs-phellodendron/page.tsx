@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildPageMetadata } from '../../../../src/lib/seo'
+import { buildPageMetadata } from '../../../../lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import CitationReadySummary from '@/components/seo/CitationReadySummary'
 import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
-import Disclaimer from '../../../../src/components/Disclaimer'
+import Disclaimer from '../../../../components/Disclaimer'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Coptis vs Phellodendron: Berberine Chemistry & Safety Compared',

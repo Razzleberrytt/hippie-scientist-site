@@ -11,7 +11,7 @@
 
 import { SITE_URL } from '@/lib/navigation-config'
 import { primaryNavigation } from '@/lib/primary-navigation'
-import { serializeJsonLd } from '@/src/lib/schema-injector'
+import { serializeJsonLd } from '@/lib/schema-injector'
 
 const WEBSITE_ID = `${SITE_URL}/#website`
 const NAVIGATION_ID = `${SITE_URL}/#navigation`

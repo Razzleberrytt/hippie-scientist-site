@@ -5,8 +5,8 @@ import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRo
 import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import { buildGuideHubSchemaGraph } from '@/src/lib/schema-graph'
-import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+import { buildGuideHubSchemaGraph } from '@/lib/schema-graph'
+import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 
 const PATH = '/guides/metabolic-health/'
 const TITLE = 'Metabolic Health Supplements: Berberine, Inositol & Evidence'

@@ -6,8 +6,8 @@ import {
   getCurrentLocaleAlternates,
   getLocaleFromPathname,
   type SupportedLocale,
-} from '@/src/lib/international-seo'
-import { LOCALIZED_CHROME } from '@/src/lib/localized-chrome'
+} from '@/lib/international-seo'
+import { LOCALIZED_CHROME } from '@/lib/localized-chrome'
 
 /**
  * Render only languages that have an explicit reciprocal route in the canonical

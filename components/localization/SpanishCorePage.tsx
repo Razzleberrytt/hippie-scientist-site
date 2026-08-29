@@ -1,4 +1,4 @@
-import type { SpanishPageData } from '@/src/lib/spanish-content'
+import type { SpanishPageData } from '@/lib/spanish-content'
 import LocalizedCorePage from './LocalizedCorePage'
 
 const spanishUi = {

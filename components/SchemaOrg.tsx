@@ -1,6 +1,6 @@
 import type { SchemaNode } from '@/lib/schema'
-import { serializeJsonLd } from '@/src/lib/schema-injector'
-import { sanitizeProfileSchemaPayload } from '@/src/lib/profile-schema-sanitize'
+import { serializeJsonLd } from '@/lib/schema-injector'
+import { sanitizeProfileSchemaPayload } from '@/lib/profile-schema-sanitize'
 
 type SchemaOrgProps = {
   graph?: Record<string, unknown> | null

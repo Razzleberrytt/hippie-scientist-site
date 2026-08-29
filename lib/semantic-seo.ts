@@ -1,4 +1,4 @@
-import type { GraphRuntime, GraphNode } from '../src/types/graph'
+import type { GraphRuntime, GraphNode } from '../types/graph'
 import { loadRuntimeGraph, getGraphNode } from './runtime-graph'
 import { getRelatedEntities } from './semantic-relationship-engine'
 

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildPageMetadata, SITE_URL } from '@/src/lib/seo'
+import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
+import { buildGuideHubSchemaGraph } from '../../../lib/schema-graph'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Best Supplements by Goal: Evidence & Safety',

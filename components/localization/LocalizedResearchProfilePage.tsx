@@ -9,7 +9,7 @@ import {
   type CanonicalLocalizedProfile,
   type LocalizedProfileTranslation,
   type LocalizedProfileUiCopy,
-} from '@/src/lib/localized-profile'
+} from '@/lib/localized-profile'
 
 function confidencePercent(value?: number) {
   return typeof value === 'number' ? `${Math.round(value * 100)}%` : null

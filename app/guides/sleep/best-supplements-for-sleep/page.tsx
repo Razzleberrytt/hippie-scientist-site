@@ -9,7 +9,7 @@ import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import References from '@/components/References'
-import { buildTwitterMetadata } from '@/src/lib/seo'
+import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-supplements-for-sleep`
 const UPDATED_DATE = '2026-08-22'

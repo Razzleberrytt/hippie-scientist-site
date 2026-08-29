@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
-import { buildGovernedCollectionSummary } from '../src/lib/collectionEnrichment'
-import { getGovernedResearchEnrichment } from '../src/lib/governedResearch'
+import { buildGovernedCollectionSummary } from '../lib/collectionEnrichment'
+import { getGovernedResearchEnrichment } from '../lib/governedResearch'
 
 const blocked = getGovernedResearchEnrichment('herb', 'ashwagandha')
 assert.equal(blocked, null, 'Blocked/unpublishable enrichment must remain excluded at runtime.')

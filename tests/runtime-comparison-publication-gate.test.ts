@@ -5,8 +5,8 @@ import {
   comparisonValueToText,
   firstComparisonField,
   resolveRuntimeComparisonSide,
-} from '../src/lib/runtime-comparison-resolution'
-import type { RuntimeRecord } from '../src/types/content'
+} from '../lib/runtime-comparison-resolution'
+import type { RuntimeRecord } from '../types/content'
 
 describe('runtime comparison publication gate', () => {
   it('keeps a review-gated record renderable instead of turning the comparison into a 404', () => {

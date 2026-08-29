@@ -4,8 +4,8 @@ import { describe, expect, it } from 'vitest'
 
 const COMPAT_PAGE = 'app/guides/focus/best-supplements-for-focus/page.tsx'
 const HUB = 'app/guides/focus/page.tsx'
-const CANONICAL_ROUTES = 'src/lib/canonical-routes.ts'
-const GOAL_SEO = 'src/lib/goal-seo.ts'
+const CANONICAL_ROUTES = 'lib/canonical-routes.ts'
+const GOAL_SEO = 'lib/goal-seo.ts'
 const SITEMAP_COMPLETENESS = 'scripts/ci/validate-sitemap-completeness.mjs'
 const OVERRIDE = 'public/redirect-overrides/004-focus-best-supplements-consolidation.txt'
 

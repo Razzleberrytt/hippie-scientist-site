@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
-import RuntimeEvidenceComparison from '@/src/components/comparison/RuntimeEvidenceComparison'
-import { buildRuntimeComparisonMetadata } from '@/src/lib/runtime-comparison-metadata'
+import RuntimeEvidenceComparison from '@/components/comparison/RuntimeEvidenceComparison'
+import { buildRuntimeComparisonMetadata } from '@/lib/runtime-comparison-metadata'
 import { RUNTIME_COMPARISON_SIDES } from '@/lib/runtime-comparison-sides'
 
 const { left: COMPARISON_LEFT, right: COMPARISON_RIGHT } = RUNTIME_COMPARISON_SIDES['caffeine-vs-caffeine-l-theanine']

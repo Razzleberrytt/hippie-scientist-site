@@ -8,7 +8,7 @@ import {
 
 import {
   buildAdaptiveRecommendationScores,
-} from '@/src/lib/adaptive-recommendation-scoring'
+} from '@/lib/adaptive-recommendation-scoring'
 
 type ScoredItem = Record<string, unknown> & {
   href: string

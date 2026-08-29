@@ -13,7 +13,7 @@ import {
   canonicalUrl,
   collectionPageJsonLd,
   itemListJsonLd,
-} from '@/src/lib/seo'
+} from '@/lib/seo'
 
 const HUB_PATH = '/guides/mental-health'
 const HUB_TITLE = 'Mental Health Guides: OCD and Personality Disorders'

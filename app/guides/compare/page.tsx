@@ -5,12 +5,12 @@ import { Suspense } from 'react'
 import Link from 'next/link'
 import { CompareTableSkeleton } from '@/components/skeletons'
 import { PremiumCallout, PremiumCard, PremiumHero, PremiumSectionHeader } from '@/components/ui/PremiumVisual'
-import { getCompounds } from '../../../src/lib/runtime-data'
+import { getCompounds } from '../../../lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list } from '@/lib/display-utils'
 import { isBuiltComparisonSlug } from '@/lib/comparison-utils'
 
-import { buildPageMetadata, SEO_YEAR, SITE_URL } from '../../../src/lib/seo'
-import { buildCompareHubSchemaGraph } from '../../../src/lib/schema-graph'
+import { buildPageMetadata, SEO_YEAR, SITE_URL } from '../../../lib/seo'
+import { buildCompareHubSchemaGraph } from '../../../lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 
 const CompareTableClient = dynamic(

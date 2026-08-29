@@ -8,8 +8,8 @@ import {
   breadcrumbJsonLd,
   faqPageJsonLd,
   compactMetaTitle,
-} from '../../../../src/lib/seo'
-import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
+} from '../../../../lib/seo'
+import LastUpdatedBadge from '../../../../components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'

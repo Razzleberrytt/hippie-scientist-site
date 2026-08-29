@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { buildPageMetadata } from '../../../../src/lib/seo'
+import { buildPageMetadata } from '../../../../lib/seo'
 
 // The queries this page already earns impressions for lead with "melatonin vs
 // magnesium" (and "magnesium vs melatonin"), not "magnesium glycinate", so the

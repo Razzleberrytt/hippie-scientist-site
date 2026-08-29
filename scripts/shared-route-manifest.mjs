@@ -418,7 +418,7 @@ function extractGoalRoutes() {
 }
 
 function parseSeoCollections() {
-  const file = readText('src/data/seoCollections.ts')
+  const file = readText('data/seoCollections.ts')
   if (!file) return []
 
   const match = file.match(/export const SEO_COLLECTIONS:\s*SeoCollection\[\]\s*=\s*(\[[\s\S]*?\n\])/)

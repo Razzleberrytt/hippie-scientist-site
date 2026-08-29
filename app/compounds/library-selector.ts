@@ -1,4 +1,4 @@
-import type { RuntimeRecord } from '../../src/types/content'
+import type { RuntimeRecord } from '../../types/content'
 
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { formatDisplayLabel } from '@/lib/display-utils'

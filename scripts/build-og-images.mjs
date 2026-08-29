@@ -14,7 +14,7 @@ const {
   gradientKeyForCategory,
   gradientKeyForTag,
   resolveClassKey,
-} = await import(pathToFileURL(path.resolve("src/lib/classMap.ts")).href);
+} = await import(pathToFileURL(path.resolve("lib/classMap.ts")).href);
 
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 630;

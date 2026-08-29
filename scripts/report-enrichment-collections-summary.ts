@@ -1,9 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { SEO_COLLECTIONS } from '../src/data/seoCollections'
-import { filterCompoundByCollection, filterHerbByCollection } from '../src/lib/collectionQuality'
-import { buildGovernedCollectionSummary } from '../src/lib/collectionEnrichment'
-import { getPublishableGovernedEntries } from '../src/lib/governedResearch'
+import { SEO_COLLECTIONS } from '../data/seoCollections'
+import { filterCompoundByCollection, filterHerbByCollection } from '../lib/collectionQuality'
+import { buildGovernedCollectionSummary } from '../lib/collectionEnrichment'
+import { getPublishableGovernedEntries } from '../lib/governedResearch'
 
 const ROOT = process.cwd()
 const HERBS_PATH = path.join(ROOT, 'public', 'data', 'herbs.json')

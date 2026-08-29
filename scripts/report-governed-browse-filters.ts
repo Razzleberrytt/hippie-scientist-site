@@ -7,7 +7,7 @@ import enrichmentSubmissions from '../ops/enrichment-submissions.json'
 import { filterHerbs } from '../src/utils/filterHerbs'
 import { filterCompounds } from '../src/utils/filterCompounds'
 import { DEFAULT_FILTER_STATE } from '../src/utils/filterModel'
-import { getPublishableGovernedEntries } from '../src/lib/governedResearch'
+import { getPublishableGovernedEntries } from '../lib/governedResearch'
 
 const ROOT = process.cwd()
 const REPORT_JSON_PATH = path.join(ROOT, 'ops', 'reports', 'governed-browse-filters.json')

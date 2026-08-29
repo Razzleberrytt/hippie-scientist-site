@@ -55,7 +55,7 @@ const surfaces = [
   {
     surface: 'governed_cta_refresh',
     events: ['governed_cta_click'],
-    emitsFrom: ['src/lib/contentJourneyTracking.ts', 'src/pages/CollectionPage.tsx'],
+    emitsFrom: ['lib/contentJourneyTracking.ts', 'src/pages/CollectionPage.tsx'],
   },
 ]
 

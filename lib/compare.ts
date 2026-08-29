@@ -10,7 +10,7 @@
 
 import compoundsJson from '@/public/data/compounds.json'
 import herbsJson from '@/public/data/herbs.json'
-import { isRestrictedRecord } from '@/src/lib/restricted-ingredients'
+import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 
 export const HARM_REDUCTION_SLUGS = new Set([
   'kava', 'kavain', 'dihydrokavain', 'methysticin', 'yangonin',

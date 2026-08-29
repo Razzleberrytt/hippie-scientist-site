@@ -7,7 +7,7 @@ const read = (relativePath: string) => fs.readFileSync(path.join(root, relativeP
 
 describe('scroll-to-top accessibility contract', () => {
   it('keeps the inactive global control out of both keyboard and accessibility navigation', () => {
-    const source = read('src/components/ScrollToTopButton.tsx')
+    const source = read('components/ScrollToTopButton.tsx')
 
     expect(source).toContain('aria-hidden={!visible}')
     expect(source).toContain('tabIndex={visible ? 0 : -1}')
@@ -15,7 +15,7 @@ describe('scroll-to-top accessibility contract', () => {
   })
 
   it('releases focus before activation can hide the control', () => {
-    const source = read('src/components/ScrollToTopButton.tsx')
+    const source = read('components/ScrollToTopButton.tsx')
 
     expect(source).toContain('const scrollToTop = (event: React.MouseEvent<HTMLButtonElement>) => {')
     expect(source).toContain('event.currentTarget.blur()')
@@ -23,7 +23,7 @@ describe('scroll-to-top accessibility contract', () => {
   })
 
   it('preserves the localized label, touch target, and reduced-motion behavior', () => {
-    const source = read('src/components/ScrollToTopButton.tsx')
+    const source = read('components/ScrollToTopButton.tsx')
 
     expect(source).toContain('aria-label={label}')
     expect(source).toContain('min-h-11 min-w-11')

@@ -1,4 +1,4 @@
-import type { ForecastDashboard as ForecastDashboardData } from '@/src/lib/forecasting-dashboard'
+import type { ForecastDashboard as ForecastDashboardData } from '@/lib/forecasting-dashboard'
 
 function percent(value: number): string {
   return `${(value * 100).toFixed(1)}%`

@@ -16,7 +16,7 @@ vi.mock('@/lib/consent', () => ({
   getConsent: mocks.getConsent,
 }))
 
-vi.mock('../../src/lib/revenue-tracking', () => ({
+vi.mock('../../lib/revenue-tracking', () => ({
   trackRevenueEvent: mocks.trackRevenueEvent,
 }))
 

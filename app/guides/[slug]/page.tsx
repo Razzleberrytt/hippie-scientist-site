@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
-import { buildPageMetadata, SITE_URL, compactMetaTitle } from "../../../src/lib/seo";
+import { buildPageMetadata, SITE_URL, compactMetaTitle } from "../../../lib/seo";
 import { ArticleLayout, RelatedArticles } from "@/components/articles";
 import type { RelatedArticle } from "@/components/articles";
 

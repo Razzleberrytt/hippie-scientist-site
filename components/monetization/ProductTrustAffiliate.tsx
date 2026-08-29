@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { affiliateRationaleForDisplay } from '@/src/lib/affiliate-copy'
+import { affiliateRationaleForDisplay } from '@/lib/affiliate-copy'
 
 type ProductTrustAffiliateProps = {
   productName: string

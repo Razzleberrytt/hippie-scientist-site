@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../src/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../lib/seo'
 import EmailCapture from '@/components/EmailCapture'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'

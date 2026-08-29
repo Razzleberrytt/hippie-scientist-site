@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { isOptimizableRemoteImage } from '../src/lib/image-hosts'
+import { isOptimizableRemoteImage } from '../lib/image-hosts'
 import {
   getOutboundLinkRel,
   inferPlatformRegionFromLocale,
@@ -10,10 +10,10 @@ import {
   resolveRetailerLinks,
   type RegionalUrlMap,
   type RetailerLink,
-} from '../src/lib/platforms'
-import { trackRevenueEvent } from '../src/lib/revenue-tracking'
-import { affiliateRationaleForDisplay } from '../src/lib/affiliate-copy'
-import { evaluateProductLifecycle, type ProductLifecycleMetadata } from '../src/lib/product-lifecycle'
+} from '../lib/platforms'
+import { trackRevenueEvent } from '../lib/revenue-tracking'
+import { affiliateRationaleForDisplay } from '../lib/affiliate-copy'
+import { evaluateProductLifecycle, type ProductLifecycleMetadata } from '../lib/product-lifecycle'
 
 export type AffiliateProduct = {
   asin?: string

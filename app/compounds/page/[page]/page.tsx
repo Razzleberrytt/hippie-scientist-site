@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { loadPublishedCompounds } from '../../library-data'
 import { getCompoundName } from '../../library-selector'
 import CompoundsIndexClient from '../../CompoundsIndexClient'
-import type { RuntimeRecord } from '../../../../src/types/content'
+import type { RuntimeRecord } from '../../../../types/content'
 import Pagination from '@/components/Pagination'
 
 type P = {

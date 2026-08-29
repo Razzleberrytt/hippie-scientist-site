@@ -6,7 +6,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
-import { SITE_URL, buildTwitterMetadata, faqPageJsonLd } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata, faqPageJsonLd } from '@/lib/seo'
 
 const path = '/guides/sleep/magnesium-glycinate-vs-l-threonate-for-sleep/'
 const UPDATED_DATE = '2026-08-12'

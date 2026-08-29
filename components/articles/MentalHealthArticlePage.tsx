@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import JsonLd from '@/components/seo/JsonLd'
-import LastUpdatedBadge from '@/src/components/editorial/LastUpdatedBadge'
+import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import {
   getMentalHealthArticle,
   mentalHealthArticles,
@@ -18,12 +18,12 @@ import {
   canonicalUrl,
   DEFAULT_OG_IMAGE,
   SITE_NAME,
-} from '@/src/lib/seo'
+} from '@/lib/seo'
 import {
   AUTHOR_NAME,
   AUTHOR_SCHEMA_ID,
   AUTHOR_URL,
-} from '@/src/lib/schema-identities'
+} from '@/lib/schema-identities'
 
 const BASE_PATH = '/guides/mental-health'
 

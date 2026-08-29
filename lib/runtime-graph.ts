@@ -9,7 +9,7 @@ import type {
   GraphEcosystem,
   GraphCandidate,
   GraphRuntime,
-} from '../src/types/graph'
+} from '../types/graph'
 
 type GraphRecord = Record<string, unknown>
 type GraphInput = {
@@ -79,7 +79,7 @@ export type {
   GraphEcosystem,
   GraphCandidate,
   GraphRuntime,
-} from '../src/types/graph'
+} from '../types/graph'
 
 const GRAPH_DIR = join(process.cwd(), 'public', 'data', 'graph')
 const GRAPH_FILES = {

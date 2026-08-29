@@ -3,7 +3,7 @@ import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import References from '@/components/References'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 

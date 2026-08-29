@@ -12,8 +12,8 @@ import {
   SUPPORTED_LOCALES,
   getLocalizedRoute,
   type SupportedLocale,
-} from '@/src/lib/international-seo'
-import { LOCALIZED_CHROME, getLocaleFromPathname } from '@/src/lib/localized-chrome'
+} from '@/lib/international-seo'
+import { LOCALIZED_CHROME, getLocaleFromPathname } from '@/lib/localized-chrome'
 
 function normalizePath(path: string) {
   return path === '/' ? '/' : path.replace(/\/$/, '')

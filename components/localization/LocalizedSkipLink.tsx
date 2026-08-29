@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { LOCALIZED_CHROME, getLocaleFromPathname } from '@/src/lib/localized-chrome'
+import { LOCALIZED_CHROME, getLocaleFromPathname } from '@/lib/localized-chrome'
 
 export default function LocalizedSkipLink() {
   const pathname = usePathname()

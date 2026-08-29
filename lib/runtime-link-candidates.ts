@@ -1,6 +1,6 @@
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { safeArray, safeSlug } from '@/lib/search-safe'
-import type { RuntimeRecord } from '@/src/types/content'
+import type { RuntimeRecord } from '@/types/content'
 
 export function buildRenderableRuntimeRecordIndex(records: RuntimeRecord[]) {
   const bySlug = new Map<string, RuntimeRecord>()

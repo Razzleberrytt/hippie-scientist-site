@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 
 const path = '/guides/sleep/apigenin-for-sleep/'
 

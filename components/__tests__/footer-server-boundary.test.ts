@@ -7,7 +7,7 @@ const read = (relativePath: string) => fs.readFileSync(path.join(root, relativeP
 
 describe('shared footer hydration boundary', () => {
   it('keeps the static footer shell server-first', () => {
-    const footer = read('src/components/Footer.tsx')
+    const footer = read('components/Footer.tsx')
 
     expect(footer).not.toMatch(/^['"]use client['"]/)
     expect(footer).toContain("import Link from 'next/link'")
@@ -20,7 +20,7 @@ describe('shared footer hydration boundary', () => {
   })
 
   it('isolates privacy interaction and lazy dialog loading in the small client island', () => {
-    const controls = read('src/components/FooterConsentControls.tsx')
+    const controls = read('components/FooterConsentControls.tsx')
 
     expect(controls).toMatch(/^['"]use client['"]/)
     expect(controls).toContain("lazy(() => import('./ConsentManager'))")

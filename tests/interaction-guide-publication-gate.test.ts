@@ -4,7 +4,7 @@ import {
   interactionValueToText,
   selectIndexableInteractionIngredients,
 } from '../app/guides/interactions/interaction-data'
-import type { RuntimeRecord } from '../src/types/content'
+import type { RuntimeRecord } from '../types/content'
 
 describe('interaction guide publication gate', () => {
   it('publishes only indexable records with meaningful interaction data', () => {

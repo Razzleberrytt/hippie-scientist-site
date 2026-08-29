@@ -1,10 +1,10 @@
 import type { CompareItem } from '@/lib/compare'
 import JsonLd from '@/components/seo/JsonLd'
-import { SITE_URL } from '@/src/lib/site'
+import { SITE_URL } from '@/lib/site'
 import {
   AUTHOR_SCHEMA_ID,
   ORGANIZATION_SCHEMA_ID,
-} from '@/src/lib/schema-identities'
+} from '@/lib/schema-identities'
 
 interface FAQItem {
   question: string

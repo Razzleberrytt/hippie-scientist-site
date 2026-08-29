@@ -46,7 +46,7 @@ const nextConfig = {
     // SVGs, encode failures). No runtime service is involved, so this stays
     // compatible with `output: 'export'`.
     loader: 'custom',
-    loaderFile: './src/lib/cloudflare-image-loader.ts',
+    loaderFile: './lib/cloudflare-image-loader.ts',
     remotePatterns: [
       { protocol: 'https', hostname: '**.media-amazon.com' },
       { protocol: 'https', hostname: '**.ssl-images-amazon.com' },

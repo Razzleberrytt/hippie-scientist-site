@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import CompoundPage from '../[slug]/page'
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from '@/src/lib/seo'
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from '@/lib/seo'
 
 const slug = 'semaglutide'
 const title = 'Semaglutide Reference | The Hippie Scientist'

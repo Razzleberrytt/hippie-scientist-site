@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import type { RuntimeRecord } from '../../src/types/content'
+import type { RuntimeRecord } from '../../types/content'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
 import { HERBS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
-import { buildPageMetadata } from '../../src/lib/seo'
+import { buildPageMetadata } from '../../lib/seo'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import { getHerbName, loadPublishedHerbs } from './library-data'
 import HerbsIndexClient from './HerbsIndexClient'

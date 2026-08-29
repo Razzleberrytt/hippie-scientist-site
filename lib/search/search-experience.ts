@@ -3,7 +3,7 @@ import {
   normalizeDecisionEvidence,
   normalizeDecisionSafety,
 } from '@/lib/decision-primitives'
-import { getSemanticOrchestrationSignals } from '@/src/lib/semantic-orchestration'
+import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
 
 export type ResearchSearchType = 'Herb' | 'Compound'
 

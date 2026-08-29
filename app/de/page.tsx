@@ -1,5 +1,5 @@
 import LocalizedCorePage from '@/components/localization/LocalizedCorePage'
-import { GERMAN_PAGES, GERMAN_UI, buildGermanPageMetadata } from '@/src/lib/german-content'
+import { GERMAN_PAGES, GERMAN_UI, buildGermanPageMetadata } from '@/lib/german-content'
 
 const page = GERMAN_PAGES.home
 export const metadata = buildGermanPageMetadata(page)

@@ -7,19 +7,19 @@ import { getGoalContentExtension } from '@/data/goal-content'
 import { getGoalStartHereLinks } from '@/lib/goal-start-here-links'
 import GoalStartHereLinks from '@/components/goals/GoalStartHereLinks'
 import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
-import GoalContentDepth from '@/src/components/goals/GoalContentDepth'
-import GoalHubSections from '@/src/components/goals/GoalHubSections'
-import { getGoalHubLinks } from '@/src/lib/goal-hub-links'
-import { getPublicGoal, getPublicGoalContentExtension } from '@/src/lib/goal-public-copy'
+import GoalContentDepth from '@/components/goals/GoalContentDepth'
+import GoalHubSections from '@/components/goals/GoalHubSections'
+import { getGoalHubLinks } from '@/lib/goal-hub-links'
+import { getPublicGoal, getPublicGoalContentExtension } from '@/lib/goal-public-copy'
 import SchemaOrg from '@/components/SchemaOrg'
-import Disclaimer from '@/src/components/Disclaimer'
+import Disclaimer from '@/components/Disclaimer'
 import {
   SITE_URL,
   breadcrumbJsonLd,
   buildTwitterMetadata,
   faqPageJsonLd,
   isMeaningfulFaqAnswer,
-} from '@/src/lib/seo'
+} from '@/lib/seo'
 
 type PageProps = {
   params: Promise<{ slug: string }>

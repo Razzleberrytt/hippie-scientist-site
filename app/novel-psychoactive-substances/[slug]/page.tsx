@@ -6,7 +6,7 @@ import { allNovelPsychoactiveSubstancePages } from '../../../.content-collection
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
-import { SITE_URL, buildTwitterMetadata, compactMetaTitle } from '../../../src/lib/seo'
+import { SITE_URL, buildTwitterMetadata, compactMetaTitle } from '../../../lib/seo'
 
 type PageProps = {
   params: Promise<{ slug: string }>

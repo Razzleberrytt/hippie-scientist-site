@@ -10,13 +10,13 @@ import {
   trackPageView,
 } from '@/lib/analytics'
 import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
-import { loadAnalytics } from '../src/lib/loadAnalytics'
+import { loadAnalytics } from '../lib/loadAnalytics'
 import DeferredProfileFeedbackControls from '@/components/feedback/DeferredProfileFeedbackControls'
 
-let revenueTrackingPromise: Promise<typeof import('../src/lib/revenue-tracking')> | null = null
+let revenueTrackingPromise: Promise<typeof import('../lib/revenue-tracking')> | null = null
 
 function loadRevenueTracking() {
-  revenueTrackingPromise ??= import('../src/lib/revenue-tracking')
+  revenueTrackingPromise ??= import('../lib/revenue-tracking')
   return revenueTrackingPromise
 }
 

@@ -118,10 +118,10 @@ function profileDecision(kind, record, allowlist) {
 }
 
 function main() {
-  const herbAllowlist = new Set(parseStringArrayFromTs('src/lib/index-allowlist.ts', 'CURATED_INDEXABLE_HERB_SLUGS'))
-  const compoundAllowlist = new Set(parseStringArrayFromTs('src/lib/index-allowlist.ts', 'CURATED_INDEXABLE_COMPOUND_SLUGS'))
-  const coreRoutes = parseStringArrayFromTs('src/lib/index-allowlist.ts', 'CORE_INDEXABLE_ROUTES')
-  const moneyRoutes = parseStringArrayFromTs('src/lib/index-allowlist.ts', 'MONEY_ENTRY_ROUTES')
+  const herbAllowlist = new Set(parseStringArrayFromTs('lib/index-allowlist.ts', 'CURATED_INDEXABLE_HERB_SLUGS'))
+  const compoundAllowlist = new Set(parseStringArrayFromTs('lib/index-allowlist.ts', 'CURATED_INDEXABLE_COMPOUND_SLUGS'))
+  const coreRoutes = parseStringArrayFromTs('lib/index-allowlist.ts', 'CORE_INDEXABLE_ROUTES')
+  const moneyRoutes = parseStringArrayFromTs('lib/index-allowlist.ts', 'MONEY_ENTRY_ROUTES')
   const herbs = readJson('public/data/herbs.json', [])
   const compounds = readJson('public/data/compounds.json', [])
   const { sitemapPath, urls } = parseSitemapUrls()

@@ -6,8 +6,8 @@ import {
   getEvidenceLabelMeta,
   getGovernedResearchEnrichment,
   isPublishableGovernedEnrichment,
-} from '../src/lib/governedResearch'
-import type { ResearchEnrichment } from '../src/types/researchEnrichment'
+} from '../lib/governedResearch'
+import type { ResearchEnrichment } from '../types/researchEnrichment'
 
 type Entry = {
   entityType: 'herb' | 'compound'

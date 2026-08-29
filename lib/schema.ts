@@ -8,7 +8,7 @@
  *  - relatedLink + ItemList helpers for cluster interlinking
  */
 
-import { SITE_URL, toAbsoluteUrl } from '../src/lib/seo'
+import { SITE_URL, toAbsoluteUrl } from './seo'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Cluster types — consumed by lib/cluster-linking.ts and components
