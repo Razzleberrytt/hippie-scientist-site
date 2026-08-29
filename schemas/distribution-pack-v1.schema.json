@@ -35,7 +35,7 @@
         "findingClaimId": { "type": "string", "pattern": "^clm_[a-f0-9]+$" },
         "primarySourceId": { "type": "string", "pattern": "^src_[a-f0-9]+$" },
         "primarySourceUrl": { "type": "string", "pattern": "^https://[^\\s]+$" },
-        "publicationStatus": { "enum": ["published", "expression-of-concern", "retracted", "withdrawn"] },
+        "publicationStatus": { "const": "published" },
         "publicationStatusCheckedAt": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
         "publicationStatusAuthorityUrl": { "type": "string", "pattern": "^https://[^\\s]+$" }
       }
