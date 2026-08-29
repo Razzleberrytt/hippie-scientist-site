@@ -122,7 +122,7 @@ describe('autonomous merge controller contract', () => {
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
 
     expect(workflow).toContain('name: merge-controller-monitor')
-    expect(workflow).toContain("CHECK_ONLY: 'true'")
+    expect(workflow).toContain('node scripts/ci/autonomous-merge-monitor.mjs')
     expect(workflow).toContain("needs.merge-controller.outputs.ready == 'true'")
     expect(workflow).toContain('group: autonomous-merge-commit')
     expect(workflow).toContain('cancel-in-progress: false')
@@ -145,14 +145,19 @@ describe('autonomous merge controller contract', () => {
     expect(controller).not.toContain("TRANSIENT_CONCLUSIONS = new Set(['failure'")
   })
 
-  it('continues without chat through a long-running monitor and scheduled fallback sweep', () => {
+  it('continues without chat through a single-shot monitor and scheduled fallback sweep', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
+    const monitor = read('scripts/ci/autonomous-merge-monitor.mjs')
+    const monitorJob = workflow.match(/  merge-controller:\n([\s\S]*?)\n  merge-commit:/)?.[1] || ''
 
     expect(workflow).toContain("cron: '*/10 * * * *'")
-    expect(workflow).toContain('timeout-minutes: 180')
-    expect(workflow).toContain("MERGE_MAX_WAIT_MINUTES: '165'")
+    expect(monitorJob).toContain('timeout-minutes: 5')
+    expect(monitorJob).not.toContain('MERGE_MAX_WAIT_MINUTES')
+    expect(monitorJob).not.toContain("CHECK_ONLY: 'true'")
     expect(workflow).toContain("SWEEP_OPEN_PRS: 'true'")
+    expect(monitor).not.toContain('while (')
+    expect(monitor).toContain('base drift is owned by the serialized fallback sweep')
     expect(controller).toContain('Fallback sweep complete')
     expect(controller).toContain('fallback sweep will continue ownership')
   })
