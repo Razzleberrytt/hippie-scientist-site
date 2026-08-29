@@ -1,11 +1,13 @@
 import { assertValidDistributionPack, hashCanonicalField, hashResearchObject } from './distribution-pack-contract.mjs'
 import { assertDistributionCitationBinding } from './distribution-citation-binding.mjs'
 import { assertDistributionEvidenceGradeBinding } from './distribution-evidence-grade-binding.mjs'
+import { assertDistributionPublicationIntegrity } from './distribution-publication-integrity.mjs'
 
 const SITE_ORIGIN = 'https://thehippiescientist.net'
 const HUMAN_EVIDENCE_TYPES = new Set(['meta-analysis', 'systematic-review', 'RCT', 'controlled-trial', 'observational', 'case-report'])
 const MIXED_EVIDENCE_TYPES = new Set(['mixed', 'narrative-review'])
 const EVIDENCE_GRADES = new Set(['A', 'B', 'C', 'D', 'Avoid/Insufficient'])
+const PUBLICATION_STATUSES = new Set(['published', 'expression-of-concern', 'retracted', 'withdrawn'])
 const FORBIDDEN_EXTRAPOLATIONS = Object.freeze([
   'Do not strengthen the canonical research finding.',
   'Do not convert dose/form context into consumer instructions.',
@@ -89,6 +91,22 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
     throw new Error('research object must include findingClaimId, primarySourceId, and primarySourceUrl before distribution-pack generation')
   }
 
+  const publicationStatus = clean(researchObject.publicationStatus)
+  const publicationStatusCheckedAt = clean(researchObject.publicationStatusCheckedAt)
+  const publicationStatusAuthorityUrl = clean(researchObject.publicationStatusAuthorityUrl)
+  if (!PUBLICATION_STATUSES.has(publicationStatus)) {
+    throw new Error('research object must include a supported publicationStatus before distribution-pack generation')
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(publicationStatusCheckedAt)) {
+    throw new Error('research object must include publicationStatusCheckedAt as YYYY-MM-DD before distribution-pack generation')
+  }
+  try {
+    const authority = new URL(publicationStatusAuthorityUrl)
+    if (authority.protocol !== 'https:') throw new Error('not HTTPS')
+  } catch {
+    throw new Error('research object must include an HTTPS publicationStatusAuthorityUrl before distribution-pack generation')
+  }
+
   const sourceUrl = canonicalPageUrl(researchObject.sourceUrl)
   const context = evidenceContext(researchObject.evidenceType)
   const population = clean(researchObject.populationContext) || null
@@ -128,6 +146,9 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
     findingClaimId,
     primarySourceId,
     primarySourceUrl,
+    publicationStatus,
+    publicationStatusCheckedAt,
+    publicationStatusAuthorityUrl,
   }
 
   const pack = {
@@ -194,5 +215,6 @@ export function buildDistributionPackFromResearchObject(researchObject, options 
     researchObjects: options.researchObjects ?? [researchObject],
   })
   const citationValidated = assertDistributionCitationBinding(validated, researchObject)
-  return assertDistributionEvidenceGradeBinding(citationValidated, researchObject)
+  const gradeValidated = assertDistributionEvidenceGradeBinding(citationValidated, researchObject)
+  return assertDistributionPublicationIntegrity(gradeValidated, researchObject)
 }
