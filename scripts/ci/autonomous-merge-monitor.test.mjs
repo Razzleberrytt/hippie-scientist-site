@@ -13,7 +13,9 @@ afterEach(async () => {
     await new Promise((resolve) => server.close(resolve))
   }
   for (const file of tempFiles.splice(0)) {
-    try { fs.unlinkSync(file) } catch {}
+    try { fs.unlinkSync(file) } catch {
+      continue
+    }
   }
 })
 
