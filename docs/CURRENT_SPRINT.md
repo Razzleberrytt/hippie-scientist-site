@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-08-28
+**Updated:** 2026-08-29
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Frozen pending ownership reconciliation at the 2026-08-28T18:04Z GitHub snapshot. Existing PRs #4487 and #4494 both concern Revenue/Conversion; their separate distribution lanes do not satisfy the one-ticket-per-workstream rule. This record reports that overlap, does not authorize it, and admits no new implementation. Completed #4415 / PR #4492, #4414 / PR #4490, and #4477 / PR #4478 are retired below.
+**Current admission:** The previously conflicting Revenue/Conversion tickets #4489 / PR #4487 and #4493 / PR #4494 are merged/closed and retired. No active implementation ticket is recorded in this sprint snapshot; any new admission must still revalidate exact GitHub state, dependencies, and workstream ownership.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,14 +49,12 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed WIP 2/3; admission frozen
+## Active — observed WIP 0/3
 
-**Governance check:** Two existing Revenue/Conversion tickets overlap. Numeric reconciliation may report capacity, but it does not enforce workstream eligibility. No exception or fourth workstream is authorized; existing owners must reconcile the overlap before another implementation starts. Recording existing PRs here is not approval of their admission.
+**Governance check:** #4489 / PR #4487 and #4493 / PR #4494 are merged/closed and retired below. No active implementation ownership is recorded in this sprint snapshot; revalidate current GitHub state before admitting the next ticket.
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
-| R / L3 opportunity selection | #4489 / PR #4487 | Platform-fit/cost selection | In Review | Observed/fallback provenance; unchanged scientific eligibility and source-page ranking; scoped regressions and hosted gates |
-| R / L4 presentation | #4493 / PR #4494 | Lossless creative layout-fit guard | In Review | Governed text preserved; bounded pagination; source/disclosure capacity; accessible type floors; scoped regressions and hosted gates |
 
 ## Ready next — strict dependency order
 
@@ -64,7 +62,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ### First bounded pilot package
 
-**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven and Revenue/Conversion is free. Existing PRs #4487 and #4494 still overlap in Revenue; numeric capacity does not authorize another Revenue ticket.
+**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven and Revenue/Conversion remains free on a fresh exact-GitHub-state check.
 
 The first pilot should use already-governed research, deterministic assets, tagged destinations, durable lifecycle receipts, and an explicit observation window. It may be published only through a supported, attributable, policy-compliant path. If no provider integration/credentials are available, the sprint may complete the end-to-end dry-run and record the external execution blocker rather than inventing a live result.
 
@@ -115,6 +113,8 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#4489 / PR #4487:** merged as `04be143607363d6f454f3a2e0b34c9be216b3ff0`; platform-fit/cost selection is no longer active WIP.
+- **#4493 / PR #4494:** merged as `d269b3f4a554bdb44272c7423f50f0eb3904adf9`; lossless creative layout-fit guard is no longer active WIP.
 - **#4415 / PR #4492:** merged as `23dc2485720ff6b31043413b2b9295c4886944cb`. Final-head CI passed 2,866 tests across 593 files, real production build/output/SEO, and 42 focused economics regressions ([CI proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431644), [focused proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431712)). Repaired files verified on main; four review findings resolved after evidence review. Real efficiency observations remain Unknown.
 - **#4414 / PR #4490:** merged as `2e67f9e55f4d96dc7d82a683a829a29b4e2298f1`; durable experiment-learning capability is no longer queued. Recorded outcomes and producer integration require their own evidence.
 - **#4477 / PR #4478:** merged as `2b25ae9beed63afe1e6c045491828e3f096037e4`; the template catalog no longer occupies active WIP.
@@ -129,8 +129,8 @@ The sprint exits only when all of the following are true or have a precise exter
 - **PR #4457:** completed/merged as `95ec9ba285f06c947f2844a2f81abce031b9e437`; complete canonical safety-warning preservation no longer occupies active WIP.
 
 - **#4412 / PR #4446:** completed/merged as `96a07976dee22cf7b91c337c820cc83ff7e6b860`; machine reconciliation is on main and no longer occupies active WIP. Final-head hosted CI passed all 18 reconciliation cases and 2,785 tests across 587 files; production build/output/SEO passed in [run 33148069222](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33148069222). Both review findings are verified/resolved. This is implementation proof, not a claim that later planning snapshots or business outcomes are healthy.
-- **#4463:** completed/merged as `f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1`; trust-safe thumbnail variants are on main and no longer occupy active WIP.
-- **#4460:** completed/merged as `48bebb81e35c4bd605dedbfc15156cabeb915b06`; duplicate-angle suppression is on main and no longer occupies active WIP.
+- **#4463:** completed/merged as `f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1`; trust-safe thumbnail variants are on main and no longer occupies active WIP.
+- **#4460:** completed/merged as `48bebb81e35c4bd605dedbfc15156cabeb915b06`; duplicate-angle suppression is on main and no longer active WIP.
 - **#4406:** completed; the governed ready → publish → measured lifecycle is merged and no longer occupies the ready queue.
 - **#4439 / PR #4440:** completed/merged; canonical claim/source binding no longer occupies an active slot.
 - **PR #4448:** closed unmerged; vertical MP4 implementation is preserved for later legal reuse and does not occupy active WIP.
