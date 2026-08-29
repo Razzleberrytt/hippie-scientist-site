@@ -149,7 +149,7 @@ describe('autonomous merge controller contract', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
     const monitor = read('scripts/ci/autonomous-merge-monitor.mjs')
-    const monitorJob = workflow.match(/  merge-controller:\n([\s\S]*?)\n  merge-commit:/)?.[1] || ''
+    const monitorJob = workflow.match(/ {2}merge-controller:\n([\s\S]*?)\n {2}merge-commit:/)?.[1] || ''
 
     expect(workflow).toContain("cron: '*/10 * * * *'")
     expect(monitorJob).toContain('timeout-minutes: 5')
