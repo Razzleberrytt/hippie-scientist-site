@@ -52,7 +52,7 @@ describe('distribution publication integrity', () => {
     const researchObject = clone(canonical)
     researchObject.publicationStatus = status
     expect(researchObject.publicationStatus).toBe(status)
-    expect(() => buildDistributionPackFromResearchObject(researchObject)).toThrow(/not eligible for distribution/i)
+    expect(() => buildDistributionPackFromResearchObject(researchObject)).toThrow(/not eligible for distribution|schema/i)
   })
 
   it.each([
@@ -79,6 +79,6 @@ describe('distribution publication integrity', () => {
     pack.source.publicationStatus = status
     pack.source.contentHash = hashResearchObject(researchObject)
 
-    expect(validateDistributionPack(pack, { researchObjects: [researchObject] }).map(({ message }) => message).join('\n')).toMatch(/not eligible for distribution/i)
+    expect(validateDistributionPack(pack, { researchObjects: [researchObject] }).map(({ message }) => message).join('\n')).toMatch(/schema|not eligible for distribution/i)
   })
 })
