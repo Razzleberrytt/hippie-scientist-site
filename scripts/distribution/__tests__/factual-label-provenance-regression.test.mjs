@@ -27,7 +27,12 @@ describe('distribution factual-label provenance regression', () => {
     'Studies show improved sleep.',
     'Research suggests better sleep outcomes.',
     'Improves sleep quality.',
+    'Improved sleep quality.',
+    'Improving sleep quality.',
+    'Reduced anxiety symptoms.',
+    'Reducing anxiety symptoms.',
     'Effective for anxiety.',
+    'In the recorded randomized trial, the intervention improved the prespecified sleep outcome versus control.',
   ])('rejects unbound factual label: %s', (text) => {
     const errors = validateFactualAssetCopy(pack(), {
       assetType: 'overlay',
