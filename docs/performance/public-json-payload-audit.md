@@ -10,8 +10,8 @@ This PR is intentionally docs-only. It does not modify generated data, runtime d
 
 - Several active pages and libraries still reference broad generated datasets.
 - `app/search/page.tsx` previously imported full `public/data/compounds.json` and `public/data/herbs.json` directly into a client component. This has now been reduced to compact summary payload imports.
-- The main App Router server/static data loader reads broad datasets from disk in `src/lib/runtime-data.ts`. In static export this affects build/static generation payload work, not direct browser fetches by itself.
-- Client hook loaders in `src/lib/herb-data.ts` and `src/lib/compound-data.ts` fetch summary indexes and route-specific detail JSON from `/data/**` in the browser.
+- The main App Router server/static data loader reads broad datasets from disk in `lib/runtime-data.ts`. In static export this affects build/static generation payload work, not direct browser fetches by itself.
+- Client hook loaders in `lib/herb-data.ts` and `lib/compound-data.ts` fetch summary indexes and route-specific detail JSON from `/data/**` in the browser.
 - `lib/semantic-runtime.ts` imports full `public/data/compounds.json` at module scope. No direct import sites were found during this audit, but it should be treated as a bundle-risk helper if imported by client code later.
 - No active references were found for `/data/graph/nodes.json` or `/data/graph/relationships.json`.
 - `herbs_combined_updated.json` appears referenced only by scripts/tooling checks, not active browser routes.
@@ -63,7 +63,7 @@ The validation intentionally does not block:
 
 Current approved server/static exception:
 
-- `src/lib/runtime-data.ts`
+- `lib/runtime-data.ts`
 
 ### Reviewer checklist for future PRs
 
@@ -80,12 +80,12 @@ When reviewing new routes or search/discovery features:
 
 | Payload | Usage sites found | Classification | Notes |
 | --- | --- | --- | --- |
-| `public/data/herbs.json` | `src/lib/runtime-data.ts`; scripts/tooling | Server/static read | Search page no longer imports the full herb dataset directly into the browser bundle. Runtime-data still reads it from disk during server/static generation. |
-| `public/data/compounds.json` | `lib/semantic-runtime.ts`; `src/lib/runtime-data.ts`; scripts/tooling | Module-scope import risk and server/static read | Search page no longer imports the full compound dataset directly into the browser bundle. Semantic runtime still imports the full payload at module scope. |
-| `public/data/herbs-summary.json` | `app/search/page.tsx`; `src/lib/herb-data.ts` | Client-side summary payload | Used for compact browser search indexing and canonical slug resolution. |
-| `public/data/compounds-summary.json` | `app/search/page.tsx`; `src/lib/compound-data.ts` | Client-side summary payload | Used for compact browser search indexing and canonical slug resolution. |
-| `/data/herbs-detail/{slug}.json` | `src/lib/herb-data.ts` | Client-side route/detail fetch | Route-specific detail loading by slug after summary/canonical resolution. Lower risk than loading all detail records. |
-| `/data/compounds-detail/{slug}.json` | `src/lib/compound-data.ts` | Client-side route/detail fetch | Route-specific detail loading by slug after summary/canonical resolution. Lower risk than loading all detail records. |
+| `public/data/herbs.json` | `lib/runtime-data.ts`; scripts/tooling | Server/static read | Search page no longer imports the full herb dataset directly into the browser bundle. Runtime-data still reads it from disk during server/static generation. |
+| `public/data/compounds.json` | `lib/semantic-runtime.ts`; `lib/runtime-data.ts`; scripts/tooling | Module-scope import risk and server/static read | Search page no longer imports the full compound dataset directly into the browser bundle. Semantic runtime still imports the full payload at module scope. |
+| `public/data/herbs-summary.json` | `app/search/page.tsx`; `lib/herb-data.ts` | Client-side summary payload | Used for compact browser search indexing and canonical slug resolution. |
+| `public/data/compounds-summary.json` | `app/search/page.tsx`; `lib/compound-data.ts` | Client-side summary payload | Used for compact browser search indexing and canonical slug resolution. |
+| `/data/herbs-detail/{slug}.json` | `lib/herb-data.ts` | Client-side route/detail fetch | Route-specific detail loading by slug after summary/canonical resolution. Lower risk than loading all detail records. |
+| `/data/compounds-detail/{slug}.json` | `lib/compound-data.ts` | Client-side route/detail fetch | Route-specific detail loading by slug after summary/canonical resolution. Lower risk than loading all detail records. |
 | `public/data/stacks.json` | `app/stacks/page.tsx` | Static import in App Router page | Page imports the full stacks payload. Depending on static export bundling, this may affect page payload size for `/stacks`. |
 | `public/data/herbs_combined_updated.json` | scripts/tooling only | Build/tooling | No active browser route usage found. Keep out of client imports. |
 | `/data/graph/nodes.json` | no active references found | Not currently used | No active app/component/lib references found during audit. |
@@ -115,7 +115,7 @@ Remaining follow-up opportunity:
 - Prefer small fields only: `slug`, `name`, `type`, short summary, effects, evidence label, safety label, aliases, and search keywords.
 - Avoid shipping unused enrichment metadata through summary payloads.
 
-### `src/lib/runtime-data.ts`
+### `lib/runtime-data.ts`
 
 Risk: **medium for build/static work, lower for browser payload unless its results are serialized into pages**.
 
@@ -135,7 +135,7 @@ Recommended follow-up:
 - For detail pages, avoid loading the full collection when a slug-specific file exists.
 - Consider direct slug detail reads before broad collection scans where route generation permits it.
 
-### `src/lib/herb-data.ts`
+### `lib/herb-data.ts`
 
 Risk: **medium**.
 
@@ -152,7 +152,7 @@ Recommended follow-up:
 - Avoid adding raw detail fields or large evidence/source arrays to the summary payload.
 - Consider a separate alias map if canonical slug resolution is the main reason for loading summaries before details.
 
-### `src/lib/compound-data.ts`
+### `lib/compound-data.ts`
 
 Risk: **medium**.
 

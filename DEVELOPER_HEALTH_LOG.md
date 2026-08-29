@@ -1,5 +1,7 @@
 # Developer Health Log — The Hippie Scientist
 
+> **Note (2026-08-29):** the `src/` tree was removed on this date. Entries above that point refer to paths that no longer exist; their root-level equivalents are `lib/`, `components/`, `types/` and `data/`. See the DECISIONS entry for that date.
+
 _Canonical log of all maintenance pipeline actions, audit results, and decisions._
 _Format: newest entry at top. Never delete entries — mark superseded ones [SUPERSEDED]._
 
