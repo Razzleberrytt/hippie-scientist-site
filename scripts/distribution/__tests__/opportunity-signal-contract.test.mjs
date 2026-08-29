@@ -20,10 +20,53 @@ describe('opportunity signal provenance contract', () => {
     } })
     expect(result.valid).toBe(false)
     expect(result.errors).toEqual(expect.arrayContaining([
-      'herb: provenance.observedThrough must be YYYY-MM-DD',
-      'herb: provenance.denominator must be a non-negative integer',
+      'herb: provenance.observedThrough must be a real YYYY-MM-DD date',
+      'herb: provenance.denominator must be a positive integer for observed demand',
       'herb: provenance.method is required',
       'herb: provenance.fields must enumerate every observed demand signal',
+    ]))
+  })
+
+  it('rejects impossible calendar dates, zero denominators, and out-of-range normalized demand', () => {
+    const result = validateOpportunitySignals({ herb: {
+      searchOpportunity: 11,
+      aiCitationOpportunity: -1,
+      provenance: {
+        source: 'google-search-console',
+        observedThrough: '2026-02-31',
+        denominator: 0,
+        method: '28-day page impressions normalized to 0-10',
+        fields: ['searchOpportunity', 'aiCitationOpportunity'],
+      },
+    } })
+    expect(result.valid).toBe(false)
+    expect(result.errors).toEqual(expect.arrayContaining([
+      'herb: searchOpportunity must be between 0 and 10',
+      'herb: aiCitationOpportunity must be between 0 and 10',
+      'herb: provenance.observedThrough must be a real YYYY-MM-DD date',
+      'herb: provenance.denominator must be a positive integer for observed demand',
+    ]))
+  })
+
+  it('rejects coercible nonnumeric observed demand instead of treating it as ranking evidence', () => {
+    const provenance = {
+      source: 'google-search-console',
+      observedThrough: '2026-08-29',
+      denominator: 417,
+      method: '28-day page impressions normalized to 0-10',
+      fields: ['searchOpportunity', 'aiCitationOpportunity', 'socialSuitability'],
+    }
+    const result = validateOpportunitySignals({ herb: {
+      searchOpportunity: true,
+      aiCitationOpportunity: [],
+      socialSuitability: '8',
+      provenance,
+    } })
+    expect(result.valid).toBe(false)
+    expect(result.errors).toEqual(expect.arrayContaining([
+      'herb: searchOpportunity must be a finite number between 0 and 10',
+      'herb: aiCitationOpportunity must be a finite number between 0 and 10',
+      'herb: socialSuitability must be a finite number between 0 and 10',
     ]))
   })
 
