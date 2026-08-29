@@ -78,7 +78,7 @@
       "findingTextShort": "A 2023 meta-analysis of four randomized studies found no significant anxiety difference between Sceletium tortuosum and control.",
       "findingTextNormalized": "A 2023 systematic review and meta-analysis pooled four randomized studies totaling 117 adults and found no significant difference in anxiety outcomes between Sceletium tortuosum and control (RR 1.01, 95% CI 0.56 to 1.83, p=0.98; I²=0%). The small evidence base and wide confidence interval leave uncertainty, but the synthesis does not establish Kanna as an effective anxiety treatment.",
       "strengthLabel": "limited",
-      "populationContext": "Four randomized adult studies totaling 117 participants; included studies varied in design and duration and largely used standardized extract preparations.",
+      "populationContext": "Four randomized adult studies totaling 117 participants; the included trials used 25 mg Sceletium tortuosum interventions with durations ranging from one day to nine weeks.",
       "usageContext": "Anxiety outcome synthesis; should constrain broad Kanna/Zembrin anxiolytic claims rather than erase narrower laboratory signals.",
       "uncertaintyNote": "Only four small randomized studies were available, producing a wide confidence interval despite low statistical heterogeneity. The null synthesis should be retained alongside individual positive signals and should not be reframed as proof of no possible effect. The source must complete registry and semantic-attestation governance before promotion.",
       "reviewStatus": "draft_submission",
