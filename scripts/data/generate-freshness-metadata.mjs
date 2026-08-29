@@ -3,6 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { readWorkbook, getSheet, sheetToRows } from './workbook-parser.mjs'
+import { writeFileAtomic } from '../lib/atomic-json.mjs'
 
 const ROOT = process.cwd()
 const DATA_DIR = path.join(ROOT, 'public', 'data')
@@ -323,7 +324,7 @@ async function main() {
   }
 
   metadata.homepage.citationCount = allUniqueStudies.length
-  fs.writeFileSync(OUTPUT_FILE, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8')
+  writeFileAtomic(OUTPUT_FILE, `${JSON.stringify(metadata, null, 2)}\n`)
 
   const reviewedProfiles = Object.values(metadata.profiles).filter(profile => profile.lastReviewed).length
   console.log(`[freshness-metadata] Wrote ${OUTPUT_FILE}`)
