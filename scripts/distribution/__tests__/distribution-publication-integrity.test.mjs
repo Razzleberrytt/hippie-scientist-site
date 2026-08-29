@@ -43,13 +43,27 @@ describe('distribution publication integrity', () => {
     expect(validateDistributionPublicationIntegrity(pack, canonical).join('\n')).toMatch(/must equal canonical/i)
   })
 
-  it('keeps adverse publication states representable rather than coercing them to published', () => {
-    for (const status of ['expression-of-concern', 'retracted', 'withdrawn']) {
-      const researchObject = clone(canonical)
-      researchObject.publicationStatus = status
-      const pack = buildDistributionPackFromResearchObject(researchObject)
-      expect(pack.source.publicationStatus).toBe(status)
-      expect(validateDistributionPublicationIntegrity(pack, researchObject)).toEqual([])
-    }
+  it.each([
+    'expression-of-concern',
+    'retracted',
+    'withdrawn',
+  ])('quarantines canonical %s evidence from ordinary distribution-pack generation', (status) => {
+    const researchObject = clone(canonical)
+    researchObject.publicationStatus = status
+    expect(researchObject.publicationStatus).toBe(status)
+    expect(() => buildDistributionPackFromResearchObject(researchObject)).toThrow(/not eligible for distribution/i)
+  })
+
+  it.each([
+    'expression-of-concern',
+    'retracted',
+    'withdrawn',
+  ])('rejects a self-consistent pack/canonical pair when publication status is %s', (status) => {
+    const researchObject = clone(canonical)
+    researchObject.publicationStatus = status
+    const pack = buildDistributionPackFromResearchObject(canonical)
+    pack.source.publicationStatus = status
+
+    expect(validateDistributionPublicationIntegrity(pack, researchObject).join('\n')).toMatch(/not eligible for distribution/i)
   })
 })
