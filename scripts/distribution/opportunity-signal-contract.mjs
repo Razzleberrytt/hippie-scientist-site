@@ -7,8 +7,8 @@ const DEMAND_SIGNAL_KEYS = Object.freeze([
   'evergreenValue',
 ])
 
-function finite(value) {
-  return value !== null && value !== '' && Number.isFinite(Number(value))
+function observedValue(value) {
+  return value !== null && value !== '' && value !== undefined
 }
 
 function validIsoDate(value) {
@@ -29,9 +29,13 @@ export function validateOpportunitySignals(signals) {
       errors.push(`${id}: signal record must be an object`)
       continue
     }
-    const observed = DEMAND_SIGNAL_KEYS.filter((key) => finite(record[key]))
+    const observed = DEMAND_SIGNAL_KEYS.filter((key) => observedValue(record[key]))
     for (const key of observed) {
-      const value = Number(record[key])
+      const value = record[key]
+      if (typeof value !== 'number' || !Number.isFinite(value)) {
+        errors.push(`${id}: ${key} must be a finite number between 0 and 10`)
+        continue
+      }
       if (value < 0 || value > 10) errors.push(`${id}: ${key} must be between 0 and 10`)
     }
     if (!observed.length) continue
