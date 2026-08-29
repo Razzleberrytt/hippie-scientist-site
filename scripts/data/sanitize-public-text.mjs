@@ -37,6 +37,7 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { writeFileAtomic } from '../lib/atomic-json.mjs'
 
 import {
   PUBLIC_TEXT_FIELDS,
@@ -269,7 +270,7 @@ function main() {
     // bury a two-line repair in a whole-corpus diff.
     const pretty = /\n\s+"/.test(raw.slice(0, 4096))
     const serialized = pretty ? JSON.stringify(payload, null, 2) : JSON.stringify(payload)
-    if (!DRY_RUN) fs.writeFileSync(file, raw.endsWith('\n') ? `${serialized}\n` : serialized, 'utf8')
+    if (!DRY_RUN) writeFileAtomic(file, raw.endsWith('\n') ? `${serialized}\n` : serialized)
   }
 
   console.log(`\nPublic text sanitized${DRY_RUN ? ' (dry run)' : ''}`)
@@ -289,11 +290,10 @@ function main() {
     // served from the site.
     const reportPath = path.join(ROOT, 'ops', 'reports', 'quarantined-claims.json')
     fs.mkdirSync(path.dirname(reportPath), { recursive: true })
-    fs.writeFileSync(
+    writeFileAtomic(
       reportPath,
       `${JSON.stringify({ count: quarantined.length, claims: quarantined }, null, 2)}
 `,
-      'utf8',
     )
     console.log(`
 Quarantined claims report: ${path.relative(ROOT, reportPath)}`)
