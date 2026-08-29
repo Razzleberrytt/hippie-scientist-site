@@ -33,6 +33,7 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { writeFileAtomic } from '../lib/atomic-json.mjs'
 
 const ROOT = process.cwd()
 const args = process.argv.slice(2)
@@ -145,7 +146,7 @@ function main() {
       if (!DRY_RUN) {
         const pretty = /\n\s+"/.test(raw.slice(0, 4096))
         const serialized = pretty ? JSON.stringify(next, null, 2) : JSON.stringify(next)
-        fs.writeFileSync(filePath, raw.endsWith('\n') ? `${serialized}\n` : serialized, 'utf8')
+        writeFileAtomic(filePath, raw.endsWith('\n') ? `${serialized}\n` : serialized)
       }
     }
   }
