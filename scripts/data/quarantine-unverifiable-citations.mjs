@@ -24,6 +24,7 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { writeFileAtomic } from '../lib/atomic-json.mjs'
 
 const ROOT = process.cwd()
 const args = process.argv.slice(2)
@@ -175,7 +176,7 @@ function main() {
       if (!DRY_RUN) {
         const pretty = /\n\s+"/.test(raw.slice(0, 4096))
         const serialized = pretty ? JSON.stringify(record, null, 2) : JSON.stringify(record)
-        fs.writeFileSync(filePath, raw.endsWith('\n') ? `${serialized}\n` : serialized, 'utf8')
+        writeFileAtomic(filePath, raw.endsWith('\n') ? `${serialized}\n` : serialized)
       }
     }
   }
@@ -216,10 +217,9 @@ function main() {
 
   if (!DRY_RUN && quarantined.length) {
     fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true })
-    fs.writeFileSync(
+    writeFileAtomic(
       REPORT_PATH,
       `${JSON.stringify({ count: quarantined.length, claimCount: quarantinedClaims.length, citations: quarantined, claims: quarantinedClaims }, null, 2)}\n`,
-      'utf8',
     )
   }
 

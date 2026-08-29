@@ -27,6 +27,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { writeJsonAtomic } from '../lib/atomic-json.mjs'
 
 const repoRoot = process.cwd()
 const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
@@ -97,24 +98,11 @@ function readJson(filePath, fallback) {
   }
 }
 
+// Windows antivirus/indexing can briefly hold generated JSON files between
+// pipeline stages. The shared helper writes to a sibling temp file and renames
+// over the target, so every pipeline stage handles that lock identically.
 function writeJson(filePath, value) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true })
-  const body = `${JSON.stringify(value, null, 2)}\n`
-  const retryableCodes = new Set(['UNKNOWN', 'EBUSY', 'EPERM', 'EACCES'])
-
-  for (let attempt = 1; attempt <= 5; attempt += 1) {
-    try {
-      fs.writeFileSync(filePath, body)
-      return
-    } catch (error) {
-      const code = error && typeof error === 'object' && 'code' in error ? error.code : undefined
-      if (!retryableCodes.has(code) || attempt === 5) throw error
-
-      // Windows antivirus/indexing can briefly hold generated JSON files between
-      // pipeline stages. Keep the build deterministic while tolerating that short lock.
-      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, attempt * 50)
-    }
-  }
+  writeJsonAtomic(filePath, value)
 }
 
 // Compounds with real, editorially-reviewed content but a genuinely evolving legal/
