@@ -37,7 +37,7 @@ import http from 'node:http'
 import os from 'node:os'
 import path from 'node:path'
 import zlib from 'node:zlib'
-import { spawn } from 'node:child_process'
+import { execSync, spawn } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..')
@@ -176,7 +176,9 @@ async function launchChrome(port, userDataDir) {
     } catch { /* not up yet */ }
     await new Promise((r) => setTimeout(r, 200))
   }
-  proc.kill()
+  // Same leak, narrower window: a browser that never came up still has a
+  // process tree holding the profile.
+  killByProfile(userDataDir)
   throw new Error('Chrome did not expose a debugging port in time')
 }
 
@@ -322,6 +324,124 @@ async function snapshotPage(cdp, url, theme, width, height) {
   return res.result.value || []
 }
 
+// ----------------------------------------------------------------- lifecycle
+//
+// An interrupted run used to leak both halves of its browser: the temp profile
+// stayed in os.tmpdir(), and `proc.kill()` only ended Chrome's launcher process
+// while its renderer, GPU and utility children kept running. Eleven interrupted
+// runs left eleven profiles and eighty-eight processes behind.
+//
+// Everything that has to be released is registered here as it is acquired, and
+// released exactly once from whichever exit path fires first.
+
+const resources = { proc: null, server: null, userDataDir: null, sockets: [] }
+let released = false
+
+/**
+ * Shut the browser down by profile directory, not by process id.
+ *
+ * On Windows the process returned by spawn() is only a launcher: it hands off
+ * to the real browser and exits 0 within milliseconds. Killing that pid, or
+ * guarding on its exitCode, does nothing about the eight processes still
+ * running — which is exactly how eighty-eight of them accumulated.
+ *
+ * The `--user-data-dir` is a fresh mkdtemp path unique to this run, so matching
+ * on it targets our own browser and cannot touch a real one the user has open.
+ */
+function killByProfile(userDataDir) {
+  if (!userDataDir) return
+  const marker = path.basename(userDataDir)
+  try {
+    if (process.platform === 'win32') {
+      const ps = `Get-CimInstance Win32_Process -Filter "Name='chrome.exe' or Name='msedge.exe'" | ` +
+        `Where-Object { $_.CommandLine -like '*${path.basename(userDataDir)}*' } | ` +
+        `ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }`
+      execSync(`powershell -NoProfile -NonInteractive -Command "${ps.replace(/"/g, '\\"')}"`, { stdio: 'ignore' })
+    } else {
+      execSync(`pkill -f -- "${marker}"`, { stdio: 'ignore' })
+    }
+  } catch { /* nothing matched, or the shell is unavailable */ }
+}
+
+function release() {
+  if (released) return
+  released = true
+  // Open sockets keep the event loop alive, so the process would print its
+  // summary and then hang until something killed it. Close them, then remove
+  // anything still holding this run's profile.
+  for (const ws of resources.sockets) { try { ws.close() } catch { /* already gone */ } }
+  resources.sockets.length = 0
+  killByProfile(resources.userDataDir)
+  try { resources.server?.close() } catch { /* already closing */ }
+  if (resources.userDataDir) {
+    // Chrome unlinks its profile lazily, so the first attempt can lose to a
+    // handle that is still closing.
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      try { fs.rmSync(resources.userDataDir, { recursive: true, force: true, maxRetries: 5 }); break }
+      catch { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 200) }
+    }
+  }
+}
+
+for (const signal of ['SIGINT', 'SIGTERM', 'SIGHUP', 'SIGBREAK']) {
+  process.on(signal, () => { release(); process.exit(130) })
+}
+process.on('exit', release)
+process.on('uncaughtException', (err) => { release(); console.error(err); process.exit(1) })
+process.on('unhandledRejection', (err) => { release(); console.error(err); process.exit(1) })
+
+/** Is this pid still running? */
+function pidAlive(pid) {
+  try { process.kill(pid, 0); return true } catch (err) { return err.code === 'EPERM' }
+}
+
+/**
+ * A profile is abandoned when its recorded owner is gone. Without a recorded
+ * owner, fall back to age.
+ */
+function isAbandoned(profileDir, cutoff) {
+  const stamp = path.join(profileDir, 'owner.pid')
+  try {
+    const pid = Number.parseInt(fs.readFileSync(stamp, 'utf8').trim(), 10)
+    if (Number.isFinite(pid)) {
+      if (pid === process.pid) return false
+      return !pidAlive(pid)
+    }
+  } catch { /* no stamp; fall through to the age check */ }
+  try { return Date.now() - fs.statSync(profileDir).mtimeMs >= cutoff } catch { return false }
+}
+
+/**
+ * Recover from earlier runs that were killed outright.
+ *
+ * `release()` covers every exit this process can observe, but SIGKILL and
+ * `taskkill /F` cannot be intercepted, so a hard kill still strands a browser
+ * and its profile. Recovery therefore happens on the next run.
+ *
+ * Each run stamps its own pid into `owner.pid` inside its profile. A profile
+ * whose owner is no longer running is abandoned and is cleaned up immediately,
+ * however recent it is. That is exact, where an age cutoff is a guess: it never
+ * touches a live run, and it does not leave a killed run's browser going for an
+ * hour. Profiles with no stamp fall back to the age check.
+ */
+function sweepStaleProfiles() {
+  let swept = 0
+  const cutoff = 60 * 60 * 1000
+  let entries = []
+  try { entries = fs.readdirSync(os.tmpdir(), { withFileTypes: true }) } catch { return 0 }
+  for (const e of entries) {
+    if (!e.isDirectory() || !e.name.startsWith('css-equiv-')) continue
+    const full = path.join(os.tmpdir(), e.name)
+    try {
+      if (!isAbandoned(full, cutoff)) continue
+      killByProfile(full)
+      fs.rmSync(full, { recursive: true, force: true })
+      swept += 1
+    } catch { /* still in use, or already gone */ }
+  }
+  return swept
+}
+
 // ------------------------------------------------------------------------ main
 
 async function capture() {
@@ -330,7 +450,11 @@ async function capture() {
     process.exit(1)
   }
 
+  const swept = sweepStaleProfiles()
+  if (swept > 0) console.log(`[css-equivalence] removed ${swept} profile(s) abandoned by earlier runs`)
+
   const server = await serve()
+  resources.server = server
   const base = `http://127.0.0.1:${server.address().port}`
   const port = 9222 + Math.floor(process.pid % 500)
   // A fresh profile per run, outside the repository. Reusing one in-tree left
@@ -338,9 +462,14 @@ async function capture() {
   // carry localStorage between runs — which is exactly the state this harness
   // sets deliberately.
   const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'css-equiv-'))
+  resources.userDataDir = userDataDir
+  // Lets a later run tell an abandoned profile from a live one exactly.
+  try { fs.writeFileSync(path.join(userDataDir, 'owner.pid'), String(process.pid)) } catch { /* non-fatal */ }
 
   const { proc, info } = await launchChrome(port, userDataDir)
+  resources.proc = proc
   const cdp = await connect(info.webSocketDebuggerUrl)
+  resources.sockets.push(cdp.ws)
   const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank' })
   const { sessionId } = await cdp.send('Target.attachToTarget', { targetId, flatten: true })
 
@@ -349,6 +478,7 @@ async function capture() {
     send: (method, params = {}) => cdp.send(method, params).catch(() => null),
   }
   const pageWs = await connect(`ws://127.0.0.1:${port}/devtools/page/${targetId}`)
+  resources.sockets.push(pageWs.ws)
   await pageWs.send('Page.enable')
   await pageWs.send('Runtime.enable')
   // Belt and braces with the injected freeze stylesheet: any transition that
@@ -384,9 +514,7 @@ async function capture() {
     await pageWs.send('Page.removeScriptToEvaluateOnNewDocument', { identifier })
   }
 
-  proc.kill()
-  server.close()
-  try { fs.rmSync(userDataDir, { recursive: true, force: true, maxRetries: 5 }) } catch { /* best effort */ }
+  release()
 
   const ordered = {}
   for (const k of Object.keys(snapshot).sort()) ordered[k] = snapshot[k]
