@@ -10,9 +10,9 @@ Every document in this directory was accurate when it was written and may not be
 
 ## What is here
 
-`2026-08/` — 92 documents from the documentation pass on 2026-08-29:
+`2026-08/` — 88 documents from the documentation pass on 2026-08-29:
 
-- **78 historical** — past plans, audits, handoffs, experiments, and dated sprint and swarm artifacts.
+- **74 historical** — past plans, audits, handoffs, experiments, and dated sprint and swarm artifacts.
 - **14 superseded** — seven that describe the `src/` tree with paths that no longer resolve to anything, and seven dated audits whose `src/` references were accurate when written. The `src/` tree was removed on 2026-08-29; see that date's entry in `docs/DECISIONS.md`.
 
 ## Rules

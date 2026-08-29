@@ -228,7 +228,7 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 
 **Decision:** 92 documents moved to `docs/archive/2026-08/`, preserving their directory structure. The root holds only conventional files. `scripts/ci/validate-doc-links.mjs`, wired into `npm run check`, fails on any broken relative link outside the archive and generated output. Nothing was deleted.
 
-**Counts:** 371 markdown files classified. 78 archived as historical (past plans, audits, handoffs, experiments, dated sprint and swarm artifacts); 14 archived as superseded; 15 kept as authoritative; the rest kept as supporting or generated. 273 live files remain, with zero broken relative links.
+**Counts:** 371 markdown files classified. 74 archived as historical (past plans, audits, handoffs, experiments, dated sprint and swarm artifacts); 14 archived as superseded; 15 kept as authoritative; the rest kept as supporting or generated. 277 live files remain, with zero broken relative links.
 
 **The FLAG list and how each was resolved.** 28 documents described the `src/` tree, removed earlier the same day. They split three ways rather than one:
 
@@ -243,4 +243,6 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 
 **Three pre-existing broken links were repaired**, none caused by this work: two pointed at `SPEC-1-Hippie-Scientist-Rebuild.md`, which exists nowhere in the repository, and one was an absolute `file:///c:/Users/...` URL to a sibling file.
 
-**Consequences:** `docs/DOCS_INDEX.md` describes 273 live files and points at the archive and the per-file disposition rather than restating either. `docs/archive/README.md` states that archived material must not be used to select work or quote status. Ambiguous files were left in place; ambiguity is not grounds for archiving. **Status:** Accepted.
+**Four documents were archived and then restored.** The directory rule ran ahead of the reference check, so files under `docs/audits/` and `docs/page-specs/` that tests and `apply-governance-overlay.mjs` read by path were archived on the strength of their folder alone. One test failed immediately and named the file; the other three were found by scanning all code for every archived path. A code reference outranks a directory rule, and the rule was wrong to run first.
+
+**Consequences:** `docs/DOCS_INDEX.md` describes the live files and points at the archive and the per-file disposition rather than restating either. `docs/archive/README.md` states that archived material must not be used to select work or quote status. Ambiguous files were left in place; ambiguity is not grounds for archiving. **Status:** Accepted.

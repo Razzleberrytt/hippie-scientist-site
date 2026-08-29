@@ -9,11 +9,11 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 | bucket | count |
 |---|---|
 | FLAG — contradicts code | 2 |
-| ARCHIVE — historical | 1 |
+| ARCHIVE — historical | 5 |
 | KEEP — supporting | 258 |
 | KEEP — generated | 3 |
 | KEEP — authoritative | 15 |
-| **total** | **279** |
+| **total** | **283** |
 
 ## Rules applied
 
@@ -31,13 +31,17 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 
 | file | bytes | last change | inbound | why |
 |---|---|---|---|---|
-| `DEVELOPER_HEALTH_LOG.md` | 5678 | 2026-08-29 | 1 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
-| `docs/LOOP_NOTES.md` | 282171 | 2026-08-29 | 12 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
+| `DEVELOPER_HEALTH_LOG.md` | 5678 | 2026-08-29 | 2 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
+| `docs/LOOP_NOTES.md` | 282171 | 2026-08-29 | 13 | describes the src/ tree, removed 2026-08-29 (see DECISIONS) |
 
-## ARCHIVE — historical — 1
+## ARCHIVE — historical — 5
 
 | file | bytes | last change | inbound | why |
 |---|---|---|---|---|
+| `docs/audits/enrichment-datasets-2026-08-23.md` | 8819 | 2026-08-23 | 1 | audit/handoff/spec artifact directory |
+| `docs/audits/indexability-governance-2026-08-21.md` | 7208 | 2026-08-21 | 1 | audit/handoff/spec artifact directory |
+| `docs/audits/source-backed-promotions-2026-08-22.md` | 8973 | 2026-08-23 | 1 | audit/handoff/spec artifact directory |
+| `docs/page-specs/best-magnesium-supplements-for-adhd.md` | 1062 | 2026-08-03 | 11 | audit/handoff/spec artifact directory |
 | `validation-report.md` | 1137 | 2026-06-03 | 9 | root-level process artifact; not a conventional root file |
 
 ## KEEP — supporting — 258
@@ -70,7 +74,7 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 | `docs/canonical-data-system/05-site-integration.md` | 5601 | 2026-07-11 | 2 | referenced by 2 file(s) |
 | `docs/canonical-data-system/06-graph-and-operations.md` | 3336 | 2026-07-11 | 2 | referenced by 2 file(s) |
 | `docs/canonical-data-system/daily-use.md` | 2271 | 2026-07-11 | 5 | referenced by 5 file(s) |
-| `docs/canonical-data-system/README.md` | 4176 | 2026-07-11 | 13 | referenced by 13 file(s) |
+| `docs/canonical-data-system/README.md` | 4176 | 2026-07-11 | 14 | referenced by 14 file(s) |
 | `docs/canonical-data-system/recovery.md` | 2081 | 2026-07-11 | 3 | referenced by 3 file(s) |
 | `docs/canonical-data-system/troubleshooting.md` | 2466 | 2026-07-11 | 4 | referenced by 4 file(s) |
 | `docs/canonical-enum-governance.md` | 1439 | 2026-06-27 | 1 | referenced by 1 file(s) |
@@ -102,7 +106,7 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 | `docs/content/focus-cluster/best-supplements-for-focus-without-caffeine.md` | 11642 | 2026-07-02 | 4 | referenced by 4 file(s) |
 | `docs/content/focus-cluster/citicoline-for-adhd.md` | 16386 | 2026-07-02 | 10 | referenced by 10 file(s) |
 | `docs/content/focus-cluster/citicoline-vs-alpha-gpc-content-v1.md` | 19703 | 2026-07-08 | 2 | referenced by 2 file(s) |
-| `docs/content/focus-cluster/citicoline-vs-alpha-gpc.md` | 11320 | 2026-07-02 | 27 | referenced by 27 file(s) |
+| `docs/content/focus-cluster/citicoline-vs-alpha-gpc.md` | 11320 | 2026-07-02 | 28 | referenced by 28 file(s) |
 | `docs/content/focus-cluster/iron-ferritin-and-adhd.md` | 59762 | 2026-07-02 | 16 | referenced by 16 file(s) |
 | `docs/content/focus-cluster/l-theanine-for-adhd-content-v1.md` | 25011 | 2026-08-15 | 3 | referenced by 3 file(s) |
 | `docs/content/focus-cluster/l-theanine-for-adhd.md` | 11984 | 2026-07-02 | 30 | referenced by 30 file(s) |
@@ -118,7 +122,7 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 | `docs/content/focus-cluster/sleep-and-adhd-content-v1.md` | 22708 | 2026-07-02 | 2 | referenced by 2 file(s) |
 | `docs/content/focus-cluster/vitamin-d-and-adhd.md` | 22555 | 2026-07-02 | 13 | referenced by 13 file(s) |
 | `docs/content/focus-cluster/zinc-and-adhd.md` | 28118 | 2026-08-15 | 14 | referenced by 14 file(s) |
-| `docs/contractor-onboarding.md` | 912 | 2026-06-27 | 3 | referenced by 3 file(s) |
+| `docs/contractor-onboarding.md` | 912 | 2026-08-29 | 3 | referenced by 3 file(s) |
 | `docs/data-pipeline.md` | 11118 | 2026-06-27 | 8 | referenced by 8 file(s) |
 | `docs/data/ingredient-json-endpoints.md` | 3642 | 2026-08-15 | 1 | referenced by 1 file(s) |
 | `docs/data/mechanism-normalization-gap.md` | 8743 | 2026-08-24 | 2 | referenced by 2 file(s) |
@@ -151,14 +155,14 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 | `docs/evidence-finalize-workflow.md` | 3779 | 2026-07-11 | 1 | referenced by 1 file(s) |
 | `docs/evidence-graph/identity-registry.md` | 1825 | 2026-08-06 | 3 | referenced by 3 file(s) |
 | `docs/exceljs-migration-parity.md` | 767 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/expansion-blueprint.md` | 13522 | 2026-06-16 | 1 | referenced by 1 file(s) |
+| `docs/expansion-blueprint.md` | 13522 | 2026-06-16 | 2 | referenced by 2 file(s) |
 | `docs/expansion-order.md` | 3952 | 2026-06-16 | 3 | referenced by 3 file(s) |
 | `docs/generated-data-policy.md` | 931 | 2026-06-27 | 6 | referenced by 6 file(s) |
 | `docs/global-search.md` | 4142 | 2026-06-12 | 2 | referenced by 2 file(s) |
 | `docs/grounding-noindex-profiles.md` | 7873 | 2026-07-13 | 3 | referenced by 3 file(s) |
 | `docs/herb-data-architecture.md` | 1862 | 2026-08-29 | 1 | referenced by 1 file(s) |
 | `docs/IMPLEMENTATION-CHECKLIST.md` | 9737 | 2026-06-07 | 2 | referenced by 2 file(s) |
-| `docs/import-boundaries.md` | 654 | 2026-06-27 | 3 | referenced by 3 file(s) |
+| `docs/import-boundaries.md` | 654 | 2026-08-29 | 3 | referenced by 3 file(s) |
 | `docs/indexability-governance.md` | 4501 | 2026-08-25 | 3 | referenced by 3 file(s) |
 | `docs/internal-link-map.md` | 1509605 | 2026-08-02 | 9 | referenced by 9 file(s) |
 | `docs/legacy-cleanup.md` | 992 | 2026-06-27 | 1 | referenced by 1 file(s) |
@@ -199,9 +203,9 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 | `docs/ops/prioritization-contract.md` | 2821 | 2026-08-28 | 3 | referenced by 3 file(s) |
 | `docs/ops/project-control-reconciliation.md` | 4377 | 2026-08-27 | 2 | referenced by 2 file(s) |
 | `docs/pages-needing-links.md` | 134 | 2026-06-16 | 5 | referenced by 5 file(s) |
-| `docs/performance.md` | 2335 | 2026-06-27 | 184 | referenced by 184 file(s) |
+| `docs/performance.md` | 2335 | 2026-06-27 | 185 | referenced by 185 file(s) |
 | `docs/performance/budgets-log.md` | 409 | 2026-08-02 | 4 | referenced by 4 file(s) |
-| `docs/performance/budgets.md` | 2760 | 2026-08-01 | 1 | referenced by 1 file(s) |
+| `docs/performance/budgets.md` | 2760 | 2026-08-29 | 1 | referenced by 1 file(s) |
 | `docs/performance/build-bottlenecks.md` | 13718 | 2026-06-27 | 2 | referenced by 2 file(s) |
 | `docs/performance/build-improvement-verification.md` | 8629 | 2026-06-27 | 1 | referenced by 1 file(s) |
 | `docs/performance/BUILD-PIPELINE.md` | 9512 | 2026-06-27 | 5 | referenced by 5 file(s) |
@@ -236,7 +240,7 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 | `docs/PUBLISHING_WORKFLOW.md` | 5159 | 2026-06-17 | 2 | referenced by 2 file(s) |
 | `docs/QA_CHECKLIST.md` | 421 | 2026-06-27 | 2 | referenced by 2 file(s) |
 | `docs/quality/eslint-typescript-audit.md` | 5655 | 2026-06-27 | 1 | referenced by 1 file(s) |
-| `docs/README.md` | 435 | 2026-08-21 | 13 | referenced by 13 file(s) |
+| `docs/README.md` | 435 | 2026-08-21 | 14 | referenced by 14 file(s) |
 | `docs/RELEASE.md` | 1431 | 2026-06-27 | 2 | referenced by 2 file(s) |
 | `docs/research-enrichment-schema.md` | 4169 | 2026-06-27 | 1 | referenced by 1 file(s) |
 | `docs/resend-setup.md` | 458 | 2026-06-27 | 2 | referenced by 2 file(s) |
@@ -308,7 +312,7 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 | file | bytes | last change | inbound | why |
 |---|---|---|---|---|
 | `docs/generated/css-important-audit.md` | 31550 | 2026-08-29 | 2 | produced by a script; regenerate rather than edit |
-| `docs/generated/docs-disposition.md` | 28118 | 2026-08-29 | 1 | produced by a script; regenerate rather than edit |
+| `docs/generated/docs-disposition.md` | 27958 | 2026-08-29 | 1 | produced by a script; regenerate rather than edit |
 | `docs/generated/route-inventory.md` | 53408 | 2026-08-02 | 6 | produced by a script; regenerate rather than edit |
 
 ## KEEP — authoritative — 15
@@ -321,13 +325,13 @@ Dangerous buckets are listed first: agents read these as truth and build on them
 | `CLAUDE.md` | 11990 | 2026-08-29 | 9 | required reading / control document |
 | `docs/CURRENT_SPRINT.md` | 15539 | 2026-08-28 | 13 | required reading / control document |
 | `docs/CURRENT_STATE.md` | 20896 | 2026-08-29 | 6 | required reading / control document |
-| `docs/DECISIONS.md` | 33060 | 2026-08-29 | 13 | required reading / control document |
-| `docs/DOCS_INDEX.md` | 12642 | 2026-08-27 | 5 | required reading / control document |
+| `docs/DECISIONS.md` | 36082 | 2026-08-29 | 13 | required reading / control document |
+| `docs/DOCS_INDEX.md` | 12642 | 2026-08-29 | 6 | required reading / control document |
 | `docs/MASTER_BACKLOG.md` | 15178 | 2026-08-28 | 10 | required reading / control document |
 | `docs/PROJECT_CHARTER.md` | 5157 | 2026-08-21 | 5 | required reading / control document |
 | `docs/ROADMAP.md` | 24899 | 2026-08-28 | 6 | required reading / control document |
 | `docs/SCOREBOARD.md` | 19189 | 2026-08-28 | 5 | required reading / control document |
 | `docs/SWARM-UPDATES.md` | 32994 | 2026-08-26 | 2 | required reading / control document |
-| `README.md` | 2424 | 2026-08-21 | 13 | required reading / control document |
+| `README.md` | 2424 | 2026-08-21 | 14 | required reading / control document |
 | `SECURITY.md` | 6706 | 2026-07-01 | 1 | required reading / control document |
 
