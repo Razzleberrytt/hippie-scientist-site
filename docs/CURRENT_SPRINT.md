@@ -5,7 +5,7 @@
 **Updated:** 2026-08-29
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** The previously conflicting Revenue/Conversion tickets #4489 / PR #4487 and #4493 / PR #4494 are merged/closed and retired. No active implementation ticket is recorded in this sprint snapshot; any new admission must still revalidate exact GitHub state, dependencies, and workstream ownership.
+**Current admission:** Authority/Content has one active review ticket, #4266 / PR #4644. The previously conflicting Revenue/Conversion tickets #4489 / PR #4487 and #4493 / PR #4494 are merged/closed and retired. Any additional admission must revalidate exact GitHub state, dependencies, and workstream ownership.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,12 +49,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed WIP 0/3
+## Active — observed WIP 1/3
 
-**Governance check:** #4489 / PR #4487 and #4493 / PR #4494 are merged/closed and retired below. No active implementation ownership is recorded in this sprint snapshot; revalidate current GitHub state before admitting the next ticket.
+**Governance check:** #4266 / PR #4644 is the single active Authority/Content review ticket. #4489 / PR #4487 and #4493 / PR #4494 are merged/closed and retired below.
 
 | Lane / surface | Issue / PR | Ticket | Status | Must prove before merge |
 |---|---|---|---|---|
+| A / evidence | #4266 / PR #4644 | KSM-66 Ashwagandha safety research staging | In Review | Session E shard ownership; exact formulation/dose/duration/population and null/limitation/provenance preservation; draft-only source state; required hosted gates |
 
 ## Ready next — strict dependency order
 
@@ -92,7 +93,7 @@ Promote one only after checking overlap, current exact-main state, and freshness
 1. **#4227** — reduce duplicated full production exports without weakening exact-SHA fail-closed validation; also supplies resource observations useful to #4415.
 2. **SEO-003** — reproduce and clear the current schema identity gate.
 3. **AUTH-001** — resolve verified duplicate-intent owners using current route/query evidence.
-4. **#4266 / #4260** — governed recent-evidence enrichment under the existing governor/lease/provenance contract.
+4. **#4260** — governed recent-evidence enrichment under the existing governor/lease/provenance contract after #4266 leaves the active Authority/Content slot.
 
 ## Sprint exit conditions
 
