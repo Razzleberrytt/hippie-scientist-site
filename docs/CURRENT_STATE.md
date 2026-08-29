@@ -58,7 +58,7 @@
 
 ### Repository and data architecture
 
-**Verified:** Active implementation is centered on `app/`, root `components/`, `lib/`, `config/`, selected `src/` modules, `content/`, `scripts/`, and `public/data/`. `tsconfig.json` explicitly excludes substantial older `src/pages`, `src/app`, component, and library surfaces; their presence does not prove they are active.
+**Verified:** Active implementation is centered on `app/`, `components/`, `lib/`, `types/`, `config/`, `content/`, `scripts/`, and `public/data/`. The `src/` tree was removed on 2026-08-29: 300 unreachable files were deleted and the 290 live ones moved to their root-level homes, so `@/lib/*` and `@/components/*` each resolve to exactly one place. `tsconfig.json` still excludes 21 legacy modules that import helpers deleted long ago and cannot compile.
 
 **Verified:** The primary structured source is `data-sources/herb_monograph_master.xlsx`. `npm run data:build` validates and generates publish artifacts in `public/data/`. Current generated arrays hold 291 herbs and 565 compounds (856 records); the workbook audit observes 881 rows before generation normalization/deduplication.
 
