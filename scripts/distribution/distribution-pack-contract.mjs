@@ -268,14 +268,23 @@ export function validateDistributionPack(pack, options = {}) {
   const canonicalLimitation = clean(researchObject.limitation)
   const canonicalTitle = clean(researchObject.title)
   const canonicalHash = hashResearchObject(researchObject)
+  const canonicalFindingClaimId = clean(researchObject.findingClaimId)
+  const canonicalPrimarySourceId = clean(researchObject.primarySourceId)
+  const canonicalPrimarySourceUrl = clean(researchObject.primarySourceUrl)
   const evidenceContext = expectedEvidenceContext(researchObject)
   const expectedSourceId = 'RESEARCH_OBJECT_001'
   const expectedClaimId = 'CLAIM_001'
 
+  if (!canonicalFindingClaimId || !canonicalPrimarySourceId || !canonicalPrimarySourceUrl) {
+    addError(errors, '$.source', 'canonical research object is missing required findingClaimId, primarySourceId, or primarySourceUrl citation identity')
+  }
   if (pack.packId !== expectedPackId(researchObjectId)) addError(errors, '$.packId', `must be derived from canonical research object ${researchObjectId}`)
   if (pack.source.url !== canonicalSourceUrl) addError(errors, '$.source.url', 'must equal the canonical research-object sourceUrl')
   if (clean(pack.source.title) !== canonicalTitle) addError(errors, '$.source.title', 'must equal the canonical research-object title')
   if (pack.source.contentHash !== canonicalHash) addError(errors, '$.source.contentHash', 'must equal the deterministic hash of the canonical research object')
+  if (clean(pack.source.findingClaimId) !== canonicalFindingClaimId) addError(errors, '$.source.findingClaimId', 'must equal the canonical research-object findingClaimId')
+  if (clean(pack.source.primarySourceId) !== canonicalPrimarySourceId) addError(errors, '$.source.primarySourceId', 'must equal the canonical research-object primarySourceId')
+  if (clean(pack.source.primarySourceUrl) !== canonicalPrimarySourceUrl) addError(errors, '$.source.primarySourceUrl', 'must equal the canonical research-object primarySourceUrl')
 
   const source = pack.sources[0]
   if (source.id !== expectedSourceId || source.kind !== 'research-object') addError(errors, '$.sources[0]', 'must be the canonical research-object source binding')
