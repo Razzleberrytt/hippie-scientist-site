@@ -4,13 +4,14 @@
  * repository's recorded evidence cannot demonstrate that strength.
  */
 
-import { mkdirSync, readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
+import { mkdirSync, readFileSync, readdirSync, existsSync } from 'node:fs'
 import path from 'node:path'
 
 import { BAND_LABEL, reconcileEvidenceGrade, type EvidenceReconciliation } from '../../lib/evidence-grade'
 import { buildEvidenceRationale, gradeIsBackedByEvidence, type EvidenceRationale } from '../../lib/evidence-rationale'
 import { buildProfileSummary, isPlaceholderSummary } from '../../lib/profile-summary'
 import { normalizeStudyClass, strongestStudyClass, STUDY_CLASS_INFO } from '../../lib/study-class'
+import { writeFileAtomic } from '../lib/atomic-json.mjs'
 
 const ROOT = process.cwd()
 const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
@@ -37,7 +38,7 @@ function readJson(file: string): Row[] {
   return Array.isArray(parsed) ? parsed : []
 }
 function writeJson(file: string, rows: Row[]): void {
-  writeFileSync(path.join(DATA_DIR, file), `${JSON.stringify(rows, null, 2)}\n`)
+  writeFileAtomic(path.join(DATA_DIR, file), `${JSON.stringify(rows, null, 2)}\n`)
 }
 function syncDetailRecord(indexFile: string, row: Row): void {
   const slug = String(row.slug ?? '').trim()
@@ -52,7 +53,7 @@ function syncDetailRecord(indexFile: string, row: Row): void {
     if (field in row) nextDetail[field] = row[field]
     else delete nextDetail[field]
   }
-  writeFileSync(detailPath, `${JSON.stringify(nextDetail, null, 2)}\n`)
+  writeFileAtomic(detailPath, `${JSON.stringify(nextDetail, null, 2)}\n`)
 }
 
 function loadSourceDesignsBySlug(): Map<string, Row[]> {
@@ -228,7 +229,7 @@ function main() {
   for (const p of profiles) for (const [reason, count] of Object.entries(p.reasons)) reasons[reason] = (reasons[reason] ?? 0) + count
   const report = { generatedAt: new Date().toISOString(), totals, gradeReasons: reasons, studyClasses: claims.classes, adjustments: profiles.flatMap((p) => p.changes), unbackedStrongGrades: unbacked }
   mkdirSync(REPORTS_DIR, { recursive: true })
-  writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`)
+  writeFileAtomic(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`)
 
   console.log('\nEvidence grade normalization')
   console.log('='.repeat(66))

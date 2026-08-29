@@ -22,9 +22,10 @@
  * comparing studies has no way to notice.
  */
 
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
+import { writeFileAtomic } from '../lib/atomic-json.mjs'
 
 const ROOT = process.cwd()
 const SOURCE = path.join(ROOT, 'config', 'study-participant-counts.json')
@@ -71,7 +72,7 @@ for (const dir of DETAIL_DIRS) {
     }
 
     if (touched) {
-      writeFileSync(full, `${JSON.stringify(record, null, 2)}\n`)
+      writeFileAtomic(full, `${JSON.stringify(record, null, 2)}\n`)
       filesChanged += 1
     }
   }
