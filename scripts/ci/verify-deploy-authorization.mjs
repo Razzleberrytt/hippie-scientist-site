@@ -55,7 +55,11 @@ async function main() {
   //
   // Checked before polling: no receipt is coming for an owner merge, so waiting
   // five minutes for one is pure delay.
-  const mergedBy = pr.merged_by?.login
+  // `/commits/{sha}/pulls` returns a summary PR representation, which omits
+  // merged_by. It has to be read from the full object or every merge looks
+  // anonymous and the owner branch below can never match.
+  const fullPr = await api(`/pulls/${pr.number}`)
+  const mergedBy = fullPr.merged_by?.login || pr.merged_by?.login
   if (owner && mergedBy && mergedBy.toLowerCase() === owner.toLowerCase()) {
     console.log(`Deployment authorized: PR #${pr.number} merged by repository owner ${mergedBy}, merge ${mergeSha}.`)
     return

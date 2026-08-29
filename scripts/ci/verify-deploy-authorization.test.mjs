@@ -24,9 +24,18 @@ describe('deployment authorization boundary', () => {
 
   it('accepts a merge performed by the repository owner', () => {
     const verifier = read('scripts/ci/verify-deploy-authorization.mjs')
-    expect(verifier).toContain('const mergedBy = pr.merged_by?.login')
+    expect(verifier).toContain('const mergedBy = fullPr.merged_by?.login')
     expect(verifier).toContain('mergedBy.toLowerCase() === owner.toLowerCase()')
     expect(verifier).toContain('merged by repository owner')
+  })
+
+  it('reads merged_by from the full PR, not the commit-pulls summary', () => {
+    const verifier = read('scripts/ci/verify-deploy-authorization.mjs')
+    // /commits/{sha}/pulls omits merged_by. Reading it there made every merge
+    // look anonymous, so the owner branch could never match and the deploy
+    // failed with "merged by an unknown account".
+    expect(verifier).toContain('await api(`/pulls/${pr.number}`)')
+    expect(verifier).toContain('fullPr.merged_by?.login')
   })
 
   it('checks the owner before polling, so an owner merge does not wait for a receipt that never arrives', () => {
