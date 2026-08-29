@@ -43,9 +43,9 @@ describe('autonomous merge backpressure contract', () => {
   it('retains serialized write-capable fallback and merge-time base revalidation', () => {
     expect(fallbackJob).toContain("SWEEP_OPEN_PRS: 'true'")
     expect(fallbackJob).toContain('node scripts/ci/autonomous-merge-controller.mjs')
+    expect(workflow).toContain('group: autonomous-merge-commit')
     expect(controller).toMatch(/async function mergeIfStillCurrent[\s\S]*refreshPrAndDispatch/u)
     expect(controller).toMatch(/async function fallbackSweep[\s\S]*evaluateOnce/u)
-    expect(controller).toContain("group: autonomous-merge-commit")
   })
 
   it('does not weaken readiness gates in the canonical controller', () => {
