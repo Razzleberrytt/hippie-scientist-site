@@ -1,17 +1,20 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
 import { hashCanonicalField, validateDistributionPack } from '../distribution-pack-contract.mjs'
 
+const root = process.cwd()
+const researchObjects = JSON.parse(fs.readFileSync(path.join(root, 'data/distribution/research-objects.json'), 'utf8'))
+const canonical = researchObjects.find(({ id }) => id === 'ashwagandha-stress-evidence')
+
 // Keep this suite as the executable validation anchor for field-level provenance after exact-base refreshes.
 const object = {
+  ...canonical,
   id: 'field-provenance-fixture',
   title: 'Field provenance fixture',
-  finding: 'A governed human finding with bounded interpretation.',
-  evidenceType: 'RCT',
-  evidenceGrade: 'B',
   limitation: 'Interpretation remains limited to the studied population and preparation.',
-  sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
   populationContext: 'Adults enrolled in the cited human trial.',
   formulationContext: 'A specific extract was studied; equivalence across preparations is not established.',
   doseContext: 'Dose values are study context only and are not consumer instructions.',
