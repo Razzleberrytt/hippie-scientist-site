@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-08-28
+**Updated:** 2026-08-29
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -64,7 +64,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | #4227 | Deduplicate uncached production exports across PR workflows | O | Planned | P1 compounding | 3/3/2/5/1/2 | 45.0 | Preserve fail-closed exact-SHA validation; `last_verified` at promotion | Quantify duplicated runner minutes; exact-SHA reusable artifact/cache or equivalent; cache miss performs full governed build; no quality thresholds weakened |
 | SEO-003 | Clear current schema identity gate | D | Ready | P1 | 4/4/4/4/1/2 | 128.0 | Reproduce current exact-main failure immediately before promotion | First-party identity IDs are consistent and full schema policy passes; route/schema regressions and production build prove the fix |
 | AUTH-001 | Resolve verified duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Revalidate current route/query evidence before promotion | Each pair has one owner or a genuinely distinct user job; removed owners get direct redirects; internal links/canonicals point to winner |
-| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + provenance/source review; revalidate source status at start | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
+| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | O/A evidence | In Review (research staging PR #4631) | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + provenance/source review; revalidate source status at start | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
 | #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
@@ -74,7 +74,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 |---|---|---|---|---:|---|
 | REV-001 / #4280 | Verify production analytics and governed funnel events | R | Blocked external access | 400.0 | Authorized production environment + GA4/Ahrefs receipt evidence; code readiness already merged, but production receipt remains Unknown |
 | SEO-004 | Import aligned 28-day GSC opportunity baseline | D | Blocked external access | 375.0 | Search Console/service-account access or dated export |
-| REV-002 | Establish aligned funnel/revenue baseline | R | Blocked external access | 375.0 | REV-001 plus GA4/Amazon/Mailchimp data; partial source-level observations may still be recorded honestly |
+| REV-002 | Establish aligned funnel/revenue baseline | R | Blocked external access | 375.0 | REV-001 plus GA4/GSC/Amazon/Mailchimp data; partial source-level observations may still be recorded honestly |
 | REV-003 | Select one flagship commercial decision page | R | Blocked | 375.0 | SEO-004 + REV-002 aligned data |
 | SEO-002 | Recover reviewed flagship profile source roles | D | Blocked review dependency | 117.2 | Review existing source-role work before duplicating; never force indexability |
 | AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | REV-003/REV-004 + evidence review |
@@ -115,11 +115,11 @@ These are capability proofs, not claims of business impact.
 | #4460 | Completed/merged as 48bebb81e35c4bd605dedbfc15156cabeb915b06 — duplicate-angle suppression is on main; removed from `Now` |
 | #4406 | Completed — governed ready → publish → measured lifecycle merged; removed from `Next` |
 | #4439 / PR #4440 | Completed/merged — canonical claim/source binding; removed from `Now` |
-| PR #4448 | Closed unmerged — provenance-bound vertical MP4 implementation preserved for later legal reuse; removed from `Now` |
+| PR #4448 | Closed unmerged — provenance-bound vertical MP4 implementation preserved for later legal reuse and does not occupy active WIP |
 | #4447 / PR #4445 | Merged as 692d85d1a496188b4bc48113f8f64b5e94c82098 — opening hook trust contract; no longer active |
 | #4410 / PR #4411 | Merged — changed-file-relevant merge gates; temporary overflow exception retired |
-| PRs #4388, #4401, #4405 | Merged — renderer, factual receipts, and lossless presentation; no longer active |
-| PR #4408 / #4409 | Merged/closed — roadmap, sprint, and backlog synchronized to exact GitHub state on 2026-08-27 |
+| PRs #4388, #4401, #4405 | Merged — renderer, factual receipts, and lossless presentation; implementation no longer active |
+| PR #4408 / #4409 | Merged/closed — roadmap, sprint, and master backlog synchronized to exact GitHub state on 2026-08-27 |
 | REV-005 / PR #4358 | Merged — governed media-pack contract established |
 | PR #4371 | Merged — canonical research-distribution builder emits validated media packs |
 | PR #4381 | Merged — claim-safe downstream factual-copy lint |
