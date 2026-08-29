@@ -19,7 +19,7 @@
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["url", "title", "contentHash", "findingClaimId", "primarySourceId", "primarySourceUrl"],
+      "required": ["url", "title", "contentHash", "findingClaimId", "primarySourceId", "primarySourceUrl", "publicationStatus", "publicationStatusCheckedAt", "publicationStatusAuthorityUrl"],
       "dependentRequired": {
         "findingClaimId": ["primarySourceId", "primarySourceUrl"],
         "primarySourceId": ["findingClaimId", "primarySourceUrl"],
@@ -31,7 +31,10 @@
         "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
         "findingClaimId": { "type": "string", "pattern": "^clm_[a-f0-9]+$" },
         "primarySourceId": { "type": "string", "pattern": "^src_[a-f0-9]+$" },
-        "primarySourceUrl": { "type": "string", "pattern": "^https://[^\\s]+$" }
+        "primarySourceUrl": { "type": "string", "pattern": "^https://[^\\s]+$" },
+        "publicationStatus": { "enum": ["published", "expression-of-concern", "retracted", "withdrawn"] },
+        "publicationStatusCheckedAt": { "type": "string", "format": "date" },
+        "publicationStatusAuthorityUrl": { "type": "string", "pattern": "^https://[^\\s]+$" }
       }
     },
     "audience": { "const": "General educational audience" },
