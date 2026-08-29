@@ -18,11 +18,12 @@
  * Usage: tsx scripts/data/apply-pubmed-metadata.ts [--dry-run]
  */
 
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 
 import { isPlaceholderCitationTitle, normalizeDoi } from '../../lib/citation-identifiers.mjs'
 import { STUDY_CLASS_INFO, normalizeStudyClass, strongestStudyClass, type StudyClass } from '../../lib/study-class'
+import { writeFileAtomic } from '../lib/atomic-json.mjs'
 
 const ROOT = process.cwd()
 const DATA_DIR = path.join(ROOT, 'public', 'data')
@@ -152,13 +153,13 @@ function main() {
       touchedFiles.push(`${dir}/${file}`)
       if (!DRY_RUN) {
         record.sources = next
-        writeFileSync(filePath, `${JSON.stringify(record, null, 2)}\n`)
+        writeFileAtomic(filePath, `${JSON.stringify(record, null, 2)}\n`)
       }
     }
   }
 
   if (!DRY_RUN) {
-    writeFileSync(
+    writeFileAtomic(
       REPORT_PATH,
       `${JSON.stringify({ generatedAt: new Date().toISOString(), filled, filesTouched: touchedFiles.length, sourcesTouched, unresolved }, null, 2)}\n`,
     )
