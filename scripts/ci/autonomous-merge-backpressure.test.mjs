@@ -10,8 +10,8 @@ const workflowPath = path.join(root, '.github/workflows/autonomous-merge-control
 const monitor = fs.readFileSync(monitorPath, 'utf8')
 const controller = fs.readFileSync(controllerPath, 'utf8')
 const workflow = fs.readFileSync(workflowPath, 'utf8')
-const monitorJob = workflow.match(/  merge-controller:\n([\s\S]*?)\n  merge-commit:/u)?.[1] || ''
-const fallbackJob = workflow.match(/  fallback-sweep:\n([\s\S]*)$/u)?.[1] || ''
+const monitorJob = workflow.match(/ {2}merge-controller:\n([\s\S]*?)\n {2}merge-commit:/u)?.[1] || ''
+const fallbackJob = workflow.match(/ {2}fallback-sweep:\n([\s\S]*)$/u)?.[1] || ''
 
 describe('autonomous merge backpressure contract', () => {
   it('keeps the per-PR monitor single-shot and read-only', () => {
