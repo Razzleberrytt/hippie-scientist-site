@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { writeFileAtomic } from '../lib/atomic-json.mjs'
 
 const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const dataDir = path.resolve(process.cwd(), dataDirArg ? dataDirArg.split('=')[1] : 'public/data')
@@ -17,26 +18,6 @@ function readHerbSourcesCache() {
 }
 
 const herbSourcesCache = readHerbSourcesCache()
-const MAX_WRITE_ATTEMPTS = 5
-
-function sleep(ms) {
-  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
-}
-
-function writeFileWithRetry(filePath, body) {
-  let lastError
-  for (let attempt = 1; attempt <= MAX_WRITE_ATTEMPTS; attempt += 1) {
-    try {
-      fs.writeFileSync(filePath, body)
-      return
-    } catch (error) {
-      lastError = error
-      if (attempt === MAX_WRITE_ATTEMPTS) break
-      sleep(75 * attempt)
-    }
-  }
-  throw lastError
-}
 
 function ensureArray(v) {
   if (!v) return []
@@ -57,7 +38,7 @@ function patchFile(file) {
     sources: ensureArray(row.sources || row.references || [])
   }))
 
-  writeFileWithRetry(full, JSON.stringify(patched, null, 2))
+  writeFileAtomic(full, JSON.stringify(patched, null, 2))
   console.log(`[data-postprocess] normalized ${file}`)
 }
 
@@ -76,7 +57,7 @@ function patchDetailDir(dirName) {
     if (Array.isArray(json.sources)) continue
     const slug = json.slug || entry.replace(/\.json$/, '')
     json.sources = ensureArray(json.sources || json.references || herbSourcesCache[slug] || [])
-    writeFileWithRetry(full, JSON.stringify(json, null, 2) + '\n')
+    writeFileAtomic(full, JSON.stringify(json, null, 2) + '\n')
     count += 1
   }
 
