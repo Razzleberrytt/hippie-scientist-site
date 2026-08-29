@@ -291,7 +291,7 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.67.0",
     "vitest": "^4.1.7",
-    "wrangler": "4.124.0",
+    "wrangler": "4.126.0",
     "yaml": "2.9.0",
     "zod": "^3.23.8"
   },
