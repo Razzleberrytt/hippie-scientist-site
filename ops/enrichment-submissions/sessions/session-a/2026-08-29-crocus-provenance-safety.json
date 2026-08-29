@@ -32,7 +32,7 @@
       "entityType": "herb",
       "entitySlug": "crocus-sativus",
       "sourceId": "src_doi-10-1002-hsr2-72212",
-      "topicType": "safety",
+      "topicType": "adverse_effect",
       "claimType": "safety_risk",
       "evidenceClass": "human-clinical",
       "findingTextShort": "A 2026 systematic review found saffron monopreparations generally well tolerated but documented adverse events, most often gastrointestinal, and cautioned about higher-dose or prolonged medicinal use.",
