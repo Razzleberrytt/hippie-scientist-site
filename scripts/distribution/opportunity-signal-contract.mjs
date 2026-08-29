@@ -13,7 +13,9 @@ function finite(value) {
 
 function validIsoDate(value) {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false
-  return !Number.isNaN(new Date(`${value}T00:00:00Z`).getTime())
+  const parsed = new Date(`${value}T00:00:00Z`)
+  if (Number.isNaN(parsed.getTime())) return false
+  return parsed.toISOString().slice(0, 10) === value
 }
 
 export function validateOpportunitySignals(signals) {
@@ -28,6 +30,10 @@ export function validateOpportunitySignals(signals) {
       continue
     }
     const observed = DEMAND_SIGNAL_KEYS.filter((key) => finite(record[key]))
+    for (const key of observed) {
+      const value = Number(record[key])
+      if (value < 0 || value > 10) errors.push(`${id}: ${key} must be between 0 and 10`)
+    }
     if (!observed.length) continue
     const provenance = record.provenance
     if (!provenance || Array.isArray(provenance) || typeof provenance !== 'object') {
@@ -35,8 +41,8 @@ export function validateOpportunitySignals(signals) {
       continue
     }
     if (!String(provenance.source || '').trim()) errors.push(`${id}: provenance.source is required`)
-    if (!validIsoDate(provenance.observedThrough)) errors.push(`${id}: provenance.observedThrough must be YYYY-MM-DD`)
-    if (!Number.isInteger(provenance.denominator) || provenance.denominator < 0) errors.push(`${id}: provenance.denominator must be a non-negative integer`)
+    if (!validIsoDate(provenance.observedThrough)) errors.push(`${id}: provenance.observedThrough must be a real YYYY-MM-DD date`)
+    if (!Number.isInteger(provenance.denominator) || provenance.denominator <= 0) errors.push(`${id}: provenance.denominator must be a positive integer for observed demand`)
     if (!String(provenance.method || '').trim()) errors.push(`${id}: provenance.method is required`)
     if (!Array.isArray(provenance.fields) || !observed.every((key) => provenance.fields.includes(key))) {
       errors.push(`${id}: provenance.fields must enumerate every observed demand signal`)
