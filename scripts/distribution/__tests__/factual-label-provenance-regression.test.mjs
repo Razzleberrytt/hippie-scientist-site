@@ -27,7 +27,16 @@ describe('distribution factual-label provenance regression', () => {
     'Studies show improved sleep.',
     'Research suggests better sleep outcomes.',
     'Improves sleep quality.',
+    'Improved sleep quality.',
+    'Improving sleep quality.',
+    'Reduced anxiety symptoms.',
+    'Reducing anxiety symptoms.',
+    'Sleep quality improved.',
+    'Anxiety symptoms were reduced.',
+    'Focus is improving.',
+    'Works for anxiety.',
     'Effective for anxiety.',
+    'In the recorded randomized trial, the intervention improved the prespecified sleep outcome versus control.',
   ])('rejects unbound factual label: %s', (text) => {
     const errors = validateFactualAssetCopy(pack(), {
       assetType: 'overlay',
@@ -36,10 +45,14 @@ describe('distribution factual-label provenance regression', () => {
     expect(errors.join('\n')).toMatch(/factual labels must be represented as governed claim/i)
   })
 
-  it('keeps nonfactual creative labels available', () => {
+  it.each([
+    'One study, carefully framed',
+    'Work stress',
+    'Stress at work',
+  ])('keeps nonfactual creative/topic label available: %s', (text) => {
     expect(validateFactualAssetCopy(pack(), {
       assetType: 'overlay',
-      lines: [{ role: 'label', text: 'One study, carefully framed' }],
+      lines: [{ role: 'label', text }],
     })).toEqual([])
   })
 
