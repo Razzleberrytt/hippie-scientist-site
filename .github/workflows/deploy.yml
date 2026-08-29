@@ -12,6 +12,8 @@ concurrency:
 
 permissions:
   contents: read
+  pull-requests: read
+  statuses: read
 
 jobs:
   deploy:
@@ -34,6 +36,13 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+
+      - name: Verify controller-authorized merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_AUTH_ATTEMPTS: '30'
+          DEPLOY_AUTH_INTERVAL_MS: '10000'
+        run: node scripts/ci/verify-deploy-authorization.mjs
 
       - name: Restore IndexNow state
         uses: actions/cache@v6
