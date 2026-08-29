@@ -4,6 +4,7 @@ const ALLOWED_PUBLICATION_STATUSES = new Set([
   'retracted',
   'withdrawn',
 ])
+const DISTRIBUTION_ELIGIBLE_PUBLICATION_STATUSES = new Set(['published'])
 
 function clean(value) {
   return String(value ?? '').trim()
@@ -33,6 +34,8 @@ export function validateDistributionPublicationIntegrity(pack, researchObject) {
 
   if (!ALLOWED_PUBLICATION_STATUSES.has(canonicalStatus)) {
     errors.push('canonical research object must include a supported publicationStatus')
+  } else if (!DISTRIBUTION_ELIGIBLE_PUBLICATION_STATUSES.has(canonicalStatus)) {
+    errors.push(`canonical publicationStatus is not eligible for distribution: ${canonicalStatus}`)
   }
   if (!validDate(canonicalCheckedAt)) {
     errors.push('canonical research object must include publicationStatusCheckedAt as YYYY-MM-DD')
