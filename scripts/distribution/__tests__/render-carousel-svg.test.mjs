@@ -72,6 +72,27 @@ test('exposes governed visible slide content through deterministic SVG accessibi
   expect(rendered.svg).not.toContain(`aria-label="${slide.eyebrow}"`)
 })
 
+test('XML-escapes governed accessibility text without dropping semantic content', () => {
+  const slide = {
+    role: 'finding',
+    eyebrow: 'Evidence & uncertainty',
+    headline: 'Benefit < harm is not established.',
+    body: 'Quoted "strong" claims aren\'t warranted.',
+    colorTreatment: 'evidence',
+  }
+  const rendered = renderCarouselSlideSvg(slide, {
+    sourceUrl: mediaPack.source.url,
+    contentHash: mediaPack.source.contentHash,
+    disclosure,
+  })
+
+  expect(rendered.svg).toContain('<title id="slide-title">Evidence &amp; uncertainty</title>')
+  expect(rendered.svg).toContain('Benefit &lt; harm is not established.')
+  expect(rendered.svg).toContain('Quoted &quot;strong&quot; claims aren&apos;t warranted.')
+  expect(rendered.svg).not.toContain('Evidence & uncertainty</title>')
+  expect(rendered.svg).not.toContain('Benefit < harm is not established.')
+})
+
 test('keeps disclosure and provenance text inside the portrait safe-area bottom edge', () => {
   const rendered = renderCarouselSlideSvg(creativeSpec.carousel.slides[0], {
     sourceUrl: mediaPack.source.url,
