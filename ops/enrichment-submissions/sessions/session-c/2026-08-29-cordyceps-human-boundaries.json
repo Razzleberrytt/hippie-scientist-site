@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "C",
+  "shard": 2,
+  "batchId": "cordyceps-human-boundaries-20260829",
+  "createdAt": "2026-08-29T23:40:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-c-cordyceps-militaris-performance-review-20260829",
+      "authoringPackId": "ap_bp_wp_compound_cordyceps_src_doi_10_3390_nu18050781",
+      "workpackId": "wp_compound_cordyceps",
+      "entityType": "compound",
+      "entitySlug": "cordyceps",
+      "sourceId": "src_doi-10-3390-nu18050781",
+      "topicType": "unsupported_or_unclear_use",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2026 review found inconsistent human ergogenic and recovery evidence for Cordyceps militaris across five small heterogeneous studies.",
+      "findingTextNormalized": "A 2026 critical narrative review identified five human intervention studies of Cordyceps militaris published from 2017 through 2024, totaling 321 participants aged 16 to 35 years. Protocols ranged from 1 to 16 weeks and 1 to 12 g/day, using either isolated fungal material or multi-ingredient formulations. Selected performance and recovery signals were reported, but evidence was inconsistent and limited by small samples, heterogeneous protocols, incomplete randomization reporting, and non-standardized preparations.",
+      "strengthLabel": "limited",
+      "populationContext": "Five intervention studies totaling 321 generally young participants, with heterogeneous training status and exercise protocols.",
+      "usageContext": "Cordyceps militaris material or multi-ingredient formulations; species and formulation identity must remain explicit.",
+      "uncertaintyNote": "Cordyceps militaris evidence cannot be inherited by Ophiocordyceps sinensis or generic Cordyceps products without identity matching. Multi-ingredient results cannot be attributed solely to Cordyceps. The evidence does not support a strong general exercise-performance claim. Draft-only pending registry and semantic attestation.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-c-cordyceps-immunomodulation-review-20260829",
+      "authoringPackId": "ap_bp_wp_compound_cordyceps_src_doi_10_1002_ptr_70144",
+      "workpackId": "wp_compound_cordyceps",
+      "entityType": "compound",
+      "entitySlug": "cordyceps",
+      "sourceId": "src_doi-10-1002-ptr-70144",
+      "topicType": "mechanism",
+      "claimType": "mechanistic_signal",
+      "evidenceClass": "preclinical-mechanistic",
+      "findingTextShort": "A 2026 Cordyceps militaris review describes immunomodulatory mechanisms but emphasizes mixed evidence levels and constituent-specific effects.",
+      "findingTextNormalized": "A 2026 review of Cordyceps militaris and its constituents summarized in vitro, animal, and limited clinical evidence for immunomodulatory activity involving fungal extracts, cordycepin, and polysaccharides. Because the review spans different materials, disease models, and evidence levels, its mechanistic findings should support biological plausibility and entity mapping rather than a broad human immune-efficacy claim for generic Cordyceps supplements.",
+      "strengthLabel": "limited",
+      "usageContext": "Cordyceps militaris extracts, cordycepin, and polysaccharide fractions across heterogeneous preclinical and clinical contexts.",
+      "mechanismContext": "Immunomodulatory effects vary by immune environment and tested constituent or extract; constituent evidence cannot be generalized to the whole fungus or another Cordyceps species.",
+      "uncertaintyNote": "The review is dominated by preclinical mechanistic evidence and includes authors affiliated with a pharmaceutical company research center. Clinical validation is limited and formulation identity is essential. Draft-only pending registry and semantic attestation.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
