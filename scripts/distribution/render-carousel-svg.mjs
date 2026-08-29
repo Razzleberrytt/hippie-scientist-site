@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { CREATIVE_BRAND_TOKENS, validateCreativeContrast } from './creative-spec.mjs'
 import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
+import { buildAssetProvenance, hashStableValue } from './asset-provenance.mjs'
 
 // Presentation-only boundary: factual authority remains the validated media pack and
 // validated-lossless creative spec. This renderer may wrap/layout text, never rewrite it.
@@ -11,6 +12,8 @@ import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const escapeXml = (value) => clean(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[char])
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
+const RENDERER_VERSION = 'carousel-svg-v1'
+const TEMPLATE_VERSION = 'carousel-portrait-v1'
 
 function isUrlToken(value) {
   try {
@@ -74,6 +77,7 @@ export function renderCarouselSlideSvg(slide, options = {}) {
   const sourceUrl = clean(options.sourceUrl)
   const contentHash = clean(options.contentHash)
   const disclosure = clean(options.disclosure)
+  const factualProvenanceFingerprint = clean(options.factualProvenanceFingerprint)
   if (!sourceUrl || !contentHash) throw new Error('sourceUrl and contentHash are required for rendered asset provenance')
   if (!disclosure) throw new Error('governed disclosure is required for rendered assets')
 
@@ -87,7 +91,7 @@ export function renderCarouselSlideSvg(slide, options = {}) {
   const safeBottomY = canvas.height - canvas.safeBottom
   const disclosureY = safeBottomY - 58
   const provenanceY = safeBottomY - 18
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-labelledby="slide-title slide-desc"><title id="slide-title">${escapeXml(accessibleTitle)}</title><desc id="slide-desc">${escapeXml(accessibleDescription)}</desc><rect width="100%" height="100%" fill="${background}"/><text x="80" y="180" font-size="34" font-weight="600" fill="${foreground}">${escapeXml(slide.eyebrow || '')}</text>${headline}${body}<text x="80" y="${disclosureY}" font-size="24" fill="${foreground}">${escapeXml(disclosure)}</text><text x="80" y="${provenanceY}" font-size="22" fill="${foreground}">The Hippie Scientist · ${escapeXml(sourceUrl)}</text><metadata>${escapeXml(JSON.stringify({ contentHash, sourceUrl, factualAuthority: 'validated-distribution-pack', renderer: 'carousel-svg-v1' }))}</metadata></svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-labelledby="slide-title slide-desc"><title id="slide-title">${escapeXml(accessibleTitle)}</title><desc id="slide-desc">${escapeXml(accessibleDescription)}</desc><rect width="100%" height="100%" fill="${background}"/><text x="80" y="180" font-size="34" font-weight="600" fill="${foreground}">${escapeXml(slide.eyebrow || '')}</text>${headline}${body}<text x="80" y="${disclosureY}" font-size="24" fill="${foreground}">${escapeXml(disclosure)}</text><text x="80" y="${provenanceY}" font-size="22" fill="${foreground}">The Hippie Scientist · ${escapeXml(sourceUrl)}</text><metadata>${escapeXml(JSON.stringify({ contentHash, sourceUrl, factualProvenanceFingerprint: factualProvenanceFingerprint || null, factualAuthority: 'validated-distribution-pack', renderer: RENDERER_VERSION, templateVersion: TEMPLATE_VERSION }))}</metadata></svg>`
   return { svg, hash: sha256(`${svg}\n`), width: canvas.width, height: canvas.height }
 }
 
@@ -109,20 +113,45 @@ export function renderCarouselAssets({ mediaPack, creativeSpec, outputDir }) {
   const disclosure = clean(creativeSpec.delivery?.disclosure)
   if (!disclosure) throw new Error('creative spec governed disclosure is required')
 
+  const creativeSpecHash = hashStableValue(creativeSpec)
+  const provenance = buildAssetProvenance({
+    mediaPack,
+    renderer: RENDERER_VERSION,
+    templateVersion: TEMPLATE_VERSION,
+    creativeSpecHash,
+  })
   const dir = path.resolve(outputDir)
   fs.mkdirSync(dir, { recursive: true })
   const assets = creativeSpec.carousel.slides.map((slide, index) => {
     const rendered = renderCarouselSlideSvg(slide, {
       sourceUrl: mediaPack.source.url,
       contentHash: mediaPack.source.contentHash,
+      factualProvenanceFingerprint: provenance.factualProvenanceFingerprint,
       disclosure,
     })
     const file = `carousel-${String(index + 1).padStart(2, '0')}.svg`
     const fileBytes = `${rendered.svg}\n`
     fs.writeFileSync(path.join(dir, file), fileBytes)
-    return { id: `carousel-${index + 1}`, type: 'carousel-slide', format: 'svg', file, sha256: sha256(fileBytes), width: rendered.width, height: rendered.height, sourceContentHash: mediaPack.source.contentHash, sourceUrl: mediaPack.source.url }
+    return {
+      id: `carousel-${index + 1}`,
+      type: 'carousel-slide',
+      format: 'svg',
+      file,
+      sha256: sha256(fileBytes),
+      width: rendered.width,
+      height: rendered.height,
+      sourceContentHash: mediaPack.source.contentHash,
+      sourceUrl: mediaPack.source.url,
+      factualProvenanceFingerprint: provenance.factualProvenanceFingerprint,
+      presentationFingerprint: provenance.presentationFingerprint,
+    }
   })
-  const manifest = { schemaVersion: '1.0.0', packId: mediaPack.packId, sourceContentHash: mediaPack.source.contentHash, renderer: 'carousel-svg-v1', assets }
+  const manifest = {
+    schemaVersion: '1.1.0',
+    packId: mediaPack.packId,
+    ...provenance,
+    assets,
+  }
   fs.writeFileSync(path.join(dir, 'asset-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
   return manifest
 }

@@ -69,7 +69,7 @@ test('binds declared provenance to the provenance embedded in hashed SVG bytes',
       sourceContentHash: substituted,
       assets: svgManifest.assets.map((asset) => ({ ...asset, sourceContentHash: substituted, sourceUrl: 'https://example.invalid/substituted' })),
     }
-    await expect(renderCarouselRasterAssets({ manifest: tampered, outputDir: dir })).rejects.toThrow(/provenance mismatch/)
+    await expect(renderCarouselRasterAssets({ manifest: tampered, outputDir: dir })).rejects.toThrow(/provenance.*(?:mismatch|match the source manifest)/)
   })
 })
 
