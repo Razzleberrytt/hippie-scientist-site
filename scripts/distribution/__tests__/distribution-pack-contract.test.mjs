@@ -30,6 +30,12 @@ const canonicalHumanObject = {
   doseContext: 'Study-specific extract and dose context only; not a consumer dosing instruction.',
   populationContext: 'Adults enrolled in the cited human studies.',
   lastVerified: '2026-08-26',
+  // Publication provenance. Required of every canonical research object
+  // since the publication-integrity binding landed; the authority URL is
+  // the publisher record for this fixture's primary source.
+  publicationStatus: 'published',
+  publicationStatusCheckedAt: '2026-08-29',
+  publicationStatusAuthorityUrl: 'https://pubmed.ncbi.nlm.nih.gov/31517876/',
 }
 
 function evidenceContextFor(object) {
@@ -70,6 +76,11 @@ function packForResearchObject(object) {
       findingClaimId: object.findingClaimId,
       primarySourceId: object.primarySourceId,
       primarySourceUrl: object.primarySourceUrl,
+      // Mirrored from the canonical object: the pack may not assert a different
+      // publication state than the research object it projects.
+      publicationStatus: object.publicationStatus,
+      publicationStatusCheckedAt: object.publicationStatusCheckedAt,
+      publicationStatusAuthorityUrl: object.publicationStatusAuthorityUrl,
     },
     audience: 'General educational audience',
     angle: 'What the evidence actually says',
