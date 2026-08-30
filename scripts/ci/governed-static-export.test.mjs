@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
+import zlib from 'node:zlib'
 import { afterEach, describe, expect, it } from 'vitest'
 import { createManifest, verifyManifest } from './governed-static-export.mjs'
 
@@ -16,9 +17,49 @@ function fixture() {
   fs.writeFileSync(path.join(exportDir, 'index.html'), '<html>home</html>')
   fs.writeFileSync(path.join(exportDir, 'nested', 'page.html'), '<html>page</html>')
   fs.writeFileSync(path.join(exportDir, 'asset.js'), 'console.log("ok")')
+
+  const verificationStateDir = path.join(root, 'public', 'data')
+  fs.mkdirSync(path.join(verificationStateDir, 'nested'), { recursive: true })
+  fs.writeFileSync(path.join(verificationStateDir, 'herbs.json'), '{"generated":"producer"}\n')
+  fs.writeFileSync(path.join(verificationStateDir, 'nested', 'routes.json'), '{"routes":["/"]}\n')
+  // These real-world filename shapes deliberately sort differently under
+  // localeCompare versus JavaScript's canonical code-unit ordering.
+  fs.writeFileSync(path.join(verificationStateDir, 'entity-slug-aliases.json'), '{}\n')
+  fs.writeFileSync(path.join(verificationStateDir, 'entity_risk_tags.json'), '{}\n')
+
+  const buildManifestPath = path.join(root, '.next', 'build-manifest.json')
+  fs.mkdirSync(path.dirname(buildManifestPath), { recursive: true })
+  fs.writeFileSync(buildManifestPath, '{"rootMainFiles":["static/chunks/main.js"]}\n')
+
   const lockfilePath = path.join(root, 'package-lock.json')
   fs.writeFileSync(lockfilePath, '{"lockfileVersion":3}\n')
-  return { root, exportDir, lockfilePath }
+  return { root, exportDir, verificationStateDir, buildManifestPath, lockfilePath }
+}
+
+function createFixtureManifest({ exportDir, verificationStateDir, buildManifestPath, lockfilePath, runId = null }) {
+  return createManifest({
+    sourceSha: SOURCE_SHA,
+    baseSha: BASE_SHA,
+    exportDir,
+    verificationStateDir,
+    buildManifestPath,
+    lockfilePath,
+    runId,
+  })
+}
+
+function verifyFixtureManifest({ manifest, exportDir, verificationStateDir, buildManifestPath, lockfilePath, expectedSourceSha = SOURCE_SHA, restoreVerificationState = false, restoreBuildState = false }) {
+  return verifyManifest({
+    manifest,
+    expectedSourceSha,
+    expectedBaseSha: BASE_SHA,
+    exportDir,
+    verificationStateDir,
+    buildManifestPath,
+    lockfilePath,
+    restoreVerificationState,
+    restoreBuildState,
+  })
 }
 
 afterEach(() => {
@@ -26,42 +67,85 @@ afterEach(() => {
 })
 
 describe('governed static export receipt', () => {
-  it('replays successfully for the exact source/base/output/lockfile identity', () => {
-    const { exportDir, lockfilePath } = fixture()
-    const manifest = createManifest({ sourceSha: SOURCE_SHA, baseSha: BASE_SHA, exportDir, lockfilePath, runId: '123' })
+  it('replays successfully for the exact source/base/output/lockfile/generated-state identity', () => {
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest({ ...fixtureState, runId: '123' })
 
-    expect(verifyManifest({ manifest, expectedSourceSha: SOURCE_SHA, expectedBaseSha: BASE_SHA, exportDir, lockfilePath })).toMatchObject({
+    expect(verifyFixtureManifest({ manifest, ...fixtureState })).toMatchObject({
       fileCount: 3,
       htmlFileCount: 2,
+      verificationStateFileCount: 4,
+      verificationStateHash: manifest.verificationState.stateHash,
+      buildManifestHash: manifest.buildState.contentHash,
+      buildManifestByteLength: manifest.buildState.byteLength,
     })
   })
 
-  it('fails closed when a consumer asks for a different source head', () => {
-    const { exportDir, lockfilePath } = fixture()
-    const manifest = createManifest({ sourceSha: SOURCE_SHA, baseSha: BASE_SHA, exportDir, lockfilePath })
+  it('restores the producer verification snapshot before downstream output audits', () => {
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest(fixtureState)
+    fs.writeFileSync(path.join(fixtureState.verificationStateDir, 'herbs.json'), '{"generated":"stale-checkout"}\n')
+    fs.writeFileSync(path.join(fixtureState.verificationStateDir, 'checkout-only.json'), '{}\n')
 
-    expect(() => verifyManifest({
+    verifyFixtureManifest({ manifest, ...fixtureState, restoreVerificationState: true })
+
+    expect(fs.readFileSync(path.join(fixtureState.verificationStateDir, 'herbs.json'), 'utf8')).toBe('{"generated":"producer"}\n')
+    expect(fs.existsSync(path.join(fixtureState.verificationStateDir, 'checkout-only.json'))).toBe(false)
+    expect(fs.readFileSync(path.join(fixtureState.verificationStateDir, 'nested', 'routes.json'), 'utf8')).toBe('{"routes":["/"]}\n')
+  })
+
+  it('restores the exact producer build manifest required by output validators', () => {
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest(fixtureState)
+    fs.writeFileSync(fixtureState.buildManifestPath, '{"rootMainFiles":["stale-checkout.js"]}\n')
+
+    verifyFixtureManifest({ manifest, ...fixtureState, restoreBuildState: true })
+
+    expect(fs.readFileSync(fixtureState.buildManifestPath, 'utf8')).toBe('{"rootMainFiles":["static/chunks/main.js"]}\n')
+  })
+
+  it('fails closed when a consumer asks for a different source head', () => {
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest(fixtureState)
+
+    expect(() => verifyFixtureManifest({
       manifest,
+      ...fixtureState,
       expectedSourceSha: '3333333333333333333333333333333333333333',
-      expectedBaseSha: BASE_SHA,
-      exportDir,
-      lockfilePath,
     })).toThrow(/source SHA mismatch/)
   })
 
   it('fails closed when output changes after the receipt is created', () => {
-    const { exportDir, lockfilePath } = fixture()
-    const manifest = createManifest({ sourceSha: SOURCE_SHA, baseSha: BASE_SHA, exportDir, lockfilePath })
-    fs.writeFileSync(path.join(exportDir, 'index.html'), '<html>tampered</html>')
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest(fixtureState)
+    fs.writeFileSync(path.join(fixtureState.exportDir, 'index.html'), '<html>tampered</html>')
 
-    expect(() => verifyManifest({ manifest, expectedSourceSha: SOURCE_SHA, expectedBaseSha: BASE_SHA, exportDir, lockfilePath })).toThrow(/content mismatch/)
+    expect(() => verifyFixtureManifest({ manifest, ...fixtureState })).toThrow(/content mismatch/)
+  })
+
+  it('fails closed when the generated verification-state payload is tampered', () => {
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest(fixtureState)
+    const decoded = JSON.parse(zlib.gunzipSync(Buffer.from(manifest.verificationState.payload, 'base64')).toString('utf8'))
+    decoded.files[0].content = Buffer.from('tampered verification state').toString('base64')
+    manifest.verificationState.payload = zlib.gzipSync(Buffer.from(JSON.stringify(decoded)), { level: 9 }).toString('base64')
+
+    expect(() => verifyFixtureManifest({ manifest, ...fixtureState })).toThrow(/verification state/)
+  })
+
+  it('fails closed when the producer build-manifest payload is tampered', () => {
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest(fixtureState)
+    manifest.buildState.payload = Buffer.from('{"rootMainFiles":["tampered.js"]}\n').toString('base64')
+
+    expect(() => verifyFixtureManifest({ manifest, ...fixtureState })).toThrow(/build state mismatch/)
   })
 
   it('fails closed when the dependency lockfile changes', () => {
-    const { exportDir, lockfilePath } = fixture()
-    const manifest = createManifest({ sourceSha: SOURCE_SHA, baseSha: BASE_SHA, exportDir, lockfilePath })
-    fs.writeFileSync(lockfilePath, '{"lockfileVersion":2}\n')
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest(fixtureState)
+    fs.writeFileSync(fixtureState.lockfilePath, '{"lockfileVersion":2}\n')
 
-    expect(() => verifyManifest({ manifest, expectedSourceSha: SOURCE_SHA, expectedBaseSha: BASE_SHA, exportDir, lockfilePath })).toThrow(/lockfile hash mismatch/)
+    expect(() => verifyFixtureManifest({ manifest, ...fixtureState })).toThrow(/lockfile hash mismatch/)
   })
 })
