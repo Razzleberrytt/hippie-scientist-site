@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import Ajv2020 from 'ajv/dist/2020.js'
+import { validateDistributionPublicationIntegrity } from './distribution-publication-integrity.mjs'
 
 const SITE_ORIGIN = 'https://thehippiescientist.net'
 const DOSE_UNIT = '(?:mcg|mg|g|ml|iu|units?)'
@@ -261,6 +262,10 @@ export function validateDistributionPack(pack, options = {}) {
   if (!researchObject) {
     addError(errors, '$.researchObjectIds[0]', `does not resolve to canonical research object ${researchObjectId}`)
     return errors
+  }
+
+  for (const message of validateDistributionPublicationIntegrity(pack, researchObject, { now: options.now ?? new Date() })) {
+    addError(errors, '$.source.publicationStatus', message)
   }
 
   const canonicalSourceUrl = canonicalSitePageUrl(researchObject.sourceUrl)

@@ -12,6 +12,9 @@ const researchObject = {
   findingClaimId: 'clm_abcdef123456',
   primarySourceId: 'src_abcdef123456',
   primarySourceUrl: 'https://example.org/study/fixture-grade-binding',
+  publicationStatus: 'published',
+  publicationStatusCheckedAt: '2026-08-29',
+  publicationStatusAuthorityUrl: 'https://example.org/study/fixture-grade-binding/status',
 }
 
 function pack(grade = researchObject.evidenceGrade) {
@@ -27,6 +30,9 @@ function pack(grade = researchObject.evidenceGrade) {
       findingClaimId: researchObject.findingClaimId,
       primarySourceId: researchObject.primarySourceId,
       primarySourceUrl: researchObject.primarySourceUrl,
+      publicationStatus: researchObject.publicationStatus,
+      publicationStatusCheckedAt: researchObject.publicationStatusCheckedAt,
+      publicationStatusAuthorityUrl: researchObject.publicationStatusAuthorityUrl,
     },
     audience: 'General educational audience',
     angle: 'What the evidence actually says',
