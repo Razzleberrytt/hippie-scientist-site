@@ -1,0 +1,48 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-bootstrap-alpha-asarone-20260829",
+  "createdAt": "2026-08-30T00:36:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-alpha-asarone-preclinical-classifier-20260829",
+      "authoringPackId": "ap_bp_wp_compound_alpha_asarone_src_pubmed_33236787",
+      "workpackId": "wp_compound_alpha_asarone",
+      "entityType": "compound",
+      "entitySlug": "alpha-asarone",
+      "sourceId": "src_pubmed-33236787",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "preclinical-mechanistic",
+      "findingTextShort": "A toxicological review confirms alpha-asarone efficacy and safety remain unestablished in humans and summarizes significant preclinical hazard signals; it cannot be labeled human observational evidence.",
+      "findingTextNormalized": "A 2021 toxicological evaluation of propenylic asarone isomers states that efficacy and safety in humans remain unknown and reviews preclinical cardiotoxicity, hepatotoxicity, reproductive toxicity, mutagenicity, and carcinogenicity signals. This evidence is preclinical/toxicological and must not be represented as human observational efficacy. The hazard uncertainty should tighten governance without inventing human incidence rates.",
+      "strengthLabel": "moderate",
+      "safetyContext": "Preclinical multi-system toxicity and genotoxic/carcinogenic signals require hazard-first review; human incidence is unknown.",
+      "uncertaintyNote": "Alpha-, beta-, and gamma-asarone isomer identity matters. Preclinical hazard does not quantify human risk, but cannot support a low-risk commercial-ready state either.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-alpha-asarone-poisoning-exposure-20260829",
+      "authoringPackId": "ap_bp_wp_compound_alpha_asarone_src_pubmed_20040135",
+      "workpackId": "wp_compound_alpha_asarone",
+      "entityType": "compound",
+      "entitySlug": "alpha-asarone",
+      "sourceId": "src_pubmed-20040135",
+      "topicType": "adverse_effect",
+      "claimType": "safety_risk",
+      "evidenceClass": "human-observational",
+      "findingTextShort": "Clinical intoxication reports detect asarone exposure after Acorus calamus product use, supporting a poisoning-context safety signal rather than therapeutic efficacy.",
+      "findingTextNormalized": "Clinical intoxication literature documents alpha/beta-asarone exposure after intentional Acorus calamus product use. This establishes human exposure in a poisoning context, not controlled isolated-alpha-asarone treatment efficacy and not a consumer dosing range. Whole-product exposure and isolated-isomer intervention remain distinct propositions.",
+      "strengthLabel": "limited",
+      "usageContext": "Acorus calamus product exposure in intoxication/poisoning context; not a therapeutic isolate trial.",
+      "safetyContext": "Human poisoning-context evidence supports caution but cannot quantify risk for a defined isolated dose.",
+      "uncertaintyNote": "Whole-product composition and alpha/beta-asarone contributions are not fully isolatable; preserve that causal uncertainty.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}

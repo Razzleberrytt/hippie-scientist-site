@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-bootstrap-rutin-20260829",
+  "createdAt": "2026-08-30T00:34:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-rutin-healthy-null-biomarkers-20260829",
+      "authoringPackId": "ap_bp_wp_compound_rutin_src_pubmed_11083486",
+      "workpackId": "wp_compound_rutin",
+      "entityType": "compound",
+      "entitySlug": "rutin",
+      "sourceId": "src_pubmed-11083486",
+      "topicType": "unsupported_or_unclear_use",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A six-week randomized study in healthy women increased plasma flavonoid exposure with 500 mg/day rutin but did not materially improve key oxidative-damage markers.",
+      "findingTextNormalized": "In 18 healthy women, a randomized single-blind placebo-controlled six-week trial of rutin 500 mg/day increased plasma flavonoid exposure but did not materially improve key oxidative-damage markers versus placebo. Short-term blood chemistry and liver-function measures did not show an adverse signal. This is a useful PK/biomarker null and not evidence of broad vascular or metabolic clinical benefit.",
+      "strengthLabel": "limited",
+      "populationContext": "18 healthy women.",
+      "usageContext": "Rutin 500 mg/day for six weeks.",
+      "uncertaintyNote": "Very small healthy-volunteer study; biomarker exposure and short-term tolerability do not establish disease prevention or long-term safety.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-rutin-t2d-surrogates-20260829",
+      "authoringPackId": "ap_bp_wp_compound_rutin_src_pubmed_36101997",
+      "workpackId": "wp_compound_rutin",
+      "entityType": "compound",
+      "entitySlug": "rutin",
+      "sourceId": "src_pubmed-36101997",
+      "topicType": "population_specific_note",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A three-month placebo-controlled trial in type 2 diabetes reported glycemic, lipid, inflammatory, and oxidative-marker changes with 500 mg/day rutin; these are disease-specific surrogate outcomes.",
+      "findingTextNormalized": "A double-blind placebo-controlled trial in 50 patients with type 2 diabetes tested rutin 500 mg/day for three months and reported changes in glycemic, lipid, inflammatory, and oxidative-stress markers. These are disease-specific surrogate outcomes and should not be converted into proof of cardiovascular-event reduction, diabetes remission, or general metabolic benefit in healthy users.",
+      "strengthLabel": "limited",
+      "populationContext": "50 patients with type 2 diabetes.",
+      "usageContext": "Rutin 500 mg/day for three months.",
+      "uncertaintyNote": "Small disease-specific trial with surrogate outcomes; defined rutin is not a generic standardized botanical extract.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
