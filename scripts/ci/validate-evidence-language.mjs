@@ -279,12 +279,60 @@ export function runAudit() {
   console.log(`[evidence-audit] Completed. Findings: ${findings.length} (Critical: ${criticalCount}, Warnings: ${warningCount})`)
   console.log(`[evidence-audit] Reports saved under public/data/reports/`)
 
+  reportPublishedSplit(findings)
+
   if (criticalCount > 0) {
     console.error(`[evidence-audit] FAIL: ${criticalCount} critical language/regulatory violations found. See reports.`)
     process.exit(1)
   }
 
+
   console.log('[evidence-audit] PASS: No critical language alignment issues.')
+}
+
+/**
+ * Split the warnings by whether the page they describe is actually reachable.
+ *
+ * "245 warnings, PASS" is a line everyone learns to skip, and skipping it is
+ * reasonable: most of these sit on profiles governance has already withheld,
+ * where overstated wording harms nobody because nobody can reach it. The few
+ * that sit on live, indexable pages are a different thing entirely, and they
+ * are invisible inside the total.
+ *
+ * The split needs out/, so it degrades to silence rather than guessing when the
+ * site has not been built. It reports; the exit code is still decided solely by
+ * critical findings, because a warning here is a prompt to read the sentence,
+ * not proof the sentence is wrong.
+ */
+function reportPublishedSplit(findings) {
+  const outDir = path.join(repoRoot, 'out')
+  if (!fs.existsSync(outDir)) return
+
+  const seen = new Map()
+  for (const finding of findings) {
+    if (!finding?.slug || !finding?.dataset) continue
+    const segment = finding.dataset === 'compounds' ? 'compounds' : 'herbs'
+    seen.set(`${segment}/${finding.slug}`, segment)
+  }
+
+  const live = []
+  let withheld = 0
+  let notBuilt = 0
+  for (const [key] of seen) {
+    const page = path.join(outDir, key, 'index.html')
+    if (!fs.existsSync(page)) {
+      notBuilt += 1
+      continue
+    }
+    if (/<meta name="robots" content="noindex/u.test(fs.readFileSync(page, 'utf8'))) withheld += 1
+    else live.push(key)
+  }
+
+  console.log(`[evidence-audit] ${seen.size} profiles flagged — ${withheld} withheld by governance, ${notBuilt} not built,`)
+  console.log(`[evidence-audit] ${live.length} live and indexable. Only the last group is reader-facing.`)
+  if (live.length) {
+    console.log(`[evidence-audit] live: ${live.slice(0, 12).join(', ')}${live.length > 12 ? `, +${live.length - 12} more` : ''}`)
+  }
 }
 
 // Execute conditionally if run as main module

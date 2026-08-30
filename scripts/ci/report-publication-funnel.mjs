@@ -66,13 +66,17 @@ const dataEligible = profiles.filter(
 /**
  * Profile routes in the manifest the deploy actually builds the sitemap from.
  *
- * This replaced publication-manifest.json as the governed stage once it became
- * clear nothing ships that file. scripts/build-deploy.mjs regenerates the whole
- * data pipeline from the workbook and never runs
- * build-publication-manifest-from-workbook.mjs, and no consumer exists under
- * app/, lib/, components/ or scripts/data/. Reporting it as a funnel stage
- * invited exactly one conclusion — that 96 publishable profiles were being
- * dropped — from an artifact that has no bearing on what gets indexed.
+ * This replaced publication-manifest.json as the governed stage, because that
+ * file has no bearing on what gets indexed: scripts/build-deploy.mjs rebuilds
+ * the whole data pipeline from the workbook and never runs
+ * build-publication-manifest-from-workbook.mjs, and nothing under app/, lib/ or
+ * components/ reads it.
+ *
+ * It is not unused, though — an earlier version of this comment said so on the
+ * strength of a grep that was both directory-filtered and truncated. Around 15
+ * reporting and verification scripts under scripts/ read it, which is why it is
+ * still reported below rather than ignored: it drifts silently and takes their
+ * output with it.
  */
 function routeManifestProfileCount() {
   const routes = readJson('public/data/runtime-manifests/route-manifest.json')
@@ -86,8 +90,9 @@ const governed = routeManifestProfileCount()
 
 /**
  * publication-manifest.json, kept in view as an artifact rather than a stage.
- * It is stale and unconsumed; saying so is more useful than either quoting it
- * or quietly dropping it, because its number is plausible enough to be trusted.
+ * No build step regenerates it while roughly 15 scripts read it, so it drifts
+ * and quietly degrades their output. Reporting it beats quoting it as a funnel
+ * stage or dropping it silently — its number is plausible enough to be trusted.
  */
 const orphanedManifestCount = manifest
   ? (manifest.entities?.herbs?.length ?? 0) + (manifest.entities?.compounds?.length ?? 0)
@@ -173,7 +178,10 @@ function manifestDriftDays() {
     newest = Math.max(newest, fs.statSync(file).mtimeMs)
   }
   if (!newest) return null
-  return Math.round((newest - generated) / 86400000)
+  // `|| 0` collapses -0, which Math.round produces once the manifest is newer
+  // than the data. JSON serialises -0 as 0, so leaving it makes the reported
+  // value and the parsed value differ under Object.is for no useful reason.
+  return Math.round((newest - generated) / 86400000) || 0
 }
 const staleDays = manifestDriftDays()
 
@@ -244,8 +252,9 @@ if (orphanedManifestCount != null) {
   console.log(
     `\n  publication-manifest.json reports ${orphanedManifestCount} profiles` +
       (detail.length ? ` and is ${detail.join(', ')}.` : '.') +
-      '\n  Nothing consumes it: build-deploy.mjs never regenerates it and no code reads it,' +
-      '\n  so that number describes nothing that ships. Do not plan from it.',
+      '\n  No build step regenerates it, yet ~15 reporting scripts read it, so it drifts' +
+      '\n  silently and takes their output with it. Refresh it with' +
+      '\n  node scripts/build-publication-manifest-from-workbook.mjs before trusting those.',
   )
 }
 
