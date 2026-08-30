@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import fs from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 /**
@@ -43,6 +44,36 @@ describe('publication funnel report', () => {
     for (let i = 1; i < counts.length; i += 1) {
       expect(counts[i]).toBeLessThanOrEqual(counts[i - 1])
     }
+  })
+
+  it('measures manifest staleness against the data, not against a sibling artifact', () => {
+    // The original guard compared manifest.generatedAt to _meta/build-info.json.
+    // The same pipeline step writes both, so they always move together: with the
+    // manifest 28 days behind herbs.json it reported a 28 *second* gap and never
+    // fired. Recomputing the expected drift here from the data file the manifest
+    // describes is what makes this a real check rather than a restatement.
+    const { manifestStaleDays } = runFunnel()
+    if (manifestStaleDays == null) return
+
+    const manifest = JSON.parse(fs.readFileSync('public/data/publication-manifest.json', 'utf8'))
+    const newest = ['public/data/herbs.json', 'public/data/compounds.json']
+      .filter((file) => fs.existsSync(file))
+      .reduce((max, file) => Math.max(max, fs.statSync(file).mtimeMs), 0)
+
+    const expected = Math.round((newest - Date.parse(manifest.generatedAt)) / 86400000)
+    expect(manifestStaleDays).toBe(expected)
+  })
+
+  it('reports whether the manifest still describes this corpus', () => {
+    // Clock-based staleness dies on a fresh clone, where every mtime is checkout
+    // time. Composition does not: a profile marked PUBLISH that the manifest has
+    // never heard of means the two describe different corpora regardless of dates.
+    const { manifestCoverage } = runFunnel()
+    expect(manifestCoverage).not.toBeNull()
+    expect(Number.isInteger(manifestCoverage.namedButGone)).toBe(true)
+    expect(Number.isInteger(manifestCoverage.publishableButUnknown)).toBe(true)
+    expect(manifestCoverage.namedButGone).toBeGreaterThanOrEqual(0)
+    expect(manifestCoverage.publishableButUnknown).toBeGreaterThanOrEqual(0)
   })
 
   it('survives an unbuilt out/ instead of failing', () => {
