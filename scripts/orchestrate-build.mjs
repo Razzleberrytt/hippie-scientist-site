@@ -82,7 +82,7 @@ const steps = [
   },
   {
     name: 'build-internal-link-engine',
-    cmd: 'node scripts/data/build-internal-link-engine.mjs --data-dir=public/data',
+    cmd: 'node node_modules/tsx/dist/cli.mjs scripts/data/build-internal-link-engine.mjs --data-dir=public/data',
     description: 'Generate semantic internal link maps, topic clusters, and link audit docs',
   },
   {
