@@ -1,0 +1,47 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-calendula-20260830",
+  "createdAt": "2026-08-30T00:13:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-calendula-echinacea-misattribution-20260830",
+      "authoringPackId": "ap_bp_wp_herb_calendula_src_pubmed_30000869",
+      "workpackId": "wp_herb_calendula",
+      "entityType": "herb",
+      "entitySlug": "calendula",
+      "sourceId": "src_pubmed-30000869",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "human-observational",
+      "findingTextShort": "PMID 30000869 is an Echinacea LactMed chapter and cannot serve as general Calendula evidence merely because Calendula appears incidentally in a combination product.",
+      "findingTextNormalized": "PMID 30000869 is the NCBI LactMed chapter for Echinacea species. Calendula is mentioned only incidentally in a topical combination product, Calendit-E, and that background mention does not make the Echinacea monograph evidence for Calendula officinalis generally. The source should be semantically quarantined from generic Calendula evidence during governed implementation; any combination trial of interest requires its own primary source and a combination-only role.",
+      "strengthLabel": "strong",
+      "usageContext": "Source-integrity defect; Echinacea monograph with an incidental Calendula-containing combination mention.",
+      "uncertaintyNote": "The entity mismatch is direct. Do not reassign the monograph as Calendula evidence based on incidental text overlap.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-calendula-wound-review-20260830",
+      "authoringPackId": "ap_bp_wp_herb_calendula_src_pubmed_31145533",
+      "workpackId": "wp_herb_calendula",
+      "entityType": "herb",
+      "entitySlug": "calendula",
+      "sourceId": "src_pubmed-31145533",
+      "topicType": "supported_use",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A systematic review evaluates Calendula officinalis extract for wound healing and is a valid botanical-specific evidence anchor.",
+      "findingTextNormalized": "PMID 31145533 / DOI 10.1111/wrr.12737 is a systematic review of Calendula officinalis extract for wound healing and provides a valid species-specific clinical evidence anchor. Findings should remain limited to the studied topical/wound-healing context and preparations rather than being generalized to oral Calendula, unrelated dermatologic uses, or the Calendit-E combination product.",
+      "strengthLabel": "limited",
+      "usageContext": "Calendula officinalis extract in wound-healing clinical literature; preparation and topical-use context are material.",
+      "uncertaintyNote": "Valid entity match does not imply evidence for every Calendula route or indication.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}

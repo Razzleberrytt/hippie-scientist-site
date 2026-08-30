@@ -1,0 +1,47 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-chamomile-20260830",
+  "createdAt": "2026-08-30T00:11:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-chamomile-sleep-meta-20260830",
+      "authoringPackId": "ap_bp_wp_herb_matricaria_chamomilla_src_pubmed_39106912",
+      "workpackId": "wp_herb_matricaria_chamomilla",
+      "entityType": "herb",
+      "entitySlug": "matricaria-chamomilla",
+      "sourceId": "src_pubmed-39106912",
+      "topicType": "supported_use",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2024 clinical-trial meta-analysis found favorable signals for some subjective sleep measures, especially awakenings/staying asleep, but not all sleep domains.",
+      "findingTextNormalized": "A 2024 systematic review and meta-analysis of chamomile clinical trials reported favorable effects for selected subjective sleep outcomes, particularly nocturnal awakenings and maintaining sleep, while other sleep domains were not consistently improved. Objective sleep data were limited. This evidence supports outcome-specific rather than universal sleep-benefit language and should be normalized to PMID 39106912 / DOI 10.1016/j.ctim.2024.103071 rather than a secondary Consensus URL.",
+      "strengthLabel": "limited",
+      "usageContext": "Chamomile interventions across clinical sleep trials; preparations and populations varied.",
+      "uncertaintyNote": "Subjective improvements do not establish broad objective sleep efficacy. Preparation heterogeneity and limited objective data remain material.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-chamomile-anxiety-counterweight-20260830",
+      "authoringPackId": "ap_bp_wp_herb_matricaria_chamomilla_src_pubmed_31006899",
+      "workpackId": "wp_herb_matricaria_chamomilla",
+      "entityType": "herb",
+      "entitySlug": "matricaria-chamomilla",
+      "sourceId": "src_pubmed-31006899",
+      "topicType": "conflict_note",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A meta-analysis did not find an overall anxiety benefit across all included populations, despite more favorable findings in selected GAD/timepoint analyses.",
+      "findingTextNormalized": "A meta-analysis of chamomile clinical studies did not establish a significant overall anxiety effect across all included populations. Selected generalized-anxiety-disorder and timepoint analyses were more favorable, while insomnia evidence remained limited. The overall null/mixed result must remain visible alongside favorable subgroup findings so condition-specific signals are not converted into a general anxiolytic claim.",
+      "strengthLabel": "limited",
+      "usageContext": "Mixed chamomile preparations and anxiety/sleep populations represented in review-level evidence.",
+      "uncertaintyNote": "Subgroup findings and selected timepoints cannot override the pooled mixed/null result. Preserve condition and preparation boundaries.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}

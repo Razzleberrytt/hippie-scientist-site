@@ -1,0 +1,48 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-fadogia-20260830",
+  "createdAt": "2026-08-30T00:18:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-fadogia-rat-not-human-20260830",
+      "authoringPackId": "ap_bp_wp_herb_fadogia_agrestis_src_pubmed_16281088",
+      "workpackId": "wp_herb_fadogia_agrestis",
+      "entityType": "herb",
+      "entitySlug": "fadogia-agrestis",
+      "sourceId": "src_pubmed-16281088",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "preclinical-mechanistic",
+      "findingTextShort": "PMID 16281088 is rat aphrodisiac/testosterone research and must not be classified as human observational evidence.",
+      "findingTextNormalized": "The canonical Fadogia agrestis claim uses PMID 16281088 / DOI 10.1111/j.1745-7262.2005.00052.x while labeling the evidence as human observational, even though the study is an animal/rat experiment and the claim text itself says 'Animal testosterone data only.' This is a study-population classification defect. The paper may support preclinical context but contributes zero human efficacy evidence.",
+      "strengthLabel": "strong",
+      "populationContext": "Rat/animal study; no human participants.",
+      "usageContext": "Preclinical Fadogia agrestis exposure; not a human supplementation trial.",
+      "uncertaintyNote": "Human efficacy remains unestablished. Do not infer testosterone or sexual-function benefit in people from the animal study.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-fadogia-no-human-efficacy-20260830",
+      "authoringPackId": "ap_bp_wp_herb_fadogia_agrestis_src_research_gap_human_trials",
+      "workpackId": "wp_herb_fadogia_agrestis",
+      "entityType": "herb",
+      "entitySlug": "fadogia-agrestis",
+      "sourceId": "src_research-gap-fadogia-human-trials",
+      "topicType": "research_gap",
+      "claimType": "research_gap",
+      "evidenceClass": "preclinical-mechanistic",
+      "findingTextShort": "The verified queue found no reliable human testosterone or efficacy evidence for Fadogia agrestis; the profile should remain research-only.",
+      "findingTextNormalized": "Current verified research supports retaining 'no reliable human efficacy data' as a first-class state for Fadogia agrestis. The existing animal study must not inflate human-study count, evidence tier, recommendation eligibility or indexability. A future direct human trial would require new source identity and revalidation rather than reinterpretation of the rat evidence.",
+      "strengthLabel": "limited",
+      "usageContext": "Researched absence of reliable direct human efficacy evidence within the current queue scope.",
+      "uncertaintyNote": "Absence of located reliable human evidence is not proof that no human study can ever exist; it is the current governed research state and should have a revalidation horizon.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-ornithine-20260830",
+  "createdAt": "2026-08-30T00:22:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-ornithine-worker-rct-20260830",
+      "authoringPackId": "ap_bp_wp_compound_ornithine_src_pubmed_24889392",
+      "workpackId": "wp_compound_ornithine",
+      "entityType": "compound",
+      "entitySlug": "ornithine",
+      "sourceId": "src_pubmed-24889392",
+      "topicType": "supported_use",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "An 8-week randomized double-blind placebo-controlled trial in 52 mildly stressed/fatigued healthy adults reported selected stress, mood and sleep-quality signals with 400 mg/day L-ornithine.",
+      "findingTextNormalized": "A randomized double-blind placebo-controlled trial enrolled 52 mildly stressed or fatigued healthy Japanese adults and evaluated 400 mg/day L-ornithine for eight weeks. The study reported selected changes in cortisol/cortisol-to-DHEA-S, mood and sleep-quality measures. This small healthy-worker trial is a useful direct human anchor but does not independently justify the profile's current generic Grade B language or establish treatment efficacy for clinical anxiety or insomnia. Kirin-related industry affiliation/provenance must remain visible.",
+      "strengthLabel": "limited",
+      "populationContext": "Fifty-two mildly stressed/fatigued healthy Japanese adults, largely workers, in a randomized double-blind placebo-controlled trial.",
+      "usageContext": "L-ornithine 400 mg/day for eight weeks.",
+      "uncertaintyNote": "Small sample, healthy-worker population and industry provenance limit generalization. Recompute grade only from governed claims rather than preserving the current unsupported Grade B string.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-ornithine-tsst-mixed-20260830",
+      "authoringPackId": "ap_bp_wp_compound_ornithine_src_pubmed_39768508",
+      "workpackId": "wp_compound_ornithine",
+      "entityType": "compound",
+      "entitySlug": "ornithine",
+      "sourceId": "src_pubmed-39768508",
+      "topicType": "conflict_note",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A newer randomized trial found no saliva-cortisol improvement with 1,600 mg/day L-ornithine around an acute stress test, despite selected next-morning fatigue and anger-hostility improvements.",
+      "findingTextNormalized": "A randomized double-blind placebo-controlled parallel trial in 65 healthy participants evaluated 1,600 mg/day L-ornithine for seven days plus acute dosing before the Trier Social Stress Test. Salivary cortisol was not improved, while selected next-morning fatigue-inertia and anger-hostility scores favored ornithine. The null cortisol result must remain first-class alongside the subjective signals. This acute-stress healthy-participant design does not establish treatment of anxiety or insomnia, and substantial Kirin industry affiliation/provenance must remain attached.",
+      "strengthLabel": "limited",
+      "populationContext": "Sixty-five healthy participants in a randomized double-blind placebo-controlled acute social-stress experiment.",
+      "usageContext": "L-ornithine 1,600 mg/day for seven days plus acute pre-stress-test dosing.",
+      "uncertaintyNote": "Objective stress-hormone outcome was null while selected subjective next-morning outcomes improved; do not collapse this into a generic stress-reduction claim.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
