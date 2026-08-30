@@ -1,0 +1,29 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "H",
+  "shard": 7,
+  "batchId": "session-h-20260830-4",
+  "createdAt": "2026-08-30T12:55:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_h-nigella-endothelial-marker-synthesis-conflict",
+      "authoringPackId": "ap_bp_wp_herb_nigella_sativa_src_pubmed_38915995",
+      "workpackId": "wp_herb_nigella_sativa",
+      "entityType": "herb",
+      "entitySlug": "nigella-sativa",
+      "sourceId": "src_pubmed-38915995",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2024 endothelial-function meta-analysis found no significant ICAM or VCAM effect, conflicting with broader favorable pooled marker signals.",
+      "findingTextNormalized": "A 2024 systematic review and meta-analysis of three randomized controlled trials involving 146 patients found no significant effect of Nigella sativa supplementation on ICAM or VCAM and reported severe heterogeneity; this narrower endothelial-function synthesis conflicts with favorable pooled endothelial-marker signals reported in a broader 2025 cardiometabolic synthesis, so downstream grading must resolve trial inclusion, population, preparation, and outcome-handling differences rather than selecting only the favorable result.",
+      "strengthLabel": "limited",
+      "populationContext": "One hundred forty-six patients across three randomized controlled trials",
+      "usageContext": "Nigella sativa supplementation evaluated for endothelial-function markers ICAM and VCAM",
+      "uncertaintyNote": "The synthesis is small and severely heterogeneous, but its null result is a required counterweight to broader pooled positive endothelial-marker claims.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
