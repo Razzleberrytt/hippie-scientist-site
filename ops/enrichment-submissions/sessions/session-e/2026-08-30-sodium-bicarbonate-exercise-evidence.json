@@ -1,0 +1,50 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-sodium-bicarbonate-20260830",
+  "createdAt": "2026-08-30T13:12:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-sodium-bicarbonate-exercise-position-20260830",
+      "authoringPackId": "ap_bp_wp_compound_sodium_bicarbonate_src_005702379a61",
+      "workpackId": "wp_compound_sodium_bicarbonate",
+      "entityType": "compound",
+      "entitySlug": "sodium-bicarbonate",
+      "sourceId": "src_005702379a61",
+      "topicType": "supported_use",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "The ISSN position stand supports sodium bicarbonate—not bicarbonate generically—for several high-intensity exercise tasks, with performance effects depending on task and dosing context.",
+      "findingTextNormalized": "The 2021 International Society of Sports Nutrition position stand synthesizes human sodium-bicarbonate supplementation evidence and concludes that sodium bicarbonate can improve performance in muscular-endurance and high-intensity exercise contexts, especially tasks lasting roughly 30 seconds to 12 minutes. The intervention identity is sodium bicarbonate (NaHCO3); the evidence must not be inherited by a generic bicarbonate-ion profile or unrelated bicarbonate salts. The position stand discusses single-dose protocols in the 0.2 to 0.5 g/kg range, with approximately 0.3 g/kg commonly identified as an effective target, but this research receipt is not a consumer dosing recommendation and does not establish benefit for every sport, task, population, or dosing schedule.",
+      "strengthLabel": "moderate",
+      "populationContext": "Human exercise-performance literature synthesized in an ISSN position stand, including men and women across multiple high-intensity exercise modalities.",
+      "usageContext": "Oral sodium bicarbonate supplementation for high-intensity exercise performance; not generic bicarbonate ion, unrelated bicarbonate salts, or clinical alkalinization therapy.",
+      "uncertaintyNote": "A position stand synthesizes heterogeneous studies rather than representing one uniform randomized protocol. Effects vary by exercise task, dose, timing, individual response, and adverse-effect burden.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-sodium-bicarbonate-gi-tolerability-20260830",
+      "authoringPackId": "ap_bp_wp_compound_sodium_bicarbonate_src_005702379a61",
+      "workpackId": "wp_compound_sodium_bicarbonate",
+      "entityType": "compound",
+      "entitySlug": "sodium-bicarbonate",
+      "sourceId": "src_005702379a61",
+      "topicType": "adverse_effect",
+      "claimType": "safety_risk",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Sodium-bicarbonate exercise protocols commonly produce gastrointestinal adverse effects, and higher single doses can increase their incidence or severity.",
+      "findingTextNormalized": "The ISSN position stand identifies bloating, nausea, vomiting and abdominal pain as common adverse effects of sodium-bicarbonate supplementation and notes meaningful between-person variability. Higher single doses such as 0.4 to 0.5 g/kg may add adverse-effect burden without clear additional performance benefit versus approximately 0.3 g/kg in many protocols. This supports dose-sensitive gastrointestinal-tolerability framing for sodium bicarbonate; it does not quantify risk for every individual or establish comprehensive safety for chronic use, kidney disease, cardiovascular disease, pregnancy, medication interactions or non-exercise indications.",
+      "strengthLabel": "moderate",
+      "populationContext": "Participants in human exercise-performance studies of sodium bicarbonate summarized by the ISSN position stand.",
+      "usageContext": "Exercise-oriented oral sodium-bicarbonate supplementation across varied protocols.",
+      "safetyContext": "Gastrointestinal effects are common enough to materially affect tolerability and sometimes exercise performance; dose and timing are important modifiers.",
+      "uncertaintyNote": "The position stand does not establish a universal side-effect incidence or a comprehensive medical contraindication profile across all populations and use cases.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
