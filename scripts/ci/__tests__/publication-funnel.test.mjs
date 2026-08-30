@@ -60,7 +60,7 @@ describe('publication funnel report', () => {
       .filter((file) => fs.existsSync(file))
       .reduce((max, file) => Math.max(max, fs.statSync(file).mtimeMs), 0)
 
-    const expected = Math.round((newest - Date.parse(manifest.generatedAt)) / 86400000)
+    const expected = Math.round((newest - Date.parse(manifest.generatedAt)) / 86400000) || 0
     expect(manifestStaleDays).toBe(expected)
   })
 
