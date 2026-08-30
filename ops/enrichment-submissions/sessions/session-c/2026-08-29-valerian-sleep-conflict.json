@@ -47,7 +47,7 @@
       "active": true
     },
     {
-      "submissionId": "sub_session-c-valerian-mechanism-outcome-boundary-20260829",
+      "submissionId": "sub_session-c-valerian-public-sleep-language-boundary-20260829",
       "authoringPackId": "ap_bp_wp_herb_valeriana_officinalis_src_doi_10_1016_j_euroneuro_2024_01_008",
       "workpackId": "wp_herb_valeriana_officinalis",
       "entityType": "herb",
@@ -55,12 +55,12 @@
       "sourceId": "src_doi-10-1016-j-euroneuro-2024-01-008",
       "topicType": "conflict_note",
       "claimType": "evidence_conflict",
-      "evidenceClass": "preclinical-mechanistic",
-      "findingTextShort": "Valerenic-acid/GABA-A pharmacology cannot by itself establish improved sleep latency in people.",
-      "findingTextNormalized": "The live public summary links valerenic-acid modulation of GABA-A receptors directly to improved sleep latency. Receptor-level or constituent-level pharmacology can provide mechanistic plausibility, but it cannot establish a human clinical sleep outcome. Human outcome claims must instead be tied to proposition-equivalent trials and syntheses that preserve preparation, dose, population, endpoint, and conflicting evidence.",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "The live generic sleep-onset wording must remain bounded by heterogeneous umbrella evidence and product-specific positive trials.",
+      "findingTextNormalized": "The current public profile cautiously says Valerian may support sleep onset and nighttime relaxation with results varying by root preparation, while its claim map records a generic `mild sleep improvement` proposition with evidenceLevel `none`. That wording is materially better than a mechanism-to-outcome assertion but still needs governed receipt reconstruction: the 2024 umbrella review found no convincing insomnia efficacy across a weak heterogeneous evidence base, whereas a newer positive randomized trial applies to one standardized 200 mg extract and regimen. Generic sleep language therefore must preserve preparation identity, endpoint differences, and the higher-level mixed/null evidence rather than collapsing them into a uniform benefit.",
       "strengthLabel": "strong",
-      "usageContext": "Mechanism-to-outcome inference guard; no new clinical efficacy proposition is created by this record.",
-      "uncertaintyNote": "Mechanistic plausibility remains scientifically relevant but belongs in a mechanism layer, not as proof of clinical sleep efficacy. Final public-copy repair requires governed promotion rather than direct research-session mutation.",
+      "usageContext": "Current public-claim-to-evidence boundary; no direct public mutation is made by this research record.",
+      "uncertaintyNote": "The live summary has already become more cautious, so this finding targets the remaining receipt/directness gap rather than an obsolete GABA-A wording. Final public copy should be regenerated only through governed promotion.",
       "reviewStatus": "draft_submission",
       "editorialStatus": "draft",
       "active": true
