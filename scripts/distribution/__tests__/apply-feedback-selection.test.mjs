@@ -44,7 +44,7 @@ function selection(candidates) {
 describe('feedback-aware distribution selection', () => {
   it('lets sufficiently exposed qualified performance rerank an eligible topic/platform while requiring a fresh angle', () => {
     const leader = candidate({ id: 'leader', score: 100, angle: 'Leader angle' })
-    const challenger = candidate({ id: 'challenger', score: 94, angle: 'Fresh challenger angle' })
+    const challenger = candidate({ id: 'challenger', score: 95, angle: 'Fresh challenger angle' })
     const result = applyFeedbackToSelection(selection([leader, challenger]), [observation(challenger)], { now: NOW })
 
     expect(result.selected.id).toBe('challenger')
@@ -53,10 +53,11 @@ describe('feedback-aware distribution selection', () => {
     expect(learned.feedback.duplicateAngleCount).toBe(0)
     expect(learned.feedback.measured.rewardSampleSufficient).toBe(true)
     expect(learned.feedback.performanceReward).toBeGreaterThan(0)
+    expect(learned.feedback.saturationPenalty).toBeGreaterThan(0)
     expect(learned.feedbackAdjustedScore).toBeGreaterThan(leader.score)
   })
 
-  it('withholds positive reward from underpowered observations without manufacturing a penalty for a fresh angle', () => {
+  it('withholds positive reward from underpowered observations while preserving the normal saturation penalty', () => {
     const item = candidate()
     const result = applyFeedbackToSelection(selection([item]), [observation(item, { assetViews: 100, qualifiedVisits: 20 })], { now: NOW })
 
@@ -64,7 +65,8 @@ describe('feedback-aware distribution selection', () => {
     expect(result.selected.feedback.duplicateAngleCount).toBe(0)
     expect(result.selected.feedback.measured.rewardSampleSufficient).toBe(false)
     expect(result.selected.feedback.performanceReward).toBe(0)
-    expect(result.selected.feedbackAdjustedScore).toBe(item.score)
+    expect(result.selected.feedback.saturationPenalty).toBeGreaterThan(0)
+    expect(result.selected.feedbackAdjustedScore).toBeLessThan(item.score)
   })
 
   it('keeps exact-angle repetition penalized even when the prior asset performed strongly', () => {
