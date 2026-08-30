@@ -5,6 +5,9 @@ const DISPLAY_ASSET_TYPES = new Set(['infographic', 'carousel', 'overlay', ...CO
 const SAFETY_REQUIRED_ASSET_TYPES = new Set(['infographic', 'carousel', ...COMPLETE_ASSET_TYPES])
 
 const CONSUMER_DOSE_RE = /\b(?:take|use|consume|swallow|dose|start with|increase to)\b[^.!?\n]{0,48}\b\d+(?:\.\d+)?\s*(?:mg|mcg|g|ml|capsules?|tablets?|drops?|scoops?)\b/i
+const UNBOUND_DOSE_LABEL_RE = /\b\d+(?:\.\d+)?\s*(?:mg|mcg|g|ml|capsules?|tablets?|drops?|scoops?)\b/i
+const UNBOUND_ONSET_LABEL_RE = /(?:\b(?:works?|acts?|kicks?\s+in|takes?\s+effect|onset)\b[^.!?\n]{0,48}\b(?:within|in|after)?\s*\d+(?:\.\d+)?\s*(?:minutes?|mins?|hours?|hrs?|days?)\b|\b\d+(?:\.\d+)?\s*(?:minutes?|mins?|hours?|hrs?|days?)\b[^.!?\n]{0,24}\b(?:onset|effect)\b)/i
+const UNBOUND_EQUIVALENCE_LABEL_RE = /\b(?:equivalent\s+to|same\s+as|comparable\s+to|as\s+effective\s+as|works?\s+like)\b/i
 const BENEFIT_WORD = '(?:improv(?:e|es|ed|ing)|boost(?:s|ed|ing)?|reduc(?:e|es|ed|ing)|reliev(?:e|es|ed|ing)|prevent(?:s|ed|ing)?|treat(?:s|ed|ing)?|heal(?:s|ed|ing)?|help(?:s|ed|ing)?|work(?:s|ed|ing)?|benefit(?:s|ed|ing)?)'
 const LABEL_BENEFIT_WORD = '(?:improv(?:e|es|ed|ing)|boost(?:s|ed|ing)?|reduc(?:e|es|ed|ing)|reliev(?:e|es|ed|ing)|prevent(?:s|ed|ing)?|treat(?:s|ed|ing)?|heal(?:s|ed|ing)?|help(?:s|ed|ing)?|benefit(?:s|ed|ing)?)'
 const BENEFIT_OUTCOME = '(?:sleep|stress|anxiety|focus|pain|symptoms?|outcomes?|health|risk)'
@@ -62,7 +65,13 @@ export function validateFactualAssetCopy(packInput, asset) {
     } else if (role === 'cta') {
       if (text !== clean(pack.cta?.label)) errors.push(`line ${index + 1} CTA must equal the governed CTA label`)
     } else if (role === 'label') {
-      if (line.factual === true || UNBOUND_FACTUAL_LABEL_RE.test(text)) errors.push(`line ${index + 1} factual labels must be represented as governed claim, uncertainty, or safety lines`)
+      if (
+        line.factual === true
+        || UNBOUND_FACTUAL_LABEL_RE.test(text)
+        || UNBOUND_DOSE_LABEL_RE.test(text)
+        || UNBOUND_ONSET_LABEL_RE.test(text)
+        || UNBOUND_EQUIVALENCE_LABEL_RE.test(text)
+      ) errors.push(`line ${index + 1} factual labels must be represented as governed claim, uncertainty, or safety lines`)
     } else errors.push(`line ${index + 1} has unsupported role: ${role || '(empty)'}`)
   }
   if (CLAIM_CONTEXT_REQUIRED_ASSET_TYPES.has(assetType)) {
