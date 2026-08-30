@@ -5,7 +5,7 @@ const DEFAULT_TIMEZONE = 'America/New_York'
 const SUPPORTED_NETWORKS = new Set(['facebook', 'tiktok', 'youtube'])
 const CAROUSEL_NETWORKS = new Set(['facebook', 'tiktok'])
 const VERTICAL_VIDEO_NETWORKS = new Set(['facebook', 'tiktok', 'youtube'])
-const YOUTUBE_PRIVACY_VALUES = new Set(['public', 'private'])
+const YOUTUBE_PRIVACY_VALUES = new Set(['public', 'unlisted', 'private'])
 const OFFSET_AWARE_ISO_DATETIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,9})?)?(?:Z|[+-]\d{2}:\d{2})$/i
 
 function clean(value) {
@@ -155,7 +155,7 @@ export function buildMetricoolSchedulerRequest({
     if (!videoTitle) throw new Error('YouTube Metricool scheduling requires a title')
     const privacy = clean(youtubePrivacy).toLowerCase()
     if (!YOUTUBE_PRIVACY_VALUES.has(privacy)) {
-      throw new Error('YouTube Metricool scheduling requires explicit privacy: public or private')
+      throw new Error('YouTube Metricool scheduling requires explicit privacy: public, unlisted, or private')
     }
     const madeForKids = requireExplicitBoolean(youtubeMadeForKids, 'YouTube made-for-kids setting')
     const isAiGeneratedContent = requireExplicitBoolean(youtubeAiGeneratedContent, 'YouTube AI-content declaration')
