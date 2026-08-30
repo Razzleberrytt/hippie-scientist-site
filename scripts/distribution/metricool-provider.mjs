@@ -5,6 +5,7 @@ const DEFAULT_TIMEZONE = 'America/New_York'
 const SUPPORTED_NETWORKS = new Set(['facebook', 'tiktok', 'youtube'])
 const CAROUSEL_NETWORKS = new Set(['facebook', 'tiktok'])
 const VERTICAL_VIDEO_NETWORKS = new Set(['facebook', 'tiktok', 'youtube'])
+const YOUTUBE_PRIVACY_VALUES = new Set(['public', 'private'])
 const OFFSET_AWARE_ISO_DATETIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,9})?)?(?:Z|[+-]\d{2}:\d{2})$/i
 
 function clean(value) {
@@ -14,6 +15,11 @@ function clean(value) {
 function asArray(value) {
   if (Array.isArray(value)) return value
   return clean(value).split(',').map((item) => item.trim()).filter(Boolean)
+}
+
+function requireExplicitBoolean(value, label) {
+  if (typeof value !== 'boolean') throw new Error(`${label} must be explicitly true or false`)
+  return value
 }
 
 function formatLocalDateTime(date, timeZone) {
@@ -64,7 +70,9 @@ export function buildMetricoolSchedulerRequest({
   timezone = DEFAULT_TIMEZONE,
   title,
   autoPublish = true,
-  madeForKids = false,
+  youtubePrivacy,
+  youtubeMadeForKids,
+  youtubeAiGeneratedContent,
   now = new Date(),
   availableNetworks = [...SUPPORTED_NETWORKS],
 } = {}) {
@@ -145,13 +153,19 @@ export function buildMetricoolSchedulerRequest({
   if (selectedNetworks.includes('youtube')) {
     const videoTitle = clean(title)
     if (!videoTitle) throw new Error('YouTube Metricool scheduling requires a title')
+    const privacy = clean(youtubePrivacy).toLowerCase()
+    if (!YOUTUBE_PRIVACY_VALUES.has(privacy)) {
+      throw new Error('YouTube Metricool scheduling requires explicit privacy: public or private')
+    }
+    const madeForKids = requireExplicitBoolean(youtubeMadeForKids, 'YouTube made-for-kids setting')
+    const isAiGeneratedContent = requireExplicitBoolean(youtubeAiGeneratedContent, 'YouTube AI-content declaration')
     request.youtubeData = {
       title: videoTitle,
       type: 'short',
-      privacy: 'public',
+      privacy,
       tags: [],
-      madeForKids: Boolean(madeForKids),
-      isAiGeneratedContent: false,
+      madeForKids,
+      isAiGeneratedContent,
     }
   }
 
