@@ -27,31 +27,38 @@ function fixture() {
   fs.writeFileSync(path.join(verificationStateDir, 'entity-slug-aliases.json'), '{}\n')
   fs.writeFileSync(path.join(verificationStateDir, 'entity_risk_tags.json'), '{}\n')
 
+  const buildManifestPath = path.join(root, '.next', 'build-manifest.json')
+  fs.mkdirSync(path.dirname(buildManifestPath), { recursive: true })
+  fs.writeFileSync(buildManifestPath, '{"rootMainFiles":["static/chunks/main.js"]}\n')
+
   const lockfilePath = path.join(root, 'package-lock.json')
   fs.writeFileSync(lockfilePath, '{"lockfileVersion":3}\n')
-  return { root, exportDir, verificationStateDir, lockfilePath }
+  return { root, exportDir, verificationStateDir, buildManifestPath, lockfilePath }
 }
 
-function createFixtureManifest({ exportDir, verificationStateDir, lockfilePath, runId = null }) {
+function createFixtureManifest({ exportDir, verificationStateDir, buildManifestPath, lockfilePath, runId = null }) {
   return createManifest({
     sourceSha: SOURCE_SHA,
     baseSha: BASE_SHA,
     exportDir,
     verificationStateDir,
+    buildManifestPath,
     lockfilePath,
     runId,
   })
 }
 
-function verifyFixtureManifest({ manifest, exportDir, verificationStateDir, lockfilePath, expectedSourceSha = SOURCE_SHA, restoreVerificationState = false }) {
+function verifyFixtureManifest({ manifest, exportDir, verificationStateDir, buildManifestPath, lockfilePath, expectedSourceSha = SOURCE_SHA, restoreVerificationState = false, restoreBuildState = false }) {
   return verifyManifest({
     manifest,
     expectedSourceSha,
     expectedBaseSha: BASE_SHA,
     exportDir,
     verificationStateDir,
+    buildManifestPath,
     lockfilePath,
     restoreVerificationState,
+    restoreBuildState,
   })
 }
 
@@ -69,6 +76,8 @@ describe('governed static export receipt', () => {
       htmlFileCount: 2,
       verificationStateFileCount: 4,
       verificationStateHash: manifest.verificationState.stateHash,
+      buildManifestHash: manifest.buildState.contentHash,
+      buildManifestByteLength: manifest.buildState.byteLength,
     })
   })
 
@@ -83,6 +92,16 @@ describe('governed static export receipt', () => {
     expect(fs.readFileSync(path.join(fixtureState.verificationStateDir, 'herbs.json'), 'utf8')).toBe('{"generated":"producer"}\n')
     expect(fs.existsSync(path.join(fixtureState.verificationStateDir, 'checkout-only.json'))).toBe(false)
     expect(fs.readFileSync(path.join(fixtureState.verificationStateDir, 'nested', 'routes.json'), 'utf8')).toBe('{"routes":["/"]}\n')
+  })
+
+  it('restores the exact producer build manifest required by output validators', () => {
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest(fixtureState)
+    fs.writeFileSync(fixtureState.buildManifestPath, '{"rootMainFiles":["stale-checkout.js"]}\n')
+
+    verifyFixtureManifest({ manifest, ...fixtureState, restoreBuildState: true })
+
+    expect(fs.readFileSync(fixtureState.buildManifestPath, 'utf8')).toBe('{"rootMainFiles":["static/chunks/main.js"]}\n')
   })
 
   it('fails closed when a consumer asks for a different source head', () => {
@@ -112,6 +131,14 @@ describe('governed static export receipt', () => {
     manifest.verificationState.payload = zlib.gzipSync(Buffer.from(JSON.stringify(decoded)), { level: 9 }).toString('base64')
 
     expect(() => verifyFixtureManifest({ manifest, ...fixtureState })).toThrow(/verification state/)
+  })
+
+  it('fails closed when the producer build-manifest payload is tampered', () => {
+    const fixtureState = fixture()
+    const manifest = createFixtureManifest(fixtureState)
+    manifest.buildState.payload = Buffer.from('{"rootMainFiles":["tampered.js"]}\n').toString('base64')
+
+    expect(() => verifyFixtureManifest({ manifest, ...fixtureState })).toThrow(/build state mismatch/)
   })
 
   it('fails closed when the dependency lockfile changes', () => {
