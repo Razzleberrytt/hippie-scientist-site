@@ -23,7 +23,7 @@ on:
         default: ''
         type: string
       youtube_privacy:
-        description: 'Explicit YouTube privacy: public or private; required when youtube is requested'
+        description: 'Explicit YouTube privacy: public, unlisted, or private; required when youtube is requested'
         required: false
         default: ''
         type: string
