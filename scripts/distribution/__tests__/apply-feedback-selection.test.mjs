@@ -22,7 +22,7 @@ function observation(forCandidate, overrides = {}) {
   return {
     candidateId: forCandidate.id,
     platform: forCandidate.platform,
-    angleKey: angleKey(forCandidate),
+    angleKey: `${forCandidate.id}:${forCandidate.platform}:prior-winning-angle`,
     publishedAt: '2026-08-28T12:00:00.000Z',
     assetViews: 1000,
     qualifiedVisits: 60,
@@ -42,26 +42,39 @@ function selection(candidates) {
 }
 
 describe('feedback-aware distribution selection', () => {
-  it('lets sufficiently exposed qualified performance rerank eligible candidates', () => {
+  it('lets sufficiently exposed qualified performance rerank an eligible topic/platform while requiring a fresh angle', () => {
     const leader = candidate({ id: 'leader', score: 100, angle: 'Leader angle' })
-    const challenger = candidate({ id: 'challenger', score: 94, angle: 'Challenger angle' })
+    const challenger = candidate({ id: 'challenger', score: 94, angle: 'Fresh challenger angle' })
     const result = applyFeedbackToSelection(selection([leader, challenger]), [observation(challenger)], { now: NOW })
 
     expect(result.selected.id).toBe('challenger')
     const learned = result.candidates.find((entry) => entry.id === 'challenger')
+    expect(learned.feedback.angleKey).toBe(angleKey(challenger))
+    expect(learned.feedback.duplicateAngleCount).toBe(0)
     expect(learned.feedback.measured.rewardSampleSufficient).toBe(true)
     expect(learned.feedback.performanceReward).toBeGreaterThan(0)
     expect(learned.feedbackAdjustedScore).toBeGreaterThan(leader.score)
   })
 
-  it('withholds positive reward from underpowered observations', () => {
+  it('withholds positive reward from underpowered observations without manufacturing a penalty for a fresh angle', () => {
     const item = candidate()
     const result = applyFeedbackToSelection(selection([item]), [observation(item, { assetViews: 100, qualifiedVisits: 20 })], { now: NOW })
 
     expect(result.selected.id).toBe(item.id)
+    expect(result.selected.feedback.duplicateAngleCount).toBe(0)
     expect(result.selected.feedback.measured.rewardSampleSufficient).toBe(false)
     expect(result.selected.feedback.performanceReward).toBe(0)
     expect(result.selected.feedbackAdjustedScore).toBe(item.score)
+  })
+
+  it('keeps exact-angle repetition penalized even when the prior asset performed strongly', () => {
+    const item = candidate({ score: 100 })
+    const exactRepeat = observation(item, { angleKey: angleKey(item) })
+    const result = applyFeedbackToSelection(selection([item]), [exactRepeat], { now: NOW })
+
+    expect(result.selected.feedback.duplicateAngleCount).toBe(1)
+    expect(result.selected.feedback.duplicatePenalty).toBeGreaterThan(0)
+    expect(result.selected.feedbackAdjustedScore).toBeLessThan(item.score + result.selected.feedback.performanceReward)
   })
 
   it('cannot promote a scientifically ineligible candidate even with strong metrics', () => {
