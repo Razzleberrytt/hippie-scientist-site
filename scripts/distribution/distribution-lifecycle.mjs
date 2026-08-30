@@ -188,6 +188,54 @@ export function transitionDistributionLifecycle(record, nextState, {
   return next
 }
 
+export function promoteDryRunScheduleToLive(record, {
+  currentIdentity,
+  now = new Date().toISOString(),
+  provider,
+  externalId,
+  requestId = null,
+} = {}) {
+  assertLifecycleRecord(record)
+  const reconciled = reconcileDistributionLifecycleIdentity(record, currentIdentity, { now })
+  if (reconciled.state === 'invalid') return reconciled
+  if (reconciled.state !== 'scheduled') throw new Error(`live schedule promotion requires scheduled state, got ${reconciled.state}`)
+  if (reconciled.paused) throw new Error('distribution lifecycle is paused')
+
+  const providerId = clean(provider)
+  const providerExternalId = clean(externalId)
+  if (!providerId) throw new Error('live schedule promotion requires provider identity')
+  if (!providerExternalId) throw new Error('live schedule promotion requires confirmed provider externalId')
+
+  const existingLive = reconciled.receipts.find((item) => item.state === 'scheduled' && item.dryRun === false)
+  if (existingLive) {
+    if (existingLive.provider === providerId && existingLive.externalId === providerExternalId) return structuredClone(reconciled)
+    throw new Error('distribution lifecycle already has a different live scheduled receipt')
+  }
+
+  const dryRunReceipt = [...reconciled.receipts].reverse().find((item) => item.state === 'scheduled' && item.dryRun === true)
+  if (!reconciled.dryRun || !dryRunReceipt) {
+    throw new Error('live schedule promotion requires an existing dry-run scheduled receipt')
+  }
+
+  const next = structuredClone(reconciled)
+  next.updatedAt = now
+  next.dryRun = false
+  next.provider = providerId
+  next.paused = false
+  next.receipts.push({
+    state: 'scheduled',
+    idempotencyKey: record.identity.idempotencyKey,
+    provider: providerId,
+    externalId: providerExternalId,
+    requestId: clean(requestId) || null,
+    at: now,
+    dryRun: false,
+    identityFingerprint: record.identity.fingerprint,
+    promotedFromDryRunAt: dryRunReceipt.at,
+  })
+  return next
+}
+
 export function assertPublishableLifecycle(record, currentIdentity) {
   const reconciled = reconcileDistributionLifecycleIdentity(record, currentIdentity)
   if (reconciled.state === 'invalid') {

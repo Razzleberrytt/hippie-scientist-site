@@ -1,0 +1,180 @@
+name: Metricool Publication
+
+on:
+  workflow_dispatch:
+    inputs:
+      publication_at:
+        description: 'Future offset-aware ISO time, e.g. 2026-08-31T14:00:00-04:00'
+        required: true
+        type: string
+      networks:
+        description: 'Comma-separated networks for the governed asset (current carousel: facebook,tiktok)'
+        required: true
+        default: 'facebook,tiktok'
+        type: string
+      auto_publish:
+        description: 'Allow Metricool to auto-publish at the scheduled time'
+        required: true
+        default: true
+        type: boolean
+
+concurrency:
+  group: metricool-publication
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    steps:
+      - name: Checkout exact dispatch SHA
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --fund=false
+
+      - name: Validate Metricool provider boundary
+        run: npx vitest run scripts/distribution/__tests__/metricool-provider.test.mjs scripts/distribution/__tests__/distribution-lifecycle.test.mjs
+
+      - name: Regenerate current governed pilot
+        run: |
+          node scripts/distribution/build-research-distribution.mjs
+          node scripts/distribution/build-opportunity-selection.mjs
+          node scripts/distribution/build-bounded-pilot.mjs
+
+      - name: Require Metricool server credential
+        env:
+          METRICOOL_USER_TOKEN: ${{ secrets.METRICOOL_USER_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${METRICOOL_USER_TOKEN:-}" ]; then
+            echo 'Missing production secret METRICOOL_USER_TOKEN. Refusing live scheduling.'
+            exit 1
+          fi
+
+      - name: Validate requested publication boundary
+        env:
+          METRICOOL_PUBLICATION_AT: ${{ inputs.publication_at }}
+          METRICOOL_NETWORKS: ${{ inputs.networks }}
+          METRICOOL_AUTO_PUBLISH: ${{ inputs.auto_publish }}
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import path from 'node:path'
+          import { buildMetricoolSchedulerRequest } from './scripts/distribution/metricool-provider.mjs'
+          const selection = JSON.parse(fs.readFileSync('artifacts/distribution/opportunity-selection.json', 'utf8'))
+          const objectId = String(selection?.selected?.id || '').trim()
+          if (!objectId) throw new Error('missing governed opportunity selection')
+          const pilot = JSON.parse(fs.readFileSync(path.join('artifacts/distribution/pilots', objectId, 'bounded-pilot.json'), 'utf8'))
+          buildMetricoolSchedulerRequest({
+            format: pilot?.lifecycle?.identity?.format,
+            networks: process.env.METRICOOL_NETWORKS,
+            text: 'pre-dispatch validation only',
+            mediaUrls: ['https://thehippiescientist.net/media/distribution/pre-dispatch/example.png'],
+            publicationAt: process.env.METRICOOL_PUBLICATION_AT,
+            timezone: 'America/New_York',
+            autoPublish: process.env.METRICOOL_AUTO_PUBLISH !== 'false',
+            availableNetworks: ['facebook', 'tiktok', 'youtube'],
+          })
+          NODE
+
+      - name: Check durable dispatch reservation
+        id: reservation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          PILOT_FILE="$(find artifacts/distribution/pilots -name bounded-pilot.json -type f -print -quit)"
+          if [ -z "${PILOT_FILE:-}" ]; then
+            echo 'No bounded pilot found; refusing live scheduling.'
+            exit 1
+          fi
+          IDEMPOTENCY_KEY="$(jq -r '.lifecycle.identity.idempotencyKey // empty' "$PILOT_FILE")"
+          if [ -z "${IDEMPOTENCY_KEY:-}" ]; then
+            echo 'Governed pilot is missing lifecycle idempotencyKey; refusing live scheduling.'
+            exit 1
+          fi
+          ARTIFACT_NAME="metricool-dispatch-reservation-${IDEMPOTENCY_KEY}"
+          EXISTING="$(curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H 'Accept: application/vnd.github+json' \
+            --get --data-urlencode "name=${ARTIFACT_NAME}" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts")"
+          ACTIVE_COUNT="$(printf '%s' "$EXISTING" | jq '[.artifacts[] | select(.expired == false)] | length')"
+          if [ "$ACTIVE_COUNT" -gt 0 ]; then
+            echo "A durable Metricool dispatch reservation already exists for ${IDEMPOTENCY_KEY}. Refusing a duplicate provider POST."
+            exit 1
+          fi
+          mkdir -p artifacts/distribution/metricool-reservation
+          jq -n \
+            --arg schemaVersion 'metricool-dispatch-reservation-v1' \
+            --arg idempotencyKey "$IDEMPOTENCY_KEY" \
+            --arg workflowRunId "$GITHUB_RUN_ID" \
+            --arg publicationAt '${{ inputs.publication_at }}' \
+            --arg networks '${{ inputs.networks }}' \
+            '{schemaVersion:$schemaVersion,idempotencyKey:$idempotencyKey,workflowRunId:$workflowRunId,publicationAt:$publicationAt,networks:$networks}' \
+            > artifacts/distribution/metricool-reservation/reservation.json
+          echo "artifact_name=${ARTIFACT_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Reserve exact governed identity before provider dispatch
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ steps.reservation.outputs.artifact_name }}
+          path: artifacts/distribution/metricool-reservation/reservation.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Schedule governed publication in Metricool
+        env:
+          METRICOOL_USER_TOKEN: ${{ secrets.METRICOOL_USER_TOKEN }}
+          METRICOOL_USER_ID: '5228072'
+          METRICOOL_BLOG_ID: '6794242'
+          METRICOOL_PUBLICATION_AT: ${{ inputs.publication_at }}
+          METRICOOL_NETWORKS: ${{ inputs.networks }}
+          METRICOOL_AUTO_PUBLISH: ${{ inputs.auto_publish }}
+        run: node scripts/distribution/schedule-metricool-publication.mjs
+
+      - name: Upload sanitized scheduling receipt
+        if: success()
+        uses: actions/upload-artifact@v7
+        with:
+          name: metricool-schedule-receipt-${{ github.run_number }}
+          path: artifacts/distribution/metricool/*.scheduled.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Summarize
+        if: always()
+        run: |
+          echo '## Metricool publication' >> "$GITHUB_STEP_SUMMARY"
+          echo "- Dispatch SHA: ${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Requested networks: ${{ inputs.networks }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Requested publication time: ${{ inputs.publication_at }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Auto-publish requested: ${{ inputs.auto_publish }}" >> "$GITHUB_STEP_SUMMARY"
+          if ls artifacts/distribution/metricool/*.scheduled.json >/dev/null 2>&1; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const path = require('path')
+          const dir = 'artifacts/distribution/metricool'
+          const file = fs.readdirSync(dir).find((name) => name.endsWith('.scheduled.json'))
+          const receipt = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'))
+          console.log(`- Metricool provider confirmation: ${receipt.externalId}`)
+          console.log(`- Lifecycle state: ${receipt.lifecycle.state}; dry-run: ${receipt.lifecycle.dryRun}`)
+          NODE
+          else
+            echo '- No live scheduling receipt was produced.' >> "$GITHUB_STEP_SUMMARY"
+          fi
