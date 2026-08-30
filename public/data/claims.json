@@ -3719,8 +3719,7 @@
   {
     "id": "study-row-173",
     "title": "heart_health",
-    "pmid": "17127598",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17127598/ | https://pubmed.ncbi.nlm.nih.gov/17452504/",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17452504/",
     "evidence_tier": "negative_replication_trials",
     "profile_slug": "policosanol",
     "study_class": "uncontrolled-trial",
@@ -4453,8 +4452,7 @@
   {
     "id": "study-row-224",
     "title": "heart_health, blood_pressure",
-    "pmid": "25059961",
-    "source_url": "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/25059961/",
+    "source_url": "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/",
     "evidence_tier": "official_guidance_and_meta_analysis",
     "profile_slug": "potassium",
     "study_class": "meta-analysis",
