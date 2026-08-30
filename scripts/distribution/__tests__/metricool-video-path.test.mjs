@@ -225,4 +225,12 @@ describe('video deployment governance', () => {
     expect(workflow).toContain("manifest.mediaType !== 'video'")
     expect(workflow).toContain('governed media hash mismatch in static output')
   })
+
+  it('uses the deployed governed manifest for dispatch and never revives the image placeholder', () => {
+    const workflow = fs.readFileSync(path.resolve('.github/workflows/metricool-publication.yml'), 'utf8')
+    expect(workflow).toContain('Validate deployed governed publication boundary')
+    expect(workflow).toContain('METRICOOL_YOUTUBE_MADE_FOR_KIDS')
+    expect(workflow).toContain('METRICOOL_YOUTUBE_AI_GENERATED_CONTENT')
+    expect(workflow).not.toContain('pre-dispatch/example.png')
+  })
 })
