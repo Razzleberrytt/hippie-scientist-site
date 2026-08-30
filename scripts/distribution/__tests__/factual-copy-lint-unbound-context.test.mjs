@@ -25,6 +25,15 @@ describe('distribution factual-copy unbound context lint', () => {
     '30 minute onset',
     'Equivalent to melatonin',
     'As effective as the standard treatment',
+    'Human study',
+    'Randomized controlled trial',
+    'Placebo-controlled trial',
+    'Systematic review',
+    'Meta-analysis',
+    'Preclinical study',
+    'In mice',
+    'Studied in adults',
+    '12-week trial',
   ])('rejects factual label text that bypasses governed provenance: %s', (text) => {
     const errors = validateFactualAssetCopy(pack, {
       assetType: 'overlay',
@@ -33,10 +42,14 @@ describe('distribution factual-copy unbound context lint', () => {
     expect(errors.join('\n')).toMatch(/factual labels must be represented as governed claim, uncertainty, or safety lines/i)
   })
 
-  it('keeps genuinely nonfactual creative labels available', () => {
+  it.each([
+    'One study, carefully framed',
+    'What the evidence can and cannot say',
+    'Read the evidence',
+  ])('keeps genuinely nonfactual creative labels available: %s', (text) => {
     expect(validateFactualAssetCopy(pack, {
       assetType: 'overlay',
-      lines: [{ role: 'label', factual: false, text: 'One study, carefully framed' }],
+      lines: [{ role: 'label', factual: false, text }],
     })).toEqual([])
   })
 })
