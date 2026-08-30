@@ -46,18 +46,23 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-At GitHub snapshot `058326df0f27685072047c465a7b86729bb51b2d` on 2026-08-30T06:29Z, zero implementation PRs were open. Admission remains governed by [CURRENT_SPRINT.md](CURRENT_SPRINT.md), the one-ticket-per-workstream rule, dependency/freshness checks, and the normal WIP cap. This docs-only #4544/#4496 reconciliation is not a fourth workstream. Research-only staging remains separate from canonical implementation/promotion WIP.
+Live GitHub reconciliation on 2026-08-30 shows **1/3 normal implementation workstreams occupied**:
+
+- **R — #4732 / PR #4734:** bounded Metricool provider integration. This does not authorize broad auto-publishing or infer production outcomes.
+- **A — free:** AUTH-001 / #4800 retired after closed-unmerged PR #4803's current audit printed `AUTH_DUPLICATE_COUNT=0`.
+- **D — free:** SEO-003 retired after #4795 / closed-unmerged PR #4796's exact-current Schema and Media Governance run `33315511238` passed.
+
+Research-only enrichment staging remains separate from canonical implementation/promotion WIP.
 
 ## Next — ordered dependency queue
 
-Start the highest legal item only when a real WIP slot exists. Do not bypass a dependency merely because a lower-level implementation is easy.
+Start the highest legal item only when a real WIP slot exists. Do not bypass a dependency merely because a lower-level implementation is easy. An item assigned to a currently occupied workstream waits for that workstream to release its slot.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| SEO-003 | Clear current schema identity gate | D | Ready | P1 | 4/4/4/4/1/2 | 128.0 | Reproduce current exact-main failure immediately before promotion | First-party identity IDs are consistent and full schema policy passes; route/schema regressions and production build prove the fix |
-| AUTH-001 | Resolve verified duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Revalidate current route/query evidence before promotion | Each pair has one owner or a genuinely distinct user job; removed owners get direct redirects; internal links/canonicals point to winner |
-| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | O/A evidence | Research staged; governed review blocked | P1 evidence | 4/5/3/5/.75/3 | 75.0 | PR #4631 merged; acquire governor lease + provenance/source review and revalidate source status before canonical mutation | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
-| #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
+| #4784 | Add auditable persistent governor lease transaction path | A control prerequisite | **Ready** | P0 dependency unlock | 5/5/3/5/1/3 | 125.0 | Authority slot is free; reuse/rebase preserved closed PR #4794 on exact current `main`; exact-head revalidation required | `control.mjs` remains authoritative; structured acquire/release only; no arbitrary command surface; serialized state-only transaction; stale-main/overlap/cross-owner fail closed; durable before/after receipt; zero canonical scientific/public mutation; exact-head governor + repository gates green |
+| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; governed review blocked | P1 evidence | 4/5/3/5/.75/3 | 75.0 | #4784 merged, then acquire governor lease + provenance/source review and revalidate source status before canonical mutation | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
+| #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent governor lease path + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
@@ -72,6 +77,8 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | REV-003/REV-004 + evidence review |
 | REV-004 | Validate flagship disclosure/destinations | R | Blocked | 67.5 | REV-003 selected page |
 | AUTH-002 | Strengthen links to selected flagship | A | Blocked | 54.0 | REV-003 selected page |
+| #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on governor capability | — | #4784 must merge and a real governor lease must be acquired before canonical owner migration |
+| #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on governor capability | — | #4784 must merge and a real governor lease must be acquired before canonical owner/data migration |
 | #4014 | Enforce `main` branch protection/ruleset | O | Blocked external settings | — | Authorized repository settings action; documentation alone is not enforcement |
 | #4341 | Resolve recurring Cloudflare production deployment failure class | O | Blocked external logs | — | Inspect Cloudflare production logs/failed deployment class, then repair only if repository/config root cause is proven |
 
@@ -93,6 +100,8 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| AUTH-001 / #4800 / PR #4803 | Current content-audit diagnostic run `33316024891` completed successfully and explicitly printed `AUTH_DUPLICATE_COUNT=0`; PR #4803 closed unmerged because its only change was a temporary diagnostic workflow; historical four-pair finding retired. |
+| SEO-003 / #4795 / PR #4796 | Exact-current Schema and Media Governance run `33315511238` passed shared schema regressions, static export, structured-data completeness, first-party identity/safety policy, and media checks. PR #4796 closed unmerged because its only change was diagnostic; historical 38-identity blocker retired. |
 | #4719 / PR #4720 | Merged as 90e2be7233f460919e3341f1aefd0053b1867df2 — governed export receipts bind/restore producer public/data and build-manifest state; all three exact-head consumers passed |
 | #4717 / PR #4718 | Merged as 97c877513da12137ba666451fff5f6c4f691c483 — accessible vertical-video motion contract with fail-closed primitives and zero-motion fallback; no live publication or completed encoder implied |
 | #4715 / PR #4716 | Merged as f06b1d400b465c3997121e2af49b7d3eafc3b503 — first provenance-bound carousel pilot completes dry-run scheduling only; observed dates/value remain null/Unknown |
