@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-08-28-alectra-provenance-gap.json",
+      "submitted": { "workpackId": "wp_herb_alectra_sessiliflora", "entityType": "herb", "entitySlug": "alectra-sessiliflora" },
+      "canonical": null,
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_unresolved_owner",
+      "reason": "This draft fragment predates canonical-owner enforcement and the submitted profile slug has no current canonical profile authority. Preserve it as staging provenance only; promotion remains blocked until an owner is resolved.",
+      "submissionIds": ["sub_session-a-alectra-endophyte-scope-gap-20260828"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-08-28-crocus-adverse-events.json",
+      "submitted": { "workpackId": "wp_herb_crocus_sativus", "entityType": "herb", "entitySlug": "crocus-sativus" },
+      "canonical": { "workpackId": "wp_herb_saffron", "entityType": "herb", "entitySlug": "saffron", "shard": 0 },
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current route authority resolves Crocus sativus to the canonical Saffron profile. Preserve the historical Crocus token as provenance while using Saffron identity for ownership and dedupe.",
+      "submissionIds": ["sub_session-a-crocus-adverse-events-review-20260828"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-08-28-crocus-mood-evidence.json",
+      "submitted": { "workpackId": "wp_herb_crocus_sativus", "entityType": "herb", "entitySlug": "crocus-sativus" },
+      "canonical": { "workpackId": "wp_herb_saffron", "entityType": "herb", "entitySlug": "saffron", "shard": 0 },
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current route authority resolves Crocus sativus to the canonical Saffron profile. Preserve the historical Crocus token as provenance while using Saffron identity for ownership and dedupe.",
+      "submissionIds": ["sub_session-a-crocus-mood-outcome-conflict-20260828", "sub_session-a-crocus-ssri-comparison-mixed-20260828"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-08-28-hyoscyamus-safety.json",
+      "submitted": { "workpackId": "wp_herb_hyoscyamus_niger", "entityType": "herb", "entitySlug": "hyoscyamus-niger" },
+      "canonical": null,
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_unresolved_owner",
+      "reason": "These draft poisoning/safety findings predate canonical-owner enforcement and Hyoscyamus niger has no current canonical profile authority. Preserve staging provenance only and block promotion until ownership is resolved.",
+      "submissionIds": ["sub_session-a-hyoscyamus-pediatric-toxicity-20260828", "sub_session-a-hyoscyamus-accidental-ingestion-20260828"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-08-28-pedicularis-constituent.json",
+      "submitted": { "workpackId": "wp_herb_pedicularis_groenlandica", "entityType": "herb", "entitySlug": "pedicularis-groenlandica" },
+      "canonical": null,
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_unresolved_owner",
+      "reason": "This draft constituent fragment predates canonical-owner enforcement and Pedicularis groenlandica has no current canonical profile authority. Preserve staging provenance only and block promotion until ownership is resolved.",
+      "submissionIds": ["sub_session-a-pedicularis-constituent-profile-20260828"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-08-29-angelica-human-safety.json",
+      "submitted": { "workpackId": "wp_herb_angelica_sinensis", "entityType": "herb", "entitySlug": "angelica-sinensis" },
+      "canonical": { "workpackId": "wp_herb_dong_quai", "entityType": "herb", "entitySlug": "dong-quai", "shard": 2 },
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current canonical authority resolves Angelica sinensis to Dong Quai. The Session A fragment remains provenance; current ownership is shard 2.",
+      "submissionIds": ["sub_session-a-angelica-menopause-null-20260829", "sub_session-a-angelica-adt-hotflash-null-20260829", "sub_session-a-angelica-warfarin-interaction-20260829", "sub_session-a-angelica-combination-attribution-20260829"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-08-29-crocus-provenance-safety.json",
+      "submitted": { "workpackId": "wp_herb_crocus_sativus", "entityType": "herb", "entitySlug": "crocus-sativus" },
+      "canonical": { "workpackId": "wp_herb_saffron", "entityType": "herb", "entitySlug": "saffron", "shard": 0 },
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current route authority resolves Crocus sativus to the canonical Saffron profile. Preserve historical provenance while deduping on Saffron.",
+      "submissionIds": ["sub_session-a-crocus-neuropsych-review-20260829"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-c/2026-08-29-coq10-integrity-conflict.json",
+      "submitted": { "workpackId": "wp_compound_coq10", "entityType": "compound", "entitySlug": "coq10" },
+      "canonical": { "workpackId": "wp_compound_coenzyme_q10", "entityType": "compound", "entitySlug": "coenzyme-q10", "shard": 4 },
+      "historicalSessionId": "C",
+      "historicalShard": 2,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current canonical authority resolves CoQ10 to Coenzyme Q10. Preserve Session C provenance while treating canonical ownership as shard 4.",
+      "submissionIds": ["sub_session-c-coq10-wrong-source-quarantine-20260829", "sub_session-c-coq10-fatigue-meta-signal-20260829", "sub_session-c-coq10-depression-fatigue-null-20260829", "sub_session-c-coq10-exercise-low-certainty-20260829"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-e/2026-08-29-bootstrap-ginkgo-stjohns-fadogia.json",
+      "submitted": { "workpackId": "wp_herb_fadogia_agrestis", "entityType": "herb", "entitySlug": "fadogia-agrestis" },
+      "canonical": { "workpackId": "wp_compound_fadogia_agrestis", "entityType": "compound", "entitySlug": "fadogia-agrestis", "shard": 6 },
+      "historicalSessionId": "E",
+      "historicalShard": 4,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current profile authority treats Fadogia agrestis as a compound canonical. Preserve the historical herb token while using compound ownership for shard and dedupe.",
+      "submissionIds": ["sub_session-e-fadogia-animal-misclass-20260829"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-f/2026-08-29-licorice-safety-integrity.json",
+      "submitted": { "workpackId": "wp_herb_glycyrrhiza_glabra", "entityType": "herb", "entitySlug": "glycyrrhiza-glabra" },
+      "canonical": { "workpackId": "wp_herb_licorice", "entityType": "herb", "entitySlug": "licorice", "shard": 4 },
+      "historicalSessionId": "F",
+      "historicalShard": 5,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current canonical authority resolves Glycyrrhiza glabra to Licorice. Preserve Session F provenance while treating canonical ownership as shard 4.",
+      "submissionIds": ["sub_f-licorice-glycyrrhizic-bp-potassium-risk", "sub_f-licorice-clinical-trials-bp-safety", "sub_f-licorice-component-specific-bp-divergence"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-f/2026-08-30-nac-tail-calibration.json",
+      "submitted": { "workpackId": "wp_compound_nac", "entityType": "compound", "entitySlug": "n-acetylcysteine" },
+      "canonical": { "workpackId": "wp_compound_n_acetylcysteine", "entityType": "compound", "entitySlug": "n-acetylcysteine", "shard": 0 },
+      "historicalSessionId": "F",
+      "historicalShard": 5,
+      "disposition": "historical_foreign_owner",
+      "reason": "Persisted before canonical-owner-before-sharding enforcement; preserve fragment provenance while treating canonical NAC ownership as shard 0.",
+      "submissionIds": ["sub_f-nac-copd-exacerbation-2026", "sub_f-nac-copd-nonexacerbation-null", "sub_f-nac-depression-adjunctive-limited", "sub_f-nac-ocd-small-duration-sensitive", "sub_f-nac-psychosis-broad-panss-null", "sub_f-nac-craving-overall-null", "sub_f-nac-aud-ptsd-primary-null", "sub_f-nac-iv-nitroglycerin-hypotension", "sub_f-nac-iv-antidote-anaphylactoid-context", "sub_f-nac-chronic-oral-safety-review"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-h/2026-08-30-batch-6.json",
+      "submitted": { "workpackId": "wp_herb_resveratrol", "entityType": "herb", "entitySlug": "resveratrol" },
+      "canonical": { "workpackId": "wp_compound_resveratrol", "entityType": "compound", "entitySlug": "resveratrol", "shard": 5 },
+      "historicalSessionId": "H",
+      "historicalShard": 7,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current route authority retypes Resveratrol to compound ownership; preserve the pre-resolution Session H fragment as provenance only.",
+      "submissionIds": ["sub_h-resveratrol-rheumatic-heart-source-conflict", "sub_h-resveratrol-polymer-source-conflict", "sub_h-resveratrol-umbrella-outcome-specific-certainty", "sub_h-resveratrol-cognition-mixed-meta", "sub_h-resveratrol-older-adult-cognition-null", "sub_h-resveratrol-warfarin-preclinical-interaction", "sub_h-resveratrol-platelet-mechanistic-signal"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-h/2026-08-30-batch-6.json",
+      "submitted": { "workpackId": "wp_compound_bcaas", "entityType": "compound", "entitySlug": "bcaas" },
+      "canonical": { "workpackId": "wp_compound_bcaa", "entityType": "compound", "entitySlug": "bcaa", "shard": 1 },
+      "historicalSessionId": "H",
+      "historicalShard": 7,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current canonical authority resolves the plural BCAAs token to BCAA. Preserve Session H provenance while treating canonical ownership as shard 1.",
+      "submissionIds": ["sub_h-bcaas-diabetes-source-conflict", "sub_h-bcaas-doms-context-specific-signal", "sub_h-bcaas-damage-markers-soreness-signal", "sub_h-bcaas-performance-recovery-null", "sub_h-bcaas-ck-doms-vs-ldh-meta", "sub_h-bcaas-endurance-performance-fatigue-null"]
+    }
+  ]
+}
