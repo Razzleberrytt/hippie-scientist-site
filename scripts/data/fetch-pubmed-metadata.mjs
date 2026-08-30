@@ -20,13 +20,14 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+// Shared with the source attestation pre-fill so both write an identical
+// record shape into the same cache file.
+import { REQUEST_SPACING_MS, fetchEsummaryBatch as fetchBatch, sleep } from '../lib/pubmed-esummary.mjs'
+
 const ROOT = process.cwd()
 const DATA_DIR = path.join(ROOT, 'public', 'data')
 const CACHE_PATH = path.join(ROOT, 'ops', 'cache', 'pubmed-metadata.json')
 
-const ENDPOINT = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi'
-/** NCBI allows 3 requests/second without an API key; stay well inside that. */
-const REQUEST_SPACING_MS = 400
 const BATCH_SIZE = 150
 
 const args = process.argv.slice(2)
@@ -35,7 +36,6 @@ const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity
 const REFRESH = args.includes('--refresh')
 
 const PMID_PATTERN = /^[1-9]\d{0,8}$/
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 function collectPmids() {
   const ids = new Set()
@@ -62,78 +62,6 @@ function readCache() {
   } catch {
     return {}
   }
-}
-
-/** Year of publication, from the most specific date PubMed supplies. */
-function extractYear(entry) {
-  const raw = String(entry.sortpubdate || entry.pubdate || entry.epubdate || '')
-  const match = raw.match(/\b(1[89]\d{2}|20\d{2})\b/)
-  return match ? Number(match[1]) : null
-}
-
-function extractDoi(entry) {
-  const ids = Array.isArray(entry.articleids) ? entry.articleids : []
-  const doi = ids.find((id) => id.idtype === 'doi')
-  return doi ? String(doi.value).trim() : ''
-}
-
-/** "Cheah KL et al." — the form already used elsewhere in the dataset. */
-function formatAuthors(entry) {
-  const authors = Array.isArray(entry.authors)
-    ? entry.authors.filter((a) => a.authtype === 'Author').map((a) => String(a.name).trim()).filter(Boolean)
-    : []
-  if (!authors.length) return ''
-  if (authors.length === 1) return authors[0]
-  if (authors.length === 2) return `${authors[0]} and ${authors[1]}`
-  return `${authors[0]} et al.`
-}
-
-function normalizeEntry(pmid, entry) {
-  return {
-    pmid,
-    title: String(entry.title ?? '').replace(/\s+/g, ' ').replace(/\.$/, '').trim(),
-    /** Display form: "Cheah KL et al." */
-    authors: formatAuthors(entry),
-    /**
-     * Every author, in order. The display form collapses to "et al." after the
-     * first name, which is right on a page and wrong in a BibTeX or RIS export
-     * — a reference manager needs the full list to format any citation style.
-     */
-    authorList: Array.isArray(entry.authors)
-      ? entry.authors.filter((a) => a.authtype === 'Author').map((a) => String(a.name).trim()).filter(Boolean)
-      : [],
-    authorCount: Array.isArray(entry.authors) ? entry.authors.filter((a) => a.authtype === 'Author').length : 0,
-    journal: String(entry.source ?? '').trim(),
-    year: extractYear(entry),
-    volume: String(entry.volume ?? '').trim(),
-    pages: String(entry.pages ?? '').trim(),
-    doi: extractDoi(entry),
-    /** PubMed's own publication types — the authoritative study design. */
-    publicationTypes: Array.isArray(entry.pubtype) ? entry.pubtype.map(String) : [],
-    fetchedFrom: 'pubmed-esummary',
-  }
-}
-
-async function fetchBatch(pmids) {
-  const url = `${ENDPOINT}?db=pubmed&retmode=json&id=${pmids.join(',')}`
-  const response = await fetch(url, { headers: { 'User-Agent': 'thehippiescientist.net citation verification' } })
-  if (!response.ok) throw new Error(`PubMed responded ${response.status}`)
-  const payload = await response.json()
-  const result = payload?.result
-  if (!result) throw new Error('PubMed returned no result block')
-
-  const out = {}
-  const failures = []
-  for (const pmid of pmids) {
-    const entry = result[pmid]
-    // PubMed reports an unknown id with an `error` key rather than omitting it.
-    if (!entry || entry.error) {
-      failures.push({ pmid, reason: entry?.error ? String(entry.error) : 'not-returned' })
-      continue
-    }
-    out[pmid] = normalizeEntry(pmid, entry)
-  }
-  return { out, failures }
 }
 
 async function main() {

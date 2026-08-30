@@ -1,0 +1,93 @@
+{
+  "records": {
+    "33686024": {
+      "pmid": "33686024",
+      "title": "Preclinical systematic review of ginsenoside Rg1 for cognitive impairment in Alzheimer's disease",
+      "authors": "Liang HY et al.",
+      "authorList": [
+        "Liang HY",
+        "Zhang PP",
+        "Zhang XL",
+        "Zheng YY",
+        "Huang YR",
+        "Zheng GQ",
+        "Lin Y"
+      ],
+      "authorCount": 7,
+      "journal": "Aging (Albany NY)",
+      "year": 2021,
+      "volume": "13",
+      "pages": "7549-7569",
+      "doi": "10.18632/aging.202619",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
+    "38587819": {
+      "pmid": "38587819",
+      "title": "d-Mannose for Prevention of Recurrent Urinary Tract Infection Among Women: A Randomized Clinical Trial",
+      "authors": "Hayward G et al.",
+      "authorList": [
+        "Hayward G",
+        "Mort S",
+        "Hay AD",
+        "Moore M",
+        "Thomas NPB",
+        "Cook J",
+        "Robinson J",
+        "Williams N",
+        "Maeder N",
+        "Edeson R",
+        "Franssen M",
+        "Grabey J",
+        "Glogowska M",
+        "Yang Y",
+        "Allen J",
+        "Butler CC"
+      ],
+      "authorCount": 16,
+      "journal": "JAMA Intern Med",
+      "year": 2024,
+      "volume": "184",
+      "pages": "619-628",
+      "doi": "10.1001/jamainternmed.2024.0264",
+      "publicationTypes": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    },
+    "41004704": {
+      "pmid": "41004704",
+      "title": "Efficacy of D-mannose as prophylaxis of recurrent urinary tract infection: a systematic review and meta-analysis of randomized controlled trials",
+      "authors": "Vargas CEF et al.",
+      "authorList": [
+        "Vargas CEF",
+        "Mutarelli A",
+        "Menegardo LG",
+        "Silva AKBD",
+        "Vieira PRB",
+        "Luz JD",
+        "Felix N",
+        "Pinto LCS"
+      ],
+      "authorCount": 8,
+      "journal": "J Bras Nefrol",
+      "year": 2025,
+      "volume": "47",
+      "pages": "e20250169",
+      "doi": "10.1590/2175-8239-JBN-2025-0169en",
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
+      ],
+      "fetchedFrom": "pubmed-esummary"
+    }
+  }
+}

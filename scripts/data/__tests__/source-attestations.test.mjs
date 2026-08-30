@@ -86,6 +86,27 @@ describe('source attestation drafts', () => {
     }
   })
 
+  it('records where a derived identifier came from', () => {
+    // A PMID recovered from a cited PMC id was never written on the profile.
+    // A reviewer checking the draft against the source needs to know that, or
+    // the identifier looks like it came from somewhere it did not.
+    for (const entry of result.drafts) {
+      if (entry.resolvedFromPmcId) {
+        expect(entry.resolvedFromPmcId).toMatch(/^PMC\d+$/)
+      }
+    }
+    expect(result.summary.recoveredFromPmcId).toBe(
+      result.drafts.filter((entry) => entry.resolvedFromPmcId).length,
+    )
+  })
+
+  it('does not touch the network unless asked', () => {
+    // The default run is what CI and these tests execute. If it could fetch,
+    // results would depend on NCBI being reachable and on whatever the queue
+    // happened to cite that day.
+    expect(result.summary.networkResolution).toBe(false)
+  })
+
   it('emits no draft for a source that is already registered', () => {
     const drafted = new Set(result.drafts.map((entry) => entry.draft.pmid))
     for (const entry of result.alreadyClaimed) {

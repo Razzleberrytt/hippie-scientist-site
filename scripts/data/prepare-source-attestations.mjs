@@ -40,7 +40,12 @@
  * the evidence grades exist to prevent.
  *
  * Usage:
- *   node scripts/data/prepare-source-attestations.mjs [--json]
+ *   node scripts/data/prepare-source-attestations.mjs [--json] [--resolve]
+ *
+ * --resolve is the only path that touches the network. It converts cited
+ * PubMed Central ids to PMIDs and fetches any esummary record not already
+ * cached. Without it the run is entirely offline and deterministic, which is
+ * what the tests and CI depend on.
  *
  * Requires ops/audit/held-source-verification-queue.json — regenerate it with
  *   node scripts/data/report-held-source-verification-queue.mjs
@@ -51,16 +56,20 @@ import path from 'node:path'
 
 import { identityTokens } from '../enrichment/source-identity.mjs'
 import { writeJsonAtomic } from '../lib/atomic-json.mjs'
+import { REQUEST_SPACING_MS, fetchEsummaryBatch, resolvePmcIds, sleep } from '../lib/pubmed-esummary.mjs'
 
 const ROOT = process.cwd()
 const QUEUE_PATH = path.join(ROOT, 'ops', 'audit', 'held-source-verification-queue.json')
 const CACHE_PATH = path.join(ROOT, 'ops', 'cache', 'pubmed-metadata.json')
+const SUPPLEMENTAL_CACHE_PATH = path.join(ROOT, 'ops', 'cache', 'pubmed-supplemental.json')
+const PMC_CACHE_PATH = path.join(ROOT, 'ops', 'cache', 'pmcid-to-pmid.json')
 const REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
 const SEED_PATH = path.join(ROOT, 'data-sources', 'enrichment-source-registry-baseline.json')
 const OUT_JSON = path.join(ROOT, 'ops', 'audit', 'source-attestation-drafts.json')
 const OUT_MD = path.join(ROOT, 'ops', 'audit', 'source-attestation-drafts.md')
 
 const asJson = process.argv.includes('--json')
+const resolveOverNetwork = process.argv.includes('--resolve')
 
 function readJson(filePath, fallback = null) {
   if (!fs.existsSync(filePath)) return fallback
@@ -106,6 +115,8 @@ const NON_RESEARCH_TYPES = new Set(['News', 'Editorial', 'Comment', 'Retraction 
 /** Most specific design wins, so a record typed both RCT and Review reads as an RCT. */
 const DESIGN_PRECEDENCE = ['Meta-Analysis', 'Systematic Review', 'Randomized Controlled Trial']
 
+const PMC_PATTERN = /PMC\d{4,}/g
+
 function classify(publicationTypes = []) {
   const types = new Set(publicationTypes)
   for (const key of DESIGN_PRECEDENCE) {
@@ -145,10 +156,44 @@ if (!queue) {
   process.exit(1)
 }
 
-const cacheRaw = readJson(CACHE_PATH, {})
-const cache = cacheRaw.records || cacheRaw
 const registry = readJson(REGISTRY_PATH, [])
 const seed = readJson(SEED_PATH, [])
+const pmcMap = readJson(PMC_CACHE_PATH, {})
+
+const candidates = queue.candidates || []
+
+function signalsOf(candidate) {
+  return [candidate.claimSignals, candidate.detailSignals]
+}
+
+/** PMC ids a profile cited, which are resolvable even though nothing looks for them. */
+function pmcIdsOf(candidate) {
+  const urls = signalsOf(candidate).flatMap((signals) => signals?.sourceUrls || [])
+  return [...new Set(urls.flatMap((url) => String(url).match(PMC_PATTERN) || []))]
+}
+
+// --- optional network step ------------------------------------------------
+// Resolve cited PMC ids to PMIDs, then fetch any esummary record missing from
+// the main cache. Both results are cached, so a later offline run sees them.
+let networkNote = null
+if (resolveOverNetwork) {
+  const wanted = [...new Set(candidates.flatMap(pmcIdsOf))].filter((id) => !pmcMap[id])
+  if (wanted.length) {
+    try {
+      const { resolved, failures } = await resolvePmcIds(wanted, { email: process.env.NCBI_EMAIL })
+      Object.assign(pmcMap, resolved)
+      for (const failure of failures) pmcMap[failure.pmcid] = { pmid: null, reason: failure.reason }
+      writeJsonAtomic(PMC_CACHE_PATH, pmcMap)
+    } catch (error) {
+      networkNote = `PMC id resolution failed: ${error.message}`
+    }
+  }
+}
+
+const cacheRaw = readJson(CACHE_PATH, {})
+const supplementalRaw = readJson(SUPPLEMENTAL_CACHE_PATH, {})
+/** Supplemental records first, so a freshly fetched record is not shadowed. */
+const cache = { ...(cacheRaw.records || cacheRaw), ...(supplementalRaw.records || supplementalRaw) }
 
 /** Identities already spoken for, so a draft can never shadow a registered source. */
 const claimed = new Map()
@@ -159,17 +204,35 @@ for (const row of [...(Array.isArray(registry) ? registry : []), ...(Array.isArr
 /** PMID -> profiles it would help release, so review can start where it pays. */
 const profilesByPmid = new Map()
 const candidatesWithoutIdentifier = []
+const resolvedViaPmc = new Map()
 
-for (const candidate of queue.candidates || []) {
-  const pmids = [candidate.claimSignals, candidate.detailSignals]
+for (const candidate of candidates) {
+  const direct = signalsOf(candidate)
     .flatMap((signals) => signals?.validPmids || [])
     .map(String)
+
+  const viaPmc = []
+  for (const pmcId of pmcIdsOf(candidate)) {
+    const mapped = pmcMap[pmcId]
+    if (mapped?.pmid) {
+      viaPmc.push(String(mapped.pmid))
+      resolvedViaPmc.set(String(mapped.pmid), pmcId)
+    }
+  }
+
+  const pmids = [...new Set([...direct, ...viaPmc])]
+  const dois = signalsOf(candidate).flatMap((signals) => signals?.validDois || [])
+
   if (!pmids.length) {
     candidatesWithoutIdentifier.push({
       slug: candidate.slug,
       entityType: candidate.entityType,
-      // What the profile offered instead of an identifier, so the gap is legible.
-      signals: [candidate.claimSignals, candidate.detailSignals]
+      // A DOI is a real identifier even when no PMID accompanies it, so say so
+      // rather than reporting the profile as citing nothing verifiable.
+      unusedDois: dois,
+      // PMC ids present but not yet resolved — a --resolve run would pick these up.
+      unresolvedPmcIds: pmcIdsOf(candidate).filter((id) => !pmcMap[id]?.pmid),
+      signals: signalsOf(candidate)
         .flatMap((signals) => signals?.sourceUrls || [])
         .slice(0, 3),
     })
@@ -178,6 +241,30 @@ for (const candidate of queue.candidates || []) {
   for (const pmid of pmids) {
     if (!profilesByPmid.has(pmid)) profilesByPmid.set(pmid, new Set())
     profilesByPmid.get(pmid).add(candidate.slug)
+  }
+}
+
+// Fetch any PMID we now know about but have no bibliographic record for.
+if (resolveOverNetwork) {
+  const missing = [...profilesByPmid.keys()].filter((pmid) => !cache[pmid])
+  if (missing.length) {
+    const fetched = {}
+    for (let index = 0; index < missing.length; index += 150) {
+      const batch = missing.slice(index, index + 150)
+      try {
+        const { out } = await fetchEsummaryBatch(batch)
+        Object.assign(fetched, out)
+      } catch (error) {
+        networkNote = `esummary fetch failed: ${error.message}`
+        break
+      }
+      if (index + 150 < missing.length) await sleep(REQUEST_SPACING_MS)
+    }
+    if (Object.keys(fetched).length) {
+      const merged = { ...(supplementalRaw.records || supplementalRaw), ...fetched }
+      writeJsonAtomic(SUPPLEMENTAL_CACHE_PATH, { records: merged })
+      Object.assign(cache, fetched)
+    }
   }
 }
 
@@ -195,7 +282,7 @@ for (const [pmid, slugSet] of profilesByPmid) {
 
   const record = cache[pmid]
   if (!record) {
-    missingFromCache.push({ pmid, unblocks })
+    missingFromCache.push({ pmid, unblocks, hint: resolveOverNetwork ? 'not returned by PubMed' : 'run with --resolve' })
     continue
   }
 
@@ -235,6 +322,8 @@ for (const [pmid, slugSet] of profilesByPmid) {
     designBasis: classification.basis || null,
     nonResearchTypes: classification.nonResearch || [],
     publicationTypes: record.publicationTypes || [],
+    // Recorded so a reviewer can see the identifier was derived, not cited.
+    resolvedFromPmcId: resolvedViaPmc.get(pmid) || null,
     requiresJudgment,
     prefilled: ['title', 'authors', 'publicationYear', 'doi', 'canonicalUrl', 'citationText'].filter((field) => {
       const value = draft[field]
@@ -247,18 +336,21 @@ drafts.sort((a, b) => b.unblocks.length - a.unblocks.length || a.draft.pmid.loca
 
 const summary = {
   generatedFrom: 'NCBI E-utilities esummary via ops/cache/pubmed-metadata.json',
+  networkResolution: resolveOverNetwork,
   heldProfiles: queue.counts?.heldProfiles ?? null,
-  candidates: (queue.candidates || []).length,
+  candidates: candidates.length,
   drafts: drafts.length,
   designResolvedFromPubmed: drafts.filter((entry) => entry.designBasis).length,
   designNeedsReviewer: drafts.filter((entry) => !entry.designBasis && !entry.nonResearchTypes.length).length,
   flaggedNonResearch: drafts.filter((entry) => entry.nonResearchTypes.length).length,
+  recoveredFromPmcId: drafts.filter((entry) => entry.resolvedFromPmcId).length,
   alreadyClaimed: alreadyClaimed.length,
   missingFromCache: missingFromCache.length,
   candidatesWithoutIdentifier: candidatesWithoutIdentifier.length,
+  candidatesWithUnresolvedPmcIds: candidatesWithoutIdentifier.filter((entry) => entry.unresolvedPmcIds.length).length,
 }
 
-const payload = { summary, drafts, alreadyClaimed, missingFromCache, candidatesWithoutIdentifier }
+const payload = { summary, networkNote, drafts, alreadyClaimed, missingFromCache, candidatesWithoutIdentifier }
 
 fs.mkdirSync(path.dirname(OUT_JSON), { recursive: true })
 writeJsonAtomic(OUT_JSON, payload)
@@ -273,6 +365,9 @@ md.push(`- held profiles: **${summary.heldProfiles}**`)
 md.push(`- drafts prepared: **${summary.drafts}** (design resolved from PubMed for ${summary.designResolvedFromPubmed})`)
 md.push(`- need a reviewer to classify design: **${summary.designNeedsReviewer}**`)
 md.push(`- flagged as non-research: **${summary.flaggedNonResearch}**`)
+if (summary.recoveredFromPmcId) {
+  md.push(`- recovered from a cited PMC id: **${summary.recoveredFromPmcId}**`)
+}
 md.push(`- candidates with no usable identifier: **${summary.candidatesWithoutIdentifier}**`, '')
 md.push('| PMID | unblocks | design | needs judgment | title |')
 md.push('| --- | --- | --- | --- | --- |')
@@ -287,10 +382,11 @@ for (const entry of drafts) {
 }
 if (candidatesWithoutIdentifier.length) {
   md.push('', '## Candidates with no usable identifier', '')
-  md.push('These cannot be drafted at all. They cite something, but not anything resolvable.', '')
+  md.push('These cannot be drafted. A PMC id listed here would resolve on a `--resolve` run.', '')
   for (const entry of candidatesWithoutIdentifier) {
+    const extra = entry.unresolvedPmcIds.length ? ` — unresolved ${entry.unresolvedPmcIds.join(', ')}` : ''
     const signals = entry.signals.length ? entry.signals.map((text) => `"${text}"`).join(', ') : 'no source text'
-    md.push(`- \`${entry.slug}\` — ${signals}`)
+    md.push(`- \`${entry.slug}\` — ${signals}${extra}`)
   }
 }
 md.push('')
@@ -309,9 +405,14 @@ console.log(`  drafts prepared                ${String(summary.drafts).padStart(
 console.log(`    design resolved from PubMed  ${String(summary.designResolvedFromPubmed).padStart(5)}`)
 console.log(`    design needs a reviewer      ${String(summary.designNeedsReviewer).padStart(5)}`)
 console.log(`    flagged non-research         ${String(summary.flaggedNonResearch).padStart(5)}`)
+console.log(`    recovered from a PMC id      ${String(summary.recoveredFromPmcId).padStart(5)}`)
 console.log(`  already registered             ${String(summary.alreadyClaimed).padStart(5)}`)
-console.log(`  PMID not in cache              ${String(summary.missingFromCache).padStart(5)}`)
+console.log(`  PMID with no record            ${String(summary.missingFromCache).padStart(5)}`)
 console.log(`  candidates with no identifier  ${String(summary.candidatesWithoutIdentifier).padStart(5)}`)
+if (summary.candidatesWithUnresolvedPmcIds) {
+  console.log(`    of those, citing a PMC id    ${String(summary.candidatesWithUnresolvedPmcIds).padStart(5)}  (run with --resolve)`)
+}
+if (networkNote) console.log(`\n  ! ${networkNote}`)
 console.log(`\n  JSON: ${path.relative(ROOT, OUT_JSON)}`)
 console.log(`  Markdown: ${path.relative(ROOT, OUT_MD)}`)
 console.log('\n  Drafts are not registrations. reviewer, reviewedAt and reliabilityTier')
