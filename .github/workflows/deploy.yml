@@ -97,9 +97,25 @@ jobs:
       - name: Audit cluster-member runtime trust
         run: npm run audit:cluster-member-trust:strict
 
-      - name: Provision and verify ffmpeg for governed video rendering
+      - name: Build governed Metricool publication pilot
+        run: |
+          node scripts/distribution/build-research-distribution.mjs
+          node scripts/distribution/build-opportunity-selection.mjs
+          node scripts/distribution/build-bounded-pilot.mjs
+
+      - name: Provision and verify ffmpeg when governed pilot requires video
         run: |
           set -euo pipefail
+          PILOT_FILE="$(find artifacts/distribution/pilots -name bounded-pilot.json -type f -print -quit)"
+          if [ -z "${PILOT_FILE:-}" ]; then
+            echo '❌ Missing governed bounded pilot; cannot decide ffmpeg requirement.'
+            exit 1
+          fi
+          FORMAT="$(jq -r '.lifecycle.identity.format // .selectedOpportunity.platform // empty' "$PILOT_FILE")"
+          if [ "$FORMAT" != 'short-video' ]; then
+            echo "[distribution] ${FORMAT:-unknown} pilot does not require ffmpeg; skipping provisioning."
+            exit 0
+          fi
           if ! command -v ffmpeg >/dev/null 2>&1; then
             sudo apt-get update
             sudo apt-get install -y ffmpeg
@@ -108,11 +124,7 @@ jobs:
           ffmpeg -version | sed -n '1p'
 
       - name: Stage governed Metricool publication media
-        run: |
-          node scripts/distribution/build-research-distribution.mjs
-          node scripts/distribution/build-opportunity-selection.mjs
-          node scripts/distribution/build-bounded-pilot.mjs
-          node scripts/distribution/stage-metricool-publication-media.mjs
+        run: node scripts/distribution/stage-metricool-publication-media.mjs
 
       - name: Build app
         env:
