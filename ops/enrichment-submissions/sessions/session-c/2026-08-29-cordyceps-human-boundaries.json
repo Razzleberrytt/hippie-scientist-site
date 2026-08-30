@@ -44,6 +44,26 @@
       "reviewStatus": "draft_submission",
       "editorialStatus": "draft",
       "active": true
+    },
+    {
+      "submissionId": "sub_session-c-cordyceps-polysaccharide-clinical-gap-20260830",
+      "authoringPackId": "ap_bp_wp_compound_cordyceps_src_doi_10_1002_jsfa_70921",
+      "workpackId": "wp_compound_cordyceps",
+      "entityType": "compound",
+      "entitySlug": "cordyceps",
+      "sourceId": "src_doi-10-1002-jsfa-70921",
+      "topicType": "research_gap",
+      "claimType": "research_gap",
+      "evidenceClass": "preclinical-mechanistic",
+      "findingTextShort": "A July 2026 review of Cordyceps militaris polysaccharides explicitly identifies lack of clinical validation, limited pharmacokinetic/digestion data, and scarce long-term safety evidence as translational bottlenecks.",
+      "findingTextNormalized": "PMID 42521464 / DOI 10.1002/jsfa.70921 reviews Cordyceps militaris polysaccharides across extraction, structure-activity, functional-food, pharmacokinetic and safety domains. Despite extensive antioxidant, immunomodulatory, anti-inflammatory, metabolic and gut-microbiota activity literature, the review states that clinical validation is lacking and highlights incomplete standardization, limited digestion/pharmacokinetic data, scarce long-term safety data, and poorly characterized oral absorption, metabolism and systemic bioavailability. These gaps prevent mechanistic or functional-food evidence from being normalized into demonstrated human efficacy or broad long-term safety.",
+      "strengthLabel": "strong",
+      "usageContext": "Cordyceps militaris polysaccharide fractions and functional-food translation; not generic whole-Cordyceps clinical efficacy.",
+      "safetyContext": "Scarce long-term safety and exposure data are explicit evidence gaps, not proof of harm or proof of safety.",
+      "uncertaintyNote": "Polysaccharide composition depends on extraction, purification, molecular structure and source material. Several review authors have pharmaceutical-company affiliations, which should remain attached as provenance. Draft-only pending registry and semantic attestation.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
     }
   ]
 }
