@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-08-29
+**Updated:** 2026-08-30
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -46,11 +46,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Admission remains governed by [CURRENT_SPRINT.md](CURRENT_SPRINT.md), the one-ticket-per-workstream rule, dependency/freshness checks, and the normal WIP cap. Research-only staging under the dedicated Research Enrichment Session contract remains separate from canonical implementation/promotion WIP.
-
-| ID | Title | WS/Lane | Status | Priority | Dependencies | Acceptance / proof boundary |
-|---|---|---|---|---|---|---|
-| #4715 / PR #4716 | First bounded governed distribution pilot | R / L5 | In Review | Sprint-ready dependency chain | Merged L1/L2/L4, #4406, #4407; current governed object and selector | Deterministic provenance-bound carousel package; dry-run lifecycle stops at scheduled; observation dates/value remain null/Unknown; no provider, credentials, spending or live publication |
+At GitHub snapshot `058326df0f27685072047c465a7b86729bb51b2d` on 2026-08-30T06:29Z, zero implementation PRs were open. Admission remains governed by [CURRENT_SPRINT.md](CURRENT_SPRINT.md), the one-ticket-per-workstream rule, dependency/freshness checks, and the normal WIP cap. This docs-only #4544/#4496 reconciliation is not a fourth workstream. Research-only staging remains separate from canonical implementation/promotion WIP.
 
 ## Next — ordered dependency queue
 
@@ -60,7 +56,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 |---|---|---|---|---|---|---:|---|---|
 | SEO-003 | Clear current schema identity gate | D | Ready | P1 | 4/4/4/4/1/2 | 128.0 | Reproduce current exact-main failure immediately before promotion | First-party identity IDs are consistent and full schema policy passes; route/schema regressions and production build prove the fix |
 | AUTH-001 | Resolve verified duplicate-intent route pairs | A | Ready | P1 | 4/4/4/4/.75/2 | 96.0 | Revalidate current route/query evidence before promotion | Each pair has one owner or a genuinely distinct user job; removed owners get direct redirects; internal links/canonicals point to winner |
-| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | O/A evidence | In Review (research staging PR #4631) | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + provenance/source review; revalidate source status at start | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
+| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | O/A evidence | Research staged; governed review blocked | P1 evidence | 4/5/3/5/.75/3 | 75.0 | PR #4631 merged; acquire governor lease + provenance/source review and revalidate source status before canonical mutation | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
 | #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governor lease + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
@@ -83,7 +79,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS | Status | Dependency / stop rule |
 |---|---|---|---|---|
-| DIST-VIDEO-001 | Deterministic 30-second vertical-video renderer | R/L1 | Planned | Carousel renderer/lossless presentation/lifecycle contracts proven; factual narration remains governed |
+| DIST-VIDEO-001 | Deterministic 30-second vertical-video renderer | R/L1 | Planned | Accessible motion contract #4717/#4718 is merged; final encoding/rendering still requires a separately admitted provenance-bound implementation and factual narration remains governed |
 | DIST-GEN-001 | Optional generative B-roll adapter | R/L1/L4 | Planned | Generated media remains visual-only and non-authoritative; no need to implement before measurable distribution MVP |
 | ENGINE-001 | Codify repeatable decision-page qualification/proof | A | Planned | Requires M2 flagship result; avoid template-driven filler |
 | CLUSTER-001 | Expand one validated authority cluster | A | Planned | Requires demand + repeatable page engine + positive marginal qualified outcomes |
@@ -97,6 +93,11 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4719 / PR #4720 | Merged as 90e2be7233f460919e3341f1aefd0053b1867df2 — governed export receipts bind/restore producer public/data and build-manifest state; all three exact-head consumers passed |
+| #4717 / PR #4718 | Merged as 97c877513da12137ba666451fff5f6c4f691c483 — accessible vertical-video motion contract with fail-closed primitives and zero-motion fallback; no live publication or completed encoder implied |
+| #4715 / PR #4716 | Merged as f06b1d400b465c3997121e2af49b7d3eafc3b503 — first provenance-bound carousel pilot completes dry-run scheduling only; observed dates/value remain null/Unknown |
+| #4651 / PR #4673 | Merged as 058326df0f27685072047c465a7b86729bb51b2d — six append-only Session F research fragments; zero canonical/public scientific mutations |
+| PR #4631 | Merged as 13d80681e32ff95a919651f1d0a4068fc972edee — #4266 research boundaries staged; canonical governor lease/review and promotion remain open |
 | #4227 / PR #4523 | Merged as 9f1a4fe26e7a6caab56de07c5a0f25b2f39c6f15 — exact-head governed static-export reuse; removed from `Next` |
 | #4415 / PR #4492 | Merged as 23dc2485720ff6b31043413b2b9295c4886944cb — comparable, explicitly guarded, exposure-bound economics; 42 focused and 2,866 total tests plus real production build/output/SEO passed; actual efficiency observations remain Unknown |
 | #4414 / PR #4490 | Merged as 2e67f9e55f4d96dc7d82a683a829a29b4e2298f1 — durable experiment-learning capability; no longer queued; populated history/producer adoption still requires evidence |

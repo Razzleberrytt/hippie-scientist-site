@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-08-29
+**Updated:** 2026-08-30
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Reconciled to current GitHub state. The previously recorded overlapping Revenue/Conversion reviews are complete and no longer occupy Active. Numeric capacity alone does not admit new implementation; workstream ownership, dependencies, freshness, incident/control state, and exact-head validation remain mandatory.
+**Current admission:** Live GitHub snapshot `058326df0f27685072047c465a7b86729bb51b2d` at 2026-08-30T06:29Z had zero open PRs. Merged distribution, research-staging, and CI-incident work no longer occupies Active. This docs-only #4544/#4496 reconciliation does not create a fourth workstream; every later admission still requires current ownership, dependency, freshness, incident, and exact-head checks.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,23 +49,25 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed implementation WIP 1/3
+## Active — observed implementation WIP 0/3
 
-| Workstream / lane | Issue / PR | Ticket | Status | Must prove before merge |
-|---|---|---|---|---|
-| R / L5 bounded pilot | #4715 / PR #4716 | First bounded governed distribution pilot | In Review | One provenance-bound deterministic carousel package; dry-run scheduled lifecycle only; future 28-day observation window remains null/Unknown; scoped regressions and hosted exact-head gates |
+No Discovery/SEO, Revenue/Conversion, or Authority/Content implementation PR was open at the recorded snapshot. The reconciliation PR that closes #4544/#4496 is control documentation only; it does not authorize concurrent implementation before its own exact-head gates and merge complete.
 
-Research-only Session F staging in PR #4673 does not mutate canonical content or publication authority and remains governed by its dedicated enrichment-session contract. It does not authorize additional Authority implementation or promotion work.
+Research-only Session F staging PR #4673 merged as `058326df0f27685072047c465a7b86729bb51b2d`. Its six append-only fragments remain non-canonical staging and do not consume, create, or authorize a scientific-promotion slot.
 
 ## Ready next — strict dependency order
 
 **A free slot exists only when the candidate's dependencies and lane ownership are current and no higher-risk incident overrides admission.**
 
-### First bounded pilot package
+### Next legal admission candidates
 
-**Start when:** L1/L2/L4 + merged #4406 + #4407 boundaries are proven, Revenue/Conversion is free, and current admission checks allow the pilot.
+| Order | Candidate | Workstream | Admission state | Proof required before implementation |
+|---:|---|---|---|---|
+| 1 | SEO-003 — clear current schema identity gate | D | Revalidate on exact main | Reproduce the current failure first; if exact-main policy is already green, retire or reframe the ticket instead of inventing a fix |
+| 2 | AUTH-001 — resolve verified duplicate-intent route pairs | A | Revalidate route/query evidence | Prove each current pair still overlaps, identify one canonical owner or distinct reader jobs, and preserve redirects/internal-link/canonical coverage |
+| 3 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; governed review path still required | PR #4631 staged the source boundaries only; acquire the canonical governor lease/review path before any workbook, registry, rollup, public-profile, grade, or publication mutation |
 
-The first pilot should use already-governed research, deterministic assets, tagged destinations, durable lifecycle receipts, and an explicit observation window. It may be published only through a supported, attributable, policy-compliant path. If no provider integration/credentials are available, the sprint may complete the end-to-end dry-run and record the external execution blocker rather than inventing a live result.
+Revenue/Conversion remains free after the dry-run pilot, but live publication, provider integration, credentials, spending, and observed outcomes remain outside current authority. The bounded pilot may not be repeated or scaled until a separately authorized publication path and real observation window exist.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -86,13 +88,11 @@ The first pilot should use already-governed research, deterministic assets, tagg
 | #4014 | `main` branch protection/ruleset | Repository enforcement is not proven | Apply/verify required settings with authorized repository-settings access |
 | #4341 | Recurring Cloudflare production failure class | Repository-side checks do not expose root-cause logs | Inspect failed production deployment logs; repair only if a deterministic repository/config cause is identified |
 
-## Highest-value fallback work if the distribution/control dependency chain is blocked
+## Additional fallback work when every named candidate above is blocked
 
-Promote one only after checking overlap, current exact-main state, and freshness of the evidence supporting promotion.
+Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-2. **SEO-003** — reproduce and clear the current schema identity gate.
-3. **AUTH-001** — resolve verified duplicate-intent owners using current route/query evidence.
-4. **#4266 / #4260** — governed recent-evidence enrichment under the existing governor/lease/provenance contract.
+1. **#4260** — add the 2026 healthy-adult CBD safety meta-analysis only after a durable lease and governed source review are available; preserve short-term population scope, the diarrhea signal, null findings, and no general dose or long-term safety reassurance.
 
 ## Sprint exit conditions
 
@@ -112,6 +112,12 @@ The sprint exits only when all of the following are true or have a precise exter
 - Required scientific, provenance, safety, accessibility, release, and exact-head validation gates remain intact.
 
 ## Recently retired from this sprint
+
+- **#4719 / PR #4720:** merged as `90e2be7233f460919e3341f1aefd0053b1867df2`; governed static-export receipts now bind and restore producer-generated verification state plus the build manifest. Exact-head Build Check, Production Content Lint, and Lighthouse consumers passed; no validation gate was weakened.
+- **#4717 / PR #4718:** merged as `97c877513da12137ba666451fff5f6c4f691c483`; accessible vertical-video motion is bounded to calm allowlisted transitions with an explicit zero-motion fallback. This is not live video publication or completion of the deferred encoding boundary.
+- **#4715 / PR #4716:** merged as `f06b1d400b465c3997121e2af49b7d3eafc3b503`; the first provenance-bound carousel pilot completes dry-run scheduling only. Live publication remains unauthorized and the future 28-day observation window/value remain null/Unknown.
+- **#4651 / PR #4673:** merged as `058326df0f27685072047c465a7b86729bb51b2d`; Session F staging added six append-only research fragments and made zero canonical/public scientific mutations.
+- **PR #4631:** merged as `13d80681e32ff95a919651f1d0a4068fc972edee`; #4266 research is staged, not promoted, and the canonical governed review/lease boundary remains open.
 
 - **#4227 / PR #4523:** merged as `9f1a4fe26e7a6caab56de07c5a0f25b2f39c6f15`; exact-head governed static-export reuse is complete and no longer a fallback candidate.
 - **#4415 / PR #4492:** merged as `23dc2485720ff6b31043413b2b9295c4886944cb`. Final-head CI passed 2,866 tests across 593 files, real production build/output/SEO, and 42 focused economics regressions ([CI proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431644), [focused proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431712)). Repaired files verified on main; four review findings resolved after evidence review. Real efficiency observations remain Unknown.
