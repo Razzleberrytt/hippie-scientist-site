@@ -107,8 +107,26 @@ function verifyPackage(packageDir) {
   return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets }
 }
 
+/**
+ * Spawn a command, tolerating Windows batch shims.
+ *
+ * On Windows ffmpeg is very often installed as a `.cmd` or `.bat` shim rather
+ * than an `.exe` — scoop, chocolatey and the npm wrappers all do this. Node
+ * refuses to spawn those directly (EINVAL) since the shell-injection fix, so
+ * `spawnSync(shim, args)` fails before ffmpeg is ever reached.
+ *
+ * Routing through ComSpec restores that, and does it without `shell: true`:
+ * arguments stay a real argv array that Node quotes, instead of being
+ * concatenated into a command line where a path with a space or an ampersand
+ * would change the command's meaning.
+ */
 function runCommand(executable, args, options = {}) {
-  const result = spawnSync(executable, args, { encoding: 'utf8', ...options })
+  const isWindowsShim = process.platform === 'win32' && /\.(cmd|bat)$/i.test(executable)
+  const [command, commandArgs] = isWindowsShim
+    ? [process.env.ComSpec || 'cmd.exe', ['/d', '/s', '/c', executable, ...args]]
+    : [executable, args]
+
+  const result = spawnSync(command, commandArgs, { encoding: 'utf8', ...options })
   if (result.error) throw result.error
   if (result.status !== 0) throw new Error(`${executable} failed (${result.status}): ${(result.stderr || result.stdout || '').slice(0, 2000)}`)
   return result

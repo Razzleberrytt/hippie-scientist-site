@@ -48,9 +48,30 @@ function fixture({ embeddedSourceUrl = 'https://thehippiescientist.net/herbs/ash
   }
   fs.writeFileSync(path.join(dir, 'video-asset-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
 
-  const fakeFfmpeg = path.join(dir, 'fake-ffmpeg.sh')
-  fs.writeFileSync(fakeFfmpeg, `#!/bin/sh\nif [ "$1" = "-version" ]; then\n  echo "ffmpeg version test-1.0"\n  exit 0\nfi\nout=""\nfor arg in "$@"; do out="$arg"; done\nprintf 'mp4-fixture-bytes' > "$out"\n`)
-  fs.chmodSync(fakeFfmpeg, 0o755)
+  // The stand-in behaviour lives in one Node script so both platforms exercise
+  // identical logic; only the wrapper that makes it executable differs. A bare
+  // .sh cannot be spawned on Windows (EFTYPE), which is why this test failed
+  // there while passing in CI.
+  const fakeLogic = path.join(dir, 'fake-ffmpeg.mjs')
+  fs.writeFileSync(fakeLogic, [
+    "import fs from 'node:fs'",
+    'const args = process.argv.slice(2)',
+    "if (args[0] === '-version') {",
+    "  console.log('ffmpeg version test-1.0')",
+    '  process.exit(0)',
+    '}',
+    "fs.writeFileSync(args[args.length - 1], 'mp4-fixture-bytes')",
+    '',
+  ].join('\n'))
+
+  const isWindows = process.platform === 'win32'
+  const fakeFfmpeg = path.join(dir, isWindows ? 'fake-ffmpeg.cmd' : 'fake-ffmpeg.sh')
+  if (isWindows) {
+    fs.writeFileSync(fakeFfmpeg, ['@echo off', `"${process.execPath}" "${fakeLogic}" %*`, ''].join('\r\n'))
+  } else {
+    fs.writeFileSync(fakeFfmpeg, ['#!/bin/sh', `exec "${process.execPath}" "${fakeLogic}" "$@"`, ''].join('\n'))
+    fs.chmodSync(fakeFfmpeg, 0o755)
+  }
   return { dir, fakeFfmpeg, sourceUrl, sourceContentHash }
 }
 
