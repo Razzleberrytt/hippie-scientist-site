@@ -50,6 +50,8 @@ describe('research-session bootstrap', () => {
     const high = scoreBootstrapCandidate({
       summary: 'Example carries a Grade A rating — strong evidence.',
       indexability_status: 'PUBLISH',
+      sources: [],
+      claimMap: [],
       evidence: { sourceCount: 0, claimCount: 0 },
       governance: { reviewStatus: 'needs_review', requiresHumanReview: true },
       indexability_reasons: ['missing_record_level_sources', 'summary-quality-missing'],
@@ -57,12 +59,47 @@ describe('research-session bootstrap', () => {
     const low = scoreBootstrapCandidate({
       summary: 'Conservative profile.',
       indexability_status: 'NOINDEX',
+      sources: [{ studyClass: 'systematic-review' }, { studyClass: 'rct' }, { studyClass: 'rct' }],
+      claimMap: [{}, {}],
       evidence: { sourceCount: 3, claimCount: 2 },
       governance: { reviewStatus: 'approved', requiresHumanReview: false },
     })
     expect(high.score).toBeGreaterThan(low.score)
     expect(high.reasons).toContain('strong-framing-with-zero-sources')
     expect(high.reasons).toContain('missing-record-level-sources-gate')
+  })
+
+  it('detects source/claim count drift and human-evidence summary contradictions', () => {
+    const scored = scoreBootstrapCandidate({
+      summary: 'Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people.',
+      indexability_status: 'PUBLISH',
+      sources: [
+        { studyClass: 'rct', studyType: 'Randomized controlled trial' },
+        { studyClass: 'systematic-review', studyType: 'Systematic review' },
+      ],
+      claimMap: [{ id: 'claim-1' }, { id: 'claim-2' }],
+      evidence: { sourceCount: 1, claimCount: 0 },
+    })
+
+    expect(scored.reasons).toContain('source-count-drift')
+    expect(scored.reasons).toContain('claim-count-drift')
+    expect(scored.reasons).toContain('summary-human-evidence-contradiction')
+    expect(scored.sourceCount).toBe(1)
+    expect(scored.sourceArrayCount).toBe(2)
+    expect(scored.claimCount).toBe(0)
+    expect(scored.claimArrayCount).toBe(2)
+  })
+
+  it('flags published sourced profiles with no governed claim layer', () => {
+    const scored = scoreBootstrapCandidate({
+      summary: 'Sourced profile.',
+      indexability_status: 'PUBLISH',
+      sources: [{ studyClass: 'rct' }],
+      claimMap: [],
+      evidence: { sourceCount: 1, claimCount: 0 },
+    })
+    expect(scored.reasons).toContain('published-sources-without-claims')
+    expect(scored.reasons).toContain('empty-claim-map')
   })
 
   it('inventories only the requested shard and marks staged workpacks without hiding them', () => {
@@ -73,14 +110,14 @@ describe('research-session bootstrap', () => {
 
     writeJson(path.join(root, 'public', 'data', 'herbs-detail', `${ownedSlug}.json`), {
       slug: ownedSlug, name: 'Owned Herb', indexability_status: 'PUBLISH',
-      evidence: { sourceCount: 0 }, claimMap: [], governance: { reviewStatus: 'needs_review', requiresHumanReview: true },
+      sources: [], evidence: { sourceCount: 0 }, claimMap: [], governance: { reviewStatus: 'needs_review', requiresHumanReview: true },
       indexability_reasons: ['missing_record_level_sources'],
     })
     writeJson(path.join(root, 'public', 'data', 'compounds-detail', `${secondOwnedSlug}.json`), {
-      slug: secondOwnedSlug, name: 'Owned Compound', indexability_status: 'NOINDEX', evidence: { sourceCount: 2, claimCount: 1 }, claimMap: [{}],
+      slug: secondOwnedSlug, name: 'Owned Compound', indexability_status: 'NOINDEX', sources: [{}, {}], evidence: { sourceCount: 2, claimCount: 1 }, claimMap: [{}],
     })
     writeJson(path.join(root, 'public', 'data', 'herbs-detail', `${foreignSlug}.json`), {
-      slug: foreignSlug, name: 'Foreign Herb', indexability_status: 'PUBLISH', evidence: { sourceCount: 0 }, claimMap: [],
+      slug: foreignSlug, name: 'Foreign Herb', indexability_status: 'PUBLISH', sources: [], evidence: { sourceCount: 0 }, claimMap: [],
     })
 
     const stagedId = workpackIdFor('compound', secondOwnedSlug)
