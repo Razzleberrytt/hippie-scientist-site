@@ -1,4 +1,7 @@
 {
   "herbs": {},
-  "compounds": {}
+  "compounds": {
+    "cbd": "cannabidiol",
+    "nac": "n-acetylcysteine"
+  }
 }
