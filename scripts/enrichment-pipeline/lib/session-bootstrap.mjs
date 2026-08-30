@@ -40,11 +40,18 @@ export function workpackIdFor(entityType, slug) {
 export function scoreBootstrapCandidate(record) {
   const reasons = []
   let score = 0
-  const sourceCount = Number(record?.evidence?.sourceCount ?? record?.sources?.length ?? 0)
-  const claimCount = Number(record?.evidence?.claimCount ?? record?.claimMap?.length ?? 0)
+  const sources = Array.isArray(record?.sources) ? record.sources : []
+  const claimMap = Array.isArray(record?.claimMap) ? record.claimMap : []
+  const declaredSourceCount = Number.isFinite(Number(record?.evidence?.sourceCount)) ? Number(record.evidence.sourceCount) : null
+  const declaredClaimCount = Number.isFinite(Number(record?.evidence?.claimCount)) ? Number(record.evidence.claimCount) : null
+  const sourceCount = declaredSourceCount ?? sources.length
+  const claimCount = declaredClaimCount ?? claimMap.length
   const published = record?.indexability_status === 'PUBLISH' || record?.robots === 'index,follow'
   const summary = String(record?.summary ?? '')
   const indexabilityReasons = Array.isArray(record?.indexability_reasons) ? record.indexability_reasons : []
+  const hasHumanTrialMetadata = sources.some(source =>
+    /human|randomi[sz]ed|controlled trial|\brct\b/i.test(`${source?.studyClass ?? ''} ${source?.studyType ?? ''}`)
+  )
 
   if (published) { score += 20; reasons.push('published') }
   if (sourceCount === 0) { score += published ? 35 : 20; reasons.push('zero-record-level-sources') }
@@ -56,7 +63,23 @@ export function scoreBootstrapCandidate(record) {
     score += 12
     reasons.push('human-outcome-gap')
   }
+  if (/none of which measured an outcome in people/i.test(summary) && hasHumanTrialMetadata) {
+    score += 25
+    reasons.push('summary-human-evidence-contradiction')
+  }
+  if (declaredSourceCount !== null && declaredSourceCount !== sources.length) {
+    score += 20
+    reasons.push('source-count-drift')
+  }
+  if (declaredClaimCount !== null && declaredClaimCount !== claimMap.length) {
+    score += 15
+    reasons.push('claim-count-drift')
+  }
   if (claimCount === 0) { score += 8; reasons.push('empty-claim-map') }
+  if (published && sourceCount > 0 && claimCount === 0) {
+    score += 8
+    reasons.push('published-sources-without-claims')
+  }
   if (record?.governance?.requiresHumanReview === true || record?.governance?.reviewStatus === 'needs_review') {
     score += 10
     reasons.push('needs-human-review')
@@ -79,6 +102,8 @@ export function scoreBootstrapCandidate(record) {
     reasons: [...new Set(reasons)].sort(),
     sourceCount,
     claimCount,
+    sourceArrayCount: sources.length,
+    claimArrayCount: claimMap.length,
     published,
   }
 }
