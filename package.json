@@ -19,6 +19,8 @@
     "citations:participant-counts": "node scripts/data/extract-participant-counts.mjs",
     "citations:build-exports": "tsx scripts/data/build-citation-exports.ts",
     "citations:apply-pubmed": "tsx scripts/data/apply-pubmed-metadata.ts",
+    "sources:queue": "node scripts/data/report-held-source-verification-queue.mjs",
+    "sources:drafts": "node scripts/data/report-held-source-verification-queue.mjs && node scripts/data/prepare-source-attestations.mjs",
     "data:repair-packed-citations": "node scripts/data/repair-packed-citations.mjs",
     "validate:evidence-grades": "tsx scripts/ci/validate-evidence-grade-consistency.ts",
     "data:normalize-evidence": "tsx scripts/data/normalize-evidence-grades.ts --data-dir=public/data",
