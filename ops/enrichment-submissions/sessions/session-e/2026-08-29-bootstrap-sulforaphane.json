@@ -1,0 +1,47 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-bootstrap-sulforaphane-20260829",
+  "createdAt": "2026-08-30T00:30:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-sulforaphane-depression-rct-20260829",
+      "authoringPackId": "ap_bp_wp_compound_sulforaphane_src_pubmed_34033171",
+      "workpackId": "wp_compound_sulforaphane",
+      "entityType": "compound",
+      "entitySlug": "sulforaphane",
+      "sourceId": "src_pubmed-34033171",
+      "topicType": "population_specific_note",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A six-week randomized trial reported depressive-symptom and response signals with sulforaphane in a narrow post-cardiac-intervention population, while remission was not clearly improved.",
+      "findingTextNormalized": "A randomized double-blind placebo-controlled trial in 66 patients with mild-to-moderate depression after prior cardiac intervention tested sulforaphane for six weeks. HAM-D trajectories and response rate favored sulforaphane, but the remission difference did not reach conventional significance. The result is population-specific and does not establish broad antidepressant efficacy in otherwise healthy users or other psychiatric populations.",
+      "strengthLabel": "limited",
+      "populationContext": "66 patients with mild-to-moderate depression after prior cardiac intervention; 60 completed the study.",
+      "uncertaintyNote": "Narrow clinical population and mixed endpoint pattern; remission null must remain visible alongside favorable symptom/response signals.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-sulforaphane-schizophrenia-primary-null-20260829",
+      "authoringPackId": "ap_bp_wp_compound_sulforaphane_src_pubmed_39144775",
+      "workpackId": "wp_compound_sulforaphane",
+      "entityType": "compound",
+      "entitySlug": "sulforaphane",
+      "sourceId": "src_pubmed-39144775",
+      "topicType": "unsupported_or_unclear_use",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 22-week randomized schizophrenia trial missed its prespecified composite cognition primary outcome and did not improve PANSS symptoms despite selected secondary cognitive-domain signals.",
+      "findingTextNormalized": "In 172 patients with first- or early-episode schizophrenia, a randomized double-blind 22-week sulforaphane trial found no significant benefit on the prespecified MATRICS composite cognition primary outcome and no improvement in PANSS symptoms. Selected secondary cognitive domains, including spatial working memory and verbal learning, showed favorable signals. Primary-null precedence is essential: secondary findings must not be promoted into generic cognition or schizophrenia-treatment efficacy.",
+      "strengthLabel": "limited",
+      "populationContext": "172 first- or early-episode schizophrenia patients receiving ongoing clinical care.",
+      "uncertaintyNote": "Prespecified primary cognition endpoint and symptom outcome were null; secondary-domain findings are exploratory/contextual and must not overwrite them.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
