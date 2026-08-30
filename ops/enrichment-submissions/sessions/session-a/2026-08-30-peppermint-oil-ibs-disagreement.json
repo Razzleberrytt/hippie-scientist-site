@@ -84,6 +84,26 @@
       "reviewStatus": "draft_submission",
       "editorialStatus": "draft",
       "active": true
+    },
+    {
+      "submissionId": "sub_session-a-peppermint-persuade-primary-null-secondary-signal-20260830",
+      "authoringPackId": "ap_bp_wp_compound_peppermint_oil_src_doi_10_1053_j_gastro_2019_08_026",
+      "workpackId": "wp_compound_peppermint_oil",
+      "entityType": "compound",
+      "entitySlug": "peppermint-oil",
+      "sourceId": "src_doi-10-1053-j-gastro-2019-08-026",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "The PERSUADE trial found neither small-intestinal- nor ileocolonic-release peppermint oil superior to placebo on regulatory co-primary IBS endpoints, despite selected secondary symptom improvements with small-intestinal release and more mild adverse events.",
+      "findingTextNormalized": "The PERSUADE double-blind trial randomized 190 Rome-IV IBS patients to 182 mg small-intestinal-release peppermint oil, 182 mg ileocolonic-release peppermint oil, or placebo for eight weeks, with 189 included in intention-to-treat analysis. Neither peppermint formulation significantly improved the FDA-style abdominal-pain response or EMA-style overall-relief co-primary endpoints versus placebo. Small-intestinal-release peppermint oil did improve selected secondary abdominal-pain, discomfort, and IBS-severity measures, while adverse events were mild but more common in both peppermint-oil groups. The trial is therefore mixed evidence with a strong formulation and endpoint boundary, not a simple positive or negative result.",
+      "strengthLabel": "moderate",
+      "populationContext": "One hundred ninety adults with Rome-IV IBS randomized across four Dutch hospitals; 189 included in intention-to-treat analysis.",
+      "usageContext": "Small-intestinal-release versus ileocolonic-release peppermint oil, each 182 mg for eight weeks. Release systems are distinct interventions and neither trial regimen is generic consumer dosing guidance.",
+      "uncertaintyNote": "Null regulatory co-primary endpoints must remain visible alongside positive secondary outcomes. Small-intestinal-release results cannot transfer to ileocolonic-release or arbitrary enteric products, and mild adverse-event excess remains part of the evidence balance. Source-registry admission and semantic citation attestation remain required before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
     }
   ]
 }
