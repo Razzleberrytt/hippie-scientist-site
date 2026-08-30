@@ -1,0 +1,28 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-bicarbonate-owner-conflict-20260830",
+  "createdAt": "2026-08-30T13:12:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-bicarbonate-sodium-owner-conflict-20260830",
+      "authoringPackId": "ap_bp_wp_compound_bicarbonate_src_005702379a61",
+      "workpackId": "wp_compound_bicarbonate",
+      "entityType": "compound",
+      "entitySlug": "bicarbonate",
+      "sourceId": "src_005702379a61",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "PMID 34503527 studies sodium bicarbonate supplementation and cannot establish generic bicarbonate-ion supplementation efficacy or dosing.",
+      "findingTextNormalized": "The current published `bicarbonate` runtime profile cites PMID 34503527, but that source is the International Society of Sports Nutrition position stand specifically on sodium bicarbonate supplementation. Its exercise efficacy, dosing and tolerability conclusions belong to the sodium-bicarbonate intervention identity and must not be inherited by a generic bicarbonate-ion workpack or by unrelated bicarbonate salts. Session E therefore treats `wp_compound_bicarbonate` as a legacy overbroad ownership conflict rather than a second independent efficacy package. Canonical/public route consolidation remains a separate governed data-migration decision.",
+      "strengthLabel": "strong",
+      "usageContext": "Research ownership and source-to-entity attribution only; no generic bicarbonate intervention is established by this source.",
+      "uncertaintyNote": "This receipt does not claim that bicarbonate chemistry is irrelevant to sodium bicarbonate's mechanism; it only prevents a sodium-bicarbonate-specific human supplementation source from being promoted as evidence for an overbroad generic entity.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
