@@ -172,7 +172,7 @@ export function buildMetricoolSchedulerRequest({
   return request
 }
 
-async function normalizeMetricoolImageMedia({ urls, token, userId, blogId, fetchImpl }) {
+async function normalizeMetricoolExternalMedia({ urls, token, userId, blogId, fetchImpl }) {
   const normalized = []
   for (const mediaUrl of urls) {
     const endpoint = new URL(`${METRICOOL_API_BASE}/actions/normalize/image/url`)
@@ -209,6 +209,7 @@ export async function scheduleMetricoolPublication({
   currentIdentity,
   request,
   mediaType = 'image',
+  format,
   userToken = process.env.METRICOOL_USER_TOKEN,
   userId = process.env.METRICOOL_USER_ID,
   blogId = process.env.METRICOOL_BLOG_ID,
@@ -223,13 +224,21 @@ export async function scheduleMetricoolPublication({
   if (!metricoolUserId) throw new Error('missing METRICOOL_USER_ID')
   if (!metricoolBlogId) throw new Error('missing METRICOOL_BLOG_ID')
   if (typeof fetchImpl !== 'function') throw new Error('Metricool provider requires fetch')
-  if (clean(mediaType).toLowerCase() !== 'image') {
-    throw new Error('live Metricool media normalization is currently enabled for governed image/carousel assets only')
+
+  const normalizedMediaType = clean(mediaType).toLowerCase()
+  const normalizedFormat = clean(format).toLowerCase()
+  if (!['image', 'video'].includes(normalizedMediaType)) throw new Error(`unsupported Metricool media type: ${normalizedMediaType || '<missing>'}`)
+  if (normalizedMediaType === 'video' && normalizedFormat !== 'vertical-video') {
+    throw new Error('live Metricool media normalization is currently enabled for governed image/carousel assets only unless an explicit vertical-video format is supplied')
+  }
+  if (normalizedMediaType === 'image' && normalizedFormat && normalizedFormat !== 'carousel') {
+    throw new Error('Metricool image media type does not match the governed publication format')
   }
 
   const rawMedia = asArray(request?.media)
   if (!rawMedia.length) throw new Error('Metricool provider request requires media before dispatch')
-  const normalizedMedia = await normalizeMetricoolImageMedia({
+  if (normalizedMediaType === 'video' && rawMedia.length !== 1) throw new Error('Metricool governed video dispatch requires exactly one media item')
+  const normalizedMedia = await normalizeMetricoolExternalMedia({
     urls: rawMedia,
     token,
     userId: metricoolUserId,
