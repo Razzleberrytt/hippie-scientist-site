@@ -10,7 +10,23 @@ on:
     inputs:
       recovery_pr_number:
         description: PR number for exact-head recovery validation
-        required: true
+        required: false
+        type: string
+      producer_run_id:
+        description: CI run containing the governed static export artifact
+        required: false
+        type: string
+      producer_sha:
+        description: Exact PR head SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_base_sha:
+        description: Exact PR base SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_pr_number:
+        description: PR number that produced the governed static export
+        required: false
         type: string
 
 concurrency:
@@ -24,34 +40,32 @@ permissions:
 
 jobs:
   production-content-lint:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
+      - name: Reject stale producer dispatch
+        if: inputs.producer_sha != ''
+        env:
+          PRODUCER_SHA: ${{ inputs.producer_sha }}
+        run: |
+          if [ "$GITHUB_SHA" != "$PRODUCER_SHA" ]; then
+            echo "Producer dispatch is stale: workflow head=$GITHUB_SHA producer=$PRODUCER_SHA"
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
-
-      - name: Classify release impact
-        id: impact
-        if: github.event_name == 'pull_request'
-        env:
-          BASE_REF: ${{ github.base_ref }}
-        run: |
-          git fetch origin "$BASE_REF"
-          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
-          printf '%s\n' "$changed"
-          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
+          ref: ${{ inputs.producer_sha || github.sha }}
 
       - name: Setup Node from .nvmrc
-        if: steps.impact.outputs.docs_only != 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - name: Restore Next.js build cache
-        if: steps.impact.outputs.docs_only != 'true'
         uses: actions/cache@v6
         with:
           path: .next/cache
@@ -60,25 +74,47 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
 
       - name: Install dependencies
-        if: steps.impact.outputs.docs_only != 'true'
         run: npm ci
 
-      - name: Build production output
-        if: steps.impact.outputs.docs_only != 'true'
+      - name: Download governed static export
+        id: governed-download
+        if: inputs.producer_run_id != '' && inputs.producer_sha != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v7
+        with:
+          name: governed-static-export-${{ inputs.producer_sha }}
+          path: .
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.producer_run_id }}
+
+      - name: Verify governed static export receipt
+        id: governed-verify
+        if: steps.governed-download.outcome == 'success'
+        continue-on-error: true
+        run: >-
+          node scripts/ci/governed-static-export.mjs verify
+          --source-sha "${{ inputs.producer_sha }}"
+          --base-sha "${{ inputs.producer_base_sha }}"
+
+      - name: Build production output fallback
+        if: steps.governed-verify.outcome != 'success'
         env:
-          COMMIT_HASH: ${{ github.sha }}
-        run: npm run build:deploy
+          COMMIT_HASH: ${{ inputs.producer_sha || github.sha }}
+        run: |
+          rm -rf out .governed-static-export.json
+          npm run build:deploy
+
+      - name: Verify production output
+        run: npm run verify:output
 
       - name: Run production content lint
-        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/production-content-lint.mjs
 
       - name: Snapshot built production quality
-        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/build-production-quality-snapshot.mjs
 
       - name: Download latest successful main quality baseline
-        if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') && steps.impact.outputs.docs_only != 'true'
+        if: github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -95,12 +131,12 @@ jobs:
 
       - name: Resolve recovery PR body
         id: pr-context
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && (inputs.producer_pr_number != '' || inputs.recovery_pr_number != '')
         env:
           GH_TOKEN: ${{ github.token }}
-          RECOVERY_PR_NUMBER: ${{ inputs.recovery_pr_number }}
+          PR_NUMBER: ${{ inputs.producer_pr_number || inputs.recovery_pr_number }}
         run: |
-          body="$(gh api "repos/${{ github.repository }}/pulls/$RECOVERY_PR_NUMBER" --jq '.body // ""')"
+          body="$(gh api "repos/${{ github.repository }}/pulls/$PR_NUMBER" --jq '.body // ""')"
           {
             echo 'body<<EOF'
             printf '%s\n' "$body"
@@ -108,10 +144,9 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: Compare against latest main production snapshot
-        if: steps.impact.outputs.docs_only != 'true'
         env:
-          PULL_REQUEST_BODY: ${{ github.event.pull_request.body || steps.pr-context.outputs.body }}
-          REQUIRE_QUALITY_CHANGE_EXPLANATION: ${{ (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') && 'true' || 'false' }}
+          PULL_REQUEST_BODY: ${{ steps.pr-context.outputs.body }}
+          REQUIRE_QUALITY_CHANGE_EXPLANATION: ${{ github.event_name == 'workflow_dispatch' && (inputs.producer_pr_number != '' || inputs.recovery_pr_number != '') && 'true' || 'false' }}
         run: node scripts/ci/compare-production-quality-snapshot.mjs
 
       - name: Publish main production quality baseline
@@ -126,7 +161,7 @@ jobs:
         if: always() && hashFiles('public/data/reports/production-content-lint.*') != ''
         uses: actions/upload-artifact@v7
         with:
-          name: production-content-lint-${{ github.sha }}
+          name: production-content-lint-${{ inputs.producer_sha || github.sha }}
           path: |
             public/data/reports/production-content-lint.json
             public/data/reports/production-content-lint.md
@@ -135,3 +170,14 @@ jobs:
             public/data/reports/production-quality-regression.md
           if-no-files-found: ignore
           retention-days: 30
+
+      - name: Report governed export reuse
+        if: always()
+        run: |
+          echo "## Governed static export" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Producer SHA: ${{ inputs.producer_sha || 'none (self-built fallback)' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Producer base SHA: ${{ inputs.producer_base_sha || 'none' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Receipt verified: ${{ steps.governed-verify.outcome == 'success' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Same-repository pull-request runs are registration-only; exact-head lint is dispatched by the successful CI producer." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Fork and Dependabot pull requests run the complete self-built lint path because dispatch permissions are unavailable." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Missing/stale/tampered artifacts always fall back to a complete governed build." >> "$GITHUB_STEP_SUMMARY"

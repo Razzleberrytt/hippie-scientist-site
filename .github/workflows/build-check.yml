@@ -25,25 +25,57 @@ on:
       - 'postcss.config.*'
       - '**/*.xlsx'
       - '.github/workflows/build-check.yml'
+      - '.github/workflows/ci.yml'
+      - 'scripts/ci/governed-static-export.mjs'
   workflow_dispatch:
+    inputs:
+      producer_run_id:
+        description: CI run containing the governed static export artifact
+        required: false
+        type: string
+      producer_sha:
+        description: Exact PR head SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_base_sha:
+        description: Exact PR base SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_pr_number:
+        description: PR number that produced the governed static export
+        required: false
+        type: string
 
 concurrency:
   group: build-check-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
   build:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]'
     name: Validate production build
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
     steps:
+      - name: Reject stale producer dispatch
+        if: inputs.producer_sha != ''
+        env:
+          PRODUCER_SHA: ${{ inputs.producer_sha }}
+        run: |
+          if [ "$GITHUB_SHA" != "$PRODUCER_SHA" ]; then
+            echo "Producer dispatch is stale: workflow head=$GITHUB_SHA producer=$PRODUCER_SHA"
+            exit 1
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.producer_sha || github.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -73,8 +105,47 @@ jobs:
       - name: Validate static export compatibility
         run: npm run validate:static-export
 
-      - name: Build and verify
-        run: npm run build:deploy
+      - name: Download governed static export
+        id: governed-download
+        if: inputs.producer_run_id != '' && inputs.producer_sha != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v7
+        with:
+          name: governed-static-export-${{ inputs.producer_sha }}
+          path: .
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.producer_run_id }}
+
+      - name: Verify governed static export receipt
+        id: governed-verify
+        if: steps.governed-download.outcome == 'success'
+        continue-on-error: true
+        run: >-
+          node scripts/ci/governed-static-export.mjs verify
+          --source-sha "${{ inputs.producer_sha }}"
+          --base-sha "${{ inputs.producer_base_sha }}"
+
+      - name: Build governed fallback on artifact miss or mismatch
+        if: steps.governed-verify.outcome != 'success'
+        env:
+          COMMIT_HASH: ${{ inputs.producer_sha || github.sha }}
+        run: |
+          rm -rf out .governed-static-export.json
+          npm run build:deploy
+
+      - name: Verify production output
+        run: npm run verify:output
 
       - name: Report internal route-reference integrity
         run: node scripts/ci/audit-route-reference-integrity.mjs
+
+      - name: Report governed export reuse
+        if: always()
+        run: |
+          echo "## Governed static export" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Producer SHA: ${{ inputs.producer_sha || 'none (self-built fallback)' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Producer base SHA: ${{ inputs.producer_base_sha || 'none' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Receipt verified: ${{ steps.governed-verify.outcome == 'success' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Same-repository pull-request runs are registration-only; exact-head validation is dispatched by the successful CI producer." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Fork and Dependabot pull requests self-build because their token cannot dispatch trusted consumer runs." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Missing/stale/tampered artifacts always fall back to a complete governed build." >> "$GITHUB_STEP_SUMMARY"
