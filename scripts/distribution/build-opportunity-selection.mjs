@@ -4,6 +4,7 @@ import path from 'node:path'
 import { selectDistributionOpportunity } from './opportunity-engine.mjs'
 import { DEMAND_SIGNAL_KEYS, validateOpportunitySignals } from './opportunity-signal-contract.mjs'
 import { applyFeedbackToSelection } from './apply-feedback-selection.mjs'
+import { assertValidFeedbackHistoryEnvelope } from './feedback-history-contract.mjs'
 
 const root = process.cwd()
 const objectsPath = path.resolve(process.argv[2] || 'data/distribution/research-objects.json')
@@ -21,9 +22,7 @@ function readFeedbackHistory(file) {
   try { parsed = JSON.parse(fs.readFileSync(file, 'utf8')) } catch (error) {
     throw new Error(`distribution feedback history is invalid JSON: ${error.message}`)
   }
-  const history = Array.isArray(parsed) ? parsed : parsed?.history
-  if (!Array.isArray(history)) throw new Error('distribution feedback history must be an array or an object with a history array')
-  return { present: true, history }
+  return { present: true, history: assertValidFeedbackHistoryEnvelope(parsed) }
 }
 
 function hasFiniteSignal(record, key) {
@@ -90,7 +89,7 @@ const feedbackEvidence = {
   source: feedbackInput.present ? path.relative(root, feedbackPath) : null,
   feedbackFilePresent: feedbackInput.present,
   recordCount: feedbackInput.history.length,
-  policy: 'Attributable performance may re-rank already-eligible distribution opportunities only; it cannot change scientific eligibility, claims, evidence grades, safety, canonical destinations, or cross-platform attribution boundaries.',
+  policy: 'Only normalized governed observation history may influence ranking. Attributable performance may re-rank already-eligible distribution opportunities only; it cannot change scientific eligibility, claims, evidence grades, safety, canonical destinations, or cross-platform attribution boundaries.',
 }
 
 const baseResult = selectDistributionOpportunity(objects, signals)
