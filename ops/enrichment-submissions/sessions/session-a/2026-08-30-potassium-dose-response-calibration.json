@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "session-a-20260830-potassium",
+  "createdAt": "2026-08-30T15:55:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_a-potassium-dose-response-hypertension",
+      "authoringPackId": "ap_a_potassium_pubmed_40612568",
+      "workpackId": "wp_compound_potassium",
+      "entityType": "compound",
+      "entitySlug": "potassium",
+      "sourceId": "src_pubmed-40612568",
+      "topicType": "population_specific_note",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Potassium blood-pressure effects were substantially larger in hypertensive than non-hypertensive participants in a 2025 dose-response meta-analysis.",
+      "findingTextNormalized": "A 2025 dose-response meta-analysis of 10 randomized trials found that a 50 mmol/day increase in urinary potassium excretion corresponded to an approximately 5.3 mmHg systolic and 3.62 mmHg diastolic blood-pressure reduction in participants with hypertension, versus about 0.5/0.12 mmHg in participants without hypertension. The effect is population-dependent and should not be rendered as one generic blood-pressure effect size for all users.",
+      "strengthLabel": "moderate",
+      "populationContext": "Participants with and without hypertension across 10 randomized trials",
+      "usageContext": "Potassium supplementation assessed through change in 24-hour urinary potassium excretion",
+      "uncertaintyNote": "Only 10 RCTs met the analysis criteria; authors explicitly cautioned about the limited trial count.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    },
+    {
+      "submissionId": "sub_a-potassium-generalization-ceiling",
+      "authoringPackId": "ap_a_potassium_pubmed_40612568",
+      "workpackId": "wp_compound_potassium",
+      "entityType": "compound",
+      "entitySlug": "potassium",
+      "sourceId": "src_pubmed-40612568",
+      "topicType": "research_gap",
+      "claimType": "research_gap",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "The potassium evidence requires hypertension-status and dose-response calibration rather than a blanket Grade-A consumer effect statement.",
+      "findingTextNormalized": "The marked effect modification by hypertension status means potassium evidence should retain population, baseline intake, achieved exposure and dose-response context. A blood-pressure signal in hypertensive participants cannot automatically establish the same magnitude of benefit in normotensive consumers or justify a generic unsupervised supplement dose.",
+      "strengthLabel": "strong",
+      "populationContext": "Human randomized-trial evidence stratified by hypertension status",
+      "usageContext": "Evidence-calibration and recommendation-governance boundary",
+      "uncertaintyNote": "This finding constrains propagation and grading; it does not itself define an individual clinical dose.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
