@@ -152,7 +152,11 @@ export function createCanonicalOwnerResolver({ root = process.cwd() } = {}) {
 
   function resolveCanonicalOwner(input = {}) {
     const explicitType = normalizeEntityType(input.entityType)
-    const explicitSlug = normalizeOwnerSlug(input.entitySlug ?? input.slug)
+    // `|| null` matters: normalizeOwnerSlug returns '' for absent input, and the
+    // `??` below only falls through on null/undefined. Left as '', an empty slug
+    // would win over the one parsed from workpackId and every workpackId-only
+    // resolution would fail as missing_owner_identity.
+    const explicitSlug = normalizeOwnerSlug(input.entitySlug ?? input.slug) || null
     const parsed = parseWorkpackOwner(input.workpackId)
 
     if (input.entityType != null && !explicitType) {
