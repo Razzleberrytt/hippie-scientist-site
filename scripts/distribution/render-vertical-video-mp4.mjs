@@ -7,10 +7,7 @@ import sharp from 'sharp'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
-
-function readJson(file) {
-  return JSON.parse(fs.readFileSync(file, 'utf8'))
-}
+const timingMatches = (a, b) => Number.isFinite(Number(a)) && Number.isFinite(Number(b)) && Math.abs(Number(a) - Number(b)) < 1e-6
 
 function assertCanonicalChild(dir, file, pattern) {
   const normalized = clean(file)
@@ -46,8 +43,11 @@ function verifyScene({ packageDir, asset, sourceUrl, sourceContentHash }) {
   if (clean(metadata.sourceUrl) !== sourceUrl) throw new Error(`video scene source URL mismatch: ${asset.file}`)
   if (clean(metadata.contentHash) !== sourceContentHash) throw new Error(`video scene source content hash mismatch: ${asset.file}`)
   if (clean(metadata.renderer) !== 'vertical-video-package-v1') throw new Error(`unexpected parent renderer: ${asset.file}`)
-  if (Number(metadata.start) !== Number(asset.start) || Number(metadata.end) !== Number(asset.end)) {
+  if (!timingMatches(metadata.start, asset.start) || !timingMatches(metadata.end, asset.end)) {
     throw new Error(`video scene timing mismatch: ${asset.file}`)
+  }
+  if (clean(metadata.role) !== clean(asset.role) || clean(metadata.factualAuthority) !== clean(asset.factualAuthority)) {
+    throw new Error(`video scene governed metadata mismatch: ${asset.file}`)
   }
   return { file, bytes }
 }
@@ -66,6 +66,8 @@ function verifyPackage(packageDir) {
   const timelineBytes = fs.readFileSync(timelineFile)
   if (sha256(timelineBytes) !== clean(manifest.timeline?.sha256)) throw new Error('video timeline hash mismatch')
   const timeline = JSON.parse(timelineBytes.toString('utf8'))
+  if (clean(timeline.renderer) !== 'vertical-video-package-v1') throw new Error('timeline renderer identity does not match governed parent renderer')
+  if (clean(timeline.packId) !== clean(manifest.packId)) throw new Error('timeline pack identity does not match parent manifest')
   if (clean(timeline.sourceUrl) !== sourceUrl || clean(timeline.sourceContentHash) !== sourceContentHash) {
     throw new Error('timeline provenance does not match parent manifest')
   }
@@ -75,11 +77,31 @@ function verifyPackage(packageDir) {
 
   const assets = Array.isArray(manifest.assets) ? manifest.assets : []
   if (!assets.length || assets.length !== timeline.scenes?.length) throw new Error('parent video package scene inventory is incomplete')
+  let expectedStart = 0
+  let totalDuration = 0
   for (let index = 0; index < assets.length; index += 1) {
     const asset = assets[index]
     const scene = timeline.scenes[index]
     if (clean(asset.file) !== clean(scene.file) || clean(asset.sha256) !== clean(scene.sha256)) throw new Error(`timeline/manifest scene mismatch at index ${index}`)
-    if (Number(asset.start) !== Number(scene.start) || Number(asset.end) !== Number(scene.end)) throw new Error(`timeline/manifest timing mismatch at index ${index}`)
+    if (!timingMatches(asset.start, scene.start) || !timingMatches(asset.end, scene.end) || !timingMatches(asset.duration, scene.duration)) {
+      throw new Error(`timeline/manifest timing mismatch at index ${index}`)
+    }
+    if (!timingMatches(asset.start, expectedStart)) throw new Error(`video scene sequence is not contiguous at index ${index}`)
+    const start = Number(asset.start)
+    const end = Number(asset.end)
+    const duration = Number(asset.duration)
+    if (!Number.isFinite(start) || !Number.isFinite(end) || !Number.isFinite(duration) || duration <= 0 || end <= start) {
+      throw new Error(`invalid video scene timing at index ${index}`)
+    }
+    if (!timingMatches(duration, end - start)) throw new Error(`video scene duration does not match start/end at index ${index}`)
+    if (clean(asset.role) !== clean(scene.role) || clean(asset.factualAuthority) !== clean(scene.factualAuthority)) {
+      throw new Error(`timeline/manifest governed metadata mismatch at index ${index}`)
+    }
+    expectedStart = end
+    totalDuration += duration
+  }
+  if (!timingMatches(expectedStart, 30) || !timingMatches(totalDuration, 30)) {
+    throw new Error('video scene timing does not cover exactly 30 seconds')
   }
 
   return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets }
