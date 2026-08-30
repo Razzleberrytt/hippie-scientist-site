@@ -23,7 +23,7 @@ function makeRoot({ redirects = '', aliases = { herbs: {}, compounds: {} } } = {
   fs.mkdirSync(path.join(root, 'public', 'data', 'compounds-detail'), { recursive: true })
   fs.mkdirSync(path.join(root, 'public'), { recursive: true })
   fs.writeFileSync(path.join(root, 'public', '_redirects'), redirects)
-  writeJson(path.join(root, 'public', 'data', 'entity-slug-aliases.json'), aliases)
+  writeJson(path.join(root, 'data', 'canonical', 'enrichment-owner-aliases.json'), aliases)
   return root
 }
 
