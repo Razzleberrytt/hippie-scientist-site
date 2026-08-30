@@ -49,6 +49,43 @@ const CONFIRMED_MISATTRIBUTIONS = [
     verifiedAgainst:
       "PubMed 27403209 — \"Impact of the 'Artful Moments' Intervention on Persons with Dementia and Their Care Partners: a Pilot Study\", Can Geriatr J 2016, doi:10.5770/cgj.19.220",
   },
+  {
+    profile: 'potassium',
+    pmid: '25059961',
+    reason:
+      'Item is a news piece in a veterinary journal about One Health policy. It is not a study, and it concerns neither potassium nor any supplement.',
+    verifiedAgainst:
+      'PubMed 25059961 — "One Health: time to move on from just talking", Vet Rec 2014, doi:10.1136/vr.g4746, publication type News',
+  },
+]
+
+/**
+ * PMIDs PubMed will not resolve at all.
+ *
+ * These are worse than a citation with no identifier, because they look
+ * checkable. A reader follows the link and lands on nothing; the pipeline sees
+ * a well-formed PMID and treats the row as evidence. Neither the subject nor
+ * the standing of the paper can be established, so there is nothing to weigh.
+ *
+ * Kept separate from CONFIRMED_MISATTRIBUTIONS because the finding is
+ * different: a misattributed citation is about the wrong thing, and one of
+ * these is about nothing retrievable. Saying "misattributed" would claim
+ * knowledge of a paper nobody can read.
+ *
+ * `verifiedAgainst` records the exact response, so this can be re-checked —
+ * PubMed does occasionally restore records.
+ *
+ * @type {{ profile: string, pmid: string, reason: string, verifiedAgainst: string }[]}
+ */
+const CONFIRMED_UNRESOLVABLE = [
+  {
+    profile: 'policosanol',
+    pmid: '17127598',
+    reason:
+      'PubMed does not return this record, so the citation cannot be checked by a reader or by the pipeline. Its stored title is the pipeline placeholder rather than a study title, so nothing about the paper is known.',
+    verifiedAgainst:
+      'NCBI esummary for PMID 17127598 responds "cannot get document summary" (checked 2026-08-30); the same id is the one unresolved PMID in ops/cache/pubmed-metadata.json',
+  },
 ]
 
 const quarantined = []
@@ -75,6 +112,10 @@ function main() {
     CONFIRMED_MISATTRIBUTIONS.map((entry) => `${entry.profile}::${entry.pmid}`),
   )
   const misattributionsSeen = new Set()
+  const unresolvableKeys = new Set(
+    CONFIRMED_UNRESOLVABLE.map((entry) => `${entry.profile}::${entry.pmid}`),
+  )
+  const unresolvableSeen = new Set()
   const observedPmidProfiles = new Map()
 
   let filesChanged = 0
@@ -130,6 +171,21 @@ function main() {
             profile: slug,
             kind,
             classification: 'CLEARLY_MISATTRIBUTED',
+            reason: entry.reason,
+            verifiedAgainst: entry.verifiedAgainst,
+            source,
+          })
+          continue
+        }
+
+        if (pmid && unresolvableKeys.has(key)) {
+          if (sourceId(source)) removedSourceIds.add(sourceId(source))
+          const entry = CONFIRMED_UNRESOLVABLE.find((item) => `${item.profile}::${item.pmid}` === key)
+          unresolvableSeen.add(key)
+          quarantined.push({
+            profile: slug,
+            kind,
+            classification: 'UNRESOLVABLE_IDENTIFIER',
             reason: entry.reason,
             verifiedAgainst: entry.verifiedAgainst,
             source,
@@ -193,6 +249,71 @@ function main() {
     process.exit(1)
   }
 
+  // The detail files are not the only place a withdrawn citation appears.
+  // claims.json carries its own `pmid` and a pipe-separated `source_url`, and
+  // the claim endpoints and the research graph are built from it — so leaving
+  // it alone would keep pointing a reader at a paper that has just been
+  // withdrawn from the profile beside it.
+  //
+  // The rule is the one already used for claimMap above: drop the dangling
+  // reference, keep the claim if anything still supports it. A claim is only
+  // withdrawn when nothing is left to follow.
+  let claimsScrubbed = 0
+  const withdrawnPairs = new Set(
+    quarantined
+      .map((entry) => {
+        const pmid = String(entry.source?.pmid ?? entry.source?.pubmedId ?? '').trim()
+        return pmid ? `${entry.profile}::${pmid}` : null
+      })
+      .filter(Boolean),
+  )
+
+  const claimsPath = path.join(DATA_DIR, 'claims.json')
+  if (withdrawnPairs.size && fs.existsSync(claimsPath)) {
+    const rawClaims = fs.readFileSync(claimsPath, 'utf8')
+    const claims = JSON.parse(rawClaims)
+    if (Array.isArray(claims)) {
+      const keptClaims = []
+      for (const claim of claims) {
+        const pmid = String(claim?.pmid ?? '').trim()
+        if (!pmid || !withdrawnPairs.has(`${claim?.profile_slug}::${pmid}`)) {
+          keptClaims.push(claim)
+          continue
+        }
+
+        const urls = String(claim.source_url ?? '')
+          .split('|')
+          .map((url) => url.trim())
+          .filter(Boolean)
+          .filter((url) => !new RegExp(`/${pmid}/?$`).test(url))
+
+        const next = { ...claim }
+        delete next.pmid
+        if (urls.length) {
+          next.source_url = urls.join(' | ')
+          keptClaims.push(next)
+          claimsScrubbed += 1
+          continue
+        }
+
+        quarantinedClaims.push({
+          profile: claim.profile_slug,
+          kind: 'claim',
+          classification: 'SOURCE_WITHDRAWN',
+          reason: 'claim had no remaining source after its only citation was withdrawn',
+          removedSourceIds: [pmid],
+          claim,
+        })
+      }
+
+      const claimsChanged = claimsScrubbed > 0 || keptClaims.length !== claims.length
+      if (!DRY_RUN && claimsChanged) {
+        const serialized = JSON.stringify(keptClaims, null, 2)
+        writeFileAtomic(claimsPath, rawClaims.endsWith('\n') ? `${serialized}\n` : serialized)
+      }
+    }
+  }
+
   // A confirmed bad citation being absent is the desired steady state and must
   // pass on a clean checkout. The old implementation depended on a gitignored
   // previous-run report to prove prior withdrawal, so a deterministic rebuild
@@ -200,9 +321,15 @@ function main() {
   // guard instead: if the same hand-verified PMID reappears under a different
   // profile, fail rather than silently treating the denylist entry as stale.
   const movedMisattributions = []
-  for (const entry of CONFIRMED_MISATTRIBUTIONS) {
+  // Both hand-verified lists get the same drift guard: a bad citation that
+  // moves to another profile is still a bad citation, whichever list caught it.
+  const verifiedEntries = [
+    ...CONFIRMED_MISATTRIBUTIONS.map((entry) => ({ entry, seen: misattributionsSeen })),
+    ...CONFIRMED_UNRESOLVABLE.map((entry) => ({ entry, seen: unresolvableSeen })),
+  ]
+  for (const { entry, seen } of verifiedEntries) {
     const key = `${entry.profile}::${entry.pmid}`
-    if (misattributionsSeen.has(key)) continue
+    if (seen.has(key)) continue
     const profiles = [...(observedPmidProfiles.get(entry.pmid) || [])]
       .filter((profile) => profile !== entry.profile)
       .sort()
@@ -238,6 +365,7 @@ function main() {
   }
   console.log(`Claims withdrawn    ${quarantinedClaims.length}  (no source left)`)
   console.log(`Claims dereferenced ${claimsDereferenced}  (kept, dangling ref dropped)`)
+  console.log(`Claims scrubbed     ${claimsScrubbed}  (claims.json pmid + url dropped, claim kept)`)
   if (quarantined.length && !DRY_RUN) console.log(`\nReport: ${path.relative(ROOT, REPORT_PATH)}`)
 
   if (movedMisattributions.length) {

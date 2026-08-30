@@ -43,18 +43,7 @@
   "claimMap": [],
   "indexability_status": "NOINDEX",
   "robots": "noindex,follow",
-  "sources": [
-    {
-      "id": "src_de0b9fbdbbcd",
-      "title": "PubMed PMID 17127598. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/17127598/",
-      "pmid": "17127598",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 17127598. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
-    }
-  ],
+  "sources": [],
   "dosage": "—",
   "typical_dosage": "—",
   "sitemap_included": false,

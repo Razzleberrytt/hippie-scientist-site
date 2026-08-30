@@ -43,22 +43,7 @@
   "claimMap": [],
   "indexability_status": "NOINDEX",
   "robots": "noindex,follow",
-  "sources": [
-    {
-      "id": "src_06d69ae03171",
-      "title": "One Health: time to move on from just talking",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25059961/",
-      "pmid": "25059961",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 25059961. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved",
-      "journal": "Vet Rec",
-      "year": 2014,
-      "doi": "10.1136/vr.g4746",
-      "metadataSource": "pubmed"
-    }
-  ],
+  "sources": [],
   "dosage": "chelated mineral capsule or powder",
   "typical_dosage": "chelated mineral capsule or powder",
   "contraindications": [
