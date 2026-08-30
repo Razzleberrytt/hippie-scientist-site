@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "bacopa-provenance-normalization-20260829",
+  "createdAt": "2026-08-30T00:12:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-bacopa-healthy-cognition-limited-20260829",
+      "authoringPackId": "ap_bp_wp_herb_bacopa_src_doi_10_1038_s41598_020_80045_2",
+      "workpackId": "wp_herb_bacopa",
+      "entityType": "herb",
+      "entitySlug": "bacopa",
+      "sourceId": "src_doi-10-1038-s41598-020-80045-2",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2021 clinical-data meta-analysis found mostly null cognition outcomes in healthy adults, with no two studies reproducing significant changes on the same cognitive tests.",
+      "findingTextNormalized": "A 2021 analysis of available Bacopa monnieri clinical data included 11 double-blind randomized placebo-controlled studies and reported that 645 participants completed the healthy-adult cognition studies. Across 11 analyzed memory and attention outcomes, most showed no difference between Bacopa and placebo; logical memory was the main statistically significant pooled signal and carried publication-bias concern, while no two studies found statistically significant changes on the same neuropsychological tests. The synthesis therefore supports limited and outcome-specific cognition evidence rather than a broad nootropic efficacy claim.",
+      "strengthLabel": "limited",
+      "populationContext": "Healthy adult participants across 11 double-blind randomized placebo-controlled Bacopa studies; the synthesis reports 645 completers across the included studies.",
+      "usageContext": "Clinical Bacopa monnieri preparations across heterogeneous trials; outcome-specific synthesis rather than one standardized interchangeable extract.",
+      "uncertaintyNote": "Heterogeneous cognitive tests, small and inconsistent significant findings, publication-bias concern for the logical-memory result, and variation among preparations limit inference. This receipt normalizes an already conceptually represented Consensus-linked review to PubMed/DOI identity and must not be treated as automatic evidence-tier inflation. Source-registry admission and semantic citation attestation remain required before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-a-bacopa-combination-attribution-20260829",
+      "authoringPackId": "ap_bp_wp_herb_bacopa_src_doi_10_1038_s41598_020_80045_2",
+      "workpackId": "wp_herb_bacopa",
+      "entityType": "herb",
+      "entitySlug": "bacopa",
+      "sourceId": "src_doi-10-1038-s41598-020-80045-2",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "The 2021 Bacopa synthesis explicitly warns that Alzheimer and depression findings from multi-herb formulations cannot be credited to Bacopa alone.",
+      "findingTextNormalized": "The 2021 Bacopa clinical-data synthesis notes that the available placebo-controlled Alzheimer study used a poly-herb formulation and that observed effects therefore cannot be directly attributed to Bacopa monnieri alone. It also describes depression/anxiety evidence as sparse and often secondary or combination-based. Future Bacopa claims must preserve single-herb versus multi-herb formulation identity and must not convert combination-study outcomes into Bacopa-monotherapy efficacy.",
+      "strengthLabel": "limited",
+      "populationContext": "Clinical literature summarized across healthy adults and neurological or mood-related populations, including combination-formulation studies.",
+      "usageContext": "Attribution boundary for Bacopa monotherapy versus poly-herb formulations and adjunctive contexts.",
+      "uncertaintyNote": "This is an attribution constraint derived from the review's study composition rather than an independent efficacy estimate. It should reduce overclaiming, not raise an evidence grade. Source-registry admission and semantic citation attestation remain required before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
