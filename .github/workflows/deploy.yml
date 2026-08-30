@@ -97,6 +97,16 @@ jobs:
       - name: Audit cluster-member runtime trust
         run: npm run audit:cluster-member-trust:strict
 
+      - name: Provision and verify ffmpeg for governed video rendering
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+          command -v ffmpeg
+          ffmpeg -version | sed -n '1p'
+
       - name: Stage governed Metricool publication media
         run: |
           node scripts/distribution/build-research-distribution.mjs
@@ -160,6 +170,37 @@ jobs:
             exit 1
           fi
 
+          node --input-type=module <<'NODE'
+          import crypto from 'node:crypto'
+          import fs from 'node:fs'
+          import path from 'node:path'
+          const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
+          const manifestFile = path.join(process.env.STATIC_OUTPUT_DIR || 'out', 'media/distribution/metricool/latest.json')
+          const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'))
+          if (manifest?.schemaVersion !== 'metricool-publication-media-v1' || manifest?.status !== 'ready-for-provider') {
+            throw new Error('deployed Metricool manifest contract is invalid')
+          }
+          if (manifest.format === 'carousel' && manifest.mediaType !== 'image') throw new Error('carousel manifest must declare image media')
+          if (manifest.format === 'vertical-video' && manifest.mediaType !== 'video') throw new Error('vertical-video manifest must declare video media')
+          if (!['carousel', 'vertical-video'].includes(manifest.format)) throw new Error(`unsupported deployed Metricool format: ${manifest.format}`)
+          if (!Array.isArray(manifest.media) || manifest.media.length === 0) throw new Error('deployed Metricool manifest has no media')
+          if (manifest.format === 'vertical-video' && manifest.media.length !== 1) throw new Error('vertical-video deployment must contain exactly one MP4')
+          for (const item of manifest.media) {
+            const url = new URL(item.url)
+            if (url.hostname !== 'thehippiescientist.net' || !url.pathname.startsWith('/media/distribution/metricool/')) {
+              throw new Error(`invalid governed media URL: ${item.url}`)
+            }
+            const file = path.join(process.env.STATIC_OUTPUT_DIR || 'out', url.pathname.replace(/^\/+/, ''))
+            if (!fs.existsSync(file)) throw new Error(`governed media missing from static output: ${url.pathname}`)
+            const bytes = fs.readFileSync(file)
+            if (sha256(bytes) !== String(item.sha256 || '')) throw new Error(`governed media hash mismatch in static output: ${url.pathname}`)
+            if (Number(item.bytes) !== bytes.length) throw new Error(`governed media byte-size mismatch in static output: ${url.pathname}`)
+            if (manifest.mediaType === 'video' && !url.pathname.endsWith('.mp4')) throw new Error('vertical-video deployment must expose an MP4')
+            if (manifest.mediaType === 'image' && !url.pathname.endsWith('.png')) throw new Error('carousel deployment must expose PNG media')
+          }
+          console.log(`[distribution] verified deployed ${manifest.format} manifest with ${manifest.media.length} media asset(s)`)
+          NODE
+
           echo "ℹ️ Top-level deploy files:"
           find "$STATIC_OUTPUT_DIR" -maxdepth 1 -type f -printf ' - %f\n' | sort
 
@@ -205,7 +246,9 @@ jobs:
               echo "- out/index.html exists: no"
             fi
             if [ -f "$STATIC_OUTPUT_DIR/media/distribution/metricool/latest.json" ]; then
-              echo "- governed Metricool publication media staged: yes"
+              FORMAT="$(jq -r '.format // "unknown"' "$STATIC_OUTPUT_DIR/media/distribution/metricool/latest.json")"
+              MEDIA_TYPE="$(jq -r '.mediaType // "unknown"' "$STATIC_OUTPUT_DIR/media/distribution/metricool/latest.json")"
+              echo "- governed Metricool publication media staged: yes (${FORMAT}/${MEDIA_TYPE})"
             else
               echo "- governed Metricool publication media staged: no"
             fi
