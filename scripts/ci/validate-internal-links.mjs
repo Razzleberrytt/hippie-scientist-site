@@ -4,8 +4,10 @@ import path from 'node:path'
 const outDir = path.resolve('out')
 
 if (!fs.existsSync(outDir)) {
-  console.error(`Output directory "${outDir}" does not exist. Run build first.`)
-  process.exit(1)
+  // Skipping beats failing: this runs inside verify:postbuild now, and a
+  // caller without a build should be told, not blocked.
+  console.log(`Output directory "${outDir}" does not exist - skipping internal link validation.`)
+  process.exit(0)
 }
 
 // 1. Load Redirects (exact sources + wildcard/splat prefixes).
@@ -83,6 +85,8 @@ console.log(`Found ${htmlFiles.length} HTML files to scan for internal links.`)
 
 let errorCount = 0
 const checkedLinks = new Map()
+/** target route -> files linking to it, so a new break names its source. */
+const brokenTargets = new Map()
 
 const hrefRegex = /href=["']([^"']*)["']/g
 
@@ -128,15 +132,77 @@ for (const file of htmlFiles) {
     }
     
     if (!isValid) {
-      console.error(`Broken link in "${relativeFile}": "${route}"`)
+      if (!brokenTargets.has(route)) brokenTargets.set(route, new Set())
+      brokenTargets.get(route).add(relativeFile)
       errorCount++
     }
   }
 }
 
-if (errorCount > 0) {
-  console.error(`\nFound ${errorCount} broken internal links.`)
+/**
+ * A ratchet, not a gate at zero.
+ *
+ * This check has been correct and unwired for its whole life: it exits 1, no
+ * npm script ever ran it, and 393 dead links accumulated behind it. Failing at
+ * zero now would just make it the thing everyone skips, and zero is not the
+ * honest baseline — some dead targets need a decision nobody has made yet.
+ * Linking /herbs/berberis-aristata/ to berberis-vulgaris would claim two
+ * species are one plant, so that link is wrong whichever way it is resolved.
+ *
+ * Recorded targets are tolerated, a new one fails, and a target that stops
+ * being broken is reported so the baseline can shrink. The count only goes down.
+ */
+const BASELINE_PATH = path.resolve('config', 'broken-link-baseline.json')
+
+function readBrokenLinkBaseline() {
+  try {
+    const parsed = JSON.parse(fs.readFileSync(BASELINE_PATH, 'utf8'))
+    return new Set(Array.isArray(parsed?.targets) ? parsed.targets : [])
+  } catch {
+    return new Set()
+  }
+}
+
+const baseline = readBrokenLinkBaseline()
+const foundTargets = [...brokenTargets.keys()].sort()
+const appeared = foundTargets.filter((route) => !baseline.has(route))
+const cleared = [...baseline].filter((route) => !brokenTargets.has(route)).sort()
+
+console.log(`Broken link targets: ${foundTargets.length} (${errorCount} link edges); baseline allows ${baseline.size}.`)
+
+if (cleared.length) {
+  console.log(`${cleared.length} baselined target(s) now resolve. Remove them from config/broken-link-baseline.json to lock it in:`)
+  for (const route of cleared.slice(0, 20)) console.log(`  ${route}`)
+}
+
+// Regenerating beats hand-editing: the file stays sorted, and shrinking it is a
+// one-command operation once links are fixed.
+if (process.argv.includes('--update-baseline')) {
+  fs.mkdirSync(path.dirname(BASELINE_PATH), { recursive: true })
+  fs.writeFileSync(
+    BASELINE_PATH,
+    `${JSON.stringify(
+      {
+        note: 'Internal link targets that do not resolve. A ratchet: new targets fail, existing ones are tolerated until someone decides where they should point. Regenerate with: node scripts/ci/validate-internal-links.mjs --update-baseline',
+        targets: foundTargets,
+      },
+      null,
+      2,
+    )}\n`,
+  )
+  console.log(`Wrote ${foundTargets.length} target(s) to ${path.relative(process.cwd(), BASELINE_PATH)}.`)
+  process.exit(0)
+}
+
+if (appeared.length) {
+  console.error(`\n${appeared.length} internal link target(s) newly broken:`)
+  for (const route of appeared) {
+    const from = [...brokenTargets.get(route)].slice(0, 3)
+    console.error(`  ${route}  <- ${from.join(', ')}`)
+  }
+  console.error('\nAdd the page, add a redirect in public/_redirects, or fix the link.')
+  console.error('Baseline it only when the right destination is a decision nobody has made yet.')
   process.exit(1)
 }
 
-console.log(`Successfully verified all internal links! Clean output.`)
+console.log('No newly broken internal links.')
