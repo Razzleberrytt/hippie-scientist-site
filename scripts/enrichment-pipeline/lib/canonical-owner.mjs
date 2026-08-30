@@ -32,10 +32,6 @@ function ownerKey(owner) {
   return `${owner.entityType}:${owner.slug}`
 }
 
-function profilePath(owner) {
-  return `/${pluralFor(owner.entityType)}/${owner.slug}`
-}
-
 function ownerFromProfilePath(value) {
   const match = /^\/(herbs|compounds)\/([^/?#]+)\/?$/u.exec(String(value ?? '').trim())
   if (!match) return null
@@ -121,7 +117,7 @@ function resolutionError(code, message, details = {}) {
 
 export function createCanonicalOwnerResolver({ root = process.cwd() } = {}) {
   const redirectsPath = path.join(root, 'public', '_redirects')
-  const aliasesPath = path.join(root, 'public', 'data', 'entity-slug-aliases.json')
+  const aliasesPath = path.join(root, 'data', 'canonical', 'enrichment-owner-aliases.json')
   const redirects = parseProfileRedirects(fs.existsSync(redirectsPath) ? fs.readFileSync(redirectsPath, 'utf8') : '')
   const aliasDocument = readJson(aliasesPath, { herbs: {}, compounds: {} })
   const aliases = {
@@ -145,7 +141,7 @@ export function createCanonicalOwnerResolver({ root = process.cwd() } = {}) {
     const aliasTarget = aliases[owner.entityType].get(owner.slug)
     if (aliasTarget) {
       const target = { entityType: owner.entityType, slug: aliasTarget }
-      candidates.set(ownerKey(target), { target, via: 'entity-slug-aliases' })
+      candidates.set(ownerKey(target), { target, via: 'data/canonical/enrichment-owner-aliases.json' })
     }
     const redirectTargets = redirects.get(ownerKey(owner))
     for (const target of redirectTargets?.values() ?? []) {
