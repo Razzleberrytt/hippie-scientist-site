@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { shardOf } from './ids.mjs'
+import { createCanonicalOwnerResolver, workpackIdForOwner } from './canonical-owner.mjs'
 
 function readJson(file, fallback = null) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
@@ -34,7 +35,7 @@ function collectStagedWorkpacks(root) {
 }
 
 export function workpackIdFor(entityType, slug) {
-  return `wp_${entityType}_${String(slug).replaceAll('-', '_')}`
+  return workpackIdForOwner(entityType, slug)
 }
 
 export function scoreBootstrapCandidate(record) {
@@ -114,7 +115,8 @@ export function buildSessionBootstrap({ root, sessionId, manifest }) {
   if (session.enabled !== true) throw new Error(`Research session ${sessionId} is disabled`)
   const shardCount = manifest.shardCount ?? 8
   const staged = collectStagedWorkpacks(root)
-  const candidates = []
+  const ownerResolver = createCanonicalOwnerResolver({ root })
+  const candidateByWorkpack = new Map()
 
   for (const [entityType, directory] of [
     ['herb', path.join(root, 'public', 'data', 'herbs-detail')],
@@ -124,23 +126,36 @@ export function buildSessionBootstrap({ root, sessionId, manifest }) {
       const record = readJson(file)
       const slug = record?.slug ?? record?.id ?? path.basename(file, '.json')
       if (!slug) continue
-      const workpackId = workpackIdFor(entityType, slug)
+      const submittedWorkpackId = workpackIdFor(entityType, slug)
+      const resolved = ownerResolver.resolveWorkpack({
+        workpackId: submittedWorkpackId,
+        entityType,
+        entitySlug: slug,
+        slug,
+      })
+      const workpackId = resolved.workpackId
       const shard = shardOf(workpackId, shardCount)
       if (shard !== session.shard) continue
       const roi = scoreBootstrapCandidate(record)
-      candidates.push({
+      const candidate = {
         workpackId,
-        entityType,
-        slug,
-        name: record?.name ?? slug,
+        entityType: resolved.entityType,
+        slug: resolved.slug,
+        name: record?.name ?? resolved.slug,
         shard,
         sessionId,
         staged: staged.has(workpackId),
+        ownerResolution: resolved.ownerResolution,
         ...roi,
-      })
+      }
+      const previous = candidateByWorkpack.get(workpackId)
+      if (!previous || candidate.score > previous.score || (candidate.score === previous.score && submittedWorkpackId === workpackId)) {
+        candidateByWorkpack.set(workpackId, candidate)
+      }
     }
   }
 
+  const candidates = [...candidateByWorkpack.values()]
   candidates.sort((a, b) =>
     Number(a.staged) - Number(b.staged) ||
     b.score - a.score ||
@@ -149,7 +164,7 @@ export function buildSessionBootstrap({ root, sessionId, manifest }) {
 
   const remaining = candidates.filter(item => !item.staged)
   return {
-    modelVersion: 'research-session-bootstrap-v1',
+    modelVersion: 'research-session-bootstrap-v2',
     sessionId,
     workerId: session.workerId,
     shard: session.shard,
