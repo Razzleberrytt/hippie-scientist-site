@@ -46,13 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation on 2026-08-30 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `6691af63b8eadb54da8a4cff192fc5947d5bd7f0` on 2026-08-30 shows **0/3 normal implementation workstreams occupied**:
 
-- **R — #4732 / PR #4734:** bounded Metricool provider integration. This does not authorize broad auto-publishing or infer production outcomes.
-- **A — free:** AUTH-001 / #4800 retired after closed-unmerged PR #4803's current audit printed `AUTH_DUPLICATE_COUNT=0`.
-- **D — free:** SEO-003 retired after #4795 / closed-unmerged PR #4796's exact-current Schema and Media Governance run `33315511238` passed.
+- **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
+- **A — free:** #4784 / PR #4813 merged and closed, but no real governor lease is active; AUTH-001 / #4800 remains retired after PR #4803's current audit printed `AUTH_DUPLICATE_COUNT=0`.
+- **D — free:** SEO-003 remains retired after #4795 / PR #4796's exact-current Schema and Media Governance run `33315511238` passed.
 
-Research-only enrichment staging remains separate from canonical implementation/promotion WIP.
+Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Open safety issue #4731 is the highest-priority legal implementation candidate.
 
 ## Next — ordered dependency queue
 
@@ -60,8 +60,8 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4784 | Add auditable persistent governor lease transaction path | A control prerequisite | **Ready** | P0 dependency unlock | 5/5/3/5/1/3 | 125.0 | Authority slot is free; reuse/rebase preserved closed PR #4794 on exact current `main`; exact-head revalidation required | `control.mjs` remains authoritative; structured acquire/release only; no arbitrary command surface; serialized state-only transaction; stale-main/overlap/cross-owner fail closed; durable before/after receipt; zero canonical scientific/public mutation; exact-head governor + repository gates green |
-| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; governed review blocked | P1 evidence | 4/5/3/5/.75/3 | 75.0 | #4784 merged, then acquire governor lease + provenance/source review and revalidate source status before canonical mutation | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
+| #4731 | Close unbound dose, onset, and comparative-efficacy label bypasses | R/L2 safety incident | **Ready** | Safety gate | — | — | Revenue slot is free; extend existing validator rather than creating a second factual authority | Cover common onset constructions and hyphenated durations, comparative-efficacy wording, and supplement units including IU, µg/μg and CFU; preserve nonfactual labels and canonical truth; resolve PR #4729's three review threads; exact-head distribution + repository gates green |
+| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on real lease transaction** | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent capability merged in #4813, but main queue has no active lease; acquire/merge a state-only transaction, then run provenance/source review and revalidate source status | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
 | #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent governor lease path + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
@@ -77,8 +77,8 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | REV-003/REV-004 + evidence review |
 | REV-004 | Validate flagship disclosure/destinations | R | Blocked | 67.5 | REV-003 selected page |
 | AUTH-002 | Strengthen links to selected flagship | A | Blocked | 54.0 | REV-003 selected page |
-| #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on governor capability | — | #4784 must merge and a real governor lease must be acquired before canonical owner migration |
-| #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on governor capability | — | #4784 must merge and a real governor lease must be acquired before canonical owner/data migration |
+| #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on real governor lease | — | Persistent capability is merged; acquire and merge a valid state-only lease transaction before canonical owner migration |
+| #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on real governor lease | — | Persistent capability is merged; acquire and merge a valid state-only lease transaction before canonical owner/data migration |
 | #4014 | Enforce `main` branch protection/ruleset | O | Blocked external settings | — | Authorized repository settings action; documentation alone is not enforcement |
 | #4341 | Resolve recurring Cloudflare production deployment failure class | O | Blocked external logs | — | Inspect Cloudflare production logs/failed deployment class, then repair only if repository/config root cause is proven |
 
@@ -100,6 +100,9 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4730 / PR #4858 | Merged as `44b019fa1f67ead0538076944224243a098dbfde`; stale published or paused-but-live assets preserve the governed withdrawal/receipt path while stale non-live assets remain terminal-invalid. |
+| #4784 / PR #4813 | Merged as `1e8fae58a3499c9f6a79b4338e636244620ec629`; persistent least-privilege governor transactions are implemented. Main's queue has no active lease, so downstream canonical work remains gated. |
+| #4732 / PR #4734 | Merged as `4d26d1cfacb5fb577f9216b7fa116e006e7b0a0d`; bounded Metricool adapter capability exists, while provider configuration/credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown. |
 | AUTH-001 / #4800 / PR #4803 | Current content-audit diagnostic run `33316024891` completed successfully and explicitly printed `AUTH_DUPLICATE_COUNT=0`; PR #4803 closed unmerged because its only change was a temporary diagnostic workflow; historical four-pair finding retired. |
 | SEO-003 / #4795 / PR #4796 | Exact-current Schema and Media Governance run `33315511238` passed shared schema regressions, static export, structured-data completeness, first-party identity/safety policy, and media checks. PR #4796 closed unmerged because its only change was diagnostic; historical 38-identity blocker retired. |
 | #4719 / PR #4720 | Merged as 90e2be7233f460919e3341f1aefd0053b1867df2 — governed export receipts bind/restore producer public/data and build-manifest state; all three exact-head consumers passed |

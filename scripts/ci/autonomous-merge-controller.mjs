@@ -448,15 +448,61 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
   return { ...verdict, headSha: currentHeadSha, baseSha: verdict.baseSha || currentBaseSha, riskTier }
 }
 
-async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha }) {
+async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, controllerRunId = '' }) {
   const pr = await getPr(repo, number)
-  if (pr.head?.sha !== headSha) return false
-  const latestBaseSha = await getBranchSha(repo, pr.base.ref)
+  if (pr.head?.sha !== headSha) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: head moved from ${headSha} to ${pr.head?.sha || 'unknown'}`)
+    return false
+  }
+
+  const [workflowRuns, checkRuns, latestBaseSha, changedFiles] = await Promise.all([
+    getWorkflowRuns(repo, headSha),
+    getCheckRuns(repo, headSha),
+    getBranchSha(repo, pr.base.ref),
+    getPrFiles(repo, number),
+  ])
+  if (!latestBaseSha) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: current base SHA is not observable`)
+    return false
+  }
   if (latestBaseSha !== validatedBaseSha || !(await headContainsBase(repo, latestBaseSha, headSha))) {
-    const workflowRuns = await getWorkflowRuns(repo, headSha)
     await refreshPrAndDispatch({ repo, pr, workflowRuns, currentBaseSha: latestBaseSha })
     return false
   }
+
+  const riskTier = classifyRisk({ pr, changedFiles })
+  const terminalVerdict = evaluateReadiness({
+    pr,
+    workflowRuns,
+    checkRuns,
+    expectedHeadSha: headSha,
+    currentBaseSha: latestBaseSha,
+    controllerRunId,
+    riskTier,
+    changedFiles,
+  })
+  if (terminalVerdict.action === 'sync') {
+    await refreshPrAndDispatch({ repo, pr, workflowRuns, currentBaseSha: latestBaseSha })
+    return false
+  }
+  if (terminalVerdict.action !== 'merge') {
+    console.log(`Terminal merge revalidation blocked PR #${number}: ${terminalVerdict.action}: ${terminalVerdict.reason}`)
+    return false
+  }
+
+  const finalPr = await getPr(repo, number)
+  if (finalPr.head?.sha !== headSha) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: head moved during final gate`)
+    return false
+  }
+  const finalBaseSha = await getBranchSha(repo, finalPr.base.ref)
+  if (finalBaseSha !== latestBaseSha || finalBaseSha !== validatedBaseSha || !(await headContainsBase(repo, finalBaseSha, headSha))) {
+    const latestWorkflowRuns = await getWorkflowRuns(repo, headSha)
+    await refreshPrAndDispatch({ repo, pr: finalPr, workflowRuns: latestWorkflowRuns, currentBaseSha: finalBaseSha })
+    return false
+  }
+
+  console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${finalBaseSha}`)
   await mergePr(repo, number, headSha)
   return true
 }
@@ -494,7 +540,7 @@ async function followOnePr() {
         writeOutput('risk_tier', verdict.riskTier)
         return
       }
-      await mergeIfStillCurrent({ repo, number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha })
+      await mergeIfStillCurrent({ repo, number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })
       return
     }
     if (verdict.action === 'stop') return
@@ -514,7 +560,7 @@ async function fallbackSweep() {
     const verdict = await evaluateOnce({ repo, number: pr.number, expectedHeadSha: pr.head.sha, controllerRunId, allowRetry: true })
     console.log(`[fallback PR #${pr.number}] [${verdict.riskTier || 'unknown'}] ${verdict.action}: ${verdict.reason}`)
     if (verdict.action === 'merge') {
-      if (await mergeIfStillCurrent({ repo, number: pr.number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha })) merged += 1
+      if (await mergeIfStillCurrent({ repo, number: pr.number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })) merged += 1
       break
     }
     if (verdict.action === 'refresh') break

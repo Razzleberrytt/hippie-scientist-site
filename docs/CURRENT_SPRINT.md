@@ -5,7 +5,7 @@
 **Updated:** 2026-08-30
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation on 2026-08-30 after SEO-003 and AUTH-001 revalidation: Revenue/Conversion is occupied by #4732 / PR #4734; Discovery/SEO and Authority/Content are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 was retired by #4795 / closed-unmerged PR #4796 after Schema and Media Governance run `33315511238` passed the full current identity policy. AUTH-001 was retired by #4800 / closed-unmerged PR #4803 after current audit run `33316024891` printed `AUTH_DUPLICATE_COUNT=0`.
+**Current admission:** Live GitHub reconciliation at `6691af63b8eadb54da8a4cff192fc5947d5bd7f0` on 2026-08-30 records 0/3 normal implementation workstreams occupied. Revenue/Conversion #4732 / PR #4734 and Authority prerequisite #4784 / PR #4813 are merged/closed and no longer own WIP. Open factual-label safety issue #4731 is the highest-priority legal follow-up. Main's governor queue contains no active lease, so #4266 remains blocked from canonical mutation even though the persistent transaction capability is merged. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,11 +49,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed implementation WIP 1/3
+## Active — observed implementation WIP 0/3
 
-- **Revenue/Conversion:** #4732 / PR #4734 — bounded Metricool provider integration. Live scheduling remains fail-closed on credentials/provider confirmation and does not authorize broad auto-publishing.
-- **Authority/Content:** free. AUTH-001/#4800 is retired after PR #4803's current audit returned zero duplicate-slug findings.
-- **Discovery/SEO:** free. SEO-003 is retired after #4795 / PR #4796's exact-current Schema and Media Governance revalidation passed.
+- **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
+- **Authority/Content:** free. #4784 / PR #4813 is merged/closed, but no real governor lease is active; AUTH-001/#4800 remains retired after PR #4803's current audit returned zero duplicate-slug findings.
+- **Discovery/SEO:** free. SEO-003 remains retired after #4795 / PR #4796's exact-current Schema and Media Governance revalidation passed.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
@@ -65,8 +65,8 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | #4784 — add auditable persistent governor lease transaction path | A control prerequisite | **Ready — Authority slot is free** | Reuse/rebase the preserved closed PR #4794 on exact current `main`; keep `control.mjs` authoritative, least-privilege structured acquire/release inputs, serialized state-only writes, stale-main fail-closed behavior, owner/overlap protection, durable before/after receipts, and zero scientific/public mutation; all exact-head governor + repository gates must pass |
-| 2 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; blocked on #4784 + real lease | PR #4631 staged source boundaries only; after #4784 merges, acquire the canonical governor lease/review path before any workbook, registry, rollup, public-profile, grade, or publication mutation |
+| 1 | #4731 — close unbound dose, onset, and comparative-efficacy label bypasses | R/L2 safety incident | **Ready — Revenue slot is free** | Extend the existing factual-copy validator surgically; cover common working/begin/start onset phrasing and hyphenated durations, comparative-efficacy wording such as “more effective than” / “matches efficacy,” and supplement dose units including IU, µg/μg and CFU; preserve nonfactual labels and canonical scientific truth; resolve PR #4729's three review threads and pass exact-head distribution + repository gates |
+| 2 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on a real governor lease transaction** | PR #4631 staged source boundaries only. The persistent transaction capability is merged in #4813, but `ops/enrichment-governor/work-queue.json` has no active lease; acquire and merge a valid state-only transaction before any workbook, registry, rollup, public-profile, grade, or publication mutation |
 
 Discovery/SEO is free after SEO-003 retirement, but no stale SEO item is promoted merely to fill the slot. Revalidate a current problem before admission.
 
@@ -114,6 +114,9 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#4730 / PR #4858:** merged as `44b019fa1f67ead0538076944224243a098dbfde`; stale published or paused-but-live assets retain a governed withdrawal path and receipt while stale non-live assets remain terminal-invalid. The reopened issue is closed complete.
+- **#4784 / PR #4813:** merged as `1e8fae58a3499c9f6a79b4338e636244620ec629`; the least-privilege persistent governor transaction capability is on main. Capability does not equal an acquired lease, and current queue state has none.
+- **#4732 / PR #4734:** merged as `4d26d1cfacb5fb577f9216b7fa116e006e7b0a0d`; the bounded Metricool adapter is repository capability only. Provider credentials/configuration, live scheduling, publication confirmation, and public/business outcomes remain externally gated or Unknown.
 - **AUTH-001 / #4800 / PR #4803:** current content-audit diagnostic run `33316024891` completed successfully and explicitly printed `AUTH_DUPLICATE_COUNT=0`. PR #4803 closed unmerged because it only added a temporary diagnostic workflow; the historical four duplicate-intent pairs are stale and no redirect/consolidation work was manufactured.
 - **SEO-003 / #4795 / PR #4796:** exact-current Schema and Media Governance run `33315511238` passed shared schema regressions, production static export, structured-data completeness, first-party identity/safety policy, and media checks. PR #4796 closed unmerged because its only change was a diagnostic comment; the historical 38-identity failure is stale.
 - **#4719 / PR #4720:** merged as `90e2be7233f460919e3341f1aefd0053b1867df2`; governed static-export receipts now bind and restore producer-generated verification state plus the build manifest. Exact-head Build Check, Production Content Lint, and Lighthouse consumers passed; no validation gate was weakened.
