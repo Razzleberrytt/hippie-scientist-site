@@ -3,6 +3,7 @@ import crypto from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 
 import { acquireLease, contract, quarantineDecision, runBenchmark } from './governor.mjs'
+import { validateLeaseTransactionInput } from './lease-transaction.mjs'
 import { appendJsonl, atomicJson, loadJsonStrict, statePath, withWriterLock } from './state-io.mjs'
 
 const nowIso = () => new Date().toISOString()
@@ -50,14 +51,21 @@ export function authorizeLeaseRelease(queue, { id, owner } = {}) {
 function acquire(args) {
   return withWriterLock(() => {
     const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
-    const request = {
+    const validated = validateLeaseTransactionInput({
+      operation: 'acquire',
       id: args.id || `lease_${crypto.randomUUID()}`,
       owner: args.owner || 'enrichment-agent',
       purpose: args.purpose || 'enrichment',
       files: csv(args.files),
       entities: csv(args.entities),
+    })
+    const request = {
+      id: validated.id,
+      owner: validated.owner,
+      purpose: validated.purpose,
+      files: validated.files,
+      entities: validated.entities,
     }
-    if (!request.files.length && !request.entities.length) throw new Error('lease-acquire requires --files and/or --entities')
     const result = acquireLease(queue, request)
     if (!result.acquired) {
       event('lease_blocked', { requestedLeaseId: request.id, reason: result.reason, files: request.files, entities: request.entities })
@@ -72,12 +80,18 @@ function acquire(args) {
 function release(args) {
   return withWriterLock(() => {
     const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
-    const decision = authorizeLeaseRelease(queue, { id: args.id, owner: args.owner })
+    const validated = validateLeaseTransactionInput({
+      operation: 'release',
+      id: args.id,
+      owner: args.owner,
+      disposition: args.disposition || 'completed',
+    })
+    const decision = authorizeLeaseRelease(queue, { id: validated.id, owner: validated.owner })
 
     if (!decision.ok) {
       event('lease_release_denied', {
-        leaseId: args.id || null,
-        requestedOwner: args.owner || null,
+        leaseId: validated.id,
+        requestedOwner: validated.owner,
         actualOwner: decision.lease?.owner || null,
         reason: decision.code,
       })
@@ -86,23 +100,23 @@ function release(args) {
 
     if (!decision.released) {
       event('lease_released', {
-        leaseId: args.id,
-        owner: args.owner,
+        leaseId: validated.id,
+        owner: validated.owner,
         existed: false,
-        disposition: args.disposition || 'completed',
+        disposition: validated.disposition,
       })
-      return { ok: true, released: false, leaseId: args.id }
+      return { ok: true, released: false, leaseId: validated.id }
     }
 
-    const leases = (queue.leases || []).filter(lease => lease.id !== args.id)
+    const leases = (queue.leases || []).filter(lease => lease.id !== validated.id)
     atomicJson(statePath('work-queue.json'), { ...queue, leases, updatedAt: nowIso() })
     event('lease_released', {
-      leaseId: args.id,
-      owner: args.owner,
+      leaseId: validated.id,
+      owner: validated.owner,
       existed: true,
-      disposition: args.disposition || 'completed',
+      disposition: validated.disposition,
     })
-    return { ok: true, released: true, leaseId: args.id }
+    return { ok: true, released: true, leaseId: validated.id }
   })
 }
 
