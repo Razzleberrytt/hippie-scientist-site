@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { shardOf } from './lib/ids.mjs'
+import { createCanonicalOwnerResolver } from './lib/canonical-owner.mjs'
 import { evaluateRuntimeSourceRegistryReferences } from '../lib/runtime-source-registry-audit.mjs'
 import {
   admissionDecision, computeSessionYield, fanoutCandidates, prioritizeSubmissions,
@@ -174,7 +175,8 @@ if (command === 'report' || command === 'validate') {
 } else if (command === 'schedule') {
   const input = readJson(process.argv[3] ? path.resolve(process.argv[3]) : '', [])
   const shard = Number(process.argv[4] ?? 0)
-  console.log(JSON.stringify(scheduleShard(input, shard, manifest.shardCount ?? 8, shardOf), null, 2))
+  const ownerResolver = createCanonicalOwnerResolver({ root: ROOT })
+  console.log(JSON.stringify(scheduleShard(input, shard, manifest.shardCount ?? 8, shardOf, ownerResolver.resolveWorkpack), null, 2))
 } else if (command === 'orphans') {
   const input = readJson(process.argv[3] ? path.resolve(process.argv[3]) : '', [])
   const ranked = input.map(item => ({ ...item, roi: scoreOrphan(item) })).sort((a,b) => b.roi.score - a.roi.score || String(a.sourceId ?? '').localeCompare(String(b.sourceId ?? '')))
