@@ -17,7 +17,6 @@ const mediaPack = buildDistributionPackFromResearchObject(researchObjects[0], { 
 function manifestFor(pack, creativeSpecHash = 'creative-a') {
   return {
     schemaVersion: '1.1.0',
-    packId: pack.packId,
     ...buildAssetProvenance({
       mediaPack: pack,
       renderer: 'carousel-svg-v1',
@@ -36,6 +35,19 @@ test('factual provenance fingerprint is deterministic and key-order independent'
   expect(hashStableValue({ b: 2, a: 1 })).toBe(hashStableValue({ a: 1, b: 2 }))
 })
 
+test('asset provenance carries the canonical pack identity required by freshness validation', () => {
+  const provenance = buildAssetProvenance({
+    mediaPack,
+    renderer: 'carousel-svg-v1',
+    templateVersion: 'carousel-portrait-v1',
+    creativeSpecHash: 'creative-a',
+  })
+  expect(provenance.packId).toBe(mediaPack.packId)
+  expect(assertAssetManifestFresh(provenance, mediaPack)).toBe(true)
+  expect(() => assertAssetManifestFresh({ ...provenance, packId: 'different-media-pack-v1' }, mediaPack))
+    .toThrow(/STALE\/INVALID/)
+})
+
 test('creative-only changes alter presentation identity without changing factual authority', () => {
   const first = manifestFor(mediaPack, 'creative-a')
   const second = manifestFor(mediaPack, 'creative-b')
@@ -52,6 +64,8 @@ test('freshness fails closed when governed factual/provenance identity is stale'
   expect(() => assertAssetManifestFresh({ ...current, sourceContentHash: '0'.repeat(64) }, mediaPack))
     .toThrow(/STALE\/INVALID/)
   expect(() => assertAssetManifestFresh({ ...current, sourceUrl: 'https://thehippiescientist.net/herbs/stale/' }, mediaPack))
+    .toThrow(/STALE\/INVALID/)
+  expect(() => assertAssetManifestFresh({ ...current, packId: 'stale-media-pack-v1' }, mediaPack))
     .toThrow(/STALE\/INVALID/)
 })
 
