@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "holy-basil-evidence-class-stress-rct-20260830",
+  "createdAt": "2026-08-30T17:20:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-holy-basil-2017-systematic-review-class-correction-20260830",
+      "authoringPackId": "ap_bp_wp_herb_holy_basil_src_c9c95a2ed78b",
+      "workpackId": "wp_herb_holy_basil",
+      "entityType": "herb",
+      "entitySlug": "holy-basil",
+      "sourceId": "src_c9c95a2ed78b",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "The canonical Holy Basil source PMID 28400848 is a systematic review of human Tulsi studies, but the live profile currently misclassifies it as a narrative review.",
+      "findingTextNormalized": "PMID 28400848 / DOI 10.1155/2017/9217567 is titled The Clinical Efficacy and Safety of Tulsi in Humans: A Systematic Review of the Literature and reports a comprehensive search that identified 24 human studies with clinical outcomes after Tulsi ingestion. The canonical Holy Basil profile nevertheless stores this source as studyType Narrative review and studyClass narrative-review. This is a study-class integrity defect. Correcting the class must not by itself inflate evidence strength: the review spans heterogeneous metabolic, cardiovascular, immunity, and neurocognitive outcomes and explicitly calls for further research to clarify mechanisms, dosage and dose form, and responsive populations.",
+      "strengthLabel": "moderate",
+      "populationContext": "Twenty-four human Tulsi studies across heterogeneous metabolic, cardiovascular, immunity, and neurocognitive outcomes included in a 2017 systematic review.",
+      "usageContext": "Canonical propagation/classification correction for an already-attached Holy Basil source; this is not a net-new site citation and does not independently justify a stronger public evidence tier.",
+      "uncertaintyNote": "The review is correctly classified as systematic, but its broad favorable synthesis rests on heterogeneous underlying studies and cannot substitute for claim-specific evidence. Canonical source-class correction, claim-map reconciliation, semantic citation attestation, governed review, and promotion remain separate steps.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-a-holy-basil-2022-holixer-stress-positive-sleep-mixed-20260830",
+      "authoringPackId": "ap_bp_wp_herb_holy_basil_src_doi_10_3389_fnut_2022_965130",
+      "workpackId": "wp_herb_holy_basil",
+      "entityType": "herb",
+      "entitySlug": "holy-basil",
+      "sourceId": "src_doi-10-3389-fnut-2022-965130",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "An 8-week randomized Holixer trial in 100 stressed adults improved perceived stress, subjective insomnia scores and several cortisol/stress-response measures, while objective sleep findings remained limited and formulation-specific.",
+      "findingTextNormalized": "PMID 36185698 / DOI 10.3389/fnut.2022.965130 was a two-arm, parallel, randomized, double-blind, placebo-controlled trial in 100 adults aged 18 to 65 years experiencing stress. Participants received standardized Ocimum tenuiflorum Holixer extract 125 mg twice daily or placebo for eight weeks. Compared with placebo, Holixer was associated with greater improvement in Perceived Stress Scale and Athens Insomnia Scale scores, lower hair cortisol at week 8, and buffered salivary cortisol, salivary amylase, blood-pressure, and subjective-stress responses during the Maastricht Acute Stress Test. However, the sleep signal was not uniformly objective: the investigators recommended further research using gold-standard objective sleep measures, and the reported Fitbit-derived between-group sleep-efficiency and total-sleep-time findings did not establish a clear objective sleep benefit. The evidence is therefore product-, population-, duration-, outcome-, and sponsor-bounded rather than a universal Holy Basil efficacy or sleep-treatment claim.",
+      "strengthLabel": "moderate",
+      "populationContext": "One hundred adults aged 18 to 65 years experiencing stress in an eight-week randomized placebo-controlled trial; trial registration ACTRN12621000609853.",
+      "usageContext": "Standardized Holixer Ocimum tenuiflorum extract, 125 mg twice daily for eight weeks. This studied exposure is not interchangeable with Tulsi tea, leaf powder, other extracts, species synonyms, doses, or durations and is not consumer dosing guidance.",
+      "uncertaintyNote": "Subjective stress and insomnia signals must remain paired with the objective-sleep limitation and other nonsignificant measures. The study was funded by Natural Remedies Pty Ltd, the intervention was supplied by Natural Remedies, and one author led a CRO with nutraceutical-industry funding/honoraria history; preserve this provenance during any later promotion. Source-registry admission and semantic citation attestation remain required before canonical/public use.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
