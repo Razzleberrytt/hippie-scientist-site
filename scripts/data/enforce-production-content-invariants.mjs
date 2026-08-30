@@ -240,7 +240,7 @@ if (refreshDerived && demotions.length) {
   run('node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data')
   run('node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data --preserve-governed-state')
   run('node scripts/data/build-route-manifest.mjs --data-dir=public/data')
-  run('node scripts/data/build-internal-link-engine.mjs --data-dir=public/data')
+  run('node node_modules/tsx/dist/cli.mjs scripts/data/build-internal-link-engine.mjs --data-dir=public/data')
   run('node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data')
   run('node scripts/data/build-export-batches.mjs --data-dir=public/data')
   run('node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data')
