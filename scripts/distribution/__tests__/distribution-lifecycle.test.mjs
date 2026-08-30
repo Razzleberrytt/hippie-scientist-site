@@ -4,6 +4,7 @@ import {
   assertPublishableLifecycle,
   buildDistributionIdentity,
   createDistributionLifecycle,
+  reconcileDistributionLifecycleIdentity,
   transitionDistributionLifecycle,
 } from '../distribution-lifecycle.mjs'
 
@@ -39,15 +40,52 @@ describe('governed distribution lifecycle', () => {
   it('derives stable campaign/asset identity and starts dry-run only', () => {
     expect(buildDistributionIdentity(identity)).toEqual(buildDistributionIdentity({ ...identity }))
     const record = createDistributionLifecycle(identity, { now: '2026-08-28T05:00:00.000Z' })
-    expect(record).toMatchObject({ state: 'generated', dryRun: true, paused: false })
+    expect(record).toMatchObject({ state: 'generated', dryRun: true, paused: false, invalidation: null })
     expect(record.lifecycleId).toBe(record.identity.idempotencyKey)
   })
 
-  it('fails closed when any upstream content/render identity becomes stale', () => {
+  it('automatically invalidates when any upstream content/render identity becomes stale', () => {
     const record = createDistributionLifecycle(identity)
-    expect(() => transitionDistributionLifecycle(record, 'validated', {
-      currentIdentity: { ...identity, packContentHash: 'changed' },
-    })).toThrow(/stale: upstream identity changed/i)
+    const changedIdentity = { ...identity, packContentHash: 'changed' }
+    const invalid = transitionDistributionLifecycle(record, 'validated', {
+      currentIdentity: changedIdentity,
+      now: '2026-08-30T11:00:00.000Z',
+    })
+    expect(invalid).toMatchObject({
+      state: 'invalid',
+      paused: true,
+      invalidation: {
+        reason: 'upstream_identity_changed',
+        at: '2026-08-30T11:00:00.000Z',
+        supersededIdentityFingerprint: record.identity.fingerprint,
+        currentIdentityFingerprint: buildDistributionIdentity(changedIdentity).fingerprint,
+        replacementIdempotencyKey: buildDistributionIdentity(changedIdentity).idempotencyKey,
+      },
+    })
+  })
+
+  it('invalidates persisted ready assets during identity reconciliation and blocks publication', () => {
+    const ready = advanceToReady(createDistributionLifecycle(identity))
+    const changedIdentity = { ...identity, researchObjectHash: 'obj_hash_v2' }
+    const invalid = reconcileDistributionLifecycleIdentity(ready, changedIdentity, {
+      now: '2026-08-30T11:05:00.000Z',
+    })
+    expect(invalid.state).toBe('invalid')
+    expect(invalid.identity.fingerprint).toBe(ready.identity.fingerprint)
+    expect(() => assertPublishableLifecycle(ready, changedIdentity)).toThrow(/invalid: upstream identity changed/i)
+  })
+
+  it('keeps invalid lifecycle lineage terminal until regeneration creates a new identity', () => {
+    const changedIdentity = { ...identity, assetManifestHash: 'asset_hash_v2' }
+    const invalid = reconcileDistributionLifecycleIdentity(advanceToReady(createDistributionLifecycle(identity)), changedIdentity)
+    const attempted = transitionDistributionLifecycle(invalid, 'scheduled', { currentIdentity: changedIdentity })
+    expect(attempted.state).toBe('invalid')
+    expect(attempted.invalidation).toEqual(invalid.invalidation)
+
+    const regenerated = createDistributionLifecycle(changedIdentity)
+    expect(regenerated.state).toBe('generated')
+    expect(regenerated.identity.fingerprint).not.toBe(invalid.identity.fingerprint)
+    expect(regenerated.lifecycleId).toBe(buildDistributionIdentity(changedIdentity).idempotencyKey)
   })
 
   it('requires ordered generated -> validated -> ready transitions', () => {
