@@ -52,7 +52,7 @@ describe('first bounded distribution pilot', () => {
         observedTo: null,
         currentValue: 'Unknown',
       },
-      lifecycle: { state: 'scheduled', dryRun: true },
+      lifecycle: { state: 'scheduled', dryRun: true, identity: { platform: 'carousel', format: 'carousel' } },
     })
     expect(pilot.lifecycle.receipts).toHaveLength(1)
     expect(pilot.lifecycle.receipts[0]).toMatchObject({ state: 'scheduled', provider: 'dry-run', dryRun: true })

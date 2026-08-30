@@ -31,7 +31,7 @@ export function createBoundedPilotPackage({ selection, packageData, mediaPack, a
     assetManifestHash: hashStableValue(assetManifest),
     sourceUrl: mediaPack.source.url,
     taggedDestination: selected.destination.taggedUrl,
-    platform: 'dry-run',
+    platform: selected.platform,
     format: selected.platform,
     campaignId: selected.destination.attribution.campaign,
   }
@@ -66,7 +66,7 @@ export function createBoundedPilotPackage({ selection, packageData, mediaPack, a
 }
 
 export async function buildBoundedPilot({
-  distributionDir = path.resolve('artifacts/distribution'),
+  distributionDir = path.resolve(process.env.DISTRIBUTION_OUTPUT || 'artifacts/distribution'),
   now = new Date().toISOString(),
 } = {}) {
   const selection = readJson(path.join(distributionDir, 'opportunity-selection.json'))
