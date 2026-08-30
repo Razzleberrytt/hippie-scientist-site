@@ -215,9 +215,10 @@
       "populationContext": "Eight hundred nineteen adults across 12 controlled studies",
       "usageContext": "Olive leaf extract supplementation across heterogeneous preparations and populations",
       "uncertaintyNote": "Several other metabolic, inflammatory, renal, and liver-related outcomes were not consistently improved, and evidence quality varied by endpoint.",
-      "reviewStatus": "draft_submission",
-      "editorialStatus": "needs_review",
-      "active": true
+      "reviewStatus": "deprecated_submission",
+      "approvalNotes": "Deprecated in Session H because canonical Olive Leaf Extract ownership is wp_compound_olive_leaf_extract on shard 1. Preserve this research only as handoff context; do not promote from H.",
+      "editorialStatus": "deprecated",
+      "active": false
     },
     {
       "submissionId": "sub_h-olive-leaf-t2dm-glycemic-null",
@@ -235,9 +236,10 @@
       "populationContext": "Thirty-one adults with type 2 diabetes not receiving insulin therapy",
       "usageContext": "Olive leaf extract versus placebo for 24 weeks",
       "uncertaintyNote": "The study was a small pilot, so the null/inconclusive result constrains overclaiming but does not establish absence of any glycemic effect.",
-      "reviewStatus": "draft_submission",
-      "editorialStatus": "needs_review",
-      "active": true
+      "reviewStatus": "deprecated_submission",
+      "approvalNotes": "Deprecated in Session H because canonical Olive Leaf Extract ownership is wp_compound_olive_leaf_extract on shard 1. Preserve this research only as handoff context; do not promote from H.",
+      "editorialStatus": "deprecated",
+      "active": false
     },
     {
       "submissionId": "sub_h-olive-leaf-treated-hypertension-rct",
@@ -255,9 +257,10 @@
       "populationContext": "Six hundred twenty-one adults receiving treatment for hypertension",
       "usageContext": "Oral olive leaf extract versus placebo for 12 weeks alongside existing hypertension treatment",
       "uncertaintyNote": "This is adjunctive, population- and formulation-specific evidence; it does not justify replacing antihypertensive treatment or claiming long-term cardiovascular-event benefit.",
-      "reviewStatus": "draft_submission",
-      "editorialStatus": "needs_review",
-      "active": true
+      "reviewStatus": "deprecated_submission",
+      "approvalNotes": "Deprecated in Session H because canonical Olive Leaf Extract ownership is wp_compound_olive_leaf_extract on shard 1. Preserve this research only as handoff context; do not promote from H.",
+      "editorialStatus": "deprecated",
+      "active": false
     },
     {
       "submissionId": "sub_h-olive-leaf-pomace-identity-boundary",
@@ -275,9 +278,10 @@
       "populationContext": "One thousand seven hundred twenty-six participants across 30 randomized controlled trials",
       "usageContext": "Olive leaf and olive pomace interventions analyzed within one synthesis",
       "uncertaintyNote": "The review itself demonstrates why intervention identity matters; pooled review inclusion does not make leaf and pomace interchangeable.",
-      "reviewStatus": "draft_submission",
-      "editorialStatus": "needs_review",
-      "active": true
+      "reviewStatus": "deprecated_submission",
+      "approvalNotes": "Deprecated in Session H because canonical Olive Leaf Extract ownership is wp_compound_olive_leaf_extract on shard 1. Preserve this research only as handoff context; do not promote from H.",
+      "editorialStatus": "deprecated",
+      "active": false
     },
     {
       "submissionId": "sub_h-coffee-observational-association-boundary",
