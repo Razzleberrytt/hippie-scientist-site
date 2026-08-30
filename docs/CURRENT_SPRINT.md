@@ -5,7 +5,7 @@
 **Updated:** 2026-08-30
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub snapshot `058326df0f27685072047c465a7b86729bb51b2d` at 2026-08-30T06:29Z had zero open PRs. Merged distribution, research-staging, and CI-incident work no longer occupies Active. This docs-only #4544/#4496 reconciliation does not create a fourth workstream; every later admission still requires current ownership, dependency, freshness, incident, and exact-head checks.
+**Current admission:** Live GitHub reconciliation on 2026-08-30 after SEO-003 and AUTH-001 revalidation: Revenue/Conversion is occupied by #4732 / PR #4734; Discovery/SEO and Authority/Content are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 was retired by #4795 / closed-unmerged PR #4796 after Schema and Media Governance run `33315511238` passed the full current identity policy. AUTH-001 was retired by #4800 / closed-unmerged PR #4803 after current audit run `33316024891` printed `AUTH_DUPLICATE_COUNT=0`.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,25 +49,26 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed implementation WIP 0/3
+## Active — observed implementation WIP 1/3
 
-No Discovery/SEO, Revenue/Conversion, or Authority/Content implementation PR was open at the recorded snapshot. The reconciliation PR that closes #4544/#4496 is control documentation only; it does not authorize concurrent implementation before its own exact-head gates and merge complete.
+- **Revenue/Conversion:** #4732 / PR #4734 — bounded Metricool provider integration. Live scheduling remains fail-closed on credentials/provider confirmation and does not authorize broad auto-publishing.
+- **Authority/Content:** free. AUTH-001/#4800 is retired after PR #4803's current audit returned zero duplicate-slug findings.
+- **Discovery/SEO:** free. SEO-003 is retired after #4795 / PR #4796's exact-current Schema and Media Governance revalidation passed.
 
-Research-only Session F staging PR #4673 merged as `058326df0f27685072047c465a7b86729bb51b2d`. Its six append-only fragments remain non-canonical staging and do not consume, create, or authorize a scientific-promotion slot.
+Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
 ## Ready next — strict dependency order
 
-**A free slot exists only when the candidate's dependencies and lane ownership are current and no higher-risk incident overrides admission.**
+**A free slot exists only when the candidate's dependencies and lane ownership are current and no higher-risk incident overrides admission. A Ready-next item assigned to an occupied workstream must wait for that workstream's active ticket to merge/close.**
 
 ### Next legal admission candidates
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | SEO-003 — clear current schema identity gate | D | Revalidate on exact main | Reproduce the current failure first; if exact-main policy is already green, retire or reframe the ticket instead of inventing a fix |
-| 2 | AUTH-001 — resolve verified duplicate-intent route pairs | A | Revalidate route/query evidence | Prove each current pair still overlaps, identify one canonical owner or distinct reader jobs, and preserve redirects/internal-link/canonical coverage |
-| 3 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; governed review path still required | PR #4631 staged the source boundaries only; acquire the canonical governor lease/review path before any workbook, registry, rollup, public-profile, grade, or publication mutation |
+| 1 | #4784 — add auditable persistent governor lease transaction path | A control prerequisite | **Ready — Authority slot is free** | Reuse/rebase the preserved closed PR #4794 on exact current `main`; keep `control.mjs` authoritative, least-privilege structured acquire/release inputs, serialized state-only writes, stale-main fail-closed behavior, owner/overlap protection, durable before/after receipts, and zero scientific/public mutation; all exact-head governor + repository gates must pass |
+| 2 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; blocked on #4784 + real lease | PR #4631 staged source boundaries only; after #4784 merges, acquire the canonical governor lease/review path before any workbook, registry, rollup, public-profile, grade, or publication mutation |
 
-Revenue/Conversion remains free after the dry-run pilot, but live publication, provider integration, credentials, spending, and observed outcomes remain outside current authority. The bounded pilot may not be repeated or scaled until a separately authorized publication path and real observation window exist.
+Discovery/SEO is free after SEO-003 retirement, but no stale SEO item is promoted merely to fill the slot. Revalidate a current problem before admission.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -113,6 +114,8 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **AUTH-001 / #4800 / PR #4803:** current content-audit diagnostic run `33316024891` completed successfully and explicitly printed `AUTH_DUPLICATE_COUNT=0`. PR #4803 closed unmerged because it only added a temporary diagnostic workflow; the historical four duplicate-intent pairs are stale and no redirect/consolidation work was manufactured.
+- **SEO-003 / #4795 / PR #4796:** exact-current Schema and Media Governance run `33315511238` passed shared schema regressions, production static export, structured-data completeness, first-party identity/safety policy, and media checks. PR #4796 closed unmerged because its only change was a diagnostic comment; the historical 38-identity failure is stale.
 - **#4719 / PR #4720:** merged as `90e2be7233f460919e3341f1aefd0053b1867df2`; governed static-export receipts now bind and restore producer-generated verification state plus the build manifest. Exact-head Build Check, Production Content Lint, and Lighthouse consumers passed; no validation gate was weakened.
 - **#4717 / PR #4718:** merged as `97c877513da12137ba666451fff5f6c4f691c483`; accessible vertical-video motion is bounded to calm allowlisted transitions with an explicit zero-motion fallback. This is not live video publication or completion of the deferred encoding boundary.
 - **#4715 / PR #4716:** merged as `f06b1d400b465c3997121e2af49b7d3eafc3b503`; the first provenance-bound carousel pilot completes dry-run scheduling only. Live publication remains unauthorized and the future 28-day observation window/value remain null/Unknown.
@@ -122,7 +125,7 @@ The sprint exits only when all of the following are true or have a precise exter
 - **#4227 / PR #4523:** merged as `9f1a4fe26e7a6caab56de07c5a0f25b2f39c6f15`; exact-head governed static-export reuse is complete and no longer a fallback candidate.
 - **#4415 / PR #4492:** merged as `23dc2485720ff6b31043413b2b9295c4886944cb`. Final-head CI passed 2,866 tests across 593 files, real production build/output/SEO, and 42 focused economics regressions ([CI proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431644), [focused proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431712)). Repaired files verified on main; four review findings resolved after evidence review. Real efficiency observations remain Unknown.
 - **#4414 / PR #4490:** merged as `2e67f9e55f4d96dc7d82a683a829a29b4e2298f1`; durable experiment-learning capability is no longer queued. Recorded outcomes and producer integration require their own evidence.
-- **#4477 / PR #4478:** merged as `2b25ae9beed63afe1e6c045491828e3f096037e4`; the template catalog no longer occupies active WIP.
+- **#4477 / PR #4478:** merged as `2b25ae9beed63afe1e6c045491828e3f096037e4`; the template catalog no longer active.
 - **PR #4491:** merged as `d726f81bc5ababbb024b86782da2e94fbc15989e`; governed safety-line preservation is no longer active.
 
 - **#4407 / PR #4484:** merged as `6fba155c6f241af7cee38981c413bde710d56c1b`; attributable outcome ingestion is no longer ready work. Final-head checks passed; this is implementation proof, not evidence of real observed performance or an executed pilot.
@@ -141,7 +144,7 @@ The sprint exits only when all of the following are true or have a precise exter
 - **PR #4448:** closed unmerged; vertical MP4 implementation is preserved for later legal reuse and does not occupy active WIP.
 - **#4447 / PR #4445:** merged as `692d85d1a496188b4bc48113f8f64b5e94c82098`; the hook trust contract no longer occupies an active slot.
 - **#4410 / PR #4411:** merged; scoped changed-file-relevant gates are on main. The temporary overflow exception is retired.
-- **PRs #4388, #4401, #4405:** merged; renderer, provenance-receipt, and lossless-presentation implementation no longer occupy active slots.
+- **PRs #4388, #4401, #4405:** merged; renderer, provenance-receipt, and lossless-presentation implementation no longer active.
 - **PR #4408 / #4409:** merged/closed; roadmap, sprint, and master backlog synchronized to exact GitHub state on 2026-08-27.
 - **#4182:** closed/completed; five herb/compound identity correction no longer active.
 - **#4238:** closed/completed; normalized source-registry baseline/provenance continuation no longer active.
