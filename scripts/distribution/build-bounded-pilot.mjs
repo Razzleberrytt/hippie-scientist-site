@@ -2,13 +2,28 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { assertAssetManifestFresh, hashStableValue } from './asset-provenance.mjs'
+import { assertAssetManifestFresh, buildAssetProvenance, hashStableValue } from './asset-provenance.mjs'
 import { createDistributionLifecycle, transitionDistributionLifecycle } from './distribution-lifecycle.mjs'
 import { renderCarouselAssets } from './render-carousel-svg.mjs'
 import { renderCarouselRasterAssets } from './render-carousel-raster.mjs'
+import { renderVerticalVideoPackage } from './render-vertical-video-package.mjs'
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'))
+}
+
+const SUPPORTED_PILOT_FORMATS = new Set(['carousel', 'short-video'])
+
+function withVerticalVideoProvenance({ manifest, mediaPack, creativeSpec }) {
+  return {
+    ...manifest,
+    ...buildAssetProvenance({
+      mediaPack,
+      renderer: manifest.renderer,
+      templateVersion: 'vertical-video-30s-v1',
+      creativeSpecHash: hashStableValue(creativeSpec),
+    }),
+  }
 }
 
 export function createBoundedPilotPackage({ selection, packageData, mediaPack, assetManifest, now }) {
@@ -16,7 +31,7 @@ export function createBoundedPilotPackage({ selection, packageData, mediaPack, a
   if (selection?.status !== 'selected' || !selected) throw new Error('bounded pilot requires one selected governed opportunity')
   if (selected.id !== mediaPack?.researchObjectIds?.[0]) throw new Error('selected opportunity must match the validated media pack')
   if (selected.sourceUrl !== mediaPack?.source?.url) throw new Error('selected opportunity must retain the canonical source URL')
-  if (selected.platform !== 'carousel') throw new Error('first bounded pilot supports the governed carousel format only')
+  if (!SUPPORTED_PILOT_FORMATS.has(selected.platform)) throw new Error('bounded pilot supports governed carousel or short-video formats only')
   if (packageData?.mediaPack?.status !== 'validated' || packageData?.mediaPack?.packId !== mediaPack.packId) {
     throw new Error('bounded pilot requires the validated generated package')
   }
@@ -75,8 +90,19 @@ export async function buildBoundedPilot({
   const packageData = readJson(path.join(distributionDir, `${selectedId}.json`))
   const mediaPack = readJson(path.join(distributionDir, `${selectedId}.media-pack.json`))
   const outputDir = path.join(distributionDir, 'pilots', selectedId)
-  const svgManifest = renderCarouselAssets({ mediaPack, creativeSpec: packageData.creativeSpec, outputDir })
-  const assetManifest = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir })
+
+  let assetManifest
+  if (selection.selected.platform === 'carousel') {
+    const svgManifest = renderCarouselAssets({ mediaPack, creativeSpec: packageData.creativeSpec, outputDir })
+    assetManifest = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir })
+  } else if (selection.selected.platform === 'short-video') {
+    const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: packageData.creativeSpec, outputDir })
+    assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: packageData.creativeSpec })
+    fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
+  } else {
+    throw new Error('bounded pilot supports governed carousel or short-video formats only')
+  }
+
   const pilot = createBoundedPilotPackage({ selection, packageData, mediaPack, assetManifest, now })
   fs.writeFileSync(path.join(outputDir, 'bounded-pilot.json'), `${JSON.stringify(pilot, null, 2)}\n`)
   return pilot
