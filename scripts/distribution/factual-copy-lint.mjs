@@ -9,6 +9,7 @@ const UNBOUND_DOSE_LABEL_RE = /\b\d+(?:\.\d+)?\s*(?:mg|mcg|g|ml|capsules?|tablet
 const UNBOUND_ONSET_LABEL_RE = /(?:\b(?:works?|acts?|kicks?\s+in|takes?\s+effect|onset)\b[^.!?\n]{0,48}\b(?:within|in|after)?\s*\d+(?:\.\d+)?\s*(?:minutes?|mins?|hours?|hrs?|days?)\b|\b\d+(?:\.\d+)?\s*(?:minutes?|mins?|hours?|hrs?|days?)\b[^.!?\n]{0,24}\b(?:onset|effect)\b)/i
 const UNBOUND_EQUIVALENCE_LABEL_RE = /\b(?:equivalent\s+to|same\s+as|comparable\s+to|as\s+effective\s+as|works?\s+like)\b/i
 const UNBOUND_SAFETY_REGULATORY_LABEL_RE = /\b(?:fda[- ]?(?:approved|approval|cleared|clearance)|(?:approved|cleared)\s+by\s+(?:the\s+)?fda|no\s+(?:known\s+)?(?:drug\s+)?interactions?|interaction[- ]?free|safe\s+(?:during|for|in|while)\s+(?:pregnancy|pregnant|breastfeeding|children|kids|infants?|babies)|pregnancy[- ]?safe|breastfeeding[- ]?safe|child[- ]?safe|kid[- ]?safe|non[- ]?habit[- ]?forming|non[- ]?addictive|not\s+addictive|addiction[- ]?free)\b/i
+const UNBOUND_STUDY_CONTEXT_LABEL_RE = /(?:\b(?:human|clinical|randomi[sz]ed(?:\s+controlled)?|placebo[- ]controlled|preclinical|animal|mouse|rat|cell|observational|cohort|case[- ]control)\s+(?:study|trial)\b|\b(?:systematic\s+review|meta[- ]analysis|rct)\b|\b(?:tested|studied|evaluated)\s+in\s+(?:humans?|people|patients?|adults?|children|mice|rats?|animals?)\b|\bin\s+(?:humans?|patients?|mice|rats?|animals?)\b|\b\d+(?:\.\d+)?[- ]?(?:day|week|month|year)s?\s+(?:study|trial)\b)/i
 const BENEFIT_WORD = '(?:improv(?:e|es|ed|ing)|boost(?:s|ed|ing)?|reduc(?:e|es|ed|ing)|reliev(?:e|es|ed|ing)|prevent(?:s|ed|ing)?|treat(?:s|ed|ing)?|heal(?:s|ed|ing)?|help(?:s|ed|ing)?|work(?:s|ed|ing)?|benefit(?:s|ed|ing)?)'
 const LABEL_BENEFIT_WORD = '(?:improv(?:e|es|ed|ing)|boost(?:s|ed|ing)?|reduc(?:e|es|ed|ing)|reliev(?:e|es|ed|ing)|prevent(?:s|ed|ing)?|treat(?:s|ed|ing)?|heal(?:s|ed|ing)?|help(?:s|ed|ing)?|benefit(?:s|ed|ing)?)'
 const BENEFIT_OUTCOME = '(?:sleep|stress|anxiety|focus|pain|symptoms?|outcomes?|health|risk)'
@@ -73,6 +74,7 @@ export function validateFactualAssetCopy(packInput, asset) {
         || UNBOUND_ONSET_LABEL_RE.test(text)
         || UNBOUND_EQUIVALENCE_LABEL_RE.test(text)
         || UNBOUND_SAFETY_REGULATORY_LABEL_RE.test(text)
+        || UNBOUND_STUDY_CONTEXT_LABEL_RE.test(text)
       ) errors.push(`line ${index + 1} factual labels must be represented as governed claim, uncertainty, or safety lines`)
     } else errors.push(`line ${index + 1} has unsupported role: ${role || '(empty)'}`)
   }
