@@ -19,6 +19,10 @@ function assertSha(label, value) {
   }
 }
 
+function canonicalPathCompare(a, b) {
+  return a < b ? -1 : a > b ? 1 : 0
+}
+
 function walkFiles(rootDir, currentDir = rootDir) {
   const entries = fs.readdirSync(currentDir, { withFileTypes: true })
   const files = []
@@ -27,7 +31,7 @@ function walkFiles(rootDir, currentDir = rootDir) {
     if (entry.isDirectory()) files.push(...walkFiles(rootDir, absolute))
     else if (entry.isFile()) files.push(path.relative(rootDir, absolute).split(path.sep).join('/'))
   }
-  return files.sort()
+  return files.sort(canonicalPathCompare)
 }
 
 function hashFileEntries(entries) {
@@ -118,7 +122,7 @@ function decodeVerificationStateSnapshot(snapshot) {
     seen.add(relative)
     if (typeof entry.content !== 'string') throw new Error(`Governed static export verification state is missing content for ${relative}`)
     return { path: relative, content: Buffer.from(entry.content, 'base64') }
-  }).sort((a, b) => a.path.localeCompare(b.path))
+  }).sort((a, b) => canonicalPathCompare(a.path, b.path))
 
   const stateHash = hashFileEntries(entries)
   if (snapshot.stateHash !== stateHash || snapshot.fileCount !== entries.length) {
