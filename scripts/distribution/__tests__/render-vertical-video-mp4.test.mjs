@@ -94,6 +94,16 @@ describe('vertical video MP4 renderer', () => {
     await expect(renderVerticalVideoMp4({ packageDir: dir, outputFile: path.join(dir, 'bad.mp4'), ffmpegPath: fakeFfmpeg }))
       .rejects.toThrow('timeline/manifest scene mismatch')
   })
+
+  it('rejects manifest duration drift before ffmpeg can encode a false 30-second receipt', async () => {
+    const { dir, fakeFfmpeg } = fixture()
+    const manifestPath = path.join(dir, 'video-asset-manifest.json')
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    manifest.assets[0].duration = 1
+    fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
+    await expect(renderVerticalVideoMp4({ packageDir: dir, outputFile: path.join(dir, 'bad.mp4'), ffmpegPath: fakeFfmpeg }))
+      .rejects.toThrow('timeline/manifest timing mismatch')
+  })
 })
 
 function readReceipt(file) {
