@@ -104,6 +104,50 @@ function sitemapProfileCount() {
 const inSitemap = sitemapProfileCount()
 
 /**
+ * Account for the last drop, because an unexplained one gets investigated.
+ *
+ * A profile route absent from the sitemap is almost always governance doing its
+ * job: the page is built with `noindex, follow`, so listing it would be a
+ * contradiction. Presented as a bare "-31" that is indistinguishable from
+ * leakage, and it reads as 31 lost pages — including names like caffeine,
+ * magnesium and melatonin, which is alarming enough to act on.
+ *
+ * Only one of these buckets can indicate a defect. A page built *without*
+ * noindex and still missing from the sitemap is a genuine leak; everything else
+ * is either policy or build ordering, since the route manifest is regenerated
+ * later in the build than the sitemap is written.
+ */
+function sitemapGapBreakdown() {
+  const routes = readJson('public/data/runtime-manifests/route-manifest.json')
+  const sitemapFile = path.join(ROOT, 'out', 'sitemap.xml')
+  if (!Array.isArray(routes) || !fs.existsSync(sitemapFile)) return null
+
+  const xml = fs.readFileSync(sitemapFile, 'utf8')
+  const listed = new Set(xml.match(/\/(herbs|compounds)\/[a-z0-9-]+\//g) || [])
+  const profileRoutes = [...new Set(
+    routes.map((entry) => String(entry?.route ?? '')).filter((route) => /^\/(herbs|compounds)\/[^/]+\/?$/u.test(route)),
+  )]
+
+  const breakdown = { withheldNoindex: 0, leaked: 0, notBuilt: 0, leakedRoutes: [] }
+  for (const route of profileRoutes) {
+    if (listed.has(`${route}/`)) continue
+    const page = path.join(ROOT, 'out', route.replace(/^\//u, ''), 'index.html')
+    if (!fs.existsSync(page)) {
+      breakdown.notBuilt += 1
+      continue
+    }
+    if (/<meta name="robots" content="noindex/u.test(fs.readFileSync(page, 'utf8'))) {
+      breakdown.withheldNoindex += 1
+    } else {
+      breakdown.leaked += 1
+      if (breakdown.leakedRoutes.length < 10) breakdown.leakedRoutes.push(route)
+    }
+  }
+  return breakdown
+}
+const sitemapGap = sitemapGapBreakdown()
+
+/**
  * How stale the governed manifest is, measured against the data it describes.
  *
  * The first version of this compared manifest.generatedAt to the generatedAt in
@@ -166,7 +210,7 @@ const stages = [
 ]
 
 if (asJson) {
-  console.log(JSON.stringify({ stages, manifestStaleDays: staleDays, manifestCoverage: coverage }, null, 2))
+  console.log(JSON.stringify({ stages, manifestStaleDays: staleDays, manifestCoverage: coverage, sitemapGap }, null, 2))
   process.exit(0)
 }
 
@@ -203,6 +247,23 @@ if (orphanedManifestCount != null) {
       '\n  Nothing consumes it: build-deploy.mjs never regenerates it and no code reads it,' +
       '\n  so that number describes nothing that ships. Do not plan from it.',
   )
+}
+
+if (sitemapGap) {
+  console.log(
+    '\n  The route-manifest to sitemap drop, accounted for:' +
+      `\n    ${sitemapGap.withheldNoindex} built with noindex — governance withheld them, correctly absent` +
+      `\n    ${sitemapGap.notBuilt} have no page in out/ — the route manifest is regenerated after the sitemap` +
+      `\n    ${sitemapGap.leaked} built indexable but missing from the sitemap`,
+  )
+  if (sitemapGap.leaked) {
+    console.log(
+      '\n  That last number is the only one here that means a defect:' +
+        `\n    ${sitemapGap.leakedRoutes.join('\n    ')}`,
+    )
+  } else {
+    console.log('\n  Nothing indexable is missing from the sitemap.')
+  }
 }
 
 if (inSitemap == null) {

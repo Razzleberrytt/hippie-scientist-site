@@ -76,6 +76,25 @@ describe('publication funnel report', () => {
     expect(manifestCoverage.publishableButUnknown).toBeGreaterThanOrEqual(0)
   })
 
+  it('separates a withheld page from a leaked one in the sitemap gap', () => {
+    // The bare drop from route manifest to sitemap reads as lost pages, and the
+    // names in it (caffeine, magnesium, melatonin) are alarming enough to act
+    // on. Almost all of it is governance: the page is built `noindex, follow`,
+    // so listing it would contradict the page itself. Only `leaked` — built
+    // indexable yet absent from the sitemap — can indicate a defect, and this
+    // pins that separation so the buckets cannot quietly merge.
+    const { sitemapGap } = runFunnel()
+    if (sitemapGap == null) return
+
+    for (const key of ['withheldNoindex', 'leaked', 'notBuilt']) {
+      expect(Number.isInteger(sitemapGap[key])).toBe(true)
+      expect(sitemapGap[key]).toBeGreaterThanOrEqual(0)
+    }
+    expect(Array.isArray(sitemapGap.leakedRoutes)).toBe(true)
+    expect(sitemapGap.leakedRoutes.length).toBeLessThanOrEqual(sitemapGap.leaked)
+    if (sitemapGap.leaked === 0) expect(sitemapGap.leakedRoutes).toEqual([])
+  })
+
   it('survives an unbuilt out/ instead of failing', () => {
     // The report has to be runnable before a build, or it cannot be used to
     // decide whether a build is worth doing.
