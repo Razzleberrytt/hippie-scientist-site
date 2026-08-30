@@ -1,8 +1,8 @@
 'use client'
 
 import RevenueImpressionTracker from './RevenueImpressionTracker'
-import { affiliateRationaleForDisplay } from '../src/lib/affiliate-copy'
-import { trackRevenueEvent } from '../src/lib/revenue-tracking'
+import { affiliateRationaleForDisplay } from '../lib/affiliate-copy'
+import { trackRevenueEvent } from '../lib/revenue-tracking'
 
 export interface AffiliateEntry {
   slot: 'budget' | 'overall' | 'premium'

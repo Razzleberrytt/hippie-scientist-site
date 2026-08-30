@@ -6,7 +6,7 @@ const repoRoot = process.cwd()
 const reportDir = path.join(repoRoot, 'reports')
 
 const APPROVED_SOURCE = path.join('data-sources', 'herb_monograph_master.xlsx')
-const GENERATED_PREFIXES = ['public/data/', 'public/data-next/', 'src/generated/']
+const GENERATED_PREFIXES = ['public/data/', 'public/data-next/', 'generated/']
 const SCAN_EXTENSIONS = new Set(['.json', '.csv', '.yaml', '.yml', '.ts', '.tsx', '.js', '.mjs', '.md', '.mdx', '.txt'])
 const DATA_CODE_PREFIXES = ['src/', 'app/', 'components/', 'scripts/']
 const DOC_PREFIXES = ['docs/']
@@ -54,7 +54,7 @@ const NEVER_BLOCK_PREFIXES = [
   // workbook) by the required CI check scripts/ci/validate-workbook-patches.mjs.
   'data-sources/workbook-patches/',
 ]
-const NON_BLOCKING_PREFIXES = ['ops/', 'schemas/', 'src/content/', 'content/', 'reports/', 'data/blog/']
+const NON_BLOCKING_PREFIXES = ['ops/', 'schemas/', 'content/drafts/', 'content/', 'reports/', 'data/blog/']
 const EXPLICIT_BLOCK_PATHS = new Set([
   'public/database.json',
   'config/entity-graph.json',

@@ -12,7 +12,7 @@ import {
   breadcrumbJsonLd,
   buildPageMetadata,
   faqPageJsonLd,
-} from '../../../../src/lib/seo'
+} from '../../../../lib/seo'
 
 const SLUG = 'l-theanine-magnesium-adhd-stack'
 const PATH = `/guides/adhd/${SLUG}`

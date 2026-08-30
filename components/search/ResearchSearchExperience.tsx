@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Fuse from 'fuse.js'
 import { GitCompareArrows, Search, ShieldAlert, X } from 'lucide-react'
-import { isRestrictedRecord } from '@/src/lib/restricted-ingredients'
+import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 import {
   buildOnDemandComparisonHref,
   comparisonKey,
@@ -32,7 +32,7 @@ import {
 } from '@/lib/decision-primitives'
 
 const DosingSafetyChecker = dynamic(
-  () => import('@/src/components/search/DosingSafetyChecker'),
+  () => import('@/components/search/DosingSafetyChecker'),
   { ssr: false },
 )
 

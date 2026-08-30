@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { citationReadySentenceCount, toCitationReadySummary } from '@/src/lib/citation-ready-summary'
+import { citationReadySentenceCount, toCitationReadySummary } from '@/lib/citation-ready-summary'
 
 export type CitationSourceLink = {
   label: string

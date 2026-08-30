@@ -1,11 +1,11 @@
-import { buildSchemaGraph } from '../../src/lib/schema-graph'
-import { serializeJsonLd } from '../../src/lib/schema-injector'
-import { SITE_URL } from '../../src/lib/seo'
+import { buildSchemaGraph } from '../../lib/schema-graph'
+import { serializeJsonLd } from '../../lib/schema-injector'
+import { SITE_URL } from '../../lib/seo'
 import {
   AUTHOR_SCHEMA_ID,
   ORGANIZATION_SCHEMA_ID,
   WEBSITE_SCHEMA_ID,
-} from '../../src/lib/schema-identities'
+} from '../../lib/schema-identities'
 
 type FaqItem = { question: string; answer: string }
 

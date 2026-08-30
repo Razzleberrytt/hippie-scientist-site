@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 import { getPublicEvidenceDataset } from '@/lib/public-evidence-dataset'
 import { evidenceGradeHistory } from '@/data/editorial/evidence-grade-history'
 import EvidenceReportClient from './EvidenceReportClient'

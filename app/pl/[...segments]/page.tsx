@@ -6,12 +6,12 @@ import {
   POLISH_ROUTE_KEYS,
   POLISH_UI,
   buildPolishPageMetadata,
-} from '@/src/lib/expanded-language-content'
+} from '@/lib/expanded-language-content'
 import {
   generateLocalizedStaticParams,
   resolveLocalizedPage,
   type LocalizedRouteParams,
-} from '@/src/lib/localized-route-runtime'
+} from '@/lib/localized-route-runtime'
 
 type PageProps = { params: LocalizedRouteParams }
 export const dynamicParams = false

@@ -18,7 +18,7 @@ describe('article EmailCapture', () => {
 
     // The test-environment Link drops the trailing slash the component writes.
     // Assert the destination rather than that normalisation.
-    expect(screen.getByRole('link', { name: /preview the resource/i }).getAttribute('href'))
+    expect(screen.getByRole('link', { name: /preview it first/i }).getAttribute('href'))
       .toMatch(/^\/lead-magnets\/adhd-supplement-starter-checklist\/?$/)
     expect(screen.getByRole('button', { name: /send me the checklist/i })).toBeEnabled()
   })

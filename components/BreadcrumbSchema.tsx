@@ -6,7 +6,7 @@ import {
   SITE_URL,
   BreadcrumbItem,
 } from '@/lib/navigation-config'
-import { serializeJsonLd } from '@/src/lib/schema-injector'
+import { serializeJsonLd } from '@/lib/schema-injector'
 
 function canonicalBreadcrumbUrl(siteUrl: string, href: string): string {
   const base = siteUrl.replace(/\/$/, '')

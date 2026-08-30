@@ -1,6 +1,6 @@
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index'
-import type { RuntimeRecord } from '@/src/types/content'
+import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
+import type { RuntimeRecord } from '@/types/content'
 
 export type RuntimeIngredient = RuntimeRecord & {
   best_taken?: unknown

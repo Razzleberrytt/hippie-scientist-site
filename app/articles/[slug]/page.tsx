@@ -7,7 +7,7 @@ import ArticleMdx from '@/components/articles/ArticleMdx'
 import References from '@/components/References'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
-import WhatEvidenceShows from '@/src/components/evidence/WhatEvidenceShows'
+import WhatEvidenceShows from '@/components/evidence/WhatEvidenceShows'
 import { editorialReviewEvents } from '@/data/editorial/reviews'
 import { latestReviewForPage } from '@/lib/editorial-provenance'
 import {
@@ -16,15 +16,15 @@ import {
   normalizeArticleReferences,
   normalizeCitationMetadata,
   resolveRelatedArticles,
-} from '@/src/lib/article-citation-metadata'
-import { SITE_URL, buildPageMetadata, compactMetaTitle } from '../../../src/lib/seo'
-import { withRedirectSourceMetadata } from '@/src/lib/redirect-source-metadata'
+} from '@/lib/article-citation-metadata'
+import { SITE_URL, buildPageMetadata, compactMetaTitle } from '../../../lib/seo'
+import { withRedirectSourceMetadata } from '@/lib/redirect-source-metadata'
 import {
   AUTHOR_NAME,
   AUTHOR_SCHEMA_ID,
   AUTHOR_URL,
   ORGANIZATION_SCHEMA_ID,
-} from '@/src/lib/schema-identities'
+} from '@/lib/schema-identities'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts]
 

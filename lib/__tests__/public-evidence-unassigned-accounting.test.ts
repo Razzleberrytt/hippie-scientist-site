@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { buildPublicEvidenceDatasetFromRecords } from '../public-evidence-dataset'
-import type { RuntimeRecord } from '../../src/types/content'
+import type { RuntimeRecord } from '../../types/content'
 
 describe('public evidence grade accounting', () => {
   it('keeps unresolved grades explicit and accounts for every ingredient exactly once', () => {

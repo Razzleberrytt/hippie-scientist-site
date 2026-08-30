@@ -3,12 +3,12 @@ import path from 'node:path';
 import { MetadataRoute } from 'next';
 import matter from 'gray-matter';
 
-import { SITE_URL } from '../src/lib/site';
-import { shouldIndexRoute, CANONICALIZED_AWAY_PROFILE_SLUGS } from '../src/lib/seo';
+import { SITE_URL } from '../lib/site';
+import { shouldIndexRoute, CANONICALIZED_AWAY_PROFILE_SLUGS } from '../lib/seo';
 import {
   CURATED_INDEXABLE_HERB_SLUGS,
   CURATED_INDEXABLE_COMPOUND_SLUGS,
-} from '../src/lib/index-allowlist';
+} from '../lib/index-allowlist';
 import { learnPosts } from './learn/data';
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
 import { getBuiltCompareSlugs } from '@/lib/compare-pages';
@@ -18,9 +18,9 @@ import {
   declaresSelfCanonicalIndexable,
   declaresSitemapIneligible,
 } from '@/lib/sitemap-route-visibility';
-import { canRenderRuntimeComparison } from '@/src/lib/runtime-comparison-resolution';
-import { getUnifiedRuntimeRecords } from '@/src/lib/runtime-record-index';
-import { LOCALIZED_ROUTES } from '@/src/lib/international-seo';
+import { canRenderRuntimeComparison } from '@/lib/runtime-comparison-resolution';
+import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index';
+import { LOCALIZED_ROUTES } from '@/lib/international-seo';
 
 type SitemapSourceItem = {
   slug?: string;

@@ -1,0 +1,15 @@
+{
+  "_comment": [
+    "Files under lib/ and components/ that nothing imports and no test covers.",
+    "",
+    "This list is empty, and that is the intended steady state.",
+    "scripts/ci/validate-no-orphans.mjs fails on any orphan not recorded here, so",
+    "an empty list means the gate is a strict zero-check.",
+    "",
+    "Do not add entries to silence the gate. If a file is reached by a mechanism",
+    "the scan cannot model, extend the resolver in that script instead."
+  ],
+  "generatedAt": "2026-08-29",
+  "count": 0,
+  "orphans": []
+}

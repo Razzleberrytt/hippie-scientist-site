@@ -5,12 +5,12 @@ import herbsSummary from '../public/data/herbs-summary.json'
 import compoundsSummary from '../public/data/compounds-summary.json'
 import publicationManifest from '../public/data/publication-manifest.json'
 import submissions from '../ops/enrichment-submissions.json'
-import { buildGovernedFaqSectionContent, type GovernedFaqQuestionType } from '../src/lib/governedFaq'
+import { buildGovernedFaqSectionContent, type GovernedFaqQuestionType } from '../lib/governedFaq'
 import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
   type GovernedEntityType,
-} from '../src/lib/governedResearch'
+} from '../lib/governedResearch'
 
 const ROOT = process.cwd()
 const REPORT_JSON_PATH = path.join(ROOT, 'ops', 'reports', 'governed-faq-refresh.json')

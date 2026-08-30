@@ -2,8 +2,8 @@ import { getGoal } from '@/data/goals'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { getRegionalRevenueProductOverride } from '@/config/regional-revenue-products'
 import ProductTrustAffiliate from '@/components/monetization/ProductTrustAffiliate'
-import { isRestrictedRecord } from '@/src/lib/restricted-ingredients'
-import { resolveRegionalUrl } from '@/src/lib/platforms'
+import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { resolveRegionalUrl } from '@/lib/platforms'
 
 const SLOT_LABELS: Record<string, string> = {
   budget: 'Budget example',

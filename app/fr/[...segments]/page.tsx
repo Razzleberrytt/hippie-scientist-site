@@ -6,12 +6,12 @@ import {
   FRENCH_ROUTE_KEYS,
   FRENCH_UI,
   buildFrenchPageMetadata,
-} from '@/src/lib/french-content'
+} from '@/lib/french-content'
 import {
   generateLocalizedStaticParams,
   resolveLocalizedPage,
   type LocalizedRouteParams,
-} from '@/src/lib/localized-route-runtime'
+} from '@/lib/localized-route-runtime'
 
 type PageProps = { params: LocalizedRouteParams }
 export const dynamicParams = false

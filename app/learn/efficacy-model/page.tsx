@@ -3,9 +3,9 @@ import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
-import EfficacyModelerClient from '../../../src/components/education/EfficacyModelerClient'
+import EfficacyModelerClient from '../../../components/education/EfficacyModelerClient'
 import References from '@/components/References'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../lib/seo'
 
 const TITLE = 'Supplement Efficacy Modeler: Onset, Peak, Half-Life, and Build-Up'
 const DESCRIPTION =

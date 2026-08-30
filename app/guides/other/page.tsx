@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { GuideCardGrid } from '@/components/guides/GuideCardGrid'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import { SITE_URL, buildTwitterMetadata } from '@/src/lib/seo'
+import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 
-import { buildGuideHubSchemaGraph } from '@/src/lib/schema-graph'
+import { buildGuideHubSchemaGraph } from '@/lib/schema-graph'
 
 import { ALL_TOPIC_GUIDES, TOPIC_GUIDE_GROUPS } from './topic-guides'
 

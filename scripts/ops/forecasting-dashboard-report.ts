@@ -6,7 +6,7 @@ import {
   buildForecastReportArtifact,
   renderForecastReportMarkdown,
   type ForecastReportInput,
-} from '../../src/lib/forecasting-reporting'
+} from '../../lib/forecasting-reporting'
 
 function arg(name: string, fallback: string): string {
   const prefix = `--${name}=`

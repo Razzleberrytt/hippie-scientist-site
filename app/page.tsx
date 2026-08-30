@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import HomepageV2 from '@/components/homepage-v2'
-import { buildPageMetadata } from '../src/lib/seo'
+import { buildPageMetadata } from '../lib/seo'
 import '@/styles/homepage-structure.css'
 import '@/styles/homepage-premium-final.css'
 

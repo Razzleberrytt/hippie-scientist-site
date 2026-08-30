@@ -1,4 +1,4 @@
-import { createLocalizedProfileRoute } from '@/src/lib/localized-profile-route-runtime'
+import { createLocalizedProfileRoute } from '@/lib/localized-profile-route-runtime'
 
 const route = createLocalizedProfileRoute({
   locale: 'fr',

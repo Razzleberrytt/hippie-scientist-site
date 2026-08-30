@@ -3,7 +3,7 @@ import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import References from '@/components/References'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'How Learning Affects Neuroplasticity',

@@ -5,8 +5,8 @@ import publicationManifest from '../public/data/publication-manifest.json'
 import {
   buildGovernedQuickCompareSection,
   type GovernedQuickCompareDimension,
-} from '../src/lib/governedQuickCompare'
-import { getPublishableGovernedEntries, type GovernedEntityType } from '../src/lib/governedResearch'
+} from '../lib/governedQuickCompare'
+import { getPublishableGovernedEntries, type GovernedEntityType } from '../lib/governedResearch'
 
 const ROOT = process.cwd()
 const REPORT_JSON_PATH = path.join(ROOT, 'ops', 'reports', 'governed-quick-compare.json')

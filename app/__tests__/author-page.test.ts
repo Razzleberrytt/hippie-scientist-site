@@ -17,7 +17,7 @@ describe('Author page', () => {
       'components/StructuredData.tsx',
       'components/blog/BlogPostPage.tsx',
       'lib/structured-data.ts',
-      'src/lib/seo.ts',
+      'lib/seo.ts',
       'app/guides/sleep/best-supplements-for-sleep/page.tsx',
       'app/guides/sleep/best-natural-sleep-aids-that-work/page.tsx',
       'app/guides/other/healthy-dipping-tobacco-alternatives/page.tsx',

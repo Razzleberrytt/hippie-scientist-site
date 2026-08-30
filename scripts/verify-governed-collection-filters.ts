@@ -1,12 +1,12 @@
 #!/usr/bin/env tsx
 import assert from 'node:assert/strict'
 import enrichmentSubmissions from '../ops/enrichment-submissions.json'
-import { SEO_COLLECTIONS } from '../src/data/seoCollections'
+import { SEO_COLLECTIONS } from '../data/seoCollections'
 import herbSummaries from '../public/data/herbs-summary.json'
 import compoundSummaries from '../public/data/compounds-summary.json'
-import { filterCompoundByCollection, filterHerbByCollection } from '../src/lib/collectionQuality'
-import { applyGovernedDiscoveryControls } from '../src/lib/governedCollectionDiscovery'
-import { getPublishableGovernedEntries } from '../src/lib/governedResearch'
+import { filterCompoundByCollection, filterHerbByCollection } from '../lib/collectionQuality'
+import { applyGovernedDiscoveryControls } from '../lib/governedCollectionDiscovery'
+import { getPublishableGovernedEntries } from '../lib/governedResearch'
 
 function main() {
   const publishableKeys = new Set(

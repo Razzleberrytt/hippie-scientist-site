@@ -51,6 +51,61 @@ function cueText(cue) {
   return clean(String(cue?.text ?? '').replace(/\n/g, ' '))
 }
 
+function normalizeSafeArea(area, platform) {
+  const normalized = {
+    x: Number(area?.x),
+    y: Number(area?.y),
+    width: Number(area?.width),
+    height: Number(area?.height),
+  }
+  if (![normalized.x, normalized.y, normalized.width, normalized.height].every(Number.isFinite)) {
+    throw new Error(`Caption safe area for ${platform} must use finite geometry`)
+  }
+  if (normalized.width <= 0 || normalized.height <= 0) {
+    throw new Error(`Caption safe area for ${platform} must have positive dimensions`)
+  }
+  return normalized
+}
+
+function buildCaptionRegion(platformSafeAreas, {
+  maxLines,
+  minimumPxAt1080,
+  horizontalPadding = 24,
+  verticalPadding = 24,
+  lineHeightRatio = 1.3,
+} = {}) {
+  const entries = Object.entries(platformSafeAreas ?? {})
+  if (!entries.length) throw new Error('Caption contract requires platform safe areas')
+  const areas = entries.map(([platform, area]) => [platform, normalizeSafeArea(area, platform)])
+
+  const left = Math.max(...areas.map(([, area]) => area.x))
+  const top = Math.max(...areas.map(([, area]) => area.y))
+  const right = Math.min(...areas.map(([, area]) => area.x + area.width))
+  const bottom = Math.min(...areas.map(([, area]) => area.y + area.height))
+  if (!(right > left && bottom > top)) throw new Error('Vertical platforms do not share a usable caption-safe intersection')
+
+  const lineHeightPx = Math.ceil(Number(minimumPxAt1080) * Number(lineHeightRatio))
+  const requiredTextHeight = lineHeightPx * Number(maxLines)
+  const height = requiredTextHeight + (2 * Number(verticalPadding))
+  const width = (right - left) - (2 * Number(horizontalPadding))
+  if (!(width > 0) || height > (bottom - top)) {
+    throw new Error('Shared platform safe area cannot fit the configured caption block')
+  }
+
+  return {
+    x: left + Number(horizontalPadding),
+    y: bottom - height,
+    width,
+    height,
+    horizontalPadding: Number(horizontalPadding),
+    verticalPadding: Number(verticalPadding),
+    lineHeightPx,
+    maxLines: Number(maxLines),
+    minimumPxAt1080: Number(minimumPxAt1080),
+    anchor: 'lower-middle-safe-intersection',
+  }
+}
+
 export function buildLosslessCaptionContract({
   scenes,
   platformSafeAreas,
@@ -62,6 +117,7 @@ export function buildLosslessCaptionContract({
   if (!Array.isArray(scenes) || !scenes.length) throw new Error('Caption contract requires at least one scene')
   if (!platformSafeAreas || !Object.keys(platformSafeAreas).length) throw new Error('Caption contract requires platform safe areas')
 
+  const captionRegion = buildCaptionRegion(platformSafeAreas, { maxLines, minimumPxAt1080 })
   const cues = []
   for (const [sceneIndex, scene] of scenes.entries()) {
     const voiceover = clean(scene?.voiceover)
@@ -98,12 +154,13 @@ export function buildLosslessCaptionContract({
   const srt = `${cues.map((cue) => `${cue.index}\n${formatSrtTime(cue.start)} --> ${formatSrtTime(cue.end)}\n${cue.text}`).join('\n\n')}\n`
 
   return {
-    version: 1,
+    version: 2,
     maxCharsPerLine,
     maxLines,
     minimumPxAt1080,
     minimumCueSeconds,
     position: 'lower-middle-safe-area',
+    captionRegion,
     colorTreatment: 'disclosure',
     platformSafeAreas,
     mustFitPlatformSafeArea: true,
@@ -118,11 +175,40 @@ export function validateLosslessCaptionContract(contract, scenes) {
   const errors = []
   const cues = Array.isArray(contract?.cues) ? contract.cues : []
   const sourceScenes = Array.isArray(scenes) ? scenes : []
+  const region = contract?.captionRegion
 
   if (Number(contract?.minimumPxAt1080) < 44) errors.push('caption typography must be at least 44px at 1080-wide output')
   if (contract?.ellipsisAllowed !== false || contract?.truncationAllowed !== false) errors.push('caption truncation and presentation-added ellipses must be forbidden')
   if (!contract?.mustFitPlatformSafeArea || !contract?.platformSafeAreas) errors.push('captions must be bound to platform safe areas')
+  if (!region || region.anchor !== 'lower-middle-safe-intersection') errors.push('captions require a deterministic lower-middle shared-safe-area region')
   if (!cues.length) errors.push('caption cues are required')
+
+  if (region) {
+    const requiredTextHeight = Number(region.lineHeightPx) * Number(contract?.maxLines ?? 0)
+    const innerHeight = Number(region.height) - (2 * Number(region.verticalPadding ?? 0))
+    if (Number(region.minimumPxAt1080) !== Number(contract?.minimumPxAt1080)) errors.push('caption region typography must match the caption contract')
+    if (Number(region.maxLines) !== Number(contract?.maxLines)) errors.push('caption region line count must match the caption contract')
+    if (innerHeight + 1e-9 < requiredTextHeight) errors.push('caption region is too short for the configured caption block')
+    if (!(Number(region.width) > 0 && Number(region.height) > 0)) errors.push('caption region must have positive dimensions')
+
+    for (const [platform, rawArea] of Object.entries(contract?.platformSafeAreas ?? {})) {
+      try {
+        const area = normalizeSafeArea(rawArea, platform)
+        const regionRight = Number(region.x) + Number(region.width)
+        const regionBottom = Number(region.y) + Number(region.height)
+        if (
+          Number(region.x) < area.x - 1e-9 ||
+          Number(region.y) < area.y - 1e-9 ||
+          regionRight > area.x + area.width + 1e-9 ||
+          regionBottom > area.y + area.height + 1e-9
+        ) {
+          errors.push(`caption region leaves the ${platform} safe area`)
+        }
+      } catch (error) {
+        errors.push(error.message)
+      }
+    }
+  }
 
   for (const cue of cues) {
     const lines = String(cue?.text ?? '').split('\n')

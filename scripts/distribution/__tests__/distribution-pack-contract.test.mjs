@@ -22,12 +22,20 @@ const canonicalHumanObject = {
   evidenceGrade: 'B',
   limitation: 'The evidence is limited by study size, formulation differences, and population differences.',
   sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
+  findingClaimId: 'clm_78af0b376bf1',
+  primarySourceId: 'src_45e522e1601f',
   primarySourceUrl: 'https://pubmed.ncbi.nlm.nih.gov/31517876/',
   trialCount: 2,
   participants: 120,
   doseContext: 'Study-specific extract and dose context only; not a consumer dosing instruction.',
   populationContext: 'Adults enrolled in the cited human studies.',
   lastVerified: '2026-08-26',
+  // Publication provenance. Required of every canonical research object
+  // since the publication-integrity binding landed; the authority URL is
+  // the publisher record for this fixture's primary source.
+  publicationStatus: 'published',
+  publicationStatusCheckedAt: '2026-08-29',
+  publicationStatusAuthorityUrl: 'https://pubmed.ncbi.nlm.nih.gov/31517876/',
 }
 
 function evidenceContextFor(object) {
@@ -65,6 +73,14 @@ function packForResearchObject(object) {
       url: sourceUrl,
       title: object.title,
       contentHash: hashResearchObject(object),
+      findingClaimId: object.findingClaimId,
+      primarySourceId: object.primarySourceId,
+      primarySourceUrl: object.primarySourceUrl,
+      // Mirrored from the canonical object: the pack may not assert a different
+      // publication state than the research object it projects.
+      publicationStatus: object.publicationStatus,
+      publicationStatusCheckedAt: object.publicationStatusCheckedAt,
+      publicationStatusAuthorityUrl: object.publicationStatusAuthorityUrl,
     },
     audience: 'General educational audience',
     angle: 'What the evidence actually says',
@@ -165,10 +181,7 @@ describe('distribution pack v1 contract', () => {
   })
 
   it('resolves research-object identity against the canonical registry, not the pack itself', () => {
-    const fabricated = {
-      ...canonicalHumanObject,
-      id: 'invented-object',
-    }
+    const fabricated = { ...canonicalHumanObject, id: 'invented-object' }
     const pack = packForResearchObject(fabricated)
     const result = messages(pack, [canonicalHumanObject])
     expect(result.some((message) => message.includes('does not resolve to canonical research object invented-object'))).toBe(true)
@@ -176,62 +189,31 @@ describe('distribution pack v1 contract', () => {
 
   it('derives source identity, title, destination, and content hash from the canonical object', () => {
     const pack = packForResearchObject(canonicalHumanObject)
-
-    const badHash = messages(mutate(pack, (copy) => {
-      copy.source.contentHash = 'a'.repeat(64)
-    }))
+    const badHash = messages(mutate(pack, (copy) => { copy.source.contentHash = 'a'.repeat(64) }))
     expect(badHash.some((message) => message.includes('deterministic hash'))).toBe(true)
-
-    const badSource = messages(mutate(pack, (copy) => {
-      copy.sources[0].identifier = 'invented-object'
-    }))
+    const badSource = messages(mutate(pack, (copy) => { copy.sources[0].identifier = 'invented-object' }))
     expect(badSource.some((message) => message.includes('must resolve to canonical research object'))).toBe(true)
-
-    const badDestination = messages(mutate(pack, (copy) => {
-      copy.cta.destinationUrl = 'https://thehippiescientist.net/guides/sleep/'
-    }))
+    const badDestination = messages(mutate(pack, (copy) => { copy.cta.destinationUrl = 'https://thehippiescientist.net/guides/sleep/' }))
     expect(badDestination.some((message) => message.includes('canonical research-object sourceUrl'))).toBe(true)
   })
 
   it('does not trust self-attested strengthDelta or free-form factual rewrites', () => {
     const pack = packForResearchObject(canonicalHumanObject)
-    const stronger = messages(mutate(pack, (copy) => {
-      copy.claims[0].publicSafeStatement = 'Ashwagandha is proven to cure stress and insomnia.'
-    }))
+    const stronger = messages(mutate(pack, (copy) => { copy.claims[0].publicSafeStatement = 'Ashwagandha is proven to cure stress and insomnia.' }))
     expect(stronger.some((message) => message.includes('forbids free-form factual rewriting'))).toBe(true)
-
-    const changedSource = messages(mutate(pack, (copy) => {
-      copy.claims[0].sourceStatement = 'A different claim.'
-    }))
+    const changedSource = messages(mutate(pack, (copy) => { copy.claims[0].sourceStatement = 'A different claim.' }))
     expect(changedSource.some((message) => message.includes('canonical research-object finding'))).toBe(true)
-
-    const selfAttestedWeaker = messages(mutate(pack, (copy) => {
-      copy.claims[0].strengthDelta = 'weaker'
-    }))
+    const selfAttestedWeaker = messages(mutate(pack, (copy) => { copy.claims[0].strengthDelta = 'weaker' }))
     expect(selfAttestedWeaker.some((message) => message.includes('schema:'))).toBe(true)
   })
 
   it('rejects common directive consumer-dose language even when it exists upstream', () => {
     for (const directive of [
-      'Take 600 mg daily for stress.',
-      'Use 600 mg daily for stress.',
-      'Take one 600 mg capsule daily.',
-      'Take 2 capsules daily.',
-      'Use 3 tablets nightly.',
-      'Take four capsules daily.',
-      'Use twelve drops nightly.',
-      'Take four pills daily for sleep.',
-      'Take two gummies daily for sleep.',
-      'Use one softgel nightly.',
-      'Take 1/2 teaspoon daily.',
-      'Take half a teaspoon daily.',
-      'Begin with 1/4 teaspoon.',
-      'Use one capsule nightly.',
-      'Start with 300 mg before bed.',
-      'Begin with 2 capsules.',
-      'Begin with four capsules.',
-      'You should use this supplement before bed.',
-      'Use this supplement daily.',
+      'Take 600 mg daily for stress.', 'Use 600 mg daily for stress.', 'Take one 600 mg capsule daily.', 'Take 2 capsules daily.',
+      'Use 3 tablets nightly.', 'Take four capsules daily.', 'Use twelve drops nightly.', 'Take four pills daily for sleep.',
+      'Take two gummies daily for sleep.', 'Use one softgel nightly.', 'Take 1/2 teaspoon daily.', 'Take half a teaspoon daily.',
+      'Begin with 1/4 teaspoon.', 'Use one capsule nightly.', 'Start with 300 mg before bed.', 'Begin with 2 capsules.',
+      'Begin with four capsules.', 'You should use this supplement before bed.', 'Use this supplement daily.',
     ]) {
       const unsafeObject = { ...canonicalHumanObject, finding: directive }
       const result = messages(packForResearchObject(unsafeObject), [unsafeObject])
@@ -254,57 +236,29 @@ describe('distribution pack v1 contract', () => {
       const result = messages(packForResearchObject(unsafeObject), [unsafeObject])
       expect(result.some((message) => message.includes('may not contain human- or second-person-directed language')), projected).toBe(true)
     }
-
-    const unlabeledObject = {
-      ...canonicalHumanObject,
-      evidenceType: 'preclinical',
-      finding: 'The compound changed this signaling pathway.',
-    }
+    const unlabeledObject = { ...canonicalHumanObject, evidenceType: 'preclinical', finding: 'The compound changed this signaling pathway.' }
     expect(messages(packForResearchObject(unlabeledObject), [unlabeledObject]).some((message) => message.includes('must remain explicitly labeled'))).toBe(true)
-
-    const boundedObject = {
-      ...canonicalHumanObject,
-      evidenceType: 'preclinical',
-      finding: 'Animal evidence suggests a signaling change; clinical relevance remains uncertain.',
-    }
+    const boundedObject = { ...canonicalHumanObject, evidenceType: 'preclinical', finding: 'Animal evidence suggests a signaling change; clinical relevance remains uncertain.' }
     expect(messages(packForResearchObject(boundedObject), [boundedObject])).toEqual([])
   })
 
   it('locks study context and uncertainty to canonical research-object fields', () => {
     const pack = packForResearchObject(canonicalHumanObject)
-
-    const changedDose = messages(mutate(pack, (copy) => {
-      copy.claims[0].studyContext.dose = 'Take 600 mg daily.'
-    }))
+    const changedDose = messages(mutate(pack, (copy) => { copy.claims[0].studyContext.dose = 'Take 600 mg daily.' }))
     expect(changedDose.some((message) => message.includes('canonical doseContext'))).toBe(true)
-
-    const changedPopulation = messages(mutate(pack, (copy) => {
-      copy.claims[0].studyContext.population = 'Everyone'
-    }))
+    const changedPopulation = messages(mutate(pack, (copy) => { copy.claims[0].studyContext.population = 'Everyone' }))
     expect(changedPopulation.some((message) => message.includes('canonical populationContext'))).toBe(true)
-
-    const changedLimitation = messages(mutate(pack, (copy) => {
-      copy.uncertainties[0].statement = 'No meaningful limitations.'
-    }))
+    const changedLimitation = messages(mutate(pack, (copy) => { copy.uncertainties[0].statement = 'No meaningful limitations.' }))
     expect(changedLimitation.some((message) => message.includes('canonical research-object limitation'))).toBe(true)
   })
 
   it('does not allow the pack to invent safety facts, source facts, or weaker guardrails', () => {
     const pack = packForResearchObject(canonicalHumanObject)
-
-    const inventedSafety = messages(mutate(pack, (copy) => {
-      copy.safety.push({ id: 'SAFE_001', statement: 'Safe for everyone.', sourceRefs: ['RESEARCH_OBJECT_001'] })
-    }))
+    const inventedSafety = messages(mutate(pack, (copy) => { copy.safety.push({ id: 'SAFE_001', statement: 'Safe for everyone.', sourceRefs: ['RESEARCH_OBJECT_001'] }) }))
     expect(inventedSafety.some((message) => message.includes('schema:'))).toBe(true)
-
-    const extraSource = messages(mutate(pack, (copy) => {
-      copy.sources.push({ id: 'SRC_002', kind: 'research-object', identifier: canonicalHumanObject.id, url: canonicalHumanObject.sourceUrl })
-    }))
+    const extraSource = messages(mutate(pack, (copy) => { copy.sources.push({ id: 'SRC_002', kind: 'research-object', identifier: canonicalHumanObject.id, url: canonicalHumanObject.sourceUrl }) }))
     expect(extraSource.some((message) => message.includes('schema:'))).toBe(true)
-
-    const weakenedBoundary = messages(mutate(pack, (copy) => {
-      copy.forbiddenExtrapolations[0] = 'Try not to overstate things.'
-    }))
+    const weakenedBoundary = messages(mutate(pack, (copy) => { copy.forbiddenExtrapolations[0] = 'Try not to overstate things.' }))
     expect(weakenedBoundary.some((message) => message.includes('complete fixed v1'))).toBe(true)
   })
 })

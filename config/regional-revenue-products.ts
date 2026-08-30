@@ -1,5 +1,5 @@
 import type { RecommendationSlot } from '@/components/RecommendationSection'
-import type { RegionalUrlMap } from '../src/lib/platforms'
+import type { RegionalUrlMap } from '../lib/platforms'
 
 type RegionalRevenueProductKeyInput = {
   setSlug: string

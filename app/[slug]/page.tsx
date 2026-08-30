@@ -13,8 +13,8 @@ import {
   focusClusterArticleSources,
   getFocusClusterArticle,
 } from '@/lib/focus-cluster-markdown'
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE, compactMetaTitle } from '../../src/lib/seo'
-import { withRedirectSourceMetadata } from '@/src/lib/redirect-source-metadata'
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE, compactMetaTitle } from '../../lib/seo'
+import { withRedirectSourceMetadata } from '@/lib/redirect-source-metadata'
 const ADHD_CHECKLIST_CAPTURE = {
   title: 'Get the ADHD Supplement Starter Checklist',
   description: 'A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks.',

@@ -7,7 +7,7 @@ import {
   selectFoodTimingIngredients,
   selectIndexableTimingIngredients,
 } from '../app/guides/timing/timing-data'
-import type { RuntimeRecord } from '../src/types/content'
+import type { RuntimeRecord } from '../types/content'
 
 describe('timing guide publication gate', () => {
   it('publishes only indexable records with explicit timing guidance', () => {

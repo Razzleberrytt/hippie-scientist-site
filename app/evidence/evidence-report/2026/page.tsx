@@ -5,7 +5,7 @@ import CategoryEvidenceMixPanel from '../CategoryEvidenceMixPanel'
 import { evidenceGradeHistory } from '@/data/editorial/evidence-grade-history'
 import { evidenceReportEdition } from '@/data/editorial/evidence-report-editions'
 import { getPublicEvidenceDataset } from '@/lib/public-evidence-dataset'
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 const edition = evidenceReportEdition(2026)!
 

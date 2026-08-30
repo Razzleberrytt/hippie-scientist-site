@@ -1,8 +1,8 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { buildRenderableRuntimeRecordIndex } from '@/lib/runtime-link-candidates'
 import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
-import { getRuntimeMapEntries } from '../src/lib/runtime-related-maps'
-import type { RuntimeRecord } from '../src/types/content'
+import { getRuntimeMapEntries } from './runtime-related-maps'
+import type { RuntimeRecord } from '../types/content'
 
 const MAX_ECOSYSTEM_CONTINUITY_RECORDS = 6
 

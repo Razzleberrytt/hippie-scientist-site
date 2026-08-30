@@ -4,10 +4,10 @@ import path from 'node:path'
 import herbSummaries from '../public/data/herbs-summary.json'
 import compoundSummaries from '../public/data/compounds-summary.json'
 import enrichmentSubmissions from '../ops/enrichment-submissions.json'
-import { SEO_COLLECTIONS } from '../src/data/seoCollections'
-import { filterHerbByCollection, filterCompoundByCollection } from '../src/lib/collectionQuality'
-import { getPublishableGovernedEntries } from '../src/lib/governedResearch'
-import { applyGovernedDiscoveryControls } from '../src/lib/governedCollectionDiscovery'
+import { SEO_COLLECTIONS } from '../data/seoCollections'
+import { filterHerbByCollection, filterCompoundByCollection } from '../lib/collectionQuality'
+import { getPublishableGovernedEntries } from '../lib/governedResearch'
+import { applyGovernedDiscoveryControls } from '../lib/governedCollectionDiscovery'
 
 type Summary = {
   slug: string

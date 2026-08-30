@@ -82,7 +82,6 @@ The pipeline runs these steps in order:
 | `app/` | Next.js App Router pages and layouts (41 route directories) |
 | `components/` | Shared React components (20 domain subdirectories) |
 | `lib/` | Active production business logic: metadata engine, evidence scoring, semantic linking, graph queries |
-| `src/` | Partially legacy — `src/lib/runtime-*.ts` and `src/components/explore/` + `src/components/runtime/` are active; rest is legacy |
 | `scripts/` | Build tooling, CI validators, data pipeline (200+ Node ESM scripts) |
 | `scripts/ci/` | CI validators (30+ scripts: audit, validate, check, report) |
 | `scripts/data/` | Data pipeline steps (40+ scripts) |
@@ -97,24 +96,6 @@ The pipeline runs these steps in order:
 | `schemas/` | JSON Schema definitions for patch and data validation |
 | `docs/` | Project documentation (extensive) |
 | `functions/` | Cloudflare Pages Functions (`api/subscribe.ts` for email capture) |
-
-### Active vs. Legacy Code (`src/`)
-
-Active code paths:
-- `app/`, `components/`, `lib/` (root-level) — production App Router, type-checked, a11y-strict
-- `src/lib/runtime-*.ts`, `src/lib/cloudflare-image-loader.ts` — active runtime helpers
-- `src/components/explore/`, `src/components/runtime/`, `src/components/Footer.tsx`, `src/components/mobile-bottom-nav.tsx`
-- `src/store/` — Zustand state (client-side only, no server state under static export)
-
-Legacy/excluded paths (see `tsconfig.json` excludes):
-- `src/pages/**/*` — old pages router, excluded from type-checking
-- Most of `src/components/**/*` not listed above
-
-`@/*` path alias resolves to `./` (root-first), so active code under `app/`, `components/`, `lib/` is preferred over `src/` equivalents.
-
-### `lib/` vs `src/lib/`
-
-`lib/` (root-level) is active production logic. `src/lib/` is legacy but some files there (`cloudflare-image-loader.ts`, `runtime-*.ts`, `seo.ts`) are still imported. Check `tsconfig.json` paths and `vitest.config.ts` aliases to understand which `@/lib/*` imports resolve where.
 
 ### Agent Enrichment System (`agent/`)
 
@@ -135,7 +116,7 @@ Patches do **not** modify `public/data` directly. See `docs/agent-integration-gu
 - **Vitest 4** with jsdom environment, OXC transpiler, 50% worker parallelism
 - **Testing Library** for component tests, **axe-core 4** for a11y tests
 - Test files live in `app/__tests__/` (13 files: a11y, route integrity, rendering, governance, blog, etc.)
-- ESLint enforces enhanced a11y rules on `app/**/*`, `components/**/*`, `lib/**/*`, and active `src/components/` paths
+- ESLint enforces enhanced a11y rules on `app/**/*`, `components/**/*`, and `lib/**/*`
 
 ```bash
 npm run test                     # All tests
@@ -217,7 +198,7 @@ See `.env.example` for the full list.
 
 - `trailingSlash: true` in `next.config.mjs` — canonical URLs always have trailing slashes
 - `cpus: 2` experimental limit — prevents OOM on memory-constrained CI hosts
-- Custom image loader: `src/lib/cloudflare-image-loader.ts`; Amazon CDN remote patterns are allowed
+- Custom image loader: `lib/cloudflare-image-loader.ts`; Amazon CDN remote patterns are allowed
 - `__BUILD_DATE__`, `__BUILD_TIME__`, `__COMMIT_HASH__`, `__APP_VERSION__` injected at build time via Webpack DefinePlugin
 - Blog/articles use `content-collections` — run `npm run content:build` (called automatically by `pretypecheck`)
 

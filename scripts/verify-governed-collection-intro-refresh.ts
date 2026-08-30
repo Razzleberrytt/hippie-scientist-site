@@ -1,20 +1,20 @@
 #!/usr/bin/env tsx
 import assert from 'node:assert/strict'
-import { SEO_COLLECTIONS } from '../src/data/seoCollections'
+import { SEO_COLLECTIONS } from '../data/seoCollections'
 import {
   auditCollectionForIndexing,
   filterCompoundByCollection,
   filterHerbByCollection,
-} from '../src/lib/collectionQuality'
-import { buildGovernedCollectionSummary } from '../src/lib/collectionEnrichment'
+} from '../lib/collectionQuality'
+import { buildGovernedCollectionSummary } from '../lib/collectionEnrichment'
 import {
   buildGovernedCollectionIntro,
   countPlaceholderHeavyCollectionIntro,
-} from '../src/lib/governedCollectionIntro'
+} from '../lib/governedCollectionIntro'
 import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
-} from '../src/lib/governedResearch'
+} from '../lib/governedResearch'
 import herbs from '../public/data/herbs.json'
 import compounds from '../public/data/compounds.json'
 

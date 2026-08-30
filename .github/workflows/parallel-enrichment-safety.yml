@@ -7,10 +7,12 @@ on:
       - 'ops/research-sessions/**'
       - 'ops/enrichment-submissions.json'
       - 'ops/enrichment-submissions/sessions/**'
+      - 'ops/enrichment-semantic-attestations.json'
+      - 'ops/source-identity-quarantine.json'
       - 'schemas/enrichment-session-fragment.schema.json'
       - 'schemas/enrichment-submission.schema.json'
       - 'scripts/ci/validate-enrichment-session-safety.mjs'
-      - 'scripts/enrichment-pipeline/lib/ids.mjs'
+      - 'scripts/enrichment-pipeline/**'
       - '.github/workflows/parallel-enrichment-safety.yml'
   push:
     branches: [main]
@@ -18,14 +20,18 @@ on:
       - 'ops/research-sessions/**'
       - 'ops/enrichment-submissions.json'
       - 'ops/enrichment-submissions/sessions/**'
+      - 'ops/enrichment-semantic-attestations.json'
+      - 'ops/source-identity-quarantine.json'
       - 'schemas/enrichment-session-fragment.schema.json'
       - 'schemas/enrichment-submission.schema.json'
       - 'scripts/ci/validate-enrichment-session-safety.mjs'
-      - 'scripts/enrichment-pipeline/lib/ids.mjs'
+      - 'scripts/enrichment-pipeline/**'
       - '.github/workflows/parallel-enrichment-safety.yml'
 
 permissions:
   contents: read
+  actions: read
+  pull-requests: read
 
 jobs:
   validate-parallel-enrichment:
@@ -46,3 +52,34 @@ jobs:
 
       - name: Validate session allocation and submissions
         run: node scripts/ci/validate-enrichment-session-safety.mjs
+
+      - name: Test autonomous enrichment control plane
+        run: npx vitest run scripts/enrichment-pipeline/__tests__/control-plane.test.mjs
+
+      - name: Validate promotion safety invariants
+        run: node scripts/enrichment-pipeline/control-plane-cli.mjs validate
+
+      - name: Measure live queue pressure
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          queued="$(gh api -H 'Accept: application/vnd.github+json' "/repos/${REPO}/actions/runs?status=queued&per_page=1" --jq '.total_count')"
+          in_progress="$(gh api -H 'Accept: application/vnd.github+json' "/repos/${REPO}/actions/runs?status=in_progress&per_page=1" --jq '.total_count')"
+          open_enrichment_prs="$(gh api -H 'Accept: application/vnd.github+json' "/repos/${REPO}/pulls?state=open&per_page=100" --jq '[.[] | select((.title | ascii_downcase) | contains("enrichment"))] | length')"
+          echo "ENRICHMENT_QUEUED_RUNS=$queued" >> "$GITHUB_ENV"
+          echo "ENRICHMENT_IN_PROGRESS_RUNS=$in_progress" >> "$GITHUB_ENV"
+          echo "ENRICHMENT_OPEN_PRS=$open_enrichment_prs" >> "$GITHUB_ENV"
+          decision="$(ENRICHMENT_QUEUED_RUNS="$queued" ENRICHMENT_IN_PROGRESS_RUNS="$in_progress" ENRICHMENT_OPEN_PRS="$open_enrichment_prs" node scripts/enrichment-pipeline/control-plane-cli.mjs admission)"
+          echo '### Enrichment admission pressure' >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          echo "$decision" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Generate conversion, orphan-repair, and promotion queues
+        run: |
+          node scripts/enrichment-pipeline/control-plane-cli.mjs report
+          node scripts/enrichment-pipeline/control-plane-cli.mjs repair-orphans
+          node scripts/enrichment-pipeline/control-plane-cli.mjs rollup

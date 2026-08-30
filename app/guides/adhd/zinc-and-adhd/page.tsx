@@ -1,5 +1,5 @@
 import FocusAdhdArticlePage from '@/components/articles/FocusAdhdArticlePage'
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 const SLUG = 'zinc-and-adhd'
 

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { buildAmazonSearchUrl } from '@/src/lib/affiliate'
+import { buildAmazonSearchUrl } from '@/lib/affiliate'
 
 type ConversionAffiliateCardProps = {
   title?: string

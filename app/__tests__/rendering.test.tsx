@@ -5,7 +5,7 @@ import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
 import HerbsIndexClient from '../herbs/HerbsIndexClient'
 import { collapseRepeatedNouns } from '../../lib/display-utils'
-import type { RuntimeRecord } from '../../src/types/content'
+import type { RuntimeRecord } from '../../types/content'
 
 // Mock next/link since it is used in the component
 import { vi } from 'vitest'

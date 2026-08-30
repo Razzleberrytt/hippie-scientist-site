@@ -9,11 +9,12 @@ describe('EvidenceGradeExplainer', () => {
     expect(container.querySelector('details')).not.toBeNull()
     expect(container.querySelector('details')?.hasAttribute('open')).toBe(false)
 
+    // Tap sizing and focus treatment come from the shared disclosure primitive
+    // (styles/editorial-primitives.css) and the global focus baseline, rather
+    // than being restated as utilities on every summary.
     const summary = screen.getByText('How evidence grades work').closest('summary')
     expect(summary).not.toBeNull()
-    expect(summary?.className).toContain('min-h-11')
-    expect(summary?.className).toContain('focus-visible:ring-2')
-    expect(summary?.className).toContain('focus-visible:ring-brand-500')
+    expect(summary?.closest('details')?.className).toContain('hs-disclosure')
 
     for (const [grade, label] of [
       ['A', 'Strong'],

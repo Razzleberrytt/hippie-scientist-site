@@ -17,8 +17,8 @@ Current allowed third-party origins:
 
 | Directive | Allowed origin | Reason |
 | --- | --- | --- |
-| `script-src` | `https://www.googletagmanager.com` | Used by the consent-gated analytics loader in `src/lib/loadAnalytics.ts` to load Google Analytics gtag scripts. |
-| `script-src` | `https://analytics.ahrefs.com` | Used by the consent-gated analytics loader in `src/lib/loadAnalytics.ts` when `NEXT_PUBLIC_AHREFS_ANALYTICS_KEY` is configured. |
+| `script-src` | `https://www.googletagmanager.com` | Used by the consent-gated analytics loader in `lib/loadAnalytics.ts` to load Google Analytics gtag scripts. |
+| `script-src` | `https://analytics.ahrefs.com` | Used by the consent-gated analytics loader in `lib/loadAnalytics.ts` when `NEXT_PUBLIC_AHREFS_ANALYTICS_KEY` is configured. |
 | `connect-src` | `https://www.google-analytics.com` | Google Analytics collection endpoint. |
 | `connect-src` | `https://region1.google-analytics.com` | Regional Google Analytics collection endpoint. |
 | `connect-src` | `https://analytics.ahrefs.com` | Permits the Ahrefs analytics client to report to its own origin. |
@@ -28,7 +28,7 @@ Current allowed third-party origins:
 
 The Turnstile origin is required whenever `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is configured. Without it the widget script is blocked, `window.turnstile` never appears, and the signup form can never produce a token — which `functions/api/subscribe.ts` then rejects with `400 Security verification failed`. Because `frame-src` must name the origin, this directive is `frame-src https://challenges.cloudflare.com` rather than `'none'`; `frame-ancestors 'none'` still prevents this site from being framed by anyone else.
 
-The Ahrefs origin is intentionally present because `src/lib/loadAnalytics.ts` can inject `https://analytics.ahrefs.com/analytics.js` after visitor consent; without this CSP allowance, the script can be blocked in production.
+The Ahrefs origin is intentionally present because `lib/loadAnalytics.ts` can inject `https://analytics.ahrefs.com/analytics.js` after visitor consent; without this CSP allowance, the script can be blocked in production.
 
 ## Inline script posture
 
@@ -51,7 +51,7 @@ Because this is a static export deployment, nonce-based runtime CSP approaches a
 
 The active browser form submission utility is:
 
-- `src/lib/formSubmission.ts`
+- `lib/formSubmission.ts`
 
 The endpoint is configured through:
 

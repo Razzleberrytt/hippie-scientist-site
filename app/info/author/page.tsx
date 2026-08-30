@@ -3,7 +3,7 @@ import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../lib/seo'
 
 const TITLE = 'About the Author: Willie B. Randolph III'
 const DESCRIPTION =

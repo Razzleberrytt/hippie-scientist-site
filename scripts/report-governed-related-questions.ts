@@ -4,16 +4,16 @@ import path from 'node:path'
 import herbsSummary from '../public/data/herbs-summary.json'
 import compoundsSummary from '../public/data/compounds-summary.json'
 import publicationManifest from '../public/data/publication-manifest.json'
-import { buildGovernedFaqSectionContent } from '../src/lib/governedFaq'
+import { buildGovernedFaqSectionContent } from '../lib/governedFaq'
 import {
   buildGovernedRelatedQuestions,
   type GovernedRelatedQuestionType,
-} from '../src/lib/governedRelatedQuestions'
+} from '../lib/governedRelatedQuestions'
 import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
   type GovernedEntityType,
-} from '../src/lib/governedResearch'
+} from '../lib/governedResearch'
 
 const ROOT = process.cwd()
 const REPORT_JSON_PATH = path.join(ROOT, 'ops', 'reports', 'governed-related-questions.json')

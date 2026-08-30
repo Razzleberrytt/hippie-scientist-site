@@ -1,16 +1,17 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
 import { assertDistributionEvidenceGradeBinding } from '../distribution-evidence-grade-binding.mjs'
 
+const root = process.cwd()
+const researchObjects = JSON.parse(fs.readFileSync(path.join(root, 'data/distribution/research-objects.json'), 'utf8'))
+const canonical = researchObjects.find(({ id }) => id === 'ashwagandha-stress-evidence')
 const object = {
+  ...canonical,
   id: 'evidence-grade-fixture',
   title: 'Governed evidence grade fixture',
-  finding: 'Human evidence reports a measured outcome, with limitations that constrain interpretation.',
-  evidenceType: 'meta-analysis',
-  evidenceGrade: 'B',
-  limitation: 'The evidence remains heterogeneous and should not be generalized beyond the governed finding.',
-  sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
 }
 
 describe('distribution evidence-grade binding', () => {

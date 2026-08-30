@@ -45,7 +45,7 @@ global.fetch = vi.fn(async (url: string) => ({
   json: async () => (url.includes('herbs-summary') ? mockHerbs : mockCompounds),
 })) as unknown as typeof fetch
 
-vi.mock('../../../src/lib/semantic-orchestration', () => ({
+vi.mock('../../../lib/semantic-orchestration', () => ({
   getSemanticOrchestrationSignals: vi.fn(() => ({
     authorityScore: 0.8,
     discoveryScore: 0.8,
@@ -58,7 +58,7 @@ vi.mock('../../../src/lib/semantic-orchestration', () => ({
   }))
 }))
 
-vi.mock('../../../src/components/search/DosingSafetyChecker', () => ({
+vi.mock('../../../components/search/DosingSafetyChecker', () => ({
   default: () => <div>Mocked DosingSafetyChecker</div>
 }))
 

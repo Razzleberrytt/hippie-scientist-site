@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Leaf } from 'lucide-react'
-import { DEFAULT_LOCALE, getLocalizedRoute } from '@/src/lib/international-seo'
-import { LOCALIZED_CHROME, getLocaleFromPathname } from '@/src/lib/localized-chrome'
+import { DEFAULT_LOCALE, getLocalizedRoute } from '@/lib/international-seo'
+import { LOCALIZED_CHROME, getLocaleFromPathname } from '@/lib/localized-chrome'
 
 const footerLinkClass =
   '-mx-2 inline-flex min-h-11 items-center rounded-xl px-2 font-semibold text-[var(--text-secondary)] transition hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-brand)]'

@@ -4,7 +4,7 @@ import { HERBS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/paginati
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import { loadPublishedHerbs } from '../../library-data'
 import HerbsIndexClient from '../../HerbsIndexClient'
-import type { RuntimeRecord } from '../../../../src/types/content'
+import type { RuntimeRecord } from '../../../../types/content'
 import Pagination from '@/components/Pagination'
 
 type P={params:Promise<{page:string}>}

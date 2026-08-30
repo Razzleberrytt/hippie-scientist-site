@@ -32,4 +32,4 @@ To keep the page load times minimal and avoid loading heavy payloads upfront, ap
   npm run build
   node scripts/report-performance-budget.mjs
   ```
-- This will output a budget comparison table and write the latest measurements to [docs/performance/budgets-log.md](file:///c:/Users/Will/Documents/hippie-scientist-site/docs/performance/budgets-log.md).
+- This will output a budget comparison table and write the latest measurements to [docs/performance/budgets-log.md](./budgets-log.md).

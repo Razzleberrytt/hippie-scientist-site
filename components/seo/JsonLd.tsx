@@ -1,4 +1,4 @@
-import { serializeJsonLd } from '@/src/lib/schema-injector'
+import { serializeJsonLd } from '@/lib/schema-injector'
 
 export default function JsonLd({ schema }: { schema: unknown }) {
   if (!schema) return null

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { publicCorrections } from '@/data/editorial/corrections'
 import { correctionsForPage } from '@/lib/editorial-provenance'
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Corrections & Scientific Update History',

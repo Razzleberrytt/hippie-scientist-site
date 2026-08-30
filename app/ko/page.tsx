@@ -1,5 +1,5 @@
 import LocalizedCorePage from '@/components/localization/LocalizedCorePage'
-import { KOREAN_PAGES, KOREAN_UI, buildKoreanPageMetadata } from '@/src/lib/asian-language-content'
+import { KOREAN_PAGES, KOREAN_UI, buildKoreanPageMetadata } from '@/lib/asian-language-content'
 
 const page = KOREAN_PAGES.home
 export const metadata = buildKoreanPageMetadata(page)

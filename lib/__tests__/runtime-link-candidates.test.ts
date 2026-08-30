@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { buildRenderableRuntimeRecordIndex } from '@/lib/runtime-link-candidates'
-import type { RuntimeRecord } from '@/src/types/content'
+import type { RuntimeRecord } from '@/types/content'
 
 describe('renderable runtime link candidate index', () => {
   it('keeps publish and noindex records while excluding hidden candidates', () => {

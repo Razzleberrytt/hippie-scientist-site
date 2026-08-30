@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { buildRenderableSlugEntityTypeMap } from '../src/lib/runtime-data'
-import type { RuntimeRecord } from '../src/types/content'
+import { buildRenderableSlugEntityTypeMap } from '../lib/runtime-data'
+import type { RuntimeRecord } from '../types/content'
 
 describe('interaction partner route map visibility', () => {
   it('keeps renderable publish and noindex profiles linkable while excluding hidden records', () => {

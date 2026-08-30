@@ -65,9 +65,9 @@ const routeReport = routeChecks.map(check => {
 })
 
 const loaderFiles = [
-  'src/lib/herb-data.ts',
-  'src/lib/compound-data.ts',
-  'src/lib/data.ts',
+  'lib/herb-data.ts',
+  'lib/compound-data.ts',
+  'lib/data.ts',
 ]
 
 const loaderReport = loaderFiles.map(file => {

@@ -16,7 +16,7 @@ function embeddedProvenance(bytes) {
   if (!match) throw new Error('SVG parent is missing authenticated provenance metadata')
   let metadata
   try { metadata = JSON.parse(decodeXml(match[1])) } catch { throw new Error('SVG parent provenance metadata is invalid') }
-  if (metadata?.renderer !== 'carousel-svg-v1' || !metadata?.contentHash || !metadata?.sourceUrl) {
+  if (metadata?.renderer !== 'carousel-svg-v1' || !metadata?.contentHash || !metadata?.sourceUrl || !metadata?.factualProvenanceFingerprint || !metadata?.templateVersion) {
     throw new Error('SVG parent provenance metadata is incomplete')
   }
   return metadata
@@ -41,18 +41,39 @@ function assertSvgParent(asset, outputDir, manifest) {
   const bytes = fs.readFileSync(svgPath)
   if (sha256(bytes) !== asset.sha256) throw new Error(`SVG parent hash mismatch: ${asset.file}`)
   const provenance = embeddedProvenance(bytes)
-  if (provenance.contentHash !== manifest.sourceContentHash || provenance.contentHash !== asset.sourceContentHash || provenance.sourceUrl !== asset.sourceUrl) {
+  if (
+    provenance.contentHash !== manifest.sourceContentHash ||
+    provenance.contentHash !== asset.sourceContentHash ||
+    provenance.sourceUrl !== asset.sourceUrl ||
+    provenance.factualProvenanceFingerprint !== manifest.factualProvenanceFingerprint ||
+    provenance.factualProvenanceFingerprint !== asset.factualProvenanceFingerprint ||
+    provenance.templateVersion !== manifest.templateVersion
+  ) {
     throw new Error(`SVG parent provenance mismatch: ${asset.file}`)
   }
   return { svgPath, bytes }
 }
 
 function assertManifest(manifest) {
-  if (!manifest?.packId || !manifest?.sourceContentHash || manifest?.renderer !== 'carousel-svg-v1' || !Array.isArray(manifest.assets)) {
-    throw new Error('raster exporter requires a carousel-svg-v1 asset manifest')
+  if (
+    !manifest?.packId ||
+    !manifest?.sourceUrl ||
+    !manifest?.sourceContentHash ||
+    !manifest?.factualProvenanceFingerprint ||
+    !manifest?.presentationFingerprint ||
+    !manifest?.templateVersion ||
+    manifest?.renderer !== 'carousel-svg-v1' ||
+    !Array.isArray(manifest.assets)
+  ) {
+    throw new Error('raster exporter requires a provenance-complete carousel-svg-v1 asset manifest')
   }
   for (const asset of manifest.assets) {
-    if (asset.sourceContentHash !== manifest.sourceContentHash || !asset.sourceUrl) {
+    if (
+      asset.sourceContentHash !== manifest.sourceContentHash ||
+      asset.sourceUrl !== manifest.sourceUrl ||
+      asset.factualProvenanceFingerprint !== manifest.factualProvenanceFingerprint ||
+      asset.presentationFingerprint !== manifest.presentationFingerprint
+    ) {
       throw new Error('SVG asset provenance must match the source manifest')
     }
   }
@@ -94,6 +115,8 @@ export async function renderCarouselRasterAssets({ manifest, outputDir, formats 
         height: parent.height,
         sourceContentHash: manifest.sourceContentHash,
         sourceUrl: parent.sourceUrl,
+        factualProvenanceFingerprint: manifest.factualProvenanceFingerprint,
+        presentationFingerprint: manifest.presentationFingerprint,
         parentSvgSha256: parent.sha256,
         parentSvgFile: parent.file,
         exporter: 'carousel-raster-v1',
@@ -102,9 +125,14 @@ export async function renderCarouselRasterAssets({ manifest, outputDir, formats 
   }
 
   const derivedManifest = {
-    schemaVersion: '1.0.0',
+    schemaVersion: '1.1.0',
     packId: manifest.packId,
+    sourceUrl: manifest.sourceUrl,
     sourceContentHash: manifest.sourceContentHash,
+    factualProvenanceFingerprint: manifest.factualProvenanceFingerprint,
+    presentationFingerprint: manifest.presentationFingerprint,
+    creativeSpecHash: manifest.creativeSpecHash,
+    templateVersion: manifest.templateVersion,
     parentRenderer: manifest.renderer,
     exporter: 'carousel-raster-v1',
     assets,

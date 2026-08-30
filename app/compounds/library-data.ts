@@ -1,4 +1,4 @@
-import type { RuntimeRecord } from '../../src/types/content'
+import type { RuntimeRecord } from '../../types/content'
 
 import { getAllCompounds } from '@/lib/server/runtime-data'
 import { selectPublishedCompounds } from './library-selector'

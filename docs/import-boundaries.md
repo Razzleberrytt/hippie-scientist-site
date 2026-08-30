@@ -21,6 +21,5 @@
 
 ## Related Docs
 
-- [SPEC-1: Hippie Scientist Rebuild](./SPEC-1-Hippie-Scientist-Rebuild.md)
 - [Generated Data Policy](./generated-data-policy.md)
 - [Contractor Onboarding](./contractor-onboarding.md)

@@ -69,7 +69,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('app/**/*', 'src/**/*', 'lib/**/*', 'components/**/*', 'public/data/**/*', 'data/**/*', 'data-sources/**/*', 'content/**/*', 'scripts/**/*', 'next.config.*', 'tailwind.config.*', 'postcss.config.*') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('app/**/*', 'lib/**/*', 'components/**/*', 'public/data/**/*', 'data/**/*', 'data-sources/**/*', 'content/**/*', 'scripts/**/*', 'next.config.*', 'tailwind.config.*', 'postcss.config.*') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
 

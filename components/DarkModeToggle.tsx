@@ -2,8 +2,8 @@
 
 import { Moon, Sun } from 'lucide-react'
 import { useDarkMode } from '@/lib/dark-mode-provider'
-import { DEFAULT_LOCALE, type SupportedLocale } from '@/src/lib/international-seo'
-import { DARK_MODE_COPY } from '@/src/lib/localized-theme-copy'
+import { DEFAULT_LOCALE, type SupportedLocale } from '@/lib/international-seo'
+import { DARK_MODE_COPY } from '@/lib/localized-theme-copy'
 
 type Props = {
   showLabel?: boolean

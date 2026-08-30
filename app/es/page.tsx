@@ -1,5 +1,5 @@
-import type { SpanishPageData } from '@/src/lib/spanish-content'
-import { buildSpanishPageMetadata } from '@/src/lib/spanish-content'
+import type { SpanishPageData } from '@/lib/spanish-content'
+import { buildSpanishPageMetadata } from '@/lib/spanish-content'
 import SpanishCorePage from '@/components/localization/SpanishCorePage'
 
 const page: SpanishPageData = {

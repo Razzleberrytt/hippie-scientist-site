@@ -3,7 +3,7 @@ import {
   PORTUGUESE_PAGES,
   PORTUGUESE_UI,
   buildPortuguesePageMetadata,
-} from '@/src/lib/portuguese-content'
+} from '@/lib/portuguese-content'
 
 const page = PORTUGUESE_PAGES.home
 

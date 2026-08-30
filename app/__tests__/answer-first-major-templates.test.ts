@@ -8,7 +8,7 @@ function source(relativePath: string): string {
 
 describe('answer-first major informational templates', () => {
   it('keeps the runtime comparison verdict before the detailed comparison table', () => {
-    const text = source('src/components/comparison/RuntimeEvidenceComparison.tsx')
+    const text = source('components/comparison/RuntimeEvidenceComparison.tsx')
     const answerIndex = text.indexOf('Quick verdict')
     const tableIndex = text.indexOf('<ComparisonTable')
 

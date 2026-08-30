@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Editorial, Evidence & Automation Policy',

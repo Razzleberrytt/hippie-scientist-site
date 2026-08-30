@@ -38,8 +38,8 @@ function verifyBrowseRoutingUsesSummary() {
   assert(herbsPage.includes("useHerbData"), 'Herbs page should still use herb list hook')
   assert(compoundsPage.includes("useCompoundData"), 'Compounds page should still use compound list hook')
 
-  const herbLoader = fileText('src/lib/herb-data.ts')
-  const compoundLoader = fileText('src/lib/compound-data.ts')
+  const herbLoader = fileText('lib/herb-data.ts')
+  const compoundLoader = fileText('lib/compound-data.ts')
 
   assert(herbLoader.includes("fetch('/data/herbs-summary.json'"), 'Herb list loader must fetch summary payload')
   assert(
@@ -51,8 +51,8 @@ function verifyBrowseRoutingUsesSummary() {
 function verifyDetailRoutesUsePerEntityPayloads() {
   const herbDetail = fileText('src/pages/HerbDetail.tsx')
   const compoundDetail = fileText('src/pages/CompoundDetail.tsx')
-  const herbLoader = fileText('src/lib/herb-data.ts')
-  const compoundLoader = fileText('src/lib/compound-data.ts')
+  const herbLoader = fileText('lib/herb-data.ts')
+  const compoundLoader = fileText('lib/compound-data.ts')
 
   assert(herbDetail.includes('useHerbDetailState(slug)'), 'HerbDetail must load by slug')
   assert(compoundDetail.includes('useCompoundDetailState(slug)'), 'CompoundDetail must load by slug')

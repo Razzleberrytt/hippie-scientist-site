@@ -2,8 +2,8 @@
 
 import { usePathname } from 'next/navigation'
 import type { ReactNode } from 'react'
-import type { SupportedLocale } from '@/src/lib/international-seo'
-import { getLocaleFromPathname, isTranslatedPath } from '@/src/lib/localized-chrome'
+import type { SupportedLocale } from '@/lib/international-seo'
+import { getLocaleFromPathname, isTranslatedPath } from '@/lib/localized-chrome'
 
 export function EnglishOnly({ children }: { children: ReactNode }) {
   const pathname = usePathname()

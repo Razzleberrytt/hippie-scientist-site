@@ -6,9 +6,9 @@ import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
   type GovernedEntityType,
-} from '../src/lib/governedResearch'
-import { buildGovernedReviewFreshness } from '../src/lib/governedReviewFreshness'
-import type { ResearchEnrichment } from '../src/types/researchEnrichment'
+} from '../lib/governedResearch'
+import { buildGovernedReviewFreshness } from '../lib/governedReviewFreshness'
+import type { ResearchEnrichment } from '../types/researchEnrichment'
 
 type EntityType = 'herb' | 'compound'
 

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { buildPageMetadata } from '../../../../src/lib/seo'
+import { buildPageMetadata } from '../../../../lib/seo'
 import StructuredData from '@/components/StructuredData'
 import FAQAccordion from '@/components/FAQAccordion'
 import EvidenceSummaryBox from '@/components/EvidenceSummaryBox'

@@ -9,7 +9,16 @@ const repoRoot = path.resolve(__dirname, '../..')
 // Placeholders to flag (whole words only for short strings)
 export const PLACEHOLDER_KEYWORDS = [
   { regex: /\bplaceholder\b/i, name: 'placeholder' },
-  { regex: /\bunknown\b/i, name: 'unknown' },
+  // 'unknown' is a placeholder when it stands in for missing data, and
+  // ordinary English when it modifies a noun. Matching it anywhere flagged
+  // this, which is a deliberate and correct safety caution:
+  //   "Isolated-taurine findings cannot establish the safety of unknown
+  //    co-ingredients, doses, or long-term use."
+  // Editing that copy to satisfy a linter would weaken a real warning, so the
+  // pattern is narrowed instead: it matches only where the word stands alone
+  // as a value - the whole field, after a label, or as its own sentence - and
+  // not where it qualifies something.
+  { regex: /(?:^|[:;|,]\s*|[.!?]\s+)unknown\s*(?:[.;,|]|$)/i, name: 'unknown' },
   { regex: /\btodo\b/i, name: 'todo' },
   { regex: /\btbd\b/i, name: 'tbd' },
   { regex: /\blean bulk\b/i, name: 'lean bulk' },
@@ -34,6 +43,35 @@ export const SPECULATIVE_TERMS = /\b(may|suggests|preclinical|potential|investig
 
 // Human/clinical claims that are inappropriate for preclinical-only evidence
 export const CLINICAL_CLAIM_PATTERNS = /\b(clinical trial|clinical trials|human study|human studies|in humans|in patient|in patients|human clinical|clinical research)\b/i
+
+/**
+ * Is this match negated by the words just before it?
+ *
+ * The term checks are substring matches, so writing that explicitly *denies* a
+ * claim was flagged as *making* it:
+ *
+ *   "no established human clinical use"        -> flagged "established"
+ *   "Safety was not established for 2.5 g/day" -> flagged "established"
+ *   "human clinical trial data is essentially absent" -> flagged "human clinical"
+ *   "claims are more extrapolated than proven" -> flagged "proven"
+ *
+ * All four are careful, correct sentences. Flagging them pushes an author to
+ * delete the qualifier that makes the claim honest, which is the opposite of
+ * what this audit is for. A short lookbehind window covers the negators that
+ * actually occur in this corpus without swallowing genuine overstatement.
+ */
+export function isNegatedMatch(text, index, matched) {
+  const before = text.slice(Math.max(0, index - 44), index).toLowerCase()
+  const after = text.slice(index + (matched ? matched.length : 0), index + (matched ? matched.length : 0) + 46).toLowerCase()
+
+  // "no established use", "was not established", "more extrapolated than proven"
+  const negatedBefore = /\b(no|not|never|without|lacks|lack|lacking|absent|rather than|than|insufficient|unproven|unestablished)\b[\w\s,'-]{0,20}$/.test(before)
+
+  // "human clinical trial data is essentially absent"
+  const negatedAfter = /^[\w\s,'-]{0,40}\b(is|are|was|were|remains?)\s+(essentially\s+|largely\s+|entirely\s+)?(absent|lacking|unavailable|missing|not established|unproven)\b/.test(after)
+
+  return negatedBefore || negatedAfter
+}
 
 /**
  * Audits a single herb/compound record for language alignment and regulatory compliance.
@@ -110,7 +148,7 @@ export function auditRecord(record, datasetName = 'test') {
   if (isWeakEvidence) {
     // Warning: using overly definitive claims on weak evidence
     const definitiveMatch = textToAudit.match(DEFINITIVE_TERMS)
-    if (definitiveMatch) {
+    if (definitiveMatch && !isNegatedMatch(textToAudit, definitiveMatch.index, definitiveMatch[0])) {
       localFindings.push({
         type: 'warning',
         dataset: datasetName,
@@ -138,7 +176,7 @@ export function auditRecord(record, datasetName = 'test') {
   if (isPreclinicalOnly) {
     // Warning: claiming human/clinical efficacy on mechanistic/preclinical records
     const clinicalMatch = textToAudit.match(CLINICAL_CLAIM_PATTERNS)
-    if (clinicalMatch) {
+    if (clinicalMatch && !isNegatedMatch(textToAudit, clinicalMatch.index, clinicalMatch[0])) {
       localFindings.push({
         type: 'warning',
         dataset: datasetName,

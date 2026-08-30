@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
-import { buildPageMetadata, faqPageJsonLd, breadcrumbJsonLd, SITE_URL } from '../../../src/lib/seo'
+import { buildPageMetadata, faqPageJsonLd, breadcrumbJsonLd, SITE_URL } from '../../../lib/seo'
 import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({

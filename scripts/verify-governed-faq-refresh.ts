@@ -4,12 +4,12 @@ import submissions from '../ops/enrichment-submissions.json'
 import {
   buildGovernedFaqSectionContent,
   type GovernedFaqQuestionType,
-} from '../src/lib/governedFaq'
+} from '../lib/governedFaq'
 import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
   type GovernedEntityType,
-} from '../src/lib/governedResearch'
+} from '../lib/governedResearch'
 
 const BLOCKED_REVIEW_STATUSES = new Set([
   'blocked',

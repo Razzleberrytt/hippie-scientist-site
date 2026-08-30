@@ -1,10 +1,10 @@
-import { SITE_URL } from '@/src/lib/site'
+import { SITE_URL } from '@/lib/site'
 import {
   AUTHOR_SCHEMA_ID,
   ORGANIZATION_SCHEMA_ID,
   authorSchemaIdentity,
   organizationSchemaIdentity,
-} from '@/src/lib/schema-identities'
+} from '@/lib/schema-identities'
 
 function toIsoDate(value: unknown): string | undefined {
   if (typeof value !== 'string' || !value.trim()) return undefined

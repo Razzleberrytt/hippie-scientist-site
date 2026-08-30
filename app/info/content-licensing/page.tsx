@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../lib/seo'
 
 const TITLE = 'Content Licensing & Attribution Policy | The Hippie Scientist'
 const DESCRIPTION = 'How to attribute The Hippie Scientist, cite underlying research, and reuse public structured research data without confusing site synthesis with third-party publications.'

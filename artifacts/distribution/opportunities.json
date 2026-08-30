@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-08-29T19:17:24.282Z",
+  "input": "data\\distribution\\research-objects.json",
+  "count": 1,
+  "opportunities": [
+    {
+      "id": "ashwagandha-stress-evidence",
+      "title": "Ashwagandha and stress/anxiety outcomes in randomized human trials",
+      "destinationUrl": "https://thehippiescientist.net/herbs/ashwagandha/",
+      "eligible": true,
+      "evidenceGrade": "B",
+      "lastVerified": "2026-08-27",
+      "signals": {
+        "evidenceStrength": 8,
+        "freshness": 10,
+        "freshnessDays": 2,
+        "socialSuitability": 9,
+        "informationUniqueness": 8,
+        "claimRisk": 2
+      },
+      "recommendedFormat": "carousel",
+      "score": 92,
+      "formats": [
+        {
+          "format": "carousel",
+          "score": 92,
+          "platformFit": 10,
+          "productionCost": 2
+        },
+        {
+          "format": "infographic",
+          "score": 92,
+          "platformFit": 10,
+          "productionCost": 2
+        },
+        {
+          "format": "vertical-video",
+          "score": 88,
+          "platformFit": 9,
+          "productionCost": 4
+        }
+      ],
+      "angle": "Systematic reviews of randomized trials suggest that some ashwagandha extracts may reduce perceived stress and anxiety symptoms in adults, but the evidence should be interpreted cautiously because formulations, doses, study populations, and outcome measures vary across trials.",
+      "guardrail": "The clinical evidence base remains limited by small trials, heterogeneous extracts and dosing regimens, variable outcome measures, and risk-of-bias concerns, so results from one preparation should not be generalized to all ashwagandha products.",
+      "successCriteria": {
+        "primary": "qualified visits to canonical evidence page",
+        "secondary": [
+          "asset completion/engagement rate",
+          "saves/shares",
+          "tracked destination clicks"
+        ],
+        "scientific": "0 unsupported or strengthened factual claims",
+        "attribution": "campaign/UTM identity required before publication"
+      }
+    }
+  ]
+}

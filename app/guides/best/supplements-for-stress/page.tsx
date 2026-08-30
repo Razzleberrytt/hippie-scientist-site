@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import BestSupplementsForStressPage from '../../anxiety/best-supplements-for-stress/page'
-import { buildTwitterMetadata } from '@/src/lib/seo'
+import { buildTwitterMetadata } from '@/lib/seo'
 
 const CANONICAL_PATH = '/guides/best/supplements-for-stress/'
 

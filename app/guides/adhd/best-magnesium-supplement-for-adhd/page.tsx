@@ -10,7 +10,7 @@ import StructuredData from '@/components/StructuredData'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { SITE_URL } from '@/lib/navigation-config'
-import { buildTwitterMetadata } from '@/src/lib/seo'
+import { buildTwitterMetadata } from '@/lib/seo'
 
 const PATH = '/guides/adhd/best-magnesium-supplement-for-adhd'
 const PAGE_URL = `${SITE_URL}${PATH}`

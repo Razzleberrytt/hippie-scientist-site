@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, BookOpen, Languages, ShieldCheck } from 'lucide-react'
 import LanguageSwitcher from '@/components/localization/LanguageSwitcher'
-import type { LocalizedPageData, LocalizedUiCopy } from '@/src/lib/localization'
+import type { LocalizedPageData, LocalizedUiCopy } from '@/lib/localization'
 
 export default function LocalizedCorePage({ page, ui, lang }: { page: LocalizedPageData; ui: LocalizedUiCopy; lang: string }) {
   return (

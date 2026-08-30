@@ -50,7 +50,7 @@ Older route families such as top-level `/articles/*`, `/goals/*`, `/stacks/*`, t
 When moving or deleting a route:
 
 1. Add a redirect in `public/_redirects`.
-2. Update `lib/navigation-config.ts`, `src/lib/public-routes.ts`, footer links, homepage links, schema paths, and tests.
+2. Update `lib/navigation-config.ts`, `lib/public-routes.ts`, footer links, homepage links, schema paths, and tests.
 3. Run `npm run routes:inventory`, `npm run validate:route-seo`, and `npm run audit:internal-links`.
 
 ## Monograph Image Policy

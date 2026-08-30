@@ -2,19 +2,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { selectDistributionOpportunity } from './opportunity-engine.mjs'
+import { DEMAND_SIGNAL_KEYS, validateOpportunitySignals } from './opportunity-signal-contract.mjs'
 
 const root = process.cwd()
 const objectsPath = path.resolve(process.argv[2] || 'data/distribution/research-objects.json')
 const signalsPath = path.resolve(process.env.DISTRIBUTION_OPPORTUNITY_SIGNALS || 'data/distribution/opportunity-signals.json')
 const outDir = path.resolve(process.env.DISTRIBUTION_OUTPUT || 'artifacts/distribution')
-const DEMAND_SIGNAL_KEYS = Object.freeze([
-  'searchOpportunity',
-  'aiCitationOpportunity',
-  'socialSuitability',
-  'commercialValue',
-  'informationUniqueness',
-  'evergreenValue',
-])
 
 function readJson(file, fallback) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
@@ -28,7 +21,8 @@ function hasFiniteSignal(record, key) {
 const objects = readJson(objectsPath, [])
 const signals = readJson(signalsPath, {})
 if (!Array.isArray(objects)) throw new Error('research objects input must be an array')
-if (!signals || Array.isArray(signals) || typeof signals !== 'object') throw new Error('opportunity signals must be an object keyed by governed research-object id')
+const signalValidation = validateOpportunitySignals(signals)
+if (!signalValidation.valid) throw new Error(`opportunity signal provenance invalid:\n- ${signalValidation.errors.join('\n- ')}`)
 
 const signalFilePresent = fs.existsSync(signalsPath)
 const signalIds = Object.keys(signals).sort()
@@ -40,6 +34,7 @@ const demandFieldCoverageByGovernedId = Object.fromEntries(governedIds.map((id) 
     observedFieldCount: observedFields.length,
     expectedFieldCount: DEMAND_SIGNAL_KEYS.length,
     coverageRatio: Number((observedFields.length / DEMAND_SIGNAL_KEYS.length).toFixed(4)),
+    provenance: observedFields.length ? signals[id].provenance : null,
   }]
 }))
 const fullyCoveredGovernedIds = governedIds.filter((id) => demandFieldCoverageByGovernedId[id].observedFieldCount === DEMAND_SIGNAL_KEYS.length)

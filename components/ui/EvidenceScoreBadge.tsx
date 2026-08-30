@@ -1,5 +1,5 @@
 import { getEvidenceLetterGrade, type EvidenceLetterGrade } from '@/lib/evidence'
-import type { RuntimeRecord } from '@/src/types/content'
+import type { RuntimeRecord } from '@/types/content'
 
 const GRADE_CONFIG: Record<EvidenceLetterGrade, {
   badge: string

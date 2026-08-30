@@ -1,5 +1,7 @@
 # Loop Notes
 
+> **Note (2026-08-29):** the `src/` tree was removed on this date. Entries above that point refer to paths that no longer exist; their root-level equivalents are `lib/`, `components/`, `types/` and `data/`. See the DECISIONS entry for that date.
+
 Notes for future autonomous enhancement iterations — recurring friction, false positives, and tooling gaps discovered while working the loop.
 
 ---

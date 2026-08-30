@@ -1,5 +1,5 @@
 import { productPicks } from '@/data/product-picks'
-import { isRestrictedIngredient } from '@/src/lib/restricted-ingredients'
+import { isRestrictedIngredient } from '@/lib/restricted-ingredients'
 
 type RuntimeRecord = Record<string, unknown>
 

@@ -44,7 +44,7 @@ export const protocolSlugs = [
   'stress-regulation',
 ]
 
-import { GOAL_ROUTES, SEO_GUIDE_ROUTES } from '../src/lib/canonical-routes'
+import { GOAL_ROUTES, SEO_GUIDE_ROUTES } from '../lib/canonical-routes'
 
 export const authorityHomeLinks = [
   { href: GOAL_ROUTES.stress, label: 'Stress Goal Hub' },

@@ -5,8 +5,8 @@ on:
     paths:
       - 'public/data/herbs.json'
       - 'public/data/compounds.json'
-      - 'src/lib/index-allowlist.ts'
-      - 'src/lib/botanical-atlas-taxonomy.ts'
+      - 'lib/index-allowlist.ts'
+      - 'lib/botanical-atlas-taxonomy.ts'
       - 'scripts/audit/botanical-atlas-coverage.mjs'
       - '.github/workflows/botanical-atlas-coverage.yml'
   push:
@@ -15,8 +15,8 @@ on:
     paths:
       - 'public/data/herbs.json'
       - 'public/data/compounds.json'
-      - 'src/lib/index-allowlist.ts'
-      - 'src/lib/botanical-atlas-taxonomy.ts'
+      - 'lib/index-allowlist.ts'
+      - 'lib/botanical-atlas-taxonomy.ts'
       - 'scripts/audit/botanical-atlas-coverage.mjs'
       - '.github/workflows/botanical-atlas-coverage.yml'
   workflow_dispatch:

@@ -1,4 +1,4 @@
-import type { GraphRuntime, GraphNode } from '../src/types/graph'
+import type { GraphRuntime, GraphNode } from '../types/graph'
 import { loadRuntimeGraph } from './runtime-graph'
 
 export type GoalMatch = {

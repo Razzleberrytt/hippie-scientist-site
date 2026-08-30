@@ -4,7 +4,7 @@ import type {
   GraphRelationship,
   GraphCandidate,
   GraphEcosystem,
-} from '../src/types/graph'
+} from '../types/graph'
 import {
   loadRuntimeGraph,
   getGraphNode,

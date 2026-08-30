@@ -1,4 +1,4 @@
-import type { GraphNode } from '../src/types/graph'
+import type { GraphNode } from '../types/graph'
 
 export type EvidenceConfidence = {
   evidenceWeight: number // 0 to 1

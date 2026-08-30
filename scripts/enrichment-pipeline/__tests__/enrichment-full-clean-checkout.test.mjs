@@ -69,7 +69,12 @@ describe('full enrichment pipeline clean-checkout regeneration', () => {
     copyIntoFixture(repoRoot, 'schemas/normalized-enrichment-entry.schema.json')
     copyIntoFixture(repoRoot, 'scripts/enrichment')
     copyIntoFixture(repoRoot, 'scripts/report-enrichment-health.ts')
-    copyIntoFixture(repoRoot, 'src')
+    // Was a single copy of src/. Those modules now live at the repository
+    // root, so the fixture needs each of their new homes.
+    copyIntoFixture(repoRoot, 'lib')
+    copyIntoFixture(repoRoot, 'types')
+    copyIntoFixture(repoRoot, 'types.ts')
+    copyIntoFixture(repoRoot, 'data')
     copyIntoFixture(repoRoot, 'tsconfig.json')
 
     fs.symlinkSync(

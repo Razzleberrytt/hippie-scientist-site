@@ -5,7 +5,7 @@ import { getAtlasLandingCopy } from '@/components/atlas/AtlasLandingContext'
 
 const root = process.cwd()
 const pageSource = readFileSync(join(root, 'app/tools/botanical-activity-atlas/page.tsx'), 'utf8')
-const componentSource = readFileSync(join(root, 'src/components/atlas/AtlasLandingContext.tsx'), 'utf8')
+const componentSource = readFileSync(join(root, 'components/atlas/AtlasLandingContext.tsx'), 'utf8')
 
 describe('context-aware atlas landing intro', () => {
   it('provides distinct guidance for Anxiety, Sleep, and Focus arrivals', () => {

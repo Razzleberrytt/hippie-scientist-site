@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildPageMetadata } from '../src/lib/seo'
+import { buildPageMetadata } from './seo'
 import { formatDisplayLabel } from '@/lib/display-utils'
 
 const TITLE_LIMIT = 60

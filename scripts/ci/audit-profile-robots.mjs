@@ -29,7 +29,7 @@ function readJson(relativePath) {
 }
 
 function readAllowlist(exportName) {
-  const source = fs.readFileSync(path.join(repoRoot, 'src/lib/index-allowlist.ts'), 'utf8')
+  const source = fs.readFileSync(path.join(repoRoot, 'lib/index-allowlist.ts'), 'utf8')
   const block = source.match(new RegExp(exportName + '[^=]*=\\s*\\[([\\s\\S]*?)\\]'))
   if (!block) return new Set()
   return new Set([...block[1].matchAll(/'([^']+)'/g)].map((match) => match[1]))

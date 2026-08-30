@@ -4,8 +4,8 @@ import Link from 'next/link'
 import FAQAccordion from '@/components/FAQAccordion'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
-import { SITE_URL } from '@/src/lib/seo'
-import { buildGuideHubSchemaGraph } from '@/src/lib/schema-graph'
+import { SITE_URL } from '@/lib/seo'
+import { buildGuideHubSchemaGraph } from '@/lib/schema-graph'
 
 import AlkaloidDirectory from './AlkaloidDirectory'
 import {

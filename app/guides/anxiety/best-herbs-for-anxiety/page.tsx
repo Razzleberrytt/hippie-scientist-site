@@ -9,7 +9,7 @@ import type { Heading } from '@/components/articles'
 import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import References from '@/components/References'
-import { buildTwitterMetadata } from '@/src/lib/seo'
+import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-anxiety`
 const DATE = '2026-08-22'

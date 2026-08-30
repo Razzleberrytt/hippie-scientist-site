@@ -1,4 +1,4 @@
-import type { RuntimeComparisonSideConfig } from '@/src/lib/runtime-comparison-resolution'
+import type { RuntimeComparisonSideConfig } from '@/lib/runtime-comparison-resolution'
 
 export type RuntimeComparisonSides = {
   left: RuntimeComparisonSideConfig

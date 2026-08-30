@@ -1,0 +1,29 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "crocus-provenance-normalization-20260829",
+  "createdAt": "2026-08-29T23:52:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-crocus-neuropsych-review-20260829",
+      "authoringPackId": "ap_bp_wp_herb_crocus_sativus_src_doi_10_1002_ptr_8110",
+      "workpackId": "wp_herb_crocus_sativus",
+      "entityType": "herb",
+      "entitySlug": "crocus-sativus",
+      "sourceId": "src_doi-10-1002-ptr-8110",
+      "topicType": "supported_use",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2024 systematic review/meta-analysis found outcome-specific neuropsychiatric signals across 46 saffron RCTs, with important population, preparation, and adjunct-treatment boundaries.",
+      "findingTextNormalized": "A 2024 systematic review/meta-analysis included 46 randomized controlled trials lasting 4 to 48 weeks in healthy and clinical populations receiving saffron or saffron extracts, either alone or alongside conventional drugs. The pooled review reported favorable signals versus placebo for cognition, depression, anxiety, and sleep outcomes and reported non-inferiority comparisons for several neuropsychiatric indications. Because the evidence spans multiple disorders, preparations, comparators, and monotherapy versus adjunctive contexts, the results cannot be collapsed into one universal saffron effect or attributed to one standardized regimen.",
+      "strengthLabel": "moderate",
+      "populationContext": "Healthy participants and people with neurological or psychiatric conditions across 46 randomized controlled trials lasting 4 to 48 weeks.",
+      "usageContext": "Saffron or saffron extracts used alone or in combination with conventional drugs; pooled findings should remain indication-, preparation-, comparator-, and duration-specific.",
+      "uncertaintyNote": "The review pools multiple disorders, formulations, comparators, and treatment contexts. Its favorable estimates do not imply that every saffron preparation is equivalent, and adjunctive trials must not be reframed as saffron-monotherapy evidence. Source-registry and semantic-attestation governance remain required before promotion.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}

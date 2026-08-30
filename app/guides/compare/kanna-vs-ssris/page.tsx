@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { buildPageMetadata } from '../../../../src/lib/seo'
+import { buildPageMetadata } from '../../../../lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kanna vs SSRIs: Evidence, Differences & Safety',
@@ -14,8 +14,8 @@ import References from '@/components/References'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import CitationReadySummary from '@/components/seo/CitationReadySummary'
-import COAList from '../../../../src/components/coa/COAList'
-import type { COADocument } from '../../../../src/types/coa'
+import COAList from '../../../../components/coa/COAList'
+import type { COADocument } from '../../../../types/coa'
 
 const exampleCOAEntries: COADocument[] = [
   {

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import LocalizedCorePage from '@/components/localization/LocalizedCorePage'
-import { JAPANESE_PAGES, JAPANESE_ROUTE_KEYS, JAPANESE_UI, buildJapanesePageMetadata } from '@/src/lib/asian-language-content'
-import { generateLocalizedStaticParams, resolveLocalizedPage, type LocalizedRouteParams } from '@/src/lib/localized-route-runtime'
+import { JAPANESE_PAGES, JAPANESE_ROUTE_KEYS, JAPANESE_UI, buildJapanesePageMetadata } from '@/lib/asian-language-content'
+import { generateLocalizedStaticParams, resolveLocalizedPage, type LocalizedRouteParams } from '@/lib/localized-route-runtime'
 
 type PageProps = { params: LocalizedRouteParams }
 export const dynamicParams = false

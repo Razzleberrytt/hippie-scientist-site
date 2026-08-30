@@ -16,7 +16,7 @@ The site publishes ten supported locales through one conservative reciprocal-hre
 
 ## Source of truth
 
-`src/lib/international-seo.ts` is the canonical locale registry. It owns:
+`lib/international-seo.ts` is the canonical locale registry. It owns:
 
 - supported locale IDs
 - language and region metadata
@@ -35,7 +35,7 @@ The international SEO foundation is deliberately route-driven rather than langua
 
 - Root English content remains `en-US` and `ltr`.
 - Localized route wrappers set the appropriate `lang`, `dir`, and `data-locale` values.
-- `src/lib/localized-chrome.ts` owns localized navigation/footer/accessibility copy while sourcing locale identity from the canonical registry.
+- `lib/localized-chrome.ts` owns localized navigation/footer/accessibility copy while sourcing locale identity from the canonical registry.
 - Language switchers only expose a locale when the current page has a real reciprocal translated route.
 - Localized pages use self-canonical URLs and participate in sitemap/indexability checks only when they actually exist.
 - Localized sitemap clusters include the English canonical, every real translated equivalent, and `x-default` back to English.
@@ -94,7 +94,7 @@ Every newly supported translation locale must have all of the following before i
 11. Self-canonical and indexable metadata for each published localized page.
 12. Tests proving the route registry exactly matches real published artifacts.
 
-`src/lib/__tests__/localization-contract.test.ts`, `src/lib/__tests__/international-seo.test.ts`, `src/lib/__tests__/localization-integrity.test.ts`, and `app/__tests__/localized-sitemap.test.ts` collectively enforce this contract.
+`lib/__tests__/localization-contract.test.ts`, `lib/__tests__/international-seo.test.ts`, `lib/__tests__/localization-integrity.test.ts`, and `app/__tests__/localized-sitemap.test.ts` collectively enforce this contract.
 
 ## Scientific-profile rule
 

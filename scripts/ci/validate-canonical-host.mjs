@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const siteFile = path.join(process.cwd(), 'src/lib/site.ts')
+const siteFile = path.join(process.cwd(), 'lib/site.ts')
 const content = fs.readFileSync(siteFile, 'utf8')
 
 if (!content.includes("https://thehippiescientist.net")) {

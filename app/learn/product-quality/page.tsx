@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
+import { getHerbs, getCompounds } from '../../../lib/runtime-data'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
-import BuyGuideClient from '../../../src/components/sourcing/BuyGuideClient'
-import ProductQualityExperimentLayout from '../../../src/components/sourcing/ProductQualityExperimentLayout'
+import BuyGuideClient from '../../../components/sourcing/BuyGuideClient'
+import ProductQualityExperimentLayout from '../../../components/sourcing/ProductQualityExperimentLayout'
 import BuyingQualityPrimer from '@/components/guides/BuyingQualityPrimer'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
-import { toBuyingToolRecord } from '../../../src/lib/tool-page-payloads'
-import type { RuntimeRecord } from '../../../src/types/content'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { isRestrictedRecord } from '../../../lib/restricted-ingredients'
+import { toBuyingToolRecord } from '../../../lib/tool-page-payloads'
+import type { RuntimeRecord } from '../../../types/content'
+import { buildPageMetadata } from '../../../lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Product Quality Guide',

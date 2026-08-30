@@ -185,7 +185,7 @@ const steps = [
   {
     name: 'build-route-manifest',
     cmd: 'node scripts/data/build-route-manifest.mjs --data-dir=public/data',
-    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'public/data/guides/**/*.json', 'app/**/*.{ts,tsx}', 'src/**/*.{ts,tsx}', 'scripts/data/build-route-manifest.mjs'],
+    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'public/data/guides/**/*.json', 'app/**/*.{ts,tsx}', 'scripts/data/build-route-manifest.mjs'],
     outputs: ['public/data/runtime-manifests/route-manifest.json', 'public/data/runtime-manifests/route-segment-groups.json'],
   },
   {
@@ -239,7 +239,6 @@ const steps = [
     inputs: [
       'app/**/*',
       'components/**/*',
-      'src/**/*',
       'lib/**/*',
       'styles/**/*',
       'public/data/**/*',

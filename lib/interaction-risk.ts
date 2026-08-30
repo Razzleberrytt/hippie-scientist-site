@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import type { InteractionEdge, RiskTag } from '@/src/types/interactions'
-import type { SafetyCertainty } from '@/src/lib/safety-governance'
+import type { InteractionEdge, RiskTag } from '@/types/interactions'
+import type { SafetyCertainty } from '@/lib/safety-governance'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
 

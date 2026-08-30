@@ -1,4 +1,4 @@
-import type { GraphRelationshipType } from '../src/types/graph'
+import type { GraphRelationshipType } from '../types/graph'
 
 export const RELATIONSHIP_TYPES = {
   PATHWAY_OVERLAP: 'pathway-overlap',

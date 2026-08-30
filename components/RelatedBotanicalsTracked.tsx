@@ -29,6 +29,14 @@ type Props = {
   matches: RelatedBotanicalCard[]
 }
 
+/**
+ * Compact related-botanical rows.
+ *
+ * Each match is one editorial row: name, scientific name, the shared signals
+ * that produced the match, and its two actions. The previous treatment gave
+ * every match a numbered three-column block with a stacked definition list,
+ * which cost roughly a phone screen per entry.
+ */
 export default function RelatedBotanicalsTracked({ sourceSlug, matches }: Props) {
   const trackingItems = useMemo<RelatedBotanicalTrackingItem[]>(() =>
     matches.map((match, index) => ({
@@ -46,71 +54,64 @@ export default function RelatedBotanicalsTracked({ sourceSlug, matches }: Props)
 
   return (
     <section
-      className="border-y border-[color:var(--hs-hairline-strong)] py-5"
+      className="border-t border-[color:var(--hs-hairline-strong)] pt-4"
       aria-labelledby="related-botanicals-heading"
     >
-      <div className="space-y-1">
-        <p id="related-botanicals-heading" className="eyebrow-label">
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <p id="related-botanicals-heading" className="hs-label">
           Related botanicals
         </p>
-        <p className="max-w-3xl text-sm leading-6 text-[color:var(--hs-body)]">
-          Ranked from shared effects and chemistry. These are research-navigation links, not treatment recommendations.
+        <p className="text-xs leading-5 text-[color:var(--hs-body)]">
+          Ranked from shared effects and chemistry — navigation links, not recommendations.
         </p>
       </div>
 
-      <div className="mt-4 divide-y divide-[color:var(--hs-hairline)] border-t border-[color:var(--hs-hairline)]">
-        {matches.map((match, index) => (
-          <article
-            key={match.slug}
-            className="grid gap-3 py-5 sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:items-start sm:gap-4"
-          >
-            <span className="font-display text-sm tabular-nums text-[color:var(--hs-gold)]" aria-hidden="true">
-              {String(index + 1).padStart(2, '0')}
-            </span>
+      <ul className="mt-3 divide-y divide-[color:var(--hs-hairline)] border-t border-[color:var(--hs-hairline)]">
+        {matches.map((match, index) => {
+          const signals = match.reasons
+            .flatMap((reason) => reason.values.slice(0, 2))
+            .filter(Boolean)
+            .slice(0, 3)
 
-            <div className="min-w-0">
-              <div>
-                <h3 className="font-bold text-[color:var(--hs-ink)]">{match.name}</h3>
+          return (
+            <li key={match.slug} className="py-3">
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                <h3 className="text-sm font-semibold text-[color:var(--hs-ink)]">{match.name}</h3>
                 {match.scientificName ? (
-                  <p className="mt-0.5 text-xs italic text-[color:var(--hs-body)]">{match.scientificName}</p>
+                  <span className="text-xs italic text-[color:var(--hs-body)]">{match.scientificName}</span>
                 ) : null}
               </div>
 
-              {match.reasons.length > 0 ? (
-                <dl className="mt-3 space-y-1.5 text-xs leading-5 text-[color:var(--hs-body)]">
-                  {match.reasons.map((reason) => (
-                    <div key={`${match.slug}:${reason.type}`} className="grid gap-0.5 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-3">
-                      <dt className="font-semibold text-[color:var(--hs-ink)]">{reason.label}</dt>
-                      <dd>{reason.values.slice(0, 3).join(', ')}</dd>
-                    </div>
-                  ))}
-                </dl>
+              {signals.length > 0 ? (
+                <p className="mt-0.5 text-xs leading-5 text-[color:var(--hs-body)]">
+                  Shared: {signals.join(' · ')}
+                </p>
               ) : null}
-            </div>
 
-            <div className="flex flex-wrap gap-x-4 gap-y-2 sm:justify-end">
-              <Link
-                href={`/herbs/${match.slug}/`}
-                prefetch={false}
-                onClick={() => trackRelatedBotanicalClick(sourceSlug, trackingItems[index])}
-                className="inline-flex min-h-11 items-center text-xs font-bold text-[color:var(--tone-ink)] underline decoration-[color:var(--hs-hairline-strong)] underline-offset-4 transition hover:decoration-[color:var(--hs-gold)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
-              >
-                Explore profile →
-              </Link>
-              {match.compareHref ? (
+              <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
                 <Link
-                  href={match.compareHref}
+                  href={`/herbs/${match.slug}/`}
                   prefetch={false}
-                  onClick={() => trackRelatedBotanicalCompare(sourceSlug, trackingItems[index], match.compareHref!)}
-                  className="inline-flex min-h-11 items-center text-xs font-bold text-[color:var(--hs-body)] underline-offset-4 transition hover:text-[color:var(--tone-ink)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+                  onClick={() => trackRelatedBotanicalClick(sourceSlug, trackingItems[index])}
+                  className="inline-flex min-h-11 items-center text-xs font-semibold text-[color:var(--tone-ink)] underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
                 >
-                  Compare ↔
+                  Explore profile →
                 </Link>
-              ) : null}
-            </div>
-          </article>
-        ))}
-      </div>
+                {match.compareHref ? (
+                  <Link
+                    href={match.compareHref}
+                    prefetch={false}
+                    onClick={() => trackRelatedBotanicalCompare(sourceSlug, trackingItems[index], match.compareHref!)}
+                    className="inline-flex min-h-11 items-center text-xs font-semibold text-[color:var(--hs-body)] underline-offset-4 transition hover:text-[color:var(--tone-ink)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+                  >
+                    Compare ↔
+                  </Link>
+                ) : null}
+              </div>
+            </li>
+          )
+        })}
+      </ul>
     </section>
   )
 }

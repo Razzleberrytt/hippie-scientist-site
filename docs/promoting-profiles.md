@@ -55,7 +55,7 @@ To keep `check:data` green, the promoted slug must be **source-backed** by one o
 - **real citation path (preferred):** the slug has a real `Evidence_Register`/claims
   citation **and** is listed in `SOURCE_BACKED_PROMOTION_SLUGS` (in the overlay).
 - **record-level sources:** the record itself carries a `sources[]` entry.
-- **curated allowlist:** the slug is in `src/lib/index-allowlist.ts` (mirrored as
+- **curated allowlist:** the slug is in `lib/index-allowlist.ts` (mirrored as
   `CURATED_*_SLUGS` in the overlay). This is a broad editorial bypass — use it only
   for high-traffic slugs whose evidence lives in narrative, not a PMID list.
 

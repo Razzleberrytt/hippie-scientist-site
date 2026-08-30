@@ -4,7 +4,7 @@ const { getRuntimeMapEntriesForSlugs } = vi.hoisted(() => ({
   getRuntimeMapEntriesForSlugs: vi.fn(),
 }))
 
-vi.mock('../../src/lib/runtime-related-maps', () => ({
+vi.mock('../runtime-related-maps', () => ({
   getRuntimeMapEntries: vi.fn(),
   getRuntimeMapEntriesForSlugs,
 }))
