@@ -1,0 +1,56 @@
+name: AUTH duplicate-route diagnostic
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - '.github/workflows/auth-duplicate-diagnostic.yml'
+      - 'scripts/content-audit.mjs'
+      - 'app/articles/**'
+      - 'app/guides/**'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  duplicate-route-diagnostic:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Run current content audit
+        run: npm run audit:content
+      - name: Print current duplicate-route findings
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const reportPath = 'ops/reports/site-health.json'
+          if (!fs.existsSync(reportPath)) {
+            console.error(`Missing ${reportPath}`)
+            process.exit(1)
+          }
+          const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'))
+          const duplicates = (report.issues || []).filter((issue) => issue.type === 'duplicate_slug')
+          console.log(`AUTH_DUPLICATE_COUNT=${duplicates.length}`)
+          for (const issue of duplicates) console.log(`AUTH_DUPLICATE ${issue.detail}`)
+          NODE
+      - name: Upload current audit receipt
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: auth-duplicate-route-${{ github.run_number }}
+          path: |
+            ops/reports/content-audit.json
+            ops/reports/site-health.json
+          retention-days: 7
