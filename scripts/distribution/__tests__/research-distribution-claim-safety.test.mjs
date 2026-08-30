@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
+import { canonicalResearchObject } from './helpers/research-object.mjs'
 
 const tempDirs = []
 
@@ -20,27 +21,17 @@ describe('research distribution claim-safety boundary', () => {
     const finding = 'Systematic reviews of randomized trials suggest that some ashwagandha extracts may reduce perceived stress and anxiety symptoms in adults, but the evidence should be interpreted cautiously because formulations, doses, study populations, and outcome measures vary across trials.'
     const limitation = 'The clinical evidence base remains limited by small trials, heterogeneous extracts and dosing regimens, variable outcome measures, and risk-of-bias concerns, so results from one preparation should not be generalized to all ashwagandha products.'
 
-    fs.writeFileSync(inputPath, `${JSON.stringify([{
+    fs.writeFileSync(inputPath, `${JSON.stringify([canonicalResearchObject({
       id: 'claim-safety-fixture',
       title: 'Ashwagandha and stress/anxiety outcomes in randomized human trials',
       finding,
       evidenceType: 'meta-analysis',
-      evidenceGrade: 'B',
       limitation,
-      sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
-      findingClaimId: 'clm_78af0b376bf1',
-      primarySourceId: 'src_45e522e1601f',
-      primarySourceUrl: 'https://doi.org/10.1002/ptr.7598',
       doseContext: 'Study-context only; not consumer dosing advice.',
       populationContext: 'Adults represented in the cited randomized trials.',
       lastVerified: '2026-08-27',
-      // Required since publication-integrity binding landed. The fixture
-      // shares the primary source with data/distribution/research-objects.json,
-      // so it carries the same authority URL for that DOI.
-      publicationStatus: 'published',
-      publicationStatusCheckedAt: '2026-08-29',
-      publicationStatusAuthorityUrl: 'https://onlinelibrary.wiley.com/doi/abs/10.1002/ptr.7598',
-    }], null, 2)}\n`)
+    })], null, 2)}
+`)
 
     execFileSync(process.execPath, ['scripts/distribution/build-research-distribution.mjs', inputPath], {
       cwd: root,
