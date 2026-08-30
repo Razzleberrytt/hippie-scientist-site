@@ -21,10 +21,23 @@ const pack = {
 describe('distribution factual-copy unbound context lint', () => {
   it.each([
     '300 mg studied',
+    '500 IU studied',
+    '250 I.U. studied',
+    '10 µg studied',
+    '10 μg studied',
+    '2 billion CFU studied',
     'Works in 30 minutes',
+    'Starts working in 30 minutes',
+    'Effects begin within 30 minutes',
     '30 minute onset',
+    '30-minute onset',
     'Equivalent to melatonin',
     'As effective as the standard treatment',
+    'More effective than melatonin',
+    'Matches melatonin efficacy',
+    'Comparable efficacy to melatonin',
+    'Superior to melatonin',
+    'Outperforms melatonin',
     'Human study',
     'Randomized controlled trial',
     'Placebo-controlled trial',
@@ -45,6 +58,9 @@ describe('distribution factual-copy unbound context lint', () => {
   it.each([
     'One study, carefully framed',
     'What the evidence can and cannot say',
+    'A 30-minute read',
+    'Match the label to the source',
+    'IU and CFU are units, not guidance',
     'Read the evidence',
   ])('keeps genuinely nonfactual creative labels available: %s', (text) => {
     expect(validateFactualAssetCopy(pack, {
