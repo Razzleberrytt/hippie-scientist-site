@@ -1,6 +1,6 @@
 import crypto from 'node:crypto'
 
-const STATES = ['generated', 'validated', 'ready', 'scheduled', 'published', 'measured', 'paused', 'withdrawn']
+const STATES = ['generated', 'validated', 'ready', 'scheduled', 'published', 'measured', 'paused', 'withdrawn', 'invalid']
 const NEXT = {
   generated: new Set(['validated', 'paused']),
   validated: new Set(['ready', 'paused']),
@@ -10,6 +10,7 @@ const NEXT = {
   measured: new Set(['withdrawn', 'paused']),
   paused: new Set(['ready', 'scheduled', 'published', 'withdrawn']),
   withdrawn: new Set(),
+  invalid: new Set(),
 }
 
 const RESERVED_MEASUREMENT_FIELDS = new Set([
@@ -81,15 +82,36 @@ export function createDistributionLifecycle(input, { now = new Date().toISOStrin
     provider: null,
     receipts: [],
     measurements: [],
+    invalidation: null,
   }
 }
 
-function assertIdentityCurrent(record, currentIdentity) {
-  const expected = buildDistributionIdentity(currentIdentity)
-  if (expected.fingerprint !== record?.identity?.fingerprint) {
-    throw new Error('distribution lifecycle stale: upstream identity changed; regenerate before transition')
+function assertLifecycleRecord(record) {
+  if (!record || record.schemaVersion !== 'distribution-lifecycle-v1') {
+    throw new Error('invalid distribution lifecycle record')
   }
-  return expected
+}
+
+export function reconcileDistributionLifecycleIdentity(record, currentIdentity, {
+  now = new Date().toISOString(),
+} = {}) {
+  assertLifecycleRecord(record)
+  const current = buildDistributionIdentity(currentIdentity)
+  if (record.state === 'invalid') return structuredClone(record)
+  if (current.fingerprint === record?.identity?.fingerprint) return structuredClone(record)
+
+  const invalid = structuredClone(record)
+  invalid.state = 'invalid'
+  invalid.updatedAt = now
+  invalid.paused = true
+  invalid.invalidation = {
+    reason: 'upstream_identity_changed',
+    at: now,
+    supersededIdentityFingerprint: record?.identity?.fingerprint ?? null,
+    currentIdentityFingerprint: current.fingerprint,
+    replacementIdempotencyKey: current.idempotencyKey,
+  }
+  return invalid
 }
 
 function assertTransition(record, nextState) {
@@ -119,11 +141,12 @@ export function transitionDistributionLifecycle(record, nextState, {
   measurement = null,
   dryRun = true,
 } = {}) {
-  if (!record || record.schemaVersion !== 'distribution-lifecycle-v1') throw new Error('invalid distribution lifecycle record')
-  assertIdentityCurrent(record, currentIdentity)
-  assertTransition(record, nextState)
+  assertLifecycleRecord(record)
+  const reconciled = reconcileDistributionLifecycleIdentity(record, currentIdentity, { now })
+  if (reconciled.state === 'invalid') return reconciled
+  assertTransition(reconciled, nextState)
 
-  const next = structuredClone(record)
+  const next = structuredClone(reconciled)
   next.updatedAt = now
   next.state = nextState
   next.dryRun = Boolean(dryRun)
@@ -166,8 +189,11 @@ export function transitionDistributionLifecycle(record, nextState, {
 }
 
 export function assertPublishableLifecycle(record, currentIdentity) {
-  assertIdentityCurrent(record, currentIdentity)
-  if (record.paused) throw new Error('distribution lifecycle is paused')
-  if (!['ready', 'scheduled'].includes(record.state)) throw new Error(`distribution lifecycle is not publishable from state ${record.state}`)
+  const reconciled = reconcileDistributionLifecycleIdentity(record, currentIdentity)
+  if (reconciled.state === 'invalid') {
+    throw new Error('distribution lifecycle is invalid: upstream identity changed; regenerate before publishing')
+  }
+  if (reconciled.paused) throw new Error('distribution lifecycle is paused')
+  if (!['ready', 'scheduled'].includes(reconciled.state)) throw new Error(`distribution lifecycle is not publishable from state ${reconciled.state}`)
   return true
 }
