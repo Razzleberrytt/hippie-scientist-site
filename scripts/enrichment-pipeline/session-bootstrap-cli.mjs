@@ -24,8 +24,20 @@ if (!sessionId) {
       shardCount: report.shardCount,
       ownedWorkpacks: report.ownedWorkpacks,
       stagedWorkpacks: report.stagedWorkpacks,
+      completedWorkpacks: report.completedWorkpacks,
+      closureBacklogWorkpacks: report.closureBacklogWorkpacks,
+      unstartedWorkpacks: report.unstartedWorkpacks,
       remainingWorkpacks: report.remainingWorkpacks,
-      next: report.next.map(item => ({ workpackId: item.workpackId, score: item.score, reasons: item.reasons })),
+      next: report.next.map(item => ({
+        workpackId: item.workpackId,
+        staged: item.staged,
+        completed: item.completed,
+        closureState: item.closureState,
+        pendingFindings: item.pendingFindings,
+        promotedFindings: item.promotedFindings,
+        score: item.score,
+        reasons: item.reasons,
+      })),
     }, null, 2))
     console.log(`bootstrap: ${path.relative(ROOT, output)}`)
   } catch (error) {

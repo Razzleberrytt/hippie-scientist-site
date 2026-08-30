@@ -102,7 +102,7 @@ describe('research-session bootstrap', () => {
     expect(scored.reasons).toContain('empty-claim-map')
   })
 
-  it('inventories only the requested shard and marks staged workpacks without hiding them', () => {
+  it('keeps staged workpacks unfinished and prioritizes closure before new research', () => {
     const root = makeRoot()
     const ownedSlug = findSlugForShard('herb', 0)
     const secondOwnedSlug = findSlugForShard('compound', 0)
@@ -123,7 +123,7 @@ describe('research-session bootstrap', () => {
     const stagedId = workpackIdFor('compound', secondOwnedSlug)
     writeJson(path.join(root, 'ops', 'enrichment-submissions', 'sessions', 'session-a', 'fixture.json'), {
       fragmentVersion: 1, sessionId: 'A', shard: 0, batchId: 'fixture', createdAt: '2026-08-29T00:00:00.000Z',
-      submissions: [{ workpackId: stagedId }],
+      submissions: [{ submissionId: 'sub_fixture', workpackId: stagedId, reviewStatus: 'ready_for_review', active: true }],
     })
 
     const first = buildSessionBootstrap({ root, sessionId: 'A', manifest })
@@ -132,12 +132,53 @@ describe('research-session bootstrap', () => {
     expect(first).toEqual(second)
     expect(first.ownedWorkpacks).toBe(2)
     expect(first.stagedWorkpacks).toBe(1)
-    expect(first.remainingWorkpacks).toBe(1)
+    expect(first.completedWorkpacks).toBe(0)
+    expect(first.closureBacklogWorkpacks).toBe(1)
+    expect(first.unstartedWorkpacks).toBe(1)
+    expect(first.remainingWorkpacks).toBe(2)
     expect(first.candidates).toHaveLength(2)
     expect(first.candidates.every(item => item.shard === 0)).toBe(true)
     expect(first.candidates.find(item => item.workpackId === stagedId)?.staged).toBe(true)
-    expect(first.next).toHaveLength(1)
-    expect(first.next[0].staged).toBe(false)
+    expect(first.candidates.find(item => item.workpackId === stagedId)?.completed).toBe(false)
+    expect(first.next).toHaveLength(2)
+    expect(first.next[0].workpackId).toBe(stagedId)
+    expect(first.next[0].closureState).toBe('closure_required')
+  })
+
+  it('retires a workpack only when every staged finding reaches a terminal disposition', () => {
+    const root = makeRoot()
+    const ownedSlug = findSlugForShard('compound', 0)
+    const workpackId = workpackIdFor('compound', ownedSlug)
+
+    writeJson(path.join(root, 'public', 'data', 'compounds-detail', `${ownedSlug}.json`), {
+      slug: ownedSlug, name: 'Terminal Compound', indexability_status: 'PUBLISH',
+      sources: [{ studyClass: 'rct' }], evidence: { sourceCount: 1, claimCount: 1 }, claimMap: [{}],
+    })
+    writeJson(path.join(root, 'ops', 'enrichment-submissions', 'sessions', 'session-a', 'terminal.json'), {
+      fragmentVersion: 1, sessionId: 'A', shard: 0, batchId: 'terminal', createdAt: '2026-08-29T00:00:00.000Z',
+      submissions: [
+        { submissionId: 'sub_promoted', workpackId, reviewStatus: 'approved_for_rollup', active: true },
+        { submissionId: 'sub_rejected', workpackId, reviewStatus: 'rejected', active: true },
+      ],
+    })
+    writeJson(path.join(root, 'ops', 'enrichment-semantic-attestations.json'), {
+      modelVersion: 'enrichment-semantic-attestation-v1',
+      entries: [{ submissionId: 'sub_promoted', promotionStatus: 'promoted' }],
+    })
+
+    const report = buildSessionBootstrap({ root, sessionId: 'A', manifest })
+    const candidate = report.candidates.find(item => item.workpackId === workpackId)
+
+    expect(report.stagedWorkpacks).toBe(1)
+    expect(report.completedWorkpacks).toBe(1)
+    expect(report.closureBacklogWorkpacks).toBe(0)
+    expect(report.remainingWorkpacks).toBe(0)
+    expect(report.next).toHaveLength(0)
+    expect(candidate.completed).toBe(true)
+    expect(candidate.closureState).toBe('terminal_with_promotion')
+    expect(candidate.terminalFindings).toBe(2)
+    expect(candidate.promotedFindings).toBe(1)
+    expect(candidate.pendingFindings).toBe(0)
   })
 
   it('rejects unknown and disabled sessions', () => {

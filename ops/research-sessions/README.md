@@ -27,14 +27,18 @@ When asked to run `Session A` (substitute the requested letter):
 
 1. Read `ops/research-sessions/session-manifest.json` and resolve the session's worker id and shard.
 2. Refresh/read the current enrichment backlog and existing governed/source data before external research.
-3. Only take pipeline jobs or workpacks assigned to that shard.
-4. Reuse already-registered sources first; search externally only for remaining gaps.
-5. Preserve negative, null, mixed, contradictory, and uncertainty findings. Do not cherry-pick positive evidence.
-6. Research only the requested field/topic scope. Do not rewrite an entire entity opportunistically.
-7. Write new findings to a **new append-only fragment** under `ops/enrichment-submissions/sessions/session-<letter-lower>/`.
-8. Never edit `ops/enrichment-submissions.json` from a parallel session; it remains a legacy/read-only input.
-9. Run the coordination validator before opening or merging a research PR.
-10. Route findings through existing scientific/source/governance validation before production promotion.
+3. Bootstrap the session and inspect `closureBacklogWorkpacks` before selecting new research.
+4. Treat staged-but-nonterminal work as unfinished and prioritize its review/promotion closure before brand-new work in the shard.
+5. Only take pipeline jobs or workpacks assigned to that shard.
+6. Reuse already-registered sources first; search externally only for remaining gaps.
+7. Preserve negative, null, mixed, contradictory, and uncertainty findings. Do not cherry-pick positive evidence.
+8. Research only the requested field/topic scope. Do not rewrite an entire entity opportunistically.
+9. Write new findings to a **new append-only fragment** under `ops/enrichment-submissions/sessions/session-<letter-lower>/`.
+10. Never edit `ops/enrichment-submissions.json` from a parallel session; it remains a legacy/read-only input.
+11. Run the coordination validator before opening or merging a research PR.
+12. Route findings through existing scientific/source/governance validation and then to a terminal outcome: governed canonical/public promotion, or an explicit governed non-promotion disposition.
+13. Re-run session bootstrap after staging/review/promotion work. A merged staging PR does not make the workpack complete while any finding remains nonterminal.
+14. Verify generated public/runtime output after canonical promotion, and verify production when deployment state is observable. Otherwise preserve the exact production blocker as `Unknown`.
 
 For the canonical enrichment-pipeline job ledger, the equivalent local command for Session A is:
 
@@ -47,6 +51,20 @@ node scripts/enrichment-pipeline/cli.mjs claim \
 ```
 
 Use `--ignore-scope` only for research/staging work. Production promotion still follows the repository's normal readiness, evidence, safety, and validation gates.
+
+## Lifecycle / Definition of Done
+
+Research staging is an intermediate state, not a terminal state.
+
+The session bootstrap distinguishes:
+
+- `stagedWorkpacks`: at least one research finding exists.
+- `closureBacklogWorkpacks`: at least one finding is still nonterminal.
+- `completedWorkpacks`: every staged finding has a terminal disposition.
+- `unstartedWorkpacks`: no staged findings yet.
+- `remainingWorkpacks`: all workpacks not terminally complete, including staged closure debt.
+
+`draft_submission`, `ready_for_review`, and `approved_for_rollup` are nonterminal. A finding becomes terminal when it is promoted through governed handling or explicitly ends as rejected, deprecated, inactive, quarantined, or another governed not-promoted disposition. The bootstrap deliberately sorts staged closure debt ahead of unstarted research so the system cannot improve its research throughput while silently accumulating an ever-larger promotion backlog.
 
 ## Append-only fragment format
 
