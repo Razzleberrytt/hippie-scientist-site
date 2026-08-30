@@ -49,9 +49,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed implementation WIP 0/3
+## Active — observed implementation WIP 1/3
 
-No implementation ticket is currently recorded as active in this control snapshot. A numeric slot does not by itself admit work; `Ready next` dependency/workstream rules and any incident/control freeze still apply.
+| Workstream / lane | Issue / PR | Ticket | Status | Must prove before merge |
+|---|---|---|---|---|
+| R / L5 bounded pilot | #4715 / PR #4716 | First bounded governed distribution pilot | In Review | One provenance-bound deterministic carousel package; dry-run scheduled lifecycle only; future 28-day observation window remains null/Unknown; scoped regressions and hosted exact-head gates |
+
+Research-only Session F staging in PR #4673 does not mutate canonical content or publication authority and remains governed by its dedicated enrichment-session contract. It does not authorize additional Authority implementation or promotion work.
 
 ## Ready next — strict dependency order
 
@@ -86,7 +90,6 @@ The first pilot should use already-governed research, deterministic assets, tagg
 
 Promote one only after checking overlap, current exact-main state, and freshness of the evidence supporting promotion.
 
-1. **#4227** — reduce duplicated full production exports without weakening exact-SHA fail-closed validation; also supplies resource observations useful to #4415.
 2. **SEO-003** — reproduce and clear the current schema identity gate.
 3. **AUTH-001** — resolve verified duplicate-intent owners using current route/query evidence.
 4. **#4266 / #4260** — governed recent-evidence enrichment under the existing governor/lease/provenance contract.
@@ -110,6 +113,7 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#4227 / PR #4523:** merged as `9f1a4fe26e7a6caab56de07c5a0f25b2f39c6f15`; exact-head governed static-export reuse is complete and no longer a fallback candidate.
 - **#4415 / PR #4492:** merged as `23dc2485720ff6b31043413b2b9295c4886944cb`. Final-head CI passed 2,866 tests across 593 files, real production build/output/SEO, and 42 focused economics regressions ([CI proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431644), [focused proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431712)). Repaired files verified on main; four review findings resolved after evidence review. Real efficiency observations remain Unknown.
 - **#4414 / PR #4490:** merged as `2e67f9e55f4d96dc7d82a683a829a29b4e2298f1`; durable experiment-learning capability is no longer queued. Recorded outcomes and producer integration require their own evidence.
 - **#4477 / PR #4478:** merged as `2b25ae9beed63afe1e6c045491828e3f096037e4`; the template catalog no longer occupies active WIP.

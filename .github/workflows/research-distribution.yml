@@ -47,6 +47,9 @@ jobs:
       - name: Select highest-value governed distribution opportunity
         run: node scripts/distribution/build-opportunity-selection.mjs
 
+      - name: Build first bounded dry-run pilot
+        run: node scripts/distribution/build-bounded-pilot.mjs
+
       - name: Generate privacy-safe monthly first-party trends
         run: node scripts/distribution/build-first-party-trends.mjs
 
@@ -88,6 +91,13 @@ jobs:
           const r = JSON.parse(fs.readFileSync(`artifacts/research-trends/${period}.json`, 'utf8'))
           console.log(`- Monthly trends status: ${r.status}`)
           console.log(`- Privacy minimum: ${r.privacy.minimumPublishedCount} events per public row`)
+          NODE
+          fi
+          if [ -f artifacts/distribution/pilots/ashwagandha-stress-evidence/bounded-pilot.json ]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs')
+          const r = JSON.parse(fs.readFileSync('artifacts/distribution/pilots/ashwagandha-stress-evidence/bounded-pilot.json', 'utf8'))
+          console.log(`- Bounded pilot: ${r.status}; live publication authorized: ${r.publication.livePublicationAuthorized}`)
           NODE
           fi
           echo '- Publication remains review-gated; this workflow never posts to social media or publishes aggregate trends automatically.' >> "$GITHUB_STEP_SUMMARY"
