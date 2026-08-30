@@ -88,13 +88,11 @@ Revenue/Conversion remains free after the dry-run pilot, but live publication, p
 | #4014 | `main` branch protection/ruleset | Repository enforcement is not proven | Apply/verify required settings with authorized repository-settings access |
 | #4341 | Recurring Cloudflare production failure class | Repository-side checks do not expose root-cause logs | Inspect failed production deployment logs; repair only if a deterministic repository/config cause is identified |
 
-## Highest-value fallback work if the distribution/control dependency chain is blocked
+## Additional fallback work when every named candidate above is blocked
 
-Promote one only after checking overlap, current exact-main state, and freshness of the evidence supporting promotion.
+Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-2. **SEO-003** — reproduce and clear the current schema identity gate.
-3. **AUTH-001** — resolve verified duplicate-intent owners using current route/query evidence.
-4. **#4266 / #4260** — governed recent-evidence enrichment under the existing governor/lease/provenance contract.
+1. **#4260** — add the 2026 healthy-adult CBD safety meta-analysis only after a durable lease and governed source review are available; preserve short-term population scope, the diarrhea signal, null findings, and no general dose or long-term safety reassurance.
 
 ## Sprint exit conditions
 
