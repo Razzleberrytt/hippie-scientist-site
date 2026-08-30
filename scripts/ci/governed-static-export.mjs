@@ -4,10 +4,11 @@ import crypto from 'node:crypto'
 import process from 'node:process'
 import zlib from 'node:zlib'
 
-export const GOVERNED_STATIC_EXPORT_SCHEMA_VERSION = 2
+export const GOVERNED_STATIC_EXPORT_SCHEMA_VERSION = 3
 export const DEFAULT_EXPORT_DIR = 'out'
 export const DEFAULT_RECEIPT_PATH = '.governed-static-export.json'
 export const DEFAULT_VERIFICATION_STATE_DIR = 'public/data'
+export const DEFAULT_BUILD_MANIFEST_PATH = '.next/build-manifest.json'
 
 function sha256(buffer) {
   return crypto.createHash('sha256').update(buffer).digest('hex')
@@ -23,13 +24,17 @@ function canonicalPathCompare(a, b) {
   return a < b ? -1 : a > b ? 1 : 0
 }
 
+function normalizeRelativePath(value) {
+  return value.split(path.sep).join('/')
+}
+
 function walkFiles(rootDir, currentDir = rootDir) {
   const entries = fs.readdirSync(currentDir, { withFileTypes: true })
   const files = []
   for (const entry of entries) {
     const absolute = path.join(currentDir, entry.name)
     if (entry.isDirectory()) files.push(...walkFiles(rootDir, absolute))
-    else if (entry.isFile()) files.push(path.relative(rootDir, absolute).split(path.sep).join('/'))
+    else if (entry.isFile()) files.push(normalizeRelativePath(path.relative(rootDir, absolute)))
   }
   return files.sort(canonicalPathCompare)
 }
@@ -90,7 +95,7 @@ export function createVerificationStateSnapshot(rootDir = DEFAULT_VERIFICATION_S
   const payload = zlib.gzipSync(serialized, { level: 9 }).toString('base64')
 
   return {
-    root: rootDir.split(path.sep).join('/'),
+    root: normalizeRelativePath(rootDir),
     encoding: 'gzip+base64-json',
     stateHash: hashFileEntries(entries),
     fileCount: entries.length,
@@ -143,13 +148,48 @@ export function materializeVerificationState(snapshot, rootDir = DEFAULT_VERIFIC
   return { stateHash: snapshot.stateHash, fileCount: entries.length }
 }
 
-export function createManifest({ sourceSha, baseSha, exportDir = DEFAULT_EXPORT_DIR, verificationStateDir = DEFAULT_VERIFICATION_STATE_DIR, lockfilePath = 'package-lock.json', runId = null }) {
+export function createBuildStateSnapshot(buildManifestPath = DEFAULT_BUILD_MANIFEST_PATH) {
+  if (!fs.existsSync(buildManifestPath) || !fs.statSync(buildManifestPath).isFile()) {
+    throw new Error(`Build manifest does not exist: ${buildManifestPath}`)
+  }
+  const content = fs.readFileSync(buildManifestPath)
+  return {
+    path: normalizeRelativePath(buildManifestPath),
+    encoding: 'base64',
+    contentHash: sha256(content),
+    byteLength: content.length,
+    payload: content.toString('base64'),
+  }
+}
+
+function decodeBuildStateSnapshot(snapshot, buildManifestPath = DEFAULT_BUILD_MANIFEST_PATH) {
+  const expectedPath = normalizeRelativePath(buildManifestPath)
+  if (!snapshot || snapshot.path !== expectedPath || snapshot.encoding !== 'base64' || typeof snapshot.payload !== 'string') {
+    throw new Error(`Governed static export build state is missing or invalid for ${expectedPath}`)
+  }
+  const content = Buffer.from(snapshot.payload, 'base64')
+  const contentHash = sha256(content)
+  if (snapshot.contentHash !== contentHash || snapshot.byteLength !== content.length) {
+    throw new Error(`Governed static export build state mismatch: expected ${snapshot.contentHash}/${snapshot.byteLength}, received ${contentHash}/${content.length}`)
+  }
+  return content
+}
+
+export function materializeBuildState(snapshot, buildManifestPath = DEFAULT_BUILD_MANIFEST_PATH) {
+  const content = decodeBuildStateSnapshot(snapshot, buildManifestPath)
+  fs.mkdirSync(path.dirname(buildManifestPath), { recursive: true })
+  fs.writeFileSync(buildManifestPath, content)
+  return { contentHash: snapshot.contentHash, byteLength: content.length }
+}
+
+export function createManifest({ sourceSha, baseSha, exportDir = DEFAULT_EXPORT_DIR, verificationStateDir = DEFAULT_VERIFICATION_STATE_DIR, buildManifestPath = DEFAULT_BUILD_MANIFEST_PATH, lockfilePath = 'package-lock.json', runId = null }) {
   assertSha('sourceSha', sourceSha)
   assertSha('baseSha', baseSha)
   if (!fs.existsSync(lockfilePath)) throw new Error(`Lockfile does not exist: ${lockfilePath}`)
 
   const output = hashDirectory(exportDir)
   const verificationState = createVerificationStateSnapshot(verificationStateDir)
+  const buildState = createBuildStateSnapshot(buildManifestPath)
   return {
     schemaVersion: GOVERNED_STATIC_EXPORT_SCHEMA_VERSION,
     sourceSha: sourceSha.toLowerCase(),
@@ -160,11 +200,12 @@ export function createManifest({ sourceSha, baseSha, exportDir = DEFAULT_EXPORT_
     fileCount: output.fileCount,
     htmlFileCount: output.htmlFileCount,
     verificationState,
+    buildState,
     producerRunId: runId ? String(runId) : null,
   }
 }
 
-export function verifyManifest({ manifest, expectedSourceSha, expectedBaseSha, exportDir = DEFAULT_EXPORT_DIR, verificationStateDir = DEFAULT_VERIFICATION_STATE_DIR, lockfilePath = 'package-lock.json', restoreVerificationState = false }) {
+export function verifyManifest({ manifest, expectedSourceSha, expectedBaseSha, exportDir = DEFAULT_EXPORT_DIR, verificationStateDir = DEFAULT_VERIFICATION_STATE_DIR, buildManifestPath = DEFAULT_BUILD_MANIFEST_PATH, lockfilePath = 'package-lock.json', restoreVerificationState = false, restoreBuildState = false }) {
   assertSha('expectedSourceSha', expectedSourceSha)
   if (expectedBaseSha) assertSha('expectedBaseSha', expectedBaseSha)
   if (!manifest || manifest.schemaVersion !== GOVERNED_STATIC_EXPORT_SCHEMA_VERSION) {
@@ -189,12 +230,16 @@ export function verifyManifest({ manifest, expectedSourceSha, expectedBaseSha, e
   }
 
   const verificationEntries = decodeVerificationStateSnapshot(manifest.verificationState)
+  const buildState = decodeBuildStateSnapshot(manifest.buildState, buildManifestPath)
   if (restoreVerificationState) materializeVerificationState(manifest.verificationState, verificationStateDir)
+  if (restoreBuildState) materializeBuildState(manifest.buildState, buildManifestPath)
 
   return {
     ...output,
     verificationStateHash: manifest.verificationState.stateHash,
     verificationStateFileCount: verificationEntries.length,
+    buildManifestHash: manifest.buildState.contentHash,
+    buildManifestByteLength: buildState.length,
   }
 }
 
@@ -208,15 +253,16 @@ function main() {
   const exportDir = argValue('--export-dir') || DEFAULT_EXPORT_DIR
   const receiptPath = argValue('--receipt') || DEFAULT_RECEIPT_PATH
   const verificationStateDir = argValue('--verification-state-dir') || DEFAULT_VERIFICATION_STATE_DIR
+  const buildManifestPath = argValue('--build-manifest') || DEFAULT_BUILD_MANIFEST_PATH
 
   if (command === 'write') {
     const sourceSha = argValue('--source-sha')
     const baseSha = argValue('--base-sha')
     const runId = argValue('--run-id')
-    const manifest = createManifest({ sourceSha, baseSha, exportDir, verificationStateDir, runId })
+    const manifest = createManifest({ sourceSha, baseSha, exportDir, verificationStateDir, buildManifestPath, runId })
     fs.writeFileSync(receiptPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8')
     console.log(`Governed static export receipt written: ${receiptPath}`)
-    console.log(`source=${manifest.sourceSha} base=${manifest.baseSha} output=${manifest.outputHash} files=${manifest.fileCount} html=${manifest.htmlFileCount} verificationState=${manifest.verificationState.stateHash}/${manifest.verificationState.fileCount}`)
+    console.log(`source=${manifest.sourceSha} base=${manifest.baseSha} output=${manifest.outputHash} files=${manifest.fileCount} html=${manifest.htmlFileCount} verificationState=${manifest.verificationState.stateHash}/${manifest.verificationState.fileCount} buildManifest=${manifest.buildState.contentHash}/${manifest.buildState.byteLength}`)
     return
   }
 
@@ -225,12 +271,12 @@ function main() {
     const expectedBaseSha = argValue('--base-sha')
     if (!fs.existsSync(receiptPath)) throw new Error(`Governed static export receipt is missing: ${receiptPath}`)
     const manifest = JSON.parse(fs.readFileSync(receiptPath, 'utf8'))
-    const output = verifyManifest({ manifest, expectedSourceSha, expectedBaseSha, exportDir, verificationStateDir, restoreVerificationState: true })
-    console.log(`Governed static export verified: source=${manifest.sourceSha} base=${manifest.baseSha} output=${output.outputHash} verificationState=${output.verificationStateHash}/${output.verificationStateFileCount}`)
+    const output = verifyManifest({ manifest, expectedSourceSha, expectedBaseSha, exportDir, verificationStateDir, buildManifestPath, restoreVerificationState: true, restoreBuildState: true })
+    console.log(`Governed static export verified: source=${manifest.sourceSha} base=${manifest.baseSha} output=${output.outputHash} verificationState=${output.verificationStateHash}/${output.verificationStateFileCount} buildManifest=${output.buildManifestHash}/${output.buildManifestByteLength}`)
     return
   }
 
-  throw new Error('Usage: node scripts/ci/governed-static-export.mjs <write|verify> --source-sha <sha> --base-sha <sha> [--run-id <id>] [--export-dir out] [--verification-state-dir public/data] [--receipt path]')
+  throw new Error('Usage: node scripts/ci/governed-static-export.mjs <write|verify> --source-sha <sha> --base-sha <sha> [--run-id <id>] [--export-dir out] [--verification-state-dir public/data] [--build-manifest .next/build-manifest.json] [--receipt path]')
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
