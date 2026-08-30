@@ -17,6 +17,7 @@ on:
       - 'schemas/source-class-governance.json'
       - 'scripts/enrichment-pipeline/contract/**'
       - '.github/workflows/enrichment-governor.yml'
+      - '.github/workflows/enrichment-governor-transaction.yml'
   push:
     branches: [main]
     paths:
@@ -34,6 +35,7 @@ on:
       - 'schemas/source-class-governance.json'
       - 'scripts/enrichment-pipeline/contract/**'
       - '.github/workflows/enrichment-governor.yml'
+      - '.github/workflows/enrichment-governor-transaction.yml'
   workflow_dispatch:
   schedule:
     - cron: '17 9 * * *'
