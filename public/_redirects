@@ -423,3 +423,41 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compare/coptis-vs-phellodendron/ /guides/compare/coptis-vs-phellodendron/ 301
 /guides/sleep-herbs-vs-melatonin /guides/compare/sleep-herbs-vs-melatonin/ 301
 /guides/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
+
+# Deprecated canonical slugs, from lib/deprecated-herb-canonicals.ts and
+# lib/deprecated-compound-canonicals.ts. generateStaticParams excludes these,
+# so they build no page - they existed only to be redirected, and 10 of the
+# herb ones never were. Targets are the project's own canonical mappings, not
+# a guess, and each was verified to exist as a built page.
+/herbs/berberis-vulgaris /herbs/berberis/ 301
+/herbs/berberis-vulgaris/ /herbs/berberis/ 301
+/herbs/berberis-aristata /herbs/berberis/ 301
+/herbs/berberis-aristata/ /herbs/berberis/ 301
+/herbs/coptis-chinensis /herbs/coptis/ 301
+/herbs/coptis-chinensis/ /herbs/coptis/ 301
+/herbs/boswellia-carterii /herbs/boswellia-serrata/ 301
+/herbs/boswellia-carterii/ /herbs/boswellia-serrata/ 301
+/herbs/morus-alba /herbs/mulberry-leaf/ 301
+/herbs/morus-alba/ /herbs/mulberry-leaf/ 301
+/herbs/phellodendron /herbs/phellodendron-amurense/ 301
+/herbs/phellodendron/ /herbs/phellodendron-amurense/ 301
+/herbs/astragalus-membranaceus /herbs/astragalus/ 301
+/herbs/astragalus-membranaceus/ /herbs/astragalus/ 301
+/herbs/atractylodes-macrocephala /herbs/atractylodes/ 301
+/herbs/atractylodes-macrocephala/ /herbs/atractylodes/ 301
+/herbs/angelica-root /herbs/angelica-archangelica/ 301
+/herbs/angelica-root/ /herbs/angelica-archangelica/ 301
+/herbs/schisandra-chinensis /herbs/schisandra/ 301
+/herbs/schisandra-chinensis/ /herbs/schisandra/ 301
+/compounds/nr /compounds/nicotinamide-riboside/ 301
+/compounds/nr/ /compounds/nicotinamide-riboside/ 301
+/compounds/berberine-hcl /compounds/berberine/ 301
+/compounds/berberine-hcl/ /compounds/berberine/ 301
+/compounds/chamomile /herbs/matricaria-chamomilla/ 301
+/compounds/chamomile/ /herbs/matricaria-chamomilla/ 301
+/compounds/fenugreek /herbs/trigonella-foenum-graecum/ 301
+/compounds/fenugreek/ /herbs/trigonella-foenum-graecum/ 301
+/compounds/lavender /herbs/lavandula-angustifolia/ 301
+/compounds/lavender/ /herbs/lavandula-angustifolia/ 301
+/compounds/lemon-balm /herbs/melissa-officinalis/ 301
+/compounds/lemon-balm/ /herbs/melissa-officinalis/ 301

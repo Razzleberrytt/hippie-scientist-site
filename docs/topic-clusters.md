@@ -4,7 +4,7 @@ Priority clusters used by the internal link engine.
 
 ## ADHD
 - Signals: adhd, attention deficit, hyperactivity, executive function, focus, dopamine, iron, zinc, vitamin d
-- Pages: 218
+- Pages: 211
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Articles — Research Notes & Evidence Reviews](/articles) (static)
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
@@ -48,7 +48,7 @@ Priority clusters used by the internal link engine.
 
 ## Anxiety
 - Signals: anxiety, anxious, calm, gaba, worry, nervous, relaxation
-- Pages: 803
+- Pages: 753
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
@@ -62,7 +62,6 @@ Priority clusters used by the internal link engine.
 - [Adenosine](/compounds/adenosine) (compound)
 - [aescin](/compounds/aescin) (compound)
 - [Agaricus blazei](/compounds/agaricus-blazei) (compound)
-- [Aged Garlic Extract](/compounds/aged-garlic-extract) (compound)
 - [ajoene](/compounds/ajoene) (compound)
 - [albiflorin](/compounds/albiflorin) (compound)
 - [Alkylamides](/compounds/alkylamides) (compound)
@@ -81,26 +80,25 @@ Priority clusters used by the internal link engine.
 - [artemisinin b](/compounds/artemisinin-b) (compound)
 - [artesunate](/compounds/artesunate) (compound)
 - [Artichoke Extract](/compounds/artichoke-extract) (compound)
-- [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
-- [Ashwagandha Root Extract](/compounds/ashwagandha-root-extract) (compound)
 - [asiatic acid](/compounds/asiatic-acid) (compound)
 - [asiaticoside](/compounds/asiaticoside) (compound)
 - [aspalathin](/compounds/aspalathin) (compound)
 - [Astaxanthin](/compounds/astaxanthin) (compound)
 - [astragaloside iv](/compounds/astragaloside-iv) (compound)
 - [atractylenolide i](/compounds/atractylenolide-i) (compound)
+- [atractylenolide ii](/compounds/atractylenolide-ii) (compound)
+- [atractylenolide iii](/compounds/atractylenolide-iii) (compound)
+- [aucubin](/compounds/aucubin) (compound)
 
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
-- Pages: 278
+- Pages: 258
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Best Supplements For Sleep](/articles/best-supplements-for-sleep) (article)
 - [5-HTP](/compounds/5-htp) (compound)
 - [alpha-asarone](/compounds/alpha-asarone) (compound)
 - [anethole](/compounds/anethole) (compound)
 - [Apigenin](/compounds/apigenin) (compound)
-- [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
-- [Ashwagandha Root Extract](/compounds/ashwagandha-root-extract) (compound)
 - [baicalin](/compounds/baicalin) (compound)
 - [BCAA](/compounds/bcaa) (compound)
 - [Beta-Alanine](/compounds/beta-alanine) (compound)
@@ -114,7 +112,6 @@ Priority clusters used by the internal link engine.
 - [caffeine l-theanine](/compounds/caffeine-l-theanine) (compound)
 - [caryophyllene oxide](/compounds/caryophyllene-oxide) (compound)
 - [chamazulene](/compounds/chamazulene) (compound)
-- [Chamomile](/compounds/chamomile) (compound)
 - [citronellal](/compounds/citronellal) (compound)
 - [D Aspartic Acid](/compounds/d-aspartic-acid) (compound)
 - [Electrolyte Blend](/compounds/electrolyte-blend) (compound)
@@ -129,19 +126,21 @@ Priority clusters used by the internal link engine.
 - [Glutamine](/compounds/glutamine) (compound)
 - [Glycinate Magnesium Complex](/compounds/glycinate-magnesium-complex) (compound)
 - [Glycine](/compounds/glycine) (compound)
-- [Glycine Sleep Use](/compounds/glycine-sleep) (compound)
 - [Grape Seed Extract](/compounds/grape-seed-extract) (compound)
 - [HCG Diet](/compounds/hcg-diet) (compound)
 - [HMB](/compounds/hmb) (compound)
+- [honokiol](/compounds/honokiol) (compound)
+- [L-theanine](/compounds/l-theanine) (compound)
+- [L-Tyrosine](/compounds/l-tyrosine) (compound)
+- [Lavender Extract](/compounds/lavender-extract) (compound)
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
-- Pages: 540
+- Pages: 506
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [acetylshikonin](/compounds/acetylshikonin) (compound)
 - [Actein](/compounds/actein) (compound)
 - [acteoside](/compounds/acteoside) (compound)
-- [Aged Garlic Extract](/compounds/aged-garlic-extract) (compound)
 - [albiflorin](/compounds/albiflorin) (compound)
 - [Allicin](/compounds/allicin) (compound)
 - [alpha-asarone](/compounds/alpha-asarone) (compound)
@@ -155,8 +154,6 @@ Priority clusters used by the internal link engine.
 - [artemisinin b](/compounds/artemisinin-b) (compound)
 - [artesunate](/compounds/artesunate) (compound)
 - [Artichoke Extract](/compounds/artichoke-extract) (compound)
-- [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
-- [Ashwagandha Root Extract](/compounds/ashwagandha-root-extract) (compound)
 - [asiatic acid](/compounds/asiatic-acid) (compound)
 - [aspalathin](/compounds/aspalathin) (compound)
 - [Astaxanthin](/compounds/astaxanthin) (compound)
@@ -177,10 +174,13 @@ Priority clusters used by the internal link engine.
 - [beta- hydroxybutyrate](/compounds/bhb) (compound)
 - [Bicarbonate](/compounds/bicarbonate) (compound)
 - [Bilberry Extract](/compounds/bilberry-extract) (compound)
+- [bilobetin](/compounds/bilobetin) (compound)
+- [biochanin a](/compounds/biochanin-a) (compound)
+- [bisdemethoxycurcumin](/compounds/bisdemethoxycurcumin) (compound)
 
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
-- Pages: 695
+- Pages: 661
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Articles — Research Notes & Evidence Reviews](/articles) (static)
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
@@ -195,7 +195,6 @@ Priority clusters used by the internal link engine.
 - [Adenosine](/compounds/adenosine) (compound)
 - [aescin](/compounds/aescin) (compound)
 - [Agaricus blazei](/compounds/agaricus-blazei) (compound)
-- [Aged Garlic Extract](/compounds/aged-garlic-extract) (compound)
 - [ajoene](/compounds/ajoene) (compound)
 - [Alkylamides](/compounds/alkylamides) (compound)
 - [Allicin](/compounds/allicin) (compound)
@@ -221,10 +220,11 @@ Priority clusters used by the internal link engine.
 - [bacoside a](/compounds/bacoside-a) (compound)
 - [bacoside b](/compounds/bacoside-b) (compound)
 - [Beetroot nitrate](/compounds/beetroot-nitrate) (compound)
+- [berbamine](/compounds/berbamine) (compound)
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
-- Pages: 535
+- Pages: 511
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
 - [acemannan](/compounds/acemannan) (compound)
@@ -268,19 +268,17 @@ Priority clusters used by the internal link engine.
 
 ## Gut Health
 - Signals: gut, digestive, microbiome, probiotic, prebiotic, fiber, bloating
-- Pages: 116
+- Pages: 104
 - [Acarbose](/compounds/acarbose) (compound)
 - [anethole](/compounds/anethole) (compound)
 - [Arabinoxylan](/compounds/arabinoxylan) (compound)
 - [aucubin](/compounds/aucubin) (compound)
 - [BCAA](/compounds/bcaa) (compound)
-- [Bcaas](/compounds/bcaas) (compound)
 - [Beta-glucans](/compounds/beta-glucans) (compound)
 - [Betaine HCl](/compounds/betaine-hcl) (compound)
 - [butyrate](/compounds/butyrate) (compound)
 - [caffeic acid](/compounds/caffeic-acid) (compound)
 - [catalpol](/compounds/catalpol) (compound)
-- [Chamomile](/compounds/chamomile) (compound)
 - [chicoric acid](/compounds/chicoric-acid) (compound)
 - [Chlorella](/compounds/chlorella) (compound)
 - [Dandelion Root](/compounds/dandelion-root) (compound)
@@ -307,12 +305,14 @@ Priority clusters used by the internal link engine.
 - [Papain](/compounds/papain) (compound)
 - [Peppermint Oil](/compounds/peppermint-oil) (compound)
 - [Plant Sterols](/compounds/plant-sterols) (compound)
-- [Probiotic Multistrain](/compounds/probiotic-multistrain) (compound)
-- [Bifidobacterium Probiotic](/compounds/probiotic-strain-bifidobacterium) (compound)
+- [Probiotics](/compounds/probiotics) (compound)
+- [Psyllium husk](/compounds/psyllium-husk) (compound)
+- [putrescine](/compounds/putrescine) (compound)
+- [Resistant Starch](/compounds/resistant-starch) (compound)
 
 ## Longevity
 - Signals: longevity, aging, nad, sirtuin, mitochondrial, cellular health
-- Pages: 169
+- Pages: 162
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
 - [acetylshikonin](/compounds/acetylshikonin) (compound)
 - [acteoside](/compounds/acteoside) (compound)
@@ -328,7 +328,6 @@ Priority clusters used by the internal link engine.
 - [baicalein](/compounds/baicalein) (compound)
 - [baicalin](/compounds/baicalin) (compound)
 - [Beetroot nitrate](/compounds/beetroot-nitrate) (compound)
-- [Berberine](/compounds/berberine-hcl) (compound)
 - [bergapten](/compounds/bergapten) (compound)
 - [bisdemethoxycurcumin](/compounds/bisdemethoxycurcumin) (compound)
 - [cafestol](/compounds/cafestol) (compound)
@@ -341,8 +340,6 @@ Priority clusters used by the internal link engine.
 - [Citrulline Malate](/compounds/citrulline-malate) (compound)
 - [Coenzyme A](/compounds/coenzyme-a) (compound)
 - [Coenzyme Q10](/compounds/coenzyme-q10) (compound)
-- [Ubiquinol CoQ10](/compounds/coenzyme-q10-ubiquinol) (compound)
-- [Coenzyme Q10](/compounds/coq10) (compound)
 - [cordycepin](/compounds/cordycepin) (compound)
 - [Cordyceps](/compounds/cordyceps) (compound)
 - [cordyceps militaris](/compounds/cordyceps-militaris) (compound)
@@ -353,10 +350,13 @@ Priority clusters used by the internal link engine.
 - [crocetin](/compounds/crocetin) (compound)
 - [crocin](/compounds/crocin) (compound)
 - [curcumol](/compounds/curcumol) (compound)
+- [curdione](/compounds/curdione) (compound)
+- [D-Ribose](/compounds/d-ribose) (compound)
+- [daphnetin](/compounds/daphnetin) (compound)
 
 ## Inflammation
 - Signals: inflammation, anti-inflammatory, nf-kb, cox, oxidative, immune
-- Pages: 539
+- Pages: 510
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
 - [Acarbose](/compounds/acarbose) (compound)
@@ -367,7 +367,6 @@ Priority clusters used by the internal link engine.
 - [acteoside](/compounds/acteoside) (compound)
 - [aescin](/compounds/aescin) (compound)
 - [Agaricus blazei](/compounds/agaricus-blazei) (compound)
-- [Aged Garlic Extract](/compounds/aged-garlic-extract) (compound)
 - [ajoene](/compounds/ajoene) (compound)
 - [albiflorin](/compounds/albiflorin) (compound)
 - [Alkylamides](/compounds/alkylamides) (compound)
@@ -385,7 +384,6 @@ Priority clusters used by the internal link engine.
 - [artemisinin b](/compounds/artemisinin-b) (compound)
 - [artesunate](/compounds/artesunate) (compound)
 - [Artichoke Extract](/compounds/artichoke-extract) (compound)
-- [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
 - [asiatic acid](/compounds/asiatic-acid) (compound)
 - [asiaticoside](/compounds/asiaticoside) (compound)
 - [aspalathin](/compounds/aspalathin) (compound)
@@ -397,15 +395,16 @@ Priority clusters used by the internal link engine.
 - [atractylenolide iii](/compounds/atractylenolide-iii) (compound)
 - [aucubin](/compounds/aucubin) (compound)
 - [Bacopa extract standardized](/compounds/bacopa-extract-bacoside-standardized) (compound)
+- [bacopaside ii](/compounds/bacopaside-ii) (compound)
+- [bacoside a](/compounds/bacoside-a) (compound)
 
 ## Metabolic Health
 - Signals: metabolic, glucose, insulin, blood sugar, lipid, weight, berberine
-- Pages: 354
+- Pages: 335
 - [Acarbose](/compounds/acarbose) (compound)
 - [acetate](/compounds/acetate) (compound)
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
 - [aescin](/compounds/aescin) (compound)
-- [Aged Garlic Extract](/compounds/aged-garlic-extract) (compound)
 - [Alkylamides](/compounds/alkylamides) (compound)
 - [Alpha-GPC](/compounds/alpha-gpc) (compound)
 - [Alpha-Lipoic Acid](/compounds/alpha-lipoic-acid) (compound)
@@ -423,7 +422,6 @@ Priority clusters used by the internal link engine.
 - [bacoside b](/compounds/bacoside-b) (compound)
 - [Banaba Leaf Extract](/compounds/banaba-leaf-extract) (compound)
 - [Berberine](/compounds/berberine) (compound)
-- [Berberine](/compounds/berberine-hcl) (compound)
 - [Beta-glucans](/compounds/beta-glucans) (compound)
 - [Beta-sitosterol](/compounds/beta-sitosterol) (compound)
 - [betulinic acid](/compounds/betulinic-acid) (compound)
@@ -441,3 +439,5 @@ Priority clusters used by the internal link engine.
 - [Capsaicin](/compounds/capsaicin) (compound)
 - [carnosic acid](/compounds/carnosic-acid) (compound)
 - [carvacrol](/compounds/carvacrol) (compound)
+- [catalpol](/compounds/catalpol) (compound)
+- [catechin](/compounds/catechin) (compound)
