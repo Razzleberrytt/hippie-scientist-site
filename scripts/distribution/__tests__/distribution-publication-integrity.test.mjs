@@ -10,6 +10,7 @@ import { MAX_PUBLICATION_STATUS_AGE_DAYS, validateDistributionPublicationIntegri
 const here = path.dirname(fileURLToPath(import.meta.url))
 const researchObjects = JSON.parse(fs.readFileSync(path.resolve(here, '../../../data/distribution/research-objects.json'), 'utf8'))
 const canonical = researchObjects.find((item) => item.id === 'ashwagandha-stress-evidence')
+// Injected clock keeps freshness-boundary regressions deterministic.
 const FIXED_NOW = new Date('2026-08-29T12:00:00Z')
 
 function clone(value) {
