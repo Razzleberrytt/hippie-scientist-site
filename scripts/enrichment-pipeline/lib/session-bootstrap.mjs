@@ -3,6 +3,9 @@ import path from 'node:path'
 import { shardOf } from './ids.mjs'
 import { createCanonicalOwnerResolver, workpackIdForOwner } from './canonical-owner.mjs'
 
+const TERMINAL_REVIEW_STATUSES = new Set(['rejected', 'deprecated_submission'])
+const TERMINAL_PROMOTION_STATUSES = new Set(['promoted', 'not_promoted', 'quarantined'])
+
 function readJson(file, fallback = null) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
 }
@@ -15,8 +18,24 @@ function listJson(root) {
     .sort()
 }
 
-function collectStagedWorkpacks(root) {
-  const staged = new Set()
+function findingTerminalState(submission, sidecar = null) {
+  const promotionStatus = sidecar?.promotionStatus ?? submission?.promotionStatus ?? null
+  const reviewStatus = sidecar?.reviewStatus ?? submission?.reviewStatus ?? null
+
+  if (promotionStatus === 'promoted') return { terminal: true, outcome: 'promoted' }
+  if (TERMINAL_PROMOTION_STATUSES.has(promotionStatus)) return { terminal: true, outcome: promotionStatus }
+  if (submission?.active === false) return { terminal: true, outcome: 'inactive' }
+  if (TERMINAL_REVIEW_STATUSES.has(reviewStatus)) return { terminal: true, outcome: reviewStatus }
+  if (reviewStatus === 'approved_for_rollup') return { terminal: false, outcome: 'awaiting_promotion' }
+  if (reviewStatus === 'ready_for_review') return { terminal: false, outcome: 'awaiting_review' }
+  return { terminal: false, outcome: 'research_staged' }
+}
+
+function collectWorkpackLifecycle(root) {
+  const lifecycle = new Map()
+  const attestationDocument = readJson(path.join(root, 'ops', 'enrichment-semantic-attestations.json'), { entries: [] })
+  const sidecarBySubmission = new Map((attestationDocument?.entries ?? []).map(entry => [entry.submissionId, entry]))
+
   const walk = dir => {
     if (!fs.existsSync(dir)) return
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -25,13 +44,35 @@ function collectStagedWorkpacks(root) {
       else if (entry.isFile() && entry.name.endsWith('.json')) {
         const fragment = readJson(full)
         for (const submission of fragment?.submissions ?? []) {
-          if (typeof submission?.workpackId === 'string') staged.add(submission.workpackId)
+          if (typeof submission?.workpackId !== 'string') continue
+          const state = lifecycle.get(submission.workpackId) ?? {
+            staged: true,
+            findingCount: 0,
+            terminalFindings: 0,
+            promotedFindings: 0,
+            pendingFindings: 0,
+            outcomes: {},
+          }
+          const terminal = findingTerminalState(submission, sidecarBySubmission.get(submission.submissionId))
+          state.findingCount += 1
+          state.terminalFindings += terminal.terminal ? 1 : 0
+          state.promotedFindings += terminal.outcome === 'promoted' ? 1 : 0
+          state.pendingFindings += terminal.terminal ? 0 : 1
+          state.outcomes[terminal.outcome] = (state.outcomes[terminal.outcome] ?? 0) + 1
+          lifecycle.set(submission.workpackId, state)
         }
       }
     }
   }
+
   walk(path.join(root, 'ops', 'enrichment-submissions', 'sessions'))
-  return staged
+  for (const state of lifecycle.values()) {
+    state.completed = state.findingCount > 0 && state.pendingFindings === 0
+    state.closureState = state.completed
+      ? (state.promotedFindings > 0 ? 'terminal_with_promotion' : 'terminal_without_promotion')
+      : 'closure_required'
+  }
+  return lifecycle
 }
 
 export function workpackIdFor(entityType, slug) {
@@ -114,7 +155,7 @@ export function buildSessionBootstrap({ root, sessionId, manifest }) {
   if (!session) throw new Error(`Unknown research session ${sessionId}`)
   if (session.enabled !== true) throw new Error(`Research session ${sessionId} is disabled`)
   const shardCount = manifest.shardCount ?? 8
-  const staged = collectStagedWorkpacks(root)
+  const lifecycle = collectWorkpackLifecycle(root)
   const ownerResolver = createCanonicalOwnerResolver({ root })
   const candidateByWorkpack = new Map()
 
@@ -137,6 +178,16 @@ export function buildSessionBootstrap({ root, sessionId, manifest }) {
       const shard = shardOf(workpackId, shardCount)
       if (shard !== session.shard) continue
       const roi = scoreBootstrapCandidate(record)
+      const workpackLifecycle = lifecycle.get(workpackId) ?? {
+        staged: false,
+        completed: false,
+        closureState: 'research_required',
+        findingCount: 0,
+        terminalFindings: 0,
+        promotedFindings: 0,
+        pendingFindings: 0,
+        outcomes: {},
+      }
       const candidate = {
         workpackId,
         entityType: resolved.entityType,
@@ -144,7 +195,7 @@ export function buildSessionBootstrap({ root, sessionId, manifest }) {
         name: record?.name ?? resolved.slug,
         shard,
         sessionId,
-        staged: staged.has(workpackId),
+        ...workpackLifecycle,
         ownerResolution: resolved.ownerResolution,
         ...roi,
       }
@@ -157,20 +208,27 @@ export function buildSessionBootstrap({ root, sessionId, manifest }) {
 
   const candidates = [...candidateByWorkpack.values()]
   candidates.sort((a, b) =>
-    Number(a.staged) - Number(b.staged) ||
+    Number(a.completed) - Number(b.completed) ||
+    Number(b.staged) - Number(a.staged) ||
     b.score - a.score ||
     a.workpackId.localeCompare(b.workpackId)
   )
 
-  const remaining = candidates.filter(item => !item.staged)
+  const remaining = candidates.filter(item => !item.completed)
+  const staged = candidates.filter(item => item.staged)
+  const closureBacklog = candidates.filter(item => item.staged && !item.completed)
+  const completed = candidates.filter(item => item.completed)
   return {
-    modelVersion: 'research-session-bootstrap-v2',
+    modelVersion: 'research-session-bootstrap-v3',
     sessionId,
     workerId: session.workerId,
     shard: session.shard,
     shardCount,
     ownedWorkpacks: candidates.length,
-    stagedWorkpacks: candidates.length - remaining.length,
+    stagedWorkpacks: staged.length,
+    completedWorkpacks: completed.length,
+    closureBacklogWorkpacks: closureBacklog.length,
+    unstartedWorkpacks: candidates.length - staged.length,
     remainingWorkpacks: remaining.length,
     next: remaining.slice(0, 25),
     candidates,
