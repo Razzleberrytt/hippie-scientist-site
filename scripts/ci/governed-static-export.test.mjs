@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
+import zlib from 'node:zlib'
 import { afterEach, describe, expect, it } from 'vitest'
 import { createManifest, verifyManifest } from './governed-static-export.mjs'
 
@@ -106,7 +107,9 @@ describe('governed static export receipt', () => {
   it('fails closed when the generated verification-state payload is tampered', () => {
     const fixtureState = fixture()
     const manifest = createFixtureManifest(fixtureState)
-    manifest.verificationState.payload = `${manifest.verificationState.payload.slice(0, -4)}AAAA`
+    const decoded = JSON.parse(zlib.gunzipSync(Buffer.from(manifest.verificationState.payload, 'base64')).toString('utf8'))
+    decoded.files[0].content = Buffer.from('tampered verification state').toString('base64')
+    manifest.verificationState.payload = zlib.gzipSync(Buffer.from(JSON.stringify(decoded)), { level: 9 }).toString('base64')
 
     expect(() => verifyFixtureManifest({ manifest, ...fixtureState })).toThrow(/verification state/)
   })
