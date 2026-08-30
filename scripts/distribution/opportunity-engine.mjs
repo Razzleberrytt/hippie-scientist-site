@@ -50,7 +50,7 @@ function mean(values) {
 function daysSince(date, now = new Date()) {
   const parsed = new Date(`${date}T00:00:00Z`)
   if (Number.isNaN(parsed.getTime())) return Infinity
-  return Math.max(0, Math.floor((now.getTime() - parsed.getTime()) / 86400000))
+  return Math.floor((now.getTime() - parsed.getTime()) / 86400000)
 }
 
 function stableToken(value) {
@@ -120,6 +120,7 @@ export function assessEligibility(object, { now = new Date() } = {}) {
   if (!(object?.evidenceGrade in GRADE_SCORE)) reasons.push('unsupported evidence grade')
   const staleDays = daysSince(object?.lastVerified, now)
   if (!Number.isFinite(staleDays)) reasons.push('invalid verification date')
+  if (staleDays < 0) reasons.push('verification date cannot be in the future')
   if (staleDays > 550) reasons.push('evidence verification is too stale for autonomous distribution selection')
   const context = `${object?.evidenceType || ''} ${object?.finding || ''}`
   const claimRisk = PRECLINICAL_CONTEXT.test(context) ? 9 : HUMAN_CONTEXT.test(context) ? 3 : 6
