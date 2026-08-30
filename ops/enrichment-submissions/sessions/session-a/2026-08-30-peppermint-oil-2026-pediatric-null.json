@@ -1,0 +1,50 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "session-a-20260830-peppermint-2026-pediatric-null",
+  "createdAt": "2026-08-30T16:47:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_a-peppermint-2026-pediatric-primary-null",
+      "authoringPackId": "ap_a_peppermint_pubmed_41610933",
+      "workpackId": "wp_compound_peppermint_oil",
+      "entityType": "compound",
+      "entitySlug": "peppermint-oil",
+      "sourceId": "src_pubmed-41610933",
+      "topicType": "population_specific_note",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2026 multicenter pediatric RCT found neither peppermint-oil capsules nor peppermint sweets superior to placebo for IBS/FAP-NOS treatment success or adequate relief.",
+      "findingTextNormalized": "PMID 41610933 randomized 228 children and adolescents aged 8–18 years with IBS or functional abdominal pain-not otherwise specified across 13 Dutch hospitals to peppermint-oil capsules, peppermint sweets, or placebo for eight weeks. Treatment success (at least 30% reduction in abdominal-pain intensity) did not significantly differ for peppermint oil versus placebo, and adequate relief likewise did not differ. Peppermint sweets were also not superior to placebo. These null results must remain first-class alongside earlier pooled-positive and adult-null IBS evidence.",
+      "strengthLabel": "moderate",
+      "populationContext": "Children and adolescents aged 8–18 years with IBS or FAP-NOS across 13 Dutch hospitals",
+      "usageContext": "Eight-week randomized comparison of enteric-coated peppermint-oil capsules, peppermint sweets, and placebo",
+      "uncertaintyNote": "The pediatric null does not erase formulation-specific adult or pooled evidence; age, diagnosis, formulation and trial design remain attached.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    },
+    {
+      "submissionId": "sub_a-peppermint-2026-pediatric-formulation-safety-boundary",
+      "authoringPackId": "ap_a_peppermint_pubmed_41610933",
+      "workpackId": "wp_compound_peppermint_oil",
+      "entityType": "compound",
+      "entitySlug": "peppermint-oil",
+      "sourceId": "src_pubmed-41610933",
+      "topicType": "research_gap",
+      "claimType": "research_gap",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "The 2026 pediatric trial's dose/formulation and mild short-term adverse-event experience cannot be generalized to arbitrary peppermint products or universal safety.",
+      "findingTextNormalized": "In PMID 41610933, peppermint-oil capsules contained 182 mg peppermint oil and were given twice daily at ages 8–11 or three times daily at ages 12–18, with escalation if needed; the peppermint-sweets arm used a distinct low-dose product. Adverse events were mild and infrequent during the trial. Formulation, age-specific schedule, eight-week duration and pediatric population must remain attached, and the short-term tolerability observation must not become a universal peppermint-oil safety claim or a consumer dosing recommendation across ages and preparations.",
+      "strengthLabel": "strong",
+      "populationContext": "Pediatric IBS/FAP-NOS randomized trial",
+      "usageContext": "Formulation-, age-, schedule-, and duration-specific evidence boundary",
+      "safetyContext": "Adverse events were mild and infrequent within this short pediatric trial.",
+      "uncertaintyNote": "The trial does not establish rare-event incidence, long-term safety, or interchangeability with tea, aromatherapy, topical peppermint/menthol, or other oral preparations.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
