@@ -1,13 +1,13 @@
 {
   "fragmentVersion": 1,
-  "sessionId": "A",
-  "shard": 0,
-  "batchId": "session-a-20260830-potassium",
+  "sessionId": "H",
+  "shard": 7,
+  "batchId": "session-h-20260830-potassium",
   "createdAt": "2026-08-30T15:55:00.000Z",
   "submissions": [
     {
-      "submissionId": "sub_a-potassium-dose-response-hypertension",
-      "authoringPackId": "ap_a_potassium_pubmed_40612568",
+      "submissionId": "sub_h-potassium-dose-response-hypertension",
+      "authoringPackId": "ap_h_potassium_pubmed_40612568",
       "workpackId": "wp_compound_potassium",
       "entityType": "compound",
       "entitySlug": "potassium",
@@ -26,8 +26,8 @@
       "active": true
     },
     {
-      "submissionId": "sub_a-potassium-generalization-ceiling",
-      "authoringPackId": "ap_a_potassium_pubmed_40612568",
+      "submissionId": "sub_h-potassium-generalization-ceiling",
+      "authoringPackId": "ap_h_potassium_pubmed_40612568",
       "workpackId": "wp_compound_potassium",
       "entityType": "compound",
       "entitySlug": "potassium",
