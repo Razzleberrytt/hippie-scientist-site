@@ -23,7 +23,7 @@ It rejects fabricated research-object IDs, stale hashes, extra sources, free-for
 
 `build-research-distribution.mjs` remains the single distribution generator. It now prepares and validates every media pack before creating the output directory or writing any artifact. A failed or ambiguous pack therefore aborts the run without leaving a partially updated artifact set.
 
-For each valid research object, the existing `artifacts/distribution` family gains `<id>.media-pack.json`. The existing review-only channel package and manifest reference that validated pack by `packId`, content hash, artifact name, and `validated` state. Existing X/Instagram/video/email/article outputs remain review-only; no publishing automation is activated.
+For each valid research object, the existing `artifacts/distribution` family gains `<id>.media-pack.json`. The existing review-only channel package and manifest reference that validated pack by `packId`, content hash, artifact name, and `validated` state. Existing X/Instagram/video/email/article outputs remain review-only unless a separately governed provider path consumes an already-validated asset.
 
 Creative/presentation code may not become a second factual authority, and generative media remains non-authoritative visual input only.
 
@@ -37,4 +37,14 @@ The v1 state contract is `generated → validated → ready → scheduled → pu
 
 Every publication transition carries the deterministic idempotency key and upstream identity fingerprint so retries cannot silently mint a second campaign identity. Measurements are recorded as observation-only lifecycle data and cannot modify scientific claims, evidence grades, limitations, source identity, safety truth, or canonical content.
 
-Broad/high-volume autopublishing remains unauthorized. Provider adapters and bounded live pilots are separate opt-in work after this lifecycle contract, exact-head validation, credential/provider configuration, and rollback proof.
+## Bounded Metricool provider
+
+`stage-metricool-publication-media.mjs` stages only hash-verified governed media under the static public path `/media/distribution/metricool/`. The production deploy regenerates the current bounded pilot and requires its provider-ready manifest to be present in the final static export. Deployment itself never schedules or publishes a post.
+
+`metricool-provider.mjs` is the provider boundary. It accepts only explicit supported networks, future publication times, governed copy, and canonical HTTPS media URLs. The current carousel path is limited to Facebook and TikTok. YouTube is supported only by the vertical-video provider contract because it requires video media.
+
+`.github/workflows/metricool-publication.yml` is an explicit, manually dispatched live scheduling path. It regenerates the exact current governed pilot, confirms the deployed media identity is current, verifies every public media URL is reachable, then calls Metricool server-side. The Metricool token is read only from the production `METRICOOL_USER_TOKEN` secret and is never written to source, artifacts, receipts, or logs.
+
+A dry-run `scheduled` lifecycle may be promoted to a real Metricool `scheduled` receipt only after Metricool returns a provider post ID. Scheduling is not recorded as publication; `published` still requires separate provider confirmation. Stale identity, missing credentials, unsupported network/format combinations, invalid media URLs, or past timestamps fail closed before a provider transition is accepted.
+
+Broad/high-volume autopublishing remains unauthorized. The Metricool adapter is a bounded provider path for already-governed assets, not permission to bypass evidence, safety, provenance, channel-policy, lifecycle, measurement, or scaling gates.

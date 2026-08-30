@@ -49,7 +49,7 @@ export function createBoundedPilotPackage({ selection, packageData, mediaPack, a
     publication: {
       mode: 'dry-run',
       livePublicationAuthorized: false,
-      externalBlocker: 'No supported provider integration or authorized credentials are configured for this pilot.',
+      externalBlocker: 'Live scheduling requires an explicit Metricool Publication workflow invocation and server-side Metricool credentials; this pilot never posts by itself.',
     },
     measurementPlan: {
       primaryMetric: selected.successCriteria.primaryMetric,
