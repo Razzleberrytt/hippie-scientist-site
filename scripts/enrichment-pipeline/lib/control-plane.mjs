@@ -77,8 +77,12 @@ export function scoreWorkpack(workpack = {}) {
   return { score: Object.values(components).reduce((a,b) => a + b, 0), components }
 }
 
-export function scheduleShard(workpacks = [], shard, shardCount, shardOf) {
+export function scheduleShard(workpacks = [], shard, shardCount, shardOf, resolveWorkpack) {
+  if (typeof resolveWorkpack !== 'function') {
+    throw new Error('canonical_owner_resolution_required: scheduleShard requires a canonical workpack resolver')
+  }
   return workpacks
+    .map(workpack => resolveWorkpack(workpack))
     .filter(w => shardOf(w.workpackId, shardCount) === shard)
     .map(w => ({ ...w, roi: scoreWorkpack(w) }))
     .sort((a,b) => b.roi.score - a.roi.score || a.workpackId.localeCompare(b.workpackId))
