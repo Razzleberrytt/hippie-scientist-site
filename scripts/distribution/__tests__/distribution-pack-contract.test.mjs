@@ -3,6 +3,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { hashCanonicalField, hashResearchObject, validateDistributionPack } from '../distribution-pack-contract.mjs'
+import { canonicalResearchObject } from './helpers/research-object.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const schemaPath = path.resolve(path.dirname(__filename), '../../../schemas/distribution-pack-v1.schema.json')
@@ -14,29 +15,21 @@ const FIXED_BOUNDARIES = [
   'Do not project preclinical evidence as human efficacy or benefit.',
 ]
 
-const canonicalHumanObject = {
+const canonicalHumanObject = canonicalResearchObject({
   id: 'ashwagandha-stress-evidence',
   title: 'Ashwagandha and stress outcomes in human trials',
   finding: 'Human studies report changes in stress-related outcomes, but results vary by formulation and population.',
-  evidenceType: 'RCT',
-  evidenceGrade: 'B',
   limitation: 'The evidence is limited by study size, formulation differences, and population differences.',
-  sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
-  findingClaimId: 'clm_78af0b376bf1',
-  primarySourceId: 'src_45e522e1601f',
   primarySourceUrl: 'https://pubmed.ncbi.nlm.nih.gov/31517876/',
+  publicationStatusAuthorityUrl: 'https://pubmed.ncbi.nlm.nih.gov/31517876/',
+  publicationStatusCheckedAt: '2026-08-29',
   trialCount: 2,
   participants: 120,
   doseContext: 'Study-specific extract and dose context only; not a consumer dosing instruction.',
   populationContext: 'Adults enrolled in the cited human studies.',
   lastVerified: '2026-08-26',
-  // Publication provenance. Required of every canonical research object
-  // since the publication-integrity binding landed; the authority URL is
-  // the publisher record for this fixture's primary source.
-  publicationStatus: 'published',
-  publicationStatusCheckedAt: '2026-08-29',
-  publicationStatusAuthorityUrl: 'https://pubmed.ncbi.nlm.nih.gov/31517876/',
-}
+})
+
 
 function evidenceContextFor(object) {
   if (object.evidenceType === 'preclinical') return 'preclinical'

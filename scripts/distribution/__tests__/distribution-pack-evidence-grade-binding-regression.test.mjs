@@ -1,21 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import { hashCanonicalField, hashResearchObject, validateDistributionPack } from '../distribution-pack-contract.mjs'
+import { canonicalResearchObject } from './helpers/research-object.mjs'
 
-const researchObject = {
+const researchObject = canonicalResearchObject({
   id: 'fixture-grade-binding',
-  title: 'Fixture human evidence',
-  finding: 'The recorded human trial reported a mixed outcome versus control.',
-  evidenceType: 'RCT',
-  evidenceGrade: 'B',
-  limitation: 'This fixture does not establish a universal effect.',
-  sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
+  primarySourceUrl: 'https://example.org/study/fixture-grade-binding',
+  publicationStatusAuthorityUrl: 'https://example.org/study/fixture-grade-binding/status',
   findingClaimId: 'clm_abcdef123456',
   primarySourceId: 'src_abcdef123456',
-  primarySourceUrl: 'https://example.org/study/fixture-grade-binding',
-  publicationStatus: 'published',
-  publicationStatusCheckedAt: '2026-08-29',
-  publicationStatusAuthorityUrl: 'https://example.org/study/fixture-grade-binding/status',
-}
+})
 
 function pack(grade = researchObject.evidenceGrade) {
   const sourceUrl = researchObject.sourceUrl
