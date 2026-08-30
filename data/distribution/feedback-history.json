@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "distribution-observation-history-v1",
+  "status": "waiting-for-qualified-observations",
+  "generatedAt": "2026-08-30T18:00:00.000Z",
+  "policy": "Observations may re-rank already-eligible distribution opportunities only; they cannot alter scientific evidence, claims, limitations, grades, safety conclusions, canonical content, or cross-platform attribution boundaries.",
+  "accepted": [],
+  "rejected": [],
+  "history": [],
+  "counts": {
+    "accepted": 0,
+    "rejected": 0
+  }
+}
