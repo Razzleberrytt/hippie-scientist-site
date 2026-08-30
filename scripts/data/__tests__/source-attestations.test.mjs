@@ -7,6 +7,14 @@ import { describe, expect, it } from 'vitest'
  * invented. Counts are expected to move as the queue is worked through, so
  * nothing here pins one.
  */
+function generateQueue() {
+  execFileSync(process.execPath, ['scripts/data/report-held-source-verification-queue.mjs'], {
+    cwd: process.cwd(),
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+  })
+}
+
 function runPrepare() {
   const stdout = execFileSync(process.execPath, ['scripts/data/prepare-source-attestations.mjs', '--json'], {
     cwd: process.cwd(),
@@ -16,6 +24,7 @@ function runPrepare() {
   return JSON.parse(stdout)
 }
 
+generateQueue()
 const result = runPrepare()
 
 describe('source attestation drafts', () => {
