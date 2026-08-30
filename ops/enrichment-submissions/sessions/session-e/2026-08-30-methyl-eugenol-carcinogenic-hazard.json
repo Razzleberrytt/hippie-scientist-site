@@ -1,0 +1,50 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-20260830-methyl-eugenol",
+  "createdAt": "2026-08-30T15:55:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_e-methyl-eugenol-iarc-group2a",
+      "authoringPackId": "ap_e_methyl_eugenol_iarc_v134_2024",
+      "workpackId": "wp_compound_methyl_eugenol",
+      "entityType": "compound",
+      "entitySlug": "methyl-eugenol",
+      "sourceId": "src_iarc-v134-methyleugenol-2024",
+      "topicType": "adverse_effect",
+      "claimType": "safety_risk",
+      "evidenceClass": "regulatory-monograph",
+      "findingTextShort": "IARC Volume 134 classifies methyleugenol as probably carcinogenic to humans (Group 2A).",
+      "findingTextNormalized": "IARC Volume 134 classifies methyleugenol as probably carcinogenic to humans (Group 2A), based on sufficient evidence for cancer in experimental animals and strong mechanistic evidence, while the evidence regarding cancer in humans is inadequate. The hazard classification and human-evidence limitation must both remain explicit.",
+      "strengthLabel": "strong",
+      "populationContext": "Carcinogenic-hazard evaluation integrating animal, mechanistic and available human evidence",
+      "usageContext": "Hazard classification for methyleugenol exposure",
+      "safetyContext": "Group 2A hazard classification; human cancer evidence remains inadequate rather than proven causal human cancer evidence.",
+      "uncertaintyNote": "IARC hazard classification does not by itself quantify risk for every dose or exposure route; exposure context remains necessary.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    },
+    {
+      "submissionId": "sub_e-methyl-eugenol-exposure-context-firewall",
+      "authoringPackId": "ap_e_methyl_eugenol_iarc_v134_2024",
+      "workpackId": "wp_compound_methyl_eugenol",
+      "entityType": "compound",
+      "entitySlug": "methyl-eugenol",
+      "sourceId": "src_iarc-v134-methyleugenol-2024",
+      "topicType": "research_gap",
+      "claimType": "research_gap",
+      "evidenceClass": "regulatory-monograph",
+      "findingTextShort": "Natural occurrence in herbs and foods must not be treated as equivalent to concentrated supplemental methyleugenol exposure.",
+      "findingTextNormalized": "IARC notes that methyleugenol occurs naturally in essential oils of many plants and that the general population is exposed through foods and consumer products, while its use as a flavoring agent is prohibited in the United States and European Union. Natural occurrence, background dietary exposure, essential-oil exposure and a concentrated isolated supplement therefore require separate exposure propositions.",
+      "strengthLabel": "strong",
+      "populationContext": "General-population food and consumer-product exposure versus concentrated product exposure",
+      "usageContext": "Exposure-form and regulatory-context governance",
+      "uncertaintyNote": "The source establishes hazard and exposure distinctions; it does not provide one universal quantitative risk estimate across all matrices and doses.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
