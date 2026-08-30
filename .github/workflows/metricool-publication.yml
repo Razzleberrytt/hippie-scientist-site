@@ -23,7 +23,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  actions: read
+  actions: write
   contents: read
 
 jobs:
@@ -139,6 +139,7 @@ jobs:
           retention-days: 90
 
       - name: Schedule governed publication in Metricool
+        id: metricool_schedule
         env:
           METRICOOL_USER_TOKEN: ${{ secrets.METRICOOL_USER_TOKEN }}
           METRICOOL_USER_ID: '5228072'
@@ -147,6 +148,36 @@ jobs:
           METRICOOL_NETWORKS: ${{ inputs.networks }}
           METRICOOL_AUTO_PUBLISH: ${{ inputs.auto_publish }}
         run: node scripts/distribution/schedule-metricool-publication.mjs
+
+      - name: Release reservation after confirmed provider failure
+        if: ${{ failure() && steps.metricool_schedule.outcome == 'failure' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_NAME: ${{ steps.reservation.outputs.artifact_name }}
+        run: |
+          set -euo pipefail
+          if [ -z "${ARTIFACT_NAME:-}" ]; then
+            echo 'Reservation artifact name is unavailable; retaining fail-closed state.'
+            exit 1
+          fi
+          EXISTING="$(curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H 'Accept: application/vnd.github+json' \
+            --get --data-urlencode "name=${ARTIFACT_NAME}" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts")"
+          mapfile -t ARTIFACT_IDS < <(printf '%s' "$EXISTING" | jq -r --argjson runId "$GITHUB_RUN_ID" '.artifacts[] | select(.expired == false and .workflow_run.id == $runId) | .id')
+          if [ "${#ARTIFACT_IDS[@]}" -eq 0 ]; then
+            echo 'No current-run reservation artifact found; nothing to release.'
+            exit 0
+          fi
+          for artifact_id in "${ARTIFACT_IDS[@]}"; do
+            curl --fail-with-body --silent --show-error \
+              -X DELETE \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H 'Accept: application/vnd.github+json' \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}"
+          done
+          echo "Released failed-dispatch reservation ${ARTIFACT_NAME}; a later governed retry may proceed."
 
       - name: Upload sanitized scheduling receipt
         if: success()
