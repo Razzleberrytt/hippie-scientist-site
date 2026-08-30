@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "session-e-bootstrap-ornithine-20260829",
+  "createdAt": "2026-08-30T00:28:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-ornithine-stress-sleep-rct-20260829",
+      "authoringPackId": "ap_bp_wp_compound_ornithine_src_pubmed_24889392",
+      "workpackId": "wp_compound_ornithine",
+      "entityType": "compound",
+      "entitySlug": "ornithine",
+      "sourceId": "src_pubmed-24889392",
+      "topicType": "supported_use",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "An eight-week randomized trial of 400 mg/day L-ornithine reported selected stress, mood, and sleep-quality signals in mildly stressed healthy adults.",
+      "findingTextNormalized": "A randomized double-blind placebo-controlled trial in 52 mildly stressed or fatigued healthy Japanese adults tested 400 mg/day L-ornithine for eight weeks and reported changes in cortisol-related measures plus selected mood and sleep-quality outcomes. The findings belong to this healthy-worker/stress context and do not establish treatment efficacy for clinical anxiety or insomnia.",
+      "strengthLabel": "limited",
+      "populationContext": "52 mildly stressed or fatigued healthy Japanese adults.",
+      "usageContext": "L-ornithine 400 mg/day for eight weeks.",
+      "uncertaintyNote": "Small population-specific study; substantial Kirin industry affiliation/provenance should remain visible during governed review.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-ornithine-cortisol-null-rct-20260829",
+      "authoringPackId": "ap_bp_wp_compound_ornithine_src_pubmed_39768508",
+      "workpackId": "wp_compound_ornithine",
+      "entityType": "compound",
+      "entitySlug": "ornithine",
+      "sourceId": "src_pubmed-39768508",
+      "topicType": "conflict_note",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2024 randomized stress-challenge trial found no salivary-cortisol improvement with L-ornithine despite selected next-morning mood/fatigue signals.",
+      "findingTextNormalized": "A randomized double-blind placebo-controlled parallel trial in 65 healthy participants used 1600 mg/day L-ornithine for seven days with additional acute pre-TSST dosing. Salivary cortisol was not significantly improved, while selected next-morning fatigue-inertia and anger-hostility scores were more favorable. The null cortisol result must remain first-class and the acute laboratory-stress context must not be converted into clinical anxiety or sleep-treatment efficacy.",
+      "strengthLabel": "limited",
+      "populationContext": "65 healthy participants exposed to a laboratory social-stress paradigm.",
+      "usageContext": "L-ornithine 1600 mg/day for seven days plus acute pre-stress dosing.",
+      "uncertaintyNote": "Outcome disagreement and Kirin-affiliated provenance should remain explicit; subjective next-morning changes do not erase the primary physiologic null.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
