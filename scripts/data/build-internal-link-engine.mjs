@@ -3,6 +3,15 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 
+// Imported rather than reimplemented. Which profiles get a page is decided by
+// getRuntimeVisibility, which is fail-closed governance logic; a second copy of
+// that rule living here would drift and start advertising pages the build does
+// not produce - which is exactly the bug this filter exists to stop. Running
+// this step under tsx is what makes sharing it possible.
+import { getRuntimeVisibility } from '../../lib/runtime-visibility.ts'
+import { DEPRECATED_HERB_CANONICALS } from '../../lib/deprecated-herb-canonicals.ts'
+import { DEPRECATED_COMPOUND_CANONICALS } from '../../lib/deprecated-compound-canonicals.ts'
+
 const ROOT = process.cwd()
 const DATA_DIR = resolveDataDir(process.argv)
 const OUT_DIR = path.join(DATA_DIR, 'runtime-maps')
@@ -196,9 +205,29 @@ async function buildStaticRouteRecords() {
   return records
 }
 
+/**
+ * Only profiles that actually get a page.
+ *
+ * Every summary row used to become a route record, but the summary is broader
+ * than the built site: 291 herb rows produce 270 herb pages. The surplus was
+ * advertised as internal links, which is how /herbs/berberis-aristata/ ended up
+ * linked from 26 pages that all 404'd.
+ *
+ * The two filters mirror generateStaticParams exactly. Deprecated canonicals are
+ * excluded even though they do render, because they exist only to redirect and
+ * linking to one spends a hop for nothing.
+ */
+function isLinkableEntity(row, kind) {
+  if (!getRuntimeVisibility(row).canRender) return false
+  const slug = String(row?.slug || '')
+  const deprecated = kind === 'herb' ? DEPRECATED_HERB_CANONICALS : DEPRECATED_COMPOUND_CANONICALS
+  return !deprecated[slug]
+}
+
 function entityRouteRecords(rows, kind, conditionMap = {}) {
   return (Array.isArray(rows) ? rows : [])
     .filter((row) => row?.slug)
+    .filter((row) => isLinkableEntity(row, kind))
     .map((row) => {
       const slug = slugify(row.slug)
       const conditionEntries = Array.isArray(conditionMap[slug]) ? conditionMap[slug] : []

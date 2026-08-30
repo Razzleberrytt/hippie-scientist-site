@@ -190,8 +190,8 @@ const steps = [
   },
   {
     name: 'build-internal-link-engine',
-    cmd: 'node scripts/data/build-internal-link-engine.mjs --data-dir=public/data',
-    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'public/data/runtime-manifests/route-manifest.json', 'app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}', 'data/goals.ts', 'scripts/data/build-internal-link-engine.mjs'],
+    cmd: 'npx tsx scripts/data/build-internal-link-engine.mjs --data-dir=public/data',
+    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'public/data/runtime-manifests/route-manifest.json', 'app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}', 'data/goals.ts', 'lib/runtime-visibility.ts', 'lib/deprecated-herb-canonicals.ts', 'lib/deprecated-compound-canonicals.ts', 'scripts/data/build-internal-link-engine.mjs'],
     outputs: ['public/data/runtime-maps/internal-link-map.json', 'public/data/runtime-maps/topic-clusters.json', 'docs/internal-link-map.md', 'docs/topic-clusters.md', 'docs/pages-needing-links.md'],
   },
   {
