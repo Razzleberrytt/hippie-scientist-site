@@ -24,13 +24,18 @@ const pack = {
 describe('distribution factual-copy unbound safety/regulatory lint', () => {
   it.each([
     'FDA approved',
+    'FDA approval',
+    'FDA-cleared',
     'Approved by the FDA',
+    'Cleared by the FDA',
     'No known drug interactions',
     'Interaction-free',
     'Safe during pregnancy',
+    'Safe while pregnant',
     'Pregnancy-safe',
     'Safe for children',
     'Non-habit-forming',
+    'Non-addictive',
     'Not addictive',
   ])('rejects safety or regulatory label text that bypasses governed provenance: %s', (text) => {
     const errors = validateFactualAssetCopy(pack, {
