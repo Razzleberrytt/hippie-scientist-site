@@ -92,6 +92,10 @@ function assertLifecycleRecord(record) {
   }
 }
 
+function hasLivePublishedReceipt(record) {
+  return Boolean(record?.receipts?.some((receipt) => receipt.state === 'published' && receipt.dryRun === false))
+}
+
 export function reconcileDistributionLifecycleIdentity(record, currentIdentity, {
   now = new Date().toISOString(),
 } = {}) {
@@ -143,8 +147,9 @@ export function transitionDistributionLifecycle(record, nextState, {
 } = {}) {
   assertLifecycleRecord(record)
   const reconciled = reconcileDistributionLifecycleIdentity(record, currentIdentity, { now })
-  if (reconciled.state === 'invalid') return reconciled
-  assertTransition(reconciled, nextState)
+  const staleLiveWithdrawal = reconciled.state === 'invalid' && nextState === 'withdrawn' && hasLivePublishedReceipt(reconciled)
+  if (reconciled.state === 'invalid' && !staleLiveWithdrawal) return reconciled
+  if (!staleLiveWithdrawal) assertTransition(reconciled, nextState)
 
   const next = structuredClone(reconciled)
   next.updatedAt = now
