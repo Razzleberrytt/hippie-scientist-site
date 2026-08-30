@@ -63,7 +63,33 @@ const dataEligible = profiles.filter(
   ({ record }) => String(record.indexability_status || '').toUpperCase() === 'PUBLISH',
 ).length
 
-const governed = manifest
+/**
+ * Profile routes in the manifest the deploy actually builds the sitemap from.
+ *
+ * This replaced publication-manifest.json as the governed stage once it became
+ * clear nothing ships that file. scripts/build-deploy.mjs regenerates the whole
+ * data pipeline from the workbook and never runs
+ * build-publication-manifest-from-workbook.mjs, and no consumer exists under
+ * app/, lib/, components/ or scripts/data/. Reporting it as a funnel stage
+ * invited exactly one conclusion — that 96 publishable profiles were being
+ * dropped — from an artifact that has no bearing on what gets indexed.
+ */
+function routeManifestProfileCount() {
+  const routes = readJson('public/data/runtime-manifests/route-manifest.json')
+  if (!Array.isArray(routes)) return null
+  const profiles = routes
+    .map((entry) => String(entry?.route ?? ''))
+    .filter((route) => /^\/(herbs|compounds)\/[^/]+\/?$/u.test(route))
+  return new Set(profiles).size
+}
+const governed = routeManifestProfileCount()
+
+/**
+ * publication-manifest.json, kept in view as an artifact rather than a stage.
+ * It is stale and unconsumed; saying so is more useful than either quoting it
+ * or quietly dropping it, because its number is plausible enough to be trusted.
+ */
+const orphanedManifestCount = manifest
   ? (manifest.entities?.herbs?.length ?? 0) + (manifest.entities?.compounds?.length ?? 0)
   : null
 
@@ -135,7 +161,7 @@ const coverage = manifestCoverage()
 const stages = [
   { label: 'authored profiles', count: authored, note: 'herbs.json + compounds.json' },
   { label: 'data says PUBLISH', count: dataEligible, note: 'indexability_status — pre-governance' },
-  { label: 'governed eligible', count: governed, note: 'publication-manifest.json' },
+  { label: 'in route manifest', count: governed, note: 'runtime-manifests/route-manifest.json' },
   { label: 'in emitted sitemap', count: inSitemap, note: 'out/sitemap.xml' },
 ]
 
@@ -163,23 +189,19 @@ if (dataEligible && inSitemap) {
   const pct = ((overstated / dataEligible) * 100).toFixed(1)
   console.log(
     `\n  indexability_status overstates the indexed corpus by ${overstated} profiles (${pct}%).` +
-      '\n  Plan from the sitemap or the governed manifest, not from that field.',
+      '\n  Plan from the sitemap or the route manifest, not from that field.',
   )
 }
 
-if (staleDays != null && staleDays > 7) {
+if (orphanedManifestCount != null) {
+  const detail = []
+  if (staleDays != null && staleDays > 7) detail.push(`${staleDays} days behind the data`)
+  if (coverage?.publishableButUnknown) detail.push(`missing ${coverage.publishableButUnknown} profiles marked PUBLISH`)
   console.log(
-    `\n  publication-manifest.json is ${staleDays} days older than the data it describes.` +
-      '\n  Its governed count refers to a different corpus; regenerate before quoting it.',
-  )
-}
-
-if (coverage && (coverage.namedButGone || coverage.publishableButUnknown)) {
-  console.log(
-    `\n  The manifest and the data disagree about which profiles exist:` +
-      `\n    ${coverage.namedButGone} named by the manifest are no longer in the data` +
-      `\n    ${coverage.publishableButUnknown} marked PUBLISH are absent from the manifest` +
-      '\n  Regenerate the manifest; the governed stage above is not describing this corpus.',
+    `\n  publication-manifest.json reports ${orphanedManifestCount} profiles` +
+      (detail.length ? ` and is ${detail.join(', ')}.` : '.') +
+      '\n  Nothing consumes it: build-deploy.mjs never regenerates it and no code reads it,' +
+      '\n  so that number describes nothing that ships. Do not plan from it.',
   )
 }
 
