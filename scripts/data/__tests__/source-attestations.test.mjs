@@ -8,6 +8,15 @@ import { describe, expect, it } from 'vitest'
  * nothing here pins one.
  */
 function runPrepare() {
+  // The held-source verification queue is intentionally generated rather than
+  // committed. Build it first so this test is self-contained on a clean CI
+  // checkout instead of depending on a developer's leftover ops/audit files.
+  execFileSync(process.execPath, ['scripts/data/report-held-source-verification-queue.mjs'], {
+    cwd: process.cwd(),
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+  })
+
   const stdout = execFileSync(process.execPath, ['scripts/data/prepare-source-attestations.mjs', '--json'], {
     cwd: process.cwd(),
     encoding: 'utf8',
