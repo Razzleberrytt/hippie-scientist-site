@@ -46,7 +46,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-No implementation ticket is currently recorded as active in this control snapshot. Admission remains governed by [CURRENT_SPRINT.md](CURRENT_SPRINT.md), the one-ticket-per-workstream rule, dependency/freshness checks, and the normal WIP cap. Research-only staging under the dedicated Research Enrichment Session contract remains separate from canonical implementation/promotion WIP.
+Admission remains governed by [CURRENT_SPRINT.md](CURRENT_SPRINT.md), the one-ticket-per-workstream rule, dependency/freshness checks, and the normal WIP cap. Research-only staging under the dedicated Research Enrichment Session contract remains separate from canonical implementation/promotion WIP.
+
+| ID | Title | WS/Lane | Status | Priority | Dependencies | Acceptance / proof boundary |
+|---|---|---|---|---|---|---|
+| #4715 / PR #4716 | First bounded governed distribution pilot | R / L5 | In Review | Sprint-ready dependency chain | Merged L1/L2/L4, #4406, #4407; current governed object and selector | Deterministic provenance-bound carousel package; dry-run lifecycle stops at scheduled; observation dates/value remain null/Unknown; no provider, credentials, spending or live publication |
 
 ## Next — ordered dependency queue
 

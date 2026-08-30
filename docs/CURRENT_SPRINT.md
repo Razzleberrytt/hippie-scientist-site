@@ -49,9 +49,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed implementation WIP 0/3
+## Active — observed implementation WIP 1/3
 
-No implementation ticket is currently recorded as active in this control snapshot. A numeric slot does not by itself admit work; `Ready next` dependency/workstream rules and any incident/control freeze still apply.
+| Workstream / lane | Issue / PR | Ticket | Status | Must prove before merge |
+|---|---|---|---|---|
+| R / L5 bounded pilot | #4715 / PR #4716 | First bounded governed distribution pilot | In Review | One provenance-bound deterministic carousel package; dry-run scheduled lifecycle only; future 28-day observation window remains null/Unknown; scoped regressions and hosted exact-head gates |
+
+Research-only Session F staging in PR #4673 does not mutate canonical content or publication authority and remains governed by its dedicated enrichment-session contract. It does not authorize additional Authority implementation or promotion work.
 
 ## Ready next — strict dependency order
 
