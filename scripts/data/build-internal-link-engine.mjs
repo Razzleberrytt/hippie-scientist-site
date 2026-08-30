@@ -246,68 +246,42 @@ async function goalRouteRecords() {
 }
 
 async function buildCompareRouteRecords() {
-  const readTsStringArray = async (relativePath, varName) => {
-    const filePath = path.join(ROOT, relativePath)
+  /**
+   * Compare pages that actually exist, read from the app directory.
+   *
+   * This was built from config/compare-combinations.ts plus two more lists —
+   * 615 slugs — and every one was emitted as `/compare/<slug>`. Neither half was
+   * right. Only one page lives under app/compare (on-demand); the real
+   * comparison pages are under app/guides/compare. So every generated href
+   * pointed at a route the build does not produce, and 595 of the slugs had no
+   * page under either prefix.
+   *
+   * A link engine cannot know which comparisons someone intends to write, so
+   * asking the filesystem what exists is the only answer that stays true as
+   * pages are added and removed.
+   */
+  const compareRoutes = new Map()
+  for (const [dir, prefix] of [['app/guides/compare', '/guides/compare'], ['app/compare', '/compare']]) {
+    let entries = []
     try {
-      const src = await fs.readFile(filePath, 'utf8')
-      const re = new RegExp(`export\\s+(?:const|type)\\s+${varName}[\\s\\S]*?=\\s*\\[([\\s\\S]*?)\\]`, 'm')
-      const m = src.match(re)
-      if (!m) {
-        const re2 = new RegExp(`const\\s+${varName}[\\s\\S]*?=\\s*\\[([\\s\\S]*?)\\]`, 'm')
-        const m2 = src.match(re2)
-        if (!m2) return []
-        const body = m2[1]
-        const items = []
-        const itemRe = /['"]([^'"]+)['"]/g
-        let im
-        while ((im = itemRe.exec(body)) !== null) {
-          if (im[1]) items.push(im[1])
-        }
-        return items
-      }
-      const body = m[1]
-      const items = []
-      const itemRe = /['"]([^'"]+)['"]/g
-      let im
-      while ((im = itemRe.exec(body)) !== null) {
-        if (im[1]) items.push(im[1])
-      }
-      return items
+      entries = await fs.readdir(path.join(ROOT, dir), { withFileTypes: true })
     } catch {
-      return []
+      continue
+    }
+    for (const entry of entries) {
+      // A dynamic segment cannot be enumerated, and a directory with no
+      // page.tsx is a grouping folder rather than a route.
+      if (!entry.isDirectory() || entry.name.startsWith('[')) continue
+      try {
+        await fs.access(path.join(ROOT, dir, entry.name, 'page.tsx'))
+      } catch {
+        continue
+      }
+      if (!compareRoutes.has(entry.name)) compareRoutes.set(entry.name, `${prefix}/${entry.name}`)
     }
   }
 
-  const readComparisonsJson = async () => {
-    const filePath = path.join(ROOT, 'data', 'comparisons.ts')
-    try {
-      const src = await fs.readFile(filePath, 'utf8')
-      const matches = [...src.matchAll(/slug:\s*['"]([^'"]+)['"]/g)]
-      return matches.map((m) => m[1])
-    } catch {
-      return []
-    }
-  }
-
-  const combinations = await readTsStringArray('config/compare-combinations.ts', 'COMPARE_COMBINATIONS')
-  const generated = await readTsStringArray('data/generated-comparisons.ts', 'generatedComparisons')
-  const comparisons = await readComparisonsJson()
-
-  // Static/custom compare pages under app/compare/
-  const staticCompareSlugs = [
-    'ashwagandha-vs-l-theanine-vs-magnesium',
-    'caffeine-vs-l-theanine-vs-bacopa-for-focus',
-    'curcumin-vs-boswellia-vs-omega-3',
-    'melatonin-vs-valerian-vs-magnesium-for-sleep',
-    'berberine-vs-metformin',
-    'kanna-vs-ssris',
-    'kava-vs-alcohol',
-    'sleep-herbs-vs-melatonin',
-  ]
-
-  const allSlugs = [...new Set([...combinations, ...generated, ...comparisons, ...staticCompareSlugs])]
-
-  return allSlugs.map((slug) => {
+  return [...compareRoutes].map(([slug, route]) => {
     // Determine title
     let title = `${titleize(slug)} Comparison`
     if (slug.includes('-vs-')) {
@@ -321,7 +295,7 @@ async function buildCompareRouteRecords() {
     const items = slug.split('-vs-').flatMap((part) => part.split('-for-')[0].split('-'))
 
     return routeRecord({
-      route: `/compare/${slug}`,
+      route,
       type: 'guide',
       title,
       signals: [...items, slug, slug.replace(/-/g, ' ')],
@@ -330,8 +304,17 @@ async function buildCompareRouteRecords() {
   })
 }
 
+/**
+ * Comparison pages live under /guides/compare/; only /compare/on-demand sits at
+ * the bare prefix. Both forms have to satisfy this, or the scoring below stops
+ * recognising a comparison the moment the route source was corrected.
+ */
+function isCompareRoute(route) {
+  return route.startsWith('/compare/') || route.startsWith('/guides/compare/')
+}
+
 function parseCompareRouteSlugs(route) {
-  if (!route.startsWith('/compare/')) return []
+  if (!isCompareRoute(route)) return []
   const slug = route.split('/compare/')[1]
   if (!slug) return []
   const parts = slug.split('-vs-')
@@ -368,14 +351,14 @@ function scoreRelationship(source, target) {
   if (['/articles', '/compounds', '/goals', '/guides', '/herbs'].includes(target.route)) score -= 8
 
   // Boost compare pages vs their compared items
-  if (source.route.startsWith('/compare/')) {
+  if (isCompareRoute(source.route)) {
     const compared = parseCompareRouteSlugs(source.route)
     const targetSlug = routeSlug(target.route)
     if (compared.includes(targetSlug) || compared.some(item => targetSlug.includes(item) || item.includes(targetSlug))) {
       score += 50
     }
   }
-  if (target.route.startsWith('/compare/')) {
+  if (isCompareRoute(target.route)) {
     const compared = parseCompareRouteSlugs(target.route)
     const sourceSlug = routeSlug(source.route)
     if (compared.includes(sourceSlug) || compared.some(item => sourceSlug.includes(item) || item.includes(sourceSlug))) {
@@ -384,13 +367,13 @@ function scoreRelationship(source, target) {
   }
 
   // Boost compare pages vs their relevant goals
-  if (source.route.startsWith('/compare/') && target.route.startsWith('/goals/')) {
+  if (isCompareRoute(source.route) && target.route.startsWith('/goals/')) {
     const goalSlug = routeSlug(target.route)
     if (source.route.includes(goalSlug) || source.signals.includes(goalSlug) || source.clusters.includes(goalSlug)) {
       score += 45
     }
   }
-  if (target.route.startsWith('/compare/') && source.route.startsWith('/goals/')) {
+  if (isCompareRoute(target.route) && source.route.startsWith('/goals/')) {
     const goalSlug = routeSlug(source.route)
     if (target.route.includes(goalSlug) || target.signals.includes(goalSlug) || target.clusters.includes(goalSlug)) {
       score += 45

@@ -4,16 +4,9 @@ Priority clusters used by the internal link engine.
 
 ## ADHD
 - Signals: adhd, attention deficit, hyperactivity, executive function, focus, dopamine, iron, zinc, vitamin d
-- Pages: 229
+- Pages: 218
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
-- [Caffeine vs L Theanine](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus) (guide)
-- [Elderberry vs Vitamin D](/compare/elderberry-vs-vitamin-d) (guide)
-- [Magnesium vs Zinc](/compare/magnesium-vs-zinc) (guide)
-- [Vitamin C vs Zinc](/compare/vitamin-c-vs-zinc) (guide)
-- [Vitamin D vs Magnesium](/compare/vitamin-d-vs-magnesium) (guide)
-- [Vitamin D vs Vitamin D3](/compare/vitamin-d-vs-vitamin-d3) (guide)
-- [Vitamin D vs Vitamin K2](/compare/vitamin-d-vs-vitamin-k2) (guide)
-- [Vitamin D vs Zinc](/compare/vitamin-d-vs-zinc) (guide)
+- [Articles — Research Notes & Evidence Reviews](/articles) (static)
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
 - [Agaricus blazei](/compounds/agaricus-blazei) (compound)
 - [alpha-asarone](/compounds/alpha-asarone) (compound)
@@ -45,13 +38,18 @@ Priority clusters used by the internal link engine.
 - [Huperzine A](/compounds/huperzine-a) (compound)
 - [huperzine b](/compounds/huperzine-b) (compound)
 - [Hyaluronic Acid](/compounds/hyaluronic-acid) (compound)
+- [Hyperforin](/compounds/hyperforin) (compound)
+- [Iberogast](/compounds/iberogast) (compound)
+- [Iron](/compounds/iron) (compound)
+- [Krill Oil](/compounds/krill-oil) (compound)
+- [L Norvaline](/compounds/l-norvaline) (compound)
+- [L-theanine](/compounds/l-theanine) (compound)
+- [L-Tyrosine](/compounds/l-tyrosine) (compound)
 
 ## Anxiety
 - Signals: anxiety, anxious, calm, gaba, worry, nervous, relaxation
-- Pages: 827
+- Pages: 803
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
-- [Glycine vs Gaba](/compare/glycine-vs-gaba) (guide)
-- [L Theanine vs Gaba](/compare/l-theanine-vs-gaba) (guide)
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
 - [5-HTP](/compounds/5-htp) (compound)
@@ -89,28 +87,14 @@ Priority clusters used by the internal link engine.
 - [asiaticoside](/compounds/asiaticoside) (compound)
 - [aspalathin](/compounds/aspalathin) (compound)
 - [Astaxanthin](/compounds/astaxanthin) (compound)
+- [astragaloside iv](/compounds/astragaloside-iv) (compound)
+- [atractylenolide i](/compounds/atractylenolide-i) (compound)
 
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
-- Pages: 306
+- Pages: 278
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
-- [Apigenin vs Melatonin](/compare/apigenin-vs-melatonin) (guide)
-- [Ashwagandha Extract Ksm 66 vs Glycine Sleep](/compare/ashwagandha-extract-ksm-66-vs-glycine-sleep) (guide)
-- [Chamomile vs Valerian](/compare/chamomile-vs-valerian) (guide)
-- [Glycine vs Melatonin](/compare/glycine-vs-melatonin) (guide)
-- [Inositol Sleep vs Inositol Hexanicotinate](/compare/inositol-sleep-vs-inositol-hexanicotinate) (guide)
-- [Inositol vs Inositol Sleep](/compare/inositol-vs-inositol-sleep) (guide)
-- [L Theanine vs Valerian](/compare/l-theanine-vs-valerian) (guide)
-- [Lemon Balm vs Valerian](/compare/lemon-balm-vs-valerian) (guide)
-- [Magnesium vs Melatonin](/compare/magnesium-vs-melatonin) (guide)
-- [Melatonin Extended Release vs Melatonin](/compare/melatonin-extended-release-vs-melatonin) (guide)
-- [Melatonin vs 5 Htp](/compare/melatonin-vs-5-htp) (guide)
-- [Melatonin vs L Theanine](/compare/melatonin-vs-l-theanine) (guide)
-- [Melatonin vs Magnesium](/compare/melatonin-vs-magnesium) (guide)
-- [Melatonin vs Valerian](/compare/melatonin-vs-valerian) (guide)
-- [Melatonin vs Valerian](/compare/melatonin-vs-valerian-vs-magnesium-for-sleep) (guide)
-- [Sleep Herbs vs Melatonin](/compare/sleep-herbs-vs-melatonin) (guide)
-- [Valerian vs Passionflower](/compare/valerian-vs-passionflower) (guide)
+- [Best Supplements For Sleep](/articles/best-supplements-for-sleep) (article)
 - [5-HTP](/compounds/5-htp) (compound)
 - [alpha-asarone](/compounds/alpha-asarone) (compound)
 - [anethole](/compounds/anethole) (compound)
@@ -133,10 +117,26 @@ Priority clusters used by the internal link engine.
 - [Chamomile](/compounds/chamomile) (compound)
 - [citronellal](/compounds/citronellal) (compound)
 - [D Aspartic Acid](/compounds/d-aspartic-acid) (compound)
+- [Electrolyte Blend](/compounds/electrolyte-blend) (compound)
+- [Electrolyte Mix](/compounds/electrolyte-mix) (compound)
+- [Sodium electrolytes](/compounds/electrolytes-sodium) (compound)
+- [elemicin](/compounds/elemicin) (compound)
+- [Eleuthero Extract](/compounds/eleuthero-extract) (compound)
+- [farnesol](/compounds/farnesol) (compound)
+- [Fenugreek Extract](/compounds/fenugreek-extract) (compound)
+- [GABA Oral](/compounds/gaba) (compound)
+- [garcinol](/compounds/garcinol) (compound)
+- [Glutamine](/compounds/glutamine) (compound)
+- [Glycinate Magnesium Complex](/compounds/glycinate-magnesium-complex) (compound)
+- [Glycine](/compounds/glycine) (compound)
+- [Glycine Sleep Use](/compounds/glycine-sleep) (compound)
+- [Grape Seed Extract](/compounds/grape-seed-extract) (compound)
+- [HCG Diet](/compounds/hcg-diet) (compound)
+- [HMB](/compounds/hmb) (compound)
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
-- Pages: 555
+- Pages: 540
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [acetylshikonin](/compounds/acetylshikonin) (compound)
 - [Actein](/compounds/actein) (compound)
@@ -180,25 +180,9 @@ Priority clusters used by the internal link engine.
 
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
-- Pages: 702
+- Pages: 695
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
-- [Alpha Gpc vs Caffeine](/compare/alpha-gpc-vs-caffeine) (guide)
-- [Ashwagandha vs L Theanine](/compare/ashwagandha-vs-l-theanine) (guide)
-- [Ashwagandha vs L Theanine](/compare/ashwagandha-vs-l-theanine-vs-magnesium) (guide)
-- [Caffeine vs L Theanine](/compare/caffeine-vs-l-theanine) (guide)
-- [Caffeine vs L Theanine](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus) (guide)
-- [Caffeine vs Theanine](/compare/caffeine-vs-theanine) (guide)
-- [Creatine vs Caffeine](/compare/creatine-vs-caffeine) (guide)
-- [Glycine vs L Theanine](/compare/glycine-vs-l-theanine) (guide)
-- [Green Tea Extract vs Caffeine](/compare/green-tea-extract-vs-caffeine) (guide)
-- [L Theanine vs 5 Htp](/compare/l-theanine-vs-5-htp) (guide)
-- [L Theanine vs Gaba](/compare/l-theanine-vs-gaba) (guide)
-- [L Theanine vs Magnesium](/compare/l-theanine-vs-magnesium) (guide)
-- [L Theanine vs Passionflower](/compare/l-theanine-vs-passionflower) (guide)
-- [L Theanine vs Taurine](/compare/l-theanine-vs-taurine) (guide)
-- [L Theanine vs Valerian](/compare/l-theanine-vs-valerian) (guide)
-- [Magnesium vs L Theanine](/compare/magnesium-vs-l-theanine) (guide)
-- [Melatonin vs L Theanine](/compare/melatonin-vs-l-theanine) (guide)
+- [Articles — Research Notes & Evidence Reviews](/articles) (static)
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
 - [5-HTP](/compounds/5-htp) (compound)
@@ -221,6 +205,22 @@ Priority clusters used by the internal link engine.
 - [American Ginseng Extract](/compounds/american-ginseng-extract) (compound)
 - [Anandamide](/compounds/anandamide) (compound)
 - [Andrographis](/compounds/andrographis) (compound)
+- [Arabinoxylan](/compounds/arabinoxylan) (compound)
+- [artemisinin](/compounds/artemisinin) (compound)
+- [artemisinin b](/compounds/artemisinin-b) (compound)
+- [artesunate](/compounds/artesunate) (compound)
+- [Artichoke Extract](/compounds/artichoke-extract) (compound)
+- [Ashitaba Extract](/compounds/ashitaba-extract) (compound)
+- [asiatic acid](/compounds/asiatic-acid) (compound)
+- [asiaticoside](/compounds/asiaticoside) (compound)
+- [atractylenolide i](/compounds/atractylenolide-i) (compound)
+- [atractylenolide ii](/compounds/atractylenolide-ii) (compound)
+- [atractylenolide iii](/compounds/atractylenolide-iii) (compound)
+- [Bacopa extract standardized](/compounds/bacopa-extract-bacoside-standardized) (compound)
+- [bacopaside ii](/compounds/bacopaside-ii) (compound)
+- [bacoside a](/compounds/bacoside-a) (compound)
+- [bacoside b](/compounds/bacoside-b) (compound)
+- [Beetroot nitrate](/compounds/beetroot-nitrate) (compound)
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
@@ -268,15 +268,7 @@ Priority clusters used by the internal link engine.
 
 ## Gut Health
 - Signals: gut, digestive, microbiome, probiotic, prebiotic, fiber, bloating
-- Pages: 137
-- [Aloe Vera vs Probiotic Strain Bifidobacterium](/compare/aloe-vera-vs-probiotic-strain-bifidobacterium) (guide)
-- [Ginger vs Digestive Enzymes](/compare/ginger-vs-digestive-enzymes) (guide)
-- [Probiotic Strain Bifidobacterium vs Probiotic Multistrain](/compare/probiotic-strain-bifidobacterium-vs-probiotic-multistrain) (guide)
-- [Probiotic Strain Bifidobacterium vs Probiotic Strain Lactobacillus](/compare/probiotic-strain-bifidobacterium-vs-probiotic-strain-lactobacillus) (guide)
-- [Probiotic Strain Bifidobacterium vs Probiotics](/compare/probiotic-strain-bifidobacterium-vs-probiotics) (guide)
-- [Probiotic Strain Bifidobacterium vs Probiotics Bifidobacterium](/compare/probiotic-strain-bifidobacterium-vs-probiotics-bifidobacterium) (guide)
-- [Probiotic Strain Bifidobacterium vs Probiotics Lactobacillus](/compare/probiotic-strain-bifidobacterium-vs-probiotics-lactobacillus) (guide)
-- [Probiotic Strain Lactobacillus vs Probiotic Multistrain](/compare/probiotic-strain-lactobacillus-vs-probiotic-multistrain) (guide)
+- Pages: 116
 - [Acarbose](/compounds/acarbose) (compound)
 - [anethole](/compounds/anethole) (compound)
 - [Arabinoxylan](/compounds/arabinoxylan) (compound)
@@ -309,13 +301,18 @@ Priority clusters used by the internal link engine.
 - [loganin](/compounds/loganin) (compound)
 - [magnesium citrate](/compounds/magnesium-citrate) (compound)
 - [MCT Oil](/compounds/mct-oil) (compound)
+- [momordicoside k](/compounds/momordicoside-k) (compound)
+- [morroniside](/compounds/morroniside) (compound)
+- [Oral rehydration salts](/compounds/oral-rehydration-salts) (compound)
+- [Papain](/compounds/papain) (compound)
+- [Peppermint Oil](/compounds/peppermint-oil) (compound)
+- [Plant Sterols](/compounds/plant-sterols) (compound)
+- [Probiotic Multistrain](/compounds/probiotic-multistrain) (compound)
+- [Bifidobacterium Probiotic](/compounds/probiotic-strain-bifidobacterium) (compound)
 
 ## Longevity
 - Signals: longevity, aging, nad, sirtuin, mitochondrial, cellular health
-- Pages: 162
-- [Fisetin vs Nad Plus](/compare/fisetin-vs-nad-plus) (guide)
-- [Fisetin vs Nadh](/compare/fisetin-vs-nadh) (guide)
-- [Nad Plus vs Nadh](/compare/nad-plus-vs-nadh) (guide)
+- Pages: 169
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
 - [acetylshikonin](/compounds/acetylshikonin) (compound)
 - [acteoside](/compounds/acteoside) (compound)
@@ -353,11 +350,13 @@ Priority clusters used by the internal link engine.
 - [Creatine + Beta-Alanine](/compounds/creatine-beta-alanine) (compound)
 - [Creatine HCl](/compounds/creatine-hcl) (compound)
 - [Creatine monohydrate](/compounds/creatine-monohydrate) (compound)
+- [crocetin](/compounds/crocetin) (compound)
+- [crocin](/compounds/crocin) (compound)
+- [curcumol](/compounds/curcumol) (compound)
 
 ## Inflammation
 - Signals: inflammation, anti-inflammatory, nf-kb, cox, oxidative, immune
-- Pages: 544
-- [Alpha Lipoic Acid vs Fucoxanthin](/compare/alpha-lipoic-acid-vs-fucoxanthin) (guide)
+- Pages: 539
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
 - [Acarbose](/compounds/acarbose) (compound)
@@ -397,19 +396,11 @@ Priority clusters used by the internal link engine.
 - [atractylenolide ii](/compounds/atractylenolide-ii) (compound)
 - [atractylenolide iii](/compounds/atractylenolide-iii) (compound)
 - [aucubin](/compounds/aucubin) (compound)
+- [Bacopa extract standardized](/compounds/bacopa-extract-bacoside-standardized) (compound)
 
 ## Metabolic Health
 - Signals: metabolic, glucose, insulin, blood sugar, lipid, weight, berberine
-- Pages: 363
-- [Alpha Lipoic Acid vs Berberine Hcl](/compare/alpha-lipoic-acid-vs-berberine-hcl) (guide)
-- [Artichoke Extract vs Berberine](/compare/artichoke-extract-vs-berberine) (guide)
-- [Artichoke Extract vs Berberine Hcl](/compare/artichoke-extract-vs-berberine-hcl) (guide)
-- [Berberine vs Alpha Lipoic Acid](/compare/berberine-vs-alpha-lipoic-acid) (guide)
-- [Berberine vs Berberine Hcl](/compare/berberine-vs-berberine-hcl) (guide)
-- [Berberine vs Chromium](/compare/berberine-vs-chromium) (guide)
-- [Berberine vs Inositol](/compare/berberine-vs-inositol) (guide)
-- [Berberine vs Metformin](/compare/berberine-vs-metformin) (guide)
-- [Berberine vs Psyllium](/compare/berberine-vs-psyllium) (guide)
+- Pages: 354
 - [Acarbose](/compounds/acarbose) (compound)
 - [acetate](/compounds/acetate) (compound)
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
@@ -441,3 +432,12 @@ Priority clusters used by the internal link engine.
 - [Biotin](/compounds/biotin) (compound)
 - [bisdemethoxycurcumin](/compounds/bisdemethoxycurcumin) (compound)
 - [Black Seed Oil](/compounds/black-seed-oil) (compound)
+- [Boron](/compounds/boron) (compound)
+- [butyrate](/compounds/butyrate) (compound)
+- [cafestol](/compounds/cafestol) (compound)
+- [caffeic acid](/compounds/caffeic-acid) (compound)
+- [calcium d-glucarate](/compounds/calcium-d-glucarate) (compound)
+- [calycosin](/compounds/calycosin) (compound)
+- [Capsaicin](/compounds/capsaicin) (compound)
+- [carnosic acid](/compounds/carnosic-acid) (compound)
+- [carvacrol](/compounds/carvacrol) (compound)

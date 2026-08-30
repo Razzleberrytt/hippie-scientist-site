@@ -2,8 +2,8 @@
 https://www.thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue https://thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ 301
 https://www.thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ https://thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ 301
 https://www.thehippiescientist.net/ https://thehippiescientist.net/ 301
-https://www.thehippiescientist.net/guides/sleep-herbs-vs-melatonin https://thehippiescientist.net/guides/sleep/sleep-herbs-vs-melatonin/ 301
-https://www.thehippiescientist.net/guides/sleep-herbs-vs-melatonin/ https://thehippiescientist.net/guides/sleep/sleep-herbs-vs-melatonin/ 301
+https://www.thehippiescientist.net/guides/sleep-herbs-vs-melatonin https://thehippiescientist.net/guides/compare/sleep-herbs-vs-melatonin/ 301
+https://www.thehippiescientist.net/guides/sleep-herbs-vs-melatonin/ https://thehippiescientist.net/guides/compare/sleep-herbs-vs-melatonin/ 301
 https://www.thehippiescientist.net/guides/best-supplements-for-gut-health https://thehippiescientist.net/guides/best/supplements-for-gut-health/ 301
 https://www.thehippiescientist.net/guides/best-supplements-for-gut-health/ https://thehippiescientist.net/guides/best/supplements-for-gut-health/ 301
 https://www.thehippiescientist.net/guides https://thehippiescientist.net/guides/ 301
@@ -59,8 +59,8 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /natural-anxiolytics-beyond-ashwagandha/ /guides/anxiety/natural-anxiolytics-beyond-ashwagandha/ 301
 /psychedelic-adjacent-herbs /guides/other/psychedelic-adjacent-herbs/ 301
 /psychedelic-adjacent-herbs/ /guides/other/psychedelic-adjacent-herbs/ 301
-/sleep-herbs-vs-melatonin /guides/sleep/sleep-herbs-vs-melatonin/ 301
-/sleep-herbs-vs-melatonin/ /guides/sleep/sleep-herbs-vs-melatonin/ 301
+/sleep-herbs-vs-melatonin /guides/compare/sleep-herbs-vs-melatonin/ 301
+/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
 /compounds/coq10 /compounds/coenzyme-q10/ 301
 /compounds/coq10/ /compounds/coenzyme-q10/ 301
 /compounds/coenzyme-q10-ubiquinol /compounds/coenzyme-q10/ 301
@@ -361,3 +361,65 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /herbs/tyrosine/ /compounds/l-tyrosine/ 301
 /compounds/tyrosine /compounds/l-tyrosine/ 301
 /compounds/tyrosine/ /compounds/l-tyrosine/ 301
+
+# Sections that moved, found by scanning built pages for internal links that
+# resolve to neither a built page nor a route in the route manifest.
+# /education/* became /learn/*, /articles/* was reorganised under
+# /guides/<category>/*, and comparison pages live under /guides/compare/*.
+# Each target below was verified to exist as a built page.
+/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus /guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/ 301
+/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/ /guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/ 301
+/guides/sleep/sleep-herbs-vs-melatonin /guides/compare/sleep-herbs-vs-melatonin/ 301
+/guides/sleep/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
+/guides/adhd/l-theanine-vs-caffeine-for-focus /guides/focus/l-theanine-vs-caffeine-for-focus/ 301
+/guides/adhd/l-theanine-vs-caffeine-for-focus/ /guides/focus/l-theanine-vs-caffeine-for-focus/ 301
+/compare/melatonin-vs-valerian-vs-magnesium-for-sleep /guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/ 301
+/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/ /guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/ 301
+/education/how-focus-and-motivation-work /learn/how-focus-and-motivation-work/ 301
+/education/how-focus-and-motivation-work/ /learn/how-focus-and-motivation-work/ 301
+/articles/sleep-stack-magnesium-melatonin /guides/sleep/sleep-stack-magnesium-melatonin/ 301
+/articles/sleep-stack-magnesium-melatonin/ /guides/sleep/sleep-stack-magnesium-melatonin/ 301
+/articles/best-magnesium-for-sleep /guides/sleep/best-magnesium-for-sleep/ 301
+/articles/best-magnesium-for-sleep/ /guides/sleep/best-magnesium-for-sleep/ 301
+/articles/l-theanine-for-calm /guides/anxiety/l-theanine-for-calm/ 301
+/articles/l-theanine-for-calm/ /guides/anxiety/l-theanine-for-calm/ 301
+/articles/citicoline-for-adhd /guides/adhd/citicoline-for-adhd/ 301
+/articles/citicoline-for-adhd/ /guides/adhd/citicoline-for-adhd/ 301
+/articles/l-theanine-vs-caffeine-for-focus /guides/focus/l-theanine-vs-caffeine-for-focus/ 301
+/articles/l-theanine-vs-caffeine-for-focus/ /guides/focus/l-theanine-vs-caffeine-for-focus/ 301
+/articles/iron-ferritin-and-adhd /guides/adhd/iron-ferritin-and-adhd/ 301
+/articles/iron-ferritin-and-adhd/ /guides/adhd/iron-ferritin-and-adhd/ 301
+/education/cholinergic-system /learn/cholinergic-system/ 301
+/education/cholinergic-system/ /learn/cholinergic-system/ 301
+/guides/adhd/l-theanine-without-caffeine /guides/focus/l-theanine-without-caffeine/ 301
+/guides/adhd/l-theanine-without-caffeine/ /guides/focus/l-theanine-without-caffeine/ 301
+/articles/alpha-gpc-and-adhd /guides/adhd/alpha-gpc-and-adhd/ 301
+/articles/alpha-gpc-and-adhd/ /guides/adhd/alpha-gpc-and-adhd/ 301
+/articles/magnesium-types-for-sleep /guides/sleep/magnesium-types-for-sleep/ 301
+/articles/magnesium-types-for-sleep/ /guides/sleep/magnesium-types-for-sleep/ 301
+/compounds/curcumin /herbs/curcumin/ 301
+/compounds/curcumin/ /herbs/curcumin/ 301
+/guides/kratom-7oh-withdrawal-management /guides/other/kratom-7oh-withdrawal-management/ 301
+/guides/kratom-7oh-withdrawal-management/ /guides/other/kratom-7oh-withdrawal-management/ 301
+/guides/stress/best-adaptogens-for-stress /guides/anxiety/best-adaptogens-for-stress/ 301
+/guides/stress/best-adaptogens-for-stress/ /guides/anxiety/best-adaptogens-for-stress/ 301
+/compare/melatonin-vs-l-theanine /guides/compare/melatonin-vs-l-theanine/ 301
+/compare/melatonin-vs-l-theanine/ /guides/compare/melatonin-vs-l-theanine/ 301
+/compare/ashwagandha-vs-saffron /guides/compare/ashwagandha-vs-saffron/ 301
+/compare/ashwagandha-vs-saffron/ /guides/compare/ashwagandha-vs-saffron/ 301
+/education/why-fatigue-is-biologically-complex /learn/why-fatigue-is-biologically-complex/ 301
+/education/why-fatigue-is-biologically-complex/ /learn/why-fatigue-is-biologically-complex/ 301
+/articles/ashwagandha-for-adhd /guides/adhd/ashwagandha-for-adhd/ 301
+/articles/ashwagandha-for-adhd/ /guides/adhd/ashwagandha-for-adhd/ 301
+/articles/l-tyrosine-and-adhd /guides/adhd/l-tyrosine-and-adhd/ 301
+/articles/l-tyrosine-and-adhd/ /guides/adhd/l-tyrosine-and-adhd/ 301
+/guides/best-nootropics-for-focus /guides/focus/best-nootropics-for-focus/ 301
+/guides/best-nootropics-for-focus/ /guides/focus/best-nootropics-for-focus/ 301
+/compounds/7-hydroxymitragynine /articles/7-hydroxymitragynine/ 301
+/compounds/7-hydroxymitragynine/ /articles/7-hydroxymitragynine/ 301
+/guides/magnesium-for-sleep /guides/sleep/magnesium-for-sleep/ 301
+/guides/magnesium-for-sleep/ /guides/sleep/magnesium-for-sleep/ 301
+/compare/coptis-vs-phellodendron /guides/compare/coptis-vs-phellodendron/ 301
+/compare/coptis-vs-phellodendron/ /guides/compare/coptis-vs-phellodendron/ 301
+/guides/sleep-herbs-vs-melatonin /guides/compare/sleep-herbs-vs-melatonin/ 301
+/guides/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
