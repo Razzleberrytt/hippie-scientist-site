@@ -3,14 +3,26 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { selectDistributionOpportunity } from './opportunity-engine.mjs'
 import { DEMAND_SIGNAL_KEYS, validateOpportunitySignals } from './opportunity-signal-contract.mjs'
+import { applyFeedbackToSelection } from './apply-feedback-selection.mjs'
+import { assertValidFeedbackHistoryEnvelope } from './feedback-history-contract.mjs'
 
 const root = process.cwd()
 const objectsPath = path.resolve(process.argv[2] || 'data/distribution/research-objects.json')
 const signalsPath = path.resolve(process.env.DISTRIBUTION_OPPORTUNITY_SIGNALS || 'data/distribution/opportunity-signals.json')
+const feedbackPath = path.resolve(process.env.DISTRIBUTION_FEEDBACK_HISTORY || 'data/distribution/feedback-history.json')
 const outDir = path.resolve(process.env.DISTRIBUTION_OUTPUT || 'artifacts/distribution')
 
 function readJson(file, fallback) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
+}
+
+function readFeedbackHistory(file) {
+  if (!fs.existsSync(file)) return { present: false, history: [] }
+  let parsed
+  try { parsed = JSON.parse(fs.readFileSync(file, 'utf8')) } catch (error) {
+    throw new Error(`distribution feedback history is invalid JSON: ${error.message}`)
+  }
+  return { present: true, history: assertValidFeedbackHistoryEnvelope(parsed) }
 }
 
 function hasFiniteSignal(record, key) {
@@ -20,6 +32,7 @@ function hasFiniteSignal(record, key) {
 
 const objects = readJson(objectsPath, [])
 const signals = readJson(signalsPath, {})
+const feedbackInput = readFeedbackHistory(feedbackPath)
 if (!Array.isArray(objects)) throw new Error('research objects input must be an array')
 const signalValidation = validateOpportunitySignals(signals)
 if (!signalValidation.valid) throw new Error(`opportunity signal provenance invalid:\n- ${signalValidation.errors.join('\n- ')}`)
@@ -71,15 +84,26 @@ const signalEvidence = {
     : null,
 }
 
-const result = selectDistributionOpportunity(objects, signals)
+const feedbackEvidence = {
+  mode: feedbackInput.history.length ? 'observed-feedback' : 'waiting-for-qualified-observations',
+  source: feedbackInput.present ? path.relative(root, feedbackPath) : null,
+  feedbackFilePresent: feedbackInput.present,
+  recordCount: feedbackInput.history.length,
+  policy: 'Only normalized governed observation history may influence ranking. Attributable performance may re-rank already-eligible distribution opportunities only; it cannot change scientific eligibility, claims, evidence grades, safety, canonical destinations, or cross-platform attribution boundaries.',
+}
+
+const baseResult = selectDistributionOpportunity(objects, signals)
+const result = applyFeedbackToSelection(baseResult, feedbackInput.history)
 const output = {
   authority: path.relative(root, objectsPath),
   signals: signalEvidence.source,
   signalEvidence,
-  rule: 'Growth signals may rank eligible governed research objects but cannot make an ineligible scientific claim distributable.',
+  feedbackEvidence,
+  rule: 'Growth signals and governed performance feedback may rank eligible research objects but cannot make an ineligible scientific claim distributable.',
   ...result,
 }
 fs.mkdirSync(outDir, { recursive: true })
 fs.writeFileSync(path.join(outDir, 'opportunity-selection.json'), `${JSON.stringify(output, null, 2)}\n`)
-console.log(`[distribution] opportunity selection: ${result.status}${result.selected ? ` -> ${result.selected.id} (${result.selected.platform}, score ${result.selected.score})` : ''}`)
+console.log(`[distribution] opportunity selection: ${result.status}${result.selected ? ` -> ${result.selected.id} (${result.selected.platform}, base ${result.selected.score}, adjusted ${result.selected.feedbackAdjustedScore})` : ''}`)
 console.log(`[distribution] opportunity signal coverage: ${observedDemandFieldCount}/${expectedDemandFieldCount} demand fields (${signalEvidence.mode})`)
+console.log(`[distribution] feedback history: ${feedbackEvidence.recordCount} record(s) (${feedbackEvidence.mode})`)
