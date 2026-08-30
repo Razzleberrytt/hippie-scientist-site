@@ -21,6 +21,10 @@ function fixture() {
   fs.mkdirSync(path.join(verificationStateDir, 'nested'), { recursive: true })
   fs.writeFileSync(path.join(verificationStateDir, 'herbs.json'), '{"generated":"producer"}\n')
   fs.writeFileSync(path.join(verificationStateDir, 'nested', 'routes.json'), '{"routes":["/"]}\n')
+  // These real-world filename shapes deliberately sort differently under
+  // localeCompare versus JavaScript's canonical code-unit ordering.
+  fs.writeFileSync(path.join(verificationStateDir, 'entity-slug-aliases.json'), '{}\n')
+  fs.writeFileSync(path.join(verificationStateDir, 'entity_risk_tags.json'), '{}\n')
 
   const lockfilePath = path.join(root, 'package-lock.json')
   fs.writeFileSync(lockfilePath, '{"lockfileVersion":3}\n')
@@ -62,7 +66,7 @@ describe('governed static export receipt', () => {
     expect(verifyFixtureManifest({ manifest, ...fixtureState })).toMatchObject({
       fileCount: 3,
       htmlFileCount: 2,
-      verificationStateFileCount: 2,
+      verificationStateFileCount: 4,
       verificationStateHash: manifest.verificationState.stateHash,
     })
   })
