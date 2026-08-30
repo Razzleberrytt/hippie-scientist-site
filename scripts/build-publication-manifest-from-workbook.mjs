@@ -1,4 +1,30 @@
 #!/usr/bin/env node
+/**
+ * Build publication-manifest.json from the summary indexes.
+ *
+ * Run this ONLY on a data directory the governance overlay has already
+ * processed.
+ *
+ * The summary indexes in a fresh checkout are parser output: their
+ * indexability_status is what the workbook asserted, before
+ * apply-governance-overlay.mjs decides what may actually be published. Running
+ * this against that state produces a manifest that looks refreshed and
+ * overstates eligibility.
+ *
+ * That is not hypothetical. It was run standalone against committed data in
+ * #4916, which took the compound count from 112 to 181 and read as 69 profiles
+ * finally being recognised. The overlay puts the number back at 112: those 69
+ * are compounds the workbook proposes and governance withholds. The manifest
+ * had been 28 days old and correct; the refresh made it current and wrong.
+ *
+ * Correct order:
+ *   node scripts/data/apply-governance-overlay.mjs --data-dir=public/data
+ *   node scripts/build-publication-manifest-from-workbook.mjs
+ *
+ * The overlay rewrites ~190 data files, so regenerating this deliberately means
+ * regenerating the corpus too — which is why nothing in the build does it
+ * casually, and why the date on this file is a poor reason to touch it.
+ */
 
 import fs from 'node:fs'
 import path from 'node:path'

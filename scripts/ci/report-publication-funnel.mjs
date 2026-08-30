@@ -254,7 +254,9 @@ if (orphanedManifestCount != null) {
       (detail.length ? ` and is ${detail.join(', ')}.` : '.') +
       '\n  No build step regenerates it, yet ~15 reporting scripts read it, so it drifts' +
       '\n  silently and takes their output with it. Refresh it with' +
-      '\n  node scripts/build-publication-manifest-from-workbook.mjs before trusting those.',
+      '\n  Refreshing it means running apply-governance-overlay.mjs FIRST and then' +
+      '\n  build-publication-manifest-from-workbook.mjs. Building it from committed data' +
+      '\n  alone reads the pre-governance status and overstates what may be published.',
   )
 }
 
