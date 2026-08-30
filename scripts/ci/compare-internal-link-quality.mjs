@@ -125,6 +125,12 @@ function shareDependencies(worktree) {
   fs.symlinkSync(source, target, process.platform === 'win32' ? 'junction' : 'dir')
 }
 
+function buildInternalLinkMap(worktree) {
+  const tsxCli = path.join(worktree, 'node_modules', 'tsx', 'dist', 'cli.mjs')
+  if (!fs.existsSync(tsxCli)) throw new Error(`tsx CLI is missing in ${worktree}; install dependencies before regenerating internal links`)
+  run(process.execPath, [tsxCli, 'scripts/data/build-internal-link-engine.mjs'], worktree, { quiet: true })
+}
+
 function removeWorktree(dir) {
   if (!dir) return
   try {
@@ -142,8 +148,8 @@ try {
   shareDependencies(baseWorktree)
   shareDependencies(currentWorktree)
 
-  run(process.execPath, ['scripts/data/build-internal-link-engine.mjs'], baseWorktree, { quiet: true })
-  run(process.execPath, ['scripts/data/build-internal-link-engine.mjs'], currentWorktree, { quiet: true })
+  buildInternalLinkMap(baseWorktree)
+  buildInternalLinkMap(currentWorktree)
 
   const before = snapshot(readMap(baseWorktree))
   const after = snapshot(readMap(currentWorktree))
