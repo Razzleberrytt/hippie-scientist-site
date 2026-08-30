@@ -35,5 +35,16 @@ for (const assetType of ['infographic', 'carousel']) {
         ],
       })).toEqual([])
     })
+
+    it('keeps ordinary topical work labels nonfactual beside complete governed context', () => {
+      expect(validateFactualAssetCopy(pack, {
+        assetType,
+        lines: [
+          { role: 'label', text: 'Work stress' },
+          { role: 'claim', claimId: 'CLAIM_001', text: pack.claims[0].publicSafeStatement },
+          { role: 'uncertainty', uncertaintyId: 'UNCERTAINTY_001', text: pack.uncertainties[0].statement },
+        ],
+      })).toEqual([])
+    })
   })
 }
