@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// SEO-003 diagnostic trigger: behavior-neutral; close unmerged if exact-main schema policy is already green.
 import fs from 'node:fs'
 import path from 'node:path'
 
