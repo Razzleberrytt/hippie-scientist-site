@@ -73,6 +73,19 @@ describe('distribution publication integrity', () => {
     expect(validateDistributionPublicationIntegrity(pack, researchObject, { now: FIXED_NOW }).join('\n')).toMatch(/stale/i)
   })
 
+  it('rejects a stale self-consistent pack/canonical pair at the shared pack-consumption boundary', () => {
+    const researchObject = clone(canonical)
+    researchObject.publicationStatusCheckedAt = '2026-05-01'
+    const pack = buildDistributionPackFromResearchObject(canonical)
+    pack.source.publicationStatusCheckedAt = '2026-05-01'
+    pack.source.contentHash = hashResearchObject(researchObject)
+
+    expect(validateDistributionPack(pack, {
+      researchObjects: [researchObject],
+      now: FIXED_NOW,
+    }).map(({ message }) => message).join('\n')).toMatch(/stale/i)
+  })
+
   it.each([
     'expression-of-concern',
     'retracted',
@@ -108,6 +121,6 @@ describe('distribution publication integrity', () => {
     pack.source.publicationStatus = status
     pack.source.contentHash = hashResearchObject(researchObject)
 
-    expect(validateDistributionPack(pack, { researchObjects: [researchObject] }).map(({ message }) => message).join('\n')).toMatch(/schema|not eligible for distribution/i)
+    expect(validateDistributionPack(pack, { researchObjects: [researchObject], now: FIXED_NOW }).map(({ message }) => message).join('\n')).toMatch(/schema|not eligible for distribution/i)
   })
 })
