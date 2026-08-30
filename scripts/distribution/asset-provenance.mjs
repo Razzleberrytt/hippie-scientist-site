@@ -50,6 +50,7 @@ export function buildAssetProvenance({ mediaPack, renderer, templateVersion, cre
     creativeSpecHash: clean(creativeSpecHash) || null,
   })
   return {
+    packId: mediaPack.packId,
     sourceUrl: mediaPack.source.url,
     sourceContentHash: mediaPack.source.contentHash,
     factualProvenanceFingerprint: factualFingerprint,
