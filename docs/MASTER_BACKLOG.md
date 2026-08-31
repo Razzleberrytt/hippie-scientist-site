@@ -46,10 +46,10 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `0c667ca7bd9bf49279594e7df79a806cb4c1237a` on 2026-08-31 shows **0/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `1681666c3164d3beda696cd04427bf031c163523` on 2026-08-31 shows **1/3 normal implementation workstreams occupied**:
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **A — free:** #4784 / PR #4813 merged and closed, but no real governor lease is active; AUTH-001 / #4800 remains retired after PR #4803's current audit printed `AUTH_DUPLICATE_COUNT=0`.
+- **A — #4963 / PR #4964 active:** owner-authorized control-plane bridge for the already-governed persistent lease workflow and GitHub draft→ready transition. This is the smallest dependency-unlock repair for #4266 and stranded draft research; it must delegate to existing authorities and preserve every scientific/review/WIP/freshness/merge gate.
 - **D — free:** #4949 and #4951 are closed through merged PR #4952. The comparison discovery, core-hub sitemap/redirect alignment, and historical-audit tombstone repair are on `main`; post-merge release and deploy checks passed.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 and #4949 / #4951 / PR #4952 are merged/closed. No stale SEO item is admitted merely because Discovery/SEO is now free.
@@ -60,7 +60,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on real lease transaction** | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent capability merged in #4813, but main queue has no active lease; acquire/merge a state-only transaction, then run provenance/source review and revalidate source status | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
+| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on #4963 plus real lease transaction** | P1 evidence | 4/5/3/5/.75/3 | 75.0 | #4963 / PR #4964 must first make the existing persistent transaction workflow reachable from the connected execution path without creating a second writer; then acquire/merge a state-only lease, run provenance/source review, and revalidate source status | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
 | #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent governor lease path + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
@@ -76,8 +76,8 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | REV-003/REV-004 + evidence review |
 | REV-004 | Validate flagship disclosure/destinations | R | Blocked | 67.5 | REV-003 selected page |
 | AUTH-002 | Strengthen links to selected flagship | A | Blocked | 54.0 | REV-003 selected page |
-| #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on real governor lease | — | Persistent capability is merged; acquire and merge a valid state-only lease transaction before canonical owner migration |
-| #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on real governor lease | — | Persistent capability is merged; acquire and merge a valid state-only lease transaction before canonical owner/data migration |
+| #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner migration |
+| #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner/data migration |
 | #4014 | Enforce `main` branch protection/ruleset | O | Blocked external settings | — | Authorized repository settings action; documentation alone is not enforcement |
 | #4341 | Resolve recurring Cloudflare production deployment failure class | O | Blocked external logs | — | Inspect Cloudflare production logs/failed deployment class, then repair only if repository/config root cause is proven |
 
