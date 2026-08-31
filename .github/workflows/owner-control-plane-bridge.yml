@@ -1,0 +1,118 @@
+name: Owner Control Plane Bridge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/owner-control-plane-bridge.yml'
+      - 'scripts/ci/owner-control-plane-bridge.mjs'
+      - 'scripts/ci/owner-control-plane-bridge.test.mjs'
+      - 'scripts/enrichment-governor/lease-transaction.mjs'
+  issue_comment:
+    types: [created]
+
+concurrency:
+  group: owner-control-plane-bridge-${{ github.event_name }}-${{ github.event.issue.number || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  contract:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate owner control-plane bridge contract
+        run: node --test scripts/ci/owner-control-plane-bridge.test.mjs
+
+  governor:
+    if: >-
+      github.event_name == 'issue_comment' &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == github.repository_owner &&
+      startsWith(github.event.comment.body, '/governor ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Check out trusted default branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Parse and validate governor command
+        id: parse
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+        run: node scripts/ci/owner-control-plane-bridge.mjs parse-governor
+
+      - name: Dispatch canonical persistent governor transaction
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OPERATION: ${{ steps.parse.outputs.operation }}
+          LEASE_ID: ${{ steps.parse.outputs.lease_id }}
+          LEASE_OWNER: ${{ steps.parse.outputs.owner }}
+          LEASE_PURPOSE: ${{ steps.parse.outputs.purpose }}
+          LEASE_FILES: ${{ steps.parse.outputs.files }}
+          LEASE_ENTITIES: ${{ steps.parse.outputs.entities }}
+          LEASE_DISPOSITION: ${{ steps.parse.outputs.disposition }}
+        run: |
+          set -euo pipefail
+          gh workflow run enrichment-governor-transaction.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f "operation=$OPERATION" \
+            -f "lease_id=$LEASE_ID" \
+            -f "owner=$LEASE_OWNER" \
+            -f "purpose=$LEASE_PURPOSE" \
+            -f "files=$LEASE_FILES" \
+            -f "entities=$LEASE_ENTITIES" \
+            -f "disposition=$LEASE_DISPOSITION"
+
+  ready:
+    if: >-
+      github.event_name == 'issue_comment' &&
+      github.event.issue.pull_request != null &&
+      github.event.comment.user.login == github.repository_owner &&
+      github.event.comment.body == '/ready'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Check out trusted default branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate exact PR readiness transition
+        id: validate
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+        run: node scripts/ci/owner-control-plane-bridge.mjs validate-ready
+
+      - name: Use GitHub native draft-to-ready transition
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.validate.outputs.pr_number }}
+        run: |
+          set -euo pipefail
+          gh pr ready "$PR_NUMBER" --repo "$GITHUB_REPOSITORY"
