@@ -46,13 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `0f70ea16364c9a2aa33b68f218fba43d9174d552` on 2026-08-31 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `0c667ca7bd9bf49279594e7df79a806cb4c1237a` on 2026-08-31 shows **0/3 normal implementation workstreams occupied**:
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
 - **A — free:** #4784 / PR #4813 merged and closed, but no real governor lease is active; AUTH-001 / #4800 remains retired after PR #4803's current audit printed `AUTH_DUPLICATE_COUNT=0`.
-- **D — in review / blocked:** #4949 / PR #4950 owns the orphan-route repair on the existing comparison hub. The exact-head internal-link audit now reports `blockingOrphan=0`; merge is blocked by inherited sitemap completeness failures for `/evidence` and `/info` in the required release suite. Scope remains one direct discovery link, focused regression coverage, and exact-head build/output/SEO proof.
+- **D — free:** #4949 and #4951 are closed through merged PR #4952. The comparison discovery, core-hub sitemap/redirect alignment, and historical-audit tombstone repair are on `main`; post-merge release and deploy checks passed.
 
-Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 is merged/closed; #4949 / PR #4950 remains the in-review production-gate incident and no second Discovery/SEO item is admitted while it is blocked.
+Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 and #4949 / #4951 / PR #4952 are merged/closed. No stale SEO item is admitted merely because Discovery/SEO is now free.
 
 ## Next — ordered dependency queue
 
@@ -99,7 +99,8 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
-| #4731 / PR #4947 | Merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses are closed with focused regressions. Separate current-main orphan-route incident #4949 now owns Discovery/SEO WIP. |
+| #4949 / #4951 / PR #4952 | Merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored caffeine/L-theanine comparison discovery, added canonical `/evidence/` and `/info/` sitemap/redirect alignment, preserved historical audit exports with tombstones, and passed exact-head plus post-merge release/deploy checks. No traffic, ranking, indexing, analytics, or revenue outcome is inferred. |
+| #4731 / PR #4947 | Merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses are closed with focused regressions. The separate Discovery/SEO incident exposed afterward is retired above. |
 | #4730 / PR #4858 | Merged as `44b019fa1f67ead0538076944224243a098dbfde`; stale published or paused-but-live assets preserve the governed withdrawal/receipt path while stale non-live assets remain terminal-invalid. |
 | #4784 / PR #4813 | Merged as `1e8fae58a3499c9f6a79b4338e636244620ec629`; persistent least-privilege governor transactions are implemented. Main's queue has no active lease, so downstream canonical work remains gated. |
 | #4732 / PR #4734 | Merged as `4d26d1cfacb5fb577f9216b7fa116e006e7b0a0d`; bounded Metricool adapter capability exists, while provider configuration/credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown. |
