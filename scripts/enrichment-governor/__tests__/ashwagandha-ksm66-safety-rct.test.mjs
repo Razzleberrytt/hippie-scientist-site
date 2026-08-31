@@ -15,7 +15,7 @@ test('KSM-66 safety evidence preserves its exact short-term boundary and provena
   const source = registry.find(item => item.sourceId === SOURCE_ID)
   assert.ok(source)
   assert.equal(source.pmid, '41943502')
-  assert.equal(source.pmcid, 'PMC13436282')
+  assert.match(source.notes, /PMCID PMC13436282/)
   assert.equal(source.doi, '10.1002/ptr.70315')
   assert.match(source.notes, /root-only KSM-66/)
   assert.match(source.notes, /Shri Kartikeya Pharma/)

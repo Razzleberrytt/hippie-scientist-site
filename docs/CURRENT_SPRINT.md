@@ -51,6 +51,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Active / in review — observed implementation WIP 1/3
 
+| Workstream | Ticket | Owner | Status | Scope |
+|---|---|---|---|---|
+| A | #4266 / PR #4972 | Authority/Content | In review | Governed KSM-66 safety source, three calibrated normalized records, regenerated rollup, and exact regressions |
+
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
 - **Authority/Content:** #4266 is active in PR #4972 under governed entity lease `herb:ashwagandha`. Scope is limited to PMID 41943502 source registration, three calibrated normalized safety/boundary records, regenerated governed output, and exact regression coverage; no efficacy, general dosing, or broad long-term safety claim is authorized.
 - **Discovery/SEO:** free. #4949 and #4951 are closed; PR #4952 merged the comparison-hub discovery repair plus canonical `/evidence/` and `/info/` sitemap/redirect alignment. Post-merge release and deploy checks passed.
@@ -65,7 +69,6 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | **In review — PR #4972** | Governed lease is authoritative on main; merge only after source identity, formulation/population/duration/null/provenance regressions and every required exact-head check pass |
 
 Discovery/SEO is free after #4949 and #4951 closed through merged PR #4952. No stale SEO item is promoted merely to fill the slot; any future admission still requires current evidence and this queue.
 

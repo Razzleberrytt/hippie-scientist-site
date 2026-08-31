@@ -282,7 +282,6 @@
     "citationText": "Safety of 8-Week Administration With Ashwagandha (Withania somnifera) Root Extract in Adults With Stress and Anxiety. Phytother Res. 2026;40(8):5005-5015.",
     "doi": "10.1002/ptr.70315",
     "pmid": "41943502",
-    "pmcid": "PMC13436282",
     "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/41943502/",
     "language": "en",
     "evidenceClass": "human-clinical",
@@ -291,7 +290,7 @@
     "reliabilityTier": "tier-b",
     "reviewer": "site-swarm-integration",
     "reviewedAt": "2026-08-31T23:10:00.000Z",
-    "notes": "Randomized double-blind placebo-controlled multicenter/multinational safety study in 1002 adults aged 18-65 with borderline-to-moderate anxiety and elevated stress. The studied product was root-only KSM-66 extract standardized to >5% total withanolides and <0.1% withaferin A, 300 mg twice daily (600 mg/day) for eight weeks. No serious adverse events or significant between-group liver, renal, or hematologic laboratory changes were reported, but tolerability did not differ significantly (p=0.487), paired laboratory data were incomplete, biomarker depth and follow-up were limited, and recruitment was predominantly in India. This source does not establish comparative efficacy, exclude rare or longer-latency injury, or support other products, doses, durations, or populations. Shri Kartikeya Pharma supported the study; Ixoreal Biomed supplied KSM-66; authors declared no conflicts of interest.",
+    "notes": "PMCID PMC13436282. Randomized double-blind placebo-controlled multicenter/multinational safety study in 1002 adults aged 18-65 with borderline-to-moderate anxiety and elevated stress. The studied product was root-only KSM-66 extract standardized to >5% total withanolides and <0.1% withaferin A, 300 mg twice daily (600 mg/day) for eight weeks. No serious adverse events or significant between-group liver, renal, or hematologic laboratory changes were reported, but tolerability did not differ significantly (p=0.487), paired laboratory data were incomplete, biomarker depth and follow-up were limited, and recruitment was predominantly in India. This source does not establish comparative efficacy, exclude rare or longer-latency injury, or support other products, doses, durations, or populations. Shri Kartikeya Pharma supported the study; Ixoreal Biomed supplied KSM-66; authors declared no conflicts of interest.",
     "active": true
   }
 ]

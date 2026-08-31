@@ -46,7 +46,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `1681666c3164d3beda696cd04427bf031c163523` on 2026-08-31 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `7534f0cf278cf6628d0d082b4fcd2610ba3f757a` on 2026-08-31 shows **1/3 normal implementation workstreams occupied**:
+
+| Ticket | Title | Lane | Status |
+|---|---|---|---|
+| #4266 / PR #4972 | Review 2026 KSM-66 Ashwagandha safety RCT | A evidence | In review |
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
 - **A — #4266 / PR #4972 in review:** governed KSM-66 Ashwagandha safety review is the active Authority/Content workstream under lease `lease-4266-ashwagandha-safety-rct`; scope is one source identity, three calibrated normalized records, regenerated rollup, and exact regression coverage.
@@ -60,7 +64,6 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | **In review — PR #4972** | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Governed lease acquired and merged; exact-head source/normalized/governed/regression checks must pass before merge | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
 | #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent governor lease path + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
