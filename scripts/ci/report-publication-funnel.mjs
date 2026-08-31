@@ -213,7 +213,6 @@ const coverage = manifestCoverage()
 const stages = [
   { label: 'authored profiles', count: authored, note: 'herbs.json + compounds.json' },
   { label: 'data says PUBLISH', count: dataEligible, note: 'indexability_status — pre-governance' },
-  { label: 'in route manifest', count: governed, note: 'runtime-manifests/route-manifest.json' },
   { label: 'in emitted sitemap', count: inSitemap, note: 'out/sitemap.xml' },
 ]
 
@@ -236,12 +235,26 @@ for (const stage of stages) {
   previous = stage.count
 }
 
+// The route manifest is NOT a funnel stage, though it was reported as one until
+// the monotonic check caught the sitemap exceeding it. It is a governed subset
+// that excludes deprecated canonicals and non-renderable records, while the
+// sitemap also carries pages built from MDX and alias routes. The two describe
+// overlapping populations, not successive filters, so it is reported alongside
+// rather than between.
+if (governed != null && inSitemap != null) {
+  console.log(
+    `\n  route-manifest.json lists ${governed} profile routes against ${inSitemap} in the sitemap.` +
+      '\n  Neither contains the other: the manifest drops deprecated and withheld records,' +
+      '\n  the sitemap adds MDX and alias pages. Use the sitemap for what is indexed.',
+  )
+}
+
 if (dataEligible && inSitemap) {
   const overstated = dataEligible - inSitemap
   const pct = ((overstated / dataEligible) * 100).toFixed(1)
   console.log(
     `\n  indexability_status overstates the indexed corpus by ${overstated} profiles (${pct}%).` +
-      '\n  Plan from the sitemap or the route manifest, not from that field.',
+      '\n  Plan from out/sitemap.xml, which is what search engines receive.',
   )
 }
 

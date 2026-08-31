@@ -23,14 +23,40 @@ const parameterizedCanonicals = []
 const canonicalPathMismatches = []
 const canonicalSlashMismatches = []
 
+/**
+ * Metadata as the page actually ships it.
+ *
+ * The route manifest carries meta_title/meta_description only for routes built
+ * from data. A static app route gets its metadata from the page module's
+ * `export const metadata`, which never reaches the manifest, so its entry is
+ * blank — and reading the manifest alone reported the homepage, /herbs,
+ * /compounds and /goals as missing titles and descriptions they plainly have.
+ *
+ * Since this audit runs after the build, the rendered HTML is available and is
+ * the only source that reflects what search engines will see. The manifest is
+ * kept as the primary read (it is cheaper and covers unbuilt routes) with the
+ * HTML as the fallback.
+ */
+function htmlMetadata(routePath) {
+  const file = `out${routePath === '/' ? '' : routePath.replace(/\/+$/, '')}/index.html`
+  if (!fs.existsSync(file)) return null
+  const html = fs.readFileSync(file, 'utf8')
+  return {
+    title: (html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '').trim(),
+    description: (html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '').trim(),
+    canonical: (html.match(/<link rel="canonical" href="([^"]*)"/)?.[1] ?? '').trim(),
+  }
+}
+
 for (const r of routes) {
   const routePath = r.route || r.path || ''
   const normalizedRoute = routePath.length > 1 ? routePath.replace(/\/+$/, '') : routePath
   if (redirectSources.has(normalizedRoute)) continue
 
-  const title = (r.meta_title || '').trim()
-  const desc = (r.meta_description || '').trim()
-  const canonical = (r.canonical_url || r.url || '').trim()
+  const rendered = htmlMetadata(routePath)
+  const title = ((r.meta_title || '').trim() || rendered?.title || '').trim()
+  const desc = ((r.meta_description || '').trim() || rendered?.description || '').trim()
+  const canonical = ((r.canonical_url || r.url || '').trim() || rendered?.canonical || '').trim()
 
   if (title) byTitle.set(title, [...(byTitle.get(title) || []), routePath])
   else missingTitles.push(routePath)
@@ -88,8 +114,30 @@ if (
   canonicalPathMismatches.length ||
   canonicalSlashMismatches.length
 ) {
-  console.error('[metadata-audit] severe metadata or canonical issues found')
+  // "severe metadata or canonical issues found" was the entire output, which is
+  // unactionable: it names no route, and the report it writes is easy to miss.
+  // A failing gate that will not say what failed gets worked around, not fixed.
+  console.error('[metadata-audit] metadata or canonical issues found:\n')
+  const sections = [
+    ['duplicate titles', report.duplicateTitles.map((d) => `"${d.value}" on ${d.routes.join(', ')}`)],
+    ['duplicate descriptions', report.duplicateDescriptions.map((d) => `${d.routes.join(', ')}`)],
+    ['duplicate canonicals', report.duplicateCanonicals.map((d) => `${d.value} on ${d.routes.join(', ')}`)],
+    ['missing titles', missingTitles],
+    ['missing descriptions', missingDescriptions],
+    ['missing canonicals', missingCanonicals],
+    ['invalid canonical origins', invalidCanonicalOrigins.map((e) => `${e.route} -> ${e.canonical}`)],
+    ['parameterized canonicals', parameterizedCanonicals.map((e) => `${e.route} -> ${e.canonical}`)],
+    ['canonical path mismatches', canonicalPathMismatches.map((e) => `${e.route} -> ${e.canonical}`)],
+    ['canonical slash mismatches', canonicalSlashMismatches.map((e) => `${e.route} -> ${e.canonical}`)],
+  ]
+  for (const [label, entries] of sections) {
+    if (!entries.length) continue
+    console.error(`  ${label}: ${entries.length}`)
+    for (const entry of entries.slice(0, 10)) console.error(`    ${entry}`)
+    if (entries.length > 10) console.error(`    ... and ${entries.length - 10} more`)
+  }
+  console.error('\n  Full report: public/data/reports/metadata-audit-report.json')
   process.exit(1)
 }
 
-console.log('[metadata-audit] completed')
+console.log('[metadata-audit] completed — no duplicate or missing metadata')
