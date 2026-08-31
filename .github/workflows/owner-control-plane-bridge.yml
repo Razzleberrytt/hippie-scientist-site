@@ -6,7 +6,7 @@ on:
       - '.github/workflows/owner-control-plane-bridge.yml'
       - '.github/workflows/check.yml'
       - 'scripts/ci/owner-control-plane-bridge.mjs'
-      - 'scripts/ci/owner-control-plane-bridge.test.mjs'
+      - 'scripts/ci/owner-control-plane-bridge.contract.mjs'
       - 'scripts/enrichment-governor/lease-transaction.mjs'
   issue_comment:
     types: [created]
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 22
       - name: Validate owner control-plane bridge contract
-        run: node --test scripts/ci/owner-control-plane-bridge.test.mjs
+        run: node --test scripts/ci/owner-control-plane-bridge.contract.mjs
 
   governor:
     if: >-
