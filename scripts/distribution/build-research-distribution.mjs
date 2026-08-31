@@ -10,6 +10,7 @@ import path from 'node:path'
 import { buildLosslessCreativeSpec } from './creative-spec-lossless.mjs'
 import { buildDistributionPackFromResearchObject } from './build-distribution-pack.mjs'
 import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
+import { buildFeedNativeSocialPost } from './social-post-copy.mjs'
 
 const root = process.cwd()
 const inputPath = path.resolve(process.argv[2] || 'data/distribution/research-objects.json')
@@ -83,11 +84,11 @@ function buildClaimSafeCreativeSpec(object) {
 function buildChannels(o, seriesById) {
   const c = core(o)
   const series = seriesById.get(o.series)?.name || 'What the evidence actually says'
+  const socialPost = buildFeedNativeSocialPost(o)
   const xBody = `${o.title}: ${c.finding} ${c.evidence} ${c.limitation} ${c.destination}`
   const xFits = xBody.length <= 280
-  const caption = `${o.title}\n\n${c.finding}\n\n${c.evidence}\n${c.limitation}${c.dose ? `\n${c.dose}` : ''}\n\nRead the evidence page: ${c.destination}`
   const video = [
-    `HOOK: ${truncate(o.title, 90)}`,
+    `HOOK: ${socialPost.hook}`,
     `FINDING: ${c.finding}`,
     `EVIDENCE ON SCREEN: ${c.evidence}`,
     `CAVEAT: ${c.limitation}`,
@@ -113,6 +114,9 @@ function buildChannels(o, seriesById) {
       lastVerified: o.lastVerified,
       tags: Array.isArray(o.tags) ? o.tags : [],
     },
+    socialPost,
+    facebook: socialPost.text,
+    instagram: socialPost.text,
     x: xFits ? xBody : null,
     xStatus: xFits
       ? { status: 'ready', characterCount: xBody.length, characterLimit: 280 }
@@ -122,7 +126,6 @@ function buildChannels(o, seriesById) {
           characterLimit: 280,
           reason: 'The governed finding, evidence grade, limitation, and source do not fit losslessly in one X post. Manual compression requires a separately governed rewrite.',
         },
-    instagram: caption,
     shortVideo: video,
     youtubeShort: video,
     reddit: {
@@ -195,7 +198,7 @@ for (const { object, mediaPack, mediaPackArtifact, packageData } of prepared) {
   const jsonPath = path.join(outDir, `${object.id}.json`)
   fs.writeFileSync(jsonPath, `${JSON.stringify(packageData, null, 2)}\n`)
   const xSection = packageData.x || `BLOCKED: ${packageData.xStatus.reason}`
-  const md = `# ${object.title}\n\n**Status:** review required  \n**Series:** ${packageData.sharedFacts.series}  \n**Source:** ${object.sourceUrl}\n**Validated media pack:** ${mediaPackArtifact}\n\n## X\n\n${xSection}\n\n## Instagram\n\n${packageData.instagram}\n\n## Short video / YouTube Short\n\n${packageData.shortVideo}\n\n## Reddit contribution draft\n\n${packageData.reddit.guidance}\n\n${packageData.reddit.draft}\n\n## Email section\n\n${packageData.email.section}\n\n## Article brief\n\n${packageData.articleBrief.directAnswer}\n`
+  const md = `# ${object.title}\n\n**Status:** review required  \n**Series:** ${packageData.sharedFacts.series}  \n**Source:** ${object.sourceUrl}\n**Validated media pack:** ${mediaPackArtifact}\n\n## Facebook / Instagram\n\n${packageData.socialPost.text}\n\n## X\n\n${xSection}\n\n## Short video / YouTube Short\n\n${packageData.shortVideo}\n\n## Reddit contribution draft\n\n${packageData.reddit.guidance}\n\n${packageData.reddit.draft}\n\n## Email section\n\n${packageData.email.section}\n\n## Article brief\n\n${packageData.articleBrief.directAnswer}\n`
   fs.writeFileSync(path.join(outDir, `${object.id}.md`), md)
   manifest.push({
     id: object.id,
@@ -206,10 +209,12 @@ for (const { object, mediaPack, mediaPackArtifact, packageData } of prepared) {
     mediaPackId: mediaPack.packId,
     mediaPackStatus: 'validated',
     creativeSpecStatus: packageData.creativeSpec.claimSafetyStatus,
+    socialCopyVersion: packageData.socialPost.schemaVersion,
+    socialArchetype: packageData.socialPost.archetype,
     xStatus: packageData.xStatus.status,
     status: 'review-required',
   })
 }
 
 fs.writeFileSync(path.join(outDir, 'manifest.json'), `${JSON.stringify({ generatedAt: new Date().toISOString(), input: path.relative(root, inputPath), count: manifest.length, objects: manifest }, null, 2)}\n`)
-console.log(`[distribution] generated ${manifest.length} review-only distribution package(s) with validated media packs from ${path.relative(root, inputPath)}`)
+console.log(`[distribution] generated ${manifest.length} review-only distribution package(s) with feed-native social copy and validated media packs from ${path.relative(root, inputPath)}`)
