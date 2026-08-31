@@ -50,9 +50,9 @@ Live GitHub reconciliation at `0f70ea16364c9a2aa33b68f218fba43d9174d552` on 2026
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
 - **A — free:** #4784 / PR #4813 merged and closed, but no real governor lease is active; AUTH-001 / #4800 remains retired after PR #4803's current audit printed `AUTH_DUPLICATE_COUNT=0`.
-- **D — active:** #4949 owns the current release-blocking orphan-route repair on the existing comparison hub. Scope is one direct discovery link, focused regression coverage, and exact-head build/output/SEO proof.
+- **D — in review / blocked:** #4949 / PR #4950 owns the orphan-route repair on the existing comparison hub. The exact-head internal-link audit now reports `blockingOrphan=0`; merge is blocked by inherited sitemap completeness failures for `/evidence` and `/info` in the required release suite. Scope remains one direct discovery link, focused regression coverage, and exact-head build/output/SEO proof.
 
-Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 is merged/closed; #4949 is the active production-gate incident.
+Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 is merged/closed; #4949 / PR #4950 remains the in-review production-gate incident and no second Discovery/SEO item is admitted while it is blocked.
 
 ## Next — ordered dependency queue
 
