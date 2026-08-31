@@ -126,6 +126,8 @@ test('workflow is owner-only, serialized, main-trusted, and explicitly dispatche
   assert.match(workflow, /pull-requests:\s*write/)
   assert.match(workflow, /ref:\s*main/)
   assert.match(workflow, /gh workflow run enrichment-governor-transaction\.yml/)
+  assert.match(workflow, /TRANSACTION_ACTOR:\s*\$\{\{ github\.event\.comment\.user\.login \}\}/)
+  assert.match(workflow, /-f "actor=\$TRANSACTION_ACTOR"/)
   assert.match(workflow, /gh pr ready/)
   assert.match(workflow, /Verify transition preserved exact head and current main/)
   assert.match(workflow, /gh pr ready "\$PR_NUMBER" --undo/)
@@ -134,6 +136,14 @@ test('workflow is owner-only, serialized, main-trusted, and explicitly dispatche
   assert.match(workflow, /gh workflow run atomic-upgrade-gate\.yml/)
   assert.match(workflow, /gh workflow run build-quality-regression\.yml/)
   assert.doesNotMatch(workflow, /pull_request_target:/)
+})
+
+test('governor transaction workflow accepts explicit actor provenance without relaxing fallback validation', () => {
+  const workflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'enrichment-governor-transaction.yml'), 'utf8')
+  assert.match(workflow, /\n      actor:\n/)
+  assert.match(workflow, /Initiating human actor/)
+  assert.match(workflow, /TRANSACTION_ACTOR:\s*\$\{\{ inputs\.actor \}\}/)
+  assert.match(workflow, /Actor:\s*\\`\$\{\{ inputs\.actor \|\| github\.actor \}\}\\`/)
 })
 
 test('site health workflow binds recovery dispatch to the current PR head', () => {
