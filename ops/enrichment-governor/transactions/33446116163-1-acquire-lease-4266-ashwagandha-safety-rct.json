@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-08-31T22:25:43.678Z",
+  "operation": "acquire",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-integration",
+  "leaseId": "lease-4266-ashwagandha-safety-rct",
+  "purpose": "Evaluate 2026 KSM-66 Ashwagandha safety RCT under governed canonical review",
+  "files": [],
+  "entities": [
+    "herb:ashwagandha"
+  ],
+  "disposition": null,
+  "baseSha": "72ab08a726400878b71d7033401a3754f206d61c",
+  "before": {
+    "workQueueSha256": "5be1ec95bd28cc9525085d4561c1cd85cfab8beef811149cdb6cae616b687243",
+    "ledgerSha256": "d7423da390f5ff14abed49996192e6d3eb158ff797dc986c7f5b127dfdc21f8f"
+  },
+  "after": {
+    "workQueueSha256": "aea94f1d778a98003e7f03b45e02a8cc9ffb78e9879597fdeceb10a9350524ca",
+    "ledgerSha256": "f61fcff0500d719705b34a5d8b16d29fe30a22c9787330f680073227ef8e8e8b"
+  },
+  "result": {
+    "acquired": true,
+    "expiresAt": "2026-08-31T23:55:43.669Z"
+  },
+  "transactionCommitSha": null
+}
