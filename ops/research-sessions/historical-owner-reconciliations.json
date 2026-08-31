@@ -130,6 +130,36 @@
       "disposition": "historical_foreign_owner",
       "reason": "Current canonical authority resolves the plural BCAAs token to BCAA. Preserve Session H provenance while treating canonical ownership as shard 1.",
       "submissionIds": ["sub_h-bcaas-diabetes-source-conflict", "sub_h-bcaas-doms-context-specific-signal", "sub_h-bcaas-damage-markers-soreness-signal", "sub_h-bcaas-performance-recovery-null", "sub_h-bcaas-ck-doms-vs-ldh-meta", "sub_h-bcaas-endurance-performance-fatigue-null"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-08-29-exhaustive-integrity-batch.json",
+      "submitted": { "workpackId": "wp_herb_berberis_aristata", "entityType": "herb", "entitySlug": "berberis-aristata" },
+      "canonical": { "workpackId": "wp_herb_berberis", "entityType": "herb", "entitySlug": "berberis", "shard": 5 },
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current canonical authority resolves historical Berberis aristata profile identity to Berberis. Preserve the committed Session A fragment as provenance while using canonical Berberis identity for shard ownership and finding dedupe.",
+      "submissionIds": ["sub_session-a-berberis-combination-mixed-20260829"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-08-29-exhaustive-integrity-batch.json",
+      "submitted": { "workpackId": "wp_herb_atractylodes_macrocephala", "entityType": "herb", "entitySlug": "atractylodes-macrocephala" },
+      "canonical": { "workpackId": "wp_herb_atractylodes", "entityType": "herb", "entitySlug": "atractylodes", "shard": 1 },
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current canonical authority resolves historical Atractylodes macrocephala profile identity to Atractylodes. Preserve the committed Session A fragment as provenance while using canonical Atractylodes identity for shard ownership and finding dedupe.",
+      "submissionIds": ["sub_session-a-atractylodes-lactone-isolate-20260829", "sub_session-a-atractylodes-human-safety-gap-20260829"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-c/2026-08-30-valerian-sleep-conflict.json",
+      "submitted": { "workpackId": "wp_herb_valeriana_officinalis", "entityType": "herb", "entitySlug": "valeriana-officinalis" },
+      "canonical": { "workpackId": "wp_herb_valerian", "entityType": "herb", "entitySlug": "valerian", "shard": 3 },
+      "historicalSessionId": "C",
+      "historicalShard": 2,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current canonical authority resolves historical Valeriana officinalis profile identity to Valerian. Preserve the committed Session C fragment as provenance while using canonical Valerian identity for shard ownership and finding dedupe.",
+      "submissionIds": ["sub_session-c-valerian-umbrella-insomnia-null-20260830", "sub_session-c-valerian-standardized-extract-rct-20260830", "sub_session-c-valerian-mechanism-outcome-boundary-20260830", "sub_session-c-valerian-cyp-pk-limited-20260830"]
     }
   ]
 }
