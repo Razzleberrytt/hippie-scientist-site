@@ -5,7 +5,7 @@
 **Updated:** 2026-08-31
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `7534f0cf278cf6628d0d082b4fcd2610ba3f757a` on 2026-08-31 records 1/3 normal implementation workstreams occupied. Authority/Content is occupied by #4266 under active governed lease `lease-4266-ashwagandha-safety-rct`; the source-registry, normalized-ledger, generated-rollup, regression, and exact-head review path is in progress in PR #4972. Revenue/Conversion and Discovery/SEO remain free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
+**Current admission:** Live GitHub reconciliation at `4510f4c7966f3f92a9f0ad4275ef004c7c831083` on 2026-08-31 records 0/3 normal implementation workstreams occupied. #4266 / PR #4972 is merged/closed and retired from active Authority/Content WIP; Revenue/Conversion, Authority/Content, and Discovery/SEO are free. PR #4976 released the governed Ashwagandha lease through the state-only transaction path. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,14 +49,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — observed implementation WIP 1/3
+## Active / in review — observed implementation WIP 0/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| A | #4266 / PR #4972 | Authority/Content | In review | Governed KSM-66 safety source, three calibrated normalized records, regenerated rollup, and exact regressions |
 
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **Authority/Content:** #4266 is active in PR #4972 under governed entity lease `herb:ashwagandha`. Scope is limited to PMID 41943502 source registration, three calibrated normalized safety/boundary records, regenerated governed output, and exact regression coverage; no efficacy, general dosing, or broad long-term safety claim is authorized.
+- **Authority/Content:** free. #4266 / PR #4972 is merged/closed; the KSM-66 safety source, three calibrated normalized records, governed rollup, and exact regression are on `main`, while efficacy, general dosing, and broad long-term safety claims remain out of scope.
 - **Discovery/SEO:** free. #4949 and #4951 are closed; PR #4952 merged the comparison-hub discovery repair plus canonical `/evidence/` and `/info/` sitemap/redirect alignment. Post-merge release and deploy checks passed.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
@@ -116,6 +115,7 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#4266 / PR #4972:** merged as `8aba655daae2aba8d07cd2ba6f32ed52f8f3b498`; registered PMID 41943502 / DOI 10.1002/ptr.70315, added three formulation- and population-bounded KSM-66 safety records, regenerated the governed rollup, and added exact regression coverage without creating an efficacy or general-dose claim. All required exact-head checks passed; PR #4976 subsequently released the governed lease. The optional Cloudflare preview remained in progress at merge and no production outcome is inferred.
 - **#4949 / #4951 / PR #4952:** merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored direct comparison-hub discovery for the caffeine/L-theanine route, aligned canonical `/evidence/` and `/info/` hubs with sitemap and redirect ownership, and preserved historical audit exports with canonical-source tombstones. Exact-head and post-merge required checks, Cloudflare Pages, and deploy passed. This proves deterministic crawl/release recovery, not traffic, ranking, indexing, analytics, or revenue outcomes.
 - **#4731 / PR #4947:** merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; the factual-copy validator closes the scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses with focused rejection/nonfactual controls. The separate Discovery/SEO incident later exposed by post-merge output verification is retired above.
 - **#4730 / PR #4858:** merged as `44b019fa1f67ead0538076944224243a098dbfde`; stale published or paused-but-live assets retain a governed withdrawal path and receipt while stale non-live assets remain terminal-invalid. The reopened issue is closed complete.
@@ -127,7 +127,7 @@ The sprint exits only when all of the following are true or have a precise exter
 - **#4717 / PR #4718:** merged as `97c877513da12137ba666451fff5f6c4f691c483`; accessible vertical-video motion is bounded to calm allowlisted transitions with an explicit zero-motion fallback. This is not live video publication or completion of the deferred encoding boundary.
 - **#4715 / PR #4716:** merged as `f06b1d400b465c3997121e2af49b7d3eafc3b503`; the first provenance-bound carousel pilot completes dry-run scheduling only. Live publication remains unauthorized and the future 28-day observation window/value remain null/Unknown.
 - **#4651 / PR #4673:** merged as `058326df0f27685072047c465a7b86729bb51b2d`; Session F staging added six append-only research fragments and made zero canonical/public scientific mutations.
-- **PR #4631:** merged as `13d80681e32ff95a919651f1d0a4068fc972edee`; #4266 research is staged, not promoted, and the canonical governed review/lease boundary remains open.
+- **PR #4631:** merged as `13d80681e32ff95a919651f1d0a4068fc972edee`; it staged the research boundaries later reviewed and promoted through completed #4266 / PR #4972.
 
 - **#4227 / PR #4523:** merged as `9f1a4fe26e7a6caab56de07c5a0f25b2f39c6f15`; exact-head governed static-export reuse is complete and no longer a fallback candidate.
 - **#4415 / PR #4492:** merged as `23dc2485720ff6b31043413b2b9295c4886944cb`. Final-head CI passed 2,866 tests across 593 files, real production build/output/SEO, and 42 focused economics regressions ([CI proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431644), [focused proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431712)). Repaired files verified on main; four review findings resolved after evidence review. Real efficiency observations remain Unknown.

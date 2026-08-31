@@ -46,14 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `7534f0cf278cf6628d0d082b4fcd2610ba3f757a` on 2026-08-31 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `4510f4c7966f3f92a9f0ad4275ef004c7c831083` on 2026-08-31 shows **0/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #4266 / PR #4972 | Review 2026 KSM-66 Ashwagandha safety RCT | A evidence | In review |
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **A — #4266 / PR #4972 in review:** governed KSM-66 Ashwagandha safety review is the active Authority/Content workstream under lease `lease-4266-ashwagandha-safety-rct`; scope is one source identity, three calibrated normalized records, regenerated rollup, and exact regression coverage.
+- **A — free:** #4266 / PR #4972 is merged/closed; the governed KSM-66 safety source, three calibrated records, regenerated rollup, and exact regression are on `main`.
 - **D — free:** #4949 and #4951 are closed through merged PR #4952. The comparison discovery, core-hub sitemap/redirect alignment, and historical-audit tombstone repair are on `main`; post-merge release and deploy checks passed.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 and #4949 / #4951 / PR #4952 are merged/closed. No stale SEO item is admitted merely because Discovery/SEO is now free.
@@ -102,6 +101,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4266 / PR #4972 | Merged as `8aba655daae2aba8d07cd2ba6f32ed52f8f3b498`; registered PMID 41943502 / DOI 10.1002/ptr.70315, added three formulation- and population-bounded KSM-66 safety records, regenerated governed output, and added an exact no-overclaim regression. All required exact-head checks passed, and PR #4976 released the governed lease; no efficacy, general-dose, traffic, analytics, or business outcome is inferred. |
 | #4949 / #4951 / PR #4952 | Merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored caffeine/L-theanine comparison discovery, added canonical `/evidence/` and `/info/` sitemap/redirect alignment, preserved historical audit exports with tombstones, and passed exact-head plus post-merge release/deploy checks. No traffic, ranking, indexing, analytics, or revenue outcome is inferred. |
 | #4731 / PR #4947 | Merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses are closed with focused regressions. The separate Discovery/SEO incident exposed afterward is retired above. |
 | #4730 / PR #4858 | Merged as `44b019fa1f67ead0538076944224243a098dbfde`; stale published or paused-but-live assets preserve the governed withdrawal/receipt path while stale non-live assets remain terminal-invalid. |
@@ -113,7 +113,7 @@ These are capability proofs, not claims of business impact.
 | #4717 / PR #4718 | Merged as 97c877513da12137ba666451fff5f6c4f691c483 — accessible vertical-video motion contract with fail-closed primitives and zero-motion fallback; no live publication or completed encoder implied |
 | #4715 / PR #4716 | Merged as f06b1d400b465c3997121e2af49b7d3eafc3b503 — first provenance-bound carousel pilot completes dry-run scheduling only; observed dates/value remain null/Unknown |
 | #4651 / PR #4673 | Merged as 058326df0f27685072047c465a7b86729bb51b2d — six append-only Session F research fragments; zero canonical/public scientific mutations |
-| PR #4631 | Merged as 13d80681e32ff95a919651f1d0a4068fc972edee — #4266 research boundaries staged; canonical governor lease/review and promotion remain open |
+| PR #4631 | Merged as 13d80681e32ff95a919651f1d0a4068fc972edee — research boundaries staged for the later completed #4266 / PR #4972 review and promotion |
 | #4227 / PR #4523 | Merged as 9f1a4fe26e7a6caab56de07c5a0f25b2f39c6f15 — exact-head governed static-export reuse; removed from `Next` |
 | #4415 / PR #4492 | Merged as 23dc2485720ff6b31043413b2b9295c4886944cb — comparable, explicitly guarded, exposure-bound economics; 42 focused and 2,866 total tests plus real production build/output/SEO passed; actual efficiency observations remain Unknown |
 | #4414 / PR #4490 | Merged as 2e67f9e55f4d96dc7d82a683a829a29b4e2298f1 — durable experiment-learning capability; no longer queued; populated history/producer adoption still requires evidence |
