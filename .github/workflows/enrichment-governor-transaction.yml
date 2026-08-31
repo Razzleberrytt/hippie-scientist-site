@@ -18,6 +18,10 @@ on:
         description: Exact lease owner identity
         required: true
         type: string
+      actor:
+        description: Initiating human actor; omitted direct dispatches fall back to GITHUB_ACTOR
+        required: false
+        type: string
       purpose:
         description: Acquire purpose (ignored for release)
         required: false
@@ -73,6 +77,7 @@ jobs:
           TRANSACTION_OPERATION: ${{ inputs.operation }}
           LEASE_ID: ${{ inputs.lease_id }}
           LEASE_OWNER: ${{ inputs.owner }}
+          TRANSACTION_ACTOR: ${{ inputs.actor }}
           LEASE_PURPOSE: ${{ inputs.purpose }}
           LEASE_FILES: ${{ inputs.files }}
           LEASE_ENTITIES: ${{ inputs.entities }}
@@ -104,6 +109,7 @@ jobs:
           - Operation: \`${{ inputs.operation }}\`
           - Lease ID: \`${{ inputs.lease_id }}\`
           - Owner: \`${{ inputs.owner }}\`
+          - Actor: \`${{ inputs.actor || github.actor }}\`
           - Exact main base: \`$BASE_SHA\`
           - Workflow run: \`${GITHUB_RUN_ID}/${GITHUB_RUN_ATTEMPT}\`
 
@@ -119,6 +125,7 @@ jobs:
           TRANSACTION_OPERATION: ${{ inputs.operation }}
           LEASE_ID: ${{ inputs.lease_id }}
           LEASE_OWNER: ${{ inputs.owner }}
+          TRANSACTION_ACTOR: ${{ inputs.actor }}
           LEASE_PURPOSE: ${{ inputs.purpose }}
           LEASE_FILES: ${{ inputs.files }}
           LEASE_ENTITIES: ${{ inputs.entities }}
