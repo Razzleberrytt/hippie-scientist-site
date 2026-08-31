@@ -65,6 +65,19 @@ The pipeline runs these steps in order:
 
 **Editing data:** For broad or structured changes, edit the workbook then run `npm run data:build` so edits survive regeneration. For quick fixes you can edit `public/data` JSON directly — the next `data:build` will overwrite it unless the workbook is also updated. See `docs/workbook-only-data-contract.md`.
 
+**Committed `public/data` is pre-governance.** The `indexability_status` in
+committed `herbs.json` / `compounds.json` is what the workbook asserted, before
+`apply-governance-overlay.mjs` decides what may actually be published — it
+overstates the indexable corpus by roughly 30%. Anything derived from it inherits
+that overstatement, which is why
+`scripts/build-publication-manifest-from-workbook.mjs` must run *after* the
+overlay, never against a plain checkout. Running it standalone once took the
+manifest from 112 to 181 indexable compounds and looked like a refresh; the 69
+added were compounds governance withholds.
+
+Plan from `out/sitemap.xml` or `runtime-manifests/route-manifest.json`, and use
+`node scripts/ci/report-publication-funnel.mjs` to see the stages side by side.
+
 ### Two-Layer Content Model
 
 **Discovery layer** — captures broad search intent, funnels to depth:
@@ -150,7 +163,28 @@ npm run audit:data-governance:strict    # Data governance (part of check:full)
 npm run validate:semantic-graph-health  # Semantic graph integrity
 npm run indexability:validate           # Indexability metadata validation
 npm run validate:security-headers       # Security headers in public/_headers
+npm run validate:conflict-markers       # Unresolved merge markers in tracked files (runs first in check:fast)
 ```
+
+`scripts/ci/validate-internal-links.mjs` runs inside `verify:postbuild` (it needs
+`out/`). It is a ratchet against `config/broken-link-baseline.json`: a newly
+broken target fails, an existing one is tolerated, and a target that starts
+resolving is reported so the baseline can shrink. Regenerate with
+`node scripts/ci/validate-internal-links.mjs --update-baseline` rather than
+editing the file by hand.
+
+### Source attestation
+```bash
+npm run sources:queue     # Profiles held pending source verification
+npm run sources:drafts    # Pre-fill attestation drafts from the local PubMed cache (offline)
+npm run sources:resolve   # As above, plus resolve cited PMC ids over the network
+```
+
+Drafts land in `ops/audit/` and are never registrations: `reviewer`, `reviewedAt`
+and `reliabilityTier` are required by `schemas/source-registry.schema.json` and
+are left blank on purpose, so a draft cannot be schema-valid until a person
+attests it. Promotion into
+`data-sources/enrichment-source-registry-baseline.json` stays a human act.
 
 ## Theme and Styling
 
@@ -171,9 +205,14 @@ These routes are linked widely and indexed. If you must rename or remove one, ad
 - `/herbs/:slug`
 - `/compounds/:slug`
 - `/goals/:slug`
-- `/stacks/:slug`
 - `/compare/:slug`
 - Discovery cluster routes listed in `AGENTS.md`
+
+`/stacks/:slug` was listed here but no longer builds: `app/stacks/` does not
+exist and no stack data is emitted, so the sitemap contains none of these
+routes. `sitemap.ts`, `ComparePageScaffold` and two `lib/` modules still
+reference the shape, so the concept is dormant rather than deleted — restoring
+it is a content decision, not a routing one.
 
 Run `npm run routes:inventory` to regenerate the full route inventory at `docs/generated/route-inventory.md`.
 

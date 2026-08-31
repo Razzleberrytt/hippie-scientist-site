@@ -36,10 +36,12 @@ const STATIC_ROUTE_METADATA = {
     title: 'Supplement Goals: Compare Options by What You Want to Fix',
     description: 'Start from the outcome, not the ingredient. Compare common options by fit, onset, evidence quality, risk, and why people stop taking them.',
   },
-  '/stacks': {
-    title: 'Supplement Stacks & Combination Guides',
-    description: 'Review supplement combinations with evidence limits, interaction cautions, timing context, and safer decision paths kept visible.',
-  },
+  // '/stacks' intentionally absent: app/stacks/ does not exist, so the route
+  // builds no page. Listing it here put a phantom in the route manifest with no
+  // title or description, which is the one real finding the metadata audit had
+  // left after its false positives were removed. The /stacks/:slug concept is
+  // still referenced by sitemap.ts and two lib modules but has no data behind
+  // it, so restoring the section is a content decision, not a manifest edit.
   '/tools': {
     title: 'Research Tools | The Hippie Scientist',
     description: 'Interactive research tools for comparing botanicals, evidence, activity, compounds, and safety context.',

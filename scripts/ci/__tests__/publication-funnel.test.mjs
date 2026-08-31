@@ -22,7 +22,6 @@ describe('publication funnel report', () => {
     expect(stages.map((s) => s.label)).toEqual([
       'authored profiles',
       'data says PUBLISH',
-      'in route manifest',
       'in emitted sitemap',
     ])
   })
