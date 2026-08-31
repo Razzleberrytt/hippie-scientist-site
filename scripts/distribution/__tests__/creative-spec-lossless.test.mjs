@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { buildLosslessCreativeSpec } from '../creative-spec-lossless.mjs'
 import { CREATIVE_BRAND_TOKENS } from '../creative-spec.mjs'
 import { buildCtaContract } from '../creative-cta-contract.mjs'
+import { buildCreativeHook } from '../social-post-copy.mjs'
 
 const fixture = {
   id: 'lossless-test-object',
@@ -26,7 +27,7 @@ describe('lossless creative presentation adapter', () => {
     const findings = spec.carousel.slides.filter((slide) => slide.role === 'finding')
     const limitations = spec.carousel.slides.filter((slide) => slide.role === 'limitation')
 
-    expect(spec.version).toBe(12)
+    expect(spec.version).toBe(13)
     expect(findings.length).toBeGreaterThan(1)
     expect(limitations.length).toBeGreaterThan(1)
     expect(findings.every((slide) => slide.citationRequired && slide.truncationAllowed === false)).toBe(true)
@@ -89,21 +90,24 @@ describe('lossless creative presentation adapter', () => {
     expect(spec.guardrails.sourceUrlMayNotBeTruncatedOrRewritten).toBe(true)
   })
 
-  it('requires a readable trust-safe hook throughout the first two seconds', () => {
+  it('requires a readable curiosity-first hook throughout the first two seconds', () => {
     const spec = buildLosslessCreativeSpec(fixture)
-    expect(spec.verticalVideo.hook.text).toBe(fixture.title)
+    expect(spec.verticalVideo.hook.text).toBe(buildCreativeHook(fixture))
+    expect(spec.verticalVideo.hook.text).not.toBe(fixture.title)
     expect(spec.verticalVideo.hook.timing.startSeconds).toBe(0)
     expect(spec.verticalVideo.hook.timing.endSeconds).toBe(2)
     expect(spec.verticalVideo.hook.typography.minimumPxAt1080).toBeGreaterThanOrEqual(56)
     expect(spec.verticalVideo.hook.placement.safeAreaRequired).toBe(true)
     expect(spec.verticalVideo.hook.trust.ctaAllowedDuringHook).toBe(false)
     expect(spec.verticalVideo.rendererContract.firstTwoSecondsMustSatisfyHookContract).toBe(true)
+    expect(spec.guardrails.curiosityFirstHookRequired).toBe(true)
     expect(spec.guardrails.unsupportedHookCertaintyForbidden).toBe(true)
   })
 
-  it('creates stable crop-safe thumbnail variants without changing governed hook text', () => {
+  it('creates stable crop-safe thumbnail variants without changing the approved curiosity hook', () => {
     const spec = buildLosslessCreativeSpec(fixture)
     const thumbnails = spec.thumbnails
+    const hook = buildCreativeHook(fixture)
 
     expect(thumbnails.master).toEqual({ width: 1080, height: 1920, format: '9:16' })
     expect(thumbnails.cropResilience.requiredCrops).toEqual(expect.arrayContaining(['4:5', '1:1']))
@@ -113,7 +117,7 @@ describe('lossless creative presentation adapter', () => {
     expect(thumbnails.trust.ctaAllowed).toBe(false)
     expect(thumbnails.variants).toHaveLength(3)
     expect(new Set(thumbnails.variants.map((variant) => variant.id)).size).toBe(3)
-    expect(thumbnails.variants.every((variant) => variant.headline === fixture.title)).toBe(true)
+    expect(thumbnails.variants.every((variant) => variant.headline === hook)).toBe(true)
     expect(thumbnails.variants.every((variant) => variant.ctaAllowed === false)).toBe(true)
     expect(spec.verticalVideo.rendererContract.thumbnailVariantsMayVaryCompositionOnly).toBe(true)
     expect(spec.guardrails.thumbnailHookRewriteForbidden).toBe(true)
@@ -171,7 +175,7 @@ describe('lossless creative presentation adapter', () => {
     })).toThrow(/exactly match the canonical evidence source URL/)
   })
 
-  it('rejects hook language that visually or verbally overstates the evidence', () => {
+  it('rejects curiosity hooks that inherit unsupported certainty from a bad source title', () => {
     expect(() => buildLosslessCreativeSpec({ ...fixture, title: 'The proven best cure for stress' })).toThrow(/unsupported certainty or superiority/)
   })
 
