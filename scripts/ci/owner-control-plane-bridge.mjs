@@ -13,6 +13,7 @@ const ALLOWED_GOVERNOR_KEYS = new Set([
   'disposition',
 ])
 const SESSION_FILE_RE = /^ops\/enrichment-submissions\/sessions\/(session-[a-z0-9-]+)\//
+const SHA_RE = /^[0-9a-f]{40}$/i
 
 function isPlainObject(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
@@ -88,8 +89,21 @@ export function validateReadySnapshot(pr, repository) {
   if (pr.draft !== true) throw new Error('pull request must still be draft')
   if (pr.base?.ref !== 'main') throw new Error('pull request base must be main')
   if (pr.head?.repo?.full_name !== repository) throw new Error('pull request head must come from the same repository')
-  if (!pr.head?.sha || !/^[0-9a-f]{40}$/i.test(pr.head.sha)) throw new Error('pull request head SHA is missing or invalid')
+  if (!pr.head?.sha || !SHA_RE.test(pr.head.sha)) throw new Error('pull request head SHA is missing or invalid')
   if (!pr.head?.ref || /[\r\n]/.test(pr.head.ref)) throw new Error('pull request head ref is missing or invalid')
+  return true
+}
+
+export function validateCurrentMainAncestry(compare, currentMainSha, headSha) {
+  if (!SHA_RE.test(String(currentMainSha || ''))) throw new Error('current main SHA is missing or invalid')
+  if (!SHA_RE.test(String(headSha || ''))) throw new Error('pull request head SHA is missing or invalid')
+  if (!isPlainObject(compare)) throw new Error('GitHub compare result is required')
+  if (Number(compare.behind_by || 0) !== 0) {
+    throw new Error(`pull request is behind current main by ${compare.behind_by} commit(s)`)
+  }
+  if (compare.merge_base_commit?.sha !== currentMainSha) {
+    throw new Error(`pull request does not contain exact current main ${currentMainSha}`)
+  }
   return true
 }
 
@@ -134,6 +148,12 @@ export async function validateReadyAgainstGitHub({ repository, prNumber, token }
   const pr = await githubJson(`${apiBase}/pulls/${number}`, token)
   validateReadySnapshot(pr, repository)
 
+  const mainBranch = await githubJson(`${apiBase}/branches/main`, token)
+  const currentMainSha = mainBranch?.commit?.sha
+  if (!SHA_RE.test(String(currentMainSha || ''))) throw new Error('unable to resolve exact current main SHA')
+  const compare = await githubJson(`${apiBase}/compare/${currentMainSha}...${pr.head.sha}`, token)
+  validateCurrentMainAncestry(compare, currentMainSha, pr.head.sha)
+
   const files = await changedFilesForPr(apiBase, number, token)
   const session = sessionFromChangedFiles(files)
 
@@ -156,6 +176,7 @@ export async function validateReadyAgainstGitHub({ repository, prNumber, token }
     headSha: pr.head.sha,
     headRef: pr.head.ref,
     baseRef: pr.base.ref,
+    currentMainSha,
     session,
   }
 }
@@ -190,6 +211,7 @@ async function main() {
       head_sha: result.headSha,
       head_ref: result.headRef,
       base_ref: result.baseRef,
+      main_sha: result.currentMainSha,
       session: result.session || '',
     })
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`)
