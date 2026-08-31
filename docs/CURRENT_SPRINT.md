@@ -5,7 +5,7 @@
 **Updated:** 2026-08-31
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `1681666c3164d3beda696cd04427bf031c163523` on 2026-08-31 records 1/3 normal implementation workstreams occupied. Authority/Content is temporarily occupied by control-plane prerequisite #4963 / PR #4964 because the connected execution path cannot dispatch the already-governed persistent lease workflow or perform GitHub's draft→ready transition through its broken connector mutation. Revenue/Conversion and Discovery/SEO remain free. Main's governor queue still contains no active lease, so #4266 remains blocked from canonical mutation until #4963 merges and a valid state-only lease transaction is acquired and merged. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
+**Current admission:** Live GitHub reconciliation at `7534f0cf278cf6628d0d082b4fcd2610ba3f757a` on 2026-08-31 records 1/3 normal implementation workstreams occupied. Authority/Content is occupied by #4266 under active governed lease `lease-4266-ashwagandha-safety-rct`; the source-registry, normalized-ledger, generated-rollup, regression, and exact-head review path is in progress in PR #4972. Revenue/Conversion and Discovery/SEO remain free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -51,8 +51,12 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Active / in review — observed implementation WIP 1/3
 
+| Workstream | Ticket | Owner | Status | Scope |
+|---|---|---|---|---|
+| A | #4266 / PR #4972 | Authority/Content | In review | Governed KSM-66 safety source, three calibrated normalized records, regenerated rollup, and exact regressions |
+
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **Authority/Content:** #4963 / PR #4964 is active as the smallest control-plane prerequisite needed to make already-governed lease acquisition and draft→ready transitions reachable from the connected execution path. It delegates to existing GitHub/governor authorities and must not weaken scientific, review, WIP, branch-freshness, or merge gates. #4266 remains blocked behind this prerequisite plus a real state-only lease transaction.
+- **Authority/Content:** #4266 is active in PR #4972 under governed entity lease `herb:ashwagandha`. Scope is limited to PMID 41943502 source registration, three calibrated normalized safety/boundary records, regenerated governed output, and exact regression coverage; no efficacy, general dosing, or broad long-term safety claim is authorized.
 - **Discovery/SEO:** free. #4949 and #4951 are closed; PR #4952 merged the comparison-hub discovery repair plus canonical `/evidence/` and `/info/` sitemap/redirect alignment. Post-merge release and deploy checks passed.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
@@ -65,7 +69,6 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on #4963 plus a real governor lease transaction** | PR #4631 staged source boundaries only. #4963 / PR #4964 must first make the existing persistent transaction path reachable without creating a second writer; then acquire and merge a valid state-only lease before any workbook, registry, rollup, public-profile, grade, or publication mutation |
 
 Discovery/SEO is free after #4949 and #4951 closed through merged PR #4952. No stale SEO item is promoted merely to fill the slot; any future admission still requires current evidence and this queue.
 
