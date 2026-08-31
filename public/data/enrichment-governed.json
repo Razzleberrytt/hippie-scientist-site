@@ -606,7 +606,7 @@
     "entityType": "herb",
     "entitySlug": "ashwagandha",
     "researchEnrichment": {
-      "evidenceSummary": "6 approved normalized findings across 6 topic types.",
+      "evidenceSummary": "9 approved normalized findings across 8 topic types.",
       "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
         "human-clinical"
@@ -665,6 +665,18 @@
           "targetName": "stressed healthy adults",
           "uncertaintyNote": "Small short-duration trial; absence of reported adverse events must not be generalized to pregnancy, breastfeeding, other formulations or doses, special populations, or long-term safety.",
           "conflictNote": "The study acknowledges Arjuna Natural Ltd for funding the project and supplying the Shoden extract; interpret this small trial's null adverse-event finding with that commercial sponsorship in view."
+        },
+        {
+          "claim": "In a randomized double-blind placebo-controlled safety study, 1002 adults with stress and anxiety received KSM-66 Ashwagandha root extract 600 mg/day for eight weeks (n=498) or placebo (n=504). No serious adverse events were reported. Adverse events occurred in 28/498 (5.6%) participants receiving KSM-66 and 46/504 (9.2%) receiving placebo; tolerability did not differ significantly between groups (p=0.487). Nausea, dry mouth, and headache were among the reported events. This is a short-term product-specific tolerability observation, not evidence that Ashwagandha is universally safe.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-41943502"
+          ],
+          "targetType": "population",
+          "targetName": "adults with borderline-to-moderate stress and anxiety symptoms",
+          "uncertaintyNote": "The eight-week study cannot exclude rare or longer-latency adverse effects and does not establish safety for leaf-containing products, other extracts or standardizations, other doses, longer durations, pregnancy or lactation, pediatric populations, or materially different clinical populations.",
+          "conflictNote": "Shri Kartikeya Pharma supported the study and Ixoreal Biomed supplied the KSM-66 extract; the authors declared no conflicts of interest. No independent replication of this exact product, dose, population, and duration is established by this source.",
+          "strengthNote": "moderate"
         }
       ],
       "dosageContextNotes": [
@@ -678,7 +690,18 @@
           "conflictNote": "Arjuna Natural Ltd funded the study and supplied the tested Shoden extract; this source does not establish independent replication of the exact formulation, dose, population, and duration."
         }
       ],
-      "populationSpecificNotes": [],
+      "populationSpecificNotes": [
+        {
+          "claim": "The study tested a root-only KSM-66 Withania somnifera extract standardized to more than 5% total withanolides with withaferin A below 0.1%, given as 300 mg twice daily for eight weeks to adults with stress and anxiety symptoms, most of whom were enrolled in India. The findings should not be generalized to leaf-containing products, other extracts or standardizations, other doses or durations, pregnancy or lactation, pediatric populations, or materially different clinical populations.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-41943502"
+          ],
+          "uncertaintyNote": "This safety report does not establish comparative efficacy, and its product-specific short-term findings do not transfer to other Ashwagandha exposures or populations.",
+          "conflictNote": "Shri Kartikeya Pharma supported the study and Ixoreal Biomed supplied the KSM-66 extract; the authors declared no conflicts of interest. No independent replication of this exact product, dose, population, and duration is established by this source.",
+          "strengthNote": "moderate"
+        }
+      ],
       "conflictNotes": [
         {
           "claim": "Arjuna Natural Ltd funded the study and supplied the tested Shoden extract; this source does not establish independent replication of the exact formulation, dose, population, and duration.",
@@ -689,7 +712,18 @@
           "uncertaintyNote": "Interpret the efficacy signal within this exact formulation, dose, population, and duration; this source alone does not establish independent replication."
         }
       ],
-      "researchGaps": [],
+      "researchGaps": [
+        {
+          "claim": "Laboratory data were available for 892 participants. Across the reported hematologic measures and liver and renal markers, including AST, ALT, and creatinine, the study reported no statistically or clinically significant adverse between-group changes over eight weeks. This is short-term null safety evidence; it cannot establish broad or long-term hepatic, renal, or hematologic safety or exclude rare injury.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-41943502"
+          ],
+          "uncertaintyNote": "Follow-up was short, paired laboratory data were incomplete, and biomarker depth was limited. Absence of a measured eight-week signal is not evidence that longer-term or rare liver, renal, or hematologic injury cannot occur.",
+          "conflictNote": "Shri Kartikeya Pharma supported the study and Ixoreal Biomed supplied the KSM-66 extract; the authors declared no conflicts of interest. No independent replication of this exact product, dose, population, and duration is established by this source.",
+          "strengthNote": "moderate"
+        }
+      ],
       "safetyProfile": {
         "safetyEntries": [
           {
@@ -711,15 +745,36 @@
             "reviewedAt": "2026-08-24T22:20:00.000Z",
             "editorialStatus": "approved",
             "active": true
+          },
+          {
+            "safetyEntryId": "senr_ashwagandha-ksm66-eight-week-adverse-event-profile",
+            "sourceId": "src_pubmed-41943502",
+            "safetyTopicType": "adverse_effect",
+            "targetType": "population",
+            "targetName": "adults with borderline-to-moderate stress and anxiety symptoms",
+            "severityLabel": "low",
+            "urgencyLabel": "routine",
+            "evidenceClass": "human-clinical",
+            "findingTextShort": "No serious adverse events or excess adverse-event frequency were reported with eight weeks of KSM-66 versus placebo.",
+            "findingTextNormalized": "In a randomized double-blind placebo-controlled safety study, 1002 adults with stress and anxiety received KSM-66 Ashwagandha root extract 600 mg/day for eight weeks (n=498) or placebo (n=504). No serious adverse events were reported. Adverse events occurred in 28/498 (5.6%) participants receiving KSM-66 and 46/504 (9.2%) receiving placebo; tolerability did not differ significantly between groups (p=0.487). Nausea, dry mouth, and headache were among the reported events. This is a short-term product-specific tolerability observation, not evidence that Ashwagandha is universally safe.",
+            "mechanismKnown": false,
+            "populationContext": "Adults aged 18 to 65 with borderline-to-moderate anxiety and elevated stress symptoms; most participants were enrolled in India.",
+            "uncertaintyNote": "The eight-week study cannot exclude rare or longer-latency adverse effects and does not establish safety for leaf-containing products, other extracts or standardizations, other doses, longer durations, pregnancy or lactation, pediatric populations, or materially different clinical populations.",
+            "conflictNote": "Shri Kartikeya Pharma supported the study and Ixoreal Biomed supplied the KSM-66 extract; the authors declared no conflicts of interest. No independent replication of this exact product, dose, population, and duration is established by this source.",
+            "reviewer": "site-swarm-integration",
+            "reviewedAt": "2026-08-31T23:10:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
           }
         ],
         "summary": {
-          "total": 1,
+          "total": 2,
           "byTopicType": {
-            "adverse_effect": 1
+            "adverse_effect": 2
           },
           "bySeverity": {
-            "none_known": 1
+            "none_known": 1,
+            "low": 1
           }
         }
       },
@@ -733,17 +788,16 @@
             "studyDesignWeight": 5,
             "humanRelevance": "direct-human",
             "directnessToClaim": "direct",
-            "replicationDepth": 1,
+            "replicationDepth": 2,
             "sourceReliabilityTier": "tier-b",
-            "recencyWeight": 1,
+            "recencyWeight": 2,
             "editorialConfidence": "medium",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 13
+            "confidenceIndex": 15
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
-            "One or more findings carry explicit uncertainty notes from editorial review.",
-            "Evidence is sourced from a single source record; replication depth is limited."
+            "One or more findings carry explicit uncertainty notes from editorial review."
           ],
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         },
@@ -818,6 +872,52 @@
           ],
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         },
+        "population_specific_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "research_gap": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
         "supported_use": {
           "evidenceLabel": "mixed_or_uncertain",
           "grading": {
@@ -874,20 +974,19 @@
           "studyDesignWeight": 5,
           "humanRelevance": "direct-human",
           "directnessToClaim": "direct",
-          "replicationDepth": 1,
+          "replicationDepth": 2,
           "sourceReliabilityTier": "tier-b",
-          "recencyWeight": 1,
+          "recencyWeight": 2,
           "editorialConfidence": "medium",
           "conflictState": "conflicting_evidence",
-          "confidenceIndex": 11
+          "confidenceIndex": 13
         },
         "conflictNotes": [
           "Human evidence includes both efficacy-supporting and null/mixed findings.",
           "Source-backed conflict notes are present for this topic."
         ],
         "uncertaintyNotes": [
-          "One or more findings carry explicit uncertainty notes from editorial review.",
-          "Evidence is sourced from a single source record; replication depth is limited."
+          "One or more findings carry explicit uncertainty notes from editorial review."
         ],
         "toneGuidance": "Lead with disagreement across sources and avoid directional conclusions."
       },
@@ -898,9 +997,10 @@
         "weakEvidenceClaimsLabeled": true
       },
       "sourceRegistryIds": [
-        "src_pubmed-31517876"
+        "src_pubmed-31517876",
+        "src_pubmed-41943502"
       ],
-      "lastReviewedAt": "2026-08-25T05:07:00.000Z",
+      "lastReviewedAt": "2026-08-31T23:10:00.000Z",
       "reviewedBy": "normalized-enrichment-pipeline",
       "editorialStatus": "approved"
     }
