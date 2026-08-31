@@ -23,5 +23,6 @@
     "released": true,
     "existed": true
   },
-  "transactionCommitSha": null
+  "transactionCommitSha": "ac6469e5f2e2c257628ee6618033a9cc570c821c",
+  "finalizedAt": "2026-08-31T23:33:24.440Z"
 }
