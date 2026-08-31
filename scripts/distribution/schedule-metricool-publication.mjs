@@ -20,13 +20,27 @@ async function fetchJson(url, fetchImpl) {
   return response.json()
 }
 
-async function assertMediaReachable(media, fetchImpl) {
+function parseOptionalExplicitBoolean(value, label) {
+  const normalized = clean(value).toLowerCase()
+  if (!normalized) return undefined
+  if (normalized === 'true') return true
+  if (normalized === 'false') return false
+  throw new Error(`${label} must be explicitly true or false`)
+}
+
+function requestedNetworks(value) {
+  return [...new Set(clean(value).split(',').map((item) => item.trim().toLowerCase()).filter(Boolean))]
+}
+
+async function assertMediaReachable(media, mediaType, fetchImpl) {
+  const expectedPrefix = mediaType === 'video' ? 'video/' : mediaType === 'image' ? 'image/' : null
+  if (!expectedPrefix) throw new Error(`unsupported governed media type: ${mediaType || '<missing>'}`)
   for (const item of media) {
     const response = await fetchImpl(item.url, { method: 'HEAD' })
     if (!response.ok) throw new Error(`Metricool media URL is not reachable (${response.status}): ${item.url}`)
     const contentType = clean(response.headers?.get?.('content-type')).toLowerCase()
-    if (contentType && !contentType.startsWith('image/')) {
-      throw new Error(`Metricool carousel media URL returned non-image content: ${item.url}`)
+    if (contentType && !contentType.startsWith(expectedPrefix)) {
+      throw new Error(`Metricool ${mediaType} media URL returned unexpected content type: ${item.url}`)
     }
   }
 }
@@ -37,6 +51,10 @@ export async function scheduleMetricoolPublicationFromArtifacts({
   publicationAt = process.env.METRICOOL_PUBLICATION_AT,
   networks = process.env.METRICOOL_NETWORKS,
   autoPublish = process.env.METRICOOL_AUTO_PUBLISH !== 'false',
+  youtubeTitle = process.env.METRICOOL_YOUTUBE_TITLE,
+  youtubePrivacy = process.env.METRICOOL_YOUTUBE_PRIVACY,
+  youtubeMadeForKids = process.env.METRICOOL_YOUTUBE_MADE_FOR_KIDS,
+  youtubeAiGeneratedContent = process.env.METRICOOL_YOUTUBE_AI_GENERATED_CONTENT,
   userToken = process.env.METRICOOL_USER_TOKEN,
   userId = process.env.METRICOOL_USER_ID || DEFAULT_USER_ID,
   blogId = process.env.METRICOOL_BLOG_ID || DEFAULT_BLOG_ID,
@@ -51,6 +69,8 @@ export async function scheduleMetricoolPublicationFromArtifacts({
   if (liveManifest?.schemaVersion !== 'metricool-publication-media-v1' || liveManifest?.status !== 'ready-for-provider') {
     throw new Error('live Metricool publication manifest is invalid or not provider-ready')
   }
+  const mediaType = clean(liveManifest.mediaType).toLowerCase()
+  if (!['image', 'video'].includes(mediaType)) throw new Error('live Metricool publication manifest is missing a governed media type')
 
   const selection = readJson(path.join(distributionDir, 'opportunity-selection.json'))
   const objectId = clean(selection?.selected?.id)
@@ -64,16 +84,25 @@ export async function scheduleMetricoolPublicationFromArtifacts({
     throw new Error('live Metricool media does not match the current bounded pilot')
   }
 
-  await assertMediaReachable(liveManifest.media, fetchImpl)
+  const selectedNetworks = requestedNetworks(networks)
+  const allowedNetworks = new Set(Array.isArray(liveManifest.allowedNetworks) ? liveManifest.allowedNetworks.map((item) => clean(item).toLowerCase()) : [])
+  const disallowed = selectedNetworks.filter((network) => !allowedNetworks.has(network))
+  if (disallowed.length) throw new Error(`live governed media is not authorized for network(s): ${disallowed.join(', ')}`)
+
+  await assertMediaReachable(liveManifest.media, mediaType, fetchImpl)
+  const includesYouTube = selectedNetworks.includes('youtube')
   const request = buildMetricoolSchedulerRequest({
     format: liveManifest.format,
-    networks,
+    networks: selectedNetworks,
     text: liveManifest.text,
     mediaUrls: liveManifest.media.map((item) => item.url),
     publicationAt,
     timezone: 'America/New_York',
-    title: liveManifest.title,
+    title: includesYouTube ? clean(youtubeTitle) : liveManifest.title,
     autoPublish,
+    youtubePrivacy: includesYouTube ? clean(youtubePrivacy) : undefined,
+    youtubeMadeForKids: includesYouTube ? parseOptionalExplicitBoolean(youtubeMadeForKids, 'YouTube made-for-kids setting') : undefined,
+    youtubeAiGeneratedContent: includesYouTube ? parseOptionalExplicitBoolean(youtubeAiGeneratedContent, 'YouTube AI-content declaration') : undefined,
     now,
     availableNetworks: DEFAULT_AVAILABLE_NETWORKS,
   })
@@ -83,6 +112,8 @@ export async function scheduleMetricoolPublicationFromArtifacts({
     lifecycle: pilot.lifecycle,
     currentIdentity: pilot.lifecycle.identity,
     request,
+    mediaType,
+    format: liveManifest.format,
     userToken,
     userId,
     blogId,
@@ -99,6 +130,8 @@ export async function scheduleMetricoolPublicationFromArtifacts({
     publicationAt,
     autoPublish: Boolean(autoPublish),
     networks: request.providers.map((provider) => provider.network),
+    format: liveManifest.format,
+    mediaType,
     researchObjectId: objectId,
     lifecycleId: result.lifecycle.lifecycleId,
     identityFingerprint: result.lifecycle.identity.fingerprint,

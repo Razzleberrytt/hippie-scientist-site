@@ -54,12 +54,22 @@ describe('Metricool YouTube metadata boundary', () => {
     })
   })
 
-  it('rejects privacy values outside the governed public/private contract', () => {
-    expect(() => buildMetricoolSchedulerRequest({
+  it('accepts the provider-supported unlisted privacy declaration without inferring it', () => {
+    const request = buildMetricoolSchedulerRequest({
       ...base,
       youtubePrivacy: 'unlisted',
       youtubeMadeForKids: false,
       youtubeAiGeneratedContent: false,
-    })).toThrow(/public or private/i)
+    })
+    expect(request.youtubeData.privacy).toBe('unlisted')
+  })
+
+  it('rejects privacy values outside the governed provider contract', () => {
+    expect(() => buildMetricoolSchedulerRequest({
+      ...base,
+      youtubePrivacy: 'friends-only',
+      youtubeMadeForKids: false,
+      youtubeAiGeneratedContent: false,
+    })).toThrow(/public, unlisted, or private/i)
   })
 })
