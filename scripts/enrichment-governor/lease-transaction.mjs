@@ -35,6 +35,12 @@ function validateToken(label, value, expression = TOKEN_RE) {
   return normalized
 }
 
+export function resolveWorkflowActor(explicitActor, githubActor) {
+  const explicit = String(explicitActor || '').trim()
+  if (explicit) return explicit
+  return String(githubActor || '').trim()
+}
+
 export function validateLeaseFile(value) {
   const file = String(value || '').trim()
   if (!file) throw new Error('lease file path cannot be empty')
@@ -210,7 +216,7 @@ function inputFromEnvironment() {
     files: process.env.LEASE_FILES,
     entities: process.env.LEASE_ENTITIES,
     disposition: process.env.LEASE_DISPOSITION,
-    actor: process.env.GITHUB_ACTOR,
+    actor: resolveWorkflowActor(process.env.TRANSACTION_ACTOR, process.env.GITHUB_ACTOR),
     baseSha: process.env.BASE_SHA,
   }
 }
