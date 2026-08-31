@@ -63,6 +63,17 @@ function topicEmoji(object) {
   return '🔬'
 }
 
+export function buildCreativeHook(object) {
+  const subject = deriveSocialSubject(object)
+  const variants = [
+    `What does ${subject} actually do?`,
+    `Does ${subject} hold up in human studies?`,
+    `${subject}: what actually changed?`,
+    `${subject}: what do the studies show?`,
+  ]
+  return variants[stableIndex(`${object?.id}|${object?.title}|creative`, variants.length)]
+}
+
 export function buildSocialHook(object) {
   const subject = deriveSocialSubject(object)
   const emoji = topicEmoji(object)
@@ -122,6 +133,7 @@ export function validateFeedNativeSocialPost(post, object) {
 
 export function buildFeedNativeSocialPost(object) {
   const hook = buildSocialHook(object)
+  const creativeHook = buildCreativeHook(object)
   const subject = deriveSocialSubject(object)
   const finding = governedParagraphs(object?.finding)
   const limitation = governedParagraphs(object?.limitation)
@@ -144,6 +156,7 @@ export function buildFeedNativeSocialPost(object) {
     archetype,
     subject,
     hook,
+    creativeHook,
     text,
     hashtags,
     policy: 'Curiosity first, governed facts second. The hook may frame a question but may not add scientific claims. Finding and limitation remain lossless after whitespace normalization.',
