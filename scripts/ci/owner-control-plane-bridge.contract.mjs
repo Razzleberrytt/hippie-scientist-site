@@ -8,6 +8,7 @@ import {
   governorDispatchInputs,
   parseGovernorComment,
   sessionFromChangedFiles,
+  shouldInspectSessionCandidate,
   validateCurrentMainAncestry,
   validateReadySnapshot,
 } from './owner-control-plane-bridge.mjs'
@@ -77,6 +78,15 @@ test('detects one enrichment session and rejects a multi-session PR', () => {
     ]),
     /may not span multiple enrichment sessions/,
   )
+})
+
+test('session conflict inspection includes non-draft fork PRs', () => {
+  assert.equal(
+    shouldInspectSessionCandidate({ number: 17, draft: false, head: { repo: { full_name: 'someone/fork' } } }, 16),
+    true,
+  )
+  assert.equal(shouldInspectSessionCandidate({ number: 16, draft: false }, 16), false)
+  assert.equal(shouldInspectSessionCandidate({ number: 17, draft: true }, 16), false)
 })
 
 test('ready transition requires open draft same-repository PR based on main', () => {
