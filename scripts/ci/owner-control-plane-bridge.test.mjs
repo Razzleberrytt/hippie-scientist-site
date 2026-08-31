@@ -20,6 +20,7 @@ function draftPr(overrides = {}) {
     draft: true,
     base: { ref: 'main' },
     head: {
+      ref: 'research/session-c-fixture',
       sha: 'a'.repeat(40),
       repo: { full_name: 'Razzleberrytt/hippie-scientist-site' },
     },
@@ -82,12 +83,16 @@ test('ready transition requires open draft same-repository PR based on main', ()
   assert.throws(() => validateReadySnapshot(draftPr({ draft: false }), 'Razzleberrytt/hippie-scientist-site'), /must still be draft/)
   assert.throws(() => validateReadySnapshot(draftPr({ base: { ref: 'release' } }), 'Razzleberrytt/hippie-scientist-site'), /base must be main/)
   assert.throws(
-    () => validateReadySnapshot(draftPr({ head: { sha: 'a'.repeat(40), repo: { full_name: 'someone/fork' } } }), 'Razzleberrytt/hippie-scientist-site'),
+    () => validateReadySnapshot(draftPr({ head: { ref: 'fixture', sha: 'a'.repeat(40), repo: { full_name: 'someone/fork' } } }), 'Razzleberrytt/hippie-scientist-site'),
     /same repository/,
+  )
+  assert.throws(
+    () => validateReadySnapshot(draftPr({ head: { sha: 'a'.repeat(40), repo: { full_name: 'Razzleberrytt/hippie-scientist-site' } } }), 'Razzleberrytt/hippie-scientist-site'),
+    /head ref is missing or invalid/,
   )
 })
 
-test('workflow is owner-only, least-privilege, main-trusted, and delegates existing authorities', () => {
+test('workflow is owner-only, main-trusted, and explicitly dispatches exact-head recovery validation', () => {
   const workflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'owner-control-plane-bridge.yml'), 'utf8')
   assert.match(workflow, /issue_comment:/)
   assert.match(workflow, /github\.event\.comment\.user\.login == github\.repository_owner/)
@@ -96,5 +101,19 @@ test('workflow is owner-only, least-privilege, main-trusted, and delegates exist
   assert.match(workflow, /ref:\s*main/)
   assert.match(workflow, /gh workflow run enrichment-governor-transaction\.yml/)
   assert.match(workflow, /gh pr ready/)
+  assert.match(workflow, /Verify ready transition preserved exact head/)
+  assert.match(workflow, /gh workflow run ci\.yml/)
+  assert.match(workflow, /gh workflow run check\.yml/)
+  assert.match(workflow, /gh workflow run atomic-upgrade-gate\.yml/)
+  assert.match(workflow, /gh workflow run build-quality-regression\.yml/)
   assert.doesNotMatch(workflow, /pull_request_target:/)
+})
+
+test('site health workflow binds recovery dispatch to the current PR head', () => {
+  const workflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'check.yml'), 'utf8')
+  assert.match(workflow, /recovery_pr_number:/)
+  assert.match(workflow, /pull-requests:\s*read/)
+  assert.match(workflow, /Assert exact recovery PR head/)
+  assert.match(workflow, /Recovery dispatch is stale/)
+  assert.match(workflow, /Recovery dispatch requires base main/)
 })
