@@ -33,6 +33,38 @@ test('persistent acquire accepts exact bounded scope and deduplicates repeated i
   assert.equal(request.purpose, 'canonical enrichment')
 })
 
+test('workflow actors accept the standard GitHub bot suffix without relaxing control tokens', () => {
+  const request = validateLeaseTransactionInput({
+    operation: 'acquire',
+    id: 'lease-bot-actor',
+    owner: 'ci-fixture',
+    purpose: 'validate workflow actor',
+    entities: 'herb:ashwagandha',
+    actor: 'github-actions[bot]',
+  })
+
+  assert.equal(request.actor, 'github-actions[bot]')
+
+  for (const unsafe of ['github-actions[bot][admin]', 'github-actions[bot];echo', '[bot]']) {
+    assert.throws(() => validateLeaseTransactionInput({
+      operation: 'acquire',
+      id: 'lease-bot-actor',
+      owner: 'ci-fixture',
+      purpose: 'validate workflow actor',
+      entities: 'herb:ashwagandha',
+      actor: unsafe,
+    }), /workflow actor contains unsupported characters/)
+  }
+
+  assert.throws(() => validateLeaseTransactionInput({
+    operation: 'acquire',
+    id: 'lease-bot-owner',
+    owner: 'github-actions[bot]',
+    purpose: 'preserve owner validation',
+    entities: 'herb:ashwagandha',
+  }), /lease owner contains unsupported characters/)
+})
+
 test('persistent release is owner-bound and cannot redefine lease scope', () => {
   const request = validateLeaseTransactionInput({
     operation: 'release',
