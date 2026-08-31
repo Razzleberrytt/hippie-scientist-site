@@ -5,7 +5,7 @@
 **Updated:** 2026-08-31
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `0c667ca7bd9bf49279594e7df79a806cb4c1237a` on 2026-08-31 records 0/3 normal implementation workstreams occupied. #4949 and #4951 are closed; PR #4952 is merged and its post-merge `main` validation, production build/output/SEO, content, schema/media, static-contract, Lighthouse, Cloudflare Pages, and deploy checks are terminal-green. Revenue/Conversion, Authority/Content, and Discovery/SEO are free. Main's governor queue contains no active lease, so #4266 remains blocked from canonical mutation even though the persistent transaction capability is merged. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics. This DOC-002 reconciliation is control maintenance, not a newly admitted implementation workstream.
+**Current admission:** Live GitHub reconciliation at `1681666c3164d3beda696cd04427bf031c163523` on 2026-08-31 records 1/3 normal implementation workstreams occupied. Authority/Content is temporarily occupied by control-plane prerequisite #4963 / PR #4964 because the connected execution path cannot dispatch the already-governed persistent lease workflow or perform GitHub's draft→ready transition through its broken connector mutation. Revenue/Conversion and Discovery/SEO remain free. Main's governor queue still contains no active lease, so #4266 remains blocked from canonical mutation until #4963 merges and a valid state-only lease transaction is acquired and merged. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,10 +49,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — observed implementation WIP 0/3
+## Active / in review — observed implementation WIP 1/3
 
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **Authority/Content:** free. #4784 / PR #4813 is merged/closed, but no real governor lease is active; AUTH-001/#4800 remains retired after PR #4803's current audit returned zero duplicate-slug findings.
+- **Authority/Content:** #4963 / PR #4964 is active as the smallest control-plane prerequisite needed to make already-governed lease acquisition and draft→ready transitions reachable from the connected execution path. It delegates to existing GitHub/governor authorities and must not weaken scientific, review, WIP, branch-freshness, or merge gates. #4266 remains blocked behind this prerequisite plus a real state-only lease transaction.
 - **Discovery/SEO:** free. #4949 and #4951 are closed; PR #4952 merged the comparison-hub discovery repair plus canonical `/evidence/` and `/info/` sitemap/redirect alignment. Post-merge release and deploy checks passed.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
@@ -65,7 +65,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on a real governor lease transaction** | PR #4631 staged source boundaries only. The persistent transaction capability is merged in #4813, but `ops/enrichment-governor/work-queue.json` has no active lease; acquire and merge a valid state-only transaction before any workbook, registry, rollup, public-profile, grade, or publication mutation |
+| 1 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on #4963 plus a real governor lease transaction** | PR #4631 staged source boundaries only. #4963 / PR #4964 must first make the existing persistent transaction path reachable without creating a second writer; then acquire and merge a valid state-only lease before any workbook, registry, rollup, public-profile, grade, or publication mutation |
 
 Discovery/SEO is free after #4949 and #4951 closed through merged PR #4952. No stale SEO item is promoted merely to fill the slot; any future admission still requires current evidence and this queue.
 
