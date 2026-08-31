@@ -39,7 +39,7 @@ describe('lossless accessibility description contract', () => {
   it('replaces the legacy truncated carousel alt text in the lossless creative spec', () => {
     const spec = buildLosslessCreativeSpec(fixture)
 
-    expect(spec.version).toBe(12)
+    expect(spec.version).toBe(13)
     expect(spec.carousel.accessibility.altText).toBe(spec.accessibilityDescription.fullText)
     expect(spec.carousel.accessibility.altText.length).toBeGreaterThan(300)
     expect(spec.carousel.accessibility.truncatedAltTextForbidden).toBe(true)
