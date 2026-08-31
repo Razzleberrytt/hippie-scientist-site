@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 import {
   assertFreshBase,
   parseList,
+  resolveWorkflowActor,
   validateLeaseEntity,
   validateLeaseFile,
   validateLeaseTransactionInput,
@@ -31,6 +32,30 @@ test('persistent acquire accepts exact bounded scope and deduplicates repeated i
   assert.deepEqual(request.files, ['public/data/source-registry.json'])
   assert.deepEqual(request.entities, ['herb:ashwagandha'])
   assert.equal(request.purpose, 'canonical enrichment')
+})
+
+test('explicit workflow actor preserves initiating human and falls back to native GitHub actor', () => {
+  assert.equal(resolveWorkflowActor('Razzleberrytt', 'github-actions[bot]'), 'Razzleberrytt')
+  assert.equal(resolveWorkflowActor('', 'Razzleberrytt'), 'Razzleberrytt')
+  assert.equal(resolveWorkflowActor('  Razzleberrytt  ', 'github-actions[bot]'), 'Razzleberrytt')
+
+  const request = validateLeaseTransactionInput({
+    operation: 'acquire',
+    id: 'lease-actor-fixture',
+    owner: 'integration-agent',
+    purpose: 'actor provenance',
+    entities: 'herb:ashwagandha',
+    actor: resolveWorkflowActor('Razzleberrytt', 'github-actions[bot]'),
+  })
+  assert.equal(request.actor, 'Razzleberrytt')
+  assert.throws(() => validateLeaseTransactionInput({
+    operation: 'acquire',
+    id: 'lease-actor-fixture',
+    owner: 'integration-agent',
+    purpose: 'actor provenance',
+    entities: 'herb:ashwagandha',
+    actor: resolveWorkflowActor('', 'github-actions[bot]'),
+  }), /workflow actor contains unsupported characters/)
 })
 
 test('persistent release is owner-bound and cannot redefine lease scope', () => {
