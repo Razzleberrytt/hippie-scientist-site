@@ -11,6 +11,7 @@ const controlPath = path.join(here, 'control.mjs')
 const receiptDir = path.join(repoRoot, 'ops', 'enrichment-governor', 'transactions')
 const SHA_RE = /^[0-9a-f]{40}$/i
 const TOKEN_RE = /^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/
+const ACTOR_RE = /^(?:[A-Za-z0-9][A-Za-z0-9._:-]{0,127}|[A-Za-z0-9][A-Za-z0-9._:-]{0,122}\\[bot\\])$/i
 const PURPOSE_RE = /^[A-Za-z0-9][A-Za-z0-9 ._:/+-]{0,255}$/
 const DISPOSITION_RE = /^[A-Za-z0-9][A-Za-z0-9._:-]{0,63}$/
 const ENTITY_RE = /^[a-z][a-z0-9_-]*:[a-z0-9][a-z0-9._-]*$/
@@ -76,7 +77,7 @@ export function validateLeaseTransactionInput(input = {}) {
     ? validateToken('lease disposition', input.disposition || 'completed', DISPOSITION_RE)
     : null
 
-  const actor = input.actor ? validateToken('workflow actor', input.actor) : null
+  const actor = input.actor ? validateToken('workflow actor', input.actor, ACTOR_RE) : null
   const baseSha = input.baseSha ? String(input.baseSha).trim() : null
   if (baseSha && !SHA_RE.test(baseSha)) throw new Error('base SHA must be a 40-character Git SHA')
 
