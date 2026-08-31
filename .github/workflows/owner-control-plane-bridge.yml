@@ -64,6 +64,7 @@ jobs:
           OPERATION: ${{ steps.parse.outputs.operation }}
           LEASE_ID: ${{ steps.parse.outputs.lease_id }}
           LEASE_OWNER: ${{ steps.parse.outputs.owner }}
+          TRANSACTION_ACTOR: ${{ github.event.comment.user.login }}
           LEASE_PURPOSE: ${{ steps.parse.outputs.purpose }}
           LEASE_FILES: ${{ steps.parse.outputs.files }}
           LEASE_ENTITIES: ${{ steps.parse.outputs.entities }}
@@ -76,6 +77,7 @@ jobs:
             -f "operation=$OPERATION" \
             -f "lease_id=$LEASE_ID" \
             -f "owner=$LEASE_OWNER" \
+            -f "actor=$TRANSACTION_ACTOR" \
             -f "purpose=$LEASE_PURPOSE" \
             -f "files=$LEASE_FILES" \
             -f "entities=$LEASE_ENTITIES" \
