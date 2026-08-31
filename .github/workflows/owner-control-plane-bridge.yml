@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/owner-control-plane-bridge.yml'
+      - '.github/workflows/check.yml'
       - 'scripts/ci/owner-control-plane-bridge.mjs'
       - 'scripts/ci/owner-control-plane-bridge.test.mjs'
       - 'scripts/enrichment-governor/lease-transaction.mjs'
@@ -87,8 +88,9 @@ jobs:
       github.event.comment.user.login == github.repository_owner &&
       github.event.comment.body == '/ready'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 7
     permissions:
+      actions: write
       contents: read
       pull-requests: write
     steps:
@@ -116,3 +118,45 @@ jobs:
         run: |
           set -euo pipefail
           gh pr ready "$PR_NUMBER" --repo "$GITHUB_REPOSITORY"
+
+      - name: Verify ready transition preserved exact head
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.validate.outputs.pr_number }}
+          EXPECTED_HEAD_SHA: ${{ steps.validate.outputs.head_sha }}
+        run: |
+          set -euo pipefail
+          pr_json="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER")"
+          actual_head_sha="$(jq -r '.head.sha' <<<"$pr_json")"
+          actual_state="$(jq -r '.state' <<<"$pr_json")"
+          actual_draft="$(jq -r '.draft' <<<"$pr_json")"
+          test "$actual_head_sha" = "$EXPECTED_HEAD_SHA"
+          test "$actual_state" = "open"
+          test "$actual_draft" = "false"
+
+      - name: Dispatch exact-head recovery validation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.validate.outputs.pr_number }}
+          HEAD_REF: ${{ steps.validate.outputs.head_ref }}
+          BASE_REF: ${{ steps.validate.outputs.base_ref }}
+        run: |
+          set -euo pipefail
+          gh workflow run ci.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref "$HEAD_REF" \
+            -f "recovery_pr_number=$PR_NUMBER"
+          gh workflow run check.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref "$HEAD_REF" \
+            -f "recovery_pr_number=$PR_NUMBER"
+          gh workflow run atomic-upgrade-gate.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref "$HEAD_REF" \
+            -f "recovery_pr_number=$PR_NUMBER" \
+            -f "recovery_base_ref=$BASE_REF"
+          gh workflow run build-quality-regression.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref "$HEAD_REF" \
+            -f "recovery_pr_number=$PR_NUMBER" \
+            -f "recovery_base_ref=$BASE_REF"
