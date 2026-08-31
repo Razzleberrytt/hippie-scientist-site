@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-08-30
+**Updated:** 2026-08-31
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -46,13 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `6691af63b8eadb54da8a4cff192fc5947d5bd7f0` on 2026-08-30 shows **0/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `0f70ea16364c9a2aa33b68f218fba43d9174d552` on 2026-08-31 shows **1/3 normal implementation workstreams occupied**:
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
 - **A — free:** #4784 / PR #4813 merged and closed, but no real governor lease is active; AUTH-001 / #4800 remains retired after PR #4803's current audit printed `AUTH_DUPLICATE_COUNT=0`.
-- **D — free:** SEO-003 remains retired after #4795 / PR #4796's exact-current Schema and Media Governance run `33315511238` passed.
+- **D — active:** #4949 owns the current release-blocking orphan-route repair on the existing comparison hub. Scope is one direct discovery link, focused regression coverage, and exact-head build/output/SEO proof.
 
-Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Open safety issue #4731 is the highest-priority legal implementation candidate.
+Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 is merged/closed; #4949 is the active production-gate incident.
 
 ## Next — ordered dependency queue
 
@@ -60,7 +60,6 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4731 | Close unbound dose, onset, and comparative-efficacy label bypasses | R/L2 safety incident | **Ready** | Safety gate | — | — | Revenue slot is free; extend existing validator rather than creating a second factual authority | Cover common onset constructions and hyphenated durations, comparative-efficacy wording, and supplement units including IU, µg/μg and CFU; preserve nonfactual labels and canonical truth; resolve PR #4729's three review threads; exact-head distribution + repository gates green |
 | #4266 | Evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on real lease transaction** | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent capability merged in #4813, but main queue has no active lease; acquire/merge a state-only transaction, then run provenance/source review and revalidate source status | Preserve formulation, dose, duration, population, null findings, limitations, funding/product-supply context; no broad safety or efficacy generalization |
 | #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent governor lease path + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
@@ -100,6 +99,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4731 / PR #4947 | Merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses are closed with focused regressions. Separate current-main orphan-route incident #4949 now owns Discovery/SEO WIP. |
 | #4730 / PR #4858 | Merged as `44b019fa1f67ead0538076944224243a098dbfde`; stale published or paused-but-live assets preserve the governed withdrawal/receipt path while stale non-live assets remain terminal-invalid. |
 | #4784 / PR #4813 | Merged as `1e8fae58a3499c9f6a79b4338e636244620ec629`; persistent least-privilege governor transactions are implemented. Main's queue has no active lease, so downstream canonical work remains gated. |
 | #4732 / PR #4734 | Merged as `4d26d1cfacb5fb577f9216b7fa116e006e7b0a0d`; bounded Metricool adapter capability exists, while provider configuration/credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown. |
