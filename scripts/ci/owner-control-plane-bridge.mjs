@@ -107,6 +107,10 @@ export function validateCurrentMainAncestry(compare, currentMainSha, headSha) {
   return true
 }
 
+export function shouldInspectSessionCandidate(candidate, currentNumber) {
+  return candidate?.number !== currentNumber && candidate?.draft !== true
+}
+
 async function githubJson(url, token) {
   const response = await fetch(url, {
     headers: {
@@ -160,8 +164,7 @@ export async function validateReadyAgainstGitHub({ repository, prNumber, token }
   if (session) {
     const openPrs = await listAll(`${apiBase}/pulls?state=open&base=main`, token)
     for (const candidate of openPrs) {
-      if (candidate.number === number || candidate.draft === true) continue
-      if (candidate.head?.repo?.full_name !== repository) continue
+      if (!shouldInspectSessionCandidate(candidate, number)) continue
       const candidateFiles = await changedFilesForPr(apiBase, candidate.number, token)
       const candidateSession = sessionFromChangedFiles(candidateFiles)
       if (candidateSession === session) {
