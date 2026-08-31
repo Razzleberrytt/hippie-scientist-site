@@ -8,6 +8,7 @@ import {
   governorDispatchInputs,
   parseGovernorComment,
   sessionFromChangedFiles,
+  validateCurrentMainAncestry,
   validateReadySnapshot,
 } from './owner-control-plane-bridge.mjs'
 
@@ -92,16 +93,32 @@ test('ready transition requires open draft same-repository PR based on main', ()
   )
 })
 
-test('workflow is owner-only, main-trusted, and explicitly dispatches exact-head recovery validation', () => {
+test('ready transition requires the head to contain exact current main', () => {
+  const mainSha = 'b'.repeat(40)
+  const headSha = 'a'.repeat(40)
+  assert.equal(validateCurrentMainAncestry({ behind_by: 0, merge_base_commit: { sha: mainSha } }, mainSha, headSha), true)
+  assert.throws(
+    () => validateCurrentMainAncestry({ behind_by: 1, merge_base_commit: { sha: 'c'.repeat(40) } }, mainSha, headSha),
+    /behind current main by 1 commit/,
+  )
+  assert.throws(
+    () => validateCurrentMainAncestry({ behind_by: 0, merge_base_commit: { sha: 'c'.repeat(40) } }, mainSha, headSha),
+    /does not contain exact current main/,
+  )
+})
+
+test('workflow is owner-only, serialized, main-trusted, and explicitly dispatches exact-head recovery validation', () => {
   const workflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'owner-control-plane-bridge.yml'), 'utf8')
   assert.match(workflow, /issue_comment:/)
   assert.match(workflow, /github\.event\.comment\.user\.login == github\.repository_owner/)
+  assert.match(workflow, /group:\s*owner-control-plane-bridge-global/)
   assert.match(workflow, /actions:\s*write/)
   assert.match(workflow, /pull-requests:\s*write/)
   assert.match(workflow, /ref:\s*main/)
   assert.match(workflow, /gh workflow run enrichment-governor-transaction\.yml/)
   assert.match(workflow, /gh pr ready/)
-  assert.match(workflow, /Verify ready transition preserved exact head/)
+  assert.match(workflow, /Verify transition preserved exact head and current main/)
+  assert.match(workflow, /gh pr ready "\$PR_NUMBER" --undo/)
   assert.match(workflow, /gh workflow run ci\.yml/)
   assert.match(workflow, /gh workflow run check\.yml/)
   assert.match(workflow, /gh workflow run atomic-upgrade-gate\.yml/)
